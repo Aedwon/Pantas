@@ -1,0 +1,130 @@
+version: 1
+figures:
+  - key: science/earth-science-astronomy/earths-motions#1
+    references:
+      - title: "What Causes the Seasons?"
+        publisher: "NASA Space Place"
+        url: "https://spaceplace.nasa.gov/seasons/en/"
+  - key: science/earth-science-astronomy/earths-motions#2
+    references:
+      - title: "Facts About Earth"
+        publisher: "NASA Science"
+        url: "https://science.nasa.gov/earth/facts/"
+      - title: "Milutin Milankovitch"
+        publisher: "NASA Earth Observatory"
+        url: "https://science.nasa.gov/earth/earth-observatory/milutin-milankovitch/"
+  - key: science/earth-science-astronomy/earths-motions#3
+    references:
+      - title: "What Causes the Seasons?"
+        publisher: "NASA Space Place"
+        url: "https://spaceplace.nasa.gov/seasons/en/"
+  - key: science/earth-science-astronomy/earths-motions#4
+    references:
+      - title: "Earth"
+        publisher: "NASA Glenn Research Center"
+        url: "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/earth/"
+  - key: science/earth-science-astronomy/earths-subsystems#1
+    references:
+      - title: "Spheres of Earth Quick Reference Sheet"
+        publisher: "NASA My NASA Data"
+        url: "https://mynasadata.larc.nasa.gov/sites/default/files/2018-06/quickreferencesheet_spheresofearth.pdf"
+  - key: science/earth-science-astronomy/eclipses-and-moon-phases#1
+    references:
+      - title: "Moon Phases"
+        publisher: "NASA Science"
+        url: "https://science.nasa.gov/moon/moon-phases/"
+  - key: science/earth-science-astronomy/fossils-and-geologic-time#1
+    references:
+      - title: "Geologic Time: Radiometric Time Scale"
+        publisher: "U.S. Geological Survey"
+        url: "https://pubs.usgs.gov/gip/geotime/radiometric.html"
+  - key: science/earth-science-astronomy/fossils-and-geologic-time#2
+    references:
+      - title: "Geologic Time: Relative Time Scale"
+        publisher: "U.S. Geological Survey"
+        url: "https://pubs.usgs.gov/gip/geotime/relative.html"
+  - key: science/earth-science-astronomy/fossils-and-geologic-time#3
+    references:
+      - title: "Geologic Time: Radiometric Time Scale"
+        publisher: "U.S. Geological Survey"
+        url: "https://pubs.usgs.gov/gip/geotime/radiometric.html"
+  - key: science/earth-science-astronomy/heavenly-bodies#1
+    references:
+      - title: "Comet Facts"
+        publisher: "NASA Science"
+        url: "https://science.nasa.gov/solar-system/comets/facts/"
+  - key: science/earth-science-astronomy/layers-of-the-earth#3
+    references:
+      - title: "P-wave and S-wave paths through the earth"
+        publisher: "U.S. Geological Survey Earthquake Hazards Program"
+        url: "https://www.usgs.gov/media/images/p-wave-and-s-wave-paths-through-earth"
+  - key: science/earth-science-astronomy/minerals-and-rocks#1
+    references:
+      - title: "Rocks and Minerals"
+        publisher: "U.S. National Park Service"
+        url: "https://www.nps.gov/subjects/geology/rocks-and-minerals.htm"
+  - key: science/earth-science-astronomy/origin-of-the-universe#1
+    references:
+      - title: "How Did the Solar System Form?"
+        publisher: "NASA Space Place"
+        url: "https://spaceplace.nasa.gov/solar-system-formation/en/"
+  - key: science/earth-science-astronomy/plate-tectonics#1
+    references:
+      - title: "This Dynamic Planet"
+        publisher: "U.S. Geological Survey"
+        url: "https://pubs.usgs.gov/pdf/planet.pdf"
+  - key: science/earth-science-astronomy/plate-tectonics#2
+    references:
+      - title: "This Dynamic Planet"
+        publisher: "U.S. Geological Survey"
+        url: "https://pubs.usgs.gov/pdf/planet.pdf"
+  - key: science/earth-science-astronomy/plate-tectonics#3
+    references:
+      - title: "The Science of Earthquakes"
+        publisher: "U.S. Geological Survey Earthquake Hazards Program"
+        url: "https://www.usgs.gov/programs/earthquake-hazards/science-earthquakes"
+  - key: science/earth-science-astronomy/water-cycle-oceanography#1
+    references:
+      - title: "Water cycle"
+        publisher: "U.S. Geological Survey Water Science School"
+        url: "https://www.usgs.gov/special-topics/water-science-school/water-cycle"
+  - key: science/earth-science-astronomy/weather-and-climate#1
+    references:
+      - title: "Layers of the Atmosphere"
+        publisher: "NOAA Chemical Sciences Laboratory"
+        url: "https://csl.noaa.gov/news/2020/Layers-of-the-Atmosphere.pdf"
+  - key: science/physics/electricity-and-magnetism#1
+    references:
+      - title: "18.3 Electric Field"
+        publisher: "OpenStax Physics"
+        url: "https://openstax.org/books/physics/pages/18-3-electric-field"
+  - key: science/physics/electricity-and-magnetism#2
+    references:
+      - title: "Chapter 19 Section Summary"
+        publisher: "OpenStax Physics"
+        url: "https://openstax.org/books/physics/pages/19-section-summary"
+  - key: science/physics/electricity-and-magnetism#3
+    references:
+      - title: "19.1 Ohm's law"
+        publisher: "OpenStax Physics"
+        url: "https://openstax.org/books/physics/pages/19-1-ohms-law"
+  - key: science/physics/electricity-and-magnetism#4
+    references:
+      - title: "Chapter 19 Section Summary"
+        publisher: "OpenStax Physics"
+        url: "https://openstax.org/books/physics/pages/19-section-summary"
+  - key: science/physics/light-and-optics#2
+    references:
+      - title: "16.3 Lenses"
+        publisher: "OpenStax Physics"
+        url: "https://openstax.org/books/physics/pages/16-3-lenses"
+  - key: science/physics/thermodynamics#1
+    references:
+      - title: "11.2 Heat, Specific Heat, and Heat Transfer"
+        publisher: "OpenStax Physics"
+        url: "https://openstax.org/books/physics/pages/11-2-heat-specific-heat-and-heat-transfer"
+  - key: science/physics/waves-and-sound#4
+    references:
+      - title: "Chapter 14 Section Summary"
+        publisher: "OpenStax Physics"
+        url: "https://openstax.org/books/physics/pages/14-section-summary"
