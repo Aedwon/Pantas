@@ -22,7 +22,7 @@ Most of the cell cycle is spent in **interphase**, when the cell grows and makes
 - **Anaphase**: the paired chromosome copies (sister chromatids) separate and are pulled to opposite ends of the cell.
 - **Telophase**: two new nuclei form, one at each end, and the cell then splits into two separate cells.
 
-<!-- ILLUSTRATION: four small diagrams in a row showing a cell at prophase with condensing chromosomes, metaphase with chromosomes lined up in the middle, anaphase with chromosomes pulled to opposite ends, and telophase with two forming nuclei -->
+<!-- FIGURE: {"kind":"biology-diagram","type":"mitosis-stages","illustrationKey":"science/biology/cellular-reproduction#1","stages":[{"phase":"prophase","state":"condensing chromosomes"},{"phase":"metaphase","state":"chromosomes lined up in the middle"},{"phase":"anaphase","state":"chromosomes pulled to opposite ends"},{"phase":"telophase","state":"two forming nuclei"}]} -->
 
 The result of mitosis: One original cell becomes two identical daughter cells, each with the same number of chromosomes as the original cell.
 
