@@ -37,9 +37,9 @@ figures:
         url: https://openstax.org/books/biology-2e/pages/10-2-the-cell-cycle
   - key: science/biology/ecology#1
     references:
-      - title: "46.2 Energy Flow through Ecosystems"
-        publisher: OpenStax
-        url: https://openstax.org/books/biology-2e/pages/46-2-energy-flow-through-ecosystems
+      - title: "Creating Webs and Chains to Model Ecological Relationships: Educator Handout"
+        publisher: "Wisconsin Department of Natural Resources, Snapshot Wisconsin"
+        url: https://dnr.wisconsin.gov/sites/default/files/topic/Research/lessons_CreatingChainsEducatorHandout.pdf
   - key: science/biology/evolution#1
     references:
       - title: "19.3 Adaptive Evolution"
@@ -52,9 +52,12 @@ figures:
         url: https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy
   - key: science/chemistry/acids-bases-ph#1
     references:
-      - title: "14.2 pH and pOH"
-        publisher: OpenStax
-        url: https://openstax.org/books/chemistry-2e/pages/14-2-ph-and-poh
+      - title: "What is pH?"
+        publisher: "U.S. Environmental Protection Agency"
+        url: https://www.epa.gov/goldkingmine/what-ph
+      - title: "The pH Scale"
+        publisher: "U.S. Environmental Protection Agency"
+        url: https://www.epa.gov/sites/default/files/2015-08/thephscale.jpg
   - key: science/chemistry/atomic-structure#1
     references:
       - title: "2.3 Atomic Structure and Symbolism"

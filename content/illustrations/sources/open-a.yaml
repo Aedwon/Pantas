@@ -13,6 +13,6 @@ assets:
     directUrl: "https://upload.wikimedia.org/wikipedia/commons/6/61/Alfa_beta_gamma_radiation_penetration.svg"
     license: "CC BY 2.5"
     creator: "Stannered, Ehamberg"
-    credit: "Stannered, Ehamberg / Wikimedia Commons / CC BY 2.5"
+    credit: "Stannered, Ehamberg / Wikimedia Commons / CC BY 2.5 / changes made: converted to PNG, resized for lesson display, and provenance metadata added"
     target: "content/illustrations/science/chemistry/nuclear-chemistry/01-penetration-alpha-particle-stopped.png"
-    sha256: "cfb2badd580334b7f2e464f7a77525f2e784e2c68acf1d7036dfb92bc40f1561"
+    sha256: "3f554b09a0cd82cf5e9aa6f46fe2f57b02a362426039d5837fad57f955d9de6c"

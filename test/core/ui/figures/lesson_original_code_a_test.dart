@@ -1,8 +1,15 @@
+import 'dart:typed_data';
+
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/figures/biology_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/chemistry_diagram_figure.dart';
+import 'package:pantas/core/ui/figures/figure_registry.dart';
 import 'package:pantas/core/ui/figures/physics_mechanics_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/reading_diagram_figure.dart';
+import 'package:pantas/core/ui/theme/app_colors.dart';
+import 'package:pantas/core/ui/theme/app_text_styles.dart';
 
 void main() {
   final cases = <_FigureCase>[
@@ -539,7 +546,8 @@ void main() {
     ),
   ];
 
-  test('all 27 original-code-a specs parse and required fields are enforced', () {
+  test('all 27 original-code-a specs parse and required fields are enforced',
+      () {
     expect(cases, hasLength(27));
     expect(cases.map((item) => item.key).toSet(), hasLength(27));
 
@@ -569,6 +577,277 @@ void main() {
     expect(far['speed'], 'slower');
     expect(PhysicsMechanicsDiagramFigure.fromSpec(item.spec), isNotNull);
   });
+
+  testWidgets('all 27 figures paint a frame in light and dark themes', (
+    tester,
+  ) async {
+    await tester.binding.setSurfaceSize(const Size(390, 844));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+
+    for (final palette in const [AppColors.light, AppColors.dark]) {
+      for (final item in cases) {
+        await _pumpFigure(tester, item.spec, palette);
+        expect(tester.takeException(), isNull, reason: item.key);
+      }
+    }
+  });
+
+  testWidgets('pH scale paints a continuous transition', (tester) async {
+    final item = cases.singleWhere(
+      (item) => item.key == 'science/chemistry/acids-bases-ph#1',
+    );
+    final image = await _renderFigure(tester, item.spec, AppColors.light);
+    const left = 18.0;
+    final step = (image.width - 36) / 14;
+    final samples = <int>{};
+    for (var i = 0; i < 14; i++) {
+      samples.add(
+        image.pixel(left + (i + 0.5) * step, 91).toARGB32(),
+      );
+    }
+
+    expect(samples.length, greaterThanOrEqualTo(12));
+  });
+
+  testWidgets('periodic table paints three distinct regions', (tester) async {
+    final item = cases.singleWhere(
+      (item) => item.key == 'science/chemistry/periodic-table#1',
+    );
+    final image = await _renderFigure(tester, item.spec, AppColors.light);
+    final cellWidth = (image.width - 44) / 18;
+    final colors = <int>{
+      image.pixel(22 + cellWidth * 5.5, 24 + 20 * 4.5).toARGB32(),
+      image.pixel(22 + cellWidth * 13.5, 24 + 20 * 3.5).toARGB32(),
+      image.pixel(22 + cellWidth * 16.5, 24 + 20 * 3.5).toARGB32(),
+    };
+
+    expect(colors, hasLength(3));
+    expect(colors, isNot(contains(AppColors.light.surface.toARGB32())));
+  });
+
+  testWidgets('second-law panel includes a line-drawn pushing hand', (
+    tester,
+  ) async {
+    final item = cases.singleWhere(
+      (item) => item.key == 'science/physics/dynamics#1',
+    );
+    final image = await _renderFigure(tester, item.spec, AppColors.light);
+
+    expect(
+      image.countNear(
+            AppColors.light.ink,
+            const Rect.fromLTRB(145, 93, 174, 109),
+          ) +
+          image.countNear(
+            AppColors.light.ink,
+            const Rect.fromLTRB(145, 116, 174, 132),
+          ),
+      greaterThan(10),
+    );
+    expect(
+      image.countNear(
+        AppColors.light.ink,
+        const Rect.fromLTRB(145, 93, 174, 109),
+      ),
+      greaterThan(0),
+    );
+  });
+
+  testWidgets('constant-acceleration indicator is visibly curved', (
+    tester,
+  ) async {
+    final item = cases.singleWhere(
+      (item) => item.key == 'science/physics/kinematics#1',
+    );
+    final image = await _renderFigure(tester, item.spec, AppColors.light);
+    final occupiedRows = <int>{};
+    for (var y = 24; y <= 56; y++) {
+      if (image.countNear(
+            AppColors.light.board,
+            Rect.fromLTRB(80, y.toDouble(), 310, y + 1.0),
+          ) >
+          0) {
+        occupiedRows.add(y);
+      }
+    }
+
+    expect(occupiedRows.length, greaterThan(12));
+  });
+
+  testWidgets('first-item labels do not use decorative board green', (
+    tester,
+  ) async {
+    final speech = cases.singleWhere(
+      (item) => item.key == 'reading-comprehension/text-types/speeches#1',
+    );
+    final bonding = cases.singleWhere(
+      (item) => item.key == 'science/chemistry/chemical-bonding#1',
+    );
+    final speechImage = await _renderFigure(
+      tester,
+      speech.spec,
+      AppColors.light,
+    );
+    final bondingImage = await _renderFigure(
+      tester,
+      bonding.spec,
+      AppColors.light,
+    );
+
+    expect(
+      speechImage.countNear(
+        AppColors.light.board,
+        Rect.fromLTWH(0, 0, speechImage.width.toDouble(), 210),
+      ),
+      0,
+    );
+    expect(
+      bondingImage.countNear(
+        AppColors.light.board,
+        const Rect.fromLTWH(0, 0, 130, 38),
+      ),
+      0,
+    );
+  });
+
+  testWidgets('Kepler Sun remains at the ellipse focus', (tester) async {
+    final item = cases.singleWhere(
+      (item) => item.key == 'science/physics/gravity-and-keplers-laws#2',
+    );
+    final image = await _renderFigure(tester, item.spec, AppColors.light);
+    final orbitWidth = image.width * 0.72;
+    final orbitHeight = _mathMin(230 * 0.54, orbitWidth * 0.62);
+    final a = orbitWidth / 2;
+    final b = orbitHeight / 2;
+    final c = _mathSqrt(a * a - b * b);
+    final focus = Offset(image.width * 0.5 - c, 230 * 0.47);
+
+    expect(
+      image.countNear(
+        AppColors.light.board,
+        Rect.fromCircle(center: focus, radius: 8),
+      ),
+      greaterThan(70),
+    );
+  });
+}
+
+double _mathMin(double a, double b) => a < b ? a : b;
+
+double _mathSqrt(double value) {
+  var estimate = value;
+  for (var i = 0; i < 20; i++) {
+    estimate = (estimate + value / estimate) / 2;
+  }
+  return estimate;
+}
+
+Future<void> _pumpFigure(
+  WidgetTester tester,
+  Map<String, Object?> spec,
+  AppColors palette,
+) async {
+  await tester.pumpWidget(
+    MaterialApp(
+      theme: ThemeData(
+        extensions: [palette, AppTextStyles.create()],
+      ),
+      home: Scaffold(
+        body: SizedBox(
+          width: 390,
+          child: FigureRegistry.build(spec),
+        ),
+      ),
+    ),
+  );
+  await tester.pump();
+}
+
+Future<_RenderedFigure> _renderFigure(
+  WidgetTester tester,
+  Map<String, Object?> spec,
+  AppColors palette,
+) async {
+  final boundaryKey = GlobalKey();
+  await tester.pumpWidget(
+    MaterialApp(
+      theme: ThemeData(
+        extensions: [palette, AppTextStyles.create()],
+      ),
+      home: Align(
+        alignment: Alignment.topCenter,
+        child: RepaintBoundary(
+          key: boundaryKey,
+          child: ColoredBox(
+            color: palette.surface,
+            child: SizedBox(
+              width: 390,
+              child: FigureRegistry.build(spec),
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+  await tester.pump();
+  final boundary =
+      boundaryKey.currentContext!.findRenderObject()! as RenderRepaintBoundary;
+  final image = boundary.toImageSync();
+  final byteData = await tester.runAsync(image.toByteData);
+  final result = _RenderedFigure(
+    width: image.width,
+    height: image.height,
+    rgba: byteData!.buffer.asUint8List(),
+  );
+  image.dispose();
+  return result;
+}
+
+class _RenderedFigure {
+  const _RenderedFigure({
+    required this.width,
+    required this.height,
+    required this.rgba,
+  });
+
+  final int width;
+  final int height;
+  final Uint8List rgba;
+
+  Color pixel(double x, double y) {
+    final px = x.round().clamp(0, width - 1);
+    final py = y.round().clamp(0, height - 1);
+    final offset = (py * width + px) * 4;
+    return Color.fromARGB(
+      rgba[offset + 3],
+      rgba[offset],
+      rgba[offset + 1],
+      rgba[offset + 2],
+    );
+  }
+
+  int countNear(Color target, Rect area, {int tolerance = 8}) {
+    var count = 0;
+    final targetArgb = target.toARGB32();
+    final targetRed = targetArgb >> 16 & 0xff;
+    final targetGreen = targetArgb >> 8 & 0xff;
+    final targetBlue = targetArgb & 0xff;
+    final left = area.left.floor().clamp(0, width);
+    final top = area.top.floor().clamp(0, height);
+    final right = area.right.ceil().clamp(0, width);
+    final bottom = area.bottom.ceil().clamp(0, height);
+    for (var y = top; y < bottom; y++) {
+      for (var x = left; x < right; x++) {
+        final offset = (y * width + x) * 4;
+        if ((rgba[offset] - targetRed).abs() <= tolerance &&
+            (rgba[offset + 1] - targetGreen).abs() <= tolerance &&
+            (rgba[offset + 2] - targetBlue).abs() <= tolerance) {
+          count++;
+        }
+      }
+    }
+    return count;
+  }
 }
 
 Object? _parse(Map<String, Object?> spec) {

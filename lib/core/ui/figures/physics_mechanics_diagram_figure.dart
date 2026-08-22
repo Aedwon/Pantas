@@ -106,25 +106,18 @@ class _PhysicsMechanicsPainter extends CustomPainter {
     switch (type) {
       case 'newton-laws':
         _paintNewtonLaws(canvas, size);
-        break;
       case 'buoyancy-comparison':
         _paintBuoyancy(canvas, size);
-        break;
       case 'kepler-equal-areas':
         _paintKeplerEqualAreas(canvas, size);
-        break;
       case 'orbital-speed':
         _paintOrbitalSpeed(canvas, size);
-        break;
       case 'accelerated-motion':
         _paintAcceleratedMotion(canvas, size);
-        break;
       case 'impulse-duration':
         _paintImpulse(canvas, size);
-        break;
       case 'mechanical-energy':
         _paintMechanicalEnergy(canvas, size);
-        break;
     }
   }
 
@@ -141,7 +134,7 @@ class _PhysicsMechanicsPainter extends CustomPainter {
         align: TextAlign.center,
       );
       if (i == 0) {
-        final tableY = 127.0;
+        const tableY = 127.0;
         final book = Rect.fromCenter(
           center: Offset(x0 + slot / 2, tableY - 20),
           width: 48,
@@ -149,31 +142,143 @@ class _PhysicsMechanicsPainter extends CustomPainter {
         );
         canvas
           ..drawRect(book, _stroke)
-          ..drawLine(Offset(x0 + 18, tableY), Offset(x0 + slot - 18, tableY), _stroke);
-        _arrow(canvas, Offset(book.center.dx, book.top - 3), Offset(book.center.dx, book.top - 36), _stroke);
-        _arrow(canvas, Offset(book.center.dx, book.bottom + 3), Offset(book.center.dx, book.bottom + 36), _stroke);
-        _label(canvas, 'balanced forces', Offset(x0 + 8, 153), slot - 16, style: mutedStyle, align: TextAlign.center);
+          ..drawLine(
+            Offset(x0 + 18, tableY),
+            Offset(x0 + slot - 18, tableY),
+            _stroke,
+          );
+        _arrow(
+          canvas,
+          Offset(book.center.dx, book.top - 3),
+          Offset(book.center.dx, book.top - 36),
+          _stroke,
+        );
+        _arrow(
+          canvas,
+          Offset(book.center.dx, book.bottom + 3),
+          Offset(book.center.dx, book.bottom + 36),
+          _stroke,
+        );
+        _label(
+          canvas,
+          'balanced forces',
+          Offset(x0 + 8, 153),
+          slot - 16,
+          style: mutedStyle,
+          align: TextAlign.center,
+        );
       } else if (i == 1) {
         final cart = Rect.fromLTWH(x0 + slot * 0.35, 95, slot * 0.38, 34);
         canvas
           ..drawRect(cart, _stroke)
           ..drawCircle(Offset(cart.left + 10, cart.bottom + 7), 6, _stroke)
           ..drawCircle(Offset(cart.right - 10, cart.bottom + 7), 6, _stroke);
-        _arrow(canvas, Offset(x0 + 12, cart.center.dy), Offset(cart.left - 3, cart.center.dy), _stroke);
-        _arrow(canvas, Offset(cart.right + 4, cart.center.dy), Offset(x0 + slot - 10, cart.center.dy), Paint()..color = board..strokeWidth = 1.5);
-        _label(canvas, 'force', Offset(x0 + 4, 72), slot * 0.30, style: mutedStyle, align: TextAlign.center);
-        _label(canvas, 'acceleration', Offset(x0 + slot * 0.66, 72), slot * 0.32, style: labelStyle.copyWith(color: board), align: TextAlign.center);
+        final palm = Rect.fromCenter(
+          center: Offset(cart.left - 13, cart.center.dy + 1),
+          width: 17,
+          height: 22,
+        );
+        canvas
+          ..drawArc(palm, -math.pi / 2, math.pi, false, _stroke)
+          ..drawLine(
+            Offset(palm.left, palm.top + 3),
+            Offset(palm.left - 12, palm.top - 5),
+            _stroke,
+          )
+          ..drawLine(
+            Offset(palm.left, palm.center.dy),
+            Offset(palm.left - 15, palm.center.dy - 2),
+            _stroke,
+          )
+          ..drawLine(
+            Offset(palm.left, palm.bottom - 3),
+            Offset(palm.left - 11, palm.bottom + 5),
+            _stroke,
+          )
+          ..drawLine(
+            Offset(palm.right, palm.top + 4),
+            Offset(cart.left, palm.top + 4),
+            _stroke,
+          )
+          ..drawLine(
+            Offset(palm.right, palm.center.dy),
+            Offset(cart.left, palm.center.dy),
+            _stroke,
+          );
+        _arrow(
+          canvas,
+          Offset(x0 + 12, cart.center.dy),
+          Offset(cart.left - 3, cart.center.dy),
+          _stroke,
+        );
+        _arrow(
+          canvas,
+          Offset(cart.right + 4, cart.center.dy),
+          Offset(x0 + slot - 10, cart.center.dy),
+          Paint()
+            ..color = board
+            ..strokeWidth = 1.5,
+        );
+        _label(
+          canvas,
+          'force',
+          Offset(x0 + 4, 72),
+          slot * 0.30,
+          style: mutedStyle,
+          align: TextAlign.center,
+        );
+        _label(
+          canvas,
+          'acceleration',
+          Offset(x0 + slot * 0.66, 72),
+          slot * 0.32,
+          style: labelStyle.copyWith(color: board),
+          align: TextAlign.center,
+        );
       } else {
         final swimmer = Offset(x0 + slot * 0.50, 103);
         canvas
           ..drawCircle(Offset(swimmer.dx, swimmer.dy - 22), 7, _stroke)
-          ..drawLine(Offset(swimmer.dx, swimmer.dy - 15), Offset(swimmer.dx, swimmer.dy + 12), _stroke)
-          ..drawLine(Offset(swimmer.dx, swimmer.dy - 4), Offset(swimmer.dx - 20, swimmer.dy + 4), _stroke)
-          ..drawLine(Offset(swimmer.dx, swimmer.dy - 4), Offset(swimmer.dx + 20, swimmer.dy + 4), _stroke)
-          ..drawLine(Offset(x0 + 10, swimmer.dy + 25), Offset(x0 + slot - 10, swimmer.dy + 25), _faint);
-        _arrow(canvas, Offset(swimmer.dx - 5, swimmer.dy + 35), Offset(x0 + 18, swimmer.dy + 35), _stroke);
-        _arrow(canvas, Offset(swimmer.dx + 5, swimmer.dy - 42), Offset(x0 + slot - 18, swimmer.dy - 42), _stroke);
-        _label(canvas, 'equal and opposite', Offset(x0 + 7, 157), slot - 14, style: mutedStyle, align: TextAlign.center);
+          ..drawLine(
+            Offset(swimmer.dx, swimmer.dy - 15),
+            Offset(swimmer.dx, swimmer.dy + 12),
+            _stroke,
+          )
+          ..drawLine(
+            Offset(swimmer.dx, swimmer.dy - 4),
+            Offset(swimmer.dx - 20, swimmer.dy + 4),
+            _stroke,
+          )
+          ..drawLine(
+            Offset(swimmer.dx, swimmer.dy - 4),
+            Offset(swimmer.dx + 20, swimmer.dy + 4),
+            _stroke,
+          )
+          ..drawLine(
+            Offset(x0 + 10, swimmer.dy + 25),
+            Offset(x0 + slot - 10, swimmer.dy + 25),
+            _faint,
+          );
+        _arrow(
+          canvas,
+          Offset(swimmer.dx - 5, swimmer.dy + 35),
+          Offset(x0 + 18, swimmer.dy + 35),
+          _stroke,
+        );
+        _arrow(
+          canvas,
+          Offset(swimmer.dx + 5, swimmer.dy - 42),
+          Offset(x0 + slot - 18, swimmer.dy - 42),
+          _stroke,
+        );
+        _label(
+          canvas,
+          'equal and opposite',
+          Offset(x0 + 7, 157),
+          slot - 14,
+          style: mutedStyle,
+          align: TextAlign.center,
+        );
       }
     }
   }
@@ -187,7 +292,13 @@ class _PhysicsMechanicsPainter extends CustomPainter {
         ..drawLine(tank.topLeft, tank.bottomLeft, _stroke)
         ..drawLine(tank.bottomLeft, tank.bottomRight, _stroke)
         ..drawLine(tank.bottomRight, tank.topRight, _stroke)
-        ..drawLine(Offset(tank.left, 72), Offset(tank.right, 72), Paint()..color = board..strokeWidth = 1.4);
+        ..drawLine(
+          Offset(tank.left, 72),
+          Offset(tank.right, 72),
+          Paint()
+            ..color = board
+            ..strokeWidth = 1.4,
+        );
       final objectY = i == 0 ? 68.0 : 126.0;
       final object = Rect.fromCenter(
         center: Offset(tank.center.dx, objectY),
@@ -196,12 +307,46 @@ class _PhysicsMechanicsPainter extends CustomPainter {
       );
       canvas.drawRect(object, _stroke);
       final upLength = i == 0 ? 42.0 : 26.0;
-      final downLength = 42.0;
-      _arrow(canvas, Offset(object.center.dx - 8, object.top), Offset(object.center.dx - 8, object.top - upLength), Paint()..color = board..strokeWidth = 1.5);
-      _arrow(canvas, Offset(object.center.dx + 8, object.bottom), Offset(object.center.dx + 8, object.bottom + downLength), Paint()..color = rust..strokeWidth = 1.5);
-      _label(canvas, cases[i]['state']! as String, Offset(slot * i + 6, 9), slot - 12, align: TextAlign.center);
-      _label(canvas, cases[i]['density']! as String, Offset(slot * i + 8, 166), slot - 16, style: mutedStyle, align: TextAlign.center);
-      _label(canvas, 'buoyant force ${cases[i]['buoyantForce']}', Offset(slot * i + 8, 187), slot - 16, style: mutedStyle, align: TextAlign.center);
+      const downLength = 42.0;
+      _arrow(
+        canvas,
+        Offset(object.center.dx - 8, object.top),
+        Offset(object.center.dx - 8, object.top - upLength),
+        Paint()
+          ..color = board
+          ..strokeWidth = 1.5,
+      );
+      _arrow(
+        canvas,
+        Offset(object.center.dx + 8, object.bottom),
+        Offset(object.center.dx + 8, object.bottom + downLength),
+        Paint()
+          ..color = rust
+          ..strokeWidth = 1.5,
+      );
+      _label(
+        canvas,
+        cases[i]['state']! as String,
+        Offset(slot * i + 6, 9),
+        slot - 12,
+        align: TextAlign.center,
+      );
+      _label(
+        canvas,
+        cases[i]['density']! as String,
+        Offset(slot * i + 8, 166),
+        slot - 16,
+        style: mutedStyle,
+        align: TextAlign.center,
+      );
+      _label(
+        canvas,
+        'buoyant force ${cases[i]['buoyantForce']}',
+        Offset(slot * i + 8, 187),
+        slot - 16,
+        style: mutedStyle,
+        align: TextAlign.center,
+      );
     }
   }
 
@@ -234,13 +379,12 @@ class _PhysicsMechanicsPainter extends CustomPainter {
 
     const nearHalfSpan = 0.80;
     final farHalfSpan = _equalAreaFarHalfSpan(eccentricity, nearHalfSpan);
-    final nearStartAngle = math.pi - nearHalfSpan;
-    final nearEndAngle = math.pi + nearHalfSpan;
+    const nearStartAngle = math.pi - nearHalfSpan;
+    const nearEndAngle = math.pi + nearHalfSpan;
     final farStartAngle = -farHalfSpan;
     final farEndAngle = farHalfSpan;
 
     final nearStart = _ellipsePoint(orbitRect, nearStartAngle);
-    final nearEnd = _ellipsePoint(orbitRect, nearEndAngle);
     final nearSector = Path()
       ..moveTo(sun.dx, sun.dy)
       ..lineTo(nearStart.dx, nearStart.dy)
@@ -251,7 +395,6 @@ class _PhysicsMechanicsPainter extends CustomPainter {
       ..drawPath(nearSector, sectorStroke);
 
     final farStart = _ellipsePoint(orbitRect, farStartAngle);
-    final farEnd = _ellipsePoint(orbitRect, farEndAngle);
     final farSector = Path()
       ..moveTo(sun.dx, sun.dy)
       ..lineTo(farStart.dx, farStart.dy)
@@ -259,21 +402,47 @@ class _PhysicsMechanicsPainter extends CustomPainter {
       ..close();
     canvas
       ..drawPath(farSector, sectorFill)
-      ..drawPath(farSector, sectorStroke);
-
-    canvas
+      ..drawPath(farSector, sectorStroke)
       ..drawCircle(sun, 8, Paint()..color = board)
       ..drawCircle(_ellipsePoint(orbitRect, math.pi), 5, Paint()..color = ink)
       ..drawCircle(_ellipsePoint(orbitRect, 0), 5, Paint()..color = ink);
-    _label(canvas, 'Sun at one focus', Offset(sun.dx - 48, sun.dy + 12), 96, style: mutedStyle, align: TextAlign.center);
-    _label(canvas, 'near Sun\nlonger arc • faster', Offset(4, 18), size.width * 0.30, style: labelStyle.copyWith(color: board), align: TextAlign.center, maxLines: 2);
-    _label(canvas, 'far from Sun\nshorter arc • slower', Offset(size.width * 0.69, 18), size.width * 0.30, style: labelStyle, align: TextAlign.center, maxLines: 2);
-    _label(canvas, 'equal time • equal swept area', Offset(size.width * 0.29, size.height - 28), size.width * 0.42, style: mutedStyle, align: TextAlign.center);
+    _label(
+      canvas,
+      'Sun at one focus',
+      Offset(sun.dx - 48, sun.dy + 12),
+      96,
+      style: mutedStyle,
+      align: TextAlign.center,
+    );
+    _label(
+      canvas,
+      'near Sun\nlonger arc • faster',
+      const Offset(4, 18),
+      size.width * 0.30,
+      style: labelStyle.copyWith(color: board),
+      align: TextAlign.center,
+    );
+    _label(
+      canvas,
+      'far from Sun\nshorter arc • slower',
+      Offset(size.width * 0.69, 18),
+      size.width * 0.30,
+      style: labelStyle,
+      align: TextAlign.center,
+    );
+    _label(
+      canvas,
+      'equal time • equal swept area',
+      Offset(size.width * 0.29, size.height - 28),
+      size.width * 0.42,
+      style: mutedStyle,
+      align: TextAlign.center,
+    );
   }
 
   void _paintOrbitalSpeed(Canvas canvas, Size size) {
     final orbitWidth = size.width * 0.74;
-    final orbitHeight = math.min(118.0, orbitWidth * 0.62);
+    final orbitHeight = math.min<double>(118, orbitWidth * 0.62);
     final orbitRect = Rect.fromCenter(
       center: Offset(size.width * 0.50, 103),
       width: orbitWidth,
@@ -291,32 +460,141 @@ class _PhysicsMechanicsPainter extends CustomPainter {
     canvas
       ..drawCircle(perihelion, 5, Paint()..color = ink)
       ..drawCircle(aphelion, 5, Paint()..color = ink);
-    _arrow(canvas, Offset(perihelion.dx, perihelion.dy - 9), Offset(perihelion.dx, perihelion.dy - 59), Paint()..color = board..strokeWidth = 1.6);
-    _arrow(canvas, Offset(aphelion.dx, aphelion.dy - 9), Offset(aphelion.dx, aphelion.dy - 32), _stroke);
-    _label(canvas, 'perihelion\nfast', Offset(5, 18), size.width * 0.24, style: labelStyle.copyWith(color: board), align: TextAlign.center);
-    _label(canvas, 'aphelion\nslow', Offset(size.width * 0.76, 18), size.width * 0.23, align: TextAlign.center);
-    _label(canvas, 'long velocity arrow', Offset(4, 171), size.width * 0.31, style: mutedStyle, align: TextAlign.center);
-    _label(canvas, 'short velocity arrow', Offset(size.width * 0.69, 171), size.width * 0.30, style: mutedStyle, align: TextAlign.center);
+    _arrow(
+      canvas,
+      Offset(perihelion.dx, perihelion.dy - 9),
+      Offset(perihelion.dx, perihelion.dy - 59),
+      Paint()
+        ..color = board
+        ..strokeWidth = 1.6,
+    );
+    _arrow(
+      canvas,
+      Offset(aphelion.dx, aphelion.dy - 9),
+      Offset(aphelion.dx, aphelion.dy - 32),
+      _stroke,
+    );
+    _label(
+      canvas,
+      'perihelion\nfast',
+      const Offset(5, 18),
+      size.width * 0.24,
+      style: labelStyle.copyWith(color: board),
+      align: TextAlign.center,
+    );
+    _label(
+      canvas,
+      'aphelion\nslow',
+      Offset(size.width * 0.76, 18),
+      size.width * 0.23,
+      align: TextAlign.center,
+    );
+    _label(
+      canvas,
+      'long velocity arrow',
+      const Offset(4, 171),
+      size.width * 0.31,
+      style: mutedStyle,
+      align: TextAlign.center,
+    );
+    _label(
+      canvas,
+      'short velocity arrow',
+      Offset(size.width * 0.69, 171),
+      size.width * 0.30,
+      style: mutedStyle,
+      align: TextAlign.center,
+    );
   }
 
   void _paintAcceleratedMotion(Canvas canvas, Size size) {
     const roadY = 143.0;
     canvas
-      ..drawLine(Offset(15, roadY), Offset(size.width - 15, roadY), _stroke)
-      ..drawLine(Offset(15, roadY + 22), Offset(size.width - 15, roadY + 22), _faint);
-    final xs = <double>[size.width * 0.18, size.width * 0.48, size.width * 0.78];
+      ..drawLine(
+        const Offset(15, roadY),
+        Offset(size.width - 15, roadY),
+        _stroke,
+      )
+      ..drawLine(
+        const Offset(15, roadY + 22),
+        Offset(size.width - 15, roadY + 22),
+        _faint,
+      );
+    final xs = <double>[
+      size.width * 0.18,
+      size.width * 0.48,
+      size.width * 0.78,
+    ];
     final arrowLengths = <double>[30, 52, 74];
     for (var i = 0; i < xs.length; i++) {
-      final car = Rect.fromCenter(center: Offset(xs[i], roadY - 17), width: 48, height: 24);
+      final velocityArrowPaint = i == 2
+          ? (Paint()
+            ..color = board
+            ..strokeWidth = 1.5)
+          : _stroke;
+      final car = Rect.fromCenter(
+        center: Offset(xs[i], roadY - 17),
+        width: 48,
+        height: 24,
+      );
       canvas
         ..drawRect(car, _stroke)
         ..drawCircle(Offset(car.left + 10, car.bottom + 5), 5, _stroke)
         ..drawCircle(Offset(car.right - 10, car.bottom + 5), 5, _stroke);
-      _arrow(canvas, Offset(xs[i] - 5, 84), Offset(xs[i] - 5 + arrowLengths[i], 84), i == 2 ? Paint()..color = board..strokeWidth = 1.5 : _stroke);
-      _label(canvas, 'v${i + 1}', Offset(xs[i] - 12, 57), 24, style: mutedStyle, align: TextAlign.center);
+      _arrow(
+        canvas,
+        Offset(xs[i] - 5, 84),
+        Offset(xs[i] - 5 + arrowLengths[i], 84),
+        velocityArrowPaint,
+      );
+      _label(
+        canvas,
+        'v${i + 1}',
+        Offset(xs[i] - 12, 57),
+        24,
+        style: mutedStyle,
+        align: TextAlign.center,
+      );
     }
-    _arrow(canvas, Offset(size.width * 0.22, 32), Offset(size.width * 0.78, 32), Paint()..color = board..strokeWidth = 1.5);
-    _label(canvas, 'constant acceleration', Offset(size.width * 0.32, 8), size.width * 0.36, style: labelStyle.copyWith(color: board), align: TextAlign.center);
+    final accelerationPaint = Paint()
+      ..color = board
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.5;
+    final accelerationStart = Offset(size.width * 0.22, 42);
+    final accelerationEnd = Offset(size.width * 0.78, 42);
+    final accelerationControl = Offset(size.width * 0.50, 10);
+    final accelerationPath = Path()
+      ..moveTo(accelerationStart.dx, accelerationStart.dy)
+      ..quadraticBezierTo(
+        accelerationControl.dx,
+        accelerationControl.dy,
+        accelerationEnd.dx,
+        accelerationEnd.dy,
+      );
+    canvas.drawPath(accelerationPath, accelerationPaint);
+    final tangent = accelerationEnd - accelerationControl;
+    final tangentLength = tangent.distance;
+    final unit = tangent / tangentLength;
+    final normal = Offset(-unit.dy, unit.dx);
+    canvas
+      ..drawLine(
+        accelerationEnd,
+        accelerationEnd - unit * 9 + normal * 4,
+        accelerationPaint,
+      )
+      ..drawLine(
+        accelerationEnd,
+        accelerationEnd - unit * 9 - normal * 4,
+        accelerationPaint,
+      );
+    _label(
+      canvas,
+      'constant acceleration',
+      Offset(size.width * 0.32, 8),
+      size.width * 0.36,
+      style: labelStyle.copyWith(color: board),
+      align: TextAlign.center,
+    );
   }
 
   void _paintImpulse(Canvas canvas, Size size) {
@@ -324,23 +602,82 @@ class _PhysicsMechanicsPainter extends CustomPainter {
     final slot = size.width / 2;
     for (var i = 0; i < cases.length; i++) {
       final x0 = slot * i;
-      _label(canvas, cases[i]['surface']! as String, Offset(x0 + 4, 9), slot - 8, align: TextAlign.center);
-      final handY = 102.0;
+      _label(
+        canvas,
+        cases[i]['surface']! as String,
+        Offset(x0 + 4, 9),
+        slot - 8,
+        align: TextAlign.center,
+      );
+      const handY = 102.0;
       canvas
-        ..drawLine(Offset(x0 + 30, handY), Offset(x0 + slot * 0.48, handY), _stroke)
+        ..drawLine(
+          Offset(x0 + 30, handY),
+          Offset(x0 + slot * 0.48, handY),
+          _stroke,
+        )
         ..drawCircle(Offset(x0 + 30, handY), 7, _stroke);
       if (i == 0) {
-        canvas.drawLine(Offset(x0 + slot * 0.72, 65), Offset(x0 + slot * 0.72, 143), _stroke);
-        _arrow(canvas, Offset(x0 + slot * 0.48, handY), Offset(x0 + slot * 0.70, handY), Paint()..color = rust..strokeWidth = 2.4);
+        canvas.drawLine(
+          Offset(x0 + slot * 0.72, 65),
+          Offset(x0 + slot * 0.72, 143),
+          _stroke,
+        );
+        _arrow(
+          canvas,
+          Offset(x0 + slot * 0.48, handY),
+          Offset(x0 + slot * 0.70, handY),
+          Paint()
+            ..color = rust
+            ..strokeWidth = 2.4,
+        );
       } else {
-        final bag = Rect.fromCenter(center: Offset(x0 + slot * 0.73, handY), width: 68, height: 82);
-        canvas.drawOval(bag, Paint()..color = board..style = PaintingStyle.stroke..strokeWidth = 1.5);
-        _arrow(canvas, Offset(x0 + slot * 0.48, handY), Offset(x0 + slot * 0.64, handY), _stroke);
+        final bag = Rect.fromCenter(
+          center: Offset(x0 + slot * 0.73, handY),
+          width: 68,
+          height: 82,
+        );
+        canvas.drawOval(
+          bag,
+          Paint()
+            ..color = board
+            ..style = PaintingStyle.stroke
+            ..strokeWidth = 1.5,
+        );
+        _arrow(
+          canvas,
+          Offset(x0 + slot * 0.48, handY),
+          Offset(x0 + slot * 0.64, handY),
+          _stroke,
+        );
       }
-      _label(canvas, '${cases[i]['force']} force', Offset(x0 + 8, 154), slot - 16, style: i == 0 ? labelStyle.copyWith(color: rust) : labelStyle.copyWith(color: board), align: TextAlign.center);
-      _label(canvas, '${cases[i]['time']} time', Offset(x0 + 8, 176), slot - 16, style: mutedStyle, align: TextAlign.center);
+      _label(
+        canvas,
+        '${cases[i]['force']} force',
+        Offset(x0 + 8, 154),
+        slot - 16,
+        style: i == 0
+            ? labelStyle.copyWith(color: rust)
+            : labelStyle.copyWith(color: board),
+        align: TextAlign.center,
+      );
+      _label(
+        canvas,
+        '${cases[i]['time']} time',
+        Offset(x0 + 8, 176),
+        slot - 16,
+        style: mutedStyle,
+        align: TextAlign.center,
+      );
     }
-    _label(canvas, 'same total impulse', Offset(size.width * 0.33, 54), size.width * 0.34, style: mutedStyle, align: TextAlign.center);
+    _label(
+      canvas,
+      'same total impulse',
+      Offset(size.width * 0.33, 54),
+      size.width * 0.34,
+      style: mutedStyle,
+      align: TextAlign.center,
+    );
   }
 
   void _paintMechanicalEnergy(Canvas canvas, Size size) {
@@ -355,12 +692,23 @@ class _PhysicsMechanicsPainter extends CustomPainter {
     for (var i = 0; i < positions.length; i++) {
       canvas
         ..drawLine(pivot, positions[i], i == 2 ? _stroke : _faint)
-        ..drawCircle(positions[i], 8, Paint()..color = i == 2 ? board : inkMuted);
+        ..drawCircle(
+          positions[i],
+          8,
+          Paint()..color = i == 2 ? board : inkMuted,
+        );
     }
-    _energyBar(canvas, Offset(size.width * 0.63, 56), 'high', 1.0, 0.0);
+    _energyBar(canvas, Offset(size.width * 0.63, 56), 'high', 1, 0);
     _energyBar(canvas, Offset(size.width * 0.75, 56), 'mid', 0.5, 0.5);
-    _energyBar(canvas, Offset(size.width * 0.87, 56), 'low', 0.0, 1.0);
-    _label(canvas, 'total mechanical energy stays constant', Offset(size.width * 0.57, 175), size.width * 0.40, style: mutedStyle, align: TextAlign.center, maxLines: 2);
+    _energyBar(canvas, Offset(size.width * 0.87, 56), 'low', 0, 1);
+    _label(
+      canvas,
+      'total mechanical energy stays constant',
+      Offset(size.width * 0.57, 175),
+      size.width * 0.40,
+      style: mutedStyle,
+      align: TextAlign.center,
+    );
   }
 
   void _energyBar(
@@ -391,9 +739,30 @@ class _PhysicsMechanicsPainter extends CustomPainter {
         : kinetic == 0
             ? 'KE 0'
             : 'KE +';
-    _label(canvas, label, Offset(origin.dx - 8, origin.dy - 20), 42, style: mutedStyle, align: TextAlign.center);
-    _label(canvas, peLabel, Offset(origin.dx - 13, rect.bottom + 5), 52, style: mutedStyle, align: TextAlign.center);
-    _label(canvas, keLabel, Offset(origin.dx - 13, rect.bottom + 23), 52, style: mutedStyle, align: TextAlign.center);
+    _label(
+      canvas,
+      label,
+      Offset(origin.dx - 8, origin.dy - 20),
+      42,
+      style: mutedStyle,
+      align: TextAlign.center,
+    );
+    _label(
+      canvas,
+      peLabel,
+      Offset(origin.dx - 13, rect.bottom + 5),
+      52,
+      style: mutedStyle,
+      align: TextAlign.center,
+    );
+    _label(
+      canvas,
+      keLabel,
+      Offset(origin.dx - 13, rect.bottom + 23),
+      52,
+      style: mutedStyle,
+      align: TextAlign.center,
+    );
   }
 
   double _equalAreaFarHalfSpan(double eccentricity, double nearHalfSpan) {
@@ -442,13 +811,14 @@ class _PhysicsMechanicsPainter extends CustomPainter {
     TextAlign align = TextAlign.left,
     int maxLines = 2,
   }) {
-    final painter = TextPainter(
+    TextPainter(
       text: TextSpan(text: text, style: style ?? labelStyle),
       textDirection: TextDirection.ltr,
       textAlign: align,
       maxLines: maxLines,
-    )..layout(maxWidth: width);
-    painter.paint(canvas, offset);
+    )
+      ..layout(maxWidth: width)
+      ..paint(canvas, offset);
   }
 
   @override

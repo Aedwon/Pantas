@@ -102,28 +102,20 @@ class _BiologyDiagramPainter extends CustomPainter {
     switch (type) {
       case 'stem-tissues':
         _paintStemTissues(canvas, size);
-        break;
       case 'cell-protein-flow':
         _paintCell(canvas, size);
-        break;
       case 'photosynthesis-respiration-cycle':
         _paintMetabolismCycle(canvas, size);
-        break;
       case 'organelle-comparison':
         _paintOrganelles(canvas, size);
-        break;
       case 'mitosis-stages':
         _paintMitosis(canvas, size);
-        break;
       case 'energy-pyramid':
         _paintEnergyPyramid(canvas, size);
-        break;
       case 'natural-selection-generations':
         _paintNaturalSelection(canvas, size);
-        break;
       case 'heart-circulation':
         _paintHeart(canvas, size);
-        break;
     }
   }
 
@@ -146,8 +138,16 @@ class _BiologyDiagramPainter extends CustomPainter {
       );
       canvas
         ..drawCircle(c, 8, bundlePaint)
-        ..drawLine(Offset(c.dx - 3, c.dy - 5), Offset(c.dx - 3, c.dy + 5), _faint)
-        ..drawLine(Offset(c.dx + 3, c.dy - 5), Offset(c.dx + 3, c.dy + 5), _faint);
+        ..drawLine(
+          Offset(c.dx - 3, c.dy - 5),
+          Offset(c.dx - 3, c.dy + 5),
+          _faint,
+        )
+        ..drawLine(
+          Offset(c.dx + 3, c.dy - 5),
+          Offset(c.dx + 3, c.dy + 5),
+          _faint,
+        );
     }
 
     _leaderLabel(
@@ -209,24 +209,39 @@ class _BiologyDiagramPainter extends CustomPainter {
     for (var i = 0; i < 4; i++) {
       final y = size.height * 0.58 + i * 7;
       canvas.drawArc(
-        Rect.fromCenter(center: Offset(golgiX, y), width: 54 - i * 5, height: 16),
+        Rect.fromCenter(
+          center: Offset(golgiX, y),
+          width: 54 - i * 5,
+          height: 16,
+        ),
         math.pi * 0.12,
         math.pi * 0.76,
         false,
         _stroke,
       );
     }
-    _label(canvas, 'Golgi apparatus', Offset(golgiX - 42, size.height * 0.76), 88);
+    _label(
+      canvas,
+      'Golgi apparatus',
+      Offset(golgiX - 42, size.height * 0.76),
+      88,
+    );
 
     final ribosome = Offset(size.width * 0.34, size.height * 0.30);
     canvas.drawCircle(ribosome, 3, Paint()..color = board);
     _label(canvas, 'ribosomes', Offset(ribosome.dx - 26, ribosome.dy - 22), 66);
     _arrow(canvas, ribosome, Offset(rough.left, rough.center.dy), _stroke);
-    _arrow(canvas, Offset(rough.right, rough.center.dy), Offset(golgiX - 28, size.height * 0.62), _stroke);
+    _arrow(
+      canvas,
+      Offset(rough.right, rough.center.dy),
+      Offset(golgiX - 28, size.height * 0.62),
+      _stroke,
+    );
   }
 
   void _paintMetabolismCycle(Canvas canvas, Size size) {
-    final photosynthesis = (spec['photosynthesis']! as Map).cast<String, Object?>();
+    final photosynthesis =
+        (spec['photosynthesis']! as Map).cast<String, Object?>();
     final respiration = (spec['respiration']! as Map).cast<String, Object?>();
     final left = Rect.fromLTWH(18, 46, size.width * 0.34, 92);
     final right = Rect.fromLTWH(size.width * 0.62, 46, size.width * 0.31, 92);
@@ -237,17 +252,79 @@ class _BiologyDiagramPainter extends CustomPainter {
     canvas
       ..drawOval(left, semantic)
       ..drawOval(right, _stroke);
-    _label(canvas, photosynthesis['organelle']! as String, Offset(left.left + 18, left.top + 27), left.width - 36, style: labelStyle.copyWith(color: board), align: TextAlign.center);
-    _label(canvas, 'photosynthesis', Offset(left.left + 14, left.top + 50), left.width - 28, align: TextAlign.center);
-    _label(canvas, respiration['organelle']! as String, Offset(right.left + 12, right.top + 27), right.width - 24, align: TextAlign.center);
-    _label(canvas, 'cellular respiration', Offset(right.left + 6, right.top + 50), right.width - 12, align: TextAlign.center);
+    _label(
+      canvas,
+      photosynthesis['organelle']! as String,
+      Offset(left.left + 18, left.top + 27),
+      left.width - 36,
+      style: labelStyle.copyWith(color: board),
+      align: TextAlign.center,
+    );
+    _label(
+      canvas,
+      'photosynthesis',
+      Offset(left.left + 14, left.top + 50),
+      left.width - 28,
+      align: TextAlign.center,
+    );
+    _label(
+      canvas,
+      respiration['organelle']! as String,
+      Offset(right.left + 12, right.top + 27),
+      right.width - 24,
+      align: TextAlign.center,
+    );
+    _label(
+      canvas,
+      'cellular respiration',
+      Offset(right.left + 6, right.top + 50),
+      right.width - 12,
+      align: TextAlign.center,
+    );
 
-    _arrow(canvas, Offset(left.right, left.center.dy - 16), Offset(right.left, right.center.dy - 16), _stroke);
-    _label(canvas, 'glucose + oxygen', Offset(size.width * 0.38, 50), size.width * 0.22, style: mutedStyle, align: TextAlign.center);
-    _arrow(canvas, Offset(right.left, right.center.dy + 25), Offset(left.right, left.center.dy + 25), _faint);
-    _label(canvas, 'carbon dioxide + water', Offset(size.width * 0.36, 124), size.width * 0.27, style: mutedStyle, align: TextAlign.center);
-    _label(canvas, 'sunlight + carbon dioxide + water', Offset(12, 8), size.width * 0.48, style: mutedStyle);
-    _label(canvas, 'ATP', Offset(right.center.dx - 12, right.bottom + 12), 40, style: labelStyle.copyWith(color: board), align: TextAlign.center);
+    _arrow(
+      canvas,
+      Offset(left.right, left.center.dy - 16),
+      Offset(right.left, right.center.dy - 16),
+      _stroke,
+    );
+    _label(
+      canvas,
+      'glucose + oxygen',
+      Offset(size.width * 0.38, 50),
+      size.width * 0.22,
+      style: mutedStyle,
+      align: TextAlign.center,
+    );
+    _arrow(
+      canvas,
+      Offset(right.left, right.center.dy + 25),
+      Offset(left.right, left.center.dy + 25),
+      _faint,
+    );
+    _label(
+      canvas,
+      'carbon dioxide + water',
+      Offset(size.width * 0.36, 124),
+      size.width * 0.27,
+      style: mutedStyle,
+      align: TextAlign.center,
+    );
+    _label(
+      canvas,
+      'sunlight + carbon dioxide + water',
+      const Offset(12, 8),
+      size.width * 0.48,
+      style: mutedStyle,
+    );
+    _label(
+      canvas,
+      'ATP',
+      Offset(right.center.dx - 12, right.bottom + 12),
+      40,
+      style: labelStyle.copyWith(color: board),
+      align: TextAlign.center,
+    );
   }
 
   void _paintOrganelles(Canvas canvas, Size size) {
@@ -264,11 +341,33 @@ class _BiologyDiagramPainter extends CustomPainter {
     for (var i = 0; i < 4; i++) {
       final x = chloroplast.left + 28 + i * 22;
       canvas
-        ..drawLine(Offset(x, chloroplast.top + 24), Offset(x, chloroplast.bottom - 24), semantic)
-        ..drawLine(Offset(x + 5, chloroplast.top + 28), Offset(x + 5, chloroplast.bottom - 28), semantic);
+        ..drawLine(
+          Offset(x, chloroplast.top + 24),
+          Offset(x, chloroplast.bottom - 24),
+          semantic,
+        )
+        ..drawLine(
+          Offset(x + 5, chloroplast.top + 28),
+          Offset(x + 5, chloroplast.bottom - 28),
+          semantic,
+        );
     }
-    _label(canvas, 'chloroplast', Offset(chloroplast.left, chloroplast.bottom + 9), chloroplast.width, style: labelStyle.copyWith(color: board), align: TextAlign.center);
-    _label(canvas, 'photosynthesis', Offset(chloroplast.left, chloroplast.bottom + 29), chloroplast.width, style: mutedStyle, align: TextAlign.center);
+    _label(
+      canvas,
+      'chloroplast',
+      Offset(chloroplast.left, chloroplast.bottom + 9),
+      chloroplast.width,
+      style: labelStyle.copyWith(color: board),
+      align: TextAlign.center,
+    );
+    _label(
+      canvas,
+      'photosynthesis',
+      Offset(chloroplast.left, chloroplast.bottom + 29),
+      chloroplast.width,
+      style: mutedStyle,
+      align: TextAlign.center,
+    );
 
     final mito = Rect.fromCenter(
       center: Offset(size.width * 0.73, size.height * 0.46),
@@ -284,8 +383,21 @@ class _BiologyDiagramPainter extends CustomPainter {
         ..lineTo(x + 10, mito.center.dy + 18);
     }
     canvas.drawPath(cristae, _stroke);
-    _label(canvas, 'mitochondrion', Offset(mito.left, mito.bottom + 9), mito.width, align: TextAlign.center);
-    _label(canvas, 'cellular respiration', Offset(mito.left, mito.bottom + 29), mito.width, style: mutedStyle, align: TextAlign.center);
+    _label(
+      canvas,
+      'mitochondrion',
+      Offset(mito.left, mito.bottom + 9),
+      mito.width,
+      align: TextAlign.center,
+    );
+    _label(
+      canvas,
+      'cellular respiration',
+      Offset(mito.left, mito.bottom + 29),
+      mito.width,
+      style: mutedStyle,
+      align: TextAlign.center,
+    );
   }
 
   void _paintMitosis(Canvas canvas, Size size) {
@@ -298,14 +410,30 @@ class _BiologyDiagramPainter extends CustomPainter {
         for (var j = 0; j < 3; j++) {
           final x = center.dx - 12 + j * 12;
           canvas
-            ..drawLine(Offset(x - 5, center.dy - 9), Offset(x + 5, center.dy + 9), _stroke)
-            ..drawLine(Offset(x + 5, center.dy - 9), Offset(x - 5, center.dy + 9), _stroke);
+            ..drawLine(
+              Offset(x - 5, center.dy - 9),
+              Offset(x + 5, center.dy + 9),
+              _stroke,
+            )
+            ..drawLine(
+              Offset(x + 5, center.dy - 9),
+              Offset(x - 5, center.dy + 9),
+              _stroke,
+            );
         }
       } else if (i == 1) {
         for (var j = -1; j <= 1; j++) {
           canvas
-            ..drawLine(Offset(center.dx - 6, center.dy + j * 12 - 6), Offset(center.dx + 6, center.dy + j * 12 + 6), _stroke)
-            ..drawLine(Offset(center.dx + 6, center.dy + j * 12 - 6), Offset(center.dx - 6, center.dy + j * 12 + 6), _stroke);
+            ..drawLine(
+              Offset(center.dx - 6, center.dy + j * 12 - 6),
+              Offset(center.dx + 6, center.dy + j * 12 + 6),
+              _stroke,
+            )
+            ..drawLine(
+              Offset(center.dx + 6, center.dy + j * 12 - 6),
+              Offset(center.dx - 6, center.dy + j * 12 + 6),
+              _stroke,
+            );
         }
       } else if (i == 2) {
         for (final side in <double>[-1, 1]) {
@@ -322,8 +450,22 @@ class _BiologyDiagramPainter extends CustomPainter {
           ..drawCircle(Offset(center.dx - 15, center.dy), 13, _faint)
           ..drawCircle(Offset(center.dx + 15, center.dy), 13, _faint);
       }
-      _label(canvas, stages[i]['phase']! as String, Offset(slot * i + 2, 133), slot - 4, align: TextAlign.center);
-      _label(canvas, stages[i]['state']! as String, Offset(slot * i + 3, 153), slot - 6, style: mutedStyle, align: TextAlign.center, maxLines: 3);
+      _label(
+        canvas,
+        stages[i]['phase']! as String,
+        Offset(slot * i + 2, 133),
+        slot - 4,
+        align: TextAlign.center,
+      );
+      _label(
+        canvas,
+        stages[i]['state']! as String,
+        Offset(slot * i + 3, 153),
+        slot - 6,
+        style: mutedStyle,
+        align: TextAlign.center,
+        maxLines: 3,
+      );
     }
   }
 
@@ -336,11 +478,20 @@ class _BiologyDiagramPainter extends CustomPainter {
     for (var i = 0; i < levels.length; i++) {
       final fromBottom = i;
       final t = fromBottom / (levels.length - 1);
-      final width = size.width * (baseWidthFactor + (topWidthFactor - baseWidthFactor) * t);
+      final width = size.width *
+          (baseWidthFactor + (topWidthFactor - baseWidthFactor) * t);
       final y = size.height - 12 - levelHeight * (i + 1);
-      final rect = Rect.fromLTWH(centerX - width / 2, y, width, levelHeight - 3);
+      final rect =
+          Rect.fromLTWH(centerX - width / 2, y, width, levelHeight - 3);
       canvas.drawRect(rect, i == 0 ? _stroke : _faint);
-      _label(canvas, '${levels[i]['label']}  ${levels[i]['energy']}', Offset(rect.left + 4, rect.center.dy - 8), rect.width - 8, style: i == 0 ? labelStyle.copyWith(color: board) : labelStyle, align: TextAlign.center);
+      _label(
+        canvas,
+        '${levels[i]['label']}  ${levels[i]['energy']}',
+        Offset(rect.left + 4, rect.center.dy - 8),
+        rect.width - 8,
+        style: i == 0 ? labelStyle.copyWith(color: board) : labelStyle,
+        align: TextAlign.center,
+      );
     }
   }
 
@@ -349,13 +500,21 @@ class _BiologyDiagramPainter extends CustomPainter {
     final slot = size.width / generations;
     for (var generation = 0; generation < generations; generation++) {
       final x = slot * (generation + 0.5);
-      _label(canvas, 'generation ${generation + 1}', Offset(slot * generation + 2, 10), slot - 4, style: mutedStyle, align: TextAlign.center);
+      _label(
+        canvas,
+        'generation ${generation + 1}',
+        Offset(slot * generation + 2, 10),
+        slot - 4,
+        style: mutedStyle,
+        align: TextAlign.center,
+      );
       final preferredBeak = 9.0 + generation * 5;
       for (var bird = 0; bird < 3; bird++) {
         final y = 60.0 + bird * 42;
         final head = Offset(x - 8, y);
         canvas.drawCircle(head, 9, _stroke);
-        final beakLength = bird == 2 ? math.max(5.0, 12 - generation * 3) : preferredBeak;
+        final beakLength =
+            bird == 2 ? math.max(5.0, 12 - generation * 3) : preferredBeak;
         final beak = Path()
           ..moveTo(head.dx + 8, head.dy - 4)
           ..lineTo(head.dx + 8 + beakLength, head.dy)
@@ -363,11 +522,22 @@ class _BiologyDiagramPainter extends CustomPainter {
           ..close();
         canvas.drawPath(beak, _stroke);
         if (bird == 2 && generation == 2) {
-          canvas.drawLine(Offset(head.dx - 12, head.dy - 12), Offset(head.dx + 16, head.dy + 12), _faint);
+          canvas.drawLine(
+            Offset(head.dx - 12, head.dy - 12),
+            Offset(head.dx + 16, head.dy + 12),
+            _faint,
+          );
         }
       }
     }
-    _label(canvas, spec['selection']! as String, const Offset(14, 184), size.width - 28, style: mutedStyle, align: TextAlign.center);
+    _label(
+      canvas,
+      spec['selection']! as String,
+      const Offset(14, 184),
+      size.width - 28,
+      style: mutedStyle,
+      align: TextAlign.center,
+    );
   }
 
   void _paintHeart(Canvas canvas, Size size) {
@@ -375,8 +545,8 @@ class _BiologyDiagramPainter extends CustomPainter {
     const chamberHeight = 54.0;
     final left = size.width * 0.28;
     final right = size.width * 0.52;
-    final top = 35.0;
-    final bottom = 101.0;
+    const top = 35.0;
+    const bottom = 101.0;
     final chambers = <Rect>[
       Rect.fromLTWH(left, top, chamberWidth, chamberHeight),
       Rect.fromLTWH(right, top, chamberWidth, chamberHeight),
@@ -386,16 +556,46 @@ class _BiologyDiagramPainter extends CustomPainter {
     final labels = _stringList(spec['chambers'])!;
     for (var i = 0; i < chambers.length; i++) {
       canvas.drawRect(chambers[i], _stroke);
-      _label(canvas, labels[i], Offset(chambers[i].left + 2, chambers[i].center.dy - 8), chambers[i].width - 4, align: TextAlign.center);
+      _label(
+        canvas,
+        labels[i],
+        Offset(chambers[i].left + 2, chambers[i].center.dy - 8),
+        chambers[i].width - 4,
+        align: TextAlign.center,
+      );
     }
     _arrow(canvas, chambers[0].bottomCenter, chambers[2].topCenter, _faint);
     _arrow(canvas, chambers[1].bottomCenter, chambers[3].topCenter, _faint);
 
     final flows = _mapList(spec['flows'])!;
-    _label(canvas, '${flows[0]['label']} → ${flows[0]['destination']}', const Offset(8, 52), size.width * 0.24, style: mutedStyle, align: TextAlign.center);
-    _label(canvas, '${flows[1]['label']} → ${flows[1]['destination']}', Offset(size.width * 0.76, 52), size.width * 0.22, style: mutedStyle, align: TextAlign.center);
-    _arrow(canvas, chambers[2].centerLeft, Offset(size.width * 0.20, chambers[2].center.dy), _stroke);
-    _arrow(canvas, chambers[3].centerRight, Offset(size.width * 0.82, chambers[3].center.dy), _stroke);
+    _label(
+      canvas,
+      '${flows[0]['label']} → ${flows[0]['destination']}',
+      const Offset(8, 52),
+      size.width * 0.24,
+      style: mutedStyle,
+      align: TextAlign.center,
+    );
+    _label(
+      canvas,
+      '${flows[1]['label']} → ${flows[1]['destination']}',
+      Offset(size.width * 0.76, 52),
+      size.width * 0.22,
+      style: mutedStyle,
+      align: TextAlign.center,
+    );
+    _arrow(
+      canvas,
+      chambers[2].centerLeft,
+      Offset(size.width * 0.20, chambers[2].center.dy),
+      _stroke,
+    );
+    _arrow(
+      canvas,
+      chambers[3].centerRight,
+      Offset(size.width * 0.82, chambers[3].center.dy),
+      _stroke,
+    );
   }
 
   void _leaderLabel(Canvas canvas, String text, Offset from, Offset labelAt) {
@@ -426,13 +626,14 @@ class _BiologyDiagramPainter extends CustomPainter {
     TextAlign align = TextAlign.left,
     int maxLines = 2,
   }) {
-    final painter = TextPainter(
+    TextPainter(
       text: TextSpan(text: text, style: style ?? labelStyle),
       textDirection: TextDirection.ltr,
       textAlign: align,
       maxLines: maxLines,
-    )..layout(maxWidth: width);
-    painter.paint(canvas, offset);
+    )
+      ..layout(maxWidth: width)
+      ..paint(canvas, offset);
   }
 
   @override
@@ -470,13 +671,16 @@ bool _validCellProteinFlow(Map<String, Object?> spec) {
   const expectedFlow = <String>['ribosomes', 'rough ER', 'Golgi apparatus'];
   final labels = _stringList(spec['labels']);
   final flow = _stringList(spec['proteinFlow']);
-  return _sameStrings(labels, expectedLabels) && _sameStrings(flow, expectedFlow);
+  return _sameStrings(labels, expectedLabels) &&
+      _sameStrings(flow, expectedFlow);
 }
 
 bool _validMetabolismCycle(Map<String, Object?> spec) {
   final photosynthesis = _stringObjectMap(spec['photosynthesis']);
   final respiration = _stringObjectMap(spec['respiration']);
-  if (photosynthesis == null || respiration == null || spec['loopsBack'] != true) {
+  if (photosynthesis == null ||
+      respiration == null ||
+      spec['loopsBack'] != true) {
     return false;
   }
   return photosynthesis['organelle'] == 'chloroplast' &&
@@ -551,7 +755,8 @@ bool _validEnergyPyramid(Map<String, Object?> spec) {
 bool _validNaturalSelection(Map<String, Object?> spec) {
   return spec['generations'] == 3 &&
       spec['trait'] == 'beak shape' &&
-      spec['selection'] == 'better match to available food becomes more common' &&
+      spec['selection'] ==
+          'better match to available food becomes more common' &&
       spec['lessSuited'] == 'rarer over time';
 }
 
@@ -578,7 +783,8 @@ bool _hasIllustrationKey(Map<String, Object?> spec) {
   return key is String && key.trim().isNotEmpty;
 }
 
-bool _nonEmptyString(Object? value) => value is String && value.trim().isNotEmpty;
+bool _nonEmptyString(Object? value) =>
+    value is String && value.trim().isNotEmpty;
 
 Map<String, Object?>? _stringObjectMap(Object? value) {
   if (value is! Map) return null;

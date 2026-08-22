@@ -30,7 +30,9 @@ class PhysicsEnergyDiagramFigure extends StatelessWidget {
     final type = spec['type'];
     final illustrationKey = spec['illustrationKey'];
     if (type is! String || !_types.contains(type)) return null;
-    if (illustrationKey is! String || illustrationKey.trim().isEmpty) return null;
+    if (illustrationKey is! String || illustrationKey.trim().isEmpty) {
+      return null;
+    }
 
     final valid = switch (type) {
       'electric-field-pairs' => _validElectricFieldPairs(spec),
@@ -420,10 +422,11 @@ class _PhysicsEnergyPainter extends CustomPainter {
     final bottom = rect.bottom - 18;
     final left = rect.left + 18;
     final right = rect.right - 18;
-    canvas.drawLine(Offset(left, top), Offset(right, top), _stroke);
-    canvas.drawLine(Offset(right, top), Offset(right, bottom), _stroke);
-    canvas.drawLine(Offset(right, bottom), Offset(left, bottom), _stroke);
-    canvas.drawLine(Offset(left, bottom), Offset(left, top), _stroke);
+    canvas
+      ..drawLine(Offset(left, top), Offset(right, top), _stroke)
+      ..drawLine(Offset(right, top), Offset(right, bottom), _stroke)
+      ..drawLine(Offset(right, bottom), Offset(left, bottom), _stroke)
+      ..drawLine(Offset(left, bottom), Offset(left, top), _stroke);
     _battery(canvas, Offset(left, rect.center.dy));
     final bulb1 = Offset(rect.center.dx - 35, top);
     final bulb2 = Offset(rect.center.dx + 35, top);
@@ -440,15 +443,17 @@ class _PhysicsEnergyPainter extends CustomPainter {
     final bottom = rect.bottom - 18;
     final left = rect.left + 18;
     final right = rect.right - 18;
-    canvas.drawLine(Offset(left, top), Offset(right, top), _stroke);
-    canvas.drawLine(Offset(right, top), Offset(right, bottom), _stroke);
-    canvas.drawLine(Offset(right, bottom), Offset(left, bottom), _stroke);
-    canvas.drawLine(Offset(left, bottom), Offset(left, top), _stroke);
+    canvas
+      ..drawLine(Offset(left, top), Offset(right, top), _stroke)
+      ..drawLine(Offset(right, top), Offset(right, bottom), _stroke)
+      ..drawLine(Offset(right, bottom), Offset(left, bottom), _stroke)
+      ..drawLine(Offset(left, bottom), Offset(left, top), _stroke);
     _battery(canvas, Offset(left, rect.center.dy));
     final branch1 = rect.center.dx - 28;
     final branch2 = rect.center.dx + 28;
-    canvas.drawLine(Offset(branch1, top), Offset(branch1, bottom), _stroke);
-    canvas.drawLine(Offset(branch2, top), Offset(branch2, bottom), _stroke);
+    canvas
+      ..drawLine(Offset(branch1, top), Offset(branch1, bottom), _stroke)
+      ..drawLine(Offset(branch2, top), Offset(branch2, bottom), _stroke);
     _bulb(
       canvas,
       Offset(branch1, rect.center.dy),
@@ -471,8 +476,9 @@ class _PhysicsEnergyPainter extends CustomPainter {
       width: 92,
       height: 28,
     );
-    canvas.drawRect(resistor, _fill);
-    canvas.drawRect(resistor, _stroke);
+    canvas
+      ..drawRect(resistor, _fill)
+      ..drawRect(resistor, _stroke);
     _text(
       canvas,
       '10 Ω resistor',
@@ -833,8 +839,9 @@ class _PhysicsEnergyPainter extends CustomPainter {
   }
 
   void _charge(Canvas canvas, Offset center, String symbol) {
-    canvas.drawCircle(center, 18, _fill);
-    canvas.drawCircle(center, 18, _stroke);
+    canvas
+      ..drawCircle(center, 18, _fill)
+      ..drawCircle(center, 18, _stroke);
     _text(
       canvas,
       symbol,
@@ -844,23 +851,24 @@ class _PhysicsEnergyPainter extends CustomPainter {
   }
 
   void _battery(Canvas canvas, Offset center) {
-    canvas.drawLine(
-      center + const Offset(-8, -18),
-      center + const Offset(-8, 18),
-      Paint()
-        ..color = background
-        ..strokeWidth = 5,
-    );
-    canvas.drawLine(
-      center + const Offset(-8, -15),
-      center + const Offset(-8, 15),
-      _stroke,
-    );
-    canvas.drawLine(
-      center + const Offset(8, -9),
-      center + const Offset(8, 9),
-      _stroke,
-    );
+    canvas
+      ..drawLine(
+        center + const Offset(-8, -18),
+        center + const Offset(-8, 18),
+        Paint()
+          ..color = background
+          ..strokeWidth = 5,
+      )
+      ..drawLine(
+        center + const Offset(-8, -15),
+        center + const Offset(-8, 15),
+        _stroke,
+      )
+      ..drawLine(
+        center + const Offset(8, -9),
+        center + const Offset(8, 9),
+        _stroke,
+      );
   }
 
   void _bulb(
@@ -875,18 +883,19 @@ class _PhysicsEnergyPainter extends CustomPainter {
           ..style = PaintingStyle.stroke
           ..strokeWidth = 1.2)
         : _stroke;
-    canvas.drawCircle(center, 13, _fill);
-    canvas.drawCircle(center, 13, paint);
-    canvas.drawLine(
-      center + const Offset(-7, -7),
-      center + const Offset(7, 7),
-      paint,
-    );
-    canvas.drawLine(
-      center + const Offset(-7, 7),
-      center + const Offset(7, -7),
-      paint,
-    );
+    canvas
+      ..drawCircle(center, 13, _fill)
+      ..drawCircle(center, 13, paint)
+      ..drawLine(
+        center + const Offset(-7, -7),
+        center + const Offset(7, 7),
+        paint,
+      )
+      ..drawLine(
+        center + const Offset(-7, 7),
+        center + const Offset(7, -7),
+        paint,
+      );
     if (crossed) {
       canvas.drawLine(
         center + const Offset(-17, -17),
@@ -898,39 +907,40 @@ class _PhysicsEnergyPainter extends CustomPainter {
 
   void _ambulance(Canvas canvas, Offset center) {
     final body = Rect.fromCenter(center: center, width: 82, height: 38);
-    canvas.drawRect(body, _stroke);
     final cab = Rect.fromLTWH(body.right - 24, body.top - 12, 24, 18);
-    canvas.drawRect(cab, _stroke);
-    canvas.drawCircle(
-      body.bottomLeft + const Offset(17, 4),
-      8,
-      _fill,
-    );
-    canvas.drawCircle(
-      body.bottomLeft + const Offset(17, 4),
-      8,
-      _stroke,
-    );
-    canvas.drawCircle(
-      body.bottomRight + const Offset(-17, 4),
-      8,
-      _fill,
-    );
-    canvas.drawCircle(
-      body.bottomRight + const Offset(-17, 4),
-      8,
-      _stroke,
-    );
-    canvas.drawLine(
-      center + const Offset(-7, -9),
-      center + const Offset(7, -9),
-      _stroke,
-    );
-    canvas.drawLine(
-      center + const Offset(0, -16),
-      center + const Offset(0, -2),
-      _stroke,
-    );
+    canvas
+      ..drawRect(body, _stroke)
+      ..drawRect(cab, _stroke)
+      ..drawCircle(
+        body.bottomLeft + const Offset(17, 4),
+        8,
+        _fill,
+      )
+      ..drawCircle(
+        body.bottomLeft + const Offset(17, 4),
+        8,
+        _stroke,
+      )
+      ..drawCircle(
+        body.bottomRight + const Offset(-17, 4),
+        8,
+        _fill,
+      )
+      ..drawCircle(
+        body.bottomRight + const Offset(-17, 4),
+        8,
+        _stroke,
+      )
+      ..drawLine(
+        center + const Offset(-7, -9),
+        center + const Offset(7, -9),
+        _stroke,
+      )
+      ..drawLine(
+        center + const Offset(0, -16),
+        center + const Offset(0, -2),
+        _stroke,
+      );
   }
 
   void _flame(Canvas canvas, Offset center) {
@@ -957,8 +967,9 @@ class _PhysicsEnergyPainter extends CustomPainter {
   }
 
   void _sun(Canvas canvas, Offset center, double radius) {
-    canvas.drawCircle(center, radius, _fill);
-    canvas.drawCircle(center, radius, _stroke);
+    canvas
+      ..drawCircle(center, radius, _fill)
+      ..drawCircle(center, radius, _stroke);
     for (var i = 0; i < 8; i++) {
       final angle = i * math.pi / 4;
       canvas.drawLine(
@@ -970,15 +981,16 @@ class _PhysicsEnergyPainter extends CustomPainter {
   }
 
   void _earth(Canvas canvas, Offset center, double radius) {
-    canvas.drawCircle(center, radius, _fill);
-    canvas.drawCircle(center, radius, _stroke);
-    canvas.drawArc(
-      Rect.fromCircle(center: center, radius: radius * .6),
-      -.8,
-      1.7,
-      false,
-      _faintStroke,
-    );
+    canvas
+      ..drawCircle(center, radius, _fill)
+      ..drawCircle(center, radius, _stroke)
+      ..drawArc(
+        Rect.fromCircle(center: center, radius: radius * .6),
+        -.8,
+        1.7,
+        false,
+        _faintStroke,
+      );
   }
 
   void _wavyArrow(Canvas canvas, Offset from, Offset to) {
@@ -987,9 +999,7 @@ class _PhysicsEnergyPainter extends CustomPainter {
     for (var i = 1; i <= waves * 2; i++) {
       final t = i / (waves * 2);
       final x = from.dx + (to.dx - from.dx) * t;
-      final y = from.dy +
-          (to.dy - from.dy) * t +
-          (i.isEven ? -4 : 4);
+      final y = from.dy + (to.dy - from.dy) * t + (i.isEven ? -4 : 4);
       path.lineTo(x, y);
     }
     path.lineTo(to.dx, to.dy);
@@ -1012,16 +1022,17 @@ class _PhysicsEnergyPainter extends CustomPainter {
 
   void _arrowHead(Canvas canvas, Offset to, double angle) {
     const head = 7.0;
-    canvas.drawLine(
-      to,
-      to - Offset(math.cos(angle - .55), math.sin(angle - .55)) * head,
-      _stroke,
-    );
-    canvas.drawLine(
-      to,
-      to - Offset(math.cos(angle + .55), math.sin(angle + .55)) * head,
-      _stroke,
-    );
+    canvas
+      ..drawLine(
+        to,
+        to - Offset(math.cos(angle - .55), math.sin(angle - .55)) * head,
+        _stroke,
+      )
+      ..drawLine(
+        to,
+        to - Offset(math.cos(angle + .55), math.sin(angle + .55)) * head,
+        _stroke,
+      );
   }
 
   void _arcArrow(Canvas canvas, Rect rect, double start, double sweep) {
