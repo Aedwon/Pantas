@@ -1604,7 +1604,8 @@ void main() {
     }
   });
 
-  testWidgets('recognized geometry type with missing or empty labels shows '
+  testWidgets(
+      'recognized geometry type with missing or empty labels shows '
       'missing figure state', (tester) async {
     const invalidSpecs = <Map<String, Object?>>[
       {'kind': 'geometry-diagram', 'type': 'triangle'},
