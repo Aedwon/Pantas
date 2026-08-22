@@ -23,7 +23,7 @@ To find an actual number of years, scientists use **radiometric dating**. Certai
 
 By measuring how much of the original radioactive element remains in a rock, compared to how much of the stable decayed element has built up, scientists can calculate how many half-lives have passed, and therefore the rock's actual age in years.
 
-<!-- ILLUSTRATION: bar showing a sample halving repeatedly across three half-life steps, from all radioactive parent material down to one-eighth remaining, with the rest converted to stable daughter material -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"half-life-halving","illustrationKey":"science/earth-science-astronomy/fossils-and-geologic-time#1","halfLifeSteps":3,"parentFractions":["1","1/2","1/4","1/8"],"daughterMaterial":"stable remainder"} -->
 
 ### The Geologic Time Scale
 
@@ -41,7 +41,7 @@ The largest chunk of Earth's history, called the **Precambrian**, covers roughly
 
 A rock cliff shows four visible layers, labeled W, X, Y, and Z from bottom to top, with no signs of disturbance. Which layer is the oldest, and which is the youngest?
 
-<!-- ILLUSTRATION: a rock cliff cross-section with four horizontal layers stacked and labeled bottom to top W, X, Y, Z; W (bottom) marked oldest and Z (top) marked youngest -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"stratigraphy-stack","illustrationKey":"science/earth-science-astronomy/fossils-and-geologic-time#2","layersBottomToTop":["W","X","Y","Z"],"oldest":"W","youngest":"Z"} -->
 
 
 **Solution:**
@@ -66,7 +66,7 @@ Connect the rock layer's age to the fossil trapped inside it.
 
 A radioactive element has a half-life of $1$ billion years. A rock sample originally contained a certain amount of this element, and now only one-quarter of that original amount remains (the rest has decayed into a stable element). How old is the rock?
 
-<!-- ILLUSTRATION: a decay curve (or bar steps) showing the parent element halving each billion years: 100% → 50% (1 half-life) → 25% (2 half-lives) → so one-quarter remaining means 2 billion years -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"half-life-billion-years","illustrationKey":"science/earth-science-astronomy/fossils-and-geologic-time#3","parentPercentages":[100,50,25],"halfLife":"1 billion years","halfLifeLabels":["1 half-life","2 half-lives"],"result":"2 billion years"} -->
 
 
 **Solution:**
