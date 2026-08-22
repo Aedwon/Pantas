@@ -47,7 +47,7 @@ jobs:
           if (count('founder') !== 3) throw new Error(`Expected 3 founder items, got ${count('founder')}`);
           NODE
 
-      - name: Local server API smoke test
+      - name: Local server and author-mode smoke test
         run: |
           node server.mjs --no-open > /tmp/lesson-author.log 2>&1 &
           server_pid=$!
@@ -58,8 +58,43 @@ jobs:
             fi
             sleep 0.5
           done
+          curl --fail --silent http://127.0.0.1:4321/api/lessons > /tmp/lessons.json
           node --input-type=module <<'NODE'
           import { readFile } from 'node:fs/promises';
-          const payload = JSON.parse(await readFile('/tmp/illustrations.json', 'utf8'));
-          if (payload.items?.length !== 59) throw new Error('Server catalog did not return 59 items.');
+          const illustrations = JSON.parse(await readFile('/tmp/illustrations.json', 'utf8'));
+          const lessons = JSON.parse(await readFile('/tmp/lessons.json', 'utf8'));
+          if (illustrations.items?.length !== 59) throw new Error('Server catalog did not return 59 items.');
+          if (!lessons || typeof lessons !== 'object' || Array.isArray(lessons)) throw new Error('Author-mode lesson list is invalid.');
           NODE
+          kill "$server_pid"
+          wait "$server_pid" 2>/dev/null || true
+          trap - EXIT
+
+      - name: Concurrent preview rebuild is rejected
+        run: |
+          mkdir -p /tmp/fake-flutter-bin
+          cat > /tmp/fake-flutter-bin/flutter <<'SH'
+          #!/bin/sh
+          sleep 2
+          exit 0
+          SH
+          chmod +x /tmp/fake-flutter-bin/flutter
+          PATH="/tmp/fake-flutter-bin:$PATH" node server.mjs --no-open > /tmp/lesson-author-rebuild.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for attempt in $(seq 1 20); do
+            if curl --fail --silent http://127.0.0.1:4321/api/illustrations > /dev/null; then
+              break
+            fi
+            sleep 0.25
+          done
+          curl --silent --output /tmp/first-rebuild.json --write-out '%{http_code}' \
+            --request POST http://127.0.0.1:4321/api/illustration-previews/rebuild \
+            > /tmp/first-rebuild-code &
+          first_pid=$!
+          sleep 0.25
+          second_code="$(curl --silent --output /tmp/second-rebuild.json --write-out '%{http_code}' \
+            --request POST http://127.0.0.1:4321/api/illustration-previews/rebuild)"
+          wait "$first_pid"
+          test "$second_code" = 409
+          test "$(cat /tmp/first-rebuild-code)" = 200
