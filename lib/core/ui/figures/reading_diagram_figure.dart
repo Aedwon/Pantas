@@ -19,38 +19,12 @@ class ReadingDiagramFigure extends StatelessWidget {
     final type = spec['type'];
     if (type is! String) return null;
 
-    switch (type) {
-      case 'plot-arc':
-        final stages = _stringList(spec['stages']);
-        if (spec['shape'] != 'rise-peak-fall' ||
-            stages == null ||
-            stages.length != 4 ||
-            stages[0] != 'introduction' ||
-            stages[1] != 'rising action' ||
-            stages[2] != 'climax' ||
-            stages[3] != 'resolution') {
-          return null;
-        }
-      case 'rhetorical-appeals':
-        if (spec['source'] != 'podium' || spec['target'] != 'audience') {
-          return null;
-        }
-        final appeals = _mapList(spec['appeals']);
-        if (appeals == null || appeals.length != 3) return null;
-        const expected = <(String, String)>[
-          ('ethos', 'credibility'),
-          ('pathos', 'emotion'),
-          ('logos', 'logic'),
-        ];
-        for (var i = 0; i < expected.length; i++) {
-          if (appeals[i]['label'] != expected[i].$1 ||
-              appeals[i]['meaning'] != expected[i].$2) {
-            return null;
-          }
-        }
-      default:
-        return null;
-    }
+    final valid = switch (type) {
+      'plot-arc' => _validPlotArc(spec),
+      'rhetorical-appeals' => _validRhetoricalAppeals(spec),
+      _ => false,
+    };
+    if (!valid) return null;
 
     return ReadingDiagramFigure._(
       type: type,
@@ -108,8 +82,10 @@ class _ReadingDiagramPainter extends CustomPainter {
     switch (type) {
       case 'plot-arc':
         _paintPlotArc(canvas, size);
+        break;
       case 'rhetorical-appeals':
         _paintRhetoricalAppeals(canvas, size);
+        break;
     }
   }
 
@@ -150,7 +126,9 @@ class _ReadingDiagramPainter extends CustomPainter {
     for (var i = 0; i < points.length; i++) {
       canvas.drawCircle(points[i], 4, point);
       final width = i == 1 ? 88.0 : 72.0;
-      final x = (points[i].dx - width / 2).clamp(2.0, size.width - width - 2);
+      final x = (points[i].dx - width / 2)
+          .clamp(2.0, size.width - width - 2)
+          .toDouble();
       _label(
         canvas,
         stages[i],
@@ -292,9 +270,44 @@ class _ReadingDiagramPainter extends CustomPainter {
     return oldDelegate.type != type ||
         oldDelegate.spec.toString() != spec.toString() ||
         oldDelegate.ink != ink ||
+        oldDelegate.inkMuted != inkMuted ||
         oldDelegate.rule != rule ||
         oldDelegate.board != board;
   }
+}
+
+bool _validPlotArc(Map<String, Object?> spec) {
+  final stages = _stringList(spec['stages']);
+  return spec['shape'] == 'rise-peak-fall' &&
+      _sameStrings(
+        stages,
+        const <String>[
+          'introduction',
+          'rising action',
+          'climax',
+          'resolution',
+        ],
+      );
+}
+
+bool _validRhetoricalAppeals(Map<String, Object?> spec) {
+  if (spec['source'] != 'podium' || spec['target'] != 'audience') {
+    return false;
+  }
+  final appeals = _mapList(spec['appeals']);
+  if (appeals == null || appeals.length != 3) return false;
+  const expected = <(String, String)>[
+    ('ethos', 'credibility'),
+    ('pathos', 'emotion'),
+    ('logos', 'logic'),
+  ];
+  for (var i = 0; i < expected.length; i++) {
+    if (appeals[i]['label'] != expected[i].$1 ||
+        appeals[i]['meaning'] != expected[i].$2) {
+      return false;
+    }
+  }
+  return true;
 }
 
 bool _hasIllustrationKey(Map<String, Object?> spec) {
@@ -317,7 +330,18 @@ List<Map<String, Object?>>? _mapList(Object? value) {
   final result = <Map<String, Object?>>[];
   for (final item in value) {
     if (item is! Map) return null;
+    for (final key in item.keys) {
+      if (key is! String) return null;
+    }
     result.add(item.cast<String, Object?>());
   }
   return result;
+}
+
+bool _sameStrings(List<String>? actual, List<String> expected) {
+  if (actual == null || actual.length != expected.length) return false;
+  for (var i = 0; i < expected.length; i++) {
+    if (actual[i] != expected[i]) return false;
+  }
+  return true;
 }
