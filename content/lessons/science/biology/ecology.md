@@ -25,7 +25,7 @@ A **food web** is a more realistic, interconnected network showing many overlapp
 
 Each step in a food chain is called a **trophic level**: **producers** (plants, which make their own food through photosynynthesis) form the first level; **primary consumers** (herbivores that eat producers) form the second; **secondary consumers** (carnivores that eat herbivores) form the third; and **tertiary consumers** (top predators) form the top level.
 
-<!-- ILLUSTRATION: energy pyramid with four stacked levels shrinking in size upward, labeled producers, primary consumers, secondary consumers, tertiary consumers, with 100%, 10%, 1%, 0.1% energy amounts shown at each level -->
+<!-- FIGURE: {"kind":"biology-diagram","type":"energy-pyramid","illustrationKey":"science/biology/ecology#1","levels":[{"label":"producers","energy":"100%"},{"label":"primary consumers","energy":"10%"},{"label":"secondary consumers","energy":"1%"},{"label":"tertiary consumers","energy":"0.1%"}]} -->
 
 Energy is lost at each step, mostly as heat from normal living activities. Only about $10\%$ of the energy at one trophic level gets passed on to the next level (the "$10\%$ rule"); the other $90\%$ is used up or lost. This is why an **energy pyramid** gets much smaller at each higher level, and why food chains rarely have more than four or five levels.
 
