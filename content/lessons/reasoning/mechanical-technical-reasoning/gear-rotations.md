@@ -47,7 +47,7 @@ Five gears are connected in a row, each meshing with its neighbor. The first gea
 
 A small gear with $10$ teeth meshes with a large gear with $30$ teeth. If the small gear completes $6$ full rotations, how many full rotations does the large gear complete?
 
-<!-- FIGURE: {"kind": "gear-train", "gears": 2, "firstTurns": "clockwise", "teeth": [10, 30], "semanticsLabel": "A small 10-tooth gear meshing with a large 30-tooth gear, where the small gear turns 6 times while the large gear turns 2 times."} -->
+<!-- FIGURE: {"kind": "gear-train", "gears": 2, "showFirstTurn": false, "teeth": [10, 30], "semanticsLabel": "A small 10-tooth gear meshing with a large 30-tooth gear, where the small gear turns 6 times while the large gear turns 2 times."} -->
 
 
 **Solution:**
@@ -60,7 +60,7 @@ A small gear with $10$ teeth meshes with a large gear with $30$ teeth. If the sm
 
 A central gear meshes with three other gears arranged around it (like spokes), each of those three also meshing only with the central gear (not with each other). If the central gear turns clockwise, what direction do all three outer gears turn?
 
-<!-- FIGURE: {"kind": "gear-train", "gears": 4, "firstTurns": "clockwise", "semanticsLabel": "A central gear turning clockwise meshing separately with three outer gears arranged like spokes, all turning counter-clockwise."} -->
+<!-- FIGURE: {"kind": "gear-train", "gears": 4, "firstTurns": "clockwise", "layout": "spokes", "semanticsLabel": "A central gear turning clockwise meshing separately with three outer gears arranged like spokes, all turning counter-clockwise."} -->
 
 
 **Solution:**

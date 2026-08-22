@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
@@ -32,6 +33,7 @@ class GearTrainFigure extends StatelessWidget {
   const GearTrainFigure({
     required this.gears,
     required this.firstTurnsClockwise,
+    required this.layout,
     this.teeth,
     super.key,
   });
@@ -39,7 +41,8 @@ class GearTrainFigure extends StatelessWidget {
   static const kind = 'gear-train';
 
   final int gears;
-  final bool firstTurnsClockwise;
+  final bool? firstTurnsClockwise;
+  final String layout;
 
   /// Relative sizes. Null draws them all the same.
   final List<int>? teeth;
@@ -47,15 +50,29 @@ class GearTrainFigure extends StatelessWidget {
   /// Null when the spec cannot be read. The caller draws the missing box.
   static GearTrainFigure? fromSpec(Map<String, Object?> spec) {
     final count = spec['gears'];
-    final turns = spec['firstTurns'];
     if (count is! int || count < 2 || count > 8) return null;
-    if (turns is! String) return null;
-    final clockwise = switch (turns) {
-      'clockwise' => true,
-      'counter-clockwise' => false,
-      _ => null,
-    };
-    if (clockwise == null) return null;
+
+    final layout = spec['layout'] ?? 'row';
+    if (layout is! String || (layout != 'row' && layout != 'spokes')) {
+      return null;
+    }
+    if (layout == 'spokes' && count < 3) return null;
+
+    final showFirstTurn = spec['showFirstTurn'] ?? true;
+    if (showFirstTurn is! bool) return null;
+    final turns = spec['firstTurns'];
+    bool? clockwise;
+    if (showFirstTurn) {
+      if (turns is! String) return null;
+      clockwise = switch (turns) {
+        'clockwise' => true,
+        'counter-clockwise' => false,
+        _ => null,
+      };
+      if (clockwise == null) return null;
+    } else if (turns != null) {
+      return null;
+    }
 
     final rawTeeth = spec['teeth'];
     List<int>? teeth;
@@ -71,6 +88,7 @@ class GearTrainFigure extends StatelessWidget {
     return GearTrainFigure(
       gears: count,
       firstTurnsClockwise: clockwise,
+      layout: layout,
       teeth: teeth,
     );
   }
@@ -78,15 +96,23 @@ class GearTrainFigure extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
+    final arrangement = layout == 'spokes'
+        ? 'One center gear with ${gears - 1} gears around it.'
+        : 'A row of $gears gears, each meshing with the next.';
+    final direction = switch (firstTurnsClockwise) {
+      true => ' The first turns clockwise.',
+      false => ' The first turns counter-clockwise.',
+      null => '',
+    };
     return Semantics(
-      label: 'A row of $gears gears, each meshing with the next. The first '
-          'turns ${firstTurnsClockwise ? 'clockwise' : 'counter-clockwise'}.',
+      label: '$arrangement$direction',
       child: SizedBox(
         height: 96,
         child: CustomPaint(
           painter: _GearTrainPainter(
             gears: gears,
             firstTurnsClockwise: firstTurnsClockwise,
+            layout: layout,
             teeth: teeth,
             ink: colors.ink,
           ),
@@ -101,12 +127,14 @@ class _GearTrainPainter extends CustomPainter {
   _GearTrainPainter({
     required this.gears,
     required this.firstTurnsClockwise,
+    required this.layout,
     required this.ink,
     this.teeth,
   });
 
   final int gears;
-  final bool firstTurnsClockwise;
+  final bool? firstTurnsClockwise;
+  final String layout;
   final List<int>? teeth;
   final Color ink;
 
@@ -114,6 +142,14 @@ class _GearTrainPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
+    if (layout == 'spokes') {
+      _paintSpokes(canvas, size);
+      return;
+    }
+    _paintRow(canvas, size);
+  }
+
+  void _paintRow(Canvas canvas, Size size) {
     // Gears touch, so the spacing is twice the radius less one tooth's
     // depth. Everything is derived from the width so the row fits whatever
     // it is given.
@@ -146,7 +182,7 @@ class _GearTrainPainter extends CustomPainter {
     for (var i = 0; i < gears; i++) {
       final radius = radii[i];
       _drawGear(canvas, Offset(cx, cy), radius, radius * 0.16, hairline);
-      if (i == 0) {
+      if (i == 0 && firstTurnsClockwise != null) {
         _drawTurnArrow(canvas, Offset(cx, cy), radius * 0.52, hairline);
       }
       if (i < gears - 1) {
@@ -154,6 +190,28 @@ class _GearTrainPainter extends CustomPainter {
         // radii would put them.
         cx += radius + radii[i + 1] - unit * 0.16;
       }
+    }
+  }
+
+  void _paintSpokes(Canvas canvas, Size size) {
+    final hairline = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1
+      ..color = ink;
+    final centre = size.center(Offset.zero);
+    final outerCount = gears - 1;
+    final radius = math.min(size.width, size.height) * 0.16;
+    final orbit = math.min(size.width, size.height) * 0.31;
+
+    _drawGear(canvas, centre, radius, radius * 0.16, hairline);
+    if (firstTurnsClockwise != null) {
+      _drawTurnArrow(canvas, centre, radius * 0.52, hairline);
+    }
+    for (var i = 0; i < outerCount; i++) {
+      final angle = -math.pi / 2 + i * 2 * math.pi / outerCount;
+      final outer =
+          centre + Offset(math.cos(angle) * orbit, math.sin(angle) * orbit);
+      _drawGear(canvas, outer, radius, radius * 0.16, hairline);
     }
   }
 
@@ -194,9 +252,11 @@ class _GearTrainPainter extends CustomPainter {
     double radius,
     Paint paint,
   ) {
+    final clockwise = firstTurnsClockwise;
+    if (clockwise == null) return;
     const sweep = math.pi * 1.25;
-    final start = firstTurnsClockwise ? -math.pi * 0.75 : math.pi * 0.75;
-    final direction = firstTurnsClockwise ? 1.0 : -1.0;
+    final start = clockwise ? -math.pi * 0.75 : math.pi * 0.75;
+    final direction = clockwise ? 1.0 : -1.0;
 
     canvas.drawArc(
       Rect.fromCircle(center: centre, radius: radius),
@@ -211,7 +271,7 @@ class _GearTrainPainter extends CustomPainter {
         Offset(math.cos(endAngle) * radius, math.sin(endAngle) * radius);
     // The head points along the tangent at the tip, which is the direction
     // the gear is turning.
-    final quarter = firstTurnsClockwise ? math.pi / 2 : -math.pi / 2;
+    final quarter = clockwise ? math.pi / 2 : -math.pi / 2;
     final tangent = endAngle + quarter;
     final head = radius * 0.42;
     for (final spread in [2.6, -2.6]) {
@@ -231,5 +291,7 @@ class _GearTrainPainter extends CustomPainter {
   bool shouldRepaint(_GearTrainPainter old) =>
       old.gears != gears ||
       old.firstTurnsClockwise != firstTurnsClockwise ||
+      old.layout != layout ||
+      !listEquals(old.teeth, teeth) ||
       old.ink != ink;
 }

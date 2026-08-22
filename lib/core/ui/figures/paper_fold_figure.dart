@@ -1,34 +1,48 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
-/// A square of paper, folded, with a cut in it.
+/// A sheet of paper, folded, with a cut in it.
 ///
 /// ```yaml
 ///     figureSpec:
 ///       kind: paper-fold
 ///       folds: [vertical, horizontal]
 ///       cut: notch          # notch | hole
-///       at: interior        # interior | edge | corner | on-fold
+///       at: interior        # interior | edge | corner | fold-corner | on-fold
+///       sheet: square       # square | rectangle
+///       showUnfolded: false
 /// ```
 ///
 /// The folded sheet is drawn solid and the parts folded away are drawn in
-/// faint rule, so a student can see what is underneath. **The unfolded
-/// result is never drawn**: working it out is the question.
+/// faint rule. Worked lesson diagrams may opt into the unfolded result;
+/// question specs keep the default and never reveal it.
 class PaperFoldFigure extends StatelessWidget {
   const PaperFoldFigure({
     required this.folds,
     required this.cut,
     required this.at,
+    required this.sheet,
+    required this.showUnfolded,
     super.key,
   });
 
   static const kind = 'paper-fold';
   static const cuts = {'notch', 'hole'};
-  static const places = {'interior', 'edge', 'corner', 'on-fold'};
+  static const places = {
+    'interior',
+    'edge',
+    'corner',
+    'fold-corner',
+    'on-fold',
+  };
+  static const sheets = {'square', 'rectangle'};
 
   final List<String> folds;
   final String cut;
   final String at;
+  final String sheet;
+  final bool showUnfolded;
 
   /// Null when the spec cannot be read.
   static PaperFoldFigure? fromSpec(Map<String, Object?> spec) {
@@ -46,15 +60,28 @@ class PaperFoldFigure extends StatelessWidget {
     final at = spec['at'] ?? 'interior';
     if (at is! String || !places.contains(at)) return null;
 
-    return PaperFoldFigure(folds: folds, cut: cut, at: at);
+    final sheet = spec['sheet'] ?? 'square';
+    if (sheet is! String || !sheets.contains(sheet)) return null;
+
+    final showUnfolded = spec['showUnfolded'] ?? false;
+    if (showUnfolded is! bool) return null;
+
+    return PaperFoldFigure(
+      folds: folds,
+      cut: cut,
+      at: at,
+      sheet: sheet,
+      showUnfolded: showUnfolded,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
     return Semantics(
-      label: 'A square of paper folded ${folds.length} '
-          '${folds.length == 1 ? 'time' : 'times'}, with a $cut cut $at.',
+      label: 'A $sheet sheet of paper folded ${folds.length} '
+          '${folds.length == 1 ? 'time' : 'times'}, with a $cut cut $at'
+          '${showUnfolded ? ', then opened flat' : ''}.',
       child: SizedBox(
         height: 140,
         child: CustomPaint(
@@ -62,6 +89,8 @@ class PaperFoldFigure extends StatelessWidget {
             folds: folds,
             cut: cut,
             at: at,
+            sheet: sheet,
+            showUnfolded: showUnfolded,
             ink: colors.ink,
             faint: colors.ruleFaint,
           ),
@@ -77,6 +106,8 @@ class _PaperPainter extends CustomPainter {
     required this.folds,
     required this.cut,
     required this.at,
+    required this.sheet,
+    required this.showUnfolded,
     required this.ink,
     required this.faint,
   });
@@ -84,6 +115,8 @@ class _PaperPainter extends CustomPainter {
   final List<String> folds;
   final String cut;
   final String at;
+  final String sheet;
+  final bool showUnfolded;
   final Color ink;
   final Color faint;
 
@@ -101,17 +134,21 @@ class _PaperPainter extends CustomPainter {
       ..style = PaintingStyle.fill
       ..color = ink;
 
-    final side = (size.height - 24).clamp(40.0, size.width - 24);
-    final left = (size.width - side) / 2;
-    const top = 12.0;
-    final full = Rect.fromLTWH(left, top, side, side);
+    final foldedArea = showUnfolded
+        ? Rect.fromLTWH(8, 8, size.width / 2 - 12, size.height - 16)
+        : Rect.fromLTWH(8, 8, size.width - 16, size.height - 16);
+    final full = _sheetRect(foldedArea);
 
     // The whole sheet in faint rule, so the folded-away half is visible.
     canvas.drawRect(full, hidden);
 
     // Each fold halves the sheet. The folded sheet is the part that stays.
     var folded = full;
+    final foldLines = <(String, double)>[];
     for (final fold in folds) {
+      foldLines.add(
+        (fold, fold == 'vertical' ? folded.center.dx : folded.center.dy),
+      );
       folded = fold == 'vertical'
           ? Rect.fromLTWH(
               folded.left + folded.width / 2,
@@ -131,27 +168,104 @@ class _PaperPainter extends CustomPainter {
     // Where the cut sits on the folded sheet.
     final centre = switch (at) {
       'corner' => folded.topLeft + const Offset(12, 12),
+      'fold-corner' => folded.topLeft,
       'edge' => Offset(folded.right - 12, folded.center.dy),
       'on-fold' => Offset(folded.left, folded.center.dy),
       _ => folded.center,
     };
 
+    _drawCut(canvas, centre, cutPaint);
+
+    if (!showUnfolded) return;
+    final openArea = Rect.fromLTWH(
+      size.width / 2 + 4,
+      8,
+      size.width / 2 - 12,
+      size.height - 16,
+    );
+    final opened = _sheetRect(openArea);
+    canvas.drawRect(opened, solid);
+    final scaleX = opened.width / full.width;
+    final scaleY = opened.height / full.height;
+    final cuts = _unfoldedCuts(centre, foldLines);
+    for (final point in cuts) {
+      final mapped = Offset(
+        opened.left + (point.dx - full.left) * scaleX,
+        opened.top + (point.dy - full.top) * scaleY,
+      );
+      if (cut == 'notch' && at == 'on-fold') {
+        _drawDiamond(canvas, mapped, cutPaint);
+      } else {
+        _drawCut(canvas, mapped, cutPaint);
+      }
+    }
+  }
+
+  Rect _sheetRect(Rect area) {
+    final ratio = sheet == 'rectangle' ? 1.45 : 1.0;
+    final width = area.width.clamp(40.0, area.height * ratio);
+    final height = width / ratio;
+    return Rect.fromLTWH(
+      area.left + (area.width - width) / 2,
+      area.top + (area.height - height) / 2,
+      width,
+      height,
+    );
+  }
+
+  List<Offset> _unfoldedCuts(
+    Offset cutPoint,
+    List<(String, double)> foldLines,
+  ) {
+    var points = <Offset>[cutPoint];
+    for (final (fold, line) in foldLines.reversed) {
+      final reflected = <Offset>[];
+      for (final point in points) {
+        reflected.add(
+          fold == 'vertical'
+              ? Offset(2 * line - point.dx, point.dy)
+              : Offset(point.dx, 2 * line - point.dy),
+        );
+      }
+      points = {...points, ...reflected}.toList();
+    }
+    return points;
+  }
+
+  void _drawCut(Canvas canvas, Offset centre, Paint paint) {
     if (cut == 'hole') {
-      canvas.drawCircle(centre, 6, cutPaint);
-    } else {
-      final notch = Path()
+      canvas.drawCircle(centre, 6, paint);
+      return;
+    }
+    canvas.drawPath(
+      Path()
         ..moveTo(centre.dx - 7, centre.dy + 6)
         ..lineTo(centre.dx, centre.dy - 7)
         ..lineTo(centre.dx + 7, centre.dy + 6)
-        ..close();
-      canvas.drawPath(notch, cutPaint);
-    }
+        ..close(),
+      paint,
+    );
+  }
+
+  void _drawDiamond(Canvas canvas, Offset centre, Paint paint) {
+    canvas.drawPath(
+      Path()
+        ..moveTo(centre.dx, centre.dy - 8)
+        ..lineTo(centre.dx + 8, centre.dy)
+        ..lineTo(centre.dx, centre.dy + 8)
+        ..lineTo(centre.dx - 8, centre.dy)
+        ..close(),
+      paint,
+    );
   }
 
   @override
   bool shouldRepaint(_PaperPainter old) =>
-      old.folds.length != folds.length ||
+      !listEquals(old.folds, folds) ||
       old.cut != cut ||
       old.at != at ||
-      old.ink != ink;
+      old.sheet != sheet ||
+      old.showUnfolded != showUnfolded ||
+      old.ink != ink ||
+      old.faint != faint;
 }

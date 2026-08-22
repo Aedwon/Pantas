@@ -285,6 +285,10 @@ void main() {
           '"firstTurns":"widdershins"}',
       'teeth do not match the count': '{"kind":"gear-train","gears":3,'
           '"firstTurns":"clockwise","teeth":[10,30]}',
+      'a gear layout nobody drew': '{"kind":"gear-train","gears":3,'
+          '"firstTurns":"clockwise","layout":"ring"}',
+      'hidden gear direction is still supplied': '{"kind":"gear-train",'
+          '"gears":2,"showFirstTurn":false,"firstTurns":"clockwise"}',
       'a spring with no stretch': '{"kind":"spring-scale","springs":'
           '[{"label":"A"}]}',
       'a spring list that is empty': '{"kind":"spring-scale","springs":[]}',
@@ -295,6 +299,8 @@ void main() {
           '"loadDistance":0,"effortDistance":5}',
       'a pulley system with no pulleys': '{"kind":"pulley-system",'
           '"fixed":0,"movable":0}',
+      'a comparison with the wrong pulley counts': '{"kind":"pulley-system",'
+          '"fixed":2,"movable":1,"comparison":true}',
       'a vessel shape nobody drew': '{"kind":"fluid-vessel",'
           '"vessel":"aquarium"}',
       'a pipe with no widths': '{"kind":"fluid-vessel","vessel":"pipe"}',
@@ -306,6 +312,12 @@ void main() {
           '[{"form":"square"}]}',
       'a series with one item': '{"kind":"figure-series","items":'
           '[{"form":"square"}]}',
+      'a series item with line and lines': '{"kind":"figure-series",'
+          '"items":[{"form":"square","line":0,"lines":[0,90]},'
+          '{"form":"circle"}]}',
+      'a series item with a non-number rotation': '{"kind":"figure-series",'
+          '"items":[{"form":"square","rotation":"right"},'
+          '{"form":"circle"}]}',
       'a fill outside nought to one': '{"kind":"figure-series","items":'
           '[{"form":"circle","fill":1.4},{"form":"circle"}]}',
       'a corner nobody has': '{"kind":"figure-series","items":'
@@ -322,10 +334,16 @@ void main() {
       'a paper folded no times': '{"kind":"paper-fold","folds":[]}',
       'a cut nobody makes': '{"kind":"paper-fold","folds":["vertical"],'
           '"cut":"shred"}',
+      'a paper shape nobody drew': '{"kind":"paper-fold",'
+          '"folds":["vertical"],"sheet":"triangle"}',
+      'an unfolded flag that is not a boolean': '{"kind":"paper-fold",'
+          '"folds":["vertical"],"showUnfolded":"yes"}',
       'a net with a repeated cell': '{"kind":"cube-net","cells":'
           '[[0,0],[0,0]]}',
       'a net cell that is not a pair': '{"kind":"cube-net","cells":'
           '[[0,0,1],[1,1]]}',
+      'net labels do not match its cells': '{"kind":"cube-net","cells":'
+          '[[0,1],[1,0],[1,1],[1,2],[2,1],[3,1]],"labels":["top"]}',
       'a coordinate graph with no type': '{"kind":"coordinate-graph"}',
       'a geometry diagram with no labels': '{"kind":"geometry-diagram",'
           '"type":"triangle"}',

@@ -15,7 +15,7 @@ $$\text{stretch} = k \times \text{weight}$$
 
 where $k$ is a constant describing that particular spring's stiffness (technically its "spring constant"). A stiffer spring has a smaller stretch for the same weight (harder to stretch); a looser (more flexible) spring has a larger stretch for the same weight (easier to stretch).
 
-<!-- FIGURE: {"kind": "spring-scale", "springs": [{"stretch": 1}, {"stretch": 2}], "semanticsLabel": "Two springs side by side: a stiff spring with small stretch and a loose spring with large stretch under the identical hanging weight."} -->
+<!-- FIGURE: {"kind": "spring-scale", "springs": [{"label": "stiff spring", "stretch": 1}, {"label": "loose spring", "stretch": 2}], "semanticsLabel": "Two springs side by side: a stiff spring with small stretch and a loose spring with large stretch under the identical hanging weight."} -->
 
 Because stretch is proportional to weight, if you know how far a spring stretches for one known weight, you can predict the stretch for any other weight using a simple ratio: the stretch scales up or down by the same factor as the weight changes.
 

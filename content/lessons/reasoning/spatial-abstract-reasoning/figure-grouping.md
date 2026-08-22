@@ -19,7 +19,7 @@ Since the rule is not stated, approach this systematically by checking figures a
 - **Curved vs. straight lines**: are most figures made entirely of straight lines (or entirely of curves), while one mixes both or uses the opposite type?
 - **Shading pattern**: do most figures share a similar shading rule (like "always exactly one shaded part"), while one breaks it?
 
-<!-- FIGURE: {"kind": "shape-row", "shapes": [{"form": "square"}, {"form": "rectangle"}, {"form": "rhombus"}, {"form": "pentagon"}], "semanticsLabel": "A row of four shapes: a square, a rectangle, a rhombus, and a pentagon."} -->
+<!-- FIGURE: {"kind": "shape-row", "shapes": [{"form": "square"}, {"form": "rectangle"}, {"form": "rhombus"}, {"form": "parallelogram"}, {"form": "pentagon"}], "semanticsLabel": "A row of five shapes: a square, a rectangle, a rhombus, a parallelogram, and a pentagon."} -->
 
 The correct approach is to find the rule that makes four (or however many) figures belong to one consistent group, leaving exactly one figure that clearly does not fit that same rule.
 

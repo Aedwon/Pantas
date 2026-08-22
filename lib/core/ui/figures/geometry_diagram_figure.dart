@@ -51,6 +51,8 @@ class GeometryDiagramFigure extends StatelessWidget {
     'coordinate-geometry',
     '3d-box',
     '3d-cylinder',
+    'cylinder-shadow-above',
+    'cylinder-shadow-side',
     '3d-cone',
     'inscribed-circle-square',
     'shape-gallery',
@@ -160,6 +162,10 @@ class _GeometryDiagramPainter extends CustomPainter {
         _drawInscribedCircleSquare(canvas, bounds, stroke, fillFaint),
       '3d-box' => _draw3DBox(canvas, bounds, stroke, helper),
       '3d-cylinder' => _draw3DCylinder(canvas, bounds, stroke, helper),
+      'cylinder-shadow-above' =>
+        _drawCylinderShadowAbove(canvas, bounds, stroke, helper),
+      'cylinder-shadow-side' =>
+        _drawCylinderShadowSide(canvas, bounds, stroke, helper),
       '3d-cone' => _draw3DCone(canvas, bounds, stroke, helper),
       'transversal' => _drawTransversal(canvas, bounds, stroke),
       'parallel-zigzag' => _drawParallelZigzag(canvas, bounds, stroke, helper),
@@ -874,6 +880,75 @@ class _GeometryDiagramPainter extends CustomPainter {
     return [
       Offset(cx + 4, topY - 14),
       Offset(cx + rx + 8, bounds.center.dy),
+    ];
+  }
+
+  List<Offset> _drawCylinderShadowAbove(
+    Canvas canvas,
+    Rect bounds,
+    Paint stroke,
+    Paint helper,
+  ) {
+    _draw3DCylinder(canvas, bounds, stroke, helper);
+    final cx = bounds.center.dx;
+    final topY = bounds.top + 30;
+    final shadowY = bounds.bottom - 4;
+    for (final dx in [-28.0, 0.0, 28.0]) {
+      final from = Offset(cx + dx, bounds.top - 8);
+      final tip = Offset(cx + dx, topY - 14);
+      canvas
+        ..drawLine(from, tip, helper)
+        ..drawLine(tip, tip + const Offset(-4, -7), helper)
+        ..drawLine(tip, tip + const Offset(4, -7), helper);
+    }
+    canvas.drawOval(
+      Rect.fromCenter(
+        center: Offset(cx, shadowY),
+        width: bounds.width * 0.58,
+        height: 14,
+      ),
+      stroke,
+    );
+    return [
+      Offset(bounds.left, bounds.top - 14),
+      Offset(bounds.center.dx - 30, bounds.bottom + 2),
+    ];
+  }
+
+  List<Offset> _drawCylinderShadowSide(
+    Canvas canvas,
+    Rect bounds,
+    Paint stroke,
+    Paint helper,
+  ) {
+    _draw3DCylinder(canvas, bounds, stroke, helper);
+    final targetX = bounds.left + bounds.width * 0.24;
+    for (final dy in [-28.0, 0.0, 28.0]) {
+      final from = Offset(bounds.left - 8, bounds.center.dy + dy);
+      final tip = Offset(targetX, bounds.center.dy + dy);
+      canvas
+        ..drawLine(from, tip, helper)
+        ..drawLine(tip, tip + const Offset(-7, -4), helper)
+        ..drawLine(tip, tip + const Offset(-7, 4), helper);
+    }
+    final wallX = bounds.right - 4;
+    canvas
+      ..drawLine(
+        Offset(wallX, bounds.top + 8),
+        Offset(wallX, bounds.bottom - 8),
+        helper,
+      )
+      ..drawRect(
+        Rect.fromCenter(
+          center: Offset(wallX - 8, bounds.center.dy),
+          width: 16,
+          height: bounds.height * 0.62,
+        ),
+        stroke,
+      );
+    return [
+      Offset(bounds.left, bounds.top - 14),
+      Offset(bounds.right - 76, bounds.bottom + 2),
     ];
   }
 

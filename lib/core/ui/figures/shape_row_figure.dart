@@ -35,6 +35,7 @@ class ShapeRowFigure extends StatelessWidget {
     'square',
     'rectangle',
     'rhombus',
+    'parallelogram',
     'triangle',
     'circle',
     'pentagon',
@@ -158,6 +159,16 @@ class _ShapeRowPainter extends CustomPainter {
         );
       case 'rhombus':
         canvas.drawPath(_polygon(centre, r, 4, math.pi / 4), paint);
+      case 'parallelogram':
+        canvas.drawPath(
+          Path()
+            ..moveTo(centre.dx - r * 0.7, centre.dy - r * 0.65)
+            ..lineTo(centre.dx + r, centre.dy - r * 0.65)
+            ..lineTo(centre.dx + r * 0.7, centre.dy + r * 0.65)
+            ..lineTo(centre.dx - r, centre.dy + r * 0.65)
+            ..close(),
+          paint,
+        );
       case 'triangle':
         canvas.drawPath(_polygon(centre, r, 3, -math.pi / 2), paint);
       case 'pentagon':
@@ -242,5 +253,5 @@ class _ShapeRowPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_ShapeRowPainter old) =>
-      old.ink != ink || old.shapes.length != shapes.length;
+      old.ink != ink || old.shapes != shapes;
 }

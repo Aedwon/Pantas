@@ -13,7 +13,7 @@ An object's **center of gravity** is the single point where its entire weight ca
 
 An object's **base of support** is the area on the ground enclosed by its points (or edges) of contact with the ground. A four-legged table's base of support is the rectangle connecting its four feet; a person's base of support is the area between their two feet.
 
-<!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "pyramid", "baseWidth": 3, "height": 1}, {"form": "pyramid", "baseWidth": 1, "height": 3}], "semanticsLabel": "Two triangular shapes standing upright: a short wide one with a low center of gravity within its wide base, and a tall narrow one with a high center of gravity tipping over."} -->
+<!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "pyramid", "baseWidth": 3, "height": 1}, {"form": "pyramid", "baseWidth": 1, "height": 3, "tilt": 18}], "semanticsLabel": "Two triangular shapes standing upright: a short wide one with a low center of gravity within its wide base, and a tall narrow one with a high center of gravity tipping over."} -->
 
 The core stability rule: an object remains stable (will not tip over) as long as an imaginary vertical line dropped straight down from its center of gravity falls within its base of support. If that vertical line falls outside the base of support (for example, if the object is tilted too far), the object becomes unstable and tips over.
 
@@ -52,7 +52,7 @@ A rectangular box is slowly tilted to one side. At what point does the box tip o
 
 A moving truck carries cargo either stacked very high or spread out lower (same total weight either way). Which loading method makes the truck more stable while turning corners?
 
-<!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "box", "baseWidth": 2, "height": 3}, {"form": "box", "baseWidth": 3, "height": 1}], "semanticsLabel": "Two truck cargo profiles: one with cargo stacked tall giving a high center of gravity, and one with cargo spread low giving a low center of gravity."} -->
+<!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "truck", "baseWidth": 2, "height": 3}, {"form": "truck", "baseWidth": 3, "height": 1}], "semanticsLabel": "Two truck cargo profiles: one with cargo stacked tall giving a high center of gravity, and one with cargo spread low giving a low center of gravity."} -->
 
 
 **Solution:**
@@ -64,7 +64,7 @@ A moving truck carries cargo either stacked very high or spread out lower (same 
 
 A person standing normally with feet close together is compared to the same person standing with feet spread wider apart. Which stance is more stable against being pushed sideways?
 
-<!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "pyramid", "baseWidth": 1, "height": 3}, {"form": "pyramid", "baseWidth": 3, "height": 3}], "semanticsLabel": "Two stances comparing base of support width: feet close together with a narrow base, and feet spread wide with a wider, more stable base."} -->
+<!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "person", "baseWidth": 1, "height": 3}, {"form": "person", "baseWidth": 3, "height": 3}], "semanticsLabel": "Two stances comparing base of support width: feet close together with a narrow base, and feet spread wide with a wider, more stable base."} -->
 
 
 **Solution:**

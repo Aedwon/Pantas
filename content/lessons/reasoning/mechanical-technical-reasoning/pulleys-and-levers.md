@@ -17,7 +17,7 @@ A single fixed pulley (attached to a stationary point, like a ceiling beam) simp
 
 A movable pulley (attached directly to the load itself, moving along with it) does reduce the force needed: with one movable pulley, you only need half the force of the load's weight to lift it, though you must pull the rope twice as far. Adding more movable pulleys further reduces the required force: with $2$ movable pulleys working together, you need only one-quarter the load's weight in pulling force (but must pull four times the distance).
 
-<!-- FIGURE: {"kind": "pulley-system", "fixed": 1, "movable": 1, "semanticsLabel": "Two pulley setups side by side: a single fixed pulley requiring full force, and a movable pulley requiring half the force but twice the rope length."} -->
+<!-- FIGURE: {"kind": "pulley-system", "fixed": 1, "movable": 1, "comparison": true, "semanticsLabel": "Two pulley setups side by side: a single fixed pulley requiring full force, and a movable pulley requiring half the force but twice the rope length."} -->
 
 ### Levers and Fulcrums
 

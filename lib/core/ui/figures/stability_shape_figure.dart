@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
@@ -43,20 +45,24 @@ class StabilityShapeFigure extends StatelessWidget {
     final tilt = spec['tilt'] ?? 0;
     if (tilt is! num || tilt < -45 || tilt > 45) return null;
 
+    const forms = {'pyramid', 'box', 'truck', 'person'};
     final shapes = <StabilityShape>[];
     for (final entry in raw) {
       if (entry is! Map) return null;
       final form = entry['form'];
       final width = entry['baseWidth'];
       final height = entry['height'];
-      if (form is! String || (form != 'pyramid' && form != 'box')) return null;
+      if (form is! String || !forms.contains(form)) return null;
       if (width is! num || width <= 0) return null;
       if (height is! num || height <= 0) return null;
+      final shapeTilt = entry['tilt'] ?? tilt;
+      if (shapeTilt is! num || shapeTilt < -45 || shapeTilt > 45) return null;
       shapes.add(
         StabilityShape(
-          isPyramid: form == 'pyramid',
+          form: form,
           baseWidth: width.toDouble(),
           height: height.toDouble(),
+          tiltDegrees: shapeTilt.toDouble(),
         ),
       );
     }
@@ -91,14 +97,18 @@ class StabilityShapeFigure extends StatelessWidget {
 /// One shape in the figure.
 class StabilityShape {
   const StabilityShape({
-    required this.isPyramid,
+    required this.form,
     required this.baseWidth,
     required this.height,
+    required this.tiltDegrees,
   });
 
-  final bool isPyramid;
+  final String form;
   final double baseWidth;
   final double height;
+  final double tiltDegrees;
+
+  bool get isPyramid => form == 'pyramid';
 }
 
 class _StabilityPainter extends CustomPainter {
@@ -145,43 +155,133 @@ class _StabilityPainter extends CustomPainter {
       final halfBase = shape.baseWidth * unitWidth / 2;
       final height = shape.height * unitHeight;
 
+      final pivot = Offset(cx + halfBase, groundY);
+      final angle = shape.tiltDegrees * 3.1415926535 / 180;
       canvas.save();
-      if (tiltDegrees != 0) {
-        // Pivot on the bottom right corner, which is the edge a tilting box
-        // turns on.
+      if (angle != 0) {
         canvas
-          ..translate(cx + halfBase, groundY)
-          ..rotate(tiltDegrees * 3.1415926535 / 180)
-          ..translate(-(cx + halfBase), -groundY);
+          ..translate(pivot.dx, pivot.dy)
+          ..rotate(angle)
+          ..translate(-pivot.dx, -pivot.dy);
       }
 
-      final path = Path()..moveTo(cx - halfBase, groundY);
-      if (shape.isPyramid) {
-        path
-          ..lineTo(cx, groundY - height)
-          ..lineTo(cx + halfBase, groundY);
-      } else {
-        path
-          ..lineTo(cx - halfBase, groundY - height)
-          ..lineTo(cx + halfBase, groundY - height)
-          ..lineTo(cx + halfBase, groundY);
+      final cgY = switch (shape.form) {
+        'pyramid' => groundY - height / 3,
+        'truck' => groundY - height * 0.48,
+        'person' => groundY - height * 0.56,
+        _ => groundY - height / 2,
+      };
+      switch (shape.form) {
+        case 'pyramid':
+          canvas.drawPath(
+            Path()
+              ..moveTo(cx - halfBase, groundY)
+              ..lineTo(cx, groundY - height)
+              ..lineTo(cx + halfBase, groundY)
+              ..close(),
+            hairline,
+          );
+        case 'box':
+          canvas.drawRect(
+            Rect.fromLTRB(
+              cx - halfBase,
+              groundY - height,
+              cx + halfBase,
+              groundY,
+            ),
+            hairline,
+          );
+        case 'truck':
+          _drawTruck(canvas, cx, groundY, halfBase, height, hairline);
+        case 'person':
+          _drawPerson(canvas, cx, groundY, halfBase, height, hairline);
       }
-      path.close();
+      canvas.restore();
 
-      // The centre of gravity: a third of the way up a pyramid, half way up
-      // a box. The plumb line falls from it.
-      final cgY = groundY - (shape.isPyramid ? height / 3 : height / 2);
+      final cg = _rotatePoint(Offset(cx, cgY), pivot, angle);
       canvas
-        ..drawPath(path, hairline)
-        ..drawCircle(Offset(cx, cgY), 3, hairline)
-        ..drawLine(Offset(cx, cgY), Offset(cx, groundY + 10), plumb)
-        ..restore();
+        ..drawCircle(cg, 3, hairline)
+        ..drawLine(cg, Offset(cg.dx, groundY + 10), plumb);
     }
+  }
+
+  void _drawTruck(
+    Canvas canvas,
+    double cx,
+    double groundY,
+    double halfBase,
+    double height,
+    Paint paint,
+  ) {
+    final wheelY = groundY - 5;
+    final bodyTop = groundY - 18;
+    canvas
+      ..drawRect(
+        Rect.fromLTRB(cx - halfBase, bodyTop, cx + halfBase, groundY - 6),
+        paint,
+      )
+      ..drawRect(
+        Rect.fromLTRB(
+          cx - halfBase * 0.55,
+          groundY - height,
+          cx + halfBase * 0.7,
+          bodyTop,
+        ),
+        paint,
+      )
+      ..drawCircle(Offset(cx - halfBase * 0.55, wheelY), 5, paint)
+      ..drawCircle(Offset(cx + halfBase * 0.55, wheelY), 5, paint);
+  }
+
+  void _drawPerson(
+    Canvas canvas,
+    double cx,
+    double groundY,
+    double halfBase,
+    double height,
+    Paint paint,
+  ) {
+    final head = Offset(cx, groundY - height + 7);
+    final shouldersY = groundY - height * 0.68;
+    final hipsY = groundY - height * 0.35;
+    canvas
+      ..drawCircle(head, 7, paint)
+      ..drawLine(Offset(cx, head.dy + 7), Offset(cx, hipsY), paint)
+      ..drawLine(
+        Offset(cx - halfBase * 0.45, shouldersY),
+        Offset(cx + halfBase * 0.45, shouldersY),
+        paint,
+      )
+      ..drawLine(Offset(cx, hipsY), Offset(cx - halfBase, groundY), paint)
+      ..drawLine(Offset(cx, hipsY), Offset(cx + halfBase, groundY), paint)
+      ..drawLine(
+        Offset(cx - halfBase - 5, groundY),
+        Offset(cx - halfBase + 5, groundY),
+        paint,
+      )
+      ..drawLine(
+        Offset(cx + halfBase - 5, groundY),
+        Offset(cx + halfBase + 5, groundY),
+        paint,
+      );
+  }
+
+  Offset _rotatePoint(Offset point, Offset pivot, double angle) {
+    if (angle == 0) return point;
+    final translated = point - pivot;
+    final cosAngle = math.cos(angle);
+    final sinAngle = math.sin(angle);
+    return pivot +
+        Offset(
+          translated.dx * cosAngle - translated.dy * sinAngle,
+          translated.dx * sinAngle + translated.dy * cosAngle,
+        );
   }
 
   @override
   bool shouldRepaint(_StabilityPainter old) =>
       old.tiltDegrees != tiltDegrees ||
-      old.shapes.length != shapes.length ||
-      old.ink != ink;
+      old.shapes != shapes ||
+      old.ink != ink ||
+      old.faint != faint;
 }
