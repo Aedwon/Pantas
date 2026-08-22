@@ -93,7 +93,7 @@ Check whether the wave requires a physical medium.
 
 An ambulance siren sounds higher in pitch as it approaches you, then suddenly sounds lower in pitch as it speeds away after passing you. Explain this using the Doppler effect.
 
-<!-- ILLUSTRATION: a moving ambulance with sound wavefronts bunched together (shorter wavelength, higher pitch) ahead of it and spread apart (longer wavelength, lower pitch) behind it -->
+<!-- FIGURE: {"kind":"physics-energy-diagram","type":"doppler-ambulance","illustrationKey":"science/physics/waves-and-sound#4","source":"moving ambulance","ahead":{"wavelength":"shorter","pitch":"higher"},"behind":{"wavelength":"longer","pitch":"lower"}} -->
 
 
 **Solution:**
