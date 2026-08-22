@@ -29,6 +29,7 @@ if (!existsSync(join(toolDir, 'node_modules'))) {
   });
 }
 const { scanQuestionFigures, worklistTsv } = await import('./question_figures.mjs');
+const { stampPngMetadata, DEFAULT_FOUNDER_COPYRIGHT } = await import('./open_asset_metadata.mjs');
 
 const IMAGE_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.heic', '.tiff', '.bmp']);
 const MAX_WIDTH = 1600;
@@ -177,37 +178,6 @@ async function pixelWidth(file) {
   return m ? Number(m[1]) : null;
 }
 
-// --- Copyright metadata stamp ---
-// Splices a `tEXt` Copyright chunk into the PNG right after its header.
-// Invisible in the app; visible to anyone inspecting a copied file.
-
-const COPYRIGHT = `© ${new Date().getFullYear()} Pantas. All rights reserved.`;
-
-function crc32(buf) {
-  let crc = 0xffffffff;
-  for (const byte of buf) {
-    crc ^= byte;
-    for (let k = 0; k < 8; k++) crc = crc & 1 ? 0xedb88320 ^ (crc >>> 1) : crc >>> 1;
-  }
-  return (crc ^ 0xffffffff) >>> 0;
-}
-
-function withCopyrightChunk(png, text) {
-  const signature = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
-  if (png.length < 33 || !png.subarray(0, 8).equals(signature)) return png;
-  const ihdrLength = png.readUInt32BE(8);
-  const insertAt = 8 + 4 + 4 + ihdrLength + 4; // signature + IHDR len/type/data/crc
-  const data = Buffer.from(`Copyright\0${text}`, 'latin1');
-  const typeAndData = Buffer.concat([Buffer.from('tEXt', 'latin1'), data]);
-  const lengthBytes = Buffer.alloc(4);
-  lengthBytes.writeUInt32BE(data.length);
-  const crcBytes = Buffer.alloc(4);
-  crcBytes.writeUInt32BE(crc32(typeAndData));
-  return Buffer.concat([
-    png.subarray(0, insertAt), lengthBytes, typeAndData, crcBytes, png.subarray(insertAt),
-  ]);
-}
-
 async function connect(item, sourcePath) {
   let source;
   try {
@@ -234,7 +204,9 @@ async function connect(item, sourcePath) {
     if (width && width > MAX_WIDTH) args.push('--resampleWidth', String(MAX_WIDTH));
     args.push(source, '--out', tmp);
     await sips(args);
-    await writeFile(targetAbs, withCopyrightChunk(await readFile(tmp), COPYRIGHT));
+    const pngBuf = await readFile(tmp);
+    const stamped = stampPngMetadata(pngBuf, { Copyright: DEFAULT_FOUNDER_COPYRIGHT }, { isFounder: true });
+    await writeFile(targetAbs, stamped);
     await unlink(tmp);
   } catch (error) {
     await unlink(tmp).catch(() => {});
