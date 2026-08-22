@@ -135,8 +135,7 @@ Future<ReviewPreviewManifest> renderReviewPreviews({
   await darkDir.create(recursive: true);
 
   final binding = TestWidgetsFlutterBinding.ensureInitialized();
-  final tester = WidgetTester(binding);
-  await tester.binding.setSurfaceSize(const Size(reviewPreviewWidth.toDouble(), 900));
+  await binding.setSurfaceSize(const Size(390, 900));
 
   final entries = <ReviewPreviewEntry>[];
   try {
@@ -146,12 +145,12 @@ Future<ReviewPreviewManifest> renderReviewPreviews({
       final lightRelativePath = p.posix.join('light', '$stem.png');
       final darkRelativePath = p.posix.join('dark', '$stem.png');
       final light = await _renderOne(
-        tester: tester,
+        binding: binding,
         spec: specs[key]!,
         theme: buildLightTheme(),
       );
       final dark = await _renderOne(
-        tester: tester,
+        binding: binding,
         spec: specs[key]!,
         theme: buildDarkTheme(),
       );
@@ -180,8 +179,9 @@ Future<ReviewPreviewManifest> renderReviewPreviews({
       );
     }
   } finally {
-    await tester.pumpWidget(const SizedBox.shrink());
-    await tester.binding.setSurfaceSize(null);
+    runApp(const SizedBox.shrink());
+    await binding.pump();
+    await binding.resetLayers();
   }
 
   final manifest = ReviewPreviewManifest(List.unmodifiable(entries));
@@ -255,12 +255,12 @@ Set<String> _readExpectedReviewKeys(Directory repositoryRoot) {
 }
 
 Future<_RenderedPreview> _renderOne({
-  required WidgetTester tester,
+  required TestWidgetsFlutterBinding binding,
   required Map<String, Object?> spec,
   required ThemeData theme,
 }) async {
   final boundaryKey = GlobalKey();
-  await tester.pumpWidget(
+  runApp(
     MaterialApp(
       theme: theme,
       home: Material(
@@ -281,7 +281,15 @@ Future<_RenderedPreview> _renderOne({
       ),
     ),
   );
-  await tester.pumpAndSettle();
+  await binding.pump();
+  for (var frame = 0; frame < 10 && binding.hasScheduledFrame; frame++) {
+    await binding.pump(const Duration(milliseconds: 16));
+  }
+  final exception = binding.takeException();
+  if (exception != null) {
+    throw StateError('Review preview render failed: $exception');
+  }
+
   final renderObject = boundaryKey.currentContext?.findRenderObject();
   if (renderObject is! RenderRepaintBoundary) {
     throw StateError('Review preview did not produce a RepaintBoundary.');
