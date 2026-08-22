@@ -28,7 +28,7 @@ Since many minerals can look similar, scientists use specific physical propertie
 
 **Metamorphic rock** forms when an existing rock (igneous, sedimentary, or even another metamorphic rock) is changed by intense heat and pressure underground, without fully melting. The heat and pressure rearrange its minerals into a new texture (like marble from limestone, or quartzite from sandstone).
 
-<!-- ILLUSTRATION: circular rock cycle diagram showing magma cooling into igneous rock, igneous rock weathering into sediment then compacting into sedimentary rock, any rock type being squeezed by heat and pressure into metamorphic rock, and any rock melting back into magma -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"rock-cycle","illustrationKey":"science/earth-science-astronomy/minerals-and-rocks#1","stages":["magma","igneous rock","sediment","sedimentary rock","metamorphic rock"],"processes":[{"from":"magma","to":"igneous rock","label":"cooling"},{"from":"igneous rock","to":"sediment","label":"weathering"},{"from":"sediment","to":"sedimentary rock","label":"compacting"},{"from":"any rock","to":"metamorphic rock","label":"heat and pressure"},{"from":"any rock","to":"magma","label":"melting"}]} -->
 
 The **rock cycle** connects all three types: No rock type is a permanent "final form." Igneous rock can weather into sediment, which becomes sedimentary rock. Any rock can be squeezed by heat and pressure into metamorphic rock. Any rock can melt completely back into magma, starting the cycle over. There is no fixed starting or ending point.
 
