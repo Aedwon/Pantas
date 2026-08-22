@@ -126,6 +126,7 @@ Map<String, Map<String, Object?>> findReviewFigureSpecs(
 Future<ReviewPreviewManifest> renderReviewPreviews({
   required Directory repositoryRoot,
   required Directory outputRoot,
+  required WidgetTester tester,
 }) async {
   final specs = findReviewFigureSpecs(repositoryRoot);
   await outputRoot.create(recursive: true);
@@ -134,8 +135,7 @@ Future<ReviewPreviewManifest> renderReviewPreviews({
   await lightDir.create(recursive: true);
   await darkDir.create(recursive: true);
 
-  final binding = TestWidgetsFlutterBinding.ensureInitialized();
-  await binding.setSurfaceSize(const Size(390, 900));
+  await tester.binding.setSurfaceSize(const Size(390, 900));
 
   final entries = <ReviewPreviewEntry>[];
   try {
@@ -145,12 +145,12 @@ Future<ReviewPreviewManifest> renderReviewPreviews({
       final lightRelativePath = p.posix.join('light', '$stem.png');
       final darkRelativePath = p.posix.join('dark', '$stem.png');
       final light = await _renderOne(
-        binding: binding,
+        tester: tester,
         spec: specs[key]!,
         theme: buildLightTheme(),
       );
       final dark = await _renderOne(
-        binding: binding,
+        tester: tester,
         spec: specs[key]!,
         theme: buildDarkTheme(),
       );
@@ -180,9 +180,8 @@ Future<ReviewPreviewManifest> renderReviewPreviews({
       );
     }
   } finally {
-    runApp(const SizedBox.shrink());
-    await binding.pump();
-    await binding.setSurfaceSize(null);
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.binding.setSurfaceSize(null);
   }
 
   final manifest = ReviewPreviewManifest(List.unmodifiable(entries));
@@ -256,12 +255,12 @@ Set<String> _readExpectedReviewKeys(Directory repositoryRoot) {
 }
 
 Future<_RenderedPreview> _renderOne({
-  required TestWidgetsFlutterBinding binding,
+  required WidgetTester tester,
   required Map<String, Object?> spec,
   required ThemeData theme,
 }) async {
   final boundaryKey = GlobalKey();
-  runApp(
+  await tester.pumpWidget(
     MaterialApp(
       theme: theme,
       home: Material(
@@ -282,11 +281,13 @@ Future<_RenderedPreview> _renderOne({
       ),
     ),
   );
-  await binding.pump();
-  for (var frame = 0; frame < 10 && binding.hasScheduledFrame; frame++) {
-    await binding.pump(const Duration(milliseconds: 16));
+  await tester.pump();
+  for (var frame = 0;
+      frame < 10 && tester.binding.hasScheduledFrame;
+      frame++) {
+    await tester.pump(const Duration(milliseconds: 16));
   }
-  final exception = binding.takeException();
+  final exception = tester.takeException();
   if (exception != null) {
     throw StateError('Review preview render failed: $exception');
   }
