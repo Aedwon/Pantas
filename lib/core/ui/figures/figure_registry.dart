@@ -43,10 +43,12 @@ abstract final class FigureRegistry {
       ReadingDiagramFigure.kind => ReadingDiagramFigure.fromSpec(spec),
       BiologyDiagramFigure.kind => BiologyDiagramFigure.fromSpec(spec),
       ChemistryDiagramFigure.kind => ChemistryDiagramFigure.fromSpec(spec),
-      EarthScienceDiagramFigure.kind => EarthScienceDiagramFigure.fromSpec(spec),
+      EarthScienceDiagramFigure.kind =>
+        EarthScienceDiagramFigure.fromSpec(spec),
       PhysicsMechanicsDiagramFigure.kind =>
         PhysicsMechanicsDiagramFigure.fromSpec(spec),
-      PhysicsEnergyDiagramFigure.kind => PhysicsEnergyDiagramFigure.fromSpec(spec),
+      PhysicsEnergyDiagramFigure.kind =>
+        PhysicsEnergyDiagramFigure.fromSpec(spec),
       _ => null,
     };
   }
