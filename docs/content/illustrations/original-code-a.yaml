@@ -55,9 +55,9 @@ figures:
       - title: "What is pH?"
         publisher: "U.S. Environmental Protection Agency"
         url: https://www.epa.gov/goldkingmine/what-ph
-      - title: "pH of Common Substances"
+      - title: "The pH Scale"
         publisher: "U.S. Environmental Protection Agency"
-        url: https://www.epa.gov/sites/default/files/2015-10/documents/1622624.pdf
+        url: https://www.epa.gov/sites/default/files/2015-08/thephscale.jpg
   - key: science/chemistry/atomic-structure#1
     references:
       - title: "2.3 Atomic Structure and Symbolism"
