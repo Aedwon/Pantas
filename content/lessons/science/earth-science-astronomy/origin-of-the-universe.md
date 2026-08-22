@@ -25,7 +25,7 @@ The **nebular hypothesis** explains how our own Sun and planets formed. It says 
 
 Gravity pulled the cloud's material inward. As the cloud got smaller, it spun faster, the same way a spinning ice skater speeds up when they pull their arms in. Most of the material collapsed into the center and became so hot and dense that it ignited, forming the **Sun**. The leftover material flattened into a wide spinning disk around the new Sun.
 
-<!-- ILLUSTRATION: sequence showing a large slowly spinning cloud of gas and dust collapsing into a flattened disk with a bright center forming the Sun and small clumps forming planets along the disk -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"nebular-sequence","illustrationKey":"science/earth-science-astronomy/origin-of-the-universe#1","stages":["large slowly spinning cloud of gas and dust","flattened disk","bright center forming the Sun","small clumps forming planets along the disk"]} -->
 
 Inside that disk, smaller clumps of matter stuck together through collisions, growing bigger and bigger over millions of years. These growing clumps became the planets, moons, and asteroids. This is why all the planets in our solar system orbit the Sun in roughly the same flat plane and in the same direction: they all formed from one flat, spinning disk.
 

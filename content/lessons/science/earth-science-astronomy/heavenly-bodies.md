@@ -19,7 +19,7 @@ An **asteroid** is a rocky, metallic chunk of rock, smaller than a planet, that 
 
 A **comet** is a smaller body made mostly of ice, frozen gases, and dust, sometimes nicknamed a "dirty snowball." When a comet gets close to the Sun, the heat turns some of its ice directly into gas, and pressure from the Sun blows this gas and dust into a glowing **tail** that always points away from the Sun, no matter which direction the comet is traveling. The most famous comet, **Halley's Comet**, swings by Earth roughly every $76$ years.
 
-<!-- ILLUSTRATION: comet orbiting the Sun in an oval path, shown at two positions, with its tail always pointing away from the Sun in both positions -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"comet-tail","illustrationKey":"science/earth-science-astronomy/heavenly-bodies#1","orbitShape":"oval","cometPositions":2,"tailDirection":"away from Sun"} -->
 
 Three closely related, easily confused terms describe small pieces of rock or metal from space:
 

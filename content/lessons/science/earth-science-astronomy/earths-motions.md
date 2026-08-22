@@ -15,7 +15,7 @@ Earth is never standing still. It has three important motions, and each one caus
 
 **Revolution** is Earth traveling all the way around the Sun. One full revolution takes about $365.25$ days, which is why we add a leap day every four years to keep our calendar in sync. Revolution, combined with the tilt of Earth's axis (about $23.5^\circ$), is what causes the **seasons**. Because the axis stays tilted in the same direction as Earth orbits, different parts of Earth lean toward or away from the Sun at different times of the year, changing how directly sunlight hits them.
 
-<!-- ILLUSTRATION: Earth shown at four positions around the Sun, axis tilted the same direction at each position, showing the Northern Hemisphere leaning toward the Sun at one position and away at the opposite position -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"seasonal-orbit","illustrationKey":"science/earth-science-astronomy/earths-motions#1","earthPositions":4,"axisDirection":"constant","hemisphereTilt":["toward Sun","away from Sun"]} -->
 
 **Precession** is a much slower motion: the slow, circular wobble of Earth's tilted axis itself, like a spinning top that wobbles as it slows down. One full wobble takes about $26{,}000$ years. Precession does not change the seasons themselves, but over thousands of years, it slowly shifts which star the axis points toward (currently Polaris, the North Star) and slowly shifts the timing of the seasons relative to Earth's position in its orbit.
 
@@ -27,7 +27,7 @@ The three motions, side by side: rotation gives us day and night in about $24$ h
 
 Match each motion of Earth to the phenomenon it directly causes: (a) rotation, (b) revolution with axial tilt, (c) precession.
 
-<!-- ILLUSTRATION: three small diagrams: Earth spinning on its axis (rotation → day/night), Earth orbiting the Sun with a tilted axis (revolution → seasons), and a slow wobble of the axis (precession) -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"earth-motion-triptych","illustrationKey":"science/earth-science-astronomy/earths-motions#2","motions":[{"name":"rotation","effect":"day/night","motion":"spin on axis"},{"name":"revolution","effect":"seasons","motion":"orbit Sun with tilted axis"},{"name":"precession","effect":"axis wobble","motion":"slow wobble"}]} -->
 
 
 **Solution:**
@@ -42,7 +42,7 @@ Pair each motion with its timescale and its result.
 
 A common misconception is that summer happens because Earth is closer to the Sun at that time of year. Explain why this is not the real reason for the seasons.
 
-<!-- ILLUSTRATION: Earth at two points in its orbit around the Sun, its axis tilted 23.5°; on one side the Northern Hemisphere tilts toward the Sun (summer), on the other it tilts away (winter), with sunlight hitting at different angles -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"seasonal-tilt-comparison","illustrationKey":"science/earth-science-astronomy/earths-motions#3","earthPositions":2,"axisTiltDegrees":23.5,"northernHemisphereStates":["toward Sun (summer)","away from Sun (winter)"],"sunlightAngles":"different"} -->
 
 
 **Solution:**
@@ -57,7 +57,7 @@ Check the misconception against how seasons actually work.
 
 Explain why a sidereal day (measured against the distant stars) is a few minutes shorter than the familiar $24$-hour day.
 
-<!-- ILLUSTRATION: Earth at two positions along its orbit showing that, after one full spin relative to the stars, Earth must rotate a few extra degrees to face the Sun again, making the solar day slightly longer -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"sidereal-solar-day","illustrationKey":"science/earth-science-astronomy/earths-motions#4","earthPositions":2,"siderealReference":"distant stars","extraRotation":"a few extra degrees","result":"solar day slightly longer"} -->
 
 
 **Solution:**

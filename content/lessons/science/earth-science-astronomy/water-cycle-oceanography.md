@@ -21,7 +21,7 @@ The **water cycle** describes how water constantly moves between the oceans, the
 
 **Infiltration and runoff**: precipitation that lands on the ground either soaks into the soil (**infiltration**, which feeds groundwater) or flows over the surface into streams, rivers, and eventually back to the ocean (**runoff**).
 
-<!-- ILLUSTRATION: circular diagram showing the Sun heating the ocean causing evaporation, rising water vapor condensing into clouds, clouds releasing precipitation over mountains, and water flowing back to the ocean as runoff and groundwater -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"water-cycle","illustrationKey":"science/earth-science-astronomy/water-cycle-oceanography#1","steps":["Sun heats ocean","evaporation","water vapor rises","condensation into clouds","precipitation over mountains","runoff to ocean","groundwater to ocean"]} -->
 
 ### Basic Oceanography
 

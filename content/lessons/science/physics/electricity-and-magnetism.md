@@ -19,7 +19,7 @@ where $q_1$ and $q_2$ are the charges, $r$ is the distance between them, and $k$
 
 An **electric field** is the invisible "influence region" surrounding a charge, which would exert a force on any other charge placed within it. Field lines point away from positive charges and toward negative charges.
 
-<!-- ILLUSTRATION: two diagrams, one showing two positive charges with field lines pointing away from each and a repelling force arrow, one showing a positive and negative charge with field lines connecting them and an attracting force arrow -->
+<!-- FIGURE: {"kind":"physics-energy-diagram","type":"electric-field-pairs","illustrationKey":"science/physics/electricity-and-magnetism#1","cases":[{"charges":["positive","positive"],"fieldLines":"point away from each","force":"repel"},{"charges":["positive","negative"],"fieldLines":"connect positive to negative","force":"attract"}]} -->
 
 ### Ohm's Law
 
@@ -35,7 +35,7 @@ In a **series circuit**, components are connected in one single path, one after 
 
 In a **parallel circuit**, components are connected across multiple separate paths (branches). The same voltage is applied across each branch, but the current splits between them, with each branch carrying its own share depending on its resistance. If one branch fails, the other branches keep working independently.
 
-<!-- ILLUSTRATION: two simple circuit diagrams side by side, a series circuit showing a battery connected to two bulbs in a single loop one after another, and a parallel circuit showing a battery connected to two bulbs on separate side-by-side branches -->
+<!-- FIGURE: {"kind":"physics-energy-diagram","type":"series-parallel-circuit","illustrationKey":"science/physics/electricity-and-magnetism#2","bulbsPerCircuit":2,"seriesPath":"single loop one after another","parallelPath":"separate side-by-side branches","batteryShown":true} -->
 
 A **complex circuit** combines both series and parallel sections within the same overall circuit, requiring you to analyze each section according to its own type before combining the results.
 
@@ -64,7 +64,7 @@ $$2^2 = 4$$
 
 A circuit has a resistance of $10 \text{ ohms}$ and a current of $2 \text{ amperes}$ flowing through it. Find the voltage.
 
-<!-- ILLUSTRATION: a simple circuit with a battery, a 10 ohm resistor, and a 2 A current arrow, with the voltage across the battery marked "?" -->
+<!-- FIGURE: {"kind":"physics-energy-diagram","type":"ohms-law-circuit","illustrationKey":"science/physics/electricity-and-magnetism#3","resistanceOhms":10,"currentAmps":2,"voltageLabel":"?"} -->
 
 
 **Solution:**
@@ -82,7 +82,7 @@ $$V = 20 \text{ volts}$$
 
 In a series circuit with two light bulbs, one bulb suddenly burns out. In a separate parallel circuit with two light bulbs, one bulb burns out. Predict what happens to the other bulb in each case.
 
-<!-- ILLUSTRATION: two circuits side by side: a series circuit with two bulbs on one loop (one burned out, the other goes dark) and a parallel circuit with two bulbs on separate branches (one burned out, the other stays lit) -->
+<!-- FIGURE: {"kind":"physics-energy-diagram","type":"circuit-failure","illustrationKey":"science/physics/electricity-and-magnetism#4","seriesOutcome":"other bulb goes dark","parallelOutcome":"other bulb stays lit","burnedOutBulbsPerCircuit":1} -->
 
 
 **Solution:**
