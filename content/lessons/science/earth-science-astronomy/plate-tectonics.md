@@ -23,7 +23,7 @@ The missing piece came from **seafloor spreading**, proposed by Harry Hess in $1
 - **Convergent boundary**: two plates move toward each other and collide. If one plate is denser, it gets pushed underneath the other in a process called **subduction**; if neither plate sinks, they crumple upward into mountain ranges.
 - **Transform boundary**: two plates slide past each other sideways, without creating or destroying crust. Friction along these boundaries builds up stress that releases suddenly as earthquakes.
 
-<!-- ILLUSTRATION: three side-by-side cross-sections showing a divergent boundary with plates moving apart and magma rising, a convergent boundary with one plate sliding under another, and a transform boundary with two plates sliding past each other horizontally -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"plate-boundary-comparison","illustrationKey":"science/earth-science-astronomy/plate-tectonics#1","boundaries":[{"name":"divergent","motion":"plates moving apart","state":"magma rising"},{"name":"convergent","motion":"plates moving together","state":"one plate sliding under another"},{"name":"transform","motion":"plates sliding past each other horizontally","state":"sideways motion"}]} -->
 
 ### Faults, Earthquakes, and Seismic Waves
 
@@ -41,7 +41,7 @@ A **fault** is a crack in Earth's crust where rock on either side has moved. Whe
 
 Two plates are sliding sideways past each other, causing frequent strong earthquakes but no new mountains or volcanoes. What type of plate boundary is this?
 
-<!-- ILLUSTRATION: two tectonic plates sliding horizontally past each other in opposite directions (a transform boundary), with a fault line and earthquake symbols between them -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"transform-boundary","illustrationKey":"science/earth-science-astronomy/plate-tectonics#2","plateMotion":"opposite horizontal directions","faultLine":true,"earthquakeSymbols":true} -->
 
 
 **Solution:**
@@ -68,7 +68,7 @@ Connect the fossil pattern to Wegener's original claim.
 
 A seismograph station records the P wave from an earthquake arriving several seconds before the S wave. Explain why this time gap tells scientists how far away the earthquake occurred, and why a larger gap means a greater distance.
 
-<!-- ILLUSTRATION: a seismograph trace showing the faster P wave arriving first and the slower S wave arriving later, with the time gap between them labeled as proportional to distance -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"seismograph-arrivals","illustrationKey":"science/earth-science-astronomy/plate-tectonics#3","firstArrival":"P wave","secondArrival":"S wave","timeGapMeaning":"proportional to distance"} -->
 
 
 **Solution:**
