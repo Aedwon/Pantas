@@ -13,7 +13,7 @@ An object's **center of gravity** is the single point where its entire weight ca
 
 An object's **base of support** is the area on the ground enclosed by its points (or edges) of contact with the ground. A four-legged table's base of support is the rectangle connecting its four feet; a person's base of support is the area between their two feet.
 
-<!-- ILLUSTRATION: two triangular shapes standing upright, one short and wide with a low center of gravity marked well within its wide base, and one tall and narrow with a high center of gravity marked near the edge of its narrow base, the tall narrow one shown tipping over -->
+<!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "pyramid", "baseWidth": 3, "height": 1}, {"form": "pyramid", "baseWidth": 1, "height": 3}], "semanticsLabel": "Two triangular shapes standing upright: a short wide one with a low center of gravity within its wide base, and a tall narrow one with a high center of gravity tipping over."} -->
 
 The core stability rule: an object remains stable (will not tip over) as long as an imaginary vertical line dropped straight down from its center of gravity falls within its base of support. If that vertical line falls outside the base of support (for example, if the object is tilted too far), the object becomes unstable and tips over.
 
@@ -28,7 +28,7 @@ This leads to two general principles for improving stability:
 
 A short, wide pyramid and a tall, narrow pyramid have the same weight and are made of the same uniform material. Which one is more stable, and why?
 
-<!-- ILLUSTRATION: a short wide pyramid beside a tall narrow pyramid, each with its center of gravity marked; the short wide one is more stable (low center of gravity, wide base) -->
+<!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "pyramid", "baseWidth": 3, "height": 1}, {"form": "pyramid", "baseWidth": 1, "height": 3}], "semanticsLabel": "A short wide pyramid beside a tall narrow pyramid, each with its center of gravity marked, showing the short wide pyramid is more stable."} -->
 
 
 **Solution:**
@@ -40,7 +40,7 @@ A short, wide pyramid and a tall, narrow pyramid have the same weight and are ma
 
 A rectangular box is slowly tilted to one side. At what point does the box tip over, rather than settling back down?
 
-<!-- ILLUSTRATION: a rectangular box tilted on one edge, a vertical line dropping from its center of gravity; the box tips once that line falls outside the base edge it is pivoting on -->
+<!-- FIGURE: {"kind": "stability-shape", "tilt": 22, "shapes": [{"form": "box", "baseWidth": 2, "height": 3}], "semanticsLabel": "A rectangular box tilted on one edge with a vertical plumb line dropped from its center of gravity to show tipping."} -->
 
 
 **Solution:**
@@ -52,7 +52,7 @@ A rectangular box is slowly tilted to one side. At what point does the box tip o
 
 A moving truck carries cargo either stacked very high or spread out lower (same total weight either way). Which loading method makes the truck more stable while turning corners?
 
-<!-- ILLUSTRATION: two trucks, one with cargo stacked tall (high center of gravity) and one with cargo spread low (low center of gravity); the low-loaded truck is more stable around corners -->
+<!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "box", "baseWidth": 2, "height": 3}, {"form": "box", "baseWidth": 3, "height": 1}], "semanticsLabel": "Two truck cargo profiles: one with cargo stacked tall giving a high center of gravity, and one with cargo spread low giving a low center of gravity."} -->
 
 
 **Solution:**
@@ -64,7 +64,7 @@ A moving truck carries cargo either stacked very high or spread out lower (same 
 
 A person standing normally with feet close together is compared to the same person standing with feet spread wider apart. Which stance is more stable against being pushed sideways?
 
-<!-- ILLUSTRATION: a person with feet close together beside the same person with feet spread wide, each showing the base of support width; the wide stance is more stable against a sideways push -->
+<!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "pyramid", "baseWidth": 1, "height": 3}, {"form": "pyramid", "baseWidth": 3, "height": 3}], "semanticsLabel": "Two stances comparing base of support width: feet close together with a narrow base, and feet spread wide with a wider, more stable base."} -->
 
 
 **Solution:**

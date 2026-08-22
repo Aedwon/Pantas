@@ -15,7 +15,7 @@ $$\text{stretch} = k \times \text{weight}$$
 
 where $k$ is a constant describing that particular spring's stiffness (technically its "spring constant"). A stiffer spring has a smaller stretch for the same weight (harder to stretch); a looser (more flexible) spring has a larger stretch for the same weight (easier to stretch).
 
-<!-- ILLUSTRATION: two springs side by side, one labeled "stiff spring" showing only a small stretch under a hanging weight, and one labeled "loose spring" showing a much larger stretch under the identical hanging weight -->
+<!-- FIGURE: {"kind": "spring-scale", "springs": [{"stretch": 1}, {"stretch": 2}], "semanticsLabel": "Two springs side by side: a stiff spring with small stretch and a loose spring with large stretch under the identical hanging weight."} -->
 
 Because stretch is proportional to weight, if you know how far a spring stretches for one known weight, you can predict the stretch for any other weight using a simple ratio: the stretch scales up or down by the same factor as the weight changes.
 
@@ -27,7 +27,7 @@ When comparing two different springs holding the same weight, the spring that st
 
 A spring stretches $4 \text{ cm}$ when a $2 \text{ kg}$ weight is attached. How far will it stretch with a $6 \text{ kg}$ weight?
 
-<!-- ILLUSTRATION: two hanging springs; the first stretched 4 cm by a 2 kg weight, the second stretched 12 cm by a 6 kg weight (the answer), showing the proportional relationship -->
+<!-- FIGURE: {"kind": "spring-scale", "springs": [{"stretch": 4}, {"stretch": 12}], "semanticsLabel": "Two hanging springs showing proportional stretch: the first stretched 4 cm by a 2 kg weight, the second stretched 12 cm by a 6 kg weight."} -->
 
 
 **Solution:**
@@ -39,7 +39,7 @@ A spring stretches $4 \text{ cm}$ when a $2 \text{ kg}$ weight is attached. How 
 
 A spring stretches $3 \text{ cm}$ for every $1 \text{ kg}$ attached. How much weight is attached if the spring has stretched $15 \text{ cm}$?
 
-<!-- ILLUSTRATION: a hanging spring stretched 15 cm with a ruler marking the length, an unknown weight labeled "?" attached; the answer is 5 kg -->
+<!-- FIGURE: {"kind": "spring-scale", "springs": [{"stretch": 15}], "semanticsLabel": "A hanging spring stretched 15 cm with an unknown weight labeled with a question mark attached, balancing 5 kg."} -->
 
 
 **Solution:**
@@ -54,7 +54,7 @@ $$15 \div 3 = 5$$
 
 Spring A stretches $2 \text{ cm}$ under a $4 \text{ kg}$ weight. Spring B stretches $5 \text{ cm}$ under the same $4 \text{ kg}$ weight. Which spring is stiffer?
 
-<!-- ILLUSTRATION: two hanging springs under identical 4 kg weights side by side; Spring A stretched only 2 cm, Spring B stretched 5 cm; Spring A is stiffer (stretches less) -->
+<!-- FIGURE: {"kind": "spring-scale", "springs": [{"label": "A", "stretch": 2}, {"label": "B", "stretch": 5}], "semanticsLabel": "Two hanging springs under identical 4 kg weights side by side: Spring A stretched 2 cm and Spring B stretched 5 cm, showing Spring A is stiffer."} -->
 
 
 **Solution:**
@@ -66,7 +66,7 @@ Spring A stretches $2 \text{ cm}$ under a $4 \text{ kg}$ weight. Spring B stretc
 
 Using Spring A from Example 3 (stretches $2 \text{ cm}$ under $4 \text{ kg}$), predict its stretch under a $10 \text{ kg}$ weight.
 
-<!-- ILLUSTRATION: Spring A shown twice; stretched 2 cm under 4 kg, then stretched 5 cm under 10 kg (the answer), keeping the same stretch-per-kg ratio -->
+<!-- FIGURE: {"kind": "spring-scale", "springs": [{"stretch": 2}, {"stretch": 5}], "semanticsLabel": "Spring A shown twice: stretched 2 cm under a 4 kg weight, and stretched 5 cm under a 10 kg weight."} -->
 
 
 **Solution:**
