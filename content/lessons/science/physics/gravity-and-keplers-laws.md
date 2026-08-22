@@ -29,7 +29,7 @@ Before Newton explained why, the astronomer Johannes Kepler had already discover
 
 **Kepler's Third Law (Law of Harmonies)**: the square of a planet's orbital period is proportional to the cube of its average distance from the Sun. Planets farther from the Sun take disproportionately longer to complete one orbit.
 
-<!-- ILLUSTRATION: elliptical orbit with the Sun at one focus, showing a planet at two positions, near the Sun with a wide swept-area triangle and short arc traveled quickly, and far from the Sun with a similarly-sized swept-area triangle but a longer, slower arc -->
+<!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"kepler-equal-areas","illustrationKey":"science/physics/gravity-and-keplers-laws#2","orbit":"ellipse","sunPosition":"one focus","interval":"equal time","near":{"arc":"longer","speed":"faster"},"far":{"arc":"shorter","speed":"slower"},"areas":"equal"} -->
 
 Newton later showed that Kepler's three laws are all a natural consequence of his law of universal gravitation combined with the laws of motion: Kepler discovered the pattern, and Newton later explained the underlying physics causing it.
 
@@ -52,7 +52,7 @@ $$3^2 = 9$$
 
 A planet's orbit is elliptical. At one point in its orbit (**perihelion**) it is very close to the Sun; at another point (**aphelion**) it is very far from the Sun. At which point does the planet move faster?
 
-<!-- ILLUSTRATION: an elliptical orbit with the Sun at one focus; perihelion marked close to the Sun with a long velocity arrow (fast) and aphelion marked far from the Sun with a short velocity arrow (slow) -->
+<!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"orbital-speed","illustrationKey":"science/physics/gravity-and-keplers-laws#3","orbit":"ellipse","sunPosition":"one focus","perihelion":{"distance":"near","velocityArrow":"long","speed":"fast"},"aphelion":{"distance":"far","velocityArrow":"short","speed":"slow"}} -->
 
 
 **Solution:**
