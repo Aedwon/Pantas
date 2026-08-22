@@ -17,7 +17,7 @@ A single fixed pulley (attached to a stationary point, like a ceiling beam) simp
 
 A movable pulley (attached directly to the load itself, moving along with it) does reduce the force needed: with one movable pulley, you only need half the force of the load's weight to lift it, though you must pull the rope twice as far. Adding more movable pulleys further reduces the required force: with $2$ movable pulleys working together, you need only one-quarter the load's weight in pulling force (but must pull four times the distance).
 
-<!-- ILLUSTRATION: two pulley setups side by side, one showing a single fixed pulley at the top with a rope pulling straight down to lift a weight (same force needed, direction only changed), and one showing a movable pulley attached to the weight itself, requiring half the force but twice the rope length pulled -->
+<!-- FIGURE: {"kind": "pulley-system", "fixed": 1, "movable": 1, "semanticsLabel": "A pulley system with one fixed pulley and one movable pulley."} -->
 
 ### Levers and Fulcrums
 
@@ -33,7 +33,7 @@ This means moving the fulcrum closer to the load (making the load's distance sho
 
 A fixed pulley is used to lift a $50 \text{ kg}$ load. How much pulling force is required, and does the direction of pulling matter?
 
-<!-- ILLUSTRATION: a fixed pulley attached to an overhead beam, a 50 kg load on one side of the rope and a downward pull on the other; the pull force equals the full 50 kg, only the direction changes -->
+<!-- FIGURE: {"kind": "pulley-system", "fixed": 1, "movable": 0, "semanticsLabel": "A single fixed pulley hanging from a beam with a load on one end of the rope."} -->
 
 
 **Solution:**
@@ -45,7 +45,7 @@ A fixed pulley is used to lift a $50 \text{ kg}$ load. How much pulling force is
 
 A movable pulley is used to lift a $60 \text{ kg}$ load. How much pulling force is required, and how far must the rope be pulled to lift the load by $2$ meters?
 
-<!-- ILLUSTRATION: a movable pulley attached to a 60 kg load with the rope supported by two strands; the pull force is halved to 30 kg and the rope must be pulled 4 meters to raise the load 2 meters -->
+<!-- FIGURE: {"kind": "pulley-system", "fixed": 1, "movable": 1, "semanticsLabel": "A movable pulley attached to a load supported by two rope strands."} -->
 
 
 **Solution:**
@@ -57,7 +57,7 @@ A movable pulley is used to lift a $60 \text{ kg}$ load. How much pulling force 
 
 A lever has a load of $100 \text{ kg}$ placed $2$ meters from the fulcrum. How much effort force is needed if applied $5$ meters from the fulcrum on the other side?
 
-<!-- ILLUSTRATION: a lever on a triangular fulcrum, a 100 kg load 2 m from the fulcrum on the left and the effort applied 5 m from the fulcrum on the right; balance gives an effort of 40 kg -->
+<!-- FIGURE: {"kind": "lever-balance", "loadDistance": 2, "effortDistance": 5, "semanticsLabel": "A lever on a fulcrum with a load at 2 meters and effort applied at 5 meters."} -->
 
 
 **Solution:**
@@ -79,7 +79,7 @@ $$\text{effort} = 40 \text{ kg}$$
 
 Using the same $100 \text{ kg}$ load, if the fulcrum is moved so the load is now only $1$ meter from the fulcrum (while the effort distance stays at $5$ meters), how does the required effort change compared to Example 3?
 
-<!-- ILLUSTRATION: the same lever with the fulcrum moved so the 100 kg load is 1 m away and the effort stays 5 m away; the required effort drops to 20 kg (half of Example 3) -->
+<!-- FIGURE: {"kind": "lever-balance", "loadDistance": 1, "effortDistance": 5, "semanticsLabel": "A lever with the fulcrum moved so the load is 1 meter away and effort is 5 meters away."} -->
 
 
 **Solution:**

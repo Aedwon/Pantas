@@ -15,7 +15,7 @@ isActive: true
 
 **Connected containers settle at the same fluid level.** If two or more open containers are connected at the bottom (like a U-shaped tube), the fluid will settle so that the surface level is the same in every connected container, regardless of each container's width or shape: this is sometimes summarized as "water finds its own level."
 
-<!-- ILLUSTRATION: a U-shaped tube with two containers of different widths connected at the bottom, showing the water surface level exactly equal in both containers despite their different widths -->
+<!-- FIGURE: {"kind": "fluid-vessel", "vessel": "connected", "columns": 2, "semanticsLabel": "Two open containers of different widths connected at the bottom with water at equal levels."} -->
 
 **Narrower sections mean faster flow (for the same total amount of fluid moving through).** When a fluid flows through a pipe that narrows, the fluid must speed up to keep the same volume of fluid moving through per second (since less cross-sectional area is available): this is why water speeds up when a hose nozzle is squeezed narrower.
 
@@ -27,7 +27,7 @@ isActive: true
 
 A container is filled with water. Point A is near the surface, and Point B is near the bottom. Which point experiences greater pressure?
 
-<!-- ILLUSTRATION: a water-filled container with Point A marked near the surface and Point B near the bottom; deeper Point B experiences greater pressure (shown with a larger pressure arrow) -->
+<!-- FIGURE: {"kind": "fluid-vessel", "vessel": "column", "points": ["A", "B"], "semanticsLabel": "A water-filled container with point A near the surface and point B near the bottom."} -->
 
 
 **Solution:**
@@ -39,7 +39,7 @@ A container is filled with water. Point A is near the surface, and Point B is ne
 
 A wide container and a narrow container are connected at the bottom by a tube, forming a U-shape, both open to the air at the top. Water is poured in until it settles. Which container has the higher water level?
 
-<!-- ILLUSTRATION: a U-shaped tube with a wide arm and a narrow arm, both open at the top, water settling at exactly the same level in both arms (a dashed line connecting the two equal surfaces) -->
+<!-- FIGURE: {"kind": "fluid-vessel", "vessel": "connected", "columns": 2, "semanticsLabel": "A U-shaped tube with a wide arm and a narrow arm with water settling at the same level in both."} -->
 
 
 **Solution:**
@@ -51,7 +51,7 @@ A wide container and a narrow container are connected at the bottom by a tube, f
 
 Water flows steadily through a pipe that narrows from a wide section to a narrow section. Compared to the wide section, how does the water's speed change in the narrow section?
 
-<!-- ILLUSTRATION: a pipe narrowing from a wide section to a narrow section with flow arrows; short arrows (slow) in the wide part and long arrows (fast) in the narrow part, showing the water speeds up -->
+<!-- FIGURE: {"kind": "fluid-vessel", "vessel": "pipe", "widths": [3, 1], "semanticsLabel": "A pipe narrowing from a wide section to a narrow section with water flowing through it."} -->
 
 
 **Solution:**
@@ -63,7 +63,7 @@ Water flows steadily through a pipe that narrows from a wide section to a narrow
 
 Using the same narrowing pipe from Example 3, how does the pressure in the narrow section compare to the pressure in the wide section?
 
-<!-- ILLUSTRATION: the same narrowing pipe with pressure gauges; a higher reading in the wide (slow) section and a lower reading in the narrow (fast) section, illustrating Bernoulli's principle -->
+<!-- FIGURE: {"kind": "fluid-vessel", "vessel": "pipe", "widths": [3, 1], "semanticsLabel": "A pipe narrowing from a wide section to a narrow section showing fluid flow."} -->
 
 
 **Solution:**

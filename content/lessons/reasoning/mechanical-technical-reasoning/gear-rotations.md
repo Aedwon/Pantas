@@ -11,7 +11,7 @@ isActive: true
 
 **Gears** are toothed wheels that interlock with neighboring gears, transferring rotational motion between them. The core rule: when two gears' teeth mesh directly together, they always rotate in opposite directions. If one gear spins clockwise, the gear directly meshing with it must spin counter-clockwise, since their touching teeth push against each other in opposite directions at the contact point.
 
-<!-- ILLUSTRATION: a row of three meshing gears in a line, the first gear labeled with a clockwise arrow, the second (middle) gear labeled with a counter-clockwise arrow, and the third gear labeled with a clockwise arrow, showing the alternating direction pattern -->
+<!-- FIGURE: {"kind": "gear-train", "gears": 3, "firstTurns": "clockwise", "semanticsLabel": "A row of three meshing gears with the first gear turning clockwise."} -->
 
 This creates a simple alternating pattern down a chain of meshing gears: gear 1 clockwise, gear 2 counter-clockwise, gear 3 clockwise, gear 4 counter-clockwise, and so on. A quick shortcut: gears in odd positions (1st, 3rd, 5th...) all spin in the same direction as the first gear; gears in even positions (2nd, 4th, 6th...) all spin in the opposite direction.
 
@@ -23,7 +23,7 @@ This creates a simple alternating pattern down a chain of meshing gears: gear 1 
 
 Three gears are connected in a row, each meshing with its neighbor. The first gear turns clockwise. What direction does the third gear turn?
 
-<!-- ILLUSTRATION: three meshing gears in a row; gear 1 marked turning clockwise, gear 2 counter-clockwise, gear 3 clockwise (the answer), with a direction arrow on each -->
+<!-- FIGURE: {"kind": "gear-train", "gears": 3, "firstTurns": "clockwise", "semanticsLabel": "Three meshing gears in a row with the first gear turning clockwise."} -->
 
 
 **Solution:**
@@ -35,7 +35,7 @@ Three gears are connected in a row, each meshing with its neighbor. The first ge
 
 Five gears are connected in a row, each meshing with its neighbor. The first gear turns counter-clockwise. What direction does the fifth gear turn?
 
-<!-- ILLUSTRATION: five meshing gears in a row with alternating direction arrows; gear 1 counter-clockwise, alternating to gear 5 counter-clockwise (the answer, since odd-numbered gears match gear 1) -->
+<!-- FIGURE: {"kind": "gear-train", "gears": 5, "firstTurns": "counter-clockwise", "semanticsLabel": "Five meshing gears in a row with the first gear turning counter-clockwise."} -->
 
 
 **Solution:**
@@ -47,7 +47,7 @@ Five gears are connected in a row, each meshing with its neighbor. The first gea
 
 A small gear with $10$ teeth meshes with a large gear with $30$ teeth. If the small gear completes $6$ full rotations, how many full rotations does the large gear complete?
 
-<!-- ILLUSTRATION: a small 10-tooth gear meshing with a large 30-tooth gear, labeled with their teeth counts; the small gear turns 6 times while the large gear turns 2 times (the answer) -->
+<!-- FIGURE: {"kind": "gear-train", "gears": 2, "firstTurns": "clockwise", "teeth": [10, 30], "semanticsLabel": "A 10-tooth gear meshing with a 30-tooth gear."} -->
 
 
 **Solution:**
@@ -60,7 +60,7 @@ A small gear with $10$ teeth meshes with a large gear with $30$ teeth. If the sm
 
 A central gear meshes with three other gears arranged around it (like spokes), each of those three also meshing only with the central gear (not with each other). If the central gear turns clockwise, what direction do all three outer gears turn?
 
-<!-- ILLUSTRATION: a central gear meshing separately with three outer gears arranged like spokes; the central gear turns clockwise and all three outer gears turn counter-clockwise (the answer) -->
+<!-- FIGURE: {"kind": "gear-train", "gears": 4, "firstTurns": "clockwise", "semanticsLabel": "A central gear turning clockwise meshing with outer gears."} -->
 
 
 **Solution:**
