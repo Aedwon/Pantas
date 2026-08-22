@@ -21,7 +21,7 @@ Earth's atmosphere is divided into layers, from the ground up.
 - **Thermosphere**: from about $85$ km to $600$ km high. Despite being called "hot" (temperatures here can be very high), the air is so thin that it would not feel warm to a person.
 - **Exosphere**: the outermost layer, fading gradually into outer space, where satellites orbit.
 
-<!-- ILLUSTRATION: vertical cross-section of the atmosphere showing five stacked labeled layers from ground level upward: troposphere, stratosphere, mesosphere, thermosphere, exosphere, with the ozone layer marked inside the stratosphere -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"atmosphere-layers","illustrationKey":"science/earth-science-astronomy/weather-and-climate#1","layersGroundUp":["troposphere","stratosphere","mesosphere","thermosphere","exosphere"],"ozoneLayerWithin":"stratosphere"} -->
 
 ### Monsoons and Typhoons
 
