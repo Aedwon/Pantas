@@ -7,7 +7,8 @@ import 'package:path/path.dart' as p;
 import 'illustration_preview_renderer.dart';
 
 void main() {
-  testWidgets('render live lesson illustration review previews', (tester) async {
+  testWidgets('render live lesson illustration review previews',
+      (tester) async {
     final repositoryRoot = Directory.current;
     final outputRoot = Directory(
       p.join(
