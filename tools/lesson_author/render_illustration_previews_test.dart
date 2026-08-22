@@ -22,6 +22,7 @@ void main() {
     final manifest = await renderReviewPreviews(
       repositoryRoot: repositoryRoot,
       outputRoot: outputRoot,
+      tester: tester,
     );
 
     expect(manifest.entries, hasLength(52));
