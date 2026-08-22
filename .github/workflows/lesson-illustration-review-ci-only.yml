@@ -1,0 +1,65 @@
+name: Lesson illustration review CI only
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  review-server-verification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: tools/lesson_author
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: tools/lesson_author/package-lock.json
+
+      - name: Install dependencies from lockfile
+        run: npm ci --no-audit --no-fund
+
+      - name: Syntax check
+        run: |
+          node --check illustration_review.mjs
+          node --check illustration_review.test.mjs
+          node --check server.mjs
+
+      - name: Review module tests
+        run: npm test
+
+      - name: Real repository catalog smoke test
+        run: |
+          node --input-type=module <<'NODE'
+          import { loadIllustrationCatalog } from './illustration_review.mjs';
+          const catalog = await loadIllustrationCatalog({ repoRoot: process.env.GITHUB_WORKSPACE });
+          const count = (strategy) => catalog.items.filter((item) => item.strategy === strategy).length;
+          if (catalog.items.length !== 59) throw new Error(`Expected 59 review items, got ${catalog.items.length}`);
+          if (count('code') !== 52) throw new Error(`Expected 52 code items, got ${count('code')}`);
+          if (count('open') !== 4) throw new Error(`Expected 4 Commons items, got ${count('open')}`);
+          if (count('founder') !== 3) throw new Error(`Expected 3 founder items, got ${count('founder')}`);
+          NODE
+
+      - name: Local server API smoke test
+        run: |
+          node server.mjs --no-open > /tmp/lesson-author.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for attempt in $(seq 1 20); do
+            if curl --fail --silent http://127.0.0.1:4321/api/illustrations > /tmp/illustrations.json; then
+              break
+            fi
+            sleep 0.5
+          done
+          node --input-type=module <<'NODE'
+          import { readFile } from 'node:fs/promises';
+          const payload = JSON.parse(await readFile('/tmp/illustrations.json', 'utf8'));
+          if (payload.items?.length !== 59) throw new Error('Server catalog did not return 59 items.');
+          NODE
