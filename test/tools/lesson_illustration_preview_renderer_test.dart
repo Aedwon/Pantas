@@ -8,7 +8,7 @@ import '../../tools/lesson_author/illustration_preview_renderer.dart';
 
 const _key = 'reading-comprehension/text-types/short-stories-and-novels#1';
 const _figureMarker =
-    '<!-- FIGURE: {"kind":"reading-diagram","type":"plot-arc",'
+    '<!-- FIGURE: {"kind":"reading-diagram","type":"plot-arc",' ' '
     '"illustrationKey":"$_key","shape":"rise-peak-fall",'
     '"stages":["introduction","rising action","climax","resolution"]} -->';
 
@@ -34,11 +34,13 @@ void main() {
 
     expect(
       () => findReviewFigureSpecs(root),
-      throwsA(isA<StateError>().having(
-        (error) => error.message,
-        'message',
-        contains('Duplicate review FIGURE marker'),
-      )),
+      throwsA(
+        isA<StateError>().having(
+          (error) => error.message,
+          'message',
+          contains('Duplicate review FIGURE marker'),
+        ),
+      ),
     );
   });
 
@@ -51,11 +53,13 @@ void main() {
 
     expect(
       () => findReviewFigureSpecs(root),
-      throwsA(isA<StateError>().having(
-        (error) => error.message,
-        'message',
-        contains('Missing review FIGURE markers'),
-      )),
+      throwsA(
+        isA<StateError>().having(
+          (error) => error.message,
+          'message',
+          contains('Missing review FIGURE markers'),
+        ),
+      ),
     );
   });
 
@@ -71,11 +75,13 @@ void main() {
 
     expect(
       () => findReviewFigureSpecs(root),
-      throwsA(isA<FormatException>().having(
-        (error) => error.message,
-        'message',
-        contains('malformed illustrationKey'),
-      )),
+      throwsA(
+        isA<FormatException>().having(
+          (error) => error.message,
+          'message',
+          contains('malformed illustrationKey'),
+        ),
+      ),
     );
   });
 
@@ -91,6 +97,7 @@ void main() {
     final manifest = await renderReviewPreviews(
       repositoryRoot: root,
       outputRoot: output,
+      tester: tester,
     );
 
     expect(manifest.entries, hasLength(1));
