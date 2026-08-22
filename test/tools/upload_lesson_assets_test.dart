@@ -137,6 +137,62 @@ void main() {
     expect(mapFile.existsSync(), isFalse);
   });
 
+  test('dry-run reports strategy rows missing from the manifests', () async {
+    final uploader = _MemoryUploader();
+    final mapFile = File('${tempDir.path}/content/illustrations/assets.json');
+
+    final result = await synchronizeAssets(
+      assetMapFile: mapFile,
+      dryRun: true,
+      records: [_record(digest)],
+      repositoryRoot: tempDir,
+      strategy: {
+        ..._strategy,
+        'science/biology/cells#2': const StrategyAsset(
+          alt: 'A second cell diagram.',
+          key: 'science/biology/cells#2',
+          target: 'content/illustrations/second.png',
+        ),
+      },
+      uploader: uploader,
+    );
+
+    expect(result.ready, 1);
+    expect(result.missing, 1);
+    expect(result.writes, 0);
+    expect(uploader.uploadedKeys, isEmpty);
+    expect(mapFile.existsSync(), isFalse);
+  });
+
+  test('rejects an unapproved direct download host', () async {
+    expect(
+      () => synchronizeAssets(
+        assetMapFile: File(
+          '${tempDir.path}/content/illustrations/assets.json',
+        ),
+        dryRun: true,
+        records: [
+          OpenAssetRecord(
+            creator: 'OpenStax',
+            credit: 'OpenStax, CC BY 4.0.',
+            directUrl: Uri.parse('https://example.com/image.png'),
+            key: 'science/biology/cells#1',
+            license: 'CC BY 4.0',
+            sha256: digest,
+            sourcePage: Uri.parse(
+              'https://openstax.org/books/biology/pages/1',
+            ),
+            target: 'content/illustrations/diagram.png',
+          ),
+        ],
+        repositoryRoot: tempDir,
+        strategy: _strategy,
+        uploader: _MemoryUploader(),
+      ),
+      throwsA(isA<AssetManifestException>()),
+    );
+  });
+
   test('loads the frozen YAML and strategy TSV contracts', () {
     final manifest = File('${tempDir.path}/open-a.yaml')..writeAsStringSync('''
 version: 1

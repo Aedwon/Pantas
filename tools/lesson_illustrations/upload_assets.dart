@@ -252,7 +252,9 @@ Future<AssetUploadResult> synchronizeAssets({
     files[record.key] = file;
   }
 
-  final ready = records.length - missing;
+  missing += strategy.keys.where((key) => !seenKeys.contains(key)).length;
+
+  final ready = strategy.length - missing;
   if (dryRun) {
     return AssetUploadResult(
       missing: missing,
@@ -362,6 +364,12 @@ void _validateRecord(OpenAssetRecord record) {
     throw AssetManifestException(
       'Unapproved source family for ${record.key}: '
       '${record.sourcePage.host}.',
+    );
+  }
+  if (!_isApprovedSourcePage(record.directUrl)) {
+    throw AssetManifestException(
+      'Unapproved direct download host for ${record.key}: '
+      '${record.directUrl.host}.',
     );
   }
   if (!_licenseAllowsCommercialModification(record.license)) {
