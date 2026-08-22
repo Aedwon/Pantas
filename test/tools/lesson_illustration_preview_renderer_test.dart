@@ -46,7 +46,8 @@ void main() {
     final root = _fixtureRoot();
     addTearDown(() => root.deleteSync(recursive: true));
     _writeStrategy(root);
-    Directory(p.join(root.path, 'content', 'lessons')).createSync(recursive: true);
+    Directory(p.join(root.path, 'content', 'lessons'))
+        .createSync(recursive: true);
 
     expect(
       () => findReviewFigureSpecs(root),
