@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "contentVersion": 2026082121,
-  "generatedAt": "2026-08-21T21:02:36.375269Z",
+  "contentVersion": 2026082211,
+  "generatedAt": "2026-08-22T11:38:15.716238Z",
   "exams": [
     {
       "id": "exam_cse_pro",
@@ -112787,6 +112787,26 @@
           ]
         },
         {
+          "_type": "table",
+          "rows": [
+            [
+              "Error Type",
+              "Example Sentence",
+              "Issue / Intended Target"
+            ],
+            [
+              "**Misplaced modifier**",
+              "The waiter served the pasta to the customer *covered in cheese*.",
+              "Points to the wrong word (*customer* instead of *pasta*)."
+            ],
+            [
+              "**Dangling modifier**",
+              "*Walking down the street*, the trees looked beautiful.",
+              "Points to nothing (intended subject is missing)."
+            ]
+          ]
+        },
+        {
           "_type": "block",
           "style": "h2",
           "children": [
@@ -113613,6 +113633,26 @@
               "text": " to save money\" breaks this matching pattern.",
               "marks": []
             }
+          ]
+        },
+        {
+          "_type": "table",
+          "rows": [
+            [
+              "Structure Pattern",
+              "List Item Forms",
+              "Parallelism Status"
+            ],
+            [
+              "**Matching forms**",
+              "`-ing`, `-ing`, `-ing`",
+              "Parallel"
+            ],
+            [
+              "**Mismatched forms**",
+              "`-ing`, `to + verb`, `-ing`",
+              "Broken parallelism"
+            ]
           ]
         },
         {
@@ -115781,6 +115821,29 @@
               "text": ": \"Because the rain stopped\" has a subject (rain) and a verb (stopped), but it leaves you asking \"...then what?\" It cannot stand alone.",
               "marks": []
             }
+          ]
+        },
+        {
+          "_type": "table",
+          "rows": [
+            [
+              "Clause Type",
+              "Example",
+              "Expresses Complete Thought?",
+              "Standalone Status"
+            ],
+            [
+              "**Independent clause**",
+              "The rain stopped.",
+              "Yes",
+              "Complete sentence"
+            ],
+            [
+              "**Dependent clause**",
+              "Because the rain stopped,",
+              "No (needs an independent clause)",
+              "Incomplete (fragment)"
+            ]
           ]
         },
         {
@@ -119164,6 +119227,23 @@
           ]
         },
         {
+          "_type": "table",
+          "rows": [
+            [
+              "Rule",
+              "Sentence",
+              "Grammatical Meaning",
+              "Correct Form"
+            ],
+            [
+              "$\\text{negative} \\times \\text{negative} = \\text{positive}$",
+              "I *don't* have *no* money.",
+              "I have money.",
+              "I *don't* have *any* money."
+            ]
+          ]
+        },
+        {
           "_type": "block",
           "style": "h2",
           "children": [
@@ -120031,6 +120111,36 @@
               "text": ", the cat ran, and it hid under the bed.\" Here, \"Because the dog barked\" is dependent, while \"the cat ran\" and \"it hid under the bed\" are two independent clauses joined by \"and.\"",
               "marks": []
             }
+          ]
+        },
+        {
+          "_type": "table",
+          "rows": [
+            [
+              "Sentence Type",
+              "Clause Structure",
+              "Example"
+            ],
+            [
+              "**Simple**",
+              "1 independent clause",
+              "The dog barked."
+            ],
+            [
+              "**Compound**",
+              "2+ independent clauses",
+              "The dog barked, and the cat ran."
+            ],
+            [
+              "**Complex**",
+              "1 independent + 1+ dependent clauses",
+              "Because the dog barked, the cat ran."
+            ],
+            [
+              "**Compound-complex**",
+              "2+ independent + 1+ dependent clauses",
+              "Because the dog barked, the cat ran, and it hid under the bed."
+            ]
           ]
         },
         {
@@ -124334,6 +124444,36 @@
           ]
         },
         {
+          "_type": "table",
+          "rows": [
+            [
+              "Order",
+              "Sentence Type",
+              "Logical Connection"
+            ],
+            [
+              "**1**",
+              "**Topic sentence**",
+              "Introduces main noun (no prior references needed)"
+            ],
+            [
+              "**2**",
+              "**Supporting detail**",
+              "Adds context; establishes antecedents"
+            ],
+            [
+              "**3**",
+              "**Connecting sentence**",
+              "Pronouns (*it*, *this*, *they*) link back to antecedents in sentence 2"
+            ],
+            [
+              "**4**",
+              "**Result or conclusion**",
+              "Cause-and-effect outcome or concluding transition"
+            ]
+          ]
+        },
+        {
           "_type": "block",
           "style": "h2",
           "children": [
@@ -125118,6 +125258,31 @@
               "text": "For sentences with two blanks, solve the easier blank first (whichever one has clearer context clues), which often narrows down the answer choices enough to make the second blank obvious.",
               "marks": []
             }
+          ]
+        },
+        {
+          "_type": "table",
+          "rows": [
+            [
+              "Signal / Context Clue",
+              "Relationship to Blank",
+              "Effect on Missing Word"
+            ],
+            [
+              "***because***",
+              "Cause and effect",
+              "Hints at a matching result (same direction/tone)"
+            ],
+            [
+              "***although***",
+              "Contrast",
+              "Hints at an opposite or contrasting meaning"
+            ],
+            [
+              "**Nearby signal words**",
+              "Tone and context",
+              "Tone of surrounding words hints at the missing word"
+            ]
           ]
         },
         {
@@ -137800,6 +137965,14 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "coordinate-graph",
+            "type": "vertical-line-test"
+          },
+          "semanticsLabel": "Two graphs comparing a vertical line test on a regular parabola and a sideways parabola."
+        },
+        {
           "_type": "block",
           "style": "h3",
           "children": [
@@ -140965,6 +141138,26 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "coordinate-graph",
+            "type": "linear-inequality",
+            "formula": "x + y < 3",
+            "points": [
+              [
+                0,
+                3
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "shaded": "below"
+          },
+          "semanticsLabel": "A coordinate graph with a dashed line through (0, 3) and (3, 0) and the region containing the origin shaded."
         },
         {
           "_type": "block",
@@ -148835,6 +149028,25 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "concept-diagram",
+            "type": "venn",
+            "sets": [
+              "Chemistry",
+              "Physics"
+            ],
+            "regions": {
+              "left": "17",
+              "overlap": "8",
+              "right": "10",
+              "outside": "5",
+              "total": "40"
+            }
+          },
+          "semanticsLabel": "A two-circle Venn diagram showing 17 in Chemistry only, 8 in both, 10 in Physics only, and 5 outside."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -149167,6 +149379,30 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "concept-diagram",
+            "type": "venn",
+            "sets": [
+              "Engineering",
+              "Business",
+              "Computer Science"
+            ],
+            "center": "5",
+            "overlaps": {
+              "ab": "10",
+              "bc": "5",
+              "ca": "7"
+            },
+            "singleRegions": {
+              "a": "filled",
+              "b": "filled",
+              "c": "filled"
+            }
+          },
+          "semanticsLabel": "A three-circle Venn diagram showing overlaps of Engineering, Business, and Computer Science with 5 in the center."
         },
         {
           "_type": "block",
@@ -149940,6 +150176,21 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "coordinate-graph",
+            "type": "system",
+            "points": [
+              [
+                3,
+                4
+              ]
+            ],
+            "formula": "Crossing at (3, 4)"
+          },
+          "semanticsLabel": "A coordinate graph with two lines intersecting at the point (3, 4)."
         },
         {
           "_type": "block",
@@ -151417,6 +151668,25 @@
           "level": 1
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "coordinate-graph",
+            "type": "system",
+            "points": [
+              [
+                1,
+                -3
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "formula": "y = x^2 - 4 and y = 3x - 6"
+          },
+          "semanticsLabel": "A coordinate graph of a parabola and a line intersecting at (1, -3) and (2, 0)."
+        },
+        {
           "_type": "block",
           "style": "h2",
           "children": [
@@ -152363,6 +152633,23 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "coordinate-graph",
+            "type": "function-gallery",
+            "functions": [
+              "linear",
+              "quadratic",
+              "rational",
+              "absolute-value",
+              "exponential",
+              "logarithmic",
+              "piecewise"
+            ]
+          },
+          "semanticsLabel": "A gallery showing graphs of linear, quadratic, rational, absolute value, exponential, logarithmic, and piecewise functions."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -153042,6 +153329,25 @@
           ],
           "listItem": "number",
           "level": 1
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "coordinate-graph",
+            "type": "rational",
+            "formula": "y = (x+1)/(x-2)",
+            "asymptotes": [
+              {
+                "axis": "x",
+                "value": 2
+              },
+              {
+                "axis": "y",
+                "value": 1
+              }
+            ]
+          },
+          "semanticsLabel": "A rational function graph with a vertical asymptote at x = 2 and a horizontal asymptote at y = 1."
         },
         {
           "_type": "block",
@@ -171710,6 +172016,22 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "concept-diagram",
+            "type": "nested-boxes",
+            "boxes": [
+              "Natural Numbers",
+              "Whole Numbers",
+              "Integers",
+              "Rational Numbers",
+              "Irrational Numbers",
+              "Real Numbers"
+            ]
+          },
+          "semanticsLabel": "A nested boxes diagram showing Natural Numbers inside Whole Numbers, Integers, Rational Numbers, with Irrational Numbers beside them inside Real Numbers."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -177052,6 +177374,28 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "chart",
+            "type": "bar",
+            "labels": [
+              "Factory A",
+              "Factory B"
+            ],
+            "values": [
+              450,
+              320
+            ],
+            "yAxis": {
+              "label": "Units produced",
+              "min": 0,
+              "max": 500,
+              "step": 100
+            }
+          },
+          "semanticsLabel": "A bar chart showing Units produced with Factory A at 450 and Factory B at 320."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -177635,6 +177979,21 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "basic-concepts",
+            "labels": [
+              "Point A",
+              "Line AB",
+              "Segment CD",
+              "Ray EF",
+              "Plane P"
+            ]
+          },
+          "semanticsLabel": "Diagram of basic geometric elements showing point A, line AB with arrows at both ends, segment CD with endpoints, ray EF starting at E, and a flat plane drawn as a parallelogram."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -177854,6 +178213,21 @@
           "level": 1
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "angle-gallery",
+            "labels": [
+              "Acute (<90°)",
+              "Right (90°)",
+              "Obtuse (>90°)",
+              "Straight (180°)",
+              "Reflex (>180°)"
+            ]
+          },
+          "semanticsLabel": "Five angle types side by side showing acute, right with a square mark, obtuse, straight, and reflex angles."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -177965,6 +178339,19 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "vertical-angles",
+            "labels": [
+              "Vertical Pair 1",
+              "Vertical Pair 2",
+              "Linear Pair (180°)"
+            ]
+          },
+          "semanticsLabel": "Two lines crossing in an X with opposite vertical angle pairs marked equal and an adjacent linear pair."
         },
         {
           "_type": "block",
@@ -178159,6 +178546,19 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "complementary-angles",
+            "labels": [
+              "x",
+              "90° - x",
+              "Diff = 24°"
+            ]
+          },
+          "semanticsLabel": "A right angle split by a ray into two complementary angles x and 90 minus x that differ by 24 degrees."
         },
         {
           "_type": "block",
@@ -178402,6 +178802,19 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "supplementary-angles",
+            "labels": [
+              "2x",
+              "3x",
+              "Sum = 180°"
+            ]
+          },
+          "semanticsLabel": "A straight line split by a ray into two supplementary angles labeled 2x and 3x summing to 180 degrees."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -178636,6 +179049,18 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "vertical-angles",
+            "labels": [
+              "(3x + 10)°",
+              "(5x - 20)°"
+            ]
+          },
+          "semanticsLabel": "Two intersecting lines forming an X with opposite vertical angles labeled 3x plus 10 degrees and 5x minus 20 degrees."
         },
         {
           "_type": "block",
@@ -178887,6 +179312,21 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "segment-midpoint",
+            "labels": [
+              "A",
+              "M",
+              "B",
+              "2x + 3",
+              "3x - 7"
+            ]
+          },
+          "semanticsLabel": "Line segment AB with midpoint M dividing it into equal halves AM labeled 2x plus 3 and MB labeled 3x minus 7."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -178903,6 +179343,21 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "segment-midpoint",
+            "labels": [
+              "A",
+              "M",
+              "B",
+              "2x + 3",
+              "3x - 7"
+            ]
+          },
+          "semanticsLabel": "Segment AB with midpoint M showing left half 2x plus 3 equal to right half 3x minus 7."
         },
         {
           "_type": "block",
@@ -179122,6 +179577,20 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "angles-on-line",
+            "labels": [
+              "(2x)°",
+              "(3x + 10)°",
+              "(x + 20)°",
+              "180°"
+            ]
+          },
+          "semanticsLabel": "A straight line with two rays creating three adjacent angles labeled 2x degrees, 3x plus 10 degrees, and x plus 20 degrees summing to 180 degrees."
         },
         {
           "_type": "block",
@@ -180040,6 +180509,22 @@
           "level": 1
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "circle-elements",
+            "labels": [
+              "Radius",
+              "Diameter",
+              "Chord",
+              "Secant",
+              "Tangent",
+              "Center O"
+            ]
+          },
+          "semanticsLabel": "Circle showing center O, radius, diameter, chord, secant line crossing through, and tangent line perpendicular to the radius."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -180203,6 +180688,19 @@
           "level": 1
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "circle-inscribed-central",
+            "labels": [
+              "Central: 80°",
+              "Inscribed: 40°",
+              "Arc = 80°"
+            ]
+          },
+          "semanticsLabel": "Circle showing a central angle of 80 degrees and an inscribed angle of 40 degrees intercepting the same 80 degree arc."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -180316,6 +180814,18 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "circle",
+            "labels": [
+              "r = 7 cm",
+              "Center O"
+            ]
+          },
+          "semanticsLabel": "Circle with center O and radius labeled r equals 7 cm."
         },
         {
           "_type": "block",
@@ -180475,6 +180985,20 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "circle-sector",
+            "labels": [
+              "r = 6",
+              "60°",
+              "Sector",
+              "Arc length s"
+            ]
+          },
+          "semanticsLabel": "Circle of radius 6 with a 60 degree central angle and shaded sector."
         },
         {
           "_type": "block",
@@ -180658,6 +181182,19 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "circle-inscribed-central",
+            "labels": [
+              "Central: 100°",
+              "Inscribed: 50°",
+              "Arc = 100°"
+            ]
+          },
+          "semanticsLabel": "Circle with central angle 100 degrees and inscribed angle 50 degrees intercepting the same 100 degree arc."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -180825,6 +181362,23 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "circle-inscribed-triangle",
+            "labels": [
+              "A",
+              "B",
+              "C",
+              "Diameter AB = 10",
+              "AC = 6",
+              "BC = ?",
+              "90° at C"
+            ]
+          },
+          "semanticsLabel": "Circle with inscribed right triangle ABC where diameter AB is 10, side AC is 6, and side BC is marked with a question mark."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -180877,6 +181431,22 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "circle-inscribed-triangle",
+            "labels": [
+              "A",
+              "B",
+              "C",
+              "AB = 10",
+              "AC = 6",
+              "90° at C"
+            ]
+          },
+          "semanticsLabel": "Circle with diameter AB of length 10 and inscribed triangle ABC with right angle at C on the upper arc and AC equal to 6."
         },
         {
           "_type": "block",
@@ -181133,6 +181703,23 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "circle-tangent",
+            "labels": [
+              "Center O",
+              "Point P",
+              "Point T",
+              "OT = 5",
+              "OP = 13",
+              "PT = ?",
+              "90° at T"
+            ]
+          },
+          "semanticsLabel": "Circle with center O, external point P at distance 13, radius OT equal to 5, and tangent PT labeled with a question mark meeting radius at a right angle."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -181197,6 +181784,23 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "circle-tangent",
+            "labels": [
+              "Center O",
+              "Point P",
+              "Point T",
+              "OT = 5",
+              "OP = 13",
+              "PT = t",
+              "90° at T"
+            ]
+          },
+          "semanticsLabel": "Circle with center O, external point P, tangent PT, and radius OT equal to 5 forming a right triangle with hypotenuse OP equal to 13."
         },
         {
           "_type": "block",
@@ -181884,6 +182488,21 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "coordinate-geometry",
+            "labels": [
+              "(x1, y1)",
+              "(x2, y2)",
+              "dx = x2 - x1",
+              "dy = y2 - y1",
+              "Distance d"
+            ]
+          },
+          "semanticsLabel": "Grid diagram showing two points joined by a segment forming a right triangle with horizontal and vertical distance legs."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -182325,6 +182944,21 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "coordinate-geometry",
+            "labels": [
+              "(-3, 4)",
+              "(5, -2)",
+              "run = 8",
+              "rise = 6",
+              "d = ?"
+            ]
+          },
+          "semanticsLabel": "Coordinate plane with points at negative 3 comma 4 and 5 comma negative 2 forming a right triangle with legs 8 and 6."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -182518,6 +183152,19 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "coordinate-geometry",
+            "labels": [
+              "(2, -3)",
+              "(-4, 7)",
+              "Midpoint (-1, 2)"
+            ]
+          },
+          "semanticsLabel": "Coordinate plane showing segment connecting 2 comma negative 3 and negative 4 comma 7 with midpoint at negative 1 comma 2."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -182687,6 +183334,21 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "coordinate-geometry",
+            "labels": [
+              "(1, 2)",
+              "(4, 11)",
+              "run = 3",
+              "rise = 9",
+              "slope m = 3"
+            ]
+          },
+          "semanticsLabel": "Coordinate plane with points 1 comma 2 and 4 comma 11 showing rise of 9 and run of 3 along the line."
         },
         {
           "_type": "block",
@@ -182900,6 +183562,21 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "coordinate-geometry",
+            "labels": [
+              "y = 2x + 3",
+              "(4, 1)",
+              "m1 = 2",
+              "m2 = -1/2",
+              "90°"
+            ]
+          },
+          "semanticsLabel": "Coordinate plane with line y equals 2x plus 3 and perpendicular line through 4 comma 1 intersecting at a right angle."
         },
         {
           "_type": "block",
@@ -183124,6 +183801,19 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "coordinate-geometry",
+            "labels": [
+              "A(7, 4)",
+              "M(3, -1)",
+              "B(-1, -6)"
+            ]
+          },
+          "semanticsLabel": "Coordinate plane showing point A at 7 comma 4, midpoint M at 3 comma negative 1, and endpoint B at negative 1 comma negative 6."
         },
         {
           "_type": "block",
@@ -185757,6 +186447,22 @@
           "level": 1
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "shape-gallery",
+            "labels": [
+              "Square: s²",
+              "Rectangle: lw",
+              "Triangle: ½bh",
+              "Parallelogram: bh",
+              "Trapezoid: ½(b1+b2)h",
+              "Circle: πr²"
+            ]
+          },
+          "semanticsLabel": "Row of geometric shapes showing area formulas for square, rectangle, triangle, parallelogram, trapezoid, and circle."
+        },
+        {
           "_type": "block",
           "style": "h3",
           "children": [
@@ -186100,6 +186806,19 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "rectangle",
+            "labels": [
+              "Length = 8 cm",
+              "Width = ?",
+              "Perimeter = 26 cm"
+            ]
+          },
+          "semanticsLabel": "Rectangle with length 8 cm, width marked with a question mark, and perimeter 26 cm."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -186293,6 +187012,20 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "trapezoid",
+            "labels": [
+              "b1 = 8 cm",
+              "b2 = 12 cm",
+              "h = 5 cm",
+              "90°"
+            ]
+          },
+          "semanticsLabel": "Trapezoid with parallel top base 8 cm, bottom base 12 cm, and height 5 cm marked with a right angle."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -186433,6 +187166,19 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "inscribed-circle-square",
+            "labels": [
+              "Square side = 10",
+              "Circle radius = 5",
+              "Shaded corners"
+            ]
+          },
+          "semanticsLabel": "Square with side length 10 containing an inscribed circle with shaded corner regions."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -186449,6 +187195,19 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "inscribed-circle-square",
+            "labels": [
+              "Side = 10",
+              "Radius = 5",
+              "Shaded region = Area(square) - Area(circle)"
+            ]
+          },
+          "semanticsLabel": "Square of side 10 and inscribed circle with shaded region between them."
         },
         {
           "_type": "block",
@@ -186644,6 +187403,19 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "3d-box",
+            "labels": [
+              "Length = 5 cm",
+              "Width = 4 cm",
+              "Height = 3 cm"
+            ]
+          },
+          "semanticsLabel": "Three-dimensional rectangular box with dimensions length 5 cm, width 4 cm, and height 3 cm."
         },
         {
           "_type": "block",
@@ -186859,6 +187631,18 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "3d-cylinder",
+            "labels": [
+              "r = 3 cm",
+              "h = 10 cm"
+            ]
+          },
+          "semanticsLabel": "Three-dimensional cylinder with circular top radius 3 cm and height 10 cm."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -187001,6 +187785,20 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "3d-cone",
+            "labels": [
+              "Radius r = 6 cm",
+              "Height h = 8 cm",
+              "Slant height l = ?",
+              "90°"
+            ]
+          },
+          "semanticsLabel": "Three-dimensional cone with base radius 6 cm, vertical height 8 cm, and slant height hypotenuse."
         },
         {
           "_type": "block",
@@ -187729,6 +188527,24 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "transversal",
+            "labels": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8"
+            ]
+          },
+          "semanticsLabel": "Two parallel lines cut by a transversal with angles 1 through 4 at top intersection and 5 through 8 at bottom intersection."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -187952,6 +188768,22 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "transversal",
+            "labels": [
+              "Line l",
+              "Line m",
+              "65°",
+              "Linear pair: 115°",
+              "Corresponding: 65°",
+              "Same-side int: 115°"
+            ]
+          },
+          "semanticsLabel": "Parallel lines l and m cut by a transversal with top angle 65 degrees and its linear pair, corresponding, and same-side interior angles."
         },
         {
           "_type": "block",
@@ -188182,6 +189014,20 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "transversal",
+            "labels": [
+              "Line p",
+              "Line q",
+              "Corresponding: (2x + 30)°",
+              "Corresponding: (3x - 10)°"
+            ]
+          },
+          "semanticsLabel": "Parallel lines p and q cut by a transversal with corresponding angles labeled 2x plus 30 degrees and 3x minus 10 degrees."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -188388,6 +189234,21 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "transversal",
+            "labels": [
+              "Line a",
+              "Line b",
+              "(3x + 20)°",
+              "(2x - 15)°",
+              "Sum = 180°"
+            ]
+          },
+          "semanticsLabel": "Parallel lines a and b with same-side interior angles labeled 3x plus 20 degrees and 2x minus 15 degrees summing to 180 degrees."
         },
         {
           "_type": "block",
@@ -188641,6 +189502,20 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "transversal",
+            "labels": [
+              "Line l",
+              "Line m",
+              "Alt interior: (4x)°",
+              "Alt interior: (3x + 18)°"
+            ]
+          },
+          "semanticsLabel": "Parallel lines l and m cut by a transversal with equal alternate interior angles labeled 4x degrees and 3x plus 18 degrees."
         },
         {
           "_type": "block",
@@ -188910,6 +189785,22 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "parallel-zigzag",
+            "labels": [
+              "Line l",
+              "Line m",
+              "Point P",
+              "30°",
+              "40°",
+              "Angle P = 30° + 40° = 70°"
+            ]
+          },
+          "semanticsLabel": "Zigzag between parallel lines l and m with segments meeting at point P forming angles of 30 and 40 degrees with a parallel helper line."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -188938,6 +189829,20 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "parallel-zigzag",
+            "labels": [
+              "Top Line",
+              "Bottom Line",
+              "Point P",
+              "Helper Line through P"
+            ]
+          },
+          "semanticsLabel": "Two parallel lines with point P between them and a dashed helper line parallel to both splitting the vertex angle."
         },
         {
           "_type": "block",
@@ -189580,6 +190485,19 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "polygon-triangulation",
+            "labels": [
+              "Hexagon (n = 6)",
+              "4 Triangles",
+              "(6 - 2) × 180° = 720°"
+            ]
+          },
+          "semanticsLabel": "Hexagon with diagonals drawn from one vertex dividing it into 4 triangles."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -189795,6 +190713,22 @@
           "level": 1
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "quadrilateral-tree",
+            "labels": [
+              "Quadrilateral",
+              "Trapezoid",
+              "Parallelogram",
+              "Rectangle",
+              "Rhombus",
+              "Square"
+            ]
+          },
+          "semanticsLabel": "Hierarchy diagram showing parallelogram branching into rectangle and rhombus, merging into square, with trapezoid separate."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -189837,6 +190771,20 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "polygon-triangulation",
+            "labels": [
+              "Hexagon",
+              "6 Interior Angles",
+              "4 Triangles",
+              "Sum = 720°"
+            ]
+          },
+          "semanticsLabel": "Regular hexagon with six interior angles and dashed lines splitting it into 4 triangles."
         },
         {
           "_type": "block",
@@ -189948,6 +190896,18 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "polygon",
+            "labels": [
+              "Regular Octagon (n = 8)",
+              "Each angle = ?"
+            ]
+          },
+          "semanticsLabel": "Regular octagon with one interior angle highlighted with a question mark."
         },
         {
           "_type": "block",
@@ -190090,6 +191050,19 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "polygon",
+            "labels": [
+              "Regular n-gon",
+              "Sum = 1440°",
+              "Sides n = ?"
+            ]
+          },
+          "semanticsLabel": "Regular polygon labeled with interior angle sum 1440 degrees and unknown number of sides n."
         },
         {
           "_type": "block",
@@ -190242,6 +191215,19 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "polygon-exterior",
+            "labels": [
+              "Exterior angle = 24°",
+              "Sum of exterior = 360°",
+              "Sides = 360° / 24°"
+            ]
+          },
+          "semanticsLabel": "Regular polygon with one side extended to show an exterior angle of 24 degrees."
         },
         {
           "_type": "block",
@@ -190433,6 +191419,23 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "parallelogram",
+            "labels": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "Angle A: (3x + 10)°",
+              "Angle C: (5x - 30)°",
+              "Angle B: ?"
+            ]
+          },
+          "semanticsLabel": "Parallelogram ABCD with opposite angles A labeled 3x plus 10 degrees and C labeled 5x minus 30 degrees, and angle B marked with a question mark."
         },
         {
           "_type": "block",
@@ -190698,6 +191701,21 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "quadrilateral",
+            "labels": [
+              "x",
+              "2x",
+              "3x",
+              "4x",
+              "Sum = 360°"
+            ]
+          },
+          "semanticsLabel": "Four-sided quadrilateral with interior angles labeled x, 2x, 3x, and 4x."
         },
         {
           "_type": "block",
@@ -191453,6 +192471,19 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "triangle-exterior",
+            "labels": [
+              "Remote Interior 1",
+              "Remote Interior 2",
+              "Exterior Angle = Sum"
+            ]
+          },
+          "semanticsLabel": "Triangle with base extended showing exterior angle equal to the sum of two remote interior angles."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -192039,6 +193070,20 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "right-triangle",
+            "labels": [
+              "x",
+              "2x",
+              "3x (90°)",
+              "Sum = 180°"
+            ]
+          },
+          "semanticsLabel": "Right triangle with interior angles in ratio 1 to 2 to 3 labeled x, 2x, and 3x with a right angle square."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -192311,6 +193356,20 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "triangle",
+            "labels": [
+              "Side a = 5",
+              "Side b = 9",
+              "Side c = ?",
+              "4 < c < 14"
+            ]
+          },
+          "semanticsLabel": "Triangle with sides 5 and 9 and unknown third side bounded between 4 and 14."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -192507,6 +193566,19 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "triangle-exterior",
+            "labels": [
+              "45°",
+              "?",
+              "Exterior = 110°"
+            ]
+          },
+          "semanticsLabel": "Triangle with extended side showing exterior angle 110 degrees, one remote interior angle 45 degrees, and the other marked with a question mark."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -192666,6 +193738,21 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "similar-triangles",
+            "labels": [
+              "Student: h = 1.5 m",
+              "Shadow = 2 m",
+              "Tree: H = ?",
+              "Shadow = 12 m",
+              "Sun ray θ"
+            ]
+          },
+          "semanticsLabel": "Two similar right triangles showing student height 1.5 meters with 2 meter shadow and tree height question mark with 12 meter shadow."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -192682,6 +193769,21 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "similar-triangles",
+            "labels": [
+              "Student: 1.5",
+              "Shadow: 2",
+              "Tree: h",
+              "Shadow: 12",
+              "1.5 / 2 = h / 12"
+            ]
+          },
+          "semanticsLabel": "Similar right triangles for student and tree with matching sun ray angles and proportional height to shadow ratio."
         },
         {
           "_type": "block",
@@ -192816,6 +193918,20 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "right-triangle",
+            "labels": [
+              "Ladder = 15 ft",
+              "Base = 9 ft",
+              "Height = ?",
+              "90° wall corner"
+            ]
+          },
+          "semanticsLabel": "Right triangle formed by wall and ground with 15 foot ladder hypotenuse, 9 foot base, and height marked with a question mark."
         },
         {
           "_type": "block",
@@ -193153,6 +194269,18 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "special-right-triangles",
+            "labels": [
+              "45°-45°-90°: legs 5, hyp 5√2",
+              "30°-60°-90°: hyp 12, short 6, long 6√3"
+            ]
+          },
+          "semanticsLabel": "Two special right triangles showing a 45-45-90 triangle with legs 5 and a 30-60-90 triangle with hypotenuse 12."
         },
         {
           "_type": "block",
@@ -196218,6 +197346,25 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "coordinate-graph",
+            "type": "integral-area",
+            "formula": "Area from x = a to x = b",
+            "points": [
+              [
+                1,
+                0
+              ],
+              [
+                4,
+                0
+              ]
+            ]
+          },
+          "semanticsLabel": "A graph showing the shaded area under a curve between x = a and x = b representing a definite integral."
+        },
+        {
           "_type": "block",
           "style": "h2",
           "children": [
@@ -197609,6 +198756,20 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "concept-diagram",
+            "type": "conic-sections",
+            "sections": [
+              "circle",
+              "ellipse",
+              "parabola",
+              "hyperbola"
+            ]
+          },
+          "semanticsLabel": "A diagram of a double cone sliced four ways to produce a circle, an ellipse, a parabola, and a hyperbola."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -197938,6 +199099,20 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "coordinate-graph",
+            "type": "conic-gallery",
+            "conics": [
+              "circle",
+              "parabola",
+              "ellipse",
+              "hyperbola"
+            ]
+          },
+          "semanticsLabel": "A visual guide showing the four conic section curves: circle, parabola, ellipse, and hyperbola."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -198148,6 +199323,22 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "coordinate-graph",
+            "type": "circle",
+            "formula": "(x-3)^2 + (y+2)^2 = 25",
+            "points": [
+              [
+                3,
+                -2
+              ]
+            ],
+            "radius": 5
+          },
+          "semanticsLabel": "A circle on a coordinate plane centered at (3, -2) with a radius of 5."
         },
         {
           "_type": "block",
@@ -198764,6 +199955,41 @@
           "level": 1
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "coordinate-graph",
+            "type": "ellipse",
+            "formula": "x^2/25 + y^2/9 = 1",
+            "points": [
+              [
+                -5,
+                0
+              ],
+              [
+                5,
+                0
+              ],
+              [
+                0,
+                -3
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                -4,
+                0
+              ],
+              [
+                4,
+                0
+              ]
+            ]
+          },
+          "semanticsLabel": "An ellipse centered at the origin with vertices at plus or minus 5, co-vertices at plus or minus 3, and foci at plus or minus 4."
+        },
+        {
           "_type": "block",
           "style": "h3",
           "children": [
@@ -198965,6 +200191,29 @@
         {
           "_type": "latex",
           "body": "y = \\dfrac{3}{4}x \\qquad y = -\\dfrac{3}{4}x"
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "coordinate-graph",
+            "type": "hyperbola",
+            "formula": "x^2/16 - y^2/9 = 1",
+            "points": [
+              [
+                -4,
+                0
+              ],
+              [
+                4,
+                0
+              ]
+            ],
+            "asymptoteSlopes": [
+              0.75,
+              -0.75
+            ]
+          },
+          "semanticsLabel": "A hyperbola opening left and right with vertices at plus or minus 4 and dashed asymptotes through the origin."
         },
         {
           "_type": "block",
@@ -199869,6 +201118,19 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "coordinate-graph",
+            "type": "limits-gallery",
+            "discontinuities": [
+              "hole",
+              "jump",
+              "vertical-asymptote"
+            ]
+          },
+          "semanticsLabel": "Three mini graphs showing a removable hole, a jump between pieces, and a vertical asymptote."
+        },
+        {
           "_type": "block",
           "style": "h2",
           "children": [
@@ -200018,6 +201280,25 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "coordinate-graph",
+            "type": "limit-hole",
+            "formula": "y = x + 3",
+            "hole": [
+              3,
+              6
+            ],
+            "points": [
+              [
+                3,
+                6
+              ]
+            ]
+          },
+          "semanticsLabel": "A graph of y = x + 3 with an open circle hole at (3, 6)."
         },
         {
           "_type": "block",
@@ -200535,6 +201816,21 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "coordinate-graph",
+            "type": "piecewise",
+            "formula": "x^2+1 for x<1, x+1 for x>=1",
+            "points": [
+              [
+                1,
+                2
+              ]
+            ]
+          },
+          "semanticsLabel": "A continuous piecewise graph of a parabola and a line meeting at x = 1."
         },
         {
           "_type": "block",
@@ -202718,6 +204014,34 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "concept-diagram",
+            "type": "tree",
+            "root": "Outfits",
+            "branches": [
+              {
+                "name": "Shirt 1",
+                "leaves": 3
+              },
+              {
+                "name": "Shirt 2",
+                "leaves": 3
+              },
+              {
+                "name": "Shirt 3",
+                "leaves": 3
+              },
+              {
+                "name": "Shirt 4",
+                "leaves": 3
+              }
+            ],
+            "totalLeaves": 12
+          },
+          "semanticsLabel": "A tree diagram with 4 shirt branches each splitting into 3 pants branches for a total of 12 leaf outfits."
+        },
+        {
           "_type": "block",
           "style": "h3",
           "children": [
@@ -204229,6 +205553,26 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "chart",
+            "type": "pie",
+            "labels": [
+              "Food (90°)",
+              "Rent (126°)",
+              "Transport (72°)",
+              "Savings (72°)"
+            ],
+            "values": [
+              90,
+              126,
+              72,
+              72
+            ]
+          },
+          "semanticsLabel": "A pie chart of a monthly budget with food at 90 degrees, rent at 126 degrees, transport at 72 degrees, and savings at 72 degrees."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -204388,6 +205732,19 @@
           "level": 1
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "chart",
+            "type": "scatter",
+            "plots": [
+              "upward",
+              "downward",
+              "random"
+            ]
+          },
+          "semanticsLabel": "Three scatter plots side by side showing an upward trend, a downward trend, and a random cloud of points."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -204454,6 +205811,22 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "chart",
+            "type": "pie",
+            "labels": [
+              "Food (90°)",
+              "Other (270°)"
+            ],
+            "values": [
+              90,
+              270
+            ]
+          },
+          "semanticsLabel": "A pie chart of a monthly budget with the food sector marked as a 90-degree slice."
         },
         {
           "_type": "block",
@@ -204565,6 +205938,22 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "chart",
+            "type": "pie",
+            "labels": [
+              "Walkers (35%, ?°)",
+              "Other (65%)"
+            ],
+            "values": [
+              35,
+              65
+            ]
+          },
+          "semanticsLabel": "A pie chart with the walkers sector labeled 35 percent and its central angle marked with a question mark."
         },
         {
           "_type": "block",
@@ -204721,6 +206110,32 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "chart",
+            "type": "bar",
+            "labels": [
+              "Mon",
+              "Tue",
+              "Wed",
+              "Thu",
+              "Fri"
+            ],
+            "values": [
+              40,
+              55,
+              35,
+              60,
+              85
+            ],
+            "yAxis": {
+              "label": "Sales (thousands of pesos)",
+              "min": 0
+            }
+          },
+          "semanticsLabel": "A bar graph of weekly sales with bars for Monday at 40, Tuesday at 55, Wednesday at 35, Thursday at 60, and Friday at 85."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -204818,6 +206233,17 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "chart",
+            "type": "scatter",
+            "trend": "downward",
+            "xLabel": "Hours of sleep",
+            "yLabel": "Mistakes"
+          },
+          "semanticsLabel": "A scatter plot showing hours of sleep against mistakes with points trending downward from left to right."
         },
         {
           "_type": "block",
@@ -204945,6 +206371,26 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "chart",
+            "type": "bar",
+            "labels": [
+              "2023",
+              "2024"
+            ],
+            "values": [
+              1500,
+              1800
+            ],
+            "yAxis": {
+              "label": "Enrollment",
+              "min": 0
+            }
+          },
+          "semanticsLabel": "A bar graph comparing 2023 enrollment of 1,500 with 2024 enrollment of 1,800 on a zero-based axis."
         },
         {
           "_type": "block",
@@ -208483,6 +209929,19 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "circle-arc",
+            "labels": [
+              "Radius r",
+              "Arc length = r",
+              "Central Angle = 1 rad"
+            ]
+          },
+          "semanticsLabel": "Circle showing radius r, an arc of length r along the edge, and central angle 1 radian."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -209286,6 +210745,18 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "coterminal-angles",
+            "labels": [
+              "400° = 360° + 40°",
+              "-120° = 240°"
+            ]
+          },
+          "semanticsLabel": "Two coordinate planes showing 400 degrees landing at 40 degrees and negative 120 degrees measured clockwise landing at 240 degrees."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -209504,6 +210975,19 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "circle-arc",
+            "labels": [
+              "r = 10 cm",
+              "θ = π/5 rad (72°)",
+              "Arc s = rθ = 2π cm"
+            ]
+          },
+          "semanticsLabel": "Circle of radius 10 cm with highlighted arc for central angle of pi over 5 radians or 72 degrees."
         },
         {
           "_type": "block",
@@ -210364,6 +211848,21 @@
           "level": 1
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "right-triangle-trig",
+            "labels": [
+              "θ",
+              "Opposite",
+              "Adjacent",
+              "Hypotenuse",
+              "90°"
+            ]
+          },
+          "semanticsLabel": "Right triangle with acute angle theta, opposite side, adjacent side, and hypotenuse labeled relative to theta."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -210927,6 +212426,21 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "right-triangle-trig",
+            "labels": [
+              "θ",
+              "Opposite = 3",
+              "Adjacent = 4",
+              "Hypotenuse = 5",
+              "90°"
+            ]
+          },
+          "semanticsLabel": "Right triangle with angle theta opposite side 3, adjacent side 4, and hypotenuse 5."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -211112,6 +212626,21 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "right-triangle-trig",
+            "labels": [
+              "θ",
+              "Opposite = 5",
+              "Hypotenuse = 13",
+              "Adjacent = 12",
+              "90°"
+            ]
+          },
+          "semanticsLabel": "Right triangle with angle theta, opposite side 5, hypotenuse 13, and adjacent side 12."
         },
         {
           "_type": "block",
@@ -211312,6 +212841,20 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "right-triangle-trig",
+            "labels": [
+              "30°",
+              "Hypotenuse = 20",
+              "Opposite = ?",
+              "90°"
+            ]
+          },
+          "semanticsLabel": "Right triangle with 30 degree angle, hypotenuse 20, and opposite side labeled with a question mark."
         },
         {
           "_type": "block",
@@ -211586,6 +213129,21 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "right-triangle-trig",
+            "labels": [
+              "θ",
+              "Opp = 3",
+              "Adj = 4",
+              "Hyp = 5",
+              "Reciprocal Ratios"
+            ]
+          },
+          "semanticsLabel": "Right triangle with sides 3, 4, and 5 with angle theta for reading reciprocal trigonometric ratios."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -211711,6 +213269,21 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "right-triangle-trig",
+            "labels": [
+              "θ",
+              "Opp = 3k = 12",
+              "Adj = 4k = 16",
+              "Hyp = 5k = 20",
+              "90°"
+            ]
+          },
+          "semanticsLabel": "Right triangle where tangent theta is 3 over 4 with hypotenuse 20 scaled to legs 12 and 16."
         },
         {
           "_type": "block",
@@ -212874,6 +214447,19 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "unit-circle",
+            "labels": [
+              "30° (sin = 1/2)",
+              "45° (tan = 1)",
+              "Quadrant I"
+            ]
+          },
+          "semanticsLabel": "Unit circle marking angles 30 degrees and 45 degrees in Quadrant I within arcsine and arctangent principal ranges."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -213019,6 +214605,19 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "unit-circle",
+            "labels": [
+              "120° in Q II",
+              "cos = -1/2",
+              "arccos range [0°, 180°]"
+            ]
+          },
+          "semanticsLabel": "Unit circle marking 120 degrees in Quadrant II where cosine equals negative 1 half within arccosine principal range."
         },
         {
           "_type": "block",
@@ -213179,6 +214778,19 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "unit-circle",
+            "labels": [
+              "-60° in Q IV",
+              "tan = -√3",
+              "arctan range (-90°, 90°)"
+            ]
+          },
+          "semanticsLabel": "Unit circle marking negative 60 degrees in Quadrant IV where tangent equals negative square root of 3 within arctangent principal range."
         },
         {
           "_type": "block",
@@ -213348,6 +214960,21 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "right-triangle-trig",
+            "labels": [
+              "θ = arccos(3/5)",
+              "Adjacent = 3",
+              "Hypotenuse = 5",
+              "Opposite = 4",
+              "sin θ = 4/5"
+            ]
+          },
+          "semanticsLabel": "Right triangle for angle theta with adjacent side 3, hypotenuse 5, and opposite side 4 giving sine 4 fifths."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -213388,6 +215015,21 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "right-triangle-trig",
+            "labels": [
+              "θ",
+              "Adjacent = 3",
+              "Hypotenuse = 5",
+              "Opposite = 4",
+              "90°"
+            ]
+          },
+          "semanticsLabel": "Right triangle with angle theta, adjacent side 3, hypotenuse 5, and opposite side 4."
         },
         {
           "_type": "block",
@@ -213554,6 +215196,21 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "right-triangle-trig",
+            "labels": [
+              "θ = arcsin(5/13)",
+              "Opposite = 5",
+              "Hypotenuse = 13",
+              "Adjacent = 12",
+              "tan θ = 5/12"
+            ]
+          },
+          "semanticsLabel": "Right triangle for angle theta with opposite side 5, hypotenuse 13, and adjacent side 12 giving tangent 5 twelfths."
         },
         {
           "_type": "block",
@@ -214495,6 +216152,21 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "triangle",
+            "labels": [
+              "A = 30°",
+              "B = 45°",
+              "a = 10",
+              "b = ?",
+              "C"
+            ]
+          },
+          "semanticsLabel": "Triangle ABC with angle A equal to 30 degrees, angle B equal to 45 degrees, opposite side a equal to 10, and side b marked with a question mark."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -214767,6 +216439,20 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "triangle",
+            "labels": [
+              "A = 30°",
+              "B = 45°",
+              "C = 105°",
+              "Longest side c"
+            ]
+          },
+          "semanticsLabel": "Triangle ABC with angles 30, 45, and 105 degrees, showing side c opposite the 105 degree angle as the longest side."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -214920,6 +216606,20 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "triangle",
+            "labels": [
+              "Side = 5",
+              "Side = 8",
+              "Included angle = 60°",
+              "Third side c = ?"
+            ]
+          },
+          "semanticsLabel": "Triangle with sides 5 and 8 meeting at a 60 degree included angle and opposite side marked with a question mark."
         },
         {
           "_type": "block",
@@ -215112,6 +216812,20 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "triangle",
+            "labels": [
+              "Side a = 3",
+              "Side b = 5",
+              "Side c = 7",
+              "Largest angle C = ?"
+            ]
+          },
+          "semanticsLabel": "Triangle with sides 3, 5, and 7 with the largest angle opposite side 7 marked with a question mark."
         },
         {
           "_type": "block",
@@ -215388,6 +217102,21 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "triangle",
+            "labels": [
+              "Port",
+              "Ship X (3 km)",
+              "Ship Y (8 km)",
+              "Angle = 60°",
+              "Distance d = ?"
+            ]
+          },
+          "semanticsLabel": "Diagram of two ships leaving a port at a 60 degree angle, sailing 3 km and 8 km, with dashed distance between them marked with a question mark."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -215404,6 +217133,21 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "triangle",
+            "labels": [
+              "Port",
+              "Path 3 km",
+              "Path 8 km",
+              "60°",
+              "Distance d"
+            ]
+          },
+          "semanticsLabel": "Triangle formed by port and two ship paths of lengths 3 and 8 spreading at 60 degrees with dashed segment d."
         },
         {
           "_type": "block",
@@ -216120,6 +217864,18 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "elevation-depression",
+            "labels": [
+              "Angle of Elevation (up from horizontal)",
+              "Angle of Depression (down from horizontal)"
+            ]
+          },
+          "semanticsLabel": "Diagram illustrating angle of elevation looking up from ground horizontal and angle of depression looking down from cliff horizontal."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -216223,6 +217979,21 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "right-triangle-trig",
+            "labels": [
+              "Observer",
+              "Tree height = ?",
+              "Ground = 30 m",
+              "Elevation = 60°",
+              "90°"
+            ]
+          },
+          "semanticsLabel": "Right triangle showing observer 30 meters from tree with 60 degree elevation angle and tree height marked with a question mark."
         },
         {
           "_type": "block",
@@ -216413,6 +218184,20 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "right-triangle-trig",
+            "labels": [
+              "Ladder = 10 m",
+              "Ground distance = 5 m",
+              "Angle with ground = ?",
+              "90°"
+            ]
+          },
+          "semanticsLabel": "Right triangle showing 10 meter ladder against wall with foot 5 meters from base and ground angle marked with a question mark."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -216548,6 +218333,20 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "elevation-depression",
+            "labels": [
+              "Lighthouse = 50 m",
+              "Depression = 30°",
+              "Boat distance = ?",
+              "90°"
+            ]
+          },
+          "semanticsLabel": "Lighthouse of height 50 meters with 30 degree angle of depression to a boat and unknown horizontal distance marked with a question mark."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -216576,6 +218375,20 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "elevation-depression",
+            "labels": [
+              "Height = 50 m",
+              "Top depression = 30°",
+              "Boat elevation = 30°",
+              "Distance d"
+            ]
+          },
+          "semanticsLabel": "Diagram showing 50 meter lighthouse with 30 degree angle of depression matching the 30 degree angle of elevation at the boat."
         },
         {
           "_type": "block",
@@ -216806,6 +218619,22 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "right-triangle-trig",
+            "labels": [
+              "A = 35°",
+              "B = 55°",
+              "C = 90°",
+              "Hypotenuse c = 40",
+              "Side a",
+              "Side b"
+            ]
+          },
+          "semanticsLabel": "Right triangle ABC with right angle at C, angle A equal to 35 degrees, angle B equal to 55 degrees, hypotenuse 40, and legs a and b."
         },
         {
           "_type": "block",
@@ -217044,6 +218873,20 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "two-triangles-elevation",
+            "labels": [
+              "Point A: 30°",
+              "Point B: 60°",
+              "Distance AB = 100 m",
+              "Building height = ?"
+            ]
+          },
+          "semanticsLabel": "Diagram of two observation points A and B on ground with 30 and 60 degree elevation angles to a building 100 meters apart."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -217084,6 +218927,21 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "two-triangles-elevation",
+            "labels": [
+              "Point A (30°)",
+              "Point B (60°)",
+              "AB = 100",
+              "Base distance = x",
+              "Height = h"
+            ]
+          },
+          "semanticsLabel": "Building with two observers A and B on same side showing elevation angles 30 and 60 degrees, separation 100, and distance x to base."
         },
         {
           "_type": "block",
@@ -217938,6 +219796,21 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "right-triangle-trig",
+            "labels": [
+              "θ",
+              "Opposite = 3",
+              "Adjacent = 4",
+              "Hypotenuse = 5",
+              "sin²θ + cos²θ = 1"
+            ]
+          },
+          "semanticsLabel": "Right triangle with opposite 3, adjacent 4, and hypotenuse 5 confirming the Pythagorean identity."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -218541,6 +220414,21 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "right-triangle-trig",
+            "labels": [
+              "θ",
+              "Opposite = 2",
+              "Adjacent = 1",
+              "Hypotenuse = √5",
+              "1 + tan²θ = sec²θ"
+            ]
+          },
+          "semanticsLabel": "Right triangle with opposite 2, adjacent 1, and hypotenuse square root of 5 verifying tangent and secant identity."
         },
         {
           "_type": "block",
@@ -219166,6 +221054,21 @@
           "body": "\\tan \\theta = \\dfrac{\\sin \\theta}{\\cos \\theta}"
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "unit-circle",
+            "labels": [
+              "θ",
+              "P(cos θ, sin θ)",
+              "x = cos θ",
+              "y = sin θ",
+              "r = 1"
+            ]
+          },
+          "semanticsLabel": "Unit circle with angle theta from positive x-axis and intersection point labeled cos theta comma sin theta."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -219486,6 +221389,20 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "unit-circle-quadrants",
+            "labels": [
+              "Q I: All (+)",
+              "Q II: Sine (+)",
+              "Q III: Tangent (+)",
+              "Q IV: Cosine (+)"
+            ]
+          },
+          "semanticsLabel": "Unit circle divided into four quadrants showing which trigonometric functions are positive: All, Sine, Tangent, and Cosine."
+        },
+        {
           "_type": "block",
           "style": "h2",
           "children": [
@@ -219665,6 +221582,20 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "unit-circle",
+            "labels": [
+              "120°",
+              "Reference angle: 60°",
+              "(-1/2, √3/2)",
+              "Quadrant II"
+            ]
+          },
+          "semanticsLabel": "Unit circle with terminal ray at 120 degrees in Quadrant II, 60 degree reference angle, and coordinates negative 1 half comma square root 3 over 2."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -219783,6 +221714,20 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "unit-circle",
+            "labels": [
+              "225°",
+              "Reference angle: 45°",
+              "(-√2/2, -√2/2)",
+              "Quadrant III"
+            ]
+          },
+          "semanticsLabel": "Unit circle with terminal ray at 225 degrees in Quadrant III, 45 degree reference angle, and coordinates negative root 2 over 2 comma negative root 2 over 2."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -219899,6 +221844,20 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "unit-circle",
+            "labels": [
+              "300°",
+              "Reference angle: 60°",
+              "(1/2, -√3/2)",
+              "Quadrant IV"
+            ]
+          },
+          "semanticsLabel": "Unit circle with terminal ray at 300 degrees in Quadrant IV, 60 degree reference angle, and coordinates 1 half comma negative root 3 over 2."
         },
         {
           "_type": "block",
@@ -220041,6 +222000,19 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "unit-circle",
+            "labels": [
+              "-30° (330°)",
+              "180°: (-1, 0)",
+              "90°: (0, 1)"
+            ]
+          },
+          "semanticsLabel": "Unit circle marking positions negative 30 degrees, 180 degrees at negative 1 comma 0, and 90 degrees at 0 comma 1."
         },
         {
           "_type": "block",
@@ -220237,6 +222209,19 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "unit-circle",
+            "labels": [
+              "150° (sin = 1/2)",
+              "300° (cos = 1/2)",
+              "Sum = 1"
+            ]
+          },
+          "semanticsLabel": "Unit circle marking 150 degrees in Quadrant II with sine 1 half and 300 degrees in Quadrant IV with cosine 1 half."
         },
         {
           "_type": "block",
@@ -222445,6 +224430,41 @@
           "level": 1
         },
         {
+          "_type": "table",
+          "rows": [
+            [
+              "Clue Type",
+              "How It Works",
+              "Passage Clue Example",
+              "Inferred Meaning"
+            ],
+            [
+              "**Definition / Explanation**",
+              "Describes the meaning directly in nearby sentences",
+              "\"Crops withered, rivers ran dry... months without rainfall.\"",
+              "*Drought* = prolonged lack of rain"
+            ],
+            [
+              "**Example**",
+              "Lists concrete items representing the word",
+              "\"Ancient pottery, tarnished coins, and a weathered tablet.\"",
+              "*Artifacts* = historical objects"
+            ],
+            [
+              "**Contrast**",
+              "Shows an opposite behavior or quality",
+              "\"Unlike her *gregarious* brother who loved parties, she preferred quiet evenings.\"",
+              "*Gregarious* = sociable / outgoing"
+            ],
+            [
+              "**Cause and effect**",
+              "Shows the result of the unfamiliar word",
+              "\"His *negligence* led to the machine breaking down within a week.\"",
+              "*Negligence* = failure to take proper care"
+            ]
+          ]
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -223144,6 +225164,27 @@
               "text": ".",
               "marks": []
             }
+          ]
+        },
+        {
+          "_type": "table",
+          "rows": [
+            [
+              "FACT",
+              "OPINION"
+            ],
+            [
+              "Measurable / verifiable with evidence",
+              "Expresses personal judgment or belief"
+            ],
+            [
+              "Objective statement of reality",
+              "Subjective perspective"
+            ],
+            [
+              "Can be proven true or false",
+              "Cannot be objectively proven true or false"
+            ]
           ]
         },
         {
@@ -223862,6 +225903,20 @@
           "level": 1
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "concept-diagram",
+            "type": "inference",
+            "clues": [
+              "Clue phrase 1",
+              "Clue phrase 2",
+              "Clue phrase 3"
+            ],
+            "conclusion": "Inference / Conclusion"
+          },
+          "semanticsLabel": "A diagram showing three clue phrases connecting with arrows to form one conclusion."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -224478,6 +226533,20 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "concept-diagram",
+            "type": "main-idea",
+            "mainIdea": "Topic sentence / Main idea",
+            "details": [
+              "Supporting detail 1",
+              "Supporting detail 2",
+              "Supporting detail 3"
+            ]
+          },
+          "semanticsLabel": "A diagram with a topic sentence at the top and three supporting detail sentences pointing up to support it."
         },
         {
           "_type": "block",
@@ -225862,6 +227931,36 @@
           ]
         },
         {
+          "_type": "table",
+          "rows": [
+            [
+              "Scrambled Labels",
+              "Rearrangement by Time Clues",
+              "Chronological Sequence"
+            ],
+            [
+              "Random labels (A, B, C, D)",
+              "Earliest event",
+              "1 (First)"
+            ],
+            [
+              "Random labels (A, B, C, D)",
+              "Second event",
+              "2 (Second)"
+            ],
+            [
+              "Random labels (A, B, C, D)",
+              "Third event",
+              "3 (Third)"
+            ],
+            [
+              "Random labels (A, B, C, D)",
+              "Latest event",
+              "4 (Fourth)"
+            ]
+          ]
+        },
+        {
           "_type": "block",
           "style": "h2",
           "children": [
@@ -227154,6 +229253,36 @@
               "text": " is the poet's attitude toward the subject (playful, somber, angry, hopeful), often revealed through word choice and imagery rather than stated directly.",
               "marks": []
             }
+          ]
+        },
+        {
+          "_type": "table",
+          "rows": [
+            [
+              "Stanza Line",
+              "Rhyme Scheme Label",
+              "Imagery Appeal"
+            ],
+            [
+              "Line 1",
+              "**A**",
+              "Five senses: sight, sound, smell, taste, touch"
+            ],
+            [
+              "Line 2",
+              "**B**",
+              "Five senses: sight, sound, smell, taste, touch"
+            ],
+            [
+              "Line 3",
+              "**A** (rhymes with line 1)",
+              "Five senses: sight, sound, smell, taste, touch"
+            ],
+            [
+              "Line 4",
+              "**B** (rhymes with line 2)",
+              "Five senses: sight, sound, smell, taste, touch"
+            ]
           ]
         },
         {
@@ -229573,6 +231702,30 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "chart",
+            "type": "bar",
+            "labels": [
+              "January",
+              "February",
+              "March",
+              "April"
+            ],
+            "values": [
+              50,
+              70,
+              60,
+              90
+            ],
+            "yAxis": {
+              "label": "Sales (thousands of pesos)",
+              "min": 0
+            }
+          },
+          "semanticsLabel": "A bar graph of monthly sales with bars for January at 50, February at 70, March at 60, and April at 90."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -229802,6 +231955,24 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "chart",
+            "type": "bar",
+            "labels": [
+              "Brand A",
+              "Brand B"
+            ],
+            "values": [
+              85,
+              81
+            ],
+            "yMin": 80,
+            "compareZero": true
+          },
+          "semanticsLabel": "A bar graph starting at 80 comparing bars of 85 and 81, alongside a comparison starting at zero."
         },
         {
           "_type": "block",
@@ -231985,6 +234156,36 @@
           ]
         },
         {
+          "_type": "table",
+          "rows": [
+            [
+              "Term Position",
+              "Term Value",
+              "Gap from Previous Term"
+            ],
+            [
+              "1st term",
+              "$2$",
+              "(start)"
+            ],
+            [
+              "2nd term",
+              "$5$",
+              "$+3$"
+            ],
+            [
+              "3rd term",
+              "$8$",
+              "$+3$"
+            ],
+            [
+              "4th term",
+              "$11$",
+              "$+3$"
+            ]
+          ]
+        },
+        {
           "_type": "block",
           "style": "h2",
           "children": [
@@ -233158,6 +235359,31 @@
           ]
         },
         {
+          "_type": "table",
+          "rows": [
+            [
+              "Step in Syllogism",
+              "Statement",
+              "Category Relationship"
+            ],
+            [
+              "**Major premise**",
+              "All birds have feathers.",
+              "\"Birds\" defines the broad category with the trait."
+            ],
+            [
+              "**Minor premise**",
+              "A sparrow is a bird.",
+              "\"Sparrows\" is a smaller group entirely inside \"Birds.\""
+            ],
+            [
+              "**Deductive conclusion**",
+              "Therefore, a sparrow has feathers.",
+              "Guaranteed true because Sparrows $\\subseteq$ Birds."
+            ]
+          ]
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -234087,6 +236313,51 @@
               "text": " is false), the conditional is considered true.",
               "marks": []
             }
+          ]
+        },
+        {
+          "_type": "table",
+          "rows": [
+            [
+              "$P$",
+              "$Q$",
+              "NOT ($\\neg P$)",
+              "AND ($P \\land Q$)",
+              "OR ($P \\lor Q$)",
+              "IF...THEN ($P \\rightarrow Q$)"
+            ],
+            [
+              "T",
+              "T",
+              "F",
+              "T",
+              "T",
+              "T"
+            ],
+            [
+              "T",
+              "F",
+              "F",
+              "F",
+              "T",
+              "F"
+            ],
+            [
+              "F",
+              "T",
+              "T",
+              "F",
+              "T",
+              "T"
+            ],
+            [
+              "F",
+              "F",
+              "T",
+              "F",
+              "F",
+              "T"
+            ]
           ]
         },
         {
@@ -235445,6 +237716,21 @@
           "level": 1
         },
         {
+          "_type": "table",
+          "rows": [
+            [
+              "First Pair",
+              "Shared Relationship Pattern",
+              "Second Pair"
+            ],
+            [
+              "**Puppy $\\to$ Dog**",
+              "\"is a baby\" (a puppy is a baby dog)",
+              "**Kitten $\\to$ Cat** (a kitten is a baby cat)"
+            ]
+          ]
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -236025,6 +238311,15 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "fluid-vessel",
+            "vessel": "connected",
+            "columns": 2
+          },
+          "semanticsLabel": "A U-shaped tube with two containers of different widths connected at the bottom, with water surface level exactly equal in both."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -236092,6 +238387,18 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "fluid-vessel",
+            "vessel": "column",
+            "points": [
+              "A",
+              "B"
+            ]
+          },
+          "semanticsLabel": "A water-filled container with Point A marked near the surface and Point B near the bottom, where deeper Point B experiences greater pressure."
         },
         {
           "_type": "block",
@@ -236168,6 +238475,15 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "fluid-vessel",
+            "vessel": "connected",
+            "columns": 2
+          },
+          "semanticsLabel": "A U-shaped tube with a wide arm and a narrow arm, both open at the top, with water settled at the same level in both arms."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -236242,6 +238558,18 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "fluid-vessel",
+            "vessel": "pipe",
+            "widths": [
+              3,
+              1
+            ]
+          },
+          "semanticsLabel": "A pipe narrowing from a wide section to a narrow section with fluid flowing through, moving slower in the wide section and faster in the narrow section."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -236314,6 +238642,18 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "fluid-vessel",
+            "vessel": "pipe",
+            "widths": [
+              3,
+              1
+            ]
+          },
+          "semanticsLabel": "A narrowing pipe with higher pressure in the wide slow section and lower pressure in the narrow fast section."
         },
         {
           "_type": "block",
@@ -236582,6 +238922,15 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "gear-train",
+            "gears": 3,
+            "firstTurns": "clockwise"
+          },
+          "semanticsLabel": "A row of three meshing gears in a line, showing alternating direction with the first turning clockwise, second counter-clockwise, and third clockwise."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -236642,6 +238991,15 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "gear-train",
+            "gears": 3,
+            "firstTurns": "clockwise"
+          },
+          "semanticsLabel": "Three meshing gears in a row with gear 1 turning clockwise, gear 2 counter-clockwise, and gear 3 turning clockwise."
         },
         {
           "_type": "block",
@@ -236716,6 +239074,15 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "gear-train",
+            "gears": 5,
+            "firstTurns": "counter-clockwise"
+          },
+          "semanticsLabel": "Five meshing gears in a row with gear 1 turning counter-clockwise and alternating direction down the chain to gear 5 turning counter-clockwise."
         },
         {
           "_type": "block",
@@ -236826,6 +239193,19 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "gear-train",
+            "gears": 2,
+            "showFirstTurn": false,
+            "teeth": [
+              10,
+              30
+            ]
+          },
+          "semanticsLabel": "A small 10-tooth gear meshing with a large 30-tooth gear, where the small gear turns 6 times while the large gear turns 2 times."
         },
         {
           "_type": "block",
@@ -237021,6 +239401,16 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "gear-train",
+            "gears": 4,
+            "firstTurns": "clockwise",
+            "layout": "spokes"
+          },
+          "semanticsLabel": "A central gear turning clockwise meshing separately with three outer gears arranged like spokes, all turning counter-clockwise."
         },
         {
           "_type": "block",
@@ -237391,6 +239781,16 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "pulley-system",
+            "fixed": 1,
+            "movable": 1,
+            "comparison": true
+          },
+          "semanticsLabel": "Two pulley setups side by side: a single fixed pulley requiring full force, and a movable pulley requiring half the force but twice the rope length."
+        },
+        {
           "_type": "block",
           "style": "h3",
           "children": [
@@ -237495,6 +239895,15 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "pulley-system",
+            "fixed": 1,
+            "movable": 0
+          },
+          "semanticsLabel": "A single fixed pulley attached to an overhead beam, lifting a 50 kg load with a downward pulling force of 50 kg."
         },
         {
           "_type": "block",
@@ -237605,6 +240014,15 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "pulley-system",
+            "fixed": 1,
+            "movable": 1
+          },
+          "semanticsLabel": "A movable pulley attached to a 60 kg load supported by two strands, requiring 30 kg of pull force and 4 meters of rope pulled for a 2-meter lift."
         },
         {
           "_type": "block",
@@ -237751,6 +240169,15 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "lever-balance",
+            "loadDistance": 2,
+            "effortDistance": 5
+          },
+          "semanticsLabel": "A lever on a triangular fulcrum with a 100 kg load 2 meters from the fulcrum on the left and 40 kg effort applied 5 meters on the right."
         },
         {
           "_type": "block",
@@ -237946,6 +240373,15 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "lever-balance",
+            "loadDistance": 1,
+            "effortDistance": 5
+          },
+          "semanticsLabel": "A lever on a triangular fulcrum with a 100 kg load moved to 1 meter from the fulcrum and effort applied 5 meters away, requiring 20 kg of effort."
         },
         {
           "_type": "block",
@@ -238398,6 +240834,23 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "spring-scale",
+            "springs": [
+              {
+                "label": "stiff spring",
+                "stretch": 1
+              },
+              {
+                "label": "loose spring",
+                "stretch": 2
+              }
+            ]
+          },
+          "semanticsLabel": "Two springs side by side: a stiff spring with small stretch and a loose spring with large stretch under the identical hanging weight."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -238487,6 +240940,21 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "spring-scale",
+            "springs": [
+              {
+                "stretch": 4
+              },
+              {
+                "stretch": 12
+              }
+            ]
+          },
+          "semanticsLabel": "Two hanging springs showing proportional stretch: the first stretched 4 cm by a 2 kg weight, the second stretched 12 cm by a 6 kg weight."
         },
         {
           "_type": "block",
@@ -238633,6 +241101,18 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "spring-scale",
+            "springs": [
+              {
+                "stretch": 15
+              }
+            ]
+          },
+          "semanticsLabel": "A hanging spring stretched 15 cm with an unknown weight labeled with a question mark attached, balancing 5 kg."
         },
         {
           "_type": "block",
@@ -238857,6 +241337,23 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "spring-scale",
+            "springs": [
+              {
+                "label": "A",
+                "stretch": 2
+              },
+              {
+                "label": "B",
+                "stretch": 5
+              }
+            ]
+          },
+          "semanticsLabel": "Two hanging springs under identical 4 kg weights side by side: Spring A stretched 2 cm and Spring B stretched 5 cm, showing Spring A is stiffer."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -238989,6 +241486,21 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "spring-scale",
+            "springs": [
+              {
+                "stretch": 2
+              },
+              {
+                "stretch": 5
+              }
+            ]
+          },
+          "semanticsLabel": "Spring A shown twice: stretched 2 cm under a 4 kg weight, and stretched 5 cm under a 10 kg weight."
         },
         {
           "_type": "block",
@@ -239424,6 +241936,26 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "stability-shape",
+            "shapes": [
+              {
+                "form": "pyramid",
+                "baseWidth": 3,
+                "height": 1
+              },
+              {
+                "form": "pyramid",
+                "baseWidth": 1,
+                "height": 3,
+                "tilt": 18
+              }
+            ]
+          },
+          "semanticsLabel": "Two triangular shapes standing upright: a short wide one with a low center of gravity within its wide base, and a tall narrow one with a high center of gravity tipping over."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -239505,6 +242037,25 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "stability-shape",
+            "shapes": [
+              {
+                "form": "pyramid",
+                "baseWidth": 3,
+                "height": 1
+              },
+              {
+                "form": "pyramid",
+                "baseWidth": 1,
+                "height": 3
+              }
+            ]
+          },
+          "semanticsLabel": "A short wide pyramid beside a tall narrow pyramid, each with its center of gravity marked, showing the short wide pyramid is more stable."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -239577,6 +242128,21 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "stability-shape",
+            "tilt": 22,
+            "shapes": [
+              {
+                "form": "box",
+                "baseWidth": 2,
+                "height": 3
+              }
+            ]
+          },
+          "semanticsLabel": "A rectangular box tilted on one edge with a vertical plumb line dropped from its center of gravity to show tipping."
         },
         {
           "_type": "block",
@@ -239653,6 +242219,25 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "stability-shape",
+            "shapes": [
+              {
+                "form": "truck",
+                "baseWidth": 2,
+                "height": 3
+              },
+              {
+                "form": "truck",
+                "baseWidth": 3,
+                "height": 1
+              }
+            ]
+          },
+          "semanticsLabel": "Two truck cargo profiles: one with cargo stacked tall giving a high center of gravity, and one with cargo spread low giving a low center of gravity."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -239725,6 +242310,25 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "stability-shape",
+            "shapes": [
+              {
+                "form": "person",
+                "baseWidth": 1,
+                "height": 3
+              },
+              {
+                "form": "person",
+                "baseWidth": 3,
+                "height": 3
+              }
+            ]
+          },
+          "semanticsLabel": "Two stances comparing base of support width: feet close together with a narrow base, and feet spread wide with a wider, more stable base."
         },
         {
           "_type": "block",
@@ -240099,6 +242703,30 @@
           "level": 1
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "shape-row",
+            "shapes": [
+              {
+                "form": "square"
+              },
+              {
+                "form": "rectangle"
+              },
+              {
+                "form": "rhombus"
+              },
+              {
+                "form": "parallelogram"
+              },
+              {
+                "form": "pentagon"
+              }
+            ]
+          },
+          "semanticsLabel": "A row of five shapes: a square, a rectangle, a rhombus, a parallelogram, and a pentagon."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -240141,6 +242769,27 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "shape-row",
+            "shapes": [
+              {
+                "form": "square"
+              },
+              {
+                "form": "rectangle"
+              },
+              {
+                "form": "rhombus"
+              },
+              {
+                "form": "triangle"
+              }
+            ]
+          },
+          "semanticsLabel": "A row of four shapes: a square, a rectangle, a rhombus, and a triangle."
         },
         {
           "_type": "block",
@@ -240251,6 +242900,27 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "shape-row",
+            "shapes": [
+              {
+                "form": "circle"
+              },
+              {
+                "form": "square"
+              },
+              {
+                "form": "triangle"
+              },
+              {
+                "form": "blob"
+              }
+            ]
+          },
+          "semanticsLabel": "A row of four shapes: a circle, a square, a triangle, and an irregular blob."
         },
         {
           "_type": "block",
@@ -240423,6 +243093,32 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "shape-row",
+            "shapes": [
+              {
+                "form": "circle",
+                "lines": 1
+              },
+              {
+                "form": "circle",
+                "lines": 2
+              },
+              {
+                "form": "circle",
+                "lines": 3
+              },
+              {
+                "form": "circle",
+                "lines": 2,
+                "through": "off"
+              }
+            ]
+          },
+          "semanticsLabel": "Four circles cut by lines, three through the center and one off center."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -240555,6 +243251,35 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "shape-row",
+            "shapes": [
+              {
+                "form": "square",
+                "dots": 1
+              },
+              {
+                "form": "triangle",
+                "dots": 1
+              },
+              {
+                "form": "circle",
+                "dots": 1
+              },
+              {
+                "form": "pentagon",
+                "dots": 1
+              },
+              {
+                "form": "hexagon",
+                "dots": 2
+              }
+            ]
+          },
+          "semanticsLabel": "Five shapes with dots inside, four with one dot and one with two dots."
         },
         {
           "_type": "block",
@@ -240903,6 +243628,58 @@
           "level": 1
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "figure-matrix",
+            "rows": 3,
+            "cols": 3,
+            "cells": [
+              {
+                "form": "triangle",
+                "rotation": 0,
+                "dots": 1
+              },
+              {
+                "form": "triangle",
+                "rotation": 0,
+                "dots": 2
+              },
+              {
+                "form": "triangle",
+                "rotation": 0,
+                "dots": 3
+              },
+              {
+                "form": "triangle",
+                "rotation": 90,
+                "dots": 1
+              },
+              {
+                "form": "triangle",
+                "rotation": 90,
+                "dots": 2
+              },
+              {
+                "form": "triangle",
+                "rotation": 90,
+                "dots": 3
+              },
+              {
+                "form": "triangle",
+                "rotation": 180,
+                "dots": 1
+              },
+              {
+                "form": "triangle",
+                "rotation": 180,
+                "dots": 2
+              },
+              "blank"
+            ]
+          },
+          "semanticsLabel": "A 3 by 3 grid of shapes where dots increase across rows and shapes rotate down columns, with the bottom-right cell left blank."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -240992,6 +243769,30 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "figure-matrix",
+            "rows": 2,
+            "cols": 2,
+            "cells": [
+              {
+                "form": "triangle",
+                "rotation": 0
+              },
+              {
+                "form": "triangle",
+                "rotation": 90
+              },
+              {
+                "form": "square",
+                "rotation": 0
+              },
+              "blank"
+            ]
+          },
+          "semanticsLabel": "A 2 by 2 grid with a triangle then the same triangle rotated 90 degrees in the top row, and a square and an empty cell in the bottom row."
         },
         {
           "_type": "block",
@@ -241224,6 +244025,50 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "figure-matrix",
+            "rows": 3,
+            "cols": 3,
+            "cells": [
+              {
+                "form": "circle",
+                "dots": 1
+              },
+              {
+                "form": "circle",
+                "dots": 2
+              },
+              {
+                "form": "circle",
+                "dots": 3
+              },
+              {
+                "form": "circle",
+                "dots": 2
+              },
+              {
+                "form": "circle",
+                "dots": 3
+              },
+              {
+                "form": "circle",
+                "dots": 4
+              },
+              {
+                "form": "circle",
+                "dots": 3
+              },
+              {
+                "form": "circle",
+                "dots": 4
+              },
+              "blank"
+            ]
+          },
+          "semanticsLabel": "A 3 by 3 grid of circles with increasing dot counts and a blank bottom-right cell."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -241370,6 +244215,58 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "figure-matrix",
+            "rows": 3,
+            "cols": 3,
+            "cells": [
+              {
+                "form": "square",
+                "size": "small",
+                "fill": "black"
+              },
+              {
+                "form": "square",
+                "size": "small",
+                "fill": "white"
+              },
+              {
+                "form": "square",
+                "size": "small",
+                "fill": "black"
+              },
+              {
+                "form": "square",
+                "size": "medium",
+                "fill": "black"
+              },
+              {
+                "form": "square",
+                "size": "medium",
+                "fill": "white"
+              },
+              {
+                "form": "square",
+                "size": "medium",
+                "fill": "black"
+              },
+              {
+                "form": "square",
+                "size": "large",
+                "fill": "black"
+              },
+              {
+                "form": "square",
+                "size": "large",
+                "fill": "white"
+              },
+              "blank"
+            ]
+          },
+          "semanticsLabel": "A 3 by 3 grid where shapes grow larger down columns and alternate black and white across rows, with the bottom-right cell left blank."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -241454,6 +244351,41 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "figure-matrix",
+            "rows": 2,
+            "cols": 3,
+            "cells": [
+              {
+                "form": "circle",
+                "line": 90
+              },
+              {
+                "form": "circle",
+                "line": 0
+              },
+              {
+                "form": "circle",
+                "lines": [
+                  90,
+                  0
+                ]
+              },
+              {
+                "form": "square",
+                "line": 45
+              },
+              {
+                "form": "square",
+                "line": 135
+              },
+              "blank"
+            ]
+          },
+          "semanticsLabel": "Two matrix rows showing a combination rule: the third circle combines horizontal and vertical lines, and the third square is left blank."
         },
         {
           "_type": "block",
@@ -241886,6 +244818,32 @@
           "level": 1
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "figure-series",
+            "items": [
+              {
+                "form": "square",
+                "dot": "top-left"
+              },
+              {
+                "form": "square",
+                "dot": "top-right"
+              },
+              {
+                "form": "square",
+                "dot": "bottom-right"
+              },
+              {
+                "form": "square",
+                "dot": "bottom-left"
+              }
+            ],
+            "blank": false
+          },
+          "semanticsLabel": "A series of four squares with a dot moving clockwise to each corner."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -241952,6 +244910,28 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "figure-series",
+            "items": [
+              {
+                "form": "square",
+                "line": 0
+              },
+              {
+                "form": "square",
+                "line": 45
+              },
+              {
+                "form": "square",
+                "line": 90
+              }
+            ],
+            "blank": true
+          },
+          "semanticsLabel": "A series of three squares with rotating lines at 0, 45, and 90 degrees, followed by an empty frame."
         },
         {
           "_type": "block",
@@ -242064,6 +245044,25 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "figure-series",
+            "items": [
+              {
+                "form": "triangle"
+              },
+              {
+                "form": "square"
+              },
+              {
+                "form": "pentagon"
+              }
+            ],
+            "blank": true
+          },
+          "semanticsLabel": "A series of shapes with increasing sides: triangle, square, and pentagon, followed by an empty frame."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -242174,6 +245173,28 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "figure-series",
+            "items": [
+              {
+                "form": "circle",
+                "fill": "black"
+              },
+              {
+                "form": "circle",
+                "fill": "white"
+              },
+              {
+                "form": "circle",
+                "fill": "black"
+              }
+            ],
+            "blank": true
+          },
+          "semanticsLabel": "A series of three circles alternating between black and white, followed by an empty frame."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -242246,6 +245267,31 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "figure-series",
+            "items": [
+              {
+                "form": "triangle",
+                "size": "small",
+                "fill": "black"
+              },
+              {
+                "form": "triangle",
+                "size": "medium",
+                "fill": "white"
+              },
+              {
+                "form": "triangle",
+                "size": "large",
+                "fill": "black"
+              }
+            ],
+            "blank": true
+          },
+          "semanticsLabel": "A series of three growing triangles alternating between black and white, followed by an empty frame."
         },
         {
           "_type": "block",
@@ -242631,6 +245677,48 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "cube-net",
+            "cells": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                1
+              ],
+              [
+                3,
+                1
+              ]
+            ],
+            "labels": [
+              "side",
+              "side",
+              "bottom",
+              "side",
+              "side",
+              "top"
+            ],
+            "showFolded": true
+          },
+          "semanticsLabel": "A cross-shaped cube net with the bottom, four sides, and top labeled, beside the folded cube."
+        },
+        {
           "_type": "block",
           "style": "h3",
           "children": [
@@ -242708,6 +245796,47 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "cube-net",
+            "cells": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                1
+              ],
+              [
+                3,
+                1
+              ]
+            ],
+            "labels": [
+              "side",
+              "side",
+              "bottom",
+              "side",
+              "side",
+              "top"
+            ]
+          },
+          "semanticsLabel": "A cross-shaped cube net with the center labeled bottom and the far end of the vertical arm labeled top."
         },
         {
           "_type": "block",
@@ -242820,6 +245949,39 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "cube-net",
+            "cells": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                2,
+                1
+              ],
+              [
+                2,
+                2
+              ],
+              [
+                2,
+                3
+              ]
+            ]
+          },
+          "semanticsLabel": "A flat pattern of six squares with four in a row and two stacked directly above the second square."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -242906,6 +246068,18 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "cylinder-shadow-above",
+            "labels": [
+              "Light from above",
+              "Circular shadow"
+            ]
+          },
+          "semanticsLabel": "An upright cylinder with light shining from above, casting a circular shadow on the ground."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -242978,6 +246152,18 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "geometry-diagram",
+            "type": "cylinder-shadow-side",
+            "labels": [
+              "Light from side",
+              "Rectangular shadow"
+            ]
+          },
+          "semanticsLabel": "An upright cylinder with light shining from the side, casting a rectangular shadow on the wall."
         },
         {
           "_type": "block",
@@ -243281,6 +246467,20 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "paper-fold",
+            "folds": [
+              "vertical",
+              "horizontal"
+            ],
+            "cut": "notch",
+            "at": "corner",
+            "showUnfolded": true
+          },
+          "semanticsLabel": "A square of paper folded twice with a triangular notch cut near the corner, then unfolded to show four symmetric notches."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -243422,6 +246622,19 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "paper-fold",
+            "folds": [
+              "vertical"
+            ],
+            "cut": "notch",
+            "at": "on-fold",
+            "showUnfolded": true
+          },
+          "semanticsLabel": "A square folded vertically with a notch cut on the folded edge, then opened to show one diamond-shaped hole on the fold line."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -243518,6 +246731,20 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "paper-fold",
+            "folds": [
+              "vertical",
+              "horizontal"
+            ],
+            "cut": "hole",
+            "at": "fold-corner",
+            "showUnfolded": true
+          },
+          "semanticsLabel": "A square folded twice with a hole cut at the all-folds corner, then opened to show one hole at the exact center."
         },
         {
           "_type": "block",
@@ -243654,6 +246881,20 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "paper-fold",
+            "folds": [
+              "vertical",
+              "horizontal"
+            ],
+            "cut": "notch",
+            "at": "edge",
+            "showUnfolded": true
+          },
+          "semanticsLabel": "A square folded twice with a notch cut on the outer edge, then opened to show four symmetric notches along the outside."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -243738,6 +246979,22 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "paper-fold",
+            "folds": [
+              "vertical",
+              "horizontal",
+              "vertical"
+            ],
+            "cut": "hole",
+            "at": "interior",
+            "sheet": "rectangle",
+            "showUnfolded": true
+          },
+          "semanticsLabel": "A rectangle folded three times with one cut through all eight layers, then opened to show eight evenly spaced holes."
         },
         {
           "_type": "block",
@@ -250679,6 +253936,26 @@
           ]
         },
         {
+          "_type": "table",
+          "rows": [
+            [
+              "",
+              "$T$",
+              "$t$"
+            ],
+            [
+              "**$T$**",
+              "$TT$",
+              "$Tt$"
+            ],
+            [
+              "**$t$**",
+              "$Tt$",
+              "$tt$"
+            ]
+          ]
+        },
+        {
           "_type": "block",
           "style": "h3",
           "children": [
@@ -251108,6 +254385,26 @@
           ]
         },
         {
+          "_type": "table",
+          "rows": [
+            [
+              "",
+              "$T$",
+              "$t$"
+            ],
+            [
+              "**$T$**",
+              "$TT$ (tall)",
+              "$Tt$ (tall)"
+            ],
+            [
+              "**$t$**",
+              "$Tt$ (tall)",
+              "$tt$ (short)"
+            ]
+          ]
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -251420,6 +254717,10 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "latex",
+          "body": "\\text{DNA} \\xrightarrow{\\text{transcription}} \\text{mRNA} \\xrightarrow{\\text{translation}} \\text{protein}"
         },
         {
           "_type": "block",
@@ -253608,6 +256909,136 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Domain",
+              "marks": [
+                "strong"
+              ]
+            },
+            {
+              "_type": "span",
+              "text": " (broadest)",
+              "marks": []
+            }
+          ],
+          "listItem": "bullet",
+          "level": 1
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Kingdom",
+              "marks": [
+                "strong"
+              ]
+            }
+          ],
+          "listItem": "bullet",
+          "level": 2
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Phylum",
+              "marks": [
+                "strong"
+              ]
+            }
+          ],
+          "listItem": "bullet",
+          "level": 3
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Class",
+              "marks": [
+                "strong"
+              ]
+            }
+          ],
+          "listItem": "bullet",
+          "level": 4
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Order",
+              "marks": [
+                "strong"
+              ]
+            }
+          ],
+          "listItem": "bullet",
+          "level": 5
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Family",
+              "marks": [
+                "strong"
+              ]
+            }
+          ],
+          "listItem": "bullet",
+          "level": 6
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Genus",
+              "marks": [
+                "strong"
+              ]
+            }
+          ],
+          "listItem": "bullet",
+          "level": 7
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Species",
+              "marks": [
+                "strong"
+              ]
+            },
+            {
+              "_type": "span",
+              "text": " (most specific)",
+              "marks": []
+            }
+          ],
+          "listItem": "bullet",
+          "level": 8
         },
         {
           "_type": "block",
@@ -257334,6 +260765,39 @@
           "level": 1
         },
         {
+          "_type": "table",
+          "rows": [
+            [
+              "Hydrocarbon",
+              "Family",
+              "Formula",
+              "Structure",
+              "Bond Type"
+            ],
+            [
+              "Ethane",
+              "Alkane (saturated)",
+              "$\\text{C}_2\\text{H}_6$",
+              "$\\text{CH}_3-\\text{CH}_3$",
+              "Single bond ($\\text{C}-\\text{C}$)"
+            ],
+            [
+              "Ethene",
+              "Alkene (unsaturated)",
+              "$\\text{C}_2\\text{H}_4$",
+              "$\\text{CH}_2=\\text{CH}_2$",
+              "Double bond ($\\text{C}=\\text{C}$)"
+            ],
+            [
+              "Ethyne",
+              "Alkyne (unsaturated)",
+              "$\\text{C}_2\\text{H}_2$",
+              "$\\text{CH}\\equiv\\text{CH}$",
+              "Triple bond ($\\text{C}\\equiv\\text{C}$)"
+            ]
+          ]
+        },
+        {
           "_type": "block",
           "style": "h3",
           "children": [
@@ -259738,6 +263202,31 @@
           ]
         },
         {
+          "_type": "table",
+          "rows": [
+            [
+              "Ionic Naming",
+              "Covalent Naming"
+            ],
+            [
+              "Metal + nonmetal",
+              "Nonmetal + nonmetal"
+            ],
+            [
+              "Cation name + anion root with *-ide*",
+              "(Prefix) + first element + prefix + second element root with *-ide*"
+            ],
+            [
+              "Roman numerals indicate variable charge: $\\text{Fe}^{3+} \\rightarrow \\text{iron (III)}$",
+              "Greek prefixes indicate atom counts: $1 = \\text{mono-}$, $2 = \\text{di-}$, etc."
+            ],
+            [
+              "Example: $\\text{FeCl}_3 \\rightarrow \\text{iron (III) chloride}$",
+              "Example: $\\text{CO}_2 \\rightarrow \\text{carbon dioxide}$"
+            ]
+          ]
+        },
+        {
           "_type": "block",
           "style": "h2",
           "children": [
@@ -260990,6 +264479,35 @@
           ],
           "listItem": "bullet",
           "level": 1
+        },
+        {
+          "_type": "table",
+          "rows": [
+            [
+              "Reaction Type",
+              "General Pattern"
+            ],
+            [
+              "Synthesis (combination)",
+              "$A + B \\rightarrow AB$"
+            ],
+            [
+              "Decomposition",
+              "$AB \\rightarrow A + B$"
+            ],
+            [
+              "Single replacement",
+              "$A + BC \\rightarrow AC + B$"
+            ],
+            [
+              "Double replacement",
+              "$AB + CD \\rightarrow AD + CB$"
+            ],
+            [
+              "Combustion",
+              "$\\text{substance} + \\text{oxygen} \\rightarrow \\text{carbon dioxide} + \\text{water}$"
+            ]
+          ]
         },
         {
           "_type": "block",
@@ -283144,6 +286662,24 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "concept-diagram",
+            "type": "free-body",
+            "forces": [
+              {
+                "label": "Normal Force (Fn)",
+                "direction": "up"
+              },
+              {
+                "label": "Weight (Fg)",
+                "direction": "down"
+              }
+            ]
+          },
+          "semanticsLabel": "A free body diagram of a box with an upward normal force arrow and an equal downward gravity arrow."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -285401,6 +288937,20 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "concept-diagram",
+            "type": "gravitational-force",
+            "masses": [
+              "m1",
+              "m2"
+            ],
+            "distance": "r",
+            "comparison": "2r (F/4)"
+          },
+          "semanticsLabel": "Two spheres separated by distance r with inward gravity arrows, and a comparison at distance 2r with one fourth the force."
         },
         {
           "_type": "block",
@@ -287709,6 +291259,23 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "concept-diagram",
+            "type": "ray-reflection",
+            "labels": [
+              "Incident ray",
+              "Normal line",
+              "Reflected ray"
+            ],
+            "angles": [
+              "Angle of incidence",
+              "Angle of reflection"
+            ]
+          },
+          "semanticsLabel": "A flat mirror with a normal line showing an incoming incident ray and an outgoing reflected ray at equal angles."
+        },
+        {
           "_type": "block",
           "style": "h3",
           "children": [
@@ -287914,6 +291481,20 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "concept-diagram",
+            "type": "ray-reflection",
+            "incidentAngle": 40,
+            "reflectedAngle": 40,
+            "labels": [
+              "40°",
+              "40°"
+            ]
+          },
+          "semanticsLabel": "A light ray striking a flat mirror at 40 degrees from the normal line and reflecting off at 40 degrees."
         },
         {
           "_type": "block",
@@ -289484,6 +293065,26 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "concept-diagram",
+            "type": "vector-diagram",
+            "vectors": [
+              {
+                "label": "5 N East",
+                "angle": 0,
+                "magnitude": 5
+              },
+              {
+                "label": "8 N Northeast",
+                "angle": 45,
+                "magnitude": 8
+              }
+            ]
+          },
+          "semanticsLabel": "Two vector arrows comparing a 5 N force pointing east and an 8 N force pointing northeast."
+        },
+        {
           "_type": "block",
           "style": "h3",
           "children": [
@@ -289834,6 +293435,31 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "concept-diagram",
+            "type": "vector-addition",
+            "components": [
+              {
+                "label": "3 km East",
+                "dx": 3,
+                "dy": 0
+              },
+              {
+                "label": "4 km North",
+                "dx": 0,
+                "dy": 4
+              }
+            ],
+            "resultant": {
+              "label": "5 km Resultant",
+              "dx": 3,
+              "dy": 4
+            }
+          },
+          "semanticsLabel": "A vector addition right triangle with 3 km east, 4 km north, and a 5 km resultant hypotenuse."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -290010,6 +293636,21 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "concept-diagram",
+            "type": "vector-components",
+            "magnitude": 10,
+            "angle": 30,
+            "unit": "N",
+            "components": {
+              "horizontal": "10 cos 30°",
+              "vertical": "10 sin 30°"
+            }
+          },
+          "semanticsLabel": "A 10 N force vector at 30 degrees above the horizontal resolved into horizontal and vertical components."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -290179,6 +293820,30 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "concept-diagram",
+            "type": "tug-of-war",
+            "forces": [
+              {
+                "label": "Team A (600 N)",
+                "direction": "left",
+                "magnitude": 600
+              },
+              {
+                "label": "Team B (450 N)",
+                "direction": "right",
+                "magnitude": 450
+              }
+            ],
+            "netForce": {
+              "label": "Net Force (150 N)",
+              "direction": "left"
+            }
+          },
+          "semanticsLabel": "A tug-of-war diagram with 600 N pulling left, 450 N pulling right, and a net force of 150 N to the left."
         },
         {
           "_type": "block",
@@ -291678,6 +295343,16 @@
           "body": "v_y = v_{y0} - gt \\qquad y = v_{y0}t - \\dfrac{1}{2}gt^2"
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "coordinate-graph",
+            "type": "projectile-motion",
+            "path": "parabola",
+            "velocityVectors": true
+          },
+          "semanticsLabel": "A parabolic projectile path showing constant horizontal velocity arrows and vertical velocity shrinking at the peak."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -291866,6 +295541,19 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "coordinate-graph",
+            "type": "horizontal-projectile",
+            "initialVelocity": "3 m/s",
+            "labels": {
+              "height": "?",
+              "distance": "?"
+            }
+          },
+          "semanticsLabel": "A ball rolling off a table at 3 m/s following a curved path to the floor with height and distance marked with question marks."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -292052,6 +295740,21 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "concept-diagram",
+            "type": "vector-components",
+            "magnitude": 20,
+            "angle": 30,
+            "unit": "m/s",
+            "components": {
+              "horizontal": "20 cos 30°",
+              "vertical": "20 sin 30°"
+            }
+          },
+          "semanticsLabel": "A 20 m/s launch velocity vector at 30 degrees resolved into horizontal and vertical components as a right triangle."
         },
         {
           "_type": "block",
@@ -292264,6 +295967,20 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "concept-diagram",
+            "type": "circular-orbit",
+            "body": "Earth",
+            "orbiting": "Satellite",
+            "vectors": {
+              "velocity": "Tangent velocity (v)",
+              "acceleration": "Centripetal acceleration (ac)"
+            }
+          },
+          "semanticsLabel": "A satellite in circular orbit around Earth with a tangent velocity arrow and an inward centripetal acceleration arrow."
         },
         {
           "_type": "block",
@@ -292965,6 +296682,51 @@
               "text": ", called a newton) is a combination of these seven base units.",
               "marks": []
             }
+          ]
+        },
+        {
+          "_type": "table",
+          "rows": [
+            [
+              "Base Quantity",
+              "SI Unit",
+              "Symbol"
+            ],
+            [
+              "Length",
+              "meter",
+              "$\\text{m}$"
+            ],
+            [
+              "Mass",
+              "kilogram",
+              "$\\text{kg}$"
+            ],
+            [
+              "Time",
+              "second",
+              "$\\text{s}$"
+            ],
+            [
+              "Electric current",
+              "ampere",
+              "$\\text{A}$"
+            ],
+            [
+              "Temperature",
+              "kelvin",
+              "$\\text{K}$"
+            ],
+            [
+              "Amount of substance",
+              "mole",
+              "$\\text{mol}$"
+            ],
+            [
+              "Luminous intensity",
+              "candela",
+              "$\\text{cd}$"
+            ]
           ]
         },
         {
@@ -294098,6 +297860,19 @@
           "body": "v = f\\lambda"
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "concept-diagram",
+            "type": "wave",
+            "labels": {
+              "wavelength": "Wavelength (λ)",
+              "amplitude": "Amplitude (A)",
+              "direction": "Wave travel direction"
+            }
+          },
+          "semanticsLabel": "A transverse wave diagram with labeled wavelength between crests, amplitude from rest line, and direction arrow."
+        },
+        {
           "_type": "block",
           "style": "h3",
           "children": [
@@ -294281,6 +298056,18 @@
           ]
         },
         {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "concept-diagram",
+            "type": "wave",
+            "labels": {
+              "wavelength": "2 m",
+              "frequency": "5 Hz"
+            }
+          },
+          "semanticsLabel": "A transverse wave diagram with a 2 m wavelength and frequency of 5 Hz."
+        },
+        {
           "_type": "block",
           "style": "normal",
           "children": [
@@ -294377,6 +298164,19 @@
               "marks": []
             }
           ]
+        },
+        {
+          "_type": "figureSpec",
+          "spec": {
+            "kind": "concept-diagram",
+            "type": "wave",
+            "labels": {
+              "wavelength": "?",
+              "speed": "340 m/s",
+              "frequency": "170 Hz"
+            }
+          },
+          "semanticsLabel": "A sound wave diagram with wavelength marked as a question mark, speed 340 m/s, and frequency 170 Hz."
         },
         {
           "_type": "block",
