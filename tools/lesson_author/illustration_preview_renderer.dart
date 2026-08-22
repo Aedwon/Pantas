@@ -7,9 +7,9 @@ import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:path/path.dart' as p;
 import 'package:pantas/core/ui/figures/lesson_figure_widget.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:path/path.dart' as p;
 
 const reviewPreviewWidth = 390;
 const _reviewBatches = <String>{'original-code-a', 'original-code-b'};
@@ -154,7 +154,8 @@ Future<ReviewPreviewManifest> renderReviewPreviews({
         spec: specs[key]!,
         theme: buildDarkTheme(),
       );
-      if (light.width != reviewPreviewWidth || dark.width != reviewPreviewWidth) {
+      if (light.width != reviewPreviewWidth ||
+          dark.width != reviewPreviewWidth) {
         throw StateError('Preview width for $key was not $reviewPreviewWidth.');
       }
 
@@ -181,7 +182,7 @@ Future<ReviewPreviewManifest> renderReviewPreviews({
   } finally {
     runApp(const SizedBox.shrink());
     await binding.pump();
-    await binding.resetLayers();
+    await binding.setSurfaceSize(null);
   }
 
   final manifest = ReviewPreviewManifest(List.unmodifiable(entries));
