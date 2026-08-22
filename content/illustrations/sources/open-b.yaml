@@ -1,0 +1,18 @@
+version: 1
+assets:
+  - key: "science/earth-science-astronomy/layers-of-the-earth#1"
+    sourcePage: "https://commons.wikimedia.org/wiki/File:Earth_cutaway_schematic-en.svg"
+    directUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Earth_cutaway_schematic-en.svg"
+    license: "Public domain"
+    creator: "USGS"
+    credit: "USGS, vectorized by Srimadhav, Public domain"
+    target: "content/illustrations/science/earth-science-astronomy/layers-of-the-earth/01-cutaway-sphere-earth-layers.png"
+    sha256: "848eacdd69e6f731b58a2191db8b014818fc9ce66286768f68e8648cae6277e7"
+  - key: "science/earth-science-astronomy/layers-of-the-earth#2"
+    sourcePage: "https://commons.wikimedia.org/wiki/File:Earth_internal_structure.svg"
+    directUrl: "https://upload.wikimedia.org/wikipedia/commons/d/de/Earth_internal_structure.svg"
+    license: "CC BY-SA 4.0"
+    creator: "Louiskmn"
+    credit: "Louiskmn, CC BY-SA 4.0"
+    target: "content/illustrations/science/earth-science-astronomy/layers-of-the-earth/02-cutaway-cross-section-earth.png"
+    sha256: "3cc8b25d5f1d6da4c79251588a668d6e44c1bd2fb81eb0c294b1d7db30de59ba"
