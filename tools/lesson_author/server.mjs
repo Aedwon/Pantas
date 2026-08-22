@@ -8,18 +8,33 @@ import { spawn } from 'node:child_process';
 import { dirname, join, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import {
-  IllustrationReviewError,
-  loadIllustrationCatalog,
-  resolveIllustrationPreviewFile,
-  saveIllustrationReview,
-} from './illustration_review.mjs';
-
 const PORT = 4321;
 const toolDir = dirname(fileURLToPath(import.meta.url));
 const repoRoot = join(toolDir, '..', '..');
 const contentRoot = join(repoRoot, 'content', 'lessons');
 let previewRebuildPromise = null;
+
+if (!existsSync(join(toolDir, 'node_modules', 'yaml', 'package.json'))) {
+  console.log('Installing Lesson Author dependencies (marked, katex, yaml)...');
+  await new Promise((resolveInstall, rejectInstall) => {
+    const npm = spawn('npm', ['install', '--no-audit', '--no-fund'], {
+      cwd: toolDir,
+      stdio: 'inherit',
+    });
+    npm.on('close', (code) =>
+      code === 0
+        ? resolveInstall()
+        : rejectInstall(new Error(`npm install failed (exit ${code})`)),
+    );
+  });
+}
+
+const {
+  IllustrationReviewError,
+  loadIllustrationCatalog,
+  resolveIllustrationPreviewFile,
+  saveIllustrationReview,
+} = await import('./illustration_review.mjs');
 
 const outline = JSON.parse(await readFile(join(toolDir, 'outline.json'), 'utf8'));
 
@@ -236,7 +251,14 @@ async function rebuildIllustrationPreviews() {
     };
     child.stdout.on('data', append);
     child.stderr.on('data', append);
-    child.on('error', (error) => rejectBuild(new IllustrationReviewError(`Preview build could not start: ${error.message}`, 500)));
+    child.on('error', (error) => {
+      rejectBuild(
+        new IllustrationReviewError(
+          `Preview build could not start: ${error.message}`,
+          500,
+        ),
+      );
+    });
     child.on('close', (code) => {
       if (code === 0) {
         resolveBuild({ rebuilt: true, output: output.trim() });
@@ -324,21 +346,6 @@ const server = createServer(async (req, res) => {
     sendJson(res, status, { error: String(error?.message ?? error) });
   }
 });
-
-if (!existsSync(join(toolDir, 'node_modules'))) {
-  console.log('First run: installing dependencies (marked, katex, yaml)...');
-  await new Promise((resolveInstall, rejectInstall) => {
-    const npm = spawn('npm', ['install', '--no-audit', '--no-fund'], {
-      cwd: toolDir,
-      stdio: 'inherit',
-    });
-    npm.on('close', (code) =>
-      code === 0
-        ? resolveInstall()
-        : rejectInstall(new Error(`npm install failed (exit ${code})`)),
-    );
-  });
-}
 
 server.on('error', (error) => {
   if (error.code === 'EADDRINUSE') {
