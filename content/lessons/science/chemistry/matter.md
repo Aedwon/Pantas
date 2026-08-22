@@ -19,7 +19,7 @@ Matter is first split into **pure substances** (fixed composition) and **mixture
 
 The three everyday states are **solid** (fixed shape, fixed volume, particles vibrate in place), **liquid** (fixed volume but takes the shape of its container, particles slide past each other), and **gas** (no fixed shape or volume, particles move freely and spread out). A fourth state, **plasma**, is a superheated, electrically charged gas, found in stars and lightning.
 
-<!-- ILLUSTRATION: three boxes showing particle arrangement in a solid (tightly packed, fixed grid), a liquid (close together but disordered), and a gas (spread far apart, moving freely) -->
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"particle-states","illustrationKey":"science/chemistry/matter#1","states":[{"label":"solid","arrangement":"tightly packed fixed grid"},{"label":"liquid","arrangement":"close together disordered"},{"label":"gas","arrangement":"spread far apart moving freely"}]} -->
 
 ### Phase Changes
 
