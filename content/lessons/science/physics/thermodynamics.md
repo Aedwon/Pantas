@@ -21,7 +21,7 @@ Heat moves from one place to another through three mechanisms.
 
 **Radiation**: heat transfers through electromagnetic waves, requiring no physical medium at all: this is how the Sun's heat reaches Earth through the vacuum of space.
 
-<!-- ILLUSTRATION: three small diagrams showing conduction (heat moving through a solid metal rod held over a flame), convection (circulating arrows showing warm fluid rising and cool fluid sinking in a pot of heated water), and radiation (wavy arrows traveling from the Sun through empty space to Earth) -->
+<!-- FIGURE: {"kind":"physics-energy-diagram","type":"heat-transfer-triptych","illustrationKey":"science/physics/thermodynamics#1","panels":[{"name":"conduction","scene":"heat through solid metal rod held over flame"},{"name":"convection","scene":"warm fluid rises and cool fluid sinks in heated water"},{"name":"radiation","scene":"wavy arrows from Sun through empty space to Earth"}]} -->
 
 ### Laws of Thermodynamics
 
