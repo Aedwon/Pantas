@@ -73,7 +73,7 @@ Water ($H_2O$) has $4$ total electron groups around its central oxygen atom ($2$
 **Solution:**
 Recall that VSEPR counts all electron groups, including lone pairs, but the final shape only describes where the atoms sit.
 
-1. With $4$ total electron groups, the electron arrangement around oxygen is still roughly tetrahedral, spreading all $4$ groups apart as far apart as possible.
+1. With $4$ total electron groups, the electron arrangement around oxygen is still roughly tetrahedral, spreading all $4$ groups apart as far as possible.
 2. However, $2$ of those $4$ groups are lone pairs (not connected to another atom), so they do not count as "corners" when we describe the shape formed by the atoms themselves.
 3. With only $2$ of the $4$ positions occupied by actual hydrogen atoms, and the $2$ lone pairs pushing those hydrogens closer together, the resulting molecular shape (based on atom positions only) is bent, not tetrahedral or linear.
 
