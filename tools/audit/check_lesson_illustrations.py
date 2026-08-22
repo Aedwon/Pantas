@@ -3,9 +3,9 @@
 
 Phases:
   inventory: validates strategy.tsv against worklist.tsv and asserts exact approved totals
-             (total=279 code=189 open=56 native=23 cut=8 founder=3).
-  complete:  asserts full implementation state (189 valid FIGURE markers, 59 remaining
-             ILLUSTRATION markers, 59 PNG slots on disk, 0 native/cut markers remaining).
+             (total=279 code=241 open=4 native=23 cut=8 founder=3).
+  complete:  asserts full implementation state (241 valid FIGURE markers, 7 remaining
+             ILLUSTRATION markers, 7 PNG slots on disk, 0 native/cut markers remaining).
 
 Usage:
   python3 tools/audit/check_lesson_illustrations.py --phase inventory
@@ -26,8 +26,8 @@ DEFAULT_LESSONS = os.path.join(ROOT, "content", "lessons")
 DEFAULT_ILLUSTRATIONS = os.path.join(ROOT, "content", "illustrations")
 
 EXPECTED_TOTALS = {
-    "code": 189,
-    "open": 56,
+    "code": 241,
+    "open": 4,
     "native": 23,
     "cut": 8,
     "founder": 3,
@@ -55,6 +55,12 @@ KNOWN_FIGURE_KINDS = {
     "cube-net",
     "paper-fold",
     "venn-diagram",
+    "reading-diagram",
+    "biology-diagram",
+    "chemistry-diagram",
+    "earth-science-diagram",
+    "physics-mechanics-diagram",
+    "physics-energy-diagram",
 }
 
 
@@ -231,7 +237,7 @@ def check_complete(strategy_path: str, worklist_path: str, lessons_dir: str, ill
             f"found {len(all_figure_markers)}"
         )
 
-    # Check global ILLUSTRATION markers total (56 open + 3 founder = 59)
+    # Check global ILLUSTRATION markers total (4 open + 3 founder = 7)
     expected_illustrations = EXPECTED_TOTALS["open"] + EXPECTED_TOTALS["founder"]
     if len(all_illustration_markers) != expected_illustrations:
         errors.append(
@@ -313,7 +319,7 @@ def check_complete(strategy_path: str, worklist_path: str, lessons_dir: str, ill
         sys.exit(1)
 
     print(
-        f"complete: 189 valid figures, {expected_illustrations} illustrations "
+        f"complete: {EXPECTED_TOTALS['code']} valid figures, {expected_illustrations} illustrations "
         f"({expected_illustrations} pngs), 0 native/cut markers remaining"
     )
 
