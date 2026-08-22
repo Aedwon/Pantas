@@ -19,7 +19,7 @@ The **atmosphere** is the layer of gases surrounding Earth: mostly nitrogen and 
 
 The **biosphere** is every living thing on Earth, and the places where they live: every plant, animal, fungus, and microbe, from the deepest ocean trench to the highest mountain.
 
-<!-- ILLUSTRATION: cutaway diagram of Earth showing rocky ground labeled lithosphere, ocean water labeled hydrosphere, surrounding air labeled atmosphere, and plants/animals living across all three labeled biosphere -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"earth-subsystems","illustrationKey":"science/earth-science-astronomy/earths-subsystems#1","features":[{"label":"lithosphere","feature":"rocky ground"},{"label":"hydrosphere","feature":"ocean water"},{"label":"atmosphere","feature":"surrounding air"},{"label":"biosphere","feature":"plants/animals living across all three"}]} -->
 
 These four subsystems constantly interact. A volcano (lithosphere) can release gases into the sky (atmosphere). Rain (hydrosphere) falls and wears down mountains (lithosphere). Plants (biosphere) take in gases from the air (atmosphere) and draw water from the ground (hydrosphere). No subsystem works alone; changes in one almost always ripple into the others.
 
