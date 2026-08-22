@@ -16,10 +16,40 @@ void main() {
         expect(result.exitCode, 0, reason: result.stderr.toString());
         expect(
           result.stdout.toString(),
-          contains('total=279 code=189 open=56 native=23 cut=8 founder=3'),
+          contains('total=279 code=241 open=4 native=23 cut=8 founder=3'),
         );
       },
     );
+
+    test('production open strategy is exactly the approved four keys', () {
+      final strategyLines =
+          File('docs/content/illustrations/strategy.tsv').readAsLinesSync();
+      final header = strategyLines.first.split('\t');
+      final subjectIdx = header.indexOf('subject');
+      final topicIdx = header.indexOf('topic');
+      final lessonIdx = header.indexOf('lesson');
+      final seqIdx = header.indexOf('seq');
+      final strategyIdx = header.indexOf('strategy');
+
+      final openKeys = <String>{};
+      for (final line in strategyLines.skip(1)) {
+        if (line.trim().isEmpty) continue;
+        final parts = line.split('\t');
+        if (parts[strategyIdx] != 'open') continue;
+        final topic = parts[topicIdx];
+        final lessonPath = topic.isEmpty
+            ? '${parts[subjectIdx]}/${parts[lessonIdx]}'
+            : '${parts[subjectIdx]}/$topic/${parts[lessonIdx]}';
+        openKeys.add('$lessonPath#${parts[seqIdx]}');
+      }
+
+      expect(openKeys, <String>{
+        'science/chemistry/mixtures-and-separation#1',
+        'science/chemistry/nuclear-chemistry#1',
+        'science/earth-science-astronomy/layers-of-the-earth#1',
+        'science/earth-science-astronomy/layers-of-the-earth#2',
+      });
+    });
 
     test('rejects duplicate keys in strategy manifest', () async {
       final tmp = await Directory.systemTemp.createTemp('illus_dup_');
@@ -173,7 +203,7 @@ void main() {
       expect(
         result.stdout.toString(),
         contains(
-          'complete: 189 valid figures, 59 illustrations (59 pngs), 0 native/cut markers remaining',
+          'complete: 241 valid figures, 7 illustrations (7 pngs), 0 native/cut markers remaining',
         ),
       );
     });
@@ -186,7 +216,7 @@ void main() {
       // linear-equations-inequalities has 1 code figure.
       // Move the figure from functions-and-relations into
       // linear-equations-inequalities.
-      // Global count of FIGURE markers remains 189, but lesson-level count is
+      // Global count of FIGURE markers remains 241, but lesson-level count is
       // wrong (0 and 2).
       final fnFile = File(
         '${fixture.lessonsDir.path}/mathematics/algebra/functions-and-relations.md',
@@ -221,13 +251,13 @@ void main() {
       final fixture = await _CompleteFixture.create();
       addTearDown(() => fixture.dir.delete(recursive: true));
 
-      // Add a native marker description to modifiers.md and remove one open
-      // marker from speeches.md so global count remains 59.
+      // Add a native marker description and remove one retained open marker so
+      // the global ILLUSTRATION count remains 7.
       final nativeFile = File(
         '${fixture.lessonsDir.path}/language-proficiency/grammar-and-structure/modifiers.md',
       );
       final openFile = File(
-        '${fixture.lessonsDir.path}/reading-comprehension/text-types/speeches.md',
+        '${fixture.lessonsDir.path}/science/chemistry/mixtures-and-separation.md',
       );
 
       nativeFile.writeAsStringSync(
@@ -238,7 +268,7 @@ void main() {
         'with an arrow pointing to nothing, a large question mark where '
         'the intended subject should be (dangling) -->\n',
       );
-      openFile.writeAsStringSync('# speeches\n');
+      openFile.writeAsStringSync('# mixtures-and-separation\n');
 
       final result = await _runChecker([
         '--phase',
@@ -263,7 +293,7 @@ void main() {
         '${fixture.lessonsDir.path}/language-proficiency/language-application/error-identification.md',
       );
       final openFile = File(
-        '${fixture.lessonsDir.path}/reading-comprehension/text-types/speeches.md',
+        '${fixture.lessonsDir.path}/science/chemistry/mixtures-and-separation.md',
       );
 
       cutFile.writeAsStringSync(
@@ -272,7 +302,7 @@ void main() {
         'error categories with a small magnifying glass icon, next to '
         'a sample sentence with one word underlined in red as the error -->\n',
       );
-      openFile.writeAsStringSync('# speeches\n');
+      openFile.writeAsStringSync('# mixtures-and-separation\n');
 
       final result = await _runChecker([
         '--phase',
@@ -318,8 +348,8 @@ void main() {
       addTearDown(() => fixture.dir.delete(recursive: true));
 
       File(
-        '${fixture.lessonsDir.path}/reading-comprehension/text-types/short-stories-and-novels.md',
-      ).writeAsStringSync('# short-stories-and-novels\n');
+        '${fixture.lessonsDir.path}/science/chemistry/mixtures-and-separation.md',
+      ).writeAsStringSync('# mixtures-and-separation\n');
 
       final result = await _runChecker([
         '--phase',
@@ -332,7 +362,7 @@ void main() {
       expect(result.exitCode, isNot(0));
       expect(
         result.stderr.toString(),
-        anyOf(contains('missing'), contains('short-stories-and-novels')),
+        anyOf(contains('missing'), contains('mixtures-and-separation')),
       );
     });
 
@@ -343,10 +373,10 @@ void main() {
 
       // Rename one exact PNG to another filename with the same sequence prefix.
       final exactFile = File(
-        '${fixture.illustrationsDir.path}/reading-comprehension/text-types/short-stories-and-novels/01-rising-then-falling-plot.png',
+        '${fixture.illustrationsDir.path}/science/chemistry/mixtures-and-separation/01-distillation-setup-flask-being.png',
       );
       final globSubstitute = File(
-        '${fixture.illustrationsDir.path}/reading-comprehension/text-types/short-stories-and-novels/01-different-slug.png',
+        '${fixture.illustrationsDir.path}/science/chemistry/mixtures-and-separation/01-different-slug.png',
       );
       expect(exactFile.existsSync(), isTrue);
       exactFile.renameSync(globSubstitute.path);
@@ -363,7 +393,7 @@ void main() {
       expect(result.stderr.toString(), contains('missing PNG'));
       expect(
         result.stderr.toString(),
-        contains('01-rising-then-falling-plot.png'),
+        contains('01-distillation-setup-flask-being.png'),
       );
     });
   });
