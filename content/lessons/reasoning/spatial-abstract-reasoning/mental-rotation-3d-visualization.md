@@ -41,7 +41,7 @@ A cross-shaped (plus-sign) net has one central square, with four squares attache
 
 A flat pattern has $6$ squares arranged with $4$ in a straight horizontal row, and $2$ more squares both attached to the top of the same square (the second square in the row), stacked directly on top of each other. Does this net fold into a valid cube?
 
-<!-- FIGURE: {"kind": "cube-net", "cells": [[1, 0], [1, 1], [1, 2], [1, 3], [0, 1], [2, 1]], "semanticsLabel": "A flat pattern of six squares with four in a row and two attached vertically."} -->
+<!-- FIGURE: {"kind": "cube-net", "cells": [[0, 1], [1, 1], [2, 0], [2, 1], [2, 2], [2, 3]], "semanticsLabel": "A flat pattern of six squares with four in a row and two stacked directly above the second square."} -->
 
 
 **Solution:**

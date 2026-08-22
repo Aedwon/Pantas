@@ -16,7 +16,7 @@ Two directions to check for a pattern:
 - **Row pattern**: does each figure change in a consistent way as you move left to right across a row (similar to a figure series)?
 - **Column pattern**: does each figure change in a consistent way as you move top to bottom down a column?
 
-<!-- FIGURE: {"kind": "figure-matrix", "rows": 3, "cols": 3, "cells": [{"form": "square", "line": 0, "dots": 1}, {"form": "square", "line": 0, "dots": 2}, {"form": "square", "line": 0, "dots": 3}, {"form": "square", "line": 90, "dots": 1}, {"form": "square", "line": 90, "dots": 2}, {"form": "square", "line": 90, "dots": 3}, {"form": "square", "line": 180, "dots": 1}, {"form": "square", "line": 180, "dots": 2}, "blank"], "semanticsLabel": "A 3 by 3 grid of squares where dots increase across rows and lines rotate down columns, with the bottom-right cell left blank."} -->
+<!-- FIGURE: {"kind": "figure-matrix", "rows": 3, "cols": 3, "cells": [{"form": "square", "dots": 1}, {"form": "square", "dots": 2}, {"form": "square", "dots": 3}, {"form": "square", "dots": 1}, {"form": "square", "dots": 2}, {"form": "square", "dots": 3}, {"form": "square", "dots": 1}, {"form": "square", "dots": 2}, "blank"], "semanticsLabel": "A 3 by 3 grid of squares where dots increase across rows and shapes rotate down columns, with the bottom-right cell left blank."} -->
 
 Some matrices follow a single pattern that applies consistently in one direction (only across rows, or only down columns). Others combine two patterns at once: one rule governing rows, and a different rule governing columns simultaneously, similar to combining features in a figure series.
 
@@ -28,7 +28,7 @@ A useful additional check for $3 \times 3$ matrices: sometimes the third figure 
 
 A $2 \times 2$ matrix's top row shows a triangle, then a triangle rotated $90°$. The bottom row shows a square, then (blank). What should the blank cell show?
 
-<!-- FIGURE: {"kind": "figure-matrix", "rows": 2, "cols": 2, "cells": [{"form": "triangle"}, {"form": "triangle", "line": 90}, {"form": "square"}, "blank"], "semanticsLabel": "A 2 by 2 grid with triangles in the top row and a square and an empty cell in the bottom row."} -->
+<!-- FIGURE: {"kind": "figure-matrix", "rows": 2, "cols": 2, "cells": [{"form": "triangle"}, {"form": "triangle"}, {"form": "square"}, "blank"], "semanticsLabel": "A 2 by 2 grid with triangles in the top row and a square and an empty cell in the bottom row."} -->
 
 
 **Solution:**
@@ -64,7 +64,7 @@ A $3 \times 3$ matrix's columns show a shape's size growing (small, medium, larg
 
 A $3 \times 3$ matrix's first row shows: a circle with a horizontal line, a circle with a vertical line, and a circle with both a horizontal and a vertical line (a plus-sign pattern) in the third cell. If the same combination rule applies to another row showing a square with a diagonal line (top-left to bottom-right) and a square with the other diagonal line (top-right to bottom-left), what should the third cell in that row show?
 
-<!-- FIGURE: {"kind": "figure-matrix", "rows": 2, "cols": 3, "cells": [{"form": "circle", "line": 90}, {"form": "circle", "line": 0}, {"form": "circle", "line": 45}, {"form": "square", "line": 45}, {"form": "square", "line": 135}, "blank"], "semanticsLabel": "Two rows of shapes showing a combination rule with the last cell left blank."} -->
+<!-- FIGURE: {"kind": "figure-matrix", "rows": 2, "cols": 3, "cells": [{"form": "circle", "line": 90}, {"form": "circle", "line": 0}, {"form": "circle"}, {"form": "square", "line": 45}, {"form": "square", "line": 135}, "blank"], "semanticsLabel": "Two rows of shapes showing a combination rule with the last cell left blank."} -->
 
 
 **Solution:**
