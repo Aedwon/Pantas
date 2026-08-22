@@ -21,7 +21,7 @@ isActive: true
 
 **Theme**: the underlying message or life lesson the story conveys, often not stated directly but implied through the events and characters' choices.
 
-<!-- ILLUSTRATION: a simple rising-then-falling plot line diagram labeled with introduction, rising action, climax, and resolution marked at each stage -->
+<!-- FIGURE: {"kind":"reading-diagram","type":"plot-arc","illustrationKey":"reading-comprehension/text-types/short-stories-and-novels#1","shape":"rise-peak-fall","stages":["introduction","rising action","climax","resolution"]} -->
 
 Since excerpts are only a slice of a longer story, questions often ask you to infer what happens before or after the excerpt, based on the clues given within it.
 
