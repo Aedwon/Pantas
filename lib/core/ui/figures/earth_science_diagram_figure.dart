@@ -1564,9 +1564,9 @@ class _EarthSciencePainter extends CustomPainter {
     canvas.drawCircle(center, radius, _fill);
     canvas.drawRect(
       Rect.fromLTRB(
-        center.dx - radius,
-        center.dy - radius,
         center.dx,
+        center.dy - radius,
+        center.dx + radius,
         center.dy + radius,
       ),
       Paint()..color = ink.withValues(alpha: .18),
@@ -1576,35 +1576,44 @@ class _EarthSciencePainter extends CustomPainter {
   }
 
   void _phaseIcon(Canvas canvas, Offset center, double radius, int phase) {
-    canvas.drawCircle(center, radius, _fill);
-    canvas.drawCircle(center, radius, _stroke);
-    if (phase == 0) {
-      canvas.drawCircle(
-        center,
-        radius - 1,
-        Paint()..color = ink.withValues(alpha: .28),
-      );
-      return;
+    final darkPaint = Paint()..color = ink.withValues(alpha: .28);
+    canvas.drawCircle(center, radius, darkPaint);
+
+    if (phase == 4) {
+      canvas.drawCircle(center, radius, _fill);
+    } else if (phase != 0) {
+      final rightIlluminated = phase < 4;
+      final terminatorBulge = switch (phase) {
+        1 => .72,
+        2 => 0.0,
+        3 => -.72,
+        5 => .72,
+        6 => 0.0,
+        7 => -.72,
+        _ => 0.0,
+      };
+      final disc = Rect.fromCircle(center: center, radius: radius);
+      final illuminated = Path()
+        ..moveTo(center.dx, center.dy - radius)
+        ..arcTo(
+          disc,
+          -math.pi / 2,
+          rightIlluminated ? math.pi : -math.pi,
+          false,
+        )
+        ..cubicTo(
+          center.dx + terminatorBulge * radius,
+          center.dy + radius * .55,
+          center.dx + terminatorBulge * radius,
+          center.dy - radius * .55,
+          center.dx,
+          center.dy - radius,
+        )
+        ..close();
+      canvas.drawPath(illuminated, _fill);
     }
-    if (phase == 4) return;
-    final waxing = phase < 4;
-    final fraction = phase <= 4 ? phase / 4 : (8 - phase) / 4;
-    final shadeWidth = radius * 2 * (1 - fraction);
-    final shadeRect = Rect.fromLTWH(
-      waxing ? center.dx - radius : center.dx + radius - shadeWidth,
-      center.dy - radius,
-      shadeWidth,
-      radius * 2,
-    );
-    canvas.save();
-    canvas.clipPath(
-      Path()..addOval(Rect.fromCircle(center: center, radius: radius)),
-    );
-    canvas.drawRect(
-      shadeRect,
-      Paint()..color = ink.withValues(alpha: .28),
-    );
-    canvas.restore();
+
+    canvas.drawCircle(center, radius, _stroke);
   }
 
   void _tree(Canvas canvas, Offset base) {
