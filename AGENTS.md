@@ -26,6 +26,14 @@ that is a decision, and decisions are recorded before code changes.
 
 ### Model routing
 
+> **ChatGPT web orchestration:** When a ChatGPT web session is coordinating the
+> work, read
+> `docs/superpowers/decisions/2026-08-23-web-orchestrator-model-routing.md` before
+> dispatching implementation or verification. That decision supersedes the routing
+> rules below in that mode. ChatGPT web owns coordination and acceptance, Gemini
+> handles implementation and independent review, and Codex is kept to the smallest
+> possible local execution role.
+
 **Codex owns the high-level work.** It triages requests, writes and checks designs,
 rules on ambiguity, handles integration and merge conflicts, and runs final
 verification.
