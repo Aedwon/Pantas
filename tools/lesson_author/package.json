@@ -4,10 +4,12 @@
   "type": "module",
   "description": "Local authoring tool for Pantas lesson content",
   "scripts": {
-    "start": "node server.mjs"
+    "start": "node server.mjs",
+    "test": "node --test illustration_review.test.mjs"
   },
   "dependencies": {
     "katex": "^0.16.11",
-    "marked": "^14.1.2"
+    "marked": "^14.1.2",
+    "yaml": "^2.4.5"
   }
 }
