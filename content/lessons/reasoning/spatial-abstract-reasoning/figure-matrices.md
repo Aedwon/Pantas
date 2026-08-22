@@ -16,7 +16,7 @@ Two directions to check for a pattern:
 - **Row pattern**: does each figure change in a consistent way as you move left to right across a row (similar to a figure series)?
 - **Column pattern**: does each figure change in a consistent way as you move top to bottom down a column?
 
-<!-- ILLUSTRATION: a 3x3 grid of shapes, where each row shows a shape with an increasing number of dots (1, 2, 3 dots) and each column shows the same shape rotated further (0, 90, 180 degrees), with the bottom-right cell left blank for the answer -->
+<!-- FIGURE: {"kind": "figure-matrix", "rows": 3, "cols": 3, "cells": [{"form": "square", "dots": 1}, {"form": "square", "dots": 2}, {"form": "square", "dots": 3}, {"form": "square", "dots": 1}, {"form": "square", "dots": 2}, {"form": "square", "dots": 3}, {"form": "square", "dots": 1}, {"form": "square", "dots": 2}, "blank"], "semanticsLabel": "A 3 by 3 grid of squares where dots increase across rows and shapes rotate down columns, with the bottom-right cell left blank."} -->
 
 Some matrices follow a single pattern that applies consistently in one direction (only across rows, or only down columns). Others combine two patterns at once: one rule governing rows, and a different rule governing columns simultaneously, similar to combining features in a figure series.
 
@@ -28,7 +28,7 @@ A useful additional check for $3 \times 3$ matrices: sometimes the third figure 
 
 A $2 \times 2$ matrix's top row shows a triangle, then a triangle rotated $90°$. The bottom row shows a square, then (blank). What should the blank cell show?
 
-<!-- ILLUSTRATION: a 2x2 grid; top row a triangle then the same triangle rotated 90°, bottom row a square then an empty cell with a question mark; the answer is a square rotated 90° -->
+<!-- FIGURE: {"kind": "figure-matrix", "rows": 2, "cols": 2, "cells": [{"form": "triangle"}, {"form": "triangle"}, {"form": "square"}, "blank"], "semanticsLabel": "A 2 by 2 grid with triangles in the top row and a square and an empty cell in the bottom row."} -->
 
 
 **Solution:**
@@ -40,7 +40,7 @@ A $2 \times 2$ matrix's top row shows a triangle, then a triangle rotated $90°$
 
 A $3 \times 3$ matrix's rows show an increasing number of dots inside a circle: row 1 has circles with $1$, $2$, $3$ dots; row 2 has circles with $2$, $3$, $4$ dots; row 3 has circles with $3$, $4$, and (blank). How many dots should the blank cell have?
 
-<!-- ILLUSTRATION: a 3x3 grid of circles containing dots (row 1: 1,2,3 dots; row 2: 2,3,4 dots; row 3: 3,4,?) with the blank bottom-right cell marked with a question mark; the answer is 5 dots -->
+<!-- FIGURE: {"kind": "figure-matrix", "rows": 3, "cols": 3, "cells": [{"form": "circle", "dots": 1}, {"form": "circle", "dots": 2}, {"form": "circle", "dots": 3}, {"form": "circle", "dots": 2}, {"form": "circle", "dots": 3}, {"form": "circle", "dots": 4}, {"form": "circle", "dots": 3}, {"form": "circle", "dots": 4}, "blank"], "semanticsLabel": "A 3 by 3 grid of circles with increasing dot counts and a blank bottom-right cell."} -->
 
 
 **Solution:**
@@ -52,7 +52,7 @@ A $3 \times 3$ matrix's rows show an increasing number of dots inside a circle: 
 
 A $3 \times 3$ matrix's columns show a shape's size growing (small, medium, large) moving top to bottom, while its rows show the shape's shading alternating (black, white, black) moving left to right. Given the blank is in the bottom-right cell, what size and shading should it have?
 
-<!-- ILLUSTRATION: a 3x3 grid where shape size grows down each column (small, medium, large) and shading alternates across each row (black, white, black); the bottom-right cell is blank with a question mark; the answer is a large black shape -->
+<!-- FIGURE: {"kind": "figure-matrix", "rows": 3, "cols": 3, "cells": [{"form": "square", "size": "small", "fill": "black"}, {"form": "square", "size": "small", "fill": "white"}, {"form": "square", "size": "small", "fill": "black"}, {"form": "square", "size": "medium", "fill": "black"}, {"form": "square", "size": "medium", "fill": "white"}, {"form": "square", "size": "medium", "fill": "black"}, {"form": "square", "size": "large", "fill": "black"}, {"form": "square", "size": "large", "fill": "white"}, "blank"], "semanticsLabel": "A 3 by 3 grid where shapes grow larger down columns and alternate black and white across rows, with the bottom-right cell left blank."} -->
 
 
 **Solution:**
@@ -64,7 +64,7 @@ A $3 \times 3$ matrix's columns show a shape's size growing (small, medium, larg
 
 A $3 \times 3$ matrix's first row shows: a circle with a horizontal line, a circle with a vertical line, and a circle with both a horizontal and a vertical line (a plus-sign pattern) in the third cell. If the same combination rule applies to another row showing a square with a diagonal line (top-left to bottom-right) and a square with the other diagonal line (top-right to bottom-left), what should the third cell in that row show?
 
-<!-- ILLUSTRATION: two matrix rows showing a combination rule; row 1: circle with a horizontal line, circle with a vertical line, circle with both (a plus sign); row 2: square with one diagonal, square with the other diagonal, and a blank third cell with a question mark; the answer is a square with both diagonals (an X) -->
+<!-- FIGURE: {"kind": "figure-matrix", "rows": 2, "cols": 3, "cells": [{"form": "circle", "line": 90}, {"form": "circle", "line": 0}, {"form": "circle"}, {"form": "square", "line": 45}, {"form": "square", "line": 135}, "blank"], "semanticsLabel": "Two rows of shapes showing a combination rule with the last cell left blank."} -->
 
 
 **Solution:**
