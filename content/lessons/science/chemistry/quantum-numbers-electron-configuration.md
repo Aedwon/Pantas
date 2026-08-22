@@ -15,7 +15,7 @@ Electrons do not just float randomly around the nucleus. They fill specific regi
 
 Orbitals come in shapes labeled $s$, $p$, $d$, and $f$, each holding a maximum number of electrons: **s** orbitals hold up to $2$ electrons, **p** orbitals hold up to $6$, **d** orbitals hold up to $10$, and **f** orbitals hold up to $14$.
 
-<!-- ILLUSTRATION: shapes of an s orbital (sphere), a p orbital (dumbbell/figure-eight shape), and a d orbital (four-lobed cloverleaf shape), labeled with their maximum electron capacities of 2, 6, and 10 -->
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"orbital-shapes","illustrationKey":"science/chemistry/quantum-numbers-electron-configuration#1","orbitals":[{"label":"s","shape":"sphere","capacity":2},{"label":"p","shape":"dumbbell","capacity":6},{"label":"d","shape":"four-lobed cloverleaf","capacity":10}]} -->
 
 ### Three Rules for Filling Orbitals
 
