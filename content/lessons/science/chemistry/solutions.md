@@ -31,7 +31,7 @@ $$\text{percent by mass} = \dfrac{\text{mass of solute}}{\text{mass of solution}
 
 $$\text{percent by volume} = \dfrac{\text{volume of solute}}{\text{volume of solution}} \times 100\%$$
 
-<!-- ILLUSTRATION: beaker with sugar dissolving into water, labeled solute (sugar) and solvent (water), with a side note showing the same amount of sugar measured four different ways: molarity, molality, percent by mass, percent by volume -->
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"solution-concentration","illustrationKey":"science/chemistry/solutions#1","solute":"sugar","solvent":"water","measures":["molarity","molality","percent by mass","percent by volume"]} -->
 
 ## Examples
 
