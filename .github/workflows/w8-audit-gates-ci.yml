@@ -7,7 +7,7 @@ on:
 jobs:
   focused:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
 
@@ -20,6 +20,11 @@ jobs:
       - name: pub get
         run: flutter pub get
 
+      - name: Generate code
+        run: |
+          dart run build_runner build --delete-conflicting-outputs
+          flutter gen-l10n
+
       - name: Build content asset required by Flutter tests
         run: |
           mkdir -p build
@@ -30,6 +35,9 @@ jobs:
 
       - name: Focused audit tests
         run: flutter test test/tools/check_lesson_illustrations_test.dart
+
+      - name: Check Dart formatting
+        run: dart format --output=none --set-exit-if-changed test/tools/check_lesson_illustrations_test.dart
 
       - name: Render live review previews
         run: flutter test tools/lesson_author/render_illustration_previews_test.dart --reporter compact
