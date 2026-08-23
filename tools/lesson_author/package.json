@@ -5,7 +5,7 @@
   "description": "Local authoring tool for Pantas lesson content",
   "scripts": {
     "start": "node server.mjs",
-    "test": "node --test illustration_review.test.mjs"
+    "test": "node --test illustration_review.test.mjs illustration_review_ui.test.mjs"
   },
   "dependencies": {
     "katex": "^0.16.11",
