@@ -1,0 +1,194 @@
+name: Lesson illustration Wave 7 integration CI only
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  wave7-integration-verification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: '3.41.x'
+          cache: true
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: tools/lesson_author/package-lock.json
+
+      - name: Resolve Flutter packages
+        run: flutter pub get
+
+      - name: Create declared test asset
+        run: |
+          mkdir -p assets/seed
+          : > assets/seed/content.db
+
+      - name: Install Lesson Author dependencies
+        working-directory: tools/lesson_author
+        run: npm ci --no-audit --no-fund
+
+      - name: Task 1 format and targeted analysis
+        run: |
+          dart format --output=none --set-exit-if-changed \
+            tools/lesson_author/illustration_preview_renderer.dart \
+            tools/lesson_author/render_illustration_previews_test.dart \
+            test/tools/lesson_illustration_preview_renderer_test.dart
+          dart analyze tools/lesson_author
+          dart analyze test/tools/lesson_illustration_preview_renderer_test.dart
+
+      - name: Task 2 syntax and module tests
+        working-directory: tools/lesson_author
+        run: |
+          node --check illustration_review.mjs
+          node --check illustration_review.test.mjs
+          node --check server.mjs
+          npm test
+
+      - name: Task 1 focused renderer tests
+        run: >-
+          timeout 180s flutter test
+          test/tools/lesson_illustration_preview_renderer_test.dart
+          --reporter expanded
+
+      - name: Build all 52 two-theme previews
+        run: >-
+          timeout 300s flutter test
+          tools/lesson_author/render_illustration_previews_test.dart
+          --reporter expanded
+
+      - name: Verify preview manifest and exact PNG counts
+        run: |
+          test -f build/lesson_author/illustration_previews/manifest.json
+          test "$(find build/lesson_author/illustration_previews/light -type f -name '*.png' | wc -l | tr -d ' ')" = 52
+          test "$(find build/lesson_author/illustration_previews/dark -type f -name '*.png' | wc -l | tr -d ' ')" = 52
+
+      - name: Verify real 59-item catalog against generated previews
+        working-directory: tools/lesson_author
+        run: |
+          node --input-type=module <<'NODE'
+          import { loadIllustrationCatalog } from './illustration_review.mjs';
+          const catalog = await loadIllustrationCatalog({ repoRoot: process.env.GITHUB_WORKSPACE });
+          const count = (strategy) => catalog.items.filter((item) => item.strategy === strategy).length;
+          if (catalog.items.length !== 59) throw new Error(`Expected 59 review items, got ${catalog.items.length}`);
+          if (count('code') !== 52) throw new Error(`Expected 52 code items, got ${count('code')}`);
+          if (count('open') !== 4) throw new Error(`Expected 4 Commons items, got ${count('open')}`);
+          if (count('founder') !== 3) throw new Error(`Expected 3 founder items, got ${count('founder')}`);
+          const expectedSummary = { total: 59, pending: 56, approved: 0, changesRequested: 0, missing: 3 };
+          if (JSON.stringify(catalog.summary) !== JSON.stringify(expectedSummary)) {
+            throw new Error(`Unexpected catalog summary: ${JSON.stringify(catalog.summary)}`);
+          }
+          for (const item of catalog.items.filter((item) => item.strategy === 'code')) {
+            if (!item.digest || !item.previewPaths?.light || !item.previewPaths?.dark) {
+              throw new Error(`Code preview is not review-ready: ${item.key}`);
+            }
+          }
+          for (const item of catalog.items.filter((item) => item.strategy === 'open')) {
+            if (!item.digest || item.status !== 'pending') {
+              throw new Error(`Commons asset is not review-ready: ${item.key}`);
+            }
+          }
+          for (const item of catalog.items.filter((item) => item.strategy === 'founder')) {
+            if (item.digest !== null || item.status !== 'missing') {
+              throw new Error(`Founder item should still be missing: ${item.key}`);
+            }
+          }
+          NODE
+
+      - name: Exercise all local HTTP interfaces
+        working-directory: tools/lesson_author
+        run: |
+          node server.mjs --no-open > /tmp/lesson-author-wave7.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true; rm -f "$GITHUB_WORKSPACE/docs/content/illustrations/review.json"' EXIT
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:4321/api/illustrations > /tmp/illustrations.json; then
+              break
+            fi
+            sleep 0.5
+          done
+          curl --fail --silent http://127.0.0.1:4321/api/lessons > /tmp/lessons.json
+          node --input-type=module <<'NODE'
+          import { readFile } from 'node:fs/promises';
+          const base = 'http://127.0.0.1:4321';
+          const catalog = JSON.parse(await readFile('/tmp/illustrations.json', 'utf8'));
+          const lessons = JSON.parse(await readFile('/tmp/lessons.json', 'utf8'));
+          if (!lessons || typeof lessons !== 'object' || Array.isArray(lessons)) {
+            throw new Error('Author-mode lesson list is invalid.');
+          }
+          const pngSignature = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]);
+          const previewUrl = (key, theme) => {
+            const url = new URL('/api/illustration-preview', base);
+            url.searchParams.set('key', key);
+            url.searchParams.set('theme', theme);
+            return url;
+          };
+          for (const item of catalog.items.filter((item) => item.strategy === 'code' || item.strategy === 'open')) {
+            for (const theme of ['light', 'dark']) {
+              const response = await fetch(previewUrl(item.key, theme));
+              if (!response.ok) throw new Error(`Preview HTTP ${response.status} for ${item.key} ${theme}`);
+              const bytes = Buffer.from(await response.arrayBuffer());
+              if (!bytes.subarray(0, 8).equals(pngSignature)) {
+                throw new Error(`Preview is not PNG for ${item.key} ${theme}`);
+              }
+            }
+          }
+          for (const item of catalog.items.filter((item) => item.strategy === 'founder')) {
+            const response = await fetch(previewUrl(item.key, 'light'));
+            if (response.status !== 404) {
+              throw new Error(`Missing founder preview should return 404 for ${item.key}, got ${response.status}`);
+            }
+          }
+          const codeItem = catalog.items.find((item) => item.strategy === 'code');
+          const reviewResponse = await fetch(new URL('/api/illustration-review', base), {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+              key: codeItem.key,
+              status: 'pending',
+              notes: 'Ephemeral Wave 7 integration verification.',
+              observedDigest: codeItem.digest,
+            }),
+          });
+          if (!reviewResponse.ok) {
+            throw new Error(`Review write failed with HTTP ${reviewResponse.status}: ${await reviewResponse.text()}`);
+          }
+          const saved = await reviewResponse.json();
+          if (saved.status !== 'pending' || saved.reviewedDigest !== codeItem.digest) {
+            throw new Error('Review write response did not bind the observed digest.');
+          }
+          const rebuildResponse = await fetch(new URL('/api/illustration-previews/rebuild', base), { method: 'POST' });
+          if (!rebuildResponse.ok) {
+            throw new Error(`Preview rebuild failed with HTTP ${rebuildResponse.status}: ${await rebuildResponse.text()}`);
+          }
+          const rebuilt = await rebuildResponse.json();
+          if (rebuilt.rebuilt !== true) throw new Error('Preview rebuild did not report success.');
+          NODE
+          kill "$server_pid"
+          wait "$server_pid" 2>/dev/null || true
+          rm -f "$GITHUB_WORKSPACE/docs/content/illustrations/review.json"
+          trap - EXIT
+
+      - name: Confirm review verification left no persistent state
+        run: |
+          test ! -e docs/content/illustrations/review.json
+          test -z "$(git status --short -- docs/content/illustrations/review.json)"
+
+      - name: Upload integrated review previews
+        uses: actions/upload-artifact@v4
+        with:
+          name: lesson-illustration-wave7-integrated-previews
+          path: build/lesson_author/illustration_previews
+          if-no-files-found: error
