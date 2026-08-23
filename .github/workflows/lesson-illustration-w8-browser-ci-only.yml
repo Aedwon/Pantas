@@ -1,0 +1,187 @@
+name: Lesson illustration Wave 8 browser continuation CI only
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  browser-continuation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: '3.41.x'
+          cache: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: tools/lesson_author/package-lock.json
+
+      - name: Resolve Flutter packages and declared test asset
+        run: |
+          flutter pub get
+          mkdir -p assets/seed
+          : > assets/seed/content.db
+
+      - name: Generate current production-widget previews
+        run: >-
+          timeout 300s flutter test
+          tools/lesson_author/render_illustration_previews_test.dart
+          --reporter compact
+
+      - name: Install Lesson Author and disposable browser harness
+        working-directory: tools/lesson_author
+        run: |
+          npm ci --no-audit --no-fund
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Browser review and author regression smoke
+        working-directory: tools/lesson_author
+        run: |
+          cp ../../docs/content/illustrations/review.json /tmp/review-before.json
+          node server.mjs --no-open > /tmp/lesson-author-wave8.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for attempt in $(seq 1 40); do
+            if curl --fail --silent http://127.0.0.1:4321/api/illustrations > /dev/null; then break; fi
+            sleep 0.25
+          done
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import { readFile, writeFile } from 'node:fs/promises';
+          import { join } from 'node:path';
+          import { chromium } from 'playwright';
+
+          const browser = await chromium.launch({ headless: true });
+          try {
+            const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+            await page.goto('http://127.0.0.1:4321/', { waitUntil: 'networkidle' });
+            await page.waitForSelector('#editor');
+            assert.equal(await page.locator('#authorApp .workspace > .preview').count(), 1);
+
+            const catalog = await page.evaluate(async () => (await fetch('/api/illustrations')).json());
+            assert.equal(catalog.items.length, 59);
+            assert.deepEqual(catalog.summary, {
+              total: 59,
+              pending: 56,
+              approved: 0,
+              changesRequested: 0,
+              missing: 3,
+            });
+            const code = catalog.items.find((item) => item.strategy === 'code' && item.digest);
+            const commons = catalog.items.find((item) => item.strategy === 'open' && item.digest);
+            const founder = catalog.items.find((item) => item.strategy === 'founder' && !item.digest);
+            assert.ok(code && commons && founder);
+            const itemLocator = (key) => page.locator(`#reviewQueue .review-queue-item[data-key=${JSON.stringify(key)}]`);
+            const contextSelector = (key) => `.lesson-illustration-context[data-illustration-key=${JSON.stringify(key)}]`;
+
+            await page.click('#reviewModeBtn');
+            await page.waitForSelector('#illustrationReviewApp:not([hidden])');
+            assert.equal(await page.locator('[data-review-filter="pending"] [data-filter-count]').innerText(), '56');
+            assert.equal(await page.locator('[data-review-filter="changes-requested"] [data-filter-count]').innerText(), '0');
+            assert.equal(await page.locator('[data-review-filter="approved"] [data-filter-count]').innerText(), '0');
+            assert.equal(await page.locator('[data-review-filter="missing"] [data-filter-count]').innerText(), '3');
+
+            await itemLocator(code.key).click();
+            await page.waitForSelector(contextSelector(code.key));
+            await page.waitForFunction(() => {
+              const images = [...document.querySelectorAll('.lesson-illustration-context[data-strategy="code"] img')];
+              return images.length === 2 && images.every((image) => image.complete && image.naturalWidth > 0);
+            });
+            assert.deepEqual(
+              await page.locator('.lesson-illustration-context[data-strategy="code"] .review-preview-frame').evaluateAll((nodes) => nodes.map((node) => getComputedStyle(node).display !== 'none')),
+              [true, true],
+            );
+            assert.ok(await page.locator('#reviewEvidence a').count() > 0);
+
+            await page.setViewportSize({ width: 700, height: 900 });
+            await page.click('#reviewThemeDarkBtn');
+            assert.deepEqual(
+              await page.locator('.lesson-illustration-context[data-strategy="code"] .review-preview-frame').evaluateAll((nodes) => nodes.map((node) => getComputedStyle(node).display !== 'none')),
+              [false, true],
+            );
+
+            await page.setViewportSize({ width: 1280, height: 900 });
+            await itemLocator(commons.key).click();
+            await page.waitForSelector(contextSelector(commons.key));
+            await page.waitForFunction(() => {
+              const images = [...document.querySelectorAll('.lesson-illustration-context[data-strategy="open"] img')];
+              return images.length === 2 && images.every((image) => image.complete && image.naturalWidth > 0);
+            });
+            assert.equal(await page.locator('.lesson-illustration-context[data-strategy="open"] .review-preview-frame').count(), 2);
+            assert.match(await page.locator('#reviewEvidence').innerText(), /Commons source and credit/i);
+
+            await page.click('[data-review-filter="missing"]');
+            await itemLocator(founder.key).click();
+            await page.waitForSelector(contextSelector(founder.key));
+            assert.equal(await page.locator('#reviewApproveBtn').isDisabled(), true);
+            assert.equal(await page.locator('#reviewChangesBtn').isDisabled(), true);
+            assert.match(await page.locator('#reviewEvidence').innerText(), /Pantas — all rights reserved/i);
+
+            await page.click('[data-review-filter="pending"]');
+            await itemLocator(code.key).click();
+            await page.waitForSelector(contextSelector(code.key));
+            const lightPath = join(process.env.GITHUB_WORKSPACE, 'build', 'lesson_author', 'illustration_previews', code.previewPaths.light);
+            const light = await readFile(lightPath);
+            await writeFile(lightPath, Buffer.concat([light, Buffer.from([0])]));
+            await page.fill('#reviewNotes', 'ephemeral conflict probe');
+            await page.click('#reviewApproveBtn');
+            await page.waitForFunction(() => document.querySelector('#reviewStatusLine')?.textContent?.includes('Preview changed before your decision was saved'));
+
+            const keyBeforeRefresh = await page.locator('.lesson-illustration-context').getAttribute('data-illustration-key');
+            await page.click('#refreshPreviewsBtn');
+            await page.waitForFunction(() => document.querySelector('#reviewStatusLine')?.textContent?.includes('Previews refreshed.'));
+            assert.equal(
+              await page.locator('.lesson-illustration-context').getAttribute('data-illustration-key'),
+              keyBeforeRefresh,
+            );
+
+            await page.click('#authorModeBtn');
+            await page.waitForSelector('#authorApp:not([hidden])');
+            assert.equal(await page.locator('#authorApp .workspace > .preview').count(), 1);
+
+            const originalLesson = await page.locator('#lessonSelect').inputValue();
+            const originalBody = await page.locator('#editor').inputValue();
+            const draftBody = '# Disposable Wave 8 regression\n\nThis content exists only in CI.';
+            await page.fill('#summaryInput', 'Disposable Wave 8 author regression summary.');
+            await page.fill('#editor', draftBody);
+            await page.waitForFunction(() => document.querySelector('#statusLine')?.textContent?.includes('Unsaved changes'));
+            const optionValues = await page.locator('#lessonSelect option').evaluateAll((options) => options.map((option) => option.value));
+            const alternate = optionValues.find((value) => value !== originalLesson);
+            if (alternate !== undefined) {
+              await page.selectOption('#lessonSelect', alternate);
+              await page.waitForTimeout(100);
+              await page.selectOption('#lessonSelect', originalLesson);
+              await page.waitForFunction((expected) => document.querySelector('#editor')?.value === expected, draftBody);
+            }
+            await page.click('#saveBtn');
+            await page.waitForFunction(() => document.querySelector('#statusLine')?.textContent?.includes('Saved'));
+            assert.notEqual(await page.locator('#editor').inputValue(), originalBody);
+          } finally {
+            await browser.close();
+          }
+          NODE
+          cmp -s /tmp/review-before.json ../../docs/content/illustrations/review.json
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import { readFile } from 'node:fs/promises';
+          const state = JSON.parse(await readFile('../../docs/content/illustrations/review.json', 'utf8'));
+          assert.deepEqual(state, { version: 1, items: {} });
+          NODE
+          kill "$server_pid"
+          wait "$server_pid" 2>/dev/null || true
+          trap - EXIT
+
+      - name: Review state remains untouched
+        run: git diff --exit-code -- docs/content/illustrations/review.json
