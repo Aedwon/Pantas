@@ -195,7 +195,8 @@ void main() {
   });
 
   group('check_lesson_illustrations.py --phase review-ready', () {
-    test('passes with 52 two-theme previews, four Commons, and missing founders',
+    test(
+        'passes with 52 two-theme previews, four Commons, and missing founders',
         () async {
       final fixture = await _ReviewFixture.create();
       addTearDown(() => fixture.dir.delete(recursive: true));
@@ -401,7 +402,8 @@ void main() {
       expect(result.stderr.toString(), contains(fixture.codeRows.first.key));
     });
 
-    test('recomputes code digest from changed PNG bytes after approval', () async {
+    test('recomputes code digest from changed PNG bytes after approval',
+        () async {
       final fixture = await _ReviewFixture.create(founderFiles: true);
       addTearDown(() => fixture.dir.delete(recursive: true));
       fixture.approveAll();
@@ -569,9 +571,9 @@ class _ReviewFixture {
     }
     File('${previewRoot.path}/manifest.json').writeAsStringSync(
       '${const JsonEncoder.withIndent('  ').convert(<String, dynamic>{
-        'version': 1,
-        'items': manifestItems,
-      })}\n',
+            'version': 1,
+            'items': manifestItems,
+          })}\n',
     );
     reviewFile.writeAsStringSync('{\n  "version": 1,\n  "items": {}\n}\n');
 
@@ -643,9 +645,9 @@ class _ReviewFixture {
   void writeReviewItems(Map<String, dynamic> items) {
     reviewFile.writeAsStringSync(
       '${const JsonEncoder.withIndent('  ').convert(<String, dynamic>{
-        'version': 1,
-        'items': items,
-      })}\n',
+            'version': 1,
+            'items': items,
+          })}\n',
     );
   }
 
