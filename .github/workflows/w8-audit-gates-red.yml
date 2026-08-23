@@ -1,0 +1,30 @@
+name: Wave 8 audit gates red test
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  focused-red:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: '3.41.x'
+      - run: flutter pub get
+      - name: Generate code
+        run: |
+          dart run build_runner build --delete-conflicting-outputs
+          flutter gen-l10n
+      - name: Build content asset
+        run: |
+          mkdir -p build
+          dart run tools/build_content_export/build_content_export.dart build/export.json
+          dart run tools/build_content_seed/seed_writer.dart \
+            build/export.json \
+            assets/seed/content.db
+      - name: Required focused test against old checker
+        run: flutter test test/tools/check_lesson_illustrations_test.dart
