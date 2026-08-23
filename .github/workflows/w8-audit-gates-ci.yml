@@ -20,6 +20,14 @@ jobs:
       - name: pub get
         run: flutter pub get
 
+      - name: Build content asset required by Flutter tests
+        run: |
+          mkdir -p build
+          dart run tools/build_content_export/build_content_export.dart build/export.json
+          dart run tools/build_content_seed/seed_writer.dart \
+            build/export.json \
+            assets/seed/content.db
+
       - name: Focused audit tests
         run: flutter test test/tools/check_lesson_illustrations_test.dart
 
