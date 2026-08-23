@@ -30,9 +30,14 @@ jobs:
       - name: Resolve packages
         run: |
           flutter pub get
+          npm ci --prefix tools/lesson_author --no-audit --no-fund
+
+      - name: Generate repository code
+        run: |
+          dart run build_runner build --delete-conflicting-outputs
+          flutter gen-l10n
           mkdir -p assets/seed
           : > assets/seed/content.db
-          npm ci --prefix tools/lesson_author --no-audit --no-fund
 
       - name: Original figure suites
         run: timeout 300s flutter test test/core/ui/figures --reporter expanded
