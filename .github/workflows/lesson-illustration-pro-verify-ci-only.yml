@@ -1,0 +1,162 @@
+name: Lesson illustration Pro-equivalent verification CI only
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  read-only-verification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: '3.41.x'
+          cache: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: tools/lesson_author/package-lock.json
+
+      - name: Resolve packages
+        run: |
+          flutter pub get
+          mkdir -p assets/seed
+          : > assets/seed/content.db
+          npm ci --prefix tools/lesson_author --no-audit --no-fund
+
+      - name: Original figure suites
+        run: timeout 300s flutter test test/core/ui/figures --reporter expanded
+
+      - name: Review and uploader focused Flutter suites
+        run: >-
+          timeout 300s flutter test
+          test/tools/check_lesson_illustrations_test.dart
+          test/tools/lesson_illustration_preview_renderer_test.dart
+          test/tools/upload_lesson_assets_test.dart
+          --reporter expanded
+
+      - name: Render exact review previews
+        run: >-
+          timeout 300s flutter test
+          tools/lesson_author/render_illustration_previews_test.dart
+          --reporter expanded
+
+      - name: Lesson Author Node suites
+        working-directory: tools/lesson_author
+        run: npm test
+
+      - name: Real catalog state
+        working-directory: tools/lesson_author
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import { loadIllustrationCatalog } from './illustration_review.mjs';
+          const catalog = await loadIllustrationCatalog({ repoRoot: process.env.GITHUB_WORKSPACE });
+          assert.equal(catalog.items.length, 59);
+          assert.deepEqual(catalog.summary, {
+            total: 59,
+            pending: 56,
+            approved: 0,
+            changesRequested: 0,
+            missing: 3,
+          });
+          assert.equal(catalog.items.filter((item) => item.strategy === 'code').length, 52);
+          assert.equal(catalog.items.filter((item) => item.strategy === 'open').length, 4);
+          assert.equal(catalog.items.filter((item) => item.strategy === 'founder').length, 3);
+          NODE
+
+      - name: Inventory, aggregate audits, and review-ready gate
+        run: |
+          python3 tools/audit/check_lesson_illustrations.py --phase inventory
+          python3 tools/audit/run_all.py
+          python3 tools/audit/check_lesson_illustrations.py --phase review-ready
+
+      - name: Complete remains correctly blocked
+        run: |
+          set +e
+          python3 tools/audit/check_lesson_illustrations.py --phase complete > /tmp/complete.out 2> /tmp/complete.err
+          code=$?
+          set -e
+          test "$code" -ne 0
+          cat /tmp/complete.out
+          cat /tmp/complete.err
+          grep -q 'Error: 3 missing Founder PNG targets:' /tmp/complete.err
+          grep -q 'visual-media#1' /tmp/complete.err
+          grep -q 'visual-media#2' /tmp/complete.err
+          grep -q 'visual-media#3' /tmp/complete.err
+
+      - name: Figure and review analysis
+        run: |
+          flutter analyze lib/core/ui/figures test/core/ui/figures
+          dart analyze tools/lesson_author
+          dart analyze test/tools/check_lesson_illustrations_test.dart test/tools/lesson_illustration_preview_renderer_test.dart
+
+      - name: Formatting gates
+        run: |
+          dart format --output=none --set-exit-if-changed lib/core/ui/figures test/core/ui/figures
+          dart format --output=none --set-exit-if-changed \
+            tools/lesson_author/illustration_preview_renderer.dart \
+            tools/lesson_author/render_illustration_previews_test.dart \
+            test/tools/lesson_illustration_preview_renderer_test.dart \
+            test/tools/check_lesson_illustrations_test.dart
+
+      - name: Layering and attribution gates
+        run: |
+          dart run tool/check_layering.dart
+          dart run tool/check_no_ai_attribution.dart
+
+      - name: Commons metadata and uploader verification
+        run: |
+          node --test tools/illustration_studio/open_asset_metadata.test.mjs
+          dart run tools/lesson_illustrations/upload_assets.dart --dry-run --strategy open
+
+      - name: Server concurrent rebuild rejection
+        working-directory: tools/lesson_author
+        run: |
+          mkdir -p /tmp/fake-flutter-bin
+          cat > /tmp/fake-flutter-bin/flutter <<'SH'
+          #!/bin/sh
+          sleep 2
+          exit 0
+          SH
+          chmod +x /tmp/fake-flutter-bin/flutter
+          PATH="/tmp/fake-flutter-bin:$PATH" node server.mjs --no-open > /tmp/lesson-author-pro.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for attempt in $(seq 1 40); do
+            if curl --fail --silent http://127.0.0.1:4321/api/illustrations > /dev/null; then break; fi
+            sleep 0.25
+          done
+          curl --silent --output /tmp/first.json --write-out '%{http_code}' \
+            --request POST http://127.0.0.1:4321/api/illustration-previews/rebuild \
+            > /tmp/first.code &
+          first_pid=$!
+          sleep 0.25
+          second_code="$(curl --silent --output /tmp/second.json --write-out '%{http_code}' \
+            --request POST http://127.0.0.1:4321/api/illustration-previews/rebuild)"
+          wait "$first_pid"
+          test "$(cat /tmp/first.code)" = 200
+          test "$second_code" = 409
+          kill "$server_pid"
+          wait "$server_pid" 2>/dev/null || true
+          trap - EXIT
+
+      - name: Review state remains initial and no generated output is tracked
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import { readFile } from 'node:fs/promises';
+          const review = JSON.parse(await readFile('docs/content/illustrations/review.json', 'utf8'));
+          assert.deepEqual(review, { version: 1, items: {} });
+          NODE
+          test -z "$(git ls-files build/lesson_author/illustration_previews)"
