@@ -522,10 +522,560 @@ function definitionList(rows) {
     .join('')}</dl>`;
 }
 
+function installReviewPolish() {
+  if (document.getElementById('illustrationReviewPolishStyles')) return;
+
+  const reviewApp = document.getElementById('illustrationReviewApp');
+  const reviewQueue = document.getElementById('reviewQueue');
+  const reviewProgress = document.getElementById('reviewProgressText');
+  const reviewItemTitle = document.getElementById('reviewItemTitle');
+  const reviewItemMeta = document.getElementById('reviewItemMeta');
+  const reviewLessonMount = document.getElementById('reviewLessonMount');
+  const reviewPrev = document.getElementById('reviewPrevBtn');
+  const reviewNext = document.getElementById('reviewNextBtn');
+  const reviewHead = reviewApp?.querySelector('.review-item-head');
+  const header = document.querySelector('header');
+  const headerTitle = header?.querySelector('h1');
+  const titleNode = document.querySelector('title');
+  if (!reviewApp || !reviewQueue || !reviewProgress || !reviewItemTitle || !reviewItemMeta
+      || !reviewLessonMount || !reviewPrev || !reviewNext || !reviewHead || !header || !headerTitle) {
+    return;
+  }
+
+  const style = document.createElement('style');
+  style.id = 'illustrationReviewPolishStyles';
+  style.textContent = `
+    #authorApp[hidden] {
+      display: none !important;
+    }
+
+    body.illustration-review-mode header {
+      min-height: 50px;
+      gap: 12px;
+      flex-wrap: nowrap;
+    }
+    body.illustration-review-mode header .selectors,
+    body.illustration-review-mode header .progress {
+      display: none;
+    }
+    .review-header-context,
+    .review-header-summary {
+      display: none;
+      min-width: 0;
+      font-size: 12px;
+      color: rgba(244, 241, 232, 0.8);
+    }
+    body.illustration-review-mode .review-header-context,
+    body.illustration-review-mode .review-header-summary {
+      display: block;
+    }
+    body.illustration-review-mode .review-header-context {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    body.illustration-review-mode .review-header-summary {
+      margin-left: auto;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    body.illustration-review-mode #illustrationReviewApp {
+      display: grid;
+      grid-template-columns: clamp(230px, 18vw, 280px) minmax(500px, 1fr) clamp(350px, 25vw, 410px);
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      min-height: 0;
+      overflow: hidden;
+      background: var(--paper);
+    }
+    body.illustration-review-mode #illustrationReviewApp[hidden] { display: none; }
+    body.illustration-review-mode .review-sidebar {
+      grid-column: 1;
+      grid-row: 1 / 4;
+      border-right: 1px solid var(--line);
+      min-width: 0;
+    }
+    body.illustration-review-mode .review-sidebar-head {
+      padding: 14px 14px 11px;
+    }
+    body.illustration-review-mode .review-sidebar-head h2 {
+      margin-bottom: 3px;
+      font-size: 14px;
+    }
+    body.illustration-review-mode .review-sidebar-head p {
+      line-height: 1.45;
+    }
+    body.illustration-review-mode .review-filters {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: var(--panel);
+    }
+    body.illustration-review-mode .review-filters button {
+      padding: 8px 10px;
+      min-width: 0;
+    }
+    body.illustration-review-mode .review-queue {
+      padding: 6px 0 18px;
+    }
+    body.illustration-review-mode .review-queue-item {
+      padding: 8px 12px;
+      grid-template-columns: 64px minmax(0, 1fr);
+      gap: 2px 7px;
+      border-left: 3px solid transparent;
+    }
+    body.illustration-review-mode .review-queue-item.current {
+      border-left-color: var(--board);
+      background: var(--board-soft);
+    }
+    body.illustration-review-mode .review-queue-item strong {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    body.illustration-review-mode .review-queue-topic {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    body.illustration-review-mode .review-queue-status {
+      line-height: 1.25;
+    }
+
+    body.illustration-review-mode .review-main,
+    body.illustration-review-mode .review-content {
+      display: contents;
+    }
+    body.illustration-review-mode .review-toolbar {
+      grid-column: 2 / 4;
+      grid-row: 1;
+      min-height: 48px;
+      padding: 8px 14px;
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+    }
+    body.illustration-review-mode .review-toolbar #refreshPreviewsBtn {
+      margin-left: auto;
+      order: 2;
+    }
+    body.illustration-review-mode .review-status {
+      order: 1;
+      min-width: 0;
+      flex: 1;
+    }
+    body.illustration-review-mode .review-lesson-column {
+      grid-column: 2;
+      grid-row: 2;
+      min-width: 0;
+      min-height: 0;
+      border-right: 1px solid var(--line);
+      background: var(--paper);
+    }
+    body.illustration-review-mode .review-item-head {
+      padding: 12px 16px 11px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px 12px;
+      align-items: end;
+    }
+    body.illustration-review-mode .review-item-head .review-head-row {
+      grid-column: 1 / -1;
+      min-width: 0;
+    }
+    body.illustration-review-mode .review-item-head h2 {
+      margin-top: 2px;
+      font-size: 19px;
+    }
+    body.illustration-review-mode .review-item-meta {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    body.illustration-review-mode .review-code-theme-toggle:not([hidden]) {
+      grid-column: 1;
+      justify-self: start;
+      padding-top: 0;
+    }
+    .review-context-toggle {
+      grid-column: 2;
+      justify-self: end;
+      font: inherit;
+      font-size: 12.5px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      cursor: pointer;
+    }
+    .review-context-toggle:hover { border-color: var(--board); color: var(--board); }
+    .review-context-toggle:focus-visible { outline: 2px solid var(--board); outline-offset: 1px; }
+    body.illustration-review-mode .review-lesson-mount {
+      min-height: 0;
+      overflow: hidden;
+    }
+    body.illustration-review-mode .review-lesson-mount > .preview {
+      height: 100%;
+      overflow: auto;
+      padding: 24px 24px 40px;
+    }
+    body.illustration-review-mode .review-lesson-mount .preview-body {
+      width: 100%;
+      max-width: none;
+      min-height: 100%;
+      margin: 0 auto;
+    }
+    body.illustration-review-mode .review-lesson-mount:not(.show-lesson-context) .format-warning,
+    body.illustration-review-mode .review-lesson-mount:not(.show-lesson-context) .preview-body > :not(.lesson-illustration-context) {
+      display: none !important;
+    }
+    body.illustration-review-mode .lesson-illustration-context {
+      margin: 0;
+      scroll-margin: 24px 0;
+    }
+    body.illustration-review-mode .review-preview-pair {
+      gap: 16px;
+      align-items: stretch;
+    }
+    body.illustration-review-mode .review-preview-frame {
+      min-width: 0;
+      min-height: 280px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 8px;
+    }
+    body.illustration-review-mode .review-preview-frame img {
+      width: 100%;
+      max-height: calc(100vh - 270px);
+      object-fit: contain;
+    }
+    body.illustration-review-mode .review-preview-frame figcaption {
+      margin-top: 9px;
+    }
+    body.illustration-review-mode .lesson-illustration-missing {
+      margin: 24px auto;
+      max-width: 680px;
+      padding: 24px;
+      border: 1px solid #EAD9AE;
+      border-radius: 8px;
+      background: var(--amber-soft);
+    }
+
+    body.illustration-review-mode .review-inspector {
+      grid-column: 3;
+      grid-row: 2 / 4;
+      min-width: 0;
+      overflow-y: auto;
+      padding: 18px 18px 24px;
+      border-left: 0;
+      background: var(--panel);
+    }
+    body.illustration-review-mode .review-inspector > h2 {
+      position: sticky;
+      top: -18px;
+      z-index: 1;
+      margin: -18px -18px 10px;
+      padding: 14px 18px 10px;
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+    }
+    body.illustration-review-mode .evidence-section {
+      padding: 13px 0;
+    }
+    body.illustration-review-mode .evidence-section p,
+    body.illustration-review-mode .evidence-section ul,
+    body.illustration-review-mode .evidence-section dd {
+      line-height: 1.5;
+    }
+    body.illustration-review-mode .review-controls {
+      margin-top: 16px;
+      padding-top: 16px;
+    }
+    body.illustration-review-mode .review-notes {
+      min-height: 130px;
+    }
+    body.illustration-review-mode .review-decision-row button {
+      min-height: 38px;
+    }
+
+    .review-bottom-nav {
+      grid-column: 2;
+      grid-row: 3;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      min-height: 52px;
+      padding: 8px 14px;
+      border-top: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      background: var(--panel);
+    }
+    .review-bottom-nav button {
+      font: inherit;
+      font-size: 13px;
+      min-width: 92px;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      cursor: pointer;
+    }
+    .review-bottom-nav button:hover:not(:disabled) { border-color: var(--board); color: var(--board); }
+    .review-bottom-nav button:disabled { opacity: 0.45; cursor: not-allowed; }
+    .review-bottom-nav button:focus-visible { outline: 2px solid var(--board); outline-offset: 1px; }
+    .review-bottom-position {
+      min-width: 0;
+      text-align: center;
+      color: var(--ink-soft);
+      font-size: 12px;
+      font-variant-numeric: tabular-nums;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 1320px) {
+      body.illustration-review-mode #illustrationReviewApp {
+        grid-template-columns: 220px minmax(430px, 1fr) 340px;
+      }
+      body.illustration-review-mode .review-code-theme-toggle:not([hidden]) { display: inline-flex; }
+      body.illustration-review-mode #reviewLessonMount[data-code-theme="light"] .lesson-illustration-context[data-strategy="code"] .review-preview-frame[data-theme="dark"],
+      body.illustration-review-mode #reviewLessonMount[data-code-theme="dark"] .lesson-illustration-context[data-strategy="code"] .review-preview-frame[data-theme="light"] {
+        display: none;
+      }
+      body.illustration-review-mode .review-preview-pair { grid-template-columns: 1fr; }
+      body.illustration-review-mode .review-preview-frame { min-height: 360px; }
+    }
+
+    @media (min-width: 1321px) {
+      body.illustration-review-mode .review-code-theme-toggle:not([hidden]) { display: none; }
+    }
+
+    @media (max-width: 1040px) {
+      body.illustration-review-mode #illustrationReviewApp {
+        grid-template-columns: 210px minmax(0, 1fr);
+        grid-template-rows: auto minmax(500px, 1fr) auto auto;
+        overflow-y: auto;
+      }
+      body.illustration-review-mode .review-sidebar {
+        grid-column: 1;
+        grid-row: 1 / 5;
+      }
+      body.illustration-review-mode .review-toolbar {
+        grid-column: 2;
+        grid-row: 1;
+      }
+      body.illustration-review-mode .review-lesson-column {
+        grid-column: 2;
+        grid-row: 2;
+        border-right: 0;
+      }
+      body.illustration-review-mode .review-inspector {
+        grid-column: 2;
+        grid-row: 3;
+        max-height: none;
+        overflow: visible;
+        border-top: 1px solid var(--line);
+      }
+      .review-bottom-nav {
+        grid-column: 2;
+        grid-row: 4;
+        position: sticky;
+        bottom: 0;
+        z-index: 2;
+        border-right: 0;
+      }
+      body.illustration-review-mode .review-preview-frame img {
+        max-height: 70vh;
+      }
+    }
+
+    @media (max-width: 760px) {
+      body.illustration-review-mode header {
+        flex-wrap: wrap;
+      }
+      body.illustration-review-mode header .mode-switch {
+        order: 0;
+      }
+      body.illustration-review-mode .review-header-context {
+        order: 3;
+        flex-basis: 100%;
+      }
+      body.illustration-review-mode .review-header-summary {
+        display: none;
+      }
+      body.illustration-review-mode #illustrationReviewApp {
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+      }
+      body.illustration-review-mode #illustrationReviewApp[hidden] { display: none; }
+      body.illustration-review-mode .review-sidebar {
+        flex: 0 0 auto;
+        max-height: 34vh;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      body.illustration-review-mode .review-main {
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+      }
+      body.illustration-review-mode .review-content {
+        display: flex;
+        flex-direction: column;
+      }
+      body.illustration-review-mode .review-toolbar {
+        order: 0;
+      }
+      body.illustration-review-mode .review-lesson-column {
+        min-height: 62vh;
+      }
+      body.illustration-review-mode .review-item-head {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+      body.illustration-review-mode .review-code-theme-toggle:not([hidden]),
+      .review-context-toggle {
+        grid-column: 1;
+        justify-self: start;
+      }
+      body.illustration-review-mode .review-lesson-mount > .preview {
+        padding: 18px 14px 30px;
+      }
+      body.illustration-review-mode .review-preview-frame {
+        min-height: 280px;
+        padding: 12px;
+      }
+      body.illustration-review-mode .review-inspector {
+        max-height: none;
+        padding: 16px;
+      }
+      .review-bottom-nav {
+        flex: 0 0 auto;
+        position: sticky;
+        bottom: 0;
+        z-index: 3;
+        border-right: 0;
+      }
+    }
+  `;
+  document.head.append(style);
+
+  const headerContext = document.createElement('span');
+  headerContext.className = 'review-header-context';
+  headerContext.setAttribute('aria-live', 'polite');
+  const headerSummary = document.createElement('span');
+  headerSummary.className = 'review-header-summary';
+  header.append(headerContext, headerSummary);
+
+  const contextToggle = document.createElement('button');
+  contextToggle.type = 'button';
+  contextToggle.className = 'review-context-toggle';
+  contextToggle.setAttribute('aria-pressed', 'false');
+  contextToggle.textContent = 'Show lesson context';
+  reviewHead.append(contextToggle);
+
+  const bottomNav = document.createElement('div');
+  bottomNav.className = 'review-bottom-nav';
+  bottomNav.setAttribute('role', 'group');
+  bottomNav.setAttribute('aria-label', 'Illustration review navigation');
+  const bottomPosition = document.createElement('span');
+  bottomPosition.className = 'review-bottom-position';
+  bottomNav.append(reviewPrev, bottomPosition, reviewNext);
+  reviewApp.append(bottomNav);
+
+  function setLessonContextVisible(visible) {
+    reviewLessonMount.classList.toggle('show-lesson-context', visible);
+    contextToggle.setAttribute('aria-pressed', String(visible));
+    contextToggle.textContent = visible ? 'Hide lesson context' : 'Show lesson context';
+  }
+
+  function updateHeaderContext() {
+    const title = reviewItemTitle.textContent.trim();
+    const meta = reviewItemMeta.textContent.trim();
+    headerContext.textContent = [meta, title && title !== 'Illustration review' ? title : '']
+      .filter(Boolean)
+      .join(' · ');
+  }
+
+  function updateHeaderSummary() {
+    headerSummary.textContent = reviewProgress.textContent.trim();
+  }
+
+  function updateQueuePosition() {
+    const items = [...reviewQueue.querySelectorAll('.review-queue-item')];
+    const index = items.findIndex((item) => item.getAttribute('aria-current') === 'true');
+    const activeFilter = document.querySelector('[data-review-filter].active span:first-child')?.textContent?.trim();
+    if (items.length === 0) {
+      bottomPosition.textContent = activeFilter ? `No ${activeFilter.toLowerCase()} items` : 'No items in this queue';
+      return;
+    }
+    bottomPosition.textContent = index >= 0
+      ? `${index + 1} of ${items.length}${activeFilter ? ` · ${activeFilter}` : ''}`
+      : `${items.length} ${activeFilter ? activeFilter.toLowerCase() : 'review'} items`;
+  }
+
+  function syncModeChrome() {
+    const reviewing = !reviewApp.hidden;
+    document.body.classList.toggle('illustration-review-mode', reviewing);
+    headerTitle.innerHTML = reviewing ? 'Pantas <span>· Illustration Review</span>' : 'Pantas <span>· Lesson Author</span>';
+    if (!reviewing) setLessonContextVisible(false);
+    updateHeaderContext();
+    updateHeaderSummary();
+    updateQueuePosition();
+  }
+
+  function syncDocumentTitle() {
+    if (reviewApp.hidden || !titleNode) return;
+    const itemTitle = reviewItemTitle.textContent.trim();
+    const desired = `${itemTitle && itemTitle !== 'Illustration review' ? itemTitle : 'Illustration Review'} — Pantas Illustration Review`;
+    if (document.title !== desired) document.title = desired;
+  }
+
+  contextToggle.addEventListener('click', () => {
+    setLessonContextVisible(!reviewLessonMount.classList.contains('show-lesson-context'));
+  });
+
+  new MutationObserver(() => {
+    syncModeChrome();
+    syncDocumentTitle();
+  }).observe(reviewApp, { attributes: true, attributeFilter: ['hidden'] });
+  new MutationObserver(() => {
+    updateHeaderSummary();
+  }).observe(reviewProgress, { childList: true, characterData: true, subtree: true });
+  new MutationObserver(() => {
+    setLessonContextVisible(false);
+    updateHeaderContext();
+    syncDocumentTitle();
+  }).observe(reviewItemTitle, { childList: true, characterData: true, subtree: true });
+  new MutationObserver(() => {
+    updateHeaderContext();
+  }).observe(reviewItemMeta, { childList: true, characterData: true, subtree: true });
+  new MutationObserver(() => {
+    updateQueuePosition();
+  }).observe(reviewQueue, { childList: true, subtree: true, attributes: true, attributeFilter: ['aria-current', 'class'] });
+  if (titleNode) {
+    new MutationObserver(() => syncDocumentTitle()).observe(titleNode, { childList: true, characterData: true, subtree: true });
+  }
+
+  setLessonContextVisible(false);
+  syncModeChrome();
+}
+
 if (typeof window !== 'undefined' && typeof document !== 'undefined') {
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeIllustrationReview, { once: true });
-  } else {
+  const boot = () => {
+    installReviewPolish();
     initializeIllustrationReview();
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot, { once: true });
+  } else {
+    boot();
   }
 }
