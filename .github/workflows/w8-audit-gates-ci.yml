@@ -1,0 +1,50 @@
+name: Wave 8 audit gates verification
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  focused:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: '3.41.x'
+
+      - name: pub get
+        run: flutter pub get
+
+      - name: Focused audit tests
+        run: flutter test test/tools/check_lesson_illustrations_test.dart
+
+      - name: Render live review previews
+        run: flutter test tools/lesson_author/render_illustration_previews_test.dart --reporter compact
+
+      - name: Inventory audit
+        run: python3 tools/audit/check_lesson_illustrations.py --phase inventory
+
+      - name: Live review-ready audit
+        run: python3 tools/audit/check_lesson_illustrations.py --phase review-ready
+
+      - name: Live complete is expected to fail cleanly
+        shell: bash
+        run: |
+          set +e
+          output=$(python3 tools/audit/check_lesson_illustrations.py --phase complete 2>&1)
+          code=$?
+          set -e
+          printf '%s\n' "$output"
+          test "$code" -ne 0
+          if printf '%s\n' "$output" | grep -qiE 'traceback|crash'; then
+            echo 'complete phase crashed instead of failing its gate' >&2
+            exit 1
+          fi
+
+      - name: Python syntax
+        run: python3 -m py_compile tools/audit/check_lesson_illustrations.py
