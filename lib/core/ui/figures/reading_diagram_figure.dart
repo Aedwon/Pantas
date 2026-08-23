@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
@@ -107,6 +109,19 @@ class _ReadingDiagramPainter extends CustomPainter {
       Offset(size.width - 18, baselineY),
       faint,
     );
+    _arrow(canvas, Offset(18, baselineY), const Offset(18, 20), faint);
+    canvas
+      ..save()
+      ..translate(5, baselineY - 6)
+      ..rotate(-math.pi / 2);
+    _label(
+      canvas,
+      'tension',
+      Offset.zero,
+      maxWidth: 48,
+      style: mutedStyle,
+    );
+    canvas.restore();
 
     final points = <Offset>[
       Offset(size.width * 0.10, baselineY - 12),
@@ -160,13 +175,13 @@ class _ReadingDiagramPainter extends CustomPainter {
         Offset(podium.right + 8, podium.top),
         stroke,
       );
-    _label(
+    _centeredLabel(
       canvas,
       spec['source']! as String,
-      Offset(podium.left, podium.bottom + 5),
+      centerX: podium.center.dx,
+      top: podium.bottom + 5,
       maxWidth: podium.width,
       style: mutedStyle,
-      align: TextAlign.center,
     );
 
     final audienceX = size.width * 0.90;
@@ -185,13 +200,13 @@ class _ReadingDiagramPainter extends CustomPainter {
           );
       }
     }
-    _label(
+    _centeredLabel(
       canvas,
       spec['target']! as String,
-      Offset(size.width * 0.75, size.height - 21),
+      centerX: audienceX - 10,
+      top: size.height - 21,
       maxWidth: size.width * 0.22,
       style: mutedStyle,
-      align: TextAlign.center,
     );
 
     final starts = <Offset>[
@@ -258,8 +273,29 @@ class _ReadingDiagramPainter extends CustomPainter {
       textAlign: align,
       maxLines: 2,
     )
-      ..layout(maxWidth: maxWidth)
+      ..layout(
+        minWidth: align == TextAlign.center ? maxWidth : 0,
+        maxWidth: maxWidth,
+      )
       ..paint(canvas, offset);
+  }
+
+  void _centeredLabel(
+    Canvas canvas,
+    String text, {
+    required double centerX,
+    required double top,
+    required double maxWidth,
+    required TextStyle style,
+  }) {
+    _label(
+      canvas,
+      text,
+      Offset(centerX - maxWidth / 2, top),
+      maxWidth: maxWidth,
+      style: style,
+      align: TextAlign.center,
+    );
   }
 
   @override

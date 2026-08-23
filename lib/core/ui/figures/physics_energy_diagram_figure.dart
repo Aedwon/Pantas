@@ -5,10 +5,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 
 /// Original lesson diagrams for electricity, optics, heat, and sound.
 class PhysicsEnergyDiagramFigure extends StatelessWidget {
-  const PhysicsEnergyDiagramFigure._({
-    required this.type,
-    required this.spec,
-  });
+  const PhysicsEnergyDiagramFigure._({required this.type, required this.spec});
 
   static const kind = 'physics-energy-diagram';
 
@@ -55,16 +52,16 @@ class PhysicsEnergyDiagramFigure extends StatelessWidget {
   static bool _validElectricFieldPairs(Map<String, Object?> spec) {
     final cases = _mapList(spec['cases'], length: 2);
     if (cases == null) return false;
-    return _stringListEquals(
-          cases[0]['charges'],
-          const ['positive', 'positive'],
-        ) &&
+    return _stringListEquals(cases[0]['charges'], const [
+          'positive',
+          'positive',
+        ]) &&
         cases[0]['fieldLines'] == 'point away from each' &&
         cases[0]['force'] == 'repel' &&
-        _stringListEquals(
-          cases[1]['charges'],
-          const ['positive', 'negative'],
-        ) &&
+        _stringListEquals(cases[1]['charges'], const [
+          'positive',
+          'negative',
+        ]) &&
         cases[1]['fieldLines'] == 'connect positive to negative' &&
         cases[1]['force'] == 'attract';
   }
@@ -270,39 +267,19 @@ class _PhysicsEnergyPainter extends CustomPainter {
     );
   }
 
-  void _fieldPair(
-    Canvas canvas,
-    Rect rect, {
-    required bool positivePair,
-  }) {
+  void _fieldPair(Canvas canvas, Rect rect, {required bool positivePair}) {
     final left = Offset(rect.left + rect.width * .3, rect.center.dy);
     final right = Offset(rect.left + rect.width * .7, rect.center.dy);
     _charge(canvas, left, '+');
-    _charge(canvas, right, positivePair ? '+' : '−');
+    _charge(canvas, right, positivePair ? '+' : '-');
 
     if (positivePair) {
       for (final dy in [-28.0, -14.0, 0.0, 14.0, 28.0]) {
-        _arrow(
-          canvas,
-          left + Offset(-14, dy * .25),
-          left + Offset(-50, dy),
-        );
-        _arrow(
-          canvas,
-          right + Offset(14, dy * .25),
-          right + Offset(50, dy),
-        );
+        _arrow(canvas, left + Offset(-14, dy * .25), left + Offset(-50, dy));
+        _arrow(canvas, right + Offset(14, dy * .25), right + Offset(50, dy));
       }
-      _arrow(
-        canvas,
-        left + const Offset(-5, 49),
-        left + const Offset(-42, 49),
-      );
-      _arrow(
-        canvas,
-        right + const Offset(5, 49),
-        right + const Offset(42, 49),
-      );
+      _arrow(canvas, left + const Offset(-5, 49), left + const Offset(-42, 49));
+      _arrow(canvas, right + const Offset(5, 49), right + const Offset(42, 49));
       _text(
         canvas,
         'field lines point away',
@@ -330,26 +307,12 @@ class _PhysicsEnergyPainter extends CustomPainter {
             end.dx - rect.center.dx,
             end.dy - (rect.center.dy + dy),
           );
-          _arrowHead(
-            canvas,
-            end,
-            math.atan2(tangent.dy, tangent.dx),
-          );
+          _arrowHead(canvas, end, math.atan2(tangent.dy, tangent.dx));
         }
       }
-      _arrow(
-        canvas,
-        left + const Offset(-35, 49),
-        left + const Offset(0, 49),
-      );
-      _arrow(
-        canvas,
-        right + const Offset(35, 49),
-        right + const Offset(0, 49),
-      );
       _text(
         canvas,
-        'field lines + → −',
+        'field lines + to -',
         Offset(rect.center.dx, rect.bottom - 6),
         maxWidth: 112,
         mutedText: true,
@@ -357,11 +320,7 @@ class _PhysicsEnergyPainter extends CustomPainter {
     }
   }
 
-  void _drawSeriesParallel(
-    Canvas canvas,
-    Size size, {
-    required bool failure,
-  }) {
+  void _drawSeriesParallel(Canvas canvas, Size size, {required bool failure}) {
     final panelWidth = size.width / 2;
     canvas.drawLine(
       Offset(panelWidth, 20),
@@ -413,11 +372,7 @@ class _PhysicsEnergyPainter extends CustomPainter {
     }
   }
 
-  void _seriesCircuit(
-    Canvas canvas,
-    Rect rect, {
-    required bool failure,
-  }) {
+  void _seriesCircuit(Canvas canvas, Rect rect, {required bool failure}) {
     final top = rect.top + 20;
     final bottom = rect.bottom - 18;
     final left = rect.left + 18;
@@ -426,19 +381,30 @@ class _PhysicsEnergyPainter extends CustomPainter {
       ..drawLine(Offset(left, top), Offset(right, top), _stroke)
       ..drawLine(Offset(right, top), Offset(right, bottom), _stroke)
       ..drawLine(Offset(right, bottom), Offset(left, bottom), _stroke)
-      ..drawLine(Offset(left, bottom), Offset(left, top), _stroke);
+      ..drawLine(
+        Offset(left, bottom),
+        Offset(left, rect.center.dy + 18),
+        _stroke,
+      )
+      ..drawLine(Offset(left, rect.center.dy - 18), Offset(left, top), _stroke);
     _battery(canvas, Offset(left, rect.center.dy));
     final bulb1 = Offset(rect.center.dx - 35, top);
     final bulb2 = Offset(rect.center.dx + 35, top);
+    canvas
+      ..drawLine(Offset(left, top), bulb1 - const Offset(14, 0), _stroke)
+      ..drawLine(bulb2 + const Offset(14, 0), Offset(right, top), _stroke);
+    if (!failure) {
+      canvas.drawLine(
+        bulb1 + const Offset(14, 0),
+        bulb2 - const Offset(14, 0),
+        _stroke,
+      );
+    }
     _bulb(canvas, bulb1, crossed: failure);
     _bulb(canvas, bulb2, dim: failure);
   }
 
-  void _parallelCircuit(
-    Canvas canvas,
-    Rect rect, {
-    required bool failure,
-  }) {
+  void _parallelCircuit(Canvas canvas, Rect rect, {required bool failure}) {
     final top = rect.top + 17;
     final bottom = rect.bottom - 18;
     final left = rect.left + 18;
@@ -447,43 +413,98 @@ class _PhysicsEnergyPainter extends CustomPainter {
       ..drawLine(Offset(left, top), Offset(right, top), _stroke)
       ..drawLine(Offset(right, top), Offset(right, bottom), _stroke)
       ..drawLine(Offset(right, bottom), Offset(left, bottom), _stroke)
-      ..drawLine(Offset(left, bottom), Offset(left, top), _stroke);
+      ..drawLine(
+        Offset(left, bottom),
+        Offset(left, rect.center.dy + 18),
+        _stroke,
+      )
+      ..drawLine(Offset(left, rect.center.dy - 18), Offset(left, top), _stroke);
     _battery(canvas, Offset(left, rect.center.dy));
     final branch1 = rect.center.dx - 28;
     final branch2 = rect.center.dx + 28;
     canvas
-      ..drawLine(Offset(branch1, top), Offset(branch1, bottom), _stroke)
-      ..drawLine(Offset(branch2, top), Offset(branch2, bottom), _stroke);
-    _bulb(
-      canvas,
-      Offset(branch1, rect.center.dy),
-      crossed: failure,
-    );
+      ..drawLine(
+        Offset(branch1, top),
+        Offset(branch1, rect.center.dy - 13),
+        _stroke,
+      )
+      ..drawLine(
+        Offset(branch2, top),
+        Offset(branch2, rect.center.dy - 13),
+        _stroke,
+      )
+      ..drawLine(
+        Offset(branch2, rect.center.dy + 13),
+        Offset(branch2, bottom),
+        _stroke,
+      )
+      ..drawLine(
+        Offset(branch1, rect.center.dy + 13),
+        Offset(branch1, bottom),
+        _stroke,
+      );
+    if (!failure) {
+      canvas.drawLine(
+        Offset(branch1, rect.center.dy - 13),
+        Offset(branch1, rect.center.dy + 13),
+        _stroke,
+      );
+    }
+    _junction(canvas, Offset(branch1, top));
+    _junction(canvas, Offset(branch2, top));
+    _junction(canvas, Offset(branch1, bottom));
+    _junction(canvas, Offset(branch2, bottom));
+    _bulb(canvas, Offset(branch1, rect.center.dy), crossed: failure);
     _bulb(canvas, Offset(branch2, rect.center.dy));
   }
 
   void _drawOhmsLaw(Canvas canvas, Size size) {
-    final rect = Rect.fromLTWH(
-      size.width * .18,
-      55,
-      size.width * .64,
-      140,
-    );
-    canvas.drawRect(rect, _stroke);
-    _battery(canvas, Offset(rect.left, rect.center.dy));
+    final rect = Rect.fromLTWH(size.width * .18, 55, size.width * .64, 140);
     final resistor = Rect.fromCenter(
       center: Offset(rect.center.dx, rect.top),
       width: 92,
       height: 28,
     );
     canvas
+      ..drawLine(
+        Offset(rect.left, rect.top),
+        Offset(resistor.left, rect.top),
+        _stroke,
+      )
+      ..drawLine(
+        Offset(resistor.right, rect.top),
+        Offset(rect.right, rect.top),
+        _stroke,
+      )
+      ..drawLine(
+        Offset(rect.right, rect.top),
+        Offset(rect.right, rect.bottom),
+        _stroke,
+      )
+      ..drawLine(
+        Offset(rect.right, rect.bottom),
+        Offset(rect.left, rect.bottom),
+        _stroke,
+      )
+      ..drawLine(
+        Offset(rect.left, rect.bottom),
+        Offset(rect.left, rect.center.dy + 18),
+        _stroke,
+      )
+      ..drawLine(
+        Offset(rect.left, rect.center.dy - 18),
+        Offset(rect.left, rect.top),
+        _stroke,
+      );
+    _battery(canvas, Offset(rect.left, rect.center.dy));
+    canvas
       ..drawRect(resistor, _fill)
       ..drawRect(resistor, _stroke);
     _text(
       canvas,
-      '10 Ω resistor',
-      resistor.center - const Offset(0, 8),
-      maxWidth: 84,
+      '10 Ω',
+      resistor.center - const Offset(0, 7),
+      maxWidth: 52,
     );
     _arrow(
       canvas,
@@ -499,7 +520,7 @@ class _PhysicsEnergyPainter extends CustomPainter {
     _text(
       canvas,
       'V = ?',
-      Offset(rect.left - 28, rect.center.dy - 9),
+      Offset(rect.left + 28, rect.center.dy - 9),
       maxWidth: 52,
     );
     _text(
@@ -518,18 +539,8 @@ class _PhysicsEnergyPainter extends CustomPainter {
       Offset(panelWidth, 228),
       _faintStroke,
     );
-    _text(
-      canvas,
-      'convex lens',
-      Offset(panelWidth / 2, 18),
-      maxWidth: 90,
-    );
-    _text(
-      canvas,
-      'concave lens',
-      Offset(panelWidth * 1.5, 18),
-      maxWidth: 90,
-    );
+    _text(canvas, 'convex lens', Offset(panelWidth / 2, 18), maxWidth: 90);
+    _text(canvas, 'concave lens', Offset(panelWidth * 1.5, 18), maxWidth: 90);
     _lensPanel(
       canvas,
       Rect.fromLTWH(10, 48, panelWidth - 20, 155),
@@ -542,11 +553,7 @@ class _PhysicsEnergyPainter extends CustomPainter {
     );
   }
 
-  void _lensPanel(
-    Canvas canvas,
-    Rect rect, {
-    required bool converging,
-  }) {
+  void _lensPanel(Canvas canvas, Rect rect, {required bool converging}) {
     final lensX = rect.center.dx;
     final lensTop = rect.top + 14;
     final lensBottom = rect.bottom - 15;
@@ -554,34 +561,14 @@ class _PhysicsEnergyPainter extends CustomPainter {
     if (converging) {
       path
         ..moveTo(lensX, lensTop)
-        ..quadraticBezierTo(
-          lensX - 20,
-          rect.center.dy,
-          lensX,
-          lensBottom,
-        )
-        ..quadraticBezierTo(
-          lensX + 20,
-          rect.center.dy,
-          lensX,
-          lensTop,
-        );
+        ..quadraticBezierTo(lensX - 20, rect.center.dy, lensX, lensBottom)
+        ..quadraticBezierTo(lensX + 20, rect.center.dy, lensX, lensTop);
     } else {
       path
         ..moveTo(lensX - 9, lensTop)
-        ..quadraticBezierTo(
-          lensX + 7,
-          rect.center.dy,
-          lensX - 9,
-          lensBottom,
-        )
+        ..quadraticBezierTo(lensX + 7, rect.center.dy, lensX - 9, lensBottom)
         ..lineTo(lensX + 9, lensBottom)
-        ..quadraticBezierTo(
-          lensX - 7,
-          rect.center.dy,
-          lensX + 9,
-          lensTop,
-        )
+        ..quadraticBezierTo(lensX - 7, rect.center.dy, lensX + 9, lensTop)
         ..close();
     }
     canvas.drawPath(path, _stroke);
@@ -593,10 +580,7 @@ class _PhysicsEnergyPainter extends CustomPainter {
       if (converging) {
         _arrow(canvas, lensPoint, focus);
       } else {
-        final end = Offset(
-          rect.right - 8,
-          rect.center.dy + dy * 1.55,
-        );
+        final end = Offset(rect.right - 8, rect.center.dy + dy * 1.55);
         _arrow(canvas, lensPoint, end);
       }
     }
@@ -636,28 +620,10 @@ class _PhysicsEnergyPainter extends CustomPainter {
         _faintStroke,
       );
     }
-    _text(
-      canvas,
-      'conduction',
-      Offset(panelWidth * .5, 18),
-      maxWidth: 80,
-    );
-    _text(
-      canvas,
-      'convection',
-      Offset(panelWidth * 1.5, 18),
-      maxWidth: 80,
-    );
-    _text(
-      canvas,
-      'radiation',
-      Offset(panelWidth * 2.5, 18),
-      maxWidth: 80,
-    );
-    _drawConduction(
-      canvas,
-      Rect.fromLTWH(8, 50, panelWidth - 16, 150),
-    );
+    _text(canvas, 'conduction', Offset(panelWidth * .5, 18), maxWidth: 80);
+    _text(canvas, 'convection', Offset(panelWidth * 1.5, 18), maxWidth: 80);
+    _text(canvas, 'radiation', Offset(panelWidth * 2.5, 18), maxWidth: 80);
+    _drawConduction(canvas, Rect.fromLTWH(8, 50, panelWidth - 16, 150));
     _drawConvection(
       canvas,
       Rect.fromLTWH(panelWidth + 8, 50, panelWidth - 16, 150),
@@ -677,12 +643,15 @@ class _PhysicsEnergyPainter extends CustomPainter {
     );
     canvas.drawRect(rod, _stroke);
     _flame(canvas, Offset(rect.left + 32, rect.center.dy + 34));
+    _text(
+      canvas,
+      'metal rod',
+      Offset(rect.center.dx, rect.top + 10),
+      maxWidth: rect.width - 8,
+      mutedText: true,
+    );
     for (var x = rod.left + 12; x < rod.right - 8; x += 22) {
-      _arrow(
-        canvas,
-        Offset(x, rod.center.dy),
-        Offset(x + 17, rod.center.dy),
-      );
+      _arrow(canvas, Offset(x, rod.center.dy), Offset(x + 17, rod.center.dy));
     }
     _text(
       canvas,
@@ -694,34 +663,39 @@ class _PhysicsEnergyPainter extends CustomPainter {
   }
 
   void _drawConvection(Canvas canvas, Rect rect) {
-    final pot = Rect.fromLTWH(
-      rect.left + 24,
-      rect.top + 38,
-      rect.width - 48,
-      85,
+    final pot = Path()
+      ..moveTo(rect.left + 22, rect.top + 38)
+      ..lineTo(rect.right - 22, rect.top + 38)
+      ..lineTo(rect.right - 14, rect.bottom - 22)
+      ..lineTo(rect.left + 14, rect.bottom - 22)
+      ..close();
+    canvas.drawPath(pot, _stroke);
+    final waterTop = rect.top + 52;
+    canvas.drawLine(
+      Offset(rect.left + 24, waterTop),
+      Offset(rect.right - 24, waterTop),
+      _faintStroke,
     );
-    canvas.drawRect(pot, _stroke);
-    _flame(canvas, Offset(rect.center.dx, pot.bottom + 20));
-    _arcArrow(
+    _text(
       canvas,
-      Rect.fromCenter(
-        center: pot.center,
-        width: pot.width * .65,
-        height: pot.height * .65,
-      ),
-      math.pi * .1,
-      math.pi * .8,
+      'water',
+      Offset(rect.center.dx, waterTop + 7),
+      maxWidth: 40,
+      mutedText: true,
     );
-    _arcArrow(
+    final warmX = rect.left + 35;
+    final coolX = rect.right - 35;
+    _arrow(
       canvas,
-      Rect.fromCenter(
-        center: pot.center,
-        width: pot.width * .65,
-        height: pot.height * .65,
-      ),
-      math.pi * 1.1,
-      math.pi * .8,
+      Offset(warmX, rect.bottom - 34),
+      Offset(warmX, rect.top + 64),
     );
+    _arrow(
+      canvas,
+      Offset(coolX, rect.top + 64),
+      Offset(coolX, rect.bottom - 34),
+    );
+    _flame(canvas, Offset(rect.center.dx, rect.bottom - 2));
     _text(
       canvas,
       'warm rises',
@@ -739,21 +713,23 @@ class _PhysicsEnergyPainter extends CustomPainter {
   }
 
   void _drawRadiation(Canvas canvas, Rect rect) {
-    final sun = Offset(rect.left + 28, rect.center.dy);
-    final earth = Offset(rect.right - 28, rect.center.dy);
-    _sun(canvas, sun, 15);
-    _earth(canvas, earth, 15);
+    final sun = Offset(rect.left + 23, rect.center.dy - 5);
+    final earth = Offset(rect.right - 23, rect.center.dy - 5);
+    _sun(canvas, sun, 14);
+    _earth(canvas, earth, 14);
     for (final dy in [-18.0, 0.0, 18.0]) {
       _wavyArrow(
         canvas,
-        Offset(sun.dx + 19, sun.dy + dy),
-        Offset(earth.dx - 19, earth.dy + dy),
+        Offset(sun.dx + 17, sun.dy + dy),
+        Offset(earth.dx - 17, earth.dy + dy),
       );
     }
+    _text(canvas, 'Sun', sun + const Offset(0, 19), maxWidth: 34);
+    _text(canvas, 'Earth', earth + const Offset(0, 19), maxWidth: 42);
     _text(
       canvas,
-      'through empty space',
-      Offset(rect.center.dx, rect.bottom - 2),
+      'empty space',
+      Offset(rect.center.dx, rect.bottom - 3),
       maxWidth: rect.width - 8,
       mutedText: true,
     );
@@ -842,33 +818,25 @@ class _PhysicsEnergyPainter extends CustomPainter {
     canvas
       ..drawCircle(center, 18, _fill)
       ..drawCircle(center, 18, _stroke);
-    _text(
-      canvas,
-      symbol,
-      center - const Offset(0, 10),
-      maxWidth: 20,
-    );
+    _text(canvas, symbol, center - const Offset(0, 10), maxWidth: 20);
   }
 
   void _battery(Canvas canvas, Offset center) {
     canvas
       ..drawLine(
-        center + const Offset(-8, -18),
-        center + const Offset(-8, 18),
-        Paint()
-          ..color = background
-          ..strokeWidth = 5,
-      )
-      ..drawLine(
-        center + const Offset(-8, -15),
-        center + const Offset(-8, 15),
+        center + const Offset(-14, -8),
+        center + const Offset(14, -8),
         _stroke,
       )
       ..drawLine(
-        center + const Offset(8, -9),
-        center + const Offset(8, 9),
+        center + const Offset(-8, 8),
+        center + const Offset(8, 8),
         _stroke,
       );
+  }
+
+  void _junction(Canvas canvas, Offset center) {
+    canvas.drawCircle(center, 3, Paint()..color = ink);
   }
 
   void _bulb(
@@ -911,26 +879,10 @@ class _PhysicsEnergyPainter extends CustomPainter {
     canvas
       ..drawRect(body, _stroke)
       ..drawRect(cab, _stroke)
-      ..drawCircle(
-        body.bottomLeft + const Offset(17, 4),
-        8,
-        _fill,
-      )
-      ..drawCircle(
-        body.bottomLeft + const Offset(17, 4),
-        8,
-        _stroke,
-      )
-      ..drawCircle(
-        body.bottomRight + const Offset(-17, 4),
-        8,
-        _fill,
-      )
-      ..drawCircle(
-        body.bottomRight + const Offset(-17, 4),
-        8,
-        _stroke,
-      )
+      ..drawCircle(body.bottomLeft + const Offset(17, 4), 8, _fill)
+      ..drawCircle(body.bottomLeft + const Offset(17, 4), 8, _stroke)
+      ..drawCircle(body.bottomRight + const Offset(-17, 4), 8, _fill)
+      ..drawCircle(body.bottomRight + const Offset(-17, 4), 8, _stroke)
       ..drawLine(
         center + const Offset(-7, -9),
         center + const Offset(7, -9),
@@ -1004,20 +956,12 @@ class _PhysicsEnergyPainter extends CustomPainter {
     }
     path.lineTo(to.dx, to.dy);
     canvas.drawPath(path, _stroke);
-    _arrowHead(
-      canvas,
-      to,
-      math.atan2(to.dy - from.dy, to.dx - from.dx),
-    );
+    _arrowHead(canvas, to, math.atan2(to.dy - from.dy, to.dx - from.dx));
   }
 
   void _arrow(Canvas canvas, Offset from, Offset to) {
     canvas.drawLine(from, to, _stroke);
-    _arrowHead(
-      canvas,
-      to,
-      math.atan2(to.dy - from.dy, to.dx - from.dx),
-    );
+    _arrowHead(canvas, to, math.atan2(to.dy - from.dy, to.dx - from.dx));
   }
 
   void _arrowHead(Canvas canvas, Offset to, double angle) {
@@ -1035,17 +979,6 @@ class _PhysicsEnergyPainter extends CustomPainter {
       );
   }
 
-  void _arcArrow(Canvas canvas, Rect rect, double start, double sweep) {
-    canvas.drawArc(rect, start, sweep, false, _stroke);
-    final end = start + sweep;
-    final p = Offset(
-      rect.center.dx + math.cos(end) * rect.width / 2,
-      rect.center.dy + math.sin(end) * rect.height / 2,
-    );
-    final tangent = end + (sweep >= 0 ? math.pi / 2 : -math.pi / 2);
-    _arrowHead(canvas, p, tangent);
-  }
-
   void _text(
     Canvas canvas,
     String text,
@@ -1054,18 +987,12 @@ class _PhysicsEnergyPainter extends CustomPainter {
     bool mutedText = false,
   }) {
     final painter = TextPainter(
-      text: TextSpan(
-        text: text,
-        style: mutedText ? smallStyle : labelStyle,
-      ),
+      text: TextSpan(text: text, style: mutedText ? smallStyle : labelStyle),
       textAlign: TextAlign.center,
       textDirection: TextDirection.ltr,
       maxLines: 3,
     )..layout(maxWidth: maxWidth);
-    painter.paint(
-      canvas,
-      center - Offset(painter.width / 2, 0),
-    );
+    painter.paint(canvas, center - Offset(painter.width / 2, 0));
   }
 
   @override

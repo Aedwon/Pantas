@@ -97,6 +97,13 @@ class _BiologyDiagramPainter extends CustomPainter {
     ..style = PaintingStyle.stroke
     ..strokeWidth = 1;
 
+  Paint get _semanticStroke => Paint()
+    ..color = board
+    ..style = PaintingStyle.stroke
+    ..strokeWidth = 1.2;
+
+  Paint get _semanticFill => Paint()..color = board;
+
   @override
   void paint(Canvas canvas, Size size) {
     switch (type) {
@@ -153,21 +160,31 @@ class _BiologyDiagramPainter extends CustomPainter {
     _leaderLabel(
       canvas,
       spec['outer']! as String,
-      Offset(center.dx - radius, center.dy - radius * 0.55),
+      Offset(
+        center.dx + math.cos(-math.pi / 4) * radius,
+        center.dy + math.sin(-math.pi / 4) * radius,
+      ),
       Offset(size.width * 0.66, 28),
     );
     final vascular = (spec['vascular']! as Map).cast<String, Object?>();
     final components = _stringList(vascular['components'])!;
+    const vascularAngle = -math.pi / 4;
     _leaderLabel(
       canvas,
       '${vascular['label']}\n${components.join(' + ')}',
-      Offset(center.dx + radius * 0.50, center.dy - radius * 0.12),
+      Offset(
+        center.dx + math.cos(vascularAngle) * radius * 0.58,
+        center.dy + math.sin(vascularAngle) * radius * 0.58,
+      ),
       Offset(size.width * 0.66, 82),
     );
     _leaderLabel(
       canvas,
       spec['ground']! as String,
-      Offset(center.dx, center.dy + radius * 0.20),
+      Offset(
+        center.dx + math.cos(math.pi / 6) * radius * 0.82,
+        center.dy + math.sin(math.pi / 6) * radius * 0.82,
+      ),
       Offset(size.width * 0.66, 142),
     );
   }
@@ -205,6 +222,21 @@ class _BiologyDiagramPainter extends CustomPainter {
     _label(canvas, 'rough ER', Offset(rough.left + 8, rough.top + 7), 62);
     _label(canvas, 'smooth ER', Offset(smooth.left + 7, smooth.top + 5), 62);
 
+    final ribosomeTarget = Offset(rough.left + 8, rough.top - 3);
+    _callout(
+      canvas,
+      ribosomeTarget,
+      Offset(size.width * 0.19, 28),
+      ink,
+    );
+    _label(
+      canvas,
+      'ribosomes',
+      Offset(size.width * 0.08, 8),
+      size.width * 0.28,
+      align: TextAlign.center,
+    );
+
     final golgiX = size.width * 0.73;
     for (var i = 0; i < 4; i++) {
       final y = size.height * 0.58 + i * 7;
@@ -227,15 +259,27 @@ class _BiologyDiagramPainter extends CustomPainter {
       88,
     );
 
-    final ribosome = Offset(size.width * 0.34, size.height * 0.30);
-    canvas.drawCircle(ribosome, 3, Paint()..color = board);
-    _label(canvas, 'ribosomes', Offset(ribosome.dx - 26, ribosome.dy - 22), 66);
-    _arrow(canvas, ribosome, Offset(rough.left, rough.center.dy), _stroke);
+    final proteinPath = Paint()
+      ..color = board
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.8;
+    final proteinStart = Offset(rough.left + 8, rough.top - 3);
+    final proteinTurn = Offset(rough.left - 5, size.height * 0.52);
+    final proteinEnd = Offset(golgiX - 28, size.height * 0.62);
+    canvas.drawLine(proteinStart, proteinTurn, proteinPath);
     _arrow(
       canvas,
-      Offset(rough.right, rough.center.dy),
-      Offset(golgiX - 28, size.height * 0.62),
-      _stroke,
+      proteinTurn,
+      proteinEnd,
+      proteinPath,
+    );
+    _label(
+      canvas,
+      'protein flow',
+      Offset(size.width * 0.36, size.height * 0.86),
+      size.width * 0.34,
+      style: labelStyle.copyWith(color: board),
+      align: TextAlign.center,
     );
   }
 
@@ -243,8 +287,8 @@ class _BiologyDiagramPainter extends CustomPainter {
     final photosynthesis =
         (spec['photosynthesis']! as Map).cast<String, Object?>();
     final respiration = (spec['respiration']! as Map).cast<String, Object?>();
-    final left = Rect.fromLTWH(18, 46, size.width * 0.34, 92);
-    final right = Rect.fromLTWH(size.width * 0.62, 46, size.width * 0.31, 92);
+    final left = Rect.fromLTWH(20, 64, size.width * 0.30, 68);
+    final right = Rect.fromLTWH(size.width * 0.66, 64, size.width * 0.28, 68);
     final semantic = Paint()
       ..color = board
       ..style = PaintingStyle.stroke
@@ -255,75 +299,88 @@ class _BiologyDiagramPainter extends CustomPainter {
     _label(
       canvas,
       photosynthesis['organelle']! as String,
-      Offset(left.left + 18, left.top + 27),
-      left.width - 36,
+      Offset(left.left + 8, left.top + 19),
+      left.width - 16,
       style: labelStyle.copyWith(color: board),
       align: TextAlign.center,
     );
     _label(
       canvas,
       'photosynthesis',
-      Offset(left.left + 14, left.top + 50),
-      left.width - 28,
+      Offset(left.left + 8, left.top + 41),
+      left.width - 16,
       align: TextAlign.center,
     );
     _label(
       canvas,
       respiration['organelle']! as String,
-      Offset(right.left + 12, right.top + 27),
-      right.width - 24,
+      Offset(right.left + 6, right.top + 19),
+      right.width - 12,
       align: TextAlign.center,
     );
     _label(
       canvas,
       'cellular respiration',
-      Offset(right.left + 6, right.top + 50),
-      right.width - 12,
+      Offset(right.left + 4, right.top + 41),
+      right.width - 8,
       align: TextAlign.center,
     );
 
     _arrow(
       canvas,
-      Offset(left.right, left.center.dy - 16),
-      Offset(right.left, right.center.dy - 16),
+      Offset(left.right, left.center.dy - 12),
+      Offset(right.left, right.center.dy - 12),
       _stroke,
     );
     _label(
       canvas,
       'glucose + oxygen',
-      Offset(size.width * 0.38, 50),
-      size.width * 0.22,
+      Offset(size.width * 0.37, 38),
+      size.width * 0.27,
       style: mutedStyle,
       align: TextAlign.center,
     );
     _arrow(
       canvas,
-      Offset(right.left, right.center.dy + 25),
-      Offset(left.right, left.center.dy + 25),
-      _faint,
+      Offset(right.left, right.center.dy + 12),
+      Offset(left.right, left.center.dy + 12),
+      _stroke,
     );
     _label(
       canvas,
       'carbon dioxide + water',
-      Offset(size.width * 0.36, 124),
-      size.width * 0.27,
+      Offset(size.width * 0.36, 142),
+      size.width * 0.29,
       style: mutedStyle,
       align: TextAlign.center,
     );
     _label(
       canvas,
       'sunlight + carbon dioxide + water',
-      const Offset(12, 8),
-      size.width * 0.48,
+      const Offset(8, 8),
+      size.width * 0.42,
       style: mutedStyle,
+      align: TextAlign.center,
+    );
+    _arrow(
+      canvas,
+      Offset(left.center.dx, 42),
+      Offset(left.center.dx, left.top),
+      _stroke,
     );
     _label(
       canvas,
       'ATP',
-      Offset(right.center.dx - 12, right.bottom + 12),
-      40,
+      Offset(right.center.dx - 28, 178),
+      56,
       style: labelStyle.copyWith(color: board),
       align: TextAlign.center,
+    );
+    _arrow(
+      canvas,
+      Offset(right.center.dx, right.bottom),
+      Offset(right.center.dx, 174),
+      _stroke,
     );
   }
 
@@ -374,13 +431,28 @@ class _BiologyDiagramPainter extends CustomPainter {
       width: size.width * 0.34,
       height: 90,
     );
-    canvas.drawOval(mito, _stroke);
-    final cristae = Path()..moveTo(mito.left + 18, mito.center.dy);
+    final bean = _beanPath(mito);
+    canvas.drawPath(bean, _stroke);
+    final cristae = Path()..moveTo(mito.left + 24, mito.center.dy - 2);
     for (var i = 0; i < 5; i++) {
       final x = mito.left + 24 + i * 20;
       cristae
-        ..lineTo(x, mito.center.dy - 18)
-        ..lineTo(x + 10, mito.center.dy + 18);
+        ..cubicTo(
+          x - 8,
+          mito.center.dy - 18,
+          x + 8,
+          mito.center.dy - 18,
+          x + 3,
+          mito.center.dy - 2,
+        )
+        ..cubicTo(
+          x - 2,
+          mito.center.dy + 14,
+          x + 10,
+          mito.center.dy + 14,
+          x + 9,
+          mito.center.dy + 18,
+        );
     }
     canvas.drawPath(cristae, _stroke);
     _label(
@@ -407,40 +479,16 @@ class _BiologyDiagramPainter extends CustomPainter {
       final center = Offset(slot * (i + 0.5), 84);
       canvas.drawCircle(center, math.min(slot * 0.31, 35), _stroke);
       if (i == 0) {
-        for (var j = 0; j < 3; j++) {
-          final x = center.dx - 12 + j * 12;
-          canvas
-            ..drawLine(
-              Offset(x - 5, center.dy - 9),
-              Offset(x + 5, center.dy + 9),
-              _stroke,
-            )
-            ..drawLine(
-              Offset(x + 5, center.dy - 9),
-              Offset(x - 5, center.dy + 9),
-              _stroke,
-            );
-        }
+        _drawXChromosomes(canvas, center, _stroke, scale: 0.78);
       } else if (i == 1) {
-        for (var j = -1; j <= 1; j++) {
-          canvas
-            ..drawLine(
-              Offset(center.dx - 6, center.dy + j * 12 - 6),
-              Offset(center.dx + 6, center.dy + j * 12 + 6),
-              _stroke,
-            )
-            ..drawLine(
-              Offset(center.dx + 6, center.dy + j * 12 - 6),
-              Offset(center.dx - 6, center.dy + j * 12 + 6),
-              _stroke,
-            );
-        }
+        _drawXChromosomes(canvas, center, _stroke, scale: 0.70);
       } else if (i == 2) {
         for (final side in <double>[-1, 1]) {
           for (var j = -1; j <= 1; j++) {
-            canvas.drawLine(
-              Offset(center.dx + side * 10, center.dy + j * 10),
-              Offset(center.dx + side * 22, center.dy + j * 10 + side * 5),
+            _drawChromatid(
+              canvas,
+              Offset(center.dx + side * 19, center.dy + j * 11),
+              side,
               _stroke,
             );
           }
@@ -449,6 +497,18 @@ class _BiologyDiagramPainter extends CustomPainter {
         canvas
           ..drawCircle(Offset(center.dx - 15, center.dy), 13, _faint)
           ..drawCircle(Offset(center.dx + 15, center.dy), 13, _faint);
+        for (final nucleusCenter in <Offset>[
+          Offset(center.dx - 15, center.dy),
+          Offset(center.dx + 15, center.dy),
+        ]) {
+          for (var j = -1; j <= 1; j++) {
+            canvas.drawLine(
+              Offset(nucleusCenter.dx - 4, nucleusCenter.dy + j * 5),
+              Offset(nucleusCenter.dx + 4, nucleusCenter.dy + j * 5),
+              _faint,
+            );
+          }
+        }
       }
       _label(
         canvas,
@@ -475,6 +535,10 @@ class _BiologyDiagramPainter extends CustomPainter {
     const baseWidthFactor = 0.78;
     const topWidthFactor = 0.24;
     final levelHeight = (size.height - 24) / levels.length;
+    final pyramidStyle = labelStyle.copyWith(
+      fontSize: (labelStyle.fontSize ?? 12) * 0.78,
+      height: 1,
+    );
     for (var i = 0; i < levels.length; i++) {
       final fromBottom = i;
       final t = fromBottom / (levels.length - 1);
@@ -486,10 +550,10 @@ class _BiologyDiagramPainter extends CustomPainter {
       canvas.drawRect(rect, i == 0 ? _stroke : _faint);
       _label(
         canvas,
-        '${levels[i]['label']}  ${levels[i]['energy']}',
-        Offset(rect.left + 4, rect.center.dy - 8),
-        rect.width - 8,
-        style: i == 0 ? labelStyle.copyWith(color: board) : labelStyle,
+        _pyramidLabel(levels[i]),
+        Offset(rect.left + 6, rect.center.dy - 9),
+        rect.width - 12,
+        style: i == 0 ? pyramidStyle.copyWith(color: board) : pyramidStyle,
         align: TextAlign.center,
       );
     }
@@ -508,99 +572,264 @@ class _BiologyDiagramPainter extends CustomPainter {
         style: mutedStyle,
         align: TextAlign.center,
       );
-      final preferredBeak = 9.0 + generation * 5;
-      for (var bird = 0; bird < 3; bird++) {
-        final y = 60.0 + bird * 42;
+      final preferredBeak = 9.0 + generation * 4;
+      final lessSuitedCount = 2 - generation;
+      for (var bird = 0; bird < 4; bird++) {
+        final y = 62.0 + bird * 28;
         final head = Offset(x - 8, y);
         canvas.drawCircle(head, 9, _stroke);
-        final beakLength =
-            bird == 2 ? math.max(5.0, 12 - generation * 3) : preferredBeak;
+        final lessSuited = bird >= 4 - lessSuitedCount;
+        final beakLength = lessSuited ? 5.0 : preferredBeak;
         final beak = Path()
           ..moveTo(head.dx + 8, head.dy - 4)
           ..lineTo(head.dx + 8 + beakLength, head.dy)
           ..lineTo(head.dx + 8, head.dy + 4)
           ..close();
-        canvas.drawPath(beak, _stroke);
-        if (bird == 2 && generation == 2) {
+        canvas.drawPath(beak, lessSuited ? _faint : _stroke);
+        if (!lessSuited) {
           canvas.drawLine(
-            Offset(head.dx - 12, head.dy - 12),
-            Offset(head.dx + 16, head.dy + 12),
-            _faint,
+            Offset(head.dx + 8 + beakLength, head.dy),
+            Offset(x + 42, 44),
+            _semanticStroke,
           );
         }
+      }
+      for (var food = 0; food < 3; food++) {
+        canvas.drawCircle(
+          Offset(x + 42 + (food.isEven ? 0 : 5), 40 + food * 5),
+          2.5,
+          _semanticFill,
+        );
       }
     }
     _label(
       canvas,
+      'available food',
+      const Offset(12, 174),
+      size.width * 0.28,
+      style: mutedStyle,
+      align: TextAlign.center,
+    );
+    _label(
+      canvas,
       spec['selection']! as String,
-      const Offset(14, 184),
-      size.width - 28,
+      Offset(size.width * 0.29, 174),
+      size.width * 0.67,
       style: mutedStyle,
       align: TextAlign.center,
     );
   }
 
   void _paintHeart(Canvas canvas, Size size) {
-    final chamberWidth = size.width * 0.20;
-    const chamberHeight = 54.0;
-    final left = size.width * 0.28;
-    final right = size.width * 0.52;
-    const top = 35.0;
-    const bottom = 101.0;
+    final chamberWidth = size.width * 0.19;
+    const chamberHeight = 48.0;
+    final left = size.width * 0.31;
+    final right = size.width * 0.50;
+    const top = 42.0;
+    const bottom = 102.0;
     final chambers = <Rect>[
       Rect.fromLTWH(left, top, chamberWidth, chamberHeight),
       Rect.fromLTWH(right, top, chamberWidth, chamberHeight),
       Rect.fromLTWH(left, bottom, chamberWidth, chamberHeight),
       Rect.fromLTWH(right, bottom, chamberWidth, chamberHeight),
     ];
-    final labels = _stringList(spec['chambers'])!;
+    const labels = <String>[
+      'right atrium',
+      'left atrium',
+      'right ventricle',
+      'left ventricle',
+    ];
     for (var i = 0; i < chambers.length; i++) {
       canvas.drawRect(chambers[i], _stroke);
       _label(
         canvas,
         labels[i],
-        Offset(chambers[i].left + 2, chambers[i].center.dy - 8),
-        chambers[i].width - 4,
+        Offset(chambers[i].left + 3, chambers[i].center.dy - 15),
+        chambers[i].width - 6,
         align: TextAlign.center,
       );
     }
-    _arrow(canvas, chambers[0].bottomCenter, chambers[2].topCenter, _faint);
-    _arrow(canvas, chambers[1].bottomCenter, chambers[3].topCenter, _faint);
+    _arrow(canvas, chambers[0].bottomCenter, chambers[2].topCenter, _stroke);
+    _arrow(canvas, chambers[1].bottomCenter, chambers[3].topCenter, _stroke);
 
     final flows = _mapList(spec['flows'])!;
-    _label(
-      canvas,
-      '${flows[0]['label']} → ${flows[0]['destination']}',
-      const Offset(8, 52),
-      size.width * 0.24,
-      style: mutedStyle,
-      align: TextAlign.center,
-    );
-    _label(
-      canvas,
-      '${flows[1]['label']} → ${flows[1]['destination']}',
-      Offset(size.width * 0.76, 52),
-      size.width * 0.22,
-      style: mutedStyle,
-      align: TextAlign.center,
-    );
-    _arrow(
+    final pulmonaryPathX = size.width * 0.28;
+    final systemicPathX = size.width * 0.92;
+    final lungsY = chambers[0].center.dy;
+    final bodyY = chambers[1].center.dy;
+    final pulmonaryExit = Offset(pulmonaryPathX, chambers[2].center.dy);
+    final pulmonaryReturn = Offset(pulmonaryPathX, lungsY);
+    final systemicExit = Offset(systemicPathX, chambers[3].center.dy);
+    final systemicReturn = Offset(systemicPathX, bodyY);
+    _routeArrow(
       canvas,
       chambers[2].centerLeft,
-      Offset(size.width * 0.20, chambers[2].center.dy),
+      pulmonaryExit,
       _stroke,
     );
-    _arrow(
+    _routeArrow(
+      canvas,
+      pulmonaryReturn,
+      chambers[0].centerLeft,
+      _stroke,
+    );
+    _routeArrow(
       canvas,
       chambers[3].centerRight,
-      Offset(size.width * 0.82, chambers[3].center.dy),
+      systemicExit,
       _stroke,
+    );
+    _routeArrow(
+      canvas,
+      systemicReturn,
+      chambers[1].centerRight,
+      _stroke,
+    );
+    canvas
+      ..drawLine(pulmonaryExit, pulmonaryReturn, _stroke)
+      ..drawLine(systemicExit, systemicReturn, _stroke);
+    _label(
+      canvas,
+      '${flows[0]['label']}\n${flows[0]['destination']}',
+      const Offset(4, 72),
+      size.width * 0.20,
+      style: mutedStyle,
+      align: TextAlign.center,
+      maxLines: 3,
+    );
+    _label(
+      canvas,
+      '${flows[1]['label']}\n${flows[1]['destination']}',
+      Offset(size.width * 0.78, 72),
+      size.width * 0.16,
+      style: mutedStyle,
+      align: TextAlign.center,
+      maxLines: 3,
+    );
+    _label(
+      canvas,
+      'blood flow',
+      Offset(size.width * 0.39, 178),
+      size.width * 0.22,
+      style: labelStyle.copyWith(color: board),
+      align: TextAlign.center,
     );
   }
 
   void _leaderLabel(Canvas canvas, String text, Offset from, Offset labelAt) {
-    canvas.drawLine(from, Offset(labelAt.dx - 6, labelAt.dy + 8), _faint);
+    final labelPoint = Offset(labelAt.dx - 6, labelAt.dy + 8);
+    _arrow(canvas, labelPoint, from, _faint);
     _label(canvas, text, labelAt, 132, maxLines: 3);
+  }
+
+  void _callout(Canvas canvas, Offset target, Offset labelPoint, Color color) {
+    final paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
+    _arrow(canvas, labelPoint, target, paint);
+  }
+
+  void _routeArrow(Canvas canvas, Offset from, Offset to, Paint paint) {
+    canvas.drawLine(from, to, paint);
+    _arrow(canvas, from, to, paint);
+  }
+
+  String _pyramidLabel(Map<String, Object?> level) {
+    final label = level['label']! as String;
+    final energy = level['energy']! as String;
+    if (label.length > 16) {
+      final words = label.split(' ');
+      return '${words.first}\n${words.skip(1).join(' ')}  $energy';
+    }
+    return '$label  $energy';
+  }
+
+  Path _beanPath(Rect rect) {
+    final center = rect.center;
+    final halfWidth = rect.width / 2;
+    final halfHeight = rect.height / 2;
+    return Path()
+      ..moveTo(center.dx - halfWidth * 0.85, center.dy)
+      ..cubicTo(
+        center.dx - halfWidth * 1.05,
+        center.dy - halfHeight * 0.64,
+        center.dx - halfWidth * 0.40,
+        center.dy - halfHeight * 1.04,
+        center.dx + halfWidth * 0.10,
+        center.dy - halfHeight * 0.82,
+      )
+      ..cubicTo(
+        center.dx + halfWidth * 0.72,
+        center.dy - halfHeight * 0.64,
+        center.dx + halfWidth * 1.00,
+        center.dy - halfHeight * 0.08,
+        center.dx + halfWidth * 0.78,
+        center.dy + halfHeight * 0.45,
+      )
+      ..cubicTo(
+        center.dx + halfWidth * 0.56,
+        center.dy + halfHeight * 0.98,
+        center.dx - halfWidth * 0.16,
+        center.dy + halfHeight * 0.88,
+        center.dx - halfWidth * 0.62,
+        center.dy + halfHeight * 0.58,
+      )
+      ..cubicTo(
+        center.dx - halfWidth * 0.96,
+        center.dy + halfHeight * 0.36,
+        center.dx - halfWidth * 1.02,
+        center.dy + halfHeight * 0.08,
+        center.dx - halfWidth * 0.85,
+        center.dy,
+      )
+      ..close();
+  }
+
+  void _drawXChromosomes(
+    Canvas canvas,
+    Offset center,
+    Paint paint, {
+    double scale = 1,
+  }) {
+    for (var j = -1; j <= 1; j++) {
+      final x = center.dx + j * 16 * scale;
+      _drawXChromosome(canvas, Offset(x, center.dy), paint, scale: scale);
+    }
+  }
+
+  void _drawXChromosome(
+    Canvas canvas,
+    Offset center,
+    Paint paint, {
+    double scale = 1,
+  }) {
+    final width = 5 * scale;
+    final height = 9 * scale;
+    canvas
+      ..drawLine(
+        Offset(center.dx - width, center.dy - height),
+        Offset(center.dx + width, center.dy + height),
+        paint,
+      )
+      ..drawLine(
+        Offset(center.dx + width, center.dy - height),
+        Offset(center.dx - width, center.dy + height),
+        paint,
+      );
+  }
+
+  void _drawChromatid(
+    Canvas canvas,
+    Offset center,
+    double side,
+    Paint paint,
+  ) {
+    final path = Path()
+      ..moveTo(center.dx + side * 6, center.dy - 6)
+      ..lineTo(center.dx - side * 2, center.dy)
+      ..lineTo(center.dx + side * 6, center.dy + 6);
+    canvas.drawPath(path, paint);
   }
 
   void _arrow(Canvas canvas, Offset from, Offset to, Paint paint) {

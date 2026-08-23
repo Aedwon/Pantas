@@ -164,7 +164,7 @@ class _ChemistryDiagramPainter extends CustomPainter {
     _label(
       canvas,
       'acidic',
-      const Offset(18, 37),
+      const Offset(18, 13),
       width * 0.30,
       style: labelStyle.copyWith(color: rust),
       align: TextAlign.center,
@@ -172,7 +172,7 @@ class _ChemistryDiagramPainter extends CustomPainter {
     _label(
       canvas,
       'neutral',
-      Offset(left + width * 0.39, 37),
+      Offset(left + width * 0.39, 13),
       width * 0.22,
       style: labelStyle.copyWith(color: board),
       align: TextAlign.center,
@@ -180,9 +180,9 @@ class _ChemistryDiagramPainter extends CustomPainter {
     _label(
       canvas,
       'basic',
-      Offset(left + width * 0.70, 37),
+      Offset(left + width * 0.70, 13),
       width * 0.30,
-      style: mutedStyle,
+      style: labelStyle.copyWith(color: amber),
       align: TextAlign.center,
     );
 
@@ -190,11 +190,11 @@ class _ChemistryDiagramPainter extends CustomPainter {
     for (final example in examples) {
       final ph = example['ph']! as int;
       final x = left + ph * step;
-      canvas.drawLine(Offset(x, y - 11), Offset(x, y - 27), _faint);
+      canvas.drawLine(Offset(x, y - 11), Offset(x, y - 31), _stroke);
       _label(
         canvas,
         example['label']! as String,
-        Offset(x - 38, y - 48),
+        Offset(x - 38, y - 54),
         76,
         style: mutedStyle,
         align: TextAlign.center,
@@ -208,24 +208,30 @@ class _ChemistryDiagramPainter extends CustomPainter {
       ..color = board
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.6;
-    canvas
-      ..drawCircle(center, 28, nucleusPaint)
-      ..drawCircle(Offset(center.dx - 9, center.dy), 8, _stroke)
-      ..drawCircle(Offset(center.dx + 9, center.dy), 8, _faint);
-    _label(
+    canvas.drawCircle(center, 31, nucleusPaint);
+    _particleWithCharge(
       canvas,
+      Offset(center.dx - 10, center.dy - 7),
       '+',
-      Offset(center.dx - 13, center.dy - 8),
-      8,
-      align: TextAlign.center,
+      rust,
     );
-    _label(
+    _particleWithCharge(
       canvas,
-      'neutral',
-      Offset(center.dx + 1, center.dy - 7),
-      28,
-      style: mutedStyle,
-      align: TextAlign.center,
+      Offset(center.dx + 10, center.dy - 7),
+      '0',
+      inkMuted,
+    );
+    _particleWithCharge(
+      canvas,
+      Offset(center.dx - 10, center.dy + 12),
+      '+',
+      rust,
+    );
+    _particleWithCharge(
+      canvas,
+      Offset(center.dx + 10, center.dy + 12),
+      '0',
+      inkMuted,
     );
 
     final orbit1 =
@@ -235,20 +241,19 @@ class _ChemistryDiagramPainter extends CustomPainter {
     canvas
       ..drawOval(orbit1, _faint)
       ..drawOval(orbit2, _faint);
-    final electronPaint = Paint()
-      ..color = ink
-      ..style = PaintingStyle.fill;
     final e1 = Offset(orbit1.right, center.dy);
     final e2 = Offset(center.dx, orbit2.top);
-    canvas
-      ..drawCircle(e1, 4, electronPaint)
-      ..drawCircle(e2, 4, electronPaint);
+    final e3 = Offset(orbit2.left, center.dy + 3);
+    for (final electron in <Offset>[e1, e2, e3]) {
+      _particleWithCharge(canvas, electron, '−', ink);
+    }
     _label(
       canvas,
-      'electron (−)',
-      Offset(e1.dx - 68, e1.dy + 9),
-      72,
+      'electrons (−)',
+      Offset(size.width * 0.68, 15),
+      size.width * 0.25,
       style: mutedStyle,
+      align: TextAlign.center,
     );
     _label(
       canvas,
@@ -263,6 +268,8 @@ class _ChemistryDiagramPainter extends CustomPainter {
   void _paintBondTypes(Canvas canvas, Size size) {
     final bonds = _mapList(spec['bondTypes'])!;
     final slot = size.width / 3;
+    final titleStyle = labelStyle.copyWith(fontWeight: FontWeight.w600);
+    final electronPaint = Paint()..color = amber;
     for (var i = 0; i < bonds.length; i++) {
       final x0 = slot * i;
       _label(
@@ -270,38 +277,63 @@ class _ChemistryDiagramPainter extends CustomPainter {
         bonds[i]['label']! as String,
         Offset(x0 + 4, 10),
         slot - 8,
-        style: labelStyle,
+        style: titleStyle,
         align: TextAlign.center,
       );
       if (i == 0) {
-        final left = Offset(x0 + slot * 0.28, 88);
-        final right = Offset(x0 + slot * 0.72, 88);
+        final left = Offset(x0 + slot * 0.27, 88);
+        final right = Offset(x0 + slot * 0.73, 88);
         canvas
           ..drawCircle(left, 18, _stroke)
           ..drawCircle(right, 18, _stroke)
-          ..drawCircle(
-            Offset(left.dx + 13, left.dy - 20),
-            2.5,
-            Paint()..color = ink,
-          );
-        _arrow(
+          ..drawCircle(left, 18, Paint()..color = rust.withValues(alpha: .1))
+          ..drawCircle(right, 18, Paint()..color = board.withValues(alpha: .1));
+        _label(
           canvas,
-          Offset(left.dx + 15, left.dy - 18),
-          Offset(right.dx - 12, right.dy - 18),
+          'metal',
+          Offset(left.dx - 20, 47),
+          40,
+          style: mutedStyle,
+          align: TextAlign.center,
+        );
+        _label(
+          canvas,
+          'nonmetal',
+          Offset(right.dx - 27, 47),
+          54,
+          style: mutedStyle,
+          align: TextAlign.center,
+        );
+        canvas.drawCircle(
+          Offset(left.dx + 8, left.dy - 22),
+          3.5,
+          electronPaint,
+        );
+        _curvedArrow(
+          canvas,
+          Offset(left.dx + 8, left.dy - 19),
+          Offset(right.dx - 8, right.dy - 19),
           _stroke,
+        );
+        canvas.drawCircle(
+          Offset((left.dx + right.dx) / 2, left.dy - 19),
+          3.5,
+          electronPaint,
         );
         _label(
           canvas,
           '+',
-          Offset(left.dx - 5, 116),
-          12,
+          Offset(left.dx - 5, 111),
+          10,
+          style: labelStyle.copyWith(color: rust),
           align: TextAlign.center,
         );
         _label(
           canvas,
           '−',
-          Offset(right.dx - 5, 116),
-          12,
+          Offset(right.dx - 5, 111),
+          10,
+          style: labelStyle.copyWith(color: board),
           align: TextAlign.center,
         );
       } else if (i == 1) {
@@ -309,17 +341,32 @@ class _ChemistryDiagramPainter extends CustomPainter {
         final right = Offset(x0 + slot * 0.68, 88);
         canvas
           ..drawCircle(left, 19, _stroke)
-          ..drawCircle(right, 19, _stroke)
+          ..drawCircle(right, 19, _stroke);
+        final sharedY = (left.dy + right.dy) / 2;
+        canvas
           ..drawCircle(
-            Offset((left.dx + right.dx) / 2 - 3, 88),
-            2.5,
-            Paint()..color = board,
+            Offset((left.dx + right.dx) / 2 - 4, sharedY),
+            3.5,
+            electronPaint,
           )
           ..drawCircle(
-            Offset((left.dx + right.dx) / 2 + 3, 88),
-            2.5,
-            Paint()..color = board,
+            Offset((left.dx + right.dx) / 2 + 4, sharedY),
+            3.5,
+            electronPaint,
+          )
+          ..drawLine(
+            Offset(left.dx + 18, sharedY),
+            Offset(right.dx - 18, sharedY),
+            _faint,
           );
+        _label(
+          canvas,
+          'nonmetals share',
+          Offset(x0 + 7, 47),
+          slot - 14,
+          style: mutedStyle,
+          align: TextAlign.center,
+        );
       } else {
         for (var row = 0; row < 2; row++) {
           for (var col = 0; col < 3; col++) {
@@ -331,10 +378,18 @@ class _ChemistryDiagramPainter extends CustomPainter {
           }
         }
         for (var dot = 0; dot < 8; dot++) {
-          canvas.drawCircle(
-            Offset(x0 + 15 + (dot % 4) * 25, 58 + (dot ~/ 4) * 58),
-            2.3,
-            Paint()..color = inkMuted,
+          final electron = Offset(
+            x0 + 15 + (dot % 4) * 25,
+            58 + (dot ~/ 4) * 58,
+          );
+          canvas.drawCircle(electron, 2.8, electronPaint);
+          _arrow(
+            canvas,
+            electron + const Offset(-6, 0),
+            electron + const Offset(6, 0),
+            Paint()
+              ..color = amber.withValues(alpha: .7)
+              ..strokeWidth = 1,
           );
         }
       }
@@ -343,7 +398,7 @@ class _ChemistryDiagramPainter extends CustomPainter {
         bonds[i]['electronAction']! as String,
         Offset(x0 + 6, 145),
         slot - 12,
-        style: mutedStyle,
+        style: mutedStyle.copyWith(fontSize: 11),
         align: TextAlign.center,
         maxLines: 3,
       );
@@ -364,11 +419,7 @@ class _ChemistryDiagramPainter extends CustomPainter {
       );
       final cx = x0 + slot / 2;
       if (i == 0) {
-        final body = Rect.fromCenter(
-          center: Offset(cx, 100),
-          width: slot * 0.55,
-          height: 76,
-        );
+        final body = Rect.fromLTWH(x0 + slot * .23, 61, slot * .54, 80);
         canvas
           ..drawRect(body, _stroke)
           ..drawLine(
@@ -376,62 +427,115 @@ class _ChemistryDiagramPainter extends CustomPainter {
             Offset(body.right, body.top + 20),
             _stroke,
           );
-        _arrow(canvas, Offset(cx, 49), Offset(cx, body.top + 16), _stroke);
+        _arrow(
+          canvas,
+          Offset(cx, body.top - 15),
+          Offset(cx, body.top + 4),
+          _stroke,
+        );
+        for (var dot = 0; dot < 6; dot++) {
+          canvas.drawCircle(
+            Offset(
+              body.left + 15 + (dot % 3) * 18,
+              body.top + 42 + (dot ~/ 3) * 20,
+            ),
+            2.5,
+            Paint()..color = amber,
+          );
+        }
       } else if (i == 1) {
+        final small = Offset(cx - 19, 101);
+        final large = Offset(cx + 16, 91);
         canvas
           ..drawOval(
-            Rect.fromCenter(center: Offset(cx, 103), width: 50, height: 66),
+            Rect.fromCenter(center: small, width: 26, height: 34),
             _stroke,
           )
           ..drawOval(
-            Rect.fromCenter(center: Offset(cx, 103), width: 33, height: 45),
-            _faint,
+            Rect.fromCenter(center: large, width: 43, height: 57),
+            _stroke,
+          )
+          ..drawLine(
+            Offset(small.dx + 8, small.dy + 17),
+            Offset(small.dx + 8, small.dy + 22),
+            _stroke,
+          )
+          ..drawLine(
+            Offset(large.dx - 5, large.dy + 28),
+            Offset(large.dx - 5, large.dy + 33),
+            _stroke,
           );
+        _arrow(
+          canvas,
+          Offset(small.dx + 15, 87),
+          Offset(large.dx - 23, 75),
+          _stroke,
+        );
+        _heatWaves(canvas, Offset(cx, 144));
         _label(
           canvas,
           'heat',
-          Offset(cx - 20, 54),
+          Offset(cx - 20, 151),
           40,
           style: labelStyle.copyWith(color: amber),
           align: TextAlign.center,
         );
       } else if (i == 2) {
         final can =
-            Rect.fromCenter(center: Offset(cx, 108), width: 48, height: 64);
+            Rect.fromCenter(center: Offset(cx, 105), width: 45, height: 68);
         canvas
           ..drawRect(can, _stroke)
-          ..drawArc(
-            Rect.fromCircle(center: Offset(cx, 64), radius: 16),
-            math.pi,
-            math.pi,
-            false,
+          ..drawLine(
+            Offset(can.left, can.top),
+            Offset(can.right, can.top),
             _stroke,
-          );
-        _arrow(canvas, Offset(cx, 64), Offset(cx + 10, 54), _stroke);
+          )
+          ..drawCircle(Offset(cx, 102), 12, _stroke)
+          ..drawLine(Offset(cx, 102), Offset(cx + 5, 94), _stroke);
+        _heatWaves(canvas, Offset(cx, 145));
+        _label(
+          canvas,
+          'P↑',
+          Offset(cx - 12, 95),
+          24,
+          style: labelStyle.copyWith(fontWeight: FontWeight.w600),
+          align: TextAlign.center,
+        );
         _label(
           canvas,
           'heat',
-          Offset(cx - 20, 154),
+          Offset(cx - 20, 151),
           40,
           style: labelStyle.copyWith(color: amber),
           align: TextAlign.center,
         );
       } else {
-        final small =
-            Rect.fromCenter(center: Offset(cx - 8, 103), width: 34, height: 50);
-        final large =
-            Rect.fromCenter(center: Offset(cx + 7, 103), width: 57, height: 76);
+        final small = Rect.fromLTWH(cx - 30, 80, 24, 48);
+        final large = Rect.fromLTWH(cx - 1, 67, 42, 75);
         canvas
-          ..drawRect(large, _faint)
-          ..drawRect(small, _stroke);
-        for (var dot = 0; dot < 6; dot++) {
+          ..drawRect(small, _faint)
+          ..drawRect(large, _stroke);
+        _arrow(
+          canvas,
+          Offset(small.right + 1, 104),
+          Offset(large.left - 2, 104),
+          _stroke,
+        );
+        for (var dot = 0; dot < 7; dot++) {
           canvas.drawCircle(
             Offset(
-              large.left + 12 + (dot % 3) * 15,
-              large.top + 18 + (dot ~/ 3) * 25,
+              large.left + 11 + (dot % 3) * 13,
+              large.top + 18 + (dot ~/ 3) * 22,
             ),
             2.4,
-            Paint()..color = ink,
+            Paint()..color = amber,
+          );
+        }
+        for (var dot = 0; dot < 3; dot++) {
+          canvas.drawCircle(
+            Offset(x0 + 8 + dot * 8, 103),
+            2.4,
+            Paint()..color = amber,
           );
         }
       }
@@ -440,8 +544,9 @@ class _ChemistryDiagramPainter extends CustomPainter {
         laws[i]['scene']! as String,
         Offset(x0 + 3, 176),
         slot - 6,
-        style: mutedStyle,
+        style: mutedStyle.copyWith(fontSize: 10),
         align: TextAlign.center,
+        maxLines: 3,
       );
     }
   }
@@ -460,16 +565,28 @@ class _ChemistryDiagramPainter extends CustomPainter {
       );
       final center = Offset(cx, 93);
       if (i == 0) {
-        canvas.drawCircle(center, 28, _stroke);
+        canvas
+          ..drawCircle(center, 28, Paint()..color = ink.withValues(alpha: .18))
+          ..drawCircle(center, 28, _stroke);
       } else if (i == 1) {
-        canvas.drawCircle(center, 30, _stroke);
+        canvas
+          ..drawCircle(center, 30, Paint()..color = rust.withValues(alpha: .12))
+          ..drawCircle(center, 30, _stroke);
+        _label(
+          canvas,
+          '+',
+          Offset(center.dx - 20, center.dy - 8),
+          40,
+          style: mutedStyle,
+          align: TextAlign.center,
+        );
         for (final d in <Offset>[
           const Offset(-13, -10),
           const Offset(10, -7),
           const Offset(-6, 13),
           const Offset(14, 11),
         ]) {
-          canvas.drawCircle(center + d, 3, Paint()..color = ink);
+          canvas.drawCircle(center + d, 3, Paint()..color = amber);
         }
       } else if (i == 2) {
         canvas
@@ -524,15 +641,16 @@ class _ChemistryDiagramPainter extends CustomPainter {
         }
       } else if (i == 1) {
         final points = <Offset>[
-          const Offset(0.16, 0.25),
-          const Offset(0.38, 0.18),
-          const Offset(0.65, 0.28),
-          const Offset(0.80, 0.42),
-          const Offset(0.28, 0.50),
-          const Offset(0.52, 0.56),
-          const Offset(0.72, 0.68),
-          const Offset(0.20, 0.78),
-          const Offset(0.45, 0.82),
+          const Offset(0.22, 0.22),
+          const Offset(0.48, 0.17),
+          const Offset(0.74, 0.27),
+          const Offset(0.34, 0.42),
+          const Offset(0.60, 0.48),
+          const Offset(0.80, 0.56),
+          const Offset(0.20, 0.69),
+          const Offset(0.47, 0.76),
+          const Offset(0.72, 0.80),
+          const Offset(0.39, 0.60),
         ];
         for (final point in points) {
           _particle(
@@ -546,19 +664,33 @@ class _ChemistryDiagramPainter extends CustomPainter {
       } else {
         final points = <Offset>[
           const Offset(0.15, 0.20),
-          const Offset(0.72, 0.18),
+          const Offset(0.76, 0.18),
           const Offset(0.42, 0.45),
           const Offset(0.84, 0.66),
           const Offset(0.20, 0.78),
+          const Offset(0.66, 0.82),
         ];
-        for (final point in points) {
+        for (var pointIndex = 0; pointIndex < points.length; pointIndex++) {
+          final point = points[pointIndex];
+          final particleCenter = Offset(
+            box.left + point.dx * box.width,
+            box.top + point.dy * box.height,
+          );
           _particle(
             canvas,
-            Offset(
-              box.left + point.dx * box.width,
-              box.top + point.dy * box.height,
-            ),
+            particleCenter,
           );
+          final direction =
+              pointIndex.isEven ? const Offset(10, -5) : const Offset(-10, 5);
+          _arrow(
+            canvas,
+            particleCenter - direction * .55,
+            particleCenter + direction * .55,
+            Paint()
+              ..color = amber.withValues(alpha: .8)
+              ..strokeWidth = 1,
+          );
+          _particle(canvas, particleCenter);
         }
       }
       _label(
@@ -588,18 +720,18 @@ class _ChemistryDiagramPainter extends CustomPainter {
     final cellW = (size.width - 44) / cols;
     const cellH = 20.0;
     const metalloids = <(int, int)>{
-      (12, 2),
-      (12, 3),
+      (12, 1),
       (13, 3),
-      (13, 4),
+      (13, 2),
+      (14, 3),
       (14, 4),
-      (14, 5),
+      (15, 4),
       (15, 5),
-      (15, 6),
+      (16, 5),
     };
-    final metalFill = Paint()..color = ink.withValues(alpha: .06);
-    final metalloidFill = Paint()..color = ink.withValues(alpha: .24);
-    final nonmetalFill = Paint()..color = ink.withValues(alpha: .14);
+    final metalFill = Paint()..color = board.withValues(alpha: .28);
+    final metalloidFill = Paint()..color = amber.withValues(alpha: .40);
+    final nonmetalFill = Paint()..color = rust.withValues(alpha: .24);
     for (var row = 0; row < rows; row++) {
       for (var col = 0; col < cols; col++) {
         final occupied = row > 1 ||
@@ -624,15 +756,24 @@ class _ChemistryDiagramPainter extends CustomPainter {
       }
     }
     final staircase = Path()
-      ..moveTo(left + cellW * 12, top + cellH * 2)
-      ..lineTo(left + cellW * 12, top + cellH * 3)
-      ..lineTo(left + cellW * 13, top + cellH * 3)
-      ..lineTo(left + cellW * 13, top + cellH * 4)
-      ..lineTo(left + cellW * 14, top + cellH * 4)
-      ..lineTo(left + cellW * 14, top + cellH * 5)
-      ..lineTo(left + cellW * 15, top + cellH * 5)
-      ..lineTo(left + cellW * 15, top + cellH * 6);
-    canvas.drawPath(staircase, _stroke);
+      ..moveTo(left + cellW * 12, top + cellH * 1)
+      ..lineTo(left + cellW * 13, top + cellH * 1)
+      ..lineTo(left + cellW * 13, top + cellH * 2)
+      ..lineTo(left + cellW * 14, top + cellH * 2)
+      ..lineTo(left + cellW * 14, top + cellH * 3)
+      ..lineTo(left + cellW * 15, top + cellH * 3)
+      ..lineTo(left + cellW * 15, top + cellH * 4)
+      ..lineTo(left + cellW * 16, top + cellH * 4)
+      ..lineTo(left + cellW * 16, top + cellH * 5)
+      ..lineTo(left + cellW * 17, top + cellH * 5)
+      ..lineTo(left + cellW * 17, top + cellH * 6);
+    canvas.drawPath(
+      staircase,
+      Paint()
+        ..color = amber
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 2,
+    );
     _label(
       canvas,
       'metals',
@@ -652,8 +793,8 @@ class _ChemistryDiagramPainter extends CustomPainter {
     _label(
       canvas,
       'metalloids',
-      Offset(left + cellW * 11.1, top + cellH * 6.2),
-      cellW * 5.3,
+      Offset(left + cellW * 10.8, top + cellH * 6.1),
+      cellW * 5.8,
       style: labelStyle,
       align: TextAlign.center,
     );
@@ -706,7 +847,7 @@ class _ChemistryDiagramPainter extends CustomPainter {
       );
       _label(
         canvas,
-        '${orbitals[i]['shape']} • max ${orbitals[i]['capacity']} e⁻',
+        '${orbitals[i]['shape']} • max ${orbitals[i]['capacity']} e-',
         Offset(slot * i + 3, 157),
         slot - 6,
         style: mutedStyle,
@@ -753,23 +894,38 @@ class _ChemistryDiagramPainter extends CustomPainter {
     final measures = _stringList(spec['measures'])!;
     _label(
       canvas,
-      'same dissolved sugar, measured as:',
-      Offset(size.width * 0.53, 29),
+      'same sugar, four measures:',
+      Offset(size.width * 0.53, 28),
       size.width * 0.43,
       style: mutedStyle,
     );
     for (var i = 0; i < measures.length; i++) {
-      final y = 78.0 + i * 28;
-      canvas.drawLine(
-        Offset(size.width * 0.55, y + 7),
-        Offset(size.width * 0.61, y + 7),
-        _faint,
+      final y = 68.0 + i * 27;
+      final cue = switch (measures[i]) {
+        'molarity' => 'mol / L solution',
+        'molality' => 'mol / kg solvent',
+        'percent by mass' => 'mass solute / mass solution',
+        'percent by volume' => 'volume solute / volume solution',
+        _ => measures[i],
+      };
+      canvas.drawCircle(
+        Offset(size.width * 0.55, y + 8),
+        3,
+        Paint()..color = amber,
       );
       _label(
         canvas,
         measures[i],
-        Offset(size.width * 0.63, y),
-        size.width * 0.33,
+        Offset(size.width * 0.59, y),
+        size.width * 0.38,
+        style: labelStyle.copyWith(fontSize: 11, fontWeight: FontWeight.w600),
+      );
+      _label(
+        canvas,
+        cue,
+        Offset(size.width * 0.59, y + 13),
+        size.width * 0.38,
+        style: mutedStyle.copyWith(fontSize: 10),
       );
     }
   }
@@ -780,27 +936,35 @@ class _ChemistryDiagramPainter extends CustomPainter {
     for (var i = 0; i < profiles.length; i++) {
       final x0 = slot * i + 18;
       final right = slot * (i + 1) - 18;
-      const high = 57.0;
+      const high = 82.0;
       const low = 137.0;
+      final axisPaint = Paint()
+        ..color = inkMuted
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 1;
       canvas
-        ..drawLine(Offset(x0, 22), Offset(x0, 168), _faint)
-        ..drawLine(Offset(x0, 168), Offset(right, 168), _faint);
+        ..drawLine(Offset(x0 + 14, 31), Offset(x0 + 14, 168), axisPaint)
+        ..drawLine(Offset(x0 + 14, 168), Offset(right, 168), axisPaint);
       final startY = i == 0 ? high : low;
       final endY = i == 0 ? low : high;
       final energyArrowPaint = Paint()
         ..color = i == 0 ? rust : board
         ..strokeWidth = 1.4;
+      final startX = x0 + 30;
+      final endX = right - 12;
+      final peakX = (startX + endX) / 2;
       canvas
-        ..drawLine(Offset(x0 + 22, startY), Offset(x0 + 70, startY), _stroke)
-        ..drawLine(Offset(right - 70, endY), Offset(right - 22, endY), _stroke);
+        ..drawLine(Offset(startX, startY), Offset(peakX - 28, startY), _stroke)
+        ..drawLine(Offset(peakX + 28, endY), Offset(endX, endY), _stroke);
       final path = Path()
-        ..moveTo(x0 + 70, startY)
-        ..quadraticBezierTo((x0 + right) / 2, 34, right - 70, endY);
+        ..moveTo(peakX - 28, startY)
+        ..cubicTo(peakX - 18, startY, peakX - 19, 40, peakX, 40)
+        ..cubicTo(peakX + 19, 40, peakX + 18, endY, peakX + 28, endY);
       canvas.drawPath(path, _stroke);
       _arrow(
         canvas,
-        Offset((x0 + right) / 2 + 24, startY),
-        Offset((x0 + right) / 2 + 24, endY),
+        Offset(peakX + 45, startY),
+        Offset(peakX + 45, endY),
         energyArrowPaint,
       );
       _label(
@@ -815,10 +979,49 @@ class _ChemistryDiagramPainter extends CustomPainter {
       );
       _label(
         canvas,
+        'Energy',
+        Offset(x0 + 1, 22),
+        45,
+        style: mutedStyle.copyWith(fontSize: 9),
+      );
+      _label(
+        canvas,
+        'Reactants',
+        Offset(startX - 5, startY - 17),
+        52,
+        style: mutedStyle.copyWith(fontSize: 9),
+        align: TextAlign.center,
+      );
+      _label(
+        canvas,
+        'Products',
+        Offset(endX - 47, endY - 17),
+        52,
+        style: mutedStyle.copyWith(fontSize: 9),
+        align: TextAlign.center,
+      );
+      _label(
+        canvas,
+        'activation',
+        Offset(peakX - 27, 22),
+        54,
+        style: mutedStyle.copyWith(fontSize: 9),
+        align: TextAlign.center,
+      );
+      _label(
+        canvas,
         '${profiles[i]['energy']} energy',
-        Offset(x0 + 36, 178),
+        Offset(x0 + 36, 174),
         right - x0 - 72,
         style: mutedStyle,
+        align: TextAlign.center,
+      );
+      _label(
+        canvas,
+        'Reaction progress',
+        Offset(x0 + 41, 191),
+        right - x0 - 30,
+        style: mutedStyle.copyWith(fontSize: 9),
         align: TextAlign.center,
       );
     }
@@ -826,6 +1029,72 @@ class _ChemistryDiagramPainter extends CustomPainter {
 
   void _particle(Canvas canvas, Offset center) {
     canvas.drawCircle(center, 3.2, Paint()..color = ink);
+  }
+
+  void _particleWithCharge(
+    Canvas canvas,
+    Offset center,
+    String charge,
+    Color color,
+  ) {
+    canvas
+      ..drawCircle(center, 8, Paint()..color = color.withValues(alpha: .12))
+      ..drawCircle(
+        center,
+        8,
+        Paint()
+          ..color = color
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1.2,
+      );
+    _label(
+      canvas,
+      charge,
+      Offset(center.dx - 6, center.dy - 7),
+      12,
+      style: labelStyle.copyWith(
+        color: ink,
+        fontSize: 11,
+        fontWeight: FontWeight.w600,
+      ),
+      align: TextAlign.center,
+      maxLines: 1,
+    );
+  }
+
+  void _curvedArrow(
+    Canvas canvas,
+    Offset from,
+    Offset to,
+    Paint paint,
+  ) {
+    final path = Path()
+      ..moveTo(from.dx, from.dy)
+      ..quadraticBezierTo(
+        (from.dx + to.dx) / 2,
+        from.dy - 14,
+        to.dx,
+        to.dy,
+      );
+    canvas.drawPath(path, paint);
+    _arrow(canvas, to - const Offset(10, 0), to, paint);
+  }
+
+  void _heatWaves(Canvas canvas, Offset center) {
+    final heatPaint = Paint()
+      ..color = amber
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.2;
+    for (var i = -1; i <= 1; i++) {
+      final x = center.dx + i * 8;
+      canvas.drawArc(
+        Rect.fromLTWH(x - 3, center.dy - 8, 6, 16),
+        -math.pi / 2,
+        math.pi,
+        false,
+        heatPaint,
+      );
+    }
   }
 
   void _arrow(Canvas canvas, Offset from, Offset to, Paint paint) {
