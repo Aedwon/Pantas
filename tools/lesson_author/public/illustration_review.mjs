@@ -545,6 +545,10 @@ function installReviewPolish() {
   const style = document.createElement('style');
   style.id = 'illustrationReviewPolishStyles';
   style.textContent = `
+    #authorApp[hidden] {
+      display: none !important;
+    }
+
     body.illustration-review-mode header {
       min-height: 50px;
       gap: 12px;
