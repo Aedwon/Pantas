@@ -7,7 +7,7 @@ on:
 jobs:
   focused:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
@@ -20,18 +20,10 @@ jobs:
       - name: pub get
         run: flutter pub get
 
-      - name: Generate code
+      - name: Create uncommitted declared asset placeholder
         run: |
-          dart run build_runner build --delete-conflicting-outputs
-          flutter gen-l10n
-
-      - name: Build content asset required by Flutter tests
-        run: |
-          mkdir -p build
-          dart run tools/build_content_export/build_content_export.dart build/export.json
-          dart run tools/build_content_seed/seed_writer.dart \
-            build/export.json \
-            assets/seed/content.db
+          mkdir -p assets/seed
+          : > assets/seed/content.db
 
       - name: Focused audit tests
         run: flutter test test/tools/check_lesson_illustrations_test.dart
