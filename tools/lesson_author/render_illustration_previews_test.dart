@@ -1,14 +1,15 @@
 import 'dart:io';
 
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:path/path.dart' as p;
 
 import 'illustration_preview_renderer.dart';
 
 void main() {
-  testWidgets('render live lesson illustration review previews',
-      (tester) async {
+  testWidgets('render live lesson illustration review previews', (
+    tester,
+  ) async {
     final repositoryRoot = Directory.current;
     final outputRoot = Directory(
       p.join(
@@ -35,6 +36,29 @@ void main() {
       previewCount += 2;
     }
     expect(previewCount, 104);
+
+    final narrowText = TextPainter(
+      text: const TextSpan(
+        text: 'iiii',
+        style: TextStyle(fontFamily: 'SourceSans3', fontSize: 12),
+      ),
+      textDirection: TextDirection.ltr,
+    )..layout();
+    final wideText = TextPainter(
+      text: const TextSpan(
+        text: 'WWWW',
+        style: TextStyle(fontFamily: 'SourceSans3', fontSize: 12),
+      ),
+      textDirection: TextDirection.ltr,
+    )..layout();
+    expect(
+      wideText.width,
+      greaterThan(narrowText.width * 1.5),
+      reason:
+          'Review previews must use proportional Source Sans 3, not the '
+          'equal-width Ahem widget-test font.',
+    );
+
     debugPrint('52 figures, 104 previews, 0 render errors');
   });
 }

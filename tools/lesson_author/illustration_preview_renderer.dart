@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
-import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/figures/lesson_figure_widget.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -13,6 +13,29 @@ import 'package:path/path.dart' as p;
 
 const reviewPreviewWidth = 390;
 const _reviewBatches = <String>{'original-code-a', 'original-code-b'};
+
+Future<void>? _reviewPreviewFontLoad;
+
+Future<void> ensureReviewPreviewFontsLoaded(Directory repositoryRoot) {
+  return _reviewPreviewFontLoad ??= _loadReviewPreviewFonts(repositoryRoot);
+}
+
+Future<void> _loadReviewPreviewFonts(Directory repositoryRoot) async {
+  final loader = FontLoader('SourceSans3');
+  for (final fileName in const <String>[
+    'SourceSans3-Regular.ttf',
+    'SourceSans3-SemiBold.ttf',
+    'SourceSans3-Bold.ttf',
+  ]) {
+    final file = File(p.join(repositoryRoot.path, 'assets', 'fonts', fileName));
+    if (!file.existsSync()) {
+      throw StateError('Review preview font not found: ${file.path}');
+    }
+    final bytes = file.readAsBytesSync();
+    loader.addFont(Future<ByteData>.value(ByteData.sublistView(bytes)));
+  }
+  await loader.load();
+}
 
 class ReviewPreviewEntry {
   const ReviewPreviewEntry({
@@ -32,13 +55,13 @@ class ReviewPreviewEntry {
   final int height;
 
   Map<String, Object?> toJson() => <String, Object?>{
-        'key': key,
-        'lightPath': lightPath,
-        'darkPath': darkPath,
-        'digest': digest,
-        'width': width,
-        'height': height,
-      };
+    'key': key,
+    'lightPath': lightPath,
+    'darkPath': darkPath,
+    'digest': digest,
+    'width': width,
+    'height': height,
+  };
 }
 
 class ReviewPreviewManifest {
@@ -47,9 +70,9 @@ class ReviewPreviewManifest {
   final List<ReviewPreviewEntry> entries;
 
   Map<String, Object?> toJson() => <String, Object?>{
-        'version': 1,
-        'items': entries.map((entry) => entry.toJson()).toList(),
-      };
+    'version': 1,
+    'items': entries.map((entry) => entry.toJson()).toList(),
+  };
 }
 
 Map<String, Map<String, Object?>> findReviewFigureSpecs(
@@ -65,12 +88,13 @@ Map<String, Map<String, Object?>> findReviewFigureSpecs(
 
   final specs = <String, Map<String, Object?>>{};
   final markerPattern = RegExp(r'<!--\s*FIGURE:\s*(\{.*\})\s*-->');
-  final files = lessonRoot
-      .listSync(recursive: true, followLinks: false)
-      .whereType<File>()
-      .where((file) => p.extension(file.path) == '.md')
-      .toList()
-    ..sort((a, b) => a.path.compareTo(b.path));
+  final files =
+      lessonRoot
+          .listSync(recursive: true, followLinks: false)
+          .whereType<File>()
+          .where((file) => p.extension(file.path) == '.md')
+          .toList()
+        ..sort((a, b) => a.path.compareTo(b.path));
 
   for (final file in files) {
     final lines = const LineSplitter().convert(file.readAsStringSync());
@@ -135,7 +159,11 @@ Future<ReviewPreviewManifest> renderReviewPreviews({
   lightDir.createSync(recursive: true);
   darkDir.createSync(recursive: true);
 
-  await tester.binding.setSurfaceSize(const Size(390, 900));
+  await ensureReviewPreviewFontsLoaded(repositoryRoot);
+  Future<void> setInitialSurfaceSize() =>
+      tester.binding.setSurfaceSize(const Size(390, 900));
+  Future<void> clearSurfaceSize() => tester.binding.setSurfaceSize(null);
+  await setInitialSurfaceSize();
 
   final entries = <ReviewPreviewEntry>[];
   try {
@@ -159,14 +187,12 @@ Future<ReviewPreviewManifest> renderReviewPreviews({
         throw StateError('Preview width for $key was not $reviewPreviewWidth.');
       }
 
-      File(p.join(outputRoot.path, lightRelativePath)).writeAsBytesSync(
-        light.bytes,
-        flush: true,
-      );
-      File(p.join(outputRoot.path, darkRelativePath)).writeAsBytesSync(
-        dark.bytes,
-        flush: true,
-      );
+      File(
+        p.join(outputRoot.path, lightRelativePath),
+      ).writeAsBytesSync(light.bytes, flush: true);
+      File(
+        p.join(outputRoot.path, darkRelativePath),
+      ).writeAsBytesSync(dark.bytes, flush: true);
 
       entries.add(
         ReviewPreviewEntry(
@@ -181,13 +207,14 @@ Future<ReviewPreviewManifest> renderReviewPreviews({
     }
   } finally {
     await tester.pumpWidget(const SizedBox.shrink());
-    await tester.binding.setSurfaceSize(null);
+    await clearSurfaceSize();
   }
 
   final manifest = ReviewPreviewManifest(List.unmodifiable(entries));
   final manifestFile = File(p.join(outputRoot.path, 'manifest.json'));
+  const jsonEncoder = JsonEncoder.withIndent('  ');
   manifestFile.writeAsStringSync(
-    '${const JsonEncoder.withIndent('  ').convert(manifest.toJson())}\n',
+    '${jsonEncoder.convert(manifest.toJson())}\n',
     flush: true,
   );
   return manifest;
@@ -245,7 +272,8 @@ Set<String> _readExpectedReviewKeys(Directory repositoryRoot) {
       throw StateError('Malformed illustration strategy row: $line');
     }
     if (!_reviewBatches.contains(columns[batchIndex])) continue;
-    final key = '${columns[subjectIndex]}/${columns[topicIndex]}/'
+    final key =
+        '${columns[subjectIndex]}/${columns[topicIndex]}/'
         '${columns[lessonIndex]}#${columns[sequenceIndex]}';
     if (!keys.add(key)) {
       throw StateError('Duplicate original-code strategy key: $key.');
