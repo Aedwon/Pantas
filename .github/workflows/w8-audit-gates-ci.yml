@@ -4,17 +4,12 @@ on:
   pull_request:
     branches: [main]
 
-permissions:
-  contents: write
-
 jobs:
   focused:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: web/lesson-illus-w8-audit-gates-ci
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
@@ -33,19 +28,8 @@ jobs:
       - name: Focused audit tests
         run: flutter test test/tools/check_lesson_illustrations_test.dart
 
-      - name: Format audit test if needed
-        shell: bash
-        run: |
-          dart format test/tools/check_lesson_illustrations_test.dart
-          if ! git diff --quiet -- test/tools/check_lesson_illustrations_test.dart; then
-            git diff -- test/tools/check_lesson_illustrations_test.dart
-            git config user.name github-actions[bot]
-            git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-            git add test/tools/check_lesson_illustrations_test.dart
-            git commit -m "Format Wave 8 audit tests"
-            git push origin HEAD:web/lesson-illus-w8-audit-gates-ci
-            exit 1
-          fi
+      - name: Check Dart formatting
+        run: dart format --output=none --set-exit-if-changed test/tools/check_lesson_illustrations_test.dart
 
       - name: Render live review previews
         run: flutter test tools/lesson_author/render_illustration_previews_test.dart --reporter compact
