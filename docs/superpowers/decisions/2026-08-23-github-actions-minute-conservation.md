@@ -37,17 +37,47 @@ This traded one scarce resource for another:
 GitHub Actions then became an interactive debugging loop instead of a final or
 high-value verification gate.
 
-## Related worker-quality finding
+## Bridge reliability finding
 
-A low-cost agent is not automatically cheaper if it needs repeated correction.
-Earlier use of 5.6 Luna Light reached roughly five correction turns while still
-producing incomplete or incorrect output. Repeated low-quality implementation and
-verification attempts can consume more total quota and more CI than one stronger
-worker.
+The earlier 5.6 Luna Light problem was a bridge problem, not evidence that Luna was
+implementing Pantas badly and not evidence that the invoked Gemini workers were weak.
 
-Do not route settled work to the cheapest available model solely to conserve quota.
-Choose the cheapest model that has demonstrated adequate reliability for the task.
-Escalate early when a worker misses the contract repeatedly.
+In that workflow, Luna Light was used only as a thin local terminal bridge. The web
+orchestrator gave it a terminal-only control prompt that explicitly forbade independent
+repository inspection, review, interpretation, source editing, extra commands, and
+merging. The bridge's job was to fetch the prepared control task and execute it exactly.
+
+The preserved control task describes the same role as a `local terminal bridge`. It
+launches a prepared shell script. That script performs the deterministic repair and
+verification steps and invokes Gemini 3.1 Pro High through `agy` for the judgment-heavy
+verification step.
+
+A successful bridge handback from that flow had the six-line shape:
+
+```text
+EXECUTION COMPLETE
+RUNNER_EXIT: 0
+RESULT_BRANCH_SHA: 9e3d887e871fc8054d482d831fefc6a03ec7cc76
+REPAIR_BRANCH_SHA: 726580e79e49202243d1e2daee1c0e0ee185bcc5
+INTEGRATION_SHA: 04f038a4df140df8dbde966bb1460
+MAIN_SHA: 3a1ac087fd88bce1e1903d5c7996371054b36094
+```
+
+The repeated correction turns around that workflow therefore must be diagnosed at the
+correct layer. A thin bridge can fail to follow an exact control task, can return an
+incomplete handback, or can mishandle the execution chain even when the underlying
+Gemini task is sound.
+
+Do not use a bridge failure as evidence against the Gemini model that the bridge was
+supposed to invoke. Track these separately:
+
+- orchestrator/control-task quality;
+- bridge execution reliability;
+- deterministic script behavior;
+- Gemini worker or verifier quality;
+- CI/runtime environment behavior.
+
+Escalate the layer that actually failed.
 
 ## Available execution capacity reported at the incident
 
@@ -100,7 +130,7 @@ Prompts must still follow the detailed worker contract in
 The web orchestrator remains responsible for acceptance from the actual GitHub diff
 and evidence.
 
-### 3. Codex for local execution when it is the better worker
+### 3. Codex for local execution or as a stronger bridge when needed
 
 Codex is no longer treated as something to avoid at all costs.
 
@@ -108,10 +138,15 @@ Use Codex when:
 
 - local Flutter/Dart/browser execution is required and Antigravity is unavailable or
   unsuitable;
-- a task has already failed repeatedly under a weaker worker;
-- the cost of another incorrect implementation plus CI rerun is likely greater than
-  the Codex usage;
-- local debugging needs a capable agent that can inspect runtime behavior directly.
+- a thin bridge has repeatedly failed to execute an exact prepared control task or
+  return the required handback;
+- the cost of another failed bridge attempt plus CI rerun is likely greater than the
+  Codex usage;
+- local debugging genuinely needs a capable agent to inspect runtime behavior.
+
+A stronger Codex model may still be used only as the bridge. It does not need to take
+over implementation or review if the prepared task already delegates those parts to
+Gemini or deterministic scripts.
 
 Continue to conserve Codex by keeping prompts precise and scope narrow. Do not spend
 Codex context rediscovering requirements the web orchestrator already knows.
@@ -207,14 +242,27 @@ checks. Use path filters and affected-test selection where safe.
 A small tooling or documentation change should not automatically rebuild and test
 unrelated application areas unless the repository contract requires it.
 
-## Model-quality escalation rule
+## Execution-chain escalation rule
 
-Do not continue a correction loop indefinitely to save model quota.
+Do not continue the same correction loop indefinitely merely to save quota.
 
-After two material misses of the same settled contract, reassess the worker choice.
-A third attempt with the same weak route requires a specific reason. Prefer moving to
-Gemini Pro, Codex, or another demonstrably stronger local worker before creating more
-implementation churn and CI runs.
+After two material misses of the same settled contract, first identify which layer
+failed:
+
+1. the web orchestrator's prepared task or prompt;
+2. the local bridge executing that task;
+3. the deterministic script;
+4. the Gemini implementor or verifier;
+5. the CI/runtime environment.
+
+Escalate only the failing layer when possible.
+
+For example, if Luna Light fails as a terminal bridge but the prepared script and
+Gemini prompt are sound, use a stronger bridge or a direct local invocation. Do not
+switch away from Gemini solely because the bridge failed. If Gemini's actual output is
+wrong, then change the Gemini model or task specification.
+
+A third attempt through the same failing layer requires a specific reason.
 
 This rule is about total resource use and correctness, not model prestige.
 
@@ -224,11 +272,12 @@ Before dispatching work that needs execution, the web orchestrator asks:
 
 1. Can this be proven through repository inspection with no runtime?
 2. Can Antigravity/Gemini run it locally?
-3. Is Codex the more reliable local option for this task?
-4. Is there already valid evidence for the current affected commit?
-5. If hosted Actions are still needed, what is the smallest single job that proves
+3. Is Codex useful as the local executor or a more reliable thin bridge?
+4. If something already failed, which layer actually failed?
+5. Is there already valid evidence for the current affected commit?
+6. If hosted Actions are still needed, what is the smallest single job that proves
    the uncertain behavior?
-6. Will a PR to `main` accidentally trigger unrelated expensive workflows?
+7. Will a PR to `main` accidentally trigger unrelated expensive workflows?
 
 The coordinator should also ask for current quota information when the answer would
 materially change routing. Do not assume old percentages remain current.
