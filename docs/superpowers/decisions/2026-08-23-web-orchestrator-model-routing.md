@@ -18,6 +18,12 @@ This decision supersedes the `AGENTS.md` model-routing section when a ChatGPT we
 session is actively coordinating the work. The older routing remains the fallback
 when no web orchestrator is active.
 
+GitHub-hosted execution is governed separately by
+`docs/superpowers/decisions/2026-08-23-github-actions-minute-conservation.md`.
+Read both decisions when ChatGPT web is coordinating work. The Actions conservation
+decision controls execution-lane choice, hosted-CI usage, evidence reuse, and early
+escalation away from repeatedly failing low-cost workers.
+
 ## Decision
 
 When a ChatGPT web session is the orchestrator, responsibilities are split as
@@ -217,6 +223,10 @@ Use Codex reasoning only if these routes are insufficient.
 If the user reports scarce Codex quota, treat conservation as a hard execution
 constraint. Do not hard-code a temporary percentage or reset date into project
 policy.
+
+The Actions conservation decision may still route a local-only task to Codex earlier
+when repeated weaker-worker failures or hosted-CI cost make that the cheaper and more
+reliable total path.
 
 ## Repository safety
 
