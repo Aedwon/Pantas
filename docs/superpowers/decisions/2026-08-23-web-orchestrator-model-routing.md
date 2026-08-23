@@ -21,8 +21,8 @@ when no web orchestrator is active.
 GitHub-hosted execution is governed separately by
 `docs/superpowers/decisions/2026-08-23-github-actions-minute-conservation.md`.
 Read both decisions when ChatGPT web is coordinating work. The Actions conservation
-decision controls execution-lane choice, hosted-CI usage, evidence reuse, and early
-escalation away from repeatedly failing low-cost workers.
+decision controls execution-lane choice, hosted-CI usage, evidence reuse, and
+escalation when any part of the execution chain repeatedly fails.
 
 ## Decision
 
@@ -108,6 +108,26 @@ Codex should not independently:
 
 Escalate to real Codex reasoning only when the web orchestrator, Gemini, and
 prepared deterministic checks cannot safely resolve a local-only problem.
+
+### Bridge model and Gemini worker are separate roles
+
+When a Codex-family model is used only to execute a prepared control task, judge it
+as a bridge, not as the implementation or verification worker.
+
+A bridge failure can include:
+
+- not following the exact terminal-only instructions;
+- running extra commands;
+- failing to invoke the prepared script;
+- returning an incomplete or malformed handback;
+- losing the result even though the downstream Gemini task was valid.
+
+Those failures do not show that the invoked Gemini model produced bad work.
+Likewise, a clean six-line bridge handback does not prove the Gemini work is correct;
+the web orchestrator still checks the actual branch, result files, and evidence.
+
+If a chain fails, identify whether the fault is in the prepared task, bridge,
+deterministic script, Gemini output, or runtime before changing models.
 
 ## Gemini prompt contract
 
@@ -225,8 +245,9 @@ constraint. Do not hard-code a temporary percentage or reset date into project
 policy.
 
 The Actions conservation decision may still route a local-only task to Codex earlier
-when repeated weaker-worker failures or hosted-CI cost make that the cheaper and more
-reliable total path.
+when a bridge is unreliable or hosted-CI cost makes a stronger local execution path
+cheaper overall. That does not require Codex to replace Gemini as the downstream
+worker.
 
 ## Repository safety
 
