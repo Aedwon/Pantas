@@ -67,9 +67,7 @@ jobs:
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true' EXIT
           for attempt in $(seq 1 40); do
-            if curl --fail --silent http://127.0.0.1:4321/api/illustrations > /dev/null; then
-              break
-            fi
+            if curl --fail --silent http://127.0.0.1:4321/api/illustrations > /dev/null; then break; fi
             sleep 0.25
           done
           node --input-type=module <<'NODE'
@@ -85,10 +83,7 @@ jobs:
             await page.waitForSelector('#editor');
             assert.equal(await page.locator('#authorApp .workspace > .preview').count(), 1);
 
-            const catalog = await page.evaluate(async () => {
-              const response = await fetch('/api/illustrations');
-              return response.json();
-            });
+            const catalog = await page.evaluate(async () => (await fetch('/api/illustrations')).json());
             assert.equal(catalog.items.length, 59);
             assert.equal(catalog.summary.pending, 56);
             assert.equal(catalog.summary.missing, 3);
@@ -96,6 +91,8 @@ jobs:
             const commons = catalog.items.find((item) => item.strategy === 'open' && item.digest);
             const founder = catalog.items.find((item) => item.strategy === 'founder' && !item.digest);
             assert.ok(code && commons && founder);
+            const itemLocator = (key) => page.locator(`#reviewQueue .review-queue-item[data-key=${JSON.stringify(key)}]`);
+            const contextLocator = (key) => `.lesson-illustration-context[data-illustration-key=${JSON.stringify(key)}]`;
 
             await page.click('#reviewModeBtn');
             await page.waitForSelector('#illustrationReviewApp:not([hidden])');
@@ -103,12 +100,8 @@ jobs:
             assert.equal(await page.locator('#authorApp[hidden]').count(), 1);
             assert.equal(await page.locator('#reviewQueue .review-queue-item').count(), 56);
 
-            const queueItem = (key) => page.locator('#reviewQueue .review-queue-item').filter({ has: page.locator(`[data-key=${JSON.stringify(key)}]`) });
-            // Use direct attribute locators because keys contain slashes and '#'.
-            const itemLocator = (key) => page.locator(`#reviewQueue .review-queue-item[data-key=${JSON.stringify(key)}]`);
-
             await itemLocator(code.key).click();
-            await page.waitForSelector(`.lesson-illustration-context[data-illustration-key=${JSON.stringify(code.key)}]`);
+            await page.waitForSelector(contextLocator(code.key));
             await page.waitForFunction(() => {
               const images = [...document.querySelectorAll('.lesson-illustration-context[data-strategy="code"] img')];
               return images.length === 2 && images.every((image) => image.complete && image.naturalWidth > 0);
@@ -129,23 +122,23 @@ jobs:
 
             await page.setViewportSize({ width: 1280, height: 900 });
             await itemLocator(commons.key).click();
-            await page.waitForSelector(`.lesson-illustration-context[data-illustration-key=${JSON.stringify(commons.key)}]`);
+            await page.waitForSelector(contextLocator(commons.key));
             await page.waitForFunction(() => {
               const images = [...document.querySelectorAll('.lesson-illustration-context[data-strategy="open"] img')];
               return images.length === 2 && images.every((image) => image.complete && image.naturalWidth > 0);
             });
             assert.equal(await page.locator('.lesson-illustration-context[data-strategy="open"] .review-preview-frame').count(), 2);
-            assert.match(await page.locator('#reviewEvidence').innerText(), /Commons source and credit/);
+            assert.match(await page.locator('#reviewEvidence').innerText(), /Commons source and credit/i);
 
             await page.click('[data-review-filter="missing"]');
             await itemLocator(founder.key).click();
-            await page.waitForSelector(`.lesson-illustration-context[data-illustration-key=${JSON.stringify(founder.key)}]`);
+            await page.waitForSelector(contextLocator(founder.key));
             assert.equal(await page.locator('#reviewApproveBtn').isDisabled(), true);
-            assert.match(await page.locator('#reviewEvidence').innerText(), /Pantas — all rights reserved/);
+            assert.match(await page.locator('#reviewEvidence').innerText(), /Pantas — all rights reserved/i);
 
             await page.click('[data-review-filter="pending"]');
             await itemLocator(code.key).click();
-            await page.waitForSelector(`.lesson-illustration-context[data-illustration-key=${JSON.stringify(code.key)}]`);
+            await page.waitForSelector(contextLocator(code.key));
             const lightPath = join(process.env.GITHUB_WORKSPACE, 'build', 'lesson_author', 'illustration_previews', code.previewPaths.light);
             const light = await readFile(lightPath);
             await writeFile(lightPath, Buffer.concat([light, Buffer.from([0])]));
