@@ -28,8 +28,12 @@ jobs:
       - name: Focused audit tests
         run: flutter test test/tools/check_lesson_illustrations_test.dart
 
-      - name: Check Dart formatting
-        run: dart format --output=none --set-exit-if-changed test/tools/check_lesson_illustrations_test.dart
+      - name: Show Dart formatter diff
+        shell: bash
+        run: |
+          dart format test/tools/check_lesson_illustrations_test.dart
+          git diff -- test/tools/check_lesson_illustrations_test.dart
+          git diff --exit-code -- test/tools/check_lesson_illustrations_test.dart
 
       - name: Render live review previews
         run: flutter test tools/lesson_author/render_illustration_previews_test.dart --reporter compact
