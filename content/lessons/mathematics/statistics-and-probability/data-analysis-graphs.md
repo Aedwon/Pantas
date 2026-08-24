@@ -1,7 +1,7 @@
 ---
 _id: "lesson-statistics-and-probability-data-analysis-graphs"
 title: "Data Analysis and Graph Interpretation (Pie Charts, Bar Graphs, Scatter Plots)"
-summary: "How to read pie charts, bar graphs, and scatter plots and how to compute values from them."
+summary: "How to read pie charts, bar graphs, and scatter plots and compute values from them."
 subject: "subject-mathematics"
 topic: "topic-statistics-and-probability"
 estimatedMinutes: 11
@@ -9,29 +9,31 @@ isActive: true
 ---
 ## Core Concept
 
-Graph questions are gift questions: the data is handed to you in a picture, and you only need to read it correctly and do light arithmetic.
+Graph questions combine careful reading with arithmetic. Before calculating, identify what each axis, label, scale, or sector represents.
 
-**Pie charts** show parts of a whole. The full circle is $360^\circ$ and represents $100\%$ of the total. The two conversion facts:
+**Pie charts** show parts of a whole. The full circle is $360^\circ$ and represents $100\%$ of the total.
 
-$$\text{percent of total} = \dfrac{\text{sector angle}}{360} \times 100\%$$
+$$\text{percent of total}=\dfrac{\text{sector angle}}{360^\circ}\times100\%$$
 
-$$\text{sector angle} = \text{percent} \times 360^\circ$$
+$$\text{sector angle}=\text{proportion of whole}\times360^\circ$$
 
-A sector of $90^\circ$ is a quarter of the pie; $180^\circ$ is half.
+A sector of $90^\circ$ is one quarter of the whole; $180^\circ$ is one half.
 
 <!-- FIGURE: {"kind": "chart", "type": "pie", "labels": ["Food (90°)", "Rent (126°)", "Transport (72°)", "Savings (72°)"], "values": [90, 126, 72, 72], "semanticsLabel": "A pie chart of a monthly budget with food at 90 degrees, rent at 126 degrees, transport at 72 degrees, and savings at 72 degrees."} -->
 
-**Bar graphs** compare amounts across categories with bar heights. Read the height of each bar against the axis scale. Watch the scale: each gridline might mean $5$, $10$, or $500$.
+**Bar graphs** compare values across categories using bar lengths or heights. Read the values against the axis scale and units. A truncated axis can make visual differences look larger, but it is not automatically invalid; judge whether the scale and labels allow an accurate interpretation.
 
-**Scatter plots** show pairs of values as dots, one dot per item. The overall drift of the dots is the **correlation**:
+**Scatter plots** display paired numerical observations. When the points follow a roughly straight trend:
 
-- Dots rising to the right: **positive correlation** (more study hours, higher scores).
-- Dots falling to the right: **negative correlation** (more absences, lower grades).
-- A shapeless cloud: **no correlation**.
+- upward from left to right suggests **positive linear association**;
+- downward suggests **negative linear association**;
+- no clear straight-line trend suggests little or no **linear** correlation.
 
-<!-- FIGURE: {"kind": "chart", "type": "scatter", "plots": ["upward", "downward", "random"], "semanticsLabel": "Three scatter plots side by side showing an upward trend, a downward trend, and a random cloud of points."} -->
+A scatter plot can still contain a nonlinear relationship even when its linear correlation is weak or zero, so inspect the shape instead of assuming that "no linear correlation" means "no relationship of any kind."
 
-Correlation is not causation: ice cream sales and drowning rise together because of summer, not because ice cream causes drowning. CETs test that exact idea in words.
+<!-- FIGURE: {"kind": "chart", "type": "scatter", "plots": ["upward", "downward", "random"], "semanticsLabel": "Three scatter plots side by side showing an upward linear trend, a downward linear trend, and a random cloud of points."} -->
+
+**Correlation does not imply causation.** An observed association does not by itself establish that changing one variable causes the other to change; a third variable or another explanation may account for the pattern.
 
 ## Examples
 
@@ -43,15 +45,13 @@ A family's monthly budget of $12{,}000$ pesos is shown in a pie chart. The food 
 
 
 **Solution:**
-Convert the angle to a fraction of the whole.
+1. Fraction of the circle:
 
-1. Fraction of the circle.
+$$\dfrac{90}{360}=\dfrac14$$
 
-$$\dfrac{90}{360} = \dfrac{1}{4}$$
+2. Apply that fraction to the total budget.
 
-2. Take that fraction of the budget.
-
-$$\dfrac{1}{4} \times 12000 = 3000$$
+$$\dfrac14(12000)=3000$$
 
 3. The family spends $3{,}000$ pesos on food.
 
@@ -63,49 +63,42 @@ A survey shows $35\%$ of students walk to school. In a pie chart of the survey, 
 
 
 **Solution:**
-Percent times $360^\circ$.
+1. Convert $35\%$ to $0.35$ and multiply by a full turn.
 
-1. Convert the percent to a decimal and multiply.
+$$0.35(360^\circ)=126^\circ$$
 
-$$0.35 \times 360 = 126$$
-
-2. The walking sector measures $126^\circ$.
+2. The sector measures $126^\circ$.
 
 ### #3: Bar Graph Comparison
 
-A bar graph shows a store's weekly sales: Monday $40$, Tuesday $55$, Wednesday $35$, Thursday $60$, Friday $85$ (in thousands of pesos). By how much do Friday's sales exceed the average of the other four days?
+A bar graph shows a store's weekly sales: Monday $40$, Tuesday $55$, Wednesday $35$, Thursday $60$, Friday $85$ (in thousands of pesos). By how much do Friday's sales exceed the mean of the other four days?
 
 <!-- FIGURE: {"kind": "chart", "type": "bar", "labels": ["Mon", "Tue", "Wed", "Thu", "Fri"], "values": [40, 55, 35, 60, 85], "yAxis": {"label": "Sales (thousands of pesos)", "min": 0}, "semanticsLabel": "A bar graph of weekly sales with bars for Monday at 40, Tuesday at 55, Wednesday at 35, Thursday at 60, and Friday at 85."} -->
 
 
 **Solution:**
-Two reads and a subtraction, but the average comes first.
+1. Mean of Monday through Thursday:
 
-1. Average of Monday through Thursday.
+$$\dfrac{40+55+35+60}{4}=47.5$$
 
-$$\dfrac{40 + 55 + 35 + 60}{4} = \dfrac{190}{4} = 47.5$$
+2. Subtract from Friday:
 
-2. Subtract from Friday.
+$$85-47.5=37.5$$
 
-$$85 - 47.5 = 37.5$$
-
-3. Friday exceeds the four-day average by $37{,}500$ pesos. Note the trap dodged: the question asked for the average of the other days, not all five.
+3. Because the graph's units are thousands of pesos, Friday exceeds the four-day mean by $37{,}500$ pesos.
 
 ### #4: Reading a Scatter Plot
 
-A scatter plot pairs each student's hours of sleep with their mistake count on a quiz. The dots slope downward from upper left to lower right. What correlation is shown, and what does it mean?
+A scatter plot pairs each student's hours of sleep with their mistake count on a quiz. The dots show a roughly straight downward trend from upper left to lower right. What association is shown, and what can be concluded?
 
 <!-- FIGURE: {"kind": "chart", "type": "scatter", "trend": "downward", "xLabel": "Hours of sleep", "yLabel": "Mistakes", "semanticsLabel": "A scatter plot showing hours of sleep against mistakes with points trending downward from left to right."} -->
 
 
 **Solution:**
-Downward drift means the two variables move in opposite directions.
+1. A downward linear trend indicates a negative linear association: students with more sleep tended to have fewer mistakes in this data set.
+2. The plot alone does not establish that more sleep **caused** the reduction in mistakes. Other variables may be involved, and causation requires stronger study design than an observed association.
 
-1. As sleep hours increase, mistakes decrease: a negative correlation.
-2. Meaning in words: students who slept more tended to make fewer mistakes.
-3. Careful: the plot alone does not prove sleep causes fewer mistakes; it only shows the two travel together.
-
-### #5: Percent Change from a Graph (Exam Level)
+### #5: Percent Change from a Graph
 
 A bar graph shows a school's enrollment: $1{,}500$ students in $2023$ and $1{,}800$ students in $2024$. Find the percent increase.
 
@@ -113,48 +106,54 @@ A bar graph shows a school's enrollment: $1{,}500$ students in $2023$ and $1{,}8
 
 
 **Solution:**
-Percent change always divides by the original value.
+Percent increase uses the starting value as the denominator.
 
-1. The increase.
+1. Change:
 
-$$1800 - 1500 = 300$$
+$$1800-1500=300$$
 
-2. Divide by the original ($2023$) value.
+2. Divide by the original value:
 
-$$\dfrac{300}{1500} = 0.20$$
+$$\dfrac{300}{1500}=0.20$$
 
-3. The enrollment increased by $20\%$. Dividing by the new value $1800$ gives about $16.7\%$, a planted wrong choice.
+3. The enrollment increased by $20\%$.
 
 ## Speed Tricks & Shortcuts
 
-Memorize the pie-chart angle anchors: $36^\circ$ is $10\%$, $90^\circ$ is $25\%$, $120^\circ$ is a third, $180^\circ$ is half. Most exam sectors are built from these, so you can convert by eye.
+Useful pie-chart anchors include $36^\circ=10\%$, $90^\circ=25\%$, $120^\circ=\frac13$ of a circle, and $180^\circ=50\%$.
 
-In bar graph questions, read the question first, then the graph. Usually only two or three bars matter; reading every bar wastes a minute per question.
+For graph questions, read the prompt first so you know which categories, years, axes, or sectors matter. Then record the relevant values and units before calculating.
 
-For any multi-part graph question, write the numbers you pull from the graph before computing. Transcribe once, compute once. Most graph errors are reading errors, not math errors.
+When a scatter plot is involved, distinguish three questions: Is there a visible association? Is it roughly linear? And does the study design justify a causal conclusion? Those are not the same question.
 
 ## Traps to Watch For
 
 ### #1: Percent of the Wrong Whole
 
-> Pie chart percents are percents of the total shown, not of another sector.
+> Pie-chart percentages are percentages of the whole represented by the chart.
 
-If food is $25\%$ and rent is $35\%$, rent is not $35\%$ of the leftover, and comparing them needs care: rent is $10$ percentage points more than food, but $40\%$ larger relative to food. Distinguish "percentage points" from "percent more".
+If one sector is $25\%$ and another is $35\%$, the second is $10$ percentage points larger, but it is $40\%$ larger relative to the first sector. Percentage points and percent change are different comparisons.
 
-### #2: The Truncated Axis
+### #2: Truncated Axes
 
-> A bar graph whose scale starts above zero exaggerates differences.
+> A nonzero axis baseline can visually magnify differences, so read the numerical scale instead of judging only by bar height.
 
-If the axis runs from $80$ to $100$, a bar of $95$ looks twice as tall as a bar of $88$, though the real difference is small. When a question asks whether a graph is misleading, check the axis start first: that is almost always the trick.
+A truncated axis is not automatically deceptive; it can be useful when clearly labeled. The issue is whether the presentation obscures or exaggerates the numerical comparison.
 
-### #3: Correlation Means Causation
+### #3: Correlation and Causation
 
-> A scatter plot trend never proves that one variable causes the other.
+> An association in a scatter plot does not by itself prove causation.
 
-Statements like "the plot proves studying causes higher grades" are wrong choices; the correct phrasing is "shows a positive correlation" or "students who studied more tended to score higher". Watch for the verbs "causes" and "proves": they mark the bait.
+Use language such as "is associated with" or "tends to" unless the study design supports a causal conclusion.
 
-### #4: Percent Change from the New Value
+### #4: Nonlinear Relationships
 
-> Divide the change by the original, not the final amount.
+> Little or no linear correlation does not necessarily mean there is no relationship.
 
-Going from $1500$ to $1800$ is a $20\%$ increase, but going back from $1800$ to $1500$ is only about a $16.7\%$ decrease. Both numbers appear in the choices of every percent-change question. Anchor on the starting value every time.
+A curved pattern can be strongly structured while having weak linear correlation. Inspect the scatter plot's shape.
+
+### #5: Percent Change Uses the Starting Value
+
+> Divide the change by the original value.
+
+Going from $1500$ to $1800$ is a $20\%$ increase. The reverse change uses a different starting value, so the percentage decrease is not also $20\%$.
