@@ -1,7 +1,7 @@
 ---
 _id: "lesson-physics-kinematics"
 title: "Kinematics"
-summary: "How to describe motion in a straight line using displacement, velocity, and acceleration, and how objects behave in free fall."
+summary: "How to describe one-dimensional motion using position, displacement, velocity, acceleration, and constant-acceleration equations."
 subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 13
@@ -9,136 +9,126 @@ isActive: true
 ---
 ## Core Concept
 
-**Kinematics** describes how things move, without worrying about why (the forces causing it).
+**Kinematics** describes motion without specifying the forces that produce it.
 
-### One-Dimensional Motion (Displacement, Velocity, Acceleration)
+### Position, Displacement, Velocity, and Acceleration
 
-**Displacement** ($d$ or $\Delta x$) is the change in position (a vector, with direction). **Velocity** ($v$) is the rate of change of displacement (speed with direction). **Acceleration** ($a$) is the rate of change of velocity: how quickly velocity itself is changing.
+Position $x$ locates an object relative to a chosen origin. **Displacement** is the change in position:
 
-Four key kinematic equations connect these quantities for motion with constant acceleration, using initial velocity $v_0$, final velocity $v$, acceleration $a$, time $t$, and displacement $d$:
+$$\Delta x=x_f-x_i.$$
 
-$$v = v_0 + at$$
+Displacement is a vector (signed in one dimension). It is not necessarily equal to **distance traveled**, which is the total path length.
 
-$$d = v_0 t + \dfrac{1}{2}at^2$$
+Average velocity is
 
-$$v^2 = v_0^2 + 2ad$$
+$$v_{\text{avg}}=\frac{\Delta x}{\Delta t},$$
 
-$$d = \dfrac{(v_0 + v)}{2} t$$
+while instantaneous velocity is the rate of change of position at an instant. **Speed** is the magnitude of velocity in one-dimensional motion.
 
-Each equation uses only $4$ of the $5$ total variables ($v_0, v, a, t, d$), so you can pick whichever equation already contains the values you know and the one you want to find.
+Average acceleration is
 
-<!-- ILLUSTRATION: a car shown at three moments along a straight road, with arrows and labels showing increasing velocity vectors and a curved arrow indicating constant acceleration -->
+$$a_{\text{avg}}=\frac{\Delta v}{\Delta t},$$
 
-### Free Fall Equations
+and instantaneous acceleration is the rate at which velocity changes.
 
-**Free fall** is motion under the influence of gravity alone (ignoring air resistance). Near Earth's surface, every falling object accelerates downward at the same rate, $g \approx 9.8 \text{ m/s}^2$, regardless of the object's mass. The same four kinematic equations apply directly, just substituting $a = g$ (and being careful with the sign, usually taking "downward" as positive for a falling object, or "upward" as positive with $a = -g$).
+### Constant-Acceleration Equations
+
+For **one-dimensional motion with constant acceleration** over the time interval considered:
+
+$$v=v_0+at$$
+
+$$\Delta x=v_0t+\frac12at^2$$
+
+$$v^2=v_0^2+2a\Delta x$$
+
+$$\Delta x=\frac{v_0+v}{2}t.$$
+
+The fourth equation works because, under constant acceleration, average velocity equals $(v_0+v)/2$.
+
+These equations are not general formulas for motion with changing acceleration. When acceleration varies, calculus, graphs, or interval-by-interval methods are needed.
+
+### Free Fall Near Earth's Surface
+
+**Free fall** means motion under gravity alone. Near Earth's surface over modest height changes, the gravitational acceleration magnitude can often be approximated as
+
+$$g\approx9.8\,\mathrm{m/s^2}$$
+
+directed downward.
+
+If upward is positive, $a=-g$. If downward is positive, $a=+g$. The sign convention is a bookkeeping choice; gravity itself points toward Earth.
+
+In the ideal model neglecting air resistance, all freely falling test bodies at the same location have the same gravitational acceleration regardless of mass. Real falling objects in air can accelerate differently because drag and buoyancy depend on shape, speed, density, and other factors.
 
 ## Examples
 
-### #1: Finding Final Velocity
+### #1: Final Velocity
 
-A car starts from rest and accelerates at $4 \text{ m/s}^2$ for $5$ seconds. Find its final velocity.
+A car starts from rest and accelerates uniformly at $4\,\mathrm{m/s^2}$ for $5$ s.
 
-**Solution:**
-Known: $v_0 = 0$, $a = 4$, $t = 5$. Use $v = v_0 + at$.
+$$v=0+(4)(5)=20\,\mathrm{m/s}.$$
 
-1. Substitute the known values.
+### #2: Displacement Under Constant Acceleration
 
-$$v = 0 + (4)(5)$$
+A ball has $v_0=2\,\mathrm{m/s}$ and constant $a=3\,\mathrm{m/s^2}$ for $4$ s, with all motion remaining in the positive direction.
 
-2. Compute.
+$$\Delta x=(2)(4)+\frac12(3)(4^2)=8+24=32\,\mathrm m.$$
 
-$$v = 20 \text{ m/s}$$
+Because velocity stays positive throughout this interval, distance traveled also happens to be $32$ m. In motion with reversals, distance and displacement would differ.
 
-### #2: Finding Displacement
+### #3: Free Fall from Rest
 
-A ball rolls with an initial velocity of $2 \text{ m/s}$ and accelerates at $3 \text{ m/s}^2$ for $4$ seconds. Find how far it travels.
+A rock is dropped and falls for $3$ s. Choose downward as positive and use $g=9.8\,\mathrm{m/s^2}$.
 
-**Solution:**
-Known: $v_0 = 2$, $a = 3$, $t = 4$. Use $d = v_0 t + \dfrac{1}{2}at^2$.
+$$\Delta y=\frac12gt^2=\frac12(9.8)(3^2)=44.1\,\mathrm m$$
 
-1. Substitute the known values.
+$$v=gt=(9.8)(3)=29.4\,\mathrm{m/s}$$
 
-$$d = (2)(4) + \dfrac{1}{2}(3)(4)^2$$
+downward.
 
-2. Compute each term: $2 \times 4 = 8$, and $\dfrac{1}{2}(3)(16) = 24$.
+### #4: No-Time Equation
 
-$$d = 8 + 24$$
+A car moving in the positive direction has $v_0=10\,\mathrm{m/s}$, constant $a=2\,\mathrm{m/s^2}$, and displacement $\Delta x=60$ m.
 
-3. Add.
+$$v^2=10^2+2(2)(60)=340$$
 
-$$d = 32 \text{ m}$$
+The equation gives $v=\pm\sqrt{340}$. The physical setup says the car is still moving in the positive direction while accelerating forward, so choose
 
-### #3: Free Fall From Rest
+$$v=+\sqrt{340}\approx18.4\,\mathrm{m/s}.$$
 
-A rock is dropped from a cliff (initial velocity $= 0$) and falls for $3$ seconds before hitting the ground. Find how far it fell, and its velocity just before impact. (Use $g = 9.8 \text{ m/s}^2$.)
-
-**Solution:**
-Known: $v_0 = 0$, $a = g = 9.8$, $t = 3$.
-
-1. Find the distance fallen using $d = v_0 t + \dfrac{1}{2}at^2$.
-
-$$d = 0 + \dfrac{1}{2}(9.8)(3)^2$$
-
-2. Compute: $3^2 = 9$, so $\dfrac{1}{2}(9.8)(9) = 44.1$.
-
-$$d = 44.1 \text{ m}$$
-
-3. Find the final velocity using $v = v_0 + at$.
-
-$$v = 0 + (9.8)(3) = 29.4 \text{ m/s}$$
-
-4. The rock fell $44.1$ meters and struck the ground at $29.4 \text{ m/s}$.
-
-### #4: Using the No-Time Equation
-
-A car traveling at $10 \text{ m/s}$ accelerates at $2 \text{ m/s}^2$ over a distance of $60 \text{ m}$. Find its final velocity, without using time.
-
-**Solution:**
-Known: $v_0 = 10$, $a = 2$, $d = 60$. Time is not given or asked for, so use $v^2 = v_0^2 + 2ad$.
-
-1. Substitute the known values.
-
-$$v^2 = 10^2 + 2(2)(60)$$
-
-2. Compute: $10^2 = 100$, and $2(2)(60) = 240$.
-
-$$v^2 = 100 + 240 = 340$$
-
-3. Take the square root.
-
-$$v = \sqrt{340} \approx 18.4 \text{ m/s}$$
+Squaring an equation can hide direction information, so choose the sign from the physics of the problem.
 
 ## Speed Tricks & Shortcuts
 
-Before choosing a kinematic equation, list the four values you know and the one you want to find, from the five possible variables ($v_0, v, a, t, d$). Then pick the equation that is missing exactly the one variable you don't have and don't need: this instantly identifies the correct formula.
+Before selecting an equation, list $v_0$, $v$, $a$, $t$, and $\Delta x$ and mark what is known. Then choose a constant-acceleration equation containing the needed variables and not the unnecessary unknown.
 
-For "starts from rest" problems, immediately set $v_0 = 0$, which simplifies every equation (the $v_0 t$ term vanishes, and $v_0^2$ vanishes).
+"Starts from rest" means $v_0=0$ in the chosen frame.
 
-For free fall problems, remember that mass never appears in the equations: a heavy rock and a light pebble (ignoring air resistance) fall with the exact same acceleration and reach the ground at the same time if dropped from the same height together.
+For free fall, choose the positive direction before substituting signs.
+
+Graph facts are useful checks: the slope of a position-time graph is velocity; the slope of a velocity-time graph is acceleration; the signed area under a velocity-time graph is displacement.
 
 ## Traps to Watch For
 
-### #1: Picking an Equation That's Missing the Wrong Variable
+### #1: Using the Four Equations When Acceleration Is Not Constant
 
-> Match the equation to what you know and what you want: don't just grab a formula at random.
+> The standard four equations in this lesson require constant acceleration over the interval.
 
-Using $v = v_0 + at$ when time is not given (and not being asked for) forces you to solve for an unknown you do not need. Always check which variable each equation excludes before selecting one, especially when time is absent from the problem.
+Do not apply them blindly to arbitrary changing acceleration.
 
-### #2: Forgetting That "Starting from Rest" Means Initial Velocity Is Zero
+### #2: Calling Displacement "How Far"
 
-> "Dropped," "starts from rest," or "initially at rest" all mean $v_0 = 0$: do not leave this as an unknown.
+> Displacement is final position minus initial position; distance is total path length.
 
-Missing this detail forces you to treat $v_0$ as unknown, when the problem has actually told you its value directly through descriptive language rather than a number.
+They coincide only for motion without reversal along the chosen line.
 
-### #3: Ignoring Sign Conventions in Free Fall
+### #3: Ignoring Sign Conventions
 
-> Decide on a positive direction (usually "up" or "down") at the start, and apply that sign consistently to every quantity in the problem.
+> Velocity, acceleration, and displacement are signed/vector quantities.
 
-Mixing a positive initial velocity (thrown upward) with a positive acceleration due to gravity (which should be negative if up is positive, since gravity always pulls down) creates contradictory signs and an incorrect answer. Pick one direction as positive and stick with it throughout the entire problem.
+A negative result can indicate direction, not an invalid magnitude.
 
-### #4: Assuming Heavier Objects Fall Faster
+### #4: Saying Heavy Objects Fall Faster in Vacuum
 
-> In free fall (ignoring air resistance), all objects accelerate at the same rate, $g$, regardless of their mass.
+> In the ideal free-fall model at the same location, gravitational acceleration is independent of test-body mass.
 
-This misconception long predates modern physics. Mass does not appear anywhere in the free fall kinematic equations, confirming that a bowling ball and a tennis ball, dropped together from the same height with no air resistance, hit the ground at exactly the same time.
+Differences seen in air arise from additional forces such as drag and buoyancy.
