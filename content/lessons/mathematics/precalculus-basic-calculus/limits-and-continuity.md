@@ -1,7 +1,7 @@
 ---
 _id: "lesson-precalculus-basic-calculus-limits-and-continuity"
 title: "Limits and Continuity"
-summary: "How to evaluate limits, handle the zero-over-zero case, and test whether a function is continuous."
+summary: "How to evaluate basic limits, handle common indeterminate forms, and test continuity."
 subject: "subject-mathematics"
 topic: "topic-precalculus-basic-calculus"
 estimatedMinutes: 13
@@ -9,157 +9,162 @@ isActive: true
 ---
 ## Core Concept
 
-A **limit** asks: as $x$ walks closer and closer to some number, what value does $f(x)$ approach? We write:
+A **limit** asks what value $f(x)$ approaches as $x$ approaches a specified input. We write:
 
-$$\lim_{x \to 2} f(x) = L$$
+$$\lim_{x\to a}f(x)=L$$
 
-The limit cares about the journey, not the destination. Even if $f(2)$ is undefined or something weird, the limit can still exist, because it only watches where the outputs are heading.
+A limit is determined by nearby values, so it can exist even when $f(a)$ is undefined or different from the limiting value.
 
-**Step one is always direct substitution.** Plug the number in. If you get a normal value, that value is the limit. Done.
+### Direct substitution
 
-If substitution gives $\dfrac{0}{0}$, do not panic and do not answer "undefined". This is called an **indeterminate form**, and it means: simplify first. Factor, cancel the troublesome piece, then substitute again.
+For functions known to be continuous at $a$—such as polynomials, and rational functions whose denominator is nonzero there—direct substitution gives the limit:
 
-A **one-sided limit** approaches from one direction only: $x \to 2^-$ (from the left) or $x \to 2^+$ (from the right). The full limit exists only when both sides agree.
+$$\lim_{x\to a}f(x)=f(a)$$
 
-**Limits at infinity** ask where $f(x)$ settles as $x$ grows forever. For a ratio of polynomials, compare the top and bottom degrees: same degree means the limit is the ratio of leading coefficients; bottom-heavy means $0$; top-heavy means the limit is infinite.
+Direct substitution is therefore a useful **first check**, but a finite value of $f(a)$ alone does not prove continuity for an arbitrary piecewise or otherwise discontinuous function. The local behavior must support the substitution rule being used.
 
-A function is **continuous** at $x = a$ when you can draw through it without lifting your pen. Officially, three checks:
+If substitution into an algebraic expression gives $0/0$, that is an **indeterminate form**, not a final answer. It signals that more analysis is needed; in elementary rational examples, factoring and cancelling a common factor often resolves the limit.
 
-1. $f(a)$ exists.
-2. $\lim_{x \to a} f(x)$ exists.
-3. They are equal.
+A **one-sided limit** approaches from one direction: $x\to a^-$ from the left or $x\to a^+$ from the right. A finite two-sided limit exists exactly when both one-sided limits exist and are equal.
 
-Break any one and you have a discontinuity: a hole, a jump, or a vertical asymptote.
+### Rational-function limits at infinity
+
+For a rational function, compare the degrees and leading terms:
+
+- numerator degree smaller than denominator degree: the limit as $x\to\pm\infty$ is $0$;
+- equal degrees: the limit is the ratio of leading coefficients;
+- numerator degree larger: there is no horizontal asymptote. The end behavior follows the leading-term quotient and may tend to $+\infty$ or $-\infty$ (or approach a polynomial/oblique asymptote after division), depending on degrees and signs.
+
+### Continuity
+
+A function is continuous at $x=a$ when all three conditions hold:
+
+1. $f(a)$ is defined.
+2. $\lim_{x\to a}f(x)$ exists.
+3. $\lim_{x\to a}f(x)=f(a)$.
+
+Common discontinuities include removable holes, jumps, and infinite discontinuities associated with vertical asymptotes.
 
 <!-- FIGURE: {"kind": "coordinate-graph", "type": "limits-gallery", "discontinuities": ["hole", "jump", "vertical-asymptote"], "semanticsLabel": "Three mini graphs showing a removable hole, a jump between pieces, and a vertical asymptote."} -->
 
 ## Examples
 
-### #1: Direct Substitution
+### #1: Direct Substitution for a Polynomial
 
-Evaluate $\lim_{x \to 2} (3x + 1)$.
+Evaluate $\lim_{x\to2}(3x+1)$.
 
 **Solution:**
-Try plugging in first: it usually just works.
+Polynomials are continuous everywhere, so direct substitution is valid.
 
-1. Substitute $x = 2$.
+$$3(2)+1=7$$
 
-$$3(2) + 1 = 7$$
+Therefore:
 
-2. The limit is $7$. Polynomials are continuous everywhere, so substitution always finishes them.
+$$\lim_{x\to2}(3x+1)=7$$
 
-### #2: The Zero-over-Zero Classic
+### #2: The $0/0$ Factor-and-Cancel Case
 
-Evaluate $\lim_{x \to 3} \dfrac{x^2 - 9}{x - 3}$.
+Evaluate $\lim_{x\to3}\dfrac{x^2-9}{x-3}$.
 
 <!-- FIGURE: {"kind": "coordinate-graph", "type": "limit-hole", "formula": "y = x + 3", "hole": [3, 6], "points": [[3, 6]], "semanticsLabel": "A graph of y = x + 3 with an open circle hole at (3, 6)."} -->
 
 
 **Solution:**
-Substitution gives $\dfrac{9 - 9}{3 - 3} = \dfrac{0}{0}$: indeterminate. Factor and cancel.
-
-1. Factor the top as a difference of squares.
-
-$$\dfrac{(x - 3)(x + 3)}{x - 3}$$
-
-2. Cancel the $(x - 3)$ factors.
-
-$$x + 3$$
-
-3. Substitute now.
-
-$$3 + 3 = 6$$
-
-4. The limit is $6$. The graph is the line $y = x + 3$ with a hole at $x = 3$, and the limit reports the height of the hole.
-
-### #3: Factoring a Trinomial First
-
-Evaluate $\lim_{x \to 2} \dfrac{x^2 + x - 6}{x - 2}$.
-
-**Solution:**
-Substitution gives $\dfrac{0}{0}$ again.
+Direct substitution gives $0/0$, so simplify.
 
 1. Factor the numerator.
 
-$$x^2 + x - 6 = (x - 2)(x + 3)$$
+$$\dfrac{(x-3)(x+3)}{x-3}$$
 
-2. Cancel the common factor.
+2. For $x\ne3$, cancel the common factor.
 
-$$\lim_{x \to 2} (x + 3)$$
+$$x+3$$
 
-3. Substitute.
+3. The simplified function agrees with the original at every nearby point except the hole itself, so:
 
-$$2 + 3 = 5$$
+$$\lim_{x\to3}(x+3)=6$$
+
+The limit is $6$ even though the original quotient is undefined at $x=3$.
+
+### #3: Factoring a Trinomial
+
+Evaluate $\lim_{x\to2}\dfrac{x^2+x-6}{x-2}$.
+
+**Solution:**
+1. Factor:
+
+$$x^2+x-6=(x-2)(x+3)$$
+
+2. For $x\ne2$, simplify the quotient to $x+3$.
+3. Take the limit:
+
+$$\lim_{x\to2}(x+3)=5$$
 
 ### #4: A Limit at Infinity
 
-Evaluate $\lim_{x \to \infty} \dfrac{3x^2 + 5}{x^2 - 2}$.
+Evaluate $\lim_{x\to\infty}\dfrac{3x^2+5}{x^2-2}$.
 
 **Solution:**
-Compare the degrees: both top and bottom are degree $2$.
+The numerator and denominator have the same degree, so use the leading coefficients.
 
-1. Same degree means the limit is the ratio of the leading coefficients.
-
-$$\dfrac{3}{1} = 3$$
-
-2. The limit is $3$. For huge $x$, the $+5$ and $-2$ are crumbs; the $x^2$ terms run the show.
+$$\lim_{x\to\infty}\dfrac{3x^2+5}{x^2-2}=\dfrac31=3$$
 
 ### #5: Making a Piecewise Function Continuous
 
-A function is defined as $f(x) = x^2 + 1$ for $x < 1$, and $f(x) = x + k$ for $x \geq 1$. Find the value of $k$ that makes $f$ continuous at $x = 1$.
+A function is defined as $f(x)=x^2+1$ for $x<1$ and $f(x)=x+k$ for $x\ge1$. Find $k$ so that $f$ is continuous at $x=1$.
 
 <!-- FIGURE: {"kind": "coordinate-graph", "type": "piecewise", "formula": "x^2+1 for x<1, x+1 for x>=1", "points": [[1, 2]], "semanticsLabel": "A continuous piecewise graph of a parabola and a line meeting at x = 1."} -->
 
 
 **Solution:**
-Continuity at the seam means the two pieces must meet there.
+Continuity requires the left-hand limit, right-hand limit, and function value to agree.
 
-1. The left piece approaches:
+1. Left-hand limit:
 
-$$1^2 + 1 = 2$$
+$$1^2+1=2$$
 
-2. The right piece at $x = 1$ gives:
+2. The right-hand expression and function value at $1$ are:
 
-$$1 + k$$
+$$1+k$$
 
 3. Set them equal.
 
-$$1 + k = 2$$
+$$1+k=2$$
 
-$$k = 1$$
+$$k=1$$
 
-4. With $k = 1$, both pieces meet at the point $(1, 2)$ and the graph has no jump.
+With $k=1$, the pieces meet at $(1,2)$.
 
 ## Speed Tricks & Shortcuts
 
-Always substitute first, even when the problem looks scary. Most CET limit questions end right there. Only a $\dfrac{0}{0}$ result earns the factoring work.
+For polynomial and rational expressions, substitution is a good first diagnostic. A nonzero denominator usually ends the rational-function problem immediately. A $0/0$ result means the expression needs further work, not that the limit automatically fails.
 
-For $\dfrac{0}{0}$ rational limits, the factor you cancel is always $(x - a)$ where $a$ is the number being approached. Knowing what you are hunting for makes the factoring faster: in Example $3$, the top had to contain $(x - 2)$.
+For rational limits at infinity, the leading terms determine end behavior. Equal degrees give the ratio of leading coefficients; a larger denominator degree gives $0$; a larger numerator degree requires attention to the leading-term quotient or polynomial division.
 
-For limits at infinity of rational functions, read only the leading terms: same degree gives the coefficient ratio, bottom degree bigger gives $0$, top degree bigger gives no finite limit. No algebra needed.
+For simple removable-hole limits, factor only after identifying the factor associated with the approached value, but cancel it only algebraically for nearby $x\ne a$. The cancellation does not redefine the original function at the hole.
 
 ## Traps to Watch For
 
-### #1: Declaring $\dfrac{0}{0}$ "Undefined"
+### #1: Treating $0/0$ as a Value
 
-> Zero over zero means simplify more, not "no answer".
+> $0/0$ is an indeterminate form, not a numerical answer.
 
-The indeterminate form is a yellow light, not a red one. In Example $2$ the limit exists and equals $6$. Choices like "undefined" and "does not exist" are planted for students who stop at the substitution step.
+It tells you that direct substitution has not settled the limit. The next method depends on the expression; factoring is only one common elementary technique.
 
 ### #2: Confusing the Limit with the Function Value
 
-> The limit can exist even where the function is undefined, and they can differ.
+> A limit depends on nearby behavior, not solely on $f(a)$.
 
-At a hole, $f(3)$ may not exist while the limit is a clean $6$. If the function is separately defined so that $f(3) = 10$ but nearby values head to $6$, then the limit is still $6$. The limit watches the neighbors, never the point itself.
+A function can have a hole at $a$, or be assigned a different value there, while nearby values approach a well-defined limit.
 
-### #3: Ignoring the Two Sides
+### #3: Ignoring One-Sided Behavior
 
-> If the left and right limits disagree, the limit does not exist.
+> A two-sided limit exists only when the left-hand and right-hand limits agree.
 
-For a piecewise function with a jump, each side approaches a different height. Test-makers ask for the plain limit and offer both one-sided values as choices. Check both directions before answering: the correct choice may be "does not exist".
+At a jump, the two sides approach different finite values. Near a vertical asymptote, the sides may also diverge in different directions.
 
-### #4: Nonzero over Zero
+### #4: Nonzero over Zero Needs One-Sided Analysis
 
-> $\dfrac{5}{0}$ is not indeterminate: the limit blows up.
+> A nonzero numerator over a denominator approaching zero is not the indeterminate form $0/0$.
 
-If substitution gives a nonzero number over $0$, no factoring will save it: the function rockets toward infinity near a vertical asymptote, and the (finite) limit does not exist. Only the exact form $\dfrac{0}{0}$ invites simplification.
+The magnitude may grow without bound, but the sign can differ on the two sides. For example, near a simple vertical asymptote one side may tend to $+\infty$ and the other to $-\infty$, so the ordinary two-sided finite limit does not exist.
