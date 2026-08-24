@@ -1,7 +1,7 @@
 ---
 _id: "lesson-biology-cellular-metabolism"
 title: "Cellular Metabolism (Photosynthesis, Cellular Respiration)"
-summary: "How plants make their own food through photosynthesis and how cells release energy through cellular respiration."
+summary: "How photosynthesis stores light energy in organic molecules and how cells extract usable energy through respiration and related pathways."
 subject: "subject-science"
 topic: "topic-biology"
 estimatedMinutes: 11
@@ -9,112 +9,113 @@ isActive: true
 ---
 ## Core Concept
 
-Every living cell needs a constant supply of energy to function. Two connected processes explain where that energy ultimately comes from and how cells use it.
+Living cells require usable energy, commonly transferred through molecules such as ATP. Photosynthesis and cellular respiration are two major processes involved in capturing, storing, and releasing that energy.
 
 ### Photosynthesis
 
-**Photosynthesis** is how plants (and some other organisms) make their own food using light energy. It happens inside the **chloroplast**, using a green pigment called chlorophyll to capture sunlight.
+**Photosynthesis** uses light energy to build energy-rich organic molecules from carbon dioxide. In plants and algae it occurs in **chloroplasts**; photosynthetic prokaryotes such as cyanobacteria carry out photosynthesis without chloroplasts.
+
+A common simplified net equation for oxygenic photosynthesis is:
 
 $$6CO_2 + 6H_2O + \text{light energy} \rightarrow C_6H_{12}O_6 + 6O_2$$
 
-In words: carbon dioxide and water, powered by light energy, are combined to produce glucose (sugar, the plant's food) and oxygen (released as a byproduct).
+This equation is useful for tracking the overall reactants and products, although the actual pathway has many steps. The oxygen released by oxygenic photosynthesis comes from the splitting of water during the light-dependent reactions.
 
 ### Cellular Respiration
 
-**Cellular respiration** is how cells break down glucose to release usable energy, stored in a molecule called **ATP**. It happens mainly inside the **mitochondria**, and it needs oxygen (this is why we breathe).
+**Cellular respiration** is a set of catabolic pathways that transfer energy from organic molecules into ATP and other usable energy carriers.
 
-$$C_6H_{12}O_6 + 6O_2 \rightarrow 6CO_2 + 6H_2O + \text{ATP (energy)}$$
+In **aerobic cellular respiration**, oxygen ultimately serves as the final electron acceptor. A simplified overall equation is:
 
-In words: glucose and oxygen are broken down to produce carbon dioxide, water, and usable energy (ATP).
+$$C_6H_{12}O_6 + 6O_2 \rightarrow 6CO_2 + 6H_2O + \text{ATP and heat}$$
 
-<!-- ILLUSTRATION: cycle diagram showing a plant chloroplast producing glucose and oxygen from carbon dioxide, water, and sunlight, with an arrow to a mitochondrion (in the same plant cell or another organism) using that glucose and oxygen to produce carbon dioxide, water, and ATP, and an arrow looping back -->
+In eukaryotic cells, **glycolysis** occurs in the cytosol, while pyruvate oxidation, the citric acid cycle, and oxidative phosphorylation are associated with mitochondria. It is therefore inaccurate to say that the whole process happens only inside mitochondria.
 
-Notice that these two equations are essentially opposites of each other. The products of photosynthesis (glucose and oxygen) are exactly the raw materials (reactants) that cellular respiration needs. And the products of cellular respiration (carbon dioxide and water) are exactly what photosynthesis needs as raw materials. This is why plants and animals form such a tightly connected cycle: plants release the oxygen that animals breathe in, and animals (and plants themselves) release the carbon dioxide that plants use to make food.
+Not all energy metabolism requires oxygen. Some prokaryotes perform **anaerobic respiration** using final electron acceptors other than oxygen, and many organisms can use **fermentation** to keep glycolysis running when oxygen-dependent respiration is unavailable.
 
-Plants actually do both processes: they perform photosynthesis (mainly during the day, using sunlight) and cellular respiration (all the time, like animal cells, to use the glucose they made for their own energy needs).
+<!-- ILLUSTRATION: cycle diagram showing a chloroplast using carbon dioxide, water, and light to build carbohydrate and release oxygen; a mitochondrion using organic fuel and oxygen for aerobic respiration; and a note that glycolysis occurs in the cytosol -->
+
+Photosynthesis and aerobic respiration have complementary overall inputs and outputs, but they are not simply the same chemical pathway run backward. They use different enzymes, intermediate reactions, membranes, and energy-coupling mechanisms.
+
+Plants perform both photosynthesis and cellular respiration. Photosynthesis requires light for its light-dependent reactions, while cellular respiration continues day and night as long as fuel and appropriate conditions are available.
 
 ## Examples
 
 ### #1: Matching Reactants and Products
 
-Identify the missing product in this equation, and name the process it represents: $6CO_2 + 6H_2O + \text{light energy} \rightarrow C_6H_{12}O_6 + \, ?$
+Identify the missing product in this simplified equation and name the process:
+
+$$6CO_2 + 6H_2O + \text{light energy} \rightarrow C_6H_{12}O_6 + \, ?$$
 
 **Solution:**
-Recall the full photosynthesis equation and check what is balanced.
 
-1. This equation matches photosynthesis: carbon dioxide, water, and light energy combining to form glucose.
-2. The complete photosynthesis equation also produces oxygen as the other product.
-3. The missing product is $6O_2$ (oxygen gas).
+1. The equation is the simplified net equation for oxygenic photosynthesis.
+2. The missing product is $6O_2$.
+3. The oxygen atoms in released $O_2$ ultimately come from water molecules split during the light reactions.
 
 ### #2: Where Does Each Process Happen?
 
-A student examines two different organelles under a microscope: one green and disc-shaped, the other bean-shaped with folded inner membranes. Identify which organelle performs photosynthesis and which performs cellular respiration.
-
-<!-- ILLUSTRATION: two organelles side by side: a green disc-shaped chloroplast (photosynthesis) and a bean-shaped mitochondrion with folded inner membranes/cristae (cellular respiration) -->
-
+In a plant cell, identify the organelle associated with photosynthesis and explain where the major stages of aerobic glucose breakdown occur.
 
 **Solution:**
-Match the described organelle shape and color to its known structure.
 
-1. The green, disc-shaped organelle matches the chloroplast, which performs photosynthesis (its green color comes from chlorophyll).
-2. The bean-shaped organelle with folded inner membranes matches the mitochondrion, which performs cellular respiration.
-3. Answer: the green disc-shaped organelle (chloroplast) performs photosynthesis; the bean-shaped organelle (mitochondrion) performs cellular respiration.
+1. Photosynthesis occurs in chloroplasts.
+2. Glycolysis begins in the cytosol, outside the mitochondrion.
+3. In eukaryotes, later stages of aerobic respiration occur in and across the mitochondrion.
+4. So "chloroplast = photosynthesis" is a useful shortcut, while "all respiration happens in mitochondria" is too broad.
 
 ### #3: The Connection Between the Two Processes
 
-Explain why the oxygen that animals breathe in ultimately comes from plants, and why the carbon dioxide that plants use ultimately comes from animals (and other respiring organisms).
+Explain how photosynthesis and aerobic respiration are chemically connected at the ecosystem level.
 
 **Solution:**
-Trace the products and reactants of each process.
 
-1. Photosynthesis in plants produces oxygen as a byproduct while making glucose.
-2. Animals (and plants themselves) perform cellular respiration, which requires oxygen as a raw material to release energy from glucose.
-3. Cellular respiration, in turn, produces carbon dioxide as a byproduct.
-4. Photosynthesis requires carbon dioxide as a raw material to make glucose.
-5. Because the product of one process is exactly the raw material needed by the other, plants and respiring organisms form a mutually supporting cycle: plants supply the oxygen respiration needs, and respiration supplies the carbon dioxide photosynthesis needs.
+1. Oxygenic photosynthesis builds organic molecules and releases oxygen.
+2. Aerobic respiration can use organic molecules and oxygen, releasing carbon dioxide and water while transferring energy into ATP.
+3. Carbon dioxide and water can then serve as inputs to photosynthesis.
+4. Matter cycles through these processes, while energy enters mainly as light and eventually dissipates as heat.
 
 ### #4: Do Plants Perform Cellular Respiration Too?
 
-A student claims, "Plants only perform photosynthesis; only animals perform cellular respiration." Explain what is wrong with this statement.
+A student claims, "Plants only perform photosynthesis; only animals perform cellular respiration." Explain the error.
 
 **Solution:**
-Check the claim against what plant cells actually need.
 
-1. Plants make glucose through photosynthesis, but making glucose is not the same as using it for energy.
-2. Like every other living cell, plant cells still need ATP energy to carry out their own life processes (growing, repairing, transporting nutrients).
-3. To get that ATP energy, plant cells also perform cellular respiration, breaking down some of the glucose they produced, just like animal cells do.
-4. The corrected statement: plants perform both photosynthesis (to make food) and cellular respiration (to use that food for energy), while animals perform only cellular respiration.
+1. Plant cells need ATP for growth, transport, synthesis, repair, and other cellular work.
+2. Plants therefore carry out cellular respiration as well as photosynthesis.
+3. Animals also use cellular respiration, but they are not the only organisms that do so.
+4. Photosynthesis and respiration describe metabolic pathways, not mutually exclusive categories of organisms.
 
 ## Speed Tricks & Shortcuts
 
-Treat the two equations as mirror images of each other: photosynthesis reactants are respiration's products, and vice versa. If you know one equation, you can write the other by simply flipping the arrow and swapping "light energy" for "ATP (energy)."
+Use the simplified equations to track overall matter, but do not treat them as literal one-step reactions or exact reversals of each other.
 
-Remember the organelle-color-shape pairing: chloroplast is green (chlorophyll) and does photosynthesis; mitochondrion is the "powerhouse" and does respiration. If a question mentions a green structure, it is almost always about photosynthesis.
+Remember the location split in eukaryotic aerobic respiration: **glycolysis in the cytosol; later aerobic stages in mitochondria**.
 
-For "which organism does which process" questions, remember: cellular respiration happens in every living cell (plants, animals, and more), but photosynthesis happens only in cells with chloroplasts (plants and a few other organisms).
+If a question says oxygen is required, it is specifically describing an **aerobic** pathway. Cellular energy metabolism as a whole also includes anaerobic respiration and fermentation.
 
 ## Traps to Watch For
 
-### #1: Thinking Plants Only Do Photosynthesis
+### #1: Saying All Cellular Respiration Requires Oxygen
 
-> Plants perform both photosynthesis (to make food) and cellular respiration (to use that food for energy), just like animal cells do.
+> Aerobic respiration uses oxygen, but some prokaryotes perform anaerobic respiration using other final electron acceptors.
 
-This is one of the most common misconceptions in biology exams. A choice claiming "plants do not need oxygen" or "plants do not perform cellular respiration" is incorrect: plant cells need ATP just as much as animal cells do.
+Fermentation is another oxygen-independent way cells regenerate electron carriers so glycolysis can continue.
 
-### #2: Reversing the Equations
+### #2: Saying Cellular Respiration Happens Entirely in Mitochondria
 
-> Photosynthesis makes glucose and oxygen from carbon dioxide, water, and light. Cellular respiration makes carbon dioxide, water, and ATP from glucose and oxygen.
+> Glycolysis occurs in the cytosol of both prokaryotic and eukaryotic cells.
 
-Since these two equations are mirror images, it is easy to write one when you mean the other. A quick check: if "light energy" appears as an input, it is photosynthesis; if "ATP" appears as an output, it is cellular respiration.
+Mitochondria are central to later stages of aerobic respiration in eukaryotes, not to every step of glucose catabolism.
 
-### #3: Mixing Up Chloroplast and Mitochondria
+### #3: Treating Photosynthesis and Respiration as Exact Reverse Pathways
 
-> Chloroplasts perform photosynthesis. Mitochondria perform cellular respiration.
+> Their simplified net equations look complementary, but the biochemical pathways are not exact reversals.
 
-Both organelles are involved in energy processes, which leads to confusion. Chloroplasts, found only in plant-type cells, capture light energy; mitochondria, found in nearly all cells (plant and animal), release energy from glucose.
+They use different reaction sequences and energy-coupling machinery.
 
-### #4: Assuming Oxygen Is Made During Respiration
+### #4: Assuming Photosynthesis Requires Chloroplasts in Every Organism
 
-> Cellular respiration consumes oxygen as a raw material; it does not produce it.
+> Plants and algae use chloroplasts; photosynthetic bacteria do not have chloroplasts.
 
-A choice may list oxygen as a product of cellular respiration, confusing it with photosynthesis. Respiration consumes oxygen to release energy and produces carbon dioxide and water as byproducts: oxygen is strictly an input here, not an output.
+Chloroplasts are a eukaryotic organelle, not a universal requirement for photosynthesis.
