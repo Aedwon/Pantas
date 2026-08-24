@@ -126,26 +126,6 @@ questions:
     explanation: |
       International Humanitarian Law is also known as the law of armed conflict or law of war.
 
-  - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0007
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Does International Humanitarian Law cease to apply when peacetime conditions are restored?
-    choices:
-      - text: Yes, IHL ends with armed conflict
-        correct: true
-      - text: No, IHL governs ordinary peacetime civil courts
-        rationale: |
-          You selected peacetime civil courts, which are governed by domestic law. IHL is specific to armed conflict and ends when peace is restored.
-      - text: No, IHL replaces all municipal civil ordinances
-        rationale: |
-          You picked replacing civil ordinances, which misconstrues legal jurisdiction. IHL applies only during armed conflict and ceases upon peace.
-      - text: No, IHL applies only after peace treaties sign
-        rationale: |
-          You chose applying after peace treaties, which confuses post-war treaties with wartime law. IHL applies during conflict and ends when peace returns.
-    explanation: |
-      IHL is specifically triggered by armed conflict and ceases to apply when conflict ends and peace is restored.
-
   - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0008
     type: single_choice
     difficulty: medium
