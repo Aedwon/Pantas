@@ -1,7 +1,7 @@
 ---
 _id: "lesson-biology-genetics-and-heredity"
 title: "Genetics and Heredity"
-summary: "How traits pass from parents to offspring, from Mendel's basic laws to DNA, protein synthesis, and reading pedigrees."
+summary: "How genetic information is inherited and expressed, from Mendelian patterns to DNA, gene linkage, protein synthesis, and pedigrees."
 subject: "subject-science"
 topic: "topic-biology"
 estimatedMinutes: 15
@@ -9,138 +9,132 @@ isActive: true
 ---
 ## Core Concept
 
-**Genetics** is the study of how traits pass from parents to offspring. A **gene** is a segment of DNA that carries instructions for a trait. Different versions of the same gene are called **alleles**.
+**Genetics** is the study of heredity and genetic variation. A **gene** is a DNA sequence whose information contributes to a functional product, such as an RNA or protein. Genes can influence traits, but most traits are not controlled by a single gene acting alone. Different versions of a gene are called **alleles**.
 
-An organism's **genotype** is its actual genetic makeup (like $Tt$); its **phenotype** is how that genotype is physically expressed (like "tall"). A **dominant** allele (written with a capital letter, like $T$) shows its effect even with just one copy; a **recessive** allele (lowercase, like $t$) only shows its effect when two copies are present.
+An organism's **genotype** describes its genetic state at one or more loci; its **phenotype** is an observable characteristic produced by the interaction of genotype and environment.
+
+In a simple diploid, complete-dominance model, a **dominant** allele can determine the heterozygote's phenotype, while a **recessive** phenotype appears when no dominant allele is present. Capital and lowercase letters are a classroom notation convention, not an intrinsic property of DNA.
 
 ### Mendelian Laws of Inheritance
 
-Gregor Mendel, working with pea plants, discovered two basic laws.
+The **Law of Segregation** says that the two alleles at a diploid locus separate during gamete formation, so a haploid gamete receives one allele from that pair.
 
-The **Law of Segregation**: an organism's two alleles for a gene separate (segregate) during the formation of sex cells, so each sex cell carries only one allele for that gene.
+The **Law of Independent Assortment** applies when genes assort independently—for example, genes on different chromosomes, or genes far enough apart on the same chromosome that recombination makes them behave as effectively unlinked. Genes physically close together on the same chromosome are **linked** and can violate simple independent-assortment ratios.
 
-The **Law of Independent Assortment**: alleles for different genes separate independently of each other during sex cell formation, meaning inheriting one trait does not affect which allele is inherited for a different trait.
-
-A **Punnett square** is a grid tool used to predict the possible genotypes (and their probabilities) of offspring, based on the parents' genotypes.
+A **Punnett square** displays expected probabilities for offspring genotypes under a stated inheritance model. It does not guarantee that a small family will appear in those exact ratios.
 
 | | $T$ | $t$ |
 | --- | --- | --- |
 | **$T$** | $TT$ | $Tt$ |
 | **$t$** | $Tt$ | $tt$ |
 
-### Non-Mendelian Genetics
+### Extensions Beyond Simple Dominance
 
-Not all traits follow Mendel's simple dominant-recessive pattern.
+**Incomplete dominance**: the heterozygote has a phenotype intermediate between the two homozygotes in the characteristic being measured.
 
-**Incomplete dominance**: neither allele is fully dominant, so heterozygotes show a blended, intermediate trait (like a red flower and a white flower producing pink offspring).
+**Codominance**: both alleles contribute detectably to the heterozygote's phenotype. The human ABO blood group is a standard example: $I^A$ and $I^B$ are codominant.
 
-**Codominance**: Both alleles are fully expressed at the same time, side by side, without blending (like human blood type ab, where both the A and B traits show fully).
+**Multiple alleles**: a locus can have more than two alleles in a population even though a diploid individual ordinarily carries no more than two copies at that locus.
 
-**Multiple alleles**: some genes have more than two possible alleles in the population, even though any one individual still carries only two. Human ABO blood type has three alleles ($I^A$, $I^B$, $i$).
-
-**Sex-linked traits**: genes located on the X chromosome, meaning inheritance patterns differ between males (XY) and females (XX). Conditions like color blindness and hemophilia are sex-linked.
+**Sex-linked inheritance** means a gene is on a sex chromosome. **X-linked** inheritance is especially important because individuals with only one X chromosome are hemizygous for most X-linked loci. Some forms of red-green color-vision deficiency and hemophilia are X-linked recessive.
 
 ### DNA, RNA, and Protein Synthesis
 
-**DNA** stores the genetic instructions, made of four bases: adenine ($A$), thymine ($T$), cytosine ($C$), and guanine ($G$), which pair up specifically: $A$ with $T$, and $C$ with $G$.
+DNA uses the bases adenine ($A$), thymine ($T$), cytosine ($C$), and guanine ($G$). In double-stranded DNA, $A$ pairs with $T$ and $C$ pairs with $G$.
 
-Making a protein from DNA instructions follows two main steps, sometimes called the "central dogma":
+For a typical protein-coding gene, the main information-flow steps are:
 
-**Transcription**: DNA's instructions are copied into a messenger RNA (mRNA) molecule, inside the nucleus.
+**Transcription**: RNA polymerase uses DNA as a template to synthesize RNA. In eukaryotes, nuclear genes are transcribed in the nucleus; prokaryotes have no nucleus, so transcription occurs in the cytoplasmic region.
 
-**Translation**: the mRNA travels to a ribosome, where its code is read in gene-sized groups of three bases (**codons**) to build a chain of amino acids, forming a protein.
+**Translation**: ribosomes read the mRNA sequence in three-nucleotide units called **codons**, each of which specifies an amino acid or a translation signal. Codons are not "gene-sized" units; a protein-coding gene ordinarily contains many codons.
 
-### Pedigree Analysis and Punnett Squares
+The shorthand $DNA \rightarrow RNA \rightarrow protein$ is useful for protein-coding genes, but not every RNA is translated into protein, and biology also includes processes such as reverse transcription.
 
-A **pedigree** is a chart showing how a trait has passed through a family across generations, using symbols (usually squares for males, circles for females, shaded for those showing the trait). Pedigrees are used to figure out whether a trait is dominant or recessive, and whether it might be sex-linked, by tracing its pattern across generations.
+### Pedigrees
+
+A **pedigree** charts the occurrence of a trait through a family. Under a specified simple Mendelian model, patterns can support hypotheses such as autosomal dominant, autosomal recessive, or X-linked inheritance. Real pedigrees can be complicated by small family size, incomplete penetrance, new mutations, variable expression, and non-Mendelian inheritance, so a pattern is evidence—not an infallible proof by itself.
 
 ## Examples
 
 ### #1: Basic Punnett Square Cross
 
-A pea plant heterozygous for height ($Tt$, where $T$ = tall is dominant and $t$ = short is recessive) is crossed with another heterozygous plant ($Tt$). What fraction of the offspring are expected to be tall?
-
-| | $T$ | $t$ |
-| --- | --- | --- |
-| **$T$** | $TT$ (tall) | $Tt$ (tall) |
-| **$t$** | $Tt$ (tall) | $tt$ (short) |
-
+Two heterozygous pea plants are crossed at a locus with complete dominance: $Tt \times Tt$, where $T$ produces the dominant tall phenotype and $t$ the recessive short phenotype. What is the expected probability that one offspring is tall?
 
 **Solution:**
-Set up the $2 \times 2$ Punnett square with alleles $T$ and $t$ from each parent.
 
-1. The four possible offspring combinations are: $TT$, $Tt$, $Tt$, $tt$.
-2. Any genotype with at least one $T$ (dominant) shows the tall phenotype: that is $TT$, $Tt$, and $Tt$: three out of four boxes.
-3. Only $tt$ (no dominant allele) shows the recessive short phenotype: one out of four boxes.
-4. The fraction expected to be tall is $\dfrac{3}{4}$.
+1. Possible offspring genotypes are $TT$, $Tt$, $Tt$, and $tt$.
+2. Three of the four equally likely Punnett-square cells contain at least one $T$.
+3. Expected probability of the tall phenotype:
+
+$$P(\text{tall})=\frac{3}{4}$$
+
+4. This is a probability for each offspring, not a promise that every set of four offspring contains exactly three tall individuals.
 
 ### #2: Incomplete Dominance vs. Codominance
 
-A red snapdragon flower is crossed with a white snapdragon flower, and all offspring have pink flowers. Separately, a person with blood type A and a person with blood type B have a child with blood type ab. Identify which scenario shows incomplete dominance and which shows codominance.
+A red snapdragon crossed with a white snapdragon produces heterozygous pink flowers. Separately, a person with genotype $I^AI^B$ has blood type AB. Identify the inheritance patterns.
 
 **Solution:**
-Check whether the traits blend together or appear separately, side by side.
 
-1. Pink is a blend between red and white: neither color fully dominates. This is incomplete dominance.
-2. Blood type ab shows both the A trait and the B trait fully and separately, without blending into some "in-between" type. This is codominance.
+1. The intermediate pink heterozygote is incomplete dominance.
+2. Expression of both A and B antigens in blood type AB is codominance.
 
-### #3: Tracing DNA to Protein
+### #3: DNA to Protein
 
-Explain, in order, the two main steps that convert the genetic instructions stored in DNA into an actual protein.
+Describe the basic information flow for a protein-coding eukaryotic nuclear gene.
 
-$$\text{DNA} \xrightarrow{\text{transcription}} \text{mRNA} \xrightarrow{\text{translation}} \text{protein}$$
-
+$$DNA \xrightarrow{\text{transcription}} RNA \xrightarrow{\text{translation}} protein$$
 
 **Solution:**
-Follow the central dogma in order.
 
-1. First, transcription: the DNA instructions for the needed protein are copied into a messenger RNA (mRNA) molecule, inside the cell's nucleus.
-2. Then, translation: the mRNA travels out to a ribosome, where its sequence of codons (three-base groups) is read and used to assemble a chain of amino acids.
-3. That chain of amino acids folds up to become the finished protein.
-4. Order: DNA → (transcription) → mRNA → (translation) → protein.
+1. Transcription synthesizes an RNA copy from the DNA template in the nucleus.
+2. After eukaryotic RNA processing, mature mRNA can leave the nucleus.
+3. A ribosome translates mRNA codons into an amino-acid chain.
+4. The polypeptide then folds and may undergo additional processing before becoming a functional protein.
 
-### #4: Reading a Pedigree for a Recessive Trait
+### #4: Interpreting an Unaffected-Parents Pedigree
 
-In a family pedigree, two unaffected parents have a child who shows a certain rare trait. Based on this pattern alone, is the trait more likely to be dominant or recessive?
+Two unaffected parents have an affected child. Under the explicit assumptions that the trait is rare, single-gene, fully penetrant, autosomal, and caused by either a completely dominant or completely recessive allele, which model fits better?
 
 **Solution:**
-Think about which type of allele can "hide" in unaffected parents.
 
-1. If the trait were dominant, at least one parent would need to show it themselves to pass it on, since a dominant allele always shows its effect.
-2. Since neither parent shows the trait, but their child does, both parents must be silently carrying one hidden copy of a recessive allele (making them $Aa$ heterozygous carriers).
-3. The child inherited a recessive allele from each parent, becoming $aa$ and showing the trait.
-4. This pattern, unaffected parents producing an affected child, is a classic sign that the trait is recessive.
+1. Under the simple dominant model, an affected child would ordinarily have inherited the dominant allele from an affected parent.
+2. Under the recessive model, two unaffected heterozygous carriers can each contribute the recessive allele to an affected child.
+3. Therefore the pattern supports **autosomal recessive inheritance under the stated assumptions**.
+4. Without those assumptions, alternatives such as a new dominant mutation or incomplete penetrance could also produce unaffected parents with an affected child.
 
 ## Speed Tricks & Shortcuts
 
-For quick Punnett square ratios, memorize the classic monohybrid cross result: $Tt \times Tt$ always gives a $3:1$ phenotype ratio (three dominant-looking offspring for every one recessive-looking offspring), and a $1:2:1$ genotype ratio ($TT : Tt : tt$).
+For Punnett squares, translate the result as **probability**, not a guaranteed family ratio.
 
-To tell codominance from incomplete dominance quickly, ask: does the heterozygote show a new blended trait (incomplete dominance, like pink), or does it show both parent traits fully and separately (codominance, like blood type ab)?
+For independent assortment, ask where the genes are. Different chromosomes generally assort independently; closely linked genes on the same chromosome tend to be inherited together unless recombination separates them.
 
-For pedigree questions, the fastest clue is "two unaffected parents, one affected child": this pattern can only happen if the trait is recessive, since a dominant trait would require a visibly affected parent.
+For terminology, remember: **genus/species-style letters are notation; dominance is a relationship between alleles and phenotype under a model**.
+
+For pedigrees, never infer inheritance mode from one pattern without noticing the assumptions stated in the question.
 
 ## Traps to Watch For
 
-### #1: Confusing Genotype and Phenotype
+### #1: Saying Every Gene Directly "Codes for a Trait"
 
-> Genotype is the genetic makeup (like $Tt$). Phenotype is the physical appearance (like "tall").
+> Genes encode functional products or regulate biological processes; phenotypes can depend on many genes plus the environment.
 
-A question asking for the phenotype of a $Tt$ individual wants the word "tall" (since $T$ is dominant), not the letters "$Tt$" themselves. Mixing these up is one of the most common vocabulary slips in genetics.
+Single-gene Mendelian examples are models, not a description of all traits.
 
-### #2: Assuming Incomplete Dominance and Codominance Are the Same
+### #2: Applying Independent Assortment to Closely Linked Genes
 
-> Incomplete dominance blends the two traits into something new. Codominance shows both traits fully, side by side, without blending.
+> Genes close together on the same chromosome are more likely to be inherited together.
 
-Pink flowers (a genuinely new, blended color) and ab blood type (both A and B markers fully present, not blended into a "new" blood type) are testing this exact distinction. If the offspring shows something genuinely in between, it is incomplete dominance; if it shows both original traits at once, it is codominance.
+Recombination can separate linked alleles, with probability generally increasing as loci are farther apart.
 
-### #3: Forgetting That RNA Uses a Different Base Than DNA
+### #3: Calling the Second Word of an mRNA Triplet a "Gene-Sized Codon"
 
-> RNA uses uracil ($U$) in place of thymine ($T$), which DNA uses.
+> A codon is a three-nucleotide unit in mRNA; a coding sequence contains many codons.
 
-When transcribing a DNA sequence into mRNA, every DNA base pairs as usual except that adenine ($A$) in DNA pairs with uracil ($U$) in the RNA copy, not thymine. A choice using thymine in an mRNA sequence is incorrect.
+Translation reads codons one after another.
 
-### #4: Misreading a Pedigree's Affected Individuals
+### #4: Saying Unaffected Parents Can Never Have a Child with a Dominant Condition
 
-> Two unaffected parents having an affected child is only possible for a recessive trait; it rules out a simple dominant pattern.
+> That conclusion holds only inside a simple inherited, fully penetrant dominant model.
 
-If a pedigree shows this pattern but a question suggests the trait is dominant, that answer choice is inconsistent with the evidence. Always check whether unaffected parents can (recessive) or cannot (dominant) produce an affected child before deciding.
+Real genetics can include de novo mutations, penetrance effects, mosaicism, and other complications.
