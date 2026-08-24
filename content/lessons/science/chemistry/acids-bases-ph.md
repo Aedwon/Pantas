@@ -1,7 +1,7 @@
 ---
 _id: "lesson-chemistry-acids-bases-ph"
-title: "Acids, Bases, and pH Scale"
-summary: "How to identify acids and bases, read the pH scale, and understand what happens during neutralization."
+title: "Acids, Bases, and pH"
+summary: "How Arrhenius and Brønsted-Lowry acids and bases are defined, how pH represents hydronium activity, and what neutralization means."
 subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 11
@@ -9,113 +9,132 @@ isActive: true
 ---
 ## Core Concept
 
-Two definitions describe **acids** and **bases**.
+Acids and bases can be described with more than one useful model.
 
-The **Arrhenius definition**: an acid produces hydrogen ions ($H^+$) when dissolved in water; a base produces hydroxide ions ($OH^-$) when dissolved in water.
+### Acid-Base Definitions
 
-The **Brønsted-Lowry definition** (broader, applies beyond just water): an acid is a proton ($H^+$) donor; a base is a proton ($H^+$) acceptor.
+In the **Arrhenius** model for aqueous solution, acids increase the concentration of hydronium ions, $H_3O^+$, and bases increase the concentration of hydroxide ions, $OH^-$. Writing a bare $H^+(aq)$ is a common shorthand; free protons are strongly solvated in water.
 
-### The pH Scale
+In the broader **Brønsted-Lowry** model, an acid is a proton donor and a base is a proton acceptor. A Brønsted-Lowry acid-base reaction is therefore a **proton-transfer** reaction and need not involve $OH^-$ as a reactant.
 
-The **pH scale** measures how acidic or basic a solution is, running from $0$ to $14$.
+### pH
 
-- $pH$ less than $7$: Acidic (more $H^+$ ions). The lower the number, the more acidic.
-- $pH$ equal to $7$: Neutral (like pure water).
-- $pH$ greater than $7$: Basic (or alkaline). The higher the number, the more basic.
+Formally, pH is based on hydrogen-ion **activity**. In sufficiently dilute introductory aqueous solutions it is commonly approximated using hydronium concentration:
 
-<!-- ILLUSTRATION: horizontal pH scale numbered 0 to 14, colored gradient from red (acidic, low numbers) through green (neutral, 7) to blue/purple (basic, high numbers), with common examples marked: lemon juice near 2, pure water at 7, soap near 10 -->
+$$\mathrm{pH}\approx-\log_{10}[H_3O^+]$$
 
-Each whole step on the pH scale represents a ten-times change in acidity, since the scale is based on powers of $10$. A solution with $pH = 3$ is $10$ times more acidic than one with $pH = 4$, and $100$ times more acidic than one with $pH = 5$.
+The often-drawn **0-to-14 pH scale is not a universal hard limit**. Concentrated solutions can have pH below $0$ or above $14$.
 
-**Indicators** are substances that change color depending on the pH of the solution they are placed in, used to visually estimate pH (like litmus paper, which turns red in acid and blue in base).
+At **25 °C**, neutral water has
 
-### Strong vs. Weak Acids and Bases
+$$[H_3O^+]=[OH^-]=1.0\times10^{-7}\,M$$
 
-A **strong** acid or base completely breaks apart (dissociates) into ions when dissolved in water. A **weak** acid or base only partially dissociates, with most of it remaining as the original, undissociated molecule.
+and therefore $\mathrm{pH}=7.00$. At this temperature:
+
+- pH $<7$: acidic.
+- pH $=7$: neutral.
+- pH $>7$: basic.
+
+But $K_w$ changes with temperature, so **neutral pH is not always exactly 7**. Neutrality means equal hydronium and hydroxide activities/concentrations under the relevant model, not a permanently fixed number.
+
+A change of one pH unit corresponds to a factor of $10$ in hydrogen-ion activity. Thus, under comparable dilute conditions, a pH-4 solution has about $100$ times the hydronium activity of a pH-6 solution. This does not mean the acid molecule itself is "100 times stronger"; **acid strength** is a different concept.
+
+### Strong vs. Weak
+
+A **strong acid** ionizes essentially completely in water; a **weak acid** ionizes only partially and establishes an equilibrium. Strength is not the same as concentration.
+
+For soluble ionic hydroxides treated as strong bases, dissociation releases $OH^-$. Weak molecular bases such as ammonia react only partially with water to generate hydroxide.
 
 ### Neutralization
 
-A **neutralization reaction** happens when an acid and a base react together, with the $H^+$ from the acid combining with the $OH^-$ from the base to form water, and the leftover ions forming a **salt**:
+In the common strong-acid/strong-hydroxide case, the net ionic reaction is:
 
-$$\text{acid} + \text{base} \rightarrow \text{salt} + \text{water}$$
+$$H_3O^+ + OH^- \rightarrow 2H_2O$$
+
+and spectator ions remain as a salt solution.
+
+However, **not every acid-base neutralization can be summarized literally as "acid + base → salt + water."** Brønsted-Lowry neutralization is fundamentally proton transfer. For example:
+
+$$NH_3 + HCl \rightarrow NH_4Cl$$
+
+has no water product in its simplified overall equation.
 
 ## Examples
 
-### #1: Reading the pH Scale
+### #1: Classifying pH at 25 °C
 
-Classify each solution as acidic, neutral, or basic, based on its pH: (a) $pH = 2$; (b) $pH = 7$; (c) $pH = 11$.
-
-**Solution:**
-Compare each value to the neutral point, $pH = 7$.
-
-1. (a) $pH = 2$ is less than $7$: Acidic.
-2. (b) $pH = 7$ is exactly neutral: Neutral.
-3. (c) $pH = 11$ is greater than $7$: Basic.
-
-### #2: Comparing Acidity Using the pH Scale
-
-Solution A has $pH = 4$. Solution B has $pH = 6$. Which solution is more acidic, and by what factor?
+At $25\ ^\circ\mathrm C$, classify aqueous solutions with pH $2$, $7$, and $11$.
 
 **Solution:**
-Remember that lower pH means more acidic, and each whole step is a factor of $10$.
 
-1. Solution A ($pH = 4$) has a lower pH number than Solution B ($pH = 6$), so Solution A is more acidic.
-2. The difference between $pH = 4$ and $pH = 6$ is $2$ whole steps.
-3. Each step is a factor of $10$, so two steps is a factor of $10 \times 10 = 100$.
-4. Solution A is $100$ times more acidic than Solution B.
+1. pH $2<7$: acidic.
+2. pH $7$: neutral at $25\ ^\circ\mathrm C$.
+3. pH $11>7$: basic.
 
-### #3: Strong Acid or Weak Acid?
+### #2: Comparing Hydronium Activity
 
-Acid X completely breaks apart into ions when dissolved in water, with essentially none of the original molecule remaining. Acid Y only partially breaks apart, with most of it remaining as the original molecule. Classify each.
+At the same temperature and under dilute conditions, solution A has pH $4$ and solution B pH $6$.
 
 **Solution:**
-Check the degree of dissociation described.
 
-1. Acid X completely dissociates: this is a strong acid.
-2. Acid Y only partially dissociates: this is a weak acid.
+$$10^{6-4}=10^2=100$$
 
-### #4: Identifying a Neutralization Reaction
+Solution A has about $100$ times the hydrogen-ion activity of solution B. This compares pH/hydronium level, not the intrinsic $K_a$ values of unspecified acids.
 
-Hydrochloric acid ($HCl$) reacts with sodium hydroxide ($NaOH$), producing sodium chloride ($NaCl$) and water. Explain why this is classified as a neutralization reaction.
+### #3: Strong or Weak Acid?
+
+Acid X ionizes essentially completely in water at the concentration considered; acid Y establishes an equilibrium in which a substantial fraction remains un-ionized.
 
 **Solution:**
-Match the reactants and products to the neutralization pattern.
 
-1. $HCl$ is an acid (it produces $H^+$ ions in water); $NaOH$ is a base (it produces $OH^-$ ions in water).
-2. The $H^+$ from the acid combines with the $OH^-$ from the base to form water.
-3. The remaining ions ($Na^+$ and $Cl^-$) combine to form a salt, sodium chloride.
-4. This matches the pattern acid + base → salt + water, confirming it is a neutralization reaction.
+1. X: strong acid in water.
+2. Y: weak acid in water.
+
+### #4: Strong Acid + Strong Base
+
+Hydrochloric acid reacts with sodium hydroxide:
+
+$$HCl+NaOH\rightarrow NaCl+H_2O$$
+
+**Solution:**
+
+1. In water, the strong acid supplies hydronium and the soluble strong base supplies hydroxide.
+2. Their net ionic neutralization is $H_3O^+ + OH^-\rightarrow2H_2O$.
+3. $Na^+$ and $Cl^-$ are spectator ions in the idealized reaction.
+4. The resulting solution is exactly neutral only when stoichiometry, concentration, temperature, and salt hydrolysis conditions support that conclusion.
 
 ## Speed Tricks & Shortcuts
 
-Remember the pH scale with a simple three-part split: below $7$ is acidic, exactly $7$ is neutral, above $7$ is basic. And remember the direction: Lower numbers are more acidic, higher numbers are more basic: this feels backward to some students at first, since "lower" often means "less" in other contexts.
+Use the pH $7$ divider only when the problem assumes approximately $25\ ^\circ\mathrm C$ or explicitly uses the standard classroom scale.
 
-For comparing acidity across pH values, count the whole number difference between the two pH values, then raise $10$ to that power to find how many times more (or less) acidic one solution is than the other.
+Count pH-unit differences to compare hydrogen-ion activity: $\Delta\mathrm{pH}=2$ means a factor of $10^2$.
 
-To quickly recall neutralization, remember the pattern as a simple word equation: acid + base → salt + water. Every neutralization reaction follows this same basic pattern.
+Keep **strength** and **concentration** separate. Strength describes extent of ionization; concentration describes amount per volume.
+
+For acid-base reactions, look for **proton transfer**. Water formation is a common special case, not the universal definition.
 
 ## Traps to Watch For
 
-### #1: Thinking Lower pH Means "Less Acidic"
+### #1: Treating 0–14 as Absolute pH Limits
 
-> Lower pH numbers mean more acidic, not less.
+> The familiar scale is a convenient range for many dilute aqueous solutions, not a mathematical boundary.
 
-Since smaller numbers often mean "less" in everyday language, students sometimes assume $pH = 2$ is "weaker" than $pH = 5$. In fact, $pH = 2$ is much more acidic (more concentrated in $H^+$ ions) than $pH = 5$.
+Concentrated acids or bases can fall outside it.
 
-### #2: Forgetting the pH Scale Is Logarithmic (Powers of 10)
+### #2: Saying Neutral Always Means pH 7
 
-> Each whole pH step represents a $10$-times change in acidity, not a simple linear difference.
+> Neutral means equal acid/base ion levels; pH 7 is the neutral value for water at about $25\ ^\circ\mathrm C$.
 
-A common mistake treats the difference between $pH = 4$ and $pH = 6$ as "twice as acidic" (treating it like a simple subtraction), when the actual difference is $100$ times more acidic (since $10^2 = 100$ for a $2$-step difference).
+Because $K_w$ depends on temperature, neutral pH changes with temperature.
 
-### #3: Confusing "Strong" with "Concentrated"
+### #3: Confusing pH Difference with Acid Strength
 
-> "Strong" describes how completely an acid or base dissociates into ions. "Concentrated" describes how much of it is dissolved in a given volume: these are different properties.
+> A lower pH means greater hydrogen-ion activity in that solution, not necessarily a larger intrinsic acid-ionization constant for the solute.
 
-A dilute solution of a strong acid (small amount, but fully dissociating) can behave very differently from a concentrated solution of a weak acid (large amount, but only partially dissociating). Do not assume "strong" automatically means "a lot" is present.
+Concentration and acid strength both affect pH.
 
-### #4: Assuming Every Reaction Between an Acid and a Base Produces a Neutral Salt
+### #4: Saying Every Neutralization Makes Water
 
-> Neutralization always produces salt and water, but the resulting salt solution is not always exactly neutral ($pH = 7$): some salts can make the final solution slightly acidic or slightly basic.
+> Brønsted-Lowry neutralization is proton transfer.
 
-While the core reaction (acid + base → salt + water) is called "neutralization," this term refers to the H+ and oh- combining to form water, not necessarily a guarantee that the final mixed solution's pH will land exactly at $7$.
+Strong acid + hydroxide commonly makes water, but reactions such as $NH_3+HCl\rightarrow NH_4Cl$ show why "salt + water" is not universal.
