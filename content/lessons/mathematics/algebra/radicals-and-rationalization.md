@@ -1,7 +1,7 @@
 ---
 _id: "lesson-algebra-radicals-and-rationalization"
 title: "Radicals and Rationalization"
-summary: "Learn how to simplify roots and remove them from the bottom of fractions."
+summary: "Simplify radicals and rationalize denominators while respecting domain restrictions."
 subject: "subject-mathematics"
 topic: "topic-algebra"
 estimatedMinutes: 10
@@ -9,219 +9,152 @@ isActive: true
 ---
 ## Core Concept
 
-A **radical** is just a root. The most common one is the square root. Its symbol is $\sqrt{x}$.
+A **radical expression** contains a root symbol. In $\sqrt[n]{x}$, $x$ is the **radicand** and $n$ is the **index**. If no index is written, the index is $2$.
 
-The number inside the root is the **radicand**. The small number outside is the **index**. If there is no index, it is a $2$.
+For real-valued even roots, the radicand must be nonnegative. Odd roots can have negative radicands.
 
-To simplify a root, we take out pairs of the same number. If a number has no pair, it stays inside.
+When simplifying square roots, perfect-square factors can be moved outside the radical. Remember an important identity for real $x$:
 
-**Rationalization** means cleaning up a fraction. In math, we never leave a root at the bottom of a fraction.
+$$\sqrt{x^2}=|x|,$$
 
-To remove a root from the bottom, we multiply the top and bottom by a special number. This makes the bottom a whole number.
+not automatically $x$. If a problem explicitly states that a variable is nonnegative, the absolute value may simplify further.
 
-College entrance exams love this topic. They want to see if you know the secret rules of roots.
+**Rationalizing a denominator** means rewriting an equivalent fraction so its denominator is rational. This is a conventional simplification form, not a statement that the original fraction is undefined.
 
 ## Mnemonics & Memory Aids
 
-When simplifying square roots, think of a jailbreak.
+For square roots of products of nonnegative factors:
 
-> "Outside pairs step out, singles stay inside."
+> Perfect-square factors can come out; unmatched factors stay inside.
 
-For every pair of identical numbers inside, one gets to escape outside. The other disappears. Any number without a pair is trapped inside.
-
-When you multiply or divide roots, remember this rule.
-
-> "Outside with outside, inside with inside."
-
-You can only multiply normal numbers with normal numbers. You can only multiply roots with roots. Never mix them.
-
-When you have a root plus or minus a number at the bottom of a fraction, use a **conjugate**. A conjugate is the same expression but with the middle sign changed.
-
-> "To clear the floor, flip the core."
+For a binomial denominator such as $a-\sqrt b$, use the conjugate $a+\sqrt b$ because the middle terms cancel when the two are multiplied.
 
 ## Examples
 
 ### #1: Simplifying Radicals
 
-Simplify the radical expression $\sqrt{72x^3y^4}$.
+Assume $x\ge0$ and $y\ge0$. Simplify $\sqrt{72x^3y^4}$.
 
 **Solution:**
 
-1. Break down $72$ into prime numbers. It is $2 \cdot 2 \cdot 2 \cdot 3 \cdot 3$.
-2. Break down the letters. $x^3$ is $x \cdot x \cdot x$. $y^4$ is $y \cdot y \cdot y \cdot y$.
-3. Look for pairs. We have a pair of $2$s and a pair of $3$s.
-4. We also have one pair of $x$s and two pairs of $y$s.
-5. Bring one of each pair outside.
+1. Factor the radicand into perfect-square parts.
 
-$$2 \cdot 3 \cdot x \cdot y \cdot y$$
+$$72x^3y^4=36x^2y^4(2x)$$
 
+2. Take the square root of the perfect-square factor.
 
-6. Multiply the outside parts. This gives $6xy^2$.
-7. Look at what is left inside. One $2$ and one $x$ had no pairs.
-8. Put them back inside the root. The final answer is:
+$$\sqrt{36x^2y^4}=6xy^2$$
 
-$$6xy^2\sqrt{2x}$$
+because the assumptions give $x\ge0$ and $y^2\ge0$.
 
+3. Therefore:
 
+$$\sqrt{72x^3y^4}=6xy^2\sqrt{2x}$$
 
 ### #2: Adding and Subtracting Radicals
 
-Find the exact value of the expression $3\sqrt{20} - \sqrt{45} + 2\sqrt{5}$.
+Find $3\sqrt{20}-\sqrt{45}+2\sqrt5$.
 
 **Solution:**
 
-1. You can only add roots if the insides are exactly the same. Right now, they are different.
-2. Simplify $\sqrt{20}$. It is $\sqrt{4 \cdot 5}$, which becomes $2\sqrt{5}$.
-3. Multiply it by the $3$ outside. This makes $6\sqrt{5}$.
-4. Simplify $\sqrt{45}$. It is $\sqrt{9 \cdot 5}$, which becomes $3\sqrt{5}$.
-5. Now rewrite the whole problem.
+$$\sqrt{20}=2\sqrt5$$
 
-$$6\sqrt{5} - 3\sqrt{5} + 2\sqrt{5}$$
+$$\sqrt{45}=3\sqrt5$$
 
+So:
 
-6. Treat $\sqrt{5}$ like a letter $x$. Just add and subtract the numbers outside.
-7. $6 - 3 + 2 = 5$. The final answer is:
-
-$$5\sqrt{5}$$
-
-
+$$3(2\sqrt5)-3\sqrt5+2\sqrt5=5\sqrt5$$
 
 ### #3: Rationalizing a Simple Denominator
 
-Rationalize the denominator of the fraction $\dfrac{10}{\sqrt{5x}}$.
+For $x>0$, rationalize $\dfrac{10}{\sqrt{5x}}$.
 
 **Solution:**
 
-1. We cannot leave $\sqrt{5x}$ at the bottom.
-2. Multiply the top and bottom by $\sqrt{5x}$.
+Multiply numerator and denominator by $\sqrt{5x}$.
 
-$$\dfrac{10}{\sqrt{5x}} \cdot \dfrac{\sqrt{5x}}{\sqrt{5x}}$$
-
-
-3. Multiply the tops. This gives $10\sqrt{5x}$.
-4. Multiply the bottoms. $\sqrt{5x} \cdot \sqrt{5x}$ is just $5x$. The root disappears.
-
-$$\dfrac{10\sqrt{5x}}{5x}$$
-
-
-5. Simplify the fraction. $10$ divided by $5$ is $2$. The final answer is:
-
-$$\dfrac{2\sqrt{5x}}{x}$$
-
-
+$$\dfrac{10}{\sqrt{5x}}\cdot\dfrac{\sqrt{5x}}{\sqrt{5x}}=\dfrac{10\sqrt{5x}}{5x}=\dfrac{2\sqrt{5x}}{x}$$
 
 ### #4: Rationalizing with a Binomial
 
-Simplify the expression $\dfrac{4}{3 - \sqrt{5}}$ by rationalizing the denominator.
+Simplify $\dfrac4{3-\sqrt5}$ by rationalizing the denominator.
 
 **Solution:**
 
-1. The bottom has two parts. We must use the conjugate.
-2. The conjugate of $3 - \sqrt{5}$ is $3 + \sqrt{5}$.
-3. Multiply the top and bottom by $3 + \sqrt{5}$.
-4. For the top, distribute the $4$.
+Multiply by the conjugate.
 
-$$4(3 + \sqrt{5}) = 12 + 4\sqrt{5}$$
+$$\dfrac4{3-\sqrt5}\cdot\dfrac{3+\sqrt5}{3+\sqrt5}$$
 
+The denominator is:
 
-5. For the bottom, multiply the first terms and the last terms. The middle terms cancel out.
+$$(3-\sqrt5)(3+\sqrt5)=9-5=4$$
 
-$$3 \cdot 3 = 9$$
+So:
 
+$$\dfrac{4(3+\sqrt5)}4=3+\sqrt5$$
 
-$$\sqrt{5} \cdot \sqrt{5} = 5$$
+### #5: Rationalizing a Cube-Root Denominator
 
-
-$$9 - 5 = 4$$
-
-
-6. Put the new top over the new bottom.
-
-$$\dfrac{12 + 4\sqrt{5}}{4}$$
-
-
-7. Divide both top numbers by $4$. The final answer is:
-
-$$3 + \sqrt{5}$$
-
-
-
-### #5: Rationalizing Higher Roots
-
-Rationalize the denominator of the expression $\dfrac{2}{\sqrt[3]{4x}}$.
+For $x\ne0$, rationalize $\dfrac2{\sqrt[3]{4x}}$.
 
 **Solution:**
 
-1. This is a cube root. We need groups of three to escape, not pairs.
-2. Break down the bottom. $4x$ is $2 \cdot 2 \cdot x$.
-3. To make a group of three, we need one more $2$ and two more $x$s.
-4. This means we must multiply by $\sqrt[3]{2x^2}$.
-5. Multiply the top and bottom by this new root.
-6. The top becomes:
+1. Since $4x=2^2x$, multiply by a cube root that completes each exponent to a multiple of $3$:
 
-$$2\sqrt[3]{2x^2}$$
+$$\sqrt[3]{2x^2}.$$
 
+2. Then:
 
-7. The bottom becomes a perfect cube. It turns into $2x$.
+$$\dfrac2{\sqrt[3]{4x}}\cdot\dfrac{\sqrt[3]{2x^2}}{\sqrt[3]{2x^2}}=\dfrac{2\sqrt[3]{2x^2}}{\sqrt[3]{8x^3}}$$
 
-$$\dfrac{2\sqrt[3]{2x^2}}{2x}$$
+3. Because $\sqrt[3]{8x^3}=2x$ for real $x$:
 
-
-8. Cancel the $2$ on top and bottom. The final answer is:
-
-$$\dfrac{\sqrt[3]{2x^2}}{x}$$
-
-
+$$\dfrac{2\sqrt[3]{2x^2}}{2x}=\dfrac{\sqrt[3]{2x^2}}{x}$$
 
 ## Speed Tricks & Shortcuts
 
-1. When dividing a normal number by a square root, use the "Half and Attach" trick.
+For $y>0$:
 
-If you have $\dfrac{x}{\sqrt{y}}$, just write $\dfrac{x \sqrt{y}}{y}$.
+$$\dfrac{x}{\sqrt y}=\dfrac{x\sqrt y}{y}.$$
 
-For example, $\dfrac{10}{\sqrt{2}}$. Just divide $10$ by $2$ to get $5$. Then attach $\sqrt{2}$. The answer is $5\sqrt{2}$. This saves a lot of time.
+For example:
 
-2. Many CETs have infinite repeating roots. They look like this:
+$$\dfrac{10}{\sqrt2}=5\sqrt2.$$
 
+For a nested radical such as
 
-$$\sqrt{20 + \sqrt{20 + \dots}}$$
+$$L=\sqrt{20+\sqrt{20+\cdots}},$$
 
-Do not use a long formula to solve this. Just find two numbers that multiply to $20$. They must be one digit apart.
+you may set $L=\sqrt{20+L}$ **only after the problem establishes or assumes that the nested expression converges to a real limit**. Then:
 
-For $20$, the numbers are $4$ and $5$. If the sign in the problem is a plus, the answer is the bigger number. So, the answer is $5$.
+$$L^2-L-20=0,$$
 
-If the sign is a minus, the answer is the smaller number.
+which gives $L=5$ or $L=-4$. Since the principal square root is nonnegative, $L=5$.
+
+Do not rely on a factor-pair mnemonic without checking the equation and the allowed sign of the limit.
 
 ## Traps to Watch For
 
-### #1: Adding Insides
+### #1: Adding Radicands
 
-Many students see $\sqrt{9} + \sqrt{16}$ and write $\sqrt{25}$. This is dead wrong.
+In general,
 
-> Never add or subtract the insides of two different roots.
+$$\sqrt a+\sqrt b\ne\sqrt{a+b}.$$
 
-You must solve them separately. $\sqrt{9}$ is $3$. $\sqrt{16}$ is $4$. The real answer is $7$.
+For example, $\sqrt9+\sqrt{16}=3+4=7$, not $5$.
 
-### #2: Expanding Conjugates the Long Way
+### #2: Conjugates
 
-When multiplying a conjugate like $(x + \sqrt{y})(x - \sqrt{y})$, students waste time doing the full FOIL method.
+For real expressions where the products are defined:
 
-> For conjugates, just square the first, square the last, and subtract.
+$$(a+b)(a-b)=a^2-b^2.$$
 
-The middle parts always cancel out to zero. Skip them to save time.
+With radicals, this often removes the radical term from a binomial denominator.
 
-### #3: The Plus-Minus Confusion
+### #3: Principal Square Root vs. Equation Solutions
 
-Students think $\sqrt{25}$ equals $\pm 5$.
+The symbol $\sqrt{25}$ means the principal square root, $5$. But solving $x^2=25$ gives both $x=5$ and $x=-5$.
 
-> "The square root symbol only gives the positive answer."
+### #4: Cube-Root Rationalization
 
-If an exam asks for $\sqrt{25}$, the answer is just $5$. You only use $\pm 5$ if you see an equation like $x^2 = 25$ and you put the root there yourself.
-
-### #4: Cube Root Rationalization Trap
-
-To fix $\dfrac{1}{\sqrt[3]{x}}$, students multiply by $\sqrt[3]{x}$.
-
-> "For cube roots, you need three of a kind, not two."
-
-Multiplying by just one more gives you two $x$s inside. They are still trapped. You must multiply by $\sqrt[3]{x^2}$ to get three of them.
+To rationalize $\dfrac1{\sqrt[3]x}$ for $x\ne0$, multiply by $\sqrt[3]{x^2}$ so the denominator becomes $x$.
