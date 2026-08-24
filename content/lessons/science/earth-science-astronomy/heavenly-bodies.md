@@ -1,93 +1,86 @@
 ---
 _id: "lesson-earth-science-astronomy-heavenly-bodies"
 title: "Heavenly Bodies (Stars, Galaxies, Comets, Asteroids, Meteors)"
-summary: "The different kinds of objects found in space and how to tell them apart."
+summary: "How to distinguish stars, galaxies, comets, asteroids, meteoroids, meteors, and meteorites."
 subject: "subject-science"
 topic: "topic-earth-science-astronomy"
-estimatedMinutes: 10
+estimatedMinutes: 9
 isActive: true
 ---
 ## Core Concept
 
-Space is full of many different kinds of objects. Knowing their names and telling them apart is a favorite CET question type.
+Astronomy uses different terms for objects and phenomena in space.
 
-A **star** is a giant, glowing ball of hot gas that makes its own light and heat through nuclear reactions in its core. The Sun is a star.
+### Stars and Galaxies
 
-A **galaxy** is a huge collection of billions of stars, held together by gravity, along with gas, dust, and (we believe) dark matter. Our own galaxy is the **Milky Way**.
+A **star** is a self-gravitating ball of hot plasma that produces energy through nuclear fusion in its core during the main part of its life. Our Sun is a star.
 
-An **asteroid** is a rocky, metallic chunk of rock, smaller than a planet, that orbits the Sun. Most asteroids in our solar system are found in the **asteroid belt**, a wide region located between the orbits of Mars and Jupiter.
+A **galaxy** is a huge gravitationally bound system containing stars, gas, dust, dark matter, and other objects. The Milky Way is the galaxy containing our Solar System.
 
-A **comet** is a smaller body made mostly of ice, frozen gases, and dust, sometimes nicknamed a "dirty snowball." When a comet gets close to the Sun, the heat turns some of its ice directly into gas, and pressure from the Sun blows this gas and dust into a glowing **tail** that always points away from the Sun, no matter which direction the comet is traveling. The most famous comet, **Halley's Comet**, swings by Earth roughly every $76$ years.
+### Asteroids and Comets
 
-<!-- ILLUSTRATION: comet orbiting the Sun in an oval path, shown at two positions, with its tail always pointing away from the Sun in both positions -->
+An **asteroid** is a relatively small rocky or metallic body orbiting the Sun. Many asteroids occupy the main asteroid belt between Mars and Jupiter, though asteroids also occur elsewhere in the Solar System.
 
-Three closely related, easily confused terms describe small pieces of rock or metal from space:
+A **comet** is a small body rich in ices and dust. When a comet approaches the Sun, heating can release gas and dust, producing a glowing coma and one or more tails. An ion tail is strongly shaped by the solar wind, while dust tails are strongly influenced by sunlight and the comet's orbital motion. The tails generally extend away from the Sun, though the dust tail can be curved.
 
-- A **meteoroid** is a small chunk of rock or metal traveling through space, too small to be called an asteroid.
-- A **meteor** is what we call that same chunk once it enters Earth's atmosphere and burns up, creating a streak of light. This is the "shooting star" you see in the night sky.
-- A **meteorite** is what we call it if a piece survives the trip through the atmosphere and lands on the ground.
+### Meteoroid, Meteor, Meteorite
 
-Think of it as one object going through three stages, named for where it is: floating in space (meteoroid), burning in our sky (meteor), and landed on Earth (meteorite).
+These words describe related but distinct things:
+
+- A **meteoroid** is a relatively small natural rock or particle traveling through interplanetary space, often originating from an asteroid or comet.
+- A **meteor** is the visible atmospheric phenomenon—the streak of light and related effects—produced when a meteoroid enters an atmosphere at high speed.
+- A **meteorite** is material from the incoming object that survives atmospheric passage and reaches the ground.
+
+<!-- ILLUSTRATION: three-stage diagram showing a small space rock labeled meteoroid in space, a glowing streak labeled meteor in Earth's atmosphere, and a surviving rock on the ground labeled meteorite -->
+
+Meteor showers happen when Earth passes through streams of debris, often left along the orbit of a comet, so many meteoroids enter the atmosphere during a short period.
 
 ## Examples
 
-### #1: Where Are Most Asteroids Found?
+### #1: Meteoroid, Meteor, or Meteorite?
 
-Most of the asteroids in our solar system are located in a region called the asteroid belt. Where is this belt found?
-
-**Solution:**
-Recall the exact location.
-
-1. The asteroid belt sits between the orbits of two specific planets.
-2. It lies between Mars and Jupiter, not between Earth and Mars, and not beyond Neptune.
-3. The correct answer: between the orbits of Mars and Jupiter.
-
-### #2: The Three Stages of a Space Rock
-
-A small rock breaks off from an asteroid and drifts through space for millions of years. It then enters Earth's atmosphere, burns brightly, and a fragment of it lands in a field. Name what this object is called at each of the three stages.
+A small rocky particle is moving through space toward Earth. It enters the atmosphere and produces a bright streak; a fragment later lands on the ground. Name each stage.
 
 **Solution:**
-Match each stage to its correct name.
+1. In interplanetary space: meteoroid.
+2. The bright atmospheric phenomenon: meteor.
+3. Surviving material that reaches the ground: meteorite.
 
-1. While it drifts through space, before reaching Earth's atmosphere, it is a **meteoroid**.
-2. While it burns and streaks light across the sky inside Earth's atmosphere, it is a **meteor**.
-3. Once the surviving fragment lands on the ground, it is a **meteorite**.
-4. Same rock, three different names, based on where it is at the time.
+### #2: Asteroid or Comet?
 
-### #3: Why a Comet's Tail Always Points Away from the Sun
-
-A comet is moving away from the Sun, back out toward deep space. In which direction does its tail point: toward the Sun, or away from the Sun, in the direction the comet is traveling?
+An object orbits the Sun and becomes surrounded by a coma with dust and gas tails as it approaches the Sun. Is it better classified as an asteroid or a comet?
 
 **Solution:**
-Recall what actually creates the tail.
+The development of a coma and tails from volatile material is characteristic of an active comet.
 
-1. The tail forms because heat and pressure from the sun push gas and dust off the comet.
-2. This means the tail always points away from the Sun, regardless of which way the comet itself is moving.
-3. So even though the comet in this problem is moving away from the Sun, its tail still points away from the Sun, meaning here, the tail actually points in front of the comet, leading the way outward.
-4. This is a surprising but well documented fact: the tail's direction depends on the Sun's position, never on the comet's direction of travel.
+### #3: Why a Comet Tail Does Not Simply Trail Behind
+
+Why is it misleading to say a comet's tail always points directly behind it along its orbit?
+
+**Solution:**
+1. Comet tails form because solar heating releases gas and dust.
+2. The ion tail is pushed away from the Sun by the solar wind.
+3. Dust is affected strongly by solar radiation pressure and retains orbital motion, producing a tail that can curve.
+4. The result is that tails generally extend away from the Sun, not simply backward like the wake of a moving boat.
 
 ## Speed Tricks & Shortcuts
 
-Chain the meteor family in order of location: space, sky, ground: meteoroid, meteor, meteorite. Saying the chain out loud in that order during the exam prevents mixing them up under time pressure.
+For the three meteor terms, use location/phenomenon: **meteoroid in space → meteor visible in atmosphere → meteorite on the ground**.
 
-Remember the tail rule with one phrase: "tail always flees the Sun." It never points toward the Sun, and it never simply trails behind the comet's path.
+For asteroids vs. comets, remember that both orbit the Sun. The classic distinction is composition and activity: asteroids are generally rockier/inactive, while comets can release volatile gas and dust near the Sun.
 
 ## Traps to Watch For
 
-### #1: Swapping Meteor and Meteorite
+### #1: Calling the Space Rock a Meteor at Every Stage
 
-> A meteor burns in the sky. A meteorite lands on the ground.
+> A meteor is the atmospheric phenomenon, not simply the generic name for the solid object everywhere.
 
-These two words differ by only two letters, and test-makers exploit that. If the question describes something found lying in a crater or a museum, it is a meteorite. If it describes a bright streak seen at night, it is a meteor.
+Use meteoroid before atmospheric entry and meteorite for surviving material that reaches the surface.
 
-### #2: Confusing Asteroids and Comets
+### #2: Assuming All Asteroids Live in the Main Belt
 
-> Asteroids are rocky. Comets are mostly ice and dust, with a glowing tail near the Sun.
+> The main belt contains many asteroids, but asteroids also occupy other orbits, including near-Earth orbits and Trojan populations.
 
-A description mentioning a "dirty snowball" or a visible tail is a comet, not an asteroid. Asteroids do not develop tails because they lack the ice that vaporizes near the Sun.
+### #3: Treating a Comet Tail Like a Simple Wake
 
-### #3: Placing the Asteroid Belt in the Wrong Spot
-
-> The asteroid belt is between Mars and Jupiter, not near Earth.
-
-Some choices place the belt between Earth and Mars, or beyond Neptune (which is actually a different region called the Kuiper Belt, home to many comets). Anchor the fact firmly: Mars-Jupiter gap only.
+> Solar wind and radiation act on material released from the comet, so its tail geometry is tied to the Sun as well as the comet's motion.
