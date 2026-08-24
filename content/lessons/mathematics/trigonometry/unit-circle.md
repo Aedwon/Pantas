@@ -1,7 +1,7 @@
 ---
 _id: "lesson-trigonometry-unit-circle"
 title: "The Unit Circle (Exact Values of Standard Angles)"
-summary: "How to find exact sine, cosine, and tangent values for any standard angle using the unit circle."
+summary: "How to find exact sine, cosine, and tangent values for common special angles using the unit circle."
 subject: "subject-mathematics"
 topic: "topic-trigonometry"
 estimatedMinutes: 13
@@ -9,19 +9,19 @@ isActive: true
 ---
 ## Core Concept
 
-The **unit circle** is a circle of radius $1$ centered at the origin. It upgrades trigonometry beyond right triangles: now any angle, even $225^\circ$ or $-30^\circ$, has a sine and cosine.
+The **unit circle** is a circle of radius $1$ centered at the origin. It extends trigonometric functions beyond acute angles in right triangles: angles such as $225^\circ$ and $-30^\circ$ also have sine and cosine values.
 
-Here is the whole idea. Stand an angle $\theta$ in standard position and mark where its ray crosses the circle. That crossing point is:
+Put an angle $\theta$ in standard position and mark where its terminal side crosses the unit circle. That point has coordinates:
 
 $$(\cos \theta, \sin \theta)$$
 
-Cosine is the $x$-coordinate. Sine is the $y$-coordinate. Tangent is their ratio:
+Cosine is the $x$-coordinate. Sine is the $y$-coordinate. Where $\cos\theta\neq0$, tangent is their ratio:
 
 $$\tan \theta = \dfrac{\sin \theta}{\cos \theta}$$
 
 <!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["θ", "P(cos θ, sin θ)", "x = cos θ", "y = sin θ", "r = 1"], "semanticsLabel": "Unit circle with angle theta from positive x-axis and intersection point labeled cos theta comma sin theta."} -->
 
-The exact values for the first-quadrant standard angles must live in your memory:
+The exact values for the most commonly used first-quadrant special angles are worth memorizing:
 
 - $\sin 0^\circ = 0$, $\quad \sin 30^\circ = \dfrac{1}{2}$, $\quad \sin 45^\circ = \dfrac{\sqrt{2}}{2}$, $\quad \sin 60^\circ = \dfrac{\sqrt{3}}{2}$, $\quad \sin 90^\circ = 1$.
 - Cosine runs the same list backwards: $\cos 0^\circ = 1$ down to $\cos 90^\circ = 0$.
@@ -29,21 +29,21 @@ The exact values for the first-quadrant standard angles must live in your memory
 
 For angles beyond $90^\circ$, use two tools:
 
-**Tool 1, the reference angle**: the acute angle between the terminal ray and the $x$-axis. In Quadrant II it is $180^\circ - \theta$, in Quadrant III it is $\theta - 180^\circ$, in Quadrant IV it is $360^\circ - \theta$. The reference angle decides the size of the value.
+**Tool 1, the reference angle**: the positive acute angle between the terminal side and the $x$-axis. For angles between $0^\circ$ and $360^\circ$, the usual formulas are $180^\circ-\theta$ in Quadrant II, $\theta-180^\circ$ in Quadrant III, and $360^\circ-\theta$ in Quadrant IV. In Quadrant I, the angle itself is its reference angle.
 
-**Tool 2, the quadrant signs**: the quadrant decides the sign. Since cosine is $x$ and sine is $y$, just picture where the point sits. Quadrant I: all positive. Quadrant II: only sine positive. Quadrant III: only tangent positive. Quadrant IV: only cosine positive.
+**Tool 2, the quadrant signs**: the quadrant determines the signs. Since cosine is $x$ and sine is $y$: Quadrant I has sine and cosine positive; Quadrant II has sine positive and cosine negative; Quadrant III has both negative; Quadrant IV has cosine positive and sine negative. Tangent follows from sine divided by cosine.
 
 <!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle-quadrants", "labels": ["Q I: All (+)", "Q II: Sine (+)", "Q III: Tangent (+)", "Q IV: Cosine (+)"], "semanticsLabel": "Unit circle divided into four quadrants showing which trigonometric functions are positive: All, Sine, Tangent, and Cosine."} -->
 
 ## Mnemonics & Memory Aids
 
-For the quadrant signs, going counterclockwise from Quadrant I:
+For the signs of sine, cosine, and tangent in the four quadrants, going counterclockwise from Quadrant I:
 
 > All Students Take Calculus.
 
 **A**ll positive, **S**ine positive, **T**angent positive, **C**osine positive.
 
-For the sine values of $0^\circ, 30^\circ, 45^\circ, 60^\circ, 90^\circ$, use the square-root ladder: they are $\dfrac{\sqrt{0}}{2}, \dfrac{\sqrt{1}}{2}, \dfrac{\sqrt{2}}{2}, \dfrac{\sqrt{3}}{2}, \dfrac{\sqrt{4}}{2}$. Just count $0, 1, 2, 3, 4$ under the root. Cosine is the same ladder in reverse.
+For the sine values of $0^\circ, 30^\circ, 45^\circ, 60^\circ, 90^\circ$, use the square-root ladder: $\dfrac{\sqrt{0}}{2}, \dfrac{\sqrt{1}}{2}, \dfrac{\sqrt{2}}{2}, \dfrac{\sqrt{3}}{2}, \dfrac{\sqrt{4}}{2}$. Cosine is the same ladder in reverse.
 
 ## Examples
 
@@ -57,12 +57,12 @@ Find the exact value of $\cos 120^\circ$.
 **Solution:**
 Reference angle first, then sign.
 
-1. $120^\circ$ is in Quadrant II. Its reference angle:
+1. $120^\circ$ is in Quadrant II. Its reference angle is:
 
 $$180 - 120 = 60$$
 
-2. The size comes from $\cos 60^\circ = \dfrac{1}{2}$.
-3. In Quadrant II, only sine is positive, so cosine is negative.
+2. The magnitude comes from $\cos 60^\circ = \dfrac{1}{2}$.
+3. In Quadrant II, cosine is negative.
 
 $$\cos 120^\circ = -\dfrac{1}{2}$$
 
@@ -74,16 +74,14 @@ Find the exact value of $\sin 225^\circ$.
 
 
 **Solution:**
-Same two tools.
-
-1. $225^\circ$ is in Quadrant III. Reference angle:
+1. $225^\circ$ is in Quadrant III. Its reference angle is:
 
 $$225 - 180 = 45$$
 
-2. The size comes from $\sin 45^\circ = \dfrac{\sqrt{2}}{2}$.
-3. In Quadrant III, only tangent is positive, so sine is negative.
+2. The magnitude comes from $\sin45^\circ=\dfrac{\sqrt2}{2}$.
+3. Sine is negative in Quadrant III.
 
-$$\sin 225^\circ = -\dfrac{\sqrt{2}}{2}$$
+$$\sin225^\circ=-\dfrac{\sqrt2}{2}$$
 
 ### #3: A Quadrant IV Tangent
 
@@ -93,91 +91,87 @@ Find the exact value of $\tan 300^\circ$.
 
 
 **Solution:**
-Reference angle, size, sign.
-
-1. $300^\circ$ is in Quadrant IV. Reference angle:
+1. $300^\circ$ is in Quadrant IV. Its reference angle is:
 
 $$360 - 300 = 60$$
 
-2. The size comes from $\tan 60^\circ = \sqrt{3}$.
-3. In Quadrant IV, only cosine is positive, so tangent is negative.
+2. The magnitude comes from $\tan60^\circ=\sqrt3$.
+3. Tangent is negative in Quadrant IV because sine is negative and cosine is positive.
 
-$$\tan 300^\circ = -\sqrt{3}$$
+$$\tan300^\circ=-\sqrt3$$
 
 ### #4: Negative and Axis Angles
 
-Find $\sin(-30^\circ)$, $\cos 180^\circ$, and $\sin 90^\circ$.
+Find $\sin(-30^\circ)$, $\cos180^\circ$, and $\sin90^\circ$.
 
 <!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["-30° (330°)", "180°: (-1, 0)", "90°: (0, 1)"], "semanticsLabel": "Unit circle marking positions negative 30 degrees, 180 degrees at negative 1 comma 0, and 90 degrees at 0 comma 1."} -->
 
 
 **Solution:**
-Negative angles swing clockwise. Axis angles sit right on the axes, so read their coordinates directly.
+Negative angles are measured clockwise from the positive $x$-axis. Axis angles can be read directly from their coordinates.
 
-1. $-30^\circ$ is $30^\circ$ below the positive $x$-axis, in Quadrant IV, where sine is negative.
+1. $-30^\circ$ is coterminal with $330^\circ$, where sine is negative.
 
-$$\sin(-30^\circ) = -\dfrac{1}{2}$$
+$$\sin(-30^\circ)=-\dfrac12$$
 
-2. $180^\circ$ points at the point $(-1, 0)$. Cosine is the $x$-coordinate.
+2. $180^\circ$ points at $(-1,0)$. Cosine is the $x$-coordinate.
 
-$$\cos 180^\circ = -1$$
+$$\cos180^\circ=-1$$
 
-3. $90^\circ$ points at $(0, 1)$. Sine is the $y$-coordinate.
+3. $90^\circ$ points at $(0,1)$. Sine is the $y$-coordinate.
 
-$$\sin 90^\circ = 1$$
+$$\sin90^\circ=1$$
 
-### #5: Combining Values at Exam Level
+### #5: Combining Values
 
-Evaluate $\sin 150^\circ + \cos 300^\circ$.
+Evaluate $\sin150^\circ+\cos300^\circ$.
 
 <!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["150° (sin = 1/2)", "300° (cos = 1/2)", "Sum = 1"], "semanticsLabel": "Unit circle marking 150 degrees in Quadrant II with sine 1 half and 300 degrees in Quadrant IV with cosine 1 half."} -->
 
 
 **Solution:**
-Handle each term with the reference-angle routine, then add.
+1. $\sin150^\circ$: reference angle $30^\circ$, and sine is positive in Quadrant II.
 
-1. $\sin 150^\circ$: Quadrant II, reference angle $180 - 150 = 30$, sine positive in Quadrant II.
+$$\sin150^\circ=\dfrac12$$
 
-$$\sin 150^\circ = \dfrac{1}{2}$$
+2. $\cos300^\circ$: reference angle $60^\circ$, and cosine is positive in Quadrant IV.
 
-2. $\cos 300^\circ$: Quadrant IV, reference angle $360 - 300 = 60$, cosine positive in Quadrant IV.
+$$\cos300^\circ=\dfrac12$$
 
-$$\cos 300^\circ = \dfrac{1}{2}$$
+3. Add:
 
-3. Add the two values.
-
-$$\dfrac{1}{2} + \dfrac{1}{2} = 1$$
+$$\dfrac12+\dfrac12=1$$
 
 ## Speed Tricks & Shortcuts
 
-Turn every value question into the same three-step routine: quadrant, reference angle, sign. Say it like a chant. It works for degrees and radians alike; for radians, first anchor against $\pi$ (for example, $\dfrac{5\pi}{6}$ is just short of $\pi$, so Quadrant II with reference angle $\dfrac{\pi}{6}$).
+For special-angle value questions, use the same routine: locate the quadrant, find the reference angle, recall the special-angle magnitude, then apply the sign. For radians, compare with $\dfrac\pi2$, $\pi$, and $\dfrac{3\pi}{2}$.
 
-The only sines and cosines that exist for standard angles are $0$, $\pm\dfrac{1}{2}$, $\pm\dfrac{\sqrt{2}}{2}$, $\pm\dfrac{\sqrt{3}}{2}$, and $\pm 1$. If a choice offers anything else (like $\dfrac{\sqrt{3}}{3}$ for a sine), it can only be a tangent value, and you can eliminate it.
+For the special angles emphasized in this lesson, sine and cosine values come from the set $0$, $\pm\dfrac12$, $\pm\dfrac{\sqrt2}{2}$, $\pm\dfrac{\sqrt3}{2}$, and $\pm1$. This is a shortcut for these common angles, not a list of all possible sine or cosine values.
 
-Remember which pairs match: bigger angle in the first quadrant means bigger sine and smaller cosine. If you blank on whether $\sin 60^\circ$ is $\dfrac{1}{2}$ or $\dfrac{\sqrt{3}}{2}$, note that $60^\circ$ is a tall angle: sine must be the larger value, $\dfrac{\sqrt{3}}{2} \approx 0.87$.
+In the first quadrant, sine increases from $0$ to $1$ while cosine decreases from $1$ to $0$. This can help distinguish $\sin30^\circ$ from $\sin60^\circ$ if you forget which is larger.
 
 ## Traps to Watch For
 
-### #1: Right Size, Wrong Sign
+### #1: Right Magnitude, Wrong Sign
 
-> The reference angle gives the size; the quadrant gives the sign.
+> The reference angle gives the magnitude; the quadrant gives the sign.
 
-The most common error is answering $\cos 120^\circ = \dfrac{1}{2}$, correct digits with a missing minus. Every choice list contains the sign-flipped twin. Finish the routine: never write the value until you have checked the quadrant.
+For example, $\cos120^\circ$ has the same magnitude as $\cos60^\circ$ but is negative because $120^\circ$ lies in Quadrant II.
 
 ### #2: Swapping Sine and Cosine Coordinates
 
-> The unit circle point is $(\cos \theta, \sin \theta)$: cosine first.
+> The unit-circle point is $(\cos\theta,\sin\theta)$: cosine first.
 
-Since coordinate pairs are $(x, y)$ and cosine is the $x$-value, cosine comes first, even though we usually say "sine and cosine" out loud. Reading the pair backwards swaps every answer, and it is a silent error you will not feel.
+Coordinates are ordered $(x,y)$. Cosine supplies the $x$-coordinate and sine supplies the $y$-coordinate.
 
-### #3: The Subtraction Depends on the Quadrant
+### #3: The Reference-Angle Formula Depends on the Quadrant
 
-> Use $180 - \theta$, $\theta - 180$, or $360 - \theta$: each quadrant has its own reference formula.
+> Measure the positive acute angle from the terminal side to the $x$-axis.
 
-Students memorize only $180 - \theta$ and apply it everywhere. For $300^\circ$ that gives $-120$, which is nonsense. Picture the terminal ray and measure to the nearest piece of the $x$-axis (never the $y$-axis).
+For an angle between $0^\circ$ and $360^\circ$, use the appropriate formula for its quadrant. For angles outside one full turn, first find a coterminal angle in that range.
 
-### #4: Tangent Blows Up on the $y$-Axis
+### #4: Tangent Is Undefined on the $y$-Axis
 
-> $\tan 90^\circ$ and $\tan 270^\circ$ are undefined.
+> $\tan90^\circ$ and $\tan270^\circ$ are undefined.
 
-At those angles the cosine is $0$, and dividing by zero is not allowed. The planted wrong answers are $0$ and $1$. Remember: tangent is $0$ where sine is $0$ ($0^\circ$ and $180^\circ$), and undefined where cosine is $0$.
+At those angles cosine is $0$, so $\tan\theta=\dfrac{\sin\theta}{\cos\theta}$ would require division by zero. Tangent is $0$ where sine is $0$, such as at $0^\circ$ and $180^\circ$.
