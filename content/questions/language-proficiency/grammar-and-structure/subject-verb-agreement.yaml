@@ -14,15 +14,15 @@ questions:
         correct: true
       - text: Bark
         rationale: |
-          You picked the plural verb "bark," but the subject "dog" is singular and requires "barks."
+          The singular third-person subject "dog" takes "barks" in the simple present.
       - text: Barking
         rationale: |
-          You picked the present participle "barking," which cannot function as the main verb without a helping verb.
-      - text: Barked (referring to an ongoing habit)
+          "Barking" cannot serve as the finite main verb here without an auxiliary.
+      - text: Barked
         rationale: |
-          You picked past tense "barked," but the phrase "every morning" indicates a routine present habit.
+          The sentence describes a present routine with "every morning."
     explanation: |
-      "Dog" is a singular subject, so it needs the singular verb form "barks."
+      The singular subject "dog" takes the singular simple-present form "barks."
     approved: true
 
   - id: q-grammar-and-structure-subject-verb-agreement-0002
@@ -35,15 +35,15 @@ questions:
         correct: true
       - text: Barks
         rationale: |
-          You picked the singular verb "barks," but the plural subject "dogs" requires the plural verb "bark."
+          The plural subject "dogs" takes the base-form simple-present verb "bark."
       - text: Is barking
         rationale: |
-          You picked the singular verb phrase "is barking," which mismatches the plural subject "dogs."
+          "Is" does not agree with plural "dogs."
       - text: Has barked
         rationale: |
-          You picked the singular verb phrase "has barked," but "dogs" is plural and requires a plural verb.
+          "Has" does not agree with plural "dogs."
     explanation: |
-      "Dogs" is a plural subject, so it needs the plural verb form "bark."
+      The plural subject "dogs" takes "bark."
     approved: true
 
   - id: q-grammar-and-structure-subject-verb-agreement-0003
@@ -56,15 +56,15 @@ questions:
         correct: true
       - text: Are
         rationale: |
-          You matched the verb to the plural prepositional noun "items" instead of the true singular subject "list."
+          "Items" is inside a prepositional phrase; the head subject is singular "list."
       - text: Were
         rationale: |
-          You chose a plural past-tense verb, but the true subject "list" is singular and requires a singular verb.
+          This is plural and past tense, while the subject and context call for singular present agreement.
       - text: Have been
         rationale: |
-          You selected a plural verb phrase, but the subject "list" is singular.
+          "Have" does not agree with the singular head subject "list."
     explanation: |
-      The true subject is "list" (singular), not "items." Ignoring the describing phrase "of items on the shelf," the verb must match "list": "is."
+      The head of the subject phrase is "list," not "items," so the verb is singular: "is."
     approved: true
 
   - id: q-grammar-and-structure-subject-verb-agreement-0004
@@ -77,57 +77,57 @@ questions:
         correct: true
       - text: Are
         rationale: |
-          You matched the verb to "chocolates" instead of the true singular subject "box."
+          The head subject is singular "box"; "chocolates" is the object of "of."
       - text: Were
         rationale: |
-          You selected a plural verb, but the subject of the sentence is the singular noun "box."
+          The plural past form does not agree with singular "box" in this context.
       - text: Have been
         rationale: |
-          You selected a plural verb phrase, but the subject "box" requires a singular verb.
+          "Have" does not agree with the singular head subject.
     explanation: |
-      The true subject is "box" (singular), not "chocolates." Ignoring the describing phrase "of chocolates," the verb must match "box": "is."
+      The subject is "box," so the correct form is "is."
     approved: true
 
   - id: q-grammar-and-structure-subject-verb-agreement-0005
     type: subject-verb-agreement
     difficulty: medium
     stem: |
-      Choose the correct verb: The committee ______ reached a decision.
+      In standard American English, treating the committee as one unit, choose the correct verb: The committee ______ reached a decision.
     choices:
       - text: Has
         correct: true
       - text: Have
         rationale: |
-          You picked plural "have," treating "committee" as separate individuals rather than one collective unit.
+          In standard American English, a collective noun construed as one unit normally takes singular agreement.
       - text: Were
         rationale: |
-          You selected a plural verb, but collective nouns acting as a single entity take singular verbs.
+          This is plural agreement and does not fit the unit reading specified in the stem.
       - text: Are
         rationale: |
-          You selected a plural verb, but "committee" acts as a single group here requiring a singular verb.
+          This is plural agreement and also does not fit the perfect construction "___ reached."
     explanation: |
-      "Committee" is a collective noun, treated as one singular unit when acting together as a group, so it takes the singular verb "has."
+      Under the unit reading specified here, standard American English uses singular "has." Other English varieties and contexts can use plural agreement when the members are emphasized individually.
     approved: true
 
   - id: q-grammar-and-structure-subject-verb-agreement-0006
     type: subject-verb-agreement
     difficulty: medium
     stem: |
-      Choose the correct verb: The family ______ planning a trip to the province this summer.
+      In standard American English, treating the family as one unit making a shared plan, choose the correct verb: The family ______ planning a trip to the province this summer.
     choices:
       - text: Is
         correct: true
       - text: Are
         rationale: |
-          You picked plural "are," but "family" is a collective noun acting as a single unit.
+          The stem explicitly asks for the standard American unit reading, which takes singular agreement.
       - text: Were
         rationale: |
-          You picked a plural past-tense verb, but "family" is acting as one singular unit here.
+          This is plural past agreement and does not fit the stated reading or timeframe.
       - text: Have
         rationale: |
-          You picked plural "have," but collective nouns acting together take singular verbs.
+          "Have planning" is not the required progressive construction, and plural agreement does not fit the specified unit reading.
     explanation: |
-      "Family" is a collective noun, treated as one singular unit when planning together, so it takes the singular verb "is."
+      With "family" treated as one unit, standard American English uses "is planning." Plural agreement can occur in other varieties or when individual members are foregrounded.
     approved: true
 
   - id: q-grammar-and-structure-subject-verb-agreement-0007
@@ -140,15 +140,15 @@ questions:
         correct: true
       - text: Are
         rationale: |
-          You selected plural "are," but indefinite pronouns ending in "-body" are always singular.
+          "Everybody" is grammatically singular for verb agreement in standard English.
       - text: Were
         rationale: |
-          You selected plural "were," but "everybody" is a singular indefinite pronoun.
+          This is plural past agreement.
       - text: Have been
         rationale: |
-          You chose a plural verb phrase, but "everybody" is grammatically singular.
+          "Have" is plural; the subject requires singular agreement.
     explanation: |
-      Indefinite pronouns ending in "-body" (like "everybody") are always singular, regardless of how many people they refer to, so the verb must be "is."
+      "Everybody" takes singular verb agreement, so "is" is correct.
     approved: true
 
   - id: q-grammar-and-structure-subject-verb-agreement-0008
@@ -161,15 +161,15 @@ questions:
         correct: true
       - text: Seem
         rationale: |
-          You selected plural "seem," but indefinite pronouns ending in "-thing" are singular.
+          "Nothing" is grammatically singular for verb agreement.
       - text: Were seeming
         rationale: |
-          You selected a plural continuous verb phrase, but "nothing" is a singular subject.
+          This is plural and also an unnatural tense choice here.
       - text: Have seemed
         rationale: |
-          You selected a plural perfect verb phrase, but "nothing" requires a singular verb.
+          "Have" does not agree with singular "nothing."
     explanation: |
-      Indefinite pronouns ending in "-thing" (like "nothing") are always singular, so the verb must be "seems."
+      The subject "nothing" is singular, so the correct form is "seems."
     approved: true
 
   - id: q-grammar-and-structure-subject-verb-agreement-0009
@@ -182,15 +182,15 @@ questions:
         correct: true
       - text: Have
         rationale: |
-          You chose plural "have," but "most" takes its number from "water," which is an uncountable singular noun.
+          With "most of," agreement follows the noun in the of-phrase; "water" is a mass noun taking singular agreement here.
       - text: Were
         rationale: |
-          You chose a plural verb, but "water" is an uncountable singular noun requiring a singular verb.
+          This does not fit the singular mass-noun subject or the perfect construction.
       - text: Are
         rationale: |
-          You chose a plural verb, but "water" is uncountable and singular.
+          This is plural present agreement and does not fit the construction.
     explanation: |
-      "Most" can be singular or plural, depending on the noun following "of." Here, "water" is uncountable and singular, so the verb must be "has."
+      "Most of the water" takes singular agreement here, giving "has evaporated."
     approved: true
 
   - id: q-grammar-and-structure-subject-verb-agreement-0010
@@ -203,15 +203,15 @@ questions:
         correct: true
       - text: Is
         rationale: |
-          You picked singular "is," but "some" takes its number from "cookies," which is plural.
+          "Some of" takes its number from the noun that follows; "cookies" is plural.
       - text: Was
         rationale: |
-          You picked a singular past-tense verb, but "cookies" is a plural noun requiring a plural verb.
+          This is singular past agreement.
       - text: Has been
         rationale: |
-          You picked a singular verb phrase, but the subject noun after "of" ("cookies") is plural.
+          "Has" does not agree with plural "cookies."
     explanation: |
-      "Some" can be singular or plural, depending on the noun following "of." Here, "cookies" is plural, so the verb must be "are."
+      Because "cookies" is plural, "some of the cookies" takes plural "are."
     approved: true
 
   - id: q-grammar-and-structure-subject-verb-agreement-0011
@@ -224,141 +224,141 @@ questions:
         correct: true
       - text: Is
         rationale: |
-          You picked singular "is," but compound subjects joined by "and" are plural.
+          Two distinct subjects joined by "and" form a plural subject here.
       - text: Was
         rationale: |
-          You picked singular "was," but "Ana and Ben" forms a plural subject.
+          This is singular past agreement.
       - text: Has been
         rationale: |
-          You picked a singular verb phrase, but two subjects joined by "and" require a plural verb.
+          "Has" is singular and does not agree with "Ana and Ben."
     explanation: |
-      Compound subjects joined by "and" are usually plural, so "Ana and Ben" takes the plural verb "are."
+      "Ana and Ben" is plural, so "are" is correct.
     approved: true
 
   - id: q-grammar-and-structure-subject-verb-agreement-0012
     type: subject-verb-agreement
     difficulty: medium
     stem: |
-      Choose the correct verb: Neither the manager nor the employees ______ aware of the change.
+      Under the standard formal proximity convention for "neither...nor," choose the correct verb: Neither the manager nor the employees ______ aware of the change.
     choices:
       - text: Were
         correct: true
       - text: Was
         rationale: |
-          You picked singular "was" based on "manager," but with "neither...nor," match the closer noun ("employees").
+          Under the stated convention, agreement follows the nearer subject "employees," which is plural.
       - text: Is
         rationale: |
-          You picked singular "is," but the closer subject "employees" is plural and requires a plural verb.
+          The nearer subject is plural and the sentence is framed in the past.
       - text: Has been
         rationale: |
-          You picked a singular verb phrase, but the closer subject "employees" is plural.
+          Singular "has" does not agree with the nearer plural subject.
     explanation: |
-      With "neither...nor," the verb must agree with the subject closest to it. The closer subject, "employees," is plural, so the verb must be "were."
+      In the formal proximity convention tested here, the verb agrees with the nearer subject: plural "employees" gives "were."
     approved: true
 
   - id: q-grammar-and-structure-subject-verb-agreement-0013
     type: subject-verb-agreement
     difficulty: medium
     stem: |
-      Choose the correct verb: Neither the students nor the teacher ______ late for the assembly.
+      Under the standard formal proximity convention for "neither...nor," choose the correct verb: Neither the students nor the teacher ______ late for the assembly.
     choices:
       - text: Was
         correct: true
       - text: Were
         rationale: |
-          You picked plural "were" based on "students," but with "neither...nor," match the closer noun ("teacher").
+          The nearer subject is singular "teacher."
       - text: Are
         rationale: |
-          You picked plural "are," but the closer subject "teacher" is singular.
+          This is plural present agreement and does not match the nearer subject or timeframe.
       - text: Have been
         rationale: |
-          You selected a plural verb phrase, but the subject closest to the verb ("teacher") is singular.
+          "Have" is plural and does not agree with the nearer subject.
     explanation: |
-      With "neither...nor," the verb must agree with the subject closest to it. The closer subject, "teacher," is singular, so the verb must be "was," even though "students" (plural) appears first.
+      Under the convention stated in the stem, singular "teacher" controls agreement, giving "was."
     approved: true
 
   - id: q-grammar-and-structure-subject-verb-agreement-0014
     type: subject-verb-agreement
     difficulty: hard
     stem: |
-      A student sees "The box of chocolates ___ on the table" and picks "are," reasoning that "chocolates" (the word right before the blank) is plural. Is this reasoning correct?
+      A student sees "The box of chocolates ___ on the table" and chooses "are" because "chocolates" is the noun nearest the blank. Is that reasoning correct?
     choices:
-      - text: 'No: the true subject is "box" (singular), not "chocolates"; test-makers place a plural noun right before the verb specifically to tempt you into matching the wrong, nearer word instead of the true subject.'
+      - text: 'No: the head subject is "box" (singular), so the standard form is "is."'
         correct: true
-      - text: 'Yes: the noun closest to the verb always determines agreement, regardless of the true subject.'
+      - text: 'Yes: the nearest noun always controls agreement.'
         rationale: |
-          You assumed proximity rules override true subject agreement, which is grammatically wrong.
-      - text: 'Yes: but only because "chocolates" is actually the true subject in this sentence.'
+          Agreement generally follows the grammatical subject, not simply the nearest noun.
+      - text: 'Yes: "chocolates" is the head subject.'
         rationale: |
-          You misidentified "chocolates" as the subject, but "chocolates" is just the object of the preposition.
-      - text: 'No: but only because "box" and "chocolates" are both plural.'
+          "Chocolates" is inside the prepositional phrase "of chocolates."
+      - text: 'No: because both "box" and "chocolates" are plural.'
         rationale: |
-          You claimed "box" is plural, but "box" is singular.
+          "Box" is singular.
     explanation: |
-      The true subject decides the verb, even if other nouns sit closer to the verb in the sentence. "The box of chocolates is (not are) on the table" is correct, since "box" is the true, singular subject.
+      The prepositional phrase does not change the singular head subject "box," so "is" is correct.
     approved: true
 
   - id: q-grammar-and-structure-subject-verb-agreement-0015
     type: subject-verb-agreement
     difficulty: hard
     stem: |
-      A student assumes "The team ___ celebrating" needs "are," reasoning that a team is made up of multiple people. Is this reasoning correct?
+      In standard American English, the sentence treats "team" as one unit celebrating together: "The team ___ celebrating its victory." Which verb best fits that stated reading?
     choices:
-      - text: 'No: collective nouns like "team" are usually treated as singular, since they name one group acting as a unit; unless the sentence clearly emphasizes individual members acting separately, use the singular verb "is."'
+      - text: Is
         correct: true
-      - text: 'Yes: any noun referring to multiple people always takes a plural verb.'
+      - text: Are
         rationale: |
-          You assumed all group nouns take plural verbs, but collective nouns take singular verbs when acting as a unit.
-      - text: 'Yes: but only because "team" contains the letter combination that signals plurality.'
+          Plural agreement can occur in other varieties or with an individual-members reading, but the stem explicitly specifies the American-English unit reading.
+      - text: Were
         rationale: |
-          You linked grammar rules to arbitrary letter patterns inside words.
-      - text: 'No: but only because "team" is not actually a collective noun.'
+          This is plural past agreement and does not fit the stated reading.
+      - text: Have
         rationale: |
-          You incorrectly claimed "team" is not a collective noun.
+          This does not form the required progressive verb phrase.
     explanation: |
-      Many students assume a "team" or "family" (multiple people) needs a plural verb. Unless the sentence clearly emphasizes the individual members acting separately, collective nouns are treated as singular.
+      With the collective noun construed as a single unit, standard American English uses "the team is celebrating." This is a register/context rule, not a universal ban on plural collective-noun agreement.
     approved: true
 
   - id: q-grammar-and-structure-subject-verb-agreement-0016
     type: subject-verb-agreement
     difficulty: hard
     stem: |
-      A student writes "Everybody have their own opinion," reasoning that "everybody" refers to many people and should take a plural verb. Is this reasoning correct?
+      A student writes "Everybody have their own opinion." Which part needs correction in standard English?
     choices:
-      - text: 'No: "everybody" is an indefinite pronoun ending in "-body," which is always singular, no matter how many people it refers to; the correct verb is "has," not "have."'
+      - text: '"Have" should be "has" because "everybody" takes singular verb agreement; singular "their" can remain.'
         correct: true
-      - text: 'Yes: "everybody" always takes a plural verb, since it refers to a group of people.'
+      - text: '"Their" must always be changed to "his or her."'
         rationale: |
-          You assumed referring to multiple people requires a plural verb, but "everybody" is grammatically singular.
-      - text: 'Yes: but only when the sentence is about opinions specifically.'
+          Generic singular "their" is accepted in modern standard English; the verb agreement is the actual error.
+      - text: 'No correction is needed because "everybody" takes a plural verb.'
         rationale: |
-          You linked subject-verb agreement to sentence topic instead of pronoun type.
-      - text: 'No: but only because "everybody" is not actually a pronoun.'
+          "Everybody" takes singular verb agreement.
+      - text: '"Everybody" is not a pronoun and cannot be a subject.'
         rationale: |
-          You claimed "everybody" is not a pronoun, but it is an indefinite pronoun.
+          "Everybody" is an indefinite pronoun and can serve as a subject.
     explanation: |
-      Even though "everybody" refers to many people, it grammatically behaves as one singular unit. "Everybody has (not have) their own opinion" is correct.
+      The correct sentence is "Everybody has their own opinion." The singular verb agrees with "everybody," while singular "their" is acceptable.
     approved: true
 
   - id: q-grammar-and-structure-subject-verb-agreement-0017
     type: subject-verb-agreement
     difficulty: hard
     stem: |
-      A student writes "Neither the students nor the teacher were late," matching the verb to "students" since it appears first in the sentence. Is this correct?
+      Under the standard formal proximity convention, is "Neither the students nor the teacher were late" the preferred agreement for this test item?
     choices:
-      - text: 'No: with "or" or "nor," match the verb to the subject closest to it, not the first one mentioned; the closer subject here is "teacher" (singular), so the correct verb is "was," not "were."'
+      - text: 'No: the nearer subject "teacher" is singular, so the item expects "was."'
         correct: true
-      - text: 'Yes: the first subject mentioned always determines the verb in an "or/nor" sentence.'
+      - text: 'Yes: the first subject always controls agreement.'
         rationale: |
-          You assumed the first noun controls agreement in "or/nor" structures, but the closer noun controls it.
-      - text: 'Yes: but only because "students" and "teacher" are both considered plural together.'
+          The convention being tested uses the nearer subject.
+      - text: 'Yes: the two subjects are added together as if joined by "and."'
         rationale: |
-          You added the two subjects together like an "and" structure, but "nor" does not combine subjects.
-      - text: 'No: but only because "neither...nor" sentences never require verb agreement at all.'
+          "Neither...nor" does not create the same agreement pattern as a simple "and" compound subject.
+      - text: 'No: "neither...nor" constructions never require agreement.'
         rationale: |
-          You claimed "neither...nor" ignores agreement rules, which is incorrect.
+          They still require a finite verb with an agreement choice.
     explanation: |
-      With "or" or "nor," match the verb to the subject closest to it, not the first one mentioned. "Neither the students nor the teacher was late" is correct, matching "teacher," the closer subject.
+      Under the stated test convention, the nearer singular subject gives "Neither the students nor the teacher was late."
     approved: true
 
   - id: q-grammar-and-structure-subject-verb-agreement-0018
@@ -371,15 +371,15 @@ questions:
         correct: true
       - text: Ng
         rationale: |
-          Pinili mo ang "ng," ngunit ang "kumain" ay actor-focus kaya "ang" ang gagamitin sa tagaganap ("bata").
+          Sa pangungusap na ito, ang tagaganap na "bata" ang minamarkahan ng "ang."
       - text: Sa
         rationale: |
-          Pinili mo ang "sa," ngunit ang "sa" ay para sa lokasyon o direksyon at hindi sa paksa.
+          Hindi lokasyon o direksiyon ang tungkulin ng puwang.
       - text: Na
         rationale: |
-          Pinili mo ang "na," ngunit ang "na" ay pang-angkop at hindi panandang ang-pantukoy.
+          Hindi pang-angkop ang kailangan bago ang "bata."
     explanation: |
-      Ang "kumain" ay pandiwang naka-focus sa gumagawa (actor focus), kaya ang gumagawa ng kilos ("bata") ay dapat markahan ng pananda na "ang."
+      Sa aktor-pokus na "Kumain ang bata ng tinapay," ang tagaganap ay minamarkahan ng "ang."
     approved: true
 
   - id: q-grammar-and-structure-subject-verb-agreement-0019
@@ -392,34 +392,34 @@ questions:
         correct: true
       - text: Ang
         rationale: |
-          Pinili mo ang "ang," ngunit ang "kinain" ay object-focus kaya "ng" ang gagamitin sa tagaganap.
+          Sa pokus-sa-bagay na pangungusap, "ang tinapay" ang minamarkahang paksa at "ng bata" ang tagaganap.
       - text: Sa
         rationale: |
-          Pinili mo ang "sa," ngunit ang "sa" ay para sa lugar o kinaroroonan at hindi sa tagaganap.
+          Hindi lokasyon o direksiyon ang tungkulin ng puwang.
       - text: Na
         rationale: |
-          Pinili mo ang "na," ngunit ang "na" ay pang-angkop at hindi panandang ng-pantukoy.
+          Hindi pang-angkop ang kailangan.
     explanation: |
-      Ang "kinain" ay pandiwang naka-focus sa bagay ("ang tinapay"), kaya ang gumagawa ng kilos ("bata") ay markahan ng pananda na "ng," hindi "ang."
+      Sa "Kinain ng bata ang tinapay," ang bagay ang minamarkahan ng "ang," samantalang ang tagaganap ay minamarkahan ng "ng."
     approved: true
 
   - id: q-grammar-and-structure-subject-verb-agreement-0020
     type: subject-verb-agreement
     difficulty: exam
     stem: |
-      Choose the correct verb: Neither the coach nor the players on the visiting team ______ satisfied with the referee's decision, even though most of the crowd ______ supportive of it.
+      Under standard American English and the formal proximity convention, choose the correct verbs: Neither the coach nor the players on the visiting team ______ satisfied with the referee's decision, even though most of the crowd ______ supportive of it as a single group.
     choices:
       - text: Were, was
         correct: true
       - text: Was, were
         rationale: |
-          You reversed both verb choices: the first blank needs plural "were" and the second needs singular "was."
+          The first blank follows nearer plural "players"; the second treats singular collective "crowd" as one group under the stated American-English reading.
       - text: Were, were
         rationale: |
-          You picked plural "were" for the second blank, but "most" modifies the singular noun "crowd."
+          The first is correct, but the second conflicts with the explicitly specified unit reading of "crowd."
       - text: Was, was
         rationale: |
-          You picked singular "was" for the first blank, but the closer subject "players" is plural.
+          The second is correct under the stated reading, but the nearer subject "players" is plural in the first clause.
     explanation: |
-      In the first clause, "neither...nor" matches the closer subject, "players" (plural), giving "were." In the second clause, "most" takes its number from "crowd" (singular, a collective noun), giving "was."
+      The proximity convention gives plural "were" from nearer "players." For the second clause, the stem explicitly specifies the standard American-English unit reading of "crowd," giving singular "was."
     approved: true
