@@ -1,7 +1,7 @@
 ---
 _id: "lesson-biology-evolution"
-title: "Evolution (Theories of Evolution, Natural Selection, Speciation)"
-summary: "How natural selection drives evolution and how new species form over time."
+title: "Evolution (Natural Selection and Speciation)"
+summary: "How populations evolve through several mechanisms, how natural selection produces adaptation, and how reproductive isolation can produce new species."
 subject: "subject-science"
 topic: "topic-biology"
 estimatedMinutes: 11
@@ -9,93 +9,101 @@ isActive: true
 ---
 ## Core Concept
 
-**Evolution** is the change in a population's inherited traits over many generations. In $1859$, Charles Darwin proposed **natural selection** as the main driving mechanism behind evolution, describing it as "descent with modification": species change over time and share common ancestors.
+**Evolution** is heritable change in populations across generations. In population genetics, it can be tracked as changes in allele frequencies over time.
+
+Natural selection is one important mechanism of evolution, especially for **adaptive evolution**, but it is not the only mechanism. Mutation creates new genetic variants; **genetic drift** changes allele frequencies by chance; **gene flow** moves alleles among populations; and nonrandom mating can change genotype frequencies and interact with selection.
+
+Charles Darwin and Alfred Russel Wallace independently developed the idea of evolution by **natural selection**. Their papers were presented together in $1858$, and Darwin published *On the Origin of Species* in $1859$, where he developed the argument for "descent with modification" in detail.
 
 ### Natural Selection
 
-Natural selection works through a repeatable chain of reasoning:
+Natural selection requires a few key ingredients:
 
-1. **Variation**: individuals within a population naturally differ in their traits (some birds have slightly longer beaks than others).
-2. **Limited resources**: resources like food and space are limited, so not every individual survives and reproduces.
-3. **Advantage**: individuals with traits better suited to their environment are more likely to survive and reproduce (a bird with a beak shape better suited to the available food).
-4. **Inheritance**: if the advantageous trait is heritable (passed genetically to offspring), it becomes more common in the next generation.
+1. **Variation**: individuals in a population differ.
+2. **Heritability**: some of that variation can be inherited.
+3. **Differential reproductive success**: under a particular environment, some heritable variants contribute more surviving offspring to later generations than others.
 
-Repeated over many generations, this process gradually shifts the population's traits to better match its environment. Importantly, natural selection does not make an individual organism change during its own lifetime; it changes which traits become more or less common across generations, based on differences in survival and reproduction.
+When these conditions hold, advantageous heritable variants can become more common over generations. "Fitness" means reproductive success relative to others in the population, not simply being strongest or living longest.
 
-<!-- ILLUSTRATION: three generations of a bird population shown left to right, with beak sizes gradually shifting toward a shape that better matches an available food source, and individuals with the less-suited beak shape becoming rarer over time -->
+Natural selection acts through differences among individuals, but **populations evolve**. An individual does not genetically evolve a needed trait during its lifetime because it wants or uses that trait more.
+
+<!-- ILLUSTRATION: several generations of a population showing a heritable variant becoming more frequent under a consistent selection pressure -->
 
 ### Speciation
 
-**Speciation** is the formation of a brand-new species. It commonly happens when a single population becomes geographically separated (by an ocean, a mountain range, or another barrier) into two groups that no longer interbreed.
+**Speciation** is the formation of new evolutionary lineages recognized as separate species. There are multiple species concepts; for sexually reproducing organisms, the **biological species concept** emphasizes reproductive isolation.
 
-Once separated, each group faces different environmental pressures and accumulates different adaptations over many generations through natural selection. Eventually, the two groups become so genetically different that they can no longer interbreed successfully, even if they were reunited: at that point, they have become two separate species.
+**Allopatric speciation** begins when geographic separation reduces gene flow between populations. Mutation, natural selection, and genetic drift can then cause the separated populations to diverge. If reproductive isolation evolves, they may remain distinct even after contact is restored.
 
-A classic real-world example is the finches Darwin studied on the Galápagos Islands: finches that ended up on different islands, facing different available foods, evolved distinctly different beak shapes suited to their local food source (thick, strong beaks for cracking hard seeds; long, thin beaks for reaching nectar; sharp beaks for catching insects), eventually becoming separate species.
+Geographic separation is common but not required. **Sympatric speciation** can occur without a physical barrier, for example through changes that rapidly create reproductive isolation such as polyploidy in plants.
+
+Darwin's finches are an important example of **adaptive radiation**: related finch lineages diversified across Galápagos environments and ecological niches. Their history involves common ancestry, differences in feeding ecology, selection, isolation, and some continuing gene flow/hybridization; it is more complex than a simple one-island-one-food story.
 
 ## Examples
 
-### #1: Applying Natural Selection Step by Step
+### #1: Pesticide Resistance
 
-A population of insects contains some individuals that are naturally more resistant to a certain pesticide. After years of pesticide use, most insects in the population are now pesticide-resistant. Explain this outcome using the steps of natural selection.
-
-**Solution:**
-Walk through the four-step chain of reasoning.
-
-1. Variation: some insects naturally had a trait giving pesticide resistance, even before the pesticide was used.
-2. Limited survival: the pesticide killed most non-resistant insects, leaving fewer of them to reproduce.
-3. Advantage: the resistant insects survived and reproduced far more successfully in this new pesticide-filled environment.
-4. Inheritance: since resistance is a heritable trait, the surviving resistant insects passed it to their offspring, making resistance far more common in later generations.
-5. Over many generations, this shifted the population from mostly non-resistant to mostly resistant: natural selection in action.
-
-### #2: Evolution Within a Lifetime? A Common Misconception
-
-A student claims, "A giraffe stretched its neck to reach high leaves during its life, and so its offspring were born with longer necks." Explain what is wrong with this reasoning.
+A population of insects already contains heritable variants that differ in pesticide resistance. After repeated pesticide use, resistant variants become much more common. Explain the result.
 
 **Solution:**
-Check the claim against how natural selection actually works.
 
-1. Natural selection does not change an individual's traits during its own lifetime, and traits gained through use (like a stretched neck) are not passed on genetically.
-2. What actually happens: some giraffes were naturally born with slightly longer necks (variation), which happened to be better suited for reaching high leaves (advantage) in a food-scarce environment.
-3. These longer-necked giraffes survived and reproduced more successfully, passing the heritable long-neck trait to their offspring.
-4. Over many generations, the population's average neck length increased, but no single giraffe's neck lengthened due to stretching during its own life.
+1. Heritable variation existed before or arose independently of the insects' "need" for resistance.
+2. Pesticide exposure caused susceptible insects to leave fewer surviving offspring on average.
+3. Resistant insects contributed more descendants to later generations.
+4. Resistance-associated alleles therefore increased in frequency: evolution by natural selection.
 
-### #3: Explaining Speciation with the Galápagos Finches
+### #2: Evolution Within an Individual?
 
-Explain how a single ancestral finch species, arriving on different Galápagos islands, could eventually become several different species.
+A student claims, "An animal developed a useful body change by repeated use, so its offspring automatically inherited that acquired change." What is wrong with this as a general explanation of natural selection?
 
 **Solution:**
-Trace the process from geographic separation to full speciation.
 
-1. Finches from one ancestral population spread across separate islands, each with a different available food source (hard seeds, nectar, or insects).
-2. Because the islands are separated by ocean, the finch groups on different islands no longer interbred with each other.
-3. On each island, natural selection favored beak shapes best suited to that island's specific food source, so each population gradually accumulated different adaptations.
-4. Over many generations, the beak shapes and other traits diverged so much between islands that the separate populations could no longer successfully interbreed, even if brought back together.
-5. At that point, what started as one ancestral species had become several distinct species: this is speciation through geographic separation.
+1. Natural selection requires **heritable** variation.
+2. Many changes acquired during an individual's lifetime, such as larger muscles from exercise, do not alter the inherited DNA variants passed through gametes.
+3. Population change occurs when heritable variants differ in reproductive success across generations.
+4. Environmental effects and some forms of epigenetic inheritance can complicate biology, but they do not turn ordinary use-and-disuse into the standard mechanism of Darwinian natural selection.
+
+### #3: Geographic Isolation and Speciation
+
+A population becomes split by a new geographic barrier, and gene flow between the two groups stops. Does that separation instantly create two species?
+
+**Solution:**
+
+1. No. Geographic separation reduces gene flow but does not instantly create reproductive isolation.
+2. The populations can diverge through mutation, natural selection, and genetic drift.
+3. If barriers to interbreeding evolve and persist, the lineages may become separate species under the biological species concept.
+4. Geographic separation is therefore a common **starting condition** for allopatric speciation, not the definition of speciation itself.
 
 ## Speed Tricks & Shortcuts
 
-For "explain this evolutionary outcome" questions, run through the same four-step checklist every time: variation, limited survival/resources, advantage, inheritance. If a proposed answer skips heredity (does not mention the trait being passed on), it is describing something other than natural selection.
+For natural-selection explanations, look for **heritable variation + different reproductive success + change across generations**.
 
-For speciation questions, look for the keyword "geographically separated" (or "isolated"). This is the most common starting condition tested for how new species form.
+For evolution mechanisms, remember that not every allele-frequency change is adaptive. **Selection** is nonrandom with respect to fitness; **genetic drift** is chance; **gene flow** moves alleles among populations; **mutation** introduces new variants.
 
-Remember Darwin's key phrase, "descent with modification," as a one-line definition of evolution: species descend from ancestors, but change (are modified) over time.
+For speciation questions, identify the mechanism of **reproductive isolation**. A geographic barrier suggests allopatric speciation, but speciation can also occur without geographic separation.
 
 ## Traps to Watch For
 
-### #1: "Use It or Lose It" Misconception
+### #1: Crediting Natural Selection to Darwin Alone
 
-> Natural selection does not change an individual's traits during its lifetime; only heritable variation already present in the population gets selected for.
+> Darwin and Alfred Russel Wallace independently developed the mechanism and jointly presented papers in 1858.
 
-The giraffe-neck-stretching example in this lesson is the classic version of this trap. A trait gained through effort or use during an individual's life (like bigger muscles from exercise) is not passed on to offspring, since it does not change the individual's genes.
+Darwin's 1859 book gave the idea its most influential early exposition.
 
-### #2: Confusing "Survival of the Fittest" with "Strongest Wins"
+### #2: Treating Natural Selection as the Only Evolutionary Mechanism
 
-> "Fittest" means best suited to the environment, not necessarily the strongest or biggest.
+> Populations also change through mutation, genetic drift, and gene flow.
 
-A tiny, camouflaged insect may be more "fit" in its environment than a larger, more visible one, if camouflage helps it survive and reproduce better. Fitness is about reproductive success in a specific environment, not raw physical strength.
+Natural selection is distinctive because it can produce adaptation to local conditions.
 
-### #3: Believing Evolution Has a "Goal" or Direction
+### #3: Saying Evolution Has a Goal
 
-> Evolution does not aim toward a "better" or "more advanced" form; it simply favors whatever traits happen to suit the current environment.
+> Evolution has no foresight and does not strive toward a predetermined "more advanced" form.
 
-A choice suggesting organisms are "trying to evolve" toward some ideal form misunderstands the process. Natural selection has no foresight or goal: it simply reflects which existing traits happened to help individuals survive and reproduce in their specific environment at the time.
+Which traits are favored depends on the current environment and reproductive consequences.
+
+### #4: Defining Species Only as Groups That "Cannot Interbreed"
+
+> Reproductive isolation is central to the biological species concept, but species concepts vary and hybridization can occur between recognized species.
+
+Use the biological species concept when the question explicitly concerns sexually reproducing populations and gene flow.
