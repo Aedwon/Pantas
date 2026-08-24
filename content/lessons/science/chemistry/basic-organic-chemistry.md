@@ -1,7 +1,7 @@
 ---
 _id: "lesson-chemistry-basic-organic-chemistry"
 title: "Basic Organic Chemistry (Hydrocarbons, Functional Groups, Naming Conventions)"
-summary: "The basic hydrocarbon families, common functional groups, and how organic compounds get their names."
+summary: "Basic hydrocarbon families, common functional groups, and introductory IUPAC naming ideas with their limits."
 subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 12
@@ -9,109 +9,138 @@ isActive: true
 ---
 ## Core Concept
 
-**Organic chemistry** is the study of carbon-based compounds. Carbon is special because it can form four bonds and link with other carbon atoms to build long chains, rings, and branches, creating an enormous variety of molecules: everything from plastics to the molecules that make up your own body.
+**Organic chemistry** is the branch of chemistry centered on carbon compounds, especially compounds containing carbon-carbon and carbon-hydrogen frameworks. The phrase "all carbon compounds are organic" is too broad: compounds such as carbon monoxide, carbon dioxide, many carbonates, and several other simple carbon-containing substances are conventionally treated in inorganic chemistry.
+
+Carbon's ability to form four covalent bonds and stable carbon-carbon bonds allows chains, rings, branches, multiple bonds, and a huge range of functional groups.
 
 ### Hydrocarbons
 
-A **hydrocarbon** is a compound made of only carbon and hydrogen atoms. The three basic families differ by the type of carbon-carbon bond they contain:
+A **hydrocarbon** contains only carbon and hydrogen.
 
-- **Alkanes**: only single bonds between carbons ($C-C$). Called "saturated," since every possible bonding spot is filled with hydrogen. Named with the ending **-ane** (like methane, ethane, propane).
-- **Alkenes**: contain at least one carbon-carbon double bond ($C=C$). "Unsaturated." Named with the ending **-ene** (like ethene, propene).
-- **Alkynes**: contain at least one carbon-carbon triple bond ($C \equiv C$). Also unsaturated. Named with the ending **-yne** (like ethyne, propyne).
+- **Alkanes** are saturated hydrocarbons containing only carbon-carbon single bonds. They can be straight-chain, branched, or cyclic. Saturated means **no carbon-carbon double or triple bonds**; it does not mean the molecule has the same hydrogen count as an acyclic alkane. Cycloalkanes are saturated even though ring formation reduces the number of hydrogen atoms relative to $C_nH_{2n+2}$.
+- **Alkenes** contain at least one carbon-carbon double bond ($C=C$).
+- **Alkynes** contain at least one carbon-carbon triple bond ($C\equiv C$).
 
-| Hydrocarbon | Family | Formula | Structure | Bond Type |
-| --- | --- | --- | --- | --- |
-| Ethane | Alkane (saturated) | $\text{C}_2\text{H}_6$ | $\text{CH}_3-\text{CH}_3$ | Single bond ($\text{C}-\text{C}$) |
-| Ethene | Alkene (unsaturated) | $\text{C}_2\text{H}_4$ | $\text{CH}_2=\text{CH}_2$ | Double bond ($\text{C}=\text{C}$) |
-| Ethyne | Alkyne (unsaturated) | $\text{C}_2\text{H}_2$ | $\text{CH}\equiv\text{CH}$ | Triple bond ($\text{C}\equiv\text{C}$) |
+For simple **acyclic** hydrocarbons containing one type of C-C bond only:
+
+| Example | Family | Formula | Key bond |
+| --- | --- | --- | --- |
+| Ethane | alkane | $C_2H_6$ | C-C single |
+| Ethene | alkene | $C_2H_4$ | C=C double |
+| Ethyne | alkyne | $C_2H_2$ | C$\equiv$C triple |
+
+A molecule can contain more than one multiple bond, and more advanced names specify their number and positions.
 
 ### Functional Groups
 
-A **functional group** is a specific small group of atoms attached to a carbon chain that gives the molecule its characteristic chemical behavior. Different functional groups create entirely different families of organic compounds, even on otherwise similar carbon chains: **alcohols** (containing $-OH$), **aldehydes** and **ketones** (containing a carbon-oxygen double bond, $C=O$, in different positions), **carboxylic acids** (containing $-COOH$), and **amines** (containing nitrogen, $-NH_2$), among others.
+A **functional group** is a recognizable arrangement of atoms that contributes characteristic reactivity and naming behavior.
 
-### Naming Conventions
+Common examples include:
 
-Organic compounds follow **iupac naming rules** (a standardized international system):
+- **alcohols**: a hydroxyl group bonded to carbon, commonly represented $R-OH$;
+- **aldehydes** and **ketones**: compounds containing carbonyl groups ($C=O$) in different structural environments;
+- **carboxylic acids**: carboxyl group, $-COOH$ / $-C(=O)OH$;
+- **amines**: nitrogen-containing functional groups derived conceptually from ammonia. Primary amines may contain $-NH_2$, but secondary and tertiary amines contain $-NHR$ and $-NR_2$ patterns as well. Therefore "amine = -NH2" is too narrow.
 
-1. Find the longest continuous carbon chain: this becomes the "parent chain," and its length determines the base name (meth- for $1$ carbon, eth- for $2$, prop- for $3$, but- for $4$, and so on).
-2. Identify the bond type present (all single, or containing a double/triple bond) to choose the correct ending: -ane, -ene, or -yne.
-3. Number the carbons in the chain to give the lowest possible position numbers to any double/triple bonds or attached groups.
+Functional groups strongly influence reactivity and physical properties, but molecular behavior also depends on carbon skeleton, size, stereochemistry, and other groups present.
+
+### Introductory IUPAC Naming
+
+IUPAC names can include locants, prefixes/substituents, a parent structure, unsaturation information, and a suffix for the principal characteristic group.
+
+For **simple branched alkanes**, a useful first procedure is:
+
+1. identify the longest appropriate continuous carbon chain as the parent;
+2. number it to give substituents the required lowest locants under the naming rules;
+3. name and locate substituents.
+
+For compounds with multiple bonds or functional groups, parent selection is more nuanced than "always choose the longest chain." The parent must satisfy rules involving the **principal characteristic group** and relevant multiple bonds; a merely longer chain can be the wrong parent if it excludes the group that must be expressed by the suffix.
+
+The basic carbon roots include:
+
+$$1=\text{meth-},\ 2=\text{eth-},\ 3=\text{prop-},\ 4=\text{but-},\ 5=\text{pent-},\ 6=\text{hex-}$$
+
+Hydrocarbon suffixes include **-ane**, **-ene**, and **-yne**, with locants used when needed to show multiple-bond positions.
 
 ## Examples
 
-### #1: Classifying a Hydrocarbon
+### #1: Hydrocarbon Family
 
-Classify each hydrocarbon based on its carbon-carbon bonds: (a) a molecule with only single bonds between all its carbons; (b) a molecule containing one carbon-carbon triple bond; (c) a molecule containing one carbon-carbon double bond.
+Classify:
 
-**Solution:**
-Match the described bond type to its hydrocarbon family.
-
-1. (a) Only single bonds: Alkane.
-2. (b) Contains a triple bond: Alkyne.
-3. (c) Contains a double bond: Alkene.
-
-### #2: Identifying the Base Name from Chain Length
-
-Name the base (root) part of the name for a straight-chain alkane with $4$ carbon atoms, all connected by single bonds.
+(a) a hydrocarbon with only C-C single bonds;  
+(b) a hydrocarbon containing a C$\equiv$C bond;  
+(c) a hydrocarbon containing a C=C bond.
 
 **Solution:**
-Match the carbon count to its base name, then add the alkane ending.
 
-1. A chain of $4$ carbons uses the base "but-".
-2. Since all bonds are single (alkane), add the ending "-ane".
-3. Full name: Butane.
+1. (a) Alkane/saturated hydrocarbon.
+2. (b) Alkyne/unsaturated hydrocarbon.
+3. (c) Alkene/unsaturated hydrocarbon.
 
-### #3: Saturated or Unsaturated?
+### #2: Four-Carbon Acyclic Alkane
 
-A hydrocarbon is described as having every possible bonding position filled with hydrogen atoms, with no double or triple bonds anywhere in its carbon chain. Is it saturated or unsaturated, and which family does it belong to?
+A straight, unbranched four-carbon alkane has the parent name **butane**.
 
-**Solution:**
-Match "every position filled with hydrogen" to the correct term.
+- four carbons → **but-**;
+- saturated acyclic hydrocarbon → **-ane**.
 
-1. Having every possible position filled with hydrogen (no double or triple bonds using up bonding spots) describes a saturated hydrocarbon.
-2. Saturated hydrocarbons, with only single carbon-carbon bonds, belong to the alkane family.
+### #3: Why Cyclohexane Is Saturated
 
-### #4: Recognizing a Functional Group's Effect
-
-Two molecules have the exact same length of carbon chain, but one has an $-OH$ group attached (an alcohol) and the other has a $-COOH$ group attached (a carboxylic acid). Explain why these two molecules, despite similar chain lengths, behave very differently chemically.
+Cyclohexane has formula $C_6H_{12}$ rather than the $C_6H_{14}$ formula of acyclic hexane. Is cyclohexane unsaturated?
 
 **Solution:**
-Recall that functional groups, not just chain length, determine chemical behavior.
 
-1. The $-OH$ group (alcohol) and the $-COOH$ group (carboxylic acid) are different functional groups, each with its own characteristic chemical reactivity.
-2. Even with an identical carbon chain length, the presence of a specific functional group is what determines how the molecule reacts chemically (for instance, carboxylic acids are acidic and can donate a proton, while simple alcohols are not acidic in the same way).
-3. This is why chemists classify organic compounds primarily by their functional group, since it is the functional group, not the plain carbon chain, that dictates most of the molecule's chemical behavior.
+No. Cyclohexane contains a ring but only carbon-carbon single bonds. In organic terminology, **unsaturation** arises from rings and/or multiple bonds when calculating degrees of unsaturation, but the hydrocarbon classification "saturated" specifically means no C-C multiple bonds. Cyclohexane is therefore a saturated cycloalkane despite having fewer hydrogens than hexane.
+
+### #4: Functional Groups Matter
+
+Compare an alcohol and a carboxylic acid with similar carbon skeletons.
+
+**Solution:**
+
+1. Their different functional groups create different patterns of polarity, hydrogen bonding, acidity, and chemical reactions.
+2. Carbon-chain length still influences properties such as boiling point and water solubility.
+3. Functional groups are major predictors of behavior, not the only variables that matter.
+
+### #5: Why "Longest Chain" Is Not the Whole IUPAC Rule
+
+Suppose one possible carbon chain is longer but excludes the highest-priority functional group that must appear as the suffix, while a slightly shorter allowed parent contains that group. Which should be used?
+
+**Solution:**
+
+Use the parent required by the IUPAC rules for the principal characteristic group. "Find the longest chain" is a valid beginner shortcut for simple alkanes, not a universal parent-selection rule for all organic compounds.
 
 ## Speed Tricks & Shortcuts
 
-Remember the three hydrocarbon endings by their vowel, in order of increasing bond strength: -ane (single bond, "a" comes first alphabetically among the three vowel groups used here), -ene (double bond), -yne (triple bond). Matching the ending to the bond type is a fast way to classify or name a compound.
+For hydrocarbon family questions, look directly for **C=C** or **C$\equiv$C**. No C-C multiple bond means saturated, even if the molecule contains a ring.
 
-Memorize the first four carbon-count prefixes, since they appear constantly: meth- ($1$), eth- ($2$), prop- ($3$), but- ($4$). Everything after generally follows a similar Greek/Latin numbering pattern (pent- for $5$, hex- for $6$, and so on).
+Memorize meth-, eth-, prop-, but-, pent-, hex- and the suffixes -ane, -ene, -yne for simple names.
 
-For "why do these molecules behave differently" questions, always check the functional group first: it is almost always the deciding factor in organic chemistry behavior questions, more so than overall chain length.
+When a functional group with naming priority is present, do not blindly apply the alkane "longest chain" shortcut; include the principal group and follow the naming rules for that class.
 
 ## Traps to Watch For
 
-### #1: Confusing "Saturated" with "Unsaturated"
+### #1: Calling Every Carbon Compound Organic
 
-> Saturated means only single bonds (alkanes). Unsaturated means containing at least one double or triple bond (alkenes or alkynes).
+> Organic chemistry covers an enormous range of carbon chemistry, but several simple carbon compounds are conventionally classified as inorganic.
 
-Students sometimes assume "saturated" refers to something being "full" of double bonds, when it actually means the opposite: every possible bonding position is already filled with hydrogen, leaving no room for any double or triple bonds.
+Carbon dioxide and carbonates are standard examples.
 
-### #2: Ignoring the Functional Group When Comparing Molecules
+### #2: Defining Saturated as "Maximum Possible Hydrogens"
 
-> The functional group, not just the length of the carbon chain, is usually what determines a molecule's chemical behavior.
+> Saturated hydrocarbons have no carbon-carbon multiple bonds.
 
-Comparing two molecules only by their carbon chain length, while ignoring that one has an alcohol group and the other has a carboxylic acid group, misses the actual reason their chemical properties differ so much.
+Cycloalkanes are saturated even though forming a ring gives them fewer hydrogens than corresponding acyclic alkanes.
 
-### #3: Mixing Up the Alkene and Alkyne Endings
+### #3: Defining Every Amine as $-NH_2$
 
-> -ene means a double bond (alkene). -yne means a triple bond (alkyne).
+> $-NH_2$ describes a primary-amino pattern, but secondary and tertiary amines also exist.
 
-These two endings differ by only one letter, making them easy to mix up under exam time pressure. Anchor them by counting the letters shared with their bond type's name: or simply memorize the pair together as "ene = 2 (double), yne = 3 (triple)," matching the numbers $2$ and $3$ hidden in the words "dOUBLE" and "trIPLE."
+The defining chemistry centers on amine nitrogen, not one fixed formula fragment.
 
-### #4: Forgetting to Find the longest Chain First
+### #4: Saying IUPAC Naming Always Starts with the Longest Carbon Chain
 
-> Iupac naming always starts by finding the longest continuous carbon chain, which becomes the parent chain, not just any chain that happens to be drawn first.
+> That rule is a useful starting point for simple alkanes.
 
-A branched molecule may have several possible chains to choose from, but only the longest one is used as the parent name; shorter branches are instead named as attached side groups. Picking a shorter chain as the "parent" by mistake leads to an incorrect name.
+Functional-group priority and multiple-bond requirements affect parent selection in more complex names.
