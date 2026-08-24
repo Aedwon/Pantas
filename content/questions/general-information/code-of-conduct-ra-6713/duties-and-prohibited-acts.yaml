@@ -170,21 +170,21 @@ questions:
     type: single_choice
     difficulty: easy
     stem: |
-      Public documents must be accessible for inspection during office hours except when classified in what manner?
+      Under Section 5(e) of RA 6713, what duty applies to public documents?
     choices:
-      - text: Officially confidential
+      - text: Make them accessible for public inspection during reasonable working hours
         correct: true
-      - text: Temporarily unindexed or unfiled
+      - text: Release them only after a 30-day waiting period
         rationale: |
-          You picked unindexed or unfiled status, which is an internal clerical issue. Public access can only be restricted if officially classified as confidential.
-      - text: Written in technical language
+          You picked a waiting period, but Section 5(e) requires public documents to be accessible and readily available for inspection during reasonable working hours.
+      - text: Limit inspection to government employees
         rationale: |
-          You selected technical language, which affects readability, not legal access. Public documents remain open unless officially classified as confidential.
-      - text: Stored in secondary archives
+          You restricted access to employees, but Section 5(e) states that public documents must be accessible to the public.
+      - text: Allow inspection only after approval by the agency head
         rationale: |
-          You chose secondary archives, which concerns storage location. Under Section 5, only official confidential classification limits public access.
+          You added an approval condition that Section 5(e) does not state. The duty is to make public documents accessible and readily available for inspection during reasonable working hours.
     explanation: |
-      Section 5(e) requires public documents to be accessible to the public during office hours unless officially classified as confidential.
+      Section 5(e) states that all public documents must be made accessible to, and readily available for inspection by, the public within reasonable working hours.
 
   - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0010
     type: single_choice
@@ -210,21 +210,21 @@ questions:
     type: single_choice
     difficulty: hard
     stem: |
-      Which gift exception allows public officials to accept travel grants from foreign entities under RA 6713?
+      Which travel benefit from a foreign government may a public official or employee accept under RA 6713 if it is appropriate or consistent with Philippine interests and permitted by the head of the person's office, branch, or agency?
     choices:
-      - text: Travel grants outside the Philippines
+      - text: Travel grants or expenses for travel entirely outside the Philippines
         correct: true
-      - text: All domestic resort trips funded by local contractors
+      - text: Domestic resort trips paid by local contractors
         rationale: |
-          You picked contractor-funded domestic resort trips, which create direct corruption risks. Allowed travel gifts must be foreign grants for official duties.
-      - text: Personal holiday vacations paid by registered vendors
+          You picked a benefit from local contractors, but the statutory exception here concerns qualifying travel grants or expenses from foreign governments for travel entirely outside the Philippines.
+      - text: Personal holidays paid by vendors with pending office transactions
         rationale: |
-          You chose vendor-paid personal vacations, which are strictly illegal bribes. Foreign travel grants appropriate to official duties are the only exception.
-      - text: Local weekend leisure trips funded by private applicants
+          You chose vendor-paid personal travel, which is not the foreign-government travel exception described in Section 7(d).
+      - text: Local weekend leisure trips paid by private applicants
         rationale: |
-          You selected local leisure trips from applicants, which violate gift rules. Section 7 exempts only foreign travel grants related to official work.
+          You selected local leisure travel from private applicants, which is not the foreign-government travel exception in Section 7(d).
     explanation: |
-      Travel grants entirely outside the Philippines appropriate to official functions are listed as an exception under RA 6713 rules.
+      For gifts or grants from foreign governments, Section 7(d) permits travel grants or expenses for travel taking place entirely outside the Philippines when acceptance is appropriate or consistent with Philippine interests and is permitted by the head of the official's office, branch, or agency.
 
   - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0012
     type: single_choice
