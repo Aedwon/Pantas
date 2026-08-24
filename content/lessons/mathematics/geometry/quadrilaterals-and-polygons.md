@@ -1,7 +1,7 @@
 ---
 _id: "lesson-geometry-quadrilaterals-and-polygons"
 title: "Quadrilaterals and Polygons (Properties, Interior and Exterior Angle Sums)"
-summary: "The special quadrilaterals and the formulas for the angles of any polygon."
+summary: "The special quadrilaterals and the formulas for the angles of common polygons."
 subject: "subject-mathematics"
 topic: "topic-geometry"
 estimatedMinutes: 12
@@ -9,37 +9,33 @@ isActive: true
 ---
 ## Core Concept
 
-A **polygon** is a closed figure made of straight sides. It is named by its side count: triangle ($3$), quadrilateral ($4$), pentagon ($5$), hexagon ($6$), heptagon ($7$), octagon ($8$), nonagon ($9$), decagon ($10$). A **regular** polygon has all sides equal and all angles equal.
+A **polygon** is a closed plane figure made of straight line segments. It is named by its side count: triangle ($3$), quadrilateral ($4$), pentagon ($5$), hexagon ($6$), heptagon ($7$), octagon ($8$), nonagon ($9$), decagon ($10$). A **regular** polygon has all sides equal and all interior angles equal.
 
-Two formulas run this whole topic. For a polygon with $n$ sides:
-
-The sum of the interior angles:
+For a simple polygon with $n$ sides, the sum of the interior angles is:
 
 $$S = (n - 2) \times 180^\circ$$
 
-Why $n - 2$? Because you can slice any polygon into $n - 2$ triangles from one corner, and each triangle carries $180^\circ$.
+For a convex polygon, you can see why by drawing diagonals from one vertex: this divides the polygon into $n - 2$ triangles, each with angle sum $180^\circ$.
 
 <!-- FIGURE: {"kind": "geometry-diagram", "type": "polygon-triangulation", "labels": ["Hexagon (n = 6)", "4 Triangles", "(6 - 2) × 180° = 720°"], "semanticsLabel": "Hexagon with diagonals drawn from one vertex dividing it into 4 triangles."} -->
 
-The sum of the exterior angles (one at each vertex) is always:
+For a convex polygon, if you take one exterior turning angle at each vertex in the same direction, the exterior angles add to one full turn:
 
 $$360^\circ$$
 
-This is true for every polygon, whether it has $3$ sides or $100$ sides. Walk around the polygon once and you turn one full circle.
+For a regular polygon, divide the interior-angle sum by $n$ to get each interior angle. Its exterior angles are also equal, so each exterior angle is $\dfrac{360^\circ}{n}$.
 
-For a regular polygon, divide either sum by $n$ to get each single angle.
+**Quadrilaterals** ($n = 4$, interior sum $360^\circ$) form a family of special cases:
 
-**Quadrilaterals** ($n = 4$, interior sum $360^\circ$) form a family tree:
+- **Parallelogram**: both pairs of opposite sides parallel. Opposite sides are equal, opposite angles are equal, consecutive angles are supplementary, and the diagonals bisect each other.
+- **Rectangle**: a parallelogram with four right angles. Its diagonals are equal in length.
+- **Rhombus**: a parallelogram with four equal sides. Its diagonals are perpendicular and bisect opposite angles.
+- **Square**: both a rectangle and a rhombus, so it has the properties of both.
+- **Trapezoid**: this lesson uses the **exclusive convention**, meaning a quadrilateral with exactly one pair of parallel sides. Some textbooks use an inclusive definition (at least one pair), so follow the convention stated in a problem when one is provided.
 
-- **Parallelogram**: both pairs of opposite sides parallel. Opposite sides are equal, opposite angles are equal, consecutive angles are supplementary, and the diagonals bisect each other (cut each other in half).
-- **Rectangle**: a parallelogram with four right angles. Its diagonals are equal.
-- **Rhombus**: a parallelogram with four equal sides. Its diagonals are perpendicular and bisect the corner angles.
-- **Square**: rectangle and rhombus at once. It has every property above.
-- **Trapezoid**: exactly one pair of parallel sides. Not a parallelogram.
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "quadrilateral-tree", "labels": ["Quadrilateral", "Trapezoid", "Parallelogram", "Rectangle", "Rhombus", "Square"], "semanticsLabel": "Hierarchy diagram showing parallelogram branching into rectangle and rhombus, merging into square, with trapezoid separate under the exclusive trapezoid convention."} -->
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "quadrilateral-tree", "labels": ["Quadrilateral", "Trapezoid", "Parallelogram", "Rectangle", "Rhombus", "Square"], "semanticsLabel": "Hierarchy diagram showing parallelogram branching into rectangle and rhombus, merging into square, with trapezoid separate."} -->
-
-CETs love two question types here: plug into the angle formulas (forward or backward), and true-or-false property statements like "the diagonals of a rectangle are perpendicular" (false; that is the rhombus).
+Typical problems ask you to use the polygon angle formulas forward or backward, or to identify which properties belong to rectangles, rhombi, parallelograms, squares, and trapezoids.
 
 ## Examples
 
@@ -61,7 +57,7 @@ $$S = (6 - 2) \times 180$$
 
 $$S = 4 \times 180 = 720$$
 
-3. The interior angles of any hexagon add up to $720^\circ$.
+3. The interior angles of any simple hexagon add up to $720^\circ$.
 
 ### #2: Each Angle of a Regular Polygon
 
@@ -85,9 +81,9 @@ $$\dfrac{1080}{8} = 135$$
 
 ### #3: Working Backwards to Find $n$
 
-The interior angles of a polygon add up to $1440^\circ$. How many sides does it have?
+The interior angles of a simple polygon add up to $1440^\circ$. How many sides does it have?
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "polygon", "labels": ["Regular n-gon", "Sum = 1440°", "Sides n = ?"], "semanticsLabel": "Regular polygon labeled with interior angle sum 1440 degrees and unknown number of sides n."} -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "polygon", "labels": ["n-gon", "Sum = 1440°", "Sides n = ?"], "semanticsLabel": "Polygon labeled with interior angle sum 1440 degrees and unknown number of sides n."} -->
 
 
 **Solution:**
@@ -115,14 +111,14 @@ Each exterior angle of a regular polygon measures $24^\circ$. How many sides doe
 
 
 **Solution:**
-All the exterior angles add to $360^\circ$, and in a regular polygon they are all equal.
+All the exterior turning angles add to $360^\circ$, and in a regular polygon they are equal.
 
 1. Divide the full turn by one exterior angle.
 
 $$n = \dfrac{360}{24} = 15$$
 
 2. The polygon has $15$ sides.
-3. Bonus check: each interior angle is $180 - 24 = 156^\circ$, since an interior and its exterior angle form a straight line.
+3. Each interior angle is $180 - 24 = 156^\circ$, since an interior angle and the adjacent exterior angle form a linear pair.
 
 ### #5: Parallelogram Angles with Algebra
 
@@ -145,11 +141,11 @@ $$40 = 2x$$
 $$x = 20$$
 
 3. So angle $A = 3(20) + 10 = 70^\circ$. Check: $5(20) - 30 = 70$. Correct.
-4. Angle $B$ is consecutive (next-door) to angle $A$, so they add to $180^\circ$.
+4. Angle $B$ is consecutive to angle $A$, so they add to $180^\circ$.
 
 $$180 - 70 = 110$$
 
-5. Angle $B$ measures $110^\circ$. Notice the question asked for $B$, not $A$.
+5. Angle $B$ measures $110^\circ$.
 
 ### #6: Quadrilateral Angles in a Ratio
 
@@ -159,7 +155,7 @@ The four angles of a quadrilateral are in the ratio $1 : 2 : 3 : 4$. Find the la
 
 
 **Solution:**
-Call the angles $x$, $2x$, $3x$, $4x$. A quadrilateral's angles add to $360^\circ$.
+Call the angles $x$, $2x$, $3x$, $4x$. A quadrilateral's interior angles add to $360^\circ$.
 
 1. Write the sum.
 
@@ -176,34 +172,34 @@ $$x = 36$$
 
 ## Speed Tricks & Shortcuts
 
-For each interior angle of a regular polygon, it is often faster through the back door: find the exterior angle first ($360 \div n$), then subtract from $180$. For a regular octagon: $360 \div 8 = 45$, and $180 - 45 = 135$. Two easy divisions instead of one big multiplication.
+For each interior angle of a regular polygon, it is often faster to find the exterior angle first ($360 \div n$), then subtract from $180$. For a regular octagon: $360 \div 8 = 45$, and $180 - 45 = 135$.
 
-Memorize the small interior sums: quadrilateral $360^\circ$, pentagon $540^\circ$, hexagon $720^\circ$. Each extra side adds exactly $180^\circ$.
+Memorize the small interior sums: quadrilateral $360^\circ$, pentagon $540^\circ$, hexagon $720^\circ$. Each extra side adds exactly $180^\circ$ to the interior-angle sum of a simple polygon.
 
-For "how many sides" questions with exterior angles, just divide $360$ by the given angle. If the answer is not a whole number, no such regular polygon exists, and that can itself be the answer.
+For a regular polygon, if one exterior angle is given, divide $360$ by that angle to get the number of sides. If the result is not a whole number greater than $2$, that exterior angle cannot belong to a regular polygon.
 
 ## Traps to Watch For
 
-### #1: Exterior Angles Do Not Grow
+### #1: Exterior and Interior Sums Use Different Rules
 
-> The exterior angle sum is $360^\circ$ for every polygon.
+> The standard exterior turning angles of a convex polygon add to $360^\circ$.
 
-Students assume a bigger polygon has a bigger exterior sum and reach for $(n - 2) \times 180$. Only the interior sum grows. The exterior sum is stuck at $360^\circ$ forever, and test-makers hide easy one-step problems behind this fact.
+Do not use $(n - 2) \times 180$ for exterior angles. That formula is for the interior-angle sum.
 
 ### #2: Consecutive Is Not Opposite
 
 > In a parallelogram, opposite angles are equal; neighboring angles add to $180^\circ$.
 
-Setting two consecutive angles equal to each other (or making opposite angles supplementary) builds the wrong equation and produces a clean-looking wrong answer. Say the positions out loud: across means equal, next-door means supplementary.
+Setting two consecutive angles equal to each other, or making opposite angles supplementary, builds the wrong equation. Check the positions first.
 
 ### #3: Every Square Is a Rhombus, Not the Reverse
 
-> Properties flow down the family tree, not up.
+> Properties flow from the broader classes to their special cases.
 
-A square is always a rectangle and always a rhombus. But a rhombus is usually not a square. True-or-false items like "every rhombus is a square" (false) and "every square is a rhombus" (true) differ only in word order. Read direction carefully.
+A square is always a rectangle and always a rhombus. But a rhombus need not be a square. Read the direction of a classification statement carefully.
 
 ### #4: Whose Diagonals Do What
 
-> Rectangle diagonals are equal. Rhombus diagonals are perpendicular.
+> Rectangle diagonals are equal in length. Rhombus diagonals are perpendicular.
 
-These two get swapped constantly. Remember: the rhombus is the "pointy" one, and its diagonals cross at sharp right angles. Only the square, being both, has diagonals that are equal and perpendicular.
+A general rectangle does not have perpendicular diagonals, and a general rhombus does not have equal diagonals. A square, being both, has diagonals that are equal and perpendicular.
