@@ -1,7 +1,7 @@
 ---
 _id: "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm"
 title: "Prime Factorization, GCF, and LCM"
-summary: "Learn how to break numbers into prime pieces to solve GCF and LCM problems fast."
+summary: "Learn how to use prime factors to solve GCF and LCM problems."
 subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 estimatedMinutes: 8
@@ -9,27 +9,23 @@ isActive: true
 ---
 ## Core Concept
 
-Every whole number is made of smaller building blocks. These blocks are called **prime numbers**. A prime number can only be divided by $1$ and itself. Examples are $2, 3, 5, 7,$ and $11$.
+A **prime number** is an integer greater than $1$ with exactly two positive factors: $1$ and itself. Examples include $2, 3, 5, 7,$ and $11$.
 
-**Prime Factorization** means breaking a big number down until only prime numbers are left. We write this using exponents.
+**Prime factorization** means writing an integer greater than $1$ as a product of prime numbers.
 
-**GCF** stands for Greatest Common Factor. It is the biggest number that can exactly divide two or more given numbers. College entrance exams use GCF for word problems about dividing items into equal groups.
+**GCF** stands for Greatest Common Factor. For positive integers, it is the greatest positive integer that divides all the given numbers.
 
-**LCM** stands for Least Common Multiple. It is the smallest number that two or more given numbers can divide into. Exams use LCM for word problems about schedules, flashing lights, or repeating events.
+**LCM** stands for Least Common Multiple. For positive integers, it is the least positive integer that is a multiple of all the given numbers.
 
 ## Mnemonics & Memory Aids
 
-To know when to use GCF or LCM in a word problem, remember these two phrases:
+When using prime factorizations:
 
-> **G**cf is for **G**rouping things right now.
+> **P.I.G.** for GCF: **P**ick **I**dentical bases, **G**et the lowest exponent.
 
-> **L**cm is for **L**ooking ahead to the future.
+> **A.L.L.** for LCM: Take **A**ll prime bases and use the **L**argest exponent for each.
 
-When you use prime factorization to find GCF and LCM, remember **P.I.G.** and **A.L.L.**:
-
-> **P.I.G.** for GCF: **P**ick **I**dentical bases, **G**et the lowest power.
-
-> **A.L.L.** for LCM: Take **A**ll bases, **L**ook for the **L**argest power.
+These are memory aids, not definitions. In word problems, decide whether the situation asks for a greatest common grouping size/count or a least common repeating interval.
 
 ## Examples
 
@@ -44,194 +40,120 @@ D) $2^2 \times 3^3 \times 5$
 
 **Solution:**
 
-1. We start dividing $360$ by the smallest prime number, which is $2$.
-2. $360$ divided by $2$ is $180$.
-3. $180$ divided by $2$ is $90$.
-4. $90$ divided by $2$ is $45$.
-5. $45$ cannot be divided by $2$. We try the next prime number, $3$.
-6. $45$ divided by $3$ is $15$.
-7. $15$ divided by $3$ is $5$. Since $5$ is a prime number, we stop.
-8. Count the prime numbers we used. We have three 2s, two 3s, and one 5.
-9. Write them with exponents. The correct answer is B.
+Divide repeatedly by primes:
 
-$$2^3 \times 3^2 \times 5$$
+$$360 = 2 \times 180 = 2^2 \times 90 = 2^3 \times 45 = 2^3 \times 3^2 \times 5.$$
 
-
+The correct answer is B.
 
 ### #2: GCF and LCM with Variables
 
-Find the greatest common factor and the least common multiple of the algebraic expressions $12x^3y^2$ and $18xy^4$.
+Find the greatest common factor and the least common multiple of $12x^3y^2$ and $18xy^4$, assuming the variables represent nonzero quantities for the LCM expression.
 
 **Solution:**
 
-1. First, find the prime factorization of the numbers.
+1. Factor the coefficients.
 
-$$12 = 2^2 \times 3$$
+$$12=2^2\times3$$
 
+$$18=2\times3^2$$
 
-$$18 = 2 \times 3^2$$
+2. For the GCF, use each shared factor to the smaller exponent.
 
+$$\text{GCF}=2^1\times3^1\times x^1\times y^2=6xy^2$$
 
-2. Write the variables next to them.
+3. For the LCM, use each factor to the larger exponent.
 
-$$12x^3y^2 = 2^2 \times 3 \times x^3 \times y^2$$
+$$\text{LCM}=2^2\times3^2\times x^3\times y^4=36x^3y^4$$
 
+### #3: Equal Groups Word Problem
 
-$$18xy^4 = 2 \times 3^2 \times x \times y^4$$
-
-
-3. To find the GCF, use the **P.I.G.** trick. Pick identical bases. Both have $2, 3,$ $x$, and $y$. Get the lowest power for each.
-
-$$\text{GCF} = 2^1 \times 3^1 \times x^1 \times y^2$$
-
-
-$$\text{GCF} = 6xy^2$$
-
-
-4. To find the LCM, use the **A.L.L.** trick. Take all bases. Look for the largest power for each.
-
-$$\text{LCM} = 2^2 \times 3^2 \times x^3 \times y^4$$
-
-
-$$\text{LCM} = 4 \times 9 \times x^3 \times y^4$$
-
-
-$$\text{LCM} = 36x^3y^4$$
-
-
-
-### #3: "Equal Groups" Word Problem
-
-A relief operations team has 84 cans of sardines, 126 packs of noodles, and 210 kilos of rice. They want to pack these into identical relief bags such that no items are left over. What is the greatest number of relief bags they can create?
+A relief operations team has $84$ cans of sardines, $126$ packs of noodles, and $210$ kilos of rice. They want to pack these into the greatest possible number of identical relief bags with no items left over. How many bags can they make?
 
 **Solution:**
 
-1. The problem asks us to group things right now. This means we need the GCF.
-2. Find the prime factorization of all three numbers.
+1. Find the GCF of the three quantities.
 
-$$84 = 2^2 \times 3 \times 7$$
+$$84=2^2\times3\times7$$
 
+$$126=2\times3^2\times7$$
 
-$$126 = 2 \times 3^2 \times 7$$
+$$210=2\times3\times5\times7$$
 
+2. The shared prime factors with the lowest exponents are $2$, $3$, and $7$.
 
-$$210 = 2 \times 3 \times 5 \times 7$$
+$$\text{GCF}=2\times3\times7=42$$
 
+3. They can make $42$ identical bags.
 
-3. Use the **P.I.G.** trick. The identical bases in all three numbers are 2, 3, and 7. Base 5 is not in all of them, so we skip it.
-4. Get the lowest power of $2, 3,$ and $7$.
+### #4: Repeating Schedule Word Problem
 
-$$\text{GCF} = 2^1 \times 3^1 \times 7^1$$
-
-
-5. Multiply them together.
-
-$$2 \times 3 \times 7 = 42$$
-
-
-6. They can create $42$ relief bags.
-
-### #4: "Repeating Schedule" Word Problem
-
-Three campus shuttles depart from the main gate at exactly $7:00$ am. Shuttle A completes its route every $15$ minutes, Shuttle B every $20$ minutes, and Shuttle C every $25$ minutes. At what time will all three shuttles depart from the main gate together again?
+Three campus shuttles depart from the main gate at exactly $7{:}00$ am. Shuttle A completes its route every $15$ minutes, Shuttle B every $20$ minutes, and Shuttle C every $25$ minutes. At what time will all three depart together again?
 
 **Solution:**
 
-1. The problem looks ahead to a future event. This means we need the LCM.
-2. Find the prime factorization of $15$, $20$, and $25$.
+1. Find the LCM of the three route times.
 
-$$15 = 3 \times 5$$
+$$15=3\times5$$
 
+$$20=2^2\times5$$
 
-$$20 = 2^2 \times 5$$
+$$25=5^2$$
 
+2. Use the largest exponent of each prime.
 
-$$25 = 5^2$$
+$$\text{LCM}=2^2\times3\times5^2=300\text{ minutes}$$
 
+3. $300$ minutes is $5$ hours, so the next common departure is at $12{:}00$ pm.
 
-3. Use the **A.L.L.** trick. Take all bases: $2, 3,$ and $5$.
-4. Look for the largest power of each.
+### #5: Same Remainder Problem
 
-$$\text{LCM} = 2^2 \times 3^1 \times 5^2$$
-
-
-5. Multiply them together.
-
-$$\text{LCM} = 4 \times 3 \times 25 = 300$$
-
-
-6. The shuttles will meet after $300$ minutes.
-7. Convert minutes to hours. There are $60$ minutes in an hour.
-
-$$300 \div 60 = 5 \text{ hours}$$
-
-
-8. Add $5$ hours to $7:00$ am. The answer is $12:00$ pm.
-
-### #5: Remainder Problem
-
-What is the smallest positive integer that leaves a remainder of $3$ when divided by $6$, $8$, and $10$?
+What is the smallest integer greater than $10$ that leaves a remainder of $3$ when divided by $6$, $8$, and $10$?
 
 **Solution:**
 
-1. The phrase "smallest positive integer" is a big clue. It points to the Least Common Multiple.
-2. First, find the LCM of $6, 8,$ and $10$.
+1. If a number leaves remainder $3$ in each division, subtract $3$. The result must be divisible by $6$, $8$, and $10$.
+2. Find the LCM.
 
-$$6 = 2 \times 3$$
+$$6=2\times3,\qquad 8=2^3,\qquad 10=2\times5$$
 
+$$\text{LCM}=2^3\times3\times5=120$$
 
-$$8 = 2^3$$
+3. The solutions have the form $120k+3$ for integers $k$. The case $k=0$ gives $3$, but the question requires a number greater than $10$.
+4. Use $k=1$:
 
+$$120+3=123$$
 
-$$10 = 2 \times 5$$
-
-
-3. Take all bases and use the largest power.
-
-$$\text{LCM} = 2^3 \times 3 \times 5$$
-
-
-$$\text{LCM} = 8 \times 3 \times 5 = 120$$
-
-
-4. The number $120$ divides perfectly by $6, 8,$ and $10$.
-5. The problem says there is a remainder of $3$. A remainder is an extra amount.
-6. Just add the remainder to the LCM.
-
-$$120 + 3 = 123$$
-
-
-7. The number is $123$.
+5. The answer is $123$.
 
 ## Speed Tricks & Shortcuts
 
-The **Continuous Division Method** is faster than making factor trees. Write your numbers in a row. Divide them all by a common prime number. Write the answers below. Keep doing this until they share no common prime factor.
+**Prime-factor table.**
+For several numbers, prime-factor each number and compare exponents. The GCF uses only primes shared by every number, with the smallest exponent. The LCM uses every prime that appears, with the largest exponent.
 
-The numbers on the left side give you the GCF. Just multiply them. The numbers on the left side and the bottom row give you the LCM. Multiply them all to get the LCM. This gives you both answers at the same time!
+This avoids a common error in a "continuous division" shortcut: dividing only by primes common to all rows and then multiplying the remaining bottom row does **not** always produce the LCM for three or more numbers. For example, $6$, $10$, and $15$ have no prime common to all three, yet their LCM is $30$, not $6\times10\times15$.
 
-Another great trick is the **Product Formula**. This only works if you have exactly two numbers. The GCF times the LCM always equals the first number times the second number.
+**Product Formula for Two Positive Integers.**
+For two positive integers $a$ and $b$:
 
-$$\text{GCF} \times \text{LCM} = \text{Number 1} \times \text{Number 2}$$
+$$\gcd(a,b)\times\operatorname{lcm}(a,b)=ab$$
 
-If an exam question gives you the two numbers and the GCF, you can find the LCM in seconds without prime factoring.
+So if two numbers and their GCF are known, the LCM can be found without repeating the full factorization.
 
 ## Traps to Watch For
 
-### #1: Thinking 1 is a Prime Number
+### #1: Thinking $1$ is Prime
 
-Many students think 1 is a prime number. It is not. It only has one factor, which is itself. Prime numbers must have exactly two different factors.
+The number $1$ is not prime because it has only one positive factor. A prime number has exactly two positive factors.
 
 ### #2: Incomplete Factorization
 
-When making factor trees, students often stop too early. They might break $12$ into $4$ and $3$, then stop. But $4$ is not prime. It can still be broken into $2$ and $2$.
+If a factor is still composite, continue factoring it. For example, $12=4\times3$ is not yet a prime factorization because $4=2\times2$.
 
-> Circle your prime numbers as you find them. Only stop when every branch ends in a circle.
+### #3: Confusing Lowest and Highest Exponents
 
-### #3: Confusing Lowest and Highest in the Acronyms
-
-GCF has "Greatest" in the name. So students pick the biggest exponent. This is wrong. LCM has "Least" in the name. So students pick the smallest exponent. This is also wrong.
-
-> Do the opposite of the name. For **Greatest** Common Factor, use the **lowest** power. For **Least** Common Multiple, use the **largest** power.
+For the GCF, use the **lowest** exponent among factors shared by all expressions. For the LCM, use the **highest** exponent of every prime factor that appears.
 
 ## When to List Multiples
-Listing multiples is a great strategy for small numbers under $10$. However, college entrance exams use big numbers and algebra variables to test your speed. Prime factorization and continuous division are the best ways to solve these harder problems before your time runs out.
+
+Listing multiples works well for small numbers. For larger values, prime factorization is often more systematic and makes both the GCF and LCM conditions explicit.
