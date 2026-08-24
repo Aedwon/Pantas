@@ -1,7 +1,7 @@
 ---
 _id: "lesson-data-interpretation-rates-ratios-and-percentages-in-context"
 title: "Rates, Ratios, and Percentages in Context"
-summary: "Calculate growth rates, proportions, and percentage changes using tabulated data sets."
+summary: "Calculate percentage changes, proportions, and ratios from contextual data."
 subject: "subject-mathematics"
 topic: "topic-data-interpretation"
 estimatedMinutes: 10
@@ -9,67 +9,91 @@ isActive: true
 ---
 ## Core Concept
 
-Data interpretation often requires computing percentage change, ratios between categories, or rate of increase across time periods using tabulated data.
+Data interpretation often requires comparing quantities using percentage change, proportions, or ratios.
 
-### Key Formulas
+### Key Formulas and Conditions
 
-- **Percentage Change:**
-  $$\text{Percentage Change} = \frac{\text{New Value} - \text{Old Value}}{\text{Old Value}} \times 100\%$$
-- **Proportion / Percentage of Total:**
-  $$\text{Percentage} = \frac{\text{Part}}{\text{Total}} \times 100\%$$
-- **Ratio:** Simplification of $\frac{A}{B}$ into lowest whole-number terms $A : B$.
+- **Percentage change from an original value:** when the original value is nonzero,
+
+$$\text{Percentage Change}=\dfrac{\text{New Value}-\text{Original Value}}{\text{Original Value}}\times100\%$$
+
+A positive result is an increase and a negative result is a decrease. If the original value is zero, this ordinary percentage-change formula is undefined because it would divide by zero; the change should then be described another way.
+
+- **Percentage of a total:** when the total is nonzero,
+
+$$\text{Percentage}=\dfrac{\text{Part}}{\text{Total}}\times100\%$$
+
+- **Ratio:** $A:B$ compares two quantities in the stated order. For integer counts, a ratio such as $60:40$ can be simplified by dividing both terms by their greatest common divisor.
+
+Always keep units and the direction of comparison attached to the numbers. "A to B" and "B to A" are reciprocal ratios, not interchangeable descriptions.
 
 ## Examples
 
 ### #1: Computing Percentage Change
 
-A agency budget increased from $50$ million pesos in 2020 to $65$ million pesos in 2021. Find the percentage increase.
+An agency budget increased from $50$ million pesos in 2020 to $65$ million pesos in 2021. Find the percentage increase.
 
 **Solution:**
-Apply the percentage change formula using the given figures.
+The original value is $50$, which is nonzero.
 
-1. Identify the values: $\text{Old Value} = 50$, $\text{New Value} = 65$.
-2. Compute the change: $65 - 50 = 15$.
-3. Divide the change by the old value:
+1. Change:
 
-$$\dfrac{15}{50} = 0.30$$
+$$65-50=15$$
 
-4. Convert to a percentage by multiplying by $100\%$:
+2. Divide by the original value.
 
-$$0.30 \times 100\% = 30\%$$
+$$\dfrac{15}{50}=0.30$$
 
-5. The budget increased by $30\%$.
+3. Convert to percent.
+
+$$0.30\times100\%=30\%$$
+
+The budget increased by $30\%$.
 
 ### #2: Computing Percentage of Total
 
-In an office of $200$ employees, $30$ employees work in accounting, $50$ in human resources, and $120$ in operations. What percentage of the total workforce works in human resources?
+In an office of $200$ employees, $30$ work in accounting, $50$ in human resources, and $120$ in operations. What percentage of the workforce works in human resources?
 
 **Solution:**
-Use the percentage of total formula: $\text{Percentage} = \dfrac{\text{Part}}{\text{Total}} \times 100\%$.
+1. Use part over total.
 
-1. Identify the part and total: $\text{Part} = 50$ (human resources), $\text{Total} = 200$.
-2. Write as a fraction:
+$$\dfrac{50}{200}=0.25$$
 
-$$\dfrac{50}{200} = \dfrac{1}{4} = 0.25$$
+2. Convert to percent.
 
-3. Multiply by $100\%$:
+$$0.25\times100\%=25\%$$
 
-$$0.25 \times 100\% = 25\%$$
+Human resources accounts for $25\%$ of the workforce.
 
-4. Human resources makes up $25\%$ of the total workforce.
+### #3: Simplifying a Ratio Between Categories
 
-### #3: Simplifying a Ratio between Categories
-
-A survey records $60$ satisfied customers and $40$ dissatisfied customers. What is the ratio of satisfied to dissatisfied customers in lowest terms?
+A survey records $60$ satisfied customers and $40$ dissatisfied customers. What is the ratio of satisfied to dissatisfied customers in lowest integer terms?
 
 **Solution:**
-Form the ratio and simplify to lowest terms.
+1. Write the requested order: $60:40$.
+2. The greatest common divisor is $20$.
+3. Divide both terms by $20$.
 
-1. Write the initial ratio: $60 : 40$.
-2. Find the greatest common divisor of $60$ and $40$, which is $20$.
-3. Divide both terms by $20$:
+$$60:40=3:2$$
 
-$$60 \div 20 = 3$$
-$$40 \div 20 = 2$$
+The simplified ratio is $3:2$.
 
-4. The simplified ratio is $3 : 2$.
+## Traps to Watch For
+
+### #1: Dividing by the New Value
+
+> Ordinary percent change uses the original value as the reference denominator.
+
+A change from $50$ to $65$ is measured relative to $50$, not $65$.
+
+### #2: Original Value Equal to Zero
+
+> The usual percentage-change formula is undefined when the original value is $0$.
+
+Do not report an ordinary percent increase by dividing by zero. State the absolute change or use a different, explicitly defined comparison measure.
+
+### #3: Reversing a Ratio
+
+> Ratio order follows the wording.
+
+Satisfied-to-dissatisfied is $60:40=3:2$; dissatisfied-to-satisfied is $40:60=2:3$.
