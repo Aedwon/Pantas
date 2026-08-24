@@ -14,36 +14,36 @@ questions:
         correct: true
       - text: Effect
         rationale: |
-          You picked "effect," which is a noun meaning result, but this blank follows "will" and requires a base verb.
+          Although "effect" can be a verb in other constructions, here the intended meaning is "influence," for which the ordinary verb is "affect."
       - text: Affects
         rationale: |
-          You picked "affects" with an -s ending, but modal auxiliary "will" requires the base verb form "affect."
+          The modal auxiliary "will" requires the base form of the following verb.
       - text: Effects
         rationale: |
-          You picked "effects," which is the plural noun form, but this position requires a base action verb.
+          "Effects" does not supply the required base-form verb with the intended meaning.
     explanation: |
-      "Affect" is the verb (action word); "effect" is the noun (result). Since the blank follows "will" and needs a base-form verb, "affect" is correct.
+      In this sentence, "affect" is the base-form verb meaning "influence": "will severely affect the crop yield." "Effect" is most commonly a noun meaning a result, though it can also be a verb with a different meaning, such as "effect change."
     approved: true
 
   - id: q-vocabulary-confusing-words-0002
     type: confusing-words
     difficulty: easy
     stem: |
-      The company revised ______ policy after receiving several complaints.
+      The device revised ______ settings after the software update.
     choices:
       - text: Its
         correct: true
       - text: It's
         rationale: |
-          You picked "it's," which is a contraction for "it is" or "it has." The sentence requires possessive "its."
+          "It's" contracts "it is" or "it has"; neither reading fits before "settings."
       - text: Its'
         rationale: |
-          You picked "its'," which is a non-existent fake word created to confuse test takers.
+          Standard English has no possessive form "its'."
       - text: Their
         rationale: |
-          You picked plural "their," but "company" is a singular noun requiring the singular possessive pronoun "its."
+          The antecedent is the singular nonhuman noun "device," so "its" is the unambiguous possessive form here.
     explanation: |
-      Testing "it is policy" sounds wrong, so the possessive word "its" (no apostrophe) is needed, since the company owns the policy.
+      The settings belong to the device, so the possessive determiner is "its" without an apostrophe.
     approved: true
 
   - id: q-vocabulary-confusing-words-0003
@@ -56,15 +56,15 @@ questions:
         correct: true
       - text: Ng
         rationale: |
-          Pinili mo ang "ng," ngunit ang "maganda" ay pang-abay na naglalarawan kung paano kumanta, kaya "nang" ang dapat gamitin.
+          Dito, inilalarawan ng "maganda" ang paraan ng pagkanta, kaya "nang" ang ginagamit.
       - text: Na
         rationale: |
-          Pinili mo ang "na," ngunit ang "na" ay pang-angkop na hindi umaangkop sa pang-abay ng paraan.
+          Hindi pang-angkop na "na" ang kailangan sa puwang na nag-uugnay sa pandiwa at sa paglalarawan ng paraan.
       - text: May
         rationale: |
-          Pinili mo ang "may," ngunit ang "may" ay ginagamit bago ang pangngalan o pandiwa, hindi pang-abay.
+          Hindi ipinakikilala ng puwang ang pagkakaroon o pag-iral, kaya hindi angkop ang "may."
     explanation: |
-      Ang salitang "maganda" pagkatapos ng patlang ay sumasagot sa tanong na "paano" (how) sila kumanta: isang pang-abay (adverb). Gamitin ang "nang" para sa mga pang-abay.
+      Sumasagot ang "maganda" sa tanong na "paano kumanta?" Kaya "nang" ang wastong gamit: "Kumanta nang maganda."
     approved: true
 
   - id: q-vocabulary-confusing-words-0004
@@ -77,15 +77,15 @@ questions:
         correct: true
       - text: Sila
         rationale: |
-          Pinili mo ang "Sila," ngunit ang "Sila" ay panghalip at hindi dapat sundan ng mga tiyak na pangalan ng tao (Pedro, Ana, Miguel).
+          Ang "sila" ay panghalip; dahil tahasang sumusunod ang mga pangalan, ang panandang maramihan para sa mga pangalang pantangi ay "sina."
       - text: Kina
         rationale: |
-          Pinili mo ang "Kina," ngunit ang "Kina" ay ginagamit sa paksa ng kinaroroonan o ukol sa mga tao, hindi bilang lagda ng paksa.
+          Ang "kina" ay hindi ang panandang paksa para sa maramihang pangalang pantangi sa pangungusap na ito.
       - text: Ang
         rationale: |
-          Pinili mo ang "Ang," ngunit ang "Ang" ay para lamang sa isahang pangngalan at hindi sa maramihang pangalan ng tao.
+          Maaaring gamitin ang "ang" sa mga karaniwang pangngalan, ngunit para sa maramihang pangalang pantangi na Pedro, Ana, at Miguel, "sina" ang kailangan.
     explanation: |
-      Dahil sinusundan ng patlang ang aktwal na mga pangalan (Pedro, Ana, Miguel), kailangan ang panandang "Sina" para sa maramihang pangalan, hindi ang panghalip na "Sila."
+      Kapag maramihang pangalang pantangi ng tao ang minamarkahan bilang paksa, ginagamit ang "sina": "Sina Pedro, Ana, at Miguel..."
     approved: true
 
   - id: q-vocabulary-confusing-words-0005
@@ -98,15 +98,15 @@ questions:
         correct: true
       - text: Affect, its
         rationale: |
-          You reversed both words: the first blank needs noun "effect" and the second needs contraction "it's."
+          The first blank follows "a devastating" and needs a noun meaning result; the second expands naturally to "it is obvious."
       - text: Effect, its
         rationale: |
-          You chose possessive "its" for the second blank, but the clause requires contraction "it's" ("it is obvious").
+          The first word is correct, but the second clause needs the contraction "it's" = "it is," not the possessive "its."
       - text: Affect, it's
         rationale: |
-          You chose verb "affect" for the first blank, but "devastating" modifies a noun ("effect").
+          The second word is correct, but the first blank needs the noun "effect" in this construction.
     explanation: |
-      The first blank follows "a devastating," a descriptive phrase pointing to a noun: "effect." The second blank, tested with "it is obvious," sounds correct, so "it's" is needed.
+      "A devastating effect" uses the noun meaning result. "It's obvious" contracts "it is obvious."
     approved: true
 
   - id: q-vocabulary-confusing-words-0006
@@ -119,15 +119,15 @@ questions:
         correct: true
       - text: Effect
         rationale: |
-          You picked "effect," which is a noun meaning result, but "can negatively" requires an action verb.
+          In this context the meaning is "influence," so "affect" is the appropriate base-form verb.
       - text: Affecting
         rationale: |
-          You picked participle "affecting," but modal verb "can" requires a base-form verb.
+          The modal "can" requires the base form "affect," not the participle "affecting."
       - text: Effected
         rationale: |
-          You picked past participle "effected," but the sentence requires present base verb "affect."
+          "Effected" is not the base form required after "can" and carries a different verb sense.
     explanation: |
-      The blank needs an action word (verb) describing what loud noises do to concentration: "affect."
+      "Can negatively affect" means "can negatively influence." The modal "can" also requires the base form of the verb.
     approved: true
 
   - id: q-vocabulary-confusing-words-0007
@@ -140,15 +140,15 @@ questions:
         correct: true
       - text: It's
         rationale: |
-          You picked "it's," which means "it is" or "it has," but the sentence requires possessive "its" for ownership.
+          "It's" means "it is" or "it has," neither of which fits before "paws."
       - text: Its'
         rationale: |
-          You picked "its'," which is an ungrammatical non-existent word.
+          Standard English has no possessive form "its'."
       - text: Their
         rationale: |
-          You picked plural "their," but "cat" is a singular noun taking singular "its."
+          The singular nonhuman antecedent "cat" is unambiguously referred to here with "its."
     explanation: |
-      Testing "it is paws" sounds wrong, so the possessive word "its" (no apostrophe) is needed, since the paws belong to the cat.
+      The possessive form for "it" is "its" without an apostrophe: "The cat cleaned its paws."
     approved: true
 
   - id: q-vocabulary-confusing-words-0008
@@ -161,15 +161,15 @@ questions:
         correct: true
       - text: Ng
         rationale: |
-          Pinili mo ang "ng," ngunit ginagamit ang "nang" sa pag-uulit ng salitang-kilos (umiyak nang umiyak).
+          Sa pag-uulit ng pandiwa upang ipakita ang tuloy-tuloy o paulit-ulit na kilos, "nang" ang ginagamit.
       - text: Na
         rationale: |
-          Pinili mo ang "na," ngunit hindi ito ginagamit bilang tagapag-ugnay ng inuulit na pandiwa.
+          Hindi pang-angkop na "na" ang ginagamit sa ganitong pag-uulit ng pandiwa.
       - text: May
         rationale: |
-          Pinili mo ang "may," ngunit ang "may" ay ginagamit bago ang pangngalan o iba pang bahagi ng pananalita.
+          Hindi ipinakikilala ng puwang ang pagkakaroon o pag-iral.
     explanation: |
-      Ginagamit ang "nang" upang ikonekta ang paulit-ulit na pandiwa (umiyak nang umiyak), kagaya ng "takbo nang takbo."
+      Isa sa gamit ng "nang" ang pag-uugnay sa inuulit na pandiwa: "umiyak nang umiyak."
     approved: true
 
   - id: q-vocabulary-confusing-words-0009
@@ -182,78 +182,78 @@ questions:
         correct: true
       - text: Sila
         rationale: |
-          Pinili mo ang "Sila," ngunit kailangang gamitin ang "Sina" kapag kasunod ang mga pangalan ng tao (Elena at Ricardo).
+          Dahil tahasang sumusunod ang mga pangalan, "sina" ang panandang kailangan sa halip na panghalip na "sila."
       - text: Kina
         rationale: |
-          Pinili mo ang "Kina," ngunit ang "Kina" ay ginagamit para sa pook o direksyon ng tao, hindi sa mismong paksa.
+          Hindi "kina" ang panandang paksa para sa maramihang pangalang pantangi sa pangungusap na ito.
       - text: Ang
         rationale: |
-          Pinili mo ang "Ang," ngunit ang "Ang" ay para sa isahang pangngalan at hindi maramihang pangalan ng tao.
+          Para sa maramihang pangalang pantangi ng tao na Elena at Ricardo, "sina" ang wastong pananda.
     explanation: |
-      Dahil sinusundan ng patlang ang aktwal na mga pangalan (Elena at Ricardo), kailangan ang panandang "Sina," hindi ang panghalip na "Sila."
+      Ginagamit ang "sina" bago ang dalawa o higit pang pangalang pantangi ng tao na nagsisilbing paksa.
     approved: true
 
   - id: q-vocabulary-confusing-words-0010
     type: confusing-words
-    difficulty: hard
+    difficulty: medium
     stem: |
-      A student sees "its'" as one of the answer choices for a possessive word. Is "its'" a real word in English?
+      Which statement about the forms "its," "it's," and "its'" is correct in standard English?
     choices:
-      - text: 'No: "its''" is a fake word that does not exist in the English language; exam makers include it as a common trap.'
+      - text: '"Its" is possessive, "it''s" means "it is" or "it has," and "its''" is not a standard form.'
         correct: true
-      - text: 'Yes: "its''" is the correct plural possessive form.'
+      - text: '"Its''" is the plural possessive form of "it."'
         rationale: |
-          You assumed "its'" is a valid plural possessive, but "its'" does not exist in English.
-      - text: 'Yes: but only used in very formal academic writing.'
+          The pronoun "it" has no plural possessive form "its'."
+      - text: '"It''s" is the possessive form of "it."'
         rationale: |
-          You claimed "its'" is used in formal writing, but it is invalid in all registers.
-      - text: 'No: but only because possessive words can never end in an apostrophe.'
+          "It's" is a contraction, not the possessive determiner.
+      - text: 'All three forms are interchangeable.'
         rationale: |
-          You claimed possessive words cannot end in an apostrophe, but plural possessives like "dogs'" do.
+          They are not interchangeable; only "its" and "it's" are standard forms, with different functions.
     explanation: |
-      Exam makers love to put "its'" in the choices, hoping you think it is a plural ownership word. This word does not exist in the English language: cross it out immediately.
+      Standard English uses "its" for possession and "it's" for "it is" or "it has." The form "its'" is not standard.
     approved: true
 
   - id: q-vocabulary-confusing-words-0011
     type: confusing-words
     difficulty: hard
     stem: |
-      Sa pang-araw-araw na usapan, madalas sinasabi ng ilang Pilipino ang "Sila Maria ay pumunta sa palengke." Tama ba ito sa pormal na gramatikang Filipino na sinusubok sa pagsusulit?
+      Sa pormal na Filipino, alin ang wastong anyo kapag tahasang binabanggit ang pangalang Maria bilang paksa?
     choices:
-      - text: 'Mali: dapat "Sina Maria" ang gamitin kapag sinusundan ito ng aktwal na pangalan; ang "Sila" ay ginagamit lamang kung wala nang nakasulat na pangalan, tulad ng "Umalis sila."'
+      - text: Sina Maria ang pupunta sa palengke kasama ang kapatid niya.
         correct: true
-      - text: 'Tama: palaging tama ang "Sila" bago ang isang pangalan.'
+      - text: Sila Maria ang pupunta sa palengke kasama ang kapatid niya.
         rationale: |
-          Inakala mong tama ang "Sila Maria," ngunit mali ito sa pormal na Filipino kung may nakasulat na pangalan.
-      - text: 'Mali: dapat "Kina Maria" ang laging gamitin sa lahat ng pagkakataon.'
+          Sa pormal na anyo, "sina" ang ginagamit kapag tahasang sumusunod ang pangalan; ang "sila" ay panghalip.
+      - text: Kina Maria ang pupunta sa palengke kasama ang kapatid niya.
         rationale: |
-          Pinili mo ang "Kina Maria," ngunit ang "Kina" ay para sa patutunguhan/kinaroroonan at hindi para sa paksa.
-      - text: 'Tama: ang "Sila" at "Sina" ay palaging maaaring gamitin nang magkapalit.'
+          Hindi "kina" ang panandang paksa sa konstruksiyong ito.
+      - text: Ang Maria ang pupunta sa palengke kasama ang kapatid niya.
         rationale: |
-          Inakala mong puwedeng pagpalitin ang "Sila" at "Sina," ngunit may tiyak na tuntunin ang bawat isa.
+          Ang personal-name marker na kailangan sa anyong ito ay "sina," hindi "ang."
     explanation: |
-      Karaniwang sinasabi ng mga Pilipino ang "Sila Maria" sa pang-araw-araw na usapan, ngunit mali ito sa pormal na Filipino. Sinusubok ng pagsusulit ang pormal na tuntunin: gamitin ang "Sina" kapag sinusundan ng mga pangalan; gamitin ang "Sila" lamang kung wala nang nakasulat na pangalan.
+      Sa pormal na Filipino, ginagamit ang "sina" bago ang pangalan o mga pangalan ng tao kapag ang tinutukoy na pangkat ang paksa: "Sina Maria..."
     approved: true
 
   - id: q-vocabulary-confusing-words-0012
     type: confusing-words
     difficulty: hard
     stem: |
-      Umalis siya ______ alas-singko ng hapon. A student assumes "nang" is correct here since the sentence involves time. Is this correct?
+      Umalis siya ______ alas-singko ng hapon. Alin ang wastong pananda bago ang tiyak na oras?
     choices:
-      - text: 'No: "ng" is correct here, since the sentence gives an exact clock time (alas-singko), not a "how" or repeating action; "nang" is reserved for adverbs and repeating actions, not specific times.'
+      - text: Ng
         correct: true
-      - text: 'Yes: "nang" should always be used whenever a sentence mentions time.'
+      - text: Nang
         rationale: |
-          Inakala mong "nang" ang ginagamit sa oras, ngunit "ng" ang gamit sa tiyak na oras sa orasan (alas-singko).
-      - text: 'Yes: but only because "alas-singko" is not considered an exact time.'
+          Hindi kabilang sa mga gamit ng "nang" ang simpleng pagmamarka ng tiyak na oras sa orasan sa konstruksiyong ito.
+      - text: Na
         rationale: |
-          Inakala mong hindi tiyak na oras ang "alas-singko," ngunit ito ay malinaw na oras sa orasan.
-      - text: 'No: but only because "ng" can never appear before a time expression.'
+          Hindi pang-angkop na "na" ang kailangan bago ang tiyak na oras.
+      - text: May
         rationale: |
-          Inakala mong hindi puwedeng gamitin ang "ng" sa oras, ngunit "ng" ang karaniwang gamit sa oras.
+          Hindi ipinakikilala ng puwang ang pagkakaroon o pag-iral.
     explanation: |
-      Use "nang" to mean "when" for an event, but if the sentence gives an exact clock time or specific day, use "ng" instead. Test makers try to confuse you here since both deal with time, but exact clock times take "ng."
+      Sa konstruksiyong ito, ginagamit ang "ng" bago ang tiyak na oras: "Umalis siya ng alas-singko ng hapon."
     approved: true
 
   - id: q-vocabulary-confusing-words-0013
@@ -266,15 +266,15 @@ questions:
         correct: true
       - text: Affect
         rationale: |
-          You picked "affect," which is a verb, but "a lasting" requires the noun "effect."
+          In this construction, "a lasting" requires a singular noun, and "effect" supplies the intended meaning of result or consequence.
       - text: Effects
         rationale: |
-          You picked plural "effects," but article "a" requires a singular noun ("effect").
+          The article "a" requires a singular noun here.
       - text: Affecting
         rationale: |
-          You picked participle "affecting," but article "a" requires a singular noun.
+          "Affecting" does not function as the required singular noun in this phrase.
     explanation: |
-      The word "a" right before the blank signals that a noun is needed: "effect," the result of the therapy.
+      The fixed phrase here is "a lasting effect," where "effect" is the noun meaning a result or consequence.
     approved: true
 
   - id: q-vocabulary-confusing-words-0014
@@ -287,15 +287,15 @@ questions:
         correct: true
       - text: Nang
         rationale: |
-          Pinili mo ang "nang," ngunit ang pangungusap ay nagpapakita ng pagmamay-ari (bahay ng lola), hindi ng paraan.
+          Pagmamay-ari o ugnayan ng mga pangngalan ang ipinapakita rito, hindi paraan o pag-uulit ng kilos.
       - text: Na
         rationale: |
-          Pinili mo ang "na," ngunit ang "na" ay pang-angkop at hindi panandang nagpapakita ng pagmamay-ari.
+          Hindi pang-angkop ang kailangan upang ipakita ang ugnayang "bahay ng aking lola."
       - text: May
         rationale: |
-          Pinili mo ang "may," ngunit ang "may" ay hindi ginagamit bilang panandang pagmamay-ari sa pagitan ng dalawang pangngalan.
+          Hindi ipinakikilala ng puwang ang pagkakaroon; kailangan ang panandang "ng."
     explanation: |
-      Ang patlang ay tumuturo sa pagmamay-ari (ang bahay ng lola) at hindi sumasagot sa tanong na "paano," kaya ang "ng" ang tamang gamitin, hindi ang "nang."
+      Ipinapakita ng "ng" ang ugnayan o pagmamay-ari: "ang bahay ng aking lola."
     approved: true
 
   - id: q-vocabulary-confusing-words-0015
@@ -308,13 +308,13 @@ questions:
         correct: true
       - text: Affect, it's
         rationale: |
-          You reversed both words: the first blank needs noun "effect" and the second needs possessive pronoun "its."
+          The first blank needs the noun "effect" in this construction, while the second needs the possessive "its."
       - text: Effect, it's
         rationale: |
-          You picked contraction "it's" for the second blank, but "handling" is a noun requiring possessive "its."
+          The first word is correct, but "it's handling" expands to "it is handling," which does not fit.
       - text: Affect, its
         rationale: |
-          You picked verb "affect" for the first blank, but possessive "scandal's" requires noun "effect."
+          The second word is correct, but the first blank needs a noun meaning consequence.
     explanation: |
-      The first blank follows "the scandal's," a possessive phrase pointing to a noun: "effect" (the result). The second blank describes ownership of the "handling," and testing "it is handling" sounds wrong, so the possessive "its" is needed.
+      "The scandal's effect" uses the noun meaning consequence. "Its handling" uses the possessive determiner referring to management/the company in context.
     approved: true
