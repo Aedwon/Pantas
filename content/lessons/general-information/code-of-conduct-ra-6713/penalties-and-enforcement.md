@@ -9,19 +9,19 @@ isActive: true
 ---
 ## Core Concept
 
-Section 11 of RA 6713 specifies statutory penalties and administrative enforcement mechanisms for violations of the Code of Conduct.
+Section 11 of RA 6713 specifies penalties and administrative consequences for violations of the Code of Conduct.
 
 ### Statutory Penalties (Section 11)
 
-- **General violations:** Fine not exceeding six months' salary, suspension not exceeding one year, or removal from office, depending on the gravity of the offense.
-- **Violations of Sections 7, 8, or 9:** Imprisonment of up to five years, a fine of up to P5,000, or both, along with possible disqualification from holding public office.
-- **Misuse of filed statements:** Penalties of a fine up to P25,000.
-- **Private individuals:** Private individuals who participate as co-principals, accomplices, or accessories face the same penalties and are tried jointly with the public official.
+- **General violations:** A fine not exceeding the equivalent of six months' salary, suspension not exceeding one year, or removal from office, depending on the gravity of the offense and after due notice and hearing by the appropriate body or agency.
+- **Violations of Sections 7, 8, or 9:** Imprisonment of up to five years, a fine of up to P5,000, or both, with possible disqualification from holding public office at the discretion of the court.
+- **Private individuals in a conspiracy:** Private individuals who participate in a conspiracy as co-principals, accomplices, or accessories with public officials or employees face the same penal liabilities and are tried jointly with them.
+- **Prohibited use of filed statements:** An official or employee may bring an action against a person who obtains or uses a statement for a purpose prohibited by Section 8(D). The court may assess against that person a penalty of up to P25,000.
 
 ### Enforcement Principles
 
-- **Heavier penalty rule:** Where another law imposes a heavier penalty, the heavier penalty shall apply.
-- **Administrative independence:** An administrative violation is sufficient cause for removal from office on its own, regardless of whether criminal prosecution is instituted.
+- **Heavier penalty rule:** If another law imposes a heavier penalty for the violation, prosecution proceeds under that statute.
+- **Administrative independence:** A violation proven in a proper administrative proceeding is sufficient cause for removal or dismissal even if no criminal prosecution is instituted.
 
 ## Examples
 
@@ -33,19 +33,19 @@ A public official violates Section 7 by taking outside employment in a regulated
 Apply the statutory penalty for Sections 7, 8, and 9 violations under Section 11.
 
 1. Section 11 provides specific penalties for violations of Sections 7, 8, or 9.
-2. The maximum criminal penalties are imprisonment of up to five years, a fine of up to P5,000, or both, plus possible disqualification from public office.
-3. Therefore, the maximum penalties are up to five years imprisonment and/or a P5,000 fine.
+2. The maximum criminal penalties are imprisonment of up to five years, a fine of up to P5,000, or both, with possible disqualification from public office at the court's discretion.
+3. Therefore, the maximum penalties are up to five years of imprisonment and a P5,000 fine, which may be imposed together.
 
 ### #2: Liability of Private Individuals
 
-A private businessman collaborates with a government officer to secure an unauthorized financial benefit. Can the private businessman be penalized under Section 11 of RA 6713?
+A private businessman conspires with a government officer in a violation of RA 6713 and participates as an accomplice. Can the private businessman be penalized under Section 11?
 
 **Solution:**
 Review the rule on private individuals in Section 11.
 
-1. Private individuals who act as co-principals, accomplices, or accessories to a violation face the same penalties as the public official.
-2. They are tried jointly with the public official.
-3. Therefore, the private businessman can be tried jointly and faces the same penalties under RA 6713.
+1. Private individuals who participate in a conspiracy as co-principals, accomplices, or accessories with public officials or employees are subject to the same penal liabilities.
+2. They are tried jointly with the public official or employee.
+3. Therefore, the private businessman can be tried jointly and can face the same penal liabilities under RA 6713.
 
 ### #3: Administrative Removal and Criminal Prosecution
 
@@ -54,6 +54,6 @@ An administrative investigation finds a public officer guilty of violating RA 67
 **Solution:**
 Check the rule on administrative independence.
 
-1. Under Section 11, an administrative violation is sufficient cause for removal on its own.
-2. Administrative removal does not require a prior or concurrent criminal prosecution.
-3. Therefore, the officer can be removed administratively even without a criminal court case.
+1. Under Section 11, a violation proven in a proper administrative proceeding is sufficient cause for removal or dismissal.
+2. This administrative consequence does not require a criminal prosecution to be instituted.
+3. Therefore, the officer may be removed or dismissed administratively even without a criminal case.
