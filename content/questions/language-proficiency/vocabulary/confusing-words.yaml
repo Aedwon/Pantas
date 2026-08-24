@@ -218,21 +218,21 @@ questions:
     type: confusing-words
     difficulty: hard
     stem: |
-      Sa pormal na Filipino, alin ang wastong anyo kapag tahasang binabanggit ang pangalang Maria bilang paksa?
+      Sa pormal na Filipino, alin ang wastong anyo kapag sina Maria at Ana ang tahasang binabanggit na paksa?
     choices:
-      - text: Sina Maria ang pupunta sa palengke kasama ang kapatid niya.
+      - text: Sina Maria at Ana ang pupunta sa palengke.
         correct: true
-      - text: Sila Maria ang pupunta sa palengke kasama ang kapatid niya.
+      - text: Sila Maria at Ana ang pupunta sa palengke.
         rationale: |
-          Sa pormal na anyo, "sina" ang ginagamit kapag tahasang sumusunod ang pangalan; ang "sila" ay panghalip.
-      - text: Kina Maria ang pupunta sa palengke kasama ang kapatid niya.
+          Ang "sila" ay panghalip; kapag tahasang sumusunod ang maramihang pangalan, "sina" ang panandang ginagamit sa pormal na anyo.
+      - text: Kina Maria at Ana ang pupunta sa palengke.
         rationale: |
           Hindi "kina" ang panandang paksa sa konstruksiyong ito.
-      - text: Ang Maria ang pupunta sa palengke kasama ang kapatid niya.
+      - text: Ang Maria at Ana ang pupunta sa palengke.
         rationale: |
-          Ang personal-name marker na kailangan sa anyong ito ay "sina," hindi "ang."
+          Para sa maramihang pangalang pantangi ng tao, "sina" ang wastong personal-name marker.
     explanation: |
-      Sa pormal na Filipino, ginagamit ang "sina" bago ang pangalan o mga pangalan ng tao kapag ang tinutukoy na pangkat ang paksa: "Sina Maria..."
+      Sa pormal na Filipino, "sina" ang ginagamit bago ang dalawa o higit pang pangalang pantangi ng tao na nagsisilbing paksa: "Sina Maria at Ana..."
     approved: true
 
   - id: q-vocabulary-confusing-words-0012
@@ -302,7 +302,7 @@ questions:
     type: confusing-words
     difficulty: exam
     stem: |
-      The scandal's ______ on the company's reputation was severe; management admitted ______ handling of the crisis had been poor from the start.
+      The company's ______ on public trust was severe; its executives admitted that ______ handling of the crisis had been poor from the start.
     choices:
       - text: Effect, its
         correct: true
@@ -316,5 +316,5 @@ questions:
         rationale: |
           The second word is correct, but the first blank needs a noun meaning consequence.
     explanation: |
-      "The scandal's effect" uses the noun meaning consequence. "Its handling" uses the possessive determiner referring to management/the company in context.
+      "The company's effect" uses the noun meaning consequence or influence in this construction. "Its handling" uses the possessive determiner referring back to the company.
     approved: true
