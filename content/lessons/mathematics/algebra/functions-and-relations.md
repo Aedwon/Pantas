@@ -1,7 +1,7 @@
 ---
 _id: "lesson-algebra-functions-and-relations"
 title: "Functions and Relations"
-summary: "What functions are, how to find their domain and range, and how to evaluate, combine, and reverse them."
+summary: "Understand functions, domain and range, evaluation, composition, and inverse functions."
 subject: "subject-mathematics"
 topic: "topic-algebra"
 estimatedMinutes: 13
@@ -9,182 +9,179 @@ isActive: true
 ---
 ## Core Concept
 
-A **relation** is any set of ordered pairs $(x, y)$. It connects inputs to outputs.
+A **relation** is a set of ordered pairs $(x,y)$. A **function** is a relation in which every input has exactly one output.
 
-A **function** is a special relation with one strict rule: every input $x$ gets exactly one output $y$.
+So $\{(1,2),(2,3),(3,3)\}$ is a function. Different inputs may share an output. But $\{(1,2),(1,5),(3,4)\}$ is not a function because input $1$ has two outputs.
 
-Think of a function like a vending machine. Press button $A1$ and you always get the same snack. If pressing $A1$ sometimes gave chips and sometimes gave soda, the machine would be broken. That broken machine is a relation that is not a function.
-
-So $\{(1, 2), (2, 3), (3, 3)\}$ is a function. Two different inputs may share an output. But $\{(1, 2), (1, 5), (3, 4)\}$ is not a function, because the input $1$ has two different outputs.
-
-On a graph, use the **vertical line test**. If any vertical line crosses the graph more than once, it is not a function.
+On a graph, use the **vertical line test**: a graph represents a function of $x$ when every vertical line intersects it at most once.
 
 <!-- FIGURE: {"kind": "coordinate-graph", "type": "vertical-line-test", "semanticsLabel": "Two graphs comparing a vertical line test on a regular parabola and a sideways parabola."} -->
 
 ### Domain and Range
 
-The **domain** is the set of all allowed inputs ($x$ values). The **range** is the set of all possible outputs ($y$ values).
+The **domain** is the set of allowed inputs. The **range** is the set of outputs produced by those inputs.
 
-Most of the time, the domain is "all real numbers". You only remove values in two danger cases:
+To find a real-valued domain, exclude inputs that make the expression undefined. Common examples include:
 
-- **Division**: the denominator cannot be $0$.
-- **Even roots**: the inside of a square root cannot be negative.
+- a denominator equal to $0$;
+- an even root with a negative radicand;
+- a logarithm whose argument is $0$ or negative;
+- any additional restrictions stated by the problem or created by composing functions.
+
+Do not assume those are the only possible restrictions. The domain is determined by the full definition of the function.
 
 ### Function Evaluation and Composition
 
-**Evaluating** $f(3)$ means replacing every $x$ in the rule with $3$, then computing.
+Evaluating $f(3)$ means using $3$ as the input and calculating the corresponding output.
 
-**Composition** means putting one function inside another. The symbol $(f \circ g)(x)$ means $f(g(x))$: do $g$ first, then feed its answer into $f$. Work from the inside out.
+Composition means feeding the output of one function into another. The notation $(f\circ g)(x)$ means $f(g(x))$, so $g$ is applied first. The input must also belong to the domain of the composition: it must be valid for $g$, and $g(x)$ must be valid for $f$.
 
 ### Inverse Functions
 
-The **inverse function** $f^{-1}$ undoes what $f$ does. If $f(2) = 7$, then $f^{-1}(7) = 2$. To find it: swap $x$ and $y$ in the equation, then solve for $y$ again.
+An inverse function reverses the input-output pairing. If $f(2)=7$ and $f$ is invertible on the domain being used, then $f^{-1}(7)=2$.
 
-A function only has an inverse function if it passes the **horizontal line test**: no horizontal line crosses its graph twice.
+A function has an inverse **function** on a given domain only when it is one-to-one on that domain. For real graphs, the horizontal line test checks this: every horizontal line must intersect the graph at most once.
+
+A function that is not one-to-one on its full domain can sometimes be restricted to a smaller domain where it becomes one-to-one.
 
 ## Examples
 
 ### #1: Spotting the Function
 
-Which of these relations is a function? Relation $A = \{(1, 4), (2, 5), (3, 4)\}$ or Relation $B = \{(1, 4), (1, 5), (2, 6)\}$?
+Which relation is a function?
+
+$A=\{(1,4),(2,5),(3,4)\}$
+
+$B=\{(1,4),(1,5),(2,6)\}$
 
 **Solution:**
-Check each input. An input may appear only once.
 
-1. In Relation $A$, the inputs are $1$, $2$, and $3$. No input repeats. It does not matter that the output $4$ appears twice. Relation $A$ is a function.
-2. In Relation $B$, the input $1$ appears twice, once going to $4$ and once going to $5$. One button gives two snacks. Relation $B$ is not a function.
-3. The answer is Relation $A$.
+1. In $A$, each input has exactly one output, so $A$ is a function.
+2. In $B$, input $1$ has two different outputs, so $B$ is not a function.
+3. The answer is $A$.
 
 ### #2: Finding the Domain
 
-Find the domain of $f(x) = \dfrac{5}{x - 3}$ and the domain of $g(x) = \sqrt{x - 2}$.
+Find the domain of $f(x)=\dfrac{5}{x-3}$ and $g(x)=\sqrt{x-2}$.
 
 **Solution:**
-Look for the two danger cases.
 
-1. For $f(x)$, the denominator cannot be $0$. Set it equal to $0$ to find the forbidden value.
+1. For $f$, require the denominator to be nonzero.
 
-$$x - 3 = 0$$
+$$x-3\ne0$$
 
-$$x = 3$$
+$$x\ne3$$
 
-2. The domain of $f$ is all real numbers except $3$.
-3. For $g(x)$, the inside of the square root must be $0$ or bigger.
+So the domain is all real numbers except $3$.
 
-$$x - 2 \geq 0$$
+2. For $g$, require the square-root radicand to be nonnegative.
 
-$$x \geq 2$$
+$$x-2\ge0$$
 
-4. The domain of $g$ is all real numbers greater than or equal to $2$.
+$$x\ge2$$
+
+So the domain is $[2,\infty)$.
 
 ### #3: Evaluating with a Negative Input
 
-If $f(x) = 2x^2 - 3x + 1$, find $f(-2)$.
+If $f(x)=2x^2-3x+1$, find $f(-2)$.
 
 **Solution:**
-Swap every $x$ for $-2$. Put the negative number in parentheses.
 
-1. Substitute carefully.
+$$f(-2)=2(-2)^2-3(-2)+1$$
 
-$$f(-2) = 2(-2)^2 - 3(-2) + 1$$
-
-2. Do the exponent first. $(-2)^2 = 4$.
-
-$$f(-2) = 2(4) - 3(-2) + 1$$
-
-3. Multiply. Note that $-3$ times $-2$ is $+6$.
-
-$$f(-2) = 8 + 6 + 1$$
-
-4. Add.
-
-$$f(-2) = 15$$
+$$=2(4)+6+1=15$$
 
 ### #4: Composition of Functions
 
-If $f(x) = 2x + 1$ and $g(x) = x^2 - 3$, find $(f \circ g)(2)$ and $(g \circ f)(2)$.
+If $f(x)=2x+1$ and $g(x)=x^2-3$, find $(f\circ g)(2)$ and $(g\circ f)(2)$.
 
 **Solution:**
-Work from the inside out.
 
-1. For $(f \circ g)(2)$, do $g$ first.
+1. For $(f\circ g)(2)$:
 
-$$g(2) = 2^2 - 3 = 1$$
+$$g(2)=1$$
 
-2. Feed that answer into $f$.
+$$f(1)=3$$
 
-$$f(1) = 2(1) + 1 = 3$$
+So $(f\circ g)(2)=3$.
 
-3. So $(f \circ g)(2) = 3$.
-4. For $(g \circ f)(2)$, do $f$ first.
+2. For $(g\circ f)(2)$:
 
-$$f(2) = 2(2) + 1 = 5$$
+$$f(2)=5$$
 
-5. Feed that answer into $g$.
+$$g(5)=22$$
 
-$$g(5) = 5^2 - 3 = 22$$
+So $(g\circ f)(2)=22$.
 
-6. So $(g \circ f)(2) = 22$. The order changed the answer completely. Composition is not reversible.
+Composition is not generally commutative.
 
 ### #5: Finding an Inverse Function
 
-Find the inverse of $f(x) = \dfrac{2x - 3}{5}$.
+Find the inverse of $f(x)=\dfrac{2x-3}{5}$.
 
 **Solution:**
-Write $f(x)$ as $y$, swap $x$ and $y$, then solve for $y$.
 
-1. Start with the equation.
+1. Write $y=\dfrac{2x-3}{5}$ and interchange $x$ and $y$.
 
-$$y = \dfrac{2x - 3}{5}$$
+$$x=\dfrac{2y-3}{5}$$
 
-2. Swap $x$ and $y$.
+2. Solve for $y$.
 
-$$x = \dfrac{2y - 3}{5}$$
+$$5x=2y-3$$
 
-3. Multiply both sides by $5$.
+$$5x+3=2y$$
 
-$$5x = 2y - 3$$
+$$y=\dfrac{5x+3}{2}$$
 
-4. Add $3$ to both sides.
+3. Therefore:
 
-$$5x + 3 = 2y$$
+$$f^{-1}(x)=\dfrac{5x+3}{2}$$
 
-5. Divide by $2$.
-
-$$y = \dfrac{5x + 3}{2}$$
-
-6. So $f^{-1}(x) = \dfrac{5x + 3}{2}$. Quick check: $f(4) = \dfrac{8 - 3}{5} = 1$, and $f^{-1}(1) = \dfrac{5 + 3}{2} = 4$. It undoes $f$ perfectly.
+A check gives $f(4)=1$ and $f^{-1}(1)=4$.
 
 ## Speed Tricks & Shortcuts
 
-To check if two functions are inverses, you do not need to redo the algebra. Pick an easy number. If $f(4) = 1$, then the inverse must send $1$ back to $4$. If it does not, they are not inverses.
+A single input-output check can **disprove** a claimed inverse if it fails, but one matching pair is not enough to prove two functions are inverses for every input. To verify inverse functions generally, check the compositions on their domains:
 
-For domain questions in multiple choice, do not solve anything at first. Just scan the function for the two danger signs: a denominator with $x$ in it, or an even root with $x$ inside. No danger signs means the domain is all real numbers, and you are done in five seconds.
+$$f(f^{-1}(x))=x$$
 
-For composition like $(f \circ g)(2)$ with a specific number, never build the full formula $f(g(x))$. Just compute $g(2)$, then plug that single number into $f$. It is faster and safer.
+and
+
+$$f^{-1}(f(x))=x.$$
+
+For domain questions, scan first for common restrictions such as denominators, even roots, and logarithms, then check whether the full function definition adds any other restrictions.
+
+For a numerical composition such as $(f\circ g)(2)$, it is often efficient to compute $g(2)$ first and then feed that value into $f$.
 
 ## Traps to Watch For
 
 ### #1: Thinking $f^{-1}(x)$ Is a Reciprocal
 
-> $f^{-1}(x)$ means the inverse function, not $\dfrac{1}{f(x)}$.
+> $f^{-1}(x)$ denotes an inverse function, not $\dfrac{1}{f(x)}$.
 
-The raised $-1$ on a function name is special notation. It means "the undo function". If $f(x) = 2x$, then $f^{-1}(x) = \dfrac{x}{2}$, not $\dfrac{1}{2x}$. Test-makers put the reciprocal in the choices every time.
+### #2: Repeated Outputs Are Allowed
 
-### #2: Repeated Outputs Are Fine
+A function can assign the same output to several different inputs. What it cannot do is assign two different outputs to the same input.
 
-> A function can repeat outputs. It cannot repeat inputs with different outputs.
+### #3: Mixing Up Composition Order
 
-Students see $\{(1, 4), (2, 4), (3, 4)\}$ and say "not a function" because $4$ repeats. Wrong. Every input still has exactly one output, so it is a function. Only a repeated input with different outputs breaks the rule.
+$$(f\circ g)(x)=f(g(x)),$$
 
-### #3: Mixing Up the Order in Composition
+so $g$ is applied first.
 
-> $(f \circ g)(x)$ means $g$ goes first.
+### #4: Missing a Domain Restriction
 
-The symbol reads left to right, but the work happens right to left, from the inside out. In Example $4$, $(f \circ g)(2) = 3$ but $(g \circ f)(2) = 22$. The wrong order is always one of the answer choices.
+For
 
-### #4: Missing Half the Domain Rules
+$$f(x)=\dfrac{\sqrt{x+1}}{x-2},$$
 
-> Check for both division by zero and negative square roots.
+both conditions matter:
 
-For $f(x) = \dfrac{\sqrt{x + 1}}{x - 2}$, you need $x + 1 \geq 0$ and $x - 2 \neq 0$. So the domain is $x \geq -1$ except $x = 2$. Students who check only one condition pick the incomplete choice.
+$$x+1\ge0$$
+
+and
+
+$$x\ne2.$$
+
+The domain is $[-1,2)\cup(2,\infty)$.
