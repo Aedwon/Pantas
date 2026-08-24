@@ -605,12 +605,12 @@ class _EarthSciencePainter extends CustomPainter {
       _arrow(
         canvas,
         Offset(sun.dx - 27, sun.dy + d),
-        Offset(left.dx + 24, left.dy + d * .18),
+        Offset(left.dx + 24, left.dy + d * .1),
       );
       _arrow(
         canvas,
         Offset(sun.dx + 27, sun.dy + d),
-        Offset(right.dx - 24, right.dy + d * 1.45),
+        Offset(right.dx - 22, right.dy + d * 1.8),
       );
     }
     _earthWithAxis(
@@ -636,6 +636,20 @@ class _EarthSciencePainter extends CustomPainter {
     );
     _text(
       canvas,
+      'N hemisphere',
+      left + const Offset(-14, -70),
+      maxWidth: 88,
+      mutedText: true,
+    );
+    _text(
+      canvas,
+      'N hemisphere',
+      right + const Offset(14, -70),
+      maxWidth: 88,
+      mutedText: true,
+    );
+    _text(
+      canvas,
       'toward Sun (summer)',
       left + const Offset(0, 48),
       maxWidth: 115,
@@ -646,11 +660,36 @@ class _EarthSciencePainter extends CustomPainter {
       right + const Offset(0, 48),
       maxWidth: 115,
     );
+    canvas
+      ..drawLine(
+        left + const Offset(22, -9),
+        left + const Offset(22, 9),
+        _faintStroke,
+      )
+      ..drawLine(
+        right + const Offset(-20, -9),
+        right + const Offset(-20, 9),
+        _faintStroke,
+      );
     _text(
       canvas,
-      'different sunlight angles',
+      'direct incidence',
+      left + const Offset(0, 85),
+      maxWidth: 105,
+      mutedText: true,
+    );
+    _text(
+      canvas,
+      'oblique incidence',
+      right + const Offset(0, 85),
+      maxWidth: 105,
+      mutedText: true,
+    );
+    _text(
+      canvas,
+      'summer direct rays; winter oblique rays',
       Offset(size.width / 2, 225),
-      maxWidth: 170,
+      maxWidth: 240,
       mutedText: true,
     );
   }
@@ -810,7 +849,7 @@ class _EarthSciencePainter extends CustomPainter {
       final phaseCenter = p + const Offset(0, 18);
       _phaseIcon(canvas, phaseCenter, 7, i);
       final labelOffset = switch (i) {
-        0 => const Offset(48, 121),
+        0 => const Offset(48, 172),
         1 => const Offset(70, 209),
         2 => const Offset(195, 230),
         3 => const Offset(320, 209),
@@ -1223,9 +1262,11 @@ class _EarthSciencePainter extends CustomPainter {
         maxWidth: 72,
       );
     }
-    for (final point in points.skip(1)) {
-      final start = point + (center - point) * .32;
-      final end = center + (point - center) * .12;
+    for (final point in [points[1], points[3], points[4]]) {
+      final direction = points[0] - point;
+      final unit = direction / direction.distance;
+      final start = point + unit * 27;
+      final end = points[0] - unit * 25;
       _arrow(canvas, start, end);
     }
     _text(
@@ -1288,6 +1329,12 @@ class _EarthSciencePainter extends CustomPainter {
         Paint()..color = ink,
       );
     }
+    _arcArrow(
+      canvas,
+      Rect.fromCenter(center: centers[1], width: 88, height: 40),
+      .35,
+      3.9,
+    );
     canvas.drawOval(
       Rect.fromCenter(center: centers[2], width: 80, height: 30),
       _faintStroke,
@@ -1301,6 +1348,12 @@ class _EarthSciencePainter extends CustomPainter {
         Paint()..color = ink,
       );
     }
+    _arcArrow(
+      canvas,
+      Rect.fromCenter(center: centers[2], width: 92, height: 42),
+      .35,
+      3.9,
+    );
     canvas.drawOval(
       Rect.fromCenter(center: centers[3], width: 80, height: 30),
       _faintStroke,
@@ -1462,42 +1515,45 @@ class _EarthSciencePainter extends CustomPainter {
         mutedText: true,
       );
     } else {
-      final upper = Path()
-        ..moveTo(rect.left + 10, rect.top + 22)
-        ..lineTo(rect.right - 10, rect.top + 22)
-        ..lineTo(rect.right - 10, midY - 4)
-        ..lineTo(rect.center.dx + 18, midY - 2)
-        ..lineTo(rect.center.dx, midY - 5)
-        ..lineTo(rect.left + 10, midY - 4)
+      final faultX = rect.center.dx;
+      final leftPlate = Path()
+        ..moveTo(rect.left + 8, midY - 11)
+        ..lineTo(faultX - 3, midY - 11)
+        ..lineTo(faultX - 7, midY + 31)
+        ..lineTo(rect.left + 8, midY + 31)
         ..close();
-      final lower = Path()
-        ..moveTo(rect.left + 10, midY + 4)
-        ..lineTo(rect.center.dx - 18, midY + 2)
-        ..lineTo(rect.center.dx, midY + 5)
-        ..lineTo(rect.right - 10, midY + 4)
-        ..lineTo(rect.right - 10, rect.bottom - 22)
-        ..lineTo(rect.left + 10, rect.bottom - 22)
+      final rightPlate = Path()
+        ..moveTo(faultX + 3, midY - 11)
+        ..lineTo(rect.right - 8, midY - 11)
+        ..lineTo(rect.right - 8, midY + 31)
+        ..lineTo(faultX + 7, midY + 31)
         ..close();
       canvas
-        ..drawPath(upper, _stroke)
-        ..drawPath(lower, _stroke);
+        ..drawPath(leftPlate, _stroke)
+        ..drawPath(rightPlate, _stroke)
+        ..drawLine(
+          Offset(rect.left + 8, midY),
+          Offset(rect.right - 8, midY),
+          _faintStroke,
+        )
+        ..drawLine(
+          Offset(faultX, midY - 11),
+          Offset(faultX, midY + 31),
+          _faintStroke,
+        );
       _arrow(
         canvas,
-        Offset(rect.right - 18, midY - 22),
-        Offset(rect.left + 20, midY - 22),
+        Offset(faultX - 10, midY - 28),
+        Offset(rect.left + 20, midY - 28),
       );
       _arrow(
         canvas,
-        Offset(rect.left + 20, midY + 22),
-        Offset(rect.right - 18, midY + 22),
+        Offset(faultX + 10, midY + 22),
+        Offset(rect.right - 20, midY + 22),
       );
-      _dashedLine(
-        canvas,
-        Offset(rect.left + 8, midY),
-        Offset(rect.right - 8, midY),
-      );
-      _earthquakeSymbol(canvas, Offset(rect.center.dx - 25, midY), 5);
-      _earthquakeSymbol(canvas, Offset(rect.center.dx + 25, midY), 5);
+      for (final y in [midY + 1, midY + 14, midY + 27]) {
+        _earthquakeSymbol(canvas, Offset(faultX, y), 5);
+      }
       _text(
         canvas,
         'slide past; earthquakes',
@@ -1637,7 +1693,7 @@ class _EarthSciencePainter extends CustomPainter {
         Offset(60 + i * 9, 145),
       );
     }
-    _text(canvas, 'Sun heats ocean', const Offset(71, 78));
+    _text(canvas, 'Sun heats ocean', const Offset(116, 46));
     _cloud(canvas, const Offset(224, 64));
     _cloud(canvas, const Offset(286, 66));
     _arrow(
@@ -1648,8 +1704,8 @@ class _EarthSciencePainter extends CustomPainter {
     _text(
       canvas,
       'evaporation',
-      const Offset(95, 123),
-      maxWidth: 85,
+      const Offset(50, 154),
+      maxWidth: 75,
       mutedText: true,
     );
     _text(
@@ -1679,7 +1735,7 @@ class _EarthSciencePainter extends CustomPainter {
     _text(
       canvas,
       'precipitation',
-      const Offset(323, 112),
+      const Offset(332, 96),
       maxWidth: 86,
       mutedText: true,
     );
@@ -1691,7 +1747,7 @@ class _EarthSciencePainter extends CustomPainter {
     _text(
       canvas,
       'runoff to ocean',
-      const Offset(219, 178),
+      const Offset(175, 164),
       maxWidth: 108,
       mutedText: true,
     );
@@ -1712,7 +1768,7 @@ class _EarthSciencePainter extends CustomPainter {
     _text(
       canvas,
       'groundwater to ocean',
-      const Offset(219, 235),
+      const Offset(306, 239),
       maxWidth: 135,
       mutedText: true,
     );

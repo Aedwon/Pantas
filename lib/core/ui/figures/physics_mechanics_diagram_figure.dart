@@ -182,7 +182,45 @@ class _PhysicsMechanicsPainter extends CustomPainter {
         );
       } else if (i == 1) {
         final cart = Rect.fromLTWH(x0 + slot * 0.35, 95, slot * 0.38, 34);
+        final handPaint = Paint()
+          ..color = ink
+          ..style = PaintingStyle.stroke
+          ..strokeCap = StrokeCap.round
+          ..strokeJoin = StrokeJoin.round
+          ..strokeWidth = 1.4;
+        final handPalm = Rect.fromLTWH(
+          cart.left - 28,
+          cart.center.dy - 15,
+          18,
+          30,
+        );
         canvas
+          ..drawLine(
+            Offset(x0 + 12, cart.center.dy + 6),
+            Offset(handPalm.left, cart.center.dy + 6),
+            handPaint,
+          )
+          ..drawRRect(
+            RRect.fromRectAndRadius(
+              handPalm,
+              const Radius.circular(7),
+            ),
+            handPaint,
+          );
+        for (var finger = 0; finger < 4; finger++) {
+          final fingerY = handPalm.top + 5 + finger * 6.0;
+          canvas.drawLine(
+            Offset(handPalm.right, fingerY),
+            Offset(cart.left - 3, fingerY),
+            handPaint,
+          );
+        }
+        canvas
+          ..drawLine(
+            Offset(handPalm.right - 3, handPalm.bottom - 8),
+            Offset(cart.left - 3, handPalm.bottom - 2),
+            handPaint,
+          )
           ..drawRect(cart, _stroke)
           ..drawLine(
             Offset(cart.left + 5, cart.top + 8),
@@ -191,42 +229,10 @@ class _PhysicsMechanicsPainter extends CustomPainter {
           )
           ..drawCircle(Offset(cart.left + 10, cart.bottom + 7), 6, _stroke)
           ..drawCircle(Offset(cart.right - 10, cart.bottom + 7), 6, _stroke);
-        final palm = Rect.fromCenter(
-          center: Offset(cart.left - 13, cart.center.dy + 1),
-          width: 17,
-          height: 22,
-        );
-        canvas
-          ..drawArc(palm, -math.pi / 2, math.pi, false, _stroke)
-          ..drawLine(
-            Offset(palm.left, palm.top + 3),
-            Offset(palm.left - 12, palm.top - 5),
-            _stroke,
-          )
-          ..drawLine(
-            Offset(palm.left, palm.center.dy),
-            Offset(palm.left - 15, palm.center.dy - 2),
-            _stroke,
-          )
-          ..drawLine(
-            Offset(palm.left, palm.bottom - 3),
-            Offset(palm.left - 11, palm.bottom + 5),
-            _stroke,
-          )
-          ..drawLine(
-            Offset(palm.right, palm.top + 4),
-            Offset(cart.left, palm.top + 4),
-            _stroke,
-          )
-          ..drawLine(
-            Offset(palm.right, palm.center.dy),
-            Offset(cart.left, palm.center.dy),
-            _stroke,
-          );
         _arrow(
           canvas,
-          Offset(x0 + 12, cart.center.dy),
-          Offset(cart.left - 3, cart.center.dy),
+          Offset(x0 + 12, cart.top - 9),
+          Offset(cart.left - 3, cart.top - 9),
           _stroke,
         );
         _arrow(
@@ -248,10 +254,10 @@ class _PhysicsMechanicsPainter extends CustomPainter {
         _label(
           canvas,
           'acceleration',
-          Offset(x0 + slot * 0.66, 72),
-          slot * 0.32,
-          style: labelStyle.copyWith(color: board),
-          align: TextAlign.center,
+          Offset(x0 + slot * 0.53, 72),
+          slot * 0.45,
+          style: labelStyle.copyWith(color: board, fontSize: 11),
+          maxLines: 1,
         );
       } else {
         final swimmer = Offset(x0 + slot * 0.50, 103);

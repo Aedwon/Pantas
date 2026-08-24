@@ -368,6 +368,16 @@ class _ChemistryDiagramPainter extends CustomPainter {
           align: TextAlign.center,
         );
       } else {
+        final electronSea = Rect.fromLTWH(
+          x0 + 8,
+          43,
+          slot - 16,
+          93,
+        );
+        canvas.drawRect(
+          electronSea,
+          Paint()..color = inkMuted.withValues(alpha: .12),
+        );
         for (var row = 0; row < 2; row++) {
           for (var col = 0; col < 3; col++) {
             canvas.drawCircle(

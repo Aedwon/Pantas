@@ -223,12 +223,7 @@ class _BiologyDiagramPainter extends CustomPainter {
     _label(canvas, 'smooth ER', Offset(smooth.left + 7, smooth.top + 5), 62);
 
     final ribosomeTarget = Offset(rough.left + 8, rough.top - 3);
-    _callout(
-      canvas,
-      ribosomeTarget,
-      Offset(size.width * 0.19, 28),
-      ink,
-    );
+    _callout(canvas, ribosomeTarget, Offset(size.width * 0.19, 28), ink);
     _label(
       canvas,
       'ribosomes',
@@ -267,12 +262,7 @@ class _BiologyDiagramPainter extends CustomPainter {
     final proteinTurn = Offset(rough.left - 5, size.height * 0.52);
     final proteinEnd = Offset(golgiX - 28, size.height * 0.62);
     canvas.drawLine(proteinStart, proteinTurn, proteinPath);
-    _arrow(
-      canvas,
-      proteinTurn,
-      proteinEnd,
-      proteinPath,
-    );
+    _arrow(canvas, proteinTurn, proteinEnd, proteinPath);
     _label(
       canvas,
       'protein flow',
@@ -545,17 +535,24 @@ class _BiologyDiagramPainter extends CustomPainter {
       final width = size.width *
           (baseWidthFactor + (topWidthFactor - baseWidthFactor) * t);
       final y = size.height - 12 - levelHeight * (i + 1);
-      final rect =
-          Rect.fromLTWH(centerX - width / 2, y, width, levelHeight - 3);
-      canvas.drawRect(rect, i == 0 ? _stroke : _faint);
-      _label(
-        canvas,
-        _pyramidLabel(levels[i]),
-        Offset(rect.left + 6, rect.center.dy - 9),
-        rect.width - 12,
-        style: i == 0 ? pyramidStyle.copyWith(color: board) : pyramidStyle,
-        align: TextAlign.center,
+      final rect = Rect.fromLTWH(
+        centerX - width / 2,
+        y,
+        width,
+        levelHeight - 3,
       );
+      canvas.drawRect(rect, i == 0 ? _stroke : _faint);
+      TextPainter(
+        text: TextSpan(
+          text: _pyramidLabel(levels[i]),
+          style: i == 0 ? pyramidStyle.copyWith(color: board) : pyramidStyle,
+        ),
+        textDirection: TextDirection.ltr,
+        textAlign: TextAlign.center,
+        maxLines: 2,
+      )
+        ..layout(minWidth: rect.width - 12, maxWidth: rect.width - 12)
+        ..paint(canvas, Offset(rect.left + 6, rect.center.dy - 9));
     }
   }
 
@@ -655,39 +652,53 @@ class _BiologyDiagramPainter extends CustomPainter {
     final flows = _mapList(spec['flows'])!;
     final pulmonaryPathX = size.width * 0.28;
     final systemicPathX = size.width * 0.92;
-    final lungsY = chambers[0].center.dy;
-    final bodyY = chambers[1].center.dy;
     final pulmonaryExit = Offset(pulmonaryPathX, chambers[2].center.dy);
-    final pulmonaryReturn = Offset(pulmonaryPathX, lungsY);
     final systemicExit = Offset(systemicPathX, chambers[3].center.dy);
-    final systemicReturn = Offset(systemicPathX, bodyY);
-    _routeArrow(
-      canvas,
-      chambers[2].centerLeft,
+    final pulmonaryTop = chambers[1].top - 18;
+    final systemicBottom = chambers[2].bottom + 18;
+    final bodyReturnX = size.width * 0.23;
+    _routeArrow(canvas, chambers[2].centerLeft, pulmonaryExit, _stroke);
+    canvas.drawLine(
       pulmonaryExit,
+      Offset(pulmonaryExit.dx, pulmonaryTop),
       _stroke,
     );
     _routeArrow(
       canvas,
-      pulmonaryReturn,
+      Offset(pulmonaryExit.dx, pulmonaryTop),
+      Offset(chambers[1].topCenter.dx, pulmonaryTop),
+      _stroke,
+    );
+    _routeArrow(
+      canvas,
+      Offset(chambers[1].topCenter.dx, pulmonaryTop),
+      chambers[1].topCenter,
+      _stroke,
+    );
+    _routeArrow(canvas, chambers[3].centerRight, systemicExit, _stroke);
+    canvas.drawLine(
+      systemicExit,
+      Offset(systemicExit.dx, systemicBottom),
+      _stroke,
+    );
+    _routeArrow(
+      canvas,
+      Offset(systemicExit.dx, systemicBottom),
+      Offset(bodyReturnX, systemicBottom),
+      _stroke,
+    );
+    _routeArrow(
+      canvas,
+      Offset(bodyReturnX, systemicBottom),
+      Offset(bodyReturnX, chambers[0].center.dy),
+      _stroke,
+    );
+    _routeArrow(
+      canvas,
+      Offset(bodyReturnX, chambers[0].center.dy),
       chambers[0].centerLeft,
       _stroke,
     );
-    _routeArrow(
-      canvas,
-      chambers[3].centerRight,
-      systemicExit,
-      _stroke,
-    );
-    _routeArrow(
-      canvas,
-      systemicReturn,
-      chambers[1].centerRight,
-      _stroke,
-    );
-    canvas
-      ..drawLine(pulmonaryExit, pulmonaryReturn, _stroke)
-      ..drawLine(systemicExit, systemicReturn, _stroke);
     _label(
       canvas,
       '${flows[0]['label']}\n${flows[0]['destination']}',
@@ -819,12 +830,7 @@ class _BiologyDiagramPainter extends CustomPainter {
       );
   }
 
-  void _drawChromatid(
-    Canvas canvas,
-    Offset center,
-    double side,
-    Paint paint,
-  ) {
+  void _drawChromatid(Canvas canvas, Offset center, double side, Paint paint) {
     final path = Path()
       ..moveTo(center.dx + side * 6, center.dy - 6)
       ..lineTo(center.dx - side * 2, center.dy)
@@ -913,23 +919,25 @@ bool _validMetabolismCycle(Map<String, Object?> spec) {
     return false;
   }
   return photosynthesis['organelle'] == 'chloroplast' &&
-      _sameStrings(
-        _stringList(photosynthesis['inputs']),
-        const <String>['carbon dioxide', 'water', 'sunlight'],
-      ) &&
-      _sameStrings(
-        _stringList(photosynthesis['outputs']),
-        const <String>['glucose', 'oxygen'],
-      ) &&
+      _sameStrings(_stringList(photosynthesis['inputs']), const <String>[
+        'carbon dioxide',
+        'water',
+        'sunlight',
+      ]) &&
+      _sameStrings(_stringList(photosynthesis['outputs']), const <String>[
+        'glucose',
+        'oxygen',
+      ]) &&
       respiration['organelle'] == 'mitochondrion' &&
-      _sameStrings(
-        _stringList(respiration['inputs']),
-        const <String>['glucose', 'oxygen'],
-      ) &&
-      _sameStrings(
-        _stringList(respiration['outputs']),
-        const <String>['carbon dioxide', 'water', 'ATP'],
-      );
+      _sameStrings(_stringList(respiration['inputs']), const <String>[
+        'glucose',
+        'oxygen',
+      ]) &&
+      _sameStrings(_stringList(respiration['outputs']), const <String>[
+        'carbon dioxide',
+        'water',
+        'ATP',
+      ]);
 }
 
 bool _validOrganelleComparison(Map<String, Object?> spec) {
@@ -992,10 +1000,12 @@ bool _validNaturalSelection(Map<String, Object?> spec) {
 bool _validHeart(Map<String, Object?> spec) {
   if (spec['layout'] != 'atria-above-ventricles') return false;
   final chambers = _stringList(spec['chambers']);
-  if (!_sameStrings(
-    chambers,
-    const <String>['atrium', 'atrium', 'ventricle', 'ventricle'],
-  )) {
+  if (!_sameStrings(chambers, const <String>[
+    'atrium',
+    'atrium',
+    'ventricle',
+    'ventricle',
+  ])) {
     return false;
   }
   final flows = _mapList(spec['flows']);

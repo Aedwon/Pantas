@@ -294,20 +294,35 @@ class _PhysicsEnergyPainter extends CustomPainter {
         if (dy == 0) {
           _arrow(canvas, start, end);
         } else {
+          final control = Offset(
+            rect.center.dx,
+            rect.center.dy + dy,
+          );
           final path = Path()
             ..moveTo(start.dx, start.dy)
             ..quadraticBezierTo(
-              rect.center.dx,
-              rect.center.dy + dy,
+              control.dx,
+              control.dy,
               end.dx,
               end.dy,
             );
           canvas.drawPath(path, _stroke);
+          const arrowT = .62;
+          const remainingT = 1 - arrowT;
+          final arrowPoint = start * (remainingT * remainingT) +
+              control * (2 * remainingT * arrowT) +
+              end * (arrowT * arrowT);
           final tangent = Offset(
-            end.dx - rect.center.dx,
-            end.dy - (rect.center.dy + dy),
+            2 * remainingT * (control.dx - start.dx) +
+                2 * arrowT * (end.dx - control.dx),
+            2 * remainingT * (control.dy - start.dy) +
+                2 * arrowT * (end.dy - control.dy),
           );
-          _arrowHead(canvas, end, math.atan2(tangent.dy, tangent.dx));
+          _arrowHead(
+            canvas,
+            arrowPoint,
+            math.atan2(tangent.dy, tangent.dx),
+          );
         }
       }
       _text(
@@ -502,9 +517,9 @@ class _PhysicsEnergyPainter extends CustomPainter {
       ..drawRect(resistor, _stroke);
     _text(
       canvas,
-      '10 Ω',
+      '10 ohms',
       resistor.center - const Offset(0, 7),
-      maxWidth: 52,
+      maxWidth: 60,
     );
     _arrow(
       canvas,
