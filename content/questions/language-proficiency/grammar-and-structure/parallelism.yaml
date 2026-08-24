@@ -14,15 +14,15 @@ questions:
         correct: true
       - text: There is no error in this sentence.
         rationale: |
-          You assumed the sentence was correct, but "jumping" breaks the "to + verb" structure established by "to run" and "to try."
+          "Jumping" breaks the infinitive pattern established by "to run" and "to try."
       - text: Faster should be changed to "fastest."
         rationale: |
-          You focused on comparative forms, but "faster" correctly compares speed. The real issue is the mismatched verb form "jumping."
+          "Faster" is not the structural mismatch; the listed verb forms are.
       - text: The sentence needs a comma after "team."
         rationale: |
-          You looked for a punctuation error, but a comma after "team" does not resolve the grammatical mismatch among the three listed actions.
+          Punctuation does not repair the mismatch among the three listed actions.
     explanation: |
-      The list mixes forms: "to run" (to + verb), "jumping" (-ing), and "to try" (to + verb). Changing "jumping" to "to jump" matches the pattern used by the other two items.
+      Parallel items should use matching grammatical forms. Changing "jumping" to "to jump" makes all three actions parallel.
     approved: true
 
   - id: q-grammar-and-structure-parallelism-0002
@@ -31,19 +31,19 @@ questions:
     stem: |
       Identify and fix the parallelism error: "The festival was not only fun but also it was educational."
     choices:
-      - text: It was educational should match the plain adjective form after "not only"; corrected, it should read "not only fun but also educational."
+      - text: It was educational should match the adjective after "not only"; corrected, it should read "not only fun but also educational."
         correct: true
       - text: There is no error in this sentence.
         rationale: |
-          You assumed the sentence was fine, but placing a clause after "but also" breaks the adjective pattern established by "fun."
+          The two sides of "not only...but also" are not structurally parallel.
       - text: Fun should be changed to "funny."
         rationale: |
-          You changed the word meaning instead of structure. "Fun" is an adjective here, but the phrase after "but also" needs to match it.
-      - text: The sentence needs a semicolon instead of the second "but."
+          That changes the meaning without fixing the structural mismatch.
+      - text: The sentence needs a semicolon instead of "but."
         rationale: |
-          You looked for punctuation issues, but replacing "but" with a semicolon destroys the correlative pair "not only... but also."
+          A semicolon would destroy the intended correlative construction.
     explanation: |
-      After "not only," the sentence uses the adjective "fun." After "but also," it should match with just the adjective "educational," not a full clause.
+      "Fun" and "educational" are parallel predicate complements: "The festival was not only fun but also educational."
     approved: true
 
   - id: q-grammar-and-structure-parallelism-0003
@@ -56,15 +56,15 @@ questions:
         correct: true
       - text: The manual explains how to install the software, updating it, and troubleshoot common errors.
         rationale: |
-          You chose a sentence that mixes "-ing" ("updating") with base verbs ("install", "troubleshoot") in a single list.
+          "Updating" breaks the coordinated base-verb pattern.
       - text: Both sentences use correct parallel structure.
         rationale: |
-          You assumed both sentences were parallel, but mixing "-ing" with base form verbs breaks structural balance in a series.
+          Only the first keeps the coordinated verbs in matching form.
       - text: Neither sentence uses correct parallel structure.
         rationale: |
-          You rejected the sentence that consistently uses three base verbs ("install", "update", and "troubleshoot").
+          The first sentence correctly coordinates "install," "update," and "troubleshoot."
     explanation: |
-      In the correct choice, all three items ("install," "update," and "troubleshoot") use the same base verb form. The other version mixes "updating" (-ing) with two base verbs.
+      The first sentence uses three coordinated base verbs governed by "how to": install, update, and troubleshoot.
     approved: true
 
   - id: q-grammar-and-structure-parallelism-0004
@@ -77,15 +77,15 @@ questions:
         correct: true
       - text: There is no error in this sentence.
         rationale: |
-          You assumed the comparison was sound, but comparing a gerund ("reading") directly to an infinitive ("to watch") breaks parallelism.
+          The comparison mismatches a gerund with an infinitive.
       - text: Relaxing should be changed to "relaxed."
         rationale: |
-          You altered the adjective describing "reading," but the real issue is comparing "-ing" with "to + verb" across the word "than."
+          The predicate adjective is not the source of the mismatch.
       - text: The comparison needs "than to" instead of "than."
         rationale: |
-          You added extra prepositions, but adding "to" does not match "reading" with "watch." Both sides of the comparison must use the same form.
+          Adding "to" does not make the compared activities parallel.
     explanation: |
-      The comparison mismatches "reading" (-ing form) with "to watch" (to + verb form). Matching the second half's form to the first half's form fixes the error.
+      The compared activities should use matching forms: "Reading a book...than watching television."
     approved: true
 
   - id: q-grammar-and-structure-parallelism-0005
@@ -98,15 +98,15 @@ questions:
         correct: true
       - text: There is no error in this sentence.
         rationale: |
-          You assumed the list was consistent, but "to dance" breaks the "-ing" series created by "painting" and "singing."
+          "To dance" does not match the gerund forms around it.
       - text: Include should be changed to "includes."
         rationale: |
-          You focused on verb agreement, but "hobbies" is plural, so "include" is correct. The real error is the infinitive in a list of gerunds.
+          "Hobbies" is plural, so "include" already agrees with the subject.
       - text: The sentence needs a semicolon.
         rationale: |
-          You looked for a punctuation fix, but punctuation cannot fix the mismatch between "to dance" and the surrounding "-ing" verbs.
+          Punctuation cannot repair mismatched list forms.
     explanation: |
-      The list mixes "painting" and "singing" (both -ing forms) with "to dance" (to + verb form). Changing "to dance" to "dancing" fixes the mismatch.
+      All three hobby names should be parallel gerunds: painting, dancing, and singing.
     approved: true
 
   - id: q-grammar-and-structure-parallelism-0006
@@ -115,19 +115,19 @@ questions:
     stem: |
       Identify and fix the parallelism error: "He is both intelligent and he works hard."
     choices:
-      - text: He works hard should match the plain adjective form after "both"; corrected, it should read "both intelligent and hardworking."
+      - text: He works hard should match the adjective after "both"; corrected, it should read "both intelligent and hardworking."
         correct: true
       - text: There is no error in this sentence.
         rationale: |
-          You assumed the structure was correct, but following "both" with an adjective requires another adjective after "and," not a full clause.
+          The correlative pair links an adjective to a full clause instead of matching structures.
       - text: Intelligent should be changed to "intelligently."
         rationale: |
-          You turned "intelligent" into an adverb, but "he is" requires a predicate adjective, not an adverb. The error lies after "and."
+          "Is" takes a predicate adjective here; changing it to an adverb would not help.
       - text: The sentence needs a comma after "intelligent."
         rationale: |
-          You looked for punctuation errors, but inserting a comma does not fix the structural imbalance between an adjective and a clause.
+          A comma does not make the two coordinated elements parallel.
     explanation: |
-      After "both," the sentence uses the adjective "intelligent." After "and," it should match with a plain adjective like "hardworking," not a full clause.
+      "Both...and" should connect comparable structures. "Both intelligent and hardworking" pairs two adjectives.
     approved: true
 
   - id: q-grammar-and-structure-parallelism-0007
@@ -140,15 +140,15 @@ questions:
         correct: true
       - text: The recipe requires chopping the onions, mincing the garlic, and to boil the water.
         rationale: |
-          You chose a list that switches from "-ing" verbs ("chopping", "mincing") to an infinitive ("to boil").
+          "To boil" breaks the gerund pattern.
       - text: Both sentences use correct parallel structure.
         rationale: |
-          You assumed both versions were fine, but inserting "to boil" into an "-ing" list violates parallel structure.
+          Only the first keeps all three list items in matching form.
       - text: Neither sentence uses correct parallel structure.
         rationale: |
-          You rejected the sentence that maintains three parallel gerunds ("chopping", "mincing", and "boiling").
+          The first sentence has three parallel gerund phrases.
     explanation: |
-      In the correct choice, all three items ("chopping," "mincing," and "boiling") use the same "-ing" form. The other version breaks this with "to boil."
+      "Chopping," "mincing," and "boiling" form a parallel series.
     approved: true
 
   - id: q-grammar-and-structure-parallelism-0008
@@ -161,15 +161,15 @@ questions:
         correct: true
       - text: There is no error in this sentence.
         rationale: |
-          You assumed the sentence was balanced, but comparing "swimming" with "to swim" mismatches a gerund with an infinitive.
+          The comparison mismatches a gerund with an infinitive.
       - text: Exciting should be changed to "excited."
         rationale: |
-          You changed the predicate adjective, but "exciting" correctly describes swimming. The error is the mismatched verb forms.
+          "Exciting" correctly describes the activity; it is not the structural mismatch.
       - text: The comparison needs "than to" instead of "than."
         rationale: |
-          You tried adjusting the comparative connector, but both elements around "than" must take the same form.
+          The compared activities, not the connector, need matching form.
     explanation: |
-      The comparison mismatches "swimming" (-ing form) with "to swim" (to + verb form). Matching both sides fixes the error.
+      The comparison is parallel when both activities are gerund phrases: swimming in the ocean and swimming in a pool.
     approved: true
 
   - id: q-grammar-and-structure-parallelism-0009
@@ -178,61 +178,61 @@ questions:
     stem: |
       Identify the hidden parallelism error in this longer sentence: "The report covers the company's history, analyzing its financial growth, and its plans for the future."
     choices:
-      - text: Analyzing its financial growth breaks the noun-phrase pattern used by "history" and "plans for the future"; corrected, it should read "the company's history, its financial growth, and its plans for the future."
+      - text: Analyzing its financial growth breaks the noun-phrase pattern; corrected, it should read "the company's history, its financial growth, and its plans for the future."
         correct: true
       - text: There is no error; the sentence is fine as written.
         rationale: |
-          You overlooked the hidden error in the middle. "Analyzing" is a verb phrase, while the other list items are noun phrases.
-      - text: Its plans for the future is the mismatched item, not "analyzing."
+          "Analyzing its financial growth" is a verb phrase between two noun phrases.
+      - text: Its plans for the future is the mismatched item.
         rationale: |
-          You picked a noun phrase as the mismatch, but "plans for the future" matches "company's history." It is "analyzing" that breaks the pattern.
-      - text: History is the mismatched item, not "analyzing."
+          "Its plans for the future" matches the noun-phrase structure of "the company's history."
+      - text: History is the mismatched item.
         rationale: |
-          You singled out the first noun phrase, but "history" sets the noun pattern that "analyzing" fails to follow.
+          "History" establishes the noun-phrase pattern that the middle item breaks.
     explanation: |
-      Long, complex sentences can hide a parallelism error in the middle, not just at the first or last item. Here, "analyzing its financial growth" (a verb phrase) breaks the noun-phrase pattern of the other two list items.
+      A coordinated list should keep comparable structures. The corrected version uses three noun phrases.
     approved: true
 
   - id: q-grammar-and-structure-parallelism-0010
     type: parallelism-correction
     difficulty: hard
     stem: |
-      A student writes "She enjoys hiking and to swim," reasoning that both "hiking" and "to swim" are grammatically correct phrases individually, so the sentence must be fine. Is this reasoning correct?
+      A student writes "She enjoys hiking and to swim," reasoning that both phrases are grammatical on their own. Is the sentence parallel?
     choices:
-      - text: 'No: parallel structure requires matching form across all items in a list, even if each individual item would be grammatically fine as a standalone phrase; "hiking" and "to swim" mismatch "-ing" with "to + verb."'
+      - text: 'No: after "enjoys," the coordinated activities should use matching forms; "She enjoys hiking and swimming" is parallel.'
         correct: true
-      - text: 'Yes: if each item is individually correct, the whole list is automatically parallel.'
+      - text: 'Yes: if each item can be grammatical by itself, the coordination is automatically parallel.'
         rationale: |
-          You assumed individual correctness guarantees list parallelism. Items in a series must share the exact same grammatical structure.
-      - text: 'Yes: but only because "hiking" and "swim" are both about physical activity.'
+          Coordination still requires compatible structures in this sentence.
+      - text: 'Yes: because hiking and swimming are both physical activities.'
         rationale: |
-          You focused on thematic topic instead of grammatical form. Shared meaning does not substitute for matching verb structures.
-      - text: 'No: but only because "enjoys" is the wrong verb form.'
+          Similar meaning does not repair a grammatical-form mismatch.
+      - text: 'No: because "enjoys" should be "enjoy."'
         rationale: |
-          You targeted the main verb "enjoys," which is grammatically correct. The issue is the mismatch between "hiking" and "to swim."
+          "She enjoys" already has correct subject-verb agreement.
     explanation: |
-      "She enjoys hiking and to swim": both "hiking" and "to swim" are perfectly correct phrases individually, but placed together in a list, their mismatched forms break parallelism.
+      "Enjoy" normally takes gerund complements here, so "hiking and swimming" gives a grammatical, parallel pair.
     approved: true
 
   - id: q-grammar-and-structure-parallelism-0011
     type: parallelism-correction
     difficulty: hard
     stem: |
-      A student writes "He wanted either to win or winning," assuming any form is acceptable after "either/or" as long as each half makes sense alone. Is this correct?
+      A student writes "He wanted either to win the race or finishing in the top three." Which correction makes the alternatives parallel without changing their meaning?
     choices:
-      - text: 'No: whatever form follows the first half of a correlative pair ("either") must be echoed by the same form after the second half ("or"); this should read "either to win or to lose," or "either winning or losing."'
+      - text: 'He wanted either to win the race or to finish in the top three.'
         correct: true
-      - text: 'Yes: correlative conjunctions never require matching forms on both sides.'
+      - text: 'He wanted either winning the race or to finish in the top three.'
         rationale: |
-          You ignored the rule for correlative pairs. Words following "either" and "or" must match in grammatical form.
-      - text: 'Yes: but only because "win" and "winning" are close enough in meaning.'
+          This still mismatches a gerund phrase with an infinitive phrase.
+      - text: 'He wanted either to win the race or finishing in the top three.'
         rationale: |
-          You relied on similarity of meaning rather than matching structure. "To win" and "winning" are different grammatical forms.
-      - text: 'No: but only because "either...or" cannot be used with verbs at all.'
+          This repeats the original mismatch.
+      - text: 'He wanted to either win the race or finishing in the top three.'
         rationale: |
-          You assumed correlative conjunctions cannot link verbs. They can link any grammatical structures as long as both sides match.
+          Moving "either" does not repair the mismatch between "win" and "finishing."
     explanation: |
-      Whatever word or phrase form immediately follows the first half of a correlative pair must be echoed by the same form after the second half: mismatching "to win" with "winning" breaks this rule.
+      The correlative alternatives should be structurally comparable. "To win the race" and "to finish in the top three" are parallel infinitive phrases.
     approved: true
 
   - id: q-grammar-and-structure-parallelism-0012
@@ -245,57 +245,57 @@ questions:
         correct: true
       - text: The workshop covers budgeting, marketing, and how to strategize sales.
         rationale: |
-          You selected a list that switches from noun phrases to an infinitive clause ("how to strategize sales").
+          The final clause does not match the noun-like items before it.
       - text: Both sentences use correct parallel structure.
         rationale: |
-          You assumed both sentences work, but introducing a clause into a list of nouns breaks parallel form.
+          Only the first presents a balanced list of topics.
       - text: Neither sentence uses correct parallel structure.
         rationale: |
-          You rejected the sentence that cleanly lists three parallel noun phrases ("budgeting", "marketing", and "sales strategy").
+          The first sentence is a parallel list of workshop topics.
     explanation: |
-      In the correct choice, all three items ("budgeting," "marketing," and "sales strategy") are noun phrases. The other version breaks this pattern with "how to strategize sales."
+      "Budgeting," "marketing," and "sales strategy" all function as noun phrases naming topics.
     approved: true
 
   - id: q-grammar-and-structure-parallelism-0013
     type: parallelism-correction
     difficulty: medium
     stem: |
-      Identify the parallelism error: "The app helps users track expenses, setting budgets, and saving money."
+      Identify and fix the parallelism error: "The app helps users track expenses, setting budgets, and saving money."
     choices:
-      - text: Track breaks the "-ing" pattern used by "setting" and "saving"; corrected, it should read "tracking expenses, setting budgets, and saving money."
+      - text: Setting and saving should match "track"; corrected, it should read "The app helps users track expenses, set budgets, and save money."
         correct: true
       - text: There is no error in this sentence.
         rationale: |
-          You assumed the list was balanced, but "track" is a base verb while "setting" and "saving" are "-ing" verbs.
-      - text: Setting is the mismatched item, not "track."
+          The list switches from the base verb "track" to two "-ing" forms.
+      - text: Track should change to "tracking," giving "helps users tracking expenses, setting budgets, and saving money."
         rationale: |
-          You blamed an "-ing" verb, but both "setting" and "saving" agree. It is "track" that fails to match their form.
-      - text: Saving is the mismatched item, not "track."
+          That repair makes the complement after "helps users" ungrammatical in standard usage; the coordinated base verbs should be retained.
+      - text: Only saving should change to "save."
         rationale: |
-          You selected "saving" as the error, but it matches "setting." "Track" is the lone base verb in the series.
+          "Setting" would still fail to match the base verbs "track" and "save."
     explanation: |
-      Two of the three items ("setting," "saving") use the "-ing" form, but "track" uses the base verb form instead: "track" is the item that needs to change.
+      In "helps users track...," the verb "help" licenses a bare infinitive after its object. The coordinated actions should therefore be "track," "set," and "save."
     approved: true
 
   - id: q-grammar-and-structure-parallelism-0014
     type: parallelism-correction
     difficulty: hard
     stem: |
-      Identify and fix the parallelism error: "The company will neither raise prices nor will it cut jobs."
+      Identify and fix the parallelism error: "The company will neither raise prices nor cutting jobs."
     choices:
-      - text: Will it cut jobs should match the plain verb-phrase form after "neither"; corrected, it should read "neither raise prices nor cut jobs."
+      - text: Cutting should match "raise"; corrected, it should read "The company will neither raise prices nor cut jobs."
         correct: true
       - text: There is no error in this sentence.
         rationale: |
-          You assumed the sentence was fine, but following "nor" with a full question clause breaks the verb phrase structure set by "neither."
+          "Raise" is a base verb after "will," while "cutting" is not parallel with it.
       - text: Raise should be changed to "raising."
         rationale: |
-          You changed "raise" to a gerund, but "will" requires a base verb. The actual issue is the unnecessary clause after "nor."
+          The modal "will" calls for a base verb, so "will raising" would be ungrammatical.
       - text: The sentence needs a comma before "nor."
         rationale: |
-          You looked for a punctuation fix, but a comma does not correct the mismatch between a verb phrase and a full clause.
+          Punctuation does not repair the mismatched verb forms.
     explanation: |
-      After "neither," the sentence uses the plain verb phrase "raise prices." After "nor," it should match with just "cut jobs," not a full repeated clause with "will it."
+      After the shared modal "will," "neither...nor" coordinates two base verb phrases: "raise prices" and "cut jobs."
     approved: true
 
   - id: q-grammar-and-structure-parallelism-0015
@@ -308,13 +308,13 @@ questions:
         correct: true
       - text: There are no parallelism errors in this sentence.
         rationale: |
-          You missed both errors: the correlative pair mismatches structures, and the final list switches to a full clause.
-      - text: Only the correlative conjunction ("not only...but also") has an error; the list is fine as written.
+          The correlative pair and the final list both contain structural mismatches.
+      - text: Only the correlative conjunction has an error; the final list is fine.
         rationale: |
-          You spotted the error in the correlative pair but missed the broken list at the end ("how to manage a team").
-      - text: Only the list ("budgeting, marketing, and how to manage a team") has an error; the correlative conjunction is fine as written.
+          The final list also switches from noun-like topics to a full "how to" clause.
+      - text: Only the final list has an error; the correlative conjunction is fine.
         rationale: |
-          You identified the list error but missed the mismatched forms in the "not only... but also" structure.
+          The "not only...but also" pair also mismatches "how to negotiate" with "improving."
     explanation: |
-      Two errors are hidden here: the correlative pair mismatches "how to negotiate" with "improving" (should both be "how to..."), and the list mismatches "budgeting" and "marketing" (noun phrases) with "how to manage a team" (should be "team management").
+      The repair makes both structures parallel: "how to negotiate / how to improve" and "budgeting / marketing / team management."
     approved: true
