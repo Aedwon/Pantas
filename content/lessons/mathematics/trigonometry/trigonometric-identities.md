@@ -9,29 +9,31 @@ isActive: true
 ---
 ## Core Concept
 
-An **identity** is an equation that is true for every allowed angle. Identities let you rewrite ugly trigonometric expressions into simple ones, often a single function or just the number $1$.
+An **identity** is an equation that is true for every angle where both sides are defined. Identities let you rewrite trigonometric expressions into simpler equivalent forms on their shared domain.
 
 There are three families to master.
 
-**Reciprocal identities**: each function has a flip partner:
+**Reciprocal identities**: each function has a reciprocal partner wherever the denominator is nonzero:
 
 $$\csc \theta = \dfrac{1}{\sin \theta} \qquad \sec \theta = \dfrac{1}{\cos \theta} \qquad \cot \theta = \dfrac{1}{\tan \theta}$$
 
-**Quotient identities**: tangent and cotangent are built from sine and cosine:
+**Quotient identities**:
 
 $$\tan \theta = \dfrac{\sin \theta}{\cos \theta} \qquad \cot \theta = \dfrac{\cos \theta}{\sin \theta}$$
 
-**Pythagorean identities**: the star of the show:
+These are valid where the denominator on the right is nonzero.
+
+**Pythagorean identities**:
 
 $$\sin^2 \theta + \cos^2 \theta = 1$$
 
-Divide that equation by $\cos^2 \theta$ or by $\sin^2 \theta$ and you get its two brothers:
+Dividing that identity by $\cos^2 \theta$ or by $\sin^2 \theta$—where those quantities are nonzero—gives:
 
 $$1 + \tan^2 \theta = \sec^2 \theta \qquad 1 + \cot^2 \theta = \csc^2 \theta$$
 
-Why does $\sin^2 \theta + \cos^2 \theta = 1$? On the unit circle, the point is $(\cos \theta, \sin \theta)$ and its distance from the center is $1$. The identity is just the Pythagorean theorem wearing a trigonometry costume.
+Why does $\sin^2 \theta + \cos^2 \theta = 1$? On the unit circle, the point is $(\cos \theta, \sin \theta)$ and its distance from the center is $1$. The identity is the Pythagorean theorem applied to those coordinates.
 
-The main strategy for simplifying: convert everything to sines and cosines, then cancel. When you see $1 - \sin^2 \theta$, replace it with $\cos^2 \theta$ instantly (and $1 - \cos^2 \theta$ with $\sin^2 \theta$).
+A common simplification strategy is to convert functions to sine and cosine, apply identities, then cancel only factors that are nonzero on the original expression's domain. When you see $1 - \sin^2 \theta$, replace it with $\cos^2 \theta$; similarly, $1 - \cos^2 \theta = \sin^2 \theta$.
 
 ## Examples
 
@@ -57,7 +59,7 @@ $$\dfrac{9}{25} + \cos^2 \theta = 1$$
 
 $$\cos^2 \theta = \dfrac{16}{25}$$
 
-4. Take the square root. Since $\theta$ is acute (Quadrant I), cosine is positive.
+4. Thus $\cos \theta = \pm\dfrac{4}{5}$. Since $\theta$ is acute, cosine is positive.
 
 $$\cos \theta = \dfrac{4}{5}$$
 
@@ -66,39 +68,41 @@ $$\cos \theta = \dfrac{4}{5}$$
 Simplify: $\tan \theta \cdot \cos \theta$.
 
 **Solution:**
-Rewrite tangent as sine over cosine.
+The original expression contains $\tan \theta$, so it is defined only where $\cos \theta \neq 0$.
 
 1. Substitute the quotient identity.
 
 $$\dfrac{\sin \theta}{\cos \theta} \cdot \cos \theta$$
 
-2. Cancel the $\cos \theta$ on top and bottom.
+2. On the original domain, $\cos \theta \neq 0$, so the factor cancels.
 
 $$\sin \theta$$
 
-3. The whole expression is just $\sin \theta$. One substitution, one cancellation.
+3. Therefore $\tan \theta\cos \theta = \sin \theta$ **where the original expression is defined**. The simplified formula $\sin \theta$ by itself has a larger domain, so the original domain restriction should not be forgotten.
 
 ### #3: Simplifying with a Pythagorean Identity
 
 Simplify: $\dfrac{1 - \cos^2 \theta}{\cos^2 \theta}$.
 
 **Solution:**
-Spot the Pythagorean piece on top.
+The denominator requires $\cos \theta \neq 0$.
 
 1. Replace $1 - \cos^2 \theta$ with $\sin^2 \theta$.
 
 $$\dfrac{\sin^2 \theta}{\cos^2 \theta}$$
 
-2. Sine over cosine is tangent, so sine squared over cosine squared is tangent squared.
+2. Sine over cosine is tangent, so:
 
 $$\tan^2 \theta$$
+
+3. This equality holds where $\cos \theta \neq 0$, exactly the domain of the original expression.
 
 ### #4: Factoring Before Substituting
 
 Simplify: $\sec \theta - \sec \theta \sin^2 \theta$.
 
 **Solution:**
-Factor first, then use the identities.
+Because the original expression contains secant, it requires $\cos \theta \neq 0$.
 
 1. Factor out $\sec \theta$.
 
@@ -112,9 +116,11 @@ $$\sec \theta \cdot \cos^2 \theta$$
 
 $$\dfrac{\cos^2 \theta}{\cos \theta}$$
 
-4. Cancel one $\cos \theta$.
+4. Since $\cos \theta \neq 0$ on the original domain, cancel one factor.
 
 $$\cos \theta$$
+
+5. Thus the expression equals $\cos \theta$ wherever the original secant expression is defined.
 
 ### #5: Using the Tangent-Secant Identity
 
@@ -134,38 +140,52 @@ $$1 + 2^2 = \sec^2 \theta$$
 
 $$\sec^2 \theta = 5$$
 
-3. Take the positive square root (acute angle).
+3. Therefore $\sec \theta = \pm\sqrt{5}$. Since $\theta$ is acute, secant is positive.
 
 $$\sec \theta = \sqrt{5}$$
 
-4. Cosine is the reciprocal of secant. Rationalize the denominator.
+4. Cosine is the reciprocal of secant. Rationalize the denominator if desired.
 
 $$\cos \theta = \dfrac{1}{\sqrt{5}} = \dfrac{\sqrt{5}}{5}$$
 
 ## Speed Tricks & Shortcuts
 
-When an expression looks scary, run this two-step machine: convert every function to sines and cosines, then cancel and combine. Nearly every CET simplification collapses within three lines.
+When an expression looks complicated, try this sequence: convert functions to sines and cosines, apply a known identity, then simplify while keeping the original domain restrictions.
 
-Memorize the disguises of the main identity. Seeing any of these, substitute without thinking: $1 - \sin^2 \theta = \cos^2 \theta$, $\quad 1 - \cos^2 \theta = \sin^2 \theta$, $\quad \sec^2 \theta - 1 = \tan^2 \theta$, $\quad \csc^2 \theta - 1 = \cot^2 \theta$.
+Useful rearrangements of the Pythagorean identities include:
 
-On multiple-choice identity questions, you can also cheat honestly: plug a test angle like $30^\circ$ into the original expression and into each choice. Only the true identity matches for your test angle. This is slower but bulletproof when you blank out.
+$$1 - \sin^2 \theta = \cos^2 \theta$$
+
+$$1 - \cos^2 \theta = \sin^2 \theta$$
+
+$$\sec^2 \theta - 1 = \tan^2 \theta$$
+
+$$\csc^2 \theta - 1 = \cot^2 \theta$$
+
+For a multiple-choice identity check, substituting a convenient angle can sometimes eliminate wrong choices, but one matching test value does **not** prove an identity. Use algebra or the known identities for the final justification.
 
 ## Traps to Watch For
 
 ### #1: Different Angles, No Identity
 
-> $\sin^2 A + \cos^2 B = 1$ is false when $A$ and $B$ are different angles.
+> $\sin^2 A + \cos^2 B = 1$ is not generally true when $A$ and $B$ are different angles.
 
-The Pythagorean identity needs the same angle in both places. Test-makers write mixed-angle versions hoping you pattern-match too fast. Check the angle letters before you substitute.
+The Pythagorean identity uses the same angle in both terms. Check the angle labels before applying it.
 
 ### #2: Dropping the Sign at the Square Root
 
-> Taking a square root gives $\pm$; the quadrant picks the sign.
+> From $u^2=k$, taking the square root gives both signs when $k>0$; the angle's quadrant or range determines which sign is valid.
 
-From $\cos^2 \theta = \dfrac{16}{25}$, cosine is $+\dfrac{4}{5}$ or $-\dfrac{4}{5}$. If the problem says $\theta$ is in Quadrant II, cosine must be negative. Problems that name a quadrant are testing exactly this choice.
+For example, from $\cos^2 \theta = \dfrac{16}{25}$, cosine could initially be $+\dfrac{4}{5}$ or $-\dfrac{4}{5}$. If $\theta$ is in Quadrant II, cosine must be negative.
 
 ### #3: Misreading $\sin^2 \theta$
 
-> $\sin^2 \theta$ means $(\sin \theta)^2$: compute the sine first, then square.
+> $\sin^2 \theta$ means $(\sin \theta)^2$.
 
-It does not mean $\sin(\theta^2)$, and it is not the same as $\sin(2\theta)$ either. If $\sin \theta = \dfrac{3}{5}$, then $\sin^2 \theta = \dfrac{9}{25}$. Confusing these notations breaks every identity computation downstream.
+It does not mean $\sin(\theta^2)$ and is not the same as $\sin(2\theta)$. If $\sin \theta = \dfrac{3}{5}$, then $\sin^2 \theta = \dfrac{9}{25}$.
+
+### #4: Cancelling Away a Domain Restriction
+
+> Algebraic cancellation can make a formula look defined at more angles than the original expression.
+
+For example, $\tan\theta\cos\theta$ simplifies to $\sin\theta$, but the starting expression is still undefined when $\cos\theta=0$. Preserve the domain of the original problem when reporting an equivalent simplification.
