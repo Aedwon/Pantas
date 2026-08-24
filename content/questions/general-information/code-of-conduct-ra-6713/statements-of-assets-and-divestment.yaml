@@ -130,21 +130,21 @@ questions:
     type: single_choice
     difficulty: medium
     stem: |
-      SALN records become available for public inspection after how many working days from filing?
+      After how many working days from filing must a SALN be made available for copying or reproduction under Section 8(C)?
     choices:
       - text: 10 working days
         correct: true
       - text: 5 working days
         rationale: |
-          You selected 5 working days, which cuts the public processing window in half. Section 8 requires 10 working days after filing before public release.
+          You selected 5 working days, but Section 8(C) requires a filed SALN to be available for copying or reproduction after 10 working days.
       - text: 15 working days
         rationale: |
-          You picked 15 working days, which is the deadline for letter responses. SALN documents become available for public inspection after 10 working days.
+          You picked 15 working days, which is not the SALN copying deadline in Section 8(C). The statute specifies 10 working days.
       - text: 30 working days
         rationale: |
-          You chose 30 working days, which delays public access unnecessarily. Section 8 makes filed SALN records available to the public after 10 working days.
+          You chose 30 working days, but Section 8(C) makes the statement available for copying or reproduction after 10 working days.
     explanation: |
-      Section 8(C) specifies that SALN statements shall be made available for public inspection after 10 working days from filing.
+      Section 8(C) makes a filed SALN available for public inspection at reasonable hours and makes it available for copying or reproduction after 10 working days from filing. The 10-day period does not delay inspection itself.
 
   - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0008
     type: single_choice
