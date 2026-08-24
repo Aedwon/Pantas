@@ -1,7 +1,7 @@
 ---
 _id: "lesson-arithmetic-number-sense-divisibility-rules"
 title: "Divisibility Rules"
-summary: "Learn how to quickly check if a large number can be divided perfectly by a smaller number without doing long division."
+summary: "Learn how to quickly check whether an integer is divisible by another integer without doing full long division."
 subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 estimatedMinutes: 8
@@ -9,86 +9,70 @@ isActive: true
 ---
 ## Core Concept
 
-Divisibility means you can divide one number by another and get no remainder. The answer is a perfect whole number.
+An integer is **divisible** by a nonzero integer if the quotient is an integer, so there is no remainder.
 
-In college entrance exams, they will give you huge numbers. Doing long division by hand takes too much time. Time is your biggest enemy on these tests.
-
-Divisibility rules are mathematical shortcuts. Instead of dividing, you just look at the digits or add them up. This lets you find the answer in seconds.
+Divisibility rules let you test many numbers by examining only some digits or by combining their digits in a specific way.
 
 ## Mnemonics & Memory Aids
-
-Memorize these rules to save time on the exam. We group them by how they work.
 
 ### Group $2, 4, 8$
 
 > "For $2, 4,$ and $8$, just look at the gate."
 
-The "gate" means the last digits of the number. You only check the end.
+The "gate" means the last digits of the number.
 
-* **Rule for $2$:** Check the last $1$ digit. It must be even ($0, 2, 4, 6, 8$).
-* **Rule for $4$:** Check the last $2$ digits. They must form a number divisible by $4$ (like $12, 24,$ or $00$).
-* **Rule for $8$:** Check the last $3$ digits. They must form a number divisible by $8$ (like $016$ or $800$).
+* **Rule for $2$:** The last digit must be even ($0, 2, 4, 6, 8$).
+* **Rule for $4$:** The number formed by the last $2$ digits must be divisible by $4$.
+* **Rule for $8$:** The number formed by the last $3$ digits must be divisible by $8$.
 
 ### Group $3, 9$
 
 > "For $3$ and $9$, sum the line."
 
-You must add all the digits together.
-
-* **Rule for $3$:** If the sum of the digits is divisible by $3$, the whole number is.
-* **Rule for $9$:** If the sum of the digits is divisible by $9$, the whole number is.
+* **Rule for $3$:** If the sum of the digits is divisible by $3$, the whole number is divisible by $3$.
+* **Rule for $9$:** If the sum of the digits is divisible by $9$, the whole number is divisible by $9$.
 
 ### Group $5, 10$
 
-Look at the very last digit.
-
 * **Rule for $5$:** The last digit must be $5$ or $0$.
-* **Rule for $10$:** The last digit must be exactly $0$.
+* **Rule for $10$:** The last digit must be $0$.
 
 ### For Number $6$
 
-> "Two and three hold the key."
-
-If a number fails the test for 2 or fails the test for 3, it instantly fails for 6. Both keys must turn to open the lock.
+A number is divisible by $6$ when it is divisible by both $2$ and $3$.
 
 ### For Number $7$
 
-Chop off the last digit. Double it. Subtract it from the rest of the number.
+Remove the last digit, double that digit, and subtract the doubled value from the remaining leading digits. The original number is divisible by $7$ exactly when the result is divisible by $7$. You can repeat the process until the result is easy to recognize.
 
-### For number $11$
+For example, for $203$: remove $3$, double it to get $6$, and compute $20 - 6 = 14$. Since $14$ is divisible by $7$, so is $203$.
 
-This is the most common trick on the DOST and UPCAT exams.
+### For Number $11$
 
-* **Rule for $11$:** Add every alternating digit. Add the remaining digits. Subtract your two totals. If the answer is $0$ or a multiple of $11$, the number is divisible by $11$.
+Add the digits in alternating positions into two groups, then subtract the two totals. If the difference is $0$ or a multiple of $11$, the original number is divisible by $11$.
 
 ## Examples
 
 ### #1: Finding a Missing Digit
 
-If the five-digit number $57,x81$ is completely divisible by $9$, what is the value of the digit $x$?
+If the five-digit number $57x81$ is divisible by $9$, what is the value of the digit $x$?
 
 **Solution:**
 
-1. Use the rule for $9$. Add all the digits together.
+1. Use the rule for $9$. Add the digits.
 
-$$5 + 7 + x + 8 + 1$$
+$$5 + 7 + x + 8 + 1 = 21 + x$$
 
+2. Since $x$ is a digit from $0$ to $9$, $21+x$ ranges from $21$ to $30$.
+3. The only multiple of $9$ in that range is $27$.
 
-$$21 + x$$
+$$21 + x = 27$$
 
-
-2. Think of the multiples of $9$. The multiples are $9, 18, 27, 36,$ and so on.
-3. Our sum is already $21$. The next multiple of $9$ is $27$.
-4. Find what you need to add to $21$ to get $27$.
-
-$$21 + 6 = 27$$
-
-
-5. The digit $x$ must be $6$.
+$$x = 6$$
 
 ### #2: Composite Divisibility
 
-A shipping company packs exactly $6$ books per box. Which of the following total inventory counts indicates that there are no unboxed books remaining?
+A shipping company packs exactly $6$ books per box. Which inventory count can be packed with no books left over?
 
 * A) $24,532$
 * B) $24,534$
@@ -97,120 +81,86 @@ A shipping company packs exactly $6$ books per box. Which of the following total
 
 **Solution:**
 
-1. The problem asks which number is divisible by $6$.
-2. The rule for $6$ is a combo. The number must pass the rule for $2$ and the rule for $3$.
-3. Check the rule for $2$. All choices end in an even number. They all pass.
-4. Check the rule for $3$. Add the digits of each choice.
+1. A number divisible by $6$ must be divisible by both $2$ and $3$.
+2. All four choices are even, so all pass the rule for $2$.
+3. Check the digit sums for divisibility by $3$.
 
-* A) $2 + 4 + 5 + 3 + 2 = 16$ (Not divisible by 3)
-* B) $2 + 4 + 5 + 3 + 4 = 18$ (Divisible by 3)
-* C) $2 + 4 + 5 + 3 + 6 = 20$ (Not divisible by 3)
-* D) $2 + 4 + 5 + 3 + 8 = 22$ (Not divisible by 3)
+* A) $2 + 4 + 5 + 3 + 2 = 16$
+* B) $2 + 4 + 5 + 3 + 4 = 18$
+* C) $2 + 4 + 5 + 3 + 6 = 20$
+* D) $2 + 4 + 5 + 3 + 8 = 22$
 
-5. Only option B passes both rules. The answer is B.
+4. Only $18$ is divisible by $3$, so the answer is B.
 
 ### #3: Rule of $11$ Edge Case
 
-The six-digit number $3a42b1$ is exactly divisible by $11$. If $a = 5$, what is the value of $b$?
+The six-digit number $3a42b1$ is divisible by $11$. If $a = 5$, what is the value of $b$?
 
 **Solution:**
 
-1. First, plug in the value of $a$. The number becomes $3542b1$.
-2. Use the "Jumper" rule for $11$. Group the alternating digits.
-3. Group $1$ gets the 1st, 3rd, and 5th digits from the left.
+1. Substitute $a=5$. The number is $3542b1$.
+2. Add alternating digits.
 
 $$3 + 4 + b = 7 + b$$
 
-
-4. Group $2$ gets the 2nd, 4th, and 6th digits from the left.
-
 $$5 + 2 + 1 = 8$$
 
+3. Their difference is:
 
-5. Subtract the two totals.
+$$(7+b)-8=b-1$$
 
-$$(7 + b) - 8$$
+4. Because $b$ is a digit, $b-1$ ranges from $-1$ to $8$. The only multiple of $11$ in that range is $0$.
 
+$$b-1=0$$
 
-$$b - 1$$
+$$b=1$$
 
+### #4: Combining Divisibility Tests
 
-6. For a number to be divisible by $11$, this final answer must be $0$ or a multiple of $11$.
-7. Make the equation equal to 0 and solve.
-
-$$b - 1 = 0$$
-
-
-$$b = 1$$
-
-
-
-### #4: Two-Variable Trap
-
-The five-digit number $5X34Y$ is a multiple of $72$. Find the value of $X + Y$.
+The five-digit number $5X34Y$ is a multiple of $72$. Find $X + Y$.
 
 **Solution:**
 
-1. This is a classic UPCAT question. There is no standard rule for $72$. You must split it into two rules.
-2. We split $72$ into $8 \times 9$. The number must be divisible by both $8$ and $9$.
-3. Always start with the rule that looks at the tail. Use the rule for $8$ on the last three digits ($34Y$).
-4. Test digits for $Y$ until $34Y$ divides perfectly by $8$.
-
-$$340 \div 8 = 42.5$$
-
-
-$$344 \div 8 = 43$$
-
-
-5. The digit $Y$ must be $4$. Our number is now $5X344$.
-6. Now use the rule for $9$. Add all the digits.
+1. Since $72 = 8 \times 9$ and $8$ and $9$ are relatively prime, the number must be divisible by both $8$ and $9$.
+2. Use the rule for $8$ on the last three digits, $34Y$. Among the possible ending digits, $344$ is divisible by $8$, so $Y=4$.
+3. The number is now $5X344$. Apply the rule for $9$:
 
 $$5 + X + 3 + 4 + 4 = 16 + X$$
 
-
-7. The next multiple of $9$ after $16$ is $18$.
+4. The only multiple of $9$ from $16$ through $25$ is $18$.
 
 $$16 + X = 18$$
 
-
 $$X = 2$$
 
+5. Therefore:
 
-8. The problem asks for the value of $X + Y$.
-
-$$2 + 4 = 6$$
-
-
+$$X+Y=2+4=6$$
 
 ## Speed Tricks & Shortcuts
 
 **Cast Out Nines.**
-When checking the rule for $3$ or $9$, you do not have to add every single digit. You can just cross out any $9$s you see. You can also cross out any groups of digits that add up to $9$.
+When checking divisibility by $3$ or $9$, you can ignore any group of digits whose sum is a multiple of $9$ because removing such a group does not change the digit sum modulo $9$.
 
-If you have the number $945,712$:
-Cross out the $9$. Cross out $4$ and $5$ (they equal $9$). Cross out $7$ and $2$ (they equal $9$). You are only left with $1$. Since $1$ is not divisible by $3$ or $9$, the whole number is not.
+For $945,712$, remove $9$, then $4+5$, then $7+2$. Only $1$ remains, so the original digit sum is congruent to $1$ modulo $9$ and the number is divisible by neither $3$ nor $9$.
 
-**The Co-Prime Split.**
-When you need to find the divisibility rule for a large number, split it into two smaller factors. These two factors must be **co-prime**. Co-prime means the two numbers share no common factors except the number $1$.
-
-If you want the rule for $36$, split it into $4$ and $9$. Do not split it into $6$ and $6$. They share the factor $2$.
+**Relatively Prime Split.**
+If $a$ and $b$ are relatively prime, then an integer is divisible by $ab$ exactly when it is divisible by both $a$ and $b$. For example, to test divisibility by $36$, test divisibility by $4$ and $9$.
 
 ## Traps to Watch For
 
-### #1: Splitting large numbers wrong
+### #1: Splitting a composite divisor incorrectly
 
-> Never split a big rule into two numbers that share a factor.
+Testing divisibility by two factors that share a common factor may not be enough to prove divisibility by their product. For example, divisibility by both $4$ and $6$ does not by itself guarantee divisibility by $24$. Testing $3$ and $8$ works because they are relatively prime and $3 \times 8 = 24$.
 
-If a test asks if a number is divisible by $24$, students often test the rules for $4$ and $6$. This is a trap. Both $4$ and $6$ can be divided by $2$. You must test the rules for $3$ and $8$ instead.
+### #2: Forgetting the zero exception
 
-### #2: Forgetting zero
+> Every nonzero integer divides $0$, but division by $0$ is undefined.
 
-> Zero is divisible by every number.
+For the rule of $11$, a difference of $0$ passes the test because $0$ is a multiple of $11$.
 
-If you subtract the alternating sums for the Rule of $11$ and get $0$, the number is divisible. Do not think it must exactly equal $11$. $0$ is a multiple of $11$.
+### #3: Rule of $4$ addition mistake
 
-### #3: Rule of 4 addition mistake
+> Do not add the last two digits for the rule of $4$.
 
-> Do not just add the last two digits for the Rule of $4$.
-
-For the rule of $3$, you add digits. For the rule of $4$, you do not. For the number $5,116$, do not add $1 + 6 = 7$. Just look at the whole number $16$. Since $16$ divides by $4$, the big number passes.
+For $5,116$, look at $16$. Since $16$ is divisible by $4$, so is $5,116$.
