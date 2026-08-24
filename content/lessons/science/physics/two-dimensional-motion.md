@@ -1,7 +1,7 @@
 ---
 _id: "lesson-physics-two-dimensional-motion"
 title: "Two-Dimensional Motion (Projectile Motion, Uniform Circular Motion)"
-summary: "How to analyze projectile motion by splitting it into horizontal and vertical parts, and the basics of circular motion."
+summary: "How ideal projectile motion separates into horizontal and vertical components and how inward acceleration maintains uniform circular motion."
 subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 12
@@ -9,138 +9,129 @@ isActive: true
 ---
 ## Core Concept
 
-### Projectile Motion
+### Ideal Projectile Motion
 
-A **projectile** is any object launched into the air and then moving under gravity alone (ignoring air resistance), like a thrown ball or a launched cannonball. The key insight: horizontal and vertical motion happen independently of each other, and can be analyzed separately.
+A **projectile** in the standard introductory model moves after launch under gravity alone, neglecting air resistance and treating $g$ as uniform over the motion.
 
-**Horizontally**: No acceleration acts (ignoring air resistance), so horizontal velocity stays constant throughout the flight.
+Choose $x$ horizontal and $y$ upward. Then
 
-$$x = v_x t$$
+$$a_x=0,\qquad a_y=-g.$$
 
-**Vertically**: gravity acts exactly like free fall, constantly accelerating the projectile downward at $g \approx 9.8 \text{ m/s}^2$.
+The two component equations can be solved separately because gravity has no horizontal component in this model, although the two motions share the **same time variable**.
 
-$$v_y = v_{y0} - gt \qquad y = v_{y0}t - \dfrac{1}{2}gt^2$$
+For launch from $(x_0,y_0)$ with components $v_{x0},v_{y0}$:
 
-<!-- FIGURE: {"kind": "coordinate-graph", "type": "projectile-motion", "path": "parabola", "velocityVectors": true, "semanticsLabel": "A parabolic projectile path showing constant horizontal velocity arrows and vertical velocity shrinking at the peak."} -->
+$$x=x_0+v_{x0}t$$
 
-For a projectile launched at an angle $\theta$ with initial speed $v_0$, split the initial velocity into components first:
+$$y=y_0+v_{y0}t-\frac12gt^2$$
 
-$$v_{x0} = v_0 \cos\theta \qquad v_{y0} = v_0 \sin\theta$$
+$$v_x=v_{x0},\qquad v_y=v_{y0}-gt.$$
 
-The horizontal component stays constant the whole flight; only the vertical component changes due to gravity. At the very top of the projectile's path, the vertical velocity is momentarily zero (though the horizontal velocity is still moving).
+If the initial speed $v_0$ makes angle $\theta$ above the positive horizontal,
+
+$$v_{x0}=v_0\cos\theta,\qquad v_{y0}=v_0\sin\theta.$$
+
+Under these assumptions, eliminating $t$ gives a **parabolic** trajectory. With air resistance, variable gravity, strong winds, or very long ranges, the path need not be a parabola.
+
+At the highest point of an ordinary upward-then-downward projectile trajectory, $v_y=0$ momentarily. The total velocity is zero there **only** if the horizontal component is also zero.
 
 ### Uniform Circular Motion
 
-An object moving in a circle at constant speed undergoes **uniform circular motion**. Even though its speed never changes, its velocity is constantly changing, because velocity is a vector and the direction keeps changing as the object curves around the circle.
+An object moving around a circle of radius $r$ at constant speed $v$ has changing velocity direction and therefore an inward acceleration:
 
-This constantly changing direction means the object is accelerating, even at constant speed. This acceleration points toward the center of the circle (called **centripetal acceleration**), which is why an unbalanced force (called **centripetal force**) must also point toward the center to keep the object moving in a circle rather than flying off in a straight line.
+$$a_c=\frac{v^2}{r}=\omega^2r.$$
+
+The required **net radial force** is
+
+$$F_{\text{net,radial}}=ma_c=m\frac{v^2}{r}.$$
+
+"Centripetal force" is not a new extra force added to gravity, tension, friction, or the normal force. It is the name for the **net inward component of the real forces** that produces centripetal acceleration.
+
+For a satellite in an ideal circular orbit, gravity itself supplies the required inward net force.
 
 ## Examples
 
 ### #1: Horizontal Launch
 
-A ball rolls off a table with a horizontal velocity of $3 \text{ m/s}$ and takes $0.5$ seconds to hit the floor. Find the horizontal distance it travels, and the height of the table (use $g = 9.8 \text{ m/s}^2$).
+A ball leaves a horizontal table at $3\,\mathrm{m/s}$ and reaches the floor after $0.50$ s. Neglect air resistance.
 
-<!-- FIGURE: {"kind": "coordinate-graph", "type": "horizontal-projectile", "initialVelocity": "3 m/s", "labels": {"height": "?", "distance": "?"}, "semanticsLabel": "A ball rolling off a table at 3 m/s following a curved path to the floor with height and distance marked with question marks."} -->
+Horizontal displacement:
 
+$$\Delta x=v_xt=(3)(0.50)=1.5\,\mathrm m.$$
 
-**Solution:**
-Handle horizontal and vertical motion completely separately.
+Its initial vertical velocity is zero. The vertical drop magnitude is
 
-1. Horizontal distance (constant velocity, no horizontal acceleration).
+$$\Delta y_{\text{down}}=\frac12gt^2=\frac12(9.8)(0.50)^2=1.225\,\mathrm m.$$
 
-$$x = v_x t = (3)(0.5) = 1.5 \text{ m}$$
+So the table height is about $1.23$ m.
 
-2. Vertical distance (starts with $v_{y0} = 0$, since the ball rolls off horizontally).
+### #2: Launch Components
 
-$$y = \dfrac{1}{2}gt^2 = \dfrac{1}{2}(9.8)(0.5)^2$$
+A projectile is launched at $20\,\mathrm{m/s}$, $30^\circ$ above horizontal.
 
-3. Compute: $(0.5)^2 = 0.25$, so $\dfrac{1}{2}(9.8)(0.25) = 1.225$.
+$$v_{x0}=20\cos30^\circ=10\sqrt3\approx17.3\,\mathrm{m/s}$$
 
-$$y = 1.225 \text{ m}$$
+$$v_{y0}=20\sin30^\circ=10\,\mathrm{m/s}.$$
 
-4. The ball travels $1.5 \text{ m}$ horizontally, and the table is $1.225 \text{ m}$ tall.
+### #3: Time to the Highest Point
 
-### #2: Launched at an Angle
+Using $v_{y0}=10\,\mathrm{m/s}$ and upward as positive:
 
-A projectile is launched at $20 \text{ m/s}$ at an angle of $30°$ above the horizontal. Find its initial horizontal and vertical velocity components.
+$$0=v_{y0}-gt=10-9.8t$$
 
-<!-- FIGURE: {"kind": "concept-diagram", "type": "vector-components", "magnitude": 20, "angle": 30, "unit": "m/s", "components": {"horizontal": "20 cos 30°", "vertical": "20 sin 30°"}, "semanticsLabel": "A 20 m/s launch velocity vector at 30 degrees resolved into horizontal and vertical components as a right triangle."} -->
+$$t=\frac{10}{9.8}\approx1.02\,\mathrm s.$$
 
+This is time to the top, not automatically half the total flight time unless launch and landing heights are equal in the same ideal model.
 
-**Solution:**
-Split the launch velocity into components using the angle.
+### #4: Circular Orbit
 
-1. Horizontal component.
-
-$$v_{x0} = 20 \cos 30° = 20 \times \dfrac{\sqrt{3}}{2} = 10\sqrt{3} \text{ m/s} \approx 17.3 \text{ m/s}$$
-
-2. Vertical component.
-
-$$v_{y0} = 20 \sin 30° = 20 \times \dfrac{1}{2} = 10 \text{ m/s}$$
-
-### #3: Time to Reach Maximum Height
-
-Using the projectile from Example 2 (initial vertical velocity $10 \text{ m/s}$), find how long it takes to reach its highest point. (Use $g = 9.8 \text{ m/s}^2$.)
+A satellite follows a circular orbit at constant speed. Why is it accelerating?
 
 **Solution:**
-At maximum height, the vertical velocity is momentarily zero.
 
-1. Set $v_y = 0$ in the vertical velocity equation $v_y = v_{y0} - gt$.
+1. Velocity includes direction.
+2. The velocity direction changes continuously around the orbit.
+3. Therefore acceleration is nonzero and points inward.
+4. Gravity supplies the required centripetal acceleration/net radial force.
 
-$$0 = 10 - 9.8t$$
+### #5: What Supplies Centripetal Force?
 
-2. Solve for $t$.
-
-$$9.8t = 10$$
-
-$$t = \dfrac{10}{9.8} \approx 1.02 \text{ s}$$
-
-### #4: Uniform Circular Motion Concept
-
-A satellite moves at a constant speed in a perfectly circular orbit around Earth. Explain why the satellite is still considered to be accelerating, even though its speed never changes.
-
-<!-- FIGURE: {"kind": "concept-diagram", "type": "circular-orbit", "body": "Earth", "orbiting": "Satellite", "vectors": {"velocity": "Tangent velocity (v)", "acceleration": "Centripetal acceleration (ac)"}, "semanticsLabel": "A satellite in circular orbit around Earth with a tangent velocity arrow and an inward centripetal acceleration arrow."} -->
-
+A car turns on a level circular road without slipping. What force supplies the horizontal centripetal force?
 
 **Solution:**
-Recall the vector definition of velocity and acceleration.
 
-1. Velocity is a vector: it has both magnitude (speed) and direction.
-2. Even though the satellite's speed stays constant, its direction is constantly changing as it curves around the circular path.
-3. Since velocity is changing (due to the changing direction, even with constant speed), the satellite is accelerating.
-4. This acceleration points toward the center of the circular orbit (centripetal acceleration), which is why a centripetal force (in this case, gravity) must continuously act toward Earth's center to maintain the circular path.
+Static friction between the tires and road supplies the net inward horizontal force. There is no additional independent "centripetal-force force" acting on top of friction.
 
 ## Speed Tricks & Shortcuts
 
-For any projectile problem, immediately split it into two separate, simpler problems: a horizontal, constant-velocity problem, and a vertical, free-fall problem. Solve each independently, then combine results only at the very end if needed.
+For ideal projectile motion, split the **equations** into $x$ and $y$ components but keep the same $t$ in both.
 
-At a projectile's peak height, remember one fact instantly: vertical velocity equals zero (though horizontal velocity is unchanged and nonzero, assuming the launch had a horizontal component).
+At the peak: $v_y=0$; $a_y=-g$ is **not** zero.
 
-For circular motion, remember the phrase "constant speed, changing direction, means accelerating." This single idea resolves most conceptual circular motion questions without needing any calculation.
+For circular motion, first identify the center, then identify which actual forces have inward components. Their net radial component must equal $mv^2/r$.
 
 ## Traps to Watch For
 
-### #1: Applying Gravity to Horizontal Motion
+### #1: Saying Horizontal and Vertical Motion Have Different Times
 
-> Gravity affects only the vertical component of a projectile's motion: horizontal velocity stays constant throughout the flight (ignoring air resistance).
+> Component motions are analyzed separately but describe the same object at the same instants.
 
-A common mistake tries to apply the free-fall acceleration formula to the horizontal distance calculation. Horizontal motion has no acceleration in ideal projectile motion; only $x = v_x t$ applies there, never a $\dfrac{1}{2}at^2$ term.
+The common time variable links the two directions.
 
-### #2: Believing Circular Motion at Constant Speed Means No Acceleration
+### #2: Saying Acceleration Is Zero at a Projectile's Peak
 
-> Constant speed does not mean constant velocity, and only constant velocity (unchanging in both magnitude and direction) would mean zero acceleration.
+> Only the vertical velocity is momentarily zero.
 
-Students sometimes think "constant speed" automatically implies "no acceleration," forgetting that acceleration depends on velocity (a vector), and direction is constantly changing in circular motion, producing a real, nonzero (centripetal) acceleration.
+Gravity still provides downward acceleration $g$.
 
-### #3: Forgetting to Resolve the Launch Angle Before Using Kinematic Equations
+### #3: Treating Centripetal Force as a Separate Fundamental Force
 
-> Before applying any projectile equation, first split the initial velocity into its horizontal and vertical components using $\cos\theta$ and $\sin\theta$.
+> "Centripetal" describes the net inward force requirement.
 
-Plugging the full launch speed $v_0$ directly into the horizontal or vertical equations (without first finding $v_{x0}$ and $v_{y0}$ separately) produces an incorrect answer, since only the correct component belongs in each direction's equation.
+Gravity, tension, friction, normal force, or combinations can supply it.
 
-### #4: Mixing Up Which Trig Function Gives Which Component
+### #4: Calling Every Projectile Path a Perfect Parabola
 
-> When the launch angle is measured from the horizontal, cosine gives the horizontal component and sine gives the vertical component.
+> The parabolic result assumes uniform gravity and negligible drag in a flat local coordinate model.
 
-Reversing these (using sine for horizontal and cosine for vertical) swaps the two components, producing a projectile that behaves as though it were launched at a very different angle than intended. Always double-check which side of the angle each trig function corresponds to.
+Real trajectories can depart substantially from that approximation.
