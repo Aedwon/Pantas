@@ -19,15 +19,15 @@ questions:
         correct: true
       - text: "1, 2, 4, 3"
         rationale: |
-          You placed the conclusion word "Consequently" at the very beginning before establishing the budget problem.
+          "Consequently" cannot logically open before the problem and investigation are established.
       - text: "4, 2, 3, 1"
         rationale: |
-          You placed the action to conduct an audit before stating the problem of high energy costs that prompted it.
+          The audit is presented before the financial problem that prompted it.
       - text: "2, 1, 3, 4"
         rationale: |
-          You jumped to the council vote before mentioning the audit conducted to evaluate energy usage.
+          The council decision appears before the audit that motivates it.
     explanation: |
-      Sentence 2 introduces the problem. Sentence 4 describes the action to address it. Sentence 1 shows the decision using "Consequently." Sentence 3 provides the final outcome.
+      The paragraph moves from problem (2), to investigation (4), to decision (1), to outcome (3).
     approved: true
 
   - id: q-language-application-paragraph-organization-0002
@@ -45,15 +45,15 @@ questions:
         correct: true
       - text: "1, 2, 4, 3"
         rationale: |
-          You started with "Next" before introducing the initial collection step marked by "First."
+          "Next" appears before the step explicitly marked "First."
       - text: "2, 4, 1, 3"
         rationale: |
-          You placed the melting process before sorting and cleaning the raw materials.
+          Processing occurs before the sorting and cleaning that sentence 4 refers back to.
       - text: "3, 2, 1, 4"
         rationale: |
-          You placed the final step ("Finally") at the beginning of the sequence instead of the end.
+          "Finally" cannot logically begin the process.
     explanation: |
-      This paragraph follows a clear chronological sequence. Sentence 2 begins with "First," followed by "Next" in sentence 1, "After cleaning" in sentence 4, and "Finally" in sentence 3.
+      The transition cues give the chronological sequence: First (2), Next (1), After cleaning (4), Finally (3).
     approved: true
 
   - id: q-language-application-paragraph-organization-0003
@@ -71,15 +71,15 @@ questions:
         correct: true
       - text: "1, 2, 3, 4"
         rationale: |
-          You placed the specific example before introducing the general topic of artificial intelligence.
+          The example appears before the general topic it illustrates.
       - text: "2, 3, 1, 4"
         rationale: |
-          You placed the counter-point ("Nevertheless") before giving the example of AI capabilities.
+          "Nevertheless" introduces a counterpoint before the AI capability it contrasts with.
       - text: "3, 1, 2, 4"
         rationale: |
-          You opened the paragraph with "Nevertheless," which requires a preceding statement to contrast against.
+          The paragraph opens with a contrast marker that has nothing preceding it to contrast against.
     explanation: |
-      Sentence 2 provides the general topic. Sentence 1 illustrates with "For example." Sentence 3 presents a counter-point using "Nevertheless." Sentence 4 synthesizes using "As a result."
+      General claim (2), example (1), counterpoint (3), synthesis (4) gives the coherent progression.
     approved: true
 
   - id: q-language-application-paragraph-organization-0004
@@ -88,24 +88,24 @@ questions:
     stem: |
       Which of the following shows the most logical order for these sentences?
 
-      1. Among these structural innovations, carbon fiber composites have emerged as the most promising material.
+      1. Among these structural innovations, carbon fiber composites have emerged as a promising material.
       2. Modern aerospace engineering constantly seeks lightweight materials that do not compromise structural strength.
-      3. By reducing overall aircraft weight, these composite structures significantly lower fuel consumption.
-      4. Furthermore, their resistance to corrosion reduces long-term maintenance overhead for commercial airlines.
+      3. By reducing overall aircraft weight, these composite structures can lower fuel consumption.
+      4. Furthermore, their resistance to corrosion can reduce long-term maintenance needs.
     choices:
       - text: "2, 1, 3, 4"
         correct: true
       - text: "1, 2, 3, 4"
         rationale: |
-          You placed "Among these structural innovations" before establishing the general search for lightweight materials.
+          "Among these structural innovations" refers to a context that has not yet been introduced.
       - text: "2, 3, 1, 4"
         rationale: |
-          You described weight reduction benefits before introducing carbon fiber as the material being discussed.
+          "These composite structures" appears before carbon fiber composites are introduced.
       - text: "3, 1, 4, 2"
         rationale: |
-          You started with the specific benefits of weight reduction before introducing the aerospace background.
+          The paragraph begins with a benefit before identifying the material or engineering problem.
     explanation: |
-      Sentence 2 provides context. Sentence 1 narrows focus with "Among these structural innovations." Sentences 3 and 4 describe benefits using "By reducing" and "Furthermore."
+      Context (2), material (1), first benefit (3), additional benefit (4) is the coherent order.
     approved: true
 
   - id: q-language-application-paragraph-organization-0005
@@ -116,7 +116,7 @@ questions:
 
       1. They found that participants who engaged in regular aerobic activity exhibited greater neural connectivity.
       2. Neuroscientists conducted a five-year longitudinal study to examine the impact of exercise on cognitive decline.
-      3. These findings suggest that sustained physical fitness plays a crucial role in maintaining brain integrity in old age.
+      3. These findings suggest that sustained physical fitness may help maintain brain integrity in old age.
       4. Specifically, memory retention scores among active individuals were significantly higher than those of sedentary peers.
       5. The research team tracked over two thousand adults aged sixty and older throughout the testing period.
     choices:
@@ -124,15 +124,15 @@ questions:
         correct: true
       - text: "5, 2, 1, 3, 4"
         rationale: |
-          You introduced the participant pool before establishing the five-year study that recruited them.
+          The participant pool appears before the study that enrolled and tracked it.
       - text: "2, 1, 5, 4, 3"
         rationale: |
-          You reported study findings ("They found...") before introducing the group of participants studied.
+          A finding is reported before the participant group is introduced.
       - text: "1, 4, 2, 5, 3"
         rationale: |
-          You started with specific findings before introducing the research team or the longitudinal study.
+          The paragraph begins with findings before introducing the study.
     explanation: |
-      Sentence 2 introduces the study. Sentence 5 specifies participants. Sentence 1 reports the primary finding. Sentence 4 elaborates with "Specifically." Sentence 3 concludes with broader implications.
+      Study (2), participants (5), main result (1), specific result (4), interpretation (3) forms the logical research sequence.
     approved: true
 
   - id: q-language-application-paragraph-organization-0006
@@ -141,25 +141,25 @@ questions:
     stem: |
       Which of the following shows the most logical order for these sentences?
 
-      1. This thermal expansion, combined with melting ice sheets, drives global sea level rise.
-      2. As human activities release greenhouse gases, Earth's atmosphere traps increasing amounts of heat energy.
-      3. Coastal communities worldwide must therefore invest in resilient infrastructure to defend against future storm surges.
-      4. A major portion of this trapped energy is absorbed by oceans, causing seawater to warm and expand.
-      5. Consequently, low-lying coastal regions face an escalating risk of catastrophic flooding during severe weather events.
+      1. This thermal expansion, combined with melting land ice, contributes to global sea level rise.
+      2. As human activities release greenhouse gases, Earth's climate system retains additional heat energy.
+      3. Coastal communities must therefore account for rising sea levels and storm-surge risk in long-term infrastructure planning.
+      4. A major portion of the excess heat is absorbed by oceans, causing seawater to warm and expand.
+      5. Consequently, low-lying coastal regions face increasing flooding risk during severe weather events.
     choices:
       - text: "2, 4, 1, 5, 3"
         correct: true
       - text: "4, 2, 1, 3, 5"
         rationale: |
-          You placed heat absorption in oceans before explaining that greenhouse gases trap atmospheric heat.
+          Ocean heat uptake is presented before the excess heat is introduced.
       - text: "2, 1, 4, 5, 3"
         rationale: |
-          You mentioned thermal expansion before explaining that ocean heat absorption causes seawater to warm.
+          "This thermal expansion" appears before ocean warming and expansion are explained.
       - text: "1, 4, 2, 3, 5"
         rationale: |
-          You opened with "This thermal expansion" before introducing heat trapping and ocean warming.
+          The opening reference has no prior explanation of thermal expansion.
     explanation: |
-      Sentence 2 introduces the primary cause. Sentence 4 describes the effect on oceans. Sentence 1 connects thermal expansion to sea level rise. Sentence 5 presents consequences. Sentence 3 provides the practical implication.
+      Cause (2), ocean response (4), sea-level effect (1), risk (5), planning implication (3) gives a complete causal chain.
     approved: true
 
   - id: q-language-application-paragraph-organization-0007
@@ -170,22 +170,22 @@ questions:
 
       1. However, modern advancements in machine learning have transformed these traditional methods by automating pattern recognition.
       2. Early meteorologists relied primarily on basic barometric readings and visual cloud observations to predict weather.
-      3. As a result, forecasting accuracy for severe weather events has improved dramatically in recent years.
-      4. These automated systems process vast datasets from global satellite networks in real time.
+      3. As a result, forecasting systems can process more information than those earlier manual approaches.
+      4. These automated systems process large datasets from satellite and ground-observation networks.
     choices:
       - text: "2, 1, 4, 3"
         correct: true
       - text: "1, 2, 4, 3"
         rationale: |
-          You started with the contrast word "However" before establishing the historical meteorology baseline.
+          "However" appears before the historical baseline it contrasts with.
       - text: "2, 4, 1, 3"
         rationale: |
-          You introduced "These automated systems" before mentioning machine learning automation.
+          "These automated systems" appears before automation is introduced.
       - text: "4, 2, 1, 3"
         rationale: |
-          You referenced "These automated systems" in the first sentence before defining what they are.
+          The opening demonstrative has no antecedent.
     explanation: |
-      Sentence 2 establishes the historical baseline. Sentence 1 introduces a contrast with "However." Sentence 4 explains the new methods using "These automated systems." Sentence 3 concludes with results using "As a result."
+      Historical baseline (2), contrast/new method (1), explanation (4), result (3) is the coherent order.
     approved: true
 
   - id: q-language-application-paragraph-organization-0008
@@ -194,25 +194,25 @@ questions:
     stem: |
       Which of the following shows the most logical order for these sentences?
 
-      1. Skeptics originally argued that remote work would severely reduce employee collaboration and output.
-      2. Today, many corporations adopt hybrid operational frameworks that combine remote flexibility with scheduled office days.
-      3. Recent corporate productivity metrics, however, demonstrate that flexible work models often boost overall worker performance.
-      4. This positive trend is largely attributed to reduced commuting stress and improved work-life balance.
-      5. As a result of these empirical findings, corporate leaders are permanently rethinking traditional office requirements.
+      1. Some managers initially argued that remote work would reduce employee collaboration and output.
+      2. Today, many corporations use hybrid arrangements that combine remote flexibility with scheduled office days.
+      3. Later productivity reports from several organizations challenged that assumption by showing that flexible arrangements could maintain or improve output in some roles.
+      4. Those reports often cited reduced commuting time and greater schedule flexibility as possible contributing factors.
+      5. As a result of such findings, some corporate leaders reconsidered fully office-based requirements.
     choices:
       - text: "1, 3, 4, 5, 2"
         correct: true
       - text: "3, 1, 4, 2, 5"
         rationale: |
-          You placed the contrasting findings ("however") before introducing original skeptic beliefs.
+          The later evidence appears before the earlier assumption it challenges.
       - text: "1, 4, 3, 5, 2"
         rationale: |
-          You placed the explanation of positive trends before presenting the productivity metrics showing those trends.
+          "Those reports" appears before the reports are introduced.
       - text: "2, 1, 3, 4, 5"
         rationale: |
-          You described today's hybrid models before explaining the historical skepticism and research that caused them.
+          The current state is presented before the historical skepticism and evidence explaining the change.
     explanation: |
-      Sentence 1 introduces the historical skepticism. Sentence 3 presents contrasting evidence using "however." Sentence 4 explains why with "This positive trend." Sentence 5 shows the response using "As a result." Sentence 2 describes the current state.
+      Initial view (1), contrary evidence (3), explanation (4), response (5), current state (2) gives the clearest progression.
     approved: true
 
   - id: q-language-application-paragraph-organization-0009
@@ -230,15 +230,15 @@ questions:
         correct: true
       - text: "3, 1, 4, 2"
         rationale: |
-          You placed the editor's revision suggestions before establishing that the manuscript was submitted to an editor.
+          Editorial suggestions appear before the manuscript is submitted to the editor.
       - text: "1, 4, 3, 2"
         rationale: |
-          You had the author spend weeks revising before introducing the editor's suggestions that prompted the revisions.
+          Revision work appears before the feedback that prompted it.
       - text: "4, 3, 1, 2"
         rationale: |
-          You started with revision work before the manuscript was written or submitted.
+          The process begins with revision before drafting/submission and feedback.
     explanation: |
-      Sentence 1 initiates the process. Sentence 3 shows the editor's feedback. Sentence 4 describes revisions based on that feedback. Sentence 2 concludes with final publication.
+      Submission (1), feedback (3), revision (4), publication (2) follows the process chronologically.
     approved: true
 
   - id: q-language-application-paragraph-organization-0010
@@ -247,7 +247,7 @@ questions:
     stem: |
       Which of the following shows the most logical order for these sentences?
 
-      1. The chief executive officer emphasized that the two merging firms must revert back to their core operational principles.
+      1. The chief executive officer emphasized that the two merging firms must revert to their core operational principles.
       2. Integration challenges emerged immediately after the merger announcement.
       3. To resolve these conflicts, senior management appointed a task force to identify core values.
       4. The firms successfully realigned their operations within six months.
@@ -256,15 +256,15 @@ questions:
         correct: true
       - text: "1, 2, 3, 4"
         rationale: |
-          You placed the executive statement before introducing the integration challenges that prompted it.
+          The executive directive appears before the integration problem and response effort that motivate it.
       - text: "3, 2, 1, 4"
         rationale: |
-          You placed the appointment of a task force before describing the post-merger problems.
+          The task force appears before the conflicts it was appointed to resolve.
       - text: "2, 1, 4, 3"
         rationale: |
-          You placed the final realignment outcome before the task force and executive directives.
+          The outcome appears before the task-force step.
     explanation: |
-      Sentence 2 introduces the problem. Sentence 3 describes the solution effort. Sentence 1 states the executive emphasis. Sentence 4 provides the final outcome.
+      Problem (2), response effort (3), directive (1), outcome (4) is the intended causal sequence.
     approved: true
 
   - id: q-language-application-paragraph-organization-0011
@@ -273,24 +273,24 @@ questions:
     stem: |
       Which of the following shows the most logical order for these sentences?
 
-      1. Lithium-ion batteries have become indispensable for powering mobile electronics and electric vehicles.
-      2. Under extreme heat or mechanical damage, their liquid electrolytes can decompose rapidly.
-      3. This rapid degradation generates large volumes of toxic heat and gas, leading to runaway reactions.
-      4. To eliminate this danger, battery engineers are pioneering solid-state electrolytes that remain stable at high temperatures.
+      1. Lithium-ion batteries have become important for powering mobile electronics and electric vehicles.
+      2. Under extreme heat or mechanical damage, some battery cells can undergo rapid electrolyte decomposition and other exothermic reactions.
+      3. The resulting reactions can generate intense heat and gases, potentially accelerating thermal runaway.
+      4. To reduce this risk, battery engineers are developing solid-state electrolyte designs with different safety characteristics.
     choices:
       - text: "1, 2, 3, 4"
         correct: true
       - text: "4, 1, 2, 3"
         rationale: |
-          You placed the engineering solution at the beginning before explaining the thermal degradation issue.
+          The proposed mitigation appears before the risk it addresses.
       - text: "1, 3, 2, 4"
         rationale: |
-          You placed rapid degradation effects before identifying extreme heat as the triggering condition.
+          "The resulting reactions" appears before those reactions are introduced.
       - text: "2, 1, 3, 4"
         rationale: |
-          You started with electrolyte decomposition conditions before introducing lithium-ion batteries.
+          The failure condition appears before the battery topic is introduced.
     explanation: |
-      Sentence 1 introduces the topic. Sentence 2 identifies a vulnerability. Sentence 3 details the consequence. Sentence 4 presents the technological solution.
+      Topic (1), failure condition (2), consequence (3), engineering response (4) gives a clear progression.
     approved: true
 
   - id: q-language-application-paragraph-organization-0012
@@ -299,24 +299,24 @@ questions:
     stem: |
       Which of the following shows the most logical order for these sentences?
 
-      1. This research has demonstrated the value of independent analysis in environmental policy.
-      2. Scientists questioned whether government regulations adequately protected forest ecosystems.
-      3. A three-year study tracked forest health metrics across multiple geographic regions.
-      4. The findings revealed that current regulations fell short of protecting biodiversity in several key areas.
+      1. This research demonstrated the value of independent analysis in environmental policy.
+      2. Scientists questioned whether a set of government regulations adequately protected forest ecosystems.
+      3. A three-year study tracked forest-health metrics across multiple geographic regions.
+      4. The study found that several monitored biodiversity indicators remained under pressure in areas covered by the regulations.
     choices:
       - text: "2, 3, 4, 1"
         correct: true
       - text: "3, 2, 4, 1"
         rationale: |
-          You described the three-year study before introducing the scientists' initial questions that led to it.
+          The investigation appears before the question that motivated it.
       - text: "2, 4, 3, 1"
         rationale: |
-          You presented the study findings before describing the study that produced them.
+          Findings appear before the study that produced them.
       - text: "4, 2, 3, 1"
         rationale: |
-          You started with research findings before introducing the research topic or study.
+          The paragraph opens with findings before the research question and method.
     explanation: |
-      Sentence 2 raises the initial question. Sentence 3 describes the investigation. Sentence 4 presents the findings. Sentence 1 concludes with the broader significance.
+      Question (2), investigation (3), findings (4), broader significance (1) is the logical research sequence.
     approved: true
 
   - id: q-language-application-paragraph-organization-0013
@@ -325,25 +325,25 @@ questions:
     stem: |
       Which of the following shows the most logical order for these sentences?
 
-      1. Geothermal energy originates from the decay of radioactive isotopes deep within Earth's mantle.
-      2. Heat generated by this decay slowly conducts upward toward the planet's crust.
-      3. Over billions of years, this continuous internal engine creates volcanic eruptions and tectonic movement.
-      4. Harnessing this thermal energy allows modern power plants to produce clean electricity without burning fossil fuels.
-      5. As a result, geothermal power offers a reliable, low-emission alternative for national energy grids.
+      1. Geothermal energy draws on heat stored within Earth, including primordial heat from the planet's formation and heat generated by radioactive decay.
+      2. Some of this internal heat is transferred toward the crust, where it can warm underground rock and fluids.
+      3. In geologically suitable areas, hot fluids or rock can provide an accessible geothermal resource.
+      4. Power plants can harness suitable geothermal resources to generate electricity without directly burning fossil fuels for the heat source.
+      5. As a result, geothermal power can provide a comparatively low-emission source of electricity where appropriate resources are available.
     choices:
       - text: "1, 2, 3, 4, 5"
         correct: true
       - text: "2, 1, 3, 4, 5"
         rationale: |
-          You described upward heat conduction before introducing radioactive decay as the heat source.
+          "This internal heat" is explained only after its transfer is described.
       - text: "1, 3, 2, 4, 5"
         rationale: |
-          You jumped to long-term geological effects before explaining upward heat transfer through the crust.
+          The accessible resource is introduced before the heat transfer that creates the stated conditions.
       - text: "3, 1, 2, 4, 5"
         rationale: |
-          You started with "this continuous internal engine" before explaining mantle decay.
+          The paragraph begins with a resource before explaining its underlying heat source.
     explanation: |
-      Sentence 1 defines the origin. Sentence 2 tracks upward heat movement. Sentence 3 describes geological effects. Sentence 4 pivots to human utilization. Sentence 5 provides the conclusion.
+      Source (1), transfer (2), accessible resource (3), use (4), implication (5) forms the coherent progression.
     approved: true
 
   - id: q-language-application-paragraph-organization-0014
@@ -352,24 +352,24 @@ questions:
     stem: |
       Which of the following shows the most logical order for these sentences?
 
-      1. Centuries of urban industrialization contaminated the soil with heavy metals.
-      2. Environmental engineers used phytoremediation techniques to clean the contaminated site.
-      3. A former factory site in the Midwest was targeted for urban renewal.
-      4. Today, the restored land supports a thriving public park and community garden.
+      1. Decades of industrial activity contaminated the soil with heavy metals.
+      2. Environmental engineers used phytoremediation techniques as part of the cleanup of the contaminated site.
+      3. A former factory site was targeted for urban renewal.
+      4. After remediation and redevelopment, the land reopened as a public park and community garden.
     choices:
       - text: "3, 1, 2, 4"
         correct: true
       - text: "1, 3, 2, 4"
         rationale: |
-          You described soil contamination history before introducing the specific factory site being targeted.
+          The contamination history appears before the specific site is introduced.
       - text: "3, 2, 1, 4"
         rationale: |
-          You placed phytoremediation cleanup before explaining what contamination needed cleaning.
+          Cleanup appears before the contamination that required it.
       - text: "1, 2, 3, 4"
         rationale: |
-          You described industrial pollution before identifying the site targeted for urban renewal.
+          The site itself is introduced only after its problem and cleanup.
     explanation: |
-      Sentence 3 introduces the site. Sentence 1 describes the problem. Sentence 2 outlines the solution. Sentence 4 provides the positive outcome.
+      Site (3), problem (1), cleanup (2), outcome (4) gives the clearest sequence.
     approved: true
 
   - id: q-language-application-paragraph-organization-0015
@@ -380,21 +380,21 @@ questions:
 
       1. Digital payment systems have introduced security risks that require constant technological vigilance.
       2. Financial institutions worldwide have transitioned from paper-based to electronic transaction systems.
-      3. Consumer privacy concerns have intensified as hackers develop increasingly sophisticated attack methods.
-      4. Banking regulators are therefore mandating stricter encryption standards and multi-factor authentication protocols.
-      5. These regulatory measures represent a critical balance between facilitating innovation and protecting customers.
+      3. Consumer privacy concerns have intensified as attackers develop increasingly sophisticated methods.
+      4. Banking regulators have therefore introduced requirements such as stronger authentication and security controls.
+      5. These regulatory measures illustrate the effort to balance financial innovation with customer protection.
     choices:
       - text: "2, 1, 3, 4, 5"
         correct: true
       - text: "1, 2, 3, 4, 5"
         rationale: |
-          You started with digital payment risks before introducing the global transition to electronic systems.
+          The risks appear before the transition to the systems that created the context for them.
       - text: "2, 3, 1, 4, 5"
         rationale: |
-          You placed privacy concerns before introducing security risks associated with digital payments.
+          The specific privacy concern appears before the broader security-risk statement it develops.
       - text: "3, 2, 1, 5, 4"
         rationale: |
-          You opened with privacy concerns before introducing electronic transaction systems.
+          The paragraph opens with a consequence before introducing digital transactions, and the conclusion appears before the regulatory response.
     explanation: |
-      Sentence 2 introduces the transition to digital systems. Sentence 1 identifies security risks. Sentence 3 adds privacy concerns. Sentence 4 describes regulatory response. Sentence 5 reflects on the balance achieved.
+      Transition (2), risks (1), specific concern (3), response (4), conclusion (5) is the logical progression.
     approved: true
