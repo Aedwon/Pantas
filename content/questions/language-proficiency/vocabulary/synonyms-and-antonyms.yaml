@@ -8,63 +8,63 @@ questions:
     type: synonym
     difficulty: easy
     stem: |
-      Choose the word that is most similar in meaning to the word "ephemeral."
+      Choose the word most similar in meaning to "ephemeral."
     choices:
       - text: Fleeting
         correct: true
       - text: Eternal
         rationale: |
-          You picked "eternal," which is an antonym of ephemeral (lasting forever rather than a short time).
+          "Eternal" is nearly the opposite: lasting forever.
       - text: Glowing
         rationale: |
-          You picked "glowing," which describes brightness or light rather than short duration.
+          "Glowing" concerns brightness, not duration.
       - text: Rigid
         rationale: |
-          You picked "rigid," which means stiff or inflexible, which is unrelated to time or duration.
+          "Rigid" means stiff or inflexible, not short-lived.
     explanation: |
-      "Ephemeral" means lasting for a very short time. "Fleeting" means passing quickly, matching this meaning. "Eternal" means the opposite (lasting forever), "glowing" means shining brightly, and "rigid" means stiff or hard.
+      "Ephemeral" means lasting for a very short time; "fleeting" is the closest synonym.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0002
     type: antonym
     difficulty: easy
     stem: |
-      Select the word that is most nearly opposite in meaning to the word "mitigate."
+      Select the word most nearly opposite in meaning to "mitigate."
     choices:
       - text: Aggravate
         correct: true
       - text: Alleviate
         rationale: |
-          You picked "alleviate," which is a synonym of mitigate (to lessen severity), whereas the question asks for an antonym.
+          "Alleviate" is a close synonym of "mitigate": both can mean lessen severity.
       - text: Placate
         rationale: |
-          You picked "placate," which means to soothe or appease (a synonym-like response rather than an antonym).
+          "Placate" means calm or appease someone and is not the opposite of lessen severity.
       - text: Isolate
         rationale: |
-          You picked "isolate," which means to separate or set apart, which does not mean to make worse.
+          "Isolate" means separate, not make a problem worse.
     explanation: |
-      "Mitigate" means to make a problem less painful or severe. "Aggravate" means to make a problem much worse: the opposite. "Alleviate" and "placate" are synonyms of "mitigate," not opposites, and "isolate" means to separate someone.
+      To mitigate is to make something less severe; to aggravate is to make it worse.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0003
     type: synonym
     difficulty: medium
     stem: |
-      Piliin ang pinakawastong kasingkahulugan ng salitang may salungguhit: Ang kanyang mga pangarap ay *gumuho* dahil sa sakuna.
+      Piliin ang pinakawastong kasingkahulugan ng salitang may salungguhit: "*Gumuho* ang kanyang mga pangarap dahil sa sakuna."
     choices:
-      - text: Nasira
+      - text: Nawasak
         correct: true
       - text: Natupad
         rationale: |
-          Pinili mo ang "natupad," ngunit ang sakuna ay nagdudulot ng pagkawasak ng pangarap, hindi ng pagkatupad.
-      - text: Naglaho
+          Ang "natupad" ay kabaligtaran ng pagkawasak ng pangarap.
+      - text: Lumakas
         rationale: |
-          Pinili mo ang "naglaho," ngunit ang "gumuho" sa kontekstong ito ay tumutukoy sa direktang pagkawasak (nasira).
+          Hindi paglakas ang ipinahihiwatig ng "gumuho" sa konteksto.
       - text: Lumaki
         rationale: |
-          Pinili mo ang "lumaki," na hindi angkop sa sakunang sumira sa pangarap.
+          Hindi paglaki ang kahulugan ng matalinghagang "gumuho" rito.
     explanation: |
-      Ang "gumuho" ay nangangahulugang bumagsak o gumuho, katulad ng "nasira." Ang "natupad" ay nangangahulugang natapos nang maayos, ang "naglaho" ay nawala, at ang "lumaki" ay tumaas ang laki: hindi ito angkop sa pangungusap.
+      Sa matalinghagang gamit na "gumuho ang mga pangarap," ang pinakamalapit na kahulugan ay "nawasak."
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0004
@@ -77,99 +77,99 @@ questions:
         correct: true
       - text: Mahirap
         rationale: |
-          Pinili mo ang "mahirap," ngunit kasingkahulugan ito ng maralita, samantalang kasalungat ang hinahanap.
+          Ang "mahirap" ay kasingkahulugan ng "maralita," hindi kasalungat.
       - text: Masipag
         rationale: |
-          Pinili mo ang "masipag," ngunit ang kasipagan ay hindi kasalungat ng katayuan sa buhay (maralita).
+          Ang kasipagan ay ibang katangian at hindi kabaligtaran ng katayuang tinutukoy.
       - text: Tamad
         rationale: |
-          Pinili mo ang "tamad," ngunit ang tamad ay kasalungat ng masipag, hindi ng maralita.
+          Ang "tamad" ay kasalungat ng "masipag," hindi ng "maralita."
     explanation: |
-      Ang "maralita" ay nangangahulugang mahirap. Ang kasalungat ng mahirap ay mayaman. Ang "mahirap" ay kasingkahulugan (hindi kasalungat), samantalang ang "masipag" at "tamad" ay walang kaugnayan sa kayamanan.
+      "Maralita" means poor or impoverished; "mayaman" is the clearest opposite among the choices.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0005
     type: synonym
     difficulty: medium
     stem: |
-      The manager's *sycophantic* assistant agreed with every terrible idea, hoping to get a quick promotion. What is the meaning of the italicized word?
+      The manager's *sycophantic* assistant praised every proposal excessively in hopes of gaining a promotion. Which word best describes "sycophantic" here?
     choices:
-      - text: Flattering
+      - text: Fawning
         correct: true
       - text: Rebellious
         rationale: |
-          You picked "rebellious," which means resisting authority, contrasting with an assistant who agrees with everything.
-      - text: Intelligent
+          Rebellious behavior resists authority; the assistant is doing the opposite.
+      - text: Impartial
         rationale: |
-          You picked "intelligent," but sycophantic behavior refers to insincere praise rather than intellect.
-      - text: Lazy
+          The assistant is trying to gain favor, not showing neutrality.
+      - text: Indifferent
         rationale: |
-          You picked "lazy," but sycophantic describes kissing up to superiors rather than lack of effort.
+          The assistant is actively flattering the manager, not showing indifference.
     explanation: |
-      The assistant "agreed with every terrible idea" just to "get a quick promotion": giving fake praise to get a reward. "Flattering" means giving too much praise, matching this behavior perfectly.
+      "Sycophantic" means excessively flattering or servile toward someone powerful in order to gain advantage; "fawning" is the closest choice.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0006
     type: synonym
     difficulty: medium
     stem: |
-      Choose the word that is most similar in meaning to the word "meticulous."
+      Choose the word most similar in meaning to "meticulous."
     choices:
       - text: Precise
         correct: true
       - text: Careless
         rationale: |
-          You picked "careless," which is an antonym of meticulous (showing no care or detail).
+          "Careless" is nearly the opposite of meticulous.
       - text: Fast
         rationale: |
-          You picked "fast," but meticulous refers to thoroughness and precision rather than speed.
+          Meticulous describes careful attention, not speed.
       - text: Loud
         rationale: |
-          You picked "loud," which describes sound volume rather than careful attention to detail.
+          Loudness is unrelated to careful attention to detail.
     explanation: |
-      "Meticulous" means showing great attention to detail and being very careful. "Precise" is the closest match; "careless" is nearly opposite, and "fast" and "loud" are unrelated.
+      "Meticulous" means extremely careful and attentive to detail; "precise" is the closest choice.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0007
     type: antonym
     difficulty: medium
     stem: |
-      Select the word that is most nearly opposite in meaning to the word "benevolent."
+      Select the word most nearly opposite in meaning to "benevolent."
     choices:
       - text: Malevolent
         correct: true
       - text: Kind
         rationale: |
-          You picked "kind," which is a synonym of benevolent, whereas the question asks for the opposite meaning.
+          "Kind" is a synonym of benevolent.
       - text: Wealthy
         rationale: |
-          You picked "wealthy," which describes financial status rather than good intent toward others.
+          Wealth concerns financial status, not goodwill toward others.
       - text: Shy
         rationale: |
-          You picked "shy," which describes social bashfulness rather than harmful intent.
+          Shyness is unrelated to benevolence.
     explanation: |
-      "Benevolent" means kind and generous. "Malevolent" means having ill will or wanting to harm others: the direct opposite. "Kind" is actually a synonym, not an antonym.
+      Benevolent means well-meaning and kind; malevolent means wishing or causing harm.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0008
     type: synonym
     difficulty: medium
     stem: |
-      Alin sa mga sumusunod ang kasingkahulugan ng salitang "magiliw"?
+      Alin sa mga sumusunod ang pinakamalapit na kasingkahulugan ng "magiliw"?
     choices:
-      - text: Mabait
+      - text: Palakaibigan
         correct: true
       - text: Galit
         rationale: |
-          Pinili mo ang "galit," ngunit kasalungat ito ng salitang magiliw (palakaibigan at mabait).
+          Ang "galit" ay hindi kasingkahulugan ng magiliw na pakikitungo.
       - text: Tamad
         rationale: |
-          Pinili mo ang "tamad," ngunit ang tamad ay ukol sa pagkilos at hindi sa pagiging magiliw.
+          Ang katamaran ay walang tuwirang kaugnayan sa pagiging magiliw.
       - text: Mayabang
         rationale: |
-          Pinili mo ang "mayabang," ngunit ang mayabang ay ukol sa pagmamalaki at hindi kasingkahulugan ng magiliw.
+          Ang pagmamayabang ay hindi kahulugan ng "magiliw."
     explanation: |
-      Ang "magiliw" ay nangangahulugang mapagmahal o palakaibigan. Ang "mabait" ang pinakamalapit na kasingkahulugan; ang "galit," "tamad," at "mayabang" ay hindi angkop.
+      "Magiliw" describes warm, affectionate, or friendly behavior; "palakaibigan" is the closest choice in this context.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0009
@@ -182,202 +182,202 @@ questions:
         correct: true
       - text: Malakas
         rationale: |
-          Pinili mo ang "malakas," ngunit ang lakas ng katawan ay hindi tuwirang kasalungat ng lakas ng loob (matapang).
+          Lakas ng katawan is not the opposite of courage.
       - text: Matalino
         rationale: |
-          Pinili mo ang "matalino," ngunit ang talino ay hindi kasalungat ng katapangan.
+          Intelligence is unrelated to the courage contrast.
       - text: Mabait
         rationale: |
-          Pinili mo ang "mabait," ngunit ang kabaitan ay hindi kasalungat ng katapangan.
+          Kindness is not the opposite of bravery.
     explanation: |
-      Ang "matapang" ay nangangahulugang may lakas ng loob. Ang tuwirang kasalungat nito ay "duwag" (walang lakas ng loob). Ang "malakas," "matalino," at "mabait" ay hindi tuwirang kasalungat.
+      "Matapang" means brave or courageous; "duwag" is the direct opposite among the choices.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0010
     type: antonym
     difficulty: hard
     stem: |
-      Select the word that is most nearly opposite in meaning to the word "candid." Choice A is a common trap on antonym questions: identify it before selecting your final answer.
+      Select the word most nearly opposite in meaning to "candid."
     choices:
       - text: Deceptive
         correct: true
       - text: Honest
         rationale: |
-          You fell for the trap choice: "honest" is a synonym of candid, but the question asks for the antonym.
+          "Honest" is close to the meaning of "candid," not its opposite.
       - text: Quiet
         rationale: |
-          You picked "quiet," which refers to volume or speech frequency rather than deceit.
+          Quietness concerns amount or volume of speech, not honesty.
       - text: Angry
         rationale: |
-          You picked "angry," which describes emotion rather than honesty or deception.
+          Anger is unrelated to frankness or deception.
     explanation: |
-      "Candid" means honest and straightforward. Test makers often place a synonym like "honest" (choice A here) as a trap on antonym questions, hoping you'll recognize the meaning of "candid" and quickly pick it without checking that the question asks for the opposite. The true antonym is "deceptive."
+      "Candid" means frank and honest; "deceptive" supplies the clearest opposite.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0011
     type: antonym
-    difficulty: hard
+    difficulty: medium
     stem: |
-      Alin sa mga sumusunod ang kasalungat ng salitang "masaya"? Ang unang pagpipilian ay isang karaniwang bitag (trap) sa mga tanong tungkol sa kasalungat: tukuyin ito bago pumili ng iyong sagot.
+      Alin sa mga sumusunod ang kasalungat ng salitang "masaya"?
     choices:
       - text: Malungkot
         correct: true
       - text: Natutuwa
         rationale: |
-          Pinili mo ang kasingkahulugan na "natutuwa," ngunit ang tanong ay humihingi ng kasalungat (malungkot).
+          "Natutuwa" is close in meaning to "masaya," not its opposite.
       - text: Mabait
         rationale: |
-          Pinili mo ang "mabait," ngunit ang kabaitan ay hindi kasalungat ng damdamin ng kasayahan.
+          Kindness is not the opposite emotional state.
       - text: Matalino
         rationale: |
-          Pinili mo ang "matalino," ngunit ang talino ay walang kaugnayan sa kasalungat ng masaya.
+          Intelligence is unrelated to happiness versus sadness.
     explanation: |
-      Madalas naglalagay ang mga gumagawa ng pagsusulit ng kasingkahulugan (tulad ng "natutuwa" dito) bilang bitag sa mga tanong tungkol sa kasalungat, umaasang mapipili mo agad ito dahil kahawig ito ng "masaya." Ang tunay na kasalungat ay "malungkot."
+      "Malungkot" is the direct opposite of "masaya" among the choices.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0012
     type: synonym
     difficulty: hard
     stem: |
-      After the religious ceremony, the monks decided to *fast* for three days, eating nothing until sundown. What is the meaning of the italicized word in this sentence?
+      After the religious ceremony, the monks decided to *fast* for three days, taking no food during the stated fasting periods. What does "fast" mean here?
     choices:
-      - text: To stop eating
+      - text: To abstain from food
         correct: true
       - text: Quick
         rationale: |
-          You picked the common meaning "quick," but in this sentence "fast" is used as a verb meaning to abstain from food.
+          The surrounding sentence concerns food restriction, not speed.
       - text: To run
         rationale: |
-          You picked "to run," confusing the adverb meaning of moving quickly with the verb form used here.
+          The verb refers to abstaining from food in this context, not moving quickly.
       - text: To sleep
         rationale: |
-          You picked "to sleep," which is unrelated to the context of eating nothing until sundown.
+          Sleep is unrelated to the stated food restriction.
     explanation: |
-      "Fast" usually means quick, but here the sentence describes monks "eating nothing until sundown": a hidden second meaning of "fast," which is to stop eating (as in a religious fast). Always read the whole sentence to see how the word is actually acting.
+      "Fast" has several meanings. Here it is a verb meaning to abstain from food for a period, as part of a religious practice.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0013
     type: synonym
     difficulty: medium
     stem: |
-      Choose the word that is most similar in meaning to the word "audacious."
+      Choose the word most similar in meaning to "audacious."
     choices:
       - text: Daring
         correct: true
       - text: Fearful
         rationale: |
-          You picked "fearful," which is an antonym of audacious (timid or afraid to take risks).
+          Fearful is nearly the opposite of audacious.
       - text: Quiet
         rationale: |
-          You picked "quiet," which describes sound or demeanor rather than boldness.
+          Quietness does not express bold willingness to take risks.
       - text: Generous
         rationale: |
-          You picked "generous," which describes willingness to give rather than willingness to take risks.
+          Generosity concerns giving, not boldness.
     explanation: |
-      "Audacious" means bold and willing to take risks. "Daring" is the closest match; "fearful" is nearly opposite, and "quiet" and "generous" are unrelated.
+      "Audacious" means boldly daring or willing to take risks.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0014
     type: antonym
     difficulty: medium
     stem: |
-      Select the word that is most nearly opposite in meaning to the word "abundant."
+      Select the word most nearly opposite in meaning to "abundant."
     choices:
       - text: Scarce
         correct: true
       - text: Plentiful
         rationale: |
-          You fell for the trap synonym "plentiful," whereas the question asks for an antonym.
+          "Plentiful" is a synonym of abundant.
       - text: Heavy
         rationale: |
-          You picked "heavy," which describes physical weight rather than quantity.
+          Weight is not the relevant contrast in quantity.
       - text: Fast
         rationale: |
-          You picked "fast," which describes speed rather than amount or supply.
+          Speed is unrelated to abundance.
     explanation: |
-      "Abundant" means existing in large quantities. "Scarce" means existing in very small quantities: the direct opposite. "Plentiful" is actually a synonym, not an antonym.
+      Abundant means plentiful; scarce means in short supply.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0015
     type: synonym
     difficulty: medium
     stem: |
-      Alin sa mga sumusunod ang kasingkahulugan ng salitang "matiyaga"?
+      Alin sa mga sumusunod ang pinakamalapit na kasingkahulugan ng "matiyaga" sa pangungusap na "Matiyaga siyang nagpraktis araw-araw hanggang matutuhan niya ang piyesa"?
     choices:
-      - text: Matatag
+      - text: Masikap
         correct: true
       - text: Tamad
         rationale: |
-          Pinili mo ang "tamad," ngunit ang tamad ay kasalungat ng masipag, hindi kasingkahulugan ng matiyaga.
+          Ang "tamad" ay kabaligtaran ng patuloy na pagsisikap na inilalarawan.
       - text: Mayabang
         rationale: |
-          Pinili mo ang "mayabang," ngunit ang pagmamayabang ay walang kaugnayan sa pagiging matiyaga.
-      - text: Galit
+          Ang pagmamayabang ay walang kaugnayan sa matiyagang pagsasanay.
+      - text: Padalos-dalos
         rationale: |
-          Pinili mo ang "galit," ngunit ang galit ay isang damdamin at hindi kasingkahulugan ng matiyaga.
+          Ang pagiging padalos-dalos ay hindi tumutukoy sa tuloy-tuloy at masikap na paggawa.
     explanation: |
-      Ang "matiyaga" ay nangangahulugang nagtitiyaga o hindi sumusuko. Ang "matatag" (steadfast) ang pinakamalapit na kasingkahulugan; ang iba ay hindi angkop.
+      Sa kontekstong paulit-ulit na pagsasanay hanggang matutuhan ang piyesa, "masikap" ang pinakamalapit na kahulugan ng "matiyaga" sa mga pagpipilian.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0016
     type: antonym
     difficulty: medium
     stem: |
-      Alin sa mga sumusunod ang kasalungat ng salitang "matapat"?
+      Alin sa mga sumusunod ang pinakamalapit na kasalungat ng "matapat" sa kahulugang tapat at hindi mapanlinlang?
     choices:
-      - text: Sinungaling
+      - text: Mapanlinlang
         correct: true
       - text: Tapat
         rationale: |
-          Pinili mo ang kasingkahulugan na "tapat," ngunit kasalungat ang hinahanap sa tanong.
+          "Tapat" is a synonym, not an antonym.
       - text: Masipag
         rationale: |
-          Pinili mo ang "masipag," ngunit ang kasipagan ay hindi kasalungat ng katapatan.
+          Diligence is unrelated to honesty versus deceit.
       - text: Matalino
         rationale: |
-          Pinili mo ang "matalino," ngunit ang karunungan ay hindi kasalungat ng katapatan.
+          Intelligence is unrelated to honesty versus deceit.
     explanation: |
-      Ang "matapat" ay nangangahulugang tapat o may katapatan. Ang tuwirang kasalungat nito ay "sinungaling" (madalas magsinungaling). Ang "tapat" ay kasingkahulugan lamang, hindi kasalungat.
+      In the sense of honest or faithful to the truth, "mapanlinlang" is the clearest opposite of "matapat."
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0017
     type: antonym
     difficulty: hard
     stem: |
-      Select the word that is most nearly opposite in meaning to the word "humble". Three of the four choices mean nearly the same thing. Use that pattern to find the true antonym.
+      Select the word most nearly opposite in meaning to "humble."
     choices:
-      - text: "Arrogant"
+      - text: Arrogant
         correct: true
-      - text: "Modest"
+      - text: Modest
         rationale: |
-          You picked "modest," but modest is a synonym of humble rather than its antonym.
-      - text: "Unassuming"
+          "Modest" is close in meaning to humble.
+      - text: Unassuming
         rationale: |
-          You picked "unassuming," but unassuming is a synonym of humble, not an antonym.
-      - text: "Meek"
+          "Unassuming" is close in meaning to humble.
+      - text: Meek
         rationale: |
-          You picked "meek," but meek is a synonym of humble rather than its opposite.
+          "Meek" can overlap with humble and is not the opposite being sought.
     explanation: |
-      If you must guess an antonym, look at all 4 choices together. Here, "modest," "unassuming," and "meek" all mean nearly the same thing as "humble" itself, so the one odd choice left behind, "arrogant," must be the true antonym.
+      "Arrogant" is the clearest antonym because it describes an inflated sense of one's importance.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0018
     type: synonym
     difficulty: exam
     stem: |
-      First, find the antonym of "diligent." Then, find the word most similar in meaning to that antonym. Select the word that correctly completes this two-step chain.
+      First identify the antonym of "diligent." Then choose the word among the options that is most similar in meaning to that antonym.
     choices:
       - text: Indolent
         correct: true
       - text: Hardworking
         rationale: |
-          You picked "hardworking," which is a synonym of diligent rather than its antonym.
+          "Hardworking" is a synonym of diligent.
       - text: Careful
         rationale: |
-          You picked "careful," which describes a quality of diligent work rather than the antonym.
+          Carefulness is associated with diligent work but is not its opposite.
       - text: Happy
         rationale: |
-          You picked "happy," which describes emotional state rather than willingness to work.
+          Happiness is unrelated to willingness to work.
     explanation: |
-      The antonym of "diligent" (hardworking) is "lazy." The word most similar in meaning to "lazy" among the choices is "indolent," which also means lazy or avoiding work.
+      The antonym of diligent is lazy; "indolent" means habitually lazy or avoiding work.
     approved: true
