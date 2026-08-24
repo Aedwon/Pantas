@@ -1,7 +1,7 @@
 ---
 _id: "lesson-arithmetic-number-sense-real-imaginary-numbers"
 title: "Real and Imaginary Number Systems"
-summary: "How to sort numbers into their correct families and how to solve problems with imaginary numbers."
+summary: "Classify common number sets and solve basic problems with imaginary and complex numbers."
 subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 estimatedMinutes: 8
@@ -9,156 +9,139 @@ isActive: true
 ---
 ## Core Concept
 
-Numbers belong to different groups. Think of them as boxes inside bigger boxes.
+Numbers can be classified into nested sets.
 
-**Natural numbers** are counting numbers: $1$, $2$, $3$, and so on.
+In this lesson, **natural numbers** means the positive counting numbers $1,2,3,\dots$. Some textbooks instead include $0$ in the natural numbers, so always follow the convention stated in a problem.
 
-**Whole numbers** add the number $0$ to the natural numbers.
+**Whole numbers** are $0,1,2,3,\dots$.
 
-**Integers** add negative whole numbers. Examples are $-2$, $-1$, $0$, $1$, and $2$.
+**Integers** include the whole numbers and their negatives: $\dots,-2,-1,0,1,2,\dots$.
 
-**Rational numbers** are numbers you can write as a fraction. This includes decimals that stop. It also includes decimals that repeat a pattern.
+**Rational numbers** can be written as $\dfrac{p}{q}$ where $p$ and $q$ are integers and $q\ne0$. Their decimal expansions terminate or repeat.
 
-**Irrational numbers** are weird numbers that never stop and never repeat. Examples are $\pi$ and $\sqrt{2}$.
+**Irrational numbers** are real numbers that cannot be written as such an integer ratio. Their decimal expansions do not terminate or repeat. Examples include $\pi$ and $\sqrt{2}$.
 
-Put all rational and irrational numbers together. You get the **Real numbers**. This is the biggest box of normal numbers.
+Together, rational and irrational numbers make up the **real numbers**.
 
 <!-- FIGURE: {"kind": "concept-diagram", "type": "nested-boxes", "boxes": ["Natural Numbers", "Whole Numbers", "Integers", "Rational Numbers", "Irrational Numbers", "Real Numbers"], "semanticsLabel": "A nested boxes diagram showing Natural Numbers inside Whole Numbers, Integers, Rational Numbers, with Irrational Numbers beside them inside Real Numbers."} -->
 
-But what happens if you take the square root of a negative number? There is no real number for $\sqrt{-1}$.
+No real number squares to $-1$. The imaginary unit $i$ is defined by:
 
-This is an **Imaginary number**. We call it $i$. By definition, $i = \sqrt{-1}$.
+$$i^2=-1,$$
 
-A **Complex number** mixes a real number and an imaginary number. It is written in the form $a + bi$. The letter $a$ is the real part. The $bi$ is the imaginary part.
+and is commonly written as $i=\sqrt{-1}$ when extending square roots into the complex number system.
 
-College entrance exams love to test if you know which box a number belongs in. They also test if you can multiply or divide the imaginary number $i$.
+A **complex number** has the form $a+bi$, where $a$ and $b$ are real numbers. The number $a$ is the **real part**, and $b$ is the **imaginary part**. If $b=0$, the complex number is real. If $a=0$ and $b\ne0$, it is purely imaginary.
 
 ## Mnemonics & Memory Aids
 
-You must memorize the order of number families from smallest to biggest. Use this sentence:
+Under the convention used in this lesson, the common nesting is:
 
-> **N**ever **W**alk **I**nto **R**eal **R**hinos.
+> Natural $\subset$ Whole $\subset$ Integer $\subset$ Rational $\subset$ Real.
 
-This stands for **N**atural, **W**hole, **I**nteger, **R**ational, **R**eal.
+Irrational numbers are also real but are not rational.
 
-The powers of $i$ repeat in a cycle of four. You must memorize these four values.
+The powers of $i$ repeat every four powers:
 
-> **I** **w**on, **I** **w**on! But the middle two are negative.
-
-The cycle is $i$, $1$, $i$, $1$. Make the middle two negative. The final cycle is $i$, $-1$, $-i$, $1$.
-
-* $i^1 = i$
-* $i^2 = -1$
-* $i^3 = -i$
-* $i^4 = 1$
+* $i^1=i$
+* $i^2=-1$
+* $i^3=-i$
+* $i^4=1$
 
 ## Examples
 
 ### #1: Classifying Number Sets
 
-Which of the following statements regarding number systems is false?
-A) Every integer is a rational number.
-B) The number zero is considered a natural number.
-C) All irrational numbers are real numbers.
-D) A repeating non-terminating decimal is a rational number.
+Using this lesson's convention that natural numbers begin at $1$, which statement is false?
+
+A) Every integer is rational.
+B) Zero is a natural number.
+C) Every irrational number is real.
+D) A repeating nonterminating decimal is rational.
 
 **Solution:**
 
-1. Look at choice A. Integers like $5$ can be written as fractions like $\dfrac{5}{1}$. This is true.
-2. Look at choice B. Natural numbers are counting numbers. You start counting from $1$. Zero is a whole number, not a natural number. This is false.
-3. Look at choice C. Real numbers include all rational and irrational numbers. This is true.
-4. Look at choice D. Decimals that repeat forever can be turned into fractions. This is true.
-5. The false statement is choice B.
+1. Every integer $n$ can be written as $\dfrac{n}{1}$, so A is true.
+2. Under the convention stated in this lesson, natural numbers begin at $1$, so B is false.
+3. Irrational numbers are a subset of the real numbers, so C is true.
+4. A repeating decimal can be represented as a fraction, so D is true.
+5. The answer is B.
 
 ### #2: Simplifying Large Powers of $i$
 
-Evaluate the expression $i^{143} + i^{2024}$.
+Evaluate $i^{143}+i^{2024}$.
 
 **Solution:**
 
-1. The powers of $i$ repeat every $4$ steps. Divide the exponent by $4$ to find the remainder.
-2. For $143$, divide by $4$. You get $35$ with a remainder of $3$.
-3. This means $i^{143}$ is the same as $i^3$. From our memory trick, $i^3 = -i$.
-4. For $2024$, divide by $4$. It divides perfectly. The remainder is $0$.
-5. A remainder of $0$ means it is the last step in the cycle. So, $i^{2024} = i^4 = 1$.
-6. Add them together. The answer is $1 - i$.
+1. Reduce each exponent modulo $4$.
+2. $143$ leaves remainder $3$, so $i^{143}=i^3=-i$.
+3. $2024$ leaves remainder $0$, so $i^{2024}=1$.
+4. Therefore:
+
+$$i^{143}+i^{2024}=1-i$$
 
 ### #3: Multiplying Complex Numbers
 
-What is the product of $(3 - 4i)$ and $(2 + 5i)$?
+What is $(3-4i)(2+5i)$?
 
 **Solution:**
 
-1. Use the FOIL method. FOIL means multiply the First, Outer, Inner, and Last terms.
-2. Multiply the First terms: $3 \times 2 = 6$.
-3. Multiply the Outer terms: $3 \times 5i = 15i$.
-4. Multiply the Inner terms: $-4i \times 2 = -8i$.
-5. Multiply the Last terms: $-4i \times 5i = -20i^2$.
-6. Add them all up:
+1. Expand.
 
-$$6 + 15i - 8i - 20i^2$$
+$$(3-4i)(2+5i)=6+15i-8i-20i^2$$
 
+2. Since $i^2=-1$:
 
-7. Combine the $i$ terms: $15i - 8i = 7i$.
-8. Remember that $i^2 = -1$. Change $-20i^2$ to $-20(-1)$, which is $+20$.
-9. Add the real numbers: $6 + 20 = 26$.
-10. The final answer is $26 + 7i$.
+$$6+7i+20=26+7i$$
 
 ### #4: Dividing Complex Numbers
 
-Express the quotient $\dfrac{2 + 3i}{1 - i}$ in the standard form $a + bi$.
+Express $\dfrac{2+3i}{1-i}$ in standard form $a+bi$.
 
 **Solution:**
 
-1. You cannot leave an imaginary number in the bottom of a fraction.
-2. You must multiply the top and bottom by the **conjugate** of the bottom. A conjugate just changes the plus or minus sign in the middle.
-3. The bottom is $1 - i$. Its conjugate is $1 + i$.
-4. Multiply the top parts:
+1. Multiply numerator and denominator by the conjugate $1+i$ so the denominator becomes real.
 
-$$(2 + 3i)(1 + i)$$
+$$\dfrac{2+3i}{1-i}\times\dfrac{1+i}{1+i}$$
 
+2. Expand the numerator.
 
-$$= 2 + 2i + 3i + 3i^2$$
+$$(2+3i)(1+i)=2+5i+3i^2=-1+5i$$
 
+3. Expand the denominator.
 
-5. Change $3i^2$ to $-3$. The top becomes $2 + 5i - 3$. This simplifies to $-1 + 5i$.
-6. Multiply the bottom parts:
+$$(1-i)(1+i)=1-i^2=2$$
 
-$$(1 - i)(1 + i)$$
+4. Therefore:
 
-
-$$= 1^2 - i^2$$
-
-
-7. Change $i^2$ to $-1$. The bottom becomes $1 - (-1)$, which is $2$.
-8. Put the top over the bottom:
-
-$$\dfrac{-1 + 5i}{2}$$
-
-
-9. Split it into two fractions. The final answer is $-\dfrac{1}{2} + \dfrac{5}{2}i$.
+$$\dfrac{-1+5i}{2}=-\dfrac{1}{2}+\dfrac{5}{2}i$$
 
 ## Speed Tricks & Shortcuts
 
-1. When dividing a large exponent by $4$, you only need to look at the last two digits. For $i^{1997}$, just divide $97$ by $4$. The remainder is $1$. So, $i^{1997} = i^1 = i$. This saves you a lot of time.
+1. Powers of $i$ depend only on the exponent modulo $4$. For example, $1997$ leaves remainder $1$ when divided by $4$, so $i^{1997}=i$.
 
-2. When multiplying a complex number by its conjugate, use a fast shortcut. Do not use full FOIL. Just square the real part and square the imaginary number part, then add them.
+2. A complex number times its conjugate gives a real nonnegative value:
 
+$$(a+bi)(a-bi)=a^2+b^2.$$
 
-$$(a + bi)(a - bi) = a^2 + b^2$$
+For example:
 
-For example, $(3 + 4i)(3 - 4i)$ is just $3^2 + 4^2$. This equals $9 + 16$, which is $25$.
+$$(3+4i)(3-4i)=3^2+4^2=25.$$
 
 ## Traps to Watch For
 
-### #1: The Negative Root Trap
+### #1: Multiplying Square Roots of Negative Real Numbers
 
-> Always pull out the $i$ before multiplying square roots!
+> Rewrite negative square roots using $i$ before applying ordinary radical-product rules.
 
-If you multiply $\sqrt{-4} \times \sqrt{-9}$, do not say it is $\sqrt{36} = 6$. This is completely wrong. You must change them to $2i$ and $3i$ first. Then multiply them to get $6i^2$. Because $i^2 = -1$, the real answer is $-6$.
+For principal square roots in the complex numbers:
 
-### #2: The Zero Trap
+$$\sqrt{-4}\sqrt{-9}=(2i)(3i)=6i^2=-6,$$
 
-> Zero is a whole number, but it is not a natural number.
+so the real-number identity $\sqrt{a}\sqrt{b}=\sqrt{ab}$ cannot be applied blindly when both radicands are negative.
 
-Many students think natural numbers start at $0$. They start at $1$. Do not fall for this trap on True/False questions. Zero is the only whole number that is not a natural number.
+### #2: Natural Number Convention
+
+> Whether $0$ is included in the natural numbers depends on convention.
+
+This lesson uses natural numbers $1,2,3,\dots$ and whole numbers $0,1,2,3,\dots$. If a question defines a different convention, follow that definition.
