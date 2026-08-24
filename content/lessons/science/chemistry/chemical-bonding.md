@@ -1,7 +1,7 @@
 ---
 _id: "lesson-chemistry-chemical-bonding"
 title: "Chemical Bonding (Ionic, Covalent, Metallic, Lewis Structures, VSEPR Theory)"
-summary: "The three main types of chemical bonds, how to draw Lewis structures, and how to predict a molecule's shape."
+summary: "Major bonding models, Lewis structures, bond polarity, and VSEPR predictions with their important limits."
 subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 13
@@ -9,98 +9,133 @@ isActive: true
 ---
 ## Core Concept
 
-Atoms bond together to become more stable, usually by achieving a full outer shell of electrons (the "octet rule": $8$ valence electrons feels stable for most atoms).
+Chemical bonds form when an arrangement of nuclei and electrons has lower energy than the separated species under the relevant conditions. Introductory chemistry often describes three major bonding models: ionic, covalent, and metallic.
 
-### Types of Bonds
+### Ionic, Covalent, and Metallic Bonding
 
-**Ionic bonds** form between a metal and a nonmetal. The metal loses electrons (becoming a positive ion) and the nonmetal gains those electrons (becoming a negative ion); the opposite charges then attract each other strongly. Example: sodium chloride ($NaCl$), table salt.
+**Ionic bonding** is the electrostatic attraction among oppositely charged ions in an ionic solid. Many ionic compounds form from metals and nonmetals, and electron-transfer bookkeeping helps predict their ions. But an ionic bond is not literally a single transferred electron acting as a tether between one metal atom and one nonmetal atom; an ionic crystal is an extended lattice of interacting ions. Polyatomic ions also form ionic compounds, such as $NH_4NO_3$.
 
-**Covalent bonds** form between two nonmetals. Instead of transferring electrons, the atoms share them. Example: water ($H_2O$).
+**Covalent bonding** involves electron density shared between bonded atoms and attracted by both nuclei. Bonds between nonmetals are commonly covalent, but "nonmetal + nonmetal" is a shortcut, not the definition.
 
-**Metallic bonds** form between metal atoms. The outer electrons are not tied to any single atom; instead, they flow freely through a "sea of electrons" shared among all the metal atoms, which is why metals conduct electricity so well.
+**Metallic bonding** describes metal atoms/ions held together by delocalized valence electrons spread through the solid, helping explain electrical conductivity, thermal conductivity, and malleability.
 
-<!-- ILLUSTRATION: three small diagrams side by side, an ionic bond showing an electron transferring from a metal atom to a nonmetal atom with a plus and minus charge resulting, a covalent bond showing two nonmetal atoms sharing a pair of electrons between them, and a metallic bond showing a grid of metal atoms surrounded by a shaded "sea" of free-moving electrons -->
+<!-- ILLUSTRATION: ionic lattice, covalent shared electron density, and metallic lattice with delocalized electron density -->
 
-The type of bond can be predicted by the difference in electronegativity ($\Delta EN$) between the two atoms: a large difference (roughly $2.0$ or more) means electrons transfer completely (ionic); a small difference (below about $0.5$) means electrons are shared nearly equally (nonpolar covalent); an in-between difference means electrons are shared unequally (polar covalent).
+### Octet Rule and Its Limits
+
+The **octet rule** is a useful Lewis-structure guideline for many **main-group** atoms, especially second-period nonmetals such as C, N, O, and F. It is not a universal law.
+
+Common exceptions include:
+
+- hydrogen, which follows a duet rule;
+- electron-deficient species such as $BF_3$;
+- odd-electron species such as $NO$;
+- hypervalent Lewis structures for some elements from period 3 and beyond;
+- transition-metal compounds, which often require other bonding models.
+
+Avoid saying atoms "want" eight electrons. The rule summarizes recurring low-energy electron configurations; it is not a motive or consciousness.
+
+### Bond Polarity and Electronegativity
+
+Electronegativity difference, $\Delta EN$, provides a **rough guide** to bond polarity and ionic character. Bonding exists on a continuum from nearly equal electron sharing to strongly ionic character.
+
+Textbooks sometimes give numerical cutoffs such as roughly $<0.4$ for nonpolar covalent and $>1.8$ for strongly ionic behavior on the Pauling scale. These boundaries are approximate and have exceptions. Atom types, structure, and experimental evidence matter.
+
+For example, OpenStax notes that HF has $\Delta EN\approx1.9$ but is still described as polar covalent, showing why a rigid cutoff is unsafe.
 
 ### Lewis Structures
 
-A **Lewis structure** is a diagram showing an atom or molecule's valence electrons as dots, and shared electron pairs as lines (bonds) between atoms. It helps predict how atoms will bond and how many bonds each atom needs to complete its octet.
+A **Lewis structure** represents valence electrons, lone pairs, bonds, and formal charges in molecules and polyatomic ions. It is a bookkeeping model, not a literal picture of electron trajectories or exact molecular shape.
+
+Some species require **resonance structures** because no single Lewis structure alone represents the delocalized electron distribution adequately.
 
 ### VSEPR Theory
 
-**VSEPR** (Valence Shell Electron Pair Repulsion) theory predicts a molecule's 3D shape. Its core idea: electron pairs around a central atom (both bonding pairs and lone, non-bonding pairs) repel each other and spread out as far apart as possible.
+**VSEPR** predicts approximate molecular geometry from repulsions among electron-density regions around a central atom.
 
-Common shapes based on the number of electron groups around the central atom: $2$ groups gives a linear shape ($180°$ apart); $3$ groups (no lone pairs) gives a trigonal planar shape ($120°$ apart); $4$ groups (no lone pairs) gives a tetrahedral shape ($109.5°$ apart). Lone pairs take up space too and push bonding pairs closer together, which is why water (with $2$ lone pairs on oxygen) is bent, not a straight line, even though it also has $4$ total electron groups around the central oxygen atom.
+A single, double, or triple bond counts as **one electron group** for basic VSEPR geometry. Lone pairs also count and usually repel more strongly than bonding groups, compressing bond angles.
+
+Common electron-group geometries:
+
+- 2 groups: linear, $180^\circ$.
+- 3 groups: trigonal planar, ideal $120^\circ$.
+- 4 groups: tetrahedral, ideal $109.5^\circ$.
+
+Water has four electron groups around O—two O-H bonds and two lone pairs—so its **electron-group geometry** is tetrahedral while its **molecular geometry** is bent.
 
 ## Examples
 
-### #1: Identifying the Bond Type
+### #1: Bonding Model
 
-Classify the bond in each compound as ionic, covalent, or metallic: (a) $NaCl$ (sodium and chlorine); (b) $CO_2$ (carbon and oxygen); (c) a bar of pure copper.
-
-**Solution:**
-Check whether each pairing is metal-nonmetal, nonmetal-nonmetal, or metal-metal.
-
-1. (a) Sodium (metal) and chlorine (nonmetal): Ionic bond.
-2. (b) Carbon and oxygen are both nonmetals: Covalent bond.
-3. (c) Pure copper is entirely metal atoms bonded to each other: Metallic bond.
-
-### #2: Predicting Bond Type from Electronegativity Difference
-
-Two atoms have an electronegativity difference of $0.4$. A different pair has a difference of $2.5$. Classify the likely bond type for each pair.
+Classify the dominant introductory bonding model for (a) crystalline $NaCl$, (b) $CO_2$ molecules, and (c) solid copper.
 
 **Solution:**
-Apply the electronegativity difference ranges.
 
-1. A difference of $0.4$ falls in the small range (below about $0.5$): this is (nonpolar) covalent, electrons shared nearly equally.
-2. A difference of $2.5$ falls in the large range (about $2.0$ or more): this is ionic, electrons transferred rather than shared.
+1. $NaCl$: ionic lattice.
+2. $CO_2$: covalent bonding within discrete molecules.
+3. Cu: metallic bonding.
 
-### #3: Predicting Molecular Shape
+### #2: Electronegativity Difference
 
-A central atom has $4$ bonding electron groups and no lone pairs around it. What molecular shape does VSEPR theory predict?
-
-**Solution:**
-Match the electron group count (with no lone pairs) to its VSEPR shape.
-
-1. $4$ electron groups, all bonding, with no lone pairs to distort the shape, spread out as far apart as possible in three dimensions.
-2. This arrangement is the tetrahedral shape, with bond angles of about $109.5°$.
-
-### #4: Why Water Is Bent, Not Linear
-
-Water ($H_2O$) has $4$ total electron groups around its central oxygen atom ($2$ bonding pairs to the hydrogens, and $2$ lone pairs), yet it is not shaped like methane's tetrahedron and is instead described as "bent." Explain why.
+A pair of atoms has $\Delta EN=0.4$, while another has $\Delta EN=2.5$. What can you infer?
 
 **Solution:**
-Recall that VSEPR counts all electron groups, including lone pairs, but the final shape only describes where the atoms sit.
 
-1. With $4$ total electron groups, the electron arrangement around oxygen is still roughly tetrahedral, spreading all $4$ groups apart as far as possible.
-2. However, $2$ of those $4$ groups are lone pairs (not connected to another atom), so they do not count as "corners" when we describe the shape formed by the atoms themselves.
-3. With only $2$ of the $4$ positions occupied by actual hydrogen atoms, and the $2$ lone pairs pushing those hydrogens closer together, the resulting molecular shape (based on atom positions only) is bent, not tetrahedral or linear.
+1. $0.4$ suggests very weakly polar or nearly nonpolar covalent character.
+2. $2.5$ suggests strong ionic character.
+3. These are **predictions**, not definitions; actual compound bonding can require more context.
+
+### #3: VSEPR with Four Bonding Groups
+
+A central atom has four bonding groups and no lone pairs.
+
+**Solution:**
+
+1. Four electron groups arrange approximately tetrahedrally.
+2. Molecular geometry: tetrahedral.
+3. Ideal bond angles: about $109.5^\circ$.
+
+### #4: Water
+
+Why is $H_2O$ bent?
+
+**Solution:**
+
+1. Oxygen has four electron groups: two bonding groups and two lone pairs.
+2. Four groups give a tetrahedral electron-group arrangement.
+3. Molecular geometry names only atom positions, so with two bonded atoms it is **bent**.
+4. Lone-pair repulsions compress the H-O-H angle below the ideal tetrahedral value.
 
 ## Speed Tricks & Shortcuts
 
-For quick bond-type identification without checking electronegativity values, use the metal/nonmetal shortcut: metal + nonmetal = ionic; nonmetal + nonmetal = covalent; metal + metal = metallic. This shortcut is accurate for the vast majority of exam questions.
+For exam-level classification, **metal + nonmetal often ionic; nonmetal + nonmetal often covalent; elemental metal metallic** is a useful first guess. Treat it as a shortcut, not the definition.
 
-For VSEPR shape questions, count electron groups first (bonding pairs plus lone pairs), then remember that lone pairs still take up space and affect the shape, even though they are not drawn as a "point" of the final molecular shape.
+For VSEPR, count **regions of electron density**, not bond lines. A double bond is one group, not two.
 
-Memorize this pair distinctly: $4$ groups with $0$ lone pairs is tetrahedral; $4$ groups with $2$ lone pairs (like water) is bent. Both have $4$ total electron groups, but very different final shapes.
+For Lewis structures, count total valence electrons first and verify formal charge/resonance when more than one arrangement is plausible.
 
 ## Traps to Watch For
 
-### #1: Ignoring Lone Pairs When Predicting Shape
+### #1: Treating the Octet Rule as Universal
 
-> Lone pairs count as electron groups for determining geometry, even though they do not appear as "corners" in the final molecular shape.
+> The octet rule has important exceptions and is most useful for many main-group Lewis structures.
 
-A common mistake predicts water's shape as tetrahedral (matching its $4$ total electron groups) without accounting for the fact that $2$ of those groups are lone pairs, which is exactly why the true shape is bent, not tetrahedral.
+Hydrogen, boron compounds, radicals, hypervalent species, and transition-metal chemistry require other patterns.
 
-### #2: Confusing Which Type of Atoms Form Which Bond
+### #2: Treating Electronegativity Cutoffs as Exact Laws
 
-> Metal + nonmetal = ionic. Nonmetal + nonmetal = covalent. Metal + metal = metallic.
+> Ionic and covalent character form a continuum.
 
-Reversing these pairings is a common and costly error. Anchor it to electron behavior: metals easily give up electrons, nonmetals eagerly grab them: put a giver next to a grabber and you get a full transfer (ionic); put two grabbers together and they must share (covalent).
+Numerical cutoffs are classroom guides with exceptions.
 
-### #3: Assuming All Covalent Bonds Share Electrons Equally
+### #3: Saying Ionic Compounds Are Made of Independent "Molecules"
 
-> Covalent bonds can be nonpolar (equal sharing) or polar (unequal sharing), depending on the electronegativity difference.
+> Typical ionic solids form extended lattices of cations and anions.
 
-A choice claiming "covalent bonds always share electrons equally" ignores polar covalent bonds, like the oxygen-hydrogen bonds in water, where oxygen pulls the shared electrons closer to itself than hydrogen does, creating an uneven, polar distribution.
+Use **formula unit** for their simplest composition ratio.
+
+### #4: Counting Multiple Bonds as Multiple VSEPR Groups
+
+> One bond axis—single, double, or triple—counts as one electron-density group around the central atom.
+
+Lone pairs count as groups too.
