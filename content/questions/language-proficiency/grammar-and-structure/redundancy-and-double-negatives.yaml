@@ -8,313 +8,313 @@ questions:
     type: redundancy-identification
     difficulty: easy
     stem: |
-      Identify and fix the redundancy: "Please give us your honest and truthful opinion."
+      For concise formal writing, which revision removes the unnecessary repetition in "Please give us your honest and truthful opinion"?
     choices:
-      - text: Honest and truthful mean essentially the same thing, so using both is redundant; corrected, it should read "Please give us your honest opinion."
+      - text: Please give us your honest opinion.
         correct: true
-      - text: There is no error in this sentence.
+      - text: Please give us your honestly truthful opinion.
         rationale: |
-          You assumed the sentence was fine, but pairing "honest" and "truthful" repeats identical meanings in the same phrase.
-      - text: Give should be changed to "gives."
+          You changed the form of "honest" but kept both near-synonyms, so the phrase remains needlessly repetitive.
+      - text: Please gives us your honest and truthful opinion.
         rationale: |
-          You changed the verb form, but "give" is an imperative command addressed to "you," which is correct.
-      - text: The sentence needs a comma after "honest."
+          You kept the repetition and also changed the imperative verb "give" to an incorrect form.
+      - text: Please give us, your honest and truthful opinion.
         rationale: |
-          You looked for a punctuation error, but adding a comma does not eliminate the redundant pairing of near-synonyms.
+          You added an unnecessary comma without removing the repeated idea.
     explanation: |
-      "Honest" and "truthful" mean essentially the same thing, so using both is redundant. Keeping only one of the two words fixes the error.
+      In a concision question, "honest" and "truthful" overlap enough that one can be removed without losing the intended meaning. "Please give us your honest opinion" is the clearest concise revision.
     approved: true
 
   - id: q-grammar-and-structure-redundancy-and-double-negatives-0002
     type: redundancy-identification
     difficulty: easy
     stem: |
-      Identify and fix the error: "She doesn't want no help with the project."
+      In standard formal English, revise "She doesn't want no help with the project."
     choices:
-      - text: This is a double negative ("doesn't" and "no"); corrected, it should read "She doesn't want any help with the project."
+      - text: She doesn't want any help with the project.
         correct: true
-      - text: There is no error in this sentence.
+      - text: She doesn't want no help with the project.
         rationale: |
-          You assumed the sentence was correct, but combining "doesn't" and "no" creates a grammatically improper double negative.
-      - text: Want should be changed to "wants."
+          You kept negative concord. Some English varieties use this pattern systematically, but standard formal English normally uses "not ... any" or a single negative form.
+      - text: She doesn't wants any help with the project.
         rationale: |
-          You modified the base verb, but "doesn't" already carries third-person singular agreement with "want."
-      - text: The sentence needs a comma after "help."
+          You fixed the negation pattern but added an agreement error: after "doesn't," the main verb stays in the base form "want."
+      - text: She didn't want no help with the project.
         rationale: |
-          You looked for a punctuation fix, but punctuation cannot resolve a double negative error.
+          You changed the tense but kept the nonstandard-for-formal-writing negative-concord pattern.
     explanation: |
-      "Doesn't" and "no" are both negative words in the same clause, creating a double negative. Changing "no" to "any" fixes the error.
+      Standard formal English normally uses one negative pattern here: "doesn't ... any." Other English varieties may use negative concord, where multiple negative forms express one semantic negation; the exam convention being tested is the standard written form.
     approved: true
 
   - id: q-grammar-and-structure-redundancy-and-double-negatives-0003
     type: redundancy-identification
-    difficulty: medium
+    difficulty: easy
     stem: |
-      Choose the sentence without redundancy.
+      For the most concise formal version, revise "The two of them collaborated together on the mural."
     choices:
       - text: The two of them collaborated on the mural.
         correct: true
-      - text: The two of them collaborated together on the mural.
+      - text: The two of them collaborated together jointly on the mural.
         rationale: |
-          You selected a sentence containing "collaborated together." "Collaborate" already means working together.
-      - text: Both sentences avoid redundancy.
+          You added another word with the same basic idea instead of making the sentence more concise.
+      - text: The two of them collaboration together on the mural.
         rationale: |
-          You accepted both versions, but adding "together" to "collaborate" creates unnecessary repetition.
-      - text: Neither sentence avoids redundancy.
+          You changed the verb to a noun without supplying a grammatical verb for the sentence.
+      - text: The two of them collaborated, together on the mural.
         rationale: |
-          You rejected the sentence that cleanly uses "collaborated" without adding the redundant word "together."
+          You inserted an unnecessary comma and kept the redundant wording.
     explanation: |
-      "Collaborated" already means "worked together," so adding "together" repeats the same idea. The correct choice says the same thing without the unnecessary repetition.
+      "Collaborate" already means to work jointly with others. In a concision question, "together" adds no needed information, so the tighter version is "collaborated on the mural."
     approved: true
 
   - id: q-grammar-and-structure-redundancy-and-double-negatives-0004
     type: redundancy-identification
     difficulty: medium
     stem: |
-      Identify the error: "I can't hardly hear you from over here."
+      In standard formal English, which revision best expresses the intended meaning of "I can't hardly hear you from over here"?
     choices:
-      - text: This is a double negative ("can't" and "hardly," which means "almost not"); corrected, it should read "I can hardly hear you from over here."
+      - text: I can hardly hear you from over here.
         correct: true
-      - text: There is no error in this sentence.
+      - text: I can't hardly hear you from over here.
         rationale: |
-          You overlooked the double negative. "Hardly" functions as a negative word, so pairing it with "can't" is an error.
-      - text: Hear should be changed to "heard."
+          You kept "not" together with the negative-meaning adverb "hardly." Standard formal English normally uses "can hardly" for the intended meaning "can almost not hear."
+      - text: I hardly can't hear you from over here.
         rationale: |
-          You changed the verb tense, but "can't" requires a base verb ("hear"). The real issue is the double negative.
-      - text: The sentence needs a comma after "hardly."
+          You kept both negative elements and also placed them in an unnatural standard-English order.
+      - text: I can't hard hear you from over here.
         rationale: |
-          You looked for a punctuation fix, but inserting a comma does not correct the double negative.
+          "Hard" does not mean "almost not" here. The intended adverb is "hardly," used without "can't" in standard formal English.
     explanation: |
-      "Can't" and "hardly" are both negative words, even though "hardly" does not look like an obvious negative at first glance. Using both together creates an unintended double negative.
+      Cambridge classifies "hardly" as an adverb with negative meaning, roughly "almost not." Standard formal English therefore expresses the intended meaning as "I can hardly hear you," not "I can't hardly hear you." This is a standard-usage convention, not a claim that other dialect patterns are meaningless.
     approved: true
 
   - id: q-grammar-and-structure-redundancy-and-double-negatives-0005
     type: redundancy-identification
-    difficulty: medium
+    difficulty: easy
     stem: |
-      Identify and fix the redundancy: "The committee finalized their advance planning for the event."
+      Which revision removes the literal repetition in "Please enter your PIN number at the terminal"?
     choices:
-      - text: Advance planning is redundant, since planning is inherently done ahead of time; corrected, it should read "The committee finalized their planning for the event."
+      - text: Please enter your PIN at the terminal.
         correct: true
-      - text: There is no error in this sentence.
+      - text: Please enter your PIN number code at the terminal.
         rationale: |
-          You assumed the phrase was fine, but "planning" is inherently done in advance, making "advance" redundant.
-      - text: Finalized should be changed to "finalizes."
+          You added another label instead of removing the repeated word. The N in PIN already stands for "number."
+      - text: Please enter your personal PIN number at the terminal.
         rationale: |
-          You changed verb tense, but "finalized" is grammatically correct in past tense. The error is "advance planning."
-      - text: The sentence needs a comma after "planning."
+          You kept "PIN number," so "number" is still repeated by the abbreviation.
+      - text: Please enter your number PIN at the terminal.
         rationale: |
-          You looked for punctuation issues, but a comma does not remove the redundant modifier "advance."
+          You rearranged the words but did not produce the standard term.
     explanation: |
-      "Planning" already implies preparing in advance, so "advance planning" repeats the same idea unnecessarily.
+      PIN stands for "personal identification number." Saying "PIN number" therefore repeats "number." The concise form is simply "PIN."
     approved: true
 
   - id: q-grammar-and-structure-redundancy-and-double-negatives-0006
     type: redundancy-identification
-    difficulty: medium
+    difficulty: easy
     stem: |
-      Identify and fix the error: "They didn't see nothing unusual that night."
+      In standard formal English, revise "They didn't see nothing unusual that night."
     choices:
-      - text: This is a double negative ("didn't" and "nothing"); corrected, it should read "They didn't see anything unusual that night."
+      - text: They didn't see anything unusual that night.
         correct: true
-      - text: There is no error in this sentence.
+      - text: They didn't see nothing unusual that night.
         rationale: |
-          You assumed the sentence was correct, but combining "didn't" and "nothing" forms a double negative.
-      - text: See should be changed to "saw."
+          You kept negative concord. It occurs in multiple English varieties, but standard formal English normally uses "didn't ... anything" or "saw nothing."
+      - text: They didn't saw anything unusual that night.
         rationale: |
-          You changed the verb form, but "didn't" requires the base verb "see." The error is "nothing" instead of "anything."
-      - text: The sentence needs a comma after "nothing."
+          You fixed the negation pattern but used "saw" after "didn't." The auxiliary "did" requires the base form "see."
+      - text: They don't see nothing unusual that night.
         rationale: |
-          You looked for a punctuation error, but a comma does not fix the double negative.
+          You changed the tense and kept the nonstandard-for-formal-writing negative-concord pattern.
     explanation: |
-      "Didn't" and "nothing" are both negative words in the same clause, creating a double negative. Changing "nothing" to "anything" fixes the error.
+      For standard formal English, use either "They didn't see anything unusual" or "They saw nothing unusual." Negative-concord varieties may license multiple negative forms with one negative meaning, but that is not the written convention this item tests.
     approved: true
 
   - id: q-grammar-and-structure-redundancy-and-double-negatives-0007
     type: redundancy-identification
-    difficulty: medium
+    difficulty: easy
     stem: |
-      Choose the sentence without redundancy.
+      Which revision removes the literal repetition in "The ATM machine outside the bank is offline"?
     choices:
-      - text: The outcome of the election surprised everyone.
+      - text: The ATM outside the bank is offline.
         correct: true
-      - text: The final outcome of the election surprised everyone.
+      - text: The ATM machine device outside the bank is offline.
         rationale: |
-          You selected a sentence with "final outcome." An "outcome" is already the final result, so "final" is redundant.
-      - text: Both sentences avoid redundancy.
+          You added another generic noun while keeping the original repetition. The M in ATM already stands for "machine."
+      - text: The automatic ATM machine outside the bank is offline.
         rationale: |
-          You accepted both sentences, but "final outcome" contains a redundant adjective.
-      - text: Neither sentence avoids redundancy.
+          You kept "ATM machine," so "machine" remains repeated by the abbreviation.
+      - text: The machine ATM outside the bank is offline.
         rationale: |
-          You rejected the sentence that cleanly uses "outcome" without the unnecessary modifier "final."
+          You rearranged the words but did not produce the standard term.
     explanation: |
-      "Outcome" already means the final result, so adding "final" repeats the same idea. The correct choice avoids this unnecessary repetition.
+      ATM stands for "automated teller machine." Adding "machine" after ATM repeats the final word of the abbreviation.
     approved: true
 
   - id: q-grammar-and-structure-redundancy-and-double-negatives-0008
     type: redundancy-identification
     difficulty: medium
     stem: |
-      Identify the error: "She hasn't barely started her homework yet."
+      In standard formal English, which revision best expresses the intended meaning of "She hasn't barely started her homework yet"?
     choices:
-      - text: This is a double negative ("hasn't" and "barely"); corrected, it should read "She has barely started her homework yet."
+      - text: She has barely started her homework.
         correct: true
-      - text: There is no error in this sentence.
+      - text: She hasn't barely started her homework yet.
         rationale: |
-          You assumed the sentence was fine, but "barely" acts as a negative, creating a double negative with "hasn't."
-      - text: Started should be changed to "starting."
+          You kept "not" together with "barely," a negative-like minimizer meaning roughly "only just." Standard formal English normally uses "has barely started" for this meaning.
+      - text: She hasn't started barely her homework yet.
         rationale: |
-          You changed the participle, but "hasn't" requires the past participle "started." The issue is the double negative.
-      - text: The sentence needs a comma after "barely."
+          You kept the conflicting negative pattern and also misplaced "barely."
+      - text: She has bare started her homework.
         rationale: |
-          You looked for a punctuation fix, but inserting a comma does not resolve the double negative.
+          "Bare" is an adjective and does not replace the adverb "barely."
     explanation: |
-      "Hasn't" and "barely" are both negative words, since "barely" functions as a negative even though it does not contain "not" or "no."
+      For the intended standard-English meaning, "barely" already conveys that very little progress has been made. "She has barely started her homework" is the clear formal version.
     approved: true
 
   - id: q-grammar-and-structure-redundancy-and-double-negatives-0009
     type: redundancy-identification
-    difficulty: hard
+    difficulty: easy
     stem: |
-      A student sees "unexpected surprise" and assumes it is fine since both words individually make sense. Is "unexpected surprise" actually redundant?
+      Which revision removes the literal repetition in "Write the ISBN number on the form"?
     choices:
-      - text: 'Yes: a surprise is by definition unexpected, so pairing the two words repeats the same idea, even though each word is perfectly normal on its own.'
+      - text: Write the ISBN on the form.
         correct: true
-      - text: 'No: "unexpected" and "surprise" mean completely different things.'
+      - text: Write the ISBN number code on the form.
         rationale: |
-          You claimed the words mean different things, but "surprise" already implies an event was unexpected.
-      - text: 'No: redundancy only applies to verbs, not adjective-noun pairs.'
+          You added another noun while keeping the repeated "number." The N in ISBN already stands for "number."
+      - text: Write the book ISBN number on the form.
         rationale: |
-          You assumed redundancy only occurs with verbs, but it frequently happens with adjective-noun pairings.
-      - text: 'Yes: but only because "surprise" is used incorrectly here.'
+          You added context but kept "ISBN number," so the literal repetition remains.
+      - text: Write the number ISBN on the form.
         rationale: |
-          You thought "surprise" was misused, but the word is valid; adding "unexpected" makes it redundant.
+          You rearranged the words instead of using the standard term.
     explanation: |
-      Check whether two words or phrases in the same sentence repeat the same idea, even if each one is a perfectly normal word by itself. "Unexpected surprise" pairs a word with another word that already implies its meaning.
+      ISBN stands for "International Standard Book Number." "ISBN number" repeats the word "number," so "ISBN" alone is the concise form.
     approved: true
 
   - id: q-grammar-and-structure-redundancy-and-double-negatives-0010
     type: redundancy-identification
     difficulty: hard
     stem: |
-      A student does not recognize "scarcely" as a negative word, since it does not contain "not" or "no." In "He couldn't scarcely finish the race," is this a double negative?
+      In standard formal English, which revision best expresses the intended meaning of "He couldn't scarcely finish the race"?
     choices:
-      - text: 'Yes: "scarcely" functions as a negative in standard grammar, even though it does not look like a typical negative word; combined with "couldn''t," this creates a double negative.'
+      - text: He could scarcely finish the race.
         correct: true
-      - text: 'No: "scarcely" is not a negative word at all.'
+      - text: He couldn't scarcely finish the race.
         rationale: |
-          You assumed "scarcely" is not negative, but in formal grammar it acts as a negative word meaning "almost not."
-      - text: 'No: double negatives can only form using "not" and "no" specifically.'
+          You kept "not" together with "scarcely," which has a negative meaning of "almost not." Standard formal English normally uses "could scarcely" for the intended meaning.
+      - text: He scarcely couldn't finish the race.
         rationale: |
-          You restricted double negatives to "not" and "no," but adverbs like "hardly," "barely," and "scarcely" also count.
-      - text: 'Yes: but only because "race" implies a competitive context.'
+          You kept both negative elements and placed them in a nonstandard order.
+      - text: He couldn't scarce finish the race.
         rationale: |
-          You linked the rule to context, but "scarcely" forms a double negative with "couldn't" regardless of topic.
+          "Scarce" is an adjective; the adverb needed for "almost not" is "scarcely."
     explanation: |
-      "Hardly," "barely," and "scarcely" function as negatives in standard grammar, even though they do not contain "not" or "no" directly. Pairing any of these with another negative word creates a double negative.
+      Cambridge treats "scarcely" as an adverb with negative meaning. For the intended standard formal meaning, use "He could scarcely finish the race." Other dialects may organize negation differently; this item tests the standard written form.
     approved: true
 
   - id: q-grammar-and-structure-redundancy-and-double-negatives-0011
     type: redundancy-identification
     difficulty: hard
     stem: |
-      A student says "I don't have no time" sounds natural in casual conversation, so it must be grammatically correct on a formal exam. Is this reasoning correct?
+      A speaker says "I don't have no time." Which statement best describes the sentence for an exam testing standard formal English?
     choices:
-      - text: 'No: some double negatives sound natural in casual speech but are still grammatically flagged as errors on formal exams; the corrected form is "I don''t have any time."'
+      - text: Standard formal English would normally use "I don't have any time" or "I have no time," although negative concord is grammatical in several English varieties.
         correct: true
-      - text: 'Yes: if a phrase sounds natural in speech, it is always grammatically correct.'
+      - text: The sentence literally has to mean "I have time" because two negatives always cancel each other mathematically.
         rationale: |
-          You relied on conversational speech patterns, but formal exams strictly enforce single-negative constructions.
-      - text: 'Yes: but only because "time" is an uncountable noun.'
+          You treated language as sign arithmetic. In negative-concord varieties, multiple negative forms can express a single semantic negation.
+      - text: The sentence is ungrammatical in every variety of English.
         rationale: |
-          You linked the error to noun countability, but double negatives violate agreement regardless of noun type.
-      - text: 'No: but only because "don''t" should be replaced with "doesn''t."'
+          You made a language-wide claim. Negative concord is a documented grammatical pattern in several English varieties, even though it is not the standard formal convention tested here.
+      - text: The sentence is standard formal English because all spoken variants are interchangeable in formal writing.
         rationale: |
-          You targeted subject-verb agreement, but "I don't" is correct; the issue is pairing "don't" with "no."
+          You ignored register. A construction can be grammatical in a dialect while still not matching the standard written convention expected in a formal exam.
     explanation: |
-      Phrases like "I don't have no time" are common in relaxed conversation, but formal grammar exams expect the corrected, single-negative form.
+      Cambridge notes that standard English normally avoids a negative verb with forms such as "nobody" or "nothing," while Yale documents negative concord as a systematic feature of multiple English varieties. The assessment target is therefore register-aware: know the standard formal form without mislabeling other dialects as illogical.
     approved: true
 
   - id: q-grammar-and-structure-redundancy-and-double-negatives-0012
     type: redundancy-identification
     difficulty: medium
     stem: |
-      Identify and fix the redundancy: "Please return back the library books by Friday."
+      For concise formal writing, revise "Please return back the library books by Friday."
     choices:
-      - text: Return back is redundant, since returning already implies going back; corrected, it should read "Please return the library books by Friday."
+      - text: Please return the library books by Friday.
         correct: true
-      - text: There is no error in this sentence.
+      - text: Please return back again the library books by Friday.
         rationale: |
-          You assumed the phrase was fine, but "return" already means to go or give back, making "back" redundant.
-      - text: Return should be changed to "returns."
+          You added another repeated direction instead of making the sentence concise.
+      - text: Please returns the library books by Friday.
         rationale: |
-          You changed the verb form, but "return" is an imperative command and takes the base form.
-      - text: The sentence needs a comma after "back."
+          You removed "back" but changed the imperative verb to the incorrect form "returns."
+      - text: Please return, back the library books by Friday.
         rationale: |
-          You looked for a punctuation fix, but adding a comma does not resolve the redundancy.
+          You inserted an unnecessary comma and kept "back."
     explanation: |
-      "Return" already implies going back, so "return back" repeats the same idea unnecessarily.
+      In this context, "return" already means to bring or give something back. "Please return the library books" expresses the same instruction more concisely.
     approved: true
 
   - id: q-grammar-and-structure-redundancy-and-double-negatives-0013
     type: redundancy-identification
     difficulty: medium
     stem: |
-      Identify and fix the redundancy: "Could you please repeat again what you just said?"
+      For concise formal writing, revise "Could you please repeat again what you just said?"
     choices:
-      - text: Repeat again is redundant, since repeating already implies doing something again; corrected, it should read "Could you please repeat what you just said?"
+      - text: Could you please repeat what you just said?
         correct: true
-      - text: There is no error in this sentence.
+      - text: Could you please repeat again once more what you just said?
         rationale: |
-          You assumed the sentence was correct, but "repeat" already means to say again, making "again" redundant.
-      - text: Said should be changed to "say."
+          You added more repetition instead of making the request concise.
+      - text: Could you please repeats what you just said?
         rationale: |
-          You altered the past tense verb "said," which is correct after "just." The real issue is "repeat again."
-      - text: The sentence needs a comma after "repeat."
+          After the modal "could," the verb must be the base form "repeat," not "repeats."
+      - text: Could you please repeat, again what you just said?
         rationale: |
-          You looked for punctuation issues, but a comma does not remove the redundant word "again."
+          You inserted an unnecessary comma and retained the repeated idea.
     explanation: |
-      "Repeat" already implies doing something again, so "repeat again" repeats the same idea unnecessarily.
+      "Repeat" already means to say or do something again. In a concision question, "again" is unnecessary.
     approved: true
 
   - id: q-grammar-and-structure-redundancy-and-double-negatives-0014
     type: redundancy-identification
     difficulty: medium
     stem: |
-      Identify and fix the error: "There isn't nobody at the office right now."
+      In standard formal English, revise "There isn't nobody at the office right now."
     choices:
-      - text: This is a double negative ("isn't" and "nobody"); corrected, it should read "There isn't anybody at the office right now."
+      - text: There isn't anybody at the office right now.
         correct: true
-      - text: There is no error in this sentence.
+      - text: There isn't nobody at the office right now.
         rationale: |
-          You assumed the sentence was correct, but combining "isn't" with "nobody" forms a double negative.
-      - text: Office should be changed to "offices."
+          You kept negative concord. It occurs in multiple English varieties, but standard formal English normally uses "isn't anybody" or "there is nobody."
+      - text: There aren't anybody at the office right now.
         rationale: |
-          You changed noun number, but "office" is fine. The error is the double negative "isn't nobody."
-      - text: The sentence needs a comma after "nobody."
+          You changed the verb to plural even though "anybody" takes singular agreement in this construction.
+      - text: There isn't somebody at the office right now.
         rationale: |
-          You looked for a punctuation fix, but inserting a comma does not resolve the double negative.
+          You changed the negative-polarity item to "somebody," which changes the ordinary intended meaning.
     explanation: |
-      "Isn't" and "nobody" are both negative words in the same clause, creating a double negative. Changing "nobody" to "anybody" fixes the error.
+      Standard formal English normally uses "There isn't anybody" or "There is nobody." Negative-concord varieties may use multiple negative forms with a single negative meaning, but that is not the written convention this item tests.
     approved: true
 
   - id: q-grammar-and-structure-redundancy-and-double-negatives-0015
     type: redundancy-identification
     difficulty: exam
     stem: |
-      Identify and fix all redundancy and double negative errors: "The final outcome wasn't hardly surprising, since the advance planning for the event had already predicted the same exact result."
+      Edit this sentence for standard formal English and concision: "The ATM machine wasn't never available, so I had to enter my PIN number at another terminal."
     choices:
-      - text: Corrected, it should read "The outcome wasn't surprising, since the planning for the event had already predicted the same result."
+      - text: The ATM was never available, so I had to enter my PIN at another terminal.
         correct: true
-      - text: There are no errors in this sentence.
+      - text: The ATM machine was never available, so I had to enter my PIN number at another terminal.
         rationale: |
-          You missed four separate errors: three redundant modifiers and one double negative construction.
-      - text: Only the double negative ("wasn't hardly") needs fixing; the redundancies are fine as written.
+          You fixed the standard-English negation pattern but kept both literal abbreviation repetitions: ATM already ends in "machine," and PIN already ends in "number."
+      - text: The ATM wasn't never available, so I had to enter my PIN at another terminal.
         rationale: |
-          You fixed the double negative but left redundant phrases like "final outcome" and "advance planning."
-      - text: Only the redundancies need fixing; the double negative is fine as written.
+          You removed one redundancy but kept the negative-concord pattern that this standard-formal editing task asks you to revise.
+      - text: The ATM machine wasn't never available, so I had to enter my PIN number at another terminal.
         rationale: |
-          You fixed the redundant phrases but left the double negative "wasn't hardly" intact.
+          You left all three target problems unchanged.
     explanation: |
-      Multiple errors are hidden here: "final outcome" is redundant (outcome already means final result), "wasn't hardly" is a double negative, "advance planning" is redundant (planning is inherently done ahead of time), and "same exact" is redundant (same already means exact).
+      Three edits are required for the stated target register: ATM already means "automated teller machine," PIN already means "personal identification number," and standard formal English normally uses a single negative pattern such as "was never available." Negative concord remains a legitimate dialect pattern outside that target register.
     approved: true
