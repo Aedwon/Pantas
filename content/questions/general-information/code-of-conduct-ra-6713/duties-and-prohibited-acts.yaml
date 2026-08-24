@@ -30,21 +30,21 @@ questions:
     type: single_choice
     difficulty: medium
     stem: |
-      What is the maximum number of initials or signatures allowed on written actions submitted for official approval under RA 6713?
+      As far as practicable, what is the maximum number of initials or signatures allowed on written actions or decisions under Section 5 of RA 6713?
     choices:
       - text: At most three signatures
         correct: true
       - text: At most five official signatures
         rationale: |
-          You picked five signatures, which allows excessive bureaucracy. Section 5 limits written actions to at most three initials or signatures.
+          You picked five signatures, which exceeds the statutory target. As far as practicable, Section 5 limits written actions or decisions to at most three initials or signatures.
       - text: At most four official signatures
         rationale: |
-          You chose four signatures, which is still above the legal limit. The law caps total initials or signatures at three to cut red tape.
+          You chose four signatures, which is still above the statutory target. As far as practicable, written actions or decisions should contain no more than three initials or signatures.
       - text: At most six official signatures
         rationale: |
-          You selected six signatures, which doubles the allowed limit. RA 6713 strictly limits official approval trails to at most three signatures.
+          You selected six signatures, which doubles the statutory target. As far as practicable, RA 6713 limits approval trails to at most three initials or signatures.
     explanation: |
-      Section 5(b) requires that written actions contain no more than three initials or signatures.
+      Section 5(b) provides that, as far as practicable, written actions or decisions must contain no more than three initials or signatures.
 
   - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0003
     type: single_choice
@@ -230,21 +230,21 @@ questions:
     type: single_choice
     difficulty: easy
     stem: |
-      Under Section 5 of RA 6713, within how many working days must a written request be acknowledged?
+      Under Section 5(a) of RA 6713, what must the response to a public letter or request contain?
     choices:
-      - text: 15 working days
+      - text: The action taken on the request
         correct: true
-      - text: 20 working days
+      - text: Only the date the request was received
         rationale: |
-          You selected 20 days, which exceeds the statutory rule. Acknowledgments for written requests must be sent within 15 working days.
-      - text: 30 working days
+          You picked the receipt date, but Section 5(a) requires the response to tell the writer what action was taken on the request.
+      - text: Only the name of the next reviewing official
         rationale: |
-          You picked 30 days, which doubles the legal timeframe. Formal requests require a prompt response within 15 working days of receipt.
-      - text: 45 working days
+          You picked the next reviewer's name, but the statute requires a response containing the action taken, not merely an internal routing detail.
+      - text: A notice that no response is required
         rationale: |
-          You chose 45 days, which confuses request acknowledgments with year end performance reports. Written requests need a 15 working day response.
+          You chose a no-response notice, but Section 5(a) requires a response within the statutory period and requires it to contain the action taken.
     explanation: |
-      Section 5(a) specifies that written requests must be acknowledged within 15 working days from receipt.
+      Section 5(a) requires a response within 15 working days from receipt, and the response must contain the action taken on the request.
 
   - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0013
     type: single_choice
@@ -285,23 +285,3 @@ questions:
           You chose departmental custom, which cannot override statutory prohibitions. Outside ownership in regulated firms is prohibited unless authorized by law.
     explanation: |
       Section 7(b)(1) states that outside ownership or management of a regulated business is prohibited unless authorized by law.
-
-  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0015
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Under Section 5 of RA 6713, annual performance reports must be submitted to superiors within how many working days after year end?
-    choices:
-      - text: 45 working days
-        correct: true
-      - text: 15 working days
-        rationale: |
-          You selected 15 days, which is the limit for answering letters. Heads of offices get 45 working days after year end to submit performance reports.
-      - text: 30 working days
-        rationale: |
-          You picked 30 days, which underestimates the allowed timeframe. Public officers get up to 45 working days after year end to submit annual reports.
-      - text: 60 working days
-        rationale: |
-          You chose 60 days, which goes beyond the statutory allowance. Annual performance reports must be submitted within 45 working days.
-    explanation: |
-      Section 5(c) sets the deadline for submitting annual performance reports to superiors at within 45 working days from year end.
