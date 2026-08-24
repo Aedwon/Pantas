@@ -1014,14 +1014,17 @@ class _EarthSciencePainter extends CustomPainter {
           tailStart.dy - side.dy * 4,
         )
         ..close();
-      canvas.drawPath(tail, Paint()..color = ink.withValues(alpha: .12));
-      canvas.drawPath(tail, _faintStroke);
-      canvas.drawCircle(p, 9, _faintStroke);
-      canvas.drawCircle(p, 4, Paint()..color = ink.withValues(alpha: .26));
+      canvas
+        ..drawPath(tail, Paint()..color = ink.withValues(alpha: .12))
+        ..drawPath(tail, _faintStroke)
+        ..drawCircle(p, 9, _faintStroke)
+        ..drawCircle(p, 4, Paint()..color = ink.withValues(alpha: .26));
       for (final offset in [1.0, -1.0]) {
         final wisp = Path()
-          ..moveTo(p.dx + unit.dx * 6 + side.dx * offset * 3,
-              p.dy + unit.dy * 6 + side.dy * offset * 3)
+          ..moveTo(
+            p.dx + unit.dx * 6 + side.dx * offset * 3,
+            p.dy + unit.dy * 6 + side.dy * offset * 3,
+          )
           ..quadraticBezierTo(
             p.dx + unit.dx * 28 + side.dx * offset * 7,
             p.dy + unit.dy * 28 + side.dy * offset * 7,
@@ -1062,11 +1065,11 @@ class _EarthSciencePainter extends CustomPainter {
         false,
       )
       ..close();
-    canvas.drawPath(
-      shadowZone,
-      Paint()..color = ink.withValues(alpha: .08),
-    );
     canvas
+      ..drawPath(
+        shadowZone,
+        Paint()..color = ink.withValues(alpha: .08),
+      )
       ..drawCircle(center, 92, _stroke)
       ..drawCircle(center, 58, _faintStroke)
       ..drawCircle(center, 28, _faintStroke);
@@ -1160,7 +1163,10 @@ class _EarthSciencePainter extends CustomPainter {
       mutedText: true,
     );
     _bracket(
-        canvas, center + const Offset(88, -34), center + const Offset(88, 34));
+      canvas,
+      center + const Offset(88, -34),
+      center + const Offset(88, 34),
+    );
   }
 
   void _drawRockCycle(Canvas canvas, Size size) {
@@ -1207,8 +1213,9 @@ class _EarthSciencePainter extends CustomPainter {
         maxWidth: 88,
         mutedText: true,
       );
-      canvas.drawCircle(a, 25, Paint()..color = background);
-      canvas.drawCircle(a, 25, _faintStroke);
+      canvas
+        ..drawCircle(a, 25, Paint()..color = background)
+        ..drawCircle(a, 25, _faintStroke);
       _text(
         canvas,
         labels[i],
@@ -1392,8 +1399,9 @@ class _EarthSciencePainter extends CustomPainter {
           rect.bottom - 10,
         )
         ..close();
-      canvas.drawPath(plume, Paint()..color = ink.withValues(alpha: .14));
-      canvas.drawPath(plume, _faintStroke);
+      canvas
+        ..drawPath(plume, Paint()..color = ink.withValues(alpha: .14))
+        ..drawPath(plume, _faintStroke);
       _arrow(
         canvas,
         Offset(rect.center.dx - 8, midY - 29),
@@ -1602,8 +1610,9 @@ class _EarthSciencePainter extends CustomPainter {
       ..lineTo(145, base + 8)
       ..lineTo(18, base + 8)
       ..close();
-    canvas.drawPath(ocean, Paint()..color = ink.withValues(alpha: .08));
-    canvas.drawPath(ocean, _faintStroke);
+    canvas
+      ..drawPath(ocean, Paint()..color = ink.withValues(alpha: .08))
+      ..drawPath(ocean, _faintStroke);
     _text(canvas, 'ocean', const Offset(82, 186), maxWidth: 60);
     final mountain = Path()
       ..moveTo(size.width * .41, base)
@@ -1612,13 +1621,14 @@ class _EarthSciencePainter extends CustomPainter {
       ..lineTo(size.width * .73, 113)
       ..lineTo(size.width * .95, base)
       ..close();
-    canvas.drawPath(mountain, Paint()..color = ink.withValues(alpha: .06));
-    canvas.drawPath(mountain, _stroke);
-    canvas.drawLine(
-      Offset(size.width * .53, 158),
-      Offset(size.width * .73, 113),
-      _faintStroke,
-    );
+    canvas
+      ..drawPath(mountain, Paint()..color = ink.withValues(alpha: .06))
+      ..drawPath(mountain, _stroke)
+      ..drawLine(
+        Offset(size.width * .53, 158),
+        Offset(size.width * .73, 113),
+        _faintStroke,
+      );
     _sun(canvas, const Offset(50, 50), 16);
     for (var i = 0; i < 3; i++) {
       _arrow(
@@ -1627,7 +1637,7 @@ class _EarthSciencePainter extends CustomPainter {
         Offset(60 + i * 9, 145),
       );
     }
-    _text(canvas, 'Sun heats ocean', const Offset(71, 78), maxWidth: 100);
+    _text(canvas, 'Sun heats ocean', const Offset(71, 78));
     _cloud(canvas, const Offset(224, 64));
     _cloud(canvas, const Offset(286, 66));
     _arrow(
@@ -1635,31 +1645,56 @@ class _EarthSciencePainter extends CustomPainter {
       const Offset(100, 175),
       const Offset(115, 104),
     );
-    _text(canvas, 'evaporation', const Offset(95, 123),
-        maxWidth: 85, mutedText: true);
-    _text(canvas, 'water vapor rises', const Offset(152, 92),
-        maxWidth: 105, mutedText: true);
+    _text(
+      canvas,
+      'evaporation',
+      const Offset(95, 123),
+      maxWidth: 85,
+      mutedText: true,
+    );
+    _text(
+      canvas,
+      'water vapor rises',
+      const Offset(152, 92),
+      maxWidth: 105,
+      mutedText: true,
+    );
     _arrow(
       canvas,
       const Offset(145, 89),
       const Offset(205, 71),
     );
-    _text(canvas, 'condensation', const Offset(196, 32),
-        maxWidth: 95, mutedText: true);
+    _text(
+      canvas,
+      'condensation',
+      const Offset(196, 32),
+      maxWidth: 95,
+      mutedText: true,
+    );
     _arrow(
       canvas,
       const Offset(281, 85),
       const Offset(273, 148),
     );
-    _text(canvas, 'precipitation', const Offset(323, 112),
-        maxWidth: 86, mutedText: true);
+    _text(
+      canvas,
+      'precipitation',
+      const Offset(323, 112),
+      maxWidth: 86,
+      mutedText: true,
+    );
     _arrow(
       canvas,
       const Offset(270, 164),
       const Offset(154, 194),
     );
-    _text(canvas, 'runoff to ocean', const Offset(219, 178),
-        maxWidth: 108, mutedText: true);
+    _text(
+      canvas,
+      'runoff to ocean',
+      const Offset(219, 178),
+      maxWidth: 108,
+      mutedText: true,
+    );
     final groundwater = Path()
       ..moveTo(size.width * .82, base + 14)
       ..quadraticBezierTo(
@@ -1674,8 +1709,13 @@ class _EarthSciencePainter extends CustomPainter {
       Offset(size.width * .49, base + 25),
       Offset(size.width * .28, base + 11),
     );
-    _text(canvas, 'groundwater to ocean', const Offset(219, 235),
-        maxWidth: 135, mutedText: true);
+    _text(
+      canvas,
+      'groundwater to ocean',
+      const Offset(219, 235),
+      maxWidth: 135,
+      mutedText: true,
+    );
   }
 
   void _drawAtmosphere(Canvas canvas, Size size) {
@@ -1759,8 +1799,9 @@ class _EarthSciencePainter extends CustomPainter {
     }
     if (showSurfaceMarker) {
       final marker = _surfaceMarker(center, radius);
-      canvas.drawCircle(marker, 3, Paint()..color = ink);
-      canvas.drawCircle(marker, 5, _faintStroke);
+      canvas
+        ..drawCircle(marker, 3, Paint()..color = ink)
+        ..drawCircle(marker, 5, _faintStroke);
     }
   }
 
@@ -2003,8 +2044,9 @@ class _EarthSciencePainter extends CustomPainter {
       ..lineTo(center.dx, center.dy + radius * .15)
       ..lineTo(center.dx + radius * .42, center.dy - radius)
       ..lineTo(center.dx + radius, center.dy + radius * .55);
-    canvas.drawPath(path, _stroke);
-    canvas.drawCircle(center, radius * .2, Paint()..color = ink);
+    canvas
+      ..drawPath(path, _stroke)
+      ..drawCircle(center, radius * .2, Paint()..color = ink);
   }
 
   void _cross(Canvas canvas, Offset center, double radius) {
