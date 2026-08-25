@@ -160,7 +160,7 @@ questions:
     type: direct-computation
     difficulty: hard
     stem: |
-      Simplify $\sqrt{72x^3y^4}$.
+      Assume $x \ge 0$. Simplify $\sqrt{72x^3y^4}$.
     choices:
       - text: $6xy^2\sqrt{2x}$
         correct: true
@@ -174,7 +174,7 @@ questions:
         rationale: |
           You pulled out too much from 72 and lost the leftover $x$ inside the root. After taking out pairs, the inside is $2x$, not 6.
     explanation: |
-      Factor: $72 = 36 \times 2$, $x^3 = x^2 \times x$, $y^4 = y^4$. Take out pairs: $\sqrt{36 \times 2 \times x^2 \times x \times y^4} = 6 \times x \times y^2 \times \sqrt{2x} = 6xy^2\sqrt{2x}$.
+      With $x \ge 0$, $\sqrt{x^2}=x$. Factor $72 = 36 \times 2$, $x^3 = x^2 \times x$, and $y^4=(y^2)^2$. Taking out the square factors gives $6xy^2\sqrt{2x}$.
 
   - id: q-algebra-radicals-and-rationalization-0009
     type: which-is-true
@@ -242,7 +242,7 @@ questions:
     type: error-spotting
     difficulty: hard
     stem: |
-      A student rationalized $\dfrac{1}{\sqrt[3]{x}}$ by multiplying by $\dfrac{\sqrt[3]{x}}{\sqrt[3]{x}}$ and got $\dfrac{\sqrt[3]{x}}{x}$. What is the issue?
+      For $x \ne 0$, a student rationalized $\dfrac{1}{\sqrt[3]{x}}$ by multiplying by $\dfrac{\sqrt[3]{x}}{\sqrt[3]{x}}$ and got $\dfrac{\sqrt[3]{x}}{x}$. What is the issue?
     choices:
       - text: For cube roots, you need groups of three, not two. Multiply by $\dfrac{\sqrt[3]{x^2}}{\sqrt[3]{x^2}}$ instead.
         correct: true
@@ -256,7 +256,7 @@ questions:
         rationale: |
           You pushed the missing factor all the way outside the root. The extra $x$ must stay inside as $\sqrt[3]{x^2}$ before multiplying.
     explanation: |
-      Cube root needs three identical factors to simplify. Multiplying by just $\sqrt[3]{x}$ gives two. You need $\sqrt[3]{x^2}$ to get three $x$s total inside.
+      The original denominator requires $x \ne 0$. A cube root needs three identical factors to simplify. Multiplying by only $\sqrt[3]{x}$ gives two copies under the cube root; multiply by $\sqrt[3]{x^2}$ instead so the denominator becomes $x$.
 
   - id: q-algebra-radicals-and-rationalization-0013
     type: direct-computation
@@ -324,13 +324,13 @@ questions:
     type: direct-computation
     difficulty: hard
     stem: |
-      Simplify $\sqrt{200x^2y}$.
+      Assume $x \ge 0$ and $y \ge 0$. Simplify $\sqrt{200x^2y}$.
     choices:
       - text: $10x\sqrt{2y}$
         correct: true
       - text: $10\sqrt{2xy}$
         rationale: |
-          You moved the $x$ outside the radical and also kept it inside. Once $x^2$ leaves as $x$, it should not stay under the root.
+          You moved the $x$ outside the radical and also kept it inside. Once $x^2$ leaves as $x$ under the stated $x \ge 0$ assumption, it should not remain under the root.
       - text: $20\sqrt{5y}$
         rationale: |
           You split 200 as if the outside factor were 20. The largest square factor is 100, so only 10 comes out.
@@ -338,13 +338,13 @@ questions:
         rationale: |
           You took the whole 100 outside as if the root were not there. $\sqrt{100}$ is 10, not 100.
     explanation: |
-      $200 = 100 \times 2$ and $x^2$ is a perfect square. So $\sqrt{200x^2y} = 10x\sqrt{2y}$.
+      With $x \ge 0$, $\sqrt{x^2}=x$. Also $y \ge 0$ keeps the real square root defined. Since $200=100\times2$, $\sqrt{200x^2y}=10x\sqrt{2y}$.
 
   - id: q-algebra-radicals-and-rationalization-0017
     type: error-spotting
     difficulty: medium
     stem: |
-      A student claims $(x + \sqrt{y})(x - \sqrt{y}) = x^2 + y$. What is the error?
+      For real $x$ and $y \ge 0$, a student claims $(x + \sqrt{y})(x - \sqrt{y}) = x^2 + y$. What is the error?
     choices:
       - text: The result should be $x^2 - y$, not $x^2 + y$.
         correct: true
