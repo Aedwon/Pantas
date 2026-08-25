@@ -1,0 +1,19 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-algebra-radicals-and-rationalization-0001	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-radicals-and-rationalization-0002	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-radicals-and-rationalization-0003	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-radicals-and-rationalization-0004	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-radicals-and-rationalization-0005	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-radicals-and-rationalization-0006	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-radicals-and-rationalization-0007	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-radicals-and-rationalization-0008	CORRECTED	RE-DERIVED	LESSON GAP	TEXT SUFFICIENT	HIGH	Added x >= 0 so extracting sqrt(x^2) as x is valid; lesson omits this qualification.
+q-algebra-radicals-and-rationalization-0009	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-radicals-and-rationalization-0010	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-radicals-and-rationalization-0011	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-radicals-and-rationalization-0012	CORRECTED	RE-DERIVED	LESSON GAP	TEXT SUFFICIENT	HIGH	Added x != 0 because the original denominator cube root cannot be zero.
+q-algebra-radicals-and-rationalization-0013	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-radicals-and-rationalization-0014	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-radicals-and-rationalization-0015	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-radicals-and-rationalization-0016	CORRECTED	RE-DERIVED	LESSON GAP	TEXT SUFFICIENT	HIGH	Added x >= 0 and y >= 0 so the real radical is defined and sqrt(x^2)=x is valid.
+q-algebra-radicals-and-rationalization-0017	CORRECTED	RE-DERIVED	LESSON GAP	TEXT SUFFICIENT	MEDIUM	Made the real-variable premise explicit by stating y >= 0 for sqrt(y).
+q-algebra-radicals-and-rationalization-0018	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
