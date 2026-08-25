@@ -120,7 +120,8 @@ String _receiverTag(String manifest, String receiverName) {
 String _receiverBlock(String manifest, String receiverName) {
   final match = RegExp(
     '<receiver\\b[^>]*android:name="${RegExp.escape(receiverName)}"[^>]*>'
-    '[\\s\\S]*?'</n    '</receiver>',
+    '[\\s\\S]*?'
+    '</receiver>',
   ).firstMatch(manifest);
   expect(match, isNotNull, reason: 'Missing receiver block $receiverName');
   return match!.group(0)!;
@@ -128,7 +129,9 @@ String _receiverBlock(String manifest, String receiverName) {
 
 String _elementBlock(String source, String elementName) {
   final match = RegExp(
-    '<${RegExp.escape(elementName)}\\b[^>]*>[\\s\\S]*?</${RegExp.escape(elementName)}>',
+    '<${RegExp.escape(elementName)}\\b[^>]*>'
+    '[\\s\\S]*?'
+    '</${RegExp.escape(elementName)}>',
   ).firstMatch(source);
   expect(match, isNotNull, reason: 'Missing <$elementName> block');
   return match!.group(0)!;
