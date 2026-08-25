@@ -32,27 +32,25 @@ questions:
     type: word-problem
     difficulty: easy
     stem: |
-      A jeepney charges $\text{₱}13.00$ for first 4 km and $\text{₱}1.80$ per km thereafter. Mang Juan travels 11.5 km. How much is his fare?
+      A hypothetical jeepney fare is $\text{₱}13.00$ for the first 4 km and $\text{₱}1.80$ for each additional kilometer **or fraction thereof**. Mang Juan travels 11.5 km. How much is his fare?
     choices:
       - text: "$\\text{₱}26.50$"
         rationale: |
-          You calculated 7.5 times 1.80 = 13.50 without rounding up the excess 0.5 km to a full kilometer.
+          You charged the 7.5 km excess proportionally instead of applying the stated rule that a fraction of an additional kilometer is charged as a full kilometer.
       - text: "$\\text{₱}27.40$"
         correct: true
       - text: "$\\text{₱}33.70$"
         rationale: |
-          You calculated P1.80 for all 11.5 km (rounded up to 12 km) and added it to P13.00.
+          You applied the additional-kilometer charge to the full trip instead of only the distance beyond the first 4 km.
       - text: "$\\text{₱}20.70$"
         rationale: |
-          You calculated P1.80 for 11.5 km (20.70) without adding the P13 base fare or accounting for the first 4 km.
+          You calculated a distance-based amount without correctly combining the base fare and the excess-distance charge.
     explanation: |
-      Excess distance: $11.5 - 4 = 7.5$ km
+      Excess distance: $11.5 - 4 = 7.5$ km. Under the stated "or fraction thereof" rule, this is charged as 8 additional kilometers.
 
-      Round up: $\lceil 7.5 \rceil = 8$ km
+      Additional fare: $8 \times \text{₱}1.80 = \text{₱}14.40$.
 
-      Additional: $8 \times \text{₱}1.80 = \text{₱}14.40$
-
-      Total: $\text{₱}13 + \text{₱}14.40 = \text{₱}27.40$
+      Total fare: $\text{₱}13 + \text{₱}14.40 = \text{₱}27.40$.
 
   - id: q-arithmetic-number-sense-business-math-0003
     type: word-problem
@@ -154,25 +152,27 @@ questions:
     type: word-problem
     difficulty: medium
     stem: |
-      Students get 20% jeepney discount. Route base fare $\text{₱}13$ (first 4 km), then $\text{₱}1.75$/km. Student travels 9 km, how much?
+      In a hypothetical fare problem, a student receives a 20% discount from the regular fare. The regular route fare is $\text{₱}13$ for the first 4 km, then $\text{₱}1.75$/km. If the student travels exactly 9 km, how much is the discounted fare?
     choices:
       - text: "$\\text{₱}21.75$"
         rationale: |
-          You calculated the regular adult fare without applying the 20 percent student discount.
+          You calculated the regular fare without applying the stated 20 percent discount.
       - text: "$\\text{₱}19.15$"
         rationale: |
-          You applied 20 percent discount only to the base fare P13 or miscalculated the discount.
+          You applied the discount to only part of the fare or miscalculated it.
       - text: "$\\text{₱}17.40$"
         correct: true
       - text: "$\\text{₱}20.00$"
         rationale: |
-          You rounded the final student fare or miscalculated the distance calculation.
+          You rounded or miscalculated the final discounted fare.
     explanation: |
-      Regular fare: $\text{₱}13 + (9-4) \times \text{₱}1.75 = \text{₱}13 + \text{₱}8.75 = \text{₱}21.75$
+      Regular fare: $\text{₱}13 + (9-4) \times \text{₱}1.75 = \text{₱}21.75$.
 
-      Discount: $\text{₱}21.75 \times 0.20 = \text{₱}4.35$
+      Discount: $\text{₱}21.75 \times 0.20 = \text{₱}4.35$.
 
-      Student fare: $\text{₱}21.75 - \text{₱}4.35 = \text{₱}17.40$
+      Discounted fare: $\text{₱}21.75 - \text{₱}4.35 = \text{₱}17.40$.
+
+      The 20% discount is an explicit assumption of this math problem, not a claim about a current regulated fare schedule.
 
   - id: q-arithmetic-number-sense-business-math-0008
     type: word-problem
@@ -328,29 +328,29 @@ questions:
     type: word-problem
     difficulty: exam-level
     stem: |
-      Mang Cardo's jeepney: 8 round trips daily, 15 passengers per trip, $\text{₱}13$/fare. Expenses: $\text{₱}800$ boundary + $\text{₱}950$ fuel. Net daily income?
+      Mang Cardo's jeepney makes 8 round trips daily. Assume each **one-way leg** carries 15 paying passengers at $\text{₱}13$ each. Daily expenses are $\text{₱}800$ boundary plus $\text{₱}950$ fuel. What is the net daily cash income after these expenses?
     choices:
       - text: "$\\text{₱}1,370.00$"
         correct: true
       - text: "$-\\text{₱}190.00$"
         rationale: |
-          You calculated revenue for 8 one-way trips (120 passengers * P13 = P1,560) instead of 8 round trips.
+          You counted only 8 one-way legs instead of 16 one-way legs in 8 round trips.
       - text: "$\\text{₱}2,320.00$"
         rationale: |
-          You subtracted boundary P800 but forgot to subtract fuel expense P950.
+          You subtracted the boundary expense but omitted fuel.
       - text: "$\\text{₱}3,120.00$"
         rationale: |
-          You calculated total daily gross revenue but omitted both boundary and fuel expenses.
+          You reported gross fare revenue without subtracting either stated expense.
     explanation: |
-      One-way trips: $8 \times 2 = 16$
+      Eight round trips contain $8\times2=16$ one-way legs.
 
-      Passengers: $16 \times 15 = 240$
+      Passenger rides: $16\times15=240$.
 
-      Revenue: $240 \times \text{₱}13 = \text{₱}3,120$
+      Gross fare revenue: $240\times\text{₱}13=\text{₱}3,120$.
 
-      Expenses: $\text{₱}800 + \text{₱}950 = \text{₱}1,750$
+      Expenses: $\text{₱}800+\text{₱}950=\text{₱}1,750$.
 
-      Net: $\text{₱}3,120 - \text{₱}1,750 = \text{₱}1,370$
+      Net cash income: $\text{₱}3,120-\text{₱}1,750=\text{₱}1,370$.
 
   - id: q-arithmetic-number-sense-business-math-0015
     type: word-problem
