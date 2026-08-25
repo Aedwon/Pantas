@@ -1,0 +1,17 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-statistics-and-probability-basic-probability-0001	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-basic-probability-0002	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-basic-probability-0003	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-basic-probability-0004	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-basic-probability-0005	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-basic-probability-0006	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-basic-probability-0007	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-basic-probability-0008	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-basic-probability-0009	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-basic-probability-0010	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-basic-probability-0011	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-basic-probability-0012	VERIFIED	RECOMPUTED	VALID; LESSON COVERAGE GAP	TEXT SUFFICIENT; TABLE EMBEDDED	NONE	Conditional-probability table item is valid but the lesson does not explicitly teach conditional probability notation.
+q-statistics-and-probability-basic-probability-0013	VERIFIED	RECOMPUTED	VALID; LESSON COVERAGE GAP	TEXT SUFFICIENT	NONE	Law of Total Probability is not taught in the matching lesson.
+q-statistics-and-probability-basic-probability-0014	CORRECTED	RECOMPUTED	VALID; LESSON COVERAGE GAP	TEXT SUFFICIENT	LOW	Removed dependency on Question 13 and recomputed the total defective probability inside the item before Bayes' theorem.
+q-statistics-and-probability-basic-probability-0015	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-basic-probability-0016	VERIFIED	RECOMPUTED	SUPPORTED BY COMBINED RULES	TEXT SUFFICIENT	NONE	
