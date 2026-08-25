@@ -1,0 +1,16 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-algebra-sets-and-set-notation-0001	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-sets-and-set-notation-0002	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-sets-and-set-notation-0003	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-sets-and-set-notation-0004	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-sets-and-set-notation-0005	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-sets-and-set-notation-0006	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-sets-and-set-notation-0007	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-sets-and-set-notation-0008	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-sets-and-set-notation-0009	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-sets-and-set-notation-0010	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-sets-and-set-notation-0011	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A three-set Venn diagram could aid inspection but inclusion-exclusion is fully specified in text.
+q-algebra-sets-and-set-notation-0012	RETIRED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	MEDIUM	Low-information derivative of 0011: after being given 100 total and 93 in the union, the task is only 100-93. Removed instead of preserving count.
+q-algebra-sets-and-set-notation-0013	CORRECTED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	MEDIUM	Corrected a false distractor rationale that said both sets contain 3; 3 is in A but not B because 9 is not less than 9.
+q-algebra-sets-and-set-notation-0014	CORRECTED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	LOW	Difficulty metadata recalibrated from hard to medium; identity unchanged.
+q-algebra-sets-and-set-notation-0015	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A three-set Venn diagram could aid region bookkeeping but is not required.
