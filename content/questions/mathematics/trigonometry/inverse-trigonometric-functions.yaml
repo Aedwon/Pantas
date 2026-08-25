@@ -24,7 +24,7 @@ questions:
           You picked an angle whose sine is also a half. Arcsine only returns
           angles between $-90$ and $90$ degrees, so it is not this one.
     explanation: |
-      Arcsine asks: which angle in $[-90^\circ, 90^\circ]$ has sine $\dfrac{1}{2}$? The answer is $30^\circ$. The other angles ($60^\circ$, $150^\circ$) do not have sine $\dfrac{1}{2}$ (check: $\sin 60^\circ = \dfrac{\sqrt{3}}{2}$), or they lie outside arcsine's principal range.
+      Arcsine asks: which angle in $[-90^\circ, 90^\circ]$ has sine $\dfrac{1}{2}$? The answer is $30^\circ$. The other choices either have a different sine value or, in the case of $150^\circ$, lie outside arcsine's principal range.
   - id: q-trigonometry-inverse-trigonometric-functions-0002
     type: which-is-true
     difficulty: easy
@@ -45,7 +45,7 @@ questions:
         rationale: |
           You split the two notations. They mean exactly the same thing.
     explanation: |
-      The notation $\sin^{-1} x$ (also written $\arcsin x$) means the inverse function: the angle whose sine is $x$. The raised $-1$ means "undo" or "inverse", not an exponent. The reciprocal of sine is called cosecant, $\csc x$, and is written $\dfrac{1}{\sin x}$. Confusing these turns every problem into nonsense.
+      The notation $\sin^{-1} x$ (also written $\arcsin x$) means the inverse function: the angle whose sine is $x$, for inputs $x \in [-1,1]$. The raised $-1$ means "undo" or "inverse", not an exponent. The reciprocal of sine is called cosecant, $\csc x$, and is written $\dfrac{1}{\sin x}$.
   - id: q-trigonometry-inverse-trigonometric-functions-0003
     type: which-is-true
     difficulty: easy
@@ -127,7 +127,7 @@ questions:
         rationale: |
           You went past 180 degrees, which is outside arccosine's range.
     explanation: |
-      Arccosine returns angles in $[0^\circ, 180^\circ]$ (never negative). A negative cosine forces an angle in Quadrant II. The reference angle comes from $\cos 60^\circ = \dfrac{1}{2}$. Place it in Quadrant II: $180 - 60 = 120^\circ$. So $\arccos\left(-\dfrac{1}{2}\right) = 120^\circ$. Note: arccosine never returns negative angles, so $-60^\circ$ is wrong.
+      Arccosine returns angles in $[0^\circ, 180^\circ]$ (never negative). A negative cosine forces an angle in Quadrant II. The reference angle comes from $\cos 60^\circ = \dfrac{1}{2}$. Place it in Quadrant II: $180 - 60 = 120^\circ$. So $\arccos\left(-\dfrac{1}{2}\right) = 120^\circ$.
   - id: q-trigonometry-inverse-trigonometric-functions-0007
     type: which-is-true
     difficulty: medium
@@ -161,16 +161,15 @@ questions:
           You gave the cosine back. The question asks for the sine of that angle.
       - text: $\dfrac{5}{3}$
         rationale: |
-          You turned the tangent upside down. The opposite side goes on top and
-          the adjacent side underneath. The hypotenuse goes underneath.
+          You inverted the given cosine ratio instead of finding the sine of the same angle.
       - text: $\dfrac{5}{4}$
         rationale: |
-          You turned the answer over as well as finding the wrong side.
+          You inverted the correct sine ratio instead of reporting sine itself.
     explanation: |
-      Let $\theta = \arccos\dfrac{3}{5}$: an acute angle with cosine $\dfrac{3}{5}$. In the right triangle, cosine is adjacent over hypotenuse, so adjacent $= 3$ and hypotenuse $= 5$. Find the opposite side: $\sqrt{5^2 - 3^2} = \sqrt{16} = 4$. Now read sine (opposite over hypotenuse): $\sin \theta = \dfrac{4}{5}$. This is the $3$-$4$-$5$ triple at work.
+      Let $\theta = \arccos\dfrac{3}{5}$: an acute angle with cosine $\dfrac{3}{5}$. In the right triangle, cosine is adjacent over hypotenuse, so adjacent $= 3$ and hypotenuse $= 5$. Find the opposite side: $\sqrt{5^2 - 3^2} = \sqrt{16} = 4$. Now read sine (opposite over hypotenuse): $\sin \theta = \dfrac{4}{5}$.
   - id: q-trigonometry-inverse-trigonometric-functions-0009
     type: which-is-true
-    difficulty: medium-hard
+    difficulty: hard
     stem: |
       Evaluate $\tan\left(\arcsin\dfrac{5}{13}\right)$.
     choices:
@@ -187,7 +186,7 @@ questions:
         rationale: |
           You turned the fraction over.
     explanation: |
-      Let $\theta = \arcsin\dfrac{5}{13}$: an acute angle with sine $\dfrac{5}{13}$ (opposite $5$, hypotenuse $13$). Find the adjacent side: $\sqrt{13^2 - 5^2} = \sqrt{144} = 12$. This is the $5$-$12$-$13$ triple. Now read tangent (opposite over adjacent): $\tan \theta = \dfrac{5}{12}$. The choice $\dfrac{5}{13}$ is the original sine value, not tangent.
+      Let $\theta = \arcsin\dfrac{5}{13}$: an acute angle with sine $\dfrac{5}{13}$ (opposite $5$, hypotenuse $13$). Find the adjacent side: $\sqrt{13^2 - 5^2} = \sqrt{144} = 12$. This is the $5$-$12$-$13$ triple. Now read tangent (opposite over adjacent): $\tan \theta = \dfrac{5}{12}$.
   - id: q-trigonometry-inverse-trigonometric-functions-0010
     type: which-is-true
     difficulty: hard
@@ -209,7 +208,7 @@ questions:
           You picked the statement about all real inputs. Arccosine only accepts
           inputs from $-1$ to 1.
     explanation: |
-      The first statement is true: $\arcsin(\sin 30^\circ) = \arcsin(0.5) = 30^\circ$. Inverse functions undo each other. The second is false: $\arcsin 2$ is undefined (sine never reaches $2$). The third is false: $\arcsin(\sin 150^\circ) = \arcsin(0.5) = 30^\circ$ (not $150$ degrees), because $150^\circ$ lies outside arcsine's principal range. The fourth is false: $\arccos x$ only accepts inputs in $[-1, 1]$.
+      The first statement is true: $\arcsin(\sin 30^\circ) = \arcsin(0.5) = 30^\circ$. The second is false: $\arcsin 2$ is undefined. The third is false: $\arcsin(\sin 150^\circ) = \arcsin(0.5) = 30^\circ$ because $150^\circ$ lies outside arcsine's principal range. The fourth is false: $\arccos x$ only accepts inputs in $[-1, 1]$.
   - id: q-trigonometry-inverse-trigonometric-functions-0011
     type: which-is-true
     difficulty: hard
@@ -228,7 +227,7 @@ questions:
         rationale: |
           You turned the tangent over instead of finding the cosine.
     explanation: |
-      Let $\theta = \arctan\dfrac{7}{24}$: an acute angle with tangent $\dfrac{7}{24}$ (opposite $7$, adjacent $24$). Find the hypotenuse: $\sqrt{7^2 + 24^2} = \sqrt{49 + 576} = \sqrt{625} = 25$. This is the $7$-$24$-$25$ Pythagorean triple. Now read cosine (adjacent over hypotenuse): $\cos \theta = \dfrac{24}{25}$. The choice $\dfrac{7}{25}$ is sine, not cosine.
+      Let $\theta = \arctan\dfrac{7}{24}$: an acute angle with tangent $\dfrac{7}{24}$ (opposite $7$, adjacent $24$). Find the hypotenuse: $\sqrt{7^2 + 24^2} = \sqrt{625} = 25$. Now read cosine: $\cos \theta = \dfrac{24}{25}$.
   - id: q-trigonometry-inverse-trigonometric-functions-0012
     type: which-is-true
     difficulty: hard
@@ -250,7 +249,7 @@ questions:
           You made the two the same. One undoes the other only inside the allowed
           range, and outside it they part company.
     explanation: |
-      The first statement is true: $\sin(\arcsin x) = x$ whenever $x$ is in the domain of arcsine, which is $[-1, 1]$. A function composed with its inverse (in the right order) returns the input. The second is false: $\arcsin x$ is only defined for $x \in [-1, 1]$. The third is false: $\arcsin(\sin x) = x$ only when $x$ is already in arcsine's principal range $[-90^\circ, 90^\circ]$; otherwise, it returns the angle in that range equivalent to $x$. The fourth is false: the two sides need not be equal.
+      The first statement is true: $\sin(\arcsin x) = x$ whenever $x$ is in the domain of arcsine, which is $[-1, 1]$. The third statement is false because $\arcsin(\sin x)=x$ only when $x$ already lies in arcsine's principal range.
   - id: q-trigonometry-inverse-trigonometric-functions-0013
     type: which-is-true
     difficulty: hard
@@ -270,7 +269,7 @@ questions:
         rationale: |
           You called it undefined. Arctangent takes every real number.
     explanation: |
-      Arctangent asks: which angle in $(-90^\circ, 90^\circ)$ has tangent $\sqrt{3}$? Since $\tan 60^\circ = \sqrt{3}$ and $60^\circ$ is in the principal range, $\arctan(\sqrt{3}) = 60^\circ$. The angle $120^\circ$ also has tangent $-\sqrt{3}$ (not $+\sqrt{3}$), so it is not the answer. Negative input would give a negative angle.
+      Arctangent asks: which angle in $(-90^\circ, 90^\circ)$ has tangent $\sqrt{3}$? Since $\tan 60^\circ = \sqrt{3}$ and $60^\circ$ is in the principal range, $\arctan(\sqrt{3}) = 60^\circ$.
   - id: q-trigonometry-inverse-trigonometric-functions-0014
     type: which-is-true
     difficulty: hard
@@ -289,7 +288,7 @@ questions:
         rationale: |
           You used the opposite over the adjacent, which is the tangent.
     explanation: |
-      Let $\theta = \arcsin\dfrac{12}{13}$: an acute angle with sine $\dfrac{12}{13}$ (opposite $12$, hypotenuse $13$). Find the adjacent side: $\sqrt{13^2 - 12^2} = \sqrt{169 - 144} = \sqrt{25} = 5$. This is the $5$-$12$-$13$ triple. Now read cosine (adjacent over hypotenuse): $\cos \theta = \dfrac{5}{13}$. Secant is the reciprocal: $\sec \theta = \dfrac{13}{5}$.
+      Let $\theta = \arcsin\dfrac{12}{13}$: an acute angle with sine $\dfrac{12}{13}$ (opposite $12$, hypotenuse $13$). The adjacent side is $5$, so $\cos\theta=\dfrac{5}{13}$ and $\sec\theta=\dfrac{13}{5}$.
   - id: q-trigonometry-inverse-trigonometric-functions-0015
     type: which-is-true
     difficulty: hard
@@ -311,7 +310,7 @@ questions:
           You have the purpose backwards. The ranges exist so that only one angle is
           returned.
     explanation: |
-      The first statement is correct. Arcsine uses $[-90^\circ, 90^\circ]$ (Quadrants IV and I), arccosine uses $[0^\circ, 180^\circ]$ (Quadrants I and II), and arctangent uses $(-90^\circ, 90^\circ)$ strictly. These ranges are chosen to make each inverse function single-valued: one input gives exactly one output. The fourth statement is false: the whole point of principal ranges is to ensure single outputs, not multiple.
+      The first statement is correct. Arcsine uses $[-90^\circ, 90^\circ]$, arccosine uses $[0^\circ, 180^\circ]$, and arctangent uses $(-90^\circ, 90^\circ)$. These ranges make each inverse function single-valued.
   - id: q-trigonometry-inverse-trigonometric-functions-0016
     type: which-is-true
     difficulty: hard
@@ -332,4 +331,4 @@ questions:
           You gave the sine of the angle. Cotangent is the adjacent side over the
           opposite one.
     explanation: |
-      Let $\theta = \arccos\dfrac{2}{5}$: an acute angle with cosine $\dfrac{2}{5}$ (adjacent $2$, hypotenuse $5$). Find the opposite side: $\sqrt{5^2 - 2^2} = \sqrt{25 - 4} = \sqrt{21}$. Now read tangent (opposite over adjacent): $\tan \theta = \dfrac{\sqrt{21}}{2}$. Cotangent is the reciprocal: $\cot \theta = \dfrac{2}{\sqrt{21}} = \dfrac{2\sqrt{21}}{21}$ after rationalizing.
+      Let $\theta = \arccos\dfrac{2}{5}$: an acute angle with adjacent side $2$ and hypotenuse $5$. The opposite side is $\sqrt{21}$, so $\cot\theta=\dfrac{2}{\sqrt{21}}=\dfrac{2\sqrt{21}}{21}$.
