@@ -1,0 +1,19 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-algebra-linear-equations-inequalities-0001	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-linear-equations-inequalities-0002	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-linear-equations-inequalities-0003	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-linear-equations-inequalities-0004	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-linear-equations-inequalities-0005	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	LOW	Difficulty metadata recalibrated from hard to medium; answer unchanged.
+q-algebra-linear-equations-inequalities-0006	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-linear-equations-inequalities-0007	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A coordinate graph could reinforce slope but is not required.
+q-algebra-linear-equations-inequalities-0008	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A line-pair sketch could reinforce perpendicularity but is not required.
+q-algebra-linear-equations-inequalities-0009	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	MEDIUM	Replaced markup language with an explicit P80 profit-per-shirt premise so the equation actually models profit.
+q-algebra-linear-equations-inequalities-0010	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-linear-equations-inequalities-0011	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-linear-equations-inequalities-0012	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A plotted line is optional reinforcement for slope.
+q-algebra-linear-equations-inequalities-0013	CORRECTED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	LOW	Difficulty metadata recalibrated from hard to medium; a graph is optional.
+q-algebra-linear-equations-inequalities-0014	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A graph could show the y-intercept but is not needed to solve.
+q-algebra-linear-equations-inequalities-0015	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A graph could show the x-intercept but is not needed to solve.
+q-algebra-linear-equations-inequalities-0016	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A dashed/solid boundary illustration would aid instruction but the stem is self-contained.
+q-algebra-linear-equations-inequalities-0017	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	LOW	Difficulty metadata recalibrated from hard to easy; answer unchanged.
+q-algebra-linear-equations-inequalities-0018	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	LOW	Difficulty metadata recalibrated from hard to easy; answer unchanged.
