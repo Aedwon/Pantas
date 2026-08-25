@@ -524,4 +524,4 @@ questions:
       5. Angle $R$ is complementary to Angle $Q$:
          $$R = 90^\circ - Q = 90^\circ - 50^\circ = 40^\circ$$
 
-      Common Trap: Stopping at Angle $Q = 50^\circ$, or finding the supplement of $Q$ ($140^\circ$) instead of the complement ($40^\circ$).
+      Common Trap: Stopping at Angle $Q = 50^\circ$, or finding the supplement of $R$ ($140^\circ$) instead of the requested angle ($40^\circ$).
