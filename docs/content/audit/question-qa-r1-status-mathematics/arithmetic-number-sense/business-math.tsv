@@ -1,16 +1,16 @@
 question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
-q-arithmetic-number-sense-business-math-0001	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-business-math-0002	CORRECTED	RECOMPUTED	PENDING	TEXT SUFFICIENT	HIGH	Made the per-additional-kilometer-or-fraction charging assumption explicit.
-q-arithmetic-number-sense-business-math-0003	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-business-math-0004	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-business-math-0005	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-business-math-0006	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-business-math-0007	CORRECTED	RECOMPUTED	PENDING	TEXT SUFFICIENT	HIGH	Made the 20 percent fare discount an explicit hypothetical problem input.
-q-arithmetic-number-sense-business-math-0008	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-business-math-0009	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-business-math-0010	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-business-math-0011	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-business-math-0012	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-business-math-0013	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-business-math-0014	CORRECTED	RECOMPUTED	PENDING	TEXT SUFFICIENT	HIGH	Clarified that 15 paying passengers applies to each one-way leg of each round trip.
-q-arithmetic-number-sense-business-math-0015	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-business-math-0001	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-business-math-0002	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	HIGH	Made the per-additional-kilometer-or-fraction charging assumption explicit.
+q-arithmetic-number-sense-business-math-0003	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-business-math-0004	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-business-math-0005	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-business-math-0006	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-business-math-0007	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	HIGH	Made the 20 percent fare discount an explicit hypothetical problem input.
+q-arithmetic-number-sense-business-math-0008	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-business-math-0009	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-business-math-0010	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-business-math-0011	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-business-math-0012	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-business-math-0013	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-business-math-0014	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	HIGH	Clarified that 15 paying passengers applies to each one-way leg of each round trip.
+q-arithmetic-number-sense-business-math-0015	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
