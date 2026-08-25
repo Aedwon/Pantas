@@ -16,15 +16,15 @@ questions:
         correct: true
       - text: During peace negotiations
         rationale: |
-          You selected peace negotiations, which occur as conflict winds down. International Humanitarian Law applies specifically during armed conflict.
+          Peace negotiations by themselves do not trigger IHL. If an armed conflict continues while negotiations are taking place, IHL continues to apply because of the armed conflict.
       - text: During economic recessions
         rationale: |
-          You picked economic recessions, which are financial downturns. IHL regulates conduct during situations of active armed conflict.
+          An economic recession does not itself trigger the law of armed conflict.
       - text: During election campaigns
         rationale: |
-          You chose election campaigns, which are peaceful democratic processes. IHL applies exclusively during armed conflict.
+          An election campaign does not itself trigger IHL.
     explanation: |
-      International Humanitarian Law (the law of armed conflict) applies specifically during situations of armed conflict.
+      International Humanitarian Law applies when the legal conditions for an armed conflict are met. Negotiations or ceasefire discussions do not by themselves end its application if the armed conflict legally continues.
 
   - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0002
     type: single_choice
@@ -36,15 +36,15 @@ questions:
         correct: true
       - text: Sovereign state regular army forces exclusively
         rationale: |
-          You selected state forces exclusively, which misses non-state groups. IHL binds all parties involved in an armed conflict.
+          IHL is not limited to state armed forces; applicable rules also bind non-state parties to non-international armed conflicts.
       - text: Civilian medical non-combatant personnel only
         rationale: |
-          You picked civilian medical personnel, who are protected non-combatants. IHL binds all warring parties and active combatants.
+          Medical personnel are protected and also have relevant obligations, but IHL binds the parties to the armed conflict as a whole.
       - text: Neutral accredited diplomatic observers only
         rationale: |
-          You chose neutral diplomatic observers, who observe from outside. IHL places legal obligations on all combatant parties in a conflict.
+          Neutral observers are not the only entities bound by the law governing hostilities.
     explanation: |
-      IHL binds all parties to an armed conflict, including both state military forces and non-state armed groups.
+      IHL binds all parties to an armed conflict. Depending on the type of conflict, those parties may include state armed forces and organized non-state armed groups.
 
   - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0003
     type: single_choice
@@ -56,15 +56,15 @@ questions:
         correct: true
       - text: HRL applies in armed conflict, IHL during peace time
         rationale: |
-          You reversed the scope of both legal frameworks. Human rights protection continues continuously, while IHL operates strictly within armed conflicts.
+          This reverses their temporal scope. Human rights law continues in peace and conflict, while IHL is triggered by armed conflict.
       - text: HRL applies to military forces, IHL to civilian bodies
         rationale: |
-          You misidentified the targets of both laws. Human Rights Law applies at all times, while International Humanitarian Law governs armed conflict.
+          This confuses whom the legal frameworks regulate with when they apply.
       - text: HRL applies to foreign visitors, IHL to local citizens
         rationale: |
-          You selected nationality categories, which do not govern legal timing. Human Rights Law applies at all times, while IHL governs armed conflict.
+          Nationality is not the distinction being tested; the key difference is temporal scope.
     explanation: |
-      HRL applies at all times in both peace and conflict, whereas IHL applies specifically during armed conflict.
+      International human rights law applies in peacetime and during armed conflict. IHL is the specialized body of law triggered by armed conflict. Some IHL protections and obligations can continue after active hostilities cease until the relevant protected situation has legally ended, such as the release and repatriation of protected persons.
 
   - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0004
     type: single_choice
@@ -76,15 +76,15 @@ questions:
         correct: true
       - text: Commercial Maritime Trade Regulations Code
         rationale: |
-          You selected commercial maritime trade, which governs shipping logistics. Limiting warfare methods and protecting non-combatants is IHL.
+          Commercial trade rules do not regulate the means and methods of warfare.
       - text: Administrative Civil Service Conduct Rules
         rationale: |
-          You picked civil service conduct rules, which govern public employee ethics. Regulating warfare methods and protecting non-combatants is IHL.
+          Civil-service conduct rules do not govern the conduct of hostilities.
       - text: Municipal Property Zoning Land Regulations
         rationale: |
-          You chose municipal zoning land regulations, which govern real estate use. Limiting methods of war and protecting civilians is the role of IHL.
+          Municipal zoning rules do not regulate warfare or protect persons affected by hostilities.
     explanation: |
-      International Humanitarian Law regulates the conduct of hostilities and protects persons not taking active part in warfare.
+      IHL limits the means and methods of warfare and protects persons who are not, or are no longer, taking part in hostilities.
 
   - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0005
     type: single_choice
@@ -96,15 +96,15 @@ questions:
         correct: true
       - text: Private non-combatant citizens only
         rationale: |
-          You selected private non-combatants, who are protected civilians rather than fighters. IHL places legal duties on state and non-state combatants.
+          Civilians are principally protected by IHL; the legal duties governing hostilities bind the parties to the conflict.
       - text: State diplomatic officers exclusively
         rationale: |
-          You picked state diplomatic officers, who conduct peaceful foreign relations. IHL binds all combatant parties involved in an armed conflict.
+          Diplomatic officers are not the exclusive duty-bearers under IHL.
       - text: International human rights auditors
         rationale: |
-          You chose human rights auditors, who monitor compliance. IHL directly binds all active combatant parties in an armed conflict.
+          Human-rights monitors are not the parties whose conduct of hostilities IHL principally regulates.
     explanation: |
-      IHL places legal obligations on all combatant parties involved in an armed conflict, state and non-state alike.
+      IHL binds parties to an armed conflict, including state forces and, in non-international armed conflicts, organized non-state armed groups. The choice uses "combatants" in the broad exam sense; formal combatant status is itself a technical IHL concept that differs by conflict classification.
 
   - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0006
     type: single_choice
@@ -116,15 +116,15 @@ questions:
         correct: true
       - text: Law of peaceful assembly
         rationale: |
-          You selected law of peaceful assembly, which protects public demonstrations. International Humanitarian Law is known as the law of armed conflict.
+          Peaceful-assembly law concerns civil liberties, not the law governing armed conflict.
       - text: Law of corporate trade
         rationale: |
-          You picked law of corporate trade, which regulates business transactions. IHL regulates warfare conduct as the law of armed conflict.
+          Corporate trade law regulates commercial transactions, not hostilities.
       - text: Law of public taxation
         rationale: |
-          You chose law of public taxation, which governs government revenue collection. IHL is alternative named the law of armed conflict.
+          Tax law is unrelated to the conduct of armed conflict.
     explanation: |
-      International Humanitarian Law is also known as the law of armed conflict or law of war.
+      International Humanitarian Law is also commonly called the law of armed conflict or the law of war.
 
   - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0008
     type: single_choice
@@ -136,12 +136,12 @@ questions:
         correct: true
       - text: International Corporate Trade Law
         rationale: |
-          You selected corporate trade law, which governs commercial business. Protecting prisoners of war and wounded soldiers is governed by IHL.
+          Commercial law does not establish the Geneva-law protections for prisoners of war or wounded combatants.
       - text: Domestic Municipal Zoning Code
         rationale: |
-          You picked municipal zoning code, which governs urban land use planning. Protecting captured combatants and military wounded falls under IHL.
+          Zoning rules concern land use, not treatment of protected persons in armed conflict.
       - text: National Revenue Tax Regulations
         rationale: |
-          You chose national revenue tax regulations, which handle tax collection. Protecting wounded combatants and prisoners of war is governed by IHL.
+          Tax regulations do not govern the protection of prisoners of war or the wounded.
     explanation: |
-      Protection of prisoners of war, sick, and wounded combatants is a cornerstone of International Humanitarian Law.
+      Protection of prisoners of war and of wounded and sick members of armed forces is a core subject of International Humanitarian Law.
