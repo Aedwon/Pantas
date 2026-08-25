@@ -1,7 +1,7 @@
 ---
 _id: "lesson-grammar-and-structure-tenses-and-voice"
-title: "Tenses and Voice of Verbs (Active vs. Passive)"
-summary: "Learn how verb tenses show when an action happens and how to tell active voice apart from passive voice."
+title: "Tenses, Aspect, and Voice of Verbs (Active vs. Passive)"
+summary: "Learn how English verb forms locate and structure events in time, and how active and passive constructions change grammatical focus."
 subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 estimatedMinutes: 10
@@ -9,102 +9,102 @@ isActive: true
 ---
 ## Core Concept
 
-**Verb tense** shows when an action happens: past, present, or future. Each of these three main tenses also has a "perfect" and "progressive" form for more precise timing.
+School grammar often groups English verb forms under labels such as **present, past, future, perfect,** and **progressive**. These labels are useful for editing, but tense and aspect are not the same thing: tense locates a situation in time, while aspect presents it as ongoing, completed relative to another time, habitual, and so on. English commonly expresses future meaning with constructions such as *will* or *be going to* rather than with a special future inflection on the verb.
 
-- **Simple present**: "She *writes* letters." (a general fact or habit)
-- **Simple past**: "She *wrote* a letter." (completed in the past)
-- **Simple future**: "She *will write* a letter." (has not happened yet)
-- **Present progressive**: "She *is writing* a letter." (happening right now)
-- **Present perfect**: "She *has written* a letter." (completed at an unspecified past time, still relevant now)
-- **Past perfect**: "She *had written* the letter before he arrived." (one past action completed before another past action)
+Examples:
 
-The key skill exams test is tense consistency: verbs in the same sentence (or the same passage, describing the same timeline) should stay in the same tense unless there is a clear reason to shift, like describing an earlier event.
+- **Simple present**: "She *writes* letters." — can express habits, general truths, scheduled events, and other present-related meanings.
+- **Simple past**: "She *wrote* a letter." — places the event in past time.
+- **Future meaning with *will***: "She *will write* a letter."
+- **Present progressive**: "She *is writing* a letter." — often presents an event as ongoing around the relevant present time, not only at the exact second of speaking.
+- **Present perfect**: "She *has written* a letter." — relates a prior event or state to the present in one of several ways.
+- **Past perfect**: "She *had written* the letter before he arrived." — explicitly places one past situation earlier than another past reference point.
+
+Good writing keeps the timeline logically clear. A tense shift is not automatically an error; shift when the time or viewpoint genuinely changes.
+
+### Past simple versus past perfect
+
+The past perfect is useful when the order of past events needs to be made explicit or emphasized. It is **not mandatory every time** one event happened before another. Time expressions such as *before* and *after* can already establish the sequence:
+
+- "She finished the report before her boss asked for it." — grammatical; *before* makes the order clear.
+- "She had finished the report before her boss asked for it." — also grammatical; the past perfect emphasizes the earlier completion.
 
 ### Active and Passive Voice
 
-**Active voice**: the subject performs the action. "The chef *cooked* the meal." (chef = doer)
+**Active:** the grammatical subject is the agent/doer in a typical action clause: "The chef cooked the meal."
 
-**Passive voice**: the subject receives the action, and the doer is either introduced with "by" or left out entirely. "The meal *was cooked* (by the chef)." (meal = receiver)
+**Passive:** the subject corresponds to what would normally be the object of the active clause: "The meal was cooked by the chef."
 
-Passive voice is formed with a form of "to be" plus the past participle of the main verb (*was cooked*, *is written*, *will be finished*).
+The most common passive uses a form of **be + past participle** (*was cooked, is written, has been finished*). English also has a **get-passive** in suitable contexts: "The window got broken."
 
-Active voice is usually preferred in clear, direct writing, because it is shorter and identifies who did the action. Passive voice is useful when the doer is unknown, unimportant, or intentionally left out ("The window *was broken*": we may not know who broke it).
+Passive voice is not inherently bad writing. It is useful when the agent is unknown, obvious, unimportant, deliberately backgrounded, or when the affected entity is the topic. Active voice is often more direct when the agent matters.
 
-### Sa Filipino: Aspekto ng Pandiwa
+### Sa Filipino: Aspekto at Voice/Focus
 
-Filipino verbs do not use tense (past, present, future). They use **aspekto** (aspect), which marks whether the action is finished, ongoing, or not yet started. This trips up students who translate English tense directly. There are three main aspects:
+Filipino should not be mapped mechanically onto English tense or active/passive categories. Filipino verbal morphology prominently marks **aspekto** and a voice/focus system that relates the verb to different arguments in the clause. Traditional instructional labels commonly include completed/perfective, ongoing/imperfective, and contemplated forms, with some teaching traditions also distinguishing recently completed forms.
 
-- **Perpektibo** (naganap na): the action is finished. Example: *kumain* (ate), *naglaba* (washed).
-- **Imperpektibo** (nagaganap): the action is ongoing. Example: *kumakain* (is eating), *naglalaba* (is washing).
-- **Kontemplatibo** (magaganap pa): the action has not started yet. Example: *kakain* (will eat), *maglalaba* (will wash).
-
-Notice the pattern with the root *kain*: the imperfective and contemplative repeat the first syllable (*ka*). Filipino also marks **pokus** (focus), whether the verb highlights the doer (*Kumain ang bata*) or the object (*Kinain ng bata ang mangga*), which is closer to the active/passive idea in English.
+Examples such as *kumain, kumakain,* and *kakain* are useful patterns, but affix behavior varies across verb classes. Do not assume every root forms its aspects by exactly the same syllable-reduplication rule.
 
 ## Examples
 
-### #1: Identifying Tense Inconsistency
+### #1: Correcting an Unmotivated Tense Shift
 
-Identify the error in this sentence: "Yesterday, she *walks* to the store and *bought* some bread."
+"Yesterday, she *walks* to the store and *bought* bread."
 
 **Solution:**
 
-1. The sentence describes actions that happened yesterday, so both verbs should be in the past tense.
-2. "Bought" is correctly in the past tense, but "walks" is in the present tense.
-3. The corrected sentence should read: "Yesterday, she *walked* to the store and *bought* some bread."
+The time phrase *yesterday* places both coordinated events in the past. Standard correction: "Yesterday, she *walked* to the store and *bought* bread."
 
 ### #2: Active or Passive?
 
-Identify whether each sentence is active or passive voice: (a) "The dog chased the ball." (b) "The ball was chased by the dog."
+(a) "The dog chased the ball." (b) "The ball was chased by the dog."
 
 **Solution:**
 
-1. (a) The subject "dog" performs the action of chasing: Active voice.
-2. (b) The subject "ball" receives the action, and "was chased" uses a form of "to be" plus the past participle: Passive voice.
+(a) active; (b) passive.
 
 ### #3: Converting Passive to Active
 
-Rewrite this passive sentence in active voice: "The novel was written by a famous author."
+"The novel was written by a famous author."
 
 **Solution:**
 
-1. In the passive version, "novel" (the receiver) is the subject, and "author" (the doer) is introduced with "by."
-2. To convert to active voice, make the doer the subject, and have it directly perform the verb.
-3. Active version: "A famous author wrote the novel."
+Make the agent the subject while preserving the time reference: "A famous author wrote the novel."
 
-### #4: Past Perfect for Sequencing
+### #4: Past Perfect as Emphasis
 
-Choose the correct verb form: By the time the guests arrived, she *(cooked / had cooked)* the entire meal.
+"By the time the guests arrived, she *(cooked / had cooked)* the entire meal."
 
 **Solution:**
 
-1. Two past events are being compared: the guests arriving, and the cooking being finished.
-2. The cooking was completed before the guests arrived, an earlier past action relative to another past action.
-3. This calls for the past perfect tense: "By the time the guests arrived, she *had cooked* the entire meal."
+*Had cooked* is the clearest choice because *by the time* sets a later past reference point and the sentence emphasizes that the cooking was already complete. This does not mean simple past is forbidden in every sentence containing two sequential past events.
 
 ## Speed Tricks & Shortcuts
 
-**Look for time-clue words.** Words like "yesterday," "last year," "by the time," "already," and "since" often signal which tense is required. "By the time" almost always signals past perfect for the earlier action.
+**Build the timeline before choosing a form.** Ask when each event happens relative to the others and to the present.
 
-**Spot passive voice fast.** Look for a form of "to be" (*is*, *was*, *were*, *has been*) immediately followed by a past participle (often ending in *-ed* or an irregular form like *written*, *broken*, *chosen*). If you find this pattern, and the subject is receiving the action, it is passive voice.
+**Do not demand one tense throughout a passage.** Demand a logical timeline.
 
-**To flip passive to active,** find the "by ___" phrase (or figure out who logically did the action), make that the new subject, and use its simple matching tense.
+**For passive voice, look for the grammatical relationship, not just the word *be*.** "She is happy" is not passive; "She was invited" is.
 
 ## Traps to Watch For
 
-### #1: Shifting Tense Without a Reason
+### #1: Treating Every Tense Shift as Wrong
 
-> Verbs describing actions in the same timeline should stay in the same tense.
+> A shift is justified when the time or viewpoint changes.
 
-A sentence describing a single past story that suddenly switches to present tense ("She walked to the store and *buys* bread") is a common sentence-correction error. Only shift tense when the timeline itself genuinely changes.
+### #2: Requiring Past Perfect Whenever One Past Event Came First
 
-### #2: Confusing Passive Voice with Simply Using "To Be"
+> Words such as *before* and *after* can make sequence clear with simple past alone.
 
-> Not every sentence with "is," "was," or "were" is automatically passive: check for the past participle too.
+### #3: Assuming Every *be + word* Construction Is Passive
 
-"She *is* happy" uses "is" but is not passive voice, since "happy" is an adjective, not a past participle describing an action done to the subject. Passive voice specifically needs "to be" plus a past participle showing an action received.
+> Passive normally uses a past participle and a verb capable of the relevant passive construction; *be* also functions as a main/linking verb.
 
-### #3: Missing the Earlier-Past Signal for Past Perfect
+### #4: Saying Passive Voice Is Always Weak
 
-> When one past action happened before another past action, the earlier action needs the past perfect ("had" + past participle).
+> Passive voice can be the clearest choice when the affected entity is the topic or the agent is unknown/unimportant.
 
-Writing "She finished the report before her boss asked for it" mixes tenses awkwardly; the more precise, exam-preferred version uses past perfect for the earlier action: "She *had finished* the report before her boss asked for it."
+### #5: Treating Filipino Aspect as English Tense with Translated Names
+
+> Filipino aspect and voice/focus have their own grammatical system and should be learned on their own terms.
