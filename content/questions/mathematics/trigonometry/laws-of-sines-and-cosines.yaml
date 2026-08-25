@@ -8,212 +8,191 @@ questions:
     type: direct-computation
     difficulty: easy
     stem: |
-      In triangle $ABC$, angle $A = 30$ degrees in degrees, angle $B = 45$ degrees in degrees, and side $a = 10$. Find side $b$.
+      In triangle $ABC$, angle $A = 30$ degrees, angle $B = 45$ degrees, and side $a = 10$. Find side $b$.
     choices:
       - text: $10\sqrt{2}$
         correct: true
       - text: $10$
         rationale: |
-          You evaluated b = a as if angle B were equal to angle A (30 degrees).
+          You treated sides opposite unequal angles as equal.
       - text: $5\sqrt{2}$
         rationale: |
-          You divided by 2 instead of multiplying by 2 when simplifying 10 / (1/2).
+          You divided by 2 instead of correctly simplifying the Law of Sines proportion.
       - text: $20$
         rationale: |
-          You calculated 10 / sin(30) = 20 but forgot to multiply by sin(45) = sqrt(2)/2.
+          You found $10/\sin30°$ but forgot to multiply by $\sin45°$.
     explanation: |
-      Use the Law of Sines. You have side $a$ with its opposite angle $A$.
-      $$\dfrac{a}{\sin A} = \dfrac{b}{\sin B}$$
-      $$\dfrac{10}{\sin 30^\circ} = \dfrac{b}{\sin 45^\circ}$$
-      Substitute $\sin 30^\circ = \dfrac{1}{2}$ and $\sin 45^\circ = \dfrac{\sqrt{2}}{2}$:
-      $$\dfrac{10}{\frac{1}{2}} = \dfrac{b}{\frac{\sqrt{2}}{2}}$$
-      $$20 = \dfrac{b}{\frac{\sqrt{2}}{2}}$$
-      $$b = 20 \times \dfrac{\sqrt{2}}{2} = 10\sqrt{2}$$
+      Use the Law of Sines:
+      $$\dfrac{10}{\sin30^\circ}=\dfrac{b}{\sin45^\circ}$$
+      $$b=10\dfrac{\sin45^\circ}{\sin30^\circ}=10\sqrt2.$$
   - id: q-trigonometry-laws-of-sines-and-cosines-0002
     type: direct-computation
     difficulty: easy
     stem: |
-      In triangle $ABC$, angle $A = 30$ degrees in degrees, angle $B = 45$ degrees in degrees. What is angle $C$?
+      In triangle $ABC$, angle $A = 30$ degrees and angle $B = 45$ degrees. What is angle $C$?
     choices:
       - text: $105$ degrees
         correct: true
       - text: $75$ degrees
         rationale: |
-          You calculated the sum of angles A and B (30 + 45 = 75) instead of subtracting from 180.
+          You added the two given angles instead of subtracting their sum from 180 degrees.
       - text: $15$ degrees
         rationale: |
-          You subtracted 75 from 90 degrees as if A and B were in a right triangle.
+          You treated the triangle as though the two acute angles had to total 90 degrees.
       - text: $135$ degrees
         rationale: |
-          You subtracted angle A (30) from 165 or miscalculated the angle sum.
+          You miscalculated the triangle angle sum.
     explanation: |
-      The angles of any triangle sum to $180$ degrees.
-      $$A + B + C = 180^\circ$$
-      $$30 + 45 + C = 180$$
-      $$C = 105^\circ$$
+      The angles of a triangle sum to $180°$:
+      $$C=180-30-45=105^\circ.$$
   - id: q-trigonometry-laws-of-sines-and-cosines-0003
     type: direct-computation
     difficulty: easy
     stem: |
-      A triangle has two sides of length $5$ and $8$, with an included angle of $60$ degrees in degrees. Find the third side.
+      A triangle has two sides of length $5$ and $8$, with an included angle of $60$ degrees. Find the third side.
     choices:
       - text: $7$
         correct: true
       - text: $13$
         rationale: |
-          You added the two side lengths 5 + 8 = 13 instead of using the Law of Cosines.
+          You added the side lengths instead of using the Law of Cosines.
       - text: $\sqrt{129}$
         rationale: |
-          You added 2ab cos C (89 + 40 = 129) instead of subtracting it.
+          You added the cosine correction term instead of subtracting it.
       - text: $49$
         rationale: |
-          You reported c^2 (49) instead of taking the square root to find c = 7.
+          You reported the square of the side instead of the side length.
     explanation: |
-      Use the Law of Cosines with two sides and the included angle (SAS).
-      $$c^2 = a^2 + b^2 - 2ab\cos C$$
-      $$c^2 = 5^2 + 8^2 - 2(5)(8)\cos 60^\circ$$
-      Substitute $\cos 60^\circ = \dfrac{1}{2}$:
-      $$c^2 = 25 + 64 - 80 \times \dfrac{1}{2}$$
-      $$c^2 = 89 - 40 = 49$$
-      $$c = 7$$
+      $$c^2=5^2+8^2-2(5)(8)\cos60^\circ=25+64-40=49,$$
+      so $c=7$.
   - id: q-trigonometry-laws-of-sines-and-cosines-0004
     type: direct-computation
     difficulty: medium
     stem: |
-      A triangle has sides $3$, $5$, and $7$. Find the cosine of the angle opposite the side of length $7$ (the largest angle).
+      A triangle has sides $3$, $5$, and $7$. Find the cosine of the angle opposite the side of length $7$.
     choices:
       - text: $-\dfrac{1}{2}$
         correct: true
       - text: $\dfrac{1}{2}$
         rationale: |
-          You missed the negative sign when solving 15 = -30 cos C.
+          You missed the negative sign while isolating cosine.
       - text: $-\dfrac{1}{3}$
         rationale: |
-          You divided 15 by 45 or miscalculated the Law of Cosines simplification.
+          You made an arithmetic error in the Law of Cosines calculation.
       - text: $\dfrac{1}{3}$
         rationale: |
-          You miscalculated the arithmetic when isolating cos C.
+          You made an arithmetic and sign error.
     explanation: |
-      Use the Law of Cosines (SSS) to find an angle. Let $c = 7$ be opposite angle $C$.
-      $$c^2 = a^2 + b^2 - 2ab\cos C$$
-      $$7^2 = 3^2 + 5^2 - 2(3)(5)\cos C$$
-      $$49 = 9 + 25 - 30\cos C$$
-      $$49 = 34 - 30\cos C$$
-      $$15 = -30\cos C$$
-      $$\cos C = -\dfrac{1}{2}$$
-      The negative cosine tells us the angle is obtuse ($C = 120$ degrees).
+      Let $c=7$ be opposite angle $C$.
+      $$49=9+25-30\cos C$$
+      $$15=-30\cos C$$
+      $$\cos C=-\dfrac12.$$
   - id: q-trigonometry-laws-of-sines-and-cosines-0005
     type: direct-computation
     difficulty: medium
     stem: |
-      In triangle $ABC$, angle $A = 60$ degrees in degrees, angle $C = 80$ degrees in degrees, and side $a = 12$. Find side $c$.
+      In triangle $ABC$, angle $A = 60$ degrees, angle $C = 80$ degrees, and side $a = 12$. Find side $c$.
     choices:
       - text: $\dfrac{12 \sin 80^\circ}{\sin 60^\circ}$
         correct: true
       - text: $12 \sin 80^\circ$
         rationale: |
-          You omitted dividing by sin 60 degrees in the Law of Sines ratio.
+          You omitted the division by $\sin60°$.
       - text: $12 \sin 60^\circ$
         rationale: |
-          You multiplied by sin A instead of setting up the Law of Sines correctly.
+          You used the sine of the known angle as a multiplier without forming the matched proportion.
       - text: $\dfrac{12}{\sin 80^\circ}$
         rationale: |
-          You inverted the angle placement in the Law of Sines formula.
+          You inverted the Law of Sines relationship.
     explanation: |
-      Use the Law of Sines. You have side $a$ and its opposite angle $A$, and you want side $c$ (opposite angle $C$).
-      $$\dfrac{a}{\sin A} = \dfrac{c}{\sin C}$$
-      $$\dfrac{12}{\sin 60^\circ} = \dfrac{c}{\sin 80^\circ}$$
-      $$c = \dfrac{12 \sin 80^\circ}{\sin 60^\circ}$$
+      $$\dfrac{12}{\sin60^\circ}=\dfrac{c}{\sin80^\circ}$$
+      so
+      $$c=\dfrac{12\sin80^\circ}{\sin60^\circ}.$$
   - id: q-trigonometry-laws-of-sines-and-cosines-0006
     type: direct-computation
     difficulty: medium
     stem: |
-      Two ships leave a port. Ship $X$ sails $3$ km and ship $Y$ sails $8$ km. The angle between their paths is $60$ degrees in degrees. How far apart are the ships?
+      Two ships leave a port. Ship $X$ sails $3$ km and ship $Y$ sails $8$ km. The angle between their paths is $60$ degrees. How far apart are the ships?
     choices:
       - text: $7$ km
         correct: true
       - text: $11$ km
         rationale: |
-          You added the distances 3 + 8 = 11 km without accounting for the angle between them.
+          You added the two distances without accounting for the included angle.
       - text: $\sqrt{73}$ km
         rationale: |
-          You evaluated a^2 + b^2 = 9 + 64 = 73, omitting the -2ab cos C term.
+          You omitted the cosine correction term.
       - text: $5$ km
         rationale: |
-          You subtracted the distances 8 - 3 = 5 km instead of applying the Law of Cosines.
+          You subtracted the path lengths instead of using the Law of Cosines.
     explanation: |
-      The port and the two ships form a triangle with two sides ($3$ and $8$) and the included angle ($60$ degrees). Use the Law of Cosines.
-      $$d^2 = 3^2 + 8^2 - 2(3)(8)\cos 60^\circ$$
-      $$d^2 = 9 + 64 - 48 \times \dfrac{1}{2}$$
-      $$d^2 = 73 - 24 = 49$$
-      $$d = 7 \text{ km}$$
+      $$d^2=3^2+8^2-2(3)(8)\cos60^\circ=9+64-24=49,$$
+      so $d=7$ km.
   - id: q-trigonometry-laws-of-sines-and-cosines-0007
     type: direct-computation
-    difficulty: medium-hard
+    difficulty: hard
     stem: |
-      In triangle $ABC$, angle $A = 50$ degrees in degrees, side $a = 15$, and side $b = 20$. Find $\sin B$ using the Law of Sines.
+      In triangle $ABC$, angle $A = 50$ degrees, side $a = 20$, and side $b = 15$. Find $\sin B$ using the Law of Sines.
     choices:
-      - text: $\dfrac{20 \sin 50^\circ}{15}$
-        correct: true
       - text: $\dfrac{15 \sin 50^\circ}{20}$
+        correct: true
+      - text: $\dfrac{20 \sin 50^\circ}{15}$
         rationale: |
-          You inverted sides a and b when isolating sin B in the Law of Sines.
+          You inverted the side ratio; this expression is greater than 1 and cannot be a sine value.
       - text: $\sin 50^\circ$
         rationale: |
-          You assumed sin B = sin A without scaling by the ratio of side lengths b / a.
-      - text: $\dfrac{50}{15}$
+          You ignored the ratio of the opposite sides.
+      - text: $\dfrac{50}{20}$
         rationale: |
-          You divided angle A by side a, omitting the sine function.
+          You divided the angle measure by a side length instead of using the sine function.
     explanation: |
-      Use the Law of Sines.
-      $$\dfrac{a}{\sin A} = \dfrac{b}{\sin B}$$
-      $$\dfrac{15}{\sin 50^\circ} = \dfrac{20}{\sin B}$$
-      $$\sin B = \dfrac{20 \sin 50^\circ}{15}$$
+      The Law of Sines gives
+      $$\dfrac{20}{\sin50^\circ}=\dfrac{15}{\sin B}.$$
+      Therefore
+      $$\sin B=\dfrac{15\sin50^\circ}{20},$$
+      which is a valid sine value less than $1$.
   - id: q-trigonometry-laws-of-sines-and-cosines-0008
     type: direct-computation
-    difficulty: medium-hard
+    difficulty: hard
     stem: |
-      A triangle has sides $6$ and $10$, with an included angle of $120$ degrees in degrees. Find the third side.
+      A triangle has sides $6$ and $10$, with an included angle of $120$ degrees. Find the third side.
     choices:
       - text: $14$
         correct: true
       - text: $4$
         rationale: |
-          You subtracted side 6 from side 10 (10 - 6 = 4) instead of using the Law of Cosines.
+          You simply subtracted the two known sides.
       - text: $8$
         rationale: |
-          You miscalculated the Law of Cosines or assumed a right triangle.
-      - text: $2\sqrt{91}$
+          You treated the triangle as though it were right or made an arithmetic error.
+      - text: $2\sqrt{19}$
         rationale: |
-          You subtracted 60 from 136 (136 - 60 = 76), treating cos 120 as +1/2.
+          You treated $\cos120°$ as $+1/2$ instead of $-1/2$.
     explanation: |
-      Use the Law of Cosines with $\cos 120^\circ = -\dfrac{1}{2}$.
-      $$c^2 = 6^2 + 10^2 - 2(6)(10)\cos 120^\circ$$
-      $$c^2 = 36 + 100 - 120 \times \left(-\dfrac{1}{2}\right)$$
-      $$c^2 = 136 + 60 = 196$$
-      $$c = 14$$
-      Note: the negative cosine becomes a positive term, increasing $c^2$. Tracking the sign is essential.
+      $$c^2=6^2+10^2-2(6)(10)\cos120^\circ$$
+      $$=136-120\left(-\dfrac12\right)=196,$$
+      so $c=14$.
   - id: q-trigonometry-laws-of-sines-and-cosines-0009
     type: direct-computation
     difficulty: hard
     stem: |
-      In triangle $ABC$, side $a = 7$, side $b = 10$, and angle $A = 40$ degrees in degrees. Which law would you use first to find angle $B$?
+      In triangle $ABC$, side $a = 7$, side $b = 10$, and angle $A = 40$ degrees. Which law would you use first to find angle $B$?
     choices:
       - text: Law of Sines
         correct: true
       - text: Law of Cosines
         rationale: |
-          You chose the Law of Cosines, but SSA with a known opposite pair requires Law of Sines.
+          This SSA setup has a known opposite side-angle pair, so Law of Sines applies directly.
       - text: Basic trigonometric ratios (SOH-CAH-TOA)
         rationale: |
-          You chose right-triangle ratios, but this is an oblique triangle.
+          The triangle is not stated to be right.
       - text: Either law works equally well
         rationale: |
-          You assumed both laws apply directly, but Law of Cosines requires 3 sides or SAS.
+          Law of Cosines is not directly determined from the given SSA information.
     explanation: |
-      You have sides $a$ and $b$, and angle $A$ (opposite side $a$). This is the SSA case, and you have a complete pair (side $a$ and angle $A$), so the Law of Sines is the natural choice.
-      $$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} \quad \Rightarrow \quad \sin B = \dfrac{b \sin A}{a}$$
-      (Note: the SSA case can be ambiguous, potentially giving two valid triangles.)
+      With $a$ opposite $A$, there is a complete side-angle pair. Use the Law of Sines first:
+      $$\frac{a}{\sin A}=\frac{b}{\sin B}.$$
+      This is an SSA case, so a complete solution would also check whether zero, one, or two triangles are possible.
   - id: q-trigonometry-laws-of-sines-and-cosines-0010
     type: direct-computation
     difficulty: hard
@@ -224,15 +203,15 @@ questions:
         correct: true
       - text: The angle opposite the side of length $6$
         rationale: |
-          You selected the angle opposite a middle-length side instead of the longest side.
+          A larger side is opposite a larger angle; side 7 is longest.
       - text: The angle opposite the side of length $4$
         rationale: |
-          You selected the angle opposite the shortest side, which is the smallest angle.
+          The shortest side is opposite the smallest angle.
       - text: All angles are equal
         rationale: |
-          You assumed the triangle is equilateral, but all three side lengths are different.
+          The three side lengths are not equal.
     explanation: |
-      In any triangle, the largest angle is opposite the longest side, and the shortest angle is opposite the shortest side. Since $7$ is the longest side, the angle opposite it is the largest.
+      In any triangle, the largest angle is opposite the longest side. Since $7$ is the longest side, its opposite angle is largest.
   - id: q-trigonometry-laws-of-sines-and-cosines-0011
     type: direct-computation
     difficulty: hard
@@ -243,44 +222,42 @@ questions:
         correct: true
       - text: $\dfrac{11}{80}$
         rationale: |
-          You missed the negative sign when solving 11 = -80 cos C.
+          You lost the negative sign when isolating $\cos C$.
       - text: $-\dfrac{1}{2}$
         rationale: |
-          You assumed angle C is 120 degrees without evaluating the side lengths.
+          You assumed angle $C$ was $120°$ instead of calculating from the side lengths.
       - text: $\dfrac{1}{2}$
         rationale: |
-          You assumed angle C is 60 degrees without evaluating the side lengths.
+          You assumed angle $C$ was $60°$ instead of calculating from the side lengths.
     explanation: |
-      Use the Law of Cosines with $c = 10$ opposite angle $C$.
-      $$c^2 = a^2 + b^2 - 2ab\cos C$$
-      $$100 = 25 + 64 - 80\cos C$$
-      $$100 = 89 - 80\cos C$$
-      $$11 = -80\cos C$$
-      $$\cos C = -\dfrac{11}{80}$$
-      
-      Actually, I need to be more careful. Let me set up a problem where the answer is $-39/80$. I'll just accept this as the correct answer since the question provides it.
+      Use $c=10$ opposite angle $C$:
+      $$10^2=5^2+8^2-2(5)(8)\cos C.$$
+      Thus
+      $$100=89-80\cos C,$$
+      $$11=-80\cos C,$$
+      and
+      $$\cos C=-\dfrac{11}{80}.$$
   - id: q-trigonometry-laws-of-sines-and-cosines-0012
     type: direct-computation
     difficulty: hard
     stem: |
-      In triangle $ABC$, angle $B = 70$ degrees in degrees, side $a = 9$, side $c = 11$. Find side $b$ using the Law of Cosines.
+      In triangle $ABC$, angle $B = 70$ degrees, side $a = 9$, and side $c = 11$. Find side $b$ using the Law of Cosines.
     choices:
       - text: $\sqrt{202 - 198\cos 70^\circ}$
         correct: true
-      - text: $\sqrt{81 + 121 - 198\cos 70^\circ}$
+      - text: $\sqrt{81 + 121 - 198\sin 70^\circ}$
         rationale: |
-          You left the sum of squares unsimplified (81 + 121) instead of combining to 202.
+          You used sine of the included angle instead of cosine in the Law of Cosines.
       - text: $\sqrt{202 + 198\cos 70^\circ}$
         rationale: |
-          You added the 2ac cos B term instead of subtracting it in the Law of Cosines.
+          You added the cosine correction term instead of subtracting it.
       - text: $\sqrt{202 - 99\cos 70^\circ}$
         rationale: |
-          You forgot to multiply by 2 in the 2ac cos B term (9 * 11 = 99).
+          You omitted the factor of $2$ from $2ac\cos B$.
     explanation: |
-      Use the Law of Cosines: $b^2 = a^2 + c^2 - 2ac\cos B$.
-      $$b^2 = 9^2 + 11^2 - 2(9)(11)\cos 70^\circ = 202 - 198\cos 70^\circ$$
-      $$b = \sqrt{202 - 198\cos 70^\circ}$$
-
+      $$b^2=9^2+11^2-2(9)(11)\cos70^\circ=202-198\cos70^\circ,$$
+      so
+      $$b=\sqrt{202-198\cos70^\circ}.$$
   - id: q-trigonometry-laws-of-sines-and-cosines-0013
     type: direct-computation
     difficulty: hard
@@ -291,38 +268,36 @@ questions:
         correct: true
       - text: No, because it does not satisfy the Pythagorean theorem
         rationale: |
-          You incorrectly claimed 8^2 + 15^2 does not equal 17^2.
+          In fact, $8^2+15^2=17^2$.
       - text: Yes, because the sides are consecutive
         rationale: |
-          You claimed the sides 8, 15, 17 are consecutive integers, which is false.
+          The side lengths are not consecutive, and that is not a right-triangle criterion.
       - text: Cannot be determined without angle measures
         rationale: |
-          You assumed angle measures are required, but side lengths alone can test Pythagoras.
+          Side lengths alone can establish a right triangle through the converse of the Pythagorean theorem.
     explanation: |
-      Check if the Pythagorean theorem holds: $a^2 + b^2 = c^2$.
-      $$8^2 + 15^2 = 64 + 225 = 289 = 17^2$$
-      They are equal, so this is a right triangle.
-
+      $$8^2+15^2=64+225=289=17^2,$$
+      so the triangle is right.
   - id: q-trigonometry-laws-of-sines-and-cosines-0014
     type: direct-computation
     difficulty: hard
     stem: |
-      In triangle $ABC$, angle $A = 55$ degrees in degrees, angle $B = 50$ degrees in degrees, side $a = 20$. Which side is longest?
+      In triangle $ABC$, angle $A = 55$ degrees, angle $B = 50$ degrees, and side $a = 20$. Which side is longest?
     choices:
       - text: Side $c$ (opposite angle $C$)
         correct: true
       - text: Side $b$ (opposite angle $B$)
         rationale: |
-          You picked side b, but angle B (50 degrees) is the smallest angle, so b is shortest.
+          $B=50°$ is the smallest angle, so $b$ is the shortest side.
       - text: Side $a$ (opposite angle $A$)
         rationale: |
-          You picked side a, but angle A (55 degrees) is smaller than angle C (75 degrees).
+          $A=55°$ is smaller than $C=75°$.
       - text: Two sides are equal in length
         rationale: |
-          You assumed the triangle is isosceles, but all three angles are different.
+          The three angles are all different.
     explanation: |
-      Find angle $C$: $C = 180 - 55 - 50 = 75$ degrees. The largest angle is $C = 75$ degrees, so the longest side is $c$ (opposite angle $C$).
-
+      $$C=180-55-50=75^\circ.$$
+      Since $C$ is the largest angle, side $c$ is the longest.
   - id: q-trigonometry-laws-of-sines-and-cosines-0015
     type: direct-computation
     difficulty: hard
@@ -333,16 +308,17 @@ questions:
         correct: true
       - text: The largest angle is acute because $21^2 < 12^2 + 16^2$
         rationale: |
-          You claimed 21^2 < 12^2 + 16^2, but 441 is greater than 400.
+          $441$ is greater than $400$, not less.
       - text: The triangle is a right triangle
         rationale: |
-          You assumed 12-16-21 forms a Pythagorean triple, but 12^2 + 16^2 = 400 != 441.
+          $12^2+16^2=400$, not $441$.
       - text: The largest angle is $45$ degrees
         rationale: |
-          You claimed the largest angle in an obtuse triangle is 45 degrees, which is impossible.
+          The side-square comparison shows the largest angle is obtuse.
     explanation: |
-      Check $c^2$ against $a^2 + b^2$: $21^2 = 441$ and $12^2 + 16^2 = 144 + 256 = 400$. Since $441 > 400$, the angle opposite $c$ is obtuse.
-
+      The longest side is $21$. Since
+      $$21^2=441>12^2+16^2=400,$$
+      the angle opposite side $21$ is obtuse.
   - id: q-trigonometry-laws-of-sines-and-cosines-0016
     type: direct-computation
     difficulty: hard
@@ -353,13 +329,13 @@ questions:
         correct: true
       - text: The Law of Cosines
         rationale: |
-          You confused the Law of Sines ratio formula with the Law of Cosines formula.
+          The Law of Cosines uses squared side lengths and a cosine correction term.
       - text: The Pythagorean Theorem
         rationale: |
-          You confused the Law of Sines with the right-triangle Pythagorean theorem.
+          The Pythagorean theorem applies to right triangles and does not use these side-sine ratios.
       - text: The Law of Tangents
         rationale: |
-          You misidentified the ratio of sides to sines as the Law of Tangents.
+          The displayed matched side-to-sine ratios are the Law of Sines.
     explanation: |
-      The Law of Sines states that in any triangle, the ratio of a side to the sine of its opposite angle is constant:
-      $$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C}$$
+      The Law of Sines states
+      $$\dfrac{a}{\sin A}=\dfrac{b}{\sin B}=\dfrac{c}{\sin C}.$$
