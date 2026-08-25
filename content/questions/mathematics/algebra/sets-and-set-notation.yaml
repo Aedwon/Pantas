@@ -264,7 +264,7 @@ questions:
     type: word-problem
     difficulty: hard
     stem: |
-      Using the survey data from the previous question (100 students surveyed, 93 like at least one sport), how many students do NOT like any of the three sports?
+      In a survey of 100 students, 93 like at least one of three sports. How many students do NOT like any of the three sports?
     choices:
       - text: $7$
         correct: true
@@ -292,15 +292,13 @@ questions:
         correct: true
       - text: $\{-2, 3\}$
         rationale: |
-          You included $-2$. It is in the first set, but the second stops short of
-          $-3$ and starts at $-2$, so check which members both share above zero.
+          You kept $-2$, but $(-2)^2 = 4 < 9$, so $-2$ belongs to $B$ and must be removed from $A \setminus B$.
       - text: $\emptyset$
         rationale: |
-          You emptied it. Both sets contain 3 in this case, so the difference is not
-          empty.
+          You removed every element. But $3$ belongs to $A$ and does not belong to $B$ because $3^2 = 9$ is not less than 9.
       - text: $\{-3, 3\}$
         rationale: |
-          You added $-3$. The first set starts at $-2$, so $-3$ is in neither.
+          You added $-3$. The first set starts at $-2$, so $-3$ is not in $A$ and cannot belong to $A \setminus B$.
     explanation: |
       Listing elements in roster form: $A = \{-2, -1, 0, 1, 2, 3\}$. For set $B$, $x^2 < 9 \implies -3 < x < 3$, so integers in $B$ are $\{-2, -1, 0, 1, 2\}$. Subtracting $B$ from $A$ leaves $A \setminus B = \{3\}$.
 
