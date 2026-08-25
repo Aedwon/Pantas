@@ -1,0 +1,17 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-statistics-and-probability-combinatorics-0001	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-combinatorics-0002	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-combinatorics-0003	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-combinatorics-0004	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-combinatorics-0005	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-combinatorics-0006	VERIFIED	RECOMPUTED	VALID; LESSON COVERAGE GAP	TEXT SUFFICIENT	NONE	Distinguishable permutations with repeated letters are not taught explicitly.
+q-statistics-and-probability-combinatorics-0007	VERIFIED	RECOMPUTED	VALID; LESSON COVERAGE GAP	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	Circular permutations are not taught explicitly.
+q-statistics-and-probability-combinatorics-0008	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-combinatorics-0009	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-combinatorics-0010	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-combinatorics-0011	VERIFIED	RECOMPUTED	VALID; LESSON COVERAGE GAP	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	Adjacency/block counting is not taught explicitly.
+q-statistics-and-probability-combinatorics-0012	VERIFIED	RECOMPUTED	SUPPORTED BY COMBINED RULES	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-combinatorics-0013	VERIFIED	RECOMPUTED	VALID; LESSON COVERAGE GAP	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	Circular permutation plus adjacency/block counting exceeds lesson coverage.
+q-statistics-and-probability-combinatorics-0014	VERIFIED	RECOMPUTED	SUPPORTED BY COMBINED RULES	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-combinatorics-0015	VERIFIED	RECOMPUTED	VALID; LESSON COVERAGE GAP	TEXT SUFFICIENT	NONE	Complementary adjacency/block counting is not taught explicitly.
+q-statistics-and-probability-combinatorics-0016	VERIFIED	RECOMPUTED	SUPPORTED BY COMBINED RULES	TEXT SUFFICIENT	NONE	
