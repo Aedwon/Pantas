@@ -1,7 +1,7 @@
 ---
 _id: "lesson-grammar-and-structure-punctuation-and-capitalization"
 title: "Punctuation and Capitalization Rules"
-summary: "Learn the key rules for using commas, semicolons, apostrophes, and capital letters correctly."
+summary: "Learn core comma, semicolon, apostrophe, and capitalization conventions while recognizing style-dependent choices."
 subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 estimatedMinutes: 10
@@ -9,97 +9,99 @@ isActive: true
 ---
 ## Core Concept
 
+Punctuation helps show grammatical structure and relationships between ideas. Some conventions are stable; others depend on the style guide being followed.
+
 ### Commas
 
-Commas separate items, ideas, and extra information within a sentence.
+Common uses include:
 
-- Use a comma between items in a list of three or more: "I bought apples, bananas, and oranges."
-- Use a comma before a coordinating conjunction (*and*, *but*, *or*, *so*, *for*, *nor*, *yet*) that joins two independent clauses: "She studied hard, *and* she passed the exam."
-- Use a comma after an introductory phrase or dependent clause: "*After the meeting,* we went home."
-- Use commas to set off non-essential information (extra details you could remove without changing the sentence's core meaning): "My brother, *who lives in Cebu*, is visiting this week."
+- Separate items in a series: "I bought apples, bananas, and oranges." The final **serial/Oxford comma** before *and* is required by some styles and optional in others; use it when needed for clarity and follow the style expected by the task.
+- Place a comma before a coordinating conjunction (*and, but, or, so, for, nor, yet*) when it joins two independent clauses: "She studied hard, and she passed."
+- Usually place a comma after a substantial introductory dependent clause or phrase: "After the meeting, we went home." Very short introductory elements may not always require one if there is no risk of misreading.
+- Set off nonrestrictive/nonessential information: "My brother, who lives in Cebu, is visiting." Restrictive information that identifies which person or thing is meant is normally not set off with commas.
 
 ### Semicolons
 
-A **semicolon** connects two closely related independent clauses without a coordinating conjunction: "The rain stopped; the sun came out." A semicolon can also separate items in a list when those items already contain commas: "We visited Manila, Philippines; Tokyo, Japan; and Seoul, Korea."
+A semicolon can join two closely related independent clauses without a coordinating conjunction: "The rain stopped; the sun came out." It can also separate complicated list items that already contain commas.
 
-A common error is the **comma splice**: joining two independent clauses with only a comma and no conjunction ("The rain stopped, the sun came out."). This needs a semicolon, a coordinating conjunction, or a period instead.
+Joining two independent clauses with only a comma is a **comma splice** in standard edited prose. Repair it with a period, semicolon, coordinating conjunction, or another suitable restructuring.
 
 ### Apostrophes
 
-Apostrophes show possession (*Maria's book*) or mark a contraction, where letters are omitted (*don't* for *do not*, *it's* for *it is*). A common confusion: "*its*" (possessive, no apostrophe, meaning "belonging to it") versus "*it's*" (contraction of "it is" or "it has").
+Apostrophes commonly mark possession (*Maria's book*) and omitted letters in contractions (*don't*, *it's*). **Its** is the possessive determiner; **it's** means *it is* or *it has*.
 
 ### Capitalization
 
-Capitalize the first word of every sentence, proper nouns (specific names of people, places, organizations: *Manila*, *Rizal*, *United Nations*), titles used directly before a name (*President Marcos*, but lowercase "the president" when used generally), and the first word of a direct quotation.
+Capitalize sentence beginnings and proper names. Capitalization of titles depends partly on style and function. Formal titles directly before names are often capitalized ("President Reyes"), while occupational descriptions are commonly lowercase ("the president," "the doctor"). Some institutional or editorial styles also capitalize certain titles used alone, so "only before a name" is too absolute.
+
+A direct quotation that is itself a complete sentence normally begins with a capital letter: She said, "The meeting is over." A quoted word or fragment embedded in a sentence need not: The word "meeting" appears twice.
 
 ## Examples
 
 ### #1: Fixing a Comma Splice
 
-Identify and fix the error: "The concert was amazing, everyone stayed until the end."
+"The concert was amazing, everyone stayed until the end."
 
 **Solution:**
-1. Two independent clauses ("The concert was amazing" and "everyone stayed until the end") are joined by only a comma: this is a comma splice.
-2. Fix it by adding a coordinating conjunction, using a semicolon, or splitting into two sentences.
-3. Corrected: "The concert was amazing, *so* everyone stayed until the end." (or: "The concert was amazing; everyone stayed until the end.")
 
-### #2: Choosing Between "Its" and "It's"
+Both sides are independent clauses. Possible repairs include:
 
-Choose the correct word: The company announced *(its / it's)* new product line yesterday.
+- "The concert was amazing, **so** everyone stayed until the end."
+- "The concert was amazing; everyone stayed until the end."
+- "The concert was amazing. Everyone stayed until the end."
 
-**Solution:**
-1. The sentence needs a word showing possession (the product line belonging to the company), not a contraction.
-2. "Its" (no apostrophe) is the possessive form.
-3. Correct sentence: "The company announced *its* new product line yesterday."
+### #2: *Its* or *It's*
 
-### #3: Using a Semicolon Correctly
-
-Choose the correctly punctuated sentence: (A) "She wanted to travel; because she loved adventure." (B) "She loves reading; she visits the library every weekend."
+The company announced *(its / it's)* new product line.
 
 **Solution:**
-1. In (A), "because she loved adventure" is a dependent clause, not an independent one: a semicolon should only join two independent clauses.
-2. In (B), both "she loves reading" and "she visits the library every weekend" are independent clauses, correctly joined by a semicolon.
-3. The correct sentence is (B).
 
-### #4: Capitalizing Titles Correctly
+The blank shows possession, so **its** is correct. The substitution *it is new product line* does not work.
 
-Choose the correctly capitalized sentence: (A) "We met the President of the company yesterday." (B) "We met President Reyes of the company yesterday."
+### #3: Semicolon
+
+Which is standard? (A) "She wanted to travel; because she loved adventure." (B) "She loves reading; she visits the library every weekend."
 
 **Solution:**
-1. In (A), "president" is used generally (not directly before a specific name), so it should be lowercase.
-2. In (B), "President" is used directly before the specific name "Reyes," so capitalizing it is correct.
-3. The correct sentence is (B). ("We met the president of the company yesterday" would be the corrected version of (A).)
+
+(B). Both clauses can stand independently. In (A), the *because*-clause is subordinate.
+
+### #4: Capitalizing a Formal Title
+
+Compare: "We met **President Reyes** yesterday" and "We met **the president** yesterday."
+
+**Solution:**
+
+The first uses a formal title as part of the name; the second uses the role generically. Both follow a common capitalization convention.
 
 ## Speed Tricks & Shortcuts
 
-**Read each side of a semicolon as its own sentence.** If both sides can stand alone as complete sentences, the semicolon is used correctly. If either side cannot stand alone, use a comma with a conjunction instead, or restructure the sentence.
+**Test semicolon halves as sentences.** In its basic joining use, each side should be an independent clause.
 
-**Test "it's" by expanding it.** Whenever you see "it's," try replacing it with "it is" or "it has." If the sentence still makes sense, "it's" is correct. If not, use "its" instead.
+**Expand *it's*.** If *it is* or *it has* fits, use *it's*; otherwise possession is normally *its*.
 
-**Capitalize titles only directly before a name.** "Doctor Santos" (capitalized, directly before the name) versus "the doctor examined the patient" (lowercase, used generally, no specific name attached).
+**Separate grammar from house style.** Serial commas and some title-capitalization choices vary by style guide. Prefer the option that preserves clarity and matches the stated convention.
 
 ## Traps to Watch For
 
-### #1: Missing a Comma Splice
+### #1: Treating the Oxford Comma as Universally Required or Forbidden
 
-> Two independent clauses joined by only a comma (with no conjunction) is a comma splice error: one of the most common punctuation mistakes tested.
+> Both serial-comma conventions exist in edited English.
 
-"She finished her homework, she went to bed" needs a conjunction ("and"), a semicolon, or a period between the two complete thoughts.
+Use the style required by the context, and use punctuation that avoids ambiguity.
 
-### #2: Confusing "Its" and "It's"
+### #2: Joining Independent Clauses with Only a Comma
 
-> "Its" (no apostrophe) shows possession. "It's" (with apostrophe) is a contraction for "it is" or "it has."
+> In standard edited prose, a comma alone does not normally join two independent clauses.
 
-This is one of the most frequently tested punctuation confusions in English exams, precisely because the two words sound identical when spoken.
+### #3: Using a Semicolon Before a Subordinate Clause
 
-### #3: Using a Semicolon to Join an Independent Clause with a Dependent Clause
+> "Because she loved adventure" cannot function as the second independent clause in a basic semicolon construction.
 
-> A semicolon should only connect two independent clauses, each capable of standing alone as its own sentence.
+### #4: Capitalizing Every Occupational Title
 
-"She wanted to travel; because she loved adventure" is incorrect, since "because she loved adventure" cannot stand alone. A comma (without a semicolon) is typically used to attach a dependent clause like this instead.
+> A job label is not automatically a proper name. "President Reyes" and "the president" illustrate the common distinction.
 
-### #4: Capitalizing a Title Used Generally
+### #5: Capitalizing Every Directly Quoted Fragment
 
-> Capitalize a title only when it comes directly before a specific person's name. When used generally (without a name attached), keep it lowercase.
-
-"We met the President" (used generally, referring to the role, without stating a specific name right there) should typically be lowercase "president," while "We met President Reyes" (directly before a specific name) is correctly capitalized.
+> Capitalize the opening of a quoted complete sentence, but an embedded quoted word or fragment follows the surrounding sentence's needs.
