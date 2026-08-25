@@ -1,0 +1,17 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-statistics-and-probability-data-analysis-graphs-0001	VERIFIED	RECOMPUTED	SUPPORTED BY DATA-READING SKILLS	TEXT SUFFICIENT; TABLE EMBEDDED	NONE	
+q-statistics-and-probability-data-analysis-graphs-0002	VERIFIED	RECOMPUTED	SUPPORTED BY DATA-READING SKILLS	TEXT SUFFICIENT; TABLE EMBEDDED	NONE	
+q-statistics-and-probability-data-analysis-graphs-0003	VERIFIED	RECOMPUTED	SUPPORTED BY DATA-READING SKILLS	TEXT SUFFICIENT; TABLE EMBEDDED	NONE	
+q-statistics-and-probability-data-analysis-graphs-0004	CORRECTED	RECOMPUTED	SUPPORTED BY DATA-READING SKILLS	TEXT SUFFICIENT; TABLE EMBEDDED	LOW	Repaired the 80-ton distractor rationale so it correctly describes comparing February with April.
+q-statistics-and-probability-data-analysis-graphs-0005	CORRECTED	RECOMPUTED	SUPPORTED BY DATA-READING SKILLS	TEXT SUFFICIENT; TABLE EMBEDDED	LOW	Repaired the 2,050 distractor rationale: it is the under-30 complement, not an at-least-30 count.
+q-statistics-and-probability-data-analysis-graphs-0006	VERIFIED	RECOMPUTED	SUPPORTED BY DATA-READING SKILLS	TEXT SUFFICIENT; TABLE EMBEDDED	NONE	
+q-statistics-and-probability-data-analysis-graphs-0007	CORRECTED	RECOMPUTED	SUPPORTED BY DATA-READING SKILLS	TEXT SUFFICIENT; TABLE EMBEDDED	LOW	Repaired distractor rationales to match their own 40%, 60%, and 75% choices.
+q-statistics-and-probability-data-analysis-graphs-0008	VERIFIED	RECOMPUTED	SUPPORTED BY DATA-READING SKILLS	TEXT SUFFICIENT; TABLE EMBEDDED	NONE	
+q-statistics-and-probability-data-analysis-graphs-0009	CORRECTED	RECOMPUTED	SUPPORTED BY DATA-READING SKILLS	TEXT SUFFICIENT; TABLE EMBEDDED	LOW	Repaired 6:5 and 4:3 rationales that previously cited arithmetic unrelated to those choices.
+q-statistics-and-probability-data-analysis-graphs-0010	VERIFIED	RECOMPUTED	SUPPORTED BY DATA-READING SKILLS	TEXT SUFFICIENT; TABLE EMBEDDED	NONE	
+q-statistics-and-probability-data-analysis-graphs-0011	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TABLE EMBEDDED	NONE	
+q-statistics-and-probability-data-analysis-graphs-0012	VERIFIED	RECOMPUTED	VALID; LESSON COVERAGE GAP	TEXT SUFFICIENT; TABLE EMBEDDED	NONE	Grouped-frequency estimated mean is not taught in the matching graph lesson.
+q-statistics-and-probability-data-analysis-graphs-0013	VERIFIED	RECOMPUTED	VALID; LESSON COVERAGE GAP	TEXT SUFFICIENT; TABLE EMBEDDED	NONE	Solving an unknown frequency from a weighted mean is not taught in the matching lesson.
+q-statistics-and-probability-data-analysis-graphs-0014	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TABLE EMBEDDED	NONE	
+q-statistics-and-probability-data-analysis-graphs-0015	VERIFIED	RECOMPUTED	SUPPORTED BY DATA-READING SKILLS	TEXT SUFFICIENT; TABLE EMBEDDED	NONE	
+q-statistics-and-probability-data-analysis-graphs-0016	VERIFIED	RECOMPUTED	VALID; LESSON COVERAGE GAP	TEXT SUFFICIENT; TABLE EMBEDDED	NONE	Conditional column percentage from a contingency table is not taught in the matching lesson.
