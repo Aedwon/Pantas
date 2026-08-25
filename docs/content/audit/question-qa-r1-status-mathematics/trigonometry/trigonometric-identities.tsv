@@ -1,0 +1,17 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-trigonometry-trigonometric-identities-0001	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	MEDIUM	Explanation previously misidentified 1/tan as cosecant; corrected it to cotangent.
+q-trigonometry-trigonometric-identities-0002	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-trigonometric-identities-0003	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TRIANGLE BENEFICIAL	NONE	
+q-trigonometry-trigonometric-identities-0004	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-trigonometric-identities-0005	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-trigonometric-identities-0006	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-trigonometric-identities-0007	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-trigonometric-identities-0008	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-trigonometric-identities-0009	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	LOW	Normalized invalid difficulty value medium-hard to hard.
+q-trigonometry-trigonometric-identities-0010	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	MEDIUM	Corrected rationale: sec^2 theta and tan^2 theta differ by 1 wherever defined and are never equal.
+q-trigonometry-trigonometric-identities-0011	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-trigonometric-identities-0012	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TRIANGLE BENEFICIAL	NONE	
+q-trigonometry-trigonometric-identities-0013	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	MEDIUM	Corrected tan^2 theta + cot^2 theta from a strict >2 claim to the valid >=2 bound with equality when |tan theta|=1.
+q-trigonometry-trigonometric-identities-0014	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-trigonometric-identities-0015	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-trigonometric-identities-0016	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
