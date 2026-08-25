@@ -1,7 +1,7 @@
 ---
 _id: "lesson-mechanical-technical-reasoning-pulleys-and-levers"
 title: "Pulleys and Levers (Mechanical Advantage, Balance, Fulcrums)"
-summary: "Learn how pulleys and levers make work easier and how to determine balance points and force requirements."
+summary: "Learn ideal pulley mechanical advantage from supporting rope segments and lever balance from torque."
 subject: "subject-reasoning"
 topic: "topic-mechanical-technical-reasoning"
 estimatedMinutes: 11
@@ -9,118 +9,116 @@ isActive: true
 ---
 ## Core Concept
 
-**Pulleys** and **levers** are simple machines that provide **mechanical advantage**: they let you apply less force to move or lift a load, usually by trading that reduced force for moving a greater distance (you rarely get something for nothing: you save force but must pull or push farther).
+**Pulleys** and **levers** are simple machines. In an ideal machine, they can reduce the effort force by increasing the distance through which that force acts; they do not reduce the total ideal work required. Real machines also lose energy through friction, bending, deformation, and other effects.
 
 ### Pulleys
 
-A single fixed pulley (attached to a stationary point, like a ceiling beam) simply changes the direction of your pulling force (pull down to lift up), without reducing the force needed: you still need to pull with a force equal to the load's weight.
+A single **fixed pulley** changes the direction of a pull but has ideal mechanical advantage $1$.
 
-A movable pulley (attached directly to the load itself, moving along with it) does reduce the force needed: with one movable pulley, you only need half the force of the load's weight to lift it, though you must pull the rope twice as far. Adding more movable pulleys further reduces the required force: with $2$ movable pulleys working together, you need only one-quarter the load's weight in pulling force (but must pull four times the distance).
+For an ideal pulley system with one continuous rope and equal tension throughout that rope, a reliable rule is:
 
-<!-- FIGURE: {"kind": "pulley-system", "fixed": 1, "movable": 1, "comparison": true, "semanticsLabel": "Two pulley setups side by side: a single fixed pulley requiring full force, and a movable pulley requiring half the force but twice the rope length."} -->
+> **Ideal mechanical advantage = number of rope segments directly supporting the moving load or moving block.**
 
-### Levers and Fulcrums
+If two tensioned rope segments support the moving load, the ideal mechanical advantage is $2$: the required effort is half the load force, and the free end must move twice as far as the load. Four supporting segments give ideal mechanical advantage $4$, and so on.
 
-A **lever** is a rigid bar that pivots around a fixed point called the **fulcrum**. Levers balance according to a simple rule: the force needed on one side times its distance from the fulcrum must equal the load's weight times its distance from the fulcrum.
+Do **not** determine mechanical advantage merely by counting movable pulleys. Different arrangements with the same number of pulleys can have different numbers of supporting rope segments.
 
-$$\text{effort} \times \text{effort distance} = \text{load} \times \text{load distance}$$
+<!-- FIGURE: {"kind": "pulley-system", "fixed": 1, "movable": 1, "comparison": true, "semanticsLabel": "Two ideal pulley setups: a single fixed pulley with mechanical advantage 1 and a movable-load setup supported by two rope segments with mechanical advantage 2."} -->
 
-This means moving the fulcrum closer to the load (making the load's distance shorter, and the effort's distance longer) requires less effort force to lift the same load: this is why longer levers (or fulcrums placed closer to the heavy end) make lifting easier.
+### Levers and Torque
+
+A **lever** is a rigid body that can rotate about a fulcrum or pivot. Rotational effect is measured by **torque**:
+
+$$\tau=rF\sin\theta=F d_\perp,$$
+
+where $d_\perp$ is the perpendicular moment arm from the pivot to the force's line of action.
+
+For a simple horizontal lever with forces applied perpendicular to the lever and in static balance,
+
+$$F_\text{effort}d_\text{effort}=F_\text{load}d_\text{load}.$$
+
+A longer effort arm can therefore reduce the effort force needed to balance a given load, under the stated ideal assumptions.
 
 ## Examples
 
-### #1: Fixed Pulley Force
+### #1: Fixed Pulley
 
-A fixed pulley is used to lift a $50 \text{ kg}$ load. How much pulling force is required, and does the direction of pulling matter?
-
-<!-- FIGURE: {"kind": "pulley-system", "fixed": 1, "movable": 0, "semanticsLabel": "A single fixed pulley attached to an overhead beam, lifting a 50 kg load with a downward pulling force of 50 kg."} -->
-
+An ideal fixed pulley lifts a load whose weight is $490\text{ N}$. Neglecting friction, what pulling force is required?
 
 **Solution:**
-1. A fixed pulley only changes the direction of the force; it does not reduce the amount of force needed.
-2. The pulling force required still equals the load's weight: $50 \text{ kg}$ worth of force (or its equivalent in newtons).
-3. Yes, the direction changes (you can pull down to lift the load up), but the force magnitude needed stays the same as the load's weight.
 
-### #2: Movable Pulley Force Reduction
+A fixed pulley has ideal mechanical advantage $1$, so the rope tension must equal the load's weight:
 
-A movable pulley is used to lift a $60 \text{ kg}$ load. How much pulling force is required, and how far must the rope be pulled to lift the load by $2$ meters?
+$$F=490\text{ N}.$$
 
-<!-- FIGURE: {"kind": "pulley-system", "fixed": 1, "movable": 1, "semanticsLabel": "A movable pulley attached to a 60 kg load supported by two strands, requiring 30 kg of pull force and 4 meters of rope pulled for a 2-meter lift."} -->
+It changes the direction of the pull, not the ideal force magnitude.
 
+### #2: Two Supporting Rope Segments
 
-**Solution:**
-1. A single movable pulley halves the force needed compared to the load's weight.
-2. Required force: $60 \div 2 = 30 \text{ kg}$ worth of force.
-3. Since force is halved, the rope must be pulled twice as far as the load actually moves: to lift the load $2$ meters, you must pull $2 \times 2 = 4$ meters of rope.
+A $60\text{ kg}$ mass is lifted by an ideal movable-pulley arrangement in which **two rope segments support the moving load**. Approximately what effort is required if $g=9.8\text{ m/s}^2$, and how much rope must be pulled to raise the load $2\text{ m}$?
 
-### #3: Lever Balance Problem
-
-A lever has a load of $100 \text{ kg}$ placed $2$ meters from the fulcrum. How much effort force is needed if applied $5$ meters from the fulcrum on the other side?
-
-<!-- FIGURE: {"kind": "lever-balance", "loadDistance": 2, "effortDistance": 5, "semanticsLabel": "A lever on a triangular fulcrum with a 100 kg load 2 meters from the fulcrum on the left and 40 kg effort applied 5 meters on the right."} -->
-
+<!-- FIGURE: {"kind": "pulley-system", "fixed": 1, "movable": 1, "semanticsLabel": "An ideal movable pulley supporting a load with two rope segments; the free end moves twice the load distance."} -->
 
 **Solution:**
-1. Apply the lever balance formula: effort $\times$ effort distance = load $\times$ load distance.
 
-$$\text{effort} \times 5 = 100 \times 2$$
+1. Load weight:
 
-2. Compute the right side.
+$$W=mg=(60)(9.8)=588\text{ N}.$$
 
-$$\text{effort} \times 5 = 200$$
+2. Two supporting segments give ideal mechanical advantage $2$:
 
-3. Divide both sides by $5$.
+$$F_\text{effort}=588/2=294\text{ N}.$$
 
-$$\text{effort} = 40 \text{ kg}$$
+3. The effort end must move twice the load distance, so raising the load $2\text{ m}$ requires pulling about $4\text{ m}$ of rope.
 
-4. Only $40 \text{ kg}$ of effort force is needed to balance the $100 \text{ kg}$ load, since the effort is applied farther from the fulcrum.
+### #3: Lever Balance
 
-### #4: Moving the Fulcrum to Reduce Effort
-
-Using the same $100 \text{ kg}$ load, if the fulcrum is moved so the load is now only $1$ meter from the fulcrum (while the effort distance stays at $5$ meters), how does the required effort change compared to Example 3?
-
-<!-- FIGURE: {"kind": "lever-balance", "loadDistance": 1, "effortDistance": 5, "semanticsLabel": "A lever on a triangular fulcrum with a 100 kg load moved to 1 meter from the fulcrum and effort applied 5 meters away, requiring 20 kg of effort."} -->
-
+A downward load force of $980\text{ N}$ acts $2\text{ m}$ from a fulcrum. A perpendicular effort force is applied $5\text{ m}$ from the fulcrum on the other side. What effort balances the lever?
 
 **Solution:**
-1. Reapply the balance formula with the new load distance.
 
-$$\text{effort} \times 5 = 100 \times 1$$
+$$F_e(5)=980(2)$$
 
-2. Compute the right side.
+$$F_e=392\text{ N}.$$
 
-$$\text{effort} \times 5 = 100$$
+### #4: Changing the Moment Arm
 
-3. Divide by $5$.
+If the same $980\text{ N}$ load is moved to $1\text{ m}$ from the fulcrum while the perpendicular effort remains applied $5\text{ m}$ away,
 
-$$\text{effort} = 20 \text{ kg}$$
+$$F_e(5)=980(1),$$
 
-4. Moving the fulcrum closer to the load (reducing its distance from $2$ meters to $1$ meter) reduced the required effort from $40 \text{ kg}$ down to $20 \text{ kg}$, confirming that a fulcrum positioned closer to the load makes lifting easier.
+so
+
+$$F_e=196\text{ N}.$$
+
+The shorter load arm reduces the balancing effort required.
 
 ## Speed Tricks & Shortcuts
 
-**For pulleys, count the number of movable pulleys (not fixed ones) to determine the force reduction.** Each movable pulley halves the required force again: $1$ movable pulley needs half the force, $2$ movable pulleys need a quarter, and so on, but the rope-pulling distance increases by that same multiplying factor.
+**For ideal pulleys, count supporting rope segments—not pulleys.** Count the tensioned segments that directly support the moving load/block.
 
-**For levers, remember the balance equation works like a seesaw: bigger distance needs smaller force, and smaller distance needs bigger force**, for the same balancing effect. Cross-multiply the given values directly using the effort-times-distance formula.
+**Keep force and mass units separate.** Kilograms are mass; newtons are force. Convert with $W=mg$ when necessary.
 
-**A fulcrum moved closer to the load makes lifting easier (less effort needed); moved farther from the load makes lifting harder (more effort needed).**
+**For levers, use perpendicular moment arms.** The simple force-times-distance form assumes the forces are perpendicular to the lever.
 
 ## Traps to Watch For
 
-### #1: Assuming All Pulleys Reduce Force
+### #1: "Each Movable Pulley Halves the Force"
 
-> Only movable pulleys (attached to the load) reduce the required force. Fixed pulleys (attached to a stationary point) only change the direction of the force, not its magnitude.
+> That is not a general rule. Ideal mechanical advantage depends on how the rope is routed and how many rope segments support the moving load.
 
-Assuming a single fixed pulley "makes lifting easier" in terms of force is incorrect: it only makes lifting more convenient by letting you pull in a different direction, while still requiring the full weight's worth of force.
+### #2: Counting a Fixed Pulley as Extra Mechanical Advantage
 
-### #2: Forgetting the Trade-Off Between Force and Distance
+> A fixed pulley used only to redirect the rope normally changes direction without increasing ideal mechanical advantage.
 
-> Simple machines like pulleys and levers reduce the force needed but always require moving (or pulling) a correspondingly greater distance: you cannot reduce force without some distance trade-off.
+### #3: Calling a 50 kg Mass a 50 kg Force
 
-A movable pulley halving the required force also doubles the rope distance you must pull; forgetting this trade-off leads to an incomplete understanding of the mechanical advantage being gained.
+> Use newtons for force, or explicitly state kilogram-force if a non-SI convention is intentionally being used.
 
-### #3: Mixing Up Which Side of the Lever Equation Gets Multiplied
+### #4: Using Ordinary Distance Instead of the Moment Arm
 
-> Keep effort paired with its own distance, and load paired with its own distance: do not cross-pair effort's force with the load's distance (or vice versa) when setting up the balance equation.
+> Torque depends on perpendicular distance to the force's line of action. If a force is angled, use $rF\sin\theta$ or the perpendicular moment arm.
 
-Writing "effort $\times$ load distance = load $\times$ effort distance" (reversing the pairings) produces an entirely different, incorrect equation compared to the correct "effort $\times$ effort distance = load $\times$ load distance."
+### #5: Ignoring Friction
+
+> Ideal mechanical advantage is a model. Real pulley and lever systems require more input because of losses and component weight.
