@@ -1,0 +1,17 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-statistics-and-probability-measures-of-central-tendency-0001	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-measures-of-central-tendency-0002	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-measures-of-central-tendency-0003	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-measures-of-central-tendency-0004	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-measures-of-central-tendency-0005	CORRECTED	RE-DERIVED	VALID; LESSON COVERAGE GAP	TEXT SUFFICIENT	LOW	Clarified that median requires meaningfully ordered data; ordinal and quantitative data can support it, nominal data cannot.
+q-statistics-and-probability-measures-of-central-tendency-0006	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-measures-of-central-tendency-0007	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-measures-of-central-tendency-0008	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-measures-of-central-tendency-0009	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-measures-of-central-tendency-0010	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-measures-of-central-tendency-0011	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-measures-of-central-tendency-0012	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-measures-of-central-tendency-0013	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-measures-of-central-tendency-0014	VERIFIED	RECOMPUTED	SUPPORTED BY CORE DEFINITIONS	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-measures-of-central-tendency-0015	CORRECTED	RE-DERIVED	VALID; LESSON COVERAGE GAP	TEXT SUFFICIENT; VISUAL BENEFICIAL	LOW	Qualified Mean>Median>Mode as a common heuristic for typical unimodal right-skewed distributions, not a universal identity.
+q-statistics-and-probability-measures-of-central-tendency-0016	CORRECTED	RE-DERIVED	VALID; LESSON COVERAGE GAP	TEXT SUFFICIENT	LOW	Made explicit that the stated positive affine transformation preserves order and frequency relationships, supporting median and mode transformation.
