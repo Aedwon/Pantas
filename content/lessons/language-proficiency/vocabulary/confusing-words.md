@@ -1,7 +1,7 @@
 ---
 _id: "lesson-vocabulary-confusing-words"
 title: "Confusing Words (Affect vs. Effect, Its vs. It's, Nang vs. Ng, Sila vs. Sina)"
-summary: "Learn how to choose the right word for tricky English and Filipino pairs like affect/effect and nang/ng."
+summary: "Learn how grammar and context distinguish commonly confused English and Filipino words."
 subject: "subject-language-proficiency"
 topic: "topic-vocabulary"
 estimatedMinutes: 10
@@ -9,175 +9,129 @@ isActive: true
 ---
 ## Core Concept
 
-Philippine college entrance exams will test your vocabulary. They want to see if you know the exact word for a sentence. Many words sound the same but mean different things. These are called **homophones**.
+Some words are easy to confuse because they sound alike, look alike, or occur in similar grammatical positions. Not all confusing pairs are **homophones**: *its/it's* are pronounced alike, for example, while *affect/effect* normally are not.
 
-If you pick the wrong word, the whole sentence changes its meaning. Here are the $4$ most tested word pairs.
+The current public Civil Service Examination scope includes **word meaning** and, for the clerical component, **spelling**. It does not publish a list of "most tested" word pairs, so use the pairs below as useful practice examples rather than guaranteed item content.
 
-1. **Affect vs. Effect**. *Affect* is an action word. It is a verb. *Effect* is the result of an action. It is a noun.
+### Affect vs. Effect
 
-2. **Its vs. It's**. The word *its* shows ownership. The word *it's* is just a short way to say "it is" or "it has".
+In the most common uses:
 
-3. **Nang vs. Ng**. This is a favorite trap in the UPCAT. Use *ng* to point to a noun or show ownership. Use *nang* to answer the question "how?" or to connect repeating action words.
+- **affect** is a **verb** meaning "to influence": "Drought can affect crop yield."
+- **effect** is a **noun** meaning "a result": "The drought had a serious effect."
 
-4. **Sila vs. Sina**. *Sila* means "they". It is a pronoun that replaces names. *Sina* is a marker. It must come right before a list of names.
+There are important exceptions. **Effect** can be a verb meaning "to bring about" ("The reform effected major changes"), and **affect** can be a noun in psychology meaning an observable expression of emotion. For ordinary editing questions, identify the word's actual grammatical role and meaning rather than treating the mnemonic as an absolute rule.
 
-## Mnemonics & Memory Aids
+### Its vs. It's
 
-> **raven**
+- **its** is the possessive determiner/pronoun form associated with *it*: "The company changed its policy."
+- **it's** is a contraction of **it is** or **it has**: "It's clear" / "It's been approved."
 
-Use raven to remember the difference between affect and effect.
+### Ng vs. Nang
 
-* **R**emember
-* **A**ffect = **V**erb
-* **E**ffect = **N**oun
+The distinction between Filipino **ng** and **nang** cannot be reduced to one English translation. Useful school-grammar cues include:
 
-> **Nang is for "A" words.**
+- **ng** commonly marks a non-topic noun phrase, possession/relationship, quantities, and certain time expressions: *kumain ng mangga*, *bahay ng guro*, *alas singko ng hapon*.
+- **nang** commonly introduces an adverbial manner expression, can mean "when" in clauses such as *nang dumating siya*, and appears in repeated-action constructions such as *takbo nang takbo*.
 
-The word *nang* has the letter "A" in it. Use it for an **A**dverb. An adverb is a word that tells *how* an action is done. You also use *nang* for an **A**ction that repeats (like "takbo *nang* takbo").
+Use the whole Filipino construction, not only the question words *ano?* versus *paano?*, because both forms have several functions.
+
+### Sila vs. Sina
+
+- **sila** is a plural personal pronoun: "Umalis sila."
+- **sina** is a plural personal-name marker in standard Filipino: "Sina Maria, Jose, at Juan ay dumating."
+
+In formal edited Filipino, use **sina** when directly marking a coordinated set of personal names. Colloquial and regional speech can show other constructions, so do not describe everyday speakers as "ungrammatical" merely because they differ from the formal target variety.
 
 ## Examples
 
 ### #1: Affect vs. Effect
 
-The prolonged drought will severely ______ the crop yield for this quarter.
-A) affect
-B) effect
-C) affects
+The prolonged drought will severely ______ the crop yield.
+
+A) affect  
+B) effect  
+C) affects  
 D) effects
 
 **Solution:**
 
-1. Look at the missing word's job in the sentence. The word "will" tells us an action is about to happen.
-
-$$\text{Missing Word} = \text{Action (Verb)}$$
-
-
-2. Remember the raven rule. Affect is the verb.
-3. The word "severely" describes the action. We need the base form of the verb after "will".
-
-$$\text{Answer: A}$$
-
-
+After modal *will*, the sentence needs a base-form verb meaning "influence." **Affect** is the ordinary choice: "will severely affect."
 
 ### #2: Its vs. It's
 
-The university updated ______ guidelines regarding the use of artificial intelligence in academic submissions.
-A) it's
-B) its
-C) its'
+The university updated ______ guidelines regarding artificial intelligence.
+
+A) it's  
+B) its  
+C) its'  
 D) their
 
 **Solution:**
 
-1. Read the sentence and try to replace the blank with "it is".
-
-$$\text{The university updated 'it is' guidelines.}$$
-
-
-2. That sounds wrong. So, we do not need the apostrophe. We need the word that shows ownership.
-3. The university owns the guidelines. We use the possessive word.
-
-$$\text{Answer: B}$$
-
-
+The blank expresses possession. **Its** is correct. Substituting *it is* or *it has* does not make sense here.
 
 ### #3: Nang vs. Ng
 
 Tumakbo ______ mabilis ang aso nang makita niya ang pusa.
-A) ng
-B) nang
-C) na
+
+A) ng  
+B) nang  
+C) na  
 D) may
 
 **Solution:**
 
-1. Look at the word right after the blank. The word is "mabilis", which means "fast".
-2. "Mabilis" tells us *how* the dog ran. It is an adverb.
-
-$$\text{Tells How} = \text{Adverb}$$
-
-
-3. Remember our trick. Use the word with an "A" for adverbs.
-
-$$\text{Answer: B}$$
-
-
+*Mabilis* describes the manner of running, so **nang mabilis** is the standard construction. Answer: **B**.
 
 ### #4: Sila vs. Sina
 
-______ Maria, Jose, at Juan ay naghanda para sa darating na pagsusulit.
-A) Sila
-B) Sina
-C) Kina
+______ Maria, Jose, at Juan ay naghanda para sa pagsusulit.
+
+A) Sila  
+B) Sina  
+C) Kina  
 D) Ang
 
 **Solution:**
 
-1. Look at the words right after the blank. They are the names of specific people.
-2. You must use a marker for plural names.
+The blank directly marks several personal names as the topic. Standard Filipino uses **sina**. Answer: **B**.
 
-$$\text{Marker for names} = \text{Sina}$$
+### #5: Less Common Affect/Effect Use
 
+Which sentence uses **effect** as a verb correctly?
 
-3. Do not use a pronoun if the actual names are already written there.
-
-$$\text{Answer: B}$$
-
-
-
-### #5: Two-Blank Sentence
-
-The new policy had a profound ______ on the students; ______ clear that it will change how they study.
-A) affect, its
-B) effect, it's
-C) effect, its
-D) affect, it's
+A) The rain will effect our plans.  
+B) The new law effected major changes in procedure.  
+C) Her effect was unusually flat during the interview.  
+D) The medicine had no affect.
 
 **Solution:**
 
-1. Look at the first blank. It comes after the descriptive words "a profound". This means we need a noun.
-
-$$\text{Blank } 1 = \text{Noun (effect)}$$
-
-
-2. Look at the second blank. It comes before the word "clear". Try putting "it is" in the blank. "It is clear" makes perfect sense.
-
-$$\text{Blank } 2 = \text{it is (it's)}$$
-
-
-3. Match both correct words to the choices.
-
-$$\text{Answer: B}$$
-
-
+In (B), **effected** means "brought about." This is a less common but standard verbal use of *effect*.
 
 ## Speed Tricks & Shortcuts
 
-**"A, An, The" Trick.**
-If you see "a", "an", or "the" right before the blank, the answer is almost always **effect**. These words point to a noun.
+**Use the common affect/effect mnemonic as a first guess, then verify the grammar and meaning.** Usually *affect = verb* and *effect = noun*, but exceptions exist.
 
-**"It Is" Test.**
-Whenever you see *it's* or *its* in the choices, read the sentence using "it is". If it sounds right, pick **it's**. If it sounds funny or wrong, pick **its**.
+**Expand *it's*.** If *it is* or *it has* works, choose *it's*. Otherwise possession is normally *its*.
 
-**"Ano" vs. "Paano" Test.**
-To choose between *ng* and *nang*, ask a simple question. If the sentence answers "ano" (what), use **ng**. If the sentence answers "paano" (how), use **nang**.
+**For ng/nang, inspect the Filipino construction.** Manner and repeated actions often point to *nang*; noun marking and possession often point to *ng*.
 
 ## Traps to Watch For
 
-### #1: Fake Word "Its'"
+### #1: Treating Affect/Effect as an Exceptionless Rule
 
-> Never choose its'. It is a fake word.
+> *Affect* is usually a verb and *effect* usually a noun, but both words have established less-common uses in the other category.
 
-Exam makers love to put >its'< in the choices. They want to trick you into thinking it is a plural ownership word. This word does not exist in the English language. Cross it out immediately.
+### #2: Writing *its'*
 
-### #2: Sila Plus Names
+> Standard English has **its** for possession and **it's** for *it is/it has*. *Its'* is not a standard possessive form.
 
-> Never put "Sila" before a list of names.
+### #3: Reducing Ng/Nang to One Question Word
 
-Many Filipinos say "Sila Maria" when talking casually. This is grammatically wrong in formal Filipino. The exam tests formal rules. Always use "Sina Maria" when names follow. Use "Sila" only if the names are missing, like "Umalis sila."
+> *Ano?* versus *paano?* can be a helpful clue in simple cases, but it does not cover all uses of *ng* and *nang*.
 
-### #3: Ng for Exact Time
+### #4: Confusing Sila and Sina
 
-> Do not use "nang" for a specific clock time.
-
-You use *nang* to mean "when" for an event (like "Nang umulan"). But if the sentence gives an exact clock time or a specific day, you must use *ng*. For example, "Umalis siya **ng** $5$:00 pm." Test makers will try to confuse you here because both deal with time.
+> *Sila* stands as a pronoun; *sina* marks multiple personal names in standard Filipino.
