@@ -1,16 +1,16 @@
 question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
-q-arithmetic-number-sense-properties-of-real-numbers-0001	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-properties-of-real-numbers-0002	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-properties-of-real-numbers-0003	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-properties-of-real-numbers-0004	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-properties-of-real-numbers-0005	CORRECTED	RECOMPUTED	PENDING	TEXT SUFFICIENT	CRITICAL	Original equality needs associative then commutative addition; commutativity alone does not justify it.
-q-arithmetic-number-sense-properties-of-real-numbers-0006	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-properties-of-real-numbers-0007	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-properties-of-real-numbers-0008	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-properties-of-real-numbers-0009	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-properties-of-real-numbers-0010	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-properties-of-real-numbers-0011	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-properties-of-real-numbers-0012	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-properties-of-real-numbers-0013	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-properties-of-real-numbers-0014	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
-q-arithmetic-number-sense-properties-of-real-numbers-0015	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0001	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0002	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0003	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0004	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0005	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	CRITICAL	Original equality needs associative then commutative addition; commutativity alone does not justify it.
+q-arithmetic-number-sense-properties-of-real-numbers-0006	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0007	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0008	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0009	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0010	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0011	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0012	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0013	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0014	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0015	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
