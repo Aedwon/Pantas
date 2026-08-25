@@ -4,16 +4,16 @@ workflows:
     instance_type: mac_mini_m2
     max_build_duration: 60
     environment:
-      flutter: stable
+      flutter: 3.41.9
       xcode: 15.4
       cocoapods: default
       vars:
-        # Wire these in Codemagic UI in Plan 8:
+        # Wire these in Codemagic UI when iOS publishing is activated:
         # APP_STORE_CONNECT_ISSUER_ID
         # APP_STORE_CONNECT_KEY_IDENTIFIER
         # APP_STORE_CONNECT_PRIVATE_KEY
         # CERTIFICATE_PRIVATE_KEY
-        BUNDLE_ID: "com.aedwon.csecetreviewer"
+        BUNDLE_ID: "com.aedwon.pantas"
     triggering:
       events:
         - tag
@@ -29,42 +29,42 @@ workflows:
       - build/ios/ipa/*.ipa
     publishing:
       app_store_connect:
-        # Activated in Plan 8.
+        # Publishing remains disabled.
         # api_key: $APP_STORE_CONNECT_PRIVATE_KEY
         # key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER
         # issuer_id: $APP_STORE_CONNECT_ISSUER_ID
-        submit_to_testflight: false  # flip to true in Plan 8
+        submit_to_testflight: false
 
   android-release:
-    name: Android Release (Play Internal)
+    name: Android Release Artifact (manual, non-publishing)
     instance_type: linux_x2
     max_build_duration: 60
     environment:
-      flutter: stable
+      flutter: 3.41.9
+      java: 17
       vars:
-        # Wire in Plan 8:
-        # CM_KEYSTORE
+        PACKAGE_NAME: "com.aedwon.pantas"
+        # Required release inputs are configured in Codemagic UI or supplied
+        # before a manual build. Secret values and private files are not stored
+        # in this repository:
+        # RELEASE_VERSION_NAME
+        # RELEASE_VERSION_CODE
+        # REVENUECAT_ANDROID_API_KEY
+        # APPROVED_CONTENT_DB_SHA256
+        # PROD_FIREBASE_GOOGLE_SERVICES_JSON (path to a secure file)
+        # CM_KEYSTORE_PATH (path to a secure file)
         # CM_KEYSTORE_PASSWORD
         # CM_KEY_ALIAS
         # CM_KEY_PASSWORD
-        # GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
-        PACKAGE_NAME: "com.aedwon.csecetreviewer"
-    triggering:
-      events:
-        - tag
-      tag_patterns:
-        - pattern: 'v*'
-          include: true
+        #
+        # assets/seed/content.db must also be provisioned externally before
+        # this workflow runs. The workflow never generates or downloads it.
     scripts:
-      - name: pub get
-        script: flutter pub get
-      - name: Build Android App Bundle (prod)
-        script: flutter build appbundle --release --flavor prod -t lib/main_prod.dart
+      - name: Build verified Android App Bundle (prod)
+        script: bash tools/release/android/release.sh
     artifacts:
       - build/app/outputs/bundle/prodRelease/*.aab
-    publishing:
-      google_play:
-        # Activated in Plan 8.
-        # credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
-        # track: internal
-        # submit_as_draft: true
+      - build/app/outputs/mapping/prodRelease/mapping.txt
+
+    # No publishing block. Play upload remains a manual user action after
+    # artifact verification.
