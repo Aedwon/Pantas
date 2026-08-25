@@ -1,7 +1,7 @@
 ---
 _id: "lesson-grammar-and-structure-parts-of-speech"
 title: "Parts of Speech / Bahagi ng Pananalita"
-summary: "Learn the eight parts of speech in English and Filipino and how to identify the job each word plays in a sentence."
+summary: "Learn the traditional English parts of speech and recognize that Filipino grammar uses its own system of word classes and markers."
 subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 estimatedMinutes: 10
@@ -9,88 +9,87 @@ isActive: true
 ---
 ## Core Concept
 
-Every word in a sentence has a job. The **parts of speech** are the $8$ categories that describe what job a word is doing.
+A **part of speech** or **word class** groups words according to how they function grammatically. Traditional school grammar commonly teaches eight English categories:
 
-- **Noun**: names a person, place, thing, or idea (*Maria*, *city*, *book*, *freedom*).
-- **Pronoun**: replaces a noun so you do not repeat it (*she*, *they*, *it*, *who*).
-- **Verb**: shows an action or a state of being (*run*, *think*, *is*, *become*).
-- **Adjective**: describes a noun or pronoun (*red* apple, *brave* soldier).
-- **Adverb**: describes a verb, an adjective, or another adverb, often answering how, when, where, or how much (*quickly*, *very*, *yesterday*).
-- **Preposition**: shows the relationship between a noun and another word, often location or time (*in*, *on*, *under*, *before*).
-- **Conjunction**: connects words, phrases, or clauses (*and*, *but*, *because*).
-- **Interjection**: expresses sudden feeling (*Wow!*, *Ouch!*).
+- **Noun**: typically names or heads a noun phrase (*Maria*, *city*, *book*, *freedom*).
+- **Pronoun**: can stand in positions associated with noun phrases (*she*, *they*, *it*, *who*).
+- **Verb**: functions as the central word of a verb phrase and can express actions, events, or states (*run*, *think*, *is*, *become*).
+- **Adjective**: typically modifies a noun or functions as a complement (*red* apple; the apple is *red*).
+- **Adverb**: can modify verbs, adjectives, other adverbs, clauses, or whole sentences (*quickly*, *very*, *yesterday*, *fortunately*).
+- **Preposition**: heads a prepositional phrase and relates its complement to the rest of the sentence (*in*, *on*, *under*, *before*).
+- **Conjunction**: links grammatical units (*and*, *but*, *because*).
+- **Interjection**: functions relatively independently to express a reaction or discourse move (*Wow!*, *Ouch!*).
 
-In Filipino, these are called the **Walong Bahagi ng Pananalita** (Eight Parts of Speech): **pangngalan** (noun), **panghalip** (pronoun), **pandiwa** (verb), **pang-uri** (adjective), **pang-abay** (adverb), **pang-ukol** (preposition), **pangatnig** (conjunction), and **pandamdam** (interjection). The categories match one-to-one with the English list; only the language of the example words changes.
+Modern grammars sometimes divide words differently—for example, by treating determiners as a separate class—so "eight parts of speech" is a useful **traditional school classification**, not the only possible linguistic analysis.
 
-The same word can be a different part of speech depending on how it is used in a sentence. In "I need a *drink*," *drink* is a noun (a thing). In "I will *drink* the water," *drink* is a verb (an action). Always check the word's job in that specific sentence, not just its usual meaning.
+The same spelling can belong to different word classes depending on use. In "I need a *drink*," *drink* is a noun; in "I will *drink* the water," it is a verb.
+
+### Filipino categories are not a one-to-one copy
+
+Do not assume Filipino has exactly the same eight categories as traditional English grammar. In Lope K. Santos's *Balarila ng Wikang Pambansa*, functional categories include **pantukoy**, **pangngalan**, **pang-uri**, **panghalip**, **pandiwa**, **pandiwari**, **pang-abay**, **pang-ukol**, **pangatnig**, and **pandamdam**. Other modern Filipino grammars may organize categories differently as linguistic analysis develops.
+
+For exam preparation, learn the labels used by the specific material you are reading and identify a word by its function in the sentence, not by assuming English and Filipino categories map perfectly onto each other.
 
 ## Examples
 
 ### #1: Identifying the Part of Speech
 
-In the sentence "The *diligent* student finished her project *quickly*," identify the part of speech of the italicized words.
+In "The *diligent* student finished her project *quickly*," identify the italicized words.
 
 **Solution:**
 
-1. "Diligent" describes the noun "student," telling us what kind of student she is: this is an adjective.
-2. "Quickly" describes the verb "finished," telling us how she finished: this is an adverb.
+1. *Diligent* modifies *student*: adjective.
+2. *Quickly* modifies *finished*: adverb.
 
-### #2: The Same Word, Different Jobs
+### #2: Same Word, Different Jobs
 
-Identify the part of speech of the word "light" in each sentence: (a) "Turn on the *light*." (b) "Please *light* the candle." (c) "The bag felt surprisingly *light*."
-
-**Solution:**
-
-1. (a) "Light" names a thing (a lamp or its glow): Noun.
-2. (b) "Light" shows an action (to ignite something): Verb.
-3. (c) "Light" describes the bag, telling us its weight: Adjective.
-4. The same word changes its part of speech depending on the job it does in each sentence.
-
-### #3: Filipino Bahagi ng Pananalita
-
-Tukuyin ang bahagi ng pananalita ng salitang may salungguhit: Ang *matapang* na sundalo ay nagtanggol sa kanyang bayan.
+Identify *light*: (a) "Turn on the *light*." (b) "Please *light* the candle." (c) "The bag felt *light*."
 
 **Solution:**
 
-1. Ang salitang "matapang" ay naglalarawan sa pangngalang "sundalo."
-2. Ang bahagi ng pananalita na naglalarawan sa isang pangngalan ay tinatawag na **pang-uri**.
-3. Kaya, ang "matapang" ay isang pang-uri (adjective).
+1. (a) noun.
+2. (b) verb.
+3. (c) adjective.
 
-### #4: Choosing the Correct Preposition
+### #3: Filipino Word Class
 
-Choose the correct preposition to complete the sentence: The keys are *______* the drawer. (A) on, (B) inside, (C) between, (D) above.
+Sa "Ang *matapang* na sundalo ay nagtanggol sa bayan," ano ang tungkulin ng *matapang*?
 
 **Solution:**
 
-1. The question needs a word that shows the location of the keys relative to the drawer.
-2. "On" would mean the keys are resting on top of the drawer's surface, not stored within it.
-3. "Between" needs two separate objects to compare, and "above" means higher than, not contained within.
-4. "Inside" correctly shows the keys are contained within the drawer. The answer is "inside."
+*Matapang* gives a quality of *sundalo*, so in the traditional school classification it functions as a **pang-uri**.
+
+### #4: A Word with More Than One Possible Class
+
+Compare: "We met *before* dinner" and "We left *before* it rained."
+
+**Solution:**
+
+1. In "before dinner," *before* heads a phrase whose complement is the noun phrase *dinner*: preposition.
+2. In "before it rained," *before* introduces a subordinate clause in traditional school grammar: subordinating conjunction.
 
 ## Speed Tricks & Shortcuts
 
-**Ask the job question.** For any unfamiliar word, ask: does it name something (noun), replace a name (pronoun), show an action (verb), describe a noun (adjective), or describe a verb/adjective (adverb)? Answering this question fast solves most identification items.
+**Ask what the word is doing in this sentence.** Do not classify from spelling alone.
 
-**Adjectives answer "what kind" or "which one."** Adverbs answer "how," "when," "where," or "how much." If you can replace the describing word with "how" and the sentence still makes sense as a question, it is likely an adverb.
+**Use morphology only as a clue.** Many adverbs end in *-ly*, but *friendly* and *lovely* are adjectives; many adverbs such as *fast*, *well*, and *often* lack *-ly*.
 
-**Many (not all) adverbs end in "-ly."** This is a helpful hint, not an absolute rule: words like "friendly" end in "-ly" but are actually adjectives (describing a noun, like a *friendly* dog).
+**Keep language systems separate.** A familiar English label may have a useful Filipino counterpart, but the categories are not guaranteed to be structurally identical.
 
 ## Traps to Watch For
 
-### #1: Classifying a Word by Its Meaning Instead of Its Function
+### #1: Treating the Eight English Classes as the Only Analysis
 
-> Check the word's role in this specific sentence: the same word can be a noun in one sentence and a verb in another.
+> The eight-part scheme is traditional and useful for school grammar, but modern linguistic grammars may classify some words differently.
 
-Words like "light," "run," and "study" can be nouns or verbs depending on how they are used. Test-makers often build questions around exactly this kind of shifting word.
+### #2: Classifying by Meaning Alone
 
-### #2: The "-ly" Trap
+> Grammatical function matters. *Run*, *study*, *light*, and many other words can belong to different classes in different sentences.
 
-> Not every word ending in "-ly" is an adverb, and not every adverb ends in "-ly."
+### #3: The *-ly* Trap
 
-"Friendly," "lovely," and "lonely" all end in "-ly" but are adjectives, since they describe nouns (a *friendly* neighbor). Meanwhile, adverbs like "fast," "well," and "often" do not end in "-ly" at all. Always check the word's job, not just its ending.
+> Not every *-ly* word is an adverb, and not every adverb ends in *-ly*.
 
-### #3: Confusing Prepositions with Conjunctions
+### #4: Assuming Filipino Is English with Translated Labels
 
-> Prepositions connect a noun to the rest of the sentence (showing location, time, or relationship). Conjunctions connect two grammatically equal parts (like two clauses or two nouns).
-
-Words like "before," "after," and "since" can function as either a preposition ("before dinner") or a conjunction ("before we left"), depending on whether they are followed by just a noun phrase or by a full clause with its own subject and verb.
+> Filipino grammar includes categories and markers that do not map one-to-one onto the traditional English eight-part list.
