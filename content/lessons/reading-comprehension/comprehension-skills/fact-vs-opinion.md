@@ -1,7 +1,7 @@
 ---
 _id: "lesson-comprehension-skills-fact-vs-opinion"
-title: "Distinguishing Fact from Opinion"
-summary: "Learn how to tell verifiable facts apart from opinions and judgments, even when they are phrased confidently."
+title: "Distinguishing Fact, Opinion, and Projection"
+summary: "Learn how verifiable claims differ from value judgments and from evidence-based forecasts about uncertain future outcomes."
 subject: "subject-reading-comprehension"
 topic: "topic-comprehension-skills"
 estimatedMinutes: 8
@@ -9,81 +9,75 @@ isActive: true
 ---
 ## Core Concept
 
-A **fact** is a statement that can be proven true or false through evidence, measurement, or verifiable records. "Water boils at $100°C$ at sea level" is a fact: it can be tested and confirmed.
+A **factual claim** is a claim whose truth or falsity can in principle be checked against evidence, measurement, records, or observation. A factual claim can still turn out to be false; "factual" describes the kind of claim, not a guarantee that it is correct.
 
-An **opinion** is a statement that expresses a belief, judgment, or preference, which cannot be objectively proven true or false, since it depends on personal perspective. "Summer is the best season" is an opinion: different people can reasonably disagree, and there is no experiment that settles it.
+An **opinion or value judgment** expresses an evaluation, preference, recommendation, or other stance that depends partly on values or criteria: "Summer is the best season," "The policy is unfair," or "The city should build more parks."
 
-The tricky part: opinions are often phrased confidently, using language that sounds factual. Watch for judgment words that signal an opinion, even in an otherwise fact-like sentence: *best*, *worst*, *should*, *beautiful*, *terrible*, *most important*, *clearly the right choice*.
+A sentence can mix factual and evaluative material. "The bridge took five years to build and is a stunning achievement" contains a checkable construction-time claim and an evaluative judgment.
 
-| FACT | OPINION |
-| --- | --- |
-| Measurable / verifiable with evidence | Expresses personal judgment or belief |
-| Objective statement of reality | Subjective perspective |
-| Can be proven true or false | Cannot be objectively proven true or false |
+### Projections and forecasts
 
-A single sentence can also mix fact and opinion. "The bridge, which took five years to build, is a stunning achievement" contains a fact (five years to build) and an opinion (a "stunning achievement" is a judgment).
+A **projection or forecast** is not automatically a fact about what will happen. It is a model-based statement about a possible or expected future outcome under stated or implicit assumptions.
+
+For example, the U.S. Census Bureau describes population projections as estimates for future dates that illustrate possible courses of population change based on assumptions about future fertility, mortality, and migration. The following are different claims:
+
+- **Fact about a projection:** "The agency projects a population of 10 million by 2030." This can be verified by checking the agency's published projection.
+- **Projection itself:** "The population will be 10 million in 2030." This concerns an uncertain future outcome and depends on assumptions.
+- **Opinion:** "A population of 10 million would be disastrous." This is an evaluative judgment unless the relevant standard of "disastrous" is defined and defended.
 
 ## Examples
 
 ### #1: Basic Fact vs. Opinion
 
-Classify each statement as fact or opinion: (a) "The Philippines consists of over 7,000 islands." (b) "The Philippines has the most beautiful beaches in the world."
+(a) "The Philippines has more than 7,000 islands."  
+(b) "The Philippines has the most beautiful beaches in the world."
 
 **Solution:**
-1. (a) States a specific, verifiable number that can be checked against geographic records: Fact.
-2. (b) Makes a judgment about beauty, which is subjective and varies by personal taste: Opinion.
 
-### #2: A Confidently Phrased Opinion
+(a) is a checkable geographic claim. (b) is a value judgment about beauty.
 
-Classify this statement: "It is obvious that remote work is far more productive than working in an office."
+### #2: Confidently Phrased Opinion
 
-**Solution:**
-1. Despite starting with "it is obvious," which sounds authoritative, the claim compares "productive" in a way that depends on judgment, varying by job type, individual, and circumstance.
-2. This cannot be objectively proven true for all cases; it is a judgment, not a settled, universal fact.
-3. This is an opinion, even though its confident phrasing might make it feel fact-like.
+"It is obvious that remote work is far more productive than office work."
 
-### #3: A Sentence Mixing Fact and Opinion
+The phrase *it is obvious* does not make the universal comparison factual. Productivity can be measured in specified settings, but this sentence makes an unrestricted evaluative/generalized claim. Treat it as an opinion unless the text supplies measurable criteria and evidence for a narrower factual claim.
 
-Identify the fact and the opinion within this sentence: "The new stadium, which cost $2$ billion pesos to build, is an unnecessary waste of public money."
+### #3: Mixed Sentence
 
-**Solution:**
-1. "Which cost $2$ billion pesos to build" is a specific, verifiable number: this part is a fact.
-2. "Is an unnecessary waste of public money" is a judgment about whether the spending was worthwhile: this part is an opinion.
-3. The sentence combines a verifiable cost figure (fact) with a value judgment about that cost (opinion).
+"The new stadium cost ₱2 billion to build and is an unnecessary waste of public money."
 
-### #4: Spotting a Fact Disguised as a Prediction
+The cost is a factual claim if supported by records; "unnecessary waste" is an evaluative judgment.
 
-Classify this statement: "Based on current data, the population is projected to reach $10$ million by 2030."
+### #4: Projection
+
+"Based on current assumptions, the population is projected to reach 10 million by 2030."
 
 **Solution:**
-1. This statement is based on data and a stated method (a projection/forecast), which is a standard, verifiable type of claim in statistics and demography, even though it describes something in the future.
-2. Since it can be checked against the actual data and methodology used (and later verified against real outcomes), this functions as a fact-based claim (a data-supported projection), not a personal judgment or preference.
-3. This differs from a pure opinion like "the population will definitely get out of control," which expresses a subjective judgment rather than a data-based calculation.
+
+This is an evidence-based **projection**, not an established fact about the 2030 population. What can be factual now is that a particular model, using particular assumptions, produces that projection.
 
 ## Speed Tricks & Shortcuts
 
-**Ask "can this be proven with evidence or measurement?"** If yes, it is a fact. If it depends on personal taste, values, or judgment, it is an opinion.
+**Ask what kind of claim is being made.** Is it about an observable/checkable state of affairs, an evaluation, or an uncertain future modeled from assumptions?
 
-**Watch for judgment words**: *best*, *worst*, *beautiful*, *should*, *most important*, *terrible*. Their presence is a strong signal of opinion, even in an otherwise confident-sounding sentence.
+**Separate the claim from its evidence.** A claim can be factual in type but poorly supported or false.
 
-**Check sentences with both a number/date and a judgment word separately.** Split mixed sentences into their factual part and their opinion part, and classify each piece on its own.
+**Watch evaluative language.** Words such as *best, unfair, beautiful, should,* and *wasteful* often signal judgment, though context can sometimes define measurable criteria.
 
 ## Traps to Watch For
 
-### #1: Assuming Confident Phrasing Means a Statement Is Factual
+### #1: "Verifiable" Means "Already Proven True"
 
-> Phrases like "clearly," "obviously," "everyone knows," or "it is a fact that" do not automatically make a statement objectively true: check whether the content itself is verifiable or a judgment.
+> A factual claim can be tested and still turn out to be false.
 
-"It is obvious that X is better than Y" is still an opinion about "better," regardless of how confidently it is introduced.
+### #2: Treating a Forecast as a Settled Future Fact
 
-### #2: Missing an Opinion Hidden Within a Mostly Factual Sentence
+> Projections depend on assumptions and uncertainty. The existence of a published projection is factual; its future outcome has not yet been observed.
 
-> A sentence can be mostly factual but still contain one judgment word or phrase that makes part of it an opinion.
+### #3: Treating Every Number as Automatically Factual
 
-"The bridge, built in five years, is a stunning achievement" contains a verifiable fact (five years) alongside a value judgment ("stunning achievement"): treating the whole sentence as purely factual misses this mixed structure.
+> Numbers can be estimates, forecasts, fabricated figures, or measurements. Check what the number represents and how it was obtained.
 
-### #3: Treating a Data-Based Prediction as a Pure Opinion
+### #4: Treating Opinion as the Same as Unsupported Claim
 
-> A prediction or projection based on stated data and methodology functions differently from a pure personal judgment: it can be evaluated and verified against evidence, even though it concerns the future.
-
-"Population is projected to reach $10$ million by 2030, based on current data" is different from "the population will spiral out of control," even though both discuss the future: the first uses a stated, verifiable method; the second is a subjective judgment.
+> Opinions can be well reasoned and evidence-informed. The distinction concerns the type of claim, not whether the speaker has thought carefully.
