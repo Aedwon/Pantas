@@ -1,7 +1,7 @@
 ---
 _id: "lesson-grammar-and-structure-subject-verb-agreement"
 title: "Subject-Verb Agreement / Wastong Gamit ng Salita"
-summary: "Learn the rules for matching a singular or plural subject with the correct verb form in English and Filipino sentences."
+summary: "Learn how English subjects agree with finite verbs in person and number, and avoid common agreement distractions."
 subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 estimatedMinutes: 10
@@ -9,94 +9,90 @@ isActive: true
 ---
 ## Core Concept
 
-**Subject-verb agreement** means the subject of a sentence and its verb must match in number: a singular subject needs a singular verb, and a plural subject needs a plural verb.
+In English, **subject-verb agreement** means the form of a finite verb must agree with its subject in person and number when the verb has distinct agreement forms.
 
-"The dog *barks*." (singular subject, singular verb) versus "The dogs *bark*." (plural subject, plural verb).
+"The dog *barks*." versus "The dogs *bark*."
 
-A few situations make this trickier than it first looks.
+A few situations make this less obvious.
 
-**Words between the subject and verb do not change the rule.** In "The basket of apples *is* fresh," the subject is "basket" (singular), not "apples." The verb must match "basket," ignoring the describing phrase in between.
+**Words inside an intervening phrase do not become the subject.** In "The basket of apples *is* fresh," the head of the subject phrase is "basket," not "apples."
 
-**Collective nouns** (like *team*, *family*, *class*) name a group but are treated as one singular unit when the group acts together: "The team *is* practicing." They can take a plural verb only when emphasizing the members acting as individuals, which is rare in most exam contexts.
+**Collective nouns** such as *team*, *family*, and *committee* can be treated as a unit or as their individual members. Singular agreement is especially common in American English when the group is viewed as one unit ("The team *is* practicing"). Plural agreement is more common in British English and can also emphasize individual members ("The team *are* arguing among themselves"). Use the meaning and the variety/style expected in the passage.
 
-**Indefinite pronouns** ending in *-body*, *-one*, or *-thing* (like *everybody*, *someone*, *nothing*) are always singular: "Everybody *is* welcome." Pronouns like *all*, *some*, *most*, and *none* can be singular or plural, depending on the noun they refer to: "Some of the cake *is* gone" (cake is singular) versus "Some of the cookies *are* gone" (cookies is plural).
+**Indefinite pronouns** such as *everybody*, *someone*, and *nothing* normally take a singular verb: "Everybody *is* welcome." Quantifiers such as *all*, *some*, *most*, and *none* can take singular or plural agreement according to what they refer to: "Some of the water *is* gone" versus "Some of the cookies *are* gone."
 
-**Compound subjects** joined by *and* are usually plural: "Ana and Ben *are* here." Compound subjects joined by *or* or *nor* match the subject closest to the verb: "Neither the teacher nor the students *were* late."
+**Compound subjects** joined by *and* are usually plural: "Ana and Ben *are* here." With *or*, *either...or*, *nor*, and *neither...nor*, standard edited English often makes the verb agree with the nearer subject: "Neither the teacher nor the students *were* late." If mixed singular/plural subjects make a sentence sound awkward, rewriting is often clearer.
 
-In Filipino, correct subject-verb agreement is part of **Wastong Gamit ng Salita** (correct word usage), which also covers matching the correct marker (*ang*, *ng*, *sa*) and verb focus to the subject being emphasized in the sentence.
+### Filipino is different
+
+Do not transfer the English rule mechanically to Filipino. Filipino verbs do not normally change form just because a subject is singular or plural in the way English *is/are* or *barks/bark* do. Filipino grammar instead marks distinctions such as **aspekto** and **pokus/voice**, while markers such as *ang*, *ng*, and *sa* have their own syntactic roles. Those topics belong to Filipino word usage and grammar, but they are not the same phenomenon as English subject-verb number agreement.
 
 ## Examples
 
-### #1: Ignoring the Words In Between
+### #1: Ignoring an Intervening Phrase
 
 Choose the correct verb: The list of items on the shelf *(is / are)* long.
 
 **Solution:**
 
-1. Find the true subject by ignoring the describing phrase "of items on the shelf."
-2. The subject is "list," which is singular.
-3. The correct verb is "is": "The list of items on the shelf *is* long."
+1. The subject phrase is "the list of items on the shelf."
+2. Its head noun is singular "list." "Items" is inside an *of*-phrase.
+3. Correct: "The list of items on the shelf *is* long."
 
 ### #2: Collective Noun
 
-Choose the correct verb: The committee *(has / have)* reached a decision.
+Choose the natural American-English form when the committee acts as one unit: The committee *(has / have)* reached a decision.
 
 **Solution:**
 
-1. "Committee" is a collective noun, naming a group.
-2. Since the committee is acting as one unit reaching a single decision together, it is treated as singular.
-3. The correct verb is "has": "The committee *has* reached a decision."
+The committee is viewed as one unit, so singular *has* is natural: "The committee *has* reached a decision." A plural form can occur in varieties such as British English when the members are emphasized individually.
 
-### #3: Indefinite Pronoun with "Of"
+### #3: Quantifier with an *of*-Phrase
 
 Choose the correct verb: Most of the water in the tank *(has / have)* evaporated.
 
 **Solution:**
 
-1. "Most" can be singular or plural, depending on the noun in the "of" phrase that follows.
-2. The noun following "of" is "water," which is uncountable and singular.
-3. The correct verb is "has": "Most of the water in the tank *has* evaporated."
+"Water" is a mass noun here, so singular *has* agrees with the amount referred to: "Most of the water *has* evaporated."
 
-### #4: Compound Subject with "Or"
+### #4: *Neither...nor*
 
-Choose the correct verb: Neither the manager nor the employees *(was / were)* aware of the change.
+Choose the standard edited form: Neither the manager nor the employees *(was / were)* aware of the change.
 
 **Solution:**
 
-1. With "neither...nor," the verb must agree with the subject closest to it.
-2. The subject closest to the verb is "employees," which is plural.
-3. The correct verb is "were": "Neither the manager nor the employees *were* aware of the change."
+The nearer subject is plural "employees," so *were* is the expected form. If the ordering produces an awkward agreement pattern, recast the sentence instead of forcing a clumsy construction.
 
 ## Speed Tricks & Shortcuts
 
-**Cross out the middle phrase.** For long subjects with a describing phrase in between (like "of the items," "along with the group"), mentally cross it out and check agreement with what remains.
+**Find the head of the subject phrase.** Do not automatically match the verb to the nearest noun.
 
-**"Of" phrases: check the noun that follows.** For pronouns like *some*, *all*, *most*, and *none* followed by "of," the noun right after "of" decides singular or plural, not the pronoun itself.
+**Check meaning with collective nouns and quantifiers.** Agreement can depend on whether the writer means one unit, multiple members, an amount, or countable items.
 
-**"Or/nor": match the closer subject.** When two subjects are joined by "or" or "nor," only the subject nearest the verb matters for agreement: ignore the farther one.
+**Use proximity carefully with *or/nor*.** It is a standard editing convention, not a reason to ignore clarity; rewrite awkward mixed-number combinations when possible.
 
 ## Traps to Watch For
 
-### #1: Being Distracted by Words In Between
+### #1: Matching an Intervening Noun
 
-> The true subject decides the verb, even if other nouns sit closer to the verb in the sentence.
+> The noun closest to the verb is not automatically the subject.
 
-"The box of chocolates *is* (not *are*) on the table." Test-makers place a plural noun right before the verb specifically to tempt you into matching the wrong, nearer word instead of the true subject.
+"The box of chocolates *is* on the table" agrees with "box."
 
-### #2: Treating All Collective Nouns as Automatically Plural
+### #2: Treating Collective-Noun Agreement as Universal
 
-> Collective nouns (*team*, *family*, *jury*) are usually singular, since they name one group acting as a unit.
+> Collective nouns can take singular or plural agreement depending on meaning and variety of English.
 
-Many students assume a "team" or "family" (multiple people) needs a plural verb. Unless the sentence clearly emphasizes the individual members acting separately, treat collective nouns as singular.
+Do not mark a plural collective-noun verb automatically wrong without considering context.
 
-### #3: Forgetting Indefinite Pronouns Ending in -body, -one, -thing Are Always Singular
+### #3: Making *everybody* Plural for Verb Agreement
 
-> *Everybody*, *someone*, *nothing*, and similar words are always singular, no exceptions.
+> Indefinite pronouns such as *everybody* and *someone* normally take singular verbs.
 
-Even though "everybody" refers to many people, it grammatically behaves as one singular unit: "Everybody *has* (not *have*) their own opinion."
+This is separate from the fact that modern English commonly uses singular *they/their* to refer back to them.
 
-### #4: Matching the Wrong Subject in an "Or/Nor" Sentence
+### #4: Importing English Agreement into Filipino
 
-> With "or" or "nor," match the verb to the subject closest to it, not the first one mentioned.
+> Filipino does not generally inflect verbs for singular-versus-plural subjects the way English does.
 
-"Neither the students nor the teacher *was* late" is correct (matching "teacher," the closer subject), even though "students" (plural) appears first in the sentence.
+Treat Filipino aspect, voice/focus, and marker choice as their own grammatical systems.
