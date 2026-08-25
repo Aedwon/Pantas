@@ -419,7 +419,7 @@ questions:
     type: direct-computation
     difficulty: hard
     stem: |
-      Two parallel lines $L_1$ and $L_2$ are intersected by two transversals $T_1$ and $T_2$ that meet at point $P$ between the parallel lines. Transversal $T_1$ makes an interior angle of $50^\circ$ with $L_1$, and transversal $T_2$ makes an interior angle of $65^\circ$ with $L_2$. What is the measure of the interior angle $\angle T_1 P T_2$ facing the left side?
+      Two horizontal parallel lines $L_1$ and $L_2$ are intersected by two transversals $T_1$ and $T_2$ that meet at point $P$ between them. $T_1$ meets $L_1$ at a point to the left of $P$ and makes an interior angle of $50^\circ$ with $L_1$. $T_2$ meets $L_2$ at a point to the left of $P$ and makes an interior angle of $65^\circ$ with $L_2$. What is the measure of the left-facing angle between $T_1$ and $T_2$ at $P$?
     choices:
       - text: '$115^\circ$'
         correct: true
@@ -436,9 +436,9 @@ questions:
         rationale: |
           You made the angle too large by adding the wrong relationship. The two parts at $P$ are 50 degrees and 65 degrees.
     explanation: |
-      1. Draw an auxiliary line through point $P$ parallel to both $L_1$ and $L_2$.
-      2. By alternate interior angles, the upper part of $\angle T_1 P T_2$ equals $50^\circ$.
-      3. By alternate interior angles, the lower part of $\angle T_1 P T_2$ equals $65^\circ$.
-      4. Total angle $\angle T_1 P T_2 = 50^\circ + 65^\circ = 115^\circ$.
+      1. Draw an auxiliary horizontal line through point $P$ parallel to both $L_1$ and $L_2$.
+      2. Because the intersections of both transversals with the parallel lines lie to the left of $P$, the left-facing angle is split into the two corresponding/alternate angle pieces.
+      3. The upper part equals $50^\circ$ and the lower part equals $65^\circ$.
+      4. The left-facing angle at $P$ is therefore $50^\circ + 65^\circ = 115^\circ$.
 
-      Common Trap: Subtracting the two given angles ($65^\circ - 50^\circ = 15^\circ$) or reporting only one of the alternate angles.
+      Common Trap: Subtracting the two given angles ($65^\circ - 50^\circ = 15^\circ$) or reporting only one of the two angle pieces.
