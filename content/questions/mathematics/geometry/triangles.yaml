@@ -366,7 +366,7 @@ questions:
       1. Set up equation: $x^2 + (x - 2)^2 = (x + 2)^2$.
       2. Expand terms: $x^2 + (x^2 - 4x + 4) = x^2 + 4x + 4$.
       3. Simplify: $2x^2 - 4x + 4 = x^2 + 4x + 4 \implies x^2 - 8x = 0$.
-      4. Factor: $x(x - 8) = 0 \implies x = 8$ (since $x > 0$).
+      4. Factor: $x(x - 8) = 0 \implies x = 0$ or $x = 8$. Since the leg $x - 2$ must be positive, $x > 2$, so only $x = 8$ is valid.
       5. Hypotenuse $= x + 2 = 8 + 2 = 10$.
 
       Common Trap: Stopping at $x = 8$ (which is the length of the longer leg) instead of finding the hypotenuse $x + 2 = 10$.
