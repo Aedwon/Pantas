@@ -107,9 +107,9 @@ questions:
       - text: $\dfrac{3}{4}$
         rationale: |
           You reported tangent (3/4) directly instead of calculating sine.
-      - text: $\dfrac{12}{20}$
+      - text: $\dfrac{20}{12}$
         rationale: |
-          You left the fraction unsimplified (12/20) instead of reducing it to 3/5.
+          You inverted the sine ratio and used hypotenuse over opposite, which gives cosecant rather than sine.
     explanation: |
       Tangent $\dfrac{3}{4}$ means opposite and adjacent are in the ratio $3:4$. This is the $3$-$4$-$5$ family. Since the hypotenuse is $20$:
       $$\text{Scale factor} = \dfrac{20}{5} = 4$$
@@ -180,7 +180,7 @@ questions:
       Alternatively, $\sin 60^\circ = \dfrac{\sqrt{3}}{2}$, so the opposite side is $10 \times \dfrac{\sqrt{3}}{2} = 5\sqrt{3}$.
   - id: q-trigonometry-basic-trigonometric-ratios-0009
     type: direct-computation
-    difficulty: medium-hard
+    difficulty: hard
     stem: |
       In a right triangle, $\sin \theta = \dfrac{5}{13}$ and $\theta$ is acute. What is $\cos \theta$?
     choices:
@@ -204,7 +204,7 @@ questions:
       $$\cos \theta = \dfrac{12}{13}$$
   - id: q-trigonometry-basic-trigonometric-ratios-0010
     type: direct-computation
-    difficulty: medium-hard
+    difficulty: hard
     stem: |
       What is $\cos 60^\circ$?
     choices:
@@ -241,7 +241,7 @@ questions:
         rationale: |
           You doubled the leg length (7 * 2 = 14) instead of multiplying by sqrt(2).
     explanation: |
-      In a $45$-$45$-$90$ isoceles right triangle, $\sin 45^\circ = \dfrac{\sqrt{2}}{2}$. Use sine:
+      In a $45$-$45$-$90$ isosceles right triangle, $\sin 45^\circ = \dfrac{\sqrt{2}}{2}$. Use sine:
       $$\sin 45^\circ = \dfrac{7}{\text{hyp}}$$
       $$\dfrac{\sqrt{2}}{2} = \dfrac{7}{\text{hyp}}$$
       $$\text{hyp} = \dfrac{7 \times 2}{\sqrt{2}} = \dfrac{14}{\sqrt{2}} = \dfrac{14\sqrt{2}}{2} = 7\sqrt{2}$$
@@ -271,7 +271,7 @@ questions:
     type: direct-computation
     difficulty: hard
     stem: |
-      A right triangle has hypotenuse $26$ and one leg of length $10$. Find the other leg, then find the sine of the angle opposite the leg of length $10$ in degrees.
+      A right triangle has hypotenuse $26$ and one leg of length $10$. Find the other leg, then find the sine of the angle opposite the leg of length $10$.
     choices:
       - text: The other leg is $24$ and $\sin \theta = \dfrac{5}{13}$
         correct: true
@@ -339,7 +339,7 @@ questions:
     type: direct-computation
     difficulty: hard
     stem: |
-      In a $5$-$12$-$13$ right triangle, $\theta$ is the acute angle opposite the side of length $5$. What is $\tan \theta$ in degrees?
+      In a $5$-$12$-$13$ right triangle, $\theta$ is the acute angle opposite the side of length $5$. What is $\tan \theta$?
     choices:
       - text: $\dfrac{5}{12}$
         correct: true
