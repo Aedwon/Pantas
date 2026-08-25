@@ -1,0 +1,17 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-trigonometry-laws-of-sines-and-cosines-0001	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TRIANGLE BENEFICIAL	LOW	Cleaned duplicated degree wording.
+q-trigonometry-laws-of-sines-and-cosines-0002	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TRIANGLE BENEFICIAL	LOW	Cleaned duplicated degree wording.
+q-trigonometry-laws-of-sines-and-cosines-0003	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TRIANGLE BENEFICIAL	LOW	Cleaned duplicated degree wording.
+q-trigonometry-laws-of-sines-and-cosines-0004	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TRIANGLE BENEFICIAL	NONE	
+q-trigonometry-laws-of-sines-and-cosines-0005	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TRIANGLE BENEFICIAL	LOW	Cleaned duplicated degree wording.
+q-trigonometry-laws-of-sines-and-cosines-0006	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TRIANGLE BENEFICIAL	LOW	Cleaned duplicated degree wording.
+q-trigonometry-laws-of-sines-and-cosines-0007	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TRIANGLE BENEFICIAL	HIGH	Original SSA givens produced a sine value above 1. Replaced with valid givens, recomputed the expression, and normalized difficulty.
+q-trigonometry-laws-of-sines-and-cosines-0008	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TRIANGLE BENEFICIAL	MEDIUM	Normalized difficulty and repaired a distractor value to match its stated cosine-sign error.
+q-trigonometry-laws-of-sines-and-cosines-0009	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TRIANGLE BENEFICIAL	LOW	Cleaned duplicated degree wording.
+q-trigonometry-laws-of-sines-and-cosines-0010	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TRIANGLE BENEFICIAL	NONE	
+q-trigonometry-laws-of-sines-and-cosines-0011	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TRIANGLE BENEFICIAL	MEDIUM	Removed accidental drafting text; recomputation confirms the existing -11/80 result.
+q-trigonometry-laws-of-sines-and-cosines-0012	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TRIANGLE BENEFICIAL	HIGH	Replaced an algebraically duplicate correct choice with a distinct wrong-method distractor.
+q-trigonometry-laws-of-sines-and-cosines-0013	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TRIANGLE BENEFICIAL	NONE	
+q-trigonometry-laws-of-sines-and-cosines-0014	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TRIANGLE BENEFICIAL	LOW	Cleaned duplicated degree wording.
+q-trigonometry-laws-of-sines-and-cosines-0015	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TRIANGLE BENEFICIAL	NONE	
+q-trigonometry-laws-of-sines-and-cosines-0016	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
