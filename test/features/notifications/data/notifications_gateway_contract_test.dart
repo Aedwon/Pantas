@@ -5,31 +5,33 @@ import 'package:pantas/features/notifications/data/notifications_gateway.dart';
 import 'package:pantas/features/notifications/notifications.dart';
 
 void main() {
-  test('fake gateway records initialize schedule cancel and cancelAll calls',
-      () async {
-    final gateway = RecordingNotificationsGateway();
+  test(
+    'fake gateway records initialize schedule cancel and cancelAll calls',
+    () async {
+      final gateway = RecordingNotificationsGateway();
 
-    await gateway.initialize();
-    await gateway.schedule(
-      ScheduledNotification(
-        id: NotificationIds.dailyReminder,
-        kind: NotificationKind.dailyReminder,
-        fireAt: DateTime(2026, 5, 22, 19),
-        title: 'Title',
-        body: 'Body',
-        payload: 'payload',
-      ),
-    );
-    await gateway.cancel(NotificationIds.streakSave);
-    await gateway.cancelAll();
+      await gateway.initialize();
+      await gateway.schedule(
+        ScheduledNotification(
+          id: NotificationIds.dailyReminder,
+          kind: NotificationKind.dailyReminder,
+          fireAt: DateTime(2026, 5, 22, 19),
+          title: 'Title',
+          body: 'Body',
+          payload: 'payload',
+        ),
+      );
+      await gateway.cancel(NotificationIds.streakSave);
+      await gateway.cancelAll();
 
-    expect(gateway.log, [
-      'initialize',
-      'schedule:9001:daily_reminder:Title:Body',
-      'cancel:9002',
-      'cancelAll',
-    ]);
-  });
+      expect(gateway.log, [
+        'initialize',
+        'schedule:9001:daily_reminder:Title:Body',
+        'cancel:9002',
+        'cancelAll',
+      ]);
+    },
+  );
 
   test('fake gateway emits permission status changes', () async {
     final gateway = RecordingNotificationsGateway();

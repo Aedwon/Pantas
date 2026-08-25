@@ -4,10 +4,12 @@ import 'package:mocktail/mocktail.dart';
 import 'package:pantas/features/notifications/data/flutter_local_notifications_gateway.dart';
 import 'package:pantas/features/notifications/data/notifications_gateway.dart';
 import 'package:pantas/features/notifications/notifications.dart';
+import 'package:timezone/data/latest.dart' as tz_data;
 import 'package:timezone/timezone.dart' as tz;
 
 void main() {
   setUpAll(() {
+    tz_data.initializeTimeZones();
     registerFallbackValue(tz.TZDateTime(tz.UTC, 2026));
     registerFallbackValue(NotificationDetails());
   });
@@ -25,56 +27,55 @@ void main() {
     );
   });
 
-  test('posting permission denied does not request exact alarm access', () async {
-    when(
-      () => android.requestNotificationsPermission(),
-    ).thenAnswer((_) async => false);
+  test(
+    'posting permission denied does not request exact alarm access',
+    () async {
+      when(
+        () => android.requestNotificationsPermission(),
+      ).thenAnswer((_) async => false);
 
-    expect(
-      await gateway.requestPermission(),
-      NotificationPermission.denied,
-    );
+      expect(await gateway.requestPermission(), NotificationPermission.denied);
 
-    verifyNever(() => android.canScheduleExactNotifications());
-    verifyNever(() => android.requestExactAlarmsPermission());
-  });
+      verifyNever(() => android.canScheduleExactNotifications());
+      verifyNever(() => android.requestExactAlarmsPermission());
+    },
+  );
 
-  test('posting permission granted keeps existing exact alarm access', () async {
-    when(
-      () => android.requestNotificationsPermission(),
-    ).thenAnswer((_) async => true);
-    when(
-      () => android.canScheduleExactNotifications(),
-    ).thenAnswer((_) async => true);
+  test(
+    'posting permission granted keeps existing exact alarm access',
+    () async {
+      when(
+        () => android.requestNotificationsPermission(),
+      ).thenAnswer((_) async => true);
+      when(
+        () => android.canScheduleExactNotifications(),
+      ).thenAnswer((_) async => true);
 
-    expect(
-      await gateway.requestPermission(),
-      NotificationPermission.granted,
-    );
+      expect(await gateway.requestPermission(), NotificationPermission.granted);
 
-    verify(() => android.canScheduleExactNotifications()).called(1);
-    verifyNever(() => android.requestExactAlarmsPermission());
-  });
+      verify(() => android.canScheduleExactNotifications()).called(1);
+      verifyNever(() => android.requestExactAlarmsPermission());
+    },
+  );
 
-  test('posting permission granted requests missing exact alarm access once',
-      () async {
-    when(
-      () => android.requestNotificationsPermission(),
-    ).thenAnswer((_) async => true);
-    when(
-      () => android.canScheduleExactNotifications(),
-    ).thenAnswer((_) async => false);
-    when(
-      () => android.requestExactAlarmsPermission(),
-    ).thenAnswer((_) async => false);
+  test(
+    'posting permission granted requests missing exact alarm access once',
+    () async {
+      when(
+        () => android.requestNotificationsPermission(),
+      ).thenAnswer((_) async => true);
+      when(
+        () => android.canScheduleExactNotifications(),
+      ).thenAnswer((_) async => false);
+      when(
+        () => android.requestExactAlarmsPermission(),
+      ).thenAnswer((_) async => false);
 
-    expect(
-      await gateway.requestPermission(),
-      NotificationPermission.granted,
-    );
+      expect(await gateway.requestPermission(), NotificationPermission.granted);
 
-    verify(() => android.requestExactAlarmsPermission()).called(1);
-  });
+      verify(() => android.requestExactAlarmsPermission()).called(1);
+    },
+  );
 
   test('available exact alarms keep exactAllowWhileIdle scheduling', () async {
     when(
@@ -97,18 +98,20 @@ void main() {
     _verifyNoExactScheduleSubmitted(plugin);
   });
 
-  test('null Android implementation keeps the existing scheduling path',
-      () async {
-    final nonAndroidGateway = FlutterLocalNotificationsGateway(
-      plugin: plugin,
-      androidPluginResolver: (_) => null,
-    );
-    _stubZonedSchedule(plugin);
+  test(
+    'null Android implementation keeps the existing scheduling path',
+    () async {
+      final nonAndroidGateway = FlutterLocalNotificationsGateway(
+        plugin: plugin,
+        androidPluginResolver: (_) => null,
+      );
+      _stubZonedSchedule(plugin);
 
-    await nonAndroidGateway.schedule(_dailyNotification());
+      await nonAndroidGateway.schedule(_dailyNotification());
 
-    _verifyExactScheduleSubmitted(plugin);
-  });
+      _verifyExactScheduleSubmitted(plugin);
+    },
+  );
 }
 
 ScheduledNotification _dailyNotification() {
