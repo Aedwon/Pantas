@@ -1,0 +1,15 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-precalculus-basic-calculus-limits-and-continuity-0001	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0002	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0003	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0004	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0005	CORRECTED	RE-DERIVED	LESSON HAS RELATED NONZERO-OVER-ZERO OVERSTATEMENT	TEXT SUFFICIENT	LOW	Removed undefined/infinite conflation and distinguished literal division by zero from one-sided limit behavior.
+q-precalculus-basic-calculus-limits-and-continuity-0006	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0007	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0008	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0009	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0010	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0011	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0012	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0013	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0014	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
