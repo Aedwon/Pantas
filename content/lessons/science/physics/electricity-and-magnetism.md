@@ -1,7 +1,7 @@
 ---
 _id: "lesson-physics-electricity-and-magnetism"
 title: "Electricity and Magnetism"
-summary: "Coulomb's law, Ohm's law, how series and parallel circuits behave differently, and the basics of magnetism."
+summary: "Coulomb's law, Ohm's law, how series and parallel resistor circuits behave, and the basics of magnetism and induction."
 subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 14
@@ -11,127 +11,152 @@ isActive: true
 
 ### Coulomb's Law and Electric Fields
 
-**Coulomb's Law** describes the force between two electric charges:
+For two stationary point charges, the magnitude of the electric force is
 
-$$F = k\dfrac{q_1 q_2}{r^2}$$
+$$F = k\dfrac{|q_1q_2|}{r^2}$$
 
-where $q_1$ and $q_2$ are the charges, $r$ is the distance between them, and $k$ is a constant. Like Newton's gravitation law, this is an inverse-square relationship: doubling the distance quarters the force. Like charges repel (push apart); opposite charges attract (pull together).
+where $q_1$ and $q_2$ are the charges, $r$ is the distance between them, and $k$ is Coulomb's constant. The force acts along the line joining the charges. Like charges repel; opposite charges attract.
 
-An **electric field** is the invisible "influence region" surrounding a charge, which would exert a force on any other charge placed within it. Field lines point away from positive charges and toward negative charges.
+An **electric field** is defined by the force per unit positive test charge:
+
+$$\vec E=\dfrac{\vec F}{q}$$
+
+Field lines point away from positive charges and toward negative charges. The field is a physical vector field, not a material substance surrounding the charge.
 
 <!-- ILLUSTRATION: two diagrams, one showing two positive charges with field lines pointing away from each and a repelling force arrow, one showing a positive and negative charge with field lines connecting them and an attracting force arrow -->
 
 ### Ohm's Law
 
-**Ohm's Law** relates voltage, current, and resistance in a circuit:
+For an **ohmic** component under conditions where its resistance can be treated as constant,
 
-$$V = IR$$
+$$V=IR$$
 
-where $V$ is voltage (measured in volts), $I$ is current (measured in amperes), and $R$ is resistance (measured in ohms). For a fixed resistance, more voltage pushes more current through; for a fixed voltage, more resistance means less current flows.
+where $V$ is the potential difference across the component, $I$ is current through it, and $R$ is resistance.
 
-### Electric Circuits (Series, Parallel, Complex)
+Ohm's law is an empirical linear relationship, not a universal law obeyed by every electrical device. Diodes, lamps whose resistance changes strongly with temperature, and many semiconductor devices can be non-ohmic.
 
-In a **series circuit**, components are connected in one single path, one after another. The same current flows through every component, but the voltage splits between them. If one component fails (breaks the path), the entire circuit stops working.
+### Electric Circuits
 
-In a **parallel circuit**, components are connected across multiple separate paths (branches). The same voltage is applied across each branch, but the current splits between them, with each branch carrying its own share depending on its resistance. If one branch fails, the other branches keep working independently.
+For ideal resistors connected **in series**, the same current passes through each resistor and the equivalent resistance is
+
+$$R_{eq}=R_1+R_2+\cdots$$
+
+The source voltage equals the sum of the potential drops around the loop.
+
+For ideal resistors connected **in parallel**, each branch has the same potential difference across it and
+
+$$\frac{1}{R_{eq}}=\frac{1}{R_1}+\frac{1}{R_2}+\cdots$$
+
+The total current equals the sum of branch currents. Kirchhoff's junction and loop rules generalize these ideas to more complicated circuits.
 
 <!-- ILLUSTRATION: two simple circuit diagrams side by side, a series circuit showing a battery connected to two bulbs in a single loop one after another, and a parallel circuit showing a battery connected to two bulbs on separate side-by-side branches -->
 
-A **complex circuit** combines both series and parallel sections within the same overall circuit, requiring you to analyze each section according to its own type before combining the results.
+If a series component fails **open**, it breaks the only path and stops current everywhere. If one branch of a parallel circuit fails open, current can still flow through other complete branches. Real bulbs and devices are not always ideal resistors, so their brightness and current behavior can depend on source resistance and device characteristics.
 
 ### Magnetism and Electromagnetism
 
-A **magnet** has two poles (north and south); like poles repel, opposite poles attract: following the exact same "like repels, opposite attracts" pattern as electric charges.
+Magnets have north and south poles. Like poles repel and unlike poles attract, but magnetic poles are not simply electric charges with different names: isolated magnetic monopoles have not been observed, and ordinary magnetic field lines form closed loops.
 
-**Electromagnetism** is the deep connection between electricity and magnetism: a moving electric current creates a magnetic field around it, and conversely, a changing magnetic field can induce an electric current. The **right-hand rule** predicts the direction of the magnetic field around a current-carrying wire: if your thumb points in the direction of conventional current flow, your curled fingers show the direction the magnetic field circles around the wire.
+Electric current produces magnetic fields. For a long straight wire, the magnetic field circles the wire; point your right thumb along **conventional current**, and your curled fingers show the magnetic-field direction.
+
+A changing **magnetic flux** through a circuit induces an electromotive force (emf), described by Faraday's law:
+
+$$\mathcal{E}=-\dfrac{d\Phi_B}{dt}$$
+
+The minus sign represents **Lenz's law**: the induced emf drives current, when a closed conducting path exists, in a direction whose magnetic effect opposes the change in flux that produced it. A changing magnetic field therefore induces an electric field even if no conducting loop is present; current requires a conducting path.
 
 ## Examples
 
 ### #1: Applying Coulomb's Law Conceptually
 
-Two charges are moved to twice their original distance apart. By what factor does the electric force between them change?
+Two point charges are moved to twice their original separation while their charges stay unchanged. By what factor does the force magnitude change?
 
 **Solution:**
-Apply the inverse-square relationship.
 
-1. Since force is inversely proportional to distance squared, doubling the distance means dividing the force by $2^2$.
+Because $F\propto1/r^2$,
 
-$$2^2 = 4$$
-
-2. The new force is $\dfrac{1}{4}$ of the original force.
+$$F_{new}=\frac{F_{old}}{2^2}=\frac14F_{old}$$
 
 ### #2: Applying Ohm's Law
 
-A circuit has a resistance of $10 \text{ ohms}$ and a current of $2 \text{ amperes}$ flowing through it. Find the voltage.
+An ohmic resistor has resistance $10\ \Omega$ and carries a current of $2\text{ A}$. Find the potential difference across it.
 
 <!-- ILLUSTRATION: a simple circuit with a battery, a 10 ohm resistor, and a 2 A current arrow, with the voltage across the battery marked "?" -->
 
-
 **Solution:**
-Apply Ohm's law directly.
 
-1. Substitute the values.
-
-$$V = (2)(10)$$
-
-2. Compute.
-
-$$V = 20 \text{ volts}$$
+$$V=IR=(2)(10)=20\text{ V}$$
 
 ### #3: Series vs. Parallel Behavior
 
-In a series circuit with two light bulbs, one bulb suddenly burns out. In a separate parallel circuit with two light bulbs, one bulb burns out. Predict what happens to the other bulb in each case.
+Assume each bulb acts as a circuit element that fails by becoming an open circuit. In a two-bulb series circuit, one bulb fails. In a separate two-branch parallel circuit, one bulb fails. What happens to the other bulb?
 
 <!-- ILLUSTRATION: two circuits side by side: a series circuit with two bulbs on one loop (one burned out, the other goes dark) and a parallel circuit with two bulbs on separate branches (one burned out, the other stays lit) -->
 
-
 **Solution:**
-Recall how each circuit type responds to a broken path.
 
-1. In the series circuit, all components share one single path. If one bulb burns out (breaking that path), the current can no longer flow at all, so the other bulb also goes out.
-2. In the parallel circuit, each bulb has its own separate branch. If one bulb burns out, only that branch is broken; the other branch remains a complete, separate path, so the other bulb stays lit.
+1. **Series:** the failed bulb opens the only current path, so both bulbs go out.
+2. **Parallel:** only one branch is opened; the other complete branch can still carry current, so its bulb can remain lit.
 
 ### #4: Predicting Magnetic Field Direction
 
-A straight wire carries current flowing directly upward. Using the right-hand rule, describe the direction of the magnetic field circling the wire.
+A long straight wire carries conventional current upward. Describe the magnetic-field direction using the right-hand rule.
 
 **Solution:**
-Apply the right-hand rule directly.
 
-1. Point your right thumb in the direction of the current: Upward.
-2. Your curled fingers show the magnetic field's direction, circling around the wire.
-3. Looking down from above (from the direction the current is heading), the magnetic field circles counterclockwise around the wire.
+1. Point your right thumb upward, along the conventional current.
+2. Your fingers curl in the direction of the magnetic field around the wire.
+3. Viewed from above, looking toward the wire with the current pointing toward you, the field circles counterclockwise.
+
+### #5: Changing Magnetic Flux
+
+A bar magnet is pushed toward a conducting loop, increasing the magnetic flux through the loop. Why is an emf induced?
+
+**Solution:**
+
+1. The magnetic flux through the loop is changing with time.
+2. Faraday's law says a changing flux induces an emf.
+3. If the loop is closed, that emf can drive a current.
+4. By Lenz's law, the induced current's magnetic field opposes the **change** in flux, not necessarily the original magnetic field itself.
 
 ## Speed Tricks & Shortcuts
 
-Notice that Coulomb's law and Newton's law of gravitation share the same inverse-square structure: if you can handle one, you can handle the other, just swapping charges for masses and using a different constant.
+For Coulomb-law distance changes, use the inverse-square rule only when the charges stay fixed and the point-charge approximation applies.
 
-For Ohm's law, remember the triangle trick: cover the letter you want to find in "$V$ over $IR$" (arranged with $V$ on top, $I$ and $R$ on the bottom), and the remaining letters show you exactly how to compute it.
+Use $V=IR$ only after identifying the component as ohmic or being told to treat $R$ as constant.
 
-For series versus parallel circuit questions, remember the one-word test: "does breaking one path break everything?" Yes means series (one shared path); no means parallel (multiple independent paths).
+For resistor networks: series means same current; parallel means same voltage. For circuits that cannot be reduced cleanly to series/parallel combinations, use Kirchhoff's rules.
+
+For induction, remember: Faraday tells you **how much emf** comes from changing flux; Lenz tells you the **direction**.
 
 ## Traps to Watch For
 
-### #1: Forgetting the Inverse-Square Relationship in Coulomb's Law
+### #1: Dropping Direction from Coulomb's Law
 
-> Coulomb's law force depends on distance squared in the denominator: doubling the distance quarters the force, it does not simply halve it.
+> $k|q_1q_2|/r^2$ gives force magnitude; attraction or repulsion supplies the direction.
 
-This is the exact same trap as Newton's law of gravitation, since both follow an inverse-square pattern. Always square the distance-change factor before dividing.
+If using signed charges algebraically, a negative scalar result should not be confused with a negative force magnitude.
 
-### #2: Assuming Series and Parallel Circuits Behave the Same Way
+### #2: Treating Ohm's Law as Universal
 
-> In series circuits, current is the same everywhere and voltage splits. In parallel circuits, voltage is the same across each branch and current splits.
+> Only ohmic components have a linear $V$-$I$ relationship with constant $R$ over the relevant conditions.
 
-Mixing up which quantity (current or voltage) stays constant and which one splits between components is one of the most common circuit errors. Always identify the circuit type first before deciding which quantity to treat as shared.
+Many real devices are non-ohmic, especially when temperature or semiconductor behavior matters.
 
-### #3: Believing One Broken Bulb Always Kills the Whole Circuit
+### #3: Mixing Up Series and Parallel Resistor Rules
 
-> Only in a series circuit does one broken component stop the entire circuit. In a parallel circuit, other branches keep working independently.
+> Series: same current, resistances add. Parallel: same voltage, reciprocals of resistance add.
 
-A question describing holiday lights that all go out when one bulb fails describes a series circuit; a question describing house wiring where other outlets keep working when one bulb burns out describes a parallel circuit (which is why household wiring is typically parallel).
+The simple rules assume components are actually connected in those topologies.
 
-### #4: Misapplying the Right-Hand Rule
+### #4: Saying Every Changing Magnetic Field "Creates Current"
 
-> Point your thumb in the direction of current flow; your curled fingers show the magnetic field's direction: do not reverse thumb and fingers.
+> A changing magnetic flux induces an emf/electric field; current flows only if a suitable conducting path exists.
 
-Using the left hand, or swapping which part represents current versus magnetic field direction, gives the opposite (incorrect) field direction. Always use the right hand specifically, with the thumb representing current.
+An open loop can have an induced emf without a sustained conduction current around the loop.
+
+### #5: Saying Lenz's Law Opposes the Magnetic Field
+
+> The induced effect opposes the **change in magnetic flux**.
+
+If flux is decreasing, the induced field can point in the same direction as the original field in an attempt to oppose that decrease.
