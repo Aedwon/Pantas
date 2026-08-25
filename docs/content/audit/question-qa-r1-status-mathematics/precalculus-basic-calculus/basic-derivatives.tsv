@@ -1,0 +1,15 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-precalculus-basic-calculus-basic-derivatives-0001	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-precalculus-basic-calculus-basic-derivatives-0002	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-precalculus-basic-calculus-basic-derivatives-0003	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-precalculus-basic-calculus-basic-derivatives-0004	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-precalculus-basic-calculus-basic-derivatives-0005	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-precalculus-basic-calculus-basic-derivatives-0006	CORRECTED	RE-DERIVED	LESSON HAS SAME DOMAIN GAP	TEXT SUFFICIENT	LOW	Restricted derivative statement to x>0 and noted that sqrt(x) is not differentiable at x=0.
+q-precalculus-basic-calculus-basic-derivatives-0007	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-precalculus-basic-calculus-basic-derivatives-0008	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-precalculus-basic-calculus-basic-derivatives-0009	CORRECTED	RE-DERIVED	SUPPORTED; DOMAIN QUALIFIER ADDED	TEXT SUFFICIENT	LOW	Restricted the derivative formula to x!=0 and noted that the ordinary derivative of cube root x is undefined at x=0.
+q-precalculus-basic-calculus-basic-derivatives-0010	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-precalculus-basic-calculus-basic-derivatives-0011	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-precalculus-basic-calculus-basic-derivatives-0012	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-precalculus-basic-calculus-basic-derivatives-0013	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-precalculus-basic-calculus-basic-derivatives-0014	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
