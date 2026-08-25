@@ -28,7 +28,7 @@ questions:
     type: direct-computation
     difficulty: easy
     stem: |
-      Simplify $\dfrac{x^7}{x^3}$.
+      For $x \ne 0$, simplify $\dfrac{x^7}{x^3}$.
     choices:
       - text: $x^4$
         correct: true
@@ -42,7 +42,7 @@ questions:
         rationale: |
           You divided the exponents $7 \div 3$. Division of powers requires subtracting the exponents: $7 - 3 = 4$.
     explanation: |
-      When dividing powers with the same base, subtract the exponents: $\dfrac{x^7}{x^3} = x^{7-3} = x^4$.
+      Because the original denominator contains $x^3$, we require $x \ne 0$. Then subtract the exponents: $\dfrac{x^7}{x^3} = x^{7-3} = x^4$.
 
   - id: q-algebra-exponents-and-logarithms-0003
     type: direct-computation
@@ -188,7 +188,7 @@ questions:
     type: direct-computation
     difficulty: hard
     stem: |
-      Simplify $\dfrac{x^3 y^2 \cdot x^4 y^{-1}}{x^2 y^3}$.
+      For $x \ne 0$ and $y \ne 0$, simplify $\dfrac{x^3 y^2 \cdot x^4 y^{-1}}{x^2 y^3}$.
     choices:
       - text: $\dfrac{x^5}{y^2}$
         correct: true
@@ -202,13 +202,13 @@ questions:
         rationale: |
           You miscalculated both powers. Combining numerator and denominator gives $x^{3+4-2} = x^5$ and $y^{2-1-3} = y^{-2}$.
     explanation: |
-      Combine top: $x^3 \cdot x^4 = x^7$ and $y^2 \cdot y^{-1} = y^1$. Divide by bottom: $\dfrac{x^7 y}{x^2 y^3} = \dfrac{x^5}{y^2}$.
+      The original expression requires $x \ne 0$ and $y \ne 0$. Combine the numerator: $x^3 \cdot x^4 = x^7$ and $y^2 \cdot y^{-1} = y$. Then divide by the denominator: $\dfrac{x^7 y}{x^2 y^3} = \dfrac{x^5}{y^2}$.
 
   - id: q-algebra-exponents-and-logarithms-0011
     type: direct-computation
     difficulty: hard
     stem: |
-      Simplify $2\log(x) + \log(y)$ as a single logarithm.
+      For $x > 0$ and $y > 0$, simplify $2\log(x) + \log(y)$ as a single logarithm.
     choices:
       - text: $\log(x^2 y)$
         correct: true
@@ -222,7 +222,7 @@ questions:
         rationale: |
           You put the exponent 2 on $y$ instead of $x$. The coefficient 2 is in front of $\log(x)$, so $x$ gets squared.
     explanation: |
-      Bring exponents back: $\log(x^2) + \log(y)$. Addition in logs means multiply: $\log(x^2 y)$.
+      The real logarithms require positive arguments, so $x > 0$ and $y > 0$. Bring the coefficient up as an exponent: $\log(x^2) + \log(y)$. Addition of logarithms means multiply the arguments, giving $\log(x^2 y)$.
 
   - id: q-algebra-exponents-and-logarithms-0012
     type: direct-computation
@@ -303,4 +303,3 @@ questions:
           You cubed 16 to get 4096 and took the fourth root, or calculated $4^3 = 64$ using 4 as base. The base is 16, so $\sqrt[4]{16} = 2$ and $2^3 = 8$.
     explanation: |
       The fractional exponent means fourth root then cube: $\sqrt[4]{16} = 2$, and $2^3 = 8$.
-
