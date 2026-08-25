@@ -153,10 +153,10 @@ With every external input set and the approved private files present, run:
 bash tools/release/android/release.sh
 ```
 
-After preflight passes, the script performs normal Flutter build preparation:
+After preflight passes, the script performs deterministic Flutter build preparation using the committed lockfile:
 
 ```bash
-flutter pub get
+flutter pub get --enforce-lockfile
 dart run build_runner build --delete-conflicting-outputs
 flutter gen-l10n
 ```

@@ -11,7 +11,8 @@ void main() {
 
       expect(gradle, isNot(contains('signingConfigs.getByName("debug")')));
       expect(gradle, contains('create("upload")'));
-      expect(gradle, contains('signingConfig = signingConfigs.getByName("upload")'));
+      expect(gradle,
+          contains('signingConfig = signingConfigs.getByName("upload")'));
       expect(gradle, contains('Production release signing is required.'));
       expect(gradle, contains('CM_KEYSTORE_PATH'));
       expect(gradle, contains('CM_KEYSTORE_PASSWORD'));
@@ -93,7 +94,11 @@ void main() {
     test('normal Flutter code generation runs without content generation', () {
       final release = readRepositoryFile('tools/release/android/release.sh');
 
-      expect(release, contains('flutter pub get'));
+      expect(release, contains('flutter pub get --enforce-lockfile'));
+      expect(
+        release.split(Platform.lineTerminator),
+        isNot(contains('flutter pub get')),
+      );
       expect(
         release,
         contains('dart run build_runner build --delete-conflicting-outputs'),
@@ -157,7 +162,8 @@ void main() {
       expect(File('.github/workflows/release.yml').existsSync(), isFalse);
     });
 
-    test('release tooling has no Play publishing or resource-shrinking path', () {
+    test('release tooling has no Play publishing or resource-shrinking path',
+        () {
       final release = readRepositoryFile('tools/release/android/release.sh');
       final gradle = readRepositoryFile('android/app/build.gradle.kts');
 

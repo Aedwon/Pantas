@@ -230,7 +230,7 @@ fi
 
 printf 'release preflight: inputs, signing, Firebase, content, Flutter, Java, Gradle, and AGP validated\n'
 
-flutter pub get
+flutter pub get --enforce-lockfile
 dart run build_runner build --delete-conflicting-outputs
 flutter gen-l10n
 
