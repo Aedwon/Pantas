@@ -121,7 +121,7 @@ questions:
           You confused the median with the mean, which is sensitive to outliers.
       - text: The median can only be calculated for nominal qualitative data.
         rationale: |
-          You confused nominal data with quantitative or ordinal data required for medians.
+          You chose a data type with no inherent order. A median requires data that can be meaningfully ordered, such as ordinal or quantitative data.
       - text: If a dataset has an even number of values, the median is the difference between the two middle values.
         rationale: |
           You subtracted the two middle values instead of taking their average.
@@ -130,8 +130,8 @@ questions:
 
       Why the other options are false:
       - The median is resistant to outliers (the mean is affected by outliers).
-      - The median requires at least ordinal quantitative or numerical data.
-      - For an even number of values, the median is the mean (average) of the two middle values, not their difference.
+      - A median requires data with a meaningful order, so ordinal data and quantitative data can support a median; nominal data cannot.
+      - For an even number of numerical values, the median is the mean (average) of the two middle values, not their difference.
 
   - id: q-statistics-and-probability-measures-of-central-tendency-0006
     type: word-problem
@@ -452,12 +452,12 @@ questions:
         rationale: |
           You forgot that adding a constant shifts all measures of location by that constant.
     explanation: |
-      In a positively (right-skewed) distribution, extreme values on the high end pull the arithmetic mean upward, while the mode remains at the peak of the frequency distribution. Thus, $\text{Mean} > \text{Median} > \text{Mode}$.
+      In a positively (right-skewed) distribution, extreme values on the high end tend to pull the arithmetic mean upward more than the median, while the mode often remains near the peak. For a typical unimodal right-skewed distribution, this is summarized heuristically as $\text{Mean} > \text{Median} > \text{Mode}$; it is a common pattern, not a universal identity for every possible distribution.
 
       Why the other options are false:
-      - For ordinal data, the median is preferred because distances between ranks are not uniform.
-      - Ratio scale quantitative data allows for mean, median, and mode calculation.
-      - Adding a constant $k$ to all values shifts all measures of location (mean, median, mode) upward by $k$.
+      - For ordinal data, the median is generally more appropriate than an arithmetic mean because spacing between ranks need not be uniform.
+      - Ratio-scale quantitative data allows for mean, median, and mode calculation.
+      - Adding a constant $k$ to all values shifts all measures of location (mean, median, and any mode values) upward by $k$.
 
   - id: q-statistics-and-probability-measures-of-central-tendency-0016
     type: which-is-true
@@ -483,7 +483,7 @@ questions:
 
       $$\text{Step 2 (Increase by 10%): } y = 1.10(x + 5) = 1.10x + 5.50$$
 
-      Linear transformations of the form $y = ax + b$ apply identically to all measures of central tendency (mean, median, and mode):
+      Because this transformation is strictly increasing, it preserves order and frequency relationships while shifting/scaling the values:
 
       $$\text{New Mean} = 1.10\bar{x} + 5.50$$
 
