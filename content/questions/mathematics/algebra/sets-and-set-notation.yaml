@@ -260,28 +260,6 @@ questions:
       $|B \cup V \cup D| = |B| + |V| + |D| - |B \cap V| - |V \cap D| - |B \cap D| + |B \cap V \cap D|$
       $= 50 + 40 + 35 - 15 - 12 - 10 + 5 = 125 - 37 + 5 = 93$.
 
-  - id: q-algebra-sets-and-set-notation-0012
-    type: word-problem
-    difficulty: hard
-    stem: |
-      In a survey of 100 students, 93 like at least one of three sports. How many students do NOT like any of the three sports?
-    choices:
-      - text: $7$
-        correct: true
-      - text: $12$
-        rationale: |
-          You subtracted the wrong figure from 100. The 93 is the number who like at
-          least one.
-      - text: $0$
-        rationale: |
-          You assumed everybody liked something. Seven of the hundred are outside
-          all three sports.
-      - text: $15$
-        rationale: |
-          You used a union total that is not the one given.
-    explanation: |
-      The number of students who like none of the sports is the total number of students minus those who like at least one sport: $100 - 93 = 7$.
-
   - id: q-algebra-sets-and-set-notation-0013
     type: direct-computation
     difficulty: hard
@@ -304,7 +282,7 @@ questions:
 
   - id: q-algebra-sets-and-set-notation-0014
     type: which-is-true
-    difficulty: hard
+    difficulty: medium
     stem: |
       Given two sets $A$ and $B$, which of the following set identities is always true according to De Morgan's Laws?
     choices:
