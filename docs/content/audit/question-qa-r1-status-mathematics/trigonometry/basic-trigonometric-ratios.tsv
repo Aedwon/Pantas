@@ -1,0 +1,17 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-trigonometry-basic-trigonometric-ratios-0001	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	NONE	
+q-trigonometry-basic-trigonometric-ratios-0002	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	NONE	
+q-trigonometry-basic-trigonometric-ratios-0003	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-basic-trigonometric-ratios-0004	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	NONE	
+q-trigonometry-basic-trigonometric-ratios-0005	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	HIGH	Replaced a second mathematically correct choice (12/20, equivalent to 3/5) with a distinct cosecant distractor.
+q-trigonometry-basic-trigonometric-ratios-0006	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-basic-trigonometric-ratios-0007	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-basic-trigonometric-ratios-0008	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	NONE	
+q-trigonometry-basic-trigonometric-ratios-0009	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	LOW	Normalized invalid difficulty value medium-hard to hard.
+q-trigonometry-basic-trigonometric-ratios-0010	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	LOW	Normalized invalid difficulty value medium-hard to hard.
+q-trigonometry-basic-trigonometric-ratios-0011	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	LOW	Corrected isoceles to isosceles in the explanation.
+q-trigonometry-basic-trigonometric-ratios-0012	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-basic-trigonometric-ratios-0013	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	LOW	Removed dimensionally incorrect wording asking for a sine ratio in degrees.
+q-trigonometry-basic-trigonometric-ratios-0014	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	NONE	
+q-trigonometry-basic-trigonometric-ratios-0015	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-basic-trigonometric-ratios-0016	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	LOW	Removed dimensionally incorrect wording asking for tangent in degrees.
