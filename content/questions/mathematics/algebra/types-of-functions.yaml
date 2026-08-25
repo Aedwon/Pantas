@@ -255,7 +255,7 @@ questions:
 
   - id: q-algebra-types-of-functions-0012
     type: direct-computation
-    difficulty: hard
+    difficulty: medium
     stem: |
       Solve for $x$ in the equation $\log_2(x + 3) = 4$.
     choices:
@@ -301,7 +301,7 @@ questions:
 
   - id: q-algebra-types-of-functions-0014
     type: direct-computation
-    difficulty: hard
+    difficulty: medium
     stem: |
       If $f(x) = 2^x + 1$, find the value of $x$ for which $f(x) = 33$.
     choices:
@@ -322,7 +322,7 @@ questions:
 
   - id: q-algebra-types-of-functions-0015
     type: which-is-true
-    difficulty: hard
+    difficulty: medium
     stem: |
       A student claims that the line $y = 3x - 6$ and the line $y = -\frac{1}{3}x + 4$ are perpendicular. Is the student correct, and why?
     choices:
