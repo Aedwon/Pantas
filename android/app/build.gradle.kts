@@ -20,10 +20,10 @@ if (uploadSigningPropertiesFile.exists()) {
 }
 
 fun nonBlankEnvironment(name: String): String? =
-    System.getenv(name)?.trim()?.takeIf(String::isNotEmpty)
+    System.getenv(name)?.trim()?.takeIf { it.isNotEmpty() }
 
 fun nonBlankSigningProperty(name: String): String? =
-    uploadSigningProperties.getProperty(name)?.trim()?.takeIf(String::isNotEmpty)
+    uploadSigningProperties.getProperty(name)?.trim()?.takeIf { it.isNotEmpty() }
 
 val cmKeystorePath = nonBlankEnvironment("CM_KEYSTORE_PATH")
 val cmKeystorePassword = nonBlankEnvironment("CM_KEYSTORE_PASSWORD")
@@ -105,7 +105,7 @@ if (requestsProdRelease) {
             "Production release signing is required. Configure android/key.properties or all Codemagic signing inputs.",
         )
     }
-    if (!uploadKeystoreFile.isFile) {
+    if (uploadKeystoreFile == null || !uploadKeystoreFile.isFile) {
         throw GradleException("Production upload keystore file does not exist.")
     }
 }
