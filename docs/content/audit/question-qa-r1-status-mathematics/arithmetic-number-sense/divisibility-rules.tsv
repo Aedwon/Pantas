@@ -1,0 +1,16 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-arithmetic-number-sense-divisibility-rules-0001	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-divisibility-rules-0002	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-divisibility-rules-0003	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-divisibility-rules-0004	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-divisibility-rules-0005	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-divisibility-rules-0006	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-divisibility-rules-0007	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-divisibility-rules-0008	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-divisibility-rules-0009	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-divisibility-rules-0010	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-divisibility-rules-0011	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-divisibility-rules-0012	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-divisibility-rules-0013	CORRECTED	RECOMPUTED	PENDING	TEXT SUFFICIENT	CRITICAL	Original constraints admitted x+y of 8 and 16; stem now asks for the minimum possible value.
+q-arithmetic-number-sense-divisibility-rules-0014	CORRECTED	RECOMPUTED	PENDING	TEXT SUFFICIENT	CRITICAL	Original constraints admitted x+y of 2 and 11; stem now asks for the maximum possible value.
+q-arithmetic-number-sense-divisibility-rules-0015	VERIFIED	RECOMPUTED	PENDING	TEXT SUFFICIENT	NONE	
