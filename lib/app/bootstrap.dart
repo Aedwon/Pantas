@@ -46,6 +46,31 @@ final mockEntitlementOverrides = <Override>[
   ),
 ];
 
+/// Feeds the shipping telemetry consent gateway into settings actions and startup.
+///
+/// Exposed as a list so tests can exercise the exact telemetry override collection
+/// used by [bootstrap].
+final telemetryConsentOverrides = <Override>[
+  analyticsConsentGatewayProvider.overrideWith(
+    (ref) => ref.watch(telemetryConsentControllerProvider.notifier),
+  ),
+];
+
+/// Handles uncaught bootstrap errors by recording to telemetry best-effort
+/// and logging to console.
+void handleBootstrapError(
+  Object error,
+  StackTrace stack, {
+  ProviderContainer? container,
+}) {
+  try {
+    container?.read(telemetryProvider).recordError(error, stack).ignore();
+  } catch (e) {
+    debugPrint('Telemetry recordError failed: $e');
+  }
+  debugPrint('Uncaught: $error\n$stack');
+}
+
 Future<void> bootstrap(Flavor flavor) async {
   // Late-bound on purpose. The boundary has to be live before the container
   // exists, because the container is built by the very code it guards: an
@@ -54,16 +79,11 @@ Future<void> bootstrap(Flavor flavor) async {
 
   await runGuarded(
     () => _bootstrap(flavor, (built) => container = built),
-    onError: (error, stack) {
-      // Reports only if the student has said yes. Before settings load, and
-      // before they have answered, the gate is shut and this collects nothing.
-      try {
-        container?.read(telemetryProvider).recordError(error, stack).ignore();
-      } catch (e) {
-        debugPrint('Telemetry recordError failed: $e');
-      }
-      debugPrint('Uncaught: $error\n$stack');
-    },
+    onError: (error, stack) => handleBootstrapError(
+      error,
+      stack,
+      container: container,
+    ),
   );
 }
 
@@ -87,14 +107,12 @@ Future<void> _bootstrap(
       ...contentOverrides,
       ...remoteFlagsOverrides,
       ...mockEntitlementOverrides,
+      ...telemetryConsentOverrides,
       // Only when Firebase actually started. It does not yet: there is no
       // project, so `bootstrapFirebase` initializes nothing. The gate above
       // this still decides whether anything reaches the sink.
       telemetrySinkProvider.overrideWithValue(
         FirebaseTelemetry.instancesIfAvailable(),
-      ),
-      analyticsConsentGatewayProvider.overrideWith(
-        (ref) => ref.watch(telemetryConsentControllerProvider.notifier),
       ),
       // The review popup and the record of having asked. Both are inert
       // until this runs, so nothing pops in a test.
@@ -115,7 +133,7 @@ Future<void> _bootstrap(
   );
   onContainerReady(container);
 
-  await _applyPersistedTelemetryConsent(container);
+  await applyPersistedTelemetryConsent(container);
   await registerDevProSwitch(container);
   await registerDevDemoSwitch(container);
   await _installContentSeed(container);
@@ -145,7 +163,8 @@ Future<void> _installContentSeed(ProviderContainer container) async {
   }
 }
 
-Future<void> _applyPersistedTelemetryConsent(
+/// Reads persisted telemetry preference and applies it to [telemetryConsentControllerProvider].
+Future<void> applyPersistedTelemetryConsent(
   ProviderContainer container,
 ) async {
   try {

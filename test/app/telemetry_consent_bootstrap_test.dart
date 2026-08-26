@@ -122,21 +122,14 @@ void main() {
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
           telemetrySinkProvider.overrideWithValue(sink),
-          analyticsConsentGatewayProvider.overrideWith(
-            (ref) => ref.watch(telemetryConsentControllerProvider.notifier),
-          ),
+          ...telemetryConsentOverrides,
         ],
       );
       addTearDown(container.dispose);
 
-      final settings = await container.read(userSettingsProvider.future);
-      expect(settings.helpImproveApp, isFalse);
+      expect(container.read(effectiveTelemetryConsentProvider), isFalse);
 
-      final controller =
-          container.read(telemetryConsentControllerProvider.notifier);
-      await controller.setAnalyticsCollectionEnabled(
-        enabled: settings.helpImproveApp,
-      );
+      await applyPersistedTelemetryConsent(container);
 
       expect(container.read(effectiveTelemetryConsentProvider), isFalse);
       expect(sink.enabledCalls, [false]);
@@ -161,28 +154,30 @@ void main() {
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
           telemetrySinkProvider.overrideWithValue(sink),
-          analyticsConsentGatewayProvider.overrideWith(
-            (ref) => ref.watch(telemetryConsentControllerProvider.notifier),
-          ),
+          ...telemetryConsentOverrides,
         ],
       );
       addTearDown(container.dispose);
 
-      final settings = await container.read(userSettingsProvider.future);
-      expect(settings.helpImproveApp, isTrue);
+      // Verify ordering: before startup consent application, effective consent is false
+      // and telemetry events are dropped even though stored setting is true
+      await container
+          .read(telemetryProvider)
+          .log(TelemetryEvent.sessionStarted);
+      expect(sink.loggedEvents, isEmpty);
+      expect(sink.enabledCalls, isEmpty);
+      expect(container.read(effectiveTelemetryConsentProvider), isFalse);
 
-      final controller =
-          container.read(telemetryConsentControllerProvider.notifier);
-      await controller.setAnalyticsCollectionEnabled(
-        enabled: settings.helpImproveApp,
-      );
+      // Run production startup consent application
+      await applyPersistedTelemetryConsent(container);
 
       expect(container.read(effectiveTelemetryConsentProvider), isTrue);
       expect(sink.enabledCalls, [true]);
 
-      // Verify telemetryProvider forwards events
-      final telemetry = container.read(telemetryProvider);
-      await telemetry.log(TelemetryEvent.sessionStarted);
+      // Verify telemetryProvider forwards events after startup consent is applied
+      await container
+          .read(telemetryProvider)
+          .log(TelemetryEvent.sessionStarted);
       expect(sink.loggedEvents, [TelemetryEvent.sessionStarted]);
     });
 
@@ -196,9 +191,7 @@ void main() {
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
           telemetrySinkProvider.overrideWithValue(sink),
-          analyticsConsentGatewayProvider.overrideWith(
-            (ref) => ref.watch(telemetryConsentControllerProvider.notifier),
-          ),
+          ...telemetryConsentOverrides,
         ],
       );
       addTearDown(container.dispose);
@@ -264,17 +257,12 @@ void main() {
           container.read(telemetryConsentControllerProvider.notifier);
       await controller.setAnalyticsCollectionEnabled(enabled: true);
 
-      final telemetry = container.read(telemetryProvider);
-
-      // Best effort error reporting callback simulation
       expect(
-        () {
-          try {
-            telemetry
-                .recordError(Exception('test'), StackTrace.current)
-                .ignore();
-          } catch (_) {}
-        },
+        () => handleBootstrapError(
+          Exception('test crash reporting failure'),
+          StackTrace.current,
+          container: container,
+        ),
         returnsNormally,
       );
     });
