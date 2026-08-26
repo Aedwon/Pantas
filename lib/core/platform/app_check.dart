@@ -13,9 +13,10 @@ Future<void> activateAppCheck(
     final instance = appCheck ?? FirebaseAppCheck.instance;
     // The provider enums became classes in firebase_app_check 0.4, alongside
     // the parameter rename. Same three choices, constructed rather than named.
-    final androidProvider = flavor == Flavor.dev
-        ? const AndroidDebugProvider()
-        : const AndroidPlayIntegrityProvider();
+    final androidProvider = switch (flavor) {
+      Flavor.dev || Flavor.staging => const AndroidDebugProvider(),
+      Flavor.prod => const AndroidPlayIntegrityProvider(),
+    };
     final appleProvider = flavor == Flavor.dev
         ? const AppleDebugProvider()
         : const AppleDeviceCheckProvider();
