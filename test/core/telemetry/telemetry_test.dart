@@ -17,6 +17,20 @@ void main() {
     });
   });
 
+  group('FirebaseTelemetry.instancesIfAvailable()', () {
+    test(
+        'returns DisabledTelemetry when Firebase is unavailable and does not throw',
+        () async {
+      final telemetry = FirebaseTelemetry.instancesIfAvailable();
+      expect(telemetry, isA<DisabledTelemetry>());
+
+      await telemetry.log(TelemetryEvent.sessionStarted);
+      await telemetry.recordError(StateError('x'), StackTrace.current);
+      await telemetry.setEnabled(enabled: true);
+      await telemetry.setUserIdentifier('student_123');
+    });
+  });
+
   group('event names', () {
     test('every event has a distinct snake_case name', () {
       final names = TelemetryEvent.values.map((e) => e.name).toSet();
@@ -144,8 +158,11 @@ void main() {
     );
   });
 
-  group('FirebaseTelemetry setEnabled resilience', () {
-    test('attempts Crashlytics even when Analytics setEnabled throws',
+  group(
+      'FirebaseTelemetry setEnabled resilience and manual Crashlytics handling',
+      () {
+    test(
+        'attempts Crashlytics sendUnsentReports even when Analytics setEnabled throws on true',
         () async {
       final analytics = FakeFirebaseAnalytics()
         ..throwOnSetCollectionEnabled = true;
@@ -161,14 +178,37 @@ void main() {
       );
 
       expect(analytics.collectionEnabled, isTrue);
-      expect(crashlytics.collectionEnabled, isTrue);
+      expect(crashlytics.sendUnsentReportsCalls, 1);
+      expect(crashlytics.deleteUnsentReportsCalls, 0);
     });
 
-    test('attempts Analytics even when Crashlytics setEnabled throws',
+    test(
+        'attempts Analytics even when Crashlytics sendUnsentReports throws on true',
         () async {
       final analytics = FakeFirebaseAnalytics();
       final crashlytics = FakeFirebaseCrashlytics()
+        ..throwOnSendUnsentReports = true;
+      final telemetry = FirebaseTelemetry(
+        analytics: analytics,
+        crashlytics: crashlytics,
+      );
+
+      await expectLater(
+        () => telemetry.setEnabled(enabled: true),
+        throwsA(isA<StateError>()),
+      );
+
+      expect(analytics.collectionEnabled, isTrue);
+      expect(crashlytics.sendUnsentReportsCalls, 1);
+      expect(crashlytics.deleteUnsentReportsCalls, 0);
+    });
+
+    test(
+        'attempts Crashlytics deleteUnsentReports even when Analytics setEnabled throws on false',
+        () async {
+      final analytics = FakeFirebaseAnalytics()
         ..throwOnSetCollectionEnabled = true;
+      final crashlytics = FakeFirebaseCrashlytics();
       final telemetry = FirebaseTelemetry(
         analytics: analytics,
         crashlytics: crashlytics,
@@ -180,10 +220,34 @@ void main() {
       );
 
       expect(analytics.collectionEnabled, isFalse);
-      expect(crashlytics.collectionEnabled, isFalse);
+      expect(crashlytics.deleteUnsentReportsCalls, 1);
+      expect(crashlytics.sendUnsentReportsCalls, 0);
     });
 
-    test('enables both when neither throws', () async {
+    test(
+        'attempts Analytics even when Crashlytics deleteUnsentReports throws on false',
+        () async {
+      final analytics = FakeFirebaseAnalytics();
+      final crashlytics = FakeFirebaseCrashlytics()
+        ..throwOnDeleteUnsentReports = true;
+      final telemetry = FirebaseTelemetry(
+        analytics: analytics,
+        crashlytics: crashlytics,
+      );
+
+      await expectLater(
+        () => telemetry.setEnabled(enabled: false),
+        throwsA(isA<StateError>()),
+      );
+
+      expect(analytics.collectionEnabled, isFalse);
+      expect(crashlytics.deleteUnsentReportsCalls, 1);
+      expect(crashlytics.sendUnsentReportsCalls, 0);
+    });
+
+    test(
+        'enables analytics and sends unsent reports on true when neither throws',
+        () async {
       final analytics = FakeFirebaseAnalytics();
       final crashlytics = FakeFirebaseCrashlytics();
       final telemetry = FirebaseTelemetry(
@@ -194,11 +258,29 @@ void main() {
       await telemetry.setEnabled(enabled: true);
 
       expect(analytics.collectionEnabled, isTrue);
-      expect(crashlytics.collectionEnabled, isTrue);
+      expect(crashlytics.sendUnsentReportsCalls, 1);
+      expect(crashlytics.deleteUnsentReportsCalls, 0);
+    });
+
+    test(
+        'disables analytics and deletes unsent reports on false when neither throws',
+        () async {
+      final analytics = FakeFirebaseAnalytics();
+      final crashlytics = FakeFirebaseCrashlytics();
+      final telemetry = FirebaseTelemetry(
+        analytics: analytics,
+        crashlytics: crashlytics,
+      );
+
+      await telemetry.setEnabled(enabled: false);
+
+      expect(analytics.collectionEnabled, isFalse);
+      expect(crashlytics.deleteUnsentReportsCalls, 1);
+      expect(crashlytics.sendUnsentReportsCalls, 0);
     });
   });
 
-  group('FirebaseTelemetry setUserIdentifier', () {
+  group('FirebaseTelemetry setUserIdentifier resilience', () {
     test('sets identifier on crashlytics and analytics, and nulls on empty',
         () async {
       final analytics = FakeFirebaseAnalytics();
@@ -216,6 +298,40 @@ void main() {
       expect(crashlytics.userIdentifier, '');
       expect(analytics.userId, isNull);
     });
+
+    test('clears analytics id even when crashlytics setUserIdentifier throws',
+        () async {
+      final analytics = FakeFirebaseAnalytics();
+      final crashlytics = FakeFirebaseCrashlytics()
+        ..throwOnSetUserIdentifier = true;
+      final telemetry = FirebaseTelemetry(
+        analytics: analytics,
+        crashlytics: crashlytics,
+      );
+
+      await expectLater(
+        () => telemetry.setUserIdentifier(''),
+        throwsA(isA<StateError>()),
+      );
+
+      expect(analytics.userId, isNull);
+    });
+
+    test('sets crashlytics id even when analytics setUserId throws', () async {
+      final analytics = FakeFirebaseAnalytics()..throwOnSetUserId = true;
+      final crashlytics = FakeFirebaseCrashlytics();
+      final telemetry = FirebaseTelemetry(
+        analytics: analytics,
+        crashlytics: crashlytics,
+      );
+
+      await expectLater(
+        () => telemetry.setUserIdentifier('student_99'),
+        throwsA(isA<StateError>()),
+      );
+
+      expect(crashlytics.userIdentifier, 'student_99');
+    });
   });
 }
 
@@ -223,6 +339,7 @@ class FakeFirebaseAnalytics extends Fake implements FirebaseAnalytics {
   bool? collectionEnabled;
   String? userId;
   bool throwOnSetCollectionEnabled = false;
+  bool throwOnSetUserId = false;
 
   @override
   Future<void> setAnalyticsCollectionEnabled(bool enabled) async {
@@ -236,15 +353,21 @@ class FakeFirebaseAnalytics extends Fake implements FirebaseAnalytics {
   Future<void> setUserId(
       {String? id, AnalyticsCallOptions? callOptions}) async {
     userId = id;
+    if (throwOnSetUserId) {
+      throw StateError('Analytics setUserId failed');
+    }
   }
 }
 
 class FakeFirebaseCrashlytics extends Fake implements FirebaseCrashlytics {
   Object? recordedException;
   StackTrace? recordedStackTrace;
-  bool? collectionEnabled;
+  int sendUnsentReportsCalls = 0;
+  int deleteUnsentReportsCalls = 0;
   String? userIdentifier;
-  bool throwOnSetCollectionEnabled = false;
+  bool throwOnSendUnsentReports = false;
+  bool throwOnDeleteUnsentReports = false;
+  bool throwOnSetUserIdentifier = false;
 
   @override
   Future<void> recordError(
@@ -260,15 +383,31 @@ class FakeFirebaseCrashlytics extends Fake implements FirebaseCrashlytics {
   }
 
   @override
-  Future<void> setCrashlyticsCollectionEnabled(bool enabled) async {
-    collectionEnabled = enabled;
-    if (throwOnSetCollectionEnabled) {
-      throw StateError('Crashlytics collection enable failed');
+  Future<void> sendUnsentReports() async {
+    sendUnsentReportsCalls++;
+    if (throwOnSendUnsentReports) {
+      throw StateError('Crashlytics sendUnsentReports failed');
     }
   }
 
   @override
+  Future<void> deleteUnsentReports() async {
+    deleteUnsentReportsCalls++;
+    if (throwOnDeleteUnsentReports) {
+      throw StateError('Crashlytics deleteUnsentReports failed');
+    }
+  }
+
+  @override
+  Future<void> setCrashlyticsCollectionEnabled(bool enabled) async {
+    fail('setCrashlyticsCollectionEnabled must never be called at runtime');
+  }
+
+  @override
   Future<void> setUserIdentifier(String identifier) async {
+    if (throwOnSetUserIdentifier) {
+      throw StateError('Crashlytics setUserIdentifier failed');
+    }
     userIdentifier = identifier;
   }
 }

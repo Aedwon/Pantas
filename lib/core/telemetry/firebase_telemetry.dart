@@ -54,10 +54,12 @@ class FirebaseTelemetry implements Telemetry {
     await _crashlytics.recordError(sanitized, stack);
   }
 
-  /// Stops collection at the SDK rather than filtering afterward.
+  /// Drives runtime consent at the SDK level.
   ///
-  /// Turning the switch off must stop data leaving the device, not merely stop
-  /// this class calling in. Anything else makes the About page's promise false.
+  /// Analytics collection is enabled or disabled dynamically.
+  /// Crashlytics automatic collection stays permanently disabled; turning
+  /// consent on sends pending unsent reports, and turning consent off purges
+  /// unsent reports.
   @override
   Future<void> setEnabled({required bool enabled}) async {
     Object? firstError;
@@ -71,7 +73,11 @@ class FirebaseTelemetry implements Telemetry {
     }
 
     try {
-      await _crashlytics.setCrashlyticsCollectionEnabled(enabled);
+      if (enabled) {
+        await _crashlytics.sendUnsentReports();
+      } else {
+        await _crashlytics.deleteUnsentReports();
+      }
     } catch (error, stack) {
       firstError ??= error;
       firstStack ??= stack;
@@ -84,8 +90,26 @@ class FirebaseTelemetry implements Telemetry {
 
   @override
   Future<void> setUserIdentifier(String identifier) async {
-    await _crashlytics.setUserIdentifier(identifier);
-    await _analytics.setUserId(id: identifier.isEmpty ? null : identifier);
+    Object? firstError;
+    StackTrace? firstStack;
+
+    try {
+      await _crashlytics.setUserIdentifier(identifier);
+    } catch (error, stack) {
+      firstError = error;
+      firstStack = stack;
+    }
+
+    try {
+      await _analytics.setUserId(id: identifier.isEmpty ? null : identifier);
+    } catch (error, stack) {
+      firstError ??= error;
+      firstStack ??= stack;
+    }
+
+    if (firstError != null) {
+      Error.throwWithStackTrace(firstError, firstStack ?? StackTrace.current);
+    }
   }
 }
 

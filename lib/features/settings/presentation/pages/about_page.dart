@@ -91,7 +91,7 @@ class AboutPage extends ConsumerWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 4, bottom: 8),
                 child: Text(
-                  'Shares anonymous usage data and crash reports.',
+                  'Shares anonymous usage data and crash reports only with consent. Unsent reports are deleted when off.',
                   style: styles.bodySmall.copyWith(color: colors.inkMuted),
                 ),
               ),

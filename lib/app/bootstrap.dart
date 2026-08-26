@@ -172,7 +172,7 @@ Future<void> applyPersistedTelemetryConsent(
     final controller = container.read(
       telemetryConsentControllerProvider.notifier,
     );
-    await controller.setAnalyticsCollectionEnabled(
+    await controller.applyStartupConsent(
       enabled: settings.helpImproveApp,
     );
   } catch (error, stack) {
