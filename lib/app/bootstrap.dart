@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/app.dart';
 import 'package:pantas/app/firebase_bootstrap.dart';
 import 'package:pantas/app/flavor.dart';
+import 'package:pantas/app/telemetry_consent_controller.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/bundle/seed_installer.dart';
 import 'package:pantas/core/content/content.dart';
@@ -26,6 +27,7 @@ import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/review_prompt/application/review_prompt_providers.dart';
 import 'package:pantas/features/review_prompt/data/in_app_review_gateway.dart';
 import 'package:pantas/features/review_prompt/data/review_prompt_store.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
 
 /// Feeds the real subscription into the mock cooldown.
 ///
@@ -55,7 +57,11 @@ Future<void> bootstrap(Flavor flavor) async {
     onError: (error, stack) {
       // Reports only if the student has said yes. Before settings load, and
       // before they have answered, the gate is shut and this collects nothing.
-      container?.read(telemetryProvider).recordError(error, stack);
+      try {
+        container?.read(telemetryProvider).recordError(error, stack).ignore();
+      } catch (e) {
+        debugPrint('Telemetry recordError failed: $e');
+      }
       debugPrint('Uncaught: $error\n$stack');
     },
   );
@@ -87,6 +93,9 @@ Future<void> _bootstrap(
       telemetrySinkProvider.overrideWithValue(
         FirebaseTelemetry.instancesIfAvailable(),
       ),
+      analyticsConsentGatewayProvider.overrideWith(
+        (ref) => ref.watch(telemetryConsentControllerProvider.notifier),
+      ),
       // The review popup and the record of having asked. Both are inert
       // until this runs, so nothing pops in a test.
       appReviewGatewayProvider.overrideWith((ref) => InAppReviewGateway()),
@@ -106,6 +115,7 @@ Future<void> _bootstrap(
   );
   onContainerReady(container);
 
+  await _applyPersistedTelemetryConsent(container);
   await registerDevProSwitch(container);
   await registerDevDemoSwitch(container);
   await _installContentSeed(container);
@@ -132,5 +142,21 @@ Future<void> _installContentSeed(ProviderContainer container) async {
   );
   if (wrote) {
     await prefs.setInstalledContentSeedVersion(contentSeedVersion);
+  }
+}
+
+Future<void> _applyPersistedTelemetryConsent(
+  ProviderContainer container,
+) async {
+  try {
+    final settings = await container.read(userSettingsProvider.future);
+    final controller = container.read(
+      telemetryConsentControllerProvider.notifier,
+    );
+    await controller.setAnalyticsCollectionEnabled(
+      enabled: settings.helpImproveApp,
+    );
+  } catch (error, stack) {
+    debugPrint('Failed to apply persisted telemetry consent: $error\n$stack');
   }
 }

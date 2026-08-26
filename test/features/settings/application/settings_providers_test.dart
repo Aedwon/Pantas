@@ -78,6 +78,16 @@ void main() {
 
     expect(analytics.values, [false]);
   });
+
+  test('default analytics consent gateway is NoopAnalyticsConsentGateway', () {
+    final container = ProviderContainer();
+    addTearDown(container.dispose);
+
+    expect(
+      container.read(analyticsConsentGatewayProvider),
+      isA<NoopAnalyticsConsentGateway>(),
+    );
+  });
 }
 
 class RecordingAnalyticsConsentGateway implements AnalyticsConsentGateway {

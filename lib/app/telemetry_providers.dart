@@ -3,19 +3,20 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/telemetry/crash_reporting.dart';
 import 'package:pantas/core/telemetry/gated_telemetry.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
-import 'package:pantas/features/settings/application/settings_providers.dart';
+import 'package:pantas/app/telemetry_consent_controller.dart';
 
-/// The app's telemetry, gated on the student's answer.
+/// The effective runtime consent state, managed by [TelemetryConsentController].
+/// Starts false until consent is confirmed and applied via the SDK.
+final effectiveTelemetryConsentProvider = Provider<bool>((ref) {
+  return ref.watch(telemetryConsentControllerProvider);
+});
+
+/// The app's telemetry, gated on the effective runtime consent state.
 ///
-/// This lives in `lib/app/` and not in `lib/core/telemetry/` because it reads
-/// a setting, and `core/` may not import `features/`. `GatedTelemetry` itself
-/// is pure and stays in core.
-///
-/// Resolves to a closed gate until settings load, so the window before the
-/// first read collects nothing rather than defaulting to collecting.
+/// Resolves to a closed gate until consent is loaded, applied to the SDK,
+/// and confirmed active.
 final telemetryProvider = Provider<Telemetry>((ref) {
-  final settings = ref.watch(userSettingsProvider);
-  final consent = settings.valueOrNull?.helpImproveApp;
+  final consent = ref.watch(effectiveTelemetryConsentProvider);
   return GatedTelemetry(ref.watch(telemetrySinkProvider), consent: consent);
 });
 
