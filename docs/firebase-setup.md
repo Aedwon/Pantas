@@ -301,6 +301,12 @@ first report. The work is local:
 - **iOS needs the dSYM upload build phase**, or every crash arrives unreadable.
 - Crash reports do not appear until the app **crashes once and is then relaunched**. Force a
   test crash rather than assuming it is broken.
+- Automatic Crashlytics collection stays disabled. Do not enable it at runtime. When persisted
+  consent is true, the app sends the unsent batch manually. When consent is false or unanswered,
+  it deletes the unsent batch. A new opt-in deletes the batch before anything can be sent.
+- Flutter Crashlytics can check whether an unsent batch exists, then send or delete the whole
+  batch. It does not expose report timestamps, consent provenance, or per-report selection.
+  Native fatal reports can therefore wait until the next launch before delivery.
 
 ### Analytics
 

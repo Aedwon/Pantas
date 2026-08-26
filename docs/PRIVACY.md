@@ -18,7 +18,7 @@ This Privacy Policy describes how the CSE/CET Reviewer mobile application ("the 
 | Account identifiers | Display name, email (only when you sign in with Apple or Google) | You | Account sync, support |
 | Usage data | Quiz attempts, lesson completions, FSRS review state, streak history | App use | Personalize learning, surface progress |
 | Device information | Device model, OS version, app version, language preference | Device | Compatibility, support |
-| Crash and performance data | Crash logs, performance metrics (anonymized; no question content, no answers) | App runtime | Stability |
+| Crash and performance data | Sanitized crash type, stack, build, and device details; no question content, answers, scores, names, emails, or other free text | App runtime, with confirmed consent before upload | Stability |
 | Purchase data | Subscription tier, transaction status (we do NOT see your payment details) | Apple / Google / RevenueCat | Entitlement |
 
 We do **not** collect: precise location, contacts, photos, microphone audio, advertising identifiers (we do not run ads in v1).
@@ -36,7 +36,7 @@ You may use the App without signing in. While anonymous, your data is stored on 
 ## 5. Sharing
 
 We share data only with:
-- **Google Firebase (Google LLC)** — hosting, authentication, crash reporting (no PII in crash reports)
+- **Google Firebase (Google LLC):** hosting, authentication, and consent-gated crash reporting. No crash report is uploaded without confirmed consent. Unsent reports are deleted when consent is off.
 - **Sanity (Sanity.io Inc.)** — content management; **no user PII** is sent to Sanity
 - **RevenueCat (RevenueCat Inc.)** — purchase processing
 - **Apple, Google** — payment processing per their store rules
@@ -57,7 +57,7 @@ You have the right to:
 - **Active account data:** retained while your account exists.
 - **Deleted account:** purged from active systems within 30 days. Backups age out within 90 days.
 - **Attempts older than 18 months:** archived to Google BigQuery (within `asia-southeast1`); aggregate trend data retained in your active account.
-- **Crash logs:** 90 days.
+- **Crash logs:** Uploaded crash reports are retained for 90 days. Crashlytics may create temporary local crash data while automatic upload is disabled. Unsent reports are deleted when consent is off.
 
 ## 8. Children
 

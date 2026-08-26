@@ -94,6 +94,9 @@ class RecordingAnalyticsConsentGateway implements AnalyticsConsentGateway {
   final values = <bool>[];
 
   @override
+  void closeTelemetryGate() {}
+
+  @override
   Future<void> setAnalyticsCollectionEnabled({required bool enabled}) async {
     values.add(enabled);
   }

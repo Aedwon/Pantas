@@ -21,6 +21,7 @@ class RecordingTelemetrySink implements Telemetry {
 
   bool throwOnSetEnabled = false;
   bool throwOnSetEnabledFalse = false;
+  bool throwOnSetEnabledFalseAfterFirst = false;
   bool throwOnSetEnabledTrue = false;
   bool throwOnRecordError = false;
   bool throwOnSetUserIdentifier = false;
@@ -44,9 +45,11 @@ class RecordingTelemetrySink implements Telemetry {
   @override
   Future<void> setEnabled({required bool enabled}) async {
     enabledCalls.add(enabled);
+    final falseCallCount = enabledCalls.where((e) => !e).length;
     if (throwOnSetEnabled ||
         (enabled && throwOnSetEnabledTrue) ||
-        (!enabled && throwOnSetEnabledFalse)) {
+        (!enabled && throwOnSetEnabledFalse) ||
+        (!enabled && throwOnSetEnabledFalseAfterFirst && falseCallCount > 1)) {
       throw StateError('SDK setEnabled($enabled) failed');
     }
   }
@@ -81,15 +84,39 @@ void main() {
       expect(sink.enabledCalls, [true]);
     });
 
-    test('startup persisted true failure keeps effective state false',
+    test(
+        'startup persisted true failure performs false rollback, keeps effective state false, and rethrows',
         () async {
-      final sink = RecordingTelemetrySink()..throwOnSetEnabled = true;
+      final sink = RecordingTelemetrySink()..throwOnSetEnabledTrue = true;
       final controller = TelemetryConsentController(sink);
 
-      await controller.applyStartupConsent(enabled: true);
+      await expectLater(
+        controller.applyStartupConsent(enabled: true),
+        throwsA(isA<StateError>()),
+      );
 
       expect(controller.state, isFalse);
-      expect(sink.enabledCalls, [true]);
+      expect(sink.enabledCalls, [true, false]);
+    });
+
+    test(
+        'startup persisted true failure rethrows original enable error when rollback also fails',
+        () async {
+      final sink = RecordingTelemetrySink()
+        ..throwOnSetEnabledTrue = true
+        ..throwOnSetEnabledFalse = true;
+      final controller = TelemetryConsentController(sink);
+
+      try {
+        await controller.applyStartupConsent(enabled: true);
+        fail('Expected StateError');
+      } catch (error) {
+        expect(error, isA<StateError>());
+        expect((error as StateError).message, 'SDK setEnabled(true) failed');
+      }
+
+      expect(controller.state, isFalse);
+      expect(sink.enabledCalls, [true, false]);
     });
 
     test(
@@ -120,12 +147,49 @@ void main() {
     });
 
     test(
-        'runtime transition false to true stops and remains closed if purge fails',
+        'runtime transition false to true performs false rollback on enable failure, keeps state false, and rethrows',
+        () async {
+      final sink = RecordingTelemetrySink()..throwOnSetEnabledTrue = true;
+      final controller = TelemetryConsentController(sink);
+
+      await expectLater(
+        controller.setAnalyticsCollectionEnabled(enabled: true),
+        throwsA(isA<StateError>()),
+      );
+
+      expect(controller.state, isFalse);
+      expect(sink.enabledCalls, [false, true, false]);
+    });
+
+    test(
+        'runtime transition false to true rethrows original enable error when rollback also fails',
+        () async {
+      final sink = RecordingTelemetrySink()..throwOnSetEnabledTrue = true;
+      final controller = TelemetryConsentController(sink);
+      sink.throwOnSetEnabledFalseAfterFirst = true;
+
+      try {
+        await controller.setAnalyticsCollectionEnabled(enabled: true);
+        fail('Expected StateError');
+      } catch (error) {
+        expect(error, isA<StateError>());
+        expect((error as StateError).message, 'SDK setEnabled(true) failed');
+      }
+
+      expect(controller.state, isFalse);
+      expect(sink.enabledCalls, [false, true, false]);
+    });
+
+    test(
+        'runtime transition false to true stops, remains closed, and rethrows if purge fails',
         () async {
       final sink = RecordingTelemetrySink()..throwOnSetEnabledFalse = true;
       final controller = TelemetryConsentController(sink);
 
-      await controller.setAnalyticsCollectionEnabled(enabled: true);
+      await expectLater(
+        controller.setAnalyticsCollectionEnabled(enabled: true),
+        throwsA(isA<StateError>()),
+      );
 
       expect(controller.state, isFalse);
       expect(sink.enabledCalls, [false]);
@@ -136,8 +200,11 @@ void main() {
       final sink = RecordingTelemetrySink()..throwOnSetEnabledFalse = true;
       final controller = TelemetryConsentController(sink);
 
-      // First attempt fails during purge
-      await controller.setAnalyticsCollectionEnabled(enabled: true);
+      // First attempt fails during purge and rethrows
+      await expectLater(
+        controller.setAnalyticsCollectionEnabled(enabled: true),
+        throwsA(isA<StateError>()),
+      );
       expect(controller.state, isFalse);
       expect(sink.enabledCalls, [false]);
 
@@ -167,7 +234,7 @@ void main() {
     });
 
     test(
-        'runtime transition true to false failure still leaves effective gate closed',
+        'runtime transition true to false failure still leaves effective gate closed and rethrows',
         () async {
       final sink = RecordingTelemetrySink();
       final controller = TelemetryConsentController(sink);
@@ -176,10 +243,56 @@ void main() {
       expect(controller.state, isTrue);
 
       sink.throwOnSetEnabledFalse = true;
-      await controller.setAnalyticsCollectionEnabled(enabled: false);
+      await expectLater(
+        controller.setAnalyticsCollectionEnabled(enabled: false),
+        throwsA(isA<StateError>()),
+      );
 
       expect(controller.state, isFalse);
       expect(sink.userIdentifierCalls, contains(''));
+      expect(sink.enabledCalls, [true, false]);
+    });
+
+    test(
+        'opt-out attempts both identity clearing and sink disable when identity clearing fails',
+        () async {
+      final sink = RecordingTelemetrySink()..throwOnSetUserIdentifier = true;
+      final controller = TelemetryConsentController(sink);
+
+      await controller.applyStartupConsent(enabled: true);
+      expect(controller.state, isTrue);
+
+      await expectLater(
+        controller.setAnalyticsCollectionEnabled(enabled: false),
+        throwsA(isA<StateError>()),
+      );
+
+      expect(controller.state, isFalse);
+      // sink.setEnabled(false) was still executed after identity clearing threw
+      expect(sink.enabledCalls, [true, false]);
+    });
+
+    test(
+        'opt-out attempts both identity clearing and sink disable when both fail, rethrowing first failure',
+        () async {
+      final sink = RecordingTelemetrySink()
+        ..throwOnSetUserIdentifier = true
+        ..throwOnSetEnabledFalse = true;
+      final controller = TelemetryConsentController(sink);
+
+      await controller.applyStartupConsent(enabled: true);
+      expect(controller.state, isTrue);
+
+      try {
+        await controller.setAnalyticsCollectionEnabled(enabled: false);
+        fail('Expected StateError');
+      } catch (error) {
+        expect(error, isA<StateError>());
+        expect((error as StateError).message, 'setUserIdentifier failed');
+      }
+
+      expect(controller.state, isFalse);
+      expect(sink.enabledCalls, [true, false]);
     });
   });
 
@@ -347,7 +460,9 @@ void main() {
       expect(container.read(effectiveTelemetryConsentProvider), isFalse);
     });
 
-    test('partial SDK failure on enable keeps effective gate false', () async {
+    test(
+        'partial SDK failure on enable keeps effective gate false and rethrows',
+        () async {
       final sink = RecordingTelemetrySink()..throwOnSetEnabled = true;
       final container = ProviderContainer(
         overrides: [
@@ -358,7 +473,10 @@ void main() {
 
       final controller =
           container.read(telemetryConsentControllerProvider.notifier);
-      await controller.setAnalyticsCollectionEnabled(enabled: true);
+      await expectLater(
+        controller.setAnalyticsCollectionEnabled(enabled: true),
+        throwsA(isA<StateError>()),
+      );
 
       expect(container.read(effectiveTelemetryConsentProvider), isFalse);
     });

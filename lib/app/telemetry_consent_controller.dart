@@ -13,7 +13,11 @@ class TelemetryConsentController extends StateNotifier<bool>
   TelemetryConsentController(this._sink) : super(false);
 
   final Telemetry _sink;
-  bool _purgePending = false;
+
+  @override
+  void closeTelemetryGate() {
+    state = false;
+  }
 
   /// Applies persisted consent from storage at startup.
   ///
@@ -23,33 +27,18 @@ class TelemetryConsentController extends StateNotifier<bool>
   /// consent-true use without purging first, then opens gate if successful.
   Future<void> applyStartupConsent({required bool enabled}) async {
     if (!enabled) {
-      state = false;
-      try {
-        await _sink.setUserIdentifier('');
-      } catch (error, stack) {
-        debugPrint(
-          'Failed to clear telemetry identity on startup: $error\n$stack',
-        );
-      }
-      try {
-        await _sink.setEnabled(enabled: false);
-        _purgePending = false;
-      } catch (error, stack) {
-        _purgePending = true;
-        debugPrint(
-          'Failed to disable telemetry SDKs on startup: $error\n$stack',
-        );
-      }
+      await _handleOptOut();
       return;
     }
 
     try {
       await _sink.setEnabled(enabled: true);
       state = true;
-      _purgePending = false;
     } catch (error, stack) {
       state = false;
       debugPrint('Failed to enable telemetry SDKs on startup: $error\n$stack');
+      await _rollbackDisabled('startup');
+      rethrow;
     }
   }
 
@@ -62,41 +51,63 @@ class TelemetryConsentController extends StateNotifier<bool>
   @override
   Future<void> setAnalyticsCollectionEnabled({required bool enabled}) async {
     if (!enabled) {
-      state = false;
-      try {
-        await _sink.setUserIdentifier('');
-      } catch (error, stack) {
-        debugPrint('Failed to clear telemetry identity: $error\n$stack');
-      }
-      try {
-        await _sink.setEnabled(enabled: false);
-        _purgePending = false;
-      } catch (error, stack) {
-        _purgePending = true;
-        debugPrint('Failed to disable telemetry SDKs: $error\n$stack');
-      }
+      await _handleOptOut();
       return;
     }
 
     // Opt-in (false -> true): must purge unsent reports first before enabling or sending.
     try {
       await _sink.setEnabled(enabled: false);
-      _purgePending = false;
     } catch (error, stack) {
-      _purgePending = true;
       state = false;
       debugPrint(
           'Failed to purge unsent reports before opt-in: $error\n$stack');
-      return;
+      rethrow;
     }
 
     try {
       await _sink.setEnabled(enabled: true);
       state = true;
-      _purgePending = false;
     } catch (error, stack) {
       state = false;
       debugPrint('Failed to enable telemetry SDKs on opt-in: $error\n$stack');
+      await _rollbackDisabled('opt-in');
+      rethrow;
+    }
+  }
+
+  Future<void> _rollbackDisabled(String context) async {
+    try {
+      await _sink.setEnabled(enabled: false);
+    } catch (error, stack) {
+      debugPrint(
+          'Failed to rollback telemetry SDK state on $context failure: $error\n$stack');
+    }
+  }
+
+  Future<void> _handleOptOut() async {
+    closeTelemetryGate();
+    Object? firstError;
+    StackTrace? firstStack;
+
+    try {
+      await _sink.setUserIdentifier('');
+    } catch (error, stack) {
+      firstError ??= error;
+      firstStack ??= stack;
+      debugPrint('Failed to clear telemetry identity: $error\n$stack');
+    }
+
+    try {
+      await _sink.setEnabled(enabled: false);
+    } catch (error, stack) {
+      firstError ??= error;
+      firstStack ??= stack;
+      debugPrint('Failed to disable telemetry SDKs: $error\n$stack');
+    }
+
+    if (firstError != null) {
+      Error.throwWithStackTrace(firstError, firstStack!);
     }
   }
 }

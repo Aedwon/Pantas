@@ -7,13 +7,17 @@ import 'package:pantas/features/settings/domain/user_settings.dart';
 
 typedef SettingsClock = DateTime Function();
 
-// ignore: one_member_abstracts
 abstract interface class AnalyticsConsentGateway {
+  void closeTelemetryGate();
+
   Future<void> setAnalyticsCollectionEnabled({required bool enabled});
 }
 
 class NoopAnalyticsConsentGateway implements AnalyticsConsentGateway {
   const NoopAnalyticsConsentGateway();
+
+  @override
+  void closeTelemetryGate() {}
 
   @override
   Future<void> setAnalyticsCollectionEnabled({required bool enabled}) async {}
@@ -136,11 +140,54 @@ class DriftSettingsRepository {
   }
 
   Future<void> updateHelpImproveApp({required bool enabled}) async {
-    await _writeAccountPrefs({
-      SettingsPrefKeys.helpImproveApp: enabled ? 'true' : 'false',
-      SettingsPrefKeys.updatedAt: _clock().toUtc().toIso8601String(),
-    });
-    await _analytics.setAnalyticsCollectionEnabled(enabled: enabled);
+    if (!enabled) {
+      _analytics.closeTelemetryGate();
+
+      Object? writeError;
+      StackTrace? writeStack;
+      try {
+        await _writeAccountPrefs({
+          SettingsPrefKeys.helpImproveApp: 'false',
+          SettingsPrefKeys.updatedAt: _clock().toUtc().toIso8601String(),
+        });
+      } catch (error, stack) {
+        writeError = error;
+        writeStack = stack;
+      }
+
+      Object? gatewayError;
+      StackTrace? gatewayStack;
+      try {
+        await _analytics.setAnalyticsCollectionEnabled(enabled: false);
+      } catch (error, stack) {
+        gatewayError = error;
+        gatewayStack = stack;
+      }
+
+      if (writeError != null) {
+        Error.throwWithStackTrace(writeError, writeStack!);
+      }
+      if (gatewayError != null) {
+        Error.throwWithStackTrace(gatewayError, gatewayStack!);
+      }
+      return;
+    }
+
+    await _analytics.setAnalyticsCollectionEnabled(enabled: true);
+
+    try {
+      await _writeAccountPrefs({
+        SettingsPrefKeys.helpImproveApp: 'true',
+        SettingsPrefKeys.updatedAt: _clock().toUtc().toIso8601String(),
+      });
+    } catch (writeError, writeStack) {
+      try {
+        await _analytics.setAnalyticsCollectionEnabled(enabled: false);
+      } catch (_) {
+        // Cleanup failure is ignored so original write error is rethrown below.
+      }
+      Error.throwWithStackTrace(writeError, writeStack);
+    }
   }
 
   Future<void> updateCarryOverProgress({required bool enabled}) async {
