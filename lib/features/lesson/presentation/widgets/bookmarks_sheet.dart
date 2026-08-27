@@ -78,6 +78,30 @@ class _BookmarksSheetState extends ConsumerState<_BookmarksSheet> {
     });
   }
 
+  Widget _tapTarget({
+    required String label,
+    required VoidCallback onTap,
+    required Widget child,
+    bool? selected,
+  }) {
+    return Semantics(
+      button: true,
+      label: label,
+      selected: selected,
+      onTap: onTap,
+      child: ExcludeSemantics(
+        child: GestureDetector(
+          onTap: onTap,
+          behavior: HitTestBehavior.opaque,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(minWidth: 48, minHeight: 50),
+            child: Center(child: child),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
@@ -89,6 +113,42 @@ class _BookmarksSheetState extends ConsumerState<_BookmarksSheet> {
     final rows = rowsAsync.valueOrNull ?? const [];
     final currentOrder = orderAsync.valueOrNull ?? BookmarkOrder.recent;
     final isCustom = currentOrder == BookmarkOrder.custom;
+    final compactLayout = MediaQuery.textScalerOf(context).scale(1) >= 1.5;
+
+    final editAction = _tapTarget(
+      label: _editing ? 'Done editing bookmarks' : 'Edit bookmarks',
+      onTap: () {
+        setState(() {
+          _editing = !_editing;
+          _selectedIds.clear();
+        });
+      },
+      child: Text(
+        _editing ? 'Done' : 'Edit',
+        style: styles.bodySmall.copyWith(
+          color: colors.board,
+          fontWeight: FontWeight.w600,
+          fontSize: 13,
+        ),
+      ),
+    );
+
+    Widget orderAction(BookmarkOrder order) => _tapTarget(
+          label: 'Order bookmarks by ${order.label}',
+          selected: currentOrder == order,
+          onTap: () {
+            ref.read(bookmarkOrderProvider.notifier).choose(order);
+          },
+          child: Text(
+            order.label,
+            style: styles.bodySmall.copyWith(
+              fontSize: 12.5,
+              color: currentOrder == order ? colors.ink : colors.inkMuted,
+              fontWeight:
+                  currentOrder == order ? FontWeight.w700 : FontWeight.w400,
+            ),
+          ),
+        );
 
     return Container(
       decoration: BoxDecoration(
@@ -113,76 +173,60 @@ class _BookmarksSheetState extends ConsumerState<_BookmarksSheet> {
           // Header
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Row(
-              children: [
-                Text(
-                  'Bookmarks',
-                  style: styles.headlineMedium,
-                ),
-                const Spacer(),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _editing = !_editing;
-                      _selectedIds.clear();
-                    });
-                  },
-                  behavior: HitTestBehavior.opaque,
-                  child: Text(
-                    _editing ? 'Done' : 'Edit',
-                    style: styles.bodySmall.copyWith(
-                      color: colors.board,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 13,
-                    ),
+            child: compactLayout
+                ? Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text('Bookmarks', style: styles.headlineMedium),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: editAction,
+                      ),
+                    ],
+                  )
+                : Row(
+                    children: [
+                      Text('Bookmarks', style: styles.headlineMedium),
+                      const Spacer(),
+                      editAction,
+                    ],
                   ),
-                ),
-              ],
-            ),
           ),
 
           // Order Selector
           Container(
-            height: 48,
+            height: compactLayout ? 100 : 50,
             decoration: BoxDecoration(
               border: Border(
                 bottom: BorderSide(color: colors.ruleFaint),
               ),
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                for (var i = 0; i < BookmarkOrder.values.length; i++) ...[
-                  if (i > 0)
-                    Container(
-                      width: 1,
-                      height: 12,
-                      margin: const EdgeInsets.symmetric(horizontal: 10),
-                      color: colors.rule,
+            child: compactLayout
+                ? Center(
+                    child: Wrap(
+                      alignment: WrapAlignment.center,
+                      spacing: 8,
+                      children: [
+                        for (final order in BookmarkOrder.values)
+                          orderAction(order),
+                      ],
                     ),
-                  GestureDetector(
-                    onTap: () {
-                      ref
-                          .read(bookmarkOrderProvider.notifier)
-                          .choose(BookmarkOrder.values[i]);
-                    },
-                    behavior: HitTestBehavior.opaque,
-                    child: Text(
-                      BookmarkOrder.values[i].label,
-                      style: styles.bodySmall.copyWith(
-                        fontSize: 12.5,
-                        color: currentOrder == BookmarkOrder.values[i]
-                            ? colors.ink
-                            : colors.inkMuted,
-                        fontWeight: currentOrder == BookmarkOrder.values[i]
-                            ? FontWeight.w700
-                            : FontWeight.w400,
-                      ),
-                    ),
+                  )
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      for (var i = 0; i < BookmarkOrder.values.length; i++) ...[
+                        if (i > 0)
+                          Container(
+                            width: 1,
+                            height: 12,
+                            margin: const EdgeInsets.symmetric(horizontal: 10),
+                            color: colors.rule,
+                          ),
+                        orderAction(BookmarkOrder.values[i]),
+                      ],
+                    ],
                   ),
-                ],
-              ],
-            ),
           ),
 
           // Main bookmark list
@@ -243,14 +287,14 @@ class _BookmarksSheetState extends ConsumerState<_BookmarksSheet> {
           if (isCustom && !_editing)
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8),
-              child: GestureDetector(
+              child: _tapTarget(
+                label: 'Reset bookmark order',
                 onTap: () async {
                   await ref
                       .read(lessonBookmarksRepositoryProvider)
                       .clearCustomOrder();
                   ref.invalidate(bookmarkRowsProvider);
                 },
-                behavior: HitTestBehavior.opaque,
                 child: Text(
                   'Reset order',
                   style: styles.bodySmall.copyWith(
@@ -269,14 +313,14 @@ class _BookmarksSheetState extends ConsumerState<_BookmarksSheet> {
                   top: BorderSide(color: colors.ruleFaint),
                 ),
               ),
-              child: Row(
-                children: [
-                  Text(
+              child: Builder(
+                builder: (context) {
+                  final selectedCount = Text(
                     '${_selectedIds.length} selected',
                     style: styles.bodySmall.copyWith(color: colors.inkMuted),
-                  ),
-                  const Spacer(),
-                  GestureDetector(
+                  );
+                  final selectAll = _tapTarget(
+                    label: 'Select all bookmarks',
                     onTap: () {
                       setState(() {
                         if (_selectedIds.length == rows.length) {
@@ -286,16 +330,14 @@ class _BookmarksSheetState extends ConsumerState<_BookmarksSheet> {
                         }
                       });
                     },
-                    behavior: HitTestBehavior.opaque,
                     child: Text(
                       'Select all',
                       style: styles.bodySmall.copyWith(color: colors.inkMuted),
                     ),
-                  ),
-                  const SizedBox(width: 16),
-                  GestureDetector(
+                  );
+                  final remove = _tapTarget(
+                    label: 'Remove selected bookmarks',
                     onTap: () => _removeSelected(rows),
-                    behavior: HitTestBehavior.opaque,
                     child: Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 12,
@@ -313,8 +355,32 @@ class _BookmarksSheetState extends ConsumerState<_BookmarksSheet> {
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  );
+                  if (compactLayout) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        selectedCount,
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Wrap(
+                            spacing: 16,
+                            children: [selectAll, remove],
+                          ),
+                        ),
+                      ],
+                    );
+                  }
+                  return Row(
+                    children: [
+                      selectedCount,
+                      const Spacer(),
+                      selectAll,
+                      const SizedBox(width: 16),
+                      remove,
+                    ],
+                  );
+                },
               ),
             ),
         ],
@@ -332,71 +398,87 @@ class _BookmarksSheetState extends ConsumerState<_BookmarksSheet> {
     final colors = context.colors;
     final styles = context.textStyles;
 
-    return GestureDetector(
+    void onRowTap() {
+      if (isEditing) {
+        _toggleSelect(row.lessonId);
+      } else {
+        context.push('/lesson/${row.lessonId}');
+      }
+    }
+
+    return Semantics(
       key: key,
-      onTap: () {
-        if (isEditing) {
-          _toggleSelect(row.lessonId);
-        } else {
-          context.push('/lesson/${row.lessonId}');
-        }
-      },
-      behavior: HitTestBehavior.opaque,
-      child: Container(
-        constraints: const BoxConstraints(minHeight: 44),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(color: colors.ruleFaint),
-          ),
-        ),
-        child: Row(
-          children: [
-            if (isEditing) ...[
-              InkCheckbox(
-                state: _selectedIds.contains(row.lessonId)
-                    ? InkCheckState.on
-                    : InkCheckState.off,
-                onTap: () => _toggleSelect(row.lessonId),
+      button: !isEditing,
+      checked: isEditing ? _selectedIds.contains(row.lessonId) : null,
+      label: isEditing
+          ? 'Select bookmark: ${row.title}'
+          : 'Open bookmark: ${row.title}',
+      onTap: onRowTap,
+      child: ExcludeSemantics(
+        child: GestureDetector(
+          onTap: onRowTap,
+          behavior: HitTestBehavior.opaque,
+          child: Container(
+            constraints: const BoxConstraints(minHeight: 48),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(color: colors.ruleFaint),
               ),
-              const SizedBox(width: 12),
-            ],
-            PennantMark(
-              isSet: true,
-              color: colors.inkMuted,
-              size: 14,
             ),
-            const SizedBox(width: 8),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(row.title, style: styles.bodyMedium),
-                  Text(
-                    '${row.topicName}, ${row.estimatedMinutes} min',
-                    style: styles.bodySmall.copyWith(color: colors.inkMuted),
+            child: Row(
+              children: [
+                if (isEditing) ...[
+                  InkCheckbox(
+                    state: _selectedIds.contains(row.lessonId)
+                        ? InkCheckState.on
+                        : InkCheckState.off,
+                    onTap: () => _toggleSelect(row.lessonId),
+                  ),
+                  const SizedBox(width: 12),
+                ],
+                PennantMark(
+                  isSet: true,
+                  color: colors.inkMuted,
+                  size: 14,
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(row.title, style: styles.bodyMedium),
+                      Text(
+                        '${row.topicName}, ${row.estimatedMinutes} min',
+                        style:
+                            styles.bodySmall.copyWith(color: colors.inkMuted),
+                      ),
+                    ],
+                  ),
+                ),
+                if (!isEditing) ...[
+                  const SizedBox(width: 10),
+                  const InkChevron(),
+                ],
+                if (isCustom) ...[
+                  const SizedBox(width: 2),
+                  ReorderableDragStartListener(
+                    index: index,
+                    child: SizedBox.square(
+                      dimension: 48,
+                      child: Icon(
+                        Icons.drag_handle,
+                        key: const ValueKey('bookmark-grip'),
+                        color: colors.inkMuted,
+                        size: 18,
+                      ),
+                    ),
                   ),
                 ],
-              ),
+              ],
             ),
-            if (!isEditing) ...[
-              const SizedBox(width: 10),
-              const InkChevron(),
-            ],
-            if (isCustom) ...[
-              const SizedBox(width: 10),
-              ReorderableDragStartListener(
-                index: index,
-                child: Icon(
-                  Icons.drag_handle,
-                  key: const ValueKey('bookmark-grip'),
-                  color: colors.inkMuted,
-                  size: 18,
-                ),
-              ),
-            ],
-          ],
+          ),
         ),
       ),
     );

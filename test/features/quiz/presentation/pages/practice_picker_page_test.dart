@@ -131,6 +131,56 @@ void main() {
     expect(find.text('minutes'), findsOneWidget);
   });
 
+  testWidgets('unit choices are 48dp radio controls with selected state',
+      (tester) async {
+    final semantics = tester.ensureSemantics();
+    await pumpPicker(tester, pace: 40000);
+    await tester.pumpAndSettle();
+
+    final questions = find.semantics.byLabel('Questions');
+    final minutes = find.semantics.byLabel('Minutes');
+    expect(questions, findsOne);
+    expect(minutes, findsOne);
+    expect(
+      questions,
+      matchesSemantics(
+        label: 'Questions',
+        hasCheckedState: true,
+        isChecked: true,
+        isInMutuallyExclusiveGroup: true,
+        hasTapAction: true,
+      ),
+    );
+    expect(
+      minutes,
+      matchesSemantics(
+        label: 'Minutes',
+        hasCheckedState: true,
+        isInMutuallyExclusiveGroup: true,
+        hasTapAction: true,
+      ),
+    );
+    for (final target in [questions, minutes]) {
+      expect(target.evaluate().single.rect.width, greaterThanOrEqualTo(48));
+      expect(target.evaluate().single.rect.height, greaterThanOrEqualTo(48));
+    }
+
+    tester.semantics.tap(minutes);
+    await tester.pump();
+
+    expect(
+      find.semantics.byLabel('Minutes'),
+      matchesSemantics(
+        label: 'Minutes',
+        hasCheckedState: true,
+        isChecked: true,
+        isInMutuallyExclusiveGroup: true,
+        hasTapAction: true,
+      ),
+    );
+    semantics.dispose();
+  });
+
   testWidgets('tapping the caret unfolds, tapping the row selects',
       (tester) async {
     await pumpPicker(tester);

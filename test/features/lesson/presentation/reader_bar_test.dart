@@ -15,15 +15,19 @@ void main() {
     VoidCallback? onBookmark,
     VoidCallback? onContents,
     double scrollOffset = 0,
+    TextScaler textScaler = TextScaler.noScaling,
   }) async {
     await tester.pumpApp(
-      ReaderBar(
-        title: title,
-        origin: origin,
-        isBookmarked: isBookmarked,
-        onBookmark: onBookmark ?? () {},
-        onContents: onContents ?? () {},
-        scrollOffset: ValueNotifier(scrollOffset),
+      MediaQuery(
+        data: MediaQueryData(textScaler: textScaler),
+        child: ReaderBar(
+          title: title,
+          origin: origin,
+          isBookmarked: isBookmarked,
+          onBookmark: onBookmark ?? () {},
+          onContents: onContents ?? () {},
+          scrollOffset: ValueNotifier(scrollOffset),
+        ),
       ),
     );
   }
@@ -82,5 +86,56 @@ void main() {
 
     await tester.tap(find.byType(BookmarkRibbon));
     expect(toggled, isTrue);
+  });
+
+  testWidgets('the contents action is labeled and at least 48dp',
+      (tester) async {
+    final semantics = tester.ensureSemantics();
+    await pumpBar(tester);
+
+    final action = find.semantics.byLabel('Contents');
+    expect(action, findsOne);
+    expect(action.evaluate().single.rect.size.width, greaterThanOrEqualTo(48));
+    expect(action.evaluate().single.rect.size.height, greaterThanOrEqualTo(48));
+
+    semantics.dispose();
+  });
+
+  testWidgets('the bookmark action names a lesson and is at least 48dp',
+      (tester) async {
+    final semantics = tester.ensureSemantics();
+    await pumpBar(tester);
+
+    final action = find.semantics.byLabel('Bookmark lesson');
+    expect(action, findsOne);
+    expect(action.evaluate().single.rect.size.width, greaterThanOrEqualTo(48));
+    expect(action.evaluate().single.rect.size.height, greaterThanOrEqualTo(48));
+
+    semantics.dispose();
+  });
+
+  testWidgets('the back action names its destination and is at least 48dp',
+      (tester) async {
+    final semantics = tester.ensureSemantics();
+    await pumpBar(tester);
+
+    final action = find.semantics.byLabel('Back to Study');
+    expect(action, findsOne);
+    expect(action.evaluate().single.rect.size.width, greaterThanOrEqualTo(48));
+    expect(action.evaluate().single.rect.size.height, greaterThanOrEqualTo(48));
+
+    semantics.dispose();
+  });
+
+  testWidgets('the reader bar fits at 320dp and 200% text', (tester) async {
+    tester.view
+      ..physicalSize = const Size(320, 640)
+      ..devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await pumpBar(tester, textScaler: const TextScaler.linear(2));
+
+    expect(tester.takeException(), isNull);
   });
 }

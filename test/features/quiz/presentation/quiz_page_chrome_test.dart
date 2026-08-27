@@ -7,6 +7,7 @@ import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/progress_rule.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
+import 'package:pantas/features/quiz/presentation/question_flag_providers.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 import 'package:pantas/features/quiz/presentation/quiz_page.dart';
 
@@ -120,6 +121,96 @@ void main() {
 
     await tester.tap(find.text('4 of 10'));
     await tester.pumpAndSettle();
+  });
+
+  testWidgets('the counter names the current question and is at least 48dp',
+      (tester) async {
+    final semantics = tester.ensureSemantics();
+    final session = QuizSession(
+      sessionId: 's_1',
+      examId: 'cse_prof',
+      questions: sampleQuestions,
+      currentIndex: 3,
+      outcomes: const [],
+      startedAt: DateTime.now(),
+    );
+
+    await tester.pumpAppWithProviders(
+      const QuizPage(examId: 'cse_prof', mode: QuizPageMode.practice),
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        quizControllerProvider.overrideWith(
+          (ref) => _FakeQuizController(
+            ref,
+            QuizRunning(session: session, questionShownAt: DateTime.now()),
+          ),
+        ),
+      ],
+    );
+
+    final counter = find.semantics.byLabel(
+      'Question 4 of 10. Open question navigator',
+    );
+    expect(counter, findsOne);
+    expect(
+      counter,
+      matchesSemantics(
+        label: 'Question 4 of 10. Open question navigator',
+        isButton: true,
+        hasEnabledState: true,
+        isEnabled: true,
+        hasTapAction: true,
+      ),
+    );
+    expect(counter.evaluate().single.rect.width, greaterThanOrEqualTo(48));
+    expect(counter.evaluate().single.rect.height, greaterThanOrEqualTo(48));
+    semantics.dispose();
+  });
+
+  testWidgets('the flag action names and exposes its set state',
+      (tester) async {
+    final semantics = tester.ensureSemantics();
+    final session = QuizSession(
+      sessionId: 's_1',
+      examId: 'cse_prof',
+      questions: sampleQuestions,
+      currentIndex: 3,
+      outcomes: const [],
+      startedAt: DateTime.now(),
+    );
+
+    await tester.pumpAppWithProviders(
+      const QuizPage(examId: 'cse_prof', mode: QuizPageMode.practice),
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        flaggedIdsProvider.overrideWith((_) async => {'q_4'}),
+        quizControllerProvider.overrideWith(
+          (ref) => _FakeQuizController(
+            ref,
+            QuizRunning(session: session, questionShownAt: DateTime.now()),
+          ),
+        ),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    final flag = find.semantics.byLabel('Remove flag from question 4');
+    expect(flag, findsOne);
+    expect(
+      flag,
+      matchesSemantics(
+        label: 'Remove flag from question 4',
+        isButton: true,
+        hasEnabledState: true,
+        isEnabled: true,
+        hasToggledState: true,
+        isToggled: true,
+        hasTapAction: true,
+      ),
+    );
+    expect(flag.evaluate().single.rect.width, greaterThanOrEqualTo(48));
+    expect(flag.evaluate().single.rect.height, greaterThanOrEqualTo(48));
+    semantics.dispose();
   });
 
   testWidgets('the rail is one continuous fill', (tester) async {
