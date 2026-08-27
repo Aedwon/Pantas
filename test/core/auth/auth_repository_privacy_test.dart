@@ -59,6 +59,7 @@ void main() {
       gateway: gateway,
       googleGateway: google,
       functionsGateway: functions,
+      accountTransitionGateway: RecordingAccountTransitionGateway(operations),
       localStateWiper: wiper,
       clock: () => DateTime(2026, 5, 17, 14, 1),
     );
@@ -66,6 +67,7 @@ void main() {
     await repo.deleteAccount();
 
     expect(operations, [
+      'prepareForDeleteAccount',
       'deleteAccount',
       'wipeAll',
       'signOut',
@@ -76,6 +78,31 @@ void main() {
       gateway.currentSession,
       const AuthSession(uid: 'anon-1', isAnonymous: true),
     );
+  });
+
+  test('deleteAccount stops when transition preparation fails', () async {
+    final operations = <String>[];
+    final functions = PrivacyFunctionsGateway(operations: operations);
+    final repo = AuthRepository(
+      gateway: PrivacyAuthGateway(
+        operations: operations,
+        currentSession: AuthSession(
+          uid: 'user-1',
+          lastSignInTime: DateTime(2026, 5, 17, 14),
+        ),
+      ),
+      googleGateway: PrivacyGoogleGateway(operations: operations),
+      functionsGateway: functions,
+      accountTransitionGateway:
+          FailingDeleteAccountTransitionGateway(operations),
+      localStateWiper: RecordingLocalStateWiper(operations),
+      clock: () => DateTime(2026, 5, 17, 14, 1),
+    );
+
+    await expectLater(repo.deleteAccount(), throwsA(isA<StateError>()));
+
+    expect(operations, ['prepareForDeleteAccount']);
+    expect(functions.deleteAccountCalls, 0);
   });
 
   test(staleReauthCancelledTestName, () async {
@@ -188,6 +215,42 @@ class PrivacyFunctionsGateway implements AuthFunctionsGateway {
     _operations?.add('deleteAccount');
     deleteAccountCalls += 1;
   }
+}
+
+class RecordingAccountTransitionGateway implements AccountTransitionGateway {
+  RecordingAccountTransitionGateway(this.operations);
+
+  final List<String> operations;
+
+  @override
+  Future<void> prepareForAccountSwitch() async {}
+
+  @override
+  Future<void> prepareForDeleteAccount() async {
+    operations.add('prepareForDeleteAccount');
+  }
+
+  @override
+  Future<void> prepareForSignOut() async {}
+}
+
+class FailingDeleteAccountTransitionGateway
+    implements AccountTransitionGateway {
+  FailingDeleteAccountTransitionGateway(this.operations);
+
+  final List<String> operations;
+
+  @override
+  Future<void> prepareForAccountSwitch() async {}
+
+  @override
+  Future<void> prepareForDeleteAccount() async {
+    operations.add('prepareForDeleteAccount');
+    throw StateError('delete-account preparation failed');
+  }
+
+  @override
+  Future<void> prepareForSignOut() async {}
 }
 
 class NoopLocalStateWiper implements LocalStateWiper {

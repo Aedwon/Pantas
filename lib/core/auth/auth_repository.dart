@@ -1,3 +1,4 @@
+import 'package:pantas/core/auth/account_transition_gateway.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/sign_in_result.dart';
 
@@ -35,6 +36,7 @@ class AuthRepository {
     required AuthGateway gateway,
     GoogleSignInGateway? googleGateway,
     AuthFunctionsGateway? functionsGateway,
+    AccountTransitionGateway? accountTransitionGateway,
     LocalStateWiper? localStateWiper,
     CloudProgressGateway? cloudProgressGateway,
     Clock? clock,
@@ -43,6 +45,8 @@ class AuthRepository {
             googleGateway ?? const UnconfiguredGoogleSignInGateway(),
         _functionsGateway =
             functionsGateway ?? const UnconfiguredAuthFunctionsGateway(),
+        _accountTransitionGateway =
+            accountTransitionGateway ?? const NoopAccountTransitionGateway(),
         _localStateWiper = localStateWiper ?? const NoopLocalStateWiper(),
         _cloudProgressGateway =
             cloudProgressGateway ?? const EmptyCloudProgressGateway(),
@@ -51,6 +55,7 @@ class AuthRepository {
   final AuthGateway _gateway;
   final GoogleSignInGateway _googleGateway;
   final AuthFunctionsGateway _functionsGateway;
+  final AccountTransitionGateway _accountTransitionGateway;
   final LocalStateWiper _localStateWiper;
   final CloudProgressGateway _cloudProgressGateway;
   final Clock _clock;
@@ -81,6 +86,7 @@ class AuthRepository {
   }
 
   Future<void> signOut() async {
+    await _accountTransitionGateway.prepareForSignOut();
     await _localStateWiper.wipeAll();
     await _gateway.signOut();
     await _googleGateway.signOut();
@@ -103,6 +109,7 @@ class AuthRepository {
       await _gateway.signInWithGoogleCredential(tokens);
     }
 
+    await _accountTransitionGateway.prepareForDeleteAccount();
     await _functionsGateway.deleteAccount();
     await _localStateWiper.wipeAll();
     await _gateway.signOut();
@@ -114,6 +121,7 @@ class AuthRepository {
     GoogleAuthTokens tokens,
   ) async {
     final meaningfulLocalData = await _localStateWiper.hasMeaningfulProgress();
+    await _accountTransitionGateway.prepareForAccountSwitch();
     try {
       await _gateway.signOut();
       final session = await _gateway.signInWithGoogleCredential(tokens);

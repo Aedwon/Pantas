@@ -9,6 +9,8 @@ void main() {
       gateway: gateway,
       googleGateway: OneTokenGoogleGateway(),
       functionsGateway: CountingFunctionsGateway(),
+      accountTransitionGateway:
+          RecordingAccountTransitionGateway(gateway.operations),
       localStateWiper: const MeaningfulLocalStateWiper(hasData: true),
       cloudProgressGateway: const MeaningfulCloudProgressGateway(hasData: true),
     );
@@ -17,6 +19,7 @@ void main() {
 
     expect(gateway.operations, [
       'link',
+      'prepareForAccountSwitch',
       'signOut',
       'signInWithCredential',
     ]);
@@ -66,6 +69,28 @@ void main() {
       'signInWithCredential',
       'signInAnonymously',
     ]);
+  });
+
+  test('collision stops before signOut when switch preparation fails',
+      () async {
+    final gateway = CollisionAuthGateway();
+    final repo = AuthRepository(
+      gateway: gateway,
+      googleGateway: OneTokenGoogleGateway(),
+      functionsGateway: CountingFunctionsGateway(),
+      accountTransitionGateway:
+          FailingAccountSwitchTransitionGateway(gateway.operations),
+      localStateWiper: const MeaningfulLocalStateWiper(hasData: true),
+      cloudProgressGateway:
+          const MeaningfulCloudProgressGateway(hasData: false),
+    );
+
+    await expectLater(
+      repo.signInWithGoogle(),
+      throwsA(isA<StateError>()),
+    );
+
+    expect(gateway.operations, ['link', 'prepareForAccountSwitch']);
   });
 }
 
@@ -137,6 +162,42 @@ class CountingFunctionsGateway implements AuthFunctionsGateway {
   @override
   Future<Uri> exportData() async =>
       Uri.parse('https://example.com/export.json');
+}
+
+class RecordingAccountTransitionGateway implements AccountTransitionGateway {
+  RecordingAccountTransitionGateway(this.operations);
+
+  final List<String> operations;
+
+  @override
+  Future<void> prepareForAccountSwitch() async {
+    operations.add('prepareForAccountSwitch');
+  }
+
+  @override
+  Future<void> prepareForDeleteAccount() async {}
+
+  @override
+  Future<void> prepareForSignOut() async {}
+}
+
+class FailingAccountSwitchTransitionGateway
+    implements AccountTransitionGateway {
+  FailingAccountSwitchTransitionGateway(this.operations);
+
+  final List<String> operations;
+
+  @override
+  Future<void> prepareForAccountSwitch() async {
+    operations.add('prepareForAccountSwitch');
+    throw StateError('account-switch preparation failed');
+  }
+
+  @override
+  Future<void> prepareForDeleteAccount() async {}
+
+  @override
+  Future<void> prepareForSignOut() async {}
 }
 
 class MeaningfulLocalStateWiper implements LocalStateWiper {
