@@ -118,6 +118,47 @@ void main() {
     expect(taps, [7]);
   });
 
+  testWidgets('cell semantics include progress, flags, and availability',
+      (tester) async {
+    await tester.pumpWidget(
+      harness(
+        columns: 6,
+        cells: [
+          GridCell(
+            number: 1,
+            mark: GridCellMark.answered,
+            isFlagged: true,
+            isCurrent: true,
+          ),
+          GridCell(number: 2, isEnabled: false),
+        ],
+      ),
+    );
+
+    expect(
+      tester.getSemantics(find.bySemanticsLabel('Question 1')),
+      matchesSemantics(
+        label: 'Question 1',
+        value: 'Current, Answered, Flagged',
+        hasSelectedState: true,
+        isSelected: true,
+        hasEnabledState: true,
+        isEnabled: true,
+        isButton: true,
+        hasTapAction: true,
+      ),
+    );
+    expect(
+      tester.getSemantics(find.bySemanticsLabel('Question 2')),
+      matchesSemantics(
+        label: 'Question 2',
+        value: 'Unanswered, Unavailable',
+        hasSelectedState: true,
+        hasEnabledState: true,
+      ),
+    );
+  });
+
   testWidgets('the grid has no vertical rules', (tester) async {
     await tester.pumpWidget(harness(cells: plainCells(10)));
 

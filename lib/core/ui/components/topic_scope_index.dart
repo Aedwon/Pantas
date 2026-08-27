@@ -93,25 +93,50 @@ class TopicScopeIndex extends StatelessWidget {
         for (final subject in subjects) ...[
           Padding(
             padding: const EdgeInsets.only(top: 16, bottom: 8),
-            child: Row(
-              children: [
-                if (onToggleSubject != null) ...[
-                  InkCheckbox(
-                    state: (subjectState?.call(subject) ??
-                            TopicScopeCheckState.off)
-                        .asInkCheckState,
-                    onTap: () => onToggleSubject?.call(subject),
-                  ),
-                  const SizedBox(width: 12),
-                ],
-                Expanded(
-                  child: Text(
-                    subject.name,
-                    style:
-                        styles.headlineSmall.copyWith(color: colors.inkMuted),
+            child: Semantics(
+              label: subject.name,
+              checked: onToggleSubject == null ||
+                      subjectState?.call(subject) ==
+                          TopicScopeCheckState.partial
+                  ? null
+                  : subjectState?.call(subject) == TopicScopeCheckState.on,
+              mixed:
+                  subjectState?.call(subject) == TopicScopeCheckState.partial,
+              button: onToggleSubject != null,
+              onTap: onToggleSubject == null
+                  ? null
+                  : () => onToggleSubject!(subject),
+              excludeSemantics: true,
+              child: InkWell(
+                excludeFromSemantics: true,
+                onTap: onToggleSubject == null
+                    ? null
+                    : () => onToggleSubject!(subject),
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(minHeight: 48),
+                  child: Row(
+                    children: [
+                      if (onToggleSubject != null) ...[
+                        ExcludeSemantics(
+                          child: InkCheckbox(
+                            state: (subjectState?.call(subject) ??
+                                    TopicScopeCheckState.off)
+                                .asInkCheckState,
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                      ],
+                      Expanded(
+                        child: Text(
+                          subject.name,
+                          style: styles.headlineSmall
+                              .copyWith(color: colors.inkMuted),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ],
+              ),
             ),
           ),
           for (final topic in subject.topics) ...[
@@ -160,7 +185,7 @@ class TopicScopeRow extends StatelessWidget {
     final styles = context.textStyles;
 
     return Container(
-      constraints: const BoxConstraints(minHeight: 46),
+      constraints: const BoxConstraints(minHeight: 48),
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
@@ -171,48 +196,69 @@ class TopicScopeRow extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: InkWell(
+            child: Semantics(
+              label: topic.name,
+              checked: state == TopicScopeCheckState.partial
+                  ? null
+                  : state == TopicScopeCheckState.on,
+              mixed: state == TopicScopeCheckState.partial,
+              enabled: topic.hasQuestions,
+              button: topic.hasQuestions,
               onTap: topic.hasQuestions ? onToggle : null,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 11),
-                child: Row(
-                  children: [
-                    InkCheckbox(
-                      state: state.asInkCheckState,
-                      enabled: topic.hasQuestions,
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Text(
-                        topic.name,
-                        style: topic.hasQuestions
-                            ? styles.bodyMedium
-                            : styles.bodyMedium
-                                .copyWith(color: colors.inkMuted),
+              excludeSemantics: true,
+              child: InkWell(
+                excludeFromSemantics: true,
+                onTap: topic.hasQuestions ? onToggle : null,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 11),
+                  child: Row(
+                    children: [
+                      ExcludeSemantics(
+                        child: InkCheckbox(
+                          state: state.asInkCheckState,
+                          enabled: topic.hasQuestions,
+                        ),
                       ),
-                    ),
-                    if (!topic.hasQuestions)
-                      Text(
-                        'no questions yet',
-                        style:
-                            styles.bodySmall.copyWith(color: colors.inkMuted),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Text(
+                          topic.name,
+                          style: topic.hasQuestions
+                              ? styles.bodyMedium
+                              : styles.bodyMedium
+                                  .copyWith(color: colors.inkMuted),
+                        ),
                       ),
-                  ],
+                      if (!topic.hasQuestions)
+                        Text(
+                          'no questions yet',
+                          style:
+                              styles.bodySmall.copyWith(color: colors.inkMuted),
+                        ),
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
           if (topic.canUnfold && onUnfold != null)
-            InkWell(
-              key: ValueKey('caret_${topic.id}'),
+            Semantics(
+              label: '${isUnfolded ? 'Collapse' : 'Expand'} ${topic.name}',
+              button: true,
+              expanded: isUnfolded,
               onTap: onUnfold,
-              child: SizedBox(
-                width: 44,
-                height: 44,
-                child: Icon(
-                  isUnfolded ? Icons.expand_less : Icons.expand_more,
-                  size: 18,
-                  color: colors.inkMuted,
+              excludeSemantics: true,
+              child: InkWell(
+                key: ValueKey('caret_${topic.id}'),
+                excludeFromSemantics: true,
+                onTap: onUnfold,
+                child: SizedBox.square(
+                  dimension: 48,
+                  child: Icon(
+                    isUnfolded ? Icons.expand_less : Icons.expand_more,
+                    size: 18,
+                    color: colors.inkMuted,
+                  ),
                 ),
               ),
             ),
@@ -240,7 +286,7 @@ class LessonScopeRow extends StatelessWidget {
     final styles = context.textStyles;
 
     return Container(
-      constraints: const BoxConstraints(minHeight: 40),
+      constraints: const BoxConstraints(minHeight: 48),
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
@@ -248,22 +294,36 @@ class LessonScopeRow extends StatelessWidget {
           ),
         ),
       ),
-      child: InkWell(
+      child: Semantics(
+        label: lesson.title,
+        value: lesson.isRead ? null : 'Not read yet',
+        checked: state == TopicScopeCheckState.partial
+            ? null
+            : state == TopicScopeCheckState.on,
+        mixed: state == TopicScopeCheckState.partial,
+        button: onToggle != null,
         onTap: onToggle,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 9),
-          child: Row(
-            children: [
-              const SizedBox(width: 22),
-              InkCheckbox(state: state.asInkCheckState, size: 14),
-              const SizedBox(width: 12),
-              Expanded(child: Text(lesson.title, style: styles.bodyMedium)),
-              if (!lesson.isRead)
-                Text(
-                  'not read yet',
-                  style: styles.bodySmall.copyWith(color: colors.rust),
+        excludeSemantics: true,
+        child: InkWell(
+          excludeFromSemantics: true,
+          onTap: onToggle,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 9),
+            child: Row(
+              children: [
+                const SizedBox(width: 22),
+                ExcludeSemantics(
+                  child: InkCheckbox(state: state.asInkCheckState, size: 14),
                 ),
-            ],
+                const SizedBox(width: 12),
+                Expanded(child: Text(lesson.title, style: styles.bodyMedium)),
+                if (!lesson.isRead)
+                  Text(
+                    'not read yet',
+                    style: styles.bodySmall.copyWith(color: colors.rust),
+                  ),
+              ],
+            ),
           ),
         ),
       ),

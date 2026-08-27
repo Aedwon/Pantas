@@ -15,7 +15,7 @@ void main() {
     expect(c.boardTint, const Color(0xFFE3EFEA));
     expect(c.onBoard, const Color(0xFFFFFFFF));
     expect(c.rust, const Color(0xFFA33B2E));
-    expect(c.amber, const Color(0xFF9A6B15));
+    expect(c.amber, const Color(0xFF996A15));
   });
 
   test('dark palette matches the Night spec', () {
@@ -46,5 +46,26 @@ void main() {
     expect(lerped.onBoard, AppColors.dark.onBoard);
     expect(lerped.rust, AppColors.dark.rust);
     expect(lerped.amber, AppColors.dark.amber);
+  });
+
+  test('amber clears normal-text contrast on both paper backgrounds', () {
+    double contrast(Color foreground, Color background) {
+      final lighter =
+          foreground.computeLuminance() > background.computeLuminance()
+              ? foreground
+              : background;
+      final darker = foreground == lighter ? background : foreground;
+      return (lighter.computeLuminance() + 0.05) /
+          (darker.computeLuminance() + 0.05);
+    }
+
+    expect(
+      contrast(AppColors.light.amber, AppColors.light.background),
+      greaterThanOrEqualTo(4.5),
+    );
+    expect(
+      contrast(AppColors.dark.amber, AppColors.dark.background),
+      greaterThanOrEqualTo(4.5),
+    );
   });
 }

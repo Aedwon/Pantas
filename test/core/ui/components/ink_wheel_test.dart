@@ -63,4 +63,37 @@ void main() {
 
     expect(find.byType(InkWheel<int>), findsOneWidget);
   });
+
+  testWidgets('exposes one labeled selected value with adjustment actions',
+      (tester) async {
+    var reported = 1;
+    await tester.pumpApp(
+      SizedBox(
+        height: InkWheel.itemHeight * InkWheel.visibleItems,
+        child: InkWheel<int>(
+          values: const [10, 11, 12],
+          selectedIndex: 1,
+          semanticLabel: 'Day',
+          onSelected: (index) => reported = index,
+          labelBuilder: (value) => '$value',
+        ),
+      ),
+    );
+
+    expect(
+      tester.getSemantics(find.bySemanticsLabel('Day')),
+      matchesSemantics(
+        label: 'Day',
+        value: '11',
+        increasedValue: '12',
+        decreasedValue: '10',
+        isSlider: true,
+        hasIncreaseAction: true,
+        hasDecreaseAction: true,
+      ),
+    );
+    tester.semantics.increase(find.semantics.byLabel('Day'));
+    await tester.pump();
+    expect(reported, 2);
+  });
 }

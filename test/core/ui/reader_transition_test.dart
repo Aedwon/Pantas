@@ -10,13 +10,17 @@ void main() {
     Animation<double> arriving,
     Animation<double> departing, {
     ReaderEntry entry = ReaderEntry.advance,
+    bool disableAnimations = false,
   }) {
     return MaterialApp(
-      home: ReaderAdvanceTransition(
-        animation: arriving,
-        secondaryAnimation: departing,
-        entry: entry,
-        child: const Text('lesson'),
+      home: MediaQuery(
+        data: MediaQueryData(disableAnimations: disableAnimations),
+        child: ReaderAdvanceTransition(
+          animation: arriving,
+          secondaryAnimation: departing,
+          entry: entry,
+          child: const Text('lesson'),
+        ),
       ),
     );
   }
@@ -125,5 +129,28 @@ void main() {
 
     expect(end.left, lessThan(start.left));
     expect(start.top, end.top);
+  });
+
+  testWidgets('reduced motion renders the lesson without transitions', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      harness(
+        const AlwaysStoppedAnimation(0),
+        const AlwaysStoppedAnimation(1),
+        disableAnimations: true,
+      ),
+    );
+
+    final transition = find.byType(ReaderAdvanceTransition);
+    expect(
+      find.descendant(of: transition, matching: find.byType(SlideTransition)),
+      findsNothing,
+    );
+    expect(
+      find.descendant(of: transition, matching: find.byType(FadeTransition)),
+      findsNothing,
+    );
+    expect(find.text('lesson'), findsOneWidget);
   });
 }

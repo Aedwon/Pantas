@@ -14,11 +14,11 @@ void main() {
     expect(tester.getSize(find.byType(DataRowTile)).height, 38);
   });
 
-  testWidgets('a tappable row keeps the same visual box', (tester) async {
+  testWidgets('a tappable row reaches 48dp', (tester) async {
     await tester.pumpApp(
       DataRowTile(title: 'Chemistry', onTap: () {}),
     );
-    expect(tester.getSize(find.byType(DataRowTile)).height, 38);
+    expect(tester.getSize(find.byType(DataRowTile)).height, 48);
   });
 
   testWidgets('a row with a subtext takes the height its two lines need',
@@ -36,8 +36,7 @@ void main() {
     );
   });
 
-  testWidgets('a tappable row still reaches 44 of touch target',
-      (tester) async {
+  testWidgets('a tappable row exposes a touch target', (tester) async {
     await tester.pumpApp(
       DataRowTile(title: 'Chemistry', onTap: () {}),
     );

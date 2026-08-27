@@ -389,21 +389,33 @@ class _ImageBlockRenderer extends StatelessWidget {
   Widget build(BuildContext context) {
     final asset = block['asset'] as Map<String, dynamic>? ?? {};
     final url = asset['url'] as String? ?? '';
+    final alt = (block['alt'] as String?)?.trim();
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(AppDimensions.radiusSurface),
-        child: CachedNetworkImage(
-          imageUrl: url,
-          fit: BoxFit.cover,
-          placeholder: (context, _) => Container(
-            height: 200,
-            color: context.colors.ruleFaint,
-          ),
-          errorWidget: (_, __, ___) =>
-              const _UnknownBlockPlaceholder(blockType: 'image'),
+      child: alt == null || alt.isEmpty
+          ? ExcludeSemantics(child: _image(context, url))
+          : Semantics(
+              label: alt,
+              image: true,
+              excludeSemantics: true,
+              child: _image(context, url),
+            ),
+    );
+  }
+
+  Widget _image(BuildContext context, String url) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(AppDimensions.radiusSurface),
+      child: CachedNetworkImage(
+        imageUrl: url,
+        fit: BoxFit.cover,
+        placeholder: (context, _) => Container(
+          height: 200,
+          color: context.colors.ruleFaint,
         ),
+        errorWidget: (_, __, ___) =>
+            const _UnknownBlockPlaceholder(blockType: 'image'),
       ),
     );
   }

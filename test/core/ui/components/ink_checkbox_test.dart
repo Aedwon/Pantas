@@ -39,6 +39,23 @@ void main() {
     expect(find.byIcon(Icons.check), findsNothing);
     final box = tester.widget<Container>(find.byType(Container).first);
     expect((box.decoration! as BoxDecoration).color, isNotNull);
+    expect(
+      tester.getSemantics(find.byType(InkCheckbox)),
+      matchesSemantics(
+        hasCheckedState: true,
+        isCheckStateMixed: true,
+        hasEnabledState: true,
+        isEnabled: true,
+      ),
+    );
+  });
+
+  testWidgets('its semantic target is 48dp', (tester) async {
+    await _pump(
+      tester,
+      InkCheckbox(state: InkCheckState.off, onTap: () {}),
+    );
+    expect(tester.getSize(find.byType(InkCheckbox)), const Size(48, 48));
   });
 
   testWidgets('the binary factory maps true and false onto on and off',

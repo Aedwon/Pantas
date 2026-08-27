@@ -34,7 +34,7 @@ class GridCell {
 /// grows and everything below shifts.
 const double _caretSlot = 7;
 const double _markSlot = 11;
-const double _cellHeight = 46;
+const double _cellHeight = 48;
 
 /// The navigator, as a grid rather than a list.
 ///
@@ -143,6 +143,17 @@ class GridCellView extends StatelessWidget {
     final colors = context.colors;
     final styles = context.textStyles;
     final isAnswered = cell.mark != GridCellMark.none;
+    final state = <String>[
+      if (cell.isCurrent) 'Current',
+      switch (cell.mark) {
+        GridCellMark.none => 'Unanswered',
+        GridCellMark.answered => 'Answered',
+        GridCellMark.correct => 'Correct',
+        GridCellMark.wrong => 'Wrong',
+      },
+      if (cell.isFlagged) 'Flagged',
+      if (!cell.isEnabled) 'Unavailable',
+    ].join(', ');
 
     final numberStyle = styles.bodyMedium.copyWith(
       fontFamily: 'SourceSans3',
@@ -177,11 +188,25 @@ class GridCellView extends StatelessWidget {
       ),
     );
 
-    if (!cell.isEnabled) {
-      return Opacity(opacity: 0.32, child: cellBody);
-    }
-
-    return InkWell(onTap: () => onTap(cell.number), child: cellBody);
+    return Semantics(
+      label: 'Question ${cell.number}',
+      value: state,
+      selected: cell.isCurrent,
+      enabled: cell.isEnabled,
+      button: cell.isEnabled,
+      onTap: cell.isEnabled ? () => onTap(cell.number) : null,
+      excludeSemantics: true,
+      child: Opacity(
+        opacity: cell.isEnabled ? 1 : 0.32,
+        child: cell.isEnabled
+            ? InkWell(
+                excludeFromSemantics: true,
+                onTap: () => onTap(cell.number),
+                child: cellBody,
+              )
+            : cellBody,
+      ),
+    );
   }
 }
 

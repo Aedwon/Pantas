@@ -150,28 +150,37 @@ class _NavItemState extends State<_NavItem>
     final color = widget.isActive ? colors.ink : colors.inkMuted;
 
     return Expanded(
-      child: InkWell(
+      child: Semantics(
+        label: widget.label,
+        button: true,
+        selected: widget.isActive,
         onTap: widget.onTap,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            AnimatedBuilder(
-              animation: _fill,
-              builder: (context, _) => NavGlyph(
-                kind: widget.glyph,
-                fill: _fill.value,
-                color: color,
+        excludeSemantics: true,
+        child: InkWell(
+          excludeFromSemantics: true,
+          onTap: widget.onTap,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              AnimatedBuilder(
+                animation: _fill,
+                builder: (context, _) => NavGlyph(
+                  kind: widget.glyph,
+                  fill: _fill.value,
+                  color: color,
+                ),
               ),
-            ),
-            const SizedBox(height: 2),
-            Text(
-              widget.label,
-              style: styles.labelSmall.copyWith(
-                color: color,
-                fontWeight: widget.isActive ? FontWeight.w700 : FontWeight.w600,
+              const SizedBox(height: 2),
+              Text(
+                widget.label,
+                style: styles.labelSmall.copyWith(
+                  color: color,
+                  fontWeight:
+                      widget.isActive ? FontWeight.w700 : FontWeight.w600,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -328,6 +328,30 @@ void main() {
 
       expect(find.byType(CachedNetworkImage), findsOneWidget);
     });
+
+    testWidgets('forwards authored image alt text', (tester) async {
+      await tester.pumpApp(
+        const PortableTextRenderer(
+          blocks: [
+            {
+              '_type': 'image',
+              'alt': 'A labeled triangle with three equal sides',
+              'asset': {'url': 'https://cdn.sanity.io/images/test/image.jpg'},
+            },
+          ],
+        ),
+      );
+
+      expect(
+        tester.getSemantics(
+          find.bySemanticsLabel('A labeled triangle with three equal sides'),
+        ),
+        matchesSemantics(
+          label: 'A labeled triangle with three equal sides',
+          isImage: true,
+        ),
+      );
+    });
   });
 
   group('lesson figure and table blocks', () {

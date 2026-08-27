@@ -1,3 +1,5 @@
+import 'dart:ui' show Tristate;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -196,6 +198,18 @@ void main() {
         tester.widget<Text>(find.text('Home')).style?.fontWeight,
         isNot(FontWeight.w700),
       );
+    });
+
+    testWidgets('the current tab is selected in semantics', (tester) async {
+      final semantics = tester.ensureSemantics();
+      await tester.pumpWidget(harness(currentIndex: 1, onTap: (_) {}));
+
+      final study = tester.getSemantics(find.bySemanticsLabel('Study'));
+      final home = tester.getSemantics(find.bySemanticsLabel('Home'));
+
+      expect(study.flagsCollection.isSelected, Tristate.isTrue);
+      expect(home.flagsCollection.isSelected, Tristate.isFalse);
+      semantics.dispose();
     });
   });
 }

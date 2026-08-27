@@ -51,26 +51,58 @@ class ErrorBanner extends StatelessWidget {
           ),
           const SizedBox(width: 10),
           Expanded(
-            child: Text(
-              message,
-              style: styles.bodySmall.copyWith(color: colors.ink),
+            child: Semantics(
+              liveRegion: true,
+              label: message,
+              child: ExcludeSemantics(
+                child: Text(
+                  message,
+                  style: styles.bodySmall.copyWith(color: colors.ink),
+                ),
+              ),
             ),
           ),
           if (actionLabel != null && onAction != null) ...[
             const SizedBox(width: 10),
-            GestureDetector(
+            Semantics(
+              container: true,
+              label: actionLabel,
+              button: true,
               onTap: onAction,
-              child: Text(
-                actionLabel!,
-                style: styles.labelLarge.copyWith(color: colors.board),
+              excludeSemantics: true,
+              child: InkWell(
+                excludeFromSemantics: true,
+                onTap: onAction,
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(minWidth: 48),
+                  child: SizedBox(
+                    height: 48,
+                    child: Center(
+                      child: Text(
+                        actionLabel!,
+                        style: styles.labelLarge.copyWith(color: colors.board),
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
           if (onDismiss != null) ...[
-            const SizedBox(width: 10),
-            GestureDetector(
+            Semantics(
+              container: true,
+              label: 'Dismiss message',
+              button: true,
               onTap: onDismiss,
-              child: Icon(Icons.close, size: 16, color: colors.inkMuted),
+              excludeSemantics: true,
+              child: InkWell(
+                excludeFromSemantics: true,
+                onTap: onDismiss,
+                child: SizedBox.square(
+                  dimension: 48,
+                  child: Icon(Icons.close, size: 16, color: colors.inkMuted),
+                ),
+              ),
             ),
           ],
         ],

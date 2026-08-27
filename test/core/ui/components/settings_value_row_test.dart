@@ -7,7 +7,7 @@ import 'package:pantas/core/ui/theme/app_colors.dart';
 import '../../../helpers/pump_app.dart';
 
 void main() {
-  testWidgets('the visual box is 38 and the tappable box is 44',
+  testWidgets('the visual box is 38 and the tappable box is 48',
       (tester) async {
     await tester.pumpApp(
       SettingsValueRow(title: 'Exam', value: 'UPCAT', onTap: () {}),
@@ -81,6 +81,27 @@ void main() {
 
     await tester.tap(find.text('Strict mock mode'));
     expect(taps, 1);
+  });
+
+  testWidgets('a switch row exposes one named toggled node', (tester) async {
+    await tester.pumpApp(
+      SettingsValueRow(
+        title: 'Strict mock mode',
+        control: const SettingsSwitch(value: true),
+        onTap: () {},
+      ),
+    );
+
+    expect(
+      tester.getSemantics(find.bySemanticsLabel('Strict mock mode')),
+      matchesSemantics(
+        label: 'Strict mock mode',
+        hasToggledState: true,
+        isToggled: true,
+        isButton: true,
+        hasTapAction: true,
+      ),
+    );
   });
 
   testWidgets('a row with no onTap does not respond to a tap', (tester) async {

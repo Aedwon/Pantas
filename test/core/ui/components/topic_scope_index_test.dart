@@ -81,4 +81,55 @@ void main() {
     expect(toggled, isNotNull);
     expect(toggled!.id, equals('top_alg'));
   });
+
+  testWidgets('reports mixed selection and disclosure state', (tester) async {
+    const expandable = TopicScopeSubjectData(
+      id: 'sub_math',
+      name: 'Mathematics',
+      topics: [
+        TopicScopeTopicData(
+          id: 'top_alg',
+          name: 'Algebra',
+          lessons: [TopicScopeLessonData(id: 'lesson_1', title: 'Variables')],
+        ),
+      ],
+    );
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(),
+        home: Scaffold(
+          body: TopicScopeIndex(
+            subjects: const [expandable],
+            topicState: (_) => TopicScopeCheckState.partial,
+            onToggleTopic: (_) {},
+            unfoldedTopicIds: const {'top_alg'},
+            onToggleUnfold: (_) {},
+          ),
+        ),
+      ),
+    );
+
+    expect(
+      tester.getSemantics(find.bySemanticsLabel('Algebra')),
+      matchesSemantics(
+        label: 'Algebra',
+        hasCheckedState: true,
+        isCheckStateMixed: true,
+        hasEnabledState: true,
+        isEnabled: true,
+        isButton: true,
+        hasTapAction: true,
+      ),
+    );
+    expect(
+      tester.getSemantics(find.bySemanticsLabel('Collapse Algebra')),
+      matchesSemantics(
+        label: 'Collapse Algebra',
+        isButton: true,
+        hasExpandedState: true,
+        isExpanded: true,
+        hasTapAction: true,
+      ),
+    );
+  });
 }

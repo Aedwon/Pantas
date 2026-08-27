@@ -33,6 +33,14 @@ void main() {
       );
       expect(find.text('Could not save answer'), findsOneWidget);
       expect(find.text('Retry'), findsOneWidget);
+      expect(
+        tester.getSize(find.bySemanticsLabel('Retry')).height,
+        48,
+      );
+      expect(
+        tester.getSize(find.bySemanticsLabel('Retry')).width,
+        greaterThanOrEqualTo(48),
+      );
     });
 
     testWidgets('offline variant shows dismiss button', (tester) async {
@@ -45,6 +53,11 @@ void main() {
       );
       expect(find.text('Offline — progress is saved'), findsOneWidget);
       expect(find.byIcon(Icons.close), findsOneWidget);
+      expect(find.bySemanticsLabel('Dismiss message'), findsOneWidget);
+      expect(
+        tester.getSize(find.bySemanticsLabel('Dismiss message')),
+        const Size(48, 48),
+      );
     });
 
     testWidgets('success variant shows message', (tester) async {

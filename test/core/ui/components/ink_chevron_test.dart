@@ -3,8 +3,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/ink_chevron.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
-Widget harness(Widget child) =>
-    MaterialApp(theme: buildLightTheme(), home: Scaffold(body: child));
+Widget harness(Widget child, {bool disableAnimations = false}) => MaterialApp(
+      theme: buildLightTheme(),
+      home: MediaQuery(
+        data: MediaQueryData(disableAnimations: disableAnimations),
+        child: Scaffold(body: child),
+      ),
+    );
 
 void main() {
   testWidgets('a chevron paints at its given size', (tester) async {
@@ -32,5 +37,18 @@ void main() {
       find.byType(AnimatedRotation),
     );
     expect(rotation.turns, 0);
+  });
+
+  testWidgets('reduced motion makes disclosure rotation instant', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      harness(const InkChevron(pointsDown: true), disableAnimations: true),
+    );
+
+    final rotation = tester.widget<AnimatedRotation>(
+      find.byType(AnimatedRotation),
+    );
+    expect(rotation.duration, Duration.zero);
   });
 }

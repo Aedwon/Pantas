@@ -167,6 +167,9 @@ class _ExamDateSheetBodyState extends State<_ExamDateSheetBody> {
                       key: ValueKey('day_wheel_$_monthIndex'),
                       values: dayValues,
                       selectedIndex: _dayIndex,
+                      semanticLabel: 'Day',
+                      semanticValueBuilder: (value) =>
+                          value == '-' ? 'Month only' : value,
                       onSelected: (index) {
                         setState(() => _dayIndex = index);
                       },
@@ -177,6 +180,9 @@ class _ExamDateSheetBodyState extends State<_ExamDateSheetBody> {
                     child: InkWheel<DateTime>(
                       values: _months,
                       selectedIndex: _monthIndex,
+                      semanticLabel: 'Month',
+                      semanticValueBuilder: (value) =>
+                          _monthLabels[value.month - 1],
                       onSelected: (index) {
                         setState(() {
                           _monthIndex = index;
@@ -193,6 +199,8 @@ class _ExamDateSheetBodyState extends State<_ExamDateSheetBody> {
                     child: InkWheel<DateTime>(
                       values: _months,
                       selectedIndex: _monthIndex,
+                      semanticLabel: 'Year',
+                      semanticValueBuilder: (value) => '${value.year}',
                       onSelected: (index) {
                         setState(() {
                           _monthIndex = index;

@@ -22,59 +22,30 @@ class ThemeControl extends StatelessWidget {
   final ValueChanged<ThemePreference> onChanged;
 
   static const double height = 22;
-  static const double segmentWidth = 30;
+  static const double segmentWidth = 48;
   static const double markSize = 12;
 
   static const double _stroke = 1.2;
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
-
     return SizedBox(
       width: segmentWidth * 3,
-      height: height,
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          border: Border.all(color: colors.rule, width: _stroke),
-          borderRadius: BorderRadius.circular(1),
-        ),
-        child: Row(
-          children: [
-            Expanded(
-              child: _segment(
-                context,
-                ThemePreference.light,
-                'Light theme',
-                _Mark.sun,
-              ),
-            ),
-            _divider(colors.rule),
-            Expanded(
-              child: _segment(
-                context,
-                ThemePreference.dark,
-                'Dark theme',
-                _Mark.moon,
-              ),
-            ),
-            _divider(colors.rule),
-            Expanded(
-              child: _segment(
-                context,
-                ThemePreference.system,
-                'Follow my phone',
-                _Mark.half,
-              ),
-            ),
-          ],
-        ),
+      height: 48,
+      child: Row(
+        children: [
+          _segment(context, ThemePreference.light, 'Light theme', _Mark.sun),
+          _segment(context, ThemePreference.dark, 'Dark theme', _Mark.moon),
+          _segment(
+            context,
+            ThemePreference.system,
+            'Follow my phone',
+            _Mark.half,
+          ),
+        ],
       ),
     );
   }
-
-  Widget _divider(Color color) =>
-      SizedBox(width: _stroke, child: ColoredBox(color: color));
 
   Widget _segment(
     BuildContext context,
@@ -89,17 +60,31 @@ class ThemeControl extends StatelessWidget {
       label: label,
       button: true,
       selected: live,
+      onTap: () => onChanged(preference),
+      excludeSemantics: true,
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: () => onChanged(preference),
-        child: ColoredBox(
-          color: live ? colors.ink : Colors.transparent,
+        child: SizedBox.square(
+          dimension: segmentWidth,
           child: Center(
-            child: CustomPaint(
-              size: const Size.square(markSize),
-              painter: _MarkPainter(
-                mark: mark,
-                color: live ? colors.background : colors.inkMuted,
+            child: Container(
+              key: ValueKey('theme-segment-$label'),
+              width: segmentWidth,
+              height: height,
+              decoration: BoxDecoration(
+                color: live ? colors.ink : Colors.transparent,
+                border: Border.all(color: colors.rule, width: _stroke),
+                borderRadius: BorderRadius.circular(1),
+              ),
+              child: Center(
+                child: CustomPaint(
+                  size: const Size.square(markSize),
+                  painter: _MarkPainter(
+                    mark: mark,
+                    color: live ? colors.background : colors.inkMuted,
+                  ),
+                ),
               ),
             ),
           ),
