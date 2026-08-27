@@ -4,9 +4,16 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/presentation/part_transition_page.dart';
 
 void main() {
-  Widget buildTransition({VoidCallback? onStartNext}) {
+  Widget buildTransition({
+    VoidCallback? onStartNext,
+    TextScaler textScaler = TextScaler.noScaling,
+  }) {
     return MaterialApp(
       theme: buildLightTheme(),
+      builder: (context, child) => MediaQuery(
+        data: MediaQuery.of(context).copyWith(textScaler: textScaler),
+        child: child!,
+      ),
       home: PartTransitionPage(
         closedPartName: 'Numerical Ability',
         closedPartMinutes: 30,
@@ -71,5 +78,25 @@ void main() {
     await tester.tap(find.text('Start Part 2'));
     await tester.pump();
     expect(started, 1);
+  });
+
+  testWidgets('content fits short 320 and 360dp screens at 200 percent text',
+      (tester) async {
+    tester.view.devicePixelRatio = 2;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    for (final width in [320.0, 360.0]) {
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pump();
+      tester.view.physicalSize = Size(width * 2, 1136);
+      await tester.pumpWidget(
+        buildTransition(textScaler: const TextScaler.linear(2)),
+      );
+      await tester.pump();
+
+      expect(tester.takeException(), isNull, reason: '$width dp');
+      expect(find.text('Start Part 2'), findsOneWidget);
+    }
   });
 }

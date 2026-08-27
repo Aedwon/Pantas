@@ -297,19 +297,29 @@ class _ExpandControl extends StatelessWidget {
     final colors = context.colors;
     final styles = context.textStyles;
 
-    return InkWell(
+    return Semantics(
+      container: true,
+      button: true,
+      enabled: true,
+      expanded: expanded,
+      label: _label,
+      excludeSemantics: true,
       onTap: onTap,
-      child: Container(
-        constraints: const BoxConstraints(minHeight: 44),
-        alignment: Alignment.center,
-        // Ink, not board. The spec is explicit that board green appears
-        // nowhere in this table, and the colour budget keeps it for primary
-        // actions. Weight carries this instead of colour.
-        child: Text(
-          _label,
-          style: styles.labelSmall.copyWith(
-            color: colors.ink,
-            fontWeight: FontWeight.w600,
+      child: InkWell(
+        excludeFromSemantics: true,
+        onTap: onTap,
+        child: Container(
+          constraints: const BoxConstraints(minHeight: 48),
+          alignment: Alignment.center,
+          // Ink, not board. The spec is explicit that board green appears
+          // nowhere in this table, and the colour budget keeps it for primary
+          // actions. Weight carries this instead of colour.
+          child: Text(
+            _label,
+            style: styles.labelSmall.copyWith(
+              color: colors.ink,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
       ),

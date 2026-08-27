@@ -12,19 +12,25 @@ Widget resultsHarness({
   bool forfeited = false,
   String blueprintName = 'UPCAT full length',
   String dateFormatted = '2 August 2026',
+  String sectionName = 'Part 1',
+  TextScaler textScaler = TextScaler.noScaling,
 }) {
   return MaterialApp(
     theme: buildLightTheme(),
+    builder: (context, child) => MediaQuery(
+      data: MediaQuery.of(context).copyWith(textScaler: textScaler),
+      child: child!,
+    ),
     home: MockResultsPage(
       results: MockResults(
         scoreRaw: raw,
         scoreTotal: total,
         percent: total > 0 ? (raw / total * 100) : 0,
         band: band,
-        sections: const [
+        sections: [
           SectionResult(
             sectionId: 's1',
-            name: 'Part 1',
+            name: sectionName,
             correct: 82,
             total: 120,
             retiredCount: 0,
@@ -83,6 +89,32 @@ void main() {
     await tester.pumpAndSettle();
     for (final word in ['paper', 'Borderline', 'borderline', 'marks', '—']) {
       expect(find.textContaining(word), findsNothing);
+    }
+  });
+
+  testWidgets('results fit 320 and 360dp at 200 percent text', (tester) async {
+    tester.view.devicePixelRatio = 2;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    for (final width in [320.0, 360.0]) {
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pump();
+      tester.view.physicalSize = Size(width * 2, 1136);
+      await tester.pumpWidget(
+        resultsHarness(
+          blueprintName: 'UPCAT full length mock',
+          sectionName: 'Numerical Ability',
+          textScaler: const TextScaler.linear(2),
+        ),
+      );
+      await tester.pumpAndSettle();
+      await tester.drag(find.byType(ListView), const Offset(0, -420));
+      await tester.pumpAndSettle();
+
+      expect(tester.takeException(), isNull, reason: '$width dp');
+      expect(find.text('Numerical Ability'), findsOneWidget);
+      expect(find.text('60m'), findsOneWidget);
     }
   });
 }

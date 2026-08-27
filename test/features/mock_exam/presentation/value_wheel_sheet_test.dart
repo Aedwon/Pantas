@@ -1,12 +1,21 @@
+import 'dart:ui' show SemanticsAction;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/value_wheel_sheet.dart';
 
 void main() {
-  Widget harness(void Function(BuildContext) onTap) {
+  Widget harness(
+    void Function(BuildContext) onTap, {
+    TextScaler textScaler = TextScaler.noScaling,
+  }) {
     return MaterialApp(
       theme: buildLightTheme(),
+      builder: (context, child) => MediaQuery(
+        data: MediaQuery.of(context).copyWith(textScaler: textScaler),
+        child: child!,
+      ),
       home: Scaffold(
         body: Builder(
           builder: (context) => TextButton(
@@ -43,6 +52,7 @@ void main() {
           title: 'How long is it?',
           values: minuteValues,
           initial: 120,
+          semanticLabel: 'Time wheel',
           format: formatDuration,
         ),
       ),
@@ -52,6 +62,35 @@ void main() {
 
     expect(find.byType(ValueWheel), findsOneWidget);
     expect(find.text('2h 00m'), findsOneWidget);
+  });
+
+  testWidgets('the wheel exposes its purpose, value, and adjustment actions',
+      (tester) async {
+    await tester.pumpWidget(
+      harness(
+        (context) => showValueWheelSheet(
+          context: context,
+          title: 'How long is it?',
+          values: minuteValues,
+          initial: 120,
+          semanticLabel: 'Time wheel',
+          format: formatDuration,
+        ),
+      ),
+    );
+    await tester.tap(find.text('open'));
+    await tester.pumpAndSettle();
+
+    final wheel = tester.getSemantics(find.bySemanticsLabel('Time wheel'));
+    expect(wheel.value, '2h 00m');
+    expect(
+      wheel.getSemanticsData().hasAction(SemanticsAction.increase),
+      isTrue,
+    );
+    expect(
+      wheel.getSemanticsData().hasAction(SemanticsAction.decrease),
+      isTrue,
+    );
   });
 
   testWidgets('the section sheet labels its two columns', (tester) async {
@@ -73,6 +112,38 @@ void main() {
     expect(find.byType(ValueWheel), findsNWidgets(2));
   });
 
+  testWidgets('two columns fit at 320 and 360dp with 200 percent text',
+      (tester) async {
+    tester.view.devicePixelRatio = 2;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    for (final width in [320.0, 360.0]) {
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pump();
+      tester.view.physicalSize = Size(width * 2, 1136);
+      await tester.pumpWidget(
+        harness(
+          (context) => showTwoColumnWheelSheet(
+            context: context,
+            title: 'Mathematics',
+            initialQuestions: 60,
+            initialMinutes: 45,
+          ),
+          textScaler: const TextScaler.linear(2),
+        ),
+      );
+      await tester.tap(find.text('open'));
+      await tester.pumpAndSettle();
+
+      expect(tester.takeException(), isNull, reason: '$width dp');
+      expect(find.bySemanticsLabel('Questions wheel'), findsOneWidget);
+      expect(find.bySemanticsLabel('Minutes wheel'), findsOneWidget);
+      final done = find.bySemanticsLabel('Done');
+      expect(tester.getSize(done).height, greaterThanOrEqualTo(48));
+    }
+  });
+
   testWidgets('Done returns the value under the band', (tester) async {
     int? chosen;
     await tester.pumpWidget(
@@ -82,6 +153,7 @@ void main() {
           title: 'How many questions?',
           values: questionValues,
           initial: 60,
+          semanticLabel: 'Questions wheel',
         ),
       ),
     );
@@ -104,6 +176,7 @@ void main() {
               title: 'How many questions?',
               values: questionValues,
               initial: 60,
+              semanticLabel: 'Questions wheel',
             ) ??
             -1,
       ),

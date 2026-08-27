@@ -120,20 +120,36 @@ class _ScopeCell extends StatelessWidget {
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.centerLeft,
-      child: InkWell(
+      child: Semantics(
+        container: true,
+        button: true,
+        enabled: onTap != null,
+        expanded: false,
+        label: 'Subject filter, $label',
+        excludeSemantics: true,
         onTap: onTap,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(label, style: headStyle(context)),
-            const SizedBox(height: 2),
-            CustomPaint(
-              key: const ValueKey('scope-underline'),
-              size: Size(_labelWidth(context), AppDimensions.hairline),
-              painter: _DottedRulePainter(color: context.colors.inkMuted),
+        child: InkWell(
+          excludeFromSemantics: true,
+          onTap: onTap,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(label, style: headStyle(context)),
+                  const SizedBox(height: 2),
+                  CustomPaint(
+                    key: const ValueKey('scope-underline'),
+                    size: Size(_labelWidth(context), AppDimensions.hairline),
+                    painter: _DottedRulePainter(color: context.colors.inkMuted),
+                  ),
+                ],
+              ),
             ),
-          ],
+          ),
         ),
       ),
     );
@@ -183,25 +199,40 @@ class _SortCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    final directionLabel =
+        direction == TableSortDirection.ascending ? 'ascending' : 'descending';
+    final semanticsLabel = 'Sort by ${label.toLowerCase()}'
+        '${isActive ? ', $directionLabel' : ''}';
+
+    return Semantics(
+      container: true,
+      button: true,
+      enabled: true,
+      selected: isActive,
+      label: semanticsLabel,
+      excludeSemantics: true,
       onTap: onTap,
-      child: ConstrainedBox(
-        // The figure columns beneath are 52 wide. The head matches them
-        // and grows rather than clipping if a label ever needs more.
-        constraints: const BoxConstraints(minWidth: 52),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            if (isActive) ...[
-              SortCaret(
-                key: const ValueKey('sort-caret'),
-                direction: direction,
-              ),
-              const SizedBox(width: 4),
+      child: InkWell(
+        excludeFromSemantics: true,
+        onTap: onTap,
+        child: ConstrainedBox(
+          // The figure columns beneath are 52 wide. The head matches them
+          // and grows rather than clipping if a label ever needs more.
+          constraints: const BoxConstraints(minWidth: 52, minHeight: 48),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              if (isActive) ...[
+                SortCaret(
+                  key: const ValueKey('sort-caret'),
+                  direction: direction,
+                ),
+                const SizedBox(width: 4),
+              ],
+              Text(label, style: headStyle(context)),
             ],
-            Text(label, style: headStyle(context)),
-          ],
+          ),
         ),
       ),
     );

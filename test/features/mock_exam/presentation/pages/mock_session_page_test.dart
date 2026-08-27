@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_floating_bar.dart';
 
 void main() {
@@ -112,4 +112,67 @@ void main() {
     expect(find.text('✕'), findsNothing);
     expect(find.textContaining('Correct'), findsNothing);
   });
+
+  testWidgets('a proctor warning remains available for eight seconds',
+      (tester) async {
+    final hostKey = GlobalKey<_ProctorHostState>();
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          hydratedMockQuestionProvider.overrideWith((ref, id) => null),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: _ProctorHost(key: hostKey, state: stateAt(0)),
+        ),
+      ),
+    );
+    hostKey.currentState!.setRemaining(
+      const Duration(minutes: 20),
+    );
+    await tester.pump();
+    await tester.pump();
+
+    expect(find.text('20:00'), findsOneWidget);
+    expect(find.text('20 minutes left in this subject.'), findsOneWidget);
+    await tester.pump(const Duration(seconds: 3));
+    expect(find.text('20 minutes left in this subject.'), findsOneWidget);
+    await tester.pump(const Duration(seconds: 5));
+    expect(find.text('20 minutes left in this subject.'), findsNothing);
+  });
+}
+
+class _ProctorHost extends StatefulWidget {
+  const _ProctorHost({required this.state, super.key});
+
+  final MockSessionInProgress state;
+
+  @override
+  State<_ProctorHost> createState() => _ProctorHostState();
+}
+
+class _ProctorHostState extends State<_ProctorHost> {
+  Duration _remaining = const Duration(minutes: 20, seconds: 1);
+
+  void setRemaining(Duration value) {
+    setState(() => _remaining = value);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MockSessionPage(
+      state: widget.state,
+      remainingInPart: _remaining,
+      partPosition: 1,
+      partTotal: 40,
+      canGoPrevious: false,
+      canGoNext: true,
+      onPrevious: () {},
+      onNext: () {},
+      onAnswer: (_) {},
+      onToggleFlag: () {},
+      onPause: () {},
+      onShowNavigator: () {},
+    );
+  }
 }

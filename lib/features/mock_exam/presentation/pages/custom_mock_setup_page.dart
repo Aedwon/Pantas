@@ -4,10 +4,10 @@ import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/ink_chevron.dart';
 import 'package:pantas/core/ui/components/settings_switch.dart';
 import 'package:pantas/core/ui/components/settings_value_row.dart';
 import 'package:pantas/core/ui/theme/app_dimensions.dart';
-import 'package:pantas/core/ui/components/ink_chevron.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/domain/corpus_ceiling.dart';
 import 'package:pantas/features/mock_exam/domain/custom_blueprint.dart';
@@ -140,15 +140,24 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
               ),
             ),
             const SizedBox(height: 8),
-            InkWell(
-              onTap: () => context.push('/settings/exam/included'),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                child: Text(
-                  'Tick more subjects',
-                  style: styles.bodyMedium.copyWith(
-                    fontWeight: FontWeight.w600,
-                    color: colors.board,
+            Semantics(
+              button: true,
+              enabled: true,
+              label: 'Tick more subjects',
+              excludeSemantics: true,
+              child: InkWell(
+                onTap: () => context.push('/settings/exam/included'),
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(minHeight: 48),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Tick more subjects',
+                      style: styles.bodyMedium.copyWith(
+                        fontWeight: FontWeight.w600,
+                        color: colors.board,
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -175,6 +184,7 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
       title: 'How many questions?',
       values: questionValues,
       initial: _questions,
+      semanticLabel: 'Questions wheel',
     );
     if (chosen != null) setState(() => _questions = chosen);
   }
@@ -185,6 +195,7 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
       title: 'How long is it?',
       values: minuteValues,
       initial: _minutes,
+      semanticLabel: 'Time wheel',
       format: formatDuration,
     );
     if (chosen != null) setState(() => _minutes = chosen);
@@ -246,36 +257,43 @@ class _ValueRow extends StatelessWidget {
     final colors = context.colors;
     final styles = context.textStyles;
 
-    return InkWell(
+    return Semantics(
+      button: true,
+      enabled: onTap != null,
+      label: '$label, $value',
       onTap: onTap,
-      child: Container(
-        constraints: const BoxConstraints(minHeight: 44),
-        alignment: Alignment.centerLeft,
-        decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(
-              color: colors.ruleFaint,
-              // ignore: avoid_redundant_argument_values
-              width: AppDimensions.hairline,
-            ),
-          ),
-        ),
-        child: Row(
-          children: [
-            Expanded(child: Text(label, style: styles.bodyMedium)),
-            Text(
-              value,
-              style: styles.bodyMedium.copyWith(
-                fontWeight: FontWeight.w600,
-                color: isRefused ? colors.rust : colors.ink,
-                fontFeatures: const [FontFeature.tabularFigures()],
+      excludeSemantics: true,
+      child: InkWell(
+        onTap: onTap,
+        child: Container(
+          constraints: const BoxConstraints(minHeight: 48),
+          alignment: Alignment.centerLeft,
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(
+                color: colors.ruleFaint,
+                // ignore: avoid_redundant_argument_values
+                width: AppDimensions.hairline,
               ),
             ),
-            if (onTap != null) ...[
-              const SizedBox(width: 8),
-              const InkChevron(size: 14),
+          ),
+          child: Row(
+            children: [
+              Expanded(child: Text(label, style: styles.bodyMedium)),
+              Text(
+                value,
+                style: styles.bodyMedium.copyWith(
+                  fontWeight: FontWeight.w600,
+                  color: isRefused ? colors.rust : colors.ink,
+                  fontFeatures: const [FontFeature.tabularFigures()],
+                ),
+              ),
+              if (onTap != null) ...[
+                const SizedBox(width: 8),
+                const InkChevron(size: 14),
+              ],
             ],
-          ],
+          ),
         ),
       ),
     );
@@ -293,33 +311,41 @@ class _BreakdownToggle extends StatelessWidget {
     final colors = context.colors;
     final styles = context.textStyles;
 
-    return InkWell(
+    return Semantics(
+      button: true,
+      enabled: true,
+      expanded: isOpen,
+      label: 'I know the section breakdown',
       onTap: onTap,
-      child: Container(
-        constraints: const BoxConstraints(minHeight: 44),
-        alignment: Alignment.centerLeft,
-        decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(
-              color: colors.ruleFaint,
-              // ignore: avoid_redundant_argument_values
-              width: AppDimensions.hairline,
-            ),
-          ),
-        ),
-        child: Row(
-          children: [
-            Expanded(
-              child: Text(
-                'I know the section breakdown',
-                style: styles.bodyMedium,
+      excludeSemantics: true,
+      child: InkWell(
+        onTap: onTap,
+        child: Container(
+          constraints: const BoxConstraints(minHeight: 48),
+          alignment: Alignment.centerLeft,
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(
+                color: colors.ruleFaint,
+                // ignore: avoid_redundant_argument_values
+                width: AppDimensions.hairline,
               ),
             ),
-            InkChevron(
-              pointsDown: isOpen,
-              size: 14,
-            ),
-          ],
+          ),
+          child: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  'I know the section breakdown',
+                  style: styles.bodyMedium,
+                ),
+              ),
+              InkChevron(
+                pointsDown: isOpen,
+                size: 14,
+              ),
+            ],
+          ),
         ),
       ),
     );

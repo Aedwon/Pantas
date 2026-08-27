@@ -75,4 +75,18 @@ void main() {
     expect(painter.lineColor, AppColors.light.board);
     expect(painter.gridColor, AppColors.light.ruleFaint);
   });
+
+  testWidgets('exposes a concise spoken summary of the accuracy history',
+      (tester) async {
+    await tester.pumpWidget(harness(series: sixPoints));
+
+    expect(
+      find.bySemanticsLabel(
+        'Accuracy history. Up 25 percentage points overall, from 50 percent '
+        'to 75 percent. Lowest 50 percent. Highest 75 percent. '
+        '6 weekly results.',
+      ),
+      findsOneWidget,
+    );
+  });
 }

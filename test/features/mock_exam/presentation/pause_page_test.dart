@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/answer_row.dart';
 import 'package:pantas/core/ui/components/board_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/presentation/pause_page.dart';
 
 class MockSessionPageHost extends StatefulWidget {
@@ -81,9 +81,14 @@ void main() {
     required Duration remaining,
     VoidCallback? onResume,
     VoidCallback? onDiscard,
+    TextScaler textScaler = TextScaler.noScaling,
   }) {
     return MaterialApp(
       theme: buildLightTheme(),
+      builder: (context, child) => MediaQuery(
+        data: MediaQuery.of(context).copyWith(textScaler: textScaler),
+        child: child!,
+      ),
       home: PausePage(
         partName: 'Numerical Ability',
         remaining: remaining,
@@ -197,5 +202,46 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Discard this mock?'), findsOneWidget);
     expect(find.textContaining('does not use up a mock'), findsOneWidget);
+  });
+
+  testWidgets('discard is a named 48dp action and requires confirmation',
+      (tester) async {
+    var discarded = 0;
+    await pumpPaused(tester, onDiscard: () => discarded += 1);
+
+    final discardFinder = find.bySemanticsLabel('Discard this mock');
+    expect(tester.getSemantics(discardFinder).flagsCollection.isButton, isTrue);
+    expect(tester.getSize(discardFinder).height, greaterThanOrEqualTo(48));
+
+    await tester.tap(discardFinder);
+    await tester.pumpAndSettle();
+    expect(discarded, 0);
+    await tester.tap(find.text('Discard'));
+    await tester.pumpAndSettle();
+    expect(discarded, 1);
+  });
+
+  testWidgets('paused content fits short 320 and 360dp screens at 200 percent',
+      (tester) async {
+    tester.view.devicePixelRatio = 2;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    for (final width in [320.0, 360.0]) {
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pump();
+      tester.view.physicalSize = Size(width * 2, 1136);
+      await tester.pumpWidget(
+        buildPaused(
+          remaining: const Duration(minutes: 20),
+          textScaler: const TextScaler.linear(2),
+        ),
+      );
+      await tester.pump();
+
+      expect(tester.takeException(), isNull, reason: '$width dp');
+      expect(find.text('Resume'), findsOneWidget);
+      expect(find.text('Discard this mock'), findsOneWidget);
+    }
   });
 }

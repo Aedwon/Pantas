@@ -27,8 +27,7 @@ class GapComparison extends StatelessWidget {
           children: [
             const FaintBars(),
             const SizedBox(height: 6),
-            Row(
-              mainAxisSize: MainAxisSize.min,
+            Wrap(
               children: [
                 Text(
                   tendency.leftLabel,
@@ -90,8 +89,7 @@ class GapComparison extends StatelessWidget {
         tendency.leftFigure != null && tendency.rightFigure != null;
 
     final captionWidget = hasSourceFigures
-        ? Row(
-            mainAxisSize: MainAxisSize.min,
+        ? Wrap(
             children: [
               Text(
                 '${tendency.leftLabel} ${tendency.leftFigure}',
@@ -116,8 +114,7 @@ class GapComparison extends StatelessWidget {
               ),
             ],
           )
-        : Row(
-            mainAxisSize: MainAxisSize.min,
+        : Wrap(
             children: [
               Text(
                 tendency.leftLabel,

@@ -40,7 +40,8 @@ class MockResultsPage extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
         children: [
-          Row(
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
             children: [
               Text(
                 blueprintName,
@@ -104,40 +105,60 @@ class MockResultsPage extends StatelessWidget {
           for (final section in results.sections) ...[
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      section.name,
-                      style: styles.bodyMedium,
-                    ),
-                  ),
-                  InlineMeter(
+              child: Builder(
+                builder: (context) {
+                  final usesStackedLayout =
+                      MediaQuery.textScalerOf(context).scale(1) > 1.3;
+                  final meter = InlineMeter(
                     value: section.accuracy,
                     color: severityFor(section.accuracy, colors),
                     width: 54,
-                  ),
-                  const SizedBox(width: 12),
-                  SizedBox(
-                    width: 40,
-                    child: Text(
-                      '${(section.accuracy * 100).round()}%',
-                      textAlign: TextAlign.right,
-                      style: styles.bodySmall.copyWith(
-                        color: colors.inkMuted,
-                        fontFeatures: const [FontFeature.tabularFigures()],
-                      ),
+                  );
+                  final accuracy = Text(
+                    '${(section.accuracy * 100).round()}%',
+                    textAlign: TextAlign.right,
+                    style: styles.bodySmall.copyWith(
+                      color: colors.inkMuted,
+                      fontFeatures: const [FontFeature.tabularFigures()],
                     ),
-                  ),
-                  const SizedBox(width: 12),
-                  Text(
+                  );
+                  final time = Text(
                     '${section.timeSeconds ~/ 60}m',
                     style: styles.bodySmall.copyWith(
                       color: colors.inkMuted,
                       fontFeatures: const [FontFeature.tabularFigures()],
                     ),
-                  ),
-                ],
+                  );
+
+                  if (usesStackedLayout) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(section.name, style: styles.bodyMedium),
+                        const SizedBox(height: 8),
+                        Wrap(
+                          spacing: 12,
+                          runSpacing: 8,
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: [meter, accuracy, time],
+                        ),
+                      ],
+                    );
+                  }
+
+                  return Row(
+                    children: [
+                      Expanded(
+                        child: Text(section.name, style: styles.bodyMedium),
+                      ),
+                      meter,
+                      const SizedBox(width: 12),
+                      SizedBox(width: 40, child: accuracy),
+                      const SizedBox(width: 12),
+                      time,
+                    ],
+                  );
+                },
               ),
             ),
             Container(height: AppDimensions.hairline, color: colors.ruleFaint),

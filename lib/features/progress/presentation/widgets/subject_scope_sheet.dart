@@ -98,40 +98,51 @@ class _ScopeRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.colors;
     final styles = context.textStyles;
+    final semanticsLabel = count == null ? label : '$label, $count';
 
-    return InkWell(
+    return Semantics(
+      container: true,
+      button: true,
+      enabled: true,
+      selected: isSelected,
+      label: semanticsLabel,
+      excludeSemantics: true,
       onTap: onTap,
-      child: Container(
-        constraints: const BoxConstraints(minHeight: 44),
-        alignment: Alignment.centerLeft,
-        decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(
-              color: colors.ruleFaint,
-              // ignore: avoid_redundant_argument_values
-              width: AppDimensions.hairline,
+      child: InkWell(
+        excludeFromSemantics: true,
+        onTap: onTap,
+        child: Container(
+          constraints: const BoxConstraints(minHeight: 48),
+          alignment: Alignment.centerLeft,
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(
+                color: colors.ruleFaint,
+                // ignore: avoid_redundant_argument_values
+                width: AppDimensions.hairline,
+              ),
             ),
           ),
-        ),
-        child: Row(
-          children: [
-            Expanded(
-              child: Text(
-                label,
-                style: styles.bodyMedium.copyWith(
-                  fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
+          child: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  label,
+                  style: styles.bodyMedium.copyWith(
+                    fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
+                  ),
                 ),
               ),
-            ),
-            if (count != null)
-              Text(
-                '$count',
-                style: styles.bodySmall.copyWith(
-                  color: colors.inkMuted,
-                  fontFeatures: const [FontFeature.tabularFigures()],
+              if (count != null)
+                Text(
+                  '$count',
+                  style: styles.bodySmall.copyWith(
+                    color: colors.inkMuted,
+                    fontFeatures: const [FontFeature.tabularFigures()],
+                  ),
                 ),
-              ),
-          ],
+            ],
+          ),
         ),
       ),
     );
