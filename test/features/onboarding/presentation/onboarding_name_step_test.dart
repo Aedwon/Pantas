@@ -1,3 +1,5 @@
+import 'dart:ui' show SemanticsAction;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -55,6 +57,27 @@ void main() {
     );
     expect(find.text('Done'), findsOneWidget);
     expect(find.text('Skip'), findsOneWidget);
+  });
+
+  testWidgets('the name field has a programmatic label', (tester) async {
+    await pumpStep(tester);
+
+    expect(find.bySemanticsLabel('Name'), findsOneWidget);
+  });
+
+  testWidgets('Skip is a named control with a 48dp hit region', (tester) async {
+    await pumpStep(tester);
+
+    final skip = find.bySemanticsLabel('Skip');
+    expect(skip, findsOneWidget);
+    expect(tester.getSize(skip).height, greaterThanOrEqualTo(48));
+    expect(tester.getSize(skip).width, greaterThanOrEqualTo(48));
+    expect(
+      tester.getSemantics(skip).getSemanticsData().hasAction(
+            SemanticsAction.tap,
+          ),
+      isTrue,
+    );
   });
 
   testWidgets('Done is disabled until something is typed', (tester) async {

@@ -6,6 +6,7 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/assessment/presentation/assessment_results_page.dart';
 
 import '../../../helpers/in_memory_database.dart';
@@ -65,11 +66,19 @@ void main() {
       name: 'Reading Comprehension',
       ordering: 2,
     );
+    await seedContentTopic(
+      contentDb,
+      topicId: 't3',
+      subjectId: 's1',
+      name: 'Using context clues in unusually long reading passages',
+      ordering: 3,
+    );
 
-    // t1: 0/3 = 0% (weak), t2: 3/3 = 100% (strong)
+    // t1: weak, t3: moderate, t2: strong.
     await AssessmentRepository(db).saveResult('e1', DateTime(2026), [
       const TopicScore(topicId: 't1', correct: 0, total: 3),
       const TopicScore(topicId: 't2', correct: 3, total: 3),
+      const TopicScore(topicId: 't3', correct: 1, total: 2),
     ]);
   });
 
@@ -144,5 +153,57 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Lessons'), findsOneWidget);
+  });
+
+  testWidgets('each mastery color has an equivalent semantic label',
+      (tester) async {
+    await tester.pumpAppWithRouter(
+      _buildRouter('e1'),
+      overrides: databaseOverrides(),
+    );
+    await tester.pumpAndSettle();
+
+    expect(
+      find.bySemanticsLabel('Vocabulary, 0%, Weak'),
+      findsOneWidget,
+    );
+    expect(
+      find.bySemanticsLabel(
+        'Using context clues in unusually long reading passages, 50%, '
+        'Moderate',
+      ),
+      findsOneWidget,
+    );
+    expect(
+      find.bySemanticsLabel('Reading Comprehension, 100%, Strong'),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('topic rows survive 200% text at 320dp', (tester) async {
+    tester.view
+      ..physicalSize = const Size(320, 640)
+      ..devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: databaseOverrides(),
+        child: MaterialApp.router(
+          theme: buildLightTheme(),
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(context).copyWith(
+              textScaler: const TextScaler.linear(2),
+            ),
+            child: child!,
+          ),
+          routerConfig: _buildRouter('e1'),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(tester.takeException(), isNull);
   });
 }

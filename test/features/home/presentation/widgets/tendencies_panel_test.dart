@@ -96,7 +96,11 @@ void main() {
     ),
   ];
 
-  Widget harness({required List<TendencyCard> cards, required bool isPro}) {
+  Widget harness({
+    required List<TendencyCard> cards,
+    required bool isPro,
+    TextScaler textScaler = TextScaler.noScaling,
+  }) {
     final entitlement = isPro
         ? const Entitlement(plan: EntitlementPlan.monthly)
         : const Entitlement.free();
@@ -108,11 +112,16 @@ void main() {
       ],
       child: MaterialApp(
         theme: buildLightTheme(),
-        home: const Scaffold(
-          body: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.all(16),
-              child: TendenciesPanel(),
+        home: Builder(
+          builder: (context) => MediaQuery(
+            data: MediaQuery.of(context).copyWith(textScaler: textScaler),
+            child: const Scaffold(
+              body: SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.all(16),
+                  child: TendenciesPanel(),
+                ),
+              ),
             ),
           ),
         ),
@@ -194,5 +203,29 @@ void main() {
     expect(find.text('Your tendencies'), findsOneWidget);
     expect(find.textContaining('readiness'), findsNothing);
     expect(find.textContaining('Readiness'), findsNothing);
+  });
+
+  testWidgets('survives 200% text at 360dp without clipping', (tester) async {
+    tester.view
+      ..physicalSize = const Size(360, 640)
+      ..devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      harness(
+        cards: fourCards,
+        isPro: true,
+        textScaler: const TextScaler.linear(2),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(tester.takeException(), isNull);
+    expect(find.text('See full details'), findsOneWidget);
+    expect(
+      tester.getSize(find.byType(TendencyCardView).first).height,
+      greaterThan(112),
+    );
   });
 }

@@ -32,7 +32,10 @@ class PracticePanel extends ConsumerWidget {
         heading: 'Practice',
         action: 'See all',
         onAction: () => context.go('/progress'),
-        child: const FaintBars(),
+        child: Semantics(
+          label: 'Loading practice topics',
+          child: const ExcludeSemantics(child: FaintBars()),
+        ),
       ),
       error: (_, __) => const SizedBox.shrink(),
       data: (topics) {
@@ -110,7 +113,7 @@ class _PracticeRow extends ConsumerWidget {
         }
       },
       child: Container(
-        constraints: const BoxConstraints(minHeight: 44),
+        constraints: const BoxConstraints(minHeight: 48),
         alignment: Alignment.centerLeft,
         padding: const EdgeInsets.symmetric(vertical: 8),
         decoration: BoxDecoration(

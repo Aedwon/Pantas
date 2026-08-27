@@ -39,55 +39,61 @@ class SessionBuildingPage extends ConsumerWidget {
         padding: const EdgeInsets.fromLTRB(20, 12, 20, 24),
         children: [
           for (final ordering in SessionOrdering.values)
-            InkWell(
-              onTap: () => unawaited(actions.setSessionOrdering(ordering)),
-              child: Container(
-                constraints: const BoxConstraints(minHeight: 44),
-                padding: const EdgeInsets.symmetric(vertical: 11),
-                decoration: BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(
-                      color: colors.ruleFaint,
-                    ),
-                  ),
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Text(
-                                _name(ordering),
-                                style: styles.headlineSmall,
-                              ),
-                              if (ordering.isRecommended) ...[
-                                const SizedBox(width: 8),
-                                Text(
-                                  'Recommended',
-                                  style: styles.bodySmall.copyWith(
-                                    color: colors.board,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ],
-                            ],
-                          ),
-                          const SizedBox(height: 2),
-                          Text(
-                            _explain(ordering),
-                            style: styles.bodySmall
-                                .copyWith(color: colors.inkMuted),
-                          ),
-                        ],
+            MergeSemantics(
+              child: Semantics(
+                checked: settings.sessionOrdering == ordering,
+                inMutuallyExclusiveGroup: true,
+                child: InkWell(
+                  onTap: () => unawaited(actions.setSessionOrdering(ordering)),
+                  child: Container(
+                    constraints: const BoxConstraints(minHeight: 48),
+                    padding: const EdgeInsets.symmetric(vertical: 11),
+                    decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                          color: colors.ruleFaint,
+                        ),
                       ),
                     ),
-                    if (settings.sessionOrdering == ordering)
-                      Icon(Icons.check, size: 18, color: colors.ink),
-                  ],
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Text(
+                                    _name(ordering),
+                                    style: styles.headlineSmall,
+                                  ),
+                                  if (ordering.isRecommended) ...[
+                                    const SizedBox(width: 8),
+                                    Text(
+                                      'Recommended',
+                                      style: styles.bodySmall.copyWith(
+                                        color: colors.board,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ],
+                                ],
+                              ),
+                              const SizedBox(height: 2),
+                              Text(
+                                _explain(ordering),
+                                style: styles.bodySmall
+                                    .copyWith(color: colors.inkMuted),
+                              ),
+                            ],
+                          ),
+                        ),
+                        if (settings.sessionOrdering == ordering)
+                          Icon(Icons.check, size: 18, color: colors.ink),
+                      ],
+                    ),
+                  ),
                 ),
               ),
             ),

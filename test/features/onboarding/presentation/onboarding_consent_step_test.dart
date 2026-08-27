@@ -25,15 +25,19 @@ void main() {
     WidgetTester tester, {
     VoidCallback? onCompleted,
     List<String>? pushedRoutes,
+    MediaQueryData? mediaQueryData,
   }) async {
     final router = GoRouter(
       initialLocation: '/onboarding',
       routes: [
         GoRoute(
           path: '/onboarding',
-          builder: (context, state) => Scaffold(
-            body: OnboardingConsentStep(
-              onCompleted: onCompleted ?? () {},
+          builder: (context, state) => MediaQuery(
+            data: mediaQueryData ?? MediaQuery.of(context),
+            child: Scaffold(
+              body: OnboardingConsentStep(
+                onCompleted: onCompleted ?? () {},
+              ),
             ),
           ),
         ),
@@ -139,5 +143,26 @@ void main() {
     await tester.tap(find.text('Privacy Policy'));
     await tester.pumpAndSettle();
     expect(pushed, contains('/legal/privacy'));
+  });
+
+  testWidgets('survives 200% text with a keyboard inset at 320dp',
+      (tester) async {
+    tester.view
+      ..physicalSize = const Size(320, 640)
+      ..devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await pumpStep(
+      tester,
+      mediaQueryData: const MediaQueryData(
+        size: Size(320, 640),
+        textScaler: TextScaler.linear(2),
+        viewInsets: EdgeInsets.only(bottom: 240),
+      ),
+    );
+
+    expect(tester.takeException(), isNull);
+    expect(find.widgetWithText(BoardButton, 'Continue'), findsOneWidget);
   });
 }

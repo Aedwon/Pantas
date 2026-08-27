@@ -56,6 +56,7 @@ class _NameSheetBodyState extends State<_NameSheetBody> {
           autofocus: true,
           style: styles.bodyLarge.copyWith(color: colors.ink),
           decoration: InputDecoration(
+            labelText: 'Name',
             hintText: 'A nickname is fine.',
             hintStyle: styles.bodyMedium.copyWith(color: colors.inkMuted),
             border: UnderlineInputBorder(

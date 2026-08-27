@@ -88,6 +88,7 @@ class _OnboardingNameStepState extends ConsumerState<OnboardingNameStep> {
               maxLength: 40,
               style: styles.bodyLarge,
               decoration: InputDecoration(
+                labelText: 'Name',
                 border: underlineBorder,
                 enabledBorder: underlineBorder,
                 focusedBorder: UnderlineInputBorder(
@@ -105,12 +106,16 @@ class _OnboardingNameStepState extends ConsumerState<OnboardingNameStep> {
               onPressed: (_trimmedText.isEmpty || _saving) ? null : _onDone,
             ),
             const SizedBox(height: 14),
-            GestureDetector(
-              onTap: _saving ? null : _onSkip,
-              child: Text(
+            TextButton(
+              onPressed: _saving ? null : _onSkip,
+              style: TextButton.styleFrom(
+                foregroundColor: colors.board,
+                minimumSize: const Size.fromHeight(48),
+                padding: EdgeInsets.zero,
+                textStyle: styles.bodyMedium,
+              ),
+              child: const Text(
                 'Skip',
-                textAlign: TextAlign.center,
-                style: styles.bodyMedium.copyWith(color: colors.board),
               ),
             ),
           ],

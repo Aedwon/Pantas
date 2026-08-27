@@ -67,14 +67,23 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
           Text("You can't undo this.", style: styles.bodyMedium),
           const SizedBox(height: 24),
           if (_isDeleted) ...[
-            Text('Deletion request completed.', style: styles.bodyMedium),
+            Semantics(
+              liveRegion: true,
+              child: Text(
+                'Deletion request completed.',
+                style: styles.bodyMedium,
+              ),
+            ),
             const SizedBox(height: 16),
           ],
           if (_error != null) ...[
-            Text(
-              'We could not complete deletion. Try again or contact our DPO '
-              'at ${widget.dpoEmail}.',
-              style: styles.bodySmall.copyWith(color: colors.rust),
+            Semantics(
+              liveRegion: true,
+              child: Text(
+                'We could not complete deletion. Try again or contact our DPO '
+                'at ${widget.dpoEmail}.',
+                style: styles.bodySmall.copyWith(color: colors.rust),
+              ),
             ),
             const SizedBox(height: 16),
           ],

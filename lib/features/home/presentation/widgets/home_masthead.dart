@@ -52,13 +52,11 @@ class HomeMasthead extends ConsumerWidget {
             ],
           ),
         ),
-        // The default IconButton reserves 48px of height around a 20px
-        // glyph, which pushed the masthead open with space doing no work.
-        // The 44px target is kept and the padding above and below is not.
+        // Keep the standard 48px target around the compact glyph.
         IconButton(
           onPressed: () => context.push('/settings'),
           padding: EdgeInsets.zero,
-          constraints: const BoxConstraints(minWidth: 44, minHeight: 44),
+          constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
           icon: Icon(
             Icons.settings_outlined,
             size: 20,

@@ -35,7 +35,10 @@ void main() {
 
   tearDown(() => db.close());
 
-  Future<void> pumpPage(WidgetTester tester) async {
+  Future<void> pumpPage(
+    WidgetTester tester, {
+    bool disableAnimations = false,
+  }) async {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
@@ -51,7 +54,10 @@ void main() {
         ],
         child: MaterialApp(
           theme: buildLightTheme(),
-          home: const OnboardingPage(),
+          home: MediaQuery(
+            data: MediaQueryData(disableAnimations: disableAnimations),
+            child: const OnboardingPage(),
+          ),
         ),
       ),
     );
@@ -96,5 +102,15 @@ void main() {
 
     // Step 6: Name
     expect(find.text('What should we call you?'), findsOneWidget);
+  });
+
+  testWidgets('step transitions are instant when animations are disabled',
+      (tester) async {
+    await pumpPage(tester, disableAnimations: true);
+
+    final switcher = tester.widget<AnimatedSwitcher>(
+      find.byType(AnimatedSwitcher),
+    );
+    expect(switcher.duration, Duration.zero);
   });
 }

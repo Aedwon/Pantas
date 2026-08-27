@@ -19,16 +19,25 @@ void main() {
 
   tearDown(() => db.close());
 
-  Future<void> pumpStep(WidgetTester tester, {VoidCallback? onPassed}) async {
+  Future<void> pumpStep(
+    WidgetTester tester, {
+    VoidCallback? onPassed,
+    MediaQueryData? mediaQueryData,
+  }) async {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [appDatabaseProvider.overrideWithValue(db)],
         child: MaterialApp(
           theme: buildLightTheme(),
-          home: Scaffold(
-            body: OnboardingAgeGateStep(
-              onAgeGatePassed: onPassed ?? () {},
-              currentYear: 2026,
+          home: Builder(
+            builder: (context) => MediaQuery(
+              data: mediaQueryData ?? MediaQuery.of(context),
+              child: Scaffold(
+                body: OnboardingAgeGateStep(
+                  onAgeGatePassed: onPassed ?? () {},
+                  currentYear: 2026,
+                ),
+              ),
             ),
           ),
         ),
@@ -108,5 +117,24 @@ void main() {
       find.text("Sorry, this app isn't available for users under 13."),
       findsNothing,
     );
+  });
+
+  testWidgets('survives 200% text at 320dp on a short screen', (tester) async {
+    tester.view
+      ..physicalSize = const Size(320, 480)
+      ..devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await pumpStep(
+      tester,
+      mediaQueryData: const MediaQueryData(
+        size: Size(320, 480),
+        textScaler: TextScaler.linear(2),
+      ),
+    );
+
+    expect(tester.takeException(), isNull);
+    expect(find.widgetWithText(BoardButton, 'Continue'), findsOneWidget);
   });
 }

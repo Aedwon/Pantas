@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/ui/components/board_button.dart';
@@ -96,99 +97,114 @@ class _OnboardingExamDateStepState
     final colors = context.colors;
 
     return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const SizedBox(height: 24),
-            Text('When is your exam?', style: styles.displaySmall),
-            const SizedBox(height: 10),
-            Text(
-              "We'll count down the days on your home screen.",
-              style: styles.bodyLarge.copyWith(color: colors.inkMuted),
-            ),
-            if (_errorMessage != null) ...[
-              const SizedBox(height: 16),
-              ErrorBanner(
-                variant: ErrorBannerVariant.error,
-                message: _errorMessage!,
-              ),
-            ],
-            const SizedBox(height: 24),
-            Expanded(
-              child: Row(
-                children: [
-                  Expanded(
-                    child: CupertinoPicker(
-                      key: const ValueKey('day_picker'),
-                      itemExtent: 32,
-                      scrollController: FixedExtentScrollController(
-                        initialItem: _selectedDayIndex,
+      child: LayoutBuilder(
+        builder: (context, constraints) => SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(minHeight: constraints.maxHeight),
+            child: IntrinsicHeight(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    const SizedBox(height: 24),
+                    Text('When is your exam?', style: styles.displaySmall),
+                    const SizedBox(height: 10),
+                    Text(
+                      "We'll count down the days on your home screen.",
+                      style: styles.bodyLarge.copyWith(color: colors.inkMuted),
+                    ),
+                    if (_errorMessage != null) ...[
+                      const SizedBox(height: 16),
+                      ErrorBanner(
+                        variant: ErrorBannerVariant.error,
+                        message: _errorMessage!,
                       ),
-                      onSelectedItemChanged: (i) =>
-                          setState(() => _selectedDayIndex = i),
-                      children: [
-                        // The month-only option. Not an em dash: the project
-                        // bans them by name, and a student reading a wheel
-                        // should see a word rather than a mark they have to
-                        // interpret.
-                        Center(
-                          child: Text(
-                            'Any',
-                            style: TextStyle(color: colors.inkMuted),
+                    ],
+                    const SizedBox(height: 24),
+                    Expanded(
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: CupertinoPicker(
+                              key: const ValueKey('day_picker'),
+                              itemExtent: 32,
+                              scrollController: FixedExtentScrollController(
+                                initialItem: _selectedDayIndex,
+                              ),
+                              onSelectedItemChanged: (i) =>
+                                  setState(() => _selectedDayIndex = i),
+                              children: [
+                                // The month-only option. Not an em dash: the
+                                // project bans them by name, and a student
+                                // reading a wheel should see a word rather than
+                                // a mark they have to interpret.
+                                Center(
+                                  child: Text(
+                                    'Any',
+                                    style: TextStyle(color: colors.inkMuted),
+                                  ),
+                                ),
+                                for (var d = 1; d <= 31; d++)
+                                  Center(child: Text('$d')),
+                              ],
+                            ),
                           ),
-                        ),
-                        for (var d = 1; d <= 31; d++) Center(child: Text('$d')),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: CupertinoPicker(
-                      key: const ValueKey('month_picker'),
-                      itemExtent: 32,
-                      scrollController: FixedExtentScrollController(
-                        initialItem: _selectedMonthIndex,
+                          Expanded(
+                            child: CupertinoPicker(
+                              key: const ValueKey('month_picker'),
+                              itemExtent: 32,
+                              scrollController: FixedExtentScrollController(
+                                initialItem: _selectedMonthIndex,
+                              ),
+                              onSelectedItemChanged: (i) =>
+                                  setState(() => _selectedMonthIndex = i),
+                              children: [
+                                for (final m in _months) Center(child: Text(m)),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            child: CupertinoPicker(
+                              key: const ValueKey('year_picker'),
+                              itemExtent: 32,
+                              scrollController: FixedExtentScrollController(
+                                initialItem: _selectedYearIndex,
+                              ),
+                              onSelectedItemChanged: (i) =>
+                                  setState(() => _selectedYearIndex = i),
+                              children: [
+                                for (final y in _years)
+                                  Center(child: Text('$y')),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
-                      onSelectedItemChanged: (i) =>
-                          setState(() => _selectedMonthIndex = i),
-                      children: [
-                        for (final m in _months) Center(child: Text(m)),
-                      ],
                     ),
-                  ),
-                  Expanded(
-                    child: CupertinoPicker(
-                      key: const ValueKey('year_picker'),
-                      itemExtent: 32,
-                      scrollController: FixedExtentScrollController(
-                        initialItem: _selectedYearIndex,
+                    const SizedBox(height: 16),
+                    BoardButton(
+                      label: 'Continue',
+                      onPressed: _saving ? null : _onContinue,
+                    ),
+                    const SizedBox(height: 14),
+                    TextButton(
+                      onPressed: _saving ? null : widget.onCompleted,
+                      style: TextButton.styleFrom(
+                        foregroundColor: colors.board,
+                        minimumSize: const Size.fromHeight(48),
+                        padding: EdgeInsets.zero,
+                        textStyle: styles.bodyMedium,
                       ),
-                      onSelectedItemChanged: (i) =>
-                          setState(() => _selectedYearIndex = i),
-                      children: [
-                        for (final y in _years) Center(child: Text('$y')),
-                      ],
+                      child: const Text(
+                        "I don't know yet",
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-            const SizedBox(height: 16),
-            BoardButton(
-              label: 'Continue',
-              onPressed: _saving ? null : _onContinue,
-            ),
-            const SizedBox(height: 14),
-            GestureDetector(
-              onTap: _saving ? null : widget.onCompleted,
-              child: Text(
-                "I don't know yet",
-                textAlign: TextAlign.center,
-                style: styles.bodyMedium.copyWith(color: colors.board),
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );

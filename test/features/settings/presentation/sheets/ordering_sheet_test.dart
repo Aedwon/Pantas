@@ -1,3 +1,5 @@
+import 'dart:ui' show CheckedState;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/settings/domain/session_ordering.dart';
@@ -87,6 +89,28 @@ void main() {
 
     for (final text in tester.widgetList<Text>(find.byType(Text))) {
       expect(text.data?.contains('—') ?? false, isFalse);
+    }
+  });
+
+  testWidgets('each ordering is one 48dp radio-like control', (tester) async {
+    await _open(tester);
+
+    for (final label in [
+      'One topic only',
+      'Interleaved tail',
+      'All mixed up',
+    ]) {
+      final control = find.bySemanticsLabel(RegExp('^$label'));
+      expect(control, findsOneWidget);
+      final semantics = tester.getSemantics(control);
+      expect(
+        semantics.flagsCollection.isChecked,
+        label == 'Interleaved tail'
+            ? CheckedState.isTrue
+            : CheckedState.isFalse,
+      );
+      expect(semantics.flagsCollection.isInMutuallyExclusiveGroup, isTrue);
+      expect(tester.getSize(control).height, greaterThanOrEqualTo(48));
     }
   });
 }

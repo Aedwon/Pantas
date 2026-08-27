@@ -1,3 +1,5 @@
+import 'dart:ui' show SemanticsAction;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -101,5 +103,28 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('No shared cards yet'), findsOneWidget);
+  });
+
+  testWidgets('Revoke is a named 48dp action', (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await _seedShared(db);
+
+    await tester.pumpAppWithProviders(
+      const MySharedCardsPage(),
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    await tester.pumpAndSettle();
+
+    final revoke = find.bySemanticsLabel('Revoke');
+    expect(revoke, findsOneWidget);
+    expect(tester.getSize(revoke).height, greaterThanOrEqualTo(48));
+    expect(tester.getSize(revoke).width, greaterThanOrEqualTo(48));
+    expect(
+      tester.getSemantics(revoke).getSemanticsData().hasAction(
+            SemanticsAction.tap,
+          ),
+      isTrue,
+    );
   });
 }

@@ -13,6 +13,17 @@ class TendencyCardView extends StatelessWidget {
   final TendencyCard card;
   final bool isPro;
 
+  static const double _baseHeight = 112;
+
+  static double heightFor(BuildContext context) {
+    const referenceFontSize = 12.0;
+    final textScale =
+        MediaQuery.textScalerOf(context).scale(referenceFontSize) /
+            referenceFontSize;
+    final extraScale = (textScale - 1).clamp(0, double.infinity);
+    return _baseHeight + (extraScale * 200);
+  }
+
   @override
   Widget build(BuildContext context) {
     final styles = context.textStyles;
@@ -177,7 +188,7 @@ class TendencyCardView extends StatelessWidget {
     }
 
     return SizedBox(
-      height: 112,
+      height: heightFor(context),
       child: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),

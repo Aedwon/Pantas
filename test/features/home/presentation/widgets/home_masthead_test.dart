@@ -154,4 +154,22 @@ void main() {
       expect(find.text(kicker), findsOneWidget);
     }
   });
+
+  testWidgets('Settings is a named 48dp action', (tester) async {
+    await tester.pumpWidget(
+      harness(
+        const HomeMastheadData(
+          name: 'Aedwon',
+          examShortName: 'UPCAT',
+          examDate: null,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final settings = find.byTooltip('Settings');
+    expect(settings, findsOneWidget);
+    expect(tester.getSize(settings).width, greaterThanOrEqualTo(48));
+    expect(tester.getSize(settings).height, greaterThanOrEqualTo(48));
+  });
 }

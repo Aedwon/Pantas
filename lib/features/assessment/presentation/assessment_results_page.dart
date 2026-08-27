@@ -142,40 +142,50 @@ class _TopicRow extends StatelessWidget {
       MasteryLevel.moderate => colors.amber,
       MasteryLevel.strong => colors.board,
     };
+    final levelLabel = switch (mastery.level) {
+      MasteryLevel.weak => 'Weak',
+      MasteryLevel.moderate => 'Moderate',
+      MasteryLevel.strong => 'Strong',
+    };
 
-    return Container(
-      constraints: const BoxConstraints(minHeight: 44),
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            color: colors.ruleFaint,
-            // ignore: avoid_redundant_argument_values
-            width: AppDimensions.hairline,
+    return Semantics(
+      label: '${mastery.topic.name}, $pct%, $levelLabel',
+      child: ExcludeSemantics(
+        child: Container(
+          constraints: const BoxConstraints(minHeight: 44),
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(
+                color: colors.ruleFaint,
+                // ignore: avoid_redundant_argument_values
+                width: AppDimensions.hairline,
+              ),
+            ),
+          ),
+          child: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  mastery.topic.name,
+                  style: styles.bodyMedium,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              const SizedBox(width: 12),
+              InlineMeter(value: mastery.accuracy, color: meterColor),
+              const SizedBox(width: 8),
+              SizedBox(
+                width: 38,
+                child: Text(
+                  '$pct%',
+                  textAlign: TextAlign.right,
+                  style: styles.bodySmall.copyWith(color: meterColor),
+                ),
+              ),
+            ],
           ),
         ),
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: Text(
-              mastery.topic.name,
-              style: styles.bodyMedium,
-              overflow: TextOverflow.ellipsis,
-            ),
-          ),
-          const SizedBox(width: 12),
-          InlineMeter(value: mastery.accuracy, color: meterColor),
-          const SizedBox(width: 8),
-          SizedBox(
-            width: 38,
-            child: Text(
-              '$pct%',
-              textAlign: TextAlign.right,
-              style: styles.bodySmall.copyWith(color: meterColor),
-            ),
-          ),
-        ],
       ),
     );
   }

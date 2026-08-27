@@ -75,6 +75,34 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Try again'), findsOneWidget);
-    expect(find.textContaining(defaultLegalContact.dpoEmail), findsOneWidget);
+    final status = find.bySemanticsLabel(
+      RegExp(defaultLegalContact.dpoEmail),
+    );
+    expect(status, findsOneWidget);
+    expect(
+      tester.getSemantics(status).flagsCollection.isLiveRegion,
+      isTrue,
+    );
+  });
+
+  testWidgets('delete success becomes a live status', (tester) async {
+    await tester.pumpApp(
+      DeleteAccountPage(
+        isAnonymous: false,
+        entitlement: const SettingsEntitlementSnapshot.free(),
+        dpoEmail: defaultLegalContact.dpoEmail,
+        onDelete: () async {},
+      ),
+    );
+
+    await tester.tap(find.text('Yes, delete my account'));
+    await tester.pumpAndSettle();
+
+    final status = find.bySemanticsLabel('Deletion request completed.');
+    expect(status, findsOneWidget);
+    expect(
+      tester.getSemantics(status).flagsCollection.isLiveRegion,
+      isTrue,
+    );
   });
 }
