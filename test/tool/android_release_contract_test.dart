@@ -109,6 +109,25 @@ void main() {
       expect(release, isNot(contains('tools/build_dev_seed')));
     });
 
+    test(
+        'release tooling enables SwiftPM without mutating global Flutter config',
+        () {
+      final release = readRepositoryFile('tools/release/android/release.sh');
+      const swiftPmExport = 'export FLUTTER_SWIFT_PACKAGE_MANAGER=true';
+      const enforceLockfile = 'flutter pub get --enforce-lockfile';
+
+      expect(release, contains(swiftPmExport));
+      expect(release, contains(enforceLockfile));
+      expect(
+        release.indexOf(swiftPmExport),
+        lessThan(release.indexOf(enforceLockfile)),
+      );
+      expect(
+        release,
+        isNot(contains('flutter config --enable-swift-package-manager')),
+      );
+    });
+
     test('production Firebase config is validated and staged safely', () {
       final release = readRepositoryFile('tools/release/android/release.sh');
 
