@@ -25,10 +25,10 @@ void main() {
     );
   });
 
-  test('cloud progress is true when lesson_progress has a document', () async {
+  test('cloud progress is true when assessments has a document', () async {
     final gateway = FakeFirestoreGateway()
-      ..collections['users/user-1/lesson_progress'] = [
-        {'lessonId': 'lesson_1'},
+      ..collections['users/user-1/assessments'] = [
+        {'id': 'assessment-1'},
       ];
 
     expect(
@@ -49,12 +49,65 @@ void main() {
     );
   });
 
-  test('anonymous uid checks are rejected before Firestore call', () async {
-    final gateway = FakeFirestoreGateway();
+  test('cloud progress is true when lesson_progress has a document', () async {
+    final gateway = FakeFirestoreGateway()
+      ..collections['users/user-1/lesson_progress'] = [
+        {'lessonId': 'lesson_1'},
+      ];
 
     expect(
-      () => SyncCloudProgressGateway(gateway).hasMeaningfulProgress('anon-1'),
-      throwsA(isA<ArgumentError>()),
+      await SyncCloudProgressGateway(gateway).hasMeaningfulProgress('user-1'),
+      isTrue,
+    );
+  });
+
+  test('cloud progress is true when lesson_bookmarks has a document', () async {
+    final gateway = FakeFirestoreGateway()
+      ..collections['users/user-1/lesson_bookmarks'] = [
+        {'lessonId': 'lesson_1'},
+      ];
+
+    expect(
+      await SyncCloudProgressGateway(gateway).hasMeaningfulProgress('user-1'),
+      isTrue,
+    );
+  });
+
+  test('cloud progress is true when question_flags has a document', () async {
+    final gateway = FakeFirestoreGateway()
+      ..collections['users/user-1/question_flags'] = [
+        {'questionId': 'q1'},
+      ];
+
+    expect(
+      await SyncCloudProgressGateway(gateway).hasMeaningfulProgress('user-1'),
+      isTrue,
+    );
+  });
+
+  test('cloud progress is true when mock_exam_attempts has a document',
+      () async {
+    final gateway = FakeFirestoreGateway()
+      ..collections['users/user-1/mock_exam_attempts'] = [
+        {'id': 'mock-1'},
+      ];
+
+    expect(
+      await SyncCloudProgressGateway(gateway).hasMeaningfulProgress('user-1'),
+      isTrue,
+    );
+  });
+
+  test('uid text is opaque to cloud progress checks', () async {
+    final gateway = FakeFirestoreGateway()
+      ..collections['users/anon-looking-but-named/quiz_attempts'] = [
+        {'id': 'a1'},
+      ];
+
+    expect(
+      await SyncCloudProgressGateway(gateway)
+          .hasMeaningfulProgress('anon-looking-but-named'),
+      isTrue,
     );
   });
 }

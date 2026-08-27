@@ -8,16 +8,16 @@ class SyncCloudProgressGateway implements CloudProgressGateway {
 
   static const _meaningfulCollections = [
     'quiz_attempts',
-    'lesson_progress',
+    'assessments',
     'fsrs_cards',
+    'lesson_progress',
+    'lesson_bookmarks',
+    'question_flags',
+    'mock_exam_attempts',
   ];
 
   @override
   Future<bool> hasMeaningfulProgress(String uid) async {
-    if (uid.startsWith('anon-')) {
-      throw ArgumentError.value(uid, 'uid', 'anonymous users do not sync');
-    }
-
     for (final collection in _meaningfulCollections) {
       final rows = await _gateway.readCollection('users/$uid/$collection');
       if (rows.isNotEmpty) return true;
