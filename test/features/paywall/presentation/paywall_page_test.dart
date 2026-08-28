@@ -8,23 +8,34 @@ import 'package:pantas/features/paywall/paywall.dart';
 void main() {
   const weekly = PaywallPackage(
     sku: PaywallSku.weekly,
-    productId: 'pro_weekly',
+    productId: 'pantas_pro_weekly',
     priceString: '₱29',
     priceAmount: 29,
   );
   const monthly = PaywallPackage(
     sku: PaywallSku.monthly,
-    productId: 'pro_monthly',
+    productId: 'pantas_pro_monthly',
     priceString: '₱99',
     priceAmount: 99,
   );
   const yearly = PaywallPackage(
     sku: PaywallSku.yearly,
-    productId: 'pro_yearly',
-    priceString: '₱999',
-    priceAmount: 999,
+    productId: 'pantas_pro_yearly',
+    priceString: '₱799',
+    priceAmount: 799,
   );
   final packages = [weekly, monthly, yearly];
+
+  Widget paymentScope(Widget child) {
+    return ProviderScope(
+      overrides: [
+        entitlementSnapshotStoreProvider.overrideWithValue(
+          EntitlementSnapshotStore.inMemory(),
+        ),
+      ],
+      child: child,
+    );
+  }
 
   Future<void> pumpPaywall(
     WidgetTester tester, {
@@ -32,8 +43,8 @@ void main() {
     Future<void> Function()? onRestore,
   }) {
     return tester.pumpWidget(
-      ProviderScope(
-        child: MaterialApp(
+      paymentScope(
+        MaterialApp(
           theme: buildLightTheme(),
           home: PaywallPage(
             packages: packages,
@@ -155,8 +166,8 @@ void main() {
     addTearDown(router.dispose);
 
     await tester.pumpWidget(
-      ProviderScope(
-        child: MaterialApp.router(
+      paymentScope(
+        MaterialApp.router(
           theme: buildLightTheme(),
           routerConfig: router,
         ),
@@ -194,8 +205,8 @@ void main() {
     addTearDown(router.dispose);
 
     await tester.pumpWidget(
-      ProviderScope(
-        child: MaterialApp.router(
+      paymentScope(
+        MaterialApp.router(
           theme: buildLightTheme(),
           routerConfig: router,
         ),
