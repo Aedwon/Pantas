@@ -26,12 +26,14 @@ class Entitlement {
     DateTime? expiresAt,
     bool isTrial = false,
     bool willRenew = true,
-  })  : plan = EntitlementPlan.free,
-        productId = productId,
-        expiresAt = expiresAt,
-        isTrial = isTrial,
-        willRenew = willRenew,
-        isUnknownPlan = true;
+  }) : this(
+          plan: EntitlementPlan.free,
+          productId: productId,
+          expiresAt: expiresAt,
+          isTrial: isTrial,
+          willRenew: willRenew,
+          isUnknownPlan: true,
+        );
 
   final EntitlementPlan plan;
   final String? productId;
