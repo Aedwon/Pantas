@@ -5,7 +5,8 @@ import 'package:pantas/features/paywall/paywall.dart';
 
 void main() {
   test(
-    'gateway contract exposes initialize configure offerings purchase restore and stream',
+    'gateway contract exposes initialize configure offerings purchase '
+    'restore and stream',
     () async {
       final gateway = RecordingRevenueCatGateway();
       const package = PaywallPackage(
@@ -27,7 +28,9 @@ void main() {
       expect(gateway.loggedInUid, 'uid_1');
       expect(offering.status, PaywallOfferingStatus.available);
       expect(
-          offering.recognizedPackages.single.productId, 'pantas_pro_monthly');
+        offering.recognizedPackages.single.productId,
+        'pantas_pro_monthly',
+      );
       expect(purchased.status, PaymentOperationStatus.success);
       expect(purchased.confirmedEntitlement?.proIsActive, isTrue);
       expect(restored.status, PaymentOperationStatus.success);
