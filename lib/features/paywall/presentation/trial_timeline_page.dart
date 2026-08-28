@@ -96,7 +96,10 @@ class TrialTimelinePage extends StatelessWidget {
                             margin: const EdgeInsets.only(top: 3),
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              border: Border.all(color: colors.ink, width: 1.4),
+                              border: Border.all(
+                                color: colors.ink,
+                                width: 1.4,
+                              ),
                               color: Theme.of(context).scaffoldBackgroundColor,
                             ),
                           ),
@@ -225,7 +228,8 @@ class _TrialPurchaseAction extends StatelessWidget {
       PaymentOperationStatus.operationAlreadyInProgress =>
         null,
       PaymentOperationStatus.networkFailure =>
-        "You need a connection to subscribe. Try again when you're back online.",
+        'You need a connection to subscribe. Try again when '
+            "you're back online.",
       PaymentOperationStatus.storeFailure =>
         "Google Play couldn't complete this purchase. Try again.",
       PaymentOperationStatus.entitlementNotActive =>
