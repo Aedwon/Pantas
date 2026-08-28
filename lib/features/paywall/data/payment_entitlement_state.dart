@@ -8,7 +8,7 @@ class PaymentEntitlementState {
 
   final EntitlementSnapshotStore _store;
   final StreamController<Entitlement> _controller =
-      StreamController<Entitlement>.broadcast();
+      StreamController<Entitlement>.broadcast(sync: true);
 
   Entitlement? _current;
   bool _initialized = false;
