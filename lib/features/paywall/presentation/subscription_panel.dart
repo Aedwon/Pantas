@@ -81,16 +81,20 @@ class SubscriptionPanel extends StatelessWidget {
           : '$lead · ends $date';
     }
 
-    final label = entitlement.isUnknownPlan
-        ? 'Pro'
-        : switch (entitlement.plan) {
-            EntitlementPlan.weekly => 'Weekly',
-            EntitlementPlan.monthly => 'Monthly',
-            EntitlementPlan.yearly => 'Yearly',
-            EntitlementPlan.free => 'Pro',
-          };
+    if (entitlement.isUnknownPlan) {
+      if (date == null) return 'Pro';
+      return entitlement.willRenew
+          ? 'Pro · renews $date'
+          : 'Pro · ends $date';
+    }
 
-    if (date == null) return entitlement.isUnknownPlan ? 'Pro' : 'Pro · $label';
+    final label = switch (entitlement.plan) {
+      EntitlementPlan.weekly => 'Weekly',
+      EntitlementPlan.monthly => 'Monthly',
+      EntitlementPlan.yearly => 'Yearly',
+      EntitlementPlan.free => 'Pro',
+    };
+    if (date == null) return 'Pro · $label';
     return entitlement.willRenew
         ? 'Pro · $label · renews $date'
         : 'Pro · $label · ends $date';
