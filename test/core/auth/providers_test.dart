@@ -3,6 +3,18 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/auth.dart';
 
 void main() {
+  test('authRepositoryProvider is non-throwing and signed out by default',
+      () async {
+    final container = ProviderContainer();
+    addTearDown(container.dispose);
+
+    expect(container.read(authRepositoryProvider), isA<AuthRepository>());
+    expect(
+      await container.read(authStateProvider.future),
+      const AuthState.signedOut(),
+    );
+  });
+
   test('currentUserProvider returns null for unknown and signedOut', () async {
     final unknownContainer = ProviderContainer(
       overrides: [

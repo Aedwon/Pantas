@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/app.dart';
+import 'package:pantas/app/auth_bootstrap.dart';
 import 'package:pantas/app/firebase_bootstrap.dart';
 import 'package:pantas/app/flavor.dart';
 import 'package:pantas/app/telemetry_consent_controller.dart';
@@ -94,23 +95,24 @@ Future<void> _bootstrap(
   WidgetsFlutterBinding.ensureInitialized();
   installAppErrorView();
 
-  await bootstrapFirebase(flavor);
+  final firebaseResult = await bootstrapFirebase(flavor);
   await activateAppCheck(flavor);
 
   final overrides = await bootstrapStorageOverrides();
   final contentOverrides = await bootstrapContentOverrides();
   final remoteFlagsOverrides = await bootstrapRemoteFlagsOverrides();
+  final authOverrides = authRepositoryOverrides(firebaseResult);
 
   final container = ProviderContainer(
     overrides: [
       ...overrides,
       ...contentOverrides,
       ...remoteFlagsOverrides,
+      ...authOverrides,
       ...mockEntitlementOverrides,
       ...telemetryConsentOverrides,
-      // Only when Firebase actually started. It does not yet: there is no
-      // project, so `bootstrapFirebase` initializes nothing. The gate above
-      // this still decides whether anything reaches the sink.
+      // Install the Firebase telemetry sink only when live Firebase instances
+      // are available. User consent still gates anything reaching the sink.
       telemetrySinkProvider.overrideWithValue(
         FirebaseTelemetry.instancesIfAvailable(),
       ),
@@ -133,6 +135,7 @@ Future<void> _bootstrap(
   );
   onContainerReady(container);
 
+  await bootstrapAuthSession(container, firebaseResult);
   await applyPersistedTelemetryConsent(container);
   await registerDevProSwitch(container);
   await registerDevDemoSwitch(container);
