@@ -1,6 +1,7 @@
+import { getAuth } from 'firebase-admin/auth';
 import { getFirestore } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
-import { onCall } from 'firebase-functions/v2/https';
+import { HttpsError, onCall } from 'firebase-functions/v2/https';
 import { assertNamedUser, writeAuditLog } from './_audit.js';
 
 export const deleteAccount = onCall(
@@ -16,7 +17,11 @@ export const deleteAccount = onCall(
     const authTimeSeconds = request.auth?.token.auth_time ?? 0;
     const authAgeSeconds = Math.floor(Date.now() / 1000) - authTimeSeconds;
     if (authAgeSeconds > 5 * 60) {
-      throw new Error('requires-recent-login');
+      throw new HttpsError(
+        'failed-precondition',
+        'Recent sign-in is required before deleting an account.',
+        { reason: 'requires-recent-login' },
+      );
     }
 
     await writeAuditLog({ uid, event: 'accountDeleted' });
@@ -32,6 +37,10 @@ export const deleteAccount = onCall(
     await getStorage()
       .bucket()
       .deleteFiles({ prefix: `wrapped/${uid}/` });
+
+    // The Firebase Auth identity is deleted last so any failed data cleanup
+    // leaves the account recoverable for a retry.
+    await getAuth().deleteUser(uid);
 
     return { deletedAt: new Date().toISOString() };
   },
