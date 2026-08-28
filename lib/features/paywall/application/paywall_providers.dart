@@ -17,7 +17,8 @@ final revenueCatConfigProvider = Provider<RevenueCatConfig>(
   (ref) => RevenueCatConfig.fromEnvironment(),
 );
 
-final entitlementSnapshotStoreProvider = Provider<EntitlementSnapshotStore>((ref) {
+final entitlementSnapshotStoreProvider =
+    Provider<EntitlementSnapshotStore>((ref) {
   final preferences = ref.watch(appPreferencesRepositoryProvider);
   return EntitlementSnapshotStore(
     readValue: preferences.deviceValue,
@@ -25,7 +26,8 @@ final entitlementSnapshotStoreProvider = Provider<EntitlementSnapshotStore>((ref
   );
 });
 
-final paymentEntitlementStateProvider = Provider<PaymentEntitlementState>((ref) {
+final paymentEntitlementStateProvider =
+    Provider<PaymentEntitlementState>((ref) {
   return PaymentEntitlementState(ref.watch(entitlementSnapshotStoreProvider));
 });
 
