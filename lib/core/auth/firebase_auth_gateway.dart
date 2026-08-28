@@ -42,7 +42,9 @@ class FirebaseAuthGateway implements AuthGateway {
   }
 
   @override
-  Future<AuthSession> signInWithGoogleCredential(GoogleAuthTokens tokens) async {
+  Future<AuthSession> signInWithGoogleCredential(
+    GoogleAuthTokens tokens,
+  ) async {
     try {
       return _sessionFromCredential(
         await _auth.signInWithCredential(_googleCredential(tokens)),

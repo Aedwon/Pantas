@@ -57,10 +57,13 @@ void main() {
   test('maps auth state changes including signed-out state', () async {
     final auth = MockFirebaseAuth();
     final user = _user(uid: 'anon-1', isAnonymous: true);
-    when(() => auth.authStateChanges())
-        .thenAnswer((_) => Stream<firebase.User?>.fromIterable([user, null]));
+    when(
+      () => auth.authStateChanges(),
+    ).thenAnswer((_) => Stream<firebase.User?>.fromIterable([user, null]));
 
-    final states = await FirebaseAuthGateway(auth: auth).authStateChanges.toList();
+    final states = await FirebaseAuthGateway(
+      auth: auth,
+    ).authStateChanges.toList();
 
     expect(states, hasLength(2));
     expect(
@@ -120,10 +123,12 @@ void main() {
     when(() => auth.currentUser).thenReturn(anonymous);
     when(() => linkedCredential.user).thenReturn(named);
     when(() => signedInCredential.user).thenReturn(named);
-    when(() => anonymous.linkWithCredential(any()))
-        .thenAnswer((_) async => linkedCredential);
-    when(() => auth.signInWithCredential(any()))
-        .thenAnswer((_) async => signedInCredential);
+    when(
+      () => anonymous.linkWithCredential(any()),
+    ).thenAnswer((_) async => linkedCredential);
+    when(
+      () => auth.signInWithCredential(any()),
+    ).thenAnswer((_) async => signedInCredential);
 
     final gateway = FirebaseAuthGateway(auth: auth);
     const tokens = GoogleAuthTokens(
@@ -131,19 +136,23 @@ void main() {
       accessToken: 'google-access-token',
     );
 
-    expect(await gateway.linkWithGoogleCredential(tokens),
-        isA<AuthSession>().having((value) => value.uid, 'uid', 'user-1'));
-    expect(await gateway.signInWithGoogleCredential(tokens),
-        isA<AuthSession>().having((value) => value.uid, 'uid', 'user-1'));
+    expect(
+      await gateway.linkWithGoogleCredential(tokens),
+      isA<AuthSession>().having((value) => value.uid, 'uid', 'user-1'),
+    );
+    expect(
+      await gateway.signInWithGoogleCredential(tokens),
+      isA<AuthSession>().having((value) => value.uid, 'uid', 'user-1'),
+    );
     verify(() => anonymous.linkWithCredential(any())).called(1);
     verify(() => auth.signInWithCredential(any())).called(1);
   });
 
   test('forwards FirebaseAuthException code unchanged', () async {
     final auth = MockFirebaseAuth();
-    when(() => auth.signInAnonymously()).thenThrow(
-      firebase.FirebaseAuthException(code: 'network-request-failed'),
-    );
+    when(
+      () => auth.signInAnonymously(),
+    ).thenThrow(firebase.FirebaseAuthException(code: 'network-request-failed'));
 
     await expectLater(
       FirebaseAuthGateway(auth: auth).signInAnonymously(),
@@ -190,8 +199,9 @@ void main() {
     final user = _user(uid: 'user-1', isAnonymous: false);
     final credential = MockUserCredential();
     when(() => auth.currentUser).thenReturn(user);
-    when(() => user.reauthenticateWithCredential(any()))
-        .thenAnswer((_) async => credential);
+    when(
+      () => user.reauthenticateWithCredential(any()),
+    ).thenAnswer((_) async => credential);
 
     await FirebaseAuthGateway(auth: auth).reauthenticateWithGoogleCredential(
       const GoogleAuthTokens(idToken: 'fresh-google-id-token'),

@@ -4,30 +4,32 @@ import 'package:pantas/core/auth/auth.dart';
 import 'package:pantas/core/auth/firebase_auth_functions_gateway.dart';
 
 void main() {
-  test('uses exact callable names and asia-southeast1 with no request body',
-      () async {
-    final client = RecordingFunctionsClient(
-      responses: {
-        'recordSignInEvent': {'logged': true},
-        'deleteAccount': {'deletedAt': '2026-08-28T00:00:00Z'},
-      },
-    );
-    final gateway = FirebaseAuthFunctionsGateway(client: client);
+  test(
+    'uses exact callable names and asia-southeast1 with no request body',
+    () async {
+      final client = RecordingFunctionsClient(
+        responses: {
+          'recordSignInEvent': {'logged': true},
+          'deleteAccount': {'deletedAt': '2026-08-28T00:00:00Z'},
+        },
+      );
+      final gateway = FirebaseAuthFunctionsGateway(client: client);
 
-    await gateway.recordSignInEvent();
-    await gateway.deleteAccount();
+      await gateway.recordSignInEvent();
+      await gateway.deleteAccount();
 
-    expect(client.calls, [
-      const CallableInvocation(
-        region: 'asia-southeast1',
-        name: 'recordSignInEvent',
-      ),
-      const CallableInvocation(
-        region: 'asia-southeast1',
-        name: 'deleteAccount',
-      ),
-    ]);
-  });
+      expect(client.calls, [
+        const CallableInvocation(
+          region: 'asia-southeast1',
+          name: 'recordSignInEvent',
+        ),
+        const CallableInvocation(
+          region: 'asia-southeast1',
+          name: 'deleteAccount',
+        ),
+      ]);
+    },
+  );
 
   test('parses exportData download URL', () async {
     final client = RecordingFunctionsClient(
@@ -45,7 +47,9 @@ void main() {
 
   test('rejects malformed export responses', () async {
     final client = RecordingFunctionsClient(
-      responses: {'exportData': {'expiresAt': 'later'}},
+      responses: {
+        'exportData': {'expiresAt': 'later'},
+      },
     );
 
     await expectLater(
@@ -81,26 +85,28 @@ void main() {
     );
   });
 
-  test('falls back to callable error code when no semantic reason exists',
-      () async {
-    final client = RecordingFunctionsClient(
-      error: FirebaseFunctionsException(
-        code: 'unavailable',
-        message: 'Unavailable',
-      ),
-    );
-
-    await expectLater(
-      FirebaseAuthFunctionsGateway(client: client).recordSignInEvent(),
-      throwsA(
-        isA<AuthGatewayException>().having(
-          (error) => error.code,
-          'code',
-          'unavailable',
+  test(
+    'falls back to callable error code when no semantic reason exists',
+    () async {
+      final client = RecordingFunctionsClient(
+        error: FirebaseFunctionsException(
+          code: 'unavailable',
+          message: 'Unavailable',
         ),
-      ),
-    );
-  });
+      );
+
+      await expectLater(
+        FirebaseAuthFunctionsGateway(client: client).recordSignInEvent(),
+        throwsA(
+          isA<AuthGatewayException>().having(
+            (error) => error.code,
+            'code',
+            'unavailable',
+          ),
+        ),
+      );
+    },
+  );
 }
 
 class CallableInvocation {

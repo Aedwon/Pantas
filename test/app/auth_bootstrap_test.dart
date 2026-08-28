@@ -26,27 +26,30 @@ void main() {
     expect(gatewayBuilds, 1);
   });
 
-  test('unavailable Firebase installs signed-out fail-open repository', () async {
-    final container = ProviderContainer(
-      overrides: authRepositoryOverrides(FirebaseBootstrapResult.unavailable),
-    );
-    addTearDown(container.dispose);
+  test(
+    'unavailable Firebase installs signed-out fail-open repository',
+    () async {
+      final container = ProviderContainer(
+        overrides: authRepositoryOverrides(FirebaseBootstrapResult.unavailable),
+      );
+      addTearDown(container.dispose);
 
-    expect(
-      await container.read(authStateProvider.future),
-      const AuthState.signedOut(),
-    );
-    await expectLater(
-      container.read(authRepositoryProvider).ensureAnonymous(),
-      throwsA(
-        isA<AuthGatewayException>().having(
-          (error) => error.code,
-          'code',
-          'firebase-unavailable',
+      expect(
+        await container.read(authStateProvider.future),
+        const AuthState.signedOut(),
+      );
+      await expectLater(
+        container.read(authRepositoryProvider).ensureAnonymous(),
+        throwsA(
+          isA<AuthGatewayException>().having(
+            (error) => error.code,
+            'code',
+            'firebase-unavailable',
+          ),
         ),
-      ),
-    );
-  });
+      );
+    },
+  );
 
   test('cached named user is preserved during Auth bootstrap', () async {
     final gateway = BootstrapAuthGateway(
@@ -75,16 +78,19 @@ void main() {
     expect(gateway.signInAnonymouslyCalls, 0);
   });
 
-  test('empty Auth session creates an anonymous user when configured', () async {
-    final gateway = BootstrapAuthGateway();
-    final container = _configuredContainer(gateway);
-    addTearDown(container.dispose);
+  test(
+    'empty Auth session creates an anonymous user when configured',
+    () async {
+      final gateway = BootstrapAuthGateway();
+      final container = _configuredContainer(gateway);
+      addTearDown(container.dispose);
 
-    await bootstrapAuthSession(container, FirebaseBootstrapResult.configured);
+      await bootstrapAuthSession(container, FirebaseBootstrapResult.configured);
 
-    expect(gateway.signInAnonymouslyCalls, 1);
-    expect(gateway.currentSession?.isAnonymous, isTrue);
-  });
+      expect(gateway.signInAnonymouslyCalls, 1);
+      expect(gateway.currentSession?.isAnonymous, isTrue);
+    },
+  );
 
   test('anonymous creation failure does not escape bootstrap', () async {
     final gateway = BootstrapAuthGateway(failAnonymousSignIn: true);
