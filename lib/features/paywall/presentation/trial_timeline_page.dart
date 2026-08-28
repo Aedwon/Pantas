@@ -96,10 +96,7 @@ class TrialTimelinePage extends StatelessWidget {
                             margin: const EdgeInsets.only(top: 3),
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              border: Border.all(
-                                color: colors.ink,
-                                width: 1.4,
-                              ),
+                              border: Border.all(color: colors.ink, width: 1.4),
                               color: Theme.of(context).scaffoldBackgroundColor,
                             ),
                           ),
