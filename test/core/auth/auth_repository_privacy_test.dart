@@ -19,16 +19,18 @@ void main() {
     expect(functions.exportDataCalls, 1);
   });
 
-  test('deleteAccount reauthenticates for stale sign-in', () async {
+  test('deleteAccount reauthenticates without ordinary credential sign-in',
+      () async {
     final google = PrivacyGoogleGateway();
+    final gateway = PrivacyAuthGateway(
+      currentSession: AuthSession(
+        uid: 'user-1',
+        lastSignInTime: DateTime(2026, 5, 17, 14),
+      ),
+    );
     final functions = PrivacyFunctionsGateway();
     final repo = AuthRepository(
-      gateway: PrivacyAuthGateway(
-        currentSession: AuthSession(
-          uid: 'user-1',
-          lastSignInTime: DateTime(2026, 5, 17, 14),
-        ),
-      ),
+      gateway: gateway,
       googleGateway: google,
       functionsGateway: functions,
       localStateWiper: const NoopLocalStateWiper(),
@@ -38,6 +40,8 @@ void main() {
     await repo.deleteAccount();
 
     expect(google.signInCalls, 1);
+    expect(gateway.reauthenticateCalls, 1);
+    expect(gateway.googleCredentialSignInCalls, 0);
     expect(functions.deleteAccountCalls, 1);
   });
 
@@ -137,6 +141,8 @@ class PrivacyAuthGateway implements AuthGateway {
         _operations = operations;
 
   final List<String>? _operations;
+  int reauthenticateCalls = 0;
+  int googleCredentialSignInCalls = 0;
 
   @override
   AuthSession? currentSession;
@@ -157,6 +163,13 @@ class PrivacyAuthGateway implements AuthGateway {
   }
 
   @override
+  Future<void> reauthenticateWithGoogleCredential(
+    GoogleAuthTokens tokens,
+  ) async {
+    reauthenticateCalls += 1;
+  }
+
+  @override
   Future<void> signOut() async {
     _operations?.add('signOut');
     currentSession = null;
@@ -166,6 +179,7 @@ class PrivacyAuthGateway implements AuthGateway {
   Future<AuthSession> signInWithGoogleCredential(
     GoogleAuthTokens tokens,
   ) async {
+    googleCredentialSignInCalls += 1;
     currentSession = const AuthSession(uid: 'user-1');
     return currentSession!;
   }

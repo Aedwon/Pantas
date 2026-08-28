@@ -28,6 +28,8 @@ abstract interface class AuthGateway {
 
   Future<AuthSession> signInWithGoogleCredential(GoogleAuthTokens tokens);
 
+  Future<void> reauthenticateWithGoogleCredential(GoogleAuthTokens tokens);
+
   Future<void> signOut();
 }
 
@@ -106,7 +108,7 @@ class AuthRepository {
       if (tokens == null) {
         throw const AuthGatewayException('requires-recent-login');
       }
-      await _gateway.signInWithGoogleCredential(tokens);
+      await _gateway.reauthenticateWithGoogleCredential(tokens);
     }
 
     await _accountTransitionGateway.prepareForDeleteAccount();
@@ -159,6 +161,7 @@ abstract interface class LocalStateWiper {
   Future<void> wipeAll();
 }
 
+// Temporary compatibility declaration for Sync. AuthRepository must not use it.
 // ignore: one_member_abstracts
 abstract interface class CloudProgressGateway {
   Future<bool> hasMeaningfulProgress(String uid);
