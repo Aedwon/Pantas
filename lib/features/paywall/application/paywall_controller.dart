@@ -111,7 +111,8 @@ class PaywallController {
       PaymentOperationStatus.userCancelled =>
         null,
       PaymentOperationStatus.networkFailure =>
-        "You need a connection to subscribe. Try again when you're back online.",
+        "You need a connection to subscribe. Try again when you're "
+            'back online.',
       PaymentOperationStatus.operationAlreadyInProgress =>
         'A purchase or restore is already in progress.',
       PaymentOperationStatus.storeFailure =>
