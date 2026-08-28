@@ -1,28 +1,25 @@
 import 'dart:async';
 
+import 'package:pantas/features/paywall/data/entitlement_snapshot_store.dart';
+import 'package:pantas/features/paywall/data/payment_entitlement_state.dart';
 import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
+import 'package:pantas/features/paywall/data/revenuecat_sdk.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
+import 'package:pantas/features/paywall/domain/payment_operation.dart';
+import 'package:pantas/features/paywall/domain/paywall_offering.dart';
 import 'package:pantas/features/paywall/domain/paywall_package.dart';
-import 'package:purchases_flutter/purchases_flutter.dart';
 
 /// The RevenueCat entitlement identifier configured in the dashboard.
 /// One entitlement covers all three SKUs.
 const proEntitlementId = 'pro';
 
-/// The Play product IDs, chosen 12 August 2026 and permanent from the first
-/// submission. A Play product ID cannot be renamed, deleted or reused.
-///
-/// **These three strings and the products in Play Console must agree.** A
-/// product this file does not recognize is skipped when the offering is read,
-/// so a mismatch shows up as a paywall with nothing on it and no error
-/// anywhere.
+/// The permanent Google Play product ids chosen before the first submission.
 const _weeklyProductId = 'pantas_pro_weekly';
 const _monthlyProductId = 'pantas_pro_monthly';
 const _yearlyProductId = 'pantas_pro_yearly';
 
-/// Google Play appends a base plan id to the product id, as in
-/// `pantas_pro_monthly:monthly-autorenewing`. Compare on the part before the
-/// colon.
+/// Google Play can append a base-plan id, for example
+/// `pantas_pro_monthly:monthly-autorenewing`.
 PaywallSku? skuFromProductId(String productId) {
   final base = productId.split(':').first;
   return switch (base) {
@@ -41,117 +38,209 @@ EntitlementPlan planForSku(PaywallSku sku) {
   };
 }
 
-Entitlement entitlementFromCustomerInfo(CustomerInfo info) {
-  final active = info.entitlements.active[proEntitlementId];
-  if (active == null) return const Entitlement.free();
+Entitlement entitlementFromCustomerInfo(RevenueCatCustomerInfoSnapshot info) {
+  final productId = info.productId;
+  if (!info.proIsActive || productId == null) return const Entitlement.free();
 
-  final sku = skuFromProductId(active.productIdentifier);
-  // An active entitlement on a product this build does not know about is a
-  // paid student. Treat it as Pro on the monthly plan rather than as Free:
-  // failing closed here would take Pro from someone who paid for it.
-  final plan = sku == null ? EntitlementPlan.monthly : planForSku(sku);
+  final sku = skuFromProductId(productId);
+  if (sku == null) {
+    return Entitlement.activeUnknown(
+      productId: productId,
+      expiresAt: info.expiresAt,
+      isTrial: info.isTrial,
+      willRenew: info.willRenew,
+    );
+  }
 
   return Entitlement(
-    plan: plan,
-    productId: active.productIdentifier,
-    expiresAt: active.expirationDate == null
-        ? null
-        : DateTime.tryParse(active.expirationDate!),
-    isTrial: active.periodType == PeriodType.trial,
-    willRenew: active.willRenew,
+    plan: planForSku(sku),
+    productId: productId,
+    expiresAt: info.expiresAt,
+    isTrial: info.isTrial,
+    willRenew: info.willRenew,
   );
 }
 
 class LiveRevenueCatGateway implements RevenueCatGateway {
-  LiveRevenueCatGateway();
+  LiveRevenueCatGateway({
+    RevenueCatSdk? sdk,
+    PaymentEntitlementState? entitlementState,
+  })  : _sdk = sdk ?? PurchasesRevenueCatSdk(),
+        _entitlementState = entitlementState ??
+            PaymentEntitlementState(EntitlementSnapshotStore.inMemory());
 
-  final _controller = StreamController<Entitlement>.broadcast();
-  Entitlement? _cached;
+  final RevenueCatSdk _sdk;
+  final PaymentEntitlementState _entitlementState;
   bool _listening = false;
 
-  @override
-  Entitlement? get cachedEntitlement => _cached;
+  Future<void> initialize() => _entitlementState.initialize();
 
   @override
-  Stream<Entitlement> get customerInfoUpdates => _controller.stream;
+  Entitlement? get cachedEntitlement => _entitlementState.current;
+
+  @override
+  Stream<Entitlement> get customerInfoUpdates => _entitlementState.updates;
 
   @override
   Future<void> configure({required String androidApiKey}) async {
-    await Purchases.configure(PurchasesConfiguration(androidApiKey));
+    await initialize();
+    await _sdk.configure(androidApiKey);
     if (!_listening) {
       _listening = true;
-      Purchases.addCustomerInfoUpdateListener(_onCustomerInfo);
+      _sdk.addCustomerInfoUpdateListener((info) {
+        unawaited(_acceptCustomerInfo(info));
+      });
     }
-    final info = await Purchases.getCustomerInfo();
-    _onCustomerInfo(info);
+    await _acceptCustomerInfo(await _sdk.getCustomerInfo());
   }
 
-  void _onCustomerInfo(CustomerInfo info) {
-    final entitlement = entitlementFromCustomerInfo(info);
-    _cached = entitlement;
-    if (!_controller.isClosed) _controller.add(entitlement);
+  Future<void> _acceptCustomerInfo(RevenueCatCustomerInfoSnapshot info) {
+    return _entitlementState.acceptAuthoritative(
+      entitlementFromCustomerInfo(info),
+    );
   }
 
   @override
   Future<void> logIn(String uid) async {
-    final result = await Purchases.logIn(uid);
-    _onCustomerInfo(result.customerInfo);
+    await initialize();
+    await _acceptCustomerInfo(await _sdk.logIn(uid));
   }
 
   @override
-  Future<List<PaywallPackage>> currentOffering() async {
-    final offerings = await Purchases.getOfferings();
-    final current = offerings.current;
-    if (current == null) return const [];
+  Future<PaywallOfferingResult> currentOffering() async {
+    try {
+      final offering = await _sdk.getCurrentOffering();
+      if (offering == null) {
+        return const PaywallOfferingResult.noCurrentOffering();
+      }
+      if (offering.products.isEmpty) {
+        return const PaywallOfferingResult.emptyCurrentOffering();
+      }
 
-    final packages = <PaywallPackage>[];
-    for (final package in current.availablePackages) {
-      final product = package.storeProduct;
-      final sku = skuFromProductId(product.identifier);
-      // A product the ladder does not name is not shown. The ladder is three
-      // SKUs and a fourth appearing on screen would be a pricing bug.
-      if (sku == null) continue;
-      packages.add(
-        PaywallPackage(
-          sku: sku,
-          productId: product.identifier,
-          priceString: product.priceString,
-          priceAmount: product.price,
-        ),
+      final recognized = <PaywallPackage>[];
+      final unrecognized = <String>[];
+      for (final product in offering.products) {
+        final sku = skuFromProductId(product.productId);
+        if (sku == null) {
+          unrecognized.add(product.productId);
+          continue;
+        }
+        recognized.add(
+          PaywallPackage(
+            sku: sku,
+            productId: product.productId,
+            priceString: product.priceString,
+            priceAmount: product.priceAmount,
+          ),
+        );
+      }
+
+      if (recognized.isEmpty) {
+        return PaywallOfferingResult(
+          status: PaywallOfferingStatus.allProductsUnrecognized,
+          unrecognizedProductIds: unrecognized,
+        );
+      }
+      if (unrecognized.isNotEmpty) {
+        return PaywallOfferingResult(
+          status: PaywallOfferingStatus.mixedProducts,
+          recognizedPackages: recognized,
+          unrecognizedProductIds: unrecognized,
+        );
+      }
+      return PaywallOfferingResult(
+        status: PaywallOfferingStatus.available,
+        recognizedPackages: recognized,
+      );
+    } on RevenueCatSdkException catch (error) {
+      return PaywallOfferingResult(status: _offeringStatus(error.kind));
+    } catch (_) {
+      return const PaywallOfferingResult(
+        status: PaywallOfferingStatus.unknownFailure,
       );
     }
-    return packages;
   }
 
   @override
-  Future<Entitlement> purchase(PaywallPackage package) async {
-    final offerings = await Purchases.getOfferings();
-    final current = offerings.current;
-    if (current == null) {
-      throw StateError('No current offering configured in RevenueCat.');
+  Future<PaymentOperationResult> purchase(PaywallPackage package) async {
+    await initialize();
+    try {
+      final entitlement = entitlementFromCustomerInfo(
+        await _sdk.purchase(package.productId),
+      );
+      await _entitlementState.acceptAuthoritative(entitlement);
+      if (!entitlement.proIsActive) {
+        return PaymentOperationResult.authoritative(
+          status: PaymentOperationStatus.entitlementNotActive,
+          entitlement: entitlement,
+        );
+      }
+      return PaymentOperationResult.authoritative(
+        status: PaymentOperationStatus.success,
+        entitlement: entitlement,
+      );
+    } on RevenueCatSdkException catch (error) {
+      return PaymentOperationResult.failure(
+        status: _operationStatus(error.kind),
+      );
+    } catch (_) {
+      return const PaymentOperationResult.failure(
+        status: PaymentOperationStatus.unknownFailure,
+      );
     }
-    final target = current.availablePackages.firstWhere(
-      (candidate) => candidate.storeProduct.identifier == package.productId,
-      orElse: () => throw StateError(
-        'Product ${package.productId} is not in the current offering.',
-      ),
-    );
-
-    // 10.x replaced `purchasePackage` with `purchase(PurchaseParams)` and
-    // returns a result carrying the customer info and the transaction. We
-    // want the customer info; the transaction is the store's receipt and
-    // nothing here reads it.
-    final result = await Purchases.purchase(PurchaseParams.package(target));
-    final entitlement = entitlementFromCustomerInfo(result.customerInfo);
-    _cached = entitlement;
-    return entitlement;
   }
 
   @override
-  Future<Entitlement> restorePurchases() async {
-    final info = await Purchases.restorePurchases();
-    final entitlement = entitlementFromCustomerInfo(info);
-    _cached = entitlement;
-    return entitlement;
+  Future<PaymentOperationResult> restorePurchases() async {
+    await initialize();
+    try {
+      final entitlement = entitlementFromCustomerInfo(
+        await _sdk.restorePurchases(),
+      );
+      await _entitlementState.acceptAuthoritative(entitlement);
+      return PaymentOperationResult.authoritative(
+        status: entitlement.proIsActive
+            ? PaymentOperationStatus.success
+            : PaymentOperationStatus.noActiveSubscription,
+        entitlement: entitlement,
+      );
+    } on RevenueCatSdkException catch (error) {
+      return PaymentOperationResult.failure(
+        status: _operationStatus(error.kind),
+      );
+    } catch (_) {
+      return const PaymentOperationResult.failure(
+        status: PaymentOperationStatus.unknownFailure,
+      );
+    }
   }
+}
+
+PaywallOfferingStatus _offeringStatus(RevenueCatFailureKind kind) {
+  return switch (kind) {
+    RevenueCatFailureKind.network => PaywallOfferingStatus.networkFailure,
+    RevenueCatFailureKind.store => PaywallOfferingStatus.storeFailure,
+    RevenueCatFailureKind.revenueCat => PaywallOfferingStatus.revenueCatFailure,
+    RevenueCatFailureKind.configuration =>
+      PaywallOfferingStatus.configurationFailure,
+    RevenueCatFailureKind.developer => PaywallOfferingStatus.developerFailure,
+    RevenueCatFailureKind.userCancelled ||
+    RevenueCatFailureKind.operationInProgress ||
+    RevenueCatFailureKind.unknown => PaywallOfferingStatus.unknownFailure,
+  };
+}
+
+PaymentOperationStatus _operationStatus(RevenueCatFailureKind kind) {
+  return switch (kind) {
+    RevenueCatFailureKind.userCancelled => PaymentOperationStatus.userCancelled,
+    RevenueCatFailureKind.network => PaymentOperationStatus.networkFailure,
+    RevenueCatFailureKind.store => PaymentOperationStatus.storeFailure,
+    RevenueCatFailureKind.revenueCat => PaymentOperationStatus.revenueCatFailure,
+    RevenueCatFailureKind.configuration =>
+      PaymentOperationStatus.configurationFailure,
+    RevenueCatFailureKind.developer => PaymentOperationStatus.developerFailure,
+    RevenueCatFailureKind.operationInProgress =>
+      PaymentOperationStatus.operationAlreadyInProgress,
+    RevenueCatFailureKind.unknown => PaymentOperationStatus.unknownFailure,
+  };
 }
