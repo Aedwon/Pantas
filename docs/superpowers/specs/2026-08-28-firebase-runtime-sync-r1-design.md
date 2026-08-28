@@ -51,14 +51,15 @@ Wave 2E must not modify RevenueCat-owned source files to implement this. Sync ma
 
 Every local-only to Sync-eligible transition runs B3 before normal Sync starts. This includes first Pro activation and later Pro restoration after expiry.
 
-The B3 matrix is:
+B3 distinguishes **active-generation existence** from **meaningful progress** so an existing account generation that contains only account preferences is not silently discarded.
 
-| Syncable device data | Active cloud generation | Result |
-| --- | --- | --- |
-| none meaningful | none meaningful | create/activate an empty generation, then start Sync |
-| meaningful | none meaningful | automatically Keep this device |
-| none meaningful | meaningful | automatically Keep my account |
-| meaningful | meaningful | block normal Sync and show the reconciliation prompt |
+| Active cloud generation | Syncable device data | Meaningful cloud data | Result |
+| --- | --- | --- | --- |
+| none | none meaningful | n/a | stage/activate the current device snapshot, including account preferences, then start Sync |
+| none | meaningful | n/a | automatically Keep this device |
+| exists | none meaningful | either | automatically Keep my account, preserving the existing generation and account preferences |
+| exists | meaningful | none meaningful | automatically Keep this device |
+| exists | meaningful | meaningful | block normal Sync and show the reconciliation prompt |
 
 The both-sides-meaningful case uses an immediate blocking modal wherever the user is in the app. The choices are exactly:
 
@@ -68,6 +69,8 @@ The both-sides-meaningful case uses an immediate blocking modal wherever the use
 No record-level merge is offered during B3.
 
 The prompt represents a whole-side choice. The implementation must not start normal Sync until the choice completes successfully.
+
+For B3, "meaningful cloud data" means at least one non-deleted record in a Sync-owned meaningful collection. Account preferences by themselves do not force a conflict prompt. An existing generation containing only preferences is still preserved through the active-generation-exists rule above.
 
 ## 5. Syncable meaningful data vs wipe-sensitive local data
 
@@ -214,6 +217,8 @@ sync_row_meta
 
 Remote domain-row application and the corresponding `sync_row_meta` update must happen in the same Drift transaction. A failure must advance neither one.
 
+A `sync_row_meta` entry is retained when a domain row is deleted by an accepted tombstone. That retained knowledge is what lets a device recognize a later physically removed tombstone as an already-known cloud deletion.
+
 Domain tables do not receive new Sync timestamp columns.
 
 ## 10. Pending queue contract
@@ -253,7 +258,9 @@ For each queued row, Sync compares the queued base cloud timestamp with the curr
 
 - If the cloud timestamp still matches the queued base, the local mutation may be committed.
 - If the cloud row has advanced beyond that base, the queued write is stale and must not acquire a newer server timestamp merely because it arrived late.
-- The accepted cloud state wins that stale-base conflict and is reconciled locally.
+- If the queued base is non-null but the cloud document is now absent, the row is treated as a cloud deletion/garbage-collected tombstone and the stale local mutation does not recreate it.
+- If the queued base is null and the cloud document is absent, the row is a legitimate new local row and may be created.
+- The accepted cloud state wins stale-base conflicts and is reconciled locally.
 
 Committed writes carry:
 
@@ -268,7 +275,7 @@ A successful write is not allowed to erase evidence of a newer local edit that h
 
 This preserves fast consecutive edits without putting Sync timestamps in the domain row.
 
-## 12. Pull and echo semantics
+## 12. Pull, initial-snapshot, and echo semantics
 
 Firestore listeners watch only the current active generation.
 
@@ -280,7 +287,14 @@ Incoming live rows are evaluated against `sync_row_meta` and pending queue state
 - An incoming remote row newer than the last accepted local cloud metadata is applied.
 - Older/equal non-echo data is ignored.
 
-Every accepted remote apply updates the domain row and `sync_row_meta` atomically.
+The initial complete snapshot for a collection also reconciles known absence:
+
+- if a local row has retained `sync_row_meta` for this generation, has no legitimate pending new-row mutation, and the complete active-generation snapshot no longer contains that document ID, the cloud deletion wins and the local row is removed;
+- a genuinely new local row with null base metadata and a pending create is not removed merely because it is not yet in the cloud.
+
+This rule preserves delete convergence even when the original tombstone was physically garbage-collected before a very old device reconnects.
+
+Every accepted remote apply or accepted known-absence delete updates the domain row and `sync_row_meta` atomically as applicable.
 
 ## 13. Deletes and tombstones
 
@@ -296,11 +310,11 @@ mutationId: <id>
 schemaVersion: <n>
 ```
 
-An accepted tombstone removes the local domain row and advances `sync_row_meta` in the same local transaction.
+An accepted tombstone removes the local domain row and advances/retains `sync_row_meta` in the same local transaction.
 
 Queued deletes carry the same base-cloud protection as upserts. An old offline device cannot resurrect a deleted row simply by reconnecting later.
 
-Tombstones are retained for 90 days. Backend cleanup may physically delete tombstones older than that cutoff.
+Tombstones are retained for 90 days. Backend cleanup may physically delete tombstones older than that cutoff. The known-absence rules in sections 11 and 12 preserve convergence after physical cleanup.
 
 Generation retirement/cleanup is separate from tombstone cleanup.
 
@@ -347,11 +361,15 @@ Deletion is different from ordinary sign-out:
 4. Auth/backend deletion proceeds;
 5. local state is wiped afterward by the existing account lifecycle.
 
-### Pro expiry
+### Pro expiry or other eligibility loss
 
-On Pro expiry:
+On eligibility loss:
 
-- cancel/quiesce Sync immediately;
+- stop accepting new Sync work immediately;
+- cancel listeners before starting any new cloud operation;
+- a Firestore transaction or batch already submitted to the SDK may finish, but the engine starts no subsequent network operation after observing ineligibility;
+- an in-progress Keep-this-device staging flow stops before the next upload batch and leaves the generation inactive/staging;
+- an in-progress Keep-my-account download that has not reached the local replacement transaction is discarded from temporary memory and leaves local data unchanged;
 - preserve local data;
 - preserve cloud generations;
 - preserve pending local queue state in a non-running form where applicable;
@@ -418,11 +436,14 @@ The activation callable:
 - atomically updates the current-generation pointer and generation statuses;
 - returns stable structured errors for authorization and generation conflicts.
 
-A scheduled cleanup implementation may:
+Cleanup retention is exact for Wave 2E:
 
-- remove tombstones older than 90 days;
-- remove retired/stale generations according to a conservative retention rule;
-- never delete the generation currently referenced by `sync_state/current`.
+- tombstones: eligible for physical deletion after 90 days;
+- abandoned staging generations: eligible for deletion after 7 days;
+- retired generations: eligible for deletion after 30 days;
+- the generation currently referenced by `sync_state/current` is never eligible for generation cleanup regardless of age.
+
+Cleanup code must re-check active-generation identity at deletion time instead of relying only on a previously read candidate list.
 
 Wave 2E implementation and verification do not deploy Functions or Firestore rules to production.
 
@@ -436,7 +457,7 @@ Sync failures preserve user data.
 - Generation activation failure: staged generation remains inactive; old generation stays active.
 - Keep-my-account download failure: local state remains untouched.
 - Local remote-apply transaction failure: neither domain row nor row metadata advances.
-- Pro expiry mid-operation: finish/cancel the current operation safely, then do not start another cloud operation.
+- Eligibility loss mid-operation follows the exact stop rules in section 15.
 - Sign-out flush failure: abort ordinary sign-out.
 - Account deletion: never flush pending Sync data first.
 
@@ -480,7 +501,8 @@ The implementation plan must assign any unavoidable shared path to only one work
 - existing domain tables do not gain new Sync timestamp columns;
 - pending queue is generation-aware and carries base-cloud/revision metadata;
 - Sync meaningful-progress semantics cover all Sync-owned meaningful data and exclude intentionally device-local state;
-- all four B3 outcomes;
+- active-generation existence is distinguished from meaningful cloud progress so account preferences are preserved;
+- all B3 matrix outcomes;
 - both-sides case enters blocking reconciliation state;
 - three-part eligibility gating;
 - token-claim delay produces `activating`, not destructive failure;
@@ -492,7 +514,8 @@ The implementation plan must assign any unavoidable shared path to only one work
 - stale-base writes cannot become winners merely by arriving later;
 - acknowledgement/echo handling does not lose a newer same-device local edit;
 - tombstones propagate deletes;
-- 90-day retention value is represented in the backend contract, while physical cleanup belongs to 2E-2;
+- a known row still converges to deletion when its tombstone has already been physically garbage-collected;
+- a legitimate new local row with null base is not mistaken for a garbage-collected deletion;
 - pending queue survives/retries transient failures;
 - sign-out preparation flushes and can abort Auth sign-out;
 - delete-account preparation does not flush;
@@ -510,7 +533,9 @@ The implementation plan must assign any unavoidable shared path to only one work
 - staging generation permissions are constrained as designed;
 - activation cannot target another user's generation;
 - tombstone cleanup respects the 90-day cutoff;
-- generation cleanup cannot delete the active generation;
+- abandoned staging cleanup respects the 7-day cutoff;
+- retired-generation cleanup respects the 30-day cutoff;
+- generation cleanup cannot delete the active generation, including if the active pointer changes during cleanup;
 - focused Functions/rules checks and repository hygiene pass.
 
 ### 22.3 Combined verification
@@ -544,29 +569,33 @@ Wave 2E does not:
 2. Eligibility requires named identity + RevenueCat Pro + refreshed Firebase `pro` claim.
 3. Claim delay shows `activating`; study remains local-first.
 4. B3 runs on every transition into Sync eligibility.
-5. Both-sides-meaningful B3 is an immediate blocking Keep-device/Keep-account choice.
-6. B3 never performs record-level merge.
-7. `/users/{uid}` remains account metadata, not backup storage.
-8. Sync uses a dedicated current-generation control document and versioned generation data.
-9. Keep this device is stage -> activate -> retire/cleanup, never delete-then-upload.
-10. Generation activation uses compare-and-swap against the expected active generation.
-11. Keep my account downloads completely before local replacement.
-12. `sync_meta` stays engine-wide key/value state.
-13. `sync_row_meta` stores structured per-row LWW metadata.
-14. Remote row apply and row-metadata update are one Drift transaction.
-15. Pending operations carry generation ID and base cloud timestamp.
-16. Same-device acknowledgement handling must preserve newer local revisions.
-17. Normal conflicts are server-ordered LWW with stale-base protection.
-18. Deletes use tombstones.
-19. Tombstones are retained 90 days.
-20. In-progress mock attempts remain device-local; terminal attempts sync.
-21. Syncable meaningful-data detection is separate from wipe-sensitive local-state detection.
-22. Sync registry includes review logs, track scope, and custom user blueprints so meaningful backed-up user data is not silently omitted.
-23. No background isolate is introduced in Wave 2E.
-24. No idle polling timer is introduced.
-25. Pro expiry quiesces without deleting either side; restoration re-runs B3.
-26. Ordinary sign-out may abort if the required Pro flush fails.
-27. Account deletion quiesces without flushing pending changes.
-28. Cloud progress ownership moves fully out of Auth in Wave 2E.
-29. 2E-1 and 2E-2 may run in parallel only after the implementation plan assigns disjoint file ownership.
-30. No production external mutation occurs as part of Wave 2E implementation or verification.
+5. Active-generation existence is distinct from meaningful progress so a preferences-only cloud generation is preserved.
+6. Both-sides-meaningful B3 is an immediate blocking Keep-device/Keep-account choice.
+7. B3 never performs record-level merge.
+8. `/users/{uid}` remains account metadata, not backup storage.
+9. Sync uses a dedicated current-generation control document and versioned generation data.
+10. Keep this device is stage -> activate -> retire/cleanup, never delete-then-upload.
+11. Generation activation uses compare-and-swap against the expected active generation.
+12. Keep my account downloads completely before local replacement.
+13. `sync_meta` stays engine-wide key/value state.
+14. `sync_row_meta` stores structured per-row LWW metadata and retains accepted deletion knowledge.
+15. Remote row apply and row-metadata update are one Drift transaction.
+16. Pending operations carry generation ID and base cloud timestamp.
+17. Same-device acknowledgement handling must preserve newer local revisions.
+18. Normal conflicts are server-ordered LWW with stale-base protection.
+19. A missing cloud document with a non-null known base is treated as a cloud deletion, while a null-base pending create may create it.
+20. Initial complete snapshots reconcile known absent rows so tombstone GC cannot resurrect them.
+21. Deletes use tombstones.
+22. Tombstones are retained 90 days.
+23. Abandoned staging generations are retained 7 days; retired generations 30 days; active generation is never cleanup-eligible.
+24. In-progress mock attempts remain device-local; terminal attempts sync.
+25. Syncable meaningful-data detection is separate from wipe-sensitive local-state detection.
+26. Sync registry includes review logs, track scope, and custom user blueprints so meaningful backed-up user data is not silently omitted.
+27. No background isolate is introduced in Wave 2E.
+28. No idle polling timer is introduced.
+29. Pro expiry/eligibility loss starts no new cloud operation after the loss is observed; restoration re-runs B3.
+30. Ordinary sign-out may abort if the required Pro flush fails.
+31. Account deletion quiesces without flushing pending changes.
+32. Cloud progress ownership moves fully out of Auth in Wave 2E.
+33. 2E-1 and 2E-2 may run in parallel only after the implementation plan assigns disjoint file ownership.
+34. No production external mutation occurs as part of Wave 2E implementation or verification.
