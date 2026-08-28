@@ -9,7 +9,6 @@ import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
 import 'package:pantas/features/paywall/domain/paywall_offering.dart';
-import 'package:pantas/features/paywall/domain/paywall_package.dart';
 import 'package:pantas/features/paywall/domain/paywall_recommendation.dart';
 import 'package:pantas/features/paywall/presentation/plans_page.dart';
 import 'package:pantas/features/paywall/presentation/trial_timeline_page.dart';
@@ -180,14 +179,17 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
     return switch (result.status) {
       PaymentOperationStatus.success ||
       PaymentOperationStatus.entitlementNotActive =>
-        "We found a purchase, but Pro couldn't be confirmed yet. Try again in a moment.",
+        "We found a purchase, but Pro couldn't be confirmed yet. "
+            'Try again in a moment.',
       PaymentOperationStatus.noActiveSubscription =>
-        "We couldn't find an active Pro subscription on this Google Play account.",
+        "We couldn't find an active Pro subscription on this Google Play "
+            'account.',
       PaymentOperationStatus.userCancelled ||
       PaymentOperationStatus.operationAlreadyInProgress =>
         null,
       PaymentOperationStatus.networkFailure =>
-        "You need a connection to restore purchases. Try again when you're back online.",
+        'You need a connection to restore purchases. Try again when '
+            "you're back online.",
       PaymentOperationStatus.storeFailure =>
         "Google Play couldn't check your purchases right now. Try again.",
       PaymentOperationStatus.revenueCatFailure ||
@@ -343,7 +345,8 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
   (String, bool) _offeringCopy(PaywallOfferingStatus status) {
     return switch (status) {
       PaywallOfferingStatus.networkFailure => (
-          "You need a connection to load subscriptions. Try again when you're back online.",
+          'You need a connection to load subscriptions. Try again when '
+              "you're back online.",
           true,
         ),
       PaywallOfferingStatus.storeFailure => (
@@ -351,7 +354,8 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
           true,
         ),
       PaywallOfferingStatus.allProductsUnrecognized => (
-          'Subscriptions are not available in this version of Pantas right now.',
+          'Subscriptions are not available in this version of Pantas '
+              'right now.',
           false,
         ),
       PaywallOfferingStatus.noCurrentOffering ||
