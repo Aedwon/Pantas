@@ -87,7 +87,7 @@ class FirebaseAuthGateway implements AuthGateway {
   AuthSession _sessionFromCredential(firebase.UserCredential credential) {
     final session = _sessionFromUser(credential.user);
     if (session == null) {
-      throw const AuthGatewayException('missing-user');
+      throw const AuthGatewayException('missing-user-credential-result');
     }
     return session;
   }

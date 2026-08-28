@@ -72,6 +72,24 @@ void main() {
     expect(session, const AuthSession(uid: 'anon-1', isAnonymous: true));
   });
 
+  test('signInAnonymously reports a missing credential user', () async {
+    final auth = MockFirebaseAuth();
+    final credential = MockUserCredential();
+    when(() => credential.user).thenReturn(null);
+    when(() => auth.signInAnonymously()).thenAnswer((_) async => credential);
+
+    await expectLater(
+      FirebaseAuthGateway(auth: auth).signInAnonymously(),
+      throwsA(
+        isA<AuthGatewayException>().having(
+          (error) => error.code,
+          'code',
+          'missing-user-credential-result',
+        ),
+      ),
+    );
+  });
+
   test('links and signs in with Google credentials', () async {
     final auth = MockFirebaseAuth();
     final anonymous = _user(uid: 'anon-1', isAnonymous: true);
