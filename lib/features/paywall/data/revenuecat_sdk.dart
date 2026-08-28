@@ -75,6 +75,56 @@ abstract interface class RevenueCatSdk {
   Future<RevenueCatCustomerInfoSnapshot> restorePurchases();
 }
 
+RevenueCatFailureKind classifyRevenueCatErrorCode(PurchasesErrorCode code) {
+  return switch (code) {
+    PurchasesErrorCode.purchaseCancelledError =>
+      RevenueCatFailureKind.userCancelled,
+    PurchasesErrorCode.networkError ||
+    PurchasesErrorCode.offlineConnectionError ||
+    PurchasesErrorCode.apiEndpointBlocked ||
+    PurchasesErrorCode.productRequestTimeout => RevenueCatFailureKind.network,
+    PurchasesErrorCode.operationAlreadyInProgressError =>
+      RevenueCatFailureKind.operationInProgress,
+    PurchasesErrorCode.configurationError => RevenueCatFailureKind.configuration,
+    PurchasesErrorCode.invalidCredentialsError ||
+    PurchasesErrorCode.purchaseInvalidError ||
+    PurchasesErrorCode.invalidAppUserIdError ||
+    PurchasesErrorCode.invalidSubscriberAttributesError ||
+    PurchasesErrorCode.unsupportedError ||
+    PurchasesErrorCode.productDiscountMissingIdentifierError ||
+    PurchasesErrorCode.productDiscountMissingSubscriptionGroupIdentifierError ||
+    PurchasesErrorCode.invalidAppleSubscriptionKeyError ||
+    PurchasesErrorCode.invalidPromotionalOfferError ||
+    PurchasesErrorCode.featureNotAvailableInCustomEntitlementsComputationMode ||
+    PurchasesErrorCode.featureNotSupportedWithStoreKit1 ||
+    PurchasesErrorCode.invalidWebPurchaseToken => RevenueCatFailureKind.developer,
+    PurchasesErrorCode.storeProblemError ||
+    PurchasesErrorCode.purchaseNotAllowedError ||
+    PurchasesErrorCode.productNotAvailableForPurchaseError ||
+    PurchasesErrorCode.productAlreadyPurchasedError ||
+    PurchasesErrorCode.ineligibleError ||
+    PurchasesErrorCode.insufficientPermissionsError ||
+    PurchasesErrorCode.paymentPendingError ||
+    PurchasesErrorCode.beginRefundRequestError ||
+    PurchasesErrorCode.testStoreSimulatedPurchaseError => RevenueCatFailureKind.store,
+    PurchasesErrorCode.receiptAlreadyInUseError ||
+    PurchasesErrorCode.invalidReceiptError ||
+    PurchasesErrorCode.missingReceiptFileError ||
+    PurchasesErrorCode.unexpectedBackendResponseError ||
+    PurchasesErrorCode.receiptInUseByOtherSubscriberError ||
+    PurchasesErrorCode.unknownBackendError ||
+    PurchasesErrorCode.customerInfoError ||
+    PurchasesErrorCode.systemInfoError ||
+    PurchasesErrorCode.signatureVerificationFailed ||
+    PurchasesErrorCode.purchaseBelongsToOtherUser ||
+    PurchasesErrorCode.expiredWebPurchaseToken => RevenueCatFailureKind.revenueCat,
+    PurchasesErrorCode.unknownError ||
+    PurchasesErrorCode.logOutWithAnonymousUserError ||
+    PurchasesErrorCode.emptySubscriberAttributesError ||
+    PurchasesErrorCode.unknownNonNativeError => RevenueCatFailureKind.unknown,
+  };
+}
+
 class PurchasesRevenueCatSdk implements RevenueCatSdk {
   static const _proEntitlementId = 'pro';
 
@@ -96,7 +146,9 @@ class PurchasesRevenueCatSdk implements RevenueCatSdk {
 
   @override
   Future<RevenueCatCustomerInfoSnapshot> getCustomerInfo() {
-    return _translate(() async => _customerInfoSnapshot(await Purchases.getCustomerInfo()));
+    return _translate(
+      () async => _customerInfoSnapshot(await Purchases.getCustomerInfo()),
+    );
   }
 
   @override
@@ -180,60 +232,15 @@ class PurchasesRevenueCatSdk implements RevenueCatSdk {
     } on RevenueCatSdkException {
       rethrow;
     } on PlatformException catch (error) {
-      throw RevenueCatSdkException(_failureKind(error), error);
+      PurchasesErrorCode code;
+      try {
+        code = PurchasesErrorHelper.getErrorCode(error);
+      } catch (_) {
+        throw RevenueCatSdkException(RevenueCatFailureKind.unknown, error);
+      }
+      throw RevenueCatSdkException(classifyRevenueCatErrorCode(code), error);
     } catch (error) {
       throw RevenueCatSdkException(RevenueCatFailureKind.unknown, error);
-    }
-  }
-
-  RevenueCatFailureKind _failureKind(PlatformException error) {
-    PurchasesErrorCode code;
-    try {
-      code = PurchasesErrorHelper.getErrorCode(error);
-    } catch (_) {
-      return RevenueCatFailureKind.unknown;
-    }
-
-    switch (code) {
-      case PurchasesErrorCode.purchaseCancelledError:
-        return RevenueCatFailureKind.userCancelled;
-      case PurchasesErrorCode.networkError:
-      case PurchasesErrorCode.offlineConnectionError:
-      case PurchasesErrorCode.apiEndpointBlocked:
-      case PurchasesErrorCode.productRequestTimeout:
-        return RevenueCatFailureKind.network;
-      case PurchasesErrorCode.operationAlreadyInProgressError:
-        return RevenueCatFailureKind.operationInProgress;
-      case PurchasesErrorCode.configurationError:
-      case PurchasesErrorCode.invalidCredentialsError:
-        return RevenueCatFailureKind.configuration;
-      case PurchasesErrorCode.purchaseInvalidError:
-      case PurchasesErrorCode.invalidAppUserIdError:
-      case PurchasesErrorCode.invalidSubscriberAttributesError:
-      case PurchasesErrorCode.unsupportedError:
-      case PurchasesErrorCode.productDiscountMissingIdentifierError:
-      case PurchasesErrorCode.productDiscountMissingSubscriptionGroupIdentifierError:
-        return RevenueCatFailureKind.developer;
-      case PurchasesErrorCode.storeProblemError:
-      case PurchasesErrorCode.purchaseNotAllowedError:
-      case PurchasesErrorCode.productNotAvailableForPurchaseError:
-      case PurchasesErrorCode.productAlreadyPurchasedError:
-      case PurchasesErrorCode.ineligibleError:
-      case PurchasesErrorCode.insufficientPermissionsError:
-      case PurchasesErrorCode.paymentPendingError:
-        return RevenueCatFailureKind.store;
-      case PurchasesErrorCode.receiptAlreadyInUseError:
-      case PurchasesErrorCode.invalidReceiptError:
-      case PurchasesErrorCode.missingReceiptFileError:
-      case PurchasesErrorCode.unexpectedBackendResponseError:
-      case PurchasesErrorCode.receiptInUseByOtherSubscriberError:
-      case PurchasesErrorCode.unknownBackendError:
-      case PurchasesErrorCode.customerInfoError:
-      case PurchasesErrorCode.signatureVerificationFailed:
-      case PurchasesErrorCode.purchaseBelongsToOtherUser:
-        return RevenueCatFailureKind.revenueCat;
-      default:
-        return RevenueCatFailureKind.unknown;
     }
   }
 }
