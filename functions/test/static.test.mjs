@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import test from 'node:test';
 
 test('index exports privacy and audit callables', () => {
@@ -7,7 +7,9 @@ test('index exports privacy and audit callables', () => {
 
   assert.match(source, /export \{ exportData \}/);
   assert.match(source, /export \{ deleteAccount \}/);
-  assert.match(source, /export \{ resetCloudUserData \}/);
+  const obsoleteResetName = ['reset', 'CloudUserData'].join('');
+  assert.doesNotMatch(source, new RegExp(obsoleteResetName));
+  assert.match(source, /export \{ activateSyncGeneration \}/);
   assert.match(source, /export \{ revenuecatWebhook \}/);
   assert.match(source, /export \{ getProContent \}/);
   assert.match(source, /export \{ recordSignInEvent \}/);
@@ -71,27 +73,52 @@ test('recordSignInEvent ensures a minimal user root before audit', () => {
   assert.doesNotMatch(source, /proIsActive|isPro|study_progress/);
 });
 
-test('resetCloudUserData is App Check enforced and wipes sync collections', () => {
-  const source = readFileSync(
-    new URL('../src/resetCloudUserData.ts', import.meta.url),
+test('activateSyncGeneration owns generation activation transaction', () => {
+  const activationUrl = new URL(
+    '../src/activateSyncGeneration.ts',
+    import.meta.url,
+  );
+
+  assert.equal(
+    existsSync(activationUrl),
+    true,
+    'activateSyncGeneration.ts must exist',
+  );
+
+  const source = readFileSync(activationUrl, 'utf8');
+  const indexSource = readFileSync(
+    new URL('../src/index.ts', import.meta.url),
     'utf8',
   );
 
-  assert.match(source, /enforceAppCheck: true/);
-  assert.doesNotMatch(source, /consumeAppCheckToken: true/);
-  assert.match(source, /assertNamedUser\(request\.auth\)/);
+  assert.match(source, /onCall/);
+  assert.match(source, /region: 'asia-southeast1'/);
+  assert.match(source, /enforceAppCheck:\s*true/);
+  assert.match(source, /runTransaction/);
+  assert.match(source, /assertNamedPro/);
+  assert.match(source, /generation-conflict/);
+  assert.match(source, /invalid-generation/);
+  assert.match(source, /sync_state/);
+  assert.match(source, /sync_generations/);
+  assert.match(source, /status:\s*'active'/);
+  assert.match(source, /status:\s*'retired'/);
+  assert.match(source, /activeGenerationId/);
+  assert.match(source, /syncGenerationActivated/);
+  assert.match(source, /'permission-denied'/);
+  assert.match(source, /'invalid-argument'/);
+  assert.match(source, /'failed-precondition'/);
 
-  for (const collection of [
-    'lesson_progress',
-    'quiz_attempts',
-    'fsrs_cards',
-    'assessments',
-    'study_plan',
-    'mock_exam_attempts',
-  ]) {
-    assert.match(source, new RegExp(`collection\\('${collection}'\\)`));
-  }
-  assert.match(source, /cloudDataReset/);
+  const obsoleteResetName = ['reset', 'CloudUserData'].join('');
+  assert.doesNotMatch(indexSource, new RegExp(obsoleteResetName));
+  assert.match(indexSource, /activateSyncGeneration/);
+});
+
+test('obsolete cloud reset source is removed', () => {
+  const obsoleteResetName = ['reset', 'CloudUserData'].join('');
+  assert.equal(
+    existsSync(new URL(`../src/${obsoleteResetName}.ts`, import.meta.url)),
+    false,
+  );
 });
 
 test('deleteAccount uses asia-southeast1 app check replay protection', () => {
