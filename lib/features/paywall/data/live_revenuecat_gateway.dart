@@ -73,6 +73,7 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
   final PaymentEntitlementState _entitlementState;
   bool _listening = false;
 
+  @override
   Future<void> initialize() => _entitlementState.initialize();
 
   @override
@@ -153,7 +154,9 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
         recognizedPackages: recognized,
       );
     } on RevenueCatSdkException catch (error) {
-      return PaywallOfferingResult(status: _offeringStatus(error.kind));
+      return PaywallOfferingResult(
+        status: _offeringStatusForFailure(error.kind),
+      );
     } catch (_) {
       return const PaywallOfferingResult(
         status: PaywallOfferingStatus.unknownFailure,
@@ -163,25 +166,20 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
 
   @override
   Future<PaymentOperationResult> purchase(PaywallPackage package) async {
-    await initialize();
     try {
       final entitlement = entitlementFromCustomerInfo(
         await _sdk.purchase(package.productId),
       );
       await _entitlementState.acceptAuthoritative(entitlement);
-      if (!entitlement.proIsActive) {
-        return PaymentOperationResult.authoritative(
-          status: PaymentOperationStatus.entitlementNotActive,
-          entitlement: entitlement,
-        );
-      }
       return PaymentOperationResult.authoritative(
-        status: PaymentOperationStatus.success,
+        status: entitlement.proIsActive
+            ? PaymentOperationStatus.success
+            : PaymentOperationStatus.entitlementNotActive,
         entitlement: entitlement,
       );
     } on RevenueCatSdkException catch (error) {
       return PaymentOperationResult.failure(
-        status: _operationStatus(error.kind),
+        status: _operationStatusForFailure(error.kind),
       );
     } catch (_) {
       return const PaymentOperationResult.failure(
@@ -192,7 +190,6 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
 
   @override
   Future<PaymentOperationResult> restorePurchases() async {
-    await initialize();
     try {
       final entitlement = entitlementFromCustomerInfo(
         await _sdk.restorePurchases(),
@@ -206,7 +203,7 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
       );
     } on RevenueCatSdkException catch (error) {
       return PaymentOperationResult.failure(
-        status: _operationStatus(error.kind),
+        status: _operationStatusForFailure(error.kind),
       );
     } catch (_) {
       return const PaymentOperationResult.failure(
@@ -216,21 +213,7 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
   }
 }
 
-PaywallOfferingStatus _offeringStatus(RevenueCatFailureKind kind) {
-  return switch (kind) {
-    RevenueCatFailureKind.network => PaywallOfferingStatus.networkFailure,
-    RevenueCatFailureKind.store => PaywallOfferingStatus.storeFailure,
-    RevenueCatFailureKind.revenueCat => PaywallOfferingStatus.revenueCatFailure,
-    RevenueCatFailureKind.configuration =>
-      PaywallOfferingStatus.configurationFailure,
-    RevenueCatFailureKind.developer => PaywallOfferingStatus.developerFailure,
-    RevenueCatFailureKind.userCancelled ||
-    RevenueCatFailureKind.operationInProgress ||
-    RevenueCatFailureKind.unknown => PaywallOfferingStatus.unknownFailure,
-  };
-}
-
-PaymentOperationStatus _operationStatus(RevenueCatFailureKind kind) {
+PaymentOperationStatus _operationStatusForFailure(RevenueCatFailureKind kind) {
   return switch (kind) {
     RevenueCatFailureKind.userCancelled => PaymentOperationStatus.userCancelled,
     RevenueCatFailureKind.network => PaymentOperationStatus.networkFailure,
@@ -242,5 +225,19 @@ PaymentOperationStatus _operationStatus(RevenueCatFailureKind kind) {
     RevenueCatFailureKind.operationInProgress =>
       PaymentOperationStatus.operationAlreadyInProgress,
     RevenueCatFailureKind.unknown => PaymentOperationStatus.unknownFailure,
+  };
+}
+
+PaywallOfferingStatus _offeringStatusForFailure(RevenueCatFailureKind kind) {
+  return switch (kind) {
+    RevenueCatFailureKind.network => PaywallOfferingStatus.networkFailure,
+    RevenueCatFailureKind.store => PaywallOfferingStatus.storeFailure,
+    RevenueCatFailureKind.revenueCat => PaywallOfferingStatus.revenueCatFailure,
+    RevenueCatFailureKind.configuration =>
+      PaywallOfferingStatus.configurationFailure,
+    RevenueCatFailureKind.developer => PaywallOfferingStatus.developerFailure,
+    RevenueCatFailureKind.userCancelled ||
+    RevenueCatFailureKind.operationInProgress ||
+    RevenueCatFailureKind.unknown => PaywallOfferingStatus.unknownFailure,
   };
 }
