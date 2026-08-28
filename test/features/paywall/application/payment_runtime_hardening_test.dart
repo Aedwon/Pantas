@@ -23,7 +23,8 @@ void main() {
     );
   }
 
-  test('successful purchase is immediately observable through entitlementProvider',
+  test(
+      'successful purchase is immediately observable through entitlementProvider',
       () async {
     final sdk = RuntimeSdk(
       purchaseInfo: RevenueCatCustomerInfoSnapshot.active(
@@ -55,7 +56,8 @@ void main() {
     );
   });
 
-  test('successful restore is immediately observable through entitlementProvider',
+  test(
+      'successful restore is immediately observable through entitlementProvider',
       () async {
     final sdk = RuntimeSdk(
       restoreInfo: RevenueCatCustomerInfoSnapshot.active(
@@ -238,12 +240,14 @@ class RuntimeSdk implements RevenueCatSdk {
   Future<RevenueCatOfferingSnapshot?> getCurrentOffering() async => null;
 
   @override
-  Future<RevenueCatCustomerInfoSnapshot> logIn(String uid) async => customerInfo;
+  Future<RevenueCatCustomerInfoSnapshot> logIn(String uid) async =>
+      customerInfo;
 
   @override
   Future<RevenueCatCustomerInfoSnapshot> purchase(String productId) async =>
       purchaseInfo;
 
   @override
-  Future<RevenueCatCustomerInfoSnapshot> restorePurchases() async => restoreInfo;
+  Future<RevenueCatCustomerInfoSnapshot> restorePurchases() async =>
+      restoreInfo;
 }
