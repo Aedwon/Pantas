@@ -218,7 +218,8 @@ PaymentOperationStatus _operationStatusForFailure(RevenueCatFailureKind kind) {
     RevenueCatFailureKind.userCancelled => PaymentOperationStatus.userCancelled,
     RevenueCatFailureKind.network => PaymentOperationStatus.networkFailure,
     RevenueCatFailureKind.store => PaymentOperationStatus.storeFailure,
-    RevenueCatFailureKind.revenueCat => PaymentOperationStatus.revenueCatFailure,
+    RevenueCatFailureKind.revenueCat =>
+      PaymentOperationStatus.revenueCatFailure,
     RevenueCatFailureKind.configuration =>
       PaymentOperationStatus.configurationFailure,
     RevenueCatFailureKind.developer => PaymentOperationStatus.developerFailure,
@@ -238,6 +239,7 @@ PaywallOfferingStatus _offeringStatusForFailure(RevenueCatFailureKind kind) {
     RevenueCatFailureKind.developer => PaywallOfferingStatus.developerFailure,
     RevenueCatFailureKind.userCancelled ||
     RevenueCatFailureKind.operationInProgress ||
-    RevenueCatFailureKind.unknown => PaywallOfferingStatus.unknownFailure,
+    RevenueCatFailureKind.unknown =>
+      PaywallOfferingStatus.unknownFailure,
   };
 }
