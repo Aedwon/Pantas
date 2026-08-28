@@ -3,8 +3,12 @@ import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/paywall/data/entitlement_snapshot_store.dart';
+import 'package:pantas/features/paywall/data/payment_entitlement_state.dart';
 import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
+import 'package:pantas/features/paywall/domain/payment_operation.dart';
+import 'package:pantas/features/paywall/domain/paywall_offering.dart';
 import 'package:pantas/features/paywall/domain/paywall_package.dart';
 
 class FakeRevenueCatGateway implements RevenueCatGateway {
@@ -37,20 +41,31 @@ class FakeRevenueCatGateway implements RevenueCatGateway {
   Stream<Entitlement> get customerInfoUpdates => _controller.stream;
 
   @override
+  Future<void> initialize() async {}
+
+  @override
   Future<void> configure({required String androidApiKey}) async {}
 
   @override
-  Future<List<PaywallPackage>> currentOffering() async => [];
+  Future<PaywallOfferingResult> currentOffering() async =>
+      const PaywallOfferingResult.noCurrentOffering();
 
   @override
   Future<void> logIn(String uid) async {}
 
   @override
-  Future<Entitlement> purchase(PaywallPackage package) async =>
-      const Entitlement.free();
+  Future<PaymentOperationResult> purchase(PaywallPackage package) async =>
+      const PaymentOperationResult.authoritative(
+        status: PaymentOperationStatus.entitlementNotActive,
+        entitlement: Entitlement.free(),
+      );
 
   @override
-  Future<Entitlement> restorePurchases() async => const Entitlement.free();
+  Future<PaymentOperationResult> restorePurchases() async =>
+      const PaymentOperationResult.authoritative(
+        status: PaymentOperationStatus.noActiveSubscription,
+        entitlement: Entitlement.free(),
+      );
 
   void dispose() {
     _subscription?.cancel();
@@ -168,54 +183,43 @@ void main() {
     );
 
     test(
-      '4. Cache survives container rebuild (cold start simulation)',
+      '4. Persisted Pro survives a fresh gateway and provider container',
       () async {
-        final controller = StreamController<Entitlement>.broadcast();
-        final gateway = FakeRevenueCatGateway(
-          initialCached: const Entitlement.free(),
-          updates: controller.stream,
+        final values = <String, String>{};
+        EntitlementSnapshotStore store() => EntitlementSnapshotStore(
+              readValue: (key) async => values[key],
+              writeValue: (key, value) async => values[key] = value,
+            );
+
+        await store().writeConfirmed(
+          const Entitlement(
+            plan: EntitlementPlan.monthly,
+            productId: 'pantas_pro_monthly',
+          ),
         );
 
-        final container1 = ProviderContainer(
+        final freshState = PaymentEntitlementState(store());
+        final freshGateway = DisabledRevenueCatGateway(freshState);
+        await freshGateway.initialize();
+
+        final container = ProviderContainer(
           overrides: [
-            revenueCatGatewayProvider.overrideWithValue(gateway),
-          ],
-        )..listen(entitlementProvider, (_, __) {});
-        await pumpEventQueue();
-
-        expect(
-          container1.read(entitlementProvider).value,
-          const Entitlement.free(),
-        );
-
-        controller.add(const Entitlement(plan: EntitlementPlan.monthly));
-        await pumpEventQueue();
-        container1.dispose();
-
-        expect(
-          gateway.cachedEntitlement,
-          const Entitlement(plan: EntitlementPlan.monthly),
-        );
-
-        final container2 = ProviderContainer(
-          overrides: [
-            revenueCatGatewayProvider.overrideWithValue(gateway),
+            revenueCatGatewayProvider.overrideWithValue(freshGateway),
           ],
         );
-        addTearDown(() {
-          container2.dispose();
-          gateway.dispose();
-          controller.close();
-        });
+        addTearDown(container.dispose);
 
-        container2.listen(entitlementProvider, (_, __) {});
+        container.listen(entitlementProvider, (_, __) {});
         await pumpEventQueue();
 
         expect(
-          container2.read(entitlementProvider).value,
-          const Entitlement(plan: EntitlementPlan.monthly),
+          container.read(entitlementProvider).value,
+          const Entitlement(
+            plan: EntitlementPlan.monthly,
+            productId: 'pantas_pro_monthly',
+          ),
         );
-        expect(container2.read(entitlementProvider).hasError, isFalse);
+        expect(container.read(entitlementProvider).hasError, isFalse);
       },
     );
 
