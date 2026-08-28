@@ -9,44 +9,48 @@ void main() {
   final today = DateTime(2026, 8, 2);
   const weekly = PaywallPackage(
     sku: PaywallSku.weekly,
-    productId: 'pro_weekly',
+    productId: 'pantas_pro_weekly',
     priceString: '₱29',
     priceAmount: 29,
   );
   const monthly = PaywallPackage(
     sku: PaywallSku.monthly,
-    productId: 'pro_monthly',
+    productId: 'pantas_pro_monthly',
     priceString: '₱99',
     priceAmount: 99,
   );
   const yearly = PaywallPackage(
     sku: PaywallSku.yearly,
-    productId: 'pro_yearly',
-    priceString: '₱999',
-    priceAmount: 999,
+    productId: 'pantas_pro_yearly',
+    priceString: '₱799',
+    priceAmount: 799,
   );
-  final packages = [weekly, monthly, yearly];
+  const packages = [weekly, monthly, yearly];
 
   Future<void> pumpPlans(
     WidgetTester tester, {
     required ExamDate? examDate,
     PaywallPackage? selectedPackage,
     ValueChanged<PaywallPackage>? onSelect,
+    bool isBusy = false,
+    MediaQueryData? mediaQueryData,
   }) {
-    return tester.pumpWidget(
-      MaterialApp(
-        theme: buildLightTheme(),
-        home: Scaffold(
-          body: PlansPage(
-            packages: packages,
-            examDate: examDate,
-            today: today,
-            selectedPackage: selectedPackage ?? monthly,
-            onSelect: onSelect ?? (_) {},
-            onContinue: () {},
-          ),
-        ),
+    final app = MaterialApp(
+      theme: buildLightTheme(),
+      home: PlansPage(
+        packages: packages,
+        examDate: examDate,
+        today: today,
+        selectedPackage: selectedPackage ?? monthly,
+        onSelect: onSelect ?? (_) {},
+        onContinue: () {},
+        isBusy: isBusy,
       ),
+    );
+    return tester.pumpWidget(
+      mediaQueryData == null
+          ? app
+          : MediaQuery(data: mediaQueryData, child: app),
     );
   }
 
@@ -82,16 +86,60 @@ void main() {
     expect(weeklyPos < monthlyPos && monthlyPos < yearlyPos, isTrue);
   });
 
-  testWidgets('Yearly states that it runs past the exam', (tester) async {
-    await pumpPlans(tester, examDate: ExamDate.onDay(DateTime(2026, 10, 12)));
-    expect(find.text('294 days past your exam'), findsOneWidget);
-  });
-
-  testWidgets('the fine print is verbatim', (tester) async {
+  testWidgets('Yearly uses the current RevenueCat price', (tester) async {
     await pumpPlans(tester, examDate: null);
     expect(
-      find.text('Cancel any time. Paid through Google Play.'),
+      find.text('7-day free trial, then ₱799 a year'),
       findsOneWidget,
     );
+    expect(find.textContaining('₱999'), findsNothing);
+  });
+
+  testWidgets('selected plan exposes selected semantics', (tester) async {
+    final semantics = tester.ensureSemantics();
+    addTearDown(semantics.dispose);
+    await pumpPlans(tester, examDate: null, selectedPackage: monthly);
+
+    final node = tester.getSemantics(find.bySemanticsLabel('Monthly plan'));
+    expect(node.hasFlag(SemanticsFlag.isSelected), isTrue);
+  });
+
+  testWidgets('busy purchase exposes busy semantics and disables plan changes',
+      (tester) async {
+    var selections = 0;
+    final semantics = tester.ensureSemantics();
+    addTearDown(semantics.dispose);
+    await pumpPlans(
+      tester,
+      examDate: null,
+      isBusy: true,
+      onSelect: (_) => selections++,
+    );
+
+    expect(find.bySemanticsLabel('Purchase in progress'), findsOneWidget);
+    await tester.tap(find.text('Weekly'));
+    await tester.pump();
+    expect(selections, 0);
+  });
+
+  testWidgets('representative plans flow has no overflow at 200 percent text',
+      (tester) async {
+    tester.view.physicalSize = const Size(430, 932);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await pumpPlans(
+      tester,
+      examDate: ExamDate.inMonth(year: 2026, month: 10),
+      mediaQueryData: const MediaQueryData(
+        size: Size(430, 932),
+        textScaler: TextScaler.linear(2),
+      ),
+    );
+    await tester.pump();
+
+    expect(tester.takeException(), isNull);
+    expect(find.text('Get Pro. ₱99 a month.'), findsOneWidget);
   });
 }
