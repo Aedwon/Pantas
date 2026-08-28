@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
+import 'package:pantas/features/paywall/domain/payment_operation.dart';
 import 'package:pantas/features/paywall/domain/paywall_package.dart';
 
 class PaywallController {
@@ -13,6 +14,7 @@ class PaywallController {
 
   final RevenueCatGateway _gateway;
   final Telemetry _telemetry;
+  bool _operationInFlight = false;
 
   void logPaywallShown({String? trigger}) {
     unawaited(
@@ -24,62 +26,113 @@ class PaywallController {
   }
 
   Future<PaywallCommandResult> purchase(PaywallPackage package) async {
+    if (_operationInFlight) return _alreadyInProgress();
+    _operationInFlight = true;
     unawaited(
       _telemetry.log(
         TelemetryEvent.purchaseStarted,
         properties: {'sku': package.sku.name},
       ),
     );
+
     try {
-      final entitlement = await _gateway.purchase(package);
-      if (entitlement.proIsActive) {
+      final operation = await _gateway.purchase(package);
+      final command = _commandResult(operation);
+      if (operation.status == PaymentOperationStatus.success &&
+          command.entitlement.proIsActive) {
         unawaited(_telemetry.log(TelemetryEvent.purchaseCompleted));
-      } else {
+      } else if (operation.status != PaymentOperationStatus.userCancelled &&
+          operation.status !=
+              PaymentOperationStatus.operationAlreadyInProgress) {
         unawaited(
           _telemetry.log(
             TelemetryEvent.purchaseFailed,
-            properties: {'reason': 'store_error'},
+            properties: {'reason': operation.status.name},
           ),
         );
       }
-      return PaywallCommandResult(entitlement: entitlement);
+      return command;
     } catch (_) {
       unawaited(
         _telemetry.log(
           TelemetryEvent.purchaseFailed,
-          properties: {'reason': 'network_error'},
+          properties: {'reason': PaymentOperationStatus.unknownFailure.name},
         ),
       );
-      return const PaywallCommandResult(
-        entitlement: Entitlement.free(),
-        errorMessage:
-            "You need a connection to subscribe. Try again when you're back "
-            'online.',
+      return _commandResult(
+        const PaymentOperationResult.failure(
+          status: PaymentOperationStatus.unknownFailure,
+        ),
       );
+    } finally {
+      _operationInFlight = false;
     }
   }
 
   Future<PaywallCommandResult> restore() async {
+    if (_operationInFlight) return _alreadyInProgress();
+    _operationInFlight = true;
     try {
-      final entitlement = await _gateway.restorePurchases();
-      return PaywallCommandResult(entitlement: entitlement);
+      return _commandResult(await _gateway.restorePurchases());
     } catch (_) {
-      return const PaywallCommandResult(
-        entitlement: Entitlement.free(),
-        errorMessage:
-            "You need a connection to subscribe. Try again when you're back "
-            'online.',
+      return _commandResult(
+        const PaymentOperationResult.failure(
+          status: PaymentOperationStatus.unknownFailure,
+        ),
       );
+    } finally {
+      _operationInFlight = false;
     }
+  }
+
+  PaywallCommandResult _alreadyInProgress() {
+    return PaywallCommandResult(
+      status: PaymentOperationStatus.operationAlreadyInProgress,
+      entitlement: _lastKnownEntitlement,
+      errorMessage: 'A purchase or restore is already in progress.',
+    );
+  }
+
+  PaywallCommandResult _commandResult(PaymentOperationResult operation) {
+    return PaywallCommandResult(
+      status: operation.status,
+      entitlement: operation.confirmedEntitlement ?? _lastKnownEntitlement,
+      errorMessage: _errorMessage(operation.status),
+    );
+  }
+
+  Entitlement get _lastKnownEntitlement =>
+      _gateway.cachedEntitlement ?? const Entitlement.free();
+
+  String? _errorMessage(PaymentOperationStatus status) {
+    return switch (status) {
+      PaymentOperationStatus.success ||
+      PaymentOperationStatus.noActiveSubscription ||
+      PaymentOperationStatus.userCancelled => null,
+      PaymentOperationStatus.networkFailure =>
+        "You need a connection to subscribe. Try again when you're back online.",
+      PaymentOperationStatus.operationAlreadyInProgress =>
+        'A purchase or restore is already in progress.',
+      PaymentOperationStatus.storeFailure =>
+        "Google Play couldn't complete this purchase. Try again.",
+      PaymentOperationStatus.entitlementNotActive ||
+      PaymentOperationStatus.revenueCatFailure ||
+      PaymentOperationStatus.configurationFailure ||
+      PaymentOperationStatus.developerFailure ||
+      PaymentOperationStatus.unknownFailure =>
+        "We couldn't confirm your subscription. Try again.",
+    };
   }
 }
 
 class PaywallCommandResult {
   const PaywallCommandResult({
     required this.entitlement,
+    this.status = PaymentOperationStatus.success,
     this.errorMessage,
   });
 
   final Entitlement entitlement;
+  final PaymentOperationStatus status;
   final String? errorMessage;
 }
