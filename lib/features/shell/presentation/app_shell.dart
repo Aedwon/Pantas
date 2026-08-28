@@ -180,6 +180,7 @@ class _NavItemState extends State<_NavItem>
                   widget.label,
                   style: styles.labelSmall.copyWith(
                     color: color,
+                    fontSize: 10,
                     fontWeight:
                         widget.isActive ? FontWeight.w700 : FontWeight.w600,
                   ),
