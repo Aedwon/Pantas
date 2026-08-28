@@ -11,7 +11,8 @@ void main() {
     priceAmount: 99,
   );
 
-  test('purchase command returns confirmed entitlement after success', () async {
+  test('purchase command returns confirmed entitlement after success',
+      () async {
     final gateway = ControllerGateway();
     final controller = PaywallController(gateway);
 
