@@ -33,7 +33,8 @@ void main() {
       expect(cachedPro.proIsActive, isTrue);
     });
 
-    test('restore can complete authoritatively with no active subscription', () {
+    test('restore can complete authoritatively with no active subscription',
+        () {
       const result = PaymentOperationResult.authoritative(
         status: PaymentOperationStatus.noActiveSubscription,
         entitlement: Entitlement.free(),
