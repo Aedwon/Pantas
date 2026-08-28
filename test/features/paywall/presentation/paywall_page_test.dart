@@ -71,20 +71,18 @@ void main() {
     await tester.pump();
   }
 
-  testWidgets('production Restore calls the payment controller', (tester) async {
-    final gateway = RecordingGateway(
-      restoreResult: const PaymentOperationResult.authoritative(
-        status: PaymentOperationStatus.noActiveSubscription,
-        entitlement: Entitlement.free(),
-      ),
-    );
-    await pumpPaywall(tester, gateway: gateway);
+  testWidgets(
+    'production Restore calls the payment controller',
+    (tester) async {
+      final gateway = RecordingGateway();
+      await pumpPaywall(tester, gateway: gateway);
 
-    await tester.tap(find.text('Restore'));
-    await tester.pumpAndSettle();
+      await tester.tap(find.text('Restore'));
+      await tester.pumpAndSettle();
 
-    expect(gateway.restoreCalls, 1);
-  });
+      expect(gateway.restoreCalls, 1);
+    },
+  );
 
   testWidgets('restore with active Pro honors returnTo', (tester) async {
     final gateway = RecordingGateway(
@@ -126,12 +124,7 @@ void main() {
 
   testWidgets('restore with no active purchase stays and explains calmly',
       (tester) async {
-    final gateway = RecordingGateway(
-      restoreResult: const PaymentOperationResult.authoritative(
-        status: PaymentOperationStatus.noActiveSubscription,
-        entitlement: Entitlement.free(),
-      ),
-    );
+    final gateway = RecordingGateway();
     await pumpPaywall(tester, gateway: gateway);
 
     await tester.tap(find.text('Restore'));
@@ -140,7 +133,8 @@ void main() {
     expect(find.text('Try Pro'), findsOneWidget);
     expect(
       find.text(
-        "We couldn't find an active Pro subscription on this Google Play account.",
+        "We couldn't find an active Pro subscription on this Google Play "
+        'account.',
       ),
       findsOneWidget,
     );
@@ -206,7 +200,8 @@ void main() {
 
     expect(
       find.text(
-        "You need a connection to subscribe. Try again when you're back online.",
+        "You need a connection to subscribe. Try again when you're back "
+        'online.',
       ),
       findsOneWidget,
     );
@@ -283,7 +278,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    router.push('/paywall?returnTo=%2Fprogress');
+    unawaited(router.push<void>('/paywall?returnTo=%2Fprogress'));
     await tester.pumpAndSettle();
 
     await goToMonthlyPurchase(tester);
@@ -319,7 +314,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    router.push('/paywall?returnTo=%2Fprogress');
+    unawaited(router.push<void>('/paywall?returnTo=%2Fprogress'));
     await tester.pumpAndSettle();
 
     expect(find.byTooltip('Close'), findsOneWidget);
@@ -358,7 +353,7 @@ class RecordingGateway implements RevenueCatGateway {
   @override
   Future<PaymentOperationResult> restorePurchases() async {
     restoreCalls++;
-    if (restoreCompleter != null) return await restoreCompleter!.future;
+    if (restoreCompleter != null) return restoreCompleter!.future;
     return restoreResult;
   }
 
