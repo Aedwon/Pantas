@@ -36,7 +36,8 @@ void main() {
     expect(entitlement.proIsActive, isTrue);
   });
 
-  test('paywallPackagesProvider sorts packages weekly monthly yearly', () async {
+  test('paywallPackagesProvider sorts packages weekly monthly yearly',
+      () async {
     final container = ProviderContainer(
       overrides: [
         revenueCatGatewayProvider.overrideWithValue(
