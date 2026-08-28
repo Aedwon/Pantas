@@ -26,7 +26,8 @@ void main() {
       expect(gateway.configuredKey, 'key');
       expect(gateway.loggedInUid, 'uid_1');
       expect(offering.status, PaywallOfferingStatus.available);
-      expect(offering.recognizedPackages.single.productId, 'pantas_pro_monthly');
+      expect(
+          offering.recognizedPackages.single.productId, 'pantas_pro_monthly');
       expect(purchased.status, PaymentOperationStatus.success);
       expect(purchased.confirmedEntitlement?.proIsActive, isTrue);
       expect(restored.status, PaymentOperationStatus.success);
