@@ -16,11 +16,17 @@ everything below: **Android only, one store, one set of credentials.** Nothing h
 needs Apple, and the app's own code already reflects that, configuring RevenueCat
 with an Android key alone.
 
-**What is already built in the app.** The paywall, the entitlement stream, the
-purchase flow and the mock cooldown all exist and are tested against an injected
-gateway. **The live gateway's `configure` is real code**, not a stub: it calls
-`Purchases.configure` with an Android API key read from the environment. So the
-work here is credentials and products, not implementation.
+**What is already built in the app.** The live RevenueCat client implementation is
+present. It configures the SDK, reads the current offering, purchases, restores,
+tracks the `pro` entitlement, classifies SDK failures, and keeps the last confirmed
+entitlement in device preferences across fresh app processes. A failed refresh does
+not revoke Pro. Only an authoritative inactive entitlement does. RevenueCat startup
+is fail-soft, so SDK configuration or initial CustomerInfo failure does not block app
+startup.
+
+The paywall UI still owns the final copy and presentation for typed offering and
+purchase states. This setup guide does not claim that Play Console or RevenueCat
+has been configured or tested against a real internal-track build.
 
 **Answering the question directly: yes, one thing needs connecting.** RevenueCat
 cannot see your Play subscriptions until you give it a **Google Cloud service
@@ -61,8 +67,8 @@ now would reverse a decision and could not be undone**, since a Play product ID
 cannot be deleted once used.
 
 **The entitlement is `pro`.** One entitlement, three products attached to it. The
-app asks only whether Pro is active, never which plan bought it, except for
-display.
+app asks whether Pro is active for access. It also keeps plan, product ID, expiry,
+trial state and renewal state for stable subscription UX.
 
 ---
 
@@ -86,14 +92,16 @@ with three base plans. Play prefers base plans. Three separate ones map one to
 one onto the RevenueCat offering, and that is the simpler thing to debug when a
 product does not appear.
 
-**Wrong when written, corrected 12 August. The app does hardcode the product
-IDs.** `live_revenuecat_gateway.dart` maps them onto the three plans, and **a
-product it does not recognize is skipped when the offering is read.** A mismatch
-shows up as a paywall with nothing on it and no error anywhere.
+The app maps those three IDs onto Weekly, Monthly and Yearly. A Play base-plan
+suffix such as `pantas_pro_monthly:monthly-autorenewing` still maps to Monthly.
+An active product that this build does not recognize is **not** treated as Monthly
+or as inactive. Pro remains active and the raw product ID is preserved so a future
+product cannot accidentally revoke access.
 
-**Those three constants now hold the IDs above**, and a test pins the old
-`pro_weekly` style names as unrecognized, so a half-finished rename fails loudly
-instead of quietly.
+Offering discovery also preserves unknown IDs. It distinguishes no current
+offering, an empty current offering, all products unrecognized, and a mixed
+offering containing both recognized and unrecognized products. Unknown products
+no longer disappear into an empty list with no explanation at the client boundary.
 
 ---
 
@@ -221,14 +229,22 @@ purchase restored on a reinstall.
 
 ## 6. What the app expects from the environment
 
-The Android key is read from the environment rather than committed. Pass it at
-build time:
+The Android public SDK key is read from a Dart build-time define and is not
+committed. The canonical variable name is:
+
+`REVENUECAT_ANDROID_API_KEY`
+
+Pass it at build time:
 
 ```bash
 flutter build appbundle --flavor prod -t lib/main_prod.dart \
-  --dart-define=REVENUECAT_ANDROID_KEY=goog_xxxxxxxx \
+  --dart-define=REVENUECAT_ANDROID_API_KEY=goog_xxxxxxxx \
   --dart-define=BUILD_NUMBER=42
 ```
+
+If the RevenueCat key is missing or invalid, payment SDK startup is fail-soft. The
+app still starts. A previously confirmed local entitlement is hydrated before SDK
+configuration is attempted, so a missing key does not itself revoke Pro.
 
 **Both defines matter.** The build number is what the force-update gate compares
 against, and it reports build 1 when the define is missing, which makes every
