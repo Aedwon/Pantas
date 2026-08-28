@@ -176,13 +176,15 @@ class _NavItemState extends State<_NavItem>
                   ),
                 ),
                 const SizedBox(height: 2),
-                Text(
-                  widget.label,
-                  style: styles.labelSmall.copyWith(
-                    color: color,
-                    fontSize: 10,
-                    fontWeight:
-                        widget.isActive ? FontWeight.w700 : FontWeight.w600,
+                OverflowBox(
+                  maxWidth: double.infinity,
+                  child: Text(
+                    widget.label,
+                    style: styles.labelSmall.copyWith(
+                      color: color,
+                      fontWeight:
+                          widget.isActive ? FontWeight.w700 : FontWeight.w600,
+                    ),
                   ),
                 ),
               ],
