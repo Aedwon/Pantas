@@ -12,7 +12,8 @@ import 'package:pantas/features/paywall/domain/paywall_offering.dart';
 /// One entitlement covers all three SKUs.
 const proEntitlementId = 'pro';
 
-/// RevenueCat refreshes foreground CustomerInfo cache entries after five minutes.
+/// RevenueCat refreshes foreground CustomerInfo cache entries after five
+/// minutes.
 const revenueCatInactiveAuthorityWindow = Duration(minutes: 5);
 
 /// The permanent Google Play product ids chosen before the first submission.

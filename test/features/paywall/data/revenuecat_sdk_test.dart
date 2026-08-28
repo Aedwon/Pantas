@@ -41,18 +41,18 @@ void main() {
   });
 
   test('CustomerInfo requestDate maps into the SDK snapshot', () {
-    final info = CustomerInfo(
-      const EntitlementInfos(
+    const info = CustomerInfo(
+      EntitlementInfos(
         <String, EntitlementInfo>{},
         <String, EntitlementInfo>{},
       ),
-      const <String, String?>{},
-      const <String>[],
-      const <String>[],
-      const <StoreTransaction>[],
+      <String, String?>{},
+      <String>[],
+      <String>[],
+      <StoreTransaction>[],
       '2026-08-01T00:00:00.000Z',
       r'$RCAnonymousID:test',
-      const <String, String?>{},
+      <String, String?>{},
       '2026-08-28T04:30:00.000Z',
     );
 

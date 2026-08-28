@@ -389,18 +389,24 @@ class FinalHardeningSdk implements RevenueCatSdk {
   Future<void> configure(String androidApiKey) async {}
 
   @override
-  Future<RevenueCatCustomerInfoSnapshot> getCustomerInfo() async => customerInfo;
+  Future<RevenueCatCustomerInfoSnapshot> getCustomerInfo() async {
+    return customerInfo;
+  }
 
   @override
   Future<RevenueCatOfferingSnapshot?> getCurrentOffering() async => null;
 
   @override
-  Future<RevenueCatCustomerInfoSnapshot> logIn(String uid) async => customerInfo;
+  Future<RevenueCatCustomerInfoSnapshot> logIn(String uid) async {
+    return customerInfo;
+  }
 
   @override
   Future<RevenueCatCustomerInfoSnapshot> purchase(String productId) async =>
       purchaseInfo;
 
   @override
-  Future<RevenueCatCustomerInfoSnapshot> restorePurchases() async => restoreInfo;
+  Future<RevenueCatCustomerInfoSnapshot> restorePurchases() async {
+    return restoreInfo;
+  }
 }
