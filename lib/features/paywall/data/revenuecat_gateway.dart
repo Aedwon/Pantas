@@ -4,7 +4,6 @@ import 'package:pantas/features/paywall/data/payment_entitlement_state.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
 import 'package:pantas/features/paywall/domain/paywall_offering.dart';
-import 'package:pantas/features/paywall/domain/paywall_package.dart';
 
 abstract interface class RevenueCatGateway {
   Stream<Entitlement> get customerInfoUpdates;
