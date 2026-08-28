@@ -98,7 +98,8 @@ class FakeRevenueCatGateway implements RevenueCatGateway {
   Entitlement? get cachedEntitlement => const Entitlement.free();
 
   @override
-  Future<PaymentOperationResult> purchase(PaywallPackage package) async => result;
+  Future<PaymentOperationResult> purchase(PaywallPackage package) async =>
+      result;
 
   @override
   Future<PaymentOperationResult> restorePurchases() async => result;
