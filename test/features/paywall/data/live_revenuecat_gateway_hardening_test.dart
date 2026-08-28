@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/paywall/data/entitlement_snapshot_store.dart';
 import 'package:pantas/features/paywall/data/live_revenuecat_gateway.dart';
@@ -32,7 +30,6 @@ void main() {
         final entitlement = entitlementFromCustomerInfo(
           RevenueCatCustomerInfoSnapshot.active(
             productId: entry.key,
-            willRenew: true,
           ),
         );
         expect(entitlement.plan, entry.value, reason: entry.key);
@@ -59,9 +56,8 @@ void main() {
     test('unknown active product remains Pro and preserves the raw product id',
         () {
       final entitlement = entitlementFromCustomerInfo(
-        RevenueCatCustomerInfoSnapshot.active(
+        const RevenueCatCustomerInfoSnapshot.active(
           productId: 'pantas_pro_future:future-base-plan',
-          willRenew: true,
         ),
       );
 
@@ -73,9 +69,8 @@ void main() {
 
     test('Play base-plan suffix still maps to the recognized plan', () {
       final entitlement = entitlementFromCustomerInfo(
-        RevenueCatCustomerInfoSnapshot.active(
+        const RevenueCatCustomerInfoSnapshot.active(
           productId: 'pantas_pro_monthly:monthly-autorenewing',
-          willRenew: true,
         ),
       );
 
@@ -117,7 +112,7 @@ void main() {
     test('no current offering is distinct from an empty current offering',
         () async {
       final noCurrent = LiveRevenueCatGateway(
-        sdk: FakeRevenueCatSdk(offering: null),
+        sdk: FakeRevenueCatSdk(),
         entitlementState: stateFor(),
       );
       final empty = LiveRevenueCatGateway(
@@ -176,7 +171,9 @@ void main() {
 
       final unknownResult = await allUnknown.currentOffering();
       expect(
-          unknownResult.status, PaywallOfferingStatus.allProductsUnrecognized);
+        unknownResult.status,
+        PaywallOfferingStatus.allProductsUnrecognized,
+      );
       expect(unknownResult.recognizedPackages, isEmpty);
       expect(unknownResult.unrecognizedProductIds, ['pantas_pro_future']);
     });
@@ -211,9 +208,8 @@ void main() {
     test('successful purchase publishes authoritative Pro before returning',
         () async {
       final sdk = FakeRevenueCatSdk(
-        purchaseInfo: RevenueCatCustomerInfoSnapshot.active(
+        purchaseInfo: const RevenueCatCustomerInfoSnapshot.active(
           productId: 'pantas_pro_monthly',
-          willRenew: true,
         ),
       );
       final state = stateFor();
@@ -230,9 +226,7 @@ void main() {
     test('nominal purchase with no active Pro is not reported as success',
         () async {
       final gateway = LiveRevenueCatGateway(
-        sdk: FakeRevenueCatSdk(
-          purchaseInfo: const RevenueCatCustomerInfoSnapshot.inactive(),
-        ),
+        sdk: FakeRevenueCatSdk(),
         entitlementState: stateFor(),
       );
       await gateway.initialize();
@@ -285,17 +279,14 @@ void main() {
     test('restore distinguishes Pro from no active subscription', () async {
       final proGateway = LiveRevenueCatGateway(
         sdk: FakeRevenueCatSdk(
-          restoreInfo: RevenueCatCustomerInfoSnapshot.active(
+          restoreInfo: const RevenueCatCustomerInfoSnapshot.active(
             productId: 'pantas_pro_yearly',
-            willRenew: true,
           ),
         ),
         entitlementState: stateFor(),
       );
       final freeGateway = LiveRevenueCatGateway(
-        sdk: FakeRevenueCatSdk(
-          restoreInfo: const RevenueCatCustomerInfoSnapshot.inactive(),
-        ),
+        sdk: FakeRevenueCatSdk(),
         entitlementState: stateFor(),
       );
 
@@ -330,9 +321,8 @@ void main() {
       final firstState = stateFor(values);
       final firstGateway = LiveRevenueCatGateway(
         sdk: FakeRevenueCatSdk(
-          purchaseInfo: RevenueCatCustomerInfoSnapshot.active(
+          purchaseInfo: const RevenueCatCustomerInfoSnapshot.active(
             productId: 'pantas_pro_yearly',
-            willRenew: true,
           ),
         ),
         entitlementState: firstState,
@@ -375,9 +365,7 @@ void main() {
       expect(failedRefresh.cachedEntitlement?.plan, EntitlementPlan.monthly);
 
       final authoritativeFree = LiveRevenueCatGateway(
-        sdk: FakeRevenueCatSdk(
-          customerInfo: const RevenueCatCustomerInfoSnapshot.inactive(),
-        ),
+        sdk: FakeRevenueCatSdk(),
         entitlementState: stateFor(values),
       );
       await authoritativeFree.initialize();
