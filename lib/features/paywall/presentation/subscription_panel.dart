@@ -66,26 +66,33 @@ class SubscriptionPanel extends StatelessWidget {
     final expiration = entitlement.expiresAt;
     final date =
         expiration == null ? null : DateFormat.MMMd().format(expiration);
-    if (entitlement.isTrial && expiration != null) {
-      final notice = TrialNotice.fromEntitlement(
-        entitlement,
-        today: today ?? DateTime.now(),
-      );
-      final days = notice?.daysRemaining ?? 0;
-      return 'Pro trial · $days days left · then ₱499/year on $date';
+    if (entitlement.isTrial) {
+      final notice = expiration == null
+          ? null
+          : TrialNotice.fromEntitlement(
+              entitlement,
+              today: today ?? DateTime.now(),
+            );
+      final days = notice?.daysRemaining;
+      final lead = days == null ? 'Pro trial' : 'Pro trial · $days days left';
+      if (date == null) return lead;
+      return entitlement.willRenew
+          ? '$lead · charges $date'
+          : '$lead · ends $date';
     }
 
-    final label = switch (entitlement.plan) {
-      EntitlementPlan.weekly => 'Weekly',
-      EntitlementPlan.monthly => 'Monthly',
-      EntitlementPlan.yearly => 'Yearly',
-      EntitlementPlan.free => 'Free',
-    };
+    final label = entitlement.isUnknownPlan
+        ? 'Pro'
+        : switch (entitlement.plan) {
+            EntitlementPlan.weekly => 'Weekly',
+            EntitlementPlan.monthly => 'Monthly',
+            EntitlementPlan.yearly => 'Yearly',
+            EntitlementPlan.free => 'Pro',
+          };
 
-    if (!entitlement.willRenew && date != null) {
-      return "Pro · $label · ends $date (won't renew)";
-    }
-    if (date != null) return 'Pro · $label · renews $date';
-    return 'Pro · $label';
+    if (date == null) return entitlement.isUnknownPlan ? 'Pro' : 'Pro · $label';
+    return entitlement.willRenew
+        ? 'Pro · $label · renews $date'
+        : 'Pro · $label · ends $date';
   }
 }
