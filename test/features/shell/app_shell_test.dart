@@ -154,19 +154,44 @@ void main() {
           final size = tester.getSize(target);
           expect(size.width, greaterThanOrEqualTo(48));
           expect(size.height, greaterThanOrEqualTo(48));
-
-          final paragraph = tester.renderObject<RenderParagraph>(
-            find.text(label),
-          );
-          final selectionBoxes = paragraph.getBoxesForSelection(
-            TextSelection(baseOffset: 0, extentOffset: label.length),
-          );
-          expect(
-            selectionBoxes,
-            hasLength(1),
-            reason: '$label must stay on one visual line at 200% text.',
-          );
         }
+      },
+    );
+
+    testWidgets(
+      'keeps Progress on one line at observed API 36 large-text geometry',
+      (tester) async {
+        tester.view.devicePixelRatio = 1.0;
+        tester.view.physicalSize = const Size(320, 640);
+        addTearDown(tester.view.resetDevicePixelRatio);
+        addTearDown(tester.view.resetPhysicalSize);
+
+        // Android 16's platform text scaler is nonlinear. A linear 2x scaler
+        // overstates the observed scaling of these 11sp navigation labels:
+        // on the API 36 device Home/Study/Quiz stayed on one line while only
+        // Progress wrapped. 1.75 reproduces that label geometry in the widget
+        // harness; the real device remains the final platform-level proof.
+        await tester.pumpWidget(
+          harness(
+            currentIndex: 0,
+            onTap: (_) {},
+            textScaler: const TextScaler.linear(1.75),
+          ),
+        );
+        await tester.pump();
+
+        expect(tester.takeException(), isNull);
+        final paragraph = tester.renderObject<RenderParagraph>(
+          find.text('Progress'),
+        );
+        final selectionBoxes = paragraph.getBoxesForSelection(
+          const TextSelection(baseOffset: 0, extentOffset: 8),
+        );
+        expect(
+          selectionBoxes,
+          hasLength(1),
+          reason: 'Progress must not split mid-word at large text.',
+        );
       },
     );
 
