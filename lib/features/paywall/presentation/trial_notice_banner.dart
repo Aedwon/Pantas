@@ -31,7 +31,7 @@ class TrialNoticeBanner extends StatelessWidget {
             style: styles.bodyMedium,
           ),
           Text(
-            'No action needed to keep Pro. ₱499 will be charged on $date.',
+            'No action needed to keep Pro. Google Play will charge you on $date.',
             style: styles.bodySmall.copyWith(color: colors.inkMuted),
           ),
         ],
