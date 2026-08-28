@@ -44,7 +44,8 @@ void main() {
     );
   });
 
-  test('unknown active product round-trips without losing its raw id', () async {
+  test('unknown active product round-trips without losing its raw id',
+      () async {
     final values = <String, String>{};
     final unknown = Entitlement.activeUnknown(
       productId: 'pantas_pro_future:future-base-plan',
