@@ -157,9 +157,10 @@ void main() {
 
     expect(find.text('Restoring...'), findsOneWidget);
     expect(gateway.restoreCalls, 1);
-    await tester.tap(find.text('Restoring...'));
-    await tester.pump();
-    expect(gateway.restoreCalls, 1);
+    final restoreButton = tester.widget<TextButton>(
+      find.widgetWithText(TextButton, 'Restoring...'),
+    );
+    expect(restoreButton.onPressed, isNull);
 
     completer.complete(
       const PaymentOperationResult.authoritative(
@@ -234,9 +235,15 @@ void main() {
 
     expect(find.text('Processing...'), findsOneWidget);
     expect(calls, 1);
-    await tester.tap(find.text('Processing...'));
-    await tester.pump();
-    expect(calls, 1);
+    final pendingInkWell = tester.widget<InkWell>(
+      find
+          .ancestor(
+            of: find.text('Processing...'),
+            matching: find.byType(InkWell),
+          )
+          .first,
+    );
+    expect(pendingInkWell.onTap, isNull);
 
     completer.complete(
       const PaywallCommandResult(
@@ -351,7 +358,8 @@ class RecordingGateway implements RevenueCatGateway {
   @override
   Future<PaymentOperationResult> restorePurchases() async {
     restoreCalls++;
-    return restoreCompleter?.future ?? restoreResult;
+    if (restoreCompleter != null) return await restoreCompleter!.future;
+    return restoreResult;
   }
 
   @override
