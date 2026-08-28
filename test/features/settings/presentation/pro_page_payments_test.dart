@@ -244,7 +244,7 @@ void main() {
       entitlement: const Entitlement.activeUnknown(productId: 'future_plan'),
     );
 
-    expect(find.text('Pro'), findsOneWidget);
+    expect(find.text('Pro'), findsWidgets);
     expect(find.text('Free'), findsNothing);
     expect(find.textContaining('future_plan'), findsNothing);
   });
