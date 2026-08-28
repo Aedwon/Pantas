@@ -9,7 +9,6 @@ import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
 import 'package:pantas/features/paywall/domain/paywall_offering.dart';
-import 'package:pantas/features/paywall/domain/paywall_package.dart';
 
 class FakeRevenueCatGateway implements RevenueCatGateway {
   FakeRevenueCatGateway({
