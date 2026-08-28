@@ -102,7 +102,10 @@ class _PlansPageState extends State<PlansPage> {
     final targetDate = examDate == null
         ? null
         : (examDate.day ?? DateTime(examDate.year, examDate.month + 1, 0));
-    final recSku = recommendedSkuForExamDate(today: today, examDate: targetDate);
+    final recSku = recommendedSkuForExamDate(
+      today: today,
+      examDate: targetDate,
+    );
     final orderedPackages = paywallDisplayOrder(widget.packages);
 
     return SafeArea(
@@ -186,7 +189,8 @@ class _PlansPageState extends State<PlansPage> {
             if (examDate == null) ...[
               const SizedBox(height: 16),
               Text(
-                'Tell us your exam date and we will show what each plan costs you.',
+                'Tell us your exam date and we will show what each plan '
+                'costs you.',
                 style: styles.bodySmall.copyWith(color: colors.inkMuted),
               ),
             ],
@@ -285,7 +289,8 @@ class _PurchaseActionArea extends StatelessWidget {
       PaymentOperationStatus.operationAlreadyInProgress =>
         null,
       PaymentOperationStatus.networkFailure =>
-        "You need a connection to subscribe. Try again when you're back online.",
+        'You need a connection to subscribe. Try again when '
+            "you're back online.",
       PaymentOperationStatus.storeFailure =>
         "Google Play couldn't complete this purchase. Try again.",
       PaymentOperationStatus.entitlementNotActive =>
