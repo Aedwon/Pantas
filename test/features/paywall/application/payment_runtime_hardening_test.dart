@@ -154,6 +154,36 @@ void main() {
     expect(gateway.cachedEntitlement, const Entitlement.free());
   });
 
+  test('bootstrap hydrates durable entitlement even when API key is missing',
+      () async {
+    final values = <String, String>{};
+    final seedStore = EntitlementSnapshotStore(
+      readValue: (key) async => values[key],
+      writeValue: (key, value) async => values[key] = value,
+    );
+    await seedStore.writeConfirmed(
+      const Entitlement(
+        plan: EntitlementPlan.yearly,
+        productId: 'pantas_pro_yearly',
+      ),
+    );
+    final gateway = LiveRevenueCatGateway(
+      sdk: RuntimeSdk(),
+      entitlementState: PaymentEntitlementState(
+        EntitlementSnapshotStore(
+          readValue: (key) async => values[key],
+          writeValue: (key, value) async => values[key] = value,
+        ),
+      ),
+    );
+
+    await RevenueCatBootstrapper(gateway).configure(
+      RevenueCatConfig.fromEnvironment(androidApiKey: ''),
+    );
+
+    expect(gateway.cachedEntitlement?.plan, EntitlementPlan.yearly);
+  });
+
   test('canonical Android API-key define name stays stable', () {
     expect(revenueCatAndroidApiKeyDefine, 'REVENUECAT_ANDROID_API_KEY');
   });
