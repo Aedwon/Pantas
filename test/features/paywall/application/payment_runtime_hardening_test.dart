@@ -24,77 +24,76 @@ void main() {
   }
 
   test(
-      'successful purchase is immediately observable through entitlementProvider',
-      () async {
-    final sdk = RuntimeSdk(
-      purchaseInfo: RevenueCatCustomerInfoSnapshot.active(
-        productId: 'pantas_pro_monthly',
-        willRenew: true,
-      ),
-    );
-    final gateway = LiveRevenueCatGateway(
-      sdk: sdk,
-      entitlementState: stateFor(),
-    );
-    await gateway.initialize();
-    final container = ProviderContainer(
-      overrides: [revenueCatGatewayProvider.overrideWithValue(gateway)],
-    );
-    addTearDown(container.dispose);
-    container.listen(entitlementProvider, (_, __) {});
-    await container.read(entitlementProvider.future);
+    'successful purchase is immediately observable through entitlementProvider',
+    () async {
+      final sdk = RuntimeSdk(
+        purchaseInfo: const RevenueCatCustomerInfoSnapshot.active(
+          productId: 'pantas_pro_monthly',
+        ),
+      );
+      final gateway = LiveRevenueCatGateway(
+        sdk: sdk,
+        entitlementState: stateFor(),
+      );
+      await gateway.initialize();
+      final container = ProviderContainer(
+        overrides: [revenueCatGatewayProvider.overrideWithValue(gateway)],
+      );
+      addTearDown(container.dispose);
+      container.listen(entitlementProvider, (_, __) {});
+      await container.read(entitlementProvider.future);
 
-    final result = await PaywallController(gateway).purchase(monthlyPackage);
+      final result = await PaywallController(gateway).purchase(monthlyPackage);
 
-    expect(result.status, PaymentOperationStatus.success);
-    expect(
-      container.read(entitlementProvider).value,
-      const Entitlement(
-        plan: EntitlementPlan.monthly,
-        productId: 'pantas_pro_monthly',
-      ),
-    );
-  });
+      expect(result.status, PaymentOperationStatus.success);
+      expect(
+        container.read(entitlementProvider).value,
+        const Entitlement(
+          plan: EntitlementPlan.monthly,
+          productId: 'pantas_pro_monthly',
+        ),
+      );
+    },
+  );
 
   test(
-      'successful restore is immediately observable through entitlementProvider',
-      () async {
-    final sdk = RuntimeSdk(
-      restoreInfo: RevenueCatCustomerInfoSnapshot.active(
-        productId: 'pantas_pro_yearly',
-        willRenew: true,
-      ),
-    );
-    final gateway = LiveRevenueCatGateway(
-      sdk: sdk,
-      entitlementState: stateFor(),
-    );
-    await gateway.initialize();
-    final container = ProviderContainer(
-      overrides: [revenueCatGatewayProvider.overrideWithValue(gateway)],
-    );
-    addTearDown(container.dispose);
-    container.listen(entitlementProvider, (_, __) {});
-    await container.read(entitlementProvider.future);
+    'successful restore is immediately observable through entitlementProvider',
+    () async {
+      final sdk = RuntimeSdk(
+        restoreInfo: const RevenueCatCustomerInfoSnapshot.active(
+          productId: 'pantas_pro_yearly',
+        ),
+      );
+      final gateway = LiveRevenueCatGateway(
+        sdk: sdk,
+        entitlementState: stateFor(),
+      );
+      await gateway.initialize();
+      final container = ProviderContainer(
+        overrides: [revenueCatGatewayProvider.overrideWithValue(gateway)],
+      );
+      addTearDown(container.dispose);
+      container.listen(entitlementProvider, (_, __) {});
+      await container.read(entitlementProvider.future);
 
-    final result = await PaywallController(gateway).restore();
+      final result = await PaywallController(gateway).restore();
 
-    expect(result.status, PaymentOperationStatus.success);
-    expect(
-      container.read(entitlementProvider).value,
-      const Entitlement(
-        plan: EntitlementPlan.yearly,
-        productId: 'pantas_pro_yearly',
-      ),
-    );
-  });
+      expect(result.status, PaymentOperationStatus.success);
+      expect(
+        container.read(entitlementProvider).value,
+        const Entitlement(
+          plan: EntitlementPlan.yearly,
+          productId: 'pantas_pro_yearly',
+        ),
+      );
+    },
+  );
 
   test('later duplicate listener delivery does not corrupt confirmed Pro',
       () async {
     final sdk = RuntimeSdk(
-      purchaseInfo: RevenueCatCustomerInfoSnapshot.active(
+      purchaseInfo: const RevenueCatCustomerInfoSnapshot.active(
         productId: 'pantas_pro_monthly',
-        willRenew: true,
       ),
     );
     final gateway = LiveRevenueCatGateway(
@@ -111,9 +110,8 @@ void main() {
 
     await PaywallController(gateway).purchase(monthlyPackage);
     sdk.emit(
-      RevenueCatCustomerInfoSnapshot.active(
+      const RevenueCatCustomerInfoSnapshot.active(
         productId: 'pantas_pro_monthly',
-        willRenew: true,
       ),
     );
     await pumpEventQueue();
@@ -180,7 +178,7 @@ void main() {
     );
 
     await RevenueCatBootstrapper(gateway).configure(
-      RevenueCatConfig.fromEnvironment(androidApiKey: ''),
+      RevenueCatConfig.fromEnvironment(),
     );
 
     expect(gateway.cachedEntitlement?.plan, EntitlementPlan.yearly);
