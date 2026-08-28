@@ -111,7 +111,9 @@ Future<void> _pumpAccount(
         authRepositoryProvider.overrideWithValue(repository),
       ],
       child: MaterialApp(
-        theme: buildLightTheme(),
+        theme: buildLightTheme().copyWith(
+          splashFactory: InkRipple.splashFactory,
+        ),
         home: const AccountPage(),
       ),
     ),

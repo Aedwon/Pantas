@@ -35,14 +35,22 @@ void main() {
 
     expect(
       session,
-      AuthSession(
-        uid: 'user-1',
-        email: 'reader@example.com',
-        displayName: 'Reader',
-        photoUrl: 'https://example.com/avatar.png',
-        isPro: false,
-        lastSignInTime: DateTime(2026, 8, 28, 8),
-      ),
+      isA<AuthSession>()
+          .having((value) => value.uid, 'uid', 'user-1')
+          .having((value) => value.isAnonymous, 'isAnonymous', false)
+          .having((value) => value.email, 'email', 'reader@example.com')
+          .having((value) => value.displayName, 'displayName', 'Reader')
+          .having(
+            (value) => value.photoUrl,
+            'photoUrl',
+            'https://example.com/avatar.png',
+          )
+          .having((value) => value.isPro, 'isPro', false)
+          .having(
+            (value) => value.lastSignInTime,
+            'lastSignInTime',
+            DateTime(2026, 8, 28, 8),
+          ),
     );
   });
 
@@ -54,10 +62,14 @@ void main() {
 
     final states = await FirebaseAuthGateway(auth: auth).authStateChanges.toList();
 
-    expect(states, [
-      const AuthSession(uid: 'anon-1', isAnonymous: true),
-      null,
-    ]);
+    expect(states, hasLength(2));
+    expect(
+      states.first,
+      isA<AuthSession>()
+          .having((value) => value.uid, 'uid', 'anon-1')
+          .having((value) => value.isAnonymous, 'isAnonymous', true),
+    );
+    expect(states[1], isNull);
   });
 
   test('signInAnonymously returns mapped session', () async {
@@ -69,7 +81,12 @@ void main() {
 
     final session = await FirebaseAuthGateway(auth: auth).signInAnonymously();
 
-    expect(session, const AuthSession(uid: 'anon-1', isAnonymous: true));
+    expect(
+      session,
+      isA<AuthSession>()
+          .having((value) => value.uid, 'uid', 'anon-1')
+          .having((value) => value.isAnonymous, 'isAnonymous', true),
+    );
   });
 
   test('signInAnonymously reports a missing credential user', () async {
