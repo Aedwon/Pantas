@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/paywall/application/paywall_controller.dart';
+import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/paywall/data/entitlement_snapshot_store.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/paywall_package.dart';
 import 'package:pantas/features/paywall/presentation/paywall_page.dart';
@@ -12,18 +14,23 @@ void main() {
     testWidgets('displays copy replacing CTA when purchase fails offline',
         (tester) async {
       await tester.pumpWidget(
-        // PaywallPage reads a provider in initState to emit its telemetry
-        // event, so it needs a scope even when the test drives it directly.
+        // PaywallPage reads payment providers in initState for telemetry, so
+        // presentation tests use an in-memory entitlement snapshot store.
         ProviderScope(
+          overrides: [
+            entitlementSnapshotStoreProvider.overrideWithValue(
+              EntitlementSnapshotStore.inMemory(),
+            ),
+          ],
           child: MaterialApp(
             theme: buildLightTheme(),
             home: PaywallPage(
               packages: const [
                 PaywallPackage(
                   sku: PaywallSku.monthly,
-                  productId: 'pro_monthly',
-                  priceString: '₱149',
-                  priceAmount: 149,
+                  productId: 'pantas_pro_monthly',
+                  priceString: '₱99',
+                  priceAmount: 99,
                 ),
               ],
               onPurchase: (_) async => const PaywallCommandResult(
@@ -43,8 +50,8 @@ void main() {
       await tester.tap(find.text('See plans'));
       await tester.pumpAndSettle();
 
-      await tester.ensureVisible(find.text('Get Pro. ₱149 a month.'));
-      await tester.tap(find.text('Get Pro. ₱149 a month.'));
+      await tester.ensureVisible(find.text('Get Pro. ₱99 a month.'));
+      await tester.tap(find.text('Get Pro. ₱99 a month.'));
       await tester.pumpAndSettle();
 
       expect(
@@ -56,15 +63,20 @@ void main() {
       );
       // The CTA stays. A failed purchase that removes the only way to try
       // again strands a student who just lost signal for a moment.
-      expect(find.text('Get Pro. ₱149 a month.'), findsOneWidget);
+      expect(find.text('Get Pro. ₱99 a month.'), findsOneWidget);
     });
 
     testWidgets('displays copy when packages list is empty offline',
         (tester) async {
       await tester.pumpWidget(
-        // PaywallPage reads a provider in initState to emit its telemetry
-        // event, so it needs a scope even when the test drives it directly.
+        // PaywallPage reads payment providers in initState for telemetry, so
+        // presentation tests use an in-memory entitlement snapshot store.
         ProviderScope(
+          overrides: [
+            entitlementSnapshotStoreProvider.overrideWithValue(
+              EntitlementSnapshotStore.inMemory(),
+            ),
+          ],
           child: MaterialApp(
             theme: buildLightTheme(),
             home: const PaywallPage(),
