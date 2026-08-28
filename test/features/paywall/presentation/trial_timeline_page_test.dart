@@ -11,7 +11,7 @@ void main() {
         theme: buildLightTheme(),
         home: TrialTimelinePage(
           today: DateTime(2026, 8, 3),
-          yearlyPrice: '₱999',
+          yearlyPrice: '₱799',
           onStart: () {},
         ),
       ),
@@ -20,19 +20,20 @@ void main() {
     expect(find.textContaining('in 7 days'), findsNothing);
   });
 
-  testWidgets('names the price twice, in the lede and on day 7',
+  testWidgets('names the dynamic price twice, in the lede and on day 7',
       (tester) async {
     await tester.pumpWidget(
       MaterialApp(
         theme: buildLightTheme(),
         home: TrialTimelinePage(
           today: DateTime(2026, 8, 3),
-          yearlyPrice: '₱999',
+          yearlyPrice: '₱799',
           onStart: () {},
         ),
       ),
     );
-    expect(find.textContaining('₱999'), findsNWidgets(2));
+    expect(find.textContaining('₱799'), findsNWidgets(2));
+    expect(find.textContaining('₱999'), findsNothing);
   });
 
   testWidgets('has three marks and no icons in them', (tester) async {
@@ -41,7 +42,7 @@ void main() {
         theme: buildLightTheme(),
         home: TrialTimelinePage(
           today: DateTime(2026, 8, 3),
-          yearlyPrice: '₱999',
+          yearlyPrice: '₱799',
           onStart: () {},
         ),
       ),
