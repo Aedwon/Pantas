@@ -22,6 +22,29 @@ void main() {
     ]);
   });
 
+  test('Google sign-out failure still attempts a fresh anonymous session',
+      () async {
+    final operations = <String>[];
+    final gateway = SignOutAuthGateway(operations);
+    final repo = AuthRepository(
+      gateway: gateway,
+      googleGateway: SignOutGoogleGateway(operations, failSignOut: true),
+      accountTransitionGateway: RecordingAccountTransitionGateway(operations),
+      localStateWiper: RecordingLocalStateWiper(operations),
+    );
+
+    await repo.signOut();
+
+    expect(operations, [
+      'prepareForSignOut',
+      'wipeAll',
+      'firebaseSignOut',
+      'googleSignOut',
+      'signInAnonymously',
+    ]);
+    expect(gateway.currentSession?.isAnonymous, isTrue);
+  });
+
   test('signOut stops when transition preparation fails', () async {
     final operations = <String>[];
     final repo = AuthRepository(
@@ -62,6 +85,11 @@ class SignOutAuthGateway implements AuthGateway {
   }
 
   @override
+  Future<void> reauthenticateWithGoogleCredential(
+    GoogleAuthTokens tokens,
+  ) async {}
+
+  @override
   Future<void> signOut() async {
     operations.add('firebaseSignOut');
     currentSession = null;
@@ -76,9 +104,10 @@ class SignOutAuthGateway implements AuthGateway {
 }
 
 class SignOutGoogleGateway implements GoogleSignInGateway {
-  SignOutGoogleGateway(this.operations);
+  SignOutGoogleGateway(this.operations, {this.failSignOut = false});
 
   final List<String> operations;
+  final bool failSignOut;
 
   @override
   Future<GoogleAuthTokens?> signIn() async => null;
@@ -86,6 +115,7 @@ class SignOutGoogleGateway implements GoogleSignInGateway {
   @override
   Future<void> signOut() async {
     operations.add('googleSignOut');
+    if (failSignOut) throw StateError('google sign-out failed');
   }
 }
 

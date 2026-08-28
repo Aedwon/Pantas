@@ -87,7 +87,7 @@ class AuthRepository {
     await _accountTransitionGateway.prepareForSignOut();
     await _localStateWiper.wipeAll();
     await _gateway.signOut();
-    await _googleGateway.signOut();
+    await _signOutGoogleBestEffort();
     await ensureAnonymous();
   }
 
@@ -111,7 +111,7 @@ class AuthRepository {
     await _functionsGateway.deleteAccount();
     await _localStateWiper.wipeAll();
     await _gateway.signOut();
-    await _googleGateway.signOut();
+    await _signOutGoogleBestEffort();
     await ensureAnonymous();
   }
 
@@ -127,6 +127,15 @@ class AuthRepository {
     } on AuthGatewayException catch (error) {
       await ensureAnonymous();
       return SignInResult.failed(reason: error.code);
+    }
+  }
+
+  Future<void> _signOutGoogleBestEffort() async {
+    try {
+      await _googleGateway.signOut();
+    } catch (_) {
+      // Firebase sign-out already succeeded. Google cleanup must not prevent
+      // the app from returning to a usable anonymous session.
     }
   }
 }
