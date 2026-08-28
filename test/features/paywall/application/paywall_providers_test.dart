@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pantas/features/paywall/data/live_revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 
 void main() {
