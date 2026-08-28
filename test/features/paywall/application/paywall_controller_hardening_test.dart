@@ -165,14 +165,15 @@ void main() {
     );
     await first;
 
-    gateway.purchaseCompleter = null;
-    gateway.purchaseResult = const PaymentOperationResult.authoritative(
-      status: PaymentOperationStatus.success,
-      entitlement: Entitlement(
-        plan: EntitlementPlan.monthly,
-        productId: 'pantas_pro_monthly',
-      ),
-    );
+    gateway
+      ..purchaseCompleter = null
+      ..purchaseResult = const PaymentOperationResult.authoritative(
+        status: PaymentOperationStatus.success,
+        entitlement: Entitlement(
+          plan: EntitlementPlan.monthly,
+          productId: 'pantas_pro_monthly',
+        ),
+      );
     expect(
       (await controller.purchase(package)).status,
       PaymentOperationStatus.success,
@@ -194,10 +195,11 @@ void main() {
     );
     await first;
 
-    gateway.purchaseCompleter = null;
-    gateway.purchaseResult = const PaymentOperationResult.failure(
-      status: PaymentOperationStatus.storeFailure,
-    );
+    gateway
+      ..purchaseCompleter = null
+      ..purchaseResult = const PaymentOperationResult.failure(
+        status: PaymentOperationStatus.storeFailure,
+      );
     expect(
       (await controller.purchase(package)).status,
       PaymentOperationStatus.storeFailure,
