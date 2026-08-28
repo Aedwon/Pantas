@@ -3,6 +3,7 @@ import 'package:pantas/features/paywall/domain/paywall_package.dart';
 export 'package:pantas/features/paywall/domain/paywall_package.dart';
 
 enum PaywallOfferingStatus {
+  loading,
   available,
   noCurrentOffering,
   emptyCurrentOffering,
@@ -22,6 +23,11 @@ class PaywallOfferingResult {
     this.recognizedPackages = const [],
     this.unrecognizedProductIds = const [],
   });
+
+  const PaywallOfferingResult.loading()
+      : status = PaywallOfferingStatus.loading,
+        recognizedPackages = const [],
+        unrecognizedProductIds = const [];
 
   const PaywallOfferingResult.noCurrentOffering()
       : status = PaywallOfferingStatus.noCurrentOffering,
