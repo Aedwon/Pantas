@@ -133,6 +133,8 @@ void main() {
       tester.getSemantics(light),
       matchesSemantics(
         label: 'Light theme',
+        hasSelectedState: true,
+        isSelected: false,
         isButton: true,
         hasTapAction: true,
       ),
@@ -141,6 +143,8 @@ void main() {
       tester.getSemantics(dark),
       matchesSemantics(
         label: 'Dark theme',
+        hasSelectedState: true,
+        isSelected: false,
         isButton: true,
         hasTapAction: true,
       ),
@@ -149,6 +153,8 @@ void main() {
       tester.getSemantics(system),
       matchesSemantics(
         label: 'Follow my phone',
+        hasSelectedState: true,
+        isSelected: true,
         isButton: true,
         hasTapAction: true,
       ),
