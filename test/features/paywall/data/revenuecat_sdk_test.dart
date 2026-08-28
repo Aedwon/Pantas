@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/paywall/data/revenuecat_sdk.dart';
-import 'package:purchases_flutter/errors.dart';
+import 'package:purchases_flutter/purchases_flutter.dart';
 
 void main() {
   test('RevenueCat SDK error codes map to stable payment failure kinds', () {
@@ -38,5 +38,27 @@ void main() {
       classifyRevenueCatErrorCode(PurchasesErrorCode.unknownError),
       RevenueCatFailureKind.unknown,
     );
+  });
+
+  test('CustomerInfo requestDate maps into the SDK snapshot', () {
+    final info = CustomerInfo(
+      const EntitlementInfos(
+        <String, EntitlementInfo>{},
+        <String, EntitlementInfo>{},
+      ),
+      const <String, String?>{},
+      const <String>[],
+      const <String>[],
+      const <StoreTransaction>[],
+      '2026-08-01T00:00:00.000Z',
+      r'$RCAnonymousID:test',
+      const <String, String?>{},
+      '2026-08-28T04:30:00.000Z',
+    );
+
+    final snapshot = revenueCatCustomerInfoSnapshot(info);
+
+    expect(snapshot.proIsActive, isFalse);
+    expect(snapshot.requestDate, DateTime.utc(2026, 8, 28, 4, 30));
   });
 }

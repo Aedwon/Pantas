@@ -1,6 +1,8 @@
 import 'package:flutter/services.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 
+const _proEntitlementId = 'pro';
+
 enum RevenueCatFailureKind {
   userCancelled,
   network,
@@ -23,7 +25,7 @@ class RevenueCatSdkException implements Exception {
 }
 
 class RevenueCatCustomerInfoSnapshot {
-  const RevenueCatCustomerInfoSnapshot.inactive()
+  const RevenueCatCustomerInfoSnapshot.inactive({this.requestDate})
       : productId = null,
         expiresAt = null,
         isTrial = false,
@@ -34,12 +36,14 @@ class RevenueCatCustomerInfoSnapshot {
     this.expiresAt,
     this.isTrial = false,
     this.willRenew = true,
+    this.requestDate,
   });
 
   final String? productId;
   final DateTime? expiresAt;
   final bool isTrial;
   final bool willRenew;
+  final DateTime? requestDate;
 
   bool get proIsActive => productId != null;
 }
@@ -130,9 +134,26 @@ RevenueCatFailureKind classifyRevenueCatErrorCode(PurchasesErrorCode code) {
   };
 }
 
-class PurchasesRevenueCatSdk implements RevenueCatSdk {
-  static const _proEntitlementId = 'pro';
+RevenueCatCustomerInfoSnapshot revenueCatCustomerInfoSnapshot(
+  CustomerInfo info,
+) {
+  final requestDate = DateTime.tryParse(info.requestDate)?.toUtc();
+  final active = info.entitlements.active[_proEntitlementId];
+  if (active == null) {
+    return RevenueCatCustomerInfoSnapshot.inactive(requestDate: requestDate);
+  }
+  return RevenueCatCustomerInfoSnapshot.active(
+    productId: active.productIdentifier,
+    expiresAt: active.expirationDate == null
+        ? null
+        : DateTime.tryParse(active.expirationDate!)?.toUtc(),
+    isTrial: active.periodType == PeriodType.trial,
+    willRenew: active.willRenew,
+    requestDate: requestDate,
+  );
+}
 
+class PurchasesRevenueCatSdk implements RevenueCatSdk {
   @override
   Future<void> configure(String androidApiKey) {
     return _translate(
@@ -145,14 +166,16 @@ class PurchasesRevenueCatSdk implements RevenueCatSdk {
     void Function(RevenueCatCustomerInfoSnapshot) onUpdate,
   ) {
     Purchases.addCustomerInfoUpdateListener(
-      (info) => onUpdate(_customerInfoSnapshot(info)),
+      (info) => onUpdate(revenueCatCustomerInfoSnapshot(info)),
     );
   }
 
   @override
   Future<RevenueCatCustomerInfoSnapshot> getCustomerInfo() {
     return _translate(
-      () async => _customerInfoSnapshot(await Purchases.getCustomerInfo()),
+      () async => revenueCatCustomerInfoSnapshot(
+        await Purchases.getCustomerInfo(),
+      ),
     );
   }
 
@@ -179,7 +202,7 @@ class PurchasesRevenueCatSdk implements RevenueCatSdk {
   Future<RevenueCatCustomerInfoSnapshot> logIn(String uid) {
     return _translate(() async {
       final result = await Purchases.logIn(uid);
-      return _customerInfoSnapshot(result.customerInfo);
+      return revenueCatCustomerInfoSnapshot(result.customerInfo);
     });
   }
 
@@ -207,27 +230,16 @@ class PurchasesRevenueCatSdk implements RevenueCatSdk {
       }
 
       final result = await Purchases.purchase(PurchaseParams.package(target));
-      return _customerInfoSnapshot(result.customerInfo);
+      return revenueCatCustomerInfoSnapshot(result.customerInfo);
     });
   }
 
   @override
   Future<RevenueCatCustomerInfoSnapshot> restorePurchases() {
     return _translate(
-      () async => _customerInfoSnapshot(await Purchases.restorePurchases()),
-    );
-  }
-
-  RevenueCatCustomerInfoSnapshot _customerInfoSnapshot(CustomerInfo info) {
-    final active = info.entitlements.active[_proEntitlementId];
-    if (active == null) return const RevenueCatCustomerInfoSnapshot.inactive();
-    return RevenueCatCustomerInfoSnapshot.active(
-      productId: active.productIdentifier,
-      expiresAt: active.expirationDate == null
-          ? null
-          : DateTime.tryParse(active.expirationDate!)?.toUtc(),
-      isTrial: active.periodType == PeriodType.trial,
-      willRenew: active.willRenew,
+      () async => revenueCatCustomerInfoSnapshot(
+        await Purchases.restorePurchases(),
+      ),
     );
   }
 

@@ -340,7 +340,7 @@ void main() {
       expect(secondGateway.cachedEntitlement?.plan, EntitlementPlan.yearly);
     });
 
-    test('refresh failure preserves Pro and authoritative Free revokes it',
+    test('refresh failure preserves Pro and fresh inactive data revokes it',
         () async {
       final values = <String, String>{};
       final seededState = stateFor(values);
@@ -364,9 +364,15 @@ void main() {
       );
       expect(failedRefresh.cachedEntitlement?.plan, EntitlementPlan.monthly);
 
+      final referenceTime = DateTime.utc(2026, 8, 28, 4, 30);
       final authoritativeFree = LiveRevenueCatGateway(
-        sdk: FakeRevenueCatSdk(),
+        sdk: FakeRevenueCatSdk(
+          customerInfo: RevenueCatCustomerInfoSnapshot.inactive(
+            requestDate: referenceTime.subtract(const Duration(minutes: 1)),
+          ),
+        ),
         entitlementState: stateFor(values),
+        referenceTime: () => referenceTime,
       );
       await authoritativeFree.initialize();
       await authoritativeFree.configure(androidApiKey: 'rc_key');

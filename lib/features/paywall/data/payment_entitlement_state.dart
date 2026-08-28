@@ -12,9 +12,13 @@ class PaymentEntitlementState {
 
   Entitlement? _current;
   bool _initialized = false;
+  Future<void> _persistenceTail = Future<void>.value();
+  Object? _lastPersistenceError;
 
   Entitlement? get current => _current;
   Stream<Entitlement> get updates => _controller.stream;
+  bool get hasPendingPersistence => _lastPersistenceError != null;
+  Object? get lastPersistenceError => _lastPersistenceError;
 
   Future<void> initialize() async {
     if (_initialized) return;
@@ -24,9 +28,23 @@ class PaymentEntitlementState {
 
   Future<void> acceptAuthoritative(Entitlement entitlement) async {
     await initialize();
-    await _store.writeConfirmed(entitlement);
-    if (_current == entitlement) return;
-    _current = entitlement;
-    if (!_controller.isClosed) _controller.add(entitlement);
+
+    if (_current != entitlement) {
+      _current = entitlement;
+      if (!_controller.isClosed) _controller.add(entitlement);
+    }
+
+    final persistence = _persistenceTail.then((_) => _persist(entitlement));
+    _persistenceTail = persistence;
+    await persistence;
+  }
+
+  Future<void> _persist(Entitlement entitlement) async {
+    try {
+      await _store.writeConfirmed(entitlement);
+      _lastPersistenceError = null;
+    } catch (error) {
+      _lastPersistenceError = error;
+    }
   }
 }

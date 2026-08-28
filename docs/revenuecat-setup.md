@@ -19,11 +19,22 @@ with an Android key alone.
 **What is already built in the app.** The live RevenueCat client implementation is
 present. It configures the SDK, reads the current offering, purchases, restores,
 tracks the `pro` entitlement, classifies SDK failures, and keeps the last confirmed
-entitlement in device preferences across fresh app processes. A failed refresh does
-not revoke Pro. Only an authoritative inactive entitlement does. RevenueCat startup
-is fail-soft, so SDK configuration or initial CustomerInfo failure does not block app
-startup.
+entitlement in device preferences across fresh app processes. Store-confirmed
+entitlement changes update memory and listeners before the device-preference write,
+so a local cache-write failure cannot turn a successful purchase or restore into a
+payment failure. Later authoritative updates retry the durable write.
 
+RevenueCat `CustomerInfo` may come from the SDK cache. The app maps the SDK's real
+`requestDate` into its client snapshot and uses that timestamp when an inactive
+snapshot would revoke an already confirmed Pro entitlement. Active Pro always
+affirms Pro. Inactive data can revoke existing Pro only when its `requestDate` is
+not in the future and is no more than five minutes old. Missing or older request
+dates preserve the last confirmed Pro until a fresher authoritative result arrives.
+This matches RevenueCat's documented five-minute foreground `CustomerInfo` cache
+window and avoids treating uncertain cached Free data as a revocation.
+
+A failed RevenueCat refresh does not revoke Pro. RevenueCat startup is fail-soft,
+so SDK configuration or initial CustomerInfo failure does not block app startup.
 The paywall UI still owns the final copy and presentation for typed offering and
 purchase states. This setup guide does not claim that Play Console or RevenueCat
 has been configured or tested against a real internal-track build.
@@ -287,6 +298,8 @@ account. That is deliberate and it is why the paywall works before auth exists.
 
 ## Sources
 
+- [Getting subscription status, RevenueCat](https://www.revenuecat.com/docs/customers/customer-info)
+- [CustomerInfo caching, RevenueCat](https://www.revenuecat.com/docs/test-and-launch/debugging/caching)
 - [Creating Play service credentials, RevenueCat](https://www.revenuecat.com/docs/service-credentials/creating-play-service-credentials)
 - [Google Play checklists, RevenueCat](https://www.revenuecat.com/docs/service-credentials/creating-play-service-credentials/google-play-checklists)
 - [Google real-time developer notifications, RevenueCat](https://www.revenuecat.com/docs/platform-resources/server-notifications/google-server-notifications)

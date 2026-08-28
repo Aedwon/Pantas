@@ -12,10 +12,15 @@ import 'package:pantas/features/paywall/domain/paywall_offering.dart';
 /// One entitlement covers all three SKUs.
 const proEntitlementId = 'pro';
 
+/// RevenueCat refreshes foreground CustomerInfo cache entries after five minutes.
+const revenueCatInactiveAuthorityWindow = Duration(minutes: 5);
+
 /// The permanent Google Play product ids chosen before the first submission.
 const _weeklyProductId = 'pantas_pro_weekly';
 const _monthlyProductId = 'pantas_pro_monthly';
 const _yearlyProductId = 'pantas_pro_yearly';
+
+DateTime _systemReferenceTime() => DateTime.now().toUtc();
 
 /// Google Play can append a base-plan id, for example
 /// `pantas_pro_monthly:monthly-autorenewing`.
@@ -64,12 +69,15 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
   LiveRevenueCatGateway({
     RevenueCatSdk? sdk,
     PaymentEntitlementState? entitlementState,
+    DateTime Function()? referenceTime,
   })  : _sdk = sdk ?? PurchasesRevenueCatSdk(),
         _entitlementState = entitlementState ??
-            PaymentEntitlementState(EntitlementSnapshotStore.inMemory());
+            PaymentEntitlementState(EntitlementSnapshotStore.inMemory()),
+        _referenceTime = referenceTime ?? _systemReferenceTime;
 
   final RevenueCatSdk _sdk;
   final PaymentEntitlementState _entitlementState;
+  final DateTime Function() _referenceTime;
   bool _listening = false;
 
   @override
@@ -94,10 +102,32 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
     await _acceptCustomerInfo(await _sdk.getCustomerInfo());
   }
 
-  Future<void> _acceptCustomerInfo(RevenueCatCustomerInfoSnapshot info) {
-    return _entitlementState.acceptAuthoritative(
-      entitlementFromCustomerInfo(info),
-    );
+  Future<Entitlement> _acceptCustomerInfo(
+    RevenueCatCustomerInfoSnapshot info,
+  ) async {
+    await initialize();
+    final reported = entitlementFromCustomerInfo(info);
+    final current = _entitlementState.current ?? const Entitlement.free();
+
+    if (reported.proIsActive ||
+        !current.proIsActive ||
+        _inactiveCustomerInfoCanRevoke(info)) {
+      await _entitlementState.acceptAuthoritative(reported);
+      return reported;
+    }
+
+    return current;
+  }
+
+  bool _inactiveCustomerInfoCanRevoke(RevenueCatCustomerInfoSnapshot info) {
+    final requestDate = info.requestDate?.toUtc();
+    if (requestDate == null) return false;
+
+    final referenceTime = _referenceTime().toUtc();
+    if (requestDate.isAfter(referenceTime)) return false;
+
+    return referenceTime.difference(requestDate) <=
+        revenueCatInactiveAuthorityWindow;
   }
 
   @override
@@ -166,15 +196,14 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
   @override
   Future<PaymentOperationResult> purchase(PaywallPackage package) async {
     try {
-      final entitlement = entitlementFromCustomerInfo(
-        await _sdk.purchase(package.productId),
-      );
-      await _entitlementState.acceptAuthoritative(entitlement);
+      final info = await _sdk.purchase(package.productId);
+      final reported = entitlementFromCustomerInfo(info);
+      final confirmed = await _acceptCustomerInfo(info);
       return PaymentOperationResult.authoritative(
-        status: entitlement.proIsActive
+        status: reported.proIsActive
             ? PaymentOperationStatus.success
             : PaymentOperationStatus.entitlementNotActive,
-        entitlement: entitlement,
+        entitlement: confirmed,
       );
     } on RevenueCatSdkException catch (error) {
       return PaymentOperationResult.failure(
@@ -190,15 +219,14 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
   @override
   Future<PaymentOperationResult> restorePurchases() async {
     try {
-      final entitlement = entitlementFromCustomerInfo(
-        await _sdk.restorePurchases(),
-      );
-      await _entitlementState.acceptAuthoritative(entitlement);
+      final info = await _sdk.restorePurchases();
+      final reported = entitlementFromCustomerInfo(info);
+      final confirmed = await _acceptCustomerInfo(info);
       return PaymentOperationResult.authoritative(
-        status: entitlement.proIsActive
+        status: reported.proIsActive
             ? PaymentOperationStatus.success
             : PaymentOperationStatus.noActiveSubscription,
-        entitlement: entitlement,
+        entitlement: confirmed,
       );
     } on RevenueCatSdkException catch (error) {
       return PaymentOperationResult.failure(
