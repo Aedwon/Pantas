@@ -45,14 +45,16 @@ void main() {
                   data: mediaQueryData,
                   child: child!,
                 ),
-        home: PlansPage(
-          packages: packages,
-          examDate: examDate,
-          today: today,
-          selectedPackage: selectedPackage ?? monthly,
-          onSelect: onSelect ?? (_) {},
-          onContinue: () {},
-          isBusy: isBusy,
+        home: Scaffold(
+          body: PlansPage(
+            packages: packages,
+            examDate: examDate,
+            today: today,
+            selectedPackage: selectedPackage ?? monthly,
+            onSelect: onSelect ?? (_) {},
+            onContinue: () {},
+            isBusy: isBusy,
+          ),
         ),
       ),
     );
