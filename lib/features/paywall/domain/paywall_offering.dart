@@ -1,7 +1,5 @@
 import 'package:pantas/features/paywall/domain/paywall_package.dart';
 
-export 'package:pantas/features/paywall/domain/paywall_package.dart';
-
 enum PaywallOfferingStatus {
   loading,
   available,
