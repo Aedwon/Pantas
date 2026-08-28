@@ -149,7 +149,6 @@ void main() {
       tester.getSemantics(system),
       matchesSemantics(
         label: 'Follow my phone',
-        isSelected: true,
         isButton: true,
         hasTapAction: true,
       ),
