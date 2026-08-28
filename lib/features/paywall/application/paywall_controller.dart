@@ -108,7 +108,8 @@ class PaywallController {
     return switch (status) {
       PaymentOperationStatus.success ||
       PaymentOperationStatus.noActiveSubscription ||
-      PaymentOperationStatus.userCancelled => null,
+      PaymentOperationStatus.userCancelled =>
+        null,
       PaymentOperationStatus.networkFailure =>
         "You need a connection to subscribe. Try again when you're back online.",
       PaymentOperationStatus.operationAlreadyInProgress =>
