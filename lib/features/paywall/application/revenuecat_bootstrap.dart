@@ -10,13 +10,19 @@ class RevenueCatBootstrapper {
   String? _lastUid;
 
   Future<void> configure(RevenueCatConfig config) async {
-    final apiKey = config.androidApiKey;
-    if (apiKey == null) return;
     try {
+      // Hydration is independent from SDK configuration. A build with a
+      // missing RevenueCat key must still recover the last confirmed local
+      // entitlement instead of silently failing closed to Free.
+      await _gateway.initialize();
+
+      final apiKey = config.androidApiKey;
+      if (apiKey == null) return;
       await _gateway.configure(androidApiKey: apiKey);
     } catch (_) {
-      // Payment startup is optional infrastructure. A configuration or initial
-      // refresh failure must not prevent the rest of the app from starting.
+      // Payment startup is optional infrastructure. A persistence,
+      // configuration, or initial refresh failure must not prevent the rest
+      // of the app from starting.
     }
   }
 
