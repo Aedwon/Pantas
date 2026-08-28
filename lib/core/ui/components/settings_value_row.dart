@@ -93,6 +93,22 @@ class SettingsValueRow extends StatelessWidget {
             ),
           );
 
+    final row = GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: onTap,
+      child: largeText
+          ? ConstrainedBox(
+              constraints: const BoxConstraints(minHeight: tapHeight),
+              child: content,
+            )
+          : SizedBox(
+              height: tapHeight,
+              child: Center(child: content),
+            ),
+    );
+
+    if (control != null && onTap == null) return row;
+
     final switchValue =
         control is SettingsSwitch ? (control! as SettingsSwitch).value : null;
     return Semantics(
@@ -102,19 +118,7 @@ class SettingsValueRow extends StatelessWidget {
       button: onTap != null,
       onTap: onTap,
       excludeSemantics: true,
-      child: GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTap: onTap,
-        child: largeText
-            ? ConstrainedBox(
-                constraints: const BoxConstraints(minHeight: tapHeight),
-                child: content,
-              )
-            : SizedBox(
-                height: tapHeight,
-                child: Center(child: content),
-              ),
-      ),
+      child: row,
     );
   }
 }
