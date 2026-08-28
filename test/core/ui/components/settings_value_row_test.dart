@@ -1,8 +1,12 @@
+import 'dart:ui' show Tristate;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/settings_switch.dart';
 import 'package:pantas/core/ui/components/settings_value_row.dart';
+import 'package:pantas/core/ui/components/theme_control.dart';
 import 'package:pantas/core/ui/theme/app_colors.dart';
+import 'package:pantas/features/settings/domain/theme_preference.dart';
 
 import '../../../helpers/pump_app.dart';
 
@@ -101,6 +105,66 @@ void main() {
         isButton: true,
         hasTapAction: true,
       ),
+    );
+  });
+
+  testWidgets('a compound control keeps its actionable child semantics',
+      (tester) async {
+    ThemePreference? chosen;
+    await tester.pumpApp(
+      SettingsValueRow(
+        title: 'Theme',
+        control: ThemeControl(
+          value: ThemePreference.system,
+          onChanged: (next) => chosen = next,
+        ),
+      ),
+    );
+
+    final light = find.bySemanticsLabel('Light theme');
+    final dark = find.bySemanticsLabel('Dark theme');
+    final system = find.bySemanticsLabel('Follow my phone');
+
+    expect(light, findsOneWidget);
+    expect(dark, findsOneWidget);
+    expect(system, findsOneWidget);
+
+    expect(
+      tester.getSemantics(light),
+      matchesSemantics(
+        label: 'Light theme',
+        isButton: true,
+        hasTapAction: true,
+      ),
+    );
+    expect(
+      tester.getSemantics(dark),
+      matchesSemantics(
+        label: 'Dark theme',
+        isButton: true,
+        hasTapAction: true,
+      ),
+    );
+    expect(
+      tester.getSemantics(system),
+      matchesSemantics(
+        label: 'Follow my phone',
+        isSelected: true,
+        isButton: true,
+        hasTapAction: true,
+      ),
+    );
+    expect(
+      tester.getSemantics(system).flagsCollection.isSelected,
+      Tristate.isTrue,
+    );
+
+    await tester.tap(dark);
+    expect(chosen, ThemePreference.dark);
+
+    expect(
+      tester.getSemantics(find.bySemanticsLabel(RegExp(r'^Theme$'))),
+      matchesSemantics(label: 'Theme'),
     );
   });
 
