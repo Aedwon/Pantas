@@ -31,10 +31,9 @@ final paymentEntitlementStateProvider = Provider<PaymentEntitlementState>((ref) 
 
 final revenueCatGatewayProvider = Provider<RevenueCatGateway>((ref) {
   final config = ref.watch(revenueCatConfigProvider);
-  if (!config.isEnabled) return const DisabledRevenueCatGateway();
-  return LiveRevenueCatGateway(
-    entitlementState: ref.watch(paymentEntitlementStateProvider),
-  );
+  final entitlementState = ref.watch(paymentEntitlementStateProvider);
+  if (!config.isEnabled) return DisabledRevenueCatGateway(entitlementState);
+  return LiveRevenueCatGateway(entitlementState: entitlementState);
 });
 
 final entitlementProvider = StreamProvider<Entitlement>((ref) {
