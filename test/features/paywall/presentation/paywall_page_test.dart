@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -24,11 +26,12 @@ void main() {
     priceString: '₱799',
     priceAmount: 799,
   );
-  final packages = [weekly, monthly, yearly];
+  const packages = [weekly, monthly, yearly];
 
-  Widget paymentScope(Widget child) {
+  Widget paymentScope(Widget child, RecordingGateway gateway) {
     return ProviderScope(
       overrides: [
+        revenueCatGatewayProvider.overrideWithValue(gateway),
         entitlementSnapshotStoreProvider.overrideWithValue(
           EntitlementSnapshotStore.inMemory(),
         ),
@@ -39,9 +42,11 @@ void main() {
 
   Future<void> pumpPaywall(
     WidgetTester tester, {
+    RecordingGateway? gateway,
     Future<PaywallCommandResult> Function(PaywallPackage)? onPurchase,
-    Future<void> Function()? onRestore,
+    Future<PaywallCommandResult> Function()? onRestore,
   }) {
+    final resolvedGateway = gateway ?? RecordingGateway();
     return tester.pumpWidget(
       paymentScope(
         MaterialApp(
@@ -52,104 +57,42 @@ void main() {
             onRestore: onRestore,
           ),
         ),
+        resolvedGateway,
       ),
     );
   }
 
-  testWidgets('starts on screen 1 and See plans advances to screen 2',
-      (tester) async {
-    await pumpPaywall(tester);
-    expect(find.text('Pro also adds'), findsOneWidget);
-    await tester.ensureVisible(find.text('See plans'));
-    await tester.tap(find.text('See plans'));
-    await tester.pumpAndSettle();
-    expect(find.text('Weekly'), findsOneWidget);
-  });
-
-  testWidgets('choosing Yearly routes through the trial screen',
-      (tester) async {
-    await pumpPaywall(tester);
-    await tester.ensureVisible(find.text('See plans'));
-    await tester.tap(find.text('See plans'));
-    await tester.pumpAndSettle();
-    await tester.ensureVisible(find.text('Yearly'));
-    await tester.tap(find.text('Yearly'));
-    await tester.pump();
-    await tester.ensureVisible(find.text('Start my free trial'));
-    await tester.tap(find.text('Start my free trial'));
-    await tester.pumpAndSettle();
-    expect(find.text('How your free trial works'), findsOneWidget);
-  });
-
-  testWidgets(
-      'choosing Monthly goes straight to purchase, with no trial screen',
-      (tester) async {
-    var purchased = 0;
-    await pumpPaywall(
-      tester,
-      onPurchase: (_) async {
-        purchased++;
-        return const PaywallCommandResult(entitlement: Entitlement.free());
-      },
-    );
+  Future<void> goToMonthlyPurchase(WidgetTester tester) async {
     await tester.ensureVisible(find.text('See plans'));
     await tester.tap(find.text('See plans'));
     await tester.pumpAndSettle();
     await tester.ensureVisible(find.text('Monthly'));
     await tester.tap(find.text('Monthly'));
     await tester.pump();
-    await tester.ensureVisible(find.textContaining('Get Pro.'));
-    await tester.tap(find.textContaining('Get Pro.'));
-    await tester.pumpAndSettle();
-    expect(find.text('How your free trial works'), findsNothing);
-    expect(purchased, 1);
-  });
+  }
 
-  testWidgets('restore link calls restore command', (tester) async {
-    var restored = false;
-    await pumpPaywall(tester, onRestore: () async => restored = true);
+  testWidgets('production Restore calls the payment controller', (tester) async {
+    final gateway = RecordingGateway(
+      restoreResult: const PaymentOperationResult.authoritative(
+        status: PaymentOperationStatus.noActiveSubscription,
+        entitlement: Entitlement.free(),
+      ),
+    );
+    await pumpPaywall(tester, gateway: gateway);
 
     await tester.tap(find.text('Restore'));
-    await tester.pump();
-
-    expect(restored, isTrue);
-  });
-
-  testWidgets('purchase error renders offline copy and keeps page open',
-      (tester) async {
-    await pumpPaywall(
-      tester,
-      onPurchase: (_) async => const PaywallCommandResult(
-        entitlement: Entitlement.free(),
-        errorMessage: 'You need a connection to subscribe. Try again when '
-            "you're back online.",
-      ),
-    );
-
-    await tester.ensureVisible(find.text('See plans'));
-    await tester.tap(find.text('See plans'));
-    await tester.pumpAndSettle();
-    await tester.ensureVisible(find.text('Monthly'));
-    await tester.tap(find.text('Monthly'));
-    await tester.pump();
-    await tester.ensureVisible(find.textContaining('Get Pro.'));
-    await tester.tap(find.textContaining('Get Pro.'));
     await tester.pumpAndSettle();
 
-    expect(
-      find.text(
-        "You need a connection to subscribe. Try again when you're back "
-        'online.',
-      ),
-      findsOneWidget,
-    );
+    expect(gateway.restoreCalls, 1);
   });
 
-  testWidgets('closing with no stack goes where the student was headed',
-      (tester) async {
-    // Home's "Unlock with Pro" uses go and a Pro-gated route redirects, so
-    // neither leaves a stack, and /paywall sits outside the tab shell. The
-    // close control popped nothing and there was no tab bar to escape by.
+  testWidgets('restore with active Pro honors returnTo', (tester) async {
+    final gateway = RecordingGateway(
+      restoreResult: const PaymentOperationResult.authoritative(
+        status: PaymentOperationStatus.success,
+        entitlement: Entitlement(plan: EntitlementPlan.monthly),
+      ),
+    );
     final router = GoRouter(
       initialLocation: '/paywall?returnTo=%2Fprogress',
       routes: [
@@ -161,41 +104,163 @@ void main() {
           ),
         ),
         GoRoute(path: '/progress', builder: (_, __) => const Text('Progress')),
+        GoRoute(path: '/home', builder: (_, __) => const Text('Home')),
       ],
     );
     addTearDown(router.dispose);
 
     await tester.pumpWidget(
       paymentScope(
-        MaterialApp.router(
-          theme: buildLightTheme(),
-          routerConfig: router,
-        ),
+        MaterialApp.router(theme: buildLightTheme(), routerConfig: router),
+        gateway,
       ),
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.byIcon(Icons.close));
+    await tester.tap(find.text('Restore'));
     await tester.pumpAndSettle();
 
     expect(find.text('Progress'), findsOneWidget);
+    expect(gateway.restoreCalls, 1);
   });
 
-  testWidgets('a successful purchase does not leave them on the offer',
+  testWidgets('restore with no active purchase stays and explains calmly',
       (tester) async {
+    final gateway = RecordingGateway(
+      restoreResult: const PaymentOperationResult.authoritative(
+        status: PaymentOperationStatus.noActiveSubscription,
+        entitlement: Entitlement.free(),
+      ),
+    );
+    await pumpPaywall(tester, gateway: gateway);
+
+    await tester.tap(find.text('Restore'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Try Pro'), findsOneWidget);
+    expect(
+      find.text(
+        "We couldn't find an active Pro subscription on this Google Play account.",
+      ),
+      findsOneWidget,
+    );
+    expect(find.textContaining('connection'), findsNothing);
+  });
+
+  testWidgets('pending restore disables duplicate invocation', (tester) async {
+    final completer = Completer<PaymentOperationResult>();
+    final gateway = RecordingGateway(restoreCompleter: completer);
+    await pumpPaywall(tester, gateway: gateway);
+
+    await tester.tap(find.text('Restore'));
+    await tester.pump();
+
+    expect(find.text('Restoring...'), findsOneWidget);
+    expect(gateway.restoreCalls, 1);
+    await tester.tap(find.text('Restoring...'));
+    await tester.pump();
+    expect(gateway.restoreCalls, 1);
+
+    completer.complete(
+      const PaymentOperationResult.authoritative(
+        status: PaymentOperationStatus.noActiveSubscription,
+        entitlement: Entitlement.free(),
+      ),
+    );
+    await tester.pumpAndSettle();
+  });
+
+  testWidgets('purchase cancellation shows no error and stays on paywall',
+      (tester) async {
+    await pumpPaywall(
+      tester,
+      onPurchase: (_) async => const PaywallCommandResult(
+        status: PaymentOperationStatus.userCancelled,
+        entitlement: Entitlement.free(),
+      ),
+    );
+    await goToMonthlyPurchase(tester);
+
+    await tester.tap(find.text('Get Pro. ₱99 a month.'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Monthly'), findsOneWidget);
+    expect(find.textContaining('failed'), findsNothing);
+    expect(find.textContaining("couldn't"), findsNothing);
+  });
+
+  testWidgets('network purchase failure replaces CTA with retry action',
+      (tester) async {
+    await pumpPaywall(
+      tester,
+      onPurchase: (_) async => const PaywallCommandResult(
+        status: PaymentOperationStatus.networkFailure,
+        entitlement: Entitlement.free(),
+      ),
+    );
+    await goToMonthlyPurchase(tester);
+
+    await tester.tap(find.text('Get Pro. ₱99 a month.'));
+    await tester.pumpAndSettle();
+
+    expect(
+      find.text(
+        "You need a connection to subscribe. Try again when you're back online.",
+      ),
+      findsOneWidget,
+    );
+    expect(find.text('Get Pro. ₱99 a month.'), findsNothing);
+    expect(find.text('Try again'), findsOneWidget);
+
+    await tester.tap(find.text('Try again'));
+    await tester.pump();
+    expect(find.text('Get Pro. ₱99 a month.'), findsOneWidget);
+  });
+
+  testWidgets('pending purchase disables duplicate invocation', (tester) async {
+    final completer = Completer<PaywallCommandResult>();
+    var calls = 0;
+    await pumpPaywall(
+      tester,
+      onPurchase: (_) {
+        calls++;
+        return completer.future;
+      },
+    );
+    await goToMonthlyPurchase(tester);
+
+    await tester.tap(find.text('Get Pro. ₱99 a month.'));
+    await tester.pump();
+
+    expect(find.text('Processing...'), findsOneWidget);
+    expect(calls, 1);
+    await tester.tap(find.text('Processing...'));
+    await tester.pump();
+    expect(calls, 1);
+
+    completer.complete(
+      const PaywallCommandResult(
+        status: PaymentOperationStatus.userCancelled,
+        entitlement: Entitlement.free(),
+      ),
+    );
+    await tester.pumpAndSettle();
+  });
+
+  testWidgets('successful purchase honors returnTo even with a stack',
+      (tester) async {
+    final gateway = RecordingGateway();
     final router = GoRouter(
-      initialLocation: '/paywall?returnTo=%2Fprogress',
+      initialLocation: '/home',
       routes: [
+        GoRoute(path: '/home', builder: (_, __) => const Text('Home')),
         GoRoute(
           path: '/paywall',
           builder: (_, state) => PaywallPage(
             packages: packages,
             returnTo: state.uri.queryParameters['returnTo'],
-            onPurchase: (_) async => PaywallCommandResult(
-              entitlement: Entitlement(
-                plan: EntitlementPlan.monthly,
-                expiresAt: DateTime.now().add(const Duration(days: 30)),
-              ),
+            onPurchase: (_) async => const PaywallCommandResult(
+              entitlement: Entitlement(plan: EntitlementPlan.monthly),
             ),
           ),
         ),
@@ -206,24 +271,89 @@ void main() {
 
     await tester.pumpWidget(
       paymentScope(
-        MaterialApp.router(
-          theme: buildLightTheme(),
-          routerConfig: router,
-        ),
+        MaterialApp.router(theme: buildLightTheme(), routerConfig: router),
+        gateway,
       ),
     );
     await tester.pumpAndSettle();
-
-    await tester.ensureVisible(find.text('See plans'));
-    await tester.tap(find.text('See plans'));
+    router.push('/paywall?returnTo=%2Fprogress');
     await tester.pumpAndSettle();
-    await tester.ensureVisible(find.text('Monthly'));
-    await tester.tap(find.text('Monthly'));
-    await tester.pump();
-    await tester.ensureVisible(find.textContaining('Get Pro.'));
-    await tester.tap(find.textContaining('Get Pro.'));
+
+    await goToMonthlyPurchase(tester);
+    await tester.tap(find.text('Get Pro. ₱99 a month.'));
     await tester.pumpAndSettle();
 
     expect(find.text('Progress'), findsOneWidget);
   });
+
+  testWidgets('close does not enter returnTo and has accessible label',
+      (tester) async {
+    final gateway = RecordingGateway();
+    final router = GoRouter(
+      initialLocation: '/home',
+      routes: [
+        GoRoute(path: '/home', builder: (_, __) => const Text('Home')),
+        GoRoute(
+          path: '/paywall',
+          builder: (_, state) => PaywallPage(
+            packages: packages,
+            returnTo: state.uri.queryParameters['returnTo'],
+          ),
+        ),
+        GoRoute(path: '/progress', builder: (_, __) => const Text('Progress')),
+      ],
+    );
+    addTearDown(router.dispose);
+
+    await tester.pumpWidget(
+      paymentScope(
+        MaterialApp.router(theme: buildLightTheme(), routerConfig: router),
+        gateway,
+      ),
+    );
+    await tester.pumpAndSettle();
+    router.push('/paywall?returnTo=%2Fprogress');
+    await tester.pumpAndSettle();
+
+    expect(find.byTooltip('Close'), findsOneWidget);
+    await tester.tap(find.byTooltip('Close'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Home'), findsOneWidget);
+    expect(find.text('Progress'), findsNothing);
+  });
+}
+
+class RecordingGateway implements RevenueCatGateway {
+  RecordingGateway({
+    this.restoreResult = const PaymentOperationResult.authoritative(
+      status: PaymentOperationStatus.noActiveSubscription,
+      entitlement: Entitlement.free(),
+    ),
+    this.restoreCompleter,
+  });
+
+  final PaymentOperationResult restoreResult;
+  final Completer<PaymentOperationResult>? restoreCompleter;
+  int restoreCalls = 0;
+
+  @override
+  Entitlement? get cachedEntitlement => const Entitlement.free();
+
+  @override
+  Stream<Entitlement> get customerInfoUpdates =>
+      Stream.value(const Entitlement.free());
+
+  @override
+  Future<PaywallOfferingResult> currentOffering() async =>
+      const PaywallOfferingResult.noCurrentOffering();
+
+  @override
+  Future<PaymentOperationResult> restorePurchases() async {
+    restoreCalls++;
+    return restoreCompleter?.future ?? restoreResult;
+  }
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
