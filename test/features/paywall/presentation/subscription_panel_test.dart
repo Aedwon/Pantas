@@ -29,11 +29,15 @@ void main() {
       ),
     );
 
-    expect(find.textContaining('Pro · Monthly · renews Jun 21'), findsOneWidget);
+    expect(
+      find.textContaining('Pro · Monthly · renews Jun 21'),
+      findsOneWidget,
+    );
     expect(find.text('Manage in Google Play'), findsOneWidget);
   });
 
-  testWidgets('cancelled but active panel says ends, not renews', (tester) async {
+  testWidgets('cancelled but active panel says ends, not renews',
+      (tester) async {
     await tester.pumpWidget(
       _Host(
         SubscriptionPanel(
@@ -47,7 +51,10 @@ void main() {
       ),
     );
 
-    expect(find.textContaining('Pro · Monthly · ends Jun 21'), findsOneWidget);
+    expect(
+      find.textContaining('Pro · Monthly · ends Jun 21'),
+      findsOneWidget,
+    );
     expect(find.textContaining('renews'), findsNothing);
   });
 
