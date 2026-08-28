@@ -52,6 +52,13 @@ void main() {
       priceAmount: 99,
     );
 
+    test('loading is an explicit typed state', () {
+      expect(
+        const PaywallOfferingResult.loading().status,
+        PaywallOfferingStatus.loading,
+      );
+    });
+
     test('mixed products preserve recognized and unrecognized details', () {
       const result = PaywallOfferingResult(
         status: PaywallOfferingStatus.mixedProducts,
