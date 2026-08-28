@@ -49,7 +49,8 @@ void main() {
     expect(await db.select(db.customBlueprintsLocal).get(), isEmpty);
   });
 
-  test('wipeAll preserves device and reference state and only deviceId sync meta',
+  test(
+      'wipeAll preserves device and reference state and only deviceId sync meta',
       () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
@@ -99,7 +100,8 @@ class RecordingNotificationService implements NotificationService {
   @override
   Future<void> cancelAll() async {
     log.add('cancelAll');
-    hadAttemptsAtCancellation = (await db.select(db.attemptsLocal).get()).isNotEmpty;
+    hadAttemptsAtCancellation =
+        (await db.select(db.attemptsLocal).get()).isNotEmpty;
   }
 
   @override
