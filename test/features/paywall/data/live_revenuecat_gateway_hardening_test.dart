@@ -105,7 +105,8 @@ void main() {
           ),
         ]),
       );
-      final gateway = LiveRevenueCatGateway(sdk: sdk, entitlementState: stateFor());
+      final gateway =
+          LiveRevenueCatGateway(sdk: sdk, entitlementState: stateFor());
 
       final result = await gateway.currentOffering();
 
@@ -174,7 +175,8 @@ void main() {
       expect(mixedResult.unrecognizedProductIds, ['pantas_pro_future']);
 
       final unknownResult = await allUnknown.currentOffering();
-      expect(unknownResult.status, PaywallOfferingStatus.allProductsUnrecognized);
+      expect(
+          unknownResult.status, PaywallOfferingStatus.allProductsUnrecognized);
       expect(unknownResult.recognizedPackages, isEmpty);
       expect(unknownResult.unrecognizedProductIds, ['pantas_pro_future']);
     });
@@ -187,8 +189,7 @@ void main() {
             PaywallOfferingStatus.revenueCatFailure,
         RevenueCatFailureKind.configuration:
             PaywallOfferingStatus.configurationFailure,
-        RevenueCatFailureKind.developer:
-            PaywallOfferingStatus.developerFailure,
+        RevenueCatFailureKind.developer: PaywallOfferingStatus.developerFailure,
         RevenueCatFailureKind.unknown: PaywallOfferingStatus.unknownFailure,
       };
 
@@ -459,7 +460,8 @@ class FakeRevenueCatSdk implements RevenueCatSdk {
   }
 
   @override
-  Future<RevenueCatCustomerInfoSnapshot> logIn(String uid) async => customerInfo;
+  Future<RevenueCatCustomerInfoSnapshot> logIn(String uid) async =>
+      customerInfo;
 
   @override
   Future<RevenueCatCustomerInfoSnapshot> purchase(String productId) async {
