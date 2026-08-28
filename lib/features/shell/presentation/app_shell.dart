@@ -65,8 +65,8 @@ class AppNavBar extends StatelessWidget {
       ),
       child: SafeArea(
         top: false,
-        child: SizedBox(
-          height: 52,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minHeight: 52),
           child: Row(
             children: [
               for (var i = 0; i < _tabs.length; i++)
@@ -159,27 +159,33 @@ class _NavItemState extends State<_NavItem>
         child: InkWell(
           excludeFromSemantics: true,
           onTap: widget.onTap,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              AnimatedBuilder(
-                animation: _fill,
-                builder: (context, _) => NavGlyph(
-                  kind: widget.glyph,
-                  fill: _fill.value,
-                  color: color,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(
+              minHeight: AppDimensions.minTapTarget,
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AnimatedBuilder(
+                  animation: _fill,
+                  builder: (context, _) => NavGlyph(
+                    kind: widget.glyph,
+                    fill: _fill.value,
+                    color: color,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 2),
-              Text(
-                widget.label,
-                style: styles.labelSmall.copyWith(
-                  color: color,
-                  fontWeight:
-                      widget.isActive ? FontWeight.w700 : FontWeight.w600,
+                const SizedBox(height: 2),
+                Text(
+                  widget.label,
+                  style: styles.labelSmall.copyWith(
+                    color: color,
+                    fontWeight:
+                        widget.isActive ? FontWeight.w700 : FontWeight.w600,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
