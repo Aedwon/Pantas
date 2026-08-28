@@ -58,7 +58,7 @@ test('recordSignInEvent ensures a minimal user root before audit', () => {
   const transactionIndex = source.indexOf('runTransaction');
   const createIndex = source.indexOf('transaction.create');
   const createdAtIndex = source.indexOf('createdAt: FieldValue.serverTimestamp()');
-  const auditIndex = source.indexOf('writeAuditLog');
+  const auditIndex = source.indexOf('await writeAuditLog');
 
   assert.notEqual(rootIndex, -1);
   assert.notEqual(transactionIndex, -1);
@@ -130,7 +130,7 @@ test('deleteAccount audit write appears before recursive delete', () => {
     'utf8',
   );
 
-  const auditIndex = source.indexOf('writeAuditLog');
+  const auditIndex = source.indexOf('await writeAuditLog');
   const deleteIndex = source.indexOf('recursiveDelete');
   const userDocIndex = source.indexOf("collection('users').doc(uid)");
 
