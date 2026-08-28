@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:pantas/features/paywall/domain/entitlement.dart';
+import 'package:pantas/features/paywall/domain/payment_operation.dart';
+import 'package:pantas/features/paywall/domain/paywall_offering.dart';
 import 'package:pantas/features/paywall/domain/paywall_package.dart';
 
 abstract interface class RevenueCatGateway {
@@ -9,9 +11,9 @@ abstract interface class RevenueCatGateway {
 
   Future<void> configure({required String androidApiKey});
   Future<void> logIn(String uid);
-  Future<List<PaywallPackage>> currentOffering();
-  Future<Entitlement> purchase(PaywallPackage package);
-  Future<Entitlement> restorePurchases();
+  Future<PaywallOfferingResult> currentOffering();
+  Future<PaymentOperationResult> purchase(PaywallPackage package);
+  Future<PaymentOperationResult> restorePurchases();
 }
 
 class DisabledRevenueCatGateway implements RevenueCatGateway {
@@ -26,22 +28,29 @@ class DisabledRevenueCatGateway implements RevenueCatGateway {
 
   @override
   Stream<Entitlement> get customerInfoUpdates =>
-      Stream<Entitlement>.value(const Entitlement.free());
+      Stream<Entitlement>.value(_cachedEntitlement);
 
   @override
   Future<void> configure({required String androidApiKey}) async {}
 
   @override
-  Future<List<PaywallPackage>> currentOffering() async => const [];
+  Future<PaywallOfferingResult> currentOffering() async =>
+      const PaywallOfferingResult.noCurrentOffering();
 
   @override
   Future<void> logIn(String uid) async {}
 
   @override
-  Future<Entitlement> purchase(PaywallPackage package) async {
-    return const Entitlement.free();
+  Future<PaymentOperationResult> purchase(PaywallPackage package) async {
+    return const PaymentOperationResult.failure(
+      status: PaymentOperationStatus.configurationFailure,
+    );
   }
 
   @override
-  Future<Entitlement> restorePurchases() async => const Entitlement.free();
+  Future<PaymentOperationResult> restorePurchases() async {
+    return const PaymentOperationResult.failure(
+      status: PaymentOperationStatus.configurationFailure,
+    );
+  }
 }
