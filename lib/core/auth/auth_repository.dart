@@ -40,7 +40,6 @@ class AuthRepository {
     AuthFunctionsGateway? functionsGateway,
     AccountTransitionGateway? accountTransitionGateway,
     LocalStateWiper? localStateWiper,
-    CloudProgressGateway? cloudProgressGateway,
     Clock? clock,
   })  : _gateway = gateway,
         _googleGateway =
@@ -50,8 +49,6 @@ class AuthRepository {
         _accountTransitionGateway =
             accountTransitionGateway ?? const NoopAccountTransitionGateway(),
         _localStateWiper = localStateWiper ?? const NoopLocalStateWiper(),
-        _cloudProgressGateway =
-            cloudProgressGateway ?? const EmptyCloudProgressGateway(),
         _clock = clock ?? DateTime.now;
 
   final AuthGateway _gateway;
@@ -59,7 +56,6 @@ class AuthRepository {
   final AuthFunctionsGateway _functionsGateway;
   final AccountTransitionGateway _accountTransitionGateway;
   final LocalStateWiper _localStateWiper;
-  final CloudProgressGateway _cloudProgressGateway;
   final Clock _clock;
 
   Stream<AuthState> get authState {
@@ -122,18 +118,12 @@ class AuthRepository {
   Future<SignInResult> _switchToExistingGoogleAccount(
     GoogleAuthTokens tokens,
   ) async {
-    final meaningfulLocalData = await _localStateWiper.hasMeaningfulProgress();
     await _accountTransitionGateway.prepareForAccountSwitch();
     try {
       await _gateway.signOut();
-      final session = await _gateway.signInWithGoogleCredential(tokens);
-      final meaningfulCloudData =
-          await _cloudProgressGateway.hasMeaningfulProgress(session.uid);
+      await _gateway.signInWithGoogleCredential(tokens);
       await _functionsGateway.recordSignInEvent();
-      return SignInResult.switchedToExisting(
-        meaningfulCloudData: meaningfulCloudData,
-        meaningfulLocalData: meaningfulLocalData,
-      );
+      return const SignInResult.switchedToExisting();
     } on AuthGatewayException catch (error) {
       await ensureAnonymous();
       return SignInResult.failed(reason: error.code);
@@ -161,7 +151,8 @@ abstract interface class LocalStateWiper {
   Future<void> wipeAll();
 }
 
-// Temporary compatibility declaration for Sync. AuthRepository must not use it.
+// Temporary compatibility declaration for Sync. AuthRepository does not use it.
+// Wave 2E owns relocating this interface into the Sync domain.
 // ignore: one_member_abstracts
 abstract interface class CloudProgressGateway {
   Future<bool> hasMeaningfulProgress(String uid);

@@ -2,17 +2,18 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/auth.dart';
 
 void main() {
-  test('credential-already-in-use signs out anon then signs in with credential',
+  test('credential collision switches identity without progress inspection',
       () async {
     final gateway = CollisionAuthGateway();
+    final wiper = RecordingLocalStateWiper();
+    final functions = CountingFunctionsGateway(operations: gateway.operations);
     final repo = AuthRepository(
       gateway: gateway,
       googleGateway: OneTokenGoogleGateway(),
-      functionsGateway: CountingFunctionsGateway(),
+      functionsGateway: functions,
       accountTransitionGateway:
           RecordingAccountTransitionGateway(gateway.operations),
-      localStateWiper: const MeaningfulLocalStateWiper(hasData: true),
-      cloudProgressGateway: const MeaningfulCloudProgressGateway(hasData: true),
+      localStateWiper: wiper,
     );
 
     final result = await repo.signInWithGoogle();
@@ -22,42 +23,41 @@ void main() {
       'prepareForAccountSwitch',
       'signOut',
       'signInWithCredential',
+      'recordSignInEvent',
     ]);
-    expect(
-      result,
-      const SignInResult.switchedToExisting(
-        meaningfulCloudData: true,
-        meaningfulLocalData: true,
-      ),
-    );
+    expect(result, const SignInResult.switchedToExisting());
+    expect(wiper.meaningfulProgressReads, 0);
+    expect(wiper.wipeCalls, 0);
   });
 
-  test('collision calls recordSignInEvent after fallback sign-in', () async {
-    final functions = CountingFunctionsGateway();
+  test('collision records named sign-in root after existing credential sign-in',
+      () async {
+    final gateway = CollisionAuthGateway();
+    final functions = CountingFunctionsGateway(operations: gateway.operations);
     final repo = AuthRepository(
-      gateway: CollisionAuthGateway(),
+      gateway: gateway,
       googleGateway: OneTokenGoogleGateway(),
       functionsGateway: functions,
-      localStateWiper: const MeaningfulLocalStateWiper(hasData: false),
-      cloudProgressGateway:
-          const MeaningfulCloudProgressGateway(hasData: false),
+      localStateWiper: RecordingLocalStateWiper(),
     );
 
     await repo.signInWithGoogle();
 
     expect(functions.recordSignInEventCalls, 1);
+    expect(
+      gateway.operations.indexOf('signInWithCredential'),
+      lessThan(gateway.operations.indexOf('recordSignInEvent')),
+    );
   });
 
-  test('failure between signOut and signInWithCredential re-anonymizes',
-      () async {
+  test('failure after anonymous sign-out re-anonymizes', () async {
     final gateway = CollisionAuthGateway(failFallbackSignIn: true);
+    final wiper = RecordingLocalStateWiper();
     final repo = AuthRepository(
       gateway: gateway,
       googleGateway: OneTokenGoogleGateway(),
       functionsGateway: CountingFunctionsGateway(),
-      localStateWiper: const MeaningfulLocalStateWiper(hasData: true),
-      cloudProgressGateway:
-          const MeaningfulCloudProgressGateway(hasData: false),
+      localStateWiper: wiper,
     );
 
     final result = await repo.signInWithGoogle();
@@ -69,6 +69,7 @@ void main() {
       'signInWithCredential',
       'signInAnonymously',
     ]);
+    expect(wiper.wipeCalls, 0);
   });
 
   test('collision stops before signOut when switch preparation fails',
@@ -80,15 +81,10 @@ void main() {
       functionsGateway: CountingFunctionsGateway(),
       accountTransitionGateway:
           FailingAccountSwitchTransitionGateway(gateway.operations),
-      localStateWiper: const MeaningfulLocalStateWiper(hasData: true),
-      cloudProgressGateway:
-          const MeaningfulCloudProgressGateway(hasData: false),
+      localStateWiper: RecordingLocalStateWiper(),
     );
 
-    await expectLater(
-      repo.signInWithGoogle(),
-      throwsA(isA<StateError>()),
-    );
+    await expectLater(repo.signInWithGoogle(), throwsA(isA<StateError>()));
 
     expect(gateway.operations, ['link', 'prepareForAccountSwitch']);
   });
@@ -121,6 +117,11 @@ class CollisionAuthGateway implements AuthGateway {
   }
 
   @override
+  Future<void> reauthenticateWithGoogleCredential(
+    GoogleAuthTokens tokens,
+  ) async {}
+
+  @override
   Future<void> signOut() async {
     operations.add('signOut');
     currentSession = null;
@@ -149,10 +150,14 @@ class OneTokenGoogleGateway implements GoogleSignInGateway {
 }
 
 class CountingFunctionsGateway implements AuthFunctionsGateway {
+  CountingFunctionsGateway({this.operations});
+
+  final List<String>? operations;
   int recordSignInEventCalls = 0;
 
   @override
   Future<void> recordSignInEvent() async {
+    operations?.add('recordSignInEvent');
     recordSignInEventCalls += 1;
   }
 
@@ -200,23 +205,18 @@ class FailingAccountSwitchTransitionGateway
   Future<void> prepareForSignOut() async {}
 }
 
-class MeaningfulLocalStateWiper implements LocalStateWiper {
-  const MeaningfulLocalStateWiper({required this.hasData});
-
-  final bool hasData;
-
-  @override
-  Future<bool> hasMeaningfulProgress() async => hasData;
+class RecordingLocalStateWiper implements LocalStateWiper {
+  int meaningfulProgressReads = 0;
+  int wipeCalls = 0;
 
   @override
-  Future<void> wipeAll() async {}
-}
-
-class MeaningfulCloudProgressGateway implements CloudProgressGateway {
-  const MeaningfulCloudProgressGateway({required this.hasData});
-
-  final bool hasData;
+  Future<bool> hasMeaningfulProgress() async {
+    meaningfulProgressReads += 1;
+    return true;
+  }
 
   @override
-  Future<bool> hasMeaningfulProgress(String uid) async => hasData;
+  Future<void> wipeAll() async {
+    wipeCalls += 1;
+  }
 }
