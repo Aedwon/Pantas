@@ -113,33 +113,33 @@ void main() {
     expect(find.textContaining('Correct'), findsNothing);
   });
 
-  testWidgets('a proctor warning remains available for eight seconds',
-      (tester) async {
-    final hostKey = GlobalKey<_ProctorHostState>();
-    await tester.pumpWidget(
-      ProviderScope(
-        overrides: [
-          hydratedMockQuestionProvider.overrideWith((ref, id) => null),
-        ],
-        child: MaterialApp(
-          theme: buildLightTheme(),
-          home: _ProctorHost(key: hostKey, state: stateAt(0)),
+  testWidgets(
+    'a proctor warning remains available for eight seconds',
+    (tester) async {
+      final hostKey = GlobalKey<_ProctorHostState>();
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            hydratedMockQuestionProvider.overrideWith((ref, id) => null),
+          ],
+          child: MaterialApp(
+            theme: buildLightTheme(),
+            home: _ProctorHost(key: hostKey, state: stateAt(0)),
+          ),
         ),
-      ),
-    );
-    hostKey.currentState!.setRemaining(
-      const Duration(minutes: 20),
-    );
-    await tester.pump();
-    await tester.pump();
+      );
+      hostKey.currentState!.setRemaining(const Duration(minutes: 20));
+      await tester.pump();
+      await tester.pump();
 
-    expect(find.text('20:00'), findsOneWidget);
-    expect(find.text('20 minutes left in this subject.'), findsOneWidget);
-    await tester.pump(const Duration(seconds: 3));
-    expect(find.text('20 minutes left in this subject.'), findsOneWidget);
-    await tester.pump(const Duration(seconds: 5));
-    expect(find.text('20 minutes left in this subject.'), findsNothing);
-  });
+      expect(find.text('20:00'), findsOneWidget);
+      expect(find.text('20 minutes left in this subject.'), findsOneWidget);
+      await tester.pump(const Duration(seconds: 3));
+      expect(find.text('20 minutes left in this subject.'), findsOneWidget);
+      await tester.pump(const Duration(seconds: 5));
+      expect(find.text('20 minutes left in this subject.'), findsNothing);
+    },
+  );
 }
 
 class _ProctorHost extends StatefulWidget {
