@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/semantics.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -60,6 +59,13 @@ void main() {
     );
   }
 
+  Finder semanticsWithLabel(String label) {
+    return find.byWidgetPredicate(
+      (widget) =>
+          widget is Semantics && widget.properties.label == label,
+    );
+  }
+
   testWidgets('at day precision the column head names the date',
       (tester) async {
     await pumpPlans(tester, examDate: ExamDate.onDay(DateTime(2026, 10, 12)));
@@ -102,19 +108,19 @@ void main() {
   });
 
   testWidgets('selected plan exposes selected semantics', (tester) async {
-    final semantics = tester.ensureSemantics();
-    addTearDown(semantics.dispose);
     await pumpPlans(tester, examDate: null, selectedPackage: monthly);
 
-    final node = tester.getSemantics(find.bySemanticsLabel('Monthly plan'));
-    expect(node.hasFlag(SemanticsFlag.isSelected), isTrue);
+    final finder = semanticsWithLabel('Monthly plan');
+    expect(finder, findsOneWidget);
+    final semantics = tester.widget<Semantics>(finder);
+    expect(semantics.properties.selected, isTrue);
+    expect(semantics.properties.button, isTrue);
+    expect(semantics.properties.enabled, isTrue);
   });
 
   testWidgets('busy purchase exposes busy semantics and disables plan changes',
       (tester) async {
     var selections = 0;
-    final semantics = tester.ensureSemantics();
-    addTearDown(semantics.dispose);
     await pumpPlans(
       tester,
       examDate: null,
@@ -122,7 +128,10 @@ void main() {
       onSelect: (_) => selections++,
     );
 
-    expect(find.bySemanticsLabel('Purchase in progress'), findsOneWidget);
+    final finder = semanticsWithLabel('Purchase in progress');
+    expect(finder, findsOneWidget);
+    final semantics = tester.widget<Semantics>(finder);
+    expect(semantics.properties.liveRegion, isTrue);
     await tester.tap(find.text('Weekly'));
     await tester.pump();
     expect(selections, 0);
