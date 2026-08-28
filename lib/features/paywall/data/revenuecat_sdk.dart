@@ -82,10 +82,12 @@ RevenueCatFailureKind classifyRevenueCatErrorCode(PurchasesErrorCode code) {
     PurchasesErrorCode.networkError ||
     PurchasesErrorCode.offlineConnectionError ||
     PurchasesErrorCode.apiEndpointBlocked ||
-    PurchasesErrorCode.productRequestTimeout => RevenueCatFailureKind.network,
+    PurchasesErrorCode.productRequestTimeout =>
+      RevenueCatFailureKind.network,
     PurchasesErrorCode.operationAlreadyInProgressError =>
       RevenueCatFailureKind.operationInProgress,
-    PurchasesErrorCode.configurationError => RevenueCatFailureKind.configuration,
+    PurchasesErrorCode.configurationError =>
+      RevenueCatFailureKind.configuration,
     PurchasesErrorCode.invalidCredentialsError ||
     PurchasesErrorCode.purchaseInvalidError ||
     PurchasesErrorCode.invalidAppUserIdError ||
@@ -97,7 +99,8 @@ RevenueCatFailureKind classifyRevenueCatErrorCode(PurchasesErrorCode code) {
     PurchasesErrorCode.invalidPromotionalOfferError ||
     PurchasesErrorCode.featureNotAvailableInCustomEntitlementsComputationMode ||
     PurchasesErrorCode.featureNotSupportedWithStoreKit1 ||
-    PurchasesErrorCode.invalidWebPurchaseToken => RevenueCatFailureKind.developer,
+    PurchasesErrorCode.invalidWebPurchaseToken =>
+      RevenueCatFailureKind.developer,
     PurchasesErrorCode.storeProblemError ||
     PurchasesErrorCode.purchaseNotAllowedError ||
     PurchasesErrorCode.productNotAvailableForPurchaseError ||
@@ -106,7 +109,8 @@ RevenueCatFailureKind classifyRevenueCatErrorCode(PurchasesErrorCode code) {
     PurchasesErrorCode.insufficientPermissionsError ||
     PurchasesErrorCode.paymentPendingError ||
     PurchasesErrorCode.beginRefundRequestError ||
-    PurchasesErrorCode.testStoreSimulatedPurchaseError => RevenueCatFailureKind.store,
+    PurchasesErrorCode.testStoreSimulatedPurchaseError =>
+      RevenueCatFailureKind.store,
     PurchasesErrorCode.receiptAlreadyInUseError ||
     PurchasesErrorCode.invalidReceiptError ||
     PurchasesErrorCode.missingReceiptFileError ||
@@ -117,11 +121,13 @@ RevenueCatFailureKind classifyRevenueCatErrorCode(PurchasesErrorCode code) {
     PurchasesErrorCode.systemInfoError ||
     PurchasesErrorCode.signatureVerificationFailed ||
     PurchasesErrorCode.purchaseBelongsToOtherUser ||
-    PurchasesErrorCode.expiredWebPurchaseToken => RevenueCatFailureKind.revenueCat,
+    PurchasesErrorCode.expiredWebPurchaseToken =>
+      RevenueCatFailureKind.revenueCat,
     PurchasesErrorCode.unknownError ||
     PurchasesErrorCode.logOutWithAnonymousUserError ||
     PurchasesErrorCode.emptySubscriberAttributesError ||
-    PurchasesErrorCode.unknownNonNativeError => RevenueCatFailureKind.unknown,
+    PurchasesErrorCode.unknownNonNativeError =>
+      RevenueCatFailureKind.unknown,
   };
 }
 
