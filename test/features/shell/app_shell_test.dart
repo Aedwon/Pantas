@@ -18,11 +18,15 @@ Widget harness({
   required int currentIndex,
   required ValueChanged<int> onTap,
   bool disableAnimations = false,
+  TextScaler? textScaler,
 }) {
   return MaterialApp(
     theme: buildLightTheme(),
     home: MediaQuery(
-      data: MediaQueryData(disableAnimations: disableAnimations),
+      data: MediaQueryData(
+        disableAnimations: disableAnimations,
+        textScaler: textScaler ?? TextScaler.noScaling,
+      ),
       child: Scaffold(
         bottomNavigationBar: AppNavBar(
           currentIndex: currentIndex,
@@ -120,6 +124,38 @@ void main() {
         expect(find.text(label), findsOneWidget);
       }
     });
+
+    testWidgets(
+      'survives 320dp width at 200% text without layout overflow',
+      (tester) async {
+        tester.view.devicePixelRatio = 1.0;
+        tester.view.physicalSize = const Size(320, 640);
+        addTearDown(tester.view.resetDevicePixelRatio);
+        addTearDown(tester.view.resetPhysicalSize);
+
+        await tester.pumpWidget(
+          harness(
+            currentIndex: 0,
+            onTap: (_) {},
+            textScaler: const TextScaler.linear(2),
+          ),
+        );
+        await tester.pump();
+
+        expect(tester.takeException(), isNull);
+        for (final label in ['Home', 'Study', 'Quiz', 'Progress']) {
+          expect(find.text(label), findsOneWidget);
+          final target = find.ancestor(
+            of: find.text(label),
+            matching: find.byType(InkWell),
+          );
+          expect(target, findsOneWidget);
+          final size = tester.getSize(target);
+          expect(size.width, greaterThanOrEqualTo(48));
+          expect(size.height, greaterThanOrEqualTo(48));
+        }
+      },
+    );
 
     testWidgets('the active glyph settles filled and the others stay empty',
         (tester) async {
