@@ -49,7 +49,7 @@ void main() {
     final values = <String, String>{};
     final unknown = Entitlement.activeUnknown(
       productId: 'pantas_pro_future:future-base-plan',
-      expiresAt: DateTime.utc(2027, 9, 1),
+      expiresAt: DateTime.utc(2027, 9),
     );
 
     await storeFor(values).writeConfirmed(unknown);
