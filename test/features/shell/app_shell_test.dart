@@ -1,6 +1,7 @@
 import 'dart:ui' show Tristate;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/app.dart';
@@ -153,6 +154,18 @@ void main() {
           final size = tester.getSize(target);
           expect(size.width, greaterThanOrEqualTo(48));
           expect(size.height, greaterThanOrEqualTo(48));
+
+          final paragraph = tester.renderObject<RenderParagraph>(
+            find.text(label),
+          );
+          final selectionBoxes = paragraph.getBoxesForSelection(
+            TextSelection(baseOffset: 0, extentOffset: label.length),
+          );
+          expect(
+            selectionBoxes,
+            hasLength(1),
+            reason: '$label must stay on one visual line at 200% text.',
+          );
         }
       },
     );
