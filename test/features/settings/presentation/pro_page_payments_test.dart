@@ -120,9 +120,15 @@ void main() {
 
     expect(find.text('Restoring...'), findsOneWidget);
     expect(gateway.restoreCalls, 1);
-    await tester.tap(find.text('Restoring...'));
-    await tester.pump();
-    expect(gateway.restoreCalls, 1);
+    final pendingRow = tester.widget<GestureDetector>(
+      find
+          .ancestor(
+            of: find.text('Restoring...'),
+            matching: find.byType(GestureDetector),
+          )
+          .first,
+    );
+    expect(pendingRow.onTap, isNull);
 
     completer.complete(
       const PaymentOperationResult.authoritative(
@@ -131,6 +137,25 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+  });
+
+  testWidgets('cancelled Settings Restore is not shown as an error',
+      (tester) async {
+    final gateway = SettingsGateway(
+      initial: const Entitlement.free(),
+      restoreResult: const PaymentOperationResult.failure(
+        status: PaymentOperationStatus.userCancelled,
+      ),
+    );
+    await pumpProPage(tester, gateway: gateway);
+
+    await tester.tap(find.text('Restore purchases'));
+    await tester.pumpAndSettle();
+
+    expect(gateway.restoreCalls, 1);
+    expect(find.textContaining('couldn'), findsNothing);
+    expect(find.textContaining('failed'), findsNothing);
+    expect(find.textContaining('connection'), findsNothing);
   });
 
   testWidgets('Manage uses specific Play URL and strips base-plan suffix',
@@ -254,7 +279,8 @@ class SettingsGateway implements RevenueCatGateway {
   @override
   Future<PaymentOperationResult> restorePurchases() async {
     restoreCalls++;
-    final result = await (restoreCompleter?.future ?? Future.value(restoreResult));
+    final result =
+        await (restoreCompleter?.future ?? Future.value(restoreResult));
     final confirmed = result.confirmedEntitlement;
     if (confirmed != null) {
       _cached = confirmed;
