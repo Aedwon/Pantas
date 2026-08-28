@@ -236,7 +236,8 @@ class ControlledGateway implements RevenueCatGateway {
   @override
   Future<PaymentOperationResult> purchase(PaywallPackage package) async {
     purchaseCount += 1;
-    final result = await (purchaseCompleter?.future ?? Future.value(purchaseResult));
+    final result =
+        await (purchaseCompleter?.future ?? Future.value(purchaseResult));
     final confirmed = result.confirmedEntitlement;
     if (confirmed != null) cachedEntitlement = confirmed;
     return result;
@@ -245,7 +246,8 @@ class ControlledGateway implements RevenueCatGateway {
   @override
   Future<PaymentOperationResult> restorePurchases() async {
     restoreCount += 1;
-    final result = await (restoreCompleter?.future ?? Future.value(restoreResult));
+    final result =
+        await (restoreCompleter?.future ?? Future.value(restoreResult));
     final confirmed = result.confirmedEntitlement;
     if (confirmed != null) cachedEntitlement = confirmed;
     return result;
