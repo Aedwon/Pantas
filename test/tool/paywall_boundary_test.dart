@@ -47,7 +47,7 @@ void main() {
     },
   );
 
-  test('only the RevenueCat gateway adapter imports purchases_flutter', () {
+  test('only the RevenueCat SDK adapter imports purchases_flutter', () {
     final offenders = <String>[];
     final dir = Directory('lib/features/paywall');
     if (!dir.existsSync()) {
@@ -57,7 +57,7 @@ void main() {
     for (final file in _dartFiles(dir.path)) {
       final source = file.readAsStringSync();
       final importsSdk = source.contains('package:purchases_flutter/');
-      final allowed = file.path.endsWith('revenuecat_gateway.dart');
+      final allowed = file.path.endsWith('revenuecat_sdk.dart');
       if (importsSdk && !allowed) offenders.add(file.path);
     }
 
