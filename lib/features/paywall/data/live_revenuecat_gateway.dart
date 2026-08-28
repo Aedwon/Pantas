@@ -7,7 +7,6 @@ import 'package:pantas/features/paywall/data/revenuecat_sdk.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
 import 'package:pantas/features/paywall/domain/paywall_offering.dart';
-import 'package:pantas/features/paywall/domain/paywall_package.dart';
 
 /// The RevenueCat entitlement identifier configured in the dashboard.
 /// One entitlement covers all three SKUs.
