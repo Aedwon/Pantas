@@ -15,7 +15,7 @@ This Privacy Policy describes how the CSE/CET Reviewer mobile application ("the 
 
 | Category | Examples | Source | Purpose |
 |---|---|---|---|
-| Account identifiers | Display name, email (only when you sign in with Apple or Google) | You | Account sync, support |
+| Account identifiers | Display name, email (only when you sign in with Apple or Google) | You | Authentication, support, and Pro sync eligibility |
 | Usage data | Quiz attempts, lesson completions, FSRS review state, streak history | App use | Personalize learning, surface progress |
 | Device information | Device model, OS version, app version, language preference | Device | Compatibility, support |
 | Crash and performance data | Sanitized crash type, stack, build, and device details; no question content, answers, scores, names, emails, or other free text | App runtime, with confirmed consent before upload | Stability |
@@ -25,7 +25,7 @@ We do **not** collect: precise location, contacts, photos, microphone audio, adv
 
 ## 3. Anonymous mode
 
-You may use the App without signing in. While anonymous, your data is stored on your device and a temporary anonymous identifier with our backend (Firebase). If you sign in later, we migrate your anonymous data to your account.
+You may use the App without signing in. While anonymous, your study progress stays on your device. The App may create a temporary anonymous Firebase Authentication identity for runtime security, but that identity does not make your local study progress cloud-backed. Signing in changes your account identity; it does not by itself upload, merge, or migrate local study progress. Cloud sync is available only when the signed-in account is eligible for Pantas Pro sync.
 
 ## 4. Where data is stored
 
@@ -46,7 +46,7 @@ We do not sell your data. We do not use your data for advertising.
 ## 6. Your rights under RA 10173
 
 You have the right to:
-- **Access** your data — use Settings → "Export my data" to receive a JSON file by email
+- **Access** your data — contact our DPO to request a copy of the personal data we hold about you
 - **Correct** inaccurate data — edit in Settings or contact our DPO
 - **Withdraw consent** and **delete** your account — Settings → "Delete my account" (irreversible; takes effect within 30 days)
 - **Object** to processing — contact our DPO
