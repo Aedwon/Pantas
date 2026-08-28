@@ -145,7 +145,8 @@ void main() {
 
     expect(
       find.text(
-        "You need a connection to load subscriptions. Try again when you're back online.",
+        "You need a connection to load subscriptions. Try again when you're "
+        'back online.',
       ),
       findsOneWidget,
     );
