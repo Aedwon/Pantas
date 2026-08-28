@@ -151,7 +151,9 @@ class _ProPageState extends ConsumerState<ProPage> {
 
   String _planName(Entitlement entitlement) {
     if (!entitlement.proIsActive) return 'Free';
-    if (entitlement.isUnknownPlan) return entitlement.isTrial ? 'Pro trial' : 'Pro';
+    if (entitlement.isUnknownPlan) {
+      return entitlement.isTrial ? 'Pro trial' : 'Pro';
+    }
 
     final knownPlan = switch (entitlement.plan) {
       EntitlementPlan.weekly => 'Weekly',
@@ -180,7 +182,10 @@ class _ProPageState extends ConsumerState<ProPage> {
     if (!mounted) return;
     setState(() {
       _restorePending = false;
-      _feedback = _restoreFeedback(result.status, result.entitlement.proIsActive);
+      _feedback = _restoreFeedback(
+        result.status,
+        result.entitlement.proIsActive,
+      );
     });
   }
 
@@ -191,14 +196,17 @@ class _ProPageState extends ConsumerState<ProPage> {
     return switch (status) {
       PaymentOperationStatus.success ||
       PaymentOperationStatus.entitlementNotActive =>
-        "We found a purchase, but Pro couldn't be confirmed yet. Try again in a moment.",
+        "We found a purchase, but Pro couldn't be confirmed yet. "
+            'Try again in a moment.',
       PaymentOperationStatus.noActiveSubscription =>
-        "We couldn't find an active Pro subscription on this Google Play account.",
+        "We couldn't find an active Pro subscription on this Google Play "
+            'account.',
       PaymentOperationStatus.userCancelled ||
       PaymentOperationStatus.operationAlreadyInProgress =>
         null,
       PaymentOperationStatus.networkFailure =>
-        "You need a connection to restore purchases. Try again when you're back online.",
+        'You need a connection to restore purchases. Try again when '
+            "you're back online.",
       PaymentOperationStatus.storeFailure =>
         "Google Play couldn't check your purchases right now. Try again.",
       PaymentOperationStatus.revenueCatFailure ||
