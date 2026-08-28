@@ -35,22 +35,25 @@ void main() {
     bool isBusy = false,
     MediaQueryData? mediaQueryData,
   }) {
-    final app = MaterialApp(
-      theme: buildLightTheme(),
-      home: PlansPage(
-        packages: packages,
-        examDate: examDate,
-        today: today,
-        selectedPackage: selectedPackage ?? monthly,
-        onSelect: onSelect ?? (_) {},
-        onContinue: () {},
-        isBusy: isBusy,
-      ),
-    );
     return tester.pumpWidget(
-      mediaQueryData == null
-          ? app
-          : MediaQuery(data: mediaQueryData, child: app),
+      MaterialApp(
+        theme: buildLightTheme(),
+        builder: mediaQueryData == null
+            ? null
+            : (_, child) => MediaQuery(
+                  data: mediaQueryData,
+                  child: child!,
+                ),
+        home: PlansPage(
+          packages: packages,
+          examDate: examDate,
+          today: today,
+          selectedPackage: selectedPackage ?? monthly,
+          onSelect: onSelect ?? (_) {},
+          onContinue: () {},
+          isBusy: isBusy,
+        ),
+      ),
     );
   }
 
