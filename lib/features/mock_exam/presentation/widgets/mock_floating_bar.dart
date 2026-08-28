@@ -155,7 +155,6 @@ class _BarControl extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Semantics(
-      key: controlKey,
       button: true,
       enabled: onTap != null,
       toggled: isToggled,
@@ -163,6 +162,7 @@ class _BarControl extends StatelessWidget {
       onTap: onTap,
       excludeSemantics: true,
       child: InkWell(
+        key: controlKey,
         onTap: onTap,
         child: Opacity(
           opacity: onTap == null ? 0.32 : 1,
