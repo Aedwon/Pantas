@@ -63,13 +63,7 @@ void main() {
 
   testWidgets('Settings Restore uses the real payment controller path',
       (tester) async {
-    final gateway = SettingsGateway(
-      initial: const Entitlement.free(),
-      restoreResult: const PaymentOperationResult.authoritative(
-        status: PaymentOperationStatus.noActiveSubscription,
-        entitlement: Entitlement.free(),
-      ),
-    );
+    final gateway = SettingsGateway(initial: const Entitlement.free());
     await pumpProPage(tester, gateway: gateway);
 
     await tester.tap(find.text('Restore purchases'));
@@ -78,7 +72,8 @@ void main() {
     expect(gateway.restoreCalls, 1);
     expect(
       find.text(
-        "We couldn't find an active Pro subscription on this Google Play account.",
+        "We couldn't find an active Pro subscription on this "
+        'Google Play account.',
       ),
       findsOneWidget,
     );
@@ -198,7 +193,8 @@ void main() {
 
     expect(
       find.text(
-        "We couldn't open Google Play. You can manage your subscription in the Google Play app.",
+        "We couldn't open Google Play. You can manage your "
+        'subscription in the Google Play app.',
       ),
       findsOneWidget,
     );
@@ -229,7 +225,6 @@ void main() {
         productId: 'pantas_pro_yearly',
         expiresAt: DateTime.utc(2026, 9, 4),
         isTrial: true,
-        willRenew: true,
       ),
     );
 
