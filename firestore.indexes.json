@@ -1,0 +1,100 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "quiz_attempts",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "deleted", "order": "ASCENDING" },
+        { "fieldPath": "updatedAt", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "assessments",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "deleted", "order": "ASCENDING" },
+        { "fieldPath": "updatedAt", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "fsrs_cards",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "deleted", "order": "ASCENDING" },
+        { "fieldPath": "updatedAt", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "lesson_progress",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "deleted", "order": "ASCENDING" },
+        { "fieldPath": "updatedAt", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "lesson_bookmarks",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "deleted", "order": "ASCENDING" },
+        { "fieldPath": "updatedAt", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "question_flags",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "deleted", "order": "ASCENDING" },
+        { "fieldPath": "updatedAt", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "mock_exam_attempts",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "deleted", "order": "ASCENDING" },
+        { "fieldPath": "updatedAt", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "review_logs",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "deleted", "order": "ASCENDING" },
+        { "fieldPath": "updatedAt", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "track_scope",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "deleted", "order": "ASCENDING" },
+        { "fieldPath": "updatedAt", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "custom_blueprints",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "deleted", "order": "ASCENDING" },
+        { "fieldPath": "updatedAt", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "sync_generations",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "status", "order": "ASCENDING" },
+        { "fieldPath": "createdAt", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "sync_generations",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "status", "order": "ASCENDING" },
+        { "fieldPath": "retiredAt", "order": "ASCENDING" }
+      ]
+    }
+  ]
+}
