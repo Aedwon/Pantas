@@ -29,12 +29,12 @@ class SubscriptionPanel extends StatelessWidget {
     final canManage = entitlement.proIsActive;
 
     Widget quietAction(String label, VoidCallback? onTap) => GestureDetector(
-          onTap: onTap,
-          child: Text(
-            label,
-            style: styles.labelLarge.copyWith(color: colors.board),
-          ),
-        );
+      onTap: onTap,
+      child: Text(
+        label,
+        style: styles.labelLarge.copyWith(color: colors.board),
+      ),
+    );
 
     return RuledSection(
       child: Column(
@@ -64,8 +64,9 @@ class SubscriptionPanel extends StatelessWidget {
     if (!entitlement.proIsActive) return "You're on Free.";
 
     final expiration = entitlement.expiresAt;
-    final date =
-        expiration == null ? null : DateFormat.MMMd().format(expiration);
+    final date = expiration == null
+        ? null
+        : DateFormat.MMMd().format(expiration);
     if (entitlement.isTrial) {
       final notice = expiration == null
           ? null
@@ -83,9 +84,7 @@ class SubscriptionPanel extends StatelessWidget {
 
     if (entitlement.isUnknownPlan) {
       if (date == null) return 'Pro';
-      return entitlement.willRenew
-          ? 'Pro · renews $date'
-          : 'Pro · ends $date';
+      return entitlement.willRenew ? 'Pro · renews $date' : 'Pro · ends $date';
     }
 
     final label = switch (entitlement.plan) {
