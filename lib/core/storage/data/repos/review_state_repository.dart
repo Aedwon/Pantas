@@ -2,30 +2,39 @@ import 'package:drift/drift.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/review_state.dart';
+import 'package:pantas/core/sync/engine/local_sync_mutation_recorder.dart';
 
 class ReviewStateRepository {
-  ReviewStateRepository(this._db);
+  ReviewStateRepository(
+    this._db, {
+    LocalSyncMutationRecorder? syncRecorder,
+  }) : _syncRecorder =
+            syncRecorder ?? LocalSyncMutationRecorder.forDatabase(_db);
 
   final AppDatabase _db;
+  final LocalSyncMutationRecorder _syncRecorder;
 
-  Future<void> upsert(ReviewState state) async {
-    await _db.into(_db.reviewStateLocal).insertOnConflictUpdate(
-          ReviewStateLocalCompanion.insert(
-            questionId: state.questionId,
-            questionVersion: state.questionVersion,
-            stage: _stageToRaw(state.stage),
-            stability: state.stability,
-            difficulty: state.difficulty,
-            due: state.due,
-            lastReview: state.lastReview,
-            reps: state.reps,
-            lapses: state.lapses,
-            elapsedDays: state.elapsedDays,
-            scheduledDays: state.scheduledDays,
-            dirty: const Value(true),
-          ),
-        );
-  }
+  Future<void> upsert(ReviewState state) => _syncRecorder.runRecorded(
+        collection: 'fsrs_cards',
+        rowId: state.questionId,
+        op: SyncLocalMutationOp.upsert,
+        mutate: () => _db.into(_db.reviewStateLocal).insertOnConflictUpdate(
+              ReviewStateLocalCompanion.insert(
+                questionId: state.questionId,
+                questionVersion: state.questionVersion,
+                stage: _stageToRaw(state.stage),
+                stability: state.stability,
+                difficulty: state.difficulty,
+                due: state.due,
+                lastReview: state.lastReview,
+                reps: state.reps,
+                lapses: state.lapses,
+                elapsedDays: state.elapsedDays,
+                scheduledDays: state.scheduledDays,
+                dirty: const Value(true),
+              ),
+            ),
+      );
 
   Future<ReviewState?> byQuestionId(QuestionId id) async {
     final row = await (_db.select(_db.reviewStateLocal)
@@ -41,8 +50,6 @@ class ReviewStateRepository {
     return rows.map(_hydrate).toList();
   }
 
-  /// Every stored state. `FsrsDueSelector` takes the whole list and filters it,
-  /// so there is no narrower query worth having here.
   Future<List<ReviewState>> allStates() async {
     final rows = await _db.select(_db.reviewStateLocal).get();
     return rows.map(_hydrate).toList();

@@ -2,29 +2,39 @@ import 'dart:convert';
 
 import 'package:drift/drift.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/sync/engine/local_sync_mutation_recorder.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/question_outcome.dart';
 import 'package:pantas/core/storage/domain/sync_state.dart';
 
 class AttemptsRepository {
-  AttemptsRepository(this._db);
+  AttemptsRepository(
+    this._db, {
+    LocalSyncMutationRecorder? syncRecorder,
+  }) : _syncRecorder =
+            syncRecorder ?? LocalSyncMutationRecorder.forDatabase(_db);
 
   final AppDatabase _db;
+  final LocalSyncMutationRecorder _syncRecorder;
 
-  Future<void> save(Attempt attempt) async {
-    await _db.into(_db.attemptsLocal).insertOnConflictUpdate(
-          AttemptsLocalCompanion.insert(
-            id: attempt.id,
-            examId: attempt.examId,
-            startedAt: attempt.startedAt,
-            completedAt: Value(attempt.completedAt),
-            origin: Value(attempt.origin),
-            itemsJson:
-                jsonEncode(attempt.items.map((i) => i.toJson()).toList()),
-          ),
-        );
-  }
+  Future<void> save(Attempt attempt) => _syncRecorder.runRecorded(
+        collection: 'quiz_attempts',
+        rowId: attempt.id,
+        op: SyncLocalMutationOp.upsert,
+        mutate: () => _db.into(_db.attemptsLocal).insertOnConflictUpdate(
+              AttemptsLocalCompanion.insert(
+                id: attempt.id,
+                examId: attempt.examId,
+                startedAt: attempt.startedAt,
+                completedAt: Value(attempt.completedAt),
+                origin: Value(attempt.origin),
+                itemsJson: jsonEncode(
+                  attempt.items.map((i) => i.toJson()).toList(),
+                ),
+              ),
+            ),
+      );
 
   Future<Attempt?> byId(AttemptId id) async {
     final row = await (_db.select(_db.attemptsLocal)

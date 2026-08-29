@@ -3,26 +3,34 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/sync_state.dart';
+import 'package:pantas/core/sync/engine/local_sync_mutation_recorder.dart';
 
 /// What a student has read is theirs; which lessons a topic has is corpus.
 /// Counting the first against the second is why this holds both databases.
 class LessonProgressRepository {
-  LessonProgressRepository(this._db, this._contentDb);
+  LessonProgressRepository(
+    this._db,
+    this._contentDb, {
+    LocalSyncMutationRecorder? syncRecorder,
+  }) : _syncRecorder =
+            syncRecorder ?? LocalSyncMutationRecorder.forDatabase(_db);
 
   final AppDatabase _db;
   final ContentDatabase _contentDb;
+  final LocalSyncMutationRecorder _syncRecorder;
 
-  Future<void> markRead(LessonId lessonId) async {
-    // readAt updates on every call: records most-recent confirmation,
-    // not first-read time.
-    await _db.into(_db.lessonProgressLocal).insertOnConflictUpdate(
-          LessonProgressLocalCompanion(
-            lessonId: Value(lessonId),
-            readAt: Value(DateTime.now()),
-            syncState: Value(SyncState.pending.name),
-          ),
-        );
-  }
+  Future<void> markRead(LessonId lessonId) => _syncRecorder.runRecorded(
+        collection: 'lesson_progress',
+        rowId: lessonId,
+        op: SyncLocalMutationOp.upsert,
+        mutate: () => _db.into(_db.lessonProgressLocal).insertOnConflictUpdate(
+              LessonProgressLocalCompanion(
+                lessonId: Value(lessonId),
+                readAt: Value(DateTime.now()),
+                syncState: Value(SyncState.pending.name),
+              ),
+            ),
+      );
 
   Future<bool> isRead(LessonId lessonId) async {
     final row = await (_db.select(_db.lessonProgressLocal)

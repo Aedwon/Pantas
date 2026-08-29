@@ -13,6 +13,18 @@ enum SyncLocalMutationOp {
   String get storageValue => name;
 }
 
+class SyncMutationTarget {
+  const SyncMutationTarget({
+    required this.collection,
+    required this.rowId,
+    required this.op,
+  });
+
+  final String collection;
+  final String rowId;
+  final SyncLocalMutationOp op;
+}
+
 class LocalSyncMutationRecorder {
   LocalSyncMutationRecorder(
     this._db, {
@@ -22,6 +34,13 @@ class LocalSyncMutationRecorder {
   })  : _activeContextStore = activeContextStore,
         _rowMetaRepository = rowMetaRepository,
         _now = now ?? DateTime.now;
+
+  factory LocalSyncMutationRecorder.forDatabase(AppDatabase db) =>
+      LocalSyncMutationRecorder(
+        db,
+        activeContextStore: SyncActiveContextStore(db),
+        rowMetaRepository: SyncRowMetaRepository(db),
+      );
 
   final AppDatabase _db;
   final SyncActiveContextStore _activeContextStore;
@@ -33,69 +52,84 @@ class LocalSyncMutationRecorder {
     required String rowId,
     required SyncLocalMutationOp op,
     required FutureOr<T> Function() mutate,
+  }) =>
+      runRecordedBatch(
+        mutations: [
+          SyncMutationTarget(collection: collection, rowId: rowId, op: op),
+        ],
+        mutate: mutate,
+      );
+
+  Future<T> runRecordedBatch<T>({
+    required Iterable<SyncMutationTarget> mutations,
+    required FutureOr<T> Function() mutate,
   }) async {
+    final targets = mutations.toList(growable: false);
     final candidateContext = await _activeContextStore.readSnapshot();
 
     return _db.transaction(() async {
       final result = await mutate();
+      if (targets.isEmpty) return result;
+
       final currentContext = await _activeContextStore.readSnapshot();
-
-      var causalBase = const SyncCausalBase.unbound();
-      String? causalUid;
-      String? causalGenerationId;
-
       final candidate = candidateContext?.context;
       final stillStable = candidate != null &&
           currentContext != null &&
           currentContext.token == candidateContext!.token &&
           currentContext.context == candidate;
 
-      if (stillStable) {
-        final acceptedBase = await _rowMetaRepository.readAcceptedBase(
-          collection: collection,
-          rowId: rowId,
-        );
-        if (acceptedBase != null &&
-            acceptedBase.state != SyncCausalBaseState.unbound) {
-          causalBase = acceptedBase;
-          causalUid = candidate.uid;
-          causalGenerationId = candidate.generationId;
+      for (final target in targets) {
+        var causalBase = const SyncCausalBase.unbound();
+        String? causalUid;
+        String? causalGenerationId;
+
+        if (stillStable) {
+          final acceptedBase = await _rowMetaRepository.readAcceptedBase(
+            collection: target.collection,
+            rowId: target.rowId,
+          );
+          if (acceptedBase != null &&
+              acceptedBase.state != SyncCausalBaseState.unbound) {
+            causalBase = acceptedBase;
+            causalUid = candidate.uid;
+            causalGenerationId = candidate.generationId;
+          }
         }
+
+        final mutationEpoch = await _advanceEpoch();
+        final revision = await _nextRevision(
+          collection: target.collection,
+          rowId: target.rowId,
+        );
+        final recordedAt = _now().toUtc();
+
+        await _db.customStatement(
+          'insert into sync_local_mutations '
+          '(collection,row_id,op,revision,mutation_epoch,causal_uid,'
+          'causal_generation_id,causal_base_state,base_updated_at,recorded_at) '
+          'values (?,?,?,?,?,?,?,?,?,?) '
+          'on conflict(collection,row_id) do update set '
+          'op=excluded.op, revision=excluded.revision, '
+          'mutation_epoch=excluded.mutation_epoch, '
+          'causal_uid=excluded.causal_uid, '
+          'causal_generation_id=excluded.causal_generation_id, '
+          'causal_base_state=excluded.causal_base_state, '
+          'base_updated_at=excluded.base_updated_at, '
+          'recorded_at=excluded.recorded_at',
+          <Object?>[
+            target.collection,
+            target.rowId,
+            target.op.storageValue,
+            revision,
+            mutationEpoch,
+            causalUid,
+            causalGenerationId,
+            causalBase.state.storageValue,
+            causalBase.updatedAt?.toUtc().millisecondsSinceEpoch,
+            recordedAt.millisecondsSinceEpoch,
+          ],
+        );
       }
-
-      final mutationEpoch = await _advanceEpoch();
-      final revision = await _nextRevision(
-        collection: collection,
-        rowId: rowId,
-      );
-      final recordedAt = _now().toUtc();
-
-      await _db.customStatement(
-        'insert into sync_local_mutations '
-        '(collection,row_id,op,revision,mutation_epoch,causal_uid,'
-        'causal_generation_id,causal_base_state,base_updated_at,recorded_at) '
-        'values (?,?,?,?,?,?,?,?,?,?) '
-        'on conflict(collection,row_id) do update set '
-        'op=excluded.op, revision=excluded.revision, '
-        'mutation_epoch=excluded.mutation_epoch, '
-        'causal_uid=excluded.causal_uid, '
-        'causal_generation_id=excluded.causal_generation_id, '
-        'causal_base_state=excluded.causal_base_state, '
-        'base_updated_at=excluded.base_updated_at, '
-        'recorded_at=excluded.recorded_at',
-        <Object?>[
-          collection,
-          rowId,
-          op.storageValue,
-          revision,
-          mutationEpoch,
-          causalUid,
-          causalGenerationId,
-          causalBase.state.storageValue,
-          causalBase.updatedAt?.toUtc().millisecondsSinceEpoch,
-          recordedAt.millisecondsSinceEpoch,
-        ],
-      );
 
       return result;
     });
