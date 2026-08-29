@@ -195,6 +195,47 @@ void main() {
       },
     );
 
+    testWidgets(
+      'allocates more large-text width to Progress than Quiz',
+      (tester) async {
+        tester.view.devicePixelRatio = 1.0;
+        tester.view.physicalSize = const Size(320, 640);
+        addTearDown(tester.view.resetDevicePixelRatio);
+        addTearDown(tester.view.resetPhysicalSize);
+
+        await tester.pumpWidget(
+          harness(
+            currentIndex: 0,
+            onTap: (_) {},
+            textScaler: const TextScaler.linear(1.75),
+          ),
+        );
+        await tester.pump();
+
+        expect(tester.takeException(), isNull);
+        final quizTarget = find.ancestor(
+          of: find.text('Quiz'),
+          matching: find.byType(InkWell),
+        );
+        final progressTarget = find.ancestor(
+          of: find.text('Progress'),
+          matching: find.byType(InkWell),
+        );
+
+        final quizWidth = tester.getSize(quizTarget).width;
+        final progressWidth = tester.getSize(progressTarget).width;
+
+        expect(quizWidth, greaterThanOrEqualTo(48));
+        expect(progressWidth, greaterThanOrEqualTo(48));
+        expect(
+          progressWidth,
+          greaterThan(quizWidth),
+          reason: 'Progress needs a wider tab at large text instead of '
+              'painting beyond an equal 80dp slot.',
+        );
+      },
+    );
+
     testWidgets('the active glyph settles filled and the others stay empty',
         (tester) async {
       await tester.pumpWidget(harness(currentIndex: 0, onTap: (_) {}));
