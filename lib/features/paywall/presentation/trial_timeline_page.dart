@@ -53,10 +53,7 @@ class TrialTimelinePage extends StatelessWidget {
         'Everything unlocks. Every explanation, every level of your '
             'progress, and mock exams with no waiting.',
       ),
-      (
-        'Day 5',
-        'We remind you here in the app that the trial is ending.',
-      ),
+      ('Day 5', 'We remind you here in the app that the trial is ending.'),
       (
         'Day 7',
         'Your first charge of $yearlyPrice begins on $chargeDateStr. '
@@ -124,8 +121,7 @@ class TrialTimelinePage extends StatelessWidget {
                               color: colors.inkMuted,
                             ),
                           ),
-                          if (i < steps.length - 1)
-                            const SizedBox(height: 24),
+                          if (i < steps.length - 1) const SizedBox(height: 24),
                         ],
                       ),
                     ),
@@ -222,8 +218,7 @@ class _TrialPurchaseAction extends StatelessWidget {
       null ||
       PaymentOperationStatus.success ||
       PaymentOperationStatus.userCancelled ||
-      PaymentOperationStatus.operationAlreadyInProgress =>
-        null,
+      PaymentOperationStatus.operationAlreadyInProgress => null,
       PaymentOperationStatus.networkFailure =>
         'You need a connection to subscribe. Try again when '
             "you're back online.",
