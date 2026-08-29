@@ -18,6 +18,62 @@ service cloud.firestore {
       return isNamedUser() && request.auth.token.pro == true;
     }
 
+    function isProOwner(uid) {
+      return isOwner(uid) && request.auth.token.pro == true;
+    }
+
+    function activeGenerationId(uid) {
+      return get(
+        /databases/$(database)/documents/users/$(uid)/sync_state/current
+      ).data.activeGenerationId;
+    }
+
+    function isActiveGeneration(uid, generationId) {
+      return exists(
+        /databases/$(database)/documents/users/$(uid)/sync_state/current
+      )
+          && activeGenerationId(uid) == generationId;
+    }
+
+    function isStagingGeneration(uid, generationId) {
+      return exists(
+        /databases/$(database)/documents/users/$(uid)/sync_generations/$(generationId)
+      )
+          && get(
+            /databases/$(database)/documents/users/$(uid)/sync_generations/$(generationId)
+          ).data.status == 'staging';
+    }
+
+    function isValidSyncRowWrite() {
+      return request.resource.data.keys().hasAll([
+            'updatedAt',
+            'originDeviceId',
+            'mutationId',
+            'schemaVersion',
+            'deleted'
+          ])
+          && request.resource.data.updatedAt == request.time
+          && request.resource.data.originDeviceId is string
+          && request.resource.data.originDeviceId.size() > 0
+          && request.resource.data.mutationId is string
+          && request.resource.data.mutationId.size() > 0
+          && request.resource.data.schemaVersion == 1
+          && request.resource.data.deleted is bool;
+    }
+
+    function canReadSyncRow(uid) {
+      return isProOwner(uid);
+    }
+
+    function canWriteSyncRow(uid, generationId) {
+      return isProOwner(uid)
+          && (
+            isActiveGeneration(uid, generationId)
+            || isStagingGeneration(uid, generationId)
+          )
+          && isValidSyncRowWrite();
+    }
+
     match /users/{uid} {
       allow read: if isOwner(uid);
       allow create: if isOwner(uid)
@@ -33,28 +89,104 @@ service cloud.firestore {
           ]);
       allow delete: if false;
 
-      match /lesson_progress/{lessonId} {
-        allow read, write: if isOwner(uid);
+      match /sync_state/{stateId} {
+        allow read: if stateId == 'current' && isProOwner(uid);
+        allow write: if false;
       }
 
-      match /quiz_attempts/{attemptId} {
-        allow read, write: if isOwner(uid);
-      }
+      match /sync_generations/{generationId} {
+        allow read: if isProOwner(uid);
 
-      match /fsrs_cards/{cardId} {
-        allow read, write: if isOwner(uid);
-      }
+        allow create: if isProOwner(uid)
+            && request.resource.data.keys().hasAll([
+              'status',
+              'schemaVersion',
+              'createdAt',
+              'createdByDeviceId',
+              'preferences'
+            ])
+            && request.resource.data.keys().hasOnly([
+              'status',
+              'schemaVersion',
+              'createdAt',
+              'createdByDeviceId',
+              'preferences'
+            ])
+            && request.resource.data.status == 'staging'
+            && request.resource.data.schemaVersion == 1
+            && request.resource.data.createdAt == request.time
+            && request.resource.data.createdByDeviceId is string
+            && request.resource.data.createdByDeviceId.size() > 0;
 
-      match /assessments/{assessmentId} {
-        allow read, write: if isOwner(uid);
-      }
+        allow update: if isProOwner(uid)
+            && (
+              resource.data.status == 'active'
+              || resource.data.status == 'staging'
+            )
+            && request.resource.data.diff(resource.data)
+                .affectedKeys().hasOnly(['preferences']);
 
-      match /study_plan/{docId} {
-        allow read, write: if isOwner(uid);
-      }
+        allow delete: if false;
 
-      match /mock_exam_attempts/{attemptId} {
-        allow read, write: if isOwner(uid);
+        match /quiz_attempts/{rowId} {
+          allow read: if canReadSyncRow(uid);
+          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow delete: if false;
+        }
+
+        match /assessments/{rowId} {
+          allow read: if canReadSyncRow(uid);
+          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow delete: if false;
+        }
+
+        match /fsrs_cards/{rowId} {
+          allow read: if canReadSyncRow(uid);
+          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow delete: if false;
+        }
+
+        match /lesson_progress/{rowId} {
+          allow read: if canReadSyncRow(uid);
+          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow delete: if false;
+        }
+
+        match /lesson_bookmarks/{rowId} {
+          allow read: if canReadSyncRow(uid);
+          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow delete: if false;
+        }
+
+        match /question_flags/{rowId} {
+          allow read: if canReadSyncRow(uid);
+          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow delete: if false;
+        }
+
+        match /mock_exam_attempts/{rowId} {
+          allow read: if canReadSyncRow(uid);
+          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow delete: if false;
+        }
+
+        match /review_logs/{rowId} {
+          allow read: if canReadSyncRow(uid);
+          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow delete: if false;
+        }
+
+        match /track_scope/{rowId} {
+          allow read: if canReadSyncRow(uid);
+          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow delete: if false;
+        }
+
+        match /custom_blueprints/{rowId} {
+          allow read: if canReadSyncRow(uid);
+          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow delete: if false;
+        }
       }
 
       match /proDossiers/{dossierId} {
