@@ -31,11 +31,11 @@ class PushPipeline {
       try {
         await _gateway.commitBatch(writes);
         await _queue.markSuccess(
-          pending.map((row) => row.id).toList(growable: false),
+          pending.map(PendingSyncIdentity.fromRow).toList(growable: false),
         );
       } on SyncGatewayException catch (error) {
         await _queue.markFailure(
-          pending.map((row) => row.id).toList(growable: false),
+          pending.map(PendingSyncIdentity.fromRow).toList(growable: false),
           error: error.code,
           attemptedAt: DateTime.now().toUtc(),
         );
