@@ -23,8 +23,7 @@ Future<bool> launchGooglePlaySubscriptionManagement(Uri uri) {
 
 Uri googlePlaySubscriptionManagementUri(Entitlement entitlement) {
   final rawProductId = entitlement.productId;
-  final canLinkDirectly =
-      entitlement.proIsActive &&
+  final canLinkDirectly = entitlement.proIsActive &&
       !entitlement.isUnknownPlan &&
       rawProductId != null &&
       rawProductId.isNotEmpty;
@@ -62,9 +61,8 @@ class _ProPageState extends ConsumerState<ProPage> {
         ref.watch(entitlementProvider).valueOrNull ?? const Entitlement.free();
     final planName = _planName(entitlement);
     final expiresAt = entitlement.expiresAt;
-    final dateValue = expiresAt == null
-        ? null
-        : DateFormat.yMMMd().format(expiresAt);
+    final dateValue =
+        expiresAt == null ? null : DateFormat.yMMMd().format(expiresAt);
     final dateLabel = dateValue == null ? null : _dateLabel(entitlement);
 
     return PageScaffold(
@@ -99,9 +97,8 @@ class _ProPageState extends ConsumerState<ProPage> {
                 SettingsValueRow(
                   title: 'Try Pro',
                   showChevron: true,
-                  onTap: _restorePending
-                      ? null
-                      : () => context.push('/paywall'),
+                  onTap:
+                      _restorePending ? null : () => context.push('/paywall'),
                 ),
               Semantics(
                 button: true,
@@ -202,7 +199,8 @@ class _ProPageState extends ConsumerState<ProPage> {
         "We couldn't find an active Pro subscription on this Google Play "
             'account.',
       PaymentOperationStatus.userCancelled ||
-      PaymentOperationStatus.operationAlreadyInProgress => null,
+      PaymentOperationStatus.operationAlreadyInProgress =>
+        null,
       PaymentOperationStatus.networkFailure =>
         'You need a connection to restore purchases. Try again when '
             "you're back online.",
@@ -235,8 +233,7 @@ class _ProPageState extends ConsumerState<ProPage> {
     setState(() {
       _managePending = false;
       if (!opened) {
-        _feedback =
-            "We couldn't open Google Play. You can manage your "
+        _feedback = "We couldn't open Google Play. You can manage your "
             'subscription in the Google Play app.';
       }
     });

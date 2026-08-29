@@ -35,7 +35,7 @@ class PaywallPage extends ConsumerStatefulWidget {
   final PaywallSku recommendedSku;
   final Future<PaywallCommandResult> Function()? onRestore;
   final Future<PaywallCommandResult> Function(PaywallPackage package)?
-  onPurchase;
+      onPurchase;
 
   @override
   ConsumerState<PaywallPage> createState() => _PaywallPageState();
@@ -128,7 +128,8 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
       _pendingOperation = null;
       _purchaseStatus = switch (result.status) {
         PaymentOperationStatus.userCancelled ||
-        PaymentOperationStatus.operationAlreadyInProgress => null,
+        PaymentOperationStatus.operationAlreadyInProgress =>
+          null,
         PaymentOperationStatus.success =>
           PaymentOperationStatus.entitlementNotActive,
         _ => result.status,
@@ -180,7 +181,8 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
         "We couldn't find an active Pro subscription on this Google Play "
             'account.',
       PaymentOperationStatus.userCancelled ||
-      PaymentOperationStatus.operationAlreadyInProgress => null,
+      PaymentOperationStatus.operationAlreadyInProgress =>
+        null,
       PaymentOperationStatus.networkFailure =>
         'You need a connection to restore purchases. Try again when '
             "you're back online.",
@@ -275,20 +277,18 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
 
     final canShowPackages =
         offering.status == PaywallOfferingStatus.available ||
-        offering.status == PaywallOfferingStatus.mixedProducts;
+            offering.status == PaywallOfferingStatus.mixedProducts;
     final orderedPackages = paywallDisplayOrder(offering.recognizedPackages);
     if (!canShowPackages || orderedPackages.isEmpty) {
       final state = _offeringCopy(offering.status);
       return _OfferingMessage(
         message: state.$1,
-        onRetry: state.$2
-            ? () => ref.invalidate(paywallOfferingProvider)
-            : null,
+        onRetry:
+            state.$2 ? () => ref.invalidate(paywallOfferingProvider) : null,
       );
     }
 
-    final selectedPkg =
-        _selectedPackage ??
+    final selectedPkg = _selectedPackage ??
         orderedPackages.firstWhere(
           (p) => p.sku == widget.recommendedSku,
           orElse: () => orderedPackages.first,
@@ -299,60 +299,60 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
 
     return switch (_step) {
       _PaywallStep.whatProAdds => WhatProAddsPage(
-        onSeePlans: () => setState(() => _step = _PaywallStep.plans),
-      ),
+          onSeePlans: () => setState(() => _step = _PaywallStep.plans),
+        ),
       _PaywallStep.plans => PlansPage(
-        packages: orderedPackages,
-        examDate: examDate,
-        today: today,
-        selectedPackage: selectedPkg,
-        isBusy: _isBusy,
-        operationStatus: _purchaseStatus,
-        onRetry: _clearPurchaseStatus,
-        onSelect: (pkg) {
-          setState(() {
-            _selectedPackage = pkg;
-            _purchaseStatus = null;
-          });
-        },
-        onContinue: () {
-          if (selectedPkg.sku == PaywallSku.yearly) {
+          packages: orderedPackages,
+          examDate: examDate,
+          today: today,
+          selectedPackage: selectedPkg,
+          isBusy: _isBusy,
+          operationStatus: _purchaseStatus,
+          onRetry: _clearPurchaseStatus,
+          onSelect: (pkg) {
             setState(() {
-              _step = _PaywallStep.trialTimeline;
+              _selectedPackage = pkg;
               _purchaseStatus = null;
             });
-          } else {
-            _handlePurchase(selectedPkg);
-          }
-        },
-      ),
+          },
+          onContinue: () {
+            if (selectedPkg.sku == PaywallSku.yearly) {
+              setState(() {
+                _step = _PaywallStep.trialTimeline;
+                _purchaseStatus = null;
+              });
+            } else {
+              _handlePurchase(selectedPkg);
+            }
+          },
+        ),
       _PaywallStep.trialTimeline => TrialTimelinePage(
-        today: today,
-        yearlyPrice: selectedPkg.priceString,
-        isBusy: _isBusy,
-        operationStatus: _purchaseStatus,
-        onRetry: _clearPurchaseStatus,
-        onStart: () => _handlePurchase(selectedPkg),
-      ),
+          today: today,
+          yearlyPrice: selectedPkg.priceString,
+          isBusy: _isBusy,
+          operationStatus: _purchaseStatus,
+          onRetry: _clearPurchaseStatus,
+          onStart: () => _handlePurchase(selectedPkg),
+        ),
     };
   }
 
   (String, bool) _offeringCopy(PaywallOfferingStatus status) {
     return switch (status) {
       PaywallOfferingStatus.networkFailure => (
-        'You need a connection to load subscriptions. Try again when '
-            "you're back online.",
-        true,
-      ),
+          'You need a connection to load subscriptions. Try again when '
+              "you're back online.",
+          true,
+        ),
       PaywallOfferingStatus.storeFailure => (
-        "Google Play couldn't load subscriptions right now.",
-        true,
-      ),
+          "Google Play couldn't load subscriptions right now.",
+          true,
+        ),
       PaywallOfferingStatus.allProductsUnrecognized => (
-        'Subscriptions are not available in this version of Pantas '
-            'right now.',
-        false,
-      ),
+          'Subscriptions are not available in this version of Pantas '
+              'right now.',
+          false,
+        ),
       PaywallOfferingStatus.noCurrentOffering ||
       PaywallOfferingStatus.emptyCurrentOffering ||
       PaywallOfferingStatus.revenueCatFailure ||
@@ -361,10 +361,11 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
       PaywallOfferingStatus.unknownFailure ||
       PaywallOfferingStatus.available ||
       PaywallOfferingStatus.mixedProducts ||
-      PaywallOfferingStatus.loading => (
-        "Subscriptions aren't available right now.",
-        true,
-      ),
+      PaywallOfferingStatus.loading =>
+        (
+          "Subscriptions aren't available right now.",
+          true,
+        ),
     };
   }
 }

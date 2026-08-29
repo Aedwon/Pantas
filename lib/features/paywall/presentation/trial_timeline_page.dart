@@ -218,7 +218,8 @@ class _TrialPurchaseAction extends StatelessWidget {
       null ||
       PaymentOperationStatus.success ||
       PaymentOperationStatus.userCancelled ||
-      PaymentOperationStatus.operationAlreadyInProgress => null,
+      PaymentOperationStatus.operationAlreadyInProgress =>
+        null,
       PaymentOperationStatus.networkFailure =>
         'You need a connection to subscribe. Try again when '
             "you're back online.",
