@@ -52,19 +52,19 @@ Feature/domain code must not know or derive:
 - Pro-claim state;
 - B3 state.
 
-A Sync-owned local mutation boundary records the local change. The Sync runtime later decides whether and how that local fact becomes a generation-bound cloud mutation.
+A Sync-owned local mutation boundary records the local change. When Sync is active, that boundary also freezes the Sync-owned causal cloud context that existed when the local mutation occurred. The Sync runtime later decides whether and how that local fact becomes a generation-bound cloud mutation.
 
 The implementation may name this boundary `LocalSyncMutationRecorder` or an equivalently narrow Sync-owned abstraction. The architectural contract matters more than the concrete class name.
 
 ## 3. Two-stage local mutation model
 
-Wave 2E-1 must distinguish a generation-neutral local mutation journal from the active generation-bound cloud outbox.
+Wave 2E-1 must distinguish a local mutation journal from the active generation-bound cloud outbox.
 
-### 3.1 Generation-neutral local mutation journal
+### 3.1 Local mutation journal
 
 Add a structured Drift table for durable local mutation facts. The expected conceptual name is `sync_local_mutations`.
 
-Each journal entry represents the latest known local operation for one logical Sync row and contains enough information to survive process death and coalesce repeated local edits.
+Each journal entry represents the latest known local operation for one logical Sync row and contains enough information to survive process death, coalesce repeated local edits, and preserve the causal cloud state seen at mutation time when such state exists.
 
 At minimum its conceptual fields are:
 
@@ -72,19 +72,25 @@ At minimum its conceptual fields are:
 - `rowId`;
 - `op` (`upsert` or `delete`);
 - `revision`;
-- ordering/epoch information needed to relate the mutation to `localMutationEpoch`.
+- ordering/epoch information needed to relate the mutation to `localMutationEpoch`;
+- nullable Sync-owned causal UID provenance;
+- nullable Sync-owned causal generation provenance;
+- an explicit causal-base state;
+- nullable causal `baseUpdatedAt` used only when the causal-base state represents a known cloud version.
 
 Its logical coalescing key is `(collection, rowId)`.
 
-The journal deliberately contains no cloud ownership or version metadata:
+The causal-base state must distinguish at least:
 
-- no Firebase UID;
-- no generation ID;
-- no `baseUpdatedAt`;
-- no Firestore path;
-- no cloud mutation ID.
+- `unbound`: the local mutation happened while no stable active cloud generation could supply a causal base;
+- `knownAbsent`: Sync knew the row did not exist in the active cloud generation when the local mutation happened;
+- `knownVersion`: Sync knew the row's accepted cloud `updatedAt` when the local mutation happened.
 
-This means local mutations can be recorded correctly even while cloud Sync is unavailable or intentionally disabled.
+A null timestamp must not ambiguously mean both `unbound` and `knownAbsent`.
+
+The journal is still generation-neutral as a delivery queue: it is not permission to write to any UID/generation, contains no Firestore path, and contains no cloud mutation ID. Optional UID/generation provenance exists only to bind a frozen causal token to the cloud context in which that token was observed. Feature/domain code never supplies or interprets it.
+
+When Sync is local-only, activating, B3-pending, quiesced, or otherwise lacks a stable active cloud context, the recorder writes an `unbound` journal event. When Sync is stably active, the Sync-owned recorder freezes the current causal row state at local mutation time.
 
 ### 3.2 Active generation-bound outbox
 
@@ -97,7 +103,7 @@ Its generation-aware contract must include, conceptually:
 - `collection`;
 - `rowId`;
 - `op`;
-- nullable `baseUpdatedAt`;
+- nullable `baseUpdatedAt` plus enough base-state information to distinguish known absence from a known timestamp;
 - `mutationId`;
 - `revision`;
 - `queuedAt`;
@@ -105,21 +111,23 @@ Its generation-aware contract must include, conceptually:
 
 Its coalescing identity is `(uid, generationId, collection, rowId)`.
 
-A Sync-owned promotion step enriches generation-neutral journal entries only when Sync is fully active. The implementation may name this component `SyncOutboxPromoter` or an equivalent narrow abstraction.
+A Sync-owned promotion step enriches journal entries only when Sync is fully active. The implementation may name this component `SyncOutboxPromoter` or an equivalent narrow abstraction.
 
-Promotion derives:
+Promotion derives or validates:
 
 - the currently authenticated eligible UID;
 - the active generation ID;
-- `sync_row_meta.updatedAt` as `baseUpdatedAt`;
+- the frozen causal-base token captured by the journal recorder at mutation time;
 - a new mutation identity;
 - the active outbox revision.
+
+Promotion must not reread a newer `sync_row_meta` value and substitute it as the local mutation's base. If the journal event carries a bound causal token, its causal UID and generation must exactly match the active UID and generation before normal incremental promotion is allowed.
 
 No feature repository supplies those values.
 
 ## 4. Local-only and non-active states
 
-The generation-neutral journal is valid in all local operating modes.
+The local mutation journal is valid in all local operating modes.
 
 The following states must not create new generation-bound cloud outbox entries:
 
@@ -130,23 +138,34 @@ The following states must not create new generation-bound cloud outbox entries:
 - explicitly quiesced Sync;
 - Pro-expired Sync.
 
-During those states the local databases remain authoritative and user activity continues normally.
+During those states the local databases remain authoritative and user activity continues normally. Journal entries recorded in those states are `unbound` because no stable active cloud generation is permitted to supply their causal base.
 
 When a user later becomes Sync eligible, B3 reconciles complete local/cloud state as already approved. The journal exists to preserve local mutation facts and race information; it does not turn local-only users into incremental cloud-sync users.
 
-After B3 establishes an active generation, only still-relevant journal entries are eligible for generation-bound promotion.
+After B3 establishes an active generation, journal state represented by the successful reconciliation is acknowledged according to the B3 epoch/revision rules. Only later local mutations recorded against that stable active UID/generation may enter ordinary incremental promotion.
+
+A journal mutation carrying causal provenance from an older UID or older generation must never be rebound to a new UID/generation by merely rereading current metadata. It is either acknowledged because the completed B3/generation transition proved it represented, or it remains blocked until the appropriate reconciliation path resolves it.
 
 ## 5. Atomic local mutation contract
 
 For syncable user data whose authoritative state is in `AppDatabase`, three things must occur atomically in one Drift transaction:
 
 1. the authoritative domain-state mutation;
-2. the generation-neutral journal mutation;
+2. the local journal mutation;
 3. incrementing the monotonic local mutation epoch.
+
+When Sync is stably active, the Sync-owned mutation recorder must freeze the row's causal cloud token as part of that journal mutation at the time of the local edit. It may obtain a Sync-owned active-context snapshot outside the domain layer, but the recorder must only bind the journal event to that UID/generation if that context is still valid for the transaction. If a lifecycle/generation transition makes the context unstable, the domain mutation still succeeds and the journal event is recorded as `unbound` instead of fabricating a cloud base.
+
+For a stable active context, the causal token comes from the accepted `sync_row_meta` state that existed when the local mutation was recorded:
+
+- accepted row absent → `knownAbsent`;
+- accepted row present with cloud timestamp → `knownVersion` plus that timestamp.
+
+A later remote update must not retroactively change the base of an already-recorded local mutation.
 
 A delete must reach the journal in the same transaction in which the authoritative row disappears. Sync must never depend on rereading an already-deleted domain row merely to discover that a delete occurred.
 
-Repeated changes to the same logical Sync row may coalesce in the journal, but coalescing must advance its revision so an older in-flight promotion cannot acknowledge a newer local change.
+Repeated changes to the same logical Sync row may coalesce in the journal, but coalescing must advance its revision. If a newer local edit happens after a remote apply has advanced `sync_row_meta`, that newer edit captures the newer causal token; an older in-flight promotion cannot acknowledge it.
 
 ## 6. `localMutationEpoch`
 
@@ -189,6 +208,12 @@ Both local-journal promotion and cloud-outbox acknowledgement must be conditiona
 If the promoter reads journal revision `N`, it must not erase or mark complete a journal entry that has since advanced to revision `N+1`.
 
 Promotion/removal must therefore use revision-conditional acknowledgement or an equivalent compare-and-set discipline.
+
+Normal incremental promotion is allowed only for a journal event whose frozen causal provenance matches the currently active UID and generation and whose causal-base state is `knownAbsent` or `knownVersion`.
+
+An `unbound` event is not converted into an ordinary incremental write by reading whatever `sync_row_meta` happens to exist later. It is resolved through B3/full-reconciliation semantics or acknowledged only when a generation transition proves that its local state was represented.
+
+A bound event from a prior UID or prior generation is likewise never retargeted into the current generation.
 
 ### Active outbox
 
@@ -353,18 +378,24 @@ Projection failure after the authoritative replacement is a recoverable local pr
 
 ## 15. Interaction with `sync_row_meta` and stale-base protection
 
-The base design's structured `sync_row_meta` remains authoritative for per-cloud-row version knowledge.
+The base design's structured `sync_row_meta` remains authoritative for the latest accepted per-cloud-row version knowledge.
 
-The generation-neutral local journal does not replace it.
+The local journal does not replace it. The journal freezes the relevant accepted row state at mutation time when Sync has a stable active cloud context.
 
 The responsibilities are distinct:
 
 - domain tables: current local user-data truth;
-- `sync_local_mutations`: durable generation-neutral fact that local truth changed;
-- `sync_row_meta`: last accepted cloud version/known-absence information for a logical cloud row;
+- `sync_local_mutations`: durable fact that local truth changed, plus the Sync-owned causal token observed at mutation time when available;
+- `sync_row_meta`: latest accepted cloud version/known-absence information for a logical cloud row;
 - `pending_sync`: generation-bound mutation ready for active cloud delivery.
 
-When an active journal event is promoted, `sync_row_meta` supplies the cloud base version used for stale-base protection.
+For an active local edit, the recorder reads the then-current accepted row state and freezes it into the journal event. Later remote acceptance may advance `sync_row_meta`, but that advancement does not rewrite the already-recorded event's causal base.
+
+When that journal event is promoted, the promoter uses the frozen causal token. It must not substitute the current `sync_row_meta` value.
+
+This is required for stale-base protection. Example: local edit L is recorded against cloud version V1; before L is promoted, a remote update advances the accepted row to V2. L must still attempt from V1 and therefore lose/reconcile as stale. Treating L as based on V2 would incorrectly erase the causal conflict.
+
+`knownAbsent` is also a real causal state. It must be distinct from `unbound`, because a local create observed against a known-absent cloud row may be promoted normally, while a mutation recorded with no active cloud context must first pass through B3/reconciliation semantics.
 
 This preserves the approved tombstone, causal-base, and LWW/CAS semantics without exposing them to feature/domain code.
 
@@ -376,13 +407,13 @@ The base design's lifecycle behavior is unchanged.
 
 B3 runs before normal incremental promotion into a newly active generation.
 
-Only after B3 establishes the active source/generation may remaining relevant generation-neutral mutations be promoted.
+Only after B3 establishes the active source/generation may later local mutations recorded against that stable generation be promoted normally. Journal work represented by B3 is acknowledged with epoch/revision safety; unbound or prior-generation work is never silently rebound.
 
 ### Pro expiry
 
 Quiesce cloud listeners/writes immediately as already approved.
 
-Do not discard authoritative local data or the generation-neutral journal merely because cloud eligibility ended.
+Do not discard authoritative local data or the local mutation journal merely because cloud eligibility ended.
 
 Generation-bound pending work must remain isolated to the UID/generation it was created for and must never be blindly replayed after a later restore. Restore reruns B3.
 
@@ -400,12 +431,12 @@ Deletion quiesces without flushing pending cloud mutations as already approved. 
 
 At minimum Sync cannot report `upToDate` while any of these are true:
 
-- generation-neutral local mutation journal contains relevant unacknowledged work;
+- local mutation journal contains relevant unacknowledged work;
 - active generation outbox contains pending work;
 - B3 reconciliation is pending or running;
 - custom-track content projection recovery marker is set.
 
-Local-only named/anonymous states retain their existing `off` semantics; the existence of generation-neutral local journal facts must not make a Free user appear cloud-synced or cloud-failing.
+Local-only named/anonymous states retain their existing `off` semantics; the existence of local journal facts must not make a Free user appear cloud-synced or cloud-failing.
 
 ## 18. Drift migration ordering
 
@@ -416,7 +447,7 @@ The next applicable Drift migration must introduce or revise the needed structur
 Expected schema work includes:
 
 - `sync_row_meta` from the base design;
-- generation-neutral `sync_local_mutations`;
+- local `sync_local_mutations` including explicit causal-base state/provenance;
 - authoritative `custom_track_meta_local`;
 - generation-aware/revision-safe `pending_sync`.
 
@@ -431,9 +462,17 @@ The replacement implementation plan must include focused evidence for the follow
 ### Boundary and local-only behavior
 
 - feature/domain mutation producers do not receive UID, generation ID, or cloud timestamps;
-- anonymous/named-Free/activating/B3-pending/quiesced mutations stay generation-neutral;
-- eligible active state promotes mutations with the correct UID/generation/base metadata;
+- anonymous/named-Free/activating/B3-pending/quiesced mutations remain unbound and do not enter an active outbox;
+- eligible active mutation recording freezes the correct UID/generation and exact causal base at mutation time;
+- `knownAbsent` is distinct from `unbound`;
+- normal promotion uses the frozen causal token instead of rereading a later `sync_row_meta`;
 - no prior UID/generation mutation crosses identity/generation boundaries.
+
+### Causal race
+
+- local mutation recorded against V1 remains based on V1 if a remote apply advances `sync_row_meta` to V2 before promotion;
+- that stale V1 mutation is rejected/reconciled by the approved stale-base rules instead of being falsely promoted as based on V2;
+- an unstable generation/lifecycle transition records the local mutation safely without fabricating a causal base.
 
 ### Queue races
 
