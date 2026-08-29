@@ -4,6 +4,7 @@ import 'package:pantas/core/storage/data/tables/app_preferences_local_table.dart
 import 'package:pantas/core/storage/data/tables/assessment_results_local_table.dart';
 import 'package:pantas/core/storage/data/tables/attempts_local_table.dart';
 import 'package:pantas/core/storage/data/tables/custom_blueprints_local_table.dart';
+import 'package:pantas/core/storage/data/tables/custom_track_meta_local_table.dart';
 import 'package:pantas/core/storage/data/tables/daily_new_card_intro_table.dart';
 import 'package:pantas/core/storage/data/tables/device_prefs_table.dart';
 import 'package:pantas/core/storage/data/tables/exams_table.dart';
@@ -21,7 +22,9 @@ import 'package:pantas/core/storage/data/tables/review_logs_table.dart';
 import 'package:pantas/core/storage/data/tables/review_state_local_table.dart';
 import 'package:pantas/core/storage/data/tables/streak_local_table.dart';
 import 'package:pantas/core/storage/data/tables/subjects_table.dart';
+import 'package:pantas/core/storage/data/tables/sync_local_mutations_table.dart';
 import 'package:pantas/core/storage/data/tables/sync_meta_table.dart';
+import 'package:pantas/core/storage/data/tables/sync_row_meta_table.dart';
 import 'package:pantas/core/storage/data/tables/topics_table.dart';
 import 'package:pantas/core/storage/data/tables/track_scope_local_table.dart';
 import 'package:pantas/core/storage/data/tables/user_metrics_archetypes_local_table.dart';
@@ -47,6 +50,9 @@ part 'app_database.g.dart';
     AppPreferencesLocal,
     PendingSync,
     SyncMeta,
+    SyncRowMeta,
+    SyncLocalMutations,
+    CustomTrackMetaLocal,
     DevicePrefs,
     AccountPrefs,
     QuizSessions,
@@ -64,7 +70,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 22;
+  int get schemaVersion => 23;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -144,6 +150,30 @@ class AppDatabase extends _$AppDatabase {
             // How to draw a question's diagram. Null everywhere until the
             // seed carries one.
             await m.addColumn(questions, questions.figureSpecJson);
+          }
+          if (from < 23) {
+            await m.createTable(syncRowMeta);
+            await m.createTable(syncLocalMutations);
+            await m.createTable(customTrackMetaLocal);
+
+            // The old pending_sync table was only a generation-neutral
+            // placeholder. Preserve its user-change facts in the new local
+            // mutation journal, explicitly marked unbound, then rebuild the
+            // active outbox with its generation-bound schema.
+            await customStatement(
+              'INSERT INTO sync_local_mutations '
+              '(collection, row_id, op, revision, mutation_epoch, '
+              'causal_uid, causal_generation_id, causal_base_state, '
+              'base_updated_at, recorded_at) '
+              "SELECT table_type, row_id, op, 1, 0, NULL, NULL, 'unbound', "
+              'NULL, queued_at FROM pending_sync',
+            );
+            await customStatement('DROP TABLE pending_sync');
+            await m.createTable(pendingSync);
+            await customStatement(
+              "INSERT OR IGNORE INTO sync_meta (key, value) "
+              "VALUES ('localMutationEpoch', '0')",
+            );
           }
         },
       );
