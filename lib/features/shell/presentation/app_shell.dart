@@ -83,12 +83,35 @@ class AppNavBar extends StatelessWidget {
       0,
       (total, width) => total + width,
     );
-    if (requiredTotal > availableWidth) {
+    if (requiredTotal <= availableWidth) {
+      final extraPerItem = (availableWidth - requiredTotal) / _tabs.length;
+      return [for (final width in requiredWidths) width + extraPerItem];
+    }
+
+    final minimumTotal = AppDimensions.minTapTarget * _tabs.length;
+    if (minimumTotal >= availableWidth) {
       return List<double>.filled(_tabs.length, equalWidth);
     }
 
-    final extraPerItem = (availableWidth - requiredTotal) / _tabs.length;
-    return [for (final width in requiredWidths) width + extraPerItem];
+    final extraNeeds = [
+      for (final width in requiredWidths)
+        width > AppDimensions.minTapTarget
+            ? width - AppDimensions.minTapTarget
+            : 0.0,
+    ];
+    final totalExtraNeed = extraNeeds.fold<double>(
+      0,
+      (total, width) => total + width,
+    );
+    final distributableWidth = availableWidth - minimumTotal;
+
+    return [
+      for (final need in extraNeeds)
+        AppDimensions.minTapTarget +
+            (totalExtraNeed == 0
+                ? distributableWidth / _tabs.length
+                : distributableWidth * need / totalExtraNeed),
+    ];
   }
 
   @override
