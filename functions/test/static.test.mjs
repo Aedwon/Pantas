@@ -10,6 +10,7 @@ test('index exports privacy and audit callables', () => {
   const obsoleteResetName = ['reset', 'CloudUserData'].join('');
   assert.doesNotMatch(source, new RegExp(obsoleteResetName));
   assert.match(source, /export \{ activateSyncGeneration \}/);
+  assert.match(source, /export \{ cleanupSyncData \}/);
   assert.match(source, /export \{ revenuecatWebhook \}/);
   assert.match(source, /export \{ getProContent \}/);
   assert.match(source, /export \{ recordSignInEvent \}/);
@@ -119,6 +120,89 @@ test('obsolete cloud reset source is removed', () => {
     existsSync(new URL(`../src/${obsoleteResetName}.ts`, import.meta.url)),
     false,
   );
+});
+
+test('cleanupSyncData applies retention with a fresh active-pointer recheck', () => {
+  const cleanupUrl = new URL('../src/cleanupSyncData.ts', import.meta.url);
+
+  assert.equal(
+    existsSync(cleanupUrl),
+    true,
+    'cleanupSyncData.ts must exist',
+  );
+
+  const source = readFileSync(cleanupUrl, 'utf8');
+  const indexSource = readFileSync(
+    new URL('../src/index.ts', import.meta.url),
+    'utf8',
+  );
+
+  assert.match(source, /onSchedule/);
+  assert.match(source, /region:\s*'asia-southeast1'/);
+  assert.match(source, /TOMBSTONE_RETENTION_DAYS/);
+  assert.match(source, /STAGING_RETENTION_DAYS/);
+  assert.match(source, /RETIRED_RETENTION_DAYS/);
+  assert.match(source, /generationCleanupEligible/);
+  assert.match(source, /collectionGroup/);
+  assert.match(source, /deleted/);
+  assert.match(source, /updatedAt/);
+  assert.match(source, /limit\(500\)/);
+  assert.match(source, /sync_state/);
+  assert.match(source, /activeGenerationId/);
+  assert.match(source, /recursiveDelete/);
+
+  for (const collection of [
+    'quiz_attempts',
+    'assessments',
+    'fsrs_cards',
+    'lesson_progress',
+    'lesson_bookmarks',
+    'question_flags',
+    'mock_exam_attempts',
+    'review_logs',
+    'track_scope',
+    'custom_blueprints',
+  ]) {
+    assert.match(source, new RegExp(`'${collection}'`));
+  }
+
+  const freshPointerIndex = source.indexOf(
+    'const freshCurrentSnapshot = await currentRef.get()',
+  );
+  const freshActiveIndex = source.indexOf(
+    'const freshActiveGenerationId',
+  );
+  const activeCompareIndex = source.indexOf(
+    'freshActiveGenerationId === candidateGenerationId',
+  );
+  const freshGenerationIndex = source.indexOf(
+    'const freshGenerationSnapshot = await candidateRef.get()',
+  );
+  const eligibilityIndex = source.lastIndexOf(
+    'generationCleanupEligible',
+  );
+  const recursiveDeleteIndex = source.indexOf(
+    'recursiveDelete(candidateRef)',
+  );
+
+  for (const index of [
+    freshPointerIndex,
+    freshActiveIndex,
+    activeCompareIndex,
+    freshGenerationIndex,
+    eligibilityIndex,
+    recursiveDeleteIndex,
+  ]) {
+    assert.notEqual(index, -1);
+  }
+
+  assert.ok(freshPointerIndex < freshActiveIndex);
+  assert.ok(freshActiveIndex < activeCompareIndex);
+  assert.ok(activeCompareIndex < freshGenerationIndex);
+  assert.ok(freshGenerationIndex < eligibilityIndex);
+  assert.ok(eligibilityIndex < recursiveDeleteIndex);
+
+  assert.match(indexSource, /export \{ cleanupSyncData \}/);
 });
 
 test('deleteAccount uses asia-southeast1 app check replay protection', () => {
