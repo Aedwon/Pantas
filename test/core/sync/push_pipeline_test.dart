@@ -121,16 +121,9 @@ void main() {
   });
 }
 
-class ThrowingFirestoreGateway implements FirestoreGateway {
+class ThrowingFirestoreGateway extends FakeFirestoreGateway {
   @override
   Future<void> commitBatch(List<FirestoreWrite> writes) async {
     throw const SyncGatewayException('unavailable');
   }
-
-  @override
-  Future<List<Map<String, Object?>>> readCollection(String path) async =>
-      const [];
-
-  @override
-  Future<Map<String, Object?>?> readDocument(String path) async => null;
 }

@@ -167,7 +167,7 @@ class RecordingGateway extends FakeFirestoreGateway {
   }
 }
 
-class RecordingFunctionsGateway implements SyncFunctionsGateway {
+class RecordingFunctionsGateway extends FakeSyncFunctionsGateway {
   RecordingFunctionsGateway(this.events);
 
   final List<String> events;
@@ -178,16 +178,9 @@ class RecordingFunctionsGateway implements SyncFunctionsGateway {
   }
 }
 
-class ThrowingGateway implements FirestoreGateway {
+class ThrowingGateway extends FakeFirestoreGateway {
   @override
   Future<void> commitBatch(List<FirestoreWrite> writes) async {
     throw const SyncGatewayException('unavailable');
   }
-
-  @override
-  Future<List<Map<String, Object?>>> readCollection(String path) async =>
-      const [];
-
-  @override
-  Future<Map<String, Object?>?> readDocument(String path) async => null;
 }

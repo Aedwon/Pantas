@@ -16,6 +16,9 @@ void main() {
       'users/user-1/lesson_bookmarks',
       'users/user-1/question_flags',
       'users/user-1/mock_exam_attempts',
+      'users/user-1/review_logs',
+      'users/user-1/track_scope',
+      'users/user-1/custom_blueprints',
     ]);
   });
 
