@@ -40,10 +40,7 @@ void main() {
         theme: buildLightTheme(),
         builder: mediaQueryData == null
             ? null
-            : (_, child) => MediaQuery(
-                  data: mediaQueryData,
-                  child: child!,
-                ),
+            : (_, child) => MediaQuery(data: mediaQueryData, child: child!),
         home: Scaffold(
           body: PlansPage(
             packages: packages,
@@ -61,13 +58,13 @@ void main() {
 
   Finder semanticsWithLabel(String label) {
     return find.byWidgetPredicate(
-      (widget) =>
-          widget is Semantics && widget.properties.label == label,
+      (widget) => widget is Semantics && widget.properties.label == label,
     );
   }
 
-  testWidgets('at day precision the column head names the date',
-      (tester) async {
+  testWidgets('at day precision the column head names the date', (
+    tester,
+  ) async {
     await pumpPlans(tester, examDate: ExamDate.onDay(DateTime(2026, 10, 12)));
     expect(find.text('Your exam is in 71 days.'), findsOneWidget);
     expect(find.text('Until 12 October'), findsOneWidget);
@@ -81,16 +78,18 @@ void main() {
   });
 
   testWidgets(
-      'with no date the head reads Price and the badge reads Best for most',
-      (tester) async {
-    await pumpPlans(tester, examDate: null);
-    expect(find.text('Choose how long you need it.'), findsOneWidget);
-    expect(find.text('Price'), findsOneWidget);
-    expect(find.text('Best for most'), findsOneWidget);
-  });
+    'with no date the head reads Price and the badge reads Best for most',
+    (tester) async {
+      await pumpPlans(tester, examDate: null);
+      expect(find.text('Choose how long you need it.'), findsOneWidget);
+      expect(find.text('Price'), findsOneWidget);
+      expect(find.text('Best for most'), findsOneWidget);
+    },
+  );
 
-  testWidgets('the rows are always Weekly, Monthly, Yearly in that order',
-      (tester) async {
+  testWidgets('the rows are always Weekly, Monthly, Yearly in that order', (
+    tester,
+  ) async {
     await pumpPlans(tester, examDate: ExamDate.onDay(DateTime(2026, 10, 12)));
     final weeklyPos = tester.getTopLeft(find.text('Weekly')).dy;
     final monthlyPos = tester.getTopLeft(find.text('Monthly')).dy;
@@ -100,10 +99,7 @@ void main() {
 
   testWidgets('Yearly uses the current RevenueCat price', (tester) async {
     await pumpPlans(tester, examDate: null);
-    expect(
-      find.text('7-day free trial, then ₱799 a year'),
-      findsOneWidget,
-    );
+    expect(find.text('7-day free trial, then ₱799 a year'), findsOneWidget);
     expect(find.textContaining('₱999'), findsNothing);
   });
 
@@ -118,27 +114,30 @@ void main() {
     expect(semantics.properties.enabled, isTrue);
   });
 
-  testWidgets('busy purchase exposes busy semantics and disables plan changes',
-      (tester) async {
-    var selections = 0;
-    await pumpPlans(
-      tester,
-      examDate: null,
-      isBusy: true,
-      onSelect: (_) => selections++,
-    );
+  testWidgets(
+    'busy purchase exposes busy semantics and disables plan changes',
+    (tester) async {
+      var selections = 0;
+      await pumpPlans(
+        tester,
+        examDate: null,
+        isBusy: true,
+        onSelect: (_) => selections++,
+      );
 
-    final finder = semanticsWithLabel('Purchase in progress');
-    expect(finder, findsOneWidget);
-    final semantics = tester.widget<Semantics>(finder);
-    expect(semantics.properties.liveRegion, isTrue);
-    await tester.tap(find.text('Weekly'));
-    await tester.pump();
-    expect(selections, 0);
-  });
+      final finder = semanticsWithLabel('Purchase in progress');
+      expect(finder, findsOneWidget);
+      final semantics = tester.widget<Semantics>(finder);
+      expect(semantics.properties.liveRegion, isTrue);
+      await tester.tap(find.text('Weekly'));
+      await tester.pump();
+      expect(selections, 0);
+    },
+  );
 
-  testWidgets('representative plans flow has no overflow at 200 percent text',
-      (tester) async {
+  testWidgets('representative plans flow has no overflow at 200 percent text', (
+    tester,
+  ) async {
     tester.view.physicalSize = const Size(430, 932);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
