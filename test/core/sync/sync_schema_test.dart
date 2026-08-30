@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';

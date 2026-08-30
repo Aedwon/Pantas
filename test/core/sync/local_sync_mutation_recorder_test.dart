@@ -1,5 +1,6 @@
 import 'package:drift/drift.dart' show Variable;
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/sync/engine/local_sync_mutation_recorder.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/sync/engine/sync_row_meta_repository.dart';
@@ -11,7 +12,7 @@ void main() {
   const rowId = 'attempt-1';
   final recordedAt = DateTime.utc(2026, 8, 30, 2, 0);
 
-  Future<Map<String, Object?>> journalRow(dynamic db) async {
+  Future<Map<String, Object?>> journalRow(AppDatabase db) async {
     final row = await db.customSelect(
       'select collection,row_id,op,revision,mutation_epoch,causal_uid,'
       'causal_generation_id,causal_base_state,'
@@ -22,7 +23,7 @@ void main() {
     return row.data;
   }
 
-  Future<int> epoch(dynamic db) async {
+  Future<int> epoch(AppDatabase db) async {
     final rows = await db
         .customSelect(
           "select value from sync_meta where key = 'localMutationEpoch'",
@@ -32,13 +33,14 @@ void main() {
     return int.parse(rows.single.read<String>('value'));
   }
 
-  Future<void> putDomainFact(dynamic db, String value) => db.customStatement(
+  Future<void> putDomainFact(AppDatabase db, String value) =>
+      db.customStatement(
         'insert into account_prefs (key,value) values (?,?) '
         'on conflict(key) do update set value=excluded.value',
         ['recorder-test', value],
       );
 
-  LocalSyncMutationRecorder recorderFor(dynamic db) {
+  LocalSyncMutationRecorder recorderFor(AppDatabase db) {
     return LocalSyncMutationRecorder(
       db,
       activeContextStore: SyncActiveContextStore(db),
