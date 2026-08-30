@@ -71,9 +71,16 @@ abstract final class SettingsValueFormats {
       // and the silent-sync invariant forbids alarming them with one. The
       // backup page below says "Couldn't back up" plainly and offers the
       // retry, which is where a student can actually do something about it.
-      Syncing() || SyncPartialFailure() || SyncFailedSince() => 'Backing up',
-      SyncOk() || SyncIdle() => 'Saved',
-      null => 'Not backed up',
+      SyncActivating() ||
+      SyncReconciliationRequired() ||
+      Syncing() ||
+      SyncOffline() ||
+      SyncError() ||
+      SyncPartialFailure() ||
+      SyncFailedSince() =>
+        'Backing up',
+      SyncUpToDate() || SyncOk() || SyncIdle() => 'Saved',
+      SyncOff() || null => 'Not backed up',
     };
   }
 }

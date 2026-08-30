@@ -6,7 +6,6 @@ import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/domain/review_log.dart';
 import 'package:pantas/core/storage/domain/review_state.dart';
-import 'package:pantas/core/sync/engine/pending_queue.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/features/quiz/data/repos/new_card_intro_repository.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
@@ -18,7 +17,6 @@ class SubmitAnswer {
     required ReviewStateRepository reviewRepo,
     required FsrsScheduler scheduler,
     QuizSessionRepository? sessions,
-    PendingQueue? pendingQueue,
     NewCardIntroRepository? newCards,
     ReviewLogRepository? reviewLog,
     Telemetry? telemetry,
@@ -27,14 +25,12 @@ class SubmitAnswer {
         _reviewRepo = reviewRepo,
         _scheduler = scheduler,
         _sessions = sessions,
-        _pendingQueue = pendingQueue,
         _newCards = newCards;
 
   final ReviewStateRepository _reviewRepo;
   final ReviewLogRepository? _reviewLog;
   final FsrsScheduler _scheduler;
   final QuizSessionRepository? _sessions;
-  final PendingQueue? _pendingQueue;
   final NewCardIntroRepository? _newCards;
   final Telemetry? _telemetry;
 
@@ -114,12 +110,6 @@ class SubmitAnswer {
         answeredAt: now,
       );
     }
-    await _pendingQueue?.enqueue(
-      tableType: 'fsrs_cards',
-      rowId: question.id,
-      op: PendingSyncOp.upsert,
-      queuedAt: now,
-    );
     if (existing == null && userId != null && examId != null) {
       await _newCards?.incrementForDay(
         userId: userId,

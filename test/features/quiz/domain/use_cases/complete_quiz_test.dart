@@ -5,7 +5,6 @@ import 'package:pantas/core/storage/data/repos/attempts_repository.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
-import 'package:pantas/core/sync/engine/pending_queue.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/domain/streak/streak_evaluator.dart';
@@ -15,8 +14,6 @@ class _MockAttempts extends Mock implements AttemptsRepository {}
 
 class _MockStreakEvaluator extends Mock implements StreakEvaluator {}
 
-class _MockPendingQueue extends Mock implements PendingQueue {}
-
 class _MockNotificationService extends Mock implements NotificationService {}
 
 class _FakeAttempt extends Fake implements Attempt {}
@@ -25,35 +22,23 @@ void main() {
   setUpAll(() {
     registerFallbackValue(_FakeAttempt());
     registerFallbackValue(SessionOrigin.todayTopic);
-    registerFallbackValue(PendingSyncOp.upsert);
   });
 
   late _MockAttempts attempts;
   late _MockStreakEvaluator streaks;
-  late _MockPendingQueue pendingQueue;
   late _MockNotificationService notifications;
   late CompleteQuiz useCase;
 
   setUp(() {
     attempts = _MockAttempts();
     streaks = _MockStreakEvaluator();
-    pendingQueue = _MockPendingQueue();
     notifications = _MockNotificationService();
     useCase = CompleteQuiz(
       attempts,
       streakEvaluator: streaks,
-      pendingQueue: pendingQueue,
       notifications: notifications,
     );
     when(() => attempts.save(any())).thenAnswer((_) async {});
-    when(
-      () => pendingQueue.enqueue(
-        tableType: any(named: 'tableType'),
-        rowId: any(named: 'rowId'),
-        op: any(named: 'op'),
-        queuedAt: any(named: 'queuedAt'),
-      ),
-    ).thenAnswer((_) async {});
     when(
       () => streaks.evaluate(
         origin: any(named: 'origin'),
@@ -111,14 +96,6 @@ void main() {
     expect(attempt.completedAt, equals(end));
     expect(attempt.items, hasLength(1));
     verify(() => attempts.save(attempt)).called(1);
-    verify(
-      () => pendingQueue.enqueue(
-        tableType: 'quiz_attempts',
-        rowId: 'sess',
-        op: PendingSyncOp.upsert,
-        queuedAt: end,
-      ),
-    ).called(1);
     verify(
       () => streaks.evaluate(
         origin: SessionOrigin.todayTopic,

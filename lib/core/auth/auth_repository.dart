@@ -160,13 +160,6 @@ abstract interface class LocalStateWiper {
   Future<void> wipeAll();
 }
 
-// Temporary compatibility declaration for Sync. AuthRepository does not use it.
-// Wave 2E owns relocating this interface into the Sync domain.
-// ignore: one_member_abstracts
-abstract interface class CloudProgressGateway {
-  Future<bool> hasMeaningfulProgress(String uid);
-}
-
 class UnconfiguredGoogleSignInGateway implements GoogleSignInGateway {
   const UnconfiguredGoogleSignInGateway();
 
@@ -200,11 +193,4 @@ class NoopLocalStateWiper implements LocalStateWiper {
 
   @override
   Future<void> wipeAll() async {}
-}
-
-class EmptyCloudProgressGateway implements CloudProgressGateway {
-  const EmptyCloudProgressGateway();
-
-  @override
-  Future<bool> hasMeaningfulProgress(String uid) async => false;
 }

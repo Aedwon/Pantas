@@ -2,32 +2,42 @@ import 'package:drift/drift.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/sync_state.dart';
+import 'package:pantas/core/sync/engine/local_sync_mutation_recorder.dart';
 
 /// Durable practice flags. A flag set inside a mock lives on that attempt and
 /// only reaches this table when the student converts it from the mock's
 /// review, so nothing here writes itself from `mock_attempt.flagsJson`.
 class QuestionFlagsRepository {
-  QuestionFlagsRepository(this._db);
+  QuestionFlagsRepository(
+    this._db, {
+    LocalSyncMutationRecorder? syncRecorder,
+  }) : _syncRecorder =
+            syncRecorder ?? LocalSyncMutationRecorder.forDatabase(_db);
 
   final AppDatabase _db;
+  final LocalSyncMutationRecorder _syncRecorder;
 
-  Future<void> flag(QuestionId questionId) async {
-    // flaggedAt refreshes on a repeat flag: it records the most recent time
-    // the student said this one matters, which is what the list sorts on.
-    await _db.into(_db.questionFlagsLocal).insertOnConflictUpdate(
-          QuestionFlagsLocalCompanion(
-            questionId: Value(questionId),
-            flaggedAt: Value(DateTime.now()),
-            syncState: Value(SyncState.pending.name),
-          ),
-        );
-  }
+  Future<void> flag(QuestionId questionId) => _syncRecorder.runRecorded(
+        collection: 'question_flags',
+        rowId: questionId,
+        op: SyncLocalMutationOp.upsert,
+        mutate: () => _db.into(_db.questionFlagsLocal).insertOnConflictUpdate(
+              QuestionFlagsLocalCompanion(
+                questionId: Value(questionId),
+                flaggedAt: Value(DateTime.now()),
+                syncState: Value(SyncState.pending.name),
+              ),
+            ),
+      );
 
-  Future<void> unflag(QuestionId questionId) async {
-    await (_db.delete(_db.questionFlagsLocal)
-          ..where((row) => row.questionId.equals(questionId)))
-        .go();
-  }
+  Future<void> unflag(QuestionId questionId) => _syncRecorder.runRecorded(
+        collection: 'question_flags',
+        rowId: questionId,
+        op: SyncLocalMutationOp.delete,
+        mutate: () => (_db.delete(_db.questionFlagsLocal)
+              ..where((row) => row.questionId.equals(questionId)))
+            .go(),
+      );
 
   Future<bool> isFlagged(QuestionId questionId) async {
     final row = await (_db.select(_db.questionFlagsLocal)
@@ -41,9 +51,6 @@ class QuestionFlagsRepository {
     return rows.map((row) => row.questionId).toSet();
   }
 
-  /// Custom order first for the rows that carry one, then most recently
-  /// flagged. Null `sortIndex` sorts last so an unordered flag never
-  /// displaces one the student placed by hand.
   Future<List<QuestionFlagLocalRow>> flagsNewestFirst() {
     return (_db.select(_db.questionFlagsLocal)
           ..orderBy([

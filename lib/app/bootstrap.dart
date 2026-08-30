@@ -6,7 +6,7 @@ import 'package:pantas/app/app.dart';
 import 'package:pantas/app/auth_bootstrap.dart';
 import 'package:pantas/app/firebase_bootstrap.dart';
 import 'package:pantas/app/flavor.dart';
-import 'package:pantas/app/telemetry_consent_controller.dart';
+import 'package:pantas/app/sync_runtime_bootstrap.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/bundle/seed_installer.dart';
 import 'package:pantas/core/content/content.dart';
@@ -47,9 +47,11 @@ final mockEntitlementOverrides = <Override>[
   ),
 ];
 
-/// Feeds the shipping telemetry consent gateway into settings actions and startup.
+/// Feeds the shipping telemetry consent gateway into settings actions and
+/// startup.
 ///
-/// Exposed as a list so tests can exercise the exact telemetry override collection
+/// Exposed as a list so tests can exercise the exact telemetry override
+/// collection
 /// used by [bootstrap].
 final telemetryConsentOverrides = <Override>[
   analyticsConsentGatewayProvider.overrideWith(
@@ -141,6 +143,7 @@ Future<void> _bootstrap(
   await registerDevDemoSwitch(container);
   await _installContentSeed(container);
   await bootstrapRevenueCat(container);
+  await bootstrapSyncRuntime(container, firebaseResult);
 
   final notificationsLifecycleObserver = NotificationsLifecycleObserver(
     service: container.read(notificationServiceProvider),
@@ -166,7 +169,8 @@ Future<void> _installContentSeed(ProviderContainer container) async {
   }
 }
 
-/// Reads persisted telemetry preference and applies it to [telemetryConsentControllerProvider].
+/// Reads persisted telemetry preference and applies it to the telemetry consent
+/// controller provider.
 Future<void> applyPersistedTelemetryConsent(
   ProviderContainer container,
 ) async {

@@ -1,12 +1,18 @@
 import 'package:drift/drift.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/sync/engine/local_sync_mutation_recorder.dart';
 import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
 import 'package:pantas/features/mock_exam/domain/mock_results.dart';
 
 class MockAttemptRepo {
-  MockAttemptRepo(this._db);
+  MockAttemptRepo(
+    this._db, {
+    LocalSyncMutationRecorder? syncRecorder,
+  }) : _syncRecorder =
+            syncRecorder ?? LocalSyncMutationRecorder.forDatabase(_db);
 
   final AppDatabase _db;
+  final LocalSyncMutationRecorder _syncRecorder;
 
   Future<void> insertStart(MockAttemptStart start) {
     return _db.into(_db.mockAttempts).insert(
@@ -77,16 +83,20 @@ class MockAttemptRepo {
     );
   }
 
-  Future<void> discard(String attemptId, DateTime discardedAt) async {
-    await (_db.update(_db.mockAttempts)
-          ..where((attempt) => attempt.id.equals(attemptId)))
-        .write(
-      MockAttemptsCompanion(
-        status: Value(MockAttemptStatus.discarded.value),
-        updatedAt: Value(discardedAt),
-      ),
-    );
-  }
+  Future<void> discard(String attemptId, DateTime discardedAt) =>
+      _syncRecorder.runRecorded(
+        collection: 'mock_exam_attempts',
+        rowId: attemptId,
+        op: SyncLocalMutationOp.upsert,
+        mutate: () => (_db.update(_db.mockAttempts)
+              ..where((attempt) => attempt.id.equals(attemptId)))
+            .write(
+          MockAttemptsCompanion(
+            status: Value(MockAttemptStatus.discarded.value),
+            updatedAt: Value(discardedAt),
+          ),
+        ),
+      );
 
   Future<void> submit({
     required String attemptId,
@@ -94,19 +104,29 @@ class MockAttemptRepo {
     required MockResults results,
     required String sectionResultsJson,
     required DateTime submittedAt,
-  }) async {
-    await (_db.update(_db.mockAttempts)
-          ..where((attempt) => attempt.id.equals(attemptId)))
-        .write(
-      MockAttemptsCompanion(
-        status: Value(status.value),
-        scoreRaw: Value(results.scoreRaw),
-        scoreTotal: Value(results.scoreTotal),
-        sectionResultsJson: Value(sectionResultsJson),
-        totalTimeSeconds: Value(results.totalTimeSeconds),
-        submittedAt: Value(submittedAt),
-        updatedAt: Value(submittedAt),
-      ),
+  }) {
+    Future<int> mutate() => (_db.update(_db.mockAttempts)
+              ..where((attempt) => attempt.id.equals(attemptId)))
+            .write(
+          MockAttemptsCompanion(
+            status: Value(status.value),
+            scoreRaw: Value(results.scoreRaw),
+            scoreTotal: Value(results.scoreTotal),
+            sectionResultsJson: Value(sectionResultsJson),
+            totalTimeSeconds: Value(results.totalTimeSeconds),
+            submittedAt: Value(submittedAt),
+            updatedAt: Value(submittedAt),
+          ),
+        );
+
+    if (status == MockAttemptStatus.inProgress) {
+      return mutate();
+    }
+    return _syncRecorder.runRecorded(
+      collection: 'mock_exam_attempts',
+      rowId: attemptId,
+      op: SyncLocalMutationOp.upsert,
+      mutate: mutate,
     );
   }
 

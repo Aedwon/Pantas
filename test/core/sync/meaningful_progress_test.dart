@@ -1,205 +1,29 @@
 import 'package:drift/drift.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
-import 'package:pantas/core/sync/local_state_wiper.dart';
+import 'package:pantas/core/sync/engine/sync_meaningful_progress.dart';
 
 import '../../helpers/in_memory_database.dart';
 
 void main() {
-  test('hasMeaningfulProgress is false for non-meaningful local state',
+  test('device-local state and in-progress mocks are not sync-meaningful',
       () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
-    final stamp = DateTime.utc(2026, 5, 18);
-    await db.into(db.devicePrefs).insert(
-          DevicePrefsCompanion.insert(key: 'selected_exam_id', value: 'cse'),
-        );
-    await db.into(db.appPreferencesLocal).insert(
-          AppPreferencesLocalCompanion.insert(key: 'age_gate', value: 'passed'),
-        );
+    final stamp = DateTime.utc(2026, 8, 30);
+
     await db.into(db.accountPrefs).insert(
           AccountPrefsCompanion.insert(key: 'reminder_time', value: '07:30'),
         );
-    await db.into(db.pendingSync).insert(
-          PendingSyncCompanion.insert(
-            tableType: 'quiz_attempts',
-            rowId: 'a1',
-            op: 'upsert',
-            queuedAt: stamp,
-          ),
-        );
-    await db.into(db.userMetricsArchetypesLocal).insert(
-          UserMetricsArchetypesLocalCompanion.insert(
-            userId: 'user-1',
-            examId: 'cse',
-            window: '30d',
-            archetypeId: 'night-owl',
-            matchScore: 0.8,
-            synthesizedCopy: 'copy',
-            computedAt: stamp,
-            validUntil: stamp.add(const Duration(days: 1)),
-          ),
-        );
-    await db.into(db.userMetricsArtifactsLocal).insert(
-          UserMetricsArtifactsLocalCompanion.insert(
-            userId: 'user-1',
-            examId: 'cse',
-            artifactId: 'artifact-1',
-            shareId: 'share-1',
-            payloadJson: '{}',
-            firedAt: stamp,
-          ),
-        );
-    await db.into(db.dailyNewCardIntro).insert(
-          DailyNewCardIntroCompanion.insert(
-            userId: 'user-1',
-            examId: 'cse',
-            day: stamp,
-          ),
-        );
-    await db.into(db.quizSessions).insert(
-          QuizSessionsCompanion.insert(
-            id: 'session-1',
-            userId: 'user-1',
-            examId: 'cse',
-            origin: 'quiz',
-            questionIdsJson: '[]',
-            startedAt: stamp,
-          ),
-        );
-    await db.into(db.quizNudgeDismissedLocal).insert(
-          QuizNudgeDismissedLocalCompanion.insert(dismissedAt: stamp),
-        );
-
-    expect(await SyncLocalStateWiper(db).hasMeaningfulProgress(), isFalse);
-  });
-
-  test('hasMeaningfulProgress is true for quiz attempts', () async {
-    final db = inMemoryDatabase();
-    addTearDown(db.close);
-    await db.into(db.attemptsLocal).insert(
-          AttemptsLocalCompanion.insert(
-            id: 'a1',
-            examId: 'cse',
-            startedAt: DateTime.utc(2026, 5, 18),
-            completedAt: const Value(null),
-            itemsJson: '[]',
-          ),
-        );
-
-    expect(await SyncLocalStateWiper(db).hasMeaningfulProgress(), isTrue);
-  });
-
-  test('hasMeaningfulProgress is true for assessment results', () async {
-    final db = inMemoryDatabase();
-    addTearDown(db.close);
-    await db.into(db.assessmentResultsLocal).insert(
-          AssessmentResultsLocalCompanion.insert(
-            examId: 'cse',
-            completedAt: DateTime.utc(2026, 5, 18),
-            topicScoresJson: '{}',
-          ),
-        );
-
-    expect(await SyncLocalStateWiper(db).hasMeaningfulProgress(), isTrue);
-  });
-
-  test('hasMeaningfulProgress is true for review state', () async {
-    final db = inMemoryDatabase();
-    addTearDown(db.close);
-    await db.into(db.reviewStateLocal).insert(
-          ReviewStateLocalCompanion.insert(
-            questionId: 'q1',
-            questionVersion: 1,
-            stage: 'review',
-            stability: 1,
-            difficulty: 1,
-            due: DateTime.utc(2026, 5, 19),
-            lastReview: DateTime.utc(2026, 5, 18),
-            reps: 1,
-            lapses: 0,
-            elapsedDays: 1,
-            scheduledDays: 1,
-          ),
-        );
-
-    expect(await SyncLocalStateWiper(db).hasMeaningfulProgress(), isTrue);
-  });
-
-  test('hasMeaningfulProgress is true for streak state', () async {
-    final db = inMemoryDatabase();
-    addTearDown(db.close);
     await db.into(db.streakLocal).insert(
-          StreakLocalCompanion.insert(current: const Value(1)),
+          StreakLocalCompanion.insert(current: const Value(5)),
         );
-
-    expect(await SyncLocalStateWiper(db).hasMeaningfulProgress(), isTrue);
-  });
-
-  test('hasMeaningfulProgress is true for lesson progress', () async {
-    final db = inMemoryDatabase();
-    addTearDown(db.close);
-    await db.into(db.lessonProgressLocal).insert(
-          LessonProgressLocalCompanion.insert(
-            lessonId: 'lesson_1',
-            readAt: DateTime.utc(2026, 5, 18),
-          ),
-        );
-
-    expect(await SyncLocalStateWiper(db).hasMeaningfulProgress(), isTrue);
-  });
-
-  test('hasMeaningfulProgress is true for lesson bookmarks', () async {
-    final db = inMemoryDatabase();
-    addTearDown(db.close);
-    await seedTopicWithQuestions(
-      db,
-      examId: 'cse',
-      topicId: 'topic_1',
-      topicName: 'Topic 1',
-      questionIds: const [],
-      lessonIds: const ['lesson_1'],
-    );
-    await db.into(db.lessonBookmarksLocal).insert(
-          LessonBookmarksLocalCompanion.insert(
-            lessonId: 'lesson_1',
-            markedAt: DateTime.utc(2026, 5, 18),
-          ),
-        );
-
-    expect(await SyncLocalStateWiper(db).hasMeaningfulProgress(), isTrue);
-  });
-
-  test('hasMeaningfulProgress is true for question flags', () async {
-    final db = inMemoryDatabase();
-    addTearDown(db.close);
-    await seedTopicWithQuestions(
-      db,
-      examId: 'cse',
-      topicId: 'topic_1',
-      topicName: 'Topic 1',
-      questionIds: const ['q1'],
-    );
-    await db.into(db.questionFlagsLocal).insert(
-          QuestionFlagsLocalCompanion.insert(
-            questionId: 'q1',
-            flaggedAt: DateTime.utc(2026, 5, 18),
-          ),
-        );
-
-    expect(await SyncLocalStateWiper(db).hasMeaningfulProgress(), isTrue);
-  });
-
-  test('hasMeaningfulProgress is true for mock attempts', () async {
-    final db = inMemoryDatabase();
-    addTearDown(db.close);
-    final stamp = DateTime.utc(2026, 5, 18);
     await db.into(db.mockAttempts).insert(
           MockAttemptsCompanion.insert(
-            id: 'mock-1',
+            id: 'mock-local',
             userId: 'user-1',
             examId: 'cse',
-            blueprintId: 'blueprint-1',
+            blueprintId: 'bp-1',
             blueprintName: 'Practice',
             durationMinutes: 30,
             status: 'in_progress',
@@ -211,71 +35,98 @@ void main() {
           ),
         );
 
-    expect(await SyncLocalStateWiper(db).hasMeaningfulProgress(), isTrue);
+    expect(await SyncMeaningfulProgress(db).hasMeaningfulData(), isFalse);
   });
 
-  test('hasMeaningfulProgress is true for review logs', () async {
+  for (final status in ['completed', 'discarded', 'forfeited']) {
+    test('terminal mock status $status is sync-meaningful', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final stamp = DateTime.utc(2026, 8, 30);
+
+      await db.into(db.mockAttempts).insert(
+            MockAttemptsCompanion.insert(
+              id: 'mock-$status',
+              userId: 'user-1',
+              examId: 'cse',
+              blueprintId: 'bp-1',
+              blueprintName: 'Practice',
+              durationMinutes: 30,
+              status: status,
+              strictMode: false,
+              sampledQuestionsJson: '[]',
+              startedAt: stamp,
+              lastFlushedAt: stamp,
+              submittedAt: Value(stamp),
+              updatedAt: stamp,
+            ),
+          );
+
+      expect(await SyncMeaningfulProgress(db).hasMeaningfulData(), isTrue);
+    });
+  }
+
+  test('custom-track metadata alone is sync-meaningful', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
-    final stamp = DateTime.utc(2026, 5, 18);
+
+    await db.into(db.customTrackMetaLocal).insert(
+          CustomTrackMetaLocalCompanion.insert(
+            examId: 'exam_custom_all',
+            name: 'Everything included',
+          ),
+        );
+
+    expect(await SyncMeaningfulProgress(db).hasMeaningfulData(), isTrue);
+  });
+
+  test('review logs are sync-meaningful', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final stamp = DateTime.utc(2026, 8, 30);
+
     await db.into(db.reviewLogs).insert(
           ReviewLogsCompanion.insert(
             id: 'review-1',
-            questionId: 'q1',
+            questionId: 'q-1',
             rating: 3,
             state: 2,
             due: stamp,
             stability: 1,
-            difficulty: 1,
+            difficulty: 5,
             elapsedDays: 1,
             lastElapsedDays: 1,
-            scheduledDays: 1,
+            scheduledDays: 3,
             review: stamp,
-            durationMs: 1000,
+            durationMs: 800,
             isCorrect: true,
           ),
         );
 
-    expect(await SyncLocalStateWiper(db).hasMeaningfulProgress(), isTrue);
+    expect(await SyncMeaningfulProgress(db).hasMeaningfulData(), isTrue);
   });
 
-  test('hasMeaningfulProgress is true for track scope', () async {
+  test('custom blueprints are sync-meaningful', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     await seedTopicWithQuestions(
       db,
-      examId: 'cse',
-      topicId: 'topic_1',
-      topicName: 'Topic 1',
+      examId: 'exam_custom_1',
+      topicId: 'topic-1',
+      topicName: 'Topic',
       questionIds: const [],
     );
-    await db.into(db.trackScopeLocal).insert(
-          TrackScopeLocalCompanion.insert(examId: 'cse', topicId: 'topic_1'),
-        );
 
-    expect(await SyncLocalStateWiper(db).hasMeaningfulProgress(), isTrue);
-  });
-
-  test('hasMeaningfulProgress is true for custom blueprints', () async {
-    final db = inMemoryDatabase();
-    addTearDown(db.close);
-    await seedTopicWithQuestions(
-      db,
-      examId: 'cse',
-      topicId: 'topic_1',
-      topicName: 'Topic 1',
-      questionIds: const [],
-    );
     await db.into(db.customBlueprintsLocal).insert(
           CustomBlueprintsLocalCompanion.insert(
-            examId: 'cse',
+            examId: 'exam_custom_1',
             totalQuestions: 50,
             totalMinutes: 60,
             sectionsJson: '[]',
-            updatedAt: DateTime.utc(2026, 5, 18),
+            updatedAt: DateTime.utc(2026, 8, 30),
           ),
         );
 
-    expect(await SyncLocalStateWiper(db).hasMeaningfulProgress(), isTrue);
+    expect(await SyncMeaningfulProgress(db).hasMeaningfulData(), isTrue);
   });
 }

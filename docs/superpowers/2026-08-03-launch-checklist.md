@@ -293,7 +293,6 @@ correction of 3 August. None can be closed by a unit test.
 ## Gate 6: Backend, sync and security
 
 - [ ] **[A]** Firestore owner rules deployed, deployed ruleset matches `firestore.rules`.
-- [ ] **[A]** `resetCloudUserData` callable deployed.
 - [ ] **[A]** App Check enforced for Firestore and Functions in dev and prod, with debug
       tokens and Play Integrity registered.
 - [ ] **[A]** One real-device sync verification end to end: build local progress, sign in,
