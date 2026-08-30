@@ -17,6 +17,7 @@ class AccessibleMath extends StatelessWidget {
     required this.latex,
     this.mathStyle = MathStyle.display,
     this.textStyle,
+    this.textScaleFactor,
     this.semanticsLabel,
     this.fitAlignment = Alignment.center,
     this.onErrorFallback,
@@ -26,6 +27,7 @@ class AccessibleMath extends StatelessWidget {
   final String latex;
   final MathStyle mathStyle;
   final TextStyle? textStyle;
+  final double? textScaleFactor;
   final String? semanticsLabel;
   final AlignmentGeometry fitAlignment;
   final WidgetBuilder? onErrorFallback;
@@ -36,6 +38,7 @@ class AccessibleMath extends StatelessWidget {
       latex,
       mathStyle: mathStyle,
       textStyle: textStyle,
+      textScaleFactor: textScaleFactor,
       onErrorFallback: (_) =>
           onErrorFallback?.call(context) ?? Text(latex, style: textStyle),
     );

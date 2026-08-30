@@ -30,7 +30,9 @@ class _Android200RegressionScaler extends TextScaler {
   double scale(double fontSize) => fontSize * 1.6;
 
   @override
-  double get textScaleFactor => 2.0;
+  double get textScaleFactor => 2;
+
+  double get legacyScale => 2;
 }
 
 Widget _lessonParagraph(String text, {String style = 'normal'}) {
@@ -40,7 +42,7 @@ Widget _lessonParagraph(String text, {String style = 'normal'}) {
         '_type': 'block',
         'style': style,
         'children': [
-          {'_type': 'span', 'text': text, 'marks': <String>[]},
+          {'_type': 'span', 'text': text, 'marks': const <String>[]},
         ],
       },
     ],
@@ -65,27 +67,23 @@ Future<double> _paragraphHeight(
   return tester.getSize(find.byType(RichText).first).height;
 }
 
-Future<double> _mathHeightInParagraph(
+Future<double> _effectiveInlineMathSizeRatio(
   WidgetTester tester,
-  String text,
   TextScaler scaler, {
   String style = 'normal',
 }) async {
-  await _paragraphHeight(tester, text, scaler, style: style);
-  return tester.getSize(find.byType(Math)).height;
-}
-
-Future<double> _effectiveInlineMathSizeRatio(
-  WidgetTester tester,
-  TextScaler scaler,
-) async {
-  await _paragraphHeight(tester, r'Here $A$ is the amount.', scaler);
+  await _paragraphHeight(
+    tester,
+    r'Here $A$ is the amount.',
+    scaler,
+    style: style,
+  );
   final mathFinder = find.byType(Math);
   final math = tester.widget<Math>(mathFinder);
   final mathContext = tester.element(mathFinder);
   final mathStyle = math.textStyle ?? DefaultTextStyle.of(mathContext).style;
-  final legacyScale =
-      math.textScaleFactor ?? MediaQuery.textScaleFactorOf(mathContext);
+  final legacyScale = math.textScaleFactor ??
+      (scaler is _Android200RegressionScaler ? scaler.legacyScale : 1);
   final effectiveMathSize = mathStyle.fontSize! * legacyScale;
 
   final bodyRichText = tester.widget<RichText>(find.byType(RichText).first);
@@ -126,26 +124,17 @@ void main() {
 
     testWidgets('heading inline math inherits heading typography',
         (tester) async {
-      final plainHeadingHeight = await _paragraphHeight(
+      final ratio = await _effectiveInlineMathSizeRatio(
         tester,
-        'A',
         TextScaler.noScaling,
         style: 'h2',
       );
-      final mathHeight = await _mathHeightInParagraph(
-        tester,
-        r'$A$',
-        TextScaler.noScaling,
-        style: 'h2',
-      );
-      final ratio = mathHeight / plainHeadingHeight;
 
       expect(
         ratio,
-        greaterThanOrEqualTo(0.65),
-        reason: 'Inline math in an h2 must use the h2 typography, not generic '
-            'body sizing. heading=$plainHeadingHeight math=$mathHeight '
-            'ratio=$ratio',
+        inInclusiveRange(0.95, 1.05),
+        reason: 'Inline math in an h2 must inherit the h2 effective type size, '
+            'not generic body sizing. ratio=$ratio',
       );
     });
 

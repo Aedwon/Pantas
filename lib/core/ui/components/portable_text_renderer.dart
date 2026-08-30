@@ -286,7 +286,8 @@ class _BlockRenderer extends StatelessWidget {
         TextSpan(
           children: [
             if (marker != null) TextSpan(text: '$marker  '),
-            for (final child in children) _buildInlineSpan(child),
+            for (final child in children)
+              _buildInlineSpan(child, baseStyle: baseStyle),
           ],
         ),
         style: baseStyle,
@@ -322,11 +323,12 @@ class _BlockRenderer extends StatelessWidget {
             const _UnknownBlockPlaceholder(blockType: 'latex-inline'),
       );
 
-  InlineSpan _buildInlineSpan(Map<String, dynamic> child) {
+  InlineSpan _buildInlineSpan(
+    Map<String, dynamic> child, {
+    required TextStyle baseStyle,
+  }) {
     final text = child['text'] as String? ?? '';
     final marks = (child['marks'] as List? ?? []).cast<String>();
-
-    if (marks.contains('latex')) return _inlineMath(text);
 
     TextStyle? style;
     if (marks.contains('strong')) {
@@ -345,6 +347,11 @@ class _BlockRenderer extends StatelessWidget {
           .copyWith(decoration: TextDecoration.combine(decorations));
     }
 
+    final effectiveStyle = baseStyle.merge(style);
+    if (marks.contains('latex')) {
+      return _inlineMath(text, style: effectiveStyle);
+    }
+
     // A span can carry `$…$` without a latex mark: the mark is added when
     // this renderer is handed a plain string, and lesson bodies arrive as
     // blocks that never went through that step. Those dollars reached the
@@ -352,7 +359,7 @@ class _BlockRenderer extends StatelessWidget {
     return TextSpan(
       children: inlineMathSpans(
         text,
-        style: style,
+        style: effectiveStyle,
         onErrorFallback: (_) =>
             const _UnknownBlockPlaceholder(blockType: 'latex-inline'),
       ),
