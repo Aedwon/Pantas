@@ -11,6 +11,8 @@ const _readerPadding = EdgeInsets.symmetric(horizontal: 24);
 const _compoundInterestLatex = 'A = P(1 + r)^t';
 const _compoundInterestSpeech =
     'A equals P open parenthesis 1 plus r close parenthesis to the power of t';
+const _compoundInterestSentence =
+    'Use $_compoundInterestSpeech to find the amount after interest.';
 final _inlineEstimateSentence = RegExp(
   r'^Use\s+1\.02 to the power of 4\s+approximately\s+1\.0824\s+to calculate the result\.$',
 );
@@ -92,16 +94,14 @@ Future<double> _inlineExponentPaintedHeight(
   WidgetTester tester,
   TextScaler scaler,
 ) async {
-  final semantics = tester.ensureSemantics();
   await _paragraphHeight(
     tester,
     r'Use $1.02^4$ here.',
     scaler,
   );
-  final rect = tester.getRect(
-    find.bySemanticsLabel('1.02 to the power of 4'),
-  );
-  semantics.dispose();
+  final mathFinder = find.byType(Math);
+  expect(mathFinder, findsOneWidget);
+  final rect = tester.getRect(mathFinder);
   return rect.height;
 }
 
@@ -304,7 +304,8 @@ void main() {
       },
     );
 
-    testWidgets('inline compound-interest math is one coherent expression',
+    testWidgets(
+        'inline compound-interest math is part of one semantic sentence',
         (tester) async {
       final semantics = tester.ensureSemantics();
       await pumpAccessibilitySurface(
@@ -319,7 +320,8 @@ void main() {
         viewportSize: _viewport,
       );
 
-      expect(find.bySemanticsLabel(_compoundInterestSpeech), findsOneWidget);
+      expect(find.bySemanticsLabel(_compoundInterestSentence), findsOneWidget);
+      expect(find.bySemanticsLabel(_compoundInterestSpeech), findsNothing);
       expect(
         find.bySemanticsLabel(RegExp(r'^(A|=|P|\(|1|\+|r|\)|t)$')),
         findsNothing,
