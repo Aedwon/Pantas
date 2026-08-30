@@ -11,6 +11,9 @@ const _readerPadding = EdgeInsets.symmetric(horizontal: 24);
 const _compoundInterestLatex = 'A = P(1 + r)^t';
 const _compoundInterestSpeech =
     'A equals P open parenthesis 1 plus r close parenthesis to the power of t';
+final _inlineEstimateSentence = RegExp(
+  r'^Use\s+1\.02 to the power of 4\s+approximately\s+1\.0824\s+to calculate the result\.$',
+);
 
 Widget _readerSurface(Widget child) {
   return SizedBox(
@@ -228,6 +231,79 @@ void main() {
   });
 
   group('math screen-reader semantics', () {
+    testWidgets(
+      'InlineMathText includes inline math in the surrounding sentence',
+      (tester) async {
+        final semantics = tester.ensureSemantics();
+        await pumpAccessibilitySurface(
+          tester,
+          _readerSurface(
+            const InlineMathText(
+              r'Use $1.02^4 \approx 1.0824$ to calculate the result.',
+              style: TextStyle(fontSize: 14, height: 1.5),
+            ),
+          ),
+          textScale: 2,
+          viewportSize: _viewport,
+        );
+
+        expect(
+          find.bySemanticsLabel(_inlineEstimateSentence),
+          findsOneWidget,
+          reason: 'Continuous reading needs one semantic sentence containing '
+              'both the prose and the spoken inline expression.',
+        );
+        semantics.dispose();
+      },
+    );
+
+    testWidgets(
+      'PortableTextRenderer includes marked inline math in its sentence',
+      (tester) async {
+        final semantics = tester.ensureSemantics();
+        await pumpAccessibilitySurface(
+          tester,
+          _readerSurface(
+            const PortableTextRenderer(
+              blocks: [
+                {
+                  '_type': 'block',
+                  'style': 'normal',
+                  'children': [
+                    {
+                      '_type': 'span',
+                      'text': 'Use ',
+                      'marks': <String>[],
+                    },
+                    {
+                      '_type': 'span',
+                      'text': r'1.02^4 \approx 1.0824',
+                      'marks': <String>['latex'],
+                    },
+                    {
+                      '_type': 'span',
+                      'text': ' to calculate the result.',
+                      'marks': <String>[],
+                    },
+                  ],
+                },
+              ],
+            ),
+          ),
+          textScale: 2,
+          viewportSize: _viewport,
+        );
+
+        expect(
+          find.bySemanticsLabel(_inlineEstimateSentence),
+          findsOneWidget,
+          reason: 'Lesson prose must expose its inline formula as part of '
+              'the containing accessibility sentence.',
+        );
+        semantics.dispose();
+      },
+    );
+
     testWidgets('inline compound-interest math is one coherent expression',
         (tester) async {
       final semantics = tester.ensureSemantics();
