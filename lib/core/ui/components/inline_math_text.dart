@@ -87,20 +87,15 @@ InlineSpan inlineMathSpan(
       builder: (context) {
         final inherited = DefaultTextStyle.of(context).style;
         final body = style ?? inherited;
-        final fontSize = body.fontSize ?? inherited.fontSize;
-        final scaler = MediaQuery.textScalerOf(context);
 
-        // Flutter text consumes the active TextScaler, including Android's
-        // nonlinear large-text curve. flutter_math_fork 0.7.4 still multiplies
-        // by the deprecated legacy scalar. Pre-resolve the surrounding size
-        // with the real scaler and tell the math package not to scale it again.
-        final scaledBody = fontSize == null
-            ? body
-            : body.copyWith(fontSize: scaler.scale(fontSize));
+        // Text.rich automatically scales every WidgetSpan child with its
+        // active TextScaler. Keep the TeX source size unscaled here and disable
+        // flutter_math_fork's legacy scalar so the outer paragraph applies
+        // Android's nonlinear accessibility scale exactly once.
         return AccessibleMath(
           latex: displayFractions(latex),
           mathStyle: MathStyle.text,
-          textStyle: scaledBody,
+          textStyle: body,
           textScaleFactor: 1,
           fitAlignment: Alignment.centerLeft,
           onErrorFallback: onErrorFallback,

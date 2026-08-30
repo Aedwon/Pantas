@@ -31,8 +31,6 @@ class _Android200RegressionScaler extends TextScaler {
 
   @override
   double get textScaleFactor => 2;
-
-  double get legacyScale => 2;
 }
 
 Widget _lessonParagraph(String text, {String style = 'normal'}) {
@@ -123,7 +121,8 @@ void main() {
         inInclusiveRange(1.55, 1.65),
         reason: 'The outer Text.rich already scales WidgetSpan children. '
             'Inline math must therefore consume the active scaler once, not '
-            'pre-scale and then be auto-scaled again. painted-height ratio=$ratio',
+            'pre-scale and then be auto-scaled again. '
+            'painted-height ratio=$ratio',
       );
     });
 
