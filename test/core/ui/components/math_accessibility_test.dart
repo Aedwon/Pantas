@@ -67,66 +67,82 @@ Future<double> _paragraphHeight(
   return tester.getSize(find.byType(RichText).first).height;
 }
 
-Future<double> _effectiveInlineMathSizeRatio(
-  WidgetTester tester,
-  TextScaler scaler, {
+Future<double> _inlineMathSourceSizeRatio(
+  WidgetTester tester, {
   String style = 'normal',
 }) async {
   await _paragraphHeight(
     tester,
     r'Here $A$ is the amount.',
-    scaler,
+    TextScaler.noScaling,
     style: style,
   );
   final mathFinder = find.byType(Math);
   final math = tester.widget<Math>(mathFinder);
   final mathContext = tester.element(mathFinder);
   final mathStyle = math.textStyle ?? DefaultTextStyle.of(mathContext).style;
-  final legacyScale = math.textScaleFactor ??
-      (scaler is _Android200RegressionScaler ? scaler.legacyScale : 1);
-  final effectiveMathSize = mathStyle.fontSize! * legacyScale;
 
   final bodyRichText = tester.widget<RichText>(find.byType(RichText).first);
   final bodyFontSize = bodyRichText.text.style!.fontSize!;
-  final effectiveBodySize = scaler.scale(bodyFontSize);
-  return effectiveMathSize / effectiveBodySize;
+  return mathStyle.fontSize! / bodyFontSize;
+}
+
+Future<double> _inlineExponentPaintedHeight(
+  WidgetTester tester,
+  TextScaler scaler,
+) async {
+  final semantics = tester.ensureSemantics();
+  await _paragraphHeight(
+    tester,
+    r'Use $1.02^4$ here.',
+    scaler,
+  );
+  final rect = tester.getRect(
+    find.bySemanticsLabel('1.02 to the power of 4'),
+  );
+  semantics.dispose();
+  return rect.height;
 }
 
 void main() {
   group('lesson math at 200% text scale', () {
-    testWidgets('short inline math uses the same effective nonlinear scale',
+    testWidgets('inline exponent consumes the active text scaler exactly once',
         (tester) async {
-      const scaler = _Android200RegressionScaler();
-      final ratio = await _effectiveInlineMathSizeRatio(tester, scaler);
-
-      expect(
-        ratio,
-        inInclusiveRange(0.95, 1.05),
-        reason: 'Inline math and adjacent body text must consume the active '
-            'text scaler exactly once. effective-size ratio=$ratio',
-      );
-    });
-
-    testWidgets('short inline math keeps the same effective default scale',
-        (tester) async {
-      final ratio = await _effectiveInlineMathSizeRatio(
+      final unscaledHeight = await _inlineExponentPaintedHeight(
         tester,
         TextScaler.noScaling,
       );
+      final scaledHeight = await _inlineExponentPaintedHeight(
+        tester,
+        const _Android200RegressionScaler(),
+      );
+      final ratio = scaledHeight / unscaledHeight;
+
+      expect(
+        ratio,
+        inInclusiveRange(1.55, 1.65),
+        reason: 'The outer Text.rich already scales WidgetSpan children. '
+            'Inline math must therefore consume the active scaler once, not '
+            'pre-scale and then be auto-scaled again. painted-height ratio=$ratio',
+      );
+    });
+
+    testWidgets('short inline math keeps the same source size at default scale',
+        (tester) async {
+      final ratio = await _inlineMathSourceSizeRatio(tester);
 
       expect(
         ratio,
         inInclusiveRange(0.95, 1.05),
-        reason: 'Default-scale math should keep the same effective type size '
-            'as its surrounding body text. ratio=$ratio',
+        reason: 'Default-scale math should start from the same type size as '
+            'its surrounding body text. ratio=$ratio',
       );
     });
 
     testWidgets('heading inline math inherits heading typography',
         (tester) async {
-      final ratio = await _effectiveInlineMathSizeRatio(
+      final ratio = await _inlineMathSourceSizeRatio(
         tester,
-        TextScaler.noScaling,
         style: 'h2',
       );
 
