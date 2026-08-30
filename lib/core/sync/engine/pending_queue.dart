@@ -76,12 +76,12 @@ class PendingQueue {
       mutationId: mutationId,
     );
 
-    final existing = await (_db.select(_db.pendingSync)
-          ..where((row) => row.uid.equals(uid))
-          ..where((row) => row.generationId.equals(generationId))
-          ..where((row) => row.tableType.equals(tableType))
-          ..where((row) => row.rowId.equals(rowId)))
-        .getSingleOrNull();
+    final existing = await findGenerationBound(
+      uid: uid,
+      generationId: generationId,
+      tableType: tableType,
+      rowId: rowId,
+    );
 
     if (existing == null) {
       await _db.into(_db.pendingSync).insert(
@@ -114,12 +114,12 @@ class PendingQueue {
       );
     }
 
-    return (_db.select(_db.pendingSync)
-          ..where((row) => row.uid.equals(uid))
-          ..where((row) => row.generationId.equals(generationId))
-          ..where((row) => row.tableType.equals(tableType))
-          ..where((row) => row.rowId.equals(rowId)))
-        .getSingle();
+    return (await findGenerationBound(
+      uid: uid,
+      generationId: generationId,
+      tableType: tableType,
+      rowId: rowId,
+    ))!;
   }
 
   Future<List<PendingSyncRow>> drain({required int limit}) {
@@ -127,6 +127,146 @@ class PendingQueue {
           ..orderBy([(row) => OrderingTerm.asc(row.queuedAt)])
           ..limit(limit))
         .get();
+  }
+
+  Future<List<PendingSyncRow>> drainGeneration({
+    required String uid,
+    required String generationId,
+    required int limit,
+  }) {
+    return (_db.select(_db.pendingSync)
+          ..where((row) => row.uid.equals(uid))
+          ..where((row) => row.generationId.equals(generationId))
+          ..orderBy([(row) => OrderingTerm.asc(row.queuedAt)])
+          ..limit(limit))
+        .get();
+  }
+
+  Future<PendingSyncRow?> findGenerationBound({
+    required String uid,
+    required String generationId,
+    required String tableType,
+    required String rowId,
+  }) {
+    return (_db.select(_db.pendingSync)
+          ..where((row) => row.uid.equals(uid))
+          ..where((row) => row.generationId.equals(generationId))
+          ..where((row) => row.tableType.equals(tableType))
+          ..where((row) => row.rowId.equals(rowId)))
+        .getSingleOrNull();
+  }
+
+  Future<bool> advanceNewerRevisionBase({
+    required PendingSyncIdentity observed,
+    required String uid,
+    required String generationId,
+    required String tableType,
+    required String rowId,
+    required String expectedBaseState,
+    required DateTime? expectedBaseUpdatedAt,
+    required DateTime acceptedUpdatedAt,
+  }) {
+    return _db.transaction(() async {
+      final current = await findGenerationBound(
+        uid: uid,
+        generationId: generationId,
+        tableType: tableType,
+        rowId: rowId,
+      );
+      if (current == null ||
+          current.id != observed.id ||
+          current.revision <= observed.revision ||
+          current.baseState != expectedBaseState ||
+          !_sameInstant(current.baseUpdatedAt, expectedBaseUpdatedAt)) {
+        return false;
+      }
+
+      final identity = PendingSyncIdentity.fromRow(current);
+      final changed = await (_db.update(_db.pendingSync)
+            ..where((row) => _matchesIdentity(row, identity)))
+          .write(
+        PendingSyncCompanion(
+          baseState: const Value('knownVersion'),
+          baseUpdatedAt: Value(acceptedUpdatedAt.toUtc()),
+        ),
+      );
+      return changed == 1;
+    });
+  }
+
+  Future<bool> advanceCurrentBaseIfMatches({
+    required String uid,
+    required String generationId,
+    required String tableType,
+    required String rowId,
+    required String expectedBaseState,
+    required DateTime? expectedBaseUpdatedAt,
+    required DateTime acceptedUpdatedAt,
+  }) {
+    return _db.transaction(() async {
+      final current = await findGenerationBound(
+        uid: uid,
+        generationId: generationId,
+        tableType: tableType,
+        rowId: rowId,
+      );
+      if (current == null ||
+          current.baseState != expectedBaseState ||
+          !_sameInstant(current.baseUpdatedAt, expectedBaseUpdatedAt)) {
+        return false;
+      }
+
+      final changed = await (_db.update(_db.pendingSync)
+            ..where(
+              (row) => _matchesIdentity(
+                row,
+                PendingSyncIdentity.fromRow(current),
+              ),
+            ))
+          .write(
+        PendingSyncCompanion(
+          baseState: const Value('knownVersion'),
+          baseUpdatedAt: Value(acceptedUpdatedAt.toUtc()),
+        ),
+      );
+      return changed == 1;
+    });
+  }
+
+  Future<bool> discardCurrentLineage({
+    required PendingSyncIdentity observed,
+    required String uid,
+    required String generationId,
+    required String tableType,
+    required String rowId,
+    required String expectedBaseState,
+    required DateTime? expectedBaseUpdatedAt,
+  }) {
+    return _db.transaction(() async {
+      final current = await findGenerationBound(
+        uid: uid,
+        generationId: generationId,
+        tableType: tableType,
+        rowId: rowId,
+      );
+      if (current == null ||
+          current.id != observed.id ||
+          current.revision < observed.revision ||
+          current.baseState != expectedBaseState ||
+          !_sameInstant(current.baseUpdatedAt, expectedBaseUpdatedAt)) {
+        return false;
+      }
+
+      final changed = await (_db.delete(_db.pendingSync)
+            ..where(
+              (row) => _matchesIdentity(
+                row,
+                PendingSyncIdentity.fromRow(current),
+              ),
+            ))
+          .go();
+      return changed == 1;
+    });
   }
 
   Future<void> markFailure(
@@ -175,6 +315,11 @@ class PendingQueue {
     return pending.id.equals(identity.id) &
         pending.revision.equals(identity.revision) &
         pending.mutationId.equals(identity.mutationId);
+  }
+
+  static bool _sameInstant(DateTime? left, DateTime? right) {
+    if (left == null || right == null) return left == right;
+    return left.isAtSameMomentAs(right);
   }
 
   static void _validateGenerationBoundInput({

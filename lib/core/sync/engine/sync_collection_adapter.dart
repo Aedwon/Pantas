@@ -49,6 +49,21 @@ class SyncCollectionAdapter {
     });
   }
 
+  Future<void> applyKnownAbsent({
+    required AppDatabase db,
+    required String rowId,
+    String? originDeviceId,
+  }) {
+    return db.transaction(() async {
+      await _delete(db, rowId);
+      await SyncRowMetaRepository(db).acceptKnownAbsent(
+        collection: collection,
+        rowId: rowId,
+        originDeviceId: originDeviceId,
+      );
+    });
+  }
+
   Future<void> _upsert(
     AppDatabase db,
     String rowId,
