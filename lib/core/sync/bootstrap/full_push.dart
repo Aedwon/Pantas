@@ -21,6 +21,7 @@ enum FullPushOutcome {
   staleLocalEpoch,
   retryableFailure,
   generationConflict,
+  cancelled,
 }
 
 class FullPushResult {
@@ -69,8 +70,10 @@ class FullPushBootstrap {
 
   Future<FullPushResult> run({
     required String? expectedActiveGenerationId,
+    bool Function()? shouldContinue,
   }) async {
     final generationId = _generationIdFactory();
+    final canContinue = shouldContinue ?? () => true;
     await _setMarker(generationId);
     final epoch = await _readEpoch();
     final journal = await _captureJournal(epoch);
@@ -80,14 +83,32 @@ class FullPushBootstrap {
         for (final row in await _db.select(_db.accountPrefs).get())
           row.key: row.value,
       };
+      if (!canContinue()) {
+        return FullPushResult(
+          outcome: FullPushOutcome.cancelled,
+          generationId: generationId,
+        );
+      }
       await _generationRepository.stageGeneration(
         generationId: generationId,
         deviceId: _deviceId,
         preferences: preferences,
       );
 
+      if (!canContinue()) {
+        return FullPushResult(
+          outcome: FullPushOutcome.cancelled,
+          generationId: generationId,
+        );
+      }
       final writes = await _buildWrites(generationId);
       for (var start = 0; start < writes.length; start += 500) {
+        if (!canContinue()) {
+          return FullPushResult(
+            outcome: FullPushOutcome.cancelled,
+            generationId: generationId,
+          );
+        }
         final end = (start + 500).clamp(0, writes.length);
         await _gateway.commitBatch(writes.sublist(start, end));
       }
@@ -95,6 +116,13 @@ class FullPushBootstrap {
       if (await _readEpoch() != epoch) {
         return FullPushResult(
           outcome: FullPushOutcome.staleLocalEpoch,
+          generationId: generationId,
+        );
+      }
+
+      if (!canContinue()) {
+        return FullPushResult(
+          outcome: FullPushOutcome.cancelled,
           generationId: generationId,
         );
       }
@@ -119,6 +147,12 @@ class FullPushBootstrap {
         );
       }
 
+      if (!canContinue()) {
+        return FullPushResult(
+          outcome: FullPushOutcome.cancelled,
+          generationId: generationId,
+        );
+      }
       if (await _readEpoch() != epoch) {
         return FullPushResult(
           outcome: FullPushOutcome.staleLocalEpoch,

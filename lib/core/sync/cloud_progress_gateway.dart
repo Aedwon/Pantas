@@ -1,13 +1,11 @@
-import 'package:pantas/core/auth/auth_repository.dart';
 import 'package:pantas/core/sync/engine/collection_registry.dart';
 import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
 
-class SyncCloudProgressGateway implements CloudProgressGateway {
+class SyncCloudProgressGateway {
   SyncCloudProgressGateway(this._gateway);
 
   final FirestoreGateway _gateway;
 
-  @override
   Future<bool> hasMeaningfulProgress(String uid) async {
     final pointer =
         await _gateway.readDocument('users/$uid/sync_state/current');

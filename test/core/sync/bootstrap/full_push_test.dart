@@ -229,6 +229,48 @@ void main() {
     expect(await _marker(db, 'pending_full_push'), isNull);
     expect(await _marker(db, 'currentLocalGenerationId'), 'gen-new');
   });
+  test(
+      'eligibility loss during staging stops before next upload batch and activation',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final stamp = DateTime.utc(2026, 8, 30);
+    for (var index = 0; index < 501; index += 1) {
+      await db.into(db.lessonProgressLocal).insert(
+            LessonProgressLocalCompanion.insert(
+              lessonId: 'lesson-$index',
+              readAt: stamp,
+            ),
+          );
+    }
+    var canContinue = true;
+    var commitCalls = 0;
+    final gateway = RecordingGateway(
+      afterCommit: (_) async {
+        commitCalls += 1;
+        canContinue = false;
+      },
+    );
+    final functions = FakeSyncFunctionsGateway();
+
+    final result = await FullPushBootstrap(
+      db: db,
+      gateway: gateway,
+      functionsGateway: functions,
+      uid: 'user-1',
+      deviceId: 'device-1',
+      generationIdFactory: () => 'gen-cancelled',
+      mutationIdFactory: (collection, rowId) => 'm-$rowId',
+    ).run(
+      expectedActiveGenerationId: 'gen-old',
+      shouldContinue: () => canContinue,
+    );
+
+    expect(result.outcome, FullPushOutcome.cancelled);
+    expect(commitCalls, 1);
+    expect(functions.activationCalls, isEmpty);
+    expect(await _marker(db, 'pending_full_push'), 'gen-cancelled');
+  });
 }
 
 class RecordingGateway extends FakeFirestoreGateway {

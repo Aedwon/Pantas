@@ -21,6 +21,7 @@ enum FullPullOutcome {
   staleLocalEpoch,
   retryableFailure,
   invalidSnapshot,
+  cancelled,
 }
 
 class FullPullResult {
@@ -47,22 +48,41 @@ class FullPullBootstrap {
   final String _uid;
   final Future<void> Function(String examId)? _rebuildCustomTrackProjection;
 
-  Future<FullPullResult> run({required String generationId}) async {
+  Future<FullPullResult> run({
+    required String generationId,
+    bool Function()? shouldContinue,
+  }) async {
+    final canContinue = shouldContinue ?? () => true;
     await _setMarker(generationId);
     final epoch = await _readEpoch();
+    if (!canContinue()) {
+      return const FullPullResult(FullPullOutcome.cancelled);
+    }
 
     late final _DownloadedSnapshot snapshot;
     try {
-      snapshot = await _downloadAndValidate(generationId);
+      snapshot = await _downloadAndValidate(
+        generationId,
+        shouldContinue: canContinue,
+      );
+    } on _SyncCancelled {
+      return const FullPullResult(FullPullOutcome.cancelled);
     } on SyncGatewayException {
       return const FullPullResult(FullPullOutcome.retryableFailure);
     } on FormatException {
       return const FullPullResult(FullPullOutcome.invalidSnapshot);
     }
 
+    if (!canContinue()) {
+      return const FullPullResult(FullPullOutcome.cancelled);
+    }
+
     final projectionExamIds = <String>{};
     try {
       await _db.transaction(() async {
+        if (!canContinue()) {
+          throw const _SyncCancelled();
+        }
         if (await _readEpoch() != epoch) {
           throw const _StaleLocalEpoch();
         }
@@ -87,6 +107,8 @@ class FullPullBootstrap {
               ..where((row) => row.key.equals('pending_full_pull')))
             .go();
       });
+    } on _SyncCancelled {
+      return const FullPullResult(FullPullOutcome.cancelled);
     } on _StaleLocalEpoch {
       return const FullPullResult(FullPullOutcome.staleLocalEpoch);
     } on FormatException {
@@ -116,10 +138,15 @@ class FullPullBootstrap {
     );
   }
 
-  Future<_DownloadedSnapshot> _downloadAndValidate(String generationId) async {
+  Future<_DownloadedSnapshot> _downloadAndValidate(
+    String generationId, {
+    required bool Function() shouldContinue,
+  }) async {
+    if (!shouldContinue()) throw const _SyncCancelled();
     final root = await _gateway.readDocument(
       'users/$_uid/sync_generations/$generationId',
     );
+    if (!shouldContinue()) throw const _SyncCancelled();
     if (root == null) {
       throw const FormatException('active Sync generation missing');
     }
@@ -143,9 +170,11 @@ class FullPullBootstrap {
     final documents = <String, List<SyncDocument>>{};
     final customTrackExamIds = <String>{};
     for (final entry in activeSyncCollections) {
+      if (!shouldContinue()) throw const _SyncCancelled();
       final rows = await _gateway.readCollection(
         'users/$_uid/sync_generations/$generationId/${entry.firestorePath}',
       );
+      if (!shouldContinue()) throw const _SyncCancelled();
       for (final row in rows) {
         _validateDocument(entry.tableType, row);
         if (entry.tableType == 'track_scope') {
@@ -332,6 +361,10 @@ class _DownloadedSnapshot {
   final Map<String, String> preferences;
   final Map<String, List<SyncDocument>> documents;
   final Set<String> customTrackExamIds;
+}
+
+class _SyncCancelled implements Exception {
+  const _SyncCancelled();
 }
 
 class _StaleLocalEpoch implements Exception {

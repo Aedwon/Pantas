@@ -217,6 +217,33 @@ void main() {
     expect((await db.select(db.lessonProgressLocal).get()).single.lessonId,
         'local-before');
   });
+  test(
+      'eligibility loss during download stops before next read and local replacement',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await _putLesson(db, 'local-before');
+    var canContinue = true;
+    final gateway = CancellingReadGateway(
+      _cloudGateway(),
+      onFirstCollectionRead: () => canContinue = false,
+    );
+
+    final result = await FullPullBootstrap(
+      db: db,
+      gateway: gateway,
+      uid: 'user-1',
+    ).run(
+      generationId: 'gen-1',
+      shouldContinue: () => canContinue,
+    );
+
+    expect(result.outcome, FullPullOutcome.cancelled);
+    expect(gateway.collectionReads, 1);
+    expect((await db.select(db.lessonProgressLocal).get()).single.lessonId,
+        'local-before');
+    expect(await _marker(db, 'pending_full_pull'), 'gen-1');
+  });
 }
 
 FakeFirestoreGateway _cloudGateway({bool includeCustomTrack = false}) {
@@ -267,6 +294,27 @@ FakeFirestoreGateway _cloudGateway({bool includeCustomTrack = false}) {
     ];
   }
   return gateway;
+}
+
+class CancellingReadGateway extends FakeFirestoreGateway {
+  CancellingReadGateway(
+    FakeFirestoreGateway source, {
+    required this.onFirstCollectionRead,
+  }) {
+    documents.addAll(source.documents);
+    collections.addAll(source.collections);
+  }
+
+  final void Function() onFirstCollectionRead;
+  int collectionReads = 0;
+
+  @override
+  Future<List<SyncDocument>> readCollection(String path) async {
+    collectionReads += 1;
+    final rows = await super.readCollection(path);
+    if (collectionReads == 1) onFirstCollectionRead();
+    return rows;
+  }
 }
 
 class ThrowingReadGateway extends FakeFirestoreGateway {
