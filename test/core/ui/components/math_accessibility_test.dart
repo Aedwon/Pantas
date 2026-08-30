@@ -7,7 +7,7 @@ import '../../../helpers/accessibility.dart';
 
 const _viewport = Size(320, 800);
 const _readerPadding = EdgeInsets.symmetric(horizontal: 24);
-const _compoundInterestLatex = r'A = P(1 + r)^t';
+const _compoundInterestLatex = 'A = P(1 + r)^t';
 const _compoundInterestSpeech =
     'A equals P open parenthesis 1 plus r close parenthesis to the power of t';
 
@@ -98,8 +98,6 @@ void main() {
     testWidgets('inline compound-interest math is one coherent expression',
         (tester) async {
       final semantics = tester.ensureSemantics();
-      addTearDown(semantics.dispose);
-
       await pumpAccessibilitySurface(
         tester,
         _readerSurface(
@@ -117,13 +115,12 @@ void main() {
         find.bySemanticsLabel(RegExp(r'^(A|=|P|\(|1|\+|r|\)|t)$')),
         findsNothing,
       );
+      semantics.dispose();
     });
 
     testWidgets('display compound-interest math is one coherent expression',
         (tester) async {
       final semantics = tester.ensureSemantics();
-      addTearDown(semantics.dispose);
-
       await pumpAccessibilitySurface(
         tester,
         _readerSurface(
@@ -142,14 +139,13 @@ void main() {
         find.bySemanticsLabel(RegExp(r'^(A|=|P|\(|1|\+|r|\)|t)$')),
         findsNothing,
       );
+      semantics.dispose();
     });
 
     testWidgets(
         'display math uses an authored semantic description when present',
         (tester) async {
       final semantics = tester.ensureSemantics();
-      addTearDown(semantics.dispose);
-
       await pumpAccessibilitySurface(
         tester,
         _readerSurface(
@@ -174,6 +170,7 @@ void main() {
         ),
         findsOneWidget,
       );
+      semantics.dispose();
     });
   });
 }

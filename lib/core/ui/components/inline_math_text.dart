@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
+import 'package:pantas/core/ui/components/accessible_math.dart';
 
 /// A line of text that may carry `$…$` maths.
 ///
@@ -91,12 +92,12 @@ InlineSpan inlineMathSpan(
               color: inherited.color,
               fontWeight: inherited.fontWeight,
             );
-        return Math.tex(
-          displayFractions(latex),
+        return AccessibleMath(
+          latex: displayFractions(latex),
           mathStyle: MathStyle.text,
           textStyle: body,
-          onErrorFallback: (_) =>
-              onErrorFallback?.call(context) ?? Text(latex, style: body),
+          fitAlignment: Alignment.centerLeft,
+          onErrorFallback: onErrorFallback,
         );
       },
     ),

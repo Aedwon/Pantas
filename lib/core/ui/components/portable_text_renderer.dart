@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_math_fork/flutter_math.dart';
+import 'package:pantas/core/ui/components/accessible_math.dart';
 import 'package:pantas/core/ui/components/inline_math_text.dart';
 import 'package:pantas/core/ui/figures/lesson_figure_widget.dart';
 import 'package:pantas/core/ui/theme/app_dimensions.dart';
@@ -368,11 +368,17 @@ class _LatexBlockRenderer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final text = block['body'] as String? ?? '';
+    final rawSemanticsLabel = block['semanticsLabel'];
+    final semanticsLabel =
+        rawSemanticsLabel is String ? rawSemanticsLabel.trim() : null;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Center(
-        child: Math.tex(
-          text,
+        child: AccessibleMath(
+          latex: text,
+          semanticsLabel: semanticsLabel == null || semanticsLabel.isEmpty
+              ? null
+              : semanticsLabel,
           onErrorFallback: (_) =>
               const _UnknownBlockPlaceholder(blockType: 'latex'),
         ),
