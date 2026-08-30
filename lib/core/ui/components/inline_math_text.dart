@@ -22,12 +22,52 @@ class InlineMathText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text.rich(
+    final richText = Text.rich(
       TextSpan(children: inlineMathSpans(text, style: style)),
       style: style,
       textAlign: textAlign,
     );
+    final semantics = inlineMathSemantics(text);
+    if (semantics == null || !semantics.hasMath) return richText;
+
+    return Semantics(
+      label: semantics.label,
+      excludeSemantics: true,
+      child: richText,
+    );
   }
+}
+
+/// Builds the sentence-level accessibility text for a string containing
+/// inline `$…$` maths.
+///
+/// A malformed expression returns `null` so callers keep the renderer's
+/// existing fallback semantics instead of announcing a derived math label.
+({String label, bool hasMath})? inlineMathSemantics(String text) {
+  if (!text.contains(r'$')) return (label: text, hasMath: false);
+
+  final matches = RegExp(r'\$([^$]+)\$').allMatches(text).toList();
+  if (matches.isEmpty) return (label: text, hasMath: false);
+
+  final label = StringBuffer();
+  var lastEnd = 0;
+  for (final match in matches) {
+    label.write(text.substring(lastEnd, match.start));
+    final mathLabel = inlineMathExpressionSemanticsLabel(match.group(1) ?? '');
+    if (mathLabel == null) return null;
+    label.write(mathLabel);
+    lastEnd = match.end;
+  }
+  label.write(text.substring(lastEnd));
+  return (label: label.toString(), hasMath: true);
+}
+
+/// Returns the existing Pantas math speech only when the inline TeX parses.
+String? inlineMathExpressionSemanticsLabel(String latex) {
+  final displayedLatex = displayFractions(latex);
+  final math = Math.tex(displayedLatex, mathStyle: MathStyle.text);
+  if (math.parseError != null) return null;
+  return mathSemanticsLabel(displayedLatex);
 }
 
 /// Splits a plain string on `$…$` and sets each enclosed run as maths.

@@ -280,21 +280,55 @@ class _BlockRenderer extends StatelessWidget {
         ? (0, _spaceBelow(style))
         : (_spaceAbove(style), _spaceBelow(style));
 
+    final richText = Text.rich(
+      TextSpan(
+        children: [
+          if (marker != null) TextSpan(text: '$marker  '),
+          for (final child in children)
+            _buildInlineSpan(child, baseStyle: baseStyle),
+        ],
+      ),
+      style: baseStyle,
+      maxLines: maxLines,
+      overflow: maxLines != null ? TextOverflow.ellipsis : null,
+    );
+    final semanticsLabel = _inlineSentenceSemantics(children);
+
     return Padding(
       padding: EdgeInsets.only(top: above, bottom: below, left: indent),
-      child: Text.rich(
-        TextSpan(
-          children: [
-            if (marker != null) TextSpan(text: '$marker  '),
-            for (final child in children)
-              _buildInlineSpan(child, baseStyle: baseStyle),
-          ],
-        ),
-        style: baseStyle,
-        maxLines: maxLines,
-        overflow: maxLines != null ? TextOverflow.ellipsis : null,
-      ),
+      child: semanticsLabel == null
+          ? richText
+          : Semantics(
+              label: semanticsLabel,
+              excludeSemantics: true,
+              child: richText,
+            ),
     );
+  }
+
+  String? _inlineSentenceSemantics(List<Map<String, dynamic>> children) {
+    final label = StringBuffer();
+    if (marker != null) label.write('$marker  ');
+    var hasMath = false;
+
+    for (final child in children) {
+      final text = child['text'] as String? ?? '';
+      final marks = (child['marks'] as List? ?? []).cast<String>();
+      if (marks.contains('latex')) {
+        final mathLabel = inlineMathExpressionSemanticsLabel(text);
+        if (mathLabel == null) return null;
+        label.write(mathLabel);
+        hasMath = true;
+        continue;
+      }
+
+      final semantics = inlineMathSemantics(text);
+      if (semantics == null) return null;
+      label.write(semantics.label);
+      hasMath = hasMath || semantics.hasMath;
+    }
+
+    return hasMath ? label.toString() : null;
   }
 
   /// The gap that separates a block from the one before it.
