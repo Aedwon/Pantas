@@ -23,6 +23,28 @@ abstract interface class SyncRuntimeEngine {
   Future<void> forceFlush();
 }
 
+sealed class SyncRuntimeEvent {
+  const SyncRuntimeEvent();
+}
+
+class SyncRuntimeActivity extends SyncRuntimeEvent {
+  const SyncRuntimeActivity();
+}
+
+class SyncRuntimeSettled extends SyncRuntimeEvent {
+  const SyncRuntimeSettled();
+}
+
+class SyncRuntimeOffline extends SyncRuntimeEvent {
+  const SyncRuntimeOffline();
+}
+
+class SyncRuntimeFailure extends SyncRuntimeEvent {
+  const SyncRuntimeFailure(this.message);
+
+  final String message;
+}
+
 // ignore: one_member_abstracts
 abstract interface class SyncRuntimeLifecycle {
   Future<void> quiesce({required bool flush});
@@ -36,12 +58,15 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     required GenerationRepositoryFactory generationRepositoryForUid,
     required SyncCoordinator coordinator,
     required SyncRuntimeEngine engine,
+    Stream<SyncRuntimeEvent>? runtimeEvents,
   })  : _db = db,
         _claimGateway = claimGateway,
         _activeContextStore = activeContextStore,
         _generationRepositoryForUid = generationRepositoryForUid,
         _coordinator = coordinator,
-        _engine = engine;
+        _engine = engine {
+    _runtimeEventSubscription = runtimeEvents?.listen(_handleRuntimeEvent);
+  }
 
   final AppDatabase _db;
   final SyncClaimGateway _claimGateway;
@@ -50,11 +75,13 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
   final SyncCoordinator _coordinator;
   final SyncRuntimeEngine _engine;
   final _statusController = StreamController<SyncStatus>.broadcast();
+  StreamSubscription<SyncRuntimeEvent>? _runtimeEventSubscription;
 
   Future<void> _serialTail = Future<void>.value();
   SyncStatus _status = const SyncOff();
   _PendingReconciliation? _pendingReconciliation;
   int _transitionToken = 0;
+  int _runtimeEventToken = 0;
   bool _activeSync = false;
 
   SyncStatus get status => _status;
@@ -147,6 +174,7 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
   Future<void> close() async {
     ++_transitionToken;
     await _activeContextStore.clearStable();
+    await _runtimeEventSubscription?.cancel();
     await _enqueue(_engine.stop);
     await _statusController.close();
   }
@@ -394,8 +422,58 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     await _refreshSettledStatus(forceUnsettled: forceUnsettled);
   }
 
+  void _handleRuntimeEvent(SyncRuntimeEvent event) {
+    if (!_activeSync) return;
+    final transitionToken = _transitionToken;
+    final eventToken = ++_runtimeEventToken;
+    switch (event) {
+      case SyncRuntimeActivity():
+        _emit(const Syncing());
+      case SyncRuntimeSettled():
+        unawaited(_refreshFromRuntimeEvent(transitionToken, eventToken));
+      case SyncRuntimeOffline():
+        _emit(const SyncOffline());
+      case SyncRuntimeFailure(:final message):
+        _emit(SyncError(message: message));
+    }
+  }
+
+  Future<void> _refreshFromRuntimeEvent(
+    int transitionToken,
+    int eventToken,
+  ) {
+    return _enqueue(() async {
+      if (!_activeSync || !_isCurrent(transitionToken)) return;
+      try {
+        final status = await _readSettledStatus();
+        if (!_activeSync ||
+            !_isCurrent(transitionToken) ||
+            eventToken != _runtimeEventToken) {
+          return;
+        }
+        _emit(status);
+      } on Object catch (error) {
+        if (_activeSync &&
+            _isCurrent(transitionToken) &&
+            eventToken == _runtimeEventToken) {
+          _emit(SyncError(message: '$error'));
+        }
+      }
+    });
+  }
+
   Future<void> _refreshSettledStatus({bool forceUnsettled = false}) async {
+    _emit(await _readSettledStatus(forceUnsettled: forceUnsettled));
+  }
+
+  Future<SyncStatus> _readSettledStatus({
+    bool forceUnsettled = false,
+  }) async {
     final pending = await _db.select(_db.pendingSync).get();
+    final failed = pending.where((row) => row.lastError != null).toList();
+    if (failed.isNotEmpty) {
+      return SyncError(message: failed.first.lastError);
+    }
     final journal = await _db
         .customSelect(
           'select 1 as pending from sync_local_mutations limit 1',
@@ -412,10 +490,9 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
         pending.isNotEmpty ||
         journal.isNotEmpty ||
         markers.isNotEmpty) {
-      _emit(Syncing(pendingCount: pending.length));
-      return;
+      return Syncing(pendingCount: pending.length);
     }
-    _emit(const SyncUpToDate());
+    return const SyncUpToDate();
   }
 
   Future<void> _enqueue(Future<void> Function() operation) {

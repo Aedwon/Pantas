@@ -3,7 +3,6 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/fsrs/fsrs_scheduler.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/sync/engine/pending_queue.dart';
 import 'package:pantas/features/quiz/data/repos/new_card_intro_repository.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_preferences_repository.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
@@ -99,7 +98,6 @@ final submitAnswerProvider = Provider<SubmitAnswer>(
     reviewRepo: ref.watch(reviewStateRepositoryProvider),
     scheduler: ref.watch(fsrsSchedulerProvider),
     sessions: ref.watch(quizSessionRepositoryProvider),
-    pendingQueue: ref.watch(pendingQueueProvider),
     newCards: ref.watch(newCardIntroRepositoryProvider),
     telemetry: ref.watch(telemetryProvider),
   ),
@@ -113,13 +111,8 @@ final completeQuizProvider = Provider<CompleteQuiz>(
   (ref) => CompleteQuiz(
     ref.watch(attemptsRepositoryProvider),
     streakEvaluator: ref.watch(streakEvaluatorProvider),
-    pendingQueue: ref.watch(pendingQueueProvider),
     notifications: ref.watch(notificationServiceProvider),
   ),
-);
-
-final pendingQueueProvider = Provider<PendingQueue>(
-  (ref) => PendingQueue(ref.watch(appDatabaseProvider)),
 );
 
 final quizPreferencesRepositoryProvider = Provider<QuizPreferencesRepository>(

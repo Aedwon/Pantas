@@ -1,7 +1,6 @@
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/data/repos/attempts_repository.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
-import 'package:pantas/core/sync/engine/pending_queue.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/domain/streak/streak_evaluator.dart';
 
@@ -9,15 +8,12 @@ class CompleteQuiz {
   CompleteQuiz(
     this._attempts, {
     StreakEvaluator? streakEvaluator,
-    PendingQueue? pendingQueue,
     NotificationService? notifications,
   })  : _streakEvaluator = streakEvaluator,
-        _pendingQueue = pendingQueue,
         _notifications = notifications;
 
   final AttemptsRepository _attempts;
   final StreakEvaluator? _streakEvaluator;
-  final PendingQueue? _pendingQueue;
   final NotificationService? _notifications;
 
   Future<Attempt> call({
@@ -46,12 +42,6 @@ class CompleteQuiz {
           .toList(),
     );
     await _attempts.save(attempt);
-    await _pendingQueue?.enqueue(
-      tableType: 'quiz_attempts',
-      rowId: attempt.id,
-      op: PendingSyncOp.upsert,
-      queuedAt: now,
-    );
     await _streakEvaluator?.evaluate(
       origin: session.origin,
       completedAt: now,

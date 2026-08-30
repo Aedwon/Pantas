@@ -84,11 +84,6 @@ class FirebaseSyncFunctionsGateway implements SyncFunctionsGateway {
     }
   }
 
-  @override
-  Future<void> resetCloudUserData() {
-    throw const SyncGatewayException('legacy-reset-unsupported');
-  }
-
   static Map<String, Object?>? _stringKeyedMap(Object? value) {
     if (value is! Map) {
       return null;

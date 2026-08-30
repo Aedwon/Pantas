@@ -20,7 +20,7 @@ import '../../helpers/in_memory_database.dart';
 
 void main() {
   test('anonymous Pro is off without claim or progress reads', () async {
-    final h = Harness();
+    final h = _Harness();
     addTearDown(h.close);
 
     await h.runtime.update(
@@ -35,7 +35,7 @@ void main() {
   });
 
   test('named Free is off without claim or progress reads', () async {
-    final h = Harness();
+    final h = _Harness();
     addTearDown(h.close);
 
     await h.runtime.update(
@@ -49,9 +49,9 @@ void main() {
   });
 
   test(
-      'named RevenueCat Pro without refreshed claim activates with zero Firestore reads',
-      () async {
-    final h = Harness(hasClaim: false);
+      'named RevenueCat Pro without refreshed claim activates with zero '
+      'Firestore reads', () async {
+    final h = _Harness(hasClaim: false);
     addTearDown(h.close);
 
     await h.runtime.update(
@@ -68,7 +68,7 @@ void main() {
   test(
       'no generation automatically keeps this device before publishing context',
       () async {
-    final h = Harness();
+    final h = _Harness();
     addTearDown(h.close);
 
     await h.runtime.update(
@@ -86,7 +86,7 @@ void main() {
 
   test('existing generation plus empty local automatically keeps account',
       () async {
-    final h = Harness();
+    final h = _Harness();
     addTearDown(h.close);
     h.seedGeneration(uid: 'user-1', generationId: 'gen-cloud');
 
@@ -102,7 +102,7 @@ void main() {
   test(
       'local meaningful plus empty cloud generation automatically keeps device',
       () async {
-    final h = Harness();
+    final h = _Harness();
     addTearDown(h.close);
     h.seedGeneration(uid: 'user-1', generationId: 'gen-cloud');
     await h.seedLocalLesson();
@@ -118,10 +118,13 @@ void main() {
 
   test('both meaningful blocks engine and context until explicit choice',
       () async {
-    final h = Harness();
+    final h = _Harness();
     addTearDown(h.close);
     h.seedGeneration(
-        uid: 'user-1', generationId: 'gen-cloud', meaningful: true);
+      uid: 'user-1',
+      generationId: 'gen-cloud',
+      meaningful: true,
+    );
     await h.seedLocalLesson();
 
     await h.runtime.update(
@@ -149,9 +152,9 @@ void main() {
   });
 
   test(
-      'eligibility loss clears stable context before a slow engine stop finishes',
-      () async {
-    final h = Harness();
+      'eligibility loss clears stable context before a slow engine stop '
+      'finishes', () async {
+    final h = _Harness();
     addTearDown(h.close);
     await h.runtime.update(
       identity: const SyncIdentity(uid: 'user-1'),
@@ -173,9 +176,9 @@ void main() {
   });
 
   test(
-      'entitlement restoration reruns B3 instead of blindly resuming old generation',
-      () async {
-    final h = Harness();
+      'entitlement restoration reruns B3 instead of blindly resuming old '
+      'generation', () async {
+    final h = _Harness();
     addTearDown(h.close);
 
     await h.runtime.update(
@@ -197,7 +200,7 @@ void main() {
 
   test('UID switch never retargets prior generation-bound outbox work',
       () async {
-    final h = Harness();
+    final h = _Harness();
     addTearDown(h.close);
     await h.db.into(h.db.pendingSync).insert(
           PendingSyncCompanion.insert(
@@ -222,10 +225,10 @@ void main() {
   });
 
   test(
-      'auth and entitlement events serialize instead of running concurrent B3 flows',
-      () async {
-    final claim = BlockingClaimGateway();
-    final h = Harness(claimGateway: claim);
+      'auth and entitlement events serialize instead of running concurrent '
+      'B3 flows', () async {
+    final claim = _BlockingClaimGateway();
+    final h = _Harness(claimGateway: claim);
     addTearDown(h.close);
 
     final first = h.runtime.update(
@@ -247,7 +250,7 @@ void main() {
 
   for (final unsettled in ['journal', 'outbox', 'projection']) {
     test('status cannot be upToDate while $unsettled is unsettled', () async {
-      final h = Harness();
+      final h = _Harness();
       addTearDown(h.close);
       await h.seedUnsettled(unsettled);
 
@@ -260,19 +263,43 @@ void main() {
       expect(h.runtime.status, isNot(isA<SyncUpToDate>()));
     });
   }
+
+  test('failed outbox publishes error instead of generic syncing', () async {
+    final h = _Harness();
+    addTearDown(h.close);
+    await h.db.into(h.db.pendingSync).insert(
+          PendingSyncCompanion.insert(
+            uid: const Value('old-user'),
+            generationId: const Value('old-gen'),
+            tableType: 'lesson_progress',
+            rowId: 'failed-outbox',
+            op: 'upsert',
+            queuedAt: DateTime.utc(2026, 8, 30),
+            lastError: const Value('push failed'),
+          ),
+        );
+
+    await h.runtime.update(
+      identity: const SyncIdentity(uid: 'user-1'),
+      entitlement: SyncEntitlement.pro,
+    );
+
+    expect(h.runtime.status, isA<SyncError>());
+    expect((h.runtime.status as SyncError).message, 'push failed');
+  });
 }
 
-class Harness {
-  Harness({
+class _Harness {
+  _Harness({
     bool hasClaim = true,
     SyncClaimGateway? claimGateway,
   })  : db = inMemoryDatabase(),
-        firestore = CountingFirestoreGateway(),
-        coordinator = FakeCoordinator(),
-        engine = FakeRuntimeEngine(),
-        claim = claimGateway is CountingClaimGateway
+        firestore = _CountingFirestoreGateway(),
+        coordinator = _FakeCoordinator(),
+        engine = _FakeRuntimeEngine(),
+        claim = claimGateway is _CountingClaimGateway
             ? claimGateway
-            : CountingClaimGateway(hasClaim: hasClaim) {
+            : _CountingClaimGateway(hasClaim: hasClaim) {
     final configuredClaim = claimGateway ?? claim;
     activeContext = SyncActiveContextStore(db);
     runtime = SyncRuntimeController(
@@ -290,10 +317,10 @@ class Harness {
   }
 
   final AppDatabase db;
-  final CountingFirestoreGateway firestore;
-  final FakeCoordinator coordinator;
-  final FakeRuntimeEngine engine;
-  final CountingClaimGateway claim;
+  final _CountingFirestoreGateway firestore;
+  final _FakeCoordinator coordinator;
+  final _FakeRuntimeEngine engine;
+  final _CountingClaimGateway claim;
   late final SyncActiveContextStore activeContext;
   late final SyncRuntimeController runtime;
 
@@ -336,7 +363,8 @@ class Harness {
       case 'journal':
         await db.customStatement(
           'insert into sync_local_mutations '
-          '(collection,row_id,op,revision,mutation_epoch,causal_base_state,recorded_at) '
+          '(collection,row_id,op,revision,mutation_epoch,'
+          'causal_base_state,recorded_at) '
           'values (?,?,?,?,?,?,?)',
           [
             'lesson_progress',
@@ -348,7 +376,6 @@ class Harness {
             DateTime.utc(2026, 8, 30).millisecondsSinceEpoch,
           ],
         );
-        break;
       case 'outbox':
         await db.into(db.pendingSync).insert(
               PendingSyncCompanion.insert(
@@ -360,19 +387,18 @@ class Harness {
                 queuedAt: DateTime.utc(2026, 8, 30),
               ),
             );
-        break;
       case 'projection':
         await db.customStatement(
-          "insert into sync_meta (key,value) values ('customTrackProjectionRequired:test','1')",
+          'insert into sync_meta (key,value) values '
+          "('customTrackProjectionRequired:test','1')",
         );
-        break;
     }
   }
 
   Future<void> close() => db.close();
 }
 
-class CountingFirestoreGateway extends FakeFirestoreGateway {
+class _CountingFirestoreGateway extends FakeFirestoreGateway {
   int reads = 0;
 
   @override
@@ -388,8 +414,8 @@ class CountingFirestoreGateway extends FakeFirestoreGateway {
   }
 }
 
-class CountingClaimGateway implements SyncClaimGateway {
-  CountingClaimGateway({required this.hasClaim});
+class _CountingClaimGateway implements SyncClaimGateway {
+  _CountingClaimGateway({required this.hasClaim});
 
   final bool hasClaim;
   int calls = 0;
@@ -401,12 +427,12 @@ class CountingClaimGateway implements SyncClaimGateway {
   }
 }
 
-class BlockingClaimGateway implements SyncClaimGateway {
+class _BlockingClaimGateway implements SyncClaimGateway {
   final firstEntered = Completer<void>();
   final _release = Completer<void>();
   var _calls = 0;
   var _active = 0;
-  var maxConcurrent = 0;
+  int maxConcurrent = 0;
 
   @override
   Future<bool> refreshProClaim({required String uid}) async {
@@ -424,7 +450,7 @@ class BlockingClaimGateway implements SyncClaimGateway {
   void releaseFirst() => _release.complete();
 }
 
-class FakeCoordinator implements SyncCoordinator {
+class _FakeCoordinator implements SyncCoordinator {
   final operations = <String>[];
   final _pushPerUid = <String, int>{};
 
@@ -456,17 +482,19 @@ class FakeCoordinator implements SyncCoordinator {
   }
 }
 
-class FakeRuntimeEngine implements SyncRuntimeEngine {
+class _FakeRuntimeEngine implements SyncRuntimeEngine {
   final starts = <String>[];
-  var stopCalls = 0;
-  var flushCalls = 0;
-  var blockStops = false;
+  int stopCalls = 0;
+  int flushCalls = 0;
+  bool blockStops = false;
   Completer<void> stopEntered = Completer<void>();
-  Completer<void> _stopRelease = Completer<void>();
+  final Completer<void> _stopRelease = Completer<void>();
 
   @override
-  Future<void> start(
-      {required String uid, required String generationId}) async {
+  Future<void> start({
+    required String uid,
+    required String generationId,
+  }) async {
     starts.add('$uid:$generationId');
   }
 

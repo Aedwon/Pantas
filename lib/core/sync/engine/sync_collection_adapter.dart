@@ -40,6 +40,10 @@ class SyncCollectionAdapter {
         await _upsert(db, rowId, payload);
       }
 
+      if (collection == 'track_scope') {
+        await _markTrackProjectionRequired(db, rowId);
+      }
+
       await SyncRowMetaRepository(db).acceptKnownVersion(
         collection: collection,
         rowId: rowId,
@@ -56,6 +60,10 @@ class SyncCollectionAdapter {
   }) {
     return db.transaction(() async {
       await _delete(db, rowId);
+      if (collection == 'track_scope') {
+        await _markTrackProjectionRequired(db, rowId);
+      }
+
       await SyncRowMetaRepository(db).acceptKnownAbsent(
         collection: collection,
         rowId: rowId,
@@ -217,6 +225,20 @@ class SyncCollectionAdapter {
       default:
         throw UnsupportedError('No active Sync adapter for $collection');
     }
+  }
+
+  Future<void> _markTrackProjectionRequired(
+    AppDatabase db,
+    String rowId,
+  ) async {
+    final identity = TrackScopeDocumentId.parse(rowId);
+    final marker = 'customTrackProjectionRequired:'
+        '${TrackScopeDocumentId.metadata(identity.examId)}';
+    await db.customStatement(
+      'insert into sync_meta (key,value) values (?,?) '
+      'on conflict(key) do update set value=excluded.value',
+      <Object?>[marker, '1'],
+    );
   }
 
   void _requireIdentity(String expected, String actual) {

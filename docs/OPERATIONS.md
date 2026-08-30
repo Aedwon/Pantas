@@ -32,8 +32,6 @@ Last updated: 2026-05-07
   "released rules firestore.rules to cloud.firestore".
 - [ ] **Storage rules are not deployed.** No bucket exists yet, and the deploy
   fails without one. Do it when Cloud Storage is turned on.
-- [ ] Deploy the reset callable:
-  `firebase deploy --only functions:resetCloudUserData`.
 - [ ] Validate App Check enforcement for Firestore and Functions in dev and
   prod after debug tokens and Play Integrity are registered.
 - [ ] Run one real-device sync verification before release: create local

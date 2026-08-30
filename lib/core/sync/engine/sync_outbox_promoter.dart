@@ -79,6 +79,51 @@ class SyncOutboxPromoter {
     return promoted;
   }
 
+  Future<int> promoteAvailableForContext({
+    required String uid,
+    required String generationId,
+    int limit = 500,
+  }) async {
+    final context = SyncActiveContext(uid: uid, generationId: generationId);
+    final rows = await _db.customSelect(
+      'select collection,row_id,op,revision,mutation_epoch,causal_uid, '
+      'causal_generation_id,causal_base_state, '
+      'cast(base_updated_at as integer) as base_updated_at, '
+      'cast(recorded_at as integer) as recorded_at '
+      'from sync_local_mutations order by mutation_epoch limit ?',
+      variables: [Variable<int>(limit)],
+    ).get();
+    final observed =
+        rows.map(_ObservedMutation.fromRow).toList(growable: false);
+
+    var promoted = 0;
+    for (final mutation in observed) {
+      if (!_eligibleForContext(mutation, context)) continue;
+      await _db.transaction(() async {
+        await _pendingQueue.enqueueGenerationBound(
+          uid: context.uid,
+          generationId: context.generationId,
+          tableType: mutation.collection,
+          rowId: mutation.rowId,
+          op: _pendingOp(mutation.op),
+          baseState: mutation.causalBaseState,
+          baseUpdatedAt: mutation.baseUpdatedAt,
+          mutationId: _mutationIdFactory(),
+          queuedAt: mutation.recordedAt,
+        );
+        final removed = await (_db.delete(_db.syncLocalMutations)
+              ..where((row) => row.collection.equals(mutation.collection))
+              ..where((row) => row.rowId.equals(mutation.rowId))
+              ..where((row) => row.revision.equals(mutation.revision)))
+            .go();
+        if (removed > 0) {
+          promoted += 1;
+        }
+      });
+    }
+    return promoted;
+  }
+
   bool _eligibleForContext(
     _ObservedMutation mutation,
     SyncActiveContext activeContext,

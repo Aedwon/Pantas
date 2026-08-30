@@ -8,18 +8,15 @@ class SyncGenerationActivationCall {
   final String? expectedActiveGenerationId;
 }
 
+// ignore: one_member_abstracts
 abstract interface class SyncFunctionsGateway {
   Future<void> activateGeneration({
     required String generationId,
     required String? expectedActiveGenerationId,
   });
-
-  @Deprecated('Legacy placeholder bootstrap compatibility only.')
-  Future<void> resetCloudUserData();
 }
 
 class FakeSyncFunctionsGateway implements SyncFunctionsGateway {
-  int resetCloudUserDataCalls = 0;
   final activationCalls = <SyncGenerationActivationCall>[];
 
   @override
@@ -33,10 +30,5 @@ class FakeSyncFunctionsGateway implements SyncFunctionsGateway {
         expectedActiveGenerationId: expectedActiveGenerationId,
       ),
     );
-  }
-
-  @override
-  Future<void> resetCloudUserData() async {
-    resetCloudUserDataCalls += 1;
   }
 }

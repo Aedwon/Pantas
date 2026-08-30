@@ -204,8 +204,9 @@ class CustomTrackRepository {
 
   Future<bool> anyProjectionRequired() async {
     final row = await _db.customSelect(
-      "select 1 as pending from sync_meta where key like ? and value = '1' limit 1",
-      variables: [Variable<String>('$_projectionMarkerPrefix%')],
+      'select 1 as pending from sync_meta where key like ? '
+      "and value = '1' limit 1",
+      variables: [const Variable<String>('$_projectionMarkerPrefix%')],
     ).getSingleOrNull();
     return row != null;
   }
@@ -218,6 +219,29 @@ class CustomTrackRepository {
       await _projection.upsert(examId: examId, name: meta.name);
     }
     await _setProjectionRequired(examId, required: false);
+  }
+
+  Future<bool> retryPendingProjections() async {
+    final rows = await _db.customSelect(
+      "select key from sync_meta where key like ? and value = '1' order by key",
+      variables: [const Variable<String>('$_projectionMarkerPrefix%')],
+    ).get();
+    var settled = true;
+    for (final row in rows) {
+      final key = row.read<String>('key');
+      final encodedId = key.substring(_projectionMarkerPrefix.length);
+      try {
+        final identity = TrackScopeDocumentId.parse(encodedId);
+        if (identity.kind != TrackScopeDocumentKind.metadata) {
+          settled = false;
+          continue;
+        }
+        await retryProjection(identity.examId);
+      } on Object {
+        settled = false;
+      }
+    }
+    return settled && !await anyProjectionRequired();
   }
 
   Future<CustomTrackMetaLocalRow?> _customTrackMeta(ExamId examId) {
