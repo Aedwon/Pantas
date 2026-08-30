@@ -1,4 +1,5 @@
 import 'package:pantas/core/auth/auth_repository.dart';
+import 'package:pantas/core/sync/engine/collection_registry.dart';
 import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
 
 class SyncCloudProgressGateway implements CloudProgressGateway {
@@ -6,21 +7,21 @@ class SyncCloudProgressGateway implements CloudProgressGateway {
 
   final FirestoreGateway _gateway;
 
-  static const _meaningfulCollections = [
-    'quiz_attempts',
-    'assessments',
-    'fsrs_cards',
-    'lesson_progress',
-    'lesson_bookmarks',
-    'question_flags',
-    'mock_exam_attempts',
-  ];
-
   @override
   Future<bool> hasMeaningfulProgress(String uid) async {
-    for (final collection in _meaningfulCollections) {
-      final rows = await _gateway.readCollection('users/$uid/$collection');
-      if (rows.isNotEmpty) return true;
+    final pointer =
+        await _gateway.readDocument('users/$uid/sync_state/current');
+    if (pointer == null) return false;
+    final generationId = pointer['activeGenerationId'];
+    if (generationId is! String || generationId.isEmpty) {
+      throw const FormatException('active Sync generation pointer missing');
+    }
+
+    for (final entry in activeSyncCollections) {
+      final rows = await _gateway.readCollection(
+        'users/$uid/sync_generations/$generationId/${entry.firestorePath}',
+      );
+      if (rows.any((row) => !row.deleted)) return true;
     }
     return false;
   }
