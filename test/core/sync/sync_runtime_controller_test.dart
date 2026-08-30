@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:drift/drift.dart' show Value;
+import 'package:drift/drift.dart' show Value, Variable;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/sync/bootstrap/full_pull.dart';
@@ -8,7 +8,11 @@ import 'package:pantas/core/sync/bootstrap/full_push.dart';
 import 'package:pantas/core/sync/eligibility/sync_claim_gateway.dart';
 import 'package:pantas/core/sync/eligibility/sync_entitlement.dart';
 import 'package:pantas/core/sync/engine/generation_repository.dart';
+import 'package:pantas/core/sync/engine/local_sync_mutation_recorder.dart';
+import 'package:pantas/core/sync/engine/pending_queue.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
+import 'package:pantas/core/sync/engine/sync_outbox_promoter.dart';
+import 'package:pantas/core/sync/engine/sync_row_meta_repository.dart';
 import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
 import 'package:pantas/core/sync/firestore/functions_gateway.dart';
 import 'package:pantas/core/sync/model/sync_document.dart';
@@ -173,6 +177,106 @@ void main() {
 
     h.engine.releaseStop();
     await off;
+  });
+
+  test('all local-only runtime states keep mutations unbound and out of outbox',
+      () async {
+    Future<void> expectLocalOnlyMutation(_Harness h, String label) async {
+      expect(await h.activeContext.readStable(), isNull);
+      final recorder = LocalSyncMutationRecorder(
+        h.db,
+        activeContextStore: h.activeContext,
+        rowMetaRepository: SyncRowMetaRepository(h.db),
+        now: () => DateTime.utc(2026, 8, 30, 6),
+      );
+      final rowId = 'matrix-$label';
+      await recorder.runRecorded(
+        collection: 'lesson_progress',
+        rowId: rowId,
+        op: SyncLocalMutationOp.upsert,
+        mutate: () => h.db.customStatement(
+          'insert into account_prefs (key,value) values (?,?) '
+          'on conflict(key) do update set value=excluded.value',
+          ['matrix-$label', 'local'],
+        ),
+      );
+
+      final row = await h.db.customSelect(
+        'select causal_base_state,causal_uid,causal_generation_id, '
+        'base_updated_at from sync_local_mutations '
+        'where collection = ? and row_id = ?',
+        variables: [
+          const Variable<String>('lesson_progress'),
+          Variable<String>(rowId),
+        ],
+      ).getSingle();
+      expect(row.read<String>('causal_base_state'), 'unbound');
+      expect(row.data['causal_uid'], isNull);
+      expect(row.data['causal_generation_id'], isNull);
+      expect(row.data['base_updated_at'], isNull);
+
+      final queue = PendingQueue(h.db);
+      final promoted = await SyncOutboxPromoter(
+        h.db,
+        activeContextStore: h.activeContext,
+        pendingQueue: queue,
+      ).promoteAvailable();
+      expect(promoted, 0);
+      expect(await queue.drain(limit: 10), isEmpty);
+    }
+
+    final anonymous = _Harness();
+    await anonymous.runtime.update(
+      identity: const SyncIdentity(uid: 'anon-1', isAnonymous: true),
+      entitlement: SyncEntitlement.pro,
+    );
+    expect(anonymous.runtime.status, isA<SyncOff>());
+    await expectLocalOnlyMutation(anonymous, 'anonymous');
+    await anonymous.close();
+
+    final namedFree = _Harness();
+    await namedFree.runtime.update(
+      identity: const SyncIdentity(uid: 'user-free'),
+      entitlement: SyncEntitlement.free,
+    );
+    expect(namedFree.runtime.status, isA<SyncOff>());
+    await expectLocalOnlyMutation(namedFree, 'named-free');
+    await namedFree.close();
+
+    final activating = _Harness(hasClaim: false);
+    await activating.runtime.update(
+      identity: const SyncIdentity(uid: 'user-activating'),
+      entitlement: SyncEntitlement.pro,
+    );
+    expect(activating.runtime.status, isA<SyncActivating>());
+    await expectLocalOnlyMutation(activating, 'activating');
+    await activating.close();
+
+    final b3Pending = _Harness()
+      ..seedGeneration(
+        uid: 'user-b3',
+        generationId: 'gen-cloud',
+        meaningful: true,
+      );
+    await b3Pending.seedLocalLesson();
+    await b3Pending.runtime.update(
+      identity: const SyncIdentity(uid: 'user-b3'),
+      entitlement: SyncEntitlement.pro,
+    );
+    expect(b3Pending.runtime.status, isA<SyncReconciliationRequired>());
+    await expectLocalOnlyMutation(b3Pending, 'b3-pending');
+    await b3Pending.close();
+
+    final quiesced = _Harness();
+    await quiesced.runtime.update(
+      identity: const SyncIdentity(uid: 'user-quiesced'),
+      entitlement: SyncEntitlement.pro,
+    );
+    expect(await quiesced.activeContext.readStable(), isNotNull);
+    await quiesced.runtime.quiesce(flush: false);
+    expect(quiesced.runtime.status, isA<SyncOff>());
+    await expectLocalOnlyMutation(quiesced, 'quiesced');
+    await quiesced.close();
   });
 
   test(

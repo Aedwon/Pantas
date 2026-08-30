@@ -301,6 +301,72 @@ void main() {
     expect(pending.lastError, isNull);
   });
 
+  test('serialized overlapping flush preserves a re-enqueued newer mutation',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final queue = PendingQueue(db);
+    final v1 = DateTime.utc(2026, 8, 29, 20);
+    final v2 = DateTime.utc(2026, 8, 29, 21);
+    final gateway = BlockingCommitGateway(serverNow: () => v2);
+    gateway.documents[_path('lesson_progress', 'lesson-1')] = _lessonDoc(
+      'lesson-1',
+      readAt: DateTime.utc(2026, 8, 29, 19),
+      updatedAt: v1,
+      mutationId: 'remote-v1',
+      originDeviceId: 'device-2',
+    );
+    await _putLesson(db, 'lesson-1', DateTime.utc(2026, 8, 29, 20, 5));
+    await queue.enqueueGenerationBound(
+      uid: uid,
+      generationId: generationId,
+      tableType: 'lesson_progress',
+      rowId: 'lesson-1',
+      op: PendingSyncOp.upsert,
+      baseState: 'knownVersion',
+      baseUpdatedAt: v1,
+      mutationId: 'mutation-1',
+      queuedAt: DateTime.utc(2026, 8, 29, 20, 5),
+    );
+    final pull = _pull(db, queue);
+    final pipeline = _pipeline(db, queue, gateway, pull);
+
+    final first = pipeline.flush();
+    await gateway.entered.future;
+    final overlapping = pipeline.flush();
+    expect(identical(first, overlapping), isTrue);
+
+    await _putLesson(db, 'lesson-1', DateTime.utc(2026, 8, 29, 20, 10));
+    await queue.enqueueGenerationBound(
+      uid: uid,
+      generationId: generationId,
+      tableType: 'lesson_progress',
+      rowId: 'lesson-1',
+      op: PendingSyncOp.upsert,
+      baseState: 'knownVersion',
+      baseUpdatedAt: v1,
+      mutationId: 'mutation-2',
+      queuedAt: DateTime.utc(2026, 8, 29, 20, 10),
+    );
+
+    gateway.release.complete();
+    await Future.wait([first, overlapping]);
+
+    final pending = await queue.findGenerationBound(
+      uid: uid,
+      generationId: generationId,
+      tableType: 'lesson_progress',
+      rowId: 'lesson-1',
+    );
+    expect(pending, isNotNull);
+    expect(pending!.revision, 2);
+    expect(pending.mutationId, 'mutation-2');
+    expect(pending.baseState, 'knownVersion');
+    expect(pending.baseUpdatedAt, v2);
+    expect(gateway.calls, 1);
+    expect(gateway.maxActive, 1);
+  });
+
   test('flush is serialized so overlapping calls share one active drain',
       () async {
     final db = inMemoryDatabase();
