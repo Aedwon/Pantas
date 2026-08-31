@@ -14,6 +14,7 @@ import 'package:pantas/features/assessment/application/assessment_result_provide
 import 'package:pantas/features/assessment/domain/models/assessment_session.dart';
 import 'package:pantas/features/assessment/domain/use_cases/complete_assessment.dart';
 import 'package:pantas/features/assessment/domain/use_cases/start_assessment.dart';
+import 'package:pantas/features/quiz/presentation/today_providers.dart';
 
 final _startAssessmentProvider = Provider<StartAssessment>(
   (ref) => StartAssessment(
@@ -67,15 +68,17 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
       _pendingCompleteSession = null;
     });
     try {
-      final alreadyCompleted =
-          await ref.read(assessmentCompletedProvider(widget.examId).future);
+      final alreadyCompleted = await ref.read(
+        assessmentCompletedProvider(widget.examId).future,
+      );
       if (!mounted) return;
       if (alreadyCompleted) {
         context.pushReplacement('/assessment/${widget.examId}/results');
         return;
       }
-      final scopedTopics =
-          await ref.read(scopedTopicsProvider(widget.examId).future);
+      final scopedTopics = await ref.read(
+        scopedTopicsProvider(widget.examId).future,
+      );
       final session = await ref
           .read(_startAssessmentProvider)
           .call(widget.examId, topics: scopedTopics);
@@ -90,10 +93,9 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
   Future<void> _complete(AssessmentSession session) async {
     setState(() => _completing = true);
     try {
-      await ref.read(_completeAssessmentProvider).call(
-            session: session,
-            now: DateTime.now(),
-          );
+      await ref
+          .read(_completeAssessmentProvider)
+          .call(session: session, now: DateTime.now());
       if (!mounted) return;
       // The Home tab reads both of these from inside the bottom-nav shell, so
       // they were already cached as "no assessment" before this run started.
@@ -103,7 +105,10 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
       // assessment the user just finished.
       ref
         ..invalidate(assessmentResultProvider(widget.examId))
-        ..invalidate(assessmentCompletedProvider(widget.examId));
+        ..invalidate(assessmentCompletedProvider(widget.examId))
+        ..invalidate(countForExamProvider(widget.examId))
+        ..invalidate(sessionPanelProvider(widget.examId))
+        ..invalidate(todayInputsProvider(widget.examId));
       context.pushReplacement('/assessment/${widget.examId}/results');
     } catch (e) {
       if (!mounted) return;
@@ -206,10 +211,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
       },
       child: Scaffold(
         appBar: AppBar(title: const Text('Assessment')),
-        body: Padding(
-          padding: const EdgeInsets.all(16),
-          child: body,
-        ),
+        body: Padding(padding: const EdgeInsets.all(16), child: body),
       ),
     );
   }
