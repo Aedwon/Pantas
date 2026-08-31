@@ -1,3 +1,4 @@
+import 'package:pantas/core/auth/account_transition_gateway.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/sign_in_result.dart';
 
@@ -27,6 +28,8 @@ abstract interface class AuthGateway {
 
   Future<AuthSession> signInWithGoogleCredential(GoogleAuthTokens tokens);
 
+  Future<void> reauthenticateWithGoogleCredential(GoogleAuthTokens tokens);
+
   Future<void> signOut();
 }
 
@@ -35,24 +38,24 @@ class AuthRepository {
     required AuthGateway gateway,
     GoogleSignInGateway? googleGateway,
     AuthFunctionsGateway? functionsGateway,
+    AccountTransitionGateway? accountTransitionGateway,
     LocalStateWiper? localStateWiper,
-    CloudProgressGateway? cloudProgressGateway,
     Clock? clock,
   })  : _gateway = gateway,
         _googleGateway =
             googleGateway ?? const UnconfiguredGoogleSignInGateway(),
         _functionsGateway =
             functionsGateway ?? const UnconfiguredAuthFunctionsGateway(),
+        _accountTransitionGateway =
+            accountTransitionGateway ?? const NoopAccountTransitionGateway(),
         _localStateWiper = localStateWiper ?? const NoopLocalStateWiper(),
-        _cloudProgressGateway =
-            cloudProgressGateway ?? const EmptyCloudProgressGateway(),
         _clock = clock ?? DateTime.now;
 
   final AuthGateway _gateway;
   final GoogleSignInGateway _googleGateway;
   final AuthFunctionsGateway _functionsGateway;
+  final AccountTransitionGateway _accountTransitionGateway;
   final LocalStateWiper _localStateWiper;
-  final CloudProgressGateway _cloudProgressGateway;
   final Clock _clock;
 
   Stream<AuthState> get authState {
@@ -81,9 +84,10 @@ class AuthRepository {
   }
 
   Future<void> signOut() async {
+    await _accountTransitionGateway.prepareForSignOut();
     await _localStateWiper.wipeAll();
     await _gateway.signOut();
-    await _googleGateway.signOut();
+    await _signOutGoogleBestEffort();
     await ensureAnonymous();
   }
 
@@ -100,33 +104,38 @@ class AuthRepository {
       if (tokens == null) {
         throw const AuthGatewayException('requires-recent-login');
       }
-      await _gateway.signInWithGoogleCredential(tokens);
+      await _gateway.reauthenticateWithGoogleCredential(tokens);
     }
 
+    await _accountTransitionGateway.prepareForDeleteAccount();
     await _functionsGateway.deleteAccount();
     await _localStateWiper.wipeAll();
     await _gateway.signOut();
-    await _googleGateway.signOut();
+    await _signOutGoogleBestEffort();
     await ensureAnonymous();
   }
 
   Future<SignInResult> _switchToExistingGoogleAccount(
     GoogleAuthTokens tokens,
   ) async {
-    final meaningfulLocalData = await _localStateWiper.hasMeaningfulProgress();
+    await _accountTransitionGateway.prepareForAccountSwitch();
     try {
       await _gateway.signOut();
-      final session = await _gateway.signInWithGoogleCredential(tokens);
-      final meaningfulCloudData =
-          await _cloudProgressGateway.hasMeaningfulProgress(session.uid);
+      await _gateway.signInWithGoogleCredential(tokens);
       await _functionsGateway.recordSignInEvent();
-      return SignInResult.switchedToExisting(
-        meaningfulCloudData: meaningfulCloudData,
-        meaningfulLocalData: meaningfulLocalData,
-      );
+      return const SignInResult.switchedToExisting();
     } on AuthGatewayException catch (error) {
       await ensureAnonymous();
       return SignInResult.failed(reason: error.code);
+    }
+  }
+
+  Future<void> _signOutGoogleBestEffort() async {
+    try {
+      await _googleGateway.signOut();
+    } catch (_) {
+      // Firebase sign-out already succeeded. Google cleanup must not prevent
+      // the app from returning to a usable anonymous session.
     }
   }
 }
@@ -149,11 +158,6 @@ abstract interface class LocalStateWiper {
   Future<bool> hasMeaningfulProgress();
 
   Future<void> wipeAll();
-}
-
-// ignore: one_member_abstracts
-abstract interface class CloudProgressGateway {
-  Future<bool> hasMeaningfulProgress(String uid);
 }
 
 class UnconfiguredGoogleSignInGateway implements GoogleSignInGateway {
@@ -189,11 +193,4 @@ class NoopLocalStateWiper implements LocalStateWiper {
 
   @override
   Future<void> wipeAll() async {}
-}
-
-class EmptyCloudProgressGateway implements CloudProgressGateway {
-  const EmptyCloudProgressGateway();
-
-  @override
-  Future<bool> hasMeaningfulProgress(String uid) async => false;
 }

@@ -3,8 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/app.dart';
+import 'package:pantas/app/auth_bootstrap.dart';
 import 'package:pantas/app/firebase_bootstrap.dart';
 import 'package:pantas/app/flavor.dart';
+import 'package:pantas/app/sync_runtime_bootstrap.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/bundle/seed_installer.dart';
 import 'package:pantas/core/content/content.dart';
@@ -26,6 +28,7 @@ import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/review_prompt/application/review_prompt_providers.dart';
 import 'package:pantas/features/review_prompt/data/in_app_review_gateway.dart';
 import 'package:pantas/features/review_prompt/data/review_prompt_store.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
 
 /// Feeds the real subscription into the mock cooldown.
 ///
@@ -44,6 +47,33 @@ final mockEntitlementOverrides = <Override>[
   ),
 ];
 
+/// Feeds the shipping telemetry consent gateway into settings actions and
+/// startup.
+///
+/// Exposed as a list so tests can exercise the exact telemetry override
+/// collection
+/// used by [bootstrap].
+final telemetryConsentOverrides = <Override>[
+  analyticsConsentGatewayProvider.overrideWith(
+    (ref) => ref.watch(telemetryConsentControllerProvider.notifier),
+  ),
+];
+
+/// Handles uncaught bootstrap errors by recording to telemetry best-effort
+/// and logging to console.
+void handleBootstrapError(
+  Object error,
+  StackTrace stack, {
+  ProviderContainer? container,
+}) {
+  try {
+    container?.read(telemetryProvider).recordError(error, stack).ignore();
+  } catch (e) {
+    debugPrint('Telemetry recordError failed: $e');
+  }
+  debugPrint('Uncaught: $error\n$stack');
+}
+
 Future<void> bootstrap(Flavor flavor) async {
   // Late-bound on purpose. The boundary has to be live before the container
   // exists, because the container is built by the very code it guards: an
@@ -52,12 +82,11 @@ Future<void> bootstrap(Flavor flavor) async {
 
   await runGuarded(
     () => _bootstrap(flavor, (built) => container = built),
-    onError: (error, stack) {
-      // Reports only if the student has said yes. Before settings load, and
-      // before they have answered, the gate is shut and this collects nothing.
-      container?.read(telemetryProvider).recordError(error, stack);
-      debugPrint('Uncaught: $error\n$stack');
-    },
+    onError: (error, stack) => handleBootstrapError(
+      error,
+      stack,
+      container: container,
+    ),
   );
 }
 
@@ -68,22 +97,24 @@ Future<void> _bootstrap(
   WidgetsFlutterBinding.ensureInitialized();
   installAppErrorView();
 
-  await bootstrapFirebase(flavor);
+  final firebaseResult = await bootstrapFirebase(flavor);
   await activateAppCheck(flavor);
 
   final overrides = await bootstrapStorageOverrides();
   final contentOverrides = await bootstrapContentOverrides();
   final remoteFlagsOverrides = await bootstrapRemoteFlagsOverrides();
+  final authOverrides = authRepositoryOverrides(firebaseResult);
 
   final container = ProviderContainer(
     overrides: [
       ...overrides,
       ...contentOverrides,
       ...remoteFlagsOverrides,
+      ...authOverrides,
       ...mockEntitlementOverrides,
-      // Only when Firebase actually started. It does not yet: there is no
-      // project, so `bootstrapFirebase` initializes nothing. The gate above
-      // this still decides whether anything reaches the sink.
+      ...telemetryConsentOverrides,
+      // Install the Firebase telemetry sink only when live Firebase instances
+      // are available. User consent still gates anything reaching the sink.
       telemetrySinkProvider.overrideWithValue(
         FirebaseTelemetry.instancesIfAvailable(),
       ),
@@ -106,10 +137,13 @@ Future<void> _bootstrap(
   );
   onContainerReady(container);
 
+  await bootstrapAuthSession(container, firebaseResult);
+  await applyPersistedTelemetryConsent(container);
   await registerDevProSwitch(container);
   await registerDevDemoSwitch(container);
   await _installContentSeed(container);
   await bootstrapRevenueCat(container);
+  await bootstrapSyncRuntime(container, firebaseResult);
 
   final notificationsLifecycleObserver = NotificationsLifecycleObserver(
     service: container.read(notificationServiceProvider),
@@ -132,5 +166,23 @@ Future<void> _installContentSeed(ProviderContainer container) async {
   );
   if (wrote) {
     await prefs.setInstalledContentSeedVersion(contentSeedVersion);
+  }
+}
+
+/// Reads persisted telemetry preference and applies it to the telemetry consent
+/// controller provider.
+Future<void> applyPersistedTelemetryConsent(
+  ProviderContainer container,
+) async {
+  try {
+    final settings = await container.read(userSettingsProvider.future);
+    final controller = container.read(
+      telemetryConsentControllerProvider.notifier,
+    );
+    await controller.applyStartupConsent(
+      enabled: settings.helpImproveApp,
+    );
+  } catch (error, stack) {
+    debugPrint('Failed to apply persisted telemetry consent: $error\n$stack');
   }
 }

@@ -2,86 +2,189 @@ import 'package:drift/drift.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/sync/custom_track/custom_track_projection.dart';
+import 'package:pantas/core/sync/engine/local_sync_mutation_recorder.dart';
+import 'package:pantas/core/sync/mapping/track_scope_mapper.dart';
 import 'package:uuid/uuid.dart';
 
-/// Creates a student's own track and stores what it hides.
-///
-/// This needs both databases. What the track hides is the student's own and
-/// stays in [AppDatabase]; the exam row it creates and the topics it inverts
-/// against are corpus, so they live in [ContentDatabase]. The custom row
-/// survives a sync because the content sync only ever upserts, and
-/// `isCustom` exists on the content schema for exactly this row.
+/// Owns custom-track user data in AppDatabase and keeps ContentDatabase as a
+/// recoverable display/content projection.
 class CustomTrackRepository {
-  CustomTrackRepository(this._db, this._contentDb, {Uuid? uuid})
-      : _uuid = uuid ?? const Uuid();
+  CustomTrackRepository(
+    this._db,
+    this._contentDb, {
+    Uuid? uuid,
+    LocalSyncMutationRecorder? syncRecorder,
+    CustomTrackProjection? projection,
+  })  : _uuid = uuid ?? const Uuid(),
+        _syncRecorder =
+            syncRecorder ?? LocalSyncMutationRecorder.forDatabase(_db),
+        _projection =
+            projection ?? ContentDatabaseCustomTrackProjection(_contentDb);
+
+  static const _projectionMarkerPrefix = 'customTrackProjectionRequired:';
 
   final AppDatabase _db;
   final ContentDatabase _contentDb;
   final Uuid _uuid;
+  final LocalSyncMutationRecorder _syncRecorder;
+  final CustomTrackProjection _projection;
 
-  /// Creates the track and hides everything it did not include.
-  ///
-  /// The included set is turned into exclusions immediately, because the
-  /// scope is stored as what is hidden. A track that includes everything
-  /// therefore stores no rows at all, which is the same state a listed exam
-  /// starts in.
   Future<ExamId> create({
     required String name,
     required Set<TopicId> includedTopicIds,
   }) async {
     final examId = 'exam_custom_${_uuid.v4()}';
-    final now = DateTime.now();
-    await _contentDb.into(_contentDb.contentExams).insert(
-          ContentExamsCompanion.insert(
-            id: examId,
-            code: 'custom',
-            name: name,
-            // The name is the track's identity everywhere the short name
-            // would otherwise appear, so both carry it.
-            shortName: name,
-            language: 'en',
-            // A custom track sorts after every published exam.
-            ordering: 9999,
-            isCustom: const Value(true),
-            schemaVersion: 1,
-            updatedAt: now,
-          ),
-        );
-
     final allTopics = await _contentDb.select(_contentDb.contentTopics).get();
-    await setExcluded(
-      examId: examId,
-      topicIds: {
-        for (final topic in allTopics)
-          if (!includedTopicIds.contains(topic.id)) topic.id,
+    final excludedTopicIds = {
+      for (final topic in allTopics)
+        if (!includedTopicIds.contains(topic.id)) topic.id,
+    };
+
+    await _syncRecorder.runRecordedBatch(
+      mutations: [
+        SyncMutationTarget(
+          collection: 'track_scope',
+          rowId: TrackScopeDocumentId.metadata(examId),
+          op: SyncLocalMutationOp.upsert,
+        ),
+        for (final topicId in excludedTopicIds)
+          SyncMutationTarget(
+            collection: 'track_scope',
+            rowId: TrackScopeDocumentId.scope(examId, topicId),
+            op: SyncLocalMutationOp.upsert,
+          ),
+      ],
+      mutate: () async {
+        await _db.into(_db.customTrackMetaLocal).insertOnConflictUpdate(
+              CustomTrackMetaLocalCompanion.insert(
+                examId: examId,
+                name: name,
+              ),
+            );
+        for (final topicId in excludedTopicIds) {
+          await _db.into(_db.trackScopeLocal).insertOnConflictUpdate(
+                TrackScopeLocalCompanion.insert(
+                  examId: examId,
+                  topicId: topicId,
+                ),
+              );
+        }
+        await _setProjectionRequired(examId, required: true);
       },
     );
+
+    await _projectWithoutRollingBackAuthority(examId);
     return examId;
   }
 
-  /// Replaces the whole exclusion set in one transaction.
-  ///
-  /// The delete here is the only delete in this feature, and it deletes
-  /// exclusions rather than content: re-ticking a topic brings back every
-  /// attempt and every review state, because nothing was ever keyed on the
-  /// scope.
+  Future<void> rename({required ExamId examId, required String name}) async {
+    await _syncRecorder.runRecorded(
+      collection: 'track_scope',
+      rowId: TrackScopeDocumentId.metadata(examId),
+      op: SyncLocalMutationOp.upsert,
+      mutate: () async {
+        final updated = await (_db.update(_db.customTrackMetaLocal)
+              ..where((row) => row.examId.equals(examId)))
+            .write(CustomTrackMetaLocalCompanion(name: Value(name)));
+        if (updated == 0) {
+          throw StateError('Unknown custom track: $examId');
+        }
+        await _setProjectionRequired(examId, required: true);
+      },
+    );
+    await _projectWithoutRollingBackAuthority(examId);
+  }
+
   Future<void> setExcluded({
     required ExamId examId,
     required Set<TopicId> topicIds,
-  }) {
-    return _db.transaction(() async {
-      await (_db.delete(_db.trackScopeLocal)
-            ..where((s) => s.examId.equals(examId)))
-          .go();
-      for (final topicId in topicIds) {
-        await _db.into(_db.trackScopeLocal).insertOnConflictUpdate(
-              TrackScopeLocalCompanion.insert(
-                examId: examId,
-                topicId: topicId,
-              ),
-            );
-      }
-    });
+  }) async {
+    final current = await excludedTopicIds(examId);
+    final added = topicIds.difference(current);
+    final removed = current.difference(topicIds);
+    if (added.isEmpty && removed.isEmpty) return;
+    final isCustom = await _customTrackMeta(examId) != null;
+
+    await _syncRecorder.runRecordedBatch(
+      mutations: [
+        for (final topicId in added)
+          SyncMutationTarget(
+            collection: 'track_scope',
+            rowId: TrackScopeDocumentId.scope(examId, topicId),
+            op: SyncLocalMutationOp.upsert,
+          ),
+        for (final topicId in removed)
+          SyncMutationTarget(
+            collection: 'track_scope',
+            rowId: TrackScopeDocumentId.scope(examId, topicId),
+            op: SyncLocalMutationOp.delete,
+          ),
+      ],
+      mutate: () async {
+        for (final topicId in removed) {
+          await (_db.delete(_db.trackScopeLocal)
+                ..where(
+                  (row) =>
+                      row.examId.equals(examId) & row.topicId.equals(topicId),
+                ))
+              .go();
+        }
+        for (final topicId in added) {
+          await _db.into(_db.trackScopeLocal).insertOnConflictUpdate(
+                TrackScopeLocalCompanion.insert(
+                  examId: examId,
+                  topicId: topicId,
+                ),
+              );
+        }
+        if (isCustom) {
+          await _setProjectionRequired(examId, required: true);
+        }
+      },
+    );
+
+    if (isCustom) {
+      await _projectWithoutRollingBackAuthority(examId);
+    }
+  }
+
+  Future<void> delete(ExamId examId) async {
+    final meta = await _customTrackMeta(examId);
+    final scope = await excludedTopicIds(examId);
+    if (meta == null && scope.isEmpty) return;
+
+    await _syncRecorder.runRecordedBatch(
+      mutations: [
+        if (meta != null)
+          SyncMutationTarget(
+            collection: 'track_scope',
+            rowId: TrackScopeDocumentId.metadata(examId),
+            op: SyncLocalMutationOp.delete,
+          ),
+        for (final topicId in scope)
+          SyncMutationTarget(
+            collection: 'track_scope',
+            rowId: TrackScopeDocumentId.scope(examId, topicId),
+            op: SyncLocalMutationOp.delete,
+          ),
+      ],
+      mutate: () async {
+        await (_db.delete(_db.trackScopeLocal)
+              ..where((row) => row.examId.equals(examId)))
+            .go();
+        await (_db.delete(_db.customTrackMetaLocal)
+              ..where((row) => row.examId.equals(examId)))
+            .go();
+        if (meta != null) {
+          await _setProjectionRequired(examId, required: true);
+        }
+      },
+    );
+
+    if (meta != null) {
+      await _projectWithoutRollingBackAuthority(examId);
+    }
   }
 
   Future<Set<TopicId>> excludedTopicIds(ExamId examId) async {
@@ -90,4 +193,87 @@ class CustomTrackRepository {
         .get();
     return {for (final row in rows) row.topicId};
   }
+
+  Future<bool> projectionRequired(ExamId examId) async {
+    final row = await _db.customSelect(
+      'select value from sync_meta where key = ?',
+      variables: [Variable<String>(_projectionMarkerKey(examId))],
+    ).getSingleOrNull();
+    return row?.read<String>('value') == '1';
+  }
+
+  Future<bool> anyProjectionRequired() async {
+    final row = await _db.customSelect(
+      'select 1 as pending from sync_meta where key like ? '
+      "and value = '1' limit 1",
+      variables: [const Variable<String>('$_projectionMarkerPrefix%')],
+    ).getSingleOrNull();
+    return row != null;
+  }
+
+  Future<void> retryProjection(ExamId examId) async {
+    final meta = await _customTrackMeta(examId);
+    if (meta == null) {
+      await _projection.delete(examId);
+    } else {
+      await _projection.upsert(examId: examId, name: meta.name);
+    }
+    await _setProjectionRequired(examId, required: false);
+  }
+
+  Future<bool> retryPendingProjections() async {
+    final rows = await _db.customSelect(
+      "select key from sync_meta where key like ? and value = '1' order by key",
+      variables: [const Variable<String>('$_projectionMarkerPrefix%')],
+    ).get();
+    var settled = true;
+    for (final row in rows) {
+      final key = row.read<String>('key');
+      final encodedId = key.substring(_projectionMarkerPrefix.length);
+      try {
+        final identity = TrackScopeDocumentId.parse(encodedId);
+        if (identity.kind != TrackScopeDocumentKind.metadata) {
+          settled = false;
+          continue;
+        }
+        await retryProjection(identity.examId);
+      } on Object {
+        settled = false;
+      }
+    }
+    return settled && !await anyProjectionRequired();
+  }
+
+  Future<CustomTrackMetaLocalRow?> _customTrackMeta(ExamId examId) {
+    return (_db.select(_db.customTrackMetaLocal)
+          ..where((row) => row.examId.equals(examId)))
+        .getSingleOrNull();
+  }
+
+  Future<void> _projectWithoutRollingBackAuthority(ExamId examId) async {
+    try {
+      await retryProjection(examId);
+    } on Object {
+      // Authority and the retry marker were committed before projection.
+    }
+  }
+
+  Future<void> _setProjectionRequired(
+    ExamId examId, {
+    required bool required,
+  }) async {
+    final key = _projectionMarkerKey(examId);
+    if (!required) {
+      await _db.customStatement('delete from sync_meta where key = ?', [key]);
+      return;
+    }
+    await _db.customStatement(
+      'insert into sync_meta (key,value) values (?,?) '
+      'on conflict(key) do update set value=excluded.value',
+      <Object?>[key, '1'],
+    );
+  }
+
+  String _projectionMarkerKey(ExamId examId) =>
+      '$_projectionMarkerPrefix${TrackScopeDocumentId.metadata(examId)}';
 }

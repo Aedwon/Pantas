@@ -83,6 +83,11 @@ class FakeAuthGateway implements AuthGateway {
   }
 
   @override
+  Future<void> reauthenticateWithGoogleCredential(
+    GoogleAuthTokens tokens,
+  ) async {}
+
+  @override
   Future<void> signOut() async {}
 
   @override

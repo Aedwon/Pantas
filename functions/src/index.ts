@@ -1,7 +1,8 @@
 export { exportData } from './exportData.js';
 export { deleteAccount } from './deleteAccount.js';
 export { renderWrappedPage } from './renderWrappedPage.js';
-export { resetCloudUserData } from './resetCloudUserData.js';
+export { activateSyncGeneration } from './activateSyncGeneration.js';
+export { cleanupSyncData } from './cleanupSyncData.js';
 export { revenuecatWebhook } from './revenuecatWebhook.js';
 export { getProContent } from './getProContent.js';
 export { recordSignInEvent } from './recordSignInEvent.js';

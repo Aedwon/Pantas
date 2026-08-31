@@ -20,14 +20,14 @@ void main() {
     expect(find.text('Send feedback'), findsOneWidget);
   });
 
-  testWidgets('the analytics lede says crash reports are always sent',
+  testWidgets('the analytics lede describes usage data and crash reports',
       (tester) async {
     await tester.pumpAppWithProviders(const AboutPage(), overrides: []);
     await tester.pumpAndSettle();
 
     expect(
       find.text(
-        'Shares anonymous usage data. Crash reports are always sent.',
+        'Shares anonymous usage data and crash reports only with consent. Unsent reports are deleted when off.',
       ),
       findsOneWidget,
     );

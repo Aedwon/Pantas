@@ -24,7 +24,6 @@ class _AccountPageState extends ConsumerState<AccountPage> {
   @override
   Widget build(BuildContext context) {
     final user = ref.watch(currentUserProvider).valueOrNull;
-    final isAnonymous = ref.watch(isAnonymousProvider).valueOrNull ?? false;
 
     return PageScaffold(
       body: ListView(
@@ -32,10 +31,11 @@ class _AccountPageState extends ConsumerState<AccountPage> {
         children: [
           const SettingsBar(title: 'Account', backLabel: 'Settings'),
           const SizedBox(height: 16),
-          if (user == null && isAnonymous) ...[
+          if (user == null) ...[
             Text(
-              'Your progress is saved on this device. Sign in to back it up '
-              'and use it on other devices.',
+              'Your progress stays on this device. Signing in gives you an '
+              'account, but does not by itself back up local progress. Cloud '
+              'sync is available with Pantas Pro.',
               style: context.textStyles.bodyMedium
                   .copyWith(color: context.colors.inkMuted),
             ),
@@ -53,23 +53,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             ],
             BoardButton(
               label: 'Sign in with Google',
-              onPressed: () async {
-                try {
-                  final result =
-                      await ref.read(authRepositoryProvider).signInWithGoogle();
-                  if (result is FailedSignInResult && mounted) {
-                    setState(
-                      () => _errorMessage = 'You need a connection to sign in.',
-                    );
-                  }
-                } catch (_) {
-                  if (mounted) {
-                    setState(
-                      () => _errorMessage = 'You need a connection to sign in.',
-                    );
-                  }
-                }
-              },
+              onPressed: _signIn,
             ),
             const SizedBox(height: 24),
             SettingsValueRow(
@@ -78,14 +62,22 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             ),
           ] else ...[
             Text(
-              user?.displayName.isNotEmpty ?? false
-                  ? user!.displayName
-                  : 'Account',
+              user.displayName.isNotEmpty ? user.displayName : 'Account',
               style: context.textStyles.headlineMedium,
             ),
             const SizedBox(height: 4),
             Text(
-              user?.email ?? '',
+              user.email,
+              style: context.textStyles.bodySmall
+                  .copyWith(color: context.colors.inkMuted),
+            ),
+            const SizedBox(height: 12),
+            Text(
+              user.isPro
+                  ? 'Pantas Pro can sync eligible study progress across your '
+                      'signed-in devices.'
+                  : 'Your study progress stays on this device. Cloud sync is '
+                      'available with Pantas Pro.',
               style: context.textStyles.bodySmall
                   .copyWith(color: context.colors.inkMuted),
             ),
@@ -104,6 +96,22 @@ class _AccountPageState extends ConsumerState<AccountPage> {
     );
   }
 
+  Future<void> _signIn() async {
+    if (mounted) setState(() => _errorMessage = null);
+
+    try {
+      final result = await ref.read(authRepositoryProvider).signInWithGoogle();
+      if (!mounted) return;
+      if (result is FailedSignInResult) {
+        setState(() => _errorMessage = 'You need a connection to sign in.');
+      }
+    } catch (_) {
+      if (mounted) {
+        setState(() => _errorMessage = 'You need a connection to sign in.');
+      }
+    }
+  }
+
   static Future<void> _confirmSignOut(
     BuildContext context,
     WidgetRef ref,
@@ -113,8 +121,9 @@ class _AccountPageState extends ConsumerState<AccountPage> {
       builder: (context) => AlertDialog(
         title: const Text('Sign out?'),
         content: const Text(
-          'Your study progress on this device will be cleared. You can sign '
-          'back in to restore it.',
+          'Your study progress on this device will be cleared. Only progress '
+          'already synced through Pantas Pro may be available after you sign '
+          'in again.',
         ),
         actions: [
           TextButton(

@@ -8,7 +8,6 @@ import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/domain/review_log.dart';
 import 'package:pantas/core/storage/domain/review_state.dart';
-import 'package:pantas/core/sync/engine/pending_queue.dart';
 import 'package:pantas/features/quiz/data/repos/new_card_intro_repository.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:pantas/features/quiz/domain/rating_heuristic.dart';
@@ -18,8 +17,6 @@ class _MockReviewRepo extends Mock implements ReviewStateRepository {}
 
 class _MockSessions extends Mock implements QuizSessionRepository {}
 
-class _MockPendingQueue extends Mock implements PendingQueue {}
-
 class _MockNewCards extends Mock implements NewCardIntroRepository {}
 
 class _FakeReviewState extends Fake implements ReviewState {}
@@ -27,12 +24,10 @@ class _FakeReviewState extends Fake implements ReviewState {}
 void main() {
   setUpAll(() {
     registerFallbackValue(_FakeReviewState());
-    registerFallbackValue(PendingSyncOp.upsert);
   });
 
   late _MockReviewRepo repo;
   late _MockSessions sessions;
-  late _MockPendingQueue pendingQueue;
   late _MockNewCards newCards;
   late _RecordingReviewLog reviewLog;
   late SubmitAnswer useCase;
@@ -40,14 +35,12 @@ void main() {
   setUp(() {
     repo = _MockReviewRepo();
     sessions = _MockSessions();
-    pendingQueue = _MockPendingQueue();
     newCards = _MockNewCards();
     reviewLog = _RecordingReviewLog();
     useCase = SubmitAnswer(
       reviewRepo: repo,
       scheduler: const FsrsScheduler(),
       sessions: sessions,
-      pendingQueue: pendingQueue,
       newCards: newCards,
       reviewLog: reviewLog,
     );
@@ -58,14 +51,6 @@ void main() {
         sessionId: any(named: 'sessionId'),
         isCorrect: any(named: 'isCorrect'),
         answeredAt: any(named: 'answeredAt'),
-      ),
-    ).thenAnswer((_) async {});
-    when(
-      () => pendingQueue.enqueue(
-        tableType: any(named: 'tableType'),
-        rowId: any(named: 'rowId'),
-        op: any(named: 'op'),
-        queuedAt: any(named: 'queuedAt'),
       ),
     ).thenAnswer((_) async {});
     when(
@@ -107,9 +92,7 @@ void main() {
     verify(() => repo.upsert(any())).called(1);
   });
 
-  test(
-      'records session progress enqueues fsrs sync and counts first seen cards',
-      () async {
+  test('records session progress and counts first seen cards', () async {
     await useCase(
       question: question,
       chosenChoiceId: 'c_b',
@@ -125,14 +108,6 @@ void main() {
         sessionId: 'session',
         isCorrect: true,
         answeredAt: DateTime.utc(2026, 5, 9),
-      ),
-    ).called(1);
-    verify(
-      () => pendingQueue.enqueue(
-        tableType: 'fsrs_cards',
-        rowId: 'q1',
-        op: PendingSyncOp.upsert,
-        queuedAt: DateTime.utc(2026, 5, 9),
       ),
     ).called(1);
     verify(

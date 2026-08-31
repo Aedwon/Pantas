@@ -4,6 +4,7 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/review_log.dart';
 import 'package:pantas/core/storage/domain/review_state.dart';
+import 'package:pantas/core/sync/engine/local_sync_mutation_recorder.dart';
 
 /// Append-only. A review that happened is a fact, so there is no update path.
 ///
@@ -11,30 +12,38 @@ import 'package:pantas/core/storage/domain/review_state.dart';
 /// because the rating cannot be reconstructed afterwards: the heuristic reads
 /// the interval the card was on, and the review overwrites it.
 class ReviewLogRepository {
-  ReviewLogRepository(this._db);
+  ReviewLogRepository(
+    this._db, {
+    LocalSyncMutationRecorder? syncRecorder,
+  }) : _syncRecorder =
+            syncRecorder ?? LocalSyncMutationRecorder.forDatabase(_db);
 
   final AppDatabase _db;
+  final LocalSyncMutationRecorder _syncRecorder;
 
-  Future<void> insert(ReviewLog log) async {
-    await _db.into(_db.reviewLogs).insert(
-          ReviewLogsCompanion.insert(
-            id: log.id,
-            questionId: log.questionId,
-            rating: log.rating.grade,
-            state: _stateToRaw(log.state),
-            due: log.due,
-            stability: log.stability,
-            difficulty: log.difficulty,
-            elapsedDays: log.elapsedDays,
-            lastElapsedDays: log.lastElapsedDays,
-            scheduledDays: log.scheduledDays,
-            review: log.review,
-            durationMs: log.durationMs,
-            isCorrect: log.isCorrect,
-            heuristicVersion: Value(log.heuristicVersion),
-          ),
-        );
-  }
+  Future<void> insert(ReviewLog log) => _syncRecorder.runRecorded(
+        collection: 'review_logs',
+        rowId: log.id,
+        op: SyncLocalMutationOp.upsert,
+        mutate: () => _db.into(_db.reviewLogs).insert(
+              ReviewLogsCompanion.insert(
+                id: log.id,
+                questionId: log.questionId,
+                rating: log.rating.grade,
+                state: _stateToRaw(log.state),
+                due: log.due,
+                stability: log.stability,
+                difficulty: log.difficulty,
+                elapsedDays: log.elapsedDays,
+                lastElapsedDays: log.lastElapsedDays,
+                scheduledDays: log.scheduledDays,
+                review: log.review,
+                durationMs: log.durationMs,
+                isCorrect: log.isCorrect,
+                heuristicVersion: Value(log.heuristicVersion),
+              ),
+            ),
+      );
 
   Future<List<ReviewLog>> byQuestionId(QuestionId questionId) async {
     final rows = await (_db.select(_db.reviewLogs)

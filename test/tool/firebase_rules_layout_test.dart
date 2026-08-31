@@ -20,19 +20,40 @@ void main() {
     );
   });
 
-  test('firestore.rules includes all synced user-data subcollections', () {
+  test('firestore.rules defines generation-based Sync layout', () {
     final rules = File('firestore.rules').readAsStringSync();
 
-    for (final path in [
-      'lesson_progress/{lessonId}',
-      'quiz_attempts/{attemptId}',
-      'fsrs_cards/{cardId}',
-      'assessments/{assessmentId}',
-      'study_plan/{docId}',
-      'mock_exam_attempts/{attemptId}',
+    expect(rules, contains('function isProOwner(uid)'));
+    expect(rules, contains('function activeGenerationId(uid)'));
+    expect(rules, contains('function isActiveGeneration(uid, generationId)'));
+    expect(rules, contains('function isStagingGeneration(uid, generationId)'));
+    expect(rules, contains('match /sync_state/{stateId}'));
+    expect(rules, contains('match /sync_generations/{generationId}'));
+
+    for (final collection in [
+      'quiz_attempts',
+      'assessments',
+      'fsrs_cards',
+      'lesson_progress',
+      'lesson_bookmarks',
+      'question_flags',
+      'mock_exam_attempts',
+      'review_logs',
+      'track_scope',
+      'custom_blueprints',
     ]) {
-      expect(rules, contains('match /$path'));
+      expect(rules, contains('match /$collection/{rowId}'));
     }
+  });
+
+  test('firestore.rules freezes Sync row metadata requirements', () {
+    final rules = File('firestore.rules').readAsStringSync();
+
+    expect(rules, contains('request.resource.data.updatedAt == request.time'));
+    expect(rules, contains('request.resource.data.originDeviceId.size() > 0'));
+    expect(rules, contains('request.resource.data.mutationId.size() > 0'));
+    expect(rules, contains('request.resource.data.schemaVersion == 1'));
+    expect(rules, contains('request.resource.data.deleted is bool'));
   });
 
   test('firestore.rules limits root user updates to allowed keys', () {

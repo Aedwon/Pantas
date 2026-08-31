@@ -112,7 +112,7 @@ void main() {
     );
     final row = (await queue.drain(limit: 1)).single;
     await queue.markFailure(
-      [row.id],
+      [PendingSyncIdentity.fromRow(row)],
       error: 'unavailable',
       attemptedAt: now.add(const Duration(seconds: 1)),
     );
@@ -135,8 +135,125 @@ void main() {
     );
     final row = (await queue.drain(limit: 1)).single;
 
-    await queue.markSuccess([row.id]);
+    await queue.markSuccess([PendingSyncIdentity.fromRow(row)]);
 
     expect(await queue.drain(limit: 500), isEmpty);
+  });
+
+  test('outbox identity is scoped by uid and generation', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final now = DateTime.utc(2026, 8, 30);
+
+    Future<void> insert(String uid, String generationId) {
+      return db.customStatement(
+        'insert into pending_sync '
+        '(uid,generation_id,table_type,row_id,op,base_state,mutation_id,'
+        'revision,queued_at) values (?,?,?,?,?,?,?,?,?)',
+        <Object?>[
+          uid,
+          generationId,
+          'quiz_attempts',
+          'attempt_1',
+          'upsert',
+          'knownAbsent',
+          '$uid-$generationId',
+          1,
+          now.millisecondsSinceEpoch,
+        ],
+      );
+    }
+
+    await insert('uid-1', 'gen-1');
+    await insert('uid-1', 'gen-2');
+    await insert('uid-2', 'gen-1');
+
+    final rows = await db
+        .customSelect(
+          'select uid,generation_id from pending_sync order by uid,generation_id',
+        )
+        .get();
+    expect(rows, hasLength(3));
+  });
+
+  test('stale success identity cannot clear a newer outbox revision', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final queue = PendingQueue(db);
+    final now = DateTime.utc(2026, 8, 30);
+
+    final first = await queue.enqueueGenerationBound(
+      uid: 'u1',
+      generationId: 'g1',
+      tableType: 'quiz_attempts',
+      rowId: 'a1',
+      op: PendingSyncOp.upsert,
+      baseState: 'knownAbsent',
+      baseUpdatedAt: null,
+      mutationId: 'm1',
+      queuedAt: now,
+    );
+    final identity = PendingSyncIdentity.fromRow(first);
+    final second = await queue.enqueueGenerationBound(
+      uid: 'u1',
+      generationId: 'g1',
+      tableType: 'quiz_attempts',
+      rowId: 'a1',
+      op: PendingSyncOp.upsert,
+      baseState: 'knownAbsent',
+      baseUpdatedAt: null,
+      mutationId: 'm2',
+      queuedAt: now.add(const Duration(seconds: 1)),
+    );
+
+    expect(second.revision, first.revision + 1);
+    await queue.markSuccess([identity]);
+
+    final remaining = (await queue.drain(limit: 10)).single;
+    expect(remaining.revision, second.revision);
+    expect(remaining.mutationId, 'm2');
+  });
+
+  test('stale failure identity cannot mutate a newer outbox revision',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final queue = PendingQueue(db);
+    final now = DateTime.utc(2026, 8, 30);
+
+    final first = await queue.enqueueGenerationBound(
+      uid: 'u1',
+      generationId: 'g1',
+      tableType: 'fsrs_cards',
+      rowId: 'q1',
+      op: PendingSyncOp.upsert,
+      baseState: 'knownAbsent',
+      baseUpdatedAt: null,
+      mutationId: 'm1',
+      queuedAt: now,
+    );
+    final identity = PendingSyncIdentity.fromRow(first);
+    await queue.enqueueGenerationBound(
+      uid: 'u1',
+      generationId: 'g1',
+      tableType: 'fsrs_cards',
+      rowId: 'q1',
+      op: PendingSyncOp.upsert,
+      baseState: 'knownAbsent',
+      baseUpdatedAt: null,
+      mutationId: 'm2',
+      queuedAt: now.add(const Duration(seconds: 1)),
+    );
+
+    await queue.markFailure(
+      [identity],
+      error: 'stale-failure',
+      attemptedAt: now.add(const Duration(seconds: 2)),
+    );
+
+    final remaining = (await queue.drain(limit: 10)).single;
+    expect(remaining.mutationId, 'm2');
+    expect(remaining.attempts, 0);
+    expect(remaining.lastError, isNull);
   });
 }

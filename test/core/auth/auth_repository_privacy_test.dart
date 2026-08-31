@@ -19,16 +19,18 @@ void main() {
     expect(functions.exportDataCalls, 1);
   });
 
-  test('deleteAccount reauthenticates for stale sign-in', () async {
+  test('deleteAccount reauthenticates without ordinary credential sign-in',
+      () async {
     final google = PrivacyGoogleGateway();
+    final gateway = PrivacyAuthGateway(
+      currentSession: AuthSession(
+        uid: 'user-1',
+        lastSignInTime: DateTime(2026, 5, 17, 14),
+      ),
+    );
     final functions = PrivacyFunctionsGateway();
     final repo = AuthRepository(
-      gateway: PrivacyAuthGateway(
-        currentSession: AuthSession(
-          uid: 'user-1',
-          lastSignInTime: DateTime(2026, 5, 17, 14),
-        ),
-      ),
+      gateway: gateway,
       googleGateway: google,
       functionsGateway: functions,
       localStateWiper: const NoopLocalStateWiper(),
@@ -38,6 +40,8 @@ void main() {
     await repo.deleteAccount();
 
     expect(google.signInCalls, 1);
+    expect(gateway.reauthenticateCalls, 1);
+    expect(gateway.googleCredentialSignInCalls, 0);
     expect(functions.deleteAccountCalls, 1);
   });
 
@@ -59,6 +63,7 @@ void main() {
       gateway: gateway,
       googleGateway: google,
       functionsGateway: functions,
+      accountTransitionGateway: RecordingAccountTransitionGateway(operations),
       localStateWiper: wiper,
       clock: () => DateTime(2026, 5, 17, 14, 1),
     );
@@ -66,6 +71,7 @@ void main() {
     await repo.deleteAccount();
 
     expect(operations, [
+      'prepareForDeleteAccount',
       'deleteAccount',
       'wipeAll',
       'signOut',
@@ -76,6 +82,31 @@ void main() {
       gateway.currentSession,
       const AuthSession(uid: 'anon-1', isAnonymous: true),
     );
+  });
+
+  test('deleteAccount stops when transition preparation fails', () async {
+    final operations = <String>[];
+    final functions = PrivacyFunctionsGateway(operations: operations);
+    final repo = AuthRepository(
+      gateway: PrivacyAuthGateway(
+        operations: operations,
+        currentSession: AuthSession(
+          uid: 'user-1',
+          lastSignInTime: DateTime(2026, 5, 17, 14),
+        ),
+      ),
+      googleGateway: PrivacyGoogleGateway(operations: operations),
+      functionsGateway: functions,
+      accountTransitionGateway:
+          FailingDeleteAccountTransitionGateway(operations),
+      localStateWiper: RecordingLocalStateWiper(operations),
+      clock: () => DateTime(2026, 5, 17, 14, 1),
+    );
+
+    await expectLater(repo.deleteAccount(), throwsA(isA<StateError>()));
+
+    expect(operations, ['prepareForDeleteAccount']);
+    expect(functions.deleteAccountCalls, 0);
   });
 
   test(staleReauthCancelledTestName, () async {
@@ -110,6 +141,8 @@ class PrivacyAuthGateway implements AuthGateway {
         _operations = operations;
 
   final List<String>? _operations;
+  int reauthenticateCalls = 0;
+  int googleCredentialSignInCalls = 0;
 
   @override
   AuthSession? currentSession;
@@ -130,6 +163,13 @@ class PrivacyAuthGateway implements AuthGateway {
   }
 
   @override
+  Future<void> reauthenticateWithGoogleCredential(
+    GoogleAuthTokens tokens,
+  ) async {
+    reauthenticateCalls += 1;
+  }
+
+  @override
   Future<void> signOut() async {
     _operations?.add('signOut');
     currentSession = null;
@@ -139,6 +179,7 @@ class PrivacyAuthGateway implements AuthGateway {
   Future<AuthSession> signInWithGoogleCredential(
     GoogleAuthTokens tokens,
   ) async {
+    googleCredentialSignInCalls += 1;
     currentSession = const AuthSession(uid: 'user-1');
     return currentSession!;
   }
@@ -188,6 +229,42 @@ class PrivacyFunctionsGateway implements AuthFunctionsGateway {
     _operations?.add('deleteAccount');
     deleteAccountCalls += 1;
   }
+}
+
+class RecordingAccountTransitionGateway implements AccountTransitionGateway {
+  RecordingAccountTransitionGateway(this.operations);
+
+  final List<String> operations;
+
+  @override
+  Future<void> prepareForAccountSwitch() async {}
+
+  @override
+  Future<void> prepareForDeleteAccount() async {
+    operations.add('prepareForDeleteAccount');
+  }
+
+  @override
+  Future<void> prepareForSignOut() async {}
+}
+
+class FailingDeleteAccountTransitionGateway
+    implements AccountTransitionGateway {
+  FailingDeleteAccountTransitionGateway(this.operations);
+
+  final List<String> operations;
+
+  @override
+  Future<void> prepareForAccountSwitch() async {}
+
+  @override
+  Future<void> prepareForDeleteAccount() async {
+    operations.add('prepareForDeleteAccount');
+    throw StateError('delete-account preparation failed');
+  }
+
+  @override
+  Future<void> prepareForSignOut() async {}
 }
 
 class NoopLocalStateWiper implements LocalStateWiper {

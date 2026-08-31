@@ -1,3 +1,4 @@
+export 'account_transition_gateway.dart';
 export 'auth_repository.dart';
 export 'auth_state.dart';
 export 'auth_user.dart';

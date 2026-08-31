@@ -2,20 +2,37 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/sync/engine/collection_registry.dart';
 
 void main() {
-  test('registry includes only app db user-data collections', () {
-    expect(
-      activeSyncCollections.map((entry) => entry.tableType).toList(),
-      equals([
-        'quiz_attempts',
-        'assessments',
-        'fsrs_cards',
-        'lesson_progress',
-        'lesson_bookmarks',
-        'question_flags',
-        'preferences',
-        'mock_exam_attempts',
-      ]),
+  const requiredActive = <String>{
+    'quiz_attempts',
+    'assessments',
+    'fsrs_cards',
+    'lesson_progress',
+    'lesson_bookmarks',
+    'question_flags',
+    'mock_exam_attempts',
+    'review_logs',
+    'track_scope',
+    'custom_blueprints',
+  };
+
+  test('active registry is exactly the ten approved mutation sources', () {
+    final actual =
+        activeSyncCollections.map((entry) => entry.tableType).toSet();
+
+    expect(activeSyncCollections, hasLength(10));
+    expect(actual, requiredActive);
+  });
+
+  test('preferences and study plan are not active row collections', () {
+    final preferences = syncCollections.singleWhere(
+      (entry) => entry.tableType == 'preferences',
     );
+    final studyPlan = syncCollections.singleWhere(
+      (entry) => entry.tableType == 'study_plan',
+    );
+
+    expect(preferences.isActive, isFalse);
+    expect(studyPlan.isActive, isFalse);
   });
 
   test('registry excludes content database tables', () {
@@ -25,29 +42,22 @@ void main() {
     );
   });
 
-  test('registry marks study plan as future inactive', () {
-    final inactive = syncCollections.where((entry) => !entry.isActive).toList();
-
-    expect(inactive.map((entry) => entry.tableType), ['study_plan']);
-  });
-
-  test('registry activates mock exam attempts with terminal predicate', () {
+  test('mock exam collection accepts only terminal states', () {
     final entry = syncCollections.singleWhere(
       (entry) => entry.tableType == 'mock_exam_attempts',
     );
 
-    expect(entry.isActive, isTrue);
     expect(entry.shouldSync({'status': 'in_progress'}), isFalse);
     expect(entry.shouldSync({'status': 'completed'}), isTrue);
     expect(entry.shouldSync({'status': 'discarded'}), isTrue);
     expect(entry.shouldSync({'status': 'forfeited'}), isTrue);
   });
 
-  test('each active entry has table type subcollection and mapper', () {
+  test('every active collection has its mapper and remote adapter', () {
     for (final entry in activeSyncCollections) {
-      expect(entry.tableType, isNotEmpty);
-      expect(entry.firestorePath, isNotEmpty);
-      expect(entry.mapper, isNotNull);
+      expect(entry.firestorePath, entry.tableType);
+      expect(entry.mapper.name, entry.tableType);
+      expect(entry.adapter.collection, entry.tableType);
     }
   });
 }

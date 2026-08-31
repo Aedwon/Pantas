@@ -50,22 +50,76 @@ class FirebaseTelemetry implements Telemetry {
 
   @override
   Future<void> recordError(Object error, StackTrace stack) async {
-    await _crashlytics.recordError(error, stack);
+    final sanitized = SanitizedTelemetryException(error.runtimeType.toString());
+    await _crashlytics.recordError(sanitized, stack);
   }
 
-  /// Stops collection at the SDK rather than filtering afterward.
+  /// Drives runtime consent at the SDK level.
   ///
-  /// Turning the switch off must stop data leaving the device, not merely stop
-  /// this class calling in. Anything else makes the About page's promise false.
+  /// Analytics collection is enabled or disabled dynamically.
+  /// Crashlytics automatic collection stays permanently disabled; turning
+  /// consent on sends pending unsent reports, and turning consent off purges
+  /// unsent reports.
   @override
   Future<void> setEnabled({required bool enabled}) async {
-    await _analytics.setAnalyticsCollectionEnabled(enabled);
-    await _crashlytics.setCrashlyticsCollectionEnabled(enabled);
+    Object? firstError;
+    StackTrace? firstStack;
+
+    try {
+      await _analytics.setAnalyticsCollectionEnabled(enabled);
+    } catch (error, stack) {
+      firstError = error;
+      firstStack = stack;
+    }
+
+    try {
+      if (enabled) {
+        await _crashlytics.sendUnsentReports();
+      } else {
+        await _crashlytics.deleteUnsentReports();
+      }
+    } catch (error, stack) {
+      firstError ??= error;
+      firstStack ??= stack;
+    }
+
+    if (firstError != null) {
+      Error.throwWithStackTrace(firstError, firstStack ?? StackTrace.current);
+    }
   }
 
   @override
   Future<void> setUserIdentifier(String identifier) async {
-    await _crashlytics.setUserIdentifier(identifier);
-    await _analytics.setUserId(id: identifier.isEmpty ? null : identifier);
+    Object? firstError;
+    StackTrace? firstStack;
+
+    try {
+      await _crashlytics.setUserIdentifier(identifier);
+    } catch (error, stack) {
+      firstError = error;
+      firstStack = stack;
+    }
+
+    try {
+      await _analytics.setUserId(id: identifier.isEmpty ? null : identifier);
+    } catch (error, stack) {
+      firstError ??= error;
+      firstStack ??= stack;
+    }
+
+    if (firstError != null) {
+      Error.throwWithStackTrace(firstError, firstStack ?? StackTrace.current);
+    }
   }
+}
+
+/// A sanitized exception wrapper that sends only the stable error category /
+/// type and avoids leaking message content, free text, scores, or identifiers.
+class SanitizedTelemetryException implements Exception {
+  const SanitizedTelemetryException(this.errorType);
+
+  final String errorType;
+
+  @override
+  String toString() => errorType;
 }

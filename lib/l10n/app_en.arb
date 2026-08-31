@@ -8,5 +8,21 @@
         "type": "String"
       }
     }
+  },
+  "syncReconciliationTitle": "Choose which progress to keep",
+  "@syncReconciliationTitle": {
+    "description": "Blocking Sync reconciliation dialog title"
+  },
+  "syncReconciliationBody": "Pantas found progress on this device and in your account. Choose one copy to keep before syncing starts.",
+  "@syncReconciliationBody": {
+    "description": "Blocking Sync reconciliation dialog explanation"
+  },
+  "syncKeepThisDevice": "Keep this device",
+  "@syncKeepThisDevice": {
+    "description": "Choose the local device copy during Sync reconciliation"
+  },
+  "syncKeepMyAccount": "Keep my account",
+  "@syncKeepMyAccount": {
+    "description": "Choose the cloud account copy during Sync reconciliation"
   }
 }

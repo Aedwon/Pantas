@@ -41,6 +41,24 @@ class BackupViewState {
     }
 
     return switch (syncStatus) {
+      SyncOff() => const BackupViewState(
+          headline: "Your progress isn't backed up",
+          subtitle: 'Backup is available with Pro.',
+          details: BackupDiagnostics(
+            lastSyncIso: 'Never',
+            pendingCount: 0,
+            networkStatus: 'Unknown',
+          ),
+        ),
+      SyncActivating() || SyncReconciliationRequired() => const BackupViewState(
+          headline: 'Preparing backup...',
+          subtitle: 'Your progress stays safe on this device.',
+          details: BackupDiagnostics(
+            lastSyncIso: 'Pending',
+            pendingCount: 0,
+            networkStatus: 'Unknown',
+          ),
+        ),
       Syncing(:final pendingCount) => BackupViewState(
           headline: 'Backing up your progress...',
           subtitle: '$pendingCount items left',
@@ -50,12 +68,26 @@ class BackupViewState {
             networkStatus: 'Unknown',
           ),
         ),
-      SyncPartialFailure() || SyncFailedSince() => const BackupViewState(
+      SyncOffline() ||
+      SyncError() ||
+      SyncPartialFailure() ||
+      SyncFailedSince() =>
+        const BackupViewState(
           headline: "Couldn't back up",
           subtitle: 'Tap to try again.',
           actionLabel: 'Try again',
           details: BackupDiagnostics(
             lastSyncIso: 'Unknown',
+            pendingCount: 0,
+            networkStatus: 'Unknown',
+          ),
+        ),
+      SyncUpToDate(:final lastSyncedAt) => BackupViewState(
+          headline: 'Your progress is saved',
+          subtitle: 'Last backup completed.',
+          actionLabel: 'Sync now',
+          details: BackupDiagnostics(
+            lastSyncIso: lastSyncedAt?.toUtc().toIso8601String() ?? 'Now',
             pendingCount: 0,
             networkStatus: 'Unknown',
           ),

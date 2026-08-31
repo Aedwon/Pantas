@@ -6,10 +6,8 @@ sealed class SignInResult {
 
   const factory SignInResult.linkedExisting() = LinkedExistingSignInResult;
 
-  const factory SignInResult.switchedToExisting({
-    required bool meaningfulCloudData,
-    required bool meaningfulLocalData,
-  }) = SwitchedToExistingSignInResult;
+  const factory SignInResult.switchedToExisting() =
+      SwitchedToExistingSignInResult;
 
   const factory SignInResult.cancelled() = CancelledSignInResult;
 
@@ -30,29 +28,13 @@ class LinkedExistingSignInResult extends SignInResult {
 
 @immutable
 class SwitchedToExistingSignInResult extends SignInResult {
-  const SwitchedToExistingSignInResult({
-    required this.meaningfulCloudData,
-    required this.meaningfulLocalData,
-  });
-
-  final bool meaningfulCloudData;
-  final bool meaningfulLocalData;
+  const SwitchedToExistingSignInResult();
 
   @override
-  bool operator ==(Object other) {
-    return other is SwitchedToExistingSignInResult &&
-        other.meaningfulCloudData == meaningfulCloudData &&
-        other.meaningfulLocalData == meaningfulLocalData;
-  }
+  bool operator ==(Object other) => other is SwitchedToExistingSignInResult;
 
   @override
-  int get hashCode {
-    return Object.hash(
-      SwitchedToExistingSignInResult,
-      meaningfulCloudData,
-      meaningfulLocalData,
-    );
-  }
+  int get hashCode => Object.hash(SwitchedToExistingSignInResult, 0);
 }
 
 @immutable

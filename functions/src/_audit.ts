@@ -1,5 +1,6 @@
 import { getFirestore } from 'firebase-admin/firestore';
 import { logger } from 'firebase-functions';
+import { HttpsError } from 'firebase-functions/v2/https';
 
 export type AuditEvent =
   | 'accountCreated'
@@ -38,10 +39,13 @@ export function assertNamedUser(
     | undefined,
 ): string {
   if (!auth) {
-    throw new Error('unauthenticated');
+    throw new HttpsError('unauthenticated', 'Authentication is required.');
   }
   if (auth.token.firebase?.sign_in_provider === 'anonymous') {
-    throw new Error('permission-denied');
+    throw new HttpsError(
+      'permission-denied',
+      'A named account is required for this operation.',
+    );
   }
   return auth.uid;
 }

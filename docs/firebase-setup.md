@@ -1,25 +1,23 @@
 # Firebase setup for Pantas
 
 **Everything that has to exist in the Firebase console, and everything that has to be run
-locally, before a single Firebase feature in this app does anything.**
+locally, before Firebase-backed features can work in a shipping build.**
 
-Written 10 August 2026, against the console as it is now.
+Written 10 August 2026. Runtime wiring status corrected 28 August 2026.
 
 ---
 
 ## Read this first
 
-**Nothing Firebase does in this app works today.** The SDK boot adapter's `initialize` is an
-empty method body: sign in, sync, crash reporting, analytics, the force update gate and App
-Check are all inert until the projects below exist and `flutterfire configure` has been run.
+Firebase Core, App Check, Remote Config, telemetry, Authentication adapters and the Auth callable
+Functions client are now wired in `lib/`. Firebase startup is deliberately fail-open: if Core
+initialization is unavailable, the app keeps a signed-out Auth surface and local-only study
+features remain usable.
 
-**Corrected 11 August.** This section used to say nothing in `lib/` imports the Firebase
-packages. **That was wrong**, and wrong in the direction that matters: four files already do,
-covering App Check, remote flags, telemetry and Wrapped sharing. **Much more is wired than that
-sentence implied**, which is why the work below is configuration rather than implementation.
-
-**That is deliberate.** The code was built and tested against injected adapters so it could be
-finished before the projects existed. This document is the other half.
+That code does **not** prove any Firebase or Google Console setting has been enabled. The project,
+app registrations, provider settings, OAuth clients, downloaded configuration and deployed
+backend resources still have to match the shipping flavor. Treat this document as a setup
+checklist, not as evidence of current console state.
 
 **Console names move.** Google regroups the left navigation every so often, and the same
 feature has lived under Build, Release and Monitor, Run, and Security in different years. This
@@ -29,24 +27,22 @@ name and is faster than hunting the tree.
 
 ---
 
-## 0. Do this before you create anything, added 11 August
+## 0. Runtime package baseline and billing guardrails
 
-**Every Firebase package here is a major version behind**, and `google_sign_in` is
-one behind a breaking rewrite. Upgrade first.
+The Auth runtime is written for `firebase_auth` 6.x, `google_sign_in` 7.2.x and
+`cloud_functions` 6.x. Google Sign-In 7 uses the singleton API, requires an awaited
+`initialize()` exactly once, and separates authentication from authorization. Pantas uses only
+the authentication ID token for Firebase Auth; it does not request an access-token authorization
+path for ordinary sign-in.
 
-The three adapter methods in Section 9 are still empty, so nothing in the app
-calls a Firebase API that an upgrade can break: today the upgrade is a version
-bump and a test run. **After the wiring exists it is a migration across every call
-site.**
+The app does not hard-code an Android `serverClientId`. Each shipping flavor instead needs a Web
+OAuth client represented in that flavor's `google-services.json` as an `oauth_client` entry with
+`client_type: 3`; the Android Google Sign-In plugin uses that configuration to resolve the server
+client ID.
 
-`google_sign_in` 7 replaced the constructor with a singleton, requires an awaited
-`initialize`, splits authentication from authorization, and needs `serverClientId`
-on Android from 7.1. Sign-in here sits behind one gateway interface, so that lands
-in a single adapter.
-
-**Also set a Blaze budget alert on the day you enable billing.** It caps nothing,
-because Firebase has no spending cap, but it decides whether you notice a runaway
-query in an hour or in a month.
+**Also set a Blaze budget alert on the day you enable billing.** It caps nothing, because
+Firebase has no spending cap, but it decides whether you notice a runaway query in an hour or
+in a month.
 
 Scale, cost and the account boundary are worked through in
 `docs/superpowers/2026-08-11-data-at-scale-and-the-account-boundary.md`.
@@ -126,26 +122,47 @@ keytool -list -v -keystore ~/.android/debug.keystore \
 
 ## 3. Authentication
 
-**Providers to enable**, under **Authentication > Sign-in method**:
+For **every shipping Firebase project**, enable the providers required by the current runtime
+under **Authentication > Sign-in method**:
 
 | Provider | Needed for |
 |---|---|
-| **Google** | `google_sign_in`, the primary sign in |
-| **Apple** | `sign_in_with_apple`, required by App Store review when any other social sign in is offered |
+| **Anonymous** | Local-first startup identity and fail-open account lifecycle |
+| **Google** | `google_sign_in`, the current named-account sign in |
+| **Apple** | Future iOS social sign in; configure when that flow is implemented and required for release |
 
-**Google** needs no extra fields on Android beyond the SHA fingerprints above. It does need a
-**support email** selected on the provider.
+This repository does not establish whether those providers are already enabled in the console.
+Verify each project separately before shipping it.
 
-**Apple** needs, from your Apple Developer account:
+### Google OAuth requirements per flavor
+
+Each shipping flavor needs all of the following to agree:
+
+- The Android package name from Section 2.
+- The correct SHA-1 and SHA-256 fingerprints for the build/signing path.
+- A Google support email on the Firebase Google provider.
+- A **Web OAuth 2.0 client** associated with that Firebase/Google Cloud project.
+- That Web client present in the flavor-specific `google-services.json` under `oauth_client`
+  with **`client_type: 3`**.
+
+Do this separately for dev, staging and prod. Do not reuse a Web OAuth client from another
+Firebase project just because the package names are similar. Pantas intentionally calls
+`GoogleSignIn.instance.initialize()` without a hard-coded `serverClientId`, so a missing
+`client_type: 3` entry can surface on Android as a server-client-ID configuration failure.
+
+**Authorized domains**: the defaults are fine for the current Android flow. Nothing in this app
+uses a browser-based sign-in flow today.
+
+### Apple, when iOS sign in is implemented
+
+Apple sign in needs, from your Apple Developer account:
 
 - A **Services ID**
 - An **Apple Team ID**
 - A **Key ID** and the **private key** for a Sign in with Apple key
 
-Apple sign in cannot be finished without a paid Apple Developer membership. **If iOS is not in
-the first release, enable Google only and come back to this.**
-
-**Authorized domains**: the defaults are fine. Nothing in this app signs in from a browser.
+Apple sign in cannot be finished without a paid Apple Developer membership. It is not part of
+the current Android Auth runtime.
 
 ---
 
@@ -176,6 +193,11 @@ link:
 ```
 wrapped_shares/{shareId}
 ```
+
+The Auth sign-in callable also ensures the named-account root document at `users/{uid}` exists.
+It writes only initial account-root metadata such as `createdAt`; Auth does not write study
+progress or Pro state. Anonymous Free and named Free study progress remain local-only. Sync
+eligibility belongs to the separate Sync runtime and is limited to named Pro accounts.
 
 ### Rules
 
@@ -301,6 +323,12 @@ first report. The work is local:
 - **iOS needs the dSYM upload build phase**, or every crash arrives unreadable.
 - Crash reports do not appear until the app **crashes once and is then relaunched**. Force a
   test crash rather than assuming it is broken.
+- Automatic Crashlytics collection stays disabled. Do not enable it at runtime. When persisted
+  consent is true, the app sends the unsent batch manually. When consent is false or unanswered,
+  it deletes the unsent batch. A new opt-in deletes the batch before anything can be sent.
+- Flutter Crashlytics can check whether an unsent batch exists, then send or delete the whole
+  batch. It does not expose report timestamps, consent provenance, or per-report selection.
+  Native fatal reports can therefore wait until the next launch before delivery.
 
 ### Analytics
 
@@ -324,21 +352,17 @@ sends nothing.
 
 ### Adding telemetry later, which needs no console work
 
-**The switch is already built.** Telemetry resolves through an interface with two
-implementations: a no-op one, and the Firebase one. The chooser checks whether a Firebase app
-exists at all and returns the no-op when none does, which is why the app boots today instead of
-dying at the splash on `[core/no-app]`.
+Telemetry resolves through an interface with a no-op implementation and a Firebase
+implementation. The chooser uses the live Firebase instances when they exist and the no-op
+surface when Firebase is unavailable. Consent remains a separate gate.
 
-**So the moment `flutterfire configure` has run and the bootstrap is wired, telemetry starts
-reporting with no further change.** Nothing needs switching on per event.
+A new event is one line: a case on the telemetry event enum with its snake_case wire name. Keep
+the comment grouping, which is written as the question the event answers rather than the feature
+it sits in, because that is what makes an unused event obvious later. Register any new parameter
+as a custom dimension per the note above.
 
-**A new event is one line**: a case on the telemetry event enum with its snake_case wire name.
-Keep the comment grouping, which is written as the question the event answers rather than the
-feature it sits in, because that is what makes an unused event obvious later. Register any new
-parameter as a custom dimension per the note above.
-
-**Crash reporting needs nothing per call site.** All three of Flutter's throw sites are already
-funnelled into one reporter, so a new screen is covered the moment it exists.
+Crash reporting needs nothing per call site. Flutter throw sites are funnelled into the shared
+reporter and remain consent-gated.
 
 ### Cloud Messaging
 
@@ -348,8 +372,19 @@ nothing beyond the registered app.
 
 ### Cloud Functions
 
-`cloud_functions` is in `pubspec.yaml` and **nothing in the app calls it.** Either a planned
-feature needs it or it should come out of the manifest. It requires the Blaze plan.
+The app now has an Auth callable client for these functions in exactly
+`asia-southeast1`:
+
+- `recordSignInEvent`
+- `deleteAccount`
+- `exportData`
+
+`recordSignInEvent` and `deleteAccount` are part of the account lifecycle. The export callable
+remains backend-compatible but self-service export is **not activated in Settings**; privacy
+access requests continue through the DPO path documented in `docs/PRIVACY.md`.
+
+Deploying Functions and enabling any required billing/App Check enforcement are separate
+operator actions. This repository state does not prove they have been deployed.
 
 ---
 
@@ -381,30 +416,21 @@ flutterfire configure \
   --android-package-name=com.aedwon.pantas
 ```
 
-**The dev project is `pantas-dev-090126`, not `pantas-dev`.** Project IDs are
-global and somebody else holds that one. Created 12 August 2026.
+**The dev project is `pantas-dev-090126`, not `pantas-dev`.** Project IDs are global and
+somebody else holds that one. Created 12 August 2026.
 
-**Android only, and `--platforms=android` says so.** There is no Apple developer
-account, so the iOS bundle argument that used to be here only produced prompts
-about a platform nothing can ship to.
+**Android only, and `--platforms=android` says so.** There is no Apple developer account, so the
+iOS bundle argument that used to be here only produced prompts about a platform nothing can
+ship to.
 
-`flutterfire configure` creates the Firebase apps if they do not exist, writes the options file,
-and adds the required Gradle plugins.
+`flutterfire configure` creates or updates the selected Firebase app configuration, writes the
+options file and adds required platform integration where supported. Review the resulting diff
+and generated files rather than assuming every console/platform setting was completed.
 
-### The trap, found 12 August after running all three
+### The `google-services.json` flavor trap
 
-**It does not drop `google-services.json` into the flavor folders. It writes one
-file at `android/app/google-services.json` and each run overwrites the last.**
-This document said otherwise and it was wrong.
-
-**What that leaves you with:** one file, holding whichever project ran last, and
-it names only that flavor's package. A dev build then fails at Gradle with "No
-matching client found for package name com.aedwon.pantas.dev", and if the three
-projects had shared a package name it would have been worse: a dev build quietly
-writing into the production project.
-
-**The fix is to move each one as it is written**, into the flavor's own source
-folder, which is where the Google Services plugin looks first:
+`flutterfire configure` writes `android/app/google-services.json`; running it again for another
+project replaces that file. Pantas needs one file per Android flavor in the flavor source folder:
 
 ```bash
 mkdir -p android/app/src/staging
@@ -421,62 +447,69 @@ flutterfire configure --project=pantas-staging \
 mv android/app/google-services.json android/app/src/staging/google-services.json
 ```
 
-**`google-services.json` is gitignored**, so none of these three files reach the
-repository. **CI will need them supplied some other way** before it can build a
-Firebase-enabled release. That is not solved yet.
+After each configure run, inspect that flavor's file and verify both the expected Android client
+and the Web OAuth `oauth_client` with **`client_type: 3`** are present. If that Web client is
+missing, create/configure it in the matching Firebase/Google Cloud project and re-download the
+file rather than hard-coding a client ID in Dart.
 
-**Then the code has to be wired**, and this is the step that is easy to forget because nothing
-fails loudly without it:
+`google-services.json` is gitignored, so these files do not reach the repository. CI needs them
+supplied securely before it can build Firebase-enabled releases.
 
-1. `firebaseConfigForFlavor` in `lib/app/firebase_bootstrap.dart` returns `null` for every
-   flavor, which is why bootstrap currently does nothing. It must return the options for the
-   flavor it is given.
-2. `FirebaseSdkBootAdapter.initialize` has an empty body. It must call
-   `Firebase.initializeApp(options: ...)`.
-3. `FirebaseSdkBootAdapter.activateAppCheck` has an empty body. It must call
-   `FirebaseAppCheck.instance.activate(...)` with the provider it is handed.
+### Runtime wiring status
 
-**Do not commit the generated files if the repo is public.** They hold no secrets, but they do
-hold project identifiers, and `google-services.json` in a public repo invites other people's
-traffic onto your quota.
+The code side of Firebase bootstrap is already wired:
+
+1. `firebaseConfigForFlavor` in `lib/app/firebase_bootstrap.dart` selects the generated options
+   for dev, staging or prod.
+2. `FirebaseSdkBootAdapter.initialize` calls `Firebase.initializeApp(options: ...)`.
+3. App Check activation is owned by `lib/core/platform/app_check.dart` and selects the configured
+   provider by flavor.
+4. `lib/app/auth_bootstrap.dart` installs Firebase Auth, Google Sign-In and callable Functions
+   adapters only when Core initialized successfully. It otherwise installs a stable unavailable
+   Auth repository and leaves local app surfaces usable.
+5. When Firebase is configured and no cached Auth user exists, startup attempts anonymous sign-in
+   best-effort. A failed anonymous sign-in does not prevent `runApp()`.
+
+Do not interpret those code facts as confirmation that any provider, OAuth client, App Check
+registration, ruleset or Function has been enabled or deployed in the console.
+
+**Do not commit generated project configuration merely because this checklist mentions it.**
+Follow the repository's existing generated-file and secret-handling rules.
 
 ---
 
 ## 10. The order I would do it in
 
-**Android only.** There is no Apple developer account, so skip Apple sign-in, App
-Attest and the APNs key entirely. They are not blockers; they do not exist yet.
+**Android only.** There is no Apple developer account, so skip Apple sign-in, App Attest and the
+APNs key entirely. They are not blockers for the current Android release.
 
-**Link the BigQuery export on the day you create the project.** It is free in the
-sandbox and **it is not retroactive**: analytics data from before you link it can
-never be imported, and the Firebase console alone cannot answer questions of your
-own shape. This is the cheapest thing here to get right and the most expensive to
-get wrong.
+**Link the BigQuery export on the day you create the project.** It is free in the sandbox and
+**it is not retroactive**: analytics data from before you link it can never be imported, and the
+Firebase console alone cannot answer questions of your own shape. This is the cheapest thing
+here to get right and the most expensive to get wrong.
 
-**Backup is Pro only**, decided 11 August, so Firestore only ever holds the data of
-students who both signed in and subscribed. That keeps Section 4's cost profile
-small, and it does not change the rules: they still scope a student to their own
-subtree.
+**Backup is Pro only**, decided 11 August, so study-progress Sync is eligible only for students
+who are both signed in and Pro. Authentication itself does not upload or reconcile study
+progress. Anonymous Free and named Free stay local-only.
 
-1. **Create the prod project only.** Dev and staging can wait; you cannot test anything
-   end to end without prod anyway, and three projects is three times the console work before
-   you know the flow.
-2. **Authentication with Google**, and the SHA fingerprints. This is the one that unblocks sync.
-3. **Firestore with its rules**, then a real sign in on a device, then check the rows land.
-4. **Remote Config with both parameters at their safe defaults.**
-5. **Crashlytics**, and force one crash to prove it reports.
-6. **App Check registered but not enforced.**
+1. Create or verify the Firebase project for the flavor you are preparing.
+2. Enable **Anonymous** and **Google** Authentication, register the correct fingerprints, and
+   verify the flavor's Web OAuth client / `client_type: 3` entry.
+3. Create Firestore with the approved rules before relying on named-account roots or Sync.
+4. Configure Remote Config with both parameters at their safe defaults.
+5. Configure Crashlytics and force one consent-controlled test crash when release verification
+   reaches that stage.
+6. Register App Check but do not enforce until verified traffic is visible.
 7. Storage, only when Wrapped sharing matters.
 8. Messaging, only when notifications ship.
 
-**Not Firebase, and often confused with it:** the paywall runs on RevenueCat with
-products defined in the Play Console. **That now has its own document,
-`docs/revenuecat-setup.md`**, including the Google Cloud service account that has
-to be invited into Play Console before RevenueCat can see a subscription.
+**Not Firebase, and often confused with it:** the paywall runs on RevenueCat with products
+defined in the Play Console. That has its own document, `docs/revenuecat-setup.md`, including
+the Google Cloud service account that has to be invited into Play Console before RevenueCat can
+see a subscription.
 
-**A student can subscribe without ever signing in**, because entitlement comes from
-the store and the device rather than from an account. So the paywall does not wait
-on any of this.
+A student can subscribe without ever signing in, because entitlement comes from the store and
+the device rather than from an account. The paywall does not wait on Firebase Auth.
 
 ---
 

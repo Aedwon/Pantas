@@ -52,9 +52,9 @@ void main() {
     expect(capturedProviders(), ('debug', 'debug'));
   });
 
-  test('staging attests with Play Integrity and Device Check', () async {
+  test('staging uses Android debug and Apple Device Check', () async {
     await activateAppCheck(Flavor.staging, appCheck: mockAppCheck);
-    expect(capturedProviders(), ('playIntegrity', 'deviceCheck'));
+    expect(capturedProviders(), ('debug', 'deviceCheck'));
   });
 
   test('prod attests with Play Integrity and Device Check', () async {
