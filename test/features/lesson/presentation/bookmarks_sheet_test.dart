@@ -157,17 +157,18 @@ void main() {
     expect(find.byKey(const ValueKey('bookmark-grip')), findsNWidgets(3));
   });
 
-  testWidgets('dragging a row writes the new order', (tester) async {
+  testWidgets('dragging a row down persists the adjusted order',
+      (tester) async {
     await pumpSheet(tester, rows: 3, order: BookmarkOrder.custom);
 
     await tester.drag(
       find.byKey(const ValueKey('bookmark-grip')).first,
-      const Offset(0, 120),
+      const Offset(0, 90),
     );
     await tester.pumpAndSettle();
 
     final rows = await repo.customOrder();
-    expect(rows, isNotEmpty);
+    expect(rows.map((row) => row.lessonId).toList(), ['l2', 'l1', 'l3']);
   });
 
   testWidgets('switching away from custom asks nothing', (tester) async {

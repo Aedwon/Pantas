@@ -191,13 +191,12 @@ class _BookmarksSheetState extends ConsumerState<_BookmarksSheet> {
                 ? ReorderableListView.builder(
                     itemCount: rows.length,
                     buildDefaultDragHandles: false,
-                    // onReorderItem, not onReorder: the deprecated callback
-                    // hands back an index that still counts the dragged row,
-                    // which is why the adjustment below had to exist.
-                    onReorderItem: (oldIndex, newIndex) async {
+                    onReorder: (oldIndex, newIndex) async {
                       final ids = [for (final r in rows) r.lessonId];
                       final moved = ids.removeAt(oldIndex);
-                      ids.insert(newIndex, moved);
+                      final targetIndex =
+                          oldIndex < newIndex ? newIndex - 1 : newIndex;
+                      ids.insert(targetIndex, moved);
 
                       await ref
                           .read(lessonBookmarksRepositoryProvider)
