@@ -35,38 +35,51 @@ class _PermissionRationalePageState
     final colors = context.colors;
     return Scaffold(
       body: SafeArea(
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 420),
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Text("I'll be your coach.", style: styles.displaySmall),
-                  const SizedBox(height: 16),
-                  Text(
-                    'Get one daily study reminder and a streak-save warning '
-                    'when you still have work left today.',
-                    style: styles.bodyLarge.copyWith(color: colors.inkMuted),
+        child: LayoutBuilder(
+          builder: (context, constraints) => SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
+              child: IntrinsicHeight(
+                child: Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 420),
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Text(
+                            "I'll be your coach.",
+                            style: styles.displaySmall,
+                          ),
+                          const SizedBox(height: 16),
+                          Text(
+                            'Get one daily study reminder and a streak-save '
+                            'warning when you still have work left today.',
+                            style: styles.bodyLarge
+                                .copyWith(color: colors.inkMuted),
+                          ),
+                          const SizedBox(height: 32),
+                          BoardButton(
+                            label: 'Sounds good',
+                            onPressed: _isSaving
+                                ? null
+                                : () => _continue(requestPermission: true),
+                          ),
+                          const SizedBox(height: 8),
+                          BoardButton(
+                            label: 'Not right now',
+                            secondary: true,
+                            onPressed: _isSaving
+                                ? null
+                                : () => _continue(requestPermission: false),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
-                  const SizedBox(height: 32),
-                  BoardButton(
-                    label: 'Sounds good',
-                    onPressed: _isSaving
-                        ? null
-                        : () => _continue(requestPermission: true),
-                  ),
-                  const SizedBox(height: 8),
-                  BoardButton(
-                    label: 'Not right now',
-                    secondary: true,
-                    onPressed: _isSaving
-                        ? null
-                        : () => _continue(requestPermission: false),
-                  ),
-                ],
+                ),
               ),
             ),
           ),

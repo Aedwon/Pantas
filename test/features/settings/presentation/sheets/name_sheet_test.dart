@@ -44,4 +44,19 @@ void main() {
 
     expect(result, '');
   });
+
+  testWidgets('the field has a programmatic Name label', (tester) async {
+    await tester.pumpApp(
+      Builder(
+        builder: (context) => TextButton(
+          onPressed: () => showNameSheet(context: context, current: null),
+          child: const Text('open'),
+        ),
+      ),
+    );
+    await tester.tap(find.text('open'));
+    await tester.pumpAndSettle();
+
+    expect(find.bySemanticsLabel(RegExp('^Name')), findsOneWidget);
+  });
 }

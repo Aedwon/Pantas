@@ -1,4 +1,7 @@
+import 'dart:ui' show Tristate;
+
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/app.dart';
@@ -16,11 +19,15 @@ Widget harness({
   required int currentIndex,
   required ValueChanged<int> onTap,
   bool disableAnimations = false,
+  TextScaler? textScaler,
 }) {
   return MaterialApp(
     theme: buildLightTheme(),
     home: MediaQuery(
-      data: MediaQueryData(disableAnimations: disableAnimations),
+      data: MediaQueryData(
+        disableAnimations: disableAnimations,
+        textScaler: textScaler ?? TextScaler.noScaling,
+      ),
       child: Scaffold(
         bottomNavigationBar: AppNavBar(
           currentIndex: currentIndex,
@@ -119,6 +126,116 @@ void main() {
       }
     });
 
+    testWidgets(
+      'survives 320dp width at 200% text without layout overflow',
+      (tester) async {
+        tester.view.devicePixelRatio = 1.0;
+        tester.view.physicalSize = const Size(320, 640);
+        addTearDown(tester.view.resetDevicePixelRatio);
+        addTearDown(tester.view.resetPhysicalSize);
+
+        await tester.pumpWidget(
+          harness(
+            currentIndex: 0,
+            onTap: (_) {},
+            textScaler: const TextScaler.linear(2),
+          ),
+        );
+        await tester.pump();
+
+        expect(tester.takeException(), isNull);
+        for (final label in ['Home', 'Study', 'Quiz', 'Progress']) {
+          expect(find.text(label), findsOneWidget);
+          final target = find.ancestor(
+            of: find.text(label),
+            matching: find.byType(InkWell),
+          );
+          expect(target, findsOneWidget);
+          final size = tester.getSize(target);
+          expect(size.width, greaterThanOrEqualTo(48));
+          expect(size.height, greaterThanOrEqualTo(48));
+        }
+      },
+    );
+
+    testWidgets(
+      'keeps Progress on one line at observed API 36 large-text geometry',
+      (tester) async {
+        tester.view.devicePixelRatio = 1.0;
+        tester.view.physicalSize = const Size(320, 640);
+        addTearDown(tester.view.resetDevicePixelRatio);
+        addTearDown(tester.view.resetPhysicalSize);
+
+        // Android 16's platform text scaler is nonlinear. A linear 2x scaler
+        // overstates the observed scaling of these 11sp navigation labels:
+        // on the API 36 device Home/Study/Quiz stayed on one line while only
+        // Progress wrapped. 1.75 reproduces that label geometry in the widget
+        // harness; the real device remains the final platform-level proof.
+        await tester.pumpWidget(
+          harness(
+            currentIndex: 0,
+            onTap: (_) {},
+            textScaler: const TextScaler.linear(1.75),
+          ),
+        );
+        await tester.pump();
+
+        expect(tester.takeException(), isNull);
+        final paragraph = tester.renderObject<RenderParagraph>(
+          find.text('Progress'),
+        );
+        final selectionBoxes = paragraph.getBoxesForSelection(
+          const TextSelection(baseOffset: 0, extentOffset: 8),
+        );
+        expect(
+          selectionBoxes,
+          hasLength(1),
+          reason: 'Progress must not split mid-word at large text.',
+        );
+      },
+    );
+
+    testWidgets(
+      'allocates more large-text width to Progress than Quiz',
+      (tester) async {
+        tester.view.devicePixelRatio = 1.0;
+        tester.view.physicalSize = const Size(320, 640);
+        addTearDown(tester.view.resetDevicePixelRatio);
+        addTearDown(tester.view.resetPhysicalSize);
+
+        await tester.pumpWidget(
+          harness(
+            currentIndex: 0,
+            onTap: (_) {},
+            textScaler: const TextScaler.linear(1.75),
+          ),
+        );
+        await tester.pump();
+
+        expect(tester.takeException(), isNull);
+        final quizTarget = find.ancestor(
+          of: find.text('Quiz'),
+          matching: find.byType(InkWell),
+        );
+        final progressTarget = find.ancestor(
+          of: find.text('Progress'),
+          matching: find.byType(InkWell),
+        );
+
+        final quizWidth = tester.getSize(quizTarget).width;
+        final progressWidth = tester.getSize(progressTarget).width;
+
+        expect(quizWidth, greaterThanOrEqualTo(48));
+        expect(progressWidth, greaterThanOrEqualTo(48));
+        expect(
+          progressWidth,
+          greaterThan(quizWidth),
+          reason: 'Progress needs a wider tab at large text instead of '
+              'painting beyond an equal 80dp slot.',
+        );
+      },
+    );
+
     testWidgets('the active glyph settles filled and the others stay empty',
         (tester) async {
       await tester.pumpWidget(harness(currentIndex: 0, onTap: (_) {}));
@@ -196,6 +313,18 @@ void main() {
         tester.widget<Text>(find.text('Home')).style?.fontWeight,
         isNot(FontWeight.w700),
       );
+    });
+
+    testWidgets('the current tab is selected in semantics', (tester) async {
+      final semantics = tester.ensureSemantics();
+      await tester.pumpWidget(harness(currentIndex: 1, onTap: (_) {}));
+
+      final study = tester.getSemantics(find.bySemanticsLabel('Study'));
+      final home = tester.getSemantics(find.bySemanticsLabel('Home'));
+
+      expect(study.flagsCollection.isSelected, Tristate.isTrue);
+      expect(home.flagsCollection.isSelected, Tristate.isFalse);
+      semantics.dispose();
     });
   });
 }

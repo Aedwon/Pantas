@@ -45,9 +45,12 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
     _step ??= _initialStep();
+    final disableAnimations = MediaQuery.disableAnimationsOf(context);
     return Scaffold(
       body: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 220),
+        duration: disableAnimations
+            ? Duration.zero
+            : const Duration(milliseconds: 220),
         child: _buildStep(_step!),
       ),
     );

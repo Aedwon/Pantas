@@ -46,6 +46,7 @@ class DataRowTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.colors;
     final styles = context.textStyles;
+    final textScale = MediaQuery.textScalerOf(context).scale(1);
 
     Widget buildFigureColumn(
       String? figureText, {
@@ -62,14 +63,14 @@ class DataRowTile extends StatelessWidget {
         fontFeatures: const [FontFeature.tabularFigures()],
       );
 
-      return SizedBox(
-        width: 52,
+      return ConstrainedBox(
+        constraints: const BoxConstraints(minWidth: 52),
         child: Text(
           figureText,
           style: style,
           textAlign: TextAlign.right,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
+          maxLines: textScale > 1 ? null : 1,
+          overflow: textScale > 1 ? null : TextOverflow.ellipsis,
         ),
       );
     }
@@ -78,75 +79,130 @@ class DataRowTile extends StatelessWidget {
     // one every table already drawn depends on. A row that carries a
     // subtext holds two lines and cannot: it keeps the same 4px padding
     // and takes the height its two lines need.
-    final textScale = MediaQuery.textScalerOf(context).scale(1);
     final fixedHeight = (subtext == null && textScale <= 1.0) ? 38.0 : null;
 
-    final content = SizedBox(
-      height: fixedHeight,
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(minHeight: 38),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 4),
-          child: Row(
-            children: [
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: styles.bodyMedium.copyWith(
-                        color: colors.ink,
-                        fontWeight: FontWeight.w400,
-                        height: 1.2,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
+    final content = textScale > 1
+        ? Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  title,
+                  style: styles.bodyMedium.copyWith(
+                    color: colors.ink,
+                    fontWeight: FontWeight.w400,
+                    height: 1.2,
+                  ),
+                ),
+                if (subtext != null)
+                  Text(
+                    subtext!,
+                    style: styles.bodySmall.copyWith(
+                      color: colors.inkMuted,
+                      fontSize: 12,
+                      height: 1.2,
                     ),
-                    if (subtext != null)
-                      Text(
-                        subtext!,
-                        style: styles.bodySmall.copyWith(
-                          color: colors.inkMuted,
-                          fontSize: 12,
-                          height: 1.2,
-                        ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
+                  ),
+                const SizedBox(height: 6),
+                Wrap(
+                  alignment: WrapAlignment.end,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  spacing: 4,
+                  runSpacing: 4,
+                  children: [
+                    if (showMeterSlot)
+                      SizedBox(
+                        width: _meterWidth,
+                        child: meterValue == null
+                            ? null
+                            : InlineMeter(
+                                value: meterValue!,
+                                color: primaryColor ?? colors.ink,
+                                width: _meterWidth,
+                              ),
+                      ),
+                    buildFigureColumn(
+                      primaryFigure,
+                      isActive: primaryIsActive,
+                      color: primaryIsActive ? primaryColor : null,
+                    ),
+                    if (secondaryFigure != null)
+                      buildFigureColumn(
+                        secondaryFigure,
+                        isActive: !primaryIsActive,
+                      ),
+                  ],
+                ),
+              ],
+            ),
+          )
+        : SizedBox(
+            height: fixedHeight,
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(minHeight: 38),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            title,
+                            style: styles.bodyMedium.copyWith(
+                              color: colors.ink,
+                              fontWeight: FontWeight.w400,
+                              height: 1.2,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          if (subtext != null)
+                            Text(
+                              subtext!,
+                              style: styles.bodySmall.copyWith(
+                                color: colors.inkMuted,
+                                fontSize: 12,
+                                height: 1.2,
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                        ],
+                      ),
+                    ),
+                    if (showMeterSlot) ...[
+                      const SizedBox(width: 10),
+                      SizedBox(
+                        width: _meterWidth,
+                        child: meterValue == null
+                            ? null
+                            : InlineMeter(
+                                value: meterValue!,
+                                color: primaryColor ?? colors.ink,
+                                width: _meterWidth,
+                              ),
+                      ),
+                      const SizedBox(width: 4),
+                    ],
+                    buildFigureColumn(
+                      primaryFigure,
+                      isActive: primaryIsActive,
+                      color: primaryIsActive ? primaryColor : null,
+                    ),
+                    if (secondaryFigure != null)
+                      buildFigureColumn(
+                        secondaryFigure,
+                        isActive: !primaryIsActive,
                       ),
                   ],
                 ),
               ),
-              if (showMeterSlot) ...[
-                const SizedBox(width: 10),
-                SizedBox(
-                  width: _meterWidth,
-                  child: meterValue == null
-                      ? null
-                      : InlineMeter(
-                          value: meterValue!,
-                          color: primaryColor ?? colors.ink,
-                          width: _meterWidth,
-                        ),
-                ),
-                const SizedBox(width: 4),
-              ],
-              buildFigureColumn(
-                primaryFigure,
-                isActive: primaryIsActive,
-                color: primaryIsActive ? primaryColor : null,
-              ),
-              if (secondaryFigure != null)
-                buildFigureColumn(
-                  secondaryFigure,
-                  isActive: !primaryIsActive,
-                ),
-            ],
-          ),
-        ),
-      ),
-    );
+            ),
+          );
 
     if (onTap == null) {
       return content;
@@ -154,7 +210,10 @@ class DataRowTile extends StatelessWidget {
 
     return InkWell(
       onTap: onTap,
-      child: content,
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(minHeight: 48),
+        child: content,
+      ),
     );
   }
 }

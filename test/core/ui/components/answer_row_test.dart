@@ -69,7 +69,7 @@ void main() {
     }
   });
 
-  testWidgets('tap fires callback and row meets 44px', (tester) async {
+  testWidgets('tap fires callback and row meets 48dp', (tester) async {
     var tapped = false;
     await tester.pumpWidget(
       harness(
@@ -80,7 +80,56 @@ void main() {
     expect(tapped, isTrue);
     expect(
       tester.getSize(find.byType(AnswerRow)).height,
-      greaterThanOrEqualTo(44),
+      greaterThanOrEqualTo(48),
+    );
+  });
+
+  testWidgets('selection and graded result are exposed once', (tester) async {
+    await tester.pumpWidget(
+      harness(
+        AnswerRow(
+          letter: 'B',
+          text: 'Manila',
+          onTap: () {},
+          state: AnswerRowState.selected,
+        ),
+      ),
+    );
+    expect(
+      tester.getSemantics(find.bySemanticsLabel('B. Manila')),
+      matchesSemantics(
+        label: 'B. Manila',
+        value: 'Selected',
+        hasSelectedState: true,
+        isSelected: true,
+        hasEnabledState: true,
+        isEnabled: true,
+        isButton: true,
+        hasTapAction: true,
+      ),
+    );
+
+    await tester.pumpWidget(
+      harness(
+        AnswerRow(
+          letter: 'B',
+          text: 'Manila',
+          onTap: () {},
+          state: AnswerRowState.incorrect,
+        ),
+      ),
+    );
+    expect(
+      tester.getSemantics(find.bySemanticsLabel('B. Manila')),
+      matchesSemantics(
+        label: 'B. Manila',
+        value: 'Incorrect, your answer',
+        hasSelectedState: true,
+        hasEnabledState: true,
+        isEnabled: true,
+        isButton: true,
+        hasTapAction: true,
+      ),
     );
   });
 

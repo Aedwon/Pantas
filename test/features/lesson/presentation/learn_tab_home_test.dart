@@ -1,22 +1,38 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/error_banner.dart';
+import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/presentation/learn_tab_home.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
 
+class _InitiallyOpenTopic extends OpenTopicController {
+  @override
+  Future<TopicId?> build() async => 't1';
+
+  @override
+  Future<void> toggle(TopicId topicId) async {
+    state = AsyncData(state.valueOrNull == topicId ? null : topicId);
+  }
+
+  @override
+  Future<void> close() async => state = const AsyncData(null);
+}
+
 void main() {
   late AppDatabase db;
   late ContentDatabase contentDb;
 
-  GoRouter buildRouter() => GoRouter(
+  GoRouter buildRouter({bool disableAnimations = false}) => GoRouter(
         initialLocation: '/study',
         routes: [
           GoRoute(
@@ -25,7 +41,10 @@ void main() {
           ),
           GoRoute(
             path: '/study',
-            builder: (_, __) => const StudyTabHome(),
+            builder: (_, __) => MediaQuery(
+              data: MediaQueryData(disableAnimations: disableAnimations),
+              child: const StudyTabHome(),
+            ),
             routes: [
               GoRoute(
                 path: 'topic/:topicId',
@@ -143,5 +162,29 @@ void main() {
 
     expect(find.text('Choose your exam'), findsOneWidget);
     expect(find.text('Pick the exam you are reviewing for.'), findsOneWidget);
+  });
+
+  testWidgets('reduced motion removes the pinned topic transitions',
+      (tester) async {
+    await AppPreferencesRepository(db).setSelectedExamId('e1');
+
+    await tester.pumpAppWithRouter(
+      buildRouter(disableAnimations: true),
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+        openTopicProvider.overrideWith(_InitiallyOpenTopic.new),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    expect(
+      tester.widget<AnimatedSlide>(find.byType(AnimatedSlide)).duration,
+      Duration.zero,
+    );
+    expect(
+      tester.widget<AnimatedOpacity>(find.byType(AnimatedOpacity)).duration,
+      Duration.zero,
+    );
   });
 }

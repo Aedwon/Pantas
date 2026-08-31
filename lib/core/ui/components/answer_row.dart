@@ -65,35 +65,53 @@ class AnswerRow extends StatelessWidget {
       _ => FontWeight.w400,
     };
 
-    return InkWell(
+    final result = switch (state) {
+      AnswerRowState.plain => null,
+      AnswerRowState.selected => 'Selected',
+      AnswerRowState.correct => 'Correct',
+      AnswerRowState.incorrect => 'Incorrect, your answer',
+      AnswerRowState.correctMissed => 'Correct answer',
+    };
+
+    return Semantics(
+      label: '$letter. $text',
+      value: result,
+      selected: state == AnswerRowState.selected,
+      button: onTap != null,
+      enabled: onTap != null,
       onTap: onTap,
-      child: Container(
-        constraints: const BoxConstraints(minHeight: 44),
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
-        decoration: decoration,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              width: 22,
-              child: Text(
-                prefix,
-                style: styles.headlineSmall.copyWith(color: prefixColor),
-              ),
-            ),
-            const SizedBox(width: 10),
-            // A choice is a plain string, so `$…$` in it never reached the
-            // maths renderer the stem goes through and printed its dollars.
-            Expanded(
-              child: InlineMathText(
-                text,
-                style: bodyStyle.copyWith(
-                  color: textColor,
-                  fontWeight: weight,
+      excludeSemantics: true,
+      child: InkWell(
+        excludeFromSemantics: true,
+        onTap: onTap,
+        child: Container(
+          constraints: const BoxConstraints(minHeight: 48),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+          decoration: decoration,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: 22,
+                child: Text(
+                  prefix,
+                  style: styles.headlineSmall.copyWith(color: prefixColor),
                 ),
               ),
-            ),
-          ],
+              const SizedBox(width: 10),
+              // A choice is a plain string, so `$…$` in it never reached the
+              // maths renderer the stem goes through and printed its dollars.
+              Expanded(
+                child: InlineMathText(
+                  text,
+                  style: bodyStyle.copyWith(
+                    color: textColor,
+                    fontWeight: weight,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

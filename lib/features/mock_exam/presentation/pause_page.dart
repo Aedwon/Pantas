@@ -53,93 +53,113 @@ class PausePage extends StatelessWidget {
       canPop: false,
       child: Scaffold(
         body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Paused.',
-                  style: textStyles.displayMedium.copyWith(
-                    fontFamily: 'SourceSans3',
-                    fontSize: 24,
-                    fontWeight: FontWeight.w700,
-                    color: colors.ink,
-                  ),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  partName,
-                  style: textStyles.bodyRegular.copyWith(
-                    color: colors.inkMuted,
-                  ),
-                ),
-                const SizedBox(height: 32),
-                const SectionHeader(title: 'Time left'),
-                const SizedBox(height: 12),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.baseline,
-                  textBaseline: TextBaseline.alphabetic,
-                  children: [
-                    Text(
-                      _formatRemaining(remaining),
-                      style: textStyles.displayLarge.copyWith(
-                        fontFamily: 'SourceSans3',
-                        fontSize: 30,
-                        fontWeight: FontWeight.w700,
-                        color: colors.ink,
-                        fontFeatures: [const FontFeature.tabularFigures()],
-                      ),
-                    ),
-                    Text(
-                      'in this part',
-                      style: textStyles.mathBody.copyWith(
-                        fontFamily: 'SourceSans3',
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        color: colors.inkMuted,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 6),
-                Text(
-                  '$answered of $total answered · $flagged flagged',
-                  style: textStyles.bodyRegular.copyWith(
-                    color: colors.inkMuted,
-                  ),
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  'The clock is stopped. It starts again when you resume.',
-                  style: textStyles.bodyRegular.copyWith(
-                    color: colors.ink,
-                  ),
-                ),
-                const Spacer(),
-                BoardButton(
-                  label: 'Resume',
-                  onPressed: onResume,
-                ),
-                const SizedBox(height: 16),
-                Center(
-                  child: GestureDetector(
-                    onTap: () => _confirmDiscard(context),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 8,
-                        horizontal: 16,
-                      ),
-                      child: Text(
-                        'Discard this mock',
-                        style: textStyles.labelLarge.copyWith(
-                          color: colors.rust,
+          child: LayoutBuilder(
+            builder: (context, constraints) => SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+              child: ConstrainedBox(
+                constraints:
+                    BoxConstraints(minHeight: constraints.maxHeight - 64),
+                child: IntrinsicHeight(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Paused.',
+                        style: textStyles.displayMedium.copyWith(
+                          fontFamily: 'SourceSans3',
+                          fontSize: 24,
+                          fontWeight: FontWeight.w700,
+                          color: colors.ink,
                         ),
                       ),
-                    ),
+                      const SizedBox(height: 4),
+                      Text(
+                        partName,
+                        style: textStyles.bodyRegular.copyWith(
+                          color: colors.inkMuted,
+                        ),
+                      ),
+                      const SizedBox(height: 32),
+                      const SectionHeader(title: 'Time left'),
+                      const SizedBox(height: 12),
+                      Wrap(
+                        spacing: 4,
+                        crossAxisAlignment: WrapCrossAlignment.end,
+                        children: [
+                          Text(
+                            _formatRemaining(remaining),
+                            style: textStyles.displayLarge.copyWith(
+                              fontFamily: 'SourceSans3',
+                              fontSize: 30,
+                              fontWeight: FontWeight.w700,
+                              color: colors.ink,
+                              fontFeatures: [
+                                const FontFeature.tabularFigures(),
+                              ],
+                            ),
+                          ),
+                          Text(
+                            'in this part',
+                            style: textStyles.mathBody.copyWith(
+                              fontFamily: 'SourceSans3',
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                              color: colors.inkMuted,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        '$answered of $total answered · $flagged flagged',
+                        style: textStyles.bodyRegular.copyWith(
+                          color: colors.inkMuted,
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      Text(
+                        'The clock is stopped. It starts again when you '
+                        'resume.',
+                        style: textStyles.bodyRegular.copyWith(
+                          color: colors.ink,
+                        ),
+                      ),
+                      const Spacer(),
+                      BoardButton(
+                        label: 'Resume',
+                        onPressed: onResume,
+                      ),
+                      const SizedBox(height: 16),
+                      Center(
+                        child: Semantics(
+                          button: true,
+                          enabled: true,
+                          label: 'Discard this mock',
+                          hint: 'Opens a confirmation',
+                          excludeSemantics: true,
+                          child: InkWell(
+                            onTap: () => _confirmDiscard(context),
+                            child: ConstrainedBox(
+                              constraints: const BoxConstraints(
+                                minWidth: 48,
+                                minHeight: 48,
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'Discard this mock',
+                                  style: textStyles.labelLarge.copyWith(
+                                    color: colors.rust,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ],
+              ),
             ),
           ),
         ),

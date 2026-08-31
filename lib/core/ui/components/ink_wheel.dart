@@ -12,6 +12,8 @@ class InkWheel<T> extends StatefulWidget {
     required this.selectedIndex,
     required this.onSelected,
     required this.labelBuilder,
+    this.semanticLabel,
+    this.semanticValueBuilder,
     super.key,
   });
 
@@ -19,6 +21,8 @@ class InkWheel<T> extends StatefulWidget {
   final int selectedIndex;
   final ValueChanged<int> onSelected;
   final String Function(T value) labelBuilder;
+  final String? semanticLabel;
+  final String Function(T value)? semanticValueBuilder;
 
   static const double itemHeight = 30;
   static const int visibleItems = 5;
@@ -44,7 +48,21 @@ class _InkWheelState<T> extends State<InkWheel<T>> {
 
     if (widget.values.isEmpty) return const SizedBox.shrink();
 
-    return ListWheelScrollView.useDelegate(
+    final selectedIndex =
+        widget.selectedIndex.clamp(0, widget.values.length - 1);
+    String semanticValueAt(int index) {
+      final value = widget.values[index];
+      return widget.semanticValueBuilder?.call(value) ??
+          widget.labelBuilder(value);
+    }
+
+    void select(int index) {
+      final next = index.clamp(0, widget.values.length - 1);
+      _controller.jumpToItem(next);
+      widget.onSelected(next);
+    }
+
+    final wheel = ListWheelScrollView.useDelegate(
       controller: _controller,
       itemExtent: InkWheel.itemHeight,
       physics: const FixedExtentScrollPhysics(),
@@ -66,6 +84,24 @@ class _InkWheelState<T> extends State<InkWheel<T>> {
           );
         },
       ),
+    );
+    if (widget.semanticLabel == null) return wheel;
+
+    return Semantics(
+      label: widget.semanticLabel,
+      value: semanticValueAt(selectedIndex),
+      increasedValue: selectedIndex < widget.values.length - 1
+          ? semanticValueAt(selectedIndex + 1)
+          : null,
+      decreasedValue:
+          selectedIndex > 0 ? semanticValueAt(selectedIndex - 1) : null,
+      slider: true,
+      onIncrease: selectedIndex < widget.values.length - 1
+          ? () => select(selectedIndex + 1)
+          : null,
+      onDecrease: selectedIndex > 0 ? () => select(selectedIndex - 1) : null,
+      excludeSemantics: true,
+      child: wheel,
     );
   }
 }

@@ -31,6 +31,7 @@ class StudySubjectSection extends ConsumerWidget {
     final colors = context.colors;
     final styles = context.textStyles;
     final openTopicId = ref.watch(openTopicProvider).valueOrNull;
+    final disableAnimations = MediaQuery.disableAnimationsOf(context);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,34 +87,41 @@ class StudySubjectSection extends ConsumerWidget {
           // easeOutQuint over easeOutCubic: it leaves faster and settles
           // slower, so the end of the movement is soft rather than stopped.
           ClipRect(
-            child: AnimatedSize(
-              duration: const Duration(milliseconds: 340),
-              curve: Curves.easeOutQuint,
-              alignment: Alignment.topCenter,
-              child: openTopicId != topic.id
-                  ? const SizedBox(width: double.infinity)
-                  : Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        for (final lesson in topic.lessons)
-                          Padding(
-                            padding: const EdgeInsets.only(left: 22),
-                            child: _FadeIn(
-                              child: InkTableRow(
-                                title: lesson.title,
-                                state: lesson.isRead
-                                    ? InkRowState.done
-                                    : InkRowState.plain,
-                                reserveGlyph: true,
-                                meta: '${lesson.estimatedMinutes} min',
-                                chevron: InkRowChevron.link,
-                                onTap: () => context
-                                    .push('/lesson/${lesson.id}?from=study'),
+            child: Builder(
+              builder: (context) {
+                final lessons = openTopicId != topic.id
+                    ? const SizedBox(width: double.infinity)
+                    : Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          for (final lesson in topic.lessons)
+                            Padding(
+                              padding: const EdgeInsets.only(left: 22),
+                              child: _FadeIn(
+                                disableAnimations: disableAnimations,
+                                child: InkTableRow(
+                                  title: lesson.title,
+                                  state: lesson.isRead
+                                      ? InkRowState.done
+                                      : InkRowState.plain,
+                                  reserveGlyph: true,
+                                  meta: '${lesson.estimatedMinutes} min',
+                                  chevron: InkRowChevron.link,
+                                  onTap: () => context
+                                      .push('/lesson/${lesson.id}?from=study'),
+                                ),
                               ),
                             ),
-                          ),
-                      ],
-                    ),
+                        ],
+                      );
+                if (disableAnimations) return lessons;
+                return AnimatedSize(
+                  duration: const Duration(milliseconds: 340),
+                  curve: Curves.easeOutQuint,
+                  alignment: Alignment.topCenter,
+                  child: lessons,
+                );
+              },
             ),
           ),
         ],
@@ -127,19 +135,41 @@ class StudySubjectSection extends ConsumerWidget {
 /// Starts after the opening is underway rather than with it, so the height
 /// and the ink are not the same gesture told twice.
 class _FadeIn extends StatefulWidget {
-  const _FadeIn({required this.child});
+  const _FadeIn({required this.child, required this.disableAnimations});
 
   final Widget child;
+  final bool disableAnimations;
 
   @override
   State<_FadeIn> createState() => _FadeInState();
 }
 
 class _FadeInState extends State<_FadeIn> with SingleTickerProviderStateMixin {
-  late final AnimationController _controller = AnimationController(
-    duration: const Duration(milliseconds: 340),
-    vsync: this,
-  )..forward();
+  late final AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 340),
+      value: widget.disableAnimations ? 1 : 0,
+      vsync: this,
+    );
+    if (!widget.disableAnimations) _controller.forward();
+  }
+
+  @override
+  void didUpdateWidget(covariant _FadeIn oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.disableAnimations == widget.disableAnimations) return;
+    if (widget.disableAnimations) {
+      _controller.value = 1;
+    } else {
+      _controller
+        ..value = 0
+        ..forward();
+    }
+  }
 
   @override
   void dispose() {

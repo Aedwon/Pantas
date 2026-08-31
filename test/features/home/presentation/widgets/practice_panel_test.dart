@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -69,7 +70,10 @@ void main() {
     await db.close();
   });
 
-  Widget harness(List<TopicAccuracy> topics) {
+  Widget harness(
+    List<TopicAccuracy> topics, {
+    Future<List<TopicAccuracy>> Function()? loadTopics,
+  }) {
     const exam = Exam(
       id: 'upcat',
       code: 'UPCAT',
@@ -86,7 +90,9 @@ void main() {
         activeExamFocusProvider.overrideWith(
           (ref) async => const ActiveExamFocus.selected(exam),
         ),
-        topicAccuracyProvider.overrideWith((ref) async => topics),
+        topicAccuracyProvider.overrideWith(
+          (ref) => loadTopics?.call() ?? Future.value(topics),
+        ),
         startTodaySessionProvider.overrideWithValue(fakeStartToday),
       ],
       child: MaterialApp(
@@ -211,6 +217,35 @@ void main() {
     await tester.pumpWidget(harness(threeTopics));
     await tester.pumpAndSettle();
     expect(find.byType(InkChevron), findsNWidgets(3));
+  });
+
+  testWidgets('every practice row has a 48dp hit region', (tester) async {
+    await tester.pumpWidget(harness(threeTopics));
+    await tester.pumpAndSettle();
+
+    for (final topic in ['Chemistry', 'Algebra', 'Geometry']) {
+      final row = find.ancestor(
+        of: find.text(topic),
+        matching: find.byType(InkWell),
+      );
+      expect(row, findsOneWidget);
+      expect(tester.getSize(row).height, greaterThanOrEqualTo(48));
+    }
+  });
+
+  testWidgets('loading exposes one quiet status', (tester) async {
+    final completer = Completer<List<TopicAccuracy>>();
+    await tester.pumpWidget(
+      harness(const [], loadTopics: () => completer.future),
+    );
+    await tester.pump();
+
+    final status = find.bySemanticsLabel('Loading practice topics');
+    expect(status, findsOneWidget);
+    expect(
+      tester.getSemantics(status).flagsCollection.isLiveRegion,
+      isFalse,
+    );
   });
 
   testWidgets('no lead line promises a session length', (tester) async {

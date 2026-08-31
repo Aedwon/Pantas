@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
 import 'package:pantas/features/notifications/presentation/permission_rationale_page.dart';
 
@@ -89,6 +90,33 @@ void main() {
       isTrue,
     );
     expect(find.text('Home'), findsOneWidget);
+  });
+
+  testWidgets('survives 200% text at 320dp and a short height', (tester) async {
+    tester.view
+      ..physicalSize = const Size(320, 480)
+      ..devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      ProviderScope(
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: Builder(
+            builder: (context) => MediaQuery(
+              data: MediaQuery.of(context).copyWith(
+                textScaler: const TextScaler.linear(2),
+              ),
+              child: const PermissionRationalePage(),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    expect(tester.takeException(), isNull);
   });
 }
 

@@ -169,6 +169,52 @@ void main() {
     expect(find.text('All 5'), findsOneWidget);
     expect(find.text('Wrong 2'), findsOneWidget);
     expect(find.text('Flagged 1'), findsOneWidget);
+    expect(
+      tester.getSemantics(find.bySemanticsLabel('Wrong 2')),
+      matchesSemantics(
+        label: 'Wrong 2',
+        hasSelectedState: true,
+        isSelected: true,
+        isButton: true,
+        isFocusable: true,
+        hasTapAction: true,
+        hasFocusAction: true,
+      ),
+    );
+  });
+
+  testWidgets('rows expose expansion and a separate named flag action',
+      (tester) async {
+    await tester.pumpApp(
+      ReviewList(
+        entries: sampleEntries,
+        proIsActive: false,
+        grouped: false,
+        initialFilter: ReviewFilter.all,
+        onToggleFlag: (_) {},
+      ),
+    );
+
+    expect(
+      tester.getSemantics(find.bySemanticsLabel('Question 2. Q2 Label')),
+      matchesSemantics(
+        label: 'Question 2. Q2 Label',
+        value: 'Correct',
+        isButton: true,
+        hasExpandedState: true,
+        hasTapAction: true,
+      ),
+    );
+    expect(
+      tester.getSemantics(find.bySemanticsLabel('Unflag question 2')),
+      matchesSemantics(
+        label: 'Unflag question 2',
+        hasToggledState: true,
+        isToggled: true,
+        isButton: true,
+        hasTapAction: true,
+      ),
+    );
   });
 
   testWidgets('All is one tap away', (tester) async {

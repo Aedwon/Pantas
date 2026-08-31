@@ -31,57 +31,77 @@ class _TendenciesPanelState extends ConsumerState<TendenciesPanel> {
 
     final asyncCards = ref.watch(tendenciesProvider);
 
+    final largeText = MediaQuery.textScalerOf(context).scale(12) > 18;
     final actionText = isPro ? 'See full details' : 'Unlock with Pro';
     final onAction =
         isPro ? () => context.go('/progress') : () => context.go('/paywall');
+    final cardHeight = TendencyCardView.heightFor(context);
 
     return RuledPanel(
       heading: 'Your tendencies',
-      action: actionText,
-      onAction: onAction,
-      child: asyncCards.when(
-        loading: () => const SizedBox(height: 130),
-        error: (_, __) => const SizedBox.shrink(),
-        data: (cards) {
-          if (cards.isEmpty) return const SizedBox.shrink();
-
-          return Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SizedBox(
-                height: 112,
-                child: PageView.builder(
-                  controller: _pageController,
-                  itemCount: cards.length,
-                  onPageChanged: (index) {
-                    setState(() {
-                      _currentPage = index;
-                    });
-                  },
-                  itemBuilder: (context, index) {
-                    return TendencyCardView(
-                      card: cards[index],
-                      isPro: isPro,
-                    );
-                  },
+      action: largeText ? null : actionText,
+      onAction: largeText ? null : onAction,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (largeText)
+            Align(
+              alignment: Alignment.centerRight,
+              child: TextButton(
+                onPressed: onAction,
+                style: TextButton.styleFrom(
+                  foregroundColor: context.colors.board,
+                  minimumSize: const Size(48, 48),
+                  padding: EdgeInsets.zero,
                 ),
+                child: Text(actionText),
               ),
-              const SizedBox(height: 8),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+            ),
+          asyncCards.when(
+            loading: () => SizedBox(height: cardHeight + 18),
+            error: (_, __) => const SizedBox.shrink(),
+            data: (cards) {
+              if (cards.isEmpty) return const SizedBox.shrink();
+
+              return Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  for (var i = 0; i < cards.length; i++) ...[
-                    if (i > 0) const SizedBox(width: 6),
-                    _TendencyDot(
-                      isCurrent: i == _currentPage,
-                      hasFigures: cards[i].figures != null,
+                  SizedBox(
+                    height: cardHeight,
+                    child: PageView.builder(
+                      controller: _pageController,
+                      itemCount: cards.length,
+                      onPageChanged: (index) {
+                        setState(() {
+                          _currentPage = index;
+                        });
+                      },
+                      itemBuilder: (context, index) {
+                        return TendencyCardView(
+                          card: cards[index],
+                          isPro: isPro,
+                        );
+                      },
                     ),
-                  ],
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      for (var i = 0; i < cards.length; i++) ...[
+                        if (i > 0) const SizedBox(width: 6),
+                        _TendencyDot(
+                          isCurrent: i == _currentPage,
+                          hasFigures: cards[i].figures != null,
+                        ),
+                      ],
+                    ],
+                  ),
                 ],
-              ),
-            ],
-          );
-        },
+              );
+            },
+          ),
+        ],
       ),
     );
   }

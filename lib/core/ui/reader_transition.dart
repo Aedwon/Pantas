@@ -73,6 +73,10 @@ class ReaderAdvanceTransition extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (MediaQuery.disableAnimationsOf(context)) {
+      return child;
+    }
+
     final from =
         entry == ReaderEntry.advance ? const Offset(0, 1) : const Offset(1, 0);
     final to = entry == ReaderEntry.advance

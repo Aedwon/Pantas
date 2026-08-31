@@ -8,14 +8,19 @@ import 'package:pantas/features/settings/domain/theme_preference.dart';
 import '../../../helpers/pump_app.dart';
 
 void main() {
-  testWidgets('the control is 90 by 22, three segments of 30', (tester) async {
+  testWidgets('each segment has a 48dp target and a 22dp visual',
+      (tester) async {
     await tester.pumpApp(
       ThemeControl(value: ThemePreference.system, onChanged: (_) {}),
     );
 
     expect(
       tester.getSize(find.byType(ThemeControl)),
-      const Size(ThemeControl.segmentWidth * 3, ThemeControl.height),
+      const Size(ThemeControl.segmentWidth * 3, 48),
+    );
+    expect(
+      tester.getSize(find.byKey(const ValueKey('theme-segment-Light theme'))),
+      const Size(ThemeControl.segmentWidth, ThemeControl.height),
     );
   });
 

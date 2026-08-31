@@ -1,3 +1,5 @@
+import 'dart:ui' show Tristate;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -148,5 +150,39 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Mathematics topics'), findsOneWidget);
+  });
+
+  testWidgets('the scope control is named, collapsed, and at least 48dp',
+      (tester) async {
+    await tester.pumpWidget(harness(level: TableLevel.topic));
+
+    final finder = find.bySemanticsLabel('Subject filter, All topics');
+    final node = tester.getSemantics(finder);
+    expect(node.flagsCollection.isButton, isTrue);
+    expect(node.flagsCollection.isExpanded, Tristate.isFalse);
+    final size = tester.getSize(finder);
+    expect(size.width, greaterThanOrEqualTo(48));
+    expect(size.height, greaterThanOrEqualTo(48));
+  });
+
+  testWidgets('scope choices expose selection and 48dp targets',
+      (tester) async {
+    await tester.pumpWidget(harness(level: TableLevel.topic));
+    await tester.tap(find.text('All topics'));
+    await tester.pumpAndSettle();
+
+    final allFinder = find.bySemanticsLabel('All topics');
+    final scienceFinder = find.bySemanticsLabel('Science, 18');
+    expect(
+      tester.getSemantics(allFinder).flagsCollection.isSelected,
+      Tristate.isTrue,
+    );
+    expect(
+      tester.getSemantics(scienceFinder).flagsCollection.isSelected,
+      Tristate.isFalse,
+    );
+    for (final finder in [allFinder, scienceFinder]) {
+      expect(tester.getSize(finder).height, greaterThanOrEqualTo(48));
+    }
   });
 }

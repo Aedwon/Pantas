@@ -112,25 +112,44 @@ class _QuizPageState extends ConsumerState<QuizPage> {
             // [context] [mark], the reader's rule. The counter takes
             // the context
             // slot so the flag never moves as the number's width changes.
-            InkWell(
+            Semantics(
+              button: true,
+              enabled: true,
+              label: 'Question ${state.session.currentIndex + 1} of '
+                  '${state.session.questions.length}. '
+                  'Open question navigator',
               onTap: () => unawaited(_openGrid(state.session)),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      '${state.session.currentIndex + 1} of '
-                      '${state.session.questions.length}',
-                      style: styles.bodySmall.copyWith(
-                        fontSize: 12.5,
-                        color: colors.inkMuted,
-                        fontFeatures: const [FontFeature.tabularFigures()],
+              child: ExcludeSemantics(
+                child: InkWell(
+                  onTap: () => unawaited(_openGrid(state.session)),
+                  child: SizedBox(
+                    height: 48,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            '${state.session.currentIndex + 1} of '
+                            '${state.session.questions.length}',
+                            style: styles.bodySmall.copyWith(
+                              fontSize: 12.5,
+                              color: colors.inkMuted,
+                              fontFeatures: const [
+                                FontFeature.tabularFigures(),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(width: 4),
+                          Icon(
+                            Icons.expand_more,
+                            size: 11,
+                            color: colors.inkMuted,
+                          ),
+                        ],
                       ),
                     ),
-                    const SizedBox(width: 4),
-                    Icon(Icons.expand_more, size: 11, color: colors.inkMuted),
-                  ],
+                  ),
                 ),
               ),
             ),
@@ -138,12 +157,28 @@ class _QuizPageState extends ConsumerState<QuizPage> {
               builder: (context, ref, _) {
                 final flagged =
                     ref.watch(flaggedIdsProvider).valueOrNull ?? const {};
-                return IconButton(
-                  onPressed: () => unawaited(
-                    _toggleFlag(state.session.currentQuestion.id),
-                  ),
-                  icon: PennantMark(
-                    isSet: flagged.contains(state.session.currentQuestion.id),
+                final isFlagged =
+                    flagged.contains(state.session.currentQuestion.id);
+                final questionNumber = state.session.currentIndex + 1;
+                void toggle() => unawaited(
+                      _toggleFlag(state.session.currentQuestion.id),
+                    );
+                return Semantics(
+                  button: true,
+                  enabled: true,
+                  toggled: isFlagged,
+                  label: isFlagged
+                      ? 'Remove flag from question $questionNumber'
+                      : 'Flag question $questionNumber',
+                  onTap: toggle,
+                  child: ExcludeSemantics(
+                    child: SizedBox.square(
+                      dimension: 48,
+                      child: IconButton(
+                        onPressed: toggle,
+                        icon: PennantMark(isSet: isFlagged),
+                      ),
+                    ),
                   ),
                 );
               },

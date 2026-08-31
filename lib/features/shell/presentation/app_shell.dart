@@ -49,6 +49,71 @@ class AppNavBar extends StatelessWidget {
     (label: 'Progress', glyph: NavGlyphKind.progress),
   ];
 
+  static const _labelHorizontalAllowance = 8.0;
+
+  List<double> _itemWidths(BuildContext context, double availableWidth) {
+    final equalWidth = availableWidth / _tabs.length;
+    final textDirection = Directionality.of(context);
+    final textScaler = MediaQuery.textScalerOf(context);
+    final labelStyle = context.textStyles.labelSmall.copyWith(
+      fontWeight: FontWeight.w700,
+    );
+
+    final requiredWidths = [
+      for (final tab in _tabs)
+        () {
+          final painter = TextPainter(
+            text: TextSpan(text: tab.label, style: labelStyle),
+            textDirection: textDirection,
+            textScaler: textScaler,
+            maxLines: 1,
+          )..layout();
+          final width = painter.width + _labelHorizontalAllowance;
+          return width < AppDimensions.minTapTarget
+              ? AppDimensions.minTapTarget
+              : width;
+        }(),
+    ];
+
+    if (requiredWidths.every((width) => width <= equalWidth)) {
+      return List<double>.filled(_tabs.length, equalWidth);
+    }
+
+    final requiredTotal = requiredWidths.fold<double>(
+      0,
+      (total, width) => total + width,
+    );
+    if (requiredTotal <= availableWidth) {
+      final extraPerItem = (availableWidth - requiredTotal) / _tabs.length;
+      return [for (final width in requiredWidths) width + extraPerItem];
+    }
+
+    final minimumTotal = AppDimensions.minTapTarget * _tabs.length;
+    if (minimumTotal >= availableWidth) {
+      return List<double>.filled(_tabs.length, equalWidth);
+    }
+
+    final extraNeeds = [
+      for (final width in requiredWidths)
+        width > AppDimensions.minTapTarget
+            ? width - AppDimensions.minTapTarget
+            : 0.0,
+    ];
+    final totalExtraNeed = extraNeeds.fold<double>(
+      0,
+      (total, width) => total + width,
+    );
+    final distributableWidth = availableWidth - minimumTotal;
+
+    return [
+      for (final need in extraNeeds)
+        AppDimensions.minTapTarget +
+            (totalExtraNeed == 0
+                ? distributableWidth / _tabs.length
+                : distributableWidth * need / totalExtraNeed),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
@@ -65,18 +130,26 @@ class AppNavBar extends StatelessWidget {
       ),
       child: SafeArea(
         top: false,
-        child: SizedBox(
-          height: 52,
-          child: Row(
-            children: [
-              for (var i = 0; i < _tabs.length; i++)
-                _NavItem(
-                  label: _tabs[i].label,
-                  glyph: _tabs[i].glyph,
-                  isActive: currentIndex == i,
-                  onTap: () => onTap(i),
-                ),
-            ],
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minHeight: 52),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              final widths = _itemWidths(context, constraints.maxWidth);
+              return Row(
+                children: [
+                  for (var i = 0; i < _tabs.length; i++)
+                    SizedBox(
+                      width: widths[i],
+                      child: _NavItem(
+                        label: _tabs[i].label,
+                        glyph: _tabs[i].glyph,
+                        isActive: currentIndex == i,
+                        onTap: () => onTap(i),
+                      ),
+                    ),
+                ],
+              );
+            },
           ),
         ),
       ),
@@ -149,29 +222,46 @@ class _NavItemState extends State<_NavItem>
     // its meaning.
     final color = widget.isActive ? colors.ink : colors.inkMuted;
 
-    return Expanded(
+    return Semantics(
+      label: widget.label,
+      button: true,
+      selected: widget.isActive,
+      onTap: widget.onTap,
+      excludeSemantics: true,
       child: InkWell(
+        excludeFromSemantics: true,
         onTap: widget.onTap,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            AnimatedBuilder(
-              animation: _fill,
-              builder: (context, _) => NavGlyph(
-                kind: widget.glyph,
-                fill: _fill.value,
-                color: color,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(
+            minHeight: AppDimensions.minTapTarget,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              AnimatedBuilder(
+                animation: _fill,
+                builder: (context, _) => NavGlyph(
+                  kind: widget.glyph,
+                  fill: _fill.value,
+                  color: color,
+                ),
               ),
-            ),
-            const SizedBox(height: 2),
-            Text(
-              widget.label,
-              style: styles.labelSmall.copyWith(
-                color: color,
-                fontWeight: widget.isActive ? FontWeight.w700 : FontWeight.w600,
+              const SizedBox(height: 2),
+              Text(
+                widget.label,
+                maxLines: 1,
+                softWrap: false,
+                overflow: TextOverflow.clip,
+                textAlign: TextAlign.center,
+                style: styles.labelSmall.copyWith(
+                  color: color,
+                  fontWeight:
+                      widget.isActive ? FontWeight.w700 : FontWeight.w600,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

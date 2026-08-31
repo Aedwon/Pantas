@@ -1,3 +1,5 @@
+import 'dart:ui' show CheckedState;
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -57,5 +59,27 @@ void main() {
 
     final saved = await DriftSettingsRepository(db).readUserSettings();
     expect(saved.sessionOrdering, SessionOrdering.fullyMixed);
+  });
+
+  testWidgets('each ordering is one 48dp radio-like control', (tester) async {
+    await tester.pumpAppWithProviders(
+      const SessionBuildingPage(),
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    await tester.pumpAndSettle();
+
+    for (final label in ['Blocked', 'Interleaved tail', 'Fully mixed']) {
+      final control = find.bySemanticsLabel(RegExp('^$label'));
+      expect(control, findsOneWidget);
+      final semantics = tester.getSemantics(control);
+      expect(
+        semantics.flagsCollection.isChecked,
+        label == 'Interleaved tail'
+            ? CheckedState.isTrue
+            : CheckedState.isFalse,
+      );
+      expect(semantics.flagsCollection.isInMutuallyExclusiveGroup, isTrue);
+      expect(tester.getSize(control).height, greaterThanOrEqualTo(48));
+    }
   });
 }

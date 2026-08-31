@@ -1,13 +1,17 @@
+import 'dart:ui' show Tristate;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/settings_switch.dart';
 import 'package:pantas/core/ui/components/settings_value_row.dart';
+import 'package:pantas/core/ui/components/theme_control.dart';
 import 'package:pantas/core/ui/theme/app_colors.dart';
+import 'package:pantas/features/settings/domain/theme_preference.dart';
 
 import '../../../helpers/pump_app.dart';
 
 void main() {
-  testWidgets('the visual box is 38 and the tappable box is 44',
+  testWidgets('the visual box is 38 and the tappable box is 48',
       (tester) async {
     await tester.pumpApp(
       SettingsValueRow(title: 'Exam', value: 'UPCAT', onTap: () {}),
@@ -81,6 +85,90 @@ void main() {
 
     await tester.tap(find.text('Strict mock mode'));
     expect(taps, 1);
+  });
+
+  testWidgets('a switch row exposes one named toggled node', (tester) async {
+    await tester.pumpApp(
+      SettingsValueRow(
+        title: 'Strict mock mode',
+        control: const SettingsSwitch(value: true),
+        onTap: () {},
+      ),
+    );
+
+    expect(
+      tester.getSemantics(find.bySemanticsLabel('Strict mock mode')),
+      matchesSemantics(
+        label: 'Strict mock mode',
+        hasToggledState: true,
+        isToggled: true,
+        isButton: true,
+        hasTapAction: true,
+      ),
+    );
+  });
+
+  testWidgets('a compound control keeps its actionable child semantics',
+      (tester) async {
+    ThemePreference? chosen;
+    await tester.pumpApp(
+      SettingsValueRow(
+        title: 'Theme',
+        control: ThemeControl(
+          value: ThemePreference.system,
+          onChanged: (next) => chosen = next,
+        ),
+      ),
+    );
+
+    final light = find.bySemanticsLabel('Light theme');
+    final dark = find.bySemanticsLabel('Dark theme');
+    final system = find.bySemanticsLabel('Follow my phone');
+
+    expect(light, findsOneWidget);
+    expect(dark, findsOneWidget);
+    expect(system, findsOneWidget);
+
+    expect(
+      tester.getSemantics(light),
+      matchesSemantics(
+        label: 'Light theme',
+        hasSelectedState: true,
+        isButton: true,
+        hasTapAction: true,
+      ),
+    );
+    expect(
+      tester.getSemantics(dark),
+      matchesSemantics(
+        label: 'Dark theme',
+        hasSelectedState: true,
+        isButton: true,
+        hasTapAction: true,
+      ),
+    );
+    expect(
+      tester.getSemantics(system),
+      matchesSemantics(
+        label: 'Follow my phone',
+        hasSelectedState: true,
+        isSelected: true,
+        isButton: true,
+        hasTapAction: true,
+      ),
+    );
+    expect(
+      tester.getSemantics(system).flagsCollection.isSelected,
+      Tristate.isTrue,
+    );
+
+    await tester.tap(dark);
+    expect(chosen, ThemePreference.dark);
+
+    expect(
+      tester.getSemantics(find.bySemanticsLabel(RegExp(r'^Theme$'))),
+      matchesSemantics(label: 'Theme'),
+    );
   });
 
   testWidgets('a row with no onTap does not respond to a tap', (tester) async {

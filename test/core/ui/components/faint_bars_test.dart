@@ -17,4 +17,20 @@ void main() {
     final decoration = bar.decoration! as BoxDecoration;
     expect(decoration.color, AppColors.light.ruleFaint);
   });
+
+  testWidgets('status semantics are optional and can be a live region',
+      (tester) async {
+    await tester.pumpWidget(harness(const FaintBars()));
+    expect(find.bySemanticsLabel('Loading questions'), findsNothing);
+
+    await tester.pumpWidget(
+      harness(
+        const FaintBars(semanticsLabel: 'Loading questions', liveRegion: true),
+      ),
+    );
+    expect(
+      tester.getSemantics(find.bySemanticsLabel('Loading questions')),
+      matchesSemantics(label: 'Loading questions', isLiveRegion: true),
+    );
+  });
 }

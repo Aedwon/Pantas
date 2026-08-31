@@ -34,6 +34,7 @@ class ValueWheel extends StatefulWidget {
     required this.values,
     required this.value,
     required this.onChanged,
+    required this.semanticLabel,
     this.format,
     super.key,
   });
@@ -41,6 +42,7 @@ class ValueWheel extends StatefulWidget {
   final List<int> values;
   final int value;
   final ValueChanged<int> onChanged;
+  final String semanticLabel;
   final String Function(int)? format;
 
   @override
@@ -50,7 +52,7 @@ class ValueWheel extends StatefulWidget {
 class _ValueWheelState extends State<ValueWheel> {
   late FixedExtentScrollController _controller;
 
-  static const double _itemExtent = 38;
+  static const double _itemExtent = 48;
 
   @override
   void initState() {
@@ -73,52 +75,91 @@ class _ValueWheelState extends State<ValueWheel> {
     final colors = context.colors;
     final styles = context.textStyles;
     final reduceMotion = MediaQuery.disableAnimationsOf(context);
-
-    return SizedBox(
-      height: 190,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          // A tint marks the choice rather than a fourth kind of rule, the
-          // same treatment the practice picker's wheel uses.
-          Container(height: _itemExtent, color: colors.boardTint),
-          ListWheelScrollView.useDelegate(
-            controller: _controller,
-            itemExtent: _itemExtent,
-            perspective: 0.002,
-            diameterRatio: 100,
-            physics: const FixedExtentScrollPhysics(),
-            // Whatever sits inside the band is the value: it commits on
-            // scroll, not only on tap.
-            onSelectedItemChanged: (index) {
-              if (!reduceMotion) unawaited(HapticFeedback.selectionClick());
-              widget.onChanged(widget.values[index]);
-            },
-            childDelegate: ListWheelChildBuilderDelegate(
-              childCount: widget.values.length,
-              builder: (context, index) {
-                final candidate = widget.values[index];
-                final isSelected = candidate == widget.value;
-                return Center(
-                  child: Text(
-                    widget.format?.call(candidate) ?? '$candidate',
-                    style: isSelected
-                        ? styles.displaySmall.copyWith(
-                            fontFamily: 'SourceSans3',
-                            fontSize: 21,
-                            fontWeight: FontWeight.w700,
-                            color: colors.ink,
-                          )
-                        : styles.bodyMedium.copyWith(
-                            fontSize: 19,
-                            color: colors.inkMuted,
-                          ),
-                  ),
-                );
-              },
-            ),
+    final selectedIndex = widget.values.indexOf(widget.value).clamp(
+          0,
+          widget.values.length - 1,
+        );
+    String formatValue(int value) => widget.format?.call(value) ?? '$value';
+    void adjustBy(int offset) {
+      final nextIndex = (selectedIndex + offset).clamp(
+        0,
+        widget.values.length - 1,
+      );
+      if (nextIndex == selectedIndex) return;
+      if (reduceMotion) {
+        _controller.jumpToItem(nextIndex);
+      } else {
+        unawaited(
+          _controller.animateToItem(
+            nextIndex,
+            duration: const Duration(milliseconds: 150),
+            curve: Curves.easeOut,
           ),
-        ],
+        );
+      }
+      widget.onChanged(widget.values[nextIndex]);
+    }
+
+    return Semantics(
+      slider: true,
+      label: widget.semanticLabel,
+      value: formatValue(widget.value),
+      increasedValue: selectedIndex < widget.values.length - 1
+          ? formatValue(widget.values[selectedIndex + 1])
+          : null,
+      decreasedValue: selectedIndex > 0
+          ? formatValue(widget.values[selectedIndex - 1])
+          : null,
+      onIncrease:
+          selectedIndex < widget.values.length - 1 ? () => adjustBy(1) : null,
+      onDecrease: selectedIndex > 0 ? () => adjustBy(-1) : null,
+      excludeSemantics: true,
+      child: SizedBox(
+        height: 192,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            // A tint marks the choice rather than a fourth kind of rule, the
+            // same treatment the practice picker's wheel uses.
+            Container(height: _itemExtent, color: colors.boardTint),
+            ListWheelScrollView.useDelegate(
+              controller: _controller,
+              itemExtent: _itemExtent,
+              perspective: 0.002,
+              diameterRatio: 100,
+              physics: const FixedExtentScrollPhysics(),
+              // Whatever sits inside the band is the value: it commits on
+              // scroll, not only on tap.
+              onSelectedItemChanged: (index) {
+                if (!reduceMotion) unawaited(HapticFeedback.selectionClick());
+                widget.onChanged(widget.values[index]);
+              },
+              childDelegate: ListWheelChildBuilderDelegate(
+                childCount: widget.values.length,
+                builder: (context, index) {
+                  final candidate = widget.values[index];
+                  final isSelected = candidate == widget.value;
+                  return Center(
+                    child: Text(
+                      widget.format?.call(candidate) ?? '$candidate',
+                      style: isSelected
+                          ? styles.displaySmall.copyWith(
+                              fontFamily: 'SourceSans3',
+                              fontSize: 21,
+                              fontWeight: FontWeight.w700,
+                              color: colors.ink,
+                            )
+                          : styles.bodyMedium.copyWith(
+                              fontSize: 19,
+                              color: colors.inkMuted,
+                            ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -157,17 +198,28 @@ class _WheelFrame extends StatelessWidget {
                 ),
               ),
             ),
-            InkWell(
+            Semantics(
+              button: true,
+              enabled: true,
+              label: 'Done',
               onTap: onDone,
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 12, horizontal: 4),
-                child: Text(
-                  'Done',
-                  style: styles.bodySmall.copyWith(
-                    fontSize: 12.5,
-                    fontWeight: FontWeight.w600,
-                    color: colors.board,
+              excludeSemantics: true,
+              child: InkWell(
+                onTap: onDone,
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(
+                    minWidth: 48,
+                    minHeight: 48,
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Done',
+                      style: styles.bodySmall.copyWith(
+                        fontSize: 12.5,
+                        fontWeight: FontWeight.w600,
+                        color: colors.board,
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -185,6 +237,7 @@ Future<int?> showValueWheelSheet({
   required String title,
   required List<int> values,
   required int initial,
+  required String semanticLabel,
   String Function(int)? format,
 }) {
   var chosen = initial;
@@ -197,6 +250,7 @@ Future<int?> showValueWheelSheet({
         child: ValueWheel(
           values: values,
           value: chosen,
+          semanticLabel: semanticLabel,
           format: format,
           onChanged: (value) => setState(() => chosen = value),
         ),
@@ -240,6 +294,7 @@ Future<(int, int)?> showTwoColumnWheelSheet({
                     ValueWheel(
                       values: questionValues,
                       value: questions,
+                      semanticLabel: 'Questions wheel',
                       onChanged: (value) => setState(() => questions = value),
                     ),
                   ],
@@ -252,6 +307,7 @@ Future<(int, int)?> showTwoColumnWheelSheet({
                     ValueWheel(
                       values: minuteValues,
                       value: minutes,
+                      semanticLabel: 'Minutes wheel',
                       onChanged: (value) => setState(() => minutes = value),
                     ),
                   ],

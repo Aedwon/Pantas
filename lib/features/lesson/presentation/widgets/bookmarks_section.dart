@@ -53,15 +53,30 @@ class BookmarksSection extends ConsumerWidget {
               ),
               const Spacer(),
               if (count > 3)
-                GestureDetector(
+                Semantics(
+                  button: true,
+                  label: 'See all bookmarks',
                   onTap: onSeeAll,
-                  behavior: HitTestBehavior.opaque,
-                  child: Text(
-                    'See all',
-                    style: styles.bodySmall.copyWith(
-                      color: colors.board,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 12,
+                  child: ExcludeSemantics(
+                    child: GestureDetector(
+                      onTap: onSeeAll,
+                      behavior: HitTestBehavior.opaque,
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(
+                          minWidth: 48,
+                          minHeight: 48,
+                        ),
+                        child: Center(
+                          child: Text(
+                            'See all',
+                            style: styles.bodySmall.copyWith(
+                              color: colors.board,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -73,7 +88,7 @@ class BookmarksSection extends ConsumerWidget {
             onTap: () => context.push('/lesson/${row.lessonId}'),
             behavior: HitTestBehavior.opaque,
             child: Container(
-              constraints: const BoxConstraints(minHeight: 44),
+              constraints: const BoxConstraints(minHeight: 48),
               padding: const EdgeInsets.symmetric(vertical: 8),
               decoration: BoxDecoration(
                 border: Border(

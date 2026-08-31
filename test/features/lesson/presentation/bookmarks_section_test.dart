@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/pennant_mark.dart';
 import 'package:pantas/features/lesson/application/bookmark_providers.dart';
@@ -6,7 +7,11 @@ import 'package:pantas/features/lesson/presentation/widgets/bookmarks_section.da
 import '../../../helpers/pump_app.dart';
 
 void main() {
-  Future<void> pumpWith(WidgetTester tester, {required int rows}) async {
+  Future<void> pumpWith(
+    WidgetTester tester, {
+    required int rows,
+    VoidCallback? onSeeAll,
+  }) async {
     final list = List.generate(
       rows,
       (i) => BookmarkRow(
@@ -18,7 +23,7 @@ void main() {
     );
 
     await tester.pumpAppWithProviders(
-      const BookmarksSection(),
+      BookmarksSection(onSeeAll: onSeeAll),
       overrides: [
         bookmarkRowsProvider.overrideWith((ref) async => list),
         bookmarkCountProvider.overrideWith((ref) async => rows),
@@ -62,5 +67,17 @@ void main() {
     await pumpWith(tester, rows: 1);
 
     expect(find.text('Chemistry, 13 min'), findsOneWidget);
+  });
+
+  testWidgets('See all is labeled and at least 48dp', (tester) async {
+    final semantics = tester.ensureSemantics();
+    await pumpWith(tester, rows: 4, onSeeAll: () {});
+
+    final action = find.semantics.byLabel('See all bookmarks');
+    expect(action, findsOne);
+    expect(action.evaluate().single.rect.size.width, greaterThanOrEqualTo(48));
+    expect(action.evaluate().single.rect.size.height, greaterThanOrEqualTo(48));
+
+    semantics.dispose();
   });
 }

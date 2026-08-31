@@ -11,17 +11,25 @@ void main() {
     VoidCallback? onAdvance,
     bool isAtEnd = true,
     String lessonId = 'l1',
+    bool disableAnimations = false,
+    TextScaler textScaler = TextScaler.noScaling,
   }) async {
     await tester.pumpApp(
-      Scaffold(
-        body: PullToAdvance(
-          lessonId: lessonId,
-          isAtEnd: ValueNotifier(isAtEnd),
-          nextTitle: nextTitle,
-          onAdvance: onAdvance ?? () {},
-          child: const ColoredBox(
-            color: Colors.white,
-            child: Center(child: Text('Current Content')),
+      MediaQuery(
+        data: MediaQueryData(
+          disableAnimations: disableAnimations,
+          textScaler: textScaler,
+        ),
+        child: Scaffold(
+          body: PullToAdvance(
+            lessonId: lessonId,
+            isAtEnd: ValueNotifier(isAtEnd),
+            nextTitle: nextTitle,
+            onAdvance: onAdvance ?? () {},
+            child: const ColoredBox(
+              color: Colors.white,
+              child: Center(child: Text('Current Content')),
+            ),
           ),
         ),
       ),
@@ -35,6 +43,30 @@ void main() {
       find.textContaining('Real and Imaginary Number Systems'),
       findsOneWidget,
     );
+  });
+
+  testWidgets('a long next title stays complete at 320dp and 200% text',
+      (tester) async {
+    tester.view
+      ..physicalSize = const Size(320, 640)
+      ..devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await pumpPull(
+      tester,
+      nextTitle: 'Real and Imaginary Number Systems and Their Applications',
+      textScaler: const TextScaler.linear(2),
+    );
+
+    expect(tester.takeException(), isNull);
+    final footerText = tester.widget<Text>(
+      find.byWidgetPredicate(
+        (widget) => widget is Text && widget.textSpan != null,
+      ),
+    );
+    expect(footerText.maxLines, isNull);
+    expect(footerText.overflow, isNot(TextOverflow.ellipsis));
   });
 
   testWidgets('no next lesson draws no handle', (tester) async {
@@ -61,6 +93,50 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(advanced, isTrue);
+  });
+
+  testWidgets('the next lesson semantic action commits without a drag',
+      (tester) async {
+    final semantics = tester.ensureSemantics();
+    var advanced = false;
+    await pumpPull(
+      tester,
+      nextTitle: 'Real and Imaginary Number Systems',
+      onAdvance: () => advanced = true,
+    );
+
+    final action = find.semantics.byLabel(
+      'Next lesson: Real and Imaginary Number Systems',
+    );
+    expect(action, findsOne);
+
+    tester.semantics.tap(action);
+    await tester.pumpAndSettle();
+
+    expect(advanced, isTrue);
+    semantics.dispose();
+  });
+
+  testWidgets('reduced motion advances without a transition', (tester) async {
+    final semantics = tester.ensureSemantics();
+    var advanced = false;
+    await pumpPull(
+      tester,
+      disableAnimations: true,
+      onAdvance: () => advanced = true,
+    );
+
+    expect(find.byType(AnimatedSize), findsNothing);
+    expect(
+      tester.widget<AnimatedOpacity>(find.byType(AnimatedOpacity)).duration,
+      Duration.zero,
+    );
+
+    tester.semantics.tap(find.semantics.byLabel('Next lesson: Next Lesson'));
+    await tester.pump();
+
+    expect(advanced, isTrue);
+    semantics.dispose();
   });
 
   testWidgets('the handle arms past the threshold', (tester) async {

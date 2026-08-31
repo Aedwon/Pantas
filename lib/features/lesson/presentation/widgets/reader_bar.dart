@@ -64,40 +64,74 @@ class ReaderBar extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Row(
                 children: [
-                  GestureDetector(
+                  Semantics(
+                    button: true,
+                    label: 'Back to $originWord',
                     onTap: () => _leave(context),
-                    behavior: HitTestBehavior.opaque,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        CustomPaint(
-                          size: const Size(15, 15),
-                          painter: _BackChevronPainter(color: colors.inkMuted),
-                        ),
-                        const SizedBox(width: 6),
-                        Text(
-                          originWord,
-                          style: TextStyle(
-                            fontSize: 13.5,
-                            color: colors.inkMuted,
+                    child: ExcludeSemantics(
+                      child: GestureDetector(
+                        onTap: () => _leave(context),
+                        behavior: HitTestBehavior.opaque,
+                        child: ConstrainedBox(
+                          constraints: const BoxConstraints(
+                            minWidth: 48,
+                            minHeight: 48,
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              CustomPaint(
+                                size: const Size(15, 15),
+                                painter: _BackChevronPainter(
+                                  color: colors.inkMuted,
+                                ),
+                              ),
+                              const SizedBox(width: 6),
+                              Text(
+                                originWord,
+                                style: TextStyle(
+                                  fontSize: 13.5,
+                                  color: colors.inkMuted,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                      ],
+                      ),
                     ),
                   ),
                   const Spacer(),
-                  GestureDetector(
+                  Semantics(
+                    button: true,
+                    label: 'Contents',
                     onTap: onContents,
-                    behavior: HitTestBehavior.opaque,
-                    child: const Padding(
-                      padding: EdgeInsets.all(8),
-                      child: ContentsGlyph(),
+                    child: ExcludeSemantics(
+                      child: GestureDetector(
+                        onTap: onContents,
+                        behavior: HitTestBehavior.opaque,
+                        child: const SizedBox.square(
+                          dimension: 48,
+                          child: Center(child: ContentsGlyph()),
+                        ),
+                      ),
                     ),
                   ),
                   const SizedBox(width: 8),
-                  BookmarkRibbon(
-                    isBookmarked: isBookmarked,
+                  Semantics(
+                    button: true,
+                    label: isBookmarked
+                        ? 'Remove lesson bookmark'
+                        : 'Bookmark lesson',
                     onTap: onBookmark,
+                    child: ExcludeSemantics(
+                      child: SizedBox.square(
+                        dimension: 48,
+                        child: BookmarkRibbon(
+                          isBookmarked: isBookmarked,
+                          onTap: onBookmark,
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),

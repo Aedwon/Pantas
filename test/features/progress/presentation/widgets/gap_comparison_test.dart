@@ -46,9 +46,17 @@ void main() {
     unlockAction: 'Finish one full length mock',
   );
 
-  Widget harness({required Tendency tendency, required bool isPro}) {
+  Widget harness({
+    required Tendency tendency,
+    required bool isPro,
+    TextScaler textScaler = TextScaler.noScaling,
+  }) {
     return MaterialApp(
       theme: buildLightTheme(),
+      builder: (context, child) => MediaQuery(
+        data: MediaQuery.of(context).copyWith(textScaler: textScaler),
+        child: child!,
+      ),
       home: Scaffold(
         body: GapComparison(
           tendency: tendency,
@@ -117,6 +125,30 @@ void main() {
     expect(find.text('Finish one full length mock'), findsOneWidget);
     for (final t in tester.widgetList<Text>(find.byType(Text))) {
       expect(t.style?.color, isNot(AppColors.light.board));
+    }
+  });
+
+  testWidgets('dense comparisons fit 320 and 360dp at 200 percent text',
+      (tester) async {
+    tester.view.devicePixelRatio = 2;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    for (final width in [320.0, 360.0]) {
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pump();
+      tester.view.physicalSize = Size(width * 2, 1136);
+      await tester.pumpWidget(
+        harness(
+          tendency: lossOf14,
+          isPro: true,
+          textScaler: const TextScaler.linear(2),
+        ),
+      );
+      await tester.pump();
+
+      expect(tester.takeException(), isNull, reason: '$width dp');
+      expect(find.textContaining('Accuracy drops'), findsOneWidget);
     }
   });
 }

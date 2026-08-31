@@ -92,8 +92,13 @@ class _SharedCardRow extends ConsumerWidget {
             ),
           ),
           const SizedBox(width: 12),
-          GestureDetector(
-            onTap: () => _revoke(ref),
+          TextButton(
+            onPressed: () => _revoke(ref),
+            style: TextButton.styleFrom(
+              foregroundColor: colors.rust,
+              minimumSize: const Size(48, 48),
+              padding: EdgeInsets.zero,
+            ),
             child: Text(
               'Revoke',
               style: styles.labelLarge.copyWith(color: colors.rust),

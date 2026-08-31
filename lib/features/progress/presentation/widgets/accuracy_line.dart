@@ -76,17 +76,49 @@ class AccuracyLine extends StatelessWidget {
     }
 
     final colors = context.colors;
+    final summary = _semanticSummary(series);
 
-    return SizedBox(
-      height: 120,
-      width: double.infinity,
-      child: CustomPaint(
-        painter: AccuracyLinePainter(
-          series: series,
-          lineColor: colors.board,
-          gridColor: colors.ruleFaint,
+    return Semantics(
+      container: true,
+      label: summary,
+      child: ExcludeSemantics(
+        child: SizedBox(
+          height: 120,
+          width: double.infinity,
+          child: CustomPaint(
+            painter: AccuracyLinePainter(
+              series: series,
+              lineColor: colors.board,
+              gridColor: colors.ruleFaint,
+            ),
+          ),
         ),
       ),
     );
+  }
+
+  String _semanticSummary(
+    List<({DateTime weekStart, double accuracy})> points,
+  ) {
+    int percent(double value) => value.clamp(0, 100).round();
+
+    final first = percent(points.first.accuracy);
+    final latest = percent(points.last.accuracy);
+    final lowest = points.map((point) => percent(point.accuracy)).reduce(
+          (value, next) => value < next ? value : next,
+        );
+    final highest = points.map((point) => percent(point.accuracy)).reduce(
+          (value, next) => value > next ? value : next,
+        );
+    final difference = latest - first;
+    final trend = switch (difference) {
+      > 0 => 'Up $difference percentage points overall',
+      < 0 => 'Down ${difference.abs()} percentage points overall',
+      _ => 'No overall change',
+    };
+
+    return 'Accuracy history. $trend, from $first percent to $latest percent. '
+        'Lowest $lowest percent. Highest $highest percent. '
+        '${points.length} weekly results.';
   }
 }

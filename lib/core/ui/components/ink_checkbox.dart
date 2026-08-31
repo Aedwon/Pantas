@@ -69,14 +69,18 @@ class InkCheckbox extends StatelessWidget {
       ),
     );
 
-    final tappableBox = ConstrainedBox(
-      constraints: const BoxConstraints(minWidth: 44, minHeight: 44),
+    final targetSize = size < 48 ? 48.0 : size;
+    final tappableBox = SizedBox.square(
+      dimension: targetSize,
       child: Center(child: box),
     );
 
     final widget = Semantics(
-      checked: state == InkCheckState.on,
+      checked:
+          state == InkCheckState.partial ? null : state == InkCheckState.on,
+      mixed: state == InkCheckState.partial,
       enabled: enabled,
+      onTap: onTap == null || !enabled ? null : onTap,
       child: (onTap == null || !enabled)
           ? tappableBox
           : GestureDetector(

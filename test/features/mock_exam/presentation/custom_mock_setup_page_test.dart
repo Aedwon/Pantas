@@ -1,3 +1,5 @@
+import 'dart:ui' show Tristate;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
@@ -77,6 +79,33 @@ void main() {
     expect(find.text('Mathematics'), findsNothing);
   });
 
+  testWidgets('value rows and breakdown expose state with 48dp targets',
+      (tester) async {
+    await tester.pumpWidget(harness());
+    await tester.pumpAndSettle();
+
+    final questionsFinder = find.bySemanticsLabel('Questions, 120');
+    final breakdownFinder = find.bySemanticsLabel(
+      'I know the section breakdown',
+    );
+    final questions = tester.getSemantics(questionsFinder);
+    final breakdown = tester.getSemantics(breakdownFinder);
+
+    expect(questions.flagsCollection.isButton, isTrue);
+    expect(questions.flagsCollection.isEnabled, Tristate.isTrue);
+    expect(breakdown.flagsCollection.isExpanded, Tristate.isFalse);
+    for (final finder in [questionsFinder, breakdownFinder]) {
+      expect(tester.getSize(finder).height, greaterThanOrEqualTo(48));
+    }
+
+    await tester.tap(breakdownFinder);
+    await tester.pumpAndSettle();
+    expect(
+      tester.getSemantics(breakdownFinder).flagsCollection.isExpanded,
+      Tristate.isTrue,
+    );
+  });
+
   testWidgets('opening the breakdown lists the ticked subjects',
       (tester) async {
     await tester.pumpWidget(harness());
@@ -136,6 +165,16 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('whats included'), findsOneWidget);
+  });
+
+  testWidgets('the correction action is named and reaches 48dp',
+      (tester) async {
+    await tester.pumpWidget(harness(available: 60));
+    await tester.pumpAndSettle();
+
+    final finder = find.bySemanticsLabel('Tick more subjects');
+    expect(tester.getSemantics(finder).flagsCollection.isButton, isTrue);
+    expect(tester.getSize(finder).height, greaterThanOrEqualTo(48));
   });
 
   testWidgets('a paper that fits saves', (tester) async {

@@ -39,7 +39,7 @@ class AppColors extends ThemeExtension<AppColors> {
     boardTint: Color(0xFFE3EFEA),
     onBoard: Color(0xFFFFFFFF),
     rust: Color(0xFFA33B2E),
-    amber: Color(0xFF9A6B15),
+    amber: Color(0xFF996A15),
   );
 
   static const dark = AppColors(

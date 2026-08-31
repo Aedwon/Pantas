@@ -1,3 +1,5 @@
+import 'dart:ui' show Tristate;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -347,6 +349,34 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byType(RuledPanel), findsOneWidget);
+  });
+
+  testWidgets('the row disclosure exposes its expanded state and 48dp target',
+      (tester) async {
+    final sevenRows = [
+      for (var index = 0; index < 7; index += 1)
+        PerformanceRow(
+          id: 'topic-$index',
+          title: 'Topic $index',
+          subtext: 'Science',
+          correct: index + 1,
+          answered: 10,
+          secondsPerQuestion: 30,
+        ),
+    ];
+    await tester.pumpWidget(harness(rows: sevenRows));
+    await tester.pumpAndSettle();
+
+    final collapsedFinder = find.bySemanticsLabel('Show 1 more topics');
+    final collapsed = tester.getSemantics(collapsedFinder);
+    expect(collapsed.flagsCollection.isExpanded, Tristate.isFalse);
+    expect(tester.getSize(collapsedFinder).height, greaterThanOrEqualTo(48));
+
+    await tester.tap(collapsedFinder);
+    await tester.pumpAndSettle();
+
+    final expanded = tester.getSemantics(find.bySemanticsLabel('Show less'));
+    expect(expanded.flagsCollection.isExpanded, Tristate.isTrue);
   });
 }
 

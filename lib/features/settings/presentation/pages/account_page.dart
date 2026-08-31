@@ -41,10 +41,13 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             ),
             const SizedBox(height: 16),
             if (_errorMessage != null) ...[
-              Text(
-                _errorMessage!,
-                style: context.textStyles.bodySmall
-                    .copyWith(color: context.colors.rust),
+              Semantics(
+                liveRegion: true,
+                child: Text(
+                  _errorMessage!,
+                  style: context.textStyles.bodySmall
+                      .copyWith(color: context.colors.rust),
+                ),
               ),
               const SizedBox(height: 12),
             ],

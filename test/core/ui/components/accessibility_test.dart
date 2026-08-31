@@ -13,6 +13,7 @@ import 'package:pantas/core/ui/components/contents_glyph.dart';
 import 'package:pantas/core/ui/components/data_row_tile.dart';
 import 'package:pantas/core/ui/components/empty_state.dart';
 import 'package:pantas/core/ui/components/error_banner.dart';
+import 'package:pantas/core/ui/components/exam_name_line.dart';
 import 'package:pantas/core/ui/components/exam_selection_row.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
 import 'package:pantas/core/ui/components/ink_checkbox.dart';
@@ -21,6 +22,7 @@ import 'package:pantas/core/ui/components/ink_magnifier.dart';
 import 'package:pantas/core/ui/components/ink_plate_rule.dart';
 import 'package:pantas/core/ui/components/ink_table_row.dart';
 import 'package:pantas/core/ui/components/ink_wheel.dart';
+import 'package:pantas/core/ui/components/inline_math_text.dart';
 import 'package:pantas/core/ui/components/inline_meter.dart';
 import 'package:pantas/core/ui/components/nav_glyph.dart';
 import 'package:pantas/core/ui/components/page_scaffold.dart';
@@ -39,8 +41,11 @@ import 'package:pantas/core/ui/components/settings_bar.dart';
 import 'package:pantas/core/ui/components/settings_group.dart';
 import 'package:pantas/core/ui/components/settings_switch.dart';
 import 'package:pantas/core/ui/components/settings_value_row.dart';
+import 'package:pantas/core/ui/components/spaced_repetition_note.dart';
 import 'package:pantas/core/ui/components/stats_band.dart';
+import 'package:pantas/core/ui/components/tab_header.dart';
 import 'package:pantas/core/ui/components/theme_control.dart';
+import 'package:pantas/core/ui/components/topic_scope_index.dart';
 import 'package:pantas/core/ui/theme/theme_preference.dart';
 
 import '../../../helpers/accessibility.dart';
@@ -99,6 +104,65 @@ void main() {
     label: 'Word Problem on Age and Work Ratios',
     labelIsStem: false,
   );
+
+  group('accessibility harness', () {
+    testWidgets('configures viewport, theme, text scale, and reduced motion', (
+      tester,
+    ) async {
+      await pumpAccessibilitySurface(
+        tester,
+        const SizedBox(),
+        textScale: 2,
+        viewportSize: const Size(320, 640),
+        brightness: Brightness.dark,
+        disableAnimations: true,
+      );
+
+      final context = tester.element(find.byType(Center));
+      expect(MediaQuery.sizeOf(context), const Size(320, 640));
+      expect(MediaQuery.textScalerOf(context).scale(10), 20);
+      expect(MediaQuery.disableAnimationsOf(context), isTrue);
+      expect(Theme.of(context).brightness, Brightness.dark);
+    });
+
+    testWidgets('runs Flutter accessibility guidelines on a shared surface', (
+      tester,
+    ) async {
+      await pumpAccessibilitySurface(
+        tester,
+        BoardButton(label: 'Continue', onPressed: () {}),
+        viewportSize: const Size(320, 640),
+      );
+
+      await expectMeetsAccessibilityGuidelines(tester);
+    });
+  });
+
+  testWidgets('the harness supports a compact dark 200% case', (tester) async {
+    await expectSurvivesTextScale(
+      tester,
+      const FaintBars(),
+      scales: const [2],
+      viewportSize: const Size(320, 640),
+      brightness: Brightness.dark,
+      disableAnimations: true,
+    );
+  });
+
+  testWidgets('an actionable banner survives 200% at 320dp', (tester) async {
+    await expectSurvivesTextScale(
+      tester,
+      ErrorBanner(
+        variant: ErrorBannerVariant.error,
+        message: 'Could not save your answer.',
+        actionLabel: 'Retry',
+        onAction: () {},
+        onDismiss: () {},
+      ),
+      scales: const [2],
+      viewportSize: const Size(320, 640),
+    );
+  });
 
   group('UI Kit components survival under text scale 2.0', () {
     testWidgets('AnswerReveal survives 200% text scale', (tester) async {
@@ -480,6 +544,62 @@ void main() {
           value: ThemePreference.system,
           onChanged: (_) {},
         ),
+      );
+    });
+
+    testWidgets('InlineMathText survives 200% text scale', (tester) async {
+      await expectSurvivesTextScale(
+        tester,
+        const InlineMathText(r'A long equation $x^2 + y^2 = z^2$ in a line'),
+      );
+    });
+
+    testWidgets('TabHeader survives 200% text scale at 320dp', (tester) async {
+      await expectSurvivesTextScale(
+        tester,
+        const TabHeader(
+          title: 'Practice questions',
+          trailing: SizedBox.square(dimension: 48),
+        ),
+        scales: const [2],
+        viewportSize: const Size(320, 640),
+      );
+    });
+
+    testWidgets('TopicScopeIndex survives 200% text scale', (tester) async {
+      await expectSurvivesTextScale(
+        tester,
+        TopicScopeIndex(
+          subjects: const [
+            TopicScopeSubjectData(
+              id: 'subject',
+              name: 'Numerical ability',
+              topics: [
+                TopicScopeTopicData(
+                  id: 'topic',
+                  name: 'Ratios and percentages',
+                ),
+              ],
+            ),
+          ],
+          topicState: (_) => TopicScopeCheckState.partial,
+          onToggleTopic: (_) {},
+        ),
+      );
+    });
+
+    testWidgets('SpacedRepetitionNote survives 200% text scale',
+        (tester) async {
+      await expectSurvivesTextScale(
+        tester,
+        const SpacedRepetitionNote(),
+      );
+    });
+
+    testWidgets('ExamNameLine survives 200% text scale', (tester) async {
+      await expectSurvivesTextScale(
+        tester,
+        const ExamNameLine('Civil Service Professional'),
       );
     });
   });

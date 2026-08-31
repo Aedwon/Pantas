@@ -142,7 +142,9 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
     if (context == null) return;
     Scrollable.ensureVisible(
       context,
-      duration: const Duration(milliseconds: 320),
+      duration: MediaQuery.disableAnimationsOf(context)
+          ? Duration.zero
+          : const Duration(milliseconds: 320),
       curve: Curves.easeOutCubic,
     );
   }
@@ -180,6 +182,7 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
         }
 
         final openTopicId = ref.watch(openTopicProvider).valueOrNull;
+        final disableAnimations = MediaQuery.disableAnimationsOf(context);
         StudyTopic? openTopic;
         if (openTopicId != null) {
           for (final subject in map.subjects) {
@@ -203,16 +206,29 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
                   },
                 )
               else
-                TabHeader(
-                  title: 'Study',
-                  trailing: GestureDetector(
-                    behavior: HitTestBehavior.opaque,
-                    onTap: () => setState(() => _searching = true),
-                    child: const Padding(
-                      padding: EdgeInsets.all(4),
-                      child: InkMagnifier(),
+                Stack(
+                  children: [
+                    const TabHeader(title: 'Study'),
+                    Positioned(
+                      top: 5,
+                      right: 0,
+                      child: Semantics(
+                        button: true,
+                        label: 'Search lessons',
+                        onTap: () => setState(() => _searching = true),
+                        child: ExcludeSemantics(
+                          child: GestureDetector(
+                            behavior: HitTestBehavior.opaque,
+                            onTap: () => setState(() => _searching = true),
+                            child: const SizedBox.square(
+                              dimension: 48,
+                              child: Center(child: InkMagnifier()),
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
               if (_searching)
                 const Expanded(
@@ -252,11 +268,15 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
                               ignoring: !offScreen,
                               child: AnimatedSlide(
                                 offset: Offset(0, offScreen ? 0 : -1),
-                                duration: const Duration(milliseconds: 220),
+                                duration: disableAnimations
+                                    ? Duration.zero
+                                    : const Duration(milliseconds: 220),
                                 curve: Curves.easeOutCubic,
                                 child: AnimatedOpacity(
                                   opacity: offScreen ? 1 : 0,
-                                  duration: const Duration(milliseconds: 180),
+                                  duration: disableAnimations
+                                      ? Duration.zero
+                                      : const Duration(milliseconds: 180),
                                   child: child,
                                 ),
                               ),

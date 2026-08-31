@@ -1,3 +1,5 @@
+import 'dart:ui' show SemanticsRole;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -64,5 +66,20 @@ void main() {
     await pumpToast(tester, minutes: 20);
     await tester.pump(const Duration(milliseconds: 200));
     expect(calls.length, 3);
+  });
+
+  testWidgets('it is a status and never truncates the warning', (tester) async {
+    await pumpToast(tester, minutes: 20);
+
+    final finder = find.bySemanticsLabel(
+      '20 minutes left in this subject.',
+    );
+    expect(tester.getSemantics(finder).role, SemanticsRole.status);
+    final text = tester.widget<Text>(
+      find.text('20 minutes left in this subject.'),
+    );
+    expect(text.maxLines, isNull);
+    expect(text.overflow, isNull);
+    await tester.pump(const Duration(milliseconds: 200));
   });
 }

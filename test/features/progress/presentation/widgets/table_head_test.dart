@@ -1,3 +1,5 @@
+import 'dart:ui' show Tristate;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -99,5 +101,24 @@ void main() {
     expect(find.byType(DropdownButton<Object>), findsNothing);
     expect(find.byType(PopupMenuButton<Object>), findsNothing);
     expect(find.byType(IconButton), findsNothing);
+  });
+
+  testWidgets('sort heads expose active direction and 48dp targets',
+      (tester) async {
+    await tester.pumpWidget(harness(showTime: true));
+
+    final scoreFinder = find.bySemanticsLabel('Sort by score, ascending');
+    final timeFinder = find.bySemanticsLabel('Sort by time');
+    final score = tester.getSemantics(scoreFinder);
+    final time = tester.getSemantics(timeFinder);
+
+    expect(score.flagsCollection.isSelected, Tristate.isTrue);
+    expect(time.flagsCollection.isSelected, Tristate.isFalse);
+    expect(score.flagsCollection.isButton, isTrue);
+    for (final finder in [scoreFinder, timeFinder]) {
+      final size = tester.getSize(finder);
+      expect(size.width, greaterThanOrEqualTo(48));
+      expect(size.height, greaterThanOrEqualTo(48));
+    }
   });
 }

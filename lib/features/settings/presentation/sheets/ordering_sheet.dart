@@ -65,59 +65,67 @@ class _OrderingRow extends StatelessWidget {
     final colors = context.colors;
     final styles = context.textStyles;
 
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.only(top: 12, bottom: 11),
-        decoration: BoxDecoration(
-          border: isLast
-              ? null
-              : Border(bottom: BorderSide(color: colors.ruleFaint)),
-        ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 3),
-              child: _Ring(isSelected: isSelected),
+    return MergeSemantics(
+      child: Semantics(
+        checked: isSelected,
+        inMutuallyExclusiveGroup: true,
+        child: InkWell(
+          onTap: onTap,
+          child: Container(
+            constraints: const BoxConstraints(minHeight: 48),
+            padding: const EdgeInsets.only(top: 12, bottom: 11),
+            decoration: BoxDecoration(
+              border: isLast
+                  ? null
+                  : Border(bottom: BorderSide(color: colors.ruleFaint)),
             ),
-            const SizedBox(width: 11),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 3),
+                  child: _Ring(isSelected: isSelected),
+                ),
+                const SizedBox(width: 11),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        ordering.label,
-                        style: styles.bodyMedium.copyWith(
-                          fontSize: 14.5,
-                          fontWeight:
-                              isSelected ? FontWeight.w600 : FontWeight.w400,
-                        ),
-                      ),
-                      if (ordering.isRecommended) ...[
-                        const SizedBox(width: 7),
-                        Text(
-                          'Recommended',
-                          style: styles.labelSmall.copyWith(
-                            fontSize: 10.5,
-                            color: colors.board,
+                      Row(
+                        children: [
+                          Text(
+                            ordering.label,
+                            style: styles.bodyMedium.copyWith(
+                              fontSize: 14.5,
+                              fontWeight: isSelected
+                                  ? FontWeight.w600
+                                  : FontWeight.w400,
+                            ),
                           ),
-                        ),
-                      ],
+                          if (ordering.isRecommended) ...[
+                            const SizedBox(width: 7),
+                            Text(
+                              'Recommended',
+                              style: styles.labelSmall.copyWith(
+                                fontSize: 10.5,
+                                color: colors.board,
+                              ),
+                            ),
+                          ],
+                        ],
+                      ),
+                      const SizedBox(height: 3),
+                      Text(
+                        ordering.reason,
+                        style:
+                            styles.bodySmall.copyWith(color: colors.inkMuted),
+                      ),
                     ],
                   ),
-                  const SizedBox(height: 3),
-                  Text(
-                    ordering.reason,
-                    style: styles.bodySmall.copyWith(color: colors.inkMuted),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

@@ -89,7 +89,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
         setState(() {
           _proctorToastMinutes = threshold;
         });
-        _toastTimer = Timer(const Duration(milliseconds: 2500), () {
+        _toastTimer = Timer(proctorToastDisplayDuration, () {
           if (mounted) {
             setState(() {
               _proctorToastMinutes = null;
@@ -195,7 +195,8 @@ class _MockSessionPageState extends State<MockSessionPage> {
               children: [
                 _QuestionBody(
                   questionId: widget.state.currentQuestionId,
-                  selectedIndex: widget.state.answers[widget.state.currentQuestionId]?.selectedIndex,
+                  selectedIndex: widget.state
+                      .answers[widget.state.currentQuestionId]?.selectedIndex,
                   onAnswer: widget.onAnswer,
                 ),
               ],
@@ -259,7 +260,9 @@ class _MockSessionPageState extends State<MockSessionPage> {
             },
             child: Text(
               'Leave',
-              style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
             ),
           ),
           TextButton(
@@ -293,14 +296,15 @@ class _QuestionBody extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final hydratedAsync = ref.watch(hydratedMockQuestionProvider(questionId));
-    
+
     return hydratedAsync.when(
       data: (hydrated) {
         if (hydrated == null) {
           return const Center(child: Text('Question not found'));
         }
-        
-        final choiceId = selectedIndex != null && selectedIndex! < hydrated.question.choices.length
+
+        final choiceId = selectedIndex != null &&
+                selectedIndex! < hydrated.question.choices.length
             ? hydrated.question.choices[selectedIndex!].id
             : null;
 
@@ -310,7 +314,8 @@ class _QuestionBody extends ConsumerWidget {
           passage: hydrated.passage,
           chosenChoiceId: choiceId,
           onAnswer: (cid) {
-            final index = hydrated.question.choices.indexWhere((c) => c.id == cid);
+            final index =
+                hydrated.question.choices.indexWhere((c) => c.id == cid);
             if (index >= 0) onAnswer(index);
           },
         );
@@ -325,4 +330,3 @@ class _QuestionBody extends ConsumerWidget {
     );
   }
 }
-

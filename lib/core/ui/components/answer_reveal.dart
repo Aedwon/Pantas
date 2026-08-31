@@ -34,37 +34,49 @@ class AnswerReveal extends StatelessWidget {
       children: [
         if (nextReviewIntervalDays != null) ...[
           const SizedBox(height: 14),
-          Container(
-            padding: const EdgeInsets.only(top: 12),
-            decoration: BoxDecoration(
-              border: Border(
-                top: BorderSide(
-                  color: colors.rule,
+          Semantics(
+            liveRegion: true,
+            label: '${correct ? 'Correct' : 'Not this one'}, '
+                '${intervalLabel(nextReviewIntervalDays!)}',
+            child: ExcludeSemantics(
+              child: Container(
+                padding: const EdgeInsets.only(top: 12),
+                decoration: BoxDecoration(
+                  border: Border(
+                    top: BorderSide(color: colors.rule),
+                  ),
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        correct ? 'Correct' : 'Not this one',
+                        style: styles.displaySmall.copyWith(
+                          fontSize: 17,
+                          color: correct ? colors.board : colors.rust,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      intervalLabel(nextReviewIntervalDays!),
+                      style: styles.bodySmall.copyWith(
+                        fontSize: 11.5,
+                        color: colors.inkMuted,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.baseline,
-              textBaseline: TextBaseline.alphabetic,
-              children: [
-                Expanded(
-                  child: Text(
-                    correct ? 'Correct' : 'Not this one',
-                    style: styles.displaySmall.copyWith(
-                      fontSize: 17,
-                      color: correct ? colors.board : colors.rust,
-                    ),
-                  ),
-                ),
-                Text(
-                  intervalLabel(nextReviewIntervalDays!),
-                  style: styles.bodySmall
-                      .copyWith(fontSize: 11.5, color: colors.inkMuted),
-                ),
-              ],
-            ),
           ),
-        ],
+        ] else
+          Semantics(
+            liveRegion: true,
+            label: correct ? 'Correct' : 'Not this one',
+            child: const SizedBox.shrink(),
+          ),
         _MarginalNote(
           letter: answer.label,
           kicker: 'the answer',

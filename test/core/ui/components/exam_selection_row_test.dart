@@ -46,4 +46,27 @@ void main() {
     await tester.tap(find.byType(ExamSelectionRow));
     expect(tapped, isTrue);
   });
+
+  testWidgets('the row exposes its selected state and 48dp target',
+      (tester) async {
+    final exam = buildExam(code: 'UPCAT', shortName: 'UPCAT');
+    await tester.pumpApp(
+      ExamSelectionRow(exam: exam, selected: true, onTap: () {}),
+    );
+
+    expect(
+      tester.getSemantics(find.bySemanticsLabel('UPCAT, ${exam.name}')),
+      matchesSemantics(
+        label: 'UPCAT, ${exam.name}',
+        hasSelectedState: true,
+        isSelected: true,
+        isButton: true,
+        hasTapAction: true,
+      ),
+    );
+    expect(
+      tester.getSize(find.byType(ExamSelectionRow)).height,
+      greaterThanOrEqualTo(48),
+    );
+  });
 }

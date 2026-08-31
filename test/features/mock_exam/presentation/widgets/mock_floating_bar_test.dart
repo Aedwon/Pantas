@@ -1,3 +1,5 @@
+import 'dart:ui' show Tristate;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -70,14 +72,36 @@ void main() {
     expect(moved, 0);
   });
 
-  testWidgets('every control reaches 46', (tester) async {
+  testWidgets('every control reaches 48', (tester) async {
     await tester.pumpWidget(harness());
 
     for (final key in ['mock-prev', 'mock-grid', 'mock-flag', 'mock-next']) {
       final size = tester.getSize(find.byKey(ValueKey(key)));
-      expect(size.width, greaterThanOrEqualTo(46));
-      expect(size.height, greaterThanOrEqualTo(46));
+      expect(size.width, greaterThanOrEqualTo(48));
+      expect(size.height, greaterThanOrEqualTo(48));
     }
+  });
+
+  testWidgets('controls expose names, enabled state, and flag state',
+      (tester) async {
+    await tester.pumpWidget(
+      harness(isFlagged: true, onPrevious: null),
+    );
+
+    final previous = tester.getSemantics(
+      find.bySemanticsLabel('Previous question'),
+    );
+    final flag = tester.getSemantics(
+      find.bySemanticsLabel('Flag question'),
+    );
+    final counterFinder = find.bySemanticsLabel(
+      'Question 12 of 40, open question navigator',
+    );
+
+    expect(previous.flagsCollection.isButton, isTrue);
+    expect(previous.flagsCollection.isEnabled, Tristate.isFalse);
+    expect(flag.flagsCollection.isToggled, Tristate.isTrue);
+    expect(tester.getSize(counterFinder).height, greaterThanOrEqualTo(48));
   });
 
   testWidgets('the bar is 54 tall', (tester) async {

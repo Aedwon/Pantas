@@ -204,6 +204,7 @@ class _PracticePickerPageState extends ConsumerState<PracticePickerPage> {
                         onChanged: _switchMode,
                       ),
                       LengthWheel(
+                        key: ValueKey(_mode),
                         mode: _mode,
                         value: _wheelValue,
                         onChanged: (value) =>
@@ -314,46 +315,50 @@ class _UnitControl extends StatelessWidget {
     final colors = context.colors;
     final styles = context.textStyles;
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        GestureDetector(
-          onTap: () => onChanged(PracticeUnitMode.questions),
-          child: Text(
-            'questions',
-            style: styles.bodySmall.copyWith(
-              fontSize: 12,
-              color: mode == PracticeUnitMode.questions
-                  ? colors.ink
-                  : colors.inkMuted,
-              fontWeight: mode == PracticeUnitMode.questions
-                  ? FontWeight.w700
-                  : FontWeight.w400,
+    Widget option(PracticeUnitMode optionMode, String label) {
+      final selected = mode == optionMode;
+      return Semantics(
+        label: label,
+        checked: selected,
+        inMutuallyExclusiveGroup: true,
+        onTap: () => onChanged(optionMode),
+        child: ExcludeSemantics(
+          child: GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: () => onChanged(optionMode),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(
+                minWidth: 48,
+                minHeight: 48,
+              ),
+              child: Center(
+                child: Text(
+                  label.toLowerCase(),
+                  style: styles.bodySmall.copyWith(
+                    fontSize: 12,
+                    color: selected ? colors.ink : colors.inkMuted,
+                    fontWeight: selected ? FontWeight.w700 : FontWeight.w400,
+                  ),
+                ),
+              ),
             ),
           ),
         ),
+      );
+    }
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        option(PracticeUnitMode.questions, 'Questions'),
         if (minutesAvailable) ...[
           Container(
-            margin: const EdgeInsets.symmetric(horizontal: 9),
+            margin: const EdgeInsets.symmetric(horizontal: 4),
             width: AppDimensions.hairline,
             height: 11,
             color: colors.rule,
           ),
-          GestureDetector(
-            onTap: () => onChanged(PracticeUnitMode.minutes),
-            child: Text(
-              'minutes',
-              style: styles.bodySmall.copyWith(
-                fontSize: 12,
-                color: mode == PracticeUnitMode.minutes
-                    ? colors.ink
-                    : colors.inkMuted,
-                fontWeight: mode == PracticeUnitMode.minutes
-                    ? FontWeight.w700
-                    : FontWeight.w400,
-              ),
-            ),
-          ),
+          option(PracticeUnitMode.minutes, 'Minutes'),
         ],
       ],
     );

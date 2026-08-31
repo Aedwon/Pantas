@@ -39,14 +39,20 @@ final subject = StudySubject(
 
 /// The page owns opening a topic now, so the section takes a callback.
 /// These tests wire it to the same provider the page does.
-Future<void> pumpSection(WidgetTester tester) async {
+Future<void> pumpSection(
+  WidgetTester tester, {
+  bool disableAnimations = false,
+}) async {
   await tester.pumpAppWithProviders(
-    Scaffold(
-      body: Consumer(
-        builder: (context, ref, _) => StudySubjectSection(
-          subject: subject,
-          onToggleTopic: (topicId) =>
-              ref.read(openTopicProvider.notifier).toggle(topicId),
+    MediaQuery(
+      data: MediaQueryData(disableAnimations: disableAnimations),
+      child: Scaffold(
+        body: Consumer(
+          builder: (context, ref, _) => StudySubjectSection(
+            subject: subject,
+            onToggleTopic: (topicId) =>
+                ref.read(openTopicProvider.notifier).toggle(topicId),
+          ),
         ),
       ),
     ),
@@ -109,6 +115,23 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Lesson l1'), findsNothing);
+  });
+
+  testWidgets('reduced motion opens a topic without size or fade transitions',
+      (tester) async {
+    await pumpSection(tester, disableAnimations: true);
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Algebra'));
+    await tester.pump();
+
+    expect(find.text('Lesson l1'), findsOneWidget);
+    expect(find.byType(AnimatedSize), findsNothing);
+    for (final fade in tester.widgetList<FadeTransition>(
+      find.byType(FadeTransition),
+    )) {
+      expect(fade.opacity.value, 1);
+    }
   });
 
   testWidgets('a complete topic is ticked and muted', (tester) async {

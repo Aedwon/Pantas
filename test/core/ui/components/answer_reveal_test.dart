@@ -43,6 +43,15 @@ void main() {
 
     expect(find.text('Correct'), findsOneWidget);
     expect(find.text('back in 9 days'), findsOneWidget);
+    expect(
+      tester.getSemantics(
+        find.bySemanticsLabel('Correct, back in 9 days'),
+      ),
+      matchesSemantics(
+        label: 'Correct, back in 9 days',
+        isLiveRegion: true,
+      ),
+    );
   });
 
   testWidgets('one day reads as tomorrow', (tester) async {

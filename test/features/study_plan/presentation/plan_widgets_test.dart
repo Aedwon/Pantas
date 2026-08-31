@@ -1,3 +1,5 @@
+import 'dart:ui' show SemanticsAction;
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/study_plan/domain/compute_plan_view.dart';
 import 'package:pantas/features/study_plan/presentation/mock_week_card.dart';
@@ -45,8 +47,30 @@ void main() {
       PlanUpdatedChip(onDismissed: () => dismissed = true),
     );
 
-    await tester.tap(find.text('Plan updated for the week'));
+    final dismiss = find.bySemanticsLabel('Dismiss plan update');
+    expect(dismiss, findsOneWidget);
+    expect(tester.getSize(dismiss).height, greaterThanOrEqualTo(48));
+    expect(tester.getSize(dismiss).width, greaterThanOrEqualTo(48));
+    expect(
+      tester.getSemantics(dismiss).getSemanticsData().hasAction(
+            SemanticsAction.tap,
+          ),
+      isTrue,
+    );
+
+    await tester.tap(dismiss);
     expect(dismissed, isTrue);
+  });
+
+  testWidgets('plan updated chip exposes a live status', (tester) async {
+    await tester.pumpApp(PlanUpdatedChip(onDismissed: () {}));
+
+    final status = find.bySemanticsLabel('Plan updated for the week');
+    expect(status, findsOneWidget);
+    expect(
+      tester.getSemantics(status).flagsCollection.isLiveRegion,
+      isTrue,
+    );
   });
 
   testWidgets('rest day renders endorsed rest copy', (tester) async {

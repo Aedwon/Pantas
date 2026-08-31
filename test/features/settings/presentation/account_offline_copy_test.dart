@@ -46,7 +46,14 @@ void main() {
       await tester.tap(button);
       await tester.pumpAndSettle();
 
-      expect(find.text('You need a connection to sign in.'), findsOneWidget);
+      final status = find.bySemanticsLabel(
+        'You need a connection to sign in.',
+      );
+      expect(status, findsOneWidget);
+      expect(
+        tester.getSemantics(status).flagsCollection.isLiveRegion,
+        isTrue,
+      );
     });
   });
 }

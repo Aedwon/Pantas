@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/ruled_panel.dart';
 import 'package:pantas/core/ui/theme/app_colors.dart';
 
+import '../../../helpers/accessibility.dart';
 import '../../../helpers/pump_app.dart';
 
 void main() {
@@ -121,5 +122,66 @@ void main() {
     final action = tester.getRect(find.text('See all'));
 
     expect(action.right, moreOrLessEquals(panel.right - 15, epsilon: 0.5));
+  });
+
+  testWidgets('a long header action survives 200% text at 320dp',
+      (tester) async {
+    await expectSurvivesTextScale(
+      tester,
+      RuledPanel(
+        heading: 'Your tendencies',
+        action: 'Unlock with Pro',
+        onAction: () {},
+        child: const Text('body'),
+      ),
+      scales: const [2],
+      viewportSize: const Size(320, 600),
+    );
+  });
+
+  testWidgets('a long header action survives 200% text at 360dp',
+      (tester) async {
+    await expectSurvivesTextScale(
+      tester,
+      RuledPanel(
+        heading: 'Your tendencies',
+        action: 'Unlock with Pro',
+        onAction: () {},
+        child: const Text('body'),
+      ),
+      scales: const [2],
+      viewportSize: const Size(360, 600),
+    );
+  });
+
+  testWidgets('a reflowed header action is named and at least 48dp',
+      (tester) async {
+    await pumpAccessibilitySurface(
+      tester,
+      RuledPanel(
+        heading: 'Your tendencies',
+        action: 'Unlock with Pro',
+        onAction: () {},
+        child: const Text('body'),
+      ),
+      textScale: 2,
+      viewportSize: const Size(320, 600),
+    );
+
+    final action = find.ancestor(
+      of: find.text('Unlock with Pro'),
+      matching: find.byType(InkWell),
+    );
+    expect(action, findsOneWidget);
+    expect(tester.getSize(action).width, greaterThanOrEqualTo(48));
+    expect(tester.getSize(action).height, greaterThanOrEqualTo(48));
+    expect(
+      tester.getSemantics(find.bySemanticsLabel('Unlock with Pro')),
+      matchesSemantics(
+        label: 'Unlock with Pro',
+        isButton: true,
+        hasTapAction: true,
+      ),
+    );
   });
 }

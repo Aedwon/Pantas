@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_math_fork/flutter_math.dart';
+import 'package:pantas/core/ui/components/accessible_math.dart';
 import 'package:pantas/core/ui/components/inline_math_text.dart';
 import 'package:pantas/core/ui/figures/lesson_figure_widget.dart';
 import 'package:pantas/core/ui/theme/app_dimensions.dart';
@@ -280,20 +280,55 @@ class _BlockRenderer extends StatelessWidget {
         ? (0, _spaceBelow(style))
         : (_spaceAbove(style), _spaceBelow(style));
 
+    final richText = Text.rich(
+      TextSpan(
+        children: [
+          if (marker != null) TextSpan(text: '$marker  '),
+          for (final child in children)
+            _buildInlineSpan(child, baseStyle: baseStyle),
+        ],
+      ),
+      style: baseStyle,
+      maxLines: maxLines,
+      overflow: maxLines != null ? TextOverflow.ellipsis : null,
+    );
+    final semanticsLabel = _inlineSentenceSemantics(children);
+
     return Padding(
       padding: EdgeInsets.only(top: above, bottom: below, left: indent),
-      child: Text.rich(
-        TextSpan(
-          children: [
-            if (marker != null) TextSpan(text: '$marker  '),
-            for (final child in children) _buildInlineSpan(child),
-          ],
-        ),
-        style: baseStyle,
-        maxLines: maxLines,
-        overflow: maxLines != null ? TextOverflow.ellipsis : null,
-      ),
+      child: semanticsLabel == null
+          ? richText
+          : Semantics(
+              label: semanticsLabel,
+              excludeSemantics: true,
+              child: richText,
+            ),
     );
+  }
+
+  String? _inlineSentenceSemantics(List<Map<String, dynamic>> children) {
+    final label = StringBuffer();
+    if (marker != null) label.write('$marker  ');
+    var hasMath = false;
+
+    for (final child in children) {
+      final text = child['text'] as String? ?? '';
+      final marks = (child['marks'] as List? ?? []).cast<String>();
+      if (marks.contains('latex')) {
+        final mathLabel = inlineMathExpressionSemanticsLabel(text);
+        if (mathLabel == null) return null;
+        label.write(mathLabel);
+        hasMath = true;
+        continue;
+      }
+
+      final semantics = inlineMathSemantics(text);
+      if (semantics == null) return null;
+      label.write(semantics.label);
+      hasMath = hasMath || semantics.hasMath;
+    }
+
+    return hasMath ? label.toString() : null;
   }
 
   /// The gap that separates a block from the one before it.
@@ -322,11 +357,12 @@ class _BlockRenderer extends StatelessWidget {
             const _UnknownBlockPlaceholder(blockType: 'latex-inline'),
       );
 
-  InlineSpan _buildInlineSpan(Map<String, dynamic> child) {
+  InlineSpan _buildInlineSpan(
+    Map<String, dynamic> child, {
+    required TextStyle baseStyle,
+  }) {
     final text = child['text'] as String? ?? '';
     final marks = (child['marks'] as List? ?? []).cast<String>();
-
-    if (marks.contains('latex')) return _inlineMath(text);
 
     TextStyle? style;
     if (marks.contains('strong')) {
@@ -345,6 +381,11 @@ class _BlockRenderer extends StatelessWidget {
           .copyWith(decoration: TextDecoration.combine(decorations));
     }
 
+    final effectiveStyle = baseStyle.merge(style);
+    if (marks.contains('latex')) {
+      return _inlineMath(text, style: effectiveStyle);
+    }
+
     // A span can carry `$…$` without a latex mark: the mark is added when
     // this renderer is handed a plain string, and lesson bodies arrive as
     // blocks that never went through that step. Those dollars reached the
@@ -352,7 +393,7 @@ class _BlockRenderer extends StatelessWidget {
     return TextSpan(
       children: inlineMathSpans(
         text,
-        style: style,
+        style: effectiveStyle,
         onErrorFallback: (_) =>
             const _UnknownBlockPlaceholder(blockType: 'latex-inline'),
       ),
@@ -368,11 +409,17 @@ class _LatexBlockRenderer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final text = block['body'] as String? ?? '';
+    final rawSemanticsLabel = block['semanticsLabel'];
+    final semanticsLabel =
+        rawSemanticsLabel is String ? rawSemanticsLabel.trim() : null;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Center(
-        child: Math.tex(
-          text,
+        child: AccessibleMath(
+          latex: text,
+          semanticsLabel: semanticsLabel == null || semanticsLabel.isEmpty
+              ? null
+              : semanticsLabel,
           onErrorFallback: (_) =>
               const _UnknownBlockPlaceholder(blockType: 'latex'),
         ),
@@ -389,21 +436,33 @@ class _ImageBlockRenderer extends StatelessWidget {
   Widget build(BuildContext context) {
     final asset = block['asset'] as Map<String, dynamic>? ?? {};
     final url = asset['url'] as String? ?? '';
+    final alt = (block['alt'] as String?)?.trim();
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(AppDimensions.radiusSurface),
-        child: CachedNetworkImage(
-          imageUrl: url,
-          fit: BoxFit.cover,
-          placeholder: (context, _) => Container(
-            height: 200,
-            color: context.colors.ruleFaint,
-          ),
-          errorWidget: (_, __, ___) =>
-              const _UnknownBlockPlaceholder(blockType: 'image'),
+      child: alt == null || alt.isEmpty
+          ? ExcludeSemantics(child: _image(context, url))
+          : Semantics(
+              label: alt,
+              image: true,
+              excludeSemantics: true,
+              child: _image(context, url),
+            ),
+    );
+  }
+
+  Widget _image(BuildContext context, String url) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(AppDimensions.radiusSurface),
+      child: CachedNetworkImage(
+        imageUrl: url,
+        fit: BoxFit.cover,
+        placeholder: (context, _) => Container(
+          height: 200,
+          color: context.colors.ruleFaint,
         ),
+        errorWidget: (_, __, ___) =>
+            const _UnknownBlockPlaceholder(blockType: 'image'),
       ),
     );
   }

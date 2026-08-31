@@ -95,17 +95,33 @@ class _LevelLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.colors;
     final styles = context.textStyles;
+    final semanticsLabel = isLocked ? '$label, Pro only' : label;
 
-    return InkWell(
+    return Semantics(
+      container: true,
+      button: true,
+      enabled: true,
+      selected: isActive,
+      label: semanticsLabel,
+      excludeSemantics: true,
       onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8),
-        child: Text(
-          label,
-          style: styles.bodySmall.copyWith(
-            fontSize: 12,
-            fontWeight: isActive ? FontWeight.w700 : FontWeight.w400,
-            color: isActive && !isLocked ? colors.ink : colors.inkMuted,
+      child: InkWell(
+        excludeFromSemantics: true,
+        onTap: onTap,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(
+            minWidth: 48,
+            minHeight: 48,
+          ),
+          child: Center(
+            child: Text(
+              label,
+              style: styles.bodySmall.copyWith(
+                fontSize: 12,
+                fontWeight: isActive ? FontWeight.w700 : FontWeight.w400,
+                color: isActive && !isLocked ? colors.ink : colors.inkMuted,
+              ),
+            ),
           ),
         ),
       ),

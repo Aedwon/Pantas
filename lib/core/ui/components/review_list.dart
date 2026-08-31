@@ -285,16 +285,29 @@ class _FilterRow extends StatelessWidget {
               color: colors.rule,
             ),
           InkWell(
+            excludeFromSemantics: true,
             onTap: () => onChanged(ReviewFilter.values[i]),
-            child: Text(
-              _label(ReviewFilter.values[i], counts),
-              style: styles.bodySmall.copyWith(
-                color: active == ReviewFilter.values[i]
-                    ? colors.ink
-                    : colors.inkMuted,
-                fontWeight: active == ReviewFilter.values[i]
-                    ? FontWeight.w700
-                    : FontWeight.w400,
+            child: Semantics(
+              label: _label(ReviewFilter.values[i], counts),
+              button: true,
+              selected: active == ReviewFilter.values[i],
+              onTap: () => onChanged(ReviewFilter.values[i]),
+              excludeSemantics: true,
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(minHeight: 48),
+                child: Center(
+                  child: Text(
+                    _label(ReviewFilter.values[i], counts),
+                    style: styles.bodySmall.copyWith(
+                      color: active == ReviewFilter.values[i]
+                          ? colors.ink
+                          : colors.inkMuted,
+                      fontWeight: active == ReviewFilter.values[i]
+                          ? FontWeight.w700
+                          : FontWeight.w400,
+                    ),
+                  ),
+                ),
               ),
             ),
           ),
@@ -330,39 +343,77 @@ class ReviewRow extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          InkWell(
-            // Expands in place. A pushed detail route loses the student's
-            // position, which is the whole reason this is a list they work
-            // down rather than a stack they climb.
-            onTap: onToggleExpanded,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: 28,
-                  child: Text(
-                    '${entry.number}',
-                    style: styles.headlineSmall.copyWith(
-                      fontSize: 14,
-                      color: colors.inkMuted,
-                      fontFeatures: const [FontFeature.tabularFigures()],
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Semantics(
+                  label: 'Question ${entry.number}. ${entry.label}',
+                  value: entry.isCorrect
+                      ? 'Correct'
+                      : entry.isAnswered
+                          ? 'Wrong'
+                          : 'Unanswered',
+                  button: true,
+                  expanded: isExpanded,
+                  onTap: onToggleExpanded,
+                  excludeSemantics: true,
+                  child: InkWell(
+                    excludeFromSemantics: true,
+                    // Expands in place. A pushed detail route loses the
+                    // student's position.
+                    onTap: onToggleExpanded,
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(minHeight: 48),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: 28,
+                            child: Text(
+                              '${entry.number}',
+                              style: styles.headlineSmall.copyWith(
+                                fontSize: 14,
+                                color: colors.inkMuted,
+                                fontFeatures: const [
+                                  FontFeature.tabularFigures(),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: PortableTextRenderer(
+                              text: entry.label,
+                              maxLines: entry.labelIsStem ? 2 : null,
+                            ),
+                          ),
+                          _OutcomeMark(entry: entry),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-                Expanded(
-                  child: PortableTextRenderer(
-                    text: entry.label,
-                    maxLines: entry.labelIsStem ? 2 : null,
+              ),
+              const SizedBox(width: 8),
+              Semantics(
+                label: '${entry.isFlagged ? 'Unflag' : 'Flag'} '
+                    'question ${entry.number}',
+                button: true,
+                toggled: entry.isFlagged,
+                onTap: () => onToggleFlag(entry.question.id),
+                excludeSemantics: true,
+                child: InkWell(
+                  excludeFromSemantics: true,
+                  onTap: () => onToggleFlag(entry.question.id),
+                  child: SizedBox.square(
+                    dimension: 48,
+                    child: Center(
+                      child: PennantMark(isSet: entry.isFlagged),
+                    ),
                   ),
                 ),
-                _OutcomeMark(entry: entry),
-                const SizedBox(width: 8),
-                InkWell(
-                  onTap: () => onToggleFlag(entry.question.id),
-                  child: PennantMark(isSet: entry.isFlagged),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
           if (isExpanded)
             Padding(

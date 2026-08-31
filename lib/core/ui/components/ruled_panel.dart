@@ -53,28 +53,20 @@ class RuledPanel extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.baseline,
-            textBaseline: TextBaseline.alphabetic,
-            // Not a Spacer. A Spacer is a flex child, and so is the heading,
-            // so the two split the free space evenly and left the action
-            // stranded mid-row whenever the heading was short. spaceBetween
-            // gives the leftover to the gap instead of dividing it.
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          OverflowBar(
+            alignment: MainAxisAlignment.spaceBetween,
+            overflowAlignment: OverflowBarAlignment.end,
+            overflowSpacing: 4,
             children: [
-              Flexible(
-                child: Container(
-                  padding: const EdgeInsets.only(bottom: 5),
-                  decoration: BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(color: colors.ink, width: 1.6),
-                    ),
+              Container(
+                padding: const EdgeInsets.only(bottom: 5),
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(color: colors.ink, width: 1.6),
                   ),
-                  child: Text(heading, style: styles.headlineSmall),
                 ),
+                child: Text(heading, style: styles.headlineSmall),
               ),
-              // The heading is Flexible so its underline stays the width of
-              // the words and a long one can still shrink.
               if (count != null) ...[
                 Text(
                   count!,
@@ -85,20 +77,45 @@ class RuledPanel extends StatelessWidget {
                 ),
               ],
               if (action != null)
-                InkWell(
+                Semantics(
+                  label: onAction == null ? null : action,
+                  button: onAction != null,
                   onTap: onAction,
-                  borderRadius:
-                      BorderRadius.circular(AppDimensions.radiusButton),
-                  child: Padding(
-                    // Left only. Symmetric padding held the words 8px off
-                    // the panel's right edge, so the action never sat on
-                    // the margin every other row is aligned to.
-                    padding: const EdgeInsets.only(left: 8, top: 4, bottom: 4),
-                    child: Text(
-                      action!,
-                      style: styles.labelSmall.copyWith(
-                        color:
-                            onAction != null ? colors.board : colors.inkMuted,
+                  excludeSemantics: onAction != null,
+                  child: InkWell(
+                    excludeFromSemantics: onAction != null,
+                    onTap: onAction,
+                    borderRadius:
+                        BorderRadius.circular(AppDimensions.radiusButton),
+                    child: ConstrainedBox(
+                      constraints: onAction == null
+                          ? const BoxConstraints()
+                          : const BoxConstraints(
+                              minWidth: AppDimensions.minTapTarget,
+                              minHeight: AppDimensions.minTapTarget,
+                            ),
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        widthFactor: 1,
+                        heightFactor: 1,
+                        child: Padding(
+                          // Left only. Symmetric padding held the words 8px
+                          // off the panel's right edge, so the action never
+                          // sat on the margin every other row is aligned to.
+                          padding: const EdgeInsets.only(
+                            left: 8,
+                            top: 4,
+                            bottom: 4,
+                          ),
+                          child: Text(
+                            action!,
+                            style: styles.labelSmall.copyWith(
+                              color: onAction != null
+                                  ? colors.board
+                                  : colors.inkMuted,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),

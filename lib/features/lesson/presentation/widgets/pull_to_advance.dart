@@ -89,6 +89,12 @@ class _PullToAdvanceState extends State<PullToAdvance>
     required Duration duration,
     VoidCallback? whenDone,
   }) {
+    if (MediaQuery.disableAnimationsOf(context)) {
+      _controller.stop();
+      setState(() => _lift = to);
+      whenDone?.call();
+      return;
+    }
     _controller
       ..stop()
       ..duration = duration
@@ -116,6 +122,11 @@ class _PullToAdvanceState extends State<PullToAdvance>
       _run(from: _lift, to: 0, duration: _leaving);
       return;
     }
+    _commitAdvance();
+  }
+
+  void _commitAdvance() {
+    if (!_hasHandle || _committing) return;
     // The hand let go mid-movement, so the body finishes leaving before the
     // next one starts arriving. The bar and the rail never move: they
     // describe the reader, not the lesson.
@@ -132,11 +143,75 @@ class _PullToAdvanceState extends State<PullToAdvance>
   Widget build(BuildContext context) {
     final colors = context.colors;
     final textStyles = context.textStyles;
+    final animationDuration = MediaQuery.disableAnimationsOf(context)
+        ? Duration.zero
+        : const Duration(milliseconds: 260);
+    final handleDuration = MediaQuery.disableAnimationsOf(context)
+        ? Duration.zero
+        : const Duration(milliseconds: 120);
+
+    Widget footer() => !_hasHandle
+        ? const SizedBox(width: double.infinity)
+        : AnimatedOpacity(
+            opacity: 1,
+            duration: animationDuration,
+            child: Semantics(
+              button: true,
+              label: 'Next lesson: ${widget.nextTitle}',
+              onTap: _commitAdvance,
+              child: ExcludeSemantics(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24,
+                    vertical: 16,
+                  ),
+                  alignment: Alignment.center,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      AnimatedContainer(
+                        key: const ValueKey('pull-handle'),
+                        duration: handleDuration,
+                        width: _isArmed ? 52 : 36,
+                        height: 3,
+                        decoration: BoxDecoration(
+                          color: _isArmed ? colors.board : colors.rule,
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text.rich(
+                        TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'Pull up for ',
+                              style: textStyles.bodySmall.copyWith(
+                                color: colors.inkMuted,
+                              ),
+                            ),
+                            TextSpan(
+                              text: widget.nextTitle,
+                              style: textStyles.bodySmall.copyWith(
+                                color: _isArmed ? colors.board : colors.ink,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
 
     return GestureDetector(
       onVerticalDragUpdate: _onVerticalDragUpdate,
       onVerticalDragEnd: _onVerticalDragEnd,
       behavior: HitTestBehavior.translucent,
+      excludeFromSemantics: true,
       // Clipped to its own box. The lift paints outside its bounds
       // otherwise, so a pulled sheet slid its first lines up over the reader
       // bar and off the top of the screen instead of disappearing under it,
@@ -151,68 +226,16 @@ class _PullToAdvanceState extends State<PullToAdvance>
               // appearing outright, so the arrival is part of the reading.
               ValueListenableBuilder<bool>(
                 valueListenable: widget.isAtEnd,
-                builder: (context, _, __) => AnimatedSize(
-                  duration: const Duration(milliseconds: 260),
-                  curve: Curves.easeOutCubic,
-                  alignment: Alignment.topCenter,
-                  child: !_hasHandle
-                      ? const SizedBox(width: double.infinity)
-                      : AnimatedOpacity(
-                          opacity: 1,
-                          duration: const Duration(milliseconds: 260),
-                          child: Container(
-                            // Horizontal too. A long lesson title ran to
-                            // both screen edges with nothing either side of
-                            // it.
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 24,
-                              vertical: 16,
-                            ),
-                            alignment: Alignment.center,
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                AnimatedContainer(
-                                  key: const ValueKey('pull-handle'),
-                                  duration: const Duration(milliseconds: 120),
-                                  width: _isArmed ? 52 : 36,
-                                  height: 3,
-                                  decoration: BoxDecoration(
-                                    color:
-                                        _isArmed ? colors.board : colors.rule,
-                                    borderRadius: BorderRadius.circular(2),
-                                  ),
-                                ),
-                                const SizedBox(height: 8),
-                                Text.rich(
-                                  TextSpan(
-                                    children: [
-                                      TextSpan(
-                                        text: 'Pull up for ',
-                                        style: textStyles.bodySmall.copyWith(
-                                          color: colors.inkMuted,
-                                        ),
-                                      ),
-                                      TextSpan(
-                                        text: widget.nextTitle,
-                                        style: textStyles.bodySmall.copyWith(
-                                          color: _isArmed
-                                              ? colors.board
-                                              : colors.ink,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  textAlign: TextAlign.center,
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                ),
+                builder: (context, _, __) {
+                  final child = footer();
+                  if (MediaQuery.disableAnimationsOf(context)) return child;
+                  return AnimatedSize(
+                    duration: animationDuration,
+                    curve: Curves.easeOutCubic,
+                    alignment: Alignment.topCenter,
+                    child: child,
+                  );
+                },
               ),
             ],
           ),

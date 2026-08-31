@@ -1,3 +1,5 @@
+import 'dart:ui' show Tristate;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_colors.dart';
@@ -92,5 +94,32 @@ void main() {
     expect(find.byType(Chip), findsNothing);
     expect(find.byType(DropdownButton<Object>), findsNothing);
     expect(find.byType(SegmentedButton<Object>), findsNothing);
+  });
+
+  testWidgets('labels expose selected and Pro-only state', (tester) async {
+    await tester.pumpWidget(
+      harness(isPro: false),
+    );
+
+    final subject = tester.getSemantics(
+      find.bySemanticsLabel('Subject'),
+    );
+    final topic = tester.getSemantics(
+      find.bySemanticsLabel('Topic, Pro only'),
+    );
+
+    expect(subject.flagsCollection.isSelected, Tristate.isTrue);
+    expect(topic.flagsCollection.isSelected, Tristate.isFalse);
+    expect(topic.flagsCollection.isButton, isTrue);
+  });
+
+  testWidgets('every visible level has a 48 by 48 tap target', (tester) async {
+    await tester.pumpWidget(harness());
+
+    for (final label in ['Subject', 'Topic', 'Lesson']) {
+      final size = tester.getSize(find.bySemanticsLabel(label));
+      expect(size.width, greaterThanOrEqualTo(48));
+      expect(size.height, greaterThanOrEqualTo(48));
+    }
   });
 }

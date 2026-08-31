@@ -86,14 +86,29 @@ class _SearchFieldBarState extends ConsumerState<SearchFieldBar> {
               ),
             ),
             const SizedBox(width: 12),
-            GestureDetector(
-              behavior: HitTestBehavior.opaque,
+            Semantics(
+              button: true,
+              label: 'Cancel search',
               onTap: _handleCancel,
-              child: Text(
-                'Cancel',
-                style: styles.bodySmall.copyWith(
-                  fontWeight: FontWeight.w600,
-                  color: colors.ink,
+              child: ExcludeSemantics(
+                child: GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: _handleCancel,
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(
+                      minWidth: 48,
+                      minHeight: 48,
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Cancel',
+                        style: styles.bodySmall.copyWith(
+                          fontWeight: FontWeight.w600,
+                          color: colors.ink,
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ),

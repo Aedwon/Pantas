@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/ink_chevron.dart';
+import 'package:pantas/core/ui/components/settings_switch.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
 /// One row of the Settings ledger: a title, then a right-aligned value or a
@@ -9,9 +10,8 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 /// That is what keeps every value in a group on one right edge, which is the
 /// thing that stops the list looking ragged.
 ///
-/// The visible box is 38 tall. The tappable box is 44, gained by 3px of
-/// transparent bleed above and below, because a hit region in Flutter cannot
-/// exceed its own box and 44 is the accessibility floor.
+/// The visible box is 38 tall at normal text size. The tappable box is at
+/// least 48 tall and grows with larger text.
 class SettingsValueRow extends StatelessWidget {
   const SettingsValueRow({
     required this.title,
@@ -31,7 +31,7 @@ class SettingsValueRow extends StatelessWidget {
   final VoidCallback? onTap;
 
   static const double contentHeight = 38;
-  static const double tapHeight = 44;
+  static const double tapHeight = 48;
   static const double chevronColumnWidth = 14;
 
   @override
@@ -50,39 +50,75 @@ class SettingsValueRow extends StatelessWidget {
                 ),
               ));
 
-    final content = SizedBox(
-      key: const Key('settingsRowContent'),
-      height: contentHeight,
-      child: Row(
-        children: [
-          Expanded(
-            child: Text(
-              title,
-              style: styles.bodyMedium.copyWith(fontSize: 14.5),
+    final largeText = MediaQuery.textScalerOf(context).scale(1) > 1;
+    final content = largeText
+        ? Padding(
+            key: const Key('settingsRowContent'),
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: styles.bodyMedium.copyWith(fontSize: 14.5),
+                ),
+                const SizedBox(height: 6),
+                Align(alignment: Alignment.centerRight, child: trailing),
+              ],
             ),
-          ),
-          const SizedBox(width: 10),
-          trailing,
-          SizedBox(
-            width: chevronColumnWidth,
-            child: showChevron
-                ? const Align(
-                    alignment: Alignment.centerRight,
-                    child: InkChevron(size: 14),
-                  )
-                : null,
-          ),
-        ],
-      ),
-    );
+          )
+        : SizedBox(
+            key: const Key('settingsRowContent'),
+            height: contentHeight,
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    title,
+                    style: styles.bodyMedium.copyWith(fontSize: 14.5),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                trailing,
+                SizedBox(
+                  width: chevronColumnWidth,
+                  child: showChevron
+                      ? const Align(
+                          alignment: Alignment.centerRight,
+                          child: InkChevron(size: 14),
+                        )
+                      : null,
+                ),
+              ],
+            ),
+          );
 
-    return GestureDetector(
+    final row = GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: onTap,
-      child: SizedBox(
-        height: tapHeight,
-        child: Center(child: content),
-      ),
+      child: largeText
+          ? ConstrainedBox(
+              constraints: const BoxConstraints(minHeight: tapHeight),
+              child: content,
+            )
+          : SizedBox(
+              height: tapHeight,
+              child: Center(child: content),
+            ),
+    );
+
+    if (control != null && onTap == null) return row;
+
+    final switchValue =
+        control is SettingsSwitch ? (control! as SettingsSwitch).value : null;
+    return Semantics(
+      label: title,
+      value: switchValue == null ? value : null,
+      toggled: switchValue,
+      button: onTap != null,
+      onTap: onTap,
+      excludeSemantics: true,
+      child: row,
     );
   }
 }

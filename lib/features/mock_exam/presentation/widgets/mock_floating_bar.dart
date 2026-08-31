@@ -74,6 +74,7 @@ class MockFloatingBar extends StatelessWidget {
         children: [
           _BarControl(
             controlKey: const ValueKey('mock-prev'),
+            semanticLabel: 'Previous question',
             onTap: onPrevious,
             child: Text('\u2039', style: styles.headlineMedium),
           ),
@@ -82,20 +83,30 @@ class MockFloatingBar extends StatelessWidget {
             children: [
               _BarControl(
                 controlKey: const ValueKey('mock-grid'),
+                semanticLabel: 'Question navigator',
                 onTap: onGrid,
                 child: _GridGlyph(color: colors.ink),
               ),
               SizedBox(width: gridSideGap),
               // The counter is a control, not a label: both it and the
               // glyph open the grid.
-              InkWell(
+              Semantics(
+                button: true,
+                enabled: true,
+                label: 'Question $position of $total, open question navigator',
                 onTap: onGrid,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                  child: Text(
-                    '$position of $total',
-                    style: styles.bodyMedium.copyWith(
-                      fontFeatures: const [FontFeature.tabularFigures()],
+                excludeSemantics: true,
+                child: InkWell(
+                  onTap: onGrid,
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(minHeight: 48),
+                    child: Center(
+                      child: Text(
+                        '$position of $total',
+                        style: styles.bodyMedium.copyWith(
+                          fontFeatures: const [FontFeature.tabularFigures()],
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -103,6 +114,8 @@ class MockFloatingBar extends StatelessWidget {
               const SizedBox(width: baseGap),
               _BarControl(
                 controlKey: const ValueKey('mock-flag'),
+                semanticLabel: 'Flag question',
+                isToggled: isFlagged,
                 onTap: onFlag,
                 child: PennantMark(
                   isSet: isFlagged,
@@ -114,6 +127,7 @@ class MockFloatingBar extends StatelessWidget {
           ),
           _BarControl(
             controlKey: const ValueKey('mock-next'),
+            semanticLabel: 'Next question',
             onTap: onNext,
             child: Text('\u203a', style: styles.headlineMedium),
           ),
@@ -126,25 +140,37 @@ class MockFloatingBar extends StatelessWidget {
 class _BarControl extends StatelessWidget {
   const _BarControl({
     required this.controlKey,
+    required this.semanticLabel,
     required this.onTap,
     required this.child,
+    this.isToggled,
   });
 
   final Key controlKey;
+  final String semanticLabel;
   final VoidCallback? onTap;
   final Widget child;
+  final bool? isToggled;
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      key: controlKey,
+    return Semantics(
+      button: true,
+      enabled: onTap != null,
+      toggled: isToggled,
+      label: semanticLabel,
       onTap: onTap,
-      child: Opacity(
-        opacity: onTap == null ? 0.32 : 1,
-        child: SizedBox(
-          width: 46,
-          height: 46,
-          child: Center(child: child),
+      excludeSemantics: true,
+      child: InkWell(
+        key: controlKey,
+        onTap: onTap,
+        child: Opacity(
+          opacity: onTap == null ? 0.32 : 1,
+          child: SizedBox(
+            width: 48,
+            height: 48,
+            child: Center(child: child),
+          ),
         ),
       ),
     );

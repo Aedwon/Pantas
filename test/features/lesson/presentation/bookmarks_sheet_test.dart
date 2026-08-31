@@ -1,13 +1,13 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/ink_checkbox.dart';
-import 'package:pantas/core/ui/components/pennant_mark.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/lesson/application/bookmark_providers.dart';
 import 'package:pantas/features/lesson/data/repos/bookmark_prefs_repository.dart';
@@ -65,6 +65,7 @@ void main() {
     WidgetTester tester, {
     required int rows,
     BookmarkOrder order = BookmarkOrder.recent,
+    TextScaler textScaler = TextScaler.noScaling,
   }) async {
     for (var i = 1; i <= rows; i++) {
       await repo.mark('l$i');
@@ -89,6 +90,10 @@ void main() {
         child: MaterialApp(
           key: UniqueKey(),
           theme: buildLightTheme(),
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(context).copyWith(textScaler: textScaler),
+            child: child!,
+          ),
           home: Scaffold(
             body: Builder(
               builder: (context) => ElevatedButton(
@@ -108,7 +113,13 @@ void main() {
   testWidgets('the sheet lists every bookmark, not three', (tester) async {
     await pumpSheet(tester, rows: 7);
 
-    expect(find.byType(PennantMark), findsNWidgets(7));
+    await tester.scrollUntilVisible(
+      find.text('Lesson 1'),
+      120,
+      scrollable: find.byType(Scrollable).last,
+    );
+
+    expect(find.text('Lesson 1'), findsOneWidget);
   });
 
   testWidgets('the four orders are all visible', (tester) async {
@@ -117,6 +128,27 @@ void main() {
     for (final label in ['Recent', 'By subject', 'Oldest', 'Custom']) {
       expect(find.text(label), findsOneWidget);
     }
+  });
+
+  testWidgets('the bookmark sheet fits at 320dp and 200% text', (tester) async {
+    tester.view
+      ..physicalSize = const Size(320, 640)
+      ..devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await pumpSheet(
+      tester,
+      rows: 2,
+      textScaler: const TextScaler.linear(2),
+    );
+
+    expect(tester.takeException(), isNull);
+
+    await tester.tap(find.text('Edit'));
+    await tester.pumpAndSettle();
+
+    expect(tester.takeException(), isNull);
   });
 
   testWidgets('the active order is the heavy one', (tester) async {
@@ -149,6 +181,76 @@ void main() {
     expect(find.text('Save'), findsNothing);
   });
 
+  testWidgets('sheet actions are labeled and at least 48dp', (tester) async {
+    final semantics = tester.ensureSemantics();
+    await pumpSheet(tester, rows: 2);
+
+    void expectTarget(String label) {
+      final target = find.semantics.byLabel(label);
+      expect(target, findsOne);
+      expect(
+        target.evaluate().single.rect.size.width,
+        greaterThanOrEqualTo(48),
+      );
+      expect(
+        target.evaluate().single.rect.size.height,
+        greaterThanOrEqualTo(48),
+      );
+    }
+
+    expectTarget('Edit bookmarks');
+    for (final label in ['Recent', 'By subject', 'Oldest', 'Custom']) {
+      expectTarget('Order bookmarks by $label');
+    }
+
+    await tester.tap(find.text('Custom'));
+    await tester.pumpAndSettle();
+    expectTarget('Reset bookmark order');
+
+    semantics.dispose();
+  });
+
+  testWidgets('edit actions are labeled and at least 48dp', (tester) async {
+    final semantics = tester.ensureSemantics();
+    await pumpSheet(tester, rows: 2);
+
+    await tester.tap(find.text('Edit'));
+    await tester.pumpAndSettle();
+
+    for (final label in [
+      'Done editing bookmarks',
+      'Select all bookmarks',
+      'Remove selected bookmarks',
+    ]) {
+      final target = find.semantics.byLabel(label);
+      expect(target, findsOne);
+      expect(
+        target.evaluate().single.rect.size.width,
+        greaterThanOrEqualTo(48),
+      );
+      expect(
+        target.evaluate().single.rect.size.height,
+        greaterThanOrEqualTo(48),
+      );
+    }
+
+    semantics.dispose();
+  });
+
+  testWidgets('bookmark rows are labeled buttons at least 48dp high',
+      (tester) async {
+    final semantics = tester.ensureSemantics();
+    await pumpSheet(tester, rows: 2);
+
+    final target = find.semantics.byLabel('Open bookmark: Lesson 2');
+    expect(target, findsOne);
+    final data = target.evaluate().single.getSemanticsData();
+    expect(data.flagsCollection.isButton, isTrue);
+    expect(target.evaluate().single.rect.size.height, greaterThanOrEqualTo(48));
+
+    semantics.dispose();
+  });
+
   testWidgets('grips appear only in custom order', (tester) async {
     await pumpSheet(tester, rows: 3);
     expect(find.byKey(const ValueKey('bookmark-grip')), findsNothing);
@@ -163,12 +265,35 @@ void main() {
 
     await tester.drag(
       find.byKey(const ValueKey('bookmark-grip')).first,
-      const Offset(0, 90),
+      const Offset(0, 120),
     );
     await tester.pumpAndSettle();
 
     final rows = await repo.customOrder();
     expect(rows.map((row) => row.lessonId).toList(), ['l2', 'l1', 'l3']);
+  });
+
+  testWidgets('the move down semantic action writes a new custom order',
+      (tester) async {
+    final semantics = tester.ensureSemantics();
+    await pumpSheet(tester, rows: 3, order: BookmarkOrder.custom);
+
+    final node = tester.getSemantics(find.byKey(const ValueKey('l3')));
+    final actions = node.getSemanticsData().customSemanticsActionIds!;
+    final moveDownId = actions.firstWhere(
+      (id) => CustomSemanticsAction.getAction(id)?.label == 'Move down',
+    );
+
+    node.owner!.performAction(
+      node.id,
+      SemanticsAction.customAction,
+      moveDownId,
+    );
+    await tester.pumpAndSettle();
+
+    final rows = await repo.customOrder();
+    expect(rows.map((row) => row.lessonId), ['l2', 'l3', 'l1']);
+    semantics.dispose();
   });
 
   testWidgets('switching away from custom asks nothing', (tester) async {

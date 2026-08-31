@@ -1,7 +1,10 @@
+import 'dart:ui' show SemanticsAction;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
+import 'package:pantas/core/ui/components/board_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_exam_date_step.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
@@ -63,6 +66,22 @@ void main() {
     // is not the place to make a student decode a mark.
     expect(find.text('Any'), findsWidgets);
     expect(find.text('—'), findsNothing);
+  });
+
+  testWidgets("I don't know yet is a named control with a 48dp hit region",
+      (tester) async {
+    await tester.pumpWidget(_wrap(OnboardingExamDateStep(onCompleted: () {})));
+
+    final skip = find.bySemanticsLabel("I don't know yet");
+    expect(skip, findsOneWidget);
+    expect(tester.getSize(skip).height, greaterThanOrEqualTo(48));
+    expect(tester.getSize(skip).width, greaterThanOrEqualTo(48));
+    expect(
+      tester.getSemantics(skip).getSemanticsData().hasAction(
+            SemanticsAction.tap,
+          ),
+      isTrue,
+    );
   });
 
   testWidgets('skipping writes no date', (tester) async {
@@ -132,5 +151,28 @@ void main() {
     expect(fakeRepo.savedExamDate!.precision, ExamDatePrecision.day);
     expect(fakeRepo.savedExamDate!.day, isNotNull);
     expect(completed, isTrue);
+  });
+
+  testWidgets('survives 200% text at 320dp', (tester) async {
+    tester.view
+      ..physicalSize = const Size(320, 640)
+      ..devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      _wrap(
+        MediaQuery(
+          data: const MediaQueryData(
+            size: Size(320, 640),
+            textScaler: TextScaler.linear(2),
+          ),
+          child: OnboardingExamDateStep(onCompleted: () {}),
+        ),
+      ),
+    );
+
+    expect(tester.takeException(), isNull);
+    expect(find.widgetWithText(BoardButton, 'Continue'), findsOneWidget);
   });
 }

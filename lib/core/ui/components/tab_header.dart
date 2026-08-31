@@ -31,19 +31,30 @@ class TabHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final largeText = MediaQuery.textScalerOf(context).scale(1) > 1;
     return Padding(
       padding: const EdgeInsets.only(top: 12, bottom: spaceBelow),
-      child: SizedBox(
-        height: rowHeight,
-        child: Row(
-          children: [
-            Text(title, style: context.textStyles.headlineMedium),
-            if (trailing != null) ...[
-              const Spacer(),
-              trailing!,
-            ],
-          ],
-        ),
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(minHeight: rowHeight),
+        child: largeText && trailing != null
+            ? Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(title, style: context.textStyles.headlineMedium),
+                  Align(alignment: Alignment.centerRight, child: trailing),
+                ],
+              )
+            : Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      title,
+                      style: context.textStyles.headlineMedium,
+                    ),
+                  ),
+                  if (trailing != null) trailing!,
+                ],
+              ),
       ),
     );
   }
