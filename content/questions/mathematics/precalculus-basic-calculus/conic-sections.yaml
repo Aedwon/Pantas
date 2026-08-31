@@ -246,27 +246,27 @@ questions:
     type: which-is-true
     difficulty: medium
     stem: |
-      Given the general second-degree equation $Ax^2 + Cy^2 + Dx + Ey + F = 0$ (with no $xy$ term), which condition guarantees that the graph is a hyperbola?
+      Assume a nondegenerate real conic represented by the general second-degree equation $Ax^2 + Cy^2 + Dx + Ey + F = 0$ with no $xy$ term. Which coefficient condition identifies it as a hyperbola?
     choices:
       - text: $A$ and $C$ have opposite signs ($AC < 0$).
         correct: true
       - text: $A = C$ and both are non-zero.
         rationale: |
-          You described the condition for a circle. When $A = C$ and both
-          are non-zero, the squared terms have equal coefficients, giving a
-          circle. A hyperbola needs $A$ and $C$ to have opposite signs.
+          You described the coefficient pattern for a circle. Under the
+          nondegenerate-conic assumption, a hyperbola instead requires the
+          two squared terms to have opposite signs.
       - text: $A \neq C$ and both have the same sign ($AC > 0$).
         rationale: |
-          You described the condition for an ellipse. An ellipse has two
-          positive squared-term coefficients that are unequal. A hyperbola
-          needs one positive and one negative, so $AC < 0$.
+          You described the coefficient pattern for an ellipse. Under the
+          stated nondegenerate-conic assumption, a hyperbola requires one
+          positive and one negative squared-term coefficient, so $AC < 0$.
       - text: Either $A = 0$ or $C = 0$, but not both.
         rationale: |
-          You described the condition for a parabola. When one squared term
-          is missing, only one variable is quadratic, giving a parabola.
-          A hyperbola needs both squared terms with opposite signs.
+          You described the coefficient pattern for a parabola. Under the
+          nondegenerate-conic assumption, a hyperbola has both squared terms
+          present with opposite signs.
     explanation: |
-      When $A$ and $C$ have opposite signs, their product $AC < 0$, which defines a hyperbola. If $A = C$, it is a circle. If $A \neq C$ with $AC > 0$, it is an ellipse. If one coefficient is zero, it is a parabola.
+      For a nondegenerate real conic with no $xy$ term, opposite signs on the squared-term coefficients ($AC < 0$) identify a hyperbola. The nondegeneracy condition matters: without it, an equation such as $x^2 - y^2 = 0$ factors into two intersecting lines instead of a hyperbola.
 
   - id: q-precalculus-basic-calculus-conic-sections-0011
     type: direct-computation

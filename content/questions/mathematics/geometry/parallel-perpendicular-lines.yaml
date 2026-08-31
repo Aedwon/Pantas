@@ -381,7 +381,7 @@ questions:
         rationale: |
           You added the wrong supplement. First find the complement of 32 degrees with the perpendicular line.
     explanation: |
-      1. Since $AB \perp L_1$ and $L_1 \parallel L_2$, $AB$ is also perpendicular to $L_2$ ($\angle ABO = 90^\circ$).
+      1. Since $AB \perp L_1$ and $L_1 \parallel L_2$, $AB$ is also perpendicular to $L_2$, so the angle between $AB$ and $L_2$ at $B$ is $90^\circ$.
       2. The angle ray $AC$ makes with line $L_1$ at point $A$ is $90^\circ - \angle BAC = 90^\circ - 32^\circ = 58^\circ$.
       3. By alternate interior angles between parallel lines $L_1$ and $L_2$, the acute angle ray $AC$ makes with $L_2$ is equal to $58^\circ$.
 
@@ -391,36 +391,35 @@ questions:
     type: direct-computation
     difficulty: hard
     stem: |
-      Parallel lines $L_1 \parallel L_2 \parallel L_3$ are crossed by transversal $T$, intersecting $L_1, L_2, L_3$ at points $A, B, C$ respectively. An interior angle at $A$ is $(3x + 15)^\circ$, and an alternate interior angle at $C$ is $(5x - 25)^\circ$. Ray $BD$ from line $L_2$ bisects the adjacent supplementary angle to $\angle ABC$. What is the measure of the angle formed by ray $BD$ with line $L_2$?
+      Parallel lines $L_1 \parallel L_2 \parallel L_3$ are crossed by transversal $T$. At the intersections with $L_1$ and $L_3$, a pair of corresponding acute angles measure $(3x + 15)^\circ$ and $(5x - 25)^\circ$. At point $B$, where $T$ intersects $L_2$, ray $BD$ bisects the adjacent obtuse angle formed by $T$ and $L_2$. What is the measure of the angle between ray $BD$ and line $L_2$?
     choices:
       - text: '$52.5^\circ$'
         correct: true
       - text: '$37.5^\circ$'
         correct: false
         rationale: |
-          You bisected the 75-degree angle itself. The ray bisects the adjacent supplementary angle, not the original one.
+          You bisected the 75-degree acute angle itself. The ray bisects its adjacent obtuse supplement, not the acute angle.
       - text: '$105^\circ$'
         correct: false
         rationale: |
-          You found the supplementary angle but forgot to bisect it. Ray $BD$ splits that angle into two equal parts.
+          You found the adjacent obtuse angle but forgot to bisect it. Ray $BD$ splits that angle into two equal parts.
       - text: '$75^\circ$'
         correct: false
         rationale: |
           You stopped before using the supplement and the bisector. The asked angle comes after both steps.
     explanation: |
-      1. Alternate interior angles are equal: $3x + 15 = 5x - 25 \implies 2x = 40 \implies x = 20$.
-      2. Calculate angle measure: $3(20) + 15 = 75^\circ$.
-      3. The adjacent supplementary angle is $180^\circ - 75^\circ = 105^\circ$.
-      4. Ray $BD$ bisects this angle: $\frac{105^\circ}{2} = 52.5^\circ$.
+      1. Corresponding angles are equal: $3x + 15 = 5x - 25 \implies 2x = 40 \implies x = 20$.
+      2. The acute angle made by $T$ with each parallel line is $3(20) + 15 = 75^\circ$.
+      3. The adjacent obtuse angle at $B$ is $180^\circ - 75^\circ = 105^\circ$.
+      4. Ray $BD$ bisects this angle, so the angle between $BD$ and $L_2$ is $\frac{105^\circ}{2} = 52.5^\circ$.
 
-      Common Trap: Bisecting the $75^\circ$ angle instead of its supplement yields $\frac{75^\circ}{2} = 37.5^\circ$.
+      Common Trap: Bisecting the $75^\circ$ acute angle instead of its supplement gives $37.5^\circ$.
 
   - id: q-geometry-parallel-perpendicular-lines-0015
     type: direct-computation
     difficulty: hard
-    figure: geometry-parallel-perpendicular-lines-15
     stem: |
-      In the diagram, two parallel lines $L_1$ and $L_2$ are intersected by two transversals $T_1$ and $T_2$ that meet at point $P$ between the parallel lines. Transversal $T_1$ makes an interior angle of $50^\circ$ with $L_1$, and transversal $T_2$ makes an interior angle of $65^\circ$ with $L_2$. What is the measure of the interior angle $\angle T_1 P T_2$ facing the left side?
+      Two horizontal parallel lines $L_1$ and $L_2$ are intersected by two transversals $T_1$ and $T_2$ that meet at point $P$ between them. $T_1$ meets $L_1$ at a point to the left of $P$ and makes an interior angle of $50^\circ$ with $L_1$. $T_2$ meets $L_2$ at a point to the left of $P$ and makes an interior angle of $65^\circ$ with $L_2$. What is the measure of the left-facing angle between $T_1$ and $T_2$ at $P$?
     choices:
       - text: '$115^\circ$'
         correct: true
@@ -437,9 +436,9 @@ questions:
         rationale: |
           You made the angle too large by adding the wrong relationship. The two parts at $P$ are 50 degrees and 65 degrees.
     explanation: |
-      1. Draw an auxiliary line through point $P$ parallel to both $L_1$ and $L_2$.
-      2. By alternate interior angles, the upper part of $\angle T_1 P T_2$ equals $50^\circ$.
-      3. By alternate interior angles, the lower part of $\angle T_1 P T_2$ equals $65^\circ$.
-      4. Total angle $\angle T_1 P T_2 = 50^\circ + 65^\circ = 115^\circ$.
+      1. Draw an auxiliary horizontal line through point $P$ parallel to both $L_1$ and $L_2$.
+      2. Because the intersections of both transversals with the parallel lines lie to the left of $P$, the left-facing angle is split into the two corresponding/alternate angle pieces.
+      3. The upper part equals $50^\circ$ and the lower part equals $65^\circ$.
+      4. The left-facing angle at $P$ is therefore $50^\circ + 65^\circ = 115^\circ$.
 
-      Common Trap: Subtracting the two given angles ($65^\circ - 50^\circ = 15^\circ$) or reporting only one of the alternate angles.
+      Common Trap: Subtracting the two given angles ($65^\circ - 50^\circ = 15^\circ$) or reporting only one of the two angle pieces.

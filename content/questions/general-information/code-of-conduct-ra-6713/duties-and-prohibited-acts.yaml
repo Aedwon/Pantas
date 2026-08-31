@@ -30,21 +30,21 @@ questions:
     type: single_choice
     difficulty: medium
     stem: |
-      What is the maximum number of initials or signatures allowed on written actions submitted for official approval under RA 6713?
+      As far as practicable, what is the maximum number of initials or signatures allowed on written actions or decisions under Section 5 of RA 6713?
     choices:
       - text: At most three signatures
         correct: true
       - text: At most five official signatures
         rationale: |
-          You picked five signatures, which allows excessive bureaucracy. Section 5 limits written actions to at most three initials or signatures.
+          You picked five signatures, which exceeds the statutory target. As far as practicable, Section 5 limits written actions or decisions to at most three initials or signatures.
       - text: At most four official signatures
         rationale: |
-          You chose four signatures, which is still above the legal limit. The law caps total initials or signatures at three to cut red tape.
+          You chose four signatures, which is still above the statutory target. As far as practicable, written actions or decisions should contain no more than three initials or signatures.
       - text: At most six official signatures
         rationale: |
-          You selected six signatures, which doubles the allowed limit. RA 6713 strictly limits official approval trails to at most three signatures.
+          You selected six signatures, which doubles the statutory target. As far as practicable, RA 6713 limits approval trails to at most three initials or signatures.
     explanation: |
-      Section 5(b) requires that written actions contain no more than three initials or signatures.
+      Section 5(b) provides that, as far as practicable, written actions or decisions must contain no more than three initials or signatures.
 
   - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0003
     type: single_choice
@@ -170,21 +170,21 @@ questions:
     type: single_choice
     difficulty: easy
     stem: |
-      Public documents must be accessible for inspection during office hours except when classified in what manner?
+      Under Section 5(e) of RA 6713, what duty applies to public documents?
     choices:
-      - text: Officially confidential
+      - text: Make them accessible for public inspection during reasonable working hours
         correct: true
-      - text: Temporarily unindexed or unfiled
+      - text: Release them only after a 30-day waiting period
         rationale: |
-          You picked unindexed or unfiled status, which is an internal clerical issue. Public access can only be restricted if officially classified as confidential.
-      - text: Written in technical language
+          You picked a waiting period, but Section 5(e) requires public documents to be accessible and readily available for inspection during reasonable working hours.
+      - text: Limit inspection to government employees
         rationale: |
-          You selected technical language, which affects readability, not legal access. Public documents remain open unless officially classified as confidential.
-      - text: Stored in secondary archives
+          You restricted access to employees, but Section 5(e) states that public documents must be accessible to the public.
+      - text: Allow inspection only after approval by the agency head
         rationale: |
-          You chose secondary archives, which concerns storage location. Under Section 5, only official confidential classification limits public access.
+          You added an approval condition that Section 5(e) does not state. The duty is to make public documents accessible and readily available for inspection during reasonable working hours.
     explanation: |
-      Section 5(e) requires public documents to be accessible to the public during office hours unless officially classified as confidential.
+      Section 5(e) states that all public documents must be made accessible to, and readily available for inspection by, the public within reasonable working hours.
 
   - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0010
     type: single_choice
@@ -210,41 +210,41 @@ questions:
     type: single_choice
     difficulty: hard
     stem: |
-      Which gift exception allows public officials to accept travel grants from foreign entities under RA 6713?
+      Which travel benefit from a foreign government may a public official or employee accept under RA 6713 if it is appropriate or consistent with Philippine interests and permitted by the head of the person's office, branch, or agency?
     choices:
-      - text: Travel grants outside the Philippines
+      - text: Travel grants or expenses for travel entirely outside the Philippines
         correct: true
-      - text: All domestic resort trips funded by local contractors
+      - text: Domestic resort trips paid by local contractors
         rationale: |
-          You picked contractor-funded domestic resort trips, which create direct corruption risks. Allowed travel gifts must be foreign grants for official duties.
-      - text: Personal holiday vacations paid by registered vendors
+          You picked a benefit from local contractors, but the statutory exception here concerns qualifying travel grants or expenses from foreign governments for travel entirely outside the Philippines.
+      - text: Personal holidays paid by vendors with pending office transactions
         rationale: |
-          You chose vendor-paid personal vacations, which are strictly illegal bribes. Foreign travel grants appropriate to official duties are the only exception.
-      - text: Local weekend leisure trips funded by private applicants
+          You chose vendor-paid personal travel, which is not the foreign-government travel exception described in Section 7(d).
+      - text: Local weekend leisure trips paid by private applicants
         rationale: |
-          You selected local leisure trips from applicants, which violate gift rules. Section 7 exempts only foreign travel grants related to official work.
+          You selected local leisure travel from private applicants, which is not the foreign-government travel exception in Section 7(d).
     explanation: |
-      Travel grants entirely outside the Philippines appropriate to official functions are listed as an exception under RA 6713 rules.
+      For gifts or grants from foreign governments, Section 7(d) permits travel grants or expenses for travel taking place entirely outside the Philippines when acceptance is appropriate or consistent with Philippine interests and is permitted by the head of the official's office, branch, or agency.
 
   - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0012
     type: single_choice
     difficulty: easy
     stem: |
-      Under Section 5 of RA 6713, within how many working days must a written request be acknowledged?
+      Under Section 5(a) of RA 6713, what must the response to a public letter or request contain?
     choices:
-      - text: 15 working days
+      - text: The action taken on the request
         correct: true
-      - text: 20 working days
+      - text: Only the date the request was received
         rationale: |
-          You selected 20 days, which exceeds the statutory rule. Acknowledgments for written requests must be sent within 15 working days.
-      - text: 30 working days
+          You picked the receipt date, but Section 5(a) requires the response to tell the writer what action was taken on the request.
+      - text: Only the name of the next reviewing official
         rationale: |
-          You picked 30 days, which doubles the legal timeframe. Formal requests require a prompt response within 15 working days of receipt.
-      - text: 45 working days
+          You picked the next reviewer's name, but the statute requires a response containing the action taken, not merely an internal routing detail.
+      - text: A notice that no response is required
         rationale: |
-          You chose 45 days, which confuses request acknowledgments with year end performance reports. Written requests need a 15 working day response.
+          You chose a no-response notice, but Section 5(a) requires a response within the statutory period and requires it to contain the action taken.
     explanation: |
-      Section 5(a) specifies that written requests must be acknowledged within 15 working days from receipt.
+      Section 5(a) requires a response within 15 working days from receipt, and the response must contain the action taken on the request.
 
   - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0013
     type: single_choice
@@ -285,23 +285,3 @@ questions:
           You chose departmental custom, which cannot override statutory prohibitions. Outside ownership in regulated firms is prohibited unless authorized by law.
     explanation: |
       Section 7(b)(1) states that outside ownership or management of a regulated business is prohibited unless authorized by law.
-
-  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0015
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Under Section 5 of RA 6713, annual performance reports must be submitted to superiors within how many working days after year end?
-    choices:
-      - text: 45 working days
-        correct: true
-      - text: 15 working days
-        rationale: |
-          You selected 15 days, which is the limit for answering letters. Heads of offices get 45 working days after year end to submit performance reports.
-      - text: 30 working days
-        rationale: |
-          You picked 30 days, which underestimates the allowed timeframe. Public officers get up to 45 working days after year end to submit annual reports.
-      - text: 60 working days
-        rationale: |
-          You chose 60 days, which goes beyond the statutory allowance. Annual performance reports must be submitted within 45 working days.
-    explanation: |
-      Section 5(c) sets the deadline for submitting annual performance reports to superiors at within 45 working days from year end.

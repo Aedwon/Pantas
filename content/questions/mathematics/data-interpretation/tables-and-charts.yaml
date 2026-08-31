@@ -41,7 +41,15 @@ questions:
     type: single_choice
     difficulty: easy
     stem: |
-      Refer to the supply expenditure table above. What was the total expenditure for all three supply categories combined in February?
+      Consider the following table showing monthly office supply expenditures (in PHP):
+
+      | Month | Paper | Ink | Furniture |
+      | :--- | :--- | :--- | :--- |
+      | January | 12000 | 18000 | 5000 |
+      | February | 15000 | 22000 | 8000 |
+      | March | 11000 | 19000 | 4000 |
+
+      What was the total expenditure for all three supply categories combined in February?
     choices:
       - text: '$45,000$'
         correct: true
@@ -97,7 +105,15 @@ questions:
     type: single_choice
     difficulty: easy
     stem: |
-      Refer to the agricultural crop yield table above. What is the total combined yield of Corn across Regions A, B, and C?
+      Consider the following table of regional agricultural crop yields (in metric tons):
+
+      | Region | Rice | Corn | Sugarcane |
+      | :--- | :--- | :--- | :--- |
+      | Region A | 450 | 300 | 600 |
+      | Region B | 520 | 280 | 750 |
+      | Region C | 380 | 410 | 500 |
+
+      What is the total combined yield of Corn across Regions A, B, and C?
     choices:
       - text: '$990\text{ metric tons}$'
         correct: true
@@ -154,7 +170,16 @@ questions:
     type: single_choice
     difficulty: medium
     stem: |
-      Refer to the quarterly revenue table above. By how much did total Tax revenue in Q4 exceed total Tax revenue in Q1?
+      Consider the following table of quarterly municipal revenue (in million PHP):
+
+      | Quarter | Tax | Licenses | Property |
+      | :--- | :--- | :--- | :--- |
+      | Q1 | 14 | 6 | 10 |
+      | Q2 | 18 | 8 | 12 |
+      | Q3 | 15 | 5 | 11 |
+      | Q4 | 21 | 9 | 15 |
+
+      By how much did total Tax revenue in Q4 exceed total Tax revenue in Q1?
     choices:
       - text: '$7\text{ million PHP}$'
         correct: true
@@ -210,7 +235,15 @@ questions:
     type: single_choice
     difficulty: medium
     stem: |
-      Refer to the applicant table above. How many more total applicants attended the Manila testing center than the Davao testing center?
+      Consider the following table of civil service exam applicants per testing center:
+
+      | Testing Center | Male | Female |
+      | :--- | :--- | :--- |
+      | Manila | 1200 | 1500 |
+      | Cebu | 800 | 950 |
+      | Davao | 650 | 750 |
+
+      How many more total applicants attended the Manila testing center than the Davao testing center?
     choices:
       - text: '$1,300$'
         correct: true
@@ -268,7 +301,15 @@ questions:
     type: single_choice
     difficulty: medium
     stem: |
-      Refer to the library circulation table above. What was the total book circulation across all three categories in June?
+      Consider the following table of public library book circulation per category:
+
+      | Month | Fiction | Non-Fiction | Reference |
+      | :--- | :--- | :--- | :--- |
+      | April | 400 | 250 | 150 |
+      | May | 480 | 310 | 190 |
+      | June | 520 | 340 | 200 |
+
+      What was the total book circulation across all three categories in June?
     choices:
       - text: '$1,060$'
         correct: true
@@ -323,7 +364,15 @@ questions:
     type: single_choice
     difficulty: medium
     stem: |
-      Refer to the emergency admissions table above. What was the total number of Surgical admissions across all three shifts?
+      Consider the following table of hospital emergency admissions per department:
+
+      | Shift | Medical | Surgical | Pediatric |
+      | :--- | :--- | :--- | :--- |
+      | Morning | 45 | 30 | 25 |
+      | Afternoon | 60 | 40 | 35 |
+      | Night | 35 | 20 | 15 |
+
+      What was the total number of Surgical admissions across all three shifts?
     choices:
       - text: '$90$'
         correct: true

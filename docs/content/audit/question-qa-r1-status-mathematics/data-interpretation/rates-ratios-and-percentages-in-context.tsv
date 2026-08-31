@@ -1,0 +1,13 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-data-interpretation-rates-ratios-and-percentages-in-context-0001	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-data-interpretation-rates-ratios-and-percentages-in-context-0002	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	HIGH	Embedded the 2025 sales table in the item so it no longer depends on a previous question.
+q-data-interpretation-rates-ratios-and-percentages-in-context-0003	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-data-interpretation-rates-ratios-and-percentages-in-context-0004	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	HIGH	Embedded the barangay population table so the ratio question is independently answerable.
+q-data-interpretation-rates-ratios-and-percentages-in-context-0005	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-data-interpretation-rates-ratios-and-percentages-in-context-0006	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	HIGH	Embedded the electricity-consumption table so the proportion question is independently answerable.
+q-data-interpretation-rates-ratios-and-percentages-in-context-0007	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-data-interpretation-rates-ratios-and-percentages-in-context-0008	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	HIGH	Embedded the tax-collection table so the ratio question is independently answerable.
+q-data-interpretation-rates-ratios-and-percentages-in-context-0009	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-data-interpretation-rates-ratios-and-percentages-in-context-0010	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	HIGH	Embedded the graduate-count table so the ratio question is independently answerable.
+q-data-interpretation-rates-ratios-and-percentages-in-context-0011	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-data-interpretation-rates-ratios-and-percentages-in-context-0012	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	HIGH	Embedded the vehicle-registration table; also recalibrated hard to medium because the item is a single percentage-of-total calculation.

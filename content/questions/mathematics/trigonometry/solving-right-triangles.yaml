@@ -8,387 +8,335 @@ questions:
     type: word-problem
     difficulty: easy
     stem: |
-      From a point $20$ meters from a lamppost, the angle of elevation to the top of the lamppost in degrees is $45^\circ$. How tall is the lamppost?
+      From a point $20$ meters from a lamppost, the angle of elevation to the top of the lamppost is $45^\circ$. How tall is the lamppost?
     choices:
       - text: $20$ meters
         correct: true
       - text: $20\sqrt{2}$ meters
         rationale: |
-          You calculated the line-of-sight distance (hypotenuse) instead of the vertical height.
+          You calculated the line-of-sight distance instead of the vertical height.
       - text: $20\sqrt{3}$ meters
         rationale: |
-          You used tan 60 degrees (sqrt(3)) instead of tan 45 degrees (1).
+          You used $\tan60°$ instead of $\tan45°$.
       - text: $10$ meters
         rationale: |
-          You halved the horizontal distance instead of using tan 45 degrees = 1.
+          You halved the horizontal distance instead of using $\tan45°=1$.
     explanation: |
-      Use tangent, since you have the horizontal distance (adjacent) and want the height (opposite).
-      $$\tan 45^\circ = \dfrac{h}{20}$$
-      Since $\tan 45^\circ = 1$:
-      $$1 = \dfrac{h}{20} \quad \Rightarrow \quad h = 20 \text{ meters}$$
-      A quick rule: when the elevation angle is $45$ degrees, the height equals the horizontal distance.
+      $$\tan45^\circ=\dfrac{h}{20}=1,$$
+      so $h=20$ meters.
   - id: q-trigonometry-solving-right-triangles-0002
     type: direct-computation
     difficulty: easy
     stem: |
-      A right triangle has one acute angle of $35$ degrees in degrees. What is the other acute angle?
+      A right triangle has one acute angle of $35$ degrees. What is the other acute angle?
     choices:
       - text: $55$ degrees
         correct: true
       - text: $35$ degrees
         rationale: |
-          You repeated the given angle instead of finding its complement (90 - 35 = 55).
+          You repeated the given angle instead of finding its complement.
       - text: $125$ degrees
         rationale: |
-          You calculated the supplementary angle (180 - 55 = 125) instead of the complementary angle.
+          You found a supplementary angle instead of the complementary acute angle.
       - text: $65$ degrees
         rationale: |
-          You subtracted 35 from 100 instead of subtracting from 90 degrees.
+          You subtracted from $100$ instead of $90$.
     explanation: |
-      The two acute angles in a right triangle sum to $90$ degrees.
-      $$\theta_1 + \theta_2 = 90^\circ$$
-      $$35 + \theta_2 = 90$$
-      $$\theta_2 = 55^\circ$$
+      The acute angles of a right triangle sum to $90°$:
+      $$90-35=55^\circ.$$
   - id: q-trigonometry-solving-right-triangles-0003
     type: word-problem
     difficulty: easy
     stem: |
-      A ladder $10$ meters long leans against a wall. Its foot is $5$ meters from the wall. What angle does the ladder make with the ground in degrees?
+      A ladder $10$ meters long leans against a wall. Its foot is $5$ meters from the wall. What angle does the ladder make with the ground?
     choices:
       - text: $60$ degrees
         correct: true
       - text: $30$ degrees
         rationale: |
-          You calculated the angle the ladder makes with the wall instead of with the ground.
+          You found the complementary angle that the ladder makes with the wall.
       - text: $45$ degrees
         rationale: |
-          You assumed the legs are equal (5 m each) instead of using cos theta = 5/10.
+          You assumed the two legs were equal.
       - text: $\arcsin \left(\dfrac{1}{2}\right)$ degrees
         rationale: |
-          You evaluated arcsin(1/2) = 30 degrees, confusing cosine with sine.
+          This equals $30°$ and comes from using sine instead of cosine for the given adjacent side.
     explanation: |
-      You know the hypotenuse (ladder, $10$ m) and the adjacent side (ground, $5$ m). Use cosine.
-      $$\cos \theta = \dfrac{5}{10} = \dfrac{1}{2}$$
-      The angle whose cosine is $\dfrac{1}{2}$ is $60$ degrees.
-      $$\theta = 60^\circ$$
+      $$\cos\theta=\dfrac5{10}=\dfrac12,$$
+      so $\theta=60^\circ$.
   - id: q-trigonometry-solving-right-triangles-0004
     type: word-problem
     difficulty: medium
     stem: |
-      From a point on the ground, the angle of elevation to the top of a tree in degrees is $60^\circ$. The horizontal distance from the observer to the base of the tree is $30$ meters. How tall is the tree?
+      From a point on the ground, the angle of elevation to the top of a tree is $60^\circ$. The horizontal distance from the observer to the base of the tree is $30$ meters. How tall is the tree?
     choices:
       - text: $30\sqrt{3}$ meters
         correct: true
       - text: $30$ meters
         rationale: |
-          You assumed height equals distance as if the angle of elevation were 45 degrees.
+          You treated the elevation angle as $45°$.
       - text: $60$ meters
         rationale: |
-          You doubled the distance instead of multiplying by tan 60 degrees (sqrt(3)).
+          You doubled the distance instead of multiplying by $\tan60°$.
       - text: $\dfrac{30}{\sqrt{3}}$ meters
         rationale: |
-          You divided by sqrt(3) instead of multiplying by tan 60 degrees (sqrt(3)).
+          You divided by $\sqrt3$ instead of multiplying by $\tan60°$.
     explanation: |
-      Height (opposite) and horizontal distance (adjacent): use tangent.
-      $$\tan 60^\circ = \dfrac{h}{30}$$
-      Substitute $\tan 60^\circ = \sqrt{3}$:
-      $$\sqrt{3} = \dfrac{h}{30} \quad \Rightarrow \quad h = 30\sqrt{3} \text{ meters}$$
+      $$\tan60^\circ=\dfrac h{30}=\sqrt3,$$
+      so $h=30\sqrt3$ meters.
   - id: q-trigonometry-solving-right-triangles-0005
     type: word-problem
     difficulty: medium
     stem: |
-      From the top of a cliff $50$ meters tall, the angle of depression to a boat in degrees is $30^\circ$. How far is the boat from the base of the cliff?
+      From the top of a cliff $50$ meters tall, the angle of depression to a boat is $30^\circ$. How far is the boat from the base of the cliff?
     choices:
       - text: $50\sqrt{3}$ meters
         correct: true
       - text: $50$ meters
         rationale: |
-          You assumed horizontal distance equals height as if the angle were 45 degrees.
+          You treated the angle as $45°$.
       - text: $\dfrac{50}{\sqrt{3}}$ meters
         rationale: |
-          You multiplied by tan 30 degrees (1/sqrt(3)) instead of dividing by tan 30.
+          You multiplied by $\tan30°$ instead of dividing by it.
       - text: $100$ meters
         rationale: |
-          You calculated the direct distance (hypotenuse) using sin 30 degrees = 1/2.
+          You found the hypotenuse using sine instead of the horizontal distance.
     explanation: |
-      The angle of depression from the cliff equals the angle of elevation from the boat's position. From the boat's perspective, the height is $50$ m (opposite) and the horizontal distance is what we want (adjacent).
-      $$\tan 30^\circ = \dfrac{50}{d}$$
-      Substitute $\tan 30^\circ = \dfrac{\sqrt{3}}{3} = \dfrac{1}{\sqrt{3}}$:
-      $$\dfrac{1}{\sqrt{3}} = \dfrac{50}{d} \quad \Rightarrow \quad d = 50\sqrt{3} \text{ meters}$$
+      The angle of depression equals the corresponding angle of elevation.
+      $$\tan30^\circ=\dfrac{50}{d},$$
+      so
+      $$d=\dfrac{50}{\tan30^\circ}=50\sqrt3\text{ m}.$$
   - id: q-trigonometry-solving-right-triangles-0006
     type: word-problem
     difficulty: medium
     stem: |
-      A ramp rises $3$ meters vertically over a horizontal distance of $9$ meters. What angle does the ramp make with the horizontal in degrees?
+      A ramp rises $3$ meters vertically over a horizontal distance of $9$ meters. What angle does the ramp make with the horizontal?
     choices:
       - text: $\arctan \left(\dfrac{1}{3}\right)$ degrees
         correct: true
       - text: $30$ degrees
         rationale: |
-          You assumed tan(30) = 1/3, confusing 1/3 with 1/sqrt(3) = sqrt(3)/3.
+          $\tan30°=1/\sqrt3$, not $1/3$.
       - text: $\arctan(3)$ degrees
         rationale: |
-          You calculated arctan(adjacent / opposite) instead of arctan(opposite / adjacent).
+          You inverted opposite and adjacent.
       - text: $45$ degrees
         rationale: |
-          You assumed vertical and horizontal distances are equal (tan theta = 1).
+          That would require equal vertical and horizontal distances.
     explanation: |
-      Use tangent with vertical (opposite) and horizontal (adjacent) distances.
-      $$\tan \theta = \dfrac{3}{9} = \dfrac{1}{3}$$
-      $$\theta = \arctan \left(\dfrac{1}{3}\right)$$
-      This angle is approximately $18.43$ degrees. Note: if the choices asked for a decimal, this would be found using a calculator.
-
+      $$\tan\theta=\dfrac39=\dfrac13,$$
+      so
+      $$\theta=\arctan\left(\dfrac13\right)\approx18.43^\circ.$$
   - id: q-trigonometry-solving-right-triangles-0007
     type: word-problem
-    difficulty: medium-hard
+    difficulty: hard
     stem: |
-      From point $A$ on level ground, the angle of elevation to the top of a flagpole is $30$ degrees in degrees. After walking $100$ meters straight toward the flagpole to point $B$, the angle of elevation becomes $60$ degrees in degrees. How tall is the flagpole?
+      From point $A$ on level ground, the angle of elevation to the top of a flagpole is $30$ degrees. After walking $100$ meters straight toward the flagpole to point $B$, the angle of elevation becomes $60$ degrees. How tall is the flagpole?
     choices:
       - text: $50\sqrt{3}$ meters
         correct: true
       - text: $100\sqrt{3}$ meters
         rationale: |
-          You evaluated h using x = 100 instead of solving 3x = x + 100 for x = 50.
+          You used the full 100-meter separation as the nearer horizontal distance.
       - text: $100$ meters
         rationale: |
-          You evaluated the horizontal distance walked instead of the height of the flagpole.
+          You reported the walking distance instead of the height.
       - text: $75\sqrt{3}$ meters
         rationale: |
-          You averaged 50 and 100 before multiplying by sqrt(3).
+          You averaged distances instead of solving the two tangent equations.
     explanation: |
-      Let $x$ be the distance from point $B$ to the flagpole, and $h$ be its height.
-      
-      From point $B$:
-      $$\tan 60^\circ = \dfrac{h}{x} \quad \Rightarrow \quad h = x\sqrt{3}$$
-      
-      From point $A$ (distance $x + 100$):
-      $$\tan 30^\circ = \dfrac{h}{x + 100} \quad \Rightarrow \quad h = \dfrac{x + 100}{\sqrt{3}}$$
-      
-      Set the two expressions for $h$ equal:
-      $$x\sqrt{3} = \dfrac{x + 100}{\sqrt{3}}$$
-      
-      Multiply both sides by $\sqrt{3}$:
-      $$3x = x + 100 \quad \Rightarrow \quad x = 50$$
-      
-      Therefore $h = 50\sqrt{3}$ meters.
-
+      Let $x$ be the distance from $B$ to the flagpole and $h$ the height.
+      $$h=x\tan60^\circ=x\sqrt3$$
+      and
+      $$h=(x+100)\tan30^\circ=\dfrac{x+100}{\sqrt3}.$$
+      Equating gives $3x=x+100$, so $x=50$ and
+      $$h=50\sqrt3\text{ m}.$$
   - id: q-trigonometry-solving-right-triangles-0008
     type: direct-computation
-    difficulty: medium-hard
+    difficulty: hard
     stem: |
-      A right triangle has hypotenuse $40$ and one acute angle of $35$ degrees in degrees. Which ratios would you use to find the side opposite the $35$ degree angle?
+      A right triangle has hypotenuse $40$ and one acute angle of $35$ degrees. Which ratio would you use to find the side opposite the $35$ degree angle?
     choices:
       - text: $\sin 35^\circ$
         correct: true
       - text: $\cos 35^\circ$
         rationale: |
-          You selected cosine (adjacent over hypotenuse) instead of sine (opposite over hypotenuse).
+          Cosine connects adjacent side and hypotenuse.
       - text: $\tan 35^\circ$
         rationale: |
-          You selected tangent (opposite over adjacent) when the hypotenuse is given.
+          Tangent connects opposite and adjacent, not the given hypotenuse.
       - text: $\sec 35^\circ$
         rationale: |
-          You selected secant (hypotenuse over adjacent) instead of sine.
+          Secant connects hypotenuse and adjacent side.
     explanation: |
-      To find the opposite side when the hypotenuse is known, use sine (opposite over hypotenuse).
-      $$\sin 35^\circ = \dfrac{\text{opposite}}{40}$$
-      $$\text{opposite} = 40 \sin 35^\circ$$
+      Sine uses opposite over hypotenuse:
+      $$\sin35^\circ=\dfrac{\text{opposite}}{40}.$$
   - id: q-trigonometry-solving-right-triangles-0009
     type: word-problem
     difficulty: hard
     stem: |
-      From a window $25$ meters above ground, the angle of depression to a car on the street in degrees is $40$ degrees in degrees. How far is the car from the base of the building (horizontally)?
+      From a window $25$ meters above ground, the angle of depression to a car on the street is $40$ degrees. How far is the car from the base of the building horizontally?
     choices:
       - text: $\dfrac{25}{\tan 40^\circ}$ meters
         correct: true
       - text: $25 \tan 40^\circ$ meters
         rationale: |
-          You multiplied by tan 40 degrees instead of dividing height by tan 40 degrees.
+          You multiplied by tangent instead of solving $\tan40°=25/d$ for $d$.
       - text: $25 \sin 40^\circ$ meters
         rationale: |
-          You used sine instead of tangent to find the horizontal distance.
+          Sine is not the ratio between the given height and horizontal distance.
       - text: $\dfrac{25}{\sin 40^\circ}$ meters
         rationale: |
-          You used sine to calculate the direct hypotenuse distance instead of horizontal distance.
+          This uses sine to find a slanted distance, not the horizontal distance asked for.
     explanation: |
-      The angle of depression from the window equals the angle of elevation from the car's position. The height is $25$ m (opposite to the $40$ degree angle) and the horizontal distance is what we seek (adjacent).
-      $$\tan 40^\circ = \dfrac{25}{d}$$
-      $$d = \dfrac{25}{\tan 40^\circ}$$
-
+      $$\tan40^\circ=\dfrac{25}{d},$$
+      hence
+      $$d=\dfrac{25}{\tan40^\circ}.$$
   - id: q-trigonometry-solving-right-triangles-0010
     type: word-problem
     difficulty: hard
     stem: |
-      A surveyor stands $100$ meters from the base of a building. The angle of elevation to the roof is $30$ degrees in degrees, and the angle of elevation to the top of a flag on the roof is $32$ degrees in degrees. How tall is the flag?
+      A surveyor stands $100$ meters from the base of a building. The angle of elevation to the roof is $30$ degrees, and the angle of elevation to the top of a flag on the roof is $32$ degrees. How tall is the flag?
     choices:
       - text: $100 \tan 32^\circ - 100 \tan 30^\circ$ meters
         correct: true
       - text: $100 \tan 2^\circ$ meters
         rationale: |
-          You subtracted the angles (32 - 30 = 2) inside tangent, which is mathematically invalid.
+          In general, $\tan(32°-30°)\ne\tan32°-\tan30°$.
       - text: $100(\tan 32^\circ - 30^\circ)$ meters
         rationale: |
-          You subtracted 30 degrees directly from tan 32 degrees.
+          This subtracts an angle from a dimensionless tangent value.
       - text: $100 \tan 30^\circ$ meters
         rationale: |
-          You calculated the height of the building roof, ignoring the flag height.
+          That is the building height to the roof, not the flag height.
     explanation: |
-      The flag height is the difference between the total height and the building height.
-      
-      Total height (to flag): $h_{\text{total}} = 100 \tan 32^\circ$
-      
-      Building height (to roof): $h_{\text{building}} = 100 \tan 30^\circ$
-      
-      Flag height: $h_{\text{flag}} = 100 \tan 32^\circ - 100 \tan 30^\circ$ meters
-
+      The flag height is the difference between the total height and roof height:
+      $$h=100\tan32^\circ-100\tan30^\circ.$$
   - id: q-trigonometry-solving-right-triangles-0011
     type: word-problem
     difficulty: hard
     stem: |
-      A person observes a plane at an angle of elevation of $20$ degrees in degrees. Two minutes later, after the plane has moved horizontally overhead, the angle of elevation is $50$ degrees in degrees. If the plane flies at a constant altitude of $5000$ meters, how far (horizontally) did the plane travel?
+      A person observes a plane at an angle of elevation of $20$ degrees. Two minutes later, after the plane has moved horizontally toward the observer, the angle of elevation is $50$ degrees. If the plane flies at a constant altitude of $5000$ meters, how far horizontally did the plane travel?
     choices:
       - text: $5000 \left(\cot 20^\circ - \cot 50^\circ\right)$ meters
         correct: true
       - text: $5000 \cot 20^\circ$ meters
         rationale: |
-          You calculated only the initial horizontal distance d1 without subtracting d2.
+          You found only the initial horizontal distance.
       - text: $5000(\cot 20^\circ + \cot 50^\circ)$ meters
         rationale: |
-          You added the two horizontal distances instead of finding their difference.
+          The plane moves closer, so the traveled distance is the difference of the two horizontal distances.
       - text: $5000 \tan 20^\circ$ meters
         rationale: |
-          You multiplied altitude by tan 20 degrees instead of using cotangent.
+          Solving $\tan20°=5000/d$ gives a cotangent expression, not $5000\tan20°$.
     explanation: |
-      Let $d_1$ be the horizontal distance when the angle is $20$ degrees, and $d_2$ when the angle is $50$ degrees.
-      
-      At $20$ degrees: $\tan 20^\circ = \dfrac{5000}{d_1} \quad \Rightarrow \quad d_1 = \dfrac{5000}{\tan 20^\circ} = 5000 \cot 20^\circ$
-      
-      At $50$ degrees: $\tan 50^\circ = \dfrac{5000}{d_2} \quad \Rightarrow \quad d_2 = \dfrac{5000}{\tan 50^\circ} = 5000 \cot 50^\circ$
-      
-      The plane traveled $d_1 - d_2 = 5000(\cot 20^\circ - \cot 50^\circ)$ meters.
-
+      Initially $d_1=5000\cot20^\circ$; later $d_2=5000\cot50^\circ$. Since the plane moved toward the observer,
+      $$d_1-d_2=5000(\cot20^\circ-\cot50^\circ).$$
   - id: q-trigonometry-solving-right-triangles-0012
     type: direct-computation
     difficulty: hard
     stem: |
-      In a right triangle, the hypotenuse is $50$ and one leg is $30$. Find the sine of the angle opposite the leg of length $30$ in degrees.
+      In a right triangle, the hypotenuse is $50$ and one leg is $30$. Find the sine of the angle opposite the leg of length $30$.
     choices:
       - text: $\dfrac{3}{5}$
         correct: true
       - text: $\dfrac{4}{5}$
         rationale: |
-          You evaluated cosine of the angle (adjacent 40 over hypotenuse 50 = 4/5) instead of sine.
+          You calculated cosine using the other leg $40$ over hypotenuse $50$.
       - text: $\dfrac{3}{4}$
         rationale: |
-          You calculated tangent (opposite 30 over adjacent 40 = 3/4) instead of sine.
+          You calculated tangent, $30/40$.
       - text: $\dfrac{5}{3}$
         rationale: |
-          You calculated cosecant (hypotenuse 50 over opposite 30 = 5/3) instead of sine.
+          You calculated cosecant, the reciprocal of sine.
     explanation: |
-      First find the other leg using the Pythagorean theorem.
-      $$30^2 + b^2 = 50^2$$
-      $$900 + b^2 = 2500$$
-      $$b = 40$$
-      This is a $3$-$4$-$5$ triangle scaled by $10$: the $30$-$40$-$50$ triple.
-      
-      Sine of the angle opposite the leg of $30$ is:
-      $$\sin \theta = \dfrac{30}{50} = \dfrac{3}{5}$$
-
+      The other leg is $40$ by the $3$-$4$-$5$ triple. Sine is opposite over hypotenuse:
+      $$\sin\theta=\dfrac{30}{50}=\dfrac35.$$
   - id: q-trigonometry-solving-right-triangles-0013
     type: word-problem
     difficulty: hard
     stem: |
-      A rescue helicopter hovers $100$ meters directly above a stranded person on a hillside. A rescue worker on the hillside, $150$ meters away (measured along the slope), looks up at the helicopter. The angle of elevation from the worker to the helicopter in degrees is $40$ degrees in degrees. Is this setup possible without additional information about the hill's slope?
+      A rescue helicopter hovers $100$ meters directly above a stranded person on a hillside. A rescue worker elsewhere on the hillside is $150$ meters from the stranded person when measured along the slope and sees the helicopter at an angle of elevation of $40$ degrees. Can the stated distances and angle be checked for consistency without additional information about the hill?
     choices:
-      - text: No, the setup conflicts with the geometry given because the angle of elevation depends on the vertical and horizontal separation only.
-        correct: true
+      - text: No additional information is needed because the $150$-meter slope distance is the horizontal distance used in tangent.
+        rationale: |
+          Distance measured along a slope is generally not the same as horizontal distance.
       - text: Yes, the angle of elevation of $40$ degrees confirms the setup exactly.
         rationale: |
-          You assumed 150 m slope distance and 40 degree angle are automatically consistent.
-      - text: We need the slope of the hillside to check.
+          The slope distance alone does not determine the worker's horizontal and vertical displacement from the stranded person.
+      - text: No. The hill's slope, or equivalent horizontal/vertical separation information, is needed to check the geometry.
+        correct: true
+      - text: Yes, any $150$-meter slope distance is automatically compatible with a $40$ degree elevation angle.
         rationale: |
-          You claimed slope is needed, but vertical height 100 m uniquely fixes horizontal distance.
-      - text: Yes, the $150$ meter slope distance matches the angle perfectly.
-        rationale: |
-          You assumed 150 m matches 40 degrees without checking vertical and horizontal constraints.
+          Compatibility depends on how that slope distance decomposes into horizontal and vertical components.
     explanation: |
-      Angle of elevation is measured from the horizontal line of sight to the object. It depends only on the vertical height and the horizontal distance, not on the slope distance. Given the helicopter is $100$ m directly above the person, the angle of elevation depends on the worker's horizontal distance from the person. The $150$ m slope distance and $40$ degree angle do not uniquely determine the geometry without knowing either the worker's horizontal distance or the hill's slope.
-
+      Angle of elevation is measured from a horizontal line. The worker's $150$-meter distance is given along the hillside, so it does not by itself determine the worker's horizontal distance or elevation relative to the stranded person. The hill's slope, or equivalent horizontal/vertical separation data, is therefore needed before the $40°$ angle can be checked against the helicopter's position.
   - id: q-trigonometry-solving-right-triangles-0014
     type: word-problem
     difficulty: hard
     stem: |
-      From the top of a $30$-meter building, the angle of depression to a car is $60$ degrees in degrees. The car is $d$ meters from the base of the building. Which equation is correct?
+      From the top of a $30$-meter building, the angle of depression to a car is $60$ degrees. The car is $d$ meters from the base of the building. Which equation is correct?
     choices:
       - text: $d = \dfrac{30}{\tan 60^\circ}$
         correct: true
       - text: $d = 30 \tan 60^\circ$
         rationale: |
-          You multiplied 30 by tan 60 degrees instead of dividing height by tan 60 degrees.
+          Solving $\tan60°=30/d$ requires division by tangent.
       - text: $d = \dfrac{30}{\sin 60^\circ}$
         rationale: |
-          You used sine instead of tangent to find the horizontal distance.
+          Sine would involve the line-of-sight hypotenuse.
       - text: $d = 30 \cos 60^\circ$
         rationale: |
-          You multiplied by cos 60 degrees instead of using tangent.
+          Cosine does not directly relate the given vertical height to the horizontal distance.
     explanation: |
-      The angle of depression equals the angle of elevation from the car. From the car's position, the height is $30$ m (opposite) and $d$ is the horizontal distance (adjacent).
-      $$\tan 60^\circ = \dfrac{30}{d}$$
-      $$d = \dfrac{30}{\tan 60^\circ}$$
-
+      The corresponding angle of elevation from the car is $60°$:
+      $$\tan60^\circ=\dfrac{30}{d},$$
+      so
+      $$d=\dfrac{30}{\tan60^\circ}.$$
   - id: q-trigonometry-solving-right-triangles-0015
     type: direct-computation
     difficulty: hard
     stem: |
-      In right triangle $ABC$ with the right angle at $C$, angle $A = 50$ degrees in degrees, and hypotenuse $AB = 60$. Write an expression for side $a$ (opposite angle $A$).
+      In right triangle $ABC$ with the right angle at $C$, angle $A = 50$ degrees, and hypotenuse $AB = 60$. Write an expression for side $a$ opposite angle $A$.
     choices:
       - text: $a = 60 \sin 50^\circ$
         correct: true
       - text: $a = 60 \cos 50^\circ$
         rationale: |
-          You calculated adjacent side b (60 * cos 50) instead of opposite side a.
+          That expression gives the side adjacent to angle $A$.
       - text: $a = 60 \tan 50^\circ$
         rationale: |
-          You used tangent with hypotenuse instead of sine.
+          Tangent does not use the hypotenuse.
       - text: $a = \dfrac{60}{\sin 50^\circ}$
         rationale: |
-          You divided hypotenuse 60 by sin 50 degrees instead of multiplying.
+          From $\sin50°=a/60$, multiply by $60$ rather than divide $60$ by sine.
     explanation: |
-      To find the side opposite the angle using the hypotenuse, use sine (opposite over hypotenuse).
-      $$\sin 50^\circ = \dfrac{a}{60}$$
-      $$a = 60 \sin 50^\circ$$
-
+      $$\sin50^\circ=\dfrac a{60},$$
+      hence
+      $$a=60\sin50^\circ.$$
   - id: q-trigonometry-solving-right-triangles-0016
     type: word-problem
     difficulty: hard
     stem: |
-      An observer at point $A$ sees a hot-air balloon at an angle of elevation of $35$ degrees in degrees. The observer walks $200$ meters away from directly under the balloon to point $B$, and the angle of elevation becomes $20$ degrees in degrees. How high is the balloon?
+      An observer at point $A$ sees a hot-air balloon at an angle of elevation of $35$ degrees. The observer then walks $200$ meters directly away from the point on the ground beneath the balloon to point $B$, and the angle of elevation becomes $20$ degrees. How high is the balloon?
     choices:
-      - text: $\dfrac{200}{\cot 35^\circ - \cot 20^\circ}$ meters
+      - text: $\dfrac{200}{\cot 20^\circ - \cot 35^\circ}$ meters
         correct: true
       - text: $200 \tan 35^\circ$ meters
         rationale: |
-          You assumed horizontal distance is 200 m, ignoring the change in angle of elevation.
+          This incorrectly treats the 200-meter walk as the original horizontal distance to the balloon.
       - text: $200(\tan 35^\circ - \tan 20^\circ)$ meters
         rationale: |
-          You subtracted tangent values directly without solving for the distance x.
+          The two tangent equations must be solved through their horizontal distances; simply subtracting tangent values is not valid here.
       - text: $\dfrac{200}{\tan 20^\circ}$ meters
         rationale: |
-          You divided 200 m by tan 20 degrees without incorporating point A's angle.
+          This ignores the original observation at $35°$.
     explanation: |
-      Let $h$ be the height of the balloon and $x$ be its horizontal distance from $A$.
-      
-      From point $A$: $\tan 35^\circ = \dfrac{h}{x} \quad \Rightarrow \quad h = x \tan 35^\circ$
-      
-      From point $B$ (distance $x + 200$): $\tan 20^\circ = \dfrac{h}{x + 200}$
-      
-      From the second equation: $h = (x + 200) \tan 20^\circ$
-      
-      Setting them equal:
-      $$x \tan 35^\circ = (x + 200) \tan 20^\circ$$
-      $$x \tan 35^\circ = x \tan 20^\circ + 200 \tan 20^\circ$$
-      $$x(\tan 35^\circ - \tan 20^\circ) = 200 \tan 20^\circ$$
-      $$x = \dfrac{200 \tan 20^\circ}{\tan 35^\circ - \tan 20^\circ}$$
-      
-      Now find $h = x \tan 35^\circ$, which simplifies to:
-      $$h = \dfrac{200 \tan 20^\circ \tan 35^\circ}{\tan 35^\circ - \tan 20^\circ} = \dfrac{200}{\cot 35^\circ - \cot 20^\circ}$$
+      Let the balloon height be $h$. The horizontal distance from $A$ to the point directly below the balloon is
+      $$x=h\cot35^\circ.$$
+      After walking $200$ meters farther away, the horizontal distance is
+      $$x+200=h\cot20^\circ.$$
+      Subtract the first equation from the second:
+      $$200=h(\cot20^\circ-\cot35^\circ).$$
+      Therefore
+      $$h=\dfrac{200}{\cot20^\circ-\cot35^\circ}.$$

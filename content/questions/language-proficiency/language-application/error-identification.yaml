@@ -14,7 +14,7 @@ questions:
     choices:
       - text: "Every one of the new laptops"
         rationale: |
-          You flagged this section, but "Every one of the new laptops" is grammatically sound as the introductory subject noun phrase.
+          You flagged this section, but "Every one of the new laptops" is grammatically sound as the singular subject phrase.
       - text: "imported for the engineering team"
         rationale: |
           You flagged this section, but "imported for the engineering team" is a correct past-participial modifier.
@@ -25,9 +25,9 @@ questions:
           You flagged this section, but "with pre-installed diagnostic software" is a valid prepositional modifier.
       - text: "No error"
         rationale: |
-          You assumed there was no error, but "Every one" is a singular subject that requires the singular verb "has arrived."
+          You assumed there was no error, but "Every one" is singular and requires "has arrived."
     explanation: |
-      "Every one" is a singular subject, so it requires the singular verb "has arrived" instead of the plural "have arrived."
+      The head of the subject is "Every one," which is singular, so the verb must be "has arrived," not "have arrived."
 
   - id: q-language-application-error-identification-0002
     type: error-identification
@@ -42,17 +42,17 @@ questions:
           You flagged this section, but "The executive committee" correctly functions as the subject of the main clause.
       - text: "requested that all department heads"
         rationale: |
-          You flagged this section, but "requested that all department heads" properly sets up the subjunctive clause that follows.
+          You flagged this section, but it correctly introduces the clause containing the requested actions.
       - text: "submit their quarterly budget reports,"
         rationale: |
-          You flagged this section, but "submit their quarterly budget reports" correctly provides the first parallel base verb.
+          You flagged this section, but "submit" correctly establishes the base-verb pattern in the list.
       - text: "update their inventory logs, and to review their staffing needs."
         correct: true
       - text: "No error"
         rationale: |
-          You assumed there was no error, but "and to review" breaks the parallel list established by "submit" and "update."
+          You assumed there was no error, but "to review" breaks the parallel base-verb list established by "submit" and "update."
     explanation: |
-      Items in a series must follow parallel structure. The phrase should be "and review" (not "and to review") to match "submit" and "update."
+      The three requested actions should use parallel forms: "submit," "update," and "review." The infinitive "to review" breaks that pattern.
 
   - id: q-language-application-error-identification-0003
     type: error-identification
@@ -66,18 +66,18 @@ questions:
         correct: true
       - text: "several state-of-the-art spectrometers"
         rationale: |
-          You flagged the main subject, but "spectrometers" is grammatically sound; the error is that it cannot perform the walking.
+          You flagged the noun phrase itself, but the problem is the introductory modifier's attachment: the sentence makes the spectrometers its grammatical target.
       - text: "were noticed by"
         rationale: |
-          You flagged the verb phrase, but "were noticed by" is valid passive voice; the error is the dangling opening modifier.
+          You flagged the passive verb phrase, but passive voice is not itself the error. The introductory modifier lacks a logical subject immediately after it.
       - text: "the visiting delegates."
         rationale: |
-          You flagged the prepositional object, but "the visiting delegates" is grammatically fine where it sits.
+          You flagged the agent phrase, but "the visiting delegates" is grammatical where it appears.
       - text: "No error"
         rationale: |
-          You assumed there was no error, but "Walking..." is a dangling modifier because spectrometers cannot walk.
+          You assumed there was no error, but the opening phrase dangles because the subject that follows it is "spectrometers," which cannot walk.
     explanation: |
-      The introductory phrase "Walking through the newly renovated research facilities" is a dangling modifier. Spectrometers cannot walk, so the main clause should have a person as the subject.
+      The introductory phrase is a dangling modifier. A correction would make the delegates the subject immediately after it, for example: "Walking through the newly renovated research facilities, the visiting delegates noticed several state-of-the-art spectrometers."
 
   - id: q-language-application-error-identification-0004
     type: error-identification
@@ -89,20 +89,20 @@ questions:
     choices:
       - text: "The efficiency rating of the upgraded solar panel"
         rationale: |
-          You flagged the subject phrase, but "The efficiency rating..." is correctly formed and clear.
+          You flagged the subject phrase, but it is grammatically sound. The comparison becomes faulty only when that rating is compared with a different kind of thing.
       - text: "is significantly higher than"
         rationale: |
-          You flagged the comparative phrase, but "is significantly higher than" correctly sets up a comparison.
+          You flagged the comparative phrase, but it can correctly introduce a like-with-like comparison.
       - text: "the older models"
         correct: true
       - text: "installed last winter."
         rationale: |
-          You flagged the modifier at the end, but "installed last winter" properly describes the older models.
+          You flagged the modifier, but "installed last winter" can correctly describe the older models.
       - text: "No error"
         rationale: |
-          You assumed there was no error, but comparing "efficiency rating" directly to "models" is an illogical comparison.
+          You assumed there was no error, but the sentence compares an efficiency rating with physical models instead of with the models' efficiency ratings.
     explanation: |
-      This is a faulty comparison. It compares "efficiency rating" to "models" instead of comparing "efficiency rating" to "efficiency rating of the older models."
+      This is a faulty comparison. A rating should be compared with another rating: for example, "The efficiency rating of the upgraded solar panel is significantly higher than that of the older models installed last winter."
 
   - id: q-language-application-error-identification-0005
     type: error-identification
@@ -114,20 +114,20 @@ questions:
     choices:
       - text: "The sudden drop in atmospheric pressure"
         rationale: |
-          You flagged the subject noun phrase, but "The sudden drop..." is grammatically sound.
+          You flagged the subject noun phrase, but it is grammatically sound.
       - text: "will adversely"
         rationale: |
-          You flagged the adverb phrase, but "will adversely" correctly modifies the action verb that follows.
+          You flagged the adverb phrase, but "adversely" can correctly modify the verb that follows.
       - text: "effect"
         correct: true
       - text: "the performance of the high-altitude sensors."
         rationale: |
-          You flagged the object phrase, but "the performance..." is grammatically correct.
+          You flagged the object phrase, but it is grammatically sound.
       - text: "No error"
         rationale: |
-          You assumed there was no error, but "effect" is a noun here when the action verb "affect" is required.
+          You assumed there was no error. Although "effect" can function as a verb meaning "bring about," the intended meaning here is "influence," which requires "affect."
     explanation: |
-      "Effect" is used as a noun here, but the sentence needs the verb "affect" (to influence). The correct usage is "will adversely affect."
+      The sentence means that the pressure drop will negatively influence sensor performance, so the verb should be "affect." The verb "effect" has a different meaning: to bring about or cause something to happen.
 
   - id: q-language-application-error-identification-0006
     type: error-identification
@@ -139,20 +139,20 @@ questions:
     choices:
       - text: "The lead scientist,"
         rationale: |
-          You flagged the subject noun, but "The lead scientist" is grammatically correct.
+          You flagged the subject noun phrase, but it is grammatically correct.
       - text: "whom"
         correct: true
       - text: "had conducted extensive fieldwork"
         rationale: |
-          You flagged the verb phrase, but "had conducted extensive fieldwork" is grammatically sound.
+          You flagged the verb phrase, but its structure is grammatical. The pronoun before it is the problem.
       - text: "in South America, presented her findings at the international symposium."
         rationale: |
-          You flagged the predicate phrase, but this portion is grammatically sound.
+          You flagged the remainder of the sentence, but its structure is grammatical.
       - text: "No error"
         rationale: |
-          You assumed there was no error, but "whom" is used as a subject pronoun in this relative clause where "who" is required.
+          You assumed there was no error, but the relative pronoun is the subject of "had conducted," so the subject form "who" is required.
     explanation: |
-      "Whom" is an objective pronoun, but this clause needs the nominative "who" because it is the subject of the clause "who had conducted."
+      The relative clause needs "who" because the pronoun performs the action in "who had conducted extensive fieldwork." "Whom" is an object form.
 
   - id: q-language-application-error-identification-0007
     type: error-identification
@@ -164,145 +164,145 @@ questions:
     choices:
       - text: "When the supervisor spoke to the project manager"
         rationale: |
-          You flagged the introductory dependent clause, but its structure and prepositional phrasing are fine.
+          You flagged the introductory clause, but its structure is grammatical.
       - text: "after the presentation,"
         rationale: |
-          You flagged the prepositional time phrase, but "after the presentation" is correctly punctuated and placed.
+          You flagged the time phrase, but it is correctly placed and punctuated.
       - text: "he expressed"
         correct: true
       - text: "dissatisfaction with the proposed timeline."
         rationale: |
-          You flagged the noun phrase, but "dissatisfaction with..." is grammatically sound.
+          You flagged the complement, but it is grammatically sound.
       - text: "No error"
         rationale: |
-          You assumed there was no error, but "he" is ambiguous because it could refer to either the supervisor or the manager.
+          You assumed there was no error, but "he" has two plausible antecedents: the supervisor and the project manager.
     explanation: |
-      The pronoun "he" is ambiguous: it could refer to either the supervisor or the project manager. The sentence should explicitly name which person expressed dissatisfaction.
+      The pronoun "he" is ambiguous because either man could be its antecedent. The sentence should name the person who expressed dissatisfaction.
 
   - id: q-language-application-error-identification-0008
     type: error-identification
     difficulty: hard
     stem: |
-      Identify the part of the sentence that contains an error.
+      In the formal exam convention used here, identify the part of the sentence that needs correction.
 
       "By the time the audit committee finished inspecting the fiscal records, the accounting department already resolved all major discrepancies."
     choices:
       - text: "By the time the audit committee"
         rationale: |
-          You flagged the opening clause marker, but "By the time..." correctly sets up a time relationship.
+          You flagged the time marker, but "by the time" correctly establishes a past reference point.
       - text: "finished inspecting the fiscal records,"
         rationale: |
-          You flagged the dependent clause verb phrase, but "finished inspecting..." is correctly in simple past tense.
+          You flagged the later past event, but simple past is appropriate for that reference event.
       - text: "the accounting department"
         rationale: |
-          You flagged the subject of the main clause, but "the accounting department" is grammatically correct.
+          You flagged the subject of the main clause, but it is grammatically sound.
       - text: "already resolved"
         correct: true
       - text: "No error"
         rationale: |
-          You assumed there was no error, but the earlier past action requires past perfect ("had already resolved").
+          You chose no error, but in this formal sequence the resolution is presented as completed before the past reference point set by "by the time"; the bank's target form is past perfect, "had already resolved."
     explanation: |
-      When two past actions are described with one happening before the other, the earlier one needs past perfect tense. It should be "had already resolved" not "already resolved."
+      "By the time ... finished" establishes a past reference point, while the discrepancies were already resolved before that point. In the formal exam convention tested here, past perfect makes that earlier completion explicit: "had already resolved." This is a narrower rule than saying every earlier past action must use past perfect.
 
   - id: q-language-application-error-identification-0009
     type: error-identification
-    difficulty: easy
+    difficulty: medium
     stem: |
-      Identify the part of the sentence that contains an error.
+      Identify the part of the sentence that contains the punctuation error.
 
       "The company expanded its operations into three new regions, however, initial profits remained below projected expectations."
     choices:
       - text: "The company expanded its operations"
         rationale: |
-          You flagged the initial independent clause, but "The company expanded..." is grammatically fine.
+          You flagged the first independent clause, but its wording is grammatical.
       - text: "into three new regions,"
         correct: true
       - text: "however,"
         rationale: |
-          You flagged the subject and verb of the second clause, but "initial profits remained" is correct.
+          You flagged "however," but the comma after a sentence-initial conjunctive adverb is appropriate. The problem is the comma immediately before "however," which is contained in the preceding segment.
       - text: "initial profits remained"
         rationale: |
-          You flagged the prepositional phrase, but "below projected expectations" is grammatically correct.
+          You flagged the second clause's subject and verb, but both are grammatical.
       - text: "No error"
         rationale: |
-          You assumed there was no error, but joining two independent clauses with a comma before "however" forms a comma splice.
+          You assumed there was no error, but a comma alone cannot join the first independent clause to a second independent clause introduced by "however."
     explanation: |
-      This sentence has a comma splice. "However" is a conjunctive adverb, not a coordinating conjunction. A semicolon should precede "however" to join these two independent clauses.
+      The comma after "regions" incorrectly joins two independent clauses through the conjunctive adverb "however." A standard correction is: "The company expanded its operations into three new regions; however, initial profits remained below projected expectations."
 
   - id: q-language-application-error-identification-0010
     type: error-identification
     difficulty: medium
     stem: |
-      Identify the part of the sentence that contains an error.
+      Using standard American English, identify the error, if any.
 
-      "The research panel are presenting their individual evaluations at the conference today."
+      "The research panel is presenting its joint evaluation at the conference today."
     choices:
       - text: "The research panel"
         rationale: |
-          You flagged the subject noun phrase, but "The research panel" is grammatically valid.
-      - text: "are presenting"
+          You flagged the singular collective noun, but a panel considered as one unit is correctly treated as singular in standard American English.
+      - text: "is presenting"
         rationale: |
-          You flagged the plural verb, but here the panel refers to individual members taking separate actions.
-      - text: "their individual evaluations"
+          You flagged the singular verb, but it agrees with the singular collective noun "panel" when the group acts as a unit.
+      - text: "its joint evaluation"
         rationale: |
-          You flagged the pronoun, but "their" correctly matches the plural reference to individual panel members.
+          You flagged the singular pronoun, but "its" consistently refers to the panel as one unit and "joint evaluation" reinforces that meaning.
       - text: "at the conference today."
         rationale: |
-          You flagged the prepositional phrase, but "at the conference today" is grammatically sound.
+          You flagged the time/place phrase, but it is grammatically sound.
       - text: "No error"
         correct: true
     explanation: |
-      There is no error. When a collective noun like "panel" refers to individual actions within the group, it takes a plural verb and pronoun ("are presenting their"), which is correct here.
+      There is no error in standard American English. The sentence treats the panel as one unit, so singular agreement is internally consistent: "panel is ... its joint evaluation." This avoids making a dialect-dependent British-versus-American collective-noun pattern the basis of the answer.
 
   - id: q-language-application-error-identification-0011
     type: error-identification
     difficulty: hard
     stem: |
-      Identify the part of the sentence that contains an error.
+      The intended meaning is that the generator, not the wrench, stopped working during the storm. Identify the part of the sentence that is misplaced.
 
       "The technician repaired the electrical generator using a heavy-duty wrench that had stopped working during the storm."
     choices:
       - text: "The technician repaired"
         rationale: |
-          You flagged the main subject and verb, but "The technician repaired" is grammatically fine.
+          You flagged the main subject and verb, but they are grammatical and do not cause the attachment error.
       - text: "the electrical generator"
         rationale: |
-          You flagged the direct object, but "the electrical generator" is correctly written.
+          You flagged the noun the relative clause is intended to describe, but the noun itself is not the misplaced part.
       - text: "using a heavy-duty wrench"
-        correct: true
-      - text: "that had stopped working during the storm."
         rationale: |
-          You flagged the participial phrase, but "using a heavy-duty wrench" correctly describes the repair method.
+          You flagged the repair-method phrase, but it can remain where it is once the relative clause is moved next to "generator."
+      - text: "that had stopped working during the storm."
+        correct: true
       - text: "No error"
         rationale: |
-          You assumed there was no error, but the relative clause is misplaced next to "wrench" instead of "generator."
+          You chose no error, but the stated intended meaning makes the current attachment wrong: as written, "that had stopped working" sits next to and modifies "wrench."
     explanation: |
-      The relative clause "that had stopped working" is misplaced. It appears to modify "wrench" but logically refers to "generator." The clause should come immediately after "generator."
+      Given the stated intended meaning, the relative clause "that had stopped working during the storm" must sit next to "generator," the noun it describes. For example: "The technician repaired the electrical generator that had stopped working during the storm using a heavy-duty wrench."
 
   - id: q-language-application-error-identification-0012
     type: error-identification
-    difficulty: exam
+    difficulty: medium
     stem: |
-      Identify the part of the sentence that contains an error.
+      Identify the part of the sentence that contains unnecessary redundancy.
 
       "The chief executive officer emphasized that the two merging firms must revert back to their core operational principles."
     choices:
       - text: "The chief executive officer emphasized"
         rationale: |
-          You flagged the main subject and verb, but "The chief executive officer emphasized" is correct.
+          You flagged the main subject and verb, but they contain no redundancy relevant to the sentence.
       - text: "that the two merging firms"
         rationale: |
-          You flagged the subordinate clause introduction, but "that the two merging firms" is fine.
+          You flagged the subordinate-clause introduction, but it contains no repeated meaning.
       - text: "must revert"
-        correct: true
-      - text: "back to their core operational principles."
         rationale: |
-          You flagged "must revert," but modal verb phrasing is grammatically correct.
+          You flagged the modal and verb, but "revert" itself is the concise verb the sentence needs.
+      - text: "back to their core operational principles."
+        correct: true
       - text: "No error"
         rationale: |
-          You assumed there was no error, but "revert back" is redundant because "revert" already means to go back.
+          You chose no error, but in this context "revert" already means to return to a former state or practice, so adding "back" repeats that direction.
     explanation: |
-      "Revert back" is redundant. The verb "revert" already means to return, so "back" is unnecessary. The sentence should say "must revert to."
+      In this context, "revert" already means to return to a former state or practice. Removing "back" gives the concise form: "must revert to their core operational principles."
 
   - id: q-language-application-error-identification-0013
     type: error-identification
@@ -313,21 +313,21 @@ questions:
       "Between you and I, the proposed structural reforms will require approval from the regional board."
     choices:
       - text: "Between you and"
-        correct: true
-      - text: "I,"
         rationale: |
-          You flagged the pronoun position, but the issue is using the nominative "I" after the preposition "Between."
+          You flagged the prepositional frame, but "between you and" is grammatical. The error is the case of the pronoun that follows it.
+      - text: "I,"
+        correct: true
       - text: "the proposed structural reforms"
         rationale: |
-          You flagged the main clause subject, but "the proposed structural reforms" is grammatically sound.
+          You flagged the main clause subject, but it is grammatically sound.
       - text: "will require approval"
         rationale: |
-          You flagged the verb phrase, but "will require approval" is grammatically correct.
+          You flagged the verb phrase, but it is grammatically correct.
       - text: "No error"
         rationale: |
-          You assumed there was no error, but prepositions require objective pronouns, so it must be "Between you and me."
+          You assumed there was no error, but the preposition "between" requires the objective form "me" here.
     explanation: |
-      The preposition "Between" requires an objective pronoun. It should be "Between you and me" (not "I").
+      The pronoun after "between" is an object of the preposition, so the objective form is required: "Between you and me," not "Between you and I."
 
   - id: q-language-application-error-identification-0014
     type: error-identification
@@ -339,42 +339,42 @@ questions:
     choices:
       - text: "If the analysts"
         rationale: |
-          You flagged the conditional subject, but "If the analysts" is grammatically sound.
+          You flagged the conditional subject, but it is grammatically sound.
       - text: "would have reviewed"
         correct: true
       - text: "the statistical data earlier,"
         rationale: |
-          You flagged the noun phrase, but "the statistical data earlier" is correctly phrased.
+          You flagged the object and time phrase, but they are grammatical.
       - text: "they would have caught"
         rationale: |
-          You flagged the main clause verb, but "they would have caught" is the correct conditional result.
+          You flagged the result clause, but "would have caught" is appropriate in the result clause of this unreal past conditional.
       - text: "No error"
         rationale: |
-          You assumed there was no error, but hypothetical past conditions require past perfect ("had reviewed") in the if-clause.
+          You assumed there was no error, but this unreal past condition takes past perfect in the if-clause: "If the analysts had reviewed..."
     explanation: |
-      In third conditional sentences, the if-clause requires past perfect ("had reviewed"), not "would have reviewed." The correct form is "If the analysts had reviewed..."
+      In this third-conditional pattern, the if-clause uses past perfect and the result clause uses "would have" plus a past participle: "If the analysts had reviewed ..., they would have caught ..."
 
   - id: q-language-application-error-identification-0015
     type: error-identification
-    difficulty: exam
+    difficulty: medium
     stem: |
-      Identify the part of the sentence that contains an error.
+      Identify the part of the sentence that contains the punctuation error.
 
       "The architectural firm designed a sustainable office building, consequently, it won several regional design accolades."
     choices:
       - text: "The architectural firm designed"
         rationale: |
-          You flagged the main clause, but "The architectural firm designed" is grammatically sound.
+          You flagged the first clause's subject and verb, but they are grammatical.
       - text: "a sustainable office building,"
         correct: true
       - text: "consequently,"
         rationale: |
-          You flagged the direct object, but "a sustainable office building" is grammatically correct.
+          You flagged the conjunctive adverb, but the comma after "consequently" is appropriate. The problem is the comma immediately before it, contained in the preceding segment.
       - text: "it won"
         rationale: |
-          You flagged the second clause subject and verb, but "it won" is grammatically fine.
+          You flagged the second clause's subject and verb, but they are grammatical.
       - text: "No error"
         rationale: |
-          You assumed there was no error, but joining two main clauses with a comma before "consequently" is a comma splice.
+          You assumed there was no error, but a comma alone cannot join the first independent clause to the second independent clause introduced by "consequently."
     explanation: |
-      This sentence has a comma splice. "Consequently" is a conjunctive adverb, not a coordinating conjunction. A semicolon should replace the comma before "consequently."
+      The comma after "building" creates the faulty join. A standard correction is: "The architectural firm designed a sustainable office building; consequently, it won several regional design accolades."

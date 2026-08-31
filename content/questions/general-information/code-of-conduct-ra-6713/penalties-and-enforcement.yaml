@@ -90,21 +90,21 @@ questions:
     type: single_choice
     difficulty: medium
     stem: |
-      Under Section 11, what fine may be imposed for the improper commercial use or unauthorized disclosure of a filed SALN?
+      Under Section 11(d), what civil penalty may a court impose on a person who obtains or uses a filed SALN for a purpose prohibited by Section 8(D)?
     choices:
-      - text: Fine up to P25,000
+      - text: Penalty up to P25,000
         correct: true
-      - text: Fine up to P50,000
+      - text: Penalty up to P50,000
         rationale: |
-          You selected P50,000, which doubles the statutory fine for SALN misuse. Section 11 sets the fine for improper commercial SALN use at up to P25,000.
-      - text: Fine up to P75,000
+          You selected P50,000, which doubles the statutory maximum. Section 11(d) authorizes a civil penalty of up to P25,000 for obtaining or using a filed statement for a purpose prohibited by Section 8(D).
+      - text: Penalty up to P75,000
         rationale: |
-          You picked P75,000, which triples the statutory fine for SALN misuse. The maximum fine for improper commercial disclosure of a SALN is P25,000.
-      - text: Fine up to P100,000
+          You picked P75,000, which triples the statutory maximum. The court may assess no more than P25,000 under Section 11(d).
+      - text: Penalty up to P100,000
         rationale: |
-          You chose P100,000, which quadruples the legal fine. Section 11 imposes a fine of up to P25,000 for unauthorized commercial SALN disclosure.
+          You chose P100,000, which is four times the statutory maximum. Section 11(d) caps this civil penalty at P25,000.
     explanation: |
-      Section 11 specifies penalties of a fine up to P25,000 for improper commercial use of a filed SALN statement.
+      Section 11(d) authorizes a civil action against a person who obtains or uses a filed statement for a purpose prohibited by Section 8(D), with a court-assessed penalty not exceeding P25,000.
 
   - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0006
     type: single_choice

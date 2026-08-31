@@ -273,7 +273,7 @@ questions:
     type: direct-computation
     difficulty: exam-level
     stem: |
-      Terms 1, 3, 9 form geometric. $a_1 = 5$. Find $d$.
+      In a nonconstant arithmetic sequence with $a_1 = 5$, terms 1, 3, and 9 form a geometric sequence. Find the common difference $d$.
     choices:
       - text: "$5$"
         correct: true
@@ -285,10 +285,11 @@ questions:
           You miscalculated 4d^2 - 40d = 0 instead of 4d^2 - 20d = 0.
       - text: "$0$"
         rationale: |
-          You chose the trivial solution d = 0 which makes all terms equal rather than non-constant.
+          The stem specifies a nonconstant arithmetic sequence, so $d=0$ is excluded.
     explanation: |
-      $(5+2d)^2 = 5(5+8d)$
-      $4d^2 - 20d = 0 \implies d = 5$
+      The relevant terms are $5$, $5+2d$, and $5+8d$. For them to be geometric,
+      $$(5+2d)^2 = 5(5+8d).$$
+      Thus $4d^2 - 20d = 0$, so $d=0$ or $d=5$. Because the sequence is explicitly nonconstant, $d=0$ is excluded and $d=5$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0015
     type: direct-computation

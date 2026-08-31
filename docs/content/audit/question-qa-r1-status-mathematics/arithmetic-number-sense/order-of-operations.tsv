@@ -1,0 +1,16 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-arithmetic-number-sense-order-of-operations-0001	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-order-of-operations-0002	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-order-of-operations-0003	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-order-of-operations-0004	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-order-of-operations-0005	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-order-of-operations-0006	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-order-of-operations-0007	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-order-of-operations-0008	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-order-of-operations-0009	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-order-of-operations-0010	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	CRITICAL	Replaced ambiguous 36 ÷ 4(3) notation with explicit 36 ÷ 4 × 3.
+q-arithmetic-number-sense-order-of-operations-0011	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-order-of-operations-0012	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-order-of-operations-0013	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-order-of-operations-0014	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-order-of-operations-0015	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	HIGH	Reframed opening cash plus receipts as a cash-allocation problem rather than accounting net income.

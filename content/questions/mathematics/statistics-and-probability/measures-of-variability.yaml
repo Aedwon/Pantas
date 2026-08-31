@@ -131,7 +131,7 @@ questions:
     stem: |
       Which of the following best defines the standard deviation of a dataset?
     choices:
-      - text: It measures the typical or average distance of individual data points from the arithmetic mean.
+      - text: It measures spread around the arithmetic mean as the non-negative square root of the average squared deviation from the mean.
         correct: true
       - text: It is the numerical difference between the highest score and the lowest score.
         rationale: |
@@ -143,7 +143,7 @@ questions:
         rationale: |
           You identified the definition of the median instead of standard deviation.
     explanation: |
-      Standard deviation measures dispersion by quantifying how far data points typically fall from the mean.
+      Standard deviation measures dispersion around the mean. For a population, it is the non-negative square root of the mean of the squared deviations from the population mean; sample standard deviation is analogously the square root of sample variance. This is why standard deviation is expressed in the same units as the original data.
 
       Why the other options are false:
       - Option 2 defines the range.
@@ -363,7 +363,7 @@ questions:
     type: direct-computation
     difficulty: hard
     stem: |
-      Two sections of Grade 11 students took a 10-point quiz. The scores for each section are:
+      Two sections of Grade 11 students took the same quiz. The scores for each section are:
 
       - Section Red: $6$, $7$, $8$, $9$, $10$
       - Section Blue: $4$, $6$, $8$, $10$, $12$
@@ -452,9 +452,9 @@ questions:
     type: which-is-true
     difficulty: hard
     stem: |
-      Why do statisticians divide by $n - 1$ instead of $n$ when calculating the sample variance ($s^2$)?
+      For a random sample of $n$ independent observations from a population with finite variance, why is $n - 1$ used instead of $n$ in the usual sample variance formula $s^2$?
     choices:
-      - text: Dividing by $n - 1$ corrects for systematic underestimation and yields an unbiased estimator of the population variance $\sigma^2$ (Bessel's correction).
+      - text: Dividing by $n - 1$ corrects the downward bias from estimating the population mean with the sample mean and makes $s^2$ an unbiased estimator of the population variance $\sigma^2$ (Bessel's correction).
         correct: true
       - text: Dividing by $n - 1$ guarantees that sample variance is strictly smaller than population variance.
         rationale: |
@@ -466,9 +466,9 @@ questions:
         rationale: |
           You assumed Bessel's correction removes physical measurement error.
     explanation: |
-      When computing deviations from the sample mean $\bar{x}$ rather than the true population mean $\mu$, the sum of squared deviations is systematically smaller.
+      Under the stated random-sampling assumptions, using the sample mean $\bar{x}$ to estimate the unknown population mean consumes one degree of freedom. The uncorrected average of squared deviations about $\bar{x}$, with denominator $n$, is downward-biased for the population variance.
 
-      Dividing by $n - 1$ (known as Bessel's correction) slightly inflates the sample variance, making $s^2$ an unbiased estimator of the true population variance $\sigma^2$.
+      Dividing by $n - 1$ (Bessel's correction) removes that bias, so the usual sample variance $s^2$ is an unbiased estimator of $\sigma^2$ when the population variance is finite.
 
   - id: q-statistics-and-probability-measures-of-variability-0016
     type: which-is-true

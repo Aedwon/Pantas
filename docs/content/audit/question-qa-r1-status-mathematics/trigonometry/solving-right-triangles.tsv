@@ -1,0 +1,17 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-trigonometry-solving-right-triangles-0001	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	LOW	Removed redundant degree wording.
+q-trigonometry-solving-right-triangles-0002	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	LOW	Removed duplicated degree wording.
+q-trigonometry-solving-right-triangles-0003	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	LOW	Removed dimensionally redundant 'in degrees' wording from the angle request.
+q-trigonometry-solving-right-triangles-0004	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	LOW	Removed duplicated degree wording.
+q-trigonometry-solving-right-triangles-0005	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	LOW	Removed duplicated degree wording.
+q-trigonometry-solving-right-triangles-0006	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	LOW	Removed redundant unit wording and retained the approximately 18.43-degree result.
+q-trigonometry-solving-right-triangles-0007	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	LOW	Normalized invalid difficulty value and cleaned duplicated degree wording.
+q-trigonometry-solving-right-triangles-0008	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	LOW	Normalized invalid difficulty value and cleaned duplicated degree wording.
+q-trigonometry-solving-right-triangles-0009	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	LOW	Cleaned repeated degree wording without changing the horizontal-distance formula.
+q-trigonometry-solving-right-triangles-0010	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	LOW	Cleaned repeated degree wording; recomputation confirms the height-difference expression.
+q-trigonometry-solving-right-triangles-0011	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	MEDIUM	Clarified that the plane moves horizontally toward the observer so subtracting the later horizontal distance from the earlier one is justified.
+q-trigonometry-solving-right-triangles-0012	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	LOW	Removed dimensionally incorrect wording asking for a sine ratio in degrees.
+q-trigonometry-solving-right-triangles-0013	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	HIGH	Original key contradicted its own explanation. Corrected the key: hillside slope or equivalent horizontal/vertical separation data are required.
+q-trigonometry-solving-right-triangles-0014	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	LOW	Cleaned repeated degree wording.
+q-trigonometry-solving-right-triangles-0015	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	LOW	Cleaned repeated degree wording.
+q-trigonometry-solving-right-triangles-0016	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	HIGH	Corrected the sign/order in the balloon-height formula to 200/(cot 20 - cot 35) and clarified the walking direction.

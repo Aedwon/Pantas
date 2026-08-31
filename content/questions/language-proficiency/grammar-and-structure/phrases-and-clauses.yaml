@@ -41,7 +41,7 @@ questions:
           You called it a fragment, but "the cat slept" expresses a complete thought with a subject and verb, making it a full clause.
       - text: Interjection
         rationale: |
-          You picked interjection, but an interjection is a single exclamation of feeling, not a subject-verb unit.
+          You picked interjection, but an interjection is an exclamation rather than a subject-verb unit.
     explanation: |
       "The cat slept" has a subject ("cat") and a verb ("slept"), making it a clause.
     approved: true
@@ -56,7 +56,7 @@ questions:
         correct: true
       - text: Dependent
         rationale: |
-          You picked dependent, but this clause can stand alone as a complete sentence without any subordinating conjunction.
+          You picked dependent, but this clause can stand alone as a complete sentence without a subordinating conjunction.
       - text: Phrase
         rationale: |
           You picked phrase, but "she finished her homework" contains a subject ("she") and verb ("finished"), so it is a clause.
@@ -77,15 +77,15 @@ questions:
         correct: true
       - text: Independent
         rationale: |
-          You picked independent, but the subordinating conjunction "although" makes this clause express an incomplete thought.
+          You picked independent, but the subordinating conjunction "although" makes this clause depend on a main clause to complete the thought.
       - text: Phrase
         rationale: |
           You picked phrase, but "she was tired" contains both a subject ("she") and a verb ("was"), so it is a clause.
       - text: Complete sentence
         rationale: |
-          You called it a complete sentence, but "although" leaves the reader waiting for the main clause to resolve the thought.
+          You called it a complete sentence, but "although" leaves the reader waiting for the main clause.
     explanation: |
-      "Although she was tired" has a subject ("she") and a verb ("was"), but the word "although" makes it an incomplete thought that needs more information: a dependent clause.
+      "Although she was tired" has a subject and verb, but "although" makes it a dependent clause that needs a main clause.
     approved: true
 
   - id: q-grammar-and-structure-phrases-and-clauses-0005
@@ -96,17 +96,17 @@ questions:
     choices:
       - text: Because the store was closed, we went home instead.
         correct: true
-      - text: Because the store was closed we went.
+      - text: Because the store was closed, we.
         rationale: |
-          You selected an incomplete independent clause ("we went"), leaving the sentence feeling clipped and missing a clear resolution.
+          You attached the dependent clause to "we," but "we" alone is not an independent clause because it has no predicate verb.
       - text: The store was closed because.
         rationale: |
-          You left the subordinating conjunction "because" dangling at the end without adding the reason clause.
+          You left the subordinating conjunction "because" dangling without the reason clause it introduces.
       - text: Because the store, we went home.
         rationale: |
-          You stripped the verb ("was closed") from the dependent clause, turning it into an incomplete phrase.
+          You removed the verb from the opening group, so "Because the store" is not the supplied dependent clause.
     explanation: |
-      The dependent clause "Because the store was closed" needs a complete thought to attach to. "Because the store was closed, we went home instead" correctly answers "...so what happened?"
+      The dependent clause "Because the store was closed" needs an independent clause with its own subject and predicate. "We went home instead" supplies that complete main clause, and the introductory dependent clause is followed by a comma.
     approved: true
 
   - id: q-grammar-and-structure-phrases-and-clauses-0006
@@ -119,15 +119,15 @@ questions:
         correct: true
       - text: There is no error; the sentence is complete
         rationale: |
-          You assumed the sentence was complete, but "although" makes the entire group of words dependent on a main clause that is missing.
+          You assumed the sentence was complete, but "although" makes the group dependent on a main clause that is missing.
       - text: This is a run-on sentence with too many clauses
         rationale: |
-          You misidentified the error as a run-on. A run-on has too many independent clauses; this sentence has zero independent clauses.
+          You misidentified the error as a run-on. This sentence lacks an independent clause instead of joining too many of them.
       - text: This sentence is missing a subject
         rationale: |
-          You thought the subject was missing, but "the teacher" is the subject. The error is the subordinating word "although" without a main clause.
+          You thought the subject was missing, but "the teacher" is the subject. The missing element is an independent main clause.
     explanation: |
-      This is a dependent clause standing alone. It has a subject and verb, but "although" leaves the thought incomplete: a sentence fragment.
+      This is a dependent clause standing alone. It has a subject and verb, but "although" makes it a sentence fragment unless a main clause is attached.
     approved: true
 
   - id: q-grammar-and-structure-phrases-and-clauses-0007
@@ -140,15 +140,15 @@ questions:
         correct: true
       - text: Independent clause
         rationale: |
-          You picked independent clause, but "running" is a participle modifier, not a finite main verb with a stated subject.
+          You picked independent clause, but "running" is a non-finite verb form here and there is no stated subject forming a finite clause.
       - text: Dependent clause
         rationale: |
-          You picked dependent clause, but "running quickly through the park" lacks a subject performing the action.
+          You picked dependent clause, but the group lacks a stated subject paired with a finite verb.
       - text: Complete sentence
         rationale: |
-          You called it a complete sentence, but a participial phrase cannot stand alone as a sentence.
+          You called it a complete sentence, but this participial phrase cannot stand alone as a sentence in this form.
     explanation: |
-      "Running quickly through the park" has no subject-verb pair of its own (no stated subject performing the running as a main verb), so it is a phrase.
+      "Running quickly through the park" lacks a stated subject and finite subject-verb pair, so it functions as a phrase rather than a clause.
     approved: true
 
   - id: q-grammar-and-structure-phrases-and-clauses-0008
@@ -161,15 +161,15 @@ questions:
         correct: true
       - text: Independent
         rationale: |
-          You picked independent, but "when" turns this subject-verb pair into a dependent clause requiring a main clause.
+          You picked independent, but "when" makes this subject-verb unit dependent on a main clause in this use.
       - text: Phrase
         rationale: |
-          You picked phrase, but "the bell rang" contains a subject ("bell") and a verb ("rang"), making it a clause.
+          You picked phrase, but "the bell rang" contains a subject and a finite verb, so it is a clause.
       - text: Complete sentence
         rationale: |
-          You picked complete sentence, but starting with "when" leaves the thought unresolved until a main clause is attached.
+          You picked complete sentence, but this subordinate use of "when" leaves the thought dependent on what follows.
     explanation: |
-      "When the bell rang" has a subject ("bell") and a verb ("rang"), but "when" leaves the thought incomplete, needing more information: a dependent clause.
+      "When the bell rang" has a subject and verb, but the subordinating word "when" makes it a dependent clause in this context.
     approved: true
 
   - id: q-grammar-and-structure-phrases-and-clauses-0009
@@ -178,19 +178,19 @@ questions:
     stem: |
       Is the comma placement correct in this sentence? "Because it was raining, we stayed inside."
     choices:
-      - text: 'Yes: when a dependent clause starts the sentence, it is followed by a comma before the independent clause begins.'
+      - text: 'Yes: an introductory dependent clause is followed by a comma before the independent clause.'
         correct: true
       - text: 'No: commas are never used with dependent clauses.'
         rationale: |
-          You assumed commas are forbidden with dependent clauses, but an introductory dependent clause always takes a comma.
+          You treated dependent clauses as incompatible with commas, but an introductory dependent clause normally takes a comma before the main clause.
       - text: 'No: the comma should be removed entirely.'
         rationale: |
-          You removed the comma, but separating an introductory dependent clause from the main clause requires a comma.
+          You removed the comma that separates the introductory dependent clause from the main clause.
       - text: 'Yes: but only because "raining" is a gerund.'
         rationale: |
-          You linked comma rules to gerunds, but the comma is required because the dependent clause introduces the sentence.
+          You linked comma use to the word "raining," but the comma follows from the clause structure, not that word's form.
     explanation: |
-      When a dependent clause starts the sentence, it is usually followed by a comma before the independent clause begins: this sentence is correctly punctuated.
+      When a dependent clause comes first, standard punctuation places a comma before the following independent clause: "Because it was raining, we stayed inside."
     approved: true
 
   - id: q-grammar-and-structure-phrases-and-clauses-0010
@@ -199,82 +199,82 @@ questions:
     stem: |
       Does this sentence need a comma before "because"? "We stayed inside because it was raining."
     choices:
-      - text: 'No: when the independent clause comes first, no comma is typically needed before the dependent clause.'
+      - text: 'No: when the independent clause comes first, no comma is typically needed before this essential reason clause.'
         correct: true
       - text: 'Yes: a comma is always required regardless of clause order.'
         rationale: |
-          You assumed a comma is always needed, but when the main clause comes first, a comma before "because" is usually unnecessary.
+          You treated clause order as irrelevant, but a following essential "because" clause normally does not need a comma here.
       - text: 'Yes: but only before "was," not before "because."'
         rationale: |
-          You placed a comma between the subject and verb ("it, was"), which creates an incorrect break inside the clause.
+          You placed a comma between the subject and verb inside the dependent clause.
       - text: 'No: but only because "raining" ends the sentence.'
         rationale: |
-          You attributed the rule to the end word "raining," but the rule depends on clause order, not the last word.
+          You attributed the rule to the last word instead of the relationship between the clauses.
     explanation: |
-      If the independent clause comes first ("We stayed inside because it was raining"), no comma is typically needed before the dependent clause.
+      In "We stayed inside because it was raining," the main clause comes first and the following reason clause is essential to the intended meaning, so no comma is normally used before "because."
     approved: true
 
   - id: q-grammar-and-structure-phrases-and-clauses-0011
     type: phrase-clause-identification
-    difficulty: hard
+    difficulty: medium
     stem: |
       A student sees the long phrase "Walking slowly along the crowded street toward the old market" and assumes it must be a clause since it is so long. Is this correct?
     choices:
-      - text: 'No: length does not make something a clause; this phrase still lacks a subject performing a clearly stated main verb in a complete sentence.'
+      - text: 'No: length does not make something a clause; this group still lacks a stated subject paired with a finite verb.'
         correct: true
       - text: 'Yes: any group of words longer than five words is automatically a clause.'
         rationale: |
-          You assumed word count defines a clause, but a clause specifically requires a subject-verb combination, regardless of length.
+          You used word count to define a clause, but clause status depends on grammatical structure, not length.
       - text: 'Yes: but only because "market" could function as a subject.'
         rationale: |
-          You mistook the object of a preposition ("market") for the subject of a clause.
+          You mistook the object of the preposition "toward" for the subject of a clause.
       - text: 'No: but only because phrases can never contain the word "toward."'
         rationale: |
-          You thought prepositional words like "toward" are banned in phrases, but prepositions frequently head phrases.
+          You invented a rule about one preposition. Phrases can contain "toward"; the issue is the missing finite subject-verb structure.
     explanation: |
-      A phrase can be long and still lack a subject-verb pair: length does not make something a clause. This phrase needs an independent clause to complete the thought.
+      A phrase can be long. This group has no stated subject paired with a finite verb, so its length does not turn it into a clause.
     approved: true
 
   - id: q-grammar-and-structure-phrases-and-clauses-0012
     type: phrase-clause-identification
-    difficulty: hard
+    difficulty: medium
     stem: |
-      A student writes "Because she was late." as a standalone sentence. Is this a complete sentence?
+      A student writes "Because she was late." as a standalone sentence. Is this a complete sentence in standard formal writing?
     choices:
-      - text: 'No: this is a dependent clause treated as a complete sentence, a common sentence fragment error; it needs to be attached to an independent clause to be complete.'
+      - text: 'No: it is a dependent clause used as a sentence fragment; it needs an independent clause to complete the thought.'
         correct: true
-      - text: 'Yes: since it has a subject and a verb, it is automatically complete.'
+      - text: 'Yes: since it has a subject and a verb, it is automatically an independent clause.'
         rationale: |
-          You assumed a subject and verb guarantee a full sentence, but the subordinating word "because" makes the thought dependent.
+          You assumed a subject and verb automatically make a clause independent, but "because" subordinates this clause.
       - text: 'Yes: but only because "late" is functioning as an adjective here.'
         rationale: |
-          You focused on the part of speech of "late," but "because" is the word that prevents the clause from standing alone.
+          You focused on "late," but the subordinating conjunction "because" controls the clause relationship.
       - text: 'No: but only because "she" is not a valid subject.'
         rationale: |
-          You incorrectly claimed "she" cannot be a subject. "She" is a standard subject pronoun.
+          You incorrectly rejected "she" as a subject pronoun. The issue is subordination, not the subject.
     explanation: |
-      Writing "Because she was late." as a standalone sentence is a common sentence fragment error, even though it technically contains a subject and verb. It needs to be attached to an independent clause.
+      "Because she was late" is a dependent clause. In the standard formal sentence-writing convention being tested, it cannot stand alone as a complete sentence.
     approved: true
 
   - id: q-grammar-and-structure-phrases-and-clauses-0013
     type: phrase-clause-identification
-    difficulty: hard
+    difficulty: medium
     stem: |
-      A student writes "Because it was raining we stayed inside" without a comma. Is this correctly punctuated?
+      A student writes "Because it was raining we stayed inside" without a comma. Is this correctly punctuated in standard formal writing?
     choices:
-      - text: 'No: when a dependent clause starts the sentence, it should be followed by a comma before the independent clause begins, giving "Because it was raining, we stayed inside."'
+      - text: 'No: place a comma after the introductory dependent clause: "Because it was raining, we stayed inside."'
         correct: true
-      - text: 'Yes: commas are never needed between clauses regardless of their order.'
+      - text: 'Yes: commas are never needed between dependent and independent clauses.'
         rationale: |
-          You assumed commas are optional between clauses, but an introductory dependent clause requires a comma before the main clause.
+          You treated the introductory boundary as unpunctuated, but standard writing marks it with a comma.
       - text: 'Yes: but only because "raining" and "inside" share a similar sound.'
         rationale: |
-          You linked punctuation rules to phonetic sounds rather than grammatical structure.
+          You linked punctuation to sound rather than clause structure.
       - text: 'No: but only because the sentence should have no dependent clause at all.'
         rationale: |
-          You claimed dependent clauses should not exist, but complex sentences rely on dependent clauses for detail.
+          You rejected dependent clauses themselves, but they are normal components of complex sentences.
     explanation: |
-      When a dependent clause starts the sentence, it is usually followed by a comma before the independent clause begins. Forgetting this comma is a common punctuation error.
+      An introductory dependent clause is followed by a comma before the main clause: "Because it was raining, we stayed inside."
     approved: true
 
   - id: q-grammar-and-structure-phrases-and-clauses-0014
@@ -287,15 +287,15 @@ questions:
         correct: true
       - text: Concert
         rationale: |
-          You picked "concert," which is a noun acting as the subject of the clause, not a subordinating word.
+          You picked "concert," which is a noun acting as the subject of the clause, not the subordinating word.
       - text: Ended
         rationale: |
           You picked "ended," which is the verb of the clause, not the conjunction that makes it dependent.
       - text: Everyone
         rationale: |
-          You picked "everyone," which is the subject pronoun of the subsequent independent clause.
+          You picked "everyone," which is the subject of the following independent clause.
     explanation: |
-      "Since" is a subordinating word at the start of the clause, signaling that "since the concert ended late" is a dependent clause that needs the rest of the sentence to be complete.
+      "Since" introduces the subordinate clause "since the concert ended late," making that clause dependent on the main clause.
     approved: true
 
   - id: q-grammar-and-structure-phrases-and-clauses-0015
@@ -304,17 +304,17 @@ questions:
     stem: |
       Identify the issue with this pair of sentences and select the corrected version: "Although the manager reviewed the proposal carefully. She still had questions."
     choices:
-      - text: The first part is a sentence fragment (a dependent clause standing alone); corrected, it should read "Although the manager reviewed the proposal carefully, she still had questions."
+      - text: The first part is a sentence fragment; corrected, it should read "Although the manager reviewed the proposal carefully, she still had questions."
         correct: true
       - text: There is no error; both sentences are already complete and correctly punctuated.
         rationale: |
-          You assumed both sentences were complete, but "although the manager reviewed..." is a dependent fragment.
+          You assumed both were complete, but the first group begins with "although" and is a dependent clause standing alone.
       - text: The second sentence, "She still had questions," is the fragment, not the first.
         rationale: |
-          You misidentified the fragment. "She still had questions" has a subject and verb and forms a complete independent clause.
+          You misidentified the fragment. "She still had questions" is an independent clause and can stand alone.
       - text: The correction should remove the comma and keep them as two separate sentences.
         rationale: |
-          You tried keeping them separate, but a dependent clause starting with "although" cannot stand alone as a sentence.
+          You kept the dependent clause as its own sentence. It needs to be attached to an independent clause in this standard formal construction.
     explanation: |
-      "Although the manager reviewed the proposal carefully" is a dependent clause left standing alone as its own sentence: a fragment. The fix joins it to the independent clause that follows, with a comma: "Although the manager reviewed the proposal carefully, she still had questions."
+      "Although the manager reviewed the proposal carefully" is a dependent clause standing alone. Joining it to "she still had questions" with the appropriate comma creates a complete complex sentence.
     approved: true

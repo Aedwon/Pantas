@@ -36,15 +36,15 @@ questions:
         correct: true
       - text: Nationalism and patriotism
         rationale: |
-          You chose nationalism and patriotism, which focuses on national loyalty. Prioritizing public interest and stopping waste is public interest.
-      - text: Commitment to democracy and rule of law
+          You chose nationalism and patriotism, which focuses on national loyalty. Prioritizing public interest and avoiding waste falls under commitment to public interest.
+      - text: Commitment to democracy
         rationale: |
-          You picked commitment to democracy, which focuses on constitutional principles. Preventing resource waste is public interest.
-      - text: Professionalism and technical competence
+          You picked commitment to democracy, which focuses on democratic values, public accountability, civilian supremacy, and constitutional loyalty. Preventing waste of public resources falls under commitment to public interest.
+      - text: Professionalism
         rationale: |
-          You selected professionalism, which concerns job skill and standards. Protecting public funds from waste falls under public interest.
+          You selected professionalism, which concerns excellence, intelligence, and skill in public service. Protecting public funds from waste falls under commitment to public interest.
     explanation: |
-      Commitment to public interest requires public officials to prioritize public interest over personal interest and use resources efficiently to prevent waste.
+      Commitment to public interest requires public officials to place public interest above personal interest and use government resources efficiently, effectively, honestly, and economically, particularly to avoid wastage.
 
   - id: q-code-of-conduct-ra-6713-norms-of-conduct-0003
     type: single_choice
@@ -54,35 +54,35 @@ questions:
     choices:
       - text: Political neutrality
         correct: true
-      - text: Simple living and modesty
+      - text: Simple living
         rationale: |
-          You chose simple living, which concerns personal lifestyle and wealth display. Serving all citizens without political bias is political neutrality.
-      - text: Justness and sincerity in office
+          You chose simple living, which concerns a modest personal lifestyle. Serving everyone without partisan discrimination is political neutrality.
+      - text: Justness and sincerity
         rationale: |
-          You picked justness and sincerity, which covers fairness and honesty. Treating citizens equally regardless of party is political neutrality.
+          You picked justness and sincerity, which broadly requires fairness, sincerity, and respect for rights. The stem specifically emphasizes party affiliation, which Section 4 addresses under political neutrality.
       - text: Commitment to public interest
         rationale: |
-          You selected commitment to public interest, which deals with resource stewardship. Non-partisan service to all parties is political neutrality.
+          You selected commitment to public interest, which focuses on placing public interest above personal interest and avoiding waste of government resources. Non-partisan service regardless of party affiliation is political neutrality.
     explanation: |
-      Political neutrality mandates providing service to everyone without discrimination, regardless of party affiliation or preference.
+      Political neutrality requires public officials and employees to provide service to everyone without unfair discrimination and regardless of party affiliation or preference.
 
   - id: q-code-of-conduct-ra-6713-norms-of-conduct-0004
     type: single_choice
-    difficulty: medium
+    difficulty: easy
     stem: |
       What is the first norm of conduct listed in Section 4 of RA 6713?
     choices:
       - text: Commitment to public interest
         correct: true
-      - text: Responsiveness to the public request
+      - text: Responsiveness to the public
         rationale: |
-          You picked responsiveness to the public, which is the sixth norm listed. Section 4 begins with commitment to public interest as the first norm.
-      - text: Commitment to democratic processes
+          You picked responsiveness to the public, which is the fifth norm listed. Section 4 begins with commitment to public interest.
+      - text: Commitment to democracy
         rationale: |
-          You selected commitment to democratic processes, which is fifth in sequence. The statutory list starts with commitment to public interest.
-      - text: Professionalism and public service
+          You selected commitment to democracy, which is seventh in sequence. The statutory list starts with commitment to public interest.
+      - text: Professionalism
         rationale: |
-          You chose professionalism, which is second in the statutory list. Commitment to public interest is the very first norm in Section 4.
+          You chose professionalism, which is second in the statutory list. Commitment to public interest is the first norm in Section 4.
     explanation: |
       The statutory order in Section 4 starts with Commitment to public interest as the first norm.
 
@@ -96,15 +96,15 @@ questions:
         correct: true
       - text: Political neutrality
         rationale: |
-          You picked political neutrality, which prohibits partisan bias. Living modestly according to your income and position is simple living.
+          You picked political neutrality, which prohibits partisan discrimination. Living modestly according to position and income is simple living.
       - text: Justness and sincerity
         rationale: |
-          You selected justness and sincerity, which focuses on fairness and truthfulness. Maintaining a modest lifestyle is simple living.
+          You selected justness and sincerity, which focuses on fairness, sincerity, and respect for rights. Maintaining a modest lifestyle is simple living.
       - text: Nationalism and patriotism
         rationale: |
-          You chose nationalism and patriotism, which emphasizes devotion to country. Avoiding ostentatious lifestyle displays is simple living.
+          You chose nationalism and patriotism, which emphasizes loyalty to the Republic and Filipino people. Avoiding ostentatious displays of wealth is simple living.
     explanation: |
-      Simple living requires public officials and their families to lead modest lives and avoid ostentatious displays of wealth.
+      Simple living requires public officials and employees and their families to lead modest lives appropriate to their positions and income and avoid extravagant or ostentatious displays of wealth.
 
   - id: q-code-of-conduct-ra-6713-norms-of-conduct-0006
     type: single_choice
@@ -114,17 +114,17 @@ questions:
     choices:
       - text: Professionalism
         correct: true
-      - text: Simple living in public service
+      - text: Simple living
         rationale: |
           You chose simple living, which governs modest personal lifestyle. Serving with intelligence, skill, and high standards is professionalism.
       - text: Responsiveness to the public
         rationale: |
-          You selected responsiveness, which focuses on prompt and courteous assistance. High skill and technical excellence define professionalism.
+          You selected responsiveness, which focuses on prompt, courteous, and adequate public service. Excellence, intelligence, and skill define professionalism.
       - text: Commitment to democracy
         rationale: |
-          You picked commitment to democracy, which covers constitutional principles. Performing tasks with maximum skill and competence is professionalism.
+          You picked commitment to democracy, which covers democratic values, accountability, civilian supremacy, and constitutional loyalty. Performing duties with excellence and skill is professionalism.
     explanation: |
-      Professionalism requires performing duties with the highest degree of excellence, professionalism, intelligence, and skill.
+      Professionalism requires public officials and employees to perform and discharge their duties with the highest degree of excellence, professionalism, intelligence, and skill.
 
   - id: q-code-of-conduct-ra-6713-norms-of-conduct-0007
     type: single_choice
@@ -134,17 +134,17 @@ questions:
     choices:
       - text: Nationalism and patriotism
         correct: true
-      - text: Responsiveness to public demands
+      - text: Responsiveness to the public
         rationale: |
-          You picked responsiveness, which focuses on answering public requests. Maintaining continuous loyalty to the Republic is patriotism.
-      - text: Justness and sincerity in conduct
+          You picked responsiveness, which focuses on prompt, courteous, and adequate public service. Maintaining loyalty to the Republic and Filipino people is nationalism and patriotism.
+      - text: Justness and sincerity
         rationale: |
-          You selected justness and sincerity, which governs fair treatment of citizens. Standing loyal to the Filipino nation is patriotism.
-      - text: Professionalism in office
+          You selected justness and sincerity, which governs fair and sincere conduct and respect for rights. Loyalty to the Republic and Filipino people falls under nationalism and patriotism.
+      - text: Professionalism
         rationale: |
-          You chose professionalism, which covers technical standards and work skills. Maintaining loyalty to the Republic is patriotism.
+          You chose professionalism, which covers excellence, intelligence, and skill in public service. Maintaining loyalty to the Republic is nationalism and patriotism.
     explanation: |
-      Nationalism and patriotism require maintaining loyalty to the Republic and to the Filipino people at all times.
+      Nationalism and patriotism require public officials and employees to remain loyal to the Republic and to the Filipino people, among other duties stated in Section 4(f).
 
   - id: q-code-of-conduct-ra-6713-norms-of-conduct-0008
     type: single_choice
@@ -156,15 +156,15 @@ questions:
         correct: true
       - text: Responsiveness to the public
         rationale: |
-          You selected responsiveness, which covers prompt public service. Upholding the Constitution above personal loyalty is commitment to democracy.
-      - text: Justness and sincerity in service
+          You selected responsiveness, which covers prompt and adequate public service. Upholding the Constitution and placing country above persons or party belongs to commitment to democracy.
+      - text: Justness and sincerity
         rationale: |
-          You chose justness and sincerity, which governs honest personal conduct. Placing loyalty in the Constitution is commitment to democracy.
-      - text: Professionalism in government
+          You chose justness and sincerity, which governs fair, sincere, and lawful conduct. The specific constitutional-loyalty language in the stem comes from commitment to democracy.
+      - text: Professionalism
         rationale: |
-          You picked professionalism, which focuses on job competence. Putting country and Constitution above personal ties is commitment to democracy.
+          You picked professionalism, which focuses on excellence, intelligence, and skill. Upholding the Constitution and putting country above persons or party belongs to commitment to democracy.
     explanation: |
-      Commitment to democracy requires upholding the Constitution and putting loyalty to country above loyalty to persons or party.
+      Section 4(g), Commitment to democracy, requires public officials and employees to uphold the Constitution and put loyalty to country above loyalty to persons or party.
 
   - id: q-code-of-conduct-ra-6713-norms-of-conduct-0009
     type: single_choice
@@ -174,17 +174,17 @@ questions:
     choices:
       - text: Responsiveness to the public
         correct: true
-      - text: Commitment to democracy and law
+      - text: Commitment to democracy
         rationale: |
-          You selected commitment to democracy, which covers constitutional loyalty. Courteous and prompt service to citizens is responsiveness.
-      - text: Professionalism in service
+          You selected commitment to democracy, which covers democratic values and constitutional loyalty. Prompt, courteous, and adequate service is responsiveness to the public.
+      - text: Professionalism
         rationale: |
-          You chose professionalism, which covers technical excellence. Providing prompt, courteous, and helpful public service is responsiveness.
+          You chose professionalism, which covers excellence, intelligence, and skill in carrying out duties. Providing prompt, courteous, and adequate public service is responsiveness to the public.
       - text: Nationalism and patriotism
         rationale: |
-          You picked nationalism and patriotism, which emphasizes loyalty to nation. Serving the public promptly and politely is responsiveness.
+          You picked nationalism and patriotism, which emphasizes loyalty to the Republic and Filipino people. Prompt and courteous service is responsiveness to the public.
     explanation: |
-      Responsiveness to the public requires extending prompt, courteous, and adequate service and communicating clearly.
+      Responsiveness to the public requires public officials and employees to extend prompt, courteous, and adequate service and, where appropriate, communicate policies and procedures clearly.
 
   - id: q-code-of-conduct-ra-6713-norms-of-conduct-0010
     type: single_choice
@@ -194,17 +194,17 @@ questions:
     choices:
       - text: Justness and sincerity
         correct: true
-      - text: Political neutrality in service
+      - text: Political neutrality
         rationale: |
-          You selected political neutrality, which bans partisan bias. Acting with fairness, sincerity, and respect for rights is justness and sincerity.
-      - text: Simple living and modesty
+          You selected political neutrality, which specifically concerns service without unfair discrimination based on party affiliation or preference. The broader duties in the stem come from justness and sincerity.
+      - text: Simple living
         rationale: |
-          You chose simple living, which limits ostentatious wealth displays. Respecting rights and acting sincerely is justness and sincerity.
+          You chose simple living, which concerns modest living and avoiding extravagant displays of wealth. Respecting rights and acting sincerely falls under justness and sincerity.
       - text: Commitment to public interest
         rationale: |
-          You picked commitment to public interest, which targets resource protection. Fair treatment without discrimination is justness and sincerity.
+          You picked commitment to public interest, which focuses on placing public interest above personal interest and using public resources responsibly. Fair treatment and respect for rights are part of justness and sincerity.
     explanation: |
-      Justness and sincerity requires public officials to remain true to the people, act without discrimination, and respect rights.
+      Justness and sincerity requires public officials and employees to remain true to the people, act with justness and sincerity, avoid discrimination, and respect the rights of others.
 
   - id: q-code-of-conduct-ra-6713-norms-of-conduct-0011
     type: single_choice
@@ -216,19 +216,19 @@ questions:
         correct: true
       - text: Simple living
         rationale: |
-          You selected simple living, which is the 8th statutory norm. Maximum profitability is a private corporate goal, not a public service norm.
+          You selected simple living, which is the eighth statutory norm. Maximum profitability is not one of the Section 4 norms.
       - text: Political neutrality
         rationale: |
-          You picked political neutrality, which is the 3rd statutory norm. Profit maximization belongs to private business, not RA 6713 norms.
+          You picked political neutrality, which is the fourth statutory norm. Maximum profitability is not one of the Section 4 norms.
       - text: Commitment to public interest
         rationale: |
-          You chose commitment to public interest, which is the 1st statutory norm. Profit maximization is not a government norm under RA 6713.
+          You chose commitment to public interest, which is the first statutory norm. Maximum profitability is not one of the Section 4 norms.
     explanation: |
-      Maximum profitability is a private business objective and is not one of the eight statutory norms of conduct under RA 6713.
+      Maximum profitability is not one of the eight statutory norms of conduct under RA 6713.
 
   - id: q-code-of-conduct-ra-6713-norms-of-conduct-0012
     type: single_choice
-    difficulty: hard
+    difficulty: medium
     stem: |
       Under RA 6713, which norm explicitly prohibits an extravagant or ostentatious display of wealth in any form?
     choices:
@@ -236,19 +236,19 @@ questions:
         correct: true
       - text: Professionalism
         rationale: |
-          You picked professionalism, which sets standards for work quality. Prohibiting ostentatious wealth displays is under simple living.
+          You picked professionalism, which sets standards for excellence, intelligence, and skill. Prohibiting extravagant or ostentatious displays of wealth falls under simple living.
       - text: Political neutrality
         rationale: |
-          You selected political neutrality, which forbids partisan bias. Ban on lavish lifestyles and wealth displays falls under simple living.
+          You selected political neutrality, which concerns service regardless of party affiliation or preference. The wealth-display rule falls under simple living.
       - text: Commitment to democracy
         rationale: |
-          You chose commitment to democracy, which protects constitutional rule. Refraining from lavish wealth displays is under simple living.
+          You chose commitment to democracy, which concerns democratic values, public accountability, civilian supremacy, and constitutional loyalty. The wealth-display rule falls under simple living.
     explanation: |
-      Section 4(h) defines Simple living as leading modest lives and not indulging in extravagant or ostentatious displays of wealth.
+      Section 4(h) defines Simple living as leading modest lives appropriate to position and income and not indulging in extravagant or ostentatious displays of wealth.
 
   - id: q-code-of-conduct-ra-6713-norms-of-conduct-0013
     type: single_choice
-    difficulty: hard
+    difficulty: easy
     stem: |
       What is the eighth and final norm of conduct listed in Section 4 of RA 6713?
     choices:
@@ -256,19 +256,19 @@ questions:
         correct: true
       - text: Nationalism and patriotism
         rationale: |
-          You picked nationalism and patriotism, which is the 7th norm. The statutory list in Section 4 ends with simple living as the 8th norm.
+          You picked nationalism and patriotism, which is the sixth norm. The statutory list ends with simple living as the eighth norm.
       - text: Commitment to democracy
         rationale: |
-          You selected commitment to democracy, which is 5th in order. Simple living is the 8th and final norm listed in Section 4.
+          You selected commitment to democracy, which is seventh in order. Simple living is the eighth and final norm.
       - text: Political neutrality
         rationale: |
-          You chose political neutrality, which is 3rd in statutory order. Section 4 ends with simple living as the 8th norm.
+          You chose political neutrality, which is fourth in statutory order. Section 4 ends with simple living as the eighth norm.
     explanation: |
       The statutory sequence in Section 4 ends with Simple living as the eighth norm.
 
   - id: q-code-of-conduct-ra-6713-norms-of-conduct-0014
     type: single_choice
-    difficulty: hard
+    difficulty: easy
     stem: |
       What is the second norm of conduct listed in Section 4 of RA 6713?
     choices:
@@ -276,32 +276,32 @@ questions:
         correct: true
       - text: Commitment to public interest
         rationale: |
-          You picked commitment to public interest, which is 1st in the statutory order. Professionalism is the 2nd norm listed in Section 4.
+          You picked commitment to public interest, which is first in the statutory order. Professionalism is the second norm listed in Section 4.
       - text: Justness and sincerity
         rationale: |
-          You selected justness and sincerity, which is 4th in sequence. Professionalism is the 2nd norm statutory category.
+          You selected justness and sincerity, which is third in sequence. Professionalism is the second norm.
       - text: Political neutrality
         rationale: |
-          You chose political neutrality, which is 3rd in statutory order. Professionalism is listed 2nd in Section 4.
+          You chose political neutrality, which is fourth in statutory order. Professionalism is listed second in Section 4.
     explanation: |
       The second norm listed in Section 4 of RA 6713 is Professionalism.
 
   - id: q-code-of-conduct-ra-6713-norms-of-conduct-0015
     type: single_choice
-    difficulty: hard
+    difficulty: medium
     stem: |
       A public officer refuses to use official vehicles for personal weekend trips to avoid wasting public resources. Which norm is upheld?
     choices:
       - text: Commitment to public interest
         correct: true
-      - text: Responsiveness to public demands
+      - text: Responsiveness to the public
         rationale: |
-          You selected responsiveness, which concerns prompt public assistance. Protecting government vehicles from waste is public interest.
+          You selected responsiveness, which concerns prompt, courteous, and adequate public service. Protecting government resources from personal use falls under commitment to public interest.
       - text: Nationalism and patriotism
         rationale: |
-          You picked nationalism, which emphasizes national devotion. Preventing personal waste of official property is public interest.
+          You picked nationalism and patriotism, which emphasizes loyalty to the Republic and Filipino people. Preventing personal misuse of government resources falls under commitment to public interest.
       - text: Political neutrality
         rationale: |
-          You chose political neutrality, which forbids partisan favoritism. Guarding public assets from personal misuse is public interest.
+          You chose political neutrality, which concerns service regardless of party affiliation or preference. Guarding public assets from personal misuse falls under commitment to public interest.
     explanation: |
-      Refusing personal use of official resources directly fulfills Commitment to public interest by preventing wastage of public funds and assets.
+      Refusing personal use of official resources supports Commitment to public interest, which requires government resources to be used efficiently, effectively, honestly, and economically, particularly to avoid wastage.

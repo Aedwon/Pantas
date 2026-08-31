@@ -14,21 +14,15 @@ questions:
         correct: true
       - text: "$3$"
         rationale: |
-          You multiplied 3 by 2 first (6) and then divided 18 by 6, violating left-to-right evaluation.
+          You multiplied 3 by 2 first, instead of evaluating multiplication and division from left to right.
       - text: "$8$"
         rationale: |
-          You added 6 and 2 or miscalculated the operation.
+          Recheck the arithmetic after the first division.
       - text: "$6$"
         rationale: |
-          You stopped after calculating 18 divided by 3 and forgot to multiply by 2.
+          You stopped after $18\div3$ and omitted the final multiplication.
     explanation: |
-      To evaluate $18 \div 3 \times 2$, follow the PEMDAS/GEMDAS rules:
-
-      1. Multiplication and division have equal priority, so evaluate them from left to right.
-      2. Perform the division first: $18 \div 3 = 6$.
-      3. Perform the multiplication next: $6 \times 2 = 12$.
-
-      Common Trap: Multiplying $3 \times 2 = 6$ first gives $18 \div 6 = 3$, which violates the left-to-right rule.
+      Multiplication and division have equal priority, so evaluate left to right: $18\div3=6$, then $6\times2=12$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0002
     type: direct-computation
@@ -40,21 +34,15 @@ questions:
         correct: true
       - text: "$6$"
         rationale: |
-          You added 5 + 4 = 9 first and then subtracted 9 from 15, violating left-to-right evaluation.
+          Addition and subtraction have equal priority and are evaluated left to right.
       - text: "$24$"
         rationale: |
-          You added 15 + 5 + 4 instead of subtracting 5.
+          The 5 is subtracted, not added.
       - text: "$10$"
         rationale: |
-          You stopped after evaluating 15 minus 5 and forgot to add 4.
+          You stopped after the first subtraction.
     explanation: |
-      To evaluate $15 - 5 + 4$, follow the order of operations:
-
-      1. Addition and subtraction have equal priority and must be evaluated from left to right.
-      2. Perform subtraction first: $15 - 5 = 10$.
-      3. Perform addition next: $10 + 4 = 14$.
-
-      Common Trap: Adding $5 + 4 = 9$ first gives $15 - 9 = 6$, which violates the left-to-right rule.
+      $15-5=10$, then $10+4=14$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0003
     type: direct-computation
@@ -66,24 +54,15 @@ questions:
         correct: true
       - text: "$25$"
         rationale: |
-          You squared -4 as (-4)^2 = 16, getting 16 + 9 = 25.
+          In $-4^2$, the exponent applies to 4 before the leading negative is applied.
       - text: "$-25$"
         rationale: |
-          You applied negative signs to both squared terms (-16 - 9 = -25).
+          $(-3)^2=9$, not $-9$.
       - text: "$7$"
         rationale: |
-          You miscalculated -16 + 9 as positive 7 instead of -7.
+          $-16+9=-7$.
     explanation: |
-      Evaluate each exponent term separately:
-
-      1. For $-4^2$, the exponent applies only to the base $4$, not the negative sign:
-         $$-4^2 = -(4 \times 4) = -16$$
-      2. For $(-3)^2$, the parentheses include the negative sign, so square $-3$:
-         $$(-3)^2 = (-3) \times (-3) = 9$$
-      3. Add the two results together:
-         $$-16 + 9 = -7$$
-
-      Common Trap: Confusing $-4^2$ with $(-4)^2 = 16$ leads to $16 + 9 = 25$, which is incorrect.
+      $-4^2=-(4^2)=-16$, while $(-3)^2=9$. Therefore the result is $-7$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0004
     type: direct-computation
@@ -95,24 +74,15 @@ questions:
         correct: true
       - text: "$400$"
         rationale: |
-          You multiplied 4 by 5 (20) before applying the exponent, getting 20 squared = 400.
+          The exponent applies to the parenthesized 5 before multiplication by 4.
       - text: "$220$"
         rationale: |
-          You evaluated 4 times 8 (32) and squared 3 (9) or miscalculated the steps.
+          Re-evaluate the grouping and exponent.
       - text: "$40$"
         rationale: |
-          You multiplied 4 by 5 (20) and then multiplied by 2 instead of squaring 5.
+          Squaring 5 gives 25, not multiplying it by 2.
     explanation: |
-      Follow PEMDAS/GEMDAS step by step:
-
-      1. Evaluate inside the parentheses first:
-         $$8 - 3 = 5$$
-      2. Evaluate the exponent next:
-         $$5^2 = 25$$
-      3. Perform the multiplication:
-         $$4 \times 25 = 100$$
-
-      Common Trap: Multiplying $4 \times 5 = 20$ before applying the exponent gives $20^2 = 400$, which violates the rule that exponents precede multiplication.
+      $(8-3)^2=25$, then $4\times25=100$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0005
     type: direct-computation
@@ -124,21 +94,15 @@ questions:
         correct: true
       - text: "$\\frac{1}{2}$"
         rationale: |
-          You multiplied 6 by 2 first (12) and divided 24 by 12 (2), then divided 2 by 4.
+          You grouped $6\times2$ before the preceding division.
       - text: "$8$"
         rationale: |
-          You stopped after computing 4 times 2 and forgot to divide by 4.
+          You stopped before the final division by 4.
       - text: "$16$"
         rationale: |
-          You multiplied 24 by 2 first or miscalculated the operations.
+          Recheck the left-to-right sequence.
     explanation: |
-      Evaluate all multiplication and division strictly from left to right:
-
-      1. First division: $24 \div 6 = 4$.
-      2. Next multiplication: $4 \times 2 = 8$.
-      3. Final division: $8 \div 4 = 2$.
-
-      Common Trap: Multiplying $6 \times 2 = 12$ first turns the expression into $24 \div 12 \div 4 = 2 \div 4 = \frac{1}{2}$, violating the left-to-right rule.
+      Evaluate left to right: $24\div6=4$, $4\times2=8$, $8\div4=2$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0006
     type: error-spotting
@@ -156,22 +120,15 @@ questions:
         correct: true
       - text: "Step 2"
         rationale: |
-          You identified step 2 as the first error, but the addition 8 + 5 was already incorrectly performed in step 1.
+          The expression was already changed incorrectly in Step 1.
       - text: "Step 3"
         rationale: |
-          You identified step 3 as the error, but the initial misordering occurred in step 1.
+          The first error occurred earlier.
       - text: "There is no error in the solution."
         rationale: |
-          You assumed adding before subtracting is valid, but addition and subtraction must be performed left to right.
+          Addition and subtraction must be evaluated left to right here.
     explanation: |
-      Let's evaluate $20 - 8 + 5 - 2$ using the correct order of operations:
-
-      1. Addition and subtraction must be evaluated strictly from left to right.
-      2. Step 1 should perform $20 - 8 = 12$.
-      3. Step 2 should add $5$: $12 + 5 = 17$.
-      4. Step 3 should subtract $2$: $17 - 2 = 15$.
-
-      The student made the first error in Step 1 by computing $8 + 5 = 13$ first. This incorrectly changes $20 - 8 + 5$ to $20 - (8 + 5) = 7$.
+      The first operation should be $20-8=12$. Replacing $-8+5$ with $-13$ changes the expression, so Step 1 is the first error.
 
   - id: q-arithmetic-number-sense-order-of-operations-0007
     type: direct-computation
@@ -183,21 +140,15 @@ questions:
         correct: true
       - text: "$3$"
         rationale: |
-          You added 6 + 9 = 15 first and subtracted 12 and 15 from 30 (30 - 12 - 15 = 3).
+          You grouped $6+9$ before the preceding subtraction.
       - text: "$15$"
         rationale: |
-          You added 12 + 6 + 9 = 27 and subtracted from 30, or miscalculated.
+          Re-evaluate the signs from left to right.
       - text: "$33$"
         rationale: |
-          You added 12 + 9 = 21 and 30 - 18 = 12 or miscalculated signs.
+          Re-evaluate the signs from left to right.
     explanation: |
-      Evaluate addition and subtraction strictly from left to right:
-
-      1. First subtraction: $30 - 12 = 18$.
-      2. Second subtraction: $18 - 6 = 12$.
-      3. Final addition: $12 + 9 = 21$.
-
-      Common Trap: Adding $6 + 9 = 15$ first leads to $30 - 12 - 15 = 3$, which violates left-to-right evaluation.
+      $30-12=18$, $18-6=12$, and $12+9=21$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0008
     type: direct-computation
@@ -209,26 +160,15 @@ questions:
         correct: true
       - text: "$19$"
         rationale: |
-          You evaluated (-2)^2 as -4, getting 2(-4) = -8 and -8 + 18 + 9 = 19.
+          $(-2)^2=4$, not $-4$.
       - text: "$-1$"
         rationale: |
-          You calculated -3xy as -18 instead of +18, getting 8 - 18 + 9 = -1.
+          $-3(-2)(3)=+18$.
       - text: "$-17$"
         rationale: |
-          You evaluated (-2)^2 as -4 and -3xy as -18, getting -8 - 18 + 9 = -17.
+          Recheck both the square and the sign of the middle product.
     explanation: |
-      Substitute $x = -2$ and $y = 3$ into $2x^2 - 3xy + y^2$:
-
-      1. First term $2x^2$:
-         $$(-2)^2 = 4 \implies 2(4) = 8$$
-      2. Second term $-3xy$:
-         $$-3(-2)(3) = -3(-6) = +18$$
-      3. Third term $y^2$:
-         $$3^2 = 9$$
-      4. Add all terms together:
-         $$8 + 18 + 9 = 35$$
-
-      Common Trap: Treating $(-2)^2$ as $-4$ yields $2(-4) = -8$, resulting in $-8 + 18 + 9 = 19$.
+      $2(-2)^2-3(-2)(3)+3^2=8+18+9=35$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0009
     type: direct-computation
@@ -240,33 +180,21 @@ questions:
         correct: true
       - text: "$2$"
         rationale: |
-          You subtracted before multiplying in the denominator (10 - 3 = 7, 7 * 2 = 14), getting 28 / 14 = 2.
+          In the denominator, multiplication comes before subtraction.
       - text: "$11$"
         rationale: |
-          You evaluated the numerator as 4 + 12 = 16 or miscalculated the exponent.
+          $4^2=16$.
       - text: "$14$"
         rationale: |
-          You evaluated the numerator as 28 and denominator as 2 without performing division.
+          The final numerator must be divided by the denominator.
     explanation: |
-      A fraction bar acts as a grouping symbol. Evaluate the numerator and denominator separately before dividing:
-
-      1. Numerator ($4^2 + 6 \times 2$):
-         - Exponent first: $4^2 = 16$.
-         - Multiplication next: $6 \times 2 = 12$.
-         - Addition last: $16 + 12 = 28$.
-      2. Denominator ($10 - 3 \times 2$):
-         - Multiplication first: $3 \times 2 = 6$.
-         - Subtraction next: $10 - 6 = 4$.
-      3. Perform fraction division:
-         $$\frac{28}{4} = 7$$
-
-      Common Trap: Subtracting before multiplying in the denominator gives $10 - 3 = 7 \implies 7 \times 2 = 14$, leading to $\frac{28}{14} = 2$.
+      Numerator: $16+12=28$. Denominator: $10-6=4$. Thus $28/4=7$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0010
     type: error-spotting
     difficulty: hard
     stem: |
-      A student simplified the expression $36 \div 4(3) + 2^3$ as follows:
+      A student simplified the unambiguous expression $36 \div 4 \times 3 + 2^3$ as follows:
 
       Step 1: $36 \div 12 + 2^3$ (by multiplying $4 \times 3 = 12$ first)
       Step 2: $36 \div 12 + 8$
@@ -279,23 +207,15 @@ questions:
         correct: true
       - text: "Step 2"
         rationale: |
-          You identified step 2 as the error, but the implicit multiplication was wrongly prioritized in step 1.
+          The expression was already regrouped incorrectly in Step 1.
       - text: "Step 3"
         rationale: |
-          You identified step 3 as the error, but the initial misordering occurred in step 1.
+          The first error occurred before this arithmetic.
       - text: "Step 4"
         rationale: |
-          You identified step 4 as the error, but the calculations in step 4 followed from step 1's mistake.
+          The first error occurred in Step 1.
     explanation: |
-      Let's solve $36 \div 4(3) + 2^3$ correctly:
-
-      1. Evaluate exponents first: $2^3 = 8$. The expression becomes $36 \div 4(3) + 8$.
-      2. Evaluate multiplication and division strictly from left to right.
-      3. Perform division first: $36 \div 4 = 9$.
-      4. Perform multiplication next: $9 \times 3 = 27$.
-      5. Add: $27 + 8 = 35$.
-
-      The student made the first error in Step 1 by performing implicit multiplication $4(3) = 12$ before division. Multiplication does not take precedence over division; they must be solved from left to right.
+      The exponent may be evaluated first, but multiplication and division otherwise have equal priority and are evaluated left to right. Thus $36\div4=9$, then $9\times3=27$, and $27+8=35$. Step 1 is the first error because it groups $4\times3$ ahead of the preceding division.
 
   - id: q-arithmetic-number-sense-order-of-operations-0011
     type: direct-computation
@@ -307,30 +227,15 @@ questions:
         correct: true
       - text: "$80$"
         rationale: |
-          You squared 3 + 2 * 9 as a whole or miscalculated inside the bracket.
+          Recheck the nested grouping and square.
       - text: "$-40$"
         rationale: |
-          You subtracted 50 from 10 or miscalculated sign handling.
+          Recheck the final subtraction.
       - text: "$1008$"
         rationale: |
-          You subtracted 50 - 2 = 48 before multiplying by the bracketed value 21 (48 * 21 = 1008).
+          The bracket must be evaluated before subtracting from 50.
     explanation: |
-      Work from the innermost grouping symbols outward:
-
-      1. Innermost parentheses:
-         $$4 - 7 = -3$$
-      2. Square the result:
-         $$(-3)^2 = 9$$
-      3. Multiply inside the bracket:
-         $$2 \times 9 = 18$$
-      4. Add inside the bracket:
-         $$3 + 18 = 21$$
-      5. Multiply by $2$ outside the bracket:
-         $$2 \times 21 = 42$$
-      6. Subtract from $50$:
-         $$50 - 42 = 8$$
-
-      Common Trap: Subtracting $50 - 2 = 48$ before evaluating the brackets yields $48 \times 21 = 1008$, violating the rule that operations inside grouping symbols come first.
+      $(4-7)^2=9$, so the bracket is $3+2(9)=21$. Then $50-2(21)=8$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0012
     type: direct-computation
@@ -342,29 +247,15 @@ questions:
         correct: true
       - text: "$\\text{₱}300$"
         rationale: |
-          You divided the remaining P600 by 2 siblings, omitting Marco himself.
+          There are 3 people total, not 2.
       - text: "$\\text{₱}600$"
         rationale: |
-          You reported the total cash box balance (P600) without dividing among the 3 people.
+          This is the remaining balance before division.
       - text: "$\\text{₱}180$"
         rationale: |
-          You calculated only the revenue from juice sales (12 * 15 = P180) and ignored other terms.
+          This is only the juice-sales revenue.
     explanation: |
-      Translate the problem into a single numerical expression:
-      $$\text{Amount per person} = (500 + 12 \times 15 - 80) \div 3$$
-
-      Follow the order of operations:
-      1. Inside the parentheses, perform multiplication first:
-         $$12 \times 15 = 180$$
-      2. Perform addition and subtraction from left to right:
-         $$500 + 180 = 680$$
-         $$680 - 80 = 600$$
-      3. Divide by the total number of people (Marco + $2$ siblings = $3$ people):
-         $$600 \div 3 = 200$$
-
-      Each person receives $\text{₱}200$.
-
-      Common Trap: Dividing by $2$ siblings instead of $3$ total people yields $600 \div 2 = \text{₱}300$.
+      $(500+12\times15-80)\div3=(500+180-80)\div3=600\div3=200$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0013
     type: direct-computation
@@ -376,27 +267,15 @@ questions:
         correct: true
       - text: "$-21$"
         rationale: |
-          You evaluated the denominator as +1 instead of -1 (-21 / 1 = -21).
+          $(a+b)^3=(-1)^3=-1$.
       - text: "$3$"
         rationale: |
-          You evaluated -a^2 as +9, getting numerator 9 - 12 = -3 and ratio -3 / -1 = 3.
+          $-a^2=-9$, not $+9$.
       - text: "$-3$"
         rationale: |
-          You evaluated -a^2 as +9 and denominator as +1, getting -3 / 1 = -3.
+          Recheck both the leading negative and the denominator.
     explanation: |
-      Substitute $a = -3$ and $b = 2$ into the expression:
-
-      1. Numerator ($-a^2 + 2ab$):
-         - First term $-a^2$: $a^2 = (-3)^2 = 9 \implies -a^2 = -9$.
-         - Second term $2ab$: $2(-3)(2) = -12$.
-         - Combine numerator: $-9 + (-12) = -21$.
-      2. Denominator ($(a + b)^3$):
-         - Inside parentheses: $-3 + 2 = -1$.
-         - Cube the result: $(-1)^3 = -1$.
-      3. Perform fraction division:
-         $$\frac{-21}{-1} = 21$$
-
-      Common Trap: Mistaking $-a^2$ for $+9$ gives numerator $9 - 12 = -3$, leading to $\frac{-3}{-1} = 3$.
+      Numerator: $-(-3)^2+2(-3)(2)=-9-12=-21$. Denominator: $(-3+2)^3=-1$. The quotient is 21.
 
   - id: q-arithmetic-number-sense-order-of-operations-0014
     type: direct-computation
@@ -408,62 +287,32 @@ questions:
         correct: true
       - text: "$4$"
         rationale: |
-          You evaluated 18 / 3 * 2 as 18 / 6 = 3 in the denominator, getting -20 / -5 = 4.
+          $18\div3\times2$ is evaluated left to right as 12.
       - text: "$13$"
         rationale: |
-          You miscalculated 16 - 36 as -20 and denominator as 2, or made an arithmetic error.
+          Recheck the numerator and denominator separately.
       - text: "$27$"
         rationale: |
-          You added terms in the numerator instead of subtracting (16 + 36 = 52).
+          The numerator contains subtraction, not addition.
     explanation: |
-      Evaluate the numerator and denominator separately:
-
-      1. Numerator ($2^4 - 4 \times (5 - 8)^2$):
-         - Parentheses: $5 - 8 = -3$.
-         - Exponents: $2^4 = 16$ and $(-3)^2 = 9$.
-         - Multiplication: $4 \times 9 = 36$.
-         - Subtraction: $16 - 36 = -20$.
-      2. Denominator ($18 \div 3 \times 2 - 2^3$):
-         - Exponent: $2^3 = 8$.
-         - Left-to-right division and multiplication: $18 \div 3 = 6 \implies 6 \times 2 = 12$.
-         - Subtraction: $12 - 8 = 4$.
-      3. Divide numerator by denominator:
-         $$\frac{-20}{4} = -5$$
-
-      Common Trap: Evaluating $18 \div 3 \times 2$ as $18 \div (3 \times 2) = 18 \div 6 = 3$ in the denominator results in denominator $3 - 8 = -5$, giving $\frac{-20}{-5} = 4$.
+      Numerator: $16-4(9)=-20$. Denominator: $18\div3\times2-8=12-8=4$. Thus $-20/4=-5$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0015
     type: direct-computation
     difficulty: exam-level
     stem: |
-      A jeepney driver starts his morning route with an initial change fund of $\text{₱}350$. During the trip, he collects regular fares from $24$ passengers at $\text{₱}13$ each and discounted fares from $10$ students at $\text{₱}10$ each. He then spends $\text{₱}400$ from his cash box for diesel fuel. Finally, he splits all remaining cash into $2$ equal parts: one part for his daily boundary fee and the other part for his personal net income. What is his personal net income from the morning trip?
+      A jeepney cash box starts with $\text{₱}350$. During the trip, $24$ regular fares of $\text{₱}13$ and $10$ discounted fares of $\text{₱}10$ are added, then $\text{₱}400$ is taken from the box for fuel. If the remaining cash is split equally into two envelopes, how much goes into each envelope?
     choices:
       - text: "$\\text{₱}181$"
         correct: true
       - text: "$\\text{₱}362$"
         rationale: |
-          You reported the total remaining cash box balance (P362) without dividing by 2.
+          This is the balance before splitting it in two.
       - text: "$\\text{₱}6$"
         rationale: |
-          You forgot to add the initial P350 change fund, calculating (312 + 100 - 400) / 2 = P6.
+          This omits the opening cash-box balance.
       - text: "$\\text{₱}381$"
         rationale: |
-          You added P400 fuel expense instead of subtracting it from revenue.
+          Fuel is subtracted from the cash box, not added.
     explanation: |
-      Write a single expression for the driver's net income:
-      $$\text{Net Income} = \frac{350 + 24 \times 13 + 10 \times 10 - 400}{2}$$
-
-      Evaluate using the order of operations:
-      1. Perform multiplications inside the numerator first:
-         $$24 \times 13 = 312$$
-         $$10 \times 10 = 100$$
-      2. Add and subtract from left to right inside the numerator:
-         $$350 + 312 = 662$$
-         $$662 + 100 = 762$$
-         $$762 - 400 = 362$$
-      3. Divide the remaining total cash box balance by $2$:
-         $$362 \div 2 = 181$$
-
-      His personal net income is $\text{₱}181$.
-
-      Common Trap: Forgetting to include the initial $\text{₱}350$ change fund before deducting expenses gives $\frac{312 + 100 - 400}{2} = \frac{12}{2} = \text{₱}6$.
+      The cash balance is $350+24(13)+10(10)-400=362$. Splitting that equally gives $362\div2=181$ pesos per envelope. The problem deliberately asks about cash allocation, not accounting profit, so the opening change fund is part of the amount being divided.

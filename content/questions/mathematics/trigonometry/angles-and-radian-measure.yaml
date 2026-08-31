@@ -189,7 +189,7 @@ questions:
       A common trap: forgetting to multiply by the radius gives $\dfrac{\pi}{3}$, which is wrong.
   - id: q-trigonometry-angles-and-radian-measure-0010
     type: direct-computation
-    difficulty: medium-hard
+    difficulty: hard
     stem: |
       Convert $-30$ degrees to radians.
     choices:
@@ -209,7 +209,7 @@ questions:
       $$-30 \times \dfrac{\pi}{180} = -\dfrac{30\pi}{180} = -\dfrac{\pi}{6}$$
   - id: q-trigonometry-angles-and-radian-measure-0011
     type: direct-computation
-    difficulty: medium-hard
+    difficulty: hard
     stem: |
       Find the angle between $0$ degrees and $360$ degrees that is coterminal with $-150$ degrees.
     choices:
@@ -308,9 +308,9 @@ questions:
           You claimed pi radians is less than 180 degrees, but pi radians equals 180 degrees exactly.
       - text: An angle measured in radians is always a smaller number than the same angle measured in degrees.
         rationale: |
-          You claimed radian values are always smaller numbers, which fails for zero or negative angles.
+          You claimed the numerical radian measure is always smaller. For zero the two numerical measures are equal, and for negative angles the usual numerical ordering reverses.
     explanation: |
-      A radian is much larger than a degree: $1$ radian $\approx 57.3$ degrees. Check the second statement: $2 \times \dfrac{180}{\pi} \approx 2 \times 57.3 = 114.6$ degrees. This is true. For the third: $\pi$ radians $= 180$ degrees exactly, not less. For the fourth: this is backwards. A $360$ degree angle is $2\pi \approx 6.28$ radians, a smaller number, but most angles measured in radians give smaller numbers only because a radian itself is so large.
+      A radian is much larger than a degree: $1$ radian $\approx 57.3$ degrees. Check the second statement: $2 \times \dfrac{180}{\pi} \approx 2 \times 57.3 = 114.6$ degrees. This is true. Also, $\pi$ radians $= 180$ degrees exactly. For a positive nonzero angle, its numerical radian measure is smaller than its numerical degree measure; at zero they are equal, and for negative angles the numerical ordering reverses. Therefore the word "always" makes the fourth statement false.
   - id: q-trigonometry-angles-and-radian-measure-0016
     type: which-is-true
     difficulty: hard

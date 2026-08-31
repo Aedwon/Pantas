@@ -1,0 +1,13 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-data-interpretation-tables-and-charts-0001	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-data-interpretation-tables-and-charts-0002	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	HIGH	Embedded the office-supply table so the February total question is independently answerable.
+q-data-interpretation-tables-and-charts-0003	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-data-interpretation-tables-and-charts-0004	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	HIGH	Embedded the crop-yield table so the corn-total question is independently answerable.
+q-data-interpretation-tables-and-charts-0005	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-data-interpretation-tables-and-charts-0006	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	HIGH	Embedded the municipal-revenue table so the Q4-vs-Q1 comparison is independently answerable.
+q-data-interpretation-tables-and-charts-0007	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-data-interpretation-tables-and-charts-0008	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	HIGH	Embedded the applicant table so the Manila-vs-Davao comparison is independently answerable.
+q-data-interpretation-tables-and-charts-0009	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-data-interpretation-tables-and-charts-0010	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	HIGH	Embedded the library-circulation table so the June total question is independently answerable.
+q-data-interpretation-tables-and-charts-0011	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-data-interpretation-tables-and-charts-0012	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	HIGH	Embedded the emergency-admissions table so the surgical-total question is independently answerable.

@@ -108,25 +108,25 @@ questions:
     type: which-is-true
     difficulty: medium
     stem: |
-      What does $f^{-1}(x)$ mean?
+      If $f$ is invertible, what does $f^{-1}(x)$ mean?
     choices:
       - text: The inverse function that undoes $f$.
         correct: true
       - text: The reciprocal $\dfrac{1}{f(x)}$.
         rationale: |
-          You treated the $-1$ superscript as an exponent rather than inverse notation. In function notation, $f^{-1}$ undoes $f$.
+          You treated the $-1$ superscript as an exponent rather than inverse notation. For an invertible function, $f^{-1}$ denotes the function that undoes $f$.
       - text: The negative of $f(x)$.
         rationale: |
-          You confused inverse functions with negating a function $-f(x)$. The inverse function swaps input and output values.
+          You confused inverse functions with negating a function $-f(x)$. An inverse function reverses the input-output mapping.
       - text: It cannot be determined.
         rationale: |
-          You selected undetermined, but $f^{-1}(x)$ is standard mathematical notation representing the inverse function.
+          The stem already states that $f$ is invertible. In that setting, $f^{-1}(x)$ is standard notation for the inverse function.
     explanation: |
-      $f^{-1}(x)$ is the inverse function. If $f(2) = 7$, then $f^{-1}(7) = 2$. It is not $\dfrac{1}{f(x)}$.
+      When $f$ is invertible, $f^{-1}(x)$ denotes its inverse function. For example, if $f(2) = 7$, then $f^{-1}(7) = 2$. It is not $\dfrac{1}{f(x)}$.
 
   - id: q-algebra-functions-and-relations-0007
     type: direct-computation
-    difficulty: hard
+    difficulty: medium
     stem: |
       If $f(x) = 2x + 1$ and $g(x) = x^2 - 3$, find $(f \circ g)(2)$.
     choices:
@@ -146,7 +146,7 @@ questions:
 
   - id: q-algebra-functions-and-relations-0008
     type: direct-computation
-    difficulty: hard
+    difficulty: medium
     stem: |
       If $f(x) = 2x + 1$ and $g(x) = x^2 - 3$, find $(g \circ f)(2)$.
     choices:
@@ -286,7 +286,7 @@ questions:
 
   - id: q-algebra-functions-and-relations-0015
     type: direct-computation
-    difficulty: hard
+    difficulty: medium
     stem: |
       If $f(x) = x^2 + 2x$, find $f(-3)$.
     choices:
@@ -303,4 +303,3 @@ questions:
           You calculated $(-3)^2 = 9$ but omitted the $+ 2x$ term. Adding $2(-3) = -6$ yields $9 - 6 = 3$.
     explanation: |
       $f(-3) = (-3)^2 + 2(-3) = 9 - 6 = 3$.
-

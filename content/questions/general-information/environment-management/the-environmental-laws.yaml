@@ -210,21 +210,21 @@ questions:
     type: single_choice
     difficulty: medium
     stem: |
-      Which environmental law explicitly bans municipal waste incineration and regulates industrial emissions?
+      Which environmental law prohibits incineration of municipal, biomedical, and hazardous wastes when the process emits poisonous and toxic fumes, while also regulating air emissions?
     choices:
       - text: RA 8749
         correct: true
       - text: RA 9003
         rationale: |
-          You picked RA 9003, which covers solid waste management. Banning incineration of garbage and regulating emissions is under the Clean Air Act, RA 8749.
+          You picked RA 9003, which governs ecological solid waste management. The toxic-emitting incineration prohibition and air-emissions framework in the question are in RA 8749.
       - text: RA 9275
         rationale: |
-          You selected RA 9275, which regulates water quality and wastewater. Banning waste incineration and air emissions is under RA 8749.
+          You selected RA 9275, which regulates water quality and wastewater. The toxic-emitting incineration prohibition and air-emissions framework are in RA 8749.
       - text: RA 7586
         rationale: |
-          You chose RA 7586, which governs protected areas under NIPAS. Banning waste incineration and regulating air quality is under RA 8749.
+          You chose RA 7586, which governs protected areas under NIPAS. The incineration provision described in the question is part of the Clean Air Act, RA 8749.
     explanation: |
-      Section 20 of RA 8749 (Philippine Clean Air Act) explicitly prohibits waste incineration.
+      Section 20 of RA 8749 prohibits incineration of municipal, biomedical, and hazardous wastes when the process emits poisonous and toxic fumes. The provision is not an absolute ban on every incineration technology.
 
   - id: q-environment-management-the-environmental-laws-0012
     type: single_choice

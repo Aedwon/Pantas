@@ -1,0 +1,17 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-trigonometry-angles-and-radian-measure-0001	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-angles-and-radian-measure-0002	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-angles-and-radian-measure-0003	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-angles-and-radian-measure-0004	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-angles-and-radian-measure-0005	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-angles-and-radian-measure-0006	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-angles-and-radian-measure-0007	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-angles-and-radian-measure-0008	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-angles-and-radian-measure-0009	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	NONE	
+q-trigonometry-angles-and-radian-measure-0010	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	LOW	Normalized invalid difficulty value medium-hard to hard.
+q-trigonometry-angles-and-radian-measure-0011	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	LOW	Normalized invalid difficulty value medium-hard to hard.
+q-trigonometry-angles-and-radian-measure-0012	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	NONE	
+q-trigonometry-angles-and-radian-measure-0013	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; DIAGRAM BENEFICIAL	NONE	
+q-trigonometry-angles-and-radian-measure-0014	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-angles-and-radian-measure-0015	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	LOW	Clarified why the word always makes the numerical-degree-versus-radian comparison false for zero and negative angles.
+q-trigonometry-angles-and-radian-measure-0016	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	

@@ -1,0 +1,16 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-algebra-types-of-functions-0001	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-types-of-functions-0002	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-types-of-functions-0003	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A parabola sketch could reinforce vertex form but the coordinates are explicit.
+q-algebra-types-of-functions-0004	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-types-of-functions-0005	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-types-of-functions-0006	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A rational graph could illustrate the vertical asymptote but is not required.
+q-algebra-types-of-functions-0007	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A parabola is optional reinforcement for the vertex coordinate.
+q-algebra-types-of-functions-0008	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-types-of-functions-0009	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-types-of-functions-0010	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	An absolute-value graph could reinforce the minimum output but is not needed.
+q-algebra-types-of-functions-0011	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A rational graph could illustrate the horizontal asymptote but the degree rule is sufficient.
+q-algebra-types-of-functions-0012	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	LOW	Difficulty metadata recalibrated from hard to medium; logarithmic equation and answer unchanged.
+q-algebra-types-of-functions-0013	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A graph could show the removable hole at x=3 but algebra fully determines it.
+q-algebra-types-of-functions-0014	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	LOW	Difficulty metadata recalibrated from hard to medium; exponential equation and answer unchanged.
+q-algebra-types-of-functions-0015	CORRECTED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	LOW	Difficulty metadata recalibrated from hard to medium; perpendicular-slope reasoning unchanged.

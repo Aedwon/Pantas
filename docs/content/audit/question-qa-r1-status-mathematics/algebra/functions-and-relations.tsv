@@ -1,0 +1,16 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-algebra-functions-and-relations-0001	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-functions-and-relations-0002	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-functions-and-relations-0003	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-functions-and-relations-0004	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-functions-and-relations-0005	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-functions-and-relations-0006	CORRECTED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	MEDIUM	Added the necessary premise that f is invertible before using inverse-function notation.
+q-algebra-functions-and-relations-0007	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	LOW	Difficulty metadata recalibrated from hard to medium; answer content unchanged.
+q-algebra-functions-and-relations-0008	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	LOW	Difficulty metadata recalibrated from hard to medium; answer content unchanged.
+q-algebra-functions-and-relations-0009	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-functions-and-relations-0010	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-functions-and-relations-0011	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-functions-and-relations-0012	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-functions-and-relations-0013	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-functions-and-relations-0014	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-functions-and-relations-0015	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	LOW	Difficulty metadata recalibrated from hard to medium; answer content unchanged.

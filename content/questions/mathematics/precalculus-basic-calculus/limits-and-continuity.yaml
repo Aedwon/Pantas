@@ -127,11 +127,11 @@ questions:
           Indeterminate means more work is needed, not that no value exists.
       - text: $\frac{1}{\infty}$
         rationale: |
-          You picked a form that is actually determined. A fixed numerator
-          divided by an infinitely large denominator gives 0, not an
-          indeterminate result.
+          You picked a limit-form shorthand that is not indeterminate. When
+          a fixed numerator is divided by quantities growing without bound,
+          the corresponding quotient approaches 0.
     explanation: |
-      $\frac{0}{0}$ is an indeterminate form because it does not determine a specific limit value without further algebraic simplification (such as factoring or rationalizing). $\frac{0}{5} = 0$, while $\frac{5}{0}$ is undefined / infinite.
+      $\frac{0}{0}$ is an indeterminate form because it does not determine a specific limit value without further algebraic simplification (such as factoring or rationalizing). In contrast, $\frac{0}{5} = 0$, while literal division by zero such as $\frac{5}{0}$ is undefined. In limit notation, a nonzero-over-zero substitution still requires one-sided behavior to determine whether the function tends to $+\infty$, $-\infty$, or has no two-sided limit.
 
   - id: q-precalculus-basic-calculus-limits-and-continuity-0006
     type: direct-computation

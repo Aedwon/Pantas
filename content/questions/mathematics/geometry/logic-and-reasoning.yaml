@@ -273,7 +273,7 @@ questions:
 
   - id: 'q-geometry-logic-and-reasoning-0011'
     type: 'which-is-true'
-    difficulty: 'hard'
+    difficulty: 'medium'
     stem: |
       Under which combination of truth values for hypothesis P and conclusion Q is the conditional statement "If P, then Q" considered FALSE?
     choices:

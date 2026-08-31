@@ -1,0 +1,19 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-algebra-quadratic-equations-0001	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-quadratic-equations-0002	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-quadratic-equations-0003	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-quadratic-equations-0004	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-quadratic-equations-0005	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-quadratic-equations-0006	CORRECTED	RE-DERIVED	LESSON CONFLICT	TEXT SUFFICIENT	MEDIUM	Rephrased explanation to the precise issue: dividing by x assumes x != 0 and can discard the zero solution; lesson overstates this as an absolute prohibition.
+q-algebra-quadratic-equations-0007	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-quadratic-equations-0008	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-quadratic-equations-0009	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	LOW	Difficulty metadata recalibrated from hard to medium; Vieta computation unchanged.
+q-algebra-quadratic-equations-0010	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	LOW	Difficulty metadata recalibrated from hard to medium; Vieta computation unchanged.
+q-algebra-quadratic-equations-0011	CORRECTED	RE-DERIVED	LESSON CONFLICT	TEXT SUFFICIENT	HIGH	Original item incorrectly treated factoring x^2-5x while RHS=6 as the error. Factoring is valid; the invalid step is changing RHS 6 to 0 before using the zero-product property.
+q-algebra-quadratic-equations-0012	CORRECTED	RE-DERIVED	LESSON CONFLICT	TEXT SUFFICIENT	MEDIUM	Distinguished the principal square root sqrt(25)=5 from the two solutions of x^2=25; removed the false claim that a positive number has two square roots.
+q-algebra-quadratic-equations-0013	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-quadratic-equations-0014	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	LOW	Difficulty metadata recalibrated from hard to medium; quadratic-formula result unchanged.
+q-algebra-quadratic-equations-0015	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-quadratic-equations-0016	CORRECTED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	LOW	Explanation tightened to use Vieta's sum and product explicitly; keyed answer unchanged.
+q-algebra-quadratic-equations-0017	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-quadratic-equations-0018	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	

@@ -1,0 +1,17 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-statistics-and-probability-measures-of-variability-0001	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-measures-of-variability-0002	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-measures-of-variability-0003	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-measures-of-variability-0004	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-measures-of-variability-0005	CORRECTED	RE-DERIVED	DIRECTLY SUPPORTED AFTER PRECISION FIX	TEXT SUFFICIENT	LOW	Replaced the imprecise average-distance wording with the square-root-of-average-squared-deviation definition.
+q-statistics-and-probability-measures-of-variability-0006	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-measures-of-variability-0007	VERIFIED	RECOMPUTED	VALID; LESSON COVERAGE GAP	TEXT SUFFICIENT	NONE	Sample variance with denominator n-1 is not taught in the matching lesson.
+q-statistics-and-probability-measures-of-variability-0008	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-measures-of-variability-0009	VERIFIED	RECOMPUTED	VALID; LESSON COVERAGE GAP	TEXT SUFFICIENT	NONE	Sample standard deviation using n-1 is not taught in the matching lesson.
+q-statistics-and-probability-measures-of-variability-0010	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-measures-of-variability-0011	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-measures-of-variability-0012	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-statistics-and-probability-measures-of-variability-0013	CORRECTED	RECOMPUTED	VALID; LESSON COVERAGE GAP	TEXT SUFFICIENT	MEDIUM	Removed the impossible 10-point quiz ceiling while preserving the valid score datasets and variance ratio of 4.
+q-statistics-and-probability-measures-of-variability-0014	VERIFIED	RECOMPUTED	VALID; LESSON COVERAGE GAP	TEXT SUFFICIENT	NONE	Sample variance with n-1 is not taught in the matching lesson.
+q-statistics-and-probability-measures-of-variability-0015	CORRECTED	RE-DERIVED	VALID; LESSON COVERAGE GAP	TEXT SUFFICIENT	LOW	Added random-sample independence and finite-variance assumptions to the Bessel-correction unbiasedness claim.
+q-statistics-and-probability-measures-of-variability-0016	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	

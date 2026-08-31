@@ -387,7 +387,7 @@ questions:
     type: word-problem
     difficulty: hard
     stem: |
-      Referring to the Laguna plant in Question 13: Machine A produces $60\%$ of light bulbs ($5\%$ defective) and Machine B produces $40\%$ ($2\%$ defective). If a randomly inspected bulb is found to be defective, what is the probability that it was produced by Machine A?
+      Machine A produces $60\%$ of an electronics plant's light bulbs with a $5\%$ defect rate, while Machine B produces the remaining $40\%$ with a $2\%$ defect rate. If a randomly inspected bulb is found to be defective, what is the probability that it was produced by Machine A?
     choices:
       - text: "$\\frac{15}{19}$"
         correct: true
@@ -401,12 +401,13 @@ questions:
         rationale: |
           You picked Machine A's defect rate alone instead of using Bayes' Theorem.
     explanation: |
-      Apply Bayes' Theorem to find the posterior probability $P(A \mid D)$:
+      First compute the overall defective probability from the data in this item:
       
-      $$P(A \mid D) = \frac{P(D \mid A) \cdot P(A)}{P(D)}$$
+      $$P(D) = (0.05 \times 0.60) + (0.02 \times 0.40) = 0.030 + 0.008 = 0.038$$
       
-      From Question 13, $P(D) = 0.038$ and $P(D \mid A) \cdot P(A) = 0.05 \times 0.60 = 0.030$:
+      Then apply Bayes' Theorem:
       
+      $$P(A \mid D) = \frac{P(D \mid A)P(A)}{P(D)} = \frac{0.05 \times 0.60}{0.038}$$
       $$P(A \mid D) = \frac{0.030}{0.038} = \frac{30}{38} = \frac{15}{19}$$
       
       The probability that a defective bulb came from Machine A is $\frac{15}{19}$ (approximately $78.95\%$).

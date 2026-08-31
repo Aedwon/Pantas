@@ -236,15 +236,15 @@ questions:
         correct: true
       - text: Habeas corpus
         rationale: |
-          You selected habeas corpus, which tests the legal custody of a detainee. Section 12 rights to silence and counsel are known as Miranda rights.
+          You selected habeas corpus, which tests the legal custody of a detainee. Section 12 rights to silence and counsel are commonly called Miranda rights.
       - text: Right to bail
         rationale: |
-          You picked right to bail, which allows temporary provisional release. Warnings regarding silence and legal counsel are termed Miranda rights.
+          You picked right to bail, which allows provisional release. Warnings regarding silence and legal counsel concern custodial-investigation rights.
       - text: Double jeopardy
         rationale: |
-          You chose double jeopardy, which prevents re-trial for the same offense. Rights during custodial investigation are known as Miranda rights.
+          You chose double jeopardy, which prevents retrial for the same offense. The stem asks about rights during custodial investigation.
     explanation: |
-      Section 12 of Article III contains custodial rights, commonly referred to as Miranda rights in constitutional law.
+      Section 12 of Article III guarantees the right to be informed of the right to remain silent and to competent and independent counsel during custodial investigation. These protections are commonly referred to as Miranda rights.
 
   - id: q-philippine-constitution-bill-of-rights-0013
     type: single_choice
@@ -259,10 +259,10 @@ questions:
           You selected Article I, which defines National Territory. Prohibition of cruel, degrading, or inhuman punishment is set out in Article III Section 19.
       - text: Article IV
         rationale: |
-          You picked Article IV, which covers Citizenship. Ban on cruel, degrading, or inhuman treatment is a Bill of Rights protection under Article III.
+          You picked Article IV, which covers Citizenship. The prohibition is a Bill of Rights protection under Article III.
       - text: Article IX
         rationale: |
-          You chose Article IX, which governs Constitutional Commissions. Protection against cruel or inhuman punishment is in Article III Section 19.
+          You chose Article IX, which governs Constitutional Commissions. Protection against cruel, degrading, or inhuman punishment is in Article III Section 19.
     explanation: |
       Section 19(1) of Article III prohibits cruel, degrading, or inhuman punishment.
 
@@ -270,21 +270,21 @@ questions:
     type: single_choice
     difficulty: hard
     stem: |
-      Under Article III, the right of the people to be secure in their persons, houses, papers, and effects against unreasonable searches is protected by requiring what?
+      Under Article III, Section 2, what constitutional condition must be met before a search warrant may issue?
     choices:
-      - text: Search warrant upon probable cause
+      - text: Probable cause personally determined by a judge
         correct: true
-      - text: Executive mandate upon private suspicion
+      - text: Executive approval based only on private suspicion
         rationale: |
-          You selected executive mandate, which lacks judicial review. Search warrants require probable cause determined personally by a judge under oath.
+          Executive approval and bare suspicion do not satisfy the constitutional warrant requirement. Probable cause must be determined personally by a judge.
       - text: Verbal approval from a local chief officer
         rationale: |
-          You picked verbal approval from a local chief, which ignores court warrants. Valid searches require a written warrant based on probable cause.
+          A local officer's verbal approval is not the constitutional basis for issuing a search warrant.
       - text: Administrative order from a city mayor
         rationale: |
-          You chose administrative mayor order, which is an executive issuance. Section 2 requires a judge to find probable cause for a search warrant.
+          A mayoral administrative order does not replace the judicial probable-cause determination required for a search warrant.
     explanation: |
-      Section 2 of Article III provides that search warrants shall issue only upon probable cause determined personally by a judge after examination under oath.
+      Article III, Section 2 protects against unreasonable searches and seizures and provides that no search warrant shall issue except upon probable cause personally determined by a judge after examination under oath or affirmation, with particular description of the place to be searched and the persons or things to be seized. This warrant clause does not mean that every constitutionally reasonable search must always be supported by a warrant; recognized warrantless-search exceptions are a separate question.
 
   - id: q-philippine-constitution-bill-of-rights-0015
     type: single_choice
@@ -296,12 +296,12 @@ questions:
         correct: true
       - text: Freedom from involuntary servitude
         rationale: |
-          You selected involuntary servitude, which prohibits forced labor. Protecting a person from forced self-incriminating testimony is self-incrimination.
+          You selected involuntary servitude, which prohibits forced labor. Protecting a person from compelled self-incriminating testimony is the right against self-incrimination.
       - text: Right to speedy disposition of cases
         rationale: |
-          You picked speedy disposition, which prevents unreasonable court delays. Protecting a witness from testifying against oneself is self-incrimination.
+          You picked speedy disposition, which prevents unreasonable delays. The stem asks about compelled testimony against oneself.
       - text: Protection against ex post facto laws
         rationale: |
-          You chose ex post facto laws, which bars retroactive penal statutes. Protecting accused persons from forced testimony is self-incrimination.
+          You chose ex post facto laws, which bar certain retroactive penal laws. The stem asks about compelled self-incriminating testimony.
     explanation: |
       Section 17 of Article III states that no person shall be compelled to be a witness against himself.

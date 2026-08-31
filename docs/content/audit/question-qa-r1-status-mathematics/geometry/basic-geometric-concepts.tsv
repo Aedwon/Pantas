@@ -1,0 +1,16 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-geometry-basic-geometric-concepts-0001	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-geometry-basic-geometric-concepts-0002	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-geometry-basic-geometric-concepts-0003	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A crossing-lines sketch could reinforce vertical-angle position but is not required.
+q-geometry-basic-geometric-concepts-0004	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-geometry-basic-geometric-concepts-0005	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	An angle-bisector sketch could reinforce the two equal halves.
+q-geometry-basic-geometric-concepts-0006	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-geometry-basic-geometric-concepts-0007	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-geometry-basic-geometric-concepts-0008	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-geometry-basic-geometric-concepts-0009	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A crossing-lines sketch could reinforce vertical versus adjacent angles.
+q-geometry-basic-geometric-concepts-0010	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A straight-line angle partition could reinforce the three adjacent angles.
+q-geometry-basic-geometric-concepts-0011	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A linear-pair bisector sketch could show why the bisectors are perpendicular.
+q-geometry-basic-geometric-concepts-0012	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-geometry-basic-geometric-concepts-0013	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A collinear-point sketch could reinforce the midpoint constraints.
+q-geometry-basic-geometric-concepts-0014	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A rays-around-a-point sketch could reinforce the 360-degree sum.
+q-geometry-basic-geometric-concepts-0015	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	LOW	Corrected the final trap note: 140 degrees is the supplement of R=40, not the supplement of Q=50.

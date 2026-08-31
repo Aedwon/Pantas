@@ -1,0 +1,17 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-trigonometry-inverse-trigonometric-functions-0001	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; UNIT-CIRCLE BENEFICIAL	LOW	Clarified that 150 degrees does have sine 1/2 but is rejected because it lies outside arcsine's principal range.
+q-trigonometry-inverse-trigonometric-functions-0002	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	LOW	Added the arcsine input-domain condition x in [-1,1] to the explanation.
+q-trigonometry-inverse-trigonometric-functions-0003	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; UNIT-CIRCLE BENEFICIAL	NONE	
+q-trigonometry-inverse-trigonometric-functions-0004	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-inverse-trigonometric-functions-0005	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; UNIT-CIRCLE BENEFICIAL	NONE	
+q-trigonometry-inverse-trigonometric-functions-0006	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; UNIT-CIRCLE BENEFICIAL	NONE	
+q-trigonometry-inverse-trigonometric-functions-0007	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; UNIT-CIRCLE BENEFICIAL	NONE	
+q-trigonometry-inverse-trigonometric-functions-0008	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TRIANGLE BENEFICIAL	LOW	Repaired distractor rationales so they describe the displayed reciprocal errors accurately.
+q-trigonometry-inverse-trigonometric-functions-0009	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TRIANGLE BENEFICIAL	LOW	Normalized invalid difficulty value medium-hard to hard.
+q-trigonometry-inverse-trigonometric-functions-0010	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; UNIT-CIRCLE BENEFICIAL	NONE	
+q-trigonometry-inverse-trigonometric-functions-0011	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TRIANGLE BENEFICIAL	NONE	
+q-trigonometry-inverse-trigonometric-functions-0012	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-trigonometry-inverse-trigonometric-functions-0013	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; UNIT-CIRCLE BENEFICIAL	NONE	
+q-trigonometry-inverse-trigonometric-functions-0014	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TRIANGLE BENEFICIAL	NONE	
+q-trigonometry-inverse-trigonometric-functions-0015	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; UNIT-CIRCLE BENEFICIAL	NONE	
+q-trigonometry-inverse-trigonometric-functions-0016	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; TRIANGLE BENEFICIAL	NONE	

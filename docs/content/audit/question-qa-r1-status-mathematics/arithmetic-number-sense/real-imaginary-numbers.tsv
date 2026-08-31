@@ -1,0 +1,16 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-arithmetic-number-sense-real-imaginary-numbers-0001	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	HIGH	Stated the natural-number convention explicitly because inclusion of 0 varies by convention; lesson uses the same stated convention.
+q-arithmetic-number-sense-real-imaginary-numbers-0002	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0003	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0004	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0005	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0006	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0007	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0008	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0009	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0010	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0011	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0012	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0013	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0014	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0015	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	CRITICAL	Removed the false engineering premise that a product of two impedances is their total impedance in ohms; retained the lesson-supported complex multiplication skill.

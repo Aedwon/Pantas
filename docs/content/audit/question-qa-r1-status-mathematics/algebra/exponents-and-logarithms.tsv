@@ -1,0 +1,16 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-algebra-exponents-and-logarithms-0001	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-exponents-and-logarithms-0002	CORRECTED	RE-DERIVED	LESSON GAP	TEXT SUFFICIENT	HIGH	Preserved original quotient domain by stating x != 0.
+q-algebra-exponents-and-logarithms-0003	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-exponents-and-logarithms-0004	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-exponents-and-logarithms-0005	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-exponents-and-logarithms-0006	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-exponents-and-logarithms-0007	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-exponents-and-logarithms-0008	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-exponents-and-logarithms-0009	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-exponents-and-logarithms-0010	CORRECTED	RE-DERIVED	LESSON GAP	TEXT SUFFICIENT	HIGH	Preserved x != 0 and y != 0 restrictions when simplifying the variable quotient.
+q-algebra-exponents-and-logarithms-0011	CORRECTED	RE-DERIVED	LESSON GAP	TEXT SUFFICIENT	HIGH	Stated x > 0 and y > 0 so the real logarithms and condensation rule are defined.
+q-algebra-exponents-and-logarithms-0012	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-exponents-and-logarithms-0013	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-exponents-and-logarithms-0014	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-algebra-exponents-and-logarithms-0015	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	

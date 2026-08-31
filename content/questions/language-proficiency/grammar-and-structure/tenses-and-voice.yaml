@@ -38,10 +38,10 @@ questions:
           You called it passive, but the subject "dog" actively performs the action of chasing.
       - text: Neither; this sentence has no voice
         rationale: |
-          You claimed the sentence has no voice, but every transitive verb sentence exhibits either active or passive voice.
+          You claimed the sentence has no voice, but this transitive clause is in the active voice: the subject performs the action.
       - text: Both active and passive simultaneously
         rationale: |
-          You claimed it is both active and passive, but a sentence structure can only express one primary grammatical voice.
+          You claimed it is both active and passive, but this clause is structured in the active voice.
     explanation: |
       The subject "dog" performs the action of chasing, making this active voice.
     approved: true
@@ -62,7 +62,7 @@ questions:
           You claimed the sentence has no voice, but "was chased" clearly establishes a passive construction.
       - text: Both active and passive simultaneously
         rationale: |
-          You claimed it is both active and passive, but a clause takes a single grammatical voice.
+          You claimed it is both active and passive, but this clause is structured in the passive voice.
     explanation: |
       The subject "ball" receives the action, and "was chased" uses a form of "to be" plus the past participle: this is passive voice.
     approved: true
@@ -85,7 +85,7 @@ questions:
         rationale: |
           You kept the sentence in passive voice and shifted the verb tense from past to present.
     explanation: |
-      To convert to active voice, make the doer ("a famous author") the subject, and have it directly perform the verb: "A famous author wrote the novel."
+      To convert to active voice, make the doer ("a famous author") the subject and have it directly perform the verb: "A famous author wrote the novel."
     approved: true
 
   - id: q-grammar-and-structure-tenses-and-voice-0005
@@ -98,15 +98,15 @@ questions:
         correct: true
       - text: Cooked
         rationale: |
-          You picked simple past "cooked," but an action completed prior to another past event requires past perfect ("had cooked").
+          You picked simple past "cooked," but the sentence presents the meal as already completed at the past reference point set by "by the time the guests arrived." Past perfect makes that prior completion explicit.
       - text: Cooks
         rationale: |
-          You picked simple present "cooks," but the sentence describes a past timeline ("by the time the guests arrived").
+          You picked simple present "cooks," but the sentence describes a past timeline ("the guests arrived").
       - text: Will cook
         rationale: |
-          You picked future tense "will cook," but the timeframe is set in the past.
+          You picked future tense "will cook," but the reference point is in the past.
     explanation: |
-      The cooking was completed before the guests arrived: an earlier past action relative to another past action. This calls for the past perfect tense: "had cooked."
+      "By the time the guests arrived" sets a past reference point and the meal is presented as completed before that point. "Had cooked" is the best form for that earlier completed action.
     approved: true
 
   - id: q-grammar-and-structure-tenses-and-voice-0006
@@ -119,10 +119,10 @@ questions:
         correct: true
       - text: Practiced should be practices to match wins
         rationale: |
-          You shifted "practiced" to present tense, but "last week" requires the entire sentence to stay in the past tense.
+          You shifted "practiced" to present tense, but "last week" requires the actions in this sentence to be narrated in the past.
       - text: There is no error; the sentence is correct
         rationale: |
-          You assumed the sentence was correct, but mixing past ("practiced") with present ("wins") creates a tense shift error.
+          You assumed the sentence was correct, but mixing past ("practiced") with present ("wins") creates an unjustified tense shift.
       - text: Both verbs should be in present tense
         rationale: |
           You suggested present tense for both verbs, but "last week" indicates past actions.
@@ -143,12 +143,12 @@ questions:
           You reversed the agent and object, claiming the budget approved the committee.
       - text: The new budget approves the committee.
         rationale: |
-          You changed to active voice with reversed roles, and shifted past tense to present tense.
+          You changed to active voice with reversed roles and shifted past tense to present tense.
       - text: The committee approves the new budget was.
         rationale: |
-          You created an ungrammatical sentence structure with dangling auxiliary verbs.
+          You created an ungrammatical sentence structure with misplaced auxiliary verbs.
     explanation: |
-      To convert to passive voice, make the receiver ("the new budget") the subject, and use "was" plus the past participle "approved," with the doer introduced by "by."
+      To convert to passive voice, make the receiver ("the new budget") the subject and use "was" plus the past participle "approved," with the doer introduced by "by."
     approved: true
 
   - id: q-grammar-and-structure-tenses-and-voice-0008
@@ -167,7 +167,7 @@ questions:
           Pinili mo ang "kakain," ngunit ito ay kontemplatibo (gagawin pa lamang) at hindi perpektibo.
       - text: Kainin
         rationale: |
-          Pinili mo ang "kainin," ngunit ito ay pawatas/pautos at hindi aspektong perpektibo.
+          Pinili mo ang "kainin," ngunit hindi ito ang aspektong perpektibo na hinihingi ng tanong.
     explanation: |
       Ang "kumain" ay perpektibo, dahil tapos na ang kilos ng pagkain.
     approved: true
@@ -188,9 +188,9 @@ questions:
           Pinili mo ang "kakain," ngunit ito ay kontemplatibo (gagawin pa) at hindi imperpektibo.
       - text: Kainin
         rationale: |
-          Pinili mo ang "kainin," ngunit ito ay pawatas o pautos.
+          Pinili mo ang "kainin," ngunit hindi ito ang aspektong imperpektibo na hinihingi ng tanong.
     explanation: |
-      Ang "kumakain" ay imperpektibo, dahil nagaganap pa (ongoing) ang kilos ng pagkain.
+      Ang "kumakain" ay imperpektibo, dahil nagaganap pa ang kilos ng pagkain.
     approved: true
 
   - id: q-grammar-and-structure-tenses-and-voice-0010
@@ -209,7 +209,7 @@ questions:
           Pinili mo ang "kumakain," ngunit ito ay imperpektibo (ginagawa pa) at hindi kontemplatibo.
       - text: Kainin
         rationale: |
-          Pinili mo ang "kainin," ngunit ito ay nasa anyong pautos/pawatas.
+          Pinili mo ang "kainin," ngunit hindi ito ang aspektong kontemplatibo na hinihingi ng tanong.
     explanation: |
       Ang "kakain" ay kontemplatibo, dahil hindi pa nagsisimula ang kilos ng pagkain.
     approved: true
@@ -227,10 +227,10 @@ questions:
           Pinili mo ang tagaganap, ngunit ang "ang" ay nakaturo sa "mangga" (bagay) at hindi sa bata.
       - text: Walang pokus
         rationale: |
-          Inakala mong walang pokus, ngunit sa Gramatikang Tagalog/Filipino ay laging may pokus ang pandiwa.
+          Inakala mong walang pokus, ngunit sa pangungusap na ito ay malinaw na minarkahan ng "ang" ang bagay na pokus ng pandiwa.
       - text: Pokus sa oras
         rationale: |
-          Pinili mo ang oras, ngunit walang pokus sa oras sa istraktura ng pangungusap na ito.
+          Pinili mo ang oras, ngunit walang pariralang panahong siyang pokus sa istraktura ng pangungusap na ito.
     explanation: |
       Sa pangungusap na ito, "ang mangga" (ang bagay na kinain) ang minarkahan ng "ang," kaya ang pandiwa ay naka-pokus sa bagay, hindi sa tagaganap.
     approved: true
@@ -241,19 +241,19 @@ questions:
     stem: |
       A student writes "She walked to the store and buys bread," switching from past to present tense mid-sentence. Is this correct?
     choices:
-      - text: 'No: verbs describing actions in the same timeline should stay in the same tense; this should read "walked... and bought."'
+      - text: 'No: the sentence presents both actions in the same past timeline, so it should read "walked... and bought."'
         correct: true
       - text: 'Yes: switching tense mid-sentence is always acceptable for variety.'
         rationale: |
-          You assumed switching tense adds variety, but shifting tenses without a timeline shift creates a grammatical error.
+          You assumed switching tense adds variety, but an unexplained shift changes the timeline.
       - text: 'Yes: but only because "store" and "bread" are different nouns.'
         rationale: |
-          You linked verb tense consistency to noun differences, which is grammatically irrelevant.
+          You linked verb tense consistency to noun differences, which is irrelevant.
       - text: 'No: but only because "walked" should actually be changed to present tense instead.'
         rationale: |
-          You wanted to change the first verb to present, but narrative actions in progress belong in past tense.
+          You changed the first action instead of following the past timeline already established by "walked."
     explanation: |
-      A sentence describing a single past story that suddenly switches to present tense is a common sentence-correction error. Only shift tense when the timeline itself genuinely changes.
+      The sentence presents both actions as part of one past sequence. "Walked ... and bought" keeps that timeline consistent; a tense shift would need a real change in time or viewpoint.
     approved: true
 
   - id: q-grammar-and-structure-tenses-and-voice-0013
@@ -262,40 +262,40 @@ questions:
     stem: |
       A student sees "She is happy" and assumes it must be passive voice, since it uses the word "is." Is this correct?
     choices:
-      - text: 'No: "happy" is an adjective, not a past participle describing an action done to the subject; passive voice specifically needs "to be" plus a past participle.'
+      - text: 'No: "happy" is an adjective, not a past participle describing an action done to the subject; passive voice requires an appropriate passive verb construction, typically a form of "be" plus a past participle.'
         correct: true
       - text: 'Yes: any sentence with "is," "was," or "were" is automatically passive voice.'
         rationale: |
-          You assumed linking verbs guarantee passive voice, but passive voice specifically requires a past participle verb.
+          You assumed a form of "be" alone creates passive voice, but "be" also functions as a linking verb.
       - text: 'Yes: but only because "happy" sounds like a participle.'
         rationale: |
           You mistook the descriptive adjective "happy" for a verb participle.
       - text: 'No: but only because "she" cannot be a subject in passive voice.'
         rationale: |
-          You claimed "she" cannot be a subject in passive voice, but pronouns can serve as subjects in any voice.
+          You claimed "she" cannot be a passive subject, but pronouns can be subjects in passive constructions.
     explanation: |
-      Not every sentence with "is," "was," or "were" is automatically passive: check for the past participle too. "She is happy" is not passive, since "happy" is an adjective, not a past participle showing an action received.
+      "She is happy" uses "is" as a linking verb followed by the adjective "happy." A form of "be" does not by itself make a clause passive.
     approved: true
 
   - id: q-grammar-and-structure-tenses-and-voice-0014
     type: tense
     difficulty: hard
     stem: |
-      A student writes "She finished the report before her boss asked for it," without using past perfect for the earlier action. Is this the exam-preferred version?
+      A student writes "She finished the report before her boss asked for it," using simple past for both actions. Is the sentence grammatically acceptable?
     choices:
-      - text: 'No: since "finished" happened before "asked" (both past events), the earlier action needs past perfect, giving "She had finished the report before her boss asked for it."'
+      - text: 'Yes: "before" already makes the order of the two past events clear. "She had finished the report before her boss asked for it" is also possible when the writer wants to emphasize the earlier completion.'
         correct: true
-      - text: 'Yes: past perfect is never necessary when both actions are already in the past tense.'
+      - text: 'No: whenever one past action happens before another, the earlier action must use past perfect.'
         rationale: |
-          You claimed past perfect is never needed, but formal grammar requires past perfect for earlier past actions.
+          You turned a useful tense choice into an absolute rule. Past perfect can mark the earlier event, but an explicit time connector such as "before" can already make the sequence clear.
       - text: 'Yes: but only because "report" is a singular noun.'
         rationale: |
-          You linked verb tense choice to noun number instead of temporal sequence.
-      - text: 'No: but only because "asked" should be changed to past perfect instead.'
+          You linked tense choice to noun number, which does not determine whether simple past or past perfect is appropriate.
+      - text: 'No: the later action "asked" must use past perfect instead.'
         rationale: |
-          You put the past perfect on the later action ("asked") rather than the earlier action ("finished").
+          You put past perfect on the later event. If past perfect is used here, it would mark the earlier completion: "had finished."
     explanation: |
-      When one past action happened before another past action, the earlier action needs the past perfect ("had" + past participle). "She had finished the report before her boss asked for it" is the exam-preferred, more precise version.
+      The simple-past sentence is grammatical because "before" explicitly orders the events. Past perfect remains available to emphasize that the report was already complete before the later request, but it is not mandatory merely because one past event happened first.
     approved: true
 
   - id: q-grammar-and-structure-tenses-and-voice-0015
@@ -329,15 +329,15 @@ questions:
         correct: true
       - text: Simple past
         rationale: |
-          You picked simple past, but "has written" uses the auxiliary verb "has" to show ongoing present relevance.
+          You picked simple past, but "has written" uses the present-perfect auxiliary "has" plus the past participle.
       - text: Simple future
         rationale: |
-          You picked simple future, but "has written" refers to an action already completed.
+          You picked simple future, but "has written" describes completed writing within a time period connected to the present.
       - text: Past perfect
         rationale: |
           You picked past perfect, but "has written" uses the present auxiliary "has" rather than "had."
     explanation: |
-      "Has written" describes an action completed at an unspecified time, still relevant to the present ("this week"): this is present perfect tense.
+      "Has written" is present perfect: "has" plus the past participle "written." The unfinished time expression "this week" also fits a present-perfect reading.
     approved: true
 
   - id: q-grammar-and-structure-tenses-and-voice-0017
@@ -365,19 +365,19 @@ questions:
     type: tense
     difficulty: exam
     stem: |
-      In the sentence "By the time the manager reviewed it, the report had already been submitted by the intern," identify (1) the tense of "had already been submitted" and (2) whether this sentence is active or passive voice.
+      In the sentence "By the time the manager reviewed it, the report had already been submitted by the intern," identify (1) the tense of "had already been submitted" and (2) whether this clause is active or passive voice.
     choices:
-      - text: '(1) Past perfect, (2) Passive voice: since "report" receives the action and "been submitted" is a past participle after a form of "to be"'
+      - text: '(1) Past perfect, (2) Passive voice: "had" marks past perfect, while the report receives the action in "been submitted"'
         correct: true
       - text: (1) Simple past, (2) Active voice
         rationale: |
-          You misidentified both tense and voice: "had been" shows past perfect and "submitted" is passive.
+          You misidentified both tense and voice: "had been submitted" is a past-perfect passive construction.
       - text: (1) Past perfect, (2) Active voice
         rationale: |
-          You identified the past perfect tense correctly but missed that the report is receiving the action (passive).
+          You identified the past perfect tense correctly but missed that the report receives the action.
       - text: (1) Present perfect, (2) Passive voice
         rationale: |
-          You misidentified the tense as present perfect instead of past perfect ("had").
+          You identified the passive voice but misread "had" as present perfect instead of past perfect.
     explanation: |
-      "Had already been submitted" shows an earlier past action (past perfect) relative to "reviewed." The subject "report" receives the action, with "been submitted" (a form of "to be" plus a past participle): this is passive voice.
+      "Had already been submitted" is past perfect because it uses "had" plus the participial verb phrase, and it is passive because the subject "report" receives the action of submission.
     approved: true

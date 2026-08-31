@@ -1,0 +1,16 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-geometry-parallel-perpendicular-lines-0001	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-geometry-parallel-perpendicular-lines-0002	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-geometry-parallel-perpendicular-lines-0003	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-geometry-parallel-perpendicular-lines-0004	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-geometry-parallel-perpendicular-lines-0005	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-geometry-parallel-perpendicular-lines-0006	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-geometry-parallel-perpendicular-lines-0007	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-geometry-parallel-perpendicular-lines-0008	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-geometry-parallel-perpendicular-lines-0009	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-geometry-parallel-perpendicular-lines-0010	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-geometry-parallel-perpendicular-lines-0011	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-geometry-parallel-perpendicular-lines-0012	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-geometry-parallel-perpendicular-lines-0013	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	LOW	Removed undefined point O from the explanation and stated the perpendicular angle at B directly.
+q-geometry-parallel-perpendicular-lines-0014	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	HIGH	Rewrote an impossible angle naming configuration: A, B, C lay on one transversal so angle ABC could not be 75 degrees. New stem uses corresponding acute angles and a bisected adjacent obtuse angle.
+q-geometry-parallel-perpendicular-lines-0015	CORRECTED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	HIGH	Removed unnecessary figure dependency and explicitly fixed both transversal intersections to the left of P, making the 115-degree left-facing angle unique from text alone.

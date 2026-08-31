@@ -127,7 +127,7 @@ questions:
         correct: true
       - text: "$80\\text{ metric tons}$"
         rationale: |
-          You calculated the increase from January to February (520 - 450 = 70) or February to April.
+          You compared February with April ($600 - 520 = 80$) instead of March with April.
       - text: "$150\\text{ metric tons}$"
         rationale: |
           You calculated the increase from January to April (600 - 450 = 150) instead of March to April.
@@ -163,7 +163,7 @@ questions:
           You included only the 30-44 age group population and omitted residents aged 45 and older.
       - text: "$2,050$"
         rationale: |
-          You included the 15-29 age group population instead of restricting to residents at least 30 years old.
+          You summed the two groups under age 30 ($850 + 1,200 = 2,050$), which is the complement of the requested at-least-30 population.
       - text: "$4,000$"
         rationale: |
           You summed the total population of all age groups across the entire barangay.
@@ -228,13 +228,13 @@ questions:
         correct: true
       - text: "$40\\%$"
         rationale: |
-          You calculated the percentage of students scoring 70 or lower (14/40 = 35%) or miscounted frequency.
+          You counted only the $16$ students in the $71-80$ interval: $16/40 = 40\%$, omitting those who scored above 80.
       - text: "$60\\%$"
         rationale: |
-          You included only the 71-80 and 81-90 score ranges (23 students) or miscalculated the ratio.
+          You omitted part of the greater-than-70 group; all three intervals $71-80$, $81-90$, and $91-100$ must be included.
       - text: "$75\\%$"
         rationale: |
-          You included the 61-70 range (10 students) along with higher scores.
+          You included too many students in the favorable count, such as part of the $61-70$ interval, even though those scores are not greater than 70.
     explanation: |
       Students who scored greater than $70$ fall into the score ranges $71-80$, $81-90$, and $91-100$:
       
@@ -303,10 +303,10 @@ questions:
           You inverted the ratio, calculating Company B to Company A instead of A to B.
       - text: "$6 : 5$"
         rationale: |
-          You used only Q4 exports (80:65) or simplified improperly.
+          The annual totals are $240$ for Company A and $220$ for Company B. The ratio $6:5$ would require a different Company B total and does not match the table; $240:220$ simplifies to $12:11$.
       - text: "$4 : 3$"
         rationale: |
-          You used only Q1 exports (40:60 -> 2:3) or miscalculated the annual totals.
+          The annual totals must use all four quarters. Summing the table gives $240:220$, not $4:3$; reducing $240:220$ by their common factor 20 gives $12:11$.
     explanation: |
       Sum the exports for each company across all four quarters:
       

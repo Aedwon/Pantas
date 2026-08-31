@@ -1,0 +1,16 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-geometry-circles-0001	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	An arc/inscribed-angle sketch could reinforce the half-angle relation.
+q-geometry-circles-0002	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-geometry-circles-0003	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	An inscribed-triangle sketch could reinforce the right angle subtended by a diameter.
+q-geometry-circles-0004	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-geometry-circles-0005	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A tangent-radius right-triangle sketch could reinforce the setup.
+q-geometry-circles-0006	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A sector sketch could reinforce which fraction of the circumference is used.
+q-geometry-circles-0007	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A sector sketch could reinforce the fraction-of-area interpretation.
+q-geometry-circles-0008	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A cyclic-quadrilateral sketch could reinforce opposite-angle position.
+q-geometry-circles-0009	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A chord-intersection sketch could reinforce which intercepted arcs pair with the angle.
+q-geometry-circles-0010	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A two-secant sketch could reinforce the exterior-angle configuration.
+q-geometry-circles-0011	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A concentric-circle chord sketch would reduce spatial load but is not required by the written givens.
+q-geometry-circles-0012	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A tangent/secant sketch could reinforce the power-of-a-point relationship.
+q-geometry-circles-0013	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A circle-and-chord diagram could reinforce the perpendicular-radius construction.
+q-geometry-circles-0014	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	An inscribed-square diagram could make the area decomposition faster to see.
+q-geometry-circles-0015	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	A two-tangent external-point diagram could reinforce the equal tangent segments.

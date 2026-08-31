@@ -153,7 +153,7 @@ questions:
     type: direct-computation
     difficulty: medium
     stem: |
-      A trapezoid has parallel bases of $10\text{ cm}$ and $18\text{ cm}$. Its non-parallel slant legs measure $5\text{ cm}$, and its vertical perpendicular height is $4\text{ cm}$. What is the area of the trapezoid?
+      A trapezoid has parallel bases of $10\text{ cm}$ and $18\text{ cm}$. One non-parallel slant leg measures $5\text{ cm}$, and its vertical perpendicular height is $4\text{ cm}$. What is the area of the trapezoid?
     choices:
       - text: '$56\text{ cm}^2$'
         correct: true

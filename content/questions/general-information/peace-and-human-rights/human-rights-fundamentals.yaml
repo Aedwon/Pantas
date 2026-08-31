@@ -16,15 +16,15 @@ questions:
         correct: true
       - text: Article III
         rationale: |
-          You selected Article III, which is the Bill of Rights. The Commission on Human Rights itself is established under Article XIII.
+          Article III is the Bill of Rights. The Commission on Human Rights itself is created under Article XIII.
       - text: Article IX
         rationale: |
-          You picked Article IX, which governs Constitutional Commissions like CSC and COMELEC. The CHR is created under Article XIII.
+          Article IX governs the Constitutional Commissions such as the CSC, COMELEC, and COA. The CHR is created under Article XIII.
       - text: Article XI
         rationale: |
-          You chose Article XI, which covers Accountability of Public Officers. Creation of the CHR is mandated in Article XIII.
+          Article XI covers Accountability of Public Officers. The CHR is created under Article XIII.
     explanation: |
-      Article XIII (Social Justice and Human Rights) mandates the creation of the independent Commission on Human Rights.
+      Article XIII (Social Justice and Human Rights), Section 17 creates the independent Commission on Human Rights.
 
   - id: q-peace-and-human-rights-human-rights-fundamentals-0002
     type: single_choice
@@ -36,13 +36,13 @@ questions:
         correct: true
       - text: Bill of Rights and Constitutional Freedoms
         rationale: |
-          You selected Bill of Rights, which is the title of Article III. Article XIII is officially titled Social Justice and Human Rights.
+          The Bill of Rights is Article III. Article XIII is titled Social Justice and Human Rights.
       - text: General Provisions and Public Office Rules
         rationale: |
-          You picked General Provisions, which corresponds to Article XVI. Article XIII is titled Social Justice and Human Rights.
+          General Provisions is Article XVI. Article XIII is titled Social Justice and Human Rights.
       - text: Declaration of Principles and State Policy
         rationale: |
-          You chose Declaration of Principles, which is the title of Article II. Article XIII is titled Social Justice and Human Rights.
+          The Declaration of Principles and State Policies is Article II. Article XIII is Social Justice and Human Rights.
     explanation: |
       Article XIII of the 1987 Constitution is titled Social Justice and Human Rights.
 
@@ -56,15 +56,15 @@ questions:
         correct: true
       - text: Article I
         rationale: |
-          You selected Article I, which defines the National Territory. Individual civil and political rights are guaranteed in Article III.
+          Article I defines the National Territory. Civil and political liberties are principally protected in Article III.
       - text: Article IV
         rationale: |
-          You picked Article IV, which defines Philippine Citizenship. The fundamental domestic guarantee of human rights is Article III.
+          Article IV defines Philippine Citizenship. The Bill of Rights is Article III.
       - text: Article V
         rationale: |
-          You chose Article V, which governs Suffrage. The primary constitutional guarantee of individual rights is the Bill of Rights in Article III.
+          Article V governs Suffrage. The Bill of Rights is Article III.
     explanation: |
-      Article III (Bill of Rights) is the fundamental domestic guarantee of civil and political rights.
+      Article III, the Bill of Rights, is the primary domestic constitutional guarantee of fundamental civil and political rights.
 
   - id: q-peace-and-human-rights-human-rights-fundamentals-0004
     type: single_choice
@@ -76,15 +76,15 @@ questions:
         correct: true
       - text: Private corporate executives
         rationale: |
-          You selected corporate executives, who are governed by civil and criminal laws. International human rights law directly binds state authorities.
+          Private actors may have duties under domestic law and other frameworks, but international human rights treaty obligations primarily bind states and their authorities.
       - text: International tourist travelers
         rationale: |
-          You picked international tourists, who are individual visitors. Human rights treaties primarily bind state authorities to protect people.
+          Individual travelers are not the primary duty-bearers under international human rights treaties.
       - text: Foreign commercial shipping firms
         rationale: |
-          You chose foreign shipping firms, which are private maritime entities. Legal obligations under human rights law bind state authorities.
+          International human rights law primarily imposes treaty duties on states, not private commercial firms as such.
     explanation: |
-      Human rights law primarily places legal duties on state authorities to respect and protect individuals within their jurisdiction.
+      International human rights law primarily places legal duties on states and state authorities to respect, protect, and fulfill human rights.
 
   - id: q-peace-and-human-rights-human-rights-fundamentals-0005
     type: single_choice
@@ -96,15 +96,15 @@ questions:
         correct: true
       - text: Granted exclusively by government presidential decree
         rationale: |
-          You selected presidential decree, which treats rights as government gifts. Human rights are inherent and possessed by virtue of humanity.
+          Human rights are understood as inherent to persons, not merely benefits created at presidential discretion.
       - text: Conditioned upon paying annual state property income taxes
         rationale: |
-          You picked paying property taxes, which confuses financial taxes with human rights. Rights exist inherently by virtue of being human.
+          Human rights are not conditioned on payment of property taxes.
       - text: Restricted to wealthy landholding property title holders
         rationale: |
-          You chose landholding property holders, which limits rights to wealth. Human rights are universal and possessed by virtue of humanity.
+          Human rights are universal and are not restricted to people with property or wealth.
     explanation: |
-      Human rights are inherent to every person by virtue of being human, rather than granted by government favor.
+      Human rights are inherent to every person by virtue of being human, rather than privileges granted only by government favor.
 
   - id: q-peace-and-human-rights-human-rights-fundamentals-0006
     type: single_choice
@@ -116,15 +116,15 @@ questions:
         correct: true
       - text: National Security Council office
         rationale: |
-          You picked National Security Council, which handles national security policy. The constitutional body for human rights is the CHR.
+          The National Security Council deals with national-security policy. The Constitution creates the CHR as the independent human-rights office.
       - text: Department of Justice secretariat
         rationale: |
-          You selected Department of Justice, which is an executive prosecutorial arm. The independent body created by the Constitution is the CHR.
+          The Department of Justice is an executive department. The Constitution creates the independent Commission on Human Rights.
       - text: Armed Forces Grievance tribunal
         rationale: |
-          You chose Armed Forces tribunal, which is an internal military body. The independent constitutional human rights office is the CHR.
+          An internal military body is not the constitutional human-rights commission.
     explanation: |
-      The Commission on Human Rights is created under Section 17 of Article XIII of the Constitution.
+      Article XIII, Section 17 creates the independent Commission on Human Rights.
 
   - id: q-peace-and-human-rights-human-rights-fundamentals-0007
     type: single_choice
@@ -136,15 +136,15 @@ questions:
         correct: true
       - text: Only during formally declared active international wartime
         rationale: |
-          You selected active wartime only, confusing human rights with humanitarian law. Human rights law applies at all times in peace and conflict.
+          Human rights law is not limited to wartime; it continues to apply in peacetime and during armed conflict, subject to the rules governing any lawful limitations or derogations.
       - text: Only during official national presidential election periods
         rationale: |
-          You picked election periods, which are temporary political events. Human rights protection applies continuously in peace and conflict.
+          Human rights obligations are continuous and are not limited to election periods.
       - text: Only during municipal emergency disaster curfew hours
         rationale: |
-          You chose emergency curfew hours, which are brief local measures. Human rights apply at all times during both peacetime and conflict.
+          Human rights obligations are not triggered only by local emergencies or curfews.
     explanation: |
-      Human rights law applies at all times, during peacetime as well as during armed conflict.
+      International human rights law applies in peacetime and during armed conflict. Particular rights can have lawful limitations, and some treaty obligations may permit tightly regulated derogations during qualifying emergencies, but the legal framework itself continues to apply.
 
   - id: q-peace-and-human-rights-human-rights-fundamentals-0008
     type: single_choice
@@ -156,12 +156,12 @@ questions:
         correct: true
       - text: Revocable at any local mayor personal discretion
         rationale: |
-          You selected local mayor discretion, which treats rights as local permits. Human rights are non-revocable and inherent to human dignity.
+          Human rights are not ordinary local privileges that a mayor may withdraw at personal discretion.
       - text: Expiring automatically after five calendar years
         rationale: |
-          You picked automatic expiration, which treats rights as temporary licenses. Human rights never expire and are inherent to human dignity.
+          Human rights are not time-limited licenses that automatically expire after a fixed number of years.
       - text: Subject to mandatory monthly state fee payment
         rationale: |
-          You chose monthly fee payment, which treats rights as paid services. Human rights are universal, free, and inherent to human dignity.
+          Enjoyment of human rights is not conditioned on paying a monthly government fee.
     explanation: |
-      Human rights are inherent to human dignity, unlike statutory privileges which are granted and regulated by legislation.
+      Human rights are grounded in the inherent dignity of human beings. That does not mean every right is absolute: legal systems may recognize carefully defined limitations, and some treaties permit limited derogations in qualifying emergencies. The key distinction here is that human rights are not merely temporary privileges granted at government discretion.

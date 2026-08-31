@@ -1,0 +1,15 @@
+question_id	review_status	computation_status	lesson_conformity	visual_status	severity	note
+q-precalculus-basic-calculus-conic-sections-0001	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-precalculus-basic-calculus-conic-sections-0002	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-precalculus-basic-calculus-conic-sections-0003	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-precalculus-basic-calculus-conic-sections-0004	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT	NONE	
+q-precalculus-basic-calculus-conic-sections-0005	VERIFIED	RE-DERIVED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-precalculus-basic-calculus-conic-sections-0006	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-precalculus-basic-calculus-conic-sections-0007	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-precalculus-basic-calculus-conic-sections-0008	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-precalculus-basic-calculus-conic-sections-0009	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-precalculus-basic-calculus-conic-sections-0010	CORRECTED	RE-DERIVED	LESSON HAS SAME DEGENERACY GAP	TEXT SUFFICIENT	MEDIUM	Added nondegenerate real-conic assumption so AC<0 uniquely identifies a hyperbola instead of also allowing intersecting-line degeneracies.
+q-precalculus-basic-calculus-conic-sections-0011	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-precalculus-basic-calculus-conic-sections-0012	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-precalculus-basic-calculus-conic-sections-0013	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	
+q-precalculus-basic-calculus-conic-sections-0014	VERIFIED	RECOMPUTED	DIRECTLY SUPPORTED	TEXT SUFFICIENT; VISUAL BENEFICIAL	NONE	

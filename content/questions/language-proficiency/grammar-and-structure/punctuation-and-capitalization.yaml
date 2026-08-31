@@ -155,21 +155,21 @@ questions:
     type: punctuation
     difficulty: medium
     stem: |
-      Choose the correctly punctuated sentence.
+      A writer has only one brother. Choose the correctly punctuated sentence.
     choices:
       - text: My brother, who lives in Cebu, is visiting this week.
         correct: true
       - text: My brother who lives in Cebu is visiting this week.
         rationale: |
-          You omitted the commas setting off the non-essential descriptive clause "who lives in Cebu."
+          Because the writer has only one brother, "who lives in Cebu" adds nonessential information instead of identifying which brother. The nonrestrictive clause should be set off with commas.
       - text: My brother, who lives in Cebu is, visiting this week.
         rationale: |
-          You misplaced the closing comma after "is" instead of closing the clause after "Cebu."
+          You misplaced the closing comma after "is" instead of setting off the whole nonrestrictive clause "who lives in Cebu."
       - text: My brother who, lives in Cebu, is visiting this week.
         rationale: |
-          You placed the opening comma after "who" instead of setting off the entire clause before "who."
+          You placed the opening comma after "who" instead of setting off the entire nonrestrictive clause before "who."
     explanation: |
-      Commas correctly set off the non-essential information "who lives in Cebu," which could be removed without changing the sentence's core meaning.
+      Because the context establishes that the writer has only one brother, "who lives in Cebu" is nonrestrictive information. A nonrestrictive relative clause is set off with commas.
     approved: true
 
   - id: q-grammar-and-structure-punctuation-and-capitalization-0009
@@ -325,19 +325,19 @@ questions:
     stem: |
       A student writes "She wanted to travel; because she loved adventure," using a semicolon before "because." Is this correct?
     choices:
-      - text: 'No: a semicolon should only connect two independent clauses; "because she loved adventure" is a dependent clause and cannot stand alone, so a comma should be used instead.'
+      - text: 'No: the semicolon is wrong because "because she loved adventure" is dependent; in this sentence, no punctuation is normally needed before "because."'
         correct: true
       - text: 'Yes: semicolons can connect any two clauses, independent or dependent.'
         rationale: |
-          You assumed semicolons can join any clauses, but semicolons only connect two independent clauses.
+          You assumed semicolons can join any clauses, but a semicolon used this way must join independent clauses.
       - text: 'Yes: but only because "adventure" is a sufficiently strong word to justify a semicolon.'
         rationale: |
           You linked semicolon usage to word intensity rather than clause structure.
-      - text: 'No: but only because the sentence should have no punctuation at all before "because."'
+      - text: 'No: replace the semicolon with a comma before "because."'
         rationale: |
-          You claimed no punctuation is needed, but when joining clauses, comma usage rules still apply.
+          You correctly rejected the semicolon, but a comma is normally unnecessary here because the independent clause comes first and the following "because" clause supplies the reason.
     explanation: |
-      A semicolon should only connect two independent clauses, each capable of standing alone as its own sentence. "Because she loved adventure" cannot stand alone.
+      "Because she loved adventure" is a dependent clause, so the semicolon is incorrect. With the independent clause first, the normal sentence is "She wanted to travel because she loved adventure," with no punctuation before "because."
     approved: true
 
   - id: q-grammar-and-structure-punctuation-and-capitalization-0017

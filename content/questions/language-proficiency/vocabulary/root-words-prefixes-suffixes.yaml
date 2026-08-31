@@ -8,42 +8,42 @@ questions:
     type: root-word-affix-analysis
     difficulty: easy
     stem: |
-      The doctor described the tumor as *benign*, easing the family's worries. Based on the prefix, what does *benign* most likely mean?
+      The donor was described as *benevolent* because she consistently used her resources to help people in need. The element "bene-" is associated with "good" or "well." What does *benevolent* most likely mean?
     choices:
-      - text: Harmless and good
+      - text: Kind and well-meaning
         correct: true
-      - text: Growing quickly
+      - text: Cruel and harmful
         rationale: |
-          You picked "growing quickly," but the prefix "ben-" relates to goodness rather than growth speed.
-      - text: Painful
+          That is the opposite of the positive "bene-" clue and the helping behavior in the sentence.
+      - text: Uncertain
         rationale: |
-          You picked "painful," which describes discomfort rather than the positive meaning implied by "ben-."
-      - text: Unpredictable
+          Neither the word element nor the context suggests uncertainty.
+      - text: Silent
         rationale: |
-          You picked "unpredictable," but "ben-" indicates a good or favorable quality rather than instability.
+          The clue concerns goodwill, not amount of speech.
     explanation: |
-      The word starts with "ben-," a short form of the prefix "bene-," which means good. The only positive choice, "harmless and good," matches this.
+      The "bene-" clue and the donor's helpful behavior both point to "benevolent": kind, generous, or well-meaning toward others.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0002
     type: root-word-affix-analysis
     difficulty: easy
     stem: |
-      The villain's *malicious* smile revealed his plan to harm everyone in the room. Based on the prefix, what does *malicious* most likely mean?
+      The villain's *malicious* smile revealed his plan to harm everyone in the room. The element "mal-" commonly carries a bad or harmful sense. What does *malicious* most likely mean?
     choices:
       - text: Harmful and cruel
         correct: true
       - text: Kind and helpful
         rationale: |
-          You picked "kind and helpful," which is the opposite of the negative prefix "mal-" (bad or evil).
+          That conflicts with both the "mal-" clue and the stated plan to cause harm.
       - text: Confused
         rationale: |
-          You picked "confused," but "mal-" means bad or harmful, which does not relate to confusion.
+          Confusion is not the harmful intent described in the sentence.
       - text: Tired
         rationale: |
-          You picked "tired," but "mal-" points to bad or evil intent rather than physical exhaustion.
+          Physical exhaustion is unrelated to the word's meaning here.
     explanation: |
-      The word starts with "mal-," a prefix that means bad. The only negative, harm-related choice, "harmful and cruel," matches this.
+      The word and context both point to an intention to cause harm: "malicious" means spiteful or harmful in intent.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0003
@@ -56,145 +56,141 @@ questions:
         correct: true
       - text: Pinag
         rationale: |
-          Pinili mo ang "Pinag," ngunit ito ay unlapi (prefix) at hindi ang batayang salitang-ugat.
+          Panlapi ito, hindi ang salitang-ugat.
       - text: Naghirap
         rationale: |
-          Pinili mo ang "Naghirap," ngunit ito ay nakakabit nang salita na may panlaping "nag-."
+          May panlapi pa ang "naghirap."
       - text: Hirapan
         rationale: |
-          Pinili mo ang "Hirapan," ngunit may hulaping "-an" pa rin ito kaya hindi pa ito ang tunay na salitang-ugat.
+          May hulapi pa ang "hirapan."
     explanation: |
-      Alisin ang unlapi na "pinag-" at ang hulapi na "-an" mula sa salita, at ang matitira ay ang salitang-ugat na "hirap."
+      Kapag inalis ang mga panlapi sa "pinaghirapan," ang batayang salitang natitira ay "hirap."
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0004
     type: root-word-affix-analysis
     difficulty: medium
     stem: |
-      Alin sa mga sumusunod ang gumagamit ng panlaping laguhan (unlapi + gitlapi + hulapi)?
-      A. kasaganaan
-      B. pag-ibig
-      C. ginawa
-      D. pinagsumikapan
+      Alin sa mga sumusunod ang halimbawa ng panlaping laguhan, na gumagamit ng unlapi, gitlapi, at hulapi?
     choices:
       - text: Pinagsumikapan
         correct: true
       - text: Kasaganaan
         rationale: |
-          Pinili mo ang "Kasaganaan," ngunit ito ay may kabilaan lamang (ka-...-an) at walang gitlapi.
+          Ang "kasaganaan" ay karaniwang sinusuri bilang kabilaan, hindi laguhan.
       - text: Pag-ibig
         rationale: |
-          Pinili mo ang "Pag-ibig," ngunit ito ay may unlapi lamang (pag-) at walang gitlapi o hulapi.
+          Unlapi lamang ang "pag-" sa pagsusuring ito.
       - text: Ginawa
         rationale: |
-          Pinili mo ang "Ginawa," ngunit ito ay may gitlapi lamang (-in-) at walang unlapi o hulapi.
+          Gitlapi ang "-in-" sa salitang ito.
     explanation: |
-      Ang "pinagsumikapan" ay may salitang-ugat na "sikap," na may unlapi ("pinag-"), gitlapi ("-um-"), at hulapi ("-an"): lahat ng 3 bahagi. Ang "kasaganaan" ay kabilaan lamang (ka- ... -an); ang "pag-ibig" ay unlapi lamang; ang "ginawa" ay gitlapi lamang.
+      Sa karaniwang pagsusuring pampaaralan, ang "pinagsumikapan" ay halimbawa ng laguhan sapagkat may mga panlapi sa unahan, loob, at hulihan ng salitang-ugat.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0005
     type: root-word-affix-analysis
     difficulty: medium
     stem: |
-      The professor is a *polyglot* who can converse fluently in over ten different languages. Breaking down the word ("poly-" meaning many, "-glot" relating to tongue or language), what does *polyglot* most likely mean?
+      The professor is a *polyglot* who can converse fluently in over ten languages. Given "poly-" = many and "-glot" = language/tongue, what does *polyglot* mean?
     choices:
       - text: Someone who speaks many languages
         correct: true
       - text: Someone who is silent
         rationale: |
-          You picked silent, but "poly-" means many and "-glot" relates to language or speech.
-      - text: A type of parrot
+          That conflicts with the language clue and the stated ability to converse in many languages.
+      - text: A type of bird
         rationale: |
-          You picked a type of parrot, taking a guess instead of combining the roots "poly-" (many) and "-glot" (language).
-      - text: A rare disease
+          The word parts point to languages, not an animal category.
+      - text: A disease
         rationale: |
-          You picked a rare disease, ignoring the linguistic roots "poly-" (many) and "-glot" (language).
+          Nothing in the morphology or context concerns illness.
     explanation: |
-      "Poly-" means many, and "-glot" relates to tongue or language. Together, they describe someone who speaks many languages.
+      Combining "poly-" (many) with the language-related element gives the meaning "a person who knows or uses many languages."
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0006
     type: root-word-affix-analysis
     difficulty: medium
     stem: |
-      Which of the following words is the antonym of *malevolent*?
+      Which word is the clearest antonym of *malevolent*?
     choices:
       - text: Benevolent
         correct: true
       - text: Malicious
         rationale: |
-          You picked "malicious," which is a synonym of malevolent, both containing the negative prefix "mal-."
+          "Malicious" is close in meaning to malevolent.
       - text: Violent
         rationale: |
-          You picked "violent," which describes aggressive action rather than the direct antonym with prefix "bene-."
+          Violence is behavior; it is not the direct goodwill/ill-will opposite.
       - text: Gloomy
         rationale: |
-          You picked "gloomy," which means dark or depressing, missing the prefix-based antonym "benevolent."
+          Gloominess concerns mood or appearance, not goodwill.
     explanation: |
-      "Malevolent" breaks down into "mal-" (bad) and "vol" (wish): wishing bad things on others. The opposite prefix, "bene-" (good), gives "benevolent," the exact opposite word.
+      "Malevolent" expresses ill will; "benevolent" expresses goodwill and kindness, making it the clearest opposite.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0007
     type: root-word-affix-analysis
     difficulty: medium
     stem: |
-      The novel's narrator is *omniscient*, seeing and knowing everything that happens to every character. Based on the prefix "omni-" (meaning all), what does *omniscient* most likely mean?
+      The novel's narrator is *omniscient*, knowing everything that happens to every character. Given "omni-" = all and a root related to knowing, what does *omniscient* mean?
     choices:
       - text: All-knowing
         correct: true
       - text: All-powerful
         rationale: |
-          You picked all-powerful, but "sci-" refers to knowledge (knowing), whereas power is expressed by "potent" (omnipotent).
+          Power is not the knowledge-related meaning of this word.
       - text: Blind
         rationale: |
-          You picked blind, which contradicts the prefix "omni-" meaning all.
+          That conflicts with the explicit knowledge clue.
       - text: Forgetful
         rationale: |
-          You picked forgetful, which is the opposite of knowing everything.
+          Forgetfulness is the opposite of the stated all-knowing perspective.
     explanation: |
-      "Omni-" means all, and the root relates to knowing (as in "science"). Together, "omniscient" means all-knowing.
+      The word parts and context point directly to "all-knowing."
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0008
     type: root-word-affix-analysis
     difficulty: medium
     stem: |
-      The historian arranged the events in *chronological* order, from earliest to latest. Based on the root "chron-" (meaning time), what does *chronological* most likely mean?
+      The historian arranged the events in *chronological* order, from earliest to latest. Given "chron-" = time, what does *chronological* most likely mean?
     choices:
       - text: Ordered by time
         correct: true
       - text: Ordered by importance
         rationale: |
-          You picked ordered by importance, but the root "chron-" specifically means time.
+          The root clue concerns time, not rank or importance.
       - text: Ordered alphabetically
         rationale: |
-          You picked ordered alphabetically, but "chron-" relates to time sequence rather than letter order.
+          Alphabetical order is based on letters, not time.
       - text: Ordered randomly
         rationale: |
-          You picked ordered randomly, contradicting the structured sequence implied by "chron-" and "-logical."
+          Random order conflicts with the stated earliest-to-latest sequence.
     explanation: |
-      "Chron-" means time. "Chronological" describes an order arranged according to time, from earliest to latest.
+      "Chronological" means arranged according to time or temporal sequence.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0009
     type: root-word-affix-analysis
     difficulty: medium
     stem: |
-      The author used a *pseudonym* instead of her real name to protect her privacy. Based on the prefix "pseudo-" (meaning fake), what does *pseudonym* most likely mean?
+      The author used a *pseudonym* instead of her legal name. Given "pseudo-" = false/assumed and "-nym" = name, what is a pseudonym?
     choices:
-      - text: A fake name
+      - text: An assumed name
         correct: true
-      - text: A nickname given by friends
+      - text: A legal birth name
         rationale: |
-          You picked a nickname, but "pseudo-" means fake or false, indicating a deliberately adopted alias.
-      - text: A legal name
-        rationale: |
-          You picked a legal name, which contradicts the prefix "pseudo-" meaning fake.
+          That contradicts both the word parts and the phrase "instead of her legal name."
       - text: A title of respect
         rationale: |
-          You picked a title of respect, ignoring the root "-nym" (name) and prefix "pseudo-" (fake).
+          The morphology points to a name, not an honorific.
+      - text: A family relation
+        rationale: |
+          Nothing in the word parts concerns kinship.
     explanation: |
-      "Pseudo-" means fake, and "-nym" relates to name (as in "synonym"). Together, "pseudonym" means a fake name.
+      A pseudonym is an assumed or fictitious name used instead of one's real or legal name.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0010
@@ -207,15 +203,15 @@ questions:
         correct: true
       - text: Gin
         rationale: |
-          Pinili mo ang "Gin," ngunit ito ay kabahagi lamang ng gitlapi at hindi salitang-ugat.
+          Bahagi lamang ito ng nabuong salita, hindi ang salitang-ugat.
       - text: Ginawa
         rationale: |
-          Pinili mo ang "Ginawa," ngunit ito ang mismong buong salitang may panlapi at hindi ang salitang-ugat.
+          Ito ang buong salitang may panlapi.
       - text: Gawain
         rationale: |
-          Pinili mo ang "Gawain," ngunit may hulapi pa itong "-in" kaya hindi pa ito ang pinakapayang salitang-ugat.
+          May dagdag na panlapi ang "gawain."
     explanation: |
-      Ang "ginawa" ay may gitlapi na "-in-" na isiningit sa salitang-ugat na "gawa," kaya ang salitang-ugat ay "gawa."
+      Sa karaniwang pagsusuri, ang "ginawa" ay mula sa salitang-ugat na "gawa" na nilapian ng "-in-."
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0011
@@ -223,177 +219,165 @@ questions:
     difficulty: medium
     stem: |
       Alin sa mga sumusunod ang gumagamit ng panlaping kabilaan (unlapi + hulapi)?
-      A. kabataan
-      B. tumakbo
-      C. sinulat
-      D. maganda
     choices:
       - text: Kabataan
         correct: true
       - text: Tumakbo
         rationale: |
-          Pinili mo ang "Tumakbo," ngunit ito ay may gitlapi lamang (-um-) at walang unlapi o hulapi.
+          Gitlapi ang "-um-" sa karaniwang pagsusuri sa salitang ito.
       - text: Sinulat
         rationale: |
-          Pinili mo ang "Sinulat," ngunit ito ay may gitlapi lamang (-in-) at hindi kabilaan.
+          Gitlapi ang "-in-" sa karaniwang pagsusuri rito.
       - text: Maganda
         rationale: |
-          Pinili mo ang "Maganda," ngunit ito ay may unlapi lamang (ma-) at walang hulapi.
+          Hindi ito halimbawa ng unlapi at hulapi na sabay na nakakabit sa salitang-ugat sa pagsusuring ito.
     explanation: |
-      Ang "kabataan" ay may salitang-ugat na "bata," na may unlapi ("ka-") at hulapi ("-an") na parehong ginamit: ito ay kabilaan.
+      "Kabataan" isinusuri bilang ka- + bata + -an, kaya halimbawa ito ng kabilaan.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0012
     type: root-word-affix-analysis
     difficulty: medium
     stem: |
-      Alin sa mga sumusunod ang gumagamit lamang ng unlapi (prefix)?
-      A. pag-ibig
-      B. kasaganaan
-      C. ginawa
-      D. pinagsumikapan
+      Alin sa mga sumusunod ang gumagamit lamang ng unlapi sa karaniwang pagsusuring pampaaralan?
     choices:
       - text: Pag-ibig
         correct: true
       - text: Kasaganaan
         rationale: |
-          Pinili mo ang "Kasaganaan," ngunit ito ay may kabilaan (ka-...-an) at hindi unlapi lamang.
+          May panlapi sa unahan at hulihan sa pagsusuring ito.
       - text: Ginawa
         rationale: |
-          Pinili mo ang "Ginawa," ngunit ito ay may gitlapi (-in-) at hindi unlapi.
+          Gitlapi ang "-in-."
       - text: Pinagsumikapan
         rationale: |
-          Pinili mo ang "Pinagsumikapan," ngunit ito ay laguhan na may 3 panlapi.
+          Higit sa isang uri ng panlapi ang ginagamit rito.
     explanation: |
-      Ang "pag-ibig" ay may salitang-ugat na "ibig," na may unlapi lamang ("pag-"). Ang "kasaganaan" ay kabilaan, ang "ginawa" ay gitlapi, at ang "pinagsumikapan" ay laguhan.
+      Sa pagsusuring ito, ang "pag-ibig" ay pag- + ibig, kaya unlapi lamang ang idinagdag.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0013
     type: root-word-affix-analysis
     difficulty: medium
     stem: |
-      Alin sa mga sumusunod ang gumagamit lamang ng gitlapi (infix)?
-      A. kasaganaan
-      B. pag-ibig
-      C. ginawa
-      D. pinagsumikapan
+      Alin sa mga sumusunod ang gumagamit lamang ng gitlapi sa karaniwang pagsusuring pampaaralan?
     choices:
       - text: Ginawa
         correct: true
       - text: Kasaganaan
         rationale: |
-          Pinili mo ang "Kasaganaan," ngunit ito ay may kabilaan (ka-...-an) at hindi gitlapi.
+          Kabilaan ang pagsusuri rito.
       - text: Pag-ibig
         rationale: |
-          Pinili mo ang "Pag-ibig," ngunit ito ay may unlapi (pag-) at hindi gitlapi.
+          Unlapi ang "pag-."
       - text: Pinagsumikapan
         rationale: |
-          Pinili mo ang "Pinagsumikapan," ngunit ito ay laguhan na may tatlong panlapi.
+          Higit sa isang uri ng panlapi ang ginagamit rito.
     explanation: |
-      Ang "ginawa" ay may salitang-ugat na "gawa," na may gitlapi lamang ("-in-") na isiningit sa loob nito. Ang iba ay gumagamit ng ibang kombinasyon ng panlapi.
+      "Ginawa" isinusuri bilang g- + -in- + awa/gawa sa tradisyonal na paglalarawan ng gitlapi; ang batayang salita ay "gawa."
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0014
     type: root-word-affix-analysis
     difficulty: hard
     stem: |
-      A warning label reads "INFLAMMABLE MATERIAL." A student assumes this means the material cannot catch fire, since "in-" usually means "not." Is this correct?
+      A warning label reads "INFLAMMABLE MATERIAL." A student assumes this means the material cannot catch fire because "in-" often means "not." Is that correct?
     choices:
-      - text: 'No: "inflammable" actually means the same as "flammable"; it CAN catch fire. Here, "in-" does not mean "not," making this a common exam trap.'
+      - text: 'No: "inflammable" means flammable—capable of catching fire easily.'
         correct: true
-      - text: 'Yes: "inflammable" always means safe from fire.'
+      - text: 'Yes: "inflammable" means nonflammable.'
         rationale: |
-          You assumed "in-" creates an antonym here, but "inflammable" means able to burst into flame.
-      - text: 'Yes: but only because this specific material happens to be fireproof.'
+          The two words are not opposites; "inflammable" and "flammable" have the same fire-related meaning.
+      - text: 'Yes: it means fireproof.'
         rationale: |
-          You assumed the material is fireproof, but "inflammable" means highly combustive.
-      - text: 'No: "inflammable" means "extremely fireproof," the strongest possible protection.'
+          "Inflammable" describes something that can ignite, not something protected from fire.
+      - text: 'No: it means only "warm" and says nothing about ignition.'
         rationale: |
-          You claimed "inflammable" means fireproof, but it means capable of catching fire easily.
+          The established meaning directly concerns ability to ignite and burn.
     explanation: |
-      Usually, "in-" means "not" (like "invisible" means not visible). But sometimes "in-" means "inside" or "into." "Inflammable" is the biggest trap: it means the exact same thing as "flammable": it can burst into flames.
+      "Inflammable" comes through Latin *inflammare* (to inflame/set on fire). Its "in-" is not the negative prefix found in words such as "inactive." Consequently, "inflammable" and "flammable" are synonyms; "nonflammable" is the clear opposite.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0015
     type: root-word-affix-analysis
     difficulty: hard
     stem: |
-      After hours of waiting, the *restive* crowd began to grow impatient and unruly. A student assumes "restive" means "relaxed," since it looks like it contains the word "rest." Is this correct?
+      After hours of waiting, the *restive* crowd became impatient and difficult to control. Does "restive" mean relaxed because it resembles "rest"?
     choices:
-      - text: 'No: "restive" actually means restless, nervous, or stubborn; despite looking like it contains "rest," its true meaning is closer to the opposite of relaxed.'
+      - text: 'No: in this context, "restive" means restless, uneasy, or resistant to control.'
         correct: true
-      - text: 'Yes: "restive" always means calm and relaxed, matching the word "rest" inside it.'
+      - text: 'Yes: it means calm and relaxed.'
         rationale: |
-          You fell for the root-word trap, assuming "rest" implies calm when "restive" means restless.
-      - text: 'Yes: but only because the crowd was simply tired from waiting.'
+          That conflicts with the sentence's explicit description of impatience and difficulty.
+      - text: 'Yes: it means sleepy.'
         rationale: |
-          You assumed "restive" meant tired from waiting, but context shows the crowd was impatient and unruly.
-      - text: 'No: but only because "restive" has no relationship to any real word at all.'
+          The context describes agitation, not sleepiness.
+      - text: 'No: "restive" is not a real English word.'
         rationale: |
-          You claimed "restive" is not a real word, but it is a standard English adjective meaning restless.
+          "Restive" is a standard English adjective.
     explanation: |
-      Test-makers will put choices that match a fake root. "Restive" looks like it has the root "rest," so it seems like it should mean "relaxed", but it actually means restless, nervous, or stubborn. Always read the whole sentence for clues rather than blindly trusting the letters.
+      Visual resemblance to a familiar word is not enough to determine meaning. Here the context correctly points to "restive" meaning restless or difficult to control.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0016
     type: root-word-affix-analysis
     difficulty: hard
     stem: |
-      Sa salitang "sumayaw," ang "um-" ay itinuturing na gitlapi (infix). Sa salitang "umalis," ang "um-" ay itinuturing na unlapi (prefix) sa halip. Bakit magkaiba ang klasipikasyon, gayong pareho ang ginamit na "um-"?
+      Sa tradisyonal na pagsusuring pampaaralan, bakit gitlapi ang "-um-" sa "sumayaw" ngunit nasa unahan ito sa "umalis"?
     choices:
-      - text: Dahil ang "sayaw" ay nagsisimula sa katinig (consonant), kaya ang "um-" ay isinisingit sa loob (gitlapi); ang "alis" ay nagsisimula sa patinig (vowel), kaya ang "um-" ay idinaragdag sa harap (unlapi).
+      - text: Dahil nagsisimula sa katinig ang "sayaw," kaya naisingit ang -um- pagkatapos ng unang katinig; nagsisimula naman sa patinig ang "alis," kaya lumilitaw ang um- sa unahan.
         correct: true
-      - text: Dahil magkaibang salita ang "sumayaw" at "umalis," kaya kailanman ay hindi pareho ang klasipikasyon ng kanilang panlapi.
+      - text: Dahil magkaibang salita ang mga ito at walang tuntunin sa posisyon ng panlapi.
         rationale: |
-          Inakala mong dahil magkaiba ang salita ay hindi puwedeng pareho ang panlapi, ngunit ang simula ng salitang-ugat ang dahilan.
-      - text: Dahil ang "um-" ay palaging unlapi sa lahat ng pagkakataon, walang pagbubukod.
+          May sistematikong pagkakaiba ang posisyon batay sa anyo ng salitang-ugat sa pagsusuring ito.
+      - text: Dahil palaging unlapi ang um-.
         rationale: |
-          Inakala mong palaging unlapi ang "um-," ngunit nagiging gitlapi ito kung isinisingit sa salitang-ugat na nagsisimula sa katinig.
-      - text: Dahil ang "um-" ay palaging gitlapi sa lahat ng pagkakataon, walang pagbubukod.
+          Sa "sumayaw," malinaw na nasa loob ng salitang-ugat ang -um-.
+      - text: Dahil palaging gitlapi ang -um-.
         rationale: |
-          Inakala mong palaging gitlapi ang "um-," ngunit unlapi ito kapag ikinabit sa salitang-ugat na nagsisimula sa patinig.
+          Sa salitang nagsisimula sa patinig gaya ng "alis," nasa unahan ang anyo.
     explanation: |
-      Ang gitlapi ay maaaring magmukhang unlapi kung hindi maingat ang pagsusuri. Kung ang salitang-ugat ay nagsisimula sa katinig (tulad ng "sayaw"), ang "um-" ay isiningit sa loob bilang gitlapi. Kung nagsisimula ito sa patinig (tulad ng "alis"), ang "um-" ay nasa harap bilang unlapi.
+      Kapag nagsisimula sa katinig ang ugat, karaniwang naisingit ang -um- pagkatapos ng unang katinig; sa ugat na nagsisimula sa patinig, lumilitaw ito sa unahan.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0017
     type: root-word-affix-analysis
     difficulty: medium
     stem: |
-      The two scientists decided to *collaborate* on the new research project instead of working separately. Breaking the word down ("co-" meaning together, "labor" meaning work), what does *collaborate* most likely mean?
+      The two scientists decided to *collaborate* on the project instead of working separately. Given "co-" = together and a root related to work, what does *collaborate* mean?
     choices:
       - text: To work together
         correct: true
-      - text: To argue constantly
-        rationale: |
-          You picked arguing, but "co-" means together and "labor" means work, describing cooperation.
       - text: To work alone
         rationale: |
-          You picked working alone, which contradicts the prefix "co-" meaning together.
-      - text: To celebrate a victory
+          That directly contradicts the "co-" clue and the sentence.
+      - text: To argue constantly
         rationale: |
-          You picked celebrating, which ignores the root "labor" meaning work.
+          Argument is not the meaning of the word parts or context.
+      - text: To celebrate
+        rationale: |
+          Celebration is unrelated to the work-related root.
     explanation: |
-      If you are stuck on an English word, look for a smaller, easier word hidden inside it. "Collaborate" has "labor" (work) inside it, with the prefix "co-" (together), giving the meaning "to work together."
+      "Collaborate" means work jointly with another person or group.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0018
     type: root-word-affix-analysis
     difficulty: exam
     stem: |
-      The ship's captain planned to *circumnavigate* the entire continent before returning home. Breaking the word into its parts ("circum-" meaning around, "navig-" relating to ships or sailing, from the Latin "navis"), what does *circumnavigate* most likely mean?
+      The ship's captain planned to *circumnavigate* the continent before returning home. Given "circum-" = around and a root related to navigation, what does *circumnavigate* mean?
     choices:
-      - text: To sail completely around something
+      - text: To travel completely around something
         correct: true
       - text: To sink a ship deliberately
         rationale: |
-          You picked sinking a ship, ignoring the prefix "circum-" which means around.
+          That does not follow from the "around" and navigation clues.
       - text: To travel underground
         rationale: |
-          You picked traveling underground, but "navig-" refers to sailing ships.
-      - text: To navigate using only the stars
+          The morphology points to navigation around something, not subterranean travel.
+      - text: To navigate only by the stars
         rationale: |
-          You picked navigating by stars, missing the core meaning of "circum-" (around).
+          The word does not specify a navigation instrument or technique.
     explanation: |
-      "Circum-" means around, and "navig-" relates to sailing (from the Latin "navis," meaning ship). Together, "circumnavigate" means to sail completely around something.
+      "Circumnavigate" means travel all the way around a place or object; in the ship context, that would be by sea.
     approved: true
