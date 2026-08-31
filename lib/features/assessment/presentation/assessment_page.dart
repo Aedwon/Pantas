@@ -68,17 +68,15 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
       _pendingCompleteSession = null;
     });
     try {
-      final alreadyCompleted = await ref.read(
-        assessmentCompletedProvider(widget.examId).future,
-      );
+      final alreadyCompleted =
+          await ref.read(assessmentCompletedProvider(widget.examId).future);
       if (!mounted) return;
       if (alreadyCompleted) {
         context.pushReplacement('/assessment/${widget.examId}/results');
         return;
       }
-      final scopedTopics = await ref.read(
-        scopedTopicsProvider(widget.examId).future,
-      );
+      final scopedTopics =
+          await ref.read(scopedTopicsProvider(widget.examId).future);
       final session = await ref
           .read(_startAssessmentProvider)
           .call(widget.examId, topics: scopedTopics);
@@ -93,9 +91,10 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
   Future<void> _complete(AssessmentSession session) async {
     setState(() => _completing = true);
     try {
-      await ref
-          .read(_completeAssessmentProvider)
-          .call(session: session, now: DateTime.now());
+      await ref.read(_completeAssessmentProvider).call(
+            session: session,
+            now: DateTime.now(),
+          );
       if (!mounted) return;
       // The Home tab reads both of these from inside the bottom-nav shell, so
       // they were already cached as "no assessment" before this run started.
@@ -211,7 +210,10 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
       },
       child: Scaffold(
         appBar: AppBar(title: const Text('Assessment')),
-        body: Padding(padding: const EdgeInsets.all(16), child: body),
+        body: Padding(
+          padding: const EdgeInsets.all(16),
+          child: body,
+        ),
       ),
     );
   }
