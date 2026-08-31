@@ -81,7 +81,8 @@ questions:
       - text: The first sentence is grammatically incorrect.
         rationale: |
           Front-position "only" can validly focus the subject, as in "Only Jason knows where the key is kept."
-      - text: "Only" has no effect on meaning in either sentence.
+      - text: >-
+          "Only" has no effect on meaning in either sentence.
         rationale: |
           "Only" is a focusing adverb; changing its focus can change what is being limited.
     explanation: |
@@ -186,7 +187,8 @@ questions:
       - text: The phrase correctly modifies "pasta" because logic always overrides surface word order.
         rationale: |
           You relied on intended meaning to erase the placement problem. The point of a misplaced modifier is that surface placement creates the wrong or ambiguous attachment.
-      - text: "Covered in cheese" is not a modifier at all.
+      - text: >-
+          "Covered in cheese" is not a modifier at all.
         rationale: |
           It is a participial phrase functioning adjectivally.
     explanation: |
