@@ -1,5 +1,5 @@
 ---
-_id: "lesson-physics-gravity-kepler"
+_id: "lesson-physics-gravity-and-keplers-laws"
 title: "Gravity and Kepler's Laws of Planetary Motion"
 summary: "Newton's law of universal gravitation and Kepler's three laws describing how planets orbit the Sun."
 subject: "subject-science"

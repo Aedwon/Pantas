@@ -6,4 +6,4 @@
 // A digest of `assets/seed/content.db` as built. Rebuild the asset and this
 // changes with it, which is what tells an installed app its copy is stale.
 
-const contentSeedVersion = '1a458393ee0e9948';
+const contentSeedVersion = 'c7a9af4e2313de2e';
