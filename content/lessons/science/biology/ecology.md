@@ -1,7 +1,7 @@
 ---
 _id: "lesson-biology-ecology"
 title: "Ecology"
-summary: "How living things and their environment interact, from food webs and energy pyramids to nutrient cycles and symbiotic relationships."
+summary: "How organisms and their environment interact, from food webs and energy transfer to nutrient cycles and symbiosis."
 subject: "subject-science"
 topic: "topic-biology"
 estimatedMinutes: 14
@@ -9,131 +9,138 @@ isActive: true
 ---
 ## Core Concept
 
-**Ecology** is the study of how living things interact with each other and with their environment.
+**Ecology** is the study of interactions among organisms and between organisms and their physical environment.
 
 ### Ecosystems and Biomes
 
-An **ecosystem** is a community of living things (plants, animals, microbes) interacting with each other and with their non-living environment (water, soil, climate) in a specific area, like a pond or a forest.
+An **ecosystem** includes a community of organisms together with the nonliving environment with which they exchange matter and energy.
 
-A **biome** is a much larger-scale grouping of ecosystems that share a similar climate and similar types of plants and animals, like a desert, a tropical rainforest, a grassland, or a tundra.
+A **biome** is a large ecological region characterized mainly by climate and dominant vegetation, with associated animal and microbial communities. A biome contains many ecosystems rather than being a single ecosystem scaled up.
 
-### Food Chains, Food Webs, and Energy Pyramids
+### Food Chains, Food Webs, and Trophic Levels
 
-A **food chain** is a simple, straight-line sequence showing who eats whom, and how energy flows from one organism to the next (grass → grasshopper → frog → snake).
+A **food chain** is a simplified sequence of feeding relationships. The arrows conventionally show the direction in which energy and matter move—from the organism being eaten toward the consumer.
 
-A **food web** is a more realistic, interconnected network showing many overlapping food chains in the same ecosystem, since most organisms eat and are eaten by more than one other kind of organism.
+A **food web** combines many connected feeding relationships in an ecosystem. Because many organisms eat at more than one trophic level, real food webs are not always neat four-step ladders.
 
-Each step in a food chain is called a **trophic level**: **producers** (plants, which make their own food through photosynynthesis) form the first level; **primary consumers** (herbivores that eat producers) form the second; **secondary consumers** (carnivores that eat herbivores) form the third; and **tertiary consumers** (top predators) form the top level.
+A **trophic level** describes an organism's feeding position:
 
-<!-- ILLUSTRATION: energy pyramid with four stacked levels shrinking in size upward, labeled producers, primary consumers, secondary consumers, tertiary consumers, with 100%, 10%, 1%, 0.1% energy amounts shown at each level -->
+- **Primary producers** form organic matter from inorganic sources using light or chemical energy.
+- **Primary consumers** feed on producers.
+- **Secondary and higher consumers** feed on other consumers.
+- **Decomposers and detritivores** process dead organic matter and wastes and connect material cycles across trophic levels.
 
-Energy is lost at each step, mostly as heat from normal living activities. Only about $10\%$ of the energy at one trophic level gets passed on to the next level (the "$10\%$ rule"); the other $90\%$ is used up or lost. This is why an **energy pyramid** gets much smaller at each higher level, and why food chains rarely have more than four or five levels.
+<!-- ILLUSTRATION: energy pyramid with producers at the base and consumer levels above, labeled as an illustrative—not exact—energy-transfer pattern -->
 
-### Biogeochemical Cycles (Carbon, Nitrogen, Phosphorus, Water)
+Energy transfer between trophic levels is inefficient because organisms use much of the energy they acquire for metabolism, movement, maintenance, and other processes; some energy is also never eaten or is lost in waste. Much ultimately dissipates as heat.
 
-Chemical elements essential to life are constantly recycled between living things and the environment, through **biogeochemical cycles**.
+The familiar **10% rule** is a classroom approximation, not a universal constant. Ecological or trophic transfer efficiency varies by ecosystem and organisms. For a problem that explicitly tells you to use 10%, applying a factor of $0.10$ per trophic step is appropriate.
 
-The **carbon cycle**: carbon moves between the atmosphere (as carbon dioxide), living things (through photosynthesis and respiration), and long-term storage (like fossil fuels).
+### Biogeochemical Cycles
 
-The **nitrogen cycle**: nitrogen gas in the air must be converted into a usable form through **nitrogen fixation**, carried out mainly by certain bacteria, since most organisms cannot use nitrogen gas directly.
+Essential elements cycle between organisms and the environment.
 
-The **phosphorus cycle**: unlike the other cycles, phosphorus moves mainly through rock, soil, and water, with almost no gas phase in the atmosphere.
+The **carbon cycle** moves carbon among the atmosphere, oceans, organisms, soils, rocks, and long-term reservoirs such as fossil carbon. Photosynthesis removes $CO_2$ from the atmosphere or water; respiration and decomposition return carbon in other forms.
 
-The **water cycle**: water moves between the oceans, atmosphere, and land through evaporation, condensation, and precipitation (covered in detail in an earlier lesson).
+The **nitrogen cycle** includes several distinct microbial processes. **Nitrogen fixation** converts atmospheric $N_2$ into ammonia ($NH_3$, commonly present as ammonium $NH_4^+$ in water/soil). **Nitrification** then converts ammonium to nitrite and nitrate. Plants assimilate usable nitrogen compounds, while **denitrification** returns nitrogen gases to the atmosphere.
+
+The **phosphorus cycle** is dominated by movement through rocks, soils, organisms, and water and has no major atmospheric gaseous reservoir comparable with the carbon or nitrogen cycles.
+
+The **water cycle** moves water through reservoirs such as oceans, atmosphere, land, groundwater, and living organisms.
 
 ### Symbiotic Relationships
 
-**Symbiosis** describes a close, long-term relationship between two different species. There are three main types, based on who benefits:
+**Symbiosis** is a close biological relationship between different species. Introductory ecology commonly groups such relationships by their net effects:
 
-- **Mutualism**: Both species benefit (a bee gets nectar; the flower gets pollinated).
-- **Commensalism**: One species benefits, and the other is neither helped nor harmed (a bird nesting in a tree gets shelter; the tree is unaffected).
-- **Parasitism**: One species (the **parasite**) benefits, while the other (the **host**) is harmed (a mosquito feeds on a human's blood, potentially spreading disease, while the human is harmed).
+- **Mutualism**: both partners benefit $(+,+)$.
+- **Commensalism**: one benefits while the other has no clear net effect $(+,0)$.
+- **Parasitism**: the parasite benefits while the host is harmed $(+,-)$.
+
+These categories can depend on context and evidence; a relationship treated as commensal in a simple example may have subtle costs or benefits not obvious at first glance.
 
 ## Examples
 
-### #1: Building a Food Chain and Naming Trophic Levels
+### #1: Building a Food Chain
 
-Arrange the following into a correct food chain, and name each organism's trophic level: a hawk, grass, a grasshopper, a frog.
-
-**Solution:**
-Order them by "who eats whom," starting with the organism that makes its own food.
-
-1. Grass makes its own food through photosynthesis: it is the producer (first trophic level).
-2. The grasshopper eats the grass: it is the primary consumer (second trophic level).
-3. The frog eats the grasshopper: it is the secondary consumer (third trophic level).
-4. The hawk eats the frog: it is the tertiary consumer (fourth trophic level).
-5. Food chain: grass → grasshopper → frog → hawk.
-
-### #2: Applying the 10% Rule
-
-A trophic level of producers in an ecosystem contains $10{,}000$ kilocalories of energy. Using the $10\%$ rule, how much energy is available to the primary consumers, and how much is available to the secondary consumers?
+Arrange grass, grasshopper, frog, and hawk into a simple food chain and identify their trophic roles in that simplified chain.
 
 **Solution:**
-Take $10\%$ of the energy at each step, one level at a time.
 
-1. Energy passed to primary consumers:
+1. Grass is the producer.
+2. Grasshopper consumes the producer: primary consumer.
+3. Frog consumes the grasshopper: secondary consumer.
+4. Hawk consumes the frog: tertiary consumer in this simplified chain.
+5. Energy-flow chain: grass → grasshopper → frog → hawk.
 
-$$10000 \times 0.10 = 1000 \text{ kilocalories}$$
+### #2: Applying a Given 10% Approximation
 
-2. Energy passed from primary consumers to secondary consumers:
-
-$$1000 \times 0.10 = 100 \text{ kilocalories}$$
-
-3. Only $100$ kilocalories (just $1\%$ of the original amount) reaches the secondary consumers. This dramatic energy loss is why energy pyramids are always wide at the bottom and narrow at the top.
-
-### #3: Identifying the Symbiotic Relationship
-
-Classify each relationship as mutualism, commensalism, or parasitism: (a) a tapeworm living inside a dog's intestines, absorbing nutrients and harming the dog's health; (b) a clownfish living safely among a sea anemone's stinging tentacles while also cleaning and feeding the anemone; (c) a small fish (remora) attaching to a shark to hitch a ride and pick up food scraps, without affecting the shark either way.
+A problem tells you to assume $10\%$ trophic transfer efficiency. Producers contain $10{,}000$ kJ of usable production. Under that stated assumption, estimate the energy transferred to primary and then secondary consumers.
 
 **Solution:**
-Check who benefits and who is harmed in each case.
 
-1. (a) The tapeworm benefits; the dog is harmed: Parasitism.
-2. (b) Both the clownfish and the anemone benefit (protection for the fish, cleaning/food for the anemone): Mutualism.
-3. (c) The remora benefits; the shark is neither helped nor harmed: Commensalism.
+1. Primary consumers:
 
-### #4: Why Nitrogen Fixation Is Necessary
+$$10{,}000(0.10)=1{,}000\text{ kJ}$$
 
-Nitrogen gas makes up about $78\%$ of Earth's atmosphere, yet plants and animals cannot use it directly from the air. Explain why nitrogen fixation is a necessary step in the nitrogen cycle.
+2. Secondary consumers:
+
+$$1{,}000(0.10)=100\text{ kJ}$$
+
+3. This is an estimate based on the problem's 10% assumption, not a law that all ecosystems obey exactly.
+
+### #3: Identifying Symbiosis
+
+Classify these simplified relationships: (a) a tapeworm drawing nutrients from a dog and harming it; (b) a pollinator receiving food while pollinating a plant; (c) an organism gaining shelter while measurements show no detectable effect on its host.
 
 **Solution:**
-Consider the chemical form nitrogen needs to be in for living things to use it.
 
-1. Nitrogen gas in the atmosphere exists in a very stable, unusable chemical form for most living things.
-2. Certain bacteria perform nitrogen fixation, converting atmospheric nitrogen gas into a usable form (like ammonia or nitrates) that plants can absorb through their roots.
-3. Once plants absorb this usable nitrogen, it can pass up the food chain to animals that eat the plants.
-4. Without nitrogen-fixing bacteria acting as the "translator," the abundant nitrogen gas in the atmosphere would remain unusable to nearly all life.
+1. (a) Parasitism: $(+,-)$.
+2. (b) Mutualism: $(+,+)$.
+3. (c) Commensalism under the stated evidence: $(+,0)$.
+
+### #4: Why Nitrogen Fixation Matters
+
+Why can most plants not simply use atmospheric $N_2$ directly?
+
+**Solution:**
+
+1. Atmospheric $N_2$ contains a strong triple bond and is chemically unavailable to most organisms.
+2. Nitrogen-fixing prokaryotes convert $N_2$ to ammonia.
+3. Ammonia/ammonium can be incorporated biologically or processed further by nitrifying microbes into nitrite and nitrate.
+4. The distinction matters: **fixation produces ammonia; nitrification produces nitrite/nitrate**.
 
 ## Speed Tricks & Shortcuts
 
-For trophic level questions, count the arrows in the food chain: the first organism (no arrow pointing to it) is always the producer, and each subsequent link adds one level (primary, secondary, tertiary consumer).
+For food-web arrows, read the arrow as **energy moves to** the consumer.
 
-For 10% rule calculations, just multiply by $0.10$ (or divide by $10$) at each step, one level at a time: never skip straight from the first to the last level with a single big multiplication.
+For trophic-energy calculations, use 10% only when the lesson/problem presents it as an approximation or explicitly instructs you to assume it.
 
-For symbiosis questions, use a simple plus/minus/zero chart: mutualism is (+, +), commensalism is (+, $0$), and parasitism is (+, −). Identify what happens to each organism, then match the pattern.
+For the nitrogen cycle, keep the verbs separate: **fix $N_2$ → ammonia; nitrify ammonium → nitrite/nitrate; denitrify nitrate → nitrogen gases**.
+
+For symbiosis, $(+,+)$ = mutualism, $(+,0)$ = commensalism, $(+,-)$ = parasitism.
 
 ## Traps to Watch For
 
-### #1: Confusing a Food Chain with a Food Web
+### #1: Treating the 10% Rule as Exact
 
-> A food chain is a single, straight-line sequence. A food web shows many interconnected food chains.
+> Trophic transfer efficiency varies; 10% is a useful rule of thumb for simple problems.
 
-A question describing multiple predators sharing the same prey, or one predator eating several different prey types, is describing a food web, not a simple food chain. Food chains are a simplification; food webs are the more realistic, complete picture.
+Measured efficiencies can be higher or lower.
 
-### #2: Multiplying the 10% Rule Incorrectly
+### #2: Calling Nitrate a Direct Product of Nitrogen Fixation
 
-> Apply the $10\%$ rule one level at A time, not directly from the first level to a distant level.
+> Biological nitrogen fixation converts $N_2$ to ammonia; nitrifying organisms carry out the later steps toward nitrite and nitrate.
 
-A common mistake is computing the energy at the fourth trophic level by multiplying the first level's energy by $10\%$ just once. In Example 2, going from producers directly to secondary consumers requires two separate $10\%$ reductions (multiplying by $0.10$ twice), not one.
+Do not collapse distinct microbial processes into one.
 
-### #3: Mixing Up Commensalism and Mutualism
+### #3: Forcing Every Organism Into One Fixed Trophic Level
 
-> Commensalism benefits only one species (the other is unaffected). Mutualism benefits both species.
+> Omnivores can feed at different trophic levels, and decomposers connect many parts of a food web.
 
-Students often assume any close relationship where one species "helps" the other must be mutualism. Carefully check whether the second species actually receives any measurable benefit; if not, and it is simply unaffected, the relationship is commensalism, not mutualism.
+The producer-primary-secondary-tertiary ladder is a useful simplified chain, not a complete map of every ecosystem.
 
-### #4: Assuming All Cycles Have a Gas Phase
+### #4: Assuming Symbiosis Categories Are Always Obvious
 
-> The carbon, nitrogen, and water cycles all include a gas phase in the atmosphere. The phosphorus cycle does not: phosphorus moves mainly through rock, soil, and water.
+> Commensalism specifically means no detectable net effect on one partner.
 
-A question describing phosphorus "evaporating into the atmosphere" or "existing as a gas" misunderstands this cycle. Unlike carbon dioxide, nitrogen gas, or water vapor, phosphorus stays almost entirely within rocks, soil, and water throughout its cycle.
+If evidence shows both partners benefit, the relationship is mutualistic; if one is harmed, it is parasitic.

@@ -1,7 +1,7 @@
 ---
 _id: "lesson-physics-scalars-and-vectors"
 title: "Scalars and Vectors (Vector Addition and Resolution)"
-summary: "The difference between scalar and vector quantities and how to add and break apart vectors."
+summary: "The difference between scalar and vector physical quantities and how to add vectors and resolve them into components."
 subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 11
@@ -9,128 +9,118 @@ isActive: true
 ---
 ## Core Concept
 
-Physics quantities come in two types.
+Physical quantities can be scalar or vector quantities.
 
-A **scalar** has only magnitude (size), no direction: mass, temperature, time, speed, distance. Saying "the car traveled $50 \text{ km}$" is a scalar statement.
+A **scalar** is fully specified by a magnitude and unit. Examples include mass, temperature, time, speed, energy, and path length/distance.
 
-A **vector** has both magnitude and direction: displacement, velocity, acceleration, force. Saying "the car traveled $50 \text{ km}$ north" is a vector statement: the direction matters.
+A **vector** requires both magnitude and direction and obeys vector-addition rules. Examples include displacement, velocity, acceleration, force, and momentum.
 
-Vectors are drawn as arrows: the arrow length represents magnitude, and the arrow direction represents the direction of the quantity.
+Whether a quantity is a vector is a property of the **physical quantity**, not simply whether a sentence happens to contain a direction word. A problem can ask only for the magnitude of a vector, and a scalar statement can still refer to a location or orientation in ordinary language.
 
-<!-- FIGURE: {"kind": "concept-diagram", "type": "vector-diagram", "vectors": [{"label": "5 N East", "angle": 0, "magnitude": 5}, {"label": "8 N Northeast", "angle": 45, "magnitude": 8}], "semanticsLabel": "Two vector arrows comparing a 5 N force pointing east and an 8 N force pointing northeast."} -->
+Vectors are commonly represented by arrows, with arrow direction representing vector direction and arrow length representing magnitude according to a chosen scale.
 
 ### Adding Vectors
 
-When vectors point in the same direction, simply add their magnitudes. When vectors point in opposite directions, subtract the smaller from the larger (the result points in the direction of the larger vector).
+Vector addition is performed component-wise or geometrically.
 
-When vectors point in different (non-opposite) directions, use the **tip-to-tail method**: draw the first vector, then start the second vector's tail at the first vector's tip. The **resultant** (the sum) is the single arrow drawn from the very first tail to the very last tip. For vectors at right angles to each other, the resultant's magnitude can be found using the Pythagorean theorem, since the two vectors and the resultant form a right triangle.
+- Same direction: magnitudes add.
+- Opposite directions along one line: signed components add, which may look like subtracting magnitudes.
+- General directions: use tip-to-tail construction or resolve into components and add corresponding components.
 
-### Resolving Vectors into Components
+For perpendicular vectors with magnitudes $A$ and $B$, the resultant magnitude is
 
-Just as two vectors can be combined into one resultant, a single vector can be broken apart into two perpendicular pieces, called **components**: usually a horizontal ($x$) component and a vertical ($y$) component. For a vector with magnitude $V$ at angle $\theta$ from the horizontal:
+$$R=\sqrt{A^2+B^2}.$$
 
-$$V_x = V\cos\theta \qquad V_y = V\sin\theta$$
+For arbitrary vectors, do **not** use the Pythagorean theorem unless their components are perpendicular; use components or the law of cosines as appropriate.
 
-This is useful because horizontal and vertical motions can then be analyzed separately and independently.
+### Resolving a Vector into Components
+
+If a vector of magnitude $V$ makes angle $\theta$ measured counterclockwise from the positive $x$-axis,
+
+$$V_x=V\cos\theta,\qquad V_y=V\sin\theta.$$
+
+The signs follow from the quadrant. If the angle is measured from a different axis or direction, derive the components from the geometry instead of memorizing these expressions blindly.
+
+A vector's magnitude can be reconstructed from perpendicular Cartesian components:
+
+$$V=\sqrt{V_x^2+V_y^2}.$$
+
+Its direction can be obtained from an inverse tangent with quadrant care, for example using an $\operatorname{atan2}(V_y,V_x)$ interpretation.
 
 ## Examples
 
 ### #1: Scalar or Vector?
 
-Classify each quantity as a scalar or a vector: (a) "the runner covered $10 \text{ km}$"; (b) "the runner's displacement was $6 \text{ km}$ east"; (c) "the temperature is $30°C$."
+Classify:
+
+(a) path length traveled = $10\,\mathrm{km}$;  
+(b) displacement = $6\,\mathrm{km}$ east;  
+(c) temperature = $30\,^{\circ}\mathrm C$;  
+(d) speed = $20\,\mathrm{m/s}$.
 
 **Solution:**
-Check whether a direction is specified.
 
-1. (a) "$10 \text{ km}$" with no direction given: Scalar (this is distance).
-2. (b) "$6 \text{ km}$ east" includes a specific direction: Vector (this is displacement).
-3. (c) Temperature has magnitude only, no direction: Scalar.
+1. Path length/distance: scalar.
+2. Displacement: vector.
+3. Temperature: scalar.
+4. Speed: scalar, even though velocity—its vector counterpart—is a vector quantity.
 
-### #2: Adding Perpendicular Vectors
+### #2: Perpendicular Displacements
 
-A hiker walks $3 \text{ km}$ east, then $4 \text{ km}$ north. Find the magnitude of the hiker's total displacement.
+A hiker walks $3\,\mathrm{km}$ east then $4\,\mathrm{km}$ north.
 
-<!-- FIGURE: {"kind": "concept-diagram", "type": "vector-addition", "components": [{"label": "3 km East", "dx": 3, "dy": 0}, {"label": "4 km North", "dx": 0, "dy": 4}], "resultant": {"label": "5 km Resultant", "dx": 3, "dy": 4}, "semanticsLabel": "A vector addition right triangle with 3 km east, 4 km north, and a 5 km resultant hypotenuse."} -->
+$$R=\sqrt{3^2+4^2}=5\,\mathrm{km}.$$
 
+The **displacement magnitude** is $5$ km. The **distance traveled** is $3+4=7$ km. These are different quantities.
 
-**Solution:**
-The two vectors are perpendicular, so use the Pythagorean theorem.
+### #3: Components
 
-1. Set up the Pythagorean theorem with the two perpendicular legs.
+A $10\,\mathrm N$ force acts $30^\circ$ above the positive horizontal axis.
 
-$$R^2 = 3^2 + 4^2$$
+$$F_x=10\cos30^\circ=5\sqrt3\,\mathrm N$$
 
-2. Compute.
+$$F_y=10\sin30^\circ=5\,\mathrm N$$
 
-$$R^2 = 9 + 16 = 25$$
+Both components are positive because the vector lies in quadrant I.
 
-3. Take the square root.
+### #4: Opposite Forces
 
-$$R = 5 \text{ km}$$
+Take right as positive. A $600\,\mathrm N$ force acts left and a $450\,\mathrm N$ force acts right.
 
-4. The hiker's total displacement has a magnitude of $5 \text{ km}$ (this is the familiar $3$-$4$-$5$ right triangle).
+$$F_{\text{net}}=(-600)+(450)=-150\,\mathrm N.$$
 
-### #3: Resolving a Vector into Components
-
-A force of $10 \text{ N}$ is applied at an angle of $30°$ above the horizontal. Find its horizontal and vertical components.
-
-<!-- FIGURE: {"kind": "concept-diagram", "type": "vector-components", "magnitude": 10, "angle": 30, "unit": "N", "components": {"horizontal": "10 cos 30°", "vertical": "10 sin 30°"}, "semanticsLabel": "A 10 N force vector at 30 degrees above the horizontal resolved into horizontal and vertical components."} -->
-
-
-**Solution:**
-Apply the component formulas with $V = 10$ and $\theta = 30°$.
-
-1. Horizontal component.
-
-$$V_x = 10 \cos 30° = 10 \times \dfrac{\sqrt{3}}{2} = 5\sqrt{3} \text{ N}$$
-
-2. Vertical component.
-
-$$V_y = 10 \sin 30° = 10 \times \dfrac{1}{2} = 5 \text{ N}$$
-
-3. The horizontal component is $5\sqrt{3} \text{ N}$ (about $8.7 \text{ N}$), and the vertical component is $5 \text{ N}$.
-
-### #4: Vectors in Opposite Directions
-
-Two tug-of-war teams pull on a rope. Team A pulls with $600 \text{ N}$ to the left; Team B pulls with $450 \text{ N}$ to the right. Find the net force and its direction.
-
-<!-- FIGURE: {"kind": "concept-diagram", "type": "tug-of-war", "forces": [{"label": "Team A (600 N)", "direction": "left", "magnitude": 600}, {"label": "Team B (450 N)", "direction": "right", "magnitude": 450}], "netForce": {"label": "Net Force (150 N)", "direction": "left"}, "semanticsLabel": "A tug-of-war diagram with 600 N pulling left, 450 N pulling right, and a net force of 150 N to the left."} -->
-
-
-**Solution:**
-Since the forces are in opposite directions, subtract the smaller from the larger.
-
-1. Subtract the magnitudes.
-
-$$600 - 450 = 150 \text{ N}$$
-
-2. The net force takes the direction of the larger force, which is Team A's direction (left).
-3. The net force is $150 \text{ N}$ to the left.
+The negative sign means the net force is $150\,\mathrm N$ left.
 
 ## Speed Tricks & Shortcuts
 
-To tell scalar from vector fast, listen for a direction word (north, up, left, at an angle): its presence means vector; its absence means scalar.
+First identify the **quantity name**: speed is scalar; velocity is vector; distance is scalar; displacement is vector.
 
-For perpendicular vector addition, check first whether the numbers form a known Pythagorean triple ($3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$) to skip the squaring and rooting.
+For one-dimensional vectors, assign a positive direction and use signed numbers. This is safer than memorizing "subtract the smaller from the larger."
 
-Remember which trig function goes with which component: Cosine goes with the adjacent side (usually the horizontal component when the angle is measured from the horizontal), and sine goes with the opposite side (usually the vertical component).
+For two-dimensional vectors, components are the general-purpose method: resolve, add $x$ components, add $y$ components, then reconstruct magnitude and direction.
 
 ## Traps to Watch For
 
-### #1: Confusing Distance (Scalar) with Displacement (Vector)
+### #1: Using a Direction Word as the Definition of a Vector
 
-> Distance is the total path length traveled (scalar). Displacement is the straight-line change in position, with direction (vector).
+> A vector is defined by its mathematical/physical transformation and addition properties, not by sentence wording.
 
-If a runner jogs around a circular track and ends up back at the starting point, the distance traveled is the full circumference (a large positive number), but the displacement is zero, since the runner ended up exactly where they started. Confusing these two produces very different, often contradictory answers.
+A question may ask only for a vector's magnitude without restating its direction.
 
-### #2: Simply Adding Magnitudes When Vectors Are Not in the Same Direction
+### #2: Confusing Distance and Displacement
 
-> Vector magnitudes can only be added directly when the vectors point in the exact same direction.
+> Distance is total path length; displacement is change in position.
 
-Adding $3 \text{ km}$ and $4 \text{ km}$ directly (getting $7 \text{ km}$) when the two displacements are actually perpendicular gives the wrong total; the correct combined magnitude (using the Pythagorean theorem) is $5 \text{ km}$, not $7 \text{ km}$.
+A round trip can have positive distance and zero displacement.
 
-### #3: Swapping Sine and Cosine When Finding Components
+### #3: Adding Magnitudes Instead of Vectors
 
-> Whether you use sine or cosine for a component depends on which side of the angle the component represents: always double-check against the actual triangle, don't just guess.
+> $|\vec A+\vec B|$ is not generally $A+B$.
 
-If the angle is measured from the vertical instead of the horizontal (a less common but valid setup), the sine and cosine roles for the $x$ and $y$ components swap compared to the usual convention. Always sketch the triangle and identify the adjacent and opposite sides relative to the given angle before applying a formula.
+Direct magnitude addition works only when the vectors point in the same direction.
+
+### #4: Memorizing Sine/Cosine Without Checking the Angle Definition
+
+> $V_x=V\cos\theta$ and $V_y=V\sin\theta$ assume $\theta$ is measured from the positive horizontal axis.
+
+If the reference axis changes, derive the triangle again.

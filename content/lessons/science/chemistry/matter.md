@@ -1,7 +1,7 @@
 ---
 _id: "lesson-chemistry-matter"
 title: "Matter (Classification, States, Properties, Phase Changes)"
-summary: "How matter is classified, the states matter can take, and the difference between physical and chemical properties."
+summary: "How matter is classified, the common states it can take, and the difference between physical and chemical properties and changes."
 subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 11
@@ -9,104 +9,110 @@ isActive: true
 ---
 ## Core Concept
 
-**Matter** is anything that has mass and takes up space. Chemistry studies how matter behaves and changes.
+**Matter** is anything that has mass and occupies space. Chemistry studies the composition, properties, and transformations of matter.
 
 ### Classifying Matter
 
-Matter is first split into **pure substances** (fixed composition) and **mixtures** (variable composition, made of two or more substances physically combined). Pure substances are further split into **elements** (cannot be broken down into simpler substances, like oxygen) and **compounds** (two or more elements chemically bonded together in a fixed ratio, like water).
+A **pure substance** has a characteristic, fixed chemical composition. Pure substances include:
+
+- **Elements**: substances made of one chemical element and not decomposable into simpler substances by ordinary chemical reactions. Oxygen gas, $O_2$, is still the element oxygen because it contains only oxygen atoms.
+- **Compounds**: pure substances containing two or more elements chemically combined in definite proportions, such as water ($H_2O$).
+
+A **mixture** contains two or more substances in proportions that can vary. Its components retain their chemical identities and can, in principle, be separated by physical methods chosen for their properties.
 
 ### States of Matter
 
-The three everyday states are **solid** (fixed shape, fixed volume, particles vibrate in place), **liquid** (fixed volume but takes the shape of its container, particles slide past each other), and **gas** (no fixed shape or volume, particles move freely and spread out). A fourth state, **plasma**, is a superheated, electrically charged gas, found in stars and lightning.
+The three familiar bulk states are:
 
-<!-- ILLUSTRATION: three boxes showing particle arrangement in a solid (tightly packed, fixed grid), a liquid (close together but disordered), and a gas (spread far apart, moving freely) -->
+- **Solid**: has a definite volume and resists changes of shape. Crystalline solids have long-range ordered structures; amorphous solids such as glass do not form a perfect repeating lattice.
+- **Liquid**: has a definite volume under ordinary conditions but flows to take the shape of its container.
+- **Gas**: expands to fill its container and has neither a fixed shape nor a fixed volume.
+
+A common fourth state is **plasma**, an ionized gas containing charged particles. Plasmas occur in stars, lightning, fluorescent lamps, and many other settings. High temperature is one way to create a plasma, but "superheated gas" is not its definition.
+
+<!-- ILLUSTRATION: particle models of a crystalline solid, liquid, gas, and ionized plasma, with a note that not every solid forms a perfect lattice -->
 
 ### Phase Changes
 
-Matter can change between states by adding or removing heat energy:
+For a substance that is not chemically reacting, changes between phases are **physical changes**. Which phase is stable depends on conditions such as temperature and pressure.
 
 - **Melting**: solid → liquid.
 - **Freezing**: liquid → solid.
-- **Vaporization (boiling/evaporation)**: liquid → gas.
+- **Vaporization**: liquid → gas. **Evaporation** occurs at a liquid surface; **boiling** occurs throughout a liquid when its vapor pressure reaches the surrounding pressure.
 - **Condensation**: gas → liquid.
-- **Sublimation**: solid → gas directly, skipping the liquid state (like dry ice).
-- **Deposition**: gas → solid directly, skipping the liquid state (like frost forming).
+- **Sublimation**: solid → gas without passing through the liquid phase under those conditions.
+- **Deposition**: gas → solid without passing through the liquid phase.
 
-Changes that absorb energy (melting, vaporization, sublimation) are **endothermic**. Changes that release energy (freezing, condensation, deposition) are **exothermic**.
-
-Phase changes are always **physical changes**: the substance's chemical identity stays exactly the same. Ice and liquid water are both still $H_2O$.
+At a given pressure, melting, vaporization, and sublimation require energy input to the substance, while freezing, condensation, and deposition release energy to the surroundings.
 
 ### Physical vs. Chemical Properties
 
-A **physical property** can be observed without changing the substance's identity (color, density, melting point, hardness). A **chemical property** describes how a substance reacts to form a new substance (flammability, reactivity with acid, ability to rust).
+A **physical property** can be measured or observed without changing a sample's chemical identity, such as density, color, melting point, or electrical conductivity.
 
-Likewise, a **physical change** does not create a new substance (cutting paper, melting ice, dissolving sugar in water), while a **chemical change** does create a new substance with different properties (burning wood, rusting iron, an egg cooking).
+A **chemical property** describes a substance's ability to undergo a chemical change, such as flammability or reactivity with oxygen.
+
+A **physical change** changes form, phase, or distribution without converting the substance into different chemical species. A **chemical change** converts reactants into products with different chemical compositions.
 
 ## Examples
 
-### #1: Classifying a Sample of Matter
+### #1: Classifying a Sample
 
-Classify each of the following as an element, a compound, or a mixture: (a) pure oxygen gas ($O_2$); (b) table salt ($NaCl$); (c) a glass of lemonade (water, sugar, and lemon juice mixed together).
-
-**Solution:**
-Check whether each substance is made of one element, a fixed chemical combination, or a variable physical blend.
-
-1. (a) Oxygen gas is made of only one type of atom: an element.
-2. (b) Table salt is two elements (sodium and chlorine) chemically bonded in a fixed ratio: a compound.
-3. (c) Lemonade is water, sugar, and lemon juice physically combined in amounts that can vary (more or less sugar, for instance): a mixture.
-
-### #2: Identifying the Phase Change
-
-Water vapor touches a cold window pane and turns into liquid water droplets. Name this phase change, and state whether it is endothermic or exothermic.
+Classify (a) pure $O_2$, (b) pure $NaCl$, and (c) lemonade as element, compound, or mixture.
 
 **Solution:**
-Identify the states involved and the direction of change.
 
-1. The change goes from gas (water vapor) to liquid (water droplets): this is condensation.
-2. Condensation releases energy (the water vapor loses heat to the cold window): this is exothermic.
+1. $O_2$ contains only oxygen atoms: **element**.
+2. $NaCl$ is a pure substance containing sodium and chlorine in a definite stoichiometric ratio: **compound**.
+3. Lemonade can contain varying amounts of water, sugar, acids, and flavor compounds: **mixture**.
 
-### #3: Physical Property, Chemical Property, or Change?
+### #2: Identifying a Phase Change
 
-Classify each observation: (a) iron is attracted to a magnet; (b) a piece of paper is torn in half; (c) a nail left outside rusts; (d) iron can react with oxygen to form rust.
+Water vapor contacts a cold surface and forms liquid droplets. What process occurred, and was energy released to or absorbed from the surroundings?
 
 **Solution:**
-Check whether a new substance is formed, and whether the description is a property (a description) or a change (an event).
 
-1. (a) "Attracted to a magnet" describes a trait without forming anything new: a physical property.
-2. (b) Tearing paper changes its shape, but it is still paper: a physical change.
-3. (c) A nail rusting forms a new substance (rust, iron oxide) with different properties than iron: a chemical change.
-4. (d) "Can react with oxygen to form rust" describes a potential for a reaction, not an event that already happened: a chemical property.
+1. Gas → liquid is **condensation**.
+2. Condensation releases energy from the condensing water to its surroundings, so it is exothermic with respect to the water sample.
+
+### #3: Property or Change?
+
+Classify: (a) iron is magnetic under the stated conditions; (b) paper is torn; (c) iron rusts; (d) iron is capable of reacting with oxygen.
+
+**Solution:**
+
+1. Magnetic behavior: physical property.
+2. Tearing: physical change.
+3. Rusting: chemical change.
+4. Ability to react with oxygen: chemical property.
 
 ## Speed Tricks & Shortcuts
 
-For "element, compound, or mixture" questions, ask two quick questions: is it one kind of atom (element) or more than one (compound or mixture)? If more than one, is the ratio fixed (compound) or variable (mixture)?
+For element/compound/mixture questions, ask whether the sample is a pure substance and whether it contains one element or multiple elements in a definite chemical composition.
 
-For phase change direction, remember: going from more ordered to less ordered (solid → liquid → gas) always absorbs energy (endothermic); going the other way always releases energy (exothermic).
+For phase-change questions, identify the starting and ending states first. Do not infer a chemical reaction merely because energy was absorbed or released.
 
-For property vs. change questions, look for an action verb describing something that already happened (a change) versus a general description of how a substance would behave (a property).
+For property-versus-change questions, distinguish a **capacity/description** from an **event that changes the sample**.
 
 ## Traps to Watch For
 
-### #1: Thinking a Mixture Must Look Uneven
+### #1: Saying an Element Can Never Be Changed Into Another Element
 
-> Mixtures can be uniform-looking (homogeneous) or visibly uneven (heterogeneous): both are still mixtures, not compounds.
+> An element cannot be decomposed into simpler substances by ordinary chemical reactions, but nuclear reactions can change one element into another.
 
-Saltwater looks completely uniform, but it is still a mixture (the ratio of salt to water can vary), not a compound. A "looks uniform" test alone cannot distinguish a mixture from a compound: check whether the composition ratio is fixed or variable.
+Chemistry's element definition refers to chemical, not nuclear, decomposition.
 
-### #2: Confusing Phase Changes with Chemical Changes
+### #2: Treating Every Solid as a Perfect Crystal
 
-> Phase changes (melting, freezing, boiling, condensing) are always physical changes: no new substance forms.
+> Crystalline solids have ordered lattices; amorphous solids do not have long-range crystalline order.
 
-Water boiling into steam is still $H_2O$; only its physical state changed. A choice suggesting that boiling water "creates a new substance" is incorrect: the chemical identity never changes during a phase change.
+"Particles vibrate in a fixed grid" is a useful crystal model, not a universal description of all solids.
 
-### #3: Mixing Up Sublimation and Evaporation
+### #3: Calling Plasma Merely a Very Hot Gas
 
-> Sublimation skips the liquid phase entirely (solid directly to gas). Evaporation (or boiling) goes from liquid to gas.
+> Plasma is characterized by substantial ionization and collective behavior of charged particles.
 
-Dry ice (solid carbon dioxide) turning into gas without ever becoming liquid is sublimation, a special and less common phase change. Confusing it with ordinary evaporation misses this key "skipped phase" detail.
+Temperature is one route to ionization, not the definition itself.
 
-### #4: Describing a Chemical Property as Something That Already Happened
+### #4: Confusing Evaporation with Boiling
 
-> A chemical property describes what could happen; a chemical change describes an event that did happen.
-
-"Iron rusts when exposed to oxygen and moisture" is a chemical property (a description of a potential reaction). "This nail has rusted" describes an actual chemical change that has already occurred. Exam questions often test this subtle property-versus-change distinction directly.
+> Both are vaporization, but evaporation is a surface process and can occur below the boiling point; boiling occurs throughout the liquid when vapor bubbles can form under the prevailing pressure.

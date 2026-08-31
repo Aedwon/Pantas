@@ -1,7 +1,7 @@
 ---
 _id: "lesson-comprehension-skills-authors-purpose-tone-pov"
 title: "Identifying Author's Purpose, Tone, and Point of View"
-summary: "Learn how to identify why an author wrote a passage, their attitude toward the subject, and their narrative perspective."
+summary: "Learn how textual evidence reveals a writer's purpose, tone, and narrative perspective without reducing them to rigid shortcut categories."
 subject: "subject-reading-comprehension"
 topic: "topic-comprehension-skills"
 estimatedMinutes: 9
@@ -11,86 +11,72 @@ isActive: true
 
 ### Author's Purpose
 
-The **author's purpose** is why the author wrote the passage. Three common purposes, often remembered as pie:
+An **author's purpose** is what the writer is trying to accomplish in a text. **Persuade, inform,** and **entertain** are useful school-level categories, but they are not exhaustive. Writers may also explain, analyze, describe, instruct, criticize, commemorate, reflect, satirize, or combine several purposes.
 
-- **To Persuade**: convince the reader to believe or do something (common in editorials and advertisements).
-- **To Inform**: give the reader factual information (common in news articles, textbooks).
-- **To Entertain**: engage the reader through story, humor, or vivid description (common in fiction, humor pieces).
-
-Some passages combine purposes, but usually one purpose dominates.
+Ask what the text is actually doing and which purpose best explains its major choices. A passage can have more than one purpose, with one more central than the others.
 
 ### Tone
 
-**Tone** is the author's attitude toward the subject, revealed through word choice. Tone can be serious, humorous, sarcastic, nostalgic, critical, hopeful, or many other descriptors. Look at connotation (the emotional shading of words): an author describing a decision as "reckless" has a very different tone than one describing the same decision as "bold."
+**Tone** is the attitude or stance conveyed by the text toward its subject or audience. It is inferred from diction, imagery, syntax, emphasis, and context. Words such as *reckless* and *bold* can signal different evaluations of the same action.
+
+Tone is not the same as topic or purpose. An informative passage can still sound skeptical, sympathetic, celebratory, or critical.
 
 ### Point of View
 
-**Point of view** describes who is telling the story or passage, and from what perspective:
+In narrative writing, **point of view** concerns the position from which the story is presented.
 
-- **First person**: the narrator is a character in the story, using "I" and "we."
-- **Second person**: the narrator addresses the reader directly as "you" (rare, but used in some instructional or experimental writing).
-- **Third person limited**: the narrator is outside the story, using "he/she/they," but only reveals the thoughts and feelings of one character.
-- **Third person omniscient**: the narrator is outside the story and can reveal the thoughts and feelings of multiple (or all) characters.
+- **First person:** a narrator uses forms such as *I* or *we* and participates in or recounts the events.
+- **Second person:** the text addresses a *you* and may cast that addressee as a participant.
+- **Third person limited:** a third-person narrator restricts access mainly to one focal character's perceptions or thoughts.
+- **Third person omniscient:** a third-person narrator can move among multiple characters' inner lives or supply knowledge beyond any one character.
+- **Third person objective:** a narrator reports externally observable actions and speech without giving direct access to characters' thoughts.
 
+Pronouns alone are clues, not complete proof. Point of view depends on who narrates and what information the narration can access.
 
 ## Examples
 
-### #1: Identifying the Author's Purpose
+### #1: Purpose
 
-A passage states: "Vote yes on Proposition 12 to protect our local parks for future generations. Without your support, these green spaces could disappear forever." What is the author's purpose?
+"Vote yes on Proposition 12 to protect our local parks for future generations."
 
-**Solution:**
-1. The passage directly urges the reader to take an action ("Vote yes") and uses an emotional warning ("disappear forever") to motivate that action.
-2. This matches the purpose to persuade.
+The direct call to action makes **persuasion** the dominant purpose.
 
-### #2: Identifying Tone Through Word Choice
+### #2: Tone
 
-A passage describes a company's new policy as "a shameless attempt to squeeze more profit from overworked employees." What is the author's tone toward this policy?
+"A shameless attempt to squeeze more profit from overworked employees" uses strongly evaluative diction. The tone is **critical/disapproving**.
 
-**Solution:**
-1. Words like "shameless" and "squeeze" carry strongly negative connotations, suggesting disapproval and criticism.
-2. The tone is critical (or disapproving/scornful) toward the company's policy.
+### #3: Omniscient Point of View
 
-### #3: Identifying Point of View
+"Sarah smiled, though her hands trembled. Across the room, Marco frowned, wondering what she was hiding, unaware that his own secret was more dangerous."
 
-A passage reads: "Sarah smiled, though her hands trembled slightly. Across the room, Marco frowned, wondering what she was hiding, unaware that his own secret was far more dangerous." What point of view is this?
+The narration has access to Marco's thought and to information beyond his awareness, supporting a **third-person omniscient** reading.
 
-**Solution:**
-1. The narrator reveals sarah's physical state (trembling hands) and Marco's inner thoughts ("wondering what she was hiding") and a fact Marco himself does not know (about his own secret).
-2. Since the narrator has access to multiple characters' inner thoughts and even facts beyond what any single character knows, this is third person omniscient.
+### #4: Limited versus Objective
 
-### #4: Distinguishing First Person from Third Person Limited
-
-Compare: (A) "I couldn't understand why she was upset with me." (B) "He couldn't understand why she was upset with him." Identify the point of view in each.
-
-**Solution:**
-1. (A) uses "I," meaning the narrator is a character directly experiencing the story: First person.
-2. (B) uses "he" (a name/pronoun, not "I"), and reveals only this one character's confusion, not the other character's thoughts: Third person limited.
+"He could not understand why she was upset" directly reports one character's mental state, supporting **third-person limited**. A sentence that reports only visible actions and dialogue may instead be **third-person objective**; simply revealing zero thoughts does not make a passage limited.
 
 ## Speed Tricks & Shortcuts
 
-**For purpose, use the pie test:** does the passage want you to believe/do something (persuade), learn facts (inform), or enjoy a story/description (entertain)?
+**For purpose, identify the text's main action:** explaining, arguing, instructing, narrating, analyzing, and so on. Use PIE only as a starting mnemonic.
 
-**For tone, circle emotionally-loaded words** (words with strong positive or negative connotation) and ask what feeling they collectively convey about the subject.
+**For tone, collect evidence from several words or phrases.** One isolated adjective may not represent the whole passage.
 
-**For point of view, count how many characters' inner thoughts the narrator reveals.** Zero or one (only from outside, or only one character's mind) usually means third person limited (or objective); if the narrator "is" a character using "I," it's first person; multiple characters' thoughts revealed means third person omniscient.
+**For point of view, ask who narrates and whose mind the narration can enter.** Do not classify from pronouns alone.
 
 ## Traps to Watch For
 
-### #1: Confusing "Informative" Tone with "Neutral" or "Positive" Tone
+### #1: Treating PIE as the Only Three Purposes
 
-> Tone and purpose are related but not identical: a passage can inform (purpose) while still carrying a subtly critical or approving tone through word choice.
+> Persuade, inform, and entertain are common teaching categories, not a complete taxonomy of writing purposes.
 
-An informative article on a company's layoffs can still carry a sympathetic or critical tone toward the affected workers, even while its main purpose remains to inform readers of the facts.
+### #2: Confusing Tone with Purpose
 
-### #2: Assuming First-Person Narration Means the Author's Own Opinion
+> A text can inform while sounding critical or persuade while sounding calm and analytical.
 
-> In fiction, the first-person narrator is a character, not necessarily the author's own personal viewpoint: do not confuse a fictional narrator's voice with the real author's beliefs.
+### #3: Assuming First Person Equals the Real Author
 
-A story's "I" narrator can hold opinions or exhibit flaws the actual author does not personally share; the narrator is a created character, not a direct stand-in for the writer in most fiction.
+> In fiction, the first-person narrator is a textual persona or character and need not share the author's beliefs.
 
-### #3: Mistaking Third Person Limited for Omniscient
+### #4: Calling Any Third-Person Passage with One Mind "Limited"
 
-> Third person limited reveals only one character's inner thoughts; third person omniscient reveals multiple characters' inner thoughts, sometimes including things no character in the scene actually knows.
-
-If a passage only ever describes what one character is thinking or feeling (while other characters are described only through their visible actions and words), it is limited, not omniscient, even though both use "he/she" pronouns throughout.
+> Limited narration involves restricted access to a focal consciousness; objective narration may reveal no inner thoughts at all.

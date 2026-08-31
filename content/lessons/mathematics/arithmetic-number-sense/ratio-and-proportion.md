@@ -1,7 +1,7 @@
 ---
 _id: "lesson-arithmetic-number-sense-ratio-and-proportion"
 title: "Ratio and Proportion (Direct, Inverse, Partitive)"
-summary: "How to identify and solve direct, inverse, and partitive proportion problems quickly for your college entrance exams."
+summary: "Identify and solve direct, inverse, and partitive proportion problems."
 subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 estimatedMinutes: 12
@@ -9,192 +9,136 @@ isActive: true
 ---
 ## Core Concept
 
-A **ratio** compares two numbers. It shows how much of one thing there is compared to another. You usually write it like $2:3$ or as a fraction like $\dfrac{2}{3}$.
+A **ratio** compares two quantities by division. It can be written as $2:3$ or $\dfrac{2}{3}$ when the denominator is nonzero.
 
-A **proportion** is just a statement that two ratios are equal. On your entrance exams, you will see three main types of proportion problems.
+A **proportion** is a statement that two ratios are equal.
 
-1. **Direct Proportion**. In this type, when one amount goes up, the other amount goes up too. Think of buying apples. If you buy more apples, you pay more money.
+1. **Direct Proportion.** Two quantities $x$ and $y$ are directly proportional when their ratio is constant: $y=kx$ for a constant $k$. If $k>0$, increasing one quantity increases the other at the same proportional rate.
 
-2. **Inverse Proportion**. In this type, when one amount goes up, the other amount goes down. Think of cleaning a large house. If more people help clean, it takes less time to finish.
+2. **Inverse Proportion.** Two nonzero quantities $x$ and $y$ are inversely proportional when their product is constant: $xy=k$, or equivalently $y=\dfrac{k}{x}$. If $k>0$, increasing one quantity decreases the other in a specific reciprocal relationship.
 
-3. **Partitive Proportion**. This is about splitting a total amount into unequal slices. Think of a cash prize. You might split it so the first-place winner gets three parts, and the second-place winner gets one part.
+3. **Partitive Proportion.** A total is divided into shares according to a stated ratio. For example, dividing a prize in the ratio $3:1$ gives one recipient three of every four equal ratio-parts and the other recipient one part.
 
 ## Mnemonics & Memory Aids
 
-Remembering what to do with the numbers is the hardest part. Use these simple memory aids on test day.
+For direct proportion, equivalent ratios can be set equal. For inverse proportion, the corresponding products are equal because the product is constant.
 
-> **D & D, I & M**: **D**irect means **D**ivide. **I**nverse means **M**ultiply.
-
-If it is direct proportion, set up two fractions (division) and make them equal. If it is inverse proportion, multiply the numbers that go together and make them equal.
-
-> For Partitive Proportion: **"Add the parts, divide the whole, multiply to find your goal."**
-
-This three-step rhyme is all you need for partitive problems. Add the ratio numbers together. Divide the total amount by that sum. Then, multiply that answer by the specific ratio part you need.
+> For partitive proportion: **Add the parts, divide the whole, multiply by the needed part.**
 
 ## Examples
 
 ### #1: Basic Direct Proportion
 
-A bakery uses $4$ cups of flour to make $24$ large muffins. At this rate, how many cups of flour will the baker need to make $84$ large muffins?
+A bakery uses $4$ cups of flour to make $24$ large muffins. At this rate, how many cups of flour are needed for $84$ large muffins?
 
 **Solution:**
 
-1. This is direct proportion. More muffins need more flour.
-2. Set up two equal fractions using the D & D rule.
+1. The flour-to-muffin ratio is constant.
 
-$$\dfrac{4}{24} = \dfrac{x}{84}$$
+$$\dfrac{4}{24}=\dfrac{x}{84}$$
 
+2. Cross-multiply.
 
-3. Cross-multiply the numbers.
+$$24x=4\times84=336$$
 
-$$24x = 4 \times 84$$
+3. Divide by $24$.
 
-
-$$24x = 336$$
-
-
-4. Divide to solve for $x$.
-
-$$x = \dfrac{336}{24}$$
-
-
-$$x = 14$$
-
-
+$$x=14$$
 
 The baker needs $14$ cups of flour.
 
 ### #2: Basic Inverse Proportion
 
-A contractor estimates that it will take $6$ construction workers $15$ days to pave a stretch of road. If the contractor instead hires $9$ workers working at the exact same rate, how many days will it take to finish the job?
+A contractor estimates that $6$ workers, all working at the same constant rate, can finish a fixed job in $15$ days. If $9$ workers work at that same rate, how many days will the job take?
 
 **Solution:**
 
-1. This is inverse proportion. More workers mean fewer days.
-2. Use the I & M rule. Multiply the numbers that belong together.
+1. For a fixed amount of work with equal worker rates, workers and time are inversely proportional.
 
-$$6 \times 15 = 90$$
+$$6\times15=9x$$
 
+2. Solve.
 
-3. This $90$ is the total "worker-days" needed to finish the whole road.
-4. Divide this total work by the new number of workers.
+$$x=\dfrac{90}{9}=10$$
 
-$$x = \dfrac{90}{9}$$
-
-
-$$x = 10$$
-
-
-
-It will take the $9$ workers $10$ days to finish.
+It will take $10$ days.
 
 ### #3: Basic Partitive Proportion
 
-Three business partners, Alice, Bob, and Charlie, agreed to divide their total annual profit of $₱120,000$ in the ratio $2:3:5$. How much is Charlie’s share of the profit?
+Three business partners divide Php $120,000$ in the ratio $2:3:5$. How much is the share corresponding to $5$ parts?
 
 **Solution:**
 
-1. This is partitive proportion. We are splitting a total amount.
-2. Use the rhyme. First, *add the parts*.
+1. Add the ratio parts.
 
-$$2 + 3 + 5 = 10$$
+$$2+3+5=10$$
 
+2. Find the value of one part.
 
-3. Next, *divide the whole*. Divide the total profit by the $10$ parts.
+$$\dfrac{120,000}{10}=12,000$$
 
-$$\dfrac{120,000}{10} = 12,000$$
+3. Multiply by $5$.
 
+$$5\times12,000=60,000$$
 
-4. This means one part is worth $₱12,000$. Finally, *multiply to find your goal*. Charlie gets $5$ parts.
-
-$$5 \times 12,000 = 60,000$$
-
-
-
-Charlie gets $₱60,000$.
+The share is Php $60,000$.
 
 ### #4: Partitive Proportion with a Given Difference
 
-A piece of copper wire is cut into two pieces in the ratio $4:7$. If the longer piece is $21$ meters longer than the shorter piece, what was the original length of the uncut wire?
+A piece of copper wire is cut into two pieces in the ratio $4:7$. If the longer piece is $21$ meters longer than the shorter piece, what was the original length?
 
 **Solution:**
 
-1. This is a trickier partitive problem. We do not know the total length. We only know the difference.
-2. Find the difference in the ratio parts.
+1. The difference in ratio parts is:
 
-$$7 - 4 = 3$$
+$$7-4=3$$
 
+2. Three parts correspond to $21$ meters, so one part is:
 
-3. This $3$-part difference is equal to the $21$ real meters. Find the value of one part.
+$$\dfrac{21}{3}=7\text{ meters}$$
 
-$$\dfrac{21}{3} = 7$$
+3. The total number of parts is $11$.
 
+$$11\times7=77$$
 
-4. One part is $7$ meters. Now, find the total number of parts.
+The wire was $77$ meters long.
 
-$$4 + 7 = 11$$
+### #5: Inverse Proportion with a Mid-Problem Change
 
-
-5. Multiply the total parts by the value of one part.
-
-$$11 \times 7 = 77$$
-
-
-
-The original wire was $77$ meters long.
-
-### #5: Inverse Proportion with Mid-Job Changes
-
-A military garrison of $40$ soldiers has enough food provisions to last for $30$ days. After $10$ days, $10$ soldiers are transferred to another camp. How many more days will the remaining food last for the soldiers left behind?
+A group of $40$ people has enough identical daily food portions for $30$ days. After $10$ days, $10$ people leave. Assuming the daily portion per person stays the same, how many more days will the remaining food last?
 
 **Solution:**
 
-1. This is a classic exam trap. The timeline changes in the middle of the story.
-2. First, subtract the days that already passed.
+1. After $10$ days, $20$ days' worth of food for $40$ people remains.
 
-$$30 - 10 = 20$$
+$$40\times20=800\text{ person-days}$$
 
+2. The new group has $30$ people.
 
-3. The $40$ soldiers have $20$ days of food left. Multiply them to find the total "food portions" left.
+$$40-10=30$$
 
-$$40 \times 20 = 800$$
+3. Divide the remaining person-days by $30$.
 
+$$\dfrac{800}{30}=\dfrac{80}{3}=26\dfrac{2}{3}$$
 
-4. Find the new number of soldiers. $10$ soldiers left the camp.
-
-$$40 - 10 = 30$$
-
-
-5. Divide the $800$ food portions by the $30$ remaining soldiers.
-
-$$x = \dfrac{800}{30}$$
-
-
-$$x = \dfrac{80}{3}$$
-
-
-$$x = 26 \dfrac{2}{3}$$
-
-
-
-The food will last for $26 \dfrac{2}{3}$ more days.
+The remaining food lasts $26\dfrac{2}{3}$ more days.
 
 ## Speed Tricks & Shortcuts
 
-- **Cross-Multiplication Hack.** When solving $\dfrac{A}{B} = \dfrac{C}{D}$, do not write out all the algebra steps. Just multiply the two diagonal numbers you have, and divide by the leftover number.
-- **The "Man-Hours" Rule.** For any worker problem, just multiply Workers $\times$ Time to get the Total Work. Always find the Total Work first. Then, just divide that Total Work by whoever is doing the job.
-- **The Magic "$x$".** For partitive ratios like $2:3:4$, just write them as $2x + 3x + 4x = \text{Total}$. Solving for $x$ gives you the value of one single part.
+- **Cross-multiplication.** For $\dfrac{A}{B}=\dfrac{C}{D}$ with nonzero denominators, $AD=BC$.
+- **Worker-time model.** For a fixed job, if every worker has the same constant work rate and adding workers does not change that rate, workers $\times$ time is constant. Do not use this model when worker productivity changes or tasks cannot be divided among workers.
+- **Partitive variable.** A ratio $2:3:4$ can be represented by shares $2x$, $3x$, and $4x$.
 
 ## Traps to Watch For
 
-### #1: Assuming everything is direct proportion.
+### #1: Assuming every same-direction change is direct proportion
 
-Never assume. Before you write any numbers, ask yourself: "If I increase the first thing, does the second thing logically go up or down?" If it goes down, you must use inverse proportion rules.
+Two quantities can both increase without being directly proportional. Direct proportion requires a constant ratio $\dfrac{y}{x}$.
 
-### #2: Adding the wrong parts in Partitive problems.
+### #2: Assuming every opposite-direction change is inverse proportion
 
-Read the problem very carefully. Does the math problem give you the total amount, or does it only give you the amount for one person? If it only gives you Alice's money, do not divide Alice's money by the sum of everyone's ratio parts.
+One quantity increasing while another decreases is not enough. In inverse proportion, the product $xy$ must remain constant.
 
-### #3: Ignoring the time that already passed.
+### #3: Ignoring work already completed
 
-If workers leave or join after a few days, stop! Subtract those finished days from the original timeline first. The original timeline no longer exists. Only do the math on the food or work that is actually left over.
+If a work rate or group size changes partway through a problem, separate the completed portion from the remaining portion before applying the new rate relationship.

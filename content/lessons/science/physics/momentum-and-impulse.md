@@ -1,7 +1,7 @@
 ---
 _id: "lesson-physics-momentum-and-impulse"
 title: "Momentum and Impulse (Conservation of Momentum, Elastic vs. Inelastic Collisions)"
-summary: "How momentum and impulse are related and how to use conservation of momentum to analyze collisions."
+summary: "How momentum changes through impulse and how momentum and kinetic energy behave in collision models."
 subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 13
@@ -9,138 +9,122 @@ isActive: true
 ---
 ## Core Concept
 
-**Momentum** ($p$) measures how hard it is to stop a moving object: the product of mass and velocity.
+Linear **momentum** is the vector
 
-$$p = mv$$
+$$\vec p=m\vec v$$
 
-A heavy truck moving slowly can have the same momentum as a light car moving fast: momentum depends on both mass and velocity together.
+for a particle of constant mass in introductory mechanics.
 
-**Impulse** ($J$) is the change in momentum, caused by a force acting over a period of time:
+### Impulse
 
-$$J = Ft = \Delta p = mv_f - mv_i$$
+The **impulse** delivered by a force over a time interval equals the change in momentum:
 
-This means the same impulse (change in momentum) can be delivered by a large force over a short time (like a punch), or a small force over a longer time (like a gentle, sustained push): this is why airbags and padded surfaces reduce injury: they extend the time of impact, reducing the force needed to produce the same change in momentum.
+$$\vec J=\Delta\vec p.$$
 
-<!-- ILLUSTRATION: two scenarios showing the same total impulse, one showing a hand hitting a hard surface with a large force over a very short time, the other showing a hand hitting an airbag with a smaller force spread over a longer time -->
+In general,
+
+$$\vec J=\int_{t_i}^{t_f}\vec F(t)\,dt.$$
+
+If the force is constant, or if $\vec F$ denotes the **average force** over the interval,
+
+$$\vec J=\vec F_{\text{avg}}\Delta t.$$
+
+Therefore a fixed momentum change spread over a longer stopping time requires a smaller **average force magnitude**, which is one reason airbags, crumple zones, mats, and padded gloves can reduce peak/average impact forces. The actual force-time curve need not be constant.
 
 ### Conservation of Momentum
 
-In a closed system (no outside forces), the total momentum before a collision equals the total momentum after:
+For a system,
 
-$$p_{total, before} = p_{total, after}$$
+$$\Delta\vec P_{\text{system}}=\vec J_{\text{external}}.$$
 
-This comes directly from Newton's third law: during any collision, the forces the two objects exert on each other are equal and opposite, so their impulses cancel out, leaving the total combined momentum unchanged.
+Thus total momentum is conserved when the **net external impulse is zero or negligible** over the interval. It is not necessary that every external force vanish at every instant; what matters to momentum conservation is the net external impulse.
 
-### Elastic vs. Inelastic Collisions
+During a short collision, internal forces between colliding bodies occur in Newton-third-law pairs and cancel from the system's total momentum balance. External impulses may still matter if they are not negligible.
 
-An **elastic collision** conserves both momentum and kinetic energy: objects "bounce off" each other with no energy lost to heat or sound (a close real-world approximation: billiard balls colliding).
+### Elastic and Inelastic Collisions
 
-An **inelastic collision** conserves momentum, but not kinetic energy: some kinetic energy converts into other forms (heat, sound, deformation). A **perfectly inelastic collision** is the extreme case where the two objects stick together after colliding, moving as one combined mass.
+For an isolated collision system:
+
+- **Elastic collision:** total momentum and total kinetic energy are conserved.
+- **Inelastic collision:** total momentum is conserved but kinetic energy of the bodies is not; energy is redistributed into deformation, internal energy, sound, rotation, and other forms.
+- **Perfectly inelastic collision:** colliding bodies stick together and share a final velocity.
+
+Total **energy** is still conserved in an inelastic collision; it is specifically the system's translational/ordinary kinetic energy that decreases.
+
+Real billiard-ball collisions can be approximately elastic, not perfectly so.
 
 ## Examples
 
-### #1: Calculating Momentum
+### #1: Momentum
 
-Find the momentum of a $1000 \text{ kg}$ car moving at $20 \text{ m/s}$.
+A $1000\,\mathrm{kg}$ car moves at $20\,\mathrm{m/s}$ east.
 
-**Solution:**
-Apply the momentum formula.
+$$\vec p=(1000)(20)=2.0\times10^4\,\mathrm{kg\,m/s}$$
 
-1. Substitute the values.
+east.
 
-$$p = (1000)(20)$$
+### #2: Average Force from Impulse
 
-2. Compute.
+A $0.5\,\mathrm{kg}$ ball moving at $10\,\mathrm{m/s}$ in the positive direction is brought to rest in $0.20$ s.
 
-$$p = 20{,}000 \text{ kg} \cdot \text{m/s}$$
+$$\Delta p=0-(0.5)(10)=-5\,\mathrm{kg\,m/s}$$
 
-### #2: Impulse and Force
+$$F_{\text{avg}}=\frac{\Delta p}{\Delta t}=\frac{-5}{0.20}=-25\,\mathrm N.$$
 
-A $0.5 \text{ kg}$ ball traveling at $10 \text{ m/s}$ is caught and brought to a complete stop in $0.2$ seconds. Find the average force exerted to stop it.
-
-**Solution:**
-Find the impulse (change in momentum) first, then use $J = Ft$ to solve for force.
-
-1. Find the change in momentum. Initial momentum: $(0.5)(10) = 5 \text{ kg} \cdot \text{m/s}$. Final momentum (ball stops): $0$.
-
-$$\Delta p = 0 - 5 = -5 \text{ kg} \cdot \text{m/s}$$
-
-2. Set impulse equal to this change in momentum.
-
-$$Ft = \Delta p$$
-
-$$F(0.2) = -5$$
-
-3. Solve for $F$.
-
-$$F = \dfrac{-5}{0.2} = -25 \text{ N}$$
-
-4. The magnitude of the force is $25 \text{ N}$ (the negative sign shows it acts opposite to the ball's original motion, slowing it down).
+The average force is $25\,\mathrm N$ opposite the original motion. The instantaneous force may vary during the catch.
 
 ### #3: Perfectly Inelastic Collision
 
-A $3 \text{ kg}$ cart moving at $4 \text{ m/s}$ collides with a stationary $1 \text{ kg}$ cart, and the two carts stick together after the collision. Find their combined velocity afterward.
+A $3\,\mathrm{kg}$ cart moving at $4\,\mathrm{m/s}$ strikes a stationary $1\,\mathrm{kg}$ cart and they stick. External horizontal impulse is negligible.
+
+$$(3)(4)+(1)(0)=(3+1)v_f$$
+
+$$v_f=3\,\mathrm{m/s}.$$
+
+### #4: Elastic Collision Criterion
+
+Measurements show that an isolated two-body collision has the same total momentum and kinetic energy before and after.
+
+**Solution:** It is elastic by definition of the collision model.
+
+### #5: When Momentum Is Not Conserved for the Chosen System
+
+A ball hits a wall. Is the ball's momentum alone conserved during the collision?
 
 **Solution:**
-Total momentum before the collision equals total momentum after (they now move together as one mass).
 
-1. Total momentum before: only the moving cart has momentum, since the second cart starts at rest.
-
-$$p_{before} = (3)(4) + (1)(0) = 12 \text{ kg} \cdot \text{m/s}$$
-
-2. After sticking together, the combined mass is $3 + 1 = 4 \text{ kg}$, moving at some shared velocity $v$.
-
-$$p_{after} = (4)v$$
-
-3. Set the two equal (conservation of momentum).
-
-$$12 = 4v$$
-
-4. Solve for $v$.
-
-$$v = 3 \text{ m/s}$$
-
-### #4: Elastic or Inelastic?
-
-Two identical billiard balls collide, bounce apart, and measurements show that both the total momentum and the total kinetic energy are the same before and after the collision. Classify this collision.
-
-**Solution:**
-Check which quantities were conserved.
-
-1. Momentum was conserved: expected for any collision in a closed system.
-2. Kinetic energy was also conserved: this only happens in an elastic collision.
-3. Since both quantities were conserved, this is classified as an elastic collision.
+No. The wall exerts a large external impulse on the **ball-only system**, changing its momentum. If the chosen system is enlarged to ball + wall + Earth and external impulse on that larger system is negligible, total momentum can be treated as conserved.
 
 ## Speed Tricks & Shortcuts
 
-Remember momentum is always conserved in a closed system, for every type of collision (elastic or inelastic): only kinetic energy conservation depends on the collision type. This makes momentum conservation your reliable "first tool" for any collision problem.
+Choose the **system boundary** before invoking momentum conservation.
 
-For "stick together" (perfectly inelastic) problems, immediately combine the masses into one final mass moving at one shared final velocity: this simplifies the after-collision side of the equation to a single term.
+For a perfectly inelastic collision, combine the masses only after writing the signed/vector momentum equation.
 
-Remember the impulse-force tradeoff in one phrase: "same push, different time, different force": extending the time over which a momentum change happens always reduces the force needed (and vice versa).
+For impulse, use area under the force-time graph. $F\Delta t$ is exact only for constant force or when $F$ is the average force.
 
 ## Traps to Watch For
 
-### #1: Assuming Kinetic Energy Is Always Conserved
+### #1: Saying $J=Ft$ for Any Time-Varying Force Without Qualification
 
-> Only elastic collisions conserve kinetic energy. Momentum is conserved in all closed-system collisions, elastic or not.
+> General impulse is $\int F\,dt$.
 
-A common mistake applies a kinetic energy conservation equation to an inelastic collision, producing an incorrect result. Always check (or assume, unless told otherwise) that a real-world collision is inelastic, since perfectly elastic collisions are an idealized case.
+Use $F_{\text{avg}}\Delta t$ for an average-force treatment.
 
-### #2: Forgetting a Stationary Object Still Has (Zero) Momentum to Include
+### #2: Saying Momentum Is Conserved Whenever Objects Collide
 
-> A stationary object contributes momentum $= mv = 0$, but it still needs to be included in the total momentum calculation.
+> Momentum of the chosen system is conserved only when net external impulse is zero or negligible.
 
-Skipping the stationary cart's momentum term entirely (rather than correctly including it as zero) is usually harmless numerically, but skipping its mass in the "after" total (when objects stick together) is a common and costly error: the combined mass must include both objects' masses, even the one that started at rest.
+Internal collision forces cancel in the system balance; external forces need not.
 
-### #3: Confusing Impulse with Force
+### #3: Saying Energy Is "Lost" in an Inelastic Collision
 
-> Impulse equals force multiplied by time (or equivalently, the total change in momentum): it is not simply the force alone.
+> Total energy is conserved.
 
-A large force applied for a very short time can produce the same impulse as a small force applied for a much longer time. Reporting a raw force value when a question asks specifically for impulse (or vice versa) misses the time component entirely.
+Kinetic energy is transformed into internal energy, deformation, sound, and other forms.
 
-### #4: Mixing Up the Direction (Sign) of Momentum
+### #4: Ignoring Direction
 
-> Momentum is a vector: assign a clear positive direction and keep it consistent for every object throughout the whole problem.
+> Momentum and impulse are vectors.
 
-If two objects move toward each other before a collision, one must be treated as negative momentum (opposite direction) in the total momentum calculation. Treating both as positive, regardless of their actual directions, produces an incorrect total.
+Assign signs/components consistently before adding momenta.

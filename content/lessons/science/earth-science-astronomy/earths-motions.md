@@ -1,95 +1,89 @@
 ---
 _id: "lesson-earth-science-astronomy-earths-motions"
 title: "Earth's Motions (Rotation, Revolution, Precession)"
-summary: "The three main motions of Earth and what each one causes: day and night, the seasons, and the slow wobble of the axis."
+summary: "How Earth's rotation, revolution, axial tilt, and precession relate to days, years, seasons, and long-term changes in the direction of its axis."
 subject: "subject-science"
 topic: "topic-earth-science-astronomy"
-estimatedMinutes: 10
+estimatedMinutes: 9
 isActive: true
 ---
 ## Core Concept
 
-Earth is never standing still. It has three important motions, and each one causes a different pattern that we experience.
+Earth is constantly moving in several ways. The three motions emphasized here are **rotation**, **revolution**, and **precession**.
 
-**Rotation** is Earth spinning on its own **axis**, an imaginary line running through the North and South Poles. One full rotation takes about $24$ hours (a more exact value, measured against the distant stars, is about $23$ hours and $56$ minutes). Rotation is what causes **day and night**: the side of Earth facing the Sun has daytime, while the side facing away has nighttime.
+### Rotation
 
-**Revolution** is Earth traveling all the way around the Sun. One full revolution takes about $365.25$ days, which is why we add a leap day every four years to keep our calendar in sync. Revolution, combined with the tilt of Earth's axis (about $23.5^\circ$), is what causes the **seasons**. Because the axis stays tilted in the same direction as Earth orbits, different parts of Earth lean toward or away from the Sun at different times of the year, changing how directly sunlight hits them.
+**Rotation** is Earth's spin around its own axis. Relative to the Sun, one mean solar rotation is about $24$ hours, giving the familiar solar day. Relative to distant stars, Earth completes a rotation in about $23$ hours $56$ minutes; this is called a **sidereal day**.
 
-<!-- ILLUSTRATION: Earth shown at four positions around the Sun, axis tilted the same direction at each position, showing the Northern Hemisphere leaning toward the Sun at one position and away at the opposite position -->
+Earth rotates eastward, so the Sun, Moon, and stars appear to rise in the east and set in the west.
 
-**Precession** is a much slower motion: the slow, circular wobble of Earth's tilted axis itself, like a spinning top that wobbles as it slows down. One full wobble takes about $26{,}000$ years. Precession does not change the seasons themselves, but over thousands of years, it slowly shifts which star the axis points toward (currently Polaris, the North Star) and slowly shifts the timing of the seasons relative to Earth's position in its orbit.
+<!-- ILLUSTRATION: Earth spinning counterclockwise when viewed from above the North Pole, with an arrow around the axis and the Sun illuminating one half, showing day and night -->
 
-The three motions, side by side: rotation gives us day and night in about $24$ hours; revolution combined with axial tilt gives us the seasons across one year; precession slowly re-aims the axis over about $26{,}000$ years.
+### Revolution and Seasons
+
+**Revolution** is Earth's orbit around the Sun. A seasonal (tropical) year is about $365.24$ days, which is why the calendar needs leap-day adjustments.
+
+Earth's axis is tilted about $23.4^\circ$ relative to the perpendicular to its orbital plane. This **axial tilt**, not Earth's changing distance from the Sun, is the main cause of the seasons. When the Northern Hemisphere is tilted more toward the Sun, it receives more direct sunlight and longer daylight, producing Northern Hemisphere summer while the Southern Hemisphere experiences winter. About half an orbit later, the situation reverses.
+
+<!-- ILLUSTRATION: four positions of Earth around the Sun showing the tilted axis staying nearly parallel to itself, labeled Northern Hemisphere summer, autumn, winter, and spring -->
+
+The Gregorian calendar normally has $365$ days. A year divisible by $4$ is usually a leap year, **except** century years are not leap years unless they are divisible by $400$. Thus $2000$ was a leap year, while $1900$ was not.
+
+### Precession
+
+**Precession** is the slow change in the direction of Earth's rotation axis, caused mainly by gravitational torques from the Moon and Sun acting on Earth's equatorial bulge. The axis traces out a cone over roughly $26{,}000$ years. Because of this, the identity of the star nearest the north celestial pole changes over very long timescales.
 
 ## Examples
 
-### #1: Matching Motion to Effect
+### #1: Rotation vs. Revolution
 
-Match each motion of Earth to the phenomenon it directly causes: (a) rotation, (b) revolution with axial tilt, (c) precession.
-
-<!-- ILLUSTRATION: three small diagrams: Earth spinning on its axis (rotation → day/night), Earth orbiting the Sun with a tilted axis (revolution → seasons), and a slow wobble of the axis (precession) -->
-
+Classify each statement as caused mainly by Earth's rotation or revolution: (a) the daily apparent rising and setting of the Sun, and (b) the yearly cycle of seasons together with Earth's axial tilt.
 
 **Solution:**
-Pair each motion with its timescale and its result.
+1. Daily apparent motion across the sky is caused by Earth's rotation.
+2. The yearly seasonal cycle results from Earth's revolution around the Sun combined with its tilted axis.
 
-1. Rotation happens roughly once every $24$ hours, so it causes day and night.
-2. Revolution takes about $365.25$ days, and combined with the tilt of the axis, it causes the changing seasons.
-3. Precession takes about $26{,}000$ years, far too slow to explain daily or yearly changes; it causes the slow wobble that changes which star the axis points toward over thousands of years.
-4. Matches: (a) day and night, (b) the seasons, (c) the slow shift of the pole star over millennia.
+### #2: Why Seasons Are Opposite
 
-### #2: Why Do We Have Seasons?
-
-A common misconception is that summer happens because Earth is closer to the Sun at that time of year. Explain why this is not the real reason for the seasons.
-
-<!-- ILLUSTRATION: Earth at two points in its orbit around the Sun, its axis tilted 23.5°; on one side the Northern Hemisphere tilts toward the Sun (summer), on the other it tilts away (winter), with sunlight hitting at different angles -->
-
+Why can the Northern Hemisphere experience summer while the Southern Hemisphere experiences winter at the same time?
 
 **Solution:**
-Check the misconception against how seasons actually work.
+1. Earth's axis is tilted.
+2. During part of the orbit, the Northern Hemisphere is tilted more toward the Sun, giving it more direct sunlight and longer days.
+3. At the same time, the Southern Hemisphere is tilted away, receiving less direct sunlight and shorter days.
+4. Six months later, the geometry is reversed.
 
-1. If distance from the Sun caused the seasons, then both hemispheres would experience summer and winter at the same time.
-2. But the Northern and Southern Hemispheres have opposite seasons: when it is summer in the Philippines (Northern Hemisphere), it is winter in Australia (Southern Hemisphere).
-3. This opposite pattern can only be explained by the tilt of Earth's axis: each hemisphere leans toward the Sun at a different point in the yearly orbit, receiving more direct sunlight during its summer.
-4. The real cause of the seasons is axial tilt combined with revolution, not changing distance from the Sun.
+### #3: Leap-Year Check
 
-### #3: Sidereal Day vs. the 24-Hour Day
-
-Explain why a sidereal day (measured against the distant stars) is a few minutes shorter than the familiar $24$-hour day.
-
-<!-- ILLUSTRATION: Earth at two positions along its orbit showing that, after one full spin relative to the stars, Earth must rotate a few extra degrees to face the Sun again, making the solar day slightly longer -->
-
+Which of these years are leap years in the Gregorian calendar: $2000$, $1900$, and $2024$?
 
 **Solution:**
-Consider what Earth is doing at the same time it rotates.
-
-1. While Earth spins once on its axis, it is also moving forward along its orbit around the Sun.
-2. Because Earth has shifted position along its orbit, it must rotate a little bit extra before the Sun appears in the same spot in the sky again; this extra bit is what makes the ordinary "Sun-based" day exactly $24$ hours.
-3. Measured against the far-away, essentially fixed stars instead of the Sun, Earth only needs to complete one plain rotation, which takes about $23$ hours and $56$ minutes.
-4. This is why the sidereal day is a few minutes shorter than the solar (24-hour) day.
+1. $2024$ is divisible by $4$ and is not a century year, so it is a leap year.
+2. $1900$ is divisible by $100$ but not by $400$, so it is not a leap year.
+3. $2000$ is divisible by $400$, so it is a leap year.
 
 ## Speed Tricks & Shortcuts
 
-Lock in three timescales, smallest to largest: rotation is about a day, revolution is about a year, precession is about $26{,}000$ years. If a question gives a timescale, match it to the motion in that same size range.
+Remember the roles separately: **rotation → day**, **revolution + tilt → seasons/year**, **precession → long-term change in axis direction**.
 
-For "why do we have seasons" questions, the two keywords that must both appear in a correct explanation are "tilt" and "revolution" (or "orbit"). An answer mentioning only distance from the Sun is always wrong.
+For Gregorian leap years: divisible by $4$ usually means leap year; century years need the stronger test of divisibility by $400$.
 
 ## Traps to Watch For
 
-### #1: Distance from the Sun Causes the Seasons
+### #1: Seasons Are Not Caused by Earth Being Much Closer to the Sun
 
-> The seasons come from axial tilt combined with revolution, not from Earth's distance to the Sun.
+> Earth's axial tilt changes sunlight angle and day length between hemispheres.
 
-This is the single most common wrong explanation for the seasons on any science exam. Remember the opposite-hemisphere check: if distance were the cause, both hemispheres would share the same season at the same time, which is not what happens.
+Earth is actually closest to the Sun in early January, during Northern Hemisphere winter, so distance is not the main seasonal cause.
 
-### #2: Confusing Rotation and Revolution
+### #2: Solar Day vs. Sidereal Day
 
-> Rotation is Earth spinning on its own axis (day and night). Revolution is Earth traveling around the Sun (the year).
+> The familiar day is about $24$ hours relative to the Sun; Earth's rotation relative to distant stars is about $23$ hours $56$ minutes.
 
-The two words sound similar and get swapped in rushed reading. A quick check: rotation's timescale is about a day; revolution's timescale is about a year.
+The two values differ because Earth also moves along its orbit while it rotates.
 
-### #3: Thinking Precession Changes the Seasons Quickly
+### #3: “Every Four Years” Has a Century Exception
 
-> Precession is a $26{,}000$-year wobble: far too slow to explain any yearly or daily pattern.
+> Gregorian leap years are not simply every fourth numbered year without exception.
 
-If a choice claims precession causes day and night, or causes summer and winter, it has confused the timescales. Precession only becomes noticeable over many thousands of years, shifting which star sits near the pole.
+Century years such as $1900$ are omitted unless divisible by $400$; $2000$ therefore remained a leap year.

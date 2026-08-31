@@ -1,7 +1,7 @@
 ---
 _id: "lesson-language-application-error-identification"
 title: "Error Identification / Sentence Correction"
-summary: "Learn a step-by-step method for spotting grammar errors in a sentence and choosing the correct fix."
+summary: "Learn a systematic method for checking sentence structure, agreement, reference, tense, modifiers, parallelism, and punctuation."
 subject: "subject-language-proficiency"
 topic: "topic-language-application"
 estimatedMinutes: 10
@@ -9,82 +9,78 @@ isActive: true
 ---
 ## Core Concept
 
-**Error identification** and **sentence correction** questions test whether you can find the one grammar mistake in a sentence (or confirm there is none) and choose the correct fix. These questions combine every grammar rule you have learned into a single skill: reading a sentence carefully and testing it against the rules you know.
+The current public Civil Service Examination scope includes **error recognition** and **sentence structure** under verbal ability. Public scope descriptions do not guarantee one fixed item format, one error per sentence, or a "no error" option, so prepare for the skill rather than an invented template.
 
-The most efficient approach is a checklist scan, since most exam errors fall into a short list of common categories:
+A useful editing checklist is:
 
-1. **Subject-verb agreement**: does the verb match the true subject in number?
-2. **Pronoun-antecedent agreement**: does each pronoun match what it refers to?
-3. **Verb tense consistency**: do the verbs stay in a logical, consistent timeline?
-4. **Modifiers**: is every describing word or phrase placed next to what it should describe?
-5. **Parallelism**: do list items or paired phrases share the same grammatical form?
-6. **Punctuation**: are commas, semicolons, and apostrophes used correctly (no comma splices, no "its/it's" mix-ups)?
+1. **Subject-verb agreement**: identify the actual subject and finite verb.
+2. **Pronoun reference**: is the antecedent clear, and does the pronoun fit the intended number/meaning?
+3. **Verb timeline**: are tense/aspect choices logically motivated?
+4. **Modifiers**: does each modifier clearly attach to the intended word or phrase?
+5. **Parallelism**: are coordinated or compared elements structurally compatible?
+6. **Clause boundaries and punctuation**: are independent/dependent clauses connected correctly?
+7. **Word form and usage**: does the word have the required grammatical form and meaning?
 
-Run through this checklist quickly rather than reading the sentence only once for "general wrongness." Errors are often subtle and easy to miss on a casual read, but jump out once you check for a specific rule.
-
+Do not assume every unfamiliar or formal-sounding construction is wrong. Identify a specific grammatical or usage problem before changing it.
 
 ## Examples
 
-### #1: Applying the Checklist
+### #1: Agreement
 
 Find the error: "Each of the students have submitted their assignment on time."
 
 **Solution:**
-1. Check subject-verb agreement first. The subject is "each," which is singular (an indefinite pronoun), but the verb "have" is plural.
-2. This is the error: "have" should be "has" to match the singular subject "each."
-3. Corrected: "Each of the students *has* submitted their assignment on time."
 
-### #2: Multiple-Choice Sentence Correction
+1. The head of the subject is singular *each*.
+2. The finite verb should therefore be *has*, not *have*.
+3. Standard modern English can retain singular *their*: "Each of the students **has** submitted their assignment on time."
 
-Choose the best correction for the portion in bold: "The committee members, along with their supervisor, **was pleased** with the results." (A) No change. (B) "were pleased" (C) "is pleased" (D) "has been pleased"
+### #2: Interrupting Phrase
 
-**Solution:**
-1. The true subject is "committee members" (plural), and "along with their supervisor" is just an interrupting phrase, not part of the subject.
-2. The verb must match "committee members," so it should be plural: "were," not "was."
-3. The correct answer is (B): "The committee members, along with their supervisor, *were* pleased with the results."
-
-### #3: Recognizing "No Error"
-
-Find the error, if any: "Neither the manager nor the employees were informed about the schedule change." (A) "Neither" (B) "nor" (C) "were" (D) No error
+Choose the better form: "The committee members, along with their supervisor, *(was / were)* pleased."
 
 **Solution:**
-1. Check the compound subject rule: with "neither...nor," the verb matches the subject closer to it, which is "employees" (plural).
-2. "Were" correctly matches the plural "employees."
-3. There is no error in this sentence; the answer is (D).
 
-### #4: A Modifier Error Hiding Among Other Choices
+The plural subject is *committee members*. The *along with* phrase does not make *supervisor* the head of the subject. Use **were**.
 
-Find the error: "Rushing to catch the bus, the umbrella was left behind by Maria." (A) "Rushing to catch the bus" (B) "was left" (C) "behind" (D) No error
+### #3: A Correct Sentence
+
+Evaluate: "Neither the manager nor the employees were informed about the schedule change."
 
 **Solution:**
-1. "Rushing to catch the bus" needs a person doing the rushing, but the sentence's subject is "the umbrella": an umbrella cannot rush to catch a bus.
-2. This is a dangling modifier error, found in choice (A).
-3. A corrected version: "Rushing to catch the bus, *Maria left the umbrella behind*."
+
+Under the standard proximity convention for *neither...nor*, the nearer subject *employees* is plural, so *were* is acceptable. Do not invent a correction merely because the sentence is long.
+
+### #4: Dangling Modifier
+
+"Rushing to catch the bus, the umbrella was left behind by Maria."
+
+**Solution:**
+
+The introductory phrase logically describes Maria, but the grammatical subject immediately following it is *the umbrella*. Rewrite: "Rushing to catch the bus, **Maria left the umbrella behind**."
 
 ## Speed Tricks & Shortcuts
 
-**Scan for the subject and its verb first**, since subject-verb agreement is the single most commonly tested error type. Cross out any interrupting phrases between them.
+**Find clause structure first.** Identify subjects, finite verbs, and clause boundaries before checking smaller details.
 
-**Read introductory phrases and immediately check who or what follows the comma**, to catch dangling modifiers quickly.
+**Use a checklist as a search tool, not as a claim about item frequency.** The CSC publishes skill areas, not a public ranking of which error type appears most often.
 
-**If nothing seems wrong after the checklist, seriously consider "no error."** Exams do include correct sentences to test whether you over-correct. Do not force an error where none exists.
+**Accept "no change" when the sentence is actually standard and clear.** Whether a particular test offers that answer choice depends on the item format.
 
 ## Traps to Watch For
 
-### #1: Fixating on the First Thing That "Sounds Off"
+### #1: Assuming Exactly One Error
 
-> A sentence can sound slightly awkward without containing an actual grammar error: check against a specific rule, not just a vague feeling.
+> A practice sentence can contain zero, one, or several issues unless the instructions explicitly say otherwise.
 
-Some correct sentences are simply long or formal-sounding. Confirm an actual rule violation (agreement, tense, modifier placement, parallelism, punctuation) before marking something as wrong.
+### #2: Rejecting Standard Variation
 
-### #2: Missing an Error Because the Sentence Is Long
+> Singular *they*, some collective-noun agreement patterns, and style-dependent punctuation can be standard. Check context before "correcting" them.
 
-> Longer sentences hide errors more easily: apply the checklist systematically rather than trusting a single quick read-through.
+### #3: Editing by Sound Alone
 
-Break a long sentence into its core subject-verb pair and its separate clauses before judging it, the same way you would analyze a shorter sentence.
+> Awkwardness can signal a problem, but it is not proof. Identify the grammatical relation that fails.
 
-### #3: Assuming Every Sentence Must Contain an Error
+### #4: Inventing Exam Specifications
 
-> Some exam questions correctly include "no error" as the right answer: do not force a "fix" if the sentence is already correct.
-
-Second-guessing a genuinely correct sentence, and "fixing" something that was not actually wrong, is a common way students lose points on this question type.
+> Use the official published skill scope. Do not infer confidential item counts, answer formats, or frequency rankings from a lesson-writing shortcut.

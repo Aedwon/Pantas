@@ -9,37 +9,42 @@ isActive: true
 ---
 ## Core Concept
 
-The **probability** of an event measures how likely it is, from $0$ (impossible) to $1$ (certain). For equally likely outcomes:
+The **probability** of an event measures how likely it is, from $0$ (impossible) to $1$ (certain). When all elementary outcomes in the sample space are equally likely:
 
-$$P(\text{event}) = \dfrac{\text{favorable outcomes}}{\text{total outcomes}}$$
+$$P(\text{event})=\dfrac{\text{favorable outcomes}}{\text{total outcomes}}$$
 
-A die has $6$ faces, $3$ of them even, so $P(\text{even}) = \dfrac{3}{6} = \dfrac{1}{2}$.
+A fair die has $6$ equally likely faces, $3$ of them even, so $P(\text{even})=\dfrac{3}{6}=\dfrac12$.
 
-The **complement** rule handles "not" and "at least" questions:
+The **complement rule** handles the event "not $A$":
 
-$$P(\text{not } A) = 1 - P(A)$$
+$$P(A^c)=1-P(A)$$
 
-Combining two events needs two questions.
+This is especially useful for "at least one" questions when the complementary event "none" is easier to calculate.
 
-**Question 1 for and (both happen): do the events affect each other?**
+For two events, use the general multiplication and addition rules first.
 
-- **Independent events**: the first result does not change the second. Coin flips, dice rolls, draws with replacement. Multiply straight:
+### "And": multiplication rule
 
-$$P(A \text{ and } B) = P(A) \times P(B)$$
+For any events $A$ and $B$ with the needed conditional probability defined:
 
-- **Dependent events**: the first result changes the situation, like drawing cards without putting them back. Multiply, but update the second fraction to reflect what is left.
+$$P(A\text{ and }B)=P(A)\,P(B\mid A)$$
 
-**Question 2 for or (either happens): can both happen at once?**
+- **Independent events**: knowing that $A$ happened does not change the probability of $B$, so $P(B\mid A)=P(B)$ and:
 
-- **Mutually exclusive events** cannot happen together (a card cannot be a king and a queen). Just add:
+$$P(A\text{ and }B)=P(A)P(B)$$
 
-$$P(A \text{ or } B) = P(A) + P(B)$$
+- **Dependent events**: use the updated conditional probability. For example, drawing without replacement changes the contents before the second draw.
 
-- Overlapping events can happen together (a card can be a king and a heart). Add, then subtract the overlap so it is not counted twice:
+### "Or": addition rule
 
-$$P(A \text{ or } B) = P(A) + P(B) - P(A \text{ and } B)$$
+For any two events:
 
-Shorthand worth memorizing: And means multiply, or means add (minus any overlap).
+$$P(A\text{ or }B)=P(A)+P(B)-P(A\text{ and }B)$$
+
+- **Mutually exclusive events** have no shared outcomes, so $P(A\text{ and }B)=0$ and the rule reduces to simple addition.
+- If the events overlap, subtract the intersection once so it is not double-counted.
+
+A useful reminder is: "and" often leads to multiplication and "or" often leads to addition, but first check dependence and overlap so you use the correct form of the rule.
 
 ## Examples
 
@@ -48,116 +53,108 @@ Shorthand worth memorizing: And means multiply, or means add (minus any overlap)
 A fair die is rolled once. Find the probability of rolling a number greater than $4$.
 
 **Solution:**
-Count favorable over total.
+1. The favorable outcomes are $5$ and $6$: $2$ outcomes out of $6$.
 
-1. Numbers greater than $4$: only $5$ and $6$, so $2$ favorable outcomes out of $6$.
-
-$$P = \dfrac{2}{6} = \dfrac{1}{3}$$
+$$P=\dfrac26=\dfrac13$$
 
 ### #2: Two Dice
 
-Two dice are rolled. Find the probability that the sum is $7$.
+Two fair dice are rolled. Find the probability that the sum is $7$.
 
 **Solution:**
-Two dice give $6 \times 6 = 36$ equally likely pairs.
+The $36$ ordered pairs are equally likely.
 
-1. List the pairs that sum to $7$: $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$. That is $6$ pairs.
-2. Divide.
+1. Pairs summing to $7$: $(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)$.
+2. There are $6$ favorable pairs.
 
-$$P = \dfrac{6}{36} = \dfrac{1}{6}$$
-
-3. Order counts in the listing: $(2,5)$ and $(5,2)$ are different rolls.
+$$P=\dfrac6{36}=\dfrac16$$
 
 ### #3: Independent Events
 
-A coin is tossed and a die is rolled. Find the probability of getting a head and a $6$.
+A fair coin is tossed and a fair die is rolled. Find the probability of getting a head and a $6$.
 
 **Solution:**
-The coin cannot influence the die: independent. Multiply.
+The events are independent.
 
-1. Multiply the separate probabilities.
-
-$$P = \dfrac{1}{2} \times \dfrac{1}{6} = \dfrac{1}{12}$$
+$$P=\dfrac12\times\dfrac16=\dfrac1{12}$$
 
 ### #4: Dependent Events (No Replacement)
 
-A bag holds $5$ red and $3$ blue marbles. Two marbles are drawn one after another without replacement. Find the probability that both are red.
+A bag holds $5$ red and $3$ blue marbles. Two marbles are drawn one after another **without replacement**. Find the probability that both are red.
 
 **Solution:**
-The first draw changes the bag: dependent. Update the second fraction.
+The first draw changes the composition of the bag.
 
-1. First draw: $5$ reds out of $8$ marbles.
+1. First red:
 
-$$P(\text{first red}) = \dfrac{5}{8}$$
+$$P(R_1)=\dfrac58$$
 
-2. After a red leaves: $4$ reds out of $7$ marbles remain.
+2. Given that the first marble was red, $4$ red marbles remain among $7$ total:
 
-$$P(\text{second red}) = \dfrac{4}{7}$$
+$$P(R_2\mid R_1)=\dfrac47$$
 
 3. Multiply.
 
-$$P = \dfrac{5}{8} \times \dfrac{4}{7} = \dfrac{20}{56} = \dfrac{5}{14}$$
+$$P(R_1\cap R_2)=\dfrac58\times\dfrac47=\dfrac5{14}$$
 
 ### #5: Mutually Exclusive vs. Overlapping "Or"
 
 From a standard $52$-card deck, one card is drawn. Find (a) $P(\text{king or queen})$ and (b) $P(\text{king or heart})$.
 
 **Solution:**
-Part (a) has no overlap; part (b) does.
+1. A card cannot be both a king and a queen, so the events are mutually exclusive.
 
-1. For (a): a card cannot be both a king and a queen, mutually exclusive. Add.
+$$\dfrac4{52}+\dfrac4{52}=\dfrac2{13}$$
 
-$$\dfrac{4}{52} + \dfrac{4}{52} = \dfrac{8}{52} = \dfrac{2}{13}$$
+2. A card can be both a king and a heart: the king of hearts. Subtract that overlap once.
 
-2. For (b): the king of hearts is both. Add and subtract the overlap.
-
-$$\dfrac{4}{52} + \dfrac{13}{52} - \dfrac{1}{52} = \dfrac{16}{52} = \dfrac{4}{13}$$
+$$\dfrac4{52}+\dfrac{13}{52}-\dfrac1{52}=\dfrac4{13}$$
 
 ### #6: "At Least One" via the Complement
 
 A fair coin is tossed $3$ times. Find the probability of getting at least one head.
 
 **Solution:**
-"At least one" is the complement of "none".
+The complement of "at least one head" is "no heads".
 
-1. The only no-head outcome is tails-tails-tails.
+1. Three independent tails:
 
-$$P(\text{no heads}) = \dfrac{1}{2} \times \dfrac{1}{2} \times \dfrac{1}{2} = \dfrac{1}{8}$$
+$$P(\text{no heads})=\left(\dfrac12\right)^3=\dfrac18$$
 
 2. Subtract from $1$.
 
-$$P(\text{at least one head}) = 1 - \dfrac{1}{8} = \dfrac{7}{8}$$
+$$P(\text{at least one head})=1-\dfrac18=\dfrac78$$
 
 ## Speed Tricks & Shortcuts
 
-The phrase "at least one" should trigger the complement instantly: compute the probability of none, subtract from $1$. Counting the "at least" cases directly means adding many branches; the complement is always one branch.
+For "at least one" questions, check whether the complement is a single simple event such as "none." If so, computing the complement and subtracting from $1$ is usually shorter than listing every successful case.
 
-Deck facts to keep loaded: $52$ cards, $4$ suits of $13$, $26$ red and $26$ black, $12$ face cards, $4$ of each rank. Most card questions are these numbers in disguise.
+Useful standard-deck facts: $52$ cards, $4$ suits of $13$, $26$ red and $26$ black, $12$ face cards, and $4$ cards of each rank.
 
-Sanity bounds kill wrong choices: every probability lives between $0$ and $1$, an "or" answer is at least as big as each separate probability, and an "and" answer is at most as small as each. A glance at the choices often removes two of them.
+Use bounds as a check: every probability lies from $0$ to $1$. Also, $P(A\cup B)$ cannot be smaller than either $P(A)$ or $P(B)$, while $P(A\cap B)$ cannot be larger than either one.
 
 ## Traps to Watch For
 
 ### #1: Double-Counting the Overlap
 
-> "Or" with overlapping events needs the subtraction.
+> For overlapping events, the addition rule subtracts the intersection once.
 
-For king-or-heart, adding $\dfrac{4}{52} + \dfrac{13}{52} = \dfrac{17}{52}$ counts the king of hearts twice. The planted choice $\dfrac{17}{52}$ appears every time. Before adding, ask: can one outcome satisfy both descriptions?
+For king-or-heart, simply adding $4/52+13/52$ counts the king of hearts twice.
 
-### #2: Ignoring the Missing Marble
+### #2: Ignoring Conditional Probability
 
-> Without replacement, the second fraction must change, top and bottom.
+> For dependent events, the second probability may change after the first event.
 
-Writing $\dfrac{5}{8} \times \dfrac{5}{8}$ for two reds treats the draws as independent. One marble is gone: the pool drops to $7$ and the reds drop to $4$. The words "without replacement" or "one after another" signal dependent events.
+Without replacement, after drawing one red marble from $5$ red and $3$ blue, the next red probability is $4/7$, not $5/8$. Merely saying "one after another" does not by itself create dependence; the sampling rule matters.
 
 ### #3: The Gambler's Fallacy
 
-> A fair coin has no memory. Past flips never change the next one.
+> Independent trials do not become "due" because of previous outcomes.
 
-After five heads in a row, the probability of another head is still exactly $\dfrac{1}{2}$. Questions phrase this as "the coin is due for tails", a false statement. Independent means independent, no matter how streaky the history looks.
+For independent tosses of a fair coin, the probability of a head on the next toss remains $1/2$ regardless of the preceding sequence.
 
 ### #4: Probabilities Beyond the Limits
 
-> No probability is negative or greater than $1$.
+> A probability cannot be negative or exceed $1$.
 
-If your sum of "or" probabilities exceeds $1$, you forgot an overlap or added things that should not be added. Use this as a self-check, and use it on the answer choices too: an option like $\dfrac{9}{8}$ is free to eliminate.
+If a calculation produces a value outside $[0,1]$, recheck the setup, especially overlap or conditional-probability handling.

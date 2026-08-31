@@ -1,7 +1,7 @@
 ---
 _id: "lesson-precalculus-basic-calculus-conic-sections"
 title: "Conic Sections (Circle, Parabola, Ellipse, Hyperbola)"
-summary: "How to recognize the four conic sections from their equations and find their key features."
+summary: "How to recognize common conic sections from standard equations and find their key features."
 subject: "subject-mathematics"
 topic: "topic-precalculus-basic-calculus"
 estimatedMinutes: 14
@@ -9,153 +9,182 @@ isActive: true
 ---
 ## Core Concept
 
-Slice a cone with a flat blade and the cut edge draws one of four curves: a **circle**, an **ellipse**, a **parabola**, or a **hyperbola**. These are the conic sections.
+Intersecting a double cone with a plane can produce the familiar nondegenerate conic sections: a **circle**, **ellipse**, **parabola**, or **hyperbola**.
 
 <!-- FIGURE: {"kind": "concept-diagram", "type": "conic-sections", "sections": ["circle", "ellipse", "parabola", "hyperbola"], "semanticsLabel": "A diagram of a double cone sliced four ways to produce a circle, an ellipse, a parabola, and a hyperbola."} -->
 
-Each has a standard equation centered at $(h, k)$:
+### Common axis-aligned standard forms
 
-**Circle**: all points at distance $r$ from the center:
+**Circle**, center $(h,k)$ and radius $r>0$:
 
-$$(x - h)^2 + (y - k)^2 = r^2$$
+$$(x-h)^2+(y-k)^2=r^2$$
 
-**Parabola**: one squared variable only. The vertex form you know from quadratics, $y = a(x - h)^2 + k$, opens up or down; swapping roles, $x = a(y - k)^2 + h$, opens right or left.
+**Parabola**, vertex $(h,k)$:
 
-**Ellipse**: a stretched circle, sums of both squared terms equal $1$:
+$$y=a(x-h)^2+k$$
 
-$$\dfrac{(x - h)^2}{a^2} + \dfrac{(y - k)^2}{b^2} = 1$$
+opens vertically when $a\ne0$, while
 
-The larger denominator marks the **major axis** direction. Its half-length is $a$; the smaller half-length is $b$.
+$$x=a(y-k)^2+h$$
 
-**Hyperbola**: like an ellipse but with a minus sign, giving two separate branches:
+opens horizontally. A parabola has a vertex, not a center.
 
-$$\dfrac{(x - h)^2}{a^2} - \dfrac{(y - k)^2}{b^2} = 1$$
+**Ellipse**, center $(h,k)$ and major/minor semi-axis lengths $a>b>0$:
 
-The positive term tells which way it opens (this one opens left and right). Its branches hug two crossing **asymptote** lines.
+Horizontal major axis:
 
-Fast identification from a general equation $Ax^2 + By^2 + \ldots = C$: only one squared variable means parabola. Both squared with the same coefficient: circle. Same sign but different coefficients: ellipse. Opposite signs: hyperbola.
+$$\dfrac{(x-h)^2}{a^2}+\dfrac{(y-k)^2}{b^2}=1$$
+
+Vertical major axis:
+
+$$\dfrac{(x-h)^2}{b^2}+\dfrac{(y-k)^2}{a^2}=1$$
+
+The larger denominator lies under the variable corresponding to the major-axis direction. The foci satisfy:
+
+$$c^2=a^2-b^2$$
+
+**Hyperbola**, center $(h,k)$:
+
+Horizontal transverse axis:
+
+$$\dfrac{(x-h)^2}{a^2}-\dfrac{(y-k)^2}{b^2}=1$$
+
+Vertical transverse axis:
+
+$$\dfrac{(y-k)^2}{a^2}-\dfrac{(x-h)^2}{b^2}=1$$
+
+The positive squared term identifies the opening direction. For a horizontal hyperbola, the asymptotes are:
+
+$$y-k=\pm\dfrac{b}{a}(x-h)$$
+
+and the foci satisfy $c^2=a^2+b^2$.
+
+### Fast identification, with conditions
+
+For a **nondegenerate, axis-aligned** quadratic equation with no $xy$ term, the squared-term pattern is useful:
+
+- only one variable squared: parabola;
+- both squared with equal nonzero coefficients and the same sign: circle after suitable normalization, if the equation represents a real nondegenerate circle;
+- both squared with unequal coefficients and the same sign: ellipse after suitable normalization, if nondegenerate and real;
+- squared coefficients with opposite signs: hyperbola.
+
+A fully general quadratic may contain an $xy$ term, which can indicate a rotated conic, and some quadratic equations are degenerate (for example, a point, one or two lines, or no real graph). The quick coefficient test above is therefore intentionally limited to the axis-aligned nondegenerate cases taught in this lesson.
 
 ## Examples
 
-### #1: Identifying the Conic
+### #1: Identifying Axis-Aligned Conics
 
-Identify each conic: (a) $3x^2 + 3y^2 = 27$, (b) $y = 2x^2 - 8x + 1$, (c) $4x^2 + 9y^2 = 36$, (d) $x^2 - y^2 = 16$.
+Identify each conic: (a) $3x^2+3y^2=27$, (b) $y=2x^2-8x+1$, (c) $4x^2+9y^2=36$, (d) $x^2-y^2=16$.
 
 <!-- FIGURE: {"kind": "coordinate-graph", "type": "conic-gallery", "conics": ["circle", "parabola", "ellipse", "hyperbola"], "semanticsLabel": "A visual guide showing the four conic section curves: circle, parabola, ellipse, and hyperbola."} -->
 
 
 **Solution:**
-Apply the coefficient test.
+These equations have no $xy$ term and represent nondegenerate conics.
 
-1. (a) Both squared, equal coefficients ($3$ and $3$): a circle. Dividing by $3$ gives $x^2 + y^2 = 9$, radius $3$.
-2. (b) Only $x$ is squared: a parabola, opening upward since $2$ is positive.
-3. (c) Both squared, same sign, different coefficients ($4$ and $9$): an ellipse.
-4. (d) Squared terms with opposite signs: a hyperbola.
+1. (a) Divide by $3$: $x^2+y^2=9$, a circle of radius $3$.
+2. (b) Only $x$ is squared: a parabola opening upward because the quadratic coefficient is positive.
+3. (c) Divide by $36$: $\dfrac{x^2}{9}+\dfrac{y^2}{4}=1$, an ellipse.
+4. (d) Divide by $16$: $\dfrac{x^2}{16}-\dfrac{y^2}{16}=1$, a hyperbola.
 
 ### #2: Circle by Completing the Square
 
-Find the center and radius of the circle $x^2 + y^2 - 6x + 4y - 12 = 0$.
+Find the center and radius of $x^2+y^2-6x+4y-12=0$.
 
 <!-- FIGURE: {"kind": "coordinate-graph", "type": "circle", "formula": "(x-3)^2 + (y+2)^2 = 25", "points": [[3, -2]], "radius": 5, "semanticsLabel": "A circle on a coordinate plane centered at (3, -2) with a radius of 5."} -->
 
 
 **Solution:**
-Group $x$ terms and $y$ terms, then complete each square.
+1. Group the variable terms and move the constant.
 
-1. Group and move the constant.
+$$(x^2-6x)+(y^2+4y)=12$$
 
-$$(x^2 - 6x) + (y^2 + 4y) = 12$$
+2. Add $9$ to complete the $x$ square and $4$ to complete the $y$ square, on both sides.
 
-2. Complete each square: half of $-6$ is $-3$, squared is $9$; half of $4$ is $2$, squared is $4$. Add both to both sides.
+$$(x-3)^2+(y+2)^2=25$$
 
-$$(x^2 - 6x + 9) + (y^2 + 4y + 4) = 12 + 9 + 4$$
-
-3. Write as perfect squares.
-
-$$(x - 3)^2 + (y + 2)^2 = 25$$
-
-4. Center: $(3, -2)$. Radius: $\sqrt{25} = 5$.
+3. The center is $(3,-2)$ and the radius is $5$.
 
 ### #3: Vertex of a Parabola
 
-Find the vertex of the parabola $y = x^2 - 6x + 5$ and its direction of opening.
+Find the vertex of $y=x^2-6x+5$ and its direction of opening.
 
 **Solution:**
-Use the vertex formula on the quadratic.
+1. The vertex's $x$-coordinate is:
 
-1. The $x$-coordinate of the vertex.
+$$x=-\dfrac{b}{2a}=-\dfrac{-6}{2}=3$$
 
-$$x = \dfrac{-(-6)}{2(1)} = 3$$
+2. Substitute $x=3$.
 
-2. Substitute back.
+$$y=9-18+5=-4$$
 
-$$y = 3^2 - 6(3) + 5 = 9 - 18 + 5 = -4$$
-
-3. The vertex is $(3, -4)$, and since the $x^2$ coefficient is positive, the parabola opens upward.
+3. The vertex is $(3,-4)$. Since the coefficient of $x^2$ is positive, the parabola opens upward.
 
 ### #4: Features of an Ellipse
 
-For the ellipse $\dfrac{x^2}{25} + \dfrac{y^2}{9} = 1$, find the vertices, the length of the major axis, and the foci.
+For $\dfrac{x^2}{25}+\dfrac{y^2}{9}=1$, find the vertices, major-axis length, and foci.
 
 **Solution:**
-The bigger denominator sits under $x^2$, so the major axis is horizontal.
+The larger denominator is $25$, under $x^2$, so the major axis is horizontal.
 
-1. Read $a^2 = 25$ and $b^2 = 9$, so $a = 5$ and $b = 3$.
-2. Vertices sit $a$ units left and right of the center $(0, 0)$: the points $(-5, 0)$ and $(5, 0)$.
-3. The major axis length is $2a = 10$.
-4. For the foci, use $c^2 = a^2 - b^2$.
+1. $a=5$, $b=3$.
+2. Vertices: $(-5,0)$ and $(5,0)$.
+3. Major-axis length: $2a=10$.
+4. Focal distance:
 
-$$c^2 = 25 - 9 = 16 \quad \Rightarrow \quad c = 4$$
+$$c^2=a^2-b^2=25-9=16$$
 
-5. The foci are $(-4, 0)$ and $(4, 0)$, on the major axis.
+$$c=4$$
+
+5. Foci: $(-4,0)$ and $(4,0)$.
 
 <!-- FIGURE: {"kind": "coordinate-graph", "type": "ellipse", "formula": "x^2/25 + y^2/9 = 1", "points": [[-5, 0], [5, 0], [0, -3], [0, 3], [-4, 0], [4, 0]], "semanticsLabel": "An ellipse centered at the origin with vertices at plus or minus 5, co-vertices at plus or minus 3, and foci at plus or minus 4."} -->
 
 ### #5: Features of a Hyperbola
 
-For the hyperbola $\dfrac{x^2}{16} - \dfrac{y^2}{9} = 1$, find the vertices and the equations of the asymptotes.
+For $\dfrac{x^2}{16}-\dfrac{y^2}{9}=1$, find the vertices and asymptotes.
 
 **Solution:**
-The positive term has $x$, so the branches open left and right.
+The positive term contains $x$, so the transverse axis is horizontal.
 
-1. Read $a^2 = 16$ and $b^2 = 9$: so $a = 4$ and $b = 3$.
-2. Vertices sit $a$ units from the center along the opening direction: $(-4, 0)$ and $(4, 0)$.
-3. The asymptotes of a left-right hyperbola centered at the origin are $y = \pm \dfrac{b}{a} x$.
+1. $a=4$, $b=3$.
+2. Vertices: $(-4,0)$ and $(4,0)$.
+3. Asymptotes:
 
-$$y = \dfrac{3}{4}x \qquad y = -\dfrac{3}{4}x$$
+$$y=\pm\dfrac{3}{4}x$$
 
 <!-- FIGURE: {"kind": "coordinate-graph", "type": "hyperbola", "formula": "x^2/16 - y^2/9 = 1", "points": [[-4, 0], [4, 0]], "asymptoteSlopes": [0.75, -0.75], "semanticsLabel": "A hyperbola opening left and right with vertices at plus or minus 4 and dashed asymptotes through the origin."} -->
 
 ## Speed Tricks & Shortcuts
 
-For identification questions, you never need to complete any squares. Look only at the two squared terms: one squared is a parabola, equal coefficients a circle, same sign an ellipse, opposite signs a hyperbola. Five seconds per question.
+For the axis-aligned nondegenerate equations used in this lesson, inspecting the squared terms is usually faster than completing squares merely to identify the conic. Keep the quick test within its scope: an $xy$ term or a degenerate equation needs additional analysis.
 
-Completing the square is always "half the middle coefficient, then square it", and whatever you add inside, add to the other side too. Doing this smoothly is the whole skill for circle questions.
+When completing a square for $x^2+Bx$, add $(B/2)^2$. If you add a quantity to one side of an equation, preserve equality by adding the same quantity to the other side.
 
-Remember which subtraction goes where: ellipse foci use $c^2 = a^2 - b^2$ (foci inside, so $c < a$), hyperbola foci use $c^2 = a^2 + b^2$ (foci beyond the vertices, so $c > a$). Inside is minus, outside is plus.
+For an ellipse, with $a>b>0$, $c^2=a^2-b^2$. For a hyperbola, $c^2=a^2+b^2$.
 
 ## Traps to Watch For
 
-### #1: Radius or Radius Squared
+### #1: Radius vs. Radius Squared
 
-> The circle equation shows $r^2$, not $r$.
+> The right side of circle standard form is $r^2$.
 
-From $(x - 3)^2 + (y + 2)^2 = 25$, the radius is $5$. Answering $25$ is the classic slip, and $25$ is always among the choices. The same trap runs in reverse: a circle with radius $7$ has equation ending in $= 49$.
+From $(x-3)^2+(y+2)^2=25$, the radius is $5$, not $25$.
 
-### #2: Reading the Center's Signs Backwards
+### #2: Reading the Center's Signs
 
-> $(x - 3)^2$ means $h = 3$; $(x + 3)^2$ means $h = -3$.
+> Standard form uses $(x-h)$ and $(y-k)$.
 
-The standard form subtracts the center, so the sign you see is the opposite of the coordinate. A center of $(3, -2)$ comes from $(x - 3)^2$ and $(y + 2)^2$. Every choice list includes the sign-flipped center $( -3, 2)$.
+Thus $(x-3)^2+(y+2)^2$ has center $(3,-2)$.
 
-### #3: Calling an Ellipse a Circle
+### #3: Using the Coefficient Shortcut Outside Its Scope
 
-> A circle needs equal coefficients on $x^2$ and $y^2$.
+> The simple same-sign/opposite-sign test assumes an axis-aligned, nondegenerate conic.
 
-The equation $4x^2 + 9y^2 = 36$ is an ellipse, not a circle, because $4 \neq 9$. Divide through by $36$ and the different denominators ($9$ and $4$) confirm it. Only when the squared terms match exactly do you have a circle.
+A general quadratic can include an $xy$ term and represent a rotated conic. Degenerate quadratics can instead represent lines, a point, or no real graph.
 
-### #4: Major Axis in the Wrong Direction
+### #4: Major Axis Direction
 
-> The larger denominator owns the major axis, wherever it sits.
+> In ellipse standard form, $a>b$ and the $a^2$ denominator lies along the major axis.
 
-In $\dfrac{x^2}{9} + \dfrac{y^2}{25} = 1$, the bigger number $25$ is under $y^2$, so the ellipse is tall, with vertices at $(0, \pm 5)$. Assuming the major axis is always horizontal flips the vertices and foci onto the wrong axis.
+For $\dfrac{x^2}{9}+\dfrac{y^2}{25}=1$, rewrite the interpretation as the vertical-major-axis form: $a=5$ and the vertices are $(0,\pm5)$.

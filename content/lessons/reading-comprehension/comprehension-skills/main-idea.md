@@ -1,7 +1,7 @@
 ---
 _id: "lesson-comprehension-skills-main-idea"
 title: "Identifying the Main Idea / Topic Sentence / Paksa ng Talata"
-summary: "Learn how to find the main idea of a paragraph and locate its topic sentence."
+summary: "Learn how to identify the central idea of a passage and distinguish it from a topic sentence or supporting detail."
 subject: "subject-reading-comprehension"
 topic: "topic-comprehension-skills"
 estimatedMinutes: 9
@@ -9,89 +9,73 @@ isActive: true
 ---
 ## Core Concept
 
-The **main idea** is the single most important point a paragraph or passage is making: what the whole paragraph is really about, boiled down to one sentence.
+The **main idea** is the central point a paragraph or passage develops. It is more specific than the general topic but broader than an individual supporting detail.
 
-Many paragraphs state their main idea directly in a **topic sentence**, usually (but not always) the first sentence of the paragraph. Every other sentence in a well-organized paragraph should support or provide details about that topic sentence.
+A **topic sentence** is a sentence that explicitly states or frames the main point of a paragraph. Many expository paragraphs place it near the beginning, but there is no rule that it must be first—or that every paragraph contains one explicit topic sentence.
 
-Sometimes a paragraph does not state its main idea directly: it is left implied, and the reader must figure it out by looking at what all the supporting details have in common.
+When the main idea is implied, infer it from the pattern of details, relationships, examples, contrasts, and conclusions in the passage.
 
-In Filipino, this concept is called the **paksa ng talata** (the topic/main idea of the paragraph).
+A well-organized paragraph normally maintains **unity**, meaning its sentences contribute to the paragraph's purpose. That does not require every sentence to be a simple supporting example of one topic sentence. A paragraph can include transitions, qualifications, counterpoints, definitions, or conclusions that serve the larger development of the idea.
 
-<!-- FIGURE: {"kind": "concept-diagram", "type": "main-idea", "mainIdea": "Topic sentence / Main idea", "details": ["Supporting detail 1", "Supporting detail 2", "Supporting detail 3"], "semanticsLabel": "A diagram with a topic sentence at the top and three supporting detail sentences pointing up to support it."} -->
+In Filipino instructional contexts, **paksa** can mean the topic or subject matter, while the **pangunahing ideya/kaisipan** is the central point made about that topic. Do not collapse "topic" and "main idea" into the same thing when a question distinguishes them.
 
-The main idea should be broad enough to cover everything in the paragraph, but not so broad that it goes beyond what the paragraph actually discusses. A common mistake is confusing the main idea with just one supporting detail (too narrow) or with the general topic alone, without the point being made about that topic (too vague).
+<!-- FIGURE: {"kind": "concept-diagram", "type": "main-idea", "mainIdea": "Central idea", "details": ["Supporting detail 1", "Supporting detail 2", "Supporting detail 3"], "semanticsLabel": "A diagram with a central idea supported by several related details."} -->
 
 ## Examples
 
-### #1: Finding a Stated Topic Sentence
+### #1: Stated Main Idea
 
-"Reading fiction offers benefits beyond simple entertainment. Studies suggest it can improve empathy by exposing readers to different perspectives. It also strengthens vocabulary and comprehension skills through regular exposure to varied sentence structures. Additionally, many readers report that fiction helps them relax and manage stress." What is the main idea of this paragraph?
-
-**Solution:**
-1. The first sentence states a clear claim: reading fiction has benefits beyond entertainment.
-2. Every following sentence gives a specific benefit (empathy, vocabulary, stress relief) that supports this claim.
-3. The main idea is stated directly in the first sentence: reading fiction offers benefits beyond entertainment.
-
-### #2: Finding an Implied Main Idea
-
-"The coach arrived an hour before every practice to set up the equipment. She stayed late after each game to review footage with players individually. On weekends, she often visited players' homes to check on their academic progress." What is the implied main idea of this paragraph, since no single sentence states it directly?
+"Reading fiction offers benefits beyond simple entertainment. Studies suggest it can improve empathy by exposing readers to different perspectives. It also strengthens vocabulary and comprehension through exposure to varied language. Many readers also use fiction for relaxation."
 
 **Solution:**
-1. No sentence directly says "the coach was dedicated," but every detail (arriving early, staying late, visiting homes) shows extra effort and care beyond basic duty.
-2. The common thread among all three details is the coach's exceptional dedication and commitment to her team.
-3. The implied main idea: the coach was extremely dedicated to her team, going well beyond her basic responsibilities.
 
-### #3: Avoiding a Main Idea That's Too Narrow
+The first sentence states the central idea, and the later sentences develop examples of those benefits.
 
-For the paragraph in Example 1, is "Reading fiction improves empathy" a good main idea statement? Explain why or why not.
+### #2: Implied Main Idea
 
-**Solution:**
-1. "Improves empathy" is only one of the three benefits mentioned (empathy, vocabulary, stress relief).
-2. A main idea must cover the whole paragraph, not just one supporting detail.
-3. This statement is too narrow to be the main idea; it is only a supporting detail within the paragraph.
-
-### #4: Avoiding a Main Idea That's Too Broad
-
-For the same paragraph, is "Reading is good" a good main idea statement? Explain why or why not.
+"The coach arrived an hour before practice to set up equipment. She stayed late after games to review footage with players. On weekends, she checked on their academic progress."
 
 **Solution:**
-1. "Reading is good" is a very general statement that could apply to almost any paragraph about reading, not specifically this one.
-2. It fails to capture the specific point the paragraph makes (that fiction offers benefits beyond entertainment, backed by specific supporting details).
-3. This statement is too broad/vague; it misses the paragraph's specific claim and the concrete benefits it names.
 
-### #5: Paksa ng Talata (Filipino Passage)
+The shared pattern supports an implied main idea such as: **The coach showed exceptional commitment to supporting her team.**
 
-Basahin ang talata. "Maraming benepisyo ang pagtatanim ng gulay sa bakuran. Nakakatipid ang pamilya dahil hindi na kailangang bumili ng ilang sangkap sa palengke. Nagkakaroon din ng sariwang pagkain na walang kemikal. Bukod pa rito, nagiging libangan ng buong pamilya ang pag-aalaga ng halaman." Ano ang paksa ng talata?
+### #3: Too Narrow
 
-**Solution:**
-1. Tingnan ang unang pangungusap. Madalas nakalagay dito ang pangunahing ideya: maraming benepisyo ang pagtatanim ng gulay sa bakuran.
-2. Suriin ang iba pang pangungusap. Bawat isa ay nagbibigay ng tiyak na benepisyo: nakakatipid, sariwang pagkain, at libangan.
-3. Lahat ng detalye ay sumusuporta sa unang pangungusap. Ang paksa ng talata: maraming benepisyo ang pagtatanim ng gulay sa bakuran.
+"Reading fiction improves empathy" is too narrow for Example 1 because it covers only one benefit.
+
+### #4: Too Broad
+
+"Reading is good" is too broad because it loses the passage's specific focus on benefits of fiction beyond entertainment.
+
+### #5: Topic vs. Main Idea in Filipino
+
+"Maraming benepisyo ang pagtatanim ng gulay sa bakuran. Nakakatipid ang pamilya... Nagkakaroon din ng sariwang pagkain..."
+
+- **Paksa/topic:** pagtatanim ng gulay sa bakuran.
+- **Pangunahing ideya:** maraming benepisyo ang pagtatanim ng gulay sa bakuran.
 
 ## Speed Tricks & Shortcuts
 
-**Check the first and last sentences first.** Topic sentences most often appear at the beginning of a paragraph, though sometimes a paragraph builds up to its main idea and states it at the end instead.
+**Separate topic from claim.** Ask first "What is this about?" and then "What does the passage say about it?"
 
-**Ask "what do all the details have in common?"** For paragraphs without a stated topic sentence, listing out each supporting detail and finding their shared thread reveals the implied main idea.
+**Check beginnings and endings, but read the development.** Topic sentences often appear near the start, and conclusions can restate or sharpen the main idea, but position alone is not proof.
 
-**Test your answer with the "does every sentence fit?" check.** A correct main idea should be supported by every sentence in the paragraph: if a sentence doesn't connect to your proposed main idea, your answer might be too narrow or slightly off-target.
+**Test scope.** The best main-idea statement should account for the important parts of the passage without adding claims the text does not support.
 
 ## Traps to Watch For
 
-### #1: Mistaking a Supporting Detail for the Main Idea
+### #1: "Every Paragraph Has a Topic Sentence"
 
-> A supporting detail explains or gives an example of the main idea: it is not the main idea itself, even if it appears early in the paragraph.
+> Some paragraphs state the main idea explicitly; others imply it through the development of details.
 
-Test-makers often list one specific detail as an answer choice, hoping students will grab the first specific-sounding fact rather than identifying the broader point that detail supports.
+### #2: "Every Other Sentence Directly Supports One Sentence"
 
-### #2: Choosing a Main Idea That's Too Broad or Too General
+> Paragraph unity is broader than a list of examples. Qualifications, transitions, counterarguments, and conclusions can all serve the central idea.
 
-> The main idea must be specific enough to describe this particular paragraph, not so general it could describe almost any paragraph on the same general topic.
+### #3: Confusing Topic with Main Idea
 
-An answer choice like "Reading is good" or "Sports are important" is usually a trap, since it fails to capture the paragraph's actual specific claim.
+> "Renewable energy" is a topic; "renewable energy can reduce dependence on fossil fuels but requires infrastructure investment" is a main idea.
 
-### #3: Missing an Implied Main Idea That Requires Inference
+### #4: Choosing a Detail Because It Is Memorable
 
-> Not every paragraph states its main idea directly: sometimes you must infer it from what the details have in common.
-
-If no single sentence seems to summarize the whole paragraph, do not force one of the sentences to be "the answer". Instead, synthesize the shared idea across all the details yourself.
+> A vivid statistic or example can still be only one piece of evidence within a broader point.

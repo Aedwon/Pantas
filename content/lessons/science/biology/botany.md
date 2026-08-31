@@ -1,7 +1,7 @@
 ---
 _id: "lesson-biology-botany"
 title: "Botany (Plant Tissue, Tropisms, Plant Reproduction)"
-summary: "The three plant tissue types, how plants grow toward or away from stimuli, and how flowering plants reproduce."
+summary: "The three plant tissue systems, how plants grow toward or away from stimuli, and how flowering plants reproduce."
 subject: "subject-science"
 topic: "topic-biology"
 estimatedMinutes: 11
@@ -9,94 +9,96 @@ isActive: true
 ---
 ## Core Concept
 
-**Botany** is the study of plants. Plants are built from three main tissue systems, respond to their environment through directional growth, and reproduce through a specialized process involving flowers.
+**Botany** is the study of plants. Vascular plants are organized into three main tissue systems, respond to their environment through directional growth, and can reproduce through specialized structures such as flowers.
 
 ### Plant Tissue Types
 
-**Dermal tissue** forms the plant's outer covering (like skin), protecting it and controlling gas exchange and water loss.
+**Dermal tissue** forms the plant's outer covering, protecting it and helping regulate gas exchange and water loss.
 
-**Vascular tissue** is the plant's transport system, made of two specialized tissues: **xylem**, which carries water and minerals upward from the roots to the rest of the plant, and **phloem**, which carries sugars (food made through photosynthesis) to wherever the plant needs energy or storage. Xylem is made of dead cells (acting like hollow pipes), while phloem is made of living cells.
+**Vascular tissue** is the plant's transport system, made of two specialized tissues: **xylem** and **phloem**. Xylem transports water and dissolved minerals from the roots through the plant, with the main transpiration stream moving toward the leaves. Phloem transports sugars and other organic compounds from **sources** (where they are produced or released from storage) to **sinks** (where they are used or stored). Depending on where sources and sinks are located, different phloem tubes can carry sugars upward or downward.
 
-**Ground tissue** makes up most of a plant's body, filling the space between dermal and vascular tissue. It handles photosynthesis, storage, and support.
+The main water-conducting xylem cells, **tracheids** and **vessel elements**, are dead at maturity, but xylem tissue also contains living parenchyma cells. Phloem's conducting sieve elements remain living at maturity and work with companion cells.
 
-<!-- ILLUSTRATION: cross-section of a plant stem showing an outer ring labeled dermal tissue, a middle ring of xylem and phloem bundles labeled vascular tissue, and the surrounding filler labeled ground tissue -->
+**Ground tissue** makes up much of a plant's body, filling spaces between dermal and vascular tissues. Depending on the organ, it can carry out photosynthesis, storage, and support.
+
+<!-- ILLUSTRATION: cross-section of a plant stem showing an outer ring labeled dermal tissue, vascular bundles containing xylem and phloem, and surrounding ground tissue -->
 
 ### Tropisms
 
 A **tropism** is a plant's directional growth response to a stimulus. Growth toward the stimulus is called **positive**; growth away from it is called **negative**.
 
-- **Phototropism**: growth in response to light. Stems typically show positive phototropism (growing toward light), while roots typically show negative phototropism (growing away from light).
-- **Gravitropism**: growth in response to gravity. Roots typically show positive gravitropism (growing downward, with gravity), while stems typically show negative gravitropism (growing upward, against gravity).
-- **Thigmotropism**: growth in response to touch or physical contact. A climbing vine's tendrils curling around a fence post is a classic example of positive thigmotropism.
+- **Phototropism**: growth in response to light. Shoots commonly show positive phototropism. Root responses to light vary among species and conditions, so do not treat negative root phototropism as universal.
+- **Gravitropism**: growth in response to gravity. Roots typically show positive gravitropism, while shoots typically show negative gravitropism.
+- **Thigmotropism**: growth in response to touch or physical contact. A climbing vine's tendrils curling around a support are a classic example.
 
 ### Plant Reproduction
 
-Many plants reproduce through flowers, in a process with two key steps.
+Flowering plants reproduce sexually through flowers, with **pollination** and **fertilization** as distinct steps.
 
-**Pollination**: pollen (containing the plant's male sex cells) is transferred from the male part of a flower to the female part of a flower, often carried by wind, insects, or other animals.
+**Pollination** is the transfer of pollen from an anther to a stigma of a flower of the same species, whether within the same flower/plant or between plants. Pollen contains the male gametophyte, which later produces sperm cells; pollen itself is not simply a packet of sperm.
 
-**Fertilization**: after pollination, a male sex cell from the pollen joins with a female egg cell inside the flower's ovule, forming a **zygote** that develops into a plant embryo. This fertilized ovule eventually develops into a **seed**, and the surrounding tissue often develops into a **fruit**, which helps protect the seed and aids in its dispersal.
+**Fertilization** follows successful pollination and pollen-tube growth. In angiosperms, one sperm fuses with the egg to form a **zygote**, while a second sperm participates in **double fertilization** to form endosperm tissue that nourishes the embryo. The ovule develops into a **seed**, while the ovary commonly develops into a **fruit**.
 
 ## Examples
 
 ### #1: Matching Tissue to Function
 
-A gardener notices a plant's stem transporting water from its roots to its topmost leaves, while a separate set of cells in the same stem transports sugar made in the leaves down toward the roots. Name the two tissues responsible.
+A gardener notices a plant's stem transporting water from its roots toward its leaves, while sugars produced in mature leaves are transported to growing roots and shoots. Name the tissues responsible.
 
 **Solution:**
-Match the direction and material being transported to the correct tissue.
+Match each material to the vascular tissue that carries it.
 
-1. Water traveling upward from roots to leaves is the job of xylem.
-2. Sugar traveling from the leaves (where it is made) to the roots is the job of phloem.
-3. Both belong to the plant's overall vascular tissue system.
+1. Water and dissolved minerals moving from roots through the plant are transported mainly by xylem.
+2. Sugars moving from a source such as a mature leaf to sinks such as roots or growing shoots are transported by phloem.
+3. Both are parts of the vascular tissue system.
 
 ### #2: Identifying a Tropism
 
-A seedling planted sideways in a pot is observed, after several days, to have its root curving downward and its stem curving upward, regardless of the sideways starting position. What tropism explains this behavior, and is it positive or negative for each part?
+A seedling planted sideways in a pot is observed, after several days, to have its root curving downward and its shoot curving upward. What tropism explains this behavior, and is it positive or negative for each part?
 
 **Solution:**
-Identify the stimulus (gravity) and check the direction of growth for each plant part.
+Identify the stimulus and the direction of growth.
 
-1. The stimulus causing this directional growth is gravity, so this is gravitropism.
-2. The root grows downward, in the same direction as gravity: this is positive gravitropism.
-3. The stem grows upward, against the direction of gravity: this is negative gravitropism.
-4. This matching pattern (positive in roots, negative in stems) is the typical gravitropic response in most plants.
+1. The stimulus is gravity, so this is gravitropism.
+2. The root grows in the direction of gravity: positive gravitropism.
+3. The shoot grows against the direction of gravity: negative gravitropism.
+4. This is the typical gravitropic pattern for roots and shoots.
 
 ### #3: Pollination vs. Fertilization
 
-A bee carries pollen from one flower and deposits it onto the female part of a different flower of the same species. Later, inside that flower, a male sex cell from the pollen joins with an egg cell to form a zygote. Identify which event is pollination and which is fertilization.
+A bee carries pollen from one flower and deposits it on the stigma of another flower of the same species. Later, a sperm cell delivered through the pollen tube joins with an egg cell to form a zygote. Identify which event is pollination and which is fertilization.
 
 **Solution:**
-Separate the transfer step from the joining step.
+Separate the transfer step from the gamete-fusion step.
 
-1. The bee carrying and depositing pollen onto the female part of the flower is pollination (the transfer of pollen).
-2. The male sex cell joining with the egg cell to form a zygote is fertilization (the actual union of male and female sex cells).
-3. Pollination must happen first, before fertilization can occur.
+1. Depositing pollen on the stigma is pollination.
+2. Fusion of a sperm cell with the egg is fertilization.
+3. Pollination normally occurs before fertilization in flowering plants.
 
 ## Speed Tricks & Shortcuts
 
-Remember xylem and phloem by their letters: "X" for xylem sounds like it could stand for "up and eXtra," carrying water up from the roots; phloem carries "food" (sugar): both P-words, an easy pairing to remember together.
+For vascular transport, remember the material first: xylem handles the main water/mineral stream; phloem distributes sugars and other organic compounds from source to sink. Avoid memorizing phloem as simply "downward" because source-to-sink transport can run in either direction in different parts of a plant.
 
-For tropism direction questions, remember the general rule of thumb: Roots tend to move with gravity and light away (positive gravitropism, negative phototropism), while stems tend to move against gravity and toward light (negative gravitropism, positive phototropism). Roots and stems are opposites of each other for both tropisms.
+For gravitropism, roots are typically positive and shoots negative. For phototropism, shoots commonly grow toward light, but root light responses are not universal enough to use as an absolute rule.
 
-For "pollination vs. fertilization" questions, remember that pollination is just the delivery (like a mail carrier dropping off a package), while fertilization is the actual joining of male and female sex cells (opening the package and using what's inside).
+For pollination versus fertilization, remember: pollination is **pollen transfer**; fertilization is **gamete fusion**.
 
 ## Traps to Watch For
 
-### #1: Swapping Xylem and Phloem's Jobs
+### #1: Calling All Xylem Cells Dead
 
-> Xylem carries water upward from the roots. Phloem carries sugar (food) throughout the plant.
+> The main conducting cells of xylem are dead at maturity, but xylem tissue also contains living cells.
 
-These two terms are frequently swapped on exams. Anchor them with their cell type: xylem is made of dead, hollow cells (like empty pipes for simple water transport), while phloem is made of living cells (actively distributing food).
+Tracheids and vessel elements form the water-conducting pathways. Saying "all xylem cells are dead" is too broad.
 
-### #2: Assuming All Plant Parts Respond the Same Way to a Stimulus
+### #2: Assuming Phloem Only Moves Sugar Downward
 
-> Roots and stems often show opposite tropic responses to the same stimulus.
+> Phloem moves materials from sources to sinks, not according to a fixed up/down rule.
 
-A common error is assuming that because a stem grows toward light, the whole plant (including roots) does too. In reality, roots typically grow away from light (negative phototropism) while stems grow toward it (positive phototropism): the same stimulus, opposite responses, depending on the plant part.
+A mature leaf may export sugar to roots below it or to a growing shoot above it. Direction depends on where the source and sink are.
 
 ### #3: Treating Pollination and Fertilization as the Same Event
 
-> Pollination is the transfer of pollen. Fertilization is the actual joining of sex cells, which happens after pollination.
+> Pollination transfers pollen to the stigma. Fertilization is the later fusion of gametes.
 
-A question describing only pollen landing on a flower's female part (without mentioning any joining of sex cells) is describing pollination alone, not fertilization. Fertilization requires the additional step of a sperm cell actually fusing with an egg cell.
+A question describing only pollen landing on a stigma describes pollination, not fertilization.

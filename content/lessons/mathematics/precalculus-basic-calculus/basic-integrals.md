@@ -1,7 +1,7 @@
 ---
 _id: "lesson-precalculus-basic-calculus-basic-integrals"
 title: "Basic Integrals"
-summary: "How to find antiderivatives with the power rule and how to evaluate definite integrals."
+summary: "How to find basic antiderivatives and evaluate definite integrals."
 subject: "subject-mathematics"
 topic: "topic-precalculus-basic-calculus"
 estimatedMinutes: 12
@@ -9,142 +9,134 @@ isActive: true
 ---
 ## Core Concept
 
-Integration is differentiation in reverse. The derivative of $x^2$ is $2x$; so an **antiderivative** of $2x$ is $x^2$. We write:
+An **antiderivative** reverses differentiation. Since $\dfrac{d}{dx}(x^2)=2x$, one antiderivative of $2x$ is $x^2$.
 
-$$\int 2x \, dx = x^2 + C$$
+On an interval where the functions involved are defined, the family of antiderivatives is written:
 
-Why the $+ C$? Because $x^2 + 7$ and $x^2 - 100$ also have derivative $2x$. Constants vanish when differentiating, so when we reverse, we must admit "plus some constant". Every indefinite integral ends with $+ C$.
+$$\int 2x\,dx=x^2+C$$
 
-**Power rule for integrals** (the power rule backwards): raise the exponent by one, then divide by the new exponent.
+The constant $C$ is needed because adding any constant does not change a derivative.
 
-$$\int x^n \, dx = \dfrac{x^{n+1}}{n + 1} + C \qquad (n \neq -1)$$
+### Power rule for indefinite integrals
 
-The one exception is $n = -1$: you cannot divide by zero, and $\displaystyle\int \dfrac{1}{x} \, dx = \ln|x| + C$, a special case to recognize.
+For $n\ne-1$ on intervals where $x^n$ is defined:
 
-Sums integrate term by term, and constant multipliers tag along, just like with derivatives.
+$$\int x^n\,dx=\dfrac{x^{n+1}}{n+1}+C$$
 
-A **definite integral** has endpoints and produces a number, the signed area under the curve between $x = a$ and $x = b$:
+The case $n=-1$ is different:
 
-$$\int_a^b f(x) \, dx = F(b) - F(a)$$
+$$\int\dfrac1x\,dx=\ln|x|+C$$
 
-where $F$ is any antiderivative. This recipe (antidifferentiate, plug in the top limit, subtract the bottom limit) is the **Fundamental Theorem of Calculus**. The $C$ cancels in the subtraction, so definite integrals need no $+ C$.
+on any interval that does not cross $x=0$.
 
-<!-- FIGURE: {"kind": "coordinate-graph", "type": "integral-area", "formula": "Area from x = a to x = b", "points": [[1, 0], [4, 0]], "semanticsLabel": "A graph showing the shaded area under a curve between x = a and x = b representing a definite integral."} -->
+Sums and differences integrate term by term, and constant multipliers can be factored out.
+
+### Definite integrals
+
+A definite integral represents **net signed area**: area above the $x$-axis contributes positively and area below contributes negatively. If $f(x)\ge0$ throughout $[a,b]$, the definite integral equals the ordinary geometric area under the curve on that interval.
+
+For a continuous function $f$ on $[a,b]$, if $F$ is any antiderivative of $f$, the Fundamental Theorem of Calculus gives:
+
+$$\int_a^b f(x)\,dx=F(b)-F(a)$$
+
+The arbitrary constant cancels, so no $+C$ appears in the final value of a definite integral.
+
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "integral-area", "formula": "Net signed area from x = a to x = b", "points": [[1, 0], [4, 0]], "semanticsLabel": "A graph showing signed regions between a curve and the x-axis from x equals a to x equals b."} -->
 
 ## Examples
 
 ### #1: Power Rule
 
-Evaluate $\displaystyle\int x^3 \, dx$.
+Evaluate $\int x^3\,dx$.
 
 **Solution:**
-Raise the exponent, divide by the new one.
+Increase the exponent by $1$ and divide by the new exponent.
 
-1. The exponent $3$ becomes $4$; divide by $4$.
+$$\int x^3\,dx=\dfrac{x^4}{4}+C$$
 
-$$\int x^3 \, dx = \dfrac{x^4}{4} + C$$
+Differentiating $x^4/4$ returns $x^3$.
 
-2. Check by differentiating: $\dfrac{d}{dx}\left(\dfrac{x^4}{4}\right) = x^3$. Correct.
+### #2: A Polynomial
 
-### #2: A Polynomial, Term by Term
-
-Evaluate $\displaystyle\int (6x^2 - 4x + 5) \, dx$.
+Evaluate $\int(6x^2-4x+5)\,dx$.
 
 **Solution:**
-Integrate each term separately.
+Integrate term by term.
 
-1. First term: $6 \times \dfrac{x^3}{3} = 2x^3$.
-2. Second term: $-4 \times \dfrac{x^2}{2} = -2x^2$.
-3. Third term: the constant $5$ integrates to $5x$ (since the derivative of $5x$ is $5$).
-
-$$\int (6x^2 - 4x + 5) \, dx = 2x^3 - 2x^2 + 5x + C$$
+$$\int(6x^2-4x+5)\,dx=2x^3-2x^2+5x+C$$
 
 ### #3: Rewriting a Root
 
-Evaluate $\displaystyle\int \sqrt{x} \, dx$.
+Evaluate $\int\sqrt{x}\,dx$ over the usual real domain $x\ge0$.
 
 **Solution:**
-Rewrite the root as a power first.
+Write $\sqrt{x}=x^{1/2}$ and use the power rule.
 
-1. $\sqrt{x} = x^{1/2}$. Raise the exponent to $\dfrac{3}{2}$, divide by $\dfrac{3}{2}$.
+$$\int x^{1/2}\,dx=\dfrac{x^{3/2}}{3/2}+C=\dfrac23x^{3/2}+C$$
 
-$$\dfrac{x^{3/2}}{\dfrac{3}{2}} = \dfrac{2}{3} x^{3/2}$$
+### #4: A Definite Integral with a Nonnegative Integrand
 
-2. So:
-
-$$\int \sqrt{x} \, dx = \dfrac{2}{3} x^{3/2} + C$$
-
-3. Dividing by a fraction means multiplying by its flip: that is where the $\dfrac{2}{3}$ comes from.
-
-### #4: A Definite Integral
-
-Evaluate $\displaystyle\int_0^2 3x^2 \, dx$.
+Evaluate $\int_0^2 3x^2\,dx$.
 
 **Solution:**
-Antidifferentiate, then top minus bottom.
+An antiderivative of $3x^2$ is $x^3$.
 
-1. The antiderivative of $3x^2$ is $x^3$.
-2. Evaluate at the limits.
+$$\int_0^2 3x^2\,dx=[x^3]_0^2=8$$
 
-$$2^3 - 0^3 = 8 - 0 = 8$$
-
-3. The definite integral equals $8$: the exact area under $y = 3x^2$ from $0$ to $2$.
+Because $3x^2\ge0$ on $[0,2]$, this value is also the ordinary area between the graph and the $x$-axis over the interval.
 
 ### #5: Definite Integral with Two Terms
 
-Evaluate $\displaystyle\int_1^3 (2x + 1) \, dx$.
+Evaluate $\int_1^3(2x+1)\,dx$.
 
 **Solution:**
-Same recipe, more careful bookkeeping.
+1. An antiderivative is $F(x)=x^2+x$.
+2. Evaluate top minus bottom.
 
-1. Antidifferentiate.
+$$F(3)-F(1)=(9+3)-(1+1)=10$$
 
-$$\int (2x + 1) \, dx = x^2 + x$$
+3. Here $2x+1$ is positive on $[1,3]$, so the net signed area equals the ordinary area. A trapezoid check gives:
 
-2. Plug in the top limit $3$.
-
-$$3^2 + 3 = 12$$
-
-3. Plug in the bottom limit $1$.
-
-$$1^2 + 1 = 2$$
-
-4. Subtract.
-
-$$12 - 2 = 10$$
-
-5. Geometry check: the region is a trapezoid with parallel sides $3$ and $7$ and width $2$, so its area is $\dfrac{1}{2}(3 + 7)(2) = 10$. The calculus and the geometry agree.
+$$\dfrac12(3+7)(2)=10$$
 
 ## Speed Tricks & Shortcuts
 
-Always check an integral by differentiating your answer. It takes five seconds and catches every coefficient slip. If the derivative of your answer is not the original integrand, fix it before shading.
+Differentiate an antiderivative to check it. This is a reliable way to catch coefficient or exponent mistakes.
 
-Rewrite before integrating, exactly like with derivatives: roots become fraction powers, $\dfrac{1}{x^n}$ becomes $x^{-n}$ (for $n \neq 1$). Then one power rule finishes the job.
+Rewrite roots and reciprocal powers when that keeps you within the power rule's valid domain. Remember that $1/x$ is the exceptional exponent $-1$ case and integrates to $\ln|x|+C$ on intervals excluding zero.
 
-For definite integrals of linear functions, you can skip calculus entirely: the region is a trapezoid or triangle, so use the geometry formula, like the check in Example $5$. On multiple choice, geometry is often faster than antidifferentiating.
+For a definite integral of a nonnegative linear function over an interval, geometric area can be faster than antidifferentiation. If the graph crosses below the axis, however, geometric **total area** and the definite integral are no longer the same quantity unless you account for signs.
 
 ## Traps to Watch For
 
-### #1: The Missing $+ C$
+### #1: Missing the Constant of Integration
 
-> Every indefinite integral needs $+ C$; definite integrals do not.
+> An indefinite antiderivative family needs $+C$.
 
-Choices for indefinite integrals include the same expression with and without $+ C$, and the bare one is wrong. But do not bolt a $C$ onto a definite integral: those answers are pure numbers. Match the answer type to the integral type.
+A definite integral instead evaluates to a number, and the arbitrary constants cancel in endpoint subtraction.
 
 ### #2: Dividing by the Old Exponent
 
-> Divide by the new exponent, the one after adding $1$.
+> In the integral power rule, increase the exponent first, then divide by that new exponent.
 
-For $\int x^3 \, dx$, dividing by $3$ gives $\dfrac{x^4}{3}$, wrong. The correct divisor is $4$. The differentiate-to-check habit exposes this instantly: $\dfrac{d}{dx} \dfrac{x^4}{3} = \dfrac{4x^3}{3} \neq x^3$.
+For $\int x^3\,dx$, the denominator is $4$, not $3$.
 
-### #3: The $n = -1$ Landmine
+### #3: The $n=-1$ Exception
 
-> The power rule breaks for $\displaystyle\int \dfrac{1}{x} \, dx$.
+> The power-rule formula cannot be used at $n=-1$ because it would divide by zero.
 
-Raising $-1$ by one gives exponent $0$ and a division by zero. The answer is $\ln|x| + C$, a fact test-makers probe directly. Any choice showing $\dfrac{x^0}{0}$ machinery is automatically wrong.
+On intervals avoiding zero:
 
-### #4: Sloppy Lower-Limit Subtraction
+$$\int\dfrac1x\,dx=\ln|x|+C$$
 
-> $F(b) - F(a)$: compute both, subtract in the right order.
+### #4: Signed Area vs. Total Geometric Area
 
-Students plug in the top limit and forget the bottom (fine only when $F(0) = 0$), or subtract in reverse and flip the sign. In Example $5$, forgetting the lower limit gives $12$ instead of $10$, and $12$ is in the choices, smiling.
+> A definite integral counts regions below the $x$-axis negatively.
+
+If a problem asks for total geometric area, split at zeros of the function and use absolute areas as necessary. Do not automatically equate every definite integral with a positive area.
+
+### #5: Fundamental Theorem Conditions
+
+> The basic evaluation theorem used here is stated for a continuous integrand on the closed interval.
+
+More advanced integration theory handles broader cases, but the continuity condition is the appropriate one for this introductory lesson.

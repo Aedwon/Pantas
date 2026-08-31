@@ -1,7 +1,7 @@
 ---
 _id: "lesson-chemistry-atomic-structure"
 title: "Atomic Structure and Subatomic Particles (Protons, Neutrons, Electrons, Isotopes, Ions)"
-summary: "The three subatomic particles, how to find them using atomic and mass numbers, and how isotopes and ions differ from ordinary atoms."
+summary: "The main particles used in introductory atomic structure, how atomic and mass numbers work, and how isotopes and ions differ."
 subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 11
@@ -9,120 +9,121 @@ isActive: true
 ---
 ## Core Concept
 
-Every atom is built from three **subatomic particles**.
+Introductory chemistry describes atoms using three main constituents: **protons**, **neutrons**, and **electrons**. Protons and neutrons are themselves composite particles with deeper substructure, but that lies beyond the level needed here.
 
-- **Protons**: found in the nucleus, positive charge ($+1$).
-- **Neutrons**: found in the nucleus, no charge (neutral).
-- **Electrons**: found orbiting outside the nucleus, negative charge ($-1$).
+- **Protons**: in the nucleus; charge $+1e$.
+- **Neutrons**: in the nucleus; charge $0$.
+- **Electrons**: occupy quantum-mechanical atomic orbitals around the nucleus; charge $-1e$.
 
-Protons and neutrons have roughly the same mass (about $1$ atomic mass unit each) and together make up nearly all of an atom's mass, since electrons are thousands of times lighter and contribute very little mass.
+Electrons should not be pictured as tiny planets following fixed classical orbits. An **orbital** describes a quantum state/probability distribution associated with an electron in an atom.
 
-<!-- ILLUSTRATION: simple atom diagram showing a dense central nucleus made of protons (labeled +) and neutrons (labeled neutral), surrounded by orbiting electrons (labeled -) -->
+Protons and neutrons each have masses close to $1$ unified atomic mass unit ($u$); electron mass is much smaller, so nearly all ordinary atomic mass is concentrated in the nucleus.
 
-The **atomic number** equals the number of protons in an atom. This number defines which element the atom is: every atom of a given element has the same atomic number, and no two different elements share the same atomic number.
+<!-- ILLUSTRATION: nucleus with protons/neutrons surrounded by a diffuse electron-density cloud rather than fixed planetary electron paths -->
 
-The **mass number** equals the number of protons plus neutrons combined.
+### Atomic Number and Mass Number
 
-$$\text{mass number} = \text{protons} + \text{neutrons}$$
+The **atomic number**, $Z$, is the number of protons in the nucleus. It defines the element.
 
-So, the number of neutrons can always be found by subtracting:
+The **mass number**, $A$, is the total number of protons and neutrons in a particular nuclide:
 
-$$\text{neutrons} = \text{mass number} - \text{atomic number}$$
+$$A=Z+N$$
 
-In a neutral atom (no overall charge), the number of electrons always equals the number of protons, since their opposite charges must balance out exactly.
+so
+
+$$N=A-Z,$$
+
+where $N$ is neutron number.
+
+A neutral atom has equal numbers of protons and electrons. An ion does not.
 
 ### Isotopes
 
-**Isotopes** are atoms of the same element (same number of protons, same atomic number) that have a different number of neutrons, and therefore a different mass number. Carbon-$12$ and carbon-$14$ are both carbon (same atomic number, $6$ protons), but carbon-$14$ has $2$ extra neutrons.
+**Isotopes** are nuclides of the same element with the same proton number $Z$ but different neutron numbers and therefore different mass numbers. Carbon-12 and carbon-14 both have six protons but contain six and eight neutrons, respectively.
+
+The decimal value commonly shown on a periodic table is a **relative atomic mass/standard atomic weight**, often reflecting isotope abundances. It is not the mass number of one specific isotope, and natural isotope abundances can vary; some elements are instead shown with bracketed mass numbers in many tables because they lack a standard atomic weight.
 
 ### Ions
 
-An **ion** is an atom (or group of atoms) that has gained or lost electrons, giving it an overall electric charge. Losing electrons leaves more protons than electrons, creating a positive ion (a **cation**). Gaining electrons creates more electrons than protons, resulting in a negative ion (an **anion**).
+An **ion** is a charged atom or molecular/polyatomic species.
+
+For a monatomic ion:
+
+$$\text{charge in units of }e=\text{protons}-\text{electrons}.$$
+
+Losing electrons gives a positive **cation**; gaining electrons gives a negative **anion**. Ordinary ion formation changes electron count, not nuclear identity.
 
 ## Examples
 
-### #1: Finding the Numbers of Subatomic Particles
+### #1: Subatomic Particle Counts
 
-An atom has an atomic number of $17$ and a mass number of $35$. Find its number of protons, neutrons, and electrons (assuming it is neutral).
+A neutral chlorine-35 atom has $Z=17$ and $A=35$.
 
-**Solution:**
-Apply the definitions directly.
+1. Protons: $17$.
+2. Neutrons:
 
-1. The atomic number gives the number of protons directly: $17$ protons.
-2. Find neutrons by subtracting the atomic number from the mass number.
+$$35-17=18.$$
 
-$$35 - 17 = 18 \text{ neutrons}$$
+3. Neutral atom, so electrons: $17$.
 
-3. Since the atom is neutral, electrons equal protons: $17$ electrons.
+### #2: Isotopes
 
-### #2: Identifying Isotopes
-
-Two atoms both have $6$ protons. One has $6$ neutrons, and the other has $8$ neutrons. Are these atoms the same element? Are they isotopes of each other?
+Two nuclei each contain $6$ protons; one contains $6$ neutrons and the other $8$.
 
 **Solution:**
-Check the atomic number (protons) first, then compare neutrons.
 
-1. Both atoms have $6$ protons, so both have the same atomic number: they are the same element (carbon).
-2. Since they have different numbers of neutrons ($6$ versus $8$), they have different mass numbers, even though they are the same element.
-3. Atoms of the same element with different neutron counts are, by definition, isotopes of each other.
+1. Same $Z=6$: both are carbon.
+2. Different $N$: they are different isotopes, carbon-12 and carbon-14.
 
-### #3: Determining an Ion's Charge
+### #3: Ion Charge
 
-An atom of sulfur has $16$ protons. If this atom gains $2$ electrons to become an ion, what is its resulting charge, and is it a cation or an anion?
+A sulfur atom with $16$ protons gains $2$ electrons.
 
-**Solution:**
-Compare the new electron count to the fixed proton count.
+1. Electron count becomes $18$.
+2. Charge:
 
-1. The atom starts with $16$ protons and (as a neutral atom) $16$ electrons.
-2. After gaining $2$ electrons, it now has $16 + 2 = 18$ electrons, but still only $16$ protons.
-3. Charge equals protons minus electrons.
+$$16-18=-2.$$
 
-$$16 - 18 = -2$$
+3. The ion is $S^{2-}$, an anion.
 
-4. The resulting ion has a charge of $2-$, making it an anion (negatively charged, since it gained electrons).
+### #4: Electron Count from Charge
 
-### #4: Working Backwards from an Ion's Charge
+An ion has $20$ protons and charge $2+$.
 
-An ion has $20$ protons and a charge of $2+$. How many electrons does it have?
+$$20-e^-=+2$$
 
-**Solution:**
-Use the charge to work out how many electrons were lost.
-
-1. A charge of $2+$ means the atom has $2$ more protons than electrons (it lost $2$ electrons to become a cation).
-2. Subtract $2$ from the proton count to find the electron count.
-
-$$20 - 2 = 18 \text{ electrons}$$
+so it has $18$ electrons.
 
 ## Speed Tricks & Shortcuts
 
-Remember the particle-charge-location trio together: protons (positive, nucleus), neutrons (neutral, nucleus), electrons (negative, orbiting outside). If you know two of the three numbers (atomic number, mass number, or neutron count), you can always find the third with simple subtraction or addition.
+For a specified nuclide, use $N=A-Z$.
 
-For ion charge questions, use one formula both directions: charge = protons − electrons. If given the charge and proton count, just rearrange to solve for electrons: electrons = protons − charge.
+For a monatomic ion, use **charge = protons − electrons**.
 
-Remember which stays fixed and which changes: the number of protons never changes for a given element (changing it would make it a different element entirely). Isotopes vary neutrons; ions vary electrons.
+Keep the invariant straight: isotope changes involve **neutron number**; ordinary ion changes involve **electron number**; changing proton number changes the element.
 
 ## Traps to Watch For
 
-### #1: Confusing Mass Number with Atomic Mass on the Periodic Table
+### #1: Drawing Electrons on Literal Planetary Orbits
 
-> The mass number used in isotope problems is a whole number (protons + neutrons for one specific atom). The periodic table's atomic mass is often a decimal (an average across all natural isotopes of that element).
+> Bohr-style rings are useful bookkeeping pictures for simple energy levels, but the modern atomic model uses orbitals and electron probability distributions.
 
-A question giving a specific isotope's mass number (like carbon-$14$) wants a whole number calculation, not the periodic table's listed atomic mass (about $12.01$ for carbon, which is an average, not any single atom's actual mass).
+Do not confuse a teaching diagram with a classical trajectory.
 
-### #2: Changing the Number of Protons for an Isotope or Ion
+### #2: Confusing Mass Number and Periodic-Table Atomic Mass
 
-> Isotopes and ions never change the number of protons: only isotopes change neutrons, and only ions change electrons.
+> Mass number $A$ is an integer nucleon count for one nuclide. Standard atomic weight is an isotope-weighted atomic-mass quantity and is commonly non-integer.
 
-If a proposed answer changes the atomic number (proton count) while calling the result an "isotope" or an "ion," it has actually described a different element entirely (since atomic number defines the element). Protons stay fixed in both cases.
+Use the value the problem identifies.
 
-### #3: Mixing Up Which Charge Comes from Gaining vs. Losing Electrons
+### #3: Saying Isotopes or Ions Change Proton Count
 
-> Losing electrons creates a positive ion (cation). Gaining electrons creates a negative ion (anion).
+> If proton number changes, the nucleus is a different element.
 
-This seems backward to some students, since "gaining" something usually sounds positive in everyday language. Remember: electrons are negatively charged, so gaining more of them makes the atom more negative overall, and losing them (having fewer negatives left to balance the positive protons) makes it more positive.
+Isotopes differ in neutron number; ordinary ions differ in electron number.
 
-### #4: Forgetting That Neutral Atoms Need Equal Protons and Electrons
+### #4: Forgetting Polyatomic Ions Exist
 
-> Only in a neutral atom do protons and electrons match exactly; ions, by definition, have unequal amounts.
+> An ion can be one atom or a bonded group of atoms with net charge.
 
-A question might state a proton count and simply assume the electron count matches, even when the object described is explicitly called an "ion." Always check whether the atom or particle is specified as neutral, or whether a charge is mentioned, before assuming protons equal electrons.
+Examples include $Na^+$, $SO_4^{2-}$, and $NH_4^+$.

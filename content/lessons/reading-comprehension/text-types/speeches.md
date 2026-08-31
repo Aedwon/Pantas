@@ -1,7 +1,7 @@
 ---
 _id: "lesson-text-types-speeches"
 title: "Speeches"
-summary: "Learn how speeches use rhetorical strategies to persuade or inspire an audience, and how to identify a speaker's purpose."
+summary: "Learn how speeches use audience, purpose, evidence, credibility, emotion, and rhetorical form to communicate ideas."
 subject: "subject-reading-comprehension"
 topic: "topic-text-types"
 estimatedMinutes: 9
@@ -9,80 +9,70 @@ isActive: true
 ---
 ## Core Concept
 
-A **speech** is a piece of writing meant to be spoken aloud to an audience, usually to persuade, inform, inspire, or commemorate. Because speeches are heard rather than read silently, they rely heavily on **rhetorical strategies**: techniques designed to move an audience emotionally or convince them logically.
+A **speech** is spoken discourse addressed to an audience. It may be carefully scripted, partly prepared, or delivered extemporaneously. Speeches can inform, persuade, inspire, commemorate, explain, entertain, or combine purposes.
 
-Classical rhetoric identifies three main types of persuasive appeal:
+Persuasive speeches often use the classical rhetorical concepts associated with **ethos, pathos,** and **logos**:
 
-- **Ethos**: an appeal to the speaker's credibility or character ("As someone who has worked in this field for twenty years...").
-- **Pathos**: an appeal to the audience's emotions ("Imagine a child going to bed hungry tonight...").
-- **Logos**: an appeal to logic and evidence ("The data clearly shows a $30\%$ increase over the past decade...").
+- **Ethos:** how the speaker establishes credibility, character, authority, or trustworthiness.
+- **Pathos:** how the speech engages emotions, values, hopes, fears, or sympathies.
+- **Logos:** how the speech develops reasons, evidence, examples, causal claims, comparisons, or other forms of argument.
 
-Speeches also frequently use specific rhetorical devices to make ideas memorable and persuasive:
+These appeals can overlap. A statistic can support logos, but who presents it and how the audience understands the source can also affect ethos; an example can have both logical and emotional force.
 
-- **Repetition**: repeating a word or phrase for emphasis ("We shall fight... we shall fight... we shall fight...").
-- **Rhetorical question**: a question asked for effect, not expecting a literal answer ("Are we truly willing to accept this?").
-- **Parallelism**: repeating a grammatical structure across phrases for rhythm and emphasis ("Government of the people, by the people, for the people").
+Common rhetorical devices include:
 
-<!-- ILLUSTRATION: a podium with three labeled arrows pointing outward toward an audience, labeled ethos (credibility), pathos (emotion), and logos (logic) -->
+- **Repetition:** recurring words or phrases for emphasis or structure.
+- **Rhetorical question:** a question used mainly to prompt reflection or make a point rather than request a literal answer.
+- **Parallelism:** repeated grammatical or syntactic patterns that can create clarity, rhythm, or emphasis.
+
+<!-- ILLUSTRATION: a podium with three labeled arrows pointing outward toward an audience, labeled ethos (credibility), pathos (emotion), and logos (reason/evidence) -->
 
 ## Examples
 
-### #1: Identifying Ethos
+### #1: Ethos
 
-A speaker states: "Having served on the front lines of this crisis for over a decade, I can tell you firsthand what our community truly needs." What rhetorical appeal is this?
+"Having served on the front lines of this crisis for over a decade, I can tell you firsthand what our community needs."
 
-**Solution:**
-1. The speaker is establishing their own credibility and firsthand experience.
-2. This is an appeal to ethos.
+The speaker foregrounds relevant experience to establish **ethos**.
 
-### #2: Identifying Pathos
+### #2: Pathos
 
-A speaker states: "Picture a mother, unable to afford medicine for her sick child, watching helplessly as the fever rises through the night." What rhetorical appeal is this?
+"Picture a parent unable to afford medicine for a sick child."
 
-**Solution:**
-1. This vivid, emotionally charged image is designed to make the audience feel something (sympathy, urgency, concern).
-2. This is an appeal to pathos.
+The image primarily invites sympathy and concern: **pathos**.
 
-### #3: Identifying Logos
+### #3: Logos
 
-A speaker states: "Studies show that literacy rates increased by $40\%$ in districts that adopted this reading program, compared to just $12\%$ in districts that did not." What rhetorical appeal is this?
+"Districts using the program reported a larger increase in literacy rates than comparison districts."
 
-**Solution:**
-1. The speaker uses specific data and statistics to support their argument logically.
-2. This is an appeal to logos.
+If the evidence is accurate and appropriately interpreted, the comparison functions primarily as **logos**. A number alone is not automatically a strong logical argument; its source, method, and relevance still matter.
 
-### #4: Identifying a Rhetorical Device
+### #4: Repetition
 
-A speaker repeats the phrase "We will rebuild" three times in a row, each time followed by a different aspect of the community that needs restoring. What rhetorical device is this, and what effect does it create?
-
-**Solution:**
-1. Repeating the same phrase ("We will rebuild") multiple times in a row is the rhetorical device of repetition.
-2. This creates emphasis and a memorable, rhythmic quality, reinforcing the speaker's message of determination and making the promise feel more powerful and certain to the audience.
+Repeating "We will rebuild" before several commitments is **repetition** and can also create a parallel structure. One passage can use more than one device at the same time.
 
 ## Speed Tricks & Shortcuts
 
-**Match each appeal to its core focus:** ethos = the speaker's credibility, pathos = the audience's emotions, logos = the logic and evidence. If a line mentions personal experience or credentials, think ethos; if it paints an emotional scene, think pathos; if it cites numbers or research, think logos.
+**Start with audience and purpose.** Ask what the speaker wants this audience to understand, believe, feel, remember, or do.
 
-**Listen for repeated phrases or structures** to catch repetition and parallelism quickly: these devices are usually easy to spot once you notice a pattern repeating across sentences.
+**Treat ethos/pathos/logos as overlapping lenses.** Identify the dominant function in the specific passage instead of assuming each sentence belongs to exactly one box.
 
-**Ask "what does the speaker want the audience to do or feel?"** to quickly determine the speech's overall purpose (to persuade toward an action, to comfort, to inspire, to inform).
+**Evaluate evidence, not just its appearance.** Statistics, expert quotations, and personal experience can be relevant or misleading depending on how they are used.
 
 ## Traps to Watch For
 
-### #1: Confusing Ethos with Logos
+### #1: "Any Number Means Logos"
 
-> Ethos is about the speaker's credibility and character. Logos is about logical evidence and data, regardless of who is speaking.
+> Quantitative evidence can support logos, but an unsupported or irrelevant statistic does not become sound reasoning simply because it contains a number.
 
-A speaker citing their own experience ("I have seen this firsthand") is ethos; a speaker citing studies or statistics (even about the same topic) is logos. The source of the appeal (personal credibility vs. external evidence) is the key distinction.
+### #2: Treating Ethos, Pathos, and Logos as Mutually Exclusive
 
-### #2: Assuming Emotional Language Is Always Manipulative or "Bad" Persuasion
+> A passage can build credibility, emotion, and reasoning simultaneously.
 
-> Pathos is a legitimate and common rhetorical strategy, not automatically a sign of a weak or dishonest argument.
+### #3: Assuming Pathos Is Automatically Manipulative
 
-Effective speeches often combine pathos with ethos and logos together; emotional appeal alone is not inherently a flaw unless it is being used to hide a lack of actual evidence.
+> Emotional appeal is a normal part of rhetoric. Evaluate whether it is appropriate and whether it substitutes for evidence when evidence is required.
 
-### #3: Missing a Rhetorical Device Because It Feels Like "Natural" Speech
+### #4: Assuming Every Speech Is a Written Persuasive Text
 
-> Repetition and parallelism are deliberate crafted techniques, even though they can sound natural when spoken aloud.
-
-Famous speech lines that "just sound good" are often carefully constructed using these exact devices; do not assume a device must sound obviously artificial to count as a deliberate rhetorical strategy.
+> Speeches can be unscripted or nonpersuasive and can serve many public, ceremonial, instructional, and expressive purposes.

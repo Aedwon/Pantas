@@ -1,7 +1,7 @@
 ---
 _id: "lesson-physics-fluid-mechanics"
 title: "Fluid Mechanics (Density, Pressure, Buoyancy, Archimedes' Principle, Bernoulli's Principle)"
-summary: "How density, pressure, and buoyancy work in fluids, and why moving fluids create pressure differences."
+summary: "How density, pressure, and buoyancy work in fluids, and how pressure, speed, and height relate in ideal flow."
 subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 12
@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-A **fluid** is any substance that flows: liquids and gases both count.
+A **fluid** is a substance that can flow; liquids and gases are both fluids.
 
 ### Density and Pressure
 
@@ -17,23 +17,35 @@ A **fluid** is any substance that flows: liquids and gases both count.
 
 $$\rho = \dfrac{m}{V}$$
 
-**Pressure** ($P$) is force spread over an area:
+**Pressure** ($P$) is normal force per unit area:
 
-$$P = \dfrac{F}{A}$$
+$$P = \dfrac{F_\perp}{A}$$
 
-Pressure in a fluid acts equally in all directions, and increases with depth, since deeper fluid must support the weight of all the fluid above it.
+In a fluid at rest, pressure at a point acts in all directions. For a fluid of approximately constant density under gravity, pressure increases with depth according to
+
+$$P = P_0 + \rho gh$$
+
+where $P_0$ is the pressure at the reference surface and $h$ is the depth below it.
 
 ### Archimedes' Principle and Buoyancy
 
-**Archimedes' Principle**: the upward **buoyant force** on an object submerged (fully or partially) in a fluid equals the weight of the fluid the object displaces (pushes out of the way).
+**Archimedes' principle** states that the upward **buoyant force** on a body immersed partly or fully in a fluid equals the weight of the fluid displaced:
 
-This explains floating and sinking: if an object's own weight is less than the weight of the fluid it would displace (meaning the object is less dense than the fluid), the buoyant force is strong enough to make it float. If the object's weight is more than the fluid it displaces (denser than the fluid), it sinks.
+$$F_B = \rho_{fluid}gV_{displaced}$$
+
+For a freely floating object in static equilibrium, the buoyant force equals the object's weight. Whether an object ultimately floats, sinks, or remains suspended depends on the balance of forces and, for simple freely immersed objects, on its average density relative to the fluid.
 
 <!-- ILLUSTRATION: two objects submerged in water, one less dense than water shown floating with a buoyant force arrow equal to its weight arrow, and one denser than water shown sinking with a buoyant force arrow smaller than its weight arrow -->
 
-### Bernoulli's Principle
+### Bernoulli's Equation
 
-**Bernoulli's Principle** describes moving fluids: as a fluid's speed increases, its pressure decreases (and vice versa), for fluid flowing steadily along a path. This inverse relationship between speed and pressure explains phenomena like airplane lift: air moving faster over an airplane wing's curved top surface has lower pressure than the slower-moving air beneath, creating a net upward force (lift).
+For **steady, incompressible, nonviscous flow along a streamline**, Bernoulli's equation relates pressure, flow speed, and height:
+
+$$P + \dfrac{1}{2}\rho v^2 + \rho gh = \text{constant}$$
+
+A useful special case occurs when comparing two points at the same height in such a flow: if the other assumptions hold, greater speed corresponds to lower static pressure. This is not a universal rule for every moving fluid; height changes, viscosity, pumps, turbulence, compressibility, and comparisons between different streamlines can all matter.
+
+Bernoulli's equation helps analyze pressure distributions around wings, but airplane lift should not be reduced to the claim that air must travel faster over a curved top because that path is longer. Real lift results from the wing's pressure distribution and the downward deflection of airflow; angle of attack, wing shape, circulation, viscosity, and other aerodynamic effects matter.
 
 ## Examples
 
@@ -42,89 +54,89 @@ This explains floating and sinking: if an object's own weight is less than the w
 An object has a mass of $500 \text{ g}$ and a volume of $200 \text{ cm}^3$. Find its density.
 
 **Solution:**
-Apply the density formula directly.
 
-1. Substitute the values.
-
-$$\rho = \dfrac{500}{200}$$
-
-2. Compute.
-
-$$\rho = 2.5 \text{ g/cm}^3$$
+$$\rho = \dfrac{500}{200} = 2.5 \text{ g/cm}^3$$
 
 ### #2: Will It Float or Sink?
 
-An object has a density of $0.8 \text{ g/cm}^3$. It is placed in water, which has a density of $1.0 \text{ g/cm}^3$. Will the object float or sink?
+A solid object with average density $0.8 \text{ g/cm}^3$ is placed freely in water of density $1.0 \text{ g/cm}^3$. Neglect trapped bubbles or other external forces. Will it float or sink?
 
 **Solution:**
-Compare the object's density to the fluid's density.
 
-1. The object's density ($0.8 \text{ g/cm}^3$) is less than water's density ($1.0 \text{ g/cm}^3$).
-2. An object less dense than the surrounding fluid will float.
+1. The object's average density is lower than the water's density.
+2. It can displace a volume of water whose weight equals its own before becoming fully submerged.
+3. It therefore floats partially submerged.
 
 ### #3: Applying Archimedes' Principle
 
-A solid block, fully submerged in water, displaces $300 \text{ cm}^3$ of water. Given that water has a density of $1 \text{ g/cm}^3$ (and using $g = 9.8 \text{ m/s}^2$), find the buoyant force acting on the block.
+A solid block, fully submerged in water, displaces $300 \text{ cm}^3$ of water. Given that water has a density of $1 \text{ g/cm}^3$ and use $g = 9.8 \text{ m/s}^2$, find the buoyant force.
 
 **Solution:**
-The buoyant force equals the weight of the displaced water.
 
-1. Find the mass of the displaced water using its density and volume.
+1. Mass of displaced water:
 
-$$m = \rho V = (1 \text{ g/cm}^3)(300 \text{ cm}^3) = 300 \text{ g} = 0.3 \text{ kg}$$
+$$m = \rho V = (1 \text{ g/cm}^3)(300 \text{ cm}^3)=300\text{ g}=0.3\text{ kg}$$
 
-2. Find the weight of this displaced water.
+2. Weight of displaced water:
 
-$$W = mg = (0.3)(9.8)$$
+$$F_B = mg = (0.3)(9.8)=2.94\text{ N}$$
 
-3. Compute.
+3. The buoyant force is $2.94\text{ N}$ upward.
 
-$$W = 2.94 \text{ N}$$
+### #4: Applying Bernoulli's Equation in a Horizontal Pipe
 
-4. By Archimedes' principle, the buoyant force on the block equals this weight: $2.94 \text{ N}$.
-
-### #4: Applying Bernoulli's Principle
-
-Air flows over the curved top of an airplane wing faster than the air flowing beneath the flat bottom of the wing. Explain, using Bernoulli's principle, why this creates an upward lift force on the wing.
+Water flows steadily through a horizontal pipe that narrows. At point 1 the water moves more slowly; at point 2 it moves faster. Assume the water is incompressible, viscosity is negligible, and the two points are at the same height. Which point has greater static pressure?
 
 **Solution:**
-Apply the inverse relationship between fluid speed and pressure.
 
-1. Bernoulli's principle states that faster-moving fluid has lower pressure, and slower-moving fluid has higher pressure.
-2. Air moves faster over the wing's curved top, so the pressure above the wing is lower.
-3. Air moves slower beneath the wing's flatter bottom, so the pressure below the wing is higher.
-4. This creates a pressure difference, with higher pressure below pushing up more than the lower pressure above pushes down, resulting in a net upward force: lift.
+With $h_1=h_2$, Bernoulli's equation gives
+
+$$P_1+\frac12\rho v_1^2=P_2+\frac12\rho v_2^2$$
+
+Since $v_2>v_1$, the kinetic-energy-per-volume term is larger at point 2, so its static-pressure term is smaller:
+
+$$P_2<P_1$$
+
+The faster section has lower static pressure **under these stated Bernoulli conditions**.
 
 ## Speed Tricks & Shortcuts
 
-For "float or sink" questions, just compare densities directly: no calculation needed. Object density less than fluid density means float; object density more than fluid density means sink; equal densities mean the object stays suspended (neutral buoyancy).
+For buoyancy calculations, use the **displaced fluid**, not the object's material:
 
-For Archimedes' principle problems, remember the buoyant force is found through the displaced fluid's weight, not the object's own weight. Find the volume of fluid displaced, convert to mass using the fluid's density, then to weight.
+$$F_B=\rho_{fluid}gV_{displaced}$$
 
-For Bernoulli's principle, remember the simple inverse relationship: fluid speed up means pressure down, and fluid speed down means pressure up. This single rule explains airplane lift, shower curtains being pulled inward, and many other everyday fluid phenomena.
+For simple float/sink questions involving a freely immersed object, compare its average density with the fluid's density. For unusual shapes, attached forces, sealed containers, or changing fluid density, analyze the actual forces and displaced volume.
+
+For Bernoulli questions, do not memorize only “faster means lower pressure.” First check whether the comparison is along an idealized steady streamline and whether the two points are at the same height. If height changes, keep the $\rho gh$ term.
 
 ## Traps to Watch For
 
-### #1: Using the Object's Density Instead of the Fluid's Density for Buoyant Force
+### #1: Using the Object's Density to Calculate Buoyant Force
 
-> Archimedes' principle uses the displaced fluid's density (and volume) to find weight, not the submerged object's own density.
+> Archimedes' principle uses the density and displaced volume of the **fluid**.
 
-A common mistake calculates the displaced water's mass using the object's density instead of water's density. The buoyant force cares only about how much fluid was pushed out of the way, and that fluid's own properties, not what the submerged object itself is made of.
+The object's density can help predict floating behavior, but the buoyant-force formula itself depends on displaced fluid.
 
-### #2: Assuming Bigger Objects Always Sink and Smaller Ones Always Float
+### #2: Assuming Bigger Objects Always Sink
 
-> Whether an object floats or sinks depends on its density relative to the fluid, not its overall size or mass alone.
+> Floating depends on force balance and average density, not size alone.
 
-A massive steel ship floats because its overall shape gives it a low average density (mostly hollow, air-filled space), while a small, solid rock of the same material sinks. Size and mass alone, without considering the resulting overall density, cannot predict floating or sinking.
+A large hollow ship can float while a much smaller solid piece of dense metal sinks.
 
-### #3: Reversing Bernoulli's Speed-Pressure Relationship
+### #3: Treating “Faster Fluid = Lower Pressure” as Universal
 
-> Bernoulli's principle states fluid speed and pressure are inversely related: Faster means lower pressure, not higher.
+> That relationship is a special consequence of Bernoulli's equation under stated conditions, especially when height is unchanged.
 
-Assuming faster-moving fluid has higher pressure (the opposite of the true relationship) would incorrectly predict downward force on an airplane wing instead of the actual lift force that keeps planes flying.
+A pump can raise both pressure and speed; a vertical flow trades energy with gravitational potential; viscous and turbulent flows lose mechanical energy.
 
-### #4: Forgetting That Pressure Increases with Depth
+### #4: Using the Equal-Transit-Time Wing Myth
 
-> Fluid pressure increases the deeper you go, because deeper fluid must support the weight of all the fluid above it.
+> Air parcels split at a wing's leading edge are not required to meet again at the trailing edge.
 
-A common error treats fluid pressure as constant throughout a container, ignoring how much more pressure exists at the bottom of a deep pool compared to just below the surface.
+Do not argue that the upper stream must move faster merely because the upper surface is longer. Lift is understood through the actual pressure field and momentum change of the airflow.
+
+### #5: Saying Fluid Pressure Is the Same Everywhere
+
+> A fluid at rest has pressure that acts in all directions at a point, but its magnitude generally changes with depth.
+
+For constant density in gravity, deeper points have greater pressure by approximately $\rho gh$.

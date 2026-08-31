@@ -1,7 +1,7 @@
 ---
 _id: "lesson-algebra-linear-equations-inequalities"
 title: "Linear Equations and Inequalities (Solving and Graphing)"
-summary: "Learn how to solve and graph linear equations and inequalities fast."
+summary: "Solve and graph linear equations and inequalities while handling slope and boundary cases correctly."
 subject: "subject-mathematics"
 topic: "topic-algebra"
 estimatedMinutes: 10
@@ -9,236 +9,160 @@ isActive: true
 ---
 ## Core Concept
 
-A linear equation is a simple math sentence. It always has an equal sign. Its variables only have a highest power of $1$. When you draw it on a graph, it makes a perfectly straight line.
+A linear equation in one variable can be written in the form $ax+b=0$ with $a\ne0$. A linear equation in two variables can be written as:
 
-An inequality is very similar. But instead of an equal sign, it uses symbols like $<$, $>$, $\le$, or $\ge$. When you draw it on a graph, you shade a whole wide area.
+$$Ax+By=C,$$
 
-College entrance exams test this topic a lot. You will need to find the hidden value of $x$. You might need to find the slope of a line. Or you must match a picture of a graph to an equation.
+where $A$ and $B$ are not both zero. Its graph is a straight line.
 
-The standard form of a line is:
+A **linear inequality** replaces equality with a comparison such as $<$, $>$, $\le$, or $\ge$. In one variable, its solution is shown on a number line. In two variables, its graph is typically a half-plane separated by a boundary line.
 
+For a nonvertical line, slope-intercept form is:
 
-$$Ax + By = C$$
+$$y=mx+b,$$
 
-The slope-intercept form is:
-
-
-$$y = mx + b$$
-
-In that formula, $m$ is the slope. The slope tells you how slanted the line is. The $b$ is the y-intercept. This is the exact spot where the line hits the vertical y-axis.
+where $m$ is the slope and $b$ is the $y$-intercept.
 
 ## Mnemonics & Memory Aids
 
-> $b$ is where you **begin**. $m$ is how you **move**.
+When graphing $y=mx+b$, start at the $y$-intercept and use the slope as rise over run to locate another point.
 
-When graphing $y = mx + b$, start drawing your first dot at the y-intercept ($b$). Then, use the slope ($m$) to count up and across to your next dot.
+For a two-variable linear inequality:
 
-If your inequality is just $<$ or $>$, the line is broken or dashed. It "hates" the boundary and does not include it.
+- use a **dashed** boundary for $<$ or $>$ because the boundary is not included;
+- use a **solid** boundary for $\le$ or $\ge$ because the boundary is included.
 
-If your inequality has a bar under it ($\le$ or $\ge$), the line is solid. The boundary is "true" and included in the answer.
-
-Always flip the inequality sign around when you multiply or divide both sides by a negative number.
+When multiplying or dividing both sides of an inequality by a negative number, reverse the inequality sign.
 
 ## Examples
 
 ### #1: Basic Equation with Fractions
 
-If $\dfrac{3x - 1}{2} = \dfrac{x + 4}{3}$, what is the value of $x$?
+If $\dfrac{3x-1}{2}=\dfrac{x+4}{3}$, what is $x$?
 
 **Solution:**
 
-1. Cross-multiply to remove the fractions.
+1. Cross-multiply.
 
-$$3(3x - 1) = 2(x + 4)$$
+$$3(3x-1)=2(x+4)$$
 
+2. Expand and solve.
 
-2. Distribute the outside numbers into the parentheses.
+$$9x-3=2x+8$$
 
-$$9x - 3 = 2x + 8$$
+$$7x=11$$
 
-
-3. Move all $x$ terms to the left. Move all normal numbers to the right.
-
-$$9x - 2x = 8 + 3$$
-
-
-4. Solve for $x$.
-
-$$7x = 11$$
-
-
-$$x = \dfrac{11}{7}$$
-
-
+$$x=\dfrac{11}{7}$$
 
 ### #2: Inequality with a Negative Flip
 
-What is the solution set of $-2(x - 4) > 3x + 13$?
+Solve $-2(x-4)>3x+13$.
 
 **Solution:**
 
-1. Distribute the $-2$.
+1. Expand.
 
-$$-2x + 8 > 3x + 13$$
+$$-2x+8>3x+13$$
 
+2. Collect terms.
 
-2. Move the $x$ terms to the left and numbers to the right.
+$$-5x>5$$
 
-$$-2x - 3x > 13 - 8$$
+3. Divide by $-5$ and reverse the sign.
 
-
-3. Combine the terms.
-
-$$-5x > 5$$
-
-
-4. Divide by $-5$. Because you divide by a negative, you must flip the sign!
-
-$$x < -1$$
-
-
+$$x<-1$$
 
 ### #3: Finding the Equation of a Line
 
-What is the equation of the line passing through $(3, -1)$ and perpendicular to the line $2x + 5y = 10$?
+Find the equation of the line through $(3,-1)$ that is perpendicular to $2x+5y=10$.
 
 **Solution:**
 
-1. Find the slope of the given line. The shortcut formula is $m = \dfrac{-A}{B}$.
+1. Because $B=5\ne0$, the slope of $Ax+By=C$ is $-\dfrac{A}{B}$.
 
-$$m = \dfrac{-2}{5}$$
+$$m=-\dfrac{2}{5}$$
 
+2. A nonvertical line perpendicular to a line of nonzero slope has slope equal to the negative reciprocal.
 
-2. Find the perpendicular slope. Flip the fraction upside down and change its sign.
+$$m_\perp=\dfrac{5}{2}$$
 
-$$\text{New } m = \dfrac{5}{2}$$
+3. Use point-slope form.
 
+$$y+1=\dfrac{5}{2}(x-3)$$
 
-3. Use the point-slope form with your new slope and the point $(3, -1)$.
+4. Rearrange.
 
-$$y - y_1 = m(x - x_1)$$
+$$2y+2=5x-15$$
 
-
-$$y - (-1) = \dfrac{5}{2}(x - 3)$$
-
-
-4. Multiply everything by $2$ to remove the fraction.
-
-$$2(y + 1) = 5(x - 3)$$
-
-
-$$2y + 2 = 5x - 15$$
-
-
-5. Rearrange into standard form.
-
-$$-5x + 2y = -17$$
-
-
-$$5x - 2y = 17$$
-
-
+$$5x-2y=17$$
 
 ### #4: Graphing an Inequality
 
-The shaded region of a linear inequality includes the point $(0, 0)$. Its boundary is a dashed line passing through $(0, 3)$ and $(3, 0)$. Which inequality defines this region?
+A shaded region includes $(0,0)$. Its boundary is a dashed line through $(0,3)$ and $(3,0)$. Which inequality defines the region?
 
 <!-- FIGURE: {"kind": "coordinate-graph", "type": "linear-inequality", "formula": "x + y < 3", "points": [[0, 3], [3, 0]], "shaded": "below", "semanticsLabel": "A coordinate graph with a dashed line through (0, 3) and (3, 0) and the region containing the origin shaded."} -->
 
+**Solution:**
+
+1. The boundary has slope $-1$ and $y$-intercept $3$, so:
+
+$$x+y=3$$
+
+2. The dashed line means a strict inequality.
+3. Test $(0,0)$, which is not on the boundary and is stated to be in the shaded region.
+
+$$0+0<3$$
+
+4. Therefore:
+
+$$x+y<3$$
+
+### #5: System of Equations Word Problem
+
+A store sells basic calculators for Php $150$ and scientific calculators for Php $400$. If it sells $30$ calculators for total revenue of Php $7,000$, how many basic calculators were sold?
 
 **Solution:**
 
-1. Find the slope of the boundary line using the two points.
+Let $b$ be the number of basic calculators and $s$ the number of scientific calculators.
 
-$$m = \dfrac{0 - 3}{3 - 0}$$
+$$b+s=30$$
 
+$$150b+400s=7000$$
 
-$$m = -1$$
+From $s=30-b$:
 
+$$150b+400(30-b)=7000$$
 
-2. The y-intercept ($b$) is $3$ because the line hits $(0, 3)$. Write the line equation.
+$$-250b=-5000$$
 
-$$y = -1x + 3$$
+$$b=20$$
 
-
-$$x + y = 3$$
-
-
-3. The boundary is dashed, so we will use $<$ or $>$. Let us test the point $(0, 0)$.
-
-$$0 + 0 \text{ is compared to } 3$$
-
-
-$$0 < 3$$
-
-
-4. Since $(0, 0)$ is inside the shaded region, the statement must be true. So the correct sign is $<$.
-
-$$x + y < 3$$
-
-
-
-### #5: System of Equations (Word Problem)
-
-A store sells basic calculators for $\text{Php } 150$ and scientific calculators for $\text{Php } 400$. If the store sold $30$ calculators and earned a total revenue of $\text{Php } 7000$, how many basic calculators were sold?
-
-**Solution:**
-
-1. Let $b$ be basic calculators. Let $s$ be scientific calculators. Write two equations.
-
-$$b + s = 30$$
-
-
-$$150b + 400s = 7000$$
-
-
-2. Rewrite the first equation to solve for $s$.
-
-$$s = 30 - b$$
-
-
-3. Put this into the second equation.
-
-$$150b + 400(30 - b) = 7000$$
-
-
-4. Distribute and solve.
-
-$$150b + 12000 - 400b = 7000$$
-
-
-$$-250b = -5000$$
-
-
-$$b = 20$$
-
-
-5. The store sold $20$ basic calculators.
+So $20$ basic calculators were sold.
 
 ## Speed Tricks & Shortcuts
 
-Use the $\dfrac{-A}{B}$ slope trick. If an equation looks like $3x + 4y = 12$, do not waste time rewriting it. The slope is just the negative of the first number divided by the second number. The slope here is $\dfrac{-3}{4}$.
+For $Ax+By=C$ with $B\ne0$, the slope is:
 
-Use the "Cover-Up" trick for intercepts. To find where $3x + 4y = 12$ crosses the x-axis, cover the $y$ term with your finger. You see $3x = 12$. So, $x = 4$. To find the y-intercept, cover the $x$ term. You see $4y = 12$. So, $y = 3$.
+$$m=-\dfrac{A}{B}.$$
 
-Test the origin. When shading an inequality, always plug in $(0, 0)$. If the math gives you a true statement, shade the side with the origin. If it is false, shade the opposite side.
+If $B=0$, the equation is a vertical line $x=\dfrac{C}{A}$ and its slope is undefined.
+
+To find intercepts of $Ax+By=C$, set $y=0$ for the $x$-intercept and set $x=0$ for the $y$-intercept, when those intercepts exist.
+
+For a two-variable inequality, test a point that is **not on the boundary**. The origin $(0,0)$ is convenient only when the boundary does not pass through the origin.
 
 ## Traps to Watch For
 
-### #1: Negative Sign Trap
+### #1: Negative Multiplier or Divisor
 
-> If you multiply or divide by a negative number, flip the sign.
+If you multiply or divide an inequality by a negative number, reverse the inequality sign.
 
-Students often divide $-2x > 10$ by $-2$ and write $x > -5$. This is wrong. The correct answer is $x < -5$. Exam makers always put the wrong answer in the choices.
+### #2: Parallel and Perpendicular Edge Cases
 
-### #2: Parallel vs. Perpendicular Trap
+Distinct nonvertical parallel lines have the same slope. For nonzero finite slope $m$, a perpendicular nonvertical line has slope $-\dfrac{1}{m}$.
 
-> Parallel means exact same slope. Perpendicular means flip the fraction and change the sign.
+A vertical line is perpendicular to a horizontal line, so the "flip and change the sign" shortcut must not be applied blindly to slope $0$ or an undefined slope.
 
-If a line has a slope of $3$, a parallel line also has a slope of $3$. A perpendicular line has a slope of $\dfrac{-1}{3}$. Do not forget to change the plus or minus sign!
+### #3: Solid vs. Dashed Boundary
 
-### #3: Solid vs. Dashed Trap
-
-> Look at the line type before you pick your answer.
-
-If the graph shows a dashed line, immediately cross out any answer choices with $\le$ or $\ge$. Dashed lines only use strict $<$ or $>$ signs.
+A dashed line represents a strict boundary ($<$ or $>$). A solid line represents an included boundary ($\le$ or $\ge$).

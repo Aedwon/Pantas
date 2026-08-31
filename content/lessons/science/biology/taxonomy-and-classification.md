@@ -1,7 +1,7 @@
 ---
 _id: "lesson-biology-taxonomy-and-classification"
-title: "Taxonomy and Classification (Domains, Kingdoms, Binomial Nomenclature)"
-summary: "How scientists organize and name living things, from the broadest domain down to individual species."
+title: "Taxonomy and Classification (Domains, Ranks, Binomial Nomenclature)"
+summary: "How scientists classify and name organisms while using evolutionary relationships to revise classifications over time."
 subject: "subject-science"
 topic: "topic-biology"
 estimatedMinutes: 9
@@ -9,97 +9,114 @@ isActive: true
 ---
 ## Core Concept
 
-**Taxonomy** is the science of classifying living things into organized groups, based on shared characteristics and evolutionary relationships. This helps scientists around the world talk about the same organism without confusion.
+**Taxonomy** includes naming, describing, and classifying organisms. **Systematics** places that classification in the broader study of evolutionary relationships. Modern classifications are hypotheses informed by evidence such as morphology and molecular data and can change when new evidence changes our understanding of ancestry.
 
-### The Classification Hierarchy
+### The Traditional Rank Hierarchy
 
-Living things are sorted into a hierarchy of ranks, from the broadest group down to the most specific:
+A commonly taught Linnaean-style hierarchy is:
 
 **Domain → Kingdom → Phylum → Class → Order → Family → Genus → Species**
 
-Each rank contains one or more of the rank below it. A domain contains many kingdoms; a kingdom contains many phyla; and so on, all the way down to species, the most specific rank.
+Intermediate ranks such as subphylum, subclass, tribe, subspecies, and many unranked clades are also used, so real biological classification is more detailed than this eight-rank mnemonic.
 
-- **Domain** (broadest)
-  - **Kingdom**
-    - **Phylum**
-      - **Class**
-        - **Order**
-          - **Family**
-            - **Genus**
-              - **Species** (most specific)
+The three-domain framework recognizes **Bacteria**, **Archaea**, and **Eukarya**. Bacteria and Archaea are **prokaryotic** lineages: their cells lack a membrane-enclosed nucleus. Eukarya contains organisms whose cells have a membrane-enclosed nucleus and other eukaryotic features.
 
-The three **domains** are the broadest groupings: **Bacteria**, **Archaea** (both made of simple cells without a nucleus), and **Eukarya** (organisms whose cells do have a nucleus, including all plants, animals, fungi, and protists).
-
-Within Eukarya, life is commonly organized into **kingdoms** such as Animalia (animals), Plantae (plants), Fungi (fungi), and Protista (mostly single-celled organisms like algae and amoebas).
+Traditional classroom systems often list eukaryotic kingdoms such as Animalia, Plantae, Fungi, and Protista. Modern phylogenetics has shown that the old catch-all **Kingdom Protista is not one natural monophyletic lineage**; "protist" remains a useful informal term for diverse eukaryotes outside animals, land plants, and fungi, while formal eukaryotic classification continues to be revised.
 
 ### Binomial Nomenclature
 
-Every known species gets a unique, two-part scientific name, a system called **binomial nomenclature**, created by the scientist Carl Linnaeus in the 1700s. The name has two parts:
+For a formally named species, **binomial nomenclature** uses a two-part scientific name consisting of:
 
-1. The **genus** name (capitalized), shared by closely related species.
-2. The **species** name (lowercase), specific to that one species.
+1. the **genus** name, capitalized; and
+2. the **specific epithet**, lowercase.
 
-Both words are written in italics (or underlined by hand). For example, humans are named *Homo sapiens*: *Homo* is the genus, and *sapiens* is the specific species name.
+Together the genus and specific epithet form the species name. For example, in *Homo sapiens*, *Homo* is the genus and *sapiens* is the specific epithet; the full species name is *Homo sapiens*.
 
-Binomial nomenclature solves a real problem: common names for the same organism can differ between countries or even regions (a "carabao" in the Philippines is known by other names elsewhere), but its scientific name is the same everywhere in the world.
+Both parts are conventionally italicized in typeset text. Different international nomenclatural codes govern naming in different groups of organisms, and names can be revised when taxonomic evidence or nomenclatural priority requires it.
+
+Carl Linnaeus did not invent every idea behind two-part naming, but his eighteenth-century work **standardized and popularized** binomial nomenclature and the hierarchical approach that strongly influenced modern taxonomy.
 
 ## Examples
 
-### #1: Ordering the Classification Ranks
+### #1: Ordering the Traditional Ranks
 
-Arrange these classification ranks in order from broadest to most specific: Family, Kingdom, Species, Phylum, Domain, Genus, Class, Order.
-
-**Solution:**
-Recall the fixed hierarchy from largest group to smallest.
-
-1. The correct order, broadest to most specific: Domain, Kingdom, Phylum, Class, Order, Family, Genus, Species.
-
-### #2: Identifying the Parts of a Scientific Name
-
-In the scientific name *Panthera leo* (the lion), identify which word is the genus and which is the species name.
+Arrange Family, Kingdom, Species, Phylum, Domain, Genus, Class, and Order from broadest to most specific in the traditional hierarchy.
 
 **Solution:**
-Recall binomial nomenclature's two-part structure.
 
-1. The first word, capitalized, is the genus: *Panthera* (a genus shared with other big cats like tigers, *Panthera tigris*).
-2. The second word, lowercase, is the specific species name: *leo*.
-3. Both words together, *Panthera leo*, uniquely identify the lion species.
+1. Domain
+2. Kingdom
+3. Phylum
+4. Class
+5. Order
+6. Family
+7. Genus
+8. Species
 
-### #3: Why Scientific Names Instead of Common Names?
+This is a useful classroom hierarchy even though modern systematics also uses additional ranks and unranked clades.
 
-A biologist studying a certain plant finds that villagers in different regions of the Philippines call it by three completely different common names. Explain why the biologist prefers to use the plant's scientific (binomial) name in a research paper instead.
+### #2: Identifying Parts of a Scientific Name
+
+In *Panthera leo*, identify the genus, specific epithet, and full species name.
 
 **Solution:**
-Consider the purpose of a single, universal naming system.
 
-1. Common names can vary widely between regions, languages, or even different countries, causing confusion about which exact organism is being discussed.
-2. A scientific name, following binomial nomenclature, is standardized and used by scientists worldwide, so it always refers to the exact same species, no matter who is reading it.
-3. Using the scientific name in a research paper avoids ambiguity, ensuring other scientists anywhere in the world know exactly which organism is being studied.
+1. Genus: *Panthera*.
+2. Specific epithet: *leo*.
+3. Full species name: *Panthera leo*.
+4. Calling *leo* alone "the species name" is imprecise because the epithet does not identify the species without its genus.
+
+### #3: Why Scientific Names?
+
+Why are standardized scientific names preferable to common names in research communication?
+
+**Solution:**
+
+1. Common names vary across languages and regions and can refer to more than one organism.
+2. Formal nomenclature supplies standardized names governed by disciplinary codes.
+3. Scientific names therefore reduce ambiguity, while taxonomic databases and literature can track synonyms and later name changes.
+
+### #4: Why Can Classification Change?
+
+A molecular study finds that organisms historically grouped together by appearance do not form a single lineage containing a common ancestor and all of its descendants. Why might taxonomists revise the group?
+
+**Solution:**
+
+1. Similar appearance can arise through convergent evolution as well as shared ancestry.
+2. Modern systematics aims to represent phylogenetic relationships.
+3. If new evidence shows the traditional group is not monophyletic, scientists may split, merge, or redefine taxa.
+4. The historical disassembly of "Kingdom Protista" is an example of this kind of revision.
 
 ## Speed Tricks & Shortcuts
 
-Memorize the classification order with a mnemonic sentence, matching the first letter of each rank: "Dear King Philip Came Over For Good Soup" for Domain, Kingdom, Phylum, Class, Order, Family, Genus, Species.
+For the traditional rank order, the mnemonic "Dear King Philip Came Over For Good Soup" maps to Domain, Kingdom, Phylum, Class, Order, Family, Genus, Species.
 
-For binomial nomenclature questions, remember the pattern: capital letter for genus, lowercase for species, both italicized. If a name is written any other way (both capitalized, or neither italicized), it does not follow the proper convention.
+For a binomial: **Genus capitalized + specific epithet lowercase; both italicized**.
 
-The more classification ranks two organisms share, the more closely related they are. Two species sharing the same genus are more closely related than two species that only share the same kingdom.
+For evolutionary relatedness, prefer the idea of a **more recent common ancestor** over simply counting how many traditional rank labels two organisms share. Taxonomic ranks are useful categories, but they are not a numerical ruler of evolutionary distance.
 
 ## Traps to Watch For
 
-### #1: Reversing the Hierarchy Order
+### #1: Calling the Specific Epithet the Whole Species Name
 
-> Domain is the broadest rank; species is the most specific.
+> In *Homo sapiens*, *sapiens* is the specific epithet; *Homo sapiens* is the species name.
 
-Students sometimes list the ranks backwards, especially confusing whether "kingdom" or "phylum" comes first. Anchor the very ends: domain always starts the sequence (broadest), and species always ends it (most specific).
+The second word by itself is not normally sufficient to identify a species.
 
-### #2: Capitalizing the Species Name
+### #2: Treating "Protista" as a Settled Modern Kingdom
 
-> Only the genus name is capitalized; the species name is always lowercase.
+> "Protist" remains useful informally, but molecular phylogenetics has shown that the traditional Kingdom Protista is not one monophyletic lineage.
 
-Writing "*Homo Sapiens*" (capitalizing both words) is a common formatting mistake. Correct binomial nomenclature capitalizes only the first word (genus) and italicizes both words together.
+Classification changes as evidence improves.
 
-### #3: Assuming Kingdom Is the Broadest Rank
+### #3: Saying Linnaeus Simply "Created" Binomial Naming
 
-> Domain is broader than kingdom, not the other way around.
+> Linnaeus standardized and popularized the system that became foundational to modern biological nomenclature.
 
-Since many students learned the "five kingdoms" system before learning about domains, they sometimes assume kingdom is the top rank. In the modern three-domain system, each domain (like Eukarya) actually contains multiple kingdoms (like Animalia, Plantae, Fungi, and Protista) within it.
+Scientific naming developed historically and is now governed by international codes.
+
+### #4: Treating Rank Count as Exact Evolutionary Distance
+
+> Two organisms in the same genus are usually understood to share a closer taxonomic relationship than organisms sharing only a much broader rank, but modern relatedness is evaluated through phylogeny and common ancestry.
+
+Ranks are categorical conventions, not equally spaced units of evolutionary time or genetic difference.

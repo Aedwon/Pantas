@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-The coordinate plane puts geometry on a grid. Every point gets an address $(x, y)$: steps right or left, then steps up or down. With addresses, we can calculate geometry instead of drawing it.
+The coordinate plane puts geometry on a grid. Every point gets an address $(x, y)$: steps right or left, then steps up or down. With coordinates, we can calculate geometric relationships instead of relying only on a drawing.
 
 ### Distance and Midpoint Formulas
 
@@ -17,7 +17,7 @@ The **distance** between points $(x_1, y_1)$ and $(x_2, y_2)$:
 
 $$d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$
 
-This is secretly the Pythagorean theorem. The horizontal change and vertical change are the legs, and the distance is the hypotenuse.
+This comes from the Pythagorean theorem. The horizontal and vertical changes are the legs of a right triangle, and the distance between the points is the hypotenuse.
 
 <!-- FIGURE: {"kind": "geometry-diagram", "type": "coordinate-geometry", "labels": ["(x1, y1)", "(x2, y2)", "dx = x2 - x1", "dy = y2 - y1", "Distance d"], "semanticsLabel": "Grid diagram showing two points joined by a segment forming a right triangle with horizontal and vertical distance legs."} -->
 
@@ -31,20 +31,20 @@ $$M = \left( \dfrac{x_1 + x_2}{2}, \dfrac{y_1 + y_2}{2} \right)$$
 
 $$m = \dfrac{y_2 - y_1}{x_2 - x_1}$$
 
-Read slopes at a glance: uphill left-to-right is positive, downhill is negative, a horizontal line has slope $0$, and a vertical line has undefined slope (you cannot divide by zero).
+Read slopes at a glance: uphill left-to-right is positive, downhill is negative, a horizontal line has slope $0$, and a vertical line has undefined slope because its run is $0$.
 
-Two rules the CETs adore:
+Two useful line relationships:
 
-- **Parallel lines** have equal slopes.
-- **Perpendicular lines** have slopes that are negative reciprocals: flip the fraction and switch the sign. A slope of $2$ pairs with $-\dfrac{1}{2}$, and their product is $-1$.
+- **Parallel nonvertical lines** have equal slopes. Distinct vertical lines are also parallel to one another.
+- **Perpendicular nonvertical, nonhorizontal lines** have slopes that are negative reciprocals. For example, a slope of $2$ pairs with $-\dfrac{1}{2}$, and their product is $-1$. A vertical line and a horizontal line are also perpendicular, but the product-of-slopes test does not apply because the vertical slope is undefined.
 
 ### Equations of a Line
 
 - **Slope-intercept form**: $y = mx + b$, where $m$ is the slope and $b$ is the $y$-intercept (where the line crosses the $y$-axis).
-- **Point-slope form**: $y - y_1 = m(x - x_1)$, perfect when you know one point and the slope.
+- **Point-slope form**: $y - y_1 = m(x - x_1)$, useful when you know one point and the slope.
 - **Standard form**: $Ax + By = C$.
 
-To graph or compare lines fast, get them into $y = mx + b$ and read off $m$ and $b$.
+For nonvertical lines, putting an equation into $y = mx + b$ makes its slope and $y$-intercept easy to read. Vertical lines instead have the form $x = c$.
 
 ## Examples
 
@@ -74,7 +74,7 @@ $$d = \sqrt{8^2 + (-6)^2} = \sqrt{64 + 36}$$
 
 $$d = \sqrt{100} = 10$$
 
-5. The distance is $10$ units. The squaring erases the minus sign, and $6$-$8$-$10$ is a Pythagorean triple.
+5. The distance is $10$ units. The squaring removes the sign of each change, and $6$-$8$-$10$ is a Pythagorean triple.
 
 ### #2: Midpoint
 
@@ -129,9 +129,9 @@ Find the equation of the line perpendicular to $y = 2x + 3$ that passes through 
 
 
 **Solution:**
-Perpendicular means negative reciprocal slope.
+The given line is neither vertical nor horizontal, so the perpendicular line has the negative reciprocal slope.
 
-1. The given slope is $2$. Flip and switch the sign.
+1. The given slope is $2$. Take the reciprocal and switch the sign.
 
 $$m = -\dfrac{1}{2}$$
 
@@ -147,7 +147,7 @@ $$y - 1 = -\dfrac{1}{2}x + 2$$
 
 $$y = -\dfrac{1}{2}x + 3$$
 
-5. Quick check: the slopes multiply to $2 \times \left(-\dfrac{1}{2}\right) = -1$. Perpendicular confirmed.
+5. Quick check: both slopes are defined, and $2 \times \left(-\dfrac{1}{2}\right) = -1$, so the lines are perpendicular.
 
 ### #5: Finding a Missing Endpoint
 
@@ -187,7 +187,7 @@ A faster route to a missing endpoint (Example $5$): the midpoint is the center, 
 
 Before using the distance formula, check if the points share an $x$ or a $y$. Points like $(2, 5)$ and $(2, 9)$ lie on a vertical line; the distance is just $9 - 5 = 4$. No square roots.
 
-To read the slope from standard form $Ax + By = C$ without rearranging: $m = -\dfrac{A}{B}$. For $3x + 4y = 12$, the slope is $-\dfrac{3}{4}$ instantly.
+To read the slope from standard form $Ax + By = C$ without rearranging, use $m = -\dfrac{A}{B}$ when $B \neq 0$. If $B = 0$, the equation describes a vertical line and its slope is undefined.
 
 ## Traps to Watch For
 
@@ -195,22 +195,22 @@ To read the slope from standard form $Ax + By = C$ without rearranging: $m = -\d
 
 > In the slope formula, both subtractions must go in the same direction.
 
-Computing $\dfrac{y_2 - y_1}{x_1 - x_2}$ (top one way, bottom the other) flips the sign of the slope. Pick a "first point" and subtract it in both the top and bottom. A sign-flipped slope is always among the choices.
+Computing $\dfrac{y_2 - y_1}{x_1 - x_2}$ (top one way, bottom the other) flips the sign of the slope. Pick a "first point" and subtract it in both the top and bottom.
 
 ### #2: Reciprocal Without the Sign Switch
 
-> Perpendicular slope means flip and negate.
+> For two nonvertical, nonhorizontal perpendicular lines, flip and negate the slope.
 
-Given slope $\dfrac{2}{3}$, the perpendicular slope is $-\dfrac{3}{2}$. Students flip without negating ($\dfrac{3}{2}$) or negate without flipping ($-\dfrac{2}{3}$), and both wrong versions sit in the choices. Test with the product: it must equal $-1$.
+Given slope $\dfrac{2}{3}$, the perpendicular slope is $-\dfrac{3}{2}$. If one line is vertical, however, its perpendicular line is horizontal; do not try to take a reciprocal of an undefined slope.
 
 ### #3: Distance Signs Vanish, Coordinates Do Not
 
-> Squaring kills minus signs in distance, but midpoints keep their signs.
+> Squaring removes signs in distance, but midpoints keep their signs.
 
-Some students drop negative signs everywhere. In the distance formula that accident is harmless, but a midpoint of $(2, -3)$ and $(-4, 7)$ is $(-1, 2)$, not $(1, 2)$ or $(3, 5)$. Track signs in every average.
+In the distance formula a negative coordinate difference becomes positive after squaring. Midpoint coordinates are averages, so their signs remain important. For $(2, -3)$ and $(-4, 7)$, the midpoint is $(-1, 2)$.
 
 ### #4: Zero Slope vs. No Slope
 
 > Horizontal lines have slope $0$. Vertical lines have undefined slope.
 
-These are different things: $0$ is a perfectly fine number, while undefined means the formula breaks (division by zero). A question asking for the slope of $x = 5$ wants "undefined", and $0$ is the planted wrong answer. For $y = 5$, the slope is $0$.
+These are different things: $0$ is a defined number, while a vertical slope would require division by zero. The line $x = 5$ has undefined slope; the line $y = 5$ has slope $0$.

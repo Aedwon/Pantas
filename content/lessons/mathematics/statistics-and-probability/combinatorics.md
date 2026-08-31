@@ -9,141 +9,141 @@ isActive: true
 ---
 ## Core Concept
 
-Combinatorics is the art of counting without listing. Three tools handle nearly every exam question.
+Combinatorics counts possible outcomes without listing each one individually.
 
-First, know the **factorial**: $n!$ means multiply all whole numbers from $n$ down to $1$. So $5! = 5 \times 4 \times 3 \times 2 \times 1 = 120$. Special rule: $0! = 1$.
+For a nonnegative integer $n$, **factorial** is defined by:
+
+$$n!=n(n-1)(n-2)\cdots2\cdot1$$
+
+with the special definition $0!=1$.
 
 ### Fundamental Counting Principle
 
-If one task can be done in $m$ ways and a second task in $n$ ways, the two together can be done in $m \times n$ ways. Choices in a sequence multiply.
+If one stage can be completed in $m$ ways and, for each such choice, a second stage can be completed in $n$ ways, then the two-stage process has $mn$ possible outcomes.
 
-Choosing a shirt ($4$ options) and pants ($3$ options) gives $4 \times 3 = 12$ outfits. Every branch of the first choice sprouts all the branches of the second.
+Choosing one of $4$ shirts and then one of $3$ pairs of pants gives:
+
+$$4\times3=12$$
+
+outfits.
 
 <!-- FIGURE: {"kind": "concept-diagram", "type": "tree", "root": "Outfits", "branches": [{"name": "Shirt 1", "leaves": 3}, {"name": "Shirt 2", "leaves": 3}, {"name": "Shirt 3", "leaves": 3}, {"name": "Shirt 4", "leaves": 3}], "totalLeaves": 12, "semanticsLabel": "A tree diagram with 4 shirt branches each splitting into 3 pants branches for a total of 12 leaf outfits."} -->
 
 ### Permutations
 
-A **permutation** is an arrangement where order matters: gold-silver-bronze, seating in a row, officer positions. The number of ways to arrange $r$ items chosen from $n$ different items:
+A **permutation** is an ordered selection. For $n$ distinct objects, the number of ways to choose and arrange $r$ of them without repetition is:
 
-$$P(n, r) = \dfrac{n!}{(n - r)!}$$
+$$P(n,r)=\dfrac{n!}{(n-r)!}$$
 
-In practice: multiply $r$ falling numbers starting at $n$. So $P(7, 3) = 7 \times 6 \times 5 = 210$.
+where $0\le r\le n$. For example:
+
+$$P(7,3)=7\times6\times5=210$$
 
 ### Combinations
 
-A **combination** is a selection where order does not matter: a committee, a fruit basket, a hand of cards. Choosing the same people in a different order is the same committee.
+A **combination** is an unordered selection. For $n$ distinct objects, the number of ways to choose $r$ without repetition when order does not matter is:
 
-$$C(n, r) = \dfrac{n!}{r!(n - r)!}$$
+$$C(n,r)=\dfrac{n!}{r!(n-r)!}$$
 
-A combination is a permutation divided by $r!$, to erase the orderings you no longer care about.
-
-The exam decision: ask "if I swap two chosen items, is the result different?" Yes: permutation. No: combination.
+A useful decision question is: if the same selected objects appear in a different order, does that create a different outcome? If yes, use an ordered count such as a permutation. If no, use a combination.
 
 ## Examples
 
 ### #1: Counting Principle
 
-A canteen offers $4$ sandwiches, $3$ drinks, and $2$ desserts. How many different meals of one sandwich, one drink, and one dessert are possible?
+A canteen offers $4$ sandwiches, $3$ drinks, and $2$ desserts. How many different meals consisting of one sandwich, one drink, and one dessert are possible?
 
 **Solution:**
-Three choices in sequence: multiply.
+Each sandwich choice can be paired with every drink and dessert choice.
 
-1. Multiply the options.
+$$4\times3\times2=24$$
 
-$$4 \times 3 \times 2 = 24$$
-
-2. There are $24$ possible meals.
+There are $24$ possible meals.
 
 ### #2: No Repetition Allowed
 
-How many $4$-digit pin codes use four different digits?
+How many $4$-digit PIN codes use four different decimal digits? Treat leading zero as allowed because these are codes, not four-digit integers.
 
 **Solution:**
-Each slot has one fewer option than the last.
+There are $10$ choices for the first position, then $9$, $8$, and $7$ choices as used digits are removed.
 
-1. First digit: $10$ choices. Second: $9$ left. Third: $8$. Fourth: $7$.
+$$10\times9\times8\times7=5040$$
 
-$$10 \times 9 \times 8 \times 7 = 5040$$
-
-2. There are $5040$ such codes. (If repeats were allowed, it would be $10^4 = 10000$.)
+There are $5040$ such codes. If repetition were allowed, there would be $10^4=10000$ codes.
 
 ### #3: Permutation
 
 A shelf has room for $3$ books. In how many ways can you arrange $3$ books chosen from $5$ different books?
 
 **Solution:**
-Left-to-right positions differ, so order matters: permutation.
+The positions are ordered.
 
-1. Multiply $3$ falling numbers from $5$.
+$$P(5,3)=5\times4\times3=60$$
 
-$$P(5, 3) = 5 \times 4 \times 3 = 60$$
-
-2. There are $60$ arrangements.
+There are $60$ arrangements.
 
 ### #4: Combination
 
-A teacher must pick $3$ students from a class of $8$ to join a quiz team. How many different teams are possible?
+A teacher must pick $3$ students from a class of $8$ to form a quiz team, with no assigned roles. How many different teams are possible?
 
 **Solution:**
-A team is a team no matter the picking order: combination.
+Order does not matter.
 
-1. Apply the formula.
+$$C(8,3)=\dfrac{8!}{3!5!}=\dfrac{8\times7\times6}{3\times2\times1}=56$$
 
-$$C(8, 3) = \dfrac{8!}{3! \, 5!} = \dfrac{8 \times 7 \times 6}{3 \times 2 \times 1}$$
+There are $56$ possible teams.
 
-2. Compute.
+### #5: Ordered Roles vs. Unordered Team
 
-$$\dfrac{336}{6} = 56$$
-
-3. There are $56$ possible teams.
-
-### #5: Order Matters vs. Order Does Not (Exam Level)
-
-From a club of $10$ members: (a) in how many ways can a president and a vice president be chosen? (b) in how many ways can a $2$-member committee be chosen?
+From a club of $10$ members, assume no person may hold both roles. (a) In how many ways can a president and a vice president be chosen? (b) In how many ways can a $2$-member committee with no roles be chosen?
 
 **Solution:**
-Same numbers, different logic: this pairing is the heart of the topic.
+1. President and vice president are different roles, so order matters.
 
-1. For (a), the two positions are different jobs. Ana-president with Ben-vice differs from Ben-president with Ana-vice. Order matters.
+$$10\times9=90$$
 
-$$10 \times 9 = 90$$
+2. For a two-person committee, selecting Ana then Ben is the same committee as selecting Ben then Ana, so order does not matter.
 
-2. For (b), a committee of Ana and Ben is the same committee as Ben and Ana. Order does not matter: divide out the $2! = 2$ orderings.
+$$C(10,2)=\dfrac{10\times9}{2}=45$$
 
-$$\dfrac{90}{2} = 45$$
-
-3. Answers: $90$ ways for officers, $45$ ways for the committee. Half as many, because each committee was counted twice as officer pairs.
+3. Answers: $90$ ordered officer assignments and $45$ unordered committees.
 
 ## Speed Tricks & Shortcuts
 
-Never expand full factorials. For $C(8, 3)$, write $3$ falling numbers over $3!$: $\dfrac{8 \times 7 \times 6}{6} = 56$. Cancel before multiplying and the arithmetic stays tiny.
+Avoid expanding more of a factorial than needed. For example:
 
-Use the mirror rule: $C(n, r) = C(n, n - r)$. Choosing $8$ from $10$ equals choosing the $2$ left behind: $C(10, 8) = C(10, 2) = 45$. Always count the smaller side.
+$$C(8,3)=\dfrac{8\times7\times6}{3\times2\times1}=56$$
 
-Keywords sort the problems fast: "arrange", "order", "line up", "ranking", "officers" scream permutation; "choose", "select", "committee", "group", "team" scream combination.
+The symmetry rule:
+
+$$C(n,r)=C(n,n-r)$$
+
+means choosing $8$ objects from $10$ is equivalent in count to choosing the $2$ objects left out.
+
+Words such as "arrange," "ranking," or named distinct positions usually indicate that order matters. Words such as "committee" or "team" often indicate an unordered selection, **unless** the problem assigns different roles within the group.
 
 ## Traps to Watch For
 
-### #1: Permutation for a Committee
+### #1: Counting an Unordered Group as Ordered
 
-> If swapping the chosen items changes nothing, you must divide out the orderings.
+> If swapping the selected objects creates no new outcome, an ordered count overcounts.
 
-Using $10 \times 9 = 90$ for a $2$-member committee double-counts every pair. The choices will contain both $90$ and $45$; only the division-by-$2!$ answer is right. Run the swap test before you compute anything.
+For a two-person committee with no roles, Ana-Ben and Ben-Ana describe the same committee.
 
-### #2: Adding Instead of Multiplying
+### #2: Adding Instead of Multiplying Sequential Choices
 
-> Sequential choices multiply. Either-or choices add.
+> When every choice from one stage can be paired with every choice from the next stage, multiply the counts.
 
-Choosing a sandwich and a drink: $4 \times 3$. Choosing a sandwich or a drink (just one item): $4 + 3$. The words "and" and "or" in the problem are the switches. Mixing them up gives answers that are wildly too small or too large.
+An either-or situation may instead require addition, so model what an outcome consists of before choosing an operation.
 
-### #3: Forgetting $0! = 1$
+### #3: Forgetting $0!=1$
 
-> Zero factorial is defined as $1$, not $0$.
+> Zero factorial is defined as $1$.
 
-The formula $C(n, n)$ needs it: choosing all $8$ from $8$ gives $\dfrac{8!}{8! \, 0!} = 1$ way, which makes sense, take everyone. If $0!$ were $0$, the formula would divide by zero. Questions test this as a quick concept check.
+This keeps formulas such as $C(n,n)=1$ and $P(n,n)=n!$ consistent.
 
-### #4: Repetition Rules Unread
+### #4: Repetition and Role Rules Must Be Read, Not Assumed
 
-> Check whether repeats are allowed before setting up the slots.
+> Determine whether an object may be reused and whether one person may occupy multiple roles from the problem statement.
 
-Digits of a code may repeat unless the problem says "distinct" or "no repetition"; people can never repeat (one person cannot fill two seats). The $10^4$ versus $10 \times 9 \times 8 \times 7$ split in Example $2$ is exactly this reading step, and both answers always appear in the choices.
+A code may allow repeated digits; a selection problem may forbid repeats; and organizational rules determine whether the same person may hold two positions. Those assumptions change the count, so state or infer them only from the problem's conditions.

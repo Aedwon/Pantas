@@ -1,7 +1,7 @@
 ---
 _id: "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization"
-title: "Mental Rotation and 3D Visualization (Unfolding Cubes, Shadow Casting)"
-summary: "Learn how to mentally rotate 3D objects, determine which unfolded net forms a cube, and predict the shadow a shape would cast."
+title: "Mental Rotation and 3D Visualization (Cube Nets and Shadows)"
+summary: "Learn how to preserve spatial relationships while rotating objects, folding cube nets, and interpreting simplified shadow projections."
 subject: "subject-reasoning"
 topic: "topic-spatial-abstract-reasoning"
 estimatedMinutes: 11
@@ -9,94 +9,89 @@ isActive: true
 ---
 ## Core Concept
 
-**Mental rotation** questions ask you to picture how a 3D object would look after being rotated (turned) in space, without physically moving anything. **3D visualization** questions extend this skill to related tasks like folding a flat pattern into a cube, or determining what shadow a solid object would cast.
+**Mental rotation** asks whether two views can represent the same rigid object after rotation. A true rotation preserves distances, adjacency, handedness/chirality, and the relative arrangement of parts. A mirror image is not generally obtainable by rotation alone.
 
-### Unfolding Cubes (Cube Nets)
+### Cube Nets
 
-A **net** is a flat, unfolded pattern of connected squares that can be folded up into a cube. A cube has $6$ faces, so a valid net always has exactly $6$ connected squares, arranged so that when folded, no faces overlap and every face meets its correct neighbors.
+A **cube net** is a connected arrangement of six squares that can be folded into the six distinct faces of a cube without overlap.
 
-Key rule for checking which faces end up opposite each other once folded: in a net, two squares are opposite faces on the finished cube if there is exactly one square directly between them in a straight line (in either the row or column direction) or if they are the two squares that "wrap around" to meet at ends of an L-shaped or zigzag arrangement of 4 squares in a row. The safest method is to mentally fold the net step by step: pick one square as the fixed "bottom," then fold each connected neighboring square up to become a side, tracking which square lands on top.
+There is no safe universal shortcut such as "two squares with exactly one square between them are always opposite." The same local-looking arrangement can behave differently depending on the rest of the net. The reliable method is to **track face orientations while folding**:
 
-<!-- FIGURE: {"kind": "cube-net", "cells": [[0, 1], [1, 0], [1, 1], [1, 2], [2, 1], [3, 1]], "labels": ["side", "side", "bottom", "side", "side", "top"], "showFolded": true, "semanticsLabel": "A cross-shaped cube net with the bottom, four sides, and top labeled, beside the folded cube."} -->
+1. choose one square as a reference face;
+2. assign each edge-neighbor the face direction produced by a $90^\circ$ fold;
+3. continue across the net;
+4. verify that all six squares reach six distinct cube-face orientations with no two squares occupying the same face.
 
-### Shadow Casting
+For simple familiar cross nets, you can often visualize this directly, but mental folding is the underlying method.
 
-A **shadow** is the 2D silhouette (outline) a 3D object casts when light shines on it from a particular direction. The general rule: a shadow shows the object's outline as seen from the light's direction, ignoring internal details (like holes going only partway through, or surface markings) unless the light direction reveals them as a gap. A shadow can look quite different from any single "face" of the object, especially if the object is rotated at an angle to the light source.
+<!-- FIGURE: {"kind": "cube-net", "cells": [[0, 1], [1, 0], [1, 1], [1, 2], [2, 1], [3, 1]], "labels": ["side", "side", "bottom", "side", "side", "top"], "showFolded": true, "semanticsLabel": "A cross-shaped cube net folded step by step into six distinct cube faces."} -->
+
+### Shadows and Projections
+
+In simplified technical-reasoning questions, light is often treated as **parallel rays** from a specified direction. Under that model, the shadow on a plane is a projection of the object's silhouette along the light direction.
+
+A real nearby point light can produce perspective enlargement or other differences depending on source distance and screen geometry, so "the shadow is simply the orthographic view" is only valid under the parallel-ray/distant-source simplification.
+
+Surface markings do not affect a silhouette unless they alter transmission or the object's outline. A through-hole may appear in a shadow only when the geometry allows light through it.
 
 ## Examples
 
-### #1: Identifying Opposite Faces on a Cube Net
+### #1: Opposite Face in a Familiar Cross Net
 
-A cross-shaped (plus-sign) net has one central square, with four squares attached to its four sides (up, down, left, right), and one more square attached to the far end of the "up" arm (making a vertical line of $3$ squares: the top square, then the center square, then the bottom square, with two more squares attached to the center square's left and right sides). If the center square becomes the bottom of the cube once folded, which square becomes the top?
-
-<!-- FIGURE: {"kind": "cube-net", "cells": [[0, 1], [1, 0], [1, 1], [1, 2], [2, 1], [3, 1]], "labels": ["side", "side", "bottom", "side", "side", "top"], "semanticsLabel": "A cross-shaped cube net with the center labeled bottom and the far end of the vertical arm labeled top."} -->
-
+A cross net has one central square with four edge-neighbors and one extra square attached beyond one of those neighbors. If the center becomes the bottom, which face becomes the top?
 
 **Solution:**
-1. When folding a cross-shaped net, the center square becomes one face (given as the bottom), and the four squares directly attached to it fold up to become the four side faces.
-2. The square attached to the far end of one arm (extending an extra square beyond the four immediate neighbors) folds all the way over to become the opposite face from the center.
-3. Since the center is the bottom, the far square (at the end of the vertical arm, beyond the immediate neighbor) becomes the top.
 
-### #2: Checking Whether a Net Correctly Folds Into a Cube
+Fold the four neighbors upward as side faces. The extra square attached beyond one side then folds over to the remaining face opposite the center: the **top**.
 
-A flat pattern has $6$ squares arranged with $4$ in a straight horizontal row, and $2$ more squares both attached to the top of the same square (the second square in the row), stacked directly on top of each other. Does this net fold into a valid cube?
+This result comes from folding that specific net, not from a universal distance-in-the-flat-net rule.
 
-<!-- FIGURE: {"kind": "cube-net", "cells": [[0, 1], [1, 1], [2, 0], [2, 1], [2, 2], [2, 3]], "semanticsLabel": "A flat pattern of six squares with four in a row and two stacked directly above the second square."} -->
+### #2: Invalid Net by Overlap
 
+A six-square pattern has four squares in a row, with two additional squares extending as a two-square stack above the second square. Does it form a cube?
 
 **Solution:**
-1. A valid cube net needs each of its $6$ squares to fold into a different face, with no overlaps.
-2. Here, two separate squares are both attached to the top of the same single square in the row. When folded, both of these squares would attempt to occupy the same face position (directly above that square), causing an overlap.
-3. This net is not valid: it would not fold into a proper cube, since two faces would collide instead of each covering a distinct side.
 
-### #3: Predicting a Shadow
+Tracking the folds causes two squares to map to the same cube-face orientation before all six distinct faces are filled. The pattern is therefore **not a valid cube net**.
 
-A solid cylinder (like a can) stands upright, with light shining straight down from directly above it. What shape is the shadow cast on the ground?
+### #3: Cylinder, Parallel Light from Above
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "cylinder-shadow-above", "labels": ["Light from above", "Circular shadow"], "semanticsLabel": "An upright cylinder with light shining from above, casting a circular shadow on the ground."} -->
-
+An upright cylinder receives parallel light straight downward onto a horizontal ground plane. What is its ideal shadow?
 
 **Solution:**
-1. Since the light comes from directly above, the shadow shows the cylinder's outline as seen from directly above (a "bird's eye view").
-2. Looking straight down at a cylinder, you see only its circular top face outline, since the sides are hidden directly beneath that circular cross-section.
-3. The shadow is a circle, matching the cylinder's circular cross-section.
 
-### #4: Predicting a Shadow from a Different Angle
+The projection along the cylinder's axis is a **circle** with the cylinder's diameter.
 
-The same cylinder now has light shining from directly the side (horizontally), rather than from above. What shape is the shadow cast on a wall behind it?
+### #4: Cylinder, Parallel Light from the Side
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "cylinder-shadow-side", "labels": ["Light from side", "Rectangular shadow"], "semanticsLabel": "An upright cylinder with light shining from the side, casting a rectangular shadow on the wall."} -->
-
+The same upright cylinder receives horizontal parallel light and casts onto a vertical wall perpendicular to the rays. What is its ideal shadow?
 
 **Solution:**
-1. Light from the side reveals the cylinder's outline as seen from that side, rather than from above.
-2. Viewed from the side, a cylinder's outline is a rectangle (the height and diameter of the cylinder define the rectangle's two dimensions), not a circle.
-3. The shadow is a rectangle, since side-on light captures the cylinder's height and width profile rather than its circular cross-section.
+
+The side projection is a **rectangle** whose height matches the cylinder's height and whose width matches its diameter.
 
 ## Speed Tricks & Shortcuts
 
-**For cube nets, use the "one square between them in a straight line" rule to quickly spot opposite faces**, and always double-check by mentally folding the net one square at a time if you're unsure.
+**For rotations, preserve handedness and adjacency.** A mirrored arrangement is not a rotation unless the object itself has the relevant symmetry.
 
-**For net validity, check for any two squares that would compete for the same position when folded** (like two squares both branching off the same face in the same direction): this is the fastest way to spot an invalid net.
+**For cube nets, fold orientations instead of relying on flat-grid spacing.** Track where each face points after successive $90^\circ$ folds.
 
-**For shadows, always identify the light's direction first, then imagine "flattening" the object as seen from that exact viewpoint**: the shadow is simply that flattened outline, so matching the correct viewing angle is the key step.
+**For shadows, identify the light model and screen.** Parallel rays permit a straightforward projection; point-source shadows depend on source geometry as well.
 
 ## Traps to Watch For
 
-### #1: Assuming Adjacent Squares in a Net Must Be Adjacent Faces on the Cube
+### #1: Using a Universal "One Square Between = Opposite" Rule
 
-> Squares that are adjacent (touching) in the flat net are not necessarily still touching once folded: carefully trace the actual fold, since "far apart" squares in the net can become adjacent faces, and vice versa.
+> Opposite faces are determined by the full fold geometry, not one flat-distance pattern.
 
-The square at the far end of an arm in a cross-shaped net becomes the top (opposite the bottom), even though in the flat net it might appear to be simply "another square in a line," not obviously "opposite" anything.
+### #2: Assuming Any Six Connected Squares Form a Cube Net
 
-### #2: Assuming Any 6 Connected Squares Automatically Form a Valid Cube Net
+> Six squares are necessary but not sufficient; folded faces must occupy six distinct orientations without overlap.
 
-> Not every arrangement of $6$ connected squares folds into a proper cube: some arrangements cause faces to overlap instead of covering distinct sides.
+### #3: Confusing Reflection with Rotation
 
-Having exactly $6$ squares is necessary but not sufficient for a valid net; the specific arrangement must also avoid any folding conflict, as shown in Example 2.
+> A rigid rotation preserves handedness. A mirror image generally cannot be produced by turning the object in space.
 
-### #3: Assuming a Shadow Always Matches One of the Object's Flat Faces
+### #4: Treating Every Shadow as an Orthographic View
 
-> A shadow shows the silhouette from the light's specific viewing angle, which may look completely different from any single flat face of the actual 3D object.
-
-A cylinder has no flat circular side face at all, yet its top-down shadow is a circle; similarly, its side shadow (a rectangle) does not match its curved surface directly: always reason from the viewing angle, not from assuming the shadow copies an existing face shape.
+> That is the standard simplified result for parallel rays. A nearby point source produces a perspective projection whose size and shape can depend on source and screen positions.

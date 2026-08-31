@@ -1,95 +1,80 @@
 ---
 _id: "lesson-earth-science-astronomy-layers-of-the-earth"
 title: "Layers of the Earth and Composition"
-summary: "The four layers inside Earth, what each is made of, and how we know they exist."
+summary: "Earth's crust, mantle, outer core, and inner core, and how seismic waves reveal their properties."
 subject: "subject-science"
 topic: "topic-earth-science-astronomy"
-estimatedMinutes: 9
+estimatedMinutes: 10
 isActive: true
 ---
 ## Core Concept
 
-Earth is not the same material all the way through. It is built like an onion, with different layers stacked around a center.
+Earth's interior is commonly divided by composition into the **crust, mantle, and core**. For an introductory four-layer model, the metallic core is separated into a liquid **outer core** and solid **inner core**.
 
-<!-- ILLUSTRATION: cutaway sphere of Earth showing four labeled layers from outside to center: thin crust, thick mantle, liquid outer core, solid inner core -->
+### Crust
 
-The **crust** is the thin, outermost, solid layer we live on. There are two kinds: continental crust (thicker, under land, about $70$ km thick) and oceanic crust (thinner, under the oceans, only about $5$ km thick). This is why oceanic crust is easier to break through when studying what lies beneath.
+The **crust** is Earth's thin outermost compositional layer. Oceanic crust averages only about $6$-$7$ km thick and is largely basaltic. Continental crust averages roughly $35$ km globally but varies substantially and can exceed $60$-$70$ km beneath major mountain belts; it is generally less dense and more silica-rich than oceanic crust.
 
-The **mantle** sits below the crust and makes up most of Earth's volume, roughly $2{,}880$ km thick. It is made of hot, dense rock rich in iron and magnesium. Even though the mantle is solid rock, it is so hot that it can slowly flow over long periods of time, like very thick, slow-moving toffee. This slow flow is a major force behind plate tectonics.
+### Mantle
 
-The **outer core** lies below the mantle. It is made mostly of iron and nickel, and unlike the mantle, it is actually liquid because of the extreme heat. This liquid, metallic layer flowing around Earth's center is what generates Earth's magnetic field.
+The **mantle** extends from the base of the crust to about $2{,}900$ km depth and is made mostly of solid silicate rock rich in magnesium and iron. Although solid, parts of the upper mantle can deform and flow slowly over geologic time. The rigid lithosphere overlies a weaker, slowly deforming asthenosphere.
 
-The **inner core** is the very center of Earth. It is also made of iron and nickel, and even though it is the hottest layer of all, the extreme pressure at Earth's center squeezes it so tightly that it stays solid.
+### Outer and Inner Core
 
-Scientists cannot dig down and see these layers directly. Instead, they study how earthquake waves travel and bend as they pass through Earth's interior, since waves behave differently in solid versus liquid material, and in materials of different densities. This is how we know the outer core is liquid: certain earthquake waves cannot pass through it at all.
+The **outer core** is mostly iron and nickel and is liquid. The **inner core** is also iron-rich but remains solid under enormous pressure despite its high temperature.
+
+<!-- ILLUSTRATION: cutaway cross-section of Earth labeled crust, mantle, liquid outer core, and solid inner core, with relative thicknesses shown -->
+
+### How We Know
+
+Scientists infer Earth's deep structure mainly from **seismic waves**, gravity, magnetic observations, high-pressure experiments, and other geophysical evidence—not by drilling to the mantle or core.
+
+- **P waves** can travel through solids and liquids, though their speed and direction change at layer boundaries.
+- **S waves** are shear waves and do not propagate through liquids.
+
+The disappearance of direct S waves through the outer core and the behavior of P waves are key evidence that the outer core is liquid. The deepest boreholes penetrate only a tiny fraction of Earth's radius, remaining within the crust.
 
 ## Examples
 
-### #1: Ordering the Layers
+### #1: Why the Outer Core Is Liquid
 
-List Earth's four main layers in order, starting from the outermost layer and ending at the very center.
-
-<!-- ILLUSTRATION: a cutaway cross-section of Earth showing its four concentric layers labeled from outside in: crust, mantle, outer core, inner core -->
-
+Seismographs show that S waves do not pass through Earth's outer core, while P waves do. What does this indicate?
 
 **Solution:**
-Work from the surface inward.
+1. S waves require material with shear rigidity and cannot travel through a liquid.
+2. The absence of transmitted S waves through the outer core is therefore strong evidence that the outer core is liquid.
+3. P-wave refraction and speed changes provide additional evidence about the core boundary and material properties.
 
-1. The outermost, thin, solid layer we stand on is the crust.
-2. Below the crust is the thick, mostly solid but slowly flowing mantle.
-3. Below the mantle is the liquid outer core, made of iron and nickel.
-4. At the very center is the solid inner core, also iron and nickel.
-5. Order: crust, mantle, outer core, inner core.
+### #2: Oceanic vs. Continental Crust
 
-### #2: Why Is the Inner Core Solid Despite Being the Hottest Layer?
-
-The inner core has the highest temperature of any layer inside Earth, yet it is solid, while the cooler outer core above it is liquid. Explain this.
+Which is typically thinner: oceanic or continental crust?
 
 **Solution:**
-Consider the other factor besides temperature that affects whether something is solid or liquid: pressure.
+Oceanic crust is typically much thinner, averaging around $6$-$7$ km, while continental crust averages around $35$ km and becomes much thicker beneath some mountain belts.
 
-1. Temperature alone would suggest the hottest layer should be the most likely to melt.
-2. But the inner core also experiences the greatest pressure in all of Earth, since it is squeezed by the weight of every layer above it.
-3. This immense pressure forces the iron and nickel atoms to stay locked in a solid arrangement, even at extremely high temperature.
-4. The outer core, under less pressure than the inner core, is not squeezed as tightly and can exist as a liquid at its slightly lower (but still very high) temperature.
+### #3: Can Scientists Sample the Core Directly?
 
-### #3: How Do We Know the Outer Core Is Liquid?
-
-Scientists cannot travel to the center of the Earth. Explain how earthquake waves reveal that the outer core is liquid.
-
-<!-- ILLUSTRATION: a cross-section of Earth with seismic waves radiating from an earthquake; S waves stopping at the liquid outer core (creating an S-wave shadow zone) while P waves bend through it -->
-
+Have humans drilled through the crust into the mantle or core?
 
 **Solution:**
-Recall how different waves respond to solid versus liquid material.
-
-1. Earthquakes send out waves that travel through the whole Earth in different directions.
-2. One kind of wave can only travel through solid material and cannot pass through liquid.
-3. Scientists observed that this wave type disappears (does not arrive) on the opposite side of the planet from certain earthquakes, forming a "shadow" region.
-4. This missing wave pattern is explained if there is a liquid layer inside Earth blocking that type of wave: evidence for the liquid outer core.
+No. Direct drilling has reached only into the crust. The mantle and core are studied indirectly using seismic waves and other geophysical and experimental evidence.
 
 ## Speed Tricks & Shortcuts
 
-Remember the layer thicknesses in relative order, largest to smallest: mantle (biggest by far) > outer core > inner core > crust (thinnest). If a question compares sizes, the mantle almost always wins.
-
-For "solid or liquid" questions, remember the pattern flips twice going inward: crust (solid), mantle (solid, but flows slowly), outer core (liquid), inner core (solid again). The crust-mantle line and the core boundary are the two spots to watch.
+For the four-layer model, remember **crust → mantle → liquid outer core → solid inner core**. Do not confuse a mechanically weak, slowly flowing mantle region with an ocean of liquid magma; most of the mantle is solid rock.
 
 ## Traps to Watch For
 
-### #1: Confusing "Solid" with "Does Not Flow"
+### #1: “The Mantle Is Molten”
 
-> The mantle is solid rock, but it still flows very slowly over long stretches of time.
+> Most of the mantle is solid, even though it can deform and flow slowly over geologic time.
 
-Students think "solid" must mean "completely rigid and unmoving." The mantle's slow flow, similar to thick toffee, is exactly what drives the plates on Earth's surface. Being solid and being able to flow slowly are not contradictions here.
+Localized melt exists in some settings, but tectonic plates are not floating on a global magma ocean.
 
-### #2: Assuming the Hottest Layer Must Be Liquid
+### #2: Continental Crust Is Not Uniformly 70 km Thick
 
-> Higher pressure can keep a layer solid even at extreme temperature.
+> About $35$ km is a useful global average for continental crust; values near $70$ km occur mainly under some mountain belts.
 
-The inner core is hotter than the outer core, yet it is solid because of the crushing pressure at Earth's center. A choice claiming "the inner core is liquid because it is the hottest layer" ignores the role of pressure.
+### #3: We Do Not Know the Core from Direct Drilling
 
-### #3: Mixing Up Continental and Oceanic Crust
-
-> Continental crust is thicker; oceanic crust is thinner.
-
-A question describing land areas versus ocean floor is testing which crust type is thicker. Continental crust (under continents) is roughly $70$ km thick, while oceanic crust (under oceans) is only about $5$ km thick: much easier to drill through, which is why deep scientific drilling projects often target the ocean floor.
+> Seismology is the principal evidence for deep internal layering.

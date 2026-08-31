@@ -1,117 +1,113 @@
 ---
 _id: "lesson-earth-science-astronomy-weather-and-climate"
 title: "Weather and Climate"
-summary: "The layers of the atmosphere, the Philippines' monsoon seasons, and the difference between weather and climate change."
+summary: "The layers of the atmosphere, Philippine monsoons and tropical cyclones, and the difference between weather, global warming, and climate change."
 subject: "subject-science"
 topic: "topic-earth-science-astronomy"
-estimatedMinutes: 11
+estimatedMinutes: 12
 isActive: true
 ---
 ## Core Concept
 
-**Weather** is the short-term condition of the air at a specific place and time: today's temperature, rain, or wind. **Climate** is the long-term average pattern of weather in a region over many years. A simple way to remember it: weather is your mood today; climate is your personality over many years.
+**Weather** is the short-term state of the atmosphere at a particular place and time: temperature, rainfall, clouds, pressure, humidity, and wind. **Climate** describes long-term statistical patterns of weather over many years.
 
 ### Atmospheric Layers
 
-Earth's atmosphere is divided into layers, from the ground up.
+The boundaries of atmospheric layers vary with latitude, season, and solar activity, so their altitudes are approximate.
 
-- **Troposphere**: the lowest layer, up to about $10$ km high. Almost all weather (clouds, rain, storms) happens here, and this is the layer we live and breathe in.
-- **Stratosphere**: from about $10$ km to $50$ km high. It contains the **ozone layer**, which absorbs most of the Sun's harmful ultraviolet radiation.
-- **Mesosphere**: from about $50$ km to $85$ km high. This is the coldest layer, and it is where most meteors burn up.
-- **Thermosphere**: from about $85$ km to $600$ km high. Despite being called "hot" (temperatures here can be very high), the air is so thin that it would not feel warm to a person.
-- **Exosphere**: the outermost layer, fading gradually into outer space, where satellites orbit.
+- **Troposphere:** begins at the surface and reaches roughly $6$ km near the poles to $18$-$20$ km near the equator. Nearly all ordinary weather occurs here.
+- **Stratosphere:** extends from the tropopause to about $50$ km. Most atmospheric ozone is here, especially around $15$-$35$ km, where it absorbs most of the Sun's harmful ultraviolet radiation.
+- **Mesosphere:** about $50$-$85$ km. Most visible meteors ablate in this region.
+- **Thermosphere:** begins near $85$ km and extends hundreds of kilometers upward. Its few particles can have very high kinetic temperatures, but the gas is extremely thin. Auroras and many low-Earth-orbit spacecraft occur in this broad upper-atmosphere region.
+- **Exosphere:** the extremely tenuous outermost region, gradually merging with space; some satellites orbit here as well.
 
-<!-- ILLUSTRATION: vertical cross-section of the atmosphere showing five stacked labeled layers from ground level upward: troposphere, stratosphere, mesosphere, thermosphere, exosphere, with the ozone layer marked inside the stratosphere -->
+<!-- ILLUSTRATION: vertical cross-section of the atmosphere showing troposphere, stratosphere with ozone layer, mesosphere with meteors, thermosphere with aurora/low-Earth-orbit spacecraft, and exosphere fading into space -->
 
-### Monsoons and Typhoons
+### Philippine Monsoons and Tropical Cyclones
 
-The Philippines experiences two main seasonal wind patterns, called **monsoons**.
+PAGASA describes two major monsoon systems:
 
-**Habagat** is the southwest monsoon, roughly from June to October. It brings hot, humid weather and frequent heavy rainfall, and it is when destructive typhoons are most frequent.
+- **Southwest Monsoon (Habagat):** warm, moist southwesterly flow that commonly brings rain to the **western portions** of the country. Its climatological onset is typically from the latter half of May into the first half of June, with termination commonly in October; exact onset and termination are declared from observed atmospheric patterns and vary by year.
+- **Northeast Monsoon (Amihan):** cooler northeasterly flow that typically begins in the latter part of the year and ends around March or early April. It can bring significant rain to the **eastern side** of the country, so it is inaccurate to describe Amihan as simply “dry everywhere.”
 
-**Amihan** is the northeast monsoon, roughly from November to April (through March or early April). It brings cooler, drier weather with generally little rainfall in much of the country.
+The western North Pacific can produce tropical cyclones throughout the year. PAGASA's climatology identifies **July through October** as the peak typhoon season, when a large share of typhoons develop. This peak overlaps much of the Habagat period, but a tropical cyclone and the monsoon are distinct weather systems; one should not define every typhoon as a Habagat event.
 
-A **typhoon** is a powerful, rotating tropical storm system with very strong winds and heavy rain, most common during the Habagat season.
+A tropical cyclone is classified by sustained wind strength. PAGASA uses categories such as tropical depression, tropical storm, severe tropical storm, typhoon, and super typhoon; “typhoon” is therefore a specific intensity category, not simply a synonym for any rotating tropical storm.
 
-### Climate Change and Global Warming
+### Global Warming and Climate Change
 
-**Global warming** refers to the long-term rise in Earth's average temperature. A major cause is the buildup of **greenhouse gases** (like carbon dioxide) in the atmosphere, which trap heat from the Sun, similar to how a greenhouse traps warmth. **Climate change** describes the wider set of long-term shifts this warming causes: changing rainfall patterns, melting ice, and rising sea levels, not just higher temperatures.
+**Global warming** is the long-term rise in Earth's average surface temperature. The current warming trend is driven mainly by human increases in greenhouse gases.
+
+The **greenhouse effect** does not work because greenhouse gases simply “trap heat from the Sun.” Much incoming solar energy is shortwave radiation. Earth's warmed surface emits outgoing infrared radiation; greenhouse gases and clouds absorb some of that infrared energy and re-emit it, including back toward the surface, reducing the rate at which energy escapes to space.
+
+**Climate change** is the broader set of persistent changes in the climate system, including temperature, rainfall patterns, ice, sea level, and extremes. Global warming is a major component and driver of current climate change.
 
 ## Examples
 
 ### #1: Weather or Climate?
 
-Classify each statement as describing weather or climate: (a) "It is raining heavily in Manila right now." (b) "The Philippines generally has a hot and humid climate with two main seasons."
+Classify: (a) "Heavy rain is falling in Manila this afternoon." (b) "A region's June-to-August rainfall has increased across several decades."
 
 **Solution:**
-Check whether the statement describes a short-term moment or a long-term average pattern.
-
-1. (a) describes conditions right now, at one specific time: Weather.
-2. (b) describes a general, long-term pattern over many years: Climate.
+1. (a) describes short-term atmospheric conditions: weather.
+2. (b) describes a long-term statistical shift: climate.
 
 ### #2: Which Atmospheric Layer?
 
-A commercial airplane cruises at an altitude where nearly all storm clouds are already below it, and this layer also contains the ozone layer that blocks harmful ultraviolet rays. Which layer is this closest to?
+A balloon rises above nearly all weather and measures increasing temperature with height while passing through a region rich in ozone. Which layer is it in?
 
 **Solution:**
-Match the clues to the layer descriptions.
-
-1. "Nearly all storm clouds below it" suggests this layer is above the troposphere, where weather happens.
-2. "Contains the ozone layer" is a direct match to the stratosphere.
-3. The answer: the stratosphere.
+Those clues indicate the **stratosphere**.
 
 ### #3: Habagat or Amihan?
 
-During a certain month, the Philippines experiences a prevailing wind from the southwest, hot and humid weather, and an active typhoon warning. Which monsoon season is this, and roughly which months does it cover?
+PAGASA observes persistent warm, moist southwesterly winds producing frequent rain over western sections of Luzon and Visayas. Which monsoon is dominant?
 
 **Solution:**
-Match the described wind direction and weather to the correct season.
+This is the **Southwest Monsoon (Habagat)**. The rainfall clue is strongest for western sections; Habagat does not mean every Philippine location receives the same weather.
 
-1. A southwest wind with hot, humid conditions and frequent typhoons describes habagat, the southwest monsoon.
-2. Habagat runs roughly from June to October.
-3. The answer: Habagat (southwest monsoon), roughly June through October.
+### #4: Amihan Rainfall
 
-### #4: Weather Event vs. Climate Change
-
-A news report says, "This year's typhoon was unusually strong." A separate scientific report says, "Average global temperatures have risen over the past century, and sea levels are slowly rising as a result." Identify which report describes a weather event and which describes climate change, and explain the difference.
+A student says, "Amihan means the whole Philippines is dry." What is wrong with the statement?
 
 **Solution:**
-Check the timescale and scope of each report.
+Northeasterly monsoon winds can bring rain to areas exposed to the flow, especially the eastern side of the country. Seasonal rainfall patterns differ by region, so “cooler and drier in many western locations” is more accurate than “dry everywhere.”
 
-1. "This year's typhoon" describes a single storm at a specific time: a weather event.
-2. "Average global temperatures have risen over the past century" describes a long-term shift measured over many decades: Climate change.
-3. The key difference: weather events are short-term and local; climate change describes gradual shifts in long-term average patterns across the whole planet.
+### #5: Greenhouse Effect
+
+What kind of radiation do greenhouse gases strongly affect in the basic greenhouse-effect explanation?
+
+**Solution:**
+Greenhouse gases absorb and re-emit **outgoing infrared radiation** emitted by Earth's surface and atmosphere. This changes Earth's energy balance and warms the lower atmosphere and surface.
 
 ## Speed Tricks & Shortcuts
 
-Remember the atmosphere layers in order with the phrase "Tall Storms Make Thin Exits": Troposphere, Stratosphere, Mesosphere, Thermosphere, Exosphere, from the ground up.
+Atmospheric order from the ground: **troposphere → stratosphere → mesosphere → thermosphere → exosphere**.
 
-For "which monsoon" questions, match the wind direction to the season's own name: Habagat comes from the southWEST (hot, rainy, typhoon-prone); Amihan comes from the northEAST (cooler, drier).
+For Philippine monsoons, use **wind direction plus affected region**, not a rigid calendar: Habagat = warm/moist southwesterlies and western-section rain; Amihan = cooler northeasterlies with important rainfall on eastern exposures.
 
-For "weather vs. climate" questions, look for time-scope words: "today," "this week," "this storm" signal weather; "on average," "over decades," "over the years" signal climate.
+For weather vs. climate, focus on timescale and statistics: one event is weather; a long-term distribution or trend is climate.
 
 ## Traps to Watch For
 
-### #1: Swapping Habagat and Amihan
+### #1: Monsoon Dates Are Not Fixed Calendar Boundaries
 
-> Habagat is the hot, rainy, typhoon season (southwest). Amihan is the cooler, drier season (northeast).
+> PAGASA declares onset and termination from observed atmospheric patterns, and the dates vary each year.
 
-These two Filipino terms are easy to confuse under time pressure. Anchor them by season type: if the description mentions frequent typhoons and humidity, it must be Habagat, never Amihan.
+Use month ranges as climatological guides, not exact annual rules.
 
-### #2: Thinking "Weather" and "Climate" Are Interchangeable
+### #2: Typhoons and Habagat Are Not the Same Thing
 
-> Weather is short-term and local. Climate is a long-term average over many years.
+> Their seasons overlap, but tropical cyclones are separate organized storm systems and can occur outside the Habagat period.
 
-A choice might describe "unusually cold weather this week" as proof that "the climate is not warming." A single weather event, hot or cold, does not disprove a long-term climate trend measured over decades.
+### #3: Amihan Is Not Universally Dry
 
-### #3: Believing the Thermosphere Feels Hot
+> Eastern portions of the Philippines can receive substantial rain from northeasterly flow.
 
-> The thermosphere has high measured temperatures, but the air is too thin to feel warm.
+### #4: The Greenhouse Effect Is About Outgoing Infrared Energy
 
-Temperature measures how fast particles move, but with so few particles in the thin thermosphere, there is not enough matter to transfer that heat to a person or object. A choice describing the thermosphere as literally "warm to the touch" misunderstands this thin-air effect.
+> Greenhouse gases absorb and re-emit terrestrial infrared radiation; the mechanism is not simply “heat from the Sun being trapped like inside a glass greenhouse.”
 
-### #4: Forgetting the Ozone Layer's Job
+### #5: Atmospheric-Layer Heights Are Approximate
 
-> The ozone layer absorbs harmful ultraviolet radiation; it does not simply "make oxygen" or "cause weather."
-
-Some choices confuse the ozone layer's protective role with unrelated atmospheric functions. Its specific, testable job is shielding Earth's surface from the Sun's most harmful UV rays, and it sits within the stratosphere.
+> The tropopause and other boundaries change with latitude, season, and atmospheric conditions.

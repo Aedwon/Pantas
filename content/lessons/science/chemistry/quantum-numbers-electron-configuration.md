@@ -1,116 +1,145 @@
 ---
 _id: "lesson-chemistry-quantum-numbers-electron-configuration"
 title: "Quantum Numbers and Electron Configuration"
-summary: "The rules for arranging electrons into orbitals and how to write an atom's electron configuration."
+summary: "How quantum numbers label atomic orbitals and electrons, how subshells differ from orbitals, and how ground-state electron configurations are built."
 subject: "subject-science"
 topic: "topic-chemistry"
-estimatedMinutes: 12
+estimatedMinutes: 14
 isActive: true
 ---
 ## Core Concept
 
-Electrons do not just float randomly around the nucleus. They fill specific regions of space called **orbitals**, grouped into energy levels, following a strict set of rules. The full description of where an electron sits is its **electron configuration**.
+The quantum-mechanical atom does not place electrons on fixed classical paths. **Atomic orbitals** are quantum states described by wavefunctions and associated probability distributions. Orbitals are grouped into **subshells**, and electron configurations record how electrons occupy those subshells.
 
-### Orbital Types
+### The Four Quantum Numbers
 
-Orbitals come in shapes labeled $s$, $p$, $d$, and $f$, each holding a maximum number of electrons: **s** orbitals hold up to $2$ electrons, **p** orbitals hold up to $6$, **d** orbitals hold up to $10$, and **f** orbitals hold up to $14$.
+An electron in an atom is described by four quantum numbers.
 
-<!-- ILLUSTRATION: shapes of an s orbital (sphere), a p orbital (dumbbell/figure-eight shape), and a d orbital (four-lobed cloverleaf shape), labeled with their maximum electron capacities of 2, 6, and 10 -->
+1. **Principal quantum number, $n$**: positive integers $1,2,3,\ldots$. It identifies the principal shell and is strongly related to orbital size and energy.
+2. **Angular-momentum quantum number, $\ell$**: integer values from $0$ to $n-1$. It identifies the subshell type:
+   - $\ell=0$: $s$
+   - $\ell=1$: $p$
+   - $\ell=2$: $d$
+   - $\ell=3$: $f$
+3. **Magnetic quantum number, $m_\ell$**: integers from $-\ell$ through $+\ell$. These values label the individual orbitals within a subshell.
+4. **Spin quantum number, $m_s$**: $+\tfrac12$ or $-\tfrac12$.
 
-### Three Rules for Filling Orbitals
+The **Pauli exclusion principle** says no two electrons in one atom can have the same set of all four quantum numbers. Consequently, one orbital can hold at most **two electrons**, with opposite spin quantum numbers.
 
-**Aufbau Principle**: electrons fill the lowest-energy orbitals first, before moving to higher-energy ones. The general filling order is: $1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p, \ldots$ (notice that $4s$ fills before $3d$, even though the number $3$ is smaller: this is a common surprise).
+### Orbitals vs. Subshells
 
-**Pauli Exclusion Principle**: each orbital can hold at most $2$ electrons, and those two electrons must have opposite spins.
+This distinction is essential:
 
-**Hund's Rule**: when filling a set of same-energy orbitals (like the three $p$ orbitals), electrons fill each one singly first, before any orbital gets a second electron. This is like people boarding a bus and each taking their own row before anyone doubles up.
+| Subshell | $\ell$ | Number of orbitals | Maximum electrons |
+| --- | ---: | ---: | ---: |
+| $s$ | 0 | 1 | 2 |
+| $p$ | 1 | 3 | 6 |
+| $d$ | 2 | 5 | 10 |
+| $f$ | 3 | 7 | 14 |
 
-### Writing Electron Configurations
+So a **$p$ subshell** can contain six electrons, but each of its **three $p$ orbitals** can contain only two.
 
-An electron configuration lists each occupied orbital with the number of electrons it holds, written as a superscript. For example, oxygen (atomic number $8$, so $8$ electrons) is written:
+<!-- ILLUSTRATION: one s orbital, three p orbitals, five d orbitals, and seven f orbitals grouped by subshell, each orbital represented as a box able to hold two opposite-spin arrows -->
 
-$$1s^2 \, 2s^2 \, 2p^4$$
+### Ground-State Filling Rules
 
-This means: the $1s$ orbital holds $2$ electrons, the $2s$ orbital holds $2$ electrons, and the $2p$ orbital holds $4$ electrons: adding up to $8$ total electrons.
+**Aufbau principle:** construct approximate ground-state configurations by placing electrons into available lower-energy subshells first.
+
+A commonly used order begins:
+
+$$1s,\ 2s,\ 2p,\ 3s,\ 3p,\ 4s,\ 3d,\ 4p,\ 5s,\ 4d,\ldots$$
+
+This is a practical pattern, not a statement that subshell energies are fixed independently of electron occupancy and atomic number. There are well-known exceptions to the simplest predicted configurations, such as chromium and copper.
+
+**Hund's rule:** within a set of degenerate orbitals, the lowest-energy arrangement places electrons singly with parallel spins before pairing them.
+
+**Pauli exclusion principle:** an orbital contains at most two electrons, and paired electrons have opposite $m_s$ values.
+
+### Electron Configuration
+
+An expression such as
+
+$$1s^2\,2s^2\,2p^4$$
+
+means two electrons in the $1s$ subshell, two in $2s$, and four distributed among the three $2p$ orbitals according to Pauli and Hund rules.
+
+The superscript is the number of electrons in the **subshell**, not one orbital.
 
 ## Examples
 
-### #1: Writing a Simple Electron Configuration
+### #1: Nitrogen
 
-Write the electron configuration for nitrogen, which has an atomic number of $7$.
+Neutral nitrogen has $7$ electrons.
 
-**Solution:**
-Fill orbitals in order (Aufbau), respecting each orbital's maximum capacity.
+$$1s^2\,2s^2\,2p^3$$
 
-1. Nitrogen has $7$ electrons to place.
-2. Fill $1s$ first, up to its maximum of $2$: $1s^2$. Remaining: $7 - 2 = 5$.
-3. Fill $2s$ next, up to its maximum of $2$: $2s^2$. Remaining: $5 - 2 = 3$.
-4. Fill $2p$ with the remaining $3$ electrons (its maximum is $6$, so it is not yet full): $2p^3$.
-5. Full configuration: $1s^2 \, 2s^2 \, 2p^3$. Check the total: $2 + 2 + 3 = 7$. Correct.
+The three $2p$ electrons occupy the three degenerate $p$ orbitals singly with parallel spins in the ground-state orbital diagram.
 
-### #2: Applying Hund's Rule
+### #2: Allowed Quantum Numbers
 
-Three electrons must be placed into a set of three $p$ orbitals (each orbital shown as a box). Using Hund's Rule, show how these three electrons are arranged, and explain why they are not all placed into the same single orbital.
+For an electron in a $3p$ subshell:
 
-**Solution:**
-Recall that Hund's Rule requires single occupation first.
+1. $n=3$.
+2. $p$ means $\ell=1$.
+3. Therefore $m_\ell=-1,0,+1$ are the possible orbital labels.
+4. For each orbital, $m_s=+\tfrac12$ or $-\tfrac12$.
 
-1. Hund's Rule says electrons fill each available orbital in the set singly before any orbital receives a second electron.
-2. With three electrons and three separate $p$ orbitals available, each of the three orbitals gets exactly one electron, with all three electrons having the same (parallel) spin direction.
-3. Placing all three electrons crammed into a single orbital would violate Hund's Rule (and would actually be a higher-energy, less stable arrangement): electrons prefer to spread out across empty orbitals of the same energy first.
+### #3: Chlorine from a Configuration
 
-### #3: Finding an Element from Its Configuration
+$$1s^2\,2s^2\,2p^6\,3s^2\,3p^5$$
 
-An atom has the electron configuration $1s^2 \, 2s^2 \, 2p^6 \, 3s^2 \, 3p^5$. Determine its atomic number and identify how many electrons are in its outermost energy level.
+1. Total electrons: $2+2+6+2+5=17$.
+2. For a neutral atom, $Z=17$: chlorine.
+3. The highest principal shell is $n=3$, containing $3s^2+3p^5=7$ electrons.
 
-**Solution:**
-Add up all the superscripts to find the total electron count, then check the highest energy level number.
+For a main-group atom such as chlorine, these are its outer-shell valence electrons.
 
-1. Add the superscripts: $2 + 2 + 6 + 2 + 5 = 17$.
-2. Since this is a neutral atom, the number of electrons equals the atomic number: atomic number $17$ (this is chlorine).
-3. The outermost energy level is level $3$ (from $3s$ and $3p$), holding $2 + 5 = 7$ electrons.
+### #4: Why Potassium Uses $4s$ Before $3d$
 
-### #4: The 4s-Before-3d Surprise
+Neutral potassium's observed ground-state configuration is
 
-Explain why the electron configuration for potassium (atomic number $19$) fills the $4s$ orbital before the $3d$ orbital, even though the number $3$ is smaller than $4$.
+$$[Ar]4s^1.$$
 
-**Solution:**
-Recall that orbital filling order follows energy, not simply the number in front of the letter.
-
-1. The Aufbau principle fills orbitals in order of increasing energy, not strictly by increasing principal quantum number.
-2. Even though $3d$ has a smaller leading number than $4s$, the $4s$ orbital actually has slightly lower energy than $3d$ in most atoms at this point in the periodic table.
-3. So potassium's configuration is $1s^2 \, 2s^2 \, 2p^6 \, 3s^2 \, 3p^6 \, 4s^1$, filling $4s$ before any electrons go into $3d$, matching the established filling order: $\ldots 3p, 4s, 3d, 4p \ldots$
+The empirical/quantum-mechanical subshell-energy ordering for potassium places $4s$ below $3d$ when that electron is added. However, after $3d$ orbitals become occupied in transition metals, relative energies shift; this helps explain why transition-metal cations commonly lose $4s$ electrons before $3d$ electrons.
 
 ## Speed Tricks & Shortcuts
 
-Memorize the filling order as one continuous sequence: $1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p, 5s, 4d, 5p, 6s, 4f, 5d, 6p, 7s, 5f, 6d$. Writing this order out once on scratch paper before starting a configuration problem prevents order mistakes.
+Never say "$p$ orbital holds six electrons." Say **$p$ subshell = three orbitals = six electrons maximum**.
 
-To quickly check a finished configuration, add up all the superscripts: the total must exactly equal the atom's number of electrons (its atomic number, if neutral).
+Use the quantum-number ranges mechanically:
 
-For "how many electrons in the outermost level" questions, look only at the terms with the highest leading number (like the $3s$ and $3p$ terms when the configuration ends there) and add their superscripts together.
+$$\ell=0,1,\ldots,n-1$$
+
+$$m_\ell=-\ell,\ldots,+\ell$$
+
+$$m_s=\pm\frac12$$
+
+Add configuration superscripts to check total electron count.
+
+Use the diagonal/Aufbau order for introductory configurations, but remember that actual ground-state data contain exceptions and ionization order can differ from naive filling order.
 
 ## Traps to Watch For
 
-### #1: Filling Orbitals Out of Energy Order
+### #1: Confusing an Orbital with a Subshell
 
-> Follow the established filling order ($4s$ before $3d$, for example), not simply increasing principal quantum numbers in strict numerical sequence.
+> Every single orbital holds at most two electrons.
 
-A common mistake writes $3d$ before $4s$ because "$3$ comes before $4$." The actual energy-based filling order places $4s$ before $3d$, as shown by real, tested electron configurations for elements like potassium and calcium.
+The capacities $2,6,10,14$ belong to entire $s,p,d,f$ **subshells**.
 
-### #2: Exceeding an Orbital's Maximum Capacity
+### #2: Saying Electron Configuration Fully Specifies "Where an Electron Sits"
 
-> $s$ holds at most $2$, $p$ holds at most $6$, $d$ holds at most $10$, $f$ holds at most $14$.
+> Electron configurations specify subshell occupations; quantum mechanics does not assign electrons fixed classical locations or paths.
 
-Writing something like $2p^8$ is impossible, since a $p$ subshell can never hold more than $6$ electrons. Always double check that no superscript exceeds its orbital type's known maximum.
+An orbital is a quantum state/probability distribution.
 
-### #3: Violating Hund's Rule by Pairing Too Early
+### #3: Treating Aufbau Order as Exceptionless
 
-> Electrons fill each orbital in a same-energy set singly before any orbital gets a second (paired) electron.
+> Chromium, copper, and several heavier elements differ from the simplest predicted filling pattern.
 
-For three electrons entering three separate $p$ orbitals, placing two electrons in one orbital and leaving another orbital completely empty violates Hund's Rule. The lowest-energy, correct arrangement spreads single electrons across all available orbitals of that set first.
+Use observed ground-state configurations when exact data are required.
 
-### #4: Forgetting That Ions Change the Electron Count Before Configuring
+### #4: Removing Electrons from Transition-Metal Ions in the Wrong Order
 
-> For an ion, add or remove electrons from the neutral atom's count before writing the configuration: do not just use the atomic number directly.
+> Although $4s$ is filled before $3d$ for potassium and calcium, transition-metal cations generally lose the highest-$n$ $4s$ electrons before $3d$ electrons.
 
-A question asking for the electron configuration of $Na^+$ (a sodium ion, not neutral sodium) requires removing one electron from neutral sodium's $11$ electrons, giving only $10$ electrons to place, not the full $11$ used for the neutral atom.
+Filling order and ionization order are not identical rules.

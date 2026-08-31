@@ -1,7 +1,7 @@
 ---
 _id: "lesson-text-types-essays-editorials-articles"
-title: "Essays, Editorials, and Articles"
-summary: "Learn to tell apart essays, editorials, and news articles by their purpose, structure, and tone."
+title: "Essays, Editorials, Opinion Pieces, and News Articles"
+summary: "Learn how essays, editorials, opinion columns, and news reporting differ in purpose, authorship, evidence, and stance."
 subject: "subject-reading-comprehension"
 topic: "topic-text-types"
 estimatedMinutes: 9
@@ -9,79 +9,64 @@ isActive: true
 ---
 ## Core Concept
 
-Reading comprehension passages come in different text types, and recognizing which type you are reading tells you what to expect from its purpose, structure, and tone.
+Text types overlap, so classify a passage from its **purpose, authorship, structure, evidence, and stance**, not from one signal word.
 
-An **essay** is a piece of writing that explores one central idea in depth, often reflecting the writer's personal thoughts, reasoning, or argument on a topic. Essays can be personal (sharing an experience), argumentative (persuading the reader), or expository (explaining a topic clearly).
+An **essay** is a broad prose form that develops an idea, experience, analysis, or argument. Essays can be personal, expository, analytical, or argumentative. An essay can inform, persuade, reflect, or combine purposes.
 
-An **editorial** is an opinion piece, usually written by a newspaper's editorial board or a columnist, expressing a clear stance on a current issue and trying to persuade readers toward that view. Editorials openly mix fact with opinion and often use emotional or persuasive language.
+An **editorial** traditionally represents the institutional position of a publication, often through an editorial board. An **op-ed, commentary, or column** expresses the views of a named writer or contributor. Both belong to opinion journalism, but they are not the same authorship category.
 
-An **article** (specifically a news article) aims to report facts as objectively as possible, answering the basic questions of who, what, when, where, why, and how. A well-written news article avoids inserting the writer's personal opinion, unlike an editorial.
+A **news report/article** primarily reports verified information about events or issues. Many professional news organizations distinguish news reporting from opinion/commentary and expect the two to be clearly labeled. Reporting still involves editorial judgment about relevance, sourcing, framing, and context, so "objective" should not be understood as having no human choices at all. The key distinction is that straight reporting does not present the writer's personal advocacy as the article's main purpose.
 
-
-The key distinguishing question: is the writer mainly exploring an idea (essay), persuading with an opinion (editorial), or reporting facts (article)?
+A passage can also blend reporting, analysis, and commentary. Use the evidence in the passage itself and any available label or byline.
 
 ## Examples
 
-### #1: Identifying the Text Type
+### #1: News Report
 
-A passage begins: "City officials announced yesterday that the new bridge project will be completed six months ahead of schedule, according to a press release issued Tuesday." What type of text is this most likely to be?
+"City officials announced yesterday that the new bridge project will be completed six months ahead of schedule, according to a press release issued Tuesday."
 
-**Solution:**
-1. The passage answers who (city officials), what (bridge project completion), and when (yesterday, ahead of schedule), in a factual, objective tone.
-2. There is no visible personal opinion or persuasive language.
-3. This matches a news article.
+This sentence attributes a checkable claim to a source and does not itself advocate a position. In context, it fits **news reporting**.
 
-### #2: Spotting an Editorial's Persuasive Tone
+### #2: Editorial / Opinion
 
-A passage states: "The city council's decision to cut library funding is nothing short of shortsighted, and residents deserve better from their elected leaders." What type of text is this, and how do you know?
+"The city council's decision to cut library funding is shortsighted, and residents deserve better from their elected leaders."
 
-**Solution:**
-1. The phrase "nothing short of shortsighted" is a strong opinion, not a neutral fact.
-2. The writer is clearly trying to persuade readers that the decision was wrong.
-3. This matches an editorial.
+The passage openly evaluates the decision and argues a position. If published as the newspaper's institutional stance, it is an **editorial**; if signed by an individual writer, it may be a **column/op-ed/commentary**.
 
-### #3: Recognizing a Personal Essay
+### #3: Personal Essay
 
-A passage begins: "I remember the summer I learned to ride a bicycle, wobbling down our narrow street as my father ran alongside, and how that small victory taught me more about patience than any lecture ever could." What type of text is this?
+"I remember the summer I learned to ride a bicycle... and how that small victory taught me patience."
 
-**Solution:**
-1. The passage shares a personal memory and reflects on its meaning ("taught me more about patience").
-2. It is not reporting neutral facts (not a news article) and not arguing a stance on a current public issue (not quite an editorial).
-3. This matches a personal essay, exploring one idea (a childhood memory and its lesson) in a reflective way.
+The passage uses personal experience and reflection to develop an idea, fitting a **personal essay**.
 
-### #4: Distinguishing Article from Editorial in the Same Topic
+### #4: Same Topic, Different Function
 
-Two passages both discuss a new city tax policy. Passage A states: "The new tax policy will raise an estimated $2 million in annual revenue, according to city officials." Passage B states: "This tax policy unfairly burdens working families and must be reconsidered." Identify which is the article and which is the editorial.
+A news report may say, "Officials estimate the policy will raise ₱2 million annually." An opinion piece may argue, "The policy unfairly burdens working families and should be repealed."
 
-**Solution:**
-1. Passage A presents a neutral, verifiable fact (an estimated revenue figure) with no stated opinion: this is the news article.
-2. Passage B makes a clear value judgment ("unfairly burdens," "must be reconsidered"): this is the editorial.
-3. Both discuss the same topic, but their purpose (reporting vs. persuading) reveals their different text types.
+The difference is not simply "facts versus opinions"—opinion writing can use facts, and news reporting can include analysis. The stronger clue is whether the text's primary function is reporting/explaining verified information or advocating/evaluating a position.
 
 ## Speed Tricks & Shortcuts
 
-**Scan for opinion words first.** Words like "unfair," "shortsighted," "brilliant," "disgraceful," or "must" signal an editorial's persuasive stance. Their absence suggests a more neutral news article.
+**Check the label and byline if provided.** "Editorial," "Opinion," "Analysis," and "News" are meaningful genre cues.
 
-**Check for personal pronouns and reflection.** Frequent use of "I" combined with reflecting on a personal experience or lesson usually signals a personal essay, not a news article or editorial.
+**Ask what the passage is trying to do.** Reporting, explaining, reflecting, and advocating are more reliable than scanning for one emotional word.
 
-**Ask "who benefits from this text existing?"** A news article exists to inform; an editorial exists to persuade toward a specific position; an essay exists to explore or share the writer's thinking.
+**Look at attribution and evidence.** Straight news commonly identifies sources for contested claims; opinion writing may also cite evidence but uses it to argue a stated position.
 
 ## Traps to Watch For
 
-### #1: Assuming All Writing About Current Events Is a News Article
+### #1: Treating Editorial and Column as Synonyms
 
-> Both editorials and news articles can discuss the same current event: the difference is whether the writing stays neutral (article) or pushes a stance (editorial).
+> An editorial commonly represents a publication's institutional view; a column or op-ed is normally attributed to an individual author.
 
-A passage discussing a recent policy change is not automatically a news article just because the topic is current; check the tone and purpose, not just the subject matter.
+### #2: Assuming News Has No Perspective or Editorial Judgment
 
-### #2: Confusing a Reflective Essay with an Editorial
+> News organizations make choices about selection, sourcing, framing, and context even when they aspire to impartial reporting.
 
-> An essay explores a personal idea or experience; an editorial argues for a stance on a public issue, aiming to persuade readers to act or think differently.
+### #3: Assuming Any Current-Events Text Is News Reporting
 
-A personal essay about learning patience is not trying to change public policy or convince readers to support a cause: it shares a personal insight, which is a different purpose than an editorial's persuasive goal.
+> Current events can appear in editorials, analysis, essays, satire, and other genres.
 
-### #3: Missing Subtle Opinion Language in an Editorial
+### #4: Assuming Opinion Means "No Facts"
 
-> Not all opinion is as obvious as "I think": persuasive language can be woven into seemingly factual-sounding sentences.
-
-Phrases like "clearly the best option" or "there is no doubt that" insert opinion while sounding confident and factual. Always check whether a claim is verifiable (a fact) or a judgment (an opinion), regardless of how confidently it is phrased.
+> Opinion journalism can be evidence-rich. Its distinguishing feature is the explicit argument or evaluation, not the absence of factual material.

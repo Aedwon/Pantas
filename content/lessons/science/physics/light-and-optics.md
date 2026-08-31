@@ -9,109 +9,138 @@ isActive: true
 ---
 ## Core Concept
 
-**Optics** studies how light behaves: how it bounces, bends, and forms images.
+**Optics** is the branch of physics that studies light and its interaction with matter. This lesson mainly uses **geometric optics**, where light is modeled as rays; that approximation works best when the objects and openings involved are much larger than the light's wavelength.
 
 ### Reflection
 
-The **law of reflection**: the **angle of incidence** (the angle at which light hits a surface, measured from an imaginary line called the **normal**, perpendicular to the surface) equals the **angle of reflection** (the angle at which it bounces off).
+The **law of reflection** says that the angle of incidence equals the angle of reflection, with both angles measured from the **normal** (a line perpendicular to the surface at the point of incidence):
+
+$$\theta_i=\theta_r$$
 
 <!-- FIGURE: {"kind": "concept-diagram", "type": "ray-reflection", "labels": ["Incident ray", "Normal line", "Reflected ray"], "angles": ["Angle of incidence", "Angle of reflection"], "semanticsLabel": "A flat mirror with a normal line showing an incoming incident ray and an outgoing reflected ray at equal angles."} -->
 
 ### Refraction
 
-**Refraction** is the bending of light as it passes from one medium into another (like from air into water), caused by a change in speed as light crosses the boundary. **Snell's Law** predicts exactly how much a light ray bends, based on the two materials' differing ability to slow down light.
+**Refraction** is a change in a light ray's direction when it crosses a boundary where its propagation speed changes. The **index of refraction** is
+
+$$n=\frac{c}{v}$$
+
+where $c$ is the speed of light in vacuum and $v$ is its speed in the material. **Snell's law** relates the incident and refracted angles:
+
+$$n_1\sin\theta_1=n_2\sin\theta_2$$
+
+When light enters a medium with a higher refractive index, it slows and bends **toward the normal** (except at normal incidence, where it does not change direction). When it enters a lower-index medium, it bends **away from the normal**. The frequency set by the source remains unchanged across the boundary, while the wavelength changes because the speed changes.
+
+If light travels from a higher-index medium to a lower-index one and the incident angle exceeds the **critical angle**, it undergoes **total internal reflection** instead of refracting out.
 
 ### Mirrors
 
-**Concave mirrors** (curving inward, like the inside of a spoon) are also called converging mirrors, since they bring parallel light rays together toward a focus point. **Convex mirrors** (curving outward, like the back of a spoon) are diverging mirrors, spreading parallel light rays apart.
+For ideal spherical mirrors under the usual paraxial-ray approximation:
+
+- A **concave mirror** is converging for rays parallel and close to its principal axis.
+- A **convex mirror** is diverging.
+
+The type and orientation of the image formed by a concave mirror depend on the object's position relative to the focal point. Convex mirrors form upright, reduced, virtual images for real objects in the ordinary setup.
 
 ### Lenses
 
-Lenses work through refraction rather than reflection. A **convex lens** (thicker in the middle) is converging, bending light rays together toward a focus point (used in magnifying glasses and to correct farsightedness). A **concave lens** (thinner in the middle) is diverging, spreading light rays apart (used to correct nearsightedness).
+Lenses form images by refraction. For a typical glass or plastic lens **in air**, where the lens has a higher refractive index than its surroundings:
+
+- A **convex lens** (thicker at the center) is converging.
+- A **concave lens** (thinner at the center) is diverging.
 
 <!-- ILLUSTRATION: side-by-side comparison of a convex lens bending parallel light rays inward to a single focus point, and a concave lens spreading parallel light rays outward -->
 
+This shape rule is not universal for every surrounding medium: changing the relative refractive indices can change a lens's optical power and even reverse whether it converges or diverges.
+
+In vision correction, converging lenses are commonly used for hyperopia (farsightedness), while diverging lenses are commonly used for myopia (nearsightedness).
+
 ### The Electromagnetic Spectrum
 
-The **electromagnetic spectrum** organizes all types of electromagnetic waves by wavelength. From longest wavelength to shortest: radio waves, microwaves, infrared, visible light, ultraviolet, X-rays, and gamma rays. Visible light, the only part humans can see, is just a tiny slice of this entire spectrum. Within visible light, red has the longest wavelength and violet has the shortest.
+The **electromagnetic spectrum** includes radio waves, microwaves, infrared, visible light, ultraviolet, X-rays, and gamma rays. In vacuum, all electromagnetic waves travel at the same speed $c$, but they differ in frequency and wavelength:
+
+$$c=f\lambda$$
+
+From longest wavelength to shortest: **radio → microwave → infrared → visible → ultraviolet → X-ray → gamma**. Within visible light, red has the longest wavelength and violet the shortest.
 
 ## Examples
 
 ### #1: Applying the Law of Reflection
 
-A light ray hits a flat mirror at an angle of incidence of $40°$ (measured from the normal). Find the angle of reflection.
+A light ray hits a flat mirror at an angle of incidence of $40°$ measured from the normal. Find the angle of reflection.
 
 <!-- FIGURE: {"kind": "concept-diagram", "type": "ray-reflection", "incidentAngle": 40, "reflectedAngle": 40, "labels": ["40°", "40°"], "semanticsLabel": "A light ray striking a flat mirror at 40 degrees from the normal line and reflecting off at 40 degrees."} -->
 
-
 **Solution:**
-Apply the law of reflection directly.
 
-1. The law of reflection states the angle of reflection equals the angle of incidence.
-2. The angle of reflection is $40°$.
+$$\theta_r=\theta_i=40°$$
 
 ### #2: Converging or Diverging?
 
-Classify each optical device as converging or diverging: (a) a concave mirror; (b) a convex lens; (c) a convex mirror.
+Assume ordinary glass optical elements in air. Classify: (a) a concave mirror; (b) a convex lens; (c) a convex mirror.
 
 **Solution:**
-Match shape to behavior.
 
-1. (a) Concave mirrors bring light rays together: Converging.
-2. (b) Convex lenses (thicker in the middle) bring light rays together: Converging.
-3. (c) Convex mirrors spread light rays apart: Diverging.
+1. Concave mirror: **converging** for paraxial rays.
+2. Convex lens in air: **converging**.
+3. Convex mirror: **diverging**.
 
 ### #3: Ordering the Electromagnetic Spectrum
 
-Arrange the following in order from longest to shortest wavelength: X-rays, radio waves, visible light, gamma rays.
+Arrange X-rays, radio waves, visible light, and gamma rays from longest to shortest wavelength.
 
 **Solution:**
-Recall the full spectrum order.
 
-1. The full order (longest to shortest): radio, microwave, infrared, visible, ultraviolet, X-ray, gamma ray.
-2. From the given list, in order: Radio waves (longest), then visible light, then X-rays, then gamma rays (shortest).
+**Radio waves → visible light → X-rays → gamma rays.**
 
-### #4: Explaining Refraction with a Real Example
+### #4: Explaining Refraction with a Straw in Water
 
-A straw placed in a glass of water appears "bent" at the point where it enters the water's surface, when viewed from the side. Explain why this optical effect happens.
+A straw partly submerged in water appears displaced or "bent" when viewed from the side. Explain why.
 
 **Solution:**
-Connect the visual bending to light's changing speed between media.
 
-1. Light travels at a different speed in water than it does in air.
-2. As light reflecting off the submerged part of the straw travels from water into air (crossing the boundary to reach your eye), it changes speed and bends (refracts) at that boundary.
-3. Your brain interprets light as having traveled in a straight line, so it perceives the underwater part of the straw as being in a slightly different position than it actually is, creating the visual illusion that the straw is "bent" at the water's surface.
+1. Light from the underwater part of the straw travels from water into air.
+2. Because the refractive indices differ, the light changes speed and direction at the boundary according to Snell's law.
+3. Your visual system traces the emerging rays approximately backward along straight lines, so the submerged part appears at a shifted apparent position.
 
 ## Speed Tricks & Shortcuts
 
-Remember mirror and lens shapes with one phrase: "caves converge": concave surfaces (whether mirrors or the thick middle of convex lenses, which is the tricky exception) tend to bring light together. Specifically: concave mirrors converge, and convex lenses converge (the naming flips between mirrors and lenses, so always double check which type of device is being described).
+For reflection, measure angles from the **normal**, not from the mirror surface.
 
-Memorize the electromagnetic spectrum order with a phrase using the first letter of each: "Radio Motorists Interfere Very Unsafely, X-ing Gates" for Radio, Microwave, Infrared, Visible, Ultraviolet, X-ray, Gamma ray (longest to shortest wavelength).
+For refraction, compare refractive indices: entering higher $n$ bends toward the normal; entering lower $n$ bends away, assuming nonzero incidence angle.
 
-For visible light specifically, remember red has the longest wavelength and violet has the shortest: this matches the familiar rainbow order (roygbiv), which is also ordered from longest to shortest wavelength.
+For mirrors and lenses, keep the device types separate. In air: concave mirror converges, convex mirror diverges; convex lens converges, concave lens diverges.
+
+For electromagnetic waves in vacuum, remember that higher frequency means shorter wavelength because $c=f\lambda$.
 
 ## Traps to Watch For
 
-### #1: Mixing Up Which Mirror or Lens Shape Converges
+### #1: Measuring Reflection Angles from the Surface
 
-> Concave mirrors converge; convex mirrors diverge. But for lenses, it flips: Convex lenses converge; concave lenses diverge.
+> Incidence and reflection angles are measured from the normal.
 
-This is one of the most commonly confused pairs in optics, since the "concave = converge" rule applies to mirrors but reverses for lenses. Always double-check whether the device in question is a mirror or a lens before applying a "concave/convex" rule.
+A ray $20°$ above a flat mirror surface is $70°$ from the normal, not $20°$.
 
-### #2: Confusing Reflection and Refraction
+### #2: Saying Light Always Bends When It Enters a New Medium
 
-> Reflection is light bouncing off a surface (staying in the same medium). Refraction is light bending as it passes into a different medium.
+> A speed change can occur without a directional bend when the ray hits the boundary along the normal.
 
-A question describing light bouncing off a mirror is testing reflection; a question describing light bending as it enters water or glass is testing refraction. These are two entirely different phenomena, even though both involve light changing direction.
+Refraction refers to the change associated with entering a different optical medium; the ray's direction changes only when the geometry requires it.
 
-### #3: Assuming Visible Light Is the Largest Part of the Spectrum
+### #3: Treating Lens Shape Alone as Universal
 
-> Visible light is only a tiny slice of the full electromagnetic spectrum: most electromagnetic radiation (radio waves, X-rays, and more) is invisible to human eyes.
+> Whether a lens converges depends on both its shape and its refractive index relative to the surrounding medium.
 
-Students sometimes assume "light" and "the electromagnetic spectrum" are the same size, when in fact visible light occupies a narrow band, bordered by infrared (longer wavelength) on one side and ultraviolet (shorter wavelength) on the other.
+The familiar "convex converges, concave diverges" rule assumes an ordinary higher-index lens in a lower-index surrounding medium such as air.
 
-### #4: Reversing the Wavelength Order Within Visible Light
+### #4: Confusing Reflection and Refraction
 
-> Red has the longest wavelength in visible light; violet has the shortest.
+> Reflection returns light into the incident medium; refraction transmits light into another medium with a change governed by Snell's law.
 
-Since the visible spectrum is often shown as a rainbow, it is easy to forget which end corresponds to longer versus shorter wavelength. Anchor it to the familiar mnemonic roygbiv (Red, Orange, Yellow, Green, Blue, Indigo, Violet), which lists colors from longest to shortest wavelength, in that order.
+At a real boundary, both reflection and refraction can occur at the same time.
+
+### #5: Assuming Visible Light Is Most of the Electromagnetic Spectrum
+
+> Visible light is only a narrow range of electromagnetic wavelengths detectable by human eyes.
+
+Radio, infrared, ultraviolet, X-ray, gamma, and other electromagnetic radiation are still forms of light in the broader physics sense.

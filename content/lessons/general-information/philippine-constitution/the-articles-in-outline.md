@@ -9,11 +9,11 @@ isActive: true
 ---
 ## Core Concept
 
-The 1987 Constitution of the Republic of the Philippines consists of a Preamble and 18 distinct Articles.
+The 1987 Constitution of the Republic of the Philippines consists of a Preamble and 18 Articles.
 
 ### Article Outline
 
-- **Preamble:** Introduces the aspirations, ideals, and devotion of the sovereign Filipino people.
+- **Preamble:** States the purposes and aspirations expressed by the sovereign Filipino people in ordaining and promulgating the Constitution.
 - **Article I:** National Territory
 - **Article II:** Declaration of Principles and State Policies
 - **Article III:** Bill of Rights
@@ -33,7 +33,7 @@ The 1987 Constitution of the Republic of the Philippines consists of a Preamble 
 - **Article XVII:** Amendments or Revisions
 - **Article XVIII:** Transitory Provisions
 
-Knowing which article corresponds to each major constitutional area is a fundamental requirement of Civil Service examinations.
+The Civil Service Examination's General Information scope includes the Philippine Constitution. Knowing the article structure helps you locate major constitutional topics without implying that the CSC publishes specific questions in advance.
 
 ## Examples
 
@@ -51,7 +51,7 @@ Match the subject to the article outline.
 
 ### #2: Total Number of Articles
 
-A student is asked to count the total number of distinct articles in the 1987 Constitution, excluding the Preamble. What is the total count?
+A student is asked to count the total number of articles in the 1987 Constitution, excluding the Preamble. What is the total count?
 
 **Solution:**
 Recall the structure of the Constitution.
@@ -59,15 +59,15 @@ Recall the structure of the Constitution.
 1. The Constitution begins with a Preamble.
 2. The Preamble is followed by Article I through Article XVIII.
 3. Roman numeral XVIII equals 18.
-4. The Constitution contains 18 distinct articles.
+4. The Constitution contains 18 articles.
 
 ### #3: Locating the Civil Service Commission
 
-Which specific main article and sub-part of the 1987 Constitution establish the Civil Service Commission?
+Which main article and sub-part of the 1987 Constitution cover the Civil Service Commission?
 
 **Solution:**
 Locate the Civil Service Commission within the constitutional structure.
 
 1. Article IX covers the Constitutional Commissions.
 2. Article IX is divided into four sub-parts: A (Common Provisions), B (Civil Service Commission), C (Commission on Elections), and D (Commission on Audit).
-3. The Civil Service Commission is established under Article IX-B.
+3. The Civil Service Commission is covered under Article IX-B.

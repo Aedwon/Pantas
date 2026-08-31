@@ -1,7 +1,7 @@
 ---
 _id: "lesson-chemistry-stoichiometry"
 title: "Stoichiometry (Limiting/Excess Reactants, Percent Yield, Empirical/Molecular Formulas)"
-summary: "How to use a balanced equation to find limiting reactants, percent yield, and a compound's empirical and molecular formulas."
+summary: "How balanced-equation mole ratios determine limiting reactants and theoretical yield, and how composition data lead to empirical and molecular formulas."
 subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 14
@@ -9,124 +9,126 @@ isActive: true
 ---
 ## Core Concept
 
-**Stoichiometry** uses the coefficients of a balanced chemical equation as a recipe, telling you the exact mole ratios between reactants and products.
+**Stoichiometry** uses the coefficients of a balanced chemical equation as ratios between amounts of reacting species.
 
 ### Limiting and Excess Reactants
 
-In most real reactions, you do not have the perfect amount of each reactant. The **limiting reactant** is the one that runs out first, stopping the reaction: it determines the maximum amount of product possible. The **excess reactant** is the one with some left over after the reaction stops.
+For a specified reaction, the **limiting reactant** is consumed first under the ideal stoichiometric model and limits the theoretical amount of product. Other reactants supplied beyond the stoichiometric requirement are **in excess**.
 
-To find the limiting reactant, calculate how much product each reactant could make on its own (assuming unlimited amounts of the other); whichever reactant produces the smaller amount of product is the limiting one.
+A reliable method is to calculate how much of the **same product** each reactant could form if the others were available in excess. The reactant predicting the smaller product amount is limiting.
 
 ### Percent Yield
 
-The **theoretical yield** is the maximum amount of product the balanced equation predicts, calculated from the limiting reactant. The **actual yield** is the amount actually collected in real life (usually less, due to losses or side reactions). **Percent yield** compares the two:
+The **theoretical yield** is the amount of a specified product calculated from stoichiometry, normally assuming the limiting reactant reacts completely according to the stated reaction.
 
-$$\text{percent yield} = \dfrac{\text{actual yield}}{\text{theoretical yield}} \times 100\%$$
+The **actual yield** is the experimentally obtained amount. Percent yield is:
+
+$$\%\text{ yield}=\frac{\text{actual yield}}{\text{theoretical yield}}\times100\%$$
+
+Actual yields are often below theoretical yield because of incomplete reaction, side reactions, transfer losses, or purification losses. A reported yield **can exceed 100%**, usually signaling wet/impure product, measurement error, or an incorrect assumption—not genuine production beyond the stoichiometric theoretical yield.
 
 ### Empirical and Molecular Formulas
 
-The **empirical formula** shows the simplest whole-number ratio of atoms in a compound. The **molecular formula** shows the actual total number of atoms in one real molecule, which is always a whole-number multiple of the empirical formula. For example, glucose has the molecular formula $C_6H_{12}O_6$, but its empirical formula (simplified ratio) is $CH_2O$, since dividing all three subscripts by their greatest common factor, $6$, gives $1{:}2{:}1$.
+An **empirical formula** gives the simplest whole-number ratio of elements in a compound.
+
+A **molecular formula** gives the actual number of atoms of each element in one molecule and is a whole-number multiple of the empirical formula for a molecular substance.
+
+Not every compound exists as discrete molecules. Ionic solids are normally represented by **formula units**, for which the written formula is already an empirical ratio.
+
+To obtain an empirical formula from mole amounts:
+
+1. Divide all amounts by the smallest.
+2. If the results are already close to whole numbers, round only within justified experimental tolerance.
+3. If simple fractions remain—such as $1.5$, $1.33$, or $1.25$—multiply **all** ratios by a small integer to obtain the smallest whole-number ratio.
 
 ## Examples
 
-### #1: Finding the Limiting Reactant
+### #1: Limiting Reactant
 
-For the reaction $N_2 + 3H_2 \rightarrow 2NH_3$, a chemist starts with $4$ moles of $N_2$ and $9$ moles of $H_2$. Which reactant is limiting?
+For
 
-**Solution:**
-Check how much $H_2$ is actually needed to react with all the $N_2$, and compare to what is available.
+$$N_2+3H_2\rightarrow2NH_3,$$
 
-1. The balanced equation needs $3$ moles of $H_2$ for every $1$ mole of $N_2$.
-2. For $4$ moles of $N_2$, the amount of $H_2$ needed is:
-
-$$4 \times 3 = 12 \text{ moles of } H_2 \text{ needed}$$
-
-3. Only $9$ moles of $H_2$ are available, which is less than the $12$ moles needed.
-4. Since $H_2$ runs out before all the $N_2$ can react, $H_2$ is the limiting reactant (and $N_2$ is in excess).
-
-### #2: Calculating Percent Yield
-
-A reaction's balanced equation predicts a theoretical yield of $50$ grams of product. In the actual laboratory experiment, only $42$ grams were collected. Find the percent yield.
+a chemist starts with $4$ mol $N_2$ and $9$ mol $H_2$.
 
 **Solution:**
-Divide actual yield by theoretical yield, then convert to a percentage.
 
-1. Apply the formula.
+1. $4$ mol $N_2$ would require $12$ mol $H_2$.
+2. Only $9$ mol $H_2$ are available.
+3. Therefore $H_2$ is limiting and $N_2$ is in excess.
 
-$$\text{percent yield} = \dfrac{42}{50} \times 100\%$$
+Equivalently, $9$ mol $H_2$ can react with only $3$ mol $N_2$.
 
-2. Compute the fraction.
+### #2: Percent Yield
 
-$$\dfrac{42}{50} = 0.84$$
+Theoretical yield = $50$ g; actual isolated yield = $42$ g.
 
-3. Convert to a percentage.
+$$\%\text{ yield}=\frac{42}{50}\times100\%=84\%$$
 
-$$0.84 \times 100\% = 84\%$$
+### #3: Empirical Formula with Whole Ratios
 
-4. The percent yield is $84\%$.
+A sample corresponds to $2$ mol C, $6$ mol H, and $2$ mol O.
 
-### #3: Finding an Empirical Formula
+Divide all by $2$:
 
-A compound is found to contain $2$ moles of carbon, $6$ moles of hydrogen, and $2$ moles of oxygen. Find its empirical formula.
+$$1:3:1$$
 
-**Solution:**
-Divide every mole amount by the smallest number among them to get the simplest whole-number ratio.
+Empirical formula: $CH_3O$.
 
-1. The smallest amount is $2$ moles (both carbon and oxygen).
-2. Divide each element's moles by $2$.
+### #4: Empirical Formula Requiring an Extra Step
 
-$$\dfrac{2}{2} = 1 \quad \dfrac{6}{2} = 3 \quad \dfrac{2}{2} = 1$$
+Suppose normalized mole ratios are $1:1.5:1$. These are **not** valid final subscripts.
 
-3. The simplest ratio is carbon $1$, hydrogen $3$, oxygen $1$.
-4. The empirical formula is $CH_3O$.
+Multiply every ratio by $2$:
 
-### #4: From Empirical Formula to Molecular Formula
+$$2:3:2$$
 
-A compound has the empirical formula $CH_2$ (empirical formula mass $= 14$ g/mol) and an actual molar mass of $56$ g/mol. Find its molecular formula.
+The empirical formula uses subscripts $2,3,2$.
 
-**Solution:**
-Find how many times the empirical formula "fits into" the true molar mass.
+### #5: Empirical to Molecular Formula
 
-1. Divide the actual molar mass by the empirical formula mass.
+A molecular compound has empirical formula $CH_2$, empirical-formula molar mass about $14\,\mathrm{g/mol}$, and molecular molar mass about $56\,\mathrm{g/mol}$.
 
-$$\dfrac{56}{14} = 4$$
+$$n=\frac{56}{14}=4$$
 
-2. This means the molecular formula is the empirical formula multiplied by $4$.
+Multiply every empirical subscript by $4$:
 
-$$C_{(1 \times 4)}H_{(2 \times 4)} = C_4H_8$$
-
-3. The molecular formula is $C_4H_8$.
+$$C_4H_8$$
 
 ## Speed Tricks & Shortcuts
 
-For limiting reactant problems, do not just compare the raw mole amounts of each reactant: always check them against the balanced equation's ratio first. A reactant with a "bigger number" of moles can still be limiting if the equation requires even more of it.
+For limiting reactants, compare quantities **after converting through the balanced-equation ratio**. Raw mole amounts alone do not tell you which reactant is limiting.
 
-For empirical formula problems, always divide by the smallest mole value first. This one step guarantees you land on the simplest possible whole-number ratio in a single move.
+For empirical formulas, divide by the smallest first—but inspect the resulting ratios before rounding. Common fractional patterns often require multiplying every ratio by $2$, $3$, or $4$.
 
-Remember the empirical-to-molecular relationship as one multiplication: molecular formula mass ÷ empirical formula mass gives a whole number multiplier, applied to every subscript in the empirical formula.
+For molecular formulas, the ratio
+
+$$\frac{\text{molecular molar mass}}{\text{empirical-formula molar mass}}$$
+
+should be close to a positive integer if the data and empirical formula are consistent.
 
 ## Traps to Watch For
 
-### #1: Assuming the Smaller Mole Amount Is Always Limiting
+### #1: Assuming Percent Yield Cannot Exceed 100%
 
-> The limiting reactant depends on the equation'S ratio, not just on which reactant has fewer raw moles.
+> A genuine stoichiometric yield cannot exceed the theoretical maximum for the stated pure product, but an **experimental reported mass** can produce an apparent yield over 100%.
 
-In Example 1, $N_2$ (only $4$ moles) actually has fewer moles than $H_2$ ($9$ moles), yet $H_2$ turns out to be the limiting reactant once the $1{:}3$ ratio is applied. Never skip the ratio check.
+That usually points to contamination, retained solvent/water, measurement error, or an incorrect reaction/product assumption.
 
-### #2: Reversing the Percent Yield Formula
+### #2: Rounding $1.5$ Directly to $2$
 
-> Percent yield divides actual yield by theoretical yield, never the other way around.
+> Empirical-formula ratios must be scaled together.
 
-Dividing theoretical by actual would give a result greater than $100\%$ in this example ($50 \div 42 \approx 1.19$, or $119\%$), which does not match how percent yield is meant to work (percent yield is usually at or below $100\%$, since real yields rarely exceed the theoretical maximum).
+A normalized ratio of $1:1.5:1$ becomes $2:3:2$, not $1:2:1$.
 
-### #3: Confusing Empirical and Molecular Formulas
+### #3: Calling Every Chemical Formula a Molecular Formula
 
-> The empirical formula shows the simplest ratio; the molecular formula shows the true total count of atoms in one molecule.
+> Ionic compounds do not consist of discrete molecules in the same way molecular compounds do.
 
-A compound's empirical formula ($CH_2O$) and its molecular formula ($C_6H_{12}O_6$, for glucose) look different, but they represent the same substance: the molecular formula is just a whole-number multiple of the empirical ratio. Giving the empirical formula when the molecular formula is specifically asked for (or vice versa) misses the question's exact requirement.
+For an ionic solid, the formula generally represents the simplest ion ratio in the lattice.
 
-### #4: Forgetting to Divide by the Correct Smallest Number
+### #4: Comparing Raw Reactant Amounts
 
-> When simplifying to an empirical formula, divide every element's mole count by the same smallest value: do not divide by different numbers for different elements.
+> The smaller number of moles is not automatically the limiting reactant.
 
-If the mole amounts are $2$, $6$, and $2$, all three must be divided by the same number ($2$, the smallest), giving $1$, $3$, $1$. Dividing each element by a different number would break the true ratio between them.
+The balanced equation determines how many moles of each reactant are required relative to one another.

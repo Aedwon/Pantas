@@ -1,107 +1,139 @@
 ---
 _id: "lesson-chemistry-mixtures-and-separation"
 title: "Mixtures and Separation Techniques (Filtration, Distillation, Chromatography)"
-summary: "The difference between types of mixtures and how to choose the right technique to separate them."
+summary: "How homogeneous and heterogeneous mixtures differ and how filtration, distillation, chromatography, and evaporation exploit physical-property differences."
 subject: "subject-science"
 topic: "topic-chemistry"
-estimatedMinutes: 10
+estimatedMinutes: 11
 isActive: true
 ---
 ## Core Concept
 
-A **mixture** is two or more substances physically combined, without any new chemical bonds forming, so each substance keeps its own properties and can be separated back out again.
+A **mixture** contains two or more substances in proportions that can vary. Forming a mixture does not, by itself, mean that the components have been converted into new pure substances. The components can interact—through solvation, intermolecular forces, or ion-dipole attractions, for example—while retaining their chemical identities.
 
-**Homogeneous** mixtures are uniform throughout: you cannot see separate parts (like saltwater, or air). **Heterogeneous** mixtures are not uniform: you can see or detect separate parts (like a salad, or sand mixed with gravel).
+**Homogeneous mixtures** have uniform composition at the scale being considered, such as a true salt solution or a well-mixed sample of air. **Heterogeneous mixtures** contain distinguishable phases or regions with different composition, such as sand in water.
 
-Because no new chemical bonds form in a mixture, scientists can use physical methods (not chemical reactions) to separate the components back apart, based on differences in their physical properties.
+Mixture components can often be separated by exploiting differences in physical properties such as particle size, volatility, solubility, phase, magnetism, or how strongly substances distribute between phases.
 
 ### Filtration
 
-**Filtration** separates a solid from a liquid (or from another substance), using a material with tiny holes that let the liquid pass through but trap solid particles. Used for a heterogeneous mixture, like separating sand from water.
+**Filtration** passes a fluid through a porous barrier that retains particles larger than the relevant pores or otherwise captured by the filter medium.
+
+In the common introductory example, filtration separates an **undissolved solid from a liquid**, such as sand from water. Filtration can also remove solid particles from gases; it is not limited by definition to liquid mixtures.
+
+A true dissolved solute generally passes through ordinary filter paper with the solvent, so filtration cannot separate dissolved salt from saltwater.
 
 ### Distillation
 
-**Distillation** separates the components of a liquid mixture based on different boiling points. The mixture is heated; the substance with the lower boiling point evaporates first, and its vapor is then cooled back into a liquid and collected separately. Used to separate a mixture like alcohol and water, or to purify seawater into fresh water.
+**Distillation** separates or purifies substances using differences in **volatility** and vapor-liquid equilibrium.
 
-<!-- ILLUSTRATION: distillation setup showing a flask being heated, vapor rising and traveling through a cooling tube, then dripping into a separate collection container -->
+When a liquid mixture is heated, more than one volatile component can enter the vapor phase. The vapor is usually **enriched in the more volatile component**—not composed exclusively of whichever substance has the lower normal boiling point. Condensing that vapor produces a distillate of different composition from the boiling liquid.
+
+**Simple distillation** works well for some mixtures with sufficiently different volatilities or for removing a volatile solvent from nonvolatile solute. **Fractional distillation** improves separation when volatile components have closer boiling behavior by allowing repeated vaporization-condensation steps.
+
+Some mixtures form **azeotropes**, whose vapor and liquid compositions become equal at a particular composition, limiting separation by ordinary distillation. Thus, saying distillation always produces perfectly pure components is incorrect.
+
+<!-- ILLUSTRATION: simple and fractional distillation setups, with vapor labeled as enriched in the more volatile component rather than pure by definition -->
 
 ### Chromatography
 
-**Chromatography** separates the different components of a mixture based on how strongly each one is attracted to a moving liquid or gas (the **mobile phase**) versus a fixed material it travels through (the **stationary phase**). Components that travel faster through the stationary phase are less strongly attracted to it. Used to separate mixtures like ink pigments or plant dyes.
+**Chromatography** is a physical separation method in which components distribute differently between a **stationary phase** and a **mobile phase** that moves in a definite direction.
 
-### Evaporation
+Separation can arise from different combinations of adsorption, partitioning, ion exchange, size exclusion, affinity, and other interactions. It is therefore too narrow to say that every chromatographic separation is controlled only by "attraction to the stationary phase."
 
-**Evaporation** separates a dissolved solid from a liquid by heating the mixture until the liquid turns to vapor and escapes, leaving the solid behind. Used to recover salt from saltwater.
+In paper chromatography, different solutes can travel different distances because they interact differently with both the mobile solvent and the stationary paper/water environment.
+
+### Evaporation and Crystallization
+
+Allowing a solvent to evaporate can leave behind a nonvolatile dissolved solid. If purity matters, controlled **crystallization/recrystallization** can exploit solubility differences so a desired solid forms crystals while some impurities remain in solution.
+
+Evaporation is not the same as distillation because ordinary evaporation does not require collecting and condensing the escaping vapor.
 
 ## Examples
 
 ### #1: Homogeneous or Heterogeneous?
 
-Classify each mixture as homogeneous or heterogeneous: (a) a cup of black coffee (no visible grounds); (b) a bowl of vegetable soup with visible chunks; (c) clean air.
+Classify (a) a clear, fully dissolved sugar-water solution, (b) vegetable soup with visible pieces, and (c) a well-mixed sample of clean air.
 
 **Solution:**
-Check whether separate parts are visible or detectable.
 
-1. (a) Black coffee looks completely uniform, with no visible separate parts: Homogeneous.
-2. (b) Vegetable soup clearly shows separate visible chunks: Heterogeneous.
-3. (c) Clean air is a uniform blend of gases with no visible separate parts: Homogeneous.
+1. Sugar solution: homogeneous at the molecular scale.
+2. Vegetable soup: heterogeneous.
+3. Clean air: homogeneous gas mixture at ordinary sampling scales.
 
-### #2: Choosing the Right Separation Technique
+### #2: Sand and Water
 
-A student needs to separate sand from a sand-and-water mixture. Which separation technique is most appropriate, and why?
-
-**Solution:**
-Identify the physical property difference being used: solid particles trapped versus liquid passing through.
-
-1. Sand is a solid and water is a liquid; sand does not dissolve in water.
-2. Filtration uses a material with small holes to let the liquid pass through while trapping the solid sand particles.
-3. The answer: filtration, because it separates an undissolved solid from a liquid based on particle size.
-
-### #3: Distillation vs. Evaporation
-
-A student wants to separate salt from saltwater and does not need to keep the water. A different student wants to separate alcohol from an alcohol-water mixture and does need to keep both liquids separately. Identify the best technique for each student.
+Which technique is appropriate for separating suspended sand from water?
 
 **Solution:**
-Check whether both components need to be collected, or only one.
 
-1. The first student only needs the solid (salt) and does not care about recovering the water: Evaporation is sufficient, since the water is simply allowed to evaporate away and is not collected.
-2. The second student needs to collect both liquids separately, based on their different boiling points: Distillation is needed, since it collects the vapor (from the lower-boiling-point liquid) in a separate container instead of letting it escape.
-3. Both techniques use heat and boiling, but distillation specifically collects the vapor, while evaporation simply lets it escape.
+1. Sand remains as solid particles rather than molecularly dissolving.
+2. A suitable filter can retain the sand while water passes through.
+3. Use **filtration**.
 
-### #4: Using Chromatography to Separate Ink
+### #3: Saltwater vs. Volatile Liquid Mixture
 
-A student runs black ink on a strip of paper dipped partly into water, and notices that after some time, the black ink has separated into several bands of different colors, some traveling farther up the paper than others. Explain what this shows about the ink's composition, and why some colors traveled farther.
+One student wants only the salt from saltwater and does not need the water. Another wants to enrich/separate components of a mixture of two volatile liquids.
 
 **Solution:**
-Connect the separation pattern to how chromatography works.
 
-1. The fact that the single black ink separated into multiple colored bands shows that the ink is actually a mixture of several different colored dyes, not a single pure substance.
-2. The colors that traveled farther up the paper are less strongly attracted to the paper (the stationary phase) and more easily carried along by the water (the mobile phase).
-3. The colors that stayed closer to the starting point are more strongly attracted to the paper, resisting being carried along by the water.
-4. This difference in attraction to the stationary vs. mobile phase is exactly how chromatography separates mixture components.
+1. For salt only: evaporation or crystallization can recover the nonvolatile solid.
+2. For volatile liquids: distillation is appropriate because vapor is collected and condensed.
+3. If their volatilities are close, fractional distillation may be needed for better separation.
+
+### #4: Paper Chromatography of Ink
+
+Black ink separates into several colored bands on paper as solvent rises. What does this show?
+
+**Solution:**
+
+1. The ink contains multiple components with different chromatographic behavior.
+2. Each dye distributes differently between mobile and stationary phases.
+3. A farther-traveling dye is not simply "less attracted to paper" in every system; its movement reflects the balance of interactions with both phases.
+
+### #5: Why Distillation Is Not an All-or-Nothing Boiling-Point Sorter
+
+An ethanol-water mixture is heated. Does only ethanol evaporate until all ethanol is gone, followed by water?
+
+**Solution:**
+
+No. Both components can contribute to the vapor. Over a broad composition range the vapor is enriched in ethanol relative to the boiling liquid, which is why repeated equilibrium stages improve separation. Ethanol-water also has an azeotrope, so ordinary distillation cannot produce arbitrarily pure ethanol from every starting mixture.
 
 ## Speed Tricks & Shortcuts
 
-For separation-technique questions, match the key physical difference being exploited: particle size (filtration), boiling point (distillation), or attraction to a stationary material (chromatography). Identifying which property differs between the components points straight to the correct method.
+Match technique to the physical difference:
 
-If a question only cares about recovering one component (usually the solid) and discards the rest, evaporation is enough. If both components must be collected and kept, distillation is needed instead.
+- suspended particle size/phase: filtration;
+- volatility: distillation;
+- differential distribution between stationary/mobile phases: chromatography;
+- nonvolatile solute left after solvent loss: evaporation/crystallization.
+
+If a dissolved species is molecularly or ionically dispersed, ordinary filter paper will not remove it merely because it was originally a solid.
+
+If both volatile components must be separated well, ask whether simple or fractional distillation is appropriate rather than assuming one vaporization step gives purity.
 
 ## Traps to Watch For
 
-### #1: Confusing Evaporation and Distillation
+### #1: Saying Mixtures Have "No New Chemical Bonds" as a Complete Definition
 
-> Evaporation lets the vapor escape (only the solid is kept). Distillation collects the vapor by cooling it back into a liquid.
+> Components in mixtures can interact strongly and can become solvated without being transformed into new pure chemical substances.
 
-If a question specifically asks to recover both parts of a liquid mixture (like alcohol and water), evaporation is not enough, since it does not capture the escaping vapor. Distillation's cooling and collection step is what makes it different.
+Mixture versus compound is fundamentally about composition and chemical identity, not the absence of every intermolecular interaction.
 
-### #2: Assuming Filtration Works on Any Mixture
+### #2: Saying the Lower-Boiling Component Is the Only One That Evaporates
 
-> Filtration only separates an undissolved solid from a liquid: it cannot separate two mixed liquids, or a fully dissolved solid.
+> In a volatile mixture, multiple components can enter the vapor phase.
 
-Filtration relies on solid particles being too large to pass through the filter's tiny holes. A dissolved solid (like salt fully dissolved in water) has broken down into particles too small for filtration to catch; evaporation or distillation is needed instead.
+The vapor is generally enriched in the more volatile component according to vapor-liquid equilibrium.
 
-### #3: Thinking Homogeneous Mixtures Cannot Be Separated
+### #3: Treating Chromatography as Only Stationary-Phase Attraction
 
-> Homogeneous mixtures (uniform-looking) can still be separated using techniques like distillation or evaporation: "uniform" does not mean "unseparable."
+> Chromatographic separation depends on differential distribution between two phases and can involve several mechanisms.
 
-Saltwater looks completely uniform (homogeneous), yet it can still be separated into salt and water through evaporation or distillation. Being homogeneous only describes appearance, not whether the mixture can be physically separated.
+The IUPAC definition centers on a stationary phase and a moving mobile phase.
+
+### #4: Assuming Distillation Always Gives Pure Components
+
+> Separation quality depends on vapor-liquid equilibrium, column efficiency, and mixture behavior.
+
+Close-boiling mixtures and azeotropes can limit ordinary distillation.

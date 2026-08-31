@@ -1,7 +1,7 @@
 ---
 _id: "lesson-vocabulary-idioms-and-figures-of-speech"
 title: "Idioms and Figures of Speech / Sawikain at Tayutay"
-summary: "How to identify and understand the hidden meanings of English idioms, Filipino sawikain, and common figures of speech."
+summary: "Learn how context distinguishes idiomatic meaning from literal meaning and how common figures of speech create effects."
 subject: "subject-language-proficiency"
 topic: "topic-vocabulary"
 estimatedMinutes: 10
@@ -9,156 +9,121 @@ isActive: true
 ---
 ## Core Concept
 
-Idioms and figures of speech are words used in a special way. They do not mean exactly what they say. Think of them as a secret code. If someone says it is "raining cats and dogs," no animals are falling from the sky. It just means it is raining very hard.
+An **idiom** is a conventional expression whose established meaning cannot always be predicted simply by combining the ordinary meanings of its words. "Back to square one," for example, means returning to the beginning of a process.
 
-In the English and Filipino parts of college exams, you will see these phrases in reading stories or in missing-word questions. To get the right answer, you must know the hidden meaning of the phrase. You cannot use the literal meaning. Literal means the exact dictionary meaning of the words.
+A **figure of speech** uses language in a nonliteral, patterned, or rhetorically marked way. Figures can overlap, and classification sometimes depends on context and interpretation.
 
-## Mnemonics & Memory Aids
+Common school-level figures include:
 
-Many students use this word to remember the $7$ most common figures of speech in English:
+- **Simile:** an explicit comparison, often using *like* or *as*: "Her voice was like velvet."
+- **Metaphor:** presents one thing in terms of another without an explicit comparison marker: "Time is a thief."
+- **Personification:** attributes human qualities, intentions, speech, or behavior to something nonhuman: "Opportunity knocked."
+- **Hyperbole:** deliberate exaggeration for effect: "I've told you a million times."
+- **Alliteration:** noticeable repetition of initial consonant sounds in nearby words.
+- **Onomatopoeia:** a word whose sound imitates or evokes the sound it names, such as *buzz* or *clang*.
+- **Oxymoron:** combines apparently contradictory terms, such as *deafening silence*.
 
-> Shampoo
+Words such as *like* and *as* are useful clues but do **not** automatically make an expression a simile. "She works as a teacher" is literal, and "It looks like rain" is not necessarily a figurative comparison.
 
-* **S** - Simile (comparing two things using "like" or "as")
-* **H** - Hyperbole (making an extreme exaggeration)
-* **A** - Alliteration (repeating the first sound of nearby words)
-* **M** - Metaphor (comparing two things without using "like" or "as")
-* **P** - Personification (giving human actions to non-human things)
-* **O** - Onomatopoeia (using words that sound like the noise they make, like "buzz")
-* **O** - Oxymoron (putting two opposite words together, like "jumbo shrimp")
+### Filipino Terms
 
-## Important Filipino Terms
+In Filipino instructional materials:
 
-You must know the Filipino names for these concepts. The college exams will use these exact words, so you must memorize them.
+- **sawikain** commonly refers to an idiomatic expression;
+- **tayutay** is a general term for figure of speech;
+- **pagtutulad** corresponds to simile;
+- **pagwawangis** corresponds to metaphor;
+- **pagbibigay-katauhan / personipikasyon** refers to personification;
+- **pagmamalabis** refers to hyperbole.
 
-* **Sawikain:** This is the Filipino word for idiom. An example is *butas ang bulsa* (having no money).
-* **Tayutay:** This is the Filipino word for figure of speech.
-* **Pagtutulad:** This is a simile. It uses words like *tulad ng*, *parang*, or *kawangis*.
-* **Pagwawangis:** This is a metaphor. It is a direct comparison. It does not use *parang*.
-* **Pagbibigay-katauhan:** This is personification. It gives human traits to things or animals.
-* **Pagmamalabis:** This is hyperbole. It means to exaggerate something too much.
+Terminology can vary across textbooks, so identify the actual linguistic effect in the example as well as the label.
 
 ## Examples
 
 ### #1: English Idiom in Context
 
-After realizing he had forgotten to save his research paper before the computer crashed, Mark knew he was back to square one. What does the idiom "back to square one" mean?
-A) To play a board game
-B) To return to the beginning
-C) To get angry at a mistake
-D) To give up completely
+After losing his unsaved research paper, Mark knew he was **back to square one**. What does the idiom mean?
+
+A) To play a board game  
+B) To return to the beginning  
+C) To get angry  
+D) To give up permanently
 
 **Solution:**
 
-1. Read the sentence to find clues. The clue is that Mark's computer crashed and his work was not saved.
-2. If you lose all your work, you must start all over again.
-3. The phrase "back to square one" means to start over from the very beginning.
+The lost work means Mark has to start over. Answer: **B**.
 
-$$\text{Crash} \rightarrow \text{Lose Work} \rightarrow \text{Start Over}$$
+### #2: Personification
 
+"The wind whispered through the dark forest." Which figure is most clearly foregrounded?
 
-4. The correct answer is B.
-
-### #2: Identifying English Figures of Speech
-
-"The wind whispered through the dark and gloomy forest." Which figure of speech is used in this sentence?
-A) Metaphor
-B) Hyperbole
-C) Personification
+A) Metaphor  
+B) Hyperbole  
+C) Personification  
 D) Simile
 
 **Solution:**
 
-1. Look at the action happening in the sentence. The wind is whispering.
-2. Whispering is an action that only humans can do. The wind is not human.
-3. Giving human actions to a non-human thing is called personification.
-
-$$\text{Wind (Non-human)} + \text{Whisper (Human trait)} = \text{Personification}$$
-
-
-4. The correct answer is C.
+*Whispered* attributes a characteristically human communicative action to the wind. **C** is the clearest school-level classification.
 
 ### #3: Filipino Sawikain
 
-Piliin ang kahulugan ng sawikain na may salungguhit: Dahil sa pandemya, maraming pamilya ang naghigpit ng sinturon.
-A) Bumili ng bagong damit
-B) Nagtipid sa mga gastusin
-C) Nagutom buong araw
-D) Naging masinop sa oras
+Dahil kapos sa kita, naghigpit ng sinturon ang pamilya.
+
+What does **naghigpit ng sinturon** mean in this context?
+
+A) Bumili ng sinturon  
+B) Nagtipid sa gastusin  
+C) Naglakad nang mabilis  
+D) Nagpalit ng damit
 
 **Solution:**
 
-1. Ang salitang may salungguhit (the phrase to look at) ay "naghigpit ng sinturon".
-2. The literal translation is "tightening the belt".
-3. People tighten their belts when they have less food or money. In Filipino culture, this means to save money or limit spending.
+The financial context supports the idiomatic sense **nagtipid sa gastusin**. Answer: **B**.
 
-$$\text{Naghigpit (Tighten)} + \text{Sinturon (Belt)} = \text{Nagtipid (Saving Money)}$$
+### #4: Filipino Tayutay
 
+"Umuulan ng salapi sa negosyo niya." If the context makes clear that this is an extreme exaggeration of abundant earnings, which figure is being used?
 
-4. The correct answer is B.
-
-### #4: Identifying Filipino Tayutay
-
-Anong uri ng tayutay ang ginamit sa pangungusap? "Umuulan ng dolyar nang dumating si Kuya mula sa Amerika."
-A) Pagtutulad
-B) Pagmamalabis
-C) Pagwawangis
+A) Pagtutulad  
+B) Pagmamalabis  
+C) Pagwawangis  
 D) Pagbibigay-katauhan
 
 **Solution:**
 
-1. The sentence says it rained dollars ("umuulan ng dolyar").
-2. Money cannot fall from the sky like rain. This is a huge exaggeration.
-3. The Filipino word for exaggeration is *pagmamalabis*.
+Under that stated context, the exaggerated claim is **pagmamalabis**. A different literary context could invite additional figurative readings, so classification should follow the dominant effect being tested.
 
-$$\text{Umuulan ng Dolyar} = \text{Extreme Exaggeration} = \text{Pagmamalabis}$$
+### #5: Metaphor
 
-
-4. The correct answer is B.
-
-### #5: Subtle Metaphors in English Literature
-
-Read the excerpt: "Hope is the thing with feathers / That perches in the soul." What figure of speech is primarily employed by the author?
-A) Simile
-B) Metaphor
-C) Synecdoche
-D) Metonymy
-
-**Solution:**
-
-1. Look for the comparison. The author compares "hope" to a "thing with feathers" (which means a bird).
-2. The comparison is direct. It says hope *is* the thing. It does not use the words "like" or "as".
-3. A direct comparison without "like" or "as" is a metaphor.
-
-$$\text{Hope} = \text{Bird} \text{ (No "like" or "as")} = \text{Metaphor}$$
-
-
-4. The correct answer is B.
+"Hope is the thing with feathers / That perches in the soul." The speaker presents hope in terms of a bird-like "thing with feathers" without *like* or *as*. The dominant figure is **metaphor**.
 
 ## Speed Tricks & Shortcuts
 
-**Use the Tone.** If you do not know a hidden meaning, check the feeling of the sentence. Is it happy, sad, or angry? A negative sentence will usually match a negative answer choice.
+**Start with context.** An idiom's conventional meaning must fit the sentence or passage.
 
-**Spot the Trigger Words.** If you see "like" or "as" in English, the answer is almost always a simile. If you see *parang* or *tulad ng* in Filipino, the answer is almost always *pagtutulad*. This takes only $2$ seconds to spot!
+**Treat signal words as clues, not proofs.** *Like, as, parang,* and *tulad ng* often introduce comparisons, but first check whether an actual figurative comparison is being made.
 
-**Cross Out Literal Answers.** If an exam choice gives the exact dictionary meaning of the idiom's words, cross it out. Idioms are never literal.
+**Ask what effect is dominant.** A single line can support more than one label; school questions usually target the most salient device in context.
 
 ## Traps to Watch For
 
-### #1: Literal Trap
+### #1: Assuming Every Literal-Looking Choice Is Wrong
 
-> Never pick the choice that describes exactly what the words say.
+> Idiomatic expressions have conventional nonliteral meanings, but answer choices still need to be judged against context. Some expressions can be used literally in other sentences.
 
-Test-makers know you might translate the idiom word by word. For example, if the idiom is "spill the beans," they will put "to drop food on the floor" as a choice. Always remember that idioms have a hidden message. "Spill the beans" actually means to tell a secret.
+### #2: "Like" or "As" Automatically Means Simile
 
-### #2: Confusing Metaphor and Personification
+> These words have many grammatical uses. A simile requires a comparison, not merely the presence of a trigger word.
 
-> Just because a thing moves or acts does not mean it is human.
+### #3: No Trigger Word Automatically Means Metaphor
 
-Sometimes students see a non-human thing doing an action and quickly pick personification. But personification requires a *human* trait. If a poem says "the engine roared," that is a metaphor. It compares the engine to a lion. It is not personification, because roaring is an animal trait. It is not a human trait.
+> A sentence without *like/as* might contain no comparison at all, or might use another figure.
 
-### #3: Pagtutulad vs. Pagwawangis
+### #4: Treating Figurative Categories as Always Mutually Exclusive
 
-> Always check for Filipino trigger words before guessing.
+> Literary language can support overlapping analyses. In exam-style items, choose the device most directly demonstrated by the wording and context supplied.
 
-Students often mix up *pagtutulad* (simile) and *pagwawangis* (metaphor). Always look for the trigger words. If you see *gaya ng*, *animo'y*, or *kawangis*, it is definitely *pagtutulad*. If the sentence says "Ang ina ay ilaw ng tahanan" (The mother is the light of the home), there are no trigger words. Because there are no trigger words, it must be *pagwawangis*.
+### #5: Calling Any Nonhuman Sound Personification or Metaphor by Rule
+
+> "The engine roared" can be analyzed differently depending on context; do not classify solely from the fact that an inanimate object is associated with an animal-like or human-like action.

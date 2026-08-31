@@ -1,7 +1,7 @@
 ---
 _id: "lesson-spatial-abstract-reasoning-figure-series"
 title: "Figure Series (Predicting the Next Shape in a Pattern)"
-summary: "Learn how to track how a shape changes step by step across a series of figures and predict what comes next."
+summary: "Learn how to track visual features across a figure series and choose the simplest consistent intended transformation."
 subject: "subject-reasoning"
 topic: "topic-spatial-abstract-reasoning"
 estimatedMinutes: 10
@@ -9,90 +9,82 @@ isActive: true
 ---
 ## Core Concept
 
-A **figure series** shows a sequence of shapes or figures, each one changing slightly from the one before it, following a hidden rule. Your task is to figure out the rule and predict the next figure in the sequence.
+A **figure series** presents a finite sequence of visual states and asks for a missing or next figure. As with number sequences, a finite set of figures can often be described by more than one possible rule. Exam-style items are designed so that a **simple, consistent intended transformation** matches the figures and one answer choice best.
 
-Since figures cannot easily be described with numbers alone, describe each figure using its individual features, then track how each feature changes step by step:
+Break each figure into features and track them separately:
 
-- **Number of sides or parts**: does the shape gain or lose sides, dots, or lines each step?
-- **Rotation**: does the shape (or a marking on it, like an arrow or a dot) turn a certain number of degrees each step (commonly $45°$, $90°$, or $180°$)?
-- **Shading/fill**: does the shape (or parts of it) switch between filled (black) and empty (white) each step, or does the shaded portion grow or shrink?
-- **Size**: does the shape grow or shrink at each step?
-- **Position**: does an element (like a dot or small shape) move to a different location within or around the main figure at each step?
+- number of sides/components;
+- orientation or rotation;
+- shading/fill;
+- size;
+- position;
+- count of dots/marks;
+- symmetry or other relationships among parts.
 
-<!-- FIGURE: {"kind": "figure-series", "items": [{"form": "square", "dot": "top-left"}, {"form": "square", "dot": "top-right"}, {"form": "square", "dot": "bottom-right"}, {"form": "square", "dot": "bottom-left"}], "blank": false, "semanticsLabel": "A series of four squares with a dot moving clockwise to each corner."} -->
+<!-- FIGURE: {"kind": "figure-series", "items": [{"form": "square", "dot": "top-left"}, {"form": "square", "dot": "top-right"}, {"form": "square", "dot": "bottom-right"}, {"form": "square", "dot": "bottom-left"}], "blank": false, "semanticsLabel": "A series of four squares with a dot moving clockwise through the corners."} -->
 
-The strongest strategy is to check each feature separately against every figure in the series, since a series can combine multiple changing features at once (for example, a shape that both rotates and changes shading at each step).
+A series can combine independent feature changes. Verify a candidate rule against **every shown transition** and use the answer choices to resolve ambiguity.
 
 ## Examples
 
-### #1: A Rotating Line Pattern
+### #1: Rotation
 
-A series shows a square with a single line inside it, pointing in different directions: first pointing straight up, then pointing to the upper-right (a $45°$ turn clockwise), then pointing directly right (another $45°$ turn clockwise). What direction should the line point in the fourth figure?
-
-<!-- FIGURE: {"kind": "figure-series", "items": [{"form": "square", "line": 0}, {"form": "square", "line": 45}, {"form": "square", "line": 90}], "blank": true, "semanticsLabel": "A series of three squares with rotating lines at 0, 45, and 90 degrees, followed by an empty frame."} -->
+A marked line points up, then upper-right, then right. Which next orientation follows the simplest consistent rule?
 
 **Solution:**
-1. Track the rotation feature: the line turns $45°$ clockwise at each step (up → upper-right → right).
-2. Continuing this same $45°$ clockwise rotation from "right," the next position would be "lower-right."
-3. The fourth figure's line should point to the lower-right (a further $45°$ clockwise turn from "right").
 
-### #2: A Growing Number of Sides
+The line rotates $45^\circ$ clockwise each step, so the intended next orientation is **lower-right**.
 
-A series shows a triangle (3 sides), then a square (4 sides), then a pentagon (5 sides). How many sides should the fourth figure have?
+### #2: Number of Sides
 
-<!-- FIGURE: {"kind": "figure-series", "items": [{"form": "triangle"}, {"form": "square"}, {"form": "pentagon"}], "blank": true, "semanticsLabel": "A series of shapes with increasing sides: triangle, square, and pentagon, followed by an empty frame."} -->
+Triangle → square → pentagon. What is the intended next figure?
 
 **Solution:**
-1. Track the number of sides feature: $3, 4, 5, \ldots$, increasing by $1$ each step.
-2. Continuing the pattern, the fourth figure should have $6$ sides.
-3. The fourth figure should be a hexagon.
 
-### #3: An Alternating Shading Pattern
+The simple count pattern is $3,4,5$, so the intended continuation is a **hexagon** with 6 sides.
 
-A series shows a fully black circle, then a fully white (empty) circle, then a fully black circle again. What should the fourth figure look like?
+### #3: Alternating Fill
 
-<!-- FIGURE: {"kind": "figure-series", "items": [{"form": "circle", "fill": "black"}, {"form": "circle", "fill": "white"}, {"form": "circle", "fill": "black"}], "blank": true, "semanticsLabel": "A series of three circles alternating between black and white, followed by an empty frame."} -->
+Black circle → white circle → black circle.
 
 **Solution:**
-1. Track the shading feature: black, white, black, following an alternating (every-other) pattern.
-2. Since the pattern alternates strictly, the figure after "black" should return to "white."
-3. The fourth figure should be a fully white (empty) circle.
 
-### #4: Combining Two Changing Features
+The fill alternates, so the intended next figure is a **white circle**.
 
-A series shows: a small black triangle, then a medium white triangle, then a large black triangle. Predict the fourth figure, tracking both the size and shading features separately.
+### #4: Two Feature Tracks
 
-<!-- FIGURE: {"kind": "figure-series", "items": [{"form": "triangle", "size": "small", "fill": "black"}, {"form": "triangle", "size": "medium", "fill": "white"}, {"form": "triangle", "size": "large", "fill": "black"}], "blank": true, "semanticsLabel": "A series of three growing triangles alternating between black and white, followed by an empty frame."} -->
+Small black triangle → medium white triangle → large black triangle.
 
 **Solution:**
-1. Track size separately: small, medium, large, increasing by one step size each time. The next size should be extra large.
-2. Track shading separately: black, white, black, alternating. The next shading should be white.
-3. Combining both tracked features, the fourth figure should be an extra large, white triangle.
+
+One feature increases in size; another alternates black/white. Continuing both gives the answer choice representing the next larger-size state with **white** fill, if the item defines such a size progression among its choices.
+
+Avoid inventing an undefined category such as "extra large" unless the diagram or choices establish it.
 
 ## Speed Tricks & Shortcuts
 
-**List each feature (shape, rotation, shading, size, position) on separate mental "tracks," and follow only one track at a time.** Trying to track everything at once often causes confusion; isolating one feature per pass is faster and more accurate.
+**Track one feature at a time.** Separate orientation, count, fill, size, and position before combining them.
 
-**For rotation patterns, identify the exact number of degrees turned between each figure** (commonly $45°$, $90°$, or $180°$) by comparing the position of a marked feature (like a dot, line, or arrow) between consecutive figures.
+**Check all transitions.** One appealing visual resemblance is not enough.
 
-**Check whether a pattern is cumulative (steadily increasing/decreasing, like sides growing by $1$ each time) or alternating (switching back and forth between just two states, like black/white)**: these are the two most common pattern families.
+**Prefer simple repeatable transformations.** Rotation by a constant angle, alternating states, incremental counts, and interleaved rules are common item structures.
+
+**Use the choices to test the intended rule.** The correct candidate should preserve every relevant feature transformation.
 
 ## Traps to Watch For
 
-### #1: Tracking Only One Feature When Multiple Are Changing
+### #1: Assuming a Finite Visual Series Has One Mathematically Unique Rule
 
-> A figure series can change several features at once (shape, shading, size, rotation): check each feature separately rather than assuming only one thing is changing.
+> Many descriptions can fit a finite pattern. Exam items depend on the simplest well-supported intended rule and their answer choices.
 
-Missing that both size and shading are changing at once (as in Example 4) leads to only half-correct predictions, even if the other feature was tracked accurately.
+### #2: Tracking Only One Changing Feature
 
-### #2: Assuming a Rotation Pattern Continues in the Same Visual "Direction" You Expect
+> Several independent features can change simultaneously.
 
-> Carefully confirm whether a shape is rotating clockwise or counterclockwise by comparing at least two consecutive steps, rather than assuming a direction.
+### #3: Assuming a Rotation Direction from One Step
 
-Predicting the wrong rotation direction for the next figure produces a plausible-looking but incorrect answer, especially in multiple-choice options that include the opposite rotation direction as a trap.
+> Confirm the angle and direction across enough transitions to establish the pattern.
 
-### #3: Missing an Alternating Pattern by Assuming It's Cumulative
+### #4: Inventing an Unshown Scale
 
-> Not every changing feature increases or decreases steadily: some features (especially shading) commonly alternate between just two states instead.
-
-Assuming shading will keep "getting darker" rather than recognizing a simple black-white-black alternating pattern leads to predicting an impossible fourth state instead of correctly returning to the earlier one.
+> If a series shows only small/medium/large, do not automatically assume a formally defined "extra-large" state unless the answer choices or visual system supports that next step.
