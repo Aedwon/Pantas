@@ -83,9 +83,10 @@ def main():
                 if len(parts) > strat_idx:
                     s = parts[strat_idx]
                     strat_counts[s] = strat_counts.get(s, 0) + 1
-        print(f"  strategy: code={strat_counts.get('code', 0)} open={strat_counts.get('open', 0)} "
-              f"native={strat_counts.get('native', 0)} cut={strat_counts.get('cut', 0)} "
-              f"founder={strat_counts.get('founder', 0)}")
+        strat_total = sum(strat_counts.values())
+        print(f"  strategy: total={strat_total} code={strat_counts.get('code', 0)} "
+              f"open={strat_counts.get('open', 0)} native={strat_counts.get('native', 0)} "
+              f"cut={strat_counts.get('cut', 0)} founder={strat_counts.get('founder', 0)}")
 
 
 if __name__ == "__main__":

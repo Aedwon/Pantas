@@ -49,7 +49,7 @@ Lenses form images by refraction. For a typical glass or plastic lens **in air**
 - A **convex lens** (thicker at the center) is converging.
 - A **concave lens** (thinner at the center) is diverging.
 
-<!-- ILLUSTRATION: side-by-side comparison of a convex lens bending parallel light rays inward to a single focus point, and a concave lens spreading parallel light rays outward -->
+<!-- FIGURE: {"kind":"physics-energy-diagram","type":"lens-comparison","illustrationKey":"science/physics/light-and-optics#2","convexBehavior":"parallel rays bend inward to one focus point","concaveBehavior":"parallel rays spread outward"} -->
 
 This shape rule is not universal for every surrounding medium: changing the relative refractive indices can change a lens's optical power and even reverse whether it converges or diverges.
 

@@ -35,6 +35,7 @@ Under these assumptions, eliminating $t$ gives a **parabolic** trajectory. With 
 
 At the highest point of an ordinary upward-then-downward projectile trajectory, $v_y=0$ momentarily. The total velocity is zero there **only** if the horizontal component is also zero.
 
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "projectile-motion", "path": "parabola", "velocityVectors": true, "semanticsLabel": "A parabolic projectile path showing constant horizontal velocity arrows and vertical velocity shrinking at the peak."} -->
 ### Uniform Circular Motion
 
 An object moving around a circle of radius $r$ at constant speed $v$ has changing velocity direction and therefore an inward acceleration:
@@ -65,6 +66,7 @@ $$\Delta y_{\text{down}}=\frac12gt^2=\frac12(9.8)(0.50)^2=1.225\,\mathrm m.$$
 
 So the table height is about $1.23$ m.
 
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "horizontal-projectile", "initialVelocity": "3 m/s", "labels": {"height": "?", "distance": "?"}, "semanticsLabel": "A ball rolling off a table at 3 m/s following a curved path to the floor with height and distance marked with question marks."} -->
 ### #2: Launch Components
 
 A projectile is launched at $20\,\mathrm{m/s}$, $30^\circ$ above horizontal.
@@ -73,6 +75,7 @@ $$v_{x0}=20\cos30^\circ=10\sqrt3\approx17.3\,\mathrm{m/s}$$
 
 $$v_{y0}=20\sin30^\circ=10\,\mathrm{m/s}.$$
 
+<!-- FIGURE: {"kind": "concept-diagram", "type": "vector-components", "magnitude": 20, "angle": 30, "unit": "m/s", "components": {"horizontal": "20 cos 30°", "vertical": "20 sin 30°"}, "semanticsLabel": "A 20 m/s launch velocity vector at 30 degrees resolved into horizontal and vertical components as a right triangle."} -->
 ### #3: Time to the Highest Point
 
 Using $v_{y0}=10\,\mathrm{m/s}$ and upward as positive:
@@ -94,6 +97,7 @@ A satellite follows a circular orbit at constant speed. Why is it accelerating?
 3. Therefore acceleration is nonzero and points inward.
 4. Gravity supplies the required centripetal acceleration/net radial force.
 
+<!-- FIGURE: {"kind": "concept-diagram", "type": "circular-orbit", "body": "Earth", "orbiting": "Satellite", "vectors": {"velocity": "Tangent velocity (v)", "acceleration": "Centripetal acceleration (ac)"}, "semanticsLabel": "A satellite in circular orbit around Earth with a tangent velocity arrow and an inward centripetal acceleration arrow."} -->
 ### #5: What Supplies Centripetal Force?
 
 A car turns on a level circular road without slipping. What force supplies the horizontal centripetal force?

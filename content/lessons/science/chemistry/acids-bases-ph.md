@@ -71,6 +71,7 @@ At $25\ ^\circ\mathrm C$, classify aqueous solutions with pH $2$, $7$, and $11$.
 2. pH $7$: neutral at $25\ ^\circ\mathrm C$.
 3. pH $11>7$: basic.
 
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"ph-scale","illustrationKey":"science/chemistry/acids-bases-ph#1","min":0,"max":14,"neutral":7,"regions":["acidic","neutral","basic"],"examples":[{"label":"lemon juice","ph":2},{"label":"pure water","ph":7},{"label":"soap","ph":10}]} -->
 ### #2: Comparing Hydronium Activity
 
 At the same temperature and under dilute conditions, solution A has pH $4$ and solution B pH $6$.

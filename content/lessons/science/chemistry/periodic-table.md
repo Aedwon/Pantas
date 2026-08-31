@@ -19,7 +19,7 @@ For **main-group elements**, group position is closely related to valence-shell 
 
 Elements are also broadly described as **metals**, **nonmetals**, and **metalloids**. These categories summarize patterns rather than rigidly defining every property. Metals are generally conductive and tend to form cations; nonmetals show a wider variety of physical properties and often form covalent bonds or anions; metalloids occupy a chemically intermediate region, but the exact membership of the metalloid category varies among references.
 
-<!-- ILLUSTRATION: periodic table highlighting broad metal, nonmetal, and commonly identified metalloid regions, with a note that the metalloid boundary is conventional -->
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"periodic-regions","illustrationKey":"science/chemistry/periodic-table#1","regions":[{"label":"metals","location":"left and center"},{"label":"nonmetals","location":"far right"},{"label":"metalloids","location":"staircase boundary"}]} -->
 
 ### Periodic Trends
 

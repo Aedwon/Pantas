@@ -31,6 +31,7 @@ $$a_{\text{avg}}=\frac{\Delta v}{\Delta t},$$
 
 and instantaneous acceleration is the rate at which velocity changes.
 
+<!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"accelerated-motion","illustrationKey":"science/physics/kinematics#1","path":"straight road","moments":3,"velocityTrend":"increasing","acceleration":"constant"} -->
 ### Constant-Acceleration Equations
 
 For **one-dimensional motion with constant acceleration** over the time interval considered:

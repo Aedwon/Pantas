@@ -26,7 +26,7 @@ The main phases are:
 
 **Cytokinesis** is the division of the cytoplasm. It overlaps with late mitosis but is technically distinct from mitosis itself.
 
-<!-- ILLUSTRATION: sequence showing prophase/prometaphase, metaphase, anaphase, telophase, and cytokinesis -->
+<!-- FIGURE: {"kind":"biology-diagram","type":"mitosis-stages","illustrationKey":"science/biology/cellular-reproduction#1","stages":[{"phase":"prophase","state":"condensing chromosomes"},{"phase":"metaphase","state":"chromosomes lined up in the middle"},{"phase":"anaphase","state":"chromosomes pulled to opposite ends"},{"phase":"telophase","state":"two forming nuclei"}]} -->
 
 ### Meiosis
 

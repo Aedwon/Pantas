@@ -43,7 +43,7 @@ $$\frac{V_1}{n_1}=\frac{V_2}{n_2}$$
 
 This statement assumes the gas is allowed to change volume so that pressure and temperature stay fixed; adding particles to a rigid vessel instead raises pressure.
 
-<!-- ILLUSTRATION: four containers illustrating P-V, V-T, P-T, and V-n relationships, with the quantities held constant labeled -->
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"gas-laws-gallery","illustrationKey":"science/chemistry/gas-laws#1","laws":[{"label":"Boyle's","scene":"piston compressed"},{"label":"Charles's","scene":"balloon expands when heated"},{"label":"Gay-Lussac's","scene":"sealed rigid can, pressure rises when heated"},{"label":"Avogadro's","scene":"container grows as more gas particles are added"}]} -->
 
 ### Combined and Ideal Gas Laws
 

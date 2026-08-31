@@ -19,7 +19,7 @@ Electrons should not be pictured as tiny planets following fixed classical orbit
 
 Protons and neutrons each have masses close to $1$ unified atomic mass unit ($u$); electron mass is much smaller, so nearly all ordinary atomic mass is concentrated in the nucleus.
 
-<!-- ILLUSTRATION: nucleus with protons/neutrons surrounded by a diffuse electron-density cloud rather than fixed planetary electron paths -->
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"atom-particles","illustrationKey":"science/chemistry/atomic-structure#1","nucleus":["proton (+)","neutron (neutral)"],"orbiting":["electron (-)"]} -->
 
 ### Atomic Number and Mass Number
 

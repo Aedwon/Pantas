@@ -35,7 +35,7 @@ $$F_B = \rho_{fluid}gV_{displaced}$$
 
 For a freely floating object in static equilibrium, the buoyant force equals the object's weight. Whether an object ultimately floats, sinks, or remains suspended depends on the balance of forces and, for simple freely immersed objects, on its average density relative to the fluid.
 
-<!-- ILLUSTRATION: two objects submerged in water, one less dense than water shown floating with a buoyant force arrow equal to its weight arrow, and one denser than water shown sinking with a buoyant force arrow smaller than its weight arrow -->
+<!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"buoyancy-comparison","illustrationKey":"science/physics/fluid-mechanics#1","cases":[{"state":"floating","density":"less dense than water","buoyantForce":"equal to weight"},{"state":"sinking","density":"denser than water","buoyantForce":"smaller than weight"}]} -->
 
 ### Bernoulli's Equation
 

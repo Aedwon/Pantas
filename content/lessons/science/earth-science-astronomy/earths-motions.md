@@ -17,7 +17,6 @@ Earth is constantly moving in several ways. The three motions emphasized here ar
 
 Earth rotates eastward, so the Sun, Moon, and stars appear to rise in the east and set in the west.
 
-<!-- ILLUSTRATION: Earth spinning counterclockwise when viewed from above the North Pole, with an arrow around the axis and the Sun illuminating one half, showing day and night -->
 
 ### Revolution and Seasons
 
@@ -25,14 +24,15 @@ Earth rotates eastward, so the Sun, Moon, and stars appear to rise in the east a
 
 Earth's axis is tilted about $23.4^\circ$ relative to the perpendicular to its orbital plane. This **axial tilt**, not Earth's changing distance from the Sun, is the main cause of the seasons. When the Northern Hemisphere is tilted more toward the Sun, it receives more direct sunlight and longer daylight, producing Northern Hemisphere summer while the Southern Hemisphere experiences winter. About half an orbit later, the situation reverses.
 
-<!-- ILLUSTRATION: four positions of Earth around the Sun showing the tilted axis staying nearly parallel to itself, labeled Northern Hemisphere summer, autumn, winter, and spring -->
 
 The Gregorian calendar normally has $365$ days. A year divisible by $4$ is usually a leap year, **except** century years are not leap years unless they are divisible by $400$. Thus $2000$ was a leap year, while $1900$ was not.
 
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"seasonal-orbit","illustrationKey":"science/earth-science-astronomy/earths-motions#1","earthPositions":4,"axisDirection":"constant","hemisphereTilt":["toward Sun","away from Sun"]} -->
 ### Precession
 
 **Precession** is the slow change in the direction of Earth's rotation axis, caused mainly by gravitational torques from the Moon and Sun acting on Earth's equatorial bulge. The axis traces out a cone over roughly $26{,}000$ years. Because of this, the identity of the star nearest the north celestial pole changes over very long timescales.
 
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"earth-motion-triptych","illustrationKey":"science/earth-science-astronomy/earths-motions#2","motions":[{"name":"rotation","effect":"day/night","motion":"spin on axis"},{"name":"revolution","effect":"seasons","motion":"orbit Sun with tilted axis"},{"name":"precession","effect":"axis wobble","motion":"slow wobble"}]} -->
 ## Examples
 
 ### #1: Rotation vs. Revolution
@@ -53,6 +53,7 @@ Why can the Northern Hemisphere experience summer while the Southern Hemisphere 
 3. At the same time, the Southern Hemisphere is tilted away, receiving less direct sunlight and shorter days.
 4. Six months later, the geometry is reversed.
 
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"seasonal-tilt-comparison","illustrationKey":"science/earth-science-astronomy/earths-motions#3","earthPositions":2,"axisTiltDegrees":23.5,"northernHemisphereStates":["toward Sun (summer)","away from Sun (winter)"],"sunlightAngles":"different"} -->
 ### #3: Leap-Year Check
 
 Which of these years are leap years in the Gregorian calendar: $2000$, $1900$, and $2024$?
@@ -82,6 +83,7 @@ Earth is actually closest to the Sun in early January, during Northern Hemispher
 
 The two values differ because Earth also moves along its orbit while it rotates.
 
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"sidereal-solar-day","illustrationKey":"science/earth-science-astronomy/earths-motions#4","earthPositions":2,"siderealReference":"distant stars","extraRotation":"a few extra degrees","result":"solar day slightly longer"} -->
 ### #3: “Every Four Years” Has a Century Exception
 
 > Gregorian leap years are not simply every fourth numbered year without exception.

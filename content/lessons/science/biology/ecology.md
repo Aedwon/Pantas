@@ -30,7 +30,7 @@ A **trophic level** describes an organism's feeding position:
 - **Secondary and higher consumers** feed on other consumers.
 - **Decomposers and detritivores** process dead organic matter and wastes and connect material cycles across trophic levels.
 
-<!-- ILLUSTRATION: energy pyramid with producers at the base and consumer levels above, labeled as an illustrative—not exact—energy-transfer pattern -->
+<!-- FIGURE: {"kind":"biology-diagram","type":"energy-pyramid","illustrationKey":"science/biology/ecology#1","levels":[{"label":"producers","energy":"100%"},{"label":"primary consumers","energy":"10%"},{"label":"secondary consumers","energy":"1%"},{"label":"tertiary consumers","energy":"0.1%"}]} -->
 
 Energy transfer between trophic levels is inefficient because organisms use much of the energy they acquire for metabolism, movement, maintenance, and other processes; some energy is also never eaten or is lost in waste. Much ultimately dissipates as heat.
 

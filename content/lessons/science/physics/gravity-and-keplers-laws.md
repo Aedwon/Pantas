@@ -17,8 +17,8 @@ $$F = G\dfrac{m_1 m_2}{r^2}$$
 
 where $m_1$ and $m_2$ are the two masses, $r$ is the distance between their centers, and $G$ is the universal gravitational constant. Notice the force depends on $r^2$ in the denominator: this is an **inverse-square law**. Double the distance, and the force drops to one-quarter its original strength.
 
-<!-- FIGURE: {"kind": "concept-diagram", "type": "gravitational-force", "masses": ["m1", "m2"], "distance": "r", "comparison": "2r (F/4)", "semanticsLabel": "Two spheres separated by distance r with inward gravity arrows, and a comparison at distance 2r with one fourth the force."} -->
 
+<!-- FIGURE: {"kind": "concept-diagram", "type": "gravitational-force", "masses": ["m1", "m2"], "distance": "r", "comparison": "2r (F/4)", "semanticsLabel": "Two spheres separated by distance r with inward gravity arrows, and a comparison at distance 2r with one fourth the force."} -->
 ### Kepler's Three Laws
 
 Using the careful observational data collected by Tycho Brahe, Johannes Kepler found mathematical patterns that describe planetary motion.
@@ -39,6 +39,7 @@ $$T^2 = \dfrac{4\pi^2}{GM}a^3$$
 
 Newton later showed that Kepler's laws follow from gravitational dynamics under the appropriate two-body approximation: Kepler established the empirical orbital patterns, and Newton supplied a dynamical explanation.
 
+<!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"kepler-equal-areas","illustrationKey":"science/physics/gravity-and-keplers-laws#2","orbit":"ellipse","sunPosition":"one focus","interval":"equal time","near":{"arc":"longer","speed":"faster"},"far":{"arc":"shorter","speed":"slower"},"areas":"equal"} -->
 ## Examples
 
 ### #1: Applying the Inverse-Square Law
@@ -58,7 +59,6 @@ $$3^2 = 9$$
 
 A planet's orbit is elliptical. At **perihelion** it is closest to the Sun; at **aphelion** it is farthest away. At which point does the planet move faster?
 
-<!-- ILLUSTRATION: an elliptical orbit with the Sun at one focus; perihelion marked close to the Sun with a long velocity arrow (fast) and aphelion marked far from the Sun with a short velocity arrow (slow) -->
 
 **Solution:**
 Apply Kepler's second law.
@@ -67,6 +67,7 @@ Apply Kepler's second law.
 2. Near perihelion, the planet must move through a longer arc in the same interval than it does near aphelion.
 3. Therefore the planet moves faster at perihelion and slower at aphelion.
 
+<!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"orbital-speed","illustrationKey":"science/physics/gravity-and-keplers-laws#3","orbit":"ellipse","sunPosition":"one focus","perihelion":{"distance":"near","velocityArrow":"long","speed":"fast"},"aphelion":{"distance":"far","velocityArrow":"short","speed":"slow"}} -->
 ### #3: Applying Kepler's Third Law
 
 Planet A and Planet B orbit the same star. Planet A's orbital period is $4$ times Planet B's. How does Planet A's semimajor axis compare with Planet B's?

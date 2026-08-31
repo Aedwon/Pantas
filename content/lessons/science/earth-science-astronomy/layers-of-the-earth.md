@@ -11,6 +11,7 @@ isActive: true
 
 Earth's interior is commonly divided by composition into the **crust, mantle, and core**. For an introductory four-layer model, the metallic core is separated into a liquid **outer core** and solid **inner core**.
 
+<!-- ILLUSTRATION: cutaway sphere of Earth showing four labeled layers from outside to center: thin crust, thick mantle, liquid outer core, solid inner core -->
 ### Crust
 
 The **crust** is Earth's thin outermost compositional layer. Oceanic crust averages only about $6$-$7$ km thick and is largely basaltic. Continental crust averages roughly $35$ km globally but varies substantially and can exceed $60$-$70$ km beneath major mountain belts; it is generally less dense and more silica-rich than oceanic crust.
@@ -23,8 +24,8 @@ The **mantle** extends from the base of the crust to about $2{,}900$ km depth an
 
 The **outer core** is mostly iron and nickel and is liquid. The **inner core** is also iron-rich but remains solid under enormous pressure despite its high temperature.
 
-<!-- ILLUSTRATION: cutaway cross-section of Earth labeled crust, mantle, liquid outer core, and solid inner core, with relative thicknesses shown -->
 
+<!-- ILLUSTRATION: a cutaway cross-section of Earth showing its four concentric layers labeled from outside in: crust, mantle, outer core, inner core -->
 ### How We Know
 
 Scientists infer Earth's deep structure mainly from **seismic waves**, gravity, magnetic observations, high-pressure experiments, and other geophysical evidence—not by drilling to the mantle or core.
@@ -45,6 +46,7 @@ Seismographs show that S waves do not pass through Earth's outer core, while P w
 2. The absence of transmitted S waves through the outer core is therefore strong evidence that the outer core is liquid.
 3. P-wave refraction and speed changes provide additional evidence about the core boundary and material properties.
 
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"seismic-core","illustrationKey":"science/earth-science-astronomy/layers-of-the-earth#3","sWaveBehavior":"stops at liquid outer core","pWaveBehavior":"bends through liquid outer core","shadowZone":"S-wave"} -->
 ### #2: Oceanic vs. Continental Crust
 
 Which is typically thinner: oceanic or continental crust?

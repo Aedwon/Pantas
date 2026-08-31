@@ -31,6 +31,7 @@ $$\vec J=\vec F_{\text{avg}}\Delta t.$$
 
 Therefore a fixed momentum change spread over a longer stopping time requires a smaller **average force magnitude**, which is one reason airbags, crumple zones, mats, and padded gloves can reduce peak/average impact forces. The actual force-time curve need not be constant.
 
+<!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"impulse-duration","illustrationKey":"science/physics/momentum-and-impulse#1","impulse":"same","cases":[{"surface":"hard surface","force":"large","time":"very short"},{"surface":"airbag","force":"smaller","time":"longer"}]} -->
 ### Conservation of Momentum
 
 For a system,

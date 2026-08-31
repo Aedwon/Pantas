@@ -27,7 +27,7 @@ When these conditions hold, advantageous heritable variants can become more comm
 
 Natural selection acts through differences among individuals, but **populations evolve**. An individual does not genetically evolve a needed trait during its lifetime because it wants or uses that trait more.
 
-<!-- ILLUSTRATION: several generations of a population showing a heritable variant becoming more frequent under a consistent selection pressure -->
+<!-- FIGURE: {"kind":"biology-diagram","type":"natural-selection-generations","illustrationKey":"science/biology/evolution#1","generations":3,"trait":"beak shape","selection":"better match to available food becomes more common","lessSuited":"rarer over time"} -->
 
 ### Speciation
 

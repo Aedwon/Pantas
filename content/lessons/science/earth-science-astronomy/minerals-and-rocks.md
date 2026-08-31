@@ -28,7 +28,7 @@ A **rock** is an aggregate of one or more minerals or other consolidated/undiffe
 
 **Metamorphic rocks** form when existing rock is changed by heat, pressure, and/or chemically active fluids **without wholesale melting**. Examples include limestone changing to marble, sandstone changing to quartzite, and shale changing to slate under suitable conditions.
 
-<!-- ILLUSTRATION: circular rock cycle diagram connecting magma/lava, igneous rock, sediment, sedimentary rock, and metamorphic rock, with arrows labeled cooling, weathering/erosion/deposition, compaction/cementation, heat/pressure, and melting -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"rock-cycle","illustrationKey":"science/earth-science-astronomy/minerals-and-rocks#1","stages":["magma","igneous rock","sediment","sedimentary rock","metamorphic rock"],"processes":[{"from":"magma","to":"igneous rock","label":"cooling"},{"from":"igneous rock","to":"sediment","label":"weathering"},{"from":"sediment","to":"sedimentary rock","label":"compacting"},{"from":"any rock","to":"metamorphic rock","label":"heat and pressure"},{"from":"any rock","to":"magma","label":"melting"}]} -->
 
 ### The Rock Cycle
 

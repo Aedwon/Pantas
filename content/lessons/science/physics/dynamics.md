@@ -23,8 +23,8 @@ More generally, Newton's second law is related to the rate of change of momentum
 
 **Third law:** if object A exerts a force on object B, object B simultaneously exerts an equal-magnitude, opposite-direction force on A. The two forces act on **different objects** and are the same interaction pair.
 
-<!-- ILLUSTRATION: free-body diagrams showing balanced forces on one object separately from a Newton-third-law pair acting on two different objects -->
 
+<!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"newton-laws","illustrationKey":"science/physics/dynamics#1","laws":[{"label":"first law","scene":"book motionless on table","relationship":"balanced forces"},{"label":"second law","scene":"hand pushing cart","relationship":"force arrow and acceleration arrow"},{"label":"third law","scene":"swimmer pushes water backward","relationship":"water pushes swimmer forward equally"}]} -->
 ### Common Forces
 
 **Weight:** near Earth's surface,
@@ -106,6 +106,7 @@ $$N-mg=0\Rightarrow N=mg.$$
 
 The equality follows from this **specific force balance**, not from the definition of normal force.
 
+<!-- FIGURE: {"kind": "concept-diagram", "type": "free-body", "forces": [{"label": "Normal Force (Fn)", "direction": "up"}, {"label": "Weight (Fg)", "direction": "down"}], "semanticsLabel": "A free body diagram of a box with an upward normal force arrow and an equal downward gravity arrow."} -->
 ## Speed Tricks & Shortcuts
 
 Draw a free-body diagram before writing $\sum\vec F=m\vec a$.

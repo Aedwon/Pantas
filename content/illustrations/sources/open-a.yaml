@@ -1,0 +1,18 @@
+version: 1
+assets:
+  - key: "science/chemistry/mixtures-and-separation#1"
+    sourcePage: "https://commons.wikimedia.org/wiki/File:Simple_distillation_apparatus.svg"
+    directUrl: "https://upload.wikimedia.org/wikipedia/commons/9/9c/Simple_distillation_apparatus.svg"
+    license: "Public domain"
+    creator: "Quantockgoblin, Slashme"
+    credit: "Quantockgoblin, Slashme / Wikimedia Commons / Public domain / changes made: added a visual vapor and condensate path overlay, converted to PNG, resized for lesson display, and provenance metadata added"
+    target: "content/illustrations/science/chemistry/mixtures-and-separation/01-distillation-setup-flask-being.png"
+    sha256: "a83f52755f9369b8c78309d6b8a6c1791733da81de11031ee98ab903c1df6eac"
+  - key: "science/chemistry/nuclear-chemistry#1"
+    sourcePage: "https://commons.wikimedia.org/wiki/File:Alfa_beta_gamma_radiation_penetration.svg"
+    directUrl: "https://upload.wikimedia.org/wikipedia/commons/6/61/Alfa_beta_gamma_radiation_penetration.svg"
+    license: "CC BY 2.5"
+    creator: "Stannered, Ehamberg"
+    credit: "Stannered, Ehamberg / Wikimedia Commons / CC BY 2.5 / changes made: converted to PNG, resized for lesson display, edited the gamma path to terminate at the lead shielding, and provenance metadata added"
+    target: "content/illustrations/science/chemistry/nuclear-chemistry/01-penetration-alpha-particle-stopped.png"
+    sha256: "e77c666f3e8024544da41ea4f9567db1e3a6cf80db73b05e9f2307d9ddabdacc"

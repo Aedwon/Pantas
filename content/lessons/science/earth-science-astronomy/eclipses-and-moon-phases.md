@@ -15,7 +15,7 @@ The Moon does not make its own light. We only see the half of the Moon that sunl
 
 One full cycle of phases, from one new moon to the next, takes about $29.5$ days (called a **synodic month**). The main phases in order: **new moon** (the sunlit side faces away from Earth, so the Moon looks dark), **waxing crescent**, **first quarter** (half lit), **waxing gibbous**, **full moon** (the whole sunlit side faces Earth), **waning gibbous**, **last quarter** (half lit), and **waning crescent**, before returning to new moon. "Waxing" means growing bigger; "waning" means shrinking smaller.
 
-<!-- ILLUSTRATION: Moon shown at eight positions in a circle around Earth, with the Sun's light coming from one side, and each position labeled with its phase name and how it appears from Earth -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"moon-phases","illustrationKey":"science/earth-science-astronomy/eclipses-and-moon-phases#1","moonPositions":8,"sunlightFrom":"one side","phaseNames":["new moon","waxing crescent","first quarter","waxing gibbous","full moon","waning gibbous","last quarter","waning crescent"],"showEarthView":true} -->
 
 ### Eclipses
 

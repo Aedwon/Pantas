@@ -19,7 +19,6 @@ Important evidence includes:
 - **Cosmic microwave background (CMB):** faint microwave radiation fills the sky and is interpreted as relic radiation from the hot early universe, released when the universe cooled enough for neutral atoms to form about $380{,}000$ years after the Big Bang.
 - **Primordial light elements:** the observed abundances of hydrogen, helium, and some lithium broadly match predictions of Big Bang nucleosynthesis.
 
-<!-- ILLUSTRATION: timeline of the expanding universe from a hot dense early state through nucleosynthesis, release of the cosmic microwave background, first stars and galaxies, to today's expanding universe; do not depict a bomb exploding into empty space -->
 
 The Big Bang model describes the universe's early evolution from a hot dense state. It does not by itself establish what, if anything, “caused” the Big Bang or what preceded the earliest times current physics can describe.
 
@@ -29,8 +28,8 @@ The leading **nebular model** says the Solar System began forming about **4.6 bi
 
 Most material collected at the center to form the young Sun. In the surrounding disk, dust and solid particles collided and accumulated into larger bodies such as planetesimals and planetary embryos. Continued accretion and dynamical interactions produced the planets, moons, asteroids, comets, and other Solar System bodies. The details of planet formation remain an active research field, so the textbook “nebular hypothesis” is a simplified model of a complex process.
 
-<!-- ILLUSTRATION: sequence showing a diffuse molecular cloud collapsing, flattening into a rotating protoplanetary disk with a young Sun at center, then planetesimals and planets forming from the disk -->
 
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"nebular-sequence","illustrationKey":"science/earth-science-astronomy/origin-of-the-universe#1","stages":["large slowly spinning cloud of gas and dust","flattened disk","bright center forming the Sun","small clumps forming planets along the disk"]} -->
 ## Examples
 
 ### #1: Big Bang Misconception

@@ -25,7 +25,7 @@ Common rhetorical devices include:
 - **Rhetorical question:** a question used mainly to prompt reflection or make a point rather than request a literal answer.
 - **Parallelism:** repeated grammatical or syntactic patterns that can create clarity, rhythm, or emphasis.
 
-<!-- ILLUSTRATION: a podium with three labeled arrows pointing outward toward an audience, labeled ethos (credibility), pathos (emotion), and logos (reason/evidence) -->
+<!-- FIGURE: {"kind":"reading-diagram","type":"rhetorical-appeals","illustrationKey":"reading-comprehension/text-types/speeches#1","source":"podium","target":"audience","appeals":[{"label":"ethos","meaning":"credibility"},{"label":"pathos","meaning":"emotion"},{"label":"logos","meaning":"logic"}]} -->
 
 ## Examples
 

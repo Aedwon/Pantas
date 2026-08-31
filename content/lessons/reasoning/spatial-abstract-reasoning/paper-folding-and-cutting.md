@@ -23,15 +23,14 @@ The final result depends on:
 
 For a small interior punch that passes through all $2^n$ layers and lies away from the fold lines, $2^n$ separate copies is a useful special case. If a cut lies **on a fold line**, reflected copies can meet and form one larger connected opening instead.
 
-<!-- FIGURE: {"kind": "paper-fold", "folds": ["vertical", "horizontal"], "cut": "notch", "at": "corner", "showUnfolded": true, "semanticsLabel": "A square folded twice with a cut, then unfolded by reflecting the cut across the horizontal and vertical fold lines."} -->
 
+<!-- FIGURE: {"kind": "paper-fold", "folds": ["vertical", "horizontal"], "cut": "notch", "at": "corner", "showUnfolded": true, "semanticsLabel": "A square folded twice with a cut, then unfolded by reflecting the cut across the horizontal and vertical fold lines."} -->
 ## Examples
 
 ### #1: Cut on One Fold Line
 
 A square is folded vertically in half. A triangular notch is cut **into the folded edge** at the midpoint. What happens when the paper is opened?
 
-<!-- FIGURE: {"kind": "paper-fold", "folds": ["vertical"], "cut": "notch", "at": "on-fold", "showUnfolded": true, "semanticsLabel": "A square folded vertically with a notch cut on the fold, then opened to show a single symmetric connected opening centered on the fold line."} -->
 
 **Solution:**
 
@@ -39,11 +38,11 @@ A square is folded vertically in half. A triangular notch is cut **into the fold
 2. Opening the paper reflects the notch across that line.
 3. The reflected halves meet at the fold, so they form **one symmetric connected opening**, not two separated holes.
 
+<!-- FIGURE: {"kind": "paper-fold", "folds": ["vertical"], "cut": "notch", "at": "on-fold", "showUnfolded": true, "semanticsLabel": "A square folded vertically with a notch cut on the fold, then opened to show a single symmetric connected opening centered on the fold line."} -->
 ### #2: Interior Hole Away from Two Fold Lines
 
 A square is folded vertically in half, then horizontally in half. A small circular hole is punched through all four layers at a point **away from both folded edges**. How many separate holes appear after unfolding?
 
-<!-- FIGURE: {"kind": "paper-fold", "folds": ["vertical", "horizontal"], "cut": "hole", "at": "interior", "showUnfolded": true, "semanticsLabel": "A square folded twice with an interior hole away from both folds, then opened to show four symmetrically placed holes."} -->
 
 **Solution:**
 
@@ -52,16 +51,17 @@ A square is folded vertically in half, then horizontally in half. A small circul
 3. Undoing the horizontal fold gives two holes; undoing the vertical fold reflects both again.
 4. The result is **four separate holes**, arranged symmetrically.
 
+<!-- FIGURE: {"kind": "paper-fold", "folds": ["vertical", "horizontal"], "cut": "hole", "at": "interior", "showUnfolded": true, "semanticsLabel": "A square folded twice with an interior hole away from both folds, then opened to show four symmetrically placed holes."} -->
 ### #3: Hole at the Intersection of Fold Lines
 
 Using the same two-fold setup, suppose a punch is made **exactly at the corner formed by both folded edges**, corresponding to the intersection of the two fold lines in the original sheet. What happens when unfolded?
 
-<!-- FIGURE: {"kind": "paper-fold", "folds": ["vertical", "horizontal"], "cut": "hole", "at": "fold-corner", "showUnfolded": true, "semanticsLabel": "A square folded twice with a cut at the intersection of both fold lines, then opened to show one symmetric opening centered at the intersection."} -->
 
 **Solution:**
 
 Reflecting the cut across either fold maps it onto itself at the intersection. The layers have all been cut, but the copies **coincide or connect at the center** rather than becoming four separated holes. The exact final outline depends on the cut's shape and how it intersects the folded edges.
 
+<!-- FIGURE: {"kind": "paper-fold", "folds": ["vertical", "horizontal"], "cut": "hole", "at": "fold-corner", "showUnfolded": true, "semanticsLabel": "A square folded twice with a cut at the intersection of both fold lines, then opened to show one symmetric opening centered at the intersection."} -->
 ### #4: Three Folds, Interior Punch
 
 A rectangular sheet is folded in half three times so the punched location contains all eight layers. A small circular punch is made through the interior of the folded packet, away from all fold lines. How many separate holes appear?
@@ -74,6 +74,7 @@ $$2^3=8,$$
 
 so unfolding produces **eight separate symmetric holes**.
 
+<!-- FIGURE: {"kind": "paper-fold", "folds": ["vertical", "horizontal", "vertical"], "cut": "hole", "at": "interior", "sheet": "rectangle", "showUnfolded": true, "semanticsLabel": "A rectangle folded three times with one cut through all eight layers, then opened to show eight evenly spaced holes."} -->
 ## Speed Tricks & Shortcuts
 
 **Undo folds in reverse order.** Reflect the cut across the last fold first, then the previous fold, until the sheet is fully opened.

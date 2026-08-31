@@ -23,8 +23,8 @@ If two tensioned rope segments support the moving load, the ideal mechanical adv
 
 Do **not** determine mechanical advantage merely by counting movable pulleys. Different arrangements with the same number of pulleys can have different numbers of supporting rope segments.
 
-<!-- FIGURE: {"kind": "pulley-system", "fixed": 1, "movable": 1, "comparison": true, "semanticsLabel": "Two ideal pulley setups: a single fixed pulley with mechanical advantage 1 and a movable-load setup supported by two rope segments with mechanical advantage 2."} -->
 
+<!-- FIGURE: {"kind": "pulley-system", "fixed": 1, "movable": 1, "comparison": true, "semanticsLabel": "Two ideal pulley setups: a single fixed pulley with mechanical advantage 1 and a movable-load setup supported by two rope segments with mechanical advantage 2."} -->
 ### Levers and Torque
 
 A **lever** is a rigid body that can rotate about a fulcrum or pivot. Rotational effect is measured by **torque**:
@@ -53,11 +53,11 @@ $$F=490\text{ N}.$$
 
 It changes the direction of the pull, not the ideal force magnitude.
 
+<!-- FIGURE: {"kind":"pulley-system","fixed":1,"movable":0,"semanticsLabel":"An ideal fixed pulley lifting a 490 N load; neglecting friction, the rope tension and required pull are 490 N, with the pulley changing direction only."} -->
 ### #2: Two Supporting Rope Segments
 
 A $60\text{ kg}$ mass is lifted by an ideal movable-pulley arrangement in which **two rope segments support the moving load**. Approximately what effort is required if $g=9.8\text{ m/s}^2$, and how much rope must be pulled to raise the load $2\text{ m}$?
 
-<!-- FIGURE: {"kind": "pulley-system", "fixed": 1, "movable": 1, "semanticsLabel": "An ideal movable pulley supporting a load with two rope segments; the free end moves twice the load distance."} -->
 
 **Solution:**
 
@@ -71,6 +71,7 @@ $$F_\text{effort}=588/2=294\text{ N}.$$
 
 3. The effort end must move twice the load distance, so raising the load $2\text{ m}$ requires pulling about $4\text{ m}$ of rope.
 
+<!-- FIGURE: {"kind": "pulley-system", "fixed": 1, "movable": 1, "semanticsLabel": "An ideal movable pulley supporting a load with two rope segments; the free end moves twice the load distance."} -->
 ### #3: Lever Balance
 
 A downward load force of $980\text{ N}$ acts $2\text{ m}$ from a fulcrum. A perpendicular effort force is applied $5\text{ m}$ from the fulcrum on the other side. What effort balances the lever?
@@ -81,6 +82,7 @@ $$F_e(5)=980(2)$$
 
 $$F_e=392\text{ N}.$$
 
+<!-- FIGURE: {"kind":"lever-balance","loadDistance":2,"effortDistance":5,"semanticsLabel":"A lever with a 980 N load acting 2 m from the fulcrum and a perpendicular effort applied 5 m away; torque balance requires 392 N of effort."} -->
 ### #4: Changing the Moment Arm
 
 If the same $980\text{ N}$ load is moved to $1\text{ m}$ from the fulcrum while the perpendicular effort remains applied $5\text{ m}$ away,
@@ -93,6 +95,7 @@ $$F_e=196\text{ N}.$$
 
 The shorter load arm reduces the balancing effort required.
 
+<!-- FIGURE: {"kind":"lever-balance","loadDistance":1,"effortDistance":5,"semanticsLabel":"The same 980 N load moved to 1 m from the fulcrum with the perpendicular effort still 5 m away; torque balance requires 196 N of effort."} -->
 ## Speed Tricks & Shortcuts
 
 **For ideal pulleys, count supporting rope segments—not pulleys.** Count the tensioned segments that directly support the moving load/block.

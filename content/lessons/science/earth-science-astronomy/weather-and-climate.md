@@ -21,7 +21,7 @@ The boundaries of atmospheric layers vary with latitude, season, and solar activ
 - **Thermosphere:** begins near $85$ km and extends hundreds of kilometers upward. Its few particles can have very high kinetic temperatures, but the gas is extremely thin. Auroras and many low-Earth-orbit spacecraft occur in this broad upper-atmosphere region.
 - **Exosphere:** the extremely tenuous outermost region, gradually merging with space; some satellites orbit here as well.
 
-<!-- ILLUSTRATION: vertical cross-section of the atmosphere showing troposphere, stratosphere with ozone layer, mesosphere with meteors, thermosphere with aurora/low-Earth-orbit spacecraft, and exosphere fading into space -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"atmosphere-layers","illustrationKey":"science/earth-science-astronomy/weather-and-climate#1","layersGroundUp":["troposphere","stratosphere","mesosphere","thermosphere","exosphere"],"ozoneLayerWithin":"stratosphere"} -->
 
 ### Philippine Monsoons and Tropical Cyclones
 

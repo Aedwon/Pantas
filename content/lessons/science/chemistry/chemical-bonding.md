@@ -19,7 +19,7 @@ Chemical bonds form when an arrangement of nuclei and electrons has lower energy
 
 **Metallic bonding** describes metal atoms/ions held together by delocalized valence electrons spread through the solid, helping explain electrical conductivity, thermal conductivity, and malleability.
 
-<!-- ILLUSTRATION: ionic lattice, covalent shared electron density, and metallic lattice with delocalized electron density -->
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"bond-types","illustrationKey":"science/chemistry/chemical-bonding#1","bondTypes":[{"label":"ionic","participants":["metal","nonmetal"],"electronAction":"transfer","result":"positive and negative ions"},{"label":"covalent","participants":["nonmetal","nonmetal"],"electronAction":"share a pair of electrons"},{"label":"metallic","participants":["metal atoms"],"electronAction":"sea of free-moving electrons"}]} -->
 
 ### Octet Rule and Its Limits
 

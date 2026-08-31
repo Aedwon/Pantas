@@ -33,12 +33,12 @@ In eukaryotic cells, **glycolysis** occurs in the cytosol, while pyruvate oxidat
 
 Not all energy metabolism requires oxygen. Some prokaryotes perform **anaerobic respiration** using final electron acceptors other than oxygen, and many organisms can use **fermentation** to keep glycolysis running when oxygen-dependent respiration is unavailable.
 
-<!-- ILLUSTRATION: cycle diagram showing a chloroplast using carbon dioxide, water, and light to build carbohydrate and release oxygen; a mitochondrion using organic fuel and oxygen for aerobic respiration; and a note that glycolysis occurs in the cytosol -->
 
 Photosynthesis and aerobic respiration have complementary overall inputs and outputs, but they are not simply the same chemical pathway run backward. They use different enzymes, intermediate reactions, membranes, and energy-coupling mechanisms.
 
 Plants perform both photosynthesis and cellular respiration. Photosynthesis requires light for its light-dependent reactions, while cellular respiration continues day and night as long as fuel and appropriate conditions are available.
 
+<!-- FIGURE: {"kind":"biology-diagram","type":"photosynthesis-respiration-cycle","illustrationKey":"science/biology/cellular-metabolism#1","photosynthesis":{"organelle":"chloroplast","inputs":["carbon dioxide","water","sunlight"],"outputs":["glucose","oxygen"]},"respiration":{"organelle":"mitochondrion","inputs":["glucose","oxygen"],"outputs":["carbon dioxide","water","ATP"]},"loopsBack":true} -->
 ## Examples
 
 ### #1: Matching Reactants and Products
@@ -64,6 +64,7 @@ In a plant cell, identify the organelle associated with photosynthesis and expla
 3. In eukaryotes, later stages of aerobic respiration occur in and across the mitochondrion.
 4. So "chloroplast = photosynthesis" is a useful shortcut, while "all respiration happens in mitochondria" is too broad.
 
+<!-- FIGURE: {"kind":"biology-diagram","type":"organelle-comparison","illustrationKey":"science/biology/cellular-metabolism#2","organelles":[{"name":"chloroplast","shape":"disc","appearance":"green","process":"photosynthesis"},{"name":"mitochondrion","shape":"bean","appearance":"folded inner membranes/cristae","process":"cellular respiration"}]} -->
 ### #3: The Connection Between the Two Processes
 
 Explain how photosynthesis and aerobic respiration are chemically connected at the ecosystem level.

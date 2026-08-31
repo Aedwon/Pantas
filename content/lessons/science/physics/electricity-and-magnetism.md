@@ -23,7 +23,7 @@ $$\vec E=\dfrac{\vec F}{q}$$
 
 Field lines point away from positive charges and toward negative charges. The field is a physical vector field, not a material substance surrounding the charge.
 
-<!-- ILLUSTRATION: two diagrams, one showing two positive charges with field lines pointing away from each and a repelling force arrow, one showing a positive and negative charge with field lines connecting them and an attracting force arrow -->
+<!-- FIGURE: {"kind":"physics-energy-diagram","type":"electric-field-pairs","illustrationKey":"science/physics/electricity-and-magnetism#1","cases":[{"charges":["positive","positive"],"fieldLines":"point away from each","force":"repel"},{"charges":["positive","negative"],"fieldLines":"connect positive to negative","force":"attract"}]} -->
 
 ### Ohm's Law
 
@@ -49,7 +49,7 @@ $$\frac{1}{R_{eq}}=\frac{1}{R_1}+\frac{1}{R_2}+\cdots$$
 
 The total current equals the sum of branch currents. Kirchhoff's junction and loop rules generalize these ideas to more complicated circuits.
 
-<!-- ILLUSTRATION: two simple circuit diagrams side by side, a series circuit showing a battery connected to two bulbs in a single loop one after another, and a parallel circuit showing a battery connected to two bulbs on separate side-by-side branches -->
+<!-- FIGURE: {"kind":"physics-energy-diagram","type":"series-parallel-circuit","illustrationKey":"science/physics/electricity-and-magnetism#2","bulbsPerCircuit":2,"seriesPath":"single loop one after another","parallelPath":"separate side-by-side branches","batteryShown":true} -->
 
 If a series component fails **open**, it breaks the only path and stops current everywhere. If one branch of a parallel circuit fails open, current can still flow through other complete branches. Real bulbs and devices are not always ideal resistors, so their brightness and current behavior can depend on source resistance and device characteristics.
 
@@ -81,7 +81,7 @@ $$F_{new}=\frac{F_{old}}{2^2}=\frac14F_{old}$$
 
 An ohmic resistor has resistance $10\ \Omega$ and carries a current of $2\text{ A}$. Find the potential difference across it.
 
-<!-- ILLUSTRATION: a simple circuit with a battery, a 10 ohm resistor, and a 2 A current arrow, with the voltage across the battery marked "?" -->
+<!-- FIGURE: {"kind":"physics-energy-diagram","type":"ohms-law-circuit","illustrationKey":"science/physics/electricity-and-magnetism#3","resistanceOhms":10,"currentAmps":2,"voltageLabel":"?"} -->
 
 **Solution:**
 
@@ -91,7 +91,7 @@ $$V=IR=(2)(10)=20\text{ V}$$
 
 Assume each bulb acts as a circuit element that fails by becoming an open circuit. In a two-bulb series circuit, one bulb fails. In a separate two-branch parallel circuit, one bulb fails. What happens to the other bulb?
 
-<!-- ILLUSTRATION: two circuits side by side: a series circuit with two bulbs on one loop (one burned out, the other goes dark) and a parallel circuit with two bulbs on separate branches (one burned out, the other stays lit) -->
+<!-- FIGURE: {"kind":"physics-energy-diagram","type":"circuit-failure","illustrationKey":"science/physics/electricity-and-magnetism#4","seriesOutcome":"other bulb goes dark","parallelOutcome":"other bulb stays lit","burnedOutBulbsPerCircuit":1} -->
 
 **Solution:**
 

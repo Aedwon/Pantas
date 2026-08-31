@@ -23,7 +23,7 @@ The **endoplasmic reticulum (ER)** is a membrane network. The rough ER, which ha
 
 The **Golgi apparatus** modifies, sorts, and packages proteins and lipids for delivery to different cellular destinations.
 
-<!-- ILLUSTRATION: labeled diagram of a generalized eukaryotic cell showing the nucleus, mitochondria, ribosomes, rough and smooth endoplasmic reticulum, and Golgi apparatus, with arrows suggesting protein movement from rough ER to Golgi -->
+<!-- FIGURE: {"kind":"biology-diagram","type":"cell-protein-flow","illustrationKey":"science/biology/cell-biology#1","labels":["nucleus","mitochondria","ribosomes","rough ER","smooth ER","Golgi apparatus"],"proteinFlow":["ribosomes","rough ER","Golgi apparatus"]} -->
 
 ### Typical Plant vs. Animal Cells
 

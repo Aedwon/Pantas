@@ -25,8 +25,9 @@ Seafloor spreading is a central **process and observation** in plate tectonics, 
 - **Convergent boundary:** plates move toward each other; oceanic lithosphere may subduct, or continental plates may collide.
 - **Transform boundary:** plates slide laterally past one another; crust is neither systematically created nor destroyed along the transform itself.
 
-<!-- ILLUSTRATION: three-panel diagram of divergent, convergent/subduction, and transform plate boundaries with arrows showing relative motion -->
 
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"plate-boundary-comparison","illustrationKey":"science/earth-science-astronomy/plate-tectonics#1","boundaries":[{"name":"divergent","motion":"plates moving apart","state":"magma rising"},{"name":"convergent","motion":"plates moving together","state":"one plate sliding under another"},{"name":"transform","motion":"plates sliding past each other horizontally","state":"sideways motion"}]} -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"transform-boundary","illustrationKey":"science/earth-science-astronomy/plate-tectonics#2","plateMotion":"opposite horizontal directions","faultLine":true,"earthquakeSymbols":true} -->
 ### Subduction and Volcanism
 
 At many subduction zones, the descending oceanic plate carries water-bearing minerals downward. Released water and other volatiles lower the melting temperature of hot mantle rock above the slab, promoting **partial melting in the mantle wedge**. The resulting magma can rise and feed volcanic arcs.
@@ -43,6 +44,7 @@ A **fault** is a fracture or zone of fractures along which rocks have moved. Ear
 
 Earthquake foci at subduction zones can extend from shallow to great depths along the descending slab, producing a Wadati-Benioff zone.
 
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"seismograph-arrivals","illustrationKey":"science/earth-science-astronomy/plate-tectonics#3","firstArrival":"P wave","secondArrival":"S wave","timeGapMeaning":"proportional to distance"} -->
 ## Examples
 
 ### #1: Magnetic Stripes

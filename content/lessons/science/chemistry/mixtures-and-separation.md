@@ -33,7 +33,7 @@ When a liquid mixture is heated, more than one volatile component can enter the 
 
 Some mixtures form **azeotropes**, whose vapor and liquid compositions become equal at a particular composition, limiting separation by ordinary distillation. Thus, saying distillation always produces perfectly pure components is incorrect.
 
-<!-- ILLUSTRATION: simple and fractional distillation setups, with vapor labeled as enriched in the more volatile component rather than pure by definition -->
+<!-- ILLUSTRATION: distillation setup showing a flask being heated, vapor rising and traveling through a cooling tube, then dripping into a separate collection container -->
 
 ### Chromatography
 

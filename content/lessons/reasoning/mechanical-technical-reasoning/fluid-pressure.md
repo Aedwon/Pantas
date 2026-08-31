@@ -25,8 +25,8 @@ So, within the **same static fluid under the same surface pressure**, a deeper p
 
 If connected vessels contain the **same liquid**, are open to the **same atmospheric pressure**, and reach static equilibrium, their free surfaces settle at the same elevation. Different liquids, sealed surfaces, capillary effects, or unequal applied pressures can produce different levels.
 
-<!-- FIGURE: {"kind": "fluid-vessel", "vessel": "connected", "columns": 2, "semanticsLabel": "Two differently shaped open vessels connected at the bottom and containing the same liquid at equilibrium, with equal free-surface elevations."} -->
 
+<!-- FIGURE: {"kind": "fluid-vessel", "vessel": "connected", "columns": 2, "semanticsLabel": "A U-shaped tube with two containers of different widths connected at the bottom, with water surface level exactly equal in both."} -->
 ### Continuity in a Pipe
 
 For steady incompressible flow through one unbranched pipe,
@@ -53,6 +53,7 @@ Point A and Point B lie in the same container of water at rest, both exposed ult
 
 Since $P=P_0+\rho gh$, **B** has greater pressure.
 
+<!-- FIGURE: {"kind": "fluid-vessel", "vessel": "column", "points": ["A", "B"], "semanticsLabel": "A water-filled container with Point A marked near the surface and Point B near the bottom, where deeper Point B experiences greater pressure."} -->
 ### #2: Communicating Vessels
 
 A wide arm and narrow arm are connected at the bottom, contain the same water, and are both open to the atmosphere. After equilibrium, which free surface is higher?
@@ -61,6 +62,7 @@ A wide arm and narrow arm are connected at the bottom, contain the same water, a
 
 Neither. Under these conditions, the free surfaces settle at the **same elevation**.
 
+<!-- FIGURE: {"kind": "fluid-vessel", "vessel": "connected", "columns": 2, "semanticsLabel": "A U-shaped tube with a wide arm and a narrow arm, both open at the top, with water settled at the same level in both arms."} -->
 ### #3: Narrowing Pipe
 
 Water flows steadily through an unbranched pipe that narrows. How does average speed change?
@@ -73,6 +75,7 @@ $$A_1v_1=A_2v_2.$$
 
 The narrower section has the **higher average speed**.
 
+<!-- FIGURE: {"kind": "fluid-vessel", "vessel": "pipe", "widths": [3, 1], "semanticsLabel": "A pipe narrowing from a wide section to a narrow section with fluid flowing through, moving slower in the wide section and faster in the narrow section."} -->
 ### #4: Same-Height Ideal Bernoulli Comparison
 
 In the same ideal horizontal pipe, one section is wider/slower and another is narrower/faster. Ignoring viscosity and losses, which section has lower static pressure?
@@ -81,6 +84,7 @@ In the same ideal horizontal pipe, one section is wider/slower and another is na
 
 At equal height, Bernoulli's equation gives lower static pressure in the **faster, narrower** section.
 
+<!-- FIGURE: {"kind": "fluid-vessel", "vessel": "pipe", "widths": [3, 1], "semanticsLabel": "A narrowing pipe with higher pressure in the wide slow section and lower pressure in the narrow fast section."} -->
 ## Speed Tricks & Shortcuts
 
 **Hydrostatics:** compare depth only after confirming the same fluid and comparable surface pressure.

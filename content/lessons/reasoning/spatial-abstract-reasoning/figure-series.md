@@ -21,10 +21,10 @@ Break each figure into features and track them separately:
 - count of dots/marks;
 - symmetry or other relationships among parts.
 
-<!-- FIGURE: {"kind": "figure-series", "items": [{"form": "square", "dot": "top-left"}, {"form": "square", "dot": "top-right"}, {"form": "square", "dot": "bottom-right"}, {"form": "square", "dot": "bottom-left"}], "blank": false, "semanticsLabel": "A series of four squares with a dot moving clockwise through the corners."} -->
 
 A series can combine independent feature changes. Verify a candidate rule against **every shown transition** and use the answer choices to resolve ambiguity.
 
+<!-- FIGURE: {"kind": "figure-series", "items": [{"form": "square", "dot": "top-left"}, {"form": "square", "dot": "top-right"}, {"form": "square", "dot": "bottom-right"}, {"form": "square", "dot": "bottom-left"}], "blank": false, "semanticsLabel": "A series of four squares with a dot moving clockwise through the corners."} -->
 ## Examples
 
 ### #1: Rotation
@@ -35,6 +35,7 @@ A marked line points up, then upper-right, then right. Which next orientation fo
 
 The line rotates $45^\circ$ clockwise each step, so the intended next orientation is **lower-right**.
 
+<!-- FIGURE: {"kind": "figure-series", "items": [{"form": "square", "line": 0}, {"form": "square", "line": 45}, {"form": "square", "line": 90}], "blank": true, "semanticsLabel": "A series of three squares with rotating lines at 0, 45, and 90 degrees, followed by an empty frame."} -->
 ### #2: Number of Sides
 
 Triangle → square → pentagon. What is the intended next figure?
@@ -43,6 +44,7 @@ Triangle → square → pentagon. What is the intended next figure?
 
 The simple count pattern is $3,4,5$, so the intended continuation is a **hexagon** with 6 sides.
 
+<!-- FIGURE: {"kind": "figure-series", "items": [{"form": "triangle"}, {"form": "square"}, {"form": "pentagon"}], "blank": true, "semanticsLabel": "A series of shapes with increasing sides: triangle, square, and pentagon, followed by an empty frame."} -->
 ### #3: Alternating Fill
 
 Black circle → white circle → black circle.
@@ -51,6 +53,7 @@ Black circle → white circle → black circle.
 
 The fill alternates, so the intended next figure is a **white circle**.
 
+<!-- FIGURE: {"kind": "figure-series", "items": [{"form": "circle", "fill": "black"}, {"form": "circle", "fill": "white"}, {"form": "circle", "fill": "black"}], "blank": true, "semanticsLabel": "A series of three circles alternating between black and white, followed by an empty frame."} -->
 ### #4: Two Feature Tracks
 
 Small black triangle → medium white triangle → large black triangle.
@@ -61,6 +64,7 @@ One feature increases in size; another alternates black/white. Continuing both g
 
 Avoid inventing an undefined category such as "extra large" unless the diagram or choices establish it.
 
+<!-- FIGURE: {"kind": "figure-series", "items": [{"form": "triangle", "size": "small", "fill": "black"}, {"form": "triangle", "size": "medium", "fill": "white"}, {"form": "triangle", "size": "large", "fill": "black"}], "blank": true, "semanticsLabel": "A series of three growing triangles alternating between black and white, followed by an empty frame."} -->
 ## Speed Tricks & Shortcuts
 
 **Track one feature at a time.** Separate orientation, count, fill, size, and position before combining them.

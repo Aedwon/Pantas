@@ -82,7 +82,7 @@ Classify each wave: (a) sound traveling through air; (b) sunlight traveling thro
 
 An ambulance siren sounds higher in pitch while approaching a stationary observer and lower after receding. Explain why.
 
-<!-- ILLUSTRATION: a moving ambulance with sound wavefronts bunched together (shorter wavelength, higher pitch) ahead of it and spread apart (longer wavelength, lower pitch) behind it -->
+<!-- FIGURE: {"kind":"physics-energy-diagram","type":"doppler-ambulance","illustrationKey":"science/physics/waves-and-sound#4","source":"moving ambulance","ahead":{"wavelength":"shorter","pitch":"higher"},"behind":{"wavelength":"longer","pitch":"lower"}} -->
 
 **Solution:**
 

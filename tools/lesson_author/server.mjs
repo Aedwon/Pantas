@@ -1,8 +1,8 @@
 // Local lesson authoring server. Serves the single-page UI and reads/writes
-// lesson Markdown files under content/lessons/. No runtime dependencies;
-// marked and katex are vendored from node_modules for the browser only.
+// lesson Markdown files under content/lessons/. Review interfaces remain local
+// and never upload, push, or write to Sanity.
 import { createServer } from 'node:http';
-import { readFile, writeFile, mkdir, access } from 'node:fs/promises';
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { spawn } from 'node:child_process';
 import { dirname, join, normalize } from 'node:path';
@@ -12,6 +12,29 @@ const PORT = 4321;
 const toolDir = dirname(fileURLToPath(import.meta.url));
 const repoRoot = join(toolDir, '..', '..');
 const contentRoot = join(repoRoot, 'content', 'lessons');
+let previewRebuildPromise = null;
+
+if (!existsSync(join(toolDir, 'node_modules', 'yaml', 'package.json'))) {
+  console.log('Installing Lesson Author dependencies (marked, katex, yaml)...');
+  await new Promise((resolveInstall, rejectInstall) => {
+    const npm = spawn('npm', ['install', '--no-audit', '--no-fund'], {
+      cwd: toolDir,
+      stdio: 'inherit',
+    });
+    npm.on('close', (code) =>
+      code === 0
+        ? resolveInstall()
+        : rejectInstall(new Error(`npm install failed (exit ${code})`)),
+    );
+  });
+}
+
+const {
+  IllustrationReviewError,
+  loadIllustrationCatalog,
+  resolveIllustrationPreviewFile,
+  saveIllustrationReview,
+} = await import('./illustration_review.mjs');
 
 const outline = JSON.parse(await readFile(join(toolDir, 'outline.json'), 'utf8'));
 
@@ -84,6 +107,10 @@ function parseLessonFile(raw) {
 
 const staticRoutes = {
   '/': { file: join(toolDir, 'public', 'index.html'), type: 'text/html; charset=utf-8' },
+  '/illustration_review.mjs': {
+    file: join(toolDir, 'public', 'illustration_review.mjs'),
+    type: 'text/javascript; charset=utf-8',
+  },
   '/outline.json': { file: join(toolDir, 'outline.json'), type: 'application/json' },
   '/prompt_template.md': {
     file: join(toolDir, 'prompt_template.md'),
@@ -195,15 +222,60 @@ async function saveLesson(payload) {
 }
 
 function readBody(req) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolveBody, rejectBody) => {
     let data = '';
     req.on('data', (chunk) => {
       data += chunk;
-      if (data.length > 5_000_000) reject(new Error('Payload too large'));
+      if (data.length > 5_000_000) rejectBody(new Error('Payload too large'));
     });
-    req.on('end', () => resolve(data));
-    req.on('error', reject);
+    req.on('end', () => resolveBody(data));
+    req.on('error', rejectBody);
   });
+}
+
+async function rebuildIllustrationPreviews() {
+  if (previewRebuildPromise) {
+    throw new IllustrationReviewError('An illustration preview rebuild is already running.', 409);
+  }
+  previewRebuildPromise = new Promise((resolveBuild, rejectBuild) => {
+    const child = spawn(
+      'flutter',
+      [
+        'test',
+        'tools/lesson_author/render_illustration_previews_test.dart',
+        '--reporter',
+        'compact',
+      ],
+      { cwd: repoRoot, stdio: ['ignore', 'pipe', 'pipe'] },
+    );
+    let output = '';
+    const append = (chunk) => {
+      output += chunk.toString();
+      if (output.length > 200_000) output = output.slice(-200_000);
+    };
+    child.stdout.on('data', append);
+    child.stderr.on('data', append);
+    child.on('error', (error) => {
+      rejectBuild(
+        new IllustrationReviewError(
+          `Preview build could not start: ${error.message}`,
+          500,
+        ),
+      );
+    });
+    child.on('close', (code) => {
+      if (code === 0) {
+        resolveBuild({ rebuilt: true, output: output.trim() });
+      } else {
+        rejectBuild(new IllustrationReviewError(`Preview build failed (exit ${code}).`, 500));
+      }
+    });
+  });
+  try {
+    return await previewRebuildPromise;
+  } finally {
+    previewRebuildPromise = null;
+  }
 }
 
 const server = createServer(async (req, res) => {
@@ -223,6 +295,35 @@ const server = createServer(async (req, res) => {
         file: join(toolDir, 'node_modules', 'katex', 'dist', 'fonts', name),
         type: fontTypes[ext] ?? 'application/octet-stream',
       });
+    }
+    if (req.method === 'GET' && url.pathname === '/api/illustrations') {
+      return sendJson(res, 200, await loadIllustrationCatalog({ repoRoot }));
+    }
+    if (req.method === 'POST' && url.pathname === '/api/illustration-review') {
+      const payload = JSON.parse(await readBody(req));
+      const item = await saveIllustrationReview({
+        repoRoot,
+        key: payload.key,
+        status: payload.status,
+        notes: payload.notes ?? '',
+        observedDigest: payload.observedDigest,
+      });
+      return sendJson(res, 200, item);
+    }
+    if (req.method === 'POST' && url.pathname === '/api/illustration-previews/rebuild') {
+      return sendJson(res, 200, await rebuildIllustrationPreviews());
+    }
+    if (req.method === 'GET' && url.pathname === '/api/illustration-preview') {
+      const key = url.searchParams.get('key') ?? '';
+      const theme = url.searchParams.get('theme') ?? '';
+      const file = await resolveIllustrationPreviewFile({ repoRoot, key, theme });
+      const data = await readFile(file);
+      res.writeHead(200, {
+        'Content-Type': 'image/png',
+        'Content-Length': data.length,
+        'Cache-Control': 'no-store',
+      });
+      return res.end(data);
     }
     if (req.method === 'GET' && url.pathname === '/api/lessons') {
       return sendJson(res, 200, await lessonStatuses());
@@ -245,22 +346,10 @@ const server = createServer(async (req, res) => {
     res.writeHead(404);
     res.end('Not found');
   } catch (error) {
-    sendJson(res, 500, { error: String(error?.message ?? error) });
+    const status = error instanceof IllustrationReviewError ? error.statusCode : 500;
+    sendJson(res, status, { error: String(error?.message ?? error) });
   }
 });
-
-if (!existsSync(join(toolDir, 'node_modules'))) {
-  console.log('First run: installing dependencies (marked, katex)...');
-  await new Promise((resolve, reject) => {
-    const npm = spawn('npm', ['install', '--no-audit', '--no-fund'], {
-      cwd: toolDir,
-      stdio: 'inherit',
-    });
-    npm.on('close', (code) =>
-      code === 0 ? resolve() : reject(new Error(`npm install failed (exit ${code})`)),
-    );
-  });
-}
 
 server.on('error', (error) => {
   if (error.code === 'EADDRINUSE') {

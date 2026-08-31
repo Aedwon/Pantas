@@ -11,10 +11,10 @@ isActive: true
 
 In the common exam-style setup of **ordinary external gears** whose teeth mesh on their outside edges, two directly meshing gears rotate in opposite directions. If one turns clockwise, the other turns counterclockwise.
 
-<!-- FIGURE: {"kind": "gear-train", "gears": 3, "firstTurns": "clockwise", "semanticsLabel": "A row of three ordinary external meshing gears: first clockwise, second counter-clockwise, third clockwise."} -->
 
 For a simple line of external gears, direction therefore alternates at every mesh. With gears numbered from the input gear, odd positions rotate in the input gear's direction and even positions rotate opposite it.
 
+<!-- FIGURE: {"kind": "gear-train", "gears": 3, "firstTurns": "clockwise", "semanticsLabel": "A row of three meshing gears in a line, showing alternating direction with the first turning clockwise, second counter-clockwise, and third clockwise."} -->
 ### Speed Ratio
 
 At an ideal gear mesh, the tangential speeds at the contact point match. For compatible gears with tooth counts $N_1$ and $N_2$,
@@ -42,10 +42,12 @@ Three ordinary external gears mesh in a row. Gear 1 turns clockwise. What direct
 
 Gear 1 clockwise → Gear 2 counter-clockwise → Gear 3 clockwise. Gear 3 turns **clockwise**.
 
+<!-- FIGURE: {"kind": "gear-train", "gears": 3, "firstTurns": "clockwise", "semanticsLabel": "Three meshing gears in a row with gear 1 turning clockwise, gear 2 counter-clockwise, and gear 3 turning clockwise."} -->
 ### #2: Five External Gears
 
 Five external gears mesh in a row. Gear 1 turns counter-clockwise. Gear 5 is four meshes away, so the direction has reversed an even number of times. Gear 5 turns **counter-clockwise**.
 
+<!-- FIGURE: {"kind": "gear-train", "gears": 5, "firstTurns": "counter-clockwise", "semanticsLabel": "Five meshing gears in a row with gear 1 turning counter-clockwise and alternating direction down the chain to gear 5 turning counter-clockwise."} -->
 ### #3: Tooth-Count Ratio
 
 A 10-tooth external gear meshes with a 30-tooth external gear. If the 10-tooth gear completes 6 rotations, how many rotations does the 30-tooth gear complete?
@@ -60,10 +62,12 @@ $$n=2.$$
 
 The larger gear makes **2 rotations**, in the opposite direction.
 
+<!-- FIGURE: {"kind": "gear-train", "gears": 2, "showFirstTurn": false, "teeth": [10, 30], "semanticsLabel": "A small 10-tooth gear meshing with a large 30-tooth gear, where the small gear turns 6 times while the large gear turns 2 times."} -->
 ### #4: Several External Gears Around One Hub
 
 A central external gear meshes separately with three outer external gears that do not touch one another. If the center turns clockwise, each outer gear turns **counter-clockwise** because each has one external mesh with the center.
 
+<!-- FIGURE: {"kind": "gear-train", "gears": 4, "firstTurns": "clockwise", "layout": "spokes", "semanticsLabel": "A central gear turning clockwise meshing separately with three outer gears arranged like spokes, all turning counter-clockwise."} -->
 ## Speed Tricks & Shortcuts
 
 **First identify the connection.** External mesh, internal mesh, and same-shaft mounting do not use the same direction rule.

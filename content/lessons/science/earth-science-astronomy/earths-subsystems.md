@@ -27,7 +27,7 @@ The **atmosphere** is the envelope of gases surrounding Earth. It contains the a
 
 The **biosphere** encompasses living organisms and the regions and ecosystems in which life occurs. Life exists on land, in water, and in parts of the atmosphere and subsurface, which is one reason sphere boundaries overlap.
 
-<!-- ILLUSTRATION: Earth divided into four interacting spheres with arrows between them: solid land/rock for lithosphere or geosphere, oceans and water for hydrosphere, air and clouds for atmosphere, and plants/animals/microbes for biosphere -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"earth-subsystems","illustrationKey":"science/earth-science-astronomy/earths-subsystems#1","features":[{"label":"lithosphere","feature":"rocky ground"},{"label":"hydrosphere","feature":"ocean water"},{"label":"atmosphere","feature":"surrounding air"},{"label":"biosphere","feature":"plants/animals living across all three"}]} -->
 
 The central Earth-system idea is **interaction**. A volcanic eruption (geosphere/lithosphere) releases gases and particles into the atmosphere. Rain (atmosphere/hydrosphere) weathers rock (geosphere). Plants (biosphere) draw water from soil and return water vapor to the atmosphere. Ocean organisms connect the biosphere and hydrosphere. A single real-world object or process can therefore involve several spheres at once.
 

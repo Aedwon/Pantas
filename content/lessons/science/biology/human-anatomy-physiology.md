@@ -27,7 +27,7 @@ The heart and blood vessels transport blood, gases, nutrients, hormones, heat, a
 
 **Pulmonary circulation** carries blood between heart and lungs. **Systemic circulation** carries blood between heart and the rest of the body. Direction relative to the heart—not oxygen content—defines arteries and veins.
 
-<!-- ILLUSTRATION: simplified four-chamber heart with pulmonary and systemic flow arrows -->
+<!-- FIGURE: {"kind":"biology-diagram","type":"heart-circulation","illustrationKey":"science/biology/human-anatomy-physiology#1","layout":"atria-above-ventricles","chambers":["atrium","atrium","ventricle","ventricle"],"flows":[{"label":"pulmonary","destination":"lungs"},{"label":"systemic","destination":"body"}]} -->
 
 ### Nervous System
 

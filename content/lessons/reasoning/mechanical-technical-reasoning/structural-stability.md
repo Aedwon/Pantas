@@ -13,8 +13,8 @@ An object's **center of gravity** is the point through which the resultant gravi
 
 An object's **base of support** is the region bounded by its supporting contact points with the ground or another surface.
 
-<!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "pyramid", "baseWidth": 3, "height": 1}, {"form": "pyramid", "baseWidth": 1, "height": 3, "tilt": 18}], "semanticsLabel": "A short wide object and a tall narrow object with center-of-gravity projections shown relative to their bases of support."} -->
 
+<!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "pyramid", "baseWidth": 3, "height": 1}, {"form": "pyramid", "baseWidth": 1, "height": 3, "tilt": 18}], "semanticsLabel": "A short wide object and a tall narrow object with center-of-gravity projections shown relative to their bases of support."} -->
 ### Static Tipping Test
 
 For a rigid object at rest or tilted slowly on a level support, a useful stability test is the vertical projection of its center of gravity:
@@ -37,6 +37,7 @@ A short, wide uniform object and a tall, narrow uniform object have comparable s
 
 The short, wide object generally has both a lower center of gravity and a wider support base, so a larger tilt is required before the weight's line of action passes the support edge. It is **more statically stable** under the stated comparison.
 
+<!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "pyramid", "baseWidth": 3, "height": 1}, {"form": "pyramid", "baseWidth": 1, "height": 3}], "semanticsLabel": "A short wide pyramid beside a tall narrow pyramid, each with its center of gravity marked, showing the short wide pyramid is more stable."} -->
 ### #2: Tipping a Box Slowly
 
 A rectangular box is tilted slowly about one lower edge. When does it pass the tipping threshold?
@@ -45,6 +46,7 @@ A rectangular box is tilted slowly about one lower edge. When does it pass the t
 
 At the threshold, the vertical line through its center of gravity passes through the pivot/support edge. Once the line moves outside the support region, gravity produces a torque that tends to rotate the box farther over.
 
+<!-- FIGURE: {"kind": "stability-shape", "tilt": 22, "shapes": [{"form": "box", "baseWidth": 2, "height": 3}], "semanticsLabel": "A rectangular box tilted on one edge with a vertical plumb line dropped from its center of gravity to show tipping."} -->
 ### #3: Cargo in a Turning Truck
 
 The same truck carries the same mass of cargo either stacked high or secured lower in the vehicle. Which arrangement generally improves rollover stability in a turn?
@@ -53,6 +55,7 @@ The same truck carries the same mass of cargo either stacked high or secured low
 
 The **lower cargo arrangement** lowers the combined center of mass. During lateral acceleration, this reduces the overturning tendency/load transfer for otherwise comparable conditions. This is a dynamic situation, so turning speed, track width, suspension, road slope, and tire forces also matter.
 
+<!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "truck", "baseWidth": 2, "height": 3}, {"form": "truck", "baseWidth": 3, "height": 1}], "semanticsLabel": "Two truck cargo profiles: one with cargo stacked tall giving a high center of gravity, and one with cargo spread low giving a low center of gravity."} -->
 ### #4: Wider Stance
 
 A person stands first with feet close together, then with feet farther apart. Which stance generally gives a larger base of support against a slow sideways disturbance?
@@ -61,6 +64,7 @@ A person stands first with feet close together, then with feet farther apart. Wh
 
 The wider stance gives the center-of-gravity projection more room to shift before crossing the base boundary, so it generally improves quasi-static sideways stability.
 
+<!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "person", "baseWidth": 1, "height": 3}, {"form": "person", "baseWidth": 3, "height": 3}], "semanticsLabel": "Two stances comparing base of support width: feet close together with a narrow base, and feet spread wide with a wider, more stable base."} -->
 ## Speed Tricks & Shortcuts
 
 **For static problems, draw the weight line.** Project the center of gravity vertically toward the support and compare it with the support boundary.

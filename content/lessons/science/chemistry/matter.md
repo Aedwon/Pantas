@@ -30,7 +30,7 @@ The three familiar bulk states are:
 
 A common fourth state is **plasma**, an ionized gas containing charged particles. Plasmas occur in stars, lightning, fluorescent lamps, and many other settings. High temperature is one way to create a plasma, but "superheated gas" is not its definition.
 
-<!-- ILLUSTRATION: particle models of a crystalline solid, liquid, gas, and ionized plasma, with a note that not every solid forms a perfect lattice -->
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"particle-states","illustrationKey":"science/chemistry/matter#1","states":[{"label":"solid","arrangement":"tightly packed fixed grid"},{"label":"liquid","arrangement":"close together disordered"},{"label":"gas","arrangement":"spread far apart moving freely"}]} -->
 
 ### Phase Changes
 

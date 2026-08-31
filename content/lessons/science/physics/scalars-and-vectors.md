@@ -19,6 +19,7 @@ Whether a quantity is a vector is a property of the **physical quantity**, not s
 
 Vectors are commonly represented by arrows, with arrow direction representing vector direction and arrow length representing magnitude according to a chosen scale.
 
+<!-- FIGURE: {"kind": "concept-diagram", "type": "vector-diagram", "vectors": [{"label": "5 N East", "angle": 0, "magnitude": 5}, {"label": "8 N Northeast", "angle": 45, "magnitude": 8}], "semanticsLabel": "Two vector arrows comparing a 5 N force pointing east and an 8 N force pointing northeast."} -->
 ### Adding Vectors
 
 Vector addition is performed component-wise or geometrically.
@@ -73,6 +74,7 @@ $$R=\sqrt{3^2+4^2}=5\,\mathrm{km}.$$
 
 The **displacement magnitude** is $5$ km. The **distance traveled** is $3+4=7$ km. These are different quantities.
 
+<!-- FIGURE: {"kind": "concept-diagram", "type": "vector-addition", "components": [{"label": "3 km East", "dx": 3, "dy": 0}, {"label": "4 km North", "dx": 0, "dy": 4}], "resultant": {"label": "5 km Resultant", "dx": 3, "dy": 4}, "semanticsLabel": "A vector addition right triangle with 3 km east, 4 km north, and a 5 km resultant hypotenuse."} -->
 ### #3: Components
 
 A $10\,\mathrm N$ force acts $30^\circ$ above the positive horizontal axis.
@@ -83,6 +85,7 @@ $$F_y=10\sin30^\circ=5\,\mathrm N$$
 
 Both components are positive because the vector lies in quadrant I.
 
+<!-- FIGURE: {"kind": "concept-diagram", "type": "vector-components", "magnitude": 10, "angle": 30, "unit": "N", "components": {"horizontal": "10 cos 30°", "vertical": "10 sin 30°"}, "semanticsLabel": "A 10 N force vector at 30 degrees above the horizontal resolved into horizontal and vertical components."} -->
 ### #4: Opposite Forces
 
 Take right as positive. A $600\,\mathrm N$ force acts left and a $450\,\mathrm N$ force acts right.
@@ -91,6 +94,7 @@ $$F_{\text{net}}=(-600)+(450)=-150\,\mathrm N.$$
 
 The negative sign means the net force is $150\,\mathrm N$ left.
 
+<!-- FIGURE: {"kind": "concept-diagram", "type": "tug-of-war", "forces": [{"label": "Team A (600 N)", "direction": "left", "magnitude": 600}, {"label": "Team B (450 N)", "direction": "right", "magnitude": 450}], "netForce": {"label": "Net Force (150 N)", "direction": "left"}, "semanticsLabel": "A tug-of-war diagram with 600 N pulling left, 450 N pulling right, and a net force of 150 N to the left."} -->
 ## Speed Tricks & Shortcuts
 
 First identify the **quantity name**: speed is scalar; velocity is vector; distance is scalar; displacement is vector.

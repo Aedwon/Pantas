@@ -1,10 +1,16 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/figures/biology_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/chart_figure.dart';
+import 'package:pantas/core/ui/figures/chemistry_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/concept_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/coordinate_graph_figure.dart';
+import 'package:pantas/core/ui/figures/earth_science_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/gear_train_figure.dart';
 import 'package:pantas/core/ui/figures/geometry_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/lesson_figure_widget.dart';
+import 'package:pantas/core/ui/figures/physics_energy_diagram_figure.dart';
+import 'package:pantas/core/ui/figures/physics_mechanics_diagram_figure.dart';
+import 'package:pantas/core/ui/figures/reading_diagram_figure.dart';
 
 import '../../../helpers/pump_app.dart';
 
@@ -14,11 +20,7 @@ void main() {
   ) async {
     await tester.pumpApp(
       const LessonFigureWidget(
-        spec: {
-          'firstTurns': 'clockwise',
-          'gears': 3,
-          'kind': 'gear-train',
-        },
+        spec: {'firstTurns': 'clockwise', 'gears': 3, 'kind': 'gear-train'},
         semanticsLabel: 'Three meshed gears.',
       ),
     );
@@ -76,13 +78,123 @@ void main() {
 
     for (final entry in cases) {
       await tester.pumpApp(
-        LessonFigureWidget(
-          spec: entry.$1,
-          semanticsLabel: entry.$2,
-        ),
+        LessonFigureWidget(spec: entry.$1, semanticsLabel: entry.$2),
       );
       expect(find.byType(entry.$3), findsOneWidget);
     }
+  });
+
+  testWidgets('all six original lesson figure kinds resolve', (tester) async {
+    const cases = <(Map<String, Object?>, Type)>[
+      (
+        {
+          'kind': 'reading-diagram',
+          'type': 'plot-arc',
+          'illustrationKey':
+              'reading-comprehension/text-types/short-stories-and-novels#1',
+          'shape': 'rise-peak-fall',
+          'stages': ['introduction', 'rising action', 'climax', 'resolution'],
+        },
+        ReadingDiagramFigure,
+      ),
+      (
+        {
+          'kind': 'biology-diagram',
+          'type': 'stem-tissues',
+          'illustrationKey': 'science/biology/botany#1',
+          'outer': 'dermal tissue',
+          'vascular': {
+            'label': 'vascular tissue',
+            'components': ['xylem', 'phloem'],
+          },
+          'ground': 'ground tissue',
+        },
+        BiologyDiagramFigure,
+      ),
+      (
+        {
+          'kind': 'chemistry-diagram',
+          'type': 'atom-particles',
+          'illustrationKey': 'science/chemistry/atomic-structure#1',
+          'nucleus': ['proton (+)', 'neutron (neutral)'],
+          'orbiting': ['electron (-)'],
+        },
+        ChemistryDiagramFigure,
+      ),
+      (
+        {
+          'kind': 'earth-science-diagram',
+          'type': 'seasonal-orbit',
+          'illustrationKey': 'science/earth-science-astronomy/earths-motions#1',
+          'earthPositions': 4,
+          'axisDirection': 'constant',
+          'hemisphereTilt': ['toward Sun', 'away from Sun'],
+        },
+        EarthScienceDiagramFigure,
+      ),
+      (
+        {
+          'kind': 'physics-mechanics-diagram',
+          'type': 'accelerated-motion',
+          'illustrationKey': 'science/physics/kinematics#1',
+          'path': 'straight road',
+          'moments': 3,
+          'velocityTrend': 'increasing',
+          'acceleration': 'constant',
+        },
+        PhysicsMechanicsDiagramFigure,
+      ),
+      (
+        {
+          'kind': 'physics-energy-diagram',
+          'type': 'lens-comparison',
+          'illustrationKey': 'science/physics/light-and-optics#2',
+          'convexBehavior': 'parallel rays bend inward to one focus point',
+          'concaveBehavior': 'parallel rays spread outward',
+        },
+        PhysicsEnergyDiagramFigure,
+      ),
+    ];
+
+    for (final entry in cases) {
+      await tester.pumpApp(
+        LessonFigureWidget(
+          spec: entry.$1,
+          semanticsLabel: 'Original lesson figure.',
+        ),
+      );
+      expect(
+        find.byType(entry.$2),
+        findsOneWidget,
+        reason: 'Failed to resolve ${entry.$1['kind']}',
+      );
+      expect(
+        find.text('This lesson needs a diagram that has not been drawn yet.'),
+        findsNothing,
+      );
+    }
+  });
+
+  testWidgets('unknown lesson figure kind keeps the missing figure behavior', (
+    tester,
+  ) async {
+    await tester.pumpApp(
+      const LessonFigureWidget(
+        spec: {'kind': 'unknown-lesson-figure'},
+        semanticsLabel: 'Unknown lesson figure.',
+      ),
+    );
+
+    expect(
+      find.text('This lesson needs a diagram that has not been drawn yet.'),
+      findsOneWidget,
+    );
+    expect(find.byType(ReadingDiagramFigure), findsNothing);
+    expect(find.byType(BiologyDiagramFigure), findsNothing);
+    expect(find.byType(ChemistryDiagramFigure), findsNothing);
+    expect(find.byType(EarthScienceDiagramFigure), findsNothing);
+    expect(find.byType(PhysicsMechanicsDiagramFigure), findsNothing);
+    expect(find.byType(PhysicsEnergyDiagramFigure), findsNothing);
   });
 
   testWidgets('Worker B owned 46 lesson figures resolve to expected painters', (
@@ -90,10 +202,7 @@ void main() {
   ) async {
     const cases = <(Map<String, Object?>, String, Type)>[
       (
-        {
-          'kind': 'coordinate-graph',
-          'type': 'vertical-line-test',
-        },
+        {'kind': 'coordinate-graph', 'type': 'vertical-line-test'},
         'Two graphs comparing a vertical line test on a '
             'regular parabola and a sideways parabola.',
         CoordinateGraphFigure,
@@ -118,10 +227,7 @@ void main() {
         {
           'kind': 'concept-diagram',
           'type': 'venn',
-          'sets': [
-            'Chemistry',
-            'Physics',
-          ],
+          'sets': ['Chemistry', 'Physics'],
           'regions': {
             'left': '17',
             'overlap': '8',
@@ -139,22 +245,10 @@ void main() {
         {
           'kind': 'concept-diagram',
           'type': 'venn',
-          'sets': [
-            'Engineering',
-            'Business',
-            'Computer Science',
-          ],
+          'sets': ['Engineering', 'Business', 'Computer Science'],
           'center': '5',
-          'overlaps': {
-            'ab': '10',
-            'bc': '5',
-            'ca': '7',
-          },
-          'singleRegions': {
-            'a': 'filled',
-            'b': 'filled',
-            'c': 'filled',
-          },
+          'overlaps': {'ab': '10', 'bc': '5', 'ca': '7'},
+          'singleRegions': {'a': 'filled', 'b': 'filled', 'c': 'filled'},
         },
         'A three-circle Venn diagram showing overlaps of '
             'Engineering, Business, and Computer Science with 5 '
@@ -213,14 +307,8 @@ void main() {
           'type': 'rational',
           'formula': 'y = (x+1)/(x-2)',
           'asymptotes': [
-            {
-              'axis': 'x',
-              'value': 2,
-            },
-            {
-              'axis': 'y',
-              'value': 1,
-            },
+            {'axis': 'x', 'value': 2},
+            {'axis': 'y', 'value': 1},
           ],
         },
         'A rational function graph with a vertical '
@@ -251,10 +339,7 @@ void main() {
         {
           'kind': 'chart',
           'type': 'bar',
-          'labels': [
-            'Factory A',
-            'Factory B',
-          ],
+          'labels': ['Factory A', 'Factory B'],
           'values': [450, 320],
           'yAxis': {
             'label': 'Units produced',
@@ -286,12 +371,7 @@ void main() {
         {
           'kind': 'concept-diagram',
           'type': 'conic-sections',
-          'sections': [
-            'circle',
-            'ellipse',
-            'parabola',
-            'hyperbola',
-          ],
+          'sections': ['circle', 'ellipse', 'parabola', 'hyperbola'],
         },
         'A diagram of a double cone sliced four ways to '
             'produce a circle, an ellipse, a parabola, and a '
@@ -302,12 +382,7 @@ void main() {
         {
           'kind': 'coordinate-graph',
           'type': 'conic-gallery',
-          'conics': [
-            'circle',
-            'parabola',
-            'ellipse',
-            'hyperbola',
-          ],
+          'conics': ['circle', 'parabola', 'ellipse', 'hyperbola'],
         },
         'A visual guide showing the four conic section '
             'curves: circle, parabola, ellipse, and hyperbola.',
@@ -366,11 +441,7 @@ void main() {
         {
           'kind': 'coordinate-graph',
           'type': 'limits-gallery',
-          'discontinuities': [
-            'hole',
-            'jump',
-            'vertical-asymptote',
-          ],
+          'discontinuities': ['hole', 'jump', 'vertical-asymptote'],
         },
         'Three mini graphs showing a removable hole, a jump '
             'between pieces, and a vertical asymptote.',
@@ -409,22 +480,10 @@ void main() {
           'type': 'tree',
           'root': 'Outfits',
           'branches': [
-            {
-              'name': 'Shirt 1',
-              'leaves': 3,
-            },
-            {
-              'name': 'Shirt 2',
-              'leaves': 3,
-            },
-            {
-              'name': 'Shirt 3',
-              'leaves': 3,
-            },
-            {
-              'name': 'Shirt 4',
-              'leaves': 3,
-            },
+            {'name': 'Shirt 1', 'leaves': 3},
+            {'name': 'Shirt 2', 'leaves': 3},
+            {'name': 'Shirt 3', 'leaves': 3},
+            {'name': 'Shirt 4', 'leaves': 3},
           ],
           'totalLeaves': 12,
         },
@@ -443,12 +502,7 @@ void main() {
             'Transport (72°)',
             'Savings (72°)',
           ],
-          'values': [
-            90,
-            126,
-            72,
-            72,
-          ],
+          'values': [90, 126, 72, 72],
         },
         'A pie chart of a monthly budget with food at 90 '
             'degrees, rent at 126 degrees, transport at 72 '
@@ -459,11 +513,7 @@ void main() {
         {
           'kind': 'chart',
           'type': 'scatter',
-          'plots': [
-            'upward',
-            'downward',
-            'random',
-          ],
+          'plots': ['upward', 'downward', 'random'],
         },
         'Three scatter plots side by side showing an upward '
             'trend, a downward trend, and a random cloud of '
@@ -474,10 +524,7 @@ void main() {
         {
           'kind': 'chart',
           'type': 'pie',
-          'labels': [
-            'Food (90°)',
-            'Other (270°)',
-          ],
+          'labels': ['Food (90°)', 'Other (270°)'],
           'values': [90, 270],
         },
         'A pie chart of a monthly budget with the food '
@@ -488,10 +535,7 @@ void main() {
         {
           'kind': 'chart',
           'type': 'pie',
-          'labels': [
-            'Walkers (35%, ?°)',
-            'Other (65%)',
-          ],
+          'labels': ['Walkers (35%, ?°)', 'Other (65%)'],
           'values': [35, 65],
         },
         'A pie chart with the walkers sector labeled 35 '
@@ -503,24 +547,9 @@ void main() {
         {
           'kind': 'chart',
           'type': 'bar',
-          'labels': [
-            'Mon',
-            'Tue',
-            'Wed',
-            'Thu',
-            'Fri',
-          ],
-          'values': [
-            40,
-            55,
-            35,
-            60,
-            85,
-          ],
-          'yAxis': {
-            'label': 'Sales (thousands of pesos)',
-            'min': 0,
-          },
+          'labels': ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+          'values': [40, 55, 35, 60, 85],
+          'yAxis': {'label': 'Sales (thousands of pesos)', 'min': 0},
         },
         'A bar graph of weekly sales with bars for Monday '
             'at 40, Tuesday at 55, Wednesday at 35, Thursday at '
@@ -544,15 +573,9 @@ void main() {
         {
           'kind': 'chart',
           'type': 'bar',
-          'labels': [
-            '2023',
-            '2024',
-          ],
+          'labels': ['2023', '2024'],
           'values': [1500, 1800],
-          'yAxis': {
-            'label': 'Enrollment',
-            'min': 0,
-          },
+          'yAxis': {'label': 'Enrollment', 'min': 0},
         },
         'A bar graph comparing 2023 enrollment of 1,500 '
             'with 2024 enrollment of 1,800 on a zero-based '
@@ -563,11 +586,7 @@ void main() {
         {
           'kind': 'concept-diagram',
           'type': 'inference',
-          'clues': [
-            'Clue phrase 1',
-            'Clue phrase 2',
-            'Clue phrase 3',
-          ],
+          'clues': ['Clue phrase 1', 'Clue phrase 2', 'Clue phrase 3'],
           'conclusion': 'Inference / Conclusion',
         },
         'A diagram showing three clue phrases connecting '
@@ -594,22 +613,9 @@ void main() {
         {
           'kind': 'chart',
           'type': 'bar',
-          'labels': [
-            'January',
-            'February',
-            'March',
-            'April',
-          ],
-          'values': [
-            50,
-            70,
-            60,
-            90,
-          ],
-          'yAxis': {
-            'label': 'Sales (thousands of pesos)',
-            'min': 0,
-          },
+          'labels': ['January', 'February', 'March', 'April'],
+          'values': [50, 70, 60, 90],
+          'yAxis': {'label': 'Sales (thousands of pesos)', 'min': 0},
         },
         'A bar graph of monthly sales with bars for January '
             'at 50, February at 70, March at 60, and April at '
@@ -620,10 +626,7 @@ void main() {
         {
           'kind': 'chart',
           'type': 'bar',
-          'labels': [
-            'Brand A',
-            'Brand B',
-          ],
+          'labels': ['Brand A', 'Brand B'],
           'values': [85, 81],
           'yMin': 80,
           'compareZero': true,
@@ -637,14 +640,8 @@ void main() {
           'kind': 'concept-diagram',
           'type': 'free-body',
           'forces': [
-            {
-              'label': 'Normal Force (Fn)',
-              'direction': 'up',
-            },
-            {
-              'label': 'Weight (Fg)',
-              'direction': 'down',
-            },
+            {'label': 'Normal Force (Fn)', 'direction': 'up'},
+            {'label': 'Weight (Fg)', 'direction': 'down'},
           ],
         },
         'A free body diagram of a box with an upward normal '
@@ -655,10 +652,7 @@ void main() {
         {
           'kind': 'concept-diagram',
           'type': 'gravitational-force',
-          'masses': [
-            'm1',
-            'm2',
-          ],
+          'masses': ['m1', 'm2'],
           'distance': 'r',
           'comparison': '2r (F/4)',
         },
@@ -671,15 +665,8 @@ void main() {
         {
           'kind': 'concept-diagram',
           'type': 'ray-reflection',
-          'labels': [
-            'Incident ray',
-            'Normal line',
-            'Reflected ray',
-          ],
-          'angles': [
-            'Angle of incidence',
-            'Angle of reflection',
-          ],
+          'labels': ['Incident ray', 'Normal line', 'Reflected ray'],
+          'angles': ['Angle of incidence', 'Angle of reflection'],
         },
         'A flat mirror with a normal line showing an '
             'incoming incident ray and an outgoing reflected '
@@ -692,10 +679,7 @@ void main() {
           'type': 'ray-reflection',
           'incidentAngle': 40,
           'reflectedAngle': 40,
-          'labels': [
-            '40°',
-            '40°',
-          ],
+          'labels': ['40°', '40°'],
         },
         'A light ray striking a flat mirror at 40 degrees '
             'from the normal line and reflecting off at 40 '
@@ -707,16 +691,8 @@ void main() {
           'kind': 'concept-diagram',
           'type': 'vector-diagram',
           'vectors': [
-            {
-              'label': '5 N East',
-              'angle': 0,
-              'magnitude': 5,
-            },
-            {
-              'label': '8 N Northeast',
-              'angle': 45,
-              'magnitude': 8,
-            },
+            {'label': '5 N East', 'angle': 0, 'magnitude': 5},
+            {'label': '8 N Northeast', 'angle': 45, 'magnitude': 8},
           ],
         },
         'Two vector arrows comparing a 5 N force pointing '
@@ -728,22 +704,10 @@ void main() {
           'kind': 'concept-diagram',
           'type': 'vector-addition',
           'components': [
-            {
-              'label': '3 km East',
-              'dx': 3,
-              'dy': 0,
-            },
-            {
-              'label': '4 km North',
-              'dx': 0,
-              'dy': 4,
-            },
+            {'label': '3 km East', 'dx': 3, 'dy': 0},
+            {'label': '4 km North', 'dx': 0, 'dy': 4},
           ],
-          'resultant': {
-            'label': '5 km Resultant',
-            'dx': 3,
-            'dy': 4,
-          },
+          'resultant': {'label': '5 km Resultant', 'dx': 3, 'dy': 4},
         },
         'A vector addition right triangle with 3 km east, 4 '
             'km north, and a 5 km resultant hypotenuse.',
@@ -756,10 +720,7 @@ void main() {
           'magnitude': 10,
           'angle': 30,
           'unit': 'N',
-          'components': {
-            'horizontal': '10 cos 30°',
-            'vertical': '10 sin 30°',
-          },
+          'components': {'horizontal': '10 cos 30°', 'vertical': '10 sin 30°'},
         },
         'A 10 N force vector at 30 degrees above the '
             'horizontal resolved into horizontal and vertical '
@@ -771,21 +732,10 @@ void main() {
           'kind': 'concept-diagram',
           'type': 'tug-of-war',
           'forces': [
-            {
-              'label': 'Team A (600 N)',
-              'direction': 'left',
-              'magnitude': 600,
-            },
-            {
-              'label': 'Team B (450 N)',
-              'direction': 'right',
-              'magnitude': 450,
-            },
+            {'label': 'Team A (600 N)', 'direction': 'left', 'magnitude': 600},
+            {'label': 'Team B (450 N)', 'direction': 'right', 'magnitude': 450},
           ],
-          'netForce': {
-            'label': 'Net Force (150 N)',
-            'direction': 'left',
-          },
+          'netForce': {'label': 'Net Force (150 N)', 'direction': 'left'},
         },
         'A tug-of-war diagram with 600 N pulling left, 450 '
             'N pulling right, and a net force of 150 N to the '
@@ -809,10 +759,7 @@ void main() {
           'kind': 'coordinate-graph',
           'type': 'horizontal-projectile',
           'initialVelocity': '3 m/s',
-          'labels': {
-            'height': '?',
-            'distance': '?',
-          },
+          'labels': {'height': '?', 'distance': '?'},
         },
         'A ball rolling off a table at 3 m/s following a '
             'curved path to the floor with height and distance '
@@ -826,10 +773,7 @@ void main() {
           'magnitude': 20,
           'angle': 30,
           'unit': 'm/s',
-          'components': {
-            'horizontal': '20 cos 30°',
-            'vertical': '20 sin 30°',
-          },
+          'components': {'horizontal': '20 cos 30°', 'vertical': '20 sin 30°'},
         },
         'A 20 m/s launch velocity vector at 30 degrees '
             'resolved into horizontal and vertical components '
@@ -871,10 +815,7 @@ void main() {
         {
           'kind': 'concept-diagram',
           'type': 'wave',
-          'labels': {
-            'wavelength': '2 m',
-            'frequency': '5 Hz',
-          },
+          'labels': {'wavelength': '2 m', 'frequency': '5 Hz'},
         },
         'A transverse wave diagram with a 2 m wavelength '
             'and frequency of 5 Hz.',
@@ -899,10 +840,7 @@ void main() {
 
     for (final entry in cases) {
       await tester.pumpApp(
-        LessonFigureWidget(
-          spec: entry.$1,
-          semanticsLabel: entry.$2,
-        ),
+        LessonFigureWidget(spec: entry.$1, semanticsLabel: entry.$2),
       );
       expect(find.byType(entry.$3), findsOneWidget);
     }
@@ -927,12 +865,7 @@ void main() {
           [0, 0],
         ],
       },
-      {
-        'kind': 'coordinate-graph',
-        'type': 'circle',
-        'radius': 5,
-        'points': [],
-      },
+      {'kind': 'coordinate-graph', 'type': 'circle', 'radius': 5, 'points': []},
       {
         'kind': 'coordinate-graph',
         'type': 'ellipse',
@@ -1007,11 +940,7 @@ void main() {
         'formula': 'y = x',
         'points': [],
       },
-      {
-        'kind': 'coordinate-graph',
-        'type': 'rational',
-        'formula': 'y = 1/x',
-      },
+      {'kind': 'coordinate-graph', 'type': 'rational', 'formula': 'y = 1/x'},
       {
         'kind': 'coordinate-graph',
         'type': 'rational',
@@ -1021,15 +950,9 @@ void main() {
       {
         'kind': 'coordinate-graph',
         'type': 'function-gallery',
-        'functions': [
-          '',
-        ],
+        'functions': [''],
       },
-      {
-        'kind': 'coordinate-graph',
-        'type': 'conic-gallery',
-        'conics': [],
-      },
+      {'kind': 'coordinate-graph', 'type': 'conic-gallery', 'conics': []},
       {
         'kind': 'coordinate-graph',
         'type': 'limits-gallery',
@@ -1049,85 +972,52 @@ void main() {
       {
         'kind': 'coordinate-graph',
         'type': 'horizontal-projectile',
-        'labels': {
-          'height': '?',
-          'distance': '?',
-        },
+        'labels': {'height': '?', 'distance': '?'},
       },
       {
         'kind': 'coordinate-graph',
         'type': 'horizontal-projectile',
         'initialVelocity': '3 m/s',
-        'labels': {
-          'height': '?',
-        },
+        'labels': {'height': '?'},
       },
       {
         'kind': 'chart',
         'type': 'bar',
-        'labels': [
-          'A',
-          'B',
-        ],
+        'labels': ['A', 'B'],
         'values': [10],
       },
       {
         'kind': 'chart',
         'type': 'bar',
-        'labels': [
-          'A',
-        ],
-        'values': [
-          'ten',
-        ],
+        'labels': ['A'],
+        'values': ['ten'],
       },
       {
         'kind': 'chart',
         'type': 'bar',
-        'labels': [
-          'A',
-        ],
+        'labels': ['A'],
         'values': [10],
-        'yAxis': {
-          'min': 'zero',
-        },
+        'yAxis': {'min': 'zero'},
       },
       {
         'kind': 'chart',
         'type': 'pie',
-        'labels': [
-          'A',
-          'B',
-        ],
+        'labels': ['A', 'B'],
         'values': [10, -5],
       },
       {
         'kind': 'chart',
         'type': 'pie',
-        'labels': [
-          'A',
-          'B',
-        ],
+        'labels': ['A', 'B'],
         'values': [10, 0],
       },
-      {
-        'kind': 'chart',
-        'type': 'pie',
-        'labels': [],
-        'values': [],
-      },
+      {'kind': 'chart', 'type': 'pie', 'labels': [], 'values': []},
       {
         'kind': 'chart',
         'type': 'scatter',
-        'plots': [
-          'sideways',
-        ],
+        'plots': ['sideways'],
       },
-      {
-        'kind': 'chart',
-        'type': 'scatter',
-        'trend': 'invalid',
-      },
+      {'kind': 'chart', 'type': 'scatter', 'trend': 'invalid'},
       {
         'kind': 'chart',
         'type': 'scatter',
@@ -1138,48 +1028,24 @@ void main() {
       {
         'kind': 'concept-diagram',
         'type': 'venn',
-        'sets': [
-          'A',
-          'B',
-        ],
-        'regions': {
-          'left': '1',
-          'overlap': '2',
-        },
+        'sets': ['A', 'B'],
+        'regions': {'left': '1', 'overlap': '2'},
       },
       {
         'kind': 'concept-diagram',
         'type': 'venn',
-        'sets': [
-          'A',
-          'B',
-          'C',
-        ],
-        'overlaps': {
-          'ab': '1',
-          'bc': '2',
-          'ca': '3',
-        },
+        'sets': ['A', 'B', 'C'],
+        'overlaps': {'ab': '1', 'bc': '2', 'ca': '3'},
       },
-      {
-        'kind': 'concept-diagram',
-        'type': 'nested-boxes',
-        'boxes': [],
-      },
-      {
-        'kind': 'concept-diagram',
-        'type': 'conic-sections',
-        'sections': [],
-      },
+      {'kind': 'concept-diagram', 'type': 'nested-boxes', 'boxes': []},
+      {'kind': 'concept-diagram', 'type': 'conic-sections', 'sections': []},
       {
         'kind': 'concept-diagram',
         'type': 'tree',
         'branches': [
           {
             'name': 'B1',
-            'leaves': [
-              'L1',
-            ],
+            'leaves': ['L1'],
           },
         ],
         'totalLeaves': 1,
@@ -1191,9 +1057,7 @@ void main() {
         'branches': [
           {
             'name': 'B1',
-            'leaves': [
-              'L1',
-            ],
+            'leaves': ['L1'],
           },
         ],
         'totalLeaves': 0,
@@ -1201,9 +1065,7 @@ void main() {
       {
         'kind': 'concept-diagram',
         'type': 'inference',
-        'clues': [
-          'C1',
-        ],
+        'clues': ['C1'],
       },
       {
         'kind': 'concept-diagram',
@@ -1214,9 +1076,7 @@ void main() {
       {
         'kind': 'concept-diagram',
         'type': 'main-idea',
-        'details': [
-          'D1',
-        ],
+        'details': ['D1'],
       },
       {
         'kind': 'concept-diagram',
@@ -1228,77 +1088,48 @@ void main() {
         'kind': 'concept-diagram',
         'type': 'free-body',
         'forces': [
-          {
-            'label': 'F1',
-            'direction': 'diagonal',
-          },
+          {'label': 'F1', 'direction': 'diagonal'},
         ],
       },
-      {
-        'kind': 'concept-diagram',
-        'type': 'free-body',
-        'forces': [],
-      },
+      {'kind': 'concept-diagram', 'type': 'free-body', 'forces': []},
       {
         'kind': 'concept-diagram',
         'type': 'gravitational-force',
-        'masses': [
-          'm1',
-        ],
+        'masses': ['m1'],
         'distance': 'r',
         'comparison': '2r',
       },
       {
         'kind': 'concept-diagram',
         'type': 'gravitational-force',
-        'masses': [
-          'm1',
-          'm2',
-        ],
+        'masses': ['m1', 'm2'],
         'distance': 'r',
       },
       {
         'kind': 'concept-diagram',
         'type': 'ray-reflection',
-        'labels': [
-          'R1',
-          'N',
-          'R2',
-        ],
-        'angles': [
-          'A1',
-        ],
+        'labels': ['R1', 'N', 'R2'],
+        'angles': ['A1'],
       },
       {
         'kind': 'concept-diagram',
         'type': 'ray-reflection',
         'incidentAngle': 0,
         'reflectedAngle': 0,
-        'labels': [
-          '0',
-          '0',
-        ],
+        'labels': ['0', '0'],
       },
       {
         'kind': 'concept-diagram',
         'type': 'vector-diagram',
         'vectors': [
-          {
-            'label': 'V1',
-            'angle': 0,
-            'magnitude': -5,
-          },
+          {'label': 'V1', 'angle': 0, 'magnitude': -5},
         ],
       },
       {
         'kind': 'concept-diagram',
         'type': 'vector-addition',
         'components': [
-          {
-            'label': 'C1',
-            'dx': 1,
-            'dy': 0,
-          },
+          {'label': 'C1', 'dx': 1, 'dy': 0},
         ],
       },
       {
@@ -1307,62 +1138,37 @@ void main() {
         'magnitude': -10,
         'angle': 30,
         'unit': 'N',
-        'components': {
-          'horizontal': 'H',
-          'vertical': 'V',
-        },
+        'components': {'horizontal': 'H', 'vertical': 'V'},
       },
       {
         'kind': 'concept-diagram',
         'type': 'vector-components',
         'magnitude': 10,
         'angle': 30,
-        'components': {
-          'horizontal': 'H',
-          'vertical': 'V',
-        },
+        'components': {'horizontal': 'H', 'vertical': 'V'},
       },
       {
         'kind': 'concept-diagram',
         'type': 'tug-of-war',
         'forces': [
-          {
-            'label': 'F1',
-            'direction': 'left',
-            'magnitude': 100,
-          },
+          {'label': 'F1', 'direction': 'left', 'magnitude': 100},
         ],
-        'netForce': {
-          'label': 'Net',
-          'direction': 'up',
-        },
+        'netForce': {'label': 'Net', 'direction': 'up'},
       },
       {
         'kind': 'concept-diagram',
         'type': 'circular-orbit',
         'body': 'Earth',
         'orbiting': 'Satellite',
-        'vectors': {
-          'velocity': 'v',
-        },
+        'vectors': {'velocity': 'v'},
       },
-      {
-        'kind': 'concept-diagram',
-        'type': 'wave',
-      },
-      {
-        'kind': 'concept-diagram',
-        'type': 'wave',
-        'labels': {},
-      },
+      {'kind': 'concept-diagram', 'type': 'wave'},
+      {'kind': 'concept-diagram', 'type': 'wave', 'labels': {}},
     ];
 
     for (final spec in invalidCases) {
       await tester.pumpApp(
-        LessonFigureWidget(
-          spec: spec,
-          semanticsLabel: 'Malformed spec test',
-        ),
+        LessonFigureWidget(spec: spec, semanticsLabel: 'Malformed spec test'),
       );
 
       expect(
@@ -1788,10 +1594,7 @@ void main() {
 
     for (final entry in cases) {
       await tester.pumpApp(
-        LessonFigureWidget(
-          spec: entry.$1,
-          semanticsLabel: entry.$2,
-        ),
+        LessonFigureWidget(spec: entry.$1, semanticsLabel: entry.$2),
       );
       expect(
         find.byType(GeometryDiagramFigure),
@@ -1802,35 +1605,31 @@ void main() {
   });
 
   testWidgets(
-    'recognized geometry type with missing or empty labels shows '
-    'missing figure state',
-    (tester) async {
-      const invalidSpecs = <Map<String, Object?>>[
-        {'kind': 'geometry-diagram', 'type': 'triangle'},
-        {'kind': 'geometry-diagram', 'type': 'triangle', 'labels': <String>[]},
-        {
-          'kind': 'geometry-diagram',
-          'type': 'triangle',
-          'labels': ['   '],
-        },
-      ];
+      'recognized geometry type with missing or empty labels shows '
+      'missing figure state', (tester) async {
+    const invalidSpecs = <Map<String, Object?>>[
+      {'kind': 'geometry-diagram', 'type': 'triangle'},
+      {'kind': 'geometry-diagram', 'type': 'triangle', 'labels': <String>[]},
+      {
+        'kind': 'geometry-diagram',
+        'type': 'triangle',
+        'labels': ['   '],
+      },
+    ];
 
-      for (final spec in invalidSpecs) {
-        await tester.pumpApp(
-          LessonFigureWidget(
-            spec: spec,
-            semanticsLabel: 'Invalid geometry spec.',
-          ),
-        );
+    for (final spec in invalidSpecs) {
+      await tester.pumpApp(
+        LessonFigureWidget(
+          spec: spec,
+          semanticsLabel: 'Invalid geometry spec.',
+        ),
+      );
 
-        expect(
-          find.text(
-            'This lesson needs a diagram that has not been drawn yet.',
-          ),
-          findsOneWidget,
-        );
-        expect(find.byType(GeometryDiagramFigure), findsNothing);
-      }
-    },
-  );
+      expect(
+        find.text('This lesson needs a diagram that has not been drawn yet.'),
+        findsOneWidget,
+      );
+      expect(find.byType(GeometryDiagramFigure), findsNothing);
+    }
+  });
 }

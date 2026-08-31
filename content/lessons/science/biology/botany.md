@@ -21,7 +21,7 @@ The main water-conducting xylem cells, **tracheids** and **vessel elements**, ar
 
 **Ground tissue** makes up much of a plant's body, filling spaces between dermal and vascular tissues. Depending on the organ, it can carry out photosynthesis, storage, and support.
 
-<!-- ILLUSTRATION: cross-section of a plant stem showing an outer ring labeled dermal tissue, vascular bundles containing xylem and phloem, and surrounding ground tissue -->
+<!-- FIGURE: {"kind":"biology-diagram","type":"stem-tissues","illustrationKey":"science/biology/botany#1","outer":"dermal tissue","vascular":{"label":"vascular tissue","components":["xylem","phloem"]},"ground":"ground tissue"} -->
 
 ### Tropisms
 

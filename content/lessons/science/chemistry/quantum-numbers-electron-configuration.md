@@ -39,7 +39,7 @@ This distinction is essential:
 
 So a **$p$ subshell** can contain six electrons, but each of its **three $p$ orbitals** can contain only two.
 
-<!-- ILLUSTRATION: one s orbital, three p orbitals, five d orbitals, and seven f orbitals grouped by subshell, each orbital represented as a box able to hold two opposite-spin arrows -->
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"orbital-shapes","illustrationKey":"science/chemistry/quantum-numbers-electron-configuration#1","orbitals":[{"label":"s","shape":"sphere","capacity":2},{"label":"p","shape":"dumbbell","capacity":6},{"label":"d","shape":"four-lobed cloverleaf","capacity":10}]} -->
 
 ### Ground-State Filling Rules
 

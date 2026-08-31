@@ -25,7 +25,7 @@ Experiments with cathode rays led **J. J. Thomson** in 1897 to identify a univer
 
 Thomson later proposed a model in which negative electrons were embedded in a diffuse positive charge, commonly nicknamed the **plum pudding model**.
 
-<!-- ILLUSTRATION: Dalton-style indivisible atom, Thomson plum-pudding model, Rutherford nuclear atom, Bohr hydrogen energy levels, and modern orbital/electron-density model, explicitly labeled as historical models -->
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"atomic-models","illustrationKey":"science/chemistry/history-of-the-atom#1","models":[{"label":"Dalton","model":"solid sphere"},{"label":"Thomson","model":"plum pudding with embedded electrons"},{"label":"Rutherford","model":"electrons orbiting a tiny dense nucleus"},{"label":"modern","model":"electron cloud around a nucleus"}]} -->
 
 ### Rutherford, Geiger, Marsden, and the Nucleus
 

@@ -1,0 +1,359 @@
+{
+  "version": 1,
+  "items": {
+    "reading-comprehension/text-types/short-stories-and-novels#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "145a5e08bf67d31f93aad7fa9a27434caf90a5c7b062b8beb19824d6d29302ac",
+      "reviewedAt": "2026-08-25T06:43:30.248Z"
+    },
+    "reading-comprehension/text-types/speeches#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "0ffaf3f1259c354379adcf266261f34a27655a9d6e28f35de98c17265a2abb1c",
+      "reviewedAt": "2026-08-25T06:43:30.259Z"
+    },
+    "reading-comprehension/text-types/visual-media#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "050cfc636b1b841a27ed533674e585ccaf1e1400b1ce0568b22d1a01568f0822",
+      "reviewedAt": "2026-08-25T06:43:30.268Z"
+    },
+    "reading-comprehension/text-types/visual-media#2": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "21612ed75cdc7868f6c08ed0109962bca2198c77a7fca3b2320174ea97c76ea2",
+      "reviewedAt": "2026-08-25T06:43:30.277Z"
+    },
+    "reading-comprehension/text-types/visual-media#3": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "bbc9304fdc75b6004bd1cc2aac5b1da61436684da1a446651fe87a4bd41c67a0",
+      "reviewedAt": "2026-08-25T06:43:30.285Z"
+    },
+    "science/biology/botany#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "9532f4fbdd097cbc74cde3b256f7fd648feb4763dbd5e597af5b5f6baa62b49a",
+      "reviewedAt": "2026-08-25T06:43:30.292Z"
+    },
+    "science/biology/cell-biology#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "38124d480b827beac7fc3579e88c95bf4150ab70c9975dc0087fe13403522256",
+      "reviewedAt": "2026-08-25T06:43:30.301Z"
+    },
+    "science/biology/cellular-metabolism#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "5152067ba2643a48e6b1cf5796471f7787c6af14baf8e6debc06d6263e03062b",
+      "reviewedAt": "2026-08-25T06:43:30.310Z"
+    },
+    "science/biology/cellular-metabolism#2": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "63321ac78cabe15c5c929e036c6c78c87f969eb6e7cb109b59767217ae293583",
+      "reviewedAt": "2026-08-25T06:43:30.318Z"
+    },
+    "science/biology/cellular-reproduction#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "5f65f2e7a4e8be92dd0becd21514ad72d4a9ed4277abfa9cb2099c973eb9f690",
+      "reviewedAt": "2026-08-25T06:43:30.326Z"
+    },
+    "science/biology/ecology#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "49e81a0d804a64503281318a5f0ac6daed5c3259ca5e84dba5288045d9788c2f",
+      "reviewedAt": "2026-08-25T06:43:30.333Z"
+    },
+    "science/biology/evolution#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "e775838a535e47bebc598dd12edf574f56ce30201537353f0f6882978ec780e4",
+      "reviewedAt": "2026-08-25T06:43:30.341Z"
+    },
+    "science/biology/human-anatomy-physiology#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "62ae6266a495361e7e2f348b3f47f08adcad655ac5e6178d3dc69f2ab7e91950",
+      "reviewedAt": "2026-08-25T06:43:30.349Z"
+    },
+    "science/chemistry/acids-bases-ph#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "5027f4eb15b252ea45fef4ad037b228142fcf32f1be239ecc6cc539660ebb3ed",
+      "reviewedAt": "2026-08-25T06:43:30.356Z"
+    },
+    "science/chemistry/atomic-structure#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "592a18b85ced3c06aff678cb058f6dc84d2ebd78252bbdfc6d2e3fd4446d3f01",
+      "reviewedAt": "2026-08-25T06:43:30.364Z"
+    },
+    "science/chemistry/chemical-bonding#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "009d6d62f9e0b2bb2883e9488fbd8fc2032164fcd35d017c6e91c7d0e0f56a6b",
+      "reviewedAt": "2026-08-25T06:43:30.371Z"
+    },
+    "science/chemistry/gas-laws#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "e779899e6eff44bf943ad9469780740e9391974cb4d10824e89988b7cc5cffb2",
+      "reviewedAt": "2026-08-25T06:43:30.378Z"
+    },
+    "science/chemistry/history-of-the-atom#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "669bd16d56dff732184471295eb4c0f5e2b9abaad839be28f8bbd47bd9e62f3e",
+      "reviewedAt": "2026-08-25T06:43:30.386Z"
+    },
+    "science/chemistry/matter#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "7dc33d720a50d5e10aefaaccd341176944d66c976ce4d2d9e53cf1d68b05ca25",
+      "reviewedAt": "2026-08-25T06:43:30.393Z"
+    },
+    "science/chemistry/mixtures-and-separation#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "a83f52755f9369b8c78309d6b8a6c1791733da81de11031ee98ab903c1df6eac",
+      "reviewedAt": "2026-08-25T06:43:30.400Z"
+    },
+    "science/chemistry/nuclear-chemistry#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "e77c666f3e8024544da41ea4f9567db1e3a6cf80db73b05e9f2307d9ddabdacc",
+      "reviewedAt": "2026-08-25T06:43:30.407Z"
+    },
+    "science/chemistry/periodic-table#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "d92b1e59507514c480a4219e30edaf7df579415447519583f40f09960885dad2",
+      "reviewedAt": "2026-08-25T06:43:30.416Z"
+    },
+    "science/chemistry/quantum-numbers-electron-configuration#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "b19519900bc26fc02b9822b38b5cac523ed155a2ed60aa2aa7ed25fa90901772",
+      "reviewedAt": "2026-08-25T06:43:30.424Z"
+    },
+    "science/chemistry/solutions#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "93a524b75400897f6b3210c748a87c4ff4aac39c126584454a568e659f873846",
+      "reviewedAt": "2026-08-25T06:43:30.432Z"
+    },
+    "science/chemistry/thermodynamics-and-kinetics#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "b99dfd871901e13ce619f4b36de8f4de9688c550cd11cbca6eb79b96569f6822",
+      "reviewedAt": "2026-08-25T06:43:30.439Z"
+    },
+    "science/earth-science-astronomy/earths-motions#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "53d8e8b6fd62a8d0e975916c65514491ea3850389c2a1717ceb103a1bc73c5a3",
+      "reviewedAt": "2026-08-25T06:43:30.447Z"
+    },
+    "science/earth-science-astronomy/earths-motions#2": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "7e01af37620b903b3778e669f788a4bbd6f76d05d4e3eab661cc7f90b1e1b131",
+      "reviewedAt": "2026-08-25T06:43:30.454Z"
+    },
+    "science/earth-science-astronomy/earths-motions#3": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "33ea6f2b6b0a478eaba33932b0454841c60716d2afcb0ac6729d9899ce810f30",
+      "reviewedAt": "2026-08-25T06:43:30.461Z"
+    },
+    "science/earth-science-astronomy/earths-motions#4": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "e46e5347e7e07c07e3af04229e00cac92a25401b8ef49187efadc8baf02be97b",
+      "reviewedAt": "2026-08-25T06:43:30.468Z"
+    },
+    "science/earth-science-astronomy/earths-subsystems#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "111640999a0cc93956be28ffb41d3021ef188aa38c5d62d9e77572dc300f48c5",
+      "reviewedAt": "2026-08-25T06:43:30.475Z"
+    },
+    "science/earth-science-astronomy/eclipses-and-moon-phases#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "72b9b03fb83c5a7bd3a22bbcb9eccfff56c157bfde98acd590ad552a9f58d6a3",
+      "reviewedAt": "2026-08-25T06:43:30.482Z"
+    },
+    "science/earth-science-astronomy/fossils-and-geologic-time#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "b0de007bdc406f0259fbe805031ea3a1eff083e2f4dc26f2a93b45e18d4027ec",
+      "reviewedAt": "2026-08-25T06:43:30.489Z"
+    },
+    "science/earth-science-astronomy/fossils-and-geologic-time#2": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "b49d9995efdb62c151b626e43f6a931cca47af975581fa4cd0fe7a41af0e7a04",
+      "reviewedAt": "2026-08-25T06:43:30.496Z"
+    },
+    "science/earth-science-astronomy/fossils-and-geologic-time#3": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "97fcf80e1900311ffb35b8b9f3b5b05bb0328cf29c18d14559df35f4998a9414",
+      "reviewedAt": "2026-08-25T06:43:30.503Z"
+    },
+    "science/earth-science-astronomy/heavenly-bodies#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "9b61b7b80ed49b0b8cb30859976724c3c42289005472e0d4f14c3741883604af",
+      "reviewedAt": "2026-08-25T06:43:30.510Z"
+    },
+    "science/earth-science-astronomy/layers-of-the-earth#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "848eacdd69e6f731b58a2191db8b014818fc9ce66286768f68e8648cae6277e7",
+      "reviewedAt": "2026-08-25T06:43:30.517Z"
+    },
+    "science/earth-science-astronomy/layers-of-the-earth#2": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "1bf19a3b99d1a0a0c8127866163fd6be588e45c802ecae04e5e78e6303c59727",
+      "reviewedAt": "2026-08-25T06:43:30.524Z"
+    },
+    "science/earth-science-astronomy/layers-of-the-earth#3": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "0543caedd088eea8cf5a098963b79ec890d657e8916fa0c9bf85c540c2d34360",
+      "reviewedAt": "2026-08-25T06:43:30.531Z"
+    },
+    "science/earth-science-astronomy/minerals-and-rocks#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "738ddbb6764cadacab8a7b50423ef9c97513b47782d85347b2d38f560c46ea6f",
+      "reviewedAt": "2026-08-25T06:43:30.538Z"
+    },
+    "science/earth-science-astronomy/origin-of-the-universe#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "f4f4d76f05fe9a1b25f0c97c9ecfb5244bc5a0e9cad4a6d4d18fbfe6969c97ec",
+      "reviewedAt": "2026-08-25T06:43:30.545Z"
+    },
+    "science/earth-science-astronomy/plate-tectonics#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "b0464de6f68987277f7b726d2c698b59b0e959a7b780ce8d807430c82b7099fc",
+      "reviewedAt": "2026-08-25T06:43:30.552Z"
+    },
+    "science/earth-science-astronomy/plate-tectonics#2": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "35a558daa7db6721fbf6e632b251a61f191f0a44727b2c6c52d70182ac5f2f6e",
+      "reviewedAt": "2026-08-25T06:43:30.559Z"
+    },
+    "science/earth-science-astronomy/plate-tectonics#3": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "16e330f50ebe8e35f2a2ec2101a218d45b75934b231aa2e891feece99407fa6b",
+      "reviewedAt": "2026-08-25T06:43:30.566Z"
+    },
+    "science/earth-science-astronomy/water-cycle-oceanography#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "20cd5c60e0d20a5347a2d01d1eab8e4099d124c46ac1bf3de1e2e79edced956b",
+      "reviewedAt": "2026-08-25T06:43:30.574Z"
+    },
+    "science/earth-science-astronomy/weather-and-climate#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "abf919eb69c7a637de8c1d849d6e688970c6615edf3dbcd4d088f989c087d307",
+      "reviewedAt": "2026-08-25T06:43:30.581Z"
+    },
+    "science/physics/dynamics#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "c7630cc0e623e9d4e99e1e589f368d360784cb0f2b9b385af3f427b5b257f487",
+      "reviewedAt": "2026-08-25T06:43:30.588Z"
+    },
+    "science/physics/electricity-and-magnetism#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "343cadb88a4c17c1140048c371fbdc97879c12374294be3c38b5530539a392a4",
+      "reviewedAt": "2026-08-25T06:43:30.601Z"
+    },
+    "science/physics/electricity-and-magnetism#2": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "153e5056dc4bee22e7d2bb7beeee784c0fc090a0cfa471d5eef34d6328cc7124",
+      "reviewedAt": "2026-08-25T06:43:30.608Z"
+    },
+    "science/physics/electricity-and-magnetism#3": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "cc312e4a2f6f01df1c4181cee865785459d2a32ea5723b09faf2cb20936caf73",
+      "reviewedAt": "2026-08-25T06:43:30.616Z"
+    },
+    "science/physics/electricity-and-magnetism#4": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "a37d112a3c6d281697d1797f4da44c5b8a20e488b427ad24e7b6bb6921b0f17c",
+      "reviewedAt": "2026-08-25T06:43:30.624Z"
+    },
+    "science/physics/fluid-mechanics#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "57dd3a18e0f6f8e131eab4e4f0582de19e207a90a4530477aa446aea19dbc6a2",
+      "reviewedAt": "2026-08-25T06:43:30.632Z"
+    },
+    "science/physics/gravity-and-keplers-laws#2": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "c7aa62291366d1dde42f5db7442663fc89bb13fa189e674e9597c38f498af458",
+      "reviewedAt": "2026-08-25T06:43:30.639Z"
+    },
+    "science/physics/gravity-and-keplers-laws#3": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "facadf4430fe4f5161d8733d8f516554132d8a39dc95a8882070c0ed37093d19",
+      "reviewedAt": "2026-08-25T06:43:30.645Z"
+    },
+    "science/physics/kinematics#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "e61544258724c6866098cf35f8adf54b1eaa03a73b13bd9ca1541b7424b7f776",
+      "reviewedAt": "2026-08-25T06:43:30.653Z"
+    },
+    "science/physics/light-and-optics#2": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "4fd0ed64419c84e0fcedab8cdd99db3de978e438bf890e7b4a62545ff22e203e",
+      "reviewedAt": "2026-08-25T06:43:30.659Z"
+    },
+    "science/physics/momentum-and-impulse#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "357d8a79709b8bda0558cde95fc7d1f0bb41ed0b49ce7d66747aa9a55641898f",
+      "reviewedAt": "2026-08-25T06:43:30.667Z"
+    },
+    "science/physics/thermodynamics#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "f1f6ec30082e5f17f01712d46c3b711857239d2e6366821e7f650e12e5814b9f",
+      "reviewedAt": "2026-08-25T06:43:30.674Z"
+    },
+    "science/physics/waves-and-sound#4": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "12e269a6274335f826da512c7682f36dabb1a70ff3303c9bfa385364d0f8a1c2",
+      "reviewedAt": "2026-08-25T06:43:30.680Z"
+    },
+    "science/physics/work-energy-power#1": {
+      "status": "approved",
+      "notes": "",
+      "reviewedDigest": "38e8458fa1b6eff093166dd5e16c2b7e425b2bd15a8c3de3641ac27f5e7c972f",
+      "reviewedAt": "2026-08-25T06:43:30.689Z"
+    }
+  }
+}

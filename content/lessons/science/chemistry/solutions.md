@@ -43,6 +43,7 @@ $$\%\text{ by volume}=\frac{\text{volume of solute}}{\text{final volume of solut
 
 Use the **final solution volume**, not an assumption that component volumes simply add; mixing liquids can involve volume contraction or expansion.
 
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"solution-concentration","illustrationKey":"science/chemistry/solutions#1","solute":"sugar","solvent":"water","measures":["molarity","molality","percent by mass","percent by volume"]} -->
 ## Examples
 
 ### #1: Molarity

@@ -47,6 +47,26 @@
     white-space: nowrap;
   }
   header h1 span { opacity: 0.55; font-weight: 400; }
+  .mode-switch {
+    display: inline-flex;
+    border: 1px solid rgba(255,255,255,0.28);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .mode-switch button {
+    font: inherit;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border: 0;
+    border-right: 1px solid rgba(255,255,255,0.22);
+    background: transparent;
+    color: #F4F1E8;
+    cursor: pointer;
+  }
+  .mode-switch button:last-child { border-right: 0; }
+  .mode-switch button.active { background: #F4F1E8; color: var(--board); }
+  .mode-switch button:focus-visible { outline: 2px solid #F4F1E8; outline-offset: -3px; }
   .selectors { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; flex: 1; }
   .selectors select {
     font: inherit;
@@ -209,6 +229,133 @@
   }
   .format-warning.visible { display: block; }
 
+  /* ---------- Illustration review ---------- */
+  .illustration-review-app {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr);
+    background: var(--paper);
+  }
+  .illustration-review-app[hidden] { display: none; }
+  .review-sidebar {
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--line);
+    background: var(--panel);
+  }
+  .review-sidebar-head { padding: 14px 16px 10px; border-bottom: 1px solid var(--line); }
+  .review-sidebar-head h2 { margin: 0 0 4px; font-size: 15px; }
+  .review-sidebar-head p { margin: 0; color: var(--ink-soft); font-size: 12px; }
+  .review-filters { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--line); }
+  .review-filters button {
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    border: 0; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    background: var(--panel); color: var(--ink); padding: 8px 10px;
+    font: inherit; font-size: 12px; cursor: pointer;
+  }
+  .review-filters button:nth-child(even) { border-right: 0; }
+  .review-filters button:nth-last-child(-n + 2) { border-bottom: 0; }
+  .review-filters button.active { background: var(--board-soft); color: var(--board); font-weight: 700; }
+  .review-filters button:focus-visible,
+  .review-queue-item:focus-visible,
+  .review-toolbar button:focus-visible,
+  .review-controls button:focus-visible,
+  .review-code-theme-toggle button:focus-visible,
+  .review-notes:focus-visible {
+    outline: 2px solid var(--board); outline-offset: -2px;
+  }
+  .review-filter-count { font-variant-numeric: tabular-nums; }
+  .review-queue { overflow-y: auto; min-height: 0; padding: 8px 0 20px; }
+  .review-queue-item {
+    width: 100%; display: grid; grid-template-columns: auto 1fr; gap: 2px 8px;
+    padding: 9px 14px; text-align: left; border: 0; background: transparent;
+    color: var(--ink); font: inherit; cursor: pointer;
+  }
+  .review-queue-item:hover { background: var(--paper); }
+  .review-queue-item.current { background: var(--board-soft); }
+  .review-queue-item strong { grid-column: 2; font-size: 13px; line-height: 1.3; }
+  .review-queue-topic { grid-column: 2; color: var(--ink-soft); font-size: 11.5px; }
+  .review-queue-status {
+    grid-row: 1 / span 2; align-self: start; padding-top: 1px;
+    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  .status-approved { color: var(--board); }
+  .status-changes-requested { color: var(--danger); }
+  .status-missing { color: var(--amber); }
+  .status-pending { color: var(--ink-soft); }
+  .review-queue-empty, .review-empty { color: var(--ink-soft); padding: 8px 14px; margin: 0; }
+
+  .review-main { min-height: 0; display: flex; flex-direction: column; }
+  .review-toolbar {
+    display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+    padding: 10px 14px; border-bottom: 1px solid var(--line); background: var(--panel);
+  }
+  .review-toolbar button, .review-controls button, .review-code-theme-toggle button {
+    font: inherit; font-size: 12.5px; padding: 6px 11px;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: var(--panel); color: var(--ink); cursor: pointer;
+  }
+  .review-toolbar button:hover:not(:disabled), .review-controls button:hover:not(:disabled),
+  .review-code-theme-toggle button:hover:not(:disabled) { border-color: var(--board); color: var(--board); }
+  .review-toolbar button:disabled, .review-controls button:disabled { opacity: 0.5; cursor: not-allowed; }
+  .review-status { flex: 1; min-width: 180px; color: var(--ink-soft); font-size: 12.5px; }
+  .review-status.saved { color: var(--board); }
+  .review-status.error { color: var(--danger); }
+  .review-content { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) 360px; }
+  .review-lesson-column { min-width: 0; min-height: 0; display: flex; flex-direction: column; }
+  .review-item-head { padding: 12px 18px; background: var(--panel); border-bottom: 1px solid var(--line); }
+  .review-item-head h2 { margin: 1px 0 0; font-size: 18px; }
+  .review-item-meta { color: var(--ink-soft); font-size: 12px; }
+  .review-item-status { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+  .review-head-row { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+  .review-code-theme-toggle { display: none; gap: 0; padding-top: 8px; }
+  .review-code-theme-toggle button { border-radius: 0; }
+  .review-code-theme-toggle button:first-child { border-radius: 6px 0 0 6px; }
+  .review-code-theme-toggle button:last-child { border-radius: 0 6px 6px 0; margin-left: -1px; }
+  .review-code-theme-toggle button[aria-pressed="true"] { background: var(--board-soft); color: var(--board); font-weight: 700; }
+  .review-lesson-mount { flex: 1; min-height: 0; overflow: hidden; background: var(--paper); }
+  .review-lesson-mount > .preview { height: 100%; padding: 20px 24px 70px; }
+  .review-inspector { overflow-y: auto; border-left: 1px solid var(--line); background: var(--panel); padding: 16px; }
+  .review-inspector h2 { margin: 0 0 12px; font-size: 15px; }
+  .evidence-section { border-top: 1px solid var(--line); padding: 12px 0; }
+  .evidence-section:first-child { border-top: 0; padding-top: 0; }
+  .evidence-section h3 { margin: 0 0 6px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .evidence-section p, .evidence-section ul { margin: 0; font-size: 13px; }
+  .evidence-section ul { padding-left: 18px; }
+  .evidence-section a { color: var(--board); overflow-wrap: anywhere; }
+  .evidence-section li span { color: var(--ink-soft); }
+  .evidence-section dl { margin: 0; display: grid; gap: 7px; }
+  .evidence-section dl div { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 8px; }
+  .evidence-section dt { color: var(--ink-soft); font-size: 11.5px; }
+  .evidence-section dd { margin: 0; font-size: 12.5px; overflow-wrap: anywhere; }
+  .review-notice { border-top: 1px solid var(--line); margin: 0; padding: 12px 0; font-size: 12.5px; color: var(--danger); }
+  .review-notice.missing { color: var(--amber); }
+  .review-controls { border-top: 1px solid var(--line); margin-top: 12px; padding-top: 14px; }
+  .review-controls label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 5px; }
+  .review-notes {
+    width: 100%; min-height: 110px; resize: vertical; padding: 8px 9px;
+    border: 1px solid var(--line); border-radius: 6px; background: var(--paper); color: var(--ink);
+    font: inherit; font-size: 13px;
+  }
+  .review-decision-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 9px; }
+  .review-controls button.approve { background: var(--board); border-color: var(--board); color: #fff; font-weight: 700; }
+  .review-controls button.changes { border-color: var(--danger); color: var(--danger); font-weight: 700; }
+
+  .lesson-illustration-context { margin: 20px 0; scroll-margin: 90px 0; }
+  .review-preview-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
+  .review-preview-frame { margin: 0; padding: 14px; border: 1px solid var(--line); }
+  .review-preview-frame.theme-light { background: #FBF9F4; color: #26221B; }
+  .review-preview-frame.theme-dark { background: #1D1B17; color: #F4F1E8; border-color: #454038; }
+  .review-preview-frame img { display: block; width: 100%; height: auto; border-radius: 0; }
+  .review-preview-frame figcaption { margin-top: 7px; font: 11.5px/1.35 -apple-system, system-ui, sans-serif; color: currentColor; opacity: 0.7; }
+  .lesson-illustration-missing {
+    display: flex; flex-direction: column; gap: 3px; padding: 16px 0;
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--amber);
+    font: 13px/1.45 -apple-system, system-ui, sans-serif;
+  }
+
   /* ---------- Footer ---------- */
   footer {
     display: flex; align-items: center; gap: 12px;
@@ -238,16 +385,41 @@
     outline: 2px solid var(--board); outline-offset: 1px;
   }
 
+  @media (max-width: 1040px) {
+    .review-content { grid-template-columns: minmax(0, 1fr) 310px; }
+    .illustration-review-app { grid-template-columns: 250px minmax(0, 1fr); }
+  }
   @media (max-width: 900px) {
-    nav { display: none; }
-    .workspace { flex-direction: column; }
-    .workspace textarea { border-right: 0; border-bottom: 1px solid var(--line); min-height: 40vh; }
+    #authorApp nav { display: none; }
+    #authorApp .workspace { flex-direction: column; }
+    #authorApp .workspace textarea { border-right: 0; border-bottom: 1px solid var(--line); min-height: 40vh; }
+    .illustration-review-app { grid-template-columns: 220px minmax(0, 1fr); }
+    .review-content { grid-template-columns: 1fr; overflow-y: auto; }
+    .review-lesson-column { min-height: 60vh; }
+    .review-inspector { border-left: 0; border-top: 1px solid var(--line); overflow: visible; }
+  }
+  @media (max-width: 720px) {
+    header { gap: 8px; }
+    .mode-switch { order: 3; }
+    .illustration-review-app { display: flex; flex-direction: column; overflow-y: auto; }
+    .illustration-review-app[hidden] { display: none; }
+    .review-sidebar { flex: 0 0 auto; max-height: 40vh; border-right: 0; border-bottom: 1px solid var(--line); }
+    .review-main { flex: 1 0 auto; min-height: 70vh; }
+    .review-content { overflow: visible; }
+    .review-code-theme-toggle:not([hidden]) { display: inline-flex; }
+    .review-preview-pair { grid-template-columns: 1fr; }
+    #reviewLessonMount[data-code-theme="light"] .lesson-illustration-context[data-strategy="code"] .review-preview-frame[data-theme="dark"],
+    #reviewLessonMount[data-code-theme="dark"] .lesson-illustration-context[data-strategy="code"] .review-preview-frame[data-theme="light"] { display: none; }
   }
 </style>
 </head>
 <body>
 <header>
   <h1>Pantas <span>· Lesson Author</span></h1>
+  <div class="mode-switch" role="group" aria-label="Lesson Author mode">
+    <button id="authorModeBtn" type="button" class="active" aria-pressed="true">Author</button>
+    <button id="reviewModeBtn" type="button" aria-pressed="false">Illustration Review</button>
+  </div>
   <div class="selectors">
     <select id="subjectSelect" aria-label="Subject"></select>
     <select id="topicSelect" aria-label="Topic"></select>
@@ -259,7 +431,7 @@
   </div>
 </header>
 
-<div class="app">
+<div class="app" id="authorApp">
   <nav id="lessonNav" aria-label="Lessons in this topic"></nav>
   <main>
     <div class="meta">
@@ -307,6 +479,60 @@ $$\dfrac{-b \pm \sqrt{b^2-4ac}}{2a}$$" spellcheck="true"></textarea>
   </main>
 </div>
 
+<div class="illustration-review-app" id="illustrationReviewApp" hidden>
+  <aside class="review-sidebar" aria-label="Illustration review queue">
+    <div class="review-sidebar-head">
+      <h2>Illustration Review</h2>
+      <p id="reviewProgressText">Loading review progress…</p>
+    </div>
+    <div class="review-filters" aria-label="Review status filters">
+      <button type="button" class="active" data-review-filter="pending" aria-pressed="true"><span>Pending</span><span class="review-filter-count" data-filter-count>0</span></button>
+      <button type="button" data-review-filter="changes-requested" aria-pressed="false"><span>Needs changes</span><span class="review-filter-count" data-filter-count>0</span></button>
+      <button type="button" data-review-filter="approved" aria-pressed="false"><span>Approved</span><span class="review-filter-count" data-filter-count>0</span></button>
+      <button type="button" data-review-filter="missing" aria-pressed="false"><span>Missing</span><span class="review-filter-count" data-filter-count>0</span></button>
+    </div>
+    <div class="review-queue" id="reviewQueue" aria-live="polite"></div>
+  </aside>
+  <main class="review-main">
+    <div class="review-toolbar">
+      <button id="reviewPrevBtn" type="button">Previous</button>
+      <button id="reviewNextBtn" type="button">Next</button>
+      <button id="refreshPreviewsBtn" type="button">Refresh previews</button>
+      <span class="review-status" id="reviewStatusLine" role="status" aria-live="polite"></span>
+    </div>
+    <div class="review-content">
+      <section class="review-lesson-column" aria-labelledby="reviewItemTitle">
+        <div class="review-item-head">
+          <div class="review-head-row">
+            <div>
+              <div class="review-item-meta" id="reviewItemMeta"></div>
+              <h2 id="reviewItemTitle">Illustration review</h2>
+            </div>
+            <span class="review-item-status" id="reviewItemStatus"></span>
+          </div>
+          <div class="review-code-theme-toggle" id="reviewCodeThemeToggle" role="group" aria-label="Code preview theme" hidden>
+            <button id="reviewThemeLightBtn" type="button" aria-pressed="true">Light</button>
+            <button id="reviewThemeDarkBtn" type="button" aria-pressed="false">Dark</button>
+          </div>
+        </div>
+        <div class="review-lesson-mount" id="reviewLessonMount" data-code-theme="light"></div>
+      </section>
+      <aside class="review-inspector" aria-label="Illustration evidence and review controls">
+        <h2>Evidence</h2>
+        <div id="reviewEvidence"></div>
+        <div class="review-controls">
+          <label for="reviewNotes">Review notes</label>
+          <textarea id="reviewNotes" class="review-notes" placeholder="Describe any correction that is needed."></textarea>
+          <div class="review-decision-row">
+            <button id="reviewChangesBtn" class="changes" type="button">Needs changes</button>
+            <button id="reviewApproveBtn" class="approve" type="button">Approve</button>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+
 <script src="/vendor/marked.js"></script>
 <script src="/vendor/katex.min.js"></script>
 <script>
@@ -349,11 +575,11 @@ $$\dfrac{-b \pm \sqrt{b^2-4ac}}{2a}$$" spellcheck="true"></textarea>
         html = `<span class="math-error">math error: ${String(e.message).replace(/[<>&]/g, '')}</span>`;
       }
       chunks.push(html);
-      return ` MATH${chunks.length - 1} `;
+      return `\u0000MATH${chunks.length - 1}\u0000`;
     };
     let text = source.replace(/\$\$([\s\S]+?)\$\$/g, (_, tex) => stash(tex.trim(), true));
     text = text.replace(/\$([^$\n]+?)\$/g, (_, tex) => stash(tex.trim(), false));
-    return { text, restore: (html) => html.replace(/ MATH(\d+) /g, (_, i) => chunks[+i]) };
+    return { text, restore: (html) => html.replace(/\u0000MATH(\d+)\u0000/g, (_, i) => chunks[+i]) };
   }
 
   function renderPreview() {
@@ -681,6 +907,18 @@ $$\dfrac{-b \pm \sqrt{b^2-4ac}}{2a}$$" spellcheck="true"></textarea>
     if (dirty) event.preventDefault();
   });
 
+  window.lessonAuthorBridge = Object.freeze({
+    async selectLessonById(id) {
+      const idx = flat.findIndex((candidate) => candidate.id === id);
+      if (idx < 0) throw new Error(`Unknown lesson id: ${id}`);
+      currentIdx = idx;
+      await loadCurrent();
+    },
+    renderPreview,
+    previewBody: () => els.preview,
+    currentLessonTitle: () => flat[currentIdx]?.lesson.title ?? '',
+  });
+
   // ---------- Boot ----------
 
   (async () => {
@@ -698,5 +936,6 @@ $$\dfrac{-b \pm \sqrt{b^2-4ac}}{2a}$$" spellcheck="true"></textarea>
   })();
 })();
 </script>
+<script type="module" src="/illustration_review.mjs"></script>
 </body>
 </html>

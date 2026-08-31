@@ -27,7 +27,7 @@ A surrounding container may become warmer for an exothermic process or cooler fo
 
 An exothermic reaction is not necessarily **spontaneous** under all conditions, and an endothermic reaction is not necessarily nonspontaneous. Gibbs free energy includes both enthalpy and entropy contributions.
 
-<!-- ILLUSTRATION: reaction-coordinate diagrams showing reactant/product energy difference separately from activation-energy barrier for catalyzed and uncatalyzed pathways -->
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"reaction-energy","illustrationKey":"science/chemistry/thermodynamics-and-kinetics#1","profiles":[{"label":"exothermic","reactants":"high","products":"lower","energy":"released"},{"label":"endothermic","reactants":"low","products":"higher","energy":"absorbed"}]} -->
 
 ### Activation Energy and Reaction Rate
 

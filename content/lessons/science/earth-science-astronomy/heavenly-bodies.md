@@ -31,7 +31,7 @@ These words describe related but distinct things:
 - A **meteor** is the visible atmospheric phenomenon—the streak of light and related effects—produced when a meteoroid enters an atmosphere at high speed.
 - A **meteorite** is material from the incoming object that survives atmospheric passage and reaches the ground.
 
-<!-- ILLUSTRATION: three-stage diagram showing a small space rock labeled meteoroid in space, a glowing streak labeled meteor in Earth's atmosphere, and a surviving rock on the ground labeled meteorite -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"comet-tail","illustrationKey":"science/earth-science-astronomy/heavenly-bodies#1","orbitShape":"oval","cometPositions":2,"tailDirection":"away from Sun"} -->
 
 Meteor showers happen when Earth passes through streams of debris, often left along the orbit of a comet, so many meteoroids enter the atmosphere during a short period.
 

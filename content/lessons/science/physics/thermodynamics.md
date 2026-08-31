@@ -23,7 +23,7 @@ Thermal energy can be transferred in three main ways.
 
 **Radiation**: energy transfers by electromagnetic waves and therefore does not require matter as a medium. This is how energy from the Sun reaches Earth through space.
 
-<!-- ILLUSTRATION: three small diagrams showing conduction (heat moving through a solid metal rod held over a flame), convection (circulating arrows showing warm fluid rising and cool fluid sinking in a pot of heated water), and radiation (wavy arrows traveling from the Sun through empty space to Earth) -->
+<!-- FIGURE: {"kind":"physics-energy-diagram","type":"heat-transfer-triptych","illustrationKey":"science/physics/thermodynamics#1","panels":[{"name":"conduction","scene":"heat through solid metal rod held over flame"},{"name":"convection","scene":"warm fluid rises and cool fluid sinks in heated water"},{"name":"radiation","scene":"wavy arrows from Sun through empty space to Earth"}]} -->
 
 ### Laws of Thermodynamics
 

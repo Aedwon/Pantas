@@ -36,7 +36,7 @@ A flat character can still change, and a round character can remain static.
 
 **Theme** is a recurring or central idea explored by a work. A theme is not always a neat moral or "life lesson"; a story can explore ambiguity, contradiction, or a question without delivering one simple rule for living.
 
-<!-- ILLUSTRATION: a plot-line diagram presented as one common narrative model, labeled exposition, rising action, climax, falling action, and resolution -->
+<!-- FIGURE: {"kind":"reading-diagram","type":"plot-arc","illustrationKey":"reading-comprehension/text-types/short-stories-and-novels#1","shape":"rise-peak-fall","stages":["introduction","rising action","climax","resolution"]} -->
 
 ## Examples
 

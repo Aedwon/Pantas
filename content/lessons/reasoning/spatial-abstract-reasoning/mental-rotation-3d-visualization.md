@@ -24,8 +24,8 @@ There is no safe universal shortcut such as "two squares with exactly one square
 
 For simple familiar cross nets, you can often visualize this directly, but mental folding is the underlying method.
 
-<!-- FIGURE: {"kind": "cube-net", "cells": [[0, 1], [1, 0], [1, 1], [1, 2], [2, 1], [3, 1]], "labels": ["side", "side", "bottom", "side", "side", "top"], "showFolded": true, "semanticsLabel": "A cross-shaped cube net folded step by step into six distinct cube faces."} -->
 
+<!-- FIGURE: {"kind": "cube-net", "cells": [[0, 1], [1, 0], [1, 1], [1, 2], [2, 1], [3, 1]], "labels": ["side", "side", "bottom", "side", "side", "top"], "showFolded": true, "semanticsLabel": "A cross-shaped cube net folded step by step into six distinct cube faces."} -->
 ### Shadows and Projections
 
 In simplified technical-reasoning questions, light is often treated as **parallel rays** from a specified direction. Under that model, the shadow on a plane is a projection of the object's silhouette along the light direction.
@@ -46,6 +46,7 @@ Fold the four neighbors upward as side faces. The extra square attached beyond o
 
 This result comes from folding that specific net, not from a universal distance-in-the-flat-net rule.
 
+<!-- FIGURE: {"kind": "cube-net", "cells": [[0, 1], [1, 0], [1, 1], [1, 2], [2, 1], [3, 1]], "labels": ["side", "side", "bottom", "side", "side", "top"], "semanticsLabel": "A cross-shaped cube net with the center labeled bottom and the far end of the vertical arm labeled top."} -->
 ### #2: Invalid Net by Overlap
 
 A six-square pattern has four squares in a row, with two additional squares extending as a two-square stack above the second square. Does it form a cube?
@@ -54,6 +55,7 @@ A six-square pattern has four squares in a row, with two additional squares exte
 
 Tracking the folds causes two squares to map to the same cube-face orientation before all six distinct faces are filled. The pattern is therefore **not a valid cube net**.
 
+<!-- FIGURE: {"kind": "cube-net", "cells": [[0, 1], [1, 1], [2, 0], [2, 1], [2, 2], [2, 3]], "semanticsLabel": "A flat pattern of six squares with four in a row and two stacked directly above the second square."} -->
 ### #3: Cylinder, Parallel Light from Above
 
 An upright cylinder receives parallel light straight downward onto a horizontal ground plane. What is its ideal shadow?
@@ -62,6 +64,7 @@ An upright cylinder receives parallel light straight downward onto a horizontal 
 
 The projection along the cylinder's axis is a **circle** with the cylinder's diameter.
 
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "cylinder-shadow-above", "labels": ["Light from above", "Circular shadow"], "semanticsLabel": "An upright cylinder with light shining from above, casting a circular shadow on the ground."} -->
 ### #4: Cylinder, Parallel Light from the Side
 
 The same upright cylinder receives horizontal parallel light and casts onto a vertical wall perpendicular to the rays. What is its ideal shadow?
@@ -70,6 +73,7 @@ The same upright cylinder receives horizontal parallel light and casts onto a ve
 
 The side projection is a **rectangle** whose height matches the cylinder's height and whose width matches its diameter.
 
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "cylinder-shadow-side", "labels": ["Light from side", "Rectangular shadow"], "semanticsLabel": "An upright cylinder with light shining from the side, casting a rectangular shadow on the wall."} -->
 ## Speed Tricks & Shortcuts
 
 **For rotations, preserve handedness and adjacency.** A mirrored arrangement is not a rotation unless the object itself has the relevant symmetry.

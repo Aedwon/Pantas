@@ -47,7 +47,7 @@ $$W_{nc} = \Delta(KE+PE)$$
 
 where $W_{nc}$ is the work done by nonconservative forces.
 
-<!-- ILLUSTRATION: pendulum or roller coaster shown at three points, high point with all potential energy and zero kinetic energy, midpoint with a mix of both, and low point with all kinetic energy and zero potential energy, total height of the energy bar staying the same throughout -->
+<!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"mechanical-energy","illustrationKey":"science/physics/work-energy-power#1","system":"pendulum","points":[{"position":"high","potential":"all","kinetic":"zero"},{"position":"midpoint","potential":"some","kinetic":"some"},{"position":"low","potential":"zero","kinetic":"all"}],"totalEnergy":"constant"} -->
 
 ### Power
 

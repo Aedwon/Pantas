@@ -44,7 +44,7 @@ Carbon-14 decay is a familiar example.
 
 Gamma radiation is highly penetrating. Shielding such as dense lead or thick concrete **attenuates** gamma radiation; ordinary shielding reduces intensity rather than guaranteeing that every photon is stopped.
 
-<!-- ILLUSTRATION: nuclear equation examples for alpha, beta-minus, positron emission, electron capture, and gamma emission, plus a qualitative penetration diagram -->
+<!-- ILLUSTRATION: three penetration diagrams side by side, alpha particle stopped by a sheet of paper, beta particle stopped by aluminum foil, gamma ray passing through paper and foil but stopped by a thick lead block -->
 
 ### Fission
 

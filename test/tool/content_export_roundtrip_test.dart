@@ -111,12 +111,15 @@ void main() {
     // 2,258 from 13 August. Gears, springs, levers and pulleys are drawn by
     // the app now, so those questions stopped being held back as
     // figure-pending. The number moves with each family that lands.
-    expect(questionsCount, 2361, reason: 'Expected 2,361 questions');
+    // Question QA later retired four previously shipping questions: one
+    // duplicate RA 6713 annual-report item, two duplicate environmental
+    // concepts items, and one overbroad IHL cessation item.
+    expect(questionsCount, 2357, reason: 'Expected 2,357 questions');
     expect(lessonsCount, 161, reason: 'Expected 161 lessons');
     expect(topicsCount, 26, reason: 'Expected 26 topics');
     expect(examsCount, 7, reason: 'Expected 7 exams');
     expect(passagesCount, 32, reason: 'Expected 32 passages');
-    expect(lessonLinksCount, 2359, reason: 'Expected 2,359 lesson links');
+    expect(lessonLinksCount, 2355, reason: 'Expected 2,355 lesson links');
     expect(passageLinksCount, 160, reason: 'Expected 160 passage links');
 
     // 4. Assert the ids are underscored by reading one exam id back

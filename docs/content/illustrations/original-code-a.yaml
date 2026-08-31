@@ -1,0 +1,155 @@
+version: 1
+figures:
+  - key: reading-comprehension/text-types/short-stories-and-novels#1
+    references:
+      - title: "4.3 Glance at Genre: Conflict, Detail, and Revelation"
+        publisher: OpenStax
+        url: https://openstax.org/books/writing-guide/pages/4-3-glance-at-genre-conflict-detail-and-revelation
+  - key: reading-comprehension/text-types/speeches#1
+    references:
+      - title: "19.1 Writing, Speaking, and Activism"
+        publisher: OpenStax
+        url: https://openstax.org/books/writing-guide/pages/19-1-writing-speaking-and-activism
+  - key: science/biology/botany#1
+    references:
+      - title: "30.1 The Plant Body"
+        publisher: OpenStax
+        url: https://openstax.org/books/biology-2e/pages/30-1-the-plant-body
+  - key: science/biology/cell-biology#1
+    references:
+      - title: "4.3 Eukaryotic Cells"
+        publisher: OpenStax
+        url: https://openstax.org/books/biology-2e/pages/4-3-eukaryotic-cells
+  - key: science/biology/cellular-metabolism#1
+    references:
+      - title: "8.3 Using Light Energy to Make Organic Molecules"
+        publisher: OpenStax
+        url: https://openstax.org/books/biology-2e/pages/8-3-using-light-energy-to-make-organic-molecules
+  - key: science/biology/cellular-metabolism#2
+    references:
+      - title: "4.3 Eukaryotic Cells"
+        publisher: OpenStax
+        url: https://openstax.org/books/biology-2e/pages/4-3-eukaryotic-cells
+  - key: science/biology/cellular-reproduction#1
+    references:
+      - title: "10.2 The Cell Cycle"
+        publisher: OpenStax
+        url: https://openstax.org/books/biology-2e/pages/10-2-the-cell-cycle
+  - key: science/biology/ecology#1
+    references:
+      - title: "Creating Webs and Chains to Model Ecological Relationships: Educator Handout"
+        publisher: "Wisconsin Department of Natural Resources, Snapshot Wisconsin"
+        url: https://dnr.wisconsin.gov/sites/default/files/topic/Research/lessons_CreatingChainsEducatorHandout.pdf
+  - key: science/biology/evolution#1
+    references:
+      - title: "19.3 Adaptive Evolution"
+        publisher: OpenStax
+        url: https://openstax.org/books/biology-2e/pages/19-3-adaptive-evolution
+  - key: science/biology/human-anatomy-physiology#1
+    references:
+      - title: "19.1 Heart Anatomy"
+        publisher: OpenStax
+        url: https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy
+  - key: science/chemistry/acids-bases-ph#1
+    references:
+      - title: "What is pH?"
+        publisher: "U.S. Environmental Protection Agency"
+        url: https://www.epa.gov/goldkingmine/what-ph
+      - title: "The pH Scale"
+        publisher: "U.S. Environmental Protection Agency"
+        url: https://www.epa.gov/sites/default/files/2015-08/thephscale.jpg
+  - key: science/chemistry/atomic-structure#1
+    references:
+      - title: "2.3 Atomic Structure and Symbolism"
+        publisher: OpenStax
+        url: https://openstax.org/books/chemistry-2e/pages/2-3-atomic-structure-and-symbolism
+  - key: science/chemistry/chemical-bonding#1
+    references:
+      - title: "7.1 Ionic Bonding"
+        publisher: OpenStax
+        url: https://openstax.org/books/chemistry-2e/pages/7-1-ionic-bonding
+      - title: "7.2 Covalent Bonding"
+        publisher: OpenStax
+        url: https://openstax.org/books/chemistry-2e/pages/7-2-covalent-bonding
+      - title: "10.5 The Solid State of Matter"
+        publisher: OpenStax
+        url: https://openstax.org/books/chemistry-atoms-first-2e/pages/10-5-the-solid-state-of-matter
+  - key: science/chemistry/gas-laws#1
+    references:
+      - title: "9.2 Relating Pressure, Volume, Amount, and Temperature: The Ideal Gas Law"
+        publisher: OpenStax
+        url: https://openstax.org/books/chemistry-2e/pages/9-2-relating-pressure-volume-amount-and-temperature-the-ideal-gas-law
+  - key: science/chemistry/history-of-the-atom#1
+    references:
+      - title: "2.2 Evolution of Atomic Theory"
+        publisher: OpenStax
+        url: https://openstax.org/books/chemistry-2e/pages/2-2-evolution-of-atomic-theory
+  - key: science/chemistry/matter#1
+    references:
+      - title: "1.2 Phases and Classification of Matter"
+        publisher: OpenStax
+        url: https://openstax.org/books/chemistry-2e/pages/1-2-phases-and-classification-of-matter
+  - key: science/chemistry/periodic-table#1
+    references:
+      - title: "2.5 The Periodic Table"
+        publisher: OpenStax
+        url: https://openstax.org/books/chemistry-2e/pages/2-5-the-periodic-table
+  - key: science/chemistry/quantum-numbers-electron-configuration#1
+    references:
+      - title: "6.3 Development of Quantum Theory"
+        publisher: OpenStax
+        url: https://openstax.org/books/chemistry-2e/pages/6-3-development-of-quantum-theory
+  - key: science/chemistry/solutions#1
+    references:
+      - title: "3.3 Molarity"
+        publisher: OpenStax
+        url: https://openstax.org/books/chemistry-2e/pages/3-3-molarity
+      - title: "3.4 Other Units for Solution Concentrations"
+        publisher: OpenStax
+        url: https://openstax.org/books/chemistry-2e/pages/3-4-other-units-for-solution-concentrations
+  - key: science/chemistry/thermodynamics-and-kinetics#1
+    references:
+      - title: "5.3 Enthalpy"
+        publisher: OpenStax
+        url: https://openstax.org/books/chemistry-2e/pages/5-3-enthalpy
+  - key: science/physics/dynamics#1
+    references:
+      - title: "5.2 Newton's First Law"
+        publisher: OpenStax
+        url: https://openstax.org/books/university-physics-volume-1/pages/5-2-newtons-first-law
+      - title: "5.3 Newton's Second Law"
+        publisher: OpenStax
+        url: https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law
+      - title: "5.5 Newton's Third Law"
+        publisher: OpenStax
+        url: https://openstax.org/books/university-physics-volume-1/pages/5-5-newtons-third-law
+  - key: science/physics/fluid-mechanics#1
+    references:
+      - title: "14.4 Archimedes' Principle and Buoyancy"
+        publisher: OpenStax
+        url: https://openstax.org/books/university-physics-volume-1/pages/14-4-archimedes-principle-and-buoyancy
+  - key: science/physics/gravity-and-keplers-laws#2
+    references:
+      - title: "13.5 Kepler's Laws of Planetary Motion"
+        publisher: OpenStax
+        url: https://openstax.org/books/university-physics-volume-1/pages/13-5-keplers-laws-of-planetary-motion
+  - key: science/physics/gravity-and-keplers-laws#3
+    references:
+      - title: "13.5 Kepler's Laws of Planetary Motion"
+        publisher: OpenStax
+        url: https://openstax.org/books/university-physics-volume-1/pages/13-5-keplers-laws-of-planetary-motion
+  - key: science/physics/kinematics#1
+    references:
+      - title: "3.4 Motion with Constant Acceleration"
+        publisher: OpenStax
+        url: https://openstax.org/books/university-physics-volume-1/pages/3-4-motion-with-constant-acceleration
+  - key: science/physics/momentum-and-impulse#1
+    references:
+      - title: "9.2 Impulse and Collisions"
+        publisher: OpenStax
+        url: https://openstax.org/books/university-physics-volume-1/pages/9-2-impulse-and-collisions
+  - key: science/physics/work-energy-power#1
+    references:
+      - title: "8.3 Conservation of Energy"
+        publisher: OpenStax
+        url: https://openstax.org/books/university-physics-volume-1/pages/8-3-conservation-of-energy

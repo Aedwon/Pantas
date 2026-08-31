@@ -27,11 +27,11 @@ These principles have exceptions and complications—layers can be overturned or
 
 A parent isotope does **not** necessarily decay directly to a stable daughter in one step. Some dating systems involve decay chains with radioactive intermediate daughters before a stable end product is reached. The dating calculation depends on the specific isotope system, decay constants, mineral behavior, and whether the system remained sufficiently closed.
 
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"half-life-halving","illustrationKey":"science/earth-science-astronomy/fossils-and-geologic-time#1","halfLifeSteps":3,"parentFractions":["1","1/2","1/4","1/8"],"daughterMaterial":"stable remainder"} -->
 ### Geologic Time
 
 Earth is about **4.54 billion years** old. The informal term **Precambrian** covers the enormous span before the Phanerozoic Eon and includes the Hadean, Archean, and Proterozoic eons. The **Phanerozoic Eon** contains the Paleozoic, Mesozoic, and Cenozoic eras.
 
-<!-- ILLUSTRATION: geologic time scale from Earth's formation about 4.54 billion years ago to today, showing Hadean, Archean, Proterozoic, then Phanerozoic divided into Paleozoic, Mesozoic, and Cenozoic -->
 
 The Mesozoic is known for dinosaurs and also includes a diverse history of early mammals and the rise of flowering plants. The Cenozoic follows the end-Cretaceous mass extinction and includes major radiations of mammals and birds; calling the Mesozoic mammals merely “small shrew-like mammals” oversimplifies their diversity.
 
@@ -44,6 +44,7 @@ Three undisturbed sedimentary layers are labeled A at the bottom, B in the middl
 **Solution:**
 Under the law of superposition, A is oldest, then B, then C.
 
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"stratigraphy-stack","illustrationKey":"science/earth-science-astronomy/fossils-and-geologic-time#2","layersBottomToTop":["W","X","Y","Z"],"oldest":"W","youngest":"Z"} -->
 ### #2: Using an Index Fossil Carefully
 
 The same well-established index fossil occurs in two undisturbed sedimentary beds hundreds of kilometers apart. What can geologists infer?
@@ -62,6 +63,7 @@ $$1\to\dfrac12\to\dfrac14\to\dfrac18$$
 
 After $3$ half-lives, $\dfrac18$ of the original parent remains.
 
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"half-life-billion-years","illustrationKey":"science/earth-science-astronomy/fossils-and-geologic-time#3","parentPercentages":[100,50,25],"halfLife":"1 billion years","halfLifeLabels":["1 half-life","2 half-lives"],"result":"2 billion years"} -->
 ## Speed Tricks & Shortcuts
 
 For relative-dating questions, identify what the principle actually compares: superposition compares stacked layers; cross-cutting relationships compare a feature with the rocks it cuts; index fossils correlate intervals.

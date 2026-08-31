@@ -9,7 +9,12 @@ import 'package:pantas/core/content/sanity/parsers/question_parser.dart';
 
 Future<ProcessResult> _run(List<String> args) => Process.run(
       'dart',
-      ['run', 'tools/import_questions/import_questions.dart', ...args],
+      [
+        'run',
+        '--verbosity=error',
+        'tools/import_questions/import_questions.dart',
+        ...args,
+      ],
     );
 
 void main() {
