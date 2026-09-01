@@ -316,7 +316,7 @@ questions:
         rationale: |
           Nothing in the context suggests departure or escape.
     explanation: |
-      In this context, "kick the bucket" is the idiom meaning "die." The same words could be literal in a different sentence, so context—not a rule that idioms can never be literal—determines the reading.
+      In this context, "kick the bucket" is the idiom meaning "die." The same words could be literal in a different sentence, so context, not a rule that idioms can never be literal, determines the reading.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0016
@@ -332,7 +332,7 @@ questions:
           The comparison is direct and does not use "like" or "as."
       - text: Personification
         rationale: |
-          Although the image gives the engine animate qualities, the quoted phrase directly identifies the engine with another thing—a beast—so metaphor is the clearest classification being tested.
+          Although the image gives the engine animate qualities, the quoted phrase directly identifies the engine with another thing, a beast, so metaphor is the clearest classification being tested.
       - text: Oxymoron
         rationale: |
           The phrase does not pair contradictory terms.

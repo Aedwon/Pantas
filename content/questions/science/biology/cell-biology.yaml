@@ -86,7 +86,7 @@ questions:
           You picked the barrier that controls what enters and leaves the cell.
           The cell membrane acts as a gate but does not build proteins.
     explanation: |
-      Ribosomes read copied DNA instructions and link amino acids together
+      A ribosome reads copied DNA instructions and links amino acids together
       to build proteins. The Golgi apparatus packages proteins afterward:
       it does not build them.
     approved: true

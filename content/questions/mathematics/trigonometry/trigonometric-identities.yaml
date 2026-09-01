@@ -199,7 +199,7 @@ questions:
           $\sec\theta\cos^2\theta=\cos\theta$, not 1.
     explanation: |
       $$\sec\theta(1-\sin^2\theta)=\sec\theta\cos^2\theta=\cos\theta$$
-      on the domain of the original expression.
+      on the domain of the original expression. Therefore, the simplified expression is $\cos \theta$.
   - id: q-trigonometry-trigonometric-identities-0010
     type: which-is-true
     difficulty: hard
@@ -356,3 +356,4 @@ questions:
     explanation: |
       Since $1+\cot^2\theta=\csc^2\theta$,
       $$\dfrac{\cot^2\theta}{\csc^2\theta}=\dfrac{\cos^2\theta/\sin^2\theta}{1/\sin^2\theta}=\cos^2\theta.$$
+      Therefore, the simplified expression is $\cos^2 \theta$.

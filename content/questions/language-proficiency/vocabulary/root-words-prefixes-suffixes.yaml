@@ -283,7 +283,7 @@ questions:
     stem: |
       A warning label reads "INFLAMMABLE MATERIAL." A student assumes this means the material cannot catch fire because "in-" often means "not." Is that correct?
     choices:
-      - text: 'No: "inflammable" means flammable—capable of catching fire easily.'
+      - text: 'No: "inflammable" means flammable, meaning capable of catching fire easily.'
         correct: true
       - text: 'Yes: "inflammable" means nonflammable.'
         rationale: |

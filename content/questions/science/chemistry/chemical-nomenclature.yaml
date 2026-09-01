@@ -46,7 +46,7 @@ questions:
         rationale: |
           You used the prefix "di-". Carbon monoxide has 1 oxygen atom ($CO$), whereas carbon dioxide has 2 ($CO_2$).
     explanation: |
-      In covalent naming, the second element always gets a prefix, even for one atom. "Mono-" on oxide specifically distinguishes $CO$ from $CO_2$ (carbon dioxide).
+      In covalent naming, the second element always gets a prefix, even for one atom. "Mono-" on oxide specifically distinguishes $CO$ from $CO_2$ (carbon dioxide). Therefore, the compound is carbon monoxide.
     approved: true
   - id: q-chemistry-chemical-nomenclature-0003
     type: identify

@@ -262,7 +262,7 @@ questions:
         rationale: |
           You ignored both domain restrictions. Square roots require $x+1 \geq 0$ and denominators cannot equal zero.
     explanation: |
-      Two conditions: square root needs $x + 1 \geq 0$ (so $x \geq -1$) and denominator needs $x - 2 \ne 0$ (so $x \ne 2$). Both must hold.
+      Two conditions: square root needs $x + 1 \geq 0$ (so $x \geq -1$) and denominator needs $x - 2 \ne 0$ (so $x \ne 2$). Both must hold, so the domain is $x \geq -1$ except $x = 2$.
 
   - id: q-algebra-functions-and-relations-0014
     type: which-is-true

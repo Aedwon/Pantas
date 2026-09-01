@@ -158,7 +158,7 @@ questions:
           You used $b/a$ with the sign left alone. Both the sign and the 2 are
           missing.
     explanation: |
-      The $x$-coordinate of the vertex is $h = -\frac{b}{2a}$. Here $a = 2$ and $b = -8$, so $h = -\frac{-8}{2(2)} = \frac{8}{4} = 2$. Forgetting the negative sign in the formula leads to $x = -2$.
+      The $x$-coordinate of the vertex is $h = -\frac{b}{2a}$. Here $a = 2$ and $b = -8$, so $h = -\frac{-8}{2(2)} = \frac{8}{4} = 2$. Therefore, the vertex has $x = 2$. Forgetting the negative sign in the formula leads to $x = -2$.
 
   - id: q-algebra-types-of-functions-0008
     type: direct-computation

@@ -285,7 +285,7 @@ questions:
           You brought a zero root along. There is no lone $x$ in this equation to
           produce one.
     explanation: |
-      Factor as difference of squares: $(x-4)(x+4) = 0$. Roots are $x = 4$ and $x = -4$.
+      Factor as difference of squares: $(x-4)(x+4) = 0$. Therefore, $x = 4$ or $x = -4$.
 
   - id: q-algebra-quadratic-equations-0014
     type: direct-computation
