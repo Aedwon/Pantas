@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pantas/features/paywall/data/live_revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 
 void main() {
@@ -36,7 +35,8 @@ void main() {
     expect(entitlement.proIsActive, isTrue);
   });
 
-  test('offeringsProvider sorts packages weekly monthly yearly', () async {
+  test('paywallPackagesProvider sorts packages weekly monthly yearly',
+      () async {
     final container = ProviderContainer(
       overrides: [
         revenueCatGatewayProvider.overrideWithValue(
@@ -44,19 +44,19 @@ void main() {
             packages: const [
               PaywallPackage(
                 sku: PaywallSku.yearly,
-                productId: 'pro_yearly',
-                priceString: '₱499',
-                priceAmount: 499,
+                productId: 'pantas_pro_yearly',
+                priceString: '₱799',
+                priceAmount: 799,
               ),
               PaywallPackage(
                 sku: PaywallSku.weekly,
-                productId: 'pro_weekly',
+                productId: 'pantas_pro_weekly',
                 priceString: '₱29',
                 priceAmount: 29,
               ),
               PaywallPackage(
                 sku: PaywallSku.monthly,
-                productId: 'pro_monthly',
+                productId: 'pantas_pro_monthly',
                 priceString: '₱99',
                 priceAmount: 99,
               ),
@@ -71,12 +71,18 @@ void main() {
 
     expect(
       packages.map((package) => package.productId),
-      ['pro_weekly', 'pro_monthly', 'pro_yearly'],
+      ['pantas_pro_weekly', 'pantas_pro_monthly', 'pantas_pro_yearly'],
     );
   });
 
   test('the gateway is disabled when no API key is configured', () {
-    final container = ProviderContainer();
+    final container = ProviderContainer(
+      overrides: [
+        entitlementSnapshotStoreProvider.overrideWithValue(
+          EntitlementSnapshotStore.inMemory(),
+        ),
+      ],
+    );
     addTearDown(container.dispose);
     expect(
       container.read(revenueCatGatewayProvider),
@@ -84,17 +90,18 @@ void main() {
     );
   });
 
-  test('the disabled gateway never reports Pro', () async {
+  test('the disabled gateway does not fabricate Pro on purchase', () async {
     const gateway = DisabledRevenueCatGateway();
-    final entitlement = await gateway.purchase(
+    final result = await gateway.purchase(
       const PaywallPackage(
         sku: PaywallSku.monthly,
-        productId: 'pro_monthly',
+        productId: 'pantas_pro_monthly',
         priceString: '₱99',
         priceAmount: 99,
       ),
     );
-    expect(entitlement.proIsActive, isFalse);
+    expect(result.status, PaymentOperationStatus.configurationFailure);
+    expect(result.confirmedEntitlement, isNull);
   });
 
   test('gateway selection reads the config rather than being hard coded', () {
@@ -102,6 +109,9 @@ void main() {
       overrides: [
         revenueCatConfigProvider.overrideWithValue(
           RevenueCatConfig.fromEnvironment(androidApiKey: 'goog_test_key'),
+        ),
+        entitlementSnapshotStoreProvider.overrideWithValue(
+          EntitlementSnapshotStore.inMemory(),
         ),
       ],
     );
@@ -128,21 +138,37 @@ class FakeGateway implements RevenueCatGateway {
   Stream<Entitlement> get customerInfoUpdates => _controller.stream;
 
   @override
+  Future<void> initialize() async {}
+
+  @override
   Future<void> configure({required String androidApiKey}) async {}
 
   @override
-  Future<List<PaywallPackage>> currentOffering() async => packages;
+  Future<PaywallOfferingResult> currentOffering() async {
+    return PaywallOfferingResult(
+      status: packages.isEmpty
+          ? PaywallOfferingStatus.emptyCurrentOffering
+          : PaywallOfferingStatus.available,
+      recognizedPackages: packages,
+    );
+  }
 
   @override
   Future<void> logIn(String uid) async {}
 
   @override
-  Future<Entitlement> purchase(PaywallPackage package) async {
-    return const Entitlement(plan: EntitlementPlan.monthly);
+  Future<PaymentOperationResult> purchase(PaywallPackage package) async {
+    return const PaymentOperationResult.authoritative(
+      status: PaymentOperationStatus.success,
+      entitlement: Entitlement(plan: EntitlementPlan.monthly),
+    );
   }
 
   @override
-  Future<Entitlement> restorePurchases() async {
-    return const Entitlement(plan: EntitlementPlan.monthly);
+  Future<PaymentOperationResult> restorePurchases() async {
+    return const PaymentOperationResult.authoritative(
+      status: PaymentOperationStatus.success,
+      entitlement: Entitlement(plan: EntitlementPlan.monthly),
+    );
   }
 }

@@ -16,84 +16,34 @@ void main() {
     expect(find.text('Restore purchases'), findsOneWidget);
   });
 
-  testWidgets(
-    'weekly panel shows renews date and manage action',
-    (tester) async {
-      await tester.pumpWidget(
-        _Host(
-          SubscriptionPanel(
-            entitlement: Entitlement(
-              plan: EntitlementPlan.weekly,
-              productId: 'pro_weekly',
-              expiresAt: DateTime.utc(2026, 6, 21),
-            ),
-          ),
-        ),
-      );
-
-      expect(
-        find.textContaining('Pro · Weekly · renews Jun 21'),
-        findsOneWidget,
-      );
-      expect(find.text('Manage in Google Play'), findsOneWidget);
-    },
-  );
-
-  testWidgets(
-    'monthly panel shows renews date and manage action',
-    (tester) async {
-      await tester.pumpWidget(
-        _Host(
-          SubscriptionPanel(
-            entitlement: Entitlement(
-              plan: EntitlementPlan.monthly,
-              productId: 'pro_monthly',
-              expiresAt: DateTime.utc(2026, 6, 21),
-            ),
-          ),
-        ),
-      );
-
-      expect(
-        find.textContaining('Pro · Monthly · renews Jun 21'),
-        findsOneWidget,
-      );
-      expect(find.text('Manage in Google Play'), findsOneWidget);
-    },
-  );
-
-  testWidgets(
-    'yearly trial panel shows days left and charge date',
-    (tester) async {
-      await tester.pumpWidget(
-        _Host(
-          SubscriptionPanel(
-            today: DateTime.utc(2026, 5, 26),
-            entitlement: Entitlement(
-              plan: EntitlementPlan.yearly,
-              productId: 'pro_yearly',
-              expiresAt: DateTime.utc(2026, 5, 28),
-              isTrial: true,
-            ),
-          ),
-        ),
-      );
-
-      expect(
-        find.textContaining(
-          'Pro trial · 2 days left · then ₱499/year on May 28',
-        ),
-        findsOneWidget,
-      );
-    },
-  );
-
-  testWidgets('cancelled but active panel says ends date', (tester) async {
+  testWidgets('renewing paid panel says renews', (tester) async {
     await tester.pumpWidget(
       _Host(
         SubscriptionPanel(
           entitlement: Entitlement(
             plan: EntitlementPlan.monthly,
+            productId: 'pantas_pro_monthly',
+            expiresAt: DateTime.utc(2026, 6, 21),
+          ),
+        ),
+      ),
+    );
+
+    expect(
+      find.textContaining('Pro · Monthly · renews Jun 21'),
+      findsOneWidget,
+    );
+    expect(find.text('Manage in Google Play'), findsOneWidget);
+  });
+
+  testWidgets('cancelled but active panel says ends, not renews',
+      (tester) async {
+    await tester.pumpWidget(
+      _Host(
+        SubscriptionPanel(
+          entitlement: Entitlement(
+            plan: EntitlementPlan.monthly,
+            productId: 'pantas_pro_monthly',
             expiresAt: DateTime.utc(2026, 6, 21),
             willRenew: false,
           ),
@@ -101,7 +51,49 @@ void main() {
       ),
     );
 
-    expect(find.textContaining("ends Jun 21 (won't renew)"), findsOneWidget);
+    expect(
+      find.textContaining('Pro · Monthly · ends Jun 21'),
+      findsOneWidget,
+    );
+    expect(find.textContaining('renews'), findsNothing);
+  });
+
+  testWidgets('trial panel identifies trial without stale hardcoded price',
+      (tester) async {
+    await tester.pumpWidget(
+      _Host(
+        SubscriptionPanel(
+          today: DateTime.utc(2026, 5, 26),
+          entitlement: Entitlement(
+            plan: EntitlementPlan.yearly,
+            productId: 'pantas_pro_yearly',
+            expiresAt: DateTime.utc(2026, 5, 28),
+            isTrial: true,
+          ),
+        ),
+      ),
+    );
+
+    expect(
+      find.textContaining('Pro trial · 2 days left · charges May 28'),
+      findsOneWidget,
+    );
+    expect(find.textContaining('₱499'), findsNothing);
+  });
+
+  testWidgets('unknown active product is shown as Pro, never Free',
+      (tester) async {
+    await tester.pumpWidget(
+      const _Host(
+        SubscriptionPanel(
+          entitlement: Entitlement.activeUnknown(productId: 'future_plan'),
+        ),
+      ),
+    );
+
+    expect(find.textContaining('Pro'), findsWidgets);
+    expect(find.textContaining("You're on Free"), findsNothing);
+    expect(find.textContaining('future_plan'), findsNothing);
   });
 }
 

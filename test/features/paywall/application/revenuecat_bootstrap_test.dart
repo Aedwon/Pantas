@@ -2,12 +2,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 
 void main() {
-  test('bootstrap skips RevenueCat when Android API key is absent', () async {
+  test('bootstrap hydrates even when Android API key is absent', () async {
     final gateway = BootstrapGateway();
     final bootstrapper = RevenueCatBootstrapper(gateway);
 
     await bootstrapper.configure(RevenueCatConfig.fromEnvironment());
 
+    expect(gateway.initializeCount, 1);
     expect(gateway.configuredKeys, isEmpty);
   });
 
@@ -20,7 +21,20 @@ void main() {
       RevenueCatConfig.fromEnvironment(androidApiKey: 'rc_key'),
     );
 
+    expect(gateway.initializeCount, 1);
     expect(gateway.configuredKeys, ['rc_key']);
+  });
+
+  test('bootstrap swallows initialization failure', () async {
+    final gateway = BootstrapGateway(failInitialize: true);
+    final bootstrapper = RevenueCatBootstrapper(gateway);
+
+    await bootstrapper.configure(
+      RevenueCatConfig.fromEnvironment(androidApiKey: 'rc_key'),
+    );
+
+    expect(gateway.initializeCount, 1);
+    expect(gateway.configuredKeys, isEmpty);
   });
 
   test('auth uid association calls logIn for anonymous and named UIDs',
@@ -46,8 +60,18 @@ void main() {
 }
 
 class BootstrapGateway extends DisabledRevenueCatGateway {
+  BootstrapGateway({this.failInitialize = false});
+
+  final bool failInitialize;
   final configuredKeys = <String>[];
   final loggedInUids = <String>[];
+  int initializeCount = 0;
+
+  @override
+  Future<void> initialize() async {
+    initializeCount += 1;
+    if (failInitialize) throw Exception('storage unavailable');
+  }
 
   @override
   Future<void> configure({required String androidApiKey}) async {

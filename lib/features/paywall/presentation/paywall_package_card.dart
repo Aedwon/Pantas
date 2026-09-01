@@ -29,58 +29,64 @@ class PaywallPackageCard extends StatelessWidget {
       PaywallSku.yearly => 'Yearly',
     };
     final subtitle = switch (package.sku) {
-      // The ≈monthly equivalent keeps Weekly honest: nobody should read it
-      // as the cheap long-term option.
-      PaywallSku.weekly => '${package.priceString}/week · ≈₱126/month · '
-          'Renews every week · Cancel anytime',
-      PaywallSku.monthly => '${package.priceString}/month · Cancel anytime',
-      PaywallSku.yearly => '${package.priceString}/year · ₱42/month',
+      PaywallSku.weekly =>
+        '${package.priceString}/week · Renews every week · Cancel anytime',
+      PaywallSku.monthly =>
+        '${package.priceString}/month · Renews monthly · Cancel anytime',
+      PaywallSku.yearly =>
+        '${package.priceString}/year · 7-day free trial · Cancel anytime',
     };
 
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.all(12),
-        decoration: isSelected
-            ? BoxDecoration(
-                color: colors.boardTint,
-                border: Border.all(color: colors.board),
-                borderRadius: BorderRadius.circular(AppDimensions.radiusButton),
-              )
-            : BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(
-                    color: colors.ruleFaint,
-                    // ignore: avoid_redundant_argument_values
-                    width: AppDimensions.hairline,
+    return Semantics(
+      selected: isSelected,
+      button: true,
+      label: '$title plan',
+      child: InkWell(
+        onTap: onTap,
+        child: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(12),
+          decoration: isSelected
+              ? BoxDecoration(
+                  color: colors.boardTint,
+                  border: Border.all(color: colors.board),
+                  borderRadius:
+                      BorderRadius.circular(AppDimensions.radiusButton),
+                )
+              : BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                      color: colors.ruleFaint,
+                      // ignore: avoid_redundant_argument_values
+                      width: AppDimensions.hairline,
+                    ),
                   ),
                 ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              if (isRecommended)
+                Text(
+                  badgeCopy,
+                  style: styles.labelSmall.copyWith(color: colors.board),
+                ),
+              Row(
+                children: [
+                  Expanded(child: Text(title, style: styles.headlineSmall)),
+                  if (package.sku == PaywallSku.yearly)
+                    Text(
+                      '7 days free',
+                      style: styles.labelSmall.copyWith(color: colors.board),
+                    ),
+                ],
               ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            if (isRecommended)
+              const SizedBox(height: 2),
               Text(
-                badgeCopy,
-                style: styles.labelSmall.copyWith(color: colors.board),
+                subtitle,
+                style: styles.bodySmall.copyWith(color: colors.inkMuted),
               ),
-            Row(
-              children: [
-                Expanded(child: Text(title, style: styles.headlineSmall)),
-                if (package.sku == PaywallSku.yearly)
-                  Text(
-                    '7 days free',
-                    style: styles.labelSmall.copyWith(color: colors.board),
-                  ),
-              ],
-            ),
-            const SizedBox(height: 2),
-            Text(
-              subtitle,
-              style: styles.bodySmall.copyWith(color: colors.inkMuted),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

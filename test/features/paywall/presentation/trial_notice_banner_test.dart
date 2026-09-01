@@ -4,7 +4,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 
 void main() {
-  testWidgets('trial notice banner appears from day five with charge date copy',
+  testWidgets('trial notice names the charge date without stale price copy',
       (tester) async {
     final notice = TrialNotice(
       daysRemaining: 2,
@@ -20,5 +20,7 @@ void main() {
 
     expect(find.text('Pro trial ends in 2 days'), findsOneWidget);
     expect(find.textContaining('May 28'), findsOneWidget);
+    expect(find.textContaining('₱499'), findsNothing);
+    expect(find.textContaining('₱999'), findsNothing);
   });
 }
