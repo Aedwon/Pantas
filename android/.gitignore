@@ -1,11 +1,10 @@
-gradle-wrapper.jar
 /.gradle
 /captures/
-/gradlew
-/gradlew.bat
 /local.properties
 GeneratedPluginRegistrant.java
 .cxx/
+
+# Keep the standard Gradle wrapper launchers and JAR tracked.
 
 # Remember to never publicly share your keystore.
 # See https://flutter.dev/to/reference-keystore

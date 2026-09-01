@@ -11,13 +11,27 @@ import 'package:timezone/timezone.dart' as tz;
 class FlutterLocalNotificationsGateway implements NotificationsGateway {
   FlutterLocalNotificationsGateway({
     FlutterLocalNotificationsPlugin? plugin,
-  }) : _plugin = plugin ?? FlutterLocalNotificationsPlugin();
+    AndroidFlutterLocalNotificationsPlugin? Function(
+      FlutterLocalNotificationsPlugin plugin,
+    )? androidPluginResolver,
+  })  : _plugin = plugin ?? FlutterLocalNotificationsPlugin(),
+        _androidPluginResolver = androidPluginResolver;
 
   final FlutterLocalNotificationsPlugin _plugin;
+  final AndroidFlutterLocalNotificationsPlugin? Function(
+    FlutterLocalNotificationsPlugin plugin,
+  )? _androidPluginResolver;
   final _permissionController =
       StreamController<NotificationPermission>.broadcast();
   final _tapController = StreamController<String?>.broadcast();
   var _initialized = false;
+
+  AndroidFlutterLocalNotificationsPlugin? get _androidPlugin {
+    final resolver = _androidPluginResolver;
+    if (resolver != null) return resolver(_plugin);
+    return _plugin.resolvePlatformSpecificImplementation<
+        AndroidFlutterLocalNotificationsPlugin>();
+  }
 
   @override
   Future<void> initialize() async {
@@ -34,8 +48,7 @@ class FlutterLocalNotificationsGateway implements NotificationsGateway {
         _tapController.add(response.payload);
       },
     );
-    final android = _plugin.resolvePlatformSpecificImplementation<
-        AndroidFlutterLocalNotificationsPlugin>();
+    final android = _androidPlugin;
     await android?.createNotificationChannel(_dailyChannel);
     await android?.createNotificationChannel(_streakChannel);
     _initialized = true;
@@ -66,9 +79,7 @@ class FlutterLocalNotificationsGateway implements NotificationsGateway {
 
   @override
   Future<NotificationPermission> permissionStatus() async {
-    final android = _plugin.resolvePlatformSpecificImplementation<
-        AndroidFlutterLocalNotificationsPlugin>();
-    final androidGranted = await android?.areNotificationsEnabled();
+    final androidGranted = await _androidPlugin?.areNotificationsEnabled();
     if (androidGranted != null) {
       return androidGranted
           ? NotificationPermission.granted
@@ -80,13 +91,19 @@ class FlutterLocalNotificationsGateway implements NotificationsGateway {
 
   @override
   Future<NotificationPermission> requestPermission() async {
-    final android = _plugin.resolvePlatformSpecificImplementation<
-        AndroidFlutterLocalNotificationsPlugin>();
+    final android = _androidPlugin;
     final androidGranted = await android?.requestNotificationsPermission();
     if (androidGranted != null) {
       final status = androidGranted
           ? NotificationPermission.granted
           : NotificationPermission.denied;
+      if (androidGranted) {
+        final exactAlarmsAvailable =
+            await android?.canScheduleExactNotifications();
+        if (exactAlarmsAvailable == false) {
+          await android?.requestExactAlarmsPermission();
+        }
+      }
       _permissionController.add(status);
       return status;
     }
@@ -104,7 +121,11 @@ class FlutterLocalNotificationsGateway implements NotificationsGateway {
   }
 
   @override
-  Future<void> schedule(ScheduledNotification notification) {
+  Future<void> schedule(ScheduledNotification notification) async {
+    final exactAlarmsAvailable =
+        await _androidPlugin?.canScheduleExactNotifications();
+    if (exactAlarmsAvailable == false) return;
+
     final details = NotificationDetails(
       android: AndroidNotificationDetails(
         notification.kind == NotificationKind.dailyReminder
@@ -116,7 +137,7 @@ class FlutterLocalNotificationsGateway implements NotificationsGateway {
       ),
       iOS: const DarwinNotificationDetails(),
     );
-    return _plugin.zonedSchedule(
+    await _plugin.zonedSchedule(
       id: notification.id,
       title: notification.title,
       body: notification.body,
