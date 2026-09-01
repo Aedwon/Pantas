@@ -55,9 +55,13 @@ void main() {
 
     expect(result, PullApplyResult.applied);
     expect(
-        await queue.drainGeneration(
-            uid: uid, generationId: generationId, limit: 10),
-        isEmpty);
+      await queue.drainGeneration(
+        uid: uid,
+        generationId: generationId,
+        limit: 10,
+      ),
+      isEmpty,
+    );
     final accepted = await SyncRowMetaRepository(db).readAcceptedBase(
       collection: 'lesson_progress',
       rowId: 'lesson-1',
@@ -67,8 +71,8 @@ void main() {
   });
 
   test(
-      'older same-device echo advances a newer pending revision without clobbering it',
-      () async {
+      'older same-device echo advances a newer pending revision without '
+      'clobbering it', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     final queue = PendingQueue(db);
@@ -126,13 +130,15 @@ void main() {
     expect(pending!.revision, 2);
     expect(pending.mutationId, 'mutation-2');
     expect(pending.baseUpdatedAt, v2);
-    expect((await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
-        DateTime.utc(2026, 8, 29, 20, 10));
+    expect(
+      (await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
+      DateTime.utc(2026, 8, 29, 20, 10),
+    );
   });
 
   test(
-      'newer remote live row applies and never records a local journal mutation',
-      () async {
+      'newer remote live row applies and never records a local journal '
+      'mutation', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     final queue = PendingQueue(db);
@@ -159,8 +165,10 @@ void main() {
     );
 
     expect(result, PullApplyResult.applied);
-    expect((await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
-        DateTime.utc(2026, 8, 29, 21));
+    expect(
+      (await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
+      DateTime.utc(2026, 8, 29, 21),
+    );
     final journalCount = await db
         .customSelect('select count(*) as count from sync_local_mutations')
         .getSingle();
@@ -194,13 +202,15 @@ void main() {
       ),
       PullApplyResult.ignored,
     );
-    expect((await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
-        DateTime.utc(2026, 8, 29, 21));
+    expect(
+      (await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
+      DateTime.utc(2026, 8, 29, 21),
+    );
   });
 
   test(
-      'remote tombstone deletes local domain row and retains tombstone version meta',
-      () async {
+      'remote tombstone deletes local domain row and retains tombstone '
+      'version meta', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     final queue = PendingQueue(db);
@@ -332,8 +342,10 @@ void main() {
     );
 
     expect(result, PullApplyResult.quarantined);
-    expect((await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
-        DateTime.utc(2026, 8, 29, 20));
+    expect(
+      (await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
+      DateTime.utc(2026, 8, 29, 20),
+    );
   });
 }
 

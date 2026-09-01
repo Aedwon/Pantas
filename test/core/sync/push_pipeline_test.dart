@@ -54,9 +54,13 @@ void main() {
     expect(cloud.originDeviceId, deviceId);
     expect(cloud.updatedAt, DateTime.utc(2026, 8, 30, 1));
     expect(
-        await queue.drainGeneration(
-            uid: uid, generationId: generationId, limit: 10),
-        isEmpty);
+      await queue.drainGeneration(
+        uid: uid,
+        generationId: generationId,
+        limit: 10,
+      ),
+      isEmpty,
+    );
     final accepted = await SyncRowMetaRepository(db).readAcceptedBase(
       collection: 'lesson_progress',
       rowId: 'lesson-1',
@@ -66,8 +70,8 @@ void main() {
   });
 
   test(
-      'knownVersion update loses to newer cloud state and reconciles it locally',
-      () async {
+      'knownVersion update loses to newer cloud state and reconciles it '
+      'locally', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     final queue = PendingQueue(db);
@@ -100,13 +104,18 @@ void main() {
     final local = await _lesson(db, 'lesson-1');
     expect(local!.readAt.toUtc(), DateTime.utc(2026, 8, 29, 21));
     expect(
-        (await gateway.readDocument(_path('lesson_progress', 'lesson-1')))!
-            .mutationId,
-        'remote-v2');
+      (await gateway.readDocument(_path('lesson_progress', 'lesson-1')))!
+          .mutationId,
+      'remote-v2',
+    );
     expect(
-        await queue.drainGeneration(
-            uid: uid, generationId: generationId, limit: 10),
-        isEmpty);
+      await queue.drainGeneration(
+        uid: uid,
+        generationId: generationId,
+        limit: 10,
+      ),
+      isEmpty,
+    );
   });
 
   test('knownVersion delete loses to newer cloud state instead of deleting it',
@@ -146,14 +155,18 @@ void main() {
     expect(cloud!.deleted, isFalse);
     expect(cloud.mutationId, 'remote-v2');
     expect(
-        await queue.drainGeneration(
-            uid: uid, generationId: generationId, limit: 10),
-        isEmpty);
+      await queue.drainGeneration(
+        uid: uid,
+        generationId: generationId,
+        limit: 10,
+      ),
+      isEmpty,
+    );
   });
 
   test(
-      'successful delete writes a tombstone and never physically deletes cloud row',
-      () async {
+      'successful delete writes a tombstone and never physically deletes '
+      'cloud row', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     final queue = PendingQueue(db);
@@ -249,8 +262,10 @@ void main() {
     expect(pending.mutationId, 'mutation-2');
     expect(pending.baseState, 'knownVersion');
     expect(pending.baseUpdatedAt, v2);
-    expect((await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
-        DateTime.utc(2026, 8, 29, 20, 10));
+    expect(
+      (await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
+      DateTime.utc(2026, 8, 29, 20, 10),
+    );
   });
 
   test('newer local revision is not marked failed by old in-flight failure',
@@ -514,11 +529,17 @@ void main() {
     await _pipeline(db, queue, gateway, pull).flush();
 
     expect(
-        await queue.drainGeneration(
-            uid: uid, generationId: generationId, limit: 10),
-        isEmpty);
-    expect((await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
-        DateTime.utc(2026, 8, 29, 21));
+      await queue.drainGeneration(
+        uid: uid,
+        generationId: generationId,
+        limit: 10,
+      ),
+      isEmpty,
+    );
+    expect(
+      (await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
+      DateTime.utc(2026, 8, 29, 21),
+    );
     final acceptedAfterStale = await rowMeta.readAcceptedBase(
       collection: 'lesson_progress',
       rowId: 'lesson-1',
@@ -526,9 +547,10 @@ void main() {
     expect(acceptedAfterStale!.state, SyncCausalBaseState.knownVersion);
     expect(acceptedAfterStale.updatedAt, v2);
     expect(
-        (await gateway.readDocument(_path('lesson_progress', 'lesson-1')))!
-            .mutationId,
-        'remote-v2');
+      (await gateway.readDocument(_path('lesson_progress', 'lesson-1')))!
+          .mutationId,
+      'remote-v2',
+    );
   });
 }
 
@@ -638,9 +660,9 @@ class BlockingCommitGateway extends FakeFirestoreGateway {
 
   final entered = Completer<void>();
   final release = Completer<void>();
-  var calls = 0;
-  var active = 0;
-  var maxActive = 0;
+  int calls = 0;
+  int active = 0;
+  int maxActive = 0;
 
   @override
   Future<RowCommitResult> commitRowIfBaseMatches({

@@ -1,9 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/app/telemetry_consent_controller.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/telemetry/crash_reporting.dart';
 import 'package:pantas/core/telemetry/gated_telemetry.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
-import 'package:pantas/app/telemetry_consent_controller.dart';
 
 /// The SDK seam. Overridden in `bootstrap` with `FirebaseTelemetry`, and left
 /// as [DisabledTelemetry] in tests and anywhere Firebase is not initialized.
@@ -18,7 +18,8 @@ final telemetryConsentControllerProvider =
   return TelemetryConsentController(sink);
 });
 
-/// The effective runtime consent state, managed by [TelemetryConsentController].
+/// The effective runtime consent state, managed by
+/// [TelemetryConsentController].
 /// Starts false until consent is confirmed and applied via the SDK.
 final effectiveTelemetryConsentProvider = Provider<bool>((ref) {
   return ref.watch(telemetryConsentControllerProvider);

@@ -23,7 +23,7 @@ void main() {
     String rowId,
   ) async {
     final row = await db.customSelect(
-      'select collection,row_id,op,revision,mutation_epoch,causal_uid,'
+      'select collection,row_id,op,revision,mutation_epoch,causal_uid, '
       'causal_generation_id,causal_base_state,'
       'cast(base_updated_at as integer) as base_updated_at '
       'from sync_local_mutations where collection = ? and row_id = ?',
@@ -152,8 +152,10 @@ void main() {
     final row = await journal('mock_exam_attempts', 'mock_discard');
     expect(row['op'], 'upsert');
     expect(row['revision'], 1);
-    expect((await repo.findById('mock_discard'))!.status,
-        MockAttemptStatus.discarded);
+    expect(
+      (await repo.findById('mock_discard'))!.status,
+      MockAttemptStatus.discarded,
+    );
     expect(await epoch(), 1);
   });
 
@@ -191,10 +193,14 @@ void main() {
       submittedAt: DateTime.utc(2026, 8, 30, 0, 22),
     );
 
-    expect((await journal('mock_exam_attempts', 'mock_completed'))['op'],
-        'upsert');
-    expect((await journal('mock_exam_attempts', 'mock_forfeited'))['op'],
-        'upsert');
+    expect(
+      (await journal('mock_exam_attempts', 'mock_completed'))['op'],
+      'upsert',
+    );
+    expect(
+      (await journal('mock_exam_attempts', 'mock_forfeited'))['op'],
+      'upsert',
+    );
     final completed = await repo.findById('mock_completed');
     expect(completed!.status, MockAttemptStatus.completed);
     expect(completed.scoreRaw, 8);
@@ -209,7 +215,7 @@ void main() {
     await repo.save(
       blueprint,
       topicsBySubject: const {
-        'math': ['algebra']
+        'math': ['algebra'],
       },
       now: DateTime.utc(2026, 8, 30),
     );
@@ -238,12 +244,13 @@ void main() {
     await repo.save(
       blueprint,
       topicsBySubject: const {
-        'math': ['algebra']
+        'math': ['algebra'],
       },
       now: DateTime.utc(2026, 8, 30, 1),
     );
     final drainedRevision = Map<String, Object?>.from(
-        await journal('custom_blueprints', 'exam_custom_1'));
+      await journal('custom_blueprints', 'exam_custom_1'),
+    );
 
     await rowMeta.acceptKnownVersion(
       collection: 'custom_blueprints',
@@ -257,7 +264,7 @@ void main() {
         totalMinutes: 75,
       ),
       topicsBySubject: const {
-        'math': ['algebra']
+        'math': ['algebra'],
       },
       now: DateTime.utc(2026, 8, 30, 2),
     );

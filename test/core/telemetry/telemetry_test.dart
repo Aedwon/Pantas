@@ -1,6 +1,5 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/telemetry/firebase_telemetry.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
@@ -19,8 +18,8 @@ void main() {
 
   group('FirebaseTelemetry.instancesIfAvailable()', () {
     test(
-        'returns DisabledTelemetry when Firebase is unavailable and does not throw',
-        () async {
+        'returns DisabledTelemetry when Firebase is unavailable and does '
+        'not throw', () async {
       final telemetry = FirebaseTelemetry.instancesIfAvailable();
       expect(telemetry, isA<DisabledTelemetry>());
 
@@ -120,7 +119,8 @@ void main() {
 
   group('FirebaseTelemetry crash-report sanitization', () {
     test(
-      'recordError sanitizes exception message and preserves error type and stack',
+      'recordError sanitizes exception message and preserves error type and '
+      'stack',
       () async {
         final analytics = FakeFirebaseAnalytics();
         final crashlytics = FakeFirebaseCrashlytics();
@@ -130,9 +130,10 @@ void main() {
         );
 
         final stack = StackTrace.current;
-        final error = FormatException(
+        const error = FormatException(
           'Failed parsing student@example.com '
-          'What is the powerhouse of the cell? Mitochondria score=95 accuracy=0.8 streak=5 rank=1',
+          'What is the powerhouse of the cell? Mitochondria score=95 '
+          'accuracy=0.8 streak=5 rank=1',
         );
 
         await telemetry.recordError(error, stack);
@@ -162,8 +163,8 @@ void main() {
       'FirebaseTelemetry setEnabled resilience and manual Crashlytics handling',
       () {
     test(
-        'attempts Crashlytics sendUnsentReports even when Analytics setEnabled throws on true',
-        () async {
+        'attempts Crashlytics sendUnsentReports even when Analytics '
+        'setEnabled throws on true', () async {
       final analytics = FakeFirebaseAnalytics()
         ..throwOnSetCollectionEnabled = true;
       final crashlytics = FakeFirebaseCrashlytics();
@@ -183,8 +184,8 @@ void main() {
     });
 
     test(
-        'attempts Analytics even when Crashlytics sendUnsentReports throws on true',
-        () async {
+        'attempts Analytics even when Crashlytics sendUnsentReports throws '
+        'on true', () async {
       final analytics = FakeFirebaseAnalytics();
       final crashlytics = FakeFirebaseCrashlytics()
         ..throwOnSendUnsentReports = true;
@@ -204,8 +205,8 @@ void main() {
     });
 
     test(
-        'attempts Crashlytics deleteUnsentReports even when Analytics setEnabled throws on false',
-        () async {
+        'attempts Crashlytics deleteUnsentReports even when Analytics '
+        'setEnabled throws on false', () async {
       final analytics = FakeFirebaseAnalytics()
         ..throwOnSetCollectionEnabled = true;
       final crashlytics = FakeFirebaseCrashlytics();
@@ -225,8 +226,8 @@ void main() {
     });
 
     test(
-        'attempts Analytics even when Crashlytics deleteUnsentReports throws on false',
-        () async {
+        'attempts Analytics even when Crashlytics deleteUnsentReports '
+        'throws on false', () async {
       final analytics = FakeFirebaseAnalytics();
       final crashlytics = FakeFirebaseCrashlytics()
         ..throwOnDeleteUnsentReports = true;
@@ -246,8 +247,8 @@ void main() {
     });
 
     test(
-        'enables analytics and sends unsent reports on true when neither throws',
-        () async {
+        'enables analytics and sends unsent reports on true when neither '
+        'throws', () async {
       final analytics = FakeFirebaseAnalytics();
       final crashlytics = FakeFirebaseCrashlytics();
       final telemetry = FirebaseTelemetry(
@@ -263,8 +264,8 @@ void main() {
     });
 
     test(
-        'disables analytics and deletes unsent reports on false when neither throws',
-        () async {
+        'disables analytics and deletes unsent reports on false when '
+        'neither throws', () async {
       final analytics = FakeFirebaseAnalytics();
       final crashlytics = FakeFirebaseCrashlytics();
       final telemetry = FirebaseTelemetry(
@@ -350,8 +351,10 @@ class FakeFirebaseAnalytics extends Fake implements FirebaseAnalytics {
   }
 
   @override
-  Future<void> setUserId(
-      {String? id, AnalyticsCallOptions? callOptions}) async {
+  Future<void> setUserId({
+    String? id,
+    AnalyticsCallOptions? callOptions,
+  }) async {
     userId = id;
     if (throwOnSetUserId) {
       throw StateError('Analytics setUserId failed');

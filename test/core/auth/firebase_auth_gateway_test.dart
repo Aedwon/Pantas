@@ -58,7 +58,7 @@ void main() {
     final auth = MockFirebaseAuth();
     final user = _user(uid: 'anon-1', isAnonymous: true);
     when(
-      () => auth.authStateChanges(),
+      auth.authStateChanges,
     ).thenAnswer((_) => Stream<firebase.User?>.fromIterable([user, null]));
 
     final states = await FirebaseAuthGateway(
@@ -80,7 +80,7 @@ void main() {
     final credential = MockUserCredential();
     final user = _user(uid: 'anon-1', isAnonymous: true);
     when(() => credential.user).thenReturn(user);
-    when(() => auth.signInAnonymously()).thenAnswer((_) async => credential);
+    when(auth.signInAnonymously).thenAnswer((_) async => credential);
 
     final session = await FirebaseAuthGateway(auth: auth).signInAnonymously();
 
@@ -96,7 +96,7 @@ void main() {
     final auth = MockFirebaseAuth();
     final credential = MockUserCredential();
     when(() => credential.user).thenReturn(null);
-    when(() => auth.signInAnonymously()).thenAnswer((_) async => credential);
+    when(auth.signInAnonymously).thenAnswer((_) async => credential);
 
     await expectLater(
       FirebaseAuthGateway(auth: auth).signInAnonymously(),
@@ -151,7 +151,7 @@ void main() {
   test('forwards FirebaseAuthException code unchanged', () async {
     final auth = MockFirebaseAuth();
     when(
-      () => auth.signInAnonymously(),
+      auth.signInAnonymously,
     ).thenThrow(firebase.FirebaseAuthException(code: 'network-request-failed'));
 
     await expectLater(

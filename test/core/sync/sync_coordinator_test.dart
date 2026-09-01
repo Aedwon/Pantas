@@ -8,10 +8,11 @@ void main() {
     String? seenUid;
     String? seenExpected;
     final coordinator = SyncCoordinatorImpl(
-      fullPush: (
-          {required uid,
-          required expectedActiveGenerationId,
-          shouldContinue}) async {
+      fullPush: ({
+        required uid,
+        required expectedActiveGenerationId,
+        shouldContinue,
+      }) async {
         seenUid = uid;
         seenExpected = expectedActiveGenerationId;
         return const FullPushResult(
@@ -37,10 +38,11 @@ void main() {
     String? seenUid;
     String? seenGeneration;
     final coordinator = SyncCoordinatorImpl(
-      fullPush: (
-              {required uid,
-              required expectedActiveGenerationId,
-              shouldContinue}) async =>
+      fullPush: ({
+        required uid,
+        required expectedActiveGenerationId,
+        shouldContinue,
+      }) async =>
           const FullPushResult(
         outcome: FullPushOutcome.activated,
         generationId: 'unused',

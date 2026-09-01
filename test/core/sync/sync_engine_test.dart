@@ -79,9 +79,10 @@ void main() {
     );
     await engine.start(generationId: 'generation-1');
 
-    engine.notifyLocalMutation();
-    engine.notifyLocalMutation();
-    engine.notifyLocalMutation();
+    engine
+      ..notifyLocalMutation()
+      ..notifyLocalMutation()
+      ..notifyLocalMutation();
     await Future<void>.delayed(const Duration(milliseconds: 60));
 
     expect(flushes, 1);

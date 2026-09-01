@@ -4,23 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/content/domain/mock_blueprint.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/error_banner.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
-import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
 import 'package:pantas/features/mock_exam/application/mock_session_controller.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/application/strict_mode_lifecycle.dart';
-import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/domain/mock_sample.dart';
+import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/domain/use_cases/start_mock.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.dart';
-import 'package:pantas/features/mock_exam/presentation/widgets/mock_question_grid.dart';
 import 'package:pantas/features/mock_exam/presentation/pause_page.dart';
-import 'package:pantas/core/storage/domain/question.dart';
-import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/content/domain/mock_blueprint.dart';
-import 'package:pantas/features/mock_exam/data/mock_sampler.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/mock_question_grid.dart';
 import 'package:uuid/uuid.dart';
 
 class MockStartRoute extends ConsumerStatefulWidget {
@@ -44,8 +42,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
   Stopwatch? _stopwatch;
   StrictModeLifecycle? _strictModeLifecycle;
   String? _errorMessage;
-  String? _blueprintName;
-  MockSample? _sample;
+  late MockSample _sample;
   bool _submitting = false;
 
   @override
@@ -82,8 +79,8 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
         throw Exception('Blueprint not found');
       }
 
-      final pools = await ref
-          .read(mockQuestionPoolsProvider(widget.examId).future);
+      final pools =
+          await ref.read(mockQuestionPoolsProvider(widget.examId).future);
       final sampler = ref.read(mockSamplerProvider);
 
       final sample = sampler.sample(
@@ -100,47 +97,55 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
 
       final attemptId = const Uuid().v4();
       final startMock = ref.read(startMockUseCaseProvider);
-      final strictMode = await ref.read(mockExamPreferencesProvider).strictMockMode();
+      final strictMode =
+          await ref.read(mockExamPreferencesProvider).strictMockMode();
 
-      final isSectional = parsed.blueprint.sectionalTiming == SectionalTiming.sectional;
+      final isSectional =
+          parsed.blueprint.sectionalTiming == SectionalTiming.sectional;
       final parts = <MockSessionPart>[];
-      
+
       if (isSectional) {
         var startIndex = 0;
         for (final sampledSection in sample.sections) {
-          final sectionDef = parsed.sections.firstWhere((s) => s.id == sampledSection.sectionId);
-          parts.add(MockSessionPart(
-            name: sectionDef.name,
-            startIndex: startIndex,
-            count: sampledSection.questionIds.length,
-            minutes: sectionDef.sectionalMinutes ?? sectionDef.suggestedMinutes,
-          ));
+          final sectionDef = parsed.sections
+              .firstWhere((s) => s.id == sampledSection.sectionId);
+          parts.add(
+            MockSessionPart(
+              name: sectionDef.name,
+              startIndex: startIndex,
+              count: sampledSection.questionIds.length,
+              minutes:
+                  sectionDef.sectionalMinutes ?? sectionDef.suggestedMinutes,
+            ),
+          );
           startIndex += sampledSection.questionIds.length;
         }
       } else {
-        parts.add(MockSessionPart(
-          name: '',
-          startIndex: 0,
-          count: questionIds.length,
-          minutes: null,
-        ));
+        parts.add(
+          MockSessionPart(
+            name: '',
+            startIndex: 0,
+            count: questionIds.length,
+          ),
+        );
       }
 
-      await startMock.call(MockStartRequest(
-        id: attemptId,
-        userId: 'local', // Assuming local user for mock, or we can fetch current user if required
-        examId: widget.examId,
-        blueprintId: widget.blueprintId,
-        blueprintName: parsed.blueprint.name,
-        durationMinutes: parsed.blueprint.durationMinutes,
-        strictMode: strictMode,
-        sample: sample,
-        startedAt: DateTime.now(),
-      ));
+      await startMock.call(
+        MockStartRequest(
+          id: attemptId,
+          userId: 'local', // Local mock user.
+          examId: widget.examId,
+          blueprintId: widget.blueprintId,
+          blueprintName: parsed.blueprint.name,
+          durationMinutes: parsed.blueprint.durationMinutes,
+          strictMode: strictMode,
+          sample: sample,
+          startedAt: DateTime.now(),
+        ),
+      );
 
       if (!mounted) return;
 
-      _blueprintName = parsed.blueprint.name;
       _sample = sample;
       final currentAttemptId = attemptId;
       late final MockSessionController controller;
@@ -156,12 +161,13 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
         onSubmit: (reason) async {
           if (!mounted || _submitting) return;
           setState(() => _submitting = true);
-          
+
           _timer?.cancel();
           _stopwatch?.stop();
 
           try {
-            final computeMockResults = ref.read(computeMockResultsUseCaseProvider);
+            final computeMockResults =
+                ref.read(computeMockResultsUseCaseProvider);
             final submitMock = ref.read(submitMockUseCaseProvider);
             final contentRepo = ref.read(contentRepositoryProvider);
 
@@ -171,12 +177,12 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
               if (q != null) questionsById[qId] = q;
             }
 
-            final answers = controller.state is MockSessionInProgress 
-                ? (controller.state as MockSessionInProgress).answers 
+            final answers = controller.state is MockSessionInProgress
+                ? (controller.state as MockSessionInProgress).answers
                 : (controller.state as MockSessionSubmitted).snapshot.answers;
 
             final results = computeMockResults(
-              sample: _sample!,
+              sample: _sample,
               questionsById: questionsById,
               answers: answers,
               totalTimeSeconds: _stopwatch?.elapsed.inSeconds ?? 0,
@@ -221,7 +227,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
       _timer = Timer.periodic(const Duration(seconds: 1), (_) {
         if (!mounted || _controller == null) return;
         _strictModeLifecycle?.elapse(const Duration(seconds: 1));
-        
+
         final state = _controller!.state;
         if (state is MockSessionInProgress) {
           setState(() {
@@ -243,7 +249,12 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
     if (_errorMessage != null) {
       return Scaffold(
         appBar: AppBar(title: const Text('Error')),
-        body: Center(child: ErrorBanner(message: _errorMessage!, variant: ErrorBannerVariant.error)),
+        body: Center(
+          child: ErrorBanner(
+            message: _errorMessage!,
+            variant: ErrorBannerVariant.error,
+          ),
+        ),
       );
     }
 
@@ -263,12 +274,15 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
         flagged: state.snapshot.flags.length,
         onResume: () {
           _stopwatch?.start();
-          setState(() => controller.resume());
+          setState(controller.resume);
         },
         onDiscard: () async {
           final discardMock = ref.read(discardMockUseCaseProvider);
-          await discardMock(attemptId: state.snapshot.attemptId, discardedAt: DateTime.now());
-          if (mounted) {
+          await discardMock(
+            attemptId: state.snapshot.attemptId,
+            discardedAt: DateTime.now(),
+          );
+          if (context.mounted) {
             context.pop();
           }
         },
@@ -286,16 +300,16 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
       partTotal: controller.currentPart.count,
       canGoPrevious: controller.canGoPrevious,
       canGoNext: controller.canGoNext,
-      onPrevious: () => setState(() => controller.goPrevious()),
-      onNext: () => setState(() => controller.goNext()),
+      onPrevious: () => setState(controller.goPrevious),
+      onNext: () => setState(controller.goNext),
       onAnswer: (index) => setState(() => controller.answerCurrent(index)),
-      onToggleFlag: () => setState(() => controller.toggleFlag()),
-      onEndPartEarly: () => setState(() => controller.endPartEarly()),
+      onToggleFlag: () => setState(controller.toggleFlag),
+      onEndPartEarly: () => setState(controller.endPartEarly),
       currentPartNumber: controller.currentPartIndex + 1,
       onPause: () {
         if (controller.canPause) {
           _stopwatch?.stop();
-          setState(() => controller.pause());
+          setState(controller.pause);
         }
       },
       onShowNavigator: () {
@@ -319,15 +333,15 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
                         count: controller.parts[i].count,
                         isOpen: i == controller.currentPartIndex ||
                             controller.parts.length == 1,
-                      )
+                      ),
                   ],
                   currentIndex: state.currentIndex,
                   answeredIndexes: state.answers.keys
-                      .map((id) => state.questionIds.indexOf(id))
+                      .map(state.questionIds.indexOf)
                       .where((i) => i >= 0)
                       .toSet(),
                   flaggedIndexes: state.flags
-                      .map((id) => state.questionIds.indexOf(id))
+                      .map(state.questionIds.indexOf)
                       .where((i) => i >= 0)
                       .toSet(),
                   onTap: (index) {

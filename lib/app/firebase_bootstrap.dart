@@ -7,6 +7,8 @@ import 'package:pantas/firebase_options_staging.dart' as staging_options;
 
 enum FirebaseBootstrapResult { configured, unavailable }
 
+// Single-method interface is intentional for bootstrap test DI.
+// ignore: one_member_abstracts
 abstract interface class FirebaseBootAdapter {
   Future<void> initialize(FirebaseOptions options);
 }

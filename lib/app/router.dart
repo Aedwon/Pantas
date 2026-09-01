@@ -27,7 +27,6 @@ import 'package:pantas/features/onboarding/onboarding.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_start_route.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_results_route.dart';
-import 'package:pantas/features/mock_exam/presentation/pages/mock_review_page.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.dart';
 import 'package:pantas/features/progress/presentation/pages/how_you_work_page.dart';
 import 'package:pantas/features/progress/presentation/pages/your_record_page.dart';
@@ -339,7 +338,9 @@ List<RouteBase> buildAppRoutes(Ref ref) {
         return MockSetupRoute(
           examId: examId,
           onStart: (blueprintId) {
-            context.push('/quiz/mock/start?examId=$examId&blueprintId=$blueprintId');
+            context.push(
+              '/quiz/mock/start?examId=$examId&blueprintId=$blueprintId',
+            );
           },
         );
       },

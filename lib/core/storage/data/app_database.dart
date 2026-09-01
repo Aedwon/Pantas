@@ -171,7 +171,7 @@ class AppDatabase extends _$AppDatabase {
             await customStatement('DROP TABLE pending_sync');
             await m.createTable(pendingSync);
             await customStatement(
-              "INSERT OR IGNORE INTO sync_meta (key, value) "
+              'INSERT OR IGNORE INTO sync_meta (key, value) '
               "VALUES ('localMutationEpoch', '0')",
             );
           }

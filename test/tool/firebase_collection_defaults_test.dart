@@ -4,8 +4,8 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test(
-      'AndroidManifest.xml defaults Analytics and Crashlytics collection to false',
-      () {
+      'AndroidManifest.xml defaults Analytics and Crashlytics collection to '
+      'false', () {
     final manifestFile = File('android/app/src/main/AndroidManifest.xml');
     expect(manifestFile.existsSync(), isTrue);
 

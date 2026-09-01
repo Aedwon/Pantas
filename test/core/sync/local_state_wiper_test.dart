@@ -50,8 +50,8 @@ void main() {
   });
 
   test(
-      'wipeAll preserves device and reference state and only deviceId sync meta',
-      () async {
+      'wipeAll preserves device and reference state and only deviceId sync '
+      'meta', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     await _seedAccountOwnedState(db);

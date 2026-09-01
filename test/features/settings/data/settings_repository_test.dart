@@ -219,8 +219,8 @@ void main() {
   });
 
   test(
-      'updateHelpImproveApp(enabled: false) closes gate, persists false before cleanup, and rethrows cleanup error',
-      () async {
+      'updateHelpImproveApp(enabled: false) closes gate, persists false '
+      'before cleanup, and rethrows cleanup error', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     late final DriftSettingsRepository repo;
@@ -283,13 +283,14 @@ void main() {
   });
 
   test(
-      'updateHelpImproveApp(enabled: true) observes stored false at gateway and persists true only after gateway success',
-      () async {
+      'updateHelpImproveApp(enabled: true) observes stored false at gateway '
+      'and persists true only after gateway success', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     late final DriftSettingsRepository repo;
-    bool observedFalseAtGateway = false;
-    final gateway = FunctionAnalyticsConsentGateway((enabled) async {
+    var observedFalseAtGateway = false;
+    final gateway =
+        FunctionAnalyticsConsentGateway(({required bool enabled}) async {
       if (enabled) {
         final settings = await repo.readUserSettings();
         observedFalseAtGateway = !settings.helpImproveApp;
@@ -306,8 +307,8 @@ void main() {
   });
 
   test(
-      'updateHelpImproveApp(enabled: true) failure leaves storage unchanged false without a true write',
-      () async {
+      'updateHelpImproveApp(enabled: true) failure leaves storage unchanged '
+      'false without a true write', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     final gateway = FailingAnalyticsConsentGateway()..throwOnTrue = true;
@@ -338,8 +339,8 @@ void main() {
   });
 
   test(
-      'simulated true-write failure causes gateway calls [true, false] and rethrows the write error',
-      () async {
+      'simulated true-write failure causes gateway calls [true, false] and '
+      'rethrows the write error', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     final gateway = ClosingDbAnalyticsConsentGateway(db);
@@ -438,13 +439,13 @@ class DbObservingFailingAnalyticsConsentGateway
 class FunctionAnalyticsConsentGateway implements AnalyticsConsentGateway {
   FunctionAnalyticsConsentGateway(this.onSetConsent);
 
-  final Future<void> Function(bool enabled) onSetConsent;
+  final Future<void> Function({required bool enabled}) onSetConsent;
 
   @override
   void closeTelemetryGate() {}
 
   @override
   Future<void> setAnalyticsCollectionEnabled({required bool enabled}) async {
-    await onSetConsent(enabled);
+    await onSetConsent(enabled: enabled);
   }
 }

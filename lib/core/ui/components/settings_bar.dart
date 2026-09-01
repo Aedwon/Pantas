@@ -29,7 +29,6 @@ class SettingsBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           // Centered title
           Align(
-            alignment: Alignment.center,
             child: Text(
               title,
               style: styles.headlineSmall.copyWith(fontSize: 17),

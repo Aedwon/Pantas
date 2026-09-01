@@ -112,9 +112,9 @@ class MockSessionController {
   /// timed separately.
   Duration get remainingInPart {
     final current = switch (_state) {
-      MockSessionInProgress inProgress => inProgress,
-      MockSessionPaused paused => paused.snapshot,
-      MockSessionSubmitted submitted => submitted.snapshot,
+      final MockSessionInProgress inProgress => inProgress,
+      final MockSessionPaused paused => paused.snapshot,
+      final MockSessionSubmitted submitted => submitted.snapshot,
       _ => null,
     };
     if (current == null) return Duration.zero;

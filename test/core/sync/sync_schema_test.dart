@@ -187,32 +187,32 @@ void main() {
     final temp = await Directory.systemTemp.createTemp('pantas-sync-v22-');
     addTearDown(() => temp.delete(recursive: true));
     final file = File('${temp.path}/legacy.db');
-    final raw = sqlite.sqlite3.open(file.path);
-    raw.execute(
-      'create table sync_meta ('
-      '"key" text not null primary key, "value" text not null)',
-    );
-    raw.execute(
-      'create table pending_sync ('
-      'id integer not null primary key autoincrement, '
-      'table_type text not null, row_id text not null, op text not null, '
-      'queued_at integer not null, attempts integer not null default 0, '
-      'last_error text null, last_attempt_at integer null)',
-    );
-    raw.execute(
-      'create unique index pending_sync_table_row_idx '
-      'on pending_sync (table_type, row_id)',
-    );
-    raw.execute(
-      "insert into sync_meta (key,value) values ('deviceId','device-legacy')",
-    );
-    raw.execute(
-      "insert into pending_sync "
-      "(table_type,row_id,op,queued_at,attempts) "
-      "values ('quiz_attempts','attempt-legacy','upsert',1,0)",
-    );
-    raw.execute('pragma user_version = 22');
-    raw.dispose();
+    sqlite.sqlite3.open(file.path)
+      ..execute(
+        'create table sync_meta ( '
+        '"key" text not null primary key, "value" text not null)',
+      )
+      ..execute(
+        'create table pending_sync ( '
+        'id integer not null primary key autoincrement, '
+        'table_type text not null, row_id text not null, op text not null, '
+        'queued_at integer not null, attempts integer not null default 0, '
+        'last_error text null, last_attempt_at integer null)',
+      )
+      ..execute(
+        'create unique index pending_sync_table_row_idx '
+        'on pending_sync (table_type, row_id)',
+      )
+      ..execute(
+        "insert into sync_meta (key,value) values ('deviceId','device-legacy')",
+      )
+      ..execute(
+        'insert into pending_sync '
+        '(table_type,row_id,op,queued_at,attempts) '
+        "values ('quiz_attempts','attempt-legacy','upsert',1,0)",
+      )
+      ..execute('pragma user_version = 22')
+      ..close();
 
     final db = AppDatabase(NativeDatabase(file));
     addTearDown(db.close);
@@ -226,7 +226,7 @@ void main() {
 
     final journal = await db
         .customSelect(
-          "select collection,row_id,op,causal_base_state "
+          'select collection,row_id,op,causal_base_state '
           "from sync_local_mutations where row_id = 'attempt-legacy'",
         )
         .getSingle();

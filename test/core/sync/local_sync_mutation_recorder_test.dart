@@ -10,11 +10,11 @@ import '../../helpers/in_memory_database.dart';
 void main() {
   const collection = 'quiz_attempts';
   const rowId = 'attempt-1';
-  final recordedAt = DateTime.utc(2026, 8, 30, 2, 0);
+  final recordedAt = DateTime.utc(2026, 8, 30, 2);
 
   Future<Map<String, Object?>> journalRow(AppDatabase db) async {
     final row = await db.customSelect(
-      'select collection,row_id,op,revision,mutation_epoch,causal_uid,'
+      'select collection,row_id,op,revision,mutation_epoch,causal_uid, '
       'causal_generation_id,causal_base_state,'
       'cast(base_updated_at as integer) as base_updated_at,recorded_at '
       'from sync_local_mutations where collection = ? and row_id = ?',
@@ -253,8 +253,10 @@ void main() {
           .get(),
       isEmpty,
     );
-    expect(await db.customSelect('select * from sync_local_mutations').get(),
-        isEmpty);
+    expect(
+      await db.customSelect('select * from sync_local_mutations').get(),
+      isEmpty,
+    );
     expect(await epoch(db), 0);
   });
 
@@ -270,8 +272,10 @@ void main() {
       updatedAt: DateTime.utc(2026, 8, 29),
     );
 
-    expect(await db.customSelect('select * from sync_local_mutations').get(),
-        isEmpty);
+    expect(
+      await db.customSelect('select * from sync_local_mutations').get(),
+      isEmpty,
+    );
     expect(await epoch(db), 0);
   });
 }

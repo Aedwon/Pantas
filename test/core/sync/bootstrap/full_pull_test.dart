@@ -14,8 +14,10 @@ void main() {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     await _putLesson(db, 'local-before');
-    final gateway = ThrowingReadGateway(_cloudGateway(),
-        throwCollection: 'lesson_progress');
+    final gateway = ThrowingReadGateway(
+      _cloudGateway(),
+      throwCollection: 'lesson_progress',
+    );
 
     final result = await FullPullBootstrap(
       db: db,
@@ -24,13 +26,15 @@ void main() {
     ).run(generationId: 'gen-1');
 
     expect(result.outcome, FullPullOutcome.retryableFailure);
-    expect((await db.select(db.lessonProgressLocal).get()).single.lessonId,
-        'local-before');
+    expect(
+      (await db.select(db.lessonProgressLocal).get()).single.lessonId,
+      'local-before',
+    );
   });
 
   test(
-      'epoch advance after download aborts replacement and preserves concurrent local action',
-      () async {
+      'epoch advance after download aborts replacement and preserves '
+      'concurrent local action', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     await _putLesson(db, 'local-before');
@@ -43,8 +47,12 @@ void main() {
         mutated = true;
         await _putLesson(db, 'concurrent-local');
         await _setEpoch(db, 2);
-        await _seedJournal(db,
-            rowId: 'concurrent-local', revision: 1, mutationEpoch: 2);
+        await _seedJournal(
+          db,
+          rowId: 'concurrent-local',
+          revision: 1,
+          mutationEpoch: 2,
+        );
       },
     );
 
@@ -59,13 +67,15 @@ void main() {
         .map((row) => row.lessonId)
         .toSet();
     expect(lessonIds, {'local-before', 'concurrent-local'});
-    expect(await db.customSelect('select * from sync_local_mutations').get(),
-        isNotEmpty);
+    expect(
+      await db.customSelect('select * from sync_local_mutations').get(),
+      isNotEmpty,
+    );
   });
 
   test(
-      'successful keep-account replaces Sync state but preserves in-progress mock',
-      () async {
+      'successful keep-account replaces Sync state but preserves '
+      'in-progress mock', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     await _putLesson(db, 'local-before');
@@ -97,12 +107,16 @@ void main() {
     ).run(generationId: 'gen-1');
 
     expect(result.outcome, FullPullOutcome.applied);
-    expect((await db.select(db.lessonProgressLocal).get()).single.lessonId,
-        'cloud-lesson');
+    expect(
+      (await db.select(db.lessonProgressLocal).get()).single.lessonId,
+      'cloud-lesson',
+    );
     expect((await db.select(db.mockAttempts).get()).single.id, 'mock-local');
     final prefs = await db.select(db.accountPrefs).get();
-    expect(prefs.map((row) => '${row.key}=${row.value}').toList(),
-        ['reminder_time=07:30']);
+    expect(
+      prefs.map((row) => '${row.key}=${row.value}').toList(),
+      ['reminder_time=07:30'],
+    );
     expect(await _marker(db, 'currentLocalGenerationId'), 'gen-1');
     expect(await _marker(db, 'pending_full_pull'), isNull);
   });
@@ -113,8 +127,12 @@ void main() {
     addTearDown(db.close);
     await _putLesson(db, 'local-before');
     await _setEpoch(db, 1);
-    await _seedJournal(db,
-        rowId: 'local-before', revision: 1, mutationEpoch: 1);
+    await _seedJournal(
+      db,
+      rowId: 'local-before',
+      revision: 1,
+      mutationEpoch: 1,
+    );
     await db.into(db.pendingSync).insert(
           PendingSyncCompanion.insert(
             uid: const Value('user-1'),
@@ -134,13 +152,15 @@ void main() {
 
     expect(result.outcome, FullPullOutcome.applied);
     expect(await db.select(db.pendingSync).get(), isEmpty);
-    expect(await db.customSelect('select * from sync_local_mutations').get(),
-        isEmpty);
+    expect(
+      await db.customSelect('select * from sync_local_mutations').get(),
+      isEmpty,
+    );
   });
 
   test(
-      'typed custom-track authority is committed then projected after transaction',
-      () async {
+      'typed custom-track authority is committed then projected after '
+      'transaction', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     final projected = <String>[];
@@ -166,8 +186,8 @@ void main() {
   });
 
   test(
-      'projection failure leaves authority committed and recoverable marker pending',
-      () async {
+      'projection failure leaves authority committed and recoverable marker '
+      'pending', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
 
@@ -181,8 +201,10 @@ void main() {
     ).run(generationId: 'gen-1');
 
     expect(result.outcome, FullPullOutcome.appliedProjectionPending);
-    expect((await db.select(db.customTrackMetaLocal).get()).single.name,
-        'Cloud Track');
+    expect(
+      (await db.select(db.customTrackMetaLocal).get()).single.name,
+      'Cloud Track',
+    );
     expect(await _projectionRequired(db, 'exam_custom_1'), isTrue);
   });
 
@@ -192,7 +214,7 @@ void main() {
     addTearDown(db.close);
     await _putLesson(db, 'local-before');
     final gateway = _cloudGateway(includeCustomTrack: true);
-    final path = 'users/user-1/sync_generations/gen-1/track_scope';
+    const path = 'users/user-1/sync_generations/gen-1/track_scope';
     gateway.collections[path] = [
       {
         'id': TrackScopeDocumentId.metadata('exam_custom_1'),
@@ -214,12 +236,14 @@ void main() {
     ).run(generationId: 'gen-1');
 
     expect(result.outcome, FullPullOutcome.invalidSnapshot);
-    expect((await db.select(db.lessonProgressLocal).get()).single.lessonId,
-        'local-before');
+    expect(
+      (await db.select(db.lessonProgressLocal).get()).single.lessonId,
+      'local-before',
+    );
   });
   test(
-      'eligibility loss during download stops before next read and local replacement',
-      () async {
+      'eligibility loss during download stops before next read and local '
+      'replacement', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     await _putLesson(db, 'local-before');
@@ -240,8 +264,10 @@ void main() {
 
     expect(result.outcome, FullPullOutcome.cancelled);
     expect(gateway.collectionReads, 1);
-    expect((await db.select(db.lessonProgressLocal).get()).single.lessonId,
-        'local-before');
+    expect(
+      (await db.select(db.lessonProgressLocal).get()).single.lessonId,
+      'local-before',
+    );
     expect(await _marker(db, 'pending_full_pull'), 'gen-1');
   });
 }
@@ -318,8 +344,10 @@ class CancellingReadGateway extends FakeFirestoreGateway {
 }
 
 class ThrowingReadGateway extends FakeFirestoreGateway {
-  ThrowingReadGateway(FakeFirestoreGateway source,
-      {required this.throwCollection}) {
+  ThrowingReadGateway(
+    FakeFirestoreGateway source, {
+    required this.throwCollection,
+  }) {
     documents.addAll(source.documents);
     collections.addAll(source.collections);
   }
@@ -335,8 +363,10 @@ class ThrowingReadGateway extends FakeFirestoreGateway {
 }
 
 class HookReadGateway extends FakeFirestoreGateway {
-  HookReadGateway(FakeFirestoreGateway source,
-      {required this.afterCollectionRead}) {
+  HookReadGateway(
+    FakeFirestoreGateway source, {
+    required this.afterCollectionRead,
+  }) {
     documents.addAll(source.documents);
     collections.addAll(source.collections);
   }
@@ -353,7 +383,9 @@ class HookReadGateway extends FakeFirestoreGateway {
 Future<void> _putLesson(AppDatabase db, String id) =>
     db.into(db.lessonProgressLocal).insertOnConflictUpdate(
           LessonProgressLocalCompanion.insert(
-              lessonId: id, readAt: DateTime.utc(2026, 8, 30)),
+            lessonId: id,
+            readAt: DateTime.utc(2026, 8, 30),
+          ),
         );
 
 Future<void> _setEpoch(AppDatabase db, int epoch) => db.customStatement(
@@ -370,7 +402,8 @@ Future<void> _seedJournal(
 }) =>
     db.customStatement(
       'insert into sync_local_mutations '
-      '(collection,row_id,op,revision,mutation_epoch,causal_base_state,recorded_at) '
+      '(collection,row_id,op,revision,mutation_epoch,causal_base_state,'
+      'recorded_at) '
       'values (?,?,?,?,?,?,?)',
       [
         'lesson_progress',

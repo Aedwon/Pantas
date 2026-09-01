@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/bootstrap.dart';
@@ -7,7 +5,6 @@ import 'package:pantas/app/telemetry_consent_controller.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/firebase_telemetry.dart';
-import 'package:pantas/core/telemetry/gated_telemetry.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/features/settings/settings.dart';
 
@@ -85,8 +82,8 @@ void main() {
     });
 
     test(
-        'startup persisted true failure performs false rollback, keeps effective state false, and rethrows',
-        () async {
+        'startup persisted true failure performs false rollback, keeps '
+        'effective state false, and rethrows', () async {
       final sink = RecordingTelemetrySink()..throwOnSetEnabledTrue = true;
       final controller = TelemetryConsentController(sink);
 
@@ -100,8 +97,8 @@ void main() {
     });
 
     test(
-        'startup persisted true failure rethrows original enable error when rollback also fails',
-        () async {
+        'startup persisted true failure rethrows original enable error when '
+        'rollback also fails', () async {
       final sink = RecordingTelemetrySink()
         ..throwOnSetEnabledTrue = true
         ..throwOnSetEnabledFalse = true;
@@ -120,8 +117,8 @@ void main() {
     });
 
     test(
-        'startup persisted false closes gate, clears identity, and deletes unsent reports',
-        () async {
+        'startup persisted false closes gate, clears identity, and deletes '
+        'unsent reports', () async {
       final sink = RecordingTelemetrySink();
       final controller = TelemetryConsentController(sink);
 
@@ -133,8 +130,8 @@ void main() {
     });
 
     test(
-        'runtime transition false to true purges unsent reports before enabling',
-        () async {
+        'runtime transition false to true purges unsent reports before '
+        'enabling', () async {
       final sink = RecordingTelemetrySink();
       final controller = TelemetryConsentController(sink);
 
@@ -147,8 +144,8 @@ void main() {
     });
 
     test(
-        'runtime transition false to true performs false rollback on enable failure, keeps state false, and rethrows',
-        () async {
+        'runtime transition false to true performs false rollback on enable '
+        'failure, keeps state false, and rethrows', () async {
       final sink = RecordingTelemetrySink()..throwOnSetEnabledTrue = true;
       final controller = TelemetryConsentController(sink);
 
@@ -162,8 +159,8 @@ void main() {
     });
 
     test(
-        'runtime transition false to true rethrows original enable error when rollback also fails',
-        () async {
+        'runtime transition false to true rethrows original enable error '
+        'when rollback also fails', () async {
       final sink = RecordingTelemetrySink()..throwOnSetEnabledTrue = true;
       final controller = TelemetryConsentController(sink);
       sink.throwOnSetEnabledFalseAfterFirst = true;
@@ -181,8 +178,8 @@ void main() {
     });
 
     test(
-        'runtime transition false to true stops, remains closed, and rethrows if purge fails',
-        () async {
+        'runtime transition false to true stops, remains closed, and '
+        'rethrows if purge fails', () async {
       final sink = RecordingTelemetrySink()..throwOnSetEnabledFalse = true;
       final controller = TelemetryConsentController(sink);
 
@@ -216,8 +213,8 @@ void main() {
     });
 
     test(
-        'runtime transition true to false closes gate immediately, clears identity, and deletes unsent reports',
-        () async {
+        'runtime transition true to false closes gate immediately, clears '
+        'identity, and deletes unsent reports', () async {
       final sink = RecordingTelemetrySink();
       final controller = TelemetryConsentController(sink);
 
@@ -234,8 +231,8 @@ void main() {
     });
 
     test(
-        'runtime transition true to false failure still leaves effective gate closed and rethrows',
-        () async {
+        'runtime transition true to false failure still leaves effective '
+        'gate closed and rethrows', () async {
       final sink = RecordingTelemetrySink();
       final controller = TelemetryConsentController(sink);
 
@@ -254,8 +251,8 @@ void main() {
     });
 
     test(
-        'opt-out attempts both identity clearing and sink disable when identity clearing fails',
-        () async {
+        'opt-out attempts both identity clearing and sink disable when '
+        'identity clearing fails', () async {
       final sink = RecordingTelemetrySink()..throwOnSetUserIdentifier = true;
       final controller = TelemetryConsentController(sink);
 
@@ -273,8 +270,8 @@ void main() {
     });
 
     test(
-        'opt-out attempts both identity clearing and sink disable when both fail, rethrowing first failure',
-        () async {
+        'opt-out attempts both identity clearing and sink disable when both '
+        'fail, rethrowing first failure', () async {
       final sink = RecordingTelemetrySink()
         ..throwOnSetUserIdentifier = true
         ..throwOnSetEnabledFalse = true;
@@ -327,8 +324,8 @@ void main() {
     });
 
     test(
-        'explicit stored false consent applies false and deletes unsent reports',
-        () async {
+        'explicit stored false consent applies false and deletes unsent '
+        'reports', () async {
       final db = inMemoryDatabase();
       addTearDown(db.close);
       final sink = RecordingTelemetrySink();
@@ -359,8 +356,8 @@ void main() {
     });
 
     test(
-        'persisted true consent enables SDK without purge and opens effective gate',
-        () async {
+        'persisted true consent enables SDK without purge and opens '
+        'effective gate', () async {
       final db = inMemoryDatabase();
       addTearDown(db.close);
       final sink = RecordingTelemetrySink();
@@ -378,7 +375,8 @@ void main() {
       );
       addTearDown(container.dispose);
 
-      // Verify ordering: before startup consent application, effective consent is false
+      // Verify ordering: before startup consent application, effective
+      // consent is false
       // and telemetry events are dropped even though stored setting is true
       await container
           .read(telemetryProvider)
@@ -394,7 +392,8 @@ void main() {
       // Retains consented reports: direct enable with no prior purge
       expect(sink.enabledCalls, [true]);
 
-      // Verify telemetryProvider forwards events after startup consent is applied
+      // Verify telemetryProvider forwards events after startup consent is
+      // applied
       await container
           .read(telemetryProvider)
           .log(TelemetryEvent.sessionStarted);
@@ -402,8 +401,8 @@ void main() {
     });
 
     test(
-        'settings toggle through actions drives controller with false-to-true purge',
-        () async {
+        'settings toggle through actions drives controller with '
+        'false-to-true purge', () async {
       final db = inMemoryDatabase();
       addTearDown(db.close);
       final sink = RecordingTelemetrySink();

@@ -93,7 +93,7 @@ class RecordingGoogleSignInClient implements GoogleSignInClient {
   RecordingGoogleSignInClient({this.account, this.authenticateError});
 
   final GoogleSignInAccount? account;
-  final Object? authenticateError;
+  final Exception? authenticateError;
   int initializeCalls = 0;
   int authenticateCalls = 0;
   int signOutCalls = 0;

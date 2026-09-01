@@ -135,10 +135,14 @@ void main() {
       originDeviceId: 'remote-device',
     );
 
-    expect((await db.select(db.customTrackMetaLocal).get()).single.name,
-        'Remote Track');
-    expect((await db.select(db.trackScopeLocal).get()).single.topicId,
-        'topic:math/a.b');
+    expect(
+      (await db.select(db.customTrackMetaLocal).get()).single.name,
+      'Remote Track',
+    );
+    expect(
+      (await db.select(db.trackScopeLocal).get()).single.topicId,
+      'topic:math/a.b',
+    );
     expect(await journalCount(db), 0);
   });
 

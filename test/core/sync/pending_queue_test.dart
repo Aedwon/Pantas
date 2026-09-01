@@ -170,7 +170,8 @@ void main() {
 
     final rows = await db
         .customSelect(
-          'select uid,generation_id from pending_sync order by uid,generation_id',
+          'select uid,generation_id from pending_sync order by '
+          'uid,generation_id',
         )
         .get();
     expect(rows, hasLength(3));

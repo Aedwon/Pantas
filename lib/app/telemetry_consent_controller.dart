@@ -55,13 +55,15 @@ class TelemetryConsentController extends StateNotifier<bool>
       return;
     }
 
-    // Opt-in (false -> true): must purge unsent reports first before enabling or sending.
+    // Opt-in (false -> true): must purge unsent reports first before enabling
+    // or sending.
     try {
       await _sink.setEnabled(enabled: false);
     } catch (error, stack) {
       state = false;
       debugPrint(
-          'Failed to purge unsent reports before opt-in: $error\n$stack');
+        'Failed to purge unsent reports before opt-in: $error\n$stack',
+      );
       rethrow;
     }
 
@@ -81,7 +83,9 @@ class TelemetryConsentController extends StateNotifier<bool>
       await _sink.setEnabled(enabled: false);
     } catch (error, stack) {
       debugPrint(
-          'Failed to rollback telemetry SDK state on $context failure: $error\n$stack');
+        'Failed to rollback telemetry SDK state on $context failure: '
+        '$error\n$stack',
+      );
     }
   }
 

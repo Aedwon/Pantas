@@ -59,8 +59,10 @@ void main() {
     await insert('uid-1', 'gen-2');
     await insert('uid-2', 'gen-1');
 
-    expect(await db.customSelect('select * from pending_sync').get(),
-        hasLength(3));
+    expect(
+      await db.customSelect('select * from pending_sync').get(),
+      hasLength(3),
+    );
     expect(
       () => insert('uid-1', 'gen-1'),
       throwsA(isA<SqliteException>()),

@@ -183,7 +183,7 @@ void main() {
 
     final exact = await db
         .customSelect(
-          "select revision from sync_local_mutations "
+          'select revision from sync_local_mutations '
           "where collection = 'question_flags' and row_id = 'q1'",
         )
         .getSingle();
@@ -286,9 +286,12 @@ Future<void> _insertJournal(
     'causal_generation_id,causal_base_state,base_updated_at,recorded_at) '
     'values (?,?,?,?,?,?,?,?,?,?) '
     'on conflict(collection,row_id) do update set '
-    'op=excluded.op,revision=excluded.revision,mutation_epoch=excluded.mutation_epoch,'
-    'causal_uid=excluded.causal_uid,causal_generation_id=excluded.causal_generation_id,'
-    'causal_base_state=excluded.causal_base_state,base_updated_at=excluded.base_updated_at,'
+    'op=excluded.op,revision=excluded.revision,'
+    'mutation_epoch=excluded.mutation_epoch,'
+    'causal_uid=excluded.causal_uid,'
+    'causal_generation_id=excluded.causal_generation_id,'
+    'causal_base_state=excluded.causal_base_state,'
+    'base_updated_at=excluded.base_updated_at,'
     'recorded_at=excluded.recorded_at',
     <Object?>[
       collection,

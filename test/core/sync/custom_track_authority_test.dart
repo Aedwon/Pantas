@@ -177,7 +177,8 @@ void main() {
     );
     final beforeEpoch = await epoch();
     await db.customStatement(
-      "create trigger fail_track_scope_journal before insert on sync_local_mutations "
+      'create trigger fail_track_scope_journal before insert on '
+      'sync_local_mutations '
       "when new.collection = 'track_scope' and new.row_id like 'scope.%' "
       "begin select raise(abort, 'forced journal failure'); end",
     );

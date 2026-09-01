@@ -1,6 +1,8 @@
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:pantas/core/auth/auth_repository.dart';
 
+// Single-method interface is intentional for callable-client test DI.
+// ignore: one_member_abstracts
 abstract interface class AuthFunctionsCallableClient {
   Future<Object?> call({required String region, required String name});
 }

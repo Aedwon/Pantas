@@ -24,13 +24,13 @@ void main() {
     final document = await gateway.readDocument('users/u/doc/a');
 
     expect(document?.updatedAt, at);
-    expect((document?.data['nested'] as Map)['when'], at);
-    expect((document?.data['list'] as List).single, at);
+    expect((document!.data['nested']! as Map)['when'], at);
+    expect((document.data['list']! as List).single, at);
   });
 
   test(
-      'known-absent conditional create writes only when transaction sees absent',
-      () async {
+      'known-absent conditional create writes only when transaction sees '
+      'absent', () async {
     final authoritativeAt = DateTime.utc(2026, 8, 29, 11);
     final client = RecordingFirestoreClient()
       ..transactionDocument = null
@@ -53,12 +53,14 @@ void main() {
     expect((result as RowCommitted).authoritative.updatedAt, authoritativeAt);
     expect(client.transactionWrites, hasLength(1));
     expect(
-        client.serverReadPaths, ['users/u/sync_generations/g/quiz_attempts/a']);
+      client.serverReadPaths,
+      ['users/u/sync_generations/g/quiz_attempts/a'],
+    );
   });
 
   test(
-      'known-version mismatch returns normalized current state and does not write',
-      () async {
+      'known-version mismatch returns normalized current state and does not '
+      'write', () async {
     final v1 = DateTime.utc(2026, 8, 29, 10);
     final v2 = DateTime.utc(2026, 8, 29, 11);
     final client = RecordingFirestoreClient()
@@ -103,8 +105,10 @@ void main() {
 
     expect(result, isA<RowCommitted>());
     expect((result as RowCommitted).authoritative.updatedAt, v2);
-    expect(client.transactionWrites.single.path,
-        'users/u/sync_generations/g/fsrs_cards/q');
+    expect(
+      client.transactionWrites.single.path,
+      'users/u/sync_generations/g/fsrs_cards/q',
+    );
   });
 }
 
@@ -120,7 +124,8 @@ class RecordingFirestoreClient implements FirebaseFirestoreClient {
 
   @override
   Future<List<FirebaseFirestoreRawDocument>> readCollection(
-          String path) async =>
+    String path,
+  ) async =>
       const [];
 
   @override

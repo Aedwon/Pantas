@@ -139,12 +139,16 @@ void main() {
     final scopeId = TrackScopeDocumentId.scope(exam, topic);
 
     expect(TrackScopeDocumentId.parse(metaId).examId, exam);
-    expect(TrackScopeDocumentId.parse(metaId).kind,
-        TrackScopeDocumentKind.metadata);
+    expect(
+      TrackScopeDocumentId.parse(metaId).kind,
+      TrackScopeDocumentKind.metadata,
+    );
     expect(TrackScopeDocumentId.parse(scopeId).examId, exam);
     expect(TrackScopeDocumentId.parse(scopeId).topicId, topic);
     expect(
-        TrackScopeDocumentId.parse(scopeId).kind, TrackScopeDocumentKind.scope);
+      TrackScopeDocumentId.parse(scopeId).kind,
+      TrackScopeDocumentKind.scope,
+    );
     expect(metaId, isNot(scopeId));
     expect(
       TrackScopeDocumentId.scope('a:b', 'c'),

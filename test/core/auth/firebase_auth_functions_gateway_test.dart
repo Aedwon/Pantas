@@ -1,5 +1,6 @@
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:meta/meta.dart';
 import 'package:pantas/core/auth/auth.dart';
 import 'package:pantas/core/auth/firebase_auth_functions_gateway.dart';
 
@@ -69,7 +70,7 @@ void main() {
       error: FirebaseFunctionsException(
         code: 'failed-precondition',
         message: 'Recent sign-in required',
-        details: {'reason': 'requires-recent-login'},
+        details: const {'reason': 'requires-recent-login'},
       ),
     );
 
@@ -109,6 +110,7 @@ void main() {
   );
 }
 
+@immutable
 class CallableInvocation {
   const CallableInvocation({required this.region, required this.name});
 
@@ -130,7 +132,7 @@ class RecordingFunctionsClient implements AuthFunctionsCallableClient {
   RecordingFunctionsClient({this.responses = const {}, this.error});
 
   final Map<String, Object?> responses;
-  final Object? error;
+  final Exception? error;
   final calls = <CallableInvocation>[];
 
   @override

@@ -102,7 +102,6 @@ class FirebaseAuthGateway implements AuthGateway {
       email: user.email,
       displayName: user.displayName,
       photoUrl: user.photoURL,
-      isPro: false,
       lastSignInTime: user.metadata.lastSignInTime,
     );
   }

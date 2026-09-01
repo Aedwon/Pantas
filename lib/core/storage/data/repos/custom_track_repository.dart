@@ -7,6 +7,40 @@ import 'package:pantas/core/sync/engine/local_sync_mutation_recorder.dart';
 import 'package:pantas/core/sync/mapping/track_scope_mapper.dart';
 import 'package:uuid/uuid.dart';
 
+class _ContentDatabaseCustomTrackProjection implements CustomTrackProjection {
+  _ContentDatabaseCustomTrackProjection(
+    this._contentDb, {
+    DateTime Function()? now,
+  }) : _now = now ?? DateTime.now;
+
+  final ContentDatabase _contentDb;
+  final DateTime Function() _now;
+
+  @override
+  Future<void> upsert({required String examId, required String name}) {
+    return _contentDb.into(_contentDb.contentExams).insertOnConflictUpdate(
+          ContentExamsCompanion.insert(
+            id: examId,
+            code: 'custom',
+            name: name,
+            shortName: name,
+            language: 'en',
+            ordering: 9999,
+            isCustom: const Value(true),
+            schemaVersion: 1,
+            updatedAt: _now(),
+          ),
+        );
+  }
+
+  @override
+  Future<void> delete(String examId) {
+    return (_contentDb.delete(_contentDb.contentExams)
+          ..where((row) => row.id.equals(examId)))
+        .go();
+  }
+}
+
 /// Owns custom-track user data in AppDatabase and keeps ContentDatabase as a
 /// recoverable display/content projection.
 class CustomTrackRepository {
@@ -20,7 +54,7 @@ class CustomTrackRepository {
         _syncRecorder =
             syncRecorder ?? LocalSyncMutationRecorder.forDatabase(_db),
         _projection =
-            projection ?? ContentDatabaseCustomTrackProjection(_contentDb);
+            projection ?? _ContentDatabaseCustomTrackProjection(_contentDb);
 
   static const _projectionMarkerPrefix = 'customTrackProjectionRequired:';
 

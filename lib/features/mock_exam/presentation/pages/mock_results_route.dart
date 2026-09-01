@@ -1,10 +1,9 @@
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
-import 'package:pantas/features/mock_exam/application/mock_panel_providers.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
 import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
 import 'package:pantas/features/mock_exam/domain/mock_results.dart';
@@ -81,7 +80,8 @@ class MockResultsRoute extends ConsumerWidget {
 
         if (results == null) {
           return const Scaffold(
-              body: Center(child: Text('Results not available')));
+            body: Center(child: Text('Results not available')),
+          );
         }
 
         return MockResultsPage(
@@ -111,7 +111,7 @@ class MockResultsRoute extends ConsumerWidget {
       'September',
       'October',
       'November',
-      'December'
+      'December',
     ];
     return '${date.day} ${months[date.month - 1]} ${date.year}';
   }

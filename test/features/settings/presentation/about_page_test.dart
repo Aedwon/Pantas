@@ -27,7 +27,8 @@ void main() {
 
     expect(
       find.text(
-        'Shares anonymous usage data and crash reports only with consent. Unsent reports are deleted when off.',
+        'Shares anonymous usage data and crash reports only with consent. '
+        'Unsent reports are deleted when off.',
       ),
       findsOneWidget,
     );

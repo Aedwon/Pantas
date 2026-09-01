@@ -1,7 +1,9 @@
 import 'dart:convert';
 
+import 'package:meta/meta.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 
+@immutable
 class SyncActiveContext {
   const SyncActiveContext({required this.uid, required this.generationId});
 
@@ -75,7 +77,10 @@ class SyncActiveContextStore {
     if (uid.isEmpty) throw ArgumentError.value(uid, 'uid', 'must not be empty');
     if (generationId.isEmpty) {
       throw ArgumentError.value(
-          generationId, 'generationId', 'must not be empty');
+        generationId,
+        'generationId',
+        'must not be empty',
+      );
     }
     await _writeEnvelope(
       <String, Object?>{

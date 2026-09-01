@@ -1,15 +1,13 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/question.dart';
-import 'package:pantas/core/storage/domain/passage.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
-import 'package:pantas/features/mock_exam/data/mock_sampler.dart';
-import 'package:pantas/features/mock_exam/domain/use_cases/start_mock.dart';
-import 'package:pantas/features/mock_exam/domain/use_cases/discard_mock.dart';
-import 'package:pantas/features/mock_exam/domain/use_cases/submit_mock.dart';
-import 'package:pantas/features/mock_exam/domain/use_cases/compute_results.dart';
-
 import 'package:pantas/features/mock_exam/application/mock_exam_preferences.dart';
+import 'package:pantas/features/mock_exam/data/mock_sampler.dart';
+import 'package:pantas/features/mock_exam/domain/use_cases/compute_results.dart';
+import 'package:pantas/features/mock_exam/domain/use_cases/discard_mock.dart';
+import 'package:pantas/features/mock_exam/domain/use_cases/start_mock.dart';
+import 'package:pantas/features/mock_exam/domain/use_cases/submit_mock.dart';
 
 final mockExamPreferencesProvider = Provider<MockExamPreferences>((ref) {
   return MockExamPreferences(ref.watch(appDatabaseProvider));
@@ -85,10 +83,14 @@ class HydratedMockQuestion {
   final Passage? passage;
 }
 
-final hydratedMockQuestionProvider = FutureProvider.family<HydratedMockQuestion?, String>((ref, questionId) async {
+final hydratedMockQuestionProvider =
+    FutureProvider.family<HydratedMockQuestion?, String>(
+        (ref, questionId) async {
   final content = ref.watch(contentRepositoryProvider);
   final question = await content.questionById(questionId);
   if (question == null) return null;
-  final passage = question.passageId != null ? await content.passageById(question.passageId!) : null;
+  final passage = question.passageId != null
+      ? await content.passageById(question.passageId!)
+      : null;
   return HydratedMockQuestion(question, passage);
 });

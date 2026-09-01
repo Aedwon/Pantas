@@ -2,11 +2,11 @@ import 'dart:convert';
 
 import 'package:drift/drift.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
-import 'package:pantas/core/sync/engine/local_sync_mutation_recorder.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/question_outcome.dart';
 import 'package:pantas/core/storage/domain/sync_state.dart';
+import 'package:pantas/core/sync/engine/local_sync_mutation_recorder.dart';
 
 class AttemptsRepository {
   AttemptsRepository(

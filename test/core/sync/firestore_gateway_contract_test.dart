@@ -36,7 +36,7 @@ void main() {
 
   test('known-version matching update commits and returns authoritative state',
       () async {
-    final path = 'users/u/sync_generations/g/fsrs_cards/q';
+    const path = 'users/u/sync_generations/g/fsrs_cards/q';
     final gateway = FakeFirestoreGateway(serverNow: () => v2)
       ..documents[path] = {'updatedAt': v1, 'value': 1};
 
@@ -56,7 +56,7 @@ void main() {
 
   test('stale update/delete returns current cloud state without overwriting it',
       () async {
-    final path = 'users/u/sync_generations/g/question_flags/q';
+    const path = 'users/u/sync_generations/g/question_flags/q';
     final gateway = FakeFirestoreGateway()
       ..documents[path] = {'updatedAt': v2, 'deleted': false};
 

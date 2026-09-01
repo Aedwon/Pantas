@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pantas/features/mock_exam/mock_exam.dart';
-
-import '../../../helpers/pump_app.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
+import 'package:pantas/features/mock_exam/mock_exam.dart';
+
+import '../../../helpers/pump_app.dart';
 
 // ignore_for_file: avoid_dynamic_calls
 
 void main() {
   testWidgets('session page renders current question and countdown',
       (tester) async {
-    final mockQuestion = const HydratedMockQuestion(
+    const mockQuestion = HydratedMockQuestion(
       Question(
         id: 'q1',
         version: 1,
@@ -46,7 +45,8 @@ void main() {
         onShowNavigator: () {},
       ),
       overrides: [
-        hydratedMockQuestionProvider.overrideWith((ref, id) => Future.value(mockQuestion)),
+        hydratedMockQuestionProvider
+            .overrideWith((ref, id) => Future.value(mockQuestion)),
       ],
     );
 
@@ -73,7 +73,7 @@ void main() {
         onShowNavigator: () {},
       ),
       overrides: [
-        hydratedMockQuestionProvider.overrideWith((ref, id) => Future.value(null)),
+        hydratedMockQuestionProvider.overrideWith((ref, id) => Future.value()),
       ],
     );
 
@@ -83,7 +83,7 @@ void main() {
   testWidgets('answer tap and flag toggle call handlers', (tester) async {
     int? answer;
     var flagged = false;
-    final mockQuestion = const HydratedMockQuestion(
+    const mockQuestion = HydratedMockQuestion(
       Question(
         id: 'q1',
         version: 1,
@@ -116,7 +116,8 @@ void main() {
         onShowNavigator: () {},
       ),
       overrides: [
-        hydratedMockQuestionProvider.overrideWith((ref, id) => Future.value(mockQuestion)),
+        hydratedMockQuestionProvider
+            .overrideWith((ref, id) => Future.value(mockQuestion)),
       ],
     );
 
@@ -146,7 +147,7 @@ void main() {
         onShowNavigator: () {},
       ),
       overrides: [
-        hydratedMockQuestionProvider.overrideWith((ref, id) => Future.value(null)),
+        hydratedMockQuestionProvider.overrideWith((ref, id) => Future.value()),
       ],
     );
 

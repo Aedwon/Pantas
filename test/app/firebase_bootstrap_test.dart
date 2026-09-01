@@ -69,7 +69,7 @@ void main() {
 class RecordingFirebaseBootAdapter implements FirebaseBootAdapter {
   RecordingFirebaseBootAdapter({this.initializationError});
 
-  final Object? initializationError;
+  final Exception? initializationError;
   int initializeCalls = 0;
 
   @override

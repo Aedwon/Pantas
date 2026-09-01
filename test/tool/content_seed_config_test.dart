@@ -34,9 +34,13 @@ void main() {
     }
   });
 
-  test('release seed workflow references build_content_seed', () {
-    final release = File('.github/workflows/release.yml').readAsStringSync();
-
-    expect(release, contains('tools/build_content_seed'));
+  test('CI workflows build the content seed from the corpus', () {
+    for (final path in [
+      '.github/workflows/ci.yml',
+      '.github/workflows/main.yml',
+    ]) {
+      final workflow = File(path).readAsStringSync();
+      expect(workflow, contains('tools/build_content_seed'), reason: path);
+    }
   });
 }

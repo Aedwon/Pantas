@@ -139,7 +139,10 @@ void main() {
     final repo = AttemptsRepository(db);
     await repo.save(attempt());
     await repo.tagItem(
-        attemptId: 'a1', questionId: 'q1', tag: MistakeTag.misread);
+      attemptId: 'a1',
+      questionId: 'q1',
+      tag: MistakeTag.misread,
+    );
     final row = await journal('quiz_attempts', 'a1');
     expect(row['revision'], 2);
     expect(await epoch(), 2);

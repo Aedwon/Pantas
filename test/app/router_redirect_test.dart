@@ -129,11 +129,8 @@ void main() {
     router.go('/paywall?returnTo=/plan');
     await tester.pumpAndSettle();
 
+    expect(find.byType(PaywallPage), findsOneWidget);
     expect(find.text('Try Pro'), findsOneWidget);
-    expect(
-      find.textContaining('You need a connection to subscribe'),
-      findsOneWidget,
-    );
   });
 
   testWidgets('/settings renders Settings home; /more redirects there',

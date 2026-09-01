@@ -33,9 +33,11 @@ void main() {
     expect(events.last, 'activate:gen-new:gen-old');
     expect(events.where((event) => event.startsWith('commit:')), isNotEmpty);
     expect(
-        events.indexOf('activate:gen-new:gen-old'),
-        greaterThan(
-            events.lastIndexWhere((event) => event.startsWith('commit:'))));
+      events.indexOf('activate:gen-new:gen-old'),
+      greaterThan(
+        events.lastIndexWhere((event) => event.startsWith('commit:')),
+      ),
+    );
 
     final root = await gateway.readDocument(
       'users/user-1/sync_generations/gen-new',
@@ -44,28 +46,44 @@ void main() {
     expect(root['preferences'], {'reminder_time': '07:30'});
 
     final paths = gateway.documents.keys.toSet();
-    expect(paths,
-        contains('users/user-1/sync_generations/gen-new/quiz_attempts/a1'));
-    expect(paths,
-        contains('users/user-1/sync_generations/gen-new/assessments/cse'));
     expect(
-        paths, contains('users/user-1/sync_generations/gen-new/fsrs_cards/q1'));
+      paths,
+      contains('users/user-1/sync_generations/gen-new/quiz_attempts/a1'),
+    );
     expect(
-        paths,
-        contains(
-            'users/user-1/sync_generations/gen-new/lesson_progress/lesson_1'));
+      paths,
+      contains('users/user-1/sync_generations/gen-new/assessments/cse'),
+    );
     expect(
-        paths,
-        contains(
-            'users/user-1/sync_generations/gen-new/lesson_bookmarks/lesson_1'));
-    expect(paths,
-        contains('users/user-1/sync_generations/gen-new/question_flags/q1'));
+      paths,
+      contains('users/user-1/sync_generations/gen-new/fsrs_cards/q1'),
+    );
     expect(
-        paths,
-        contains(
-            'users/user-1/sync_generations/gen-new/mock_exam_attempts/mock-terminal'));
-    expect(paths,
-        contains('users/user-1/sync_generations/gen-new/review_logs/review-1'));
+      paths,
+      contains(
+        'users/user-1/sync_generations/gen-new/lesson_progress/lesson_1',
+      ),
+    );
+    expect(
+      paths,
+      contains(
+        'users/user-1/sync_generations/gen-new/lesson_bookmarks/lesson_1',
+      ),
+    );
+    expect(
+      paths,
+      contains('users/user-1/sync_generations/gen-new/question_flags/q1'),
+    );
+    expect(
+      paths,
+      contains(
+        'users/user-1/sync_generations/gen-new/mock_exam_attempts/mock-terminal',
+      ),
+    );
+    expect(
+      paths,
+      contains('users/user-1/sync_generations/gen-new/review_logs/review-1'),
+    );
     expect(
       paths,
       contains(
@@ -81,9 +99,11 @@ void main() {
       ),
     );
     expect(
-        paths,
-        contains(
-            'users/user-1/sync_generations/gen-new/custom_blueprints/exam_custom_1'));
+      paths,
+      contains(
+        'users/user-1/sync_generations/gen-new/custom_blueprints/exam_custom_1',
+      ),
+    );
   });
 
   test('in-progress mock attempt is excluded from keep-device snapshot',
@@ -91,8 +111,12 @@ void main() {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     final stamp = DateTime.utc(2026, 8, 30);
-    await _insertMock(db,
-        id: 'mock-local', status: 'in_progress', stamp: stamp);
+    await _insertMock(
+      db,
+      id: 'mock-local',
+      status: 'in_progress',
+      stamp: stamp,
+    );
     final gateway = RecordingGateway();
 
     final result = await FullPushBootstrap(
@@ -145,12 +169,13 @@ void main() {
     final gateway = RecordingGateway(
       afterCommit: (writes) async {
         if (mutated ||
-            !writes.any((write) => write.path.contains('/lesson_progress/')))
+            !writes.any((write) => write.path.contains('/lesson_progress/'))) {
           return;
+        }
         mutated = true;
         await db.customStatement(
           "insert into sync_meta (key,value) values ('localMutationEpoch','2') "
-          "on conflict(key) do update set value=excluded.value",
+          'on conflict(key) do update set value=excluded.value',
         );
         await db.customStatement(
           'update sync_local_mutations set revision=2, mutation_epoch=2 '
@@ -173,15 +198,16 @@ void main() {
     expect(functions.activationCalls, isEmpty);
     final journal = await db
         .customSelect(
-            'select revision,mutation_epoch from sync_local_mutations')
+          'select revision,mutation_epoch from sync_local_mutations',
+        )
         .getSingle();
     expect(journal.read<int>('revision'), 2);
     expect(journal.read<int>('mutation_epoch'), 2);
   });
 
   test(
-      'epoch advance during activation is not treated as current and is not acknowledged',
-      () async {
+      'epoch advance during activation is not treated as current and is not '
+      'acknowledged', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     await _seedLesson(db);
@@ -200,8 +226,10 @@ void main() {
 
     expect(result.outcome, FullPushOutcome.staleLocalEpoch);
     expect(functions.activationCalls, hasLength(1));
-    expect(await db.customSelect('select * from sync_local_mutations').get(),
-        isNotEmpty);
+    expect(
+      await db.customSelect('select * from sync_local_mutations').get(),
+      isNotEmpty,
+    );
     expect(await _marker(db, 'pending_full_push'), 'gen-raced');
   });
 
@@ -223,15 +251,17 @@ void main() {
     ).run(expectedActiveGenerationId: 'gen-old');
 
     expect(result.outcome, FullPushOutcome.activated);
-    expect(await db.customSelect('select * from sync_local_mutations').get(),
-        isEmpty);
+    expect(
+      await db.customSelect('select * from sync_local_mutations').get(),
+      isEmpty,
+    );
     expect(await db.select(db.pendingSync).get(), isEmpty);
     expect(await _marker(db, 'pending_full_push'), isNull);
     expect(await _marker(db, 'currentLocalGenerationId'), 'gen-new');
   });
   test(
-      'eligibility loss during staging stops before next upload batch and activation',
-      () async {
+      'eligibility loss during staging stops before next upload batch and '
+      'activation', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     final stamp = DateTime.utc(2026, 8, 30);
@@ -329,7 +359,7 @@ class MutatingActivationGateway extends FakeSyncFunctionsGateway {
     );
     await db.customStatement(
       "insert into sync_meta (key,value) values ('localMutationEpoch','2') "
-      "on conflict(key) do update set value=excluded.value",
+      'on conflict(key) do update set value=excluded.value',
     );
     await db.customStatement(
       'update sync_local_mutations set revision=2, mutation_epoch=2 '
@@ -351,7 +381,10 @@ Future<void> _seedTenSources(AppDatabase db) async {
       );
   await db.into(db.assessmentResultsLocal).insert(
         AssessmentResultsLocalCompanion.insert(
-            examId: 'cse', completedAt: stamp, topicScoresJson: '{}'),
+          examId: 'cse',
+          completedAt: stamp,
+          topicScoresJson: '{}',
+        ),
       );
   await db.into(db.reviewStateLocal).insert(
         ReviewStateLocalCompanion.insert(
@@ -371,7 +404,9 @@ Future<void> _seedTenSources(AppDatabase db) async {
   await _seedLesson(db);
   await db.into(db.lessonBookmarksLocal).insert(
         LessonBookmarksLocalCompanion.insert(
-            lessonId: 'lesson_1', markedAt: stamp),
+          lessonId: 'lesson_1',
+          markedAt: stamp,
+        ),
       );
   await db.into(db.questionFlagsLocal).insert(
         QuestionFlagsLocalCompanion.insert(questionId: 'q1', flaggedAt: stamp),
@@ -396,11 +431,15 @@ Future<void> _seedTenSources(AppDatabase db) async {
       );
   await db.into(db.customTrackMetaLocal).insert(
         CustomTrackMetaLocalCompanion.insert(
-            examId: 'exam_custom_1', name: 'My track'),
+          examId: 'exam_custom_1',
+          name: 'My track',
+        ),
       );
   await db.into(db.trackScopeLocal).insert(
         TrackScopeLocalCompanion.insert(
-            examId: 'exam_custom_1', topicId: 'topic_1'),
+          examId: 'exam_custom_1',
+          topicId: 'topic_1',
+        ),
       );
   await db.into(db.customBlueprintsLocal).insert(
         CustomBlueprintsLocalCompanion.insert(
@@ -419,7 +458,9 @@ Future<void> _seedTenSources(AppDatabase db) async {
 Future<void> _seedLesson(AppDatabase db) =>
     db.into(db.lessonProgressLocal).insertOnConflictUpdate(
           LessonProgressLocalCompanion.insert(
-              lessonId: 'lesson_1', readAt: DateTime.utc(2026, 8, 30)),
+            lessonId: 'lesson_1',
+            readAt: DateTime.utc(2026, 8, 30),
+          ),
         );
 
 Future<void> _insertMock(
@@ -459,7 +500,8 @@ Future<void> _seedJournal(
   );
   await db.customStatement(
     'insert into sync_local_mutations '
-    '(collection,row_id,op,revision,mutation_epoch,causal_base_state,recorded_at) '
+    '(collection,row_id,op,revision,mutation_epoch,causal_base_state,'
+    'recorded_at) '
     'values (?,?,?,?,?,?,?)',
     [
       'lesson_progress',
