@@ -1,4 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/data/revenuecat_config.dart';
 import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
@@ -37,11 +41,79 @@ class RevenueCatBootstrapper {
   }
 }
 
+class RevenueCatAuthBinding {
+  RevenueCatAuthBinding(this._bootstrapper);
+
+  final RevenueCatBootstrapper _bootstrapper;
+  StreamSubscription<AuthState>? _subscription;
+  Future<void> _pending = Future<void>.value();
+
+  Future<void> start({
+    required AuthState initialState,
+    required Stream<AuthState> changes,
+  }) async {
+    await _subscription?.cancel();
+    _subscription = null;
+
+    await _enqueue(initialState);
+    _subscription = changes.listen(_queue);
+  }
+
+  Future<void> dispose() async {
+    await _subscription?.cancel();
+    _subscription = null;
+    await _pending;
+  }
+
+  Future<void> _enqueue(AuthState state) {
+    final next = _pending.then((_) => _associate(state));
+    _pending = next;
+    return next;
+  }
+
+  void _queue(AuthState state) {
+    _pending = _pending.then((_) => _associate(state));
+  }
+
+  Future<void> _associate(AuthState state) {
+    return _bootstrapper.associateUid(_uidFor(state));
+  }
+
+  String? _uidFor(AuthState state) {
+    return switch (state) {
+      AnonymousAuthState(:final uid) => uid,
+      SignedInAuthState(:final user) => user.uid,
+      _ => null,
+    };
+  }
+}
+
 final revenueCatBootstrapperProvider = Provider<RevenueCatBootstrapper>((ref) {
   return RevenueCatBootstrapper(ref.watch(revenueCatGatewayProvider));
+});
+
+final revenueCatAuthBindingProvider = Provider<RevenueCatAuthBinding>((ref) {
+  final binding =
+      RevenueCatAuthBinding(ref.watch(revenueCatBootstrapperProvider));
+  ref.onDispose(() {
+    unawaited(binding.dispose());
+  });
+  return binding;
 });
 
 Future<void> bootstrapRevenueCat(ProviderContainer container) async {
   final bootstrapper = container.read(revenueCatBootstrapperProvider);
   await bootstrapper.configure(container.read(revenueCatConfigProvider));
+
+  try {
+    final initialState = await container.read(authStateProvider.future);
+    final binding = container.read(revenueCatAuthBindingProvider);
+    await binding.start(
+      initialState: initialState,
+      changes: container.read(authRepositoryProvider).authState,
+    );
+  } catch (_) {
+    // RevenueCat identity association is optional startup infrastructure.
+    // Auth and the rest of the app must remain usable when it is unavailable.
+  }
 }

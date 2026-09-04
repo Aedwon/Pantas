@@ -1,43 +1,40 @@
 import { getAuth } from 'firebase-admin/auth';
 import { getFirestore } from 'firebase-admin/firestore';
+import {
+  executeRevenueCatClaimTransition,
+  isUnresolvedFirebaseIdentityError,
+  type RevenueCatClaimEvent,
+} from './revenuecatPolicy.js';
 
-const SET_PRO_EVENTS = new Set([
-  'INITIAL_PURCHASE',
-  'RENEWAL',
-  'PRODUCT_CHANGE',
-  'TRANSFER_INCOMING',
-]);
-
-const CLEAR_PRO_EVENTS = new Set([
-  'CANCELLATION',
-  'EXPIRATION',
-  'TRANSFER_OUTGOING',
-]);
-
-export interface RevenueCatClaimEvent {
-  eventId: string;
-  eventType: string;
-  uid: string;
-}
+export type { RevenueCatClaimEvent } from './revenuecatPolicy.js';
 
 export async function applyRevenueCatClaimTransition(
   input: RevenueCatClaimEvent,
-): Promise<void> {
-  const { eventType, uid } = input;
+): Promise<boolean> {
+  const auth = getAuth();
 
-  if (SET_PRO_EVENTS.has(eventType)) {
-    await getAuth().setCustomUserClaims(uid, { pro: true });
-    return;
-  }
-
-  if (CLEAR_PRO_EVENTS.has(eventType)) {
-    await getAuth().setCustomUserClaims(uid, { pro: false });
-    if (eventType === 'TRANSFER_OUTGOING') {
+  return executeRevenueCatClaimTransition(input, {
+    getCustomClaims: async (uid) => {
+      try {
+        const user = await auth.getUser(uid);
+        return user.customClaims ?? {};
+      } catch (error) {
+        if (input.unresolvedUserIsNoop === true &&
+          isUnresolvedFirebaseIdentityError(error)) {
+          return null;
+        }
+        throw error;
+      }
+    },
+    setCustomClaims: async (uid, claims) => {
+      await auth.setCustomUserClaims(uid, claims);
+    },
+    markTransferLoser: async (uid, eventId) => {
       await getFirestore().collection('transferLoser').doc(uid).set({
         uid,
-        eventId: input.eventId,
+        eventId,
         createdAt: new Date().toISOString(),
       });
-    }
-  }
+    },
+  });
 }

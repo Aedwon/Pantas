@@ -1,4 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/auth_user.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 
 void main() {
@@ -57,13 +61,90 @@ void main() {
 
     expect(gateway.loggedInUids, ['uid_1']);
   });
+
+  test('auth binding associates the initial anonymous uid before returning',
+      () async {
+    final gateway = BootstrapGateway();
+    final binding = RevenueCatAuthBinding(RevenueCatBootstrapper(gateway));
+    final changes = StreamController<AuthState>();
+    addTearDown(() async {
+      await binding.dispose();
+      await changes.close();
+    });
+
+    await binding.start(
+      initialState: const AuthState.anonymous(uid: 'anon_initial'),
+      changes: changes.stream,
+    );
+
+    expect(gateway.loggedInUids, ['anon_initial']);
+  });
+
+  test('auth binding ignores repeated uid and propagates a later uid change',
+      () async {
+    final gateway = BootstrapGateway();
+    final binding = RevenueCatAuthBinding(RevenueCatBootstrapper(gateway));
+    final changes = StreamController<AuthState>();
+    addTearDown(() async {
+      await binding.dispose();
+      await changes.close();
+    });
+
+    await binding.start(
+      initialState: const AuthState.anonymous(uid: 'anon_uid'),
+      changes: changes.stream,
+    );
+    changes
+      ..add(const AuthState.anonymous(uid: 'anon_uid'))
+      ..add(
+        const AuthState.signedIn(
+          user: AuthUser(
+            uid: 'named_uid',
+            email: 'student@example.test',
+            displayName: 'Student',
+          ),
+        ),
+      );
+    await Future<void>.delayed(Duration.zero);
+
+    expect(gateway.loggedInUids, ['anon_uid', 'named_uid']);
+  });
+
+  test('failed initial uid association remains retryable on the auth stream',
+      () async {
+    final gateway = BootstrapGateway(failLogInAttempts: 1);
+    final binding = RevenueCatAuthBinding(RevenueCatBootstrapper(gateway));
+    final changes = StreamController<AuthState>();
+    addTearDown(() async {
+      await binding.dispose();
+      await changes.close();
+    });
+
+    await binding.start(
+      initialState: const AuthState.anonymous(uid: 'anon_retry'),
+      changes: changes.stream,
+    );
+    expect(gateway.attemptedUids, ['anon_retry']);
+    expect(gateway.loggedInUids, isEmpty);
+
+    changes.add(const AuthState.anonymous(uid: 'anon_retry'));
+    await Future<void>.delayed(Duration.zero);
+
+    expect(gateway.attemptedUids, ['anon_retry', 'anon_retry']);
+    expect(gateway.loggedInUids, ['anon_retry']);
+  });
 }
 
 class BootstrapGateway extends DisabledRevenueCatGateway {
-  BootstrapGateway({this.failInitialize = false});
+  BootstrapGateway({
+    this.failInitialize = false,
+    int failLogInAttempts = 0,
+  }) : _remainingLogInFailures = failLogInAttempts;
 
   final bool failInitialize;
+  int _remainingLogInFailures;
   final configuredKeys = <String>[];
+  final attemptedUids = <String>[];
   final loggedInUids = <String>[];
   int initializeCount = 0;
 
@@ -80,6 +161,11 @@ class BootstrapGateway extends DisabledRevenueCatGateway {
 
   @override
   Future<void> logIn(String uid) async {
+    attemptedUids.add(uid);
+    if (_remainingLogInFailures > 0) {
+      _remainingLogInFailures -= 1;
+      throw Exception('RevenueCat login unavailable');
+    }
     loggedInUids.add(uid);
   }
 }
