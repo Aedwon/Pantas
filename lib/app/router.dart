@@ -154,10 +154,8 @@ List<RouteBase> buildAppRoutes(Ref ref) {
                   }
 
                   final examId = focus.exam!.id;
-                  final user = ref.watch(currentUserProvider).valueOrNull;
-                  final userId = user?.uid ?? '';
                   final request = MockAvailabilityRequest(
-                    userId: userId,
+                    userId: mockAttemptLocalUserId,
                     examId: examId,
                   );
 
@@ -200,7 +198,14 @@ List<RouteBase> buildAppRoutes(Ref ref) {
                           context.push('/quiz/mock/setup?examId=$examId');
                         }
                       },
-                      onResume: () => context.push('/quiz/resume/$examId'),
+                      onResume: () {
+                        final activeAttempt = availability.activeAttempt;
+                        if (activeAttempt != null) {
+                          context.push(
+                            '/quiz/mock/resume/${activeAttempt.id}',
+                          );
+                        }
+                      },
                       onViewResults: () {
                         if (lastAttempt != null) {
                           context.push('/mock/results/${lastAttempt.id}');
@@ -355,6 +360,12 @@ List<RouteBase> buildAppRoutes(Ref ref) {
           blueprintId: blueprintId,
         );
       },
+    ),
+    GoRoute(
+      path: '/quiz/mock/resume/:attemptId',
+      builder: (_, state) => MockStartRoute.resume(
+        resumeAttemptId: state.pathParameters['attemptId'],
+      ),
     ),
     GoRoute(
       path: '/quiz/mock/custom-setup',

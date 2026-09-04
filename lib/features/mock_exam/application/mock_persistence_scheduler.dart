@@ -17,8 +17,10 @@ class MockPersistenceScheduler {
   }
 
   void heartbeat(MockFlushPayload payload) {
+    if (_pendingHeartbeat == null) {
+      _heartbeatElapsed = Duration.zero;
+    }
     _pendingHeartbeat = payload;
-    _heartbeatElapsed = Duration.zero;
   }
 
   void forceFlush(MockFlushPayload payload) {
@@ -61,6 +63,9 @@ class MockFlushPayload {
     required this.answersJson,
     required this.flagsJson,
     required this.currentIndex,
+    required this.currentPartIndex,
+    required this.partStartedAtSeconds,
+    this.strictBackgroundedAt,
   });
 
   final String attemptId;
@@ -70,4 +75,7 @@ class MockFlushPayload {
   final String answersJson;
   final String flagsJson;
   final int currentIndex;
+  final int currentPartIndex;
+  final int partStartedAtSeconds;
+  final DateTime? strictBackgroundedAt;
 }

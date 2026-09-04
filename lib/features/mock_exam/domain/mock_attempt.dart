@@ -1,5 +1,10 @@
 import 'package:pantas/core/storage/data/app_database.dart';
 
+/// Mock attempts belong to the device-local study profile.
+///
+/// Signing out wipes this profile before another account can use the device.
+const mockAttemptLocalUserId = 'local';
+
 enum MockAttemptStatus {
   inProgress('in_progress'),
   completed('completed'),

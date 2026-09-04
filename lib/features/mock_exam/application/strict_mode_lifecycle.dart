@@ -9,15 +9,26 @@ class StrictModeLifecycle {
   final bool strictMode;
   final void Function() _onForfeit;
   Duration? _backgroundElapsed;
+  DateTime? _backgroundedAt;
   var _forfeited = false;
 
-  void paused() {
-    if (!strictMode || _forfeited) return;
+  void paused(DateTime now) {
+    if (!strictMode || _forfeited || _backgroundedAt != null) return;
     _backgroundElapsed = Duration.zero;
+    _backgroundedAt = now;
   }
 
-  void resumed() {
+  void resumed(DateTime now) {
+    final backgroundedAt = _backgroundedAt;
+    if (strictMode &&
+        !_forfeited &&
+        backgroundedAt != null &&
+        now.difference(backgroundedAt) > guardDelay) {
+      _forfeit();
+      return;
+    }
     _backgroundElapsed = null;
+    _backgroundedAt = null;
   }
 
   void elapse(Duration duration) {
@@ -26,9 +37,14 @@ class StrictModeLifecycle {
     final next = elapsed + duration;
     _backgroundElapsed = next;
     if (next > guardDelay) {
-      _forfeited = true;
-      _backgroundElapsed = null;
-      _onForfeit();
+      _forfeit();
     }
+  }
+
+  void _forfeit() {
+    _forfeited = true;
+    _backgroundElapsed = null;
+    _backgroundedAt = null;
+    _onForfeit();
   }
 }

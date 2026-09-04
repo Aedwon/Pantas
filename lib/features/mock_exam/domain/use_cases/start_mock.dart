@@ -1,8 +1,7 @@
-import 'dart:convert';
-
 import 'package:pantas/features/mock_exam/data/mock_attempt_repo.dart';
 import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
 import 'package:pantas/features/mock_exam/domain/mock_sample.dart';
+import 'package:pantas/features/mock_exam/domain/mock_session_snapshot.dart';
 
 class StartMock {
   const StartMock({required MockAttemptRepo repo}) : _repo = repo;
@@ -23,22 +22,17 @@ class StartMock {
         blueprintName: request.blueprintName,
         durationMinutes: request.durationMinutes,
         strictMode: request.strictMode,
-        sampledQuestionsJson: _sampleToJson(request.sample),
+        sampledQuestionsJson: const MockSessionSnapshotCodec().encodeSample(
+          request.sample,
+          currentPartIndex: 0,
+          partStartedAtSeconds: 0,
+          partsTimedSeparately: request.partsTimedSeparately,
+          parts: request.parts,
+        ),
         startedAt: request.startedAt,
       ),
     );
     return (await _repo.findById(request.id))!;
-  }
-
-  String _sampleToJson(MockSample sample) {
-    return jsonEncode([
-      for (final section in sample.sections)
-        {
-          'sectionId': section.sectionId,
-          'name': section.name,
-          'questionIds': section.questionIds,
-        },
-    ]);
   }
 }
 
@@ -52,6 +46,8 @@ class MockStartRequest {
     required this.durationMinutes,
     required this.strictMode,
     required this.sample,
+    required this.partsTimedSeparately,
+    required this.parts,
     required this.startedAt,
     this.availability = const MockStartAvailability(),
   });
@@ -64,6 +60,8 @@ class MockStartRequest {
   final int durationMinutes;
   final bool strictMode;
   final MockSample sample;
+  final bool partsTimedSeparately;
+  final List<MockPersistedPart> parts;
   final DateTime startedAt;
   final MockStartAvailability availability;
 }

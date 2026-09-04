@@ -29,6 +29,7 @@ class MockSessionPage extends StatefulWidget {
     this.pauseWarningSeen = false,
     this.onPauseWarningSeenChanged,
     this.onEndPartEarly,
+    this.onLeave,
     this.currentPartNumber = 1,
     this.partLength,
     super.key,
@@ -56,6 +57,7 @@ class MockSessionPage extends StatefulWidget {
   final bool pauseWarningSeen;
   final ValueChanged<bool>? onPauseWarningSeenChanged;
   final VoidCallback? onEndPartEarly;
+  final Future<bool> Function()? onLeave;
   final int currentPartNumber;
 
   Duration get effectivePartLength =>
@@ -69,6 +71,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
   late Duration _previousRemaining;
   int? _proctorToastMinutes;
   Timer? _toastTimer;
+  var _leaving = false;
 
   @override
   void initState() {
@@ -160,8 +163,10 @@ class _MockSessionPageState extends State<MockSessionPage> {
     }
 
     return PopScope(
-      canPop: false,
-      onPopInvokedWithResult: (_, __) => _confirmLeave(context),
+      canPop: _leaving,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) unawaited(_confirmLeave(context));
+      },
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -246,18 +251,15 @@ class _MockSessionPageState extends State<MockSessionPage> {
     );
   }
 
-  Future<void> _confirmLeave(BuildContext context) {
-    return showDialog<void>(
+  Future<void> _confirmLeave(BuildContext context) async {
+    final leave = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
         title: const Text('Leave mock?'),
         content: const Text('The clock keeps running.'),
         actions: [
           TextButton(
-            onPressed: () {
-              Navigator.of(dialogContext).pop();
-              Navigator.of(context).pop();
-            },
+            onPressed: () => Navigator.of(dialogContext).pop(true),
             child: Text(
               'Leave',
               style: TextStyle(
@@ -266,12 +268,18 @@ class _MockSessionPageState extends State<MockSessionPage> {
             ),
           ),
           TextButton(
-            onPressed: () => Navigator.of(dialogContext).pop(),
+            onPressed: () => Navigator.of(dialogContext).pop(false),
             child: const Text('Stay'),
           ),
         ],
       ),
     );
+    if (leave != true) return;
+    final mayLeave = await widget.onLeave?.call() ?? true;
+    if (!mayLeave || !context.mounted) return;
+    setState(() => _leaving = true);
+    await WidgetsBinding.instance.endOfFrame;
+    if (context.mounted) Navigator.of(context).pop();
   }
 
   String _formatRemaining(Duration remaining) {

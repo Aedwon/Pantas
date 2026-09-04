@@ -6,6 +6,7 @@ import 'package:pantas/features/mock_exam/application/mock_exam_preferences.dart
 import 'package:pantas/features/mock_exam/data/mock_sampler.dart';
 import 'package:pantas/features/mock_exam/domain/use_cases/compute_results.dart';
 import 'package:pantas/features/mock_exam/domain/use_cases/discard_mock.dart';
+import 'package:pantas/features/mock_exam/domain/use_cases/resume_mock.dart';
 import 'package:pantas/features/mock_exam/domain/use_cases/start_mock.dart';
 import 'package:pantas/features/mock_exam/domain/use_cases/submit_mock.dart';
 
@@ -25,6 +26,10 @@ final mockSamplerProvider = Provider<MockSampler>((ref) {
 
 final discardMockUseCaseProvider = Provider<DiscardMock>((ref) {
   return DiscardMock(repo: ref.watch(mockAttemptRepoProvider));
+});
+
+final resumeMockUseCaseProvider = Provider<ResumeMock>((ref) {
+  return ResumeMock(repo: ref.watch(mockAttemptRepoProvider));
 });
 
 final submitMockUseCaseProvider = Provider<SubmitMock>((ref) {

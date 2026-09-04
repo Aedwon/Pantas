@@ -64,6 +64,7 @@ class MockAttemptRepo {
     required String flagsJson,
     required int currentIndex,
     required DateTime flushedAt,
+    String? sampledQuestionsJson,
     bool updateSyncTimestamp = true,
   }) async {
     await (_db.update(_db.mockAttempts)
@@ -75,6 +76,9 @@ class MockAttemptRepo {
         pausedAtLastFlush: Value(pausedAtLastFlush),
         answersJson: Value(answersJson),
         flagsJson: Value(flagsJson),
+        sampledQuestionsJson: sampledQuestionsJson == null
+            ? const Value.absent()
+            : Value(sampledQuestionsJson),
         currentIndex: Value(currentIndex),
         lastFlushedAt: Value(flushedAt),
         updatedAt:

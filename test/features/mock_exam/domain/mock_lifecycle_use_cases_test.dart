@@ -16,34 +16,40 @@ void main() {
   tearDown(() => db.close());
 
   Future<void> insertAttempt({
+    String id = 'mock_1',
+    String userId = 'user_1',
+    DateTime? attemptStartedAt,
     int elapsedSeconds = 0,
+    int accumulatedPausedSeconds = 0,
     bool pausedAtLastFlush = false,
     int durationMinutes = 90,
+    String answersJson = '{}',
+    DateTime? flushedAt,
   }) {
     return repo
         .insertStart(
           MockAttemptStart(
-            id: 'mock_1',
-            userId: 'user_1',
+            id: id,
+            userId: userId,
             examId: 'exam_cse',
             blueprintId: 'bp_cse',
             blueprintName: 'CSE Practice',
             durationMinutes: durationMinutes,
             strictMode: false,
             sampledQuestionsJson: '[]',
-            startedAt: startedAt,
+            startedAt: attemptStartedAt ?? startedAt,
           ),
         )
         .then(
           (_) => repo.flushProgress(
-            attemptId: 'mock_1',
+            attemptId: id,
             elapsedSeconds: elapsedSeconds,
-            accumulatedPausedSeconds: 0,
+            accumulatedPausedSeconds: accumulatedPausedSeconds,
             pausedAtLastFlush: pausedAtLastFlush,
-            answersJson: '{}',
+            answersJson: answersJson,
             flagsJson: '[]',
             currentIndex: 0,
-            flushedAt: startedAt,
+            flushedAt: flushedAt ?? startedAt,
             updateSyncTimestamp: false,
           ),
         );
@@ -64,6 +70,15 @@ void main() {
         durationMinutes: 90,
         strictMode: true,
         sample: sample,
+        partsTimedSeparately: false,
+        parts: const [
+          MockPersistedPart(
+            name: '',
+            startIndex: 0,
+            count: 2,
+            minutes: null,
+          ),
+        ],
         startedAt: startedAt,
       ),
     );
@@ -72,6 +87,10 @@ void main() {
     expect(attempt.durationMinutes, 90);
     expect(attempt.strictMode, isTrue);
     expect(attempt.sampledQuestionsJson, contains('q1'));
+    expect(
+      attempt.sampledQuestionsJson,
+      contains('"currentPartIndex":0'),
+    );
     expect(attempt.status, MockAttemptStatus.inProgress);
   });
 
@@ -89,6 +108,15 @@ void main() {
           durationMinutes: 90,
           strictMode: false,
           sample: _sample(['q1']),
+          partsTimedSeparately: false,
+          parts: const [
+            MockPersistedPart(
+              name: '',
+              startIndex: 0,
+              count: 1,
+              minutes: null,
+            ),
+          ],
           startedAt: startedAt,
           availability: const MockStartAvailability(blockedReason: 'cooldown'),
         ),
@@ -98,15 +126,22 @@ void main() {
   });
 
   test('resumeMock preserves elapsed when pausedAtLastFlush is true', () async {
-    await insertAttempt(elapsedSeconds: 120, pausedAtLastFlush: true);
+    await insertAttempt(
+      elapsedSeconds: 120,
+      accumulatedPausedSeconds: 30,
+      pausedAtLastFlush: true,
+      flushedAt: startedAt.add(const Duration(minutes: 2)),
+    );
     final useCase = ResumeMock(repo: repo);
 
     final resumed = await useCase(
+      attemptId: 'mock_1',
       userId: 'user_1',
       now: startedAt.add(const Duration(minutes: 20)),
     );
 
     expect(resumed.attempt!.elapsedSeconds, 120);
+    expect(resumed.attempt!.accumulatedPausedSeconds, 1110);
     expect(resumed.autoSubmitted, isFalse);
   });
 
@@ -115,6 +150,7 @@ void main() {
     final useCase = ResumeMock(repo: repo);
 
     final resumed = await useCase(
+      attemptId: 'mock_1',
       userId: 'user_1',
       now: startedAt.add(const Duration(minutes: 20)),
     );
@@ -122,21 +158,46 @@ void main() {
     expect(resumed.attempt!.elapsedSeconds, 1200);
   });
 
-  test('resumeMock auto-submits stale attempts as timeUp', () async {
-    await insertAttempt(elapsedSeconds: 120, durationMinutes: 10);
+  test('resumeMock leaves an expired snapshot intact for scored submission',
+      () async {
+    await insertAttempt(
+      elapsedSeconds: 120,
+      durationMinutes: 10,
+      answersJson: '{"q1":{"selectedIndex":1,"atSec":30}}',
+    );
     final useCase = ResumeMock(repo: repo);
 
     final resumed = await useCase(
+      attemptId: 'mock_1',
       userId: 'user_1',
       now: startedAt.add(const Duration(minutes: 20)),
     );
 
-    expect(resumed.autoSubmitted, isTrue);
-    expect(resumed.attempt!.status, MockAttemptStatus.completed);
-    expect(
-      resumed.attempt!.submittedAt,
-      startedAt.add(const Duration(minutes: 20)),
+    expect(resumed.autoSubmitted, isFalse);
+    expect(resumed.attempt!.status, MockAttemptStatus.inProgress);
+    expect(resumed.attempt!.elapsedSeconds, 600);
+    expect(resumed.attempt!.answersJson, contains('selectedIndex'));
+    expect(resumed.attempt!.submittedAt, isNull);
+  });
+
+  test('resumeMock updates only the requested active attempt', () async {
+    await insertAttempt(id: 'mock_requested', elapsedSeconds: 60);
+    await insertAttempt(
+      id: 'mock_newer',
+      attemptStartedAt: startedAt.add(const Duration(minutes: 1)),
+      elapsedSeconds: 120,
     );
+    final useCase = ResumeMock(repo: repo);
+
+    final resumed = await useCase(
+      attemptId: 'mock_requested',
+      userId: 'user_1',
+      now: startedAt.add(const Duration(minutes: 20)),
+    );
+
+    expect(resumed.attempt!.id, 'mock_requested');
+    expect(resumed.attempt!.elapsedSeconds, 1200);
+    expect((await repo.findById('mock_newer'))!.elapsedSeconds, 120);
   });
 
   test('discardMock marks discarded and makes availability true', () async {
