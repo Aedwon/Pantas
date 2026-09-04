@@ -12,7 +12,7 @@ void main() {
     );
 
     lifecycle
-      ..paused()
+      ..paused(DateTime.utc(2026))
       ..elapse(const Duration(seconds: 10));
 
     expect(forfeited, isFalse);
@@ -28,7 +28,7 @@ void main() {
       );
 
       lifecycle
-        ..paused()
+        ..paused(DateTime.utc(2026))
         ..elapse(const Duration(seconds: 5));
       expect(forfeits, 0);
 
@@ -50,12 +50,27 @@ void main() {
       );
 
       lifecycle
-        ..paused()
+        ..paused(DateTime.utc(2026))
         ..elapse(const Duration(seconds: 4))
-        ..resumed()
+        ..resumed(DateTime.utc(2026).add(const Duration(seconds: 4)))
         ..elapse(const Duration(seconds: 10));
 
       expect(forfeited, isFalse);
     },
   );
+
+  test('strict lifecycle catches a suspended timer from wall time', () {
+    var forfeited = false;
+    final lifecycle = StrictModeLifecycle(
+      strictMode: true,
+      onForfeit: () => forfeited = true,
+    );
+    final backgroundedAt = DateTime.utc(2026);
+
+    lifecycle
+      ..paused(backgroundedAt)
+      ..resumed(backgroundedAt.add(const Duration(seconds: 6)));
+
+    expect(forfeited, isTrue);
+  });
 }

@@ -13,6 +13,7 @@ export 'domain/mock_attempt.dart';
 export 'domain/mock_availability.dart';
 export 'domain/mock_results.dart';
 export 'domain/mock_sample.dart';
+export 'domain/mock_session_snapshot.dart';
 export 'domain/mock_session_state.dart';
 export 'domain/part_clock.dart';
 export 'domain/use_cases/compute_results.dart';

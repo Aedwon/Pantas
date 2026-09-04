@@ -45,6 +45,36 @@ void main() {
     expect(controller.state, isA<MockSessionInProgress>());
   });
 
+  test('restored session keeps answers position elapsed and part clock', () {
+    final controller = MockSessionController.restored(
+      attemptId: 'mock_1',
+      durationSeconds: 1800,
+      questionIds: ['q1', 'q2', 'q3'],
+      currentIndex: 2,
+      elapsedSeconds: 180,
+      answers: const {
+        'q1': MockAnswer(selectedIndex: 1, atSec: 42),
+      },
+      flags: const {'q2'},
+      strictMode: false,
+      parts: const [
+        MockSessionPart(name: 'Part 1', startIndex: 0, count: 2, minutes: 2),
+        MockSessionPart(name: 'Part 2', startIndex: 2, count: 1, minutes: 10),
+      ],
+      currentPartIndex: 1,
+      partStartedAtSeconds: 120,
+    );
+
+    final state = controller.state as MockSessionInProgress;
+    expect(state.currentIndex, 2);
+    expect(state.elapsedSeconds, 180);
+    expect(state.answers['q1'], const MockAnswer(selectedIndex: 1, atSec: 42));
+    expect(state.flags, {'q2'});
+    expect(controller.currentPartIndex, 1);
+    expect(controller.partStartedAtSeconds, 120);
+    expect(controller.remainingInPart, const Duration(minutes: 9));
+  });
+
   test('strict mode hides pause capability', () {
     final controller = MockSessionController.initial(
       attemptId: 'mock_1',

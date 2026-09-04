@@ -33,11 +33,15 @@ class MockSessionController {
     required List<MockSessionPart> parts,
     required void Function(MockTimeWarning warning)? onWarning,
     required void Function(MockSubmitReason reason)? onSubmit,
+    int openPartIndex = 0,
+    int partStartedAtSeconds = 0,
     Telemetry telemetry = const DisabledTelemetry(),
   })  : _state = state,
         _parts = parts,
         _onWarning = onWarning,
         _onSubmit = onSubmit,
+        _openPartIndex = openPartIndex,
+        _partStartedAtSeconds = partStartedAtSeconds,
         _telemetry = telemetry;
 
   factory MockSessionController.initial({
@@ -76,14 +80,70 @@ class MockSessionController {
     );
   }
 
+  factory MockSessionController.restored({
+    required String attemptId,
+    required int durationSeconds,
+    required List<String> questionIds,
+    required int currentIndex,
+    required int elapsedSeconds,
+    required Map<String, MockAnswer> answers,
+    required Set<String> flags,
+    required bool strictMode,
+    required List<MockSessionPart> parts,
+    required int currentPartIndex,
+    required int partStartedAtSeconds,
+    void Function(MockTimeWarning warning)? onWarning,
+    void Function(MockSubmitReason reason)? onSubmit,
+    Telemetry telemetry = const DisabledTelemetry(),
+  }) {
+    if (questionIds.isEmpty) {
+      throw ArgumentError.value(
+        questionIds,
+        'questionIds',
+        'must not be empty',
+      );
+    }
+    if (currentIndex < 0 || currentIndex >= questionIds.length) {
+      throw RangeError.range(currentIndex, 0, questionIds.length - 1);
+    }
+    if (currentPartIndex < 0 || currentPartIndex >= parts.length) {
+      throw RangeError.range(currentPartIndex, 0, parts.length - 1);
+    }
+    if (!parts[currentPartIndex].contains(currentIndex)) {
+      throw ArgumentError.value(
+        currentIndex,
+        'currentIndex',
+        'must belong to the current part',
+      );
+    }
+    return MockSessionController._(
+      parts: parts,
+      state: MockSessionInProgress(
+        attemptId: attemptId,
+        durationSeconds: durationSeconds,
+        questionIds: List.unmodifiable(questionIds),
+        currentIndex: currentIndex,
+        elapsedSeconds: elapsedSeconds,
+        answers: Map.unmodifiable(answers),
+        flags: Set.unmodifiable(flags),
+        strictMode: strictMode,
+      ),
+      onWarning: onWarning,
+      onSubmit: onSubmit,
+      openPartIndex: currentPartIndex,
+      partStartedAtSeconds: partStartedAtSeconds,
+      telemetry: telemetry,
+    );
+  }
+
   MockSessionState _state;
   final List<MockSessionPart> _parts;
   final void Function(MockTimeWarning warning)? _onWarning;
 
   /// The exam's elapsed seconds when the open part began, so the part
   /// clock counts the part rather than the exam.
-  int _partStartedAtSeconds = 0;
-  int _openPartIndex = 0;
+  int _partStartedAtSeconds;
+  int _openPartIndex;
   final void Function(MockSubmitReason reason)? _onSubmit;
   final Telemetry _telemetry;
   final _emittedWarnings = <MockTimeWarning>{};
@@ -93,6 +153,8 @@ class MockSessionController {
   List<MockSessionPart> get parts => List.unmodifiable(_parts);
 
   int get currentPartIndex => _openPartIndex;
+
+  int get partStartedAtSeconds => _partStartedAtSeconds;
 
   MockSessionPart get currentPart => _parts[_openPartIndex];
 

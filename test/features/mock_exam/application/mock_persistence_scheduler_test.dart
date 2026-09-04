@@ -35,6 +35,20 @@ void main() {
     expect(flushed.single.elapsedSeconds, 30);
   });
 
+  test('heartbeat keeps its cadence while accepting a newer snapshot', () {
+    final flushed = <MockFlushPayload>[];
+    final scheduler = MockPersistenceScheduler(onFlush: flushed.add);
+
+    scheduler
+      ..heartbeat(_payload(elapsedSeconds: 1))
+      ..elapse(const Duration(seconds: 29))
+      ..heartbeat(_payload(elapsedSeconds: 30))
+      ..elapse(const Duration(seconds: 1));
+
+    expect(flushed, hasLength(1));
+    expect(flushed.single.elapsedSeconds, 30);
+  });
+
   test('pause and resume flush immediately', () {
     final flushed = <MockFlushPayload>[];
     final scheduler = MockPersistenceScheduler(onFlush: flushed.add);
@@ -59,5 +73,7 @@ MockFlushPayload _payload({
     answersJson: '{}',
     flagsJson: '[]',
     currentIndex: 0,
+    currentPartIndex: 0,
+    partStartedAtSeconds: 0,
   );
 }

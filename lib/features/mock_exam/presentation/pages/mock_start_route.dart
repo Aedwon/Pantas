@@ -9,10 +9,16 @@ import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/error_banner.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
+import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
+import 'package:pantas/features/mock_exam/application/mock_persistence_scheduler.dart';
 import 'package:pantas/features/mock_exam/application/mock_session_controller.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/application/strict_mode_lifecycle.dart';
+import 'package:pantas/features/mock_exam/data/mock_attempt_repo.dart';
+import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
 import 'package:pantas/features/mock_exam/domain/mock_sample.dart';
+import 'package:pantas/features/mock_exam/domain/mock_session_snapshot.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/domain/use_cases/start_mock.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.dart';
@@ -26,10 +32,17 @@ class MockStartRoute extends ConsumerStatefulWidget {
     required this.examId,
     required this.blueprintId,
     super.key,
-  });
+  }) : resumeAttemptId = null;
 
-  final String examId;
-  final String blueprintId;
+  const MockStartRoute.resume({
+    required this.resumeAttemptId,
+    super.key,
+  })  : examId = null,
+        blueprintId = null;
+
+  final String? examId;
+  final String? blueprintId;
+  final String? resumeAttemptId;
 
   @override
   ConsumerState<MockStartRoute> createState() => _MockStartRouteState();
@@ -38,12 +51,27 @@ class MockStartRoute extends ConsumerStatefulWidget {
 class _MockStartRouteState extends ConsumerState<MockStartRoute>
     with WidgetsBindingObserver {
   MockSessionController? _controller;
+  MockPersistenceScheduler? _persistenceScheduler;
+  MockAttemptRepo? _attemptRepo;
   Timer? _timer;
   Stopwatch? _stopwatch;
   StrictModeLifecycle? _strictModeLifecycle;
   String? _errorMessage;
+  String? _recoverableAttemptId;
   late MockSample _sample;
+  List<String> _questionIds = const [];
+  ScoreBands? _scoreBands;
+  var _strictMode = false;
   bool _submitting = false;
+  Future<void> _flushChain = Future<void>.value();
+  Object? _lastFlushError;
+  var _elapsedBaseSeconds = 0;
+  var _accumulatedPausedSeconds = 0;
+  DateTime? _pausedAt;
+  DateTime? _strictBackgroundedAt;
+  MockSessionInProgress? _lastSessionSnapshot;
+
+  static const _snapshotCodec = MockSessionSnapshotCodec();
 
   @override
   void initState() {
@@ -62,25 +90,40 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
+    final now = DateTime.now();
     if (state == AppLifecycleState.paused ||
         state == AppLifecycleState.inactive ||
         state == AppLifecycleState.hidden) {
-      _strictModeLifecycle?.paused();
+      if (_strictMode) _strictBackgroundedAt ??= now;
+      _strictModeLifecycle?.paused(now);
+      if (_controller != null) {
+        if (_controller!.state is MockSessionPaused) _accruePausedTime();
+        unawaited(_bestEffortForceFlush());
+      }
     } else if (state == AppLifecycleState.resumed) {
-      _strictModeLifecycle?.resumed();
+      _strictModeLifecycle?.resumed(now);
+      _strictBackgroundedAt = null;
+      if (_controller != null) {
+        if (_controller!.state is MockSessionPaused) _accruePausedTime();
+        unawaited(_bestEffortForceFlush());
+      }
     }
   }
 
-  Future<void> _load() async {
+  Future<void> _load() {
+    return widget.resumeAttemptId == null ? _loadFresh() : _loadResume();
+  }
+
+  Future<void> _loadFresh() async {
     try {
       final parsed = await ref
-          .read(mockSetupParsedBlueprintProvider(widget.examId).future);
+          .read(mockSetupParsedBlueprintProvider(widget.examId!).future);
       if (parsed == null) {
         throw Exception('Blueprint not found');
       }
 
       final pools =
-          await ref.read(mockQuestionPoolsProvider(widget.examId).future);
+          await ref.read(mockQuestionPoolsProvider(widget.examId!).future);
       final sampler = ref.read(mockSamplerProvider);
 
       final sample = sampler.sample(
@@ -133,13 +176,15 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
       await startMock.call(
         MockStartRequest(
           id: attemptId,
-          userId: 'local', // Local mock user.
-          examId: widget.examId,
-          blueprintId: widget.blueprintId,
+          userId: mockAttemptLocalUserId,
+          examId: widget.examId!,
+          blueprintId: widget.blueprintId!,
           blueprintName: parsed.blueprint.name,
           durationMinutes: parsed.blueprint.durationMinutes,
           strictMode: strictMode,
           sample: sample,
+          partsTimedSeparately: isSectional,
+          parts: _persistedParts(parts),
           startedAt: DateTime.now(),
         ),
       );
@@ -147,94 +192,21 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
       if (!mounted) return;
 
       _sample = sample;
-      final currentAttemptId = attemptId;
-      late final MockSessionController controller;
-      controller = MockSessionController.initial(
-        attemptId: currentAttemptId,
+      _questionIds = questionIds;
+      _scoreBands = parsed.blueprint.scoreBands;
+      _strictMode = strictMode;
+      final controller = MockSessionController.initial(
+        attemptId: attemptId,
         durationSeconds: parsed.blueprint.durationMinutes * 60,
         questionIds: questionIds,
         parts: parts,
         strictMode: strictMode,
-        onWarning: (warning) {
-          // Toast or effect handled by UI
-        },
-        onSubmit: (reason) async {
-          if (!mounted || _submitting) return;
-          setState(() => _submitting = true);
-
-          _timer?.cancel();
-          _stopwatch?.stop();
-
-          try {
-            final computeMockResults =
-                ref.read(computeMockResultsUseCaseProvider);
-            final submitMock = ref.read(submitMockUseCaseProvider);
-            final contentRepo = ref.read(contentRepositoryProvider);
-
-            final questionsById = <String, Question>{};
-            for (final qId in questionIds) {
-              final q = await contentRepo.questionById(qId);
-              if (q != null) questionsById[qId] = q;
-            }
-
-            final answers = controller.state is MockSessionInProgress
-                ? (controller.state as MockSessionInProgress).answers
-                : (controller.state as MockSessionSubmitted).snapshot.answers;
-
-            final results = computeMockResults(
-              sample: _sample,
-              questionsById: questionsById,
-              answers: answers,
-              totalTimeSeconds: _stopwatch?.elapsed.inSeconds ?? 0,
-              wasStrict: strictMode,
-              scoreBands: parsed.blueprint.scoreBands,
-            );
-
-            await submitMock(
-              attemptId: currentAttemptId,
-              results: results,
-              submittedAt: DateTime.now(),
-            );
-
-            if (mounted) {
-              context.pushReplacement('/mock/results/$currentAttemptId');
-            }
-          } catch (e) {
-            if (mounted) {
-              setState(() {
-                _errorMessage = e.toString();
-                _submitting = false;
-              });
-            }
-          }
-        },
+        onWarning: (_) {},
+        onSubmit: _handleSubmit,
         telemetry: ref.read(telemetryProvider),
       );
 
-      _strictModeLifecycle = StrictModeLifecycle(
-        strictMode: controller.state is MockSessionInProgress &&
-            (controller.state as MockSessionInProgress).strictMode,
-        onForfeit: () {
-          if (mounted) controller.strictBackgroundExceeded();
-        },
-      );
-
-      setState(() {
-        _controller = controller;
-      });
-
-      _stopwatch = Stopwatch()..start();
-      _timer = Timer.periodic(const Duration(seconds: 1), (_) {
-        if (!mounted || _controller == null) return;
-        _strictModeLifecycle?.elapse(const Duration(seconds: 1));
-
-        final state = _controller!.state;
-        if (state is MockSessionInProgress) {
-          setState(() {
-            _controller!.tickTo(_stopwatch!.elapsed.inSeconds);
-          });
-        }
-      });
+      _installController(controller);
     } catch (e) {
       if (mounted) {
         setState(() {
@@ -244,15 +216,397 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
     }
   }
 
+  Future<void> _loadResume() async {
+    try {
+      final requestedAttemptId = widget.resumeAttemptId!;
+      final resumeNow = DateTime.now();
+      final resumed = await ref.read(resumeMockUseCaseProvider)(
+        attemptId: requestedAttemptId,
+        userId: mockAttemptLocalUserId,
+        now: resumeNow,
+      );
+      final attempt = resumed.attempt;
+      if (attempt == null || attempt.id != requestedAttemptId) {
+        throw StateError('Mock attempt is no longer available');
+      }
+
+      _recoverableAttemptId = attempt.id;
+      final restored = _snapshotCodec.decode(
+        sampledQuestionsJson: attempt.sampledQuestionsJson,
+        answersJson: attempt.answersJson,
+        flagsJson: attempt.flagsJson,
+      );
+      final questionIds = [
+        for (final section in restored.sample.sections) ...section.questionIds,
+      ];
+      final currentBlueprint = await _findCurrentBlueprint(attempt);
+      final frozenParts = restored.parts;
+      final parts = frozenParts == null
+          ? currentBlueprint == null
+              ? throw StateError('Saved mock blueprint is no longer available')
+              : _partsFor(
+                  currentBlueprint,
+                  restored.sample,
+                  questionIds.length,
+                )
+          : [
+              for (final part in frozenParts)
+                MockSessionPart(
+                  name: part.name,
+                  startIndex: part.startIndex,
+                  count: part.count,
+                  minutes: part.minutes,
+                ),
+            ];
+      final currentPartIndex = restored.currentPartIndex ??
+          _partIndexFor(parts, attempt.currentIndex);
+
+      if (!mounted) return;
+      _sample = restored.sample;
+      _questionIds = questionIds;
+      _scoreBands = currentBlueprint?.blueprint.scoreBands;
+      _strictMode = attempt.strictMode;
+      _elapsedBaseSeconds = attempt.elapsedSeconds;
+      _accumulatedPausedSeconds = attempt.accumulatedPausedSeconds;
+      _strictBackgroundedAt = restored.strictBackgroundedAt;
+      final controller = MockSessionController.restored(
+        attemptId: attempt.id,
+        durationSeconds: attempt.durationMinutes * 60,
+        questionIds: questionIds,
+        currentIndex: attempt.currentIndex,
+        elapsedSeconds: attempt.elapsedSeconds,
+        answers: restored.answers,
+        flags: restored.flags,
+        strictMode: attempt.strictMode,
+        parts: parts,
+        currentPartIndex: currentPartIndex,
+        partStartedAtSeconds: restored.partStartedAtSeconds,
+        onWarning: (_) {},
+        onSubmit: _handleSubmit,
+        telemetry: ref.read(telemetryProvider),
+      );
+      _recoverableAttemptId = null;
+      _installController(controller);
+
+      if (_strictForfeitOccurredFirst(
+        attempt: attempt,
+        backgroundedAt: restored.strictBackgroundedAt,
+        now: resumeNow,
+      )) {
+        _strictBackgroundedAt = null;
+        scheduleMicrotask(controller.strictBackgroundExceeded);
+      } else if (attempt.elapsedSeconds >= attempt.durationMinutes * 60) {
+        scheduleMicrotask(
+          () => controller.tickTo(attempt.durationMinutes * 60),
+        );
+      } else if (_strictBackgroundedAt != null) {
+        _strictBackgroundedAt = null;
+        unawaited(_bestEffortForceFlush());
+      }
+    } catch (e) {
+      if (mounted) setState(() => _errorMessage = e.toString());
+    }
+  }
+
+  bool _strictForfeitOccurredFirst({
+    required MockAttempt attempt,
+    required DateTime? backgroundedAt,
+    required DateTime now,
+  }) {
+    if (!attempt.strictMode || backgroundedAt == null) return false;
+    final forfeitAt = backgroundedAt.add(StrictModeLifecycle.guardDelay);
+    final expiresAt = attempt.startedAt.add(
+      Duration(
+        seconds:
+            attempt.durationMinutes * 60 + attempt.accumulatedPausedSeconds,
+      ),
+    );
+    return now.isAfter(forfeitAt) && forfeitAt.isBefore(expiresAt);
+  }
+
+  Future<ParsedMockBlueprint?> _findCurrentBlueprint(
+    MockAttempt attempt,
+  ) async {
+    final setup =
+        await ref.read(mockSetupParsedBlueprintProvider(attempt.examId).future);
+    if (setup?.blueprint.id == attempt.blueprintId) return setup;
+    final result =
+        await ref.read(mockBlueprintsForExamProvider(attempt.examId).future);
+    for (final candidate in result.blueprints) {
+      if (candidate.blueprint.id == attempt.blueprintId) return candidate;
+    }
+    return null;
+  }
+
+  List<MockPersistedPart> _persistedParts(List<MockSessionPart> parts) => [
+        for (final part in parts)
+          MockPersistedPart(
+            name: part.name,
+            startIndex: part.startIndex,
+            count: part.count,
+            minutes: part.minutes,
+          ),
+      ];
+
+  List<MockSessionPart> _partsFor(
+    ParsedMockBlueprint parsed,
+    MockSample sample,
+    int questionCount,
+  ) {
+    if (parsed.blueprint.sectionalTiming != SectionalTiming.sectional) {
+      return [
+        MockSessionPart(name: '', startIndex: 0, count: questionCount),
+      ];
+    }
+
+    final parts = <MockSessionPart>[];
+    var startIndex = 0;
+    for (final sampledSection in sample.sections) {
+      final section = parsed.sections.firstWhere(
+        (candidate) => candidate.id == sampledSection.sectionId,
+      );
+      parts.add(
+        MockSessionPart(
+          name: section.name,
+          startIndex: startIndex,
+          count: sampledSection.questionIds.length,
+          minutes: section.sectionalMinutes ?? section.suggestedMinutes,
+        ),
+      );
+      startIndex += sampledSection.questionIds.length;
+    }
+    return parts;
+  }
+
+  int _partIndexFor(List<MockSessionPart> parts, int currentIndex) {
+    final index = parts.indexWhere((part) => part.contains(currentIndex));
+    if (index < 0) throw StateError('Saved mock position is invalid');
+    return index;
+  }
+
+  void _installController(MockSessionController controller) {
+    _attemptRepo ??= ref.read(mockAttemptRepoProvider);
+    _lastSessionSnapshot = _sessionSnapshot(controller);
+    _strictModeLifecycle = StrictModeLifecycle(
+      strictMode: _strictMode,
+      onForfeit: controller.strictBackgroundExceeded,
+    );
+    _persistenceScheduler = MockPersistenceScheduler(onFlush: _enqueueFlush);
+    setState(() => _controller = controller);
+    _stopwatch = Stopwatch()..start();
+    const timerStep = Duration(milliseconds: 100);
+    _timer = Timer.periodic(timerStep, (_) => _onTimer(timerStep));
+  }
+
+  Future<void> _handleSubmit(MockSubmitReason reason) async {
+    if (!mounted || _submitting) return;
+    setState(() => _submitting = true);
+    _timer?.cancel();
+    _stopwatch?.stop();
+
+    try {
+      final snapshot = _sessionSnapshot(_controller!);
+      await _forceFlush();
+      final contentRepo = ref.read(contentRepositoryProvider);
+      final questionsById = <String, Question>{};
+      for (final questionId in _questionIds) {
+        final question = await contentRepo.questionById(questionId);
+        if (question != null) questionsById[questionId] = question;
+      }
+      final results = ref.read(computeMockResultsUseCaseProvider)(
+        sample: _sample,
+        questionsById: questionsById,
+        answers: snapshot.answers,
+        totalTimeSeconds: snapshot.elapsedSeconds,
+        wasStrict: _strictMode,
+        scoreBands: _scoreBands,
+      );
+      await ref.read(submitMockUseCaseProvider)(
+        attemptId: snapshot.attemptId,
+        results: results,
+        submittedAt: DateTime.now(),
+        status: reason == MockSubmitReason.strictBackground
+            ? MockAttemptStatus.forfeited
+            : MockAttemptStatus.completed,
+      );
+      if (mounted) {
+        context.pushReplacement('/mock/results/${snapshot.attemptId}');
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          _errorMessage = e.toString();
+          _submitting = false;
+        });
+      }
+    }
+  }
+
+  void _onTimer(Duration step) {
+    if (!mounted || _controller == null) return;
+    _strictModeLifecycle?.elapse(step);
+    final controller = _controller!;
+    if (controller.state is! MockSessionInProgress) return;
+
+    final elapsed = _elapsedBaseSeconds + (_stopwatch?.elapsed.inSeconds ?? 0);
+    final current = controller.state as MockSessionInProgress;
+    if (elapsed != current.elapsedSeconds) {
+      final previousPartIndex = controller.currentPartIndex;
+      final previousQuestionIndex = current.currentIndex;
+      setState(() => controller.tickTo(elapsed));
+      final updated = controller.state;
+      if (updated is MockSessionInProgress &&
+          (controller.currentPartIndex != previousPartIndex ||
+              updated.currentIndex != previousQuestionIndex)) {
+        _markChanged();
+      }
+    }
+    if (controller.state is MockSessionInProgress) {
+      _persistenceScheduler
+        ?..heartbeat(_flushPayload())
+        ..elapse(step);
+    }
+  }
+
+  MockSessionInProgress _sessionSnapshot(MockSessionController controller) {
+    final snapshot = switch (controller.state) {
+      final MockSessionInProgress state => state,
+      final MockSessionPaused state => state.snapshot,
+      final MockSessionSubmitted state => state.snapshot,
+      _ => _lastSessionSnapshot,
+    };
+    if (snapshot == null) {
+      throw StateError('Mock session has no resumable snapshot');
+    }
+    _lastSessionSnapshot = snapshot;
+    return snapshot;
+  }
+
+  MockFlushPayload _flushPayload({bool? pausedAtLastFlush}) {
+    final controller = _controller!;
+    final snapshot = _sessionSnapshot(controller);
+    return MockFlushPayload(
+      attemptId: snapshot.attemptId,
+      elapsedSeconds: snapshot.elapsedSeconds,
+      accumulatedPausedSeconds: _accumulatedPausedSeconds,
+      pausedAtLastFlush:
+          pausedAtLastFlush ?? controller.state is MockSessionPaused,
+      answersJson: _snapshotCodec.encodeAnswers(snapshot.answers),
+      flagsJson: _snapshotCodec.encodeFlags(snapshot.flags),
+      currentIndex: snapshot.currentIndex,
+      currentPartIndex: controller.currentPartIndex,
+      partStartedAtSeconds: controller.partStartedAtSeconds,
+      strictBackgroundedAt: _strictBackgroundedAt,
+    );
+  }
+
+  void _enqueueFlush(MockFlushPayload payload) {
+    final attemptRepo = _attemptRepo;
+    if (attemptRepo == null) {
+      _lastFlushError = StateError('Mock progress store is unavailable');
+      return;
+    }
+    _flushChain = _flushChain.then((_) async {
+      await attemptRepo.flushProgress(
+        attemptId: payload.attemptId,
+        elapsedSeconds: payload.elapsedSeconds,
+        accumulatedPausedSeconds: payload.accumulatedPausedSeconds,
+        pausedAtLastFlush: payload.pausedAtLastFlush,
+        answersJson: payload.answersJson,
+        flagsJson: payload.flagsJson,
+        sampledQuestionsJson: _snapshotCodec.encodeSample(
+          _sample,
+          currentPartIndex: payload.currentPartIndex,
+          partStartedAtSeconds: payload.partStartedAtSeconds,
+          partsTimedSeparately:
+              _controller!.parts.any((part) => part.minutes != null),
+          parts: _persistedParts(_controller!.parts),
+          strictBackgroundedAt: payload.strictBackgroundedAt,
+        ),
+        currentIndex: payload.currentIndex,
+        flushedAt: DateTime.now(),
+      );
+      _lastFlushError = null;
+    }).catchError((Object error, StackTrace stackTrace) {
+      _lastFlushError = error;
+      if (mounted) {
+        ScaffoldMessenger.maybeOf(context)?.showSnackBar(
+          const SnackBar(content: Text('Could not save your mock progress.')),
+        );
+      }
+    });
+  }
+
+  Future<void> _forceFlush({bool? pausedAtLastFlush}) async {
+    if (_controller == null || _persistenceScheduler == null) return;
+    _persistenceScheduler!.forceFlush(
+      _flushPayload(pausedAtLastFlush: pausedAtLastFlush),
+    );
+    await _flushChain;
+    final error = _lastFlushError;
+    if (error != null) throw StateError('Could not save mock progress: $error');
+  }
+
+  Future<void> _bestEffortForceFlush({bool? pausedAtLastFlush}) async {
+    try {
+      await _forceFlush(pausedAtLastFlush: pausedAtLastFlush);
+    } catch (_) {
+      // The queued flush records and shows the failure.
+      // A later heartbeat retries.
+    }
+  }
+
+  Future<void> _discardCorruptAttempt() async {
+    final attemptId = _recoverableAttemptId;
+    if (attemptId == null) return;
+    try {
+      await ref.read(discardMockUseCaseProvider)(
+        attemptId: attemptId,
+        discardedAt: DateTime.now(),
+      );
+      if (!mounted) return;
+      if (context.canPop()) {
+        context.pop();
+      } else {
+        context.go('/');
+      }
+    } catch (error) {
+      if (mounted) setState(() => _errorMessage = error.toString());
+    }
+  }
+
+  void _markChanged() {
+    _persistenceScheduler?.markChanged(_flushPayload());
+  }
+
+  void _accruePausedTime() {
+    final pausedAt = _pausedAt;
+    if (pausedAt == null) return;
+    final now = DateTime.now();
+    final elapsed = now.difference(pausedAt).inSeconds;
+    if (elapsed > 0) _accumulatedPausedSeconds += elapsed;
+    _pausedAt = now;
+  }
+
   @override
   Widget build(BuildContext context) {
     if (_errorMessage != null) {
       return Scaffold(
         appBar: AppBar(title: const Text('Error')),
         body: Center(
-          child: ErrorBanner(
-            message: _errorMessage!,
-            variant: ErrorBannerVariant.error,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ErrorBanner(
+                message: _errorMessage!,
+                variant: ErrorBannerVariant.error,
+              ),
+              if (_recoverableAttemptId != null)
+                TextButton(
+                  onPressed: _discardCorruptAttempt,
+                  child: const Text('Discard saved mock'),
+                ),
+            ],
           ),
         ),
       );
@@ -273,10 +627,18 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
         total: state.snapshot.questionIds.length,
         flagged: state.snapshot.flags.length,
         onResume: () {
-          _stopwatch?.start();
+          _accruePausedTime();
           setState(controller.resume);
+          _elapsedBaseSeconds = state.snapshot.elapsedSeconds;
+          _stopwatch
+            ?..reset()
+            ..start();
+          _pausedAt = null;
+          unawaited(_bestEffortForceFlush(pausedAtLastFlush: false));
         },
         onDiscard: () async {
+          _accruePausedTime();
+          await _forceFlush(pausedAtLastFlush: true);
           final discardMock = ref.read(discardMockUseCaseProvider);
           await discardMock(
             attemptId: state.snapshot.attemptId,
@@ -300,16 +662,41 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
       partTotal: controller.currentPart.count,
       canGoPrevious: controller.canGoPrevious,
       canGoNext: controller.canGoNext,
-      onPrevious: () => setState(controller.goPrevious),
-      onNext: () => setState(controller.goNext),
-      onAnswer: (index) => setState(() => controller.answerCurrent(index)),
-      onToggleFlag: () => setState(controller.toggleFlag),
-      onEndPartEarly: () => setState(controller.endPartEarly),
+      onPrevious: () {
+        setState(controller.goPrevious);
+        _markChanged();
+      },
+      onNext: () {
+        setState(controller.goNext);
+        _markChanged();
+      },
+      onAnswer: (index) {
+        setState(() => controller.answerCurrent(index));
+        _markChanged();
+      },
+      onToggleFlag: () {
+        setState(controller.toggleFlag);
+        _markChanged();
+      },
+      onEndPartEarly: () {
+        setState(controller.endPartEarly);
+        _markChanged();
+      },
       currentPartNumber: controller.currentPartIndex + 1,
+      onLeave: () async {
+        try {
+          await _forceFlush();
+          return true;
+        } catch (_) {
+          return false;
+        }
+      },
       onPause: () {
         if (controller.canPause) {
           _stopwatch?.stop();
+          _pausedAt = DateTime.now();
           setState(controller.pause);
+          unawaited(_bestEffortForceFlush(pausedAtLastFlush: true));
         }
       },
       onShowNavigator: () {
@@ -347,6 +734,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
                   onTap: (index) {
                     Navigator.pop(context);
                     setState(() => controller.goTo(index));
+                    _markChanged();
                   },
                 ),
               ),

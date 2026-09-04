@@ -1,6 +1,5 @@
 import 'package:pantas/features/mock_exam/data/mock_attempt_repo.dart';
 import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
-import 'package:pantas/features/mock_exam/domain/mock_results.dart';
 
 class ResumeMock {
   const ResumeMock({required MockAttemptRepo repo}) : _repo = repo;
@@ -8,41 +7,36 @@ class ResumeMock {
   final MockAttemptRepo _repo;
 
   Future<MockResumeResult> call({
+    required String attemptId,
     required String userId,
     required DateTime now,
   }) async {
-    final attempt = await _repo.findInProgress(userId);
-    if (attempt == null) return const MockResumeResult();
-
-    final elapsed = _elapsedOnResume(attempt, now);
-    final durationSeconds = attempt.durationMinutes * 60;
-    if (elapsed >= durationSeconds) {
-      const emptyResults = MockResults(
-        scoreRaw: 0,
-        scoreTotal: 0,
-        percent: 0,
-        sections: [],
-        topWeak: [],
-        totalTimeSeconds: 0,
-        wasStrict: false,
-      );
-      await _repo.submit(
-        attemptId: attempt.id,
-        status: MockAttemptStatus.completed,
-        results: emptyResults,
-        sectionResultsJson: '{"sections":[],"reason":"timeUp"}',
-        submittedAt: now,
-      );
-      return MockResumeResult(
-        attempt: await _repo.findById(attempt.id),
-        autoSubmitted: true,
-      );
+    final attempt = await _repo.findById(attemptId);
+    if (attempt == null ||
+        attempt.userId != userId ||
+        attempt.status != MockAttemptStatus.inProgress) {
+      return const MockResumeResult();
     }
+
+    final durationSeconds = attempt.durationMinutes * 60;
+    final resumedElapsed = _elapsedOnResume(attempt, now);
+    final elapsed = resumedElapsed < 0
+        ? 0
+        : resumedElapsed > durationSeconds
+            ? durationSeconds
+            : resumedElapsed;
+    final pausedSinceFlush = now.difference(attempt.lastFlushedAt).inSeconds;
+    final accumulatedPausedSeconds = attempt.accumulatedPausedSeconds +
+        (attempt.pausedAtLastFlush
+            ? pausedSinceFlush < 0
+                ? 0
+                : pausedSinceFlush
+            : 0);
 
     await _repo.flushProgress(
       attemptId: attempt.id,
       elapsedSeconds: elapsed,
-      accumulatedPausedSeconds: attempt.accumulatedPausedSeconds,
+      accumulatedPausedSeconds: accumulatedPausedSeconds,
       pausedAtLastFlush: false,
       answersJson: attempt.answersJson,
       flagsJson: attempt.flagsJson,

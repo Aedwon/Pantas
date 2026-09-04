@@ -50,6 +50,15 @@ void main() {
             ),
           ],
         ),
+        partsTimedSeparately: false,
+        parts: const [
+          MockPersistedPart(
+            name: '',
+            startIndex: 0,
+            count: 1,
+            minutes: null,
+          ),
+        ],
         startedAt: DateTime.utc(2026, 5, 20),
       ),
     );
