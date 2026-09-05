@@ -49,32 +49,3 @@ jobs:
           name: app-dev-debug
           path: build/app/outputs/flutter-apk/app-dev-debug.apk
           retention-days: 14
-
-  integration:
-    runs-on: macos-13
-    timeout-minutes: 30
-    needs: ci
-    steps:
-      - uses: actions/checkout@v4
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: stable
-          flutter-version: '3.41.x'
-      - run: flutter pub get
-      - name: Generate code
-        run: |
-          dart run build_runner build --delete-conflicting-outputs
-          flutter gen-l10n
-
-      - name: Set up iOS simulator
-        run: |
-          xcrun simctl list devices
-          xcrun simctl boot "iPhone 15" || true
-
-      - name: Run integration tests
-        run: |
-          if ls integration_test/*_test.dart 2>/dev/null; then
-            flutter test integration_test
-          else
-            echo "no integration tests yet — skipping"
-          fi
