@@ -258,6 +258,112 @@ exit 0
   Future<void> dispose() => root.delete(recursive: true);
 }
 
+class _ResetEmulatorStub {
+  _ResetEmulatorStub(
+    this.auth,
+    this.firestore,
+    this.authRequests,
+    this.authAuthorizations,
+  );
+
+  final HttpServer auth;
+  final HttpServer firestore;
+  final List<String> authRequests;
+  final List<String?> authAuthorizations;
+
+  static Future<_ResetEmulatorStub> start(
+    String projectId, {
+    bool authHasUsers = false,
+    bool firestoreHasDocuments = false,
+  }) async {
+    final auth = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
+    final firestore = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
+    final stub = _ResetEmulatorStub(
+      auth,
+      firestore,
+      <String>[],
+      <String?>[],
+    );
+    final accountsPath = '/emulator/v1/projects/$projectId/accounts';
+    final batchListPath =
+        '/identitytoolkit.googleapis.com/v1/projects/$projectId/accounts:batchGet';
+    auth.listen((request) async {
+      final target = request.uri.hasQuery
+          ? '${request.uri.path}?${request.uri.query}'
+          : request.uri.path;
+      stub.authRequests.add('${request.method} $target');
+      await request.drain<void>();
+      final response = request.response;
+      if (request.method == 'DELETE' && request.uri.path == accountsPath) {
+        response.statusCode = HttpStatus.ok;
+        response.headers.contentType = ContentType.json;
+        response.write('{}');
+      } else if (request.method == 'GET' && request.uri.path == accountsPath) {
+        response.statusCode = HttpStatus.methodNotAllowed;
+        response.write('Method GET not allowed');
+      } else if (request.method == 'GET' &&
+          request.uri.path == batchListPath &&
+          request.uri.queryParameters['maxResults'] == '1') {
+        stub.authAuthorizations.add(
+          request.headers.value(HttpHeaders.authorizationHeader),
+        );
+        response.statusCode = HttpStatus.ok;
+        response.headers.contentType = ContentType.json;
+        response.write(
+          jsonEncode(
+            authHasUsers
+                ? <String, Object?>{
+                    'users': <Object>[
+                      <String, String>{'localId': 'leftover-user'},
+                    ],
+                  }
+                : const <String, Object?>{},
+          ),
+        );
+      } else {
+        response.statusCode = HttpStatus.notFound;
+      }
+      await response.close();
+    });
+
+    final deletePath =
+        '/emulator/v1/projects/$projectId/databases/(default)/documents';
+    final listPath = '/v1/projects/$projectId/databases/(default)/documents';
+    firestore.listen((request) async {
+      await request.drain<void>();
+      final response = request.response;
+      if (request.method == 'DELETE' && request.uri.path == deletePath) {
+        response.statusCode = HttpStatus.ok;
+        response.headers.contentType = ContentType.json;
+        response.write('{}');
+      } else if (request.method == 'GET' && request.uri.path == listPath) {
+        response.statusCode = HttpStatus.ok;
+        response.headers.contentType = ContentType.json;
+        response.write(
+          jsonEncode(
+            firestoreHasDocuments
+                ? <String, Object?>{
+                    'documents': <Object>[
+                      <String, String>{'name': 'leftover-doc'},
+                    ],
+                  }
+                : const <String, Object?>{},
+          ),
+        );
+      } else {
+        response.statusCode = HttpStatus.notFound;
+      }
+      await response.close();
+    });
+    return stub;
+  }
+
+  Future<void> close() async {
+    await auth.close(force: true);
+    await firestore.close(force: true);
+  }
+}
+
 void main() {
   group('public runner arguments', () {
     test('missing, extra, and unknown arguments fail closed', () async {
@@ -521,6 +627,88 @@ void main() {
       ]);
       expect(result.exitCode, isNot(0));
       expect(result.stderr.toString(), contains('distinct'));
+    });
+
+    test(
+        'Auth reset verifies empty accounts through supported batch-list endpoint',
+        () async {
+      const projectId = 'demo-auth-reset-regression';
+      final stub = await _ResetEmulatorStub.start(projectId);
+      addTearDown(stub.close);
+
+      final result = await _support(<String>[
+        'reset-emulators',
+        '--project-id',
+        projectId,
+        '--auth-port',
+        '${stub.auth.port}',
+        '--firestore-port',
+        '${stub.firestore.port}',
+      ]);
+
+      expect(result.exitCode, 0, reason: result.stderr.toString());
+      expect(
+        stub.authRequests,
+        contains(
+          'GET /identitytoolkit.googleapis.com/v1/projects/$projectId/accounts:batchGet?maxResults=1',
+        ),
+      );
+      expect(
+        stub.authRequests,
+        isNot(contains('GET /emulator/v1/projects/$projectId/accounts')),
+      );
+      expect(stub.authAuthorizations, <String?>['Bearer owner']);
+    });
+
+    test('reset remains fail-closed when Auth still has accounts', () async {
+      const projectId = 'demo-auth-reset-not-empty';
+      final stub = await _ResetEmulatorStub.start(
+        projectId,
+        authHasUsers: true,
+      );
+      addTearDown(stub.close);
+
+      final result = await _support(<String>[
+        'reset-emulators',
+        '--project-id',
+        projectId,
+        '--auth-port',
+        '${stub.auth.port}',
+        '--firestore-port',
+        '${stub.firestore.port}',
+      ]);
+
+      expect(result.exitCode, isNot(0));
+      expect(
+        result.stderr.toString(),
+        contains('Firebase Auth emulator cleanup verification found accounts'),
+      );
+    });
+
+    test('reset remains fail-closed when Firestore still has documents',
+        () async {
+      const projectId = 'demo-firestore-reset-regression';
+      final stub = await _ResetEmulatorStub.start(
+        projectId,
+        firestoreHasDocuments: true,
+      );
+      addTearDown(stub.close);
+
+      final result = await _support(<String>[
+        'reset-emulators',
+        '--project-id',
+        projectId,
+        '--auth-port',
+        '${stub.auth.port}',
+        '--firestore-port',
+        '${stub.firestore.port}',
+      ]);
+
+      expect(result.exitCode, isNot(0));
+      expect(
+        result.stderr.toString(),
+        contains('Firestore emulator cleanup verification found documents'),
+      );
     });
 
     test('bounded polling times out with predicate diagnostics', () async {
