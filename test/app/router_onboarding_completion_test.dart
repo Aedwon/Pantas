@@ -20,6 +20,20 @@ void main() {
   setUp(() async {
     db = inMemoryDatabase();
     contentDb = openTestContentDatabase();
+    await seedContentExam(
+      contentDb,
+      examId: 'cse',
+      code: 'CSE',
+      name: 'Civil Service Exam',
+      shortName: 'CSE',
+    );
+    await seedContentExam(
+      contentDb,
+      examId: 'upcat',
+      code: 'UPCAT',
+      name: 'UPCAT',
+      shortName: 'UPCAT',
+    );
     await db.into(db.exams).insert(
           ExamsCompanion.insert(
             id: 'cse',
@@ -48,6 +62,33 @@ void main() {
     );
     await tester.pumpAndSettle();
   }
+
+  testWidgets('fresh exam selection stays incomplete and advances to exam date',
+      (tester) async {
+    final repo = AppPreferencesRepository(db);
+    await repo.setPassedAgeGate(value: true);
+
+    await pumpApp(tester);
+
+    expect(find.text('Choose your exam'), findsOneWidget);
+    await tester.tap(find.text('Civil Service Exam'));
+    await tester.pump();
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+
+    final container = ProviderScope.containerOf(
+      tester.element(find.byType(App)),
+    );
+    final router = container.read(routerProvider);
+
+    expect(
+      router.routerDelegate.currentConfiguration.uri.toString(),
+      '/onboarding',
+    );
+    expect(find.text('When is your exam?'), findsOneWidget);
+    expect(await repo.selectedExamId(), equals('cse'));
+    expect(await repo.hasCompletedOnboarding(), isFalse);
+  });
 
   testWidgets(
       'passedAgeGate = true, exam selected, onboardingComplete = false '
