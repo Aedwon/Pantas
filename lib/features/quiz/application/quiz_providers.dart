@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/fsrs/fsrs_scheduler.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
+import 'package:pantas/core/storage/data/repos/review_log_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/quiz/data/repos/new_card_intro_repository.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_preferences_repository.dart';
@@ -99,6 +100,7 @@ final submitAnswerProvider = Provider<SubmitAnswer>(
     scheduler: ref.watch(fsrsSchedulerProvider),
     sessions: ref.watch(quizSessionRepositoryProvider),
     newCards: ref.watch(newCardIntroRepositoryProvider),
+    reviewLog: ReviewLogRepository(ref.watch(appDatabaseProvider)),
     telemetry: ref.watch(telemetryProvider),
   ),
 );
