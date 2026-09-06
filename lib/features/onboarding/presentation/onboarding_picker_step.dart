@@ -34,7 +34,9 @@ class _OnboardingPickerStepState extends ConsumerState<OnboardingPickerStep> {
     if (id == null) return;
     setState(() => _saving = true);
     try {
-      await ref.read(appPreferencesRepositoryProvider).setSelectedExamId(id);
+      final preferences = ref.read(appPreferencesRepositoryProvider);
+      await preferences.setCompletedOnboarding(value: false);
+      await preferences.setSelectedExamId(id);
       ref.invalidate(appPreferencesRepositoryProvider);
       unawaited(
         ref.read(telemetryProvider).log(TelemetryEvent.onboardingCompleted),
