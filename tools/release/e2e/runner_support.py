@@ -563,8 +563,14 @@ def command_write_firebase_config(args):
     atomic_write(args.output, json.dumps(config, indent=2, sort_keys=True) + "\n")
 
 
-def request(method, url, headers=None):
-    req = urllib.request.Request(url, headers=headers or {}, method=method)
+def request(method, url, body=None, headers=None):
+    data = body.encode("utf-8") if body is not None else None
+    req = urllib.request.Request(
+        url,
+        data=data,
+        headers=headers or {},
+        method=method,
+    )
     try:
         with urllib.request.urlopen(req, timeout=5) as response:
             return response.status, response.read().decode("utf-8", errors="replace")
@@ -611,18 +617,32 @@ def command_reset_emulators(args):
     if users:
         fail("Firebase Auth emulator cleanup verification found accounts")
 
-    firestore_list = (
-        "http://127.0.0.1:{}/v1/projects/{}/databases/(default)/documents?pageSize=1"
+    firestore_list_collections = (
+        "http://127.0.0.1:{}/v1/projects/{}/databases/(default)/"
+        "documents:listCollectionIds"
     ).format(args.firestore_port, args.project_id)
-    fs_status, fs_body = request("GET", firestore_list)
-    if fs_status >= 300:
+    fs_status, fs_body = request(
+        "POST",
+        firestore_list_collections,
+        body=json.dumps({"pageSize": 1}),
+        headers={
+            "Authorization": "Bearer owner",
+            "Content-Type": "application/json",
+        },
+    )
+    if fs_status < 200 or fs_status >= 300:
         fail("Firestore emulator cleanup verification failed")
     try:
-        fs_data = json.loads(fs_body or "{}")
+        fs_data = json.loads(fs_body)
     except json.JSONDecodeError:
         fail("Firestore emulator cleanup verification was not JSON")
-    if fs_data.get("documents"):
-        fail("Firestore emulator cleanup verification found documents")
+    if not isinstance(fs_data, dict):
+        fail("Firestore emulator cleanup verification was not an object")
+    collection_ids = fs_data.get("collectionIds", [])
+    if not isinstance(collection_ids, list):
+        fail("Firestore emulator cleanup verification collectionIds field was invalid")
+    if collection_ids:
+        fail("Firestore emulator cleanup verification found collections")
 
 
 def build_parser():

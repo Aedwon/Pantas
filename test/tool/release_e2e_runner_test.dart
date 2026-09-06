@@ -264,17 +264,24 @@ class _ResetEmulatorStub {
     this.firestore,
     this.authRequests,
     this.authAuthorizations,
+    this.firestoreRequests,
+    this.firestoreBodies,
   );
 
   final HttpServer auth;
   final HttpServer firestore;
   final List<String> authRequests;
   final List<String?> authAuthorizations;
+  final List<String> firestoreRequests;
+  final List<String> firestoreBodies;
 
   static Future<_ResetEmulatorStub> start(
     String projectId, {
     bool authHasUsers = false,
-    bool firestoreHasDocuments = false,
+    bool allowLegacyFirestoreRootGet = true,
+    int firestoreListStatus = HttpStatus.ok,
+    String? firestoreListBody,
+    List<String> firestoreCollectionIds = const <String>[],
   }) async {
     final auth = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
     final firestore = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
@@ -283,6 +290,8 @@ class _ResetEmulatorStub {
       firestore,
       <String>[],
       <String?>[],
+      <String>[],
+      <String>[],
     );
     final accountsPath = '/emulator/v1/projects/$projectId/accounts';
     final batchListPath =
@@ -328,27 +337,49 @@ class _ResetEmulatorStub {
 
     final deletePath =
         '/emulator/v1/projects/$projectId/databases/(default)/documents';
-    final listPath = '/v1/projects/$projectId/databases/(default)/documents';
+    final legacyListPath =
+        '/v1/projects/$projectId/databases/(default)/documents';
+    final listCollectionsPath =
+        '/v1/projects/$projectId/databases/(default)/documents:listCollectionIds';
     firestore.listen((request) async {
-      await request.drain<void>();
+      final target = request.uri.hasQuery
+          ? '${request.uri.path}?${request.uri.query}'
+          : request.uri.path;
+      stub.firestoreRequests.add('${request.method} $target');
+      final body = await utf8.decoder.bind(request).join();
+      stub.firestoreBodies.add(body);
       final response = request.response;
       if (request.method == 'DELETE' && request.uri.path == deletePath) {
         response.statusCode = HttpStatus.ok;
         response.headers.contentType = ContentType.json;
         response.write('{}');
-      } else if (request.method == 'GET' && request.uri.path == listPath) {
+      } else if (request.method == 'GET' &&
+          request.uri.path == legacyListPath &&
+          allowLegacyFirestoreRootGet) {
         response.statusCode = HttpStatus.ok;
         response.headers.contentType = ContentType.json;
+        response.write('{}');
+      } else if (request.method == 'POST' &&
+          request.uri.path == listCollectionsPath) {
+        if (request.headers.value(HttpHeaders.authorizationHeader) !=
+            'Bearer owner') {
+          response.statusCode = HttpStatus.forbidden;
+          response.headers.contentType = ContentType.json;
+          response.write('admin authorization required');
+          await response.close();
+          return;
+        }
+        response.statusCode = firestoreListStatus;
+        response.headers.contentType = ContentType.json;
         response.write(
-          jsonEncode(
-            firestoreHasDocuments
-                ? <String, Object?>{
-                    'documents': <Object>[
-                      <String, String>{'name': 'leftover-doc'},
-                    ],
-                  }
-                : const <String, Object?>{},
-          ),
+          firestoreListBody ??
+              jsonEncode(
+                firestoreCollectionIds.isEmpty
+                    ? const <String, Object?>{}
+                    : <String, Object?>{
+                        'collectionIds': firestoreCollectionIds,
+                      },
+              ),
         );
       } else {
         response.statusCode = HttpStatus.notFound;
@@ -630,6 +661,73 @@ void main() {
     });
 
     test(
+        'Firestore reset verifies empty top-level collections through supported listCollectionIds endpoint',
+        () async {
+      const projectId = 'demo-firestore-reset-list-collections';
+      final stub = await _ResetEmulatorStub.start(
+        projectId,
+        allowLegacyFirestoreRootGet: false,
+      );
+      addTearDown(stub.close);
+
+      final result = await _support(<String>[
+        'reset-emulators',
+        '--project-id',
+        projectId,
+        '--auth-port',
+        '${stub.auth.port}',
+        '--firestore-port',
+        '${stub.firestore.port}',
+      ]);
+
+      expect(result.exitCode, 0, reason: result.stderr.toString());
+      expect(
+        stub.firestoreRequests,
+        contains(
+          'POST /v1/projects/$projectId/databases/(default)/documents:listCollectionIds',
+        ),
+      );
+      expect(
+        stub.firestoreRequests,
+        isNot(
+          contains(
+            'GET /v1/projects/$projectId/databases/(default)/documents?pageSize=1',
+          ),
+        ),
+      );
+      final postIndex = stub.firestoreRequests.indexWhere(
+        (request) => request.startsWith('POST '),
+      );
+      expect(postIndex, greaterThanOrEqualTo(0));
+      expect(
+        jsonDecode(stub.firestoreBodies[postIndex]),
+        <String, Object?>{'pageSize': 1},
+      );
+    });
+
+    test('Firestore reset accepts explicit empty collectionIds', () async {
+      const projectId = 'demo-firestore-reset-explicit-empty';
+      final stub = await _ResetEmulatorStub.start(
+        projectId,
+        allowLegacyFirestoreRootGet: false,
+        firestoreListBody: '{"collectionIds":[]}',
+      );
+      addTearDown(stub.close);
+
+      final result = await _support(<String>[
+        'reset-emulators',
+        '--project-id',
+        projectId,
+        '--auth-port',
+        '${stub.auth.port}',
+        '--firestore-port',
+        '${stub.firestore.port}',
+      ]);
+
+      expect(result.exitCode, 0, reason: result.stderr.toString());
+    });
+
+    test(
         'Auth reset verifies empty accounts through supported batch-list endpoint',
         () async {
       const projectId = 'demo-auth-reset-regression';
@@ -685,12 +783,12 @@ void main() {
       );
     });
 
-    test('reset remains fail-closed when Firestore still has documents',
+    test('reset remains fail-closed when Firestore has top-level collections',
         () async {
       const projectId = 'demo-firestore-reset-regression';
       final stub = await _ResetEmulatorStub.start(
         projectId,
-        firestoreHasDocuments: true,
+        firestoreCollectionIds: const <String>['leftover-collection'],
       );
       addTearDown(stub.close);
 
@@ -707,7 +805,88 @@ void main() {
       expect(result.exitCode, isNot(0));
       expect(
         result.stderr.toString(),
-        contains('Firestore emulator cleanup verification found documents'),
+        contains('Firestore emulator cleanup verification found collections'),
+      );
+    });
+
+    test('Firestore reset fails closed on non-2xx collection listing',
+        () async {
+      const projectId = 'demo-firestore-reset-list-failure';
+      final stub = await _ResetEmulatorStub.start(
+        projectId,
+        allowLegacyFirestoreRootGet: false,
+        firestoreListStatus: HttpStatus.internalServerError,
+      );
+      addTearDown(stub.close);
+
+      final result = await _support(<String>[
+        'reset-emulators',
+        '--project-id',
+        projectId,
+        '--auth-port',
+        '${stub.auth.port}',
+        '--firestore-port',
+        '${stub.firestore.port}',
+      ]);
+
+      expect(result.exitCode, isNot(0));
+      expect(
+        result.stderr.toString(),
+        contains('Firestore emulator cleanup verification failed'),
+      );
+    });
+
+    test('Firestore reset fails closed on malformed collection listing JSON',
+        () async {
+      const projectId = 'demo-firestore-reset-list-malformed';
+      final stub = await _ResetEmulatorStub.start(
+        projectId,
+        allowLegacyFirestoreRootGet: false,
+        firestoreListBody: '{not-json',
+      );
+      addTearDown(stub.close);
+
+      final result = await _support(<String>[
+        'reset-emulators',
+        '--project-id',
+        projectId,
+        '--auth-port',
+        '${stub.auth.port}',
+        '--firestore-port',
+        '${stub.firestore.port}',
+      ]);
+
+      expect(result.exitCode, isNot(0));
+      expect(
+        result.stderr.toString(),
+        contains('Firestore emulator cleanup verification was not JSON'),
+      );
+    });
+
+    test('Firestore reset fails closed on non-object collection listing JSON',
+        () async {
+      const projectId = 'demo-firestore-reset-list-non-object';
+      final stub = await _ResetEmulatorStub.start(
+        projectId,
+        allowLegacyFirestoreRootGet: false,
+        firestoreListBody: '[]',
+      );
+      addTearDown(stub.close);
+
+      final result = await _support(<String>[
+        'reset-emulators',
+        '--project-id',
+        projectId,
+        '--auth-port',
+        '${stub.auth.port}',
+        '--firestore-port',
+        '${stub.firestore.port}',
+      ]);
+
+      expect(result.exitCode, isNot(0));
+      expect(
+        result.stderr.toString(),
+        contains('Firestore emulator cleanup verification was not an object'),
       );
     });
 
