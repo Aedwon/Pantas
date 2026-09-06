@@ -563,8 +563,8 @@ def command_write_firebase_config(args):
     atomic_write(args.output, json.dumps(config, indent=2, sort_keys=True) + "\n")
 
 
-def request(method, url):
-    req = urllib.request.Request(url, method=method)
+def request(method, url, headers=None):
+    req = urllib.request.Request(url, headers=headers or {}, method=method)
     try:
         with urllib.request.urlopen(req, timeout=5) as response:
             return response.status, response.read().decode("utf-8", errors="replace")
@@ -588,14 +588,26 @@ def command_reset_emulators(args):
         if status < 200 or status >= 300:
             fail("Firebase emulator cleanup failed")
 
-    auth_status, auth_body = request("GET", auth_base + auth_path)
-    if auth_status >= 300:
+    auth_list_path = (
+        "/identitytoolkit.googleapis.com/v1/projects/{}/accounts:batchGet"
+        "?maxResults=1"
+    ).format(args.project_id)
+    auth_status, auth_body = request(
+        "GET",
+        auth_base + auth_list_path,
+        headers={"Authorization": "Bearer owner"},
+    )
+    if auth_status < 200 or auth_status >= 300:
         fail("Firebase Auth emulator cleanup verification failed")
     try:
         auth_data = json.loads(auth_body or "{}")
     except json.JSONDecodeError:
         fail("Firebase Auth emulator cleanup verification was not JSON")
-    users = auth_data.get("users", auth_data.get("accounts", []))
+    if not isinstance(auth_data, dict):
+        fail("Firebase Auth emulator cleanup verification was not an object")
+    users = auth_data.get("users", [])
+    if not isinstance(users, list):
+        fail("Firebase Auth emulator cleanup verification users field was invalid")
     if users:
         fail("Firebase Auth emulator cleanup verification found accounts")
 
