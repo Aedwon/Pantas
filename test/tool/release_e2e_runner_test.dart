@@ -10,6 +10,50 @@ const _flutterVersion = '3.41.9';
 const _flutterRevision = '00b0c91f06209d9e4a41f71b7a512d6eb3b9c694';
 const _dartVersion = '3.11.5';
 const _device = 'emulator-5554';
+const _onboardingRepairCommit = 'ac02421aeaf16140c5dae3b6b0cf2e7ef2c4f05b';
+const _onboardingRepairPath =
+    'lib/features/onboarding/presentation/onboarding_picker_step.dart';
+const _onboardingRepairSha256 =
+    'e1b08420ea0ad0d99f01adec53fe57cf2a02d7b88d4fcc62b9656a642950d0fe';
+const _reviewLogRepairCommit = '482b96fb77d1504e6141f759455f22e4196c4156';
+const _reviewLogRepairPath =
+    'lib/features/quiz/application/quiz_providers.dart';
+const _reviewLogRepairSha256 =
+    'af6584723b81ac99a33a6f3853078b3b3e8e392023e656e11d3868578bc2e553';
+const _onboardingRepairTestPath =
+    'test/app/router_onboarding_completion_test.dart';
+const _onboardingRepairTestSha256 =
+    'ab52f275a6570df2c5c871749438c090f125be22cc22144a64aedb07aa80007e';
+const _reviewLogRepairTestPath =
+    'test/features/quiz/application/quiz_providers_review_log_test.dart';
+const _reviewLogRepairTestSha256 =
+    '3406906973e944e35ba1293320f476535e2e2c84c7202218a015b52bb04960b3';
+const _acceptedProductionRepairs =
+    <({String commit, String path, String sha256})>[
+  (
+    commit: _onboardingRepairCommit,
+    path: _onboardingRepairPath,
+    sha256: _onboardingRepairSha256,
+  ),
+  (
+    commit: _reviewLogRepairCommit,
+    path: _reviewLogRepairPath,
+    sha256: _reviewLogRepairSha256,
+  ),
+];
+const _acceptedRepairFiles = <({String commit, String path, String sha256})>[
+  ..._acceptedProductionRepairs,
+  (
+    commit: _onboardingRepairCommit,
+    path: _onboardingRepairTestPath,
+    sha256: _onboardingRepairTestSha256,
+  ),
+  (
+    commit: _reviewLogRepairCommit,
+    path: _reviewLogRepairTestPath,
+    sha256: _reviewLogRepairTestSha256,
+  ),
+];
 
 String _which(String command) {
   final result = Process.runSync('which', <String>[command]);
@@ -43,6 +87,53 @@ Future<void> _executable(File file, String text) async {
   await file.writeAsString(text);
   final result = await Process.run('chmod', <String>['+x', file.path]);
   expect(result.exitCode, 0, reason: result.stderr.toString());
+}
+
+Future<String> _gitShow(String revision, String path) async {
+  final result = await Process.run(
+    _git,
+    <String>['show', '$revision:$path'],
+  );
+  expect(result.exitCode, 0, reason: result.stderr.toString());
+  return result.stdout.toString();
+}
+
+Future<void> _applyAcceptedProductionRepairs(FakeRepository fixture) async {
+  for (final repair in _acceptedRepairFiles) {
+    final bytes = utf8.encode(await _gitShow(repair.commit, repair.path));
+    expect(sha256.convert(bytes).toString(), repair.sha256);
+    final file = File('${fixture.root.path}/${repair.path}');
+    file.parent.createSync(recursive: true);
+    file.writeAsBytesSync(bytes);
+  }
+  await _mustGit(fixture.root, <String>[
+    'add',
+    _onboardingRepairPath,
+    _reviewLogRepairPath,
+    _onboardingRepairTestPath,
+    _reviewLogRepairTestPath,
+  ]);
+  await _mustGit(
+    fixture.root,
+    <String>['commit', '-m', 'accepted repairs'],
+  );
+}
+
+Future<void> _commitAllowedHarnessDiffs(FakeRepository fixture) async {
+  for (final path in <String>[
+    'tools/release/e2e/fake_support.py',
+    'integration_test/release/fake_journey_test.dart',
+    'test/tool/release_e2e_fake_test.dart',
+  ]) {
+    final file = File('${fixture.root.path}/$path');
+    file.parent.createSync(recursive: true);
+    file.writeAsStringSync('release e2e fixture\n');
+  }
+  await _mustGit(fixture.root, <String>['add', '.']);
+  await _mustGit(
+    fixture.root,
+    <String>['commit', '-m', 'allowed harness diffs'],
+  );
 }
 
 Object? _yamlValue(Object? value) {
@@ -118,10 +209,19 @@ class FakeRepository {
       ..writeAsStringSync(
         "const contentSeedVersion = '${prefix ?? digest.substring(0, 16)}';\n",
       );
+    for (final path in <String>[
+      _onboardingRepairPath,
+      _reviewLogRepairPath,
+    ]) {
+      File('${root.path}/$path')
+        ..createSync(recursive: true)
+        ..writeAsStringSync('nominal candidate bytes for $path\n');
+    }
     File('${root.path}/android/settings.gradle.kts')
       ..createSync(recursive: true)
       ..writeAsStringSync(
-        'plugins { id("com.android.application") version "$agp" apply false }\n',
+        'plugins { id("com.android.application") '
+        'version "$agp" apply false }\n',
       );
     File('${root.path}/android/gradle/wrapper/gradle-wrapper.jar')
       ..createSync(recursive: true)
@@ -133,8 +233,8 @@ class FakeRepository {
       ..createSync(recursive: true)
       ..writeAsStringSync('{"indexes":[],"fieldOverrides":[]}\n');
 
-    const ci = '''name: CI (main)
-
+    const ci = 'name: CI (main)\n\n'
+        '''
 on:
   push:
     branches: [main]
@@ -145,7 +245,8 @@ jobs:
     steps:
       - run: flutter test
 ''';
-    const integration = '''  integration:
+    const integration = '  integration:\n'
+        '''
     runs-on: macos-13
     needs: ci
     steps:
@@ -157,13 +258,15 @@ jobs:
 
     await _executable(
       File('${root.path}/android/gradlew'),
-      r'''#!/bin/sh
+      '#!/bin/sh\n'
+      r'''
 printf 'Gradle %s\n' "${FAKE_GRADLE_VERSION:-8.14}"
 ''',
     );
     await _executable(
       File('${bin.path}/flutter'),
-      r'''#!/bin/sh
+      '#!/bin/sh\n'
+      r'''
 if [ "${1-}" = "--version" ] && [ "${2-}" = "--machine" ]; then
   printf '{"frameworkVersion":"%s","frameworkRevision":"%s","dartSdkVersion":"%s"}\n' \
     "${FAKE_FLUTTER_VERSION:-3.41.9}" \
@@ -176,16 +279,21 @@ exit 0
     );
     await _executable(
       File('${bin.path}/java'),
-      r'''#!/bin/sh
+      '#!/bin/sh\n'
+      r'''
 printf 'openjdk version "%s" 2026-01-01\n' "${FAKE_JAVA_VERSION:-17.0.12}" >&2
 ''',
     );
-    await _executable(File('${bin.path}/firebase'), r'''#!/bin/sh
+    await _executable(
+        File('${bin.path}/firebase'),
+        '#!/bin/sh\n'
+        r'''
 printf '14.12.0\n'
 ''');
     await _executable(
       File('${bin.path}/adb'),
-      r'''#!/bin/sh
+      '#!/bin/sh\n'
+              r'''
 mode="${FAKE_ADB_MODE:-online}"
 if [ "${1-}" = "version" ]; then
   printf 'Android Debug Bridge version 1.0.41\n'
@@ -239,8 +347,11 @@ exit 0
     ]);
     await _mustGit(root, <String>['add', '.']);
     await _mustGit(root, <String>['commit', '-m', 'candidate']);
-    final candidate = (await Process.run(_git, <String>['rev-parse', 'HEAD'],
-            workingDirectory: root.path))
+    final candidate = (await Process.run(
+      _git,
+      <String>['rev-parse', 'HEAD'],
+      workingDirectory: root.path,
+    ))
         .stdout
         .toString()
         .trim();
@@ -308,8 +419,9 @@ class _ResetEmulatorStub {
         response.headers.contentType = ContentType.json;
         response.write('{}');
       } else if (request.method == 'GET' && request.uri.path == accountsPath) {
-        response.statusCode = HttpStatus.methodNotAllowed;
-        response.write('Method GET not allowed');
+        response
+          ..statusCode = HttpStatus.methodNotAllowed
+          ..write('Method GET not allowed');
       } else if (request.method == 'GET' &&
           request.uri.path == batchListPath &&
           request.uri.queryParameters['maxResults'] == '1') {
@@ -415,7 +527,9 @@ void main() {
         final result = await _runner(args);
         expect(result.exitCode, isNot(0), reason: args.join(' '));
         expect(
-            result.stderr.toString(), contains('release e2e runner failed:'));
+          result.stderr.toString(),
+          contains('release e2e runner failed:'),
+        );
       }
     });
 
@@ -464,6 +578,83 @@ void main() {
       expect(output['android_api_level'], '35');
     });
 
+    test('accepts the exact two frozen production repair bytes', () async {
+      final fixture = await FakeRepository.create();
+      addTearDown(fixture.dispose);
+      await _applyAcceptedProductionRepairs(fixture);
+
+      final result = await _support(
+        fixture.preflight(),
+        environment: fixture.env(),
+      );
+
+      expect(result.exitCode, 0, reason: result.stderr.toString());
+    });
+
+    test('rejects tampering either accepted production repair', () async {
+      for (final repair in _acceptedProductionRepairs) {
+        final fixture = await FakeRepository.create();
+        addTearDown(fixture.dispose);
+        await _applyAcceptedProductionRepairs(fixture);
+        File('${fixture.root.path}/${repair.path}').writeAsStringSync(
+          'tampered\n',
+        );
+        await _mustGit(fixture.root, <String>['add', repair.path]);
+        await _mustGit(
+          fixture.root,
+          <String>['commit', '-m', 'tamper accepted repair'],
+        );
+
+        final result = await _support(
+          fixture.preflight(),
+          environment: fixture.env(),
+        );
+
+        expect(result.exitCode, isNot(0), reason: repair.path);
+        expect(
+          result.stderr.toString(),
+          contains('accepted production repair bytes'),
+          reason: repair.path,
+        );
+      }
+    });
+
+    test('rejects an arbitrary third production path', () async {
+      final fixture = await FakeRepository.create();
+      addTearDown(fixture.dispose);
+      await _applyAcceptedProductionRepairs(fixture);
+      const path = 'lib/features/release_e2e_unapproved.dart';
+      final file = File('${fixture.root.path}/$path');
+      file.parent.createSync(recursive: true);
+      file.writeAsStringSync('unapproved production change\n');
+      await _mustGit(fixture.root, <String>['add', path]);
+      await _mustGit(
+        fixture.root,
+        <String>['commit', '-m', 'third production path'],
+      );
+
+      final result = await _support(
+        fixture.preflight(),
+        environment: fixture.env(),
+      );
+
+      expect(result.exitCode, isNot(0));
+      expect(result.stderr.toString(), contains('unapproved path: $path'));
+    });
+
+    test('keeps harness, docs, and workflow allowlist behavior', () async {
+      final fixture = await FakeRepository.create();
+      addTearDown(fixture.dispose);
+      await _commitAllowedHarnessDiffs(fixture);
+
+      final result = await _support(
+        fixture.preflight(),
+        environment: fixture.env(),
+      );
+
+      expect(result.exitCode, 0, reason: result.stderr.toString());
+    });
+
     test('rejects candidate mismatch and dirty source', () async {
       final fixture = await FakeRepository.create();
       addTearDown(fixture.dispose);
@@ -479,7 +670,9 @@ void main() {
       );
       expect(result.exitCode, isNot(0));
       expect(
-          result.stderr.toString(), contains('candidate is not an ancestor'));
+        result.stderr.toString(),
+        contains('candidate is not an ancestor'),
+      );
 
       File('${fixture.root.path}/unexpected.txt').writeAsStringSync('dirty');
       result = await _support(fixture.preflight(), environment: fixture.env());
@@ -502,7 +695,9 @@ void main() {
       result = await _support(fixture.preflight(), environment: fixture.env());
       expect(result.exitCode, isNot(0));
       expect(
-          result.stderr.toString(), contains('tracked content seed version'));
+        result.stderr.toString(),
+        contains('tracked content seed version'),
+      );
     });
 
     test('rejects wrong Flutter, Dart, JDK, Gradle, and AGP', () async {
@@ -512,22 +707,22 @@ void main() {
         <String, String>{
           'kind': 'flutter',
           'value': '3.40.0',
-          'message': 'Flutter 3.41.9'
+          'message': 'Flutter 3.41.9',
         },
         <String, String>{
           'kind': 'dart',
           'value': '3.11.4',
-          'message': 'Dart 3.11.5'
+          'message': 'Dart 3.11.5',
         },
         <String, String>{
           'kind': 'java',
           'value': '21.0.4',
-          'message': 'JDK 17'
+          'message': 'JDK 17',
         },
         <String, String>{
           'kind': 'gradle',
           'value': '8.13',
-          'message': 'Gradle 8.14'
+          'message': 'Gradle 8.14',
         },
       ]) {
         final env = switch (entry['kind']) {
@@ -539,7 +734,7 @@ void main() {
         };
         final result = await _support(fixture.preflight(), environment: env);
         expect(result.exitCode, isNot(0), reason: entry['kind']);
-        expect(result.stderr.toString(), contains(entry['message']!));
+        expect(result.stderr.toString(), contains(entry['message']));
       }
 
       fixture = await FakeRepository.create(agp: '8.10.0');
@@ -575,7 +770,7 @@ void main() {
         'absent',
         'unauthorized',
         'offline',
-        'ambiguous'
+        'ambiguous',
       ]) {
         final result = await _support(
           fixture.preflight(),
@@ -661,8 +856,8 @@ void main() {
     });
 
     test(
-        'Firestore reset verifies empty top-level collections through supported listCollectionIds endpoint',
-        () async {
+        'Firestore reset verifies empty top-level collections through '
+        'supported listCollectionIds endpoint', () async {
       const projectId = 'demo-firestore-reset-list-collections';
       final stub = await _ResetEmulatorStub.start(
         projectId,
@@ -728,8 +923,8 @@ void main() {
     });
 
     test(
-        'Auth reset verifies empty accounts through supported batch-list endpoint',
-        () async {
+        'Auth reset verifies empty accounts through supported '
+        'batch-list endpoint', () async {
       const projectId = 'demo-auth-reset-regression';
       final stub = await _ResetEmulatorStub.start(projectId);
       addTearDown(stub.close);
@@ -953,10 +1148,13 @@ void main() {
     });
 
     test('redacts credentials and learner-payload-like fields', () async {
+      const redactionInput =
+          'Authorization: Bearer abc123 email=user@example.com '
+          'apiKey=AIzaFake payload=answer';
       final result = await _support(<String>[
         'redact',
         '--text',
-        'Authorization: Bearer abc123 email=user@example.com apiKey=AIzaFake payload=answer',
+        redactionInput,
       ]);
       expect(result.exitCode, 0, reason: result.stderr.toString());
       final output = result.stdout.toString();

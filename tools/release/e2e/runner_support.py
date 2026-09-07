@@ -45,6 +45,22 @@ SHA64 = re.compile(r"^[0-9a-fA-F]{64}$")
 CONTENT_PREFIX = re.compile(
     r"^const contentSeedVersion = '([0-9a-f]{8,64})';$", re.MULTILINE
 )
+ACCEPTED_PRODUCTION_REPAIR_SHA256 = {
+    "lib/features/onboarding/presentation/onboarding_picker_step.dart": (
+        "e1b08420ea0ad0d99f01adec53fe57cf2a02d7b88d4fcc62b9656a642950d0fe"
+    ),
+    "lib/features/quiz/application/quiz_providers.dart": (
+        "af6584723b81ac99a33a6f3853078b3b3e8e392023e656e11d3868578bc2e553"
+    ),
+}
+ACCEPTED_REPAIR_COMPANION_SHA256 = {
+    "test/app/router_onboarding_completion_test.dart": (
+        "ab52f275a6570df2c5c871749438c090f125be22cc22144a64aedb07aa80007e"
+    ),
+    "test/features/quiz/application/quiz_providers_review_log_test.dart": (
+        "3406906973e944e35ba1293320f476535e2e2c84c7202218a015b52bb04960b3"
+    ),
+}
 
 
 def fail(message):
@@ -106,6 +122,29 @@ def allowed_diff_path(path):
     return False
 
 
+def validate_accepted_production_repair(root, path):
+    expected_sha = ACCEPTED_PRODUCTION_REPAIR_SHA256.get(path)
+    repair_kind = "production repair"
+    if expected_sha is None:
+        expected_sha = ACCEPTED_REPAIR_COMPANION_SHA256.get(path)
+        repair_kind = "repair companion"
+    if expected_sha is None:
+        return False
+    current = root / path
+    if current.is_symlink() or not current.is_file():
+        fail("accepted {} bytes are missing: {}".format(repair_kind, path))
+    index = git(root, "ls-files", "--stage", "--", path).stdout.splitlines()
+    if len(index) != 1 or not index[0].startswith("100644 "):
+        fail("accepted {} metadata does not match: {}".format(repair_kind, path))
+    if sha256_file(current) != expected_sha:
+        fail(
+            "accepted {} bytes do not match frozen SHA-256: {}".format(
+                repair_kind, path
+            )
+        )
+    return True
+
+
 def remove_yaml_job(text, job_name):
     lines = text.splitlines(True)
     marker = "  {}:".format(job_name)
@@ -125,6 +164,8 @@ def remove_yaml_job(text, job_name):
         if line.startswith("  ") and not line.startswith("    "):
             end = index
             break
+    if start > 0 and not lines[start - 1].strip():
+        start -= 1
     return "".join(lines[:start] + lines[end:])
 
 
@@ -171,9 +212,12 @@ def validate_candidate(root, candidate):
     changed = git(
         root, "diff", "--name-only", "{}...HEAD".format(candidate)
     ).stdout.splitlines()
-    unexpected = [path for path in changed if not allowed_diff_path(path)]
-    if unexpected:
-        fail("candidate diff contains an unapproved path: {}".format(unexpected[0]))
+    for path in changed:
+        if allowed_diff_path(path):
+            continue
+        if validate_accepted_production_repair(root, path):
+            continue
+        fail("candidate diff contains an unapproved path: {}".format(path))
     if ".github/workflows/main.yml" in changed:
         validate_workflow_removal(root, candidate)
 

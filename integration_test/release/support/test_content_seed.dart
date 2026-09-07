@@ -5,7 +5,6 @@ import 'dart:typed_data';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/content/bundle/seed_installer.dart';
 import 'package:pantas/core/content/content.dart';
-import 'package:pantas/core/content/content_database.dart';
 import 'package:pantas/core/content/content_database_opener.dart';
 
 import '../../../tools/build_content_seed/seed_writer.dart';

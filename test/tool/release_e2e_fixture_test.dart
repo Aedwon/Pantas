@@ -30,12 +30,18 @@ void main() {
         ]),
       );
       expect(_single(document, 'exam')['_id'], ReleaseTestContentIds.exam);
-      expect(_single(document, 'subject')['exam'],
-          {'_ref': ReleaseTestContentIds.exam});
-      expect(_single(document, 'topic')['subject'],
-          {'_ref': ReleaseTestContentIds.subject});
-      expect(_single(document, 'lesson')['topic'],
-          {'_ref': ReleaseTestContentIds.topic});
+      expect(
+        _single(document, 'subject')['exam'],
+        {'_ref': ReleaseTestContentIds.exam},
+      );
+      expect(
+        _single(document, 'topic')['subject'],
+        {'_ref': ReleaseTestContentIds.subject},
+      );
+      expect(
+        _single(document, 'lesson')['topic'],
+        {'_ref': ReleaseTestContentIds.topic},
+      );
 
       final questions = _list(document, 'question');
       expect(questions, hasLength(3));
@@ -50,7 +56,7 @@ void main() {
       for (final question in questions) {
         expect(question['topic'], {'_ref': ReleaseTestContentIds.topic});
         expect(question['examIds'], <Object>[
-          {'_ref': ReleaseTestContentIds.exam}
+          {'_ref': ReleaseTestContentIds.exam},
         ]);
         expect(question['choices'], isA<List<Object?>>());
       }
@@ -81,8 +87,11 @@ void main() {
         final source = File(path).readAsStringSync();
         expect(source, isNot(contains('.into(')), reason: path);
         expect(source, isNot(contains('customStatement(')), reason: path);
-        expect(source.toUpperCase(), isNot(contains('INSERT INTO')),
-            reason: path);
+        expect(
+          source.toUpperCase(),
+          isNot(contains('INSERT INTO')),
+          reason: path,
+        );
       }
     });
 
@@ -108,25 +117,29 @@ void main() {
       expect(installation.generatedSeed.existsSync(), isTrue);
       expect(installedFile.existsSync(), isTrue);
       expect(
-          await installation.providerContainer
-              .read(examRepoProvider)
-              .findById(ReleaseTestContentIds.exam),
-          isNotNull);
+        await installation.providerContainer
+            .read(examRepoProvider)
+            .findById(ReleaseTestContentIds.exam),
+        isNotNull,
+      );
       expect(
-          await installation.providerContainer
-              .read(lessonRepoProvider)
-              .findById(ReleaseTestContentIds.lesson),
-          isNotNull);
+        await installation.providerContainer
+            .read(lessonRepoProvider)
+            .findById(ReleaseTestContentIds.lesson),
+        isNotNull,
+      );
       expect(
-          await installation.providerContainer
-              .read(mockBlueprintRepoProvider)
-              .byExam(ReleaseTestContentIds.exam),
-          isNotEmpty);
+        await installation.providerContainer
+            .read(mockBlueprintRepoProvider)
+            .byExam(ReleaseTestContentIds.exam),
+        isNotEmpty,
+      );
       expect(
-          await installation.providerContainer
-              .read(mockExamRepoProvider)
-              .byBlueprint(ReleaseTestContentIds.mockBlueprint),
-          isNotEmpty);
+        await installation.providerContainer
+            .read(mockExamRepoProvider)
+            .byBlueprint(ReleaseTestContentIds.mockBlueprint),
+        isNotEmpty,
+      );
     });
   });
 
@@ -196,10 +209,16 @@ void main() {
         ),
         throwsA(
           isA<TimeoutException>()
-              .having((error) => error.message, 'message',
-                  contains('fixture rows missing'))
               .having(
-                  (error) => error.message, 'message', contains('deadline')),
+                (error) => error.message,
+                'message',
+                contains('fixture rows missing'),
+              )
+              .having(
+                (error) => error.message,
+                'message',
+                contains('deadline'),
+              ),
         ),
       );
       expect(attempts, greaterThanOrEqualTo(2));

@@ -7,7 +7,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/app.dart';
 import 'package:pantas/app/flavor.dart';
 import 'package:pantas/core/content/content.dart';
-import 'package:pantas/core/content/content_database.dart';
 import 'package:pantas/core/content/content_database_opener.dart' as content_db;
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/database_opener.dart' as app_db;
