@@ -123,7 +123,8 @@ void main(List<String> args) {
 
   // Keep the CSE demo exam and its rows; replace everything UPCAT.
   final existing = jsonDecode(
-    File('$root/assets/seed/v1.json').readAsStringSync(),
+    File('$root/tools/build_content_export/historical_v1.json')
+        .readAsStringSync(),
   ) as Map<String, dynamic>;
   final keptExams = [
     for (final exam in existing['exams'] as List)
@@ -156,7 +157,9 @@ void main(List<String> args) {
         lesson,
   ];
 
-  final v1UpdatedAt = _getFileHashTimestamp(File('$root/assets/seed/v1.json'));
+  final v1UpdatedAt = _getFileHashTimestamp(
+    File('$root/tools/build_content_export/historical_v1.json'),
+  );
 
   final examsOutput = <Map<String, Object?>>[];
   for (final exam in keptExams) {

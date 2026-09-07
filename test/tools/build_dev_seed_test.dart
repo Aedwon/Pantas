@@ -18,8 +18,13 @@ void main() {
     expect(v2, greaterThan(v1));
   });
 
-  test('assets/seed/v1.json carries integer contentVersion', () {
-    final file = File('assets/seed/v1.json');
+  test('tool-owned historical corpus carries integer contentVersion', () {
+    expect(
+      File('assets/seed/v1.json').existsSync(),
+      isFalse,
+      reason: 'retired runtime seed path must stay absent',
+    );
+    final file = File(devSeedHistoricalCorpusPath);
     expect(file.existsSync(), isTrue);
 
     final json = jsonDecode(file.readAsStringSync()) as Map<String, dynamic>;
@@ -50,8 +55,9 @@ void main() {
     }
   });
 
-  test('all seven generated exams in assets/seed/v1.json are active', () {
-    final file = File('assets/seed/v1.json');
+  test('all seven generated exams in tool-owned historical corpus are active',
+      () {
+    final file = File(devSeedHistoricalCorpusPath);
     expect(file.existsSync(), isTrue);
 
     final json = jsonDecode(file.readAsStringSync()) as Map<String, dynamic>;

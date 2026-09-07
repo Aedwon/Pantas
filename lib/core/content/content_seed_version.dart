@@ -1,9 +1,8 @@
-// Written by tools/build_content_seed/seed_writer.dart. Do not edit by hand.
+// Written by tools/build_content_package/build_content_package.dart.
+// Do not edit by hand.
 //
-// Deliberately not a `.g.dart` file: those are gitignored here, and this one
-// has to be committed so it travels with the asset it describes.
-//
-// A digest of `assets/seed/content.db` as built. Rebuild the asset and this
-// changes with it, which is what tells an installed app its copy is stale.
+// This revision is derived from the approved plaintext content database
+// immediately before protection. Protected payload bytes are intentionally
+// randomized and therefore do not define the logical content revision.
 
 const contentSeedVersion = 'eb3a9da425b80a51';

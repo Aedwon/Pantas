@@ -75,6 +75,7 @@ dependencies:
 
   uuid: ^4.6.0
   in_app_review: ^2.0.12
+  cryptography: 2.9.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -102,6 +103,8 @@ flutter:
   generate: true   # enables ARB-driven l10n in Plan 2+
   assets:
     - assets/seed/content.db
+    - assets/seed/content.manifest.json
+    - assets/seed/content.manifest.sig
   fonts:
     - family: SourceSans3
       fonts:

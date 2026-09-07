@@ -1,10 +1,8 @@
-// Builds assets/seed/v1.json from the authored corpus under content/ so the
-// running app shows real questions and lessons instead of the demo rows.
+// Rebuilds the tool-owned historical corpus from authored content.
 //
-// SUPERSEDED: This generator and the v1.json asset it produces are superseded
-// by the content.db pipeline. The asset is no longer shipped with the app.
-// Do not delete this file or the asset yet, as Stage 3 needs a known-good
-// corpus to compare against.
+// SUPERSEDED: This generator is superseded by the content.db pipeline. Its
+// JSON output is retained only as a build-time historical corpus and is never
+// a Flutter/runtime asset or reader.
 //
 // Usage: dart run tools/build_dev_seed/build_dev_seed.dart
 
@@ -18,6 +16,9 @@ import '../content/markdown_portable_text.dart';
 
 const _examId = 'exam_upcat';
 const _keepExamId = 'exam_cse_pro';
+
+const devSeedHistoricalCorpusPath =
+    'tools/build_content_export/historical_v1.json';
 
 // The post-launch expansion roster from the foundation spec §1.2, carried in
 // the dev seed so exam-list surfaces have realistic data to hold. They ship
@@ -112,7 +113,7 @@ void main() {
 
   // Keep the CSE demo exam and its rows; replace everything UPCAT.
   final existing = jsonDecode(
-    File('assets/seed/v1.json').readAsStringSync(),
+    File(devSeedHistoricalCorpusPath).readAsStringSync(),
   ) as Map<String, dynamic>;
   final keptExams = [
     for (final exam in existing['exams'] as List)
@@ -174,7 +175,7 @@ void main() {
     'lessons': [...keptLessons, ...lessons],
   };
 
-  File('assets/seed/v1.json').writeAsStringSync(
+  File(devSeedHistoricalCorpusPath).writeAsStringSync(
     '${const JsonEncoder.withIndent('  ').convert(seed)}\n',
   );
 
@@ -184,7 +185,7 @@ void main() {
   // cascade on 10 August to clear a `cascade_invocations` info, and nothing
   // ran the generator afterwards to notice.
   // ignore_for_file: cascade_invocations
-  stdout.writeln('Wrote assets/seed/v1.json');
+  stdout.writeln('Wrote $devSeedHistoricalCorpusPath');
   stdout.writeln('  subjects:  ${subjects.length}');
   stdout.writeln('  topics:    ${topics.length}');
   stdout.writeln(

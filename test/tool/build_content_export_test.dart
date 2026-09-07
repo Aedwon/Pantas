@@ -13,10 +13,11 @@ void main() {
     final tempDir = Directory.systemTemp.createTempSync('content_export_test');
     addTearDown(() => tempDir.deleteSync(recursive: true));
 
-    // Setup assets/seed/v1.json
-    final seedDir = Directory('${tempDir.path}/assets/seed')
-      ..createSync(recursive: true);
-    File('${seedDir.path}/v1.json').writeAsStringSync(
+    // Setup the tool-owned historical source. It must never be a Flutter asset.
+    final historicalDir = Directory(
+      '${tempDir.path}/tools/build_content_export',
+    )..createSync(recursive: true);
+    File('${historicalDir.path}/historical_v1.json').writeAsStringSync(
       jsonEncode(<String, List<Object?>>{
         'exams': <Object?>[],
         'topics': <Object?>[],

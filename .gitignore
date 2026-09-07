@@ -62,6 +62,8 @@ coverage/
 
 # Generated content seed
 assets/seed/content.db
+assets/seed/content.manifest.json
+assets/seed/content.manifest.sig
 
 # Crash reports and stray logs
 flutter_*.log
