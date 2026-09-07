@@ -591,8 +591,8 @@ void main() {
       expect(result.exitCode, 0, reason: result.stderr.toString());
     });
 
-    test('rejects tampering either accepted production repair', () async {
-      for (final repair in _acceptedProductionRepairs) {
+    test('rejects tampering of any accepted repair file', () async {
+      for (final repair in _acceptedRepairFiles) {
         final fixture = await FakeRepository.create();
         addTearDown(fixture.dispose);
         await _applyAcceptedProductionRepairs(fixture);
@@ -610,10 +610,13 @@ void main() {
           environment: fixture.env(),
         );
 
+        final expectedDiagnostic = _acceptedProductionRepairs.contains(repair)
+            ? 'accepted production repair bytes'
+            : 'accepted repair companion bytes';
         expect(result.exitCode, isNot(0), reason: repair.path);
         expect(
           result.stderr.toString(),
-          contains('accepted production repair bytes'),
+          contains(expectedDiagnostic),
           reason: repair.path,
         );
       }
