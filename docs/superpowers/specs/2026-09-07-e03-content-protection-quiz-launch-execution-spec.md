@@ -103,6 +103,8 @@ The release corpus remains a single SQLite content asset path to minimize reader
 
 `assets/seed/v1.json` remains absent from Flutter assets.
 
+The three protected release files are generated companions, not source-controlled secret-dependent payloads. `content.db`, `content.manifest.json`, and `content.manifest.sig` travel as one immutable protected-package artifact. Stable source contracts and public verification keys may be committed; generated package bytes must remain outside normal source tracking. From package materialization onward, provenance records source Git SHA, `sourceContentSha256`, `contentSeedVersion`, `payloadSha256`, manifest SHA-256, detached-signature SHA-256, key IDs, cipher profile, and content/reader schema versions.
+
 ### Manifest v1 exact fields
 
 ```json
@@ -111,8 +113,9 @@ The release corpus remains a single SQLite content asset path to minimize reader
   "applicationId": "com.aedwon.pantas",
   "releaseChannel": "prod",
   "payloadPath": "assets/seed/content.db",
+  "sourceContentSha256": "<64 lowercase hex>",
   "payloadSha256": "<64 lowercase hex>",
-  "contentSeedVersion": "<first 16 lowercase hex of payloadSha256>",
+  "contentSeedVersion": "<first 16 lowercase hex of sourceContentSha256>",
   "contentSchemaVersion": 8,
   "readerSchemaMin": 8,
   "readerSchemaMax": 8,
@@ -122,7 +125,9 @@ The release corpus remains a single SQLite content asset path to minimize reader
 }
 ```
 
-The manifest has no generated timestamp. Build tooling writes keys in the order above, UTF-8 encoded, with one trailing newline; the detached signature covers those exact bytes. Tests must reject reordered/reformatted bytes unless they are re-signed. This avoids an implicit JSON-canonicalization contract.
+The manifest has no generated timestamp. Build tooling writes keys in the order above, UTF-8 encoded, with one trailing newline; the detached signature covers those exact bytes, including both `sourceContentSha256`/`contentSeedVersion` and `payloadSha256`. Tests must reject reordered/reformatted bytes unless they are re-signed. This avoids an implicit JSON-canonicalization contract.
+
+`sourceContentSha256` is the SHA-256 of the approved plaintext SQLite seed bytes immediately before protection and is the stable logical corpus revision. `contentSeedVersion` is its first 16 lowercase hexadecimal characters. `payloadSha256` identifies the exact protected `content.db` bytes. SQLCipher/sqlite3mc protection normally includes randomized salt/encryption state, so two protected builds from identical approved plaintext may have different payload bytes and `payloadSha256` values while retaining the same `sourceContentSha256` and `contentSeedVersion`. E04 must not choose or fix a deterministic SQLCipher salt merely to make ciphertext reproducible.
 
 Production Android application ID is grounded in `android/app/build.gradle.kts` as `com.aedwon.pantas`. Test/dev fixtures may use explicitly test-owned manifests; production packaging must use the production ID/channel above.
 
@@ -130,7 +135,8 @@ Production Android application ID is grounded in `android/app/build.gradle.kts` 
 
 - **Confidentiality/integrity of bundled SQLite pages:** sqlite3mc’s SQLCipher-compatible content profile with page integrity/HMAC enabled by the selected profile. E04 must verify the exact native build and settings before claiming support. Do not call the page mode an AEAD algorithm unless exact project evidence supports that wording.
 - **Publisher authenticity:** Ed25519 detached manifest signature. The signing private key never ships. The public verification key may ship.
-- **Whole-payload binding:** SHA-256 in the signed manifest binds the exact encrypted `content.db` bytes. A checksum alone is not authenticity; the signature is required.
+- **Logical revision binding:** signed `sourceContentSha256` identifies the approved plaintext seed revision and drives `contentSeedVersion`.
+- **Whole-payload binding:** signed `payloadSha256` binds the exact encrypted `content.db` artifact bytes. A checksum alone is not authenticity; the signature is required. The signature binds both logical/source identity and exact protected payload identity.
 
 Preferred maintained Dart implementation for Ed25519 verification/signing support is `cryptography` 2.9.0. E04 must confirm project dependency resolution/platform compatibility before adding it; failure is a design-stop condition, not permission for a custom cipher/signature implementation.
 
@@ -230,7 +236,7 @@ Test seams may inject asset bytes and destination files in the same spirit as th
 1. Load manifest/signature/encrypted payload.
 2. Verify Ed25519 signature before trusting manifest-controlled fields.
 3. Validate `formatVersion`, `applicationId`, release channel, schema compatibility, key IDs, and cipher profile.
-4. Hash encrypted payload and require signed `payloadSha256`; require `contentSeedVersion` to equal its first 16 lowercase hex characters.
+4. Hash encrypted payload and require signed `payloadSha256`; require signed `sourceContentSha256` to be a full lowercase SHA-256 and `contentSeedVersion` to equal the first 16 lowercase hexadecimal characters of `sourceContentSha256`. Runtime package verification authenticates the publisher-signed logical revision; build-time package tests independently prove the source digest was computed from the approved plaintext seed before protection.
 5. Copy encrypted payload to same-directory pending path `content.db.pending`. This copy remains encrypted under the bootstrap key.
 6. Open/validate pending database with bootstrap key and exact content profile.
 7. Read/create `pantas_content_db_key_v1`.

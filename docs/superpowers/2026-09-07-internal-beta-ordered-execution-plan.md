@@ -10,7 +10,7 @@
 4. Content/security foundation precedes data/performance implementation: E04 before E05; E05 before E06.
 5. CP-T4 follows implementation so it can inspect the real protected path; combined integration follows at E08.
 6. Performance and source/device security evidence at E09 must exercise the final encrypted content path.
-7. Full Release E2E is E10, after E09, three isolated passes on an unchanged candidate.
+7. Full Release E2E is E10, after E09, three isolated passes on an unchanged candidate **and one unchanged protected package identity** (payload + manifest + detached signature).
 8. Independent review precedes the final signed AAB.
 9. Signed-artifact extraction proof happens after the artifact exists, at E13.
 10. Upload eligibility is E14 and requires both legal Play release identity and explicit founder acceptance of the documented recoverable bootstrap-key residual risk.
@@ -152,7 +152,7 @@
 
 **Depends on:** accepted E11 source.
 
-**Purpose:** build one signed production AAB from the exact accepted source using the verified release toolchain. Do not rebuild corpus/source during artifact generation.
+**Purpose:** build one signed production AAB from the exact accepted source using the verified release toolchain and the exact protected package accepted by E10/E11. Do not rebuild/regenerate corpus or protected-package bytes during artifact generation; authorized regeneration invalidates affected downstream evidence and requires rerun.
 
 **Version identity rule:** if Play release history is not yet available, the local artifact identity is provisional evidence only and is not an upload-eligibility freeze.
 
@@ -189,6 +189,10 @@ These tasks may proceed independently when they do not mutate the engineering ca
 5. **Physical devices:** lower-end performance phone for E09, mainstream comparison phone, Play-installed acceptance device, OEM/notification/accessibility coverage.
 6. **Store/legal/privacy:** listings, declarations, privacy/account-data flows, release notes, policy forms, support channel.
 7. **Post-freeze Play-installed acceptance:** after engineering/artifact gates and appropriate Play authorization, verify install/update, Firebase/Auth/sync, App Check/Play Integrity, billing/RevenueCat lifecycle, product smoke, accessibility, notifications/runtime, privacy and account-data behavior on the Play-delivered build.
+
+## Protected package provenance rule
+
+The protected package has two identities: stable logical/source identity (`sourceContentSha256` + `contentSeedVersion`) and exact generated artifact identity (`payloadSha256` + manifest SHA-256 + detached-signature SHA-256, plus key/profile/schema metadata and source Git SHA). Randomized SQLCipher/sqlite3mc protection may change exact payload bytes across builds without changing logical content. E10 therefore pins one already-materialized protected package for all three passes, and E12 must package that exact accepted package. A new protected-package generation invalidates affected evidence even when the logical source revision is unchanged. No deterministic/fixed SQLCipher salt is authorized merely to force reproducible ciphertext.
 
 ## Evidence invalidation rules
 

@@ -130,8 +130,9 @@ Manifest v1 fields are frozen as:
 - `applicationId` = `com.aedwon.pantas`
 - `releaseChannel` = `prod`
 - `payloadPath` = `assets/seed/content.db`
-- `payloadSha256` = 64 lowercase hex
-- `contentSeedVersion` = first 16 lowercase hex characters of `payloadSha256`
+- `sourceContentSha256` = 64 lowercase hex of the approved plaintext seed immediately before protection
+- `payloadSha256` = 64 lowercase hex of the exact protected payload
+- `contentSeedVersion` = first 16 lowercase hex characters of `sourceContentSha256`
 - `contentSchemaVersion` = 8 for the E03 baseline
 - `readerSchemaMin` = 8
 - `readerSchemaMax` = 8
@@ -139,7 +140,7 @@ Manifest v1 fields are frozen as:
 - `bootstrapKeyId` = `content-bootstrap-v1`
 - `signingKeyId` = `content-signing-v1`
 
-The manifest is deterministic UTF-8 with the field order above and one trailing newline. The detached Ed25519 signature covers those exact bytes. SHA-256 binds the exact encrypted payload, but the signature is the authenticity boundary.
+The manifest is deterministic UTF-8 with the field order above and one trailing newline. The detached Ed25519 signature covers those exact bytes and therefore binds both the stable logical/source identity and the exact encrypted payload identity. `sourceContentSha256` drives logical revision; `payloadSha256` identifies the generated protected artifact. The signature is the authenticity boundary.
 
 ### Algorithm/library ruling
 
@@ -311,6 +312,20 @@ E11 independently reviews one exact source candidate. E12 builds a signed AAB on
 ### Commercial pin
 
 The pricing carried into this planning checkpoint is **PHP 149/week**. E03 does not change billing implementation or authorize Play/RevenueCat mutation.
+
+## 2026-09-07 - Root review corrected ciphertext-derived logical revision and frozen generated-package provenance
+
+### Defect found after the first docs commit
+
+The first E03 docs commit `b2569484` incorrectly derived `contentSeedVersion` from encrypted `payloadSha256` and treated protected package materialization too much like a tracked source-file change. SQLCipher/sqlite3mc normally uses randomized salt/encryption state, so identical logical content can legitimately produce different ciphertext bytes and payload hashes.
+
+### Corrected decision
+
+`sourceContentSha256` is computed from the approved plaintext seed immediately before protection and is the stable logical content digest. `contentSeedVersion` is its first 16 lowercase hexadecimal characters. `payloadSha256` identifies the exact encrypted payload. The signed manifest contains and authenticates both. E04 tests must prove two protected builds from identical source retain the same logical digest/version even when their exact payload hashes differ. Choosing or fixing a deterministic SQLCipher salt solely for reproducible ciphertext is not authorized.
+
+`content.db`, `content.manifest.json`, and `content.manifest.sig` are generated companions that travel as one immutable protected-package artifact rather than secret-dependent source-controlled bytes. Package provenance records source Git SHA, logical digest/version, payload SHA-256, manifest SHA-256, detached-signature SHA-256, key IDs, cipher profile, and schema versions. `tools/release/android/release.sh` is explicitly E04-owned because its plaintext-era hash/version-prefix gate must be replaced by fail-closed signed-package verification.
+
+E10 must use one unchanged package identity for all three isolated passes. E12 must package that exact accepted package; regeneration is allowed only through an explicit earlier-stage return that invalidates and reruns affected evidence. The rejected `b2569484` history is preserved rather than force-rewritten.
 
 ## Open dependencies at E03 handoff
 

@@ -79,13 +79,16 @@ These names reserve ownership in this plan only. **Do not create or dispatch the
 - Modify: `pubspec.lock`
 - Modify: `tools/build_content_seed/seed_writer.dart`
 - Modify: `tools/build_content_export/build_content_export.dart` only to remove/reconcile the tracked historical `v1.json` build dependency; never add a runtime JSON path.
-- Modify: `assets/seed/content.db` to protected bytes.
-- Create: `assets/seed/content.manifest.json`
-- Create: `assets/seed/content.manifest.sig`
+- Generate (gitignored artifact): `assets/seed/content.db` protected bytes; do not `git add -f`.
+- Generate companion artifact: `assets/seed/content.manifest.json`; keep it with the protected package rather than treating secret-dependent bytes as source.
+- Generate companion artifact: `assets/seed/content.manifest.sig`; keep it with the same immutable protected package.
+- Modify: `.gitignore` only as required to make all generated protected-package companions explicitly non-source-controlled.
+- Modify: `tools/release/android/release.sh` so release preflight validates the signed protected-package contract instead of the plaintext-era content hash/version-prefix contract.
+- Create/modify: focused release-script contract tests under `test/tools/release/`.
 - Modify: `lib/core/content/content_seed_version.dart` through the package builder, never by hand.
 - Modify: `pubspec.yaml` asset list to include manifest/signature and still exclude `v1.json`.
 
-**Exact package contract:** use manifest v1 and key IDs from the E03 spec; production `applicationId` is `com.aedwon.pantas`, channel `prod`.
+**Exact package contract:** use manifest v1 and key IDs from the E03 spec; production `applicationId` is `com.aedwon.pantas`, channel `prod`. The builder computes stable `sourceContentSha256` from the approved plaintext seed immediately before protection, derives `contentSeedVersion` from that source digest, computes `payloadSha256` from the exact encrypted bytes, and signs a manifest containing both identities. Random SQLCipher/sqlite3mc salt/encryption state may make payload hashes differ across builds of identical source; tests must prove logical revision stability without fixing a deterministic salt.
 
 **Steps:**
 1. Add fixture text that is easily detectable in raw JSON/plain SQLite.
@@ -95,6 +98,8 @@ These names reserve ownership in this plan only. **Do not create or dispatch the
 5. Require build secrets from `PANTAS_CONTENT_BOOTSTRAP_KEY_V1_B64` and `PANTAS_CONTENT_SIGNING_PRIVATE_KEY_V1_B64`; fail closed when missing/malformed.
 6. Remove the stale historical JSON contribution from the current export path without restoring a reader.
 7. Scan all Flutter assets/release package fixture entries for raw fixture text/plain SQLite.
+8. Update `tools/release/android/release.sh` and focused tests to fail closed unless the exact generated payload + manifest + detached signature pass the new source-digest/payload-digest/signature checks; the old plaintext `APPROVED_CONTENT_DB_SHA256` + `contentSeedVersion`-prefix relationship must not authorize a protected release package.
+9. Record protected-package identity as source Git SHA, `sourceContentSha256`, `contentSeedVersion`, `payloadSha256`, manifest SHA-256, detached-signature SHA-256, key IDs, cipher profile, and schema versions.
 
 **Gate:** ordinary unzip/strings/JSON/plain SQLite cannot recover fixture corpus; correct key opens it; wrong/tampered inputs fail; no signing private key/server credential ships.
 
@@ -309,16 +314,16 @@ Run focused regressions plus full `flutter test`, `flutter analyze`, formatting,
 
 ## E10 — three isolated final Release E2E passes
 
-**Source:** exact accepted E09 candidate.
+**Source:** exact accepted E09 candidate plus one already-materialized, unchanged protected-package identity: exact payload bytes, manifest bytes, detached-signature bytes, `sourceContentSha256`/`contentSeedVersion`, recorded package digests, key/profile/schema metadata, and source Git SHA.
 
 **Runner contract:** reuse the accepted Release E2E runner/harness and six journeys from `docs/superpowers/plans/2026-09-05-release-e2e-implementation.md`, with provenance companion hardening preserved.
 
 **Steps:**
-1. Verify candidate/content/toolchain/device/emulator provenance before Run 1.
+1. Verify candidate/toolchain/device/emulator provenance and exact protected-package identity before Run 1, including `sourceContentSha256`, `contentSeedVersion`, `payloadSha256`, manifest SHA-256, detached-signature SHA-256, key IDs/profile/schema, and source Git SHA.
 2. Run complete six-journey suite from isolated state.
 3. Reset only through the approved deterministic isolation path.
-4. Repeat complete suite for Runs 2 and 3 without source/content modification.
-5. Compare provenance and per-scenario results across all three.
+4. Repeat complete suite for Runs 2 and 3 without source modification or protected-package regeneration. All three runs use the same payload + manifest + detached-signature bytes.
+5. Compare provenance and per-scenario results across all three; any protected-package identity drift invalidates the three-pass set.
 
 **Gate:** 3/3 complete passes. Any source/content fix returns to the appropriate earlier stage; no “two plus one old plaintext run” substitution.
 
@@ -334,13 +339,13 @@ Review exact E03 spec/decisions, E04–E09 implementation/evidence, E10 logs, so
 
 **Authorized release-builder ownership only.**
 
-1. Verify exact E11 source and clean worktree.
+1. Verify exact E11 source, clean worktree, and exact protected-package identity accepted by E10/E11.
 2. Resolve production signing inputs and required content bootstrap key build input without exposing them.
 3. Resolve legal version identity if Play history is available; otherwise mark local identity provisional and not upload-eligible.
-4. Build exactly one production signed AAB with the pinned toolchain.
-5. Record AAB SHA-256, source SHA, content manifest/payload digests, version identity, signing provenance.
+4. Build exactly one production signed AAB with the pinned toolchain, packaging the exact accepted protected package without regenerating ciphertext, manifest, or detached signature.
+5. Record AAB SHA-256, source SHA, `sourceContentSha256`, `contentSeedVersion`, `payloadSha256`, manifest SHA-256, detached-signature SHA-256, key/profile/schema metadata, version identity, and signing provenance.
 
-**Gate:** artifact exists from exact E11 source; no code/content regeneration afterward.
+**Gate:** artifact exists from exact E11 source and exact E10/E11 protected package; no code/content/protected-package regeneration afterward. Any explicitly authorized regeneration creates a new package identity and requires affected E09/E10/E11 evidence to be rerun before AAB acceptance.
 
 ## E13 — CP-T5 signed-artifact inspection
 

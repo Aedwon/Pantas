@@ -73,6 +73,12 @@ At `ba536e73dbda455b994291eb551c2d6b0bd5286d`:
 
 No stage may count evidence from a different source/content digest as if it were evidence for the current stage. A source or content change after E09 invalidates affected E09/E10/E11 evidence; a source change after E12 invalidates the signed artifact and requires rebuild/reverification.
 
+## Root acceptance correction — protected package logical versus artifact identity
+
+The E02 statement above remains historical evidence: its plaintext seed writer derived `contentSeedVersion` from the generated plaintext DB hash. The future protected-package contract is different. E04 must compute `sourceContentSha256` from the approved plaintext seed immediately before protection and derive `contentSeedVersion` from that stable logical/source digest. The exact encrypted artifact gets a separate `payloadSha256`; manifest and detached-signature SHA-256 values identify the generated companions. The signed manifest binds both logical and exact payload identities.
+
+SQLCipher/sqlite3mc protection may produce different ciphertext/payload hashes for identical source because of randomized salt/encryption state. The program must not fix a deterministic salt merely to make ciphertext reproducible. Generated `content.db`, `content.manifest.json`, and `content.manifest.sig` travel as one immutable non-source-controlled package. E10 pins one exact package for all three isolated runs, and E12 packages that same accepted package; any authorized regeneration invalidates affected E09/E10/E11 evidence before a signed AAB may be accepted.
+
 ## Parallel founder / Play / human lane
 
 The engineering order above does not block independent founder preparation that does not mutate the candidate:
