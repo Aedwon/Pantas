@@ -411,7 +411,7 @@ Options: (1) read historical aliases while writing only the current canonical id
 
 ### DECISION REQUIRED: historical Resume repair when legacy rows are insufficient
 
-Options: (1) reconstruct from existing authoritative persisted attempt/review data when exact mapping is provable; (2) persist a minimal session outcome snapshot through an explicitly reviewed user-schema contract; (3) resume with empty outcome state. **Recommendation: option 1 when provable, otherwise option 2.**
+Forward sessions must persist enough per-answer state for exact Resume; this decision applies only to already-existing legacy sessions that cannot be reconstructed exactly from authoritative attempt/review data. Options: (1) reconstruct only when exact mapping to the saved session/question IDs is provable; if proof is impossible, retire that legacy session from Resume while preserving its attempt/review history; (2) use best-effort inference to restore an approximate answered state, risking an answer/state the student did not actually produce; (3) drop all legacy active-session Resume state regardless of whether exact reconstruction is possible. **Recommendation: option 1. Never invent an answer merely to keep an old session resumable.**
 
 ### DECISION REQUIRED: commercial pricing source of truth
 
