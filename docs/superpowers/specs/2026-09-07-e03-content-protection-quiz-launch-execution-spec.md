@@ -20,12 +20,12 @@ This is extraction resistance, not DRM. A device owner can recover any client-av
 
 Shorten the wait before Today’s recommendation/session and remove repeated preparation after Start without changing the learning policy, selected question identity/order, persisted history, Free/Pro behavior, offline study, or UI intent.
 
-The old standalone local spec named by Drive revision 54, `docs/superpowers/specs/2026-09-06-quiz-loading-performance-design.md`, is absent from exact E02 repository state. The Drive-54 requirements are carried into this document so implementation has one repository source.
+The old standalone local spec named by Drive revision 54, `docs/superpowers/specs/2026-09-06-quiz-loading-performance-design.md`, is absent from exact E02 repository state. Complete September 6 text survives in relay result issues `Aedwon/chatgpt-terminal-relay#6042`, `#6044`, `#6045`, `#6046`, and `#6047` in line order. Those relay comments prove the complete textual sequence but not the byte-for-byte identity of the original untracked file through their wrapper/escaping layer, so this correction lane does not fabricate a reconstructed source file. The September 6 requirements are reconciled into this governing document rather than replaced.
 
 ## 2. Non-goals
 
 - No mandatory online activation, account-bound content license, remote revocation, watermarking, anti-hooking, screenshot blocking, or claim that the APK cannot reveal the full corpus.
-- No redesign of Free/Pro entitlement or billing. Current weekly commercial pin is PHP 149/week, but pricing implementation is outside this spec.
+- No redesign of Free/Pro entitlement or billing. Current planning references conflict on pricing; no price is re-frozen here and no Play/RevenueCat/store-pricing mutation is authorized.
 - No restoration of `assets/seed/v1.json` as a Flutter asset or runtime reader.
 - No user-data database rekey, schema redesign, or reuse of `pantas_db_key`.
 - No silent Sanity/backend redesign. Actual serving exposure is audited at E07 and changes require separate authorization.
@@ -91,7 +91,9 @@ A determined device owner can reverse-engineer the compiled client, recover the 
 
 Aedwon’s explicit release-risk acceptance is still required at E14. E03 does not grant that acceptance.
 
-## 5. Frozen release package contract — format version 1
+## 5. Frozen release package contract — format version 2 (September 8 successor)
+
+The September 7 **manifest v1** contract remains historical evidence for the recovery-r2 partial implementation. It is not the production-accepted wire format. Adding signed chronology changes the exact signed manifest bytes and required fields, so the September 8 successor is **manifest v2**. Production E04 must migrate the builder, verifier, fixtures, and release preflight to v2; a v1 package may be retained only as an explicit historical/rejection fixture and must not pass production package acceptance.
 
 The release corpus remains a single SQLite content asset path to minimize reader churn, but the bytes at that path become protected. E04 must not add a raw fallback copy.
 
@@ -105,13 +107,14 @@ The release corpus remains a single SQLite content asset path to minimize reader
 
 The three protected release files are generated companions, not source-controlled secret-dependent payloads. `content.db`, `content.manifest.json`, and `content.manifest.sig` travel as one immutable protected-package artifact. Stable source contracts and public verification keys may be committed; generated package bytes must remain outside normal source tracking. From package materialization onward, provenance records source Git SHA, `sourceContentSha256`, `contentSeedVersion`, `payloadSha256`, manifest SHA-256, detached-signature SHA-256, key IDs, cipher profile, and content/reader schema versions.
 
-### Manifest v1 exact fields
+### Manifest v2 exact fields
 
 ```json
 {
-  "formatVersion": 1,
+  "formatVersion": 2,
   "applicationId": "com.aedwon.pantas",
   "releaseChannel": "prod",
+  "releaseSequence": 1,
   "payloadPath": "assets/seed/content.db",
   "sourceContentSha256": "<64 lowercase hex>",
   "payloadSha256": "<64 lowercase hex>",
@@ -140,6 +143,12 @@ Production Android application ID is grounded in `android/app/build.gradle.kts` 
 
 Preferred maintained Dart implementation for Ed25519 verification/signing support is `cryptography` 2.9.0. E04 must confirm project dependency resolution/platform compatibility before adding it; failure is a design-stop condition, not permission for a custom cipher/signature implementation.
 
+### September 8 amendment: package chronology is signed, not hash-derived
+
+`releaseSequence` is required in signed **manifest v2**. It is a positive integer that increases monotonically for every publisher-authorized protected package. A publisher-authorized rollback of logical content is emitted as a new package with a higher `releaseSequence`; accepting a lower sequence is never the rollback mechanism. `sourceContentSha256`, `contentSeedVersion`, `payloadSha256`, manifest SHA-256, and detached-signature SHA-256 remain identity/provenance fields only. Implementations must never compare hashes lexically or numerically to decide which package is newer.
+
+The recovery-r2 E04.2 implementation predates this v2 amendment and remains reviewed partial work, not a production-accepted manifest implementation. E04 must migrate the builder/verifier/release checks to `formatVersion = 2`, add and sign `releaseSequence`, reject v1 on the production acceptance path, and preserve only explicit v1 historical/rejection fixtures where useful.
+
 ## 6. Frozen key contract
 
 ### Bootstrap key
@@ -166,6 +175,12 @@ Preferred maintained Dart implementation for Ed25519 verification/signing suppor
 - Generated on device independently of `pantas_db_key`.
 - Used only for installed protected `content.db`.
 - Missing key with an existing encrypted database triggers recovery logic; it never triggers an unkeyed/plaintext fallback.
+
+### September 8 amendment: versioned trust-key lookup and rotation
+
+Signing and bootstrap identifiers remain versioned IDs (`content-signing-v1`, `content-bootstrap-v1` for the current partial implementation), but production verification uses key-ID lookup metadata rather than one permanently hard-coded key. Each accepted key entry declares an inclusive `minReleaseSequence` and optional inclusive `maxReleaseSequence`. Overlap is permitted during planned rotation so two public signing keys or two authorized bootstrap-key IDs can be valid for the same bounded sequence window. Once a key is retired for a sequence, a manifest naming it fails closed even if its bytes/signature would otherwise verify. Unknown key IDs fail closed.
+
+Public Ed25519 verification keys may coexist in the client trust keyring. Signing private keys and bootstrap secret material must never enter repository docs, issues, chat, ordinary preferences, logs, or artifacts. This contract does not invent production key bytes. The production signing trust keyring is currently empty, so E04.2 remains reviewed partial work until an explicitly authorized exact 32-byte Ed25519 public verification key corresponding to the release signing process is supplied through the authorized release/security lane. Safe fixture-key installer/migration work may proceed after these contracts are accepted; production protected-package acceptance may not.
 
 ## 7. Frozen content cipher profile contract
 
@@ -248,6 +263,26 @@ Test seams may inject asset bytes and destination files in the same spirit as th
 
 If installed protected content, secure key, manifest/version state, and schema are valid and current, open it directly. Do not rewrite/rekey on every launch.
 
+### September 8 amendment: persistent accepted-package state and promotion recovery
+
+The accepted-package record and any in-flight promotion intent are **device-local protected-content installation metadata**. Store them alongside the protected content installation in Application Support (or an equivalent content-owned device-local store), not in `pantas.db`, account-scoped `AppPreferencesRepository`, synced user state, or any account-reset/deletion payload. Sign-out, account switch, user reset, and account deletion must not clear anti-replay chronology. Only removal of the app's local data or an explicit protected-content installation-state reset may clear it, and such a reset returns the device to the no-accepted-package state rather than silently authorizing an older package.
+
+Runtime acceptance persists a non-secret accepted-package state containing the accepted `releaseSequence` plus the exact signed/package identity needed to distinguish replays and forks: `sourceContentSha256`, `contentSeedVersion`, `payloadSha256`, manifest SHA-256, detached-signature SHA-256, `signingKeyId`, `bootstrapKeyId`, `cipherProfile`, `contentSchemaVersion`, `readerSchemaMin`, and `readerSchemaMax`. With no accepted state, a fully verified compatible package with a positive sequence may become the first accepted package. With accepted state present:
+
+- candidate sequence lower than accepted: reject as downgrade/replay;
+- candidate sequence equal to accepted and exact package identity equal: idempotent reopen/no-op is allowed;
+- candidate sequence equal to accepted but any bound package identity differs: reject as same-sequence fork/replay;
+- candidate sequence higher than accepted: continue only after signature, key-window, payload/source identity, schema, keyed-open, and corpus validation pass.
+
+Promotion is two-phase and recoverable across filesystem/database crash boundaries. Before file replacement, persist a promotion intent binding the candidate identity/sequence and, when one exists, the complete previous accepted identity. Preserve the previous installed encrypted `content.db` in `content.db.previous` (or an equivalent same-directory previous-valid slot) together with the previous accepted-state metadata until the new active file and accepted state are both finalized. Required recovery behavior is:
+
+1. crash before candidate validation or promotion intent: an existing previous active package remains authoritative; on first install there is still no accepted package; incomplete pending state may be deleted;
+2. crash after promotion intent but before active-file replacement: the same rule holds; startup may resume or discard the candidate only after revalidation against the exact intent;
+3. crash after moving active to previous and/or pending to active but before accepted-state finalization: startup validates the candidate against the persisted intent. If valid, finalize candidate + accepted state. If invalid and a previous accepted package exists, atomically restore its encrypted database and accepted-state metadata. If this was first install, remove/unpublish the unaccepted active candidate and return to no accepted package;
+4. crash after accepted-state finalization but before cleanup: the new accepted identity is authoritative; the previous-valid slot and stale intent are cleanup-only and may be removed only after successful reopen.
+
+At no boundary may failure delete both valid copies when a previous accepted package exists, mark an unvalidated first-install candidate accepted, open plaintext, reset `pantas.db`, or infer chronology from a digest.
+
 ### E02 legacy plaintext migration
 
 The first supported plaintext migration is restricted to the exact accepted E02 shipping corpus: tracked `contentSeedVersion` `eb3a9da425b80a51` and accepted generated release-lane SHA-256 `eb3a9da425b80a51331cce74694ef014c3372392194bacbd60ba145db5ea2a45`. The generated `content.db` is gitignored and was not materialized/rehashed in the fresh E03 planning worktree, so this digest is carried from durable accepted E02/release evidence, not claimed as a new E03 hash. E04 must freshly obtain or regenerate and verify the approved payload before migration fixtures use it. The migration must preserve the source until an independently keyed destination has been validated.
@@ -325,17 +360,21 @@ Verified QLP defects at E02:
 
 These are current-source findings, not device timing claims.
 
-## 12. Frozen QLP learning-policy decisions
+## 12. Frozen QLP learning-policy authority, amended September 8
 
-- Stored `QuizPreferencesRepository.read()` is authoritative for session length, ordering, and new-card cap.
-- `QuizOrdering.interleavedTail` remains default. Legacy `true` maps to interleaved-tail; legacy `false` maps to blocked. No storage-history rewrite is required for optimization.
-- Existing due/weakness/fresh bucket accounting and `BuildTodayPlan` composition semantics remain authoritative.
-- Existing new-card cap semantics remain unchanged.
-- Existing selected question identity/order and deterministic choice ordering remain unchanged.
-- Resume uses the persisted session ID, origin, topic/subtopic/lesson metadata, current index, and saved question-ID order. Resume never creates a new Today/quick session.
-- Restart/Retry preserves original mode/scope and, where current behavior is restart-from-same-set, the original question IDs/order. Performance work must not reinterpret Retry as a fresh recommendation.
-- Historical attempt/review outcomes are not rewritten, reattributed, or dropped to improve speed.
-- If E05 discovers an ambiguous historical owner/outcome migration that affects selection, stop that dependent path for a policy ruling; do not invent a migration.
+The September 7 statement that `QuizPreferencesRepository.read()` is authoritative for ordering is superseded. It remains authoritative for quiz-owned session length and new-card-cap data where that repository is still the current source, but Today ordering is owned by Settings.
+
+- `settings.session_ordering`, exposed as Settings `SessionOrdering`, is the authoritative ordering preference used by Today recommendation/preparation and Start.
+- The semantic adapter maps `SessionOrdering.blocked`, `interleavedTail`, and `fullyMixed` to the corresponding quiz-domain cases explicitly. It must not compare persisted storage strings because Settings uses camel-case enum names while the quiz compatibility enum uses snake-case values for two cases.
+- `quiz_today_interleaved` is compatibility/migration input only when no current Settings ordering state exists. If legacy and current Settings values disagree, current Settings wins.
+- The shipped legacy boolean mapping is frozen for compatibility: `true -> interleavedTail`; `false -> blocked`. This mapping never overrides explicit current Settings state.
+- The three ordering behaviors are distinct and already decided: `blocked` keeps the selected topic; a 10-question `interleavedTail` session uses 7 from the selected topic and 3 from other topics' due cards; `fullyMixed` permits cross-topic selection while prohibiting two consecutive questions from the same topic. Only deterministic scaling of the approved 7/3 rule to other requested lengths remains a product decision.
+- The new-card cap is one shared local-day allowance across all quiz surfaces combined for the active exam pool. Topic allocation consumes that same remaining allowance; it must never multiply the cap by the number of participating topics.
+- A regression must start from a real Settings write, then run Today recommendation/preparation and Start, proving the same ordering reaches the persisted launched session. It must deliberately set a disagreeing `quiz_today_interleaved` value and prove Settings wins. Constructing `QuizPreferences` directly does not satisfy this gate.
+- Existing selected question identity/order, deterministic choice ordering, Resume identity/order, Retry/restart intent, and historical attempt/review records are preserved unless an explicit historical-repair decision below applies.
+- Mechanical batching/performance work must not freeze a documented selector bug as intended learning behavior.
+
+The default remains `interleavedTail` only for genuinely absent current Settings state; defaulting must not overwrite or hide a stored explicit Settings choice.
 
 ## 13. QLP-1 frozen metadata/hydration contracts
 
@@ -366,15 +405,29 @@ The actual selector may adapt `QuestionSelectionRow` into a lightweight selectio
 
 E05 must add indexes covering the verified topic/active, question/active/order, question-exam membership, and other query-plan predicates actually used. Index creation must be present for both new schema creation and upgrades from schema 8. The schema version increment is owned by E05 only after E04 finishes shared content-schema work.
 
-## 14. QLP-2 frozen prepared-launch contracts
+### September 8 amendment: custom-track metadata/count path
 
-Prepared recommendation data is immutable and in-memory only. It is not a second persistent source of truth.
+E05 owns removal of full-question hydration performed only to resolve custom-track scope or question counts. Custom-track recommendation/count preparation must use lightweight metadata/count queries and preserve exact current custom-track exam/topic membership and exclusion semantics. The regression must prove that stems, explanations, choices, rationales, and passage bodies are not hydrated merely to determine scope/counts, while eligible IDs/counts match the pre-optimization scope fixture.
+
+### September 8 amendment: E04/E05 schema transition
+
+E04 manifest validation and protected-package reading must not make an E05 schema increment impossible. Before E05 increments `contentSchemaVersion` for indexes or selection metadata, E04 and E05 jointly freeze compatible `contentSchemaVersion`, `readerSchemaMin`, and `readerSchemaMax` values for the new package. The reader rejects packages outside its declared bounds. A fresh database at the E05 schema and an upgrade from the accepted E04 schema must produce equivalent tables/indexes and query semantics. E05 must not increment schema until fresh-versus-upgraded equivalence and package-reader compatibility are tested. Any package regenerated for a new schema is a new protected package with a higher `releaseSequence`.
+
+## 14. QLP-2 frozen prepared-launch contracts, amended September 8
+
+Prepared recommendation data is immutable and in-memory only. The preparation stamp covers the authoritative user-data lifetime, scope, ordering, topic exclusions, history/session state, content revision, local day, and the next time eligibility can change within that day. A day stamp alone is insufficient.
 
 ```dart
 class QuizPreparationStamp {
   final String contentRevision;
   final DateTime localDay;
-  final QuizPreferences preferences;
+  final DateTime? nextDueExpiry;
+  final String accountLifetimeToken;
+  final String scopeToken;
+  final String topicExclusionToken;
+  final SessionOrdering ordering;
+  final QuizPreferences nonOrderingPreferences;
+  final int historyRevision;
   final int sessionStateRevision;
 }
 
@@ -407,31 +460,31 @@ abstract interface class QuizLaunchCoordinator {
 }
 ```
 
-`sessionStateRevision` is a logical freshness token, not permission for a broad persisted-history migration. E06 should derive it from a minimal authoritative session/review mutation signal. If no cheap existing signal can cover sync-driven mutations correctly, add one narrowly and increment it only where authoritative quiz/review state changes. Do not hash or decode full history just to compute freshness.
+The token names are conceptual contract names; E06 may adapt them to existing project types only if the same invalidation coverage is proven. `nextDueExpiry` is the earliest known future instant at which any relevant review/question can cross a due boundary for the prepared scope; it may be null when no such boundary exists. Revalidation compares the current clock against it, including after background return.
 
-Both Quiz and Home/Study-first nudge Start paths consume the same `PreparedTodaySession`. Preview/recommendation creates no persisted `quizSessions` row. `launchPreparedToday` revalidates freshness and persists exactly one session. Rapid taps/rebuilds must coalesce to one launch owner.
+Quiz and Home/Study-first nudge Start paths consume the same `PreparedTodaySession`. Preview/recommendation creates no persisted session. Start revalidates the full stamp and persists exactly one session through one owner. Rapid taps/rebuilds coalesce. Late async preparation results carry their originating generation and may not overwrite newer preparation.
 
-## 15. QLP freshness, cancellation, and memory contract
+## 15. QLP freshness, cancellation, Resume, and memory contract, amended September 8
 
-A prepared Today result is stale when any of these changes:
+An unpersisted prepared Today result is stale and must be discarded/recomputed or fail revalidation before Start when any of these changes:
 
-- installed protected content revision/manifest version;
-- local calendar day relevant to Today selection;
-- exam/topic scope;
-- session length, ordering, or new-card cap;
-- authoritative session/review mutation revision;
-- an active-session change that makes Resume/Start semantics different.
+- authoritative Settings `sessionOrdering`;
+- session length or new-card cap;
+- exam, topic, custom-track scope, or topic exclusions;
+- relevant attempt/review/history state, including sync/imported history;
+- session completion, discard, or another active-session change affecting Start/Resume semantics;
+- installed protected content revision or compatible content schema/package identity;
+- account switch or any reset/deletion event that begins a new user-data lifetime;
+- local calendar day;
+- the clock reaches/passes `nextDueExpiry`, including a due boundary later within the same day.
 
-Prepared content is discarded on stale detection and recomputed. It does not survive process death. Background/foreground return must revalidate before launch. Content upgrade invalidates immediately.
+Preparation does not survive process death. Background/foreground return revalidates day, lifetime, state revisions, and `nextDueExpiry`. Late async results from an older generation cannot replace newer preparation even if they complete last.
 
-Cancellation semantics:
+An already persisted active quiz session is stable: freshness changes whether a new Today session may be prepared/launched, but never silently reselects/reorders an active session. Resume uses its saved IDs/order.
 
-- leaving before session persistence cancels preparation/launch and must not create a late session or navigate later;
-- after the single session commit succeeds, leaving the route does not delete it; it remains one resumable session;
-- a failed replacement preserves the prior resumable session;
-- long all-due preparation may be cancelled, but never silently shortened.
+**Forward Resume correctness is not optional product policy.** Each answer must be durably persisted before advancing far enough that a crash can lose its outcome. Resume must reconstruct the saved current index and already-answered outcome state so a question the student already answered does not reappear as unanswered. If the current persisted schema cannot represent that exactly for newly created sessions, E06 must add the smallest reviewed persistence needed to make it exact. The only remaining decision is how to treat historical sessions whose old rows genuinely lack enough data for exact reconstruction.
 
-Memory must remain bounded to the prepared selected set plus bounded query chunks; no unbounded full-bank object cache.
+Cancellation remains pre/post-persistence: leaving before the single session commit cancels late creation/navigation; after commit, leaving does not delete the one resumable session. A failed replacement preserves the prior valid session. Long all-due preparation may be cancelled but never silently shortened. Memory stays bounded to selected data plus bounded query chunks.
 
 ## 16. QLP-3 readiness and timing contract
 
@@ -481,27 +534,19 @@ For ordinary scenarios collect at least 30 observations; report median, p95, and
 
 Exercise UPCAT, CSE Professional, custom tracks, empty/mixed/substantial history, 5/10/20/all-due, long 75/100-question attempt-like fixtures where applicable, plain/math/passage/diagram first questions, offline use, background return, day rollover, and content upgrade. Measure installation/bootstrap separately and also report launch-to-answerable total so work cannot be hidden outside the timer.
 
-## 20. E03 unresolved dependencies / blockers
+## 20. E03/E04 recovery dependencies and blockers, amended September 8
 
-### CP-T0 dependent blocker
+### Production key gate
 
-**Exact-build sqlite3mc rekey/profile support is unproven.** Upstream capability does not prove this Flutter hook build. E04 must prove it before code depends on the design. Failure blocks CP-T1/CP-T2 and requires a new no-plaintext-staging design.
+E04.2 is reviewed partial work while the production signing trust keyring is empty. Production acceptance remains blocked on an explicitly authorized exact 32-byte Ed25519 public verification key corresponding to the release signing-key process. Never request, expose, or record the signing private key or bootstrap secret. Safe fixture-key installer/migration work may proceed after this contract correction is accepted.
 
-### CP-T4 open dependency
+### E04 analyzer debt
 
-**Actual production Sanity/content-serving exposure is unproven.** Source has an unauthenticated CDN client, but E03 did not evidence production construction/configuration. E07 must inspect release configuration/direct access.
+September 8 review distinguishes 22 information-level findings introduced by E04 from one unrelated older bookmarks finding. E04 acceptance must close or explicitly disposition the 22 E04 findings. They may not be relabeled as globally pre-existing merely because they predate a later worker parent. The older bookmarks finding is reported separately.
 
-### QLP-0 resolved dependency
+### Other dependencies
 
-**Ordering preference authority is resolved:** `QuizPreferencesRepository` + `QuizOrdering.fromStorage` are controlling; preserve them.
-
-### QLP-0 implementation dependency
-
-**Terminal session closure is not resolved in E02 source:** E06 must implement the frozen completion contract above before QLP launch work can be called complete.
-
-### QLP-0 conditional policy blocker
-
-If E05/E06 discovers historical review/outcome ownership records whose semantics cannot be preserved by the frozen metadata model, stop only that dependent selection path for a policy ruling. No history rewrite is pre-authorized.
+Actual production Sanity/content-serving exposure remains an E07 evidence question. E06 must close terminal persisted-session completion. E05/E06 must not silently decide the unresolved non-10/all-due 7/3 scaling rule, fallback accounting, historical owner/outcome migration, historical Resume repair, or commercial-pricing item below. Distinct ordering semantics, the shipped legacy boolean mapping, and the shared local-day new-card allowance are already frozen above. No physical Android interruption/migration/performance evidence is claimed by this correction; E09 and later device gates remain required.
 
 ## 21. Verification obligations for later stages
 
@@ -509,6 +554,60 @@ At the stage that changes code, use test-driven implementation and record exact 
 
 CP-T5 adds physical-device and artifact-specific evidence. QLP-5 requires real lower-end device measurements; unit tests alone cannot close performance. E10 adds three complete isolated Release E2E passes.
 
-## 22. E03 exit
+## 22. September 8 contract-correction exit
 
-This document freezes the CP-T0/QLP-0 contracts on exact E02 baseline `ba536e73dbda455b994291eb551c2d6b0bd5286d`. E03 ends after docs-only verification/commit/push and durable handback. It does not create or dispatch an E04 worker.
+September 7 planning history remains historical rationale except where this document explicitly marks a September 8 amendment. The recovery-r2 implementation head at the start of this correction is `3c686756ac31748f4acad0291e464fc45b1266cb`; E04.2 is reviewed partial work and not production-accepted.
+
+This correction lane is documentation-only. It does not resume E04.3/E04.4, E05, or E06, mutate implementation files, build protected package bytes/AABs, or mutate Play. Its reviewed diff is intentionally left uncommitted and unpushed for root-orchestrator review/publication.
+
+## 23. September 8 release/provenance acceptance contract
+
+E10/E11 produce one non-secret accepted-package record binding exact source Git SHA, `formatVersion` (v2 for the September 8 successor), `releaseSequence`, `sourceContentSha256`, `contentSeedVersion`, `payloadSha256`, manifest SHA-256, detached-signature SHA-256, `signingKeyId`, `bootstrapKeyId`, `cipherProfile`, `contentSchemaVersion`, `readerSchemaMin`, and `readerSchemaMax`. E11 accepts that exact source/package pair, not merely any package that passes signature verification.
+
+E12 preflight verifies the actual clean source and exact protected-package files against this accepted record in addition to signature/key-window/schema checks. E12 consumes the exact accepted E10/E11 package and must not silently regenerate randomized ciphertext. A negative test supplies a different internally valid package signed by a currently trusted key and proves E12 rejects it because it is not the accepted package.
+
+E08 explicitly owns protected-package Release E2E runner migration: remove the obsolete ciphertext-SHA-prefix assumption, supply the bootstrap define through the existing secret-safe build path, preserve exact source/package provenance and content-integrity checks, and do not broadly relax production-diff allowlists.
+
+## 24. DECISION REQUIRED product-policy register
+
+Only the items below remain non-normative until Aedwon chooses. The following boundaries are already resolved and are **not** product decisions for E05/E06: the three ordering modes are distinct; 10-question `interleavedTail` is 7 selected-topic + 3 other-topic due cards; `fullyMixed` forbids adjacent same-topic questions; legacy `true -> interleavedTail` and `false -> blocked` applies only when current Settings ordering is absent; and the new-card cap is one shared local-day allowance across all quiz surfaces combined.
+
+### DECISION REQUIRED: scaling the approved 7/3 `interleavedTail` rule beyond 10 questions
+
+1. **Nearest 70/30 scaling:** round the selected-topic share to the nearest whole question, with half values rounding upward; the remainder is elsewhere (5 -> 4/1, 20 -> 14/6, and the same rule for all-due N). Availability shortfalls use the separately decided fallback contract.
+2. **Floor the 70% selected-topic share:** selected-topic count is `floor(0.7 * N)` and the remainder is elsewhere (5 -> 3/2, 20 -> 14/6). This gives small sessions slightly more breadth.
+3. **Keep 7/3 special to length 10:** non-10 lengths derive cross-topic allocation from eligible due/weak/new supply. This is the largest semantic departure because `interleavedTail` composition becomes history-dependent outside the default length.
+
+**Recommendation:** option 1. It preserves the already-approved 7/3 intent most directly across supported lengths without changing the 10-question behavior.
+
+### DECISION REQUIRED: fallback selection outside counted buckets
+
+1. Disallow unclassified fallback; allow shorter sessions so counts remain strictly predictive.
+2. Classify every fallback candidate into its real eligible bucket and charge the correct count/cap before use. Preserves fuller sessions without relabeling unknown items as new.
+3. Keep the current escape hatch. Preview counts/caps can diverge from served questions.
+
+**Recommendation:** option 2.
+
+### DECISION REQUIRED: historical owner/outcome migration
+
+1. Read historical aliases while writing only the current canonical identity. Preserves provenance without rewriting old rows.
+2. One-time rewrite. Simplifies reads but mutates history and needs rollback/idempotence proof.
+3. Ignore historical variants. Simplest but can drop real learning history.
+
+**Recommendation:** option 1.
+
+### DECISION REQUIRED: historical Resume repair when legacy rows are insufficient
+
+Forward sessions must persist enough per-answer state for exact Resume; this decision applies only to already-existing legacy sessions that cannot be reconstructed exactly from authoritative attempt/review data.
+
+1. Reconstruct only when exact mapping to the saved session/question IDs is provable; if proof is impossible, retire that legacy session from Resume while preserving its attempt/review history.
+2. Apply best-effort inference to restore an approximate answered state. This preserves more legacy Resume entries but risks showing an answer/state the student did not actually produce.
+3. Drop all legacy active-session Resume state at migration regardless of whether exact reconstruction is possible. Simplest, but unnecessarily loses valid resumable sessions.
+
+**Recommendation:** option 1. Never invent an answer merely to keep an old session resumable.
+
+### DECISION REQUIRED: commercial pricing source of truth
+
+Planning references conflict. Options are to re-freeze the repository-carried weekly figure, adopt the conflicting current commercial checkpoint figures, or defer until the authorized founder/Play lane reconciles live commercial state.
+
+**Recommendation:** defer. No Play/RevenueCat/store-pricing change is authorized here.

@@ -350,3 +350,73 @@ E03 does not choose or authorize:
 - a claim that packaged client content is perfectly confidential;
 - E04 implementation ownership or dispatch;
 - AAB construction, Play publication, or final release acceptance.
+
+## 2026-09-08 - Contract correction after recovery-r2 review
+
+### Evidence and status correction
+
+The recovery-r2 implementation head advanced to `3c686756ac31748f4acad0291e464fc45b1266cb`. Relay histories `Aedwon/chatgpt-terminal-relay#5885` and `#5990` remain terminally blocked on the missing authorized production Ed25519 public verification key. `#5990` corrected only two stale plaintext-era tests and reported 40 focused tests green; it did not complete E04 production acceptance. September 8 reviews `#6040` and `#6041`, the complete originating September 6 quiz-loading text preserved in `#6042/#6044/#6045/#6046/#6047`, and SSOT excerpts `#6049/#6050` exposed contract gaps in the September 7 planning documents.
+
+The original September 6 text is complete as line-ordered relay evidence, but the relay wrapper does not prove exact original untracked-file bytes. This lane therefore records the evidence and reconciles it into the governing contracts without fabricating `docs/superpowers/specs/2026-09-06-quiz-loading-performance-design.md`.
+
+### Amendment: Settings owns Today ordering
+
+The September 7 decision naming `QuizPreferencesRepository` as ordering authority is superseded. August Settings decisions and Plan 06 explicitly replaced the unwritten legacy boolean UI path with `settings.session_ordering`. Settings `SessionOrdering` is authoritative for recommendation/preparation and Start. `quiz_today_interleaved` is compatibility input only when current Settings ordering is absent, and current Settings wins disagreements. A real Settings-write through preparation to Start regression is mandatory. Root review freezes the shipped compatibility mapping `true -> interleavedTail`, `false -> blocked`; it never overrides explicit current Settings state. Root review also confirms the three modes are distinct, the 10-question `interleavedTail` case is 7 selected-topic + 3 other-topic due cards, `fullyMixed` prevents adjacent same-topic questions, and the new-card cap is one shared local-day allowance across all quiz surfaces.
+
+### Amendment: preparation freshness is time-bound and lifetime-bound
+
+A local-day stamp alone is insufficient. Preparation also covers authoritative ordering/scope/topic exclusions/history/session completion/content revision/account lifetime and an explicit `nextDueExpiry` or equivalent earliest due-boundary instant. Account switch/reset/deletion, sync/import history, local-day rollover, and crossing a due boundary later within the same day invalidate. Late older async work cannot overwrite newer preparation. An active persisted session retains its saved IDs/order.
+
+### Amendment: protected-package chronology, rotation, and promotion
+
+Hashes are identities, never chronology. The September 8 production successor is manifest **format v2**: `formatVersion = 2` plus positive monotonic signed `releaseSequence`; v1 remains historical/rejection-fixture evidence and is not production-acceptable. Publisher rollback is a new v2 package with a higher sequence. Runtime persists accepted format/sequence plus exact identity as device-local protected-content installation metadata outside account/user data; sign-out, account switch, reset, and account deletion do not clear anti-replay chronology. Lower sequences and equal-sequence/different-identity forks are rejected. Promotion uses persisted intent plus pending/previous/active recovery state so each crash boundary either finalizes a fully validated candidate or restores the previous valid package. Lexical hash comparison is forbidden.
+
+Signing/bootstrap IDs are versioned lookup keys with sequence validity windows and permitted overlap for rotation. Unknown or retired IDs fail closed. Public signing verification keys may overlap; signing private/bootstrap secret material never enters docs/issues/chat. No production key bytes are invented.
+
+### Amendment: schema and downstream provenance
+
+E04 reader/manifest schema bounds and E05 index/schema migration must be coordinated before E05 increments schema, with fresh-versus-upgraded equivalence. E10/E11 accept a non-secret exact package/source record; E12 validates source and package against that record as well as signature validity and consumes the exact accepted package instead of silently regenerating randomized ciphertext. A trusted-key but different internally valid package must be rejected.
+
+E08 owns protected-package Release E2E runner migration: remove the ciphertext-SHA-prefix assumption, pass the bootstrap define only through the existing secret-safe build path, preserve exact provenance/integrity checks, and do not broadly relax production-diff allowlists.
+
+### Amendment: E04 acceptance state
+
+E04.2 remains reviewed partial work while the production trust keyring is empty. Production acceptance is blocked on an explicitly authorized exact 32-byte Ed25519 public verification key tied to the release signing process. Safe fixture-key installer/migration work may proceed after this contract correction is accepted. The 22 E04-introduced analyzer information findings must be closed or explicitly dispositioned; the unrelated older bookmarks finding is reported separately. No physical Android interruption/migration/device evidence is claimed yet.
+
+### Amendment: E05 custom-track scope
+
+E05 owns removal of full-question hydration used only to resolve custom-track metadata/count scope. Lightweight queries must preserve exact scope/exclusion semantics and prove equivalent IDs/counts.
+
+### RESOLVED September 8: ordering semantics, legacy mapping, and daily new-card allowance
+
+Root review closes three items that were incorrectly left open in the first correction draft:
+
+- `interleavedTail` and `fullyMixed` remain distinct. The 10-question `interleavedTail` case is the documented 7 selected-topic + 3 other-topic due-card composition; `fullyMixed` prohibits adjacent same-topic questions.
+- Legacy compatibility remains `true -> interleavedTail` and `false -> blocked` only when current Settings ordering is absent. Explicit Settings always wins.
+- The new-card cap is one shared local-day allowance across all quiz surfaces combined and across topic allocations. It is not a per-topic allowance.
+
+The only remaining composition decision is how the already-approved 7/3 intent scales deterministically beyond the 10-question case, plus the independent fallback-accounting question below.
+
+### DECISION REQUIRED: scaling the approved 7/3 `interleavedTail` rule beyond 10 questions
+
+Options: (1) nearest 70/30 scaling with a documented deterministic rounding rule; (2) floor the selected-topic 70% share and give the remainder to elsewhere; (3) keep 7/3 special to length 10 and derive non-10 composition from eligible supply. **Recommendation: option 1**, because it preserves the approved 7/3 intent most directly without changing the existing 10-question behavior.
+
+### DECISION REQUIRED: fallback outside counted buckets
+
+Options: (1) disallow unclassified fallback and allow a shorter session; (2) classify fallback candidates into their real eligible bucket and charge the correct count/cap before use; (3) keep the current escape hatch even when preview counts/caps diverge. **Recommendation: option 2.**
+
+### DECISION REQUIRED: historical owner/outcome migration
+
+Options: (1) read historical aliases while writing only the current canonical identity; (2) one-time rewrite; (3) ignore historical variants. Rewriting mutates history; ignoring can drop real learning evidence. **Recommendation: option 1.**
+
+### DECISION REQUIRED: historical Resume repair when legacy rows are insufficient
+
+Options: (1) reconstruct from existing authoritative persisted attempt/review data when exact mapping is provable; (2) persist a minimal session outcome snapshot through an explicitly reviewed user-schema contract; (3) resume with empty outcome state. **Recommendation: option 1 when provable, otherwise option 2.**
+
+### DECISION REQUIRED: commercial pricing source of truth
+
+Current planning references conflict. Options: re-freeze the repository-carried weekly figure, adopt the conflicting current commercial checkpoint figures, or defer until the authorized founder/Play lane reconciles live commercial state. **Recommendation: defer.** No Play/RevenueCat/store-pricing change is authorized here.
+
+### Consequence
+
+E04.3/E04.4 and E05/E06 must not resume under superseded September 7 rules. The E04 -> E05 -> E06 -> E07 -> E08 -> E09 -> E10 -> E11 -> E12 -> E13 -> E14 sequence remains, including emulator restart before E10 pass 3 and later Play-installed Firebase/billing/accessibility/device gates. Security claims remain limited to extraction resistance.

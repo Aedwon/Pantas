@@ -12,6 +12,12 @@
 
 ## Global constraints
 
+### September 8 contract-correction overlay
+
+This plan is amended by the September 8 recovery-r2 review. E04.2 at source head `3c686756ac31748f4acad0291e464fc45b1266cb` is reviewed partial work, not production-accepted. E04.3/E04.4 and E05/E06 must not resume until these corrected contracts are accepted. Stage order remains E04 -> E05 -> E06 -> E07 -> E08 -> E09 -> E10 -> E11 -> E12 -> E13 -> E14. No physical Android interruption/migration/device evidence is claimed here. Security wording remains extraction resistance only.
+
+The production signing trust keyring is empty. Production E04 acceptance is blocked on an explicitly authorized exact 32-byte Ed25519 public verification key corresponding to the release signing-key process. Never request or expose the signing private key or bootstrap secret. Safe fixture-key installer/migration work may proceed after contract acceptance. Pricing references conflict; this plan authorizes no Play/RevenueCat/store-pricing change.
+
 - Exact starting source for E04: accepted E02/E03 parent lineage rooted at `ba536e73dbda455b994291eb551c2d6b0bd5286d`; the orchestrator must pin the actual E04 parent after the E03 docs commit is accepted.
 - `main` is read-only. Never implement in another worker’s worktree.
 - E04–E07 are sequential where shared files overlap; do not parallel-edit content schema, installer/opener, `ContentRepository`, quiz providers, or controller.
@@ -47,6 +53,14 @@ These names reserve ownership in this plan only. **Do not create or dispatch the
 | E14 | `web/e14-upload-eligibility-freeze-r1` | final freeze decision/evidence docs only | accepted E13 + human/Play gates |
 
 ## E04 — CP-T1 / CP-T2 / CP-T3
+
+**September 8 E04 acceptance amendments:**
+
+- Signing/bootstrap key IDs are versioned lookup IDs with inclusive sequence validity windows and optional overlap for rotation. Unknown or retired IDs fail closed. Only public Ed25519 verification keys may be represented in source/docs; private signing/bootstrap material stays in secret-safe lanes.
+- Persist accepted package `formatVersion`, sequence + exact identity as device-local protected-content installation metadata outside `pantas.db`, account-scoped preferences, and synced user state. Lower sequence rejects; equal sequence is idempotent only for exact same identity; equal sequence with different identity rejects. Sign-out, account switch, reset, and account deletion do not clear anti-replay chronology. Never order hashes lexically.
+- E04.4 promotion persists intent before replacement and preserves a previous-valid slot. Crash before replacement leaves previous active; crash during replacement resolves intent by finalizing a fully revalidated candidate or restoring previous; crash after accepted-state finalization treats the new package as authoritative and cleanup as best effort.
+- E04 acceptance must close or explicitly disposition the 22 E04-introduced analyzer information findings. The unrelated older bookmarks finding is named separately and does not erase E04 debt.
+- The production trust-key gate remains open until the exact authorized 32-byte Ed25519 public key exists. E04.2 is therefore partial, not fully accepted.
 
 ### Task E04.1: prove exact sqlite3mc content profile before depending on it
 
@@ -88,18 +102,18 @@ These names reserve ownership in this plan only. **Do not create or dispatch the
 - Modify: `lib/core/content/content_seed_version.dart` through the package builder, never by hand.
 - Modify: `pubspec.yaml` asset list to include manifest/signature and still exclude `v1.json`.
 
-**Exact package contract:** use manifest v1 and key IDs from the E03 spec; production `applicationId` is `com.aedwon.pantas`, channel `prod`. The builder computes stable `sourceContentSha256` from the approved plaintext seed immediately before protection, derives `contentSeedVersion` from that source digest, computes `payloadSha256` from the exact encrypted bytes, and signs a manifest containing both identities. Random SQLCipher/sqlite3mc salt/encryption state may make payload hashes differ across builds of identical source; tests must prove logical revision stability without fixing a deterministic salt.
+**Exact package contract, amended September 8:** production uses the E03 **manifest v2 successor** with `formatVersion = 2` and signed positive monotonic `releaseSequence`; v1 remains historical/rejection-fixture evidence and must fail production acceptance. Production `applicationId` is `com.aedwon.pantas`, channel `prod`. The builder computes stable `sourceContentSha256` from the approved plaintext seed immediately before protection, derives `contentSeedVersion` from that source digest, computes `payloadSha256` from the exact encrypted bytes, and signs the v2 manifest containing those identities and `releaseSequence`. Hashes identify bytes/revisions and never chronology. Random SQLCipher/sqlite3mc salt/encryption state may make payload hashes differ across builds of identical source; tests must prove logical revision stability without fixing a deterministic salt.
 
 **Steps:**
 1. Add fixture text that is easily detectable in raw JSON/plain SQLite.
-2. Write failing tests for raw release asset, missing/invalid signature, changed manifest, changed payload, wrong key, untrusted key ID, schema/channel/application mismatch, and accidental signing-private-key inclusion.
+2. Write failing tests for raw release asset, missing/invalid signature, changed manifest, changed payload, wrong key, unknown/retired key ID, key outside its `releaseSequence` validity window, schema/channel/application mismatch, lower-sequence replay, equal-sequence/different-identity fork, and accidental signing-private-key inclusion. Add an overlap fixture proving two explicitly authorized public signing key IDs can coexist during a bounded rotation window.
 3. Add maintained Ed25519 support only after dependency resolution passes. Do not implement a custom signature primitive.
 4. Make `build_content_package.dart` create the plaintext SQLite only in a controlled build-temp location, protect it with `content-bootstrap-v1`, write deterministic manifest bytes, sign them with `content-signing-v1`, validate the keyed database, then emit only protected release assets.
 5. Require build secrets from `PANTAS_CONTENT_BOOTSTRAP_KEY_V1_B64` and `PANTAS_CONTENT_SIGNING_PRIVATE_KEY_V1_B64`; fail closed when missing/malformed.
 6. Remove the stale historical JSON contribution from the current export path without restoring a reader.
 7. Scan all Flutter assets/release package fixture entries for raw fixture text/plain SQLite.
 8. Update `tools/release/android/release.sh` and focused tests to fail closed unless the exact generated payload + manifest + detached signature pass the new source-digest/payload-digest/signature checks; the old plaintext `APPROVED_CONTENT_DB_SHA256` + `contentSeedVersion`-prefix relationship must not authorize a protected release package.
-9. Record protected-package identity as source Git SHA, `sourceContentSha256`, `contentSeedVersion`, `payloadSha256`, manifest SHA-256, detached-signature SHA-256, key IDs, cipher profile, and schema versions.
+9. Record protected-package identity as source Git SHA, signed `releaseSequence`, `sourceContentSha256`, `contentSeedVersion`, `payloadSha256`, manifest SHA-256, detached-signature SHA-256, key IDs, cipher profile, and content/reader schema versions. A logical rollback is a new package with a higher sequence, never acceptance of a lower sequence.
 
 **Gate:** ordinary unzip/strings/JSON/plain SQLite cannot recover fixture corpus; correct key opens it; wrong/tampered inputs fail; no signing private key/server credential ships.
 
@@ -146,6 +160,13 @@ These names reserve ownership in this plan only. **Do not create or dispatch the
 
 ## E05 — QLP-1 metadata selection + batched hydration
 
+**September 8 E05 amendments:**
+
+- E05 owns removal of full-question hydration used only to determine custom-track metadata/count scope. Add lightweight metadata/count queries and a regression proving exact scope/exclusion/eligible-ID equivalence without hydrating stems, explanations, choices, rationales, or passage bodies for counting.
+- Ordering input comes from Settings `settings.session_ordering` / `SessionOrdering`. `quiz_today_interleaved` is legacy compatibility input only when current Settings ordering is absent; explicit Settings wins any disagreement. Map semantic enum cases, not storage strings. Preserve the shipped compatibility mapping `true -> interleavedTail`, `false -> blocked`. Preserve distinct mode behavior: `blocked` stays topic-focused; the 10-question `interleavedTail` case is 7 selected-topic + 3 other-topic due cards; `fullyMixed` prohibits adjacent same-topic questions.
+- Before any content schema increment for indexes/selection metadata, coordinate E04 manifest `contentSchemaVersion`/reader bounds with E05. Prove fresh-at-new-schema versus upgraded-from-accepted-E04 equivalence before bumping schema. A regenerated schema package uses a higher `releaseSequence`.
+- Selector batching must preserve the one shared local-day new-card allowance across all quiz surfaces and must not multiply it per topic. The only selector-policy questions left open here are deterministic scaling of the approved 7/3 `interleavedTail` rule beyond 10 questions/all-due lengths and fallback accounting outside counted buckets.
+
 ### Task E05.1: introduce lightweight selection rows
 
 **Files:**
@@ -191,6 +212,12 @@ These names reserve ownership in this plan only. **Do not create or dispatch the
 **E05 verification gate:** bounded query count, query-plan proof, policy/data equivalence, full focused quiz/content suite, analyze/format/diff/content/layering gates.
 
 ## E06 — QLP-2 / QLP-3 / QLP-4
+
+**September 8 E06 amendments:**
+
+- `QuizPreparationStamp` or its exact project equivalent covers content revision, authoritative account/user-data lifetime, exam/topic/custom scope, topic exclusions, Settings ordering, non-ordering quiz prefs, history/session-completion state, local day, and explicit `nextDueExpiry` (or equivalent earliest same-day due-boundary instant). A day stamp alone is insufficient.
+- Invalidate/revalidate on Settings ordering, scope/topic exclusions, history/import/sync, terminal session changes, content revision, account switch/reset/deletion lifetime, local-day rollover, and reaching `nextDueExpiry`, including after background return. Late older async preparation cannot overwrite newer preparation. Active persisted session IDs/order remain stable.
+- Add a real integration regression: write `settings.session_ordering` through Settings, deliberately store a conflicting legacy `quiz_today_interleaved`, run Today recommendation/preparation through Start, and prove Settings ordering reaches the one persisted session.
 
 ### Task E06.1: prepare Today once and share it across panel/Start
 
@@ -281,6 +308,8 @@ These names reserve ownership in this plan only. **Do not create or dispatch the
 
 ## E08 — guarded combined integration
 
+**September 8 E08 runner migration ownership:** migrate the protected-package Release E2E runner here. Remove the obsolete assumption that `contentSeedVersion` is a prefix of ciphertext SHA-256; supply the bootstrap define through the existing secret-safe build path; preserve exact source/package provenance and content-integrity checks; and do not broadly relax production-diff allowlists. This is an explicit E08 deliverable, not deferred release cleanup.
+
 **Ownership:** integration branch only. No new feature work unless a merge exposes a concrete integration defect.
 
 **Steps:**
@@ -314,6 +343,8 @@ Run focused regressions plus full `flutter test`, `flutter analyze`, formatting,
 
 ## E10 — three isolated final Release E2E passes
 
+**September 8 provenance amendment:** before Run 1, materialize a non-secret acceptance candidate record binding exact source Git SHA, `releaseSequence`, `sourceContentSha256`, `contentSeedVersion`, `payloadSha256`, manifest SHA-256, detached-signature SHA-256, signing/bootstrap key IDs, cipher profile, and content/reader schema versions. All three isolated passes use that exact package. Restart the emulator before pass 3 as already required.
+
 **Source:** exact accepted E09 candidate plus one already-materialized, unchanged protected-package identity: exact payload bytes, manifest bytes, detached-signature bytes, `sourceContentSha256`/`contentSeedVersion`, recorded package digests, key/profile/schema metadata, and source Git SHA.
 
 **Runner contract:** reuse the accepted Release E2E runner/harness and six journeys from `docs/superpowers/plans/2026-09-05-release-e2e-implementation.md`, with provenance companion hardening preserved.
@@ -329,6 +360,8 @@ Run focused regressions plus full `flutter test`, `flutter analyze`, formatting,
 
 ## E11 — independent final source/E2E review
 
+**September 8 acceptance amendment:** independent review publishes/accepts the exact non-secret source/package record, not merely a statement that some trusted-key package validates. Acceptance must verify sequence/key-window/schema/provenance and retain the exact package artifact for E12.
+
 **Read-only ownership.**
 
 Review exact E03 spec/decisions, E04–E09 implementation/evidence, E10 logs, source/content hashes, git history, protected package, migration, quiz policy equivalence, terminal session fix, performance methodology/results, unsupported-claim scan, and all residual risks.
@@ -336,6 +369,8 @@ Review exact E03 spec/decisions, E04–E09 implementation/evidence, E10 logs, so
 **Gate:** independent reviewer explicitly accepts one exact source SHA for production artifact build. Findings that require code send the program back; reviewer does not self-fix.
 
 ## E12 — signed production AAB
+
+**September 8 E12 preflight amendment:** release preflight verifies actual clean source and package bytes against the E11 accepted-package record in addition to normal signature/key-window/schema validation. A focused negative test must show that a different internally valid package signed by a currently trusted key is rejected because it is not the accepted package. Build the AAB with the exact E10/E11 package; do not silently regenerate randomized ciphertext.
 
 **Authorized release-builder ownership only.**
 
@@ -377,6 +412,8 @@ Required inputs:
 **Output:** one frozen upload-eligible artifact identity. No upload is performed unless a separately authorized release task explicitly includes Google Play mutation.
 
 ## Cross-stage verification discipline
+
+**September 8 evidence rule:** hashes identify exact bytes/revisions but never chronological precedence. Any authorized package regeneration, including logical rollback or schema change, gets a higher signed `releaseSequence` and a new exact identity. E10/E11/E12 evidence binds the accepted record. Later Play-installed Firebase, billing, accessibility, and device gates remain unchanged.
 
 Every implementation worker must record:
 - exact parent/base SHA and final head;

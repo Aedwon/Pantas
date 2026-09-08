@@ -12,7 +12,7 @@
 - `web/release-e2e-r1` is read-only during E03 and is the accepted E02 baseline source.
 - Astra Google Drive Master SSOT revision **54** is the scheduling authority for the security/content-protection and quiz-loading program.
 - Cancelled relay registry issue `Aedwon/chatgpt-terminal-relay#5482` is historical scope input only. Current worker registry issue `#5488`, Pantas issue `#21`, this repository handoff, and Drive revision 54 control execution.
-- Commercial pin carried into this checkpoint: **PHP 149/week**. Older repository/Drive pricing text is stale and is not an execution authority. No other price is re-frozen here.
+- **September 8 pricing correction:** current planning/commercial references conflict. No price is re-frozen by this checkpoint, and no Play/RevenueCat/store-pricing mutation is authorized until the founder/Play lane reconciles the live commercial source of truth.
 
 ## E02 status preserved, not overstated
 
@@ -45,7 +45,7 @@ At `ba536e73dbda455b994291eb551c2d6b0bd5286d`:
 
 ### Quiz loading and persistence
 
-- `QuizPreferencesRepository` is the authoritative stored preference reader/writer for session length, ordering, and new-card cap. `QuizOrdering.fromStorage` preserves historical boolean values and maps current values to `blocked`, `interleavedTail`, or `fullyMixed`; default remains `interleavedTail`. The ordering-authority dependency is resolved at E03.
+- **September 8 ordering correction:** Settings `settings.session_ordering` / `SessionOrdering` is authoritative for Today ordering. `QuizPreferencesRepository` remains authoritative for quiz-owned session length/new-card-cap data only where it is still the current source. Legacy `quiz_today_interleaved` is compatibility input only when current Settings ordering is absent; current Settings wins disagreement. The shipped mapping remains `true -> interleavedTail` and `false -> blocked`. The three modes are distinct: `blocked` stays topic-focused; a 10-question `interleavedTail` session is 7 selected-topic + 3 other-topic due cards; `fullyMixed` prohibits adjacent same-topic questions. The new-card cap is one shared local-day allowance across all quiz surfaces combined, never multiplied by topic.
 - `StartTodaySession` falls back to loading all questions for an exam/topic before building a plan.
 - `ContentRepository.questionsByTopic` fully hydrates questions; each hydration separately reads active choices and exam membership. `questionsByIds` batches question rows but still performs per-question choice/exam hydration. This is the verified QLP-1 data-path bottleneck.
 - `ResumeSession` reloads the saved ordered question IDs sequentially through `questionById`. QLP optimization must preserve stored identity and order while batching hydration.
@@ -77,7 +77,7 @@ No stage may count evidence from a different source/content digest as if it were
 
 The E02 statement above remains historical evidence: its plaintext seed writer derived `contentSeedVersion` from the generated plaintext DB hash. The future protected-package contract is different. E04 must compute `sourceContentSha256` from the approved plaintext seed immediately before protection and derive `contentSeedVersion` from that stable logical/source digest. The exact encrypted artifact gets a separate `payloadSha256`; manifest and detached-signature SHA-256 values identify the generated companions. The signed manifest binds both logical and exact payload identities.
 
-SQLCipher/sqlite3mc protection may produce different ciphertext/payload hashes for identical source because of randomized salt/encryption state. The program must not fix a deterministic salt merely to make ciphertext reproducible. Generated `content.db`, `content.manifest.json`, and `content.manifest.sig` travel as one immutable non-source-controlled package. E10 pins one exact package for all three isolated runs, and E12 packages that same accepted package; any authorized regeneration invalidates affected E09/E10/E11 evidence before a signed AAB may be accepted.
+SQLCipher/sqlite3mc protection may produce different ciphertext/payload hashes for identical source because of randomized salt/encryption state. The program must not fix a deterministic salt merely to make ciphertext reproducible. Generated `content.db`, `content.manifest.json`, and `content.manifest.sig` travel as one immutable non-source-controlled package. The September 8 successor wire contract is **manifest format v2**: `formatVersion = 2` plus signed positive monotonic `releaseSequence`; production acceptance rejects v1, which remains historical/rejection-fixture evidence only. E10 pins one exact v2 package for all three isolated runs, and E12 packages that same accepted package; any authorized regeneration invalidates affected E09/E10/E11 evidence before a signed AAB may be accepted. `releaseSequence` is chronology while hashes remain identities. Runtime accepted-sequence/package state and promotion intent are device-local protected-content installation metadata, outside account/user data, so sign-out/account switch/reset/deletion cannot clear anti-replay chronology. E10/E11/E12 bind a non-secret accepted-package record containing exact source Git SHA, `formatVersion`, sequence, source/payload/manifest/signature digests, key IDs, cipher profile, and content/reader schema versions.
 
 ## Parallel founder / Play / human lane
 
@@ -94,9 +94,21 @@ These founder/Play actions are not part of E03. E03 grants no Google Play mutati
 
 ## E03 deliverables and stop condition
 
-E03 is documentation plus read-only source discovery only. Its repository output is limited to `docs/superpowers/**` and consists of this checkpoint, the authoritative ordered plan, an exact E03 security/quiz execution spec, the E04–E14 implementation plan, and a chronological decision log.
+The September 7 E03 lane was documentation plus read-only source discovery only. The September 8 contract-correction lane is also documentation-only and starts from recovery-r2 head `3c686756ac31748f4acad0291e464fc45b1266cb`; it corrects governing contracts before E04.3/E04.4 or E05/E06 resumes and intentionally leaves its docs diff uncommitted/unpushed for root review.
 
 E03 does **not** implement or dispatch E04. E04 may start only after the orchestrator accepts this handoff and provides a new assignment with explicit branch/worktree ownership.
+
+## September 8 contract-correction checkpoint
+
+- E04.2 is reviewed partial work, not production-accepted. Relay histories `#5885` and `#5990` remain blocked on the missing explicitly authorized exact 32-byte Ed25519 public verification key for `content-signing-v1`. Safe fixture-key installer/migration work may proceed after contract acceptance; private signing/bootstrap material is never requested or recorded.
+- The protected manifest adds signed positive monotonic `releaseSequence`. Hashes remain identity only. Lower-sequence replay and equal-sequence/different-identity forks reject; publisher rollback uses a new higher sequence. Versioned signing/bootstrap IDs use sequence validity windows with bounded overlap/retirement and fail closed when unknown/retired.
+- Installer promotion persists accepted package identity and a recoverable promotion intent/previous-valid state across exact crash boundaries.
+- E04 acceptance must close or explicitly disposition 22 E04-introduced analyzer information findings; the unrelated older bookmarks finding is named separately.
+- E05 owns custom-track lightweight metadata/count scope and E04/E05 schema-transition equivalence. E06 owns Settings-write -> preparation -> Start disagreement regression plus lifetime/scope/history/day/`nextDueExpiry` freshness.
+- E08 owns Release E2E runner migration away from ciphertext-SHA-prefix assumptions without broad allowlist relaxation.
+- E10/E11 accept one non-secret exact source/package record; E12 checks actual source/package against it and rejects a different trusted-key-valid package. E12 consumes the exact accepted package instead of regenerating ciphertext.
+- No physical Android interruption/migration/device evidence is claimed by this correction. E09/E10/E13 and later Play-installed Firebase/billing/accessibility/device gates remain required.
+- Unresolved policy is narrower after root review: deterministic scaling of the already-approved 7/3 `interleavedTail` rule beyond the 10-question case, fallback accounting outside counted buckets, historical owner/outcome migration, historical Resume repair when legacy rows cannot be reconstructed exactly, and commercial pricing source of truth. Distinct ordering semantics, legacy `true/false` compatibility mapping, the 10-question 7/3 rule, the shared local-day new-card allowance, and forward Resume durability are already normative.
 
 ## Residual release gates after E03
 

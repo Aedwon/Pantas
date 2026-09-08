@@ -1,12 +1,12 @@
 # Pantas internal-beta ordered execution plan — authoritative E01–E14
 
-> This file replaces the stale Release-E2E-first ordering. Astra Google Drive Master SSOT revision 54 is the scheduling authority. The exact engineering baseline for E03 is `ba536e73dbda455b994291eb551c2d6b0bd5286d`. Domain details live in the E03 execution spec and E04–E14 implementation plan.
+> This file replaces the stale Release-E2E-first ordering. Astra Google Drive Master SSOT revision 54 remains the scheduling authority. The September 7 E03 design baseline was `ba536e73dbda455b994291eb551c2d6b0bd5286d`; the September 8 contract-correction lane starts from recovery-r2 head `3c686756ac31748f4acad0291e464fc45b1266cb`. Domain details live in the amended E03 execution spec and E04–E14 implementation plan.
 
 ## Non-negotiable sequencing rules
 
 1. `main` remains read-only. Work proceeds on explicitly assigned branches/worktrees only.
 2. E02 baseline evidence is preserved, but earlier plaintext-baseline E2E passes do not count as E10.
-3. E03 is documentation/read-only discovery only: CP-T0 + QLP-0. It does not dispatch or implement E04.
+3. September 7 E03 was documentation/read-only discovery only: CP-T0 + QLP-0. The September 8 correction is also documentation-only and does not itself resume E04.3/E04.4, E05, or E06.
 4. Content/security foundation precedes data/performance implementation: E04 before E05; E05 before E06.
 5. CP-T4 follows implementation so it can inspect the real protected path; combined integration follows at E08.
 6. Performance and source/device security evidence at E09 must exercise the final encrypted content path.
@@ -53,6 +53,8 @@
 
 ### E04 — CP-T1 + CP-T2 + CP-T3 protected content foundation
 
+**September 8 amendment:** E04.2 is reviewed partial work while the production trust keyring is empty. Production protected-package acceptance uses the **manifest v2** successor (`formatVersion = 2`) with signed monotonic `releaseSequence`; v1 remains historical/rejection-fixture evidence only. Add persistent accepted sequence/identity; lower/equal-fork replay rejection; recoverable promotion intent/previous-valid crash handling; key-ID sequence windows/rotation overlap/retirement; and explicit disposition of the 22 E04-introduced analyzer information findings separately from the older bookmarks finding. Accepted-package chronology/promotion metadata is device-local protected-content installation state, outside account/user reset lifetimes. Production acceptance stays blocked on the authorized exact 32-byte Ed25519 public verification key.
+
 **Owner:** one storage/content implementor under one integration owner.
 
 **Depends on:** accepted E03 docs.
@@ -68,6 +70,8 @@
 
 ### E05 — QLP-1 lightweight selection and bounded hydration
 
+**September 8 amendment:** E05 owns lightweight custom-track metadata/count scope with exact semantic equivalence, reads authoritative Settings `settings.session_ordering` rather than legacy quiz storage when present, and coordinates any schema/index increment with E04 manifest reader bounds plus fresh-versus-upgraded equivalence. Batching must preserve the already-frozen ordering semantics, shipped legacy mapping, 10-question `interleavedTail` 7/3 composition, and one shared local-day new-card allowance. E05 must not decide the still-open non-10/all-due 7/3 scaling rule or fallback accounting.
+
 **Owner:** content/data implementor.
 
 **Depends on:** accepted E04 protected content database interfaces.
@@ -77,6 +81,8 @@
 **Exit:** selection metadata contains no stem/explanation/choice payload; selected hydration preserves exact ID/order/version/choice order/passages/figures; query count grows by bounded chunks, not O(selected questions) hydration calls; `EXPLAIN QUERY PLAN` validates shipping/upgrade indexes.
 
 ### E06 — QLP-2 + QLP-3 + QLP-4 prepared launch and readiness
+
+**September 8 amendment:** preparation freshness includes account/reset/deletion lifetime, Settings ordering, scope/topic exclusions, history/session completion, content revision, local day, and explicit `nextDueExpiry` for same-day due crossings. Late old async results cannot overwrite newer prep; active persisted sessions remain stable. Add a real Settings-write -> recommendation/preparation -> Start regression with a conflicting legacy value proving Settings wins.
 
 **Owner:** one quiz application/presentation implementor.
 
@@ -101,6 +107,8 @@
 **Exit:** local and remote exposure is evidenced, not assumed. App Check/auth may be credited only on a serving path where they are actually enforced. Any publicly queryable equivalent corpus is a release blocker for the claimed protection boundary until explicitly accepted/remediated.
 
 ### E08 — combined integration
+
+**September 8 amendment:** E08 explicitly migrates the protected-package Release E2E runner, removing the ciphertext-SHA-prefix assumption, using the existing secret-safe bootstrap-define path, preserving source/package provenance/integrity checks, and avoiding broad production-diff allowlist relaxation.
 
 **Owner:** one integration owner.
 
@@ -128,6 +136,8 @@
 
 ### E10 — final Release E2E acceptance
 
+**September 8 amendment:** before pass 1, bind all three passes to one non-secret exact source/package candidate record including `releaseSequence`, source/payload/manifest/signature digests, key IDs, cipher profile, schema bounds, and source Git SHA. Preserve the emulator restart before pass 3.
+
 **Owner:** Release E2E verifier/orchestrator.
 
 **Depends on:** accepted E09 candidate, unchanged source/content digest.
@@ -138,6 +148,8 @@
 
 ### E11 — independent final source and E2E review
 
+**September 8 amendment:** independent acceptance is of the exact E10 source/package record and artifact, including sequence/key-window/schema/provenance, not merely signature validity. Preserve that exact package for E12.
+
 **Owner:** independent reviewer with no implementation ownership.
 
 **Depends on:** unchanged E10 source candidate.
@@ -147,6 +159,8 @@
 **Exit:** exact source SHA accepted for production artifact build, or a concrete defect sends the program back to the appropriate earlier stage.
 
 ### E12 — signed production AAB
+
+**September 8 amendment:** preflight verifies actual clean source and exact package against the E11 accepted record and includes a negative test rejecting a different internally valid trusted-key package. Build with the exact accepted artifact and do not regenerate randomized ciphertext.
 
 **Owner:** authorized release builder.
 
@@ -184,7 +198,7 @@ These tasks may proceed independently when they do not mutate the engineering ca
 
 1. **Play account readiness:** developer identity, payments profile/device verification, release-history access, account policy status.
 2. **Tester readiness:** Internal testing roster; later closed-test cohort and buffer; license testers; feedback/issue intake.
-3. **Commercial configuration:** current product/subscription/RevenueCat production setup using the live commercial SSOT. The current weekly pin is PHP 149/week; stale historical price tables are not authoritative.
+3. **Commercial configuration:** pricing references currently conflict. The founder/Play lane must reconcile the live commercial source of truth before any price change; this engineering plan does not select or mutate Play/RevenueCat/store pricing.
 4. **RTDN and backend operations:** prepare endpoint/project/topic/service-account requirements, but production mutation requires an explicitly authorized task.
 5. **Physical devices:** lower-end performance phone for E09, mainstream comparison phone, Play-installed acceptance device, OEM/notification/accessibility coverage.
 6. **Store/legal/privacy:** listings, declarations, privacy/account-data flows, release notes, policy forms, support channel.
@@ -192,7 +206,7 @@ These tasks may proceed independently when they do not mutate the engineering ca
 
 ## Protected package provenance rule
 
-The protected package has two identities: stable logical/source identity (`sourceContentSha256` + `contentSeedVersion`) and exact generated artifact identity (`payloadSha256` + manifest SHA-256 + detached-signature SHA-256, plus key/profile/schema metadata and source Git SHA). Randomized SQLCipher/sqlite3mc protection may change exact payload bytes across builds without changing logical content. E10 therefore pins one already-materialized protected package for all three passes, and E12 must package that exact accepted package. A new protected-package generation invalidates affected evidence even when the logical source revision is unchanged. No deterministic/fixed SQLCipher salt is authorized merely to force reproducible ciphertext.
+The protected package has two identities: stable logical/source identity (`sourceContentSha256` + `contentSeedVersion`) and exact generated artifact identity (`payloadSha256` + manifest SHA-256 + detached-signature SHA-256, plus key/profile/schema metadata and source Git SHA). Randomized SQLCipher/sqlite3mc protection may change exact payload bytes across builds without changing logical content. E10 therefore pins one already-materialized protected package for all three passes, and E12 must package that exact accepted package. A new protected-package generation invalidates affected evidence even when the logical source revision is unchanged. No deterministic/fixed SQLCipher salt is authorized merely to force reproducible ciphertext. **September 8:** production uses manifest `formatVersion = 2` with signed positive monotonic `releaseSequence`; v1 is not production-acceptable. Hashes never determine ordering. E10/E11 publish the exact accepted-package record including `formatVersion`, and E12 must match it. Runtime anti-replay sequence/identity and promotion intent remain device-local protected-content installation metadata and survive account-lifetime changes. A logical rollback is a new higher-sequence package. Key IDs are valid only within their configured sequence windows.
 
 ## Evidence invalidation rules
 
@@ -205,4 +219,4 @@ The protected package has two identities: stable logical/source identity (`sourc
 
 ## Current position
 
-E01 and E02 are historical/accepted inputs. **E03 is the current stage.** No E04 branch, worker, implementation, build, Play action, Android/Firebase E2E run, or AAB action is authorized by this document.
+E01 and E02 are historical/accepted inputs, and the September 7 E03 design lane is complete as planning history. **Current position on September 8:** governing contracts are being corrected against recovery-r2 head `3c686756ac31748f4acad0291e464fc45b1266cb`; E04.2 is reviewed partial work and production-blocked on the authorized public verification key. This correction does not itself authorize E04.3/E04.4, E05, E06, build, Play action, Android/Firebase E2E, or AAB work. The frozen stage order remains unchanged.
