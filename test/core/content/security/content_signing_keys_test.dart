@@ -5,7 +5,7 @@ import 'package:pantas/core/content/security/content_signing_keys.dart';
 void main() {
   test('malformed sequence window fails closed without relying on assertions',
       () {
-    final malformed = ContentSequenceWindow(
+    const malformed = ContentSequenceWindow(
       minReleaseSequence: 6,
       maxReleaseSequence: 5,
     );

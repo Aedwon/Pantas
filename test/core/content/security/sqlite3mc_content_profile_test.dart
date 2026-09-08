@@ -30,12 +30,11 @@ void main() {
         throwsArgumentError,
       );
 
-      final plaintext = sqlite3.open(file.path);
-      plaintext
+      sqlite3.open(file.path)
         ..execute('PRAGMA journal_mode = DELETE;')
         ..execute('CREATE TABLE fixture(value TEXT NOT NULL);')
-        ..execute('INSERT INTO fixture(value) VALUES (?)', [fixture]);
-      plaintext.dispose();
+        ..execute('INSERT INTO fixture(value) VALUES (?)', [fixture])
+        ..close();
 
       expect(
         utf8.decode(file.readAsBytesSync().take(16).toList()),
@@ -54,21 +53,44 @@ void main() {
       expect(
         () {
           final unkeyed = sqlite3.open(file.path);
-          addTearDown(unkeyed.dispose);
+          addTearDown(unkeyed.close);
           unkeyed.select('SELECT value FROM fixture;');
         },
         throwsA(anything),
       );
-      expect(() => ContentCipherProfile.open(file, wrongKey), throwsA(anything));
+      expect(
+        () => ContentCipherProfile.open(file, wrongKey),
+        throwsA(anything),
+      );
 
       final first = ContentCipherProfile.open(file, firstKey);
-      expect(first.select('SELECT value FROM fixture;').single['value'], fixture);
-      expect(first.select('PRAGMA journal_mode;').single.values.single, 'delete');
-      expect(first.select('PRAGMA legacy;').single.values.single.toString(), '0');
-      expect(first.select('PRAGMA hmac_use;').single.values.single.toString(), '1');
-      expect(first.select('PRAGMA hmac_check;').single.values.single.toString(), '1');
       expect(
-        first.select('PRAGMA plaintext_header_size;').single.values.single.toString(),
+        first.select('SELECT value FROM fixture;').single['value'],
+        fixture,
+      );
+      expect(
+        first.select('PRAGMA journal_mode;').single.values.single,
+        'delete',
+      );
+      expect(
+        first.select('PRAGMA legacy;').single.values.single.toString(),
+        '0',
+      );
+      expect(
+        first.select('PRAGMA hmac_use;').single.values.single.toString(),
+        '1',
+      );
+      expect(
+        first.select('PRAGMA hmac_check;').single.values.single.toString(),
+        '1',
+      );
+      expect(
+        first
+            .select('PRAGMA plaintext_header_size;')
+            .single
+            .values
+            .single
+            .toString(),
         '0',
       );
       expect(
@@ -78,7 +100,7 @@ void main() {
       final pageSize = int.parse(
         first.select('PRAGMA page_size;').single.values.single.toString(),
       );
-      first.dispose();
+      first.close();
 
       final tamperedFile = File('${directory.path}/tampered.db');
       final tamperedBytes = Uint8List.fromList(protectedBytes);
@@ -89,7 +111,7 @@ void main() {
       expect(
         () {
           final tampered = ContentCipherProfile.open(tamperedFile, firstKey);
-          addTearDown(tampered.dispose);
+          addTearDown(tampered.close);
           tampered.select('SELECT value FROM fixture;');
         },
         throwsA(anything),
@@ -101,18 +123,30 @@ void main() {
         'ok',
       );
       ContentCipherProfile.rekey(beforeRekey, secondKey);
-      beforeRekey.dispose();
+      beforeRekey.close();
 
-      expect(() => ContentCipherProfile.open(file, firstKey), throwsA(anything));
+      expect(
+        () => ContentCipherProfile.open(file, firstKey),
+        throwsA(anything),
+      );
       final second = ContentCipherProfile.open(file, secondKey);
-      expect(second.select('SELECT value FROM fixture;').single['value'], fixture);
-      expect(second.select('PRAGMA hmac_use;').single.values.single.toString(), '1');
-      expect(second.select('PRAGMA hmac_check;').single.values.single.toString(), '1');
+      expect(
+        second.select('SELECT value FROM fixture;').single['value'],
+        fixture,
+      );
+      expect(
+        second.select('PRAGMA hmac_use;').single.values.single.toString(),
+        '1',
+      );
+      expect(
+        second.select('PRAGMA hmac_check;').single.values.single.toString(),
+        '1',
+      );
       expect(
         second.select('PRAGMA integrity_check;').single.values.single,
         'ok',
       );
-      second.dispose();
+      second.close();
 
       final siblings = directory
           .listSync()

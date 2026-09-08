@@ -31,7 +31,7 @@ final contentDatabaseProvider = Provider<ContentDatabase>(
 );
 
 Future<List<Override>> bootstrapContentOverrides({
-  Future<ContentDatabase> Function() open = openContentDatabase,
+  Future<ContentDatabase> Function() open = openProtectedContentDatabase,
 }) async {
   final db = await open();
   return [contentDatabaseProvider.overrideWithValue(db)];

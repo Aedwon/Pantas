@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:crypto/crypto.dart' as hashes;
@@ -138,7 +137,7 @@ void main() {
   });
 
   test('rejects retired and out-of-window keys plus package tamper', () async {
-    final packageFixture = await fixture(releaseSequence: 5);
+    final packageFixture = await fixture();
 
     await expectLater(
       verifier(
@@ -219,14 +218,13 @@ void main() {
       ),
     };
 
-    final oldAtOverlap = await fixture(releaseSequence: 5);
+    final oldAtOverlap = await fixture();
     await expectLater(
       verifier(oldAtOverlap, signingEntries: entries).verifyBundled(),
       completes,
     );
 
     final successorAtOverlap = await fixture(
-      releaseSequence: 5,
       signingKeyId: 'content-signing-v2',
       signingKeyPairOverride: successorSigningKeyPair,
     );
@@ -275,14 +273,13 @@ void main() {
       ),
     };
 
-    final oldAtOverlap = await fixture(releaseSequence: 5);
+    final oldAtOverlap = await fixture();
     await expectLater(
       verifier(oldAtOverlap, bootstrapEntries: entries).verifyBundled(),
       completes,
     );
 
     final successorAtOverlap = await fixture(
-      releaseSequence: 5,
       bootstrapKeyId: 'content-bootstrap-v2',
     );
     await expectLater(
@@ -309,7 +306,7 @@ void main() {
 
   test('chronology rejects downgrade/fork and allows exact replay or upgrade',
       () async {
-    final acceptedFixture = await fixture(releaseSequence: 5);
+    final acceptedFixture = await fixture();
     final accepted = ContentPackageIdentity.fromVerified(
       await verifier(acceptedFixture).verifyBundled(),
     );
@@ -335,7 +332,6 @@ void main() {
     );
 
     final forkFixture = await fixture(
-      releaseSequence: 5,
       payloadBytes: Uint8List.fromList(<int>[10, 11, 12, 13]),
     );
     final fork = ContentPackageIdentity.fromVerified(
@@ -364,7 +360,7 @@ void main() {
 
   test('chronology rejects equal-sequence signed-manifest identity fork',
       () async {
-    final acceptedFixture = await fixture(releaseSequence: 5);
+    final acceptedFixture = await fixture();
     final acceptedPackage = await verifier(acceptedFixture).verifyBundled();
     final accepted = ContentPackageIdentity.fromVerified(acceptedPackage);
 
@@ -387,7 +383,6 @@ void main() {
       ),
     };
     final forkFixture = await fixture(
-      releaseSequence: 5,
       signingKeyId: 'content-signing-v2',
       signingKeyPairOverride: successorSigningKeyPair,
     );

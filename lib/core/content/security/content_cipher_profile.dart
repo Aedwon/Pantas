@@ -14,23 +14,28 @@ abstract final class ContentCipherProfile {
     _requireKey(key);
     final db = sqlite3.open(file.path);
     try {
-      db
-        ..execute("PRAGMA cipher = 'sqlcipher';")
-        ..execute('PRAGMA hmac_use = 1;')
-        ..execute('PRAGMA hmac_check = 1;')
-        ..execute('PRAGMA mc_legacy_wal = 0;')
-        ..execute("PRAGMA key = \"x'${_toHex(key)}'\";")
-        ..execute('PRAGMA journal_mode = DELETE;')
-        ..execute('PRAGMA temp_store = MEMORY;');
-      // Force sqlite3mc to authenticate/read the database before returning a
-      // handle. Wrong or absent keys must fail here, not on a later feature
-      // query.
-      db.select('SELECT count(*) FROM sqlite_schema;');
+      configure(db, key);
       return db;
     } catch (_) {
-      db.dispose();
+      db.close();
       rethrow;
     }
+  }
+
+  static void configure(Database db, Uint8List key) {
+    _requireKey(key);
+    // Force sqlite3mc to authenticate/read the database before returning a
+    // handle. Wrong or absent keys must fail here, not on a later feature
+    // query.
+    db
+      ..execute("PRAGMA cipher = 'sqlcipher';")
+      ..execute('PRAGMA hmac_use = 1;')
+      ..execute('PRAGMA hmac_check = 1;')
+      ..execute('PRAGMA mc_legacy_wal = 0;')
+      ..execute("PRAGMA key = \"x'${_toHex(key)}'\";")
+      ..execute('PRAGMA journal_mode = DELETE;')
+      ..execute('PRAGMA temp_store = MEMORY;')
+      ..select('SELECT count(*) FROM sqlite_schema;');
   }
 
   /// Rekeys an existing plaintext SQLite file in place.
@@ -50,7 +55,7 @@ abstract final class ContentCipherProfile {
         ..execute('PRAGMA mc_legacy_wal = 0;')
         ..execute("PRAGMA rekey = \"x'${_toHex(key)}'\";");
     } finally {
-      db.dispose();
+      db.close();
     }
   }
 

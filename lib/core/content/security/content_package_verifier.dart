@@ -1,10 +1,8 @@
 import 'dart:typed_data';
 
-import 'package:crypto/crypto.dart' as hashes;
 import 'package:cryptography/cryptography.dart';
-
-import 'content_package_manifest.dart';
-import 'content_signing_keys.dart';
+import 'package:pantas/core/content/security/content_package_manifest.dart';
+import 'package:pantas/core/content/security/content_signing_keys.dart';
 
 typedef ContentPackageAssetLoader = Future<Uint8List> Function(String path);
 
@@ -31,6 +29,8 @@ final class VerifiedContentPackage {
   final String signatureSha256;
 }
 
+// Frozen E04 public injection seam intentionally remains an interface.
+// ignore: one_member_abstracts
 abstract interface class ContentPackageVerifier {
   Future<VerifiedContentPackage> verifyBundled();
 }
@@ -76,7 +76,8 @@ final class BundledContentPackageVerifier implements ContentPackageVerifier {
     manifest.validateProduction();
     if (!signingEntry.sequenceWindow.contains(manifest.releaseSequence)) {
       throw const FormatException(
-          'content signing key is out of sequence window');
+        'content signing key is out of sequence window',
+      );
     }
 
     final bootstrapEntry = _bootstrapKeyLookup(manifest.bootstrapKeyId);
@@ -86,25 +87,29 @@ final class BundledContentPackageVerifier implements ContentPackageVerifier {
     }
     if (bootstrapEntry.keyBytes.length != 32) {
       throw const FormatException(
-          'content bootstrap key must be exactly 32 bytes');
+        'content bootstrap key must be exactly 32 bytes',
+      );
     }
     if (!bootstrapEntry.sequenceWindow.contains(manifest.releaseSequence)) {
       throw const FormatException(
-          'content bootstrap key is out of sequence window');
+        'content bootstrap key is out of sequence window',
+      );
     }
 
     final payloadBytes = await _loadAssetBytes(manifest.payloadPath);
-    final payloadSha256 = hashes.sha256.convert(payloadBytes).toString();
+    final payloadSha256 = await _sha256Hex(payloadBytes);
     if (payloadSha256 != manifest.payloadSha256) {
       throw const FormatException('protected content payload digest mismatch');
     }
+    final manifestSha256 = await _sha256Hex(manifestBytes);
+    final signatureSha256 = await _sha256Hex(signatureBytes);
 
     return VerifiedContentPackage(
       manifest: manifest,
       payloadBytes: payloadBytes,
       bootstrapKeyBytes: bootstrapEntry.keyBytes,
-      manifestSha256: hashes.sha256.convert(manifestBytes).toString(),
-      signatureSha256: hashes.sha256.convert(signatureBytes).toString(),
+      manifestSha256: manifestSha256,
+      signatureSha256: signatureSha256,
     );
   }
 
@@ -121,6 +126,13 @@ final class BundledContentPackageVerifier implements ContentPackageVerifier {
     } on Object {
       return false;
     }
+  }
+
+  Future<String> _sha256Hex(Uint8List bytes) async {
+    final digest = await Sha256().hash(bytes);
+    return digest.bytes
+        .map((byte) => byte.toRadixString(16).padLeft(2, '0'))
+        .join();
   }
 }
 

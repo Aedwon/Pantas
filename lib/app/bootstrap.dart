@@ -1,6 +1,8 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/app.dart';
 import 'package:pantas/app/auth_bootstrap.dart';
@@ -8,9 +10,10 @@ import 'package:pantas/app/firebase_bootstrap.dart';
 import 'package:pantas/app/flavor.dart';
 import 'package:pantas/app/sync_runtime_bootstrap.dart';
 import 'package:pantas/app/telemetry_providers.dart';
-import 'package:pantas/core/content/bundle/seed_installer.dart';
+import 'package:pantas/core/content/bundle/protected_content_installer.dart';
 import 'package:pantas/core/content/content.dart';
-import 'package:pantas/core/content/content_database_opener.dart';
+import 'package:pantas/core/content/security/content_package_verifier.dart';
+import 'package:pantas/core/content/security/content_signing_keys.dart';
 import 'package:pantas/core/dev/dev_demo_switch.dart';
 import 'package:pantas/core/dev/dev_pro_switch.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
@@ -29,6 +32,39 @@ import 'package:pantas/features/review_prompt/application/review_prompt_provider
 import 'package:pantas/features/review_prompt/data/in_app_review_gateway.dart';
 import 'package:pantas/features/review_prompt/data/review_prompt_store.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
+
+const _contentBootstrapKeyId = 'content-bootstrap-v1';
+const _contentBootstrapKeyB64 = String.fromEnvironment(
+  'PANTAS_CONTENT_BOOTSTRAP_KEY_V1_B64',
+);
+
+Future<Uint8List> _loadContentPackageAssetBytes(String path) async {
+  final data = await rootBundle.load(path);
+  return data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+}
+
+ContentBootstrapKeyEntry? _lookupContentBootstrapKey(String keyId) {
+  if (keyId != _contentBootstrapKeyId || _contentBootstrapKeyB64.isEmpty) {
+    return null;
+  }
+
+  final Uint8List keyBytes;
+  try {
+    keyBytes = base64Decode(_contentBootstrapKeyB64);
+  } on FormatException {
+    return null;
+  }
+
+  if (keyBytes.length != 32) {
+    return null;
+  }
+
+  return ContentBootstrapKeyEntry(
+    keyId: _contentBootstrapKeyId,
+    keyBytes: keyBytes,
+    sequenceWindow: const ContentSequenceWindow(minReleaseSequence: 1),
+  );
+}
 
 /// Feeds the real subscription into the mock cooldown.
 ///
@@ -101,6 +137,13 @@ Future<void> _bootstrap(
   await activateAppCheck(flavor);
 
   final overrides = await bootstrapStorageOverrides();
+  await ensureProtectedContentInstalled(
+    verifier: const BundledContentPackageVerifier(
+      loadAssetBytes: _loadContentPackageAssetBytes,
+      signingKeyLookup: ContentSigningKeys.lookupEntry,
+      bootstrapKeyLookup: _lookupContentBootstrapKey,
+    ),
+  );
   final contentOverrides = await bootstrapContentOverrides();
   final remoteFlagsOverrides = await bootstrapRemoteFlagsOverrides();
   final authOverrides = authRepositoryOverrides(firebaseResult);
@@ -141,7 +184,6 @@ Future<void> _bootstrap(
   await applyPersistedTelemetryConsent(container);
   await registerDevProSwitch(container);
   await registerDevDemoSwitch(container);
-  await _installContentSeed(container);
   await bootstrapRevenueCat(container);
   await bootstrapSyncRuntime(container, firebaseResult);
 
@@ -156,17 +198,6 @@ Future<void> _bootstrap(
       child: App(flavor: flavor),
     ),
   );
-}
-
-Future<void> _installContentSeed(ProviderContainer container) async {
-  final prefs = container.read(appPreferencesRepositoryProvider);
-  final wrote = await SeedInstaller().install(
-    installedVersion: await prefs.installedContentSeedVersion(),
-    bundledVersion: contentSeedVersion,
-  );
-  if (wrote) {
-    await prefs.setInstalledContentSeedVersion(contentSeedVersion);
-  }
 }
 
 /// Reads persisted telemetry preference and applies it to the telemetry consent
