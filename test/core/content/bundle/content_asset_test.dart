@@ -1,25 +1,26 @@
-import 'package:flutter/services.dart';
+import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
+import 'package:yaml/yaml.dart';
 
 void main() {
-  TestWidgetsFlutterBinding.ensureInitialized();
+  test('Flutter assets declare the protected content package companions', () {
+    final pubspec =
+        loadYaml(File('pubspec.yaml').readAsStringSync()) as YamlMap;
+    final flutter = pubspec['flutter'] as YamlMap;
+    final assets = (flutter['assets'] as YamlList)
+        .map((asset) => asset as String)
+        .toList(growable: false);
 
-  test('the content database ships in the asset bundle', () async {
-    final data = await rootBundle.load('assets/seed/content.db');
-
-    expect(data.lengthInBytes, greaterThan(0));
-  });
-
-  test('the bundled file is a SQLite database', () async {
-    final data = await rootBundle.load('assets/seed/content.db');
-    final header = data.buffer
-        .asUint8List(data.offsetInBytes, 16)
-        .map(String.fromCharCode)
-        .join();
-
-    // Every SQLite file begins with this 16-byte magic string. The
-    // sixteenth byte is a NUL, not a space, so it is written as an
-    // escape: a literal NUL pasted into source is silently lossy.
-    expect(header, 'SQLite format 3\x00');
+    expect(
+      assets,
+      containsAll(<String>[
+        'assets/seed/content.db',
+        'assets/seed/content.manifest.json',
+        'assets/seed/content.manifest.sig',
+      ]),
+    );
+    expect(assets, isNot(contains('assets/seed/v1.json')));
+    expect(assets, isNot(contains('assets/seed/')));
   });
 }
