@@ -26,6 +26,24 @@ void main() {
       contains(usage),
     );
 
+    final invalidSequence = await Process.run(
+      'dart',
+      <String>[
+        'run',
+        'tools/build_content_package/build_content_package.dart',
+        '.dart_tool/e04-export-after.json',
+        'assets/seed',
+        'lib/core/content/content_seed_version.dart',
+        '0',
+      ],
+      environment: environment,
+    );
+    expect(invalidSequence.exitCode, 64);
+    expect(
+      '${invalidSequence.stdout}${invalidSequence.stderr}',
+      contains('release sequence must be a positive integer'),
+    );
+
     final missingSecrets = await Process.run(
       'dart',
       <String>[
@@ -34,6 +52,7 @@ void main() {
         '.dart_tool/e04-export-after.json',
         'assets/seed',
         'lib/core/content/content_seed_version.dart',
+        '1',
       ],
       environment: environment,
     );

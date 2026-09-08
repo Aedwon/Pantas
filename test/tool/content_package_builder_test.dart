@@ -41,6 +41,7 @@ void main() {
       final secondVersion = File('${tempDir.path}/second_version.dart');
 
       final first = await buildContentPackage(
+        releaseSequence: 7,
         inputJson: input,
         outputDirectory: firstOutput,
         bootstrapKey: bootstrapKey,
@@ -48,6 +49,7 @@ void main() {
         versionFile: firstVersion,
       );
       final second = await buildContentPackage(
+        releaseSequence: 8,
         inputJson: input,
         outputDirectory: secondOutput,
         bootstrapKey: bootstrapKey,
@@ -84,6 +86,9 @@ void main() {
         ContentPackageManifest.parse(manifestBytes).validateProduction,
         returnsNormally,
       );
+      expect(first.manifestData.formatVersion, 2);
+      expect(first.manifestData.releaseSequence, 7);
+      expect(second.manifestData.releaseSequence, 8);
       expect(
         first.manifestData.sourceContentSha256,
         second.manifestData.sourceContentSha256,

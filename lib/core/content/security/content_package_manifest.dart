@@ -3,6 +3,7 @@ import 'dart:convert';
 final class ContentPackageManifest {
   ContentPackageManifest({
     required this.formatVersion,
+    required this.releaseSequence,
     required this.applicationId,
     required this.releaseChannel,
     required this.payloadPath,
@@ -18,14 +19,19 @@ final class ContentPackageManifest {
   });
 
   factory ContentPackageManifest.production({
+    required int releaseSequence,
     required String sourceContentSha256,
     required String payloadSha256,
   }) {
     if (sourceContentSha256.length < 16) {
       throw const FormatException('sourceContentSha256 is too short');
     }
+    if (releaseSequence <= 0) {
+      throw const FormatException('releaseSequence must be positive');
+    }
     return ContentPackageManifest(
-      formatVersion: formatVersionV1,
+      formatVersion: formatVersionV2,
+      releaseSequence: releaseSequence,
       applicationId: productionApplicationId,
       releaseChannel: productionReleaseChannel,
       payloadPath: productionPayloadPath,
@@ -63,6 +69,7 @@ final class ContentPackageManifest {
 
     return ContentPackageManifest(
       formatVersion: field<int>('formatVersion'),
+      releaseSequence: field<int>('releaseSequence'),
       applicationId: field<String>('applicationId'),
       releaseChannel: field<String>('releaseChannel'),
       payloadPath: field<String>('payloadPath'),
@@ -79,6 +86,7 @@ final class ContentPackageManifest {
   }
 
   static const formatVersionV1 = 1;
+  static const formatVersionV2 = 2;
   static const productionApplicationId = 'com.aedwon.pantas';
   static const productionReleaseChannel = 'prod';
   static const productionPayloadPath = 'assets/seed/content.db';
@@ -88,6 +96,7 @@ final class ContentPackageManifest {
   static const signingKeyIdV1 = 'content-signing-v1';
 
   final int formatVersion;
+  final int releaseSequence;
   final String applicationId;
   final String releaseChannel;
   final String payloadPath;
@@ -105,6 +114,7 @@ final class ContentPackageManifest {
         'formatVersion': formatVersion,
         'applicationId': applicationId,
         'releaseChannel': releaseChannel,
+        'releaseSequence': releaseSequence,
         'payloadPath': payloadPath,
         'sourceContentSha256': sourceContentSha256,
         'payloadSha256': payloadSha256,
@@ -120,7 +130,8 @@ final class ContentPackageManifest {
   List<int> encode() => utf8.encode('${jsonEncode(toJson())}\n');
 
   void validateProduction() {
-    if (formatVersion != formatVersionV1 ||
+    if (formatVersion != formatVersionV2 ||
+        releaseSequence <= 0 ||
         applicationId != productionApplicationId ||
         releaseChannel != productionReleaseChannel ||
         payloadPath != productionPayloadPath ||
@@ -128,8 +139,8 @@ final class ContentPackageManifest {
         readerSchemaMin != contentSchemaV1 ||
         readerSchemaMax != contentSchemaV1 ||
         cipherProfile != cipherProfileV1 ||
-        bootstrapKeyId != bootstrapKeyIdV1 ||
-        signingKeyId != signingKeyIdV1) {
+        bootstrapKeyId.isEmpty ||
+        signingKeyId.isEmpty) {
       throw const FormatException('incompatible content package manifest');
     }
 

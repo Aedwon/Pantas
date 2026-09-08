@@ -2,10 +2,9 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:crypto/crypto.dart' as hashes;
-import 'package:cryptography/cryptography.dart';
 import 'package:pantas/core/content/security/content_cipher_profile.dart';
 import 'package:pantas/core/content/security/content_package_manifest.dart';
+import 'package:pantas/core/content/security/content_package_verifier.dart';
 import 'package:pantas/core/content/security/content_signing_keys.dart';
 
 Future<void> main(List<String> args) async {
@@ -26,8 +25,15 @@ Future<void> main(List<String> args) async {
       payload: File(args[0]),
       manifest: File(args[1]),
       signature: File(args[2]),
-      bootstrapKey: bootstrapKey,
-      signingKeyLookup: ContentSigningKeys.lookup,
+      signingKeyLookup: ContentSigningKeys.lookupEntry,
+      bootstrapKeyLookup: (keyId) {
+        if (keyId != ContentPackageManifest.bootstrapKeyIdV1) return null;
+        return ContentBootstrapKeyEntry(
+          keyId: keyId,
+          keyBytes: bootstrapKey,
+          sequenceWindow: const ContentSequenceWindow(minReleaseSequence: 1),
+        );
+      },
     );
     stdout.writeln(
       'content package verified: ${manifest.contentSeedVersion} '
@@ -66,42 +72,26 @@ Future<ContentPackageManifest> verifyContentPackage({
   required File payload,
   required File manifest,
   required File signature,
-  required Uint8List bootstrapKey,
-  required ContentSigningKeyLookup signingKeyLookup,
+  required ContentSigningKeyEntryLookup signingKeyLookup,
+  required ContentBootstrapKeyEntryLookup bootstrapKeyLookup,
 }) async {
-  if (bootstrapKey.length != 32) {
-    throw const FormatException('bootstrap key must be exactly 32 bytes');
-  }
-
-  final manifestBytes = await manifest.readAsBytes();
-  final signatureBytes = await signature.readAsBytes();
-
-  // Parse only far enough to select a candidate public key. No other
-  // manifest-controlled identity is accepted until the detached signature
-  // over these exact bytes verifies.
-  final manifestData = ContentPackageManifest.parse(manifestBytes);
-  final publicKey = signingKeyLookup(manifestData.signingKeyId);
-  if (publicKey == null) {
-    throw const FormatException('untrusted content signing key id');
-  }
-
-  final verified = await Ed25519().verify(
-    manifestBytes,
-    signature: Signature(signatureBytes, publicKey: publicKey),
+  final verifier = BundledContentPackageVerifier(
+    loadAssetBytes: (path) async {
+      if (path == ContentPackageAssets.manifestPath) {
+        return manifest.readAsBytes();
+      }
+      if (path == ContentPackageAssets.signaturePath) {
+        return signature.readAsBytes();
+      }
+      if (path == ContentPackageAssets.payloadPath) {
+        return payload.readAsBytes();
+      }
+      throw FormatException('unexpected protected content asset path: $path');
+    },
+    signingKeyLookup: signingKeyLookup,
+    bootstrapKeyLookup: bootstrapKeyLookup,
   );
-  if (!verified) {
-    throw const FormatException('invalid content manifest signature');
-  }
-
-  // Only authenticated manifest identities are validated/trusted below.
-  manifestData.validateProduction();
-
-  final payloadBytes = await payload.readAsBytes();
-  final payloadSha256 = hashes.sha256.convert(payloadBytes).toString();
-  if (payloadSha256 != manifestData.payloadSha256) {
-    throw const FormatException('protected content payload digest mismatch');
-  }
-
-  ContentCipherProfile.open(payload, bootstrapKey).close();
-  return manifestData;
+  final verified = await verifier.verifyBundled();
+  ContentCipherProfile.open(payload, verified.bootstrapKeyBytes).close();
+  return verified.manifest;
 }

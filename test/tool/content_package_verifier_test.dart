@@ -5,6 +5,7 @@ import 'dart:typed_data';
 import 'package:cryptography/cryptography.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/security/content_package_manifest.dart';
+import 'package:pantas/core/content/security/content_signing_keys.dart';
 
 import '../../tools/build_content_package/build_content_package.dart';
 import '../../tools/verify_content_package/verify_content_package.dart';
@@ -22,6 +23,7 @@ void main() {
       bootstrapKey = Uint8List.fromList(List<int>.generate(32, (i) => i + 1));
       signingSeed = Uint8List.fromList(List<int>.generate(32, (i) => 0xc0 - i));
       package = await buildContentPackage(
+        releaseSequence: 7,
         inputJson: File('test/fixtures/sanity/content_sample.json'),
         outputDirectory: Directory('${tempDir.path}/package'),
         bootstrapKey: bootstrapKey,
@@ -36,21 +38,40 @@ void main() {
       if (tempDir.existsSync()) tempDir.deleteSync(recursive: true);
     });
 
-    SimplePublicKey? trustedLookup(String keyId) =>
-        keyId == ContentPackageManifest.signingKeyIdV1 ? publicKey : null;
-
     Future<ContentPackageManifest> verify({
       File? payload,
       File? manifest,
       File? signature,
       Uint8List? key,
+      ContentSequenceWindow signingWindow = const ContentSequenceWindow(
+        minReleaseSequence: 1,
+        maxReleaseSequence: 10,
+      ),
+      ContentSequenceWindow bootstrapWindow = const ContentSequenceWindow(
+        minReleaseSequence: 1,
+        maxReleaseSequence: 10,
+      ),
     }) {
       return verifyContentPackage(
         payload: payload ?? package.payload,
         manifest: manifest ?? package.manifest,
         signature: signature ?? package.signature,
-        bootstrapKey: key ?? bootstrapKey,
-        signingKeyLookup: trustedLookup,
+        signingKeyLookup: (keyId) =>
+            keyId == ContentPackageManifest.signingKeyIdV1
+                ? ContentSigningKeyEntry(
+                    keyId: keyId,
+                    publicKey: publicKey,
+                    sequenceWindow: signingWindow,
+                  )
+                : null,
+        bootstrapKeyLookup: (keyId) =>
+            keyId == ContentPackageManifest.bootstrapKeyIdV1
+                ? ContentBootstrapKeyEntry(
+                    keyId: keyId,
+                    keyBytes: key ?? bootstrapKey,
+                    sequenceWindow: bootstrapWindow,
+                  )
+                : null,
       );
     }
 
@@ -95,6 +116,40 @@ void main() {
       await expectLater(
         verify(key: Uint8List.fromList(List<int>.filled(32, 0x55))),
         throwsA(anything),
+      );
+    });
+
+    test('out-of-window bootstrap key fails closed', () async {
+      await expectLater(
+        verify(
+          bootstrapWindow: const ContentSequenceWindow(
+            minReleaseSequence: 1,
+            maxReleaseSequence: 6,
+          ),
+        ),
+        throwsFormatException,
+      );
+    });
+
+    test('release verifier rejects malformed and out-of-window signing keys',
+        () async {
+      await expectLater(
+        verify(
+          signingWindow: const ContentSequenceWindow(
+            minReleaseSequence: 8,
+            maxReleaseSequence: 7,
+          ),
+        ),
+        throwsFormatException,
+      );
+      await expectLater(
+        verify(
+          signingWindow: const ContentSequenceWindow(
+            minReleaseSequence: 1,
+            maxReleaseSequence: 6,
+          ),
+        ),
+        throwsFormatException,
       );
     });
 

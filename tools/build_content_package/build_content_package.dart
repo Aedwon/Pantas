@@ -10,11 +10,18 @@ import 'package:pantas/core/content/security/content_package_manifest.dart';
 import '../build_content_seed/seed_writer.dart';
 
 Future<void> main(List<String> args) async {
-  if (args.length != 3) {
+  if (args.length != 4) {
     stderr.writeln(
       'usage: dart run tools/build_content_package/build_content_package.dart '
-      '<input-json> <output-directory> <version-file>',
+      '<input-json> <output-directory> <version-file> <release-sequence>',
     );
+    exitCode = 64;
+    return;
+  }
+
+  final releaseSequence = int.tryParse(args[3]);
+  if (releaseSequence == null || releaseSequence <= 0) {
+    stderr.writeln('release sequence must be a positive integer');
     exitCode = 64;
     return;
   }
@@ -23,6 +30,7 @@ Future<void> main(List<String> args) async {
     Platform.environment,
   );
   await buildContentPackage(
+    releaseSequence: releaseSequence,
     inputJson: File(args[0]),
     outputDirectory: Directory(args[1]),
     bootstrapKey: secrets.bootstrapKey,
@@ -97,6 +105,7 @@ final class ContentPackageBuildResult {
 }
 
 Future<ContentPackageBuildResult> buildContentPackage({
+  required int releaseSequence,
   required File inputJson,
   required Directory outputDirectory,
   required Uint8List bootstrapKey,
@@ -132,6 +141,7 @@ Future<ContentPackageBuildResult> buildContentPackage({
     final payloadBytes = await plaintextThenProtected.readAsBytes();
     final payloadSha256 = hashes.sha256.convert(payloadBytes).toString();
     final manifestData = ContentPackageManifest.production(
+      releaseSequence: releaseSequence,
       sourceContentSha256: sourceContentSha256,
       payloadSha256: payloadSha256,
     )..validateProduction();
