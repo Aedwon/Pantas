@@ -14,6 +14,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/features/quiz/application/quiz_completion_coordinator.dart';
 import 'package:pantas/features/quiz/application/quiz_launch_coordinator.dart';
+import 'package:pantas/features/quiz/application/quiz_performance_probe.dart';
 import 'package:pantas/features/quiz/application/quiz_preparation_stamp.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/data/repos/new_card_intro_repository.dart';
@@ -61,6 +62,10 @@ final startPracticeProvider = Provider<StartPractice>(
 DateTime _nowUtc() => DateTime.now();
 
 final nowProvider = Provider<DateTime Function()>((_) => _nowUtc);
+
+final quizPerformanceProbeProvider = Provider<QuizPerformanceProbe>(
+  (_) => const QuizPerformanceProbe.disabled(),
+);
 
 final fsrsSchedulerProvider =
     Provider<FsrsScheduler>((_) => const FsrsScheduler());
@@ -185,14 +190,17 @@ final quizLaunchCoordinatorProvider = Provider<QuizLaunchCoordinator>((ref) {
         newCardCap: stamp.newCardCap,
       );
       if (!canPersist()) return null;
-      return ref.read(startTodaySessionProvider).callGuarded(
-            userId: request.userId,
-            examId: request.examId,
-            topicId: request.topicId,
-            preferences: preferences,
-            now: ref.read(nowProvider)(),
-            plan: prepared.plan,
-            canPersist: canPersist,
+      return ref.read(quizPerformanceProbeProvider).measureAsync(
+            QuizPerformancePhase.sessionPersistence,
+            () => ref.read(startTodaySessionProvider).callGuarded(
+                  userId: request.userId,
+                  examId: request.examId,
+                  topicId: request.topicId,
+                  preferences: preferences,
+                  now: ref.read(nowProvider)(),
+                  plan: prepared.plan,
+                  canPersist: canPersist,
+                ),
           );
     },
   );
@@ -217,33 +225,61 @@ Future<TodaySessionPlan> _buildTodayPlan(
 ) async {
   final content = ref.read(contentRepositoryProvider);
   final now = ref.read(nowProvider)();
-  final scope = await _readScope(ref, request.examId);
+  final probe = ref.read(quizPerformanceProbeProvider);
+  final scope = await probe.measureAsync(
+    QuizPerformancePhase.scopeResolution,
+    () => _readScope(ref, request.examId),
+  );
   final topics = scope.topics;
   if (topics.isEmpty) return TodaySessionPlan.empty;
 
-  final questionsByTopic = <TopicId, List<Question>>{};
-  for (final topic in topics) {
-    final rows = await content.selectionRowsByTopic(topic.id);
-    questionsByTopic[topic.id] = [
-      for (final row in rows) _selectionQuestion(row, request.examId),
-    ];
-  }
+  final questionsByTopic = await probe.measureAsync(
+    QuizPerformancePhase.metadataRead,
+    () async {
+      final result = <TopicId, List<Question>>{};
+      for (final topic in topics) {
+        final rows = await content.selectionRowsByTopic(topic.id);
+        result[topic.id] = [
+          for (final row in rows) _selectionQuestion(row, request.examId),
+        ];
+      }
+      return result;
+    },
+  );
   final questionsById = <QuestionId, Question>{
     for (final questions in questionsByTopic.values)
       for (final question in questions) question.id: question,
   };
 
-  final states = await ref.read(reviewStateRepositoryProvider).allStates();
-  final outcomes = await ref.read(attemptsRepositoryProvider).questionOutcomes(
-        examId: request.examId,
-        now: now,
+  final historyInputs = await probe.measureAsync(
+    QuizPerformancePhase.historyRead,
+    () async {
+      final states = await ref.read(reviewStateRepositoryProvider).allStates();
+      final outcomes =
+          await ref.read(attemptsRepositoryProvider).questionOutcomes(
+                examId: request.examId,
+                now: now,
+              );
+      final preferences =
+          await ref.read(quizPreferencesRepositoryProvider).read();
+      final introduced =
+          await ref.read(newCardIntroRepositoryProvider).countForDay(
+                userId: request.userId,
+                examId: request.examId,
+                day: now,
+              );
+      return (
+        states: states,
+        outcomes: outcomes,
+        preferences: preferences,
+        introduced: introduced,
       );
-  final preferences = await ref.read(quizPreferencesRepositoryProvider).read();
-  final introduced = await ref.read(newCardIntroRepositoryProvider).countForDay(
-        userId: request.userId,
-        examId: request.examId,
-        day: now,
-      );
+    },
+  );
+  final states = historyInputs.states;
+  final outcomes = historyInputs.outcomes;
+  final preferences = historyInputs.preferences;
+  final introduced = historyInputs.introduced;
   final capRemaining =
       (preferences.newCardCap - introduced).clamp(0, preferences.newCardCap);
 
@@ -296,6 +332,7 @@ Future<TodaySessionPlan> _buildTodayPlan(
     }
   }
   if (named == null || named.totalCount == 0) return TodaySessionPlan.empty;
+  final selectedTopic = named;
 
   final poolBacklogs = backlogByTopic.values;
   final due = <Question>[];
@@ -306,21 +343,27 @@ Future<TodaySessionPlan> _buildTodayPlan(
     weakness.addAll(backlog.weakness);
     fresh.addAll(backlog.fresh);
   }
-  final selectionPlan = BuildTodayPlan.call(
-    due: due,
-    weakness: weakness,
-    fresh: fresh,
-    allQuestions: [
-      for (final questions in questionsByTopic.values) ...questions,
-    ],
-    preferences: preferences,
-    topicId: named.topicId,
-    topicName: named.topicName,
+  final selectionPlan = probe.measureSync(
+    QuizPerformancePhase.selection,
+    () => BuildTodayPlan.call(
+      due: due,
+      weakness: weakness,
+      fresh: fresh,
+      allQuestions: [
+        for (final questions in questionsByTopic.values) ...questions,
+      ],
+      preferences: preferences,
+      topicId: selectedTopic.topicId,
+      topicName: selectedTopic.topicName,
+    ),
   );
   if (selectionPlan.isEmpty) return selectionPlan;
 
-  final hydrated = await content.hydrateSelectedQuestions(
-    [for (final question in selectionPlan.questions) question.id],
+  final hydrated = await probe.measureAsync(
+    QuizPerformancePhase.hydration,
+    () => content.hydrateSelectedQuestions(
+      [for (final question in selectionPlan.questions) question.id],
+    ),
   );
   final hydratedIds = {for (final question in hydrated) question.id};
   final dueIds = {for (final question in due) question.id};
@@ -342,31 +385,59 @@ Future<QuizPreparationStamp> _readPreparationStamp(
   required int accountLifetimeGeneration,
 }) async {
   final now = ref.read(nowProvider)();
-  final scope = await _readScope(ref, request.examId);
-  final questionIds = <QuestionId>{};
+  final probe = ref.read(quizPerformanceProbeProvider);
+  final scope = await probe.measureAsync(
+    QuizPerformancePhase.scopeResolution,
+    () => _readScope(ref, request.examId),
+  );
   final content = ref.read(contentRepositoryProvider);
-  for (final topic in scope.topics) {
-    for (final row in await content.selectionRowsByTopic(topic.id)) {
-      questionIds.add(row.id);
-    }
-  }
+  final questionIds = await probe.measureAsync(
+    QuizPerformancePhase.metadataRead,
+    () async {
+      final ids = <QuestionId>{};
+      for (final topic in scope.topics) {
+        for (final row in await content.selectionRowsByTopic(topic.id)) {
+          ids.add(row.id);
+        }
+      }
+      return ids;
+    },
+  );
 
-  final preferences = await ref.read(quizPreferencesRepositoryProvider).read();
-  final states = await ref.read(reviewStateRepositoryProvider).allStates();
+  final historyInputs = await probe.measureAsync(
+    QuizPerformancePhase.historyRead,
+    () async {
+      final preferences =
+          await ref.read(quizPreferencesRepositoryProvider).read();
+      final states = await ref.read(reviewStateRepositoryProvider).allStates();
+      final outcomes =
+          await ref.read(attemptsRepositoryProvider).questionOutcomes(
+                examId: request.examId,
+                now: now,
+              );
+      final introduced =
+          await ref.read(newCardIntroRepositoryProvider).countForDay(
+                userId: request.userId,
+                examId: request.examId,
+                day: now,
+              );
+      return (
+        preferences: preferences,
+        states: states,
+        outcomes: outcomes,
+        introduced: introduced,
+      );
+    },
+  );
+  final preferences = historyInputs.preferences;
+  final states = historyInputs.states;
   final relevantStates = [
     for (final state in states)
       if (questionIds.contains(state.questionId)) state,
   ]..sort((a, b) => a.questionId.compareTo(b.questionId));
-  final outcomes = await ref.read(attemptsRepositoryProvider).questionOutcomes(
-        examId: request.examId,
-        now: now,
-      );
+  final outcomes = historyInputs.outcomes;
   final outcomeIds = outcomes.keys.where(questionIds.contains).toList()..sort();
-  final introduced = await ref.read(newCardIntroRepositoryProvider).countForDay(
-        userId: request.userId,
-        examId: request.examId,
-        day: now,
-      );
+  final introduced = historyInputs.introduced;
 
   final history = StringBuffer();
   for (final state in relevantStates) {
