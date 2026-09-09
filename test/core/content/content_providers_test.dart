@@ -15,6 +15,30 @@ const _e02ContentSha256 =
     'eb3a9da425b80a51331cce74694ef014c3372392194bacbd60ba145db5ea2a45';
 
 void main() {
+  late Directory fixtureDirectory;
+  late File e02PlaintextSeed;
+
+  setUpAll(() async {
+    fixtureDirectory =
+        Directory.systemTemp.createTempSync('pantas_e02_fixture_');
+    final export = File('${fixtureDirectory.path}/export.json');
+    e02PlaintextSeed = File('${fixtureDirectory.path}/e02-content.db');
+
+    await _runDartTool([
+      'run',
+      'tools/build_content_export/build_content_export.dart',
+      export.path,
+    ]);
+    await _runDartTool([
+      'run',
+      'tools/build_content_seed/seed_writer.dart',
+      export.path,
+      e02PlaintextSeed.path,
+    ]);
+    expect(_sha256(e02PlaintextSeed), _e02ContentSha256);
+  });
+
+  tearDownAll(() => fixtureDirectory.deleteSync(recursive: true));
   test(
     'shipping bootstrap installs protected content before opening final '
     'content overrides',
@@ -93,7 +117,7 @@ void main() {
       () async {
     final temp = Directory.systemTemp.createTempSync('pantas_e02_open_');
     addTearDown(() => temp.deleteSync(recursive: true));
-    final active = _copyE02Seed(temp, 'content.db');
+    final active = _copyE02Seed(e02PlaintextSeed, temp, 'content.db');
     final key = _contentKey(0x51);
 
     expect(contentSeedVersion, _e02ContentSeedVersion);
@@ -124,7 +148,7 @@ void main() {
       () async {
     final temp = Directory.systemTemp.createTempSync('pantas_encrypted_open_');
     addTearDown(() => temp.deleteSync(recursive: true));
-    final active = _copyE02Seed(temp, 'content.db');
+    final active = _copyE02Seed(e02PlaintextSeed, temp, 'content.db');
     final key = _contentKey(0x52);
     ContentCipherProfile.protectPlaintextFile(active, key);
     final before = active.readAsBytesSync();
@@ -150,7 +174,7 @@ void main() {
     };
 
     for (final entry in mutations.entries) {
-      final active = _copyE02Seed(temp, '${entry.key}.db');
+      final active = _copyE02Seed(e02PlaintextSeed, temp, '${entry.key}.db');
       final plaintext = sqlite3.open(active.path);
       entry.value(plaintext);
       plaintext.close();
@@ -176,7 +200,7 @@ void main() {
       return;
     }
     final temp = Directory.systemTemp.createTempSync('pantas_e02_promotion_');
-    final active = _copyE02Seed(temp, 'content.db');
+    final active = _copyE02Seed(e02PlaintextSeed, temp, 'content.db');
     addTearDown(() {
       if (active.existsSync()) {
         Process.runSync('chflags', ['nouchg', active.path]);
@@ -203,7 +227,7 @@ void main() {
       () async {
     final temp = Directory.systemTemp.createTempSync('pantas_e02_user_db_');
     addTearDown(() => temp.deleteSync(recursive: true));
-    final active = _copyE02Seed(temp, 'content.db');
+    final active = _copyE02Seed(e02PlaintextSeed, temp, 'content.db');
     final userDb = File('${temp.path}/pantas.db')
       ..writeAsBytesSync(const [9, 8, 7, 6, 5, 4]);
     final before = userDb.readAsBytesSync();
@@ -266,11 +290,20 @@ void main() {
   });
 }
 
-File _copyE02Seed(Directory directory, String name) {
+File _copyE02Seed(File source, Directory directory, String name) {
   final file = File('${directory.path}/$name');
-  File('assets/seed/content.db').copySync(file.path);
+  source.copySync(file.path);
   expect(_sha256(file), _e02ContentSha256);
   return file;
+}
+
+Future<void> _runDartTool(List<String> arguments) async {
+  final result = await Process.run('dart', arguments);
+  expect(
+    result.exitCode,
+    0,
+    reason: result.stdout.toString() + result.stderr.toString(),
+  );
 }
 
 String _sha256(File file) =>
