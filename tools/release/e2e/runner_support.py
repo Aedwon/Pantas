@@ -225,12 +225,61 @@ def validate_candidate(root, candidate):
 def validate_content(root, candidate, expected_sha):
     if SHA64.fullmatch(expected_sha) is None:
         fail("content SHA must be a full 64-character SHA-256")
+
     content_path = root / "assets/seed/content.db"
-    if not content_path.is_file():
-        fail("assets/seed/content.db is missing")
-    actual = sha256_file(content_path)
-    if actual != expected_sha.lower():
+    manifest_path = root / "assets/seed/content.manifest.json"
+    signature_path = root / "assets/seed/content.manifest.sig"
+    for path in (content_path, manifest_path, signature_path):
+        if not path.is_file():
+            fail("protected content package file is missing: {}".format(path.name))
+
+    actual_payload_sha = sha256_file(content_path)
+    if actual_payload_sha != expected_sha.lower():
         fail("content SHA-256 mismatch")
+
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+        fail("protected content manifest is invalid JSON")
+    if not isinstance(manifest, dict):
+        fail("protected content manifest must be an object")
+
+    required = {
+        "formatVersion": 2,
+        "applicationId": "com.aedwon.pantas",
+        "releaseChannel": "prod",
+        "payloadPath": "assets/seed/content.db",
+        "contentSchemaVersion": 9,
+        "readerSchemaMin": 9,
+        "readerSchemaMax": 9,
+        "cipherProfile": "pantas-sqlite3mc-content-v1",
+        "bootstrapKeyId": "content-bootstrap-v1",
+        "signingKeyId": "content-signing-v1",
+    }
+    for name, expected in required.items():
+        if manifest.get(name) != expected:
+            fail("protected content manifest field is incompatible: {}".format(name))
+
+    release_sequence = manifest.get("releaseSequence")
+    source_sha = manifest.get("sourceContentSha256")
+    payload_sha = manifest.get("payloadSha256")
+    seed_version = manifest.get("contentSeedVersion")
+    if (
+        not isinstance(release_sequence, int)
+        or isinstance(release_sequence, bool)
+        or release_sequence <= 0
+    ):
+        fail("protected content releaseSequence must be positive")
+    digest_re = re.compile(r"^[0-9a-f]{64}$")
+    if not isinstance(source_sha, str) or digest_re.fullmatch(source_sha) is None:
+        fail("protected content sourceContentSha256 is invalid")
+    if not isinstance(payload_sha, str) or digest_re.fullmatch(payload_sha) is None:
+        fail("protected content payloadSha256 is invalid")
+    if not isinstance(seed_version, str) or seed_version != source_sha[:16]:
+        fail("protected content logical source identity is inconsistent")
+    if payload_sha != actual_payload_sha:
+        fail("protected content manifest payloadSha256 mismatch")
+
     version_path = root / "lib/core/content/content_seed_version.dart"
     if not version_path.is_file():
         fail("tracked content seed version source is missing")
@@ -241,9 +290,19 @@ def validate_content(root, candidate, expected_sha):
         "{}:lib/core/content/content_seed_version.dart".format(candidate),
     ).stdout
     candidate_prefix = content_prefix(candidate_version)
-    if current_prefix != candidate_prefix or not actual.startswith(current_prefix):
-        fail("tracked content seed version does not match shipping content")
-    return actual, current_prefix
+    if current_prefix != candidate_prefix or current_prefix != seed_version:
+        fail("tracked content seed version does not match protected source identity")
+
+    return {
+        "content_sha": actual_payload_sha,
+        "payload_sha": actual_payload_sha,
+        "source_content_sha": source_sha,
+        "manifest_sha": sha256_file(manifest_path),
+        "signature_sha": sha256_file(signature_path),
+        "content_seed_version": seed_version,
+        "content_seed_prefix": seed_version,
+        "release_sequence": release_sequence,
+    }
 
 
 def validate_environment():
@@ -347,18 +406,17 @@ def command_preflight(args):
     validate_remote(root)
     validate_clean(root)
     validate_candidate(root, args.candidate)
-    actual_sha, prefix = validate_content(root, args.candidate, args.content_sha)
+    content_provenance = validate_content(root, args.candidate, args.content_sha)
     validate_environment()
     versions = validate_toolchain(root)
     api, model = validate_device(args.device)
     payload = {
         "candidate": args.candidate.lower(),
-        "content_sha": actual_sha,
-        "content_seed_prefix": prefix,
         "device": args.device,
         "android_api_level": api,
         "device_model": model,
     }
+    payload.update(content_provenance)
     payload.update(versions)
     print(json.dumps(payload, sort_keys=True))
 
@@ -472,7 +530,7 @@ REDACTION_PATTERNS = (
     ),
     (
         re.compile(
-            r"(?i)\b(token|cookie|password|secret|api[_-]?key|payload|answer|learner[_-]?data)\s*[=:]\s*[^\s,;]+"
+            r"(?i)\b(token|cookie|password|secret|api[_-]?key|payload|answer|learner[_-]?data|pantas_content_bootstrap_key_v1_b64)\s*[=:]\s*[^\s,;]+"
         ),
         r"\1=[REDACTED]",
     ),

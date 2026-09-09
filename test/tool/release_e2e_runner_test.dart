@@ -5,7 +5,7 @@ import 'package:crypto/crypto.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:yaml/yaml.dart';
 
-const _baseSha = 'd0afd71548e520ef5b4a8668ef99eae1650494d4';
+const _baseSha = '32accc76289fb129653060c6480a27107d4b95e2';
 const _flutterVersion = '3.41.9';
 const _flutterRevision = '00b0c91f06209d9e4a41f71b7a512d6eb3b9c694';
 const _dartVersion = '3.11.5';
@@ -148,12 +148,23 @@ Object? _yamlValue(Object? value) {
 }
 
 class FakeRepository {
-  FakeRepository(this.root, this.bin, this.candidate, this.contentSha);
+  FakeRepository(
+    this.root,
+    this.bin,
+    this.candidate,
+    this.contentSha,
+    this.sourceContentSha,
+    this.manifestSha,
+    this.signatureSha,
+  );
 
   final Directory root;
   final Directory bin;
   final String candidate;
   final String contentSha;
+  final String sourceContentSha;
+  final String manifestSha;
+  final String signatureSha;
 
   List<String> preflight({String? candidateSha, String? expectedContentSha}) =>
       <String>[
@@ -195,8 +206,11 @@ class FakeRepository {
     final root = await Directory.systemTemp.createTemp('pantas-release-e2e-');
     final bin = Directory('${root.path}/fake-bin')..createSync(recursive: true);
     File('${root.path}/.gitignore').writeAsStringSync('fake-bin/\n');
-    final bytes = utf8.encode('approved shipping fixture');
+    final sourceBytes = utf8.encode('approved logical source fixture');
+    final sourceDigest = sha256.convert(sourceBytes).toString();
+    final bytes = utf8.encode('protected shipping fixture');
     final digest = sha256.convert(bytes).toString();
+    expect(digest.startsWith(sourceDigest.substring(0, 16)), isFalse);
 
     File('${root.path}/pubspec.yaml')
       ..createSync(recursive: true)
@@ -204,11 +218,38 @@ class FakeRepository {
     File('${root.path}/assets/seed/content.db')
       ..createSync(recursive: true)
       ..writeAsBytesSync(bytes);
+    final trackedSeedVersion = prefix ?? sourceDigest.substring(0, 16);
     File('${root.path}/lib/core/content/content_seed_version.dart')
       ..createSync(recursive: true)
       ..writeAsStringSync(
-        "const contentSeedVersion = '${prefix ?? digest.substring(0, 16)}';\n",
+        "const contentSeedVersion = '$trackedSeedVersion';\n",
       );
+    final manifestFile = File('${root.path}/assets/seed/content.manifest.json')
+      ..writeAsStringSync(
+        '${jsonEncode(<String, Object>{
+              'formatVersion': 2,
+              'applicationId': 'com.aedwon.pantas',
+              'releaseChannel': 'prod',
+              'releaseSequence': 2,
+              'payloadPath': 'assets/seed/content.db',
+              'sourceContentSha256': sourceDigest,
+              'payloadSha256': digest,
+              'contentSeedVersion': sourceDigest.substring(0, 16),
+              'contentSchemaVersion': 9,
+              'readerSchemaMin': 9,
+              'readerSchemaMax': 9,
+              'cipherProfile': 'pantas-sqlite3mc-content-v1',
+              'bootstrapKeyId': 'content-bootstrap-v1',
+              'signingKeyId': 'content-signing-v1',
+            })}\n',
+      );
+    final signatureFile = File('${root.path}/assets/seed/content.manifest.sig')
+      ..writeAsStringSync('fixture-detached-signature');
+    final manifestDigest =
+        sha256.convert(manifestFile.readAsBytesSync()).toString();
+    final signatureDigest =
+        sha256.convert(signatureFile.readAsBytesSync()).toString();
+
     for (final path in <String>[
       _onboardingRepairPath,
       _reviewLogRepairPath,
@@ -363,7 +404,15 @@ exit 0
     await _mustGit(root, <String>['add', '.']);
     await _mustGit(root, <String>['commit', '-m', 'e2e docs']);
 
-    return FakeRepository(root, bin, candidate, digest);
+    return FakeRepository(
+      root,
+      bin,
+      candidate,
+      digest,
+      sourceDigest,
+      manifestDigest,
+      signatureDigest,
+    );
   }
 
   Future<void> dispose() => root.delete(recursive: true);
@@ -574,6 +623,14 @@ void main() {
           jsonDecode(result.stdout.toString()) as Map<String, dynamic>;
       expect(output['candidate'], fixture.candidate);
       expect(output['content_sha'], fixture.contentSha);
+      expect(output['source_content_sha'], fixture.sourceContentSha);
+      expect(output['manifest_sha'], fixture.manifestSha);
+      expect(output['signature_sha'], fixture.signatureSha);
+      expect(
+        output['content_seed_version'],
+        fixture.sourceContentSha.substring(0, 16),
+      );
+      expect(output['release_sequence'], 2);
       expect(output['device'], _device);
       expect(output['android_api_level'], '35');
     });
@@ -1151,9 +1208,11 @@ void main() {
     });
 
     test('redacts credentials and learner-payload-like fields', () async {
+      const bootstrapValue = 'dGVzdC1vbmx5LWJvb3RzdHJhcC1rZXk=';
       const redactionInput =
           'Authorization: Bearer abc123 email=user@example.com '
-          'apiKey=AIzaFake payload=answer';
+          'apiKey=AIzaFake payload=answer '
+          'PANTAS_CONTENT_BOOTSTRAP_KEY_V1_B64=$bootstrapValue';
       final result = await _support(<String>[
         'redact',
         '--text',
@@ -1167,6 +1226,7 @@ void main() {
         'user@example.com',
         'AIzaFake',
         'payload=answer',
+        bootstrapValue,
       ]) {
         expect(output, isNot(contains(secret)));
       }
@@ -1193,6 +1253,26 @@ void main() {
       );
       expect(runner, contains(r'adb -s "$device"'));
       expect(runner, contains(r'-d "$device"'));
+      expect(
+        runner,
+        contains('tools/verify_content_package/verify_content_package.dart'),
+      );
+      expect(
+        runner,
+        contains(
+          '--dart-define=PANTAS_CONTENT_BOOTSTRAP_KEY_V1_B64='
+          r'"$PANTAS_CONTENT_BOOTSTRAP_KEY_V1_B64"',
+        ),
+      );
+      final firebaseHelper = File('tools/release/e2e/run_firebase_scenarios.sh')
+          .readAsStringSync();
+      expect(
+        firebaseHelper,
+        contains(
+          '--dart-define=PANTAS_CONTENT_BOOTSTRAP_KEY_V1_B64='
+          r'"$PANTAS_CONTENT_BOOTSTRAP_KEY_V1_B64"',
+        ),
+      );
       for (final scenario in <String>[
         'shipping_cold_start_e2e_test.dart',
         'quiz_state_e2e_test.dart',

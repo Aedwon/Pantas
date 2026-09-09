@@ -67,6 +67,16 @@ firebase_scenarios=(
 command -v python3 >/dev/null 2>&1 || fail "python3 is required for runner support"
 [ -f "$support" ] || fail "runner support helper is missing"
 [ -f "$firebase_helper" ] || fail "Firebase scenario helper is missing"
+: "${PANTAS_CONTENT_BOOTSTRAP_KEY_V1_B64:?missing PANTAS_CONTENT_BOOTSTRAP_KEY_V1_B64}"
+export PANTAS_CONTENT_BOOTSTRAP_KEY_V1_B64
+
+if ! dart run tools/verify_content_package/verify_content_package.dart \
+  assets/seed/content.db \
+  assets/seed/content.manifest.json \
+  assets/seed/content.manifest.sig >/dev/null 2>&1; then
+  fail "protected content package verification failed"
+fi
+
 
 # Preflight is intentionally complete before diagnostics, state clearing, app launch,
 # or emulator startup. Any provenance failure leaves the target untouched.
@@ -192,6 +202,7 @@ run_local_scenario() {
     --dart-define=RELEASE_E2E_CANDIDATE="$candidate" \
     --dart-define=RELEASE_E2E_CONTENT_SHA="$content_sha" \
     --dart-define=RELEASE_E2E_LOCAL_ONLY=true \
+    --dart-define=PANTAS_CONTENT_BOOTSTRAP_KEY_V1_B64="$PANTAS_CONTENT_BOOTSTRAP_KEY_V1_B64" \
     "$target" 2>&1 | python3 "$support" redact-stream --output "$log" --max-lines 500
   command_status="${PIPESTATUS[0]}"
   redact_status="${PIPESTATUS[1]}"
