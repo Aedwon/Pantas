@@ -55,8 +55,7 @@ final class ContentBootstrapKeyEntry {
 
 /// Public verification keys authorized for protected content packages.
 ///
-/// No production key is present until an exact, separately authorized
-/// Ed25519 public key is committed for `content-signing-v1`. Missing and
+/// Only explicitly authorized Ed25519 public keys are included. Missing and
 /// unknown keys deliberately fail closed.
 abstract final class ContentSigningKeys {
   static SimplePublicKey? lookup(String keyId) {
@@ -77,7 +76,44 @@ abstract final class ContentSigningKeys {
   }
 
   static const Map<String, List<int>> _authorizedEd25519PublicKeys =
-      <String, List<int>>{};
+      <String, List<int>>{
+    'content-signing-v1': [
+      94,
+      115,
+      120,
+      167,
+      107,
+      251,
+      13,
+      201,
+      156,
+      104,
+      35,
+      170,
+      216,
+      9,
+      197,
+      177,
+      71,
+      59,
+      34,
+      247,
+      109,
+      222,
+      238,
+      169,
+      130,
+      85,
+      62,
+      186,
+      47,
+      132,
+      247,
+      37,
+    ],
+  };
   static const Map<String, ContentSequenceWindow> _authorizedSequenceWindows =
-      <String, ContentSequenceWindow>{};
+      <String, ContentSequenceWindow>{
+    'content-signing-v1': ContentSequenceWindow(minReleaseSequence: 1),
+  };
 }
