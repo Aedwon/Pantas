@@ -19,7 +19,7 @@ class QuestionCard extends StatelessWidget {
   });
 
   final Question question;
-  final void Function(String chosenChoiceId) onAnswer;
+  final void Function(String chosenChoiceId)? onAnswer;
 
   /// Optional passage attached to reading comprehension questions.
   final Passage? passage;
@@ -52,7 +52,9 @@ class QuestionCard extends StatelessWidget {
               letter: choice.label,
               text: choice.text,
               state: _stateFor(choice),
-              onTap: revealed ? null : () => onAnswer(choice.id),
+              onTap: revealed || onAnswer == null
+                  ? null
+                  : () => onAnswer!(choice.id),
             ),
           ),
       ],

@@ -6,6 +6,7 @@ import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/domain/question_selection_row.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
+import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/domain/models/topic_queue_row.dart';
 import 'package:pantas/features/quiz/domain/use_cases/build_today_plan.dart';
 import 'package:pantas/features/quiz/domain/use_cases/build_today_queue.dart';
@@ -182,9 +183,18 @@ class SessionPanelCaughtUp extends SessionPanelState {
 
 /// There is a session to start.
 class SessionPanelAvailable extends SessionPanelState {
-  const SessionPanelAvailable({required this.plan, this.averageMinutes});
+  const SessionPanelAvailable({
+    required this.plan,
+    this.prepared,
+    this.averageMinutes,
+  });
 
   final TodaySessionPlan plan;
+
+  /// The immutable preparation shown by the panel and consumed by Start.
+  /// Null is retained only for isolated presentation tests that construct the
+  /// state directly; production panel state always supplies it.
+  final PreparedTodaySession? prepared;
 
   /// The student's own average completed session, or null until seven have
   /// been finished. Never a projection of how long today will take.
@@ -270,7 +280,13 @@ final sessionPanelProvider =
     return SessionPanelNeedsAssessment(questions.length);
   }
 
-  final plan = await ref.watch(todaySessionPlanProvider(examId).future);
+  final prepared = await ref.watch(todayQuizPreparerProvider).prepare(
+        QuizPreparationRequest(
+          userId: quizLocalUserId,
+          examId: examId,
+        ),
+      );
+  final plan = prepared.plan;
   if (plan.isEmpty) {
     final tally = await ref.watch(attemptsRepositoryProvider).tallyForDay(
           examId: examId,
@@ -284,6 +300,7 @@ final sessionPanelProvider =
 
   return SessionPanelAvailable(
     plan: plan,
+    prepared: prepared,
     averageMinutes: await sessions.averageCompletedMinutes(
       userId: todayUserId,
       examId: examId,

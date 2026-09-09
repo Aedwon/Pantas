@@ -3,8 +3,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/features/quiz/application/quiz_launch_coordinator.dart';
+import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
-import 'package:pantas/features/quiz/domain/use_cases/complete_quiz.dart';
 import 'package:pantas/features/quiz/domain/use_cases/start_quick_quiz.dart';
 import 'package:pantas/features/quiz/domain/use_cases/submit_answer.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
@@ -16,12 +17,12 @@ class _MockStart extends Mock implements StartQuickQuiz {}
 
 class _MockSubmit extends Mock implements SubmitAnswer {}
 
-class _MockComplete extends Mock implements CompleteQuiz {}
+class _MockLaunchCoordinator extends Mock implements QuizLaunchCoordinator {}
 
 void main() {
   late _MockStart start;
   late _MockSubmit submit;
-  late _MockComplete complete;
+  late _MockLaunchCoordinator launchCoordinator;
 
   const q1 = Question(
     id: 'q1',
@@ -50,8 +51,35 @@ void main() {
     explanation: 'e',
   );
 
+  const passageQuestion = Question(
+    id: 'qp',
+    version: 1,
+    examIds: ['e'],
+    topicId: 't',
+    language: 'en',
+    stem: 'Passage stem',
+    passageId: 'passage-1',
+    choices: [
+      Choice(
+        id: 'pa',
+        label: 'A',
+        text: 'Passage answer A',
+        isCorrect: true,
+      ),
+      Choice(id: 'pb', label: 'B', text: 'Passage answer B', isCorrect: false),
+    ],
+    explanation: 'e',
+  );
+
   setUpAll(() {
     registerFallbackValue(q1);
+    registerFallbackValue(
+      const QuizPreparationRequest(
+        userId: quizLocalUserId,
+        examId: 'e',
+        topicId: 't',
+      ),
+    );
     registerFallbackValue(
       QuizSession.start(
         sessionId: 'fallback',
@@ -65,7 +93,7 @@ void main() {
   setUp(() {
     start = _MockStart();
     submit = _MockSubmit();
-    complete = _MockComplete();
+    launchCoordinator = _MockLaunchCoordinator();
   });
 
   testWidgets('renders the first question once start completes',
@@ -92,7 +120,6 @@ void main() {
       overrides: [
         startQuickQuizProvider.overrideWithValue(start),
         submitAnswerProvider.overrideWithValue(submit),
-        completeQuizProvider.overrideWithValue(complete),
         nowProvider.overrideWithValue(() => DateTime.utc(2026, 5, 9, 12)),
       ],
     );
@@ -101,6 +128,40 @@ void main() {
     expect(find.text('Stem One'), findsOneWidget);
     expect(find.text('AlphaText'), findsOneWidget);
     expect(find.text('1 of 1'), findsOneWidget);
+  });
+
+  testWidgets(
+      'required passage does not expose answer actions while unresolved',
+      (tester) async {
+    when(
+      () => start(
+        examId: any(named: 'examId'),
+        topicId: any(named: 'topicId'),
+        count: any(named: 'count'),
+        now: any(named: 'now'),
+        randomSeed: any(named: 'randomSeed'),
+      ),
+    ).thenAnswer(
+      (_) async => QuizSession.start(
+        sessionId: 'passage-session',
+        examId: 'e',
+        questions: const [passageQuestion],
+        startedAt: DateTime.utc(2026, 5, 9, 12),
+      ),
+    );
+
+    await tester.pumpAppWithProviders(
+      const QuizPage(examId: 'e'),
+      overrides: [
+        startQuickQuizProvider.overrideWithValue(start),
+        submitAnswerProvider.overrideWithValue(submit),
+        nowProvider.overrideWithValue(() => DateTime.utc(2026, 5, 9, 12)),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Passage answer A'), findsNothing);
+    expect(find.text('Passage answer B'), findsNothing);
   });
 
   testWidgets('passes topicId to quick quiz start when provided',
@@ -127,7 +188,6 @@ void main() {
       overrides: [
         startQuickQuizProvider.overrideWithValue(start),
         submitAnswerProvider.overrideWithValue(submit),
-        completeQuizProvider.overrideWithValue(complete),
         nowProvider.overrideWithValue(() => DateTime.utc(2026, 5, 9, 12)),
       ],
     );
@@ -168,7 +228,6 @@ void main() {
       overrides: [
         startQuickQuizProvider.overrideWithValue(start),
         submitAnswerProvider.overrideWithValue(submit),
-        completeQuizProvider.overrideWithValue(complete),
         nowProvider.overrideWithValue(() => DateTime.utc(2026, 5, 9, 12)),
       ],
     );
@@ -228,7 +287,6 @@ void main() {
       overrides: [
         startQuickQuizProvider.overrideWithValue(start),
         submitAnswerProvider.overrideWithValue(submit),
-        completeQuizProvider.overrideWithValue(complete),
         nowProvider.overrideWithValue(() => DateTime.utc(2026, 5, 9, 12)),
       ],
     );
@@ -243,5 +301,50 @@ void main() {
     expect(find.text('back in 4 days'), findsOneWidget);
     expect(find.byType(SnackBar), findsNothing);
     expect(find.text('Next'), findsOneWidget);
+  });
+  testWidgets('Retry preserves Today mode and topic scope', (tester) async {
+    when(
+      () => launchCoordinator.launchToday(
+        any(),
+        prepared: any(named: 'prepared'),
+      ),
+    ).thenAnswer((_) async => const QuizLaunchNoQuestions('No questions'));
+
+    await tester.pumpAppWithProviders(
+      const QuizPage(
+        examId: 'e',
+        topicId: 't',
+        mode: QuizPageMode.today,
+      ),
+      overrides: [
+        quizLaunchCoordinatorProvider.overrideWithValue(launchCoordinator),
+        startQuickQuizProvider.overrideWithValue(start),
+        nowProvider.overrideWithValue(() => DateTime.utc(2026, 5, 9, 12)),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Retry'), findsOneWidget);
+    await tester.tap(find.text('Retry'));
+    await tester.pumpAndSettle();
+
+    final requests = verify(
+      () => launchCoordinator.launchToday(
+        captureAny(),
+        prepared: any(named: 'prepared'),
+      ),
+    ).captured.cast<QuizPreparationRequest>();
+    expect(requests, hasLength(2));
+    expect(requests.map((request) => request.examId), everyElement('e'));
+    expect(requests.map((request) => request.topicId), everyElement('t'));
+    verifyNever(
+      () => start(
+        examId: any(named: 'examId'),
+        topicId: any(named: 'topicId'),
+        count: any(named: 'count'),
+        now: any(named: 'now'),
+        randomSeed: any(named: 'randomSeed'),
+      ),
+    );
   });
 }

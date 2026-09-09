@@ -17,6 +17,7 @@ import 'package:pantas/core/ui/components/progress_rule.dart';
 import 'package:pantas/core/ui/components/question_card.dart';
 import 'package:pantas/core/ui/components/question_grid_sheet.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/presentation/pages/debrief_page.dart';
 import 'package:pantas/features/quiz/presentation/question_flag_providers.dart';
@@ -30,6 +31,7 @@ class QuizPage extends ConsumerStatefulWidget {
     this.topicId,
     this.lessonId,
     this.mode = QuizPageMode.quick,
+    this.prepared,
     this.proIsActive = false,
     super.key,
   });
@@ -37,6 +39,7 @@ class QuizPage extends ConsumerStatefulWidget {
   final String? topicId;
   final String? lessonId;
   final QuizPageMode mode;
+  final PreparedTodaySession? prepared;
   final bool proIsActive;
 
   @override
@@ -48,36 +51,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final controller = ref.read(quizControllerProvider.notifier);
-      switch (widget.mode) {
-        case QuizPageMode.quick:
-          controller.start(examId: widget.examId, topicId: widget.topicId);
-        case QuizPageMode.today:
-          controller.startToday(examId: widget.examId, topicId: widget.topicId);
-        case QuizPageMode.resume:
-          controller.resumeToday(examId: widget.examId);
-        case QuizPageMode.drill:
-          final topicId = widget.topicId;
-          if (topicId == null) {
-            controller.startToday(examId: widget.examId);
-          } else {
-            controller.startDrill(examId: widget.examId, topicId: topicId);
-          }
-        case QuizPageMode.practice:
-          // The picker already started the session before routing here, so
-          // this mode only renders it. Starting again would discard the
-          // student's selection and build a different session.
-          break;
-        case QuizPageMode.retake:
-          controller.startRetake(examId: widget.examId);
-        case QuizPageMode.inline:
-          final lessonId = widget.lessonId;
-          if (lessonId == null) {
-            controller.startToday(examId: widget.examId);
-          } else {
-            controller.startInline(examId: widget.examId, lessonId: lessonId);
-          }
-      }
+      _startForMode(ref.read(quizControllerProvider.notifier));
     });
   }
 
@@ -190,7 +164,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
         padding: const EdgeInsets.all(16),
         child: switch (state) {
           QuizIdle() || QuizLoading() => const FaintBars(),
-          QuizRunning(:final session) => Column(
+          QuizRunning(:final session, :final questionShownAt) => Column(
               children: [
                 ProgressRule(
                   value: (session.currentIndex + 1) / session.questions.length,
@@ -205,12 +179,29 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                       builder: (context, ref, _) {
                         final question = session.currentQuestion;
                         final passageId = question.passageId;
-                        final passage = passageId != null
-                            ? ref
-                                .watch(passageByIdProvider(passageId))
-                                .valueOrNull
+                        final passageState = passageId != null
+                            ? ref.watch(passageByIdProvider(passageId))
                             : null;
+                        final passage = passageState?.valueOrNull;
+                        if (passageId != null && passage == null) {
+                          return const FaintBars();
+                        }
+
                         final outcome = session.currentOutcome;
+                        if (outcome == null && questionShownAt == null) {
+                          final sessionId = session.sessionId;
+                          final questionIndex = session.currentIndex;
+                          WidgetsBinding.instance.addPostFrameCallback((_) {
+                            if (!mounted) return;
+                            ref
+                                .read(quizControllerProvider.notifier)
+                                .markQuestionReady(
+                                  sessionId: sessionId,
+                                  questionIndex: questionIndex,
+                                );
+                          });
+                        }
+
                         return Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
@@ -219,9 +210,12 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                               passage: passage,
                               chosenChoiceId: outcome?.chosenChoiceId,
                               revealed: outcome != null,
-                              onAnswer: (chosenChoiceId) => ref
-                                  .read(quizControllerProvider.notifier)
-                                  .answer(chosenChoiceId: chosenChoiceId),
+                              onAnswer: questionShownAt == null ||
+                                      outcome != null
+                                  ? null
+                                  : (chosenChoiceId) => ref
+                                      .read(quizControllerProvider.notifier)
+                                      .answer(chosenChoiceId: chosenChoiceId),
                             ),
                             if (outcome != null) ...[
                               AnswerReveal(
@@ -262,13 +256,58 @@ class _QuizPageState extends ConsumerState<QuizPage> {
               variant: ErrorBannerVariant.error,
               message: message,
               actionLabel: 'Retry',
-              onAction: () => ref
-                  .read(quizControllerProvider.notifier)
-                  .start(examId: widget.examId, topicId: widget.topicId),
+              onAction: () =>
+                  _startForMode(ref.read(quizControllerProvider.notifier)),
             ),
         },
       ),
     );
+  }
+
+  void _startForMode(QuizController controller) {
+    switch (widget.mode) {
+      case QuizPageMode.quick:
+        unawaited(
+          controller.start(examId: widget.examId, topicId: widget.topicId),
+        );
+      case QuizPageMode.today:
+        unawaited(
+          controller.startToday(
+            examId: widget.examId,
+            topicId: widget.topicId,
+            prepared: widget.prepared,
+          ),
+        );
+      case QuizPageMode.resume:
+        unawaited(controller.resumeToday(examId: widget.examId));
+      case QuizPageMode.drill:
+        final topicId = widget.topicId;
+        if (topicId == null) {
+          unawaited(controller.startToday(examId: widget.examId));
+        } else {
+          unawaited(
+            controller.startDrill(examId: widget.examId, topicId: topicId),
+          );
+        }
+      case QuizPageMode.practice:
+        // Picker-owned sessions are already persisted before this renderer is
+        // entered. Recreating one here would lose the original picked scope.
+        break;
+      case QuizPageMode.retake:
+        unawaited(controller.startRetake(examId: widget.examId));
+      case QuizPageMode.inline:
+        final lessonId = widget.lessonId;
+        if (lessonId == null) {
+          unawaited(controller.startToday(examId: widget.examId));
+        } else {
+          unawaited(
+            controller.startInline(
+              examId: widget.examId,
+              lessonId: lessonId,
+            ),
+          );
+        }
+    }
   }
 
   /// The counter in the app bar opens the session, so a student can see

@@ -1,14 +1,31 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/content/content_seed_version.dart';
 import 'package:pantas/core/fsrs/fsrs_scheduler.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/data/repos/review_log_repository.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/domain/question_selection_row.dart';
+import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/storage/track_scope.dart';
+import 'package:pantas/features/quiz/application/quiz_completion_coordinator.dart';
+import 'package:pantas/features/quiz/application/quiz_launch_coordinator.dart';
+import 'package:pantas/features/quiz/application/quiz_preparation_stamp.dart';
+import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/data/repos/new_card_intro_repository.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_preferences_repository.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
+import 'package:pantas/features/quiz/domain/models/quiz_ordering.dart';
+import 'package:pantas/features/quiz/domain/models/quiz_preferences.dart';
+import 'package:pantas/features/quiz/domain/models/topic_queue_row.dart';
 import 'package:pantas/features/quiz/domain/streak/streak_evaluator.dart';
-import 'package:pantas/features/quiz/domain/use_cases/complete_quiz.dart';
+import 'package:pantas/features/quiz/domain/use_cases/build_today_plan.dart';
+import 'package:pantas/features/quiz/domain/use_cases/build_today_queue.dart';
+import 'package:pantas/features/quiz/domain/use_cases/count_today_backlog.dart';
 import 'package:pantas/features/quiz/domain/use_cases/quit_session.dart';
 import 'package:pantas/features/quiz/domain/use_cases/restart_session.dart';
 import 'package:pantas/features/quiz/domain/use_cases/resume_session.dart';
@@ -19,6 +36,12 @@ import 'package:pantas/features/quiz/domain/use_cases/start_quick_quiz.dart';
 import 'package:pantas/features/quiz/domain/use_cases/start_retake.dart';
 import 'package:pantas/features/quiz/domain/use_cases/start_today_session.dart';
 import 'package:pantas/features/quiz/domain/use_cases/submit_answer.dart';
+import 'package:pantas/features/settings/domain/session_ordering.dart';
+
+/// The local durable quiz identity. All local Today launch owners use this
+/// value so Home, the Quiz tab, and the controller cannot split one user into
+/// parallel session namespaces.
+const quizLocalUserId = 'local';
 
 /// The quiz feature's wiring: every use case and repository the quiz builds
 /// on, and the clock they read.
@@ -109,14 +132,6 @@ final streakEvaluatorProvider = Provider<StreakEvaluator>(
   (ref) => StreakEvaluator(ref.watch(streakRepositoryProvider)),
 );
 
-final completeQuizProvider = Provider<CompleteQuiz>(
-  (ref) => CompleteQuiz(
-    ref.watch(attemptsRepositoryProvider),
-    streakEvaluator: ref.watch(streakEvaluatorProvider),
-    notifications: ref.watch(notificationServiceProvider),
-  ),
-);
-
 final quizPreferencesRepositoryProvider = Provider<QuizPreferencesRepository>(
   (ref) => QuizPreferencesRepository(ref.watch(appDatabaseProvider)),
 );
@@ -128,3 +143,372 @@ final quizSessionRepositoryProvider = Provider<QuizSessionRepository>(
 final newCardIntroRepositoryProvider = Provider<NewCardIntroRepository>(
   (ref) => NewCardIntroRepository(ref.watch(appDatabaseProvider)),
 );
+
+final todayQuizPreparerProvider = Provider<TodayQuizPreparer>((ref) {
+  var accountLifetimeGeneration = 0;
+  late final TodayQuizPreparer preparer;
+  preparer = TodayQuizPreparer(
+    readStamp: (request) => _readPreparationStamp(
+      ref,
+      request,
+      accountLifetimeGeneration: accountLifetimeGeneration,
+    ),
+    buildPlan: (request) => _buildTodayPlan(ref, request),
+    now: ref.watch(nowProvider),
+  );
+
+  ref.listen(authStateProvider, (previous, next) {
+    if (previous == null || previous == next) return;
+    accountLifetimeGeneration += 1;
+    preparer.invalidateAll();
+  });
+  return preparer;
+});
+
+final quizLaunchCoordinatorProvider = Provider<QuizLaunchCoordinator>((ref) {
+  return QuizLaunchCoordinator(
+    preparer: ref.watch(todayQuizPreparerProvider),
+    readActive: (request) => ref.read(resumeSessionProvider)(
+      userId: request.userId,
+      examId: request.examId,
+    ),
+    persist: ({
+      required request,
+      required prepared,
+      required canPersist,
+    }) async {
+      if (!canPersist()) return null;
+      final stamp = prepared.stamp;
+      final preferences = QuizPreferences(
+        sessionLength: stamp.sessionLength,
+        ordering: _quizOrdering(stamp.ordering),
+        newCardCap: stamp.newCardCap,
+      );
+      if (!canPersist()) return null;
+      return ref.read(startTodaySessionProvider).callGuarded(
+            userId: request.userId,
+            examId: request.examId,
+            topicId: request.topicId,
+            preferences: preferences,
+            now: ref.read(nowProvider)(),
+            plan: prepared.plan,
+            canPersist: canPersist,
+          );
+    },
+  );
+});
+
+final quizCompletionCoordinatorProvider = Provider<QuizCompletionCoordinator>(
+  (ref) => QuizCompletionCoordinator(
+    attempts: ref.watch(attemptsRepositoryProvider),
+    sessions: ref.watch(quizSessionRepositoryProvider),
+    streakEvaluator: ref.watch(streakEvaluatorProvider),
+    notifications: ref.watch(notificationServiceProvider),
+    onCommitted: () {
+      ref.read(todayQuizPreparerProvider).invalidateAll();
+      ref.read(quizLaunchCoordinatorProvider).clearAllCommitted();
+    },
+  ),
+);
+
+Future<TodaySessionPlan> _buildTodayPlan(
+  Ref ref,
+  QuizPreparationRequest request,
+) async {
+  final content = ref.read(contentRepositoryProvider);
+  final now = ref.read(nowProvider)();
+  final scope = await _readScope(ref, request.examId);
+  final topics = scope.topics;
+  if (topics.isEmpty) return TodaySessionPlan.empty;
+
+  final questionsByTopic = <TopicId, List<Question>>{};
+  for (final topic in topics) {
+    final rows = await content.selectionRowsByTopic(topic.id);
+    questionsByTopic[topic.id] = [
+      for (final row in rows) _selectionQuestion(row, request.examId),
+    ];
+  }
+  final questionsById = <QuestionId, Question>{
+    for (final questions in questionsByTopic.values)
+      for (final question in questions) question.id: question,
+  };
+
+  final states = await ref.read(reviewStateRepositoryProvider).allStates();
+  final outcomes = await ref.read(attemptsRepositoryProvider).questionOutcomes(
+        examId: request.examId,
+        now: now,
+      );
+  final preferences = await ref.read(quizPreferencesRepositoryProvider).read();
+  final introduced = await ref.read(newCardIntroRepositoryProvider).countForDay(
+        userId: request.userId,
+        examId: request.examId,
+        day: now,
+      );
+  final capRemaining =
+      (preferences.newCardCap - introduced).clamp(0, preferences.newCardCap);
+
+  var sharedCapRemaining = capRemaining;
+  final backlogByTopic = <TopicId, TopicBacklog>{};
+  for (final topic in topics) {
+    final backlog = CountTodayBacklog.forTopic(
+      topicId: topic.id,
+      questions: questionsByTopic[topic.id] ?? const [],
+      states: states,
+      questionsById: questionsById,
+      outcomes: outcomes,
+      capRemaining: sharedCapRemaining,
+      now: now,
+    );
+    backlogByTopic[topic.id] = backlog;
+    sharedCapRemaining =
+        (sharedCapRemaining - backlog.fresh.length).clamp(0, capRemaining);
+  }
+
+  final queue = BuildTodayQueue.call(
+    topics: [
+      for (final topic in topics)
+        TopicQueueInput(topicId: topic.id, topicName: topic.name),
+    ],
+    dueCounts: {
+      for (final entry in backlogByTopic.entries)
+        entry.key: entry.value.due.length,
+    },
+    weaknessCounts: {
+      for (final entry in backlogByTopic.entries)
+        entry.key: entry.value.weakness.length,
+    },
+    newCounts: {
+      for (final entry in backlogByTopic.entries)
+        entry.key: entry.value.fresh.length,
+    },
+  );
+  if (queue.isEmpty) return TodaySessionPlan.empty;
+
+  TopicQueueRow? named;
+  if (request.topicId == null) {
+    named = queue.first;
+  } else {
+    for (final row in queue) {
+      if (row.topicId == request.topicId) {
+        named = row;
+        break;
+      }
+    }
+  }
+  if (named == null || named.totalCount == 0) return TodaySessionPlan.empty;
+
+  final poolBacklogs = backlogByTopic.values;
+  final due = <Question>[];
+  final weakness = <Question>[];
+  final fresh = <Question>[];
+  for (final backlog in poolBacklogs) {
+    due.addAll(backlog.due);
+    weakness.addAll(backlog.weakness);
+    fresh.addAll(backlog.fresh);
+  }
+  final selectionPlan = BuildTodayPlan.call(
+    due: due,
+    weakness: weakness,
+    fresh: fresh,
+    allQuestions: [
+      for (final questions in questionsByTopic.values) ...questions,
+    ],
+    preferences: preferences,
+    topicId: named.topicId,
+    topicName: named.topicName,
+  );
+  if (selectionPlan.isEmpty) return selectionPlan;
+
+  final hydrated = await content.hydrateSelectedQuestions(
+    [for (final question in selectionPlan.questions) question.id],
+  );
+  final hydratedIds = {for (final question in hydrated) question.id};
+  final dueIds = {for (final question in due) question.id};
+  final weaknessIds = {for (final question in weakness) question.id};
+  final freshIds = {for (final question in fresh) question.id};
+  return TodaySessionPlan(
+    questions: hydrated,
+    dueCount: hydratedIds.where(dueIds.contains).length,
+    weaknessCount: hydratedIds.where(weaknessIds.contains).length,
+    freshCount: hydratedIds.where(freshIds.contains).length,
+    topicId: selectionPlan.topicId,
+    topicName: selectionPlan.topicName,
+  );
+}
+
+Future<QuizPreparationStamp> _readPreparationStamp(
+  Ref ref,
+  QuizPreparationRequest request, {
+  required int accountLifetimeGeneration,
+}) async {
+  final now = ref.read(nowProvider)();
+  final scope = await _readScope(ref, request.examId);
+  final questionIds = <QuestionId>{};
+  final content = ref.read(contentRepositoryProvider);
+  for (final topic in scope.topics) {
+    for (final row in await content.selectionRowsByTopic(topic.id)) {
+      questionIds.add(row.id);
+    }
+  }
+
+  final preferences = await ref.read(quizPreferencesRepositoryProvider).read();
+  final states = await ref.read(reviewStateRepositoryProvider).allStates();
+  final relevantStates = [
+    for (final state in states)
+      if (questionIds.contains(state.questionId)) state,
+  ]..sort((a, b) => a.questionId.compareTo(b.questionId));
+  final outcomes = await ref.read(attemptsRepositoryProvider).questionOutcomes(
+        examId: request.examId,
+        now: now,
+      );
+  final outcomeIds = outcomes.keys.where(questionIds.contains).toList()..sort();
+  final introduced = await ref.read(newCardIntroRepositoryProvider).countForDay(
+        userId: request.userId,
+        examId: request.examId,
+        day: now,
+      );
+
+  final history = StringBuffer();
+  for (final state in relevantStates) {
+    history
+      ..write(state.questionId)
+      ..write(':')
+      ..write(state.questionVersion)
+      ..write(':')
+      ..write(state.stage.name)
+      ..write(':')
+      ..write(state.stability)
+      ..write(':')
+      ..write(state.difficulty)
+      ..write(':')
+      ..write(state.due.microsecondsSinceEpoch)
+      ..write(':')
+      ..write(state.lastReview.microsecondsSinceEpoch)
+      ..write(':')
+      ..write(state.reps)
+      ..write(':')
+      ..write(state.lapses)
+      ..write(';');
+  }
+  for (final id in outcomeIds) {
+    final outcome = outcomes[id]!;
+    history
+      ..write(id)
+      ..write('=')
+      ..write(outcome.attempts)
+      ..write('/')
+      ..write(outcome.correct)
+      ..write(';');
+  }
+  history
+    ..write('new-card-intros=')
+    ..write(introduced)
+    ..write(';');
+
+  DateTime? nextDueExpiry;
+  for (final state in relevantStates) {
+    if (!state.due.isAfter(now)) continue;
+    if (nextDueExpiry == null || state.due.isBefore(nextDueExpiry)) {
+      nextDueExpiry = state.due;
+    }
+  }
+
+  final active = await ref.read(quizSessionRepositoryProvider).activeFor(
+        userId: request.userId,
+        examId: request.examId,
+      );
+  final sessionRevision = active == null
+      ? 'none'
+      : '${active.id}|${active.currentIndex}|${active.questionIdsJson}|'
+          '${active.topicId ?? ''}';
+
+  final authState = await ref.read(authStateProvider.future);
+  final installedContentRevision = await ref
+      .read(appPreferencesRepositoryProvider)
+      .installedContentSeedVersion();
+  final day = DateTime(now.year, now.month, now.day);
+  final scopeIds = scope.topics.map((topic) => topic.id).toList()..sort();
+  final excludedIds = scope.excluded.toList()..sort();
+
+  return QuizPreparationStamp(
+    contentRevision: installedContentRevision ?? contentSeedVersion,
+    accountLifetimeToken: '${_authToken(authState)}:$accountLifetimeGeneration',
+    examId: request.examId,
+    topicId: request.topicId,
+    scopeToken: scopeIds.join('|'),
+    topicExclusionToken: excludedIds.join('|'),
+    ordering: _sessionOrdering(preferences.ordering),
+    sessionLength: preferences.sessionLength,
+    newCardCap: preferences.newCardCap,
+    historyRevision: history.toString(),
+    sessionStateRevision: sessionRevision,
+    localDay: day,
+    nextDueExpiry: nextDueExpiry,
+  );
+}
+
+Future<_ScopeSnapshot> _readScope(Ref ref, ExamId examId) async {
+  final content = ref.read(contentRepositoryProvider);
+  final excluded =
+      await ref.read(customTrackRepositoryProvider).excludedTopicIds(examId);
+  final exams = await content.listExams();
+  final exam = exams.where((candidate) => candidate.id == examId).firstOrNull;
+  final sourceTopics = exam != null && exam.isCustom
+      ? await corpusTopics(content)
+      : await content.topicsByExam(examId);
+  return _ScopeSnapshot(
+    topics: [
+      for (final topic in sourceTopics)
+        if (!excluded.contains(topic.id)) topic,
+    ],
+    excluded: excluded,
+  );
+}
+
+Question _selectionQuestion(QuestionSelectionRow row, ExamId examId) {
+  return Question(
+    id: row.id,
+    version: row.version,
+    examIds: [examId],
+    topicId: row.topicId,
+    language: '',
+    stem: '',
+    choices: const [],
+    explanation: '',
+    lessonId: row.lessonId,
+    passageId: row.passageId,
+    figureSpecJson: row.hasFigure ? '{}' : null,
+  );
+}
+
+String _authToken(AuthState state) {
+  return switch (state) {
+    AnonymousAuthState(:final uid) => 'anonymous:$uid',
+    SignedInAuthState(:final user) => 'signed-in:${user.uid}',
+    SignedOutAuthState() => 'signed-out',
+    UnknownAuthState() => 'unknown',
+  };
+}
+
+SessionOrdering _sessionOrdering(QuizOrdering ordering) {
+  return switch (ordering) {
+    QuizOrdering.blocked => SessionOrdering.blocked,
+    QuizOrdering.interleavedTail => SessionOrdering.interleavedTail,
+    QuizOrdering.fullyMixed => SessionOrdering.fullyMixed,
+  };
+}
+
+QuizOrdering _quizOrdering(SessionOrdering ordering) {
+  return switch (ordering) {
+    SessionOrdering.blocked => QuizOrdering.blocked,
+    SessionOrdering.interleavedTail => QuizOrdering.interleavedTail,
+    SessionOrdering.fullyMixed => QuizOrdering.fullyMixed,
+  };
+}
+
+class _ScopeSnapshot {
+  const _ScopeSnapshot({required this.topics, required this.excluded});
+
+  final List<Topic> topics;
+  final Set<TopicId> excluded;
+}

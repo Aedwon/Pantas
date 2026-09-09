@@ -114,6 +114,21 @@ class FakeQuizSessionRepository implements QuizSessionRepository {
   }) async {}
 
   @override
+  Future<bool> createGuarded({
+    required String sessionId,
+    required String userId,
+    required ExamId examId,
+    required SessionOrigin origin,
+    required List<QuestionId> questionIds,
+    required DateTime startedAt,
+    required bool Function() canPersist,
+    TopicId? topicId,
+    SubtopicId? subtopicId,
+    LessonId? lessonId,
+  }) async =>
+      canPersist();
+
+  @override
   dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
 

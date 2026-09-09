@@ -254,6 +254,46 @@ void main() {
     final session = (result as StartTodaySessionStarted).session;
     expect(session.topicId, 'topic_algebra');
   });
+  test('guarded Today start returns no commit when persistence is cancelled',
+      () async {
+    final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
+    addTearDown(db.close);
+    final sessions = QuizSessionRepository(db);
+    final useCase = StartTodaySession(
+      content: ContentRepository(contentDb),
+      sessions: sessions,
+    );
+    final plan = TodaySessionPlan(
+      questions: [_question('q_guarded')],
+      dueCount: 1,
+      weaknessCount: 0,
+      freshCount: 0,
+      topicId: 'topic_algebra',
+      topicName: 'Algebra',
+    );
+    var checks = 0;
+
+    final result = await useCase.callGuarded(
+      userId: 'local',
+      examId: 'exam_cse_pro',
+      preferences: QuizPreferences.defaults,
+      now: DateTime.utc(2026, 9, 9, 9),
+      plan: plan,
+      canPersist: () {
+        checks += 1;
+        return checks == 1;
+      },
+    );
+
+    expect(result, isNull);
+    expect(checks, 2);
+    expect(
+      await sessions.activeFor(userId: 'local', examId: 'exam_cse_pro'),
+      isNull,
+    );
+  });
 }
 
 Question _question(String id) => Question(

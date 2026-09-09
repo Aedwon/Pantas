@@ -1,7 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/features/quiz/application/quiz_launch_coordinator.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
+import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/domain/picker/practice_selection.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/domain/use_cases/build_today_plan.dart';
@@ -9,7 +11,6 @@ import 'package:pantas/features/quiz/domain/use_cases/start_drill.dart';
 import 'package:pantas/features/quiz/domain/use_cases/start_inline_lesson_quiz.dart';
 import 'package:pantas/features/quiz/domain/use_cases/start_practice.dart';
 import 'package:pantas/features/quiz/domain/use_cases/start_retake.dart';
-import 'package:pantas/features/quiz/domain/use_cases/start_today_session.dart';
 
 // Re-exported so the thirteen files that reach for the quiz's wiring through
 // the controller keep working; the wiring itself now lives in application/.
@@ -30,11 +31,11 @@ class QuizLoading extends QuizControllerState {
 class QuizRunning extends QuizControllerState {
   const QuizRunning({
     required this.session,
-    required this.questionShownAt,
+    this.questionShownAt,
     this.persisted = false,
   });
   final QuizSession session;
-  final DateTime questionShownAt;
+  final DateTime? questionShownAt;
   final bool persisted;
 }
 
@@ -70,15 +71,17 @@ class QuizController extends StateNotifier<QuizControllerState> {
   }) async {
     state = const QuizLoading();
     try {
-      final now = _ref.read(nowProvider)();
+      final startedAt = _ref.read(nowProvider)();
       final session = await _ref.read(startQuickQuizProvider)(
         examId: examId,
         topicId: topicId,
         count: count,
-        now: now,
+        now: startedAt,
         randomSeed: randomSeed,
       );
-      state = QuizRunning(session: session, questionShownAt: now);
+      state = QuizRunning(
+        session: session,
+      );
     } catch (e) {
       state = QuizFailure(e.toString());
     }
@@ -88,29 +91,36 @@ class QuizController extends StateNotifier<QuizControllerState> {
     required ExamId examId,
     TopicId? topicId,
     TodaySessionPlan? plan,
+    PreparedTodaySession? prepared,
   }) async {
     state = const QuizLoading();
     try {
-      final now = _ref.read(nowProvider)();
-      final preferences =
-          await _ref.read(quizPreferencesRepositoryProvider).read();
-      final result = await _ref.read(startTodaySessionProvider)(
-        userId: _localUserId,
+      final request = QuizPreparationRequest(
+        userId: quizLocalUserId,
         examId: examId,
         topicId: topicId,
-        preferences: preferences,
-        now: now,
-        plan: plan,
       );
+      final result = await _ref.read(quizLaunchCoordinatorProvider).launchToday(
+            request,
+            prepared: prepared,
+          );
       switch (result) {
-        case StartTodaySessionStarted(:final session):
+        case QuizLaunchStarted(:final session):
           state = QuizRunning(
             session: session,
-            questionShownAt: now,
             persisted: true,
           );
-        case StartTodaySessionNoQuestions(:final message):
+        case QuizLaunchNoQuestions(:final message):
           state = QuizFailure(message);
+        case QuizLaunchCancelled(:final persistedSession):
+          if (persistedSession == null) {
+            state = const QuizIdle();
+          } else {
+            state = QuizRunning(
+              session: persistedSession,
+              persisted: true,
+            );
+          }
       }
     } catch (e) {
       state = QuizFailure(e.toString());
@@ -122,18 +132,19 @@ class QuizController extends StateNotifier<QuizControllerState> {
   Future<void> resumeToday({required ExamId examId}) async {
     state = const QuizLoading();
     try {
-      final now = _ref.read(nowProvider)();
-      final session = await _ref.read(resumeSessionProvider)(
-        userId: _localUserId,
-        examId: examId,
-      );
+      final session =
+          await _ref.read(quizLaunchCoordinatorProvider).resumeToday(
+                QuizPreparationRequest(
+                  userId: quizLocalUserId,
+                  examId: examId,
+                ),
+              );
       if (session == null) {
         state = const QuizFailure('There is no session to pick up.');
         return;
       }
       state = QuizRunning(
         session: session,
-        questionShownAt: now,
         persisted: true,
       );
     } catch (e) {
@@ -152,7 +163,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
     try {
       final now = _ref.read(nowProvider)();
       final result = await _ref.read(startPracticeProvider)(
-        userId: _localUserId,
+        userId: quizLocalUserId,
         examId: examId,
         units: units,
         perUnit: perUnit,
@@ -162,7 +173,6 @@ class QuizController extends StateNotifier<QuizControllerState> {
         case StartPracticeStarted(:final session):
           state = QuizRunning(
             session: session,
-            questionShownAt: now,
             persisted: true,
           );
         case StartPracticeNoQuestions(:final message):
@@ -181,7 +191,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
     try {
       final now = _ref.read(nowProvider)();
       final result = await _ref.read(startPracticeProvider).fromQuestionIds(
-            userId: _localUserId,
+            userId: quizLocalUserId,
             examId: examId,
             questionIds: questionIds,
             now: now,
@@ -190,7 +200,6 @@ class QuizController extends StateNotifier<QuizControllerState> {
         case StartPracticeStarted(:final session):
           state = QuizRunning(
             session: session,
-            questionShownAt: now,
             persisted: true,
           );
         case StartPracticeNoQuestions(:final message):
@@ -210,7 +219,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
     try {
       final now = _ref.read(nowProvider)();
       final result = await _ref.read(startDrillProvider)(
-        userId: _localUserId,
+        userId: quizLocalUserId,
         examId: examId,
         topicId: topicId,
         requestedLength: requestedLength,
@@ -220,7 +229,6 @@ class QuizController extends StateNotifier<QuizControllerState> {
         case StartDrillStarted(:final session):
           state = QuizRunning(
             session: session,
-            questionShownAt: now,
             persisted: true,
           );
         case StartDrillNoQuestions(:final message):
@@ -236,7 +244,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
     try {
       final now = _ref.read(nowProvider)();
       final result = await _ref.read(startRetakeProvider)(
-        userId: _localUserId,
+        userId: quizLocalUserId,
         examId: examId,
         now: now,
       );
@@ -244,7 +252,6 @@ class QuizController extends StateNotifier<QuizControllerState> {
         case StartRetakeStarted(:final session):
           state = QuizRunning(
             session: session,
-            questionShownAt: now,
             persisted: true,
           );
         case StartRetakeNoQuestions(:final message):
@@ -263,7 +270,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
     try {
       final now = _ref.read(nowProvider)();
       final result = await _ref.read(startInlineLessonQuizProvider)(
-        userId: _localUserId,
+        userId: quizLocalUserId,
         examId: examId,
         lessonId: lessonId,
         now: now,
@@ -272,7 +279,6 @@ class QuizController extends StateNotifier<QuizControllerState> {
         case StartInlineLessonQuizStarted(:final session):
           state = QuizRunning(
             session: session,
-            questionShownAt: now,
             persisted: true,
           );
         case StartInlineLessonQuizNoQuestions(:final message):
@@ -283,13 +289,37 @@ class QuizController extends StateNotifier<QuizControllerState> {
     }
   }
 
+  void markQuestionReady({
+    required String sessionId,
+    required int questionIndex,
+  }) {
+    final s = state;
+    if (s is! QuizRunning ||
+        s.session.sessionId != sessionId ||
+        s.session.currentIndex != questionIndex ||
+        s.session.currentOutcome != null ||
+        s.questionShownAt != null) {
+      return;
+    }
+
+    state = QuizRunning(
+      session: s.session,
+      questionShownAt: _ref.read(nowProvider)(),
+      persisted: s.persisted,
+    );
+  }
+
   Future<void> answer({required ChoiceId chosenChoiceId}) async {
     final s = state;
     if (s is! QuizRunning) {
       throw StateError('answer() called when controller is not running');
     }
+    final questionShownAt = s.questionShownAt;
+    if (questionShownAt == null) {
+      throw StateError('answer() called before the question is ready');
+    }
     final now = _ref.read(nowProvider)();
-    final responseMs = now.difference(s.questionShownAt).inMilliseconds;
+    final responseMs = now.difference(questionShownAt).inMilliseconds;
 
     final outcome = await _ref.read(submitAnswerProvider)(
       question: s.session.currentQuestion,
@@ -297,14 +327,11 @@ class QuizController extends StateNotifier<QuizControllerState> {
       responseMs: responseMs,
       now: now,
       sessionId: s.persisted ? s.session.sessionId : null,
-      userId: s.persisted ? _localUserId : null,
+      userId: s.persisted ? quizLocalUserId : null,
       examId: s.persisted ? s.session.examId : null,
       origin: s.session.origin.storageValue,
     );
 
-    // The answer is written now, and the session stays where it is so the
-    // reveal can be read. Nothing about the attempt or the scheduler waits
-    // for the student to move on.
     state = QuizRunning(
       session: s.session.record(outcome),
       questionShownAt: s.questionShownAt,
@@ -322,18 +349,18 @@ class QuizController extends StateNotifier<QuizControllerState> {
     if (s.session.currentOutcome == null) return;
 
     if (s.session.isComplete) {
-      final now = _ref.read(nowProvider)();
-      final attempt = await _ref.read(completeQuizProvider)(
-        session: s.session,
-        now: now,
-      );
+      final attempt =
+          await _ref.read(quizCompletionCoordinatorProvider).complete(
+                session: s.session,
+                now: _ref.read(nowProvider)(),
+                persisted: s.persisted,
+              );
       state = QuizComplete(attempt: attempt, session: s.session);
       return;
     }
 
     state = QuizRunning(
       session: s.session.advance(),
-      questionShownAt: _ref.read(nowProvider)(),
       persisted: s.persisted,
     );
   }
@@ -352,12 +379,9 @@ class QuizController extends StateNotifier<QuizControllerState> {
 
     state = QuizRunning(
       session: s.session.copyWith(currentIndex: index),
-      questionShownAt: _ref.read(nowProvider)(),
       persisted: s.persisted,
     );
   }
 
   void reset() => state = const QuizIdle();
 }
-
-const _localUserId = 'local';

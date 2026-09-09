@@ -28,20 +28,67 @@ class QuizSessionRepository {
     SubtopicId? subtopicId,
     LessonId? lessonId,
   }) async {
-    await quitAllOpen(userId: userId, examId: examId, quitAt: startedAt);
-    await _db.into(_db.quizSessions).insert(
-          QuizSessionsCompanion.insert(
-            id: sessionId,
-            userId: userId,
-            examId: examId,
-            origin: origin.storageValue,
-            topicId: Value(topicId),
-            subtopicId: Value(subtopicId),
-            lessonId: Value(lessonId),
-            questionIdsJson: jsonEncode(questionIds),
-            startedAt: startedAt,
-          ),
+    final created = await createGuarded(
+      sessionId: sessionId,
+      userId: userId,
+      examId: examId,
+      origin: origin,
+      questionIds: questionIds,
+      startedAt: startedAt,
+      topicId: topicId,
+      subtopicId: subtopicId,
+      lessonId: lessonId,
+      canPersist: () => true,
+    );
+    if (!created) {
+      throw StateError('Unconditional quiz session creation was cancelled');
+    }
+  }
+
+  Future<bool> createGuarded({
+    required String sessionId,
+    required String userId,
+    required ExamId examId,
+    required SessionOrigin origin,
+    required List<QuestionId> questionIds,
+    required DateTime startedAt,
+    required bool Function() canPersist,
+    TopicId? topicId,
+    SubtopicId? subtopicId,
+    LessonId? lessonId,
+  }) async {
+    try {
+      await _db.transaction(() async {
+        if (!canPersist()) throw const _QuizSessionCreateCancelled();
+
+        await quitAllOpen(
+          userId: userId,
+          examId: examId,
+          quitAt: startedAt,
         );
+
+        if (!canPersist()) throw const _QuizSessionCreateCancelled();
+
+        await _db.into(_db.quizSessions).insert(
+              QuizSessionsCompanion.insert(
+                id: sessionId,
+                userId: userId,
+                examId: examId,
+                origin: origin.storageValue,
+                topicId: Value(topicId),
+                subtopicId: Value(subtopicId),
+                lessonId: Value(lessonId),
+                questionIdsJson: jsonEncode(questionIds),
+                startedAt: startedAt,
+              ),
+            );
+
+        if (!canPersist()) throw const _QuizSessionCreateCancelled();
+      });
+      return true;
+    } on _QuizSessionCreateCancelled {
+      return false;
+    }
   }
 
   Future<QuizSessionLocalRow?> activeFor({
@@ -89,6 +136,36 @@ class QuizSessionRepository {
     return (_db.update(_db.quizSessions)
           ..where((row) => row.id.equals(sessionId)))
         .write(QuizSessionsCompanion(completedAt: Value(completedAt)));
+  }
+
+  Future<DateTime?> completedAtFor(String sessionId) async {
+    final row = await (_db.select(_db.quizSessions)
+          ..where((table) => table.id.equals(sessionId)))
+        .getSingleOrNull();
+    return row?.completedAt;
+  }
+
+  /// Completes exactly the expected open row. A missing row is a terminal
+  /// integrity error so callers can roll back the paired Attempt write.
+  Future<void> completeRequired({
+    required String sessionId,
+    required DateTime completedAt,
+  }) async {
+    final row = await (_db.select(_db.quizSessions)
+          ..where((table) => table.id.equals(sessionId)))
+        .getSingleOrNull();
+    if (row == null) {
+      throw StateError('Persisted quiz session $sessionId does not exist');
+    }
+    if (row.completedAt != null) return;
+    final changed = await (_db.update(_db.quizSessions)
+          ..where(
+            (table) => table.id.equals(sessionId) & table.completedAt.isNull(),
+          ))
+        .write(QuizSessionsCompanion(completedAt: Value(completedAt)));
+    if (changed != 1) {
+      throw StateError('Persisted quiz session $sessionId was not completed');
+    }
   }
 
   /// Closes every session still open for this exam, not only the newest.
@@ -165,4 +242,8 @@ class QuizSessionRepository {
 extension QuizSessionLocalRowQuestionIds on QuizSessionLocalRow {
   List<QuestionId> get questionIds =>
       (jsonDecode(questionIdsJson) as List).cast<QuestionId>();
+}
+
+class _QuizSessionCreateCancelled implements Exception {
+  const _QuizSessionCreateCancelled();
 }

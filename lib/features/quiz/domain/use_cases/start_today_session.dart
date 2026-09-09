@@ -62,6 +62,50 @@ class StartTodaySession {
     TopicId? topicId,
     TodaySessionPlan? plan,
   }) async {
+    final result = await _start(
+      userId: userId,
+      examId: examId,
+      preferences: preferences,
+      now: now,
+      topicId: topicId,
+      plan: plan,
+      canPersist: () => true,
+    );
+    if (result == null) {
+      throw StateError('Unconditional Today session creation was cancelled');
+    }
+    return result;
+  }
+
+  Future<StartTodaySessionResult?> callGuarded({
+    required String userId,
+    required ExamId examId,
+    required QuizPreferences preferences,
+    required DateTime now,
+    required bool Function() canPersist,
+    TopicId? topicId,
+    TodaySessionPlan? plan,
+  }) {
+    return _start(
+      userId: userId,
+      examId: examId,
+      preferences: preferences,
+      now: now,
+      topicId: topicId,
+      plan: plan,
+      canPersist: canPersist,
+    );
+  }
+
+  Future<StartTodaySessionResult?> _start({
+    required String userId,
+    required ExamId examId,
+    required QuizPreferences preferences,
+    required DateTime now,
+    required bool Function() canPersist,
+    TopicId? topicId,
+    TodaySessionPlan? plan,
+  }) async {
     final resolved = plan ??
         await _planFromContent(
           examId: examId,
@@ -91,7 +135,7 @@ class StartTodaySession {
       origin: origin,
       topicId: namedTopicId,
     );
-    await _sessions.create(
+    final created = await _sessions.createGuarded(
       sessionId: session.sessionId,
       userId: userId,
       examId: examId,
@@ -99,7 +143,10 @@ class StartTodaySession {
       topicId: namedTopicId,
       questionIds: resolved.questions.map((question) => question.id).toList(),
       startedAt: now,
+      canPersist: canPersist,
     );
+    if (!created) return null;
+
     unawaited(
       _telemetry.log(
         TelemetryEvent.sessionStarted,

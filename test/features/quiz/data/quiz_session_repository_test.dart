@@ -214,4 +214,138 @@ void main() {
     expect(closed, 4);
     expect(await repo.activeFor(userId: 'user', examId: 'exam'), isNull);
   });
+  test(
+      'guarded create rolls back prior active session when cancelled before '
+      'insert', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = QuizSessionRepository(db);
+    final previousStartedAt = DateTime.utc(2026, 9, 9, 8);
+    final launchStartedAt = DateTime.utc(2026, 9, 9, 9);
+
+    await repo.create(
+      sessionId: 'previous',
+      userId: 'user',
+      examId: 'exam',
+      origin: SessionOrigin.todayTopic,
+      questionIds: const ['q-old'],
+      startedAt: previousStartedAt,
+    );
+
+    var checks = 0;
+    final created = await repo.createGuarded(
+      sessionId: 'cancelled',
+      userId: 'user',
+      examId: 'exam',
+      origin: SessionOrigin.todayTopic,
+      questionIds: const ['q-new'],
+      startedAt: launchStartedAt,
+      canPersist: () {
+        checks += 1;
+        return checks == 1;
+      },
+    );
+
+    expect(created, isFalse);
+    expect(checks, 2);
+    final rows = await db.select(db.quizSessions).get();
+    expect(rows, hasLength(1));
+    expect(rows.single.id, 'previous');
+    expect(rows.single.quitAt, isNull);
+    expect(
+      (await repo.activeFor(userId: 'user', examId: 'exam'))?.id,
+      'previous',
+    );
+  });
+
+  test(
+      'guarded create rolls back when cancelled after awaited insert before '
+      'commit', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = QuizSessionRepository(db);
+    final previousStartedAt = DateTime.utc(2026, 9, 9, 8);
+    final launchStartedAt = DateTime.utc(2026, 9, 9, 9);
+
+    await repo.create(
+      sessionId: 'previous-after-insert',
+      userId: 'user',
+      examId: 'exam',
+      origin: SessionOrigin.todayTopic,
+      questionIds: const ['q-old'],
+      startedAt: previousStartedAt,
+    );
+
+    final guardResults = <bool>[true, true, false];
+    var checks = 0;
+    final created = await repo.createGuarded(
+      sessionId: 'cancelled-after-insert',
+      userId: 'user',
+      examId: 'exam',
+      origin: SessionOrigin.todayTopic,
+      questionIds: const ['q-new'],
+      startedAt: launchStartedAt,
+      canPersist: () => guardResults[checks++],
+    );
+
+    expect(created, isFalse);
+    expect(checks, 3);
+    final rows = await db.select(db.quizSessions).get();
+    expect(rows, hasLength(1));
+    expect(rows.single.id, 'previous-after-insert');
+    expect(rows.single.quitAt, isNull);
+    expect(
+      (await repo.activeFor(userId: 'user', examId: 'exam'))?.id,
+      'previous-after-insert',
+    );
+  });
+
+  test(
+      'guarded create commits exactly one replacement when all checkpoints '
+      'stay valid', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = QuizSessionRepository(db);
+    final previousStartedAt = DateTime.utc(2026, 9, 9, 8);
+    final launchStartedAt = DateTime.utc(2026, 9, 9, 9);
+
+    await repo.create(
+      sessionId: 'previous-valid',
+      userId: 'user',
+      examId: 'exam',
+      origin: SessionOrigin.todayTopic,
+      questionIds: const ['q-old'],
+      startedAt: previousStartedAt,
+    );
+
+    final guardResults = <bool>[true, true, true];
+    var checks = 0;
+    final created = await repo.createGuarded(
+      sessionId: 'replacement-valid',
+      userId: 'user',
+      examId: 'exam',
+      origin: SessionOrigin.todayTopic,
+      questionIds: const ['q-new'],
+      startedAt: launchStartedAt,
+      canPersist: () => guardResults[checks++],
+    );
+
+    expect(created, isTrue);
+    expect(checks, 3);
+    final rows = await db.select(db.quizSessions).get();
+    expect(rows, hasLength(2));
+    final previous = rows.singleWhere((row) => row.id == 'previous-valid');
+    final replacement =
+        rows.singleWhere((row) => row.id == 'replacement-valid');
+    expect(previous.quitAt, launchStartedAt);
+    expect(replacement.quitAt, isNull);
+    expect(replacement.completedAt, isNull);
+    final open =
+        rows.where((row) => row.quitAt == null && row.completedAt == null);
+    expect(open.map((row) => row.id), ['replacement-valid']);
+    expect(
+      (await repo.activeFor(userId: 'user', examId: 'exam'))?.id,
+      'replacement-valid',
+    );
+  });
 }

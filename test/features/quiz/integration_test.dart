@@ -38,7 +38,12 @@ void main() {
 
     final running1 = container.read(quizControllerProvider);
     expect(running1, isA<QuizRunning>());
-    final firstQuestion = (running1 as QuizRunning).session.currentQuestion;
+    final firstRunning = running1 as QuizRunning;
+    final firstQuestion = firstRunning.session.currentQuestion;
+    notifier.markQuestionReady(
+      sessionId: firstRunning.session.sessionId,
+      questionIndex: firstRunning.session.currentIndex,
+    );
 
     // Answer question 1 with the correct choice, then read the reveal and
     // move on: answering no longer advances by itself.
@@ -48,6 +53,10 @@ void main() {
     // After question 1, we should still be running (count == 2).
     final running2 = container.read(quizControllerProvider);
     if (running2 is QuizRunning) {
+      notifier.markQuestionReady(
+        sessionId: running2.session.sessionId,
+        questionIndex: running2.session.currentIndex,
+      );
       await notifier.answer(
         chosenChoiceId: running2.session.currentQuestion.correctChoice.id,
       );

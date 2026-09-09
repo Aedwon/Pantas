@@ -9,12 +9,13 @@ import 'package:pantas/core/ui/components/faint_bars.dart';
 import 'package:pantas/core/ui/components/ruled_panel.dart';
 import 'package:pantas/core/ui/components/stats_band.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
 
 /// The Quiz tab's first panel: one of four states, one per condition of the
 /// day.
-class SessionPanel extends ConsumerWidget {
+class SessionPanel extends ConsumerStatefulWidget {
   const SessionPanel({
     required this.exam,
     this.onStart,
@@ -25,10 +26,37 @@ class SessionPanel extends ConsumerWidget {
 
   /// Runs before the session opens. The tab passes its study-first nudge.
   /// Null starts the session directly, which is what the widget tests do.
-  final VoidCallback? onStart;
+  final ValueChanged<PreparedTodaySession>? onStart;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<SessionPanel> createState() => _SessionPanelState();
+}
+
+class _SessionPanelState extends ConsumerState<SessionPanel>
+    with WidgetsBindingObserver {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      ref.invalidate(sessionPanelProvider(widget.exam.id));
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final exam = widget.exam;
+    final onStart = widget.onStart;
     final async = ref.watch(sessionPanelProvider(exam.id));
 
     return async.when(
@@ -91,7 +119,7 @@ class _Available extends ConsumerWidget {
 
   final Exam exam;
   final SessionPanelAvailable state;
-  final VoidCallback? onStart;
+  final ValueChanged<PreparedTodaySession>? onStart;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -138,8 +166,19 @@ class _Available extends ConsumerWidget {
           const SizedBox(height: 12),
           BoardButton(
             label: 'Start',
-            onPressed: onStart ??
-                () => unawaited(context.push('/quiz/today/${exam.id}')),
+            onPressed: () {
+              final prepared = state.prepared;
+              if (onStart != null && prepared != null) {
+                onStart!(prepared);
+                return;
+              }
+              unawaited(
+                context.push(
+                  '/quiz/today/${exam.id}',
+                  extra: prepared,
+                ),
+              );
+            },
           ),
         ],
       ),

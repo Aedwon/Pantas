@@ -12,7 +12,7 @@ import 'package:pantas/core/ui/severity.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/home/application/topic_accuracy_provider.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
-import 'package:pantas/features/quiz/domain/use_cases/start_today_session.dart';
+import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 
 class PracticePanel extends ConsumerWidget {
   const PracticePanel({super.key});
@@ -88,28 +88,34 @@ class _PracticeRow extends ConsumerWidget {
 
     return InkWell(
       onTap: () async {
-        final now = ref.read(nowProvider)();
-        final preferences =
-            await ref.read(quizPreferencesRepositoryProvider).read();
-        final result = await ref.read(startTodaySessionProvider)(
-          userId: 'local_user',
-          examId: examId,
-          topicId: topic.topicId,
-          preferences: preferences,
-          now: now,
-        );
-
-        if (!context.mounted) return;
-
-        switch (result) {
-          case StartTodaySessionStarted():
-            unawaited(
-              context.push('/quiz/today/$examId?topicId=${topic.topicId}'),
-            );
-          case StartTodaySessionNoQuestions(:final message):
+        try {
+          final prepared = await ref.read(todayQuizPreparerProvider).prepare(
+                QuizPreparationRequest(
+                  userId: quizLocalUserId,
+                  examId: examId,
+                  topicId: topic.topicId,
+                ),
+              );
+          if (!context.mounted) return;
+          if (prepared.plan.isEmpty) {
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(message)),
+              const SnackBar(
+                content: Text('No questions are ready right now.'),
+              ),
             );
+            return;
+          }
+          unawaited(
+            context.push(
+              '/quiz/today/$examId?topicId=${topic.topicId}',
+              extra: prepared,
+            ),
+          );
+        } catch (_) {
+          if (!context.mounted) return;
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Could not prepare this quiz.')),
+          );
         }
       },
       child: Container(

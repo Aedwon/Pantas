@@ -31,6 +31,7 @@ import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.da
 import 'package:pantas/features/progress/presentation/pages/how_you_work_page.dart';
 import 'package:pantas/features/progress/presentation/pages/your_record_page.dart';
 import 'package:pantas/features/progress/presentation/progress_page.dart';
+import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/presentation/pages/debrief_page.dart';
 import 'package:pantas/features/quiz/presentation/pages/flagged_list_page.dart';
 import 'package:pantas/features/quiz/presentation/pages/practice_picker_page.dart';
@@ -270,6 +271,9 @@ List<RouteBase> buildAppRoutes(Ref ref) {
         examId: state.pathParameters['examId']!,
         mode: QuizPageMode.today,
         topicId: state.uri.queryParameters['topicId'],
+        prepared: state.extra is PreparedTodaySession
+            ? state.extra! as PreparedTodaySession
+            : null,
       ),
     ),
     GoRoute(

@@ -15,6 +15,7 @@ import 'package:pantas/core/ui/components/page_scaffold.dart';
 import 'package:pantas/core/ui/components/section_header.dart';
 import 'package:pantas/core/ui/components/tab_header.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/presentation/practice_row_providers.dart';
 import 'package:pantas/features/quiz/presentation/widgets/session_panel.dart';
 
@@ -91,7 +92,11 @@ class _QuizTabBody extends ConsumerWidget {
   final Exam exam;
   final Widget? mockPanel;
 
-  Future<void> _onStartQuiz(BuildContext context, WidgetRef ref) async {
+  Future<void> _onStartQuiz(
+    BuildContext context,
+    WidgetRef ref,
+    PreparedTodaySession prepared,
+  ) async {
     final isDismissed = await ref.read(quizNudgeDismissedProvider.future);
     final anyRead = await ref.read(anyLessonReadProvider.future);
 
@@ -110,7 +115,9 @@ class _QuizTabBody extends ConsumerWidget {
             if (!sheetContext.mounted) return;
             Navigator.of(sheetContext).pop();
             if (!context.mounted) return;
-            unawaited(context.push('/quiz/today/${exam.id}'));
+            unawaited(
+              context.push('/quiz/today/${exam.id}', extra: prepared),
+            );
           },
         ),
       );
@@ -118,7 +125,7 @@ class _QuizTabBody extends ConsumerWidget {
     }
 
     if (!context.mounted) return;
-    unawaited(context.push('/quiz/today/${exam.id}'));
+    unawaited(context.push('/quiz/today/${exam.id}', extra: prepared));
   }
 
   @override
@@ -140,7 +147,7 @@ class _QuizTabBody extends ConsumerWidget {
                 ExamNameLine(exam.shortName),
                 SessionPanel(
                   exam: exam,
-                  onStart: () => _onStartQuiz(context, ref),
+                  onStart: (prepared) => _onStartQuiz(context, ref, prepared),
                 ),
                 if (mockPanel != null) mockPanel!,
                 // The panels above are the tab's own work. This is a list

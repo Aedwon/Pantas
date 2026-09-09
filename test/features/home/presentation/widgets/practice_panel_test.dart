@@ -2,8 +2,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
+import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/ink_chevron.dart';
@@ -13,57 +16,41 @@ import 'package:pantas/core/ui/theme/app_colors.dart';
 import 'package:pantas/core/ui/theme/app_text_styles.dart';
 import 'package:pantas/features/home/application/topic_accuracy_provider.dart';
 import 'package:pantas/features/home/presentation/widgets/practice_panel.dart';
-import 'package:pantas/features/quiz/domain/use_cases/start_today_session.dart';
+import 'package:pantas/features/quiz/application/quiz_preparation_stamp.dart';
+import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
+import 'package:pantas/features/quiz/domain/use_cases/build_today_plan.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
+import 'package:pantas/features/settings/domain/session_ordering.dart';
 
 import '../../../../helpers/in_memory_database.dart';
 
-class StartTodaySessionCall {
-  const StartTodaySessionCall({
-    required this.userId,
-    required this.examId,
-    this.topicId,
-  });
-  final String userId;
-  final String examId;
-  final String? topicId;
-}
+class RecordingTodayQuizPreparer extends TodayQuizPreparer {
+  RecordingTodayQuizPreparer()
+      : super(
+          readStamp: (_) => throw UnimplementedError(),
+          buildPlan: (_) => throw UnimplementedError(),
+          now: DateTime.now,
+        );
 
-class FakeStartTodaySession implements StartTodaySession {
-  final calls = <StartTodaySessionCall>[];
-  StartTodaySessionResult resultToReturn =
-      const StartTodaySessionNoQuestions('No questions');
+  final calls = <QuizPreparationRequest>[];
+  final _pending = Completer<PreparedTodaySession>();
+  PreparedTodaySession? resultToReturn;
 
   @override
-  Future<StartTodaySessionResult> call({
-    required String userId,
-    required String examId,
-    required DateTime now,
-    String? topicId,
-    dynamic preferences,
-    dynamic plan,
-  }) async {
-    calls.add(
-      StartTodaySessionCall(
-        userId: userId,
-        examId: examId,
-        topicId: topicId,
-      ),
-    );
-    return resultToReturn;
+  Future<PreparedTodaySession> prepare(QuizPreparationRequest request) {
+    calls.add(request);
+    final result = resultToReturn;
+    return result == null ? _pending.future : Future.value(result);
   }
-
-  @override
-  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
 
 void main() {
   late AppDatabase db;
-  late FakeStartTodaySession fakeStartToday;
+  late RecordingTodayQuizPreparer fakePreparer;
 
   setUp(() {
     db = inMemoryDatabase();
-    fakeStartToday = FakeStartTodaySession();
+    fakePreparer = RecordingTodayQuizPreparer();
   });
 
   tearDown(() async {
@@ -93,7 +80,7 @@ void main() {
         topicAccuracyProvider.overrideWith(
           (ref) => loadTopics?.call() ?? Future.value(topics),
         ),
-        startTodaySessionProvider.overrideWithValue(fakeStartToday),
+        todayQuizPreparerProvider.overrideWithValue(fakePreparer),
       ],
       child: MaterialApp(
         theme: ThemeData(
@@ -255,13 +242,18 @@ void main() {
     expect(find.textContaining('questions on whichever'), findsNothing);
   });
 
-  testWidgets('tapping a row starts a session on that topic', (tester) async {
+  testWidgets(
+      'tapping a row prepares the canonical topic without '
+      'pre-route persistence', (tester) async {
     await tester.pumpWidget(harness(threeTopics));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Chemistry'));
-    await tester.pumpAndSettle();
+    await tester.pump();
 
-    expect(fakeStartToday.calls.single.topicId, 'chem');
+    final request = fakePreparer.calls.single;
+    expect(request.userId, quizLocalUserId);
+    expect(request.examId, 'upcat');
+    expect(request.topicId, 'chem');
   });
 
   testWidgets('no board green in this panel except the header action',
@@ -291,5 +283,101 @@ void main() {
     await tester.pumpWidget(harness(const []));
     await tester.pumpAndSettle();
     expect(find.byType(RuledPanel), findsNothing);
+  });
+  testWidgets('Home passes the exact prepared object to the Today route',
+      (tester) async {
+    const question = Question(
+      id: 'q-chem',
+      version: 1,
+      examIds: ['upcat'],
+      topicId: 'chem',
+      language: 'en',
+      stem: 'Chemistry question',
+      choices: [
+        Choice(id: 'a', label: 'A', text: 'A', isCorrect: true),
+        Choice(id: 'b', label: 'B', text: 'B', isCorrect: false),
+      ],
+      explanation: 'Because.',
+    );
+    final prepared = PreparedTodaySession(
+      plan: const TodaySessionPlan(
+        questions: [question],
+        dueCount: 1,
+        weaknessCount: 0,
+        freshCount: 0,
+        topicId: 'chem',
+        topicName: 'Chemistry',
+      ),
+      stamp: QuizPreparationStamp(
+        contentRevision: 'content-1',
+        accountLifetimeToken: 'local',
+        examId: 'upcat',
+        topicId: 'chem',
+        scopeToken: 'chem',
+        topicExclusionToken: '',
+        ordering: SessionOrdering.interleavedTail,
+        sessionLength: 10,
+        newCardCap: 10,
+        historyRevision: 'history-1',
+        sessionStateRevision: 'session-1',
+        localDay: DateTime(2026, 9, 9),
+        nextDueExpiry: null,
+      ),
+      preparedAt: DateTime(2026, 9, 9, 10),
+    );
+    fakePreparer.resultToReturn = prepared;
+    Object? routeExtra;
+    final router = GoRouter(
+      routes: [
+        GoRoute(
+          path: '/',
+          builder: (context, state) => const Scaffold(body: PracticePanel()),
+        ),
+        GoRoute(
+          path: '/quiz/today/:examId',
+          builder: (context, state) {
+            routeExtra = state.extra;
+            return const Scaffold(body: Text('Today destination'));
+          },
+        ),
+      ],
+    );
+    const exam = Exam(
+      id: 'upcat',
+      code: 'UPCAT',
+      name: 'UPCAT',
+      shortName: 'UPCAT',
+      language: 'en',
+      isActive: true,
+      subjects: [],
+    );
+
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          activeExamFocusProvider.overrideWith(
+            (ref) async => const ActiveExamFocus.selected(exam),
+          ),
+          topicAccuracyProvider
+              .overrideWith((ref) => Future.value(threeTopics)),
+          todayQuizPreparerProvider.overrideWithValue(fakePreparer),
+        ],
+        child: MaterialApp.router(
+          theme: ThemeData(
+            useMaterial3: true,
+            extensions: [AppColors.light, AppTextStyles.create()],
+          ),
+          routerConfig: router,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Chemistry'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Today destination'), findsOneWidget);
+    expect(identical(routeExtra, prepared), isTrue);
   });
 }

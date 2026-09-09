@@ -18,23 +18,39 @@ class AttemptsRepository {
   final AppDatabase _db;
   final LocalSyncMutationRecorder _syncRecorder;
 
-  Future<void> save(Attempt attempt) => _syncRecorder.runRecorded(
+  Future<void> save(Attempt attempt) =>
+      saveAtomically<void>(attempt, () async {});
+
+  /// Writes [attempt] and [afterWrite] inside the same recorded database
+  /// transaction. The quiz terminal owner uses this to close the persisted
+  /// session without leaving a crash window between the two durable writes.
+  Future<T> saveAtomically<T>(
+    Attempt attempt,
+    Future<T> Function() afterWrite,
+  ) =>
+      _syncRecorder.runRecorded(
         collection: 'quiz_attempts',
         rowId: attempt.id,
         op: SyncLocalMutationOp.upsert,
-        mutate: () => _db.into(_db.attemptsLocal).insertOnConflictUpdate(
-              AttemptsLocalCompanion.insert(
-                id: attempt.id,
-                examId: attempt.examId,
-                startedAt: attempt.startedAt,
-                completedAt: Value(attempt.completedAt),
-                origin: Value(attempt.origin),
-                itemsJson: jsonEncode(
-                  attempt.items.map((i) => i.toJson()).toList(),
-                ),
+        mutate: () async {
+          await _write(attempt);
+          return afterWrite();
+        },
+      );
+
+  Future<void> _write(Attempt attempt) =>
+      _db.into(_db.attemptsLocal).insertOnConflictUpdate(
+            AttemptsLocalCompanion.insert(
+              id: attempt.id,
+              examId: attempt.examId,
+              startedAt: attempt.startedAt,
+              completedAt: Value(attempt.completedAt),
+              origin: Value(attempt.origin),
+              itemsJson: jsonEncode(
+                attempt.items.map((i) => i.toJson()).toList(),
               ),
             ),
-      );
+          );
 
   Future<Attempt?> byId(AttemptId id) async {
     final row = await (_db.select(_db.attemptsLocal)
