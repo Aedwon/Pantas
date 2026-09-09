@@ -42,10 +42,3 @@ jobs:
 
       - name: Build dev APK (debug, unsigned)
         run: flutter build apk --debug --flavor dev -t lib/main_dev.dart
-
-      - name: Upload APK artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-dev-debug
-          path: build/app/outputs/flutter-apk/app-dev-debug.apk
-          retention-days: 14
