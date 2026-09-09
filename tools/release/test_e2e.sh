@@ -70,13 +70,6 @@ command -v python3 >/dev/null 2>&1 || fail "python3 is required for runner suppo
 : "${PANTAS_CONTENT_BOOTSTRAP_KEY_V1_B64:?missing PANTAS_CONTENT_BOOTSTRAP_KEY_V1_B64}"
 export PANTAS_CONTENT_BOOTSTRAP_KEY_V1_B64
 
-if ! dart run tools/verify_content_package/verify_content_package.dart \
-  assets/seed/content.db \
-  assets/seed/content.manifest.json \
-  assets/seed/content.manifest.sig >/dev/null 2>&1; then
-  fail "protected content package verification failed"
-fi
-
 
 # Preflight is intentionally complete before diagnostics, state clearing, app launch,
 # or emulator startup. Any provenance failure leaves the target untouched.
@@ -87,6 +80,14 @@ preflight_json="$(
     --content-sha "$content_sha" \
     --device "$device"
 )" || fail "preflight rejected provenance, toolchain, content, or device state"
+
+if ! dart run tools/verify_content_package/verify_content_package.dart \
+  assets/seed/content.db \
+  assets/seed/content.manifest.json \
+  assets/seed/content.manifest.sig >/dev/null 2>&1; then
+  fail "protected content package verification failed"
+fi
+
 
 run_tag="$(date -u +%Y%m%dT%H%M%SZ)-$$"
 diagnostics="$repo_root/build/release-e2e/$run_tag"

@@ -1257,6 +1257,16 @@ void main() {
         runner,
         contains('tools/verify_content_package/verify_content_package.dart'),
       );
+      final preflightRejectedIndex = runner.indexOf(
+        'preflight rejected provenance, toolchain, content, or device state',
+      );
+      final verifierIndex = runner.indexOf(
+        'if ! dart run tools/verify_content_package/verify_content_package.dart',
+      );
+      final diagnosticsIndex = runner.indexOf('prepare-diagnostics --path');
+      expect(preflightRejectedIndex, greaterThanOrEqualTo(0));
+      expect(verifierIndex, greaterThan(preflightRejectedIndex));
+      expect(diagnosticsIndex, greaterThan(verifierIndex));
       expect(
         runner,
         contains(
