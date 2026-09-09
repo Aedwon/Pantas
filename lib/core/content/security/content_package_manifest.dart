@@ -38,9 +38,9 @@ final class ContentPackageManifest {
       sourceContentSha256: sourceContentSha256,
       payloadSha256: payloadSha256,
       contentSeedVersion: sourceContentSha256.substring(0, 16),
-      contentSchemaVersion: contentSchemaV1,
-      readerSchemaMin: contentSchemaV1,
-      readerSchemaMax: contentSchemaV1,
+      contentSchemaVersion: contentSchemaV2,
+      readerSchemaMin: contentSchemaV2,
+      readerSchemaMax: contentSchemaV2,
       cipherProfile: cipherProfileV1,
       bootstrapKeyId: bootstrapKeyIdV1,
       signingKeyId: signingKeyIdV1,
@@ -91,6 +91,7 @@ final class ContentPackageManifest {
   static const productionReleaseChannel = 'prod';
   static const productionPayloadPath = 'assets/seed/content.db';
   static const contentSchemaV1 = 8;
+  static const contentSchemaV2 = 9;
   static const cipherProfileV1 = 'pantas-sqlite3mc-content-v1';
   static const bootstrapKeyIdV1 = 'content-bootstrap-v1';
   static const signingKeyIdV1 = 'content-signing-v1';
@@ -135,9 +136,9 @@ final class ContentPackageManifest {
         applicationId != productionApplicationId ||
         releaseChannel != productionReleaseChannel ||
         payloadPath != productionPayloadPath ||
-        contentSchemaVersion != contentSchemaV1 ||
-        readerSchemaMin != contentSchemaV1 ||
-        readerSchemaMax != contentSchemaV1 ||
+        contentSchemaVersion != contentSchemaV2 ||
+        readerSchemaMin != contentSchemaV2 ||
+        readerSchemaMax != contentSchemaV2 ||
         cipherProfile != cipherProfileV1 ||
         bootstrapKeyId.isEmpty ||
         signingKeyId.isEmpty) {

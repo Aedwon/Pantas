@@ -53,7 +53,11 @@ void main() {
       final questions = [for (var i = 0; i < 20; i++) freeStanding('q$i')];
 
       final picked = TodayTopicPicker().pick(
-        PickContext(allQuestions: questions, requestedLength: 10),
+        PickContext(
+          allQuestions: questions,
+          newQuestions: questions,
+          requestedLength: 10,
+        ),
       );
 
       expect(picked, hasLength(10));
@@ -104,6 +108,7 @@ void main() {
       final picked = TodayTopicPicker().pick(
         PickContext(
           allQuestions: questions,
+          newQuestions: questions,
           requestedLength: 5,
           topicId: 't2',
         ),
@@ -117,7 +122,11 @@ void main() {
       final questions = [for (var i = 0; i < 3; i++) freeStanding('q$i')];
 
       final picked = TodayTopicPicker().pick(
-        PickContext(allQuestions: questions, requestedLength: 10),
+        PickContext(
+          allQuestions: questions,
+          newQuestions: questions,
+          requestedLength: 10,
+        ),
       );
 
       expect(picked, hasLength(3));

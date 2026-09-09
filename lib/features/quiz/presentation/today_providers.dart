@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/domain/question_selection_row.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/features/quiz/domain/models/topic_queue_row.dart';
@@ -36,6 +37,22 @@ class TodayInputs {
       [for (final questions in questionsByTopic.values) ...questions];
 }
 
+Question _selectionQuestion(QuestionSelectionRow row, ExamId examId) {
+  return Question(
+    id: row.id,
+    version: row.version,
+    examIds: [examId],
+    topicId: row.topicId,
+    language: '',
+    stem: '',
+    choices: const [],
+    explanation: '',
+    lessonId: row.lessonId,
+    passageId: row.passageId,
+    figureSpecJson: row.hasFigure ? '{}' : null,
+  );
+}
+
 final todayInputsProvider =
     FutureProvider.family<TodayInputs, ExamId>((ref, examId) async {
   final content = ref.watch(contentRepositoryProvider);
@@ -44,7 +61,10 @@ final todayInputsProvider =
   final topics = await ref.watch(scopedTopicsProvider(examId).future);
   final questionsByTopic = <TopicId, List<Question>>{};
   for (final topic in topics) {
-    questionsByTopic[topic.id] = await content.questionsByTopic(topic.id);
+    final rows = await content.selectionRowsByTopic(topic.id);
+    questionsByTopic[topic.id] = [
+      for (final row in rows) _selectionQuestion(row, examId),
+    ];
   }
   final questionsById = <QuestionId, Question>{
     for (final questions in questionsByTopic.values)
@@ -67,24 +87,30 @@ final todayInputsProvider =
   final capRemaining =
       (preferences.newCardCap - introduced).clamp(0, preferences.newCardCap);
 
+  var sharedCapRemaining = capRemaining;
+  final backlogByTopic = <TopicId, TopicBacklog>{};
+  for (final topic in topics) {
+    final backlog = CountTodayBacklog.forTopic(
+      topicId: topic.id,
+      questions: questionsByTopic[topic.id] ?? const [],
+      states: states,
+      questionsById: questionsById,
+      outcomes: outcomes,
+      capRemaining: sharedCapRemaining,
+      now: now,
+    );
+    backlogByTopic[topic.id] = backlog;
+    sharedCapRemaining =
+        (sharedCapRemaining - backlog.fresh.length).clamp(0, capRemaining);
+  }
+
   return TodayInputs(
     topics: [
       for (final topic in topics)
         TopicQueueInput(topicId: topic.id, topicName: topic.name),
     ],
     questionsByTopic: questionsByTopic,
-    backlogByTopic: {
-      for (final topic in topics)
-        topic.id: CountTodayBacklog.forTopic(
-          topicId: topic.id,
-          questions: questionsByTopic[topic.id] ?? const [],
-          states: states,
-          questionsById: questionsById,
-          outcomes: outcomes,
-          capRemaining: capRemaining,
-          now: now,
-        ),
-    },
+    backlogByTopic: backlogByTopic,
     now: now,
   );
 });
@@ -185,7 +211,7 @@ final todaySessionPlanProvider =
     fresh.addAll(backlog.fresh);
   }
 
-  return BuildTodayPlan.call(
+  final selectionPlan = BuildTodayPlan.call(
     due: due,
     weakness: weakness,
     fresh: fresh,
@@ -193,6 +219,24 @@ final todaySessionPlanProvider =
     preferences: preferences,
     topicId: named.topicId,
     topicName: named.topicName,
+  );
+  if (selectionPlan.isEmpty) return selectionPlan;
+
+  final hydrated =
+      await ref.watch(contentRepositoryProvider).hydrateSelectedQuestions(
+    [for (final question in selectionPlan.questions) question.id],
+  );
+  final hydratedIds = {for (final question in hydrated) question.id};
+  final dueIds = {for (final question in due) question.id};
+  final weaknessIds = {for (final question in weakness) question.id};
+  final freshIds = {for (final question in fresh) question.id};
+  return TodaySessionPlan(
+    questions: hydrated,
+    dueCount: hydratedIds.where(dueIds.contains).length,
+    weaknessCount: hydratedIds.where(weaknessIds.contains).length,
+    freshCount: hydratedIds.where(freshIds.contains).length,
+    topicId: selectionPlan.topicId,
+    topicName: selectionPlan.topicName,
   );
 });
 

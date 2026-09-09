@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/domain/question_selection_row.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
@@ -42,6 +43,39 @@ void main() {
 }
 
 class FakeContentRepository implements ContentRepository {
+  @override
+  Future<List<QuestionSelectionRow>> selectionRowsByTopic(
+    TopicId topicId,
+  ) async {
+    return [
+      QuestionSelectionRow(
+        id: 'q1',
+        version: 1,
+        topicId: topicId,
+        lessonId: null,
+        passageId: null,
+        hasFigure: false,
+      ),
+    ];
+  }
+
+  @override
+  Future<List<Question>> hydrateSelectedQuestions(List<QuestionId> ids) async {
+    return [
+      for (final id in ids)
+        Question(
+          id: id,
+          topicId: 't1',
+          stem: 'Question stem',
+          choices: const [],
+          examIds: const ['cse_prof'],
+          language: 'en',
+          version: 1,
+          explanation: 'exp',
+        ),
+    ];
+  }
+
   @override
   Future<List<Question>> questionsByTopic(TopicId topicId) async {
     return [

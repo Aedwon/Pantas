@@ -155,4 +155,99 @@ void main() {
 
     expect(plan.length, 14);
   });
+
+  test('interleaved tail scales 70/30 with round-half-up for 5', () {
+    final selected = many('a_', 10);
+    final elsewhere = many('g_', 10, topicId: 'topic_geometry');
+    final due = [...selected, ...elsewhere];
+
+    final plan = BuildTodayPlan.call(
+      due: due,
+      weakness: const [],
+      fresh: const [],
+      allQuestions: due,
+      preferences: prefs(
+        sessionLength: 5,
+        ordering: QuizOrdering.interleavedTail,
+      ),
+      topicId: 'topic_algebra',
+    );
+
+    expect(plan.length, 5);
+    expect(
+      plan.questions.where((q) => q.topicId == 'topic_algebra'),
+      hasLength(4),
+    );
+    expect(
+      plan.questions.where((q) => q.topicId != 'topic_algebra'),
+      hasLength(1),
+    );
+  });
+
+  test('interleaved tail scales 70/30 for 10 and 20', () {
+    for (final expected in [(10, 7, 3), (20, 14, 6)]) {
+      final selected = many('a_', 30);
+      final elsewhere = many('g_', 30, topicId: 'topic_geometry');
+      final due = [...selected, ...elsewhere];
+      final plan = BuildTodayPlan.call(
+        due: due,
+        weakness: const [],
+        fresh: const [],
+        allQuestions: due,
+        preferences: prefs(
+          sessionLength: expected.$1,
+          ordering: QuizOrdering.interleavedTail,
+        ),
+        topicId: 'topic_algebra',
+      );
+      expect(
+        plan.questions.where((q) => q.topicId == 'topic_algebra'),
+        hasLength(expected.$2),
+      );
+      expect(
+        plan.questions.where((q) => q.topicId != 'topic_algebra'),
+        hasLength(expected.$3),
+      );
+    }
+  });
+
+  test('unclassified allQuestions never fill a classified shortfall', () {
+    final due = [question('due_only')];
+    final unclassified = many('escape_', 20);
+
+    final plan = BuildTodayPlan.call(
+      due: due,
+      weakness: const [],
+      fresh: const [],
+      allQuestions: [...due, ...unclassified],
+      preferences: prefs(),
+      topicId: 'topic_algebra',
+    );
+
+    expect(plan.questions.map((q) => q.id), ['due_only']);
+    expect(plan.dueCount, 1);
+    expect(plan.weaknessCount, 0);
+    expect(plan.freshCount, 0);
+  });
+
+  test('fully mixed never puts the same topic adjacent', () {
+    final due = [
+      ...many('a_', 10),
+      ...many('g_', 10, topicId: 'topic_geometry'),
+    ];
+    final plan = BuildTodayPlan.call(
+      due: due,
+      weakness: const [],
+      fresh: const [],
+      allQuestions: due,
+      preferences: prefs(
+        ordering: QuizOrdering.fullyMixed,
+      ),
+      topicId: 'topic_algebra',
+    );
+
+    for (var i = 1; i < plan.questions.length; i++) {
+      expect(plan.questions[i].topicId, isNot(plan.questions[i - 1].topicId));
+    }
+  });
 }

@@ -72,7 +72,6 @@ List<Question> _compose(PickContext context) {
   addFrom(context.dueQuestions, requested);
   addFrom(context.weaknessQuestions, requested);
   addFrom(context.newQuestions, requested);
-  addFrom(context.allQuestions, requested);
   // Whole sets are chosen above; this puts each set's questions next to
   // each other so the passage is read once.
   return groupPassageSets(picked.take(requested).toList());

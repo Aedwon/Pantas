@@ -4,6 +4,7 @@ import 'package:pantas/features/quiz/domain/models/quiz_ordering.dart';
 import 'package:pantas/features/quiz/domain/models/quiz_preferences.dart';
 import 'package:pantas/features/quiz/domain/picker/pick_context.dart';
 import 'package:pantas/features/quiz/domain/picker/question_picker.dart';
+import 'package:pantas/features/quiz/domain/picker/today_fully_mixed_picker.dart';
 import 'package:pantas/features/quiz/domain/picker/today_interleaved_picker.dart';
 import 'package:pantas/features/quiz/domain/picker/today_topic_picker.dart';
 
@@ -63,28 +64,30 @@ abstract final class BuildTodayPlan {
     String? topicName,
     QuestionPicker? topicPicker,
     QuestionPicker? interleavedPicker,
+    QuestionPicker? fullyMixedPicker,
   }) {
-    final isBlocked = preferences.ordering == QuizOrdering.blocked;
+    final classified = _classifiedQuestions(due, weakness, fresh);
     final requested =
         preferences.sessionLength == QuizPreferences.allDueSessionLength
-            ? allQuestions.length
+            ? classified.length
             : preferences.sessionLength;
 
     final context = PickContext(
-      allQuestions: allQuestions,
+      allQuestions: classified,
       dueQuestions: due,
       weaknessQuestions: weakness,
       newQuestions: fresh,
       requestedLength: requested,
-      // Only the blocked ordering confines the pick to one topic. The other
-      // two still name the session after `topicId`; they just draw the tail
-      // from elsewhere, which is Section 5's whole point.
-      topicId: isBlocked ? topicId : null,
+      topicId: topicId,
     );
 
-    final picked = isBlocked
-        ? (topicPicker ?? TodayTopicPicker()).pick(context)
-        : (interleavedPicker ?? TodayInterleavedPicker()).pick(context);
+    final picked = switch (preferences.ordering) {
+      QuizOrdering.blocked => (topicPicker ?? TodayTopicPicker()).pick(context),
+      QuizOrdering.interleavedTail =>
+        (interleavedPicker ?? TodayInterleavedPicker()).pick(context),
+      QuizOrdering.fullyMixed =>
+        (fullyMixedPicker ?? TodayFullyMixedPicker()).pick(context),
+    };
 
     final dueIds = {for (final question in due) question.id};
     final weaknessIds = {for (final question in weakness) question.id};
@@ -112,4 +115,17 @@ abstract final class BuildTodayPlan {
       topicName: topicName,
     );
   }
+}
+
+List<Question> _classifiedQuestions(
+  List<Question> due,
+  List<Question> weakness,
+  List<Question> fresh,
+) {
+  final seen = <String>{};
+  return [
+    for (final bucket in [due, weakness, fresh])
+      for (final question in bucket)
+        if (seen.add(question.id)) question,
+  ];
 }

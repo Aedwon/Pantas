@@ -172,7 +172,7 @@ void main() {
     test('signed schema channel application and profile mismatches fail',
         () async {
       final cases = <String, Object>{
-        'contentSchemaVersion': 9,
+        'contentSchemaVersion': 10,
         'releaseChannel': 'staging',
         'applicationId': 'com.example.other',
         'cipherProfile': 'other-profile',

@@ -10,7 +10,8 @@ import 'package:pantas/core/content/content_database_opener.dart';
 import 'package:pantas/core/content/security/content_cipher_profile.dart';
 import 'package:sqlite3/sqlite3.dart';
 
-const _e02ContentSeedVersion = 'eb3a9da425b80a51';
+import '../../../tools/build_content_seed/seed_writer.dart';
+
 const _e02ContentSha256 =
     'eb3a9da425b80a51331cce74694ef014c3372392194bacbd60ba145db5ea2a45';
 
@@ -29,12 +30,11 @@ void main() {
       'tools/build_content_export/build_content_export.dart',
       export.path,
     ]);
-    await _runDartTool([
-      'run',
-      'tools/build_content_seed/seed_writer.dart',
-      export.path,
-      e02PlaintextSeed.path,
-    ]);
+    await writeContentSeed(
+      inputJson: export,
+      outputDb: e02PlaintextSeed,
+      legacySchema8Fixture: true,
+    );
     expect(_sha256(e02PlaintextSeed), _e02ContentSha256);
   });
 
@@ -120,7 +120,6 @@ void main() {
     final active = _copyE02Seed(e02PlaintextSeed, temp, 'content.db');
     final key = _contentKey(0x51);
 
-    expect(contentSeedVersion, _e02ContentSeedVersion);
     expect(_sha256(active), _e02ContentSha256);
 
     final db = await openProtectedContentDatabase(file: active, key: key);

@@ -34,11 +34,16 @@ class ContentDatabase extends _$ContentDatabase {
   ContentDatabase(super.executor);
 
   @override
-  int get schemaVersion => 8;
+  int get schemaVersion => 9;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
-        onCreate: (m) async => m.createAll(),
+        onCreate: (m) async {
+          await m.createAll();
+          if (schemaVersion >= 9) {
+            await _createE05Indexes();
+          }
+        },
         onUpgrade: (m, from, to) async {
           if (from < 3) {
             // Both are nullable, and null is the honest state for an exam
@@ -77,6 +82,24 @@ class ContentDatabase extends _$ContentDatabase {
               contentQuestions.figureSpecJson,
             );
           }
+          if (from < 9) {
+            await _createE05Indexes();
+          }
         },
       );
+
+  Future<void> _createE05Indexes() async {
+    await customStatement(
+      'CREATE INDEX IF NOT EXISTS content_questions_topic_active_idx '
+      'ON content_questions (topic_id, is_active)',
+    );
+    await customStatement(
+      'CREATE INDEX IF NOT EXISTS content_question_exams_exam_question_idx '
+      'ON content_question_exams (exam_id, question_id)',
+    );
+    await customStatement(
+      'CREATE INDEX IF NOT EXISTS content_choices_question_active_order_idx '
+      'ON content_choices (question_id, is_active, ordering)',
+    );
+  }
 }

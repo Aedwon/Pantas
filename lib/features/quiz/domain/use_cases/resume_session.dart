@@ -37,12 +37,7 @@ class ResumeSession {
     );
   }
 
-  Future<List<Question>> _hydrateQuestions(List<QuestionId> ids) async {
-    final questions = <Question>[];
-    for (final id in ids) {
-      final question = await _content.questionById(id);
-      if (question != null) questions.add(question);
-    }
-    return questions;
+  Future<List<Question>> _hydrateQuestions(List<QuestionId> ids) {
+    return _content.hydrateSelectedQuestions(ids);
   }
 }

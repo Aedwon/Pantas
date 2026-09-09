@@ -26,8 +26,8 @@ void main() {
         '"sourceContentSha256":"$sourceDigest",'
         '"payloadSha256":"$payloadDigest",'
         '"contentSeedVersion":"0123456789abcdef",'
-        '"contentSchemaVersion":8,"readerSchemaMin":8,'
-        '"readerSchemaMax":8,'
+        '"contentSchemaVersion":9,"readerSchemaMin":9,'
+        '"readerSchemaMax":9,'
         '"cipherProfile":"pantas-sqlite3mc-content-v1",'
         '"bootstrapKeyId":"content-bootstrap-v1",'
         '"signingKeyId":"content-signing-v1"}\n',
@@ -86,9 +86,9 @@ void main() {
         {...valid, 'applicationId': 'com.example.other'},
         {...valid, 'releaseChannel': 'dev'},
         {...valid, 'payloadPath': 'assets/seed/plain.db'},
-        {...valid, 'contentSchemaVersion': 9},
-        {...valid, 'readerSchemaMin': 9},
-        {...valid, 'readerSchemaMax': 7},
+        {...valid, 'contentSchemaVersion': 10},
+        {...valid, 'readerSchemaMin': 10},
+        {...valid, 'readerSchemaMax': 8},
         {...valid, 'cipherProfile': 'other'},
         {...valid, 'bootstrapKeyId': ''},
         {...valid, 'signingKeyId': ''},

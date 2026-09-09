@@ -3,6 +3,7 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_preferences_repository.dart';
 import 'package:pantas/features/quiz/domain/models/quiz_ordering.dart';
 import 'package:pantas/features/quiz/domain/models/quiz_preferences.dart';
+import 'package:pantas/features/settings/data/settings_repository.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
@@ -81,7 +82,7 @@ void main() {
       {for (final row in accountRows) row.key: row.value},
       {
         QuizPreferencesRepository.sessionLengthKey: '20',
-        QuizPreferencesRepository.interleavedTodayKey: 'interleaved_tail',
+        SettingsPrefKeys.sessionOrdering: 'interleavedTail',
         QuizPreferencesRepository.newCardCapKey: '5',
       },
     );
@@ -116,5 +117,44 @@ void main() {
     expect(prefs.sessionLength, 10);
     expect(prefs.ordering, QuizOrdering.interleavedTail);
     expect(prefs.newCardCap, 10);
+  });
+
+  test('explicit Settings ordering wins disagreement with legacy quiz key',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await db.into(db.accountPrefs).insertOnConflictUpdate(
+          AccountPrefsCompanion.insert(
+            key: SettingsPrefKeys.sessionOrdering,
+            value: 'fullyMixed',
+          ),
+        );
+    await db.into(db.accountPrefs).insertOnConflictUpdate(
+          AccountPrefsCompanion.insert(
+            key: QuizPreferencesRepository.interleavedTodayKey,
+            value: 'false',
+          ),
+        );
+
+    final prefs = await QuizPreferencesRepository(db).read();
+    expect(prefs.ordering, QuizOrdering.fullyMixed);
+  });
+
+  test('legacy boolean ordering remains fallback only when Settings is absent',
+      () async {
+    for (final entry in [
+      ('true', QuizOrdering.interleavedTail),
+      ('false', QuizOrdering.blocked),
+    ]) {
+      final db = inMemoryDatabase();
+      await db.into(db.accountPrefs).insertOnConflictUpdate(
+            AccountPrefsCompanion.insert(
+              key: QuizPreferencesRepository.interleavedTodayKey,
+              value: entry.$1,
+            ),
+          );
+      expect((await QuizPreferencesRepository(db).read()).ordering, entry.$2);
+      await db.close();
+    }
   });
 }

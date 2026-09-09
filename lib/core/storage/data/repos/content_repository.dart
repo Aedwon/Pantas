@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:drift/drift.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/content/tables/content_questions.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/choice_order.dart';
@@ -10,13 +11,17 @@ import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/lesson.dart';
 import 'package:pantas/core/storage/domain/passage.dart';
 import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/domain/question_selection_row.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
 
 class ContentRepository {
-  ContentRepository(this._db);
+  ContentRepository(this._db, {void Function()? onQuery}) : _onQuery = onQuery;
 
   final ContentDatabase _db;
+  final void Function()? _onQuery;
+
+  static const int _hydrationBatchSize = 400;
 
   Future<List<Exam>> listExams() async {
     final examRows = await _db.select(_db.contentExams).get();
@@ -74,6 +79,88 @@ class ContentRepository {
     return allTopics;
   }
 
+  Future<List<QuestionSelectionRow>> selectionRowsByTopic(
+    TopicId topicId,
+  ) async {
+    final questions = _db.contentQuestions;
+    final query = _db.selectOnly(questions)
+      ..addColumns([
+        questions.id,
+        questions.version,
+        questions.topicId,
+        questions.lessonId,
+        questions.passageId,
+        questions.figureSpecJson,
+      ])
+      ..where(
+        questions.topicId.equals(topicId) & questions.isActive.equals(true),
+      );
+    _onQuery?.call();
+    final rows = await query.get();
+    return [for (final row in rows) _selectionRow(row, questions)];
+  }
+
+  Future<List<QuestionSelectionRow>> selectionRowsByExam(ExamId examId) async {
+    final memberships = _db.contentQuestionExams;
+    _onQuery?.call();
+    final membershipRows = await (_db.select(memberships)
+          ..where((membership) => membership.examId.equals(examId)))
+        .get();
+    return _selectionRowsByIds([
+      for (final membership in membershipRows) membership.questionId,
+    ]);
+  }
+
+  Future<List<QuestionSelectionRow>> _selectionRowsByIds(
+    List<QuestionId> ids,
+  ) async {
+    final wanted = _uniqueIds(ids);
+    if (wanted.isEmpty) return const [];
+
+    final questions = _db.contentQuestions;
+    final byId = <QuestionId, QuestionSelectionRow>{};
+    for (final batch in _batches(wanted)) {
+      final query = _db.selectOnly(questions)
+        ..addColumns([
+          questions.id,
+          questions.version,
+          questions.topicId,
+          questions.lessonId,
+          questions.passageId,
+          questions.figureSpecJson,
+        ])
+        ..where(
+          questions.id.isIn(batch) & questions.isActive.equals(true),
+        );
+      _onQuery?.call();
+      for (final row in await query.get()) {
+        final selection = _selectionRow(row, questions);
+        byId[selection.id] = selection;
+      }
+    }
+
+    final result = <QuestionSelectionRow>[];
+    for (final id in wanted) {
+      final row = byId[id];
+      if (row != null) result.add(row);
+    }
+    return result;
+  }
+
+  QuestionSelectionRow _selectionRow(
+    TypedResult row,
+    ContentQuestions questions,
+  ) {
+    return QuestionSelectionRow(
+      id: row.read(questions.id)!,
+      version: row.read(questions.version)!,
+      topicId: row.read(questions.topicId)!,
+      lessonId: row.read(questions.lessonId),
+      passageId: row.read(questions.passageId),
+      hasFigure: row.read(questions.figureSpecJson) != null,
+    );
+  }
+
   Future<List<Question>> questionsByTopic(TopicId topicId) async {
     final rows = await (_db.select(_db.contentQuestions)
           ..where(
@@ -91,22 +178,79 @@ class ContentRepository {
     return row == null ? null : await _hydrateQuestion(row);
   }
 
-  /// Every question named, in one query, keyed by id.
-  ///
-  /// The debrief was fetching them one at a time: a finished session asked
-  /// the database once per question and then again for its topic, its
-  /// subject and its passage. At 120 questions that is around 480 round
-  /// trips to an encrypted database, in series, before the result appears.
+  /// Every question named, keyed by id.
   Future<Map<QuestionId, Question>> questionsByIds(
     Iterable<QuestionId> ids,
   ) async {
-    final wanted = ids.toSet().toList();
-    if (wanted.isEmpty) return const {};
-    final rows = await (_db.select(_db.contentQuestions)
-          ..where((q) => q.id.isIn(wanted)))
-        .get();
-    final questions = await Future.wait(rows.map(_hydrateQuestion));
+    final questions = await hydrateSelectedQuestions(ids.toList());
     return {for (final q in questions) q.id: q};
+  }
+
+  /// Hydrates selected questions in bounded batches and restores caller order.
+  ///
+  /// Missing ids are omitted, withdrawn rows remain available when explicitly
+  /// named (matching [questionById]), and duplicate ids keep their first
+  /// occurrence only (matching the old set/map semantics of [questionsByIds]).
+  Future<List<Question>> hydrateSelectedQuestions(
+    List<QuestionId> ids,
+  ) async {
+    final wanted = _uniqueIds(ids);
+    if (wanted.isEmpty) return const [];
+
+    final questionRows = <QuestionId, ContentQuestionRow>{};
+    final choicesByQuestion = <QuestionId, List<ContentChoiceRow>>{};
+    final examsByQuestion = <QuestionId, List<ContentQuestionExamRow>>{};
+
+    for (final batch in _batches(wanted)) {
+      _onQuery?.call();
+      final rows = await (_db.select(_db.contentQuestions)
+            ..where((question) => question.id.isIn(batch)))
+          .get();
+      for (final row in rows) {
+        questionRows[row.id] = row;
+      }
+    }
+
+    for (final batch in _batches(wanted)) {
+      _onQuery?.call();
+      final rows = await (_db.select(_db.contentChoices)
+            ..where(
+              (choice) =>
+                  choice.questionId.isIn(batch) & choice.isActive.equals(true),
+            )
+            ..orderBy([
+              (choice) => OrderingTerm.asc(choice.questionId),
+              (choice) => OrderingTerm.asc(choice.ordering),
+            ]))
+          .get();
+      for (final row in rows) {
+        choicesByQuestion.putIfAbsent(row.questionId, () => []).add(row);
+      }
+    }
+
+    for (final batch in _batches(wanted)) {
+      _onQuery?.call();
+      final rows = await (_db.select(_db.contentQuestionExams)
+            ..where((membership) => membership.questionId.isIn(batch)))
+          .get();
+      for (final row in rows) {
+        examsByQuestion.putIfAbsent(row.questionId, () => []).add(row);
+      }
+    }
+
+    final result = <Question>[];
+    for (final id in wanted) {
+      final row = questionRows[id];
+      if (row == null) continue;
+      result.add(
+        _questionFromParts(
+          row,
+          choicesByQuestion[id] ?? const [],
+          examsByQuestion[id] ?? const [],
+        ),
+      );
+    }
+    return result;
   }
 
   /// How many of [questionIds] are tagged for [examId].
@@ -279,6 +423,14 @@ class ContentRepository {
     final examRows = await (_db.select(_db.contentQuestionExams)
           ..where((exam) => exam.questionId.equals(r.id)))
         .get();
+    return _questionFromParts(r, choiceRows, examRows);
+  }
+
+  Question _questionFromParts(
+    ContentQuestionRow r,
+    List<ContentChoiceRow> choiceRows,
+    List<ContentQuestionExamRow> examRows,
+  ) {
     return Question(
       id: r.id,
       version: r.version,
@@ -302,6 +454,22 @@ class ContentRepository {
       shortLabel: r.shortLabel,
       figureSpecJson: r.figureSpecJson,
     );
+  }
+
+  List<QuestionId> _uniqueIds(List<QuestionId> ids) {
+    final seen = <QuestionId>{};
+    return [
+      for (final id in ids)
+        if (seen.add(id)) id,
+    ];
+  }
+
+  Iterable<List<QuestionId>> _batches(List<QuestionId> ids) sync* {
+    for (var start = 0; start < ids.length; start += _hydrationBatchSize) {
+      final candidateEnd = start + _hydrationBatchSize;
+      final end = candidateEnd < ids.length ? candidateEnd : ids.length;
+      yield ids.sublist(start, end);
+    }
   }
 
   String _plainText(String portableTextJson) {

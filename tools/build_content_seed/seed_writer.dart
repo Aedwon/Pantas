@@ -28,6 +28,7 @@ Future<void> main(List<String> args) async {
 Future<void> writeContentSeed({
   required File inputJson,
   required File outputDb,
+  bool legacySchema8Fixture = false,
 }) async {
   if (outputDb.existsSync()) {
     await outputDb.delete();
@@ -35,7 +36,10 @@ Future<void> writeContentSeed({
   await outputDb.parent.create(recursive: true);
   final json =
       jsonDecode(await inputJson.readAsString()) as Map<String, dynamic>;
-  final db = ContentDatabase(NativeDatabase(outputDb));
+  final executor = NativeDatabase(outputDb);
+  final db = legacySchema8Fixture
+      ? _Schema8ContentSeedDatabase(executor)
+      : ContentDatabase(executor);
   try {
     await db.transaction(() async {
       await _insertMaybeList(json['exam'], (doc) {
@@ -105,4 +109,13 @@ Future<void> _insertMaybeList(
   for (final doc in docs) {
     await insert(Map<String, Object?>.from(doc as Map));
   }
+}
+
+// The E02 migration contract is byte-exact. Keep this test/tool-only database
+// on schema 8 so current schema changes do not rewrite its historical fixture.
+class _Schema8ContentSeedDatabase extends ContentDatabase {
+  _Schema8ContentSeedDatabase(super.executor);
+
+  @override
+  int get schemaVersion => 8;
 }

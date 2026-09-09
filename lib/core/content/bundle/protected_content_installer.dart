@@ -9,7 +9,7 @@ import 'package:pantas/core/content/security/content_package_verifier.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 
-const _contentSchemaVersion = 8;
+const _contentSchemaVersion = 9;
 
 enum ContentInstallDecision {
   freshInstall,
