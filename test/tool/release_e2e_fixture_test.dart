@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/content/content_database_opener.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 
 import '../../integration_test/release/support/release_harness.dart';
@@ -107,11 +108,14 @@ void main() {
       final installation = await installReleaseTestContent(
         buildDirectory: Directory('${root.path}/build'),
         destinationFile: () async => installedFile,
-        openContent: () async => ContentDatabase(
-          NativeDatabase.createInBackground(installedFile),
+        openContent: (fixtureKey) => openProtectedContentDatabase(
+          file: installedFile,
+          key: fixtureKey,
         ),
       );
       addTearDown(installation.dispose);
+
+      final reopenInstalledContent = installation.openInstalledContent;
 
       expect(installation.exportJson.existsSync(), isTrue);
       expect(installation.generatedSeed.existsSync(), isTrue);
@@ -139,6 +143,14 @@ void main() {
             .read(mockExamRepoProvider)
             .byBlueprint(ReleaseTestContentIds.mockBlueprint),
         isNotEmpty,
+      );
+
+      await installation.dispose();
+      final reopened = await reopenInstalledContent();
+      addTearDown(reopened.close);
+      expect(
+        await ExamRepo(reopened).findById(ReleaseTestContentIds.exam),
+        isNotNull,
       );
     });
   });

@@ -39,6 +39,7 @@ void main() {
 
       final fixedNow = DateTime(2026, 9, 6, 9);
       final harness = ReleaseHarness(
+        openContentDatabase: installation.openInstalledContent,
         additionalOverrides: <Override>[
           authStateProvider.overrideWith(
             (_) => Stream.value(
