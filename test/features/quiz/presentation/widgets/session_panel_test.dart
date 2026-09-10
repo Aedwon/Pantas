@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/features/quiz/domain/use_cases/build_today_plan.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
@@ -156,5 +157,65 @@ void main() {
           'Every answer was saved.'),
       findsOneWidget,
     );
+  });
+
+  testWidgets('returning from assessment refreshes the session panel',
+      (tester) async {
+    var assessed = false;
+    var reads = 0;
+    final router = GoRouter(
+      initialLocation: '/quiz',
+      routes: [
+        GoRoute(
+          path: '/quiz',
+          builder: (_, __) => const Scaffold(
+            body: SessionPanel(exam: _exam),
+          ),
+        ),
+        GoRoute(
+          path: '/assessment/:examId',
+          builder: (context, __) => Scaffold(
+            body: TextButton(
+              onPressed: () {
+                assessed = true;
+                context.pop();
+              },
+              child: const Text('Finish assessment'),
+            ),
+          ),
+        ),
+      ],
+    );
+    addTearDown(router.dispose);
+
+    await tester.pumpAppWithRouter(
+      router,
+      overrides: [
+        sessionPanelProvider('exam_cse_pro').overrideWith((_) async {
+          reads += 1;
+          return assessed
+              ? const SessionPanelCaughtUp(
+                  answeredToday: 0,
+                  correctToday: 0,
+                )
+              : const SessionPanelNeedsAssessment(21);
+        }),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Take the assessment'), findsOneWidget);
+    expect(reads, 1);
+
+    await tester.tap(find.text('Take the assessment'));
+    await tester.pumpAndSettle();
+    expect(find.text('Finish assessment'), findsOneWidget);
+
+    await tester.tap(find.text('Finish assessment'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Take the assessment'), findsNothing);
+    expect(find.text('answered today'), findsOneWidget);
+    expect(reads, 2);
   });
 }

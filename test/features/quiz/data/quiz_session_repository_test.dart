@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
+import 'package:pantas/features/quiz/domain/quiz_session.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
@@ -42,7 +43,13 @@ void main() {
 
     await repo.recordAnswer(
       sessionId: 's1',
-      isCorrect: true,
+      outcome: const AnswerOutcome(
+        questionId: 'q1',
+        questionVersion: 1,
+        chosenChoiceId: 'q1-a',
+        correctChoiceId: 'q1-a',
+        responseMs: 1000,
+      ),
       answeredAt: answeredAt,
     );
 

@@ -143,4 +143,66 @@ void main() {
 
     expect(await repo.hasCompletedOnboarding(), isTrue);
   });
+
+  testWidgets('incomplete onboarding can enter custom exam name route',
+      (tester) async {
+    final repo = AppPreferencesRepository(db);
+    await repo.setPassedAgeGate(value: true);
+    await repo.setCompletedOnboarding(value: false);
+    await pumpApp(tester);
+
+    final container = ProviderScope.containerOf(
+      tester.element(find.byType(App)),
+    );
+    final router = container.read(routerProvider);
+    router.go('/onboarding/custom/name');
+    await tester.pumpAndSettle();
+
+    expect(
+      router.routerDelegate.currentConfiguration.uri.toString(),
+      '/onboarding/custom/name',
+    );
+    expect(find.text('What are you studying for?'), findsOneWidget);
+  });
+
+  testWidgets('incomplete onboarding can enter custom exam subjects route',
+      (tester) async {
+    final repo = AppPreferencesRepository(db);
+    await repo.setPassedAgeGate(value: true);
+    await repo.setCompletedOnboarding(value: false);
+    await pumpApp(tester);
+
+    final container = ProviderScope.containerOf(
+      tester.element(find.byType(App)),
+    );
+    final router = container.read(routerProvider);
+    router.go('/onboarding/custom/subjects?name=PUP%20CET');
+    await tester.pumpAndSettle();
+
+    expect(
+      router.routerDelegate.currentConfiguration.uri.toString(),
+      '/onboarding/custom/subjects?name=PUP%20CET',
+    );
+    expect(find.text('What does it cover?'), findsOneWidget);
+  });
+
+  testWidgets('incomplete onboarding still blocks unrelated routes',
+      (tester) async {
+    final repo = AppPreferencesRepository(db);
+    await repo.setPassedAgeGate(value: true);
+    await repo.setCompletedOnboarding(value: false);
+    await pumpApp(tester);
+
+    final container = ProviderScope.containerOf(
+      tester.element(find.byType(App)),
+    );
+    final router = container.read(routerProvider);
+    router.go('/settings');
+    await tester.pumpAndSettle();
+
+    expect(
+      router.routerDelegate.currentConfiguration.uri.toString(),
+      '/onboarding',
+    );
+  });
 }

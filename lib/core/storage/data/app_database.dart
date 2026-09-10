@@ -70,7 +70,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 23;
+  int get schemaVersion => 24;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -173,6 +173,18 @@ class AppDatabase extends _$AppDatabase {
             await customStatement(
               'INSERT OR IGNORE INTO sync_meta (key, value) '
               "VALUES ('localMutationEpoch', '0')",
+            );
+          }
+          if (from >= 7 && from < 24) {
+            await m.addColumn(quizSessions, quizSessions.outcomesJson);
+            // V23 did not store the exact chosen choice for answered active
+            // sessions. Preserve their review history, but close those legacy
+            // sessions instead of exposing an inaccurate Resume.
+            await customStatement(
+              'UPDATE quiz_sessions '
+              'SET quit_at = COALESCE(quit_at, last_answered_at, started_at) '
+              'WHERE completed_at IS NULL AND quit_at IS NULL '
+              'AND current_index > 0',
             );
           }
         },

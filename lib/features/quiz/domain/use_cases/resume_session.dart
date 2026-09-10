@@ -28,7 +28,7 @@ class ResumeSession {
       examId: row.examId,
       questions: questions,
       currentIndex: row.currentIndex.clamp(0, questions.length - 1),
-      outcomes: const [],
+      outcomes: row.outcomes,
       startedAt: row.startedAt,
       origin: SessionOrigin.fromStorage(row.origin),
       topicId: row.topicId,

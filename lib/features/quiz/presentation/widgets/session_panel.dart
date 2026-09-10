@@ -77,14 +77,14 @@ class _SessionPanelState extends ConsumerState<SessionPanel>
   }
 }
 
-class _NeedsAssessment extends StatelessWidget {
+class _NeedsAssessment extends ConsumerWidget {
   const _NeedsAssessment({required this.exam, required this.questionCount});
 
   final Exam exam;
   final int questionCount;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final styles = context.textStyles;
     final colors = context.colors;
 
@@ -102,7 +102,11 @@ class _NeedsAssessment extends StatelessWidget {
           const SizedBox(height: 16),
           BoardButton(
             label: 'Take the assessment',
-            onPressed: () => context.push('/assessment/${exam.id}'),
+            onPressed: () async {
+              await context.push('/assessment/${exam.id}');
+              if (!context.mounted) return;
+              ref.invalidate(sessionPanelProvider(exam.id));
+            },
           ),
         ],
       ),

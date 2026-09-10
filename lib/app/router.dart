@@ -87,7 +87,8 @@ final routerProvider = Provider<GoRouter>((ref) {
       final focus = focusAsync.valueOrNull;
       final complete = completeAsync.valueOrNull;
       if (passed == null || focus == null || complete == null) return null;
-      final atOnboarding = state.matchedLocation == '/onboarding';
+      final atOnboarding = state.matchedLocation == '/onboarding' ||
+          state.matchedLocation.startsWith('/onboarding/');
       final atNotificationRationale =
           state.matchedLocation == '/notifications/rationale';
       final atPaywall = state.matchedLocation == '/paywall';

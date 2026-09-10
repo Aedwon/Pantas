@@ -22,6 +22,7 @@ import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/presentation/pages/debrief_page.dart';
 import 'package:pantas/features/quiz/presentation/question_flag_providers.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
+import 'package:pantas/features/quiz/presentation/today_providers.dart';
 
 enum QuizPageMode { quick, today, drill, retake, inline, resume, practice }
 
@@ -398,6 +399,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   /// Returns to whatever pushed this session, falling back to the Quiz tab
   /// when there is no stack to pop: a notification tap opens the route cold.
   void _leave(BuildContext context) {
+    ref.invalidate(sessionPanelProvider(widget.examId));
     if (context.canPop()) {
       context.pop();
     } else {

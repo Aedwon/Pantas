@@ -21,11 +21,11 @@ void main() {
     return rows.map((row) => row.read<String>('name')).toList();
   }
 
-  test('schema 23 creates the complete structured Sync state', () async {
+  test('schema 24 creates the complete structured Sync state', () async {
     final db = AppDatabase(NativeDatabase.memory());
     addTearDown(db.close);
 
-    expect(db.schemaVersion, 23);
+    expect(db.schemaVersion, 24);
     expect(
       await tableNames(db),
       containsAll(<String>[
@@ -188,6 +188,18 @@ void main() {
     addTearDown(() => temp.delete(recursive: true));
     final file = File('${temp.path}/legacy.db');
     sqlite.sqlite3.open(file.path)
+      ..execute(
+        'create table quiz_sessions ( '
+        'id text not null primary key, user_id text not null, '
+        'exam_id text not null, origin text not null, topic_id text null, '
+        'subtopic_id text null, lesson_id text null, '
+        'question_ids_json text not null, '
+        'current_index integer not null default 0, '
+        'correct_count integer not null default 0, '
+        'started_at integer not null, '
+        'last_answered_at integer null, completed_at integer null, '
+        'quit_at integer null)',
+      )
       ..execute(
         'create table sync_meta ( '
         '"key" text not null primary key, "value" text not null)',

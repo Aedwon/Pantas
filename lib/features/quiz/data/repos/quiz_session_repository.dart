@@ -1,9 +1,11 @@
 import 'dart:convert';
 
 import 'package:drift/drift.dart';
+import 'package:pantas/core/fsrs/rating.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
+import 'package:pantas/features/quiz/domain/quiz_session.dart';
 
 class QuizSessionRepository {
   QuizSessionRepository(this._db);
@@ -110,19 +112,34 @@ class QuizSessionRepository {
 
   Future<void> recordAnswer({
     required String sessionId,
-    required bool isCorrect,
+    required AnswerOutcome outcome,
     required DateTime answeredAt,
   }) async {
     await _db.transaction(() async {
       final row = await (_db.select(_db.quizSessions)
             ..where((table) => table.id.equals(sessionId)))
           .getSingle();
+      final questionIds = row.questionIds;
+      final outcomes = row.outcomes;
+      if (row.currentIndex != outcomes.length ||
+          row.currentIndex >= questionIds.length ||
+          questionIds[row.currentIndex] != outcome.questionId) {
+        throw StateError(
+          'Persisted quiz session $sessionId answer order is inconsistent',
+        );
+      }
       await (_db.update(_db.quizSessions)
             ..where((table) => table.id.equals(sessionId)))
           .write(
         QuizSessionsCompanion(
+          outcomesJson: Value(
+            jsonEncode([
+              ...outcomes.map(_encodeOutcome),
+              _encodeOutcome(outcome),
+            ]),
+          ),
           currentIndex: Value(row.currentIndex + 1),
-          correctCount: Value(row.correctCount + (isCorrect ? 1 : 0)),
+          correctCount: Value(row.correctCount + (outcome.isCorrect ? 1 : 0)),
           lastAnsweredAt: Value(answeredAt),
         ),
       );
@@ -242,7 +259,40 @@ class QuizSessionRepository {
 extension QuizSessionLocalRowQuestionIds on QuizSessionLocalRow {
   List<QuestionId> get questionIds =>
       (jsonDecode(questionIdsJson) as List).cast<QuestionId>();
+
+  List<AnswerOutcome> get outcomes {
+    final decoded = jsonDecode(outcomesJson);
+    if (decoded is! List) {
+      throw const FormatException(
+        'quiz session outcomes must be a list',
+      );
+    }
+    return [
+      for (final value in decoded)
+        _decodeOutcome((value as Map).cast<String, Object?>()),
+    ];
+  }
 }
+
+Map<String, Object> _encodeOutcome(AnswerOutcome outcome) => {
+      'questionId': outcome.questionId,
+      'questionVersion': outcome.questionVersion,
+      'chosenChoiceId': outcome.chosenChoiceId,
+      'correctChoiceId': outcome.correctChoiceId,
+      'responseMs': outcome.responseMs,
+      'derivedRating': outcome.derivedRating.grade,
+      'nextReviewIntervalDays': outcome.nextReviewIntervalDays,
+    };
+
+AnswerOutcome _decodeOutcome(Map<String, Object?> json) => AnswerOutcome(
+      questionId: json['questionId']! as String,
+      questionVersion: json['questionVersion']! as int,
+      chosenChoiceId: json['chosenChoiceId']! as String,
+      correctChoiceId: json['correctChoiceId']! as String,
+      responseMs: json['responseMs']! as int,
+      derivedRating: Rating.fromGrade(json['derivedRating']! as int),
+      nextReviewIntervalDays: json['nextReviewIntervalDays']! as int,
+    );
 
 class _QuizSessionCreateCancelled implements Exception {
   const _QuizSessionCreateCancelled();
