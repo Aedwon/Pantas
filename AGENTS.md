@@ -62,6 +62,16 @@ short, isolated tasks when quota is plentiful.
 
 ---
 
+## Protected-content credentials
+
+Before an authorized protected-content build, verification, or device test, read
+[local key access](docs/content-key-access.md). It records the existing E04 key
+locations on Aedwon's Mac and safe loading instructions. Read this note before
+asking Aedwon to recover the E04 chat. Access requires task authorization.
+Never display secret values or regenerate a pinned package without permission.
+
+---
+
 ## Build, run, test
 
 ```bash
