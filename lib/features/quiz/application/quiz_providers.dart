@@ -206,6 +206,18 @@ final quizLaunchCoordinatorProvider = Provider<QuizLaunchCoordinator>((ref) {
   );
 });
 
+final quizSessionPanelRevisionProvider =
+    NotifierProvider<QuizSessionPanelRevision, int>(
+  QuizSessionPanelRevision.new,
+);
+
+class QuizSessionPanelRevision extends Notifier<int> {
+  @override
+  int build() => 0;
+
+  void publishCompletion() => state += 1;
+}
+
 final quizCompletionCoordinatorProvider = Provider<QuizCompletionCoordinator>(
   (ref) => QuizCompletionCoordinator(
     attempts: ref.watch(attemptsRepositoryProvider),
@@ -215,6 +227,7 @@ final quizCompletionCoordinatorProvider = Provider<QuizCompletionCoordinator>(
     onCommitted: () {
       ref.read(todayQuizPreparerProvider).invalidateAll();
       ref.read(quizLaunchCoordinatorProvider).clearAllCommitted();
+      ref.read(quizSessionPanelRevisionProvider.notifier).publishCompletion();
     },
   ),
 );

@@ -4,6 +4,7 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
@@ -122,7 +123,48 @@ void main() {
     expect(state, isA<SessionPanelInProgress>());
     final inProgress = state as SessionPanelInProgress;
     expect(inProgress.total, 3);
-    expect(inProgress.answered, 0);
+    expect(inProgress.position, 1);
     expect(inProgress.topicName, 'Algebra');
+  });
+
+  test('completion revision refreshes a cached in-progress panel', () async {
+    await seedContentTopicWithQuestions(
+      contentDb,
+      examId: 'exam_cse_pro',
+      topicId: 'topic_algebra',
+      topicName: 'Algebra',
+      questionIds: ['q_1'],
+    );
+    await AssessmentRepository(db).saveResult(
+      'exam_cse_pro',
+      DateTime.utc(2026, 8),
+      const [],
+    );
+    final sessions = QuizSessionRepository(db);
+    await sessions.create(
+      sessionId: 's_refresh',
+      userId: 'local',
+      examId: 'exam_cse_pro',
+      origin: SessionOrigin.todayTopic,
+      topicId: 'topic_algebra',
+      questionIds: const ['q_1'],
+      startedAt: DateTime.utc(2026, 8, 2, 9),
+    );
+
+    expect(await read(), isA<SessionPanelInProgress>());
+
+    await sessions.completeRequired(
+      sessionId: 's_refresh',
+      completedAt: DateTime.utc(2026, 8, 2, 9, 1),
+    );
+
+    expect(await read(), isA<SessionPanelInProgress>());
+
+    container
+        .read(quizSessionPanelRevisionProvider.notifier)
+        .publishCompletion();
+
+    final refreshed = await read();
+    expect(refreshed, isNot(isA<SessionPanelInProgress>()));
   });
 }

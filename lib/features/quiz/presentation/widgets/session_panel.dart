@@ -226,7 +226,7 @@ class _InProgress extends ConsumerWidget {
 
     return RuledPanel(
       heading: 'Still going',
-      count: '${state.answered} of ${state.total}',
+      count: '${state.position} of ${state.total}',
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [

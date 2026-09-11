@@ -157,12 +157,13 @@ class SessionPanelNeedsAssessment extends SessionPanelState {
 /// A session was left part way through. It is still open and still counted.
 class SessionPanelInProgress extends SessionPanelState {
   const SessionPanelInProgress({
-    required this.answered,
+    required this.position,
     required this.total,
     this.topicName,
   });
 
-  final int answered;
+  /// The one-based question Resume will reopen.
+  final int position;
   final int total;
 
   /// Null for sessions created before the topic was recorded, and for drills
@@ -252,6 +253,10 @@ final todaySessionPlanProvider =
 
 final sessionPanelProvider =
     FutureProvider.family<SessionPanelState, ExamId>((ref, examId) async {
+  // Durable completion publishes this lightweight revision from application
+  // wiring. Watching it keeps the panel coherent without making application
+  // code import presentation providers.
+  ref.watch(quizSessionPanelRevisionProvider);
   final sessions = ref.watch(quizSessionRepositoryProvider);
 
   final open = await sessions.activeFor(userId: todayUserId, examId: examId);
@@ -262,9 +267,11 @@ final sessionPanelProvider =
         : await ref.watch(contentRepositoryProvider).topicById(topicId);
     final questionIds =
         (jsonDecode(open.questionIdsJson) as List).cast<String>();
+    final total = questionIds.length;
+    final position = total == 0 ? 0 : (open.currentIndex + 1).clamp(1, total);
     return SessionPanelInProgress(
-      answered: open.currentIndex,
-      total: questionIds.length,
+      position: position,
+      total: total,
       topicName: topic?.name,
     );
   }

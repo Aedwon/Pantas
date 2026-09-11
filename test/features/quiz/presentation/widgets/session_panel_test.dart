@@ -126,12 +126,12 @@ void main() {
     expect(find.text('Start'), findsNothing);
   });
 
-  testWidgets('the in progress state names the topic and counts the answers',
+  testWidgets('the in progress state mirrors the resumable question position',
       (tester) async {
     await pumpPanel(
       tester,
       const SessionPanelInProgress(
-        answered: 6,
+        position: 7,
         total: 10,
         topicName: 'Chemistry',
       ),
@@ -139,7 +139,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Still going'), findsOneWidget);
-    expect(find.text('6 of 10'), findsOneWidget);
+    expect(find.text('7 of 10'), findsOneWidget);
     expect(find.text('Resume'), findsOneWidget);
     expect(find.text('Discard this session'), findsOneWidget);
     expect(find.textContaining('Chemistry'), findsOneWidget);
@@ -148,7 +148,7 @@ void main() {
   testWidgets('an unnamed session still explains itself', (tester) async {
     await pumpPanel(
       tester,
-      const SessionPanelInProgress(answered: 6, total: 10),
+      const SessionPanelInProgress(position: 7, total: 10),
     );
     await tester.pumpAndSettle();
 

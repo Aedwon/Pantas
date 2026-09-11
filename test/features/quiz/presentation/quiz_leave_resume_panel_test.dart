@@ -112,7 +112,7 @@ void main() {
         sessionPanelProvider('e').overrideWith((_) async {
           panelReads += 1;
           if (active) {
-            return const SessionPanelInProgress(answered: 1, total: 2);
+            return const SessionPanelInProgress(position: 2, total: 2);
           }
           return const SessionPanelAvailable(
             plan: TodaySessionPlan(
