@@ -12,6 +12,8 @@ import 'package:pantas/core/ui/components/settings_value_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 import 'package:pantas/features/settings/domain/user_settings.dart';
+import 'package:pantas/features/settings/presentation/carry_over_prompt.dart';
+import 'package:pantas/features/settings/presentation/pages/change_exam_page.dart';
 
 class ExamPage extends ConsumerWidget {
   const ExamPage({super.key});
@@ -43,7 +45,7 @@ class ExamPage extends ConsumerWidget {
                 title: 'Change exam',
                 value: availableValue,
                 showChevron: true,
-                onTap: () => _push(context, '/settings/exam/change'),
+                onTap: () => unawaited(_changeExam(context, ref)),
               ),
               SettingsValueRow(
                 title: 'Carry over progress',
@@ -73,6 +75,27 @@ class ExamPage extends ConsumerWidget {
         ],
       ),
     );
+  }
+
+  static Future<void> _changeExam(BuildContext context, WidgetRef ref) async {
+    final router = GoRouter.maybeOf(context);
+    if (router == null) return;
+
+    final result = await router.push<ExamChangeResult>('/settings/exam/change');
+    if (result == null || result.carryableCount <= 0 || !context.mounted) {
+      return;
+    }
+
+    final countThem = await showCarryOverPrompt(
+      context: context,
+      examShortName: result.examShortName,
+      carryableCount: result.carryableCount,
+    );
+    if (countThem != null) {
+      await ref
+          .read(settingsActionsProvider)
+          .setCarryOverProgress(enabled: countThem);
+    }
   }
 
   static void _push(BuildContext context, String location) {

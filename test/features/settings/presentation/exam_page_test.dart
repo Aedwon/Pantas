@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/settings_group.dart';
 import 'package:pantas/core/ui/components/settings_switch.dart';
 import 'package:pantas/core/ui/components/settings_value_row.dart';
+import 'package:pantas/features/settings/application/carry_over_providers.dart';
 import 'package:pantas/features/settings/presentation/carry_over_prompt.dart';
+import 'package:pantas/features/settings/presentation/pages/change_exam_page.dart';
 import 'package:pantas/features/settings/presentation/pages/exam_page.dart';
 import 'package:pantas/features/settings/settings.dart';
 
@@ -16,11 +19,13 @@ import '../../../helpers/pump_app.dart';
 
 void main() {
   final upcat = buildExam(
+    id: 'exam_upcat',
     code: 'UPCAT',
     shortName: 'UPCAT',
     name: 'UP College Admissions Test',
   );
   final dost = buildExam(
+    id: 'exam_dost',
     code: 'DOST',
     shortName: 'DOST',
     name: 'DOST Scholarship Exam',
@@ -115,6 +120,99 @@ void main() {
     for (final text in tester.widgetList<Text>(find.byType(Text))) {
       expect(text.data?.toLowerCase().contains('migrat') ?? false, isFalse);
     }
+  });
+
+  testWidgets(
+      'exam change presents carry-over once after returning to the Exam page',
+      (tester) async {
+    final router = GoRouter(
+      initialLocation: '/settings/exam',
+      routes: [
+        GoRoute(
+          path: '/settings/exam',
+          builder: (_, __) => const ExamPage(),
+        ),
+        GoRoute(
+          path: '/settings/exam/change',
+          builder: (_, __) => const ChangeExamPage(),
+        ),
+      ],
+    );
+    addTearDown(router.dispose);
+
+    await tester.pumpAppWithRouter(
+      router,
+      overrides: [
+        ...createOverrides(),
+        carryableCountProvider.overrideWith((ref, examId) async {
+          expect(examId, dost.id);
+          return 3;
+        }),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Change exam'));
+    await tester.pumpAndSettle();
+    expect(find.byType(ChangeExamPage), findsOneWidget);
+
+    await tester.tap(find.text('DOST'));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(ChangeExamPage), findsNothing);
+    expect(find.text("You're not starting from zero"), findsOneWidget);
+
+    await tester.pump(const Duration(seconds: 1));
+    expect(find.text("You're not starting from zero"), findsOneWidget);
+  });
+
+  testWidgets(
+      'change exam hands carry-over back instead of presenting from its route',
+      (tester) async {
+    Object? changeResult;
+    final router = GoRouter(
+      initialLocation: '/settings/exam',
+      routes: [
+        GoRoute(
+          path: '/settings/exam',
+          builder: (context, _) => Scaffold(
+            body: TextButton(
+              onPressed: () async {
+                changeResult =
+                    await context.push<Object?>('/settings/exam/change');
+              },
+              child: const Text('Open change exam'),
+            ),
+          ),
+        ),
+        GoRoute(
+          path: '/settings/exam/change',
+          builder: (_, __) => const ChangeExamPage(),
+        ),
+      ],
+    );
+    addTearDown(router.dispose);
+
+    await tester.pumpAppWithRouter(
+      router,
+      overrides: [
+        ...createOverrides(),
+        carryableCountProvider.overrideWith((ref, examId) async {
+          expect(examId, dost.id);
+          return 3;
+        }),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Open change exam'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('DOST'));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(ChangeExamPage), findsNothing);
+    expect(find.text("You're not starting from zero"), findsNothing);
+    expect(changeResult, isNotNull);
   });
 
   testWidgets('showCarryOverPrompt skips prompt when carryable count is 0',

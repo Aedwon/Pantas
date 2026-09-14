@@ -8,8 +8,16 @@ import 'package:pantas/core/ui/components/page_scaffold.dart';
 import 'package:pantas/core/ui/components/settings_bar.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/settings/application/carry_over_providers.dart';
-import 'package:pantas/features/settings/application/settings_providers.dart';
-import 'package:pantas/features/settings/presentation/carry_over_prompt.dart';
+
+class ExamChangeResult {
+  const ExamChangeResult({
+    required this.examShortName,
+    required this.carryableCount,
+  });
+
+  final String examShortName;
+  final int carryableCount;
+}
 
 class ChangeExamPage extends ConsumerWidget {
   const ChangeExamPage({super.key});
@@ -68,20 +76,12 @@ class ChangeExamPage extends ConsumerWidget {
                             .read(carryableCountProvider(exam.id).future);
 
                         if (!context.mounted) return;
-                        Navigator.of(context).pop();
-
-                        if (carryableCount > 0 && context.mounted) {
-                          final countThem = await showCarryOverPrompt(
-                            context: context,
+                        Navigator.of(context).pop(
+                          ExamChangeResult(
                             examShortName: exam.shortName,
                             carryableCount: carryableCount,
-                          );
-                          if (countThem != null) {
-                            await ref
-                                .read(settingsActionsProvider)
-                                .setCarryOverProgress(enabled: countThem);
-                          }
-                        }
+                          ),
+                        );
                       },
                     );
                   },
