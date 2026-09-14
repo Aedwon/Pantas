@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
@@ -13,10 +15,12 @@ class ExamChangeResult {
   const ExamChangeResult({
     required this.examShortName,
     required this.carryableCount,
+    required this.routeSettled,
   });
 
   final String examShortName;
   final int carryableCount;
+  final Future<void> routeSettled;
 }
 
 class ChangeExamPage extends ConsumerWidget {
@@ -76,10 +80,12 @@ class ChangeExamPage extends ConsumerWidget {
                             .read(carryableCountProvider(exam.id).future);
 
                         if (!context.mounted) return;
+                        final routeSettled = _routeSettledAfterPop(context);
                         Navigator.of(context).pop(
                           ExamChangeResult(
                             examShortName: exam.shortName,
                             carryableCount: carryableCount,
+                            routeSettled: routeSettled,
                           ),
                         );
                       },
@@ -93,4 +99,22 @@ class ChangeExamPage extends ConsumerWidget {
       ),
     );
   }
+}
+
+Future<void> _routeSettledAfterPop(BuildContext context) {
+  final animation = ModalRoute.of(context)?.animation;
+  if (animation == null || animation.status == AnimationStatus.dismissed) {
+    return Future<void>.value();
+  }
+
+  final completer = Completer<void>();
+
+  void onStatus(AnimationStatus status) {
+    if (status != AnimationStatus.dismissed) return;
+    animation.removeStatusListener(onStatus);
+    if (!completer.isCompleted) completer.complete();
+  }
+
+  animation.addStatusListener(onStatus);
+  return completer.future;
 }

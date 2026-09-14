@@ -86,6 +86,9 @@ class ExamPage extends ConsumerWidget {
       return;
     }
 
+    await result.routeSettled;
+    if (!context.mounted) return;
+
     final countThem = await showCarryOverPrompt(
       context: context,
       examShortName: result.examShortName,

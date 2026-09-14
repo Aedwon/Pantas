@@ -167,6 +167,58 @@ void main() {
   });
 
   testWidgets(
+      'carry-over waits for the change-exam reverse transition to finish',
+      (tester) async {
+    final router = GoRouter(
+      initialLocation: '/settings/exam',
+      routes: [
+        GoRoute(
+          path: '/settings/exam',
+          builder: (_, __) => const ExamPage(),
+        ),
+        GoRoute(
+          path: '/settings/exam/change',
+          pageBuilder: (_, state) => CustomTransitionPage<void>(
+            key: state.pageKey,
+            transitionDuration: const Duration(milliseconds: 400),
+            reverseTransitionDuration: const Duration(milliseconds: 400),
+            child: const ChangeExamPage(),
+            transitionsBuilder: (_, animation, __, child) =>
+                FadeTransition(opacity: animation, child: child),
+          ),
+        ),
+      ],
+    );
+    addTearDown(router.dispose);
+
+    await tester.pumpAppWithRouter(
+      router,
+      overrides: [
+        ...createOverrides(),
+        carryableCountProvider.overrideWith((ref, examId) async {
+          expect(examId, dost.id);
+          return 3;
+        }),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Change exam'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('DOST'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
+
+    expect(find.byType(ChangeExamPage), findsOneWidget);
+    expect(find.text("You're not starting from zero"), findsNothing);
+
+    await tester.pumpAndSettle();
+
+    expect(find.byType(ChangeExamPage), findsNothing);
+    expect(find.text("You're not starting from zero"), findsOneWidget);
+  });
+
+  testWidgets(
       'change exam hands carry-over back instead of presenting from its route',
       (tester) async {
     Object? changeResult;
