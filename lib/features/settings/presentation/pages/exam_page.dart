@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/page_scaffold.dart';
 import 'package:pantas/core/ui/components/settings_bar.dart';
@@ -82,12 +83,16 @@ class ExamPage extends ConsumerWidget {
     if (router == null) return;
 
     final result = await router.push<ExamChangeResult>('/settings/exam/change');
-    if (result == null || result.carryableCount <= 0 || !context.mounted) {
-      return;
-    }
+    if (result == null || !context.mounted) return;
 
     await result.routeSettled;
     if (!context.mounted) return;
+
+    ref
+      ..invalidate(appPreferencesRepositoryProvider)
+      ..invalidate(activeExamFocusProvider);
+    await ref.read(activeExamFocusProvider.future);
+    if (!context.mounted || result.carryableCount <= 0) return;
 
     final countThem = await showCarryOverPrompt(
       context: context,

@@ -219,6 +219,89 @@ void main() {
   });
 
   testWidgets(
+      'exam focus stays stable until the change-exam transition is finished',
+      (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await AppPreferencesRepository(db).setSelectedExamId(upcat.id);
+
+    final router = GoRouter(
+      initialLocation: '/settings/exam',
+      routes: [
+        GoRoute(
+          path: '/settings/exam',
+          builder: (_, __) => const ExamPage(),
+        ),
+        GoRoute(
+          path: '/settings/exam/change',
+          pageBuilder: (_, state) => CustomTransitionPage<void>(
+            key: state.pageKey,
+            transitionDuration: const Duration(milliseconds: 400),
+            reverseTransitionDuration: const Duration(milliseconds: 400),
+            child: const ChangeExamPage(),
+            transitionsBuilder: (_, animation, __, child) =>
+                FadeTransition(opacity: animation, child: child),
+          ),
+        ),
+      ],
+    );
+    addTearDown(router.dispose);
+
+    await tester.pumpAppWithRouter(
+      router,
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        examListProvider.overrideWith((ref) async => [upcat, dost]),
+        userSettingsProvider.overrideWith(
+          (ref) async => const UserSettings(
+            name: 'Student',
+            dailyReminderTime: null,
+            examDate: null,
+            strictMockMode: false,
+            helpImproveApp: true,
+            carryOverProgress: true,
+            sessionOrdering: SessionOrdering.interleavedTail,
+            retainTableOrder: true,
+            updatedAt: null,
+          ),
+        ),
+        carryableCountProvider.overrideWith((ref, examId) async {
+          expect(examId, dost.id);
+          return 3;
+        }),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    expect(
+      tester.widget<SettingsGroup>(find.byType(SettingsGroup)).title,
+      'UPCAT',
+    );
+
+    await tester.tap(find.text('Change exam'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('DOST'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
+
+    expect(find.byType(ChangeExamPage), findsOneWidget);
+    expect(
+      tester.widget<SettingsGroup>(find.byType(SettingsGroup)).title,
+      'UPCAT',
+    );
+    expect(find.text("You're not starting from zero"), findsNothing);
+
+    await tester.pumpAndSettle();
+
+    expect(find.byType(ChangeExamPage), findsNothing);
+    expect(
+      tester.widget<SettingsGroup>(find.byType(SettingsGroup)).title,
+      'DOST',
+    );
+    expect(find.text("You're not starting from zero"), findsOneWidget);
+  });
+
+  testWidgets(
       'change exam hands carry-over back instead of presenting from its route',
       (tester) async {
     Object? changeResult;
