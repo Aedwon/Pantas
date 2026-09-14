@@ -36,6 +36,16 @@ void main() {
     expect(find.text('Take the assessment'), findsOneWidget);
   });
 
+  testWidgets('zero-question assessment state is non-actionable',
+      (tester) async {
+    await pumpPanel(tester, const SessionPanelNeedsAssessment(0));
+    await tester.pumpAndSettle();
+
+    expect(find.text("Assessment isn't ready yet"), findsOneWidget);
+    expect(find.text('Take the assessment'), findsNothing);
+    expect(find.text('0 questions'), findsNothing);
+  });
+
   testWidgets('the available state shows only questions without history',
       (tester) async {
     await pumpPanel(

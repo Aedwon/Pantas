@@ -6,6 +6,7 @@ import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
+import 'package:pantas/core/ui/components/empty_state.dart';
 import 'package:pantas/core/ui/components/error_banner.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
 import 'package:pantas/core/ui/components/question_card.dart';
@@ -47,6 +48,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
   AssessmentSession? _session;
   int _currentIndex = 0;
   String? _errorMessage;
+  bool _assessmentUnavailable = false;
   bool _completing = false;
 
   // When completing fails, keep the session alive so the user can retry without
@@ -64,6 +66,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
     setState(() {
       _session = null;
       _errorMessage = null;
+      _assessmentUnavailable = false;
       _pendingCompleteSession = null;
     });
     try {
@@ -83,7 +86,11 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
       setState(() => _session = session);
     } catch (e) {
       if (!mounted) return;
-      setState(() => _errorMessage = e.toString());
+      if (e is NoAssessmentQuestionsError) {
+        setState(() => _assessmentUnavailable = true);
+      } else {
+        setState(() => _errorMessage = e.toString());
+      }
     }
   }
 
@@ -164,7 +171,15 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
     final session = _session;
 
     Widget body;
-    if (_errorMessage != null) {
+    if (_assessmentUnavailable) {
+      body = EmptyState(
+        headline: "Assessment isn't ready yet",
+        body: "We're still adding questions for this exam. "
+            'You can use the rest of Pantas for now.',
+        ctaLabel: 'Back to Quiz',
+        onCta: () => context.go('/quiz'),
+      );
+    } else if (_errorMessage != null) {
       body = ErrorBanner(
         variant: ErrorBannerVariant.error,
         message: _errorMessage!,

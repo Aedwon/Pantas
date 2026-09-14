@@ -138,6 +138,27 @@ void main() {
     expect(find.text('Question 1 of 1'), findsNothing);
   });
 
+  testWidgets('zero-content exam shows an intentional unavailable state',
+      (tester) async {
+    await seedContentExam(
+      contentDb,
+      examId: 'empty',
+      code: 'ACET',
+      name: 'ACET',
+      ordering: 2,
+    );
+
+    await tester.pumpAppWithRouter(
+      _buildRouter('empty'),
+      overrides: databaseOverrides(),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text("Assessment isn't ready yet"), findsOneWidget);
+    expect(find.textContaining('Bad state:'), findsNothing);
+    expect(find.text('Retry'), findsNothing);
+  });
+
   testWidgets('back navigation shows confirm dialog', (tester) async {
     await tester.pumpAppWithRouter(
       _buildRouter('e1'),

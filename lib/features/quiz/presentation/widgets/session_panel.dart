@@ -88,6 +88,17 @@ class _NeedsAssessment extends ConsumerWidget {
     final styles = context.textStyles;
     final colors = context.colors;
 
+    if (questionCount == 0) {
+      return RuledPanel(
+        heading: "Assessment isn't ready yet",
+        child: Text(
+          "We're still adding questions for this exam. "
+          'You can use the rest of Pantas for now.',
+          style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+        ),
+      );
+    }
+
     return RuledPanel(
       heading: 'Start with the assessment',
       count: '$questionCount questions',
