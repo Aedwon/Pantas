@@ -72,10 +72,6 @@ class _PreparedQuestionStageState
   int? _scheduledPrepareIndex;
   bool _deferPreparationForTransition = false;
   Timer? _deferPreparationTimer;
-  QuestionId? _retiringQuestionId;
-  Widget? _retiringPane;
-  QuestionId? _lastVisibleQuestionId;
-  Widget? _lastVisiblePane;
 
   @override
   void initState() {
@@ -132,39 +128,22 @@ class _PreparedQuestionStageState
 
     _scheduleNextPreparationIfReady(session, questionShownAt);
 
-    final currentPane = outcome == null
-        ? _interactionGate(
-            enabled: questionShownAt != null,
-            child: _plainQuestionPane(question, passage: passage),
-          )
-        : _revealedQuestionPane(
-            session,
-            question,
-            passage: passage,
-          );
-
-    final children = <Widget>[];
-    final retiringQuestionId = _retiringQuestionId;
-    final retiringPane = _retiringPane;
-    if (_deferPreparationForTransition &&
-        retiringQuestionId != null &&
-        retiringPane != null) {
-      children.add(
-        Opacity(
-          key: ValueKey<String>(_questionStageKey(retiringQuestionId)),
-          opacity: 0,
-          child: _interactionGate(enabled: false, child: retiringPane),
-        ),
-      );
-    }
-
-    children.add(
+    final children = <Widget>[
       Opacity(
         key: ValueKey<String>(_questionStageKey(question.id)),
         opacity: 1,
-        child: currentPane,
+        child: outcome == null
+            ? _interactionGate(
+                enabled: questionShownAt != null,
+                child: _plainQuestionPane(question, passage: passage),
+              )
+            : _revealedQuestionPane(
+                session,
+                question,
+                passage: passage,
+              ),
       ),
-    );
+    ];
 
     final preparedIndex = _preparedIndex;
     QuestionId? preparedQuestionId;
@@ -189,13 +168,8 @@ class _PreparedQuestionStageState
     }
 
     _plainQuestionPanes.removeWhere(
-      (id, _) =>
-          id != question.id &&
-          id != preparedQuestionId &&
-          id != retiringQuestionId,
+      (id, _) => id != question.id && id != preparedQuestionId,
     );
-    _lastVisibleQuestionId = question.id;
-    _lastVisiblePane = currentPane;
 
     return Stack(alignment: Alignment.topLeft, children: children);
   }
@@ -208,10 +182,6 @@ class _PreparedQuestionStageState
       _preparedIndex = null;
       _scheduledPrepareIndex = null;
       _deferPreparationForTransition = false;
-      _retiringQuestionId = null;
-      _retiringPane = null;
-      _lastVisibleQuestionId = null;
-      _lastVisiblePane = null;
       _sessionId = session.sessionId;
       _currentIndex = session.currentIndex;
       return;
@@ -222,8 +192,6 @@ class _PreparedQuestionStageState
     if (oldIndex != null && newIndex != oldIndex) {
       if (newIndex == oldIndex + 1 && _preparedIndex == newIndex) {
         _deferPreparationForTransition = true;
-        _retiringQuestionId = _lastVisibleQuestionId;
-        _retiringPane = _lastVisiblePane;
         _deferPreparationTimer?.cancel();
         final sessionId = session.sessionId;
         _deferPreparationTimer = Timer(const Duration(milliseconds: 120), () {
@@ -241,8 +209,6 @@ class _PreparedQuestionStageState
             if (_preparedIndex == newIndex) {
               _preparedIndex = null;
             }
-            _retiringQuestionId = null;
-            _retiringPane = null;
             _deferPreparationForTransition = false;
           });
         });
@@ -251,8 +217,6 @@ class _PreparedQuestionStageState
         _deferPreparationTimer = null;
         _preparedIndex = null;
         _scheduledPrepareIndex = null;
-        _retiringQuestionId = null;
-        _retiringPane = null;
         _deferPreparationForTransition = false;
       }
     }
