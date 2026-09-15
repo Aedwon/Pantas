@@ -377,14 +377,22 @@ void main() {
     await tester.tap(find.text('AlphaText'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Next'));
-    await tester.pumpAndSettle();
+    await tester.pump();
 
+    final retiringStage = find.byKey(
+      const ValueKey<String>('quiz-question-q1'),
+      skipOffstage: false,
+    );
     final visibleStage = find.byKey(
       const ValueKey<String>('quiz-question-q2'),
     );
+    expect(retiringStage, findsOneWidget);
+    expect(tester.widget<Opacity>(retiringStage).opacity, 0);
     expect(visibleStage, findsOneWidget);
     expect(tester.widget<Opacity>(visibleStage).opacity, 1);
     expect(find.text('Stem Two'), findsOneWidget);
+
+    await tester.pumpAndSettle();
   });
 
   testWidgets('prepares Next when Resume restores an answered question',
