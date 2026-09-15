@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/answer_reveal.dart';
 import 'package:pantas/core/ui/components/back_chevron.dart';
@@ -47,6 +48,451 @@ class QuizPage extends ConsumerStatefulWidget {
   ConsumerState<QuizPage> createState() => _QuizPageState();
 }
 
+String _questionStageKey(QuestionId id) => 'quiz-question-$id';
+
+class _PreparedQuestionStage extends ConsumerStatefulWidget {
+  const _PreparedQuestionStage({
+    required this.proIsActive,
+  });
+
+  final bool proIsActive;
+
+  @override
+  ConsumerState<_PreparedQuestionStage> createState() =>
+      _PreparedQuestionStageState();
+}
+
+class _PreparedQuestionStageState
+    extends ConsumerState<_PreparedQuestionStage> {
+  final Map<QuestionId, Widget> _plainQuestionPanes = <QuestionId, Widget>{};
+
+  String? _sessionId;
+  int? _currentIndex;
+  int? _preparedIndex;
+  int? _scheduledPrepareIndex;
+
+  @override
+  Widget build(BuildContext context) {
+    final running = ref.watch(
+      quizControllerProvider.select(
+        (state) => state is QuizRunning
+            ? (
+                session: state.session,
+                questionShownAt: state.questionShownAt,
+              )
+            : null,
+      ),
+    );
+    if (running == null) return const FaintBars();
+
+    final session = running.session;
+    final questionShownAt = running.questionShownAt;
+    _syncSession(session);
+
+    final currentIndex = session.currentIndex;
+    final question = session.currentQuestion;
+    final passageId = question.passageId;
+    final passageState =
+        passageId != null ? ref.watch(passageByIdProvider(passageId)) : null;
+    final passage = passageState?.valueOrNull;
+    if (passageId != null && passage == null) {
+      return const FaintBars();
+    }
+
+    final outcome = session.currentOutcome;
+    if (outcome == null && questionShownAt == null) {
+      final sessionId = session.sessionId;
+      final questionIndex = currentIndex;
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) return;
+        ref.read(quizControllerProvider.notifier).markQuestionReady(
+              sessionId: sessionId,
+              questionIndex: questionIndex,
+            );
+      });
+    }
+
+    _scheduleNextPreparationIfReady(session, questionShownAt);
+
+    final children = <Widget>[
+      Offstage(
+        key: ValueKey<String>(_questionStageKey(question.id)),
+        offstage: false,
+        child: outcome == null
+            ? _interactionGate(
+                enabled: questionShownAt != null,
+                child: _plainQuestionPane(question, passage: passage),
+              )
+            : _revealedQuestionPane(
+                session,
+                question,
+                passage: passage,
+              ),
+      ),
+    ];
+
+    final preparedIndex = _preparedIndex;
+    QuestionId? preparedQuestionId;
+    if (preparedIndex != null &&
+        preparedIndex != currentIndex &&
+        preparedIndex >= 0 &&
+        preparedIndex < session.questions.length) {
+      final prepared = session.questions[preparedIndex];
+      if (prepared.passageId == null) {
+        preparedQuestionId = prepared.id;
+        children.add(
+          Offstage(
+            key: ValueKey<String>(_questionStageKey(prepared.id)),
+            child: _interactionGate(
+              enabled: false,
+              child: _plainQuestionPane(prepared),
+            ),
+          ),
+        );
+      }
+    }
+
+    _plainQuestionPanes.removeWhere(
+      (id, _) => id != question.id && id != preparedQuestionId,
+    );
+
+    return Stack(alignment: Alignment.topLeft, children: children);
+  }
+
+  void _syncSession(QuizSession session) {
+    if (_sessionId != session.sessionId) {
+      _plainQuestionPanes.clear();
+      _preparedIndex = null;
+      _scheduledPrepareIndex = null;
+      _sessionId = session.sessionId;
+      _currentIndex = session.currentIndex;
+      return;
+    }
+
+    final oldIndex = _currentIndex;
+    final newIndex = session.currentIndex;
+    if (oldIndex != null && newIndex != oldIndex && newIndex != oldIndex + 1) {
+      _preparedIndex = null;
+      _scheduledPrepareIndex = null;
+    }
+    _currentIndex = newIndex;
+  }
+
+  void _scheduleNextPreparationIfReady(
+    QuizSession session,
+    DateTime? questionShownAt,
+  ) {
+    if (questionShownAt == null && session.currentOutcome == null) {
+      return;
+    }
+
+    final sessionId = session.sessionId;
+    final nextIndex = session.currentIndex + 1;
+    if (nextIndex >= session.questions.length) return;
+    final next = session.questions[nextIndex];
+    if (next.passageId != null) return;
+    if (_preparedIndex == nextIndex || _scheduledPrepareIndex == nextIndex) {
+      return;
+    }
+
+    _scheduledPrepareIndex = nextIndex;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || _sessionId != sessionId) return;
+      if (_scheduledPrepareIndex == nextIndex) {
+        _scheduledPrepareIndex = null;
+      }
+
+      final state = ref.read(quizControllerProvider);
+      if (state is! QuizRunning || state.session.sessionId != sessionId) {
+        return;
+      }
+      final current = state.session;
+      if (current.currentIndex + 1 != nextIndex ||
+          nextIndex >= current.questions.length ||
+          current.questions[nextIndex].passageId != null) {
+        return;
+      }
+      setState(() => _preparedIndex = nextIndex);
+    });
+  }
+
+  Widget _plainQuestionPane(Question question, {Passage? passage}) {
+    return _plainQuestionPanes.putIfAbsent(
+      question.id,
+      () => QuestionCard(
+        question: question,
+        passage: passage,
+        onAnswer: (chosenChoiceId) => ref
+            .read(quizControllerProvider.notifier)
+            .answer(chosenChoiceId: chosenChoiceId),
+      ),
+    );
+  }
+
+  Widget _revealedQuestionPane(
+    QuizSession session,
+    Question question, {
+    Passage? passage,
+  }) {
+    final outcome = session.currentOutcome!;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        QuestionCard(
+          question: question,
+          passage: passage,
+          chosenChoiceId: outcome.chosenChoiceId,
+          revealed: true,
+          onAnswer: null,
+        ),
+        AnswerReveal(
+          question: question,
+          chosenChoiceId: outcome.chosenChoiceId,
+          proIsActive: widget.proIsActive,
+          nextReviewIntervalDays: outcome.nextReviewIntervalDays,
+        ),
+      ],
+    );
+  }
+
+  Widget _interactionGate({required bool enabled, required Widget child}) {
+    return ExcludeSemantics(
+      excluding: !enabled,
+      child: IgnorePointer(ignoring: !enabled, child: child),
+    );
+  }
+}
+
+class _QuizAppBar extends ConsumerWidget implements PreferredSizeWidget {
+  const _QuizAppBar({
+    required this.onConfirmLeave,
+    required this.onBack,
+    required this.onOpenGrid,
+    required this.onToggleFlag,
+  });
+
+  final VoidCallback onConfirmLeave;
+  final VoidCallback onBack;
+  final Future<void> Function(QuizSession session) onOpenGrid;
+  final Future<void> Function(QuestionId questionId) onToggleFlag;
+
+  @override
+  Size get preferredSize => const Size.fromHeight(56);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final colors = context.colors;
+    final styles = context.textStyles;
+    final session = ref.watch(
+      quizControllerProvider.select(
+        (state) => state is QuizRunning ? state.session : null,
+      ),
+    );
+
+    return AppBar(
+      toolbarHeight: 56,
+      backgroundColor: colors.background,
+      elevation: 0,
+      scrolledUnderElevation: 0,
+      leading: session != null
+          ? IconButton(
+              tooltip: 'Quit session',
+              icon: Icon(Icons.close, size: 17, color: colors.inkMuted),
+              onPressed: onConfirmLeave,
+            )
+          : IconButton(
+              tooltip: 'Back',
+              icon: BackChevron(color: colors.inkMuted),
+              onPressed: onBack,
+            ),
+      actions: [
+        if (session != null) ...[
+          Semantics(
+            button: true,
+            enabled: true,
+            label: 'Question ${session.currentIndex + 1} of '
+                '${session.questions.length}. '
+                'Open question navigator',
+            onTap: () => unawaited(onOpenGrid(session)),
+            child: ExcludeSemantics(
+              child: InkWell(
+                onTap: () => unawaited(onOpenGrid(session)),
+                child: SizedBox(
+                  height: 48,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          '${session.currentIndex + 1} of '
+                          '${session.questions.length}',
+                          style: styles.bodySmall.copyWith(
+                            fontSize: 12.5,
+                            color: colors.inkMuted,
+                            fontFeatures: const [
+                              FontFeature.tabularFigures(),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(width: 4),
+                        Icon(
+                          Icons.expand_more,
+                          size: 11,
+                          color: colors.inkMuted,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Consumer(
+            builder: (context, ref, _) {
+              final flagged =
+                  ref.watch(flaggedIdsProvider).valueOrNull ?? const {};
+              final isFlagged = flagged.contains(session.currentQuestion.id);
+              final questionNumber = session.currentIndex + 1;
+              void toggle() =>
+                  unawaited(onToggleFlag(session.currentQuestion.id));
+              return Semantics(
+                button: true,
+                enabled: true,
+                toggled: isFlagged,
+                label: isFlagged
+                    ? 'Remove flag from question $questionNumber'
+                    : 'Flag question $questionNumber',
+                onTap: toggle,
+                child: ExcludeSemantics(
+                  child: SizedBox.square(
+                    dimension: 48,
+                    child: IconButton(
+                      onPressed: toggle,
+                      icon: PennantMark(isSet: isFlagged),
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+        ],
+      ],
+    );
+  }
+}
+
+class _QuizBody extends ConsumerWidget {
+  const _QuizBody({
+    required this.proIsActive,
+    required this.onRetry,
+  });
+
+  final bool proIsActive;
+  final VoidCallback onRetry;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final stateType = ref.watch(
+      quizControllerProvider.select((state) => state.runtimeType),
+    );
+    if (stateType == QuizRunning) {
+      return _RunningQuizBody(proIsActive: proIsActive);
+    }
+
+    final state = ref.watch(quizControllerProvider);
+    return switch (state) {
+      QuizIdle() || QuizLoading() => const FaintBars(),
+      QuizRunning() => _RunningQuizBody(proIsActive: proIsActive),
+      QuizComplete(:final attempt, :final session) => DebriefPage(
+          attemptId: attempt.id,
+          proIsActive: proIsActive,
+          sessionOverride: session,
+          attemptOverride: attempt,
+        ),
+      QuizFailure(:final message) => ErrorBanner(
+          variant: ErrorBannerVariant.error,
+          message: message,
+          actionLabel: 'Retry',
+          onAction: onRetry,
+        ),
+    };
+  }
+}
+
+class _RunningQuizBody extends StatelessWidget {
+  const _RunningQuizBody({required this.proIsActive});
+
+  final bool proIsActive;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const _QuizProgress(),
+        const SizedBox(height: 16),
+        Expanded(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.only(bottom: 12),
+            child: _PreparedQuestionStage(proIsActive: proIsActive),
+          ),
+        ),
+        const _QuizFooter(),
+      ],
+    );
+  }
+}
+
+class _QuizProgress extends ConsumerWidget {
+  const _QuizProgress();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final progress = ref.watch(
+      quizControllerProvider.select(
+        (state) => state is QuizRunning
+            ? (
+                currentIndex: state.session.currentIndex,
+                total: state.session.questions.length,
+              )
+            : null,
+      ),
+    );
+    if (progress == null) return const SizedBox.shrink();
+    return ProgressRule(
+      value: (progress.currentIndex + 1) / progress.total,
+    );
+  }
+}
+
+class _QuizFooter extends ConsumerWidget {
+  const _QuizFooter();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final footer = ref.watch(
+      quizControllerProvider.select(
+        (state) => state is QuizRunning
+            ? (
+                visible: state.session.currentOutcome != null,
+                complete: state.session.isComplete,
+              )
+            : null,
+      ),
+    );
+    if (footer == null || !footer.visible) {
+      return const SizedBox.shrink();
+    }
+    return BoardButton(
+      label: footer.complete ? 'Done' : 'Next',
+      secondary: !footer.complete,
+      onPressed: () => unawaited(
+        ref.read(quizControllerProvider.notifier).next(),
+      ),
+    );
+  }
+}
+
 class _QuizPageState extends ConsumerState<QuizPage> {
   @override
   void initState() {
@@ -58,209 +504,20 @@ class _QuizPageState extends ConsumerState<QuizPage> {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
-    final styles = context.textStyles;
-    final state = ref.watch(quizControllerProvider);
-
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 56,
-        backgroundColor: colors.background,
-        elevation: 0,
-        scrolledUnderElevation: 0,
-        leading: state is QuizRunning
-            // The tooltips are the only label these icons carry. Without them
-            // a screen reader announces an unnamed button, and the
-            // accessibility plan requires every control to be labeled.
-            ? IconButton(
-                tooltip: 'Quit session',
-                icon: Icon(Icons.close, size: 17, color: colors.inkMuted),
-                onPressed: _confirmLeave,
-              )
-            : IconButton(
-                tooltip: 'Back',
-                icon: BackChevron(color: colors.inkMuted),
-                onPressed: () => _leave(context),
-              ),
-        actions: [
-          if (state is QuizRunning) ...[
-            // [context] [mark], the reader's rule. The counter takes
-            // the context
-            // slot so the flag never moves as the number's width changes.
-            Semantics(
-              button: true,
-              enabled: true,
-              label: 'Question ${state.session.currentIndex + 1} of '
-                  '${state.session.questions.length}. '
-                  'Open question navigator',
-              onTap: () => unawaited(_openGrid(state.session)),
-              child: ExcludeSemantics(
-                child: InkWell(
-                  onTap: () => unawaited(_openGrid(state.session)),
-                  child: SizedBox(
-                    height: 48,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            '${state.session.currentIndex + 1} of '
-                            '${state.session.questions.length}',
-                            style: styles.bodySmall.copyWith(
-                              fontSize: 12.5,
-                              color: colors.inkMuted,
-                              fontFeatures: const [
-                                FontFeature.tabularFigures(),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(width: 4),
-                          Icon(
-                            Icons.expand_more,
-                            size: 11,
-                            color: colors.inkMuted,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Consumer(
-              builder: (context, ref, _) {
-                final flagged =
-                    ref.watch(flaggedIdsProvider).valueOrNull ?? const {};
-                final isFlagged =
-                    flagged.contains(state.session.currentQuestion.id);
-                final questionNumber = state.session.currentIndex + 1;
-                void toggle() => unawaited(
-                      _toggleFlag(state.session.currentQuestion.id),
-                    );
-                return Semantics(
-                  button: true,
-                  enabled: true,
-                  toggled: isFlagged,
-                  label: isFlagged
-                      ? 'Remove flag from question $questionNumber'
-                      : 'Flag question $questionNumber',
-                  onTap: toggle,
-                  child: ExcludeSemantics(
-                    child: SizedBox.square(
-                      dimension: 48,
-                      child: IconButton(
-                        onPressed: toggle,
-                        icon: PennantMark(isSet: isFlagged),
-                      ),
-                    ),
-                  ),
-                );
-              },
-            ),
-          ],
-        ],
+      appBar: _QuizAppBar(
+        onConfirmLeave: () => unawaited(_confirmLeave()),
+        onBack: () => _leave(context),
+        onOpenGrid: _openGrid,
+        onToggleFlag: _toggleFlag,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
-        child: switch (state) {
-          QuizIdle() || QuizLoading() => const FaintBars(),
-          QuizRunning(:final session, :final questionShownAt) => Column(
-              children: [
-                ProgressRule(
-                  value: (session.currentIndex + 1) / session.questions.length,
-                ),
-                const SizedBox(height: 16),
-                Expanded(
-                  child: SingleChildScrollView(
-                    // Room for the footer, so the last line of a long
-                    // explanation is never sitting under the control.
-                    padding: const EdgeInsets.only(bottom: 12),
-                    child: Consumer(
-                      builder: (context, ref, _) {
-                        final question = session.currentQuestion;
-                        final passageId = question.passageId;
-                        final passageState = passageId != null
-                            ? ref.watch(passageByIdProvider(passageId))
-                            : null;
-                        final passage = passageState?.valueOrNull;
-                        if (passageId != null && passage == null) {
-                          return const FaintBars();
-                        }
-
-                        final outcome = session.currentOutcome;
-                        if (outcome == null && questionShownAt == null) {
-                          final sessionId = session.sessionId;
-                          final questionIndex = session.currentIndex;
-                          WidgetsBinding.instance.addPostFrameCallback((_) {
-                            if (!mounted) return;
-                            ref
-                                .read(quizControllerProvider.notifier)
-                                .markQuestionReady(
-                                  sessionId: sessionId,
-                                  questionIndex: questionIndex,
-                                );
-                          });
-                        }
-
-                        return Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            QuestionCard(
-                              question: question,
-                              passage: passage,
-                              chosenChoiceId: outcome?.chosenChoiceId,
-                              revealed: outcome != null,
-                              onAnswer: questionShownAt == null ||
-                                      outcome != null
-                                  ? null
-                                  : (chosenChoiceId) => ref
-                                      .read(quizControllerProvider.notifier)
-                                      .answer(chosenChoiceId: chosenChoiceId),
-                            ),
-                            if (outcome != null) ...[
-                              AnswerReveal(
-                                question: question,
-                                chosenChoiceId: outcome.chosenChoiceId,
-                                proIsActive: widget.proIsActive,
-                                nextReviewIntervalDays:
-                                    outcome.nextReviewIntervalDays,
-                              ),
-                            ],
-                          ],
-                        );
-                      },
-                    ),
-                  ),
-                ),
-                // The footer, outside the scroll. It sits in the same place
-                // on every question, whatever the length of the reveal
-                // above it: a control that moves has to be found again each
-                // time.
-                if (session.currentOutcome != null)
-                  BoardButton(
-                    label: session.isComplete ? 'Done' : 'Next',
-                    secondary: !session.isComplete,
-                    onPressed: () => unawaited(
-                      ref.read(quizControllerProvider.notifier).next(),
-                    ),
-                  ),
-              ],
-            ),
-          QuizComplete(:final attempt, :final session) => DebriefPage(
-              attemptId: attempt.id,
-              proIsActive: widget.proIsActive,
-              sessionOverride: session,
-              attemptOverride: attempt,
-            ),
-          QuizFailure(:final message) => ErrorBanner(
-              variant: ErrorBannerVariant.error,
-              message: message,
-              actionLabel: 'Retry',
-              onAction: () =>
-                  _startForMode(ref.read(quizControllerProvider.notifier)),
-            ),
-        },
+        child: _QuizBody(
+          proIsActive: widget.proIsActive,
+          onRetry: () =>
+              _startForMode(ref.read(quizControllerProvider.notifier)),
+        ),
       ),
     );
   }
@@ -302,10 +559,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
           unawaited(controller.startToday(examId: widget.examId));
         } else {
           unawaited(
-            controller.startInline(
-              examId: widget.examId,
-              lessonId: lessonId,
-            ),
+            controller.startInline(examId: widget.examId, lessonId: lessonId),
           );
         }
     }
@@ -390,9 +644,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     } else if (toggleResult == FlagToggle.unflagged) {
       ScaffoldMessenger.of(context)
         ..hideCurrentSnackBar()
-        ..showSnackBar(
-          const SnackBar(content: Text('Flag removed')),
-        );
+        ..showSnackBar(const SnackBar(content: Text('Flag removed')));
     }
   }
 

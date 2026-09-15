@@ -302,6 +302,118 @@ void main() {
     expect(find.byType(SnackBar), findsNothing);
     expect(find.text('Next'), findsOneWidget);
   });
+  testWidgets('prepares the next plain question offstage before Next',
+      (tester) async {
+    when(
+      () => start(
+        examId: any(named: 'examId'),
+        topicId: any(named: 'topicId'),
+        count: any(named: 'count'),
+        now: any(named: 'now'),
+        randomSeed: any(named: 'randomSeed'),
+      ),
+    ).thenAnswer(
+      (_) async => QuizSession.start(
+        sessionId: 'prepared-next',
+        examId: 'e',
+        questions: const [q1, q2],
+        startedAt: DateTime.utc(2026, 5, 9, 12),
+      ),
+    );
+    when(
+      () => submit(
+        question: any(named: 'question'),
+        chosenChoiceId: any(named: 'chosenChoiceId'),
+        responseMs: any(named: 'responseMs'),
+        now: any(named: 'now'),
+        sessionId: any(named: 'sessionId'),
+        userId: any(named: 'userId'),
+        examId: any(named: 'examId'),
+        origin: any(named: 'origin'),
+      ),
+    ).thenAnswer(
+      (_) async => const AnswerOutcome(
+        questionId: 'q1',
+        questionVersion: 1,
+        chosenChoiceId: 'c1a',
+        correctChoiceId: 'c1a',
+        responseMs: 1000,
+      ),
+    );
+
+    await tester.pumpAppWithProviders(
+      const QuizPage(examId: 'e'),
+      overrides: [
+        startQuickQuizProvider.overrideWithValue(start),
+        submitAnswerProvider.overrideWithValue(submit),
+        nowProvider.overrideWithValue(() => DateTime.utc(2026, 5, 9, 12)),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    final preparedStage = find.byKey(
+      const ValueKey<String>('quiz-question-q2'),
+      skipOffstage: false,
+    );
+    expect(preparedStage, findsOneWidget);
+    expect(tester.widget<Offstage>(preparedStage).offstage, isTrue);
+    expect(find.text('Stem Two'), findsNothing);
+    expect(find.text('Stem Two', skipOffstage: false), findsOneWidget);
+
+    await tester.tap(find.text('AlphaText'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Next'));
+    await tester.pumpAndSettle();
+
+    final visibleStage = find.byKey(
+      const ValueKey<String>('quiz-question-q2'),
+    );
+    expect(visibleStage, findsOneWidget);
+    expect(tester.widget<Offstage>(visibleStage).offstage, isFalse);
+    expect(find.text('Stem Two'), findsOneWidget);
+  });
+
+  testWidgets('prepares Next when Resume restores an answered question',
+      (tester) async {
+    final restored = QuizSession.start(
+      sessionId: 'resumed-prepared-next',
+      examId: 'e',
+      questions: const [q1, q2],
+      startedAt: DateTime.utc(2026, 5, 9, 12),
+    ).record(
+      const AnswerOutcome(
+        questionId: 'q1',
+        questionVersion: 1,
+        chosenChoiceId: 'c1a',
+        correctChoiceId: 'c1a',
+        responseMs: 1000,
+      ),
+    );
+    when(
+      () => launchCoordinator.resumeToday(any()),
+    ).thenAnswer((_) async => restored);
+
+    await tester.pumpAppWithProviders(
+      const QuizPage(examId: 'e', mode: QuizPageMode.resume),
+      overrides: [
+        quizLaunchCoordinatorProvider.overrideWithValue(launchCoordinator),
+        nowProvider.overrideWithValue(() => DateTime.utc(2026, 5, 9, 12)),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Correct'), findsOneWidget);
+    expect(
+      find.byKey(
+        const ValueKey<String>('quiz-question-q2'),
+        skipOffstage: false,
+      ),
+      findsOneWidget,
+    );
+    expect(find.text('Stem Two'), findsNothing);
+    expect(find.text('Stem Two', skipOffstage: false), findsOneWidget);
+  });
+
   testWidgets('Retry preserves Today mode and topic scope', (tester) async {
     when(
       () => launchCoordinator.launchToday(
