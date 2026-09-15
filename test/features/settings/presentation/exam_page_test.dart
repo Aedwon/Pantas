@@ -282,15 +282,39 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('DOST'));
     await tester.pump();
-    await tester.pump(const Duration(milliseconds: 100));
 
-    expect(find.byType(ChangeExamPage), findsOneWidget);
-    expect(
-      tester.widget<SettingsGroup>(find.byType(SettingsGroup)).title,
-      'UPCAT',
-    );
-    expect(find.text("You're not starting from zero"), findsNothing);
+    var routeRemoved = false;
+    for (var frame = 0; frame < 60; frame++) {
+      await tester.pump(const Duration(milliseconds: 16));
+      final changeExamMounted =
+          find.byType(ChangeExamPage).evaluate().isNotEmpty;
 
+      if (changeExamMounted) {
+        expect(
+          tester.widget<SettingsGroup>(find.byType(SettingsGroup)).title,
+          'UPCAT',
+          reason: 'active exam changed while Change exam was still mounted',
+        );
+        expect(find.text("You're not starting from zero"), findsNothing);
+        continue;
+      }
+
+      routeRemoved = true;
+      // This is the first frame with the popped route absent. The refresh is
+      // scheduled only after route.completed resolves, so this settled Exam
+      // frame must still render the old focus rather than resurrecting the
+      // outgoing route or changing underneath it.
+      expect(
+        tester.widget<SettingsGroup>(find.byType(SettingsGroup)).title,
+        'UPCAT',
+      );
+      expect(find.text("You're not starting from zero"), findsNothing);
+      break;
+    }
+
+    expect(routeRemoved, isTrue, reason: 'Change exam route never completed');
+
+    await tester.pump();
     await tester.pumpAndSettle();
 
     expect(find.byType(ChangeExamPage), findsNothing);

@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
@@ -97,20 +95,13 @@ class ChangeExamPage extends ConsumerWidget {
   }
 }
 
-Future<void> _routeSettledAfterPop(BuildContext context) {
-  final animation = ModalRoute.of(context)?.animation;
-  if (animation == null || animation.status == AnimationStatus.dismissed) {
-    return Future<void>.value();
-  }
+Future<void> _routeSettledAfterPop(BuildContext context) async {
+  final route = ModalRoute.of(context);
+  if (route == null) return;
 
-  final completer = Completer<void>();
-
-  void onStatus(AnimationStatus status) {
-    if (status != AnimationStatus.dismissed) return;
-    animation.removeStatusListener(onStatus);
-    if (!completer.isCompleted) completer.complete();
-  }
-
-  animation.addStatusListener(onStatus);
-  return completer.future;
+  // TransitionRoute.completed resolves only after the pop transition has
+  // finished and the route's overlay entries have been removed. Waiting on
+  // animation status alone is too early and can let GoRouter refresh while
+  // the outgoing Change exam page is still mounted.
+  await route.completed;
 }
