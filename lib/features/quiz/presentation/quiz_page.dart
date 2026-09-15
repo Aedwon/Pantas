@@ -70,11 +70,24 @@ class _PreparedQuestionStageState
   int? _currentIndex;
   int? _preparedIndex;
   int? _scheduledPrepareIndex;
+  QuestionId? _retiringQuestionId;
+  Widget? _retiringPane;
+  QuestionId? _lastVisibleQuestionId;
+  Widget? _lastVisiblePane;
+  bool _deferPreparationForTransition = false;
+  int _transitionGeneration = 0;
+  Timer? _transitionTimer;
 
   @override
   void initState() {
     super.initState();
     ref.read(quizControllerProvider.notifier).clearQuestionPreparation();
+  }
+
+  @override
+  void dispose() {
+    _transitionTimer?.cancel();
+    super.dispose();
   }
 
   @override
@@ -120,22 +133,36 @@ class _PreparedQuestionStageState
 
     _scheduleNextPreparationIfReady(session, questionShownAt);
 
-    final children = <Widget>[
+    final currentPane = outcome == null
+        ? _interactionGate(
+            enabled: questionShownAt != null,
+            child: _plainQuestionPane(question, passage: passage),
+          )
+        : _revealedQuestionPane(
+            session,
+            question,
+            passage: passage,
+          );
+
+    final children = <Widget>[];
+    final retiringQuestionId = _retiringQuestionId;
+    final retiringPane = _retiringPane;
+    if (retiringQuestionId != null && retiringPane != null) {
+      children.add(
+        Offstage(
+          key: ValueKey<String>(_questionStageKey(retiringQuestionId)),
+          child: _interactionGate(enabled: false, child: retiringPane),
+        ),
+      );
+    }
+
+    children.add(
       Offstage(
         key: ValueKey<String>(_questionStageKey(question.id)),
         offstage: false,
-        child: outcome == null
-            ? _interactionGate(
-                enabled: questionShownAt != null,
-                child: _plainQuestionPane(question, passage: passage),
-              )
-            : _revealedQuestionPane(
-                session,
-                question,
-                passage: passage,
-              ),
+        child: currentPane,
       ),
-    ];
+    );
 
     final preparedIndex = _preparedIndex;
     QuestionId? preparedQuestionId;
@@ -159,17 +186,30 @@ class _PreparedQuestionStageState
     }
 
     _plainQuestionPanes.removeWhere(
-      (id, _) => id != question.id && id != preparedQuestionId,
+      (id, _) =>
+          id != question.id &&
+          id != preparedQuestionId &&
+          id != retiringQuestionId,
     );
+    _lastVisibleQuestionId = question.id;
+    _lastVisiblePane = currentPane;
 
     return Stack(alignment: Alignment.topLeft, children: children);
   }
 
   void _syncSession(QuizSession session) {
     if (_sessionId != session.sessionId) {
+      _transitionGeneration += 1;
+      _transitionTimer?.cancel();
+      _transitionTimer = null;
       _plainQuestionPanes.clear();
       _preparedIndex = null;
       _scheduledPrepareIndex = null;
+      _retiringQuestionId = null;
+      _retiringPane = null;
+      _lastVisibleQuestionId = null;
+      _lastVisiblePane = null;
+      _deferPreparationForTransition = false;
       _sessionId = session.sessionId;
       _currentIndex = session.currentIndex;
       return;
@@ -177,17 +217,69 @@ class _PreparedQuestionStageState
 
     final oldIndex = _currentIndex;
     final newIndex = session.currentIndex;
-    if (oldIndex != null && newIndex != oldIndex && newIndex != oldIndex + 1) {
-      _preparedIndex = null;
-      _scheduledPrepareIndex = null;
+    if (oldIndex != null && newIndex != oldIndex) {
+      if (newIndex == oldIndex + 1 &&
+          _preparedIndex == newIndex &&
+          oldIndex >= 0 &&
+          oldIndex < session.questions.length) {
+        final oldQuestion = session.questions[oldIndex];
+        if (_lastVisibleQuestionId == oldQuestion.id &&
+            _lastVisiblePane != null) {
+          _retiringQuestionId = oldQuestion.id;
+          _retiringPane = _lastVisiblePane;
+          _deferPreparationForTransition = true;
+          _scheduleTransitionHousekeeping(
+            sessionId: session.sessionId,
+            currentIndex: newIndex,
+          );
+        }
+      } else {
+        _transitionGeneration += 1;
+        _transitionTimer?.cancel();
+        _transitionTimer = null;
+        _preparedIndex = null;
+        _scheduledPrepareIndex = null;
+        _retiringQuestionId = null;
+        _retiringPane = null;
+        _deferPreparationForTransition = false;
+      }
     }
     _currentIndex = newIndex;
+  }
+
+  void _scheduleTransitionHousekeeping({
+    required String sessionId,
+    required int currentIndex,
+  }) {
+    final generation = ++_transitionGeneration;
+    _transitionTimer?.cancel();
+    _transitionTimer = Timer(const Duration(milliseconds: 120), () {
+      _transitionTimer = null;
+      if (!mounted || generation != _transitionGeneration) return;
+
+      final state = ref.read(quizControllerProvider);
+      if (state is! QuizRunning ||
+          state.session.sessionId != sessionId ||
+          state.session.currentIndex != currentIndex) {
+        return;
+      }
+
+      setState(() {
+        _retiringQuestionId = null;
+        _retiringPane = null;
+        if (_preparedIndex == currentIndex) {
+          _preparedIndex = null;
+        }
+        _deferPreparationForTransition = false;
+      });
+    });
   }
 
   void _scheduleNextPreparationIfReady(
     QuizSession session,
     DateTime? questionShownAt,
   ) {
+    if (_deferPreparationForTransition) return;
     if (questionShownAt == null && session.currentOutcome == null) {
       return;
     }
