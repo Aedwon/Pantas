@@ -70,11 +70,19 @@ class _PreparedQuestionStageState
   int? _currentIndex;
   int? _preparedIndex;
   int? _scheduledPrepareIndex;
+  bool _deferPreparationForTransition = false;
+  Timer? _deferPreparationTimer;
 
   @override
   void initState() {
     super.initState();
     ref.read(quizControllerProvider.notifier).clearQuestionPreparation();
+  }
+
+  @override
+  void dispose() {
+    _deferPreparationTimer?.cancel();
+    super.dispose();
   }
 
   @override
@@ -121,9 +129,9 @@ class _PreparedQuestionStageState
     _scheduleNextPreparationIfReady(session, questionShownAt);
 
     final children = <Widget>[
-      Offstage(
+      Opacity(
         key: ValueKey<String>(_questionStageKey(question.id)),
-        offstage: false,
+        opacity: 1,
         child: outcome == null
             ? _interactionGate(
                 enabled: questionShownAt != null,
@@ -147,8 +155,9 @@ class _PreparedQuestionStageState
       if (prepared.passageId == null) {
         preparedQuestionId = prepared.id;
         children.add(
-          Offstage(
+          Opacity(
             key: ValueKey<String>(_questionStageKey(prepared.id)),
+            opacity: 0,
             child: _interactionGate(
               enabled: false,
               child: _plainQuestionPane(prepared),
@@ -167,9 +176,12 @@ class _PreparedQuestionStageState
 
   void _syncSession(QuizSession session) {
     if (_sessionId != session.sessionId) {
+      _deferPreparationTimer?.cancel();
+      _deferPreparationTimer = null;
       _plainQuestionPanes.clear();
       _preparedIndex = null;
       _scheduledPrepareIndex = null;
+      _deferPreparationForTransition = false;
       _sessionId = session.sessionId;
       _currentIndex = session.currentIndex;
       return;
@@ -177,9 +189,36 @@ class _PreparedQuestionStageState
 
     final oldIndex = _currentIndex;
     final newIndex = session.currentIndex;
-    if (oldIndex != null && newIndex != oldIndex && newIndex != oldIndex + 1) {
-      _preparedIndex = null;
-      _scheduledPrepareIndex = null;
+    if (oldIndex != null && newIndex != oldIndex) {
+      if (newIndex == oldIndex + 1 && _preparedIndex == newIndex) {
+        _deferPreparationForTransition = true;
+        _deferPreparationTimer?.cancel();
+        final sessionId = session.sessionId;
+        _deferPreparationTimer = Timer(const Duration(milliseconds: 120), () {
+          _deferPreparationTimer = null;
+          if (!mounted) return;
+
+          final state = ref.read(quizControllerProvider);
+          if (state is! QuizRunning ||
+              state.session.sessionId != sessionId ||
+              state.session.currentIndex != newIndex) {
+            return;
+          }
+
+          setState(() {
+            if (_preparedIndex == newIndex) {
+              _preparedIndex = null;
+            }
+            _deferPreparationForTransition = false;
+          });
+        });
+      } else if (newIndex != oldIndex + 1) {
+        _deferPreparationTimer?.cancel();
+        _deferPreparationTimer = null;
+        _preparedIndex = null;
+        _scheduledPrepareIndex = null;
+        _deferPreparationForTransition = false;
+      }
     }
     _currentIndex = newIndex;
   }
@@ -188,6 +227,7 @@ class _PreparedQuestionStageState
     QuizSession session,
     DateTime? questionShownAt,
   ) {
+    if (_deferPreparationForTransition) return;
     if (questionShownAt == null && session.currentOutcome == null) {
       return;
     }

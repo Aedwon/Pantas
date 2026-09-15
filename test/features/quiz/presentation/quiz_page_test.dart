@@ -302,7 +302,7 @@ void main() {
     expect(find.byType(SnackBar), findsNothing);
     expect(find.text('Next'), findsOneWidget);
   });
-  testWidgets('prepares the next plain question offstage before Next',
+  testWidgets('prepares the next plain question invisibly before Next',
       (tester) async {
     when(
       () => start(
@@ -356,9 +356,23 @@ void main() {
       skipOffstage: false,
     );
     expect(preparedStage, findsOneWidget);
-    expect(tester.widget<Offstage>(preparedStage).offstage, isTrue);
-    expect(find.text('Stem Two'), findsNothing);
-    expect(find.text('Stem Two', skipOffstage: false), findsOneWidget);
+    expect(tester.widget<Opacity>(preparedStage).opacity, 0);
+    final preparedPointerGate = find.descendant(
+      of: preparedStage,
+      matching: find.byType(IgnorePointer),
+    );
+    final preparedSemanticsGate = find.descendant(
+      of: preparedStage,
+      matching: find.byType(ExcludeSemantics),
+    );
+    expect(preparedPointerGate, findsOneWidget);
+    expect(preparedSemanticsGate, findsOneWidget);
+    expect(tester.widget<IgnorePointer>(preparedPointerGate).ignoring, isTrue);
+    expect(
+      tester.widget<ExcludeSemantics>(preparedSemanticsGate).excluding,
+      isTrue,
+    );
+    expect(find.text('Stem Two'), findsOneWidget);
 
     await tester.tap(find.text('AlphaText'));
     await tester.pumpAndSettle();
@@ -369,7 +383,7 @@ void main() {
       const ValueKey<String>('quiz-question-q2'),
     );
     expect(visibleStage, findsOneWidget);
-    expect(tester.widget<Offstage>(visibleStage).offstage, isFalse);
+    expect(tester.widget<Opacity>(visibleStage).opacity, 1);
     expect(find.text('Stem Two'), findsOneWidget);
   });
 
@@ -403,15 +417,28 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Correct'), findsOneWidget);
-    expect(
-      find.byKey(
-        const ValueKey<String>('quiz-question-q2'),
-        skipOffstage: false,
-      ),
-      findsOneWidget,
+    final resumedPreparedStage = find.byKey(
+      const ValueKey<String>('quiz-question-q2'),
+      skipOffstage: false,
     );
-    expect(find.text('Stem Two'), findsNothing);
-    expect(find.text('Stem Two', skipOffstage: false), findsOneWidget);
+    expect(resumedPreparedStage, findsOneWidget);
+    expect(tester.widget<Opacity>(resumedPreparedStage).opacity, 0);
+    final resumedPointerGate = find.descendant(
+      of: resumedPreparedStage,
+      matching: find.byType(IgnorePointer),
+    );
+    final resumedSemanticsGate = find.descendant(
+      of: resumedPreparedStage,
+      matching: find.byType(ExcludeSemantics),
+    );
+    expect(resumedPointerGate, findsOneWidget);
+    expect(resumedSemanticsGate, findsOneWidget);
+    expect(tester.widget<IgnorePointer>(resumedPointerGate).ignoring, isTrue);
+    expect(
+      tester.widget<ExcludeSemantics>(resumedSemanticsGate).excluding,
+      isTrue,
+    );
+    expect(find.text('Stem Two'), findsOneWidget);
   });
 
   testWidgets('Retry preserves Today mode and topic scope', (tester) async {
