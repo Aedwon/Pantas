@@ -128,43 +128,66 @@ class _PreparedQuestionStageState
 
     _scheduleNextPreparationIfReady(session, questionShownAt);
 
-    final children = <Widget>[
-      Opacity(
-        key: ValueKey<String>(_questionStageKey(question.id)),
-        opacity: 1,
-        child: outcome == null
-            ? _interactionGate(
-                enabled: questionShownAt != null,
-                child: _plainQuestionPane(question, passage: passage),
-              )
-            : _revealedQuestionPane(
-                session,
-                question,
-                passage: passage,
-              ),
-      ),
-    ];
+    final currentPane = outcome == null
+        ? _interactionGate(
+            enabled: questionShownAt != null,
+            child: _plainQuestionPane(question, passage: passage),
+          )
+        : _revealedQuestionPane(
+            session,
+            question,
+            passage: passage,
+          );
 
     final preparedIndex = _preparedIndex;
+    final preparedIsCurrent =
+        _deferPreparationForTransition && preparedIndex == currentIndex;
+    final children = <Widget>[];
     QuestionId? preparedQuestionId;
+
     if (preparedIndex != null &&
-        preparedIndex != currentIndex &&
         preparedIndex >= 0 &&
         preparedIndex < session.questions.length) {
       final prepared = session.questions[preparedIndex];
       if (prepared.passageId == null) {
         preparedQuestionId = prepared.id;
-        children.add(
-          Opacity(
-            key: ValueKey<String>(_questionStageKey(prepared.id)),
-            opacity: 0,
-            child: _interactionGate(
-              enabled: false,
-              child: _plainQuestionPane(prepared),
+        children
+          ..add(
+            Opacity(
+              key: ValueKey<String>(_questionStageKey(prepared.id)),
+              opacity: 1,
+              child: _interactionGate(
+                enabled: preparedIsCurrent &&
+                    outcome == null &&
+                    questionShownAt != null,
+                child: RepaintBoundary(
+                  child: _plainQuestionPane(prepared),
+                ),
+              ),
             ),
-          ),
-        );
+          )
+          ..add(
+            Positioned.fill(
+              child: IgnorePointer(
+                child: Opacity(
+                  key: const ValueKey<String>('quiz-question-prepaint-cover'),
+                  opacity: preparedIsCurrent ? 0 : 1,
+                  child: ColoredBox(color: context.colors.background),
+                ),
+              ),
+            ),
+          );
       }
+    }
+
+    if (!preparedIsCurrent) {
+      children.add(
+        Opacity(
+          key: ValueKey<String>(_questionStageKey(question.id)),
+          opacity: 1,
+          child: currentPane,
+        ),
+      );
     }
 
     _plainQuestionPanes.removeWhere(
