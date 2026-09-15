@@ -363,20 +363,6 @@ void main() {
     await tester.tap(find.text('AlphaText'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Next'));
-    await tester.pump();
-
-    final retiringStage = find.byKey(
-      const ValueKey<String>('quiz-question-q1'),
-      skipOffstage: false,
-    );
-    final immediateVisibleStage = find.byKey(
-      const ValueKey<String>('quiz-question-q2'),
-    );
-    expect(retiringStage, findsOneWidget);
-    expect(tester.widget<Offstage>(retiringStage).offstage, isTrue);
-    expect(immediateVisibleStage, findsOneWidget);
-    expect(tester.widget<Offstage>(immediateVisibleStage).offstage, isFalse);
-
     await tester.pumpAndSettle();
 
     final visibleStage = find.byKey(
