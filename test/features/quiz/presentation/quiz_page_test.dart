@@ -356,7 +356,19 @@ void main() {
       skipOffstage: false,
     );
     expect(preparedStage, findsOneWidget);
-    expect(tester.widget<Opacity>(preparedStage).opacity, 0);
+    expect(tester.widget<Opacity>(preparedStage).opacity, 1);
+    final prepaintCover = find.byKey(
+      const ValueKey<String>('quiz-question-prepaint-cover'),
+    );
+    expect(prepaintCover, findsOneWidget);
+    expect(tester.widget<Opacity>(prepaintCover).opacity, 1);
+    expect(
+      find.descendant(
+        of: preparedStage,
+        matching: find.byType(RepaintBoundary),
+      ),
+      findsOneWidget,
+    );
     final preparedPointerGate = find.descendant(
       of: preparedStage,
       matching: find.byType(IgnorePointer),
@@ -377,14 +389,24 @@ void main() {
     await tester.tap(find.text('AlphaText'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Next'));
-    await tester.pumpAndSettle();
+    await tester.pump();
 
     final visibleStage = find.byKey(
       const ValueKey<String>('quiz-question-q2'),
     );
     expect(visibleStage, findsOneWidget);
     expect(tester.widget<Opacity>(visibleStage).opacity, 1);
+    expect(prepaintCover, findsOneWidget);
+    expect(tester.widget<Opacity>(prepaintCover).opacity, 0);
+    final retiringStage = find.byKey(
+      const ValueKey<String>('quiz-question-q1'),
+      skipOffstage: false,
+    );
+    expect(retiringStage, findsOneWidget);
+    expect(tester.widget<Opacity>(retiringStage).opacity, 0);
     expect(find.text('Stem Two'), findsOneWidget);
+
+    await tester.pumpAndSettle();
   });
 
   testWidgets('prepares Next when Resume restores an answered question',
@@ -422,7 +444,18 @@ void main() {
       skipOffstage: false,
     );
     expect(resumedPreparedStage, findsOneWidget);
-    expect(tester.widget<Opacity>(resumedPreparedStage).opacity, 0);
+    expect(tester.widget<Opacity>(resumedPreparedStage).opacity, 1);
+    expect(
+      find.byKey(const ValueKey<String>('quiz-question-prepaint-cover')),
+      findsOneWidget,
+    );
+    expect(
+      find.descendant(
+        of: resumedPreparedStage,
+        matching: find.byType(RepaintBoundary),
+      ),
+      findsOneWidget,
+    );
     final resumedPointerGate = find.descendant(
       of: resumedPreparedStage,
       matching: find.byType(IgnorePointer),
