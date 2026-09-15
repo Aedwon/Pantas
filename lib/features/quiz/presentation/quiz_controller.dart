@@ -63,6 +63,9 @@ class QuizController extends StateNotifier<QuizControllerState> {
 
   final Ref _ref;
 
+  String? _preparedSessionId;
+  int? _preparedQuestionIndex;
+
   Future<void> start({
     required ExamId examId,
     TopicId? topicId,
@@ -309,6 +312,27 @@ class QuizController extends StateNotifier<QuizControllerState> {
     );
   }
 
+  void markQuestionPrepared({
+    required String sessionId,
+    required int questionIndex,
+  }) {
+    final s = state;
+    if (s is! QuizRunning ||
+        s.session.sessionId != sessionId ||
+        questionIndex != s.session.currentIndex + 1 ||
+        questionIndex >= s.session.questions.length) {
+      return;
+    }
+
+    _preparedSessionId = sessionId;
+    _preparedQuestionIndex = questionIndex;
+  }
+
+  void clearQuestionPreparation() {
+    _preparedSessionId = null;
+    _preparedQuestionIndex = null;
+  }
+
   Future<void> answer({required ChoiceId chosenChoiceId}) async {
     final s = state;
     if (s is! QuizRunning) {
@@ -349,6 +373,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
     if (s.session.currentOutcome == null) return;
 
     if (s.session.isComplete) {
+      clearQuestionPreparation();
       final attempt =
           await _ref.read(quizCompletionCoordinatorProvider).complete(
                 session: s.session,
@@ -359,8 +384,14 @@ class QuizController extends StateNotifier<QuizControllerState> {
       return;
     }
 
+    final nextIndex = s.session.currentIndex + 1;
+    final prepared = _preparedSessionId == s.session.sessionId &&
+        _preparedQuestionIndex == nextIndex;
+    clearQuestionPreparation();
+
     state = QuizRunning(
       session: s.session.advance(),
+      questionShownAt: prepared ? _ref.read(nowProvider)() : null,
       persisted: s.persisted,
     );
   }
@@ -373,6 +404,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
   /// about.
   Future<void> goTo(int index) async {
     final s = state;
+    clearQuestionPreparation();
     if (s is! QuizRunning) return;
     if (index < 0 || index > s.session.outcomes.length) return;
     if (index >= s.session.questions.length) return;
@@ -383,5 +415,8 @@ class QuizController extends StateNotifier<QuizControllerState> {
     );
   }
 
-  void reset() => state = const QuizIdle();
+  void reset() {
+    clearQuestionPreparation();
+    state = const QuizIdle();
+  }
 }

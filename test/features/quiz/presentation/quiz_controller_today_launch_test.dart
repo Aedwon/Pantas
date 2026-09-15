@@ -163,6 +163,72 @@ void main() {
     running = container.read(quizControllerProvider) as QuizRunning;
     expect(running.questionShownAt, now);
   });
+
+  test('prepared Next starts response timing in the same transition', () async {
+    final coordinator = _MockLaunchCoordinator();
+    final submit = _MockSubmitAnswer();
+    final session = QuizSession.start(
+      sessionId: 'today-prepared-next',
+      examId: 'exam',
+      questions: const [_question, _questionTwo],
+      startedAt: DateTime.utc(2026, 9, 9, 8),
+    );
+    const request = QuizPreparationRequest(userId: 'local', examId: 'exam');
+    when(() => coordinator.launchToday(request)).thenAnswer(
+      (_) async => QuizLaunchStarted(session),
+    );
+    var now = DateTime.utc(2026, 9, 9, 8, 5);
+    final container = ProviderContainer(
+      overrides: [
+        quizLaunchCoordinatorProvider.overrideWithValue(coordinator),
+        submitAnswerProvider.overrideWithValue(submit),
+        nowProvider.overrideWithValue(() => now),
+      ],
+    );
+    addTearDown(container.dispose);
+    final controller = container.read(quizControllerProvider.notifier);
+
+    await controller.startToday(examId: 'exam');
+    controller.markQuestionReady(
+      sessionId: 'today-prepared-next',
+      questionIndex: 0,
+    );
+
+    now = DateTime.utc(2026, 9, 9, 8, 6);
+    when(
+      () => submit(
+        question: _question,
+        chosenChoiceId: 'a',
+        responseMs: 60000,
+        now: now,
+        sessionId: 'today-prepared-next',
+        userId: quizLocalUserId,
+        examId: 'exam',
+        origin: 'today_topic',
+      ),
+    ).thenAnswer(
+      (_) async => const AnswerOutcome(
+        questionId: 'q1',
+        questionVersion: 1,
+        chosenChoiceId: 'a',
+        correctChoiceId: 'a',
+        responseMs: 60000,
+      ),
+    );
+
+    controller.markQuestionPrepared(
+      sessionId: 'today-prepared-next',
+      questionIndex: 1,
+    );
+    await controller.answer(chosenChoiceId: 'a');
+
+    now = DateTime.utc(2026, 9, 9, 8, 6, 1);
+    await controller.next();
+
+    final running = container.read(quizControllerProvider) as QuizRunning;
+    expect(running.session.currentIndex, 1);
+    expect(running.questionShownAt, now);
+  });
 }
 
 const _question = Question(

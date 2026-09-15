@@ -72,6 +72,12 @@ class _PreparedQuestionStageState
   int? _scheduledPrepareIndex;
 
   @override
+  void initState() {
+    super.initState();
+    ref.read(quizControllerProvider.notifier).clearQuestionPreparation();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final running = ref.watch(
       quizControllerProvider.select(
@@ -213,6 +219,26 @@ class _PreparedQuestionStageState
         return;
       }
       setState(() => _preparedIndex = nextIndex);
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted ||
+            _sessionId != sessionId ||
+            _preparedIndex != nextIndex) {
+          return;
+        }
+
+        final renderedState = ref.read(quizControllerProvider);
+        if (renderedState is! QuizRunning ||
+            renderedState.session.sessionId != sessionId ||
+            renderedState.session.currentIndex + 1 != nextIndex ||
+            nextIndex >= renderedState.session.questions.length) {
+          return;
+        }
+
+        ref.read(quizControllerProvider.notifier).markQuestionPrepared(
+              sessionId: sessionId,
+              questionIndex: nextIndex,
+            );
+      });
     });
   }
 
