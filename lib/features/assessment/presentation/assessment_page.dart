@@ -15,6 +15,7 @@ import 'package:pantas/features/assessment/application/assessment_result_provide
 import 'package:pantas/features/assessment/domain/models/assessment_session.dart';
 import 'package:pantas/features/assessment/domain/use_cases/complete_assessment.dart';
 import 'package:pantas/features/assessment/domain/use_cases/start_assessment.dart';
+import 'package:pantas/features/quiz/application/quiz_providers.dart';
 
 final _startAssessmentProvider = Provider<StartAssessment>(
   (ref) => StartAssessment(
@@ -111,6 +112,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
       ref
         ..invalidate(assessmentResultProvider(widget.examId))
         ..invalidate(assessmentCompletedProvider(widget.examId));
+      ref.read(quizSessionPanelRevisionProvider.notifier).publishCompletion();
       context.pushReplacement('/assessment/${widget.examId}/results');
     } catch (e) {
       if (!mounted) return;

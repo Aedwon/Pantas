@@ -92,6 +92,49 @@ void main() {
         contentDatabaseProvider.overrideWithValue(contentDb),
       ];
 
+  testWidgets('custom-track result hydrates from scoped corpus topics',
+      (tester) async {
+    await seedContentExam(
+      contentDb,
+      examId: 'custom',
+      code: 'custom',
+      name: 'PUP CET',
+      isCustom: true,
+    );
+    await AssessmentRepository(db).saveResult(
+      'custom',
+      DateTime(2026),
+      [const TopicScore(topicId: 't1', correct: 0, total: 3)],
+    );
+
+    await tester.pumpAppWithRouter(
+      _buildRouter('custom'),
+      overrides: databaseOverrides(),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Your PUP CET profile'), findsOneWidget);
+    expect(find.text('Vocabulary'), findsWidgets);
+  });
+
+  testWidgets('empty result keeps Start studying safe and useful',
+      (tester) async {
+    await AssessmentRepository(db).saveResult('e1', DateTime(2026), const []);
+
+    await tester.pumpAppWithRouter(
+      _buildRouter('e1'),
+      overrides: databaseOverrides(),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.ensureVisible(find.text('Start studying'));
+    await tester.tap(find.text('Start studying'));
+    await tester.pumpAndSettle();
+
+    expect(tester.takeException(), isNull);
+    expect(find.text('Lessons'), findsOneWidget);
+  });
+
   testWidgets('shows topic bars sorted weakest-first', (tester) async {
     await tester.pumpAppWithRouter(
       _buildRouter('e1'),

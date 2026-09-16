@@ -96,6 +96,29 @@ void main() {
     expect(await assessmentRepo.hasCompletedForExam('e1'), isTrue);
   });
 
+  test('custom-track completion returns topic masteries from answered topics',
+      () async {
+    await seedContentExam(
+      contentDb,
+      examId: 'custom',
+      code: 'custom',
+      name: 'PUP CET',
+      isCustom: true,
+    );
+    final (correctId, _) = await seedQuestion('q_custom', 't1');
+    final question = (await contentRepo.questionsByTopic('t1'))
+        .firstWhere((q) => q.id == 'q_custom');
+    final session = AssessmentSession(
+      examId: 'custom',
+      questions: [AssessmentQuestion(question: question, topicId: 't1')],
+      answers: {'q_custom': correctId},
+    );
+
+    final result = await useCase.call(session: session, now: DateTime(2026));
+
+    expect(result.topicMasteries.map((m) => m.topic.id), contains('t1'));
+  });
+
   test('per-topic scores are correct', () async {
     final (correctId, wrongId) = await seedQuestion('q1', 't1');
     await seedQuestion('q2', 't1');

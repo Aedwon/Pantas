@@ -8,6 +8,7 @@ import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
 import 'package:pantas/features/assessment/presentation/assessment_page.dart';
+import 'package:pantas/features/quiz/application/quiz_providers.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
@@ -117,6 +118,28 @@ void main() {
       isNotNull,
       reason: 'the results page reads this provider — a stale null renders '
           '"No assessment found." after a completed run',
+    );
+  });
+
+  testWidgets('completing assessment publishes Quiz session refresh',
+      (tester) async {
+    await tester.pumpAppWithRouter(
+      _buildRouter('e1'),
+      overrides: databaseOverrides(),
+    );
+    await tester.pumpAndSettle();
+
+    final container = ProviderScope.containerOf(
+      tester.element(find.byType(MaterialApp)),
+    );
+    final before = container.read(quizSessionPanelRevisionProvider);
+
+    await tester.tap(find.text('Option A'));
+    await tester.pumpAndSettle();
+
+    expect(
+      container.read(quizSessionPanelRevisionProvider),
+      before + 1,
     );
   });
 

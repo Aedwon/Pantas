@@ -119,7 +119,7 @@ class _ResultsBody extends StatelessWidget {
         BoardButton(
           label: 'Start studying',
           onPressed: () => context.go(
-            '/study?topicId=${weak.first.topic.id}',
+            weak.isEmpty ? '/study' : '/study?topicId=${weak.first.topic.id}',
           ),
         ),
       ],

@@ -111,9 +111,16 @@ class CompleteAssessment {
       );
     }
 
-    // Hydrate result with Topic models
-    final topics = await _contentRepo.topicsByExam(session.examId);
-    final topicById = {for (final t in topics) t.id: t};
+    // Hydrate exactly the topics that produced scores. Custom tracks draw from
+    // corpus topics and intentionally have no ordinary exam -> subject -> topic
+    // membership, so topicsByExam(session.examId) is not authoritative here.
+    final topics = await Future.wait([
+      for (final score in scores) _contentRepo.topicById(score.topicId),
+    ]);
+    final topicById = {
+      for (final topic in topics)
+        if (topic != null) topic.id: topic,
+    };
     final masteries = scores
         .where((s) => topicById.containsKey(s.topicId))
         .map(
