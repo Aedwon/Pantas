@@ -136,6 +136,35 @@ void main() {
   });
 
   testWidgets(
+      'completed onboarding with no valid exam stays recoverable in onboarding',
+      (tester) async {
+    final repo = AppPreferencesRepository(db);
+    await repo.setPassedAgeGate(value: true);
+    await repo.setCompletedOnboarding(value: true);
+
+    await pumpApp(tester);
+
+    final container = ProviderScope.containerOf(
+      tester.element(find.byType(App)),
+    );
+    final router = container.read(routerProvider);
+
+    expect(
+      router.routerDelegate.currentConfiguration.uri.toString(),
+      '/onboarding',
+    );
+    expect(find.text('Choose your exam'), findsOneWidget);
+
+    router.go('/home');
+    await tester.pumpAndSettle();
+
+    expect(
+      router.routerDelegate.currentConfiguration.uri.toString(),
+      '/onboarding',
+    );
+  });
+
+  testWidgets(
       'legacy install with selected exam but no onboarding_complete key '
       'is treated as complete', (tester) async {
     final repo = AppPreferencesRepository(db);

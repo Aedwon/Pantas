@@ -92,6 +92,10 @@ final routerProvider = Provider<GoRouter>((ref) {
       final atNotificationRationale =
           state.matchedLocation == '/notifications/rationale';
       final atPaywall = state.matchedLocation == '/paywall';
+      if (passed && focus.needsSelection) {
+        if (!atOnboarding) return '/onboarding';
+        return null;
+      }
       if (!passed && !atOnboarding) return '/onboarding';
       if (passed && !complete && !atOnboarding) return '/onboarding';
       if (passed && complete && atOnboarding) {
