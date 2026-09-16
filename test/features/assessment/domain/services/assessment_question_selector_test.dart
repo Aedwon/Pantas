@@ -3,6 +3,7 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/data/repos/review_state_repository.dart';
+import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/domain/review_state.dart';
 import 'package:pantas/features/assessment/domain/services/assessment_question_selector.dart';
 
@@ -65,6 +66,23 @@ void main() {
   tearDown(() async {
     await db.close();
     await contentDb.close();
+  });
+
+  test('selects from metadata before hydrating only chosen questions',
+      () async {
+    for (var i = 1; i <= 5; i++) {
+      await seedQuestion('q_t1_$i', 't1');
+      await seedQuestion('q_t2_$i', 't2');
+    }
+
+    final metadataFirstSelector = AssessmentQuestionSelector(
+      _RejectFullTopicHydrationRepository(contentDb),
+      reviewRepo,
+    );
+
+    final questions = await metadataFirstSelector.select('e1');
+
+    expect(questions, hasLength(6));
   });
 
   test('selects up to 3 questions per topic when more are available', () async {
@@ -188,4 +206,13 @@ void main() {
     expect(questions, hasLength(35));
     expect(questions.map((q) => q.topicId).toSet(), hasLength(35));
   });
+}
+
+class _RejectFullTopicHydrationRepository extends ContentRepository {
+  _RejectFullTopicHydrationRepository(super.db);
+
+  @override
+  Future<List<Question>> questionsByTopic(String topicId) => throw StateError(
+        'assessment selector fully hydrated candidate topic $topicId',
+      );
 }

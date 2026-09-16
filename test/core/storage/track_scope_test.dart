@@ -2,6 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 
@@ -140,6 +142,19 @@ void main() {
     expect(topics.where((t) => t.name == 'Algebra'), hasLength(1));
   });
 
+  test('corpus topic counting never hydrates full questions', () async {
+    await seedTwoExams(upcatAlgebraQuestions: 3);
+
+    final topics = await corpusTopics(
+      _RejectCorpusQuestionHydrationRepository(contentDb),
+    );
+
+    expect(
+      topics.firstWhere((t) => t.name == 'Algebra').id,
+      'exam_upcat_algebra',
+    );
+  });
+
   test('the winning id is the one with more questions', () async {
     await seedTwoExams(upcatAlgebraQuestions: 3);
     final repo = container.read(customTrackRepositoryProvider);
@@ -175,4 +190,12 @@ void main() {
     expect(subjects.map((s) => s.name), isNot(contains('Science')));
     expect(subjects.map((s) => s.name), contains('Mathematics'));
   });
+}
+
+class _RejectCorpusQuestionHydrationRepository extends ContentRepository {
+  _RejectCorpusQuestionHydrationRepository(super.db);
+
+  @override
+  Future<List<Question>> questionsByTopic(String topicId) =>
+      throw StateError('corpus counting fully hydrated topic $topicId');
 }

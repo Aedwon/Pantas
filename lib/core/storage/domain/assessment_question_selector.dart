@@ -4,9 +4,8 @@ import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/data/repos/review_state_repository.dart';
 import 'package:pantas/core/storage/domain/assessment_question.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
-import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/domain/question_selection_row.dart';
 import 'package:pantas/core/storage/domain/review_state.dart';
-
 import 'package:pantas/core/storage/domain/topic.dart';
 
 class AssessmentQuestionSelector {
@@ -24,9 +23,13 @@ class AssessmentQuestionSelector {
     final topicList = topics ?? await _content.topicsByExam(examId);
     if (topicList.isEmpty) return [];
 
-    final contributing = <({TopicId topicId, List<Question> questions})>[];
+    final rowsByTopic = await _content.selectionRowsByTopics(
+      [for (final topic in topicList) topic.id],
+    );
+    final contributing =
+        <({TopicId topicId, List<QuestionSelectionRow> questions})>[];
     for (final topic in topicList) {
-      final questions = await _content.questionsByTopic(topic.id);
+      final questions = rowsByTopic[topic.id] ?? const <QuestionSelectionRow>[];
       if (questions.isNotEmpty) {
         contributing.add((topicId: topic.id, questions: questions));
       }
@@ -35,35 +38,44 @@ class AssessmentQuestionSelector {
 
     final questionsPerTopic =
         math.max(1, math.min(3, _maxQuestions ~/ contributing.length));
-    final buckets = <List<AssessmentQuestion>>[];
+    final reviewStates = await _reviewRepo.byQuestionIds([
+      for (final topic in contributing)
+        for (final question in topic.questions) question.id,
+    ]);
+    final buckets = <List<QuestionSelectionRow>>[];
 
     for (final topic in contributing) {
-      final scored = <(double, Question)>[];
-      for (final q in topic.questions) {
-        final rs = await _reviewRepo.byQuestionId(q.id);
-        final score = (rs == null || rs.stage == ReviewStage.newCard)
+      final scored = <(double, QuestionSelectionRow)>[];
+      for (final question in topic.questions) {
+        final state = reviewStates[question.id];
+        final score = (state == null || state.stage == ReviewStage.newCard)
             ? 0.0
-            : rs.stability;
-        scored.add((score, q));
+            : state.stability;
+        scored.add((score, question));
       }
       scored.sort((a, b) => a.$1.compareTo(b.$1));
 
-      final picked = scored
-          .take(questionsPerTopic)
-          .map(
-            (s) => AssessmentQuestion(question: s.$2, topicId: topic.topicId),
-          )
-          .toList();
+      final picked = scored.take(questionsPerTopic).map((s) => s.$2).toList();
       if (picked.isNotEmpty) buckets.add(picked);
     }
 
-    final result = <AssessmentQuestion>[];
+    final selected = <QuestionSelectionRow>[];
     final maxLen = buckets.fold(0, (m, b) => math.max(m, b.length));
     for (var i = 0; i < maxLen; i++) {
       for (final bucket in buckets) {
-        if (i < bucket.length) result.add(bucket[i]);
+        if (i < bucket.length) selected.add(bucket[i]);
       }
     }
-    return result.take(_maxQuestions).toList();
+    final capped = selected.take(_maxQuestions).toList();
+    final hydrated = await _content.hydrateSelectedQuestions(
+      [for (final row in capped) row.id],
+    );
+    final byId = {for (final question in hydrated) question.id: question};
+
+    return [
+      for (final row in capped)
+        if (byId[row.id] case final question?)
+          AssessmentQuestion(question: question, topicId: row.topicId),
+    ];
   }
 }

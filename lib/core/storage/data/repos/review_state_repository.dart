@@ -43,6 +43,27 @@ class ReviewStateRepository {
     return row == null ? null : _hydrate(row);
   }
 
+  Future<Map<QuestionId, ReviewState>> byQuestionIds(
+    Iterable<QuestionId> ids,
+  ) async {
+    final wanted = ids.toSet().toList();
+    if (wanted.isEmpty) return const {};
+
+    const batchSize = 400;
+    final states = <QuestionId, ReviewState>{};
+    for (var start = 0; start < wanted.length; start += batchSize) {
+      final end = (start + batchSize).clamp(0, wanted.length);
+      final batch = wanted.sublist(start, end);
+      final rows = await (_db.select(_db.reviewStateLocal)
+            ..where((row) => row.questionId.isIn(batch)))
+          .get();
+      for (final row in rows) {
+        states[row.questionId] = _hydrate(row);
+      }
+    }
+    return states;
+  }
+
   Future<List<ReviewState>> dirtyStates() async {
     final rows = await (_db.select(_db.reviewStateLocal)
           ..where((r) => r.dirty.equals(true)))

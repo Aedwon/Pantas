@@ -82,22 +82,65 @@ class ContentRepository {
   Future<List<QuestionSelectionRow>> selectionRowsByTopic(
     TopicId topicId,
   ) async {
+    final grouped = await selectionRowsByTopics([topicId]);
+    return grouped[topicId] ?? const [];
+  }
+
+  Future<Map<TopicId, List<QuestionSelectionRow>>> selectionRowsByTopics(
+    Iterable<TopicId> topicIds,
+  ) async {
+    final wanted = topicIds.toSet().toList();
+    final grouped = {
+      for (final topicId in wanted) topicId: <QuestionSelectionRow>[],
+    };
+    if (wanted.isEmpty) return grouped;
+
     final questions = _db.contentQuestions;
-    final query = _db.selectOnly(questions)
-      ..addColumns([
-        questions.id,
-        questions.version,
-        questions.topicId,
-        questions.lessonId,
-        questions.passageId,
-        questions.figureSpecJson,
-      ])
-      ..where(
-        questions.topicId.equals(topicId) & questions.isActive.equals(true),
-      );
-    _onQuery?.call();
-    final rows = await query.get();
-    return [for (final row in rows) _selectionRow(row, questions)];
+    for (final batch in _batches(wanted)) {
+      final query = _db.selectOnly(questions)
+        ..addColumns([
+          questions.id,
+          questions.version,
+          questions.topicId,
+          questions.lessonId,
+          questions.passageId,
+          questions.figureSpecJson,
+        ])
+        ..where(
+          questions.topicId.isIn(batch) & questions.isActive.equals(true),
+        );
+      _onQuery?.call();
+      for (final row in await query.get()) {
+        final selection = _selectionRow(row, questions);
+        grouped[selection.topicId]?.add(selection);
+      }
+    }
+    return grouped;
+  }
+
+  Future<Map<TopicId, int>> activeQuestionCountsByTopics(
+    Iterable<TopicId> topicIds,
+  ) async {
+    final wanted = topicIds.toSet().toList();
+    final counts = {for (final topicId in wanted) topicId: 0};
+    if (wanted.isEmpty) return counts;
+
+    final questions = _db.contentQuestions;
+    final total = questions.id.count();
+    for (final batch in _batches(wanted)) {
+      final query = _db.selectOnly(questions)
+        ..addColumns([questions.topicId, total])
+        ..where(
+          questions.topicId.isIn(batch) & questions.isActive.equals(true),
+        )
+        ..groupBy([questions.topicId]);
+      _onQuery?.call();
+      for (final row in await query.get()) {
+        final topicId = row.read(questions.topicId);
+        if (topicId != null) counts[topicId] = row.read(total) ?? 0;
+      }
+    }
+    return counts;
   }
 
   Future<List<QuestionSelectionRow>> selectionRowsByExam(ExamId examId) async {
@@ -464,7 +507,7 @@ class ContentRepository {
     ];
   }
 
-  Iterable<List<QuestionId>> _batches(List<QuestionId> ids) sync* {
+  Iterable<List<T>> _batches<T>(List<T> ids) sync* {
     for (var start = 0; start < ids.length; start += _hydrationBatchSize) {
       final candidateEnd = start + _hydrationBatchSize;
       final end = candidateEnd < ids.length ? candidateEnd : ids.length;
