@@ -212,6 +212,12 @@ completed, reviewed, verified work to its agreed GitHub working branch, includin
 establishing the matching remote branch. Use a normal push and preserve others'
 changes. Uploads may trigger configured automated checks.
 
+Create a working branch without another permission request when approved work
+needs one. Reuse an appropriate existing branch when possible. Explain why a new
+branch is necessary and use a descriptive, provider-neutral name. This permission
+covers necessary branch creation only; it does not authorize unrelated branches,
+branch deletion, updates to main, or resuming paused work.
+
 Establish the integration target from accepted workstream decisions. Do not assume
 it is main. Preserve freezes, pauses, explicit task limits, and unrelated changes.
 Do not integrate incomplete work, failed checks, unresolved review findings, or
@@ -219,7 +225,8 @@ conflicts needing a decision. Stop the affected step and report the specific iss
 
 Updates to main, force pushes, history rewriting, branch deletion, unrelated branch
 creation or remote changes, issues and pull requests, and release publication need
-matching authorization. Broader branch setup remains an open audit decision.
+matching authorization. Necessary working-branch creation follows the permission
+above; broader cleanup and main-update permissions remain under review.
 Requests merely to discuss, plan, prototype, or report progress do not authorize
 later unrelated mutations. Tool permission lists do not grant task authorization.
 

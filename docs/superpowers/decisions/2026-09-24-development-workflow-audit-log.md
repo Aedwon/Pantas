@@ -493,3 +493,19 @@ The agent briefly explains why the change qualifies. Impact concerns consequence
 not the size of the edit. Uncertain impact or scope returns to the normal process.
 Relevant checks, applicable review, authorization, and existing requirements remain
 binding. No paused engineering is resumed by this decision.
+
+## Necessary working-branch creation
+
+The assistant offered automatic creation when approved work needs a branch, or
+asking every time. It recommended the former to reduce routine interruptions,
+with a descriptive provider-neutral name, reuse of an appropriate existing branch,
+and an explanation of why a new branch is necessary. The question explicitly
+excluded deletion and updates to main.
+
+Aedwon answered:
+
+> 1
+
+The shared policy now permits necessary working-branch creation under those
+conditions without another permission request. It does not authorize unrelated
+branches, cleanup, updates to main, or resuming paused work.
