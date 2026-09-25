@@ -1,7 +1,7 @@
 # Pantas collaboration and development workflow audit
 
 Date: September 24, 2026
-Status: The remaining workflow decisions were resolved on September 25, 2026. The core workflow is published; final refinements are being verified for publication. Current adopted policy is in `WORKFLOW.md`. Earlier recommendations below are historical and yield to the accepted decisions and current status.
+Status: Workflow audit decisions, documentation reconciliation, and publication completed on September 25, 2026. Current adopted policy is in `WORKFLOW.md`. Earlier recommendations below are historical and yield to the accepted decisions and current status.
 
 ## What the audit establishes
 
@@ -474,12 +474,15 @@ Provider-specific policy cleanup, startup configuration, and retrieval from an
 existing branch were verified earlier and remain recorded in the rollout log.
 No additional browser or desktop control was used after Aedwon prohibited it.
 
-Final document verification and publication are pending. Application code and
-release artifacts are unchanged. No paused engineering, branch cleanup, deployment,
+Final policy refinements were published to main in `6bdf5ff32b04a8aaf8c35c5949a02ecd638fdfec`.
+Staged whitespace checks and the repository attribution check passed. Provider
+discovery pointers remain identical. Remote main matched the publication commit,
+and the worktree was clean. The changes affect seven Markdown documents only.
+Application code and release artifacts are unchanged. No paused engineering, branch cleanup, deployment,
 or product release was started by these policy decisions. No live UI prototype or
 implementation-fidelity check was performed during this documentation task.
 
-Next: complete document verification and publish these refinements. Evaluate the
-workflow during the next independently authorized engineering task. Timing and
+Next: evaluate the workflow during the next independently authorized engineering
+task. No further user decision is pending for this audit. Timing and
 usage savings, fresh-provider execution, and visual fidelity must be assessed
 against actual work; they are not established by publishing instructions.

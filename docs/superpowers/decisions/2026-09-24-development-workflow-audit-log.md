@@ -597,3 +597,21 @@ does not establish validation or approval. No lesson or website content was chan
 The assistant's milestone-only status proposal and checklist-based stopping rule
 were insufficient. The website discussion also needed a clear ownership boundary,
 not an inferred shared style. These corrections supersede those proposals.
+
+## Final workflow task completion record
+
+Published the final seven-document refinement in `6bdf5ff32b04a8aaf8c35c5949a02ecd638fdfec` on main.
+The remote main reference matched that commit; the worktree was clean.
+`git diff --cached --check` and `dart run tool/check_no_ai_attribution.dart`
+passed. `CLAUDE.md` and `GEMINI.md` remained identical discovery pointers.
+Reviewed the shared workflow, copy scope, companion guidance, lesson-guide changes,
+and exact user quotations. Only Markdown documents changed.
+
+The audit's current-status section was updated immediately after this completion
+check. All remaining interview decisions are resolved. There was no product code
+change, release-readiness acceptance, external release-SSOT rewrite, browser
+control, screenshot capture, or paused engineering resumption. A live task has
+not yet established process savings or visual-preview fidelity.
+
+Next action: use the published workflow when Aedwon next authorizes engineering.
+The current application-code freeze and existing engineering pause remain binding.
