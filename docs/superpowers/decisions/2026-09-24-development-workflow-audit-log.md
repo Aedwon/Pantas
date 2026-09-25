@@ -477,3 +477,19 @@ scope, inclusions, and tradeoffs clearly, including the already-required effort,
 verification, maintenance costs, and uncertainty. Aedwon still selects the level
 when meaningful alternatives exist. Existing approved requirements remain binding.
 This does not reopen settled scope or resume paused engineering.
+
+## Separate documents for low-impact changes
+
+The assistant offered an exception to separate specs and implementation plans for
+small, settled changes, or keeping those documents mandatory for every change.
+The exception reduces paperwork but requires the agent to justify its use.
+
+Aedwon chose:
+
+> 1 only if it's a low-impact change
+
+The exception requires both low impact and an unambiguous, settled outcome.
+The agent briefly explains why the change qualifies. Impact concerns consequences,
+not the size of the edit. Uncertain impact or scope returns to the normal process.
+Relevant checks, applicable review, authorization, and existing requirements remain
+binding. No paused engineering is resumed by this decision.

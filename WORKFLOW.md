@@ -107,6 +107,15 @@ or routine request to begin already-approved implementation. A material change
 to the spec returns to Aedwon as a specific revision. Explicit planning-only
 requests and pauses remain binding.
 
+Separate spec and plan documents may be omitted only for a low-impact change
+with an unambiguous, already-settled outcome. Briefly state the intended change
+and why its impact is low. Judge impact by consequences, not patch size: a short
+edit affecting payments, security, student data, or answer correctness is not
+low-impact merely because it is small. If impact or scope is uncertain, use the
+normal spec-and-plan process. Relevant checks and applicable review still apply.
+This exception supersedes blanket document requirements in supporting guidance;
+it does not waive task authorization, existing requirements, or pause boundaries.
+
 These steps carry the project's adopted Superpowers workflow without requiring
 an installed plugin. An available skill may support a step, but must follow these
 project overrides. Do not add another human gate, stack alternative execution
