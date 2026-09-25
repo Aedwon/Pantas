@@ -60,7 +60,8 @@ inspecting the existing context. Aedwon still chooses before implementation.
 Existing approved requirements remain binding; do not relabel earlier work.
 
 Brainstorm through focused questions after inspecting available facts. For this
-audit, ask one question at a time, with costs and a recommendation, then wait.
+audit, ask focused questions with costs and a recommendation, then wait. Aedwon
+has requested the remaining questions together so he can answer in one reply.
 Ask about choices Aedwon owns. Resolve routine technical details yourself within
 the agreed constraints. Show enough of the whole design to explain a local choice.
 
@@ -233,10 +234,16 @@ If any condition is uncertain, leave it intact and report the gap. Discarding
 unmerged work requires separate, explicit authorization. This permission is for
 completion cleanup, not a general purge of existing branches or worktrees.
 
-Updates to main, force pushes, history rewriting, deletion outside the cleanup
-conditions above, unrelated branch creation or remote changes, issues and pull
-requests, and release publication need matching authorization. Main-update
-permissions remain under review.
+Once Aedwon explicitly lifts the current application-code freeze, automatically
+merge completed approved work into main and upload it after required checks and
+reviews pass, including required visual acceptance where applicable. Respect any
+specific workstream integration sequence and later freeze or pause. Do not ask for
+a routine main-update approval after those conditions are met. This standing
+permission does not lift the current freeze or authorize release publication.
+
+Force pushes, history rewriting, deletion outside the cleanup conditions above,
+unrelated branch creation or remote changes, issues and pull requests, and release
+publication need matching authorization.
 Requests merely to discuss, plan, prototype, or report progress do not authorize
 later unrelated mutations. Tool permission lists do not grant task authorization.
 

@@ -533,3 +533,23 @@ The shared policy now permits completion cleanup under those conditions. Verify
 current local and remote state and preserve required evidence before removal.
 Uncertainty means leave the branch or worktree intact. This decision does not
 start a general cleanup of existing branches or resume paused engineering.
+
+## Automatic main updates after the freeze is lifted
+
+The assistant offered automatic main updates after required checks and reviews
+pass, or asking before every update. It recommended automatic updates to remove
+an extra approval after implementation, while explaining that main would change
+as approved work completes. The question preserved the current freeze, separate
+release permission, and required visual acceptance.
+
+Aedwon answered:
+
+> 1
+>
+> also can you just please ask me the rest of the questions i'll answer all
+
+The shared policy now permits automatic integration and upload to main under
+those conditions once Aedwon explicitly lifts the freeze. No application code is
+changed or engineering resumed by this decision. The remaining audit questions
+will be presented together, replacing the earlier one-question-at-a-time cadence
+for this interview.
