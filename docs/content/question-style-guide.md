@@ -111,13 +111,16 @@ questions:
 
 ## Two-level voice
 
-- **Stem**: authentic UPCAT/DOST-SEI exam wording and difficulty — do not
+- Applies to **Mock, normal quizzes, and in-lesson quizzes**. Lesson teaching
+  content's Grade 5 language benchmark does not apply to quiz questions.
+- **Question and answer choices**: authentic target-exam wording and difficulty; do not
   simplify the question itself. Ramp within a subtopic from easy to real
   exam-level.
-- **Explanation**: simple Grade 4–6 English, short sentences, straight to the
+- **Wrong answer choices**: plausible alternatives based on meaningful reasoning
+  errors or misconceptions. Do not use obviously unrelated or throwaway answers.
+- **Explanation**: plain English a Grade 5 student can understand, short sentences, straight to the
   point. State *why the correct answer is right* and briefly *why the main
-  distractor is wrong*. Never leave the explanation at exam-register English —
-  that's the one place simplicity always wins.
+  distractor is wrong*. Explain difficult terms plainly without reducing accuracy.
 
 ## Coverage discipline
 

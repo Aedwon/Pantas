@@ -5,12 +5,12 @@ authors both. If you were dispatched to do work in this repository, this file an
 it names are your instructions, and they outrank your own judgment about how the work should
 be done.
 
-Three files govern this project and they do not overlap:
+The same repository rules govern every provider:
 
 | File | Governs |
 |---|---|
 | `AGENTS.md` | **How to build.** Build commands, the visual identity, the voice, the landmines, the never-invent-a-figure rule. |
-| `CLAUDE.md` | **How to design.** The design partner's rules. Not yours unless you were dispatched to design. |
+| `WORKFLOW.md` | **How to collaborate.** Shared scope choices, spec approval, planning, roles, permissions, and decision history. Applies to every role. |
 | **`SUBAGENTS.md`**, this file | **How to run.** Isolation, the task loop, the verification protocol, when to stop, and what to report. |
 
 ---
@@ -19,17 +19,30 @@ Three files govern this project and they do not overlap:
 
 **Read these, in this order, in full. Not skimmed, not grepped.**
 
-1. **`AGENTS.md`.** Every rule in it applies to you. The identity bans and the voice rules are
+On every dispatch or resumption, retrieve the current policy from `Aedwon/Pantas`
+on main, even when the assigned code branch has older copies of these files.
+Record the policy revision. Read the product spec and plan from the assigned
+workstream revision. Do not merge or switch branches merely to obtain policy.
+
+1. **`AGENTS.md` and `WORKFLOW.md`.** Every applicable rule applies to you. The identity bans and the voice rules are
    the ones most often broken by an agent that read only its plan.
 2. **Your plan**, end to end, before starting Task 1. Its Global Constraints, its Dependencies
    table and its file table are as binding as its steps.
 3. **The spec your plan cites.** Every plan names one by path. The plan tells you what to
    build; the spec tells you why, and you need the why the moment a step is ambiguous.
-4. **`docs/superpowers/2026-08-04-execution-pipeline.md` Part 4**, the collision map. If any
-   symbol or file you are about to touch appears there, read that row before writing.
+4. **The current workstream's dependency and collision map.** The historical map in
+   `docs/superpowers/2026-08-04-execution-pipeline.md` is Part 9. For those plans,
+   read the relevant rows and check them against current assignments before writing.
 
 **If any of those four is missing or unreadable, stop and say so.** Do not proceed on three
 out of four.
+
+Plans follow the Plan detail and simplicity rule in `WORKFLOW.md`. A concise plan is sufficient
+when it defines the assignment, constraints, expected behavior, and checks.
+Routine implementation details may be resolved within those boundaries. Do not
+require full code in the plan or invent missing product decisions. Escalate a
+contradiction or necessary scope change to the lead; existing precise requirements
+remain binding.
 
 ---
 
@@ -63,7 +76,8 @@ For each task:
    typo in the import proves nothing.
 3. **Write the smallest code that makes it pass.**
 4. **Run the task's own tests.**
-5. **Run the full gate set** in Part 5.
+5. **Run other checks affected by this task**, following Part 5. The lead runs or
+   assigns the full required checks on the completed feature.
 6. **Commit**, with a message that says why, not what.
 
 **Do not skip step 2.** A test written after the code passes on the first run and has never
@@ -169,12 +183,15 @@ These are the ones a fast model breaks, and none of them fails a build.
 
 - **Exam level, not textbook level.** A question a student could answer by reading the lesson
   once is not the target. The target is the question the real exam asks.
-- **Grade-5-simple English in the stem**, per `AGENTS.md`. Simple language, hard question.
-  Those are not in tension and confusing them produces easy questions in complicated words.
+- **Realistic exam language in questions and answer choices.** This applies to Mock,
+  normal quizzes, and in-lesson quizzes. The Grade 5 language benchmark applies to
+  lesson teaching content, not quiz questions. Do not simplify away the language
+  skills or subject knowledge the target exam tests.
 - **Coverage exhaustive within the subtopic.** Do not write twelve questions on the one
   concept you found easiest to write about.
 - **Every distractor is a real mistake**, traceable to something in the lesson or to a known
   trap. A distractor nobody would pick teaches the student to eliminate rather than to know.
+  Each wrong choice must plausibly reflect a meaningful reasoning error or misconception.
 - **Never make the correct answer the longest choice, and check it per question.** An answer
   written to be unambiguous naturally runs longer than a distractor written to be wrong, so
   this one breaks silently. On 4 August a run broke it in **120 of 160 questions** while
@@ -219,8 +236,30 @@ count is a finding you report**, not a number you tune until it drops.
 
 ## Part 5: The verification protocol
 
-**Run every one of these after every task. Read the output. Do not summarize it to
-yourself.**
+**Ordinary changes: focused checks during work, all required checks on the completed
+feature.** This September 25, 2026 decision replaces the blanket instruction to run
+the entire gate set after every task.
+
+- Implementors run the task's tests and other affected checks while editing. Use
+  the actual changed behavior and dependencies to choose scope; do not skip an
+  affected check because it is slow.
+- The lead runs or assigns all required checks on the combined feature before
+  acceptance. The list below is the ordinary code baseline. Include backend,
+  content, generated-output, coverage, or other checks required by the affected
+  work and approved spec. Documentation-only changes need relevant document checks,
+  not an unrelated Flutter suite.
+- Fixes require checks of the amended behavior. Source-changing integration or
+  changed material inputs require renewed relevant verification before acceptance.
+- Preserve exact source and dirty-patch identity, command, result, and material
+  environment/content inputs in evidence. A reviewer may inspect applicable existing
+  evidence instead of blindly repeating unchanged checks. Re-run when evidence is
+  missing, invalidated, unreliable, or the approved contract requires independent
+  execution. Independent review itself is not removed.
+- Approved release and high-risk contracts retain their specific checkpoints,
+  repetitions, device coverage, and artifact identity requirements. This rule does
+  not waive E09-E14 or turn historical results into a current pass.
+
+Read actual command output. Preserve it in the verification record.
 
 ```bash
 flutter test
@@ -230,14 +269,14 @@ dart run tool/check_layering.dart
 dart run tool/check_no_ai_attribution.dart
 ```
 
-**The expected values, as of 3 August 2026:**
+**Expected outcomes:** historical issue counts are not standing exceptions.
 
 | Command | Expected | What a different number means |
 |---|---|---|
-| `flutter analyze` | **~25 issues, every one under `tools/` or `test/tool/`** | The count drifts with those tools; the invariant is that `lib/` and `test/` outside `test/tool/` are clean. Any issue there is yours. |
-| `dart run tool/check_layering.dart` | **7 violations**, all pre-existing | 8 means you added one. Fix it; do not raise the baseline. |
+| `flutter analyze` | Clean, except any explicitly accepted exception applicable to the exact candidate | Report failures and identify any applicable recorded exception. An old issue count does not authorize ignoring a finding. |
+| `dart run tool/check_layering.dart` | Exit 0, clean | Report violations. Do not raise a historical baseline to pass. |
 | `flutter test` | Green across the suite | A pre-existing failure is a finding to report, not a reason to continue. |
-| `dart format` | Exit 0 | Run `dart format lib test` and commit the result. |
+| `dart format` | Exit 0, no formatting changes needed | Format affected files, then recheck. Avoid unrelated formatting changes. Commit only with matching authorization. |
 | `dart run tool/check_no_ai_attribution.dart` | **Exit 0, clean.** | Any hit at all is yours. See below for what it catches. |
 
 **Coverage:** `dart run tool/check_coverage.dart` enforces a 70% minimum against
@@ -317,21 +356,26 @@ Return this, and nothing decorative:
    in this repo exist because an earlier agent reported one.
 6. **What you did not verify.** If the plan asks for an emulator check, say you did not do it.
 
-**You never do the visual verification.** No subagent screenshots the emulator. Report
-text-only signals and say that Aedwon should look. His findings go in `docs/ui-audit.md`.
+**Aedwon owns visual verification.** Do not capture app/emulator screenshots or
+start autonomous visual reviews. Report automated evidence separately from visual
+acceptance. If Aedwon supplies screenshots and requests corroboration, review those
+images within the assignment; do not treat that as permission to capture more.
+He retains the final visual judgment. Findings go in `docs/ui-audit.md`.
 
 ---
 
 ## Part 7b: The verifier tier
 
-**Three tiers, and each one only spot-checks the tier below it.** Adopted 3 August, after six
-Flash runs produced good work and six self-reports that were each wrong about something.
+**Current roles, September 25, 2026.** Responsibilities depend on the assignment,
+not the provider. Follow `WORKFLOW.md` for the shared process and the current
+execution arrangement. The verification requirements remain; retired subscription
+and model tiers do not. Historical worker self-reports were repeatedly inaccurate.
 
-| Tier | Model | Does |
+| Tier | Role | Does |
 |---|---|---|
-| 1 | Codex | Triage, design, spec authorship, conflict rulings, integration, final verification and anything where being wrong is expensive and hard to detect. |
-| 2 | Gemini 3.1 Pro High | **Verifies tier 3.** Also implements settled high-blast-radius plans: schema migrations, sync and entitlement. |
-| 3 | Gemini 3.7 Flash High | Bulk implementation. Content authoring, widget assembly, test scaffolding and mechanical work against a settled plan. |
+| 1 | Lead | Triage, design, spec authorship, conflict rulings, integration and final acceptance. |
+| 2 | Independent reviewer | Verifies implementation with the evidence and checks below. Does not author its own review target. |
+| 3 | Implementor | Implements settled plan steps in its assigned worktree. The lead retains unresolved and high-consequence decisions. |
 
 ### Why an agent can verify another agent
 
@@ -347,8 +391,10 @@ the tier above it needs and can no longer be wrong about.
 
 ### What a tier-2 verifier does
 
-**1. Run the gates and paste them.** Never summarize. The one content-gate command in Part 4,
-or for code the five in Part 5, with their raw output.
+**1. Verify the required evidence under Part 5.** Inspect its source identity,
+scope, results, and actual output. Run assigned independent checks and any checks
+whose evidence is missing or no longer applies. Preserve output in the verification
+record. Do not repeat every full check merely because the reviewer changed.
 
 **2. Re-derive, do not re-read.** This is the part a gate cannot do and it is why the tier
 exists.
@@ -376,14 +422,15 @@ nobody checking it. Report and stop.
 - The merge decision itself.
 - Anything touching money, entitlement, migrations, or a student's own data.
 
-**Everything else should reach Claude as one page: pasted gates, and either findings or
+**Everything else should reach the lead agent as one page: pasted gates, and either findings or
 "none".**
 
 ### One combination worth using for answer keys
 
-**Two Flash agents author the same Mathematics subtopic independently, and a Pro verifier
-diffs the two answer keys.** Where they disagree, at least one is wrong and the item gets
-human eyes. Where they agree, confidence is much higher than either agent's self-review.
+**Two separately assigned workers author the same Mathematics subtopic
+independently, and a separate reviewer compares the answer keys.** Disagreement
+requires resolution. Agreement is supporting evidence, not proof; independent
+solving and the required content checks still apply.
 
 **Use it only where a wrong answer is expensive and invisible**, which in this project means
 Mathematics and the quantitative parts of Science. It doubles the authoring cost, so it is not
@@ -397,7 +444,8 @@ This is the intended mode: implementation plans in parallel while the specs cont
 
 - **One worktree each, always.**
 - **Consult the collision map first**,
-  `docs/superpowers/2026-08-04-execution-pipeline.md` Part 4. Two plans that both name
+  `docs/superpowers/2026-08-04-execution-pipeline.md` Part 9 for the historical plans.
+  Check current assignments and dependencies too. Two plans that both name
   `topicAccuracyProvider`, `InkCheckbox`, `InkTableRow`, `severityFor` or `entitlementProvider`
   must not run at the same time, or one silently reverts the other.
 - **`lib/app/router.dart` is touched by 25 plans.** Those are merge conflicts rather than
@@ -405,8 +453,8 @@ This is the intended mode: implementation plans in parallel while the specs cont
 - **Respect the phases.** `2026-08-04-execution-pipeline.md` Part 2 orders them. Everything
   inside one phase is parallel-safe unless the collision map says otherwise; across phases it
   is not.
-- **Content agents and code agents never conflict.** Content writes `content/` and
-  `assets/seed/`; code writes `lib/` and `test/`. They can always run together.
+- **Content and code work can conflict through shared assets and generated output.**
+  Run them together only when current assignments and shared resources are independent.
 - **The dispatcher verifies each result independently before merging.** Do not merge on an
   agent's own report, however confident it reads.
 

@@ -14,6 +14,9 @@ When in doubt, imitate `arithmetic-number-sense/order-of-operations.md`.
   twins holding hands), one per lesson at most.
 - Example questions use authentic exam wording and difficulty. Solutions
   return to simple English.
+- In-lesson quizzes follow the quiz rules: realistic target-exam language and
+  plausible wrong choices based on reasoning errors or misconceptions. The Grade 5
+  benchmark governs the teaching prose, not these questions.
 - Mention CETs when it motivates: why the topic is tested, what the trick
   usually is. Vary how you say it — do not open every trap with
   "Test-makers often…".

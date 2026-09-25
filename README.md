@@ -8,6 +8,15 @@ Learn more and view your personalized Wrapped cards at [pantas.app](https://pant
 
 Active development. Pre-launch (Android-first).
 
+## Agent startup
+
+Every provider follows the same [agent instructions](AGENTS.md) and
+[shared workflow](WORKFLOW.md). Retrieve their current versions from main on every
+new or resumed task, regardless of the code branch. Dispatched workers also read
+[the worker contract](SUBAGENTS.md) from main.
+Provider entry files are discovery pointers, not separate policies. For a new web
+project or another tool, use the [short startup text](docs/workflow/startup.md).
+
 ## Features
 
 ### Core learning engine

@@ -1,12 +1,12 @@
 # Lesson Authoring Runbook
 
-How to generate the remaining lessons for the Pantas Learn tab. Written
-for a Claude Code session working autonomously (e.g. via /loop).
+How to generate the remaining lessons for the Pantas Learn tab. Applies to any
+assigned content worker. Read `AGENTS.md`, `WORKFLOW.md`, and `SUBAGENTS.md` first.
 
 ## Ground rules
 
 1. Read `docs/content/lesson-style-guide.md` first and follow it exactly.
-2. NEVER add AI/Claude attribution anywhere — commit messages included.
+2. NEVER add AI attribution anywhere, including commit messages.
    The repo enforces this (`tool/check_no_ai_attribution.dart`).
 3. Accuracy beats speed. Solve every example yourself before writing the
    solution; re-check every arithmetic step. A reviewer app that teaches a
@@ -17,8 +17,8 @@ for a Claude Code session working autonomously (e.g. via /loop).
    scientific constants and values, taxonomy and anatomy details, dates
    and names (astronomy/earth science history), Filipino grammar rules
    and examples (Nang vs. Ng, sawikain, tayutay), and any claim about
-   specific exam formats (UPCAT/DOST/ACET coverage). Use WebSearch/
-   WebFetch, prefer authoritative sources, and if a claim cannot be
+   specific exam formats (UPCAT/DOST/ACET coverage). Use the available search
+   and page-reading tools, prefer authoritative sources, and if a claim cannot be
    verified, leave it out rather than guess.
 
 ## Finding the next lessons
@@ -69,4 +69,4 @@ Work in batches of about 5 lessons per iteration:
 
 When all 141 lessons exist: run the verification sweep over ALL lesson
 files (step 3 checks), fix anything found, commit, and report completion.
-If running under /loop, stop the loop.
+Stop any recurring authoring run when the authorized work is complete.

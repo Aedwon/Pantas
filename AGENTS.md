@@ -1,64 +1,20 @@
-# AGENTS.md
+# Pantas agent instructions
 
-For any model implementing work in this repository. If you are acting as the design
-partner, read `CLAUDE.md` as well: it governs how design decisions get made, and
-this file governs how they get built.
+Applies to every model, provider, and harness working on this repository.
 
-**If you were dispatched as a subagent, read `SUBAGENTS.md` first.** It is the
-contract for a dispatched run: isolation, the task loop, the verification protocol
-with its expected values, when to stop, and what to report. It covers content
-authoring as well as code. This file is the standards it enforces.
+On every new or resumed task, retrieve the current `AGENTS.md` and `WORKFLOW.md`
+from `Aedwon/Pantas` on `main`, regardless of the code branch. Read `WORKFLOW.md`
+in full for collaboration, complexity,
+approvals, planning, execution roles, verification, and completion permissions.
+Read the current task's spec, plan, and later decisions as it directs. Dispatched
+workers also read `SUBAGENTS.md` before starting. The build and content standards
+below apply to every role.
 
----
-
-## The division of labour
-
-Specs and implementation plans are written before implementation starts. They live
-in `docs/superpowers/specs/` and `docs/superpowers/plans/`, with the reasoning
-behind them in `docs/superpowers/decisions/`.
-
-**Follow the plan. Do not redesign.** If a step is ambiguous, contradicts the spec,
-or looks wrong, **stop and say so** rather than inventing a solution. A plausible
-invention is more expensive than a question, because it looks finished.
-
-**Do not edit the spec or the plan while implementing.** If they need to change,
-that is a decision, and decisions are recorded before code changes.
-
-### Model routing
-
-> **ChatGPT web orchestration:** When a ChatGPT web session is coordinating the
-> work, read both
-> `docs/superpowers/decisions/2026-08-23-web-orchestrator-model-routing.md` and
-> `docs/superpowers/decisions/2026-08-23-github-actions-minute-conservation.md`
-> before dispatching implementation or verification. Those decisions supersede the
-> routing rules below in that mode. ChatGPT web owns coordination and acceptance.
-> Gemini and Codex provide local execution according to task reliability and current
-> quota. GitHub-hosted Actions are a scarce verification resource, not the default
-> substitute for a local terminal.
-
-**Codex owns the high-level work.** It triages requests, writes and checks designs,
-rules on ambiguity, handles integration and merge conflicts, and runs final
-verification.
-
-**Use Gemini to conserve Codex usage when the work is already decided:**
-
-- `gemini-3.7-flash-high` is the default implementor for settled plan steps,
-  mechanical code changes, test scaffolding, content batches and seed rebuilds.
-- `gemini-3.1-pro-high` handles settled work where a wrong result is expensive to
-  detect, including schema migrations, sync, entitlement and verification of
-  Flash work.
-- Keep architecture, security-sensitive work, unresolved requirements, conflict
-  rulings and final acceptance with Codex.
-
-Before a Gemini wave, ask Aedwon how much quota remains unless he reported it
-recently. `agy` cannot read the quota. State which model will run and why. Below
-roughly 25% remaining, do not start a plan that may be left unfinished. Codex
-must inspect every result and run the relevant checks before accepting it.
-
-Run two Gemini implementors at a time by default when their work is independent
-and isolated in separate worktrees. Use one when tasks share files, depend on
-each other, or Gemini has less than roughly 25% remaining. Use three only for
-short, isolated tasks when quota is plentiful.
+For GitHub-only sessions, use `ref=main` for workflow policy and the agreed
+workstream revision for the task's product specs, plans, and source. If required
+policy or workstream context is unavailable, report the gap and stop dependent
+work. Do not substitute provider defaults or an old policy snapshot.
+Provider-named entry files only point here; they contain no separate project rules.
 
 ---
 
@@ -78,6 +34,14 @@ Analysis uses `very_good_analysis` with `strict-casts` and `strict-inference` on
 Loosely typed code fails the analyzer, so write the types.
 
 Generated files (`*.g.dart`, `*.freezed.dart`) are never edited by hand.
+
+### Verification scope
+
+For ordinary changes, run focused checks during implementation, then all required
+checks on the completed feature. The lead owns final verification of the combined
+work. Follow `SUBAGENTS.md` Part 5 for scope, evidence, and expected outcomes.
+Do not repeat the entire suite after every small task. Approved release or
+high-risk verification requirements still apply to the work they cover.
 
 ### Switching the running build between Free and Pro
 
@@ -137,94 +101,18 @@ colour as decoration.
 
 ---
 
-## How to talk to Aedwon
-
-**Raised 11 August 2026, and he was blunt about it:** *"i don't like the way you
-talk. you sound like a smartass compacting your sentences too much to the point
-I'm just skipping them... you sound so pompous. just say it to me directly, no
-side comments, no figures of speech."*
-
-He is skipping replies because of how they are written. So this is not a style
-preference, it is the difference between being read and not.
-
-**Write the way you would say it out loud to someone sitting next to you.**
-
-### Stop these. Real examples, all from one reply of mine.
-
-| Wrote | Should have written |
-|---|---|
-| "Both landed, and both needed correcting in ways worth knowing." | "Both are done. I had to fix two things in each." |
-| "rather than adapt two tests, the run had rewritten them" | "the run rewrote two tests instead of fixing them" |
-| "A test that cannot fail reads as covered, which is worse than having none." | "That test passes no matter what now. It isn't checking anything." |
-| "It got the copy wrong in a way that mattered." | "It got the copy wrong." |
-| "which is what makes the consent lawful rather than nominal" | "that's what makes the consent legal." |
-
-### The specific habits to drop
-
-- **"X rather than Y."** Say what happened. If Y matters, make it its own sentence.
-- **"Worth knowing", "worth noting", "worth doing".** Delete. If it were not worth
-  saying you would not be saying it.
-- **Ending a sentence with a twist**, a reversal or a summary judgment. Say the
-  thing and stop.
-- **Two ideas welded with a comma or a semicolon.** Two sentences.
-- **Figures of speech, metaphors, anything clever.** No "landmine", no "moat", no
-  "the window is closing".
-- **Starting with a verdict** and explaining after. Say what happened first.
-
-**A note on that third example.** My first attempt at fixing it was "The test
-always passes now, so it looks covered when it isn't." **He said that was still
-bad, and it was.** It ends on a twist, and "covered" is jargon. Two plain
-sentences fixed it. **If a sentence has a turn in it, split it.**
-
-### Do these instead
-
-- **One idea per sentence.** Short sentences. Full stops are free.
-- **Say the fact, then the consequence**, in that order, in separate sentences.
-- **Plain words.** "before" not "prior to". "so" not "hence". "use" not "leverage".
-- **Name things the way he would.** Not the class name. Not the file name.
-- **When something is wrong, say it in one sentence and move on.** No build-up.
-
-**This governs replies to him.** Specs, plans and decision logs carry more detail
-because an implementor reads them, but the same plain phrasing applies there.
-Commit messages too.
-
----
-
-## Answer the question. Do not start working.
-
-**Raised 11 August 2026.** When he asks a question, answer it and stop. Then ask
-him what he wants done.
-
-**Do not answer and then immediately start building.** Do not treat a question as
-approval. A question is a question.
-
-This includes questions that sound like work is implied. "What do you think of the
-price?" is not "change the price". "Is the doc updated?" is not "update the doc".
-
-**After answering, ask.** One line is enough: "Want me to do X?"
-
-**The exception is an explicit instruction**, or a `/goal` that is still running.
-
----
-
-## Read the plan and the spec before touching anything
-
-**He has said this many times.** Before any work on a feature, read its plan and
-its spec in full. Not the headings. Not a grep. The whole file.
-
-**Why it keeps mattering:** most of my worst mistakes on this project were
-describing or building something the written document already answered. The
-reader inventory, the pinned exit code, the buckets that had to move with the
-price. All of them were written down before I got them wrong.
-
-**Check the decision logs too.** A later decision can supersede a spec nobody
-amended, and the code can have moved past both.
-
----
-
 ## Voice, for every user-facing string
 
-- Grade-5-simple English. Short sentences.
+- App interface text uses simple English and short sentences.
+- **Lesson teaching content:** plain, simple English that a Grade 5 student can
+  understand.
+- **Quiz questions and answer choices:** realistic language for the target exam.
+  This applies to Mock, normal quizzes, and in-lesson quizzes. Do not apply the
+  lesson's Grade 5 language rule to those questions. Wrong choices must be
+  plausible and reflect meaningful reasoning errors or misconceptions.
+- **Quiz answer explanations:** plain English a Grade 5 student can understand,
+  including Mock, normal quizzes, and in-lesson quizzes. Explain the reasoning
+  clearly without reducing the subject's accuracy.
 - **No em dashes.** Use a comma or a colon.
 - **American spelling.** practice, color, behavior, analyze, gray, center, organize.
   Never practise, colour, behaviour, analyse, grey, centre, organise. This holds in
@@ -261,44 +149,13 @@ statement is Section 1 of `docs/superpowers/specs/2026-07-30-progress-tab-design
 
 ---
 
-## Landmines
+## Verify implementation facts on the code branch
 
-Things that are not obvious from the code and have cost time:
+Main carries current workflow policy; its application source is not necessarily
+the current engineering candidate. Historical notes about content readers, seed
+generation, question tagging, blueprints, and routes are not universal branch facts.
+Read the assigned branch's source and later decisions before changing those areas.
+Do not restore a retired data path because an older instruction file describes it.
 
-- **Two content paths.** The app ships content from `assets/seed/v1.json` into
-  `AppDatabase` via `Seeder`. The Sanity stack writes `content.db` and is read by
-  `contentDatabaseProvider`. `assets/seed/content.db` is declared at line 101
-  of `pubspec.yaml` and installed from `bootstrap`.
-  To build the `v1.json` asset: `dart run tools/build_dev_seed/build_dev_seed.dart`
-  To build the `content.db` asset: `mkdir -p build && dart run tools/build_content_export/build_content_export.dart build/export.json && dart run tools/build_content_seed/seed_writer.dart build/export.json assets/seed/content.db`
-- **One blueprint exists.** `content_mock_blueprints` contains the UPCAT paper.
-  The other six exams have no published blueprint.
-- **Questions have no `lessonId`.** They carry `topicId` only. Anything needing
-  lesson-level question data is blocked until that tagging lands.
 - **Navigation:** use `context.push` for destinations outside the tab shell.
   `context.go` strands the user with no back arrow.
-- **Study has no topic page.** `/study/topic/:topicId` and `LessonListPage` were
-  deleted; topics expand in place on the Study map.
-
----
-
-## Commits
-
-### Default branch completion
-
-After implementation is complete and the relevant gates pass, merge the feature
-branch into local `main` by default. Do not present the branch-completion menu or
-ask which option Aedwon wants. Never push unless he explicitly asks.
-
-Do not merge when verification fails, review has unresolved findings, the work
-is incomplete or exploratory, the target branch is unclear, a conflict needs a
-decision, or the merge would overlap unrelated uncommitted work. Report the
-specific blocker and wait.
-
-- Explain **why**, not just what. The diff already says what.
-- **No AI attribution.** Do not add `Co-Authored-By` trailers, "Generated with"
-  lines, or any similar marker. **Enforced by
-  `dart run tool/check_no_ai_attribution.dart`, which scans commit messages as
-  well as files**, so a bad message fails the gate for everyone until history is
-  rewritten. Amend before you report.
-- Do not commit or push unless asked.
