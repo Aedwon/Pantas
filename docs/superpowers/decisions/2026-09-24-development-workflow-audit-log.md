@@ -438,3 +438,25 @@ where available and clear, numbered instructions for steps Aedwon must perform
 himself. No further browser interaction was used for this rollout. The web startup
 saves described above had already completed. Reopening those settings was omitted;
 the project save was observed, and the account save showed its success confirmation.
+
+## Rollout verification completed
+
+Published the 14 reviewed Markdown documents to GitHub main in commit
+`11b893c289e37ce89fd93e3dbf286d571ea9cdb8` using a normal push. No application,
+build, CI, or release files changed from `b642e2d169e0a03120d4f71cc6e10a6148cc5ef0`.
+The main worktree was clean after publication. Staged whitespace validation and
+the repository attribution check passed. The provider discovery pointers match.
+
+The GitHub connector successfully retrieved the startup section of `WORKFLOW.md`
+with `ref=main`. From the existing
+`web/e09-security-performance-verification-r1` worktree, Git retrieved the complete
+current `AGENTS.md`, `WORKFLOW.md`, and `SUBAGENTS.md` from origin/main. All three
+matched the published local files byte for byte. The engineering worktree's HEAD
+remained `9f7a2da1af9a516144067995beec5d2ed7a45f78`, and its status was unchanged.
+No checkout, merge, application test, device action, or engineering resumption was
+needed. Remote main matched the publication commit.
+
+This proves publication and access from GitHub and an older worktree. It does not
+claim that every provider has executed a fresh task or that already-loaded chats
+have automatically refreshed. Startup instructions require that refresh before
+the next authorized continuation. The broader audit interview remains open.

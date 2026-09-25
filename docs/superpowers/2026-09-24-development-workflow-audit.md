@@ -1,7 +1,7 @@
 # Pantas collaboration and development workflow audit
 
 Date: September 24, 2026
-Status: Core workflow accepted and authorized for publication on main. The wider audit interview remains open. Current adopted policy is in `WORKFLOW.md`.
+Status: Core workflow published on main and retrieval verified on September 25, 2026. The wider audit interview remains open. Current adopted policy is in `WORKFLOW.md`.
 
 ## What the audit establishes
 
