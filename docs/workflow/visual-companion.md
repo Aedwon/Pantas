@@ -1,8 +1,30 @@
-# Optional visual design companion
+# Visual design companion for UI brainstorming
 
-This is tool-use guidance for the shared workflow, not a separate approval policy.
-Use a companion only when it helps Aedwon evaluate a visual decision. Its absence
-does not change the spec approval process in `WORKFLOW.md`.
+Use the companion when brainstorming a spec that affects UI. Aedwon prefers to
+see the effect before approving the spec. Show before and after for existing UI,
+or different options for new UI. Nonvisual decisions can remain in conversation.
+The companion supports spec approval; it does not introduce plan approval.
+
+## Fidelity to implementation
+
+- Read the assigned workstream's actual UI and approved design rules. Prefer a
+  preview using the same components and rendering as the intended implementation.
+- Show the relevant screens and states at the intended device size, with faithful
+  text, typography, spacing, colors, assets, controls, and interactions. Include
+  enough surrounding UI to judge the change. Identify any omitted state or behavior.
+- The approved presentation must match implementation 1:1 for what it represents.
+  Record the chosen proposal and its version in the spec. Keep it available for
+  implementation and Aedwon's final visual check. Do not use a polished approximation
+  as a promise that a different implementation will match.
+- If the available tools cannot show an aspect faithfully, disclose the gap and
+  resolve its representation with Aedwon before treating it as approved. A necessary
+  design difference must be presented and approved before it is implemented.
+- Aedwon performs visual checking. Supply instructions for opening and comparing
+  the preview and implementation. Do not operate his browser or desktop, capture
+  app screenshots, or claim visual verification from automated checks. He may
+  supply screenshots for corroboration.
+
+## Presentation mechanics
 
 - Show enough of the whole screen to explain the proposed choice. Check existing
   specs and the component kit first.

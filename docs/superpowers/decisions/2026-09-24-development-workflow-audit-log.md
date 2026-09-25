@@ -553,3 +553,47 @@ those conditions once Aedwon explicitly lifts the freeze. No application code is
 changed or engineering resumed by this decision. The remaining audit questions
 will be presented together, replacing the earlier one-question-at-a-time cadence
 for this interview.
+
+## Task-completion records, copy ownership, and visual brainstorming
+
+The assistant proposed a concise current-status record updated at meaningful
+milestones and handoffs, preserving audience-specific copy exceptions, and moving
+to the spec when an initial set of design questions was clear. Aedwon corrected
+the update timing and granularity, separated app and website copy ownership, and
+required thorough clarification and faithful visual proposals. His response is
+preserved in full:
+
+> 1. current project status/SSOT should be updated as soon as the task is done. i think there was a directive to log all my decisions in verbatim. same thing (granularity) here
+> 2. in-app copy is not the same as external marketing copies. do not confuse or conflate these two things. i have a different direction for each of those. i also will be the one personally writing and approving the website copies so there's no need really to set a strict guide on the website
+> 3. the agent may move to writing the brainstorm spec once it's done relentlessly clarifying with me. planning will always take time with me. also, please note that during brainstorming, i will prefer, if applicable, using visual companion if applicable. that is, if a spec affects UI, I should be able to see its effect before and after or different options if it's new. i also want you to note that how it's presented in the visual companion must be 1:1 to the implementation.
+
+Decisions implemented:
+
+- Update the existing current-status/SSOT immediately at each task completion,
+  with detailed outcomes, actual verification, outstanding work, and next steps.
+  Preserve all user decisions verbatim as they occur. Do not defer recordkeeping
+  to a later milestone or compress away decisions. Keep relevant context accessible
+  from the repository when the SSOT is external. Report inaccessible updates as
+  pending rather than claiming success.
+- App copy follows its own teaching, quiz, and interface requirements. External
+  marketing follows separate direction. Aedwon personally writes and approves
+  website wording; do not impose an app-derived website guide.
+- Brainstorming continues through persistent clarification and shared understanding.
+  Planning time is expected. An initial checklist or arbitrary number of questions
+  is not a reason to end it. The approved spec remains the sole human approval
+  needed before agent planning and implementation.
+- UI-affecting specs use visual proposals during brainstorming. Show before/after
+  or alternatives for new UI. The approved representation must match implementation
+  1:1, with necessary differences returned for resolution before implementation.
+  Use actual components and rendering where possible; disclose and resolve any
+  preview limitation rather than promising unverified fidelity. Aedwon still owns
+  visual checking, and the ban on computer control remains in force.
+
+Corrected existing supporting instructions to match settled rules: no em dashes
+in lessons, the nested-fraction exception, and branch-aware illustration guidance.
+A missing required figure is incomplete work, and a lesson file's existence alone
+does not establish validation or approval. No lesson or website content was changed.
+
+The assistant's milestone-only status proposal and checklist-based stopping rule
+were insufficient. The website discussion also needed a clear ownership boundary,
+not an inferred shared style. These corrections supersede those proposals.

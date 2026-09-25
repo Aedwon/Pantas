@@ -1,7 +1,7 @@
 # Pantas collaboration and development workflow audit
 
 Date: September 24, 2026
-Status: Core workflow published on main and retrieval verified on September 25, 2026. The wider audit interview remains open. Current adopted policy is in `WORKFLOW.md`.
+Status: The remaining workflow decisions were resolved on September 25, 2026. The core workflow is published; final refinements are being verified for publication. Current adopted policy is in `WORKFLOW.md`. Earlier recommendations below are historical and yield to the accepted decisions and current status.
 
 ## What the audit establishes
 
@@ -61,7 +61,7 @@ The latest inspected readiness entry records engineering paused at the user's di
 21. One repository-owned workflow applies to every provider and harness. Remove provider-specific project policies and private-memory overrides. Provider entry files may only point to the shared rules. Tools can differ, but scope, approval, writing, planning, and verification must follow the same contract. A provider with only GitHub access must retrieve that contract and report missing context or execution capability.
 22. Publish the shared workflow on main under a documentation-only exception to its freeze. Every new or resumed task retrieves current policy from main, regardless of the code branch. Task-specific product documents and source remain on their agreed workstream revision. Update startup instructions in local providers and web chat. Do not merge unfinished product branches, alter application code, or resume paused engineering as part of this rollout.
 
-The accepted rules are consolidated in `WORKFLOW.md`, with technical standards in `AGENTS.md` and worker requirements in `SUBAGENTS.md`. Local provider globals and the saved Pantas web-project startup instruction point to current policy on main. A Pantas-only web custom instruction also covers standalone chats; customization was previously disabled and its instruction field was empty. Complexity recommendations are now chosen case by case, with clear scope, inclusions, and tradeoffs. Separate specs and plans may be omitted only for low-impact changes with settled outcomes. Remaining copy-rule inconsistencies and external-action permissions remain under review. Existing release checks stay binding. The shared workflow no longer depends on installing a provider-specific skill.
+The accepted rules are consolidated in `WORKFLOW.md`, with technical standards in `AGENTS.md` and worker requirements in `SUBAGENTS.md`. Local provider globals and the saved Pantas web-project startup instruction point to current policy on main. A Pantas-only web custom instruction also covers standalone chats; customization was previously disabled and its instruction field was empty. Complexity recommendations are now chosen case by case, with clear scope, inclusions, and tradeoffs. Separate specs and plans may be omitted only for low-impact changes with settled outcomes. Later decisions resolve branch creation, completion cleanup, main updates after the explicit freeze ends, immediate task-completion records, separate website-copy ownership, and thorough visual brainstorming. Release publication remains separately authorized. Existing release checks stay binding. The shared workflow no longer depends on installing a provider-specific skill.
 
 ### Agreed spec-to-implementation sequence
 
@@ -450,10 +450,36 @@ Questions should stress-test these choices. They should not ask Aedwon to discov
 - [Approved website copy](https://docs.google.com/document/d/1LzdBQjPmRYXV1LSrLnK7F6_eadQi7cb1fj8mg7yuZg4/edit?tab=t.mw285tycvsoc)
 - [This audit's chronological discussion](/Users/aedwon/Documents/Projects/Pantas/docs/superpowers/decisions/2026-09-24-development-workflow-audit-log.md)
 
-## Work completed and still open
+## Current audit status
 
-Completed: the process evidence review, direct web-project instruction inspection, correction of the initial workflow description, identification of rule conflicts and existing simplifications, and a prioritized recommendation set.
+The six remaining decision areas are resolved. Accepted policy now covers:
 
-Open: current-status recordkeeping, remaining content-rule inconsistencies, and the stopping rule for brainstorming. After Aedwon explicitly lifts the current freeze, completed approved work may update main automatically once required checks, reviews, and applicable visual acceptance pass. Release publication remains separate. Completion cleanup is automatic only after verifying that work is merged into the agreed development branch, no unsaved work remains, and no active or paused task depends on the branch or worktree. Necessary working-branch creation is authorized for approved work, with a descriptive provider-neutral name and an explanation of need. The accepted core workflow is published. Complexity recommendations are case by case. Earlier open-default references above record the audit before that decision.
+- Case-by-case complexity recommendations with scope, inclusions, and tradeoffs.
+- A separate-document exception only for low-impact changes with settled outcomes.
+- Necessary provider-neutral working branches, conditional completion cleanup, and
+  automatic main updates after Aedwon explicitly lifts the current code freeze.
+- Immediate task-completion updates to the existing status/SSOT, with detailed
+  task outcomes and every user decision recorded verbatim.
+- Separate app and marketing direction. Aedwon writes and approves website copy.
+- Persistent clarification before drafting the spec, with faithful before/after
+  or new-design options for UI work. Approved visual proposals bind implementation.
 
-Accepted collaboration rules now live in the repository's shared workflow. Provider-specific project policy was removed, local globals defer to current main policy for Pantas, and old private memory was retired with a verified archive. The Pantas web project and a Pantas-only global web instruction now carry the same startup requirement. Installed Superpowers files were not edited. This documentation revision is authorized for main publication; application source and release state remain unchanged. Publication evidence belongs in the rollout log. A live engineering run under the new process is intentionally deferred until Aedwon resumes that work.
+The shared workflow, app instruction scope, visual-companion guidance, and lesson
+authoring instructions have been reconciled. The chronological audit log preserves
+the user's exact decisions, the options presented, and corrections to the agent's
+proposals. This report is the repository-accessible current record for the audit;
+it does not replace the paused product workstream's release-readiness SSOT.
+
+Provider-specific policy cleanup, startup configuration, and retrieval from an
+existing branch were verified earlier and remain recorded in the rollout log.
+No additional browser or desktop control was used after Aedwon prohibited it.
+
+Final document verification and publication are pending. Application code and
+release artifacts are unchanged. No paused engineering, branch cleanup, deployment,
+or product release was started by these policy decisions. No live UI prototype or
+implementation-fidelity check was performed during this documentation task.
+
+Next: complete document verification and publish these refinements. Evaluate the
+workflow during the next independently authorized engineering task. Timing and
+usage savings, fresh-provider execution, and visual fidelity must be assessed
+against actual work; they are not established by publishing instructions.

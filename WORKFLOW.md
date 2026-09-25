@@ -1,7 +1,7 @@
 # Pantas shared workflow
 
-Policy revision: September 25, 2026. The workflow audit remains open; the rules
-below record accepted decisions. They apply to every provider, model, and harness.
+Policy revision: September 25, 2026. The rules below record the accepted workflow
+audit decisions. They apply to every provider, model, and harness.
 
 ## Start with the same instructions
 
@@ -59,11 +59,16 @@ simplest option that satisfies the task's actual requirements and risks after
 inspecting the existing context. Aedwon still chooses before implementation.
 Existing approved requirements remain binding; do not relabel earlier work.
 
-Brainstorm through focused questions after inspecting available facts. For this
-audit, ask focused questions with costs and a recommendation, then wait. Aedwon
-has requested the remaining questions together so he can answer in one reply.
-Ask about choices Aedwon owns. Resolve routine technical details yourself within
-the agreed constraints. Show enough of the whole design to explain a local choice.
+Brainstorm through persistent, probing clarification after inspecting available
+facts. Planning with Aedwon takes time; do not rush to a spec, impose a fixed
+question count, or stop because an initial checklist looks complete. Explore his
+intent, alternatives, consequential behavior, risks, and unresolved concerns until
+there is shared understanding and he has finished clarifying the design. Then
+write the brainstorm spec. Ask about choices he owns, with costs and a
+recommendation. Follow his requested question cadence, including grouped questions
+when requested. Resolve routine technical details within agreed constraints.
+Show enough of the whole design to explain a local choice. UI-affecting specs use
+the visual companion below during brainstorming, before spec approval.
 
 Answer informational questions directly. A question alone does not approve a
 product change. Continue work already authorized in the conversation; do not
@@ -85,6 +90,14 @@ reopen settled approvals because the user asked a follow-up question.
 
 This style applies to the spec section he approves. Content for students has its
 own audience-specific rules in `AGENTS.md` and the content style guides.
+
+In-app copy and external marketing copy are separate. Apply the app's teaching,
+quiz, interface, and vocabulary rules only to their intended in-app audiences.
+Do not infer marketing direction from them or impose a strict website style guide.
+Aedwon personally writes and approves website copy. Preserve his approved wording;
+do not draft or revise it unless specifically asked, and obtain his approval of
+any proposed wording before publishing it. His communication preferences are not
+a substitute for his direction on either product or marketing content.
 
 ## From idea to completed work
 
@@ -200,9 +213,16 @@ autonomous visual-review workflow. He supplies screenshots when he wants
 corroboration; inspect those images when asked. His visual judgment is separate
 from automated results. Record relevant findings in `docs/ui-audit.md`.
 
-Offer a visual design companion only for genuinely visual decisions. Requirements
-and tradeoffs can stay in chat. Answer first and obtain confirmation before building
-the next visual proposal. If used, follow `docs/workflow/visual-companion.md`.
+Use the visual design companion during brainstorming when a spec affects UI.
+Show the existing and proposed presentation for changes, or distinct options for
+new UI, before spec approval. The approved presentation is an implementation
+requirement: the implementation must match it 1:1 in the represented screens,
+states, content, layout, styling, and interactions. Do not silently substitute an
+approximation. Any necessary difference must be shown and resolved with Aedwon
+before implementing that difference. If faithful previewing is not possible,
+explain the specific gap and agree on how to represent it; never claim fidelity
+that has not been established. Follow `docs/workflow/visual-companion.md`. This
+preference does not authorize computer control or autonomous screenshot checking.
 
 ## Completion permissions
 
@@ -264,6 +284,24 @@ Append decisions as they happen to `docs/superpowers/decisions/`. Keep the date,
 options and costs, choice, exact user comment, what changed, and mistakes or
 reversals. Preserve rejected approaches and their reasons for the later retrospective.
 Never rewrite an earlier entry to make the conclusion look inevitable.
+
+Update the existing current project status/SSOT immediately when each task is
+completed, before reporting completion. Do not defer updates to a later milestone,
+handoff, or batch. Preserve task-level detail: what changed, the affected revision,
+what was checked and its actual results, what remains unverified, blockers, pause
+state, and next steps. Distinguish implemented, reviewed, integrated, tested,
+artifact accepted, and published states; record only states supported by evidence.
+Delegated task completion must be recorded without presenting it as acceptance of
+the combined work. The lead owns that distinction.
+
+Record every user decision and its exact wording as it occurs, with the offered
+options, costs, context, and resulting action. Do not replace verbatim comments
+with a compressed summary. Keep the detailed chronological record alongside the
+current status so another task can recover both the present state and its reasons.
+Reuse existing records, not a new parallel tracking system. Where the SSOT is
+external, keep the relevant current checkpoint and decision history accessible
+through the repository as well. If a required update is unavailable, report that
+specific record as pending; do not claim that the SSOT was updated.
 
 Record ideas when offered. Distinguish an idea from approved implementation.
 Do not reject or expand an idea before understanding what Aedwon wants from it.

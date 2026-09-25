@@ -31,8 +31,7 @@ These keep lessons from reading as machine-written. Apply everywhere.
   (DNA, ATP, GCF) and proper nouns.
 - **Target words in a question are bold**, and the prompt says "the word
   in bold" (never "the underlined word" — markdown cannot underline).
-- **Em dashes:** at most one per paragraph, and only for a genuine
-  mid-sentence aside — never as a rhythm device or in place of a colon.
+- **No em dashes.** Use a comma, colon, or separate sentence.
 - **Avoid stock AI phrasing:** "it's important to note", "delve",
   "crucial", "plays a vital role", "furthermore/moreover", and the
   "not just X but Y" construction.
@@ -106,7 +105,7 @@ section titles generically, so other subjects may adapt them:
 
 ## Math notation
 
-- ALWAYS `\dfrac`, never `\frac`.
+- Use `\dfrac` for top-level fractions. Use `\frac` only inside another fraction.
 - Every number in prose is wrapped in inline math, even isolated ones:
   `the $2$ in $3^2$`, `The correct answer is $25$.` Same for operators
   referenced in prose: `plus ($+$)`.
@@ -118,8 +117,10 @@ section titles generically, so other subjects may adapt them:
 - Allowed: `##`/`###` headings, paragraphs (1–3 short sentences), bold for
   key terms, italics sparingly, blockquotes, bullet lists (sparingly) and
   numbered lists (solution steps), inline/display LaTeX.
-- NEVER: tables, links, code blocks, horizontal rules, images (until the
-  image pipeline exists).
+- NEVER: tables, links, code blocks, or horizontal rules.
+- Follow the assigned workstream's current illustration contract and supported
+  image format. Do not infer that images are unavailable from this older guide.
+  Placeholders below are authoring notes, not completed illustrations.
 
 ## Illustration placeholders
 

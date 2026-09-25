@@ -25,11 +25,14 @@ assigned content worker. Read `AGENTS.md`, `WORKFLOW.md`, and `SUBAGENTS.md` fir
 
 The master list is `tools/lesson_author/outline.json`
 (subjects → topics → lessons, with slugs and required `sections`).
-A lesson is DONE when its file exists at:
+A lesson has been authored when its file exists at:
 
 ```
 content/lessons/<subjectSlug>/<topicSlug>/<lessonSlug>.md
 ```
+
+File existence does not establish validation, approval, or inclusion in the shipped
+content. Record those states separately using the existing content QA records.
 
 List missing lessons by comparing the outline against existing files.
 Work in outline order (Mathematics first, then Science, Language
@@ -44,7 +47,8 @@ Work in batches of about 5 lessons per iteration:
    `sections`, cover each one (usually as `###` headings).
 3. Verify each file before moving on:
    - frontmatter matches the style guide shape, slugs from outline.json;
-   - no `\frac` (only `\dfrac`), no tables/links/code fences/`---` rules;
+   - top-level fractions use `\dfrac`; nested fractions may use `\frac`;
+     no tables/links/code fences/`---` rules;
    - numbers in prose wrapped in `$...$`;
    - section titles exactly as specified; example/trap headings `### #N:`;
    - re-solve every example and confirm the stated answers.
@@ -57,11 +61,11 @@ Work in batches of about 5 lessons per iteration:
 - Language Proficiency & Reading Comprehension: pure English, no Taglish
   for now. Filipino-specific items in the outline (Nang vs. Ng, Sawikain
   at Tayutay) still explain the Filipino concepts — in simple English.
-- Reasoning (figure series, paper folding, etc.): these are visual topics
-  but images are NOT available yet. Describe patterns verbally and with
-  simple notation, and mark every spot where a figure belongs with an
-  `<!-- ILLUSTRATION: ... -->` placeholder (see the style guide). Write
-  the best text-only version regardless — the text must stand alone.
+- Reasoning (figure series, paper folding, etc.): follow the assigned workstream's
+  current illustration contract. Do not assume images are unavailable. Mark any
+  missing required figure with an `<!-- ILLUSTRATION: ... -->` authoring placeholder
+  and report it as incomplete. A placeholder or verbal description does not complete
+  a question whose answer depends on seeing the figure.
 - Math/Science: exam-level examples should reach real UPCAT/DOST
   difficulty by the last example.
 

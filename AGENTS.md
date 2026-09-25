@@ -101,7 +101,11 @@ colour as decoration.
 
 ---
 
-## Voice, for every user-facing string
+## Voice, for in-app content and interface text
+
+These rules govern the app. External marketing and website copy have separate
+direction from Aedwon, who personally writes and approves website copy. Do not
+apply these rules to that copy by default. See `WORKFLOW.md`.
 
 - App interface text uses simple English and short sentences.
 - **Lesson teaching content:** plain, simple English that a Grade 5 student can
