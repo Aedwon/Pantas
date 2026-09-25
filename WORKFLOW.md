@@ -47,15 +47,17 @@ Do not make Aedwon reconstruct earlier decisions.
 
 Inspect existing decisions, implementation, constraints, and risks before offering
 complexity options. Ask minimal, balanced, or hardened when meaningful scope
-alternatives exist. Recommend one with the concrete scope, delivery effort,
-verification, maintenance costs, and uncertainty. Separate planning time from
+alternatives exist. Recommend one case by case, with a clear outline of its scope, inclusions,
+tradeoffs, delivery effort, verification, maintenance costs, and uncertainty. Separate planning time from
 implementation time. Wait for his choice before implementation. Small fixes within
 settled scope do not need the same menu again.
 
 Minimal means the smallest complete solution suitable to keep. It does not mean a
 throwaway prototype or reduced correctness. Do not add speculative infrastructure.
-The standing recommendation of balanced remains provisional while this audit
-resolves the default; do not silently switch it to minimal or relabel earlier work.
+There is no standing preference for balanced or another level. Recommend the
+simplest option that satisfies the task's actual requirements and risks after
+inspecting the existing context. Aedwon still chooses before implementation.
+Existing approved requirements remain binding; do not relabel earlier work.
 
 Brainstorm through focused questions after inspecting available facts. For this
 audit, ask one question at a time, with costs and a recommendation, then wait.

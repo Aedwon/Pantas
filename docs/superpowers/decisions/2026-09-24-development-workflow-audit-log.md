@@ -460,3 +460,20 @@ This proves publication and access from GitHub and an older worktree. It does no
 claim that every provider has executed a fresh task or that already-loaded chats
 have automatically refreshed. Startup instructions require that refresh before
 the next authorized continuation. The broader audit interview remains open.
+
+## Complexity recommendations: case by case
+
+Aedwon chose between recommending a level from each task's actual needs and
+usually recommending balanced. The assistant recommended the former: inspect
+requirements and risks, then recommend the simplest complete suitable option.
+Its cost is more agent judgment and a clear explanation of the tradeoffs.
+
+Aedwon answered:
+
+> 1 case by case with a clear outline on scope, inclusions, tradeoffs
+
+The shared policy now removes the provisional balanced preference. Present the
+scope, inclusions, and tradeoffs clearly, including the already-required effort,
+verification, maintenance costs, and uncertainty. Aedwon still selects the level
+when meaningful alternatives exist. Existing approved requirements remain binding.
+This does not reopen settled scope or resume paused engineering.
