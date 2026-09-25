@@ -509,3 +509,27 @@ Aedwon answered:
 The shared policy now permits necessary working-branch creation under those
 conditions without another permission request. It does not authorize unrelated
 branches, cleanup, updates to main, or resuming paused work.
+
+## Automatic cleanup of completed branches
+
+The assistant offered asking before cleanup or automatic cleanup under strict
+conditions. It recommended asking, with an occasional approval cost; automatic
+cleanup would reduce clutter and interruptions but depends on correct checks.
+
+Aedwon asked:
+
+> that question assumes the changes made in those branches are merged right?
+
+The assistant confirmed that automatic cleanup requires the work to be merged
+into the agreed development branch, which may not be main, with no unsaved work
+and no active or paused task depending on the branch or folder. Unmerged work
+requires a separate, explicit decision to discard it.
+
+Aedwon selected automatic cleanup:
+
+> 2
+
+The shared policy now permits completion cleanup under those conditions. Verify
+current local and remote state and preserve required evidence before removal.
+Uncertainty means leave the branch or worktree intact. This decision does not
+start a general cleanup of existing branches or resume paused engineering.

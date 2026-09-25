@@ -223,10 +223,20 @@ it is main. Preserve freezes, pauses, explicit task limits, and unrelated change
 Do not integrate incomplete work, failed checks, unresolved review findings, or
 conflicts needing a decision. Stop the affected step and report the specific issue.
 
-Updates to main, force pushes, history rewriting, branch deletion, unrelated branch
-creation or remote changes, issues and pull requests, and release publication need
-matching authorization. Necessary working-branch creation follows the permission
-above; broader cleanup and main-update permissions remain under review.
+Automatically clean up completed working branches and their separate worktrees
+only after verifying that the work is merged into the agreed development branch,
+which need not be main. Verify that no unsaved or unique unmerged work remains,
+and no active or paused task depends on the branch or worktree. Preserve required
+evidence before removal. Check the actual local and remote state before deleting
+any corresponding branch; do not infer safety from an old completion report.
+If any condition is uncertain, leave it intact and report the gap. Discarding
+unmerged work requires separate, explicit authorization. This permission is for
+completion cleanup, not a general purge of existing branches or worktrees.
+
+Updates to main, force pushes, history rewriting, deletion outside the cleanup
+conditions above, unrelated branch creation or remote changes, issues and pull
+requests, and release publication need matching authorization. Main-update
+permissions remain under review.
 Requests merely to discuss, plan, prototype, or report progress do not authorize
 later unrelated mutations. Tool permission lists do not grant task authorization.
 
