@@ -143,3 +143,24 @@ unchanged; layering OK; attribution OK; full suite `-j 4` 3,222 of 3,222 passed.
 Remaining, all needing Aedwon: device checks (E09 functional #22 to #28 and the Redmi
 responsiveness smoke that replaced the QLP-5 gate), visual acceptance, then E10 onward per the
 SSOT. The UI round items stay deferred.
+
+---
+
+## Ink and Rule dropped for the UI round, 1 October 2026
+
+> "actually can you drop the Ink and Rule look, I've abandoned that lately because it's too
+> restrictive with the delight moments i envision for the app. attaching here some samples"
+
+Samples shown: answer lock with tinted right and wrong choices and a bottom sheet, session
+complete ("8 of 10", dots, streak), streak celebration, lesson read with a "topic complete" stamp,
+mock score ("14 / 170", "80 to pass"), and a micro-interaction sheet (press sink with haptic,
+flag pop, toggle overshoot, tab capsule slide). Rounded cards, deep green pill buttons, large
+numerals.
+
+**Changed:** the UI design brief no longer carries Ink and Rule; the new direction is open for the
+UI round. The non-visual rules stay (never invent a figure, banned verdict words, no numbers for
+future weeks, Pro gate behavior: heading shows, one teaser per screen after free content, paywall
+not 404). How a gate looks is now open.
+
+**Not yet changed:** `AGENTS.md` still states Ink and Rule and its banned list for every agent.
+Changing shared policy needs Aedwon's go-ahead on the wording; asked.

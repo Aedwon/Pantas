@@ -18,7 +18,8 @@ built engine on branch `web/roadmap-engine-r1` (`lib/features/roadmap/`).
   later days lighter. No messages about it on the main surfaces.
 - Today stays put: once built it never reshuffles while they work. Items tick off as done.
 - Motivation comes from facts, not verdicts: today done, days in a row, how much of the material
-  is covered.
+  is covered. Delight moments (completion animations, streak ticks, haptics) are welcome; the
+  words and numbers inside them follow Section 2.
 
 ---
 
@@ -34,26 +35,30 @@ built engine on branch `web/roadmap-engine-r1` (`lib/features/roadmap/`).
   "questions"), "marks" (use "points").
 - Simple English, short sentences, American spelling, no em dashes.
 
-### Visual identity: Ink and Rule
+### Visual direction: open
 
-- Looks like well-set print on paper. One typeface, Source Sans 3. Hairline rules and
-  rectangles group things. Tabular figures.
-- **Banned:** card elevation and drop shadows, large corner radii, tinted callout boxes,
-  colored left-border panels, blur, lock icons, shimmer loading.
-- **Color carries meaning only.** Board green is reserved for the single primary action on a
-  screen. Severity is rust, then amber, then plain ink. No decorative color.
-- Reuse the component kit in `lib/core/ui/components/` (row, band, meter, section header, ruled
-  section, progress rule, error banner, empty state).
+The Ink and Rule identity (hairline rules, no rounded cards, no shadows, no tinted boxes) was
+abandoned by Aedwon on 1 October 2026 as too restrictive for the delight moments he wants. The
+UI round defines the new direction. His current samples point toward: rounded cards on a soft
+background, tinted right and wrong answer states, a single deep green primary action as a pill
+button, large numerals for results (score, streak), motion on completion (a check, a streak
+count ticking over, a "topic complete" stamp) and small interactions with haptics (press sink,
+flag pop, toggle overshoot, tab capsule slide). Source Sans 3 appears to remain. Design freely
+within the rules above.
 
-### How a Pro gate looks (one treatment everywhere)
+### How a Pro gate behaves
 
-- Faint bars (7px, `ruleFaint`, radius 2) where the gated figures would sit.
-- The heading and the comparison labels always print; only the figures are withheld.
-- "Unlock with Pro" in board green in the section header's trailing slot.
-- **One teaser per screen, maximum**, placed after the free content, never before it.
-- Never a whole redacted panel, except "Why you miss questions" on Progress.
-- No lock icons, blur, banners, interstitials or shimmer.
+These are tier rules from the entitlement spec and stay:
+
+- The heading and the comparison labels always show; only the gated figures or content are
+  withheld.
+- An "Unlock with Pro" action appears once per screen at most, after the free content, never
+  before it.
+- Never a whole hidden panel, except "Why you miss questions" on Progress.
 - A Free student who opens a Pro-only route goes to the paywall, never a 404.
+
+How a gate looks is open for the UI round. The old treatment (faint bars where figures sit, no
+lock icons, no blur) belonged to Ink and Rule; keep it or replace it.
 
 ---
 
@@ -290,7 +295,7 @@ Pricing: Weekly ₱29, Monthly ₱99, Yearly ₱799 (Yearly trial 7 days). No li
 
 ## 9. Generic states every new or changed screen needs
 
-- **Loading:** no shimmer. Use the existing loading approach (plain, quiet).
+- **Loading:** the plan is built on the phone and loads fast; design the brief moment anyway.
 - **Error:** the existing error banner; the plan is built on the phone, so errors are rare.
 - **Offline:** everything in the plan works offline. Only backup and purchases need a connection.
 - **First run:** before the assessment there is no plan.
