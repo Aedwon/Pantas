@@ -9,8 +9,8 @@ void main() {
   setUp(() => db = inMemoryDatabase());
   tearDown(() => db.close());
 
-  test('schemaVersion is 24', () {
-    expect(db.schemaVersion, equals(24));
+  test('schemaVersion is 25', () {
+    expect(db.schemaVersion, equals(25));
   });
 
   test('inserts and reads an exam row', () async {

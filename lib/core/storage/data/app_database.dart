@@ -20,6 +20,8 @@ import 'package:pantas/core/storage/data/tables/quiz_nudge_dismissed_local_table
 import 'package:pantas/core/storage/data/tables/quiz_sessions_table.dart';
 import 'package:pantas/core/storage/data/tables/review_logs_table.dart';
 import 'package:pantas/core/storage/data/tables/review_state_local_table.dart';
+import 'package:pantas/core/storage/data/tables/roadmap_change_log_local_table.dart';
+import 'package:pantas/core/storage/data/tables/roadmap_day_local_table.dart';
 import 'package:pantas/core/storage/data/tables/streak_local_table.dart';
 import 'package:pantas/core/storage/data/tables/subjects_table.dart';
 import 'package:pantas/core/storage/data/tables/sync_local_mutations_table.dart';
@@ -64,13 +66,15 @@ part 'app_database.g.dart';
     ReviewLogs,
     TrackScopeLocal,
     CustomBlueprintsLocal,
+    RoadmapDayLocal,
+    RoadmapChangeLogLocal,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 24;
+  int get schemaVersion => 25;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -186,6 +190,10 @@ class AppDatabase extends _$AppDatabase {
               'WHERE completed_at IS NULL AND quit_at IS NULL '
               'AND current_index > 0',
             );
+          }
+          if (from < 25) {
+            await m.createTable(roadmapDayLocal);
+            await m.createTable(roadmapChangeLogLocal);
           }
         },
       );

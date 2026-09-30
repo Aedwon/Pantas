@@ -47,6 +47,8 @@ Future<void> _resetData(AppDatabase db, {bool clearPrefs = true}) async {
     await db.delete(db.attemptsLocal).go();
     await db.delete(db.customBlueprintsLocal).go();
     await db.delete(db.dailyNewCardIntro).go();
+    await db.delete(db.roadmapDayLocal).go();
+    await db.delete(db.roadmapChangeLogLocal).go();
     await db.delete(db.lessonBookmarksLocal).go();
     await db.delete(db.lessonProgressLocal).go();
     await db.delete(db.mockAttempts).go();
