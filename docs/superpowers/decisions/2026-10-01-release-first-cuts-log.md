@@ -76,3 +76,30 @@ prerequisite links, test first, with mutation checks on the key tests.
 4. **Flaky under load:** `test/tool/content_export_roundtrip_test.dart` and
    `content_seed_writer_test.dart` failed once each while several suites ran at once, and pass
    alone and in a full rerun. Recorded, not fixed.
+
+---
+
+## Build complete, pending independent review, 1 October 2026 (about 02:40)
+
+All plan tasks except the deferred Task 11 are on `web/roadmap-engine-r1` at `88bebdfe` (pushed).
+Codex wrote Tasks 1, 2, 3 (audit), 4, 5, 6, 7, 13, 14 and 16; the lead wrote 6 fix, 8, 9, 10, 12,
+15, 17 and the links, and reviewed every Codex result line by line against the spec. Lead fixes
+applied on review: Task 6 orphaned questions; Task 13 crash on a withdrawn question; Task 16
+crash on a missing lesson and a reminder read that could dispose the plan mid-load; Task 12
+self-waiting future (caught by its own tests).
+
+Gates at 88bebdfe: build_runner ok; `flutter analyze` only the accepted `bookmarks_sheet.dart`
+onReorder info; `dart format` 1,270 files unchanged; layering OK; attribution OK; full suite
+3,212 of 3,213 at `-j 4`. The one failure is `test/tool/import_questions/cli_test.dart` "fails
+loudly on an invalid question": "Failed to codesign dylib ... .dart_tool/lib/objective_c.dylib:
+replacing existing signature", a race between tool tests that each spawn `dart run`; it passes
+alone. The content export and seed writer tool tests show the same load sensitivity. Pre-existing
+tooling flake, not caused by this work; not fixed.
+
+Grep gates: no `targetCount = 3`, `newCardCap`, `StudyPlanIntensity` or `pace_curve` in `lib`;
+no verdict word in `lib/features/roadmap` except the spec's own field name `weeksAhead`.
+Protected seed files byte-identical to E09 (content.db 0ef89a64..., manifest 51bc0a76...,
+signature e0853df2...).
+
+Independent review (plan Task 18 Step 4) dispatched to Codex as a tier-2 reviewer that did not
+author the lead-written core. Device checks (Step 6) wait for Aedwon.
