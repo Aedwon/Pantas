@@ -82,9 +82,11 @@ void main() {
       expect(DaySnapshot.fromJson(original.toJson()), original);
     });
 
-    test('keeps only the first three topics of the order', () {
+    test('compares the first three topics and keeps the whole order', () {
       final s = snapshot(head: ['a', 'b', 'c', 'd']);
       expect(s.topicOrderHead, ['a', 'b', 'c']);
+      expect(s.topicOrder, ['a', 'b', 'c', 'd']);
+      expect(DaySnapshot.fromJson(s.toJson()).topicOrder, ['a', 'b', 'c', 'd']);
     });
 
     test('remaining drops read lessons, seen questions, reviews done today',

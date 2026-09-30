@@ -86,7 +86,8 @@ final class DaySnapshot {
     required List<TopicId> topicOrderHead,
     this.reviewOnlyFrom,
     this.state = RoadmapState.planning,
-  }) : topicOrderHead = List.unmodifiable(topicOrderHead.take(3));
+  })  : topicOrder = List.unmodifiable(topicOrderHead),
+        topicOrderHead = List.unmodifiable(topicOrderHead.take(3));
 
   factory DaySnapshot.fromJson(Map<String, Object?> json) {
     final plan = json['plan']! as Map<String, Object?>;
@@ -113,7 +114,11 @@ final class DaySnapshot {
   final DayPlan plan;
   final RoadmapDigest digest;
 
-  /// The first three topics of the order the day was built with.
+  /// The whole topic order the day was built with; sittings are arranged by
+  /// it.
+  final List<TopicId> topicOrder;
+
+  /// The first three topics of that order, which the change log compares.
   final List<TopicId> topicOrderHead;
 
   /// The review-only start this day was planned against, carried forward so
@@ -135,7 +140,7 @@ final class DaySnapshot {
           'advanced': plan.advancedIds.toList()..sort(),
         },
         'digest': digest.encode(),
-        'head': topicOrderHead,
+        'head': topicOrder,
         if (reviewOnlyFrom != null) 'reviewOnlyFrom': dayKey(reviewOnlyFrom!),
         'state': state.name,
       };
@@ -258,7 +263,7 @@ abstract final class DaySnapshots {
         advancedIds: advanced,
       ),
       digest: today.digest,
-      topicOrderHead: today.topicOrderHead,
+      topicOrderHead: today.topicOrder,
       reviewOnlyFrom: today.reviewOnlyFrom,
       state: today.state,
     );
