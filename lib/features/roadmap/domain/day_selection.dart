@@ -92,6 +92,18 @@ abstract final class DaySelector {
         }
         yield* questionsWithoutLesson[topicId] ?? <RoadmapQuestion>[];
       }
+      // Anything no walk above reached: a lesson that is unknown, out of
+      // scope, or in a topic missing from the ranking. Coverage promises
+      // every scoped question is seen in time, so none may be left behind.
+      final rankIndex = {
+        for (var i = 0; i < rankedTopics.length; i++) rankedTopics[i]: i,
+      };
+      int rankOf(TopicId topicId) => rankIndex[topicId] ?? rankedTopics.length;
+      yield* List<RoadmapQuestion>.of(unseen)
+        ..sort((a, b) {
+          final comparison = rankOf(a.topicId).compareTo(rankOf(b.topicId));
+          return comparison != 0 ? comparison : a.id.compareTo(b.id);
+        });
     }
 
     final newQuestions = <QuestionId>[];

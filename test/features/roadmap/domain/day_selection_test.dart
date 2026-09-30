@@ -233,6 +233,61 @@ void main() {
     });
   });
 
+  group('DaySelector.select questions no lesson walk reaches', () {
+    test('a question whose lesson is unknown is still scheduled', () {
+      final result = _select(
+        lessons: [_lesson('known')],
+        questions: [
+          _question('a-known', lessonId: 'known'),
+          _question('b-orphan', lessonId: 'gone'),
+        ],
+        newToday: 2,
+      );
+
+      expect(result.newQuestionIds, ['a-known', 'b-orphan']);
+    });
+
+    test('a question in a topic missing from the ranking comes last', () {
+      final result = _select(
+        rankedTopics: ['topic'],
+        lessons: [_lesson('l1')],
+        questions: [
+          _question('z-outside', topicId: 'elsewhere', lessonId: 'x'),
+          _question('a-inside', lessonId: 'l1'),
+        ],
+        newToday: 2,
+      );
+
+      expect(result.newQuestionIds, ['a-inside', 'z-outside']);
+    });
+
+    test('the final tier is ordered by topic rank, then id', () {
+      final result = _select(
+        rankedTopics: ['first', 'second'],
+        questions: [
+          _question('b', topicId: 'second', lessonId: 'gone'),
+          _question('c', topicId: 'first', lessonId: 'gone'),
+          _question('a', topicId: 'second', lessonId: 'gone'),
+        ],
+        newToday: 3,
+      );
+
+      expect(result.newQuestionIds, ['c', 'a', 'b']);
+    });
+
+    test('an orphan in a passage still brings its whole set', () {
+      final result = _select(
+        questions: [
+          _question('p1', lessonId: 'gone', passageId: 'p'),
+          _question('p2', lessonId: 'gone', passageId: 'p'),
+        ],
+        newToday: 1,
+      );
+
+      expect(result.newQuestionIds, ['p1', 'p2']);
+    });
+  });
+
   group('DaySelector.capacity', () {
     test('zero history days means no cap', () {
       expect(DaySelector.capacity([]), isNull);
