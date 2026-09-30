@@ -398,3 +398,45 @@ protected package unchanged (Part 1 Sections 8 and 9 reworded accordingly). Amen
 **Complexity: balanced** (as recommended: full spec, change log syncs for Pro, property tests for
 coverage, idempotent mock recording; about 1 week of build). Engineering specifics delegated to
 the lead. Reuse judgement recorded in the implementation plan.
+
+---
+
+## 30 September 2026: implementation plan written; lead technical revisions
+
+Plan: `docs/superpowers/plans/2026-09-30-adaptive-roadmap-engine.md`, grounded read-only on the
+E09 candidate worktree at 13938943. No code changed; engineering remains paused until Aedwon lifts
+the E09 stop for this work.
+
+**Reuse of E09 work (delegated judgement):** the roadmap branch starts from the E09 candidate and
+keeps E02 to E08 work. CP-T5 content proof stands (content identity unchanged). E09 functional
+#22 to #28, QLP-5 and QLP-6 are rerun on the new candidate.
+
+**Lead technical revisions to Part 2, found while grounding:**
+
+1. Sitting arrangement does not reuse the Today pickers. They select as well as order (a topic id
+   drops other topics; the fully mixed picker drops items it cannot place), which would silently
+   drop planned items. The planner arranges with the existing non-dropping helpers
+   (`RecencyFilter.noConsecutiveSameTopic`, `groupPassageSets`).
+2. Mock answers are recorded like the placement assessment: `responseMs: 0`, origin `mock` added
+   to the untimed set, rating good or again, no review log rows (no per-question timing exists).
+   Readers that already count `mock_attempts` (Your record, test-mode delta) skip `mock` rows so
+   nothing is counted twice.
+3. New change-log cause `mockAnswersRecorded` names the recompute spec 4.7 requires.
+4. Lessons are read through a new lightweight metadata query; the existing `lessonsByTopics`
+   decodes every lesson body and would break the QLP-1 rule.
+5. Home's weakest-topic rows (Today requests with a topic) stay free practice outside the plan on
+   the existing bucket path, with the fixed new-question cap removed.
+6. The change log's cloud backup touches `firestore.rules` and the `cleanupSyncData` function;
+   they are edited and tested locally only. Deploying them is a separate authorized step.
+
+**Live defect found:** `AttemptsRepository.averageResponseMs` and `averageResponseMsByTopic` count
+the placement assessment's `responseMs: 0` items, which lowers the practice picker's pace and the
+debrief's per-topic averages. Fixed in plan Task 15 because mock answers would make it worse.
+
+**Deferred to the UI round:** the advance control, the plan screen, the log viewer, "2 of N",
+Settings copy. The engine exposes what they need.
+
+**Process mistake:** commits 54a0ecf5, e4bc9511, b722d285, 6bf9725e, e7c5a070 and the balanced
+entry carried a `Co-Authored-By` trailer, which `WORKFLOW.md` forbids and the attribution check
+rejects. Stopped from this commit on. Rewriting published main history needs Aedwon's explicit
+authorization.
