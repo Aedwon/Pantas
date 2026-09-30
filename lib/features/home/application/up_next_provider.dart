@@ -112,7 +112,8 @@ final upNextProvider = FutureProvider<UpNextDay>((ref) async {
   final readLessonIds = {for (final p in progressRows) p.lessonId};
   final resultLessons = <UpNextLesson>[];
   for (final id in today.remaining.lessonIds) {
-    final lesson = lessonsById[id]!;
+    final lesson = lessonsById[id];
+    if (lesson == null) continue;
     final subjectId = topicSubjectMap[lesson.topicId];
     resultLessons.add(
       UpNextLesson(

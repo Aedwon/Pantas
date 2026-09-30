@@ -48,7 +48,18 @@ final featureNotificationServiceProvider = Provider<NotificationService>((ref) {
       if (focus.needsSelection || focus.exam == null) {
         return const NotificationPlanSnapshot.unavailable();
       }
-      final today = await ref.read(roadmapTodayProvider(focus.exam!.id).future);
+      // Held open while loading: nothing else watches this auto-disposing
+      // provider here, so a plain read could dispose it before it completes.
+      final subscription = ref.listen(
+        roadmapTodayProvider(focus.exam!.id).future,
+        (_, __) {},
+      );
+      final RoadmapToday today;
+      try {
+        today = await subscription.read();
+      } finally {
+        subscription.close();
+      }
       if (today.state == RoadmapState.needsAssessment ||
           today.state == RoadmapState.noContent) {
         return const NotificationPlanSnapshot.unavailable();
