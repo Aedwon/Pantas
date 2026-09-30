@@ -13,7 +13,7 @@ class QuizPreparationStamp {
     required this.topicExclusionToken,
     required this.ordering,
     required this.sessionLength,
-    required this.newCardCap,
+    required this.roadmapToken,
     required this.historyRevision,
     required this.sessionStateRevision,
     required this.localDay,
@@ -28,7 +28,7 @@ class QuizPreparationStamp {
   final String topicExclusionToken;
   final SessionOrdering ordering;
   final int sessionLength;
-  final int newCardCap;
+  final String roadmapToken;
   final String historyRevision;
   final String sessionStateRevision;
   final DateTime localDay;
@@ -55,7 +55,7 @@ class QuizPreparationStamp {
         other.topicExclusionToken == topicExclusionToken &&
         other.ordering == ordering &&
         other.sessionLength == sessionLength &&
-        other.newCardCap == newCardCap &&
+        other.roadmapToken == roadmapToken &&
         other.historyRevision == historyRevision &&
         other.sessionStateRevision == sessionStateRevision &&
         other.localDay == localDay &&
@@ -72,7 +72,7 @@ class QuizPreparationStamp {
         topicExclusionToken,
         ordering,
         sessionLength,
-        newCardCap,
+        roadmapToken,
         historyRevision,
         sessionStateRevision,
         localDay,

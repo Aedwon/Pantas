@@ -77,7 +77,7 @@ TodayQuizPreparer _preparer() => TodayQuizPreparer(
         topicExclusionToken: '',
         ordering: SessionOrdering.interleavedTail,
         sessionLength: 10,
-        newCardCap: 10,
+        roadmapToken: 'day|digest|0',
         historyRevision: 'history-1',
         sessionStateRevision: 'session-state-1',
         localDay: DateTime(2026, 9, 9),

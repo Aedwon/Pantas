@@ -34,7 +34,6 @@ void main() {
       QuizPreferences(
         sessionLength: sessionLength,
         ordering: ordering,
-        newCardCap: 10,
       );
 
   test('an empty backlog makes an empty plan', () {

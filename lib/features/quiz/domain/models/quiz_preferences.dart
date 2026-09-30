@@ -4,20 +4,12 @@ class QuizPreferences {
   QuizPreferences({
     required this.sessionLength,
     required this.ordering,
-    required this.newCardCap,
   }) {
     if (!_allowedSessionLengths.contains(sessionLength)) {
       throw ArgumentError.value(
         sessionLength,
         'sessionLength',
         'must be 5, 10, 20, or allDueSessionLength',
-      );
-    }
-    if (newCardCap < 0) {
-      throw ArgumentError.value(
-        newCardCap,
-        'newCardCap',
-        'cannot be negative',
       );
     }
   }
@@ -28,10 +20,8 @@ class QuizPreferences {
   static final defaults = QuizPreferences(
     sessionLength: 10,
     ordering: QuizOrdering.defaultOrdering,
-    newCardCap: 10,
   );
 
   final int sessionLength;
   final QuizOrdering ordering;
-  final int newCardCap;
 }

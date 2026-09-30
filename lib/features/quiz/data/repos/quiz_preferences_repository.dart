@@ -12,7 +12,6 @@ class QuizPreferencesRepository {
   /// Named for the boolean it used to be. The key is synced and already on
   /// devices, so it widened in place rather than being replaced.
   static const interleavedTodayKey = 'quiz_today_interleaved';
-  static const newCardCapKey = 'quiz_new_card_cap';
 
   final AppDatabase _db;
 
@@ -31,10 +30,6 @@ class QuizPreferencesRepository {
     return QuizPreferences(
       sessionLength: _readSessionLength(values[sessionLengthKey]),
       ordering: ordering,
-      newCardCap: _readNonNegativeInt(
-        values[newCardCapKey],
-        fallback: QuizPreferences.defaults.newCardCap,
-      ),
     );
   }
 
@@ -49,10 +44,6 @@ class QuizPreferencesRepository {
           key: SettingsPrefKeys.sessionOrdering,
           value: _sessionOrdering(preferences.ordering).storageValue,
         ),
-        AccountPrefsCompanion.insert(
-          key: newCardCapKey,
-          value: preferences.newCardCap.toString(),
-        ),
       ]);
     });
   }
@@ -63,12 +54,6 @@ class QuizPreferencesRepository {
       5 || 10 || 20 || QuizPreferences.allDueSessionLength => parsed!,
       _ => QuizPreferences.defaults.sessionLength,
     };
-  }
-
-  static int _readNonNegativeInt(String? value, {required int fallback}) {
-    final parsed = int.tryParse(value ?? '');
-    if (parsed == null || parsed < 0) return fallback;
-    return parsed;
   }
 
   static QuizOrdering _quizOrdering(SessionOrdering ordering) {

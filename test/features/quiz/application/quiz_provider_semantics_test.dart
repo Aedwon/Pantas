@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/features/quiz/application/quiz_launch_coordinator.dart';
@@ -22,9 +23,22 @@ void main() {
     examId: examId,
   );
 
-  test('same-day new-card intro mutation rebuilds cached Today preparation',
-      () async {
+  test('daily intro writes do not change cached Today preparation', () async {
     final db = inMemoryDatabase();
+    await AssessmentRepository(db)
+        .saveResult(examId, DateTime(2026, 9, 9), const []);
+    await db.into(db.accountPrefs).insertOnConflictUpdate(
+          AccountPrefsCompanion.insert(
+            key: SettingsPrefKeys.examDate,
+            value: '2026-09-10',
+          ),
+        );
+    await db.into(db.accountPrefs).insertOnConflictUpdate(
+          AccountPrefsCompanion.insert(
+            key: SettingsPrefKeys.examDatePrecision,
+            value: 'day',
+          ),
+        );
     final contentDb = inMemoryContentDatabase();
     addTearDown(db.close);
     addTearDown(contentDb.close);
@@ -55,13 +69,27 @@ void main() {
         );
     final second = await preparer.prepare(request);
 
-    expect(identical(first, second), isFalse);
-    expect(second.stamp.historyRevision, isNot(first.stamp.historyRevision));
-    expect(second.plan.freshCount, lessThan(first.plan.freshCount));
+    expect(identical(first, second), isTrue);
+    expect(second.stamp.historyRevision, first.stamp.historyRevision);
+    expect(second.plan.freshCount, first.plan.freshCount);
   });
 
   test('scope exclusion mutation rebuilds cached Today preparation', () async {
     final db = inMemoryDatabase();
+    await AssessmentRepository(db)
+        .saveResult(examId, DateTime(2026, 9, 9), const []);
+    await db.into(db.accountPrefs).insertOnConflictUpdate(
+          AccountPrefsCompanion.insert(
+            key: SettingsPrefKeys.examDate,
+            value: '2026-09-10',
+          ),
+        );
+    await db.into(db.accountPrefs).insertOnConflictUpdate(
+          AccountPrefsCompanion.insert(
+            key: SettingsPrefKeys.examDatePrecision,
+            value: 'day',
+          ),
+        );
     final contentDb = inMemoryContentDatabase();
     addTearDown(db.close);
     addTearDown(contentDb.close);
@@ -112,6 +140,20 @@ void main() {
   test('named-topic interleaved Today keeps the E05 70/30 composition',
       () async {
     final db = inMemoryDatabase();
+    await AssessmentRepository(db)
+        .saveResult(examId, DateTime(2026, 9, 9), const []);
+    await db.into(db.accountPrefs).insertOnConflictUpdate(
+          AccountPrefsCompanion.insert(
+            key: SettingsPrefKeys.examDate,
+            value: '2026-09-10',
+          ),
+        );
+    await db.into(db.accountPrefs).insertOnConflictUpdate(
+          AccountPrefsCompanion.insert(
+            key: SettingsPrefKeys.examDatePrecision,
+            value: 'day',
+          ),
+        );
     final contentDb = inMemoryContentDatabase();
     addTearDown(db.close);
     addTearDown(contentDb.close);
@@ -157,7 +199,7 @@ void main() {
         ..insert(
           db.accountPrefs,
           AccountPrefsCompanion.insert(
-            key: QuizPreferencesRepository.newCardCapKey,
+            key: 'quiz_new_card_cap',
             value: '30',
           ),
           mode: InsertMode.insertOrReplace,
@@ -195,6 +237,20 @@ void main() {
 
   test('named-topic blocked Today stays inside the requested topic', () async {
     final db = inMemoryDatabase();
+    await AssessmentRepository(db)
+        .saveResult(examId, DateTime(2026, 9, 9), const []);
+    await db.into(db.accountPrefs).insertOnConflictUpdate(
+          AccountPrefsCompanion.insert(
+            key: SettingsPrefKeys.examDate,
+            value: '2026-09-10',
+          ),
+        );
+    await db.into(db.accountPrefs).insertOnConflictUpdate(
+          AccountPrefsCompanion.insert(
+            key: SettingsPrefKeys.examDatePrecision,
+            value: 'day',
+          ),
+        );
     final contentDb = inMemoryContentDatabase();
     addTearDown(db.close);
     addTearDown(contentDb.close);
@@ -233,7 +289,7 @@ void main() {
         ..insert(
           db.accountPrefs,
           AccountPrefsCompanion.insert(
-            key: QuizPreferencesRepository.newCardCapKey,
+            key: 'quiz_new_card_cap',
             value: '20',
           ),
           mode: InsertMode.insertOrReplace,
@@ -266,6 +322,20 @@ void main() {
   test('prepared Today launch persists actual launch time, not preparedAt',
       () async {
     final db = inMemoryDatabase();
+    await AssessmentRepository(db)
+        .saveResult(examId, DateTime(2026, 9, 9), const []);
+    await db.into(db.accountPrefs).insertOnConflictUpdate(
+          AccountPrefsCompanion.insert(
+            key: SettingsPrefKeys.examDate,
+            value: '2026-09-10',
+          ),
+        );
+    await db.into(db.accountPrefs).insertOnConflictUpdate(
+          AccountPrefsCompanion.insert(
+            key: SettingsPrefKeys.examDatePrecision,
+            value: 'day',
+          ),
+        );
     final contentDb = inMemoryContentDatabase();
     addTearDown(db.close);
     addTearDown(contentDb.close);
@@ -308,6 +378,20 @@ void main() {
       'Settings ordering beats conflicting legacy value through one persisted '
       'Today launch', () async {
     final db = inMemoryDatabase();
+    await AssessmentRepository(db)
+        .saveResult(examId, DateTime(2026, 9, 9), const []);
+    await db.into(db.accountPrefs).insertOnConflictUpdate(
+          AccountPrefsCompanion.insert(
+            key: SettingsPrefKeys.examDate,
+            value: '2026-09-10',
+          ),
+        );
+    await db.into(db.accountPrefs).insertOnConflictUpdate(
+          AccountPrefsCompanion.insert(
+            key: SettingsPrefKeys.examDatePrecision,
+            value: 'day',
+          ),
+        );
     final contentDb = inMemoryContentDatabase();
     addTearDown(db.close);
     addTearDown(contentDb.close);

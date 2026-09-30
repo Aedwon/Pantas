@@ -64,7 +64,6 @@ void main() {
       preferences: QuizPreferences(
         sessionLength: 10,
         ordering: QuizOrdering.blocked,
-        newCardCap: 10,
       ),
       now: DateTime.utc(2026, 5, 18),
     );
@@ -110,7 +109,6 @@ void main() {
       preferences: QuizPreferences(
         sessionLength: 5,
         ordering: QuizOrdering.interleavedTail,
-        newCardCap: 10,
       ),
       now: DateTime.utc(2026, 5, 18),
     );
@@ -245,7 +243,6 @@ void main() {
       preferences: QuizPreferences(
         sessionLength: 10,
         ordering: QuizOrdering.interleavedTail,
-        newCardCap: 10,
       ),
       now: DateTime.utc(2026, 8, 2),
       plan: plan,

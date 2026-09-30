@@ -3,11 +3,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
+import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
+import 'package:pantas/features/settings/data/settings_repository.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
@@ -16,8 +18,12 @@ void main() {
   late ContentDatabase contentDb;
   late ProviderContainer container;
 
-  setUp(() {
+  setUp(() async {
     db = inMemoryDatabase();
+    await DriftSettingsRepository(db).updateExamDate(
+      ExamDate.onDay(DateTime.now().add(const Duration(days: 1))),
+      today: DateTime.now(),
+    );
     contentDb = openTestContentDatabase();
     container = ProviderContainer(
       overrides: [

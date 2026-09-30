@@ -6,11 +6,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/presentation/quiz_tab_home.dart';
+import 'package:pantas/features/settings/data/settings_repository.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
@@ -44,6 +46,10 @@ void main() {
 
   setUp(() async {
     db = inMemoryDatabase();
+    await DriftSettingsRepository(db).updateExamDate(
+      ExamDate.onDay(DateTime.now().add(const Duration(days: 1))),
+      today: DateTime.now(),
+    );
     contentDb = openTestContentDatabase();
     await seedContentExam(
       contentDb,

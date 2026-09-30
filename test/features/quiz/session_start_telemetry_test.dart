@@ -28,7 +28,6 @@ void main() {
       preferences: QuizPreferences(
         ordering: QuizOrdering.blocked,
         sessionLength: 10,
-        newCardCap: 20,
       ),
       now: DateTime(2026, 8, 4),
       topicId: 't1',

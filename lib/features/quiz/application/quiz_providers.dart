@@ -37,6 +37,11 @@ import 'package:pantas/features/quiz/domain/use_cases/start_quick_quiz.dart';
 import 'package:pantas/features/quiz/domain/use_cases/start_retake.dart';
 import 'package:pantas/features/quiz/domain/use_cases/start_today_session.dart';
 import 'package:pantas/features/quiz/domain/use_cases/submit_answer.dart';
+import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
+import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
+import 'package:pantas/features/roadmap/domain/roadmap.dart';
+import 'package:pantas/features/roadmap/domain/roadmap_inputs.dart';
+import 'package:pantas/features/roadmap/domain/sitting_planner.dart';
 import 'package:pantas/features/settings/domain/session_ordering.dart';
 
 /// The local durable quiz identity. All local Today launch owners use this
@@ -187,7 +192,6 @@ final quizLaunchCoordinatorProvider = Provider<QuizLaunchCoordinator>((ref) {
       final preferences = QuizPreferences(
         sessionLength: stamp.sessionLength,
         ordering: _quizOrdering(stamp.ordering),
-        newCardCap: stamp.newCardCap,
       );
       if (!canPersist()) return null;
       return ref.read(quizPerformanceProbeProvider).measureAsync(
@@ -246,17 +250,87 @@ Future<TodaySessionPlan> _buildTodayPlan(
   final topics = scope.topics;
   if (topics.isEmpty) return TodaySessionPlan.empty;
 
+  if (request.topicId == null) {
+    final today =
+        await ref.read(roadmapControllerProvider).today(request.examId);
+    if (today.state == RoadmapState.needsAssessment ||
+        today.state == RoadmapState.noContent ||
+        today.remaining.questionCount == 0) {
+      return TodaySessionPlan.empty;
+    }
+    final topicIds = [for (final topic in topics) topic.id];
+    final metadata = await probe.measureAsync(
+      QuizPerformancePhase.metadataRead,
+      () async => (
+        questions: await content.selectionRowsByTopics(topicIds),
+        lessons: await content.lessonMetaByTopics(topicIds),
+      ),
+    );
+    final db = ref.read(appDatabaseProvider);
+    final history = await probe.measureAsync(
+      QuizPerformancePhase.historyRead,
+      () async => (
+        preferences: await ref.read(quizPreferencesRepositoryProvider).read(),
+        lessons: await db.select(db.lessonProgressLocal).get(),
+      ),
+    );
+    final ids = probe.measureSync(
+      QuizPerformancePhase.selection,
+      () => SittingPlanner.next(
+        remaining: today.remaining,
+        knownLessonIds: {
+          for (final lessons in metadata.lessons.values)
+            for (final lesson in lessons) lesson.id,
+        },
+        readLessonIds: {for (final lesson in history.lessons) lesson.lessonId},
+        questionsById: {
+          for (final rows in metadata.questions.values)
+            for (final row in rows)
+              row.id: RoadmapQuestion(
+                id: row.id,
+                topicId: row.topicId,
+                lessonId: row.lessonId,
+                passageId: row.passageId,
+              ),
+        },
+        sessionLength: history.preferences.sessionLength,
+        ordering: history.preferences.ordering,
+        vocabularyTopicId: 'topic_upcat_vocabulary',
+        rankedTopics: today.snapshot.topicOrder,
+      ),
+    );
+    if (ids.isEmpty) return TodaySessionPlan.empty;
+    final questions = await probe.measureAsync(
+      QuizPerformancePhase.hydration,
+      () => content.hydrateSelectedQuestions(ids),
+    );
+    if (questions.isEmpty) return TodaySessionPlan.empty;
+    final dueIds = today.remaining.reviewQuestionIds.toSet();
+    final newIds = today.remaining.newQuestionIds.toSet();
+    final topicId = questions.first.topicId;
+    return TodaySessionPlan(
+      questions: questions,
+      dueCount: questions.where((q) => dueIds.contains(q.id)).length,
+      freshCount: questions.where((q) => newIds.contains(q.id)).length,
+      weaknessCount: 0,
+      topicId: topicId,
+      topicName: topics.firstWhere((topic) => topic.id == topicId).name,
+    );
+  }
+
   final questionsByTopic = await probe.measureAsync(
     QuizPerformancePhase.metadataRead,
     () async {
-      final result = <TopicId, List<Question>>{};
-      for (final topic in topics) {
-        final rows = await content.selectionRowsByTopic(topic.id);
-        result[topic.id] = [
-          for (final row in rows) _selectionQuestion(row, request.examId),
-        ];
-      }
-      return result;
+      final rows = await content.selectionRowsByTopics(
+        [for (final topic in topics) topic.id],
+      );
+      return <TopicId, List<Question>>{
+        for (final entry in rows.entries)
+          entry.key: [
+            for (final row in entry.value)
+              _selectionQuestion(row, request.examId),
+          ],
+      };
     },
   );
   final questionsById = <QuestionId, Question>{
@@ -275,28 +349,17 @@ Future<TodaySessionPlan> _buildTodayPlan(
               );
       final preferences =
           await ref.read(quizPreferencesRepositoryProvider).read();
-      final introduced =
-          await ref.read(newCardIntroRepositoryProvider).countForDay(
-                userId: request.userId,
-                examId: request.examId,
-                day: now,
-              );
       return (
         states: states,
         outcomes: outcomes,
         preferences: preferences,
-        introduced: introduced,
       );
     },
   );
   final states = historyInputs.states;
   final outcomes = historyInputs.outcomes;
   final preferences = historyInputs.preferences;
-  final introduced = historyInputs.introduced;
-  final capRemaining =
-      (preferences.newCardCap - introduced).clamp(0, preferences.newCardCap);
-
-  var sharedCapRemaining = capRemaining;
+  final seenIds = {for (final state in states) state.questionId};
   final backlogByTopic = <TopicId, TopicBacklog>{};
   for (final topic in topics) {
     final backlog = CountTodayBacklog.forTopic(
@@ -305,12 +368,17 @@ Future<TodaySessionPlan> _buildTodayPlan(
       states: states,
       questionsById: questionsById,
       outcomes: outcomes,
-      capRemaining: sharedCapRemaining,
+      capRemaining:
+          preferences.sessionLength == QuizPreferences.allDueSessionLength
+              ? (questionsByTopic[topic.id] ?? const [])
+                  .where(
+                    (question) => !seenIds.contains(question.id),
+                  )
+                  .length
+              : preferences.sessionLength,
       now: now,
     );
     backlogByTopic[topic.id] = backlog;
-    sharedCapRemaining =
-        (sharedCapRemaining - backlog.fresh.length).clamp(0, capRemaining);
   }
 
   final queue = BuildTodayQueue.call(
@@ -407,13 +475,13 @@ Future<QuizPreparationStamp> _readPreparationStamp(
   final questionIds = await probe.measureAsync(
     QuizPerformancePhase.metadataRead,
     () async {
-      final ids = <QuestionId>{};
-      for (final topic in scope.topics) {
-        for (final row in await content.selectionRowsByTopic(topic.id)) {
-          ids.add(row.id);
-        }
-      }
-      return ids;
+      final rows = await content.selectionRowsByTopics(
+        [for (final topic in scope.topics) topic.id],
+      );
+      return {
+        for (final topicRows in rows.values)
+          for (final row in topicRows) row.id,
+      };
     },
   );
 
@@ -428,17 +496,19 @@ Future<QuizPreparationStamp> _readPreparationStamp(
                 examId: request.examId,
                 now: now,
               );
-      final introduced =
-          await ref.read(newCardIntroRepositoryProvider).countForDay(
-                userId: request.userId,
-                examId: request.examId,
-                day: now,
-              );
+      final db = ref.read(appDatabaseProvider);
+      final readLessonIds = (request.topicId == null
+          ? [
+              for (final row in await db.select(db.lessonProgressLocal).get())
+                row.lessonId,
+            ]
+          : <LessonId>[])
+        ..sort();
       return (
         preferences: preferences,
         states: states,
         outcomes: outcomes,
-        introduced: introduced,
+        readLessonIds: readLessonIds,
       );
     },
   );
@@ -450,7 +520,6 @@ Future<QuizPreparationStamp> _readPreparationStamp(
   ]..sort((a, b) => a.questionId.compareTo(b.questionId));
   final outcomes = historyInputs.outcomes;
   final outcomeIds = outcomes.keys.where(questionIds.contains).toList()..sort();
-  final introduced = historyInputs.introduced;
 
   final history = StringBuffer();
   for (final state in relevantStates) {
@@ -484,10 +553,15 @@ Future<QuizPreparationStamp> _readPreparationStamp(
       ..write(outcome.correct)
       ..write(';');
   }
-  history
-    ..write('new-card-intros=')
-    ..write(introduced)
-    ..write(';');
+
+  // Reading a planned lesson can change which new questions enter the sitting.
+  // Keep cached preparation fresh even when the day's snapshot stays fixed.
+  for (final id in historyInputs.readLessonIds) {
+    history
+      ..write('read-lesson=')
+      ..write(id)
+      ..write(';');
+  }
 
   DateTime? nextDueExpiry;
   for (final state in relevantStates) {
@@ -514,6 +588,9 @@ Future<QuizPreparationStamp> _readPreparationStamp(
   final scopeIds = scope.topics.map((topic) => topic.id).toList()..sort();
   final excludedIds = scope.excluded.toList()..sort();
 
+  final roadmap =
+      await ref.read(roadmapControllerProvider).today(request.examId);
+
   return QuizPreparationStamp(
     contentRevision: installedContentRevision ?? contentSeedVersion,
     accountLifetimeToken: '${_authToken(authState)}:$accountLifetimeGeneration',
@@ -523,7 +600,9 @@ Future<QuizPreparationStamp> _readPreparationStamp(
     topicExclusionToken: excludedIds.join('|'),
     ordering: _sessionOrdering(preferences.ordering),
     sessionLength: preferences.sessionLength,
-    newCardCap: preferences.newCardCap,
+    roadmapToken: '${dayKey(roadmap.snapshot.day)}|'
+        '${roadmap.snapshot.digest.encode()}|'
+        '${roadmap.snapshot.plan.advancedIds.length}',
     historyRevision: history.toString(),
     sessionStateRevision: sessionRevision,
     localDay: day,

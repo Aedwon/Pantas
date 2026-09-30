@@ -1,11 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
+import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/quiz/application/quiz_launch_coordinator.dart';
 import 'package:pantas/features/quiz/application/quiz_performance_probe.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
+import 'package:pantas/features/settings/data/settings_repository.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
@@ -13,6 +16,12 @@ void main() {
   test('Today prepare and launch expose only fixed performance phases',
       () async {
     final db = inMemoryDatabase();
+    await AssessmentRepository(db)
+        .saveResult('exam_cse_pro', DateTime(2026, 9, 10), const []);
+    await DriftSettingsRepository(db).updateExamDate(
+      ExamDate.onDay(DateTime(2026, 9, 11)),
+      today: DateTime(2026, 9, 10),
+    );
     final contentDb = inMemoryContentDatabase();
     addTearDown(db.close);
     addTearDown(contentDb.close);

@@ -8,8 +8,7 @@ import 'package:pantas/features/settings/data/settings_repository.dart';
 import '../../../helpers/in_memory_database.dart';
 
 void main() {
-  test('default quiz preferences are length 10 interleaved tail newCardCap 10',
-      () async {
+  test('default quiz preferences are length 10 and interleaved tail', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
 
@@ -17,7 +16,6 @@ void main() {
 
     expect(prefs.sessionLength, 10);
     expect(prefs.ordering, QuizOrdering.interleavedTail);
-    expect(prefs.newCardCap, 10);
   });
 
   test('sessionLength accepts 5 10 20 and all-due sentinel', () {
@@ -25,7 +23,6 @@ void main() {
       () => QuizPreferences(
         sessionLength: 5,
         ordering: QuizOrdering.blocked,
-        newCardCap: 10,
       ),
       returnsNormally,
     );
@@ -33,7 +30,6 @@ void main() {
       () => QuizPreferences(
         sessionLength: 10,
         ordering: QuizOrdering.blocked,
-        newCardCap: 10,
       ),
       returnsNormally,
     );
@@ -41,7 +37,6 @@ void main() {
       () => QuizPreferences(
         sessionLength: 20,
         ordering: QuizOrdering.blocked,
-        newCardCap: 10,
       ),
       returnsNormally,
     );
@@ -49,7 +44,6 @@ void main() {
       () => QuizPreferences(
         sessionLength: QuizPreferences.allDueSessionLength,
         ordering: QuizOrdering.blocked,
-        newCardCap: 10,
       ),
       returnsNormally,
     );
@@ -57,7 +51,6 @@ void main() {
       () => QuizPreferences(
         sessionLength: 7,
         ordering: QuizOrdering.blocked,
-        newCardCap: 10,
       ),
       throwsArgumentError,
     );
@@ -71,7 +64,6 @@ void main() {
       QuizPreferences(
         sessionLength: 20,
         ordering: QuizOrdering.interleavedTail,
-        newCardCap: 5,
       ),
     );
 
@@ -83,7 +75,6 @@ void main() {
       {
         QuizPreferencesRepository.sessionLengthKey: '20',
         SettingsPrefKeys.sessionOrdering: 'interleavedTail',
-        QuizPreferencesRepository.newCardCapKey: '5',
       },
     );
     expect(deviceRows, isEmpty);
@@ -107,7 +98,7 @@ void main() {
         );
     await db.into(db.accountPrefs).insertOnConflictUpdate(
           AccountPrefsCompanion.insert(
-            key: QuizPreferencesRepository.newCardCapKey,
+            key: 'quiz_new_card_cap',
             value: 'nope',
           ),
         );
@@ -116,7 +107,28 @@ void main() {
 
     expect(prefs.sessionLength, 10);
     expect(prefs.ordering, QuizOrdering.interleavedTail);
-    expect(prefs.newCardCap, 10);
+  });
+
+  test('saving leaves the legacy cap key unchanged and never creates it',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = QuizPreferencesRepository(db);
+    await repo.save(QuizPreferences.defaults);
+    expect(
+      (await db.select(db.accountPrefs).get()).map((row) => row.key),
+      isNot(contains('quiz_new_card_cap')),
+    );
+    await db.into(db.accountPrefs).insertOnConflictUpdate(
+          AccountPrefsCompanion.insert(key: 'quiz_new_card_cap', value: '0'),
+        );
+    await repo.save(QuizPreferences.defaults);
+    final rows = await db.select(db.accountPrefs).get();
+    expect(
+      rows.singleWhere((row) => row.key == 'quiz_new_card_cap').value,
+      '0',
+    );
+    expect((await repo.read()).sessionLength, 10);
   });
 
   test('explicit Settings ordering wins disagreement with legacy quiz key',
