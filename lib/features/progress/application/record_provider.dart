@@ -52,11 +52,7 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
   final db = ref.watch(appDatabaseProvider);
   final now = ref.watch(recordNowProvider) ?? DateTime.now();
 
-  // Mock answers are also recorded as attempts; this screen already counts
-  // mocks from their own table, so skip those rows rather than count twice.
-  final attemptsRows = await (db.select(db.attemptsLocal)
-        ..where((a) => a.origin.isNotIn(AttemptOrigins.mirrored.toList())))
-      .get();
+  final allAttemptsRows = await db.select(db.attemptsLocal).get();
   final lessonProgressRows = await db.select(db.lessonProgressLocal).get();
   final streakRow = await (db.select(db.streakLocal)
         ..where((s) => s.id.equals(1)))
@@ -64,6 +60,15 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
   final mockAttemptsRows = await (db.select(db.mockAttempts)
         ..where((m) => m.status.equals('completed')))
       .get();
+  // Skip a mirrored answer only when its completed mock is counted below.
+  final countedMockIds = mockAttemptsRows.map((m) => m.id).toSet();
+  final attemptsRows = allAttemptsRows
+      .where(
+        (a) =>
+            !AttemptOrigins.mirrored.contains(a.origin) ||
+            !countedMockIds.contains(a.id),
+      )
+      .toList();
 
   // 1. First activity date for weeksIn
   DateTime? earliestDate;

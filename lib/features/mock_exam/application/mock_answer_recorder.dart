@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:pantas/core/fsrs/fsrs_scheduler.dart';
 import 'package:pantas/core/fsrs/rating.dart';
 import 'package:pantas/core/storage/data/repos/attempts_repository.dart';
@@ -41,6 +43,7 @@ class MockAnswerRecorder {
   final ContentRepository _content;
   final FsrsScheduler _scheduler;
   final MockPayloadReader _payloadReader;
+  final _inFlight = <String, Future<bool>>{};
 
   /// Records one mock. Returns true when this call wrote the answers.
   Future<bool> record(String mockAttemptId) async {
@@ -61,14 +64,27 @@ class MockAnswerRecorder {
   }
 
   Future<bool> _record(MockAttempt mock) async {
+    final pending = _inFlight[mock.id];
+    if (pending != null) {
+      await pending;
+      return false;
+    }
+    final recording = _writeRecord(mock);
+    _inFlight[mock.id] = recording;
+    try {
+      return await recording;
+    } finally {
+      unawaited(_inFlight.remove(mock.id));
+    }
+  }
+
+  Future<bool> _writeRecord(MockAttempt mock) async {
     final submittedAt = mock.submittedAt;
     if (submittedAt == null) return false;
     if (mock.status != MockAttemptStatus.completed &&
         mock.status != MockAttemptStatus.forfeited) {
       return false;
     }
-    if (await _attempts.byId(mock.id) != null) return false;
-
     final payload = _payloadReader.read(
       sampledQuestionsJson: mock.sampledQuestionsJson,
       answersJson: mock.answersJson,
@@ -117,9 +133,14 @@ class MockAnswerRecorder {
       origin: AttemptOrigins.mock,
       items: items,
     );
+    if (await _attempts.byId(mock.id) != null) return false;
     await _attempts.saveAtomically<void>(attempt, () async {
       for (final entry in ratings) {
         final existing = await _reviews.byQuestionId(entry.questionId);
+        // Historical answers count, but cannot overwrite a later review.
+        if (existing != null && existing.lastReview.isAfter(submittedAt)) {
+          continue;
+        }
         final prev = existing ??
             ReviewState.seed(
               questionId: entry.questionId,

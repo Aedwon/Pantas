@@ -290,6 +290,60 @@ void main() {
     expect(record.questionsAnswered, 21);
   });
 
+  test('a forfeited mock counts its one recorded answer', () async {
+    final taken = DateTime(2026, 9);
+    await db.into(db.mockAttempts).insert(
+          MockAttemptsCompanion.insert(
+            id: 'mock_1',
+            userId: 'local',
+            examId: 'exam_upcat',
+            blueprintId: 'bp_1',
+            blueprintName: 'Full UPCAT Simulation',
+            durationMinutes: 120,
+            status: 'forfeited',
+            strictMode: true,
+            sampledQuestionsJson: jsonEncode([]),
+            answersJson: Value(
+              jsonEncode({
+                'q1': {'selectedIndex': 0, 'atSec': 30},
+              }),
+            ),
+            startedAt: taken,
+            lastFlushedAt: taken,
+            submittedAt: Value(taken.add(const Duration(minutes: 1))),
+            updatedAt: taken,
+          ),
+        );
+    await db.into(db.attemptsLocal).insert(
+          AttemptsLocalCompanion.insert(
+            id: 'mock_1',
+            examId: 'exam_upcat',
+            origin: const Value('mock'),
+            startedAt: taken,
+            completedAt: Value(taken.add(const Duration(minutes: 1))),
+            itemsJson: jsonEncode([
+              {
+                'questionId': 'q1',
+                'questionVersion': 1,
+                'chosenChoiceId': 'c1',
+                'correctChoiceId': 'c2',
+                'responseMs': 0,
+              },
+            ]),
+          ),
+        );
+    container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+      ],
+    );
+
+    final record = await container.read(recordProvider.future);
+
+    expect(record.questionsAnswered, 1);
+    expect(record.mocks, isEmpty);
+  });
+
   test('recorded mock answers are not counted twice', () async {
     final taken = DateTime(2026, 7, 12);
     await db.into(db.mockAttempts).insert(

@@ -79,7 +79,8 @@ void main() {
     required Map<String, int> answers,
     DateTime? submitted,
   }) async {
-    final started = DateTime.utc(2026, 12, 1, 8);
+    final started =
+        (submitted ?? submittedAt).subtract(const Duration(hours: 1));
     await db.into(db.mockAttempts).insert(
           MockAttemptsCompanion.insert(
             id: id,
@@ -153,6 +154,76 @@ void main() {
     final second = (await reviews.byQuestionId('q2'))!;
     expect(second.reps, first.reps);
     expect(second.due, first.due);
+  });
+
+  test('concurrent record calls apply a mock rating once', () async {
+    await insertMock(
+      id: 'm1',
+      status: MockAttemptStatus.completed,
+      submitted: submittedAt,
+      answers: {'q1': await indexOf('q1', correct: true)},
+    );
+
+    final results = await Future.wait([
+      recorder.record('m1'),
+      recorder.record('m1'),
+    ]);
+
+    expect(results, unorderedEquals([true, false]));
+    expect((await reviews.byQuestionId('q1'))!.reps, 1);
+    expect((await attempts.byId('m1'))!.items, hasLength(1));
+  });
+
+  test('concurrent record and reconcile apply a mock rating once', () async {
+    await insertMock(
+      id: 'm1',
+      status: MockAttemptStatus.completed,
+      submitted: submittedAt,
+      answers: {'q1': await indexOf('q1', correct: true)},
+    );
+
+    final results = await Future.wait([
+      recorder.record('m1').then((recorded) => recorded ? 1 : 0),
+      recorder.reconcile('e1'),
+    ]);
+
+    expect(results, unorderedEquals([1, 0]));
+    expect((await reviews.byQuestionId('q1'))!.reps, 1);
+  });
+
+  test('reconciling a September 1 miss preserves a September 30 review',
+      () async {
+    final lastReview = DateTime.utc(2026, 9, 30, 9);
+    await reviews.upsert(
+      ReviewState(
+        questionId: 'q2',
+        questionVersion: 1,
+        stage: ReviewStage.review,
+        stability: 10,
+        difficulty: 5,
+        due: DateTime.utc(2026, 10, 10, 9),
+        lastReview: lastReview,
+        reps: 3,
+        lapses: 1,
+        elapsedDays: 10,
+        scheduledDays: 10,
+      ),
+    );
+    final before = (await reviews.byQuestionId('q2'))!;
+    await insertMock(
+      id: 'm1',
+      status: MockAttemptStatus.completed,
+      submitted: DateTime.utc(2026, 9, 1, 9),
+      answers: {'q2': await indexOf('q2', correct: false)},
+    );
+
+    expect(await recorder.reconcile('e1'), 1);
+
+    expect(await reviews.byQuestionId('q2'), before);
+    final attempt = (await attempts.byId('m1'))!;
+    expect(attempt.items.single.questionId, 'q2');
+    expect(attempt.items.single.isCorrect, isFalse);
+    expect(attempt.completedAt, DateTime.utc(2026, 9, 1, 9));
   });
 
   test('a forfeited mock records the answers given', () async {
