@@ -110,7 +110,7 @@ Aedwon asked whether work done through E09 can be reused. It is, almost entirely
 | 8 Week preview, assembly, coverage property | 5, 6, 7 | Lead writes or reviews line by line | high |
 | 9 Change diff, advance, partial advance | 8 | Lead writes or reviews line by line | high |
 | 10 Schema 25, day and log repositories | 9 | Codex `gpt-6.1-sol` | high |
-| 11 Change log sync (Pro) | 10 | Codex `gpt-6.1-sol` | high |
+| 11 Change log sync (Pro) | DEFERRED 1 Oct 2026 (release cut); not in this build | n/a | n/a |
 | 12 Inputs reader and roadmap provider | 2, 3, 10 | Codex `gpt-6.1-sol` | high |
 | 13 Sitting planner | 8 | Codex `gpt-6.1-sol` | high |
 | 14 Today launch path on the roadmap | 12, 13 | Codex `gpt-6.1-sol`; lead reviews | high |
@@ -675,6 +675,10 @@ exactly as `ReviewLogRepository.insert` does; `Future<List<RoadmapChange>> recen
   log".
 
 ---
+
+> **Deferred on 1 October 2026** (release-first cut, decision log). The change log stays on the
+> device for every student in this build; Task 10's repository still records mutations so
+> sync can be switched on later without a migration. Do not dispatch Task 11.
 
 ### Task 11: Change log sync for Pro
 
