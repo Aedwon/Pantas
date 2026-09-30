@@ -94,7 +94,7 @@ abstract final class DaySelector {
       }
       // Anything no walk above reached: a lesson that is unknown, out of
       // scope, or in a topic missing from the ranking. Coverage promises
-      // every scoped question is seen in time, so none may be left behind.
+      // every scoped question is seen in time, so none may be skipped.
       final rankIndex = {
         for (var i = 0; i < rankedTopics.length; i++) rankedTopics[i]: i,
       };
