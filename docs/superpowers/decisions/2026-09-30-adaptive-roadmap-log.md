@@ -310,3 +310,27 @@ It did for pacing (tomorrow recomputes from what is left), but the spec would ha
 unfinished extras as missed work and could have left the day not done. **Fixed:** today is done
 when the original items are done; unfinished advanced items return to the pool and are logged as
 advanced with the count completed, never as missed.
+
+---
+
+## 30 September 2026: mock results feed reviews (reverses May D4)
+
+> "question, how does the results of a mock exam affect the roadmap?"
+
+Found from source: not at all. Mock answers live only in `mock_attempts`; they reach neither the
+review scheduler nor topic accuracy, and mock questions stay "unseen".
+
+> "there was a spec before that we didn't include mock results in the roadmap because it would
+> ruin the FSRS or something. can you investigate this?"
+
+`2026-05-17-mock-exam-design.md` D4 kept mocks summative-only so one mock would not dump 80 to
+120 misses into the review queue, and to avoid a "punishment for taking the mock" feel. No evidence
+was cited. The flood concern is now answered by the roadmap's backlog cap. Evidence (Rowland 2014;
+Butler and Roediger 2008) favors feedback and relearning after tests.
+
+> "yes it should be amended. so there was a way for that problem then? it was just missing a
+> higher mechanism (this roadmap engine) to consolidate things?"
+
+**Decision:** every terminal mock except a discarded one records its answered items as ordinary
+answers (reviews and topic accuracy), under the daily review cap. Amendments to the May mock spec
+and the Progress spec are listed in the roadmap spec, Part 2 Section 7.

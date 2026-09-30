@@ -100,6 +100,11 @@ Per the workflow rule adopted today, study mechanics follow evidence. Sources ar
 5. **One mock, 1 to 6 days before the exam**, on the first day of the review-only stretch that is
    no more than 6 days out, and never on the exam day itself. Free students' 14-day limit is respected. No mock is scheduled for an
    exam that has none.
+6. **Mock answers count like any other answer.** Every mock, scheduled or not, feeds the review
+   scheduler and topic scores. Missed mock questions come back as reviews, within the daily
+   review limit in item 3, so a mock cannot flood the days after it. Practice tests help most when
+   the student sees and relearns what they missed. This reverses the May mock spec, which kept mocks
+   out of reviews to avoid that flood before any daily limit existed.
 
 ## 6. Free and Pro
 
@@ -135,6 +140,12 @@ the history is lost. **This corrects what I told you earlier** (edge case 21).
 - **Free limit blocks the window:** the next allowed day in the window; if none, no mock.
 - **Mock already taken in the window:** no second one.
 - **Exam under 2 days away, or no mock exists for this exam:** none.
+- **Mock submitted with many misses:** the misses join the reviews due; today's review limit
+  still applies, most-likely-remembered first, and the rest follow on later days.
+- **Mock questions the student never answered** (time ran out): nothing is recorded for them; they
+  stay unseen.
+- **Discarded mock:** nothing is recorded. **Forfeited strict-mode mock:** the answers given are
+  recorded; unanswered ones are not.
 
 **Topics and content**
 - **Topics excluded or included mid-plan:** recompute at once. Excluded topics leave the plan
@@ -165,6 +176,7 @@ the history is lost. **This corrects what I told you earlier** (edge case 21).
   notifications about today's work.
 - **Removed:** the fixed 10 new questions a day; the unwired May plan code (pace curve, tolerance
   band, mastery inputs, the Light/Standard/Intense value); the planned "Do more each day" switch.
+- **Changed:** mock answers now feed reviews and topic scores, so Progress figures include them.
 - **Kept:** the review scheduler, topic accuracy, the exam date, topic exclusions, sitting length
   and mixing settings, the mock limit, streaks.
 - **Later, in the UI round:** the plan screen, the "today done" moment, progress figures, the log
@@ -378,6 +390,16 @@ descending retrievability at `today`. Expose retrievability from `FsrsScheduler`
   window; else none.
 - A mock submitted inside the window already: none.
 - Pro and Free compute the same day; Free is shown it only on the day (Section 5).
+- **Mock answers feed the pipeline (reverses May D4).** When a mock reaches a terminal status
+  `completed`, `timeUp` or `forfeited` (not `discarded`), each answered question in `answersJson`
+  is recorded exactly as a practice answer is: one `attempts_local` row with `origin = 'mock'`
+  holding those items, and each item rated and applied to its review state by the same code path
+  and correct-to-rating mapping practice uses, at `submittedAt`. Unanswered and retired questions
+  are skipped. Recording is idempotent per mock attempt id (a re-run after a crash must not
+  double-apply). Consequences, by design: answered mock questions stop being unseen; misses become
+  due soon and enter 4.5 under the 4.6 cap; topic accuracy includes mock answers; the recompute
+  trigger for answers (4.9) fires once after recording.
+- Mock time per section (Progress "Time") is unchanged; it still reads `mock_attempts`.
 
 ### 4.8 Sitting composition
 
@@ -467,6 +489,12 @@ Free and Pro: gate only at presentation, using the existing gate treatment
    reads the engine.
 6. `2026-07-28-quiz-tab-design.md`: today's session is sittings of the roadmap day; "caught up"
    is "today's plan done" plus advance.
+7. `2026-05-17-mock-exam-design.md`: D4 ("Summative-only") and the non-goal "Feeding mock answers
+   into FSRS" are struck. Its rationale (80 to 120 misses flooding the queue) is answered by the
+   backlog cap (4.6), which did not exist then. The separate `mock_attempts` table stays; answers
+   are additionally recorded per 4.7. The "Practice these next" link stays.
+8. `2026-07-30-progress-tab-design.md`: accuracy and answer counts now include mock answers
+   (`origin = 'mock'`). Time still comes from mocks only.
 
 ## 8. Evidence cited
 
@@ -479,6 +507,10 @@ Free and Pro: gate only at presentation, using the existing gate treatment
   272 effects, 188 experiments: g = 0.51 vs restudy; one practice test beat several; 1 to 6 day
   lag g = 0.82 vs under a day g = 0.56.
 - Mock one week out changed intentions, not behavior: Phys. Rev. PER 19, 010130 (2023).
+- Feedback after testing: Rowland (2014), Psychological Bulletin 140(6), meta-analysis of the
+  testing effect: larger effects when tests are followed by feedback. Butler and Roediger (2008),
+  Memory and Cognition 36(3): feedback after multiple-choice tests raised later correct recall and
+  cut the lures students picked up from the test. Supports reviewing mock misses.
 - Interleaving: Brunmair and Richter (2019), Psychological Bulletin, g = 0.42 overall; mathematics
   0.34; words -0.39; expository texts no effect.
 - Early review gives less: FSRS models the stability gain as larger when retrievability is lower
@@ -496,6 +528,9 @@ Focused while building; full on completion (AGENTS.md).
   exclusions of a prerequisite, cycle defense; new-question priority and passage sets; backlog
   cap with 0, 1 and 7 history days; mock placement for Pro, Free cooldown in and out of window,
   no blueprint, taken already; advance; each log cause.
+- **Mock recording:** completed, timeUp and forfeited record answered items only; discarded
+  records nothing; a second run for the same attempt id changes nothing; 100 misses produce at
+  most `capacity` reviews the next day.
 - **Integration:** quiz tab Start draws sittings from the engine; completing items removes them;
   Home Up next equals `today.lessonIds`; scope change rebuilds; content revision change rebuilds;
   Free and Pro presentation gates.
