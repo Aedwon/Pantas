@@ -45,7 +45,7 @@ chain, so Physics would have forced four mathematics topics ahead of a weak Phys
 **Evidence and its strength:** cognitive load research supports teaching material that builds
 directly on earlier schemas after those schemas exist (Sweller, van Merriënboer and Paas 2019,
 Educational Psychology Review, "Cognitive Architecture and Instructional Design: 20 Years
-Later"); prior knowledge is among the strongest predictors of later learning (Simonsmeier,
+Later"); prior knowledge strongly predicts later performance, though much less the size of learning gains (Simonsmeier,
 Flaig, Deiglmayr, Schalk and Schneider 2022, Educational Psychologist, meta-analysis). No study
 decides these specific topic pairs; the calls apply the spec's approved rule, "only where a
 topic cannot be understood without the other", to the lesson evidence in the audit. The dropped
