@@ -51,7 +51,6 @@ import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
 import 'package:pantas/features/settings/presentation/pages/session_building_page.dart';
 import 'package:pantas/features/settings/presentation/pages/whats_included_page.dart';
 import 'package:pantas/features/settings/presentation/settings_home_page.dart';
-import 'package:pantas/features/study_plan/presentation/plan_page.dart';
 import 'package:pantas/features/wrapped/presentation/wrapped_reveal_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -251,10 +250,6 @@ List<RouteBase> buildAppRoutes(Ref ref) {
     GoRoute(
       path: '/notifications/rationale',
       builder: (_, __) => const PermissionRationalePage(),
-    ),
-    GoRoute(
-      path: '/plan',
-      builder: (_, __) => const PlanPage(),
     ),
     GoRoute(
       path: '/plan/dossier/:mockId',
