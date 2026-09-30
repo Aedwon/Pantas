@@ -457,3 +457,21 @@ this log refer to the pre-rewrite commits with the same subjects.
 **Build:** the E09 stop is lifted for the roadmap build only. All Codex tasks run on
 `gpt-6.1-sol` with high reasoning, overriding the plan's Luna rows. Device work (plan Task 18
 Step 6) still waits for Aedwon's go-ahead.
+
+---
+
+## 30 September 2026: Codex runs without a sandbox; lead orchestrates
+
+> "i authorize you to invoke --dangerously-skip-permissions to codex as needed. your role should
+> be an orchestrator/overseer"
+
+Codex's equivalent flag is `--dangerously-bypass-approvals-and-sandbox`; used from Task 3 on
+(Task 2 was already running in the sandbox). Reason it was needed: the sandbox blocked git's
+lock files, so Codex could not commit (Task 1 was committed by the lead after review, cb5c453e).
+Briefs still confine Codex to the roadmap worktree and forbid destructive commands, pushes,
+merges and deploys. The lead dispatches, reviews each result against the plan, and does not
+write implementation code.
+
+Finding from Task 1 (not fixed, outside the plan): the streak's gap count uses
+`Duration.inDays` between local midnights, which undercounts across a daylight-saving change.
+No effect in the Philippines, which has no daylight saving.
