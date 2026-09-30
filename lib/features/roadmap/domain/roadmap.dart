@@ -103,9 +103,19 @@ final class RoadmapDayCounts {
     required this.reviews,
   });
 
+  factory RoadmapDayCounts.fromJson(Map<String, Object?> json) =>
+      RoadmapDayCounts(
+        lessons: json['lessons']! as int,
+        newQuestions: json['new']! as int,
+        reviews: json['reviews']! as int,
+      );
+
   final int lessons;
   final int newQuestions;
   final int reviews;
+
+  Map<String, Object?> toJson() =>
+      {'lessons': lessons, 'new': newQuestions, 'reviews': reviews};
 
   @override
   bool operator ==(Object other) =>
