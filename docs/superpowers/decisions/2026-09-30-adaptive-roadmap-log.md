@@ -334,3 +334,20 @@ Butler and Roediger 2008) favors feedback and relearning after tests.
 **Decision:** every terminal mock except a discarded one records its answered items as ordinary
 answers (reviews and topic accuracy), under the daily review cap. Amendments to the May mock spec
 and the Progress spec are listed in the roadmap spec, Part 2 Section 7.
+
+---
+
+## 30 September 2026: weak topics wording and the scheduler's role
+
+> "\"No extra 'weak spot' drilling in the daily plan\" is this advisable? isn't the roadmap
+> supposed to surface your weak spots first? or am i misunderstanding"
+
+> "but FSRS is still being utilized here? can you explain to me their relationship/mechanism in
+> simple terms"
+
+> "okay make the necessary changes please"
+
+No change in behavior. Part 1 Section 5 item 1 renamed "Weak topics are handled by order and
+reviews, not an extra drill block" and rewritten to name both channels. Part 1 Section 4 gains a
+plain statement of the split: the scheduler decides when each answered question returns; the
+roadmap decides how much and in what order.

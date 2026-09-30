@@ -60,6 +60,15 @@ order, never the amount.
 
 ## 4. How a day is built
 
+**Two parts, two jobs.** The review scheduler (FSRS) handles questions the student has already
+answered: for each one it estimates when the student is about to forget it and marks it due then.
+A missed question comes back within a day or two; an easy one weeks later. The roadmap handles
+everything else: how much new material fits each day before the exam, which topics come first,
+how many due reviews fit today when there is a backlog, when the mock falls, and when new material
+stops. Each day the roadmap takes the scheduler's due list, adds the new material, and splits the
+day into sittings. The scheduler decides when each question returns; the roadmap decides how much
+and in what order.
+
 1. **Due reviews.** Questions the student has answered before that the review scheduler says are
    due. After an absence, see Section 5, item 3.
 2. **Lessons.** Lessons left divided by working days, rounded up.
@@ -85,10 +94,12 @@ topic order.
 
 Per the workflow rule adopted today, study mechanics follow evidence. Sources are in Part 2.
 
-1. **No extra "weak spot" drilling in the daily plan.** A wrong answer already brings the question
-   back soon through the review scheduler, and reviewing before a question is due gives less
-   benefit. Weak topics are served by coming first in the order. Free practice of weak topics
-   stays available.
+1. **Weak topics are handled by order and reviews, not an extra drill block.** Weak topics come
+   first for new lessons and questions, and every missed question comes back within a day or two
+   through the review scheduler. The plan does not add a third channel that re-asks answered,
+   not-yet-due questions from weak topics: reviewing before a question is due gives little
+   benefit and takes time from the reviews and new material the student needs. Free practice of
+   weak topics stays available outside the plan.
 2. **Strong topics are not dropped.** The scheduler only tracks questions already answered, so
    coverage brings a strong topic's unseen questions in; the scheduler then keeps them.
 3. **Backlog after an absence.** Today includes as many reviews as the student has actually done
