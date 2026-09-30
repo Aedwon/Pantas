@@ -351,3 +351,14 @@ No change in behavior. Part 1 Section 5 item 1 renamed "Weak topics are handled 
 reviews, not an extra drill block" and rewritten to name both channels. Part 1 Section 4 gains a
 plain statement of the split: the scheduler decides when each answered question returns; the
 roadmap decides how much and in what order.
+
+---
+
+## 30 September 2026: Part 1 approved
+
+> "Part 1 is approved. do I need to read Part 2?"
+
+Part 1 of `specs/2026-09-30-adaptive-roadmap-design.md` approved as of commit e4bc9511. Part 2 is
+the implementer's section; the one consequential item surfaced to Aedwon from it is that the
+prerequisite links drafted in the content audit need his or a reviewer's approval before merge.
+Complexity level pending.
