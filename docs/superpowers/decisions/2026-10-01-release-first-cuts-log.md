@@ -103,3 +103,43 @@ signature e0853df2...).
 
 Independent review (plan Task 18 Step 4) dispatched to Codex as a tier-2 reviewer that did not
 author the lead-written core. Device checks (Step 6) wait for Aedwon.
+
+---
+
+## Independent review and fixes, 1 October 2026 (about 03:30)
+
+Codex reviewed `13938943..88bebdfe` as a tier-2 reviewer (read only, probes in /tmp). Hand
+derivations matched the engine: 68 days, quiet 7, 61 working days, review only from 30 November,
+2 lessons and 15 new questions; 10 days gives quiet 2 and 8 working days; 4 days gives quiet 1 and
+3; the anchored cram case gives 2 lessons and 10 new questions; topic order A, C, B, D.
+
+Findings and resolution (all fixed test first; each new test failed before its fix):
+
+1. P1 historical mock overwrote a newer review (due date 2126 in the probe): a mock's rating is
+   no longer applied to a question reviewed after the mock (Codex, 670c9f15).
+2. P1 concurrent mock recording applied ratings twice: recording is serialized per mock id
+   (Codex, 670c9f15).
+3. P1 the plan loaded full question and lesson bodies through the Progress table to rank topics,
+   breaking the QLP-1 rule: topic scores are now counted from answer records and question
+   metadata (lead, 5d603e17).
+4. P1 stale topic scores for tomorrow's order: fixed by the same change (read fresh each build).
+5. P2 the plan on screen ignored lesson reads, exam date and scope changes, and recorded mocks: it
+   now watches settings and scope, and lesson reads and mock recording bump the plan revision
+   (lead, 5d603e17).
+6. P2 custom tracks never got their mock: the stored custom blueprint now counts (lead).
+7. P2 a review done the previous day was logged as missed work: the prior day is judged by
+   answers since it began (lead).
+8. P2 forfeited mock answers vanished from Your record: only rows of a counted completed mock
+   are skipped (Codex, 670c9f15).
+9. P3 scope: nine files changed without a plan file-table entry. Accepted as lead-authorized:
+   `mock_attempt_repo.dart` (terminal-mock query for reconcile), `session_debrief.dart` (new
+   origin in an exhaustive switch), `build_today_queue.dart` (cap removal, Task 14 lead note), the
+   three schema-pin tests (deliberate pins moved to 25; the sync schema test is a pin, not Task 11
+   work), and three quiz test fixtures that followed the stamp change.
+
+Gates at `670c9f15` (pushed): analyze only the accepted onReorder info; format 1,270 files
+unchanged; layering OK; attribution OK; full suite `-j 4` 3,222 of 3,222 passed.
+
+Remaining, all needing Aedwon: device checks (E09 functional #22 to #28 and the Redmi
+responsiveness smoke that replaced the QLP-5 gate), visual acceptance, then E10 onward per the
+SSOT. The UI round items stay deferred.
