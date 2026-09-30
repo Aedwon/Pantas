@@ -70,6 +70,13 @@ when requested. Resolve routine technical details within agreed constraints.
 Show enough of the whole design to explain a local choice. UI-affecting specs use
 the visual companion below during brainstorming, before spec approval.
 
+Decide learning and study-method questions from evidence, not from Aedwon's
+preference. This covers scheduling, spacing, review order, pacing, practice
+testing, and similar mechanics. Research high-quality sources, decide, and state
+the evidence, its strength, and its sources in the reply and the decision record.
+Ask him only when no clear evidence decides the question, and say so. How the app
+looks and feels remains his decision.
+
 Answer informational questions directly. A question alone does not approve a
 product change. Continue work already authorized in the conversation; do not
 reopen settled approvals because the user asked a follow-up question.
