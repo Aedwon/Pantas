@@ -18,8 +18,7 @@ built engine on branch `web/roadmap-engine-r1` (`lib/features/roadmap/`).
   later days lighter. No messages about it on the main surfaces.
 - Today stays put: once built it never reshuffles while they work. Items tick off as done.
 - Motivation comes from facts, not verdicts: today done, days in a row, how much of the material
-  is covered. Delight moments (completion animations, streak ticks, haptics) are welcome; the
-  words and numbers inside them follow Section 2.
+  is covered.
 
 ---
 
@@ -35,17 +34,6 @@ built engine on branch `web/roadmap-engine-r1` (`lib/features/roadmap/`).
   "questions"), "marks" (use "points").
 - Simple English, short sentences, American spelling, no em dashes.
 
-### Visual direction: open
-
-The Ink and Rule identity (hairline rules, no rounded cards, no shadows, no tinted boxes) was
-abandoned by Aedwon on 1 October 2026 as too restrictive for the delight moments he wants. The
-UI round defines the new direction. His current samples point toward: rounded cards on a soft
-background, tinted right and wrong answer states, a single deep green primary action as a pill
-button, large numerals for results (score, streak), motion on completion (a check, a streak
-count ticking over, a "topic complete" stamp) and small interactions with haptics (press sink,
-flag pop, toggle overshoot, tab capsule slide). Source Sans 3 appears to remain. Design freely
-within the rules above.
-
 ### How a Pro gate behaves
 
 These are tier rules from the entitlement spec and stay:
@@ -56,9 +44,6 @@ These are tier rules from the entitlement spec and stay:
   before it.
 - Never a whole hidden panel, except "Why you miss questions" on Progress.
 - A Free student who opens a Pro-only route goes to the paywall, never a 404.
-
-How a gate looks is open for the UI round. The old treatment (faint bars where figures sit, no
-lock icons, no blur) belonged to Ink and Rule; keep it or replace it.
 
 ---
 
@@ -295,7 +280,7 @@ Pricing: Weekly ₱29, Monthly ₱99, Yearly ₱799 (Yearly trial 7 days). No li
 
 ## 9. Generic states every new or changed screen needs
 
-- **Loading:** the plan is built on the phone and loads fast; design the brief moment anyway.
+- **Loading:** the plan is built on the phone and loads fast; it still needs a loading state.
 - **Error:** the existing error banner; the plan is built on the phone, so errors are rare.
 - **Offline:** everything in the plan works offline. Only backup and purchases need a connection.
 - **First run:** before the assessment there is no plan.

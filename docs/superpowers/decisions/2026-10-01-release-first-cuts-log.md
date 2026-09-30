@@ -164,3 +164,9 @@ not 404). How a gate looks is now open.
 
 **Not yet changed:** `AGENTS.md` still states Ink and Rule and its banned list for every agent.
 Changing shared policy needs Aedwon's go-ahead on the wording; asked.
+
+> "no no do not include anything about the visual direction at all"
+
+**Revised:** the brief now says nothing about visual direction: no Ink and Rule, no description of
+the samples, no statement on how a gate looks. It keeps only content, states, surfaces, Free and
+Pro rules, and gate behavior. The AGENTS.md question is set aside.
