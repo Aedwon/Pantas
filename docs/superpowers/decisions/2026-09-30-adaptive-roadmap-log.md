@@ -387,3 +387,14 @@ buckets) only until a design ruling; the roadmap is that ruling. **Changed:** ro
 the preparer's plan-builder seam and the preparation stamp; inputs are metadata only; QLP-5
 budgets apply; prerequisite links move to an app-side map validated by a unit test, leaving the
 protected package unchanged (Part 1 Sections 8 and 9 reworded accordingly). Amendment 9 added.
+
+---
+
+## 30 September 2026: complexity level and reuse of E09 work
+
+> "go with balanced, but also work has been done until E09, that can be reused right? or maybe
+> not. i'll leave the judgement for engineering specifics to you"
+
+**Complexity: balanced** (as recommended: full spec, change log syncs for Pro, property tests for
+coverage, idempotent mock recording; about 1 week of build). Engineering specifics delegated to
+the lead. Reuse judgement recorded in the implementation plan.
