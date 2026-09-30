@@ -50,3 +50,29 @@ Flaig, Deiglmayr, Schalk and Schneider 2022, Educational Psychologist, meta-anal
 decides these specific topic pairs; the calls apply the spec's approved rule, "only where a
 topic cannot be understood without the other", to the lesson evidence in the audit. The dropped
 links keep weak topics first, which the spec's ordering already chose.
+
+---
+
+## Build progress and lead technical revisions, 1 October 2026
+
+> "write them yourself while codex resets but you can actually just drain codex lol"
+
+Codex reached its 5-hour limit (99% used, reset 01:32). Three dispatches had first hung waiting
+on stdin for up to 47 minutes (fixed: stdin closed in the dispatch script); relaunched, they hit
+the limit before writing anything. The lead wrote Tasks 6 fix, 8, 9, 10, 15 and 17 and the four
+prerequisite links, test first, with mutation checks on the key tests.
+
+1. **Anchored review-only start** (spec Part 2 Section 4.2 amended). Daily recomputation of the
+   quiet stretch shrank it near the exam; a student following the plan exactly got new material
+   until the day before the exam (simulated worst case: 7 days, the whole stretch). Fixed by
+   carrying the first plan's `reviewOnlyFrom` forward. The 200-seed coverage simulation fails
+   without the fix and passes with it.
+2. **Change log is not recorded for sync.** The plan said Task 10 would record sync mutations so
+   sync could be switched on later; the sync engine rejects unregistered collections, so with
+   Task 11 deferred that would break uploads. Plain local inserts instead; enabling sync later
+   needs a backfill.
+3. **Unscheduled questions.** Questions tagged to an out-of-scope or missing lesson were never
+   offered; a final tier now schedules them (Task 6 review finding).
+4. **Flaky under load:** `test/tool/content_export_roundtrip_test.dart` and
+   `content_seed_writer_test.dart` failed once each while several suites ran at once, and pass
+   alone and in a full rerun. Recorded, not fixed.

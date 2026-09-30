@@ -363,6 +363,15 @@ in scoped topics with no review state. New content inside the quiet stretch: if 
 and `unseenLeft > 0` or `lessonsLeft > 0` before `examDay`, schedule all of it today (coverage
 wins; Part 1 Section 7).
 
+**Anchored review-only start (technical revision, 1 October 2026).** `reviewOnlyFrom` is fixed by
+the first plan built for an exam and exam date and carried forward in the stored days; it is
+recomputed only when the exam or its date changes. From then on `workingDays = days from today
+to reviewOnlyFrom`. Reason: recomputing `quiet` daily shrinks the stretch as the exam nears (12
+days left gives 3, 4 gives 1), so a student following the plan exactly got new material until the
+day before the exam; a simulation showed up to 7 days of overrun. On or after `reviewOnlyFrom`
+with material left, it is spread over the days before the exam (`perDay(left, daysLeft)`), which
+is the "let them cram" rule. Part 1's promise (last 7 days or last quarter) is unchanged.
+
 **Worked checks the tests must include** (compute, do not copy):
 - Today Wed 30 Sep 2026, exam Mon 7 Dec 2026: daysLeft 68, quiet 7, workingDays 61, review only
   from Mon 30 Nov; 120 lessons → 2/day; 900 unseen → 15/day.

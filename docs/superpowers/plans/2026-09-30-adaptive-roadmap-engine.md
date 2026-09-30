@@ -736,6 +736,12 @@ Eligibility is the existing Named Pro rule; add no new eligibility logic. Mapper
   submitted attempt; `answeredPerActiveDay`.
 - Custom track: `examHasMock` is true when the custom track has a custom blueprint.
 
+**Anchor (added 1 October 2026):** pass `anchoredReviewOnlyFrom` = the stored prior day's
+`reviewOnlyFrom` when that day's digest has the same exam id and exam date; otherwise null. Store
+the built roadmap's `reviewOnlyFrom` in each new `DaySnapshot`. Also run
+`MockAnswerRecorder.reconcile(examId)` (Task 15, landed) before reading inputs, and count recorded
+mocks (attempt rows with origin `mock` for the exam) into the digest.
+
 **Provider behavior:**
 ```dart
 final roadmapProvider = FutureProvider.family<Roadmap, ExamId>(...);
