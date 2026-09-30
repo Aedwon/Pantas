@@ -181,8 +181,9 @@ the history is lost. **This corrects what I told you earlier** (edge case 21).
 
 ## 8. What changes in the app
 
-- **New:** the roadmap engine; a synced (Pro) change log; a prerequisite field on topics, filled
-  by a content audit with checks against loops and broken links.
+- **New:** the roadmap engine; a synced (Pro) change log; prerequisite links between topics,
+  kept in the app rather than the protected content package, filled by a content audit with checks
+  against loops and broken links.
 - **Rewired to the engine:** today's quiz session, Home's "Up next", the lesson reader's "2 of N",
   notifications about today's work.
 - **Removed:** the fixed 10 new questions a day; the unwired May plan code (pace curve, tolerance
@@ -197,7 +198,10 @@ the history is lost. **This corrects what I told you earlier** (edge case 21).
 
 This changes app code and content on the paused E09 candidate. **E09's functional and
 performance evidence has to be rerun on the new build**, as the Readiness SSOT requires for any
-source or content change. The content audit is short (25 topics).
+source or content change. The content audit is short (25 topics). Keeping the prerequisite links
+in the app leaves the frozen content identity unchanged, so the content-protection device proofs
+already accepted for E09 are not redone for this work. Today's session keeps the fast-start path
+built for E09, so its speed targets still apply.
 
 ## 10. How we will know it works
 
@@ -243,7 +247,8 @@ wins and the lead is told.
 | Mock availability | `mockAvailabilityProvider`: in progress, no blueprint, cooldown 14 days from last submitted (Free), available | Works. Only `content/mock/upcat.yaml` ships a blueprint; custom tracks have a custom mock |
 | Streak day | `StreakEvaluator._localDay`: local midnight | Works |
 | Sync | `lib/core/sync/mapping/*` mappers; Named Pro only (2026-08-28 sync spec) | Works |
-| Topic definitions | `tools/lesson_author/outline.json` → `tools/build_content_export` → `seed_writer` → protected package → `content_topics` (`id`, `subjectId`, `name`, `ordering`) | No prerequisite field |
+| Topic definitions | `tools/lesson_author/outline.json` → `tools/build_content_export` → `seed_writer` → protected package → `content_topics` (`id`, `subjectId`, `name`, `ordering`) | No prerequisite field; the package identity is frozen for E09 (releaseSequence 2) |
+| Today launch path (QLP-2 to QLP-4) | `TodayQuizPreparer` (`TodayPlanBuilder` seam, cache, in-flight dedupe), `QuizLaunchCoordinator`, `QuizPreparationStamp` (includes `newCardCap`, `localDay`, `nextDueExpiry`) | Works; measured in QLP-5 |
 
 **What is broken or missing:**
 
@@ -282,6 +287,24 @@ New feature `lib/features/roadmap/`. Pure domain core, thin application layer.
 - **Application:** `roadmapProvider(examId)` gathers inputs from the existing repositories and
   providers above, calls `BuildRoadmap`, persists the day snapshot on first build of a local day,
   and returns the persisted snapshot minus completed items for the rest of that day.
+- **Inputs are metadata only (QLP-1 rule).** Question inputs come from the lightweight selection
+  metadata (`content.selectionRowsByTopic` and the QLP-1 count/metadata queries): ids, `topicId`,
+  `lessonId`, `passageId`, active flag. Never hydrate stems, choices, explanations or figures to
+  build the roadmap; only the questions of the sitting being launched are hydrated, by the
+  existing batched path. No per-question queries; no unbounded `Future.wait`.
+- **Launch path (QLP-2 to QLP-4).** Today's sitting is launched through the existing
+  `TodayQuizPreparer` and `QuizLaunchCoordinator`, not a new path. Implement the preparer's
+  `TodayPlanBuilder` seam from the roadmap: it returns the next sitting from `SittingPlanner`
+  as the `TodaySessionPlan` the preparer and coordinator already consume. `QuizPreparationStamp`
+  drops `newCardCap` and gains a roadmap snapshot token (exam day, `day`, `inputsDigest`) so that
+  any roadmap rebuild (4.9) invalidates a stale prepared sitting through the existing freshness
+  check. Warm Start, single-session creation, resume by saved identity and order, cancellation and
+  the day-rollover and due-boundary invalidations all stay as QLP built them. Topic entry and
+  Resume are untouched.
+- **Budget.** The roadmap build is inside the first-recommendation timer. It must keep QLP-5's
+  targets (first recommendation p95 at most 1,000 ms; warm Start p95 at most 500 ms; prepared Next
+  p95 at most 100 ms) and not regress the recorded 8cbaaeea metrics. Build the day once per local
+  day and per trigger (4.9); later reads use the persisted snapshot.
 - **Sittings:** `SittingPlanner.split(DayPlan remaining, sessionLength, ordering)` returns the
   next sitting's question ids, applying 4.8. Reuse the existing pickers and `PassageSetFiller`;
   do not write new pickers.
@@ -465,19 +488,21 @@ Free and Pro: gate only at presentation, using the existing gate treatment
 
 ## 6. Content: prerequisite links
 
-- **Source:** `tools/lesson_author/outline.json`, each topic gains optional
-  `"prerequisites": ["<topic slug>", ...]`.
-- **Export:** `build_content_export.dart` maps slugs to `topic_upcat_<slug>` ids and writes
-  `prerequisites` on the topic document. `seed_writer.dart` adds column
-  `prerequisiteTopicIdsJson` (text, default `'[]'`) to `content_topics`. Topic domain model gains
-  `prerequisiteTopicIds`.
-- **Build validation (fail the build):** unknown slug; self link; any cycle. Warning only: link
-  across exams (allowed, the custom track spans exams).
+- **Location: in the app, not the protected content package.** A checked-in Dart constant
+  `lib/features/roadmap/data/topic_prerequisites.dart`: `Map<String, List<String>>` from topic id
+  to prerequisite topic ids (`topic_upcat_<slug>` form). Reason: adding a field to the protected
+  package changes the frozen E09 content identity (releaseSequence 2 payload, manifest and
+  signature) and forces the CP-T5 device proofs to be redone; an app-side map does not. The
+  engine reads it through a `TopicPrerequisites` provider so the source can move into content
+  later without engine changes.
+- **Validation (a unit test that fails CI):** every id exists in the shipped content topics; no
+  self link; no cycle. Link across exams is allowed (the custom track spans exams). Unknown ids
+  at runtime (content changed under an older app) are ignored and never block.
 - **The audit:** a bounded Codex task drafts links for all 25 topics with a one-line reason each,
-  mathematics and science first. Aedwon or a reviewer approves before merge. Links only where a
-  topic cannot be understood without the other; authored order within a subject is not a reason.
-- **Protected package:** the content digest changes. Follow the existing manifest chronology
-  (`releaseSequence` increment) and rerun the E09 content identity checks.
+  mathematics and science first, into the map and a reviewable table in the plan. Aedwon or a
+  reviewer approves before merge. Links only where a topic cannot be understood without the
+  other; authored order within a subject is not a reason.
+- **Protected package:** unchanged. No `releaseSequence` increment, no content digest change.
 
 ## 7. Amendments to other specs
 
@@ -506,6 +531,11 @@ Free and Pro: gate only at presentation, using the existing gate treatment
    are additionally recorded per 4.7. The "Practice these next" link stays.
 8. `2026-07-30-progress-tab-design.md`: accuracy and answer counts now include mock answers
    (`origin = 'mock'`). Time still comes from mocks only.
+9. `2026-09-06-quiz-loading-performance-design.md` and the Readiness SSOT QLP entries: QLP
+   preserved the existing selection policy (bucket accounting, the new-question cap) pending a
+   design ruling. This spec is that ruling: the roadmap replaces the cap and buckets on the Today
+   path. QLP's launch owner, preparation, freshness and performance rules stand and the roadmap
+   runs inside them (Part 2 Section 2). The interleaved-tail ordering stays the default (4.8).
 
 ## 8. Evidence cited
 
@@ -547,7 +577,13 @@ Focused while building; full on completion (AGENTS.md).
   Free and Pro presentation gates.
 - **Grep gates:** no `targetCount = 3`, no `newCardCap`, no `StudyPlanIntensity`, no
   `pace_curve`; no "behind", "ahead", "on track", "ready", "mastery" in roadmap strings.
-- **Content build:** cycle, self link and unknown slug each fail the build in tests.
+- **Prerequisite map:** cycle, self link and unknown topic id each fail a unit test; the content
+  digest and protected package identity are unchanged from E09.
+- **Launch path:** Today's Start goes through `TodayQuizPreparer` and `QuizLaunchCoordinator`;
+  a roadmap rebuild changes the stamp and invalidates the prepared sitting; the QLP-2 to QLP-4
+  regressions (single session on rapid taps, warm Start without reselection, resume identity,
+  late async results discarded) stay green. A query-count test proves the roadmap build reads no
+  stem, choice, explanation or figure payloads.
 - **Sync:** change log syncs for Named Pro and not for Free, in emulator tests.
 - `flutter analyze` clean; `flutter test` green; build_runner regenerated, never hand edited.
 - **Release:** E09 functional scenarios and QLP-5 device performance rerun on the new candidate

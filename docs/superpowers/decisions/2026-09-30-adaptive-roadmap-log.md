@@ -362,3 +362,28 @@ Part 1 of `specs/2026-09-30-adaptive-roadmap-design.md` approved as of commit e4
 the implementer's section; the one consequential item surfaced to Aedwon from it is that the
 prerequisite links drafted in the content audit need Aedwon's or a reviewer's approval before merge.
 Complexity level pending.
+
+---
+
+## 30 September 2026: reconciled with the Readiness SSOT checkpoint
+
+> "before that, you've checked the entire checkpoint tab of the google doc right? nothing you
+> haven't considered?"
+
+Mistake: the spec was called grounded before the whole Readiness tab was read; only keyword
+searches had been run. The full tab (900 lines) was then read. Three gaps found:
+
+1. The QLP work built one prepared launch path for Today (`TodayQuizPreparer`,
+   `QuizLaunchCoordinator`, `QuizPreparationStamp`); the spec did not say the roadmap must run
+   through it.
+2. QLP-1 forbids full-bank hydration; the spec only said "no regression".
+3. Prerequisites in the protected content package would change the frozen E09 content identity
+   and force the CP-T5 device proofs to be redone.
+
+> "okay update it. but hold on they're not going against what we design the roadmap to be right?"
+
+No conflict with the approved design. QLP had preserved the old selection policy (cap and
+buckets) only until a design ruling; the roadmap is that ruling. **Changed:** roadmap plugs into
+the preparer's plan-builder seam and the preparation stamp; inputs are metadata only; QLP-5
+budgets apply; prerequisite links move to an app-side map validated by a unit test, leaving the
+protected package unchanged (Part 1 Sections 8 and 9 reworded accordingly). Amendment 9 added.
