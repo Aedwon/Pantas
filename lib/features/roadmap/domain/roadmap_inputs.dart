@@ -166,6 +166,7 @@ final class RoadmapInputs {
     required this.mock,
     required this.assessmentCompleted,
     required this.contentRevision,
+    this.anchoredReviewOnlyFrom,
   })  : topics = List.unmodifiable(topics),
         prerequisites = Map.unmodifiable({
           for (final entry in prerequisites.entries)
@@ -193,6 +194,11 @@ final class RoadmapInputs {
   final bool assessmentCompleted;
   final String contentRevision;
 
+  /// The review-only start fixed by the first plan for this exam and exam
+  /// date, carried from the stored days. Null for a first plan, or after the
+  /// exam or its date changed.
+  final DateTime? anchoredReviewOnlyFrom;
+
   static const _equality = DeepCollectionEquality();
 
   @override
@@ -211,7 +217,8 @@ final class RoadmapInputs {
       _equality.equals(answeredPerActiveDay, other.answeredPerActiveDay) &&
       mock == other.mock &&
       assessmentCompleted == other.assessmentCompleted &&
-      contentRevision == other.contentRevision;
+      contentRevision == other.contentRevision &&
+      anchoredReviewOnlyFrom == other.anchoredReviewOnlyFrom;
 
   @override
   int get hashCode => Object.hash(

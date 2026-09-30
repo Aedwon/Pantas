@@ -84,6 +84,7 @@ final class DaySnapshot {
     required this.plan,
     required this.digest,
     required List<TopicId> topicOrderHead,
+    this.reviewOnlyFrom,
   }) : topicOrderHead = List.unmodifiable(topicOrderHead.take(3));
 
   factory DaySnapshot.fromJson(Map<String, Object?> json) {
@@ -99,6 +100,9 @@ final class DaySnapshot {
       ),
       digest: RoadmapDigest.parse(json['digest']! as String),
       topicOrderHead: (json['head']! as List).cast<String>(),
+      reviewOnlyFrom: json['reviewOnlyFrom'] == null
+          ? null
+          : _parseDay(json['reviewOnlyFrom']! as String),
     );
   }
 
@@ -107,6 +111,10 @@ final class DaySnapshot {
 
   /// The first three topics of the order the day was built with.
   final List<TopicId> topicOrderHead;
+
+  /// The review-only start this day was planned against, carried forward so
+  /// the stretch stays fixed while the exam and its date do not change.
+  final DateTime? reviewOnlyFrom;
 
   DateTime get day => plan.day;
 
@@ -121,6 +129,7 @@ final class DaySnapshot {
         },
         'digest': digest.encode(),
         'head': topicOrderHead,
+        if (reviewOnlyFrom != null) 'reviewOnlyFrom': dayKey(reviewOnlyFrom!),
       };
 
   @override
@@ -242,6 +251,7 @@ abstract final class DaySnapshots {
       ),
       digest: today.digest,
       topicOrderHead: today.topicOrderHead,
+      reviewOnlyFrom: today.reviewOnlyFrom,
     );
   }
 

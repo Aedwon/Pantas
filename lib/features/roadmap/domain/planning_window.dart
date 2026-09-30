@@ -39,9 +39,15 @@ final class PlanningWindow {
 }
 
 abstract final class PlanningWindows {
+  /// [anchoredReviewOnlyFrom] is the review-only start fixed when the plan
+  /// for this exam date was first built. Recomputing the quiet stretch every
+  /// day shrinks it as the exam nears (at 12 days left it is 3, at 4 it is
+  /// 1), so a student who follows the plan exactly would get new material
+  /// until the day before the exam. Keeping the first date holds the stretch.
   static PlanningWindow resolve({
     required DateTime today,
     required ExamDate? examDate,
+    DateTime? anchoredReviewOnlyFrom,
   }) {
     if (examDate == null) {
       return const PlanningWindow(
@@ -77,6 +83,23 @@ abstract final class PlanningWindows {
         quiet: 0,
         workingDays: 0,
         reviewOnlyFrom: examDay,
+      );
+    }
+
+    final anchor = anchoredReviewOnlyFrom == null
+        ? null
+        : localDay(anchoredReviewOnlyFrom);
+    if (anchor != null && !anchor.isAfter(examDay)) {
+      final workingDays = math.max(0, localDaysBetween(day, anchor));
+      return PlanningWindow(
+        state: workingDays == 0 && state == RoadmapState.planning
+            ? RoadmapState.reviewOnly
+            : state,
+        examDay: examDay,
+        daysLeft: daysLeft,
+        quiet: localDaysBetween(anchor, examDay),
+        workingDays: workingDays,
+        reviewOnlyFrom: anchor,
       );
     }
 

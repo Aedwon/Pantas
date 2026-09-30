@@ -185,6 +185,8 @@ final class Roadmap {
     required List<WeekPreview> weeksAhead,
     required List<TopicId> topicOrder,
     required List<RoadmapChange> changes,
+    this.backlogCapped = false,
+    this.cycleDetected = false,
   })  : weeksAhead = List.unmodifiable(weeksAhead),
         topicOrder = List.unmodifiable(topicOrder),
         changes = List.unmodifiable(changes);
@@ -198,11 +200,19 @@ final class Roadmap {
   final List<TopicId> topicOrder;
   final List<RoadmapChange> changes;
 
+  /// More reviews were due than today holds; the rest wait (spec 4.6).
+  final bool backlogCapped;
+
+  /// The prerequisite map has a loop; the order skipped it (spec 4.3).
+  final bool cycleDetected;
+
   static const _equality = DeepCollectionEquality();
 
   @override
   bool operator ==(Object other) =>
       other is Roadmap &&
+      backlogCapped == other.backlogCapped &&
+      cycleDetected == other.cycleDetected &&
       state == other.state &&
       today == other.today &&
       examDay == other.examDay &&
