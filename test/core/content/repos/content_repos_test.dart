@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:drift/drift.dart' show Value;
+import 'package:drift/drift.dart' hide isNotNull, isNull;
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content_database.dart';
@@ -8,13 +8,16 @@ import 'package:pantas/core/content/repos/exam_repo.dart';
 import 'package:pantas/core/content/repos/lesson_repo.dart';
 import 'package:pantas/core/content/repos/question_repo.dart';
 import 'package:pantas/core/content/repos/topic_repo.dart';
+import 'package:pantas/core/storage/data/repos/content_repository.dart';
 
 void main() {
   late ContentDatabase db;
+  late _SelectSpy selectSpy;
   final updatedAt = DateTime.utc(2026, 5, 17);
 
   setUp(() async {
-    db = ContentDatabase(NativeDatabase.memory());
+    selectSpy = _SelectSpy();
+    db = ContentDatabase(NativeDatabase.memory().interceptWith(selectSpy));
     await _seedCoreContent(db, updatedAt);
   });
 
@@ -83,6 +86,143 @@ void main() {
     expect(lesson, isNotNull);
     expect(lesson!.subtopicId, equals('subtopic_synonyms'));
   });
+
+  group('ContentRepository.lessonMetaByTopics', () {
+    test('matches full lesson ordering and metadata across topics', () async {
+      await db.batch((batch) {
+        batch.insertAll(db.contentLessons, [
+          for (final entry in [
+            ('lesson_z', 'topic_vocab', 2),
+            ('lesson_b', 'topic_vocab', 1),
+            ('lesson_percent', 'topic_percent', 1),
+            ('lesson_a', 'topic_vocab', 1),
+          ])
+            ContentLessonsCompanion.insert(
+              id: entry.$1,
+              schemaVersion: 1,
+              updatedAt: updatedAt,
+              topicId: entry.$2,
+              title: 'Title ${entry.$1}',
+              summary: 'Summary',
+              estimatedMinutes: 7,
+              ordering: Value(entry.$3),
+              bodyJson: _pt('Body'),
+            ),
+        ]);
+      });
+      final repo = ContentRepository(db);
+      const topics = ['topic_percent', 'topic_vocab'];
+      final full = await repo.lessonsByTopics(topics);
+
+      final metadata = await repo.lessonMetaByTopics(topics);
+
+      expect(metadata.keys, topics);
+      expect(metadata['topic_vocab']!.map((lesson) => lesson.id), [
+        'lesson_active',
+        'lesson_retired',
+        'lesson_a',
+        'lesson_b',
+        'lesson_z',
+      ]);
+      expect(metadata['topic_percent']!.single.id, 'lesson_percent');
+      for (final topic in topics) {
+        expect(
+          metadata[topic]!.map(
+            (lesson) => (
+              lesson.id,
+              lesson.topicId,
+              lesson.title,
+              lesson.ordering,
+              lesson.estimatedMinutes,
+            ),
+          ),
+          full[topic]!.map(
+            (lesson) => (
+              lesson.id,
+              lesson.topicId,
+              lesson.title,
+              lesson.ordering,
+              lesson.estimatedMinutes,
+            ),
+          ),
+        );
+      }
+    });
+
+    test('keeps empty requested topics and excludes unrequested lessons',
+        () async {
+      final metadata = await ContentRepository(db).lessonMetaByTopics(
+        ['topic_percent', 'missing_topic'],
+      );
+
+      expect(metadata.keys, ['topic_percent', 'missing_topic']);
+      expect(metadata['topic_percent'], isEmpty);
+      expect(metadata['missing_topic'], isEmpty);
+    });
+
+    for (final entry in [(0, 0), (1, 1), (400, 1), (401, 2), (805, 3)]) {
+      test('uses ${entry.$2} queries for ${entry.$1} unique topics', () async {
+        final topics = List.generate(entry.$1, (index) => 'batch_topic_$index');
+        var queryCount = 0;
+        final repo = ContentRepository(db, onQuery: () => queryCount++);
+        selectSpy.statements.clear();
+
+        // Duplicates do not consume another batch or duplicate results.
+        final metadata =
+            await repo.lessonMetaByTopics(topics.followedBy(topics));
+
+        expect(metadata.keys, topics);
+        expect(metadata.values.every((lessons) => lessons.isEmpty), isTrue);
+        expect(queryCount, entry.$2);
+        expect(selectSpy.statements, hasLength(entry.$2));
+      });
+    }
+
+    test('selects only metadata columns without reading or decoding bodies',
+        () async {
+      await (db.update(db.contentLessons)
+            ..where((lesson) => lesson.id.equals('lesson_active')))
+          .write(
+        const ContentLessonsCompanion(bodyJson: Value('INVALID_JSON')),
+      );
+      selectSpy.statements.clear();
+      selectSpy.columns.clear();
+
+      final metadata = await ContentRepository(db).lessonMetaByTopics(
+        ['topic_vocab'],
+      );
+
+      expect(metadata['topic_vocab']!.first.title, 'Vocabulary Basics');
+      expect(selectSpy.statements, hasLength(1));
+      expect(selectSpy.statements.single, isNot(contains('body_json')));
+      expect(selectSpy.columns.single, {
+        'id',
+        'topic_id',
+        'title',
+        'ordering',
+        'estimated_minutes',
+      });
+    });
+  });
+}
+
+class _SelectSpy extends QueryInterceptor {
+  final statements = <String>[];
+  final columns = <Set<String>>[];
+
+  @override
+  Future<List<Map<String, Object?>>> runSelect(
+    QueryExecutor executor,
+    String statement,
+    List<Object?> args,
+  ) async {
+    statements.add(statement);
+    final rows = await executor.runSelect(statement, args);
+    if (rows.isNotEmpty) {
+      columns.add(rows.first.keys.map((key) => key.split('.').last).toSet());
+    }
+    return rows;
+  }
 }
 
 Future<void> _seedCoreContent(ContentDatabase db, DateTime updatedAt) async {

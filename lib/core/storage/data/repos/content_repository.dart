@@ -9,6 +9,7 @@ import 'package:pantas/core/storage/domain/choice_order.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/lesson.dart';
+import 'package:pantas/core/storage/domain/lesson_meta.dart';
 import 'package:pantas/core/storage/domain/passage.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/domain/question_selection_row.dart';
@@ -113,6 +114,44 @@ class ContentRepository {
       for (final row in await query.get()) {
         final selection = _selectionRow(row, questions);
         grouped[selection.topicId]?.add(selection);
+      }
+    }
+    return grouped;
+  }
+
+  /// Every requested topic's lesson metadata in authored order, without bodies.
+  Future<Map<TopicId, List<LessonMeta>>> lessonMetaByTopics(
+    Iterable<TopicId> topicIds,
+  ) async {
+    final wanted = topicIds.toSet().toList();
+    final grouped = {for (final topicId in wanted) topicId: <LessonMeta>[]};
+    if (wanted.isEmpty) return grouped;
+
+    final lessons = _db.contentLessons;
+    for (final batch in _batches(wanted)) {
+      final query = _db.selectOnly(lessons)
+        ..addColumns([
+          lessons.id,
+          lessons.topicId,
+          lessons.title,
+          lessons.ordering,
+          lessons.estimatedMinutes,
+        ])
+        ..where(lessons.topicId.isIn(batch))
+        ..orderBy([
+          OrderingTerm.asc(lessons.ordering),
+          OrderingTerm.asc(lessons.id),
+        ]);
+      _onQuery?.call();
+      for (final row in await query.get()) {
+        final metadata = LessonMeta(
+          id: row.read(lessons.id)!,
+          topicId: row.read(lessons.topicId)!,
+          title: row.read(lessons.title)!,
+          ordering: row.read(lessons.ordering)!,
+          estimatedMinutes: row.read(lessons.estimatedMinutes)!,
+        );
+        grouped[metadata.topicId]?.add(metadata);
       }
     }
     return grouped;
