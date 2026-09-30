@@ -2,4 +2,11 @@
 ///
 /// Only links where a topic cannot be understood without the other.
 /// Authored order within a subject is not a reason.
-const Map<String, List<String>> topicPrerequisites = {};
+///
+/// Approved 1 October 2026 (decision log `2026-10-01-release-first-cuts-log.md`).
+const Map<String, List<String>> topicPrerequisites = {
+  'topic_upcat_algebra': ['topic_upcat_arithmetic_number_sense'],
+  'topic_upcat_trigonometry': ['topic_upcat_geometry'],
+  'topic_upcat_precalculus_basic_calculus': ['topic_upcat_algebra'],
+  'topic_upcat_language_application': ['topic_upcat_grammar_and_structure'],
+};
