@@ -128,6 +128,7 @@ abstract class BuildSessionDebrief {
       SessionOrigin.retake => 'Your mistakes.',
       SessionOrigin.inline => 'From the lesson.',
       SessionOrigin.assessment => 'Assessment.',
+      SessionOrigin.mock => 'Mock exam.',
     };
 
     final topicIdsInSession = <TopicId>[];

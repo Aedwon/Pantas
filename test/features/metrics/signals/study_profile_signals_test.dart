@@ -58,6 +58,31 @@ void main() {
     expect(result.delta, 0.5);
   });
 
+  test('recorded mock answers are not read as practice', () async {
+    await _attempt(db);
+    await _mock(db);
+    await db.into(db.attemptsLocal).insert(
+          AttemptsLocalCompanion.insert(
+            id: 'mock_1',
+            examId: 'exam_cse',
+            origin: const Value('mock'),
+            startedAt: DateTime.utc(2026, 6, 2),
+            completedAt: Value(DateTime.utc(2026, 6, 2)),
+            itemsJson: '[{"questionId":"q1","questionVersion":1,'
+                '"chosenChoiceId":"a","correctChoiceId":"a","responseMs":0},'
+                '{"questionId":"q2","questionVersion":1,'
+                '"chosenChoiceId":"a","correctChoiceId":"a","responseMs":0}]',
+          ),
+        );
+
+    final result = await TestModeDeltaSignal(db, contentDb).compute(
+      window: _window(),
+      examId: 'exam_cse',
+    );
+
+    expect(result!.practiceAccuracy, 0.5);
+  });
+
   test('difficulty calibration buckets timing and correctness by difficulty',
       () async {
     await _attempt(db);

@@ -429,6 +429,14 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
             ? MockAttemptStatus.forfeited
             : MockAttemptStatus.completed,
       );
+      // The mock is saved; recording its answers for reviews must never
+      // block the results screen. A failure here is healed by
+      // MockAnswerRecorder.reconcile before the next plan is built.
+      try {
+        await ref.read(mockAnswerRecorderProvider).record(snapshot.attemptId);
+      } on Object catch (error, stackTrace) {
+        debugPrint('Mock answers not recorded yet: $error\n$stackTrace');
+      }
       if (mounted) {
         context.pushReplacement('/mock/results/${snapshot.attemptId}');
       }

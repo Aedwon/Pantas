@@ -1,6 +1,7 @@
 import 'package:drift/drift.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/domain/attempt_origins.dart';
 import 'package:pantas/features/metrics/domain/metric_signal.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
@@ -37,7 +38,13 @@ class TestModeDeltaSignal implements Signal<PressureDelta> {
     var mockTotal = 0;
 
     final attempts = _db.select(_db.attemptsLocal)
-      ..where((row) => row.examId.equals(examId) & row.completedAt.isNotNull());
+      ..where(
+        (row) =>
+            row.examId.equals(examId) &
+            row.completedAt.isNotNull() &
+            // Recorded mock answers are mocks, not practice.
+            row.origin.isNotIn(AttemptOrigins.mirrored.toList()),
+      );
     for (final row in await attempts.get()) {
       for (final item in _attemptReader.read(row.itemsJson)) {
         practiceTotal += 1;

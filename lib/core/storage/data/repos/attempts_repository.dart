@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:drift/drift.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
+import 'package:pantas/core/storage/domain/attempt_origins.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/question_outcome.dart';
 import 'package:pantas/core/storage/domain/sync_state.dart';
@@ -204,7 +205,10 @@ class AttemptsRepository {
   }) async {
     final rows = await (_db.select(_db.attemptsLocal)
           ..where(
-            (t) => t.examId.equals(examId) & t.completedAt.isNotNull(),
+            (t) =>
+                t.examId.equals(examId) &
+                t.completedAt.isNotNull() &
+                t.origin.isNotIn(AttemptOrigins.untimed.toList()),
           ))
         .get();
     if (rows.length < minimumSessions) return null;
@@ -259,7 +263,8 @@ class AttemptsRepository {
           ..where(
             (t) =>
                 t.examId.equals(examId) &
-                t.startedAt.isBiggerOrEqualValue(cutoff),
+                t.startedAt.isBiggerOrEqualValue(cutoff) &
+                t.origin.isNotIn(AttemptOrigins.untimed.toList()),
           ))
         .get();
 

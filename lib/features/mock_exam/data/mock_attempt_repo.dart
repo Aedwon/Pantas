@@ -153,6 +153,23 @@ class MockAttemptRepo {
     return row == null ? null : MockAttempt.fromRow(row);
   }
 
+  /// Submitted mocks of one exam whose answers count as answers: completed
+  /// (time-up is stored as completed) and forfeited. Discarded mocks are out.
+  Future<List<MockAttempt>> answeredTerminalForExam(String examId) async {
+    final rows = await (_db.select(_db.mockAttempts)
+          ..where(
+            (attempt) =>
+                attempt.examId.equals(examId) &
+                attempt.submittedAt.isNotNull() &
+                attempt.status.isIn([
+                  MockAttemptStatus.completed.value,
+                  MockAttemptStatus.forfeited.value,
+                ]),
+          ))
+        .get();
+    return rows.map(MockAttempt.fromRow).toList();
+  }
+
   Future<List<MockAttempt>> history(String userId, {int limit = 10}) async {
     final rows = await (_db.select(_db.mockAttempts)
           ..where(

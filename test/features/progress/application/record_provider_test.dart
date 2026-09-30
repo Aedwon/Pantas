@@ -290,6 +290,60 @@ void main() {
     expect(record.questionsAnswered, 21);
   });
 
+  test('recorded mock answers are not counted twice', () async {
+    final taken = DateTime(2026, 7, 12);
+    await db.into(db.mockAttempts).insert(
+          MockAttemptsCompanion.insert(
+            id: 'mock_1',
+            userId: 'local',
+            examId: 'exam_upcat',
+            blueprintId: 'bp_1',
+            blueprintName: 'Full UPCAT Simulation',
+            durationMinutes: 120,
+            status: 'completed',
+            strictMode: false,
+            sampledQuestionsJson: jsonEncode([]),
+            scoreRaw: const Value(3),
+            scoreTotal: const Value(4),
+            startedAt: taken,
+            lastFlushedAt: taken,
+            submittedAt: Value(taken),
+            updatedAt: taken,
+          ),
+        );
+    // The same mock's answers, recorded as an attempt for reviews.
+    await db.into(db.attemptsLocal).insert(
+          AttemptsLocalCompanion.insert(
+            id: 'mock_1',
+            examId: 'exam_upcat',
+            origin: const Value('mock'),
+            startedAt: taken,
+            completedAt: Value(taken),
+            itemsJson: jsonEncode(
+              List.generate(
+                4,
+                (i) => {
+                  'questionId': 'q_$i',
+                  'questionVersion': 1,
+                  'chosenChoiceId': 'c1',
+                  'correctChoiceId': 'c1',
+                  'responseMs': 0,
+                },
+              ),
+            ),
+          ),
+        );
+
+    container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+      ],
+    );
+
+    final record = await container.read(recordProvider.future);
+    expect(record.questionsAnswered, 4);
+  });
+
   test('mocks are newest first', () async {
     final older = DateTime(2026, 6);
     final newer = DateTime(2026, 7);

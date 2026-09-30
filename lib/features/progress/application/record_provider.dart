@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/storage/domain/attempt_origins.dart';
 import 'package:pantas/core/storage/storage.dart';
 
 @immutable
@@ -51,7 +52,11 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
   final db = ref.watch(appDatabaseProvider);
   final now = ref.watch(recordNowProvider) ?? DateTime.now();
 
-  final attemptsRows = await db.select(db.attemptsLocal).get();
+  // Mock answers are also recorded as attempts; this screen already counts
+  // mocks from their own table, so skip those rows rather than count twice.
+  final attemptsRows = await (db.select(db.attemptsLocal)
+        ..where((a) => a.origin.isNotIn(AttemptOrigins.mirrored.toList())))
+      .get();
   final lessonProgressRows = await db.select(db.lessonProgressLocal).get();
   final streakRow = await (db.select(db.streakLocal)
         ..where((s) => s.id.equals(1)))
