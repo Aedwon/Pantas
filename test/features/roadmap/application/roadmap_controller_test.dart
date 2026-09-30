@@ -4,6 +4,7 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/lesson.dart';
@@ -11,7 +12,6 @@ import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/domain/review_state.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
-import 'package:pantas/features/home/application/topic_accuracy_provider.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:pantas/features/roadmap/domain/build_roadmap.dart';
@@ -51,11 +51,12 @@ void main() {
   late DateTime now;
   late int builds;
   late int queries;
+  var examDay = DateTime(2026, 12, 7);
 
   UserSettings settings() => UserSettings(
         name: null,
         dailyReminderTime: null,
-        examDate: ExamDate.onDay(DateTime(2026, 12, 7)),
+        examDate: ExamDate.onDay(examDay),
         strictMockMode: false,
         helpImproveApp: true,
         carryOverProgress: true,
@@ -71,6 +72,7 @@ void main() {
     content = _SpyContent(contentDb, onQuery: () => queries++);
     now = DateTime(2026, 9, 30, 8);
     builds = 0;
+    examDay = DateTime(2026, 12, 7);
 
     await seedContentExam(
       contentDb,
@@ -113,7 +115,6 @@ void main() {
         contentRepositoryProvider.overrideWithValue(content),
         nowProvider.overrideWithValue(() => now),
         userSettingsProvider.overrideWith((ref) async => settings()),
-        topicAccuracyProvider.overrideWith((ref) async => const []),
         roadmapBuilderProvider.overrideWithValue((RoadmapInputs inputs) {
           builds++;
           return BuildRoadmap.call(inputs);
@@ -231,5 +232,107 @@ void main() {
     final today = await controller().today('e1');
     expect(today.state, RoadmapState.needsAssessment);
     expect(today.remaining.questionCount, 0);
+  });
+
+  Future<void> answer(
+    String id,
+    DateTime at,
+    Map<String, bool> results,
+  ) =>
+      container.read(attemptsRepositoryProvider).save(
+            Attempt(
+              id: id,
+              examId: 'e1',
+              startedAt: at,
+              completedAt: at,
+              items: [
+                for (final entry in results.entries)
+                  AttemptItem(
+                    questionId: entry.key,
+                    questionVersion: 1,
+                    chosenChoiceId: entry.value ? 'a' : 'b',
+                    correctChoiceId: 'a',
+                    responseMs: 9000,
+                  ),
+              ],
+            ),
+          );
+
+  test('topic scores come from answers, fresh on each build', () async {
+    await answer('a1', now, {
+      for (var q = 0; q < 5; q++) 't1_l0_q$q': true,
+      for (var q = 0; q < 5; q++) 't2_l0_q$q': false,
+    });
+    final first = await controller().today('e1');
+    expect(first.snapshot.topicOrder.first, 't2');
+
+    now = DateTime(2026, 10, 1, 8);
+    await answer('a2', now, {
+      for (var q = 0; q < 5; q++) 't1_l1_q$q': false,
+      for (var q = 0; q < 5; q++) 't1_l2_q$q': false,
+      for (var q = 0; q < 5; q++) 't2_l1_q$q': true,
+      for (var q = 0; q < 5; q++) 't2_l2_q$q': true,
+    });
+    final next = await controller().today('e1');
+    expect(next.snapshot.topicOrder.first, 't1');
+  });
+
+  test('a custom track with a custom blueprint gets its mock', () async {
+    await db.into(db.customBlueprintsLocal).insert(
+          CustomBlueprintsLocalCompanion.insert(
+            examId: 'e1',
+            totalQuestions: 20,
+            totalMinutes: 30,
+            sectionsJson: '[]',
+            updatedAt: now,
+          ),
+        );
+    final inputs =
+        await container.read(roadmapInputsReaderProvider).inputs('e1', now);
+    expect(inputs.mock.examHasMock, isTrue);
+  });
+
+  test('a review done yesterday is not logged as missed today', () async {
+    await container.read(reviewStateRepositoryProvider).upsert(
+          ReviewState.seed(
+            questionId: 't1_l0_q0',
+            questionVersion: 1,
+            now: DateTime(2026, 9),
+          ),
+        );
+    final first = await controller().today('e1');
+    expect(first.remaining.reviewQuestionIds, contains('t1_l0_q0'));
+
+    for (final lesson in first.remaining.lessonIds) {
+      await container.read(lessonProgressRepositoryProvider).markRead(lesson);
+    }
+    final done = {
+      for (final q in first.remaining.newQuestionIds) q: true,
+      't1_l0_q0': true,
+    };
+    await answer('day1', now, done);
+    for (final q in done.keys) {
+      await container.read(reviewStateRepositoryProvider).upsert(
+            ReviewState.seed(questionId: q, questionVersion: 1, now: now),
+          );
+    }
+
+    now = DateTime(2026, 10, 1, 8);
+    await controller().today('e1');
+
+    expect(await causes(), isNot(contains(RoadmapChangeCause.missedWork)));
+  });
+
+  test('the watched plan follows an exam date change', () async {
+    final sub = container.listen(roadmapTodayProvider('e1'), (_, __) {});
+    addTearDown(sub.close);
+    final before = await container.read(roadmapTodayProvider('e1').future);
+    expect(before.snapshot.digest.examDate, '2026-12-07:day');
+
+    examDay = DateTime(2026, 12, 14);
+    container.invalidate(userSettingsProvider);
+    final after = await container.read(roadmapTodayProvider('e1').future);
+
+    expect(after.snapshot.digest.examDate, '2026-12-14:day');
   });
 }

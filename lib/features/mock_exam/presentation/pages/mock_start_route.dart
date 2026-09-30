@@ -25,6 +25,7 @@ import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.d
 import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.dart';
 import 'package:pantas/features/mock_exam/presentation/pause_page.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_question_grid.dart';
+import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:uuid/uuid.dart';
 
 class MockStartRoute extends ConsumerStatefulWidget {
@@ -434,6 +435,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
       // MockAnswerRecorder.reconcile before the next plan is built.
       try {
         await ref.read(mockAnswerRecorderProvider).record(snapshot.attemptId);
+        ref.read(roadmapRevisionProvider.notifier).bump();
       } on Object catch (error, stackTrace) {
         debugPrint('Mock answers not recorded yet: $error\n$stackTrace');
       }

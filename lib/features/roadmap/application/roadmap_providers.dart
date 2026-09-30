@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta/meta.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/time/local_day.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
@@ -13,6 +14,7 @@ import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
 import 'package:pantas/features/roadmap/domain/roadmap_diff.dart';
 import 'package:pantas/features/roadmap/domain/roadmap_inputs.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
 
 /// Today as the student sees it: the stored plan with what is done taken
 /// out.
@@ -73,7 +75,10 @@ final roadmapTodayProvider =
     FutureProvider.autoDispose.family<RoadmapToday, ExamId>((ref, examId) {
   ref
     ..watch(roadmapRevisionProvider)
-    ..watch(quizSessionPanelRevisionProvider);
+    ..watch(quizSessionPanelRevisionProvider)
+    // An exam date or scope change must reach a plan already on screen.
+    ..watch(userSettingsProvider)
+    ..watch(trackScopeProvider(examId));
   return ref.read(roadmapControllerProvider).today(examId);
 });
 
@@ -169,7 +174,9 @@ class RoadmapController {
 
     final changes = RoadmapDiff.between(
       prior: prior,
-      priorCompletion: prior != null && prior.day != day ? completion : null,
+      priorCompletion: prior != null && prior.day != day
+          ? await reader.completionSince(examId, prior.day)
+          : null,
       next: next,
       backlogCapped: roadmap.backlogCapped,
       cycleDetected: roadmap.cycleDetected,

@@ -1,3 +1,4 @@
+import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/content/content_seed_version.dart';
@@ -9,8 +10,9 @@ import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/time/local_day.dart';
-import 'package:pantas/features/home/application/topic_accuracy_provider.dart';
+import 'package:pantas/features/metrics/signals/attempt_item_reader.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
+import 'package:pantas/features/mock_exam/data/custom_blueprint_repository.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/roadmap/data/topic_prerequisites.dart';
 import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
@@ -51,6 +53,21 @@ class RoadmapInputsReader {
                 examId: examId,
                 origin: AttemptOrigins.mock,
               ),
+    );
+  }
+
+  /// What is done since [day] began, for judging an earlier stored day: a
+  /// review counts as done if the question was answered at any point since,
+  /// which the review state alone cannot say once it is reviewed again.
+  Future<CompletionFacts> completionSince(ExamId examId, DateTime day) async {
+    final now = await completion(day);
+    final answered = await _ref
+        .read(attemptsRepositoryProvider)
+        .questionIdsAnsweredSince(examId: examId, since: localDay(day));
+    return CompletionFacts(
+      readLessonIds: now.readLessonIds,
+      seenQuestionIds: now.seenQuestionIds,
+      reviewedTodayIds: {...now.reviewedTodayIds, ...answered},
     );
   }
 
@@ -105,7 +122,9 @@ class RoadmapInputsReader {
     final scopedQuestionIds = {for (final q in questions) q.id};
     final endOfToday = DateTime(day.year, day.month, day.day + 1);
 
-    final accuracy = await _ref.read(topicAccuracyProvider.future);
+    final scores = await _scores(examId, {
+      for (final q in questions) q.id: q.topicId,
+    });
     final settings = await _ref.read(userSettingsProvider.future);
     final mockRepo = _ref.read(mockAttemptRepoProvider);
     final lastMock = await mockRepo.lastCooldownAttempt(
@@ -151,19 +170,13 @@ class RoadmapInputsReader {
               retrievability: scheduler.retrievability(state, now),
             ),
       ],
-      scores: {
-        for (final topic in accuracy)
-          topic.topicId: RoadmapTopicScore(
-            id: topic.topicId,
-            correct: topic.correct,
-            answered: topic.answered,
-          ),
-      },
+      scores: scores,
       answeredPerActiveDay: await _ref
           .read(attemptsRepositoryProvider)
           .answeredPerActiveDay(examId: examId),
       mock: RoadmapMockFacts(
-        examHasMock: blueprints.isNotEmpty,
+        examHasMock: blueprints.isNotEmpty ||
+            await CustomBlueprintRepository(db).read(examId) != null,
         proIsActive: _ref.read(mockEntitlementProvider).proIsActive,
         lastSubmittedAt: lastMock?.submittedAt,
       ),
@@ -173,6 +186,37 @@ class RoadmapInputsReader {
       contentRevision: await _contentRevision(),
       anchoredReviewOnlyFrom: anchoredReviewOnlyFrom,
     );
+  }
+
+  /// Correct and answered per topic over every completed attempt, the same
+  /// counting as the Progress table's topic rows, from answer records and
+  /// question metadata only (QLP-1: no question or lesson bodies).
+  Future<Map<TopicId, RoadmapTopicScore>> _scores(
+    ExamId examId,
+    Map<QuestionId, TopicId> topicOf,
+  ) async {
+    final db = _ref.read(appDatabaseProvider);
+    final rows = await (db.select(db.attemptsLocal)
+          ..where((a) => a.examId.equals(examId) & a.completedAt.isNotNull()))
+        .get();
+    final correct = <TopicId, int>{};
+    final answered = <TopicId, int>{};
+    for (final row in rows) {
+      for (final item in const AttemptItemReader().read(row.itemsJson)) {
+        final topicId = topicOf[item.questionId];
+        if (topicId == null) continue;
+        answered[topicId] = (answered[topicId] ?? 0) + 1;
+        if (item.isCorrect) correct[topicId] = (correct[topicId] ?? 0) + 1;
+      }
+    }
+    return {
+      for (final entry in answered.entries)
+        entry.key: RoadmapTopicScore(
+          id: entry.key,
+          correct: correct[entry.key] ?? 0,
+          answered: entry.value,
+        ),
+    };
   }
 
   Future<String> _contentRevision() async =>

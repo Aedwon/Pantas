@@ -114,4 +114,24 @@ void main() {
 
     expect(await prefs.lastOpenedLessonId('e1'), 'l1');
   });
+
+  test('marking a lesson read tells whoever is listening, once', () async {
+    var marked = 0;
+    final listening = ReadMarkingController(
+      lessonId: 'l2',
+      examId: 'e1',
+      progressRepository: progress,
+      preferencesRepository: prefs,
+      clock: clock.call,
+      onMarked: () => marked++,
+    );
+    await listening.onOpen();
+    clock.advance(readDwellFloor);
+    listening
+      ..onScroll(offset: 1000, maxExtent: 1000)
+      ..onScroll(offset: 1000, maxExtent: 1000);
+    await pumpEventQueue();
+
+    expect(marked, 1);
+  });
 }

@@ -12,6 +12,7 @@ import 'package:pantas/features/lesson/presentation/widgets/pull_to_advance.dart
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_gap.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_rail.dart';
+import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 
 /// The reader.
 ///
@@ -182,6 +183,7 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
       examId: widget.reader.examId,
       progressRepository: progressRepo,
       preferencesRepository: prefsRepo,
+      onMarked: () => ref.read(roadmapRevisionProvider.notifier).bump(),
     );
     _markingController?.onOpen();
   }

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/lesson.dart';
@@ -41,12 +43,17 @@ class ReadMarkingController {
     required this.progressRepository,
     required this.preferencesRepository,
     DateTime Function()? clock,
+    this.onMarked,
   }) : _clock = clock ?? DateTime.now;
 
   final LessonId lessonId;
   final ExamId? examId;
   final LessonProgressRepository progressRepository;
   final AppPreferencesRepository preferencesRepository;
+
+  /// Called once after the lesson is marked read, so screens that show the
+  /// day's lessons can refresh.
+  final void Function()? onMarked;
   final DateTime Function() _clock;
 
   DateTime? _openedAt;
@@ -70,8 +77,13 @@ class ReadMarkingController {
 
     if (isAtEnd && dwellTime >= readDwellFloor) {
       _hasMarked = true;
-      progressRepository.markRead(lessonId);
+      unawaited(_markRead());
     }
+  }
+
+  Future<void> _markRead() async {
+    await progressRepository.markRead(lessonId);
+    onMarked?.call();
   }
 }
 
