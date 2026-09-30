@@ -2,11 +2,15 @@ import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/notifications/application/notification_service.dart';
 import 'package:pantas/features/notifications/data/flutter_local_notifications_gateway.dart';
 import 'package:pantas/features/notifications/data/inert_notifications_gateway.dart';
 import 'package:pantas/features/notifications/data/notifications_gateway.dart';
+import 'package:pantas/features/notifications/domain/notification_body_composer.dart';
+import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
+import 'package:pantas/features/roadmap/domain/roadmap.dart';
 
 const _dailyReminderTimeKey = 'settings.daily_reminder_time';
 
@@ -39,7 +43,24 @@ final featureNotificationServiceProvider = Provider<NotificationService>((ref) {
         minute: reminder.minute,
       );
     },
-    planReader: () async => const NotificationPlanSnapshot.unavailable(),
+    planReader: () async {
+      final focus = await ref.read(activeExamFocusProvider.future);
+      if (focus.needsSelection || focus.exam == null) {
+        return const NotificationPlanSnapshot.unavailable();
+      }
+      final today = await ref.read(roadmapTodayProvider(focus.exam!.id).future);
+      if (today.state == RoadmapState.needsAssessment ||
+          today.state == RoadmapState.noContent) {
+        return const NotificationPlanSnapshot.unavailable();
+      }
+      return NotificationPlanSnapshot.ready(
+        reviewCount: today.remaining.reviewQuestionIds.length,
+        route: '/quiz',
+        planState: today.remaining.isMockDay
+            ? DailyReminderPlanState.mock
+            : DailyReminderPlanState.standard,
+      );
+    },
     streakReader: () async => const NotificationStreakSnapshot.empty(),
     now: DateTime.now,
   );

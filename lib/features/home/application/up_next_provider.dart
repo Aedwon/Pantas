@@ -4,7 +4,7 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/features/home/application/topic_accuracy_provider.dart';
+import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 
 @immutable
 class UpNextLesson {
@@ -52,7 +52,7 @@ class UpNextDay {
 
   final List<UpNextLesson> lessons;
 
-  /// True when the weak topics hold no unread lesson at all. Distinct from
+  /// True when every lesson in the roadmap scope is read. Distinct from
   /// an empty list caused by having no topics or no content.
   final bool allReadInWeakTopics;
 
@@ -85,72 +85,49 @@ final upNextProvider = FutureProvider<UpNextDay>((ref) async {
   }
   final examId = focus.exam!.id;
 
-  final rankedTopics = await ref.watch(topicAccuracyProvider.future);
-  if (rankedTopics.isEmpty) {
+  final today = await ref.watch(roadmapTodayProvider(examId).future);
+  final scopeTopicIds = today.snapshot.digest.scopeTopicIds;
+  if (scopeTopicIds.isEmpty) {
     return const UpNextDay(lessons: [], allReadInWeakTopics: false);
   }
 
+  final topicRows = await (contentDb.select(contentDb.contentTopics)
+        ..where((t) => t.id.isIn(scopeTopicIds)))
+      .get();
+  final topicSubjectMap = {for (final t in topicRows) t.id: t.subjectId};
   final subjectRows = await (contentDb.select(contentDb.contentSubjects)
-        ..where((s) => s.examId.equals(examId)))
+        ..where((s) => s.id.isIn(topicSubjectMap.values)))
       .get();
   final subjectMap = {for (final s in subjectRows) s.id: s.name};
 
-  final topicRows = await (contentDb.select(contentDb.contentTopics)
-        ..where((t) => t.subjectId.isIn(subjectMap.keys)))
-      .get();
-  final topicSubjectMap = {for (final t in topicRows) t.id: t.subjectId};
+  final lessonGroups = await ref
+      .watch(contentRepositoryProvider)
+      .lessonMetaByTopics(scopeTopicIds);
+  final lessonsById = {
+    for (final lessons in lessonGroups.values)
+      for (final lesson in lessons) lesson.id: lesson,
+  };
 
   final progressRows = await db.select(db.lessonProgressLocal).get();
   final readLessonIds = {for (final p in progressRows) p.lessonId};
-
-  final lessonRows = await (contentDb.select(contentDb.contentLessons)
-        ..where((l) => l.topicId.isIn(topicSubjectMap.keys)))
-      .get();
-
-  final lessonsByTopic = <TopicId, List<ContentLessonRow>>{};
-  for (final lesson in lessonRows) {
-    lessonsByTopic.putIfAbsent(lesson.topicId, () => []).add(lesson);
-  }
-
-  for (final list in lessonsByTopic.values) {
-    list.sort((a, b) {
-      final cmp = a.ordering.compareTo(b.ordering);
-      if (cmp != 0) return cmp;
-      return a.id.compareTo(b.id);
-    });
-  }
-
-  const targetCount = 3;
   final resultLessons = <UpNextLesson>[];
-
-  for (final topicAcc in rankedTopics) {
-    final topicLessons = lessonsByTopic[topicAcc.topicId] ?? const [];
-    for (final lesson in topicLessons) {
-      if (!readLessonIds.contains(lesson.id)) {
-        final subjectId = topicSubjectMap[lesson.topicId];
-        final subjectName =
-            subjectId != null ? (subjectMap[subjectId] ?? '') : '';
-        resultLessons.add(
-          UpNextLesson(
-            lessonId: lesson.id,
-            title: lesson.title,
-            topicId: lesson.topicId,
-            subjectName: subjectName,
-            estimatedMinutes: lesson.estimatedMinutes,
-          ),
-        );
-        if (resultLessons.length == targetCount) break;
-      }
-    }
-    if (resultLessons.length == targetCount) break;
+  for (final id in today.remaining.lessonIds) {
+    final lesson = lessonsById[id]!;
+    final subjectId = topicSubjectMap[lesson.topicId];
+    resultLessons.add(
+      UpNextLesson(
+        lessonId: lesson.id,
+        title: lesson.title,
+        topicId: lesson.topicId,
+        subjectName: subjectMap[subjectId] ?? '',
+        estimatedMinutes: lesson.estimatedMinutes,
+      ),
+    );
   }
-
-  final totalLessons = lessonRows.length;
-  final allRead =
-      totalLessons > 0 && lessonRows.every((l) => readLessonIds.contains(l.id));
 
   return UpNextDay(
     lessons: resultLessons,
-    allReadInWeakTopics: allRead,
+    allReadInWeakTopics: lessonsById.isNotEmpty &&
+        lessonsById.keys.every(readLessonIds.contains),
   );
 });

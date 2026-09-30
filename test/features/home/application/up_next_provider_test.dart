@@ -1,12 +1,15 @@
-import 'dart:convert';
-
-import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/lesson_meta.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/home/application/up_next_provider.dart';
+import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
+import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
+import 'package:pantas/features/roadmap/domain/roadmap.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
@@ -14,14 +17,76 @@ void main() {
   late AppDatabase db;
   late ContentDatabase contentDb;
   late ProviderContainer container;
+  late _MetadataRepository content;
+  late RoadmapToday today;
+  final day = DateTime(2026, 10);
 
-  setUp(() {
+  RoadmapToday planned({
+    List<String> lessons = const [],
+    List<String>? remainingLessons,
+    List<String> scope = const ['chemistry', 'algebra'],
+    RoadmapState state = RoadmapState.planning,
+  }) {
+    final plan = DayPlan(
+      day: day,
+      lessonIds: lessons,
+      reviewQuestionIds: const [],
+      newQuestionIds: const [],
+      isMockDay: false,
+      advancedIds: const {},
+    );
+    return RoadmapToday(
+      snapshot: DaySnapshot(
+        plan: plan,
+        digest: RoadmapDigest(
+          examId: 'upcat',
+          examDate: '2026-12-07:day',
+          scopeTopicIds: scope,
+          contentRevision: 'test',
+          assessmentCompleted: state != RoadmapState.needsAssessment,
+          recordedMockCount: 0,
+        ),
+        topicOrderHead: scope,
+        state: state,
+      ),
+      remaining: DayPlan(
+        day: day,
+        lessonIds: remainingLessons ?? lessons,
+        reviewQuestionIds: const [],
+        newQuestionIds: const [],
+        isMockDay: false,
+        advancedIds: const {},
+      ),
+      originalDone: (remainingLessons ?? lessons).isEmpty,
+    );
+  }
+
+  setUp(() async {
     db = inMemoryDatabase();
     contentDb = openTestContentDatabase();
+    content = _MetadataRepository(contentDb);
+    today = planned();
+    await seedContentExam(contentDb, examId: 'upcat');
+    await AppPreferencesRepository(db).setSelectedExamId('upcat');
+    for (final topic in ['chemistry', 'algebra']) {
+      await seedContentSubject(
+        contentDb,
+        subjectId: 'subj_$topic',
+        examId: 'upcat',
+        name: topic == 'chemistry' ? 'Science' : 'Mathematics',
+      );
+      await seedContentTopic(
+        contentDb,
+        topicId: topic,
+        subjectId: 'subj_$topic',
+      );
+    }
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
         contentDatabaseProvider.overrideWithValue(contentDb),
+        contentRepositoryProvider.overrideWithValue(content),
+        roadmapTodayProvider('upcat').overrideWith((ref) async => today),
       ],
     );
   });
@@ -31,455 +96,185 @@ void main() {
     await db.close();
   });
 
-  Future<void> setupExam(String examId) async {
-    await AppPreferencesRepository(db).setSelectedExamId(examId);
-  }
+  Future<void> lesson(String id, String topic, {int minutes = 9}) =>
+      seedContentLesson(
+        contentDb,
+        lessonId: id,
+        topicId: topic,
+        title: 'Title $id',
+        estimatedMinutes: minutes,
+        // Invalid bodies must not be decoded by a metadata consumer.
+        bodyJson: 'not lesson JSON',
+      );
 
-  Future<void> insertAttempt(
-    AppDatabase db, {
-    required String id,
-    required String examId,
-    required List<({String questionId, bool isCorrect})> items,
-    DateTime? completedAt,
-    bool isCompleted = true,
-  }) async {
-    final itemsJson = jsonEncode([
-      for (final item in items)
-        {
-          'questionId': item.questionId,
-          'questionVersion': 1,
-          'chosenChoiceId': item.isCorrect ? 'c_a' : 'c_b',
-          'correctChoiceId': 'c_a',
-          'responseMs': 1000,
-        },
+  Future<void> read(String id) =>
+      db.into(db.lessonProgressLocal).insertOnConflictUpdate(
+            LessonProgressLocalCompanion.insert(lessonId: id, readAt: day),
+          );
+
+  test('shows remaining lessons in plan order with metadata', () async {
+    await lesson('chem-01', 'chemistry');
+    await lesson('chem-02', 'chemistry', minutes: 7);
+    await lesson('alg-01', 'algebra', minutes: 12);
+    today = planned(lessons: ['alg-01', 'chem-02']);
+
+    final result = await container.read(upNextProvider.future);
+
+    expect(result.lessons, const [
+      UpNextLesson(
+        lessonId: 'alg-01',
+        title: 'Title alg-01',
+        topicId: 'algebra',
+        subjectName: 'Mathematics',
+        estimatedMinutes: 12,
+      ),
+      UpNextLesson(
+        lessonId: 'chem-02',
+        title: 'Title chem-02',
+        topicId: 'chemistry',
+        subjectName: 'Science',
+        estimatedMinutes: 7,
+      ),
     ]);
-    await db.into(db.attemptsLocal).insert(
-          AttemptsLocalCompanion.insert(
-            id: id,
-            examId: examId,
-            startedAt: DateTime.now(),
-            completedAt:
-                Value(isCompleted ? (completedAt ?? DateTime.now()) : null),
-            origin: const Value('today_topic'),
-            itemsJson: itemsJson,
-          ),
-        );
-  }
-
-  Future<void> seedLesson(
-    AppDatabase db, {
-    required String lessonId,
-    required String topicId,
-    required String title,
-    required String subjectName,
-    int estimatedMinutes = 9,
-    int ordering = 0,
-  }) async {
-    final topicRow = await (db.select(db.topics)
-          ..where((t) => t.id.equals(topicId)))
-        .getSingleOrNull();
-    if (topicRow == null) {
-      final subjectId = 'subj_$topicId';
-      await seedContentSubject(
-        contentDb,
-        subjectId: subjectId,
-        examId: 'upcat',
-        name: subjectName,
-        ordering: 0,
-      );
-      await seedContentTopic(
-        contentDb,
-        topicId: topicId,
-        subjectId: subjectId,
-        name: topicId,
-        ordering: 0,
-      );
-    }
-    await seedContentLesson(
-      contentDb,
-      lessonId: lessonId,
-      topicId: topicId,
-      title: title,
-      summary: 'summary',
-      bodyJson: jsonEncode([]),
-      estimatedMinutes: estimatedMinutes,
-      ordering: ordering,
-    );
-  }
-
-  Future<void> markLessonRead(AppDatabase db, String lessonId) async {
-    await db.into(db.lessonProgressLocal).insertOnConflictUpdate(
-          LessonProgressLocalCompanion.insert(
-            lessonId: lessonId,
-            readAt: DateTime.now(),
-          ),
-        );
-  }
-
-  test('takes unread lessons from the weakest topics first', () async {
-    await setupExam('upcat');
-    await seedContentTopicWithQuestions(
-      contentDb,
-      examId: 'upcat',
-      topicId: 'chemistry',
-      topicName: 'Chemistry',
-      subjectId: 'subj_chem',
-      questionIds: ['q_chem_1', 'q_chem_2', 'q_chem_3', 'q_chem_4', 'q_chem_5'],
-    );
-    await seedContentSubject(
-      contentDb,
-      subjectId: 'subj_chem',
-      examId: 'upcat',
-      name: 'Chemistry',
-      ordering: 0,
-    );
-    await seedContentTopicWithQuestions(
-      contentDb,
-      examId: 'upcat',
-      topicId: 'algebra',
-      topicName: 'Algebra',
-      subjectId: 'subj_alg',
-      questionIds: ['q_alg_1', 'q_alg_2', 'q_alg_3', 'q_alg_4', 'q_alg_5'],
-    );
-    await seedContentSubject(
-      contentDb,
-      subjectId: 'subj_alg',
-      examId: 'upcat',
-      name: 'Algebra',
-      ordering: 0,
-    );
-    await seedContentTopicWithQuestions(
-      contentDb,
-      examId: 'upcat',
-      topicId: 'geometry',
-      topicName: 'Geometry',
-      subjectId: 'subj_geo',
-      questionIds: ['q_geo_1', 'q_geo_2', 'q_geo_3', 'q_geo_4', 'q_geo_5'],
-    );
-    await seedContentSubject(
-      contentDb,
-      subjectId: 'subj_geo',
-      examId: 'upcat',
-      name: 'Geometry',
-      ordering: 0,
-    );
-
-    await insertAttempt(
-      db,
-      id: 'att_1',
-      examId: 'upcat',
-      items: [
-        (questionId: 'q_chem_1', isCorrect: true),
-        (questionId: 'q_chem_2', isCorrect: false),
-        (questionId: 'q_chem_3', isCorrect: false),
-        (questionId: 'q_chem_4', isCorrect: false),
-        (questionId: 'q_chem_5', isCorrect: false),
-        (questionId: 'q_alg_1', isCorrect: true),
-        (questionId: 'q_alg_2', isCorrect: true),
-        (questionId: 'q_alg_3', isCorrect: false),
-        (questionId: 'q_alg_4', isCorrect: false),
-        (questionId: 'q_geo_1', isCorrect: true),
-        (questionId: 'q_geo_2', isCorrect: true),
-        (questionId: 'q_geo_3', isCorrect: true),
-        (questionId: 'q_geo_4', isCorrect: true),
-        (questionId: 'q_geo_5', isCorrect: true),
+    expect(result.allReadInWeakTopics, isFalse);
+    expect(
+      content.metadataScopes,
+      [
+        unorderedEquals(['chemistry', 'algebra']),
       ],
     );
+  });
 
-    await seedLesson(
-      db,
-      lessonId: 'chem-01',
-      topicId: 'chemistry',
-      title: 'Chem 1',
-      subjectName: 'Chemistry',
-      ordering: 1,
-    );
-    await seedLesson(
-      db,
-      lessonId: 'chem-02',
-      topicId: 'chemistry',
-      title: 'Chem 2',
-      subjectName: 'Chemistry',
-      ordering: 2,
-    );
-    await seedLesson(
-      db,
-      lessonId: 'alg-01',
-      topicId: 'algebra',
-      title: 'Alg 1',
-      subjectName: 'Algebra',
-      ordering: 1,
-    );
-    await seedLesson(
-      db,
-      lessonId: 'alg-02',
-      topicId: 'algebra',
-      title: 'Alg 2',
-      subjectName: 'Algebra',
-      ordering: 2,
-    );
-    await seedLesson(
-      db,
-      lessonId: 'alg-03',
-      topicId: 'algebra',
-      title: 'Alg 3',
-      subjectName: 'Algebra',
-      ordering: 3,
-    );
+  test('does not cap the roadmap at three lessons', () async {
+    for (final id in ['chem-01', 'chem-02', 'chem-03', 'chem-04']) {
+      await lesson(id, 'chemistry');
+    }
+    today = planned(lessons: ['chem-04', 'chem-02', 'chem-01', 'chem-03']);
 
-    final day = await container.read(upNextProvider.future);
+    final result = await container.read(upNextProvider.future);
 
     expect(
-      day.lessons.map((l) => l.topicId),
-      ['chemistry', 'chemistry', 'algebra'],
+      result.lessons.map((lesson) => lesson.lessonId),
+      ['chem-04', 'chem-02', 'chem-01', 'chem-03'],
     );
   });
 
-  test('never returns a lesson already read', () async {
-    await setupExam('upcat');
-    await seedContentTopicWithQuestions(
-      contentDb,
-      examId: 'upcat',
-      topicId: 'chemistry',
-      topicName: 'Chemistry',
-      subjectId: 'subj_chem',
-      questionIds: ['q_chem_1', 'q_chem_2', 'q_chem_3'],
-    );
-    await seedContentSubject(
-      contentDb,
-      subjectId: 'subj_chem',
-      examId: 'upcat',
-      name: 'Chemistry',
-      ordering: 0,
-    );
-    await insertAttempt(
-      db,
-      id: 'att_1',
-      examId: 'upcat',
-      items: [
-        (questionId: 'q_chem_1', isCorrect: false),
-        (questionId: 'q_chem_2', isCorrect: false),
-        (questionId: 'q_chem_3', isCorrect: false),
-      ],
-    );
-    await seedLesson(
-      db,
-      lessonId: 'chem-01',
-      topicId: 'chemistry',
-      title: 'Chem 1',
-      subjectName: 'Chemistry',
-      ordering: 1,
-    );
-    await seedLesson(
-      db,
-      lessonId: 'chem-02',
-      topicId: 'chemistry',
-      title: 'Chem 2',
-      subjectName: 'Chemistry',
-      ordering: 2,
+  test('uses remaining lessons instead of the original snapshot', () async {
+    await lesson('chem-01', 'chemistry');
+    await lesson('chem-02', 'chemistry');
+    await read('chem-01');
+    today = planned(
+      lessons: ['chem-01', 'chem-02'],
+      remainingLessons: ['chem-02'],
     );
 
-    await markLessonRead(db, 'chem-01');
+    final result = await container.read(upNextProvider.future);
 
-    final day = await container.read(upNextProvider.future);
-
-    expect(day.lessons.map((l) => l.lessonId), isNot(contains('chem-01')));
-    expect(day.lessons.map((l) => l.lessonId), contains('chem-02'));
+    expect(result.lessons.map((lesson) => lesson.lessonId), ['chem-02']);
   });
 
-  test('stops at three', () async {
-    await setupExam('upcat');
-    await seedContentTopicWithQuestions(
-      contentDb,
-      examId: 'upcat',
-      topicId: 'chemistry',
-      topicName: 'Chemistry',
-      subjectId: 'subj_chem',
-      questionIds: ['q_chem_1', 'q_chem_2', 'q_chem_3'],
-    );
-    await seedContentSubject(
-      contentDb,
-      subjectId: 'subj_chem',
-      examId: 'upcat',
-      name: 'Chemistry',
-      ordering: 0,
-    );
-    await insertAttempt(
-      db,
-      id: 'att_1',
-      examId: 'upcat',
-      items: [
-        (questionId: 'q_chem_1', isCorrect: false),
-        (questionId: 'q_chem_2', isCorrect: false),
-        (questionId: 'q_chem_3', isCorrect: false),
-      ],
-    );
-    await seedLesson(
-      db,
-      lessonId: 'chem-01',
-      topicId: 'chemistry',
-      title: 'Chem 1',
-      subjectName: 'Chemistry',
-      ordering: 1,
-    );
-    await seedLesson(
-      db,
-      lessonId: 'chem-02',
-      topicId: 'chemistry',
-      title: 'Chem 2',
-      subjectName: 'Chemistry',
-      ordering: 2,
-    );
-    await seedLesson(
-      db,
-      lessonId: 'chem-03',
-      topicId: 'chemistry',
-      title: 'Chem 3',
-      subjectName: 'Chemistry',
-      ordering: 3,
-    );
-    await seedLesson(
-      db,
-      lessonId: 'chem-04',
-      topicId: 'chemistry',
-      title: 'Chem 4',
-      subjectName: 'Chemistry',
-      ordering: 4,
-    );
-
-    final day = await container.read(upNextProvider.future);
-    expect(day.lessons, hasLength(3));
-  });
-
-  test('all read in the weak topics is a distinct state from no content',
+  test('a done day is not all read while other scoped lessons remain',
       () async {
-    await setupExam('upcat');
-    await seedContentTopicWithQuestions(
-      contentDb,
-      examId: 'upcat',
-      topicId: 'chemistry',
-      topicName: 'Chemistry',
-      subjectId: 'subj_chem',
-      questionIds: ['q_chem_1', 'q_chem_2', 'q_chem_3'],
-    );
-    await seedContentSubject(
-      contentDb,
-      subjectId: 'subj_chem',
-      examId: 'upcat',
-      name: 'Chemistry',
-      ordering: 0,
-    );
-    await insertAttempt(
-      db,
-      id: 'att_1',
-      examId: 'upcat',
-      items: [
-        (questionId: 'q_chem_1', isCorrect: false),
-        (questionId: 'q_chem_2', isCorrect: false),
-        (questionId: 'q_chem_3', isCorrect: false),
+    await lesson('chem-01', 'chemistry');
+    await lesson('chem-02', 'chemistry');
+    await read('chem-01');
+    today = planned(lessons: ['chem-01'], remainingLessons: []);
+
+    final result = await container.read(upNextProvider.future);
+
+    expect(result.lessons, isEmpty);
+    expect(result.allReadInWeakTopics, isFalse);
+  });
+
+  test('excluded lessons neither appear nor prevent all read', () async {
+    await lesson('chem-01', 'chemistry');
+    await lesson('alg-01', 'algebra');
+    await read('chem-01');
+    today = planned(scope: ['chemistry']);
+
+    final result = await container.read(upNextProvider.future);
+
+    expect(result.lessons, isEmpty);
+    expect(result.allReadInWeakTopics, isTrue);
+    expect(
+      content.metadataScopes,
+      [
+        equals(['chemistry']),
       ],
     );
-    await seedLesson(
-      db,
-      lessonId: 'chem-01',
-      topicId: 'chemistry',
-      title: 'Chem 1',
-      subjectName: 'Chemistry',
-    );
-    await markLessonRead(db, 'chem-01');
-
-    final day = await container.read(upNextProvider.future);
-
-    expect(day.lessons, isEmpty);
-    expect(day.allReadInWeakTopics, isTrue);
   });
 
-  test('no lessons at all is not reported as all read', () async {
-    await setupExam('upcat');
-    await seedContentTopicWithQuestions(
-      contentDb,
-      examId: 'upcat',
-      topicId: 'chemistry',
-      topicName: 'Chemistry',
-      subjectId: 'subj_chem',
-      questionIds: ['q_chem_1', 'q_chem_2', 'q_chem_3'],
-    );
-    await seedContentSubject(
-      contentDb,
-      subjectId: 'subj_chem',
-      examId: 'upcat',
-      name: 'Chemistry',
-      ordering: 0,
-    );
+  test('no scoped lessons is not all read', () async {
+    today = planned(state: RoadmapState.noContent);
 
-    final day = await container.read(upNextProvider.future);
+    final result = await container.read(upNextProvider.future);
 
-    expect(day.lessons, isEmpty);
-    expect(day.allReadInWeakTopics, isFalse);
+    expect(result.lessons, isEmpty);
+    expect(result.allReadInWeakTopics, isFalse);
   });
 
-  test('a topic with no answered questions does not jump the ranking',
-      () async {
-    await setupExam('upcat');
-    await seedContentTopicWithQuestions(
-      contentDb,
-      examId: 'upcat',
-      topicId: 'chemistry',
-      topicName: 'Chemistry',
-      subjectId: 'subj_chem',
-      questionIds: ['q_chem_1', 'q_chem_2', 'q_chem_3'],
+  test('roadmap invalidation updates the remaining lessons', () async {
+    await lesson('chem-01', 'chemistry');
+    await lesson('chem-02', 'chemistry');
+    today = planned(lessons: ['chem-01', 'chem-02']);
+    final subscription = container.listen(upNextProvider, (_, __) {});
+    addTearDown(subscription.close);
+    await container.read(upNextProvider.future);
+    await read('chem-01');
+    today = planned(
+      lessons: ['chem-01', 'chem-02'],
+      remainingLessons: ['chem-02'],
     );
-    await seedContentSubject(
-      contentDb,
-      subjectId: 'subj_chem',
-      examId: 'upcat',
-      name: 'Chemistry',
-      ordering: 0,
-    );
-    await seedContentTopicWithQuestions(
-      contentDb,
-      examId: 'upcat',
-      topicId: 'algebra',
-      topicName: 'Algebra',
-      subjectId: 'subj_alg',
-      questionIds: ['q_alg_1', 'q_alg_2', 'q_alg_3'],
-    );
-    await seedContentSubject(
-      contentDb,
-      subjectId: 'subj_alg',
-      examId: 'upcat',
-      name: 'Algebra',
-      ordering: 0,
-    );
+    container.invalidate(roadmapTodayProvider('upcat'));
 
-    await insertAttempt(
-      db,
-      id: 'att_1',
-      examId: 'upcat',
-      items: [
-        (questionId: 'q_chem_1', isCorrect: false),
-        (questionId: 'q_chem_2', isCorrect: false),
-        (questionId: 'q_chem_3', isCorrect: false),
+    final result = await container.read(upNextProvider.future);
+
+    expect(result.lessons.map((lesson) => lesson.lessonId), ['chem-02']);
+  });
+
+  test('custom track lessons keep their source subject names', () async {
+    await seedContentExam(contentDb, examId: 'custom', isCustom: true);
+    await AppPreferencesRepository(db).setSelectedExamId('custom');
+    await lesson('alg-01', 'algebra');
+    today = planned(lessons: ['alg-01'], scope: ['algebra']);
+    container.dispose();
+    container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+        contentRepositoryProvider.overrideWithValue(content),
+        roadmapTodayProvider('upcat').overrideWith((ref) async => today),
+        roadmapTodayProvider('custom').overrideWith((ref) async => today),
       ],
     );
 
-    await seedLesson(
-      db,
-      lessonId: 'chem-01',
-      topicId: 'chemistry',
-      title: 'Chem 1',
-      subjectName: 'Chemistry',
-    );
-    await seedLesson(
-      db,
-      lessonId: 'alg-01',
-      topicId: 'algebra',
-      title: 'Alg 1',
-      subjectName: 'Algebra',
-    );
+    final result = await container.read(upNextProvider.future);
 
-    final day = await container.read(upNextProvider.future);
-
-    expect(day.lessons.first.topicId, 'chemistry');
+    expect(result.lessons.single.subjectName, 'Mathematics');
   });
+
+  test('no selected exam gives no lessons without reading a roadmap', () async {
+    await AppPreferencesRepository(db).setSelectedExamId('missing');
+
+    final result = await container.read(upNextProvider.future);
+
+    expect(result.lessons, isEmpty);
+    expect(result.allReadInWeakTopics, isFalse);
+    expect(content.metadataScopes, isEmpty);
+  });
+}
+
+class _MetadataRepository extends ContentRepository {
+  _MetadataRepository(super.db);
+
+  final metadataScopes = <List<TopicId>>[];
+
+  @override
+  Future<Map<TopicId, List<LessonMeta>>> lessonMetaByTopics(
+    Iterable<TopicId> topicIds,
+  ) {
+    final scope = topicIds.toList();
+    metadataScopes.add(scope);
+    return super.lessonMetaByTopics(scope);
+  }
 }
