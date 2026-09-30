@@ -161,7 +161,7 @@ above the sitting, and where advance sits.
 
 Free:
 - Today section: the same day as the Quiz tab, in more detail.
-- "Coming up" and "What changed" headings with faint bars and one "Unlock with Pro".
+- "Coming up" and "What changed" headings with their content withheld, and one "Unlock with Pro".
 - On mock day only, the mock appears under today.
 
 Pro:
@@ -255,8 +255,8 @@ ever paywalled.**
 | Progress: How you work | Five headings, ten labels, figures redacted | The figures, and "When you work" | 1 |
 | Progress: Your record | Everything | Nothing | none |
 | **Roadmap: today** | Everything: amounts, order, backlog handling, sittings, advance, the mock on its day | Nothing | none |
-| **Roadmap: weeks ahead, review-only date, mock date in advance** | Heading only, faint bars | All of it | 1 |
-| **Roadmap: change log** | Heading only, faint bars | All of it | 1 |
+| **Roadmap: weeks ahead, review-only date, mock date in advance** | Heading only | All of it | 1 |
+| **Roadmap: change log** | Heading only | All of it | 1 |
 | Cloud backup and sync | No (history lives on the phone) | Yes, with a Google sign-in | account |
 | Mock dossier (`/plan/dossier/:mockId`) | Paywall | Placeholder, no design yet | n/a |
 
