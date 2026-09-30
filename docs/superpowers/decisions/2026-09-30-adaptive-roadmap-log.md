@@ -440,3 +440,20 @@ Settings copy. The engine exposes what they need.
 entry carried a `Co-Authored-By` trailer, which `WORKFLOW.md` forbids and the attribution check
 rejects. Stopped from this commit on. Rewriting published main history needs Aedwon's explicit
 authorization.
+
+---
+
+## 30 September 2026: history rewrite and build start
+
+> "yes rewrite them, and go ahead with the build but use codex, i have the cli installed. use
+> 6.1 Sol High"
+
+**History rewrite:** the six commits from 54a0ecf5 to 7b0aea3b (and the plan commit after them)
+were rewritten on main to drop the credit trailer, with identical trees
+(`82bea2e4` tree equals `7d6b110a` tree). Pushed with `--force-with-lease` against 7d6b110a.
+New SHAs: 299373fc, b6740235, 4bd00552, f6b65433, cb22fe6c, f8f1e668, 82bea2e4. Earlier SHAs in
+this log refer to the pre-rewrite commits with the same subjects.
+
+**Build:** the E09 stop is lifted for the roadmap build only. All Codex tasks run on
+`gpt-6.1-sol` with high reasoning, overriding the plan's Luna rows. Device work (plan Task 18
+Step 6) still waits for Aedwon's go-ahead.
