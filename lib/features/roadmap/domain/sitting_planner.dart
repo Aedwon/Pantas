@@ -29,8 +29,11 @@ abstract final class SittingPlanner {
     final available = <RoadmapQuestion>[];
     final rest = <RoadmapQuestion>[];
     final heldBack = <RoadmapQuestion>[];
+    // A question withdrawn since the day was planned has no metadata; it is
+    // skipped rather than failing the whole sitting.
     for (final id in remaining.newQuestionIds) {
-      final question = questionsById[id]!;
+      final question = questionsById[id];
+      if (question == null) continue;
       final lessonId = question.lessonId;
       if (lessonId == null ||
           !knownLessonIds.contains(lessonId) ||
@@ -43,7 +46,8 @@ abstract final class SittingPlanner {
       }
     }
     final candidates = [
-      for (final id in remaining.reviewQuestionIds) questionsById[id]!,
+      for (final id in remaining.reviewQuestionIds)
+        if (questionsById[id] case final question?) question,
       ...available,
       ...rest,
       ...heldBack,

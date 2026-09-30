@@ -7,6 +7,30 @@ import 'package:pantas/features/roadmap/domain/roadmap_inputs.dart';
 import 'package:pantas/features/roadmap/domain/sitting_planner.dart';
 
 void main() {
+  test('a planned question with no metadata is skipped, not a crash', () {
+    final ids = SittingPlanner.next(
+      remaining: DayPlan(
+        day: DateTime(2026, 9, 30),
+        lessonIds: const [],
+        reviewQuestionIds: const ['gone-review', 'r1'],
+        newQuestionIds: const ['gone-new', 'n1'],
+        isMockDay: false,
+        advancedIds: const {},
+      ),
+      knownLessonIds: const {},
+      readLessonIds: const {},
+      questionsById: const {
+        'r1': RoadmapQuestion(id: 'r1', topicId: 't'),
+        'n1': RoadmapQuestion(id: 'n1', topicId: 't'),
+      },
+      sessionLength: 10,
+      ordering: QuizOrdering.blocked,
+      vocabularyTopicId: 'topic_upcat_vocabulary',
+      rankedTopics: const ['t'],
+    );
+    expect(ids, ['r1', 'n1']);
+  });
+
   group('SittingPlanner draw', () {
     test('reviews keep their given order and are drawn before new questions',
         () {
