@@ -225,6 +225,45 @@ class AttemptsRepository {
     return (total / count).round();
   }
 
+  /// Questions answered on each of the student's most recent [days] active
+  /// days for [examId], newest first. A day with no answers is not active and
+  /// is skipped, so the list is never padded with zeros. The study plan sizes
+  /// how many reviews fit in a day from this (roadmap spec 4.6).
+  Future<List<int>> answeredPerActiveDay({
+    required ExamId examId,
+    int days = 7,
+  }) async {
+    final rows = await (_db.select(_db.attemptsLocal)
+          ..where((t) => t.examId.equals(examId)))
+        .get();
+    final perDay = <DateTime, int>{};
+    for (final row in rows) {
+      final answered = _hydrate(row).items.length;
+      if (answered == 0) continue;
+      final started = row.startedAt.toLocal();
+      final day = DateTime(started.year, started.month, started.day);
+      perDay[day] = (perDay[day] ?? 0) + answered;
+    }
+    final newestFirst = perDay.keys.toList()..sort((a, b) => b.compareTo(a));
+    return [for (final day in newestFirst.take(days)) perDay[day]!];
+  }
+
+  /// How many attempts of [origin] exist for [examId].
+  Future<int> countForOrigin({
+    required ExamId examId,
+    required String origin,
+  }) async {
+    final count = _db.attemptsLocal.id.count();
+    final row = await (_db.selectOnly(_db.attemptsLocal)
+          ..addColumns([count])
+          ..where(
+            _db.attemptsLocal.examId.equals(examId) &
+                _db.attemptsLocal.origin.equals(origin),
+          ))
+        .getSingle();
+    return row.read(count) ?? 0;
+  }
+
   /// Every question answered since [since], for any reason.
   ///
   /// The picker excludes these so a repeated drill does not return the same

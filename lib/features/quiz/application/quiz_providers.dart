@@ -532,21 +532,12 @@ Future<QuizPreparationStamp> _readPreparationStamp(
 }
 
 Future<_ScopeSnapshot> _readScope(Ref ref, ExamId examId) async {
-  final content = ref.read(contentRepositoryProvider);
-  final excluded =
-      await ref.read(customTrackRepositoryProvider).excludedTopicIds(examId);
-  final exams = await content.listExams();
-  final exam = exams.where((candidate) => candidate.id == examId).firstOrNull;
-  final sourceTopics = exam != null && exam.isCustom
-      ? await corpusTopics(content)
-      : await content.topicsByExam(examId);
-  return _ScopeSnapshot(
-    topics: [
-      for (final topic in sourceTopics)
-        if (!excluded.contains(topic.id)) topic,
-    ],
-    excluded: excluded,
+  final scope = await readScopedTopics(
+    ref.read(contentRepositoryProvider),
+    ref.read(customTrackRepositoryProvider),
+    examId,
   );
+  return _ScopeSnapshot(topics: scope.topics, excluded: scope.excluded);
 }
 
 Question _selectionQuestion(QuestionSelectionRow row, ExamId examId) {

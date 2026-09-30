@@ -43,6 +43,30 @@ final scopedTopicsProvider =
   ];
 });
 
+/// The scoped topics of [examId] and the excluded topic ids, read directly
+/// rather than through the cached providers above. Launch preparation and the
+/// study plan read scope this way so a freshness check sees the same topics
+/// the plan was built from.
+Future<({List<Topic> topics, Set<TopicId> excluded})> readScopedTopics(
+  ContentRepository content,
+  CustomTrackRepository customTracks,
+  ExamId examId,
+) async {
+  final excluded = await customTracks.excludedTopicIds(examId);
+  final exams = await content.listExams();
+  final exam = exams.where((candidate) => candidate.id == examId).firstOrNull;
+  final sourceTopics = exam != null && exam.isCustom
+      ? await corpusTopics(content)
+      : await content.topicsByExam(examId);
+  return (
+    topics: [
+      for (final topic in sourceTopics)
+        if (!excluded.contains(topic.id)) topic,
+    ],
+    excluded: excluded,
+  );
+}
+
 /// The subjects those topics belong to, in order, and only the ones that
 /// still hold a topic.
 final scopedSubjectsProvider =
