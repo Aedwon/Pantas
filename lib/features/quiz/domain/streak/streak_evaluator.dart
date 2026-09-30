@@ -1,4 +1,5 @@
 import 'package:pantas/core/storage/data/repos/streak_repository.dart';
+import 'package:pantas/core/time/local_day.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 
 class StreakEvaluation {
@@ -31,10 +32,10 @@ class StreakEvaluator {
       );
     }
 
-    final today = _localDay(completedAt);
+    final today = localDay(completedAt);
     final lastActive = snapshot.lastActiveDate == null
         ? null
-        : _localDay(snapshot.lastActiveDate!);
+        : localDay(snapshot.lastActiveDate!);
     if (lastActive == today) {
       return StreakEvaluation(
         credited: false,
@@ -74,9 +75,5 @@ class StreakEvaluator {
       return (snapshot.current + 1, true, snapshot.freezesRemaining - 1);
     }
     return (1, false, snapshot.freezesRemaining);
-  }
-
-  DateTime _localDay(DateTime value) {
-    return DateTime(value.year, value.month, value.day);
   }
 }

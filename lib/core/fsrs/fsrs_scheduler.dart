@@ -13,6 +13,15 @@ class FsrsScheduler {
   final List<double> weights;
   final double targetRetention;
 
+  double retrievability(ReviewState state, DateTime now) {
+    final elapsedDays = now.difference(state.lastReview).inMicroseconds /
+        Duration.microsecondsPerDay;
+    return _retrievability(
+      elapsedDays < 0 ? 0 : elapsedDays,
+      state.stability,
+    );
+  }
+
   ReviewState next({
     required ReviewState prev,
     required Rating rating,
