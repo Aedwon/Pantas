@@ -360,5 +360,5 @@ roadmap decides how much and in what order.
 
 Part 1 of `specs/2026-09-30-adaptive-roadmap-design.md` approved as of commit e4bc9511. Part 2 is
 the implementer's section; the one consequential item surfaced to Aedwon from it is that the
-prerequisite links drafted in the content audit need his or a reviewer's approval before merge.
+prerequisite links drafted in the content audit need Aedwon's or a reviewer's approval before merge.
 Complexity level pending.
