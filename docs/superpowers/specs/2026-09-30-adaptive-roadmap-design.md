@@ -53,6 +53,8 @@ order, never the amount.
   (5, 10, 20 or All in Settings). They can stop any time; the rest waits.
 - **"I want to advance"** appears when today is done. One tap pulls in tomorrow's items, and later
   days get lighter. It replaces the "Do more each day" switch. Final wording is for the UI round.
+  If they stop partway, what they did counts, the rest is scheduled normally, and today still
+  counts as done.
 - **Motivation comes from facts, not verdicts:** today done, days in a row, and how much of the
   material is covered. How these look is for the UI round.
 
@@ -400,7 +402,11 @@ descending retrievability at `today`. Expose retrievability from `FsrsScheduler`
   by "I want to advance".
 - **Advance:** when the snapshot's items are all done, `advance()` builds the plan for
   `today + 1` from current state and appends its lessons and new questions (not its reviews,
-  which are not yet due) to today's snapshot. Log `advanced`.
+  which are not yet due) to today's snapshot, marked as advanced items. Log `advanced`.
+- **Partial advance:** today counts as done when the original items are done; advanced items
+  never make a day incomplete. Unfinished advanced items return to the remaining material and
+  are scheduled normally. At day end they are logged as `advanced` with the count actually
+  completed, never as `missedWork`, which counts only original items left unfinished.
 - **Causes** (enum): `newDay`, `missedWork` (prior day's snapshot had unfinished items),
   `advanced`, `examDateChanged`, `examChanged`, `scopeChanged`, `contentChanged`,
   `orderChanged` (topic order differs because accuracy moved), `backlogCapped`,

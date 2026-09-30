@@ -298,3 +298,15 @@ each stated in the spec for his review:
   day until answered. Lead's call, flagged as easy to reverse.
 - **Mock placement fixed in self-review** so an exam 2 or 3 days out never puts the mock on the
   exam day; **backlog capacity** counts all answers so it cannot become zero.
+
+---
+
+## 30 September 2026: partial advance
+
+> "suppose the user presses I want to advance but they don't finish all. does the system take
+> that into consideration?"
+
+It did for pacing (tomorrow recomputes from what is left), but the spec would have logged the
+unfinished extras as missed work and could have left the day not done. **Fixed:** today is done
+when the original items are done; unfinished advanced items return to the pool and are logged as
+advanced with the count completed, never as missed.
