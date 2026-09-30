@@ -172,3 +172,129 @@ practice tests generally, not full-length mocks. This reverses the 4 August choi
 never schedules mocks. My mid-plan recommendation is withdrawn.
 
 > "proceed"
+
+---
+
+## 30 September 2026: going ahead is a one-tap continue, not a setting
+
+Options: (1) keep the 4 August "Do more each day" switch (1.5x, a multiplier with no basis),
+(2) after today's plan is done, one tap continues into tomorrow's items and the plan recomputes
+(recommended), (3) both.
+
+> "go with 2 except copy correction "I want to advance" or something?"
+
+**Chosen: 2.** The switch and its 1.5x multiplier are struck, reversing that part of the
+4 August spec. Button wording is provisional and belongs to the later UI round; his direction is
+wording in the spirit of "I want to advance".
+
+---
+
+## 30 September 2026: the roadmap sets daily amounts; the day is served in sittings
+
+He confirmed the roadmap controls daily lesson and quiz counts:
+
+> "also i must mention/clarify that the amount of lessons and quiz items for the day are
+> controlled by the roadmap correct? so the 10-item quiz isn't set it stone"
+
+The fixed new-question cap (`newCardCap`, default 10) and Home's fixed three lessons are removed.
+Options for large days: (1) sittings sized by the existing session-length setting (recommended),
+(2) one session, (3) drop the setting. He asked which gives a smart default the user can change,
+the rationale, and whether a day can have several sittings. Rationale given: comfort and
+motivation; evidence on within-day sitting length is weak, so this is a feel decision.
+
+> "yes, keep sittings with 10 as default."
+
+**Chosen: sittings, default 10, options 5, 10, 20 and All.** The setting splits the day; it never
+changes the day's total or topics.
+
+---
+
+## 30 September 2026: session ordering setting and edge cases
+
+He asked whether "How sessions are built" (One topic only, Interleaved tail, All mixed up)
+affects the roadmap. Answer: it arranges each sitting, never what the day holds. Its copy assumes
+a fixed 10 and must become proportional; "One topic only" changes meaning to grouping today's
+questions by topic. Default to be decided from interleaving evidence in the spec.
+
+Edge-case list presented (23 items) with decisions derived from the agreed rules: month
+precision to the first of the month; date change recomputes; exam tomorrow schedules all that is
+left; exam today is reviews only; mock placement under the Free 14-day limit; excluded topics leave
+the plan with history kept; new content is scheduled even in the review-only stretch (coverage
+wins); everything covered becomes reviews only; no performance data uses authored order;
+mid-day performance changes apply tomorrow; off-plan study counts; a lesson counts as read at its
+end; day boundary at 4 a.m. local; offline on device; log synced; per-exam plans with shared
+review history; roadmap and log are Free per the entitlement table.
+
+He asked what "reviews only" means: only already-answered questions the scheduler has due, no
+new lessons or questions assigned; free study stays open.
+
+Passed exam date: (1) ask once whether they took it, offering a new date or an exam switch,
+reviews only until answered (recommended); (2) continue quietly.
+
+> "okay ask once"
+
+**Chosen: 1.**
+
+---
+
+## 30 September 2026: roadmap tier, and a gate missing from the entitlement table
+
+He asked for Free versus Pro to be considered across all surfaces, first as a table and then
+visually. Pages shown (companion session 62184-1790763846): `free-vs-pro-roadmap.html`,
+`roadmap-tiers-visual.html`, `free-vs-pro-all-surfaces.html`. His comment on fidelity:
+
+> "some of the things rendered are not the actual screens but eh it's enough representation i
+> get it already."
+
+Earlier exchange on the 4 August tier line: it was derived in the spec from the "nothing the
+student produced is paywalled" rule, never chosen directly. He pointed out:
+
+> "um the student did not produce the roadmap so it doesn't apply? it was on our side? the app's
+> engine did that roadmap correct? the results are still shown"
+
+Correct: the engine produces the roadmap; the student's own results stay free regardless.
+
+Options: A split, Free gets today's adaptive plan and Pro gets the weeks ahead, the mock date in
+advance and the change log (recommended); B all Free; C all Pro, Free falls back to fixed amounts.
+
+> "1. A"
+
+**Chosen: A.** Reverses the 4 August "plan screen is wholly Free". Add a row to the entitlement
+table under Gate 1.
+
+**Found in source:** cloud backup and sync are Pro-only (2026-08-28 sync spec, account model:
+anonymous Free and named Free are local only). The 2 August entitlement table does not list it.
+**Corrects edge case 21:** a Free student's plan state and change log are device-only and do not
+survive a reinstall. A Pro student can buy without signing in; backup needs sign-in and Pro.
+
+---
+
+## 30 September 2026: spec drafted, and what grounding changed
+
+He asked for the spec to be grounded in the actual app, not only specced:
+
+> "okay go write the spec, meanwhile i'll enable the google workspace connector. that's not a
+> prereq for you to write the spec right? also please ensure we're not just speccing, please ground
+> yourself with what the project/app actually has rn. i will have to make adjustments to the UI but
+> the underlying engine, from the top-down will come from this roadmap maker"
+
+Spec: `docs/superpowers/specs/2026-09-30-adaptive-roadmap-design.md`, grounded against
+`web/e09-qlp5-prepared-next-r1` at `13938943`. Corrections and lead calls made while grounding,
+each stated in the spec for his review:
+
+- **Day boundary is local midnight, not 4 a.m.** Streaks already use local midnight; two
+  definitions of "today" would disagree. Reverses edge case 19 as I proposed it.
+- **Backup is Pro-only**, so a Free student's change log is device-only (already logged above).
+- **The exam date is one per student**, not per exam. Whether switching exams asks for a new date
+  is left to the UI round.
+- **Weak-spot drilling leaves the daily plan** (evidence: FSRS lapses reschedule wrong answers;
+  reviews before due add little). Weak topics are served by order. Drills stay in free practice.
+- **Vocabulary questions stay grouped within a sitting** (Brunmair and Richter 2019: blocking
+  better for words).
+- **Topic continuity:** a started topic's lessons finish before the next topic starts. Lead's
+  call, not evidence.
+- **Unmeasured topics rank at the student's overall accuracy.** Lead's call, not evidence.
+- **Month precision inside the current month:** ask once for the day; plan to the month's last
+  day until answered. Lead's call, flagged as easy to reverse.
+- **Mock placement fixed in self-review** so an exam 2 or 3 days out never puts the mock on the
+  exam day; **backlog capacity** counts all answers so it cannot become zero.

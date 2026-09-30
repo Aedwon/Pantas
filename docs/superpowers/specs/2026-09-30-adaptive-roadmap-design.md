@@ -1,0 +1,511 @@
+# The adaptive roadmap: one engine that decides what to study next
+
+**Date:** 30 September 2026
+**Status:** Draft for Aedwon's approval (Part 1). Part 2 is the agent section and must agree with it.
+**Decision log:** `docs/superpowers/decisions/2026-09-30-adaptive-roadmap-log.md`
+**Policy revision read:** `origin/main` `11417a5b3def098f70c367172a13738ec1ffd90a`
+**Grounded against:** `web/e09-qlp5-prepared-next-r1` at `13938943f447956af43d2de7e1f9999eb2418aee`,
+the current E09 candidate per the Readiness SSOT. Every "exists today" statement below was read
+from that revision.
+**Supersedes:** parts of `2026-08-04-study-plan-forward-calendar-design.md` (Section 7 of Part 2
+lists exactly which). Its evidentiary line, pacing arithmetic, month rule and "let them cram"
+principle survive and are restated here.
+
+---
+
+# Part 1: For approval
+
+## 1. What this fixes
+
+Pantas promises to tell a student what to study next and to adjust that plan as they study.
+**The app does not do this today.** The pieces exist, but nothing joins them:
+
+- The plan screen has a route, but nothing supplies its data, so it cannot work. It is also the
+  old May design, not the one approved on 4 August.
+- Today's quiz adds new questions up to a fixed 10 a day, whatever the exam date.
+- Home's "Up next" is always three unread lessons from the weakest topics. It ignores the exam
+  date and the topics the student excluded.
+
+**This spec adds the missing piece: one roadmap engine.** It decides each day's lessons, new
+questions and reviews. Every screen that talks about today's work reads from it, and none of them
+decides on its own. The screens themselves are redesigned in a later UI round. This spec fixes the
+engine they will all sit on.
+
+## 2. The promise the engine keeps
+
+> The app schedules the topics a student has to deal with inside the time they actually have.
+> Someone who starts early is better off: they have more days, so their pace is gentler.
+> Someone who starts late chose to cram, and the app does not protect them by covering less.
+
+Unchanged from 4 August. **Everything is covered before the exam.** Performance changes the
+order, never the amount.
+
+## 3. What the student experiences
+
+- **They open the app and see today's plan.** Nothing to set up or decide.
+- **The plan adjusts on its own.** A missed day spreads its work over the days left. Extra work
+  makes later days lighter. No messages, no "behind" or "ahead".
+- **Today stays put.** Once today's plan is made, it does not reshuffle while they work. Items tick
+  off as done.
+- **Everything counts.** A lesson opened from the Study tab, a practice quiz, an in-lesson quiz:
+  all count toward the plan.
+- **Big days come in sittings.** The day's questions are split into sittings of 10 by default
+  (5, 10, 20 or All in Settings). They can stop any time; the rest waits.
+- **"I want to advance"** appears when today is done. One tap pulls in tomorrow's items, and later
+  days get lighter. It replaces the "Do more each day" switch. Final wording is for the UI round.
+- **Motivation comes from facts, not verdicts:** today done, days in a row, and how much of the
+  material is covered. How these look is for the UI round.
+
+## 4. How a day is built
+
+1. **Due reviews.** Questions the student has answered before that the review scheduler says are
+   due. After an absence, see Section 5, item 3.
+2. **Lessons.** Lessons left divided by working days, rounded up.
+3. **New questions.** Unseen questions left divided by working days, rounded up.
+4. **The mock,** on one day shortly before the exam (Section 5, item 5).
+
+**Working days** run from today to the start of the **review-only stretch**, which is the last
+7 days or the last quarter of the time left, whichever is shorter. In that stretch, only reviews
+and the mock are scheduled.
+
+**Lessons come before their questions.** A lesson's new questions are scheduled after it. If the
+student skips the lesson, its questions still arrive on time, so the plan still finishes.
+
+**Topic order.** Weakest topic first, measured from the student's quiz and assessment results. A
+topic's prerequisites that are not yet covered go before it. With no results yet, the authored
+order is used. Once a topic's lessons are started, they are finished before the next topic
+starts, so a student is not bounced between half-read topics.
+
+**Before the first plan, the student takes the short assessment**, as today. It gives the first
+topic order.
+
+## 5. Decisions made from evidence
+
+Per the workflow rule adopted today, study mechanics follow evidence. Sources are in Part 2.
+
+1. **No extra "weak spot" drilling in the daily plan.** A wrong answer already brings the question
+   back soon through the review scheduler, and reviewing before a question is due gives less
+   benefit. Weak topics are served by coming first in the order. Free practice of weak topics
+   stays available.
+2. **Strong topics are not dropped.** The scheduler only tracks questions already answered, so
+   coverage brings a strong topic's unseen questions in; the scheduler then keeps them.
+3. **Backlog after an absence.** Today includes as many reviews as the student has actually done
+   on a typical recent day, from their own history. Most-likely-remembered first. The rest
+   follow on later days. New material keeps its pace.
+4. **Mixing within a sitting.** The existing "How sessions are built" setting keeps its default
+   (mostly one topic, some from others). Mixing helps math and science problems and does not help
+   word learning, so **vocabulary questions are kept together** within a sitting.
+5. **One mock, 1 to 6 days before the exam**, on the first day of the review-only stretch that is
+   no more than 6 days out, and never on the exam day itself. Free students' 14-day limit is respected. No mock is scheduled for an
+   exam that has none.
+
+## 6. Free and Pro
+
+One engine for everyone. The line is only in what is shown (your choice A):
+
+| | Free | Pro |
+|---|---|---|
+| Today's plan: amounts, order, backlog, sittings, "I want to advance" | Yes | Yes |
+| The mock, on its day | Yes | Yes |
+| Weeks ahead: which topics come when, the review-only date, the mock date in advance | No | Yes |
+| The change log: what changed and why | No | Yes |
+
+**Backup follows the existing rule: only Pro backs up.** A Free student's plan history lives on
+their phone and is lost with a reinstall. The plan itself is rebuilt from their progress, so only
+the history is lost. **This corrects what I told you earlier** (edge case 21).
+
+## 7. Edge cases
+
+**Exam date**
+- **Month only:** plan to the first of that month.
+- **Month only, and that month has started:** ask once for the day. Until answered, plan to the
+  last day of the month. *My call, not evidence; easy to reverse.*
+- **Date changed:** recompute at once, and log it.
+- **Exam tomorrow:** everything left is scheduled today.
+- **Exam today:** reviews only.
+- **Exam date passed:** ask once whether they took it: set a new date, or switch exams. Reviews
+  only until they answer.
+- **Far exam:** small days. Rounding up finishes early, which only adds review time.
+- **The exam date is one per student, not per exam.** Switching exams keeps the same date. Whether
+  switching should ask for a new date is for the UI round.
+
+**Mock**
+- **Free limit blocks the window:** the next allowed day in the window; if none, no mock.
+- **Mock already taken in the window:** no second one.
+- **Exam under 2 days away, or no mock exists for this exam:** none.
+
+**Topics and content**
+- **Topics excluded or included mid-plan:** recompute at once. Excluded topics leave the plan
+  with their reviews; history is kept.
+- **New content arrives,** even in the review-only stretch: scheduled. Covering everything wins.
+- **Content removed:** dropped from the plan.
+- **Exam with no content:** no plan; the existing "unavailable" state shows.
+- **Everything covered early:** reviews only; "I want to advance" has nothing new to add.
+- **Reading passages:** a passage's questions are introduced together, so a day can run a few
+  questions over its count.
+
+**Student behavior**
+- **Studying off-plan:** counts; tomorrow recomputes.
+- **Lesson opened but not finished:** counts as read only when they reach the end, as today.
+- **Performance changes mid-day:** new order from tomorrow.
+- **A day ends at local midnight**, the same as streaks. *Corrected from the 4 a.m. I proposed,
+  which would have made the plan and the streak disagree about what "today" is.*
+
+**System**
+- **Offline:** the engine runs on the phone.
+- **Reinstall or new phone:** the plan is rebuilt from progress. Pro also keeps the change log.
+
+## 8. What changes in the app
+
+- **New:** the roadmap engine; a synced (Pro) change log; a prerequisite field on topics, filled
+  by a content audit with checks against loops and broken links.
+- **Rewired to the engine:** today's quiz session, Home's "Up next", the lesson reader's "2 of N",
+  notifications about today's work.
+- **Removed:** the fixed 10 new questions a day; the unwired May plan code (pace curve, tolerance
+  band, mastery inputs, the Light/Standard/Intense value); the planned "Do more each day" switch.
+- **Kept:** the review scheduler, topic accuracy, the exam date, topic exclusions, sitting length
+  and mixing settings, the mock limit, streaks.
+- **Later, in the UI round:** the plan screen, the "today done" moment, progress figures, the log
+  viewer, button wording, and how the passed-exam and month questions are asked.
+
+## 9. Cost to release
+
+This changes app code and content on the paused E09 candidate. **E09's functional and
+performance evidence has to be rerun on the new build**, as the Readiness SSOT requires for any
+source or content change. The content audit is short (25 topics).
+
+## 10. How we will know it works
+
+- For any student, today's lessons and new questions, done every day, cover everything before the
+  review-only stretch. Checked by tests across short, normal and far exam dates.
+- No screen computes today's amounts itself. The quiz tab, Home and the reader all show the
+  engine's numbers.
+- Missing days, doing extra, changing the date or topics, and adding content each produce the
+  right new plan and a log entry with the right cause.
+- The fixed 10-a-day and fixed three lessons are gone from the code.
+- Free sees today and the mock on its day; Pro also sees the weeks ahead and the log.
+- No screen says "behind", "ahead", "on track", "ready" or "mastery". No number is shown for any
+  week after the current one.
+- Then E09's evidence is rerun on the new build, and you do the visual check after the UI round.
+
+## 11. What needs your decision
+
+- **Approve this Part 1**, or name changes.
+- **Complexity level,** after approval: minimal, balanced or hardened. I will bring the three
+  with scope and time.
+
+---
+
+# Part 2: Agent section
+
+Technical detail for the implementer. It must agree with Part 1; where it seems not to, Part 1
+wins and the lead is told.
+
+## 1. What exists on the candidate (read, not remembered)
+
+| Input | Where it lives | State |
+|---|---|---|
+| Selected exam | `activeExamFocusProvider` (`lib/core/storage/selected_exam_focus.dart`) | Works |
+| Exam date + precision | `UserSettings.examDate` (`ExamDate`, `lib/core/storage/domain/exam_date.dart`); one per student | Works. `daysUntil` returns null at month precision; `monthStart` exists |
+| Included topics | `scopedTopicsProvider(examId)` (`lib/core/storage/track_scope.dart`); custom track uses `corpusTopics` | Works |
+| Lessons and read state | `contentLessons` (ordering per topic); `lessonProgressLocal.readAt`, written by `reader_providers.dart` when the end is reached and a dwell floor is met | Works |
+| Questions | `content.selectionRowsByTopic`; `Question.lessonId`, `passageId` | Works |
+| Review states | `reviewStateRepositoryProvider.allStates()`; `FsrsDueSelector`; `FsrsScheduler` | Works. Retrievability is private (`_retrievability`) |
+| Performance | `topicAccuracyProvider` (from `performanceProvider` at topic level), floor 3 | Works |
+| New introduced today | `NewCardIntroRepository.countForDay` | Works; used only against the fixed cap |
+| Session settings | `QuizPreferences.sessionLength` (5, 10, 20, All; default 10), `ordering` (blocked, interleavedTail default, fullyMixed), `newCardCap` default 10 | Cap not shown in Settings |
+| Assessment gate | `SessionPanelNeedsAssessment` in `today_providers.dart` | Works |
+| Mock availability | `mockAvailabilityProvider`: in progress, no blueprint, cooldown 14 days from last submitted (Free), available | Works. Only `content/mock/upcat.yaml` ships a blueprint; custom tracks have a custom mock |
+| Streak day | `StreakEvaluator._localDay`: local midnight | Works |
+| Sync | `lib/core/sync/mapping/*` mappers; Named Pro only (2026-08-28 sync spec) | Works |
+| Topic definitions | `tools/lesson_author/outline.json` → `tools/build_content_export` → `seed_writer` → protected package → `content_topics` (`id`, `subjectId`, `name`, `ordering`) | No prerequisite field |
+
+**What is broken or missing:**
+
+- `/plan` renders `PlanPage`, whose `studyPlanExamProvider` and `studyPlanSignalsProvider` throw
+  `UnimplementedError` and are overridden nowhere in `lib/`. The feature (`pace_curve.dart`,
+  `daily_sizer.dart` with its ±25% pace multipliers, `compute_plan_view.dart`) is the struck May
+  design. `PlanPrefs` duplicates the exam date and carries `StudyPlanIntensity`.
+- `todayInputsProvider` caps new questions at `newCardCap - introduced`, shared across topics in
+  scoped-topic order. `todaySessionPlanProvider` names the session after the topic with the
+  largest backlog (`BuildTodayQueue`) and builds one session of `sessionLength` from due,
+  weakness and fresh buckets.
+- `upNextProvider` takes `targetCount = 3` unread lessons from `topicAccuracyProvider` order,
+  reading all topics of the exam, not `scopedTopicsProvider`.
+- `/plan/dossier/:mockId` is a Pro route to a `_Stub`.
+
+## 2. Engine shape
+
+New feature `lib/features/roadmap/`. Pure domain core, thin application layer.
+
+- **`domain/build_roadmap.dart`**: `Roadmap BuildRoadmap.call(RoadmapInputs)`. Pure, synchronous,
+  no I/O, fully unit tested.
+- **`RoadmapInputs`**: `today` (local date), `examId`, `ExamDate?`, scoped topics with
+  `ordering`, `subjectId`, `prerequisiteTopicIds`; lessons per topic with `ordering` and read
+  state; questions with `topicId`, `lessonId`, `passageId`, seen state; review states with due
+  and retrievability at `today`; per-topic `TopicAccuracy`; the student's review-volume history
+  (Section 4.6); mock availability facts (exists for exam, last submitted, `proIsActive`);
+  assessment completed; content revision id; the prior persisted day and log.
+- **`Roadmap`**: `DayPlan today`; `DateTime? reviewOnlyFrom`; `DateTime? mockDay`;
+  `List<WeekPreview> weeksAhead` (topic ids per week, no counts); `RoadmapState state`
+  (`needsAssessment`, `noContent`, `examPassedAwaitingAnswer`, `monthStartedAwaitingDay`,
+  `planning`, `reviewOnly`, `allCovered`); `List<RoadmapChange> changes` (produced by diffing
+  against the prior day, Section 4.9).
+- **`DayPlan`**: ordered `lessonIds`; `reviewQuestionIds` (due, capped per 4.6, ordered by
+  descending retrievability); `newQuestionIds` (ordered per 4.4); `isMockDay`; counts derived
+  from the lists, never stored separately.
+- **Application:** `roadmapProvider(examId)` gathers inputs from the existing repositories and
+  providers above, calls `BuildRoadmap`, persists the day snapshot on first build of a local day,
+  and returns the persisted snapshot minus completed items for the rest of that day.
+- **Sittings:** `SittingPlanner.split(DayPlan remaining, sessionLength, ordering)` returns the
+  next sitting's question ids, applying 4.8. Reuse the existing pickers and `PassageSetFiller`;
+  do not write new pickers.
+
+## 3. Persistence
+
+- **`roadmap_day_local`** (drift): `examId`, `day` (local `YYYY-MM-DD`), `planJson`,
+  `inputsDigest`, `createdAt`. Primary key (`examId`, `day`). Device-local, not synced; it is
+  derived and rebuilt on demand.
+- **`roadmap_change_log_local`** (drift): `id` (uuid), `examId`, `occurredAt`, `cause` (enum
+  string), `beforeJson`, `afterJson`, `syncState`. Append-only.
+- **Sync:** add `roadmap_change_log_mapper.dart` following `review_log_mapper.dart` (append-only).
+  Eligibility is the existing Named Pro rule; no new sync logic. Firestore rules and emulator
+  tests are extended the same way the existing append-only collections are.
+- **Wiping:** add both tables to `LocalStateWiper` and `dev_demo_switch.dart` beside
+  `dailyNewCardIntro`.
+- **Migration:** schema bump creating both tables. `QuizPreferences.newCardCap` is ignored and
+  removed from the model; the stored preference key is left unread, not deleted, so an older
+  build reading synced preferences does not fail. `StudyPlanIntensity` and `PlanPrefs` are
+  deleted with the old feature; their stored key is likewise left unread.
+
+## 4. Algorithms
+
+All dates are local calendar days; the day boundary is local midnight (`_localDay` semantics).
+Extract `_localDay` to a shared helper and use it in both the streak and the roadmap.
+
+### 4.1 The planning date and states
+
+- Day precision: `examDay = examDate.day`.
+- Month precision, month not yet started: `examDay = monthStart` (4 August rule).
+- Month precision, today is inside that month: state `monthStartedAwaitingDay`; plan against the
+  last day of the month until the student gives a day (Part 1 Section 7, lead's call).
+- Month precision, month over; or day precision, `today > examDay`: state
+  `examPassedAwaitingAnswer`; plan is reviews only.
+- No exam date: cannot occur after onboarding (the date step is required and rejects past dates).
+  Defensive fallback only: reviews only, state `planning`, no pacing, log `missingExamDate`. Do not
+  invent a window.
+- No scoped content: state `noContent`, empty plan.
+- Assessment not completed: state `needsAssessment`; the day's only item is the assessment
+  (existing `AssessmentQuestionSelector`).
+
+### 4.2 Pacing (4 August arithmetic, restated)
+
+```
+daysLeft       = examDay - today                     (whole days)
+quiet          = min(7, floor(daysLeft / 4))
+workingDays    = daysLeft - quiet
+reviewOnlyFrom = examDay - quiet
+lessonsToday   = workingDays > 0 ? ceil(lessonsLeft   / workingDays) : 0
+newToday       = workingDays > 0 ? ceil(unseenLeft    / workingDays) : 0
+```
+
+`daysLeft == 0` (exam today): reviews only. `daysLeft == 1`: quiet 0, workingDays 1, everything
+today. `lessonsLeft` = active lessons in scoped topics not read. `unseenLeft` = active questions
+in scoped topics with no review state. New content inside the quiet stretch: if `workingDays <= 0`
+and `unseenLeft > 0` or `lessonsLeft > 0` before `examDay`, schedule all of it today (coverage
+wins; Part 1 Section 7).
+
+**Worked checks the tests must include** (compute, do not copy):
+- Today Wed 30 Sep 2026, exam Mon 7 Dec 2026: daysLeft 68, quiet 7, workingDays 61, review only
+  from Mon 30 Nov; 120 lessons → 2/day; 900 unseen → 15/day.
+- Exam in 10 days: quiet 2, workingDays 8.
+- Exam in 4 days: quiet 1, workingDays 3.
+
+### 4.3 Topic order
+
+1. Rank scoped topics by accuracy ascending. A topic below the floor (`TopicAccuracy.isMeasured`
+   false) is ranked at the student's overall accuracy across measured topics; with no measured
+   topic at all, use authored order (`subject.ordering`, then `topic.ordering`). Ties: authored
+   order.
+2. **Continuity:** a topic with at least one read lesson and at least one unread lesson is placed
+   first, ahead of the ranking, in the order they were started. It keeps its place until its
+   lessons are all read.
+3. **Prerequisites:** walking the ranked list, before emitting topic T, emit each prerequisite P
+   of T that is in scope and not covered, recursively, depth first, in P's own rank order.
+   Covered: every lesson of P read. A P with no lessons never blocks. P outside scope is ignored.
+4. Covered topics drop out of the lesson sequence; their unseen questions stay in 4.4.
+
+The build guarantees prerequisite links are acyclic (Section 6), so step 3 terminates. Defend
+anyway: a visited set; on a revisit, skip and log `prerequisiteCycle`.
+
+### 4.4 Choosing today's lessons and new questions
+
+- **Lessons:** the first `lessonsToday` unread lessons walking the topic order, each topic's
+  lessons in `ordering`.
+- **New questions**, filled in this priority until `newToday` is reached:
+  1. Unseen questions whose `lessonId` is a read lesson, oldest `readAt` first.
+  2. Unseen questions whose `lessonId` is in today's lessons (they follow the lesson; 4.8).
+  3. Unseen questions of topics in topic order, lessons' questions in lesson order, questions
+     without a lesson last within their topic. This is what keeps the pace when lessons are
+     skipped.
+- **Passages:** a question with a `passageId` brings its whole unseen set
+  (`PassageSetFiller`). The count may exceed `newToday` by the remainder of one set.
+
+### 4.5 Reviews
+
+Due = review states with `due <= end of today`, for questions in scoped topics. Order by
+descending retrievability at `today`. Expose retrievability from `FsrsScheduler` as a public
+`retrievability(ReviewState, DateTime now)` that calls the existing formula; do not duplicate it.
+
+### 4.6 Backlog cap
+
+- `capacity` = max(1, median of questions answered per day over the student's last 7 days on
+  which they answered at least one question), read from attempts. Counting all answers, not only
+  reviews, keeps a day of pure new material from producing a cap of zero. No such day: no cap.
+- If due count `<= capacity`, include all. Otherwise include the first `capacity` in
+  retrievability-descending order; the rest remain due and are reconsidered tomorrow.
+- New material is not reduced by the backlog.
+
+### 4.7 Mock day
+
+- Only if the exam has a mock (`MockAvailability` is not `noBlueprint`; custom track uses its
+  custom mock) and `daysLeft >= 2`.
+- Window `[max(today, examDay - 6), examDay - 1]`. Target: `reviewOnlyFrom` clamped into the
+  window. With `quiet == 0` (2 or 3 days left) that is `examDay - 1`, never the exam day.
+- Free: if the target is before `lastSubmitted + 14 days`, move to that date if still in the
+  window; else none.
+- A mock submitted inside the window already: none.
+- Pro and Free compute the same day; Free is shown it only on the day (Section 5).
+
+### 4.8 Sitting composition
+
+- A sitting takes `sessionLength` items from the remaining day (All: everything).
+- Order of drawing: reviews first, then new questions whose lesson is read, then the rest.
+  A new question whose lesson is in today's unread lessons is held back until that lesson is read
+  or until the day's other items are exhausted.
+- Arrangement inside the sitting follows the student's `ordering` setting using the existing
+  pickers. **Exception:** questions from the Vocabulary topic are kept contiguous regardless of
+  setting (Brunmair and Richter 2019: blocking better for words, g = -0.39; interleaving helps
+  mathematics, g = 0.34; no effect for expository text).
+- "One topic only" now means: group the sitting's items by topic, in topic order. Settings copy
+  must stop saying "All 10 questions" and "seven from the topic, three from others" and describe
+  proportions of the sitting. Copy is for the UI round.
+
+### 4.9 Recompute and change log
+
+- **Build triggers:** first read on a new local day; exam or exam date change; scope change;
+  content revision change; assessment completion. Mid-day triggers rebuild today and replace the
+  snapshot.
+- **Within a day:** completed items are removed by id from the snapshot; nothing is added except
+  by "I want to advance".
+- **Advance:** when the snapshot's items are all done, `advance()` builds the plan for
+  `today + 1` from current state and appends its lessons and new questions (not its reviews,
+  which are not yet due) to today's snapshot. Log `advanced`.
+- **Causes** (enum): `newDay`, `missedWork` (prior day's snapshot had unfinished items),
+  `advanced`, `examDateChanged`, `examChanged`, `scopeChanged`, `contentChanged`,
+  `orderChanged` (topic order differs because accuracy moved), `backlogCapped`,
+  `assessmentCompleted`, `examPassed`, `prerequisiteCycle`, `missingExamDate`.
+- Each entry stores before and after as the day counts (`lessonsToday`, `newToday`, reviews) plus
+  the first three topic ids. Only counts that were real at the time are stored. **No entry states
+  a verdict.** Log text rendering is for the UI round.
+
+## 5. Consumers
+
+| Surface | Today | After |
+|---|---|---|
+| Quiz tab session panel | `todaySessionPlanProvider` builds one session from buckets | Reads `roadmapProvider`; Start takes the next sitting from `SittingPlanner`. Keep `SessionPanelInProgress`, `NeedsAssessment`, `CaughtUp` states; `CaughtUp` becomes "today's plan done" and exposes advance |
+| `todayInputsProvider`, `CountTodayBacklog`, `BuildTodayQueue`, weakness bucket in today's session | Cap and bucket logic | Removed from today's path. `WeaknessSelector` stays for drills and free practice |
+| Home "Up next" | 3 lessons, all topics | `roadmap.today.lessonIds`; count from the engine; respects scope |
+| Lesson reader "2 of N" | Reserved | N = today's lessons |
+| Notifications composer | Streak and generic copy | Reads today's counts and `isMockDay` where it mentions today's work. Copy is UI round |
+| `/plan` | Broken May page | Engine-backed; screen design is UI round. Free: today section; Pro: `weeksAhead`, `mockDay`, log |
+| `/plan/dossier/:mockId` | Stub | Untouched |
+
+Free and Pro: gate only at presentation, using the existing gate treatment
+(`FaintBars`, heading kept, "Unlock with Pro" after free content, one teaser per screen).
+
+## 6. Content: prerequisite links
+
+- **Source:** `tools/lesson_author/outline.json`, each topic gains optional
+  `"prerequisites": ["<topic slug>", ...]`.
+- **Export:** `build_content_export.dart` maps slugs to `topic_upcat_<slug>` ids and writes
+  `prerequisites` on the topic document. `seed_writer.dart` adds column
+  `prerequisiteTopicIdsJson` (text, default `'[]'`) to `content_topics`. Topic domain model gains
+  `prerequisiteTopicIds`.
+- **Build validation (fail the build):** unknown slug; self link; any cycle. Warning only: link
+  across exams (allowed, the custom track spans exams).
+- **The audit:** a bounded Codex task drafts links for all 25 topics with a one-line reason each,
+  mathematics and science first. Aedwon or a reviewer approves before merge. Links only where a
+  topic cannot be understood without the other; authored order within a subject is not a reason.
+- **Protected package:** the content digest changes. Follow the existing manifest chronology
+  (`releaseSequence` increment) and rerun the E09 content identity checks.
+
+## 7. Amendments to other specs
+
+1. `2026-08-04-study-plan-forward-calendar-design.md`: Section 3 "Do more each day" switch
+   struck (replaced by advance). Section 4 mock marker: the plan now schedules one mock (evidence,
+   log entry "one scheduled mock"). Section 4 "nothing tappable, no button" and screen composition
+   are reopened for the UI round. Section 5 "wholly Free" replaced by Part 1 Section 6. Sections
+   2 (evidentiary line) and 3 (pacing, month rule, cram) stand.
+2. `2026-05-17-quiz-engine-and-modes-design.md` D7: the new-card cap and its override are struck;
+   the engine decides. D7's fallback ("the engine must never hard depend on the plan") is
+   replaced: today's session now depends on the roadmap by design; the fallback is the roadmap's
+   own `planning` state.
+3. `2026-08-02-pro-entitlement-consolidation-design.md` Section 2: add rows "Roadmap: today's
+   plan — Free: everything — Pro adds: nothing — none" and "Roadmap: weeks ahead, mock date in
+   advance, change log — Free: heading only — Pro: all — Gate 1". Add a row for cloud backup
+   (Named Pro only), which is missing.
+4. `2026-08-03-settings-design.md`: no "Do more each day" row. "How sessions are built" copy
+   becomes proportional.
+5. `2026-07-26-home-and-navigation-design.md` and `plans/2026-08-02-home-04-up-next.md`: Up next
+   reads the engine.
+6. `2026-07-28-quiz-tab-design.md`: today's session is sittings of the roadmap day; "caught up"
+   is "today's plan done" plus advance.
+
+## 8. Evidence cited
+
+- Review order under limited capacity: Jarrett Ye's FSRS simulations, "Improving sort orders",
+  Anki Forums (https://forums.ankiweb.net/t/improving-sort-orders/50081). Retrievability
+  descending best maintains retention; order irrelevant with unlimited capacity.
+- Anki Manual, Deck Options (https://docs.ankiweb.net/deck-options.html), ascending
+  retrievability suggested for backlogs; weighed lower than the simulation.
+- Practice tests: Adesope, Trevisan and Sundararajan (2017), Review of Educational Research,
+  272 effects, 188 experiments: g = 0.51 vs restudy; one practice test beat several; 1 to 6 day
+  lag g = 0.82 vs under a day g = 0.56.
+- Mock one week out changed intentions, not behavior: Phys. Rev. PER 19, 010130 (2023).
+- Interleaving: Brunmair and Richter (2019), Psychological Bulletin, g = 0.42 overall; mathematics
+  0.34; words -0.39; expository texts no effect.
+- Early review gives less: FSRS models the stability gain as larger when retrievability is lower
+  at review, so a review before due adds little; lapses reschedule wrong answers soon. This is the
+  scheduler used as designed.
+
+## 9. Verification
+
+Focused while building; full on completion (AGENTS.md).
+
+- **Engine unit tests** (pure): the three worked checks in 4.2; month rules; exam today,
+  tomorrow, passed; coverage property: for random corpora and dates, following the plan daily
+  reads every lesson and sees every question by `reviewOnlyFrom` (or by the exam for
+  `workingDays <= 0`); topic order with and without accuracy, continuity, prerequisites, scope
+  exclusions of a prerequisite, cycle defense; new-question priority and passage sets; backlog
+  cap with 0, 1 and 7 history days; mock placement for Pro, Free cooldown in and out of window,
+  no blueprint, taken already; advance; each log cause.
+- **Integration:** quiz tab Start draws sittings from the engine; completing items removes them;
+  Home Up next equals `today.lessonIds`; scope change rebuilds; content revision change rebuilds;
+  Free and Pro presentation gates.
+- **Grep gates:** no `targetCount = 3`, no `newCardCap`, no `StudyPlanIntensity`, no
+  `pace_curve`; no "behind", "ahead", "on track", "ready", "mastery" in roadmap strings.
+- **Content build:** cycle, self link and unknown slug each fail the build in tests.
+- **Sync:** change log syncs for Named Pro and not for Free, in emulator tests.
+- `flutter analyze` clean; `flutter test` green; build_runner regenerated, never hand edited.
+- **Release:** E09 functional scenarios and QLP-5 device performance rerun on the new candidate
+  (Readiness SSOT); Today-path performance must not regress against the recorded QLP-5 metrics.
+
+## 10. Execution routing
+
+Per Aedwon, 30 September: bounded code and non-code tasks go to Codex CLI (6.1 Sol, or 6 Luna
+where the task is mechanical), each with an exact scope, files, commands and stop conditions. The
+content audit (Section 6) is a Codex task. The lead keeps the engine core (Sections 4.3 to 4.9)
+or reviews it line by line. Reconcile with
+`docs/superpowers/decisions/2026-09-25-chatgpt-web-relay-routing.md` before dispatch.
+Engineering stays paused until Aedwon lifts the E09 stop.
