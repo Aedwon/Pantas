@@ -27,7 +27,7 @@ void main() {
     await pump(tester);
     expect(find.text('Free'), findsOneWidget);
     expect(find.text('Pro'), findsOneWidget);
-    expect(find.textContaining('practising'), findsWidgets);
+    expect(find.textContaining('practicing'), findsWidgets);
     expect(find.textContaining('under time'), findsWidgets);
   });
 

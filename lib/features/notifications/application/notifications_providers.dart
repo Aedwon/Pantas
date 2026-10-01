@@ -27,6 +27,11 @@ final notificationStudyDaysReaderProvider =
   };
 });
 
+/// Local wall-clock time for scheduling. A provider so tests can fix the
+/// hour: whether a reminder fires today or on a later day depends on it.
+final notificationClockProvider =
+    Provider<NotificationClock>((ref) => DateTime.now);
+
 /// Inert by default, and overridden in `bootstrap` with the real plugin.
 ///
 /// The same seam `telemetrySinkProvider` uses. Before 12 August this built the
@@ -95,7 +100,7 @@ final featureNotificationServiceProvider = Provider<NotificationService>((ref) {
       );
     },
     streakReader: () async => const NotificationStreakSnapshot.empty(),
-    now: DateTime.now,
+    now: () => ref.read(notificationClockProvider)(),
   );
 });
 

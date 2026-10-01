@@ -83,6 +83,10 @@ void main() {
               .overrideWithValue(() async => StudyDays.all),
           activeExamFocusProvider.overrideWith((ref) async => focus),
           roadmapTodayProvider('upcat').overrideWith((ref) async => today),
+          // Morning of the planned day, before the 19:00 reminder, so the
+          // reminder is for today and quotes today's plan.
+          notificationClockProvider
+              .overrideWithValue(() => DateTime(2026, 10, 1, 8)),
         ],
       );
     });
