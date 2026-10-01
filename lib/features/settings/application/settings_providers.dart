@@ -5,6 +5,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/settings/data/settings_repository.dart';
 import 'package:pantas/features/settings/domain/session_ordering.dart';
 import 'package:pantas/features/settings/domain/theme_preference.dart';
@@ -110,6 +111,8 @@ class SettingsActions {
   Future<void> updateStudyDays(StudyDays days) async {
     await _ref.read(settingsRepositoryProvider).updateStudyDays(days);
     _ref.invalidate(userSettingsProvider);
+    // Publish through the revision the Quiz panel already watches.
+    _ref.read(quizSessionPanelRevisionProvider.notifier).publishCompletion();
     await _ref.read(notificationServiceProvider).rescheduleForForeground();
   }
 
