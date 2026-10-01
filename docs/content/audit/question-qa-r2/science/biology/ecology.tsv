@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-biology-ecology-0001	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-biology-ecology-0002	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-biology-ecology-0003	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Original chain did not state the feeding links.
+q-biology-ecology-0004	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-biology-ecology-0005	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated the same food-chain scenario as nearby questions.
+q-biology-ecology-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated the same chain and had a longest correct answer.
+q-biology-ecology-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	NONE	
+q-biology-ecology-0008	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Wrong note falsely said 1 kilocalorie came from three 10% steps; item repeated the same forward calculation.
+q-biology-ecology-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Correct answer was longest and the no-feeding distractor was implausible.
+q-biology-ecology-0010	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-biology-ecology-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Explanation incorrectly called nitrate a direct product of fixation; distractors were unrelated.
+q-biology-ecology-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Correct choice and explanation incorrectly called nitrate a direct fixation product.
+q-biology-ecology-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Distractors denied phosphorus stores and correct choice was longest.
+q-biology-ecology-0014	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-biology-ecology-0015	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-biology-ecology-0016	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-biology-ecology-0017	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Correct choice was longest and tolerance wording repeated the benefit misconception.
+q-biology-ecology-0018	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original stem and explanation overstated a four-or-five-level limit not taught as a fixed rule.
+q-biology-ecology-0019	NEW	NEW	new question	NONE	
+q-biology-ecology-0020	NEW	NEW	new question	NONE	
