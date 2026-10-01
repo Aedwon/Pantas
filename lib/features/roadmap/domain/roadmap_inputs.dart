@@ -2,6 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:meta/meta.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/time/study_days.dart';
 
 @immutable
 final class RoadmapTopic {
@@ -167,6 +168,8 @@ final class RoadmapInputs {
     required this.assessmentCompleted,
     required this.contentRevision,
     this.anchoredReviewOnlyFrom,
+    this.studyDays = StudyDays.all,
+    this.treatTodayAsStudyDay = false,
   })  : topics = List.unmodifiable(topics),
         prerequisites = Map.unmodifiable({
           for (final entry in prerequisites.entries)
@@ -180,6 +183,8 @@ final class RoadmapInputs {
         answeredPerActiveDay = List.unmodifiable(answeredPerActiveDay);
 
   final DateTime today;
+  final StudyDays studyDays;
+  final bool treatTodayAsStudyDay;
   final ExamId examId;
   final ExamDate? examDate;
   final List<RoadmapTopic> topics;
@@ -205,6 +210,8 @@ final class RoadmapInputs {
   bool operator ==(Object other) =>
       other is RoadmapInputs &&
       today == other.today &&
+      studyDays == other.studyDays &&
+      treatTodayAsStudyDay == other.treatTodayAsStudyDay &&
       examId == other.examId &&
       examDate == other.examDate &&
       _equality.equals(topics, other.topics) &&
@@ -223,6 +230,8 @@ final class RoadmapInputs {
   @override
   int get hashCode => Object.hash(
         today,
+        studyDays,
+        treatTodayAsStudyDay,
         examId,
         examDate,
         _equality.hash(topics),

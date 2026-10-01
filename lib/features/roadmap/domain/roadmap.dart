@@ -21,6 +21,7 @@ final class DayPlan {
     required List<QuestionId> newQuestionIds,
     required this.isMockDay,
     required Set<String> advancedIds,
+    this.isRestDay = false,
   })  : lessonIds = List.unmodifiable(lessonIds),
         reviewQuestionIds = List.unmodifiable(reviewQuestionIds),
         newQuestionIds = List.unmodifiable(newQuestionIds),
@@ -31,6 +32,7 @@ final class DayPlan {
   final List<QuestionId> reviewQuestionIds;
   final List<QuestionId> newQuestionIds;
   final bool isMockDay;
+  final bool isRestDay;
   final Set<String> advancedIds;
 
   int get questionCount => reviewQuestionIds.length + newQuestionIds.length;
@@ -45,6 +47,7 @@ final class DayPlan {
       _equality.equals(reviewQuestionIds, other.reviewQuestionIds) &&
       _equality.equals(newQuestionIds, other.newQuestionIds) &&
       isMockDay == other.isMockDay &&
+      isRestDay == other.isRestDay &&
       _equality.equals(advancedIds, other.advancedIds);
 
   @override
@@ -54,6 +57,7 @@ final class DayPlan {
         _equality.hash(reviewQuestionIds),
         _equality.hash(newQuestionIds),
         isMockDay,
+        isRestDay,
         _equality.hash(advancedIds),
       );
 }
@@ -93,6 +97,7 @@ enum RoadmapChangeCause {
   prerequisiteCycle,
   missingExamDate,
   mockAnswersRecorded,
+  studyDaysChanged,
 }
 
 @immutable

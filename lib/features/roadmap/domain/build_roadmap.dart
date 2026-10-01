@@ -13,19 +13,27 @@ import 'package:pantas/features/roadmap/domain/week_preview.dart';
 abstract final class BuildRoadmap {
   static Roadmap call(RoadmapInputs inputs) {
     final today = localDay(inputs.today);
+    final isStudyDay =
+        inputs.treatTodayAsStudyDay || inputs.studyDays.isStudyDay(today);
 
     if (!inputs.assessmentCompleted) {
-      return _empty(RoadmapState.needsAssessment, today);
+      return _empty(
+        RoadmapState.needsAssessment,
+        today,
+        isRestDay: !isStudyDay,
+      );
     }
     if (inputs.topics.isEmpty ||
         (inputs.lessons.isEmpty && inputs.questions.isEmpty)) {
-      return _empty(RoadmapState.noContent, today);
+      return _empty(RoadmapState.noContent, today, isRestDay: !isStudyDay);
     }
 
     final window = PlanningWindows.resolve(
       today: today,
       examDate: inputs.examDate,
       anchoredReviewOnlyFrom: inputs.anchoredReviewOnlyFrom,
+      studyDays: inputs.studyDays,
+      treatTodayAsStudyDay: inputs.treatTodayAsStudyDay,
     );
     final order = TopicOrder.compute(
       topics: inputs.topics,
@@ -49,17 +57,23 @@ abstract final class BuildRoadmap {
     // Inside the review-only stretch with material left, coverage wins: the
     // rest is spread over the days before the exam (spec 4.2, "let them
     // cram").
-    final days = window.workingDays > 0 ? window.workingDays : window.daysLeft;
+    final days = window.workingDays > 0
+        ? window.workingDays
+        : window.studyDaysBeforeExam;
     final selection = DaySelector.select(
       lessonTopicOrder: order.order,
       rankedTopics: order.ranked,
       lessons: inputs.lessons,
       questions: inputs.questions,
       seenQuestionIds: inputs.seenQuestionIds,
-      dueReviews: inputs.dueReviews,
+      dueReviews: isStudyDay ? inputs.dueReviews : const [],
       answeredPerActiveDay: inputs.answeredPerActiveDay,
-      lessonsToday: reviewsOnly ? 0 : PlanningWindows.perDay(lessonsLeft, days),
-      newToday: reviewsOnly ? 0 : PlanningWindows.perDay(unseenLeft, days),
+      lessonsToday: reviewsOnly || !isStudyDay
+          ? 0
+          : PlanningWindows.perDay(lessonsLeft, days),
+      newToday: reviewsOnly || !isStudyDay
+          ? 0
+          : PlanningWindows.perDay(unseenLeft, days),
     );
 
     final examDay = window.examDay;
@@ -69,6 +83,7 @@ abstract final class BuildRoadmap {
       reviewOnlyFrom: window.reviewOnlyFrom,
       mock: inputs.mock,
       mockSubmittedInWindow: _submittedInWindow(inputs.mock, examDay),
+      studyDays: inputs.studyDays,
     );
 
     final state = switch (window.state) {
@@ -87,7 +102,8 @@ abstract final class BuildRoadmap {
         lessonIds: selection.lessonIds,
         reviewQuestionIds: selection.reviewQuestionIds,
         newQuestionIds: selection.newQuestionIds,
-        isMockDay: mockDay != null && mockDay == today,
+        isMockDay: isStudyDay && mockDay != null && mockDay == today,
+        isRestDay: !isStudyDay,
         advancedIds: const {},
       ),
       examDay: examDay,
@@ -101,6 +117,7 @@ abstract final class BuildRoadmap {
               lessonTopicOrder: order.order,
               lessons: inputs.lessons,
               scheduledToday: selection.lessonIds.toSet(),
+              studyDays: inputs.studyDays,
             ),
       topicOrder: order.order,
       changes: const [],
@@ -117,7 +134,12 @@ abstract final class BuildRoadmap {
     return !day.isBefore(start) && day.isBefore(examDay);
   }
 
-  static Roadmap _empty(RoadmapState state, DateTime today) => Roadmap(
+  static Roadmap _empty(
+    RoadmapState state,
+    DateTime today, {
+    required bool isRestDay,
+  }) =>
+      Roadmap(
         state: state,
         today: DayPlan(
           day: today,
@@ -125,6 +147,7 @@ abstract final class BuildRoadmap {
           reviewQuestionIds: const <QuestionId>[],
           newQuestionIds: const <QuestionId>[],
           isMockDay: false,
+          isRestDay: isRestDay,
           advancedIds: const {},
         ),
         examDay: null,

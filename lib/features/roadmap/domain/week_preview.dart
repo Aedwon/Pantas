@@ -1,5 +1,6 @@
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/time/local_day.dart';
+import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/roadmap/domain/planning_window.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
 import 'package:pantas/features/roadmap/domain/roadmap_inputs.dart';
@@ -14,6 +15,7 @@ abstract final class WeekPreviews {
     required List<TopicId> lessonTopicOrder,
     required List<RoadmapLesson> lessons,
     required Set<LessonId> scheduledToday,
+    StudyDays studyDays = StudyDays.all,
   }) {
     if (reviewOnlyFrom == null) return const [];
     final byTopic = <TopicId, List<RoadmapLesson>>{};
@@ -40,7 +42,8 @@ abstract final class WeekPreviews {
     while (next < queue.length) {
       day = DateTime(day.year, day.month, day.day + 1);
       if (!day.isBefore(stop)) break;
-      final daysLeft = localDaysBetween(day, stop);
+      if (!studyDays.isStudyDay(day)) continue;
+      final daysLeft = studyDays.countInRange(day, stop);
       final perDay = PlanningWindows.perDay(queue.length - next, daysLeft);
       final weekStart =
           DateTime(day.year, day.month, day.day - (day.weekday - 1));

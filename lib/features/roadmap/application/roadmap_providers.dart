@@ -11,6 +11,7 @@ import 'package:pantas/features/roadmap/data/roadmap_change_log_repository.dart'
 import 'package:pantas/features/roadmap/data/roadmap_day_repository.dart';
 import 'package:pantas/features/roadmap/domain/build_roadmap.dart';
 import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
+import 'package:pantas/features/roadmap/domain/planning_window.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
 import 'package:pantas/features/roadmap/domain/roadmap_diff.dart';
 import 'package:pantas/features/roadmap/domain/roadmap_inputs.dart';
@@ -104,22 +105,47 @@ class RoadmapController {
     return future;
   }
 
-  /// Adds tomorrow's lessons and new questions to today once today's own
-  /// items are done. Does nothing before that.
+  /// Adds the next study day's material once today's original work is done.
+  /// With no study day left, brings in the remaining material for today.
   Future<RoadmapToday> advance(ExamId examId) async {
     final current = await today(examId);
     if (!current.originalDone) return current;
 
     final reader = _ref.read(roadmapInputsReaderProvider);
     final day = current.snapshot.day;
-    final tomorrow = DateTime(day.year, day.month, day.day + 1);
+    final settings = await _ref.read(userSettingsProvider.future);
+    final examDay = PlanningWindows.resolve(
+      today: day,
+      examDate: settings.examDate,
+      anchoredReviewOnlyFrom: current.snapshot.reviewOnlyFrom,
+      studyDays: settings.studyDays,
+    ).examDay;
+    final target = examDay == null
+        ? DateTime(day.year, day.month, day.day + 1)
+        : settings.studyDays.nextAfter(day, before: examDay);
     final inputs = await reader.inputs(
       examId,
-      tomorrow,
+      target ?? day,
       anchoredReviewOnlyFrom: current.snapshot.reviewOnlyFrom,
+      treatTodayAsStudyDay: target == null,
     );
     final next = _ref.read(roadmapBuilderProvider)(inputs);
-    final advanced = DaySnapshots.advance(current.snapshot, next.today);
+    var reviews = const <QuestionId>[];
+    if (current.snapshot.plan.isRestDay) {
+      final forToday = target == null
+          ? next
+          : _ref.read(roadmapBuilderProvider)(
+              await reader.inputs(
+                examId,
+                day,
+                anchoredReviewOnlyFrom: current.snapshot.reviewOnlyFrom,
+                treatTodayAsStudyDay: true,
+              ),
+            );
+      reviews = forToday.today.reviewQuestionIds;
+    }
+    final advanced =
+        DaySnapshots.advance(current.snapshot, next.today, reviews: reviews);
     if (advanced.plan.advancedIds.length ==
         current.snapshot.plan.advancedIds.length) {
       return current;

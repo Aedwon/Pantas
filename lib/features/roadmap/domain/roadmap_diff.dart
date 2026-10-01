@@ -48,7 +48,8 @@ abstract final class RoadmapDiff {
 
     if (prior != null && newDay && priorCompletion != null) {
       final left = DaySnapshots.originalLeftCounts(prior, priorCompletion);
-      if (left.lessons + left.newQuestions + left.reviews > 0) {
+      if (!prior.plan.isRestDay &&
+          left.lessons + left.newQuestions + left.reviews > 0) {
         changes.add(change(RoadmapChangeCause.missedWork, from: left));
       }
       if (prior.plan.advancedIds.isNotEmpty) {

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:collection/collection.dart';
 import 'package:meta/meta.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
 
 /// The inputs whose change rebuilds today's plan mid-day (spec 4.9). Stored
@@ -17,6 +18,7 @@ final class RoadmapDigest {
     required this.contentRevision,
     required this.assessmentCompleted,
     required this.recordedMockCount,
+    this.studyDays = StudyDays.all,
   }) : scopeTopicIds = List.unmodifiable([...scopeTopicIds]..sort());
 
   factory RoadmapDigest.parse(String encoded) {
@@ -28,6 +30,7 @@ final class RoadmapDigest {
       contentRevision: json['content']! as String,
       assessmentCompleted: json['assessed']! as bool,
       recordedMockCount: json['mocks']! as int,
+      studyDays: StudyDays.fromStorage(json['studyDays'] as String?),
     );
   }
 
@@ -40,6 +43,7 @@ final class RoadmapDigest {
   final String contentRevision;
   final bool assessmentCompleted;
   final int recordedMockCount;
+  final StudyDays studyDays;
 
   String encode() => jsonEncode({
         'examId': examId,
@@ -48,6 +52,7 @@ final class RoadmapDigest {
         'content': contentRevision,
         'assessed': assessmentCompleted,
         'mocks': recordedMockCount,
+        'studyDays': studyDays.storageValue,
       });
 
   /// The causes that explain a move from this digest to [next], in a fixed
@@ -66,6 +71,7 @@ final class RoadmapDigest {
           RoadmapChangeCause.assessmentCompleted,
         if (next.recordedMockCount > recordedMockCount)
           RoadmapChangeCause.mockAnswersRecorded,
+        if (studyDays != next.studyDays) RoadmapChangeCause.studyDaysChanged,
       ];
 
   @override
@@ -98,6 +104,7 @@ final class DaySnapshot {
         reviewQuestionIds: (plan['reviews']! as List).cast<String>(),
         newQuestionIds: (plan['new']! as List).cast<String>(),
         isMockDay: plan['mockDay']! as bool,
+        isRestDay: plan['restDay'] as bool? ?? false,
         advancedIds: (plan['advanced']! as List).cast<String>().toSet(),
       ),
       digest: RoadmapDigest.parse(json['digest']! as String),
@@ -137,6 +144,7 @@ final class DaySnapshot {
           'reviews': plan.reviewQuestionIds,
           'new': plan.newQuestionIds,
           'mockDay': plan.isMockDay,
+          'restDay': plan.isRestDay,
           'advanced': plan.advancedIds.toList()..sort(),
         },
         'digest': digest.encode(),
@@ -202,6 +210,7 @@ abstract final class DaySnapshots {
           if (!facts.seenQuestionIds.contains(id)) id,
       ],
       isMockDay: plan.isMockDay,
+      isRestDay: plan.isRestDay,
       advancedIds: plan.advancedIds,
     );
   }
@@ -222,26 +231,36 @@ abstract final class DaySnapshots {
       lessons: left.lessonIds.where((id) => !advanced.contains(id)).length,
       newQuestions:
           left.newQuestionIds.where((id) => !advanced.contains(id)).length,
-      reviews: left.reviewQuestionIds.length,
+      reviews:
+          left.reviewQuestionIds.where((id) => !advanced.contains(id)).length,
     );
   }
 
   /// How many advanced items were finished.
   static int advancedCompleted(DaySnapshot snapshot, CompletionFacts facts) {
     final left = remaining(snapshot, facts);
-    final stillLeft = {...left.lessonIds, ...left.newQuestionIds};
+    final stillLeft = {
+      ...left.lessonIds,
+      ...left.newQuestionIds,
+      ...left.reviewQuestionIds,
+    };
     return snapshot.plan.advancedIds
         .where((id) => !stillLeft.contains(id))
         .length;
   }
 
-  /// Today's plan with tomorrow's lessons and new questions added as advanced
-  /// items. Reviews are not added: they are not due yet. Only valid once the
-  /// original items are done; the caller checks [originalDone] first.
-  static DaySnapshot advance(DaySnapshot today, DayPlan tomorrow) {
+  /// Appends the next study day's lessons and new questions. On a rest day,
+  /// [reviews] holds only reviews already due today. All added items are
+  /// advanced. The caller checks [originalDone] first.
+  static DaySnapshot advance(
+    DaySnapshot today,
+    DayPlan tomorrow, {
+    List<QuestionId> reviews = const [],
+  }) {
     final plan = today.plan;
     final lessons = [...plan.lessonIds];
     final fresh = [...plan.newQuestionIds];
+    final due = [...plan.reviewQuestionIds];
     final advanced = {...plan.advancedIds};
     for (final id in tomorrow.lessonIds) {
       if (lessons.contains(id)) continue;
@@ -253,13 +272,19 @@ abstract final class DaySnapshots {
       fresh.add(id);
       advanced.add(id);
     }
+    for (final id in reviews) {
+      if (due.contains(id)) continue;
+      due.add(id);
+      advanced.add(id);
+    }
     return DaySnapshot(
       plan: DayPlan(
         day: plan.day,
         lessonIds: lessons,
-        reviewQuestionIds: plan.reviewQuestionIds,
+        reviewQuestionIds: due,
         newQuestionIds: fresh,
         isMockDay: plan.isMockDay,
+        isRestDay: plan.isRestDay,
         advancedIds: advanced,
       ),
       digest: today.digest,
@@ -276,7 +301,9 @@ abstract final class DaySnapshots {
         newQuestions: plan.newQuestionIds
             .where((id) => !plan.advancedIds.contains(id))
             .length,
-        reviews: plan.reviewQuestionIds.length,
+        reviews: plan.reviewQuestionIds
+            .where((id) => !plan.advancedIds.contains(id))
+            .length,
       );
 
   static List<String> _originalLeft(
@@ -288,7 +315,7 @@ abstract final class DaySnapshots {
     return [
       ...left.lessonIds.where((id) => !advanced.contains(id)),
       ...left.newQuestionIds.where((id) => !advanced.contains(id)),
-      ...left.reviewQuestionIds,
+      ...left.reviewQuestionIds.where((id) => !advanced.contains(id)),
     ];
   }
 }

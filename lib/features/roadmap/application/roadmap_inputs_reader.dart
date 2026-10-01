@@ -53,6 +53,7 @@ class RoadmapInputsReader {
                 examId: examId,
                 origin: AttemptOrigins.mock,
               ),
+      studyDays: settings.studyDays,
     );
   }
 
@@ -92,6 +93,7 @@ class RoadmapInputsReader {
     ExamId examId,
     DateTime today, {
     DateTime? anchoredReviewOnlyFrom,
+    bool treatTodayAsStudyDay = false,
   }) async {
     final content = _ref.read(contentRepositoryProvider);
     final now = _ref.read(nowProvider)();
@@ -139,6 +141,8 @@ class RoadmapInputsReader {
       today: day,
       examId: examId,
       examDate: settings.examDate,
+      studyDays: settings.studyDays,
+      treatTodayAsStudyDay: treatTodayAsStudyDay,
       topics: [
         for (var i = 0; i < scope.topics.length; i++)
           RoadmapTopic(

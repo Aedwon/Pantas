@@ -1,4 +1,5 @@
 import 'package:pantas/core/time/local_day.dart';
+import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/roadmap/domain/roadmap_inputs.dart';
 
 abstract final class MockDay {
@@ -8,6 +9,7 @@ abstract final class MockDay {
     required DateTime? reviewOnlyFrom,
     required RoadmapMockFacts mock,
     required bool mockSubmittedInWindow,
+    StudyDays studyDays = StudyDays.all,
   }) {
     if (!mock.examHasMock ||
         examDay == null ||
@@ -27,6 +29,22 @@ abstract final class MockDay {
     if (target.isBefore(windowStart)) target = windowStart;
     if (target.isAfter(windowEnd)) target = windowEnd;
 
+    DateTime? firstStudyDay(DateTime from) => studyDays.isStudyDay(from)
+        ? (from.isAfter(windowEnd) ? null : from)
+        : studyDays.nextAfter(from, before: exam);
+    var placed = firstStudyDay(target);
+    if (placed == null) {
+      for (var earlier = DateTime(target.year, target.month, target.day - 1);
+          !earlier.isBefore(windowStart);
+          earlier = DateTime(earlier.year, earlier.month, earlier.day - 1)) {
+        if (studyDays.isStudyDay(earlier)) {
+          placed = earlier;
+          break;
+        }
+      }
+    }
+    if (placed == null) return null;
+
     final lastSubmittedAt = mock.lastSubmittedAt;
     if (!mock.proIsActive && lastSubmittedAt != null) {
       final submittedDay = localDay(lastSubmittedAt);
@@ -35,12 +53,12 @@ abstract final class MockDay {
         submittedDay.month,
         submittedDay.day + 14,
       );
-      if (target.isBefore(nextAllowed)) {
+      if (placed.isBefore(nextAllowed)) {
         if (nextAllowed.isAfter(windowEnd)) return null;
-        target = nextAllowed;
+        placed = firstStudyDay(nextAllowed);
       }
     }
 
-    return target;
+    return placed;
   }
 }

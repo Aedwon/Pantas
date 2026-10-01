@@ -53,11 +53,13 @@ void main() {
   late int builds;
   late int queries;
   var examDay = DateTime(2026, 12, 7);
+  var studyDays = StudyDays.all;
+  final builtInputs = <RoadmapInputs>[];
 
   UserSettings settings() => UserSettings(
         name: null,
         dailyReminderTime: null,
-        studyDays: StudyDays.all,
+        studyDays: studyDays,
         examDate: ExamDate.onDay(examDay),
         strictMockMode: false,
         helpImproveApp: true,
@@ -75,6 +77,8 @@ void main() {
     now = DateTime(2026, 9, 30, 8);
     builds = 0;
     examDay = DateTime(2026, 12, 7);
+    studyDays = StudyDays.all;
+    builtInputs.clear();
 
     await seedContentExam(
       contentDb,
@@ -119,6 +123,7 @@ void main() {
         userSettingsProvider.overrideWith((ref) async => settings()),
         roadmapBuilderProvider.overrideWithValue((RoadmapInputs inputs) {
           builds++;
+          builtInputs.add(inputs);
           return BuildRoadmap.call(inputs);
         }),
       ],
@@ -336,5 +341,178 @@ void main() {
     final after = await container.read(roadmapTodayProvider('e1').future);
 
     expect(after.snapshot.digest.examDate, '2026-12-14:day');
+  });
+  test('the inputs reader reads study days for its digest and plan', () async {
+    studyDays = StudyDays(const [1, 2, 3, 4, 5]);
+    final reader = container.read(roadmapInputsReaderProvider);
+    expect((await reader.digest('e1')).studyDays, studyDays);
+    final inputs = await reader.inputs('e1', now);
+    expect(inputs.studyDays, studyDays);
+    expect(inputs.treatTodayAsStudyDay, isFalse);
+    final forced = await reader.inputs('e1', now, treatTodayAsStudyDay: true);
+    expect(forced.treatTodayAsStudyDay, isTrue);
+  });
+
+  test('changing today to rest clears work and logs only study days changed',
+      () async {
+    final before = await controller().today('e1');
+    final lesson = before.remaining.lessonIds.first;
+    final question = before.remaining.newQuestionIds.first;
+    await container.read(lessonProgressRepositoryProvider).markRead(lesson);
+    await container.read(reviewStateRepositoryProvider).upsert(
+          ReviewState.seed(questionId: question, questionVersion: 1, now: now),
+        );
+    studyDays = StudyDays(const [1]);
+    container.invalidate(userSettingsProvider);
+    final rest = await controller().today('e1');
+    expect(rest.snapshot.plan.isRestDay, isTrue);
+    expect(rest.remaining.lessonIds, isEmpty);
+    expect(rest.remaining.questionCount, 0);
+    expect(rest.originalDone, isTrue);
+    expect(await causes(), contains(RoadmapChangeCause.studyDaysChanged));
+    expect(await causes(), isNot(contains(RoadmapChangeCause.missedWork)));
+    expect(
+      (await causes()).where((c) => c == RoadmapChangeCause.newDay),
+      hasLength(1),
+    );
+    studyDays = StudyDays.all;
+    container.invalidate(userSettingsProvider);
+    final restored = await controller().today('e1');
+    expect(restored.remaining.isRestDay, isFalse);
+    expect(restored.remaining.lessonIds, isNotEmpty);
+    expect(restored.remaining.lessonIds, isNot(contains(lesson)));
+    expect(restored.remaining.newQuestionIds, isNot(contains(question)));
+    expect(
+      (await causes()).where((c) => c == RoadmapChangeCause.studyDaysChanged),
+      hasLength(2),
+    );
+  });
+
+  test('reviews due on the weekend wait until Monday under the cap', () async {
+    studyDays = StudyDays(const [1, 2, 3, 4, 5]);
+    final dueDays = [
+      DateTime(2026, 10, 3, 23, 59),
+      DateTime(2026, 10, 4, 23, 59),
+      DateTime(2026, 10, 5, 23, 59),
+      DateTime(2026, 10, 6),
+    ];
+    for (var i = 0; i < dueDays.length; i++) {
+      await container.read(reviewStateRepositoryProvider).upsert(
+            ReviewState.seed(
+              questionId: 't1_l0_q$i',
+              questionVersion: 1,
+              now: DateTime(2026, 10, 2),
+            ).copyWith(due: dueDays[i]),
+          );
+    }
+    await answer(
+      'history',
+      DateTime(2026, 10, 2),
+      {'t1_l0_q0': true, 't1_l0_q1': true},
+    );
+    for (final d in [3, 4]) {
+      now = DateTime(2026, 10, d, 8);
+      final rest = await controller().today('e1');
+      expect(rest.remaining.reviewQuestionIds, isEmpty);
+      expect(rest.remaining.isRestDay, isTrue);
+    }
+    now = DateTime(2026, 10, 5, 8);
+    final monday = await controller().today('e1');
+    expect(monday.remaining.reviewQuestionIds, ['t1_l0_q0', 't1_l0_q1']);
+    expect(await causes(), contains(RoadmapChangeCause.backlogCapped));
+    expect(await causes(), isNot(contains(RoadmapChangeCause.missedWork)));
+  });
+
+  test('advance from Friday builds Monday and adds no future reviews',
+      () async {
+    studyDays = StudyDays(const [1, 2, 3, 4, 5]);
+    now = DateTime(2026, 10, 2, 8);
+    final first = await controller().today('e1');
+    for (final lesson in first.remaining.lessonIds) {
+      await container.read(lessonProgressRepositoryProvider).markRead(lesson);
+    }
+    for (final q in first.remaining.newQuestionIds) {
+      await container.read(reviewStateRepositoryProvider).upsert(
+            ReviewState.seed(questionId: q, questionVersion: 1, now: now)
+                .copyWith(due: DateTime(2026, 10, 5)),
+          );
+    }
+    final advanced = await controller().advance('e1');
+    expect(builtInputs.last.today, DateTime(2026, 10, 5));
+    expect(advanced.remaining.lessonIds, isNotEmpty);
+    expect(advanced.remaining.newQuestionIds, isNotEmpty);
+    expect(advanced.remaining.reviewQuestionIds, isEmpty);
+    expect(advanced.originalDone, isTrue);
+  });
+
+  test('Saturday advance adds Monday material and only reviews due today',
+      () async {
+    studyDays = StudyDays(const [1, 2, 3, 4, 5]);
+    now = DateTime(2026, 10, 3, 8);
+    for (final (id, due) in [
+      ('t1_l0_q0', DateTime(2026, 10, 3, 23, 59)),
+      ('t1_l0_q1', DateTime(2026, 10, 4)),
+    ]) {
+      await container.read(reviewStateRepositoryProvider).upsert(
+            ReviewState.seed(
+              questionId: id,
+              questionVersion: 1,
+              now: DateTime(2026, 10, 2),
+            ).copyWith(due: due),
+          );
+    }
+    await answer('capacity', DateTime(2026, 10, 2), {'t1_l0_q0': true});
+    final rest = await controller().today('e1');
+    expect(rest.originalDone, isTrue);
+    final advanced = await controller().advance('e1');
+    expect(
+      builtInputs.map((i) => i.today),
+      [DateTime(2026, 10, 3), DateTime(2026, 10, 5), DateTime(2026, 10, 3)],
+    );
+    expect(builtInputs.last.treatTodayAsStudyDay, isTrue);
+    expect(advanced.remaining.lessonIds, ['t1_l0']);
+    expect(advanced.remaining.newQuestionIds, ['t1_l0_q2']);
+    expect(advanced.remaining.reviewQuestionIds, ['t1_l0_q0']);
+    expect(
+      advanced.snapshot.plan.advancedIds,
+      {'t1_l0', 't1_l0_q2', 't1_l0_q0'},
+    );
+    expect(advanced.originalDone, isTrue);
+    expect(advanced.remaining.isRestDay, isTrue);
+    final daysBefore = await db.select(db.roadmapDayLocal).get();
+    final logsBefore = await db.select(db.roadmapChangeLogLocal).get();
+    final repeated = await controller().advance('e1');
+    expect(repeated.snapshot, advanced.snapshot);
+    expect(await db.select(db.roadmapDayLocal).get(), daysBefore);
+    expect(await db.select(db.roadmapChangeLogLocal).get(), logsBefore);
+    now = DateTime(2026, 10, 5, 8);
+    await controller().today('e1');
+    expect(await causes(), isNot(contains(RoadmapChangeCause.missedWork)));
+  });
+
+  test(
+      'advance with no study day before the exam brings all remaining material',
+      () async {
+    studyDays = StudyDays(const [1, 2, 3, 4, 5]);
+    now = DateTime(2026, 12, 5, 8);
+    final rest = await controller().today('e1');
+    expect(rest.remaining.lessonIds, isEmpty);
+    expect(rest.remaining.questionCount, 0);
+    final advanced = await controller().advance('e1');
+    expect(builtInputs.every((i) => i.today == DateTime(2026, 12, 5)), isTrue);
+    expect(builtInputs.last.treatTodayAsStudyDay, isTrue);
+    expect(advanced.remaining.lessonIds, hasLength(8));
+    expect(advanced.remaining.newQuestionIds, hasLength(40));
+    expect(advanced.originalDone, isTrue);
+  });
+
+  test('advance before the original work is done writes nothing', () async {
+    await controller().today('e1');
+    final daysBefore = await db.select(db.roadmapDayLocal).get();
+    final logsBefore = await db.select(db.roadmapChangeLogLocal).get();
+    await controller().advance('e1');
+    expect(builds, 1);
+    expect(await db.select(db.roadmapDayLocal).get(), daysBefore);
+    expect(await db.select(db.roadmapChangeLogLocal).get(), logsBefore);
   });
 }
