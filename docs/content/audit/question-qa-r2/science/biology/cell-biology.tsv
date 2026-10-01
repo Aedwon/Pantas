@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-biology-cell-biology-0001	CORRECTED	SOLVED-MATCH	stem;explanation;notes	HIGH	Explanation falsely said mitochondria do not hold DNA.
+q-biology-cell-biology-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Original wording implied the entire breakdown of glucose occurred in mitochondria.
+q-biology-cell-biology-0003	CORRECTED	SOLVED-MATCH	stem;explanation;notes	MEDIUM	Original broad wording could also describe protein production inside mitochondria.
+q-biology-cell-biology-0004	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-biology-cell-biology-0005	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-biology-cell-biology-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Cytoplasm and nucleolus were weak distractors; correct choice was uniquely longest.
+q-biology-cell-biology-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original wording treated the absence of centrosomes in all plant cells as absolute.
+q-biology-cell-biology-0008	CORRECTED	SOLVED-MATCH	stem;explanation;notes	HIGH	Original stem and explanation wrongly called walls, chloroplasts, and vacuoles plant-only across all life.
+q-biology-cell-biology-0009	CORRECTED	SOLVED-MATCH	stem;explanation;notes	HIGH	Explanation incorrectly described the structures as unique to plants across all organisms.
+q-biology-cell-biology-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Correct choice was longest and an animal-versus-plant distractor was unrelated.
+q-biology-cell-biology-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Correct choice was longest and a plant-only distractor was unrelated.
+q-biology-cell-biology-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original stem did not specify nonpenetrating solutes and the correct choice was longest.
+q-biology-cell-biology-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Neutral solution was a weak pH distractor and the correct choice was longest.
+q-biology-cell-biology-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Cell division was an unrelated distractor.
+q-biology-cell-biology-0015	CORRECTED	SOLVED-MATCH	stem;explanation;notes	LOW	Original wording applied the secretory route to all proteins.
+q-biology-cell-biology-0016	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Explanation said all active transport directly needs ATP; stem left passive permeability unstated.
+q-biology-cell-biology-0017	NEW	NEW	new question	NONE	
+q-biology-cell-biology-0018	NEW	NEW	new question	NONE	
+q-biology-cell-biology-0019	NEW	NEW	new question	NONE	
+q-biology-cell-biology-0020	NEW	NEW	new question	NONE	
