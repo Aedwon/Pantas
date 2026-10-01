@@ -11,6 +11,7 @@ import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/domain/review_state.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
+import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/home/application/topic_accuracy_provider.dart';
 import 'package:pantas/features/quiz/application/quiz_launch_coordinator.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
@@ -84,6 +85,7 @@ void main() {
           (ref) async => UserSettings(
             name: null,
             dailyReminderTime: null,
+            studyDays: StudyDays.all,
             examDate: ExamDate.onDay(examDay),
             strictMockMode: false,
             helpImproveApp: true,

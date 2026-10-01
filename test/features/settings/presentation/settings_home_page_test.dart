@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/core/ui/components/settings_group.dart';
 import 'package:pantas/core/ui/components/settings_switch.dart';
 import 'package:pantas/core/ui/components/settings_value_row.dart';
@@ -20,6 +21,7 @@ UserSettings _settings({
   return UserSettings(
     name: name,
     dailyReminderTime: null,
+    studyDays: StudyDays.all,
     examDate: examDate,
     strictMockMode: strictMockMode,
     helpImproveApp: true,

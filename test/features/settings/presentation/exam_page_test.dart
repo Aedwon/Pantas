@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/core/ui/components/settings_group.dart';
 import 'package:pantas/core/ui/components/settings_switch.dart';
 import 'package:pantas/core/ui/components/settings_value_row.dart';
@@ -50,6 +51,7 @@ void main() {
         (ref) async => UserSettings(
           name: 'Student',
           dailyReminderTime: null,
+          studyDays: StudyDays.all,
           examDate: null,
           strictMockMode: false,
           helpImproveApp: true,
@@ -256,6 +258,7 @@ void main() {
           (ref) async => const UserSettings(
             name: 'Student',
             dailyReminderTime: null,
+            studyDays: StudyDays.all,
             examDate: null,
             strictMockMode: false,
             helpImproveApp: true,

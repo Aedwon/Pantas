@@ -1,6 +1,7 @@
 import 'package:drift/drift.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
+import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/settings/domain/session_ordering.dart';
 import 'package:pantas/features/settings/domain/theme_preference.dart';
 import 'package:pantas/features/settings/domain/user_settings.dart';
@@ -26,6 +27,7 @@ class NoopAnalyticsConsentGateway implements AnalyticsConsentGateway {
 abstract final class SettingsPrefKeys {
   static const name = 'settings.name';
   static const dailyReminderTime = 'settings.daily_reminder_time';
+  static const studyDays = 'settings.study_days';
   static const examDate = 'settings.exam_date';
   static const examDatePrecision = 'settings.exam_date_precision';
   static const policyAcceptedAt = 'settings.policy_accepted_at';
@@ -65,6 +67,7 @@ class DriftSettingsRepository {
       name: (name == null || name.isEmpty) ? null : name,
       dailyReminderTime:
           SettingsTime.fromStorage(values[SettingsPrefKeys.dailyReminderTime]),
+      studyDays: StudyDays.fromStorage(values[SettingsPrefKeys.studyDays]),
       examDate: ExamDate.fromStorage(
         values[SettingsPrefKeys.examDate],
         values[SettingsPrefKeys.examDatePrecision],
@@ -104,6 +107,13 @@ class DriftSettingsRepository {
   Future<void> updateReminderTime(SettingsTime time) async {
     await _writeAccountPrefs({
       SettingsPrefKeys.dailyReminderTime: time.storageValue,
+      SettingsPrefKeys.updatedAt: _clock().toUtc().toIso8601String(),
+    });
+  }
+
+  Future<void> updateStudyDays(StudyDays days) async {
+    await _writeAccountPrefs({
+      SettingsPrefKeys.studyDays: days.storageValue,
       SettingsPrefKeys.updatedAt: _clock().toUtc().toIso8601String(),
     });
   }

@@ -2,11 +2,47 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/settings/settings.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
 void main() {
+  test('changing study days refreshes settings before rescheduling', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final notifications = RecordingNotificationService();
+    final container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        notificationServiceProvider.overrideWithValue(notifications),
+      ],
+    );
+    addTearDown(container.dispose);
+    final subscription = container.listen(userSettingsProvider, (_, __) {});
+    addTearDown(subscription.close);
+    expect(
+      (await container.read(userSettingsProvider.future)).studyDays,
+      StudyDays.all,
+    );
+    final days = StudyDays(const [1, 2, 3, 4, 5]);
+    notifications.onReschedule = () async {
+      expect(
+        (await DriftSettingsRepository(db).readUserSettings()).studyDays,
+        days,
+      );
+      expect(
+        (await container.read(userSettingsProvider.future)).studyDays,
+        days,
+      );
+    };
+
+    await container.read(settingsActionsProvider).updateStudyDays(days);
+
+    expect(notifications.reschedules, 1);
+    expect((await container.read(userSettingsProvider.future)).studyDays, days);
+  });
+
   test('saving exam date writes settings and study plan prefs', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
@@ -170,6 +206,8 @@ class RecordingStudyPlanRebalanceGateway implements StudyPlanRebalanceGateway {
 
 class RecordingNotificationService implements NotificationService {
   final scheduled = <NotificationTime>[];
+  int reschedules = 0;
+  Future<void> Function()? onReschedule;
 
   @override
   Future<void> cancelAll() async {}
@@ -186,7 +224,10 @@ class RecordingNotificationService implements NotificationService {
   }
 
   @override
-  Future<void> rescheduleForForeground() async {}
+  Future<void> rescheduleForForeground() async {
+    reschedules++;
+    await onReschedule?.call();
+  }
 
   @override
   Future<void> scheduleDailyReminder(NotificationTime time) async {
