@@ -213,6 +213,63 @@ void main() {
     });
   }
 
+  for (final scenario in [
+    (
+      name: 'Saturday schedules Monday without rest-day counts',
+      now: DateTime(2026, 10, 3, 12),
+      days: StudyDays(const [1, 2, 3, 4, 5]),
+      fireAt: DateTime(2026, 10, 5, 19),
+      reviews: 0,
+      planState: DailyReminderPlanState.standard,
+    ),
+    (
+      name: 'all seven after reminder time uses generic text tomorrow',
+      now: DateTime(2026, 10, 1, 20),
+      days: StudyDays.all,
+      fireAt: DateTime(2026, 10, 2, 19),
+      reviews: 14,
+      planState: DailyReminderPlanState.standard,
+    ),
+    (
+      name: 'a future reminder cannot claim today is mock day',
+      now: DateTime(2026, 10, 1, 20),
+      days: StudyDays.all,
+      fireAt: DateTime(2026, 10, 2, 19),
+      reviews: 0,
+      planState: DailyReminderPlanState.mock,
+    ),
+  ]) {
+    test(scenario.name, () async {
+      final gateway = RecordingNotificationsGateway()
+        ..permission = NotificationPermission.granted;
+      final service = NotificationServiceImpl(
+        gateway: gateway,
+        settingsReader: () async =>
+            NotificationSettingsSnapshot.daily(hour: 19, minute: 0),
+        studyDaysReader: () async => scenario.days,
+        planReader: () async => NotificationPlanSnapshot.ready(
+          reviewCount: scenario.reviews,
+          route: '/quiz',
+          planState: scenario.planState,
+        ),
+        streakReader: () async => const NotificationStreakSnapshot.empty(),
+        now: () => scenario.now,
+      );
+      await service.scheduleDailyReminder(
+        const NotificationTime(hour: 19, minute: 0),
+      );
+      final notification = gateway.scheduled.single;
+      expect(notification.fireAt, scenario.fireAt);
+      final fallback = const NotificationBodyComposer().fallbackDailyReminder();
+      expect(notification.title, fallback.title);
+      expect(notification.body, fallback.body);
+      final payload = NotificationPayload.tryDecode(notification.payload)!;
+      expect(payload.kind, NotificationKind.dailyReminder);
+      expect(payload.scheduledFor, scenario.fireAt);
+      expect(payload.route, isNull);
+    });
+  }
+
   test('foreground schedules comeback at the third missed study day', () async {
     final gateway = RecordingNotificationsGateway()
       ..permission = NotificationPermission.granted;

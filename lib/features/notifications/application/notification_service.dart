@@ -1,5 +1,6 @@
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
+import 'package:pantas/core/time/local_day.dart';
 import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/notifications/data/notifications_gateway.dart';
 import 'package:pantas/features/notifications/domain/exam_countdown_schedule.dart';
@@ -299,12 +300,15 @@ class NotificationServiceImpl implements NotificationService {
     }
 
     // 3. Candidate: dailyReminder
-    final plan = await _planReader();
     final dailyFireAt = _schedulerClock.nextOccurrence(
       now: now,
       time: time,
       studyDays: studyDays,
     );
+    // Today's snapshot cannot describe work on a different calendar day.
+    final plan = localDay(dailyFireAt) == localDay(now)
+        ? await _planReader()
+        : const NotificationPlanSnapshot.unavailable();
     final dailyCopy = plan.available
         ? _composer.dailyReminder(
             DailyReminderInput(
