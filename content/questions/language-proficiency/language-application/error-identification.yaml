@@ -362,19 +362,19 @@ questions:
     stem: |
       Choose the sentence with correct agreement despite an intervening phrase.
     choices:
-      - text: "Most of the water in the containers has evaporated."
+      - text: "Some of the information in these notes is confidential."
         correct: true
-      - text: "Most of the water in the containers have evaporated during the heat."
+      - text: "Some of the information in these notes are confidential for legal reasons."
         rationale: |
-          This matches the nearby plural containers. That noun is close to the verb. Check: check what "most" refers to.
-      - text: "Most of the water in the containers are evaporated during the heat."
+          This matches the plural "notes" rather than the information. Notes are close to the verb and can attract attention. Check: identify what "some" refers to.
+      - text: "Some of the information in these notes were confidential at the time."
         rationale: |
-          This gives plural agreement to the amount of water. The water is held in several containers. Check: match the mass amount rather than its containers.
-      - text: "Most of the water in the containers were evaporated during the heat."
+          This gives plural agreement to the mass noun "information." The notes themselves are plural. Check: match the amount of information being described.
+      - text: "Some of the information in these notes have been confidential for months."
         rationale: |
-          This uses a plural past helping verb with a mass amount. The containers are plural and the heat happened earlier. Check: check the number of the actual subject.
+          This uses plural "have" with an amount of information. The plural note pages may suggest plural agreement. Check: separate the information from the pages containing it.
     explanation: |
-      "Most" refers to an amount of water. That mass amount takes singular "has," forming "has evaporated."
+      "Some" refers to an amount of information, a mass noun. Singular "is" agrees with that amount; "in these notes" only describes its location.
     approved: false
   - id: "q-language-application-error-identification-0017"
     type: "error-identification"
@@ -440,19 +440,19 @@ questions:
     type: "error-identification"
     difficulty: "exam"
     stem: |
-      The narrator has exactly one sister. Choose the standard punctuation for extra information about her.
+      The phrase "the cashier on duty" adds extra information about Mika. Which sentence correctly sets off that whole phrase?
     choices:
-      - text: "My sister, who works in Iloilo, arrived yesterday."
+      - text: "Mika, the cashier on duty, counted the receipts."
         correct: true
-      - text: "My sister, who works in Iloilo arrived, yesterday."
+      - text: "Mika, the cashier, on duty counted the receipts."
         rationale: |
-          This closes the extra-information group after the main verb. Two commas seem to surround the extra words. Check: bracket exactly "who works in Iloilo".
-      - text: "My sister who, works in Iloilo, arrived yesterday."
+          This closes the added description before "on duty." Two commas make the sentence look balanced. Check: include every word of the specified extra phrase.
+      - text: "Mika the cashier, on duty, counted the receipts."
         rationale: |
-          This leaves the relative word outside the marked group. Both commas appear near the description. Check: include "who" within the extra-information clause.
-      - text: "My sister, who works, in Iloilo arrived yesterday."
+          This puts the commas around only "on duty." That part also sounds like extra information. Check: set off the complete phrase named in the stem.
+      - text: "Mika, the cashier on duty counted, the receipts."
         rationale: |
-          This splits the relative clause before its location phrase. A pause after "works" can sound natural. Check: include the whole added description between the commas.
+          This includes the main verb inside the added description. The comma after the name gives the first boundary correctly. Check: close the extra phrase before the main action verb.
     explanation: |
-      The narrator has one sister, so "who works in Iloilo" adds extra information. Paired commas set off that whole clause.
+      The entire added noun phrase is "the cashier on duty." One comma comes before it and another comes after it, leaving "Mika counted the receipts" as the main clause.
     approved: false
