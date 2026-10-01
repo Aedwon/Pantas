@@ -243,7 +243,7 @@ void main() {
 
   for (final days in [
     StudyDays.all,
-    StudyDays(const [1, 2, 3, 4, 5])
+    StudyDays(const [1, 2, 3, 4, 5]),
   ]) {
     test('consecutive completed days show the first day: ${days.storageValue}',
         () async {

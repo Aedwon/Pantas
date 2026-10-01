@@ -516,7 +516,9 @@ void main() {
           ).copyWith(lastReview: now, due: DateTime(2026, 10, 6)),
         );
     expect(
-        (await controller().today('e1')).remaining.reviewQuestionIds, isEmpty);
+      (await controller().today('e1')).remaining.reviewQuestionIds,
+      isEmpty,
+    );
 
     final second = await controller().advance('e1');
     expect(second.remaining.reviewQuestionIds, isEmpty);
