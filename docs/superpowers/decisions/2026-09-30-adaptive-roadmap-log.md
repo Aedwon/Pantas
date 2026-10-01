@@ -528,3 +528,13 @@ has all seven days; "Every Day" read as picking all seven (whether it also conti
 design's call); with no study day left before the exam, nothing is scheduled but advance brings
 in everything left; on a rest day, advance also brings in reviews already due, never early ones.
 **Status:** Part 1 Section 4a awaits his approval before implementation.
+
+**Approval, 1 October 2026:**
+
+> "approved, go ahead and build it"
+
+Plan: `docs/superpowers/plans/2026-10-01-roadmap-study-days.md`. Task A (setting and shared day
+helper) first; Tasks B (engine) and C (streak and reminders) in parallel after it, by Codex on
+6.1 Sol High, lead review and integration. Technical reading recorded in the plan: weeks ahead
+has no per-day rows, so "rest days carry no counts" is met by allotting no lessons to rest days
+in its simulation.

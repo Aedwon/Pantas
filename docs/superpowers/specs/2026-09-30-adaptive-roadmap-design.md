@@ -2,7 +2,7 @@
 
 **Date:** 30 September 2026
 **Status:** Part 1 approved 30 September 2026. **Amendment of 1 October 2026 (study days, Part 1
-Section 4a) awaiting approval.** Part 2 is the agent section and must agree with Part 1.
+Section 4a) approved 1 October 2026.** Part 2 is the agent section and must agree with Part 1.
 **Decision log:** `docs/superpowers/decisions/2026-09-30-adaptive-roadmap-log.md`
 **Policy revision read:** `origin/main` `11417a5b3def098f70c367172a13738ec1ffd90a`
 **Grounded against:** `web/e09-qlp5-prepared-next-r1` at `13938943f447956af43d2de7e1f9999eb2418aee`,
@@ -91,7 +91,7 @@ starts, so a student is not bounced between half-read topics.
 **Before the first plan, the student takes the short assessment**, as today. It gives the first
 topic order.
 
-## 4a. Study days (amendment, 1 October 2026; awaiting approval)
+## 4a. Study days (amendment, approved 1 October 2026)
 
 Aedwon's rule: **no work is assigned on a day that is not a study day.**
 
@@ -525,7 +525,10 @@ descending retrievability at `today`. Expose retrievability from `FsrsScheduler`
   the first three topic ids. Only counts that were real at the time are stored. **No entry states
   a verdict.** Log text rendering is for the UI round.
 
-### 4.10 Study days (amendment, 1 October 2026; Part 1 Section 4a)
+### 4.10 Study days (amendment, approved 1 October 2026; Part 1 Section 4a)
+
+Worked values (verified): Mon to Fri, Wed 30 Sep to Mon 7 Dec 2026: 48 study days before the
+exam, 43 before Mon 30 Nov; 120 lessons give 3 a day, 900 unseen give 21 a day.
 
 - **Setting.** `UserSettings.studyDays`: a set of ISO weekdays (`DateTime.monday` 1 to
   `DateTime.sunday` 7). Stored in `account_prefs` under `settings.study_days` as a sorted comma
