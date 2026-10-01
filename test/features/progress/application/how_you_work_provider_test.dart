@@ -6,7 +6,12 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/metrics/domain/metric_signal.dart';
+import 'package:pantas/features/metrics/domain/metrics_window.dart';
+import 'package:pantas/features/metrics/domain/signal_key.dart';
+import 'package:pantas/features/metrics/domain/signal_outputs.dart';
 import 'package:pantas/features/metrics/domain/tendency_confidence.dart';
+import 'package:pantas/features/metrics/providers/metrics_signal_providers.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/progress/application/how_you_work_provider.dart';
@@ -109,7 +114,7 @@ void main() {
             difficulty: 5,
             due: DateTime.utc(2026, 6, 2),
             lastReview: DateTime.utc(2026, 6),
-            reps: reviews,
+            reps: reviews + 1,
             lapses: (reviews * lapseRate).round(),
             elapsedDays: 1,
             scheduledDays: 9,
@@ -127,7 +132,9 @@ void main() {
         'questionVersion': 1,
         'chosenChoiceId': isCorrect ? 'a' : 'b',
         'correctChoiceId': 'a',
-        'responseMs': includeSpeed ? (isCorrect ? 5000 : 12000) : 10000,
+        'responseMs': includeSpeed
+            ? (isCorrect ? 5000 : 12000) + (i.isEven ? -100 : 100)
+            : 10000,
       });
     }
 
@@ -349,6 +356,173 @@ void main() {
     });
   }
 
+  test('constant 1s correct and 2s wrong times withhold the claim', () async {
+    await _writeTimes(db, List.filled(30, 1000), List.filled(30, 2000));
+    final work = await container.read(howYouWorkProvider.future);
+    final speed =
+        work.tendencies.firstWhere((t) => t.id == TendencyId.howYouAnswer);
+    expect(speed.confidence, TendencyConfidence.forming);
+    expect(speed.sentence, isNull);
+  });
+
+  for (final outlier in [61000, 121000]) {
+    for (final varied in [false, true]) {
+      test(
+          'log-time figures and direction with $outlier outlier, '
+          'varied: $varied', () async {
+        // Exact review scenarios: 60 correct at 2s, 59 wrong at 1s,
+        // one wrong at 61s or 121s. Arithmetic means tie or reverse.
+        // Geometric means: correct 2s, wrong 61^(1/60)=1.071s or
+        // 121^(1/60)=1.083s. Varied correct times permit Welch testing.
+        await _writeTimes(
+          db,
+          List.generate(60, (i) => varied ? (i.isEven ? 1999 : 2001) : 2000),
+          [...List.filled(59, 1000), outlier],
+        );
+        final work = await container.read(howYouWorkProvider.future);
+        final speed =
+            work.tendencies.firstWhere((t) => t.id == TendencyId.howYouAnswer);
+        expect(speed.leftFigure, '2s');
+        expect(speed.rightFigure, '1s');
+        expect(
+          speed.confidence,
+          varied ? TendencyConfidence.clear : TendencyConfidence.forming,
+        );
+        expect(
+          speed.sentence,
+          varied ? 'You answer 1s faster on questions you get wrong.' : null,
+        );
+      });
+    }
+  }
+
+  for (final rises in [false, true]) {
+    test('clear 3995/4000 vs 3985/4000 keeps direction, rises: $rises',
+        () async {
+      // Pooled p=.9975, z=2.2388683, p=.02516361. Both figures
+      // round to 100%, but the actual gap is .25 percentage points.
+      final a = rises ? 3985 : 3995;
+      final b = rises ? 3995 : 3985;
+      final c = ProviderContainer(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
+          metricsSignalProvider.overrideWith((ref, request) async {
+            final Object value;
+            if (request.signal == SignalKey.testModeDelta) {
+              value = PressureDelta(
+                practiceAccuracy: a / 4000,
+                mockAccuracy: b / 4000,
+                practiceCorrect: a,
+                practiceTotal: 4000,
+                mockCorrect: b,
+                mockTotal: 4000,
+              );
+            } else if (request.signal == SignalKey.mockStamina) {
+              value = StaminaDelta(
+                firstHalfAccuracy: a / 4000,
+                secondHalfAccuracy: b / 4000,
+                firstHalfCorrect: a,
+                firstHalfTotal: 4000,
+                secondHalfCorrect: b,
+                secondHalfTotal: 4000,
+              );
+            } else {
+              return null;
+            }
+            return SignalResult<Object>(
+              window: ResolvedMetricsWindow(
+                window: request.window,
+                start: null,
+                end: request.now,
+                sessionCount: 1,
+                minSessionCount: 1,
+              ),
+              value: value,
+            );
+          }),
+        ],
+      );
+      addTearDown(c.dispose);
+      final work = await c.read(howYouWorkProvider.future);
+      final pressure =
+          work.tendencies.firstWhere((t) => t.id == TendencyId.underPressure);
+      final stamina =
+          work.tendencies.firstWhere((t) => t.id == TendencyId.stamina);
+      expect(pressure.leftFigure, '100%');
+      expect(pressure.rightFigure, '100%');
+      expect(pressure.gap, '0.3');
+      expect(stamina.gap, '0.3');
+      expect(pressure.confidence, TendencyConfidence.clear);
+      expect(stamina.confidence, TendencyConfidence.clear);
+      expect(
+        pressure.sentence,
+        rises
+            ? 'Accuracy rises 0.3% under exam pressure.'
+            : 'Accuracy drops 0.3% under exam pressure.',
+      );
+      expect(
+        stamina.sentence,
+        rises
+            ? 'Accuracy rises 0.3% in the second half of a mock.'
+            : 'Accuracy drops 0.3% in the second half of a mock.',
+      );
+    });
+  }
+
+  for (final slower in [false, true]) {
+    test('clear subsecond speed gap keeps direction, slower: $slower',
+        () async {
+      // Each group varies by 2ms; geometric means are about 1.001s
+      // and 1.401s, with a clear .4s gap despite both rounding to 1s.
+      final fast = List.generate(60, (i) => i.isEven ? 1000 : 1002);
+      final slow = List.generate(60, (i) => i.isEven ? 1400 : 1402);
+      await _writeTimes(db, slower ? fast : slow, slower ? slow : fast);
+      final work = await container.read(howYouWorkProvider.future);
+      final speed =
+          work.tendencies.firstWhere((t) => t.id == TendencyId.howYouAnswer);
+      expect(speed.leftFigure, '1s');
+      expect(speed.rightFigure, '1s');
+      expect(speed.gap, '0.4s');
+      expect(speed.confidence, TendencyConfidence.clear);
+      expect(
+        speed.sentence,
+        slower
+            ? 'You spend 0.4s longer on questions you get wrong.'
+            : 'You answer 0.4s faster on questions you get wrong.',
+      );
+    });
+  }
+
+  for (final (reviews, confidence) in [
+    (0, TendencyConfidence.early),
+    (9, TendencyConfidence.early),
+    (10, TendencyConfidence.forming),
+    (34, TendencyConfidence.forming),
+    (35, TendencyConfidence.clear),
+  ]) {
+    test('memory with 35 first answers and $reviews eligible reviews',
+        () async {
+      await db.delete(db.reviewStateLocal).go();
+      for (var i = 0; i < 35; i++) {
+        await _reviewState(db, 'first_$i', 1);
+      }
+      if (reviews > 0) await _reviewState(db, 'repeated', reviews + 1);
+      final work = await container.read(howYouWorkProvider.future);
+      final memory = work.tendencies
+          .firstWhere((t) => t.id == TendencyId.howLongYouRemember);
+      expect(memory.confidence, confidence);
+      expect(memory.leftFigure, reviews == 0 ? null : '9d');
+      expect(memory.rightFigure, reviews == 0 ? null : '0%');
+      expect(
+        memory.sentence,
+        confidence == TendencyConfidence.clear
+            ? 'what you learn holds about nine days before you need it again'
+            : null,
+      );
+    });
+  }
+
   test('unlock lines state the whole condition', () async {
     final work = await container.read(howYouWorkProvider.future);
     const studyUnlock = 'Read a lesson in a topic you have practiced';
@@ -534,4 +708,43 @@ void main() {
     final work = await container.read(howYouWorkProvider.future);
     expect(work.name, isNull);
   });
+}
+
+Future<void> _writeTimes(
+  AppDatabase db,
+  List<int> correct,
+  List<int> wrong,
+) async {
+  final items = <Map<String, Object>>[
+    for (var i = 0; i < correct.length + wrong.length; i++)
+      {
+        'questionId': 'q_$i',
+        'questionVersion': 1,
+        'chosenChoiceId': i < correct.length ? 'a' : 'b',
+        'correctChoiceId': 'a',
+        'responseMs':
+            i < correct.length ? correct[i] : wrong[i - correct.length],
+      },
+  ];
+  await (db.update(db.attemptsLocal)
+        ..where((row) => row.id.equals('att_practice')))
+      .write(AttemptsLocalCompanion(itemsJson: Value(jsonEncode(items))));
+}
+
+Future<void> _reviewState(AppDatabase db, String id, int reps) async {
+  await db.into(db.reviewStateLocal).insert(
+        ReviewStateLocalCompanion.insert(
+          questionId: id,
+          questionVersion: 1,
+          stage: 'review',
+          stability: 9,
+          difficulty: 5,
+          due: DateTime.utc(2026, 6, 2),
+          lastReview: DateTime.utc(2026, 6),
+          reps: reps,
+          lapses: 0,
+          elapsedDays: 1,
+          scheduledDays: 9,
+        ),
+      );
 }

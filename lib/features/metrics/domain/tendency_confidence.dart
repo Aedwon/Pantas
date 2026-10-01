@@ -57,7 +57,7 @@ class TendencyStatistics {
 
   /// Welch-Satterthwaite df and Student t, not a normal approximation.
   /// Formula: https://www.itl.nist.gov/div898/handbook/eda/section3/eda353.htm
-  static StatisticalTestResult welch({
+  static StatisticalTestResult? welch({
     required double meanA,
     required double varianceA,
     required int countA,
@@ -77,21 +77,15 @@ class TendencyStatistics {
         'Welch requires finite moments and two samples per side',
       );
     }
+    // A constant group cannot support the approved log-time comparison.
+    if (varianceA == 0 || varianceB == 0) return null;
     final a = varianceA / countA;
     final b = varianceB / countB;
     final difference = meanA - meanB;
-    if (a + b == 0) {
-      return StatisticalTestResult(
-        difference == 0
-            ? 0
-            : (difference > 0 ? double.infinity : double.negativeInfinity),
-        difference == 0 ? 1 : 0,
-        degreesOfFreedom: double.infinity,
-      );
-    }
     final t = difference / math.sqrt(a + b);
     final df =
         (a + b) * (a + b) / (a * a / (countA - 1) + b * b / (countB - 1));
+    if (!df.isFinite) return null;
     // Direct tail evaluation avoids subtracting a CDF close to one.
     final p = _regularizedBeta(df / (df + t * t), df / 2, 0.5);
     return StatisticalTestResult(t, p, degreesOfFreedom: df);
@@ -307,16 +301,15 @@ class TendencyEvidence {
         value.incorrectCount < TendencyValidity.minTimesPerSide) {
       return TendencyConfidence.early;
     }
-    return _fromP(
-      TendencyStatistics.welch(
-        meanA: value.correctLogMean,
-        varianceA: value.correctLogVariance,
-        countA: value.correctCount,
-        meanB: value.incorrectLogMean,
-        varianceB: value.incorrectLogVariance,
-        countB: value.incorrectCount,
-      ).pValue,
+    final result = TendencyStatistics.welch(
+      meanA: value.correctLogMean,
+      varianceA: value.correctLogVariance,
+      countA: value.correctCount,
+      meanB: value.incorrectLogMean,
+      varianceB: value.incorrectLogVariance,
+      countB: value.incorrectCount,
     );
+    return result == null ? TendencyConfidence.forming : _fromP(result.pValue);
   }
 
   static TendencyConfidence study(WorkflowRatio value) {

@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
+import 'package:pantas/features/metrics/domain/tendency_confidence.dart';
 import 'package:pantas/features/metrics/signals/coverage_breadth_signal.dart';
 import 'package:pantas/features/metrics/signals/difficulty_calibration_signal.dart';
 import 'package:pantas/features/metrics/signals/read_then_quiz_signal.dart';
@@ -162,9 +163,54 @@ void main() {
 
     expect(result, isNotNull);
     expect(result!.averageStability, 10);
-    expect(result.lapseRate, 0.25);
+    expect(result.lapseRate, closeTo(1 / 3, 1e-12));
     expect(result.lapseCount, 1);
-    expect(result.reviewCount, 4);
+    expect(result.reviewCount, 3);
+  });
+
+  for (final (reviews, confidence) in [
+    (0, TendencyConfidence.early),
+    (9, TendencyConfidence.early),
+    (10, TendencyConfidence.forming),
+    (34, TendencyConfidence.forming),
+    (35, TendencyConfidence.clear),
+  ]) {
+    test('memory counts $reviews eligible reviews after 35 first answers',
+        () async {
+      // Exact review scenario: 35 newly answered questions cannot lapse.
+      for (var i = 0; i < 35; i++) {
+        await _reviewState(db, 'first_$i', reps: 1, lapses: 0);
+      }
+      await _reviewState(db, 'unanswered', reps: 0, lapses: 0);
+      if (reviews > 0) {
+        await _reviewState(db, 'repeated', reps: reviews + 1, lapses: 0);
+      }
+      final result = (await RetentionShapeSignal(db).compute(
+        window: _window(),
+        examId: 'exam_cse',
+      ))!;
+      expect(result.reviewCount, reviews);
+      expect(result.lapseRate, 0);
+      expect(result.lapseCount, 0);
+      expect(TendencyEvidence.memory(result), confidence);
+    });
+  }
+
+  test('first answers dilute neither lapse rate nor Wilson uncertainty',
+      () async {
+    for (var i = 0; i < 400; i++) {
+      await _reviewState(db, 'first_$i', reps: 1, lapses: 0);
+    }
+    await _reviewState(db, 'repeated', reps: 21, lapses: 10);
+    final result = (await RetentionShapeSignal(db).compute(
+      window: _window(),
+      examId: 'exam_cse',
+    ))!;
+    // 10/20, not 10/421. Wilson half-width is about .2007, not .015.
+    expect(result.reviewCount, 20);
+    expect(result.lapseCount, 10);
+    expect(result.lapseRate, 0.5);
+    expect(TendencyEvidence.memory(result), TendencyConfidence.forming);
   });
 
   test('coverage breadth counts topics with at least one read lesson',
@@ -294,3 +340,26 @@ ResolvedMetricsWindow _allTime() => ResolvedMetricsWindow(
       sessionCount: 1,
       minSessionCount: 1,
     );
+
+Future<void> _reviewState(
+  AppDatabase db,
+  String id, {
+  required int reps,
+  required int lapses,
+}) async {
+  await db.into(db.reviewStateLocal).insert(
+        ReviewStateLocalCompanion.insert(
+          questionId: id,
+          questionVersion: 1,
+          stage: 'review',
+          stability: 9,
+          difficulty: 5,
+          due: DateTime.utc(2026, 6, 2),
+          lastReview: DateTime.utc(2026, 6),
+          reps: reps,
+          lapses: lapses,
+          elapsedDays: 1,
+          scheduledDays: 9,
+        ),
+      );
+}

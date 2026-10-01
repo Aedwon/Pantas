@@ -28,7 +28,7 @@ void main() {
       varianceB: 9,
       countB: 20,
     );
-    expect(result.statistic, closeTo(-2 / math.sqrt(0.85), 1e-12));
+    expect(result!.statistic, closeTo(-2 / math.sqrt(0.85), 1e-12));
     expect(result.degreesOfFreedom, closeTo(25.408226221079683, 1e-9));
     expect(result.pValue, closeTo(0.03961077803595725, 1e-9));
   });
@@ -141,19 +141,43 @@ void main() {
     );
   });
 
-  test('constant log samples are forming if equal and clear if distinct', () {
-    for (final different in [false, true]) {
+  for (final (varianceA, varianceB) in [
+    (0.0, 0.0),
+    (0.0, 1.0),
+    (1.0, 0.0),
+    (1e-200, 1e-200),
+  ]) {
+    test('undefined Welch is unavailable: $varianceA, $varianceB', () {
+      // Exact review case: 30 times at 1s versus 30 at 2s. The tiny
+      // positive variances also make the df calculation nonfinite.
       final result = TendencyStatistics.welch(
-        meanA: 1,
-        varianceA: 0,
+        meanA: math.log(1000),
+        varianceA: varianceA,
         countA: 30,
-        meanB: different ? 2 : 1,
-        varianceB: 0,
+        meanB: math.log(2000),
+        varianceB: varianceB,
         countB: 30,
       );
-      expect(result.pValue, different ? 0 : 1);
-    }
-  });
+      expect(result, isNull);
+      expect(
+        TendencyEvidence.speed(
+          LatencyDistribution(
+            averageMs: 1500,
+            correctAverageMs: 1000,
+            incorrectAverageMs: 2000,
+            sampleCount: 60,
+            correctCount: 30,
+            incorrectCount: 30,
+            correctLogMean: math.log(1000),
+            incorrectLogMean: math.log(2000),
+            correctLogVariance: varianceA,
+            incorrectLogVariance: varianceB,
+          ),
+        ),
+        TendencyConfidence.forming,
+      );
+    });
+  }
 
   test('study validity boundary is 10 lessons, including a zero category', () {
     expect(

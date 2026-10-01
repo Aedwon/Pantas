@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
@@ -110,13 +112,12 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
       pressureDelta.mockTotal > 0) {
     final practicePct = (pressureDelta.practiceAccuracy * 100).round();
     final mockPct = (pressureDelta.mockAccuracy * 100).round();
-    final diff = practicePct - mockPct;
-    final absDiff = diff.abs();
+    final diff =
+        pressureDelta.practiceAccuracy * 100 - pressureDelta.mockAccuracy * 100;
+    final absDiff = _formatGap(diff.abs(), pressureConfidence);
     final sentence = diff > 0
         ? 'Accuracy drops $absDiff% under exam pressure.'
-        : (diff < 0
-            ? 'Accuracy rises $absDiff% under exam pressure.'
-            : 'Accuracy stays even under exam pressure.');
+        : 'Accuracy rises $absDiff% under exam pressure.';
     cards.add(
       TendencyCard(
         kind: TendencyKind.underPressure,
@@ -148,13 +149,12 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
   if (staminaDelta != null) {
     final firstPct = (staminaDelta.firstHalfAccuracy * 100).round();
     final secondPct = (staminaDelta.secondHalfAccuracy * 100).round();
-    final diff = firstPct - secondPct;
-    final absDiff = diff.abs();
+    final diff = staminaDelta.firstHalfAccuracy * 100 -
+        staminaDelta.secondHalfAccuracy * 100;
+    final absDiff = _formatGap(diff.abs(), staminaConfidence);
     final sentence = diff > 0
         ? 'Accuracy drops $absDiff% in the second half of a mock.'
-        : (diff < 0
-            ? 'Accuracy rises $absDiff% in the second half of a mock.'
-            : 'Accuracy stays even across both halves.');
+        : 'Accuracy rises $absDiff% in the second half of a mock.';
     cards.add(
       TendencyCard(
         kind: TendencyKind.stamina,
@@ -187,14 +187,9 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
       workflowRatio.readThenQuizCount + workflowRatio.quizFirstCount > 0) {
     final readCount = workflowRatio.readThenQuizCount;
     final quizCount = workflowRatio.quizFirstCount;
-    final String sentence;
-    if (readCount > quizCount) {
-      sentence = 'You usually read the lesson first.';
-    } else if (quizCount > readCount) {
-      sentence = 'You usually go straight to the questions.';
-    } else {
-      sentence = 'You split about evenly between the two.';
-    }
+    final sentence = readCount > quizCount
+        ? 'You usually read the lesson first.'
+        : 'You usually go straight to the questions.';
     cards.add(
       TendencyCard(
         kind: TendencyKind.howYouStudy,
@@ -225,22 +220,23 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
   if (speedDist != null &&
       speedDist.correctCount > 0 &&
       speedDist.incorrectCount > 0) {
-    final correctSec = (speedDist.correctAverageMs / 1000).round();
-    final incorrectSec = (speedDist.incorrectAverageMs / 1000).round();
+    final correctSec = math.exp(speedDist.correctLogMean) / 1000;
+    final incorrectSec = math.exp(speedDist.incorrectLogMean) / 1000;
     final diffSec = incorrectSec - correctSec;
-    final absDiff = diffSec.abs();
+    final absDiff = _formatGap(diffSec.abs(), speedConfidence);
     final sentence = diffSec > 0
         ? 'You spend ${absDiff}s longer on questions you get wrong.'
-        : (diffSec < 0
-            ? 'You answer ${absDiff}s faster on questions you get wrong.'
-            : 'Your speed is about the same whether correct or wrong.');
+        : 'You answer ${absDiff}s faster on questions you get wrong.';
     cards.add(
       TendencyCard(
         kind: TendencyKind.howYouAnswer,
         heading: 'How you answer',
         leftLabel: 'when correct',
         rightLabel: 'when wrong',
-        figures: (left: '${correctSec}s', right: '${incorrectSec}s'),
+        figures: (
+          left: '${correctSec.round()}s',
+          right: '${incorrectSec.round()}s'
+        ),
         sentence: speedConfidence == TendencyConfidence.clear ? sentence : null,
         confidence: speedConfidence,
         unlockAction: speedUnlock,
@@ -278,3 +274,10 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
 
   return cards;
 });
+
+String _formatGap(double gap, TendencyConfidence confidence) {
+  if (confidence == TendencyConfidence.clear && gap.round() == 0) {
+    return gap.toStringAsFixed(1);
+  }
+  return '${gap.round()}';
+}
