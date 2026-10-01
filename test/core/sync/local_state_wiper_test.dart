@@ -23,6 +23,30 @@ void main() {
     expect(await db.select(db.attemptsLocal).get(), isEmpty);
   });
 
+  test('wipeAll removes the study-days preference', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await db.into(db.accountPrefs).insert(
+          AccountPrefsCompanion.insert(
+            key: 'settings.study_days',
+            value: '1,2,3,4,5',
+          ),
+        );
+    expect(
+      (await db.select(db.accountPrefs).get()).single.value,
+      '1,2,3,4,5',
+    );
+
+    await SyncLocalStateWiper(db).wipeAll();
+
+    expect(
+      await (db.select(db.accountPrefs)
+            ..where((pref) => pref.key.equals('settings.study_days')))
+          .get(),
+      isEmpty,
+    );
+  });
+
   test('wipeAll deletes all account-owned local state', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);

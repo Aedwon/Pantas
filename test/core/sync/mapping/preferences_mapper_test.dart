@@ -31,6 +31,22 @@ void main() {
     expect(rows.map((row) => row.value), ['07:30', 'true']);
   });
 
+  test('study days round-trip through the preferences sync mapper', () {
+    const mapper = PreferencesMapper();
+    const original = AccountPrefRow(
+      key: 'settings.study_days',
+      value: '1,2,3,4,5',
+    );
+    final document = mapper.toFirestore([original]);
+    expect(document, {
+      'preferences': {'settings.study_days': '1,2,3,4,5'},
+    });
+    final restored = mapper.fromFirestore(document);
+    expect(restored, hasLength(1));
+    expect(restored.single.key, original.key);
+    expect(restored.single.value, original.value);
+  });
+
   test('preferences mapper does not include device prefs keys', () {
     final doc = const PreferencesMapper().toFirestore(
       [const AccountPrefRow(key: 'reminder_time', value: '07:30')],
