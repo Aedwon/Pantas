@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-biology-botany-0001	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-biology-botany-0002	VERIFIED	SOLVED-MATCH	explanation;notes	HIGH	Explanation incorrectly described all xylem cells as dead.
+q-biology-botany-0003	VERIFIED	SOLVED-MATCH	explanation;notes	HIGH	Explanation incorrectly treated all xylem cells as dead and discussed a wrong choice.
+q-biology-botany-0004	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-biology-botany-0005	CORRECTED	SOLVED-MATCH	choices;explanation;notes	LOW	Correct choice was longest and gave away the answer.
+q-biology-botany-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Explanation said all xylem cells were dead; other choices were implausible.
+q-biology-botany-0007	CORRECTED	SOLVED-MATCH	distractor D;explanation;notes	MEDIUM	Pollination was an unrelated distractor.
+q-biology-botany-0008	CORRECTED	SOLVED-MATCH	distractor D;explanation;notes	MEDIUM	Fertilization was an unrelated distractor.
+q-biology-botany-0009	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-biology-botany-0010	VERIFIED	SOLVED-MATCH	explanation;notes	HIGH	Wrong-choice note incorrectly said roots show negative gravitropism.
+q-biology-botany-0011	CORRECTED	SOLVED-MATCH	stem;explanation;notes	HIGH	Original stem described both negative phototropism and positive gravitropism; explanation overgeneralized root light responses.
+q-biology-botany-0012	CORRECTED	SOLVED-FIXED	choices;explanation;notes	HIGH	Marked answer and explanation overgeneralized negative root phototropism.
+q-biology-botany-0013	CORRECTED	SOLVED-MATCH	stem;distractors C,D;explanation;notes	MEDIUM	Stem treated pollen as sperm and two distractors were unrelated.
+q-biology-botany-0014	CORRECTED	SOLVED-MATCH	distractors C,D;explanation;notes	MEDIUM	Touch response and seed dispersal were weak distractors for gamete fusion.
+q-biology-botany-0015	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original correct choice was longest and one distractor denied any link to reproduction.
+q-biology-botany-0016	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Correct choice was much longer than distractors; uniform lighting needed to isolate gravity.
+q-biology-botany-0017	NEW	NEW	new question	NONE	
+q-biology-botany-0018	NEW	NEW	new question	NONE	
+q-biology-botany-0019	NEW	NEW	new question	NONE	
+q-biology-botany-0020	NEW	NEW	new question	NONE	
