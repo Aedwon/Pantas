@@ -563,3 +563,17 @@ streak-eligible session on every day of the streak (replaces the study-days cond
 covers freezes); the panel refreshes like other plan changes; a reminder for another day uses
 the existing generic text (also fixes the same flaw for next-day reminders with all seven days).
 Fixes dispatched test first.
+
+**Review fixes, 1 October 2026:** all four P2s fixed test first by Codex (f4babf45, 0de5109c,
+2d2ba16c, f2f024e7), plus the missing backup and wipe tests (c83d9fdb) and an analyzer-only
+test fix (73a5b858); lead reviewed each diff. Codex also reproduced the same panel staleness for
+exam date changes (not study-day specific); fixed by the lead test first (72f3fa3f: set, save
+and clear exam date publish the panel revision). Gates at 72f3fa3f: analyze (accepted
+onReorder info only), layering, format, attribution OK; full suite at `-j 4` 3,298 of 3,298.
+Pushed `web/roadmap-engine-r1` at 72f3fa3f (remote verified).
+
+**Open question to Aedwon (streak eligibility):** only the daily plan's sittings (including
+advanced ones) earn a streak day; practice drills, retakes and in-lesson quizzes never have, on
+any day. His earlier words ("if they decide to advance/do work on a non Study day then it would
+count to the streak") may mean rest-day practice should count too. Not changed pending his
+answer.
