@@ -648,3 +648,12 @@ forming; show geometric means; direction from unrounded values, one decimal when
 rounds to 0, equality sentences removed from the clear path; lapse rate over repeat reviews
 only. Fixed test first, 1f79d880. Full suite 3,403 of 3,403; pushed, remote verified. Reference
 doc Section 6 updated for Claude Design.
+
+**Tendency confidence built, 1 October 2026:** Codex 1bbda9ac; independent review confirmed the
+statistics against SciPy and NIST values and found four P2s (zero variance read as clear; speed
+test on log times vs arithmetic figures; rounding turned a significant gap into "stays even";
+first answers counted as reviews in the lapse rate). Lead rulings: unavailable test stays
+forming; show geometric means; direction from unrounded values, one decimal when a clear gap
+rounds to 0, equality sentences removed from the clear path; lapse rate over repeat reviews
+only. Fixed test first, 1f79d880. Full suite 3,403 of 3,403; pushed, remote verified. Reference
+doc Section 6 updated for Claude Design.
