@@ -1,320 +1,413 @@
 meta:
-  subject: language-proficiency
-  topic: grammar-and-structure
-  subtopic: redundancy-and-double-negatives
-  exams: [ upcat, acet, dlsucet, ustet, dost-sei , cse-pro, cse-sub]
+  subject: "language-proficiency"
+  topic: "grammar-and-structure"
+  subtopic: "redundancy-and-double-negatives"
+  exams:
+    - "upcat"
+    - "acet"
+    - "dlsucet"
+    - "ustet"
+    - "dost-sei"
+    - "cse-pro"
+    - "cse-sub"
 questions:
-  - id: q-grammar-and-structure-redundancy-and-double-negatives-0001
-    type: redundancy-identification
-    difficulty: easy
+  - id: "q-grammar-and-structure-redundancy-and-double-negatives-0001"
+    type: "redundancy-identification"
+    difficulty: "easy"
     stem: |
       For concise formal writing, which revision removes the unnecessary repetition in "Please give us your honest and truthful opinion"?
     choices:
-      - text: Please give us your honest opinion.
+      - text: "Please give us your honest opinion."
         correct: true
-      - text: Please give us your honestly truthful opinion.
+      - text: "Please give us your honest and entirely truthful opinion."
         rationale: |
-          You changed the form of "honest" but kept both near-synonyms, so the phrase remains needlessly repetitive.
-      - text: Please gives us your honest and truthful opinion.
+          This keeps two words expressing the same requested quality. The extra words sound emphatic. Check: remove wording that adds no needed meaning in this concise request.
+      - text: "Please give us your opinion, whether honest or not."
         rationale: |
-          You kept the repetition and also changed the imperative verb "give" to an incorrect form.
-      - text: Please give us, your honest and truthful opinion.
+          This removes the required honesty. The sentence is shorter than the original. Check: preserve the requested quality while cutting repetition.
+      - text: "Please give us the facts instead of your personal opinion."
         rationale: |
-          You added an unnecessary comma without removing the repeated idea.
+          This changes the request from an opinion to facts. Facts may sound clearer or more reliable. Check: keep the original kind of response requested.
     explanation: |
-      In a concision question, "honest" and "truthful" overlap enough that one can be removed without losing the intended meaning. "Please give us your honest opinion" is the clearest concise revision.
+      The request asks for an honest opinion. In this context, "truthful" repeats that quality without adding needed meaning, so "honest opinion" preserves the request.
     approved: true
-
-  - id: q-grammar-and-structure-redundancy-and-double-negatives-0002
-    type: redundancy-identification
-    difficulty: easy
+  - id: "q-grammar-and-structure-redundancy-and-double-negatives-0002"
+    type: "redundancy-identification"
+    difficulty: "easy"
     stem: |
       In standard formal English, revise "She doesn't want no help with the project."
     choices:
-      - text: She doesn't want any help with the project.
+      - text: "She doesn't want any help with the project."
         correct: true
-      - text: She doesn't want no help with the project.
+      - text: "She doesn't want no help with the project."
         rationale: |
-          You kept negative concord. Some English varieties use this pattern systematically, but standard formal English normally uses "not ... any" or a single negative form.
-      - text: She doesn't wants any help with the project.
+          This retains negative concord in a standard-formal task. That construction expresses one negative in some dialects. Check: use the form required by the stated register.
+      - text: "She wants some help with the project after all."
         rationale: |
-          You fixed the negation pattern but added an agreement error: after "doesn't," the main verb stays in the base form "want."
-      - text: She didn't want no help with the project.
+          This changes rejection of help into acceptance. Removing negative words makes the sentence simpler. Check: preserve the intended refusal.
+      - text: "She didn't want any help with the project last week."
         rationale: |
-          You changed the tense but kept the nonstandard-for-formal-writing negative-concord pattern.
+          This changes the present refusal to a past one. The negation pattern is standard. Check: keep the original time as well as the meaning.
     explanation: |
-      Standard formal English normally uses one negative pattern here: "doesn't ... any." Other English varieties may use negative concord, where multiple negative forms express one semantic negation; the exam convention being tested is the standard written form.
+      "Doesn't want any help" uses one standard negative pattern. It expresses the intended present refusal of help.
     approved: true
-
-  - id: q-grammar-and-structure-redundancy-and-double-negatives-0003
-    type: redundancy-identification
-    difficulty: easy
+  - id: "q-grammar-and-structure-redundancy-and-double-negatives-0003"
+    type: "redundancy-identification"
+    difficulty: "easy"
     stem: |
       For the most concise formal version, revise "The two of them collaborated together on the mural."
     choices:
-      - text: The two of them collaborated on the mural.
+      - text: "The two of them collaborated on the mural."
         correct: true
-      - text: The two of them collaborated together jointly on the mural.
+      - text: "The two of them collaborated together jointly on the mural."
         rationale: |
-          You added another word with the same basic idea instead of making the sentence more concise.
-      - text: The two of them collaboration together on the mural.
+          This adds another word meaning working together. The extra wording sounds emphatic. Check: keep only wording needed for the stated concise version.
+      - text: "The two of them worked separately on unrelated murals."
         rationale: |
-          You changed the verb to a noun without supplying a grammatical verb for the sentence.
-      - text: The two of them collaborated, together on the mural.
+          This removes the shared work. The sentence uses simpler wording. Check: preserve the fact that they worked together.
+      - text: "One of them painted the mural without the other person."
         rationale: |
-          You inserted an unnecessary comma and kept the redundant wording.
+          This drops one collaborator. The revised sentence is direct. Check: retain both people and their shared work.
     explanation: |
-      "Collaborate" already means to work jointly with others. In a concision question, "together" adds no needed information, so the tighter version is "collaborated on the mural."
+      "Collaborated" means worked together. The revision keeps both participants and their shared mural without repeating the idea of joint work.
     approved: true
-
-  - id: q-grammar-and-structure-redundancy-and-double-negatives-0004
-    type: redundancy-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-redundancy-and-double-negatives-0004"
+    type: "redundancy-identification"
+    difficulty: "medium"
     stem: |
       In standard formal English, which revision best expresses the intended meaning of "I can't hardly hear you from over here"?
     choices:
-      - text: I can hardly hear you from over here.
+      - text: "I can hardly hear you from over here."
         correct: true
-      - text: I can't hardly hear you from over here.
+      - text: "I can't hardly hear you from over here."
         rationale: |
-          You kept "not" together with the negative-meaning adverb "hardly." Standard formal English normally uses "can hardly" for the intended meaning "can almost not hear."
-      - text: I hardly can't hear you from over here.
+          This retains "not" with a near-negative adverb. The pattern is familiar in some dialects. Check: follow the requested standard-formal convention.
+      - text: "I can hear you clearly from over here without any difficulty."
         rationale: |
-          You kept both negative elements and also placed them in an unnatural standard-English order.
-      - text: I can't hard hear you from over here.
+          This changes almost no hearing into clear hearing. Removing both negative elements sounds smooth. Check: keep the small amount of hearing intended.
+      - text: "I can't hear you at all from over here, no matter how loudly you speak."
         rationale: |
-          "Hard" does not mean "almost not" here. The intended adverb is "hardly," used without "can't" in standard formal English.
+          This changes very little hearing into none. "Hardly" is close to a negative meaning. Check: distinguish almost not from not at all.
     explanation: |
-      Cambridge classifies "hardly" as an adverb with negative meaning, roughly "almost not." Standard formal English therefore expresses the intended meaning as "I can hardly hear you," not "I can't hardly hear you." This is a standard-usage convention, not a claim that other dialect patterns are meaningless.
+      "Hardly" means almost not. "Can hardly hear" states that the speaker hears very little in standard formal English.
     approved: true
-
-  - id: q-grammar-and-structure-redundancy-and-double-negatives-0005
-    type: redundancy-identification
-    difficulty: easy
+  - id: "q-grammar-and-structure-redundancy-and-double-negatives-0005"
+    type: "redundancy-identification"
+    difficulty: "easy"
     stem: |
       Which revision removes the literal repetition in "Please enter your PIN number at the terminal"?
     choices:
-      - text: Please enter your PIN at the terminal.
+      - text: "Please enter your PIN at the terminal."
         correct: true
-      - text: Please enter your PIN number code at the terminal.
+      - text: "Please enter your PIN number code at the terminal."
         rationale: |
           You added another label instead of removing the repeated word. The N in PIN already stands for "number."
-      - text: Please enter your personal PIN number at the terminal.
+      - text: "Please enter your personal PIN number at the terminal."
         rationale: |
           You kept "PIN number," so "number" is still repeated by the abbreviation.
-      - text: Please enter your number PIN at the terminal.
+      - text: "Please enter your number PIN at the terminal."
         rationale: |
           You rearranged the words but did not produce the standard term.
     explanation: |
       PIN stands for "personal identification number." Saying "PIN number" therefore repeats "number." The concise form is simply "PIN."
     approved: true
-
-  - id: q-grammar-and-structure-redundancy-and-double-negatives-0006
-    type: redundancy-identification
-    difficulty: easy
+  - id: "q-grammar-and-structure-redundancy-and-double-negatives-0006"
+    type: "redundancy-identification"
+    difficulty: "easy"
     stem: |
-      In standard formal English, revise "They didn't see nothing unusual that night."
+      In a dialect that uses negative concord, what does "They didn't see nothing unusual that night" mean?
     choices:
-      - text: They didn't see anything unusual that night.
+      - text: "The speaker saw no unusual thing."
         correct: true
-      - text: They didn't see nothing unusual that night.
+      - text: "The speaker must have seen something unusual after all."
         rationale: |
-          You kept negative concord. It occurs in multiple English varieties, but standard formal English normally uses "didn't ... anything" or "saw nothing."
-      - text: They didn't saw anything unusual that night.
+          This applies mathematical cancellation to dialect grammar. There are two negative forms in the sentence. Check: use the dialect's stated negative-concord rule.
+      - text: "The speaker saw an unusual thing but did not mention it."
         rationale: |
-          You fixed the negation pattern but used "saw" after "didn't." The auxiliary "did" requires the base form "see."
-      - text: They don't see nothing unusual that night.
+          This invents an observation and silence. An unusual event may be easy to imagine. Check: use only what the statement says.
+      - text: "The speaker made a statement with no interpretable meaning."
         rationale: |
-          You changed the tense and kept the nonstandard-for-formal-writing negative-concord pattern.
+          This treats a different grammar pattern as meaningless. The pattern differs from standard edited English. Check: recognize the specified dialect convention.
     explanation: |
-      For standard formal English, use either "They didn't see anything unusual" or "They saw nothing unusual." Negative-concord varieties may license multiple negative forms with one negative meaning, but that is not the written convention this item tests.
+      In a negative-concord dialect, "didn't" and "nothing" work together to express one negative. The statement means that no unusual thing was seen.
     approved: true
-
-  - id: q-grammar-and-structure-redundancy-and-double-negatives-0007
-    type: redundancy-identification
-    difficulty: easy
+  - id: "q-grammar-and-structure-redundancy-and-double-negatives-0007"
+    type: "redundancy-identification"
+    difficulty: "easy"
     stem: |
       Which revision removes the literal repetition in "The ATM machine outside the bank is offline"?
     choices:
-      - text: The ATM outside the bank is offline.
+      - text: "The ATM outside the bank is offline."
         correct: true
-      - text: The ATM machine device outside the bank is offline.
+      - text: "The ATM machine device outside the bank is offline."
         rationale: |
           You added another generic noun while keeping the original repetition. The M in ATM already stands for "machine."
-      - text: The automatic ATM machine outside the bank is offline.
+      - text: "The automatic ATM machine outside the bank is offline."
         rationale: |
           You kept "ATM machine," so "machine" remains repeated by the abbreviation.
-      - text: The machine ATM outside the bank is offline.
+      - text: "The machine ATM outside the bank is offline."
         rationale: |
           You rearranged the words but did not produce the standard term.
     explanation: |
       ATM stands for "automated teller machine." Adding "machine" after ATM repeats the final word of the abbreviation.
     approved: true
-
-  - id: q-grammar-and-structure-redundancy-and-double-negatives-0008
-    type: redundancy-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-redundancy-and-double-negatives-0008"
+    type: "redundancy-identification"
+    difficulty: "medium"
     stem: |
-      In standard formal English, which revision best expresses the intended meaning of "She hasn't barely started her homework yet"?
+      What does "She has barely started her homework" mean?
     choices:
-      - text: She has barely started her homework.
+      - text: "She has only just begun the homework."
         correct: true
-      - text: She hasn't barely started her homework yet.
+      - text: "She has not begun the homework at all yet."
         rationale: |
-          You kept "not" together with "barely," a negative-like minimizer meaning roughly "only just." Standard formal English normally uses "has barely started" for this meaning.
-      - text: She hasn't started barely her homework yet.
+          This treats "barely" as complete absence. "Barely" has a near-negative meaning. Check: distinguish a very small beginning from no beginning.
+      - text: "She has already completed all of the homework."
         rationale: |
-          You kept the conflicting negative pattern and also misplaced "barely."
-      - text: She has bare started her homework.
+          This turns a small amount of progress into completion. The helping verb "has" marks an action related to the present. Check: include what "barely" says about the amount.
+      - text: "She began the homework easily and made rapid progress."
         rationale: |
-          "Bare" is an adjective and does not replace the adverb "barely."
+          This confuses "barely" with ease or manner. It resembles the adjective "bare" in spelling. Check: read it as a limit on how much progress was made.
     explanation: |
-      For the intended standard-English meaning, "barely" already conveys that very little progress has been made. "She has barely started her homework" is the clear formal version.
+      "Barely started" means only just begun. The sentence says that very little work has been done.
     approved: true
-
-  - id: q-grammar-and-structure-redundancy-and-double-negatives-0009
-    type: redundancy-identification
-    difficulty: easy
+  - id: "q-grammar-and-structure-redundancy-and-double-negatives-0009"
+    type: "redundancy-identification"
+    difficulty: "easy"
     stem: |
       Which revision removes the literal repetition in "Write the ISBN number on the form"?
     choices:
-      - text: Write the ISBN on the form.
+      - text: "Write the ISBN on the form."
         correct: true
-      - text: Write the ISBN number code on the form.
+      - text: "Write the ISBN number code on the form."
         rationale: |
           You added another noun while keeping the repeated "number." The N in ISBN already stands for "number."
-      - text: Write the book ISBN number on the form.
+      - text: "Write the book ISBN number on the form."
         rationale: |
           You added context but kept "ISBN number," so the literal repetition remains.
-      - text: Write the number ISBN on the form.
+      - text: "Write the number ISBN on the form."
         rationale: |
           You rearranged the words instead of using the standard term.
     explanation: |
       ISBN stands for "International Standard Book Number." "ISBN number" repeats the word "number," so "ISBN" alone is the concise form.
     approved: true
-
-  - id: q-grammar-and-structure-redundancy-and-double-negatives-0010
-    type: redundancy-identification
-    difficulty: hard
+  - id: "q-grammar-and-structure-redundancy-and-double-negatives-0010"
+    type: "redundancy-identification"
+    difficulty: "hard"
     stem: |
-      In standard formal English, which revision best expresses the intended meaning of "He couldn't scarcely finish the race"?
+      In the stated situation, the runner reached the finish line. What does "He could scarcely finish the race" convey?
     choices:
-      - text: He could scarcely finish the race.
+      - text: "He finished, but only with great difficulty."
         correct: true
-      - text: He couldn't scarcely finish the race.
+      - text: "He could not finish the race under any circumstances."
         rationale: |
-          You kept "not" together with "scarcely," which has a negative meaning of "almost not." Standard formal English normally uses "could scarcely" for the intended meaning.
-      - text: He scarcely couldn't finish the race.
+          This reads "scarcely" as a complete inability. The word has a near-negative meaning. Check: distinguish barely managing from not managing at all.
+      - text: "He finished the race easily and without much effort."
         rationale: |
-          You kept both negative elements and placed them in a nonstandard order.
-      - text: He couldn't scarce finish the race.
+          This removes the difficulty expressed by "scarcely". The sentence still includes "could finish". Check: include the limiting adverb.
+      - text: "He never attempted to take part in the race."
         rationale: |
-          "Scarce" is an adjective; the adverb needed for "almost not" is "scarcely."
+          This turns difficulty finishing into no participation. A hard race might discourage a runner. Check: keep the action the sentence describes.
     explanation: |
-      Cambridge treats "scarcely" as an adverb with negative meaning. For the intended standard formal meaning, use "He could scarcely finish the race." Other dialects may organize negation differently; this item tests the standard written form.
+      "Could scarcely finish" means he only just managed to finish. It expresses great difficulty.
     approved: true
-
-  - id: q-grammar-and-structure-redundancy-and-double-negatives-0011
-    type: redundancy-identification
-    difficulty: hard
+  - id: "q-grammar-and-structure-redundancy-and-double-negatives-0011"
+    type: "redundancy-identification"
+    difficulty: "hard"
     stem: |
       A speaker says "I don't have no time." Which statement best describes the sentence for an exam testing standard formal English?
     choices:
-      - text: Standard formal English would normally use "I don't have any time" or "I have no time," although negative concord is grammatical in several English varieties.
+      - text: "It uses dialectal negative concord."
         correct: true
-      - text: The sentence literally has to mean "I have time" because two negatives always cancel each other mathematically.
+      - text: "Its two negatives must mean that the speaker has time."
         rationale: |
-          You treated language as sign arithmetic. In negative-concord varieties, multiple negative forms can express a single semantic negation.
-      - text: The sentence is ungrammatical in every variety of English.
+          This treats English negation as sign arithmetic. Two negative signs cancel in multiplication. Check: use the grammar of the stated language variety.
+      - text: "It is an impossible construction in every English variety."
         rationale: |
-          You made a language-wide claim. Negative concord is a documented grammatical pattern in several English varieties, even though it is not the standard formal convention tested here.
-      - text: The sentence is standard formal English because all spoken variants are interchangeable in formal writing.
+          This generalizes the standard-formal rule to all dialects. The construction is avoided in standard edited English. Check: distinguish a dialect pattern from the required register.
+      - text: "It meets every formal style merely because people say it."
         rationale: |
-          You ignored register. A construction can be grammatical in a dialect while still not matching the standard written convention expected in a formal exam.
+          This treats all spoken varieties as one formal convention. The sentence has an understandable dialect meaning. Check: follow the register the task requires.
     explanation: |
-      Cambridge notes that standard English normally avoids a negative verb with forms such as "nobody" or "nothing," while Yale documents negative concord as a systematic feature of multiple English varieties. The assessment target is therefore register-aware: know the standard formal form without mislabeling other dialects as illogical.
+      "Don't" and "no" express one negative together in negative-concord dialects. A standard-formal exam would use "I don't have any time" or "I have no time."
     approved: true
-
-  - id: q-grammar-and-structure-redundancy-and-double-negatives-0012
-    type: redundancy-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-redundancy-and-double-negatives-0012"
+    type: "redundancy-identification"
+    difficulty: "medium"
     stem: |
       For concise formal writing, revise "Please return back the library books by Friday."
     choices:
-      - text: Please return the library books by Friday.
+      - text: "Please return the library books by Friday."
         correct: true
-      - text: Please return back again the library books by Friday.
+      - text: "Please return back again the library books by Friday."
         rationale: |
-          You added another repeated direction instead of making the sentence concise.
-      - text: Please returns the library books by Friday.
+          This adds another expression of coming back. The wording strongly emphasizes the request. Check: remove repeated meaning for this concise instruction.
+      - text: "Please bring the library books somewhere else by Friday."
         rationale: |
-          You removed "back" but changed the imperative verb to the incorrect form "returns."
-      - text: Please return, back the library books by Friday.
+          This changes returning into moving to an unspecified place. Both instructions concern moving the books. Check: preserve the destination implied by returning.
+      - text: "Please keep the library books until Friday and take them home."
         rationale: |
-          You inserted an unnecessary comma and kept "back."
+          This changes the action from returning to keeping. The time limit remains familiar. Check: keep the original required action.
     explanation: |
-      In this context, "return" already means to bring or give something back. "Please return the library books" expresses the same instruction more concisely.
+      "Return" already means to bring or give something back. The concise revision keeps that action and the Friday deadline.
     approved: true
-
-  - id: q-grammar-and-structure-redundancy-and-double-negatives-0013
-    type: redundancy-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-redundancy-and-double-negatives-0013"
+    type: "redundancy-identification"
+    difficulty: "medium"
     stem: |
-      For concise formal writing, revise "Could you please repeat again what you just said?"
+      No earlier repetition has occurred. For concise formal writing, revise "Could you please repeat again what you just said?"
     choices:
-      - text: Could you please repeat what you just said?
+      - text: "Could you please repeat what you just said?"
         correct: true
-      - text: Could you please repeat again once more what you just said?
+      - text: "Could you please repeat again once more what you just said?"
         rationale: |
-          You added more repetition instead of making the request concise.
-      - text: Could you please repeats what you just said?
+          This adds more wording for doing the same thing again. The request sounds emphatic. Check: use the smallest wording that keeps the requested action.
+      - text: "Could you please change what you just said into a new idea?"
         rationale: |
-          After the modal "could," the verb must be the base form "repeat," not "repeats."
-      - text: Could you please repeat, again what you just said?
+          This asks for a new message rather than a repetition. Both requests concern the previous words. Check: preserve the request to say those words again.
+      - text: "Could you please explain why you chose those words just now?"
         rationale: |
-          You inserted an unnecessary comma and retained the repeated idea.
+          This asks for a reason instead of a repeat. An explanation may also help a listener. Check: keep the action requested in the original.
     explanation: |
-      "Repeat" already means to say or do something again. In a concision question, "again" is unnecessary.
+      "Repeat" means say it again. With no separate earlier repeat to contrast, that verb alone expresses the request.
     approved: true
-
-  - id: q-grammar-and-structure-redundancy-and-double-negatives-0014
-    type: redundancy-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-redundancy-and-double-negatives-0014"
+    type: "redundancy-identification"
+    difficulty: "medium"
     stem: |
       In standard formal English, revise "There isn't nobody at the office right now."
     choices:
-      - text: There isn't anybody at the office right now.
+      - text: "There isn't anybody at the office right now."
         correct: true
-      - text: There isn't nobody at the office right now.
+      - text: "There isn't nobody at the office right now."
         rationale: |
-          You kept negative concord. It occurs in multiple English varieties, but standard formal English normally uses "isn't anybody" or "there is nobody."
-      - text: There aren't anybody at the office right now.
+          This retains negative concord in the required formal register. The pattern has a single-negative meaning in some dialects. Check: use the stated standard-formal convention.
+      - text: "There is somebody at the office right now, waiting inside."
         rationale: |
-          You changed the verb to plural even though "anybody" takes singular agreement in this construction.
-      - text: There isn't somebody at the office right now.
+          This turns an empty office into an occupied one. It removes the negative-concord pattern. Check: preserve the intended absence of people.
+      - text: "There isn't somebody specific at the office right now."
         rationale: |
-          You changed the negative-polarity item to "somebody," which changes the ordinary intended meaning.
+          This denies one person's presence rather than everybody's. The phrase resembles "isn't anybody". Check: check whether the denial covers any person at all.
     explanation: |
-      Standard formal English normally uses "There isn't anybody" or "There is nobody." Negative-concord varieties may use multiple negative forms with a single negative meaning, but that is not the written convention this item tests.
+      "Isn't anybody" expresses that no person is there. It uses the standard negative verb with "anybody."
     approved: true
-
-  - id: q-grammar-and-structure-redundancy-and-double-negatives-0015
-    type: redundancy-identification
-    difficulty: exam
+  - id: "q-grammar-and-structure-redundancy-and-double-negatives-0015"
+    type: "redundancy-identification"
+    difficulty: "exam"
     stem: |
       Edit this sentence for standard formal English and concision: "The ATM machine wasn't never available, so I had to enter my PIN number at another terminal."
     choices:
-      - text: The ATM was never available, so I had to enter my PIN at another terminal.
+      - text: "The ATM was never available, so I had to enter my PIN at another terminal."
         correct: true
-      - text: The ATM machine was never available, so I had to enter my PIN number at another terminal.
+      - text: "The ATM machine was never available, so I had to enter my PIN number at another terminal."
         rationale: |
           You fixed the standard-English negation pattern but kept both literal abbreviation repetitions: ATM already ends in "machine," and PIN already ends in "number."
-      - text: The ATM wasn't never available, so I had to enter my PIN at another terminal.
+      - text: "The ATM wasn't never available, so I had to enter my PIN at another terminal."
         rationale: |
           You removed one redundancy but kept the negative-concord pattern that this standard-formal editing task asks you to revise.
-      - text: The ATM machine wasn't never available, so I had to enter my PIN number at another terminal.
+      - text: "The ATM machine wasn't never available, so I had to enter my PIN number at another terminal."
         rationale: |
           You left all three target problems unchanged.
     explanation: |
       Three edits are required for the stated target register: ATM already means "automated teller machine," PIN already means "personal identification number," and standard formal English normally uses a single negative pattern such as "was never available." Negative concord remains a legitimate dialect pattern outside that target register.
     approved: true
+  - id: "q-grammar-and-structure-redundancy-and-double-negatives-0016"
+    type: "redundancy-identification"
+    difficulty: "easy"
+    stem: |
+      The agency warned residents several days before a road closure, rather than only moments before it. Why can "advance warning" be useful here?
+    choices:
+      - text: "It distinguishes early notice from last-minute notice."
+        correct: true
+      - text: "It must be deleted because every warning contains the same timing detail."
+        rationale: |
+          This treats overlapping meanings as proof of an error. Warnings usually come before a danger or event. Check: check whether the added word distinguishes how early.
+      - text: "It changes the warning into notice given only after the closure."
+        rationale: |
+          This reverses the time relation. Warnings and notices can concern events that already happened. Check: use the timing stated in this sentence.
+      - text: "It proves every repeated phrase should be kept in formal writing."
+        rationale: |
+          This turns one useful distinction into a blanket rule. The phrase is useful in this context. Check: evaluate each phrase by the meaning it adds.
+    explanation: |
+      "Advance" points to the several days of preparation time. It distinguishes that early notice from a last-minute warning.
+    approved: false
+  - id: "q-grammar-and-structure-redundancy-and-double-negatives-0017"
+    type: "redundancy-identification"
+    difficulty: "medium"
+    stem: |
+      In standard edited English, what does "The result was not unexpected" most nearly mean?
+    choices:
+      - text: "The result was somewhat expected."
+        correct: true
+      - text: "The result was completely surprising to everyone."
+        rationale: |
+          This keeps only the meaning of "unexpected". That adjective is part of the phrase. Check: include the effect of "not".
+      - text: "The result did not occur or could not be observed."
+        rationale: |
+          This treats the negation as denying the event itself. The sentence includes a negative word. Check: identify the description being negated.
+      - text: "The result was guaranteed in every possible circumstance."
+        rationale: |
+          This makes a qualified description absolute. An expected result may seem certain. Check: preserve the less absolute wording.
+    explanation: |
+      "Unexpected" means not expected. Saying it was "not unexpected" gives a qualified positive meaning: it was somewhat expected.
+    approved: false
+  - id: "q-grammar-and-structure-redundancy-and-double-negatives-0018"
+    type: "redundancy-identification"
+    difficulty: "hard"
+    stem: |
+      Which sentence uses "scarcely" to express that almost no supplies remained in standard edited English?
+    choices:
+      - text: "Scarcely any supplies remained."
+        correct: true
+      - text: "Scarcely no supplies remained after the last group left."
+        rationale: |
+          This adds "no" to a near-negative adverb. The intended small amount feels negative. Check: use "any" with the near-negative wording.
+      - text: "There didn't scarcely remain any supplies after the last group left."
+        rationale: |
+          This adds a negative verb to "scarcely". The construction is familiar in some dialects. Check: follow the stated edited-English convention.
+      - text: "No supplies remained, and the entire storage room was empty."
+        rationale: |
+          This changes almost none into none at all. Both describe a shortage. Check: preserve the distinction between very little and zero.
+    explanation: |
+      "Scarcely" means almost not. "Scarcely any" therefore says that almost no supplies remained.
+    approved: false
+  - id: "q-grammar-and-structure-redundancy-and-double-negatives-0019"
+    type: "redundancy-identification"
+    difficulty: "hard"
+    stem: |
+      An editor shortens "The houses stand in close proximity" to "The houses stand in proximity." What should the editor check before accepting the change?
+    choices:
+      - text: "Whether \"close\" adds a useful degree of nearness."
+        correct: true
+      - text: "Whether every pair of words with related meanings must lose one word."
+        rationale: |
+          This applies a fixed deletion rule. Related meanings can be redundant. Check: check what meaning the removed word adds in context.
+      - text: "Whether a longer sentence is always more suitable for formal writing."
+        rationale: |
+          This treats length as proof of quality. Formal writing can contain detailed wording. Check: judge the information rather than word count.
+      - text: "Whether removing \"close\" changes the plural noun into a singular noun."
+        rationale: |
+          This mistakes a modifier's effect for number agreement. The adjective appears beside a location expression. Check: check meaning and emphasis rather than unrelated noun number.
+    explanation: |
+      "Close" may emphasize the degree of nearness. The editor should decide whether that extra meaning is needed in this context.
+    approved: false
+  - id: "q-grammar-and-structure-redundancy-and-double-negatives-0020"
+    type: "redundancy-identification"
+    difficulty: "exam"
+    stem: |
+      A writer intends to describe a proposal as fairly reasonable without giving strong praise. Which sentence preserves that qualified meaning?
+    choices:
+      - text: "The proposal is not unreasonable."
+        correct: true
+      - text: "The proposal is unreasonable and should be rejected outright."
+        rationale: |
+          This retains only the negative adjective's meaning. The word "unreasonable" is visible in the target phrase. Check: include the first "not".
+      - text: "The proposal is perfectly reasonable in every respect."
+        rationale: |
+          This turns a qualified positive into an absolute endorsement. The intended meaning is broadly positive. Check: keep the limited strength of the original claim.
+      - text: "The proposal cannot be described or evaluated in any way."
+        rationale: |
+          This treats two negative elements as making meaning impossible. Some multiple-negative patterns require care. Check: check whether the words create a standard qualified positive.
+    explanation: |
+      "Not unreasonable" gives a qualified positive judgment. It calls the proposal fairly reasonable without the stronger claim that it is perfect.
+    approved: false
