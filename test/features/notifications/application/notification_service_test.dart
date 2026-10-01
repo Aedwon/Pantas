@@ -1,7 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
+import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/notifications/application/notification_service.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
 import 'package:pantas/features/notifications/data/notifications_gateway.dart';
@@ -9,6 +13,8 @@ import 'package:pantas/features/notifications/notifications.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
+
+import '../../../helpers/in_memory_database.dart';
 
 void main() {
   group('roadmap reminder provider', () {
@@ -73,6 +79,8 @@ void main() {
       container = ProviderContainer(
         overrides: [
           notificationsGatewayProvider.overrideWithValue(gateway),
+          notificationStudyDaysReaderProvider
+              .overrideWithValue(() async => StudyDays.all),
           activeExamFocusProvider.overrideWith((ref) async => focus),
           roadmapTodayProvider('upcat').overrideWith((ref) async => today),
         ],
@@ -170,6 +178,142 @@ void main() {
 
       expect(notification.body, "1 questions to review. You've got this.");
     });
+  });
+
+  for (final foreground in [false, true]) {
+    test('study-day reader applies when foreground is $foreground', () async {
+      final gateway = RecordingNotificationsGateway()
+        ..permission = NotificationPermission.granted;
+      var days = StudyDays(const [1, 2, 3, 4, 5]);
+      final service = NotificationServiceImpl(
+        gateway: gateway,
+        settingsReader: () async =>
+            NotificationSettingsSnapshot.daily(hour: 19, minute: 0),
+        studyDaysReader: () async => days,
+        planReader: () async => const NotificationPlanSnapshot.unavailable(),
+        streakReader: () async => const NotificationStreakSnapshot(
+          streakLength: 5,
+          freezesRemaining: 1,
+          completedToday: false,
+        ),
+        now: () => DateTime(2026, 10, 3, 12),
+      );
+      Future<void> schedule() => foreground
+          ? service.rescheduleForForeground()
+          : service.scheduleDailyReminder(
+              const NotificationTime(hour: 19, minute: 0),
+            );
+      await schedule();
+      expect(gateway.scheduled.single.kind, NotificationKind.dailyReminder);
+      expect(gateway.scheduled.single.fireAt, DateTime(2026, 10, 5, 19));
+      days = StudyDays(const [7]);
+      gateway.scheduled.clear();
+      await schedule();
+      expect(gateway.scheduled.single.fireAt, DateTime(2026, 10, 4, 19));
+    });
+  }
+
+  test('foreground schedules comeback at the third missed study day', () async {
+    final gateway = RecordingNotificationsGateway()
+      ..permission = NotificationPermission.granted;
+    var now = DateTime(2026, 10, 3, 12);
+    final service = NotificationServiceImpl(
+      gateway: gateway,
+      settingsReader: () async =>
+          NotificationSettingsSnapshot.daily(hour: 19, minute: 0),
+      studyDaysReader: () async => StudyDays(const [1, 2, 3, 4, 5]),
+      planReader: () async => const NotificationPlanSnapshot.unavailable(),
+      streakReader: () async => const NotificationStreakSnapshot.empty(),
+      lapseReader: () async => NotificationLapseSnapshot(
+        lastSessionAt: DateTime(2026, 10),
+        subjectName: 'Chemistry',
+        correctCount: 12,
+        totalCount: 20,
+      ),
+      now: () => now,
+      // Put the competing daily reminder on the next day so the ceiling
+      // does not hide the comeback candidate being tested.
+      schedulerClock: const NextStudyDayReminderClock(),
+    );
+    await service.rescheduleForForeground();
+    expect(
+      gateway.scheduled.map((n) => n.kind),
+      [NotificationKind.dailyReminder],
+    );
+    gateway.scheduled.clear();
+    now = DateTime(2026, 10, 6, 12);
+    await service.rescheduleForForeground();
+    final comeback = gateway.scheduled
+        .where((n) => n.kind == NotificationKind.comeBack)
+        .single;
+    expect(comeback.fireAt, DateTime(2026, 10, 6, 19));
+  });
+
+  test('exam countdown remains scheduled on a rest day', () async {
+    final gateway = RecordingNotificationsGateway()
+      ..permission = NotificationPermission.granted;
+    final service = NotificationServiceImpl(
+      gateway: gateway,
+      settingsReader: () async => const NotificationSettingsSnapshot.none(),
+      studyDaysReader: () async => StudyDays(const [1, 2, 3, 4, 5]),
+      planReader: () async => const NotificationPlanSnapshot.unavailable(),
+      streakReader: () async => const NotificationStreakSnapshot.empty(),
+      examDateReader: () async => ExamDate.onDay(DateTime(2026, 10, 4)),
+      now: () => DateTime(2026, 10, 3, 8),
+    );
+    await service.rescheduleForForeground();
+    expect(
+      gateway.scheduled.map((n) => n.kind),
+      everyElement(NotificationKind.examCountdown),
+    );
+    expect(gateway.scheduled.first.fireAt, DateTime(2026, 10, 3, 9));
+  });
+
+  test('notification provider reads stored study days afresh', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final gateway = RecordingNotificationsGateway()
+      ..permission = NotificationPermission.granted;
+    final container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        notificationsGatewayProvider.overrideWithValue(gateway),
+        activeExamFocusProvider.overrideWith(
+          (ref) async => const ActiveExamFocus.needsSelection(),
+        ),
+      ],
+    );
+    addTearDown(container.dispose);
+    // Only one weekday makes the expected fire date independent of wall time.
+    final now = DateTime.now();
+    final target = DateTime(now.year, now.month, now.day + 2);
+    await db.into(db.accountPrefs).insert(
+          AccountPrefsCompanion.insert(
+            key: 'settings.study_days',
+            value: '${target.weekday}',
+          ),
+        );
+    await container
+        .read(featureNotificationServiceProvider)
+        .scheduleDailyReminder(const NotificationTime(hour: 19, minute: 0));
+    expect(
+      gateway.scheduled.single.fireAt,
+      DateTime(target.year, target.month, target.day, 19),
+    );
+    gateway.scheduled.clear();
+    await db.into(db.accountPrefs).insertOnConflictUpdate(
+          AccountPrefsCompanion.insert(
+            key: 'settings.study_days',
+            value: '${DateTime(now.year, now.month, now.day + 3).weekday}',
+          ),
+        );
+    await container
+        .read(featureNotificationServiceProvider)
+        .scheduleDailyReminder(const NotificationTime(hour: 19, minute: 0));
+    expect(
+      gateway.scheduled.single.fireAt,
+      DateTime(now.year, now.month, now.day + 3, 19),
+    );
   });
 
   test('scheduleDailyReminder cancels ids then schedules daily reminder',
@@ -322,5 +466,19 @@ class RecordingNotificationsGateway implements NotificationsGateway {
   @override
   Stream<NotificationPermission> watchPermissionStatus() async* {
     yield permission;
+  }
+}
+
+class NextStudyDayReminderClock extends ReminderSchedulerClock {
+  const NextStudyDayReminderClock();
+
+  @override
+  DateTime nextOccurrence({
+    required DateTime now,
+    required NotificationTime time,
+    StudyDays studyDays = StudyDays.all,
+  }) {
+    final next = studyDays.nextAfter(now)!;
+    return DateTime(next.year, next.month, next.day, time.hour, time.minute);
   }
 }

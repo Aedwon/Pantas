@@ -1,5 +1,6 @@
 import 'package:pantas/core/storage/data/repos/streak_repository.dart';
 import 'package:pantas/core/time/local_day.dart';
+import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 
 class StreakEvaluation {
@@ -15,9 +16,13 @@ class StreakEvaluation {
 }
 
 class StreakEvaluator {
-  const StreakEvaluator(this._streaks);
+  StreakEvaluator(
+    this._streaks, {
+    Future<StudyDays> Function()? studyDaysReader,
+  }) : _studyDaysReader = studyDaysReader ?? (() async => StudyDays.all);
 
   final StreakRepository _streaks;
+  final Future<StudyDays> Function() _studyDaysReader;
 
   Future<StreakEvaluation> evaluate({
     required SessionOrigin origin,
@@ -44,8 +49,9 @@ class StreakEvaluator {
       );
     }
 
+    final studyDays = await _studyDaysReader();
     final (nextCurrent, freezeUsed, freezesRemaining) =
-        _next(snapshot, lastActive, today);
+        _next(snapshot, lastActive, today, studyDays);
     await _streaks.writeSnapshot(
       current: nextCurrent,
       longest: nextCurrent > snapshot.longest ? nextCurrent : snapshot.longest,
@@ -63,15 +69,16 @@ class StreakEvaluator {
     StreakSnapshot snapshot,
     DateTime? lastActive,
     DateTime today,
+    StudyDays studyDays,
   ) {
     if (lastActive == null) {
       return (1, false, snapshot.freezesRemaining);
     }
-    final gap = today.difference(lastActive).inDays;
-    if (gap == 1) {
+    final gap = studyDays.missedBetween(lastActive, today);
+    if (gap == 0) {
       return (snapshot.current + 1, false, snapshot.freezesRemaining);
     }
-    if (gap == 2 && snapshot.freezesRemaining > 0) {
+    if (gap == 1 && snapshot.freezesRemaining > 0) {
       return (snapshot.current + 1, true, snapshot.freezesRemaining - 1);
     }
     return (1, false, snapshot.freezesRemaining);

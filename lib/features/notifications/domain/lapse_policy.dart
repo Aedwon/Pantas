@@ -1,14 +1,17 @@
 import 'package:pantas/core/notifications/notification_service.dart';
+import 'package:pantas/core/time/study_days.dart';
 
 class LapsePolicy {
   const LapsePolicy();
 
-  /// Fired after three consecutive days with no session, once, then silence
+  /// Fired on the third missed study day, once, then silence
   /// until they return.
   bool shouldSchedule({
     required DateTime? lastSessionAt,
     required DateTime now,
+    StudyDays studyDays = StudyDays.all,
   }) {
+    if (!studyDays.isStudyDay(now)) return false;
     if (lastSessionAt == null) return false;
 
     final lastSessionDay = DateTime(
@@ -18,7 +21,14 @@ class LapsePolicy {
     );
     final today = DateTime(now.year, now.month, now.day);
 
-    final quietDays = today.difference(lastSessionDay).inDays;
+    final quietDays = studyDays.countInRange(
+      DateTime(
+        lastSessionDay.year,
+        lastSessionDay.month,
+        lastSessionDay.day + 1,
+      ),
+      DateTime(today.year, today.month, today.day + 1),
+    );
     return quietDays == 3;
   }
 
@@ -26,8 +36,13 @@ class LapsePolicy {
     required DateTime? lastSessionAt,
     required NotificationTime reminderTime,
     required DateTime now,
+    StudyDays studyDays = StudyDays.all,
   }) {
-    if (!shouldSchedule(lastSessionAt: lastSessionAt, now: now)) {
+    if (!shouldSchedule(
+      lastSessionAt: lastSessionAt,
+      now: now,
+      studyDays: studyDays,
+    )) {
       return null;
     }
     return DateTime(

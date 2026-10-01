@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/attempt_origins.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
 
 @immutable
 class StudentRecord {
@@ -103,18 +104,22 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
   final longestStreak = streakRow?.longest ?? 0;
   DateTime? streakStartedOn;
 
-  // The date is derived, so it is only printed while the derivation is
-  // sound. `freezesRemaining` defaults to 0 and nothing in the app grants
-  // or spends a freeze yet, so no streak can have been extended by one and
-  // last active minus the streak's length is the day it began. When a
-  // freeze mechanism lands it must record that a freeze was spent, and
-  // this must return null for those students: a wrong date is worse than
-  // no date in a student's own history.
-  if (dayStreak > 0 && streakRow?.lastActiveDate != null) {
+  // Rest days can be skipped or credited, so the start cannot be derived
+  // from the count unless every day is a study day. A wrong date is worse
+  // than no date. The existing freeze caveat still applies: if freezes are
+  // granted, spending one must be recorded before showing a derived date.
+  final studyDays = (await ref.watch(userSettingsProvider.future)).studyDays;
+  if (studyDays.isEveryDay &&
+      dayStreak > 0 &&
+      streakRow?.lastActiveDate != null) {
     final lastActive = streakRow!.lastActiveDate!;
     final localLastActive =
         DateTime(lastActive.year, lastActive.month, lastActive.day);
-    streakStartedOn = localLastActive.subtract(Duration(days: dayStreak - 1));
+    streakStartedOn = DateTime(
+      localLastActive.year,
+      localLastActive.month,
+      localLastActive.day - dayStreak + 1,
+    );
   }
 
   // Helper for reading items in attempts_local

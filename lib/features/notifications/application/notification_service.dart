@@ -1,5 +1,6 @@
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
+import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/notifications/data/notifications_gateway.dart';
 import 'package:pantas/features/notifications/domain/exam_countdown_schedule.dart';
 import 'package:pantas/features/notifications/domain/lapse_policy.dart';
@@ -10,14 +11,17 @@ import 'package:pantas/features/notifications/domain/reminder_schedule.dart';
 import 'package:pantas/features/notifications/domain/streak_save_policy.dart';
 
 class NotificationSettingsSnapshot {
-  const NotificationSettingsSnapshot.none() : reminderTime = null;
+  const NotificationSettingsSnapshot.none({this.studyDays = StudyDays.all})
+      : reminderTime = null;
 
   NotificationSettingsSnapshot.daily({
     required int hour,
     required int minute,
+    this.studyDays = StudyDays.all,
   }) : reminderTime = NotificationTime(hour: hour, minute: minute);
 
   final NotificationTime? reminderTime;
+  final StudyDays studyDays;
 }
 
 class NotificationPlanSnapshot {
@@ -95,6 +99,7 @@ typedef NotificationStreakReader = Future<NotificationStreakSnapshot>
     Function();
 typedef NotificationExamDateReader = Future<ExamDate?> Function();
 typedef NotificationLapseReader = Future<NotificationLapseSnapshot> Function();
+typedef NotificationStudyDaysReader = Future<StudyDays> Function();
 typedef NotificationClock = DateTime Function();
 
 class NotificationServiceImpl implements NotificationService {
@@ -105,6 +110,7 @@ class NotificationServiceImpl implements NotificationService {
     required NotificationStreakReader streakReader,
     required NotificationClock now,
     NotificationExamDateReader? examDateReader,
+    NotificationStudyDaysReader? studyDaysReader,
     NotificationLapseReader? lapseReader,
     NotificationBodyComposer composer = const NotificationBodyComposer(),
     StreakSavePolicy streakPolicy = const StreakSavePolicy(),
@@ -115,6 +121,7 @@ class NotificationServiceImpl implements NotificationService {
         _planReader = planReader,
         _streakReader = streakReader,
         _examDateReader = examDateReader ?? (() async => null),
+        _studyDaysReader = studyDaysReader ?? (() async => StudyDays.all),
         _lapseReader = lapseReader ??
             (() async => const NotificationLapseSnapshot.empty()),
         _now = now,
@@ -128,6 +135,7 @@ class NotificationServiceImpl implements NotificationService {
   final NotificationPlanReader _planReader;
   final NotificationStreakReader _streakReader;
   final NotificationExamDateReader _examDateReader;
+  final NotificationStudyDaysReader _studyDaysReader;
   final NotificationLapseReader _lapseReader;
   final NotificationClock _now;
   final NotificationBodyComposer _composer;
@@ -173,6 +181,7 @@ class NotificationServiceImpl implements NotificationService {
     await _gateway.cancel(NotificationIds.comeBack);
 
     final now = _now();
+    final studyDays = await _studyDaysReader();
     final examDate = await _examDateReader();
 
     if (time == null) {
@@ -266,6 +275,7 @@ class NotificationServiceImpl implements NotificationService {
       completedToday: streak.completedToday,
       now: now,
       fireAt: streakFireAt,
+      isStudyDay: studyDays.isStudyDay(now),
     )) {
       final streakCopy = _composer.streakSave(
         streakLength: streak.streakLength,
@@ -290,7 +300,11 @@ class NotificationServiceImpl implements NotificationService {
 
     // 3. Candidate: dailyReminder
     final plan = await _planReader();
-    final dailyFireAt = _schedulerClock.nextOccurrence(now: now, time: time);
+    final dailyFireAt = _schedulerClock.nextOccurrence(
+      now: now,
+      time: time,
+      studyDays: studyDays,
+    );
     final dailyCopy = plan.available
         ? _composer.dailyReminder(
             DailyReminderInput(
@@ -321,6 +335,7 @@ class NotificationServiceImpl implements NotificationService {
     if (_lapsePolicy.shouldSchedule(
       lastSessionAt: lapse.lastSessionAt,
       now: now,
+      studyDays: studyDays,
     )) {
       final comeBackCopy = _composer.comeBack(
         subjectName: lapse.subjectName,

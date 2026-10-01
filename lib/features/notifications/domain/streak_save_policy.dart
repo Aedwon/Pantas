@@ -20,7 +20,9 @@ class StreakSavePolicy {
     required bool completedToday,
     required DateTime now,
     required DateTime fireAt,
+    bool isStudyDay = true,
   }) {
+    if (!isStudyDay) return false;
     if (streakLength < 1) return false;
     if (completedToday) return false;
     return now.isBefore(fireAt);

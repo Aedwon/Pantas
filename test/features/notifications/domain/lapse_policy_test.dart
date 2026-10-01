@@ -1,10 +1,44 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
+import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/notifications/application/notification_service.dart';
 import 'package:pantas/features/notifications/data/notifications_gateway.dart';
 import 'package:pantas/features/notifications/notifications.dart';
 
 void main() {
+  for (final scenario in [
+    (day: 2, want: false),
+    (day: 3, want: false),
+    (day: 4, want: false),
+    (day: 5, want: false),
+    (day: 6, want: true),
+    (day: 7, want: false),
+  ]) {
+    test('Thursday lapse counts only study days on October ${scenario.day}',
+        () {
+      const policy = LapsePolicy();
+      final now = DateTime(2026, 10, scenario.day, 12);
+      final days = StudyDays(const [1, 2, 3, 4, 5]);
+      expect(
+        policy.shouldSchedule(
+          lastSessionAt: DateTime(2026, 10, 1, 10),
+          now: now,
+          studyDays: days,
+        ),
+        scenario.want,
+      );
+      expect(
+        policy.scheduledTime(
+          lastSessionAt: DateTime(2026, 10, 1, 10),
+          now: now,
+          reminderTime: const NotificationTime(hour: 19, minute: 0),
+          studyDays: days,
+        ),
+        scenario.want ? DateTime(2026, 10, 6, 19) : null,
+      );
+    });
+  }
+
   group('LapsePolicy', () {
     const policy = LapsePolicy();
     final lastSession = DateTime(2026, 8, 1, 10);

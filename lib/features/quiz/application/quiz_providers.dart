@@ -42,6 +42,7 @@ import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
 import 'package:pantas/features/roadmap/domain/roadmap_inputs.dart';
 import 'package:pantas/features/roadmap/domain/sitting_planner.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
 import 'package:pantas/features/settings/domain/session_ordering.dart';
 
 /// The local durable quiz identity. All local Today launch owners use this
@@ -139,7 +140,11 @@ final submitAnswerProvider = Provider<SubmitAnswer>(
 );
 
 final streakEvaluatorProvider = Provider<StreakEvaluator>(
-  (ref) => StreakEvaluator(ref.watch(streakRepositoryProvider)),
+  (ref) => StreakEvaluator(
+    ref.watch(streakRepositoryProvider),
+    studyDaysReader: () async =>
+        (await ref.read(userSettingsProvider.future)).studyDays,
+  ),
 );
 
 final quizPreferencesRepositoryProvider = Provider<QuizPreferencesRepository>(

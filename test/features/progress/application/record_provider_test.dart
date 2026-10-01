@@ -145,6 +145,33 @@ void main() {
     expect(record.streakStartedOn, DateTime(2026, 5, 12));
   });
 
+  for (final days in ['1,2,3,4,5', '1,2,3,4,5,6,7']) {
+    test('streak start date is sound only with all seven: $days', () async {
+      await db.into(db.accountPrefs).insert(
+            AccountPrefsCompanion.insert(
+              key: 'settings.study_days',
+              value: days,
+            ),
+          );
+      await db.into(db.streakLocal).insert(
+            StreakLocalCompanion.insert(
+              current: const Value(5),
+              longest: const Value(7),
+              lastActiveDate: Value(DateTime(2026, 10, 5)),
+            ),
+          );
+      container = ProviderContainer(
+        overrides: [appDatabaseProvider.overrideWithValue(db)],
+      );
+      final record = await container.read(recordProvider.future);
+      expect(record.dayStreak, 5);
+      expect(
+        record.streakStartedOn,
+        days == '1,2,3,4,5' ? null : DateTime(2026, 10),
+      );
+    });
+  }
+
   test('no streak, no start date', () async {
     await db.into(db.streakLocal).insert(
           StreakLocalCompanion.insert(
