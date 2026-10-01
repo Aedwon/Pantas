@@ -132,6 +132,14 @@ Also design:
 - **Today done:** the "today done" moment, then the advance action.
 - **Advanced:** extra items added after today was done. If the student stops partway, what they
   did counts and today still counts as done. Advanced items never turn a day into missed work.
+- **Nothing scheduled on a study day:** possible in the review-only stretch, once everything is
+  covered, on exam day and after it, when no reviews are due and it is not the mock day. This is
+  not "today done" (work was scheduled and finished); the two need different wording.
+- **Whether advance is offered:** the engine says whether advance would add anything right now
+  (it would not in the review-only stretch, once everything is covered, or before today's work
+  is done). Show advance only when it would. In the review-only stretch or when everything is
+  covered, offer free practice of the weakest topics instead (outside the plan; it does not earn
+  a streak day). After the exam date, the "did you take it?" prompt takes that place.
 - **Advance on a rest day:** brings in the next study day's lessons and new questions, plus
   reviews already due. Whatever the student does counts, including toward the streak.
 - **Backlog after an absence:** today holds as many reviews as the student usually does in a day;

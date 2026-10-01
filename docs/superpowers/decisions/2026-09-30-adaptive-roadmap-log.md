@@ -586,3 +586,17 @@ earns a streak day by advancing and completing a sitting. Lead recommended keepi
 > "keep it as is"
 
 No change.
+
+**Can-advance signal, 1 October 2026:** while designing the empty-day states, Aedwon asked
+whether a study day can have nothing scheduled and what the action should be. Lead answer: yes
+(review-only stretch, all covered, exam day or passed, with no reviews due and no mock), and
+advance does nothing in the review-only stretch or once everything is covered, so a button
+could lead nowhere. Recommended: advance only when it would add something; otherwise practice of
+the weakest topics; after the exam, the passed-exam prompt. Lead flagged the gap: the screen
+could not know in advance whether advance would add anything.
+
+> "okay add it, and what should i tell claude design for this scenario"
+
+Added `RoadmapController.canAdvance` and `roadmapCanAdvanceProvider` (the same build as advance,
+nothing saved; advance now shares it), test first (8a469125). Full suite 3,300 of 3,300; analyze,
+layering, format, attribution OK. Pushed and remote verified. UI brief Section 5 updated.
