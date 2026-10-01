@@ -1,320 +1,413 @@
 meta:
-  subject: language-proficiency
-  topic: grammar-and-structure
-  subtopic: phrases-and-clauses
-  exams: [ upcat, acet, dlsucet, ustet, dost-sei , cse-pro, cse-sub]
+  subject: "language-proficiency"
+  topic: "grammar-and-structure"
+  subtopic: "phrases-and-clauses"
+  exams:
+    - "upcat"
+    - "acet"
+    - "dlsucet"
+    - "ustet"
+    - "dost-sei"
+    - "cse-pro"
+    - "cse-sub"
 questions:
-  - id: q-grammar-and-structure-phrases-and-clauses-0001
-    type: phrase-clause-identification
-    difficulty: easy
+  - id: "q-grammar-and-structure-phrases-and-clauses-0001"
+    type: "phrase-clause-identification"
+    difficulty: "easy"
     stem: |
       Is "under the old bridge" a phrase or a clause?
     choices:
-      - text: Phrase
+      - text: "Prepositional phrase"
         correct: true
-      - text: Independent clause
+      - text: "Independent clause"
         rationale: |
-          You picked independent clause, but there is no verb or subject in "under the old bridge." It is a prepositional phrase.
-      - text: Dependent clause
+          This treats a location group as a complete statement. The group contains a noun and gives clear information. Check: look for a finite verb.
+      - text: "Dependent clause"
         rationale: |
-          You picked dependent clause, but a clause requires both a subject and a verb. This group of words has neither.
-      - text: Complete sentence
+          This mistakes any group that needs a larger sentence for a clause. The group cannot stand as a formal sentence. Check: check for a clause's subject-and-verb structure.
+      - text: "Main verb phrase"
         rationale: |
-          You picked complete sentence, but a complete sentence requires a main subject and verb expressing a full thought.
+          This treats the hiding location as an action. A location can be related to an action. Check: find whether the group contains a verb.
     explanation: |
-      "Under the old bridge" has no subject or verb of its own, so it is a phrase, not a clause.
+      "Under" introduces the noun phrase "the old bridge." Together they form a prepositional phrase giving a location.
     approved: true
-
-  - id: q-grammar-and-structure-phrases-and-clauses-0002
-    type: phrase-clause-identification
-    difficulty: easy
+  - id: "q-grammar-and-structure-phrases-and-clauses-0002"
+    type: "phrase-clause-identification"
+    difficulty: "easy"
     stem: |
-      Is "the cat slept" a phrase or a clause?
+      How is the whole group "the cat slept" classified?
     choices:
-      - text: Clause
+      - text: "Independent clause"
         correct: true
-      - text: Phrase
+      - text: "Prepositional phrase"
         rationale: |
-          You treated this as a phrase. Because it contains the subject "cat" alongside the predicate verb "slept," it qualifies as a clause.
-      - text: Sentence fragment only
+          This treats a short word group as a phrase. The group has only three words. Check: look for a subject and a finite verb.
+      - text: "Dependent clause"
         rationale: |
-          You called it a fragment, but "the cat slept" expresses a complete thought with a subject and verb, making it a full clause.
-      - text: Interjection
+          This assumes a short statement needs another clause. The statement gives little detail. Check: check whether any word makes it subordinate.
+      - text: "Noun phrase"
         rationale: |
-          You picked interjection, but an interjection is an exclamation rather than a subject-verb unit.
+          This counts only the words "the cat". Those words name an animal. Check: include "slept" when classifying the whole group.
     explanation: |
-      "The cat slept" has a subject ("cat") and a verb ("slept"), making it a clause.
+      "The cat" is the subject, and "slept" is the finite verb. The group can stand as a complete sentence.
     approved: true
-
-  - id: q-grammar-and-structure-phrases-and-clauses-0003
-    type: phrase-clause-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-phrases-and-clauses-0003"
+    type: "phrase-clause-identification"
+    difficulty: "medium"
     stem: |
       Is "She finished her homework" an independent or a dependent clause?
     choices:
-      - text: Independent
+      - text: "Independent clause"
         correct: true
-      - text: Dependent
+      - text: "Dependent clause"
         rationale: |
-          You picked dependent, but this clause can stand alone as a complete sentence without a subordinating conjunction.
-      - text: Phrase
+          This mistakes a short statement for an incomplete clause. The sentence gives no background information. Check: check whether it can stand as a complete statement.
+      - text: "Noun phrase"
         rationale: |
-          You picked phrase, but "she finished her homework" contains a subject ("she") and verb ("finished"), so it is a clause.
-      - text: Fragment
+          This treats a group naming a person as only a noun group. The opening word refers to a person. Check: include the action "finished".
+      - text: "Prepositional phrase"
         rationale: |
-          You called it a fragment, but "she finished her homework" forms a complete thought with subject and predicate.
+          This treats a sentence part as a relation phrase. The sentence gives a relationship between a person and homework. Check: look for a preposition introducing the whole group.
     explanation: |
-      "She finished her homework" has a subject, a verb, and expresses a complete thought on its own, making it an independent clause.
+      "She" is the subject, and "finished her homework" says what she did. The group can stand as a complete statement.
     approved: true
-
-  - id: q-grammar-and-structure-phrases-and-clauses-0004
-    type: phrase-clause-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-phrases-and-clauses-0004"
+    type: "phrase-clause-identification"
+    difficulty: "medium"
     stem: |
       Is "Although she was tired" an independent or a dependent clause?
     choices:
-      - text: Dependent
+      - text: "Dependent clause"
         correct: true
-      - text: Independent
+      - text: "Independent clause"
         rationale: |
-          You picked independent, but the subordinating conjunction "although" makes this clause depend on a main clause to complete the thought.
-      - text: Phrase
+          This ignores the effect of "although". "She was tired" has a subject and verb. Check: include the opening word in the stand-alone test.
+      - text: "Noun phrase"
         rationale: |
-          You picked phrase, but "she was tired" contains both a subject ("she") and a verb ("was"), so it is a clause.
-      - text: Complete sentence
+          This treats a reference to a person as a noun group. "She" refers to someone. Check: check for the finite verb "was".
+      - text: "Prepositional phrase"
         rationale: |
-          You called it a complete sentence, but "although" leaves the reader waiting for the main clause.
+          This treats the opening connector as if it introduced only a noun phrase. Some opening words can have that use. Check: identify the subject and verb after "although".
     explanation: |
-      "Although she was tired" has a subject and verb, but "although" makes it a dependent clause that needs a main clause.
+      "She" is the subject, and "was" is a finite verb. "Although" makes this clause depend on a main clause to finish the statement.
     approved: true
-
-  - id: q-grammar-and-structure-phrases-and-clauses-0005
-    type: phrase-clause-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-phrases-and-clauses-0005"
+    type: "phrase-clause-identification"
+    difficulty: "medium"
     stem: |
       Combine the dependent clause "Because the store was closed" with an appropriate independent clause to form a complete sentence.
     choices:
-      - text: Because the store was closed, we went home instead.
+      - text: "Because the store was closed, we went home."
         correct: true
-      - text: Because the store was closed, we.
+      - text: "Because the store was closed, while we walked back home."
         rationale: |
-          You attached the dependent clause to "we," but "we" alone is not an independent clause because it has no predicate verb.
-      - text: The store was closed because.
+          This joins two dependent clauses without a main clause. Both groups contain subjects and verbs. Check: find a clause that can stand on its own.
+      - text: "Because the store was closed, our journey back home."
         rationale: |
-          You left the subordinating conjunction "because" dangling without the reason clause it introduces.
-      - text: Because the store, we went home.
+          This adds a noun phrase without a main verb. The phrase gives a sensible result. Check: check that the added group states an action.
+      - text: "Because the store was closed, after our journey back home."
         rationale: |
-          You removed the verb from the opening group, so "Because the store" is not the supplied dependent clause.
+          This adds a prepositional phrase rather than a main clause. The group gives extra time information. Check: look for a complete main statement.
     explanation: |
-      The dependent clause "Because the store was closed" needs an independent clause with its own subject and predicate. "We went home instead" supplies that complete main clause, and the introductory dependent clause is followed by a comma.
+      "We went home" can stand as a complete sentence. Adding it to "Because the store was closed" supplies the main clause that the opening group needs.
     approved: true
-
-  - id: q-grammar-and-structure-phrases-and-clauses-0006
-    type: phrase-clause-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-phrases-and-clauses-0006"
+    type: "phrase-clause-identification"
+    difficulty: "medium"
     stem: |
-      Identify the error in this sentence: "Although the teacher explained the lesson twice."
+      In ordinary formal prose requiring a complete sentence, what is wrong with "Although the teacher explained the lesson twice"?
     choices:
-      - text: 'This is a sentence fragment: a dependent clause with no independent clause attached'
+      - text: "It is a dependent-clause fragment."
         correct: true
-      - text: There is no error; the sentence is complete
+      - text: "It is a complete independent sentence."
         rationale: |
-          You assumed the sentence was complete, but "although" makes the group dependent on a main clause that is missing.
-      - text: This is a run-on sentence with too many clauses
+          This counts the subject and verb but ignores "although". The teacher and an action are clearly named. Check: include the opening connector in the test.
+      - text: "It is a run-on with two main clauses."
         rationale: |
-          You misidentified the error as a run-on. This sentence lacks an independent clause instead of joining too many of them.
-      - text: This sentence is missing a subject
+          This confuses a dependent fragment with a run-on. The sentence looks unfinished or awkward. Check: count the actual clauses.
+      - text: "It is a phrase with no finite verb."
         rationale: |
-          You thought the subject was missing, but "the teacher" is the subject. The missing element is an independent main clause.
+          This treats dependence as the absence of a verb. The group needs a larger sentence. Check: find "explained" and its subject.
     explanation: |
-      This is a dependent clause standing alone. It has a subject and verb, but "although" makes it a sentence fragment unless a main clause is attached.
+      "Although" makes "the teacher explained the lesson twice" dependent. Standing alone in ordinary formal prose, the group is a fragment.
     approved: true
-
-  - id: q-grammar-and-structure-phrases-and-clauses-0007
-    type: phrase-clause-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-phrases-and-clauses-0007"
+    type: "phrase-clause-identification"
+    difficulty: "medium"
     stem: |
-      Is "running quickly through the park" a phrase or a clause?
+      Using the introductory school convention in this lesson, how is "running quickly through the park" classified?
     choices:
-      - text: Phrase
+      - text: "Participial phrase"
         correct: true
-      - text: Independent clause
+      - text: "Independent finite clause"
         rationale: |
-          You picked independent clause, but "running" is a non-finite verb form here and there is no stated subject forming a finite clause.
-      - text: Dependent clause
+          This treats the -ing action as a finite verb. "Running" names an action. Check: look for a verb carrying tense and a matching subject.
+      - text: "Dependent finite clause"
         rationale: |
-          You picked dependent clause, but the group lacks a stated subject paired with a finite verb.
-      - text: Complete sentence
+          This assumes an incomplete action group must be a finite clause. The group needs a larger sentence. Check: check whether the group has a finite verb.
+      - text: "Prepositional phrase"
         rationale: |
-          You called it a complete sentence, but this participial phrase cannot stand alone as a sentence in this form.
+          This classifies the whole group from "through the park" alone. Those final words are a prepositional phrase. Check: include "running quickly" in the analysis.
     explanation: |
-      "Running quickly through the park" lacks a stated subject and finite subject-verb pair, so it functions as a phrase rather than a clause.
+      Under the lesson's introductory school convention, "running quickly through the park" is called a participial phrase. It has an -ing verb form but no finite verb.
     approved: true
-
-  - id: q-grammar-and-structure-phrases-and-clauses-0008
-    type: phrase-clause-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-phrases-and-clauses-0008"
+    type: "phrase-clause-identification"
+    difficulty: "medium"
     stem: |
       Is "When the bell rang" an independent or a dependent clause?
     choices:
-      - text: Dependent
+      - text: "Dependent clause"
         correct: true
-      - text: Independent
+      - text: "Independent clause"
         rationale: |
-          You picked independent, but "when" makes this subject-verb unit dependent on a main clause in this use.
-      - text: Phrase
+          This ignores the opening "when". "The bell rang" is a complete statement by itself. Check: include every word in the group.
+      - text: "Noun phrase"
         rationale: |
-          You picked phrase, but "the bell rang" contains a subject and a finite verb, so it is a clause.
-      - text: Complete sentence
+          This classifies the group from "the bell" alone. The opening noun phrase names a thing. Check: include the action word "rang".
+      - text: "Prepositional phrase"
         rationale: |
-          You picked complete sentence, but this subordinate use of "when" leaves the thought dependent on what follows.
+          This treats a time relation as a phrase containing only a noun group. Time information often appears in phrases. Check: identify the subject "the bell" and verb "rang".
     explanation: |
-      "When the bell rang" has a subject and verb, but the subordinating word "when" makes it a dependent clause in this context.
+      "When" makes the clause "the bell rang" subordinate. In this use, the group needs a main clause describing what happened then.
     approved: true
-
-  - id: q-grammar-and-structure-phrases-and-clauses-0009
-    type: phrase-clause-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-phrases-and-clauses-0009"
+    type: "phrase-clause-identification"
+    difficulty: "medium"
     stem: |
       Is the comma placement correct in this sentence? "Because it was raining, we stayed inside."
     choices:
-      - text: 'Yes: an introductory dependent clause is followed by a comma before the independent clause.'
+      - text: "Yes: an introductory dependent clause is followed by a comma before the independent clause."
         correct: true
-      - text: 'No: commas are never used with dependent clauses.'
+      - text: "No: commas are never used with dependent clauses."
         rationale: |
           You treated dependent clauses as incompatible with commas, but an introductory dependent clause normally takes a comma before the main clause.
-      - text: 'No: the comma should be removed entirely.'
+      - text: "No: the comma should be removed entirely."
         rationale: |
           You removed the comma that separates the introductory dependent clause from the main clause.
-      - text: 'Yes: but only because "raining" is a gerund.'
+      - text: "Yes: but only because \"raining\" is a gerund."
         rationale: |
           You linked comma use to the word "raining," but the comma follows from the clause structure, not that word's form.
     explanation: |
       When a dependent clause comes first, standard punctuation places a comma before the following independent clause: "Because it was raining, we stayed inside."
     approved: true
-
-  - id: q-grammar-and-structure-phrases-and-clauses-0010
-    type: phrase-clause-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-phrases-and-clauses-0010"
+    type: "phrase-clause-identification"
+    difficulty: "medium"
     stem: |
       Does this sentence need a comma before "because"? "We stayed inside because it was raining."
     choices:
-      - text: 'No: when the independent clause comes first, no comma is typically needed before this essential reason clause.'
+      - text: "No: when the independent clause comes first, no comma is typically needed before this essential reason clause."
         correct: true
-      - text: 'Yes: a comma is always required regardless of clause order.'
+      - text: "Yes: a comma is always required regardless of clause order."
         rationale: |
           You treated clause order as irrelevant, but a following essential "because" clause normally does not need a comma here.
-      - text: 'Yes: but only before "was," not before "because."'
+      - text: "Yes: but only before \"was,\" not before \"because.\""
         rationale: |
           You placed a comma between the subject and verb inside the dependent clause.
-      - text: 'No: but only because "raining" ends the sentence.'
+      - text: "No: but only because \"raining\" ends the sentence."
         rationale: |
           You attributed the rule to the last word instead of the relationship between the clauses.
     explanation: |
       In "We stayed inside because it was raining," the main clause comes first and the following reason clause is essential to the intended meaning, so no comma is normally used before "because."
     approved: true
-
-  - id: q-grammar-and-structure-phrases-and-clauses-0011
-    type: phrase-clause-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-phrases-and-clauses-0011"
+    type: "phrase-clause-identification"
+    difficulty: "medium"
     stem: |
-      A student sees the long phrase "Walking slowly along the crowded street toward the old market" and assumes it must be a clause since it is so long. Is this correct?
+      In "Close the door," what kind of group is the complete command?
     choices:
-      - text: 'No: length does not make something a clause; this group still lacks a stated subject paired with a finite verb.'
+      - text: "An independent clause with an understood subject"
         correct: true
-      - text: 'Yes: any group of words longer than five words is automatically a clause.'
+      - text: "A noun phrase because it names an action"
         rationale: |
-          You used word count to define a clause, but clause status depends on grammatical structure, not length.
-      - text: 'Yes: but only because "market" could function as a subject.'
+          This treats the command as an activity name. "Close" is an action word. Check: ask whether the group gives an instruction.
+      - text: "A dependent clause with a missing main clause"
         rationale: |
-          You mistook the object of the preposition "toward" for the subject of a clause.
-      - text: 'No: but only because phrases can never contain the word "toward."'
+          This treats the absence of a written subject as dependence. Most basic examples state a subject. Check: check whether a command can stand on its own.
+      - text: "A prepositional phrase with no verb"
         rationale: |
-          You invented a rule about one preposition. Phrases can contain "toward"; the issue is the missing finite subject-verb structure.
+          This overlooks the command verb. The words "the door" form a noun phrase. Check: identify what "close" asks someone to do.
     explanation: |
-      A phrase can be long. This group has no stated subject paired with a finite verb, so its length does not turn it into a clause.
+      "Close" is the verb in a command. Its understood subject is "you," so "Close the door" can stand as an independent sentence.
     approved: true
-
-  - id: q-grammar-and-structure-phrases-and-clauses-0012
-    type: phrase-clause-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-phrases-and-clauses-0012"
+    type: "phrase-clause-identification"
+    difficulty: "medium"
     stem: |
-      A student writes "Because she was late." as a standalone sentence. Is this a complete sentence in standard formal writing?
+      In a formal task requiring a complete sentence, how should "Because she was late" be classified?
     choices:
-      - text: 'No: it is a dependent clause used as a sentence fragment; it needs an independent clause to complete the thought.'
+      - text: "A dependent-clause fragment"
         correct: true
-      - text: 'Yes: since it has a subject and a verb, it is automatically an independent clause.'
+      - text: "An independent sentence with a stated subject"
         rationale: |
-          You assumed a subject and verb automatically make a clause independent, but "because" subordinates this clause.
-      - text: 'Yes: but only because "late" is functioning as an adjective here.'
+          This ignores the opening reason connector. "She was late" has a subject and verb. Check: include "because" in the stand-alone test.
+      - text: "A noun phrase naming a reason"
         rationale: |
-          You focused on "late," but the subordinating conjunction "because" controls the clause relationship.
-      - text: 'No: but only because "she" is not a valid subject.'
+          This confuses the group's meaning with its grammatical structure. The group gives a reason. Check: find the finite verb and subject.
+      - text: "A prepositional phrase describing time"
         rationale: |
-          You incorrectly rejected "she" as a subject pronoun. The issue is subordination, not the subject.
+          This treats "late" as proof that the group is a time phrase. The sentence concerns lateness. Check: classify the whole group, including "because she was".
     explanation: |
-      "Because she was late" is a dependent clause. In the standard formal sentence-writing convention being tested, it cannot stand alone as a complete sentence.
+      "Because" makes "she was late" dependent. In a formal task requiring a full sentence, this group needs a main clause.
     approved: true
-
-  - id: q-grammar-and-structure-phrases-and-clauses-0013
-    type: phrase-clause-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-phrases-and-clauses-0013"
+    type: "phrase-clause-identification"
+    difficulty: "medium"
     stem: |
       A student writes "Because it was raining we stayed inside" without a comma. Is this correctly punctuated in standard formal writing?
     choices:
-      - text: 'No: place a comma after the introductory dependent clause: "Because it was raining, we stayed inside."'
+      - text: "No: place a comma after the introductory dependent clause: \"Because it was raining, we stayed inside.\""
         correct: true
-      - text: 'Yes: commas are never needed between dependent and independent clauses.'
+      - text: "Yes: commas are never needed between dependent and independent clauses."
         rationale: |
           You treated the introductory boundary as unpunctuated, but standard writing marks it with a comma.
-      - text: 'Yes: but only because "raining" and "inside" share a similar sound.'
+      - text: "Yes: but only because \"raining\" and \"inside\" share a similar sound."
         rationale: |
           You linked punctuation to sound rather than clause structure.
-      - text: 'No: but only because the sentence should have no dependent clause at all.'
+      - text: "No: but only because the sentence should have no dependent clause at all."
         rationale: |
           You rejected dependent clauses themselves, but they are normal components of complex sentences.
     explanation: |
       An introductory dependent clause is followed by a comma before the main clause: "Because it was raining, we stayed inside."
     approved: true
-
-  - id: q-grammar-and-structure-phrases-and-clauses-0014
-    type: phrase-clause-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-phrases-and-clauses-0014"
+    type: "phrase-clause-identification"
+    difficulty: "medium"
     stem: |
       Which word in "Since the concert ended late, everyone was tired" signals that the first clause is dependent?
     choices:
-      - text: Since
+      - text: "Since"
         correct: true
-      - text: Concert
+      - text: "Concert"
         rationale: |
-          You picked "concert," which is a noun acting as the subject of the clause, not the subordinating word.
-      - text: Ended
+          This selects the subject rather than the connector. "Concert" names what the first clause is about. Check: find the word introducing the clause.
+      - text: "Ended"
         rationale: |
-          You picked "ended," which is the verb of the clause, not the conjunction that makes it dependent.
-      - text: Everyone
+          This selects the finite verb rather than the connector. A verb is needed to form a clause. Check: look before the subject for the subordinating word.
+      - text: "Everyone"
         rationale: |
-          You picked "everyone," which is the subject of the following independent clause.
+          This selects the subject of the main clause. It is near the boundary between clauses. Check: identify which clause each word belongs to.
     explanation: |
-      "Since" introduces the subordinate clause "since the concert ended late," making that clause dependent on the main clause.
+      "Since" introduces the reason clause "the concert ended late." The opening connector makes that clause dependent on "everyone was tired."
     approved: true
-
-  - id: q-grammar-and-structure-phrases-and-clauses-0015
-    type: phrase-clause-identification
-    difficulty: exam
+  - id: "q-grammar-and-structure-phrases-and-clauses-0015"
+    type: "phrase-clause-identification"
+    difficulty: "exam"
     stem: |
-      Identify the issue with this pair of sentences and select the corrected version: "Although the manager reviewed the proposal carefully. She still had questions."
+      Which revision forms a complete formal sentence from "Although the manager reviewed the proposal carefully. She still had questions"?
     choices:
-      - text: The first part is a sentence fragment; corrected, it should read "Although the manager reviewed the proposal carefully, she still had questions."
+      - text: "Although she reviewed it carefully, the manager still had questions."
         correct: true
-      - text: There is no error; both sentences are already complete and correctly punctuated.
+      - text: "Although she reviewed it carefully. The manager still had questions."
         rationale: |
-          You assumed both were complete, but the first group begins with "although" and is a dependent clause standing alone.
-      - text: The second sentence, "She still had questions," is the fragment, not the first.
+          This leaves the dependent opening as a separate fragment. The second sentence is complete. Check: check each group separated by a period.
+      - text: "The manager still had questions. Although she reviewed it carefully."
         rationale: |
-          You misidentified the fragment. "She still had questions" is an independent clause and can stand alone.
-      - text: The correction should remove the comma and keep them as two separate sentences.
+          This moves the dependent fragment without attaching it. The order now begins with a complete statement. Check: check the second sentence on its own.
+      - text: "Although she reviewed it carefully, because the manager still had questions."
         rationale: |
-          You kept the dependent clause as its own sentence. It needs to be attached to an independent clause in this standard formal construction.
+          This joins two dependent clauses. Both groups have subjects and verbs. Check: find a main clause without a subordinating connector.
     explanation: |
-      "Although the manager reviewed the proposal carefully" is a dependent clause standing alone. Joining it to "she still had questions" with the appropriate comma creates a complete complex sentence.
+      "Although she reviewed it carefully" is dependent. "The manager still had questions" is independent. Joining them forms one complete sentence.
     approved: true
+  - id: "q-grammar-and-structure-phrases-and-clauses-0016"
+    type: "phrase-clause-identification"
+    difficulty: "easy"
+    stem: |
+      In "The volunteer who repaired the bench returned today," how is "who repaired the bench" classified?
+    choices:
+      - text: "Dependent clause"
+        correct: true
+      - text: "Independent clause"
+        rationale: |
+          This treats a subject-and-verb group as automatically independent. "Who" and "repaired" form a subject-and-verb relationship. Check: check the relative word linking it to "volunteer".
+      - text: "Prepositional phrase"
+        rationale: |
+          This treats every description after a noun as a prepositional phrase. The group describes the volunteer. Check: look for the verb "repaired".
+      - text: "Noun phrase"
+        rationale: |
+          This classifies the group from the person it refers to. The volunteer is a person. Check: distinguish the noun from the clause describing it.
+    explanation: |
+      "Who repaired the bench" describes "the volunteer." The relative word "who" links this dependent clause to that noun.
+    approved: false
+  - id: "q-grammar-and-structure-phrases-and-clauses-0017"
+    type: "phrase-clause-identification"
+    difficulty: "medium"
+    stem: |
+      Which group contains a finite clause rather than a prepositional phrase?
+    choices:
+      - text: "After the bus arrived"
+        correct: true
+      - text: "After the bus trip"
+        rationale: |
+          This treats a time-related noun as an action verb. A bus trip is an event. Check: look for a finite verb, not just an event name.
+      - text: "Before the last bus"
+        rationale: |
+          This treats a time relation as a complete clause. The group includes a bus and time information. Check: check whether anything states what the bus did.
+      - text: "During the bus journey"
+        rationale: |
+          This mistakes the noun "journey" for a verb in context. Journey can be an action word elsewhere. Check: check its role after "the bus".
+    explanation: |
+      "The bus" is the subject, and "arrived" is the finite verb. "After" makes their clause dependent.
+    approved: false
+  - id: "q-grammar-and-structure-phrases-and-clauses-0018"
+    type: "phrase-clause-identification"
+    difficulty: "hard"
+    stem: |
+      Which main clause completes "If the records are accurate, ___" as a full formal sentence?
+    choices:
+      - text: "the totals will match"
+        correct: true
+      - text: "because the totals will match"
+        rationale: |
+          This adds a dependent reason clause. The words give a sensible result. Check: look for a main statement without an opening subordinate connector.
+      - text: "when the totals finally match"
+        rationale: |
+          This adds another dependent clause. The group has a subject and verb. Check: ask whether it can stand as a complete statement.
+      - text: "the matching of the totals"
+        rationale: |
+          This adds a noun phrase. The phrase refers to the expected result. Check: look for a finite verb in the added group.
+    explanation: |
+      "The totals will match" is a main clause with a subject and a verb. It completes the condition introduced by "If."
+    approved: false
+  - id: "q-grammar-and-structure-phrases-and-clauses-0019"
+    type: "phrase-clause-identification"
+    difficulty: "hard"
+    stem: |
+      In "The fact that the road is closed delayed our delivery," which group is the independent clause?
+    choices:
+      - text: "The whole sentence"
+        correct: true
+      - text: "That the road is closed"
+        rationale: |
+          This selects the embedded dependent clause. The group contains a subject and verb. Check: check what "that" links it to.
+      - text: "The fact that the road is closed"
+        rationale: |
+          This stops before the main verb. The opening group is long and contains a smaller clause. Check: find the verb that states what the whole subject did.
+      - text: "Delayed our delivery"
+        rationale: |
+          This takes the main predicate without its subject. The action seems to express the main point. Check: include the subject of "delayed".
+    explanation: |
+      The full subject is "The fact that the road is closed." Its main verb is "delayed." The whole sentence is the independent clause, and it contains a smaller dependent clause.
+    approved: false
+  - id: "q-grammar-and-structure-phrases-and-clauses-0020"
+    type: "phrase-clause-identification"
+    difficulty: "exam"
+    stem: |
+      Which revision adds a main clause while preserving the contrast in "Even though the team had practiced for weeks"?
+    choices:
+      - text: "Even though the team had practiced for weeks, it lost."
+        correct: true
+      - text: "Even though the team had practiced for weeks, because it lost the match."
+        rationale: |
+          This follows a dependent clause with another dependent clause. Both groups contain subjects and verbs. Check: find a main clause that can stand alone.
+      - text: "Even though the team had practiced for weeks, after losing the match."
+        rationale: |
+          This adds a time phrase without a main clause. The phrase gives a related event. Check: look for the main subject-and-verb statement.
+      - text: "Even though the team had practiced for weeks, its loss in the final match."
+        rationale: |
+          This adds a noun phrase rather than a main clause. The phrase names the contrasting result. Check: check whether a finite verb states that result.
+    explanation: |
+      "It lost" is an independent clause. It completes the sentence and supplies a result that contrasts with the weeks of practice.
+    approved: false
