@@ -1,322 +1,413 @@
 meta:
-  subject: language-proficiency
-  topic: grammar-and-structure
-  subtopic: modifiers
-  exams: [ upcat, acet, dlsucet, ustet, dost-sei , cse-pro, cse-sub]
+  subject: "language-proficiency"
+  topic: "grammar-and-structure"
+  subtopic: "modifiers"
+  exams:
+    - "upcat"
+    - "acet"
+    - "dlsucet"
+    - "ustet"
+    - "dost-sei"
+    - "cse-pro"
+    - "cse-sub"
 questions:
-  - id: q-grammar-and-structure-modifiers-0001
-    type: modifier-placement
-    difficulty: easy
+  - id: "q-grammar-and-structure-modifiers-0001"
+    type: "modifier-placement"
+    difficulty: "easy"
     stem: |
-      Identify and fix the error: "The waiter served the pasta to the customer covered in cheese."
+      The pasta, not the customer, is covered in cheese. Which revision makes that meaning clear?
     choices:
-      - text: Covered in cheese is misplaced, making it sound like the customer is covered in cheese; it should read "The waiter served the customer the pasta covered in cheese."
+      - text: "The waiter served the customer pasta covered in cheese."
         correct: true
-      - text: There is no error in this sentence.
+      - text: "The waiter served pasta to the customer covered in cheese."
         rationale: |
-          You accepted the surface attachment, but "covered in cheese" sits next to "customer" even though the intended referent is the pasta.
-      - text: Served should be changed to serves.
+          This places the cheese description beside the customer. The food is mentioned earlier, so the intended meaning may seem obvious. Check: place the description with the thing it describes.
+      - text: "Covered in cheese, the waiter served pasta to the customer."
         rationale: |
-          You focused on verb tense, but "served" is a valid past-tense verb. The problem is modifier attachment.
-      - text: The sentence needs a comma after "pasta."
+          This attaches the cheese description to the waiter. Moving the phrase to the front seems to give it emphasis. Check: identify the subject immediately after the opening phrase.
+      - text: "The waiter, covered in cheese, served pasta to the customer."
         rationale: |
-          You focused on punctuation, but adding a comma does not place the descriptive phrase next to the intended noun.
+          This describes the waiter as covered in cheese. Commas make the sentence look carefully edited. Check: ask who the phrase between the commas describes.
     explanation: |
-      As written, "covered in cheese" is positioned next to "customer," so the sentence invites that attachment. Moving the phrase next to "pasta" makes the intended meaning clear.
+      The revision places "covered in cheese" directly after "pasta." That makes the pasta the clear target of the description.
     approved: true
-
-  - id: q-grammar-and-structure-modifiers-0002
-    type: modifier-placement
-    difficulty: medium
+  - id: "q-grammar-and-structure-modifiers-0002"
+    type: "modifier-placement"
+    difficulty: "medium"
     stem: |
-      Identify and fix the error: "After finishing the marathon, a warm bath felt amazing."
+      Which revision supplies the person who finished the marathon in "After finishing the marathon, a warm bath felt amazing"?
     choices:
-      - text: 'This is a dangling modifier: "after finishing the marathon" has no logical subject, since a bath cannot finish a marathon; it should read "After finishing the marathon, she felt that a warm bath was amazing."'
+      - text: "After finishing the marathon, she enjoyed a warm bath."
         correct: true
-      - text: There is no error in this sentence.
+      - text: "After finishing the marathon, a warm bath was enjoyed by her."
         rationale: |
-          You accepted the sentence, but the subject following the introductory phrase is "a warm bath," which cannot finish a marathon.
-      - text: Amazing should be changed to amazed.
+          This keeps the bath as the main subject. The runner appears later in the sentence, so the repair seems complete. Check: match the opening action to the main subject.
+      - text: "A warm bath, after finishing the marathon, felt amazing to her."
         rationale: |
-          You changed the adjective, but "amazing" can correctly describe the bath. The missing logical subject is the problem.
-      - text: The sentence needs a semicolon instead of a comma.
+          This still links finishing the race to the bath. Moving the phrase may look like a placement repair. Check: name the person doing the opening action.
+      - text: "After finishing the marathon, the warmth of the bath amazed her."
         rationale: |
-          You changed punctuation without supplying a person who could perform the introductory action.
+          This makes the warmth the main subject. The word "her" suggests a runner is present. Check: check whether the main subject could finish a race.
     explanation: |
-      The introductory phrase needs a logical subject who finished the marathon. Because the following subject is "a warm bath," the modifier dangles.
+      The opening phrase describes the person who finished the race. The main subject "she" supplies that person, so the description has a clear target.
     approved: true
-
-  - id: q-grammar-and-structure-modifiers-0003
-    type: modifier-placement
-    difficulty: medium
+  - id: "q-grammar-and-structure-modifiers-0003"
+    type: "modifier-placement"
+    difficulty: "medium"
     stem: |
-      Choose the sentence with no misplaced or dangling modifier.
+      Which sentence correctly connects the opening action to its main subject?
     choices:
-      - text: Driving through the mountains, the tourists were amazed by the scenery.
+      - text: "Driving through the mountains, the tourists admired the scenery."
         correct: true
-      - text: Driving through the mountains, the scenery amazed the tourists.
+      - text: "Driving through the mountains, the scenery amazed the tourists."
         rationale: |
-          You chose a sentence whose introductory phrase grammatically points to "the scenery," even though scenery cannot drive.
-      - text: Both sentences are correctly modified.
+          This makes the scenery the subject of driving. The tourists appear in the sentence and could be drivers. Check: match the opening action to the main subject.
+      - text: "Driving through the mountains, the beauty of the scenery amazed them."
         rationale: |
-          You accepted the version that makes scenery the target of "driving through the mountains."
-      - text: Neither sentence is correctly modified.
+          This attaches driving to the beauty of the scenery. The pronoun "them" suggests people are involved. Check: find the main subject before judging the opening phrase.
+      - text: "The scenery, driving through the mountains, amazed the tourists."
         rationale: |
-          You rejected the sentence where the following subject, "the tourists," can logically perform the driving.
+          This puts the driving phrase beside scenery. The commas make the description look neatly placed. Check: ask whether the described thing can drive.
     explanation: |
-      The introductory phrase correctly modifies "the tourists" in the first sentence. In the second, it dangles because the following subject is "the scenery."
+      The tourists are the subject of the main clause. They can perform the opening action, "driving through the mountains."
     approved: true
-
-  - id: q-grammar-and-structure-modifiers-0004
-    type: modifier-placement
-    difficulty: medium
+  - id: "q-grammar-and-structure-modifiers-0004"
+    type: "modifier-placement"
+    difficulty: "medium"
     stem: |
-      Explain the difference in meaning between "Only she gave him the answer" and "She gave only him the answer."
+      What does "only" limit in "Only she gave him the answer" and "She gave only him the answer," respectively?
     choices:
-      - text: In the first, "only" limits the subject (she alone gave it); in the second, it limits the recipient (he alone received it).
+      - text: "The giver; the recipient"
         correct: true
-      - text: Both sentences necessarily mean exactly the same thing.
+      - text: "The recipient; the giver"
         rationale: |
-          You ignored the explicit focus created by placing "only" directly before the subject in one sentence and directly before the recipient in the other.
-      - text: The first sentence is grammatically incorrect.
+          This reverses the two limits. Both sentences contain the same people and action. Check: look at the words following "only" in these clear contrasts.
+      - text: "The answer; the recipient"
         rationale: |
-          Front-position "only" can validly focus the subject, as in "Only Jason knows where the key is kept."
-      - text: >-
-          "Only" has no effect on meaning in either sentence.
+          This treats the first limit as a limit on the object. The answer is the thing being given. Check: check whether "only" stands before "she" or "the answer".
+      - text: "The giver; the answer"
         rationale: |
-          "Only" is a focusing adverb; changing its focus can change what is being limited.
+          This moves the second limit from the person to the object. The answer follows the recipient in the sentence. Check: read "only him" as one group.
     explanation: |
-      These placements create clear contrasting focus: "Only she" restricts the giver, while "only him" restricts the recipient.
+      "Only she" says that she alone gave the answer. "Only him" says that he alone received it.
     approved: true
-
-  - id: q-grammar-and-structure-modifiers-0005
-    type: modifier-placement
-    difficulty: medium
+  - id: "q-grammar-and-structure-modifiers-0005"
+    type: "modifier-placement"
+    difficulty: "medium"
     stem: |
-      Identify and fix the error: "The librarian handed the book to the student with a torn cover."
+      The book has a torn cover. Which revision states that meaning clearly?
     choices:
-      - text: With a torn cover is misplaced, making it sound like the student has a torn cover; it should read "The librarian handed the student the book with a torn cover."
+      - text: "The librarian handed the student a book with a torn cover."
         correct: true
-      - text: There is no error in this sentence.
+      - text: "The librarian handed a book to the student with a torn cover."
         rationale: |
-          You accepted the phrase next to "student," but the intended referent is the book.
-      - text: Handed should be changed to hands.
+          This places the torn-cover phrase beside the student. The book is mentioned, so the intended meaning may seem clear. Check: place the cover description after the book.
+      - text: "With a torn cover, the librarian handed a book to the student."
         rationale: |
-          You changed verb tense, but the placement of "with a torn cover" is the source of ambiguity.
-      - text: The sentence needs a comma after "book."
+          This attaches the cover description to the librarian. The opening phrase mentions the cover before the action. Check: find the main subject after the opening phrase.
+      - text: "The librarian with a torn cover handed a book to the student."
         rationale: |
-          You added punctuation without placing the modifier next to the intended noun.
+          This puts the cover description with the librarian. Every noun remains in the sentence. Check: check which noun the description follows.
     explanation: |
-      The surface order puts "with a torn cover" next to "student." Moving it next to "book" makes the intended attachment clear.
+      "With a torn cover" follows "a book." It clearly describes the book being handed over.
     approved: true
-
-  - id: q-grammar-and-structure-modifiers-0006
-    type: modifier-placement
-    difficulty: medium
+  - id: "q-grammar-and-structure-modifiers-0006"
+    type: "modifier-placement"
+    difficulty: "medium"
     stem: |
-      Identify and fix the error: "Rushing to catch the bus, my coffee spilled everywhere."
+      Which revision fixes the dangling modifier in "Rushing to catch the bus, my coffee spilled everywhere"?
     choices:
-      - text: 'This is a dangling modifier: "rushing to catch the bus" has no logical subject, since coffee cannot rush; it should read "Rushing to catch the bus, I spilled my coffee everywhere."'
+      - text: "Rushing to catch the bus, I spilled my coffee everywhere."
         correct: true
-      - text: There is no error in this sentence.
+      - text: "Rushing to catch the bus, my coffee was spilled everywhere by me."
         rationale: |
-          You overlooked that "my coffee" is the grammatical subject after the introductory phrase, creating an impossible attachment.
-      - text: Spilled should be changed to spills.
+          This leaves coffee as the main subject. The person appears at the end, so the repair may seem complete. Check: match rushing to the main subject.
+      - text: "My coffee, rushing to catch the bus, spilled everywhere."
         rationale: |
-          You changed tense, but the issue is the missing person who was rushing.
-      - text: The sentence needs a semicolon instead of a comma.
+          This still describes the coffee as rushing. Moving the phrase beside the subject looks like a repair. Check: ask whether that subject can catch a bus.
+      - text: "Rushing to catch the bus, the spilled coffee made a mess around me."
         rationale: |
-          You changed punctuation without fixing the dangling modifier.
+          This gives the opening action to spilled coffee. The word "me" suggests the person who was rushing. Check: locate the main subject, not any person in the sentence.
     explanation: |
-      The introductory phrase needs a person who was rushing, but the sentence supplies "my coffee" as the following subject. Naming the person fixes the modifier.
+      "I" is the main subject and the person rushing for the bus. The opening phrase now has a clear person to describe.
     approved: true
-
-  - id: q-grammar-and-structure-modifiers-0007
-    type: modifier-placement
-    difficulty: medium
+  - id: "q-grammar-and-structure-modifiers-0007"
+    type: "modifier-placement"
+    difficulty: "medium"
     stem: |
-      Choose the sentence with no misplaced or dangling modifier.
+      Which sentence correctly identifies who was exhausted?
     choices:
-      - text: Exhausted from the long hike, the campers set up their tents quickly.
+      - text: "Exhausted from the hike, the campers quickly pitched their tents."
         correct: true
-      - text: Exhausted from the long hike, the tents were set up quickly.
+      - text: "Exhausted from the long hike, the tents were pitched by the campers."
         rationale: |
-          You chose a sentence whose following subject is "the tents," which cannot be exhausted.
-      - text: Both sentences are correctly modified.
+          This attaches exhaustion to the tents. The campers appear later and really are tired. Check: check the main subject after the opening description.
+      - text: "The tents, exhausted from the long hike, were pitched quickly."
         rationale: |
-          You accepted the version in which the modifier points to tents rather than campers.
-      - text: Neither sentence is correctly modified.
+          This describes tents as exhausted. The phrase is placed beside a noun as an editing rule suggests. Check: ask whether that noun can feel exhausted.
+      - text: "Exhausted from the long hike, pitching the tents took the campers an hour."
         rationale: |
-          You rejected the sentence where "the campers" logically matches "exhausted from the long hike."
+          This makes the activity of pitching the subject. The campers are named in the sentence. Check: give the feeling to the people doing the activity.
     explanation: |
-      In the correct sentence, the introductory modifier points to the campers. In the other sentence, it dangles because tents cannot be exhausted.
+      The main subject is "the campers." They are the people described as exhausted, so the opening description fits.
     approved: true
-
-  - id: q-grammar-and-structure-modifiers-0008
-    type: modifier-placement
-    difficulty: medium
+  - id: "q-grammar-and-structure-modifiers-0008"
+    type: "modifier-placement"
+    difficulty: "medium"
     stem: |
-      Which statement about the focusing adverb "only" is accurate in ordinary standard English?
+      Which statement about the focusing adverb "only" is accurate in standard English?
     choices:
-      - text: Its position helps signal focus, but it commonly appears in normal adverb mid-position before the main verb even when its practical scope is broader than the single word immediately after it.
+      - text: "Position and context help show what it limits."
         correct: true
-      - text: It always modifies only the single word that immediately follows it, with no role for context or normal adverb position.
+      - text: "It always limits just the next word, regardless of the surrounding context."
         rationale: |
-          You applied a rigid adjacency rule. Cambridge notes that "only" commonly occupies normal adverb mid-position when the focus is another part of the clause.
-      - text: It can modify only nouns and never verbs, phrases, amounts, or activities.
+          This applies a fixed next-word rule. Placing "only" beside its target often helps clarity. Check: read the whole sentence to identify the intended limit.
+      - text: "It limits nouns alone, even when it appears directly before a verb."
         rationale: |
-          "Only" can function as a focusing adverb with several kinds of focus, including activities and amounts.
-      - text: Its placement never affects focus or interpretation.
+          This treats a focusing adverb as limited to nouns. Examples such as "only Ana" focus a noun. Check: ask whether an action or amount is being limited.
+      - text: "Its position has no effect because context always supplies the same meaning."
         rationale: |
-          Position can matter, especially in contrasts such as "Only she..." versus "...only him," even though everyday mid-position use is flexible.
+          This treats context as making placement irrelevant. Ordinary mid-position use is flexible. Check: compare the targets in "Only she" and "only him".
     explanation: |
-      "Only" is a focusing adverb. Clear contrastive placement can change focus, but ordinary English also commonly places it in the normal adverb position before the main verb. Treating it as mechanically modifying only the next word is too rigid.
+      "Only" limits part of a sentence. Its position helps show that part, and the surrounding words can also make the limit clear.
     approved: true
-
-  - id: q-grammar-and-structure-modifiers-0009
-    type: modifier-placement
-    difficulty: medium
+  - id: "q-grammar-and-structure-modifiers-0009"
+    type: "modifier-placement"
+    difficulty: "medium"
     stem: |
-      In "The waiter served the pasta to the customer covered in cheese," why is "covered in cheese" considered misplaced if the intended meaning is that the pasta has cheese?
+      Which sentence avoids a dangling modifier by naming the observer inside the opening clause?
     choices:
-      - text: As written, the phrase sits next to "customer" and invites that grammatical attachment; it must be moved next to "pasta" to express the intended meaning clearly.
+      - text: "As Liza approached the gate, a dog began barking."
         correct: true
-      - text: The phrase does not attach to anything in the sentence, so its position cannot affect meaning.
+      - text: "Approaching the gate, a dog began barking loudly at Liza."
         rationale: |
-          The phrase is positioned as a post-noun modifier and its location creates the unwanted attachment to "customer."
-      - text: The phrase correctly modifies "pasta" because logic always overrides surface word order.
+          This makes the dog the one approaching. Liza appears nearby as a possible observer. Check: check whether the opening words name their own subject.
+      - text: "While approaching the gate, the barking of a dog startled Liza."
         rationale: |
-          You relied on intended meaning to erase the placement problem. The point of a misplaced modifier is that surface placement creates the wrong or ambiguous attachment.
-      - text: >-
-          "Covered in cheese" is not a modifier at all.
+          This gives approaching to the barking. The word "while" makes the opening look like a complete clause. Check: look for an explicit subject inside that clause.
+      - text: "After approaching the gate, the sound of a barking dog surprised Liza."
         rationale: |
-          It is a participial phrase functioning adjectivally.
+          This attaches approaching to a sound. The later mention of Liza suggests an intended observer. Check: match the understood actor to the main subject.
     explanation: |
-      The original wording makes "covered in cheese" appear to modify the nearby noun "customer." Because the intended referent is pasta, moving the phrase next to "pasta" removes the ambiguity. This is consistent with the earlier examples in the bank.
+      "As Liza approached the gate" names Liza as its own subject. The main clause can therefore have a different subject, "a dog."
     approved: true
-
-  - id: q-grammar-and-structure-modifiers-0010
-    type: modifier-placement
-    difficulty: medium
+  - id: "q-grammar-and-structure-modifiers-0010"
+    type: "modifier-placement"
+    difficulty: "medium"
     stem: |
-      A student reads "After finishing the marathon, a warm bath felt amazing" and thinks it sounds fine because it flows smoothly. Is this sentence grammatically sound in standard formal writing?
+      Which sentence says that the cyclists rode on most days, though not every day?
     choices:
-      - text: 'No: the introductory phrase needs a logical subject, but the following subject is "a warm bath," which cannot finish a marathon.'
+      - text: "The cyclists rode to school almost every day."
         correct: true
-      - text: 'Yes: if a sentence sounds smooth when read aloud, it cannot have a dangling modifier.'
+      - text: "The cyclists almost rode to school every day during the term."
         rationale: |
-          Sound alone does not establish a logical subject-modifier relationship.
-      - text: 'Yes: because baths are commonly associated with relaxation after exercise.'
+          This places "almost" with the act of riding. The same words mention a daily routine. Check: put "almost" beside the frequency being limited.
+      - text: "Almost all the cyclists rode to school every day during the term."
         rationale: |
-          Real-world association does not make the bath the performer of "finishing the marathon."
-      - text: 'No: only because the sentence is missing a comma.'
+          This limits the number of cyclists. The phrase "almost all" sounds like a small exception. Check: check whether the exception concerns people or days.
+      - text: "The cyclists rode almost all the way to school every day."
         rationale: |
-          The sentence already has a comma. The error is the dangling modifier.
+          This limits the distance traveled. The daily trip is still mentioned. Check: identify whether "almost" describes distance or frequency.
     explanation: |
-      A dangling modifier can sound natural at first glance. Check whether the grammatical subject following the introductory phrase can logically perform the action.
+      "Almost every day" describes how often the cyclists rode. It means they rode on most days, with some days left out.
     approved: true
-
-  - id: q-grammar-and-structure-modifiers-0011
-    type: modifier-placement
-    difficulty: medium
+  - id: "q-grammar-and-structure-modifiers-0011"
+    type: "modifier-placement"
+    difficulty: "medium"
     stem: |
-      Can a single-word focusing adverb such as "only" change a sentence's focus depending on placement and context?
+      A ticket admits a guest on Saturday and on no other day. Which sentence states that restriction most clearly?
     choices:
-      - text: 'Yes: single-word modifiers can shift focus, although ordinary adverb placement is flexible and context also helps determine scope.'
+      - text: "The ticket admits a guest on Saturday only."
         correct: true
-      - text: 'No: misplaced-modifier concerns apply only to phrases of at least three words.'
+      - text: "Only the ticket admits a guest on Saturday, according to the notice."
         rationale: |
-          Modifier length does not determine whether placement can affect interpretation.
-      - text: 'No: single words never affect a sentence''s focus.'
+          This limits what grants admission. The sentence includes "only" and Saturday. Check: place the limit on the day.
+      - text: "The ticket admits only a guest on Saturday, according to the notice."
         rationale: |
-          Focusing adverbs such as "only" are specifically used to limit or emphasize part of a clause.
-      - text: 'Yes: but only when the word is capitalized.'
+          This limits who may be admitted. A ticket normally controls entry, so that limit seems relevant. Check: check whether the intended restriction concerns people or days.
+      - text: "The ticket admits a guest only inside the hall on Saturday."
         rationale: |
-          Capitalization does not control the scope of a focusing adverb.
+          This limits the place of admission. The hall sounds like a likely ticket restriction. Check: put the limiting word with the required day.
     explanation: |
-      Single-word modifiers can affect focus. At the same time, English does not obey a simplistic rule that "only" always modifies the very next word; normal adverb position and context matter too.
+      "On Saturday only" limits the day of admission. It allows Saturday and excludes other days.
     approved: true
-
-  - id: q-grammar-and-structure-modifiers-0012
-    type: modifier-placement
-    difficulty: medium
+  - id: "q-grammar-and-structure-modifiers-0012"
+    type: "modifier-placement"
+    difficulty: "medium"
     stem: |
-      Identify the problem: "Having studied all night, the exam seemed easy."
+      What is the modifier problem in "Having studied all night, the exam seemed easy"?
     choices:
-      - text: 'Dangling modifier: the exam did not study; it should read "Having studied all night, she found the exam easy."'
+      - text: "The opening phrase lacks a matching main subject."
         correct: true
-      - text: There is no error in this sentence.
+      - text: "The word \"easy\" is misplaced because it comes after the verb \"seemed.\""
         rationale: |
-          You accepted the sentence even though the following subject is "the exam," which cannot study.
-      - text: This is a misplaced modifier, not a dangling one.
+          This treats a normal subject description as misplaced. The sentence contains a describing word. Check: check who performed the opening action.
+      - text: "The opening phrase modifies a person already named later in the sentence."
         rationale: |
-          The person who studied is missing from the main clause, making the introductory modifier dangling rather than merely placed beside the wrong available noun.
-      - text: This is a subject-verb agreement error.
+          This assumes that an unnamed student counts as a stated target. A person must have studied in real life. Check: look for that person in the actual main clause.
+      - text: "The opening phrase is a complete clause with its own stated subject."
         rationale: |
-          The verb forms agree; the problem is the missing logical subject for the introductory phrase.
+          This mistakes a verb phrase for a clause with a named subject. "Having studied" expresses an action. Check: look for an explicit person or thing doing that action.
     explanation: |
-      "Having studied all night" needs a person who studied. The main clause instead begins with "the exam," so the modifier dangles.
+      "Having studied all night" describes someone who studied. The main subject is "the exam," so the sentence does not name a matching subject for the opening action.
     approved: true
-
-  - id: q-grammar-and-structure-modifiers-0013
-    type: modifier-placement
-    difficulty: medium
+  - id: "q-grammar-and-structure-modifiers-0013"
+    type: "modifier-placement"
+    difficulty: "medium"
     stem: |
-      Identify the problem: "The teacher gave the award to the student wrapped in gold paper."
+      Which revision makes clear that the teacher spoke to a student who wore a blue jacket?
     choices:
-      - text: 'Misplaced modifier: "wrapped in gold paper" appears to describe the student; it should be moved next to "award" if the award is what was wrapped.'
+      - text: "The teacher spoke to the student wearing a blue jacket."
         correct: true
-      - text: There is no error in this sentence if the intended meaning is that the award was wrapped.
+      - text: "Wearing a blue jacket, the teacher spoke to the student after class."
         rationale: |
-          For that intended meaning, the phrase's current position next to "student" creates the wrong attachment.
-      - text: This is a dangling modifier, not a misplaced one.
+          This gives the jacket to the teacher. The sentence mentions the same action and people. Check: match the opening description to the main subject.
+      - text: "The teacher wearing a blue jacket spoke to the student after class."
         rationale: |
-          The intended noun "award" is present in the sentence; the phrase is simply positioned beside another noun.
-      - text: This is a verb tense error.
+          This places the jacket description directly after the teacher. A nearby description usually looks clear. Check: check which person the intended description belongs to.
+      - text: "The teacher, who wore a blue jacket, spoke to the student after class."
         rationale: |
-          "Gave" is a valid past-tense verb. The issue is the modifier's position.
+          This states that the teacher wore the jacket. The relative clause is grammatically clear. Check: keep the intended wearer when revising.
     explanation: |
-      If the award is wrapped, the descriptive phrase should be placed next to "award." In the original order it appears to modify "student."
+      "Wearing a blue jacket" follows "the student." The revision clearly identifies the student as the person wearing the jacket.
     approved: true
-
-  - id: q-grammar-and-structure-modifiers-0014
-    type: modifier-placement
-    difficulty: medium
+  - id: "q-grammar-and-structure-modifiers-0014"
+    type: "modifier-placement"
+    difficulty: "medium"
     stem: |
-      Rewrite to fix the dangling modifier: "Excited about the trip, the suitcases were packed a week early."
+      Which revision gives "excited about the trip" a suitable subject in "Excited about the trip, the suitcases were packed a week early"?
     choices:
-      - text: Excited about the trip, we packed the suitcases a week early.
+      - text: "Excited about the trip, we packed the suitcases early."
         correct: true
-      - text: The suitcases, excited about the trip, were packed a week early.
+      - text: "The suitcases, excited about the trip, were packed a week early."
         rationale: |
-          You kept the emotional modifier attached to inanimate suitcases.
-      - text: A week early, excited suitcases were packed for the trip.
+          This still describes suitcases as excited. Moving a phrase beside its noun often improves placement. Check: choose a subject that can feel excitement.
+      - text: "Excited about the trip, packing the suitcases was finished a week early."
         rationale: |
-          You still described the suitcases themselves as excited.
-      - text: No fix is needed; the sentence is already correct.
+          This makes the packing activity the subject. The activity belongs to the travelers. Check: name the people who feel excited.
+      - text: "Excited about the trip, the suitcases were packed a week early by us."
         rationale: |
-          The introductory phrase needs a person capable of being excited as its logical subject.
+          This leaves the suitcases as the main subject. The phrase "by us" adds the travelers. Check: check the subject immediately after the opening phrase.
     explanation: |
-      Adding a logical human subject immediately after the introductory modifier fixes the dangling construction.
+      The main subject "we" names people who can be excited. It also names the people packing the suitcases.
     approved: true
-
-  - id: q-grammar-and-structure-modifiers-0015
-    type: modifier-placement
-    difficulty: exam
+  - id: "q-grammar-and-structure-modifiers-0015"
+    type: "modifier-placement"
+    difficulty: "exam"
     stem: |
-      Identify all modifier errors and select the fully corrected version: "Walking into the room, the smell of fresh bread greeted us. We were served warm bread by the baker wrapped in a cloth napkin."
+      The visitors walk into the room, and the bread is wrapped in a napkin. Which revision makes both meanings clear?
     choices:
-      - text: "Walking into the room, we were greeted by the smell of fresh bread. The baker served us warm bread wrapped in a cloth napkin."
+      - text: "Entering the room, we smelled fresh bread. The baker served bread wrapped in a napkin."
         correct: true
-      - text: The passage has no modifier errors as written.
+      - text: "Entering the room, the smell greeted us. The baker served bread wrapped in a napkin."
         rationale: |
-          You missed both attachment problems: the smell cannot perform the walking, and the original second sentence places "wrapped in a cloth napkin" next to "the baker."
-      - text: Only the first sentence has an error; the second sentence is correct as written.
+          This gives the entering action to a smell. The second sentence correctly places the napkin description. Check: check the main subject of each sentence.
+      - text: "Entering the room, we smelled fresh bread. We received bread from the baker wrapped in a napkin."
         rationale: |
-          You caught the dangling modifier in the first sentence but missed the ambiguous/misplaced phrase in the second.
-      - text: Only the second sentence has an error; the first sentence is correct as written.
+          This puts the napkin description beside the baker. The opening action now has a suitable subject. Check: check which noun the final description follows.
+      - text: "Entering the room, the smell greeted us. We received bread from the baker wrapped in a napkin."
         rationale: |
-          You caught the second placement problem but missed the dangling introductory modifier in the first sentence.
+          This keeps both misplaced targets. The visitors and bread remain in the passage. Check: match each action and description to its intended target.
     explanation: |
-      The first sentence dangles because "the smell" cannot walk into the room. The second places the cloth-napkin phrase next to "the baker" even though the intended referent is the bread. Both need revision.
+      "We" names the visitors entering the room. "Wrapped in a napkin" follows "bread," so it describes the bread.
     approved: true
+  - id: "q-grammar-and-structure-modifiers-0016"
+    type: "modifier-placement"
+    difficulty: "easy"
+    stem: |
+      Which sentence clearly says that Mara nearly missed the train but caught it?
+    choices:
+      - text: "Mara almost missed the train."
+        correct: true
+      - text: "Mara missed almost every train that arrived that morning."
+        rationale: |
+          This changes one near miss into repeated actual misses. "Almost" still appears beside a train-related event. Check: check whether the action happened.
+      - text: "Almost everyone missed the train, including Mara that morning."
+        rationale: |
+          This limits the group of people instead of the action. The sentence contains "almost" and "missed". Check: keep the focus on Mara and her near miss.
+      - text: "Mara missed the train almost at the station that morning."
+        rationale: |
+          This says that she missed the train. The word "almost" can suggest a near event. Check: check which words "almost" actually limits.
+    explanation: |
+      "Almost missed" means the miss nearly happened. Mara therefore caught the train.
+    approved: false
+  - id: "q-grammar-and-structure-modifiers-0017"
+    type: "modifier-placement"
+    difficulty: "medium"
+    stem: |
+      Which sentence clearly identifies a broken window, not a broken ladder?
+    choices:
+      - text: "A worker on a ladder repaired the broken window."
+        correct: true
+      - text: "A worker repaired the window on a broken ladder outside the hall."
+        rationale: |
+          This makes the ladder broken. The sentence still includes a repair and a window. Check: attach "broken" to the intended object.
+      - text: "On a broken ladder, a worker repaired the window outside the hall."
+        rationale: |
+          This describes the ladder as broken. The opening phrase seems to clarify where the worker stands. Check: preserve which object is damaged.
+      - text: "The window was repaired by a worker who stood on a broken ladder."
+        rationale: |
+          This gives the damage to the ladder. The relative clause removes some placement uncertainty. Check: check that the revision preserves the intended damage.
+    explanation: |
+      "Broken" directly describes "window." The ladder only tells where the worker stood.
+    approved: false
+  - id: "q-grammar-and-structure-modifiers-0018"
+    type: "modifier-placement"
+    difficulty: "hard"
+    stem: |
+      Which sentence contains a dangling modifier in standard edited prose?
+    choices:
+      - text: "To reach the deadline, more time was needed."
+        correct: true
+      - text: "To reach the deadline, the editors needed more time for their final checks."
+        rationale: |
+          This treats every opening purpose phrase as dangling. The sentence begins with an infinitive phrase. Check: check whether the editors can perform the stated action.
+      - text: "Before the editors reached the deadline, more time became available for checks."
+        rationale: |
+          This ignores the subject inside the opening clause. The main subject is not a person. Check: look for the clause's own actor.
+      - text: "Working toward the deadline, the editors requested more time for their checks."
+        rationale: |
+          This treats an opening action phrase as automatically faulty. The opening words come before the main subject. Check: match working to the editors.
+    explanation: |
+      "To reach the deadline" needs people who aim to finish on time. The main subject is "more time," so the sentence leaves those people unnamed.
+    approved: false
+  - id: "q-grammar-and-structure-modifiers-0019"
+    type: "modifier-placement"
+    difficulty: "hard"
+    stem: |
+      The curator displayed every vase except one. Which sentence preserves that meaning?
+    choices:
+      - text: "The curator displayed almost all the vases."
+        correct: true
+      - text: "The curator almost displayed all the vases during the evening exhibition."
+        rationale: |
+          This makes displaying the collection a near action. The words "almost" and "all" remain in the sentence. Check: place the limit on how many vases.
+      - text: "Almost every curator displayed all the vases during the evening exhibition."
+        rationale: |
+          This limits the number of curators. It keeps the idea of almost all of something. Check: identify the group that has the exception.
+      - text: "The curator displayed all the vases for almost the entire evening exhibition."
+        rationale: |
+          This limits the duration of the display. The phrase "almost" still suggests an exception. Check: keep the exception attached to the vases.
+    explanation: |
+      "Almost all the vases" limits the number of vases displayed. It fits the stated exception of one vase.
+    approved: false
+  - id: "q-grammar-and-structure-modifiers-0020"
+    type: "modifier-placement"
+    difficulty: "exam"
+    stem: |
+      In standard edited prose, which sentence correctly uses an opening clause with its own subject?
+    choices:
+      - text: "After the guests arrived, dinner was served."
+        correct: true
+      - text: "After arriving at the house, dinner was served to the guests in the hall."
+        rationale: |
+          This leaves arriving without a matching main subject. The guests are named later as recipients. Check: check who performs the opening action.
+      - text: "Having arrived at the house, dinner was served to the guests in the hall."
+        rationale: |
+          This gives arriving to dinner. A completed action sounds suitable before a past event. Check: match the opening phrase to the main subject.
+      - text: "Arriving at the house, dinner was served to the guests in the hall."
+        rationale: |
+          This makes dinner the understood arrival. The later mention of guests supplies an intended meaning. Check: look for a stated subject in the opening group.
+    explanation: |
+      "After the guests arrived" has its own subject, "the guests." The main clause may therefore use "dinner" as a different subject.
+    approved: false
