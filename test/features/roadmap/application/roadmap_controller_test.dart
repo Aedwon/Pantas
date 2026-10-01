@@ -490,6 +490,40 @@ void main() {
     expect(await causes(), isNot(contains(RoadmapChangeCause.missedWork)));
   });
 
+  test('completed rest-day advance reviews still consume the daily cap',
+      () async {
+    studyDays = StudyDays(const [1, 2, 3, 4, 5]);
+    now = DateTime(2026, 10, 3, 8);
+    for (final id in ['t1_l0_q0', 't1_l0_q1']) {
+      await container.read(reviewStateRepositoryProvider).upsert(
+            ReviewState.seed(
+              questionId: id,
+              questionVersion: 1,
+              now: DateTime(2026, 10, 2),
+            ).copyWith(due: DateTime(2026, 10, 3)),
+          );
+    }
+    await answer('capacity', DateTime(2026, 10, 2), {'t1_l0_q0': true});
+
+    final first = await controller().advance('e1');
+    expect(first.remaining.reviewQuestionIds, ['t1_l0_q0']);
+    await answer('review', now, {'t1_l0_q0': true});
+    await container.read(reviewStateRepositoryProvider).upsert(
+          ReviewState.seed(
+            questionId: 't1_l0_q0',
+            questionVersion: 1,
+            now: now,
+          ).copyWith(lastReview: now, due: DateTime(2026, 10, 6)),
+        );
+    expect(
+        (await controller().today('e1')).remaining.reviewQuestionIds, isEmpty);
+
+    final second = await controller().advance('e1');
+    expect(second.remaining.reviewQuestionIds, isEmpty);
+    expect(second.snapshot.plan.reviewQuestionIds, ['t1_l0_q0']);
+    expect(second.originalDone, isTrue);
+  });
+
   test(
       'advance with no study day before the exam brings all remaining material',
       () async {

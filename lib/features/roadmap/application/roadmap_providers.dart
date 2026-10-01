@@ -131,7 +131,9 @@ class RoadmapController {
     );
     final next = _ref.read(roadmapBuilderProvider)(inputs);
     var reviews = const <QuestionId>[];
-    if (current.snapshot.plan.isRestDay) {
+    if (current.snapshot.plan.isRestDay &&
+        !current.snapshot.plan.reviewQuestionIds
+            .any(current.snapshot.plan.advancedIds.contains)) {
       final forToday = target == null
           ? next
           : _ref.read(roadmapBuilderProvider)(
