@@ -577,3 +577,12 @@ advanced ones) earn a streak day; practice drills, retakes and in-lesson quizzes
 any day. His earlier words ("if they decide to advance/do work on a non Study day then it would
 count to the streak") may mean rest-day practice should count too. Not changed pending his
 answer.
+
+**Streak eligibility, resolved 1 October 2026:** the rule is the quiz engine spec's D8
+(`2026-05-17-quiz-engine-and-modes-design.md`): only a completed Today sitting earns a streak
+day; drills, retakes and in-lesson quizzes feed reviews but do not. On a rest day, a student
+earns a streak day by advancing and completing a sitting. Lead recommended keeping D8.
+
+> "keep it as is"
+
+No change.
