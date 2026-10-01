@@ -46,6 +46,12 @@ class LatencyDistribution {
     required this.correctAverageMs,
     required this.incorrectAverageMs,
     required this.sampleCount,
+    this.correctCount = 0,
+    this.incorrectCount = 0,
+    this.correctLogMean = 0,
+    this.incorrectLogMean = 0,
+    this.correctLogVariance = 0,
+    this.incorrectLogVariance = 0,
   });
 
   final double averageMs;
@@ -57,6 +63,12 @@ class LatencyDistribution {
   /// A caller that turns this into a claim about a student needs to know
   /// whether there is a distribution here or a single number wearing one.
   final int sampleCount;
+  final int correctCount;
+  final int incorrectCount;
+  final double correctLogMean;
+  final double incorrectLogMean;
+  final double correctLogVariance;
+  final double incorrectLogVariance;
 }
 
 class PacingProfile {
@@ -73,12 +85,20 @@ class StaminaDelta {
   const StaminaDelta({
     required this.firstHalfAccuracy,
     required this.secondHalfAccuracy,
+    this.firstHalfCorrect = 0,
+    this.firstHalfTotal = 0,
+    this.secondHalfCorrect = 0,
+    this.secondHalfTotal = 0,
   });
 
   final double firstHalfAccuracy;
   final double secondHalfAccuracy;
 
   double get delta => secondHalfAccuracy - firstHalfAccuracy;
+  final int firstHalfCorrect;
+  final int firstHalfTotal;
+  final int secondHalfCorrect;
+  final int secondHalfTotal;
 }
 
 class FlagRevisitRatio {
@@ -117,12 +137,20 @@ class PressureDelta {
   const PressureDelta({
     required this.practiceAccuracy,
     required this.mockAccuracy,
+    this.practiceCorrect = 0,
+    this.practiceTotal = 0,
+    this.mockCorrect = 0,
+    this.mockTotal = 0,
   });
 
   final double practiceAccuracy;
   final double mockAccuracy;
 
   double get delta => mockAccuracy - practiceAccuracy;
+  final int practiceCorrect;
+  final int practiceTotal;
+  final int mockCorrect;
+  final int mockTotal;
 }
 
 class CalibrationCurve {
@@ -147,10 +175,14 @@ class WorkflowRatio {
   const WorkflowRatio({
     required this.readThenQuizCount,
     required this.quizFirstCount,
+    this.readLessonCount = 0,
+    this.practicedTopicCount = 0,
   });
 
   final int readThenQuizCount;
   final int quizFirstCount;
+  final int readLessonCount;
+  final int practicedTopicCount;
 
   double get ratio {
     final total = readThenQuizCount + quizFirstCount;
@@ -162,10 +194,14 @@ class RetentionCurve {
   const RetentionCurve({
     required this.averageStability,
     required this.lapseRate,
+    this.lapseCount = 0,
+    this.reviewCount = 0,
   });
 
   final double averageStability;
   final double lapseRate;
+  final int lapseCount;
+  final int reviewCount;
 }
 
 class CoveragePct {

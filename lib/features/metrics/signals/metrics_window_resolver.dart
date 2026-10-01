@@ -13,6 +13,7 @@ class MetricsWindowResolver {
     required MetricsWindow window,
     required DateTime now,
     DateTime? prepStartedAt,
+    bool bypassSessionFloor = false,
   }) async {
     final start = switch (window) {
       MetricsWindow.rolling30d => now.subtract(const Duration(days: 30)),
@@ -29,7 +30,8 @@ class MetricsWindowResolver {
       start: start,
       end: now,
       sessionCount: count,
-      minSessionCount: MetricsThresholds.minSessionsFor(window),
+      minSessionCount:
+          bypassSessionFloor ? 0 : MetricsThresholds.minSessionsFor(window),
     );
   }
 

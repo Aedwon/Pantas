@@ -26,6 +26,10 @@ void main() {
     expect(result!.firstHalfAccuracy, 0.5);
     expect(result.secondHalfAccuracy, 1);
     expect(result.delta, 0.5);
+    expect(result.firstHalfCorrect, 1);
+    expect(result.firstHalfTotal, 2);
+    expect(result.secondHalfCorrect, 2);
+    expect(result.secondHalfTotal, 2);
   });
 }
 

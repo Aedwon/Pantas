@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:drift/drift.dart' hide isNull;
+import 'package:drift/drift.dart' hide isNotNull, isNull;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
@@ -8,11 +8,13 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/home/application/tendencies_provider.dart';
 import 'package:pantas/features/metrics/domain/metric_signal.dart';
-import 'package:pantas/features/metrics/domain/metrics_thresholds.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_key.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
+import 'package:pantas/features/metrics/domain/tendency_confidence.dart';
 import 'package:pantas/features/metrics/providers/metrics_signal_providers.dart';
+import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/paywall/domain/entitlement.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
@@ -209,17 +211,129 @@ void main() {
     });
   }
 
+  test('figures appear below 14 sessions without an unsupported sentence',
+      () async {
+    await seedInitialData(db, contentDb, readThenQuiz: 1, quizFirst: 1);
+    await db.delete(db.quizSessions).go();
+    final cards = await container.read(tendenciesProvider.future);
+    expect(cards.every((card) => card.figures != null), isTrue);
+    final study = cards.firstWhere((c) => c.kind == TendencyKind.howYouStudy);
+    expect(study.sentence, isNull);
+  });
+
+  test('unlock actions name only the missing pressure and speed side',
+      () async {
+    await seedInitialData(db, contentDb);
+    await db.delete(db.attemptsLocal).go();
+    final cards = await container.read(tendenciesProvider.future);
+    final pressure =
+        cards.firstWhere((c) => c.kind == TendencyKind.underPressure);
+    expect(pressure.figures, isNull);
+    expect(pressure.confidence, TendencyConfidence.early);
+    expect(pressure.unlockAction, 'Answer practice questions');
+    final speed = cards.firstWhere((c) => c.kind == TendencyKind.howYouAnswer);
+    expect(
+      speed.unlockAction,
+      'Answer timed questions correctly and incorrectly',
+    );
+  });
+
+  for (final (removeReads, removeAnswers, action) in [
+    (true, false, 'Read a lesson in a topic you have practiced'),
+    (false, true, 'Answer questions in a topic you have read'),
+    (true, true, 'Read a lesson and answer questions in its topic'),
+  ]) {
+    test('study unlock names the missing data: $action', () async {
+      await seedInitialData(db, contentDb);
+      if (removeReads) await db.delete(db.lessonProgressLocal).go();
+      if (removeAnswers) await db.delete(db.attemptsLocal).go();
+      final cards = await container.read(tendenciesProvider.future);
+      final study = cards.firstWhere((c) => c.kind == TendencyKind.howYouStudy);
+      expect(study.figures, isNull);
+      expect(study.unlockAction, action);
+    });
+  }
+
+  for (final (readCount, answeredCount, confidence) in [
+    (1, 1, TendencyConfidence.early),
+    (5, 5, TendencyConfidence.forming),
+    (9, 1, TendencyConfidence.clear),
+  ]) {
+    test('study carries $confidence for Free and Pro before 14 sessions',
+        () async {
+      await seedInitialData(
+        db,
+        contentDb,
+        readThenQuiz: readCount,
+        quizFirst: answeredCount,
+      );
+      await db.delete(db.quizSessions).go();
+      for (final entitlement in [
+        const Entitlement.free(),
+        const Entitlement(plan: EntitlementPlan.monthly),
+      ]) {
+        final c = ProviderContainer(
+          overrides: [
+            appDatabaseProvider.overrideWithValue(db),
+            contentDatabaseProvider.overrideWithValue(contentDb),
+            entitlementProvider
+                .overrideWith((ref) => Stream.value(entitlement)),
+          ],
+        );
+        final cards = await c.read(tendenciesProvider.future);
+        final study =
+            cards.firstWhere((c) => c.kind == TendencyKind.howYouStudy);
+        expect(study.figures, (left: '$readCount', right: '$answeredCount'));
+        expect(study.confidence, confidence);
+        expect(
+          study.sentence,
+          confidence == TendencyConfidence.clear
+              ? 'You usually read the lesson first.'
+              : null,
+        );
+        c.dispose();
+      }
+    });
+  }
+
+  for (final (practice, first, second, timed, confidence) in [
+    (0.98, 0.96, 0.96, true, TendencyConfidence.early),
+    (0.68, 0.8, 0.76, false, TendencyConfidence.forming),
+    (0.6, 0.6, 0.2, true, TendencyConfidence.clear),
+  ]) {
+    test('pressure, stamina, and speed return $confidence with early figures',
+        () async {
+      await seedInitialData(
+        db,
+        contentDb,
+        practiceAcc: practice,
+        firstHalfAcc: first,
+        secondHalfAcc: second,
+        includeSpeed: timed,
+      );
+      await db.delete(db.quizSessions).go();
+      final cards = await container.read(tendenciesProvider.future);
+      for (final kind in [
+        TendencyKind.underPressure,
+        TendencyKind.stamina,
+        TendencyKind.howYouAnswer,
+      ]) {
+        final card = cards.firstWhere((c) => c.kind == kind);
+        expect(card.figures, isNotNull);
+        expect(card.confidence, confidence, reason: kind.name);
+        expect(card.sentence != null, confidence == TendencyConfidence.clear);
+      }
+    });
+  }
+
   test('unlock lines state the whole condition', () async {
     await seedInitialData(db, contentDb, includeMock: false);
     final cards = await container.read(tendenciesProvider.future);
-    final floor = MetricsThresholds.minSessionsFor(MetricsWindow.prepWindow);
     final expected = {
-      TendencyKind.underPressure:
-          'Finish $floor sessions and one full length mock',
-      TendencyKind.stamina: 'Finish $floor sessions and one full length mock',
-      TendencyKind.howYouStudy: 'Finish $floor sessions and read a lesson '
-          'in a topic you have practiced',
-      TendencyKind.howYouAnswer: 'Finish $floor sessions',
+      TendencyKind.underPressure: 'Finish one full length mock',
+      TendencyKind.stamina: 'Finish one full length mock',
+      TendencyKind.howYouStudy: 'Read a lesson in a topic you have practiced',
+      TendencyKind.howYouAnswer: 'Answer timed questions incorrectly',
     };
     for (final card in cards) {
       expect(card.unlockAction, expected[card.kind]);
@@ -241,13 +355,22 @@ void main() {
       SignalKey.readThenQuiz,
     ];
     const values = <Object>[
-      PressureDelta(practiceAccuracy: 0.8, mockAccuracy: 0.7),
+      PressureDelta(
+        practiceAccuracy: 0.8,
+        mockAccuracy: 0.7,
+        practiceCorrect: 8,
+        practiceTotal: 10,
+        mockCorrect: 7,
+        mockTotal: 10,
+      ),
       StaminaDelta(firstHalfAccuracy: 0.4, secondHalfAccuracy: 0.9),
       LatencyDistribution(
         averageMs: 35000,
         correctAverageMs: 10000,
         incorrectAverageMs: 60000,
         sampleCount: 20,
+        correctCount: 10,
+        incorrectCount: 10,
       ),
       WorkflowRatio(readThenQuizCount: 4, quizFirstCount: 2),
     ];
@@ -315,8 +438,7 @@ void main() {
     expect(stamina.rightLabel, isNotEmpty);
     expect(
       stamina.unlockAction,
-      'Finish ${MetricsThresholds.minSessionsFor(MetricsWindow.prepWindow)} '
-      'sessions and one full length mock',
+      'Finish one full length mock',
     );
   });
 

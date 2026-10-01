@@ -1,10 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
-import 'package:pantas/features/metrics/domain/metrics_thresholds.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_key.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
+import 'package:pantas/features/metrics/domain/tendency_confidence.dart';
 import 'package:pantas/features/metrics/providers/current_archetype_provider.dart';
 import 'package:pantas/features/metrics/providers/metrics_signal_providers.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
@@ -30,6 +30,7 @@ class Tendency {
     required this.sentence,
     required this.isLoss,
     required this.unlockAction,
+    this.confidence = TendencyConfidence.early,
   });
 
   final TendencyId id;
@@ -51,6 +52,7 @@ class Tendency {
   final bool isLoss;
 
   final String unlockAction;
+  final TendencyConfidence confidence;
 }
 
 @immutable
@@ -104,7 +106,7 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
     }
   }
 
-  Future<T?> readSignal<T>(SignalKey key) async {
+  Future<T?> readSignal<T>(SignalKey key, {bool forTendency = true}) async {
     if (examId == null) return null;
     final res = await ref.watch(
       metricsSignalProvider(
@@ -113,6 +115,7 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
           window: MetricsWindow.prepWindow,
           examId: examId,
           now: DateTime.now(),
+          forTendency: forTendency,
         ),
       ).future,
     );
@@ -127,16 +130,53 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
       await readSignal<LatencyDistribution>(SignalKey.perQuestionSpeed);
   final retentionShape =
       await readSignal<RetentionCurve>(SignalKey.retentionShape);
-  final timeOfDay = await readSignal<DayHourHistogram>(SignalKey.timeOfDay);
-  final sessionShape =
-      await readSignal<DurationDistribution>(SignalKey.sessionShape);
+  final timeOfDay = await readSignal<DayHourHistogram>(
+    SignalKey.timeOfDay,
+    forTendency: false,
+  );
+  final sessionShape = await readSignal<DurationDistribution>(
+    SignalKey.sessionShape,
+    forTendency: false,
+  );
 
-  final minSessions =
-      MetricsThresholds.minSessionsFor(MetricsWindow.prepWindow);
+  final pressureConfidence = pressureDelta == null
+      ? TendencyConfidence.early
+      : TendencyEvidence.pressure(pressureDelta);
+  final staminaConfidence = staminaDelta == null
+      ? TendencyConfidence.early
+      : TendencyEvidence.stamina(staminaDelta);
+  final studyConfidence = workflowRatio == null
+      ? TendencyConfidence.early
+      : TendencyEvidence.study(workflowRatio);
+  final speedConfidence = speedDist == null
+      ? TendencyConfidence.early
+      : TendencyEvidence.speed(speedDist);
+  final pressureUnlock = pressureDelta == null ||
+          (pressureDelta.practiceTotal == 0 && pressureDelta.mockTotal == 0)
+      ? 'Answer practice questions and finish one full length mock'
+      : pressureDelta.practiceTotal == 0
+          ? 'Answer practice questions'
+          : 'Finish one full length mock';
+
+  final studyUnlock = workflowRatio == null ||
+          (workflowRatio.readLessonCount == 0 &&
+              workflowRatio.practicedTopicCount == 0)
+      ? 'Read a lesson and answer questions in its topic'
+      : workflowRatio.practicedTopicCount == 0
+          ? 'Answer questions in a topic you have read'
+          : 'Read a lesson in a topic you have practiced';
+
+  final speedUnlock = speedDist == null
+      ? 'Answer timed questions correctly and incorrectly'
+      : speedDist.correctCount == 0
+          ? 'Answer timed questions correctly'
+          : 'Answer timed questions incorrectly';
 
   // 1. Under pressure
   Tendency underPressure;
-  if (pressureDelta != null) {
+  if (pressureDelta != null &&
+      pressureDelta.practiceTotal > 0 &&
+      pressureDelta.mockTotal > 0) {
     final practicePct = (pressureDelta.practiceAccuracy * 100).round();
     final mockPct = (pressureDelta.mockAccuracy * 100).round();
     final diff = practicePct - mockPct;
@@ -155,9 +195,11 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
       gap: '$absDiff',
       leftFigure: '$practicePct%',
       rightFigure: '$mockPct%',
-      sentence: sentence,
+      sentence:
+          pressureConfidence == TendencyConfidence.clear ? sentence : null,
+      confidence: pressureConfidence,
       isLoss: isLoss,
-      unlockAction: 'Finish $minSessions sessions and one full length mock',
+      unlockAction: pressureUnlock,
     );
   } else {
     underPressure = Tendency(
@@ -170,7 +212,7 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
       rightFigure: null,
       sentence: null,
       isLoss: false,
-      unlockAction: 'Finish $minSessions sessions and one full length mock',
+      unlockAction: pressureUnlock,
     );
   }
 
@@ -196,12 +238,13 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
       gap: '$absDiff',
       leftFigure: '$firstPct%',
       rightFigure: '$secondPct%',
-      sentence: sentence,
+      sentence: staminaConfidence == TendencyConfidence.clear ? sentence : null,
+      confidence: staminaConfidence,
       isLoss: isLoss,
-      unlockAction: 'Finish $minSessions sessions and one full length mock',
+      unlockAction: 'Finish one full length mock',
     );
   } else {
-    stamina = Tendency(
+    stamina = const Tendency(
       id: TendencyId.stamina,
       heading: 'Stamina',
       leftLabel: 'first half',
@@ -211,13 +254,14 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
       rightFigure: null,
       sentence: null,
       isLoss: false,
-      unlockAction: 'Finish $minSessions sessions and one full length mock',
+      unlockAction: 'Finish one full length mock',
     );
   }
 
   // 3. How you study
   Tendency howYouStudy;
-  if (workflowRatio != null) {
+  if (workflowRatio != null &&
+      workflowRatio.readThenQuizCount + workflowRatio.quizFirstCount > 0) {
     final readCount = workflowRatio.readThenQuizCount;
     final quizCount = workflowRatio.quizFirstCount;
     final diff = (readCount - quizCount).abs();
@@ -237,10 +281,10 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
       gap: '$diff',
       leftFigure: '$readCount',
       rightFigure: '$quizCount',
-      sentence: sentence,
+      sentence: studyConfidence == TendencyConfidence.clear ? sentence : null,
+      confidence: studyConfidence,
       isLoss: false,
-      unlockAction: 'Finish $minSessions sessions and read a lesson '
-          'in a topic you have practiced',
+      unlockAction: studyUnlock,
     );
   } else {
     howYouStudy = Tendency(
@@ -253,14 +297,15 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
       rightFigure: null,
       sentence: null,
       isLoss: false,
-      unlockAction: 'Finish $minSessions sessions and read a lesson '
-          'in a topic you have practiced',
+      unlockAction: studyUnlock,
     );
   }
 
   // 4. How you answer
   Tendency howYouAnswer;
-  if (speedDist != null) {
+  if (speedDist != null &&
+      speedDist.correctCount > 0 &&
+      speedDist.incorrectCount > 0) {
     final correctSec = (speedDist.correctAverageMs / 1000).round();
     final incorrectSec = (speedDist.incorrectAverageMs / 1000).round();
     final diffSec = incorrectSec - correctSec;
@@ -278,9 +323,10 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
       gap: '${absDiff}s',
       leftFigure: '${correctSec}s',
       rightFigure: '${incorrectSec}s',
-      sentence: sentence,
+      sentence: speedConfidence == TendencyConfidence.clear ? sentence : null,
+      confidence: speedConfidence,
       isLoss: diffSec != 0,
-      unlockAction: 'Finish $minSessions sessions',
+      unlockAction: speedUnlock,
     );
   } else {
     howYouAnswer = Tendency(
@@ -293,13 +339,17 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
       rightFigure: null,
       sentence: null,
       isLoss: false,
-      unlockAction: 'Finish $minSessions sessions',
+      unlockAction: speedUnlock,
     );
   }
 
+  final memoryConfidence = retentionShape == null
+      ? TendencyConfidence.early
+      : TendencyEvidence.memory(retentionShape);
+
   // 5. How long you remember
   Tendency howLongYouRemember;
-  if (retentionShape != null) {
+  if (retentionShape != null && retentionShape.reviewCount > 0) {
     final days = retentionShape.averageStability.round();
     final lapsePct = (retentionShape.lapseRate * 100).round();
     final daysText = _daysInWords(days);
@@ -313,12 +363,13 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
       gap: '${days}d',
       leftFigure: '${days}d',
       rightFigure: '$lapsePct%',
-      sentence: sentence,
+      sentence: memoryConfidence == TendencyConfidence.clear ? sentence : null,
+      confidence: memoryConfidence,
       isLoss: retentionShape.lapseRate > 0.15,
-      unlockAction: 'Finish $minSessions sessions and review more questions',
+      unlockAction: 'Review more questions',
     );
   } else {
-    howLongYouRemember = Tendency(
+    howLongYouRemember = const Tendency(
       id: TendencyId.howLongYouRemember,
       heading: 'How long you remember',
       leftLabel: 'memory holds',
@@ -328,7 +379,7 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
       rightFigure: null,
       sentence: null,
       isLoss: false,
-      unlockAction: 'Finish $minSessions sessions and review more questions',
+      unlockAction: 'Review more questions',
     );
   }
 

@@ -76,6 +76,10 @@ class MockStaminaSignal implements Signal<StaminaDelta> {
     return StaminaDelta(
       firstHalfAccuracy: firstCorrect / firstTotal,
       secondHalfAccuracy: secondCorrect / secondTotal,
+      firstHalfCorrect: firstCorrect,
+      firstHalfTotal: firstTotal,
+      secondHalfCorrect: secondCorrect,
+      secondHalfTotal: secondTotal,
     );
   }
 

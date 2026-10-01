@@ -48,12 +48,17 @@ class ReadThenQuizSignal implements Signal<WorkflowRatio> {
 
     var readThenQuiz = 0;
     var quizFirst = 0;
+    var readLessonCount = 0;
     final progress = await _db.select(_db.lessonProgressLocal).get();
     for (final row in progress) {
       final lesson = await (_contentDb.select(_contentDb.contentLessons)
             ..where((lesson) => lesson.id.equals(row.lessonId)))
           .getSingleOrNull();
       if (lesson == null) continue;
+      final topic = await _content.topic(lesson.topicId);
+      final subject =
+          topic == null ? null : await _content.subject(topic.subjectId);
+      if (subject?.examId == examId) readLessonCount++;
       final firstAttempt = firstAttemptByTopic[lesson.topicId];
       if (firstAttempt == null) continue;
       if (row.readAt.isBefore(firstAttempt) || row.readAt == firstAttempt) {
@@ -62,10 +67,14 @@ class ReadThenQuizSignal implements Signal<WorkflowRatio> {
         quizFirst += 1;
       }
     }
-    if (readThenQuiz + quizFirst == 0) return null;
+    if (readThenQuiz + quizFirst == 0 && window.minSessionCount != 0) {
+      return null;
+    }
     return WorkflowRatio(
       readThenQuizCount: readThenQuiz,
       quizFirstCount: quizFirst,
+      readLessonCount: readLessonCount,
+      practicedTopicCount: firstAttemptByTopic.length,
     );
   }
 }

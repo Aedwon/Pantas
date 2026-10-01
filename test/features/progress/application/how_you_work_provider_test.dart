@@ -1,13 +1,14 @@
 import 'dart:convert';
 
-import 'package:drift/drift.dart' hide isNull;
+import 'package:drift/drift.dart' hide isNotNull, isNull;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/features/metrics/domain/metrics_thresholds.dart';
-import 'package:pantas/features/metrics/domain/metrics_window.dart';
+import 'package:pantas/features/metrics/domain/tendency_confidence.dart';
+import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/progress/application/how_you_work_provider.dart';
 
 import '../../../helpers/in_memory_database.dart';
@@ -27,6 +28,10 @@ void main() {
     double stability = 9.0,
     double lapseRate = 0.18,
     bool includeMock = true,
+    int reviews = 100,
+    double? firstHalfAcc,
+    double? secondHalfAcc,
+    bool includeSpeed = false,
   }) async {
     const examId = 'exam_upcat';
     await seedContentExam(
@@ -104,8 +109,8 @@ void main() {
             difficulty: 5,
             due: DateTime.utc(2026, 6, 2),
             lastReview: DateTime.utc(2026, 6),
-            reps: 100,
-            lapses: (100 * lapseRate).round(),
+            reps: reviews,
+            lapses: (reviews * lapseRate).round(),
             elapsedDays: 1,
             scheduledDays: 9,
           ),
@@ -122,7 +127,7 @@ void main() {
         'questionVersion': 1,
         'chosenChoiceId': isCorrect ? 'a' : 'b',
         'correctChoiceId': 'a',
-        'responseMs': 10000,
+        'responseMs': includeSpeed ? (isCorrect ? 5000 : 12000) : 10000,
       });
     }
 
@@ -158,7 +163,11 @@ void main() {
       final mockQIds = List.generate(mockTotal, (i) => 'q_$i');
       final mockAnswers = <String, dynamic>{};
       for (var i = 0; i < mockTotal; i++) {
-        final isCorrect = i < mockCorrect;
+        final isCorrect = firstHalfAcc == null || secondHalfAcc == null
+            ? i < mockCorrect
+            : i < mockTotal ~/ 2
+                ? i < (mockTotal ~/ 2 * firstHalfAcc).round()
+                : i - mockTotal ~/ 2 < (mockTotal ~/ 2 * secondHalfAcc).round();
         mockAnswers['q_$i'] = {'selectedIndex': isCorrect ? 0 : 1, 'atSec': 10};
       }
 
@@ -211,17 +220,144 @@ void main() {
     expect(work.tendencies.first.leftLabel, 'practicing');
   });
 
+  test('tendencies bypass the floor but profile and work hours do not',
+      () async {
+    await db.delete(db.quizSessions).go();
+    final work = await container.read(howYouWorkProvider.future);
+    expect(work.tendencies.every((t) => t.leftFigure != null), isTrue);
+    expect(work.archetype, isNull);
+    expect(work.whenYouWork, isEmpty);
+  });
+
+  test('profile and work hours unlock at 14 completed sessions, not 13',
+      () async {
+    await db.update(db.quizSessions).write(
+          const QuizSessionsCompanion(
+            currentIndex: Value(10),
+            correctCount: Value(6),
+          ),
+        );
+    await (db.delete(db.quizSessions)
+          ..where((s) => s.id.isIn(['sess_12', 'sess_13'])))
+        .go();
+    final before = await container.read(howYouWorkProvider.future);
+    expect(before.archetype, isNull);
+    expect(before.whenYouWork, isEmpty);
+    expect(before.tendencies.every((t) => t.leftFigure != null), isTrue);
+    await db.into(db.quizSessions).insert(
+          QuizSessionsCompanion.insert(
+            id: 'fourteenth',
+            userId: 'user_1',
+            examId: 'exam_upcat',
+            origin: 'practice',
+            questionIdsJson: '[]',
+            startedAt: DateTime.utc(2026, 5, 20),
+            completedAt: Value(DateTime.utc(2026, 5, 20, 1)),
+          ),
+        );
+    container.invalidate(howYouWorkProvider);
+    final after = await container.read(howYouWorkProvider.future);
+    expect(after.archetype, isNotNull);
+    expect(after.whenYouWork, hasLength(3));
+  });
+
+  for (final (readCount, answeredCount, reviews, confidence) in [
+    (1, 1, 9, TendencyConfidence.early),
+    (5, 5, 100, TendencyConfidence.forming),
+    (9, 1, 1000, TendencyConfidence.clear),
+  ]) {
+    test('study and memory carry $confidence for Free and Pro', () async {
+      await db.delete(db.lessonProgressLocal).go();
+      await seedInitialData(
+        db,
+        contentDb,
+        readThenQuiz: readCount,
+        quizFirst: answeredCount,
+        reviews: reviews,
+      );
+      await db.delete(db.quizSessions).go();
+      for (final entitlement in [
+        const Entitlement.free(),
+        const Entitlement(plan: EntitlementPlan.monthly),
+      ]) {
+        final c = ProviderContainer(
+          overrides: [
+            appDatabaseProvider.overrideWithValue(db),
+            contentDatabaseProvider.overrideWithValue(contentDb),
+            entitlementProvider
+                .overrideWith((ref) => Stream.value(entitlement)),
+          ],
+        );
+        final work = await c.read(howYouWorkProvider.future);
+        final study =
+            work.tendencies.firstWhere((t) => t.id == TendencyId.howYouStudy);
+        final memory = work.tendencies
+            .firstWhere((t) => t.id == TendencyId.howLongYouRemember);
+        expect(study.leftFigure, '$readCount');
+        expect(study.rightFigure, '$answeredCount');
+        expect(study.confidence, confidence);
+        expect(memory.leftFigure, '9d');
+        expect(memory.confidence, confidence);
+        expect(
+          study.sentence,
+          confidence == TendencyConfidence.clear
+              ? 'You usually read the lesson first.'
+              : null,
+        );
+        expect(
+          memory.sentence,
+          confidence == TendencyConfidence.clear
+              ? 'what you learn holds about nine days before you need it again'
+              : null,
+        );
+        c.dispose();
+      }
+    });
+  }
+
+  for (final (practice, first, second, timed, confidence) in [
+    (0.98, 0.96, 0.96, true, TendencyConfidence.early),
+    (0.68, 0.8, 0.76, false, TendencyConfidence.forming),
+    (0.6, 0.6, 0.2, true, TendencyConfidence.clear),
+  ]) {
+    test('pressure, stamina, and speed return $confidence with early figures',
+        () async {
+      await seedInitialData(
+        db,
+        contentDb,
+        practiceAcc: practice,
+        firstHalfAcc: first,
+        secondHalfAcc: second,
+        includeSpeed: timed,
+      );
+      await db.delete(db.quizSessions).go();
+      final work = await container.read(howYouWorkProvider.future);
+      for (final id in [
+        TendencyId.underPressure,
+        TendencyId.stamina,
+        TendencyId.howYouAnswer,
+      ]) {
+        final tendency = work.tendencies.firstWhere((t) => t.id == id);
+        expect(tendency.leftFigure, isNotNull);
+        expect(tendency.rightFigure, isNotNull);
+        expect(tendency.confidence, confidence, reason: id.name);
+        expect(
+          tendency.sentence != null,
+          confidence == TendencyConfidence.clear,
+        );
+      }
+    });
+  }
+
   test('unlock lines state the whole condition', () async {
     final work = await container.read(howYouWorkProvider.future);
-    final floor = MetricsThresholds.minSessionsFor(MetricsWindow.prepWindow);
-    final studyUnlock = 'Finish $floor sessions and read a lesson '
-        'in a topic you have practiced';
+    const studyUnlock = 'Read a lesson in a topic you have practiced';
     expect(work.tendencies.map((t) => t.unlockAction), [
-      'Finish $floor sessions and one full length mock',
-      'Finish $floor sessions and one full length mock',
+      'Finish one full length mock',
+      'Finish one full length mock',
       studyUnlock,
-      'Finish $floor sessions',
-      'Finish $floor sessions and review more questions',
+      'Answer timed questions incorrectly',
+      'Review more questions',
     ]);
   });
 
@@ -266,8 +402,7 @@ void main() {
     expect(stamina.rightLabel, isNotEmpty);
     expect(
       stamina.unlockAction,
-      'Finish ${MetricsThresholds.minSessionsFor(MetricsWindow.prepWindow)} '
-      'sessions and one full length mock',
+      'Finish one full length mock',
     );
 
     nullContainer.dispose();
@@ -287,10 +422,8 @@ void main() {
         .firstWhere((t) => t.id == TendencyId.howLongYouRemember);
 
     expect(retention.gap, '9d');
-    expect(
-      retention.sentence,
-      'what you learn holds about nine days before you need it again',
-    );
+    expect(retention.sentence, isNull);
+    expect(retention.confidence, TendencyConfidence.forming);
   });
 
   test('the retention line is never compared to the exam date', () async {
@@ -310,7 +443,8 @@ void main() {
         work.tendencies.firstWhere((t) => t.id == TendencyId.howYouStudy);
 
     expect(study.heading, 'How you study');
-    expect(study.sentence, 'You usually read the lesson first.');
+    expect(study.sentence, isNull);
+    expect(study.confidence, TendencyConfidence.forming);
     expect(study.leftFigure, '12');
     expect(study.rightFigure, '4');
     expect(study.gap, '8');
@@ -325,7 +459,8 @@ void main() {
     }
   });
 
-  test('the three sentences are the whole vocabulary', () async {
+  test('direction sentences require clear evidence and an even split has none',
+      () async {
     Future<HowYouWork> readWith(
       (int readThenQuiz, int quizFirst) counts,
     ) async {
@@ -351,14 +486,14 @@ void main() {
       return result;
     }
 
-    const readsFirst = (12, 4);
-    const answersFirst = (4, 12);
+    const readsFirst = (18, 2);
+    const answersFirst = (2, 18);
     const evenSplit = (8, 8);
 
     for (final (fixture, sentence) in [
       (readsFirst, 'You usually read the lesson first.'),
       (answersFirst, 'You usually go straight to the questions.'),
-      (evenSplit, 'You split about evenly between the two.'),
+      (evenSplit, null),
     ]) {
       final work = await readWith(fixture);
       final study =

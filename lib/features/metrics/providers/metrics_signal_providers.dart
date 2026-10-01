@@ -53,6 +53,7 @@ class MetricsSignalRequest {
     required this.examId,
     required this.now,
     this.prepStartedAt,
+    this.forTendency = false,
   });
 
   final SignalKey signal;
@@ -60,6 +61,7 @@ class MetricsSignalRequest {
   final String examId;
   final DateTime now;
   final DateTime? prepStartedAt;
+  final bool forTendency;
 
   @override
   bool operator ==(Object other) {
@@ -68,11 +70,13 @@ class MetricsSignalRequest {
         other.window == window &&
         other.examId == examId &&
         other.now == now &&
-        other.prepStartedAt == prepStartedAt;
+        other.prepStartedAt == prepStartedAt &&
+        other.forTendency == forTendency;
   }
 
   @override
-  int get hashCode => Object.hash(signal, window, examId, now, prepStartedAt);
+  int get hashCode =>
+      Object.hash(signal, window, examId, now, prepStartedAt, forTendency);
 }
 
 final metricsSignalProvider = FutureProvider.family
@@ -87,6 +91,14 @@ final metricsSignalProvider = FutureProvider.family
     window: request.window,
     now: request.now,
     prepStartedAt: request.prepStartedAt,
+    bypassSessionFloor: request.forTendency &&
+        const {
+          SignalKey.testModeDelta,
+          SignalKey.mockStamina,
+          SignalKey.readThenQuiz,
+          SignalKey.perQuestionSpeed,
+          SignalKey.retentionShape,
+        }.contains(request.signal),
   );
   return SignalResult<Object?>(
     window: resolved,

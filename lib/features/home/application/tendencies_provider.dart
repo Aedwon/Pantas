@@ -1,10 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
-import 'package:pantas/features/metrics/domain/metrics_thresholds.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_key.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
+import 'package:pantas/features/metrics/domain/tendency_confidence.dart';
 import 'package:pantas/features/metrics/providers/metrics_signal_providers.dart';
 
 enum TendencyKind { underPressure, stamina, howYouStudy, howYouAnswer }
@@ -19,6 +19,7 @@ class TendencyCard {
     required this.figures,
     required this.sentence,
     required this.unlockAction,
+    this.confidence = TendencyConfidence.early,
   });
 
   final TendencyKind kind;
@@ -32,19 +33,20 @@ class TendencyCard {
   /// Null when the prerequisite is unmet. The labels above still render.
   final ({String left, String right})? figures;
 
-  /// Null when the prerequisite is unmet.
+  /// Present only when the statistical finding is clear.
   final String? sentence;
 
   /// What unlocks this card, shown when [figures] is null. For example
-  /// "Finish 14 sessions and one full length mock".
+  /// "Finish one full length mock".
   final String unlockAction;
+  final TendencyConfidence confidence;
 }
 
 final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
   final focus = await ref.watch(activeExamFocusProvider.future);
   final examId = focus.exam?.id;
 
-  Future<T?> readSignal<T>(SignalKey key) async {
+  Future<T?> readSignal<T>(SignalKey key, {bool forTendency = true}) async {
     if (examId == null) return null;
     final res = await ref.watch(
       metricsSignalProvider(
@@ -53,6 +55,7 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
           window: MetricsWindow.prepWindow,
           examId: examId,
           now: DateTime.now(),
+          forTendency: forTendency,
         ),
       ).future,
     );
@@ -68,11 +71,43 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
 
   final cards = <TendencyCard>[];
 
-  final minSessions =
-      MetricsThresholds.minSessionsFor(MetricsWindow.prepWindow);
+  final pressureConfidence = pressureDelta == null
+      ? TendencyConfidence.early
+      : TendencyEvidence.pressure(pressureDelta);
+  final staminaConfidence = staminaDelta == null
+      ? TendencyConfidence.early
+      : TendencyEvidence.stamina(staminaDelta);
+  final studyConfidence = workflowRatio == null
+      ? TendencyConfidence.early
+      : TendencyEvidence.study(workflowRatio);
+  final speedConfidence = speedDist == null
+      ? TendencyConfidence.early
+      : TendencyEvidence.speed(speedDist);
+  final pressureUnlock = pressureDelta == null ||
+          (pressureDelta.practiceTotal == 0 && pressureDelta.mockTotal == 0)
+      ? 'Answer practice questions and finish one full length mock'
+      : pressureDelta.practiceTotal == 0
+          ? 'Answer practice questions'
+          : 'Finish one full length mock';
+
+  final studyUnlock = workflowRatio == null ||
+          (workflowRatio.readLessonCount == 0 &&
+              workflowRatio.practicedTopicCount == 0)
+      ? 'Read a lesson and answer questions in its topic'
+      : workflowRatio.practicedTopicCount == 0
+          ? 'Answer questions in a topic you have read'
+          : 'Read a lesson in a topic you have practiced';
+
+  final speedUnlock = speedDist == null
+      ? 'Answer timed questions correctly and incorrectly'
+      : speedDist.correctCount == 0
+          ? 'Answer timed questions correctly'
+          : 'Answer timed questions incorrectly';
 
   // 1. Under pressure
-  if (pressureDelta != null) {
+  if (pressureDelta != null &&
+      pressureDelta.practiceTotal > 0 &&
+      pressureDelta.mockTotal > 0) {
     final practicePct = (pressureDelta.practiceAccuracy * 100).round();
     final mockPct = (pressureDelta.mockAccuracy * 100).round();
     final diff = practicePct - mockPct;
@@ -89,8 +124,10 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
         leftLabel: 'practicing',
         rightLabel: 'under time',
         figures: (left: '$practicePct%', right: '$mockPct%'),
-        sentence: sentence,
-        unlockAction: 'Finish $minSessions sessions and one full length mock',
+        sentence:
+            pressureConfidence == TendencyConfidence.clear ? sentence : null,
+        confidence: pressureConfidence,
+        unlockAction: pressureUnlock,
       ),
     );
   } else {
@@ -102,7 +139,7 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
         rightLabel: 'under time',
         figures: null,
         sentence: null,
-        unlockAction: 'Finish $minSessions sessions and one full length mock',
+        unlockAction: pressureUnlock,
       ),
     );
   }
@@ -125,26 +162,29 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
         leftLabel: 'first half',
         rightLabel: 'second half',
         figures: (left: '$firstPct%', right: '$secondPct%'),
-        sentence: sentence,
-        unlockAction: 'Finish $minSessions sessions and one full length mock',
+        sentence:
+            staminaConfidence == TendencyConfidence.clear ? sentence : null,
+        confidence: staminaConfidence,
+        unlockAction: 'Finish one full length mock',
       ),
     );
   } else {
     cards.add(
-      TendencyCard(
+      const TendencyCard(
         kind: TendencyKind.stamina,
         heading: 'Stamina',
         leftLabel: 'first half',
         rightLabel: 'second half',
         figures: null,
         sentence: null,
-        unlockAction: 'Finish $minSessions sessions and one full length mock',
+        unlockAction: 'Finish one full length mock',
       ),
     );
   }
 
   // 3. How you study
-  if (workflowRatio != null) {
+  if (workflowRatio != null &&
+      workflowRatio.readThenQuizCount + workflowRatio.quizFirstCount > 0) {
     final readCount = workflowRatio.readThenQuizCount;
     final quizCount = workflowRatio.quizFirstCount;
     final String sentence;
@@ -162,9 +202,9 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
         leftLabel: 'read first',
         rightLabel: 'answered first',
         figures: (left: '$readCount', right: '$quizCount'),
-        sentence: sentence,
-        unlockAction: 'Finish $minSessions sessions and read a lesson '
-            'in a topic you have practiced',
+        sentence: studyConfidence == TendencyConfidence.clear ? sentence : null,
+        confidence: studyConfidence,
+        unlockAction: studyUnlock,
       ),
     );
   } else {
@@ -176,14 +216,15 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
         rightLabel: 'answered first',
         figures: null,
         sentence: null,
-        unlockAction: 'Finish $minSessions sessions and read a lesson '
-            'in a topic you have practiced',
+        unlockAction: studyUnlock,
       ),
     );
   }
 
   // 4. How you answer
-  if (speedDist != null) {
+  if (speedDist != null &&
+      speedDist.correctCount > 0 &&
+      speedDist.incorrectCount > 0) {
     final correctSec = (speedDist.correctAverageMs / 1000).round();
     final incorrectSec = (speedDist.incorrectAverageMs / 1000).round();
     final diffSec = incorrectSec - correctSec;
@@ -200,8 +241,9 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
         leftLabel: 'when correct',
         rightLabel: 'when wrong',
         figures: (left: '${correctSec}s', right: '${incorrectSec}s'),
-        sentence: sentence,
-        unlockAction: 'Finish $minSessions sessions',
+        sentence: speedConfidence == TendencyConfidence.clear ? sentence : null,
+        confidence: speedConfidence,
+        unlockAction: speedUnlock,
       ),
     );
   } else {
@@ -213,7 +255,7 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
         rightLabel: 'when wrong',
         figures: null,
         sentence: null,
-        unlockAction: 'Finish $minSessions sessions',
+        unlockAction: speedUnlock,
       ),
     );
   }

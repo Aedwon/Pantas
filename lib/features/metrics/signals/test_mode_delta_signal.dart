@@ -71,10 +71,17 @@ class TestModeDeltaSignal implements Signal<PressureDelta> {
         }
       }
     }
-    if (practiceTotal == 0 || mockTotal == 0) return null;
+    if ((practiceTotal == 0 || mockTotal == 0) && window.minSessionCount != 0) {
+      return null;
+    }
     return PressureDelta(
-      practiceAccuracy: practiceCorrect / practiceTotal,
-      mockAccuracy: mockCorrect / mockTotal,
+      practiceAccuracy:
+          practiceTotal == 0 ? 0 : practiceCorrect / practiceTotal,
+      mockAccuracy: mockTotal == 0 ? 0 : mockCorrect / mockTotal,
+      practiceCorrect: practiceCorrect,
+      practiceTotal: practiceTotal,
+      mockCorrect: mockCorrect,
+      mockTotal: mockTotal,
     );
   }
 }

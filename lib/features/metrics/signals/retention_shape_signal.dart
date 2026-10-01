@@ -31,6 +31,8 @@ class RetentionShapeSignal implements Signal<RetentionCurve> {
     return RetentionCurve(
       averageStability: stability / states.length,
       lapseRate: reps == 0 ? 0 : lapses / reps,
+      reviewCount: reps,
+      lapseCount: lapses,
     );
   }
 }

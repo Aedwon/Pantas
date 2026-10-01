@@ -55,6 +55,10 @@ void main() {
     expect(result, isNotNull);
     expect(result!.practiceAccuracy, 0.5);
     expect(result.mockAccuracy, 1);
+    expect(result.practiceCorrect, 1);
+    expect(result.practiceTotal, 2);
+    expect(result.mockCorrect, 2);
+    expect(result.mockTotal, 2);
     expect(result.delta, 0.5);
   });
 
@@ -159,6 +163,8 @@ void main() {
     expect(result, isNotNull);
     expect(result!.averageStability, 10);
     expect(result.lapseRate, 0.25);
+    expect(result.lapseCount, 1);
+    expect(result.reviewCount, 4);
   });
 
   test('coverage breadth counts topics with at least one read lesson',
