@@ -475,3 +475,56 @@ write implementation code.
 Finding from Task 1 (not fixed, outside the plan): the streak's gap count uses
 `Duration.inDays` between local midnights, which undercounts across a daylight-saving change.
 No effect in the Philippines, which has no daylight saving.
+
+---
+
+## 1 October 2026: study days
+
+Aedwon asked whether the roadmap lets a student pick study days:
+
+> "question, i don't know if i discussed it with you or codex but I remember mentioning letting
+> the user select their work days (Sun, Mon, ... , Sat) and the roadmap engine only assigns
+> lessons on those Study days (the user can still opt to advance or study in a non-working day).
+> I've already been designing the UI for this. does the roadmap have this feature?"
+
+**Finding:** no. The spec, build, UI brief and both decision logs have no study-day concept, and
+no earlier session in this project's transcripts mentions it. The engine planned every calendar
+day.
+
+**Options offered:** whether a rest day holds back due reviews (recommended: yes, a rest day that
+still asks for work is not rest) or shows them.
+
+> "please add it, no work should be assigned on non Study days
+>
+> do you need more decisions from me or you already know what to do?"
+
+Reviews are therefore held on rest days. **Second question offered:** the streak on a skipped
+rest day: pause (recommended) or break unless a freeze is used. Defaults proposed without
+objection: all seven by default for earlier students, Free and Pro alike, no study or streak
+reminders on rest days (exam countdown unchanged), advance and practice still work on rest days,
+new material spread over study days only, mock on a study day, built inside the current roadmap
+build at balanced by Codex with lead review.
+
+> "yes it should pause. it is as if the streak counter or whatever never sees the non Study days.
+> edge case i guess is if they decide to advance/do work on a non Study day then it would count
+> to the streak.
+>
+> in the study days selection i plan on doing it like this
+> - everything is not selected, but they can't proceed either
+> - they need to select at least 1 study day
+> - only then can they continue
+>
+> this is also what i mentioned in claude design and we already have a design for it."
+
+He attached two onboarding frames ("Which days will you study?"): nothing picked with Continue
+disabled and "Pick at least one day to continue."; six picked (Monday to Saturday) with a
+"6 study days a week" summary, "Sundays are off. Questions that come due on a Sunday wait for
+Monday.", Continue enabled, and an "Every Day" link on both.
+
+**What changed:** spec Part 1 Section 4a, study-day edge cases in Section 7, a check in Section
+10; Part 2 Section 4.10 and verification. Lead calls recorded there: the onboarding step and
+Settings control wait for the UI round so they match his designs 1:1, and until then everyone
+has all seven days; "Every Day" read as picking all seven (whether it also continues is his
+design's call); with no study day left before the exam, nothing is scheduled but advance brings
+in everything left; on a rest day, advance also brings in reviews already due, never early ones.
+**Status:** Part 1 Section 4a awaits his approval before implementation.

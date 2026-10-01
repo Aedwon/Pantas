@@ -1,7 +1,8 @@
 # The adaptive roadmap: one engine that decides what to study next
 
 **Date:** 30 September 2026
-**Status:** Draft for Aedwon's approval (Part 1). Part 2 is the agent section and must agree with it.
+**Status:** Part 1 approved 30 September 2026. **Amendment of 1 October 2026 (study days, Part 1
+Section 4a) awaiting approval.** Part 2 is the agent section and must agree with Part 1.
 **Decision log:** `docs/superpowers/decisions/2026-09-30-adaptive-roadmap-log.md`
 **Policy revision read:** `origin/main` `11417a5b3def098f70c367172a13738ec1ffd90a`
 **Grounded against:** `web/e09-qlp5-prepared-next-r1` at `13938943f447956af43d2de7e1f9999eb2418aee`,
@@ -89,6 +90,40 @@ starts, so a student is not bounced between half-read topics.
 
 **Before the first plan, the student takes the short assessment**, as today. It gives the first
 topic order.
+
+## 4a. Study days (amendment, 1 October 2026; awaiting approval)
+
+Aedwon's rule: **no work is assigned on a day that is not a study day.**
+
+- **The student picks their study days,** any of Sunday to Saturday, at least one. It is the
+  same for Free and Pro.
+- **Onboarding:** no day is picked at first and Continue is disabled until at least one is.
+  "Every Day" picks all seven. The screen is Aedwon's existing Claude Design screen.
+- **Settings:** the days can be changed any time; at least one must stay picked.
+- **Students who have not picked** (everyone on an earlier build) have all seven days.
+- **Rest days get nothing:** no lessons, no new questions, no reviews, no mock. Today shows that
+  it is a rest day.
+- **The student can still work on a rest day.** "I want to advance" is available at once and
+  brings in the next study day's plan. Practice, lessons and mocks work as usual, and all of it
+  counts toward the plan.
+- **New material is spread over the study days left,** so each study day carries a bit more. The
+  review-only stretch keeps its length in calendar days; only its study days get reviews.
+- **Reviews that come due on a rest day wait for the next study day,** under the same daily
+  review limit. A review a day or two late costs little: the scheduler is built for late reviews
+  and adjusts the next interval to the actual gap.
+- **The mock lands on a study day** in its window (Section 5, item 5). If the window has no
+  study day, no mock is scheduled; the student can still take one.
+- **Streak:** rest days are invisible to it. Skipping a rest day neither breaks the streak, adds
+  to it, nor uses a freeze. Working on a rest day counts as a streak day.
+- **Reminders:** the daily reminder and the "save your streak" reminder fire on study days only.
+  The "come back" reminder counts only study days missed. The exam countdown reminder is
+  unchanged.
+- **Changing study days** rebuilds today at once, and Pro's change log records it. What was
+  already done today still counts.
+- **Pro's weeks ahead** show rest days as rest days.
+- **Built now:** the engine, the stored setting, the streak and the reminders. **Built with the
+  UI round from Aedwon's designs:** the onboarding step and the Settings control. Until then
+  everyone has all seven days, so the app behaves as it does today.
 
 ## 5. Decisions made from evidence
 
@@ -179,6 +214,13 @@ the history is lost. **This corrects what I told you earlier** (edge case 21).
 - **Offline:** the engine runs on the phone.
 - **Reinstall or new phone:** the plan is rebuilt from progress. Pro also keeps the change log.
 
+**Study days (Section 4a)**
+- **No study day left before the exam:** nothing is scheduled. Advance brings in everything
+  left, so the student can still cram if they choose.
+- **Today switched to a rest day mid-day:** the rest of today is cleared; what was done counts.
+- **Today switched to a study day mid-day:** today is built at once.
+- **Exam day is a rest day:** nothing changes; the exam day never gets new work anyway.
+
 ## 8. What changes in the app
 
 - **New:** the roadmap engine; a synced (Pro) change log; prerequisite links between topics,
@@ -215,6 +257,9 @@ built for E09, so its speed targets still apply.
 - Free sees today and the mock on its day; Pro also sees the weeks ahead and the log.
 - No screen says "behind", "ahead", "on track", "ready" or "mastery". No number is shown for any
   week after the current one.
+- With study days set, no lesson, new question, review or mock lands on a rest day, and
+  following the plan still covers everything before the review-only stretch whenever at least
+  one study day falls before it. Skipping rest days never breaks or uses up the streak.
 - Then E09's evidence is rerun on the new build, and you do the visual check after the UI round.
 
 ## 11. What needs your decision
@@ -480,6 +525,64 @@ descending retrievability at `today`. Expose retrievability from `FsrsScheduler`
   the first three topic ids. Only counts that were real at the time are stored. **No entry states
   a verdict.** Log text rendering is for the UI round.
 
+### 4.10 Study days (amendment, 1 October 2026; Part 1 Section 4a)
+
+- **Setting.** `UserSettings.studyDays`: a set of ISO weekdays (`DateTime.monday` 1 to
+  `DateTime.sunday` 7). Stored in `account_prefs` under `settings.study_days` as a sorted comma
+  list. Absent, empty or unparsable reads as all seven (students on earlier builds). The update
+  method rejects an empty set. It travels with the other account preferences wherever they are
+  backed up (Named Pro), wiped and demo-switched; follow the existing keys exactly.
+- **Inputs and digest.** `RoadmapInputs.studyDays`; `RoadmapDigest` includes it, so a change
+  rebuilds today. New change-log cause `studyDaysChanged`, chosen over `newDay` when the digest
+  differs only in study days.
+- **`isStudyDay(d)`** = `studyDays.contains(d.weekday)`. Count days with calendar-date
+  arithmetic, never `Duration.inDays` (see the daylight-saving finding in the decision log).
+- **Pacing (amends 4.2).** `quiet`, `reviewOnlyFrom` and the anchor are unchanged, in calendar
+  days. `studyDaysBefore(a, b)` = study days in `[a, b)`.
+  - Today a rest day: `lessonsToday = newToday = 0`, no reviews, no mock.
+  - Today a study day before `reviewOnlyFrom`: `workingDays = studyDaysBefore(today,
+    reviewOnlyFrom)`; amounts as 4.2.
+  - Today a study day on or after `reviewOnlyFrom` with material left: spread over
+    `studyDaysBefore(today, examDay)` (today is one of them, so never zero).
+  - Worked checks the tests must include (compute, do not copy): today Wed 30 Sep 2026, exam Mon
+    7 Dec 2026, study days Mon to Fri; reviewOnlyFrom Mon 30 Nov unchanged; workingDays = weekdays
+    from 30 Sep to 27 Nov inclusive; 120 lessons and 900 unseen give the per-day amounts. A
+    Saturday in the same plan gives zero of everything.
+- **Reviews (amends 4.5).** Rest day: none. Study day: due `<= end of today` as now, which
+  naturally includes those that came due on the rest days before it; the 4.6 cap applies.
+  Evidence: FSRS computes the next interval from the actual elapsed time and retrievability at
+  review, so a late review is the scheduler used as designed; a lower retrievability at review
+  gives a larger stability gain, at the cost of some extra lapses (Section 8, FSRS entries).
+- **Backlog cap (4.6)** unchanged: it reads active days, which rest days do not dilute.
+- **Mock day (amends 4.7).** Same window and target. Choose the first study day `>=` target in
+  the window; else the last study day `<` target in the window; the Free cooldown then moves it
+  to the first study day `>=` cooldown end in the window; none, no mock.
+- **Day plan.** `DayPlan.isRestDay`. `RoadmapState` is unchanged. A rest day's snapshot is empty,
+  so `originalDone` is true and advance is offered at once.
+- **Advance (amends 4.9).** Builds the plan for the next study day after today and appends its
+  lessons and new questions, as now (previously `today + 1`, which may now be a rest day and
+  yield nothing). If no study day remains before the exam, build with every remaining lesson and
+  unseen question for one day (cram). **On a rest day, advance also appends the reviews due by
+  end of today**, under the 4.6 cap, skipping ids already in the snapshot; reviews not yet due are
+  never pulled in (Section 5, item 1).
+- **Mid-day change.** A digest change rebuilds today; completion facts still subtract what is
+  done. Today becoming a rest day gives an empty snapshot; the change log records
+  `studyDaysChanged`, never `missedWork` for that day.
+- **Missed work (4.9).** Only a study day's unfinished original items count as `missedWork`.
+- **Week preview (Pro).** Each day carries `isRestDay`; rest days carry no counts.
+- **Streak.** `StreakEvaluator` takes the study days. The gap is the number of study days
+  strictly between `lastActive` and today: 0 continues (+1), 1 with a freeze uses it, more
+  resets to 1. Activity on any day, rest or study, credits that day as now. Every other place
+  that judges whether the streak is still alive from a date gap (Home atoms, consistency signal,
+  notifications) uses the same study-day gap through one shared helper.
+- **Notifications.** Daily reminder and streak-save fire only on study days; when not all seven
+  are picked, schedule per weekday (or one-shot to the next study day, rescheduled on app start
+  and on settings change), whichever fits the existing `NotificationService` with the smaller
+  change. `LapsePolicy` counts study days missed (fires at the third). Exam countdown unchanged.
+  Rescheduling runs when study days change.
+- **UI.** Onboarding step and Settings control are not built now (Part 1 Section 4a). The
+  repository and provider API they will call is built and tested now.
+
 ## 5. Consumers
 
 | Surface | Today | After |
@@ -593,6 +696,14 @@ Focused while building; full on completion (AGENTS.md).
   regressions (single session on rapid taps, warm Start without reselection, resume identity,
   late async results discarded) stay green. A query-count test proves the roadmap build reads no
   stem, choice, explanation or figure payloads.
+- **Study days:** the 4.10 worked checks; property test: for random study-day sets with at
+  least one study day before `reviewOnlyFrom`, following the plan reads every lesson and sees every
+  question by then and never places a lesson, new question, review or mock on a rest day; mock
+  placement with all-rest windows; advance from a study day skips rest days and from a rest day
+  adds due reviews; mid-day change both ways; streak across weekends with Mon to Fri picked
+  (no break, no freeze used), with a missed study day (freeze), with rest-day activity (credited);
+  reminders absent on rest days; lapse counted in study days; setting round-trip, empty rejected,
+  absent reads as all seven, backed up and wiped with the other preferences.
 - **Sync:** change log syncs for Named Pro and not for Free, in emulator tests.
 - `flutter analyze` clean; `flutter test` green; build_runner regenerated, never hand edited.
 - **Release:** E09 functional scenarios and QLP-5 device performance rerun on the new candidate
