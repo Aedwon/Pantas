@@ -3,7 +3,7 @@
 **Date:** 1 October 2026
 **Purpose:** reference for the UI round (Claude Design), which merges "How you work" into "Your
 tendencies" and redesigns both entry rows under "More about you" on Home.
-**Read from:** `web/roadmap-engine-r1` at 18871bb0. Every label below is the exact string in the
+**Read from:** `web/roadmap-engine-r1` at 18871bb0, **updated for the fixes at 3b90fb7a** (Section 5). Every label below is the exact string in the
 code today. Visual details in the code (faint bars, ink and rust colors, type sizes) are Ink and
 Rule and are not binding (`AGENTS.md`, Visual direction).
 
@@ -22,7 +22,7 @@ Shared terms:
 
 Free and Pro see all of it (Gate: none; "nothing the student produced is ever paywalled").
 Today it is reached from Progress, "Go deeper", row "Your record", whose subtitle is
-"Day {days active}" plus ". Best mock {n}%" once a mock exists.
+"{n} days active" ("1 day active") plus ". Best mock {n}%" once a mock exists.
 
 ### Section "Since you started"
 
@@ -60,8 +60,9 @@ discarded mocks are not listed.
 ## 2. Your tendencies (Home panel today)
 
 Heading "Your tendencies". Four cards in a swipeable row with page dots. Action link: Pro "See
-full details" (to Progress), Free "Unlock with Pro" (to the paywall). Cards are ordered by
-"points at stake", largest first; cards without data go last.
+full details" (to Progress), Free "Unlock with Pro" (to the paywall). Cards with data come first
+in a fixed order (Under pressure, Stamina, How you answer, How you study), then cards without
+data in the same order.
 
 **Free:** each card shows its heading and both comparison labels; the figures and sentence are
 withheld (Gate 1). **Pro:** heading, both labels with figures, and the sentence. **Pro without
@@ -69,7 +70,7 @@ enough data:** heading, both labels, "Not enough data yet" and the unlock line.
 
 | Heading | Left label | Right label | Figures (Pro) | Computed from | Unlocks when (besides the 14-session floor) | Unlock line shown |
 |---|---|---|---|---|---|---|
-| Under pressure | practising | under time | "{n}%" and "{n}%" | Accuracy in all quiz attempts (mock answers excluded) vs accuracy in submitted mocks | At least one submitted mock and at least one practice answer | Finish one full length mock |
+| Under pressure | practicing | under time | "{n}%" and "{n}%" | Accuracy in all quiz attempts (mock answers excluded) vs accuracy in submitted mocks | At least one submitted mock and at least one practice answer | Finish one full length mock |
 | Stamina | first half | second half | "{n}%" and "{n}%" | Across submitted mocks: accuracy on the first half of each mock's questions vs the second half (unanswered count as wrong) | At least one submitted mock | Finish one full length mock |
 | How you study | read first | answered first | two counts | For each lesson read: was it read before the student's first answer in that topic (read first) or after (answered first) | At least one read lesson in a topic the student has also answered | Read lessons or attempt topics |
 | How you answer | when correct | when wrong | "{n}s" and "{n}s" | Average answer time on correct vs wrong answers, timed quizzes only (assessment and mocks excluded) | At least one timed answer | Answer more questions |
@@ -107,21 +108,32 @@ Recomputed at most once a day.
 |---|---|---|---|
 | Game-Day Player | Pressure | a submitted mock | Mock accuracy above practice |
 | Pressure Tightener | Pressure | a submitted mock | Mock accuracy below practice |
-| Self-Aware | Pressure | difficulty calibration | Any calibration data exists |
 | Night-Owl Sprinter | Pace | time of day, session length, answer speed | Scores for best hour 6 pm or later, sessions 12 minutes or shorter, answers 12 seconds or faster |
 | Early Bird Marathoner | Pace | time of day, session length | Best hour before noon, sessions 25 minutes or longer |
-| Numbers Person | Subject | two or more subjects answered | Accuracy differs across subjects |
-| Wordsmith | Subject | two or more subjects answered | Accuracy differs across subjects |
+| Numbers Person | Subject | two or more subjects answered | Accuracy differs across subjects and the strongest is math or science |
+| Wordsmith | Subject | two or more subjects answered | Accuracy differs across subjects and the strongest is reading or language |
 | Generalist | Subject | two or more subjects answered | Accuracy is similar across subjects |
-| Weekday Warrior | Study habit | time of day, streak | Always scores the same whenever its inputs exist |
 | Scholar | Study habit | read-first counts, coverage | Reads first and has broad coverage |
 | Long Memory | Study habit | review history | Few lapses |
 | Bookmark Strategist | Strategy | flags revisited, mock pacing | Revisits flagged questions |
 | Time Master | Strategy | mock pacing | Finishes mocks with time to spare |
 | Closer | Strategy | a submitted mock | Second half of mocks stronger |
 
-Lines: Game-Day Player: "You lift in mock mode, running {n} pts above practice." Every other
-label: "{Label}: your prep pattern is consistent enough to name."
+Lines (each states what the label is based on, with measured figures only):
+
+- Game-Day Player: "Your mock accuracy runs {points} pts above practice."
+- Pressure Tightener: "Your mock accuracy runs {points} pts below practice."
+- Night-Owl Sprinter: "Your best hour is {hour} and your sessions average {minutes} minutes."
+- Early Bird Marathoner: "You work best at {hour} and sit for {minutes} minutes on average."
+- Numbers Person: "Your highest subject accuracy is {percent}% in math or science."
+- Wordsmith: "Your highest subject accuracy is {percent}% in reading or language."
+- Generalist: "Your subject accuracy ranges from {low}% to {high}%."
+- Scholar: "You read first for {reads} of {lessons} lessons and have practiced {coveredTopics}
+  of {totalTopics} topics."
+- Long Memory: "You forget on {percent}% of your reviews."
+- Bookmark Strategist: "You revisit {revisitedCount} of {flaggedCount} questions you flag."
+- Time Master: "You finish mocks with {seconds} seconds left on average."
+- Closer: "You score higher in the second half of a mock."
 
 ### Section: five tendencies (one header each)
 
@@ -175,7 +187,7 @@ Loading and error: a loading state while computed; on failure "Could not load yo
 
 ---
 
-## 5. Defects found while reading (not changed; for decision)
+## 5. Defects found while reading (all fixed at 3b90fb7a, except as noted)
 
 1. **"practising"** is British spelling in the "Under pressure" label (both screens). Policy
    requires American spelling: "practicing".
@@ -189,6 +201,12 @@ Loading and error: a loading state while computed; on failure "Could not load yo
 6. **Every label but Game-Day Player** gets the same generic line.
 7. **Your record row subtitle** reads "Day {days active}", which looks like a day count of prep
    or a streak but is the number of active days.
+
+Also removed: Self-Aware, which scored the same whenever any difficulty data existed, in the
+top-priority category. **Pending (being built):** the tendency unlock rule changes from the
+14-session floor to per-tendency confidence states; see
+`2026-10-01-tendency-confidence-design.md`. Until that lands, treat the "Unlocks when" column
+and unlock lines in Section 2 as superseded by that spec.
 
 Items 3, 4 and 6 bear on the "never invent a figure" rule: a label that does not reflect the
 student's data is a claim the app cannot back.
