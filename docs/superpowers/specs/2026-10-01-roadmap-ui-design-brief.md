@@ -101,6 +101,10 @@ Free students still get all of this behavior; they just do not see ahead or see 
 - The mock falls 1 to 6 days before the exam, never on exam day. Free students' one-mock-per-14-
   days limit can move or remove it.
 - A day starts at local midnight, the same as the streak.
+- **Study days.** The student picks which weekdays they study (at least one). Rest days get no
+  work at all. New material is spread over study days only; reviews that come due on a rest day
+  wait for the next study day; the mock always lands on a study day (if its window has none, no
+  mock is scheduled). Students who never picked have all seven days.
 
 ---
 
@@ -120,6 +124,7 @@ Each needs a designed appearance on every surface that shows the plan.
 | No exam date | Should not happen after onboarding | Reviews only, no pacing | A fallback that asks for a date |
 | Exam today | Exam is today | Reviews only | Exam-day state |
 | Mock day | The scheduled mock day | Today includes the mock | Mock-day emphasis on today |
+| Rest day | Today is not one of the student's study days | Nothing: no lessons, new questions, reviews or mock | A rest-day Today; advance offered at once; practice and lessons still open |
 
 Also design:
 
@@ -127,6 +132,8 @@ Also design:
 - **Today done:** the "today done" moment, then the advance action.
 - **Advanced:** extra items added after today was done. If the student stops partway, what they
   did counts and today still counts as done. Advanced items never turn a day into missed work.
+- **Advance on a rest day:** brings in the next study day's lessons and new questions, plus
+  reviews already due. Whatever the student does counts, including toward the streak.
 - **Backlog after an absence:** today holds as many reviews as the student usually does in a day;
   the rest wait. Nothing tells them they fell behind.
 
@@ -166,7 +173,7 @@ Free:
 
 Pro:
 - Today section.
-- Weeks ahead: topics per week, no counts; the review-only date; the mock date; the exam.
+- Weeks ahead: topics per week, no counts, nothing placed on rest days; the review-only date; the mock date; the exam.
 - What changed: the log (causes in Section 7), newest first.
 
 Decide: where it lives (its own tab, inside Home, or pushed from Home and Quiz), and how the
@@ -182,6 +189,19 @@ student reaches it.
 
 - Uses today's remaining review count; a mock-day version on mock day. Copy is for the UI round
   and must avoid the banned words.
+- Fires on study days only, as does the "save your streak" reminder. The "come back" reminder
+  counts only missed study days. The exam countdown is unchanged.
+
+### Streak (exists)
+
+- Rest days are invisible to the streak: skipping one neither breaks it, adds to it, nor uses a
+  freeze. Working on a rest day counts as a streak day.
+
+### Onboarding: study days (new; Aedwon has designed it)
+
+- "Which days will you study?": seven weekday toggles, Sunday first, none picked at first.
+- Continue is disabled until at least one day is picked; "Every Day" picks all seven.
+- With days picked, a summary of the count and what happens to off days.
 
 ### Settings (exists)
 
@@ -190,6 +210,8 @@ student reaches it.
   mixed. Copy must now describe proportions of a sitting, not "all 10 questions" or "seven from
   the topic, three from others". Vocabulary questions are always kept together.
 - **Exam date:** a day or a month. Changing it rebuilds the plan at once.
+- **Study days (new):** the same seven toggles; at least one must stay picked (the last picked
+  day cannot be turned off). Changing them rebuilds today at once; what was done still counts.
 - **Included topics:** excluding a topic removes it from the plan.
 - There is no "Do more each day" switch; advance replaces it.
 
@@ -224,6 +246,7 @@ the order before and after. None states a verdict.
 | Reviews capped | More reviews were due than one day holds; the rest wait |
 | Assessment done | The first plan was made from the assessment |
 | Exam passed | The exam date has passed |
+| Study days changed | The student changed their study days; days were resized |
 | Mock answers recorded | Missed mock questions joined the reviews |
 | Prerequisite loop, no exam date | Internal safeguards; likely never shown to students |
 
@@ -257,6 +280,7 @@ ever paywalled.**
 | **Roadmap: today** | Everything: amounts, order, backlog handling, sittings, advance, the mock on its day | Nothing | none |
 | **Roadmap: weeks ahead, review-only date, mock date in advance** | Heading only | All of it | 1 |
 | **Roadmap: change log** | Heading only | All of it | 1 |
+| **Study days** (onboarding, Settings, rest days in the plan, streak, reminders) | Everything | Nothing | none |
 | Cloud backup and sync | No (history lives on the phone) | Yes, with a Google sign-in | account |
 | Mock dossier (`/plan/dossier/:mockId`) | Paywall | Placeholder, no design yet | n/a |
 
@@ -315,6 +339,7 @@ estimated minutes before 7 sessions, a "how far behind" figure.
 - The reader's "2 of N".
 - Settings copy for "How sessions are built".
 - Whether to merge Progress into Home and make Settings a tab (Section 12).
+- The rest-day Today on every surface that shows the plan, and the Settings study-days control.
 
 ---
 
