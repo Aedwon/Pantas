@@ -10,19 +10,19 @@ questions:
     stem: |
       Translate "Three times a number $x$" into an algebraic expression.
     choices:
-      - text: $3x$
+      - text: '$3x$'
         correct: true
-      - text: $x + 3$
+      - text: '$x + 3$'
         rationale: |
-          You added 3 to $x$ instead of multiplying. The phrase "three times" means multiplication, not addition.
-      - text: $\frac{x}{3}$
+          This adds 3 instead of multiplying by 3. It treats "times" like "more." Check which operation the word names.
+      - text: '$\dfrac{x}{3}$'
         rationale: |
-          You divided $x$ by 3 instead of multiplying. "Three times" indicates multiplication, not division.
-      - text: $x - 3$
+          This divides by 3 instead of multiplying by 3. Both operations involve equal groups. Check whether the phrase asks for three copies or one third.
+      - text: '$x - 3$'
         rationale: |
-          You subtracted 3 from $x$ instead of multiplying. "Three times" means you must multiply $x$ by 3.
+          This subtracts 3 instead of multiplying by 3. It treats the number 3 as an amount to remove. Check the word "times" before writing a sign.
     explanation: |
-      "Three times" means multiply by 3, so the expression is $3x$.
+      "Three times" means three equal copies of $x$. Adding them gives $x + x + x = 3x$.
 
   - id: q-algebra-algebraic-expressions-0002
     type: direct-computation
@@ -30,19 +30,19 @@ questions:
     stem: |
       Translate "Seven less than a number $y$" into an algebraic expression.
     choices:
-      - text: $y - 7$
+      - text: '$y - 7$'
         correct: true
-      - text: $7 - y$
+      - text: '$7 - y$'
         rationale: |
-          You subtracted $y$ from 7 instead of 7 from $y$. The word "than" means you must start with $y$ first.
-      - text: $y + 7$
+          This reverses the subtraction. It follows the order of the words. Check which amount must be reduced.
+      - text: '$y + 7$'
         rationale: |
-          You added 7 to $y$ instead of subtracting. The phrase "less than" means subtraction, not addition.
-      - text: $7y$
+          This adds seven instead of removing seven. The number and variable are both present, so the expression can look complete. Check whether the result must be smaller.
+      - text: '$7y$'
         rationale: |
-          You multiplied 7 by $y$ instead of subtracting. The phrase "less than" indicates subtraction.
+          This multiplies by seven instead of subtracting seven. A number beside a letter can look like the usual algebra form. Check whether the phrase says "times" or "less than."
     explanation: |
-      The word "than" means we swap the order. Seven less than $y$ means start with $y$ and subtract 7, giving $y - 7$.
+      Start with the number $y$. Remove seven from it to get $y - 7$.
 
   - id: q-algebra-algebraic-expressions-0003
     type: direct-computation
@@ -50,19 +50,19 @@ questions:
     stem: |
       Evaluate $2x + 3$ when $x = 4$.
     choices:
-      - text: $11$
+      - text: '$11$'
         correct: true
-      - text: $15$
+      - text: '$14$'
         rationale: |
-          You may have added 2 and 3 first to get 5, then multiplied by 3 instead of substituting $x = 4$.
-      - text: $8$
+          This groups $x + 3$ before multiplying by 2. It treats the expression as $2(x + 3)$. Check whether parentheses actually surround that sum.
+      - text: '$8$'
         rationale: |
-          You multiplied 2 by 4 to get 8, but forgot to add 3. Make sure to finish evaluating the whole expression.
-      - text: $13$
+          This stops after multiplying 2 by 4. The product is one finished part of the expression. Check that every term has been used.
+      - text: '$9$'
         rationale: |
-          You may have added an extra 2 after calculating $2(4) + 3 = 11$, or substituted the wrong value for $x$.
+          This adds $2 + 4 + 3$. Replacing the letter can make the nearby 2 look like another added number. Check that $2x$ means multiplication.
     explanation: |
-      Replace $x$ with 4: $2(4) + 3 = 8 + 3 = 11$.
+      Replace $x$ with $4$: $2(4) + 3$. Multiply first to get $8 + 3$. The value is $11$.
 
   - id: q-algebra-algebraic-expressions-0004
     type: direct-computation
@@ -70,19 +70,19 @@ questions:
     stem: |
       Translate "A distance $d$ divided by 4" into an algebraic expression.
     choices:
-      - text: $\frac{d}{4}$
+      - text: '$\dfrac{d}{4}$'
         correct: true
-      - text: $\frac{4}{d}$
+      - text: '$\dfrac{4}{d}$'
         rationale: |
-          You put 4 in the numerator and $d$ in the denominator. "Distance $d$ divided by 4" means $d$ is divided by 4.
-      - text: $d - 4$
+          This reverses the dividend and divisor. Both numbers appear in a fraction, so the order can be missed. Check that the quantity being divided goes on top.
+      - text: '$d - 4$'
         rationale: |
-          You subtracted 4 from $d$ instead of dividing. The phrase "divided by" indicates division, not subtraction.
-      - text: $4d$
+          This subtracts four instead of dividing by four. Both operations can make a positive distance smaller. Check the operation named in the phrase.
+      - text: '$4d$'
         rationale: |
-          You multiplied $d$ by 4 instead of dividing. The phrase "divided by" means you must divide $d$ by 4.
+          This multiplies the distance by four. It treats four equal parts as four copies. Check whether the distance is being split or repeated.
     explanation: |
-      "Divided by" means we use the division symbol. The distance $d$ goes on top, 4 goes on bottom: $\frac{d}{4}$.
+      The distance $d$ is split into four equal parts. Each part is $d \div 4 = \dfrac{d}{4}$.
 
   - id: q-algebra-algebraic-expressions-0005
     type: direct-computation
@@ -90,19 +90,19 @@ questions:
     stem: |
       Simplify the expression $3a + 2a$.
     choices:
-      - text: $5a$
+      - text: '$5a$'
         correct: true
-      - text: $5a^2$
+      - text: '$5a^2$'
         rationale: |
-          You squared the variable $a$ when adding like terms. When adding, keep the variable as $a$, do not change it to $a^2$.
-      - text: $6a$
+          This changes the exponent when adding terms. Two copies of the letter can suggest a square. Check that exponents combine during multiplication, not addition.
+      - text: '$6a$'
         rationale: |
-          You multiplied the coefficients 3 and 2 instead of adding them. For addition of like terms, add $3 + 2 = 5$.
-      - text: $a$
+          This multiplies the coefficients $3 	imes 2$. Coefficients are multiplied when whole terms are multiplied. Check the plus sign between these terms.
+      - text: '$a$'
         rationale: |
-          You subtracted the coefficients $3 - 2$ instead of adding them. The plus sign means you must add $3 + 2 = 5$.
+          This subtracts the coefficients $3 - 2$. The two terms look like a familiar subtraction pair. Check the sign joining them.
     explanation: |
-      Combine like terms. Both terms have $a$, so add the coefficients: $3 + 2 = 5$, giving $5a$.
+      Both terms have the same variable part, $a$. Add their coefficients: $3 + 2 = 5$. The result is $5a$.
 
   - id: q-algebra-algebraic-expressions-0006
     type: direct-computation
@@ -110,19 +110,19 @@ questions:
     stem: |
       Simplify the expression $2(x + 3)$.
     choices:
-      - text: $2x + 6$
+      - text: '$2x + 6$'
         correct: true
-      - text: $2x + 3$
+      - text: '$2x + 3$'
         rationale: |
-          You distributed the 2 to $x$ but forgot to multiply 3 by 2. You must multiply both terms inside the parentheses by 2.
-      - text: $x + 6$
+          This multiplies only the first term by two. The number touches $x$ first in the parentheses. Check that the outside factor reaches every term.
+      - text: '$x + 6$'
         rationale: |
-          You multiplied 3 by 2 to get 6, but forgot to multiply $x$ by 2. Distribute 2 to every term inside the parentheses.
-      - text: $2x + 2$
+          This multiplies only the constant by two. The constant gives an easy product to calculate. Check that the variable term is multiplied too.
+      - text: '$2x + 5$'
         rationale: |
-          You replaced 3 with 2 instead of multiplying 3 by 2. Multiplying 3 by 2 gives 6, so the second term should be 6.
+          This adds $2 + 3$ for the constant term. The constant and outside number are both visible. Check that distributing uses multiplication for each term.
     explanation: |
-      Distribute the 2 to both terms inside the parentheses. $2 \times x = 2x$ and $2 \times 3 = 6$, giving $2x + 6$.
+      Multiply both terms inside the parentheses by $2$. This gives $2x + 2(3) = 2x + 6$.
 
   - id: q-algebra-algebraic-expressions-0007
     type: error-spotting
@@ -133,21 +133,21 @@ questions:
       Step 1: $3a + 2$
       Step 2: The simplified answer is $3a + 2$.
 
-      Which step is wrong?
+      Which step is the first incorrect step?
     choices:
-      - text: Step 1
+      - text: 'Step 1'
         correct: true
-      - text: Step 2
+      - text: 'Step 2'
         rationale: |
-          You picked Step 2, but Step 2 simply repeats Step 1. The error occurred in Step 1 when 3 was not distributed to 2.
-      - text: Both steps
+          This blames the repeated result instead of the first change. The final line also has the wrong expression. Check each change in order.
+      - text: 'No step is wrong.'
         rationale: |
-          You marked both steps as wrong, but the error started and ended in Step 1 where 3 was not distributed to 2.
-      - text: No step is wrong.
+          This accepts multiplying only the first term. The $3a$ part is correct and can hide the missing multiplication. Check every term inside the parentheses.
+      - text: 'A value of $a$ is needed.'
         rationale: |
-          You concluded the work is correct, but 3 was not multiplied by 2. Distributing 3 gives $3a + 6$, so Step 1 is incorrect.
+          This assumes a number is needed to simplify. Letters can make the work seem unfinished. Check whether the task is simplifying or finding a numerical value.
     explanation: |
-      Step 1 is wrong. The 3 must multiply both the $a$ and the 2. It should be $3a + 6$, not $3a + 2$. The distributive property applies to every term in the parentheses.
+      Step 1 should multiply both terms by $3$. The products are $3a$ and $6$, so the expression becomes $3a + 6$. Step 1 is the first incorrect step.
 
   - id: q-algebra-algebraic-expressions-0008
     type: direct-computation
@@ -155,19 +155,19 @@ questions:
     stem: |
       Evaluate $x^2$ when $x = 3$.
     choices:
-      - text: $9$
+      - text: '$9$'
         correct: true
-      - text: $6$
+      - text: '$6$'
         rationale: |
-          You multiplied the base 3 by the exponent 2. Squaring a number means multiplying it by itself: $3 \times 3 = 9$.
-      - text: $3$
+          This multiplies the base by the exponent: $3 	imes 2$. The raised 2 can look like a multiplier. Check that a square uses two copies of the base.
+      - text: '$3$'
         rationale: |
-          You kept the value of $x$ without applying the exponent. You must evaluate $3^2$, which equals $3 \times 3 = 9$.
-      - text: $1$
+          This substitutes 3 but stops before squaring it. Replacing the variable is a necessary first step. Check whether an exponent remains.
+      - text: '$27$'
         rationale: |
-          You got 1, which happens if you divide 3 by 3. The expression asks for $3^2$, which means $3 \times 3 = 9$.
+          This uses three factors of 3 instead of two. The base 3 can be mistaken for the number of factors. Check the exponent to count the factors.
     explanation: |
-      Replace $x$ with 3 and square it: $3^2 = 3 \times 3 = 9$.
+      Replace $x$ with $3$. The square is $3^2 = 3 	imes 3 = 9$.
 
   - id: q-algebra-algebraic-expressions-0009
     type: direct-computation
@@ -175,39 +175,39 @@ questions:
     stem: |
       Evaluate $-x^2$ when $x = 2$.
     choices:
-      - text: $-4$
+      - text: '$-4$'
         correct: true
-      - text: $4$
+      - text: '$4$'
         rationale: |
-          You treated the expression as $(-x)^2$ and squared the negative sign. The negative is outside, so calculate $-(2^2) = -4$.
-      - text: $-2$
+          This includes the minus sign in the square. Squaring a negative number does give a positive result. Check whether parentheses place the minus sign inside the base.
+      - text: '$-2$'
         rationale: |
-          You multiplied $-1$ by 2 without squaring 2 first. Exponents come before negation, so calculate $2^2 = 4$, then negate to get $-4$.
-      - text: $2$
+          This leaves $-x$ without applying the square. Substitution produces a familiar negative number. Check that the exponent is evaluated.
+      - text: '$2$'
         rationale: |
-          You returned the value of $x$ without squaring or applying the negative sign. You must evaluate $-(2^2) = -4$.
+          This returns the substituted value alone. The given value looks like a ready answer. Check both the exponent and the minus sign in the expression.
     explanation: |
-      The negative sign is outside the exponent. First square the 2 to get 4, then apply the negative: $-(2^2) = -(4) = -4$.
+      The square applies to $x$ alone. With $x = 2$, first find $2^2 = 4$. Then apply the outside minus sign to get $-4$.
 
   - id: q-algebra-algebraic-expressions-0010
-    type: direct-computation
+    type: word-problem
     difficulty: hard
     stem: |
-      Evaluate $(-x)^2$ when $x = 2$.
+      A machine uses the rule $x^2 + 3$ to change an input into an output. What output does it give for an input of $-2$?
     choices:
-      - text: $4$
+      - text: '$7$'
         correct: true
-      - text: $-4$
+      - text: '$-1$'
         rationale: |
-          You applied the negative sign after squaring. Because $-x$ is inside parentheses, square the entire term $(-2) \times (-2) = 4$.
-      - text: $2$
+          This keeps the square of the negative input negative, giving $-4 + 3$. A negative base can suggest a negative result. Check the sign of a product of two negative factors.
+      - text: '$1$'
         rationale: |
-          You kept the value 2 without applying the negative sign or squaring. Substituting $x = 2$ gives $(-2)^2 = 4$.
-      - text: $-2$
+          This doubles the input, giving $2(-2) + 3$. The exponent can look like a multiplier. Check what squaring means.
+      - text: '$5$'
         rationale: |
-          You evaluated $-x = -2$ but forgot to square the result. Squaring $-2$ gives $(-2) \times (-2) = 4$.
+          This uses $|-2| + 3$. Making the input positive can seem to handle the negative sign. Check that the rule asks for a square, not just absolute value.
     explanation: |
-      The negative is inside the parentheses, so it gets squared too. $(-2)^2 = (-2) \times (-2) = 4$.
+      Put $-2$ into $x^2 + 3$: $(-2)^2 + 3$. The square is $(-2)(-2) = 4$. Add $3$ to get $7$.
 
   - id: q-algebra-algebraic-expressions-0011
     type: direct-computation
@@ -215,19 +215,19 @@ questions:
     stem: |
       Simplify the expression $5x - (2x - 3)$.
     choices:
-      - text: $3x + 3$
+      - text: '$3x + 3$'
         correct: true
-      - text: $3x - 3$
+      - text: '$3x - 3$'
         rationale: |
-          You subtracted $2x$ correctly to get $3x$, but did not distribute the negative sign to $-3$. Subtracting $-3$ gives $+3$.
-      - text: $7x - 3$
+          This leaves the constant negative when subtracting the group. Subtracting the first term correctly can hide the second sign error. Check that the minus sign changes every sign inside.
+      - text: '$7x - 3$'
         rationale: |
-          You added $5x$ and $2x$ instead of subtracting $2x$. Distributing the minus sign gives $5x - 2x + 3 = 3x + 3$.
-      - text: $3x$
+          This adds the whole group instead of subtracting it. Dropping the outer minus sign keeps the inner expression familiar. Check the sign before the parentheses.
+      - text: '$3x$'
         rationale: |
-          You simplified the $x$ terms to $3x$ but dropped the constant term. Distributing the minus sign to $-3$ gives $+3$, so the answer is $3x + 3$.
+          This drops the constant after combining the variable terms. The matching $x$ terms attract attention first. Check that no term disappears.
     explanation: |
-      When you subtract a group, flip all the signs inside. The $2x$ becomes $-2x$ and the $-3$ becomes $+3$. So $5x - 2x + 3 = 3x + 3$.
+      Subtracting the group changes both signs: $5x - 2x + 3$. Combine the $x$ terms to get $3x + 3$.
 
   - id: q-algebra-algebraic-expressions-0012
     type: error-spotting
@@ -238,21 +238,21 @@ questions:
       Step 1: $8 - 3 - x$
       Step 2: The answer is $5 - x$.
 
-      Which step is wrong?
+      Which step is the first incorrect step?
     choices:
-      - text: Step 1
+      - text: 'Step 1'
         correct: true
-      - text: Step 2
+      - text: 'Step 2'
         rationale: |
-          You chose Step 2, but Step 2 correctly computed $8 - 3 = 5$ from Step 1. The mistake happened in Step 1 where $-(-x)$ was written as $-x$.
-      - text: Both steps
+          This blames the final line because it has the wrong result. That line follows from the earlier expression. Check for the first change that breaks the rule.
+      - text: 'No step is wrong.'
         rationale: |
-          You marked both steps as wrong. Step 2 logically follows from Step 1, but Step 1 is where the negative sign failed to flip $-x$ to $+x$.
-      - text: No step is wrong.
+          This accepts removing parentheses without changing every sign. The subtraction of 3 is correct and can hide the other sign. Check both terms in the group.
+      - text: 'A value of $x$ is needed.'
         rationale: |
-          You thought no step was wrong, but subtracting $(3 - x)$ requires flipping both signs to get $8 - 3 + x = 5 + x$. Step 1 is wrong.
+          This assumes simplification requires a numerical value. The remaining letter can seem unfinished. Check whether the rules can simplify the expression for any $x$.
     explanation: |
-      Step 1 is wrong. When subtracting a group, both signs must flip. It should be $8 - 3 + x$, not $8 - 3 - x$. So the correct answer is $5 + x$.
+      Subtract each term in the group: $8 - (3 - x) = 8 - 3 + x$. This simplifies to $5 + x$. Step 1 is the first incorrect step.
 
   - id: q-algebra-algebraic-expressions-0013
     type: direct-computation
@@ -260,19 +260,19 @@ questions:
     stem: |
       Translate "50% of a number $n$" into an algebraic expression.
     choices:
-      - text: $0.5n$
+      - text: '$0.5n$'
         correct: true
-      - text: $n + 0.5$
+      - text: '$n + 0.5$'
         rationale: |
-          You added 0.5 to $n$ instead of multiplying. The word "of" in percent problems means multiplication, not addition.
-      - text: $n - 0.5$
+          This adds the decimal instead of taking a share of $n$. Converting the percent to $0.5$ is correct, which can hide the wrong operation. Check what "of" means.
+      - text: '$n - 0.5$'
         rationale: |
-          You subtracted 0.5 from $n$ instead of multiplying. Finding a percentage "of" a quantity requires multiplication.
-      - text: $\frac{n}{0.5}$
+          This removes a fixed $0.5$ instead of half the number. Both actions reduce many positive values. Check whether the amount removed should depend on $n$.
+      - text: '$\dfrac{n}{0.5}$'
         rationale: |
-          You divided $n$ by 0.5 instead of multiplying. Multiplying $n$ by 0.5 gives $0.5n$, which represents 50% of $n$.
+          This divides by $0.5$ instead of multiplying by it. The percent was correctly changed to a decimal. Check that half of a positive number is smaller than the whole.
     explanation: |
-      "Of" means multiply. 50% is 0.5, so the expression is $0.5n$.
+      $50\% = \dfrac{50}{100} = 0.5$. To find that share of $n$, multiply: $0.5 	imes n = 0.5n$.
 
   - id: q-algebra-algebraic-expressions-0014
     type: direct-computation
@@ -280,19 +280,19 @@ questions:
     stem: |
       Simplify the expression $2(3x - 1) + 4x$.
     choices:
-      - text: $10x - 2$
+      - text: '$10x - 2$'
         correct: true
-      - text: $10x + 4$
+      - text: '$10x - 1$'
         rationale: |
-          You got $+4$ as the constant term. Distributing 2 to $-1$ gives $-2$, not $+4$. Combining terms gives $10x - 2$.
-      - text: $6x - 2$
+          This multiplies $3x$ by 2 but leaves $-1$ unchanged. The variable part is correctly expanded. Check that both terms receive the outside factor.
+      - text: '$6x - 2$'
         rationale: |
-          You distributed $2(3x - 1)$ to get $6x - 2$, but forgot to add the $+4x$ term at the end to get $10x - 2$.
-      - text: $5x - 1$
+          This stops after expanding the parentheses. That gives a complete-looking expression. Check for terms outside the parentheses.
+      - text: '$14x - 2$'
         rationale: |
-          You added 2 and 3 to get 5 instead of multiplying $2 \times 3 = 6$. You must distribute by multiplying: $2(3x) = 6x$.
+          This puts the outside $4x$ inside the multiplication by two. All terms can look like one group. Check exactly where the parentheses end.
     explanation: |
-      First distribute: $2(3x) = 6x$ and $2(-1) = -2$, giving $6x - 2 + 4x$. Combine like terms: $6x + 4x = 10x$. The answer is $10x - 2$.
+      Distribute $2$ to get $6x - 2 + 4x$. Add the matching variable terms: $6x + 4x = 10x$. The result is $10x - 2$.
 
   - id: q-algebra-algebraic-expressions-0015
     type: direct-computation
@@ -300,19 +300,19 @@ questions:
     stem: |
       Evaluate $2a + b^2$ when $a = 3$ and $b = -2$.
     choices:
-      - text: $10$
+      - text: '$10$'
         correct: true
-      - text: $-2$
+      - text: '$13$'
         rationale: |
-          You may have multiplied $b = -2$ by 4 or evaluated $(-2)^3$ instead of $(-2)^2 = 4$. Check your exponent calculation.
-      - text: $2$
+          This treats $2a$ as $a^2$, giving $9+4$. The coefficient 2 can be confused with a square. Check whether the 2 is beside the letter or raised above it.
+      - text: '$2$'
         rationale: |
-          You evaluated $(-2)^2$ as $-4$ instead of $+4$. Squaring a negative number yields a positive result: $(-2)^2 = 4$, so $6 + 4 = 10$.
-      - text: $6$
+          This treats the square of $-2$ as $-4$, giving $6 - 4$. A negative base can suggest a negative answer. Check the sign after multiplying two negative factors.
+      - text: '$6$'
         rationale: |
-          You calculated $2(3) = 6$ but forgot to add $b^2$. Since $b = -2$, $b^2 = 4$, making the final result $6 + 4 = 10$.
+          This uses only $2a$ and leaves out $b^2$. The first product is easy to finish. Check that each term contributes to the total.
     explanation: |
-      Replace $a$ with 3 and $b$ with $-2$. Calculate $2(3) = 6$. Calculate $(-2)^2 = 4$. Then $6 + 4 = 10$.
+      Replace the letters: $2(3) + (-2)^2$. The first term is $6$ and the second is $4$. Add them to get $10$.
 
   - id: q-algebra-algebraic-expressions-0016
     type: direct-computation
@@ -320,19 +320,19 @@ questions:
     stem: |
       Translate "The product of 4 and a number $x$, plus 5" into an algebraic expression.
     choices:
-      - text: $4x + 5$
+      - text: '$4x + 5$'
         correct: true
-      - text: $4(x + 5)$
+      - text: '$4(x + 5)$'
         rationale: |
-          You multiplied 4 by the quantity $(x + 5)$. The phrase specifies the product of 4 and $x$ first, then adding 5, giving $4x + 5$.
-      - text: $4x - 5$
+          This multiplies the added five by four as well. The words can sound like one grouped amount. Check which quantities form the stated product.
+      - text: '$4x - 5$'
         rationale: |
-          You subtracted 5 instead of adding. The word "plus" indicates addition, so the expression is $4x + 5$.
-      - text: $4 + x + 5$
+          This subtracts five after the product. The product part is correct, so the final sign can be overlooked. Check the word "plus."
+      - text: '$4 + x + 5$'
         rationale: |
-          You added 4 and $x$ instead of multiplying them. "Product" means multiplication, so 4 and $x$ multiply to form $4x$.
+          This adds four and $x$ instead of multiplying them. Both quantities still appear in the expression. Check that "product" names multiplication.
     explanation: |
-      "Product of 4 and $x$" means $4x$. "Plus 5" means we add 5. The expression is $4x + 5$.
+      The product of $4$ and $x$ is $4x$. Adding $5$ after that gives $4x + 5$.
 
   - id: q-algebra-algebraic-expressions-0017
     type: error-spotting
@@ -343,21 +343,21 @@ questions:
       Step 1: Twice a number $y$ is $2y$.
       Step 2: 6 less than $2y$ is $6 - 2y$.
 
-      Which step is wrong?
+      Which step is the first incorrect step?
     choices:
-      - text: Step 1
-        rationale: |
-          You chose Step 1, but "twice a number $y$" is correctly translated as $2y$. The mistake is in Step 2.
-      - text: Step 2
+      - text: 'Step 2'
         correct: true
-      - text: Both steps
+      - text: 'Step 1'
         rationale: |
-          You marked both steps wrong, but Step 1 correctly translated "twice a number $y$" as $2y$. Only Step 2 has an error.
-      - text: No step is wrong.
+          This treats "twice" as addition rather than multiplication. A number and a letter can make the operation easy to misread. Check that twice means two equal copies.
+      - text: 'Both steps'
         rationale: |
-          You thought no step was wrong, but "6 less than $2y$" means starting with $2y$ and subtracting 6, which is $2y - 6$.
+          This treats the whole translation as wrong because the final line fails. The first line still translates "twice" correctly. Check the two statements separately.
+      - text: 'No step is wrong.'
+        rationale: |
+          This follows the spoken order for subtraction. The phrase begins with six, so six can seem to go first. Check which quantity is being reduced.
     explanation: |
-      Step 2 is wrong. The word "than" means we swap the order. It should be $2y - 6$, not $6 - 2y$.
+      Twice $y$ is $2y$. To make it six less, subtract $6$ from that amount: $2y - 6$. The first incorrect step is Step 2.
 
   - id: q-algebra-algebraic-expressions-0018
     type: direct-computation
@@ -365,17 +365,59 @@ questions:
     stem: |
       Simplify the expression $3x + 2y - x + 4y$.
     choices:
-      - text: $2x + 6y$
+      - text: '$2x + 6y$'
         correct: true
-      - text: $2x + 2y$
+      - text: '$2x + 2y$'
         rationale: |
-          You subtracted the $y$ terms to get $2y$. Both $2y$ and $4y$ are positive, so add them to get $2y + 4y = 6y$.
-      - text: $4x + 6y$
+          This combines the $x$ terms but drops $4y$. The first pair of like terms is finished. Check that all terms have been grouped.
+      - text: '$4x + 6y$'
         rationale: |
-          You added $3x$ and $x$ to get $4x$. The term is $-x$, so you must subtract: $3x - x = 2x$.
-      - text: $3x + 6y$
+          This adds $3x$ and $x$ despite the minus sign. Matching letters make them easy to combine automatically. Check the sign attached to each coefficient.
+      - text: '$3x + 6y$'
         rationale: |
-          You combined the $y$ terms correctly but left $3x$ unchanged. You must combine $3x - x$ to get $2x$.
+          This combines the $y$ terms but drops $-x$. The first $3x$ looks ready to keep. Check for every occurrence of each variable.
     explanation: |
-      Combine the $x$ terms: $3x - x = 2x$. Combine the $y$ terms: $2y + 4y = 6y$. The answer is $2x + 6y$.
+      Group like terms: $(3x - x) + (2y + 4y)$. Their coefficients give $(3 - 1)x + (2 + 4)y = 2x + 6y$.
+
+  - id: q-algebra-algebraic-expressions-0019
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      Which statement correctly translates "$5$ is less than $x$"?
+    choices:
+      - text: '$5 < x$'
+        correct: true
+      - text: '$x - 5$'
+        rationale: |
+          This writes an amount instead of a comparison. "Less than" often signals subtraction in a phrase. Check whether the word "is" makes a statement.
+      - text: '$5 > x$'
+        rationale: |
+          This reverses the comparison sign. The sign can look like an arrow pointing toward the smaller number. Check that its open side faces the larger quantity.
+      - text: '$x = 5$'
+        rationale: |
+          This changes an inequality into equality. The word "is" often appears in equations. Check the whole phrase "is less than."
+    explanation: |
+      The sentence compares $5$ with $x$. Since $5$ is the smaller quantity, write $5 < x$.
+    approved: false
+
+  - id: q-algebra-algebraic-expressions-0020
+    type: word-problem
+    difficulty: exam
+    stem: |
+      The sum of three consecutive even integers is $S$. Which expression gives the smallest integer?
+    choices:
+      - text: '$\dfrac{S-6}{3}$'
+        correct: true
+      - text: '$\dfrac{S}{3}$'
+        rationale: |
+          This gives the middle integer by averaging. Three equally spaced numbers have their average in the center. Check whether the question asks for the smallest or middle integer.
+      - text: '$\dfrac{S+6}{3}$'
+        rationale: |
+          This gives the largest integer. Moving two above the average is right for the largest. Check the direction needed to reach the smallest.
+      - text: '$\dfrac{S-3}{3}$'
+        rationale: |
+          This uses gaps of one between consecutive even integers. Consecutive integers normally differ by one. Check that even integers differ by two.
+    explanation: |
+      Let the smallest integer be $n$. The next two are $n+2$ and $n+4$. Their sum is $3n+6=S$. Subtract $6$ and divide by $3$ to get $n=\dfrac{S-6}{3}$.
+    approved: false
 

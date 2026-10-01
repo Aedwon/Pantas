@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-algebra-algebraic-expressions-0001	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	Policy acdc26e6cbc6bce5fa381cb45d40720631015f70; base 1f79d880264e9c80c7507c95a365126d251c3837.
+q-algebra-algebraic-expressions-0002	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-algebraic-expressions-0003	CORRECTED	SOLVED-MATCH	distractors;explanation;notes;format	MEDIUM	Two alternatives had no clear single arithmetic slip.
+q-algebra-algebraic-expressions-0004	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-algebraic-expressions-0005	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-algebraic-expressions-0006	CORRECTED	SOLVED-MATCH	distractor;explanation;notes;format	MEDIUM	The final alternative did not model a clear distribution mistake.
+q-algebra-algebraic-expressions-0007	CORRECTED	SOLVED-MATCH	stem;distractors;explanation;notes;format	HIGH	Both displayed lines were wrong; the stem did not ask for the first error.
+q-algebra-algebraic-expressions-0008	CORRECTED	SOLVED-MATCH	distractor;explanation;notes;format	MEDIUM	Dividing the base by itself was unrelated to the square.
+q-algebra-algebraic-expressions-0009	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-algebraic-expressions-0010	CORRECTED	SOLVED-MATCH	stem;choices;type;explanation;notes;format	MEDIUM	The negative-square item nearly duplicated the preceding framing.
+q-algebra-algebraic-expressions-0011	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-algebraic-expressions-0012	CORRECTED	SOLVED-MATCH	stem;distractor;explanation;notes;format	HIGH	Both displayed results were wrong; the stem did not specify the first error.
+q-algebra-algebraic-expressions-0013	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-algebraic-expressions-0014	CORRECTED	SOLVED-MATCH	distractors;explanation;notes;format	MEDIUM	Two alternatives required unrelated or multiple unexplained mistakes.
+q-algebra-algebraic-expressions-0015	CORRECTED	SOLVED-MATCH	distractor;explanation;notes;format	MEDIUM	The negative-two alternative required an unrelated exponent change.
+q-algebra-algebraic-expressions-0016	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-algebraic-expressions-0017	CORRECTED	SOLVED-MATCH	stem;explanation;notes;format	LOW	Specified the first incorrect step to remove doubt about the intended task.
+q-algebra-algebraic-expressions-0018	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-algebraic-expressions-0019	NEW	NEW	new question	NONE	
+q-algebra-algebraic-expressions-0020	NEW	NEW	new question	NONE	
