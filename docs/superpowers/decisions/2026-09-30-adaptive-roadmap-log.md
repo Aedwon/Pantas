@@ -612,3 +612,30 @@ Changed the cutoff to the day before the exam (`daysLeft >= 1`), test first (188
 exam day itself still never gets a mock. Consistent with the evidence already cited (practice
 test lag of 1 to 6 days, Adesope et al. 2017). Spec Part 1 Section 7 and Part 2 Section 4.7 and
 the UI brief amended. Full suite 3,300 of 3,300; gates OK; pushed, remote verified.
+
+## 1 October 2026: You screens defects and tendency confidence
+
+**Defect fixes** (reference doc Section 5, plus Self-Aware found by the lead): Codex ef078930,
+lead fixes 3b90fb7a (reminder tests read the real clock and failed after 7 pm once next-day
+reminders use generic text; specimen test spelling). "practising" to "practicing" in six
+strings; unlock lines name the session floor; Numbers Person and Wordsmith follow the strongest
+subject through an explicit subject map; Weekday Warrior and Self-Aware removed (they claimed
+unmeasured traits); Home card order fixed (Under pressure, Stamina, How you answer, How you
+study; was mixing fractions with seconds); every label has its own line; Your record subtitle
+"{n} days active". Full suite 3,340 of 3,340; pushed, remote verified.
+
+**14-session floor:** Aedwon asked whether it is a hard, study-backed rule. Answer: no, a
+judgment in the June metrics spec (9.3) with no source, in sessions rather than answers. Options
+offered: keep 14; lower to 7; per-tendency answer floors; a reliability test; show early with
+the base labeled; split figures from the verdict. Lead recommended the reliability test with
+figures shown early and the sentence only when clear. He asked about a progress bar; lead
+advised against a filling bar (no known finish line, its percentage would be invented) and for
+three stepped states from the test. He agreed:
+
+> "um yeah you make sense so maybe a bar isn't the best representation then?"
+
+> "okay let's go with this but for codex work just have it prepare the backend things. i'll
+> brainstorm the presentation of this with Claude Design. how will I give this to Claude Design
+> do you just need to update the spec you gave?"
+
+Spec: `docs/superpowers/specs/2026-10-01-tendency-confidence-design.md`. Backend to Codex.
