@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-biology-cellular-metabolism-0001	CORRECTED	SOLVED-MATCH	stem;explanation;notes	LOW	Original wording did not distinguish overall products from intermediate ATP production.
+q-biology-cellular-metabolism-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Correct choice was longest and oxygen-only and light-energy options were weak.
+q-biology-cellular-metabolism-0003	CORRECTED	SOLVED-MATCH	stem;explanation;notes	MEDIUM	Original stem did not restrict organelle-based photosynthesis to eukaryotes.
+q-biology-cellular-metabolism-0004	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Original broad wording omitted the cytosolic stage and eukaryote context.
+q-biology-cellular-metabolism-0005	CORRECTED	SOLVED-MATCH	stem;choices;type;explanation;notes	MEDIUM	Original item had an unrelated no-energy distractor; a note falsely limited each organelle to one job.
+q-biology-cellular-metabolism-0006	CORRECTED	SOLVED-MATCH	stem;choices;type;explanation;notes	MEDIUM	Original item repeated organelle identification and had weak both/neither distractors.
+q-biology-cellular-metabolism-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original stem wrongly attributed all oxygen animals breathe to plants, excluding algae and cyanobacteria.
+q-biology-cellular-metabolism-0008	CORRECTED	SOLVED-MATCH	choices;explanation;notes	HIGH	Original correct choice could read as saying animal cells also perform photosynthesis.
+q-biology-cellular-metabolism-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original correct choice was longest and one distractor denied any biological use of light.
+q-biology-cellular-metabolism-0010	CORRECTED	SOLVED-MATCH	stem;choices;type;explanation;notes	HIGH	Explanation incorrectly said mitochondria occur in nearly all cells and restricted chloroplasts to plant-type cells.
+q-biology-cellular-metabolism-0011	CORRECTED	SOLVED-MATCH	stem;choices;type;explanation;notes	MEDIUM	Original generalization did not distinguish aerobic from anaerobic respiration; correct choice was longest.
+q-biology-cellular-metabolism-0012	CORRECTED	SOLVED-FIXED	stem;choices;explanation;notes	HIGH	Original key and explanation treated the pathways as exact mirror-image reactions.
+q-biology-cellular-metabolism-0013	CORRECTED	SOLVED-MATCH	choices;explanation;notes	LOW	Choice formulas lacked consistent math formatting.
+q-biology-cellular-metabolism-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Original explanation stated continuous respiration without fuel or condition limits.
+q-biology-cellular-metabolism-0015	NEW	NEW	new question	NONE	
+q-biology-cellular-metabolism-0016	NEW	NEW	new question	NONE	
+q-biology-cellular-metabolism-0017	NEW	NEW	new question	NONE	
+q-biology-cellular-metabolism-0018	NEW	NEW	new question	NONE	
+q-biology-cellular-metabolism-0019	NEW	NEW	new question	NONE	
+q-biology-cellular-metabolism-0020	NEW	NEW	new question	NONE	
