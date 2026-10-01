@@ -217,7 +217,7 @@ questions:
     stem: |
       A student writes "He wanted either to win the race or finishing in the top three." Which correction makes the alternatives parallel without changing their meaning?
     choices:
-      - text: "He wanted either to win the race or to finish in the top three."
+      - text: "He wanted to win the race or finish in the top three."
         correct: true
       - text: "He wanted either winning the race or to finish in the top three."
         rationale: |
@@ -229,7 +229,7 @@ questions:
         rationale: |
           This moves "either" but leaves "win" and "finishing" unmatched. Changing the connector position looks like a repair. Check: compare the two action verbs.
     explanation: |
-      The alternatives are "to win the race" and "to finish in the top three." Both use to-plus-verb phrases, and both keep the stated goals.
+      "Wanted to" applies to both actions: "win the race" and "finish in the top three." The matching base verbs keep both original goals.
     approved: true
   - id: "q-grammar-and-structure-parallelism-0012"
     type: "parallelism-correction"
