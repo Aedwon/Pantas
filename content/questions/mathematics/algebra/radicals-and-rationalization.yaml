@@ -10,39 +10,39 @@ questions:
     stem: |
       Simplify $\sqrt{72}$.
     choices:
-      - text: $6\sqrt{2}$
+      - text: '$6\sqrt{2}$'
         correct: true
-      - text: $8\sqrt{9}$
+      - text: '$36\sqrt{2}$'
         rationale: |
-          You pulled numbers out of the root without checking the product. $8\sqrt{9}$ means $8 \times 3$, not $\sqrt{72}$ simplified.
-      - text: $2\sqrt{36}$
+          This moves the square factor 36 outside without taking its root. Factoring $72=36(2)$ is correct. Check that the extracted coefficient is the square root of 36.
+      - text: '$12$'
         rationale: |
-          You split $72$ into factors, but you kept the perfect square under the root. $\sqrt{36}$ should come out as $6$ first.
-      - text: $72$
+          This treats $\sqrt{36(2)}$ as $2\sqrt{36}$. The factor two is visible in the radicand. Check whether it is also a perfect-square factor.
+      - text: '$6\sqrt{12}$'
         rationale: |
-          You dropped the root sign and treated the radicand as the answer. A square root asks for the number whose square is $72$.
+          This extracts six but divides 72 by six rather than by thirty-six. The extracted coefficient is right. Check the square of every factor moved outside.
     explanation: |
-      Factor $72 = 36 \times 2$. Take out the perfect square: $\sqrt{36 \times 2} = \sqrt{36} \times \sqrt{2} = 6\sqrt{2}$.
+      Factor $72=36(2)$. Since $\sqrt{36}=6$, the simplified form is $6\sqrt{2}$.
 
   - id: q-algebra-radicals-and-rationalization-0002
-    type: direct-computation
+    type: estimate-first
     difficulty: easy
     stem: |
-      Simplify $\sqrt{50}$.
+      Which interval contains $\sqrt{50}$?
     choices:
-      - text: $5\sqrt{2}$
+      - text: '$7<\sqrt{50}<8$'
         correct: true
-      - text: $2\sqrt{25}$
+      - text: '$6<\sqrt{50}<7$'
         rationale: |
-          You found the factor pair $2 \times 25$, but you left the perfect square inside. $\sqrt{25}$ should become $5$.
-      - text: $\sqrt{49}$
+          This places the root below seven after using the nearby square 49. The nearby square is a useful reference. Check whether 50 is above or below 49.
+      - text: '$24<\sqrt{50}<26$'
         rationale: |
-          You used a nearby perfect square instead of factoring $50$ exactly. The number inside the root must still be $50$.
-      - text: $7\sqrt{2}$
+          This divides fifty by two instead of taking a square root. The root index is two. Check that a square root is a number whose square gives the radicand.
+      - text: '$49<\sqrt{50}<51$'
         rationale: |
-          You treated $\sqrt{50}$ like $\sqrt{49 \times 2}$. But $49 \times 2$ is $98$, not $50$.
+          This returns a value near the radicand itself. Fifty is the given number. Check whether the requested quantity is fifty or its root.
     explanation: |
-      Factor $50 = 25 \times 2$. So $\sqrt{50} = \sqrt{25} \times \sqrt{2} = 5\sqrt{2}$.
+      The nearby squares are $7^2=49$ and $8^2=64$. Since $49<50<64$, taking square roots gives $7<\sqrt{50}<8$.
 
   - id: q-algebra-radicals-and-rationalization-0003
     type: direct-computation
@@ -50,21 +50,19 @@ questions:
     stem: |
       Simplify $3\sqrt{20} - \sqrt{45}$.
     choices:
-      - text: $3\sqrt{5}$
+      - text: '$3\sqrt{5}$'
         correct: true
-      - text: $2\sqrt{5}$
+      - text: '$5\sqrt{5}$'
         rationale: |
-          You simplified both radicals, but you subtracted the coefficients wrong. $6\sqrt{5} - 3\sqrt{5}$ leaves $3\sqrt{5}$, not $2\sqrt{5}$.
-      - text: $-2\sqrt{5}$
+          This simplifies $\sqrt{45}$ as $\sqrt5$, omitting its square factor. The remaining radical part is right. Check all factors extracted from each radical.
+      - text: '$-\sqrt{5}$'
         rationale: |
-          You reversed the subtraction after simplifying. The larger like term is $6\sqrt{5}$, so the result stays positive.
-      - text: $\sqrt{25}$
+          This omits the coefficient three on the first radical, giving $2\sqrt5-3\sqrt5$. Each radical is simplified correctly. Check the coefficient outside the root too.
+      - text: '$3\sqrt{15}$'
         rationale: |
-          You subtracted 20 from 45 under one root and ignored the outside 3.
-          But $3\sqrt{20}$ becomes $6\sqrt{5}$ first, so the subtraction is
-          between coefficients: $6\sqrt{5} - 3\sqrt{5}$.
+          This subtracts radicands after moving the first coefficient inside, giving $\sqrt{180-45}$. Moving a positive coefficient inside as its square is valid. Check that separate roots cannot be combined by subtracting their radicands.
     explanation: |
-      Simplify each radical. $3\sqrt{20} = 3 \times 2\sqrt{5} = 6\sqrt{5}$ and $\sqrt{45} = 3\sqrt{5}$. Then $6\sqrt{5} - 3\sqrt{5} = 3\sqrt{5}$.
+      Simplify $\sqrt{20}=2\sqrt5$ and $\sqrt{45}=3\sqrt5$. Then $3(2\sqrt5)-3\sqrt5=(6-3)\sqrt5=3\sqrt5$.
 
   - id: q-algebra-radicals-and-rationalization-0004
     type: error-spotting
@@ -72,19 +70,19 @@ questions:
     stem: |
       A student writes $\sqrt{9} + \sqrt{16} = \sqrt{25}$. What is the error?
     choices:
-      - text: You cannot add the insides of roots. The correct answer is $3 + 4 = 7$.
+      - text: 'The radicands were added.'
         correct: true
-      - text: There is no error.
+      - text: 'The roots should have been multiplied.'
         rationale: |
-          You treated $\sqrt{a} + \sqrt{b}$ as $\sqrt{a+b}$. That shortcut does not work for ordinary addition of radicals.
-      - text: The answer should be $\sqrt{144}$.
+          This replaces addition of roots with multiplication. Multiplication has a valid root-product rule for nonnegative factors. Check the original operation.
+      - text: 'The root of sixteen is negative four.'
         rationale: |
-          You multiplied the radicands or the roots instead of adding the simplified values. This expression is $3 + 4$, not a product.
-      - text: Only one radical should be simplified.
+          This confuses the principal root with the negative solution of a square equation. Negative four does square to sixteen. Check the meaning of the root symbol alone.
+      - text: 'The addition rule was used correctly.'
         rationale: |
-          You may have thought only one term changes under a root. Both radicals simplify on their own before you add them.
+          This accepts combining roots by adding their radicands. The sum nine plus sixteen is correctly found. Check each square root before adding.
     explanation: |
-      Each radical must be simplified separately. $\sqrt{9} = 3$ and $\sqrt{16} = 4$, so the sum is $7$. Never add the radicands.
+      Take each root first: $\sqrt9=3$ and $\sqrt{16}=4$. Add the resulting numbers to get $3+4=7$. Adding the radicands does not perform those steps.
 
   - id: q-algebra-radicals-and-rationalization-0005
     type: direct-computation
@@ -92,45 +90,39 @@ questions:
     stem: |
       Rationalize the denominator: $\dfrac{5}{\sqrt{5}}$.
     choices:
-      - text: $\sqrt{5}$
+      - text: '$\sqrt5$'
         correct: true
-      - text: $5\sqrt{5}$
+      - text: '$5\sqrt5$'
         rationale: |
-          You multiplied the numerator by $\sqrt{5}$ but forgot to multiply
-          the denominator. You must multiply both parts by $\sqrt{5}$ so the
-          denominator becomes 5, then simplify.
-      - text: $\dfrac{\sqrt{5}}{5}$
+          This multiplies the numerator by the root but drops the new denominator. Multiplying by the root is part of rationalization. Check that both top and bottom receive the same factor.
+      - text: '$\dfrac{\sqrt5}{5}$'
         rationale: |
-          You dropped the original 5 from the numerator. Rationalizing gives
-          $\dfrac{5\sqrt{5}}{5}$. Canceling the common 5 leaves $\sqrt{5}$,
-          not $\dfrac{\sqrt{5}}{5}$.
-      - text: $5$
+          This rationalizes as if the original numerator were one. The usual reciprocal-root form looks familiar. Check the original numerator before simplifying.
+      - text: '$5$'
         rationale: |
-          You canceled the radicals as if $\dfrac{5}{\sqrt{5}}$ were the same as $\dfrac{5}{5}$. The root does not disappear until you multiply top and bottom.
+          This removes the root denominator without replacing it. A rational denominator is the goal. Check that the new fraction has the same value.
     explanation: |
-      Multiply top and bottom by $\sqrt{5}$: $\dfrac{5}{\sqrt{5}} \times \dfrac{\sqrt{5}}{\sqrt{5}} = \dfrac{5\sqrt{5}}{5} = \sqrt{5}$.
+      Multiply top and bottom by $\sqrt5$: $\dfrac{5\sqrt5}{5}$. Cancel the factor five to get $\sqrt5$.
 
   - id: q-algebra-radicals-and-rationalization-0006
-    type: direct-computation
+    type: which-is-true
     difficulty: medium
     stem: |
-      Rationalize the denominator: $\dfrac{10}{\sqrt{5}}$.
+      Which statement about $\dfrac{10}{\sqrt5}$ is true?
     choices:
-      - text: $2\sqrt{5}$
+      - text: 'It is defined and equals $2\sqrt5$.'
         correct: true
-      - text: $2$
+      - text: 'It is undefined until its denominator is rational.'
         rationale: |
-          You treated $\sqrt{5}$ as 5 and divided $10 \div 5$. A square root
-          is not the number inside it. Rationalize first to get
-          $\dfrac{10\sqrt{5}}{5} = 2\sqrt{5}$.
-      - text: $\dfrac{\sqrt{50}}{5}$
+          This treats rationalization as a condition for a fraction to exist. A radical denominator is often rewritten in class. Check that division only requires a nonzero denominator.
+      - text: 'It equals $10\sqrt5$ after rationalization.'
         rationale: |
-          You multiplied by $\sqrt{5}$, but you left the numerator under a new root. $10\sqrt{5}$ is not the same as $\sqrt{50}$.
-      - text: $10\sqrt{5}$
+          This multiplies only the numerator by the root. That is half of the rationalization step. Check that multiplying a fraction by one changes both top and bottom.
+      - text: 'It equals $2$ after its radical is removed.'
         rationale: |
-          You multiplied the numerator by $\sqrt{5}$ but forgot to multiply the denominator too. Rationalizing must keep the fraction equivalent.
+          This cancels the radical as if it were a common factor in both top and bottom. The numbers ten and five do simplify. Check whether the numerator actually contains the same radical factor.
     explanation: |
-      Multiply top and bottom by $\sqrt{5}$: $\dfrac{10}{\sqrt{5}} \times \dfrac{\sqrt{5}}{\sqrt{5}} = \dfrac{10\sqrt{5}}{5} = 2\sqrt{5}$.
+      The denominator $\sqrt5$ is positive, so the fraction is defined. Multiply top and bottom by $\sqrt5$ to get $\dfrac{10\sqrt5}{5}=2\sqrt5$.
 
   - id: q-algebra-radicals-and-rationalization-0007
     type: direct-computation
@@ -138,43 +130,39 @@ questions:
     stem: |
       Rationalize the denominator: $\dfrac{4}{3 - \sqrt{5}}$.
     choices:
-      - text: $3 + \sqrt{5}$
+      - text: '$3+\sqrt5$'
         correct: true
-      - text: $\dfrac{4}{3} - \sqrt{5}$
+      - text: '$\dfrac{4}{3}-\sqrt5$'
         rationale: |
-          You split the denominator into separate parts and tried to simplify each one. Fractions with binomials do not work term by term like that.
-      - text: $3 - \sqrt{5}$
+          This divides by three and then subtracts the root separately. That treats a sum in the denominator like separate divisions. Check that the whole denominator is one grouped quantity.
+      - text: '$3-\sqrt5$'
         rationale: |
-          You kept the minus sign from the denominator after rationalizing.
-          The conjugate changes that sign, so dividing $12 + 4\sqrt{5}$ by 4
-          gives $3 + \sqrt{5}$.
-      - text: $3 + 4\sqrt{5}$
+          This uses the original denominator as the final expression. The numerator cancels the conjugate product. Check which conjugate is left in the numerator.
+      - text: '$3+4\sqrt5$'
         rationale: |
-          You divided 12 by 4 but did not divide $4\sqrt{5}$ by 4. The
-          denominator divides both terms, so the result is $3 + \sqrt{5}$,
-          not $3 + 4\sqrt{5}$.
+          This cancels the denominator factor four only from the constant term. The constant three looks correct. Check that a factor divides every numerator term.
     explanation: |
-      Multiply by conjugate: $\dfrac{4}{3 - \sqrt{5}} \times \dfrac{3 + \sqrt{5}}{3 + \sqrt{5}} = \dfrac{4(3 + \sqrt{5})}{9 - 5} = \dfrac{12 + 4\sqrt{5}}{4} = 3 + \sqrt{5}$.
+      Multiply by the conjugate $\dfrac{3+\sqrt5}{3+\sqrt5}$. The denominator becomes $9-5=4$. Cancel four from $\dfrac{4(3+\sqrt5)}4$ to get $3+\sqrt5$.
 
   - id: q-algebra-radicals-and-rationalization-0008
     type: direct-computation
     difficulty: hard
     stem: |
-      Assume $x \ge 0$. Simplify $\sqrt{72x^3y^4}$.
+      For real $x,y$ with $x\ge0$, simplify $\sqrt{72x^3y^4}$.
     choices:
-      - text: $6xy^2\sqrt{2x}$
+      - text: '$6xy^2\sqrt{2x}$'
         correct: true
-      - text: $6x^2y^2\sqrt{2}$
+      - text: '$6x^2y^2\sqrt2$'
         rationale: |
-          You took all three $x$ factors out of the root. Only pairs leave the radical, so one $x$ must stay inside with the 2.
-      - text: $36xy^2\sqrt{x}$
+          This extracts all three factors of $x$ as $x^2$ and leaves no $x$ under the root. An odd power can make pair counting confusing. Check how many pairs are in $x^3$.
+      - text: '$36xy^2\sqrt{2x}$'
         rationale: |
-          You treated the square root of 72 like 36. Only $\sqrt{36}$ comes out as 6, so the coefficient should not become 36.
-      - text: $12xy^2\sqrt{6}$
+          This moves 36 outside without taking its square root. The other factor groups are right. Check the square root of each extracted perfect square.
+      - text: '$6xy^4\sqrt{2x}$'
         rationale: |
-          You pulled out too much from 72 and lost the leftover $x$ inside the root. After taking out pairs, the inside is $2x$, not 6.
+          This leaves $y^4$ unchanged outside the square root. The fourth power is a perfect square. Check that its square root halves the exponent.
     explanation: |
-      With $x \ge 0$, $\sqrt{x^2}=x$. Factor $72 = 36 \times 2$, $x^3 = x^2 \times x$, and $y^4=(y^2)^2$. Taking out the square factors gives $6xy^2\sqrt{2x}$.
+      Write the radicand as $36x^2y^4(2x)$. For real $x,y$ with $x\ge0$, the square roots of the square factors are $6$, $x$, and $y^2$. The result is $6xy^2\sqrt{2x}$.
 
   - id: q-algebra-radicals-and-rationalization-0009
     type: which-is-true
@@ -182,19 +170,19 @@ questions:
     stem: |
       What is the value of $\sqrt{25}$?
     choices:
-      - text: $5$
+      - text: '$5$'
         correct: true
-      - text: $\pm 5$
+      - text: '$\pm5$'
         rationale: |
-          You mixed up solving $x^2 = 25$ with evaluating $\sqrt{25}$. The radical symbol means the principal, non-negative root only.
-      - text: $-5$
+          This gives both solutions of a square equation. Both numbers square to twenty-five. Check that the root symbol asks for the nonnegative principal value.
+      - text: '$-5$'
         rationale: |
-          You chose the negative root, but $\sqrt{\ }$ names the principal root. For 25, that value is positive 5.
-      - text: Cannot be determined.
+          This chooses the negative square-equation solution. Negative five does square to twenty-five. Check that a principal square root is nonnegative.
+      - text: '$25$'
         rationale: |
-          You may have thought every square has two roots here. But the symbol $\sqrt{25}$ already tells you to take the positive one.
+          This returns the radicand unchanged. Twenty-five is the number shown under the root. Check which nonnegative number squares to it.
     explanation: |
-      The square root symbol $\sqrt{\ }$ always gives the non-negative answer. So $\sqrt{25} = 5$ only.
+      The principal square root is the nonnegative value whose square is twenty-five. Since $5^2=25$, $\sqrt{25}=5$.
 
   - id: q-algebra-radicals-and-rationalization-0010
     type: direct-computation
@@ -202,19 +190,19 @@ questions:
     stem: |
       Simplify $\sqrt{18} + \sqrt{8}$.
     choices:
-      - text: $5\sqrt{2}$
+      - text: '$5\sqrt2$'
         correct: true
-      - text: $\sqrt{26}$
+      - text: '$\sqrt{26}$'
         rationale: |
-          You added the numbers inside the roots before simplifying. Radicals only combine after they have the same simplified root part.
-      - text: $3\sqrt{2}$
+          This adds the radicands inside one root. Addition is the visible operation between the roots. Check that the product rule does not apply to sums.
+      - text: '$3\sqrt2$'
         rationale: |
-          You simplified both radicals, but you left out the $2\sqrt{2}$ from $\sqrt{8}$. Both like terms must be added.
-      - text: $6\sqrt{2}$
+          This simplifies only $\sqrt{18}$ and omits $\sqrt8$. The first radical has been handled correctly. Check that every original term remains.
+      - text: '$6\sqrt2$'
         rationale: |
-          You added the coefficients as if they were 3 and 3. But $\sqrt{8}$ becomes $2\sqrt{2}$, so the sum is 5, not 6.
+          This multiplies the extracted coefficients three and two instead of adding them. Both radicals now match. Check the operation between the terms.
     explanation: |
-      $\sqrt{18} = 3\sqrt{2}$ and $\sqrt{8} = 2\sqrt{2}$. Adding: $3\sqrt{2} + 2\sqrt{2} = 5\sqrt{2}$.
+      Simplify $\sqrt{18}=3\sqrt2$ and $\sqrt8=2\sqrt2$. Add their coefficients: $(3+2)\sqrt2=5\sqrt2$.
 
   - id: q-algebra-radicals-and-rationalization-0011
     type: direct-computation
@@ -222,21 +210,19 @@ questions:
     stem: |
       Multiply $(\sqrt{3} + 2)(\sqrt{3} - 2)$.
     choices:
-      - text: $-1$
+      - text: '$-1$'
         correct: true
-      - text: $-4$
+      - text: '$-4$'
         rationale: |
-          You kept only the $-2^2$ part of the difference of squares. The
-          first product is $(\sqrt{3})^2 = 3$, so the full result is
-          $3 - 4 = -1$.
-      - text: $\sqrt{3} - 4$
+          This omits the product of the radical terms. The constant product is correctly negative four. Check the first product as well as the last.
+      - text: '$\sqrt3-4$'
         rationale: |
-          You squared only one term and left the other root unchanged. In a conjugate product, $(\sqrt{3})^2$ becomes 3.
-      - text: $1$
+          This treats $\sqrt3\cdot\sqrt3$ as $\sqrt3$. The repeated radical can look unchanged. Check the product of a number with itself.
+      - text: '$1$'
         rationale: |
-          You used difference of squares but dropped the sign. Since $3 - 4$ is negative, the product is $-1$.
+          This reverses the order of the squared terms. The magnitude of their difference is right. Check which term is squared first in the conjugate product.
     explanation: |
-      This is conjugate multiplication. Use difference of squares: $(\sqrt{3})^2 - 2^2 = 3 - 4 = -1$.
+      Use the difference of squares: $(\sqrt3)^2-2^2=3-4=-1$.
 
   - id: q-algebra-radicals-and-rationalization-0012
     type: error-spotting
@@ -244,19 +230,20 @@ questions:
     stem: |
       For $x \ne 0$, a student rationalized $\dfrac{1}{\sqrt[3]{x}}$ by multiplying by $\dfrac{\sqrt[3]{x}}{\sqrt[3]{x}}$ and got $\dfrac{\sqrt[3]{x}}{x}$. What is the issue?
     choices:
-      - text: For cube roots, you need groups of three, not two. Multiply by $\dfrac{\sqrt[3]{x^2}}{\sqrt[3]{x^2}}$ instead.
+      - text: 'The denominator is $\sqrt[3]{x^2}$.'
         correct: true
-      - text: The answer is correct.
+      - text: 'The denominator is $x^2$ after this step.'
         rationale: |
-          You counted two copies of $x$ under the cube root and treated that as enough. Cube roots only simplify when you have groups of three.
-      - text: Cube roots cannot be rationalized.
+          This treats two cube-root factors as three. The exponent two appears after multiplication. Check that a cube root needs three copies of each factor.
+      - text: 'Cube roots of negative inputs are not real.'
         rationale: |
-          You may have remembered the square-root trick and thought it fails here. Cube-root denominators can be rationalized, but the factor is different.
-      - text: The denominator should be $x^2$.
+          This applies an even-root restriction to an odd root. Negative radicands do fail for real square roots. Check the root index.
+      - text: 'One copy of a cube root removes the radical.'
         rationale: |
-          You pushed the missing factor all the way outside the root. The extra $x$ must stay inside as $\sqrt[3]{x^2}$ before multiplying.
+          This assumes the square-root shortcut works for a cube root. Both methods multiply by a radical. Check the number of factors needed to complete a cube.
     explanation: |
-      The original denominator requires $x \ne 0$. A cube root needs three identical factors to simplify. Multiplying by only $\sqrt[3]{x}$ gives two copies under the cube root; multiply by $\sqrt[3]{x^2}$ instead so the denominator becomes $x$.
+      The written multiplication produces denominator $\sqrt[3]{x}\sqrt[3]{x}=\sqrt[3]{x^2}$. To obtain $x$ instead, multiply top and bottom by $\sqrt[3]{x^2}$. This gives $\dfrac{\sqrt[3]{x^2}}{x}$ for $x
+      e0$.
 
   - id: q-algebra-radicals-and-rationalization-0013
     type: direct-computation
@@ -264,81 +251,79 @@ questions:
     stem: |
       Simplify $2\sqrt{12} - \sqrt{27} + \sqrt{3}$.
     choices:
-      - text: $2\sqrt{3}$
+      - text: '$2\sqrt3$'
         correct: true
-      - text: $\sqrt{3}$
+      - text: '$\sqrt3$'
         rationale: |
-          You simplified the radicals, but you combined the like terms as if $4 - 3 + 1 = 1$. The last $\sqrt{3}$ term still adds back in.
-      - text: $3\sqrt{3}$
+          This leaves out the final $\sqrt3$. The first two radicals have been combined correctly. Check that all three original terms are used.
+      - text: '$3\sqrt3$'
         rationale: |
-          You added all the coefficients after simplifying and ignored the subtraction. One term is being taken away, not added.
-      - text: $0$
+          This extracts two instead of three from $\sqrt{27}$. The common radical part is right. Check the square factor nine in twenty-seven.
+      - text: '$0$'
         rationale: |
-          You canceled the positive and negative terms too early. After $4\sqrt{3} - 3\sqrt{3}$, one $\sqrt{3}$ is still left.
+          This omits the outside coefficient two on $\sqrt{12}$. Simplifying the roots then gives coefficients $2-3+1$. Check coefficients already outside each root.
     explanation: |
-      $2\sqrt{12} = 2 \times 2\sqrt{3} = 4\sqrt{3}$, $\sqrt{27} = 3\sqrt{3}$, so $4\sqrt{3} - 3\sqrt{3} + \sqrt{3} = 2\sqrt{3}$.
+      Simplify $\sqrt{12}=2\sqrt3$ and $\sqrt{27}=3\sqrt3$. The expression becomes $4\sqrt3-3\sqrt3+\sqrt3=(4-3+1)\sqrt3=2\sqrt3$.
 
   - id: q-algebra-radicals-and-rationalization-0014
-    type: direct-computation
+    type: which-is-true
     difficulty: easy
     stem: |
-      Simplify $\sqrt{100}$.
+      Which statement correctly compares the principal value $\sqrt{100}$ with the real solutions of $t^2=100$?
     choices:
-      - text: $10$
+      - text: '$\sqrt{100}=10,\ t=\pm10$'
         correct: true
-      - text: $50$
+      - text: '$\sqrt{100}=\pm10,\ t=\pm10$'
         rationale: |
-          You divided 100 by 2 instead of taking its square root. A square root asks what number times itself gives 100.
-      - text: $\sqrt{10}$
+          This gives two values to the principal root symbol. Both square-equation roots are correctly recognized. Check which notation asks for only the nonnegative root.
+      - text: '$\sqrt{100}=10,\ t=10\text{ only}$'
         rationale: |
-          You treated 100 as if only one zero could come out. But 100 is a perfect square, so the radical simplifies all the way to an integer.
-      - text: $100$
+          This uses only the principal root as the equation’s solution. The positive root is valid. Check whether the negative value also squares to one hundred.
+      - text: '$\sqrt{100}=-10,\ t=-10\text{ only}$'
         rationale: |
-          You copied the number inside the root without simplifying. The radical changes the value.
+          This selects only the negative square-equation root and uses it as the principal root. Negative ten does square to one hundred. Check the sign required by the root symbol and both possibilities in the equation.
     explanation: |
-      $\sqrt{100} = 10$ because $10 \times 10 = 100$.
+      The principal square root is $\sqrt{100}=10$. The equation $t^2=100$ has both $t=10$ and $t=-10$ because both squares are one hundred.
 
   - id: q-algebra-radicals-and-rationalization-0015
-    type: direct-computation
+    type: which-is-true
     difficulty: medium
     stem: |
-      Rationalize: $\dfrac{3}{\sqrt{3}}$.
+      Let $x$ be a positive rational number. Which factor, applied to both numerator and denominator, guarantees a rational denominator in $\dfrac3{\sqrt{x}}$?
     choices:
-      - text: $\sqrt{3}$
+      - text: '$\sqrt{x}$'
         correct: true
-      - text: $3$
+      - text: '$x$'
         rationale: |
-          You canceled $\sqrt{3}$ as if it were 1. To remove the radical
-          below, multiply top and bottom by $\sqrt{3}$. The result simplifies
-          to $\sqrt{3}$, not 3.
-      - text: $3\sqrt{3}$
+          This uses a rational factor that leaves a square-root factor in the denominator. Multiplying by the radicand looks related to removing the root. Check whether the new denominator is rational for every allowed $x$.
+      - text: '$\sqrt[3]{x}$'
         rationale: |
-          You multiplied the numerator by $\sqrt{3}$ but forgot to divide by the new denominator of 3. Both parts of the fraction change.
-      - text: $\dfrac{\sqrt{3}}{3}$
+          This uses a cube root to complete a square-root denominator. Both factors are roots of $x$. Check that their indices must match.
+      - text: '$\sqrt{x+3}$'
         rationale: |
-          You divided by 3 but lost the original numerator of 3. That cancellation should leave $\sqrt{3}$, not another factor of 3 in the denominator.
+          This combines the numerator three with the radicand by addition. Both quantities appear in the original fraction. Check that the needed factor makes the denominator’s product a perfect square.
     explanation: |
-      $\dfrac{3}{\sqrt{3}} \times \dfrac{\sqrt{3}}{\sqrt{3}} = \dfrac{3\sqrt{3}}{3} = \sqrt{3}$.
+      Multiply top and bottom by $\sqrt{x}$. The denominator becomes $\sqrt{x}\sqrt{x}=x$. Since $x$ is a positive rational number, that denominator is rational and nonzero.
 
   - id: q-algebra-radicals-and-rationalization-0016
     type: direct-computation
     difficulty: hard
     stem: |
-      Assume $x \ge 0$ and $y \ge 0$. Simplify $\sqrt{200x^2y}$.
+      For real $x$, simplify $\sqrt{200x^2}$.
     choices:
-      - text: $10x\sqrt{2y}$
+      - text: '$10|x|\sqrt2$'
         correct: true
-      - text: $10\sqrt{2xy}$
+      - text: '$10x\sqrt2$'
         rationale: |
-          You moved the $x$ outside the radical and also kept it inside. Once $x^2$ leaves as $x$ under the stated $x \ge 0$ assumption, it should not remain under the root.
-      - text: $20\sqrt{5y}$
+          This replaces $\sqrt{x^2}$ with $x$ for negative inputs too. It is correct when $x$ is nonnegative. Check that a principal root cannot be negative.
+      - text: '$100|x|\sqrt2$'
         rationale: |
-          You split 200 as if the outside factor were 20. The largest square factor is 100, so only 10 comes out.
-      - text: $100x\sqrt{y}$
+          This moves the factor 100 outside without taking its root. The absolute value is correctly kept. Check the square root of the numerical square factor.
+      - text: '$20|x|$'
         rationale: |
-          You took the whole 100 outside as if the root were not there. $\sqrt{100}$ is 10, not 100.
+          This removes the unmatched factor two from the root as two. The square factor 100 is correctly extracted. Check which factors are perfect squares.
     explanation: |
-      With $x \ge 0$, $\sqrt{x^2}=x$. Also $y \ge 0$ keeps the real square root defined. Since $200=100\times2$, $\sqrt{200x^2y}=10x\sqrt{2y}$.
+      Write $\sqrt{200x^2}=\sqrt{100(2)x^2}$. For real $x$, $\sqrt{x^2}=|x|$. Therefore the expression is $10|x|\sqrt2$.
 
   - id: q-algebra-radicals-and-rationalization-0017
     type: error-spotting
@@ -346,19 +331,19 @@ questions:
     stem: |
       For real $x$ and $y \ge 0$, a student claims $(x + \sqrt{y})(x - \sqrt{y}) = x^2 + y$. What is the error?
     choices:
-      - text: The result should be $x^2 - y$, not $x^2 + y$.
+      - text: 'The constant product has the wrong sign.'
         correct: true
-      - text: There is no error.
+      - text: 'The cross terms should add instead of cancel.'
         rationale: |
-          You treated conjugates like ordinary binomials with a plus at the end. The middle terms cancel, and $(\sqrt{y})^2$ is subtracted.
-      - text: It should equal $(x + \sqrt{y})^2$.
+          This treats the two factors as identical rather than conjugate. Equal signs would give equal cross terms. Check that the signs of the radical terms are opposite.
+      - text: 'The square of the radical stays a radical.'
         rationale: |
-          You ignored the second factor and replaced it with a repeat. Squaring a binomial is not the same as multiplying conjugates.
-      - text: Conjugates cannot be multiplied this way.
+          This treats $(\sqrt y)^2$ as $\sqrt y$. The radical symbol can seem to remain attached to $y$. Check that squaring reverses the principal square root for $y\ge0$.
+      - text: 'The first factor should be squared alone.'
         rationale: |
-          You may have doubted the shortcut, but conjugates are made for this. Their product is a difference of squares.
+          This repeats the first factor instead of multiplying both different factors. A familiar square-of-a-sum rule can seem useful. Check the sign in the second factor.
     explanation: |
-      This is conjugate multiplication: $(x + \sqrt{y})(x - \sqrt{y}) = x^2 - (\sqrt{y})^2 = x^2 - y$.
+      Expanding gives $x^2-x\sqrt y+x\sqrt y-y$. The middle terms cancel and the constant product is $-y$. The result is $x^2-y$.
 
   - id: q-algebra-radicals-and-rationalization-0018
     type: direct-computation
@@ -366,18 +351,58 @@ questions:
     stem: |
       Rationalize: $\dfrac{2}{2 + \sqrt{2}}$.
     choices:
-      - text: $2 - \sqrt{2}$
+      - text: '$2-\sqrt2$'
         correct: true
-      - text: $\dfrac{2(2 + \sqrt{2})}{2}$
+      - text: '$2+\sqrt2$'
         rationale: |
-          You changed the numerator but did not multiply the full denominator
-          by the same factor. To keep the fraction equal, the conjugate must
-          multiply both top and bottom.
-      - text: $\dfrac{2}{2}$
+          This leaves the original sign after using a conjugate. The denominator product is correctly rational. Check which conjugate appears in the numerator.
+      - text: '$1$'
         rationale: |
-          You treated $2 + \sqrt{2}$ as if it were just 2 and canceled too much. The radical term must be removed with a conjugate first.
-      - text: $1 + \sqrt{2}$
+          This drops the radical term when simplifying the numerator. The rational part cancels with the denominator. Check that every numerator term is kept.
+      - text: '$4-2\sqrt2$'
         rationale: |
-          You used the conjugate idea, but the simplification went off. After multiplying by $2 - \sqrt{2}$, the numerator stays $4 - 2\sqrt{2}$.
+          This stops at the conjugate numerator and omits division by two. The numerator is correctly expanded. Check the resulting denominator before stopping.
     explanation: |
-      Multiply by conjugate: $\dfrac{2}{2 + \sqrt{2}} \times \dfrac{2 - \sqrt{2}}{2 - \sqrt{2}} = \dfrac{2(2 - \sqrt{2})}{4 - 2} = \dfrac{4 - 2\sqrt{2}}{2} = 2 - \sqrt{2}$.
+      Multiply top and bottom by $2-\sqrt2$. The denominator is $4-2=2$. Divide the numerator $2(2-\sqrt2)$ by $2$ to get $2-\sqrt2$.
+
+  - id: q-algebra-radicals-and-rationalization-0019
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Assume the nested expression $L=\sqrt{20+\sqrt{20+\cdots}}$ converges to a real limit. What is $L$?
+    choices:
+      - text: '$5$'
+        correct: true
+      - text: '$-4$'
+        rationale: |
+          This keeps the negative solution of the squared equation. That value does satisfy $L^2-L-20=0$. Check that the original expression is a principal square root.
+      - text: '$\sqrt{20}$'
+        rationale: |
+          This stops at the first square root and drops the repeated tail. A truncated expression gives this value. Check that the convergent tail has the same value as the whole.
+      - text: '$20$'
+        rationale: |
+          This returns the radicand’s fixed term. Twenty appears at every level. Check the outer square root and the repeated tail.
+    explanation: |
+      The repeated tail has value $L$, so $L=\sqrt{20+L}$. Square both sides: $L^2-L-20=0$. Factor: $(L-5)(L+4)=0$. A principal square root is nonnegative, so $L=5$.
+    approved: false
+
+  - id: q-algebra-radicals-and-rationalization-0020
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      For real $x\ne0$, rationalize $\dfrac2{\sqrt[3]{4x}}$.
+    choices:
+      - text: '$\dfrac{\sqrt[3]{2x^2}}{x}$'
+        correct: true
+      - text: '$\dfrac{\sqrt[3]{4x}}{2x}$'
+        rationale: |
+          This uses one more copy of the original cube root instead of completing cubes. That is the familiar square-root method. Check that each radicand exponent becomes a multiple of three.
+      - text: '$\dfrac{\sqrt[3]{2x^2}}{2x}$'
+        rationale: |
+          This cancels the factor two only from the numerator’s coefficient. The denominator $2x$ is correctly found. Check that cancellation removes the common factor from both top and bottom.
+      - text: '$\dfrac{\sqrt[3]{2x^2}}{|x|}$'
+        rationale: |
+          This applies the absolute-value rule for square roots to a cube root. Even roots do require a nonnegative value. Check that an odd root preserves the sign of its input.
+    explanation: |
+      Multiply top and bottom by $\sqrt[3]{2x^2}$. The denominator becomes $\sqrt[3]{8x^3}=2x$. The fraction is $\dfrac{2\sqrt[3]{2x^2}}{2x}$. Cancel two to obtain $\dfrac{\sqrt[3]{2x^2}}{x}$.
+    approved: false
