@@ -203,10 +203,31 @@ Loading and error: a loading state while computed; on failure "Could not load yo
    or a streak but is the number of active days.
 
 Also removed: Self-Aware, which scored the same whenever any difficulty data existed, in the
-top-priority category. **Pending (being built):** the tendency unlock rule changes from the
-14-session floor to per-tendency confidence states; see
-`2026-10-01-tendency-confidence-design.md`. Until that lands, treat the "Unlocks when" column
-and unlock lines in Section 2 as superseded by that spec.
+top-priority category.
+
+## 6. Tendency confidence (built at 1f79d880; replaces the unlock rules in Sections 2 and 3)
+
+Spec: `2026-10-01-tendency-confidence-design.md`. The 14-session floor no longer applies to the
+five tendencies (it still applies to the profile label and "When you work").
+
+Each tendency now carries a **state**: **early** (figures exist, too few answers to judge),
+**forming** (enough to judge, no clear difference yet), **clear** (the sentence shows). Figures
+appear as soon as both sides have data; the sentence appears only when clear. A clear result is
+never an equality claim, so the "stays even", "about the same" and "split about evenly"
+sentences are gone. A clear gap that rounds to 0 prints one decimal ("0.3%", "0.4s"). "How you
+answer" now shows each side's typical time (geometric mean) in whole seconds. The engine gives
+the state to Free and Pro; whether Free sees it is a design decision (figures stay Pro).
+
+Unlock lines now name only what is missing:
+
+- Under pressure: "Answer practice questions and finish one full length mock", "Answer practice
+  questions", "Finish one full length mock"
+- Stamina: "Finish one full length mock"
+- How you study: "Read a lesson and answer questions in its topic", "Answer questions in a topic
+  you have read", "Read a lesson in a topic you have practiced"
+- How you answer: "Answer timed questions correctly and incorrectly", "Answer timed questions
+  correctly", "Answer timed questions incorrectly"
+- How long you remember: "Review more questions"
 
 Items 3, 4 and 6 bear on the "never invent a figure" rule: a label that does not reflect the
 student's data is a claim the app cannot back.
