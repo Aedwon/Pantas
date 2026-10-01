@@ -14,7 +14,11 @@ lists live in `question-blueprints/<subject>.md`.
 3. **Look up the topic's exams** in the table below and set `meta.exams`.
 4. **Write the questions**, one archetype at a time, 2–3 variants each,
    ramped easy → exam-level, following the style guide's field rules and
-   two-level voice.
+   two-level voice, until the lesson has at least 20 active questions. For
+   each question: solve it yourself first, write the explanation as the
+   correct answer's reasoning or solution only, then write a wrong-choice
+   note (mistake, why it looks right, one check) on every wrong choice. The
+   importer rejects a wrong choice without a note.
 5. **Validate**:
    ```bash
    dart run tools/import_questions/import_questions.dart --root content/questions

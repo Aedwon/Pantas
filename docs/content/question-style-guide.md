@@ -36,11 +36,25 @@ questions:
       - text: Chloroplast
         correct: true
       - text: Mitochondrion
+        rationale: |
+          This mixes up making food with using it. Mitochondria release energy
+          from food the cell already has, so they sound like the "energy"
+          answer. Check: ask whether the part makes food or burns it.
       - text: Ribosome
+        rationale: |
+          This mixes up making food with making proteins. Ribosomes are found
+          in every cell and "build" things, so they seem like a food maker.
+          Check: photosynthesis needs light, so look for the part with a
+          green pigment.
       - text: Golgi apparatus
+        rationale: |
+          This mixes up making food with packing and shipping it. The Golgi
+          handles materials the cell has made, so it sounds busy with food.
+          Check: ask which part captures light; only that one makes food.
     explanation: |
-      Chloroplasts hold chlorophyll, the green pigment that captures light to
-      make food. Mitochondria release energy but do not make food.
+      Chloroplasts hold chlorophyll, the green pigment that captures light.
+      The plant uses that light energy to make its own food, which is
+      photosynthesis.
     approved: false                  # flipped on in Question Studio after review
     # figure: cell-diagram-01        # present => figure-pending (imports isActive:false)
     # passage: <ref>                 # reserved; unused (Reading Comprehension deferred)
@@ -52,6 +66,9 @@ questions:
   bank. `NNNN` ascends with difficulty (easiest question gets the lowest
   number) — this is how the app's default id-ascending sort produces an
   easy→hard ramp with no schema change.
+  **Never renumber or reuse an existing id**: student history is keyed by it.
+  Questions added to an existing file take the next unused numbers, even if
+  that breaks the easy-to-hard order.
 - **`type`** — one archetype name from the subject's blueprint doc. Not
   invented per-question; keep the vocabulary closed so coverage can be
   checked against the blueprint.
@@ -67,7 +84,10 @@ questions:
   one** choice has `correct: true` — the importer rejects zero or multiple.
   Choice order in the YAML is the display order; the importer assigns labels
   A, B, C, D… and `ordering` from that order, so put the choices in the order
-  you want them shown. **Always quote a choice's `text` if it is (or starts
+  you want them shown. The app shuffles choices per question when it shows
+  them, so a choice must never depend on its position or letter: no "All of
+  the above", "None of the above", "Both A and B", or text that names another
+  choice by letter. **Always quote a choice's `text` if it is (or starts
   with) a bare number** — e.g. `text: "18"`, not `text: 18`. Unquoted, YAML
   parses it as an integer, not a string, and the importer rejects the whole
   question with "choice N has empty text" (found the hard way authoring
@@ -118,15 +138,39 @@ questions:
   exam-level.
 - **Wrong answer choices**: plausible alternatives based on meaningful reasoning
   errors or misconceptions. Do not use obviously unrelated or throwaway answers.
-- **Explanation**: plain English a Grade 5 student can understand, short sentences, straight to the
-  point. State *why the correct answer is right* and briefly *why the main
-  distractor is wrong*. Explain difficult terms plainly without reducing accuracy.
+- **Explanation** (shown to Free and Pro): plain English a Grade 5 student can
+  understand, short sentences, straight to the point. It says only *why the
+  correct answer is correct*. When the item involves solving or working out,
+  show the solution step by step. It never mentions or rules out a wrong
+  choice: that is the job of the wrong-choice notes, which are Pro. Explain
+  difficult terms plainly without reducing accuracy.
+- **Wrong-choice note** (`rationale`, Pro): **required on every wrong choice.**
+  Same plain English as the explanation, two or three short sentences, in this
+  order:
+  1. **The mistake** it catches, named specifically (for a computed choice,
+     the exact slip that produces this number).
+  2. **Why it looks right**: what makes a student pick it.
+  3. **One check** the student can use next time to avoid it.
+
+  Write it so it reads correctly in two places: addressed to a student who
+  picked this choice, and listed for a student who answered correctly and
+  asked why the other choices are wrong. So describe the choice and the
+  mistake ("This adds instead of multiplying..."), not the student ("You
+  picked..."). Never restate the full solution; the explanation already
+  shows it. The correct choice has no note.
+
+How the app uses them (decision log `2026-10-01-question-explanations-log.md`):
+Free and Pro both see the explanation. Pro, after a wrong answer, sees the
+explanation first, then the note for the choice they picked, and on request
+the notes for every other wrong choice. Pro, after a correct answer, can ask
+for the notes on every wrong choice.
 
 ## Coverage discipline
 
 For each subtopic: enumerate every distinct archetype from the subject
 blueprint, write **2–3 differently-phrased variants of each**, ramped in
 difficulty. Variants must differ in scenario or framing, not just swapped
-nouns/numbers — no near-duplicates. Target ~12–20 questions per subtopic.
-Distractors must be plausible and mistake-based (mirror a real
-misconception), never throwaway.
+nouns/numbers — no near-duplicates. **At least 20 active questions per
+lesson** (Aedwon, 1 October 2026); figure-pending questions do not count
+toward the 20. Distractors must be plausible and mistake-based (mirror a real
+misconception), never throwaway, and never a second defensible answer.

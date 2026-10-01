@@ -98,7 +98,12 @@ apply these rules to that copy by default. See `WORKFLOW.md`.
   plausible and reflect meaningful reasoning errors or misconceptions.
 - **Quiz answer explanations:** plain English a Grade 5 student can understand,
   including Mock, normal quizzes, and in-lesson quizzes. Explain the reasoning
-  clearly without reducing the subject's accuracy.
+  clearly without reducing the subject's accuracy. The explanation (shown to
+  Free and Pro) says only why the correct answer is correct, with the worked
+  solution when solving is involved. It never discusses wrong choices.
+- **Wrong-choice notes (Pro):** every wrong choice carries its own note in the same
+  plain English: the mistake it catches, why it looks right, and one check to avoid
+  it next time. Rules: `docs/content/question-style-guide.md`.
 - **No em dashes.** Use a comma or a colon.
 - **American spelling.** practice, color, behavior, analyze, gray, center, organize.
   Never practise, colour, behaviour, analyse, grey, centre, organise. This holds in

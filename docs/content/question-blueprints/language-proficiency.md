@@ -1,5 +1,12 @@
 # Language Proficiency — Question Blueprint
 
+> **Explanations and wrong-choice notes follow `../question-style-guide.md` (1 October 2026).**
+> The explanation gives only why the correct answer is correct, with the solution when there is
+> working. Every wrong choice carries a `rationale` note: the mistake, why it looks right, one
+> check. The examples below omit the notes for brevity and predate this rule; where an example
+> explanation discusses a wrong choice or names a choice by position, the style guide wins.
+
+
 Applies to standalone Grammar & Structure, Vocabulary, and Language
 Application items only — no passages, no cloze. Follow
 [question-style-guide.md](../question-style-guide.md) for format and voice.

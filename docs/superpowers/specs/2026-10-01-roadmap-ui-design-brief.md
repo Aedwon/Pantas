@@ -275,9 +275,9 @@ ever paywalled.**
 | Lessons, reader, Study map | Everything | Nothing | none |
 | Bookmarks and flags | Unlimited, and practice from them | Patterns across them, custom ordering, notes | 1 |
 | Practice picker, today's session, Your mistakes | Unlimited | Nothing | none |
-| Answer reveal | The mark, the verdict, note A, when it comes back | Note B, addressed to the choice they picked | 1 |
+| Answer reveal | The mark, the verdict, note A (why the correct answer is correct, with its solution), when it comes back | After a miss: note A first, then note B for the choice they picked, then on request note B for every other wrong choice. After a correct answer: on request, note B for every wrong choice | 1 |
 | Session debrief | Score, figures, every miss, when each comes back | Likely cause per miss, and tagging | 1 |
-| Review screens (practice or mock) | Every question, correct answer, note A | Note B | 1 |
+| Review screens (practice or mock) | Every question, correct answer, note A | Note B for the choice they picked, and on request for every other wrong choice | 1 |
 | Mock exam | One every 14 days | Unlimited | 3 |
 | Home: practice panel | Three weakest topics, with figures | Nothing | none |
 | Home: tendency deck | Four cards, both labels, figures redacted | The figures | 1 |
