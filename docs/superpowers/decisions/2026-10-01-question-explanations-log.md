@@ -62,3 +62,16 @@ on every wrong choice. Per Aedwon, the lead does not review Codex's output.
 Release consequence: the protected content package (`assets/seed/content.db`, manifest,
 signature) must be rebuilt and re-signed with the content signing key after this lands, so the
 E09 package hashes change. Phone checks already wait for the UI connection.
+
+## Lead rulings during the run, 2 October 2026
+
+The run for Language, Reasoning, Reading Comprehension and General Information stopped on two gaps:
+
+1. **Figures.** The Reasoning blueprint puts a figure on every Spatial-Abstract and
+   Mechanical-Technical question, and the brief forbade figures on new questions. Ruling: a
+   question with a figure the app can already draw (an existing figure kind, in the existing
+   field shape, checked against its renderer) is active and counts toward 20. No new figure
+   kinds, no figure-pending questions, and no prose stand-ins where the blueprint forbids them.
+   A lesson that cannot reach 20 within that is reported with its count.
+2. **General Information has no blueprint.** Ruling: use the style guide, the lesson, and the
+   question types already in use there. No blueprint is written in this job.
