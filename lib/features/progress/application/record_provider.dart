@@ -5,7 +5,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/attempt_origins.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/features/settings/application/settings_providers.dart';
+import 'package:pantas/core/time/local_day.dart';
+import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 
 @immutable
 class StudentRecord {
@@ -104,22 +105,31 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
   final longestStreak = streakRow?.longest ?? 0;
   DateTime? streakStartedOn;
 
-  // Rest days can be skipped or credited, so the start cannot be derived
-  // from the count unless every day is a study day. A wrong date is worse
-  // than no date. The existing freeze caveat still applies: if freezes are
-  // granted, spending one must be recorded before showing a derived date.
-  final studyDays = (await ref.watch(userSettingsProvider.future)).studyDays;
-  if (studyDays.isEveryDay &&
-      dayStreak > 0 &&
-      streakRow?.lastActiveDate != null) {
-    final lastActive = streakRow!.lastActiveDate!;
-    final localLastActive =
-        DateTime(lastActive.year, lastActive.month, lastActive.day);
-    streakStartedOn = DateTime(
-      localLastActive.year,
-      localLastActive.month,
-      localLastActive.day - dayStreak + 1,
+  // A start date is sound only when the completed session history proves
+  // every calendar day in the displayed range, including any rest days.
+  if (dayStreak > 0 && streakRow?.lastActiveDate != null) {
+    final lastActive = localDay(streakRow!.lastActiveDate!);
+    final candidate = DateTime(
+      lastActive.year,
+      lastActive.month,
+      lastActive.day - dayStreak + 1,
     );
+    final creditedDays = {
+      for (final row in allAttemptsRows)
+        if (row.completedAt != null &&
+            SessionOrigin.fromStorage(row.origin).isStreakEligible)
+          localDay(row.completedAt!),
+    };
+    var continuous = true;
+    for (var day = candidate;
+        !day.isAfter(lastActive);
+        day = DateTime(day.year, day.month, day.day + 1)) {
+      if (!creditedDays.contains(day)) {
+        continuous = false;
+        break;
+      }
+    }
+    if (continuous) streakStartedOn = candidate;
   }
 
   // Helper for reading items in attempts_local
