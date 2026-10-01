@@ -2,304 +2,314 @@ meta:
   subject: science
   topic: biology
   subtopic: human-anatomy-physiology
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  exams: [upcat, dlsucet, ustet, dost-sei]
 questions:
   - id: q-biology-human-anatomy-physiology-0001
-    type: process-ordering
-    difficulty: medium
+    type: 'process-ordering'
+    difficulty: 'medium'
     stem: |
       Put these digestive organs in the correct order that food travels through: large intestine, stomach, esophagus, small intestine, mouth.
     choices:
-      - text: Mouth, esophagus, stomach, small intestine, large intestine
+      - text: 'Mouth, esophagus, stomach, small intestine, large intestine'
         correct: true
-      - text: Mouth, stomach, esophagus, small intestine, large intestine
+      - text: 'Mouth, stomach, esophagus, small intestine, large intestine'
         rationale: |
-          You placed stomach before esophagus. Food passes through esophagus first to reach stomach.
-      - text: Mouth, esophagus, small intestine, stomach, large intestine
+          This swaps the esophagus and stomach. Both carry food after swallowing, so their order can be confused. Check which tube connects the mouth to the stomach.
+      - text: 'Mouth, esophagus, small intestine, stomach, large intestine'
         rationale: |
-          You placed small intestine before stomach. Food enters stomach for acid digestion before entering small intestine.
-      - text: Large intestine, small intestine, stomach, esophagus, mouth
+          This swaps the stomach and small intestine. Both carry out chemical digestion. Check which organ receives food directly from the esophagus.
+      - text: 'Large intestine, small intestine, stomach, esophagus, mouth'
         rationale: |
-          You inverted complete digestive path. Ingestion begins in mouth and terminates at large intestine.
+          This reverses the food path. The same organs appear, so the list can look complete. Check that the sequence starts where food enters.
     explanation: |
-      Food travels: mouth (chewing begins) → esophagus (pushes food down) → stomach (mixes with acid) → small intestine (most digestion and absorption) → large intestine (absorbs water, forms waste).
+      Food enters the mouth, then passes through the esophagus to the stomach. It next enters the small intestine, where most digestion and nutrient absorption occur. It then reaches the large intestine.
     approved: true
+
   - id: q-biology-human-anatomy-physiology-0002
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       Blood leaves the heart, travels to the lungs to pick up oxygen, and returns to the heart. What type of circulation is this?
     choices:
-      - text: Pulmonary circulation
+      - text: 'Pulmonary'
         correct: true
-      - text: Systemic circulation
+      - text: 'Systemic'
         rationale: |
-          You picked systemic circulation. Systemic circulation delivers oxygenated blood from heart to body tissues, not lungs.
-      - text: Capillary circulation
+          This chooses the circuit to other body tissues. Both circuits start and end at the heart. Check whether the destination is the lungs or the rest of the body.
+      - text: 'Pulmonary and systemic together'
         rationale: |
-          You picked capillary circulation. Capillaries are microscopic vessels within tissues, not the heart-lung circuit.
-      - text: 'Neither: blood does not circulate to the lungs.'
+          This combines both circuits for a lung-only route. The circuits work together, so both labels seem relevant. Check the specific route described.
+      - text: 'Only a tissue-exchange pathway'
         rationale: |
-          You denied lung circulation. Deoxygenated blood circulates to lungs via pulmonary arteries for gas exchange.
+          This names local exchange instead of the whole circuit. Gas exchange occurs in small lung vessels. Check whether the question describes just exchange or the complete heart-lung route.
     explanation: |
-      Pulmonary circulation moves blood between the heart and the lungs specifically to pick up oxygen.
+      Pulmonary circulation is the circuit between the heart and lungs. Blood exchanges gases in the lungs and returns to the heart.
     approved: true
+
   - id: q-biology-human-anatomy-physiology-0003
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       A person deliberately decides to kick a ball. What type of muscle control and muscle type is involved?
     choices:
-      - text: Voluntary control, skeletal muscle
+      - text: 'Voluntary control, skeletal muscle'
         correct: true
-      - text: Involuntary control, smooth muscle
+      - text: 'Involuntary control, smooth muscle'
         rationale: |
-          You picked involuntary smooth muscle. Smooth muscle controls internal organs involuntarily (e.g., intestine peristalsis).
-      - text: Involuntary control, cardiac muscle
+          This assigns organ-wall muscle to a deliberate limb movement. Both types contract, so their jobs can be confused. Check whether the movement is consciously chosen and moves the skeleton.
+      - text: 'Involuntary control, cardiac muscle'
         rationale: |
-          You picked cardiac muscle. Cardiac muscle is involuntary muscle restricted exclusively to heart walls.
-      - text: Voluntary control, cardiac muscle
+          This assigns heart muscle to a limb. Both produce movement without needing a new decision for every contraction. Check where cardiac muscle is found.
+      - text: 'Voluntary control, cardiac muscle'
         rationale: |
-          You paired voluntary control with cardiac muscle. Cardiac muscle cannot be consciously commanded.
+          This assumes cardiac muscle can be directed like a limb. Both skeletal and cardiac muscle contract. Check the tissue’s location and usual control.
     explanation: |
       A deliberate, chosen movement like kicking a ball is voluntary, controlled by skeletal muscle, which is attached to bones.
     approved: true
+
   - id: q-biology-human-anatomy-physiology-0004
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       A person's heart continues beating steadily while they sleep, with no conscious effort. What type of muscle control and muscle type is involved?
     choices:
-      - text: Involuntary control, cardiac muscle
+      - text: 'Involuntary cardiac muscle'
         correct: true
-      - text: Voluntary control, skeletal muscle
+      - text: 'Usually voluntary skeletal muscle'
         rationale: |
-          You picked voluntary skeletal muscle. Skeletal muscles require conscious nerve signaling and move bones.
-      - text: Involuntary control, smooth muscle
+          This assigns limb-muscle control to the heart. Both tissues are striated, so they can seem similar. Check the tissue’s location and usual control.
+      - text: 'Involuntary smooth muscle tissue'
         rationale: |
-          You picked smooth muscle. Smooth muscle lines visceral organs and blood vessels, not heart walls.
-      - text: Voluntary control, smooth muscle
+          This assigns organ-wall smooth muscle to the heart wall. Both operate involuntarily. Check whether the pumping tissue is smooth or cardiac.
+      - text: 'Usually voluntary smooth muscle'
         rationale: |
-          You paired voluntary control with smooth muscle. Smooth muscle operates involuntarily under autonomic control.
+          This gives smooth muscle voluntary control. Muscle movement may seem to require a decision. Check whether this tissue normally acts without conscious choice.
     explanation: |
-      The heart beats automatically, without conscious control, powered by cardiac muscle, found only in the heart.
+      Cardiac muscle forms the heart’s pumping tissue. Its rhythm starts within the heart and does not require a conscious decision. This is involuntary activity.
     approved: true
+
   - id: q-biology-human-anatomy-physiology-0005
-    type: identify
-    difficulty: easy
+    type: 'identify'
+    difficulty: 'easy'
     stem: |
       Which endocrine gland is often called the body's "master gland"?
     choices:
-      - text: The pituitary gland
+      - text: 'Pituitary'
         correct: true
-      - text: The thyroid
+      - text: 'Thyroid gland'
         rationale: |
-          You picked thyroid gland. Thyroid regulates metabolic rate via thyroxine, under pituitary control.
-      - text: The adrenal glands
+          This confuses regulation of metabolic rate with the traditional master-gland label. Thyroid hormones affect many tissues. Check which gland sends regulatory signals to several other glands.
+      - text: 'Adrenal glands'
         rationale: |
-          You picked adrenal glands. Adrenals release cortisol and adrenaline during stress, regulated partly by pituitary ACTH.
-      - text: The pancreas
+          This confuses stress-related hormones with the master-gland label. Adrenal hormones have wide effects. Check which gland regulates several other endocrine glands.
+      - text: 'Endocrine pancreas'
         rationale: |
-          You picked pancreas. Pancreas regulates blood glucose levels via insulin and glucagon.
+          This confuses blood-glucose regulation with the master-gland label. Insulin and glucagon affect many cells. Check which gland has the traditional nickname.
     explanation: |
-      The pituitary gland is called the "master gland" because it releases hormones that control many other glands.
+      The pituitary is traditionally called the master gland because several of its hormones regulate other endocrine glands. Its own activity is regulated by the hypothalamus and feedback signals.
     approved: true
+
   - id: q-biology-human-anatomy-physiology-0006
-    type: cause-effect
-    difficulty: medium
+    type: 'cause-effect'
+    difficulty: 'medium'
     stem: |
-      Why is the pituitary gland often called the body's "master gland"?
+      Why is the traditional name "master gland" an incomplete description of the pituitary?
     choices:
-      - text: It releases hormones that control other glands, telling them when to release their own hormones.
+      - text: 'The hypothalamus regulates it.'
         correct: true
-      - text: It is the largest gland in the human body.
+      - text: 'It has no effect on other endocrine glands.'
         rationale: |
-          You picked physical size. Liver is the largest gland/organ; pituitary is pea-sized.
-      - text: It is the only gland that releases hormones directly into the blood.
+          This rejects all regulatory action by the pituitary. Its activity is controlled by other signals, which can make it seem powerless. Check whether being regulated prevents a gland from regulating others.
+      - text: 'It releases only digestive enzymes.'
         rationale: |
-          You claimed pituitary is sole endocrine gland. All endocrine glands secrete hormones directly into bloodstream.
-      - text: It is located in the same place as every other gland.
+          This confuses endocrine signals with digestive secretions. Some organs have both jobs. Check whether pituitary products are hormones or digestive enzymes.
+      - text: 'It works independently of hormone feedback.'
         rationale: |
-          You claimed uniform gland location. Endocrine glands are distributed throughout head, neck, abdomen, and pelvis.
+          This treats the nickname as proof of independent control. A master label can imply no outside regulation. Check whether feedback and the hypothalamus still act.
     explanation: |
-      Unlike most glands, which act directly on body tissues, the pituitary gland manages and coordinates the activity of many other endocrine glands.
+      The hypothalamus regulates pituitary activity. Feedback signals also help control the endocrine network. The pituitary therefore does not control the system on its own.
     approved: true
+
   - id: q-biology-human-anatomy-physiology-0007
-    type: identify
-    difficulty: medium
+    type: 'identify'
+    difficulty: 'medium'
     stem: |
-      What are the millions of tiny filtering units inside the kidney called?
+      What are the kidney’s functional units that filter blood plasma and modify the resulting fluid?
     choices:
-      - text: Nephrons
+      - text: 'Nephrons'
         correct: true
-      - text: Alveoli
+      - text: 'Alveoli'
         rationale: |
-          You picked alveoli. Alveoli are tiny air sacs in lungs responsible for gas exchange.
-      - text: Capillaries
+          This confuses lung gas-exchange sacs with kidney units. Both provide exchange surfaces. Check whether the organ is exchanging gases or forming urine.
+      - text: 'Capillaries'
         rationale: |
-          You picked capillaries. Capillaries are tiny blood vessels present throughout body tissues.
-      - text: Ureters
+          This confuses small blood vessels with the full kidney unit. Capillaries do take part in filtration. Check whether the unit also includes tubules that modify the filtered fluid.
+      - text: 'Ureters'
         rationale: |
-          You picked ureters. Ureters are muscular tubes transporting urine from kidneys to bladder.
+          This confuses urine transport with urine formation. Ureters carry the kidney’s output. Check whether the structure processes blood or carries finished urine.
     explanation: |
-      Nephrons are the kidney's tiny filtering units, removing waste and excess water from the blood to form urine.
+      Nephrons are the kidney’s functional units. They filter blood plasma, then reabsorb useful substances and secrete others. These steps help form the final urine.
     approved: true
+
   - id: q-biology-human-anatomy-physiology-0008
-    type: identify
-    difficulty: medium
+    type: 'identify'
+    difficulty: 'medium'
     stem: |
       What is the main waste product removed by the kidneys, produced from the breakdown of proteins?
     choices:
-      - text: Urea
+      - text: 'Urea'
         correct: true
-      - text: Glucose
+      - text: 'Glucose'
         rationale: |
           You picked glucose. Glucose is nutrient energy molecule reabsorbed by kidneys, not nitrogenous waste.
-      - text: Insulin
+      - text: 'Insulin'
         rationale: |
           You picked insulin. Insulin is pancreatic hormone regulating glucose uptake, not nitrogenous waste.
-      - text: Bile
+      - text: 'Bile'
         rationale: |
           You picked bile. Bile is digestive fluid produced by liver for lipid emulsification.
     explanation: |
       Urea is a waste product from protein breakdown, filtered out of the blood by the kidneys and excreted in urine.
     approved: true
+
   - id: q-biology-human-anatomy-physiology-0009
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
-      A person cuts their finger, and skin plus general immune cells respond immediately to prevent infection. What type of immunity is this?
+      A fresh cut triggers rapid inflammation and phagocyte activity. Which immune response is described?
     choices:
-      - text: Innate immunity, since it is a fast, general first line of defense.
+      - text: 'Innate immunity'
         correct: true
-      - text: Adaptive immunity, since it targets one specific germ.
+      - text: 'Antigen-specific memory response'
         rationale: |
-          You picked adaptive immunity. Adaptive immunity requires antigen recognition and memory cell development.
-      - text: 'Neither: cuts do not trigger any immune response.'
+          This confuses a rapid first response with recall of a specific antigen. Memory responses can also be fast. Check whether earlier exposure or memory cells are stated.
+      - text: 'Antibody secretion by plasma cells'
         rationale: |
-          You denied immune response to wounds. Skin barrier breakdown immediately triggers inflammatory innate response.
-      - text: Both types equally, at the exact same time.
+          This substitutes a specific adaptive product for the stated inflammatory response. Antibodies fight infections too. Check which cells and actions the stem names.
+      - text: 'Adaptive clonal-memory response'
         rationale: |
-          You claimed simultaneous equal response. Innate responds immediately; adaptive takes days to develop specific lymphocytes.
+          This assumes speed proves adaptive memory. Repeated exposures can trigger fast adaptive responses. Check whether the described response relies on stored antigen-specific memory.
     explanation: |
-      Innate immunity is the body's fast, general first line of defense, like the skin barrier and general immune cells: it responds quickly but is not targeted at a specific germ.
+      Inflammation and phagocytes are parts of innate immunity. These defenses respond quickly to injury and broad signs of infection.
     approved: true
+
   - id: q-biology-human-anatomy-physiology-0010
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       Years after recovering from a specific virus, a person is exposed to it again, and their body fights it off quickly using memory cells from the earlier infection. What type of immunity is this?
     choices:
-      - text: Adaptive immunity, since it uses memory from a past specific infection.
+      - text: 'Adaptive immunity'
         correct: true
-      - text: Innate immunity, since it responds immediately.
+      - text: 'Innate barrier defense'
         rationale: |
-          You picked innate immunity. Innate immunity lacks pathogen memory and specific receptor clonal expansion.
-      - text: 'Neither: memory cells are not part of the immune system.'
+          This confuses rapid recall with a general physical barrier. Skin barriers act quickly too. Check whether the response depends on a specific earlier infection.
+      - text: 'Innate inflammatory defense'
         rationale: |
-          You excluded memory cells from immunity. Memory B and T lymphocytes form basis of adaptive immunological memory.
-      - text: Both types equally, at the exact same time.
+          This uses speed alone to classify the response. Inflammation can begin quickly. Check whether antigen-specific memory cells are involved.
+      - text: 'Innate antigen-specific memory'
         rationale: |
-          You equated innate and adaptive responses. Memory-driven pathogen elimination is specifically executed by adaptive immunity.
+          This assigns antigen-specific memory cells to innate immunity. Innate responses can also be rapid. Check which immune arm includes memory B and T cells.
     explanation: |
-      Adaptive immunity is slower to build the first time, but equips the body with long-term memory, allowing a fast, specific response on repeat exposure to the same pathogen.
+      Memory B and T cells belong to adaptive immunity. After earlier exposure, they can help produce a faster, stronger response to the same antigen.
     approved: true
+
   - id: q-biology-human-anatomy-physiology-0011
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
-      A student assumes arteries always carry oxygen-rich blood, since arteries are usually associated with oxygenated blood in diagrams. Is this the correct way to define arteries?
+      Which feature defines an artery?
     choices:
-      - text: 'No: arteries are defined by direction (carrying blood away from the heart), not by oxygen content, which actually varies between pulmonary and systemic circulation.'
+      - text: 'It carries blood away from the heart.'
         correct: true
-      - text: 'Yes: arteries are defined strictly by carrying oxygen-rich blood.'
+      - text: 'It always carries oxygen-rich blood.'
         rationale: |
-          You defined arteries by oxygenation. Pulmonary arteries carry deoxygenated blood away from heart to lungs.
-      - text: 'No: arteries are defined by carrying oxygen-poor blood instead.'
+          This uses oxygen level to define the vessel. Many diagrams show oxygen-rich systemic arteries. Check the flow direction rather than the color used in a diagram.
+      - text: 'It always carries oxygen-poor blood.'
         rationale: |
-          You defined arteries by deoxygenation. Systemic arteries carry oxygen-rich blood to body tissues.
-      - text: 'Yes: veins and arteries are defined identically.'
+          This also uses oxygen level to define the vessel. Pulmonary arteries carry oxygen-poor blood, which can suggest this rule. Check whether that holds for every artery.
+      - text: 'It carries blood back toward the heart.'
         rationale: |
-          You equated arteries and veins. Arteries carry blood away from heart; veins return blood toward heart.
+          This reverses the direction. Both vessel types connect to the heart. Check whether blood is leaving or returning.
     explanation: |
-      Arteries carry blood away from the heart, and veins carry blood back: this direction-based definition, not oxygen content, is what distinguishes them (pulmonary arteries, for example, actually carry oxygen-poor blood).
+      An artery carries blood away from the heart. The definition depends on the direction of blood flow.
     approved: true
+
   - id: q-biology-human-anatomy-physiology-0012
-    type: classify
-    difficulty: hard
+    type: 'structure-function'
+    difficulty: 'hard'
     stem: |
-      A student assumes cardiac muscle must be voluntary, since it looks striated (striped) like skeletal muscle, which is voluntary. Is this correct?
+      Which statement correctly describes the source and regulation of normal heartbeat?
     choices:
-      - text: 'No: cardiac muscle is striated but completely involuntary; you cannot consciously stop your heart from beating.'
+      - text: 'An intrinsic pacemaker starts the rhythm.'
         correct: true
-      - text: 'Yes: all striated muscle is voluntary.'
+      - text: 'The brain stem starts each individual beat.'
         rationale: |
-          You assumed all striated muscle is voluntary. Cardiac muscle is striated yet operates involuntarily.
-      - text: 'No: cardiac muscle is actually smooth, not striated.'
+          This confuses nervous regulation with starting every beat. The brain stem helps regulate cardiovascular activity. Check whether the heart has its own rhythm source.
+      - text: 'A conscious decision starts each individual beat.'
         rationale: |
-          You denied cardiac striations. Cardiac muscle cells possess microscopic sarcomere striations.
-      - text: 'Yes: cardiac muscle can be controlled consciously, just like skeletal muscle.'
+          This treats heartbeat like a chosen limb movement. Some muscles do follow conscious decisions. Check whether beating continues during sleep.
+      - text: 'Smooth muscle in the heart wall sets the rhythm.'
         rationale: |
-          You claimed cardiac muscle is voluntary. Cardiac contractions are driven by intrinsic pacemaker cells involuntarily.
+          This confuses smooth and cardiac muscle. Both are involuntary. Check which tissue forms the heart’s pumping wall.
     explanation: |
-      Both skeletal and cardiac muscle appear striated, but only skeletal muscle is voluntary. Cardiac muscle remains completely involuntary despite its striated appearance.
+      The heart has its own pacemaker that starts its rhythm. Nerves and hormones can change that rhythm. A conscious decision is not needed for each beat.
     approved: true
+
   - id: q-biology-human-anatomy-physiology-0013
-    type: classify
-    difficulty: hard
+    type: 'structure-function'
+    difficulty: 'hard'
     stem: |
-      A student assumes the pancreas belongs only to the digestive system, since it releases digestive enzymes. Is this correct?
+      Which pair correctly matches the pancreas’s digestive and endocrine outputs?
     choices:
-      - text: 'No: the pancreas also belongs to the endocrine system, releasing insulin and glucagon directly into the bloodstream.'
+      - text: 'Digestive enzymes; insulin'
         correct: true
-      - text: 'Yes: the pancreas belongs only to the digestive system.'
+      - text: 'Insulin; digestive enzymes'
         rationale: |
-          You limited pancreas to digestive system. Pancreas is dual-function, acting as exocrine and endocrine gland.
-      - text: 'No: the pancreas actually belongs only to the endocrine system, not the digestive system.'
+          This reverses the two outputs. Both are pancreatic products. Check which enters the intestine and which enters blood.
+      - text: 'Bile; digestive enzymes'
         rationale: |
-          You denied pancreatic digestive function. Pancreas secretes digestive enzymes into duodenum.
-      - text: 'Yes: no organ can belong to more than one body system.'
+          This assigns bile to the pancreas and enzymes to its endocrine role. Both help digestion. Check the organ that makes bile and the route of endocrine secretion.
+      - text: 'Bile; stored urine'
         rationale: |
-          You restricted organs to single systems. Many organs belong to multiple systems (e.g., pancreas, pharynx, kidneys).
+          This mixes liver secretion and urinary storage with pancreatic roles. All concern body fluids. Check the organ and output named in each role.
     explanation: |
-      The pancreas serves two systems: its digestive role releases enzymes into the small intestine, while its endocrine role releases insulin and glucagon directly into the blood.
+      The pancreas sends digestive enzymes into the small intestine. Its endocrine tissue sends hormones such as insulin into the blood. These are two different roles of the same organ.
     approved: true
+
   - id: q-biology-human-anatomy-physiology-0014
-    type: classify
-    difficulty: hard
+    type: 'identify'
+    difficulty: 'hard'
     stem: |
-      A student claims innate immunity has long-term memory, just like adaptive immunity. Is this correct?
+      Which cells are the major antibody-secreting descendants of activated B cells?
     choices:
-      - text: 'No: only adaptive immunity builds memory; innate immunity is always fast but never targets one specific germ and does not remember past infections.'
+      - text: 'Plasma cells'
         correct: true
-      - text: 'Yes: both innate and adaptive immunity build long-term memory equally.'
+      - text: 'Memory T cells'
         rationale: |
-          You attributed memory to innate immunity. Innate immunity lacks memory cell formation.
-      - text: 'No: but only because innate immunity does not respond to infections at all.'
+          This confuses memory lymphocytes with antibody-secreting cells. Both are parts of adaptive immunity. Check which cell type secretes antibodies.
+      - text: 'Innate phagocytes'
         rationale: |
-          You denied innate infection response. Innate immunity is first line defense against pathogens.
-      - text: 'Yes: innate immunity is actually slower than adaptive immunity, but still remembers.'
+          This confuses engulfing material with secreting antibodies. Phagocytes also defend against pathogens. Check the specific defense action described.
+      - text: 'Nervous-system cells'
         rationale: |
-          You inverted speed and memory traits. Innate immunity is fast without memory; adaptive is slower initially with memory.
+          This confuses information signals with immune secretion. Nerve cells help coordinate body functions. Check whether the cell is an immune descendant of a B cell.
     explanation: |
-      Innate immunity trades specificity for speed and does not build memory. Adaptive immunity trades initial speed for precision and long-term memory, which is why repeat infections are fought off faster.
+      Activated B cells can develop into plasma cells. Plasma cells secrete antibodies that recognize specific targets.
     approved: true
+
   - id: q-biology-human-anatomy-physiology-0015
-    type: identify
-    difficulty: medium
+    type: 'identify'
+    difficulty: 'medium'
     stem: |
       In the heart, which chambers receive blood coming into the heart?
     choices:
-      - text: The atria (upper chambers)
+      - text: 'The atria (upper chambers)'
         correct: true
-      - text: The ventricles (lower chambers)
+      - text: 'The ventricles (lower chambers)'
         rationale: |
           You picked ventricles. Ventricles are muscular lower pumping chambers that force blood out of heart.
-      - text: Both the atria and ventricles equally
+      - text: 'Both the atria and ventricles equally'
         rationale: |
           You assigned receiving role to ventricles. Inflowing veins connect directly to atria, not ventricles.
       - text: 'Neither: blood enters directly into the arteries'
@@ -308,3 +318,108 @@ questions:
     explanation: |
       Blood flows into the heart through the atria (upper chambers) first, then moves into the ventricles (lower chambers), which pump blood back out to the lungs or body.
     approved: true
+
+  - id: q-biology-human-anatomy-physiology-0016
+    type: 'structure-function'
+    difficulty: 'easy'
+    stem: |
+      Where does most nutrient absorption from digested food occur?
+    choices:
+      - text: 'Small intestine'
+        correct: true
+      - text: 'Large intestine'
+        rationale: |
+          This confuses water absorption with most nutrient absorption. The large intestine absorbs water and electrolytes. Check which substances and which main site the question names.
+      - text: 'Stomach lining'
+        rationale: |
+          This confuses digestion with the main absorption site. Food is mixed and digested in the stomach. Check where most nutrients enter the body.
+      - text: 'Esophagus wall'
+        rationale: |
+          This confuses transporting food with absorbing it. Food passes through the esophagus. Check whether the organ mainly transports or absorbs.
+    explanation: |
+      Most digested nutrients are absorbed in the small intestine. The lesson identifies it as the main site of nutrient absorption.
+    approved: false
+
+  - id: q-biology-human-anatomy-physiology-0017
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      How does bile help enzymes digest fat?
+    choices:
+      - text: 'It divides fat into smaller droplets.'
+        correct: true
+      - text: 'It breaks fat molecules as an enzyme.'
+        rationale: |
+          This confuses emulsification with enzyme action. Bile helps fat digestion, so it can seem to be an enzyme. Check whether it changes droplet size or chemically breaks molecules.
+      - text: 'It converts every fat molecule into protein.'
+        rationale: |
+          This confuses improving fat digestion with changing fat into another nutrient. Digestion does change food molecules. Check whether bile changes the nutrient type or the droplet size.
+      - text: 'It stores fat inside the gallbladder wall.'
+        rationale: |
+          This confuses bile storage with fat digestion. The gallbladder stores bile. Check what substance is stored and what bile does to fat.
+    explanation: |
+      Bile emulsifies fat, dividing it into small droplets. Smaller droplets expose more surface area to fat-digesting enzymes.
+    approved: false
+
+  - id: q-biology-human-anatomy-physiology-0018
+    type: 'structure-function'
+    difficulty: 'medium'
+    stem: |
+      Which structures exchange oxygen and carbon dioxide between inhaled air and lung capillary blood?
+    choices:
+      - text: 'Alveoli'
+        correct: true
+      - text: 'Main bronchi'
+        rationale: |
+          This confuses carrying air with exchanging gases with blood. Bronchi direct air through the lungs. Check where air reaches the gas-exchange surface.
+      - text: 'Upper trachea'
+        rationale: |
+          This confuses the main airway with lung gas-exchange sacs. Air does pass through the trachea. Check whether the structure carries air or exchanges it with blood.
+      - text: 'Nasal passages'
+        rationale: |
+          This confuses the entry path with the exchange site. Air enters through the nose. Check where oxygen actually diffuses into lung capillary blood.
+    explanation: |
+      Alveoli are small lung air sacs where gases diffuse between air and blood. Oxygen enters blood, and carbon dioxide moves into the air.
+    approved: false
+
+  - id: q-biology-human-anatomy-physiology-0019
+    type: 'process-ordering'
+    difficulty: 'hard'
+    stem: |
+      Which sequence shows the normal route of urine after it is formed?
+    choices:
+      - text: 'Kidneys, ureters, bladder, urethra'
+        correct: true
+      - text: 'Kidneys, urethra, bladder, ureters'
+        rationale: |
+          This swaps the two similar tube names. Ureter and urethra both carry urine. Check which connects kidneys to the bladder.
+      - text: 'Bladder, kidneys, ureters, urethra'
+        rationale: |
+          This puts storage before formation. The bladder holds urine, which may make it seem like the source. Check where urine is made.
+      - text: 'Kidneys, bladder, ureters, urethra'
+        rationale: |
+          This skips the kidney-to-bladder tubes before storage. The bladder is the next major organ. Check the tubes urine uses to reach it.
+    explanation: |
+      Urine leaves the kidneys through the ureters. The bladder stores it. It then passes out through the urethra.
+    approved: false
+
+  - id: q-biology-human-anatomy-physiology-0020
+    type: 'compare-contrast'
+    difficulty: 'exam'
+    stem: |
+      Which pair correctly matches the endocrine pancreatic hormones to their usual effects on blood glucose?
+    choices:
+      - text: 'Insulin lowers it; glucagon raises it.'
+        correct: true
+      - text: 'Insulin raises it; glucagon lowers it.'
+        rationale: |
+          This reverses the effects of the two hormones. Both come from the pancreas. Check which is associated with lowering blood glucose.
+      - text: 'Both raise it after every meal.'
+        rationale: |
+          This gives both hormones the same effect. They both regulate the same quantity. Check whether their usual actions oppose each other.
+      - text: 'Both lower it whenever food is scarce.'
+        rationale: |
+          This gives both hormones a glucose-lowering role. Both participate in glucose regulation. Check whether low food supply makes raising glucose useful.
+    explanation: |
+      Insulin generally lowers blood glucose. Glucagon generally raises it. These different effects help regulate glucose in the blood.
+    approved: false
