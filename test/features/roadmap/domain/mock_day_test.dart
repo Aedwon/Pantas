@@ -23,7 +23,7 @@ void main() {
         );
       });
 
-      for (final daysLeft in [2, 3]) {
+      for (final daysLeft in [1, 2, 3]) {
         test('$tier places the mock one day before an exam $daysLeft days out',
             () {
           expect(
@@ -65,7 +65,7 @@ void main() {
         );
       });
 
-      for (final daysLeft in [-1, 0, 1]) {
+      for (final daysLeft in [-1, 0]) {
         test('$tier schedules no mock with $daysLeft days left', () {
           expect(
             MockDay.place(

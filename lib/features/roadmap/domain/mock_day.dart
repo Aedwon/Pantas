@@ -20,7 +20,9 @@ abstract final class MockDay {
 
     final day = localDay(today);
     final exam = localDay(examDay);
-    if (localDaysBetween(day, exam) < 2) return null;
+    // The day before the exam is the last day a mock can fall (Aedwon,
+    // 1 October 2026); never the exam day itself.
+    if (localDaysBetween(day, exam) < 1) return null;
 
     final sixDaysBefore = DateTime(exam.year, exam.month, exam.day - 6);
     final windowStart = day.isAfter(sixDaysBefore) ? day : sixDaysBefore;
