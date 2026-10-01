@@ -547,3 +547,19 @@ wrong once rest days are skipped, and cannot be reconstructed because rest-day w
 Lead ruling under the existing rule in that code ("a wrong date is worse than no date") and
 AGENTS.md "Never invent a figure": the start date is not shown when study days are not all
 seven; unchanged otherwise. Added to Task C's scope.
+
+**Integration and review, 1 October 2026:** Tasks A (75ddf34d), B (eb9170b4) and C (33a43984)
+combined on `web/roadmap-engine-r1`. Gates: analyze (accepted onReorder info only), layering,
+format, attribution OK; full suite at `-j 4` 3,273 of 3,274, the one failure the known
+`dart run` tool-test flake under load (`content_providers_test` setUpAll, native assets
+`otool` null check), which passed on rerun. Independent review (Codex, read only) confirmed the
+hand calculation (Nov 30, 48, 43, 3 and 21; Sat 3 Oct empty), that all-seven output matched the
+base in 1,000 comparisons, and legacy JSON loads without a rebuild; it found four P2s:
+repeated rest-day advances exceed the review cap; a return to all seven days shows a false
+streak start; a mid-day study day change leaves the Quiz panel stale; a reminder scheduled for a
+later day quotes today's counts. Lead rulings: rest-day reviews come only with the first advance
+that brings reviews; the streak start date is shown only when the student's own history has a
+streak-eligible session on every day of the streak (replaces the study-days condition, also
+covers freezes); the panel refreshes like other plan changes; a reminder for another day uses
+the existing generic text (also fixes the same flaw for next-day reminders with all seven days).
+Fixes dispatched test first.
