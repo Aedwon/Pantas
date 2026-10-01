@@ -111,16 +111,21 @@ class SettingsActions {
   Future<void> updateStudyDays(StudyDays days) async {
     await _ref.read(settingsRepositoryProvider).updateStudyDays(days);
     _ref.invalidate(userSettingsProvider);
-    // Publish through the revision the Quiz panel already watches.
-    _ref.read(quizSessionPanelRevisionProvider.notifier).publishCompletion();
+    _publishPlanChange();
     await _ref.read(notificationServiceProvider).rescheduleForForeground();
   }
+
+  /// The Quiz panel does not watch settings; a change that reshapes today's
+  /// plan is published through the revision it already watches.
+  void _publishPlanChange() =>
+      _ref.read(quizSessionPanelRevisionProvider.notifier).publishCompletion();
 
   Future<void> setExamDate(ExamDate date, {required DateTime today}) async {
     await _ref
         .read(settingsRepositoryProvider)
         .updateExamDate(date, today: today);
     _ref.invalidate(userSettingsProvider);
+    _publishPlanChange();
   }
 
   Future<String> saveExamDate(ExamDate date, {required DateTime today}) async {
@@ -137,6 +142,7 @@ class SettingsActions {
           );
     }
     _ref.invalidate(userSettingsProvider);
+    _publishPlanChange();
     return 'Your study plan is being rebalanced.';
   }
 
@@ -145,6 +151,7 @@ class SettingsActions {
   Future<void> clearExamDate() async {
     await _ref.read(settingsRepositoryProvider).clearExamDate();
     _ref.invalidate(userSettingsProvider);
+    _publishPlanChange();
   }
 
   Future<void> setCarryOverProgress({required bool enabled}) async {

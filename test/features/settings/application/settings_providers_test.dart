@@ -150,6 +150,49 @@ void main() {
     });
   }
 
+  test('exam date change refreshes the watched panel', () async {
+    final now = DateTime(2026, 9, 30, 8); // Wednesday.
+    final db = inMemoryDatabase();
+    final contentDb = inMemoryContentDatabase();
+    addTearDown(db.close);
+    addTearDown(contentDb.close);
+    await DriftSettingsRepository(db).updateExamDate(
+      ExamDate.onDay(DateTime(2026, 12, 30)),
+      today: now,
+    );
+    await seedContentTopicWithQuestions(
+      contentDb,
+      examId: 'e1',
+      topicId: 't1',
+      topicName: 'Algebra',
+      questionIds: ['q1', 'q2', 'q3'],
+    );
+    await AssessmentRepository(db).saveResult('e1', now, const []);
+    final container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+        nowProvider.overrideWithValue(() => now),
+      ],
+    );
+    addTearDown(container.dispose);
+    final subscription =
+        container.listen(sessionPanelProvider('e1'), (_, __) {});
+    addTearDown(subscription.close);
+
+    // 91 days left, 84 working days: one new question today.
+    final before = await container.read(sessionPanelProvider('e1').future);
+    expect((before as SessionPanelAvailable).plan.questions, hasLength(1));
+
+    // Two days left, no quiet days: two of the three today.
+    await container.read(settingsActionsProvider).setExamDate(
+          ExamDate.onDay(DateTime(2026, 10, 2)),
+          today: now,
+        );
+    final after = await container.read(sessionPanelProvider('e1').future);
+    expect((after as SessionPanelAvailable).plan.questions, hasLength(2));
+  });
+
   test('default analytics consent gateway is NoopAnalyticsConsentGateway', () {
     final container = ProviderContainer();
     addTearDown(container.dispose);
