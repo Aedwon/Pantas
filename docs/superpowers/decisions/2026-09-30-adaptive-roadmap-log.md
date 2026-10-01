@@ -538,3 +538,12 @@ helper) first; Tasks B (engine) and C (streak and reminders) in parallel after i
 6.1 Sol High, lead review and integration. Technical reading recorded in the plan: weeks ahead
 has no per-day rows, so "rest days carry no counts" is met by allotting no lessons to rest days
 in its simulation.
+
+**Build note, Task C (1 October 2026):** Codex stopped before edits on two points. (1) Existing
+reminder tests have no database, so reading study days needs a setup change; ruled that test
+setup may gain an override as long as no assertion changes. (2) Finding: Progress "Your record"
+derives the streak's start date by subtracting calendar days from the last active day, which is
+wrong once rest days are skipped, and cannot be reconstructed because rest-day work is credited.
+Lead ruling under the existing rule in that code ("a wrong date is worse than no date") and
+AGENTS.md "Never invent a figure": the start date is not shown when study days are not all
+seven; unchanged otherwise. Added to Task C's scope.
