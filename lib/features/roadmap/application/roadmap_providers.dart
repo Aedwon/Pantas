@@ -83,6 +83,15 @@ final roadmapTodayProvider =
   return ref.read(roadmapControllerProvider).today(examId);
 });
 
+/// Whether "I want to advance" would add anything for this exam now. Read
+/// alongside [roadmapTodayProvider]; a screen offers advance only when true.
+final roadmapCanAdvanceProvider =
+    FutureProvider.autoDispose.family<bool, ExamId>((ref, examId) async {
+  // Recomputed whenever today's plan is.
+  await ref.watch(roadmapTodayProvider(examId).future);
+  return ref.read(roadmapControllerProvider).canAdvance(examId);
+});
+
 /// Keeps one plan per exam and local day (spec 4.9). A day is built on its
 /// first read, rebuilt only when the exam, its date, the topics in scope,
 /// the content, the assessment or recorded mocks change, and otherwise read
@@ -105,11 +114,41 @@ class RoadmapController {
     return future;
   }
 
+  /// Whether [advance] would add anything now: today's original work is done
+  /// and there is material to bring in. Builds what advance would, saves
+  /// nothing. Lets a screen offer advance only when it does something.
+  Future<bool> canAdvance(ExamId examId) async {
+    final current = await today(examId);
+    return await _advanced(examId, current) != null;
+  }
+
   /// Adds the next study day's material once today's original work is done.
   /// With no study day left, brings in the remaining material for today.
   Future<RoadmapToday> advance(ExamId examId) async {
     final current = await today(examId);
-    if (!current.originalDone) return current;
+    final advanced = await _advanced(examId, current);
+    if (advanced == null) return current;
+
+    await _ref
+        .read(roadmapDayRepositoryProvider)
+        .write(examId, advanced, _now());
+    await _ref.read(roadmapChangeLogRepositoryProvider).append(examId, [
+      RoadmapDiff.advanced(
+        before: current.snapshot,
+        after: advanced,
+        occurredAt: _now(),
+      ),
+    ]);
+    _ref.read(roadmapRevisionProvider.notifier).bump();
+    final completion =
+        await _ref.read(roadmapInputsReaderProvider).completion(_now());
+    return _view(advanced, completion);
+  }
+
+  /// Today's snapshot with the advanced items added, or null when advance
+  /// would do nothing (today not done, or nothing left to bring in).
+  Future<DaySnapshot?> _advanced(ExamId examId, RoadmapToday current) async {
+    if (!current.originalDone) return null;
 
     final reader = _ref.read(roadmapInputsReaderProvider);
     final day = current.snapshot.day;
@@ -148,23 +187,10 @@ class RoadmapController {
     }
     final advanced =
         DaySnapshots.advance(current.snapshot, next.today, reviews: reviews);
-    if (advanced.plan.advancedIds.length ==
-        current.snapshot.plan.advancedIds.length) {
-      return current;
-    }
-
-    await _ref
-        .read(roadmapDayRepositoryProvider)
-        .write(examId, advanced, _now());
-    await _ref.read(roadmapChangeLogRepositoryProvider).append(examId, [
-      RoadmapDiff.advanced(
-        before: current.snapshot,
-        after: advanced,
-        occurredAt: _now(),
-      ),
-    ]);
-    _ref.read(roadmapRevisionProvider.notifier).bump();
-    return _view(advanced, await reader.completion(_now()));
+    return advanced.plan.advancedIds.length ==
+            current.snapshot.plan.advancedIds.length
+        ? null
+        : advanced;
   }
 
   Future<RoadmapToday> _today(ExamId examId) async {

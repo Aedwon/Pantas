@@ -227,6 +227,60 @@ void main() {
     expect(await causes(), contains(RoadmapChangeCause.advanced));
   });
 
+  test('canAdvance says whether advance would add anything, without saving',
+      () async {
+    final first = await controller().today('e1');
+    expect(await controller().canAdvance('e1'), isFalse);
+
+    for (final lesson in first.remaining.lessonIds) {
+      await container.read(lessonProgressRepositoryProvider).markRead(lesson);
+    }
+    for (final q in first.remaining.newQuestionIds) {
+      await container.read(reviewStateRepositoryProvider).upsert(
+            ReviewState.seed(questionId: q, questionVersion: 1, now: now),
+          );
+    }
+    final before =
+        await container.read(roadmapDayRepositoryProvider).read('e1', now);
+
+    expect(await controller().canAdvance('e1'), isTrue);
+    expect(
+      await container.read(roadmapDayRepositoryProvider).read('e1', now),
+      before,
+    );
+    expect(await causes(), isNot(contains(RoadmapChangeCause.advanced)));
+    expect(
+      await container.read(roadmapCanAdvanceProvider('e1').future),
+      isTrue,
+    );
+  });
+
+  test('canAdvance is false when everything is covered and nothing is due',
+      () async {
+    for (final t in ['t1', 't2']) {
+      for (var l = 0; l < 4; l++) {
+        await container
+            .read(lessonProgressRepositoryProvider)
+            .markRead('${t}_l$l');
+        for (var q = 0; q < 5; q++) {
+          await container.read(reviewStateRepositoryProvider).upsert(
+                ReviewState.seed(
+                  questionId: '${t}_l${l}_q$q',
+                  questionVersion: 1,
+                  now: now,
+                ).copyWith(due: DateTime(2026, 10, 20)),
+              );
+        }
+      }
+    }
+
+    final today = await controller().today('e1');
+
+    expect(today.state, RoadmapState.allCovered);
+    expect(today.originalDone, isTrue);
+    expect(await controller().canAdvance('e1'), isFalse);
+  });
+
   test('the plan never loads question bodies or lesson bodies', () async {
     await controller().today('e1');
     expect(content.hydrations, 0);
