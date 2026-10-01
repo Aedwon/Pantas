@@ -98,7 +98,8 @@ Free students still get all of this behavior; they just do not see ahead or see 
 
 - The review-only stretch is the last 7 days or the last quarter of the time left, whichever is
   shorter, and it stays fixed once the plan starts.
-- The mock falls 1 to 6 days before the exam, never on exam day. Free students' one-mock-per-14-
+- The mock falls 1 to 6 days before the exam, never on exam day. A skipped mock moves to the
+  next study day, up to the day before the exam. Free students' one-mock-per-14-
   days limit can move or remove it.
 - A day starts at local midnight, the same as the streak.
 - **Study days.** The student picks which weekdays they study (at least one). Rest days get no

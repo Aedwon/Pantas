@@ -600,3 +600,15 @@ could not know in advance whether advance would add anything.
 Added `RoadmapController.canAdvance` and `roadmapCanAdvanceProvider` (the same build as advance,
 nothing saved; advance now shares it), test first (8a469125). Full suite 3,300 of 3,300; analyze,
 layering, format, attribution OK. Pushed and remote verified. UI brief Section 5 updated.
+
+**Mock cutoff, 1 October 2026:** Aedwon asked what happens to a skipped scheduled mock. Answer:
+it moves to the next study day in its window each day until taken, and was dropped once the exam
+was under two days away.
+
+> "it should be that the user can take their mock on a Study day even if it's the day before
+> their exam"
+
+Changed the cutoff to the day before the exam (`daysLeft >= 1`), test first (18871bb0); the
+exam day itself still never gets a mock. Consistent with the evidence already cited (practice
+test lag of 1 to 6 days, Adesope et al. 2017). Spec Part 1 Section 7 and Part 2 Section 4.7 and
+the UI brief amended. Full suite 3,300 of 3,300; gates OK; pushed, remote verified.

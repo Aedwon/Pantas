@@ -185,7 +185,9 @@ the history is lost. **This corrects what I told you earlier** (edge case 21).
 **Mock**
 - **Free limit blocks the window:** the next allowed day in the window; if none, no mock.
 - **Mock already taken in the window:** no second one.
-- **Exam under 2 days away, or no mock exists for this exam:** none.
+- **Exam today or passed, or no mock exists for this exam:** none. A skipped mock moves to the
+  next study day in its window, up to and including the day before the exam (Aedwon, 1 October
+  2026; earlier text stopped it two days out).
 - **Mock submitted with many misses:** the misses join the reviews due; today's review limit
   still applies, most-likely-remembered first, and the rest follow on later days.
 - **Mock questions the student never answered** (time ran out): nothing is recorded for them; they
@@ -471,7 +473,8 @@ descending retrievability at `today`. Expose retrievability from `FsrsScheduler`
 ### 4.7 Mock day
 
 - Only if the exam has a mock (`MockAvailability` is not `noBlueprint`; custom track uses its
-  custom mock) and `daysLeft >= 2`.
+  custom mock) and `daysLeft >= 1` (amended 1 October 2026 from `>= 2`: the day before the exam
+  stays a possible mock day).
 - Window `[max(today, examDay - 6), examDay - 1]`. Target: `reviewOnlyFrom` clamped into the
   window. With `quiet == 0` (2 or 3 days left) that is `examDay - 1`, never the exam day.
 - Free: if the target is before `lastSubmitted + 14 days`, move to that date if still in the
