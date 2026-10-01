@@ -375,39 +375,39 @@ questions:
     type: "pronoun-reference"
     difficulty: "easy"
     stem: |
-      The applicant uses they/them pronouns. Choose the form referring to that applicant: "The clerk handed the receipt to ___."
+      Sam alone passed the test. Which revision of "Alex told Sam that they had passed" makes the intended reference clear?
     choices:
-      - text: "them"
+      - text: "Alex told Sam that Sam had passed."
         correct: true
-      - text: "they"
+      - text: "Alex told Sam that they had passed the final test."
         rationale: |
-          This uses the subject form after "to". It matches the applicant's stated pronoun set. Check: choose the object form after the preposition.
-      - text: "their"
+          This retains an uncertain use of "they." Singular "they" could refer to either person, and plural "they" could refer to both. Check: name the intended person.
+      - text: "Alex told Sam that Alex had passed the final test."
         rationale: |
-          This uses a possessive form without a following noun. It belongs to the same pronoun set. Check: check whether possession is being expressed.
-      - text: "theirs"
+          This gives the result to Alex. Naming someone removes uncertainty, so the revision looks clear. Check: preserve who actually passed.
+      - text: "Alex told Sam that both had passed the final test."
         rationale: |
-          This uses a standalone possessive form as a personal object. The form can stand alone elsewhere. Check: ask whether the blank names a recipient or a possession.
+          This changes one person's result into a result for both. The plural use of "they" may suggest a pair. Check: keep the stated single-person result.
     explanation: |
-      The blank names the applicant receiving the receipt after "to." "Them" is the object form in the stated they/them set.
+      Repeating "Sam" identifies the person who passed. The revision keeps the stated result and gives the pronoun's intended reference directly.
     approved: false
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0020"
     type: "pronoun-reference"
     difficulty: "exam"
     stem: |
-      The club acts as one unit, and no person's gender is specified. Which pair completes "Each member keeps ___ receipt, and the club updates ___ register"?
+      In a variety of English that allows plural reference to collective nouns, which sentence emphasizes committee members acting individually?
     choices:
-      - text: "their; its"
+      - text: "The committee returned to their homes."
         correct: true
-      - text: "his; its"
+      - text: "The committee published its final report for the year."
         rationale: |
-          This assumes a male member. "Each" refers to one member at a time. Check: keep the requested gender-neutral reference.
-      - text: "their; their"
+          This treats the committee as one unit. A report can describe work done by many members. Check: look for separate actions or possessions belonging to the people.
+      - text: "The committee revised its official policy before the meeting."
         rationale: |
-          This gives the club a members-as-people reference. A club consists of people. Check: follow the stem's one-unit convention.
-      - text: "its; their"
+          This gives the committee one organizational policy. Several people may help revise it. Check: distinguish work by a group from reference to individual members.
+      - text: "The committee announced its decision after the final vote."
         rationale: |
-          This treats a person as a non-person unit and the club as members. Both blanks concern ownership. Check: identify the antecedent and stated convention for each blank.
+          This reports a single group decision. Voting involves individual people. Check: ask whether the pronoun refers to the group unit or its separate members.
     explanation: |
-      "Each member" is an unspecified person, so singular "their" fits. The club is one unit, so "its" refers to the register belonging to that unit.
+      "Their homes" refers to separate homes belonging to the members. Under the stated variety of English, plural "their" emphasizes those people within the committee.
     approved: false
