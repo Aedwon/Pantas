@@ -166,7 +166,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.textContaining('Best mock'), findsNothing);
-    expect(find.textContaining('Day 18'), findsOneWidget);
+    expect(find.text('18 days active'), findsOneWidget);
   });
 
   testWidgets('milestones are absent even though the data exists',

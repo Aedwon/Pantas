@@ -15,7 +15,6 @@ void main() {
     figures: (left: '68%', right: '54%'),
     sentence: 'Accuracy drops 14% under exam pressure.',
     unlockAction: 'Finish one full length mock',
-    pointsAtStake: 0.14,
   );
 
   const blocked = TendencyCard(
@@ -26,7 +25,6 @@ void main() {
     figures: null,
     sentence: null,
     unlockAction: 'Finish one full length mock',
-    pointsAtStake: -1,
   );
 
   const readsFirst = TendencyCard(
@@ -37,7 +35,6 @@ void main() {
     figures: (left: '12', right: '4'),
     sentence: 'You usually read the lesson first.',
     unlockAction: 'Read lessons or attempt topics',
-    pointsAtStake: 0,
   );
 
   const answersFirst = TendencyCard(
@@ -48,7 +45,6 @@ void main() {
     figures: (left: '4', right: '12'),
     sentence: 'You usually go straight to the questions.',
     unlockAction: 'Read lessons or attempt topics',
-    pointsAtStake: 0,
   );
 
   const evenSplit = TendencyCard(
@@ -59,7 +55,6 @@ void main() {
     figures: (left: '8', right: '8'),
     sentence: 'You split about evenly between the two.',
     unlockAction: 'Read lessons or attempt topics',
-    pointsAtStake: 0,
   );
 
   Widget harness(Widget child) {

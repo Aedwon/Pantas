@@ -6,6 +6,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/metrics/domain/metrics_thresholds.dart';
+import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/progress/application/how_you_work_provider.dart';
 
 import '../../../helpers/in_memory_database.dart';
@@ -204,6 +206,25 @@ void main() {
     await seedInitialData(db, contentDb);
   });
 
+  test('pressure uses American spelling with data', () async {
+    final work = await container.read(howYouWorkProvider.future);
+    expect(work.tendencies.first.leftLabel, 'practicing');
+  });
+
+  test('unlock lines state the whole condition', () async {
+    final work = await container.read(howYouWorkProvider.future);
+    final floor = MetricsThresholds.minSessionsFor(MetricsWindow.prepWindow);
+    final studyUnlock = 'Finish $floor sessions and read a lesson '
+        'in a topic you have practiced';
+    expect(work.tendencies.map((t) => t.unlockAction), [
+      'Finish $floor sessions and one full length mock',
+      'Finish $floor sessions and one full length mock',
+      studyUnlock,
+      'Finish $floor sessions',
+      'Finish $floor sessions and review more questions',
+    ]);
+  });
+
   tearDown(() {
     container.dispose();
     db.close();
@@ -243,7 +264,11 @@ void main() {
     expect(stamina.gap, isNull);
     expect(stamina.leftLabel, isNotEmpty);
     expect(stamina.rightLabel, isNotEmpty);
-    expect(stamina.unlockAction, 'Finish one full length mock');
+    expect(
+      stamina.unlockAction,
+      'Finish ${MetricsThresholds.minSessionsFor(MetricsWindow.prepWindow)} '
+      'sessions and one full length mock',
+    );
 
     nullContainer.dispose();
     await nullDb.close();

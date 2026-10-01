@@ -8,6 +8,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
 import 'package:pantas/features/progress/application/how_you_work_provider.dart';
 import 'package:pantas/features/progress/application/pace_provider.dart';
+import 'package:pantas/features/progress/application/record_provider.dart';
 import 'package:pantas/features/progress/presentation/progress_page.dart';
 
 import '../../../helpers/pump_app.dart';
@@ -16,6 +17,7 @@ Widget harness({
   bool hasAttempts = true,
   String? examId = 'cse',
   HowYouWork? howYouWork,
+  StudentRecord? record,
 }) {
   final exam = buildExam(
     id: 'cse',
@@ -32,6 +34,7 @@ Widget harness({
         }
         return ActiveExamFocus.selected(exam);
       }),
+      if (record != null) recordProvider.overrideWith((ref) async => record),
       if (howYouWork != null)
         howYouWorkProvider.overrideWith((ref) async => howYouWork),
       if (examId != null) ...[
@@ -86,6 +89,37 @@ Widget harnessLoading() {
 }
 
 void main() {
+  for (final (days, best, expected) in <(int, int?, String)>[
+    (0, null, '0 days active'),
+    (1, null, '1 day active'),
+    (9, null, '9 days active'),
+    (1, 86, '1 day active. Best mock 86%'),
+    (9, 86, '9 days active. Best mock 86%'),
+  ]) {
+    testWidgets('record subtitle states $expected', (tester) async {
+      await tester.pumpApp(
+        harness(
+          record: StudentRecord(
+            weeksIn: 10,
+            dayStreak: 3,
+            streakStartedOn: null,
+            questionsAnswered: 100,
+            sessionMinutes: 90,
+            lessonsRead: 5,
+            daysActive: days,
+            longestStreak: 4,
+            bestMockPercent: best,
+            accuracySeries: const [],
+            mocks: const [],
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('Your record'), findsOneWidget);
+      expect(find.text(expected), findsOneWidget);
+    });
+  }
+
   testWidgets('opens on the diagnosis, with Go deeper last', (tester) async {
     await tester.pumpApp(harness());
     await tester.pumpAndSettle();

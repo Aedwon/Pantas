@@ -19,7 +19,6 @@ void main() {
       figures: (left: '68%', right: '54%'),
       sentence: 'Accuracy drops 14% under exam pressure.',
       unlockAction: 'Finish one full length mock',
-      pointsAtStake: 0.14,
     ),
     TendencyCard(
       kind: TendencyKind.stamina,
@@ -29,7 +28,6 @@ void main() {
       figures: (left: '80%', right: '60%'),
       sentence: 'Accuracy drops 20% in the second half of a mock.',
       unlockAction: 'Finish one full length mock',
-      pointsAtStake: 0.20,
     ),
     TendencyCard(
       kind: TendencyKind.howYouStudy,
@@ -39,7 +37,6 @@ void main() {
       figures: (left: '12', right: '4'),
       sentence: 'You usually read the lesson first.',
       unlockAction: 'Read lessons or attempt topics',
-      pointsAtStake: 0,
     ),
     TendencyCard(
       kind: TendencyKind.howYouAnswer,
@@ -49,7 +46,6 @@ void main() {
       figures: (left: '5s', right: '12s'),
       sentence: 'You spend 7s longer on questions you get wrong.',
       unlockAction: 'Answer more questions',
-      pointsAtStake: 7,
     ),
   ];
 
@@ -62,7 +58,6 @@ void main() {
       figures: (left: '12', right: '4'),
       sentence: 'You usually read the lesson first.',
       unlockAction: 'Read lessons or attempt topics',
-      pointsAtStake: 0,
     ),
     TendencyCard(
       kind: TendencyKind.howYouAnswer,
@@ -72,7 +67,6 @@ void main() {
       figures: (left: '5s', right: '12s'),
       sentence: 'You spend 7s longer on questions you get wrong.',
       unlockAction: 'Answer more questions',
-      pointsAtStake: 7,
     ),
     TendencyCard(
       kind: TendencyKind.underPressure,
@@ -82,7 +76,6 @@ void main() {
       figures: null,
       sentence: null,
       unlockAction: 'Finish one full length mock',
-      pointsAtStake: -1,
     ),
     TendencyCard(
       kind: TendencyKind.stamina,
@@ -92,7 +85,6 @@ void main() {
       figures: null,
       sentence: null,
       unlockAction: 'Finish one full length mock',
-      pointsAtStake: -1,
     ),
   ];
 

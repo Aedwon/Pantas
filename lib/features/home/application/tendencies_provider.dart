@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/features/metrics/domain/metrics_thresholds.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_key.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
@@ -18,7 +19,6 @@ class TendencyCard {
     required this.figures,
     required this.sentence,
     required this.unlockAction,
-    required this.pointsAtStake,
   });
 
   final TendencyKind kind;
@@ -36,11 +36,8 @@ class TendencyCard {
   final String? sentence;
 
   /// What unlocks this card, shown when [figures] is null. For example
-  /// "Finish one full length mock".
+  /// "Finish 14 sessions and one full length mock".
   final String unlockAction;
-
-  /// Ordering key. Worst first, descending. Cards with no figures sort last.
-  final double pointsAtStake;
 }
 
 final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
@@ -71,6 +68,9 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
 
   final cards = <TendencyCard>[];
 
+  final minSessions =
+      MetricsThresholds.minSessionsFor(MetricsWindow.prepWindow);
+
   // 1. Under pressure
   if (pressureDelta != null) {
     final practicePct = (pressureDelta.practiceAccuracy * 100).round();
@@ -86,26 +86,23 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
       TendencyCard(
         kind: TendencyKind.underPressure,
         heading: 'Under pressure',
-        leftLabel: 'practising',
+        leftLabel: 'practicing',
         rightLabel: 'under time',
         figures: (left: '$practicePct%', right: '$mockPct%'),
         sentence: sentence,
-        unlockAction: 'Finish one full length mock',
-        pointsAtStake:
-            (pressureDelta.practiceAccuracy - pressureDelta.mockAccuracy).abs(),
+        unlockAction: 'Finish $minSessions sessions and one full length mock',
       ),
     );
   } else {
     cards.add(
-      const TendencyCard(
+      TendencyCard(
         kind: TendencyKind.underPressure,
         heading: 'Under pressure',
-        leftLabel: 'practising',
+        leftLabel: 'practicing',
         rightLabel: 'under time',
         figures: null,
         sentence: null,
-        unlockAction: 'Finish one full length mock',
-        pointsAtStake: -1,
+        unlockAction: 'Finish $minSessions sessions and one full length mock',
       ),
     );
   }
@@ -129,31 +126,24 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
         rightLabel: 'second half',
         figures: (left: '$firstPct%', right: '$secondPct%'),
         sentence: sentence,
-        unlockAction: 'Finish one full length mock',
-        pointsAtStake:
-            (staminaDelta.firstHalfAccuracy - staminaDelta.secondHalfAccuracy)
-                .abs(),
+        unlockAction: 'Finish $minSessions sessions and one full length mock',
       ),
     );
   } else {
     cards.add(
-      const TendencyCard(
+      TendencyCard(
         kind: TendencyKind.stamina,
         heading: 'Stamina',
         leftLabel: 'first half',
         rightLabel: 'second half',
         figures: null,
         sentence: null,
-        unlockAction: 'Finish one full length mock',
-        pointsAtStake: -1,
+        unlockAction: 'Finish $minSessions sessions and one full length mock',
       ),
     );
   }
 
   // 3. How you study
-  // howYouStudy is always 0, because neither direction is a loss and
-  // there is nothing at stake to rank it by. That puts it after the
-  // measurable cards and before the blocked ones.
   if (workflowRatio != null) {
     final readCount = workflowRatio.readThenQuizCount;
     final quizCount = workflowRatio.quizFirstCount;
@@ -173,21 +163,21 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
         rightLabel: 'answered first',
         figures: (left: '$readCount', right: '$quizCount'),
         sentence: sentence,
-        unlockAction: 'Read lessons or attempt topics',
-        pointsAtStake: 0,
+        unlockAction: 'Finish $minSessions sessions and read a lesson '
+            'in a topic you have practiced',
       ),
     );
   } else {
     cards.add(
-      const TendencyCard(
+      TendencyCard(
         kind: TendencyKind.howYouStudy,
         heading: 'How you study',
         leftLabel: 'read first',
         rightLabel: 'answered first',
         figures: null,
         sentence: null,
-        unlockAction: 'Read lessons or attempt topics',
-        pointsAtStake: -1,
+        unlockAction: 'Finish $minSessions sessions and read a lesson '
+            'in a topic you have practiced',
       ),
     );
   }
@@ -211,37 +201,37 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
         rightLabel: 'when wrong',
         figures: (left: '${correctSec}s', right: '${incorrectSec}s'),
         sentence: sentence,
-        unlockAction: 'Answer more questions',
-        pointsAtStake:
-            (speedDist.correctAverageMs - speedDist.incorrectAverageMs).abs() /
-                1000.0,
+        unlockAction: 'Finish $minSessions sessions',
       ),
     );
   } else {
     cards.add(
-      const TendencyCard(
+      TendencyCard(
         kind: TendencyKind.howYouAnswer,
         heading: 'How you answer',
         leftLabel: 'when correct',
         rightLabel: 'when wrong',
         figures: null,
         sentence: null,
-        unlockAction: 'Answer more questions',
-        pointsAtStake: -1,
+        unlockAction: 'Finish $minSessions sessions',
       ),
     );
   }
 
-  // Worst first, descending. Cards blocked by a missing prerequisite sort last.
+  // Data comes first. Both groups use the same order, regardless of gap size.
+  const order = [
+    TendencyKind.underPressure,
+    TendencyKind.stamina,
+    TendencyKind.howYouAnswer,
+    TendencyKind.howYouStudy,
+  ];
   cards.sort((a, b) {
     final aHasData = a.figures != null;
     final bHasData = b.figures != null;
     if (aHasData != bHasData) {
       return aHasData ? -1 : 1;
     }
-    final cmp = b.pointsAtStake.compareTo(a.pointsAtStake);
-    if (cmp != 0) return cmp;
-    return a.kind.index.compareTo(b.kind.index);
+    return order.indexOf(a.kind).compareTo(order.indexOf(b.kind));
   });
 
   return cards;

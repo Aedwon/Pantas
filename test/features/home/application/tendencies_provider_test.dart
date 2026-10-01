@@ -7,6 +7,12 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/home/application/tendencies_provider.dart';
+import 'package:pantas/features/metrics/domain/metric_signal.dart';
+import 'package:pantas/features/metrics/domain/metrics_thresholds.dart';
+import 'package:pantas/features/metrics/domain/metrics_window.dart';
+import 'package:pantas/features/metrics/domain/signal_key.dart';
+import 'package:pantas/features/metrics/domain/signal_outputs.dart';
+import 'package:pantas/features/metrics/providers/metrics_signal_providers.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
@@ -192,6 +198,95 @@ void main() {
     await prefsRepo.setSelectedExamId('exam_upcat');
   });
 
+  for (final includeMock in [false, true]) {
+    test('pressure uses American spelling with mock: $includeMock', () async {
+      await seedInitialData(db, contentDb, includeMock: includeMock);
+      final cards = await container.read(tendenciesProvider.future);
+      expect(
+        cards.firstWhere((c) => c.kind == TendencyKind.underPressure).leftLabel,
+        'practicing',
+      );
+    });
+  }
+
+  test('unlock lines state the whole condition', () async {
+    await seedInitialData(db, contentDb, includeMock: false);
+    final cards = await container.read(tendenciesProvider.future);
+    final floor = MetricsThresholds.minSessionsFor(MetricsWindow.prepWindow);
+    final expected = {
+      TendencyKind.underPressure:
+          'Finish $floor sessions and one full length mock',
+      TendencyKind.stamina: 'Finish $floor sessions and one full length mock',
+      TendencyKind.howYouStudy: 'Finish $floor sessions and read a lesson '
+          'in a topic you have practiced',
+      TendencyKind.howYouAnswer: 'Finish $floor sessions',
+    };
+    for (final card in cards) {
+      expect(card.unlockAction, expected[card.kind]);
+    }
+  });
+
+  test('fixed order separates data and empty cards for every subset', () async {
+    await seedInitialData(db, contentDb);
+    const order = [
+      TendencyKind.underPressure,
+      TendencyKind.stamina,
+      TendencyKind.howYouAnswer,
+      TendencyKind.howYouStudy,
+    ];
+    const keys = [
+      SignalKey.testModeDelta,
+      SignalKey.mockStamina,
+      SignalKey.perQuestionSpeed,
+      SignalKey.readThenQuiz,
+    ];
+    const values = <Object>[
+      PressureDelta(practiceAccuracy: 0.8, mockAccuracy: 0.7),
+      StaminaDelta(firstHalfAccuracy: 0.4, secondHalfAccuracy: 0.9),
+      LatencyDistribution(
+        averageMs: 35000,
+        correctAverageMs: 10000,
+        incorrectAverageMs: 60000,
+        sampleCount: 20,
+      ),
+      WorkflowRatio(readThenQuizCount: 4, quizFirstCount: 2),
+    ];
+    for (var mask = 0; mask < 16; mask++) {
+      final c = ProviderContainer(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
+          metricsSignalProvider.overrideWith((ref, request) async {
+            final i = keys.indexOf(request.signal);
+            if (i < 0 || mask & (1 << i) == 0) return null;
+            return SignalResult<Object>(
+              window: ResolvedMetricsWindow(
+                window: request.window,
+                start: null,
+                end: request.now,
+                sessionCount: 14,
+                minSessionCount: 14,
+              ),
+              value: values[i],
+            );
+          }),
+        ],
+      );
+      final cards = await c.read(tendenciesProvider.future);
+      expect(
+        cards.map((card) => card.kind),
+        [
+          for (var i = 0; i < 4; i++)
+            if (mask & (1 << i) != 0) order[i],
+          for (var i = 0; i < 4; i++)
+            if (mask & (1 << i) == 0) order[i],
+        ],
+        reason: 'data subset $mask',
+      );
+      c.dispose();
+    }
+  });
+
   tearDown(() {
     container.dispose();
     db.close();
@@ -218,7 +313,11 @@ void main() {
     expect(stamina.sentence, isNull);
     expect(stamina.leftLabel, isNotEmpty, reason: 'labels always show');
     expect(stamina.rightLabel, isNotEmpty);
-    expect(stamina.unlockAction, 'Finish one full length mock');
+    expect(
+      stamina.unlockAction,
+      'Finish ${MetricsThresholds.minSessionsFor(MetricsWindow.prepWindow)} '
+      'sessions and one full length mock',
+    );
   });
 
   test('measurable cards sort before blocked ones', () async {
@@ -252,7 +351,7 @@ void main() {
     await customDb.close();
   });
 
-  test('worst first among measurable cards', () async {
+  test('pressure comes first among measurable cards', () async {
     // pressure delta -0.18, stamina delta -0.04.
     final customDb = inMemoryDatabase();
     final customContentDb = openTestContentDatabase();
@@ -280,7 +379,7 @@ void main() {
     await customDb.close();
   });
 
-  test('a gain sorts by size, not by sign', () async {
+  test('fixed order does not depend on the size or sign of a gap', () async {
     // stamina delta +0.20, pressure delta -0.05.
     final customDb = inMemoryDatabase();
     final customContentDb = openTestContentDatabase();
@@ -304,7 +403,7 @@ void main() {
     final cards = await customContainer.read(tendenciesProvider.future);
     final measurable = cards.where((c) => c.figures != null).toList();
 
-    expect(measurable.first.kind, TendencyKind.stamina);
+    expect(measurable.first.kind, TendencyKind.underPressure);
 
     customContainer.dispose();
     await customDb.close();

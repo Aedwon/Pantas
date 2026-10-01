@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:pantas/features/metrics/archetypes/archetype.dart';
+import 'package:pantas/features/metrics/archetypes/subject_kinds.dart';
 import 'package:pantas/features/metrics/domain/signal_key.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
 
@@ -34,13 +35,6 @@ final archetypeCatalog = <Archetype>[
       final sessions = s[SignalKey.sessionShape]! as DurationDistribution;
       return (hour < 12 ? 0.5 : 0) + (sessions.averageMinutes >= 25 ? 0.5 : 0);
     },
-  ),
-  Archetype(
-    id: 'weekday_warrior',
-    label: 'Weekday Warrior',
-    category: ArchetypeCategory.studyHabit,
-    requiredSignals: const {SignalKey.timeOfDay, SignalKey.consistency},
-    match: (s) => 0.7,
   ),
   Archetype(
     id: 'game_day_player',
@@ -92,16 +86,24 @@ final archetypeCatalog = <Archetype>[
     label: 'Wordsmith',
     category: ArchetypeCategory.subject,
     requiredSignals: const {SignalKey.subjectAffinity},
-    match: (s) =>
-        _subjectSpread(s[SignalKey.subjectAffinity]! as SubjectAccuracySpeed),
+    match: (s) {
+      final subject = s[SignalKey.subjectAffinity]! as SubjectAccuracySpeed;
+      return strongestSubjectKind(subject) == SubjectKind.words
+          ? _subjectSpread(subject)
+          : 0.0;
+    },
   ),
   Archetype(
     id: 'numbers_person',
     label: 'Numbers Person',
     category: ArchetypeCategory.subject,
     requiredSignals: const {SignalKey.subjectAffinity},
-    match: (s) =>
-        _subjectSpread(s[SignalKey.subjectAffinity]! as SubjectAccuracySpeed),
+    match: (s) {
+      final subject = s[SignalKey.subjectAffinity]! as SubjectAccuracySpeed;
+      return strongestSubjectKind(subject) == SubjectKind.numbers
+          ? _subjectSpread(subject)
+          : 0.0;
+    },
   ),
   Archetype(
     id: 'generalist',
@@ -132,17 +134,6 @@ final archetypeCatalog = <Archetype>[
     requiredSignals: const {SignalKey.retentionShape},
     match: (s) =>
         1 - (s[SignalKey.retentionShape]! as RetentionCurve).lapseRate,
-  ),
-  Archetype(
-    id: 'self_aware',
-    label: 'Self-Aware',
-    category: ArchetypeCategory.pressureMode,
-    requiredSignals: const {SignalKey.difficultyCalibration},
-    match: (s) => (s[SignalKey.difficultyCalibration]! as CalibrationCurve)
-            .points
-            .isNotEmpty
-        ? 0.75
-        : 0.0,
   ),
 ];
 

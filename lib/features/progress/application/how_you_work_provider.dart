@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/features/metrics/domain/metrics_thresholds.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_key.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
@@ -130,6 +131,9 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
   final sessionShape =
       await readSignal<DurationDistribution>(SignalKey.sessionShape);
 
+  final minSessions =
+      MetricsThresholds.minSessionsFor(MetricsWindow.prepWindow);
+
   // 1. Under pressure
   Tendency underPressure;
   if (pressureDelta != null) {
@@ -146,27 +150,27 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
     underPressure = Tendency(
       id: TendencyId.underPressure,
       heading: 'Under pressure',
-      leftLabel: 'practising',
+      leftLabel: 'practicing',
       rightLabel: 'under time',
       gap: '$absDiff',
       leftFigure: '$practicePct%',
       rightFigure: '$mockPct%',
       sentence: sentence,
       isLoss: isLoss,
-      unlockAction: 'Finish one full length mock',
+      unlockAction: 'Finish $minSessions sessions and one full length mock',
     );
   } else {
-    underPressure = const Tendency(
+    underPressure = Tendency(
       id: TendencyId.underPressure,
       heading: 'Under pressure',
-      leftLabel: 'practising',
+      leftLabel: 'practicing',
       rightLabel: 'under time',
       gap: null,
       leftFigure: null,
       rightFigure: null,
       sentence: null,
       isLoss: false,
-      unlockAction: 'Finish one full length mock',
+      unlockAction: 'Finish $minSessions sessions and one full length mock',
     );
   }
 
@@ -194,10 +198,10 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
       rightFigure: '$secondPct%',
       sentence: sentence,
       isLoss: isLoss,
-      unlockAction: 'Finish one full length mock',
+      unlockAction: 'Finish $minSessions sessions and one full length mock',
     );
   } else {
-    stamina = const Tendency(
+    stamina = Tendency(
       id: TendencyId.stamina,
       heading: 'Stamina',
       leftLabel: 'first half',
@@ -207,7 +211,7 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
       rightFigure: null,
       sentence: null,
       isLoss: false,
-      unlockAction: 'Finish one full length mock',
+      unlockAction: 'Finish $minSessions sessions and one full length mock',
     );
   }
 
@@ -235,10 +239,11 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
       rightFigure: '$quizCount',
       sentence: sentence,
       isLoss: false,
-      unlockAction: 'Read lessons or attempt topics',
+      unlockAction: 'Finish $minSessions sessions and read a lesson '
+          'in a topic you have practiced',
     );
   } else {
-    howYouStudy = const Tendency(
+    howYouStudy = Tendency(
       id: TendencyId.howYouStudy,
       heading: 'How you study',
       leftLabel: 'read first',
@@ -248,7 +253,8 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
       rightFigure: null,
       sentence: null,
       isLoss: false,
-      unlockAction: 'Read lessons or attempt topics',
+      unlockAction: 'Finish $minSessions sessions and read a lesson '
+          'in a topic you have practiced',
     );
   }
 
@@ -274,10 +280,10 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
       rightFigure: '${incorrectSec}s',
       sentence: sentence,
       isLoss: diffSec != 0,
-      unlockAction: 'Answer more questions',
+      unlockAction: 'Finish $minSessions sessions',
     );
   } else {
-    howYouAnswer = const Tendency(
+    howYouAnswer = Tendency(
       id: TendencyId.howYouAnswer,
       heading: 'How you answer',
       leftLabel: 'when correct',
@@ -287,7 +293,7 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
       rightFigure: null,
       sentence: null,
       isLoss: false,
-      unlockAction: 'Answer more questions',
+      unlockAction: 'Finish $minSessions sessions',
     );
   }
 
@@ -309,10 +315,10 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
       rightFigure: '$lapsePct%',
       sentence: sentence,
       isLoss: retentionShape.lapseRate > 0.15,
-      unlockAction: 'Review more questions',
+      unlockAction: 'Finish $minSessions sessions and review more questions',
     );
   } else {
-    howLongYouRemember = const Tendency(
+    howLongYouRemember = Tendency(
       id: TendencyId.howLongYouRemember,
       heading: 'How long you remember',
       leftLabel: 'memory holds',
@@ -322,7 +328,7 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
       rightFigure: null,
       sentence: null,
       isLoss: false,
-      unlockAction: 'Review more questions',
+      unlockAction: 'Finish $minSessions sessions and review more questions',
     );
   }
 

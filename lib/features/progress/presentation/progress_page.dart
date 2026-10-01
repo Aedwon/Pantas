@@ -208,7 +208,10 @@ class ProgressPage extends ConsumerWidget {
     final recordAsync = ref.watch(recordProvider);
     final recordSubtitle = recordAsync.when(
       data: (record) {
-        final parts = <String>['Day ${record.daysActive}'];
+        final days = record.daysActive;
+        final parts = <String>[
+          '$days ${days == 1 ? 'day' : 'days'} active',
+        ];
         if (record.bestMockPercent != null) {
           parts.add('Best mock ${record.bestMockPercent}%');
         }
