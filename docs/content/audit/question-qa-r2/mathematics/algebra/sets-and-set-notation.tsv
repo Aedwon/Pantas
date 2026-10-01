@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-algebra-sets-and-set-notation-0001	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-sets-and-set-notation-0002	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-sets-and-set-notation-0003	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-sets-and-set-notation-0004	NEEDS AEDWON	SOLVED-MATCH	none	MEDIUM	The lesson does not teach the empty set or its universal subset property.
+q-algebra-sets-and-set-notation-0005	CORRECTED	SOLVED-MATCH	distractor;explanation;notes;format	MEDIUM	The union was the longest choice; replaced one alternative with a plausible unlisted pattern member.
+q-algebra-sets-and-set-notation-0006	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-sets-and-set-notation-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Two alternative overlap counts lacked a clear derivation.
+q-algebra-sets-and-set-notation-0008	NEEDS AEDWON	SOLVED-MATCH	none	MEDIUM	The lesson does not teach counting subsets or the rule 2^n.
+q-algebra-sets-and-set-notation-0009	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-sets-and-set-notation-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Specified the universal set needed for the complement notation.
+q-algebra-sets-and-set-notation-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Pairwise counts did not explicitly say they included the triple overlap.
+q-algebra-sets-and-set-notation-0013	NEEDS AEDWON	SOLVED-MATCH	none	MEDIUM	The lesson does not teach set-builder notation or relative-complement notation.
+q-algebra-sets-and-set-notation-0014	NEEDS AEDWON	SOLVED-MATCH	none	MEDIUM	The lesson does not teach De Morgan’s identities.
+q-algebra-sets-and-set-notation-0015	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Pairwise coverage was implicit and two choir counts lacked a clear mistake.
+q-algebra-sets-and-set-notation-0016	NEW	NEW	new question	NONE	
+q-algebra-sets-and-set-notation-0017	NEW	NEW	new question	NONE	
+q-algebra-sets-and-set-notation-0018	NEW	NEW	new question	NONE	
+q-algebra-sets-and-set-notation-0019	NEW	NEW	new question	NONE	
+q-algebra-sets-and-set-notation-0020	NEW	NEW	new question	NONE	
+q-algebra-sets-and-set-notation-0021	NEW	NEW	new question	NONE	
