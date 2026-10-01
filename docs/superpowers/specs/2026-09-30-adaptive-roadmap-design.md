@@ -598,8 +598,9 @@ exam, 43 before Mon 30 Nov; 120 lessons give 3 a day, 900 unseen give 21 a day.
 | `/plan` | Broken May page | Engine-backed; screen design is UI round. Free: today section; Pro: `weeksAhead`, `mockDay`, log |
 | `/plan/dossier/:mockId` | Stub | Untouched |
 
-Free and Pro: gate only at presentation, using the existing gate treatment
-(`FaintBars`, heading kept, "Unlock with Pro" after free content, one teaser per screen).
+Free and Pro: gate only at presentation: heading kept, content withheld, "Unlock with Pro" after
+free content, one teaser per screen. How the gate looks follows the UI round's approved designs
+(Ink and Rule and its faint bars are retired; `AGENTS.md`, Visual direction).
 
 ## 6. Content: prerequisite links
 

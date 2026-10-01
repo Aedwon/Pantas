@@ -3,6 +3,11 @@
 Running log of hands-on UI findings, in the spirit of `content/audit/` but for
 the app surface rather than the corpus.
 
+**Note, 1 October 2026:** Ink and Rule is retired (`AGENTS.md`, Visual direction). Findings
+below that judge styling against it (hairlines, board green, tinted callouts, rounded cards) are
+historical and do not bind new designs. Findings about behavior, content and accessibility
+stand.
+
 Severity follows the content audit: **[blocker]** ships broken, **[important]**
 noticeably wrong, **[polish]** cosmetic. Status is one of OPEN, FIXED, or
 DECISION NEEDED.

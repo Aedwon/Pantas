@@ -64,40 +64,22 @@ debug build.
 
 ---
 
-## Before writing a widget
+## Visual direction
 
-**Check `lib/core/ui/components/` first.** The kit already has the row, band,
-meter, section header, ruled section, progress rule, error banner and empty state
-types. Adding a near-duplicate is the most common avoidable defect in this
-codebase.
+**Ink and Rule is retired** (Aedwon, 1 October 2026). Do not apply it, its banned list, its
+typeface rule or its color rule to new work, and do not "correct" a design toward it.
 
----
+The visual direction is being defined by Aedwon in Claude Design. Until rules derived from that
+design are recorded here, **this file sets no visual rules**: take every visual decision from
+the approved Claude Design screens, matched 1:1 (`WORKFLOW.md`, visual checking). Do not infer
+a direction from older specs, the current app, or the component kit's current look.
 
-## Visual identity: Ink and Rule
+Specs written before 1 October 2026 keep their behavior, content, figures and Free and Pro rules.
+Their visual sections (Ink and Rule, hairlines, faint bars, banned styling, typeface, color) are
+superseded. Record: `docs/superpowers/decisions/2026-10-01-visual-direction-log.md`.
 
-The app looks like well-set print on paper. **Banned by name**, because they read
-as generic and have been rejected repeatedly:
-
-- Card elevation and drop shadows
-- Large corner radii
-- Tinted callout boxes
-- Coloured left-border panels
-- Blur, lock icons, shimmer loading
-
-Grouping is done with hairline rules and rectangles.
-
-**One typeface, Source Sans 3, everywhere.** The serif was retired on 11 August:
-Aedwon called it an eyesore, and a reader noticing the type is not reading the
-lesson. `decisions/2026-08-10-typeface-log.md` has the round.
-
-**This makes the rest of the identity carry more, not less.** Nothing about the
-letterforms distinguishes this app now, so the hairline rules, the underlined
-section heads, the tabular figures and the absence of tinted callouts and
-rounded cards are the whole of it. His standing words: no vibe-coded AI slop.
-
-**Colour must always carry meaning.** Board green is reserved for the single
-primary action on a screen. Severity is rust, then amber, then plain ink. Never add
-colour as decoration.
+**Before writing a widget,** check `lib/core/ui/components/` for one that already does the job.
+Reuse is for behavior and structure; its current styling is not binding.
 
 ---
 
