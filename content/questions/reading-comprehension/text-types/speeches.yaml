@@ -3,237 +3,553 @@ meta:
   topic: text-types
   subtopic: speeches
   exams:
-    - upcat
-    - acet
-    - dlsucet
-    - ustet
-
+  - upcat
+  - acet
+  - dlsucet
+  - ustet
 passages:
-  - id: rc-tt-sp-p1
-    title: "Commencement Address in Tacloban"
-    body: |
-      Graduates of Tacloban, look around this hall today and witness what perseverance built from hardship. Ten years ago, super typhoon storms leveled our school buildings and shattered our coastal infrastructure. Yet, as someone who treated injured neighbors in emergency tents during those dark weeks, I can assure you that our spirit was never broken.
+- id: rc-tt-sp-p1
+  title: Commencement Address in Tacloban
+  body: |
+    Graduates of Tacloban, look around this hall today and witness what perseverance built from hardship. Ten years ago, super typhoon storms leveled our school buildings and shattered our coastal infrastructure. Yet, as someone who treated injured neighbors in emergency tents during those dark weeks, I can assure you that our spirit was never broken.
 
-      You, the youth of Eastern Visayas, are the living proof of our recovery. You studied under tarpaulin roofs when books were scarce. You shared solar lamps when electricity was restored one neighborhood at a time. We remembered our fallen past. We rebuilt our damaged classrooms. We rose above our deepest grief.
+    You, the youth of Eastern Visayas, are the living proof of our recovery. You studied under tarpaulin roofs when books were scarce. You shared solar lamps when electricity was restored one neighborhood at a time. We remembered our fallen past. We rebuilt our damaged classrooms. We rose above our deepest grief.
 
-      Do not let anyone tell you that your provincial origins limit your potential. As you step out to become doctors, engineers, and teachers, carry the courage of your hometown with you. Go forward with pride, serve your communities with compassion, and lead our nation toward a resilient future.
+    Do not let anyone tell you that your provincial origins limit your potential. As you step out to become doctors, engineers, and teachers, carry the courage of your hometown with you. Go forward with pride, serve your communities with compassion, and lead our nation toward a resilient future.
+- id: rc-tt-sp-p2
+  title: Barangay Coastal Resilience Address
+  body: |
+    My fellow fisherfolk and barangay elders, we stand at a critical crossroads for our coastal waters. Having harvested fish along this bay for thirty-five years, I have watched our fish stocks shrink as plastic waste and mangrove destruction destroyed our natural breeding grounds.
 
-  - id: rc-tt-sp-p2
-    title: "Barangay Coastal Resilience Address"
-    body: |
-      My fellow fisherfolk and barangay elders, we stand at a critical crossroads for our coastal waters. Having harvested fish along this bay for thirty-five years, I have watched our fish stocks shrink as plastic waste and mangrove destruction destroyed our natural breeding grounds.
+    We cannot afford to wait for outside agencies to fix what we have permitted to decay. You, the leaders of this community, hold the power to restore our marine heritage. Together we plant mangrove saplings along the shoreline. Together we protect nursery zones from illegal trawlers. Together we harvest the sustainable abundance of a healthy sea.
 
-      We cannot afford to wait for outside agencies to fix what we have permitted to decay. You, the leaders of this community, hold the power to restore our marine heritage. Together we plant mangrove saplings along the shoreline. Together we protect nursery zones from illegal trawlers. Together we harvest the sustainable abundance of a healthy sea.
+    If we act with unity today, our children will inherit a flourishing bay rather than empty nets. Let us commit to daily enforcement, let us honor our traditional fishing wisdom, and let us safeguard our waters for generations to come. Each household can join the work, and every local leader can help keep the commitment alive.
+- id: p-text-types-speeches-0003
+  title: Opening the Community Archive
+  body: |
+    Neighbors, teachers, and former students, welcome to our community archive. Today we open a room, but we also open a conversation. The photographs on these walls were kept in drawers for years. Families brought them here because they wanted the names, places, and small details to remain available to others.
 
-      If we act with unity today, our children will inherit a flourishing bay rather than empty nets. Let us commit to daily enforcement, let us honor our traditional fishing wisdom, and let us safeguard our waters for generations to come.
+    I served as this school's librarian before retirement. I know how often a useful record disappears because nobody labels it. That is why each donated picture now has a date, a name when known, and a note about who supplied it. When a detail is uncertain, the label says so.
 
+    Some visitors may recognize a parent in a class photograph. Others may find a street they have only heard about. Please tell our volunteers what you know, and let them record your account carefully. Remember the neighbors who saved these pictures. Remember the volunteers who made space for them. Remember that an archive grows when people both share and listen. After this welcome, the volunteers will explain how to search the shelves.
+- id: p-text-types-speeches-0004
+  title: A Proposal for the Lunch Line
+  body: |
+    Members of the student council, I am asking you to try separate pickup times for preordered lunches. At present, students collecting packed orders join the same line as students choosing food. Both groups then wait while each new order is prepared.
+
+    Our canteen staff explained that packed lunches can be handed over as soon as the names are checked. A separate pickup window would let those students leave promptly and give the main counter more time for new orders. This is a reason to test the plan, not a promise that every delay will vanish.
+
+    What good is a change if we never check whether it helps? During the trial, volunteers will record waiting times for both groups and ask the staff whether the arrangement adds work. We should continue only if the results justify it.
+
+    Think of a student who spends most of a short break waiting and then hurries through a meal. A fairer line could give that student time to eat. Let us test a small change before asking the school to make it permanent.
 questions:
-  - id: rc-tt-sp-0001
-    passage: rc-tt-sp-p1
-    type: identify
-    difficulty: easy
-    stem: |
-      Which rhetorical device is used in the repeated sentence structure "We remembered... We rebuilt... We rose..."?
-    choices:
-      - text: Repetition and parallel structure
-        correct: true
-      - text: Scientific jargon and statistical proof
-        rationale: |
-          You picked scientific jargon. The phrase uses emotional repetition and parallel verbs, not scientific terms.
-      - text: Sarcastic understatement and irony
-        rationale: |
-          You picked sarcastic irony. The speaker is expressing genuine pride and emotional inspiration, not sarcasm.
-      - text: Third-person detached observation
-        rationale: |
-          You picked third-person observation. The speaker uses first-person plural (we) to unite with the audience.
-    explanation: |
-      Repeating the opening phrase "We [verb]" across three consecutive sentences is a classic example of repetition and parallelism designed to build momentum.
+- id: rc-tt-sp-0001
+  passage: rc-tt-sp-p1
+  type: feature-of-form
+  difficulty: easy
+  stem: 'Which device appears in "We remembered... We rebuilt... We rose..."?
 
-  - id: rc-tt-sp-0002
-    passage: rc-tt-sp-p1
-    type: analyze
-    difficulty: medium
-    stem: |
-      Why does the speaker use direct address when stating "You, the youth of Eastern Visayas"?
-    choices:
-      - text: To connect directly and foster personal responsibility.
-        correct: true
-      - text: To inform news reporters about regional high school enrollment figures.
-        rationale: |
-          You inferred a press briefing purpose missing from this inspirational commencement speech to graduates.
-      - text: To criticize the graduates for studying under tarpaulin roofs.
-        rationale: |
-          You inferred criticism. The speaker praises the graduates' perseverance while studying under hardship.
-      - text: To conceal the speaker's personal background as a health worker.
-        rationale: |
-          You picked a secretive motive that contradicts the speaker explicitly mentioning treating injured neighbors.
-    explanation: |
-      Direct address ("You, the youth...") speaks directly to listeners, fostering engagement and a sense of personal mission.
+    '
+  choices:
+  - text: Repetition with parallel structure
+    correct: true
+  - text: A rhetorical question inviting audience reflection
+    rationale: 'This treats emphatic statements as questions. The lines invite thought, so the label can seem fitting. Check whether they ask anything.
 
-  - id: rc-tt-sp-0003
-    passage: rc-tt-sp-p1
-    type: infer
-    difficulty: medium
-    stem: |
-      Which rhetorical appeal is established when the speaker mentions treating injured neighbors in emergency tents?
-    choices:
-      - text: Ethos (credibility through personal experience)
-        correct: true
-      - text: Logos (citing official published statistical data)
-        rationale: |
-          You picked logos (logic and data). Mentioning personal service in emergency tents establishes ethos (credibility).
-      - text: Irony (saying the opposite of what is meant)
-        rationale: |
-          You picked irony. The speaker is recounting sincere personal medical service during the disaster.
-      - text: Hyperbole (exaggerating facts for comic effect)
-        rationale: |
-          You picked comic hyperbole, ignoring the serious personal account of treating typhoon victims.
-    explanation: |
-      Citing firsthand service during the disaster establishes the speaker's personal credibility (ethos) on community resilience.
+      '
+  - text: A contrast between literal and intended meanings
+    rationale: 'This treats serious praise as irony. Strong wording can suggest a hidden meaning. Check whether the speech reverses what its words say.
 
-  - id: rc-tt-sp-0004
-    passage: rc-tt-sp-p1
-    type: evaluate
-    difficulty: hard
-    stem: |
-      What is the primary persuasive purpose of this commencement address?
-    choices:
-      - text: To inspire graduates to serve and lead resilient communities.
-        correct: true
-      - text: To convince university officials to reduce tuition fees in Tacloban.
-        rationale: |
-          You introduced tuition fee disputes not discussed in this commencement speech.
-      - text: To instruct engineers on how to build storm-proof solar lamps.
-        rationale: |
-          You picked a technical instruction manual goal outside the scope of an inspirational address.
-      - text: To complain about historical storm recovery delays.
-        rationale: |
-          You picked a political complaint focus, whereas the speech emphasizes rebuilding and future leadership.
-    explanation: |
-      The speaker urges graduates to "carry the courage of your hometown", "serve your communities", and "lead our nation", fulfilling an inspirational purpose.
+      '
+  - text: A comparison using numerical recovery evidence
+    rationale: 'This treats three actions as statistical proof. A list can resemble evidence. Check whether the lines contain measurements.
 
-  - id: rc-tt-sp-0005
-    passage: rc-tt-sp-p1
-    type: analyze
-    difficulty: hard
-    stem: |
-      How does contrasting past hardships (tarpaulin roofs, solar lamps) with future goals (doctors, engineers) serve the speaker's argument?
-    choices:
-      - text: It highlights proven strength to show ambitious potential.
-        correct: true
-      - text: It proves that provincial students should avoid technical careers.
-        rationale: |
-          You picked a negative claim contradicting the speaker encouraging graduates to become doctors and engineers.
-      - text: It indicates that local Tacloban classrooms lack basic furniture.
-        rationale: |
-          You picked a literal complaint about furniture, missing the rhetorical contrast between past struggle and future success.
-      - text: It argues that solar lamps are superior to electrical power grids.
-        rationale: |
-          You picked an off-topic comparison of lighting equipment. Solar lamps illustrate studying through hardship.
-    explanation: |
-      Contrasting past obstacles overcome with future aspirations reinforces the theme of proven resilience and potential.
+      '
+  explanation: 'Each sentence begins with We and follows it with a past-tense verb. The repeated words and matching grammar create repetition and parallel structure.
 
-  - id: rc-tt-sp-0006
-    passage: rc-tt-sp-p2
-    type: identify
-    difficulty: easy
-    stem: |
-      Which rhetorical device is featured in the lines "Together we plant... Together we protect... Together we harvest..."?
-    choices:
-      - text: Repetition emphasizing collective unity
-        correct: true
-      - text: Scientific classification of marine organisms
-        rationale: |
-          You picked scientific classification, but the lines use repeated active verbs to inspire community action.
-      - text: Passive voice reporting of government actions
-        rationale: |
-          You picked passive voice. The sentences use active first-person plural structure (Together we plant).
-      - text: Historical storytelling in chronological order
-        rationale: |
-          You picked chronological storytelling. The passage uses anaphora (repetition) to rally unity in the present.
-    explanation: |
-      Beginning three consecutive sentences with "Together we [verb]" is anaphora/repetition that strongly emphasizes collective community action.
+    '
+- id: rc-tt-sp-0002
+  passage: rc-tt-sp-p1
+  type: purpose-of-device
+  difficulty: medium
+  stem: 'Why does the speaker address "You, the youth of Eastern Visayas"?
 
-  - id: rc-tt-sp-0007
-    passage: rc-tt-sp-p2
-    type: analyze
-    difficulty: medium
-    stem: |
-      What effect does the direct address "My fellow fisherfolk and barangay elders" have on the speech?
-    choices:
-      - text: It identifies the audience and establishes solidarity.
-        correct: true
-      - text: It distances the speaker from local community members.
-        rationale: |
-          You picked an alienating effect. Direct address with "fellow" creates closeness and shared identity.
-      - text: It requests written questions from foreign marine tourists.
-        rationale: |
-          You introduced foreign tourists missing from a local barangay speech to fisherfolk.
-      - text: It proves that the speaker is a government minister from Manila.
-        rationale: |
-          You inferred a government minister title, while the speaker states they are a local fisherfolk of 35 years.
-    explanation: |
-      Addressing the audience by name ("fellow fisherfolk and elders") establishes shared identity and community solidarity.
+    '
+  choices:
+  - text: To involve the graduates in the call to serve.
+    correct: true
+  - text: To make the graduates a distant subject of a news report.
+    rationale: 'This treats listeners as people merely reported about. The phrase names a regional group. Check whether the speaker speaks to them or about them.
 
-  - id: rc-tt-sp-0008
-    passage: rc-tt-sp-p2
-    type: infer
-    difficulty: medium
-    stem: |
-      How does the speaker establish ethos in the opening paragraph?
-    choices:
-      - text: By citing 35 years of experience fishing along the bay.
-        correct: true
-      - text: By presenting a detailed computer simulation of fish migration.
-        rationale: |
-          You introduced computer simulations not mentioned in the speech.
-      - text: By quoting international marine biology textbooks.
-        rationale: |
-          You introduced academic textbook citations missing from this personal address.
-      - text: By explaining the legal penalties for plastic dumping.
-        rationale: |
-          You picked legal penalties, whereas the speaker establishes credibility through 35 years of fishing experience.
-    explanation: |
-      Mentioning 35 years of local fishing experience grounds the speaker's authority and credibility (ethos) in firsthand knowledge.
+      '
+  - text: To shift responsibility for past storm damage onto students.
+    rationale: 'This mistakes direct address for blame. You can introduce an accusation. Check the praise and encouragement surrounding it.
 
-  - id: rc-tt-sp-0009
-    passage: rc-tt-sp-p2
-    type: evaluate
-    difficulty: hard
-    stem: |
-      Why does the speaker use the urgent choice "If we act with unity today, our children will inherit a flourishing bay"?
-    choices:
-      - text: To appeal to pathos regarding future generations.
-        correct: true
-      - text: To explain the financial cost of purchasing new fishing nets.
-        rationale: |
-          You introduced net costs not discussed in the quote about children inheriting a flourishing bay.
-      - text: To instruct youth on how to build wooden fishing boats.
-        rationale: |
-          You picked a technical boat-building instruction that misses the emotional appeal (pathos) to parenthood.
-      - text: To criticize neighboring barangays for illegal trawling.
-        rationale: |
-          You picked a critical accusation, whereas the quote inspires local unity for the sake of future generations.
-    explanation: |
-      Appealing to the desire to protect one's children relies on emotional motivation (pathos) to inspire immediate community action.
+      '
+  - text: To claim every graduate has already chosen a medical career.
+    rationale: 'This turns a call about future work into an established fact. Doctors appear among the examples. Check whether one career is assigned to everyone.
 
-  - id: rc-tt-sp-0010
-    passage: rc-tt-sp-p2
-    type: analyze
-    difficulty: hard
-    stem: |
-      Which characteristic feature of speech writing distinguishes this text from a news report?
-    choices:
-      - text: Direct spoken address with emotional rhetorical appeals.
-        correct: true
-      - text: Objective third-person reporting with formal datelines and press citations.
-        rationale: |
-          You described a news report style. Speeches use direct personal address and persuasive appeals.
-      - text: Step-by-step mathematical calculations of fish catches.
-        rationale: |
-          You picked mathematical calculations, which describe data reports rather than oral speeches.
-      - text: Written dialogue between fictional story characters.
-        rationale: |
-          You described fiction dialogue. Speeches are oral addresses delivered by a speaker to a live audience.
-    explanation: |
-      Speeches are written for oral delivery, using direct address ("you", "fellow fisherfolk") and persuasive rhetorical appeals.
+      '
+  explanation: 'You speaks directly to the graduates. It connects their past effort with the speaker''s request that they serve their communities.
+
+    '
+- id: rc-tt-sp-0003
+  passage: rc-tt-sp-p1
+  type: feature-of-form
+  difficulty: medium
+  stem: 'Which appeal is built mainly by the speaker''s account of treating injured neighbors?
+
+    '
+  choices:
+  - text: Ethos through firsthand service
+    correct: true
+  - text: Logos through a measured comparison of treatment outcomes
+    rationale: 'This treats personal experience as a statistical comparison. Medical service can produce evidence. Check whether any outcomes are measured here.
+
+      '
+  - text: Pathos through a request to imagine an unknown future victim
+    rationale: 'This substitutes a hypothetical scene for past experience. Injuries can stir emotion. Check how the speaker presents personal involvement.
+
+      '
+  - text: Ethos through a quotation from a named medical authority
+    rationale: 'This substitutes borrowed authority for firsthand knowledge. Treating people suggests expertise. Check whether another expert is quoted.
+
+      '
+  explanation: 'The speaker presents relevant personal service during the crisis. That experience gives listeners a reason to trust the speaker''s account, which builds ethos.
+
+    '
+- id: rc-tt-sp-0004
+  passage: rc-tt-sp-p1
+  type: feature-of-form
+  difficulty: hard
+  stem: 'What is the primary purpose of the commencement address?
+
+    '
+  choices:
+  - text: To inspire community service and leadership.
+    correct: true
+  - text: To document the full sequence of the town's disaster recovery.
+    rationale: 'This makes the background the main purpose. Recovery occupies several sentences. Check what the closing paragraph asks graduates to do.
+
+      '
+  - text: To evaluate which professional career best withstands a storm.
+    rationale: 'This turns career examples into a comparison. Doctors and engineers are named. Check whether their careers are actually compared.
+
+      '
+  - text: To persuade graduates that local hardship limits their ambitions.
+    rationale: 'This reverses the speech''s message. The text spends time on hardship. Check how it links that past to future potential.
+
+      '
+  explanation: 'The closing paragraph urges graduates to carry courage forward, serve their communities, and lead. These requests show an inspiring call to public service.
+
+    '
+- id: rc-tt-sp-0005
+  passage: rc-tt-sp-p1
+  type: purpose-of-device
+  difficulty: hard
+  stem: 'How does the contrast between past hardships and future careers support the speech?
+
+    '
+  choices:
+  - text: It connects proven effort with future possibility.
+    correct: true
+  - text: It treats emergency schooling as better than ordinary classrooms.
+    rationale: 'This turns survival through hardship into praise for the conditions. The students succeeded under tarpaulins. Check whether hardship is described as a preferred system.
+
+      '
+  - text: It proves that every graduate will obtain the same professional job.
+    rationale: 'This turns encouragement into a guaranteed outcome. The future careers sound confident. Check whether the speech provides individual results.
+
+      '
+  - text: It replaces the appeal to serve with a complaint about equipment.
+    rationale: 'This makes solar lamps the main issue. The detail is concrete and memorable. Check why it appears beside future ambitions.
+
+      '
+  explanation: 'The students have already shown effort during difficult times. The speaker uses that past success to encourage them to aim for meaningful work and service.
+
+    '
+- id: rc-tt-sp-0006
+  passage: rc-tt-sp-p2
+  type: feature-of-form
+  difficulty: easy
+  stem: 'What does repeating "Together we" mainly emphasize?
+
+    '
+  choices:
+  - text: Shared responsibility for action
+    correct: true
+  - text: The speaker's sole authority to make all restoration decisions
+    rationale: 'This treats repeated leadership language as exclusive control. The speaker gives directions. Check who is included in Together we.
+
+      '
+  - text: A completed record of restoration rather than a call to act
+    rationale: 'This treats action verbs as a historical report. Planting and protecting sound concrete. Check the appeal for present commitment.
+
+      '
+  - text: A contrast showing that each group must work separately
+    rationale: 'This treats different tasks as separate interests. The list names several actions. Check the repeated word that links them.
+
+      '
+  explanation: 'Together we includes the speaker and audience in the same work. Repeating it emphasizes unity across planting, protecting, and harvesting.
+
+    '
+- id: rc-tt-sp-0007
+  passage: rc-tt-sp-p2
+  type: purpose-of-device
+  difficulty: medium
+  stem: 'What does "My fellow fisherfolk and barangay elders" establish?
+
+    '
+  choices:
+  - text: A named audience and shared community identity
+    correct: true
+  - text: A detached observer speaking about people outside the room
+    rationale: 'This treats the opening as a report about strangers. The group is named. Check how My fellow places the speaker among listeners.
+
+      '
+  - text: A formal claim that only elected officials can restore the bay
+    rationale: 'This turns naming elders into an exclusive right to act. Elders may be leaders. Check whether fisherfolk are also addressed.
+
+      '
+  - text: An accusation that every listener personally destroyed the bay
+    rationale: 'This turns shared identity into individual blame. The speech later accepts community responsibility. Check whether the greeting itself accuses everyone.
+
+      '
+  explanation: 'The phrase names the listeners. Fellow also presents the speaker as part of their community, creating a sense of shared identity.
+
+    '
+- id: rc-tt-sp-0008
+  passage: rc-tt-sp-p2
+  type: feature-of-form
+  difficulty: medium
+  stem: 'How does the opening establish the speaker''s credibility?
+
+    '
+  choices:
+  - text: It cites long experience fishing in the bay.
+    correct: true
+  - text: It relies on the speaker's promise that all fish stocks will recover.
+    rationale: 'This treats a future promise as evidence of expertise. The speech is hopeful. Check what background is offered in the opening.
+
+      '
+  - text: It relies on an official survey comparing fish catches by year.
+    rationale: 'This turns personal observation into a formal survey. Shrinking stocks suggest a trend. Check whether a survey or measured series is supplied.
+
+      '
+  - text: It identifies the speaker as the author of the community's laws.
+    rationale: 'This turns a call for enforcement into legal authorship. Rules matter to the plan. Check what occupation the speaker actually names.
+
+      '
+  explanation: 'The speaker says they have fished along the bay for thirty-five years. This gives relevant firsthand experience for describing changes in the bay.
+
+    '
+- id: rc-tt-sp-0009
+  passage: rc-tt-sp-p2
+  type: purpose-of-device
+  difficulty: hard
+  stem: 'What is the main effect of referring to the bay that the listeners'' children will inherit?
+
+    '
+  choices:
+  - text: It appeals to care for future generations.
+    correct: true
+  - text: It provides measured proof of the future size of fish stocks.
+    rationale: 'This treats a hoped-for outcome as measured evidence. A flourishing bay sounds like a prediction. Check whether the sentence offers data.
+
+      '
+  - text: It gives the children sole responsibility for current enforcement.
+    rationale: 'This turns future beneficiaries into present workers. Children are named prominently. Check who is being asked to act today.
+
+      '
+  - text: It shows that preserving traditional methods is the only goal.
+    rationale: 'This makes one supporting value the whole appeal. Traditional wisdom appears later. Check what the sentence promises for the children.
+
+      '
+  explanation: 'The thought of children inheriting a healthy bay draws on care and hope for them. This emotional appeal encourages the listeners to act now.
+
+    '
+- id: rc-tt-sp-0010
+  passage: rc-tt-sp-p2
+  type: feature-of-form
+  difficulty: hard
+  stem: 'Which feature most clearly shows that the coastal text addresses a listening audience?
+
+    '
+  choices:
+  - text: It speaks to listeners and urges joint action.
+    correct: true
+  - text: It gives an observer's account of what community members said.
+    rationale: 'This treats the speaker''s own words as a report of others. Community members are discussed. Check whether the text uses direct address.
+
+      '
+  - text: It supplies a complete method for collecting comparable fish data.
+    rationale: 'This mistakes proposed action for research instructions. Fish stocks are the problem. Check whether a measurement procedure is given.
+
+      '
+  - text: It relates a fictional character's private memories without a request.
+    rationale: 'This treats firsthand experience as fiction narration. The speaker recalls years of fishing. Check the explicit calls to the audience.
+
+      '
+  explanation: 'The speaker addresses fellow fisherfolk and elders and repeats requests to act together. These features show speech directed to a listening community.
+
+    '
+- id: q-text-types-speeches-0011
+  type: feature-of-form
+  difficulty: easy
+  approved: false
+  stem: 'What is the main purpose of the archive welcome?
+
+    '
+  passage: p-text-types-speeches-0003
+  choices:
+  - text: To welcome visitors and invite careful participation.
+    correct: true
+  - text: To win approval for closing the archive to outside visitors.
+    rationale: 'This reverses the invitation. Careful recording can sound restrictive. Check who is welcomed and asked to contribute.
+
+      '
+  - text: To teach a complete technical method of photographic restoration.
+    rationale: 'This turns handling records into a repair lesson. Old photographs may need care. Check whether restoration steps appear.
+
+      '
+  - text: To rank local families by the number of pictures they donated.
+    rationale: 'This makes donations into a contest. Families supplied photographs. Check whether any ranking is offered.
+
+      '
+  explanation: 'The speaker welcomes several groups, explains the archive, and invites visitors to share information carefully. This combines welcome with an invitation to take part.
+
+    '
+- id: q-text-types-speeches-0012
+  type: purpose-of-device
+  difficulty: medium
+  approved: false
+  stem: 'Why does the speaker mention having been the school''s librarian?
+
+    '
+  passage: p-text-types-speeches-0003
+  choices:
+  - text: To establish relevant experience with records.
+    correct: true
+  - text: To prove that every photograph must show a former librarian.
+    rationale: 'This turns the speaker''s background into a rule for the collection. A librarian handles the archive. Check whose photographs the room contains.
+
+      '
+  - text: To argue that retired people should replace all student volunteers.
+    rationale: 'This turns experience into exclusion. Retirement is mentioned. Check whether the speaker rejects volunteers or asks for their help.
+
+      '
+  - text: To offer measured proof that the new archive will never lose a record.
+    rationale: 'This treats personal experience as a guarantee. The speaker has handled records. Check whether past experience removes all future risk.
+
+      '
+  explanation: 'Library work gives the speaker relevant experience with keeping and labeling information. Mentioning it builds credibility for the archive''s careful approach.
+
+    '
+- id: q-text-types-speeches-0013
+  type: purpose-of-device
+  difficulty: hard
+  approved: false
+  stem: 'What does repeating "Remember" achieve in the welcome?
+
+    '
+  passage: p-text-types-speeches-0003
+  choices:
+  - text: It links gratitude with a duty to keep sharing.
+    correct: true
+  - text: It presents the three statements as questions requiring spoken answers.
+    rationale: 'This treats repeated prompts as literal questions. They invite thought. Check whether the lines request a verbal reply.
+
+      '
+  - text: It proves the archive can function without labels or volunteer support.
+    rationale: 'This treats memory as a replacement for records. Remember is the repeated word. Check the earlier emphasis on labels and volunteers.
+
+      '
+  - text: It shifts attention from the community to the speaker's personal honors.
+    rationale: 'This treats public gratitude as self-praise. The speaker leads the event. Check whom the repeated lines ask listeners to recognize.
+
+      '
+  explanation: 'The repeated word draws attention to neighbors, volunteers, and continued participation. It connects thanks for past work with responsibility for the archive''s future.
+
+    '
+- id: q-text-types-speeches-0014
+  type: feature-of-form
+  difficulty: hard
+  approved: false
+  stem: 'Which detail supports trustworthiness through admitting limits?
+
+    '
+  passage: p-text-types-speeches-0003
+  choices:
+  - text: Uncertain details are labeled as uncertain.
+    correct: true
+  - text: Visitors may recognize relatives in the school photographs.
+    rationale: 'This treats familiarity as a safeguard against errors. Recognition can supply useful information. Check what openly states the limits of current knowledge.
+
+      '
+  - text: The photographs were stored in drawers before being donated.
+    rationale: 'This treats storage history as evidence that all labels are accurate. Kept pictures may seem reliable. Check whether it addresses uncertain information.
+
+      '
+  - text: Volunteers will later explain how visitors can search the shelves.
+    rationale: 'This treats convenient access as a statement about accuracy. Helpfulness can create trust. Check which detail admits a limit in the records.
+
+      '
+  explanation: 'Labels state when a detail is uncertain. This lets visitors distinguish known information from information that still needs confirmation.
+
+    '
+- id: q-text-types-speeches-0015
+  type: feature-of-form
+  difficulty: exam
+  approved: false
+  stem: 'Which statement best respects the speech''s mixed purpose?
+
+    '
+  passage: p-text-types-speeches-0003
+  choices:
+  - text: It welcomes, informs, and encourages contribution.
+    correct: true
+  - text: It is purely persuasive because all speeches demand policy change.
+    rationale: 'This forces every speech into one purpose. The speaker invites action. Check the welcome and explanations as well.
+
+      '
+  - text: It is purely informational because an archive stores factual records.
+    rationale: 'This lets the topic decide the whole purpose. Records are factual material. Check the direct appeal to share and listen.
+
+      '
+  - text: It is purely commemorative because it thanks past volunteers only.
+    rationale: 'This treats gratitude as the entire address. The repeated lines honor contributors. Check its invitation to present visitors.
+
+      '
+  explanation: 'The opening welcomes listeners. The middle explains record keeping. The closing asks visitors to share and listen, so the speech serves several purposes.
+
+    '
+- id: q-text-types-speeches-0016
+  type: feature-of-form
+  difficulty: easy
+  approved: false
+  stem: 'What action does the lunch-line speaker ask the council to approve?
+
+    '
+  passage: p-text-types-speeches-0004
+  choices:
+  - text: A trial of separate pickup times.
+    correct: true
+  - text: A permanent change before any waiting times are collected.
+    rationale: 'This ignores the proposed trial. The speaker favors change. Check the condition for making it permanent.
+
+      '
+  - text: One shared line for every packed and newly prepared order.
+    rationale: 'This treats the current arrangement as the proposal. Both groups now share a line. Check what the speaker wants to separate.
+
+      '
+  - text: A ban on buying lunches that require preparation at the counter.
+    rationale: 'This turns reducing delay into removing a service. New orders take time. Check whether the proposal bans them.
+
+      '
+  explanation: 'The speaker asks for a test of separate pickup times for preordered lunches. The final decision depends on the trial''s results.
+
+    '
+- id: q-text-types-speeches-0017
+  type: feature-of-form
+  difficulty: medium
+  approved: false
+  stem: 'Which part of the proposal functions mainly as logos?
+
+    '
+  passage: p-text-types-speeches-0004
+  choices:
+  - text: Separating ready orders could reduce counter congestion.
+    correct: true
+  - text: Imagining a student who must hurry through a meal after waiting.
+    rationale: 'This selects an appeal to concern as the main practical reason. The example is relevant to delay. Check whether the choice explains how the change works.
+
+      '
+  - text: Asking the council to care about fairness during a short break.
+    rationale: 'This selects a value appeal as the mechanism. Fairness matters to the proposal. Check what connects separate pickup with less waiting.
+
+      '
+  - text: Calling on council members directly at the start of the speech.
+    rationale: 'This treats audience address as supporting evidence. A formal greeting suits a proposal. Check whether it gives a reason for the plan.
+
+      '
+  explanation: 'Packed orders need only a name check. Moving them to separate pickup could free the main counter for preparation. This is a chain of practical reasoning, so it chiefly supports logos.
+
+    '
+- id: q-text-types-speeches-0018
+  type: purpose-of-device
+  difficulty: hard
+  approved: false
+  stem: 'Why ask "What good is a change if we never check whether it helps?"?
+
+    '
+  passage: p-text-types-speeches-0004
+  choices:
+  - text: To stress the need to evaluate the trial.
+    correct: true
+  - text: To ask listeners for a count of all school policy changes.
+    rationale: 'This treats the rhetorical question as a data request. The word change can suggest a count. Check the explanation that follows it.
+
+      '
+  - text: To imply that checking results makes every possible change pointless.
+    rationale: 'This reverses the question''s point. Its challenging tone sounds skeptical. Check the proposed measurement immediately afterward.
+
+      '
+  - text: To invite an unrelated discussion before abandoning the proposal.
+    rationale: 'This treats reflection as a change of subject. A question opens thought. Check how it leads directly into the trial checks.
+
+      '
+  explanation: 'The question prompts listeners to think about whether the plan works. The next sentences describe checks, so it emphasizes evaluation.
+
+    '
+- id: q-text-types-speeches-0019
+  type: purpose-of-device
+  difficulty: hard
+  approved: false
+  stem: 'How does the final example of a hurried student support the proposal?
+
+    '
+  passage: p-text-types-speeches-0004
+  choices:
+  - text: It connects waiting time to a person's well-being.
+    correct: true
+  - text: It proves a measured average waiting time for the whole school.
+    rationale: 'This treats one imagined example as a measured average. The problem sounds common. Check whether the speech supplies a survey result.
+
+      '
+  - text: It establishes the speaker's professional qualifications in nutrition.
+    rationale: 'This treats concern about eating as professional authority. Meals are the topic. Check whether any qualification is claimed.
+
+      '
+  - text: It guarantees that a separate window will remove every delay.
+    rationale: 'This turns a possible benefit into certainty. The example makes improvement appealing. Check the speaker''s earlier limit on the promise.
+
+      '
+  explanation: 'The example asks listeners to care about a student who has little time to eat. It gives an emotional reason to consider a fairer line.
+
+    '
+- id: q-text-types-speeches-0020
+  type: feature-of-form
+  difficulty: exam
+  approved: false
+  stem: 'Which statement shows the speaker treating evidence cautiously?
+
+    '
+  passage: p-text-types-speeches-0004
+  choices:
+  - text: Continue the plan only if trial results justify it.
+    correct: true
+  - text: Adopt the plan permanently because the final example is moving.
+    rationale: 'This lets an emotional example decide the policy. The hurried student creates concern. Check the condition the speaker sets for continuing.
+
+      '
+  - text: Measure only the packed-order line and disregard the canteen staff.
+    rationale: 'This narrows the checks to one favored group. The proposal helps packed-order students. Check whose waiting and workload will be recorded.
+
+      '
+  - text: Treat the canteen staff's account as proof that all delays will end.
+    rationale: 'This turns relevant experience into a guarantee. Staff know their work. Check the speaker''s explicit limit on the prediction.
+
+      '
+  explanation: 'The speaker calls the proposal a test and asks volunteers to check both groups and staff workload. Continuing only if results justify it makes evidence part of the decision.
+
+    '

@@ -1,383 +1,509 @@
 meta:
-  subject: reasoning
-  topic: mechanical-technical-reasoning
-  subtopic: pulleys-and-levers
-  exams: [ dost-sei ]
+  subject: "reasoning"
+  topic: "mechanical-technical-reasoning"
+  subtopic: "pulleys-and-levers"
+  exams:
+    - "dost-sei"
 questions:
-  - id: q-mechanical-technical-reasoning-pulleys-and-levers-0001
-    type: pulley-lever
-    difficulty: easy
-    figure: pulleys-and-levers-01
+  - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0001"
+    type: "pulley-lever"
+    difficulty: "easy"
+    figure: "pulleys-and-levers-01"
     figureSpec:
-      kind: pulley-system
+      kind: "pulley-system"
       fixed: 1
       movable: 0
     stem: |
-      Figure shows a fixed pulley used to lift a 50 kg load. How much pulling force is required, and does the direction of pulling matter?
+      The fixed pulley shown lifts a 50 kg mass at constant speed. Neglect friction and pulley mass, and use $g=9.8$ N/kg. What effort force is needed?
     choices:
-      - text: 50 kg worth of force is required; only the direction of pulling changes (you can pull down to lift the load up)
+      - text: "490 N"
         correct: true
-      - text: 25 kg worth of force is required, since a pulley always halves the needed force
+      - text: "245 N"
         rationale: |
-          You assumed all pulleys reduce force. Fixed pulleys only redirect force without offering mechanical advantage.
-      - text: 100 kg worth of force is required, since a fixed pulley doubles the needed force
+          This halves the weight because a pulley is present. A movable pulley can give that reduction. Check whether the shown pulley moves with the load.
+      - text: "980 N"
         rationale: |
-          You assumed fixed pulleys double effort. Fixed pulleys redirect pulling force without changing effort magnitude.
-      - text: No force is required, since pulleys eliminate the need for effort entirely
+          This doubles the weight for the two visible sides of the rope. Both sides pass over the pulley. Count only segments supporting the moving load.
+      - text: "50 N"
         rationale: |
-          You assumed pulleys eliminate work. Mechanical advantage cannot reduce required work to zero.
+          This uses the mass number as a force. The stem gives 50 kg. Convert mass to weight with the stated gravitational field.
     explanation: |
-      A fixed pulley only changes the direction of the force; it does not reduce the amount of force needed. The pulling force required still equals the load's weight, 50 kg worth of force.
+      The weight is $50 \times 9.8=490$ N. One rope segment supports the load. For steady lifting, its tension and the effort each equal 490 N.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-pulleys-and-levers-0002
-    type: pulley-lever
-    difficulty: medium
-    figure: pulleys-and-levers-02
+  - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0002"
+    type: "pulley-lever"
+    difficulty: "easy"
+    figure: "pulleys-and-levers-02"
     figureSpec:
-      kind: pulley-system
+      kind: "pulley-system"
       fixed: 1
       movable: 1
     stem: |
-      Figure shows a movable pulley used to lift a 60 kg load. How much pulling force is required, and how far must the rope be pulled to lift the load by 2 meters?
+      The shown ideal movable-load system has two supporting rope segments. A 60 kg mass rises 2 m at constant speed. Use $g=10$ N/kg. What effort and free-end travel are required?
     choices:
-      - text: 30 kg of force is required, and 4 meters of rope must be pulled
+      - text: "300 N; 4 m"
         correct: true
-      - text: 60 kg of force is required, and 2 meters of rope must be pulled
+      - text: "600 N; 2 m"
         rationale: |
-          You treated the movable pulley as fixed. Movable pulleys halve force ( \div 2 = 30$ kg) while doubling rope distance ( \times 2 = 4$ m).
-      - text: 30 kg of force is required, and 2 meters of rope must be pulled
+          This treats the movable system as a fixed pulley. The load still rises 2 m. Count the two tensioned segments that share its weight.
+      - text: "300 N; 2 m"
         rationale: |
-          You correctly halved the force but forgot distance trade-off. Halving effort requires doubling rope distance to 4 meters.
-      - text: 15 kg of force is required, and 8 meters of rope must be pulled
+          This reduces force but keeps the direct-lift distance. The stated rise is 2 m. Check that both supporting segments must shorten.
+      - text: "150 N; 8 m"
         rationale: |
-          You applied a 4:1 mechanical advantage. A single movable pulley provides a 2:1 mechanical advantage ($ kg, $ m).
+          This uses four supporting segments instead of two. The two pulley wheels may suggest two separate halvings. Count supports of the moving load, not wheels.
     explanation: |
-      A single movable pulley halves the force needed: $60 \div 2 = 30$ kg worth of force. Since force is halved, the rope must be pulled twice as far as the load moves: $2 \times 2 = 4$ meters.
+      The load weighs $60 \times 10=600$ N. Two equal tensions support it, so effort is $600/2=300$ N. Each supporting segment shortens by 2 m, requiring $2 \times 2=4$ m of free-end travel.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-pulleys-and-levers-0003
-    type: pulley-lever
-    difficulty: medium
-    figure: pulleys-and-levers-03
+  - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0003"
+    type: "pulley-lever"
+    difficulty: "medium"
+    figure: "pulleys-and-levers-03"
     figureSpec:
-      kind: pulley-system
+      kind: "pulley-system"
       fixed: 1
-      movable: 2
+      movable: 1
+      comparison: true
     stem: |
-      Figure shows 2 movable pulleys working together to lift an 80 kg load. How much pulling force is required, and how far must the rope be pulled to lift the load by 3 meters?
+      The comparison figure shows an ideal fixed pulley on the left and an ideal two-support movable system on the right. Each raises an 800 N load through 3 m at constant speed. How does the effort work compare?
     choices:
-      - text: 20 kg of force is required, and 12 meters of rope must be pulled
+      - text: "Both require 2,400 J"
         correct: true
-      - text: 40 kg of force is required, and 6 meters of rope must be pulled
+      - text: "Left 2,400 J; right 1,200 J"
         rationale: |
-          You applied a single movable pulley ratio (2:1) instead of 2 movable pulleys (4:1). Force is  \div 4 = 20$ kg and distance is  \times 4 = 12$ m.
-      - text: 20 kg of force is required, and 6 meters of rope must be pulled
+          This halves work when effort force is halved. The movable system does reduce force. Check how its longer rope travel affects force times distance.
+      - text: "Left 1,200 J; right 2,400 J"
         rationale: |
-          You correctly calculated force ( \div 4 = 20$ kg) but used a 2:1 distance multiplier instead of 4:1 ( \times 4 = 12$ m).
-      - text: 10 kg of force is required, and 24 meters of rope must be pulled
+          This grants a work saving to the fixed pulley. Redirecting the pull can feel easier. Check the load force times the same rise in each setup.
+      - text: "Left 2,400 J; right 4,800 J"
         rationale: |
-          You applied an 8:1 mechanical advantage instead of 4:1 for 2 movable pulleys.
+          This doubles work for the longer rope travel without reducing effort. The right rope moves farther. Check both factors in force times distance.
     explanation: |
-      With 2 movable pulleys, only one-quarter the load's weight in force is needed: $80 \div 4 = 20$ kg. The rope must be pulled four times the lifting distance: $3 \times 4 = 12$ meters.
+      Ideal effort work equals the gain in gravitational energy. For each load that gain is $800 \times 3=2400$ J. The movable system trades lower force for greater rope travel.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-pulleys-and-levers-0004
-    type: pulley-lever
-    difficulty: medium
+  - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0004"
+    type: "pulley-lever"
+    difficulty: "medium"
+    figure: "pulleys-and-levers-04"
     figureSpec:
-      kind: lever-balance
+      kind: "lever-balance"
       loadDistance: 2
       effortDistance: 5
     stem: |
-      A lever has a load of 100 kg placed 2 meters from the fulcrum. How much effort force is needed if applied 5 meters from the fulcrum on the other side?
+      The shown horizontal, weightless lever carries a 980 N load 2 m left of the pivot. A downward effort acts 5 m right of the pivot. What effort holds static balance?
     choices:
-      - text: "40 kg"
+      - text: "392 N"
         correct: true
-      - text: "20 kg"
+      - text: "196 N"
         rationale: |
-          You divided load by 5 instead of calculating $\text{effort} \times 5 = 100 \times 2$. Effort is  \div 5 = 40$ kg.
-      - text: "50 kg"
+          This divides by the effort arm twice as if it were 10 m. A longer arm does reduce effort. Use the actual 5 m distance.
+      - text: "490 N"
         rationale: |
-          You divided 100 kg by 2 instead of computing torque equilibrium ($\text{effort} \times 5 = 100 \times 2$).
-      - text: "250 kg"
+          This divides by the 2 m load arm instead of using both arms. Two appears beside the load. Pair each force with its own distance.
+      - text: "2,450 N"
         rationale: |
-          You cross-multiplied incorrectly as $\text{effort} \times 2 = 100 \times 5$. Effort pairs with effort distance.
+          This reverses the arm ratio, calculating $980(5/2)$. The longer arm may suggest greater force. Check that the longer effort arm lowers required force.
     explanation: |
-      Using effort $\times$ effort distance = load $\times$ load distance: $\text{effort} \times 5 = 100 \times 2 = 200$, so $\text{effort} = 200 \div 5 = 40$ kg.
+      The load torque is $980 \times 2=1960$ N m. The opposite effort torque must match it. Thus $5F=1960$, giving $F=392$ N.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-pulleys-and-levers-0005
-    type: pulley-lever
-    difficulty: medium
+  - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0005"
+    type: "pulley-lever"
+    difficulty: "medium"
+    figure: "pulleys-and-levers-05"
     figureSpec:
-      kind: lever-balance
+      kind: "lever-balance"
       loadDistance: 3
       effortDistance: 9
     stem: |
-      A lever has a load of 90 kg placed 3 meters from the fulcrum. How much effort force is needed if applied 9 meters from the fulcrum on the other side?
+      The weightless horizontal lever shown has arms of 3 m and 9 m. A downward 900 N load acts on the left and a downward 200 N effort on the right. What is its initial tendency when released?
     choices:
-      - text: "30 kg"
+      - text: "Left end falls"
         correct: true
-      - text: "27 kg"
+      - text: "Right end falls"
         rationale: |
-          You subtracted load distance from effort distance. Torque equilibrium requires $\text{effort} \times 9 = 90 \times 3 = 270$, giving $ kg.
-      - text: "10 kg"
+          This compares only arm lengths. The right arm is longer. Compare force times distance on both sides.
+      - text: "It remains balanced"
         rationale: |
-          You divided load by effort distance directly ( \div 9$). You must multiply load by load distance first ( \times 3 = 270$).
-      - text: "270 kg"
+          This assumes a three-to-one arm ratio always balances the lever. The arms do have that ratio. Check whether the forces have the matching inverse ratio.
+      - text: "Both ends fall together"
         rationale: |
-          You forgot to divide total torque by effort distance ( \div 9 = 30$ kg).
+          This treats both downward forces as straight-line motion. They both press down. Check that the fixed pivot constrains the beam to rotate.
     explanation: |
-      Using effort $\times$ effort distance = load $\times$ load distance: $\text{effort} \times 9 = 90 \times 3 = 270$, so $\text{effort} = 270 \div 9 = 30$ kg.
+      The left torque is $900 \times 3=2700$ N m. The right torque is $200 \times 9=1800$ N m. The greater left torque turns the load end down.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-pulleys-and-levers-0006
-    type: pulley-lever
-    difficulty: medium
+  - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0006"
+    type: "pulley-lever"
+    difficulty: "medium"
+    figure: "pulleys-and-levers-06"
     figureSpec:
-      kind: lever-balance
+      kind: "lever-balance"
       loadDistance: 1
       effortDistance: 5
     stem: |
-      Using the same 100 kg load and 5-meter effort distance as before, if the fulcrum is moved so the load is now only 1 meter from the fulcrum (instead of 2 meters), how does the required effort change?
+      A weightless lever holds a 1,000 N load at 2 m with effort at 5 m. The load is repositioned 1 m from the same pivot while the effort point stays 5 m away, as shown. What is the new balancing effort?
     choices:
-      - text: The required effort drops from 40 kg to 20 kg, since moving the fulcrum closer to the load reduces the effort needed
+      - text: "200 N"
         correct: true
-      - text: The required effort increases from 40 kg to 80 kg
+      - text: "800 N"
         rationale: |
-          You assumed moving fulcrum closer to load increases effort. Shorter load distance reduces required effort ($\text{effort} \times 5 = 100 \times 1 = 100 \implies 20$ kg).
-      - text: The required effort stays the same at 40 kg, since only the effort distance affects the balance
+          This doubles effort when the load arm is halved. Moving toward the pivot changes leverage. Check whether the load torque grows or shrinks.
+      - text: "400 N"
         rationale: |
-          You ignored load distance. Torque balance depends on both load distance and effort distance.
-      - text: The required effort drops to 10 kg, since halving the load distance quarters the effort
+          This retains the original torque despite moving the load. The load weight stays fixed. Check its new distance from the pivot.
+      - text: "100 N"
         rationale: |
-          You quartered effort instead of halving it ( \times 1 \div 5 = 20$ kg).
+          This halves the load torque twice. The arm is halved once. Apply that change only once.
     explanation: |
-      Recomputing: $\text{effort} \times 5 = 100 \times 1 = 100$, so $\text{effort} = 100 \div 5 = 20$ kg. Moving the fulcrum closer to the load (from 2 m to 1 m) reduced the required effort from 40 kg to 20 kg.
+      The new load torque is $1000 \times 1=1000$ N m. Static balance requires $5F=1000$. Therefore $F=200$ N.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-pulleys-and-levers-0007
-    type: pulley-lever
-    difficulty: medium
+  - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0007"
+    type: "pulley-lever"
+    difficulty: "medium"
+    figure: "pulleys-and-levers-07"
     figureSpec:
-      kind: lever-balance
+      kind: "lever-balance"
       loadDistance: 4
-      effortDistance: 5
+      effortDistance: 8
     stem: |
-      Using the same 100 kg load and 5-meter effort distance, if the fulcrum is instead moved so the load is now 4 meters from the fulcrum (instead of 2 meters), how does the required effort change?
+      The shown weightless lever has a 1,000 N load 4 m left of the pivot. The greatest available downward effort is 500 N, applied on the right. What minimum effort-arm length allows balance?
     choices:
-      - text: The required effort increases from 40 kg to 80 kg, since moving the fulcrum farther from the load requires more effort
+      - text: "8 m"
         correct: true
-      - text: The required effort decreases from 40 kg to 20 kg
+      - text: "2 m"
         rationale: |
-          You inverted the effect. Moving fulcrum farther from load increases load torque, requiring more effort ($\text{effort} \times 5 = 100 \times 4 = 400 \implies 80$ kg).
-      - text: The required effort stays the same at 40 kg
+          This reverses the force ratio, calculating $4(500/1000)$. The smaller effort number suggests a smaller distance. Check that less force needs a longer arm.
+      - text: "4 m"
         rationale: |
-          You assumed load distance does not alter required effort.
-      - text: The required effort increases to 400 kg
+          This copies the load arm even though the forces differ. Equal arms look symmetric. Check whether 500 N can match 1,000 N at equal arms.
+      - text: "16 m"
         rationale: |
-          You forgot to divide total torque by effort distance ( \div 5 = 80$ kg).
+          This doubles the correctly required arm a second time. The load is twice the available effort. Apply that two-to-one ratio once.
     explanation: |
-      Recomputing: $\text{effort} \times 5 = 100 \times 4 = 400$, so $\text{effort} = 400 \div 5 = 80$ kg. Moving the fulcrum farther from the load (from 2 m to 4 m) increased the required effort from 40 kg to 80 kg.
+      The load torque is $1000 \times 4=4000$ N m. With 500 N of effort, $500d=4000$. The required distance is $d=8$ m.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-pulleys-and-levers-0008
-    type: pulley-lever
-    difficulty: hard
+  - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0008"
+    type: "pulley-lever"
+    difficulty: "hard"
+    figure: "pulleys-and-levers-08"
     figureSpec:
-      kind: pulley-system
+      kind: "pulley-system"
       fixed: 1
       movable: 0
     stem: |
-      A student sets up a single fixed pulley to lift a 70 kg load and claims, "using this pulley makes the load easier to lift, since pulleys always reduce the force needed." Is this claim correct?
+      An ideal single fixed pulley raises a load at constant speed, as shown. Which feature explains its usefulness even though its ideal mechanical advantage is one?
     choices:
-      - text: 'No: only movable pulleys (attached to the load) reduce the required force; a fixed pulley only changes the direction of the force, so the full 70 kg worth of force is still needed.'
+      - text: "It redirects the effort"
         correct: true
-      - text: 'Yes: any pulley, fixed or movable, always reduces the required force by half.'
+      - text: "It halves the lifting force"
         rationale: |
-          You assumed fixed pulleys provide mechanical advantage. Only movable pulleys reduce required force.
-      - text: 'Yes: but only because this specific load happens to weigh exactly 70 kg.'
+          This assigns movable-pulley behavior to a fixed wheel. Pulleys are often associated with force savings. Count the segments supporting the moving load.
+      - text: "It halves the lifting work"
         rationale: |
-          You assumed load weight gives fixed pulleys mechanical advantage.
-      - text: 'No: but only because fixed pulleys actually require more force than lifting without any pulley.'
+          This confuses a convenient pull direction with an energy saving. Pulling can feel easier. Check the unchanged load weight and rise.
+      - text: "It doubles the supporting tension"
         rationale: |
-          You claimed fixed pulleys increase force. Fixed pulleys require equal force to the load weight.
+          This counts both rope sides as supports of the load. Both touch the pulley. Check which side attaches to the moving load.
     explanation: |
-      Assuming a single fixed pulley "makes lifting easier" in terms of force is incorrect: it only makes lifting more convenient by letting you pull in a different direction, while still requiring the full weight's worth of force.
+      The fixed pulley changes the rope direction. This allows effort to be applied in a convenient direction while tension still equals the load weight.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-pulleys-and-levers-0009
-    type: pulley-lever
-    difficulty: hard
+  - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0009"
+    type: "pulley-lever"
+    difficulty: "hard"
+    figure: "pulleys-and-levers-09"
     figureSpec:
-      kind: pulley-system
+      kind: "pulley-system"
       fixed: 1
       movable: 1
     stem: |
-      A movable pulley halves the force needed to lift a 50 kg load, requiring only 25 kg of pulling force. A student assumes that since the force is halved, the rope-pulling distance must also be halved compared to how far the load rises. Is this assumption correct?
+      In the ideal two-support movable system shown, a 500 N load rises 0.8 m at constant speed. How far must the free rope end travel?
     choices:
-      - text: 'No: reducing the required force always comes with a distance trade-off; a movable pulley that halves the force requires pulling the rope twice as far as the load actually rises, not half as far.'
+      - text: "1.6 m"
         correct: true
-      - text: 'Yes: halving the force always means halving the pulling distance as well.'
+      - text: "0.4 m"
         rationale: |
-          You ignored work conservation. Halving effort force requires doubling displacement distance.
-      - text: 'Yes: but only because this specific load weighs 50 kg.'
+          This halves distance because force is halved. Both can seem like savings. Check conservation of ideal work.
+      - text: "0.8 m"
         rationale: |
-          You tied the work trade-off strictly to the specific load value.
-      - text: 'No: but only because movable pulleys never affect rope-pulling distance at all.'
+          This copies the load rise to the rope end. That is true for a fixed pulley. Count the shortening in both load-supporting segments.
+      - text: "3.2 m"
         rationale: |
-          You claimed movable pulleys do not change distance. Movable pulleys double required rope travel.
+          This multiplies the rise by four by counting pulley wheels as repeated halvings. Two wheels are visible. Use the two stated supporting segments.
     explanation: |
-      Simple machines like pulleys reduce the force needed but always require moving a correspondingly greater distance: you cannot reduce force without some distance trade-off. A movable pulley halving the force also doubles the rope distance you must pull, not halves it.
+      Both supporting segments shorten by 0.8 m. The free end must supply their total shortening: $2 \times 0.8=1.6$ m.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-pulleys-and-levers-0010
-    type: pulley-lever
-    difficulty: hard
+  - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0010"
+    type: "pulley-lever"
+    difficulty: "hard"
+    figure: "pulleys-and-levers-10"
     figureSpec:
-      kind: lever-balance
+      kind: "lever-balance"
       loadDistance: 2
       effortDistance: 5
     stem: |
-      A student sets up the lever balance equation as "effort × load distance = load × effort distance" for a lever with a 100 kg load 2 meters from the fulcrum and effort applied 5 meters from the fulcrum. Using this (incorrect) setup, they compute effort × 2 = 100 × 5, getting effort = 250 kg. What is wrong with this approach, and what is the correct effort?
+      For the weightless lever shown, $W$ is the downward load 2 m left of the pivot and $F$ is downward effort 5 m right of it. Which equation expresses static balance?
     choices:
-      - text: The student cross-paired the values incorrectly; the correct equation is effort × effort distance = load × load distance, giving effort × 5 = 100 × 2, so the correct effort is 40 kg, not 250 kg.
+      - text: "$5F=2W$"
         correct: true
-      - text: Nothing is wrong; 250 kg is the correct effort force needed.
+      - text: "$2F=5W$"
         rationale: |
-          You accepted cross-paired torque equations. Effort pairs with effort arm length.
-      - text: The student's equation is correct, but their arithmetic is wrong; the correct effort using their equation is 200 kg.
+          This pairs each force with the other side's arm. The numbers appear on opposite sides of the pivot. Match every force to its own point of application.
+      - text: "$F=W$"
         rationale: |
-          You validated an incorrect mechanical formula.
-      - text: The lever balance equation does not apply to this scenario at all.
+          This compares forces without their arms. Both forces act downward. Check their different turning effects about the pivot.
+      - text: "$5F+2W=0$"
         rationale: |
-          You claimed lever balance formulas do not apply to levers.
+          This adds positive torque magnitudes without opposite signs. Both forces point down. Check which rotation each force causes about the pivot.
     explanation: |
-      Keep effort paired with its own distance, and load paired with its own distance: do not cross-pair effort's force with the load's distance (or vice versa). The correct equation, effort × effort distance = load × load distance, gives effort × 5 = 100 × 2 = 200, so effort = 40 kg.
+      Each torque is its force times its own perpendicular distance. The effort torque is $5F$ and the load torque is $2W$. Opposite torques match in static balance.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-pulleys-and-levers-0011
-    type: pulley-lever
-    difficulty: medium
+  - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0011"
+    type: "pulley-lever"
+    difficulty: "hard"
+    figure: "pulleys-and-levers-11"
     figureSpec:
-      kind: lever-balance
+      kind: "lever-balance"
       loadDistance: 2
       effortDistance: 8
     stem: |
-      A lever balances a load using 25 kg of effort applied 8 meters from the fulcrum, against a 100 kg load. How far from the fulcrum is the load placed?
+      The weightless lever shown balances a 1,000 N load with 250 N of downward effort 8 m from the pivot. How far from the pivot is the load?
     choices:
-      - text: "2 meters"
+      - text: "2 m"
         correct: true
-      - text: "4 meters"
+      - text: "4 m"
         rationale: |
-          You divided $ by $ instead of $. Load distance is  \times 8 \div 100 = 2$ meters.
-      - text: "8 meters"
+          This halves the effort arm despite a four-to-one force ratio. Halving is a familiar shortcut. Compare the stated force ratio.
+      - text: "8 m"
         rationale: |
-          You assumed load distance equals effort distance despite unequal forces.
-      - text: "32 meters"
+          This copies the effort arm to the load side. The lever is balanced. Check whether equal arms can balance unequal forces.
+      - text: "32 m"
         rationale: |
-          You multiplied effort distance by ratio  \div 25$ instead of dividing ( \div 4 = 2$ meters).
+          This uses the reversed force ratio $8(1000/250)$. The larger load number suggests a longer arm. Check that a heavier load needs a shorter arm.
     explanation: |
-      Using effort $\times$ effort distance = load $\times$ load distance: $25 \times 8 = 200 = 100 \times \text{load distance}$, so load distance $= 200 \div 100 = 2$ meters.
+      The effort torque is $250 \times 8=2000$ N m. Balance gives $1000d=2000$. Thus $d=2$ m.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-pulleys-and-levers-0012
-    type: pulley-lever
-    difficulty: medium
+  - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0012"
+    type: "pulley-lever"
+    difficulty: "hard"
+    figure: "pulleys-and-levers-12"
     figureSpec:
-      kind: lever-balance
+      kind: "lever-balance"
       loadDistance: 3
       effortDistance: 18
     stem: |
-      A lever balances a 90 kg load placed 3 meters from the fulcrum, using 15 kg of effort force. How far from the fulcrum must the effort be applied?
+      A weightless lever balances a 900 N load at 3 m with a downward effort of 150 N on the other side. What effort-arm length is required?
     choices:
-      - text: "18 meters"
+      - text: "18 m"
         correct: true
-      - text: "6 meters"
+      - text: "6 m"
         rationale: |
-          You divided load weight by effort force ( \div 15$) without multiplying by load distance ( \div 15 = 18$ m).
-      - text: "270 meters"
+          This gives the force ratio $900/150$ as a distance. Six is a useful intermediate number. Multiply that ratio by the load arm.
+      - text: "270 m"
         rationale: |
-          You forgot to divide total torque by effort force ( \div 15 = 18$ meters).
-      - text: "5 meters"
+          This divides by the numerical load arm instead of effort force. The torque is 2,700 N m. Check that dividing torque by force yields meters.
+      - text: "0.5 m"
         rationale: |
-          You estimated the calculation ( \times 3 \div 15 = 18$ meters).
+          This reverses the force ratio and uses $3(150/900)$. Both force values belong in the calculation. Check that the much smaller effort needs a longer arm.
     explanation: |
-      Using effort $\times$ effort distance = load $\times$ load distance: $15 \times \text{effort distance} = 90 \times 3 = 270$, so effort distance $= 270 \div 15 = 18$ meters.
+      The load torque is $900 \times 3=2700$ N m. Balance requires $150d=2700$. The effort arm is $d=18$ m.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-pulleys-and-levers-0013
-    type: pulley-lever
-    difficulty: medium
+  - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0013"
+    type: "pulley-lever"
+    difficulty: "hard"
+    figure: "pulleys-and-levers-13"
     figureSpec:
-      kind: pulley-system
+      kind: "pulley-system"
       fixed: 1
-      movable: 3
+      movable: 1
     stem: |
-      How many movable pulleys, working together, are needed to reduce the required lifting force to one-eighth of the load's weight?
+      The shown movable block has two rope segments sharing its 640 N total weight. In an ideal single-rope system, what additional fact is needed to use $640/2$ as the effort?
     choices:
-      - text: "3 movable pulleys"
+      - text: "Equal tension in both supports"
         correct: true
-      - text: "2 movable pulleys"
+      - text: "An equal number of fixed and moving wheels"
         rationale: |
-          You calculated ^2 = 4$, which gives $\dfrac{1}{4}$ force. 3 pulleys give $\dfrac{1}{2^3} = \dfrac{1}{8}$ force.
-      - text: "4 movable pulleys"
+          This uses wheel counts to justify the force ratio. One of each is shown. Check the forces directly supporting the block.
+      - text: "Twice as much mass in the moving wheel"
         rationale: |
-          You calculated ^4 = 16$, which gives $\dfrac{1}{16}$ force. 3 pulleys give $\dfrac{1}{8}$ force.
-      - text: "8 movable pulleys"
+          This treats added machine weight as extra advantage. The wheel moves with the load. Check that all moving weight adds to the force needing support.
+      - text: "A free end that moves half as far as the load"
         rationale: |
-          You used pulley count equal to denominator. Pulley count $ reduces force by $\dfrac{1}{2^n}$.
+          This reverses the distance trade-off. The force is being reduced. Check how both supporting rope lengths change as the block rises.
     explanation: |
-      Each movable pulley halves the required force again: 1 pulley gives one-half, 2 pulleys give one-quarter, and 3 pulleys give one-eighth ($\dfrac{1}{2^3} = \dfrac{1}{8}$).
+      With equal tension $T$ in two supports, the total upward force is $2T$. At constant speed, $2T=640$, so $T=320$ N. The free-end effort equals that rope tension.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-pulleys-and-levers-0014
-    type: pulley-lever
-    difficulty: hard
+  - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0014"
+    type: "pulley-lever"
+    difficulty: "hard"
+    figure: "pulleys-and-levers-14"
     figureSpec:
-      kind: lever-balance
+      kind: "lever-balance"
       loadDistance: 2
       effortDistance: 6
     stem: |
-      A 120 kg load sits on a lever, 2 meters from the fulcrum. Effort is applied 6 meters from the fulcrum, but the effort itself is supplied through a rope running over a single movable pulley system, which halves the pulling force needed at the rope. What is the final pulling force required at the rope?
+      The weightless horizontal lever shown balances a 1,200 N load at 2 m with downward effort at 6 m. How much work does that effort do while the lever remains motionless?
     choices:
-      - text: "20 kg"
+      - text: "0 J"
         correct: true
-      - text: "40 kg"
+      - text: "400 J"
         rationale: |
-          You calculated lever effort ( \times 2 \div 6 = 40$ kg) but omitted the movable pulley's 2:1 reduction ( \div 2 = 20$ kg).
-      - text: "10 kg"
+          This reports the balancing force $1200(2/6)$ as work. The force calculation gives 400 N. Check that joules require force times displacement.
+      - text: "2,400 J"
         rationale: |
-          You quartered the lever effort instead of halving it ( \div 2 = 20$ kg).
-      - text: "80 kg"
+          This reports the load torque $1200(2)$ as work. Torque and work can use similar unit products. Check whether the lever rotates or the force point moves.
+      - text: "7,200 J"
         rationale: |
-          You multiplied lever effort by 2 instead of dividing ( \div 2 = 20$ kg).
+          This multiplies the load force by the effort arm. Both numbers occur in the drawing. Check that an arm length is not a displacement in a static setup.
     explanation: |
-      First, the lever balance: $\text{effort} \times 6 = 120 \times 2 = 240$, so the lever requires $240 \div 6 = 40$ kg of effort force. Since a movable pulley halves the pulling force needed, the final rope-pulling force is $40 \div 2 = 20$ kg.
+      Mechanical work requires displacement in the force direction. The lever is motionless, so the effort point moves zero distance. Its mechanical work is zero.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-pulleys-and-levers-0015
-    type: pulley-lever
-    difficulty: exam
+  - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0015"
+    type: "pulley-lever"
+    difficulty: "exam"
+    figure: "pulleys-and-levers-15"
     figureSpec:
-      kind: lever-balance
+      kind: "lever-balance"
+      loadDistance: 2
+      effortDistance: 8
+    stem: |
+      The weightless lever shown has a 1,000 N load at 2 m and downward effort at 8 m. A second ideal two-support movable system lifts the same load. Compare the effort forces required for steady motion or balance.
+    choices:
+      - text: "Lever 250 N; pulley 500 N"
+        correct: true
+      - text: "Lever 250 N; pulley 250 N"
+        rationale: |
+          This assumes the pulley also has advantage four. Both machines reduce effort. Count the two stated supports instead of copying the lever ratio.
+      - text: "Lever 500 N; pulley 250 N"
+        rationale: |
+          This swaps the machines' force ratios. Each is a force-saving setup. Calculate the arm ratio and supporting-segment count separately.
+      - text: "Lever 1,000 N; pulley 500 N"
+        rationale: |
+          This ignores the lever arms while applying the pulley rule. The load is 1,000 N in both. Check that the lever's effort arm is four times its load arm.
+    explanation: |
+      The lever balance gives $8F=1000(2)$, so $F=250$ N. For the stated two-support pulley, $2T=1000$, so its effort is 500 N.
+    approved: true
+  - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0016"
+    type: "pulley-lever"
+    difficulty: "easy"
+    figure: "pulleys-and-levers-16"
+    figureSpec:
+      kind: "pulley-system"
+      fixed: 1
+      movable: 1
+      comparison: true
+    stem: |
+      The comparison figure shows a fixed system and a two-support movable system. Which part moves together with the load in the right-hand setup?
+    choices:
+      - text: "The lower pulley"
+        correct: true
+      - text: "The upper support beam"
+        rationale: |
+          This treats the whole apparatus as moving. The rope runs toward the beam. Check which part is fixed to the building.
+      - text: "The free rope end at the same speed"
+        rationale: |
+          This gives the free end the load's speed. Both move during lifting. Check the two supporting segments that must each shorten.
+      - text: "Every point of the rope with the same vertical motion"
+        rationale: |
+          This treats a flexible rope as a rigid moving block. Its tension is shared. Check that the rope bends and changes direction around a wheel.
+    explanation: |
+      The lower pulley belongs to the moving block. Its axle is attached to the load, so it rises with that load. This is what makes it a movable pulley.
+    approved: false
+  - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0017"
+    type: "pulley-lever"
+    difficulty: "medium"
+    figure: "pulleys-and-levers-17"
+    figureSpec:
+      kind: "lever-balance"
+      loadDistance: 2
+      effortDistance: 5
+    stem: |
+      The shown weightless lever balances a load with perpendicular effort. Both arm lengths are then doubled while the load weight stays fixed. How does the balancing effort change?
+    choices:
+      - text: "It stays the same"
+        correct: true
+      - text: "It doubles"
+        rationale: |
+          This keeps the doubled load arm but ignores the doubled effort arm. The load torque does double. Check that the effort torque also doubles at the old force.
+      - text: "It halves"
+        rationale: |
+          This keeps the longer effort arm but ignores the longer load arm. A longer effort arm alone helps. Check both stated changes.
+      - text: "It becomes four times as large"
+        rationale: |
+          This multiplies the two arm changes together. Both distances double. Check that the balance equation uses a ratio of arms.
+    explanation: |
+      The required effort is the load multiplied by load arm divided by effort arm. Doubling both arms leaves that ratio unchanged. The balancing effort therefore stays the same.
+    approved: false
+  - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0018"
+    type: "pulley-lever"
+    difficulty: "hard"
+    figure: "pulleys-and-levers-18"
+    figureSpec:
+      kind: "pulley-system"
+      fixed: 1
+      movable: 1
+    stem: |
+      In the shown ideal two-support system, the total moving weight is 600 N. A steady pull of 300 N raises it. If friction is present in an otherwise identical setup, what happens to the required steady pull?
+    choices:
+      - text: "It exceeds 300 N"
+        correct: true
+      - text: "It stays exactly 300 N"
+        rationale: |
+          This applies the ideal force result despite losses. The support count is unchanged. Check whether friction adds resistance.
+      - text: "It falls below 300 N"
+        rationale: |
+          This treats friction as extra support. Friction can resist movement. Check that during lifting it opposes the required motion.
+      - text: "It must equal exactly 600 N"
+        rationale: |
+          This assumes any friction removes all mechanical advantage. A direct lift needs 600 N. Check that the amount of friction has not been specified.
+    explanation: |
+      Friction opposes motion and uses some input energy. The input must cover both lifting the weight and overcoming that resistance. The required pull is therefore greater than the ideal 300 N.
+    approved: false
+  - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0019"
+    type: "pulley-lever"
+    difficulty: "exam"
+    figure: "pulleys-and-levers-19"
+    figureSpec:
+      kind: "lever-balance"
+      loadDistance: 1
+      effortDistance: 5
+    stem: |
+      The shown weightless lever has perpendicular load and effort forces. A proposed redesign doubles the load force and halves its arm while retaining the effort arm. How does the balancing effort compare?
+    choices:
+      - text: "It stays the same"
+        correct: true
+      - text: "It doubles"
+        rationale: |
+          This counts only the doubled load. The force increase stands out. Check the simultaneous change to its arm.
+      - text: "It halves"
+        rationale: |
+          This counts only the shorter load arm. Moving a load closer helps. Check the simultaneous increase in load force.
+      - text: "It becomes four times as large"
+        rationale: |
+          This treats a shorter load arm as increasing torque. Both values change. Check that torque multiplies force by its arm, not by the reciprocal arm.
+    explanation: |
+      The new load torque is twice the force times half the arm. Those factors cancel, leaving the original torque. With the effort arm unchanged, the same effort balances it.
+    approved: false
+  - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0020"
+    type: "pulley-lever"
+    difficulty: "exam"
+    figure: "pulleys-and-levers-20"
+    figureSpec:
+      kind: "lever-balance"
       loadDistance: 2
       effortDistance: 6
     stem: |
-      Two different setups are used to lift the same 100 kg load. Setup A uses a lever: the load is placed 2 meters from the fulcrum, and effort is applied 8 meters from the fulcrum. Setup B uses 2 movable pulleys working together directly on the load, with no lever involved. Compare the required force in each setup, and identify which setup requires the rope or effort to travel farther for the same 2-meter lift.
+      The shown weightless lever has a 600 N load at 2 m and downward effort at 6 m. A 250 N effort is applied. What additional downward force at the load point keeps the beam horizontal?
     choices:
-      - text: Both setups require the same 25 kg of force (Setup A gives $100 \times 2 \div 8 = 25$ kg; Setup B gives $100 \div 4 = 25$ kg), but Setup B requires pulling the rope farther (8 meters, since 2 movable pulleys require 4 times the lifting distance) compared to Setup A's effort-side movement.
+      - text: "150 N"
         correct: true
-      - text: Setup A requires less force than Setup B, and both require the same travel distance.
+      - text: "50 N"
         rationale: |
-          You incorrectly claimed Setup A needs less force ($ kg vs $ kg) and ignored Setup B's 8m rope travel.
-      - text: Setup B requires less force than Setup A, and Setup A requires a farther travel distance.
+          This subtracts the balance effort, 200 N, from 250 N without converting torque at the other arm. The force difference is 50 N. Compare the attachment's arm with the effort arm.
+      - text: "300 N"
         rationale: |
-          You inverted force and distance comparisons between lever and pulley setups.
-      - text: Both setups require exactly the same force and the same travel distance, with no difference at all.
+          This uses the torque difference 300 as a force. The subtraction produces 300 N m. Divide by the attachment's moment arm.
+      - text: "750 N"
         rationale: |
-          You ignored distance trade-offs. Setup B requires pulling 8m of rope to lift 2m.
+          This reports the total force equivalent to the effort torque on the load side. That force is $1500/2$. Subtract the existing load contribution.
     explanation: |
-      Setup A (lever): $\text{effort} \times 8 = 100 \times 2 = 200$, so effort $= 200 \div 8 = 25$ kg. Setup B (2 movable pulleys): force $= 100 \div 4 = 25$ kg, matching Setup A's force, but Setup B requires pulling the rope $2 \times 4 = 8$ meters to lift the load 2 meters, illustrating that different mechanisms can reach the same force reduction with different distance trade-offs.
-    approved: true
+      The effort torque is $250 \times 6=1500$ N m. The existing load torque is $600 \times 2=1200$ N m. An additional opposing torque of 300 N m is needed. At the load arm of 2 m, the added force is $300/2=150$ N downward.
+    approved: false

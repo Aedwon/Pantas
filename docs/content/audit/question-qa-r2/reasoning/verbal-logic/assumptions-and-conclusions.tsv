@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-verbal-logic-assumptions-and-conclusions-0001	CORRECTED	SOLVED-FIXED	stem;key;choices;explanation;notes	HIGH	Achievable completion is not necessary for a conditional policy to be true; corrected the key using the lesson's stated distinction.
+q-verbal-logic-assumptions-and-conclusions-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original decision wording left the assumed mechanism unclear and used extreme or unrelated distractors; specified the reason being tested.
+q-verbal-logic-assumptions-and-conclusions-0003	CORRECTED	SOLVED-MATCH	stem;distractors;explanation;notes	MEDIUM	Replaced invented senior appointments, rank, and exemptions with specific sufficiency and scope errors.
+q-verbal-logic-assumptions-and-conclusions-0004	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Replaced unsupported venue destruction and refusal with genuine conditional errors.
+q-verbal-logic-assumptions-and-conclusions-0005	CORRECTED	SOLVED-MATCH	stem;distractors;explanation;notes	MEDIUM	Replaced the zero-electricity throwaway and made the necessary-assumption standard explicit.
+q-verbal-logic-assumptions-and-conclusions-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Presence alone did not prove compliance with a permission rule; added the missing compliance premise.
+q-verbal-logic-assumptions-and-conclusions-0007	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Replaced invented future appointments and blanket job disqualification with conditional mistakes.
+q-verbal-logic-assumptions-and-conclusions-0008	CORRECTED	SOLVED-FIXED	stem;key;choices;explanation;notes	HIGH	The old answer merely repeated the causal claim as an assumption. Replaced the asserted percentage with a causal-inference argument and a necessary unstated link.
+q-verbal-logic-assumptions-and-conclusions-0009	CORRECTED	SOLVED-MATCH	distractors;explanation;notes	MEDIUM	Removed job-offer and retake inventions and stopped describing a sufficient score as an exclusive passing threshold.
+q-verbal-logic-assumptions-and-conclusions-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Made the unstated replacement link clear and replaced helpful-but-not-necessary preferences with distinct errors.
+q-verbal-logic-assumptions-and-conclusions-0011	CORRECTED	SOLVED-MATCH	stem;distractors;explanation;notes	HIGH	A permission rule alone did not establish that an actual approval was authorized; made compliance explicit and removed unrelated cost/location guesses.
+q-verbal-logic-assumptions-and-conclusions-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	The old asserted bill decrease did not require replacement of grid consumption; other mechanisms such as export credits were possible. Specified the replacement argument.
+q-verbal-logic-assumptions-and-conclusions-0013	NEW	NEW	explanation;notes	NONE	
+q-verbal-logic-assumptions-and-conclusions-0014	NEW	NEW	explanation;notes	NONE	
+q-verbal-logic-assumptions-and-conclusions-0015	NEW	NEW	explanation;notes	NONE	
+q-verbal-logic-assumptions-and-conclusions-0016	NEW	NEW	explanation;notes	NONE	
+q-verbal-logic-assumptions-and-conclusions-0017	NEW	NEW	explanation;notes	NONE	
+q-verbal-logic-assumptions-and-conclusions-0018	NEW	NEW	explanation;notes	NONE	
+q-verbal-logic-assumptions-and-conclusions-0019	NEW	NEW	explanation;notes	NONE	
+q-verbal-logic-assumptions-and-conclusions-0020	NEW	NEW	explanation;notes	NONE	

@@ -1,320 +1,414 @@
 meta:
-  subject: language-proficiency
-  topic: grammar-and-structure
-  subtopic: parallelism
-  exams: [ upcat, acet, dlsucet, ustet, dost-sei , cse-pro, cse-sub]
+  subject: "language-proficiency"
+  topic: "grammar-and-structure"
+  subtopic: "parallelism"
+  exams:
+    - "upcat"
+    - "acet"
+    - "dlsucet"
+    - "ustet"
+    - "dost-sei"
+    - "cse-pro"
+    - "cse-sub"
 questions:
-  - id: q-grammar-and-structure-parallelism-0001
-    type: parallelism-correction
-    difficulty: easy
+  - id: "q-grammar-and-structure-parallelism-0001"
+    type: "parallelism-correction"
+    difficulty: "easy"
     stem: |
       Identify and fix the parallelism error: "The coach told the team to run faster, jumping higher, and to try harder."
     choices:
-      - text: Jumping breaks the "to + verb" pattern; corrected, it should read "to run faster, to jump higher, and to try harder."
+      - text: "Change \"jumping\" to \"to jump.\""
         correct: true
-      - text: There is no error in this sentence.
+      - text: "Change \"to run\" to \"running.\""
         rationale: |
-          "Jumping" breaks the infinitive pattern established by "to run" and "to try."
-      - text: Faster should be changed to "fastest."
+          This changes a matching item to an -ing form. It makes running match jumping. Check: compare all three actions, including "to try".
+      - text: "Change \"to try\" to \"trying.\""
         rationale: |
-          "Faster" is not the structural mismatch; the listed verb forms are.
-      - text: The sentence needs a comma after "team."
+          This changes the last item but leaves the first unlike the others. It gives two actions the same -ing ending. Check: check the first item as well.
+      - text: "Change \"jumping\" to \"jumped.\""
         rationale: |
-          Punctuation does not repair the mismatch among the three listed actions.
+          This replaces an -ing form with a past form. The coach spoke in the past. Check: compare the forms of the listed actions, not the main verb.
     explanation: |
-      Parallel items should use matching grammatical forms. Changing "jumping" to "to jump" makes all three actions parallel.
+      The list starts with "to run" and ends with "to try." Changing the middle action to "to jump" gives three matching to-plus-verb phrases.
     approved: true
-
-  - id: q-grammar-and-structure-parallelism-0002
-    type: parallelism-correction
-    difficulty: medium
+  - id: "q-grammar-and-structure-parallelism-0002"
+    type: "parallelism-correction"
+    difficulty: "medium"
     stem: |
       Identify and fix the parallelism error: "The festival was not only fun but also it was educational."
     choices:
-      - text: It was educational should match the adjective after "not only"; corrected, it should read "not only fun but also educational."
+      - text: "Change \"it was educational\" to \"educational.\""
         correct: true
-      - text: There is no error in this sentence.
+      - text: "Change \"fun\" to \"having fun\" while keeping the rest."
         rationale: |
-          The two sides of "not only...but also" are not structurally parallel.
-      - text: Fun should be changed to "funny."
+          This substitutes an -ing phrase for an adjective. Both phrases describe a pleasant event. Check: compare what follows each half of the paired connector.
+      - text: "Change \"it was educational\" to \"to educate people.\""
         rationale: |
-          That changes the meaning without fixing the structural mismatch.
-      - text: The sentence needs a semicolon instead of "but."
+          This replaces a clause with a to-plus-verb phrase. Educating people relates to being educational. Check: match the adjective "fun" with another adjective.
+      - text: "Change \"fun\" to \"enjoyably\" while keeping the rest."
         rationale: |
-          A semicolon would destroy the intended correlative construction.
+          This replaces the adjective with an adverb. The words have related meanings. Check: check the grammatical forms on both sides.
     explanation: |
-      "Fun" and "educational" are parallel predicate complements: "The festival was not only fun but also educational."
+      "Not only" introduces the adjective "fun." "But also educational" supplies another adjective, so the two descriptions match.
     approved: true
-
-  - id: q-grammar-and-structure-parallelism-0003
-    type: parallelism-correction
-    difficulty: medium
+  - id: "q-grammar-and-structure-parallelism-0003"
+    type: "parallelism-correction"
+    difficulty: "medium"
     stem: |
       Choose the sentence with correct parallel structure.
     choices:
-      - text: The manual explains how to install the software, update it, and troubleshoot common errors.
+      - text: "The manual explains how to install, update, and repair the software."
         correct: true
-      - text: The manual explains how to install the software, updating it, and troubleshoot common errors.
+      - text: "The manual explains how to install, updating, and repairing the software."
         rationale: |
-          "Updating" breaks the coordinated base-verb pattern.
-      - text: Both sentences use correct parallel structure.
+          This mixes a base verb with -ing forms. All three words name software tasks. Check: read each verb after the shared "how to".
+      - text: "The manual explains how to installing, update, and repair the software."
         rationale: |
-          Only the first keeps the coordinated verbs in matching form.
-      - text: Neither sentence uses correct parallel structure.
+          This puts an -ing form after "how to". The other two verbs match. Check: check the first verb in the list.
+      - text: "The manual explains how to install, updated, and repaired the software."
         rationale: |
-          The first sentence correctly coordinates "install," "update," and "troubleshoot."
+          This mixes a base verb with past forms. The tasks may have been done before. Check: use matching forms under the shared "how to".
     explanation: |
-      The first sentence uses three coordinated base verbs governed by "how to": install, update, and troubleshoot.
+      "How to" applies to all three actions. The base verbs "install," "update," and "repair" make a matching list.
     approved: true
-
-  - id: q-grammar-and-structure-parallelism-0004
-    type: parallelism-correction
-    difficulty: medium
+  - id: "q-grammar-and-structure-parallelism-0004"
+    type: "parallelism-correction"
+    difficulty: "medium"
     stem: |
       Identify and fix the parallelism error: "Reading a book is more relaxing than to watch television."
     choices:
-      - text: To watch should match "reading"; corrected, it should read "more relaxing than watching television."
+      - text: "Change \"to watch\" to \"watching.\""
         correct: true
-      - text: There is no error in this sentence.
+      - text: "Change \"to watch\" to \"watched television.\""
         rationale: |
-          The comparison mismatches a gerund with an infinitive.
-      - text: Relaxing should be changed to "relaxed."
+          This substitutes a past form for an -ing activity. Both name the same activity. Check: compare the forms on either side of "than".
+      - text: "Change \"reading\" to \"read a book.\""
         rationale: |
-          The predicate adjective is not the source of the mismatch.
-      - text: The comparison needs "than to" instead of "than."
+          This removes the -ing form without making a matching activity phrase. "Read" is a familiar base verb. Check: read each side as the name of an activity.
+      - text: "Change \"to watch\" to \"a television.\""
         rationale: |
-          Adding "to" does not make the compared activities parallel.
+          This compares an activity with an object. A television is used for the second activity. Check: compare activities with activities.
     explanation: |
-      The compared activities should use matching forms: "Reading a book...than watching television."
+      The sentence compares two activities. "Reading a book" and "watching television" both use -ing forms as activity names.
     approved: true
-
-  - id: q-grammar-and-structure-parallelism-0005
-    type: parallelism-correction
-    difficulty: medium
+  - id: "q-grammar-and-structure-parallelism-0005"
+    type: "parallelism-correction"
+    difficulty: "medium"
     stem: |
       Identify and fix the parallelism error: "Her hobbies include painting, to dance, and singing."
     choices:
-      - text: To dance breaks the "-ing" pattern; corrected, it should read "painting, dancing, and singing."
+      - text: "Change \"to dance\" to \"dancing.\""
         correct: true
-      - text: There is no error in this sentence.
+      - text: "Change \"painting\" to \"to paint.\""
         rationale: |
-          "To dance" does not match the gerund forms around it.
-      - text: Include should be changed to "includes."
+          This leaves "singing" unlike the other two items. The first two items would share "to". Check: check every hobby in the list.
+      - text: "Change \"singing\" to \"to sing.\""
         rationale: |
-          "Hobbies" is plural, so "include" already agrees with the subject.
-      - text: The sentence needs a semicolon.
+          This leaves "painting" unlike the other two items. The last two items would share "to". Check: compare the first item with the rest.
+      - text: "Change \"to dance\" to \"danced.\""
         rationale: |
-          Punctuation cannot repair mismatched list forms.
+          This uses a past form as a hobby name. Dancing is an activity that can happen in the past. Check: match the -ing hobby names.
     explanation: |
-      All three hobby names should be parallel gerunds: painting, dancing, and singing.
+      "Painting" and "singing" name hobbies using -ing forms. "Dancing" supplies a matching middle item.
     approved: true
-
-  - id: q-grammar-and-structure-parallelism-0006
-    type: parallelism-correction
-    difficulty: medium
+  - id: "q-grammar-and-structure-parallelism-0006"
+    type: "parallelism-correction"
+    difficulty: "medium"
     stem: |
       Identify and fix the parallelism error: "He is both intelligent and he works hard."
     choices:
-      - text: He works hard should match the adjective after "both"; corrected, it should read "both intelligent and hardworking."
+      - text: "Change \"he works hard\" to \"hardworking.\""
         correct: true
-      - text: There is no error in this sentence.
+      - text: "Change \"intelligent\" to \"intelligently.\""
         rationale: |
-          The correlative pair links an adjective to a full clause instead of matching structures.
-      - text: Intelligent should be changed to "intelligently."
+          This puts an adverb after "is" without balancing the pair. The ending -ly often describes how someone works. Check: compare the forms joined by "both...and".
+      - text: "Change \"he works hard\" to \"to work hard.\""
         rationale: |
-          "Is" takes a predicate adjective here; changing it to an adverb would not help.
-      - text: The sentence needs a comma after "intelligent."
+          This joins an adjective to a to-plus-verb phrase. The phrase still expresses effort. Check: pair the adjective with another description.
+      - text: "Change \"intelligent\" to \"intelligence.\""
         rationale: |
-          A comma does not make the two coordinated elements parallel.
+          This joins a noun to a clause. Intelligence relates to being intelligent. Check: check both structure and fit after "is".
     explanation: |
-      "Both...and" should connect comparable structures. "Both intelligent and hardworking" pairs two adjectives.
+      "Both" and "and" join two descriptions. "Intelligent" and "hardworking" are adjectives, so they form a matching pair.
     approved: true
-
-  - id: q-grammar-and-structure-parallelism-0007
-    type: parallelism-correction
-    difficulty: medium
+  - id: "q-grammar-and-structure-parallelism-0007"
+    type: "parallelism-correction"
+    difficulty: "medium"
     stem: |
       Choose the sentence with correct parallel structure.
     choices:
-      - text: The recipe requires chopping the onions, mincing the garlic, and boiling the water.
+      - text: "The recipe requires chopping onions, mincing garlic, and boiling water."
         correct: true
-      - text: The recipe requires chopping the onions, mincing the garlic, and to boil the water.
+      - text: "The recipe requires chopping onions, mincing garlic, and to boil water."
         rationale: |
-          "To boil" breaks the gerund pattern.
-      - text: Both sentences use correct parallel structure.
+          This changes the final item to a to-plus-verb phrase. The action still belongs in a recipe. Check: match all three activity names.
+      - text: "The recipe requires chop onions, mincing garlic, and boiling water."
         rationale: |
-          Only the first keeps all three list items in matching form.
-      - text: Neither sentence uses correct parallel structure.
+          This starts the list with a base verb. Recipe directions often start with commands. Check: check the form needed after "requires".
+      - text: "The recipe requires chopping onions, to mince garlic, and boiling water."
         rationale: |
-          The first sentence has three parallel gerund phrases.
+          This changes the middle item to a to-plus-verb phrase. The first and last items match. Check: check the middle of the list too.
     explanation: |
-      "Chopping," "mincing," and "boiling" form a parallel series.
+      "Chopping," "mincing," and "boiling" name the required activities. Their matching -ing forms make the list parallel.
     approved: true
-
-  - id: q-grammar-and-structure-parallelism-0008
-    type: parallelism-correction
-    difficulty: medium
+  - id: "q-grammar-and-structure-parallelism-0008"
+    type: "parallelism-correction"
+    difficulty: "medium"
     stem: |
-      Identify and fix the parallelism error: "Swimming in the ocean is more exciting than to swim in a pool."
+      Which sentence keeps the two things being compared parallel?
     choices:
-      - text: To swim should match "swimming"; corrected, it should read "more exciting than swimming in a pool."
+      - text: "The cost of a bus trip is lower than the cost of a taxi trip."
         correct: true
-      - text: There is no error in this sentence.
+      - text: "The cost of a bus trip is lower than taking a taxi to the same destination."
         rationale: |
-          The comparison mismatches a gerund with an infinitive.
-      - text: Exciting should be changed to "excited."
+          This compares a cost with an activity. Both relate to the price of travel. Check: compare a cost with another cost.
+      - text: "The cost of a bus trip is lower than a taxi driver going to the same destination."
         rationale: |
-          "Exciting" correctly describes the activity; it is not the structural mismatch.
-      - text: The comparison needs "than to" instead of "than."
+          This compares a cost with a person. The driver is connected to the more costly trip. Check: identify what is actually being compared.
+      - text: "The cost of a bus trip is lower than a taxi traveling to the same destination."
         rationale: |
-          The compared activities, not the connector, need matching form.
+          This compares a cost with a vehicle. The vehicle suggests a travel price. Check: state the cost on both sides.
     explanation: |
-      The comparison is parallel when both activities are gerund phrases: swimming in the ocean and swimming in a pool.
+      The subject names the cost of a bus trip. The phrase after "than" names the cost of a taxi trip, so the comparison matches costs.
     approved: true
-
-  - id: q-grammar-and-structure-parallelism-0009
-    type: parallelism-correction
-    difficulty: hard
+  - id: "q-grammar-and-structure-parallelism-0009"
+    type: "parallelism-correction"
+    difficulty: "hard"
     stem: |
       Identify the hidden parallelism error in this longer sentence: "The report covers the company's history, analyzing its financial growth, and its plans for the future."
     choices:
-      - text: Analyzing its financial growth breaks the noun-phrase pattern; corrected, it should read "the company's history, its financial growth, and its plans for the future."
+      - text: "Change \"analyzing its financial growth\" to \"its financial growth.\""
         correct: true
-      - text: There is no error; the sentence is fine as written.
+      - text: "Change \"its plans for the future\" to \"planning for the future.\""
         rationale: |
-          "Analyzing its financial growth" is a verb phrase between two noun phrases.
-      - text: Its plans for the future is the mismatched item.
+          This changes a matching noun phrase to an -ing phrase. It resembles the existing middle item. Check: compare all three topics.
+      - text: "Change \"the company's history\" to \"tracing the company's history.\""
         rationale: |
-          "Its plans for the future" matches the noun-phrase structure of "the company's history."
-      - text: History is the mismatched item.
+          This leaves the last item unlike the other two. The first and middle items would begin with -ing verbs. Check: check the final item before choosing a repair.
+      - text: "Change \"analyzing its financial growth\" to \"it grew financially.\""
         rationale: |
-          "History" establishes the noun-phrase pattern that the middle item breaks.
+          This substitutes a full clause for a topic name. The clause expresses a related idea. Check: match the noun phrases on either side.
     explanation: |
-      A coordinated list should keep comparable structures. The corrected version uses three noun phrases.
+      The report covers three topics. "The company's history," "its financial growth," and "its plans for the future" are all noun phrases.
     approved: true
-
-  - id: q-grammar-and-structure-parallelism-0010
-    type: parallelism-correction
-    difficulty: hard
+  - id: "q-grammar-and-structure-parallelism-0010"
+    type: "parallelism-correction"
+    difficulty: "hard"
     stem: |
-      A student writes "She enjoys hiking and to swim," reasoning that both phrases are grammatical on their own. Is the sentence parallel?
+      Which revision makes "She enjoys hiking and to swim" parallel?
     choices:
-      - text: 'No: after "enjoys," the coordinated activities should use matching forms; "She enjoys hiking and swimming" is parallel.'
+      - text: "She enjoys hiking and swimming."
         correct: true
-      - text: 'Yes: if each item can be grammatical by itself, the coordination is automatically parallel.'
+      - text: "She enjoys hiking and to swim in the lake."
         rationale: |
-          Coordination still requires compatible structures in this sentence.
-      - text: 'Yes: because hiking and swimming are both physical activities.'
+          This combines an -ing activity with a to-plus-verb phrase. Both refer to enjoyable activities. Check: match the forms after "enjoys".
+      - text: "She enjoys to hike and swimming in the lake."
         rationale: |
-          Similar meaning does not repair a grammatical-form mismatch.
-      - text: 'No: because "enjoys" should be "enjoy."'
+          This keeps two different activity forms. The repair changes the first item. Check: compare the two forms after the main verb.
+      - text: "She enjoys hiking and swims in the lake."
         rationale: |
-          "She enjoys" already has correct subject-verb agreement.
+          This joins an activity name to a separate action verb. Both verbs concern things she does. Check: give "enjoys" two matching activity names.
     explanation: |
-      "Enjoy" normally takes gerund complements here, so "hiking and swimming" gives a grammatical, parallel pair.
+      "Enjoys" is followed by the activity names "hiking" and "swimming." They share the same -ing form.
     approved: true
-
-  - id: q-grammar-and-structure-parallelism-0011
-    type: parallelism-correction
-    difficulty: hard
+  - id: "q-grammar-and-structure-parallelism-0011"
+    type: "parallelism-correction"
+    difficulty: "hard"
     stem: |
       A student writes "He wanted either to win the race or finishing in the top three." Which correction makes the alternatives parallel without changing their meaning?
     choices:
-      - text: 'He wanted either to win the race or to finish in the top three.'
+      - text: "He wanted to win the race or finish in the top three."
         correct: true
-      - text: 'He wanted either winning the race or to finish in the top three.'
+      - text: "He wanted either winning the race or to finish in the top three."
         rationale: |
-          This still mismatches a gerund phrase with an infinitive phrase.
-      - text: 'He wanted either to win the race or finishing in the top three.'
+          This combines "winning" with "to finish". Both phrases name a goal. Check: match the forms after "either" and "or".
+      - text: "He wanted either to win the race or finishing in the top three."
         rationale: |
-          This repeats the original mismatch.
-      - text: 'He wanted to either win the race or finishing in the top three.'
+          This keeps "finishing" beside "to win". The wording preserves the intended goals. Check: compare the forms of the alternatives.
+      - text: "He wanted to either win the race or finishing in the top three."
         rationale: |
-          Moving "either" does not repair the mismatch between "win" and "finishing."
+          This moves "either" but leaves "win" and "finishing" unmatched. Changing the connector position looks like a repair. Check: compare the two action verbs.
     explanation: |
-      The correlative alternatives should be structurally comparable. "To win the race" and "to finish in the top three" are parallel infinitive phrases.
+      "Wanted to" applies to both actions: "win the race" and "finish in the top three." The matching base verbs keep both original goals.
     approved: true
-
-  - id: q-grammar-and-structure-parallelism-0012
-    type: parallelism-correction
-    difficulty: medium
+  - id: "q-grammar-and-structure-parallelism-0012"
+    type: "parallelism-correction"
+    difficulty: "medium"
     stem: |
       Choose the sentence with correct parallel structure.
     choices:
-      - text: The workshop covers budgeting, marketing, and sales strategy.
+      - text: "The workshop covers budgeting, marketing, and sales strategy."
         correct: true
-      - text: The workshop covers budgeting, marketing, and how to strategize sales.
+      - text: "The workshop covers budgeting, marketing, and how to plan sales."
         rationale: |
-          The final clause does not match the noun-like items before it.
-      - text: Both sentences use correct parallel structure.
+          This adds a how-to clause to noun-like topic names. All three items describe useful business skills. Check: compare the forms used to name the topics.
+      - text: "The workshop covers how to budget, marketing, and sales strategy."
         rationale: |
-          Only the first presents a balanced list of topics.
-      - text: Neither sentence uses correct parallel structure.
+          This starts with a how-to clause and then switches to noun phrases. Each item can be a workshop topic. Check: match their grammatical forms.
+      - text: "The workshop covers budgeting, how to market, and sales strategy."
         rationale: |
-          The first sentence is a parallel list of workshop topics.
+          This puts a how-to clause between two noun phrases. The middle phrase clearly describes a skill. Check: check the middle item against both neighbors.
     explanation: |
-      "Budgeting," "marketing," and "sales strategy" all function as noun phrases naming topics.
+      "Budgeting," "marketing," and "sales strategy" all function as noun phrases naming workshop topics. Parallel items can have different endings when they share the same role.
     approved: true
-
-  - id: q-grammar-and-structure-parallelism-0013
-    type: parallelism-correction
-    difficulty: medium
+  - id: "q-grammar-and-structure-parallelism-0013"
+    type: "parallelism-correction"
+    difficulty: "medium"
     stem: |
       Identify and fix the parallelism error: "The app helps users track expenses, setting budgets, and saving money."
     choices:
-      - text: Setting and saving should match "track"; corrected, it should read "The app helps users track expenses, set budgets, and save money."
+      - text: "Change \"setting\" and \"saving\" to \"set\" and \"save.\""
         correct: true
-      - text: There is no error in this sentence.
+      - text: "Change only \"track\" to \"tracking\" and keep the rest."
         rationale: |
-          The list switches from the base verb "track" to two "-ing" forms.
-      - text: Track should change to "tracking," giving "helps users tracking expenses, setting budgets, and saving money."
+          This puts an -ing form after "helps users". All three action words would have the same ending. Check: check that the shared verb accepts the chosen form.
+      - text: "Change only \"saving\" to \"save\" and keep the rest."
         rationale: |
-          That repair makes the complement after "helps users" ungrammatical in standard usage; the coordinated base verbs should be retained.
-      - text: Only saving should change to "save."
+          This leaves "setting" unlike the surrounding base verbs. The final item now matches "track". Check: check the middle action too.
+      - text: "Change \"setting\" to \"set\" but keep \"saving money.\""
         rationale: |
-          "Setting" would still fail to match the base verbs "track" and "save."
+          This leaves the final action in an -ing form. The first two actions now match. Check: compare every listed action.
     explanation: |
-      In "helps users track...," the verb "help" licenses a bare infinitive after its object. The coordinated actions should therefore be "track," "set," and "save."
+      "Helps users" can be followed by a base verb. The matching actions are "track expenses," "set budgets," and "save money."
     approved: true
-
-  - id: q-grammar-and-structure-parallelism-0014
-    type: parallelism-correction
-    difficulty: hard
+  - id: "q-grammar-and-structure-parallelism-0014"
+    type: "parallelism-correction"
+    difficulty: "hard"
     stem: |
       Identify and fix the parallelism error: "The company will neither raise prices nor cutting jobs."
     choices:
-      - text: Cutting should match "raise"; corrected, it should read "The company will neither raise prices nor cut jobs."
+      - text: "Change \"cutting\" to \"cut.\""
         correct: true
-      - text: There is no error in this sentence.
+      - text: "Change \"raise\" to \"raising\" while keeping \"will.\""
         rationale: |
-          "Raise" is a base verb after "will," while "cutting" is not parallel with it.
-      - text: Raise should be changed to "raising."
+          This places -ing verbs after "will". The two actions would then share an ending. Check: check the form required by "will".
+      - text: "Change \"cutting\" to \"cuts\" while keeping the rest."
         rationale: |
-          The modal "will" calls for a base verb, so "will raising" would be ungrammatical.
-      - text: The sentence needs a comma before "nor."
+          This uses a present-tense form after shared "will". "Company" is singular and often takes a verb ending in -s. Check: look for the helping verb before choosing the form.
+      - text: "Change \"raise\" to \"raised\" while keeping the rest."
         rationale: |
-          Punctuation does not repair the mismatched verb forms.
+          This changes the first action to a past form. A company decision may have been made already. Check: match both actions to shared "will".
     explanation: |
-      After the shared modal "will," "neither...nor" coordinates two base verb phrases: "raise prices" and "cut jobs."
+      The helping verb "will" applies to both actions. "Raise" and "cut" are matching base verbs after it.
     approved: true
-
-  - id: q-grammar-and-structure-parallelism-0015
-    type: parallelism-correction
-    difficulty: exam
+  - id: "q-grammar-and-structure-parallelism-0015"
+    type: "parallelism-correction"
+    difficulty: "exam"
     stem: |
-      Identify and fix all parallelism errors: "The seminar will teach participants not only how to negotiate effectively but also improving their communication skills, while covering topics like budgeting, marketing, and how to manage a team."
+      For the sentence below, which replacements fix both parallelism errors?
+      "The seminar teaches not only how to negotiate but also improving communication, with topics such as budgeting, marketing, and how to manage a team."
     choices:
-      - text: Corrected, it should read "...not only how to negotiate effectively but also how to improve their communication skills, while covering topics like budgeting, marketing, and team management."
+      - text: "Use \"how to improve\" and \"team management.\""
         correct: true
-      - text: There are no parallelism errors in this sentence.
+      - text: "Use \"improving\" and \"team management\" while keeping the other items."
         rationale: |
-          The correlative pair and the final list both contain structural mismatches.
-      - text: Only the correlative conjunction has an error; the final list is fine.
+          This fixes the topic list but leaves the paired skills unmatched. The final list now looks balanced. Check: check the pair as well as the list.
+      - text: "Use \"how to improve\" and \"how to manage a team\" with the other items unchanged."
         rationale: |
-          The final list also switches from noun-like topics to a full "how to" clause.
-      - text: Only the final list has an error; the correlative conjunction is fine.
+          This fixes the paired skills but leaves the topics in mixed forms. Both skill phrases now begin with "how to". Check: check the separate list after "topics".
+      - text: "Use \"improvement\" and \"managing a team\" while keeping the other items."
         rationale: |
-          The "not only...but also" pair also mismatches "how to negotiate" with "improving."
+          This keeps a noun beside a how-to clause in the paired skills. Both replacement phrases sound like useful topics. Check: compare each replacement with its own neighbors.
     explanation: |
-      The repair makes both structures parallel: "how to negotiate / how to improve" and "budgeting / marketing / team management."
+      First, pair "how to negotiate" with "how to improve." Then list the topics as "budgeting," "marketing," and "team management." Each group now has matching forms.
     approved: true
+  - id: "q-grammar-and-structure-parallelism-0016"
+    type: "parallelism-correction"
+    difficulty: "easy"
+    stem: |
+      The committee values accuracy, fairness, and ___. Which completion keeps the list parallel?
+    choices:
+      - text: "transparency"
+        correct: true
+      - text: "acting transparently"
+        rationale: |
+          This adds an action phrase to two quality names. Transparent action expresses the same general value. Check: match the nouns in the list.
+      - text: "to be transparent"
+        rationale: |
+          This adds a to-plus-verb phrase to two nouns. Being transparent sounds like a desirable quality. Check: use a quality name like the first two items.
+      - text: "it is transparent"
+        rationale: |
+          This inserts a full clause into the list. The clause expresses a related quality. Check: compare each item's grammatical form.
+    explanation: |
+      "Accuracy" and "fairness" are nouns naming qualities. "Transparency" is a matching noun.
+    approved: false
+  - id: "q-grammar-and-structure-parallelism-0017"
+    type: "parallelism-correction"
+    difficulty: "medium"
+    stem: |
+      Which revision makes the paired alternatives parallel in "Applicants may either submit online or by mail"?
+    choices:
+      - text: "Applicants may submit either online or by mail."
+        correct: true
+      - text: "Applicants may either submission online or submit by mail."
+        rationale: |
+          This joins a noun to an action phrase. Both refer to sending an application. Check: compare the forms after each connector.
+      - text: "Applicants may either submit online or a mailed application."
+        rationale: |
+          This joins an action to an object. A mailed application represents the second method. Check: place the connector before matching methods.
+      - text: "Applicants may either online submission or submit by mail."
+        rationale: |
+          This combines a noun phrase with a verb phrase. Both phrases identify application routes. Check: compare the two alternatives after "either" and "or".
+    explanation: |
+      The shared verb is "submit." "Either" and "or" then join two ways to submit: "online" and "by mail."
+    approved: false
+  - id: "q-grammar-and-structure-parallelism-0018"
+    type: "parallelism-correction"
+    difficulty: "hard"
+    stem: |
+      Which sentence uses a parallel pair after "not only...but also"?
+    choices:
+      - text: "The policy is not only practical but also affordable."
+        correct: true
+      - text: "The policy is not only practical but also it saves money."
+        rationale: |
+          This pairs an adjective with a full clause. The two parts describe benefits. Check: compare what follows each connector.
+      - text: "The policy is not only practicality but also affordable."
+        rationale: |
+          This pairs a noun with an adjective. Practicality and affordability are related qualities. Check: use matching descriptions after "is".
+      - text: "The policy is not only practical but also to save money."
+        rationale: |
+          This pairs an adjective with a to-plus-verb phrase. Saving money relates to affordability. Check: match both halves by grammatical form.
+    explanation: |
+      "Practical" and "affordable" are adjectives describing the policy. They form a matching pair after the two connectors.
+    approved: false
+  - id: "q-grammar-and-structure-parallelism-0019"
+    type: "parallelism-correction"
+    difficulty: "hard"
+    stem: |
+      Which revision keeps the two choices parallel in "We must choose between repairing the roof and a new roof will be installed"?
+    choices:
+      - text: "We must choose between repairing the roof and installing a new roof."
+        correct: true
+      - text: "We must choose between to repair the roof and installing a new roof."
+        rationale: |
+          This pairs a to-plus-verb phrase with an -ing phrase. Both name possible actions. Check: compare the forms after "between" and "and".
+      - text: "We must choose between repairing the roof and install a new roof."
+        rationale: |
+          This combines an -ing phrase with a base verb. The alternatives still concern the same roof. Check: match the action names.
+      - text: "We must choose between the roof is repaired and installing a new roof."
+        rationale: |
+          This combines a complete clause with an -ing phrase. The first clause states a possible result. Check: keep both alternatives in matching forms.
+    explanation: |
+      "Between" introduces two possible actions. "Repairing the roof" and "installing a new roof" both use -ing phrases to name them.
+    approved: false
+  - id: "q-grammar-and-structure-parallelism-0020"
+    type: "parallelism-correction"
+    difficulty: "exam"
+    stem: |
+      Which sentence keeps every item in the long list parallel?
+    choices:
+      - text: "The grant funds training workers, buying tools, and improving safety."
+        correct: true
+      - text: "The grant funds training workers, buying tools, and to improve workplace safety."
+        rationale: |
+          This switches the last activity to a to-plus-verb phrase. The first two activities match. Check: check the final item separately.
+      - text: "The grant funds training workers, tools will be bought, and improving workplace safety."
+        rationale: |
+          This makes the middle item a full clause. The clause names a funded result. Check: compare the middle item with both neighbors.
+      - text: "The grant funds workers are trained, buying tools, and improving workplace safety."
+        rationale: |
+          This starts the list with a full clause. The later items share -ing endings. Check: check the opening item as well.
+    explanation: |
+      The grant funds three activities. "Training," "buying," and "improving" all name activities with matching -ing forms.
+    approved: false

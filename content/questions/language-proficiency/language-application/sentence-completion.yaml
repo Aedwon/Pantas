@@ -1,54 +1,59 @@
 meta:
-  subject: language-proficiency
-  topic: language-application
-  subtopic: sentence-completion
-  exams: [upcat, acet, dlsucet, ustet, dost-sei, cse-pro, cse-sub]
+  subject: "language-proficiency"
+  topic: "language-application"
+  subtopic: "sentence-completion"
+  exams:
+    - "upcat"
+    - "acet"
+    - "dlsucet"
+    - "ustet"
+    - "dost-sei"
+    - "cse-pro"
+    - "cse-sub"
 questions:
-  - id: q-language-application-sentence-completion-0001
-    type: fill-in-the-blank
-    difficulty: easy
+  - id: "q-language-application-sentence-completion-0001"
+    type: "fill-in-the-blank"
+    difficulty: "easy"
     stem: |
       Despite facing numerous unexpected obstacles during testing, the software team remained ________ and successfully delivered the patch on schedule.
     choices:
-      - text: resilient
+      - text: "resilient"
         correct: true
-      - text: hesitant
+      - text: "hesitant"
         rationale: |
-          Hesitant suggests uncertainty or delay, which conflicts with successfully overcoming the obstacles.
-      - text: indifferent
+          This describes uncertainty instead of recovery after setbacks. Obstacles could cause hesitation. Check: use the outcome of successful on-time delivery.
+      - text: "indifferent"
         rationale: |
-          Indifferent means unconcerned, which does not fit the team's sustained effort.
-      - text: indolent
+          This describes lack of concern rather than persistence. A calm response can look like indifference. Check: check whether sustained effort is implied.
+      - text: "indolent"
         rationale: |
-          Indolent means lazy, the opposite of persistent work through setbacks.
+          This describes laziness rather than endurance. A delay-prone team may sound plausible during setbacks. Check: match the word to overcoming the obstacles.
     explanation: |
-      "Resilient" means able to withstand or recover from difficulty. It best fits a team that overcame obstacles and still delivered on time.
+      "Resilient" means able to recover from difficulty. The team overcame the obstacles and still delivered on schedule, so that meaning fits.
     approved: true
-
-  - id: q-language-application-sentence-completion-0002
-    type: fill-in-the-blank
-    difficulty: easy
+  - id: "q-language-application-sentence-completion-0002"
+    type: "fill-in-the-blank"
+    difficulty: "easy"
     stem: |
       Because the initial evidence was ________, the lead investigator refused to draw firm conclusions until the laboratory results arrived.
     choices:
-      - text: compelling
+      - text: "compelling"
         rationale: |
-          Compelling evidence is strongly persuasive and does not explain the stated uncertainty.
-      - text: equivocal
+          This makes the evidence strongly persuasive. The investigation involves evidence that could be convincing. Check: ask what explains waiting for a firm conclusion.
+      - text: "equivocal"
         correct: true
-      - text: irrefutable
+      - text: "irrefutable"
         rationale: |
-          Irrefutable means impossible to deny, which conflicts with withholding a conclusion because the evidence was uncertain.
-      - text: exhaustive
+          This makes the evidence impossible to deny. It sounds like a strong scientific description. Check: match it to the stated lack of a firm conclusion.
+      - text: "exhaustive"
         rationale: |
-          Exhaustive means thorough or comprehensive and does not explain why the evidence remained inconclusive.
+          This describes complete coverage rather than uncertainty. Thoroughness is valued in an investigation. Check: choose the word naming more than one possible interpretation.
     explanation: |
-      "Equivocal" means ambiguous or open to more than one interpretation. That uncertainty explains why the investigator waited for additional results.
+      "Equivocal" means open to more than one interpretation. This uncertainty explains why the investigator waited for more results.
     approved: true
-
-  - id: q-language-application-sentence-completion-0003
-    type: fill-in-the-blank
-    difficulty: medium
+  - id: "q-language-application-sentence-completion-0003"
+    type: "fill-in-the-blank"
+    difficulty: "medium"
     stem: |
       The CEO's ________ proposal to replace the entire long-standing sales structure was met with widespread ________ from senior managers who explicitly opposed departures from traditional methods.
     choices:
@@ -56,188 +61,180 @@ questions:
         correct: true
       - text: "modest ... enthusiasm"
         rationale: |
-          Replacing the entire long-standing structure is not modest, and the managers are stated to oppose departures from tradition.
+          This understates the change and turns opposition into support. Both words can describe ordinary business proposals. Check: test both the replacement of the whole structure and the managers' stance.
       - text: "orthodox ... hostility"
         rationale: |
-          An orthodox proposal would follow established practice rather than replace it.
+          This calls a break from tradition traditional. Hostility correctly matches the reaction. Check: check the first blank as well as the second.
       - text: "innovative ... acquiescence"
         rationale: |
-          Innovative could describe the proposal, but acquiescence conflicts with the managers' explicit opposition.
+          This changes opposition into quiet acceptance. "Innovative" fits a new proposal. Check: match the second blank to explicit opposition.
     explanation: |
-      Replacing an entrenched structure is radical, and managers who explicitly oppose departures from tradition would show resistance.
+      Replacing the whole established structure is a radical change. Managers who explicitly oppose that change show resistance.
     approved: true
-
-  - id: q-language-application-sentence-completion-0004
-    type: fill-in-the-blank
-    difficulty: medium
+  - id: "q-language-application-sentence-completion-0004"
+    type: "fill-in-the-blank"
+    difficulty: "medium"
     stem: |
-      Because the committee members held such ________ viewpoints on urban development, reaching a consensus required weeks of intense negotiation.
+      Choose the word describing the relationship among the members' views.
+      "Some members sought a ban on new buildings while others demanded unrestricted construction. Because they held such ___ viewpoints, a consensus required weeks of negotiation."
     choices:
-      - text: disparate
+      - text: "disparate"
         correct: true
-      - text: harmonious
+      - text: "harmonious"
         rationale: |
-          Harmonious viewpoints are in agreement and would not explain prolonged negotiation.
-      - text: congruent
+          This makes opposing plans sound compatible. Negotiations can aim for harmony. Check: describe the stated relationship before agreement is reached.
+      - text: "congruent"
         rationale: |
-          Congruent means consistent or agreeing, the opposite of the conflict described.
-      - text: superficial
+          This labels the views as matching. Consensus is the committee's goal. Check: distinguish the goal from the current opposed proposals.
+      - text: "superficial"
         rationale: |
-          Superficial means shallow and does not establish disagreement among the viewpoints.
+          This labels depth rather than the relationship between the plans. Shallow ideas can make negotiations difficult. Check: choose the word describing how the stated views differ.
     explanation: |
-      "Disparate" means markedly different. Differing viewpoints explain why consensus required extensive negotiation.
+      "Disparate" means very different. A building ban and unrestricted construction are sharply different views, so the word fits their relationship.
     approved: true
-
-  - id: q-language-application-sentence-completion-0005
-    type: fill-in-the-blank
-    difficulty: easy
+  - id: "q-language-application-sentence-completion-0005"
+    type: "fill-in-the-blank"
+    difficulty: "easy"
     stem: |
       The manager offered a ________ explanation of the new safety guidelines, ensuring that even novice employees understood their responsibilities.
     choices:
-      - text: lucid
+      - text: "lucid"
         correct: true
-      - text: ambiguous
+      - text: "ambiguous"
         rationale: |
-          Ambiguous means open to multiple interpretations, contrary to the stated understanding.
-      - text: convoluted
+          This makes the explanation open to more than one reading. Guidelines can be complex. Check: use the clue that new employees understood.
+      - text: "convoluted"
         rationale: |
-          Convoluted means excessively complicated, which conflicts with the explanation being easy for novices to understand.
-      - text: obscure
+          This makes the explanation overly complicated. Technical safety rules can sound complex. Check: match the explanation to the stated clear understanding.
+      - text: "obscure"
         rationale: |
-          Obscure means difficult to understand.
+          This makes the explanation difficult to understand. A formal word may seem suitable for guidelines. Check: check the effect on novice employees.
     explanation: |
-      "Lucid" means clear and easy to understand, matching the result described in the sentence.
+      "Lucid" means clear and easy to understand. It matches an explanation that new employees could follow.
     approved: true
-
-  - id: q-language-application-sentence-completion-0006
-    type: fill-in-the-blank
-    difficulty: medium
+  - id: "q-language-application-sentence-completion-0006"
+    type: "fill-in-the-blank"
+    difficulty: "medium"
     stem: |
-      The environmental report was far from ________; in fact, it contained several ________ statements that directly contradicted one another and confused the public.
+      The report lacked an orderly, consistent account: it was far from ___ and contained ___ statements that directly contradicted one another.
     choices:
       - text: "coherent ... contradictory"
         correct: true
-      - text: "vague ... explicit"
+      - text: "coherent ... consistent"
         rationale: |
-          Explicit statements can still disagree, but "far from vague" does not follow from the sentence's stated problem of internal contradiction.
-      - text: "detailed ... comprehensive"
+          This calls mutually conflicting statements consistent. Both words concern the report's organization. Check: compare the second word with "directly contradicted".
+      - text: "incoherent ... contradictory"
         rationale: |
-          These qualities do not explain statements that directly contradict one another.
-      - text: "accurate ... verifiable"
+          This reverses the effect of "far from". "Incoherent" fits the report's problem when used alone. Check: read "far from" together with the first blank.
+      - text: "coherent ... complementary"
         rationale: |
-          Verifiable statements do not match the explicit description of mutually contradictory claims.
+          This treats contradictions as ideas that support each other. Complementary statements can form a coherent account. Check: check whether the statements agree or conflict.
     explanation: |
-      A report whose statements directly contradict one another is not coherent; "contradictory" names the problem stated in the sentence.
+      "Coherent" means orderly and consistent. The report is far from that quality, and "contradictory" describes statements that conflict.
     approved: true
-
-  - id: q-language-application-sentence-completion-0007
-    type: fill-in-the-blank
-    difficulty: hard
+  - id: "q-language-application-sentence-completion-0007"
+    type: "fill-in-the-blank"
+    difficulty: "hard"
     stem: |
       Because prolonged drought conditions had severely ________ the agricultural reservoir, local authorities were forced to institute mandatory water rationing.
     choices:
-      - text: depleted
+      - text: "depleted"
         correct: true
-      - text: augmented
+      - text: "augmented"
         rationale: |
-          Augmented means increased, which conflicts with drought-driven rationing.
-      - text: replenished
+          This says the reservoir increased. It is a formal word for a change in amount. Check: use the drought and rationing clues.
+      - text: "replenished"
         rationale: |
-          Replenished means refilled, the opposite of what prolonged drought would do.
-      - text: stabilized
+          This says the reservoir was refilled. It is a familiar water-supply term. Check: match the direction of change to prolonged drought.
+      - text: "stabilized"
         rationale: |
-          Stabilized does not explain why mandatory rationing became necessary.
+          This says the amount became steady. A stable supply may sound like a management result. Check: identify the reduction that led to rationing.
     explanation: |
-      "Depleted" means greatly reduced or exhausted, fitting a reservoir diminished by prolonged drought.
+      "Depleted" means greatly reduced. A drought-reduced reservoir supports the need to ration the remaining water.
     approved: true
-
-  - id: q-language-application-sentence-completion-0008
-    type: fill-in-the-blank
-    difficulty: hard
+  - id: "q-language-application-sentence-completion-0008"
+    type: "fill-in-the-blank"
+    difficulty: "hard"
     stem: |
       While the keynote speaker praised the overall expansion plan, she nevertheless cautioned that rapid growth without adequate funding would prove ________ to long-term stability.
     choices:
-      - text: detrimental
+      - text: "detrimental"
         correct: true
-      - text: beneficial
+      - text: "beneficial"
         rationale: |
-          Beneficial means helpful, contradicting the warning.
-      - text: conducive
+          This describes a helpful effect. The speaker also praises the broader plan. Check: follow the specific warning about inadequate funding.
+      - text: "conducive"
         rationale: |
-          Conducive means tending to promote an outcome and does not fit a warning about damage to stability.
-      - text: paramount
+          This describes promoting stability. The phrase "conducive to" is grammatically possible. Check: use the caution's harmful-effect meaning.
+      - text: "paramount"
         rationale: |
-          Paramount means of greatest importance, not harmful.
+          This describes importance rather than harm. Funding is important to expansion. Check: choose a word that states the effect on stability.
     explanation: |
-      "Detrimental" means harmful, matching the speaker's caution about underfunded rapid growth.
+      "Detrimental" means harmful. It states the warned-of effect on long-term stability.
     approved: true
-
-  - id: q-language-application-sentence-completion-0009
-    type: fill-in-the-blank
-    difficulty: medium
+  - id: "q-language-application-sentence-completion-0009"
+    type: "fill-in-the-blank"
+    difficulty: "medium"
     stem: |
-      The new efficiency policy was designed to ________ workplace productivity while simultaneously ________ administrative costs.
+      The efficiency policy aimed to raise productive output and lower expenses. It was designed to ___ workplace productivity while simultaneously ___ administrative costs.
     choices:
       - text: "boost ... reducing"
         correct: true
-      - text: "curtail ... inflating"
+      - text: "boost ... increasing"
         rationale: |
-          Both actions move in the opposite direction from an efficiency policy's stated objective.
-      - text: "hinder ... maintaining"
+          This improves output but raises the costs. The first blank fits the policy's goal. Check: check the required direction of costs too.
+      - text: "hinder ... reducing"
         rationale: |
-          Hindering productivity conflicts with the stated efficiency objective.
-      - text: "minimize ... expanding"
+          This lowers costs but harms output. The second blank fits the stated goal. Check: check both parts of the policy.
+      - text: "curtail ... maintaining"
         rationale: |
-          Reducing productivity while expanding costs contradicts the purpose stated in the stem.
+          This cuts output while leaving costs unchanged. Both words can occur in business policies. Check: follow the explicit aim to raise output and lower expenses.
     explanation: |
-      Improving efficiency means increasing productive output while lowering administrative cost: "boost ... reducing" fits both clues and the sentence structure.
+      "Boost" means increase, matching the output goal. "Reducing" means lowering, matching the expense goal. The pair also fits the shared sentence structure.
     approved: true
-
-  - id: q-language-application-sentence-completion-0010
-    type: fill-in-the-blank
-    difficulty: medium
+  - id: "q-language-application-sentence-completion-0010"
+    type: "fill-in-the-blank"
+    difficulty: "medium"
     stem: |
       The lead engineer spoke ________ during the press briefing, detailing the technical failure with impressive clarity and precision.
     choices:
-      - text: eloquently
+      - text: "eloquently"
         correct: true
-      - text: eloquence
+      - text: "eloquence"
         rationale: |
-          "Eloquence" is a noun, but the blank modifies the verb "spoke."
-      - text: eloquent
+          This uses a noun where the blank describes speaking. It names the same quality of speech. Check: ask which form tells how the engineer spoke.
+      - text: "eloquent"
         rationale: |
-          "Eloquent" is an adjective; an adverb is needed to modify "spoke."
-      - text: eloquenced
+          This uses an adjective directly after the action verb. The word describes the engineer's ability. Check: choose the form describing the speaking action.
+      - text: "ineloquently"
         rationale: |
-          "Eloquenced" is not the required English word form.
+          This uses an adverb with the opposite meaning. Its -ly form fits the grammar. Check: check the negative prefix against clarity and precision.
     explanation: |
-      "Eloquently" is the adverb form and correctly describes how the engineer spoke.
+      "Eloquently" is an adverb describing clear, effective speech. It fits how the engineer spoke with clarity and precision.
     approved: true
-
-  - id: q-language-application-sentence-completion-0011
-    type: fill-in-the-blank
-    difficulty: hard
+  - id: "q-language-application-sentence-completion-0011"
+    type: "fill-in-the-blank"
+    difficulty: "hard"
     stem: |
-      When faced with a sudden drop in market demand, the board decided to ________ strict measures to prevent further financial losses.
+      The board approved a loss-prevention plan and decided to ___ its measures, putting them into practice across the company.
     choices:
-      - text: implement
+      - text: "implement"
         correct: true
-      - text: inflict
+      - text: "inflict"
         rationale: |
-          "Inflict" normally takes harm, pain, or punishment as its object, not neutral organizational measures.
-      - text: implicate
+          This treats the measures as harm or punishment being imposed. Strict measures may be unpleasant. Check: choose the verb meaning put the approved plan into practice.
+      - text: "implicate"
         rationale: |
-          "Implicate" means connect someone or something with wrongdoing or involvement.
-      - text: impair
+          This confuses carrying out with involving someone in wrongdoing. The word begins similarly to "implement". Check: check the whole word's meaning.
+      - text: "impair"
         rationale: |
-          "Impair" means weaken or damage, not put measures into effect.
+          This describes weakening the measures. The company wants to prevent losses. Check: choose the word for carrying out the plan.
     explanation: |
-      "Implement" means put a plan, policy, or measure into effect and is the appropriate collocation here.
+      "Implement" means put a plan or measure into effect. It fits carrying out the approved plan.
     approved: true
-
-  - id: q-language-application-sentence-completion-0012
-    type: fill-in-the-blank
-    difficulty: exam
+  - id: "q-language-application-sentence-completion-0012"
+    type: "fill-in-the-blank"
+    difficulty: "exam"
     stem: |
       The new regulations covered every major operational area, and inspectors applied them strictly and consistently across all regional branches. The regulations were therefore ________ in scope and ________ in enforcement.
     choices:
@@ -245,76 +242,173 @@ questions:
         correct: true
       - text: "lenient ... strict"
         rationale: |
-          "Lenient in scope" does not describe rules that cover every major operational area.
+          This labels permissiveness instead of broad coverage. The second word matches strict application. Check: check what the first blank must say about scope.
       - text: "superficial ... thorough"
         rationale: |
-          "Superficial" conflicts with the explicitly comprehensive coverage described in the first sentence.
+          This describes a shallow treatment rather than full coverage. "Thorough" fits the enforcement clue. Check: test the first blank against every major area.
       - text: "restricted ... stringent"
         rationale: |
-          "Restricted" conflicts with coverage of every major operational area.
+          This limits the scope despite the stated broad coverage. The second word fits strict enforcement. Check: check both blanks rather than one.
     explanation: |
-      Coverage of every major area is comprehensive; strict, consistent application is rigorous enforcement.
+      "Comprehensive" means covering the whole needed range. "Rigorous" means strict and careful, matching how inspectors applied the rules.
     approved: true
-
-  - id: q-language-application-sentence-completion-0013
-    type: fill-in-the-blank
-    difficulty: easy
+  - id: "q-language-application-sentence-completion-0013"
+    type: "fill-in-the-blank"
+    difficulty: "easy"
     stem: |
       Heavy snowfall during the peak morning rush hour caused traffic on the main highway to crawl at a ________ pace.
     choices:
-      - text: sluggish
+      - text: "sluggish"
         correct: true
-      - text: rapid
+      - text: "rapid"
         rationale: |
-          Rapid means fast and contradicts "crawl."
-      - text: brisk
+          This makes crawling traffic fast. Rush hour may suggest hurried travel. Check: use "crawl" as the movement clue.
+      - text: "brisk"
         rationale: |
-          Brisk means quick or energetic and conflicts with crawling traffic.
-      - text: hasty
+          This describes quick, energetic motion. It can describe a pace naturally. Check: match it to the delay from snowfall.
+      - text: "hasty"
         rationale: |
-          Hasty means rushed and does not fit very slow movement.
+          This confuses being in a hurry with moving slowly. Drivers during rush hour may feel rushed. Check: describe the actual traffic movement.
     explanation: |
-      "Sluggish" means slow-moving, matching traffic described as crawling.
+      "Sluggish" means slow-moving. It matches the traffic described as crawling.
     approved: true
-
-  - id: q-language-application-sentence-completion-0014
-    type: fill-in-the-blank
-    difficulty: medium
+  - id: "q-language-application-sentence-completion-0014"
+    type: "fill-in-the-blank"
+    difficulty: "medium"
     stem: |
       Far from being ________, the young associate was remarkably composed and articulate during her first presentation to the board of directors.
     choices:
-      - text: flustered
+      - text: "flustered"
         correct: true
-      - text: serene
+      - text: "serene"
         rationale: |
-          Serene is similar to composed, but "far from being" calls for a contrasting quality.
-      - text: confident
+          This gives a calm quality after words denying that quality. The associate is described as composed. Check: read the opening "Far from being".
+      - text: "confident"
         rationale: |
-          Confident is compatible with being composed and articulate.
-      - text: poised
+          This supplies a quality compatible with the positive description. Confidence fits an articulate presentation. Check: choose the contrasting quality excluded by "far from".
+      - text: "poised"
         rationale: |
-          Poised is nearly synonymous with composed in this context.
+          This repeats the calm, controlled quality rather than its contrast. It closely matches "composed". Check: read the negating phrase before selecting a synonym.
     explanation: |
-      "Flustered" means agitated or confused, providing the contrast required by "far from being."
+      "Flustered" means agitated or confused. The opening says the associate was far from that state, which matches being composed and articulate.
     approved: true
-
-  - id: q-language-application-sentence-completion-0015
-    type: fill-in-the-blank
-    difficulty: exam
+  - id: "q-language-application-sentence-completion-0015"
+    type: "fill-in-the-blank"
+    difficulty: "exam"
     stem: |
-      The initial trial could not distinguish the treatment group from the control group, but subsequent replicated studies produced a stable effect with narrow confidence intervals. The first results were ________, whereas the later evidence was remarkably ________.
+      In a fictional review, the preliminary records did not establish who received the parcel, but the signed final register settled the disputed delivery beyond doubt. The first records were ___, whereas the final record was ___.
     choices:
       - text: "inconclusive ... definitive"
         correct: true
       - text: "promising ... ambiguous"
         rationale: |
-          The first trial is explicitly described as unable to distinguish the groups, while the later evidence is stable and precise rather than ambiguous.
+          This makes the final signed record ambiguous. Initial records could look promising before review. Check: match the final blank to settled delivery beyond doubt.
       - text: "decisive ... doubtful"
         rationale: |
-          This reverses the evidence progression stated in the stem.
+          This reverses the progression from uncertain to conclusive. Both words can describe evidence strength. Check: check the preliminary and final stages separately.
       - text: "consistent ... erratic"
         rationale: |
-          The first result was not conclusive, and the later replicated effect is explicitly stable rather than erratic.
+          This makes the final record unstable. The preliminary records may contain consistent details. Check: use the final register's settled result.
     explanation: |
-      Failure to distinguish groups makes the first result inconclusive; replicated, stable, precise evidence supports "definitive" as the contrasting description.
+      "Inconclusive" means not settling the question. "Definitive" means settling it clearly and firmly. The preliminary records lacked an answer, and the final signed register supplied it.
     approved: true
+  - id: "q-language-application-sentence-completion-0016"
+    type: "fill-in-the-blank"
+    difficulty: "easy"
+    stem: |
+      The librarian is interested ___ preserving the town's oral histories.
+    choices:
+      - text: "in"
+        correct: true
+      - text: "on"
+        rationale: |
+          This substitutes a familiar preposition from phrases such as "focused on". Both phrases concern attention to a subject. Check: check the usual phrase "interested in".
+      - text: "at"
+        rationale: |
+          This transfers the pattern from expressions such as "good at". The sentence concerns an area of work. Check: match the preposition to "interested".
+      - text: "for"
+        rationale: |
+          This transfers the pattern from expressions such as "responsible for". Preservation is a responsibility. Check: use the phrase governed by the actual adjective.
+    explanation: |
+      The usual phrase is "interested in" followed by the subject of interest. Here that subject is preserving oral histories.
+    approved: false
+  - id: "q-language-application-sentence-completion-0017"
+    type: "fill-in-the-blank"
+    difficulty: "medium"
+    stem: |
+      After reviewing the bids, the committee must ___ a decision before the deadline.
+    choices:
+      - text: "make"
+        correct: true
+      - text: "do"
+        rationale: |
+          This uses a general action verb in the wrong word combination. A decision is something the committee does in a broad sense. Check: check the usual expression "make a decision".
+      - text: "perform"
+        rationale: |
+          This uses a verb for carrying out an act or task. Deciding is an action. Check: choose the usual word partner of "decision".
+      - text: "conduct"
+        rationale: |
+          This transfers a verb used with meetings and reviews. The committee has conducted a review. Check: match the verb to the noun in the blank's phrase.
+    explanation: |
+      The usual expression is "make a decision." "Must" is followed by the base form "make."
+    approved: false
+  - id: "q-language-application-sentence-completion-0018"
+    type: "fill-in-the-blank"
+    difficulty: "hard"
+    stem: |
+      Last Tuesday, the clerk ___ the misplaced receipt and returned it to its owner.
+    choices:
+      - text: "found"
+        correct: true
+      - text: "finds"
+        rationale: |
+          This uses a present form in a completed past sequence. The clerk may search for receipts regularly. Check: follow "Last Tuesday" and "returned".
+      - text: "finding"
+        rationale: |
+          This uses an -ing form without the helping verb needed here. It names the search result action. Check: supply a finite past verb for the main clause.
+      - text: "to find"
+        rationale: |
+          This uses a to-plus-verb phrase as the main verb. It can name a goal in another sentence. Check: check the form needed after the subject.
+    explanation: |
+      "Last Tuesday" and "returned" place both actions in the past. "Found" supplies the matching completed past action.
+    approved: false
+  - id: "q-language-application-sentence-completion-0019"
+    type: "fill-in-the-blank"
+    difficulty: "hard"
+    stem: |
+      Although the directions were easy to follow and therefore ___, the crew was ___ about an approaching storm and delayed the departure.
+    choices:
+      - text: "clear ... apprehensive"
+        correct: true
+      - text: "clear ... unconcerned"
+        rationale: |
+          This removes the worry that explains the delay. The first blank fits easy-to-follow directions. Check: check the stated storm-related reason too.
+      - text: "confusing ... confident"
+        rationale: |
+          This makes the crew assured despite the stated worry and delay. The pair creates a possible contrast in another situation. Check: match both words to the actual directions and storm context.
+      - text: "clear ... complacent"
+        rationale: |
+          This makes the crew too unconcerned to heed the threat. The directions are correctly described as clear. Check: connect the second blank to delaying for the storm.
+    explanation: |
+      "Clear" describes directions that can be followed. "Apprehensive" means worried about what may happen, which fits delaying because of the approaching storm.
+    approved: false
+  - id: "q-language-application-sentence-completion-0020"
+    type: "fill-in-the-blank"
+    difficulty: "exam"
+    stem: |
+      The contractor promised an ___ repair, restoring the door within the agreed hour, but admitted that the temporary fix was only ___ and would need replacement.
+    choices:
+      - text: "expeditious ... provisional"
+        correct: true
+      - text: "expeditious ... permanent"
+        rationale: |
+          This fits speed but contradicts the need for replacement. The first blank matches a prompt repair. Check: check whether the fix is temporary or lasting.
+      - text: "tardy ... provisional"
+        rationale: |
+          This fits the temporary fix but contradicts the agreed-hour completion. The second blank matches the replacement clue. Check: check both speed and duration.
+      - text: "expeditious ... irrevocable"
+        rationale: |
+          This fits speed but makes the fix impossible to reverse. A formal word can sound suitable for a contract. Check: match the second blank to a temporary replaceable repair.
+    explanation: |
+      "Expeditious" means prompt and efficient, fitting repair within the agreed hour. "Provisional" means temporary, fitting a fix that needs replacement.
+    approved: false

@@ -1,40 +1,46 @@
 meta:
-  subject: language-proficiency
-  topic: language-application
-  subtopic: paragraph-organization
-  exams: [upcat, acet, dlsucet, ustet, dost-sei, cse-pro, cse-sub]
+  subject: "language-proficiency"
+  topic: "language-application"
+  subtopic: "paragraph-organization"
+  exams:
+    - "upcat"
+    - "acet"
+    - "dlsucet"
+    - "ustet"
+    - "dost-sei"
+    - "cse-pro"
+    - "cse-sub"
 questions:
-  - id: q-language-application-paragraph-organization-0001
-    type: sentence-ordering
-    difficulty: easy
+  - id: "q-language-application-paragraph-organization-0001"
+    type: "sentence-ordering"
+    difficulty: "easy"
     stem: |
-      Which of the following shows the most logical order for these sentences?
+      Which order forms a coherent, self-contained paragraph from this fictional account?
 
-      1. Consequently, the city council voted to install modern solar panels across all public municipal buildings.
+      1. Based on the findings of that audit, the city council voted to install modern solar panels across all public municipal buildings.
       2. High energy costs had been straining the municipal budget for several consecutive fiscal quarters.
-      3. Within a year of installation, municipal energy expenses decreased by nearly thirty percent.
+      3. After the installation was completed, municipal energy expenses fell.
       4. To address this financial drain, city officials conducted a comprehensive audit of energy consumption.
     choices:
       - text: "2, 4, 1, 3"
         correct: true
       - text: "1, 2, 4, 3"
         rationale: |
-          "Consequently" cannot logically open before the problem and investigation are established.
+          This opens with findings of an audit not yet introduced. A council decision seems like a strong opening. Check: introduce the problem and audit before their findings.
       - text: "4, 2, 3, 1"
         rationale: |
-          The audit is presented before the financial problem that prompted it.
+          This puts "this financial drain" before the budget problem. The audit sounds like the main action. Check: identify the earlier information that "this" refers to.
       - text: "2, 1, 3, 4"
         rationale: |
-          The council decision appears before the audit that motivates it.
+          This puts the decision before the audit findings it names. Problem followed by decision seems sensible. Check: trace "that audit" to its introduction.
     explanation: |
-      The paragraph moves from problem (2), to investigation (4), to decision (1), to outcome (3).
+      Start with the budget problem. The officials audit it, the council acts on that audit, and expenses fall after installation.
     approved: true
-
-  - id: q-language-application-paragraph-organization-0002
-    type: sentence-ordering
-    difficulty: easy
+  - id: "q-language-application-paragraph-organization-0002"
+    type: "sentence-ordering"
+    difficulty: "easy"
     stem: |
-      Which of the following shows the most logical order for these sentences?
+      Which order forms the most coherent, self-contained paragraph?
 
       1. Next, the collected materials are sorted by material type and thoroughly cleaned of contaminants.
       2. First, municipal trucks collect recyclable waste from residential neighborhoods across the district.
@@ -45,51 +51,49 @@ questions:
         correct: true
       - text: "1, 2, 4, 3"
         rationale: |
-          "Next" appears before the step explicitly marked "First."
+          This puts "Next" before the step marked "First". Sorting is a familiar recycling activity. Check: follow the explicit sequence markers.
       - text: "2, 4, 1, 3"
         rationale: |
-          Processing occurs before the sorting and cleaning that sentence 4 refers back to.
+          This processes materials before the stated cleaning step. Melting seems central to recycling. Check: match "After cleaning" to the cleaning sentence.
       - text: "3, 2, 1, 4"
         rationale: |
-          "Finally" cannot logically begin the process.
+          This opens with the final shipment. Products are a familiar result of recycling. Check: complete the earlier steps before "Finally".
     explanation: |
-      The transition cues give the chronological sequence: First (2), Next (1), After cleaning (4), Finally (3).
+      The words "First," "Next," "After cleaning," and "Finally" give the order: collect, clean, process, and ship.
     approved: true
-
-  - id: q-language-application-paragraph-organization-0003
-    type: sentence-ordering
-    difficulty: medium
+  - id: "q-language-application-paragraph-organization-0003"
+    type: "sentence-ordering"
+    difficulty: "medium"
     stem: |
-      Which of the following shows the most logical order for these sentences?
+      Which order forms a coherent, self-contained paragraph from this fictional account?
 
       1. For example, automated translation software can now render complex documents into dozens of languages within seconds.
       2. Artificial intelligence has rapidly expanded its presence across numerous professional industries.
-      3. Nevertheless, human linguists remain essential for capturing subtle cultural nuances and artistic context.
-      4. As a result, the most effective localization agencies combine artificial intelligence efficiency with human editorial oversight.
+      3. Nevertheless, these rapid translations still need human linguists to capture subtle cultural nuances and artistic context.
+      4. To address that limitation, a translation agency combines automated efficiency with human editorial oversight.
     choices:
       - text: "2, 1, 3, 4"
         correct: true
       - text: "1, 2, 3, 4"
         rationale: |
-          The example appears before the general topic it illustrates.
+          This opens with an example lacking the general statement. Translation is a familiar application. Check: introduce the idea that "For example" illustrates.
       - text: "2, 3, 1, 4"
         rationale: |
-          "Nevertheless" introduces a counterpoint before the AI capability it contrasts with.
+          This puts the human-language contrast before the translation example. The general technology topic is already introduced. Check: place the specific capability before its limitation.
       - text: "3, 1, 2, 4"
         rationale: |
-          The paragraph opens with a contrast marker that has nothing preceding it to contrast against.
+          This starts with "Nevertheless" without its preceding claim. Human involvement may sound like the main point. Check: find the claim the contrast answers.
     explanation: |
-      General claim (2), example (1), counterpoint (3), synthesis (4) gives the coherent progression.
+      The general technology topic comes first. The translation example follows, then its human-language limitation, then an agency's response to that limitation.
     approved: true
-
-  - id: q-language-application-paragraph-organization-0004
-    type: sentence-ordering
-    difficulty: medium
+  - id: "q-language-application-paragraph-organization-0004"
+    type: "sentence-ordering"
+    difficulty: "medium"
     stem: |
-      Which of the following shows the most logical order for these sentences?
+      Which order forms the most coherent, self-contained paragraph?
 
       1. Among these structural innovations, carbon fiber composites have emerged as a promising material.
-      2. Modern aerospace engineering constantly seeks lightweight materials that do not compromise structural strength.
+      2. Modern aerospace engineering develops new structural materials that combine low weight with strength.
       3. By reducing overall aircraft weight, these composite structures can lower fuel consumption.
       4. Furthermore, their resistance to corrosion can reduce long-term maintenance needs.
     choices:
@@ -97,76 +101,73 @@ questions:
         correct: true
       - text: "1, 2, 3, 4"
         rationale: |
-          "Among these structural innovations" refers to a context that has not yet been introduced.
+          This refers to "these structural innovations" before introducing the need for them. The material is the paragraph's main example. Check: establish the engineering context before its reference.
       - text: "2, 3, 1, 4"
         rationale: |
-          "These composite structures" appears before carbon fiber composites are introduced.
+          This uses "these composite structures" before naming the composites. A fuel-saving benefit is relevant to engineering. Check: introduce the material before its benefit.
       - text: "3, 1, 4, 2"
         rationale: |
-          The paragraph begins with a benefit before identifying the material or engineering problem.
+          This begins with an unidentified composite material's benefit. Fuel savings seem like a useful opening fact. Check: identify what "these composite structures" refers to.
     explanation: |
-      Context (2), material (1), first benefit (3), additional benefit (4) is the coherent order.
+      The paragraph first states the engineering need, then introduces the composites. It follows with a fuel-saving benefit and an additional corrosion-resistance benefit.
     approved: true
-
-  - id: q-language-application-paragraph-organization-0005
-    type: sentence-ordering
-    difficulty: hard
+  - id: "q-language-application-paragraph-organization-0005"
+    type: "sentence-ordering"
+    difficulty: "hard"
     stem: |
-      Which of the following shows the most logical order for these sentences?
+      Which order forms a coherent, self-contained account of this fictional neighborhood project?
 
-      1. They found that participants who engaged in regular aerobic activity exhibited greater neural connectivity.
-      2. Neuroscientists conducted a five-year longitudinal study to examine the impact of exercise on cognitive decline.
-      3. These findings suggest that sustained physical fitness may help maintain brain integrity in old age.
-      4. Specifically, memory retention scores among active individuals were significantly higher than those of sedentary peers.
-      5. The research team tracked over two thousand adults aged sixty and older throughout the testing period.
+      1. Those replies showed that residents wanted a sheltered place to wait.
+      2. A neighborhood association asked residents how the unused corner beside the bus stop should be developed.
+      3. This shelter turned the unused corner into a practical service for commuters.
+      4. In response to that preference, volunteers built a roof over the waiting area.
+      5. To collect answers to that question, the association distributed a survey.
     choices:
       - text: "2, 5, 1, 4, 3"
         correct: true
       - text: "5, 2, 1, 3, 4"
         rationale: |
-          The participant pool appears before the study that enrolled and tracked it.
+          This introduces the survey before the question it is meant to answer. The survey is a concrete activity. Check: find the question referred to by "that question".
       - text: "2, 1, 5, 4, 3"
         rationale: |
-          A finding is reported before the participant group is introduced.
+          This reports replies before introducing how answers were collected. A result can be memorable. Check: introduce the survey before "Those replies".
       - text: "1, 4, 2, 5, 3"
         rationale: |
-          The paragraph begins with findings before introducing the study.
+          This starts with replies that have no earlier source. The residents' preference sounds like the main point. Check: trace the replies to the survey and question.
     explanation: |
-      Study (2), participants (5), main result (1), specific result (4), interpretation (3) forms the logical research sequence.
+      The association asks a question, distributes a survey, and receives replies. It builds a shelter in response, then explains the shelter's practical value.
     approved: true
-
-  - id: q-language-application-paragraph-organization-0006
-    type: sentence-ordering
-    difficulty: hard
+  - id: "q-language-application-paragraph-organization-0006"
+    type: "sentence-ordering"
+    difficulty: "hard"
     stem: |
-      Which of the following shows the most logical order for these sentences?
+      Which order forms the most coherent, self-contained paragraph?
 
       1. This thermal expansion, combined with melting land ice, contributes to global sea level rise.
       2. As human activities release greenhouse gases, Earth's climate system retains additional heat energy.
       3. Coastal communities must therefore account for rising sea levels and storm-surge risk in long-term infrastructure planning.
-      4. A major portion of the excess heat is absorbed by oceans, causing seawater to warm and expand.
+      4. Much of this additional heat is absorbed by oceans, causing seawater to warm and expand.
       5. Consequently, low-lying coastal regions face increasing flooding risk during severe weather events.
     choices:
       - text: "2, 4, 1, 5, 3"
         correct: true
       - text: "4, 2, 1, 3, 5"
         rationale: |
-          Ocean heat uptake is presented before the excess heat is introduced.
+          This discusses excess heat before explaining its source. Ocean warming is a familiar starting point. Check: find the earlier mention of additional heat.
       - text: "2, 1, 4, 5, 3"
         rationale: |
-          "This thermal expansion" appears before ocean warming and expansion are explained.
+          This uses "This thermal expansion" before describing expansion. Sea-level rise is the main consequence. Check: locate the explanation of seawater warming and expanding.
       - text: "1, 4, 2, 3, 5"
         rationale: |
-          The opening reference has no prior explanation of thermal expansion.
+          This opens with a backward reference to expansion. A result can sometimes open a paragraph. Check: supply the specific reference required by "This".
     explanation: |
-      Cause (2), ocean response (4), sea-level effect (1), risk (5), planning implication (3) gives a complete causal chain.
+      Additional heat is introduced before the ocean takes it up. Warming and expansion lead to sea-level rise, then flooding risk, then the planning response.
     approved: true
-
-  - id: q-language-application-paragraph-organization-0007
-    type: sentence-ordering
-    difficulty: exam
+  - id: "q-language-application-paragraph-organization-0007"
+    type: "sentence-ordering"
+    difficulty: "exam"
     stem: |
-      Which of the following shows the most logical order for these sentences?
+      Which order forms the most coherent, self-contained paragraph?
 
       1. However, modern advancements in machine learning have transformed these traditional methods by automating pattern recognition.
       2. Early meteorologists relied primarily on basic barometric readings and visual cloud observations to predict weather.
@@ -177,25 +178,24 @@ questions:
         correct: true
       - text: "1, 2, 4, 3"
         rationale: |
-          "However" appears before the historical baseline it contrasts with.
+          This opens with a contrast to methods not introduced. The new technology seems like the main topic. Check: identify the older methods before contrasting them.
       - text: "2, 4, 1, 3"
         rationale: |
-          "These automated systems" appears before automation is introduced.
+          This uses "These automated systems" before automation is introduced. Satellite data are relevant to forecasting. Check: find the earlier introduction of the automated systems.
       - text: "4, 2, 1, 3"
         rationale: |
-          The opening demonstrative has no antecedent.
+          This starts with an unexplained reference to automated systems. The systems sound like a clear technical topic. Check: trace "These" to an earlier sentence.
     explanation: |
-      Historical baseline (2), contrast/new method (1), explanation (4), result (3) is the coherent order.
+      The old methods are introduced before the contrast with automation. The automated systems are then described before the resulting information-processing benefit.
     approved: true
-
-  - id: q-language-application-paragraph-organization-0008
-    type: sentence-ordering
-    difficulty: exam
+  - id: "q-language-application-paragraph-organization-0008"
+    type: "sentence-ordering"
+    difficulty: "exam"
     stem: |
-      Which of the following shows the most logical order for these sentences?
+      Which order forms a coherent, self-contained paragraph from this fictional account?
 
       1. Some managers initially argued that remote work would reduce employee collaboration and output.
-      2. Today, many corporations use hybrid arrangements that combine remote flexibility with scheduled office days.
+      2. Following those reconsidered requirements, the organizations adopted hybrid arrangements combining remote flexibility with scheduled office days.
       3. Later productivity reports from several organizations challenged that assumption by showing that flexible arrangements could maintain or improve output in some roles.
       4. Those reports often cited reduced commuting time and greater schedule flexibility as possible contributing factors.
       5. As a result of such findings, some corporate leaders reconsidered fully office-based requirements.
@@ -204,22 +204,21 @@ questions:
         correct: true
       - text: "3, 1, 4, 2, 5"
         rationale: |
-          The later evidence appears before the earlier assumption it challenges.
+          This introduces reports before the assumption they challenge. Evidence sounds like a strong opening. Check: trace "that assumption" to the managers' initial claim.
       - text: "1, 4, 3, 5, 2"
         rationale: |
-          "Those reports" appears before the reports are introduced.
+          This says "Those reports" before naming the reports. The explanatory factors seem relevant. Check: introduce the reports before referring back to them.
       - text: "2, 1, 3, 4, 5"
         rationale: |
-          The current state is presented before the historical skepticism and evidence explaining the change.
+          This puts arrangements before the reconsidered requirements it refers to. A current-state opening could work in another account. Check: follow the explicit "Following those reconsidered requirements" link.
     explanation: |
-      Initial view (1), contrary evidence (3), explanation (4), response (5), current state (2) gives the clearest progression.
+      The initial assumption comes first. Later reports challenge it, explain their possible causes, and lead to reconsidered requirements. The final sentence explicitly follows those changed requirements.
     approved: true
-
-  - id: q-language-application-paragraph-organization-0009
-    type: sentence-ordering
-    difficulty: medium
+  - id: "q-language-application-paragraph-organization-0009"
+    type: "sentence-ordering"
+    difficulty: "medium"
     stem: |
-      Which of the following shows the most logical order for these sentences?
+      Which order presents these publication events chronologically?
 
       1. After drafting the initial manuscript, the author submitted it to a senior editor for evaluation.
       2. Months later, the polished book finally arrived on store shelves across the country.
@@ -230,51 +229,49 @@ questions:
         correct: true
       - text: "3, 1, 4, 2"
         rationale: |
-          Editorial suggestions appear before the manuscript is submitted to the editor.
+          This gives editorial feedback before the manuscript reaches the editor. Advice seems like the start of revision. Check: follow the stated submission and feedback sequence.
       - text: "1, 4, 3, 2"
         rationale: |
-          Revision work appears before the feedback that prompted it.
+          This revises the manuscript before the stated suggestions. Authors can revise on their own in other contexts. Check: follow the feedback-driven process described here.
       - text: "4, 3, 1, 2"
         rationale: |
-          The process begins with revision before drafting/submission and feedback.
+          This starts with revision before submission and editorial feedback. The final layout sounds like a publication starting point. Check: trace the manuscript through the stated stages.
     explanation: |
-      Submission (1), feedback (3), revision (4), publication (2) follows the process chronologically.
+      The author submits the manuscript, receives editorial suggestions, revises it, and eventually publishes the book.
     approved: true
-
-  - id: q-language-application-paragraph-organization-0010
-    type: sentence-ordering
-    difficulty: easy
+  - id: "q-language-application-paragraph-organization-0010"
+    type: "sentence-ordering"
+    difficulty: "easy"
     stem: |
-      Which of the following shows the most logical order for these sentences?
+      Which order forms a coherent, self-contained paragraph from this fictional account?
 
-      1. The chief executive officer emphasized that the two merging firms must revert to their core operational principles.
+      1. After reading the task force's report, the chief executive officer directed the firms to return to the core principles it identified.
       2. Integration challenges emerged immediately after the merger announcement.
       3. To resolve these conflicts, senior management appointed a task force to identify core values.
-      4. The firms successfully realigned their operations within six months.
+      4. By following those identified principles, the firms eventually realigned their operations.
     choices:
       - text: "2, 3, 1, 4"
         correct: true
       - text: "1, 2, 3, 4"
         rationale: |
-          The executive directive appears before the integration problem and response effort that motivate it.
+          This mentions the task force's report before the task force is introduced. An executive directive can open some accounts. Check: supply the source of "the task force's report" first.
       - text: "3, 2, 1, 4"
         rationale: |
-          The task force appears before the conflicts it was appointed to resolve.
+          This acts to resolve conflicts before introducing them. The task force is an important response. Check: find what "these conflicts" refers to.
       - text: "2, 1, 4, 3"
         rationale: |
-          The outcome appears before the task-force step.
+          This gives the report-based directive and result before the task force exists. Problem followed by directive sounds sensible. Check: trace the report and identified principles to their source.
     explanation: |
-      Problem (2), response effort (3), directive (1), outcome (4) is the intended causal sequence.
+      The challenges lead to a task force. Its report guides the executive's directive, and the identified principles then guide the firms' realignment.
     approved: true
-
-  - id: q-language-application-paragraph-organization-0011
-    type: sentence-ordering
-    difficulty: medium
+  - id: "q-language-application-paragraph-organization-0011"
+    type: "sentence-ordering"
+    difficulty: "medium"
     stem: |
-      Which of the following shows the most logical order for these sentences?
+      Which order forms the most coherent, self-contained paragraph?
 
       1. Lithium-ion batteries have become important for powering mobile electronics and electric vehicles.
-      2. Under extreme heat or mechanical damage, some battery cells can undergo rapid electrolyte decomposition and other exothermic reactions.
+      2. Under extreme heat or mechanical damage, some cells in these batteries can undergo rapid electrolyte decomposition and other heat-releasing reactions.
       3. The resulting reactions can generate intense heat and gases, potentially accelerating thermal runaway.
       4. To reduce this risk, battery engineers are developing solid-state electrolyte designs with different safety characteristics.
     choices:
@@ -282,52 +279,50 @@ questions:
         correct: true
       - text: "4, 1, 2, 3"
         rationale: |
-          The proposed mitigation appears before the risk it addresses.
+          This reduces a risk before explaining it. A safety solution sounds like the main point. Check: introduce the risk referred to by "this".
       - text: "1, 3, 2, 4"
         rationale: |
-          "The resulting reactions" appears before those reactions are introduced.
+          This gives "resulting reactions" before describing those reactions. Heat is a memorable battery hazard. Check: trace the reactions to the previous explanation.
       - text: "2, 1, 3, 4"
         rationale: |
-          The failure condition appears before the battery topic is introduced.
+          This gives a failure condition before identifying the battery topic. The condition is relevant science. Check: orient the reader to the batteries before describing their failure.
     explanation: |
-      Topic (1), failure condition (2), consequence (3), engineering response (4) gives a clear progression.
+      The batteries are introduced first. The damaging conditions lead to reactions and heat. The final sentence describes a design response to that risk.
     approved: true
-
-  - id: q-language-application-paragraph-organization-0012
-    type: sentence-ordering
-    difficulty: medium
+  - id: "q-language-application-paragraph-organization-0012"
+    type: "sentence-ordering"
+    difficulty: "medium"
     stem: |
-      Which of the following shows the most logical order for these sentences?
+      Which order forms a coherent, self-contained paragraph from this fictional account?
 
       1. This research demonstrated the value of independent analysis in environmental policy.
       2. Scientists questioned whether a set of government regulations adequately protected forest ecosystems.
-      3. A three-year study tracked forest-health metrics across multiple geographic regions.
+      3. To answer that question, the scientists began a study tracking forest-health indicators across several regions.
       4. The study found that several monitored biodiversity indicators remained under pressure in areas covered by the regulations.
     choices:
       - text: "2, 3, 4, 1"
         correct: true
       - text: "3, 2, 4, 1"
         rationale: |
-          The investigation appears before the question that motivated it.
+          This answers "that question" before stating the question. A study can introduce a research paragraph. Check: trace the explicit backward reference.
       - text: "2, 4, 3, 1"
         rationale: |
-          Findings appear before the study that produced them.
+          This gives findings before introducing their study. Results can be strong openings in some reports. Check: follow "The study" to its earlier introduction.
       - text: "4, 2, 3, 1"
         rationale: |
-          The paragraph opens with findings before the research question and method.
+          This starts with study findings without introducing the study. The result seems like the main point. Check: supply the question and the named investigation.
     explanation: |
-      Question (2), investigation (3), findings (4), broader significance (1) is the logical research sequence.
+      The scientists ask a question and begin a study to answer it. Its findings come next, followed by what the research shows about independent analysis.
     approved: true
-
-  - id: q-language-application-paragraph-organization-0013
-    type: sentence-ordering
-    difficulty: hard
+  - id: "q-language-application-paragraph-organization-0013"
+    type: "sentence-ordering"
+    difficulty: "hard"
     stem: |
-      Which of the following shows the most logical order for these sentences?
+      Which order forms the most coherent, self-contained paragraph?
 
-      1. Geothermal energy draws on heat stored within Earth, including primordial heat from the planet's formation and heat generated by radioactive decay.
+      1. Geothermal energy draws on heat stored within Earth, including heat generated by radioactive decay.
       2. Some of this internal heat is transferred toward the crust, where it can warm underground rock and fluids.
-      3. In geologically suitable areas, hot fluids or rock can provide an accessible geothermal resource.
+      3. Where that heat transfer creates suitable underground conditions, hot fluids or rock can provide an accessible geothermal resource.
       4. Power plants can harness suitable geothermal resources to generate electricity without directly burning fossil fuels for the heat source.
       5. As a result, geothermal power can provide a comparatively low-emission source of electricity where appropriate resources are available.
     choices:
@@ -335,25 +330,24 @@ questions:
         correct: true
       - text: "2, 1, 3, 4, 5"
         rationale: |
-          "This internal heat" is explained only after its transfer is described.
+          This transfers "this internal heat" before naming the heat source. Heat transfer is central to geothermal energy. Check: find what "this internal heat" refers to.
       - text: "1, 3, 2, 4, 5"
         rationale: |
-          The accessible resource is introduced before the heat transfer that creates the stated conditions.
+          This gives the resource before explaining the heat transfer that supplies its conditions. The practical resource is relevant. Check: follow the source-to-transfer-to-resource explanation.
       - text: "3, 1, 2, 4, 5"
         rationale: |
-          The paragraph begins with a resource before explaining its underlying heat source.
+          This introduces a resource before the heat source and transfer. Electricity generation may be the reader's main interest. Check: follow the paragraph's explanatory references.
     explanation: |
-      Source (1), transfer (2), accessible resource (3), use (4), implication (5) forms the coherent progression.
+      The paragraph introduces Earth's internal heat, explains its transfer, and identifies an accessible resource. It then describes electricity generation and its low-emission benefit.
     approved: true
-
-  - id: q-language-application-paragraph-organization-0014
-    type: sentence-ordering
-    difficulty: easy
+  - id: "q-language-application-paragraph-organization-0014"
+    type: "sentence-ordering"
+    difficulty: "easy"
     stem: |
-      Which of the following shows the most logical order for these sentences?
+      Which order forms a coherent, self-contained paragraph from this fictional account?
 
-      1. Decades of industrial activity contaminated the soil with heavy metals.
-      2. Environmental engineers used phytoremediation techniques as part of the cleanup of the contaminated site.
+      1. A survey of that site revealed soil contaminated with heavy metals from earlier industrial activity.
+      2. To address that contamination, environmental engineers used phytoremediation techniques as part of the cleanup.
       3. A former factory site was targeted for urban renewal.
       4. After remediation and redevelopment, the land reopened as a public park and community garden.
     choices:
@@ -361,40 +355,165 @@ questions:
         correct: true
       - text: "1, 3, 2, 4"
         rationale: |
-          The contamination history appears before the specific site is introduced.
+          This surveys "that site" before introducing the site. The contamination seems like the central problem. Check: supply the site that "that" refers to.
       - text: "3, 2, 1, 4"
         rationale: |
-          Cleanup appears before the contamination that required it.
+          This addresses "that contamination" before the survey reveals it. Cleanup naturally follows urban-renewal plans. Check: find the identified contamination before its response.
       - text: "1, 2, 3, 4"
         rationale: |
-          The site itself is introduced only after its problem and cleanup.
+          This surveys and cleans a site before that site is introduced. The history seems like background information. Check: trace the specific backward references.
     explanation: |
-      Site (3), problem (1), cleanup (2), outcome (4) gives the clearest sequence.
+      The factory site is introduced, then surveyed for contamination. Engineers address that contamination, and the redeveloped site eventually reopens.
     approved: true
-
-  - id: q-language-application-paragraph-organization-0015
-    type: sentence-ordering
-    difficulty: exam
+  - id: "q-language-application-paragraph-organization-0015"
+    type: "sentence-ordering"
+    difficulty: "exam"
     stem: |
-      Which of the following shows the most logical order for these sentences?
+      Which order forms a coherent, self-contained paragraph from this fictional account?
 
-      1. Digital payment systems have introduced security risks that require constant technological vigilance.
-      2. Financial institutions worldwide have transitioned from paper-based to electronic transaction systems.
-      3. Consumer privacy concerns have intensified as attackers develop increasingly sophisticated methods.
-      4. Banking regulators have therefore introduced requirements such as stronger authentication and security controls.
-      5. These regulatory measures illustrate the effort to balance financial innovation with customer protection.
+      1. This transition exposed the bank to new security risks, including sophisticated attacks on customer accounts.
+      2. A regional bank replaced its paper-based records with an electronic transaction system.
+      3. As those attacks grew more sophisticated, customers became increasingly concerned about their privacy.
+      4. To answer those concerns, the bank therefore introduced stronger authentication and security controls.
+      5. These protective measures show how the bank tried to balance financial innovation with customer protection.
     choices:
       - text: "2, 1, 3, 4, 5"
         correct: true
       - text: "1, 2, 3, 4, 5"
         rationale: |
-          The risks appear before the transition to the systems that created the context for them.
+          This starts with "This transition" without its introduction. Security risks seem like the main topic. Check: identify the transition first.
       - text: "2, 3, 1, 4, 5"
         rationale: |
-          The specific privacy concern appears before the broader security-risk statement it develops.
+          This uses "those attacks" before naming the attacks. Privacy concerns are relevant to digital banking. Check: introduce the stated attacks before their effect.
       - text: "3, 2, 1, 5, 4"
         rationale: |
-          The paragraph opens with a consequence before introducing digital transactions, and the conclusion appears before the regulatory response.
+          This opens with attacks not introduced and concludes before protective measures are stated. The risks seem like a useful starting point. Check: trace both "those attacks" and "These protective measures".
     explanation: |
-      Transition (2), risks (1), specific concern (3), response (4), conclusion (5) is the logical progression.
+      The bank's transition is introduced before "This transition." Its attacks come before "those attacks." The concerns lead to measures, which the final sentence refers to directly.
     approved: true
+  - id: "q-language-application-paragraph-organization-0016"
+    type: "sentence-ordering"
+    difficulty: "easy"
+    stem: |
+      Which order follows this self-contained repair procedure?
+
+      1. Once the power is isolated, remove the damaged cover.
+      2. Before touching the equipment, disconnect it from the outlet.
+      3. After fitting the replacement, secure its screws and reconnect the power.
+      4. Fit the new cover in the space left by the removed one.
+    choices:
+      - text: "2, 1, 4, 3"
+        correct: true
+      - text: "1, 2, 4, 3"
+        rationale: |
+          This removes the cover before isolating power. Removal looks like the first repair action. Check: follow the stated safety prerequisite.
+      - text: "2, 4, 1, 3"
+        rationale: |
+          This fits the cover before the old one is removed. Replacing the cover is the main repair. Check: create the stated space before filling it.
+      - text: "2, 1, 3, 4"
+        rationale: |
+          This secures the replacement before it is fitted. Reconnecting power sounds like a repair milestone. Check: fit the replacement before the step referring to it.
+    explanation: |
+      Disconnect power, remove the old cover, fit the new cover, and then secure it and reconnect power. Each later step names something supplied by an earlier one.
+    approved: false
+  - id: "q-language-application-paragraph-organization-0017"
+    type: "sentence-ordering"
+    difficulty: "medium"
+    stem: |
+      Aling ayos ang bumubuo ng malinaw na talata?
+
+      1. Dahil sa reklamong ito, nagtakda ang kapitan ng pulong.
+      2. Nagreklamo ang mga residente tungkol sa sirang ilaw sa kanilang kalye.
+      3. Matapos ang pulong na iyon, ipinadala ang napagkasunduang kahilingan sa tanggapan.
+      4. Sa pulong, napagkasunduan ng mga dumalo na humiling ng bagong ilaw.
+    choices:
+      - text: "2, 1, 4, 3"
+        correct: true
+      - text: "1, 2, 4, 3"
+        rationale: |
+          This refers to "reklamong ito" before the complaint is introduced. The captain's response seems like a main event. Check: introduce the residents' complaint first.
+      - text: "2, 3, 1, 4"
+        rationale: |
+          This sends the agreed request before the meeting is arranged. The request sounds like a direct response to the complaint. Check: follow "pulong na iyon" to the meeting.
+      - text: "2, 1, 3, 4"
+        rationale: |
+          This refers to an agreed request before the agreement is stated. Both sentences concern the meeting. Check: place the agreement before the request based on it.
+    explanation: |
+      The residents complain, the captain arranges a meeting, the attendees agree on a request, and the request is then sent. The backward references connect those stages.
+    approved: false
+  - id: "q-language-application-paragraph-organization-0018"
+    type: "sentence-ordering"
+    difficulty: "hard"
+    stem: |
+      The narrative deliberately begins with a result and then explains it. Which order follows its explicit references?
+
+      1. To understand her sudden relief, consider what had happened earlier that morning.
+      2. At that earlier time, Nena thought she had lost the envelope containing her application.
+      3. Nena smiled with relief when she reached the counter.
+      4. Before she reached the counter, however, a guard returned the missing envelope to her.
+    choices:
+      - text: "3, 1, 2, 4"
+        correct: true
+      - text: "2, 4, 3, 1"
+        rationale: |
+          This changes the signaled result-first narrative into chronological order. Chronology is often useful for events. Check: follow the requested opening and its explanation.
+      - text: "1, 2, 4, 3"
+        rationale: |
+          This refers to "her sudden relief" before introducing it. The explanation sounds like an opening guide. Check: state the result that the explanation refers to.
+      - text: "3, 2, 1, 4"
+        rationale: |
+          This supplies the earlier event before the sentence directing the reader back to it. The earlier loss explains the relief. Check: follow the narrative's explicit backward shift.
+    explanation: |
+      The result is Nena's relief. The next sentence directs the reader to the earlier morning, when she feared the envelope was lost. The guard's return of it explains her relief.
+    approved: false
+  - id: "q-language-application-paragraph-organization-0019"
+    type: "sentence-ordering"
+    difficulty: "hard"
+    stem: |
+      Which order completes this contrast between two options?
+
+      1. That higher cost makes the second option unsuitable for the current budget.
+      2. The committee is comparing a temporary canvas shelter with a permanent roof.
+      3. The first option can be installed cheaply, whereas the second requires costly structural work.
+      4. Therefore, the committee selects the first option for the coming season.
+    choices:
+      - text: "2, 3, 1, 4"
+        correct: true
+      - text: "3, 2, 1, 4"
+        rationale: |
+          This uses "first" and "second" before introducing the options. The cost comparison seems central. Check: identify both options before comparing them.
+      - text: "2, 1, 3, 4"
+        rationale: |
+          This refers to "That higher cost" before the cost comparison. The budget concern is relevant. Check: introduce the higher cost before its consequence.
+      - text: "2, 3, 4, 1"
+        rationale: |
+          This states the therefore-conclusion before the budget reason that supports it. The cost comparison already favors the first option. Check: complete the stated budget explanation before the conclusion.
+    explanation: |
+      The two shelters are introduced, then their costs are compared. The higher cost is linked to the budget, and that reason supports the final selection.
+    approved: false
+  - id: "q-language-application-paragraph-organization-0020"
+    type: "sentence-ordering"
+    difficulty: "exam"
+    stem: |
+      Which order makes every backward reference clear in this self-contained account?
+
+      1. This second trial succeeded where the first had failed.
+      2. A student tested a door alarm, but its bell sounded whenever the door moved in the wind.
+      3. Unlike that first setup, the revised switch responded only when the door opened beyond its frame.
+      4. To prevent those false alerts, she repositioned the switch and ran another trial.
+      5. The comparison shows why the switch position mattered more than the bell's volume.
+    choices:
+      - text: "2, 4, 3, 1, 5"
+        correct: true
+      - text: "2, 3, 4, 1, 5"
+        rationale: |
+          This describes the revised switch before introducing its repositioning. The first setup is already named. Check: introduce the actual revision before contrasting it.
+      - text: "4, 2, 3, 1, 5"
+        rationale: |
+          This addresses "those false alerts" before the failed trial. The adjustment seems like the central action. Check: identify the false alerts that prompted it.
+      - text: "2, 4, 1, 5, 3"
+        rationale: |
+          This concludes before the full comparison of switch responses is supplied. The successful trial sounds like a final result. Check: place the contrasting responses before their conclusion.
+    explanation: |
+      The false alerts appear first and prompt a revised trial. The next sentence describes the revised switch response. That comparison supports the successful result and the final explanation.
+    approved: false

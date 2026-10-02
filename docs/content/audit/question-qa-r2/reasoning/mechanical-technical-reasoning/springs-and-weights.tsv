@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-mechanical-technical-reasoning-springs-and-weights-0001	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	LOW	Added fixed gravity and linear-range assumptions.
+q-mechanical-technical-reasoning-springs-and-weights-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Repeated direct mass scaling; replaced with spring-constant calculation.
+q-mechanical-technical-reasoning-springs-and-weights-0003	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	LOW	Changed weight to mass and added linear-range assumptions.
+q-mechanical-technical-reasoning-springs-and-weights-0004	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Repeated inverse mass scaling; changed to extension versus total length.
+q-mechanical-technical-reasoning-springs-and-weights-0005	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	LOW	Tightened solution-length correct choice and stated linear conditions.
+q-mechanical-technical-reasoning-springs-and-weights-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Removed prior-question reference and repeated mass scaling.
+q-mechanical-technical-reasoning-springs-and-weights-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Repeated stiffness identification; changed to equal-extension force comparison.
+q-mechanical-technical-reasoning-springs-and-weights-0008	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Original falsely called fixed linear increments invalid; rounding was the actual error.
+q-mechanical-technical-reasoning-springs-and-weights-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Repeated stiffness choice and used implausible yes/no distractors; changed to restoring direction.
+q-mechanical-technical-reasoning-springs-and-weights-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Made the unequal-load comparison precise and removed unsupported material assumptions.
+q-mechanical-technical-reasoning-springs-and-weights-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	LOW	Added linear range and gravity conditions; shortened choices.
+q-mechanical-technical-reasoning-springs-and-weights-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Repeated loose/stiff identification; added simultaneous force and stiffness changes.
+q-mechanical-technical-reasoning-springs-and-weights-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Shortened solution-length choice and specified exact extension measurements.
+q-mechanical-technical-reasoning-springs-and-weights-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	LOW	Changed weight to mass and clarified total versus added amounts.
+q-mechanical-technical-reasoning-springs-and-weights-0015	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Shortened the correct answer and replaced throwaway unequal-load distractor.
+q-mechanical-technical-reasoning-springs-and-weights-0016	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-mechanical-technical-reasoning-springs-and-weights-0017	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-mechanical-technical-reasoning-springs-and-weights-0018	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-mechanical-technical-reasoning-springs-and-weights-0019	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-mechanical-technical-reasoning-springs-and-weights-0020	NEW	NEW	stem;choices;explanation;notes;figure	NONE	

@@ -1,407 +1,524 @@
 meta:
-  subject: reasoning
-  topic: mechanical-technical-reasoning
-  subtopic: springs-and-weights
-  exams: [ dost-sei ]
+  subject: "reasoning"
+  topic: "mechanical-technical-reasoning"
+  subtopic: "springs-and-weights"
+  exams:
+    - "dost-sei"
 questions:
-  - id: q-mechanical-technical-reasoning-springs-and-weights-0001
-    type: spring-weight
-    difficulty: easy
-    figure: springs-and-weights-01
+  - id: "q-mechanical-technical-reasoning-springs-and-weights-0001"
+    type: "spring-weight"
+    difficulty: "easy"
+    figure: "springs-and-weights-01"
     figureSpec:
-      kind: spring-scale
+      kind: "spring-scale"
       springs:
         - stretch: 5
     stem: |
-      Figure shows a spring that stretches 5 cm when a 2 kg weight is attached. How far will it stretch with an 8 kg weight?
+      The shown spring extends 5 cm under a 2 kg mass at rest. With gravity unchanged and all loads within its linear elastic range, what extension does an 8 kg mass produce?
     choices:
       - text: "20 cm"
         correct: true
       - text: "10 cm"
         rationale: |
-          You doubled the stretch when the weight went up four times. From 2 kg to 8 kg is a factor of four, so the stretch is $5 \times 4$.
+          This doubles extension even though mass quadruples. Eight is larger than two. Check the actual ratio of the two masses.
       - text: "13 cm"
         rationale: |
-          You added the new weight to the original stretch. Stretch and weight are different units and scale by multiplication, not addition.
+          This adds the new mass number to the old extension. Both numbers are given. Check that centimeters and kilograms cannot be added.
       - text: "40 cm"
         rationale: |
-          You multiplied the stretch by the new weight directly. You must scale by the ratio of the weights, which is 4, not the new weight itself.
+          This multiplies 5 by the new mass rather than by the mass ratio. Eight is the new load. Divide it by the calibration mass first.
     explanation: |
-      The weight increased by a factor of $8 \div 2 = 4$. Since stretch is proportional to weight, the stretch also increases by the same factor: $5 \times 4 = 20$ cm.
+      The mass and weight increase by $8/2=4$. For the same spring in its linear range, extension increases by that same factor. Thus $5 \times 4=20$ cm.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-springs-and-weights-0002
-    type: spring-weight
-    difficulty: easy
-    figure: springs-and-weights-02
+  - id: "q-mechanical-technical-reasoning-springs-and-weights-0002"
+    type: "spring-weight"
+    difficulty: "easy"
+    figure: "springs-and-weights-02"
     figureSpec:
-      kind: spring-scale
+      kind: "spring-scale"
       springs:
         - stretch: 6
     stem: |
-      Figure shows a spring that stretches 6 cm when a 3 kg weight is attached. How far will it stretch with a 9 kg weight?
+      The shown ideal hanging spring extends 6 cm under a 30 N load at rest. What is its spring constant in N/m?
     choices:
-      - text: "18 cm"
+      - text: "500 N/m"
         correct: true
-      - text: "12 cm"
+      - text: "5 N/m"
         rationale: |
-          You doubled the stretch instead of tripling it. The weight increased from 3 kg to 9 kg, which is a factor of three.
-      - text: "15 cm"
+          This divides by 6 without converting centimeters to meters. The numerical extension is six. Check the length unit in N/m.
+      - text: "1.8 N/m"
         rationale: |
-          You added the new weight to the original stretch. You must scale the stretch by the ratio of the weights, not add them together.
-      - text: "54 cm"
+          This multiplies force by extension, $30(0.06)$. Both values belong to Hooke's law. Solve $F=kx$ for $k$.
+      - text: "0.002 N/m"
         rationale: |
-          You multiplied the stretch by the new weight directly. You must scale by the ratio of the weights, which is 3, not the new weight itself.
+          This divides extension by force, $0.06/30$. That measures ease of stretching. Check that stiffness is force per extension.
     explanation: |
-      The weight increased by a factor of $9 \div 3 = 3$. Since stretch is proportional to weight, the stretch also increases by the same factor: $6 \times 3 = 18$ cm.
+      Convert $6$ cm to $0.06$ m. Hooke's law gives $k=F/x=30/0.06=500$ N/m.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-springs-and-weights-0003
-    type: spring-weight
-    difficulty: medium
-    figure: springs-and-weights-03
+  - id: "q-mechanical-technical-reasoning-springs-and-weights-0003"
+    type: "spring-weight"
+    difficulty: "medium"
+    figure: "springs-and-weights-03"
     figureSpec:
-      kind: spring-scale
+      kind: "spring-scale"
       springs:
         - stretch: 20
     stem: |
-      Figure shows a spring that stretches 4 cm for every 1 kg attached. How much weight is attached if the spring has stretched 20 cm?
+      The shown spring extends 4 cm under a 1 kg mass at rest. Its extension becomes 20 cm. With gravity fixed and linear behavior, what attached mass produces that extension?
     choices:
       - text: "5 kg"
         correct: true
       - text: "16 kg"
         rationale: |
-          You subtracted the unit stretch from the total stretch. You must divide the total stretch by the unit stretch to find the weight.
+          This subtracts the calibration extension from the target extension. The difference is 16 cm. Use the ratio to find a mass, not a length difference.
       - text: "24 kg"
         rationale: |
-          You added the total stretch and the unit stretch together. You must divide the total stretch by the stretch per kilogram to find the weight.
+          This adds the two extensions and calls the sum a mass. Both are length measurements. Check units before using their numbers.
       - text: "4 kg"
         rationale: |
-          You confused the unit stretch with the total weight. The spring stretches 4 cm per kg, so a 20 cm stretch requires 5 kg.
+          This uses the calibration extension as a mass. Four appears in the starting measurement. Divide target extension by extension per kilogram.
     explanation: |
-      Each 4 cm unit of stretch corresponds to 1 kg. Dividing the total stretch by that unit: $20 \div 4 = 5$, so 5 kg is attached.
+      The extension increases by $20/4=5$. The mass increases by the same factor in unchanged gravity. The attached mass is $1 \times 5=5$ kg.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-springs-and-weights-0004
-    type: spring-weight
-    difficulty: medium
-    figure: springs-and-weights-04
+  - id: "q-mechanical-technical-reasoning-springs-and-weights-0004"
+    type: "spring-weight"
+    difficulty: "medium"
+    figure: "springs-and-weights-04"
     figureSpec:
-      kind: spring-scale
+      kind: "spring-scale"
       springs:
-        - stretch: 18
+        - stretch: 6
     stem: |
-      Figure shows a spring that stretches 2 cm for every 1 kg attached. How much weight is attached if the spring has stretched 18 cm?
-    choices:
-      - text: "9 kg"
-        correct: true
-      - text: "16 kg"
-        rationale: |
-          You subtracted the unit stretch from the total stretch. You must divide the total stretch by the stretch per kilogram to find the weight.
-      - text: "36 kg"
-        rationale: |
-          You multiplied the total stretch by the unit stretch. You must divide the total stretch by the stretch per kilogram to find the weight.
-      - text: "2 kg"
-        rationale: |
-          You confused the unit stretch with the total weight. The spring stretches 2 cm per kg, so an 18 cm stretch requires 9 kg.
-    explanation: |
-      Each 2 cm unit of stretch corresponds to 1 kg. Dividing the total stretch by that unit: $18 \div 2 = 9$, so 9 kg is attached.
-    approved: true
-
-  - id: q-mechanical-technical-reasoning-springs-and-weights-0005
-    type: spring-weight
-    difficulty: medium
-    figure: springs-and-weights-05
-    figureSpec:
-      kind: spring-scale
-      springs:
-        - label: A
-          stretch: 3
-        - label: B
-          stretch: 8
-    stem: |
-      Figure shows Spring A stretching 3 cm under a 6 kg weight, and Spring B stretching 8 cm under the same 6 kg weight. Which spring is stiffer?
-    choices:
-      - text: Spring A, since it stretched less under the identical weight
-        correct: true
-      - text: Spring B, since it stretched more under the identical weight
-        rationale: |
-          You assumed that a stiffer spring moves more. Stiffness is the resistance to stretching, so the stiffer spring is the one that stretches less.
-      - text: Both springs are equally stiff, since they hold the same weight
-        rationale: |
-          You assumed that holding the same weight makes them equally stiff. Stiffness is determined by how much they stretch under that weight, which differs here.
-      - text: Neither spring can be compared without knowing their exact spring constants
-        rationale: |
-          You assumed you need the exact constants. You can compare stiffness directly by looking at which spring stretches less under the same weight.
-    explanation: |
-      Under the identical weight, Spring A stretched less (3 cm) than Spring B (8 cm). A spring that stretches less under the same weight is stiffer.
-    approved: true
-
-  - id: q-mechanical-technical-reasoning-springs-and-weights-0006
-    type: spring-weight
-    difficulty: medium
-    figureSpec:
-      kind: spring-scale
-      springs:
-        - stretch: 3
-    stem: |
-      Using Spring A from before (stretches 3 cm under a 6 kg weight), predict its stretch under a 12 kg weight.
+      The shown ideal spring has an unstretched length of 12 cm. Under a 30 N force at rest, its total length is 18 cm. What is its extension?
     choices:
       - text: "6 cm"
         correct: true
-      - text: "9 cm"
+      - text: "18 cm"
         rationale: |
-          You added the original weight to the stretch. You must multiply the stretch by the ratio of the new weight to the old weight.
-      - text: "3 cm"
+          This uses total loaded length as extension. Eighteen is the measured length under load. Subtract the unstretched length first.
+      - text: "12 cm"
         rationale: |
-          You assumed the stretch remains the same. Since the weight increased, the stretch must also increase proportionally.
-      - text: "36 cm"
+          This reports the spring's natural length. That is the baseline measurement. Check the change from that baseline.
+      - text: "30 cm"
         rationale: |
-          You multiplied the stretch by the new weight directly. You must multiply by the ratio of the weights, which is 2, not 12.
+          This adds loaded and natural lengths. Both lengths describe the same spring. Use their difference to find the change.
     explanation: |
-      The scaling factor between the weights is $12 \div 6 = 2$. Applying the same factor to the stretch: $3 \times 2 = 6$ cm.
+      Extension measures the change from the unstretched length. Subtract $18-12=6$ cm. That is the displacement used in Hooke's law.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-springs-and-weights-0007
-    type: spring-weight
-    difficulty: medium
-    figure: springs-and-weights-07
+  - id: "q-mechanical-technical-reasoning-springs-and-weights-0005"
+    type: "spring-weight"
+    difficulty: "medium"
+    figure: "springs-and-weights-05"
     figureSpec:
-      kind: spring-scale
+      kind: "spring-scale"
       springs:
-        - label: C
-          stretch: 4
-        - label: D
-          stretch: 10
+        - stretch: 3
+          label: "A"
+        - stretch: 8
+          label: "B"
     stem: |
-      Figure shows Spring C stretching 4 cm under an 8 kg weight, and Spring D stretching 10 cm under the same 8 kg weight. Which spring is stiffer?
+      The shown springs A and B carry equal weights at rest and remain within their linear ranges. A extends 3 cm and B extends 8 cm. Which has the greater spring constant?
     choices:
-      - text: Spring C, since it stretched less under the identical weight
+      - text: "Spring A"
         correct: true
-      - text: Spring D, since it stretched more under the identical weight
+      - text: "Spring B"
         rationale: |
-          You assumed that a larger stretch means greater stiffness. Stiffness is the resistance to stretching, so the stiffer spring stretches less.
-      - text: Both springs are equally stiff
+          This treats greater stretch as greater stiffness. B visibly changes more. Check which spring better resists the same force.
+      - text: "They have equal spring constants"
         rationale: |
-          You assumed they are equally stiff because they hold the same weight. Since they stretch different amounts under that weight, their stiffness differs.
-      - text: Neither spring can be compared without more information
+          This equates equal loads with equal stiffness. The weights do match. Compare the different extensions under those loads.
+      - text: "Their constants cannot be compared"
         rationale: |
-          You assumed more data is needed. Since both springs are tested under the identical weight, you can directly compare their stretch to find which is stiffer.
+          This requires absolute force values for a relative comparison. No force number is supplied. Check that the same force cancels in the ratio.
     explanation: |
-      Under the identical 8 kg weight, Spring C stretched less (4 cm) than Spring D (10 cm), making Spring C the stiffer spring.
+      For equal force, $k=F/x$. The smaller extension therefore gives the greater spring constant. Spring A extends only 3 cm, so it is stiffer.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-springs-and-weights-0008
-    type: spring-weight
-    difficulty: hard
+  - id: "q-mechanical-technical-reasoning-springs-and-weights-0006"
+    type: "spring-weight"
+    difficulty: "medium"
+    figure: "springs-and-weights-06"
     figureSpec:
-      kind: spring-scale
+      kind: "spring-scale"
+      springs:
+        - stretch: 6
+    stem: |
+      The shown spring has an unstretched length of 10 cm and a spring constant of 200 N/m. What is its total length under a 12 N weight at rest within its linear range?
+    choices:
+      - text: "16 cm"
+        correct: true
+      - text: "6 cm"
+        rationale: |
+          This gives the extension instead of the total length. Six is the Hooke-law result. Add the unstretched length when total length is requested.
+      - text: "10.06 cm"
+        rationale: |
+          This adds a value in meters directly to centimeters. The computed extension is 0.06 m. Convert both lengths to the same unit before adding.
+      - text: "22 cm"
+        rationale: |
+          This adds the force number to the natural length. Twelve is the applied force in newtons. Find extension from force divided by stiffness.
+    explanation: |
+      The extension is $x=12/200=0.06$ m, or 6 cm. Add it to the natural length: $10+6=16$ cm.
+    approved: true
+  - id: "q-mechanical-technical-reasoning-springs-and-weights-0007"
+    type: "spring-weight"
+    difficulty: "medium"
+    figure: "springs-and-weights-07"
+    figureSpec:
+      kind: "spring-scale"
+      springs:
+        - stretch: 4
+          label: "A"
+        - stretch: 10
+          label: "B"
+    stem: |
+      Under equal test forces, the shown linear springs A and B extend 4 cm and 10 cm. To give both a 4 cm extension, how must their applied forces compare?
+    choices:
+      - text: "A needs 2.5 times B's force"
+        correct: true
+      - text: "B needs 2.5 times A's force"
+        rationale: |
+          This reverses which spring is stiffer. B stretches farther under the test load. Check which spring needs more force for the same extension.
+      - text: "Both need equal forces"
+        rationale: |
+          This treats equal target extensions as equal forces. The desired lengths match. Check that their spring constants differ.
+      - text: "A needs 6 times B's force"
+        rationale: |
+          This uses $10-4$ instead of a ratio. The extension difference is six centimeters. Compare stiffness by dividing extensions under equal loads.
+    explanation: |
+      Equal test forces show that $k_A/k_B=10/4=2.5$. At the same extension, force is proportional to stiffness. A therefore needs 2.5 times B's force.
+    approved: true
+  - id: "q-mechanical-technical-reasoning-springs-and-weights-0008"
+    type: "spring-weight"
+    difficulty: "hard"
+    figure: "springs-and-weights-08"
+    figureSpec:
+      kind: "spring-scale"
       springs:
         - stretch: 4
     stem: |
-      A spring stretches 4 cm under a 2 kg weight. A student assumes "every additional 2 kg simply adds another 4 cm," and uses this to predict the stretch under a 3 kg weight by rounding up to "2 lots of 2 kg," predicting $4+4=8$ cm. What is the actual stretch at 3 kg, using the correct proportional (ratio) method, and what did the student get wrong?
+      The shown spring extends 4 cm under a 2 kg mass at rest. Assuming linear behavior and unchanged gravity, what extension does a 3 kg mass produce?
     choices:
-      - text: The actual stretch is 6 cm ($3 \div 2 = 1.5$ scaling factor, so $4 \times 1.5 = 6$ cm); the student's error was adding a fixed amount per fixed weight increment instead of scaling by the true ratio, which only coincidentally matches for whole-number multiples of the original weight.
+      - text: "6 cm"
         correct: true
-      - text: The actual stretch is 8 cm, matching the student's fixed-amount reasoning exactly.
+      - text: "8 cm"
         rationale: |
-          You accepted the student's error of adding a fixed amount. Stretch scales proportionally by multiplication, so a 1.5 times increase in weight means a 1.5 times increase in stretch.
-      - text: The actual stretch is 4 cm, since only the original weight and stretch matter.
+          This rounds 3 kg up to two complete 2 kg groups. Whole groups are easy to count. Keep the fractional ratio instead of rounding.
+      - text: "4 cm"
         rationale: |
-          You assumed the stretch does not change when the weight changes. Stretch increases proportionally as weight increases.
-      - text: The actual stretch cannot be determined without knowing the spring's exact material.
+          This keeps the calibration extension after increasing the mass. Four is the observed starting value. Check that extension changes with force.
+      - text: "12 cm"
         rationale: |
-          You assumed the material is needed. The ratio of stretch to weight provides all the information required to predict the new stretch.
+          This multiplies 4 by 3 without dividing by the 2 kg calibration. Three is the new mass. Use the new-to-old mass ratio.
     explanation: |
-      Stretch is proportional to weight (a constant ratio), not simply increased by a fixed amount each time weight increases by some fixed increment. The correct approach scales by the true ratio ($3 \div 2 = 1.5$), giving $4 \times 1.5 = 6$ cm: the student's fixed-amount reasoning only happens to work for whole-number weight multiples, not fractional ones like this.
+      The mass ratio is $3/2=1.5$. Multiply the original extension by that ratio: $4 \times 1.5=6$ cm.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-springs-and-weights-0009
-    type: spring-weight
-    difficulty: hard
+  - id: "q-mechanical-technical-reasoning-springs-and-weights-0009"
+    type: "spring-weight"
+    difficulty: "hard"
+    figure: "springs-and-weights-09"
     figureSpec:
-      kind: spring-scale
+      kind: "spring-scale"
       springs:
-        - label: E
-          stretch: 9
-        - label: F
-          stretch: 3
+        - stretch: 3
     stem: |
-      Spring E stretches 9 cm under a 3 kg weight. Spring F stretches 3 cm under the same 3 kg weight. A student claims Spring E is the "stiffer" spring, reasoning that it moved (stretched) more. Is this correct?
+      The shown spring is stretched downward by a hanging mass and stays within its elastic limit. In which direction does its restoring force act on the mass?
     choices:
-      - text: 'No: a stiffer spring stretches less under the same weight, not more; Spring F, which stretched less, is actually the stiffer spring.'
+      - text: "Upward"
         correct: true
-      - text: 'Yes: "stiffer" means the spring that stretches the most under a given weight.'
+      - text: "Downward, along the stretch"
         rationale: |
-          You agreed with the student's misconception that stiffness means moving more. Stiffness is resistance to stretching, so the stiffer spring moves less.
-      - text: 'Yes: but only because Spring E is physically larger than Spring F.'
+          This drops the opposing-direction meaning of the minus sign in $F_s=-kx$. The mass pulls down. Check which force the spring itself applies.
+      - text: "Upward only while the mass is moving"
         rationale: |
-          You assumed physical size determines stiffness. Stiffness is determined entirely by how much a spring stretches under a given weight, not its size.
-      - text: 'No: but only because Spring E and Spring F are actually the same spring.'
+          This assumes restoring force requires motion. A spring can visibly be at rest. Check that Hooke's law depends on displacement, not speed.
+      - text: "Zero whenever the mass is at rest"
         rationale: |
-          You assumed the springs are identical. Since they stretch different amounts under the same weight, they must be different springs with different stiffness.
+          This confuses zero net force with zero spring force. The mass is stationary. Check what upward force balances its weight.
     explanation: |
-      It is easy to intuitively assume "stiffer" means "moves more" or "stretches more." In fact, stiffness describes resistance to stretching, so a stiffer spring is precisely the one that stretches the least for a given weight: here, Spring F, not Spring E.
+      A stretched spring pulls back toward its unstretched length. Here the displacement is downward. Its restoring force on the mass is therefore upward.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-springs-and-weights-0010
-    type: spring-weight
-    difficulty: hard
+  - id: "q-mechanical-technical-reasoning-springs-and-weights-0010"
+    type: "spring-weight"
+    difficulty: "hard"
+    figure: "springs-and-weights-10"
     figureSpec:
-      kind: spring-scale
+      kind: "spring-scale"
       springs:
-        - label: G
-          stretch: 4
-        - label: H
-          stretch: 4
+        - stretch: 4
+          label: "A"
+        - stretch: 4
+          label: "B"
     stem: |
-      Spring G stretches 4 cm under an 8 kg weight. Spring H stretches 4 cm under a 16 kg weight. A student claims both springs are equally stiff, since they stretched the same amount. Is this a valid comparison?
+      The shown linear springs A and B each extend 4 cm. A carries an 8 kg mass and B a 16 kg mass in the same gravitational field. What is $k_B/k_A$?
     choices:
-      - text: 'No: the two springs were tested under different weights, so this comparison is not valid; Spring H is actually stiffer, since it resisted stretching just as much despite carrying double the weight of Spring G.'
+      - text: "2"
         correct: true
-      - text: 'Yes: since both springs stretched exactly 4 cm, they must be equally stiff regardless of the weights used.'
+      - text: "1"
         rationale: |
-          You ignored the different weights. To compare stiffness, you must factor in the weight applied; Spring H held twice the weight for the same stretch, making it stiffer.
-      - text: 'Yes: but only because both springs are made of the same material.'
+          This treats equal extensions as equal stiffness. Both springs look equally stretched. Check the unequal forces causing those extensions.
+      - text: "0.5"
         rationale: |
-          You assumed the material guarantees equal stiffness. The different weights required to produce the same stretch prove the springs have different stiffness.
-      - text: 'No: but only because Spring G and Spring H cannot both stretch exactly 4 cm.'
+          This reverses the force ratio. Both mass values belong in the comparison. Check that B supports more weight for the same extension.
+      - text: "4"
         rationale: |
-          You assumed two springs cannot stretch the same amount. They can, but because they required different weights to do so, their stiffness is not equal.
+          This squares the mass ratio without a Hooke-law reason. Doubling can be confused with squaring. Use the direct relation between force and stiffness at equal extension.
     explanation: |
-      To fairly compare which spring is stiffer, the weight applied to each spring must be the same: comparing stretches under different weights does not directly reveal which spring is inherently stiffer. Spring H is actually stiffer, since it resisted stretching just as much despite a heavier weight.
+      The extensions are equal, so $k_B/k_A=F_B/F_A$. In the same gravity the weight ratio equals the mass ratio, $16/8=2$. B is twice as stiff.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-springs-and-weights-0011
-    type: spring-weight
-    difficulty: medium
+  - id: "q-mechanical-technical-reasoning-springs-and-weights-0011"
+    type: "spring-weight"
+    difficulty: "hard"
+    figure: "springs-and-weights-11"
     figureSpec:
-      kind: spring-scale
+      kind: "spring-scale"
       springs:
         - stretch: 2
     stem: |
-      A spring stretches 2 cm for every 1 kg attached. What is its stretch under a 7 kg weight, and what weight would cause a 21 cm stretch?
+      The shown linear spring extends 2 cm per kilogram of attached mass in fixed gravity. Give its extension at 7 kg and the mass needed for a 21 cm extension.
     choices:
-      - text: "14 cm under 7 kg; 10.5 kg would cause a 21 cm stretch"
+      - text: "14 cm; 10.5 kg"
         correct: true
-      - text: "9 cm under 7 kg; 19 kg would cause a 21 cm stretch"
+      - text: "9 cm; 19 kg"
         rationale: |
-          You added the weight to the ratio instead of multiplying. You must multiply 7 kg by 2 cm/kg to find the stretch, and divide 21 cm by 2 cm/kg to find the weight.
-      - text: "14 cm under 7 kg; 42 kg would cause a 21 cm stretch"
+          This adds or subtracts the rate number instead of using multiplication and division. Two looks like a fixed extra amount. Check the units of centimeters per kilogram.
+      - text: "14 cm; 42 kg"
         rationale: |
-          You multiplied the 21 cm stretch by the ratio instead of dividing. To find the weight, you must divide the total stretch by the stretch per kilogram.
-      - text: "7 cm under 7 kg; 10.5 kg would cause a 21 cm stretch"
+          This gets extension but multiplies 21 by 2 to find mass. Multiplication worked in the first step. Reverse the operation when solving for mass.
+      - text: "7 cm; 10.5 kg"
         rationale: |
-          You assumed the stretch is equal to the weight. Since the spring stretches 2 cm for every 1 kg, a 7 kg weight causes a 14 cm stretch.
+          This copies the mass number as extension. Seven is the first load. Apply the stated two centimeters per kilogram.
     explanation: |
-      Using the ratio of 2 cm per kg: at 7 kg, stretch $= 2 \times 7 = 14$ cm. For a 21 cm stretch, weight $= 21 \div 2 = 10.5$ kg.
+      At 7 kg the extension is $2 \times 7=14$ cm. A 21 cm extension requires $21/2=10.5$ kg.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-springs-and-weights-0012
-    type: spring-weight
-    difficulty: medium
-    figure: springs-and-weights-12
+  - id: "q-mechanical-technical-reasoning-springs-and-weights-0012"
+    type: "spring-weight"
+    difficulty: "hard"
+    figure: "springs-and-weights-12"
     figureSpec:
-      kind: spring-scale
+      kind: "spring-scale"
       springs:
-        - label: I
-          stretch: 7
-        - label: J
-          stretch: 3
+        - stretch: 5
+          label: "A"
+        - stretch: 5
+          label: "B"
     stem: |
-      Figure shows Spring I stretching 7 cm under a 5 kg weight, and Spring J stretching 3 cm under the same 5 kg weight. Which spring is looser (less stiff)?
+      The shown ideal spring A has $k_A=200$ N/m and supports 10 N. Spring B has $k_B=400$ N/m and supports 20 N. How do their extensions compare?
     choices:
-      - text: Spring I, since it stretched more under the identical weight
+      - text: "Both extend 5 cm"
         correct: true
-      - text: Spring J, since it stretched less under the identical weight
+      - text: "A extends twice as far"
         rationale: |
-          You confused looser with stiffer. A looser spring offers less resistance, so it will stretch more, not less, under the same weight.
-      - text: Both springs are equally loose
+          This compares stiffness while ignoring the doubled force on B. B is twice as stiff. Calculate force divided by stiffness for both.
+      - text: "B extends twice as far"
         rationale: |
-          You assumed holding the same weight makes them equally loose. Since they stretched different amounts, one spring offers less resistance than the other.
-      - text: Neither spring can be classified as looser without more data
+          This compares force while ignoring B's doubled stiffness. B carries twice the force. Check both force and spring constant.
+      - text: "Both extend 0.05 cm"
         rationale: |
-          You assumed you need more data. Since both were tested with the exact same weight, the one that stretched more is clearly looser.
+          This keeps the numerical meter result but labels it centimeters. The division gives 0.05 m. Convert meters to centimeters.
     explanation: |
-      A spring that stretches more under the same weight is the looser (less stiff) one. Spring I stretched more (7 cm vs. 3 cm), so it is the looser spring.
+      For A, $x=10/200=0.05$ m. For B, $x=20/400=0.05$ m. Both therefore extend 5 cm.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-springs-and-weights-0013
-    type: spring-weight
-    difficulty: hard
+  - id: "q-mechanical-technical-reasoning-springs-and-weights-0013"
+    type: "spring-weight"
+    difficulty: "hard"
+    figure: "springs-and-weights-13"
     figureSpec:
-      kind: spring-scale
+      kind: "spring-scale"
       springs:
         - stretch: 4
     stem: |
-      Spring L stretches 4 cm under a 2 kg weight, and 10 cm under a 4 kg weight. A student claims this data is consistent with a simple proportional (Hooke's law) relationship. Check the ratios: is this claim correct?
+      For the shown spring, measured extensions from its unstretched length are 4 cm at 2 kg and 10 cm at 4 kg in unchanged gravity. Are these exact measurements consistent with one constant Hooke-law stiffness?
     choices:
-      - text: 'No: the first ratio is $4 \div 2 = 2$ cm per kg, but the second ratio is $10 \div 4 = 2.5$ cm per kg; since these ratios are not equal, this spring''s behavior is not simply proportional.'
+      - text: "No, the ratios differ"
         correct: true
-      - text: 'Yes: both stretches came from the same spring, so they must automatically be proportional.'
+      - text: "Yes, any increasing extension fits"
         rationale: |
-          You assumed a single spring always behaves proportionally. You must check the ratios; since they differ (2 vs 2.5), the spring's behavior is not proportional.
-      - text: 'Yes: the ratios $4 \div 2$ and $10 \div 4$ are actually equal.'
+          This equates increasing response with proportional response. More load does stretch the spring more. Check whether extension divided by mass stays constant.
+      - text: "Yes, doubling mass adds 6 cm"
         rationale: |
-          You miscalculated the ratios. $4 \div 2$ is 2, while $10 \div 4$ is 2.5, so the ratios are not equal and the relationship is not proportional.
-      - text: 'No: but only because a spring can never stretch different amounts under different weights.'
+          This accepts a single difference without the zero-extension baseline. The two readings differ by six. Check proportionality from the unstretched length.
+      - text: "No, different masses must give equal extension"
         rationale: |
-          You assumed springs cannot stretch different amounts. They do, but the relationship is only proportional if the ratio of stretch to weight remains constant.
+          This expects no response to changed load. Both readings come from one spring. Check that Hooke's law predicts extension proportional to force.
     explanation: |
-      To check proportionality, compute stretch-per-weight for each data point: $4 \div 2 = 2$ cm/kg and $10 \div 4 = 2.5$ cm/kg. Since these two ratios differ, the data is not consistent with a simple proportional relationship.
+      For one constant stiffness and fixed gravity, extension per kilogram stays constant. Here $4/2=2$ cm/kg and $10/4=2.5$ cm/kg. These exact measurements do not fit that model.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-springs-and-weights-0014
-    type: spring-weight
-    difficulty: hard
+  - id: "q-mechanical-technical-reasoning-springs-and-weights-0014"
+    type: "spring-weight"
+    difficulty: "hard"
+    figure: "springs-and-weights-14"
     figureSpec:
-      kind: spring-scale
+      kind: "spring-scale"
       springs:
         - stretch: 5
     stem: |
-      A spring stretches 5 cm under a 2 kg weight. What total weight would cause a 20 cm stretch, and how much additional weight beyond that would be needed to reach a 30 cm stretch?
+      The shown spring extends 5 cm under a 2 kg mass at rest. In its linear range and unchanged gravity, what total mass gives 20 cm extension, and what added mass takes it from 20 cm to 30 cm?
     choices:
-      - text: "8 kg causes a 20 cm stretch; 4 kg more (12 kg total) is needed to reach 30 cm"
+      - text: "8 kg total; 4 kg added"
         correct: true
-      - text: "8 kg causes a 20 cm stretch; 10 kg more is needed to reach 30 cm"
+      - text: "8 kg total; 10 kg added"
         rationale: |
-          You gave the difference in stretch instead of the difference in weight. The extra 10 cm of stretch requires only 4 kg more weight, since the ratio is 2.5 cm/kg.
-      - text: "4 kg causes a 20 cm stretch; 2 kg more is needed to reach 30 cm"
+          This treats the extra centimeters as extra kilograms. The length increase is ten. Divide that increase by centimeters per kilogram.
+      - text: "4 kg total; 2 kg added"
         rationale: |
-          You divided the stretch by 5 instead of 2.5. The ratio is $5 \div 2 = 2.5$ cm/kg, so a 20 cm stretch requires 8 kg, not 4 kg.
-      - text: "8 kg causes a 20 cm stretch; 8 kg more is needed to reach 30 cm"
+          This uses 5 cm per kilogram instead of per 2 kg. Five appears as the calibration extension. Keep the calibration mass in the rate.
+      - text: "8 kg total; 8 kg added"
         rationale: |
-          You assumed reaching 30 cm requires doubling the weight. A 30 cm stretch requires 12 kg in total, which is only 4 kg more than the 8 kg already attached.
+          This doubles the 20 cm load for a rise to 30 cm. Eight is the current mass. Check that the extra extension is half the current extension.
     explanation: |
-      The ratio is $5 \div 2 = 2.5$ cm per kg. For 20 cm: $20 \div 2.5 = 8$ kg. For 30 cm: $30 \div 2.5 = 12$ kg. The additional weight needed beyond 8 kg is $12 - 8 = 4$ kg.
+      The calibration is $5/2=2.5$ cm/kg. For 20 cm, mass is $20/2.5=8$ kg. The further 10 cm requires $10/2.5=4$ kg more.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-springs-and-weights-0015
-    type: spring-weight
-    difficulty: exam
+  - id: "q-mechanical-technical-reasoning-springs-and-weights-0015"
+    type: "spring-weight"
+    difficulty: "hard"
+    figure: "springs-and-weights-15"
     figureSpec:
-      kind: spring-scale
+      kind: "spring-scale"
       springs:
-        - label: P
-          stretch: 6
-        - label: Q
-          stretch: 8
-        - label: R
-          stretch: 5
+        - stretch: 6
+          label: "A"
+        - stretch: 8
+          label: "B"
+        - stretch: 5
+          label: "C"
     stem: |
-      Spring P stretches 6 cm under a 3 kg weight. Spring Q stretches 8 cm under a 4 kg weight. Spring R stretches 5 cm under a 5 kg weight. Since these three springs were tested under three different weights, rank them from stiffest to loosest using their stretch-per-kilogram ratio.
+      In fixed gravity, the shown linear springs A, B, and C extend 6, 8, and 5 cm under masses of 3, 4, and 5 kg respectively. Rank their stiffness.
     choices:
-      - text: Spring R is stiffest (1 cm/kg); Springs P and Q are tied for second, equally less stiff than R (each 2 cm/kg)
+      - text: "C highest; A and B tied"
         correct: true
-      - text: Spring P is stiffest, then Spring Q, then Spring R, based on their raw stretch amounts (6 cm, 8 cm, 5 cm)
+      - text: "A and B highest; C lowest"
         rationale: |
-          You ranked them by raw stretch without accounting for the different weights. You must calculate the stretch-per-kilogram ratio to compare their stiffness fairly.
-      - text: Spring R is loosest, since it has the smallest raw stretch number
+          This ranks larger extension per kilogram as greater stiffness. A and B have the larger stretch rates. Check that stiffness measures resistance to extension, not ease of stretching.
+      - text: "C highest; A next; B lowest"
         rationale: |
-          You assumed a smaller raw stretch means it is looser, and you ignored the weights. A smaller stretch-per-kilogram ratio actually means a stiffer spring.
-      - text: All three springs are equally stiff, since they were tested under different weights and cannot be compared
+          This sorts raw extensions alone. C has the shortest extension. Normalize for the different applied masses before comparing A and B.
+      - text: "A, B, and C all tied"
         rationale: |
-          You assumed they cannot be compared. By calculating the stretch-per-kilogram ratio for each spring, you can compare their stiffness directly despite the different weights.
+          This assumes different loads prevent comparison. The tests are not at equal force. Use force per extension for each spring.
     explanation: |
-      Since the weights differ, compare stretch-per-kilogram instead of raw stretch: Spring P is $6 \div 3 = 2$ cm/kg, Spring Q is $8 \div 4 = 2$ cm/kg, and Spring R is $5 \div 5 = 1$ cm/kg. A smaller ratio means a stiffer spring, so Spring R is stiffest, with P and Q tied for second.
+      Extension per kilogram is $6/3=2$ for A, $8/4=2$ for B, and $5/5=1$ for C. At the same force, less extension means greater stiffness. C is stiffest, while A and B have equal stiffness.
     approved: true
+  - id: "q-mechanical-technical-reasoning-springs-and-weights-0016"
+    type: "spring-weight"
+    difficulty: "easy"
+    figure: "springs-and-weights-16"
+    figureSpec:
+      kind: "spring-scale"
+      springs:
+        - stretch: 2
+    stem: |
+      The shown spring supports a 2 kg mass at rest. Ignore spring mass and use $g=10$ N/kg. What upward force does it exert on the mass?
+    choices:
+      - text: "20 N"
+        correct: true
+      - text: "2 N"
+        rationale: |
+          This copies the mass number as force. The load is labeled in kilograms. Multiply mass by the stated gravity.
+      - text: "10 N"
+        rationale: |
+          This uses the gravitational field number alone. Ten is prominent in the stem. Check that N/kg must be multiplied by kilograms.
+      - text: "0 N"
+        rationale: |
+          This confuses zero net force with zero spring force. The mass is at rest. Identify the force balancing its downward weight.
+    explanation: |
+      The mass weighs $2 \times 10=20$ N. At rest the upward spring force balances that weight. The spring force is 20 N.
+    approved: false
+  - id: "q-mechanical-technical-reasoning-springs-and-weights-0017"
+    type: "spring-weight"
+    difficulty: "medium"
+    figure: "springs-and-weights-17"
+    figureSpec:
+      kind: "spring-scale"
+      springs:
+        - stretch: 3
+    stem: |
+      The shown hanging spring follows Hooke's law. Its applied load is tripled and its spring constant is also tripled by replacing it with another spring. How does extension change?
+    choices:
+      - text: "It stays the same"
+        correct: true
+      - text: "It triples"
+        rationale: |
+          This applies the load change but ignores stiffness. More force normally stretches a spring more. Check the replacement spring's larger constant.
+      - text: "It falls to one-third"
+        rationale: |
+          This applies the stiffness change but ignores the load. A stiffer spring normally stretches less. Check that force also triples.
+      - text: "It becomes nine times as large"
+        rationale: |
+          This multiplies force and stiffness factors together. Both change by three. Use force divided by stiffness.
+    explanation: |
+      Extension is $F/k$. Tripling both numerator and denominator leaves the ratio unchanged. The new extension equals the old extension.
+    approved: false
+  - id: "q-mechanical-technical-reasoning-springs-and-weights-0018"
+    type: "spring-weight"
+    difficulty: "hard"
+    figure: "springs-and-weights-18"
+    figureSpec:
+      kind: "spring-scale"
+      springs:
+        - stretch: 5
+    stem: |
+      The shown spring has an unstretched length of 20 cm and reaches 25 cm under a load. Its verified linear range ends at 6 cm extension. What can be concluded from Hooke's law about its length under twice that load?
+    choices:
+      - text: "Beyond the verified range"
+        correct: true
+      - text: "It must be exactly 30 cm"
+        rationale: |
+          This extends the linear rule beyond the stated range. Doubling a load usually doubles elastic extension. Check the predicted extension against the verified limit.
+      - text: "It must be exactly 50 cm"
+        rationale: |
+          This doubles total length instead of extension. Twenty-five is the loaded length. Remove the natural length before applying the ratio.
+      - text: "It must remain exactly 25 cm"
+        rationale: |
+          This treats the elastic limit as a fixed-length stop. A limit is given. Check that it limits use of the model, not necessarily physical movement.
+    explanation: |
+      The first extension is $25-20=5$ cm. Linear doubling would give 10 cm extension and 30 cm total length. Ten centimeters exceeds the verified 6 cm range, so that prediction is not justified by the supplied calibration.
+    approved: false
+  - id: "q-mechanical-technical-reasoning-springs-and-weights-0019"
+    type: "spring-weight"
+    difficulty: "hard"
+    figure: "springs-and-weights-19"
+    figureSpec:
+      kind: "spring-scale"
+      springs:
+        - stretch: 3
+    stem: |
+      A hanging mass stretches the shown spring downward and remains at rest. In $F_s=-kx$, take downward displacement as positive. What sign does the spring's force on the mass have?
+    choices:
+      - text: "Negative"
+        correct: true
+      - text: "Positive"
+        rationale: |
+          This assigns the spring force the displacement's direction. The mass stretches down. Keep the minus sign that makes restoring force oppose displacement.
+      - text: "Zero"
+        rationale: |
+          This uses rest to erase the spring force. Acceleration is zero. Check that the spring still balances gravity.
+      - text: "It changes with the chosen mass unit"
+        rationale: |
+          This treats kilograms versus grams as changing direction. Different units change numerical values. Check that a force sign refers to an axis direction.
+    explanation: |
+      The displacement $x$ is positive downward and $k$ is positive. The minus sign makes $F_s$ negative. This represents the upward restoring force.
+    approved: false
+  - id: "q-mechanical-technical-reasoning-springs-and-weights-0020"
+    type: "spring-weight"
+    difficulty: "exam"
+    figure: "springs-and-weights-20"
+    figureSpec:
+      kind: "spring-scale"
+      springs:
+        - stretch: 2
+    stem: |
+      The same ideal spring supports the same mass in two gravitational fields. In the second field, $g$ is twice its first value and the spring remains linear. What happens to its extension from the unstretched length?
+    choices:
+      - text: "It doubles"
+        correct: true
+      - text: "It stays the same"
+        rationale: |
+          This treats unchanged mass as unchanged weight. The same object is attached. Check that weight depends on gravity as well as mass.
+      - text: "It halves"
+        rationale: |
+          This puts gravity in the denominator. Stronger gravity may seem to compress the spring. Use weight as the downward stretching force.
+      - text: "It becomes four times as large"
+        rationale: |
+          This squares the gravity change. Both force and extension change. Check that Hooke's law relates them directly, without squaring.
+    explanation: |
+      At rest $x=mg/k$. Mass and spring constant stay fixed, while $g$ doubles. The extension therefore doubles.
+    approved: false

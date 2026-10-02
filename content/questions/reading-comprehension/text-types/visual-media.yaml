@@ -3,237 +3,553 @@ meta:
   topic: text-types
   subtopic: visual-media
   exams:
-    - upcat
-    - acet
-    - dlsucet
-    - ustet
-
+  - upcat
+  - acet
+  - dlsucet
+  - ustet
 passages:
-  - id: rc-tt-vm-p1
-    title: "Dengue Prevention Infographic Description"
-    body: |
-      A public health infographic poster titled "Stop Dengue at the Source" features a bold red headline above three distinct visual sections against a light blue background. In the central section, a large pie chart illustrates household mosquito breeding sites: fifty percent is labeled "uncovered water drums", thirty percent is labeled "discarded tires and tin cans", fifteen percent is labeled "clogged roof gutters", and five percent is labeled "flower vase water".
+- id: rc-tt-vm-p1
+  title: Dengue Prevention Infographic Description
+  body: |
+    A classroom infographic titled "Stop Dengue at the Source" has a red headline above three sections on a light blue background. Its central pie chart is labeled "Illustrative sample, not a measured public-health survey." The class uses twenty sample entries to practice reading a chart: ten uncovered water drums, six discarded tires and tin cans, three clogged roof gutters, and one flower vase. Dividing each count by twenty gives shares of fifty, thirty, fifteen, and five percent.
 
-      To the left of the pie chart, a magnified vector illustration of an Aedes aegypti mosquito is depicted with black and white striped legs, accompanied by a warning callout box in bright yellow. To the right, four sequential action icons demonstrate preventive measures: covering water containers, clearing roof gutters, recycling discarded tires, and applying insect repellent.
+    To the left, an enlarged drawing of an Aedes aegypti mosquito shows black and white striped legs. A bright yellow warning box sits beside it. To the right, four action icons show covering water containers, clearing roof gutters, recycling discarded tires, and applying insect repellent.
 
-      At the bottom of the poster, a footer banner in dark blue displays the Department of Health hotline number and a prominent slogan reading "A Clean Yard is a Safe Yard".
+    The bottom banner names the school health desk as the contact and carries the slogan "A Clean Yard is a Safe Yard." The poster is a classroom example of how labels, contrast, data, and instructions can work together. Its figures illustrate calculation, not actual rates for a barangay or the country.
+- id: rc-tt-vm-p2
+  title: Fuel Prices Editorial Cartoon Description
+  body: |
+    An editorial cartoon depicts a sweat-drenched jeepney driver in a tattered shirt attempting to pull a massive wooden cart up a steep, crumbling mountain road. The cart is loaded with a colossal iron boulder labeled "fuel price increases", which towers over the driver. Attached to the driver's waist by a thin, frayed rope is a tiny, empty coin purse labeled "daily jeepney fare income".
 
-  - id: rc-tt-vm-p2
-    title: "Fuel Prices Editorial Cartoon Description"
-    body: |
-      An editorial cartoon depicts a sweat-drenched jeepney driver in a tattered shirt attempting to pull a massive wooden cart up a steep, crumbling mountain road. The cart is loaded with a colossal iron boulder labeled "fuel price increases", which towers over the driver. Attached to the driver's waist by a thin, frayed rope is a tiny, empty coin purse labeled "daily jeepney fare income".
+    Standing safely at the top of the mountain peak are two neatly dressed figures in business suits labeled "oil importers". They are holding binoculars and calmly observing the driver's struggle while holding a large sign that reads "market forces".
 
-      Standing safely at the top of the mountain peak are two neatly dressed figures in business suits labeled "oil importers". They are holding binoculars and calmly observing the driver's struggle while holding a large sign that reads "market forces".
+    In the background, dark thunderclouds hover over a small city skyline labeled "commuter public", while a small road sign at the foot of the hill points backward toward "economic relief". The picture gives no numerical prices, dates, or named companies. Its exaggerated sizes and labels present a viewpoint about uneven burdens, not a measured comparison of every driver's finances.
+- id: p-text-types-visual-media-0003
+  title: Sales Charts on a Classroom Wall
+  body: |
+    A classroom display compares two bar charts made from the same shop-sales exercise. The lesson's monthly amounts are January fifty, February seventy, March sixty, and April ninety thousand pesos. Each chart uses four vertical bars, with months along the bottom and sales in thousands of pesos up the side.
 
-      In the background, dark thunderclouds hover over a small city skyline labeled "commuter public", while a small road sign at the foot of the hill points backward toward a sign reading "economic relief".
+    The first chart starts its vertical axis at zero and marks equal steps. The second starts at forty and also marks equal steps. Both write the monthly amounts above the bars. In the second chart, the difference between January and April occupies a larger share of the displayed bar lengths. A caption asks viewers to compare the numbers before judging the size of the gap.
 
+    Beside the bar charts, a line chart joins points for the same months. Its axis begins at forty and is clearly labeled. A note says the line emphasizes changes over time. The display does not claim that sales rise every month. Instead, it asks students to use the units, labels, and scale together when describing the pattern.
+- id: p-text-types-visual-media-0004
+  title: The Noticeboard Comic
+  body: |
+    A four-panel comic follows two students beside a classroom noticeboard. In the first panel, Mara writes "Please keep this board clear for official notices" on a small sheet. Her friend Gio nods while holding a stack of club posters. The board already contains a timetable and a safety reminder.
+
+    In the second panel, Gio fastens his club poster beside Mara's sheet. Its title is much larger than the timetable's text. Mara points at her request, but Gio replies, "Just this one. Everyone needs to see it."
+
+    The third panel shows other students adding posters. The timetable disappears under overlapping sheets. Mara's original request remains visible at the edge, though a new poster partly covers the words official notices.
+
+    In the final panel, Gio asks Mara where to find the timetable. She points at the pile of posters without speaking. His expression changes from confidence to embarrassment. The comic uses the sequence to connect a small exception with a shared problem. No caption blames one club alone; the crowded board reflects the combined actions of several students.
 questions:
-  - id: rc-tt-vm-0001
-    passage: rc-tt-vm-p1
-    type: identify
-    difficulty: easy
-    stem: |
-      Based on the pie chart described in the infographic, which site represents the largest percentage of household mosquito breeding places?
-    choices:
-      - text: Uncovered water drums (fifty percent)
-        correct: true
-      - text: Discarded tires and tin cans (thirty percent)
-        rationale: |
-          You picked thirty percent, which is the second largest slice in the chart, not the largest slice (fifty percent).
-      - text: Clogged roof gutters (fifteen percent)
-        rationale: |
-          You picked fifteen percent, which is smaller than fifty percent for uncovered water drums.
-      - text: Flower vase water (five percent)
-        rationale: |
-          You picked five percent, which represents the smallest percentage in the pie chart rather than the largest.
-    explanation: |
-      The passage explicitly states that fifty percent of breeding sites in the pie chart is labeled "uncovered water drums".
+- id: rc-tt-vm-0001
+  passage: rc-tt-vm-p1
+  type: feature-of-form
+  difficulty: easy
+  stem: 'In the classroom example''s pie chart, which category has the largest share?
 
-  - id: rc-tt-vm-0002
-    passage: rc-tt-vm-p1
-    type: analyze
-    difficulty: medium
-    stem: |
-      What is the primary purpose of placing four sequential action icons to the right of the pie chart?
-    choices:
-      - text: To provide actionable steps to eliminate mosquito breeding.
-        correct: true
-      - text: To decorate the poster with artistic color illustrations.
-        rationale: |
-          You mistook functional health icons for mere artistic decoration without recognizing their instructional role.
-      - text: To explain the biological life cycle of the Aedes aegypti mosquito.
-        rationale: |
-          You picked mosquito biology, but the icons illustrate human cleaning actions like covering drums and clearing gutters.
-      - text: To display the historical budget of the Department of Health.
-        rationale: |
-          You picked financial budget information, which is not depicted by preventive action icons.
-    explanation: |
-      The action icons demonstrate preventive measures (covering drums, clearing gutters, recycling tires), providing clear actionable guidance for viewers.
+    '
+  choices:
+  - text: Uncovered water drums
+    correct: true
+  - text: Discarded tires and tin cans
+    rationale: 'This selects the second-largest share. Several objects in that label may make it seem larger. Check each category''s stated percentage.
 
-  - id: rc-tt-vm-0003
-    passage: rc-tt-vm-p1
-    type: analyze
-    difficulty: medium
-    stem: |
-      Why does the infographic use a bright yellow warning callout box next to the mosquito illustration?
-    choices:
-      - text: To draw visual attention to critical hazard warnings.
-        correct: true
-      - text: To hide the mosquito's black and white striped legs.
-        rationale: |
-          You inferred an attempt to conceal details, but callout boxes are designed to highlight information.
-      - text: To indicate that mosquitoes only breed in yellow containers.
-        rationale: |
-          You took the yellow design color literally as a container color rule.
-      - text: To match the light blue background of the headline.
-        rationale: |
-          You picked color matching, but yellow is used specifically to contrast against blue and signal a hazard warning.
-    explanation: |
-      Bright callout boxes are a visual design device used to attract immediate attention to high-priority safety warnings.
+      '
+  - text: Clogged roof gutters
+    rationale: 'This treats the size of a roof as the size of its share. A gutter may seem like a large source. Check the number assigned to the slice.
 
-  - id: rc-tt-vm-0004
-    passage: rc-tt-vm-p1
-    type: infer
-    difficulty: hard
-    stem: |
-      What is the primary overall objective of this public health infographic?
-    choices:
-      - text: To motivate residents to eliminate stagnant water sources.
-        correct: true
-      - text: To promote commercial sales of synthetic insect repellents.
-        rationale: |
-          You picked a commercial sales objective, whereas public health infographics focus on disease prevention.
-      - text: To criticize municipal workers for failing to clean public roads.
-        rationale: |
-          You inferred political criticism, but the poster focuses on household action to prevent dengue.
-      - text: To collect statistical data from hospital dengue patients.
-        rationale: |
-          You picked data collection, which is an administrative task rather than a public awareness goal.
-    explanation: |
-      Combining breeding site data, mosquito warnings, and practical cleaning steps aims to motivate residents to eliminate stagnant water.
+      '
+  - text: Flower vase water
+    rationale: 'This selects the smallest share. A familiar container may attract attention. Check the percentage rather than familiarity.
 
-  - id: rc-tt-vm-0005
-    passage: rc-tt-vm-p1
-    type: evaluate
-    difficulty: hard
-    stem: |
-      Which visual element on the poster serves as the official authority marker and contact resource?
-    choices:
-      - text: The footer banner with the DOH hotline number.
-        correct: true
-      - text: The magnified vector illustration of the mosquito.
-        rationale: |
-          You picked the mosquito vector drawing, which is a hazard illustration rather than an official authority marker.
-      - text: The pie chart slice showing five percent flower vase water.
-        rationale: |
-          You picked a data point from the chart, not the official agency contact resource located in the footer.
-      - text: The yellow background color behind the action icons.
-        rationale: |
-          You picked a background design color rather than the official DOH hotline banner.
-    explanation: |
-      The footer banner displaying official agency information and hotline details provides the authority marker and emergency contact resource.
+      '
+  explanation: 'The example assigns ten of twenty sample entries to uncovered drums. $10 \div 20 \times 100 = 50$ percent, the largest share.
 
-  - id: rc-tt-vm-0006
-    passage: rc-tt-vm-p2
-    type: identify
-    difficulty: easy
-    stem: |
-      In the editorial cartoon description, what does the colossal iron boulder labeled "fuel price increases" symbolize?
-    choices:
-      - text: The financial burden on drivers from rising fuel costs.
-        correct: true
-      - text: The physical weight of passenger luggage carried on jeepney roofs.
-        rationale: |
-          You took the cartoon boulder literally as passenger luggage rather than a symbol for fuel price burdens.
-      - text: The construction materials used to repair mountain roads.
-        rationale: |
-          You took the boulder literally as road construction material, ignoring its political label.
-      - text: The high quality of imported petroleum products.
-        rationale: |
-          You inferred positive quality from an iron boulder, which is drawn as an oppressive crushing weight.
-    explanation: |
-      In editorial cartooning, a heavy crushing object labeled with a problem symbolizes an overwhelming burden on affected individuals.
+    '
+- id: rc-tt-vm-0002
+  passage: rc-tt-vm-p1
+  type: purpose-of-device
+  difficulty: medium
+  stem: 'What is the main function of the four action icons?
 
-  - id: rc-tt-vm-0007
-    passage: rc-tt-vm-p2
-    type: analyze
-    difficulty: medium
-    stem: |
-      What is the cartoonist's stance regarding the relationship between the jeepney driver and the "oil importers"?
-    choices:
-      - text: Critical of oil importers who remain detached from the struggle.
-        correct: true
-      - text: Supportive of oil importers for providing financial aid to transport workers.
-        rationale: |
-          You inferred financial aid, which contradicts the importers standing detached with binoculars on a peak.
-      - text: Neutral, showing both groups working together to push the cart.
-        rationale: |
-          You inferred cooperation, but the driver pulls alone while the importers watch from above.
-      - text: Praising jeepney drivers for buying expensive binoculars.
-        rationale: |
-          You misread the text. The oil importers hold the binoculars, not the struggling driver.
-    explanation: |
-      Depicting figures in suits standing safely at the top holding binoculars and a "market forces" sign conveys a critical stance on their detachment from the driver's struggle.
+    '
+  choices:
+  - text: To show ways people can help prevent dengue.
+    correct: true
+  - text: To rank all breeding-site categories by their chart percentages.
+    rationale: 'This treats an action list as a data ranking. The icons sit beside a chart. Check whether they show amounts or actions.
 
-  - id: rc-tt-vm-0008
-    passage: rc-tt-vm-p2
-    type: infer
-    difficulty: medium
-    stem: |
-      What visual contrast is created between the iron boulder and the "tiny, empty coin purse"?
-    choices:
-      - text: Highlighting the gap between fuel costs and earnings.
-        correct: true
-      - text: Showing that coin purses are manufactured from iron metal.
-        rationale: |
-          You took the visual contrast literally as coin purse manufacturing material.
-      - text: Proving that jeepney fares are higher than fuel prices.
-        rationale: |
-          You reversed the financial contrast. The tiny purse shows fares are inadequate to meet high fuel costs.
-      - text: Demonstrating that watchmen should carry safety harnesses.
-        rationale: |
-          You mixed up details from the pier watchman passage into this editorial cartoon question.
-    explanation: |
-      Contrasting a colossal iron boulder with a tiny, empty purse visually emphasizes the disparity between heavy costs and small incomes.
+      '
+  - text: To show the stages of a mosquito's biological development.
+    rationale: 'This treats a sequence of human actions as an insect life cycle. Mosquitoes are the topic. Check what each icon actually depicts.
 
-  - id: rc-tt-vm-0009
-    passage: rc-tt-vm-p2
-    type: evaluate
-    difficulty: hard
-    stem: |
-      What is the symbolic function of the dark thunderclouds hovering over the "commuter public" skyline?
-    choices:
-      - text: Representing economic hardship felt by the commuting community.
-        correct: true
-      - text: Indicating that a real typhoon storm is currently flooding the city.
-        rationale: |
-          You took the storm clouds literally as weather rather than a cartoon symbol for economic distress.
-      - text: Showing that electric buses produce heavy air pollution.
-        rationale: |
-          You introduced electric buses and air pollution, which are not depicted in this editorial cartoon.
-      - text: Decorating the top edge of the drawing with natural scenery.
-        rationale: |
-          You dismissed the clouds as background decoration, ignoring political cartoon symbolism.
-    explanation: |
-      Storm clouds in editorial cartoons frequently symbolize looming trouble, hardship, or economic distress affecting a population.
+      '
+  - text: To identify the organization that supplied the classroom poster.
+    rationale: 'This treats instructions as a source label. Organized icons can look official. Check where the named contact appears.
 
-  - id: rc-tt-vm-0010
-    passage: rc-tt-vm-p2
-    type: analyze
-    difficulty: hard
-    stem: |
-      Why does the cartoonist include a road sign pointing backward toward "economic relief"?
-    choices:
-      - text: To suggest economic relief is becoming increasingly distant.
-        correct: true
-      - text: To guide drivers toward the nearest commercial gasoline station.
-        rationale: |
-          You took the economic relief sign literally as a directional sign for a gas station.
-      - text: To prove that mountain roads are safer than paved city streets.
-        rationale: |
-          You inferred road safety advice, which is unrelated to political cartoon symbolism.
-      - text: To show that the jeepney driver is driving in the wrong direction.
-        rationale: |
-          You misinterpreted the sign as navigation error rather than relief receding into the past.
-    explanation: |
-      A sign pointing backward away from the climbing driver symbolizes that relief is moving out of reach as struggles increase.
+      '
+  explanation: 'The icons show covering containers, clearing gutters, recycling tires, and using repellent. Their role is to communicate preventive actions.
+
+    '
+- id: rc-tt-vm-0003
+  passage: rc-tt-vm-p1
+  type: purpose-of-device
+  difficulty: medium
+  stem: 'Why is the warning box bright yellow against the blue background?
+
+    '
+  choices:
+  - text: To make the warning stand out.
+    correct: true
+  - text: To show that yellow containers make up the largest chart share.
+    rationale: 'This treats design color as data. Charts often use color to label groups. Check whether the box belongs to the chart legend.
+
+      '
+  - text: To make the warning blend into the surrounding background.
+    rationale: 'This confuses contrast with similarity. Both colors are part of the design. Check whether yellow and blue are visually alike.
+
+      '
+  - text: To indicate that the mosquito belongs to a yellow-colored species.
+    rationale: 'This treats the box color as a biological feature. It is beside the mosquito drawing. Check the described appearance of the insect.
+
+      '
+  explanation: 'The yellow box contrasts with the blue background. That contrast draws attention to the warning beside the mosquito.
+
+    '
+- id: rc-tt-vm-0004
+  passage: rc-tt-vm-p1
+  type: purpose-of-device
+  difficulty: hard
+  stem: 'What overall purpose is best supported by the poster''s headline, chart, and icons?
+
+    '
+  choices:
+  - text: Encouraging dengue-prevention action
+    correct: true
+  - text: Promoting repellent sales as the poster's sole purpose
+    rationale: 'This makes one icon the whole message. Repellent is included. Check the headline and the other household actions.
+
+      '
+  - text: Reporting national breeding-site rates from an official survey
+    rationale: 'This treats a classroom example as national research. Percentages look authoritative. Check the source label and how the values were made.
+
+      '
+  - text: Collecting hospital patient records for a disease registry
+    rationale: 'This treats health information as a data-collection form. Dengue is the topic. Check whether the poster asks viewers to submit records.
+
+      '
+  explanation: 'The headline names prevention, the chart points to places to check, and the icons show actions. Together they encourage people to help prevent dengue.
+
+    '
+- id: rc-tt-vm-0005
+  passage: rc-tt-vm-p1
+  type: feature-of-form
+  difficulty: hard
+  stem: 'Which element supplies a named contact in this classroom poster?
+
+    '
+  choices:
+  - text: The footer naming the school health desk
+    correct: true
+  - text: The yellow warning box beside the enlarged mosquito drawing
+    rationale: 'This treats warning emphasis as contact information. The bright box seems important. Check which element actually names a contact.
+
+      '
+  - text: The slice showing flower vase water as five percent of the example
+    rationale: 'This treats a data label as a source of help. The label gives specific information. Check whether it names a person or office.
+
+      '
+  - text: The bold headline placed above the three visual sections
+    rationale: 'This treats the most visible words as a contact resource. Headlines attract attention. Check whether those words identify whom to contact.
+
+      '
+  explanation: 'The footer names the school health desk as the contact. That is the element a reader would use to identify whom to approach.
+
+    '
+- id: rc-tt-vm-0006
+  passage: rc-tt-vm-p2
+  type: feature-of-form
+  difficulty: easy
+  stem: 'What does the boulder labeled fuel price increases represent?
+
+    '
+  choices:
+  - text: Rising fuel costs burdening the driver
+    correct: true
+  - text: Actual rocks that jeepney drivers are required to carry
+    rationale: 'This reads the object literally. The driver is visibly pulling it. Check the label connecting it to costs.
+
+      '
+  - text: The driver's large income from daily passenger fares
+    rationale: 'This assigns income to the wrong labeled object. Both money and weight matter in the scene. Check which label is attached to the purse.
+
+      '
+  - text: Evidence that oil importers are physically moving the load
+    rationale: 'This assigns the struggle to the observers. Importers are part of the drawing. Check who is pulling the cart.
+
+      '
+  explanation: 'The fuel-cost label connects the boulder to rising expenses. Its large size and the driver''s struggle present those expenses as a heavy burden.
+
+    '
+- id: rc-tt-vm-0007
+  passage: rc-tt-vm-p2
+  type: purpose-of-device
+  difficulty: medium
+  stem: 'How does the cartoon depict the oil importers'' relationship to the driver''s struggle?
+
+    '
+  choices:
+  - text: They watch from a comfortable distance.
+    correct: true
+  - text: They share the physical effort of pulling the cart uphill.
+    rationale: 'This turns watching into helping. Both groups appear on the same road. Check their positions and actions.
+
+      '
+  - text: They are trapped beneath the same labeled boulder as the driver.
+    rationale: 'This assumes a common issue means an identical burden. Fuel prices affect the scene. Check who is beneath the load and who stands above it.
+
+      '
+  - text: They offer a direct promise of economic relief to the driver.
+    rationale: 'This treats their sign as help. A sign can express a commitment. Check the actual words they hold.
+
+      '
+  explanation: 'The importers stand safely at the peak with binoculars while the driver pulls below. This distance presents them as detached observers of his struggle.
+
+    '
+- id: rc-tt-vm-0008
+  passage: rc-tt-vm-p2
+  type: purpose-of-device
+  difficulty: medium
+  stem: 'What does the size contrast between boulder and purse communicate?
+
+    '
+  choices:
+  - text: Costs overwhelm the driver's earnings.
+    correct: true
+  - text: The driver's fare income is large enough to absorb every increase.
+    rationale: 'This reverses the contrast. The purse is connected to the driver. Check its small, empty appearance beside the large load.
+
+      '
+  - text: The drawing supplies an exact numerical ratio of costs to income.
+    rationale: 'This treats symbolic scale as a measured graph. The size difference is strong. Check whether units or amounts are given.
+
+      '
+  - text: The financial problem comes only from how the driver stores cash.
+    rationale: 'This turns the purse into a practical storage problem. An empty purse suggests money shortage. Check the fuel-cost label on the load.
+
+      '
+  explanation: 'The large boulder stands for costs, while the tiny empty purse stands for earnings. Their contrast emphasizes a gap between heavy expenses and limited income.
+
+    '
+- id: rc-tt-vm-0009
+  passage: rc-tt-vm-p2
+  type: purpose-of-device
+  difficulty: hard
+  stem: 'What do the clouds above the commuter-public skyline suggest in this cartoon?
+
+    '
+  choices:
+  - text: Trouble extending to commuters
+    correct: true
+  - text: A verified weather forecast for a particular city
+    rationale: 'This reads a symbol as a weather report. Clouds can describe real weather. Check the political labels and the surrounding money problem.
+
+      '
+  - text: Proof that commuters receive the driver's fuel income
+    rationale: 'This invents a financial link from proximity. The skyline is part of the same scene. Check whether any transfer of income is drawn.
+
+      '
+  - text: Guaranteed closure of every transport route in the city
+    rationale: 'This turns suggested trouble into a specific result. Dark clouds look threatening. Check whether closures are stated or shown.
+
+      '
+  explanation: 'The clouds sit above the area labeled commuter public in a cartoon about fuel costs. In this setting, they suggest wider trouble for commuters.
+
+    '
+- id: rc-tt-vm-0010
+  passage: rc-tt-vm-p2
+  type: purpose-of-device
+  difficulty: hard
+  stem: 'How does the sign pointing backward toward economic relief contribute to the message?
+
+    '
+  choices:
+  - text: It places relief away from the driver's path.
+    correct: true
+  - text: It supplies a literal route to the nearest fuel retailer.
+    rationale: 'This treats a symbolic sign as practical navigation. Road signs usually guide travelers. Check the abstract words on this one.
+
+      '
+  - text: It promises that continued climbing will immediately bring relief.
+    rationale: 'This reverses the sign''s direction. The driver is moving uphill. Check where the relief arrow points relative to that movement.
+
+      '
+  - text: It proves the cartoon supports every policy used by oil importers.
+    rationale: 'This treats one symbol as a broad endorsement. The importers display a slogan. Check the struggle and distance shown around them.
+
+      '
+  explanation: 'The relief sign points behind the driver as he struggles uphill. It visually places relief away from his current direction.
+
+    '
+- id: q-text-types-visual-media-0011
+  type: feature-of-form
+  difficulty: easy
+  approved: false
+  stem: 'Which month has the second-highest sales in the classroom exercise?
+
+    '
+  passage: p-text-types-visual-media-0003
+  choices:
+  - text: Feb.
+    correct: true
+  - text: Mar.
+    rationale: 'This treats the later month as the larger amount. March follows February. Check the listed sales instead of calendar order.
+
+      '
+  - text: Apr.
+    rationale: 'This selects the highest month instead of the second-highest. Its bar is most noticeable. Rank all four amounts before choosing.
+
+      '
+  - text: Jan.
+    rationale: 'This selects the first listed month instead of a sales rank. It comes first on the axis. Check the amounts above the bars.
+
+      '
+  explanation: 'The amounts in descending order are ninety, seventy, sixty, and fifty thousand pesos. February''s seventy thousand is second-highest.
+
+    '
+- id: q-text-types-visual-media-0012
+  type: purpose-of-device
+  difficulty: medium
+  approved: false
+  stem: 'Why can the second bar chart exaggerate the apparent sales gap?
+
+    '
+  passage: p-text-types-visual-media-0003
+  choices:
+  - text: Its bar lengths begin at forty, not zero.
+    correct: true
+  - text: It changes April's listed amount from ninety to a larger value.
+    rationale: 'This treats a visual exaggeration as altered data. April looks taller. Check whether the number above its bar changes.
+
+      '
+  - text: It places the months in a different chronological sequence.
+    rationale: 'This assigns the difference to order. Position affects how a chart is read. Check whether both charts use the same months.
+
+      '
+  - text: It uses unequal numerical steps between neighboring tick marks.
+    rationale: 'This confuses a truncated baseline with uneven scale. Both can mislead. Check the description of equal steps.
+
+      '
+  explanation: 'The second chart cuts away the first forty thousand pesos of every bar. That makes the remaining lengths look more different in proportion. The underlying sales amounts stay the same.
+
+    '
+- id: q-text-types-visual-media-0013
+  type: feature-of-form
+  difficulty: hard
+  approved: false
+  stem: 'Which claim is supported by the monthly figures?
+
+    '
+  passage: p-text-types-visual-media-0003
+  choices:
+  - text: Sales dip in March before reaching a high in April.
+    correct: true
+  - text: Sales rise by the same amount in each month of the exercise.
+    rationale: 'This imposes a steady increase. The final amount is higher than the first. Check each neighboring pair.
+
+      '
+  - text: March has the second-highest sales because it follows February.
+    rationale: 'This confuses time order with size order. March is later. Compare the amounts for the two months.
+
+      '
+  - text: January's sales are greater than February's because its bar comes first.
+    rationale: 'This treats leftmost position as greater magnitude. January begins the sequence. Check bar height and labels.
+
+      '
+  explanation: 'Sales move from fifty to seventy, then down to sixty, and then up to ninety thousand pesos. The decrease occurs in March, followed by the highest amount in April.
+
+    '
+- id: q-text-types-visual-media-0014
+  type: feature-of-form
+  difficulty: exam
+  approved: false
+  stem: 'Which reading of the line chart follows the lesson''s scale guidance?
+
+    '
+  passage: p-text-types-visual-media-0003
+  choices:
+  - text: A clear nonzero axis can help show change over time.
+    correct: true
+  - text: Any chart with a nonzero axis must be rejected without reading its labels.
+    rationale: 'This applies the bar-length rule to every display. Zero matters for absolute bar lengths. Check what the line''s point positions are meant to show.
+
+      '
+  - text: Joining points proves that sales increased continuously between months.
+    rationale: 'This treats connecting segments as observations of every day. A line looks continuous. Check which time points were actually supplied.
+
+      '
+  - text: The line is more accurate only because lines look thinner than bars.
+    rationale: 'This treats appearance as accuracy. Thin lines may seem precise. Check values, units, and scale instead.
+
+      '
+  explanation: 'The line chart is designed to show change over time through point positions. A clearly labeled nonzero range can serve that purpose without claiming that bar lengths represent full amounts.
+
+    '
+- id: q-text-types-visual-media-0015
+  type: purpose-of-device
+  difficulty: exam
+  approved: false
+  stem: 'What is the main purpose of placing both bar charts together?
+
+    '
+  passage: p-text-types-visual-media-0003
+  choices:
+  - text: To show how scale affects visual comparisons.
+    correct: true
+  - text: To establish that the shop recorded different sales in two surveys.
+    rationale: 'This assumes two displays mean two datasets. The pictures look different. Check the statement that both use the same exercise.
+
+      '
+  - text: To prove that labels become unnecessary when charts show exact numbers.
+    rationale: 'This treats written values as a reason to ignore units. The values are visible. Check why the display asks readers to use labels too.
+
+      '
+  - text: To predict that the shop will earn more in every following month.
+    rationale: 'This turns a teaching comparison into a forecast. April is the highest shown month. Check whether future values appear.
+
+      '
+  explanation: 'The charts keep the data the same while changing the baseline. This lets readers see how a scale changes the apparent size of a gap.
+
+    '
+- id: q-text-types-visual-media-0016
+  type: purpose-of-device
+  difficulty: easy
+  approved: false
+  stem: 'What creates the reversal in the noticeboard comic?
+
+    '
+  passage: p-text-types-visual-media-0004
+  choices:
+  - text: Gio needs the timetable his posters helped hide.
+    correct: true
+  - text: Mara announces that the club posters are official safety reminders.
+    rationale: 'This changes the status of the posters. The board includes a safety notice. Check which sheets cover it.
+
+      '
+  - text: The teacher removes every sheet before Gio asks his question.
+    rationale: 'This invents an action that would resolve the problem. A teacher might manage the board. Check who appears and what happens.
+
+      '
+  - text: The students decide to create a separate board for all club notices.
+    rationale: 'This supplies a solution not shown. A separate board sounds sensible. Check whether the comic depicts that decision.
+
+      '
+  explanation: 'Gio first supports adding a poster, then cannot find the timetable after posters cover it. His own need exposes the effect of the earlier action.
+
+    '
+- id: q-text-types-visual-media-0017
+  type: feature-of-form
+  difficulty: medium
+  approved: false
+  stem: 'Why must the comic''s panels be read as a sequence?
+
+    '
+  passage: p-text-types-visual-media-0004
+  choices:
+  - text: Earlier choices explain the final embarrassment.
+    correct: true
+  - text: Only the final panel contains any information needed to interpret the joke.
+    rationale: 'This ignores the buildup. The last expression is memorable. Check what establishes why the timetable is hidden.
+
+      '
+  - text: Every panel repeats exactly the same action without any change.
+    rationale: 'This mistakes a repeated setting for a repeated event. The board appears throughout. Check how its contents and Gio''s reaction change.
+
+      '
+  - text: The first panel proves that the timetable was missing from the beginning.
+    rationale: 'This reverses the setup. The later problem can color memory of the opening. Check which notices are initially visible.
+
+      '
+  explanation: 'The opening establishes the board''s purpose. The middle shows exceptions accumulating. This makes Gio''s final embarrassment meaningful.
+
+    '
+- id: q-text-types-visual-media-0018
+  type: purpose-of-device
+  difficulty: hard
+  approved: false
+  stem: 'What does the contrast in lettering size suggest about the club poster?
+
+    '
+  passage: p-text-types-visual-media-0004
+  choices:
+  - text: It draws attention away from the timetable.
+    correct: true
+  - text: It proves the club notice has a higher official status than the timetable.
+    rationale: 'This treats visual prominence as formal authority. Large titles look important. Check whether the text calls the poster official.
+
+      '
+  - text: It guarantees that every student understands the poster's message.
+    rationale: 'This treats visibility as understanding. Larger text is easier to notice. Check whether audience understanding is measured.
+
+      '
+  - text: It means the timetable was printed with incorrect dates.
+    rationale: 'This treats low prominence as a factual error. A smaller label can be overlooked. Check whether any date error is described.
+
+      '
+  explanation: 'The club title is much larger than the timetable''s text. Its visual prominence helps it compete for attention on the same board.
+
+    '
+- id: q-text-types-visual-media-0019
+  type: purpose-of-device
+  difficulty: hard
+  approved: false
+  stem: 'Which interpretation best fits the comic''s treatment of responsibility?
+
+    '
+  passage: p-text-types-visual-media-0004
+  choices:
+  - text: Several small exceptions create a shared problem.
+    correct: true
+  - text: Only Gio's club is responsible for every sheet covering the board.
+    rationale: 'This assigns all the posters to one group. Gio makes the first exception. Check who adds more in the next panel.
+
+      '
+  - text: Mara's written request causes the crowding by banning useful notices.
+    rationale: 'This treats a request for space as the source of overlap. The request is visible. Check which actions actually add the crowding.
+
+      '
+  - text: The timetable's disappearance proves that official notices are unnecessary.
+    rationale: 'This treats loss of access as lack of value. Other posters replace its space. Check what Gio needs at the end.
+
+      '
+  explanation: 'Gio adds a poster, and other students follow. Their combined actions hide the timetable. The comic connects individual exceptions with a problem that affects everyone.
+
+    '
+- id: q-text-types-visual-media-0020
+  type: purpose-of-device
+  difficulty: exam
+  approved: false
+  stem: 'Why is Mara''s silent pointing effective in the final panel?
+
+    '
+  passage: p-text-types-visual-media-0004
+  choices:
+  - text: It lets the visible result answer Gio's question.
+    correct: true
+  - text: It shows she has forgotten where the timetable was placed.
+    rationale: 'This interprets silence as lack of knowledge. Mara says nothing. Check where she points.
+
+      '
+  - text: It establishes that Mara secretly removed the timetable herself.
+    rationale: 'This invents a cause for the missing notice. Her gesture directs attention to the board. Check the panels showing what covered it.
+
+      '
+  - text: It guarantees that Gio will never post another club notice.
+    rationale: 'This turns embarrassment into a permanent behavioral promise. His expression changes. Check whether future action is shown.
+
+      '
+  explanation: 'Mara points to the pile that hides the timetable. The image supplies the answer and allows Gio''s embarrassed expression to carry the joke.
+
+    '

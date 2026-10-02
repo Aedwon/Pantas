@@ -1,567 +1,857 @@
 meta:
-  subject: reasoning
-  topic: spatial-abstract-reasoning
-  subtopic: figure-matrices
-  exams: [ acet, ustet, dost-sei , cse-pro]
+  subject: "reasoning"
+  topic: "spatial-abstract-reasoning"
+  subtopic: "figure-matrices"
+  exams:
+    - "acet"
+    - "ustet"
+    - "dost-sei"
+    - "cse-pro"
 questions:
-  - id: q-spatial-abstract-reasoning-figure-matrices-0001
-    type: figure-matrix
-    difficulty: easy
-    figure: figure-matrices-01
+  - id: "q-spatial-abstract-reasoning-figure-matrices-0001"
+    type: "figure-matrix"
+    difficulty: "easy"
+    figure: "figure-matrices-01"
     figureSpec:
-      kind: figure-matrix
+      kind: "figure-matrix"
       rows: 2
       cols: 2
       cells:
-        - form: triangle
-        - form: triangle
+        - form: "triangle"
+          line: 0
+        - form: "triangle"
           line: 90
-        - form: square
-        - blank
+        - form: "square"
+          line: 180
+        - "blank"
     stem: |
-      A 2x2 matrix's top row shows a triangle, then the same triangle rotated 90°. The bottom row shows a square, then a blank cell. What should the blank cell show?
+      Which figure completes the blank cell under the simplest consistent row and column rules?
     choices:
-      - text: A square rotated 90° from the first bottom-row square
+      - text: "Square with line pointing left"
         correct: true
-      - text: A square rotated 180° from the first bottom-row square
+      - text: "Square with line pointing down"
         rationale: |
-          You doubled the rotation angle to 180°. The top row establishes a 90° rotation pattern.
-      - text: A triangle rotated 90°, matching the top row exactly
+          This retains the starting direction. A square itself looks unchanged by a quarter turn. Track the internal line that distinguishes the orientations.
+      - text: "Square with line pointing right"
         rationale: |
-          You copied the shape from the top row instead of applying the rotation transformation to the bottom row's square.
-      - text: The same square, unrotated
+          This copies the first row's final direction. Both rows use the same rule. Apply the turn to the second row's different starting line.
+      - text: "Triangle with line pointing left"
         rationale: |
-          You omitted the transformation. The row rule requires a 90° rotation.
+          This rotates the line correctly but copies the first row's outline. The transformation is shared. Keep the second row's square outline.
     explanation: |
-      The row pattern is a 90° rotation moving left to right. Applying the same pattern to the bottom row, the blank cell should show the square rotated 90° from the first bottom-row square.
+      Across the first row, the internal line turns 90 degrees clockwise from up to right. In the second row, apply that same turn from down to left. The row keeps its square outline.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-matrices-0002
-    type: figure-matrix
-    difficulty: easy
-    figure: figure-matrices-02
+  - id: "q-spatial-abstract-reasoning-figure-matrices-0002"
+    type: "figure-matrix"
+    difficulty: "easy"
+    figure: "figure-matrices-02"
     figureSpec:
-      kind: figure-matrix
+      kind: "figure-matrix"
       rows: 3
       cols: 3
       cells:
-        - form: circle
+        - form: "circle"
           dots: 1
-        - form: circle
+        - form: "circle"
           dots: 2
-        - form: circle
+        - form: "circle"
           dots: 3
-        - form: circle
+        - form: "circle"
           dots: 2
-        - form: circle
+        - form: "circle"
           dots: 3
-        - form: circle
+        - form: "circle"
           dots: 4
-        - form: circle
+        - form: "circle"
           dots: 3
-        - form: circle
+        - form: "circle"
           dots: 4
-        - blank
+        - "blank"
     stem: |
-      A 3x3 matrix's rows show circles with an increasing number of dots: row 1 has circles with 1, 2, 3 dots; row 2 has circles with 2, 3, 4 dots; row 3 has circles with 3, 4, and a blank cell. How many dots should the blank cell have?
+      Which figure completes the blank cell under the simplest consistent row and column rules?
     choices:
-      - text: "5 dots"
+      - text: "Circle with five dots"
         correct: true
-      - text: "4 dots"
+      - text: "Circle with four dots"
         rationale: |
-          You repeated the second cell's count instead of continuing the +1 increment to 5.
-      - text: "6 dots"
+          This repeats the adjacent count. Four occurs beside and above the blank. Continue the one-dot increase.
+      - text: "Circle with six dots"
         rationale: |
-          You added 2 instead of 1. The constant step size across each row is +1 dot.
-      - text: "3 dots"
+          This skips the next count. Both directions increase. Check that the row and column rules do not each add a separate extra dot.
+      - text: "Circle with three dots"
         rationale: |
-          You repeated the first cell's count instead of advancing the row progression.
+          This restarts the bottom row instead of continuing it. Three begins that row. Check the progression to four and then the blank.
     explanation: |
-      Within each row, the dot count increases by 1 moving left to right. Row 3 continues $3 \to 4 \to \, ?$, so the blank cell should have $5$ dots.
+      Dot counts increase by one across each row and down each column. The bottom row begins three, four, so the blank needs five dots. The last column also continues three, four, five.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-matrices-0003
-    type: figure-matrix
-    difficulty: medium
-    figure: figure-matrices-03
+  - id: "q-spatial-abstract-reasoning-figure-matrices-0003"
+    type: "figure-matrix"
+    difficulty: "medium"
+    figure: "figure-matrices-03"
     figureSpec:
-      kind: figure-matrix
+      kind: "figure-matrix"
       rows: 3
       cols: 2
       cells:
-        - form: square
-          size: small
-        - form: square
-          size: small
-        - form: square
-          size: medium
-        - form: square
-          size: medium
-        - form: square
-          size: large
-        - blank
+        - form: "square"
+          size: "small"
+        - form: "square"
+          size: "small"
+        - form: "square"
+          size: "medium"
+        - form: "square"
+          size: "medium"
+        - form: "square"
+          size: "large"
+        - "blank"
     stem: |
-      A 3x3 matrix's columns show a shape growing in size moving top to bottom: column 1 has small, medium, large squares. The blank cell is at the bottom of column 2, which has small and medium squares above it. What size should the blank cell's square be?
+      Which figure completes the blank cell under the simplest consistent row and column rules?
     choices:
-      - text: Large
+      - text: "Large square"
         correct: true
-      - text: Medium, repeating the cell above it
+      - text: "Medium square"
         rationale: |
-          You repeated the middle cell instead of completing the small to medium to large progression.
-      - text: Small, repeating the top of the column
+          This repeats the cell immediately above the blank. Medium is the last known size in that column. Continue the same three-size progression.
+      - text: "Small square"
         rationale: |
-          You restarted the sequence at small instead of following the vertical growth rule to large.
-      - text: Extra-large, skipping ahead one step
+          This restarts from the top. Small appears in the first row. Check that the blank is in the bottom row.
+      - text: "Large triangle"
         rationale: |
-          You skipped the expected large size to pick an extra-large figure.
+          This follows size but changes the constant outline. A triangle also has a visible size. Check that every supplied cell is a square.
     explanation: |
-      The column pattern shows size growing (small, medium, large) moving down. Column 2 follows the same rule, so its blank bottom cell should be large.
+      Each column follows small, medium, large from top to bottom. The blank is the bottom cell of the second column. It therefore has a large square.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-matrices-0004
-    type: figure-matrix
-    difficulty: medium
-    figure: figure-matrices-04
+  - id: "q-spatial-abstract-reasoning-figure-matrices-0004"
+    type: "figure-matrix"
+    difficulty: "medium"
+    figure: "figure-matrices-04"
     figureSpec:
-      kind: figure-matrix
+      kind: "figure-matrix"
       rows: 3
       cols: 3
       cells:
-        - form: square
-          size: small
-          fill: black
-        - form: square
-          size: small
-          fill: white
-        - form: square
-          size: small
-          fill: black
-        - form: square
-          size: medium
-          fill: black
-        - form: square
-          size: medium
-          fill: white
-        - form: square
-          size: medium
-          fill: black
-        - form: square
-          size: large
-          fill: black
-        - blank
-        - form: square
-          size: large
-          fill: black
+        - form: "square"
+          size: "small"
+          fill: "black"
+        - form: "square"
+          size: "small"
+          fill: "white"
+        - form: "square"
+          size: "small"
+          fill: "black"
+        - form: "square"
+          size: "medium"
+          fill: "black"
+        - form: "square"
+          size: "medium"
+          fill: "white"
+        - form: "square"
+          size: "medium"
+          fill: "black"
+        - form: "square"
+          size: "large"
+          fill: "black"
+        - "blank"
+        - form: "square"
+          size: "large"
+          fill: "black"
     stem: |
-      A 3x3 matrix's columns show a shape's size growing (small, medium, large) moving top to bottom, while its rows show the shape's shading alternating (black, white, black) moving left to right. The blank is in the bottom-right cell. What size and shading should it have?
+      Which figure completes the blank cell under the simplest consistent row and column rules?
     choices:
-      - text: Large, black
+      - text: "Large white square"
         correct: true
-      - text: Large, white
+      - text: "Large black square"
         rationale: |
-          You assigned white shading. Following the row pattern (black to white to black), the right-most cell must be black.
-      - text: Medium, black
+          This places the blank in the final column instead of the middle. The neighboring bottom squares are black. Locate the actual empty cell.
+      - text: "Medium white square"
         rationale: |
-          You assigned medium size. The bottom row position requires large size per the column growth rule.
-      - text: Small, black
+          This gets the column fill but copies the size above. Medium belongs to the middle row. Check the bottom-row size.
+      - text: "Small white square"
         rationale: |
-          You assigned small size, which belongs to the top row rather than the bottom row.
+          This gets fill but copies the first-row size. Small appears at the top. Follow the size increase down to the blank.
     explanation: |
-      Since the blank is in the bottom row, the column pattern (small → medium → large) makes its size large. Since the blank is in the right-most position of its row, the row pattern (black → white → black) makes its shading black.
+      Size is constant across each row and grows small, medium, large down columns. Fill is black, white, black across each row. The blank is in the bottom middle, so it is large and white.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-matrices-0005
-    type: figure-matrix
-    difficulty: medium
-    figure: figure-matrices-05
+  - id: "q-spatial-abstract-reasoning-figure-matrices-0005"
+    type: "figure-matrix"
+    difficulty: "medium"
+    figure: "figure-matrices-05"
     figureSpec:
-      kind: figure-matrix
+      kind: "figure-matrix"
       rows: 2
       cols: 3
       cells:
-        - form: circle
+        - form: "circle"
           line: 90
-        - form: circle
+        - form: "circle"
           line: 0
-        - form: circle
+        - form: "circle"
+          lines:
+            - 90
+            - 0
+        - form: "square"
           line: 45
-        - form: circle
-          line: 90
-        - form: circle
-          line: 0
-        - blank
+        - form: "square"
+          line: 135
+        - "blank"
     stem: |
-      A 3x3 matrix's first row shows: a circle with a horizontal line, a circle with a vertical line, and a circle with both lines (a plus-sign pattern) in the third cell. The same combination rule applies to another row: a square with a diagonal line (top-left to bottom-right), a square with the other diagonal line (top-right to bottom-left), and a blank third cell. What should the third cell show?
+      Which figure completes the blank cell under the simplest consistent row and column rules?
     choices:
-      - text: A square with both diagonal lines drawn (forming an X pattern)
+      - text: "Square with both diagonal rays"
         correct: true
-      - text: A square with only the first diagonal line, repeated
+      - text: "Square with only the upper-right ray"
         rationale: |
-          You repeated the first cell without combining the second diagonal line.
-      - text: A blank square with no lines at all
+          This keeps only the first feature. That ray appears in the row. Check that the completed row combines both inputs.
+      - text: "Square with only the lower-right ray"
         rationale: |
-          You subtracted the lines instead of combining them into an X pattern.
-      - text: A square with a horizontal and vertical line, like the circle row
+          This keeps only the second feature. It is the latest input. Check the two-feature result in the completed row.
+      - text: "Square with rays up and right"
         rationale: |
-          You copied line orientations from a different row rather than combining the diagonal lines present in this row.
+          This copies the first row's ray directions. Both rows use union. Combine the second row's actual directions.
     explanation: |
-      The combination rule from the completed first row shows the third cell combines both features from the first two cells. Applying the same logic, the third cell should show a square with both diagonal lines, forming an X.
+      The third cell in the first row contains both rays from its first two cells. Apply that union to the square row. The blank therefore keeps both diagonal rays, one upper-right and one lower-right.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-matrices-0006
-    type: figure-matrix
-    difficulty: medium
-    figure: figure-matrices-06
+  - id: "q-spatial-abstract-reasoning-figure-matrices-0006"
+    type: "figure-matrix"
+    difficulty: "medium"
+    figure: "figure-matrices-06"
     figureSpec:
-      kind: figure-matrix
+      kind: "figure-matrix"
       rows: 2
       cols: 3
       cells:
-        - form: triangle
+        - form: "square"
+          size: "small"
           fill: 0.5
-        - form: triangle
+        - form: "square"
+          size: "small"
           fill: 0.5
-        - form: triangle
-          fill: black
-        - form: triangle
+          rotation: 180
+        - form: "square"
+          size: "small"
+          fill: "black"
+        - form: "square"
+          size: "large"
           fill: 0.5
-        - form: triangle
+        - form: "square"
+          size: "large"
           fill: 0.5
-        - blank
+          rotation: 180
+        - "blank"
     stem: |
-      A 3x3 matrix's row shows: a triangle shaded on its left half, a triangle shaded on its right half, and a blank third cell, following the same "combination" rule established in a previous, already-completed row. What should the third cell show?
+      Which figure completes the blank cell under the simplest consistent row and column rules?
     choices:
-      - text: A triangle shaded on both halves (fully shaded)
+      - text: "Fully black square"
         correct: true
-      - text: A triangle shaded on neither half (fully unshaded)
+      - text: "Fully white square"
         rationale: |
-          You cleared the shading instead of combining the left and right shaded halves.
-      - text: A triangle shaded only on its left half, repeated
+          This treats combining fill as erasing it. The half areas are complementary. Check their combined coverage.
+      - text: "Bottom-half-filled square"
         rationale: |
-          You ignored the right-half shading from the second cell.
-      - text: A triangle shaded only on its right half, repeated
+          This keeps only the first shaded area. It is visible in the first cell. Include the second cell's top half too.
+      - text: "Top-half-filled square"
         rationale: |
-          You ignored the left-half shading from the first cell.
+          This keeps only the second shaded area. It is visible in the second cell. Include the first cell's bottom half too.
     explanation: |
-      Following the combination rule, the third cell should combine both features from the first two cells: a triangle shaded on its left half plus one shaded on its right half combine into a fully shaded triangle.
+      In each row, the third cell combines the filled areas of the first two. Bottom-half and top-half fill together cover the whole square. The missing square is fully black.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-matrices-0007
-    type: figure-matrix
-    difficulty: medium
-    figure: figure-matrices-07
+  - id: "q-spatial-abstract-reasoning-figure-matrices-0007"
+    type: "figure-matrix"
+    difficulty: "medium"
+    figure: "figure-matrices-07"
     figureSpec:
-      kind: figure-matrix
+      kind: "figure-matrix"
       rows: 2
       cols: 2
       cells:
-        - form: circle
-          dot: top
-        - form: circle
-          dot: top-right
-        - form: square
-          dot: top
-        - blank
+        - form: "circle"
+          dot: "top-left"
+        - form: "circle"
+          dot: "top-right"
+        - form: "square"
+          dot: "top-left"
+        - "blank"
     stem: |
-      A 2x2 matrix's top row shows a circle with a dot in the top position, then the same circle rotated 90° clockwise (dot now in the right position). The bottom row shows a square with a dot in the top position, then a blank cell. Where should the dot be in the blank cell?
+      Which figure completes the blank cell under the simplest consistent row and column rules?
     choices:
-      - text: The right position, matching the same 90° clockwise rotation rule
+      - text: "Square with dot at top-right"
         correct: true
-      - text: The top position, unchanged from the first bottom-row cell
+      - text: "Square with dot at top-left"
         rationale: |
-          You left the dot un-rotated instead of applying the 90° clockwise shift.
-      - text: The bottom position, a 180° rotation instead of 90°
+          This preserves the starting corner. Both left cells have that dot. Apply the change across the completed row.
+      - text: "Square with dot at bottom-right"
         rationale: |
-          You rotated 180° instead of the 90° clockwise angle shown in the top row.
-      - text: The left position, a counterclockwise rotation instead
+          This takes two corner steps instead of one. Bottom-right follows top-right. Match the single step in the first row.
+      - text: "Square with dot at bottom-left"
         rationale: |
-          You rotated counterclockwise instead of matching the top row's clockwise rotation.
+          This moves counter-clockwise. Both directions can lead to a neighboring corner. Check the direction in the completed row.
     explanation: |
-      The row pattern is a 90° clockwise rotation of the dot's position, moving left to right. Applying the same rule to the bottom row, the dot should move from the top position to the right position.
+      Across the top row the dot moves one corner clockwise, from top-left to top-right. The bottom row starts with a top-left dot too. Its missing square therefore needs a top-right dot.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-matrices-0008
-    type: figure-matrix
-    difficulty: hard
-    figure: figure-matrices-08
+  - id: "q-spatial-abstract-reasoning-figure-matrices-0008"
+    type: "figure-matrix"
+    difficulty: "medium"
+    figure: "figure-matrices-08"
     figureSpec:
-      kind: figure-matrix
+      kind: "figure-matrix"
       rows: 3
       cols: 3
       cells:
-        - form: triangle
-          size: small
-          fill: black
-        - form: triangle
-          size: small
-          fill: white
-        - form: triangle
-          size: small
-          fill: black
-        - form: triangle
-          size: medium
-          fill: black
-        - form: triangle
-          size: medium
-          fill: white
-        - form: triangle
-          size: medium
-          fill: black
-        - form: triangle
-          size: large
-          fill: black
-        - form: triangle
-          size: large
-          fill: white
-        - blank
+        - form: "triangle"
+          size: "small"
+          dots: 1
+        - form: "triangle"
+          size: "small"
+          dots: 2
+        - form: "triangle"
+          size: "small"
+          dots: 3
+        - form: "triangle"
+          size: "medium"
+          dots: 1
+        - form: "triangle"
+          size: "medium"
+          dots: 2
+        - form: "triangle"
+          size: "medium"
+          dots: 3
+        - form: "triangle"
+          size: "large"
+          dots: 1
+        - form: "triangle"
+          size: "large"
+          dots: 2
+        - "blank"
     stem: |
-      A 3x3 matrix's columns show a shape's size growing (small, medium, large) moving top to bottom, while its rows show the shape's shading alternating (black, white, black) moving left to right. The blank is in the bottom-right cell. A student checks only the column pattern and answers "large" without specifying shading, assuming the row direction does not matter here. What is wrong with this approach?
+      Which figure completes the blank cell under the simplest consistent row and column rules?
     choices:
-      - text: 'The student checked only one direction; this matrix requires checking both the column pattern (for size) and the row pattern (for shading) together: the complete answer should be "large, black," not size alone.'
+      - text: "Large triangle with three dots"
         correct: true
-      - text: 'Nothing is wrong: size alone is always a complete answer for any figure matrix.'
+      - text: "Large triangle with two dots"
         rationale: |
-          You assumed checking one pattern dimension is sufficient for multi-rule matrices.
-      - text: The student's approach is correct, since shading never applies to matrix questions.
+          This gets size but repeats the dot count beside the blank. Two is the adjacent count. Check the increasing row track.
+      - text: "Medium triangle with three dots"
         rationale: |
-          You claimed shading does not apply to matrices.
-      - text: The student should have checked only the row pattern and ignored the column pattern entirely.
+          This gets dots but copies the row above. Medium is its size. Check the size progression down the last column.
+      - text: "Small triangle with three dots"
         rationale: |
-          You swapped one single-dimension approach for another instead of evaluating both row and column rules.
+          This gets dots but copies the top row's size. The first row provides three dots too. Track the bottom row's size separately.
     explanation: |
-      Many matrices require checking both the row pattern and the column pattern together: solving only one direction gives an incomplete answer. Here, size follows the column direction while shading follows the row direction, so both must be checked.
+      Within each row, dot counts increase one, two, three. Down each column, triangle size grows small, medium, large. The blank combines bottom-row large size with third-column three dots.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-matrices-0009
-    type: figure-matrix
-    difficulty: hard
-    figure: figure-matrices-09
+  - id: "q-spatial-abstract-reasoning-figure-matrices-0009"
+    type: "figure-matrix"
+    difficulty: "medium"
+    figure: "figure-matrices-09"
     figureSpec:
-      kind: figure-matrix
+      kind: "figure-matrix"
       rows: 2
       cols: 3
       cells:
-        - form: circle
-          line: 90
-        - form: circle
+        - form: "circle"
+          lines:
+            - 0
+            - 90
+        - form: "circle"
+          lines:
+            - 0
+            - 180
+        - form: "circle"
           line: 0
-        - form: circle
-          line: 45
-        - form: circle
-          line: 90
-        - form: circle
-          line: 0
-        - blank
+        - form: "square"
+          lines:
+            - 45
+            - 135
+        - form: "square"
+          lines:
+            - 135
+            - 225
+        - "blank"
     stem: |
-      A 3x3 matrix's row shows a circle with a horizontal line, then a circle with a vertical line, then a blank third cell. A student assumes the third cell should follow a simple step-by-step progression (like rotating the line further), predicting a circle with a diagonal line. Given that this matrix actually uses a combination rule, is the student's prediction correct?
+      Which figure completes the blank cell under the simplest consistent row and column rules?
     choices:
-      - text: 'No: this row uses a combination rule, where the third cell combines both features from the first two cells; the correct answer is a circle with both a horizontal and vertical line (a plus-sign pattern), not a diagonal line.'
+      - text: "Square with only the lower-right ray"
         correct: true
-      - text: 'Yes: a diagonal line is always the correct continuation of a two-line pattern.'
+      - text: "Square with all three diagonal rays"
         rationale: |
-          You assumed a sequential angle progression applies instead of combining the horizontal and vertical lines into a plus sign.
-      - text: 'Yes: combination rules never apply to circles, only to squares.'
+          This uses union instead of overlap. All the rays occur in the inputs. Check that the completed output kept only the common ray.
+      - text: "Square with only the upper-right ray"
         rationale: |
-          You claimed combination rules are limited to squares.
-      - text: 'No: but only because circles cannot have any lines at all.'
+          This chooses a ray present in only the first input. It is prominent there. Compare both inputs for a shared direction.
+      - text: "Square with only the lower-left ray"
         rationale: |
-          You claimed circles cannot contain interior lines.
+          This chooses a ray present in only the second input. It is most recent. Check which direction appears in both.
     explanation: |
-      Assuming the third cell should follow a simple incrementing pattern (like a figure series) when it is actually meant to combine features from the first two cells leads to a plausible but incorrect prediction. The correct answer combines both lines into a plus-sign pattern.
+      In the completed row, the third cell keeps the ray shared by both preceding cells. Up is shared in the first row. In the square row, the shared ray points lower-right, so that is the blank's only ray.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-matrices-0010
-    type: figure-matrix
-    difficulty: hard
-    figure: figure-matrices-10
+  - id: "q-spatial-abstract-reasoning-figure-matrices-0010"
+    type: "figure-matrix"
+    difficulty: "medium"
+    figure: "figure-matrices-10"
     figureSpec:
-      kind: figure-matrix
+      kind: "figure-matrix"
       rows: 2
       cols: 2
       cells:
-        - form: triangle
-        - form: triangle
-          line: 90
-        - form: pentagon
-        - blank
+        - form: "square"
+          dot: "top-left"
+        - form: "square"
+          dot: "top-right"
+        - form: "pentagon"
+          dot: "bottom-right"
+        - "blank"
     stem: |
-      A 2x2 matrix's top row shows a triangle, then a triangle rotated 90°. Its bottom row shows a completely different shape, a pentagon, then a blank cell. A student assumes the bottom row must also use triangles, since "all rows in a matrix should use the same shapes." Is this assumption correct?
+      Which figure completes the blank cell under the simplest consistent row and column rules?
     choices:
-      - text: 'No: different rows can apply the same transformation rule (like a 90° rotation) to different starting shapes; the bottom row correctly uses pentagons, and the blank cell should show a pentagon rotated 90°, not a triangle.'
+      - text: "Pentagon with dot at bottom-left"
         correct: true
-      - text: 'Yes: every row in a figure matrix must use the exact same shapes as every other row.'
+      - text: "Pentagon with dot at top-right"
         rationale: |
-          You assumed all rows must feature identical geometric shapes rather than identical transformation rules.
-      - text: 'Yes: but only because pentagons and triangles are actually the same shape.'
+          This copies the first row's final location. That location is part of the example. Reflect the bottom row's own dot.
+      - text: "Pentagon with dot at bottom-right"
         rationale: |
-          You claimed pentagons and triangles are the same shape.
-      - text: 'No: but only because the top row''s shapes are also invalid.'
+          This keeps the starting location. A regular outline may look similar after reflection. Track the marked dot.
+      - text: "Square with dot at bottom-left"
         rationale: |
-          You claimed top row figures are invalid.
+          This gets the dot but copies the first row's outline. Both rows use the same reflection. Preserve the bottom row's pentagon.
     explanation: |
-      Different rows or columns can apply the same transformation rule to different starting shapes: do not expect literally identical figures across rows, only a consistent pattern of change. Recognizing the rule (90° rotation), not memorizing specific shapes, is the key skill.
+      Across the first row, the marked shape is reflected left to right: top-left dot becomes top-right. Apply that same reflection to the bottom-left shape's bottom-right dot. Its new dot is bottom-left, and its pentagon outline is kept.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-matrices-0011
-    type: figure-matrix
-    difficulty: medium
-    figure: figure-matrices-11
+  - id: "q-spatial-abstract-reasoning-figure-matrices-0011"
+    type: "figure-matrix"
+    difficulty: "medium"
+    figure: "figure-matrices-11"
     figureSpec:
-      kind: figure-matrix
+      kind: "figure-matrix"
       rows: 2
       cols: 3
       cells:
-        - form: star
-          fill: black
-        - form: star
-          fill: white
-        - form: star
-          fill: black
-        - form: star
-          fill: black
-        - form: star
-          fill: white
-        - blank
+        - form: "star"
+          fill: "black"
+        - form: "star"
+          fill: "white"
+        - form: "star"
+          fill: "black"
+        - form: "star"
+          fill: "black"
+        - form: "star"
+          fill: "white"
+        - "blank"
     stem: |
-      A 3x3 matrix's row shows a star shaded black, then a star shaded white, then a blank third cell, with shading alternating left to right. What shading should the blank third cell have?
+      Which figure completes the blank cell under the simplest consistent row and column rules?
     choices:
-      - text: Black
+      - text: "Black star"
         correct: true
-      - text: White
+      - text: "White star"
         rationale: |
-          You repeated white instead of maintaining the alternating black to white to black pattern.
-      - text: Half black, half white
+          This repeats the second column fill. White is next to the blank. Continue the alternating row pattern.
+      - text: "Half-filled star"
         rationale: |
-          You introduced partial shading not present in the alternating binary sequence.
-      - text: Gray
+          This averages black and white instead of alternating. Both fills appear. Check that no completed cell uses a partial fill.
+      - text: "Black circle"
         rationale: |
-          You introduced an intermediate shade not matching the black and white alternation rule.
+          This follows fill but changes the constant outline. Black is the expected fill. Keep the star shape shown throughout.
     explanation: |
-      The row pattern shows shading alternating (black, white) moving left to right. Continuing the alternation, the third cell should return to black.
+      Each row has fill states black, white, black. The missing cell is third in the bottom row. It therefore has black fill like the third cell in the completed row.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-matrices-0012
-    type: figure-matrix
-    difficulty: medium
-    figure: figure-matrices-12
+  - id: "q-spatial-abstract-reasoning-figure-matrices-0012"
+    type: "figure-matrix"
+    difficulty: "medium"
+    figure: "figure-matrices-12"
     figureSpec:
-      kind: figure-matrix
+      kind: "figure-matrix"
       rows: 3
       cols: 2
       cells:
-        - form: circle
-          arrow: up
-        - form: circle
-          arrow: up
-        - form: circle
-          arrow: right
-        - form: circle
-          arrow: right
-        - blank
-        - form: circle
-          arrow: down
+        - form: "circle"
+          arrow: "up"
+        - form: "circle"
+          arrow: "up"
+        - form: "circle"
+          arrow: "right"
+        - form: "circle"
+          arrow: "right"
+        - "blank"
+        - form: "circle"
+          arrow: "down"
     stem: |
-      A 3x3 matrix's column shows an arrow pointing up, then the same arrow rotated 90° clockwise (pointing right), then a blank third cell, moving top to bottom. What direction should the arrow point in the blank third cell?
+      Which figure completes the blank cell under the simplest consistent row and column rules?
     choices:
-      - text: Down (a further 90° clockwise turn from "right")
+      - text: "Arrow pointing down"
         correct: true
-      - text: Up, repeating the first cell
+      - text: "Arrow pointing up"
         rationale: |
-          You reset the arrow to the top position instead of continuing the 90° clockwise rotation down.
-      - text: Left (a 90° counterclockwise turn instead)
+          This restarts after only two states. Up appears at the top. Continue the quarter-turn from right.
+      - text: "Arrow pointing left"
         rationale: |
-          You rotated counterclockwise instead of continuing clockwise.
-      - text: Right, repeating the second cell
+          This reverses the right arrow to its opposite instead of taking a quarter-turn. Left opposes right. Check that the shown step is 90 degrees.
+      - text: "Arrow pointing right"
         rationale: |
-          You repeated the second cell's position without applying the third rotation step.
+          This repeats the cell above the blank. Right is the middle-row direction. Continue one more turn.
     explanation: |
-      The column pattern shows a 90° clockwise rotation moving top to bottom (up → right). Continuing the same rotation, the third cell's arrow should point down.
+      Both columns follow up, right, down. Each step down a column turns the arrow 90 degrees clockwise. The blank at the bottom left therefore points down.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-matrices-0013
-    type: figure-matrix
-    difficulty: hard
-    figure: figure-matrices-13
+  - id: "q-spatial-abstract-reasoning-figure-matrices-0013"
+    type: "figure-matrix"
+    difficulty: "medium"
+    figure: "figure-matrices-13"
     figureSpec:
-      kind: figure-matrix
+      kind: "figure-matrix"
       rows: 3
       cols: 3
       cells:
-        - form: triangle
+        - form: "triangle"
           line: 0
-        - form: triangle
+        - form: "triangle"
           line: 45
-        - form: triangle
+        - form: "triangle"
           line: 90
-        - form: square
+        - form: "square"
           line: 0
-        - form: square
+        - form: "square"
           line: 45
-        - form: square
+        - form: "square"
           line: 90
-        - form: pentagon
+        - form: "pentagon"
           line: 0
-        - form: pentagon
+        - form: "pentagon"
           line: 45
-        - blank
+        - "blank"
     stem: |
-      A 3x3 matrix's columns show a shape's number of sides increasing (triangle, square, pentagon) moving top to bottom, while its rows show the shape rotated further (0°, 45°, 90°) moving left to right. The blank is in the bottom-right cell. What shape and rotation should it show?
+      Which figure completes the blank cell under the simplest consistent row and column rules?
     choices:
-      - text: A pentagon rotated 90°
+      - text: "Pentagon with line pointing right"
         correct: true
-      - text: A square rotated 90°
+      - text: "Square with line pointing right"
         rationale: |
-          You picked a square (4 sides) instead of the 5-sided pentagon specified by the bottom row's growth rule.
-      - text: A pentagon rotated 45°
+          This gets direction but copies the middle row's outline. The square is directly above the blank. Continue the outline change to the bottom row.
+      - text: "Pentagon with line pointing upper-right"
         rationale: |
-          You assigned a 45° rotation, which belongs to the middle column rather than the right column.
-      - text: A hexagon rotated 90°
+          This gets outline but repeats the adjacent line. Upper-right is beside the blank. Continue the clockwise 45-degree line step.
+      - text: "Triangle with line pointing right"
         rationale: |
-          You advanced the side count past 5 to 6 sides.
+          This gets direction but repeats the top row's outline. The first completed row is an obvious model. Preserve the bottom row's outline.
     explanation: |
-      Since the blank is in the bottom row, the column pattern (triangle → square → pentagon) makes its shape a pentagon. Since the blank is in the right-most column, the row pattern (0° → 45° → 90°) makes its rotation 90°.
+      Outline changes down the rows from triangle to square to pentagon. The internal line changes across each row from up to upper-right to right. The blank combines pentagon outline with a right-pointing line.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-matrices-0014
-    type: figure-matrix
-    difficulty: exam
-    figure: figure-matrices-14
+  - id: "q-spatial-abstract-reasoning-figure-matrices-0014"
+    type: "figure-matrix"
+    difficulty: "medium"
+    figure: "figure-matrices-14"
     figureSpec:
-      kind: figure-matrix
+      kind: "figure-matrix"
       rows: 3
       cols: 3
       cells:
-        - form: circle
+        - form: "square"
+          size: "small"
           line: 90
-        - form: circle
+        - form: "square"
+          size: "small"
           line: 0
-        - form: circle
-          line: 45
-        - form: circle
+        - form: "square"
+          size: "small"
+          lines:
+            - 90
+            - 0
+        - form: "square"
+          size: "medium"
           line: 90
-        - form: circle
+        - form: "square"
+          size: "medium"
           line: 0
-        - form: circle
-          line: 45
-        - form: circle
+        - form: "square"
+          size: "medium"
+          lines:
+            - 90
+            - 0
+        - form: "square"
+          size: "large"
           line: 90
-        - form: circle
+        - form: "square"
+          size: "large"
           line: 0
-        - blank
+        - "blank"
     stem: |
-      A 3x3 matrix has two rules running at once. Row rule: the third cell in each row combines the line features of the first two cells (e.g., a horizontal line plus a vertical line becomes both lines together). Column rule: every shape in column 1 is shaded black, every shape in column 2 is shaded white, and every shape in column 3 is shaded black, regardless of row. Row 2 shows: a black circle with a horizontal line (column 1), a white circle with a vertical line (column 2), and a blank third cell (column 3). What should the blank third cell show?
+      Which figure completes the blank cell under the simplest consistent row and column rules?
     choices:
-      - text: A black circle with both a horizontal and vertical line
+      - text: "Large square with rays up and right"
         correct: true
-      - text: A white circle with both lines, ignoring the column shading rule
+      - text: "Medium square with rays up and right"
         rationale: |
-          You ignored the column 3 shading rule requiring black fill.
-      - text: A black circle with only a horizontal line, ignoring the row combination rule
+          This combines rays but copies the preceding row's size. Medium appears above. Follow size down to the final row.
+      - text: "Large square with only the up ray"
         rationale: |
-          You ignored the row combination rule by omitting the vertical line.
-      - text: A white circle with neither line, ignoring both rules
+          This follows size but keeps only one input ray. Up appears in the second input. Check the combined rays in completed rows.
+      - text: "Large square with only the right ray"
         rationale: |
-          You broke both the shading rule and the line combination rule.
+          This follows size but keeps only the first input ray. Right appears at the row start. Include the second input too.
     explanation: |
-      Two rules apply at once: the row rule combines both lines from the first two cells (horizontal + vertical = both), and the column rule fixes column 3's shading as black. Combining both gives a black circle with both a horizontal and vertical line.
+      Across each row, the last cell combines the first two rays. Down each column, size grows small, medium, large. The missing cell therefore has the large size and both up and right rays.
     approved: true
+  - id: "q-spatial-abstract-reasoning-figure-matrices-0015"
+    type: "figure-matrix"
+    difficulty: "easy"
+    figure: "figure-matrices-15"
+    figureSpec:
+      kind: "figure-matrix"
+      rows: 3
+      cols: 3
+      cells:
+        - form: "circle"
+        - form: "triangle"
+        - form: "square"
+        - form: "triangle"
+        - form: "square"
+        - form: "circle"
+        - form: "square"
+        - form: "circle"
+        - "blank"
+    stem: |
+      Which figure completes the blank cell under the simplest consistent row and column rules?
+    choices:
+      - text: "Triangle"
+        correct: true
+      - text: "Circle"
+        rationale: |
+          This repeats a shape already in the bottom row. Circle is just beside the blank. Check the one-of-each outline rule.
+      - text: "Square"
+        rationale: |
+          This repeats the bottom row's first outline. Each row starts differently. Check all three positions, not only the first.
+      - text: "Pentagon"
+        rationale: |
+          This invents a new outline to avoid repetition. The blank needs an absent member. Choose from the three-outline set used in every completed row.
+    explanation: |
+      Each row and each column contains one circle, one triangle, and one square. The bottom row already has square and circle. Triangle completes both that row and the last column.
+    approved: false
+  - id: "q-spatial-abstract-reasoning-figure-matrices-0016"
+    type: "figure-matrix"
+    difficulty: "medium"
+    figure: "figure-matrices-16"
+    figureSpec:
+      kind: "figure-matrix"
+      rows: 3
+      cols: 3
+      cells:
+        - form: "circle"
+          dots: 1
+        - form: "circle"
+          dots: 2
+        - form: "circle"
+          dots: 3
+        - form: "circle"
+          dots: 2
+        - form: "circle"
+          dots: 2
+        - form: "circle"
+          dots: 4
+        - form: "circle"
+          dots: 1
+        - form: "circle"
+          dots: 3
+        - "blank"
+    stem: |
+      Which figure completes the blank cell under the simplest consistent row and column rules?
+    choices:
+      - text: "Circle with four dots"
+        correct: true
+      - text: "Circle with five dots"
+        rationale: |
+          This adds two to the last known count as if it were a sequence step. The last input has three. Use the sum relationship shown in both completed rows.
+      - text: "Circle with three dots"
+        rationale: |
+          This copies the second input count. Three appears beside the blank. Combine both inputs.
+      - text: "Circle with two dots"
+        rationale: |
+          This uses the difference $3-1$ instead of the sum. Both numbers occur in the last row. Check the completed-row operation.
+    explanation: |
+      The last dot count in each row equals the first two counts added together. The completed rows show $1+2=3$ and $2+2=4$. The final row therefore gives $1+3=4$ dots.
+    approved: false
+  - id: "q-spatial-abstract-reasoning-figure-matrices-0017"
+    type: "figure-matrix"
+    difficulty: "medium"
+    figure: "figure-matrices-17"
+    figureSpec:
+      kind: "figure-matrix"
+      rows: 3
+      cols: 3
+      cells:
+        - form: "square"
+          size: "small"
+        - form: "square"
+          size: "medium"
+        - form: "square"
+          size: "large"
+        - form: "square"
+          size: "medium"
+        - form: "square"
+          size: "large"
+        - form: "square"
+          size: "small"
+        - form: "square"
+          size: "large"
+        - form: "square"
+          size: "small"
+        - "blank"
+    stem: |
+      Which figure completes the blank cell under the simplest consistent row and column rules?
+    choices:
+      - text: "Medium square"
+        correct: true
+      - text: "Large square"
+        rationale: |
+          This repeats the final row's first size. Large begins that row. Continue the shifted three-size cycle.
+      - text: "Small square"
+        rationale: |
+          This repeats the adjacent size. Small is immediately before the blank. Check the completed row patterns.
+      - text: "Medium circle"
+        rationale: |
+          This follows size but changes the constant outline. Medium is the missing size. Keep the square form.
+    explanation: |
+      Sizes cycle small, medium, large across the first row. Each following row starts one place later in that same cycle. The final row is large, small, medium, so medium fills the blank.
+    approved: false
+  - id: "q-spatial-abstract-reasoning-figure-matrices-0018"
+    type: "figure-matrix"
+    difficulty: "hard"
+    figure: "figure-matrices-18"
+    figureSpec:
+      kind: "figure-matrix"
+      rows: 3
+      cols: 3
+      cells:
+        - form: "square"
+          line: 0
+        - form: "square"
+          line: 45
+        - form: "square"
+          line: 90
+        - form: "square"
+          line: 0
+        - form: "square"
+          line: 90
+        - form: "square"
+          line: 180
+        - form: "square"
+          line: 0
+        - form: "square"
+          line: 135
+        - "blank"
+    stem: |
+      Which figure completes the blank cell under the simplest consistent row and column rules?
+    choices:
+      - text: "Line pointing left"
+        correct: true
+      - text: "Line pointing down"
+        rationale: |
+          This takes a 45-degree turn after the first 135-degree turn. Down is the next cardinal direction after lower-right. Keep the same step within the bottom row.
+      - text: "Line pointing lower-right"
+        rationale: |
+          This repeats the second bottom-row line. That is the last visible direction. Apply the same step again.
+      - text: "Line pointing upper-right"
+        rationale: |
+          This copies the first row's middle diagonal instead of completing the bottom row. Upper-right appears in the grid. Use the bottom row's own 135-degree step.
+    explanation: |
+      Within a row, the line turns clockwise by a constant step. Those steps increase down the rows: 45 degrees, 90 degrees, then 135 degrees. In the final row, a second 135-degree turn from lower-right points left.
+    approved: false
+  - id: "q-spatial-abstract-reasoning-figure-matrices-0019"
+    type: "figure-matrix"
+    difficulty: "hard"
+    figure: "figure-matrices-19"
+    figureSpec:
+      kind: "figure-matrix"
+      rows: 3
+      cols: 3
+      cells:
+        - form: "square"
+          dot: "top-left"
+        - form: "square"
+          dot: "top-right"
+        - form: "square"
+          dot: "bottom-right"
+        - form: "square"
+          dot: "bottom-left"
+        - form: "square"
+          dot: "top-left"
+        - form: "square"
+          dot: "top-right"
+        - form: "square"
+          dot: "bottom-right"
+        - form: "square"
+          dot: "bottom-left"
+        - "blank"
+    stem: |
+      Which figure completes the blank cell under the simplest consistent row and column rules?
+    choices:
+      - text: "Square with dot at top-left"
+        correct: true
+      - text: "Square with dot at bottom-right"
+        rationale: |
+          This copies the bottom row's first corner. That corner begins the row. Continue its clockwise route.
+      - text: "Square with dot at bottom-left"
+        rationale: |
+          This repeats the adjacent corner. Bottom-left is most recent. Move one further corner clockwise.
+      - text: "Square with dot at top-right"
+        rationale: |
+          This uses the wrong column direction. Top-right appears earlier in the grid. Check the counter-clockwise change down columns.
+    explanation: |
+      Dots move one corner clockwise across every row. Moving down a column uses the reverse corner order. The bottom row starts bottom-right, bottom-left, so its last dot is top-left.
+    approved: false
+  - id: "q-spatial-abstract-reasoning-figure-matrices-0020"
+    type: "figure-matrix"
+    difficulty: "exam"
+    figure: "figure-matrices-20"
+    figureSpec:
+      kind: "figure-matrix"
+      rows: 3
+      cols: 3
+      cells:
+        - form: "square"
+          size: "small"
+          dots: 1
+          edgeLines: 3
+        - form: "square"
+          size: "small"
+          dots: 2
+          edgeLines: 2
+        - form: "square"
+          size: "small"
+          dots: 3
+          edgeLines: 1
+        - form: "square"
+          size: "medium"
+          dots: 1
+          edgeLines: 3
+        - form: "square"
+          size: "medium"
+          dots: 2
+          edgeLines: 2
+        - form: "square"
+          size: "medium"
+          dots: 3
+          edgeLines: 1
+        - form: "square"
+          size: "large"
+          dots: 1
+          edgeLines: 3
+        - form: "square"
+          size: "large"
+          dots: 2
+          edgeLines: 2
+        - "blank"
+    stem: |
+      Which figure completes the blank cell under the simplest consistent row and column rules?
+    choices:
+      - text: "Large square; three dots; one edge line"
+        correct: true
+      - text: "Large square; three dots; two edge lines"
+        rationale: |
+          This follows size and dots but freezes edge count. Two edge lines are beside the blank. Continue their decreasing track.
+      - text: "Medium square; three dots; one edge line"
+        rationale: |
+          This follows both counts but copies size from the row above. Medium belongs to that row. Check the final row's large size.
+      - text: "Large square; two dots; one edge line"
+        rationale: |
+          This follows size and edge count but freezes dots. Two dots are adjacent. Continue the increasing dot track.
+    explanation: |
+      Size grows small, medium, large down rows. Dots increase one, two, three across each row, while edge lines decrease three, two, one. The blank combines the final state of all three tracks: large, three dots, one edge line.
+    approved: false

@@ -1,15 +1,19 @@
 meta:
-  subject: reasoning
-  topic: spatial-abstract-reasoning
-  subtopic: mental-rotation-3d-visualization
-  exams: [ acet, ustet, dost-sei , cse-pro]
+  subject: "reasoning"
+  topic: "spatial-abstract-reasoning"
+  subtopic: "mental-rotation-3d-visualization"
+  exams:
+    - "acet"
+    - "ustet"
+    - "dost-sei"
+    - "cse-pro"
 questions:
-  - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0001
-    type: mental-rotation
-    difficulty: easy
-    figure: mental-rotation-3d-visualization-01
+  - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0001"
+    type: "mental-rotation"
+    difficulty: "easy"
+    figure: "mental-rotation-3d-visualization-01"
     figureSpec:
-      kind: cube-net
+      kind: "cube-net"
       cells:
         - [0, 1]
         - [1, 0]
@@ -17,145 +21,153 @@ questions:
         - [1, 2]
         - [2, 1]
         - [3, 1]
+      labels:
+        - "A"
+        - "B"
+        - "C"
+        - "D"
+        - "E"
+        - "F"
     stem: |
-      A cross-shaped (plus-sign) net has one central square, with four squares attached to its four sides (up, down, left, right), and one more square attached to the far end of the "up" arm. If the center square becomes the bottom of the cube once folded, which square becomes the top?
+      Fold the labeled net into a cube. If C becomes the bottom, which face becomes the top?
     choices:
-      - text: The square at the far end of the vertical arm, beyond the immediate "up" neighbor
+      - text: "F"
         correct: true
-      - text: The square attached to the "down" side of the center
+      - text: "A"
         rationale: |
-          You picked an adjacent side face. The "down" neighbor folds up into a side face, not the top face opposite the bottom.
-      - text: The square attached to the "left" side of the center
+          This stops at the first fold. A lies above C in the drawing, so it can look like the top. Check which face lies across the cube from C.
+      - text: "B"
         rationale: |
-          You picked a side face. The "left" neighbor becomes a vertical side wall.
-      - text: The immediate "up" neighbor square itself
+          This treats the left arm as the top. B rises during folding, so it looks like an upper face. Check whether it shares an edge with C.
+      - text: "E"
         rationale: |
-          You selected the adjacent side wall. The immediate "up" square forms a side face, while the square beyond it folds over to form the top face.
+          This stops after folding the lower neighbor. E is on the path toward the top, so it looks promising. Check whether one more fold is needed.
     explanation: |
-      The center square becomes the bottom, and its four immediate neighbors fold up to become the four side faces. The square at the far end of the vertical arm folds all the way over to become the face opposite the bottom: the top.
+      Hold C as the bottom. A, B, D, and E fold up as side faces. F folds over from E and closes the top.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0002
-    type: mental-rotation
-    difficulty: medium
-    figure: mental-rotation-3d-visualization-02
+  - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0002"
+    type: "mental-rotation"
+    difficulty: "medium"
+    figure: "mental-rotation-3d-visualization-02"
     figureSpec:
-      kind: cube-net
+      kind: "cube-net"
       cells:
-        - [1, 0]
-        - [1, 1]
-        - [1, 2]
-        - [1, 3]
-        - [0, 1]
+        - [2, 0]
         - [2, 1]
+        - [2, 2]
+        - [2, 3]
+        - [1, 1]
+        - [0, 1]
+      labels:
+        - "A"
+        - "B"
+        - "C"
+        - "D"
+        - "E"
+        - "F"
     stem: |
-      A flat pattern has 6 squares arranged with 4 in a straight horizontal row, and 2 more squares both attached to the top of the same square (the second square in the row), stacked directly on top of each other. Does this net fold into a valid cube?
+      The six squares in the drawing are folded along their shared edges. Why does this pattern fail to make a cube?
     choices:
-      - text: 'No: the two squares both attached to the top of the same square would both attempt to occupy the same face position when folded, causing an overlap'
+      - text: "Two squares fold onto the same face."
         correct: true
-      - text: 'Yes: any arrangement of exactly 6 connected squares always folds into a valid cube'
+      - text: "The four-square row cannot bend at its edges."
         rationale: |
-          You assumed any 6 connected squares form a valid net regardless of arrangement.
-      - text: 'Yes: since there are exactly 6 squares, no overlap is possible'
+          This treats a straight row as rigid. It looks unbendable while flat. Check that each shared edge is a fold line.
+      - text: "Six connected squares must form a cube."
         rationale: |
-          You assumed square count guarantees zero overlap. Overlaps occur when multiple squares compete for the same face.
-      - text: 'No: but only because this arrangement has more than 6 squares'
+          This uses the face count as a guarantee. Six squares match the six faces of a cube. Check that each folded square reaches a different face.
+      - text: "The two-square branch leaves no side faces."
         rationale: |
-          You miscounted the squares. The pattern has exactly 6 squares, but its arrangement causes overlap.
+          This blames the branch for removing side faces. The branch draws attention away from the row. Track all six face directions.
     explanation: |
-      A valid cube net needs each of its 6 squares to fold into a different face, with no overlaps. Here, two separate squares are both attached to the top of the same square in the row, so when folded, both would attempt to occupy the same face position, causing an overlap.
+      Take B as the front face. E folds to the top and F folds to the back. In the row, C folds to the right and D also folds to the back. D and F overlap.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0003
-    type: mental-rotation
-    difficulty: medium
+  - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0003"
+    type: "mental-rotation"
+    difficulty: "medium"
     stem: |
-      A solid cylinder (like a can) stands upright, with light shining straight down from directly above it. What shape is the shadow cast on the ground?
+      An opaque upright cylinder receives parallel light vertically downward onto a horizontal screen. What is the shape of its shadow?
     choices:
-      - text: A circle
+      - text: "A circle"
         correct: true
-      - text: A rectangle
+      - text: "An ellipse"
         rationale: |
-          You used the side-view profile instead of the top-down view. Light from directly above casts a circular shadow matching the cylinder's top face.
-      - text: A triangle
+          This assumes the light strikes at a slant. Tilted round surfaces can give oval views. Check the ray direction and screen angle.
+      - text: "A rectangle"
         rationale: |
-          You confused a cylinder's top projection with a cone's side projection.
-      - text: A square
+          This uses the side view. A cylinder looks rectangular from the side. Check that the rays travel downward.
+      - text: "A semicircle"
         rationale: |
-          You assigned a square shadow to a round cylinder.
+          This keeps only half of the round outline. The front half is easier to picture. Check the full top view.
     explanation: |
-      Since the light comes from directly above, the shadow shows the cylinder's outline as seen from directly above: only its circular top face outline, since the sides are hidden directly beneath it. The shadow is a circle.
+      The rays travel along the cylinder's axis. Its circular top outlines the shadow on the horizontal screen.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0004
-    type: mental-rotation
-    difficulty: medium
+  - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0004"
+    type: "mental-rotation"
+    difficulty: "medium"
     stem: |
-      The same upright cylinder now has light shining from directly the side (horizontally), rather than from above. What shape is the shadow cast on a wall behind it?
+      An opaque upright cylinder receives horizontal parallel light. A vertical screen is perpendicular to the rays. What shape is its shadow?
     choices:
-      - text: A rectangle
+      - text: "A rectangle"
         correct: true
-      - text: A circle
+      - text: "A circle"
         rationale: |
-          You used the top-down view instead of the side-view projection. Light from the side casts a rectangular shadow matching the cylinder's height and width profile.
-      - text: A triangle
+          This uses the circular top view. The round ends are the cylinder's most familiar feature. Check which direction the rays travel.
+      - text: "An ellipse"
         rationale: |
-          You assigned a triangular profile, which belongs to a cone rather than a cylinder.
-      - text: An oval
+          This tilts a circular end into an oval. An angled view can make that seem reasonable. Check that the light is exactly horizontal.
+      - text: "An isosceles triangle"
         rationale: |
-          You assumed an angled shadow. Light shining straight from the side casts a flat rectangular shadow.
+          This treats the curved side as tapering. Curved objects can be confused with cones. Check that the cylinder has the same width at every height.
     explanation: |
-      Light from the side reveals the cylinder's outline as seen from that side. Viewed from the side, a cylinder's outline is a rectangle (the height and diameter define the rectangle's two dimensions), not a circle.
+      Viewed along the horizontal rays, the cylinder has two straight sides and flat top and bottom edges. The shadow is a rectangle with the cylinder's height and diameter.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0005
-    type: mental-rotation
-    difficulty: medium
+  - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0005"
+    type: "mental-rotation"
+    difficulty: "medium"
     stem: |
-      A solid cube sits on a table, with light shining straight down from directly above it. What shape is the shadow cast on the table?
+      A cube rests flat on a horizontal table. Parallel light shines vertically downward. Which outline is cast on the table?
     choices:
-      - text: A square
+      - text: "A square"
         correct: true
-      - text: A circle
+      - text: "A rectangle with unequal sides"
         rationale: |
-          You assigned a round shadow to a square cube face.
-      - text: A triangle
+          This treats the cube as a longer box. Both solids have rectangular faces. Check that all cube edges have equal length.
+      - text: "A six-sided outline"
         rationale: |
-          You assigned a triangular shadow to a cube.
-      - text: A rectangle wider than it is tall
+          This uses a tilted corner view. Several visible faces can give a six-sided outline. Check that the cube rests flat and the rays point straight down.
+      - text: "A diamond with unequal diagonals"
         rationale: |
-          You distorted the square dimensions. A cube's top-down view is a symmetric square.
+          This distorts the top face as in a slanted view. A square can look like a stretched diamond in perspective. Check that the rays meet the table at right angles.
     explanation: |
-      Looking straight down at a cube, you see only its square top face outline, since the sides are hidden directly beneath that square cross-section. The shadow is a square.
+      The rays follow the direction perpendicular to the top face. The top face has four equal sides and right angles, so its projection is a square.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0006
-    type: mental-rotation
-    difficulty: medium
+  - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0006"
+    type: "mental-rotation"
+    difficulty: "medium"
     stem: |
-      A solid sphere (like a ball) has light shining on it from any direction. What shape is the shadow cast, regardless of the light's direction?
+      An opaque sphere is projected by parallel light onto a screen perpendicular to the rays. What happens to the shadow outline when the sphere turns?
     choices:
-      - text: A circle, since a sphere's outline looks the same from every viewing angle
+      - text: "It stays a circle."
         correct: true
-      - text: A shape that changes depending on the light's direction, since a sphere has many different faces
+      - text: "It changes between circles and ellipses."
         rationale: |
-          You assumed a sphere has distinct faces. A sphere is uniformly round from every angle.
-      - text: A square, since spheres always cast square shadows
+          This changes the screen angle while turning the object. Oval shadows are possible on a tilted screen. Check that the screen stays perpendicular to the rays.
+      - text: "It becomes smaller after a quarter turn."
         rationale: |
-          You assigned a square shadow to a spherical object.
-      - text: No shadow at all, since spheres do not block light
+          This assumes turning reduces the visible width. That can happen with a flat disk. Check that a sphere has the same width from every direction.
+      - text: "It develops corners after a half turn."
         rationale: |
-          You claimed solid spheres do not block light.
+          This treats a sphere like a solid with flat faces. Turning a cube changes the edges in view. Check whether the object has edges at all.
     explanation: |
-      A sphere's outline is a circle from every possible viewing angle, unlike a cylinder or cube, so its shadow is always a circle regardless of the light's direction.
+      Every view of a sphere along parallel rays has a circular outline. Turning the sphere keeps its radius and shape the same, so the outline stays circular.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0007
-    type: mental-rotation
-    difficulty: medium
-    figure: mental-rotation-3d-visualization-07
+  - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0007"
+    type: "mental-rotation"
+    difficulty: "medium"
+    figure: "mental-rotation-3d-visualization-07"
     figureSpec:
-      kind: cube-net
+      kind: "cube-net"
       cells:
         - [0, 0]
         - [0, 1]
@@ -163,30 +175,36 @@ questions:
         - [0, 3]
         - [0, 4]
         - [0, 5]
+      labels:
+        - "A"
+        - "B"
+        - "C"
+        - "D"
+        - "E"
+        - "F"
     stem: |
-      A flat pattern has 6 squares arranged in a single straight horizontal row (a 1-by-6 strip, with each square attached only to its immediate left and right neighbors). Does this net fold into a valid cube?
+      Fold the strip along each shared edge to try to make a cube. Which square first overlaps A?
     choices:
-      - text: 'No: folding this strip sequentially, the fifth square would land back on the same face position as the first square, causing an overlap'
+      - text: "E"
         correct: true
-      - text: 'Yes: a straight row of 6 squares always folds into a valid cube'
+      - text: "D"
         rationale: |
-          You assumed a 1-by-6 strip can fold into a closed 3D cube without overlapping.
-      - text: 'Yes: since all 6 squares are connected in a single line, no overlap is possible'
+          This stops one fold early. Four sides complete a loop, so D can seem to be the return point. Count directions starting with A before making any fold.
+      - text: "F"
         rationale: |
-          You ignored 3D geometry. Folding 4 right angles in a straight line wraps the 5th square onto the 1st.
-      - text: 'No: but only because a straight row can never contain exactly 6 squares'
+          This waits until the last square. F ends the strip, so it looks like the closure. Check for overlap at each fold.
+      - text: "C"
         rationale: |
-          You disputed the given number of squares in the strip.
+          This confuses opposite with overlapping. C faces away from A after two folds. Check whether two faces point in the same direction.
     explanation: |
-      Folding a straight 1-by-6 strip one square at a time (each fold turning 90°) wraps back around: the fifth square ends up occupying the same face position as the first square, causing an overlap. A straight strip of 6 squares is not a valid cube net.
+      Each fold turns the next face through $90^\circ$. A, B, C, and D wrap around four side directions. E then reaches A's direction and overlaps it.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0008
-    type: mental-rotation
-    difficulty: hard
-    figure: mental-rotation-3d-visualization-08
+  - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0008"
+    type: "mental-rotation"
+    difficulty: "hard"
+    figure: "mental-rotation-3d-visualization-08"
     figureSpec:
-      kind: cube-net
+      kind: "cube-net"
       cells:
         - [0, 1]
         - [1, 0]
@@ -194,30 +212,36 @@ questions:
         - [1, 2]
         - [2, 1]
         - [3, 1]
+      labels:
+        - "A"
+        - "B"
+        - "C"
+        - "D"
+        - "E"
+        - "F"
     stem: |
-      In a cross-shaped net, the "up" neighbor and the "left" neighbor of the center square do not touch each other in the flat net (each only touches the center directly). A student assumes that since these two squares are not touching in the flat net, they must also not be touching (not adjacent) as faces once the cube is folded. Is this assumption correct?
+      Fold the labeled net into a cube. Which relationship holds between A and B?
     choices:
-      - text: 'No: squares that are not touching in the flat net can still become adjacent (edge-sharing) faces once folded; the "up" and "left" side faces, though not touching in the net, end up sharing an edge on the folded cube.'
+      - text: "They share an edge."
         correct: true
-      - text: 'Yes: two squares that do not touch in the flat net can never become adjacent faces after folding.'
+      - text: "They become opposite faces."
         rationale: |
-          You assumed flat net connectivity dictates 3D face adjacency. Folding brings non-adjacent net edges together.
-      - text: 'Yes: but only because side faces are never adjacent to each other on a real cube.'
+          This keeps their flat separation. A and B do not share an edge on paper. Check where their free edges meet after folding.
+      - text: "They overlap on the same face."
         rationale: |
-          You claimed side faces do not touch on a cube. Every side face shares edges with adjacent side faces.
-      - text: 'No: but only because the "up" and "left" squares are actually the same square.'
+          This treats meeting as overlap. Both faces rise beside C. Check whether their planes face in different directions.
+      - text: "They meet only at one corner."
         rationale: |
-          You claimed two distinct net squares are the same entity.
+          This keeps only their corner contact in the drawing. A corner is where they meet while flat. Check the full vertical edge formed by folding.
     explanation: |
-      Squares that are not touching in the flat net are not necessarily still separate once folded: carefully trace the actual fold, since "far apart" squares in the net can become adjacent faces on the cube, since every side face of a cube shares an edge with its neighboring side faces.
+      A and B fold up from neighboring edges of C. Their free edges meet to form a cube edge.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0009
-    type: mental-rotation
-    difficulty: hard
-    figure: mental-rotation-3d-visualization-09
+  - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0009"
+    type: "mental-rotation"
+    difficulty: "hard"
+    figure: "mental-rotation-3d-visualization-09"
     figureSpec:
-      kind: cube-net
+      kind: "cube-net"
       cells:
         - [0, 0]
         - [0, 1]
@@ -225,51 +249,56 @@ questions:
         - [1, 0]
         - [1, 1]
         - [1, 2]
+      labels:
+        - "A"
+        - "B"
+        - "C"
+        - "D"
+        - "E"
+        - "F"
     stem: |
-      A student sees any arrangement of 6 connected squares and assumes it must automatically fold into a valid cube, since "a cube has 6 faces, and this net has 6 squares." Is this assumption correct?
+      A student proposes the rectangular six-square pattern as a cube net. Which test decides whether it works?
     choices:
-      - text: 'No: having exactly 6 squares is necessary but not sufficient for a valid net; the specific arrangement must also avoid any folding conflict, such as two squares competing for the same face position.'
+      - text: "Track whether all folded faces are distinct."
         correct: true
-      - text: 'Yes: any 6 connected squares, arranged in any pattern, always fold into a valid cube.'
+      - text: "Check only whether six squares are present."
         rationale: |
-          You assumed square count alone guarantees a valid net, ignoring arrangement conflicts.
-      - text: 'Yes: but only if the 6 squares are arranged in a perfect circle.'
+          This uses the number of faces alone. A cube has six faces, so the matching count looks sufficient. Check the direction reached by each fold.
+      - text: "Check only whether all squares are connected."
         rationale: |
-          You claimed net squares must be arranged in a circle.
-      - text: 'No: but only because a cube actually has more than 6 faces.'
+          This uses connectedness alone. A net must stay in one piece, so that feels decisive. Check whether faces overlap after folding.
+      - text: "Check only whether the pattern is symmetric."
         rationale: |
-          You misstated the number of faces on a cube.
+          This treats symmetry as proof. The rectangle looks orderly and balanced. Check the three-dimensional folds instead of the flat outline.
     explanation: |
-      Not every arrangement of 6 connected squares folds into a proper cube: some arrangements (like two squares both branching off the same face) cause faces to overlap instead of covering distinct sides. The square count alone does not guarantee validity.
+      A cube needs one square in each of six face directions. Following the folds tests whether every square reaches a different direction without conflict.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0010
-    type: mental-rotation
-    difficulty: hard
+  - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0010"
+    type: "mental-rotation"
+    difficulty: "hard"
     stem: |
-      A student assumes a cylinder's shadow, no matter the light's direction, must always match one of the cylinder's actual flat surfaces (its circular top or bottom). Given that a cylinder's side is curved, not flat, is this assumption correct?
+      Under parallel light perpendicular to a screen, a cylinder can cast a rectangular shadow. What does this show about shadows?
     choices:
-      - text: 'No: a shadow shows the silhouette from the light''s specific viewing angle, which may look completely different from any single flat face; a cylinder''s side-on shadow is a rectangle, even though the cylinder has no flat rectangular face at all.'
+      - text: "They show the outline along the rays."
         correct: true
-      - text: 'Yes: a shadow always exactly matches one of the object''s existing flat faces.'
+      - text: "They copy one flat face visible from any direction."
         rationale: |
-          You assumed shadows can only copy existing flat face shapes.
-      - text: 'Yes: but only because cylinders do not have curved surfaces.'
+          This confuses a face with the full outline. The cylinder's flat circular ends are easy to recognize. Check the boundary seen along the rays.
+      - text: "They show only the surface nearest the screen."
         rationale: |
-          You claimed cylinders lack curved surfaces.
-      - text: 'No: but only because cylinders cannot cast shadows at all.'
+          This uses distance from the screen to select a surface. Near surfaces seem most likely to cast the shadow. Check the whole outline that blocks the rays.
+      - text: "They always retain the shape of the object's base."
         rationale: |
-          You claimed cylinders do not cast shadows.
+          This preserves the base shape after the viewing direction changes. The circular base names the solid's shape. Check the ray direction before choosing a projection.
     explanation: |
-      A shadow shows the silhouette from the light's specific viewing angle, which may look completely different from any single flat face of the actual 3D object. A cylinder has no flat rectangular side face at all, yet its side-on shadow is a rectangle: always reason from the viewing angle, not from assuming the shadow copies an existing face shape.
+      Trace the boundary of the whole cylinder along the rays. From the side, its height and diameter form a rectangular outline. That outline sets the shadow.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0011
-    type: mental-rotation
-    difficulty: medium
-    figure: mental-rotation-3d-visualization-11
+  - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0011"
+    type: "mental-rotation"
+    difficulty: "medium"
+    figure: "mental-rotation-3d-visualization-11"
     figureSpec:
-      kind: cube-net
+      kind: "cube-net"
       cells:
         - [0, 1]
         - [1, 0]
@@ -277,51 +306,56 @@ questions:
         - [1, 2]
         - [2, 1]
         - [3, 1]
+      labels:
+        - "A"
+        - "B"
+        - "C"
+        - "D"
+        - "E"
+        - "F"
     stem: |
-      A T-shaped net has 4 squares in a vertical column, with 2 more squares attached to the sides of the second square from the top (one on the left, one on the right). If the bottom square of the vertical column becomes the bottom of the cube once folded, which square becomes the top?
+      Fold the labeled net into a cube. If F is the bottom face, which labeled face is the top?
     choices:
-      - text: The top square of the vertical column (the square farthest from the bottom, at the far end of the column)
+      - text: "C"
         correct: true
-      - text: The square attached to the left side of the second-from-top square
+      - text: "A"
         rationale: |
-          You selected a side wall face instead of the top face opposite the bottom.
-      - text: The square attached to the right side of the second-from-top square
+          This treats the ends of the flat column as opposite. A is farthest from F on paper. Check the face directions after folding.
+      - text: "B"
         rationale: |
-          You selected a side wall face instead of the top face opposite the bottom.
-      - text: The second square from the bottom of the column
+          This uses distance across the net. B looks far from F in the drawing. Check whether B shares an edge with F on the cube.
+      - text: "E"
         rationale: |
-          You selected an adjacent side wall face rather than the top face opposite the bottom.
+          This mistakes an adjacent face for the opposite face. E directly connects to F. Check whether the faces share an edge.
     explanation: |
-      When folding a column of 4 squares with 2 side squares attached partway up, the square at the far end of the column (opposite the bottom, with one square directly between them in a straight line) becomes the top, following the "one square between them in a straight line" rule for opposite faces.
+      Hold C still and fold E into a side face. F folds over to the face opposite C. Opposite faces stay opposite when the cube turns, so with F at the bottom, C is at the top.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0012
-    type: mental-rotation
-    difficulty: medium
+  - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0012"
+    type: "mental-rotation"
+    difficulty: "medium"
     stem: |
-      A solid cone (like an ice cream cone shape, pointed at the top, circular at the base) sits with its circular base on a table. Light shines straight down from above, and separately, light shines from directly the side. What shape is the shadow in each case?
+      A cone rests on its circular base. Parallel light is used in two trials, with each screen perpendicular to the rays. What are the shadows from vertically above and horizontally from the side?
     choices:
-      - text: From above, a circle (matching the circular base); from the side, a triangle (matching the cone's pointed profile)
+      - text: "A circle from above; a triangle from the side"
         correct: true
-      - text: From above, a triangle; from the side, a circle
+      - text: "A triangle from above; a circle from the side"
         rationale: |
-          You inverted the top and side projection shadows.
-      - text: A circle from both directions, since cones always cast circular shadows
+          This exchanges the viewing directions. The cone has both a round base and a pointed profile. Match each outline to the ray direction.
+      - text: "A circle from above; a rectangle from the side"
         rationale: |
-          You ignored the tapering side profile of a cone.
-      - text: A triangle from both directions, since cones always cast triangular shadows
+          This uses the cylinder's side profile for a cone. Both solids have circular bases. Check whether the width narrows toward a tip.
+      - text: "An ellipse from above; a triangle from the side"
         rationale: |
-          You ignored the circular base profile when viewed from above.
+          This assumes an angled top view. Round bases can look oval at a slant. Check that the rays are vertical and the screen horizontal.
     explanation: |
-      From directly above, you see the cone's circular base outline, since the pointed top is directly above the center of that circle, a circular shadow. From the side, you see the cone's tapering profile, a triangular shadow.
+      From above, the cone's circular base defines the outer outline. From the side, the outline runs from the base's ends to the tip and forms a triangle.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0013
-    type: mental-rotation
-    difficulty: hard
-    figure: mental-rotation-3d-visualization-13
+  - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0013"
+    type: "mental-rotation"
+    difficulty: "hard"
+    figure: "mental-rotation-3d-visualization-13"
     figureSpec:
-      kind: cube-net
+      kind: "cube-net"
       cells:
         - [0, 1]
         - [1, 0]
@@ -329,51 +363,286 @@ questions:
         - [1, 2]
         - [2, 1]
         - [3, 1]
+      labels:
+        - "A"
+        - "B"
+        - "C"
+        - "D"
+        - "E"
+        - "F"
     stem: |
-      In the same cross-shaped net as before (center square as bottom, four immediate neighbors as sides, and one far-end square on the vertical arm as the top), which two faces are opposite each other among the four side faces (up, down, left, right neighbors of the center)?
+      After folding the labeled net, which list gives the three pairs of opposite faces?
     choices:
-      - text: The "up" neighbor and the "down" neighbor are opposite each other; the "left" neighbor and the "right" neighbor are opposite each other
+      - text: "A and E; B and D; C and F"
         correct: true
-      - text: The "up" neighbor and the "left" neighbor are opposite each other; the "down" neighbor and the "right" neighbor are opposite each other
+      - text: "A and B; C and D; E and F"
         rationale: |
-          You paired adjacent side walls as opposite faces.
-      - text: All four side faces are opposite each other simultaneously
+          This pairs neighboring labels. The alphabetical order makes the grouping look neat. Check where the faces point after folding.
+      - text: "A and F; B and C; D and E"
         rationale: |
-          You claimed faces can be opposite multiple faces at once.
-      - text: None of the four side faces are opposite any other face
+          This pairs faces by positions near the ends of the drawing. Flat distance can look like cube distance. Check whether paired faces share an edge after folding.
+      - text: "A and D; B and E; C and F"
         rationale: |
-          You claimed side faces on a cube have no opposite faces.
+          This keeps C opposite F but mixes the side pairs. The crossed grouping may look balanced on paper. Check which neighbors attach to opposite edges of C.
     explanation: |
-      Once folded into a cube, opposite faces come from squares with exactly one square directly between them in a straight line within the net. The "up" and "down" neighbors sit in a straight vertical line with the center between them, and the "left" and "right" neighbors sit in a straight horizontal line with the center between them: making each of those pairs opposite faces.
+      C is the center, and F folds over to face it. A and E rise from opposite edges of C, so they face each other. B and D rise from the other opposite edges and also face each other.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0014
-    type: mental-rotation
-    difficulty: exam
-    figure: mental-rotation-3d-visualization-14
+  - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0014"
+    type: "mental-rotation"
+    difficulty: "exam"
+    figure: "mental-rotation-3d-visualization-14"
     figureSpec:
-      kind: cube-net
+      kind: "cube-net"
       cells:
         - [0, 1]
         - [1, 0]
         - [1, 1]
         - [1, 2]
+        - [2, 1]
+        - [1, 3]
+      labels:
+        - "A"
+        - "B"
+        - "C"
+        - "D"
+        - "E"
+        - "F"
+    stem: |
+      The labeled net folds into a cube. With C resting flat on the table, parallel light shines vertically downward. Which face is at the top, and what is the shadow outline?
+    choices:
+      - text: "F; a square"
+        correct: true
+      - text: "D; a square"
+        rationale: |
+          This stops at the right-hand side face. D lies on the route from C to F. Check whether the next square folds over the top.
+      - text: "A; a rectangle with unequal sides"
+        rationale: |
+          This chooses a direct neighbor and stretches the outline. A rises from C as a side face. Check both face directions and equal cube edges.
+      - text: "E; a diamond with unequal diagonals"
+        rationale: |
+          This chooses a direct neighbor and uses a slanted view. E is close to C in the drawing. Check the vertical rays and the folded face opposite C.
+    explanation: |
+      C becomes the bottom. D folds up at its right edge, and F folds across to the top. The cube's top view has four equal sides and right angles, so its shadow is a square.
+    approved: true
+  - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0015"
+    type: "mental-rotation"
+    difficulty: "easy"
+    figure: "mental-rotation-3d-visualization-15"
+    figureSpec:
+      kind: "cube-net"
+      cells:
+        - [1, 0]
+        - [1, 1]
+        - [1, 2]
+        - [1, 3]
+        - [0, 0]
+        - [2, 2]
+      labels:
+        - "A"
+        - "B"
+        - "C"
+        - "D"
+        - "E"
+        - "F"
+    stem: |
+      Fold the net. Which face is opposite E?
+    choices:
+      - text: "F"
+        correct: true
+      - text: "A"
+        rationale: |
+          This treats the attached square as the opposite. A touches E in the net. Check that edge-sharing faces stay adjacent.
+      - text: "B"
+        rationale: |
+          This chooses the next side of the strip. B is one fold away from A. Track the end faces separately from the four side faces.
+      - text: "C"
+        rationale: |
+          This uses the branch below C as a reason to pick C. C supports F during folding. Check the face at the end of that branch.
+    explanation: |
+      A, B, C, and D wrap around the side of the cube. E closes one end and F closes the other. The two end faces are opposite.
+    approved: false
+  - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0016"
+    type: "mental-rotation"
+    difficulty: "medium"
+    figure: "mental-rotation-3d-visualization-16"
+    figureSpec:
+      kind: "cube-net"
+      cells:
+        - [1, 0]
+        - [1, 1]
+        - [1, 2]
+        - [1, 3]
+        - [0, 0]
+        - [0, 2]
+      labels:
+        - "A"
+        - "B"
+        - "C"
+        - "D"
+        - "E"
+        - "F"
+    stem: |
+      Why can this six-square pattern not form a cube?
+    choices:
+      - text: "E and F overlap."
+        correct: true
+      - text: "A and C overlap."
+        rationale: |
+          This confuses opposite with overlapping. A and C have one square between them in the strip. Track their directions after two folds.
+      - text: "B and D overlap."
+        rationale: |
+          This treats separated row positions as the same face. B and D face across the cube. Check whether their normals point toward or away from each other.
+      - text: "The row cannot form four side faces."
+        rationale: |
+          This treats the strip itself as invalid. Four faces in a row can wrap around a cube. Check the end squares for the actual conflict.
+    explanation: |
+      A through D wrap around four side directions. E and F attach above the strip and both fold toward the same end of the cube. They overlap and leave the other end open.
+    approved: false
+  - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0017"
+    type: "mental-rotation"
+    difficulty: "hard"
+    figure: "mental-rotation-3d-visualization-17"
+    figureSpec:
+      kind: "cube-net"
+      cells:
+        - [0, 0]
+        - [1, 0]
+        - [1, 1]
         - [2, 1]
         - [2, 2]
+        - [3, 2]
+      labels:
+        - "A"
+        - "B"
+        - "C"
+        - "D"
+        - "E"
+        - "F"
     stem: |
-      A flat pattern has 6 squares: a central square, with four squares attached to its four sides (forming the same cross shape as before), but this time, the fifth "extra" square is attached to the far end of the "right" arm instead of the "up" arm. If the center square becomes the bottom, and light later shines straight down onto the assembled cube's top face, what shape is the shadow, and which square in the net became the face casting it?
+      Fold this staircase net. Which face is opposite A?
     choices:
-      - text: The shadow is a square (matching the flat top face of the cube), and the square at the far end of the "right" arm became the top face, since it is now the square with exactly one square (the center) directly between it and the center in a straight line.
+      - text: "D"
         correct: true
-      - text: The shadow is a circle, and the square attached to the "up" side of the center became the top face.
+      - text: "C"
         rationale: |
-          You assigned a circular shadow to a cube and misidentified the top face.
-      - text: The shadow is a square, and the square attached to the "down" side of the center became the top face.
+          This stops one fold early. C is reached after two turns in the net. Track the direction of each turn instead of counting squares.
+      - text: "E"
         rationale: |
-          You selected the "down" side face as the top face.
-      - text: The shadow is a triangle, and no square in the net becomes the top face.
+          This assumes the next staircase step reaches the bottom. E is farther from A on paper. Check the orientation already reached by D.
+      - text: "F"
         rationale: |
-          You assigned a triangular shadow and claimed no top face forms.
+          This pairs the first and last squares. The ends of a path can seem opposite. Check folded directions rather than path length.
     explanation: |
-      Moving the "extra" far-end square to the "right" arm changes which face becomes the top: it is now the far-end square on that arm (following the same "one square between them in a straight line" rule), not the "up" neighbor. Since a cube's top face is flat and square, its top-down shadow is a square.
-    approved: true
+      Hold A as the top. B folds down from A. C turns from B to another side, and D folds from C to the bottom. D faces across the cube from A.
+    approved: false
+  - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0018"
+    type: "mental-rotation"
+    difficulty: "hard"
+    figure: "mental-rotation-3d-visualization-18"
+    figureSpec:
+      kind: "cube-net"
+      cells:
+        - [0, 1]
+        - [1, 0]
+        - [1, 1]
+        - [1, 2]
+        - [2, 1]
+        - [3, 1]
+      labels:
+        - "A"
+        - "B"
+        - "C"
+        - "D"
+        - "E"
+        - "F"
+    stem: |
+      The folded cube has C facing front and A facing up. Which face is at the back?
+    choices:
+      - text: "F"
+        correct: true
+      - text: "E"
+        rationale: |
+          This sends the lower neighbor to the back. E lies below C while flat. Check which face requires two folds from C.
+      - text: "B"
+        rationale: |
+          This uses the left arm as the back. B is hidden in some cube views. Check which face is opposite the front.
+      - text: "D"
+        rationale: |
+          This uses the right arm as the back. D moves out of the flat plane during folding. Check whether D still shares an edge with C.
+    explanation: |
+      F is opposite C in this net. Turning the folded cube to place C at the front puts F at the back.
+    approved: false
+  - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0019"
+    type: "mental-rotation"
+    difficulty: "exam"
+    figure: "mental-rotation-3d-visualization-19"
+    figureSpec:
+      kind: "cube-net"
+      cells:
+        - [0, 0]
+        - [1, 0]
+        - [1, 1]
+        - [1, 2]
+        - [1, 3]
+        - [2, 3]
+      labels:
+        - "A"
+        - "B"
+        - "C"
+        - "D"
+        - "E"
+        - "F"
+    stem: |
+      Fold the net into a cube. Which set of three faces can meet at one corner?
+    choices:
+      - text: "A, B, C"
+        correct: true
+      - text: "A, B, D"
+        rationale: |
+          This brings opposite side faces together. B and D sit two positions apart in the strip. Check whether any pair in the set is opposite.
+      - text: "A, B, F"
+        rationale: |
+          This brings the opposite end faces together. A and F close different ends. Check whether both could touch a single corner.
+      - text: "B, C, E"
+        rationale: |
+          This brings opposite side faces together. C and E wrap to opposite sides. Check all three pairs before selecting a corner.
+    explanation: |
+      The row B, C, D, E forms four side faces. A and F close opposite ends. A can meet the neighboring side faces B and C at one corner.
+    approved: false
+  - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0020"
+    type: "mental-rotation"
+    difficulty: "exam"
+    figure: "mental-rotation-3d-visualization-20"
+    figureSpec:
+      kind: "cube-net"
+      cells:
+        - [0, 1]
+        - [1, 1]
+        - [1, 2]
+        - [2, 0]
+        - [2, 1]
+        - [3, 0]
+      labels:
+        - "A"
+        - "B"
+        - "C"
+        - "D"
+        - "E"
+        - "F"
+    stem: |
+      After this net folds into a cube, face B is painted red. Which unpainted face does not share an edge with B?
+    choices:
+      - text: "F"
+        correct: true
+      - text: "A"
+        rationale: |
+          This keeps the top neighbor separate. A lies above B while flat. Check the edge directly shared by A and B.
+      - text: "C"
+        rationale: |
+          This treats a sideways fold as separation. C turns at B's right edge. Check that folding preserves their shared edge.
+      - text: "E"
+        rationale: |
+          This chooses the lower neighbor. E moves below B in the flat drawing. Check that they still share the fold edge.
+    explanation: |
+      A and E fold from opposite edges of B as side faces. D turns from E to another side. F folds from D to the face across from B. Opposite faces have no shared edge.
+    approved: false

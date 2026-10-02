@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-logical-verbal-reasoning-number-and-letter-sequences-0001	CORRECTED	SOLVED-MATCH	stem;explanation;notes;math formatting	LOW	Notes contained broken math fragments; made the intended constant-difference pattern explicit.
+q-logical-verbal-reasoning-number-and-letter-sequences-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated the add-five scenario in 0001; replaced with a missing term in a descending sequence.
+q-logical-verbal-reasoning-number-and-letter-sequences-0003	CORRECTED	SOLVED-MATCH	stem;distractor;explanation;notes;math formatting	MEDIUM	Notes had broken math and 150 lacked a specific mistake; replaced it with repeating the last difference.
+q-logical-verbal-reasoning-number-and-letter-sequences-0004	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated the multiply-by-three scenario in 0003; replaced with a missing term under a decreasing ratio.
+q-logical-verbal-reasoning-number-and-letter-sequences-0005	CORRECTED	SOLVED-MATCH	stem;explanation;notes;math formatting	LOW	Replaced broken math fragments in notes.
+q-logical-verbal-reasoning-number-and-letter-sequences-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated the increasing-by-one gaps in 0005; replaced with odd-number differences.
+q-logical-verbal-reasoning-number-and-letter-sequences-0007	CORRECTED	SOLVED-MATCH	stem;explanation;notes;math formatting	LOW	Made the interleaved interpretation explicit and repaired broken note math.
+q-logical-verbal-reasoning-number-and-letter-sequences-0008	CORRECTED	SOLVED-MATCH	stem;distractors;explanation;notes	MEDIUM	Replaced 12 and 10 with clearer recurrence mistakes; repaired broken note math.
+q-logical-verbal-reasoning-number-and-letter-sequences-0009	CORRECTED	SOLVED-MATCH	stem;explanation;notes;math formatting	LOW	Specified the representation and replaced broken math in notes.
+q-logical-verbal-reasoning-number-and-letter-sequences-0010	CORRECTED	SOLVED-MATCH	stem;explanation;notes;math formatting	LOW	Repaired incomplete math fragments in notes.
+q-logical-verbal-reasoning-number-and-letter-sequences-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated 0005's changing-gap pattern and put the solution in the answer; replaced with a rule-checking correction task.
+q-logical-verbal-reasoning-number-and-letter-sequences-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Removed coaching and a solution-length choice; added a repeated two-operation pattern.
+q-logical-verbal-reasoning-number-and-letter-sequences-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Correct choice stated the whole solution; changed to the required letter with specific conversion distractors.
+q-logical-verbal-reasoning-number-and-letter-sequences-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	A second constant letter-jump item repeated 0010's framing; replaced with interleaved letter tracks.
+q-logical-verbal-reasoning-number-and-letter-sequences-0015	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated 0007's interleaved odd/even constant steps; replaced with alternating operations.
+q-logical-verbal-reasoning-number-and-letter-sequences-0016	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated the increasing-letter-jump pattern in 0009; replaced with an explicitly cyclic alphabet.
+q-logical-verbal-reasoning-number-and-letter-sequences-0017	NEW	NEW	explanation;notes	NONE	
+q-logical-verbal-reasoning-number-and-letter-sequences-0018	NEW	NEW	explanation;notes	NONE	
+q-logical-verbal-reasoning-number-and-letter-sequences-0019	NEW	NEW	explanation;notes	NONE	
+q-logical-verbal-reasoning-number-and-letter-sequences-0020	NEW	NEW	explanation;notes	NONE	

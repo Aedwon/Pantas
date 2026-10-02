@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-mechanical-technical-reasoning-structural-stability-0001	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Replaced overbroad balancing definition with resultant-weight definition and added supported figure.
+q-mechanical-technical-reasoning-structural-stability-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Added figure and replaced unrelated load-distance distractor.
+q-mechanical-technical-reasoning-structural-stability-0003	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Original centered-line choice also satisfied the correct condition; removed overlapping answers.
+q-mechanical-technical-reasoning-structural-stability-0004	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Tightened longest answer and made the static comparison explicit.
+q-mechanical-technical-reasoning-structural-stability-0005	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Specified quasi-static no-slip tipping and separated threshold from motion beyond it.
+q-mechanical-technical-reasoning-structural-stability-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Original explanation applied a static gravity-line rule to an accelerating truck.
+q-mechanical-technical-reasoning-structural-stability-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Added supported stance drawing and limited the question to slow sideways shifts.
+q-mechanical-technical-reasoning-structural-stability-0008	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Replaced implausible no-center distractor with a real competing-factor comparison.
+q-mechanical-technical-reasoning-structural-stability-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Replaced repeated yes/no misconception with a defined mass-only comparison.
+q-mechanical-technical-reasoning-structural-stability-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Original had two equivalent correct-sounding yes/no alternatives; changed to orientation mechanism.
+q-mechanical-technical-reasoning-structural-stability-0011	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	HIGH	Curved-base self-righting is absent from the lesson; the always claim and long key are retained for a ruling. No supported renderer draws this rounded base.
+q-mechanical-technical-reasoning-structural-stability-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Original used wheelbase for track width and a static explanation for dynamic rollover.
+q-mechanical-technical-reasoning-structural-stability-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Repeated wider-base comparison; changed to the shifting projection with fixed contacts.
+q-mechanical-technical-reasoning-structural-stability-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Original treated a tilted box as retaining a three-meter contact region and misidentified its pivot boundary.
+q-mechanical-technical-reasoning-structural-stability-0015	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Repeated two-factor comparison; isolated center height and removed absolute no-tip distractor.
+q-mechanical-technical-reasoning-structural-stability-0016	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-mechanical-technical-reasoning-structural-stability-0017	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-mechanical-technical-reasoning-structural-stability-0018	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-mechanical-technical-reasoning-structural-stability-0019	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-mechanical-technical-reasoning-structural-stability-0020	NEW	NEW	stem;choices;explanation;notes;figure	NONE	

@@ -1,383 +1,413 @@
 meta:
-  subject: language-proficiency
-  topic: grammar-and-structure
-  subtopic: pronoun-antecedent-agreement
-  exams: [ upcat, acet, dlsucet, ustet, dost-sei , cse-pro, cse-sub]
+  subject: "language-proficiency"
+  topic: "grammar-and-structure"
+  subtopic: "pronoun-antecedent-agreement"
+  exams:
+    - "upcat"
+    - "acet"
+    - "dlsucet"
+    - "ustet"
+    - "dost-sei"
+    - "cse-pro"
+    - "cse-sub"
 questions:
-  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0001
-    type: pronoun-reference
-    difficulty: easy
+  - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0001"
+    type: "pronoun-reference"
+    difficulty: "easy"
     stem: |
-      Choose the correct pronoun: The girl lost ______ book on the way home.
+      The girl uses she/her pronouns. Choose the possessive form referring to her own book: "The girl lost ___ book on the way home."
     choices:
-      - text: Her
+      - text: "Her"
         correct: true
-      - text: Their
+      - text: "Hers"
         rationale: |
-          The sentence identifies the antecedent as "the girl," so "her" is the most direct possessive pronoun for the person described.
-      - text: His
+          This uses the form that stands alone before a noun. Both "her" and "hers" show possession. Check: check whether a noun follows the blank.
+      - text: "Him"
         rationale: |
-          You picked the masculine pronoun "his," but the antecedent "girl" is female.
-      - text: Its
+          This uses an object form rather than a possessive form. It is a familiar personal pronoun. Check: choose the form that can come before "book".
+      - text: "She"
         rationale: |
-          You picked the neuter pronoun "its," which is used for non-person antecedents here rather than the girl.
+          This uses a subject form before a possessed noun. The stem states that she is the person referred to. Check: check whether the blank names the subject or shows possession.
     explanation: |
-      "Girl" is a singular antecedent identified as female, so the most direct possessive pronoun is "her."
+      The girl uses she/her pronouns, and the book is her own. "Her" is the possessive form used before the noun "book."
     approved: true
-
-  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0002
-    type: pronoun-reference
-    difficulty: easy
+  - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0002"
+    type: "pronoun-reference"
+    difficulty: "easy"
     stem: |
       Choose the correct pronoun: The girls lost ______ books on the way home.
     choices:
-      - text: Their
+      - text: "Their"
         correct: true
-      - text: Her
+      - text: "Her"
         rationale: |
-          You picked the singular pronoun "her," but "girls" is plural and requires a plural pronoun.
-      - text: His
+          This uses one person's possessive form for several girls. "Her" matches a single girl. Check: check the plural ending on "girls".
+      - text: "His"
         rationale: |
-          You picked the singular masculine pronoun "his," but the antecedent "girls" is plural.
-      - text: Its
+          This uses one person's possessive form for a group. The sentence concerns books belonging to people. Check: match the pronoun to all the girls.
+      - text: "Its"
         rationale: |
-          You picked the singular neuter pronoun "its," but "girls" is a plural group of people.
+          This treats several people as a single non-person unit. One group can seem like one thing. Check: check the actual plural antecedent.
     explanation: |
       "Girls" is a plural antecedent, so it needs the plural pronoun "their."
     approved: true
-
-  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0003
-    type: pronoun-reference
-    difficulty: medium
+  - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0003"
+    type: "pronoun-reference"
+    difficulty: "medium"
     stem: |
       Choose the gender-neutral pronoun: Each of the students must submit ______ essay by Friday.
     choices:
-      - text: Their
+      - text: "Their"
         correct: true
-      - text: His
+      - text: "His"
         rationale: |
-          "His" assumes a male student even though the sentence gives no gender. Modern formal English permits singular "their" with an indefinite antecedent such as "each."
-      - text: Her
+          This assumes the student is male. Some older materials use "his" for an unspecified person. Check: follow the stem's gender-neutral requirement.
+      - text: "Her"
         rationale: |
-          "Her" assumes a female student even though the sentence gives no gender. Modern formal English permits singular "their" with an indefinite antecedent such as "each."
-      - text: Its
+          This assumes the student is female. The antecedent refers to one student at a time. Check: keep gender unspecified as the stem requires.
+      - text: "Its"
         rationale: |
-          "Its" is not the appropriate personal possessive pronoun for a student.
+          This treats a person like a non-person object. "Each" is grammatically singular. Check: check whether the antecedent is a person.
     explanation: |
       Although "each" is grammatically singular, singular "they/their" is accepted in modern formal English when a person's gender is unknown or irrelevant. "Each of the students must submit their essay" is therefore the gender-neutral choice.
     approved: true
-
-  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0004
-    type: pronoun-reference
-    difficulty: medium
+  - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0004"
+    type: "pronoun-reference"
+    difficulty: "medium"
     stem: |
       Choose the gender-neutral pronoun: Somebody left ______ umbrella in the classroom.
     choices:
-      - text: Their
+      - text: "Their"
         correct: true
-      - text: His
+      - text: "His"
         rationale: |
-          "His" assumes the unknown person's gender. Singular "their" is accepted in modern formal English for an indefinite person such as "somebody."
-      - text: Her
+          This assumes the unknown owner is male. The owner is one person. Check: follow the requested gender-neutral wording.
+      - text: "Her"
         rationale: |
-          "Her" assumes the unknown person's gender. Singular "their" is accepted in modern formal English for an indefinite person such as "somebody."
-      - text: Its
+          This assumes the unknown owner is female. The owner is one person. Check: use no gender that the sentence does not supply.
+      - text: "Its"
         rationale: |
-          "Its" is not the appropriate personal possessive pronoun for the person denoted by "somebody."
+          This treats the owner like a non-person object. "Somebody" is singular. Check: check whether it refers to a person.
     explanation: |
       "Somebody" is grammatically singular, but modern formal English accepts singular "their" for a person whose gender is unknown or irrelevant.
     approved: true
-
-  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0005
-    type: pronoun-reference
-    difficulty: medium
+  - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0005"
+    type: "pronoun-reference"
+    difficulty: "medium"
     stem: |
-      Choose the correct pronoun: The company announced ______ new policy yesterday.
+      Treat the company as one organization, not its individual members. Choose the pronoun referring to its policy: "The company announced ___ new policy yesterday."
     choices:
-      - text: Its
+      - text: "Its"
         correct: true
-      - text: Their
+      - text: "Their"
         rationale: |
-          You picked "their," treating "company" as plural. In the convention used here, the company acts as one organization and takes "its."
-      - text: His
+          This uses the members-as-people reading of the company. A company consists of people. Check: follow the stated one-unit convention.
+      - text: "His"
         rationale: |
-          You picked "his," but a corporation or company is not a male person.
-      - text: Her
+          This assigns male gender to the organization. The company may have a male leader. Check: refer to the organization itself.
+      - text: "Her"
         rationale: |
-          You picked "her," but a business organization is not a female person.
+          This assigns female gender to the organization. The company may have a female leader. Check: refer to the organization itself.
     explanation: |
       "Company" refers to one organization acting as a single unit here, so the sentence uses the singular possessive pronoun "its."
     approved: true
-
-  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0006
-    type: pronoun-reference
-    difficulty: medium
+  - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0006"
+    type: "pronoun-reference"
+    difficulty: "medium"
     stem: |
-      Choose the correct pronoun: The class finished ______ project ahead of schedule.
+      Treat the class as one unit completing a shared project. Choose the pronoun referring to that unit: "The class finished ___ project ahead of schedule."
     choices:
-      - text: Its
+      - text: "Its"
         correct: true
-      - text: Their
+      - text: "Their"
         rationale: |
-          In the convention used here, "class" is treated as one collective unit completing a shared project, so "its" is the expected choice.
-      - text: His
+          This refers to the class members as people. A class consists of students. Check: follow the specified one-unit reading.
+      - text: "His"
         rationale: |
-          You assigned a gendered pronoun to the collective noun "class."
-      - text: Her
+          This assigns a male person's form to the class. An individual in the class could be male. Check: match the whole class unit.
+      - text: "Her"
         rationale: |
-          You assigned a gendered pronoun to the collective noun "class."
+          This assigns a female person's form to the class. An individual in the class could be female. Check: match the whole class unit.
     explanation: |
       The sentence treats "class" as one collective unit completing a shared project, so it uses the singular pronoun "its."
     approved: true
-
-  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0007
-    type: pronoun-reference
-    difficulty: medium
+  - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0007"
+    type: "pronoun-reference"
+    difficulty: "medium"
     stem: |
       Choose the correct pronoun: Liza and Carlo finished ______ project early.
     choices:
-      - text: Their
+      - text: "Their"
         correct: true
-      - text: Her
+      - text: "Her"
         rationale: |
-          You picked "her," focusing only on Liza, but compound antecedents joined by "and" are plural.
-      - text: His
+          This refers to Liza alone. Liza is the first name in the pair. Check: include both names joined by "and".
+      - text: "His"
         rationale: |
-          You picked "his," focusing only on Carlo, but compound antecedents joined by "and" are plural.
-      - text: Its
+          This refers to Carlo alone. Carlo is closest to the blank. Check: include the full compound antecedent.
+      - text: "Its"
         rationale: |
-          You picked "its," which does not agree with the plural human antecedent "Liza and Carlo."
+          This treats the two people as a non-person singular unit. They are working on one shared project. Check: match the pronoun to the people, not the project.
     explanation: |
       "Liza and Carlo" is a compound antecedent joined by "and," making it plural, so it takes the pronoun "their."
     approved: true
-
-  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0008
-    type: pronoun-reference
-    difficulty: medium
+  - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0008"
+    type: "pronoun-reference"
+    difficulty: "medium"
     stem: |
-      Choose the correct pronoun: Neither the coach nor the players brought ______ equipment.
+      Which revision avoids a mixed singular/plural pronoun reference without assigning gender?
     choices:
-      - text: Their
+      - text: "Neither the coach nor the players brought the required equipment."
         correct: true
-      - text: His
+      - text: "Neither the coach nor the players brought his own required equipment."
         rationale: |
-          You picked "his" based on the first noun ("coach"), but the nearer antecedent "players" is plural.
-      - text: Its
+          This forces one male reference onto mixed antecedents. The singular coach could be male. Check: avoid an unsupported gender and mixed reference.
+      - text: "Neither the coach nor the players brought her own required equipment."
         rationale: |
-          You picked "its," but "players" is a plural human antecedent.
-      - text: Her
+          This forces one female reference onto mixed antecedents. The singular coach could be female. Check: use the requested clear gender-neutral revision.
+      - text: "Neither the coach nor the players brought its own required equipment."
         rationale: |
-          You picked "her," but the nearer antecedent "players" is plural and requires "their."
+          This treats the people as a non-person singular unit. The equipment belongs to one team. Check: match the people named, not an imagined unit.
     explanation: |
-      With "neither...nor," traditional proximity agreement matches the pronoun to the nearer antecedent. Here "players" is plural, so "their" fits.
+      "The required equipment" keeps the intended object and avoids a pronoun with mixed singular and plural antecedents. The revision also assigns no gender.
     approved: true
-
-  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0009
-    type: pronoun-reference
-    difficulty: medium
+  - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0009"
+    type: "pronoun-reference"
+    difficulty: "medium"
     stem: |
-      Identify the problem with this sentence: "When Mrs. Santos spoke to Anna, she seemed upset."
+      What makes the pronoun reference unclear in "When Mrs. Santos spoke to Anna, she seemed upset"?
     choices:
-      - text: 'The pronoun "she" is ambiguous: it could refer to either Mrs. Santos or Anna.'
+      - text: "\"She\" has two possible antecedents."
         correct: true
-      - text: The sentence has a subject-verb agreement error.
+      - text: "\"She\" must always refer to the first woman named."
         rationale: |
-          You misidentified the error. The verbs agree with their subjects, but "she" could point to two different people.
-      - text: The sentence incorrectly uses "she" since both people are named individuals.
+          This uses first position as a fixed reference rule. Subjects often remain the focus of a sentence. Check: ask whether both women could be upset.
+      - text: "\"She\" must always refer to the woman named closest to it."
         rationale: |
-          You assumed named individuals cannot be referenced by "she." Pronouns are fine as long as the antecedent is clear.
-      - text: There is no problem; the sentence is fully correct and clear.
+          This uses proximity as a fixed reference rule. Anna is the nearest name. Check: check whether the meaning also permits Mrs. Santos.
+      - text: "\"She\" cannot refer to a person already named in the sentence."
         rationale: |
-          You assumed the sentence was clear, but a reader cannot determine whether Mrs. Santos or Anna was upset.
+          This rejects normal pronoun reference after a name. Repeating a name can remove uncertainty. Check: distinguish unclear reference from pronoun use itself.
     explanation: |
-      The pronoun "she" could refer to either Mrs. Santos or Anna: it is unclear which one seemed upset. This is an ambiguous antecedent error.
+      Both Mrs. Santos and Anna can be the person who seemed upset. The sentence does not identify which one "she" refers to.
     approved: true
-
-  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0010
-    type: pronoun-reference
-    difficulty: medium
+  - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0010"
+    type: "pronoun-reference"
+    difficulty: "medium"
     stem: |
-      Identify the problem with this sentence: "After Mark greeted John, he smiled warmly."
+      In "Sofia and her sister compared their schedules," to whom does "their" refer under the ordinary plural reading?
     choices:
-      - text: 'The pronoun "he" is ambiguous: it could refer to either Mark or John.'
+      - text: "Sofia and her sister"
         correct: true
-      - text: The sentence has a subject-verb agreement error.
+      - text: "Sofia alone, because her name comes first"
         rationale: |
-          You looked for verb agreement issues, but the verbs are fine. The real issue is the ambiguous pronoun "he."
-      - text: The sentence incorrectly uses "he" since both people are named individuals.
+          This limits the plural reference to the first person. Sofia is the first named person. Check: include both people joined by "and".
+      - text: "Her sister alone, because she is named closest"
         rationale: |
-          You claimed pronouns cannot follow proper names, but the issue is that two possible antecedents fit the pronoun.
-      - text: There is no problem; the sentence is fully correct and clear.
+          This uses proximity to drop part of the antecedent. The sister is the nearest person mentioned. Check: match the ordinary plural reference to both people.
+      - text: "Someone outside the pair, because their schedules are mentioned"
         rationale: |
-          You assumed the sentence was clear, but "he" could refer to either Mark or John.
+          This invents a new owner of the schedules. Possessions can belong to other people in some contexts. Check: use the antecedent supplied by the sentence.
     explanation: |
-      The pronoun "he" could refer to either Mark or John, so the antecedent is unclear. Naming the intended person directly removes the ambiguity.
+      The compound subject names Sofia and her sister. Under the stated ordinary plural reading, "their" refers to both of them.
     approved: true
-
-  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0011
-    type: pronoun-reference
-    difficulty: medium
+  - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0011"
+    type: "pronoun-reference"
+    difficulty: "medium"
     stem: |
       Ang salitang "siya" sa Filipino ay ______.
     choices:
-      - text: Walang tinutukoy na kasarian, maaaring lalaki o babae
+      - text: "Hindi nagsasaad ng kasarian"
         correct: true
-      - text: Tumutukoy lamang sa babae
+      - text: "Tumutukoy lamang sa babae"
         rationale: |
-          Pinili mo ang babae, ngunit ang "siya" sa Filipino ay gender-neutral at ginagamit din sa lalaki.
-      - text: Tumutukoy lamang sa lalaki
+          This adds a female-only limit to "siya". English uses a separate form "she". Check: keep Filipino and English pronoun systems separate.
+      - text: "Tumutukoy lamang sa lalaki"
         rationale: |
-          Pinili mo ang lalaki, ngunit ang "siya" ay pwedeng gamitin para sa babae o lalaki.
-      - text: Ginagamit lamang para sa mga bagay
+          This adds a male-only limit to "siya". English uses a separate form "he". Check: check whether the Filipino word itself encodes gender.
+      - text: "Ginagamit lamang para sa mga bagay"
         rationale: |
-          Pinili mo ang mga bagay, ngunit ang "siya" ay ginagamit para sa tao.
+          This restricts "siya" to objects. English has a separate object-related form "it". Check: check the personal-pronoun use in Filipino.
     explanation: |
-      Ang "siya" ay gender-neutral sa Filipino: nangangahulugan itong "he" o "she" nang walang hiwalay na salita para sa bawat isa.
+      "Siya" can refer to a person without stating that person's gender. Filipino uses the same pronoun for these personal references.
     approved: true
-
-  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0012
-    type: pronoun-reference
-    difficulty: medium
+  - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0012"
+    type: "pronoun-reference"
+    difficulty: "medium"
     stem: |
       Piliin ang tamang panghalip: Isang estudyante lamang ang nagdala ng proyekto; ipinakita ______ ito sa buong klase.
     choices:
-      - text: Niya
+      - text: "Niya"
         correct: true
-      - text: Nila
+      - text: "Nila"
         rationale: |
-          Pinili mo ang "nila" (maramihan), ngunit ang tinutukoy ay "isang estudyante lamang" (isahan).
-      - text: Namin
+          This uses a plural actor form for one student. The whole class is mentioned nearby. Check: match the actor who showed the project.
+      - text: "Namin"
         rationale: |
-          Pinili mo ang "namin," ngunit kasama roon ang nagsasalita at hindi ang solong estudyante.
-      - text: Ninyo
+          This includes the speaker in the acting group. It is a familiar form used for a group's actions. Check: check who the sentence names as the actor.
+      - text: "Ninyo"
         rationale: |
-          Pinili mo ang "ninyo," na ginagamit para sa taong kausap sa halip na sa ikatlong tao.
+          This refers to the listener instead of the student. The sentence describes an action shown to others. Check: keep the reference in the third person.
     explanation: |
-      Dahil "isang estudyante lamang" (isang tao lamang) ang tinutukoy, ang tamang panghalip ay "niya" (isahan), hindi "nila" (maramihan).
+      One student is named as the person who showed the project. "Niya" is the matching singular third-person form in "ipinakita niya ito."
     approved: true
-
-  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0013
-    type: pronoun-reference
-    difficulty: medium
+  - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0013"
+    type: "pronoun-reference"
+    difficulty: "medium"
     stem: |
       Alin sa mga sumusunod na panghalip ang kabilang sa "ang" set (bilang tagaganap o paksa)?
     choices:
-      - text: Siya
+      - text: "Siya"
         correct: true
-      - text: Niya
+      - text: "Niya"
         rationale: |
-          Pinili mo ang "niya," ngunit ito ay kabilang sa "ng" set at hindi sa "ang" set.
-      - text: Kaniya
+          This selects an ng-set form instead of an ang-set form. Both can refer to the same person. Check: check the grammatical set, not only the referent.
+      - text: "Kaniya"
         rationale: |
-          Pinili mo ang "kaniya," ngunit ito ay kabilang sa "sa" set at hindi sa "ang" set.
-      - text: Nila
+          This selects a sa-set form instead of an ang-set form. The forms share a personal reference. Check: identify the role requested by the stem.
+      - text: "Nila"
         rationale: |
-          Pinili mo ang "nila," ngunit ito ay maramihan at kabilang sa "ng" set.
+          This selects a plural ng-set form. It is a familiar personal pronoun. Check: check both its set and its number.
     explanation: |
-      Ang "siya" ay kabilang sa "ang" set, na ginagamit para sa tagaganap o paksa ng pangungusap. Ang "niya" ay "ng" set, at ang "kaniya" ay "sa" set.
+      "Siya" belongs to the ang set of Filipino personal pronouns. It can fill the topic role in a sentence such as "Siya ay dumating."
     approved: true
-
-  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0014
-    type: pronoun-reference
-    difficulty: hard
+  - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0014"
+    type: "pronoun-reference"
+    difficulty: "hard"
     stem: |
-      A student writes "Everybody should bring their own lunch." Is singular "their" acceptable in modern formal English for the indefinite antecedent "everybody"?
+      Is singular "their" acceptable in "Everybody should bring their own lunch" in modern formal English?
     choices:
-      - text: 'Yes: singular "they/their" is accepted for a person whose gender is unknown or irrelevant, while "everybody" still takes a singular verb.'
+      - text: "Yes, it provides a gender-neutral singular reference."
         correct: true
-      - text: 'No: singular "they/their" is only informal slang and is never acceptable in formal writing.'
+      - text: "No, because every use of \"their\" requires a plural antecedent."
         rationale: |
-          Modern reference works and style guidance accept singular "they/their" for an unspecified person; the pronoun does not make the verb after "everybody" plural.
-      - text: 'Yes: but only because "everybody" is grammatically plural.'
+          This rejects the singular use of "their". The same form also refers to groups. Check: check whether the sentence refers to an unspecified person.
+      - text: "Yes, because \"everybody\" always takes a plural main verb."
         rationale: |
-          "Everybody" is grammatically singular for verb agreement even though it refers to multiple people.
-      - text: 'No: "their" can refer only to two or more specifically named people.'
+          This confuses pronoun reference with verb agreement. "Everybody" can include many people. Check: check the main verb separately from the pronoun.
+      - text: "No, because formal writing never allows an unspecified person."
         rationale: |
-          "Their" also has an established singular use for a person whose gender is unknown or irrelevant.
+          This invents a ban on indefinite personal reference. Formal writing often asks for precise wording. Check: check the accepted modern use of singular "they".
     explanation: |
-      Modern formal English accepts singular "they/their" with an indefinite person such as "everybody." The antecedent remains grammatically singular for verb agreement: "Everybody has their own lunch."
+      Modern formal English accepts singular "their" for an unspecified person. "Everybody" can use this personal reference while keeping singular main-verb agreement.
     approved: true
-
-  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0015
-    type: pronoun-reference
-    difficulty: hard
+  - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0015"
+    type: "pronoun-reference"
+    difficulty: "hard"
     stem: |
       In a style that treats the collective noun "team" as one unit, which pronoun best completes "The team celebrated ______ victory"?
     choices:
-      - text: Its
+      - text: "Its"
         correct: true
-      - text: Their
+      - text: "Their"
         rationale: |
-          Some varieties of English allow plural agreement with collective nouns, but this stem explicitly asks for the convention that treats "team" as one unit.
-      - text: His
+          This chooses a members-as-people reading. Plural group reference can be valid in some contexts. Check: follow the stem's one-unit style.
+      - text: "His"
         rationale: |
-          "His" assigns a human gender to the collective noun "team."
-      - text: Her
+          This assigns male gender to the team. An individual team member could use "his". Check: refer to the team as the stated unit.
+      - text: "Her"
         rationale: |
-          "Her" assigns a human gender to the collective noun "team."
+          This assigns female gender to the team. An individual team member could use "her". Check: refer to the whole team unit.
     explanation: |
-      Under the convention specified in the stem, "team" is treated as one collective unit, so the matching pronoun is "its." Other English varieties may allow plural agreement when the individual members are emphasized.
+      The stem treats the team as one unit. "Its" is the possessive form matching that unit.
     approved: true
-
-  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0016
-    type: pronoun-reference
-    difficulty: hard
+  - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0016"
+    type: "pronoun-reference"
+    difficulty: "hard"
     stem: |
       Identify the ambiguous antecedent problem: "Sarah told Michelle that her painting won first place." Whose painting won?
     choices:
-      - text: 'It is unclear: "her" could refer to either Sarah or Michelle, since both are possible antecedents.'
+      - text: "Either Sarah's or Michelle's; the wording is unclear."
         correct: true
-      - text: It clearly refers to Sarah, since she is mentioned first in the sentence.
+      - text: "Sarah's, because the first name always controls later pronouns."
         rationale: |
-          You assumed word order resolves ambiguity, but the sentence does not identify Sarah as the owner of the painting.
-      - text: It clearly refers to Michelle, since she is mentioned second in the sentence.
+          This treats first position as a rule that fixes ownership. Sarah is the main subject. Check: ask whether Michelle could also own the painting.
+      - text: "Michelle's, because the nearest name always controls possessives."
         rationale: |
-          You assumed proximity resolves ambiguity, but the sentence does not identify Michelle as the owner of the painting.
-      - text: There is no ambiguity, since only one person's painting can win.
+          This treats proximity as proof of ownership. Michelle is mentioned just before "her". Check: look for wording that identifies the actual owner.
+      - text: "Both women's, because two possible names make the pronoun plural."
         rationale: |
-          You relied on information not supplied by the sentence. Either person's painting could be the one that won.
+          This turns uncertain reference into joint ownership. Two women are mentioned. Check: check whether the sentence states a shared painting.
     explanation: |
-      If a pronoun could reasonably refer to more than one antecedent, the reference is unclear. Here, "her" could point to either Sarah or Michelle.
+      "Her" could refer to Sarah or Michelle. The sentence gives no detail identifying the painting's owner.
     approved: true
-
-  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0017
-    type: pronoun-reference
-    difficulty: medium
+  - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0017"
+    type: "pronoun-reference"
+    difficulty: "medium"
     stem: |
-      Choose the gender-neutral pronoun: Neither the players nor the coach brought ______ own equipment.
+      Which sentence correctly combines main-verb agreement with gender-neutral singular "they"?
     choices:
-      - text: Their
+      - text: "Everybody has said they are ready."
         correct: true
-      - text: His
+      - text: "Everybody have said they are ready for the afternoon activity."
         rationale: |
-          "His" assumes the coach is male. With an unspecified person, singular "their" provides a gender-neutral reference to the nearer antecedent "coach."
-      - text: Her
+          This makes "everybody" take a plural main verb. The pronoun "they" may look plural. Check: check the verb attached to "everybody" separately.
+      - text: "Everybody has said they is ready for the afternoon activity."
         rationale: |
-          "Her" assumes the coach is female. With an unspecified person, singular "their" provides a gender-neutral reference to the nearer antecedent "coach."
-      - text: Its
+          This gives singular "they" an is-form. The reference is to one unspecified person at a time. Check: use the normal verb form with "they".
+      - text: "Everybody have said they is ready for the afternoon activity."
         rationale: |
-          "Its" is not the appropriate personal possessive pronoun for the coach.
+          This switches both agreement patterns. The sentence combines an indefinite word and "they". Check: check each subject with its own verb.
     explanation: |
-      The nearer antecedent is the singular person "coach." Modern formal English permits singular "their" when that person's gender is unspecified.
+      "Everybody" takes the singular verb "has." Singular "they" still takes its usual verb form, "are."
     approved: true
-
-  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0018
-    type: pronoun-reference
-    difficulty: exam
+  - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0018"
+    type: "pronoun-reference"
+    difficulty: "exam"
     stem: |
       Choose the pronouns using gender-neutral modern English and treating "team" as one unit: Each of the volunteers brought ______ own supplies; afterward, the coordinator said the team was proud of ______ accomplishment.
     choices:
-      - text: Their, its
+      - text: "Their, its"
         correct: true
-      - text: His, its
+      - text: "His, its"
         rationale: |
-          "His" assumes every volunteer is male. Singular "their" is the gender-neutral choice for "each," while the stem tells you to treat "team" as one unit and use "its."
-      - text: Her, its
+          This assumes each volunteer is male. "Each" refers to one person at a time. Check: keep the gender-neutral requirement.
+      - text: "Her, its"
         rationale: |
-          "Her" assumes every volunteer is female. Singular "their" is the gender-neutral choice for "each," while the stem tells you to treat "team" as one unit and use "its."
-      - text: Their, his
+          This assumes each volunteer is female. "Each" refers to one person at a time. Check: keep the gender-neutral requirement.
+      - text: "Their, his"
         rationale: |
-          The first blank is correct, but "his" assigns a human gender to the collective noun "team." Under the convention specified in the stem, use "its."
+          This assigns male gender to the team unit. A coordinator or team member may be male. Check: match the second form to the team itself.
     explanation: |
-      Singular "their" is accepted for the indefinite antecedent "each" when gender is unspecified. The stem explicitly treats "team" as one collective unit, so the second pronoun is "its."
+      "Each" refers to an unspecified person, so singular "their" provides the requested gender-neutral form. The team is treated as one unit, so "its" fits the second blank.
     approved: true
+  - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0019"
+    type: "pronoun-reference"
+    difficulty: "easy"
+    stem: |
+      Sam alone passed the test. Which revision of "Alex told Sam that they had passed" makes the intended reference clear?
+    choices:
+      - text: "Alex told Sam that Sam had passed."
+        correct: true
+      - text: "Alex told Sam that they had passed the final test."
+        rationale: |
+          This retains an uncertain use of "they." Singular "they" could refer to either person, and plural "they" could refer to both. Check: name the intended person.
+      - text: "Alex told Sam that Alex had passed the final test."
+        rationale: |
+          This gives the result to Alex. Naming someone removes uncertainty, so the revision looks clear. Check: preserve who actually passed.
+      - text: "Alex told Sam that both had passed the final test."
+        rationale: |
+          This changes one person's result into a result for both. The plural use of "they" may suggest a pair. Check: keep the stated single-person result.
+    explanation: |
+      Repeating "Sam" identifies the person who passed. The revision keeps the stated result and gives the pronoun's intended reference directly.
+    approved: false
+  - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0020"
+    type: "pronoun-reference"
+    difficulty: "exam"
+    stem: |
+      In a variety of English that allows plural reference to collective nouns, which sentence emphasizes committee members acting individually?
+    choices:
+      - text: "The committee returned to their homes."
+        correct: true
+      - text: "The committee published its final report for the year."
+        rationale: |
+          This treats the committee as one unit. A report can describe work done by many members. Check: look for separate actions or possessions belonging to the people.
+      - text: "The committee revised its official policy before the meeting."
+        rationale: |
+          This gives the committee one organizational policy. Several people may help revise it. Check: distinguish work by a group from reference to individual members.
+      - text: "The committee announced its decision after the final vote."
+        rationale: |
+          This reports a single group decision. Voting involves individual people. Check: ask whether the pronoun refers to the group unit or its separate members.
+    explanation: |
+      "Their homes" refers to separate homes belonging to the members. Under the stated variety of English, plural "their" emphasizes those people within the committee.
+    approved: false

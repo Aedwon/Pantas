@@ -11,19 +11,19 @@ questions:
       All mammals are warm-blooded. A whale is a mammal.
       What must be true?
     choices:
-      - text: A whale is warm-blooded.
+      - text: "A whale is warm-blooded."
         correct: true
-      - text: All warm-blooded animals are mammals.
+      - text: "All warm-blooded animals are mammals."
         rationale: |
-          You reversed the direction of the premise. "All mammals are warm-blooded" does not mean all warm-blooded animals are mammals.
-      - text: A whale is not a mammal.
+          This reverses the group relationship. Knowing a group has a trait may make the trait seem exclusive to that group. Check whether the premise says "all mammals" or "all warm-blooded animals."
+      - text: "A whale is not a mammal."
         rationale: |
-          You contradicted the given premise. The premise explicitly states that a whale is a mammal.
-      - text: Some mammals are not warm-blooded.
+          This rejects a stated group membership. It may seem like a way to avoid applying the rule. Check the premise that names the whale as a mammal.
+      - text: "Some mammals are not warm-blooded."
         rationale: |
-          You contradicted the universal premise. The rule states that all mammals are warm-blooded without exception.
+          This adds an exception to an all statement. Real-world rules can have exceptions. Check that this deduction treats the stated premises as true.
     explanation: |
-      Since all mammals are warm-blooded, and a whale is a mammal, the whale must also be warm-blooded.
+      Every mammal has the stated trait. The whale belongs to that group. It therefore has the trait: warm-blooded.
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0002
@@ -33,19 +33,19 @@ questions:
       All squares are rectangles. All rectangles have four sides.
       What must be true?
     choices:
-      - text: All squares have four sides.
+      - text: "All squares have four sides."
         correct: true
-      - text: All rectangles are squares.
+      - text: "All rectangles are squares."
         rationale: |
-          You converted a universal statement into its converse. Being a rectangle does not automatically make a shape a square.
-      - text: Some four-sided shapes are not rectangles.
+          This reverses the first inclusion. Squares and rectangles share many features. Check the direction of the all statement.
+      - text: "Some four-sided shapes are not rectangles."
         rationale: |
-          You made an inference outside the deductive chain. The premises connect squares, rectangles, and four sides, establishing that all squares have four sides.
-      - text: No squares have four sides.
+          This imports a fact outside the given chain. Other four-sided shapes may be familiar. Check whether the premises describe any shapes outside the rectangle group.
+      - text: "No squares have four sides."
         rationale: |
-          You contradicted the combined premises. Since squares are rectangles and rectangles have four sides, all squares must have four sides.
+          This turns the linked trait into an exclusion. The two category names may seem different. Check how the first group is included in the second.
     explanation: |
-      If every square is a rectangle, and every rectangle has four sides, then every square must also have four sides.
+      Every square is in the rectangle group. Every rectangle has four sides. Passing through both links gives every square four sides.
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0003
@@ -55,19 +55,19 @@ questions:
       If a student studies hard, they will pass the exam. Maria passed the exam. Therefore, Maria studied hard.
       Is this conclusion valid?
     choices:
-      - text: 'No: the premise only guarantees studying leads to passing; Maria could have passed for another reason, such as an easy exam or prior knowledge.'
+      - text: "Invalid: result confirmed"
         correct: true
-      - text: 'Yes: passing the exam guarantees that a student studied hard.'
+      - text: "Valid: condition confirmed"
         rationale: |
-          You assumed passing can only happen by studying hard. The premise says studying guarantees passing, not that passing requires studying.
-      - text: 'Yes: this follows the modus ponens pattern correctly.'
+          This treats passing as the condition rather than the result. Both appear in the same rule. Check which clause follows "if."
+      - text: "Valid: result denied"
         rationale: |
-          You confused affirming the consequent with modus ponens. Modus ponens starts from the condition (studying), not the result (passing).
-      - text: 'No: but only because Maria did not actually pass the exam.'
+          This reads a confirmed result as a denied one. Denying a result can support a valid backward inference. Check whether Maria passed or failed.
+      - text: "Invalid: premise contradicted"
         rationale: |
-          You rejected the given fact that Maria passed. Logical validity evaluates the reasoning structure, assuming the premises are true.
+          This rejects a premise instead of evaluating the inference. The result is given as true. Check validity while accepting the stated premises.
     explanation: |
-      This is the "affirming the consequent" fallacy. The premise only says studying leads to passing, not that passing can only happen by studying. Maria could have passed for other reasons.
+      The premise guarantees passing when someone studies hard. It leaves open passing without that cause. Maria's passing therefore does not force the conclusion that she studied hard.
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0004
@@ -77,41 +77,40 @@ questions:
       If it rains, the ground gets wet. It did not rain. Therefore, the ground is not wet.
       Is this conclusion valid?
     choices:
-      - text: 'No: the ground could still be wet from another cause, like a sprinkler or a spilled drink.'
+      - text: "Invalid: condition denied"
         correct: true
-      - text: 'Yes: if it did not rain, the ground must be dry.'
+      - text: "Valid: result denied"
         rationale: |
-          You assumed rain is the only possible cause of wet ground. Denying the condition does not rule out other causes of wetness.
-      - text: 'Yes: this follows the modus tollens pattern correctly.'
+          This treats no rain as no wetness. The two parts of the rule may seem interchangeable. Check which part the second premise denies.
+      - text: "Valid: condition confirmed"
         rationale: |
-          You confused denying the antecedent with modus tollens. Modus tollens denies the result (ground wet), not the condition (rain).
-      - text: 'No: but only because it actually did rain.'
+          This treats the absence of rain as rain occurring. The rule itself mentions rain positively. Check the actual second premise.
+      - text: "Invalid: premise contradicted"
         rationale: |
-          You rejected the premise statement that it did not rain. Validity tests logical inference, not empirical facts outside the premise.
+          This rejects the statement that it did not rain. Outside weather knowledge can distract from structure. Check the inference with the given premises accepted.
     explanation: |
-      This is the "denying the antecedent" fallacy. The premise only guarantees rain causes wetness; it does not rule out other causes of wetness when it does not rain.
+      The rule says rain makes the ground wet. Without rain, another cause could still make it wet. The conclusion of dry ground is not forced.
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0005
     type: syllogism
     difficulty: medium
     stem: |
-      If the alarm is working, it will ring during a fire. The alarm did not ring during the fire. Therefore, the alarm was not working.
-      Is this conclusion valid?
+      Treat the premises as given. If the alarm is working under these conditions, it will ring during a fire. It did not ring during the fire. Therefore, it was not working under these conditions. Which evaluation fits?
     choices:
-      - text: 'Yes: this is modus tollens; since a working alarm guarantees ringing, and it did not ring, the alarm must not have been working.'
+      - text: "Valid: result denied"
         correct: true
-      - text: 'No: the alarm could have been working even though it did not ring.'
+      - text: "Invalid: another cause is possible"
         rationale: |
-          You ignored the premise guarantee. If a working alarm always rings during a fire, failing to ring proves it was not working.
-      - text: 'Yes: but only because the fire never actually happened.'
+          This allows a working alarm not to ring despite the stated guarantee. Real devices can fail in many ways. Check the argument using its given conditional rule.
+      - text: "Valid: condition confirmed"
         rationale: |
-          You contradicted the scenario premise. The problem states that the fire did happen.
-      - text: 'No: this is the affirming the consequent fallacy.'
+          This calls the evidence confirmation of a working alarm. The conclusion concerns the alarm's condition. Check whether the second premise confirms the condition or denies its result.
+      - text: "Invalid: condition denied"
         rationale: |
-          You misidentified modus tollens. Denying the consequent (did not ring) validly proves the antecedent (working alarm) was false.
+          This calls the evidence denial of a working alarm. That denial is the conclusion, not the starting evidence. Check what the second premise actually states.
     explanation: |
-      This matches modus tollens: "If A, then B. B is false. Therefore, A is false." A working alarm guarantees ringing during a fire, so if it did not ring, it was not working.
+      A working alarm must ring under the stated condition. It did not ring during the fire. It therefore was not working under that condition. This is modus tollens.
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0006
@@ -121,19 +120,19 @@ questions:
       If a metal is heated, it expands. This metal bar was heated.
       What must be true?
     choices:
-      - text: This metal bar expanded.
+      - text: "This metal bar expanded."
         correct: true
-      - text: This metal bar did not expand.
+      - text: "This metal bar did not expand."
         rationale: |
-          You contradicted modus ponens. Since heating causes expansion and the bar was heated, it must expand.
-      - text: This metal bar was not heated.
+          This denies the result after the condition is confirmed. The two claims may be read as separate facts. Check the link stated by "if."
+      - text: "This metal bar was not heated."
         rationale: |
-          You contradicted the given premise that the bar was heated.
-      - text: All metals expand, whether heated or not.
+          This denies the second premise. Questioning a real-world situation may seem cautious. Check the inference while accepting the supplied facts.
+      - text: "All metals expand, whether heated or not."
         rationale: |
-          You overstated the claim beyond the conditional premise. The premise only specifies behavior when heated.
+          This removes the condition from a conditional rule. The trait can seem to apply to the whole material group. Check the phrase about heating.
     explanation: |
-      This follows modus ponens: "If A, then B. A is true. Therefore, B is true." Since heating causes expansion, and this bar was heated, it must have expanded.
+      The rule guarantees expansion if the bar is heated. The second premise confirms that it was heated. The guaranteed result follows: the bar expanded.
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0007
@@ -143,82 +142,82 @@ questions:
       All birds can fly. A penguin is a bird. Therefore, a penguin can fly.
       Is this syllogism valid? Is it sound?
     choices:
-      - text: 'It is valid (the logical structure is correct), but not sound, since the major premise ("all birds can fly") is actually false: penguins cannot fly.'
+      - text: "Valid, unsound"
         correct: true
-      - text: It is both valid and sound, since the structure and conclusion both hold.
+      - text: "Valid, sound"
         rationale: |
-          You ignored factual accuracy when checking soundness. An argument cannot be sound if its premise ("all birds fly") is false.
-      - text: It is neither valid nor sound, since the structure itself is broken.
+          This checks the pattern but overlooks the truth of the premises. A neat group-to-member chain looks convincing. Check factual truth when judging soundness.
+      - text: "Invalid, unsound"
         rationale: |
-          You confused logical validity with factual truth. The logical structure is valid, even though the premise is false.
-      - text: It is sound but not valid, since the premise is false but the conclusion happens to be true.
+          This lets a false premise make the structure invalid. The conclusion about flight is false. Check structure separately from factual truth.
+      - text: "Invalid, sound"
         rationale: |
-          You swapped the definitions of valid and sound. Validity refers to structure, while soundness requires true premises.
+          This treats soundness as something independent of validity. The two labels may seem like separate checks. Check that a sound argument must first be valid.
     explanation: |
-      Structurally, this follows a valid pattern (all X have trait Y, Z is an X, therefore Z has trait Y). But the major premise is factually false, so the syllogism is valid but not sound.
+      If the two premises were true, the conclusion would follow: group membership carries the stated trait. That makes the form valid. The premise that all birds can fly is actually false, so the argument is unsound.
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0008
     type: syllogism
     difficulty: hard
     stem: |
-      A student argues: "Maria passed the exam, so the argument 'if she studies hard, she'll pass, and she passed, so she studied hard' must have been a valid argument, since the conclusion turned out to be true." Is this reasoning about validity correct?
+      Evaluate only this two-premise argument: "All dogs are animals. All mammals are animals. Therefore, all dogs are mammals." The conclusion is true in the real world. Which description fits the argument?
     choices:
-      - text: 'No: an argument''s validity depends on its logical structure, not on whether the conclusion happens to be true; this argument''s structure (affirming the consequent) is flawed regardless of whether Maria actually studied.'
+      - text: "Invalid, true conclusion"
         correct: true
-      - text: 'Yes: a true conclusion always proves the argument that produced it was valid.'
+      - text: "Valid, true conclusion"
         rationale: |
-          You judged validity by the conclusion outcome. Validity depends entirely on whether the premise structure logically forces the conclusion.
-      - text: 'No: but only because Maria did not actually pass the exam.'
+          This uses a true conclusion as proof of a valid inference. The familiar animal fact may seem sufficient. Check whether the quoted premises force the conclusion.
+      - text: "Invalid, false conclusion"
         rationale: |
-          You disputed the premise fact instead of assessing the logical fallacy of affirming the consequent.
-      - text: 'Yes: validity is defined entirely by whether the conclusion matches reality.'
+          This assumes an invalid argument must end in a false statement. Invalidity can sound like factual error. Check the supplied fact that the conclusion is true.
+      - text: "Sound, true conclusion"
         rationale: |
-          You confused truth with validity. Truth concerns real-world facts, while validity concerns structural logic.
+          This calls a factually true conclusion enough for soundness. The biology may be familiar. Check that soundness also requires a valid inference.
     explanation: |
-      "Maria passed the exam" being true does not automatically make "therefore she studied hard" a valid deduction. The argument's structure itself (affirming the consequent) is flawed, regardless of whether Maria actually did study.
+      The premises put dogs and mammals inside the larger animal group. They do not force the dog group to be inside the mammal group. The conclusion happens to be true, but the two-premise argument is invalid.
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0009
     type: syllogism
     difficulty: hard
     stem: |
-      A student assumes "if it rains, the ground gets wet" also means "if the ground is wet, it rained," treating the two statements as interchangeable. Is this assumption correct?
+      Given "If a card is valid, entry is allowed," which situation can obey that rule while showing that allowed entry does not guarantee a valid card?
     choices:
-      - text: 'No: only the original direction of the conditional (rain leads to wetness) is guaranteed; its reverse is not automatically true unless separately established.'
+      - text: "Invalid card, entry allowed"
         correct: true
-      - text: 'Yes: a conditional statement and its reverse always mean the same thing.'
+      - text: "Valid card, entry allowed"
         rationale: |
-          You treated a conditional statement and its converse as logically equivalent. Conditional statements are unidirectional.
-      - text: 'No: but only because rain never actually causes the ground to get wet.'
+          This gives a case that fits both the rule and its reverse. A valid card does lead to allowed entry. Check whether the example actually disproves the reverse inference.
+      - text: "Invalid card, entry forbidden"
         rationale: |
-          You rejected the cause-and-effect premise instead of recognizing the fallacy of converting conditionals.
-      - text: 'Yes: "if A, then B" and "if B, then A" are logically identical statements.'
+          This gives a case that does not show allowed entry without a valid card. It may seem relevant because the card is invalid. Check whether the result needed to test the reverse is present.
+      - text: "Valid card, entry forbidden"
         rationale: |
-          You assumed converse equivalence. "If A then B" is logically equivalent to its contrapositive ("If not B then not A"), not its converse.
+          This breaks the original rule instead of showing why its reverse fails. The two conditions differ, which can look like a counterexample. Check that the example must keep the original rule true.
     explanation: |
-      Assuming "if A, then B" is interchangeable with "if B, then A" causes the affirming-the-consequent error. Only the original direction of the conditional is guaranteed by the premise.
+      The rule allows entry whenever a card is valid. It can still allow an invalid card holder to enter by another route. That situation obeys the original rule while showing that allowed entry does not prove card validity.
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0010
     type: syllogism
     difficulty: hard
     stem: |
-      A question asks specifically whether an argument is "sound," but a student answers only by checking whether its logical structure is correct, without checking whether its premises are actually true. Did the student answer the right question?
+      An argument has been shown to be valid. What additional requirement must be checked before calling it sound?
     choices:
-      - text: 'No: a valid argument only has correct logical structure; a sound argument must be both valid and have premises that are actually true. Checking structure alone only answers the validity question, not the soundness question.'
+      - text: "Truth of all premises"
         correct: true
-      - text: 'Yes: validity and soundness mean exactly the same thing, so checking structure alone is sufficient.'
+      - text: "Truth of the conclusion alone"
         rationale: |
-          You treated validity and soundness as identical concepts. Soundness requires both valid structure and true premises.
-      - text: 'No: but only because logical structure has no bearing on either validity or soundness.'
+          This checks only the outcome rather than the support. A true conclusion can seem convincing. Check every premise as well as the inference.
+      - text: "Number of premises alone"
         rationale: |
-          You claimed structure does not matter. Structural correctness is the defining requirement for validity.
-      - text: 'Yes: soundness only depends on logical structure, never on whether premises are true.'
+          This treats having a familiar number of statements as proof of soundness. Many examples use two premises. Check their truth, not just their count.
+      - text: "Popularity of the conclusion"
         rationale: |
-          You assigned the definition of validity to soundness. Soundness explicitly requires true premises in the real world.
+          This substitutes agreement for truth. A popular statement can feel reliable. Check whether the premises are actually true.
     explanation: |
-      A valid argument has correct logical structure. A sound argument is valid and has premises that are actually true. Exam questions may ask specifically about one or the other: checking structure alone answers validity, not soundness.
+      A sound argument is valid and has true premises. Once validity is established, the truth of all its premises must also be checked.
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0011
@@ -228,41 +227,40 @@ questions:
       All insects have six legs. A spider has eight legs.
       What must be true?
     choices:
-      - text: A spider is not an insect.
+      - text: "A spider is not an insect."
         correct: true
-      - text: A spider is an insect.
+      - text: "A spider is an insect."
         rationale: |
-          You ignored the premise requirement. If all insects have six legs, an animal with eight legs cannot be an insect.
-      - text: All six-legged animals are spiders.
+          This assigns membership despite a missing required trait. Both spiders and insects may look like small crawling animals. Check the exact leg requirement given.
+      - text: "All six-legged animals are spiders."
         rationale: |
-          You reversed the relationship and misapplied the categories. The premises say nothing about six-legged animals being spiders.
-      - text: Spiders have six legs.
+          This changes a one-way category rule into a different universal claim. The shared topic of legs may hide the new group. Check which animals the premises actually connect.
+      - text: "Spiders have six legs."
         rationale: |
-          You contradicted the explicit premise stating that a spider has eight legs.
+          This replaces the spider's stated leg count with the insect trait. Group features can be copied to similar-looking animals. Check the second premise.
     explanation: |
-      Since all insects have six legs, and a spider has eight legs, the spider cannot be an insect: if it were, it would need to have exactly six legs.
+      Under these premises, being an insect requires six legs. The spider has eight legs, so it cannot meet that requirement. It is not an insect.
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0012
     type: syllogism
     difficulty: medium
     stem: |
-      If a battery is dead, the flashlight will not turn on. The flashlight did not turn on.
-      Can we conclude the battery is dead?
+      The battery is either live or dead. If it is dead, the flashlight will not turn on. The flashlight did not turn on. Which added premise would make a deduction that the battery is dead valid?
     choices:
-      - text: 'No: the flashlight could fail to turn on for another reason, such as a broken bulb or a loose connection, not just a dead battery.'
+      - text: "A live battery always makes this flashlight turn on."
         correct: true
-      - text: 'Yes: a flashlight failing to turn on always means the battery is dead.'
+      - text: "A dead battery always keeps this flashlight from turning on."
         rationale: |
-          You assumed a dead battery is the only reason a flashlight will not light.
-      - text: 'Yes: this is a valid modus tollens argument.'
+          This repeats the original one-way rule. A dead battery does explain failure. Check whether the added statement excludes failure with a live battery.
+      - text: "The battery was charged at some point last week."
         rationale: |
-          You confused affirming the consequent with modus tollens. Modus tollens requires the flashlight turning on to conclude the battery is not dead.
-      - text: 'No: but only because the flashlight actually did turn on.'
+          This treats an earlier charge as a complete rule about the present state. Charging may suggest that the battery once worked. Check whether the statement guarantees present operation.
+      - text: "The flashlight has been used more than once this week."
         rationale: |
-          You disputed the premise that the flashlight did not turn on.
+          This uses past use as proof of the current failure's cause. The flashlight has worked before. Check whether that fact rules out another fault now.
     explanation: |
-      This is "affirming the consequent" in reverse form: the premise only guarantees a dead battery prevents the flashlight from turning on, not that this is the only possible cause of failure.
+      The added rule guarantees that a live battery makes the flashlight turn on. Since it did not turn on, the battery cannot be live. With the two stated battery states, it must be dead.
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0013
@@ -272,63 +270,61 @@ questions:
       If a shape is a triangle, it has three sides. This shape does not have three sides.
       What must be true?
     choices:
-      - text: This shape is not a triangle.
+      - text: "This shape is not a triangle."
         correct: true
-      - text: This shape is a triangle.
+      - text: "This shape is a triangle."
         rationale: |
-          You contradicted the modus tollens inference. Lacking a required trait of triangles means the shape cannot be a triangle.
-      - text: This shape has exactly three sides.
+          This gives membership despite a missing required trait. A shape can still look triangle-like. Check the side requirement rather than its appearance.
+      - text: "This shape has exactly three sides."
         rationale: |
-          You contradicted the given premise stating the shape does not have three sides.
-      - text: Nothing can be concluded about this shape.
+          This contradicts the second premise. The triangle rule may make three sides seem expected. Check the stated side count condition for this shape.
+      - text: "Nothing can be concluded about this shape."
         rationale: |
-          You overlooked modus tollens. Denying a necessary condition validly proves the shape is not a triangle.
+          This overlooks a valid negative inference. The premises do not name the shape's actual type. Check whether they still rule one type out.
     explanation: |
-      This is modus tollens: since having three sides is guaranteed for triangles, and this shape lacks three sides, it cannot be a triangle.
+      Every triangle must have three sides under the premise. This shape lacks that required trait. It is therefore not a triangle.
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0014
     type: syllogism
     difficulty: hard
     stem: |
-      All licensed drivers have passed a driving test. Juan passed a driving test. Therefore, Juan is a licensed driver.
-      Is this conclusion valid?
+      All licensed drivers have passed a driving test. Some permit holders have not passed that test. What must follow?
     choices:
-      - text: 'No: passing a driving test does not guarantee being licensed; Juan could have passed the test without completing other licensing requirements, such as registration or fees.'
+      - text: "Some permit holders are not licensed drivers."
         correct: true
-      - text: 'Yes: passing a driving test always means someone is a licensed driver.'
+      - text: "All permit holders are licensed drivers."
         rationale: |
-          You assumed passing a test is the sole condition for getting a license.
-      - text: 'Yes: this follows modus ponens correctly.'
+          This treats a permit as a license for everyone. The two documents can sound related. Check the stated permit holders who lack the required test.
+      - text: "No permit holders are licensed drivers."
         rationale: |
-          You misidentified affirming the consequent as modus ponens. Modus ponens starts with "Juan is a licensed driver".
-      - text: 'No: but only because Juan never actually took a driving test.'
+          This expands a statement about some permit holders to all of them. A known unlicensed subgroup may seem to represent the whole group. Check the quantity word "some."
+      - text: "Some licensed drivers have not passed the test."
         rationale: |
-          You questioned the premise facts rather than analyzing the validity of the deduction.
+          This reverses the universal test requirement. Some permit holders lack the test, which may blur the groups. Check which group the all statement covers.
     explanation: |
-      This is "affirming the consequent." The premise only says licensed drivers have passed a test, not that everyone who passes a test automatically becomes licensed: other requirements might still apply.
+      Every licensed driver must have passed the test. The stated permit holders who have not passed cannot be licensed drivers. At least some permit holders are therefore not licensed.
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0015
     type: syllogism
     difficulty: hard
     stem: |
-      All fish live in water. A dolphin lives in water.
-      Can we conclude that a dolphin is a fish?
+      All fish live in water. No mammals are fish. This dolphin is a mammal. What must be true?
     choices:
-      - text: 'No: the premise only guarantees fish live in water; it does not say everything living in water is a fish, so this conclusion does not follow.'
+      - text: "The dolphin is not a fish."
         correct: true
-      - text: 'Yes: since a dolphin lives in water, and all fish live in water, a dolphin must be a fish.'
+      - text: "The dolphin is a fish."
         rationale: |
-          You assumed living in water is an exclusive property of fish.
-      - text: 'Yes: this is a valid deductive conclusion using modus ponens.'
+          This overlooks the exclusion between mammals and fish. Living in water may make the two groups seem similar. Check the given no statement.
+      - text: "Every mammal is a dolphin."
         rationale: |
-          You misidentified affirming the consequent as modus ponens.
-      - text: 'No: but only because dolphins do not actually live in water.'
+          This reverses membership from one dolphin to all mammals. The named example may seem to represent its whole class. Check the direction and quantity of the premise.
+      - text: "No fish live in water."
         rationale: |
-          You disputed the factual premise that dolphins live in water.
+          This negates the water trait of fish. The exclusion between mammals and fish may sound like a water exclusion. Check which two groups are actually separated.
     explanation: |
-      This is a category version of "affirming the consequent." "All fish live in water" does not mean "everything that lives in water is a fish": a dolphin is actually a mammal, not a fish, despite living in water.
+      The dolphin belongs to the mammal group. The premises keep mammals separate from fish. The dolphin is therefore not a fish.
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0016
@@ -337,17 +333,102 @@ questions:
     stem: |
       Consider this argument: "All reptiles are cold-blooded. A snake is cold-blooded. Therefore, a snake is a reptile." Separately, consider: "All reptiles are cold-blooded. A snake is a reptile. Therefore, a snake is cold-blooded." Evaluate the validity of each argument.
     choices:
-      - text: 'The first argument is invalid (it affirms the consequent, since "cold-blooded" does not guarantee "reptile": some fish and amphibians are also cold-blooded); the second argument is valid, since it correctly applies the trait from the category to a confirmed member of it.'
+      - text: "First invalid, second valid"
         correct: true
-      - text: Both arguments are valid, since they use the same two facts about reptiles.
+      - text: "First valid, second valid"
         rationale: |
-          You treated argument structure as irrelevant. Premise order and direction determine validity.
-      - text: Both arguments are invalid, since neither can be evaluated without knowing if snakes are truly reptiles.
+          This treats the shared vocabulary as enough for equal validity. Both arguments mention the same animal and trait. Check the direction of each inference.
+      - text: "First invalid, second invalid"
         rationale: |
-          You confused deductive validity with empirical checking. Validity tests structural necessity given premises.
-      - text: The first argument is valid, and the second is invalid, reversing the correct evaluation.
+          This lets factual uncertainty prevent evaluation of both structures. The arguments concern real animals. Check validity assuming their premises are true.
+      - text: "First valid, second invalid"
         rationale: |
-          You inverted valid deduction and affirming the consequent.
+          This reverses the two evaluations. Both group membership and traits appear in each argument. Check which one is a premise and which one is a conclusion.
     explanation: |
-      The first argument reasons backward from a shared trait to category membership, which is invalid since other animals (like some fish and amphibians) are also cold-blooded. The second argument correctly reasons forward from confirmed category membership to a guaranteed trait, making it valid.
+      The first argument moves from a trait back to a group that has the trait. That shared trait does not force membership, so the first inference is invalid. The second starts with group membership and applies its guaranteed trait, so it is valid.
     approved: true
+
+  - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0017
+    type: syllogism
+    difficulty: hard
+    stem: |
+      If a parcel is scanned, its arrival is logged. If its arrival is logged, receipt is acknowledged. Which statement must follow?
+    choices:
+      - text: "A scanned parcel is acknowledged."
+        correct: true
+      - text: "Every acknowledged parcel was scanned."
+        rationale: |
+          This reverses the complete chain. Acknowledgment is the final result in the given rules. Check whether the rules also say it has only one source.
+      - text: "A logged parcel must have been scanned."
+        rationale: |
+          This reverses the first link. Logging is a result of scanning. Check whether the rule says every logged parcel came from a scan.
+      - text: "No scanned parcel is acknowledged."
+        rationale: |
+          This denies the end of the linked chain. The three steps may seem separate. Check how the first guarantee connects to the second.
+    explanation: |
+      Scanning guarantees logging. Logging guarantees acknowledgment. Following those two links makes acknowledgment a guaranteed result of scanning.
+    approved: false
+
+  - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0018
+    type: syllogism
+    difficulty: hard
+    stem: |
+      The original document is in the cabinet or the vault. It is not in the cabinet. What must be true?
+    choices:
+      - text: "The original is in the vault."
+        correct: true
+      - text: "The original is in both places."
+        rationale: |
+          This keeps an excluded location. The word "or" can allow both in other cases. Check the second premise that removes the cabinet.
+      - text: "The original is in neither place."
+        rationale: |
+          This treats excluding one place as excluding both. One option is ruled out. Check the premise that guarantees at least one of the two places.
+      - text: "The original was moved today."
+        rationale: |
+          This adds a movement event to a location argument. A missing cabinet document may suggest it was moved. Check whether any premise states when or how it arrived.
+    explanation: |
+      The premises give two possible places and exclude the cabinet. The remaining stated place is the vault, so the original is there.
+    approved: false
+
+  - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0019
+    type: syllogism
+    difficulty: exam
+    stem: |
+      All approved reports are signed. Some submitted reports are approved. What must follow?
+    choices:
+      - text: "Some submissions are signed."
+        correct: true
+      - text: "All submitted reports are signed."
+        rationale: |
+          This expands the stated subgroup to every submitted report. The all statement about approved reports may seem to cover the whole submitted group. Check which group "all" describes.
+      - text: "All signed reports are submitted."
+        rationale: |
+          This reverses the signed-report relationship. Signed reports appear in the conclusion. Check whether the premises describe all signed reports or only approved ones.
+      - text: "No submitted reports are signed."
+        rationale: |
+          This denies the overlap established by the approved subgroup. The category names differ. Check the reports that are both submitted and approved.
+    explanation: |
+      Every approved report is signed. Some submitted reports belong to the approved group. Those reports are signed, so at least some submitted reports are signed.
+    approved: false
+
+  - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0020
+    type: syllogism
+    difficulty: exam
+    stem: |
+      If the audit is approved, the notice is released. If the notice is released, its copy is registered. The copy is not registered. Which evaluation must hold?
+    choices:
+      - text: "Not approved, not released"
+        correct: true
+      - text: "Approved, not released"
+        rationale: |
+          This keeps approval after denying its guaranteed result. It may seem that only the last rule can be used backward. Check what approval requires under the first rule.
+      - text: "Not approved, released"
+        rationale: |
+          This keeps release after its guaranteed registered copy is absent. The negative conclusion about approval may seem sufficient. Check the second conditional link too.
+      - text: "Approval unknown, not released"
+        rationale: |
+          This stops after using the second rule. Release is ruled out, so that can feel like the end of the deduction. Check whether the first rule allows a further negative conclusion.
+    explanation: |
+      Approval guarantees release, and release guarantees a registered copy. No registered copy means there was no release. Since approval would have required release, approval is also absent.
+    approved: false
+

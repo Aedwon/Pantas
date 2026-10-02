@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+rc-cs-ap-0001	CORRECTED	SOLVED-MATCH	explanation;notes;type;choices	MEDIUM	Weak distractors replaced or their mistaken reading clarified.
+rc-cs-ap-0002	VERIFIED	SOLVED-MATCH	explanation;notes;type	MEDIUM	Weak distractors replaced or their mistaken reading clarified.
+rc-cs-ap-0003	CORRECTED	SOLVED-MATCH	explanation;notes;type;choices	MEDIUM	Weak distractors replaced or their mistaken reading clarified.
+rc-cs-ap-0004	VERIFIED	SOLVED-MATCH	explanation;notes;type	MEDIUM	Weak distractors replaced or their mistaken reading clarified.
+rc-cs-ap-0005	CORRECTED	SOLVED-MATCH	explanation;notes;type;choices	MEDIUM	Weak distractors replaced or their mistaken reading clarified.
+rc-cs-ap-0006	VERIFIED	SOLVED-MATCH	explanation;notes;type;passage	HIGH	Source placed Mount Apo at Ormoc Bay; corrected to the coast. Mount Apo is in Mindanao (https://davaodelsur.gov.ph/tourism/mt-apo/).
+rc-cs-ap-0007	VERIFIED	SOLVED-MATCH	explanation;notes;type;passage	HIGH	Source placed Mount Apo at Ormoc Bay; corrected to the coast. Mount Apo is in Mindanao (https://davaodelsur.gov.ph/tourism/mt-apo/).
+rc-cs-ap-0008	CORRECTED	SOLVED-MATCH	explanation;notes;type;choices;passage	HIGH	Source placed Mount Apo at Ormoc Bay; corrected to the coast. Mount Apo is in Mindanao (https://davaodelsur.gov.ph/tourism/mt-apo/).
+rc-cs-ap-0009	VERIFIED	SOLVED-MATCH	explanation;notes;type;passage	HIGH	Source placed Mount Apo at Ormoc Bay; corrected to the coast. Mount Apo is in Mindanao (https://davaodelsur.gov.ph/tourism/mt-apo/).
+rc-cs-ap-0010	VERIFIED	SOLVED-MATCH	explanation;notes;type;passage	HIGH	Source placed Mount Apo at Ormoc Bay; corrected to the coast. Mount Apo is in Mindanao (https://davaodelsur.gov.ph/tourism/mt-apo/).
+rc-cs-ap-0011	CORRECTED	SOLVED-MATCH	explanation;notes;type;choices;passage;stem	HIGH	Question named a nonexistent passage; original source included an unsupported safety threshold.
+rc-cs-ap-0012	CORRECTED	SOLVED-MATCH	explanation;notes;type;choices;passage;stem	HIGH	Question named a nonexistent passage; original source included an unsupported safety threshold.
+rc-cs-ap-0013	CORRECTED	SOLVED-MATCH	explanation;notes;type;choices;passage;stem	HIGH	Question named a nonexistent passage; original source included an unsupported safety threshold.
+rc-cs-ap-0014	CORRECTED	SOLVED-MATCH	explanation;notes;type;choices;passage;stem	HIGH	Question named a nonexistent passage; original source included an unsupported safety threshold.
+rc-cs-ap-0015	CORRECTED	SOLVED-MATCH	explanation;notes;type;choices;passage;stem	HIGH	Question named a nonexistent passage; original source included an unsupported safety threshold.
+q-comprehension-skills-authors-purpose-tone-pov-0016	NEW	NEW	new	NONE	
+q-comprehension-skills-authors-purpose-tone-pov-0017	NEW	NEW	new	NONE	
+q-comprehension-skills-authors-purpose-tone-pov-0018	NEW	NEW	new	NONE	
+q-comprehension-skills-authors-purpose-tone-pov-0019	NEW	NEW	new	NONE	
+q-comprehension-skills-authors-purpose-tone-pov-0020	NEW	NEW	new	NONE	
