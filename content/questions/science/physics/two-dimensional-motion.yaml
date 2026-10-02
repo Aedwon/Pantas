@@ -36,9 +36,9 @@ questions:
       - text: "$3\\,\\mathrm m$"
         rationale: |
           This reports horizontal range as height. Both are distances. Check the separate vertical motion.
-      - text: "$2.5\\,\\mathrm m$"
+      - text: "$12.5\\,\\mathrm m$"
         rationale: |
-          This omits the one-half factor in the vertical drop. The squared time is needed. Check the full rest-start displacement formula.
+          This uses 2.5 instead of 0.25 for the squared half-second time. A decimal moves during squaring. Check that a number below one becomes smaller when squared.
       - text: "$5\\,\\mathrm m$"
         rationale: |
           This uses $gt$ as a distance. That product gives vertical speed. Check the squared-time dependence of height.
