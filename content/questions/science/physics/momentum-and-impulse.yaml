@@ -18,9 +18,9 @@ questions:
       - text: "50 kg m/s"
         rationale: |
           This divides mass by speed. Division appears in other motion formulas. Check the units of momentum.
-      - text: "980 kg m/s"
+      - text: "200000 kg m/s"
         rationale: |
-          This subtracts speed from mass. A difference can seem like a motion change. Check that unlike units cannot be subtracted.
+          This uses 200 instead of 20 for speed. A misplaced zero still gives a large car momentum. Check the original speed before multiplying.
     explanation: |
       Momentum magnitude is mass times speed. Thus $p=(1000)(20)=20000\,\mathrm{kg\,m/s}$.
     approved: true
@@ -266,7 +266,7 @@ questions:
     choices:
       - text: "-0.4 m/s"
         correct: true
-      - text: "0.4 m/s"
+      - text: "+0.4 m/s"
         rationale: |
           This drops the net momentum’s negative sign. Speed is often reported positively. Check the requested signed velocity.
       - text: "-2 m/s"
@@ -319,9 +319,7 @@ questions:
         rationale: |
           This substitutes another motion quantity. Both can change in collisions. Check momentum’s units and vector direction.
     explanation: |
-      The impulse-momentum theorem states that impulse equals change in momentum: $
-      ec J=\Delta
-      ec p$.
+      The impulse-momentum theorem states that impulse equals change in momentum: $\vec J=\Delta\vec p$.
 
   - id: q-physics-momentum-and-impulse-0016
     approved: false
