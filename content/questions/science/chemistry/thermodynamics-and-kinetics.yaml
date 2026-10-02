@@ -2,289 +2,424 @@ meta:
   subject: science
   topic: chemistry
   subtopic: thermodynamics-and-kinetics
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-chemistry-thermodynamics-and-kinetics-0001
-    type: classify
-    difficulty: easy
+    type: 'classify'
+    difficulty: 'easy'
     stem: |
       A chemical hand warmer packet becomes noticeably hot after being activated, releasing heat to its surroundings. Is this reaction endothermic or exothermic?
     choices:
-      - text: Exothermic
+      - text: 'Exothermic'
         correct: true
-      - text: Endothermic
+      - text: 'Endothermic'
         rationale: |
-          You picked heat-absorbing. Endothermic reactions absorb energy from surroundings, causing temperature to drop rather than rise.
+          This reverses the heat-transfer direction. The warmer surroundings are observed. Check whether the reacting system gains or loses heat.
       - text: 'Neither: heat is unrelated to reaction type'
         rationale: |
-          You claimed heat release is unrelated to classification. Thermal energy exchange directly defines endothermic vs exothermic reactions.
-      - text: Both at the same time
+          This removes heat flow from the classification. A temperature observation may depend on apparatus. Check the explicitly stated release.
+      - text: 'Both at the same time'
         rationale: |
-          You combined opposite energy flows. A net release of heat defines an exothermic process, not a simultaneous dual process.
+          This treats opposite net heat directions as one classification. Different steps can exchange heat. Check the net transfer for the defined process.
     explanation: |
-      An exothermic reaction releases energy to its surroundings, making them feel warmer: exactly what happens in the hand warmer.
+      The reacting system transfers heat to the surroundings. A net heat release defines an exothermic process.
     approved: true
+
   - id: q-chemistry-thermodynamics-and-kinetics-0002
-    type: classify
-    difficulty: easy
+    type: 'classify'
+    difficulty: 'easy'
     stem: |
       A reaction mixed in a beaker causes the beaker itself to feel noticeably cold to the touch, absorbing heat from its surroundings. Is this reaction endothermic or exothermic?
     choices:
-      - text: Endothermic
+      - text: 'Endothermic'
         correct: true
-      - text: Exothermic
+      - text: 'Exothermic'
         rationale: |
-          You picked heat-releasing. Exothermic reactions release energy to surroundings, making containers feel hot instead of cold.
+          This reverses the direction of heat transfer. Cooling is observed outside the system. Check the explicitly stated absorption.
       - text: 'Neither: cold is unrelated to reaction type'
         rationale: |
-          You claimed temperature drops are unrelated. Temperature drops signal that the system is absorbing heat (endothermic).
-      - text: Both at the same time
+          This rejects heat flow because the surroundings cool. Temperature alone may need care. Check the stated transfer into the reaction.
+      - text: 'Both at the same time'
         rationale: |
-          You claimed both processes occur at once. A net absorption of thermal energy is specifically endothermic.
+          This treats opposite net transfers as simultaneous classifications. Several steps may occur. Check the net transfer for this process.
     explanation: |
-      An endothermic reaction absorbs energy from its surroundings, making them feel cooler: exactly what happens in this beaker.
+      The reacting system absorbs heat from the surroundings. A net heat absorption defines an endothermic process.
     approved: true
+
   - id: q-chemistry-thermodynamics-and-kinetics-0003
-    type: identify
-    difficulty: medium
+    type: 'identify'
+    difficulty: 'medium'
     stem: |
-      A substance speeds up a reaction by lowering its activation energy, without being permanently used up or changed itself. What is this substance called?
+      A substance provides a faster pathway with a lower effective activation barrier and is regenerated overall. What role does it have?
     choices:
-      - text: A catalyst
+      - text: 'Catalyst'
         correct: true
-      - text: A reactant
+      - text: 'Consumed reactant'
         rationale: |
-          You picked a consumed starting material. Reactants are transformed into products during a reaction, whereas catalysts are regenerated.
-      - text: A product
+          This treats the additive as consumed starting material. Reactants help reactions occur. Check whether it is regenerated overall.
+      - text: 'Collected final product'
         rationale: |
-          You picked the output substance. Products are newly formed chemical species, not rate-accelerating additives.
-      - text: A solvent
+          This treats a rate-changing additive as the final output. Products arise during reactions. Check its stated role before and during the process.
+      - text: 'Solvent that only dissolves reactants'
         rationale: |
-          You picked the dissolving medium. Solvents dissolve reactants but do not specifically lower reaction activation energy.
+          This selects only a dissolving role. Solvents can affect a reaction medium. Check the stated alternative-pathway and regeneration role.
     explanation: |
-      A catalyst speeds up a reaction by lowering activation energy, and unlike a reactant, it is not consumed in the process.
+      A catalyst provides an alternative reaction pathway with a lower effective activation barrier. It participates in steps and is regenerated overall.
     approved: true
+
   - id: q-chemistry-thermodynamics-and-kinetics-0004
-    type: cause-effect
-    difficulty: medium
+    type: 'cause-effect'
+    difficulty: 'medium'
     stem: |
       What effect does increasing the temperature of a reaction generally have on its rate?
     choices:
-      - text: It increases the rate, since particles move faster and collide more often with more energy.
+      - text: 'It generally increases rate.'
         correct: true
-      - text: It decreases the rate, since heat makes particles move more slowly.
+      - text: 'It generally slows particles and decreases rate.'
         rationale: |
-          You claimed heat slows particles down. Higher temperature increases molecular kinetic energy, causing faster and more energetic collisions.
-      - text: It has no effect on reaction rate.
+          This says heating lowers particle motion. Cooling often slows reactions. Check the change in thermal energy.
+      - text: 'It never affects any reaction rate.'
         rationale: |
-          You assumed temperature is independent of rate. Temperature directly influences collision frequency and energy, altering rate.
-      - text: It only affects endothermic reactions, never exothermic ones.
+          This treats rate as independent of temperature. Composition might be unchanged. Check the temperature dependence of the rate constant.
+      - text: 'It affects endothermic reactions only.'
         rationale: |
-          You limited temperature effects to endothermic reactions. Higher temperature increases collision rates for both endothermic and exothermic reactions.
+          This limits kinetic temperature effects to one heat-flow category. Endothermic reactions absorb heat. Check that rate and enthalpy are different properties.
     explanation: |
-      Higher temperature makes particles move faster, causing more frequent and more energetic collisions, which speeds up the reaction rate.
+      Higher temperature generally raises the rate constant. More particles have enough energy to cross the activation barrier, so a typical reaction proceeds faster.
     approved: true
+
   - id: q-chemistry-thermodynamics-and-kinetics-0005
-    type: cause-effect
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
-      What effect does increasing the concentration of reactants generally have on reaction rate?
+      A reaction has $\mathrm{rate}=k[A]^0[B]$. If A doubles while k and B stay fixed, what happens to rate?
     choices:
-      - text: It increases the rate, since more particles are available to collide with each other.
+      - text: 'It stays the same.'
         correct: true
-      - text: It decreases the rate, since more particles get in each other's way.
+      - text: 'It doubles because A doubles.'
         rationale: |
-          You assumed crowding slows reactions. More particles per unit volume increase successful collision frequency, raising the reaction rate.
-      - text: It has no effect on reaction rate.
+          This assumes first-order behavior in A. More particles often speed reactions. Check the zero exponent.
+      - text: 'It quadruples because every concentration is squared.'
         rationale: |
-          You assumed concentration does not affect rate. Higher reactant concentration increases collision rates and speeds up reaction kinetics.
-      - text: It only affects reactions with a catalyst present.
+          This assumes second-order behavior in A. Doubling a squared factor would quadruple it. Check the stated exponent.
+      - text: 'It halves because concentration is always an inverse factor.'
         rationale: |
-          You restricted concentration effects to catalyzed reactions. Concentration increases collision frequency in uncatalyzed reactions as well.
+          This treats concentration as an inverse factor. Some rate laws have complex behavior. Check the actual zero-order term.
     explanation: |
-      A higher concentration means more reactant particles are packed into the same space, increasing how often they collide and react.
+      The rate law contains $[A]^0=1$. Doubling A leaves that factor unchanged. With k and B fixed, the rate stays the same.
     approved: true
+
   - id: q-chemistry-thermodynamics-and-kinetics-0006
-    type: cause-effect
-    difficulty: medium
+    type: 'cause-effect'
+    difficulty: 'medium'
     stem: |
       A chunk of solid reacts slowly with an acid. The same solid is instead crushed into a fine powder before adding the acid. What happens to the reaction rate, and why?
     choices:
-      - text: The rate increases, since crushing the solid greatly increases its exposed surface area, allowing more collisions with the acid.
+      - text: 'Rate rises with exposed area.'
         correct: true
-      - text: The rate decreases, since crushing the solid reduces its total mass.
+      - text: 'Rate falls because crushing always removes mass.'
         rationale: |
-          You assumed crushing reduces mass. Crushing changes physical particle size without altering total mass, while increasing surface area.
-      - text: The rate stays exactly the same, since the total amount of solid is unchanged.
+          This assumes crushing removes material. Particles become smaller. Check the specified equal mass.
+      - text: 'Rate stays fixed because only total mass can matter.'
         rationale: |
-          You focused on constant mass while ignoring surface area. Powdered solids expose far more surface particles to acid collisions.
-      - text: The reaction stops entirely once the solid is crushed.
+          This uses total mass alone to decide rate. The amount is unchanged. Check the increased contact area.
+      - text: 'Rate stays fixed because all solid atoms react at once.'
         rationale: |
-          You predicted reaction stoppage. Increasing surface area accelerates reaction rates rather than stopping them.
+          This assumes all reactions occur throughout the solid at once. The solid is the reactant. Check the stated surface reaction.
     explanation: |
-      Crushing a solid into powder increases its total exposed surface area, even though its mass stays the same. More exposed surface means more particles available to collide with acid particles, speeding up the reaction.
+      At the same solid mass, powder exposes more area to the acid. More interfacial reaction sites are available. This usually increases the rate of the stated surface reaction.
     approved: true
+
   - id: q-chemistry-thermodynamics-and-kinetics-0007
-    type: cause-effect
-    difficulty: medium
+    type: 'compare-contrast'
+    difficulty: 'medium'
     stem: |
-      A catalyst is added to a reaction. What effect does this generally have on the reaction rate?
+      Two pathways have the same Arrhenius A and temperature. One has a lower activation energy. Which has the larger rate constant?
     choices:
-      - text: It increases the rate, since the catalyst lowers the activation energy needed to get started.
+      - text: 'The lower-barrier pathway'
         correct: true
-      - text: It decreases the rate, since catalysts absorb energy from the reaction.
+      - text: 'The higher-barrier pathway'
         rationale: |
-          You claimed catalysts slow reactions down. Catalysts accelerate reactions by providing an alternate pathway with lower activation energy.
-      - text: It has no effect on rate, only on the final product amount.
+          This reverses the sign in the exponential. A barrier is an energy quantity. Check how smaller E_a affects the exponent.
+      - text: 'Both must have exactly equal rate constants'
         rationale: |
-          You reversed catalyst functions. Catalysts increase reaction rate but do not alter equilibrium yields or final product amounts.
-      - text: It stops the reaction from happening at all.
+          This treats equal A and T as making E_a irrelevant. Some factors match. Check the remaining barrier term.
+      - text: 'Only the more exothermic pathway can have a larger constant'
         rationale: |
-          You claimed catalysts inhibit reactions. Catalysts lower activation energy to speed up reactions.
+          This equates rate constant with reaction enthalpy. Both concern energy. Check that E_a is a pathway barrier.
     explanation: |
-      A catalyst speeds up a reaction by lowering its activation energy, making it easier for reactant particles to successfully collide and transform into products.
+      In $k=Ae^{-E_a/(RT)}$, a smaller E_a makes the exponential factor larger when A and T match. The lower-barrier pathway therefore has the larger rate constant.
     approved: true
+
   - id: q-chemistry-thermodynamics-and-kinetics-0008
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
       A student assumes that since a reaction is exothermic (releases energy), it must also happen very quickly. Is this assumption correct?
     choices:
-      - text: 'No: whether a reaction is exothermic is independent of how fast it happens; some exothermic reactions, like iron rusting, happen very slowly.'
+      - text: 'No; heat release does not fix speed.'
         correct: true
-      - text: 'Yes: all exothermic reactions happen instantly.'
+      - text: 'Yes; every exothermic reaction happens instantly.'
         rationale: |
-          You equated energy release with speed. Exothermic reactions like rusting proceed slowly despite releasing energy overall.
-      - text: 'No: exothermic reactions are always the slowest type of reaction.'
+          This makes negative enthalpy guarantee an instant reaction. Heat release is favorable in one sense. Check the activation barrier.
+      - text: 'No; every exothermic reaction is necessarily the slowest.'
         rationale: |
-          You claimed exothermic reactions are always slow. Combustion is exothermic and fast, showing rate and heat release are independent.
-      - text: 'Yes: energy release and reaction speed always match perfectly.'
+          This reverses the claim into a universal slow-reaction rule. Some exothermic processes are slow. Check whether kinetics varies between pathways.
+      - text: 'Yes; net heat and reaction rate always match.'
         rationale: |
-          You assumed thermodynamic energy match kinetic rate. Overall energy change ($\Delta H$) does not determine activation energy ($E_a$).
+          This equates net heat with rate. Both are reaction properties. Check that one is an energy difference and the other is change per time.
     explanation: |
-      Thermodynamics (how much energy is released or absorbed) and kinetics (how fast a reaction happens) are independent properties. Rusting iron is exothermic but proceeds very slowly.
+      Heat release describes enthalpy change. Speed depends on the pathway, activation barrier, and reaction conditions. An exothermic reaction can therefore be slow.
     approved: true
+
   - id: q-chemistry-thermodynamics-and-kinetics-0009
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
       A student claims that a catalyst becomes part of the final product, since it participates in the reaction. Is this correct?
     choices:
-      - text: 'No: a catalyst is not consumed or permanently changed by the reaction; it is regenerated and can be reused.'
+      - text: 'No; it is regenerated overall.'
         correct: true
-      - text: 'Yes: catalysts are always fully converted into product.'
+      - text: 'Yes; it is always fully consumed into product.'
         rationale: |
-          You treated catalysts as consumed reactants. Catalysts are regenerated unchanged by the end of the reaction cycle.
-      - text: 'No: catalysts never interact with the reactants at all.'
+          This equates participation with permanent consumption. Reactants often become products. Check the completed cycle.
+      - text: 'No; it never interacts with any reactant at all.'
         rationale: |
-          You claimed no interaction occurs. Catalysts interact transiently with reactants to lower the activation energy barrier.
-      - text: 'Yes: a catalyst becomes part of the product only in exothermic reactions.'
+          This assumes regeneration means no interactions ever occur. The catalyst returns overall. Check the intermediate steps.
+      - text: 'Yes; it is consumed specifically in exothermic reactions.'
         rationale: |
-          You conditioned catalyst consumption on heat flow. Catalysts remain unconsumed regardless of whether a reaction is endothermic or exothermic.
+          This makes catalyst consumption depend on heat release. Exothermic reactions transfer heat. Check the regeneration criterion.
     explanation: |
-      A catalyst may temporarily interact with reactants, but unlike a true reactant, it is not permanently used up: it is regenerated by the end of the reaction.
+      A catalyst can take part in intermediate reactions. It is regenerated in the overall cycle, so it is not consumed stoichiometrically as a reactant.
     approved: true
+
   - id: q-chemistry-thermodynamics-and-kinetics-0010
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
       A reaction produces the same total amount of product whether or not a catalyst is used, but finishes much faster with the catalyst. A student concludes the catalyst must have changed how much energy the reaction released overall. Is this correct?
     choices:
-      - text: 'No: a catalyst only changes the reaction''s speed; it does not change the total energy released or absorbed, or the final amount of product.'
+      - text: 'No; the overall enthalpy change is unchanged.'
         correct: true
-      - text: 'Yes: catalysts always increase the total energy released.'
+      - text: 'Yes; catalysts always increase the total released heat.'
         rationale: |
-          You attributed overall energy changes to catalysts. Catalysts alter reaction pathways to lower activation energy without changing overall $\Delta H$.
-      - text: 'No: but only because this particular reaction is endothermic.'
+          This assigns greater net heat to a faster pathway. More heat may be released per unit time. Check total enthalpy for the same reaction amount.
+      - text: 'No; but only because the reaction must be endothermic.'
         rationale: |
-          You restricted energy preservation to endothermic reactions. Catalysts leave net energy change unchanged in both endothermic and exothermic reactions.
-      - text: 'Yes: faster reactions always release more total energy.'
+          This restricts enthalpy preservation to endothermic reactions. Heat-flow sign varies. Check that state differences determine enthalpy in either case.
+      - text: 'Yes; faster release necessarily gives a larger total energy.'
         rationale: |
-          You equated reaction speed with total energy output. Kinetic rate is independent of thermodynamic yield.
+          This equates faster release with a larger total. Time changes. Check total energy separately from energy per unit time.
     explanation: |
-      A catalyst changes only how fast a reaction reaches its result, by lowering activation energy. The overall energy change and final product amount stay exactly the same with or without it.
+      For the same reactants and products in the same states, a catalyst leaves the overall enthalpy change unchanged. It changes the pathway and rate.
     approved: true
+
   - id: q-chemistry-thermodynamics-and-kinetics-0011
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
       A student assumes a high activation energy means a reaction releases a large amount of overall energy. Is this correct?
     choices:
-      - text: 'No: activation energy describes the initial energy barrier to start the reaction, which is separate from how much overall energy the reaction releases or absorbs.'
+      - text: 'No; barrier and net heat are different.'
         correct: true
-      - text: 'Yes: activation energy and overall energy release are always the same value.'
+      - text: 'Yes; activation energy always equals net heat release.'
         rationale: |
-          You confused activation energy ($E_a$) with net energy change ($\Delta H$). $E_a$ is the starting barrier; $\Delta H$ is the net energy difference.
-      - text: 'No: high activation energy actually means the reaction releases no energy at all.'
+          This treats two different energy quantities as equal. Both can be measured in energy units. Check their definitions.
+      - text: 'No; a high barrier means zero energy can be released.'
         rationale: |
-          You claimed high barriers prevent energy release. Sparks provide activation energy for combustion reactions that release vast amounts of heat.
-      - text: 'Yes: reactions with high activation energy always release the most energy.'
+          This treats a high barrier as requiring zero net heat. A slow reaction may not start easily. Check the product-reactant energy difference separately.
+      - text: 'Yes; the highest barrier always gives the greatest release.'
         rationale: |
-          You linked high barriers to high net yield. Activation energy dictates starting resistance, independent of net energy released.
+          This treats a larger barrier as necessarily larger released heat. High energy is involved in the pathway. Check where each energy quantity is measured.
     explanation: |
-      Activation energy is the initial "push" needed to start a reaction: a completely separate value from the reaction's overall energy change. A reaction can have a small overall energy release but still need a high activation energy to begin.
+      Activation energy describes the barrier along a pathway. Overall enthalpy describes the reactant-to-product state difference. A high barrier does not determine the net heat released.
     approved: true
+
   - id: q-chemistry-thermodynamics-and-kinetics-0012
-    type: compare-contrast
-    difficulty: hard
+    type: 'compare-contrast'
+    difficulty: 'hard'
     stem: |
       Which statement correctly tells apart thermodynamics and kinetics as they apply to a chemical reaction?
     choices:
-      - text: 'Thermodynamics describes how much energy is exchanged; kinetics describes how fast the reaction happens: these are independent questions.'
+      - text: 'Thermodynamics: states; kinetics: rates.'
         correct: true
-      - text: Thermodynamics and kinetics both describe exactly the same property of a reaction.
+      - text: 'Both fields describe exactly the same reaction property.'
         rationale: |
-          You treated energy change and reaction speed as identical properties. Thermodynamics addresses energy equilibrium, while kinetics addresses rate.
-      - text: Thermodynamics describes reaction speed; kinetics describes energy exchanged.
+          This treats state and rate questions as identical. Both concern the same reaction. Check which property each asks about.
+      - text: 'Thermodynamics: speed; kinetics: energy and equilibrium.'
         rationale: |
-          You swapped thermodynamics and kinetics definitions. Thermodynamics governs energy exchanges ($\Delta H$), while kinetics governs speeds.
-      - text: Kinetics only applies to endothermic reactions, and thermodynamics only applies to exothermic ones.
+          This reverses the fields. Both names are familiar. Check whether a question concerns equilibrium or time.
+      - text: 'Kinetics applies only to endothermic processes, thermodynamics only to exothermic.'
         rationale: |
-          You divided concepts by reaction heat type. Both thermodynamics and kinetics apply to every chemical reaction.
+          This limits each field to one heat-flow category. Reactions absorb or release heat. Check that both fields apply to either category.
     explanation: |
-      Thermodynamics concerns the energy difference between reactants and products (exothermic or endothermic). Kinetics concerns the reaction's speed, governed by activation energy, temperature, concentration, surface area, and catalysts: the two are independent of each other.
+      Thermodynamics concerns energy, equilibrium, and favorability under stated conditions. Kinetics concerns reaction rate and mechanism.
     approved: true
+
   - id: q-chemistry-thermodynamics-and-kinetics-0013
-    type: predict-outcome
-    difficulty: exam
+    type: 'predict-outcome'
+    difficulty: 'exam'
     stem: |
       Burning paper releases a large amount of energy overall, yet a stack of paper does not spontaneously catch fire at room temperature without an ignition source. What does this show about the relationship between overall energy release and reaction speed?
     choices:
-      - text: A reaction can release a large amount of energy overall while still having a high activation energy, making it slow to start without an initial push.
+      - text: 'A barrier can delay an exothermic reaction.'
         correct: true
-      - text: Paper's burning reaction must not actually be exothermic.
+      - text: 'A slow start proves paper combustion cannot release heat.'
         rationale: |
-          You denied that combustion is exothermic. Burning paper releases heat ($\Delta H < 0$), but requires activation energy to start.
-      - text: Paper never releases energy unless it is already on fire.
+          This treats slow initiation as proof of no heat release. Paper does not ignite readily at room temperature. Check the measured heat release during burning.
+      - text: 'Negative enthalpy means no activation barrier can exist.'
         rationale: |
-          You mistook initiation for total potential energy. Sparking provides activation energy to overcome the starting barrier.
-      - text: Activation energy and overall energy release must always be equal.
+          This assumes exothermicity removes the pathway barrier. The products are lower in enthalpy. Check the transition-state requirement.
+      - text: 'The activation barrier must equal the net released heat.'
         rationale: |
-          You assumed activation energy equals net energy release. Activation energy is the hill to climb; overall release is the final elevation change.
+          This assumes the barrier must equal net released heat. Both are energies. Check their different reference states.
     explanation: |
-      Paper burning is strongly exothermic, but it also has a high activation energy: the ignition source (like a match) provides the initial energy push needed to overcome that barrier and start the reaction.
+      Burning can release heat overall while facing an activation barrier. Ignition helps reach reactive conditions that overcome that barrier and allow rapid combustion.
     approved: true
+
   - id: q-chemistry-thermodynamics-and-kinetics-0014
-    type: predict-outcome
-    difficulty: exam
+    type: 'predict-outcome'
+    difficulty: 'exam'
     stem: |
-      A reaction normally takes several hours to complete at room temperature. When a specific catalyst is added, the same reaction finishes in just a few minutes, forming the same final amount of product either way. What did the catalyst change, and what did it leave unchanged?
+      A reversible reaction reaches equilibrium at a fixed temperature, with and without a catalyst. What changes?
     choices:
-      - text: It changed the reaction rate (by lowering activation energy) but left the overall energy change and final product amount unchanged.
+      - text: 'Time to equilibrium decreases; K is unchanged.'
         correct: true
-      - text: It changed the overall energy released but left the reaction rate unchanged.
+      - text: 'Equilibrium product ratio and K must both increase.'
         rationale: |
-          You swapped catalyst effects. Catalysts change the reaction rate, leaving net energy release unchanged.
-      - text: It changed the final product amount but left the reaction rate unchanged.
+          This treats faster approach as a changed equilibrium. More product may form earlier. Check the comparison after both systems equilibrate.
+      - text: 'Only the forward process speeds up at equilibrium.'
         rationale: |
-          You claimed product yield changed while rate stayed constant. Catalysts accelerate the rate without increasing total product yield.
-      - text: It changed nothing; the faster completion was a coincidence.
+          This accelerates only the forward process. Catalysts can speed product formation. Check the reversible reaction’s reverse pathway too.
+      - text: 'Time to equilibrium increases because catalysts raise barriers.'
         rationale: |
-          You attributed rate acceleration to coincidence. Catalysts directly lower activation energy to increase reaction speed.
+          This reverses the rate effect. The catalyst changes barriers. Check the faster pathway and unchanged equilibrium states.
     explanation: |
-      The catalyst lowered the activation energy, making the reaction proceed much faster. Since the same final amount of product formed either way, the overall energy change and product amount were not affected: only the speed of getting there changed.
+      At fixed temperature, a catalyst accelerates the forward and reverse processes. Equilibrium is reached sooner. The equilibrium constant and composition for the same reaction stay unchanged.
     approved: true
+
+  - id: q-chemistry-thermodynamics-and-kinetics-0015
+    type: 'identify'
+    difficulty: 'easy'
+    stem: |
+      At constant pressure, an exothermic reaction has which enthalpy sign?
+    choices:
+      - text: '$\Delta H<0$'
+        correct: true
+      - text: '$\Delta H>0$'
+        rationale: |
+          This assigns heat absorption to heat release. Both are heat-flow categories. Check the system’s energy direction.
+      - text: '$\Delta H=0$ for every exothermic process'
+        rationale: |
+          This treats energy transfer as no change. Matter may stay in the vessel. Check whether heat leaves it.
+      - text: 'A sign determined only by activation energy'
+        rationale: |
+          This substitutes a pathway barrier for a state difference. Both involve energy. Check what defines the enthalpy sign.
+    explanation: |
+      Exothermic means heat leaves the system. At constant pressure, the system’s enthalpy change is negative.
+    approved: false
+
+  - id: q-chemistry-thermodynamics-and-kinetics-0016
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      For an elementary reaction, collisions have sufficient energy but unsuitable orientation. What can happen?
+    choices:
+      - text: 'They may fail to react.'
+        correct: true
+      - text: 'Every such collision must form the desired product.'
+        rationale: |
+          This uses energy as the only requirement. A barrier must be crossed. Check orientation too.
+      - text: 'Orientation matters only after products have already formed.'
+        rationale: |
+          This delays the orientation requirement until after reaction. Products have a specific structure. Check the reactant collision arrangement.
+      - text: 'Sufficient energy always changes the equilibrium constant.'
+        rationale: |
+          This confuses collision conditions with equilibrium. Energy affects successful encounters. Check rate versus equilibrium constant.
+    explanation: |
+      Collision theory requires enough energy and a suitable orientation. Energetic particles can still fail to react if they meet in an unsuitable arrangement.
+    approved: false
+
+  - id: q-chemistry-thermodynamics-and-kinetics-0017
+    type: 'simple-quantitative'
+    difficulty: 'hard'
+    stem: |
+      For $\mathrm{rate}=k[A]^0[B]$, what happens when B triples while A and k stay fixed?
+    choices:
+      - text: 'Rate triples.'
+        correct: true
+      - text: 'Rate stays fixed because A is zero-order.'
+        rationale: |
+          This applies A’s zero order to B. Both are reactants. Check the exponent on each separately.
+      - text: 'Rate increases ninefold because B must be squared.'
+        rationale: |
+          This assigns an unshown square to B. Some rate laws are second-order. Check the given first-power term.
+      - text: 'Rate falls to one third because B is in the denominator.'
+        rationale: |
+          This moves B into the denominator. Concentration factors can vary between laws. Check the supplied expression.
+    explanation: |
+      The A factor is 1. B appears to the first power, so replacing B with 3B multiplies the rate by 3.
+    approved: false
+
+  - id: q-chemistry-thermodynamics-and-kinetics-0018
+    type: 'classify'
+    difficulty: 'hard'
+    stem: |
+      A substance changes temporarily during reaction steps and is restored at the end of each completed cycle. Can it still be a catalyst?
+    choices:
+      - text: 'Yes; overall regeneration is the criterion.'
+        correct: true
+      - text: 'No; every catalyst must remain unchanged in every step.'
+        rationale: |
+          This applies the overall result to every intermediate step. Catalysts are recovered. Check temporary changes within the mechanism.
+      - text: 'No; participation makes it a permanently consumed reactant.'
+        rationale: |
+          This equates taking part with permanent use. Reactants participate too. Check what is restored at cycle completion.
+      - text: 'Yes; but only if it changes the equilibrium constant.'
+        rationale: |
+          This makes equilibrium change a catalyst requirement. A faster reaction is observed. Check that K is unchanged for the same reaction at fixed temperature.
+    explanation: |
+      A catalyst can form intermediates and undergo temporary changes. It remains catalytic when it is regenerated overall and provides the faster pathway.
+    approved: false
+
+  - id: q-chemistry-thermodynamics-and-kinetics-0019
+    type: 'compare-contrast'
+    difficulty: 'exam'
+    stem: |
+      Is negative reaction enthalpy alone sufficient to determine spontaneity under all conditions?
+    choices:
+      - text: 'No; free energy also involves entropy.'
+        correct: true
+      - text: 'Yes; every exothermic reaction is spontaneous at every temperature.'
+        rationale: |
+          This treats heat release as the full free-energy criterion. Negative enthalpy can favor a reaction. Check entropy and temperature too.
+      - text: 'Yes; a fast reaction must be spontaneous for the same reason.'
+        rationale: |
+          This treats rate as a favorability test. Rapid reactions attract attention. Check kinetics separately from free energy.
+      - text: 'No; every exothermic reaction is thermodynamically forbidden.'
+        rationale: |
+          This reverses the universal claim without checking free energy. Enthalpy is only one part. Check the full thermodynamic criterion.
+    explanation: |
+      Thermodynamic favorability depends on Gibbs free energy under the stated conditions. That includes enthalpy and entropy contributions. Enthalpy alone is insufficient.
+    approved: false
+
+  - id: q-chemistry-thermodynamics-and-kinetics-0020
+    type: 'predict-outcome'
+    difficulty: 'exam'
+    stem: |
+      Two competing pathways form different products. A catalyst accelerates one more than the other. What may change?
+    choices:
+      - text: 'The product distribution'
+        correct: true
+      - text: 'The enthalpy difference for identical initial and final states'
+        rationale: |
+          This changes a state function by selecting a pathway. The catalyst changes rates. Check identical initial and final states.
+      - text: 'The equilibrium constant for the same reaction at fixed temperature'
+        rationale: |
+          This treats selective rate changes as a changed equilibrium constant. Product amounts can differ before equilibrium or between pathways. Check the same reaction at fixed temperature.
+      - text: 'The number of protons in every reacting atom solely from catalysis'
+        rationale: |
+          This confuses chemical catalysis with a nuclear process. Atoms are rearranged. Check whether ordinary catalysts change nuclei.
+    explanation: |
+      A catalyst can accelerate competing pathways unequally. This can change which product forms more readily, called selectivity, in the reaction network.
+    approved: false
