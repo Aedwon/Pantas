@@ -2,329 +2,424 @@ meta:
   subject: science
   topic: chemistry
   subtopic: matter
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-chemistry-matter-0001
-    type: classify
-    difficulty: easy
+    type: 'classify'
+    difficulty: 'easy'
     stem: |
       Pure oxygen gas ($O_2$) is made of only one type of atom. How should it be classified?
     choices:
-      - text: Element
+      - text: 'Element'
         correct: true
-      - text: Compound
+      - text: 'Compound'
         rationale: |
-          You focused on the subscript of 2. $O_2$ is a molecule, but because it contains only one type of atom (oxygen), it is an element, not a compound.
-      - text: Mixture
+          This treats two atoms per molecule as two elements. The subscript 2 is visible. Check whether the atoms are different elements.
+      - text: 'Mixture'
         rationale: |
-          You picked a physical combination of different substances. Pure oxygen contains only $O_2$ molecules, with no other substances present.
-      - text: Solution
+          This treats several oxygen molecules as several substances. A sample has many particles. Check whether more than one substance is present.
+      - text: 'Solution'
         rationale: |
-          You picked a homogeneous mixture. Pure oxygen gas is a pure substance, not a solution of different components.
+          This treats a pure gas as a solution. Solutions can be uniform gases. Check whether the sample contains multiple components.
     explanation: |
-      An element is made of only one kind of atom and cannot be broken down into simpler substances. Oxygen gas fits this exactly.
+      Pure oxygen contains only oxygen atoms. An element contains one chemical element and cannot be decomposed into simpler substances by ordinary chemical reactions.
     approved: true
+
   - id: q-chemistry-matter-0002
-    type: classify
-    difficulty: easy
+    type: 'classify'
+    difficulty: 'easy'
     stem: |
       Table salt ($NaCl$) is made of sodium and chlorine chemically bonded together in a fixed ratio. How should it be classified?
     choices:
-      - text: Compound
+      - text: 'Compound'
         correct: true
-      - text: Element
+      - text: 'Element'
         rationale: |
-          You picked a substance with one atom type. Table salt combines two different elements (sodium and chlorine), making it a compound.
-      - text: Mixture
+          This treats a fixed composition as one element. The sample is pure. Check how many elements its formula contains.
+      - text: 'Homogeneous mixture'
         rationale: |
-          You picked a physical combination. Sodium and chlorine are chemically bonded in a fixed ratio, not just physically mixed.
-      - text: Alloy
+          This treats two element names as separately mixed substances. Both elements are present. Check whether they are chemically combined in a fixed ratio.
+      - text: 'Heterogeneous mixture'
         rationale: |
-          You picked a metal mixture. Table salt is a chemical compound formed by ionic bonding, not a mixture of metals.
+          This treats visible salt grains as unlike components. A bulk sample can have many grains. Check whether each grain is the same substance.
     explanation: |
-      A compound is two or more elements chemically bonded in a fixed ratio. Table salt is always one sodium atom for every one chlorine atom, so it is a compound.
+      Pure sodium chloride contains sodium and chlorine chemically combined in a definite ratio. This makes it a compound.
     approved: true
+
   - id: q-chemistry-matter-0003
-    type: classify
-    difficulty: easy
+    type: 'classify'
+    difficulty: 'easy'
     stem: |
       A glass of lemonade contains water, sugar, and lemon juice combined in amounts that can be adjusted to taste. How should it be classified?
     choices:
-      - text: Mixture
+      - text: 'Mixture'
         correct: true
-      - text: Compound
+      - text: 'Compound'
         rationale: |
-          You assumed a fixed chemical formula. Lemonade's ingredients are physically mixed in variable proportions without chemical bonds.
-      - text: Element
+          This treats one drink as one fixed chemical formula. The drink has a familiar name. Check whether its ingredient proportions can vary.
+      - text: 'Element'
         rationale: |
-          You picked a single pure type of atom. Lemonade is made of multiple distinct substances.
-      - text: Pure substance
+          This treats a uniform-looking drink as one atom type. A single sample can look simple. Check the different substances it contains.
+      - text: 'Pure substance'
         rationale: |
-          You treated lemonade as a single pure chemical. Lemonade contains variable amounts of water, sugar, and citric acid.
+          This treats a named beverage as a pure chemical. It may look consistent. Check whether water, sugar, and lemon components remain present.
     explanation: |
-      A mixture is two or more substances physically combined in amounts that can vary. Since the sugar and lemon juice can be added in different amounts, lemonade is a mixture.
+      Lemonade combines several substances in proportions that can vary. Its components retain their identities. It is a mixture.
     approved: true
+
   - id: q-chemistry-matter-0004
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       Saltwater looks completely uniform, with no visible particles of salt floating in it. A student concludes it must be a compound. Is the student correct?
     choices:
-      - text: No, because the ratio of salt to water can vary, which makes it a mixture.
+      - text: 'No; saltwater is a mixture.'
         correct: true
-      - text: Yes, because it looks completely uniform.
+      - text: 'Yes; every uniform sample is a compound.'
         rationale: |
-          You confused uniform appearance with chemical compound status. Homogeneous mixtures look uniform but have variable ratios.
-      - text: No, because saltwater has no fixed composition, so it cannot be classified at all.
+          This treats uniform appearance as proof of fixed chemical composition. Compounds can look uniform. Check whether the component ratio can vary.
+      - text: 'No; variable composition prevents classification.'
         rationale: |
-          You claimed variable composition prevents classification. Variable composition is the defining feature of a mixture.
-      - text: Yes, because salt and water cannot be separated once combined.
+          This treats variable composition as impossible to classify. It lacks one fixed formula. Check the definition of a mixture.
+      - text: 'Yes; dissolved salt cannot be separated physically.'
         rationale: |
-          You assumed saltwater cannot be separated. Water and salt can be physically separated by evaporating the water.
+          This treats dissolution as permanent chemical combination. The salt is no longer visible. Check whether a suitable physical separation can recover components.
     explanation: |
-      Looking uniform does not make something a compound. A compound must have a fixed ratio of elements. Since you can dissolve more or less salt in the same water, saltwater is a mixture, even though it looks smooth and even.
+      The amount of salt dissolved in a given amount of water can vary. Saltwater therefore has variable composition and is a mixture.
     approved: true
+
   - id: q-chemistry-matter-0005
-    type: cause-effect
-    difficulty: easy
+    type: 'cause-effect'
+    difficulty: 'easy'
     stem: |
       An ice cube is left on a table and turns into a puddle of water. Name this phase change.
     choices:
-      - text: Melting
+      - text: 'Melting'
         correct: true
-      - text: Freezing
+      - text: 'Freezing'
         rationale: |
-          You picked the reverse phase change. Freezing converts liquid water into solid ice, while melting converts solid ice into liquid.
-      - text: Evaporation
+          This reverses the direction. Freezing connects the same states. Check which state comes first.
+      - text: 'Evaporation'
         rationale: |
-          You picked the liquid-to-gas change. Turning solid ice into liquid water is melting, not evaporation.
-      - text: Sublimation
+          This selects a liquid-to-gas process. Water can evaporate. Check whether gas is the stated final state.
+      - text: 'Sublimation'
         rationale: |
-          You picked the solid-to-gas transition. Sublimation skips liquid entirely, but ice melting forms a liquid puddle.
+          This selects a change that skips liquid. Ice can sublime under some conditions. Check that the stem describes a liquid puddle.
     explanation: |
-      Melting is the change from solid to liquid. Ice (solid) turning into water (liquid) is melting.
+      The starting state is solid ice. The ending state is liquid water. A solid-to-liquid change is melting.
     approved: true
+
   - id: q-chemistry-matter-0006
-    type: cause-effect
-    difficulty: easy
+    type: 'cause-effect'
+    difficulty: 'easy'
     stem: |
       Water vapor touches a cold glass window and turns into liquid droplets on the surface. Name this phase change.
     choices:
-      - text: Condensation
+      - text: 'Condensing'
         correct: true
-      - text: Evaporation
+      - text: 'Evaporation'
         rationale: |
-          You picked the liquid-to-gas process. Water vapor (gas) turning into liquid droplets is condensation.
-      - text: Freezing
+          This reverses the state change. Evaporation also involves water and air. Check the starting and ending phases.
+      - text: 'Freezing'
         rationale: |
-          You picked the liquid-to-solid process. Droplets formed on glass are liquid water, not solid ice.
-      - text: Deposition
+          This treats a cold surface as necessarily making ice. Cooling can freeze water. Check whether the product is a liquid or solid.
+      - text: 'Deposition'
         rationale: |
-          You picked the gas-to-solid transition. Forming liquid water droplets from gas is condensation; forming ice frost directly is deposition.
+          This treats all vapor on a cold surface as frost formation. Deposition starts from gas. Check whether the final material is solid.
     explanation: |
-      Condensation is the change from gas to liquid. Water vapor (gas) turning into droplets (liquid) is condensation.
+      The water begins as gas and ends as liquid droplets. Gas-to-liquid change is condensation.
     approved: true
+
   - id: q-chemistry-matter-0007
-    type: cause-effect
-    difficulty: medium
+    type: 'cause-effect'
+    difficulty: 'medium'
     stem: |
-      A block of dry ice (solid carbon dioxide) placed in a room slowly disappears into a misty gas, without ever forming a puddle of liquid. Name this phase change.
+      At ordinary atmospheric pressure, solid carbon dioxide changes directly into carbon dioxide gas, with no liquid phase. Name the phase change.
     choices:
-      - text: Sublimation
+      - text: 'Sublimation'
         correct: true
-      - text: Evaporation
+      - text: 'Evaporation'
         rationale: |
-          You picked the liquid-to-gas transition. Dry ice transitions directly from solid to gas, skipping the liquid phase.
-      - text: Melting
+          This assumes a liquid stage. Evaporation makes a gas. Check the stated initial phase.
+      - text: 'Melting'
         rationale: |
-          You picked the solid-to-liquid change. Dry ice does not form liquid at normal atmospheric pressure.
-      - text: Condensation
+          This assumes the disappearing solid becomes liquid. Many solids melt when warmed. Check whether a liquid phase forms.
+      - text: 'Condensing'
         rationale: |
-          You picked the gas-to-liquid change. Solid carbon dioxide turning into gas is an endothermic phase change called sublimation.
+          This reverses the gas formation. Condensation can make visible droplets. Check the carbon dioxide’s own starting and ending states.
     explanation: |
-      Sublimation is the change from solid directly to gas, skipping the liquid phase entirely. Since the dry ice never becomes liquid, this is sublimation, not evaporation.
+      The carbon dioxide starts as a solid and changes directly to gas. A solid-to-gas phase change is sublimation.
     approved: true
+
   - id: q-chemistry-matter-0008
-    type: cause-effect
-    difficulty: medium
+    type: 'cause-effect'
+    difficulty: 'medium'
     stem: |
       On a very cold morning, water vapor in the air turns directly into ice crystals (frost) on a car window, without first forming liquid water. Name this phase change.
     choices:
-      - text: Deposition
+      - text: 'Deposition'
         correct: true
-      - text: Freezing
+      - text: 'Freezing'
         rationale: |
-          You picked the liquid-to-solid transition. Frost forming directly from gas vapor without liquid water is deposition.
-      - text: Sublimation
+          This assumes liquid water formed first. Frost is frozen-looking water. Check the explicitly stated initial gas phase.
+      - text: 'Sublimation'
         rationale: |
-          You picked the reverse solid-to-gas change. Vapor turning into solid ice is deposition; ice turning into gas is sublimation.
-      - text: Condensation
+          This reverses the direction. Sublimation connects solid and gas. Check which phase is the product.
+      - text: 'Condensing'
         rationale: |
-          You picked the gas-to-liquid change. Condensation yields liquid water droplets, while frost is solid ice crystals.
+          This chooses the process ending in liquid. Both start with vapor. Check whether droplets or crystals form.
     explanation: |
-      Deposition is the change from gas directly to solid, skipping the liquid phase. Frost forming straight from water vapor is deposition.
+      Water begins as vapor and becomes solid ice directly. Gas-to-solid change is deposition.
     approved: true
+
   - id: q-chemistry-matter-0009
-    type: cause-effect
-    difficulty: medium
+    type: 'cause-effect'
+    difficulty: 'medium'
     stem: |
       Is melting an endothermic or an exothermic phase change?
     choices:
-      - text: Endothermic, because the substance absorbs energy to break apart its ordered solid structure.
+      - text: 'Endothermic; heat enters.'
         correct: true
-      - text: Exothermic, because the substance releases energy as it becomes a liquid.
+      - text: 'Exothermic; heat leaves the sample.'
         rationale: |
-          You reversed energy flow. Melting requires absorbing heat to disrupt solid crystal bonds, making it endothermic.
-      - text: Endothermic, because the substance releases energy as it becomes more ordered.
+          This reverses the energy direction. A substance changes phase. Check whether heat enters or leaves the melting sample.
+      - text: 'Endothermic; heat leaves the sample.'
         rationale: |
-          You paired endothermic with releasing energy. Endothermic processes absorb energy, and liquids are less ordered than solids.
-      - text: Exothermic, because no energy is involved in melting.
+          This pairs the term endothermic with heat leaving. The right classification term appears. Check its definition.
+      - text: 'Exothermic; phase changes transfer no heat.'
         rationale: |
-          You claimed no energy is involved. Phase changes always absorb or release latent heat.
+          This assumes a physical change needs no heat transfer. Chemical identity remains the same. Check that a phase change can still absorb energy.
     explanation: |
-      Melting moves a substance from a more ordered state (solid) to a less ordered one (liquid). Becoming less ordered always requires absorbing energy, which makes melting endothermic.
+      At a given pressure, melting requires energy input to the substance. A process that absorbs energy is endothermic.
     approved: true
+
   - id: q-chemistry-matter-0010
-    type: cause-effect
-    difficulty: medium
+    type: 'cause-effect'
+    difficulty: 'medium'
     stem: |
       Is freezing an endothermic or an exothermic phase change?
     choices:
-      - text: Exothermic, because the substance releases energy as it becomes a more ordered solid.
+      - text: 'Exothermic; heat leaves.'
         correct: true
-      - text: Endothermic, because the substance absorbs energy as it becomes a solid.
+      - text: 'Endothermic; heat enters the sample.'
         rationale: |
-          You claimed freezing absorbs energy. Freezing releases latent heat to form an ordered solid, making it exothermic.
-      - text: Exothermic, because the substance absorbs energy to form a solid.
+          This reverses heat flow during freezing. The material becomes solid. Check whether the freezing sample releases latent heat.
+      - text: 'Exothermic; heat enters the sample.'
         rationale: |
-          You paired exothermic with absorbing energy. Exothermic processes release energy to their surroundings.
-      - text: Endothermic, because freezing always requires added heat.
+          This pairs exothermic with heat absorption. The correct term is present. Check what the term means.
+      - text: 'Endothermic; added heat causes freezing.'
         rationale: |
-          You assumed freezing requires added heat. Heat must be removed from liquid for freezing to occur.
+          This confuses removal of heat with a requirement to add heat. Temperature changes are involved. Check the direction of energy transfer.
     explanation: |
-      Freezing moves a substance from a less ordered state (liquid) to a more ordered one (solid). Becoming more ordered always releases energy, which makes freezing exothermic.
+      At a given pressure, freezing releases energy from the substance to its surroundings. A process that releases energy is exothermic.
     approved: true
+
   - id: q-chemistry-matter-0011
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       "Iron is attracted to a magnet." Is this a physical property or a chemical property?
     choices:
-      - text: Physical property
+      - text: 'Physical property'
         correct: true
-      - text: Chemical property
+      - text: 'Chemical property'
         rationale: |
-          You picked a chemical trait. Magnetic attraction can be observed without changing iron into a different chemical substance.
-      - text: Physical change
+          This assumes a magnetic interaction forms a new chemical species. Iron responds to a magnet. Check whether its identity changes.
+      - text: 'Physical change'
         rationale: |
-          You chose a process instead of a property. Being attracted to a magnet is a measurable characteristic, not an event.
-      - text: Chemical change
+          This treats a characteristic as a described event. Iron could move toward a magnet. Check whether the statement describes a capacity or a completed change.
+      - text: 'Chemical change'
         rationale: |
-          You chose a chemical reaction event. Magnetism is an intrinsic physical characteristic, not a reaction forming new compounds.
+          This treats magnetism as a reaction producing new matter. A visible response occurs. Check whether new chemical products are specified.
     explanation: |
-      A physical property can be observed without changing what the substance is made of. Being attracted to a magnet does not turn iron into a different substance, so it is a physical property.
+      Magnetic attraction can be observed without changing iron’s chemical identity. It describes a characteristic of iron, so it is a physical property.
     approved: true
+
   - id: q-chemistry-matter-0012
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
       "Iron can react with oxygen and moisture to form rust." Is this describing a chemical property or a chemical change?
     choices:
-      - text: Chemical property, because it describes something the iron could do, not something that has already happened.
+      - text: 'Chemical property'
         correct: true
-      - text: Chemical change, because rust has already formed.
+      - text: 'Chemical change already completed'
         rationale: |
-          You treated a potential capability as a past event. Saying iron *can* react states a property; actual rusting is the change.
-      - text: Physical property, because rusting only affects the iron's surface.
+          This reads a possible reaction as completed. Rust is named. Check the word can in the statement.
+      - text: 'Physical property of iron’s surface'
         rationale: |
-          You classified rusting as physical. Forming rust changes iron into iron oxide, a completely different chemical compound.
-      - text: Physical change, because no new substance is involved.
+          This treats a surface reaction as only physical. Rust forms at the surface. Check whether the chemical identity changes.
+      - text: 'Physical change with no new substance'
         rationale: |
-          You claimed no new substance forms. Rust (iron oxide) is a distinct new chemical compound with different properties.
+          This treats the statement as a physical event. The sample could look different after rusting. Check whether it describes an ability or an event.
     explanation: |
-      This sentence describes a potential reaction, what iron *could* do, not an event that already occurred. A description of what a substance is capable of doing is a chemical property. If the sentence said "this nail has rusted," that would describe an actual event, a chemical change.
+      The statement describes iron’s ability to react. That ability is a chemical property because the possible reaction forms rust.
     approved: true
+
   - id: q-chemistry-matter-0013
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
-      A nail that was left outside for a month is now covered in a reddish-brown coating and has become brittle. Is this a chemical property or a chemical change?
+      An iron nail reacts with oxygen and moisture, forming a reddish-brown rust coating. How is this completed event classified?
     choices:
-      - text: Chemical change, because a new substance (rust) has actually formed.
+      - text: 'Chemical change'
         correct: true
-      - text: Chemical property, because it describes how iron generally behaves.
+      - text: 'Chemical property of iron’s reactivity'
         rationale: |
-          You picked a general property statement. The nail actually rusted, making this an observed chemical change event.
-      - text: Physical change, because the nail's shape is different.
+          This treats a completed reaction as only a general ability. Iron’s tendency to rust is a property. Check whether rust has already formed.
+      - text: 'Physical change caused only by reshaping'
         rationale: |
-          You focused on appearance. The formation of rust involves a chemical reaction creating a new substance ($Fe_2O_3$).
-      - text: Physical property, because the coating can be seen.
+          This uses appearance alone to classify the event. The nail’s shape can change. Check the stated formation of a new substance.
+      - text: 'Physical property of the visible coating'
         rationale: |
-          You treated visible rust as a physical trait. The actual transformation of iron metal into rust is a chemical change.
+          This treats an event as a static description. The coating is visible. Check whether the question describes the transformation that formed it.
     explanation: |
-      This sentence describes something that has already happened: the iron reacted with oxygen and moisture to form rust, a new substance with different properties. An event that has already occurred, producing a new substance, is a chemical change.
+      The iron has reacted to form rust. This is an event producing new chemical substances, so it is a chemical change.
     approved: true
+
   - id: q-chemistry-matter-0014
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       A sheet of paper is torn into several pieces. Is this a physical change or a chemical change?
     choices:
-      - text: Physical change
+      - text: 'Physical change'
         correct: true
-      - text: Chemical change
+      - text: 'Chemical change'
         rationale: |
-          You assumed a new substance formed. Tearing changes paper size and shape, but the chemical identity remains paper.
-      - text: Physical property
+          This assumes making pieces creates new substances. The appearance changes. Check whether chemical identity changes.
+      - text: 'Physical property'
         rationale: |
-          You picked a property instead of a change. Tearing paper is an action or event, which makes it a physical change.
-      - text: Chemical property
+          This treats an event as a characteristic. Paper has physical properties. Check whether the statement describes an action.
+      - text: 'Chemical property'
         rationale: |
-          You picked a chemical capacity. Tearing is a physical action, not a chemical reactivity trait.
+          This treats tearing as a reaction capacity. The paper can undergo changes. Check whether tearing forms chemical products.
     explanation: |
-      Tearing paper changes its shape and size, but it is still made of the same paper: no new substance is formed. That makes it a physical change.
+      Tearing changes the paper’s size and shape. Its chemical substances stay the same. The event is a physical change.
     approved: true
+
   - id: q-chemistry-matter-0015
-    type: compare-contrast
-    difficulty: hard
+    type: 'compare-contrast'
+    difficulty: 'hard'
     stem: |
       A student claims that boiling water into steam creates a new substance, since steam looks and behaves so differently from liquid water. Which statement correctly evaluates this claim?
     choices:
-      - text: 'The student is wrong: boiling is a phase change, and phase changes never create a new substance, only a new physical state.'
+      - text: 'Boiling changes water’s phase.'
         correct: true
-      - text: 'The student is correct: steam is chemically different from liquid water.'
+      - text: 'Boiling creates a chemically different substance.'
         rationale: |
-          You assumed steam is chemically distinct. Liquid water and steam share the exact same chemical formula ($H_2O$).
-      - text: The student is wrong, but only because steam is actually a mixture, not a pure substance.
+          This treats different phases as different chemical species. Gas and liquid behave differently. Check whether their chemical formulas change.
+      - text: 'Boiling turns pure water into a mixture of substances.'
         rationale: |
-          You called steam a mixture. Pure water steam consists entirely of $H_2O$ molecules in the gas phase.
-      - text: The student is correct, since boiling requires heat, and any change that requires heat is a chemical change.
+          This treats separated vapor as necessarily several substances. Vapors can be mixtures in some cases. Check that this sample is pure water.
+      - text: 'Boiling is chemical because every heat-absorbing change is chemical.'
         rationale: |
-          You linked heat requirement to chemical changes. Many physical processes (like melting and boiling) absorb heat without chemical reactions.
+          This treats heat input as proof of a reaction. Boiling requires energy. Check whether new chemical species form.
     explanation: |
-      Phase changes only change how tightly packed and ordered the particles are: they never change what the substance actually is. Both liquid water and water vapor (steam) are still $H_2O$. Needing heat does not by itself make a change chemical; several phase changes need heat and are still physical changes.
+      Boiling pure water changes liquid $H_2O$ into gaseous $H_2O$. Its chemical identity stays the same. This is a physical phase change.
     approved: true
+
   - id: q-chemistry-matter-0016
-    type: predict-outcome
-    difficulty: exam
+    type: 'predict-outcome'
+    difficulty: 'exam'
     stem: |
       A student burns a small piece of paper. It turns into ash and smoke while releasing noticeable heat. Which pair correctly describes this event?
     choices:
-      - text: Chemical change; exothermic
+      - text: 'Chemical change; exothermic'
         correct: true
-      - text: Physical change; exothermic
+      - text: 'Physical change; exothermic'
         rationale: |
-          You misclassified burning as physical. Burning creates new chemical products (ash, $CO_2$, water vapor), making it a chemical change.
-      - text: Chemical change; endothermic
+          This treats burning as only a shape change. Paper’s appearance changes greatly. Check whether new chemical substances form.
+      - text: 'Chemical change; endothermic'
         rationale: |
-          You reversed energy flow. Releasing heat during combustion makes the reaction exothermic, not endothermic.
-      - text: Physical change; endothermic
+          This reverses the observed heat transfer. Heat is involved. Check whether the reaction releases or absorbs it.
+      - text: 'Physical change; endothermic'
         rationale: |
-          You misidentified both terms. Combustion forms new chemical substances (chemical change) and releases heat (exothermic).
+          This confuses both chemical identity and heat direction. The event changes appearance and involves heat. Check the new products and outward heat flow separately.
     explanation: |
-      Burning paper produces new substances (ash, smoke, gases) that are different from paper, so it is a chemical change. Since the reaction releases heat instead of absorbing it, it is also exothermic.
+      Burning produces new chemical substances, so it is a chemical change. Heat leaves the reacting paper, so the process is exothermic.
     approved: true
+
+  - id: q-chemistry-matter-0017
+    type: 'classify'
+    difficulty: 'easy'
+    stem: |
+      A sample has a definite volume but flows to take its container’s shape under ordinary conditions. Which state fits?
+    choices:
+      - text: 'Liquid'
+        correct: true
+      - text: 'Crystalline solid'
+        rationale: |
+          This focuses only on definite volume. Solids also have definite volume. Check whether the sample flows.
+      - text: 'Gas at equilibrium'
+        rationale: |
+          This focuses only on taking a container’s shape. Gases do that too. Check whether volume is fixed or expands to fill available space.
+      - text: 'Plasma filling a vessel'
+        rationale: |
+          This focuses on fluid motion. Plasma can move through a vessel. Check whether the sample is an ionized gas or a definite-volume liquid.
+    explanation: |
+      A liquid retains a definite volume under ordinary conditions. It flows, so its shape follows the container.
+    approved: false
+
+  - id: q-chemistry-matter-0018
+    type: 'compare-contrast'
+    difficulty: 'medium'
+    stem: |
+      Which statement distinguishes crystalline and amorphous solids?
+    choices:
+      - text: 'Crystals have long-range order.'
+        correct: true
+      - text: 'Only crystals have a definite volume.'
+        rationale: |
+          This equates definite volume with crystalline order. Both are solid properties in familiar examples. Check whether an amorphous solid can retain volume.
+      - text: 'Amorphous solids always fill any vessel like gases.'
+        rationale: |
+          This confuses lack of a repeating lattice with the gas state. Disorder may sound like gas motion. Check whether the material is still solid.
+      - text: 'Every solid has exactly the same repeating lattice.'
+        rationale: |
+          This generalizes a crystal drawing to every solid. Textbooks often show fixed grids. Check the amorphous category.
+    explanation: |
+      Crystalline solids have an ordered pattern extending through the material. Amorphous solids such as glass lack that long-range repeating pattern.
+    approved: false
+
+  - id: q-chemistry-matter-0019
+    type: 'identify'
+    difficulty: 'hard'
+    stem: |
+      Which feature defines plasma in the introductory matter classification?
+    choices:
+      - text: 'An ionized gas'
+        correct: true
+      - text: 'Any gas hotter than room temperature'
+        rationale: |
+          This substitutes high temperature for ionization. Heating can produce plasma. Check whether the gas contains the defining charged particles.
+      - text: 'A liquid with all particles arranged in a lattice'
+        rationale: |
+          This substitutes a crystal arrangement for the plasma state. Both are states of matter. Check the gas and ionization description.
+      - text: 'A gas containing only electrically neutral particles'
+        rationale: |
+          This removes the charged particles. Ordinary gases can be mostly neutral. Check the feature that makes plasma distinct.
+    explanation: |
+      Plasma is an ionized gas containing charged particles. Its charged particles can show collective behavior.
+    approved: false
+
+  - id: q-chemistry-matter-0020
+    type: 'compare-contrast'
+    difficulty: 'exam'
+    stem: |
+      Which correctly distinguishes evaporation from boiling?
+    choices:
+      - text: 'Evaporation is at the surface; boiling is throughout.'
+        correct: true
+      - text: 'Evaporation is throughout; boiling is only at the surface.'
+        rationale: |
+          This reverses the locations. Both processes produce vapor. Check whether bubbles form through the liquid or molecules leave its surface.
+      - text: 'Evaporation always needs the boiling temperature first.'
+        rationale: |
+          This assumes all vaporization requires boiling conditions. Boiling is a familiar way to make vapor. Check whether a surface can lose molecules below the boiling point.
+      - text: 'Boiling changes chemical identity; evaporation never does.'
+        rationale: |
+          This treats different vaporization methods as different chemistry. Boiling is more visible. Check whether the substance’s chemical identity changes.
+    explanation: |
+      Evaporation is vaporization at the liquid surface and can occur below the boiling point. Boiling occurs throughout the liquid when its vapor pressure reaches the surrounding pressure.
+    approved: false
