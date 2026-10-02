@@ -1,310 +1,425 @@
 meta:
-  subject: science
-  topic: physics
-  subtopic: thermodynamics
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  subject: "science"
+  topic: "physics"
+  subtopic: "thermodynamics"
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-physics-thermodynamics-0001
-    type: identify
-    difficulty: easy
+    type: "identify"
+    difficulty: "easy"
     stem: |
-      A metal pan handle becomes hot through direct contact with the heated pan. What heat transfer mechanism is this?
+      A metal pan handle warms as energy passes through stationary metal from the hot pan. What mechanism is described?
     choices:
-      - text: Conduction
+      - text: "Conduction"
         correct: true
-      - text: Convection
+      - text: "Convection"
         rationale: |
-          You picked convection. Convection requires bulk movement of a fluid (liquid or gas), whereas pan handles heat via direct solid contact.
-      - text: Radiation
+          This requires bulk fluid motion. Both mechanisms involve matter. Check whether the material moves as a whole.
+      - text: "Radiation"
         rationale: |
-          You picked radiation. Radiation transfers heat via electromagnetic waves across space without solid contact.
-      - text: Entropy
+          This substitutes electromagnetic transfer for the described contact pathway. Hot objects can radiate too. Check the specific pathway in the stem.
+      - text: "Forced convection through the metal"
         rationale: |
-          You picked entropy. Entropy is a thermodynamic state variable measuring disorder, not a heat transfer mechanism.
+          This treats a fixed solid as a moving fluid. A heater supplies energy. Check whether a fan or pump moves a fluid.
     explanation: |
-      Conduction is heat transfer through direct contact between particles, typically through a solid, like a metal handle.
+      Conduction transfers energy through microscopic interactions in the metal. The metal does not move in bulk.
     approved: true
+
   - id: q-physics-thermodynamics-0002
-    type: identify
-    difficulty: easy
+    type: "identify"
+    difficulty: "easy"
     stem: |
-      The Sun's heat reaches Earth across the vacuum of space, with no physical medium in between. What heat transfer mechanism is this?
+      Solar energy reaches Earth through the vacuum of space. Which transfer mechanism carries it?
     choices:
-      - text: Radiation
+      - text: "Radiation"
         correct: true
-      - text: Conduction
+      - text: "Conduction"
         rationale: |
-          You picked conduction. Conduction requires a physical medium with direct particle contact, absent in vacuum.
-      - text: Convection
+          This needs material interactions across the path. Conduction moves thermal energy. Check the vacuum between Sun and Earth.
+      - text: "Natural convection"
         rationale: |
-          You picked convection. Convection requires a fluid medium to circulate, which cannot exist across empty space.
-      - text: Entropy
+          This needs fluid circulation. The Sun contains hot gas. Check the empty-space part of the path.
+      - text: "Forced convection"
         rationale: |
-          You picked entropy. Entropy measures molecular disorder, not electromagnetic heat transfer.
+          This assumes matter is pumped through space. Flow can transport energy. Check whether a material medium carries this solar energy.
     explanation: |
-      Radiation transfers heat through electromagnetic waves and requires no physical medium at all: exactly how sunlight warms Earth through empty space.
+      Radiation transfers energy through electromagnetic waves. These waves can travel through vacuum.
     approved: true
+
   - id: q-physics-thermodynamics-0003
-    type: identify
-    difficulty: easy
+    type: "identify"
+    difficulty: "easy"
     stem: |
-      Warm air near a heater rises and circulates around a room, carrying heat with it. What heat transfer mechanism is this?
+      Warm air rises near a heater and carries energy as it circulates. What is the dominant mechanism described?
     choices:
-      - text: Convection
+      - text: "Natural convection"
         correct: true
-      - text: Conduction
+      - text: "Conduction alone"
         rationale: |
-          You picked conduction. Conduction occurs via stationary molecular collisions, not mass fluid circulation.
-      - text: Radiation
+          This ignores bulk air motion. Air can conduct energy microscopically. Check the circulation named in the stem.
+      - text: "Radiation alone"
         rationale: |
-          You picked radiation. Radiation is thermal emission via electromagnetic waves, not bulk air movement.
-      - text: Entropy
+          This replaces fluid-carried energy with electromagnetic waves. A heater emits radiation too. Check the described moving-air pathway.
+      - text: "Forced convection by a fan"
         rationale: |
-          You picked entropy. Entropy measures statistical disorder, not physical fluid thermal transfer.
+          This assumes an external device drives the flow. Air does circulate. Check whether the stated driver is buoyancy or a fan.
     explanation: |
-      Convection transfers heat through the movement of a fluid itself, as warmer, less dense fluid rises and cooler, denser fluid sinks.
+      The air moves in bulk and carries thermal energy. The described rising flow is driven by density differences, so it is natural convection.
     approved: true
+
   - id: q-physics-thermodynamics-0004
-    type: identify
-    difficulty: medium
+    type: "identify"
+    difficulty: "medium"
     stem: |
       Which law of thermodynamics states that if two systems are each in thermal equilibrium with a third system, they are also in thermal equilibrium with each other?
     choices:
-      - text: The Zeroth Law
+      - text: "The Zeroth Law"
         correct: true
-      - text: The First Law
+      - text: "The First Law"
         rationale: |
-          You picked the First Law. The First Law states conservation of energy ($\Delta U = Q - W$).
-      - text: The Second Law
+          This selects energy conservation. Energy is involved in thermal equilibrium too. Check whether the statement is about an energy balance or matching temperatures.
+      - text: "The Second Law"
         rationale: |
-          You picked the Second Law. The Second Law defines entropy increase and spontaneous heat direction.
-      - text: The Third Law
+          This selects the direction and entropy law. Energy transfer is also involved there. Check whether the statement is about allowed direction or the stated balance.
+      - text: "The Third Law"
         rationale: |
-          You picked the Third Law. The Third Law defines zero entropy at absolute zero temperature.
+          This selects the absolute-zero law. Temperature and energy matter in thermodynamics. Check whether the statement involves the perfect-crystal limit or unattainable absolute zero.
     explanation: |
-      The Zeroth Law establishes this transitive property of thermal equilibrium, which is what makes thermometers work.
+      The zeroth law links thermal equilibrium: if each of two systems is in equilibrium with a third, they are in equilibrium with each other.
     approved: true
+
   - id: q-physics-thermodynamics-0005
-    type: identify
-    difficulty: medium
+    type: "identify"
+    difficulty: "medium"
     stem: |
       Which law of thermodynamics states that energy cannot be created or destroyed, only converted between forms or transferred?
     choices:
-      - text: The First Law
+      - text: "The First Law"
         correct: true
-      - text: The Zeroth Law
+      - text: "The Zeroth Law"
         rationale: |
-          You picked the Zeroth Law. The Zeroth Law establishes thermal equilibrium transitivity.
-      - text: The Second Law
+          This selects the equilibrium law. Temperature is involved in heat transfer. Check whether the statement links equilibrium states or conserves energy.
+      - text: "The Second Law"
         rationale: |
-          You picked the Second Law. The Second Law governs entropy generation and heat flow directionality.
-      - text: The Third Law
+          This selects the direction and entropy law. Energy transfer is also involved there. Check whether the statement is about allowed direction or the stated balance.
+      - text: "The Third Law"
         rationale: |
-          You picked the Third Law. The Third Law defines absolute zero entropy limits.
+          This selects the absolute-zero law. Temperature and energy matter in thermodynamics. Check whether the statement involves the perfect-crystal limit or unattainable absolute zero.
     explanation: |
-      The First Law is the law of conservation of energy applied specifically to heat and work.
+      The first law applies energy conservation to a thermodynamic system. Heat and work account for changes in internal energy.
     approved: true
+
   - id: q-physics-thermodynamics-0006
-    type: identify
-    difficulty: medium
+    type: "identify"
+    difficulty: "medium"
     stem: |
-      Which law of thermodynamics states that heat flows spontaneously from hot to cold, never the reverse without external work?
+      Which thermodynamic law rules out heat transfer from cold to hot as the sole result of a spontaneous process?
     choices:
-      - text: The Second Law
+      - text: "The Second Law"
         correct: true
-      - text: The First Law
+      - text: "The First Law"
         rationale: |
-          You picked the First Law. The First Law establishes energy conservation without specifying heat direction.
-      - text: The Zeroth Law
+          This selects energy accounting without a direction rule. Heat transfer involves energy. Check whether the question asks about energy amount or spontaneous direction.
+      - text: "The Zeroth Law"
         rationale: |
-          You picked the Zeroth Law. The Zeroth Law defines temperature equality and equilibrium.
-      - text: The Third Law
+          This selects the relation between thermal-equilibrium states. Temperature is involved. Check equilibrium versus a forbidden direction of transfer.
+      - text: "The Third Law"
         rationale: |
-          You picked the Third Law. The Third Law addresses absolute zero entropy behavior.
+          This selects the absolute-zero limit. Cold conditions are mentioned. Check whether absolute zero is involved.
     explanation: |
-      The Second Law describes the natural direction of spontaneous heat flow: always hot to cold, unless external work forces it the other way.
+      The second law gives a preferred direction for natural heat transfer. Transfer from a colder body to a hotter one requires some other effect, such as work supplied to a refrigerator.
     approved: true
+
   - id: q-physics-thermodynamics-0007
-    type: identify
-    difficulty: medium
+    type: "identify"
+    difficulty: "medium"
     stem: |
-      Which law of thermodynamics states that as temperature approaches absolute zero, a system's entropy (disorder) approaches a minimum value?
+      Which law states that a pure, perfect crystal’s entropy approaches zero as its temperature approaches $0\,\mathrm K$?
     choices:
-      - text: The Third Law
+      - text: "The Third Law"
         correct: true
-      - text: The First Law
+      - text: "The First Law"
         rationale: |
-          You picked the First Law. The First Law is the law of conservation of energy.
-      - text: The Second Law
+          This selects energy conservation. Cooling changes energy. Check that the statement concerns an entropy limit.
+      - text: "The Second Law"
         rationale: |
-          You picked the Second Law. The Second Law states that overall system entropy increases in spontaneous processes.
-      - text: The Zeroth Law
+          This selects the direction of entropy change for an isolated system. Entropy is named in both laws. Check the special absolute-zero statement.
+      - text: "The Zeroth Law"
         rationale: |
-          You picked the Zeroth Law. The Zeroth Law defines temperature measurement and thermal equilibrium.
+          This selects thermal equilibrium and temperature comparison. Temperature appears here too. Check the perfect-crystal condition.
     explanation: |
-      The Third Law describes the behavior of entropy as temperature approaches absolute zero (0 Kelvin).
+      This is the perfect-crystal formulation of the third law. Its entropy approaches zero as temperature approaches absolute zero. The pure, perfect-crystal condition matters.
     approved: true
+
   - id: q-physics-thermodynamics-0008
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
-      Find the heat energy needed to raise the temperature of 3 kg of water by 5°C, given water's specific heat capacity is 4186 J/(kg·°C). (Use $Q = mc\Delta T$.)
+      How much heat raises $3\,\mathrm{kg}$ of water by $5^\circ\mathrm C$? Assume no phase change and constant $c=4186\,\mathrm{J/(kg\cdot^\circ C)}$.
     choices:
-      - text: 62,790 J
+      - text: "$62790\\,\\mathrm J$"
         correct: true
-      - text: 20,930 J
+      - text: "$20930\\,\\mathrm J$"
         rationale: |
-          You omitted the mass factor ($4186 \times 5$). Multiply by mass ($3\text{ kg}$) to get $Q = 3 \times 4186 \times 5 = 62{,}790\text{ J}$.
-      - text: 12,558 J
+          This omits the mass factor. Specific heat is given per kilogram. Check the three kilograms being heated.
+      - text: "$12558\\,\\mathrm J$"
         rationale: |
-          You multiplied mass by specific heat without temperature change ($3 \times 4186$). Use $Q = mc\Delta T = 62{,}790\text{ J}$.
-      - text: 4,186 J
+          This omits the temperature change. Mass times specific heat gives heat capacity. Check the five-degree rise.
+      - text: "$4186\\,\\mathrm J$"
         rationale: |
-          You picked specific heat capacity $c$ directly. Heat energy requires multiplying $m \cdot c \cdot \Delta T$.
+          This reports specific heat as total energy. Its numerical value is given. Check the mass and temperature factors.
     explanation: |
-      $Q = mc\Delta T = (3)(4186)(5) = 62{,}790$ J.
+      Use $Q=mc\Delta T$. Substitute: $Q=(3)(4186)(5)=62790\,\mathrm J$.
     approved: true
+
   - id: q-physics-thermodynamics-0009
-    type: simple-quantitative
-    difficulty: hard
+    type: "simple-quantitative"
+    difficulty: "hard"
     stem: |
-      41,860 J of heat energy raises the temperature of 2 kg of water by an unknown amount. Given water's specific heat capacity is 4186 J/(kg·°C), find the temperature change.
+      $41860\,\mathrm J$ heats $2\,\mathrm{kg}$ of water without phase change. With constant $c=4186\,\mathrm{J/(kg\cdot^\circ C)}$, find the temperature increase.
     choices:
-      - text: 5°C
+      - text: "$5^\\circ\\mathrm C$"
         correct: true
-      - text: 10°C
+      - text: "$10^\\circ\\mathrm C$"
         rationale: |
-          You omitted the mass factor of 2 in denominator ($\dfrac{41860}{4186}$). Include mass: $\Delta T = \dfrac{41860}{2 \times 4186} = 5^\circ\text{C}$.
-      - text: 20,930°C
+          This omits mass in the denominator. Dividing by specific heat is needed. Check the two-kilogram sample.
+      - text: "$20930^\\circ\\mathrm C$"
         rationale: |
-          You divided heat by mass only ($\dfrac{41860}{2}$). You must also divide by specific heat $c = 4186\text{ J/(kg}\cdot^\circ\text{C)}$.
-      - text: 2.5°C
+          This divides heat by mass only. Heat per kilogram is an intermediate quantity. Check the specific-heat factor.
+      - text: "$2.5^\\circ\\mathrm C$"
         rationale: |
-          You doubled the denominator mass or miscalculated. $\Delta T = \dfrac{41860}{8372} = 5^\circ\text{C}$.
+          This uses mass twice, as a squared factor. Mass belongs in the denominator. Check that it appears only once.
     explanation: |
-      Rearranging $Q = mc\Delta T$: $\Delta T = \dfrac{Q}{mc} = \dfrac{41860}{(2)(4186)} = \dfrac{41860}{8372} = 5°C$.
+      Rearrange $Q=mc\Delta T$: $\Delta T=\dfrac{Q}{mc}=\dfrac{41860}{(2)(4186)}=5^\circ\mathrm C$.
     approved: true
+
   - id: q-physics-thermodynamics-0010
-    type: classify
-    difficulty: hard
+    type: "compare-contrast"
+    difficulty: "hard"
     stem: |
-      A student describes warm air circulating around a heated room as "conduction," since heat is moving from one place to another. Is this correct?
+      A fan drives air around a heater. How does this differ from natural convection?
     choices:
-      - text: 'No: the actual bulk movement of the air itself makes this convection, not conduction.'
+      - text: "The fan drives the bulk fluid motion."
         correct: true
-      - text: 'Yes: any heat transfer through air is always conduction.'
+      - text: "The fan turns convection into conduction because air contacts it."
         rationale: |
-          You classified air heat movement as conduction. Bulk air movement transfers thermal energy by convection.
-      - text: 'No: this is actually radiation, since air is a gas.'
+          This classifies the whole pathway by one contact. Air touches surfaces. Check bulk fluid motion as the energy carrier.
+      - text: "Natural convection requires a fan while forced convection does not."
         rationale: |
-          You picked radiation. Air currents carry thermal energy physically (convection), not as electromagnetic rays (radiation).
-      - text: 'Yes: conduction and convection are interchangeable terms.'
+          This reverses the two names. Both involve flowing air. Check what supplies the motion.
+      - text: "A fan makes radiation require a material medium."
         rationale: |
-          You equated conduction and convection. Conduction occurs via static contact; convection requires fluid flow.
+          This confuses airflow with electromagnetic propagation. Both can transfer energy near a heater. Check which mechanism the fan drives.
     explanation: |
-      Conduction is direct particle-to-particle contact, typically through solids, with no bulk fluid movement. Since the air itself is physically moving and circulating, this is convection.
+      Forced convection uses a device such as a fan to move a fluid. Natural convection can be driven by buoyancy from density differences. Both carry energy with bulk fluid motion.
     approved: true
+
   - id: q-physics-thermodynamics-0011
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A refrigerator moves heat from its cold interior to the warmer room outside. A student says this violates the second law of thermodynamics. Is this correct?
+      A refrigerator uses electrical work to move heat from its cold interior to a warmer room. Does this violate the second law?
     choices:
-      - text: 'No: the refrigerator uses electrical work (via its compressor) to force this backward flow; the second law only forbids this happening spontaneously, without work.'
+      - text: "No, the transfer is driven by work."
         correct: true
-      - text: 'Yes: moving heat from cold to hot always violates the second law, with no exceptions.'
+      - text: "Yes, every transfer from cold to hot is forbidden."
         rationale: |
-          You ignored work input. The Second Law allows reverse heat flow when driven by external mechanical or electrical work.
-      - text: 'No: but only because refrigerators do not actually move heat at all.'
+          This removes the work-input qualification. Spontaneous cold-to-hot transfer is forbidden as the sole effect. Check the compressor’s energy input.
+      - text: "No, the refrigerator does not transfer heat at all."
         rationale: |
-          You claimed refrigerators do not transfer heat. Refrigerators extract heat from internal contents and reject it externally.
-      - text: 'Yes: refrigerators are a well-known exception that breaks the laws of physics.'
+          This denies the device’s heat-removal role. The interior gets colder. Check where the removed energy goes.
+      - text: "Yes, work cannot affect the direction of heat transfer."
         rationale: |
-          You claimed refrigerators break physical laws. Work-driven heat pumps strictly comply with thermodynamic laws.
+          This treats work as unrelated to thermal processes. Heat and work have different meanings. Check the refrigerator’s combined process.
     explanation: |
-      The second law forbids heat flowing spontaneously from cold to hot, but a refrigerator forces this flow using external work from its compressor: this does not violate the law, since the flow is not spontaneous.
+      The refrigerator’s compressor receives work. That input drives heat transfer from the colder interior to the warmer surroundings. The process complies with the second law.
     approved: true
+
   - id: q-physics-thermodynamics-0012
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A student assumes a substance with a higher specific heat capacity changes temperature more easily (faster) than one with a lower specific heat capacity. Is this correct?
+      Equal masses of two substances absorb equal heat without changing phase. Substance A has higher constant specific heat than B. Which has the smaller temperature increase?
     choices:
-      - text: 'No: a higher specific heat capacity means the substance resists temperature change, requiring more energy for the same temperature increase; a lower specific heat means faster temperature change.'
+      - text: "Substance A"
         correct: true
-      - text: 'Yes: higher specific heat capacity always means faster temperature change.'
+      - text: "Substance B because lower specific heat resists heating more."
         rationale: |
-          You equated high specific heat with rapid heating. High specific heat means high thermal inertia, slowing temperature change.
-      - text: 'No: specific heat capacity has no relationship to how quickly temperature changes.'
+          This reverses the meaning of specific heat. The property controls temperature response. Check energy required per unit mass per degree.
+      - text: "Both because mass and heat input match."
         rationale: |
-          You denied specific heat influence. $c$ determines energy required per degree change ($\Delta T = \dfrac{Q}{mc}$).
-      - text: 'Yes: but only for substances heated by radiation.'
+          This ignores specific heat. Two important conditions match. Check the remaining denominator in the temperature-change formula.
+      - text: "Neither because specific heat affects only radiation."
         rationale: |
-          You restricted specific heat to radiation heating. Specific heat capacity governs thermal response across all heating methods.
+          This restricts a material property to one transfer mechanism. Heat can arrive by radiation. Check the material’s response regardless of transfer route.
     explanation: |
-      Specific heat capacity measures resistance to temperature change. A high specific heat capacity (like water's) means a substance needs more energy to change temperature by a given amount, so it heats up and cools down more slowly, not faster.
+      Temperature increase is $\Delta T=Q/(mc)$. With equal heat and mass, greater $c$ gives a smaller increase. Substance A has the greater $c$.
     approved: true
+
   - id: q-physics-thermodynamics-0013
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A student uses a specific heat capacity given in J/(g·°C) directly with a mass value given in kilograms, without converting either one. Is this safe?
+      In $Q=mc\Delta T$, specific heat is given in $\mathrm{J/(g\cdot^\circ C)}$ but mass is entered numerically in kilograms. No conversion is made. What is the error?
     choices:
-      - text: 'No: mixing grams-based specific heat with a kilogram mass (without converting) throws off the final answer by a factor of 1000.'
+      - text: "The calculated heat is $1000$ times too small."
         correct: true
-      - text: 'Yes: specific heat capacity units automatically adjust for any mass unit used.'
+      - text: "No error, because mass units adjust automatically."
         rationale: |
-          You ignored unit consistency. Mixing $\text{g}$ and $\text{kg}$ introduces an uncompensated factor of 1000 error.
-      - text: 'No: but only because specific heat capacity cannot be measured in J/(g·°C).'
+          This treats numerical substitution as automatic unit conversion. Both units measure mass. Check the gram in the specific-heat unit.
+      - text: "The formula cannot use specific heat measured per gram."
         rationale: |
-          You rejected $\text{J/(g}\cdot^\circ\text{C)}$ units. Specific heat is commonly expressed in both $\text{J/(g}\cdot^\circ\text{C)}$ and $\text{J/(kg}\cdot^\circ\text{C)}$.
-      - text: 'Yes: grams and kilograms can always be used interchangeably in any formula.'
+          This rejects a valid unit. Many examples use kilograms. Check consistent units rather than one required unit.
+      - text: "The calculated heat is $1000$ times too large."
         rationale: |
-          You treated grams and kilograms as equal. $\text{1 kg} = \text{1000 g}$, requiring metric conversion before calculation.
+          This reverses the conversion error. A factor of 1000 is relevant. Check that a kilogram’s numerical value is smaller than the equivalent grams.
     explanation: |
-      The mass units used in $Q=mc\Delta T$ must match the mass units in the specific heat capacity's own units. Mixing grams-based specific heat with a kilogram mass without converting introduces a factor-of-1000 error.
+      The mass must be expressed in grams to match this specific heat. One kilogram is $1000$ grams. Using the kilogram number directly omits a factor of $1000$, making the result that much too small.
     approved: true
+
   - id: q-physics-thermodynamics-0014
-    type: compare-contrast
-    difficulty: medium
+    type: "predict-outcome"
+    difficulty: "medium"
     stem: |
-      A hot cup of coffee is left on a table in a cooler room. Using the second law of thermodynamics, explain what happens to the coffee's temperature over time.
+      Hot coffee sits in a cooler room with no heater adding energy. What happens through natural heat transfer?
     choices:
-      - text: The coffee gradually cools down, since heat flows spontaneously from the hotter coffee to the cooler room, never the reverse without added work.
+      - text: "It cools toward room temperature."
         correct: true
-      - text: The coffee gradually gets hotter, drawing heat spontaneously from the cooler room air.
+      - text: "It heats further by taking energy spontaneously from the cooler room."
         rationale: |
-          You inverted spontaneous heat flow direction. Spontaneous heat flow moves from hot coffee to cool air, not cold to hot.
-      - text: The coffee's temperature stays exactly the same indefinitely.
+          This reverses the spontaneous direction. The room contains thermal energy. Check which body is hotter.
+      - text: "It stays at its original temperature indefinitely."
         rationale: |
-          You assumed perpetual thermal disequilibrium. Temperature differences drive spontaneous heat transfer until thermal equilibrium is reached.
-      - text: The coffee's temperature change cannot be predicted by the second law.
+          This ignores transfer due to a temperature difference. The coffee is initially hot. Check the cooler surroundings.
+      - text: "It must cool below room temperature by ordinary heat exchange alone."
         rationale: |
-          You claimed Second Law cannot predict thermal direction. The Second Law explicitly predicts spontaneous heat flow direction.
+          This treats cooling as continuing beyond equilibrium. Temperature initially falls. Check when the driving temperature difference disappears.
     explanation: |
-      Since the coffee is hotter than the surrounding air, heat flows spontaneously from the coffee to the room, cooling the coffee down. The reverse (coffee spontaneously heating up) would require heat flowing from cold to hot, which the second law forbids without external work.
+      Energy transfers from the hotter coffee to the cooler surroundings. The coffee cools toward thermal equilibrium with the room.
     approved: true
+
   - id: q-physics-thermodynamics-0015
-    type: predict-outcome
-    difficulty: exam
+    type: "predict-outcome"
+    difficulty: "exam"
     stem: |
-      Two identical pans, one filled with water and one filled with cooking oil (which has a lower specific heat capacity than water), are heated with the same amount of energy for the same amount of time. Which one reaches a higher temperature?
+      Equal masses of water and oil start at the same temperature and absorb equal heat. Both stay liquid with constant specific heats, and oil’s is lower. Which ends hotter?
     choices:
-      - text: The oil, since its lower specific heat capacity means the same energy input causes a larger temperature increase.
+      - text: "The oil"
         correct: true
-      - text: The water, since its higher specific heat capacity means it heats up faster.
+      - text: "The water because it has the higher specific heat"
         rationale: |
-          You claimed higher specific heat causes faster heating. High specific heat requires more heat energy per degree rise, slowing heating.
-      - text: Both reach exactly the same temperature, since the energy input and time are equal.
+          This treats greater energy requirement as greater temperature rise. Water’s specific heat is larger. Check the denominator in $Q/(mc)$.
+      - text: "Both because equal heat always gives equal temperature change"
         rationale: |
-          You ignored material thermal properties. Temperature rise depends on specific heat capacity ($\Delta T = \dfrac{Q}{mc}$).
-      - text: Neither changes temperature, since both are liquids.
+          This ignores specific heat. Heat and mass are equal. Check the different material property.
+      - text: "Neither because energy cannot change a liquid’s temperature"
         rationale: |
-          You claimed liquids do not change temperature when heated. Energy input increases liquid kinetic energy and temperature.
+          This confuses single-phase heating with a phase-change plateau. Some heating occurs at constant temperature. Check that neither sample changes phase.
     explanation: |
-      A lower specific heat capacity means less energy is needed to raise a substance's temperature by a given amount. Since oil has a lower specific heat capacity than water, the same energy input causes a greater temperature rise in the oil.
+      With equal $Q$ and $m$, $\Delta T=Q/(mc)$ is larger for lower $c$. Oil’s temperature rises more. Since they started together, oil ends hotter.
     approved: true
+
+  - id: q-physics-thermodynamics-0016
+    approved: false
+    type: "identify"
+    difficulty: "easy"
+    stem: |
+      Which description uses heat in its thermodynamic meaning?
+    choices:
+      - text: "Energy transferred due to a temperature difference"
+        correct: true
+      - text: "A substance stored inside hot objects"
+        rationale: |
+          This treats heat as contained material. Hot objects have internal energy. Check transfer versus a system property.
+      - text: "The temperature reading of an object"
+        rationale: |
+          This equates heat and temperature. Heating can change temperature. Check energy units versus degrees.
+      - text: "The mass of the warm particles in an object"
+        rationale: |
+          This treats microscopic matter as heat itself. Particles have internal energy. Check whether energy is crossing between systems.
+    explanation: |
+      Heat is energy transferred because systems have different temperatures. Internal energy is a property of a system.
+
+  - id: q-physics-thermodynamics-0017
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A system receives $500\,\mathrm J$ of heat and does $200\,\mathrm J$ of work. With work by the system positive, what is its internal-energy change?
+    choices:
+      - text: "$+300\\,\\mathrm J$"
+        correct: true
+      - text: "$+700\\,\\mathrm J$"
+        rationale: |
+          This adds work done by the system as an input. Both amounts are positive as stated. Check the work sign convention.
+      - text: "$-300\\,\\mathrm J$"
+        rationale: |
+          This reverses the difference’s sign. Energy leaves through work. Check the larger heat input.
+      - text: "$+500\\,\\mathrm J$"
+        rationale: |
+          This ignores energy leaving as work. The heat input is given. Check both energy-transfer pathways.
+    explanation: |
+      With this convention, $\Delta U=Q-W$. Thus $\Delta U=500-200=+300\,\mathrm J$.
+
+  - id: q-physics-thermodynamics-0018
+    approved: false
+    type: "predict-outcome"
+    difficulty: "hard"
+    stem: |
+      A pure substance melts at constant pressure and remains at its melting temperature while absorbing energy. Is $Q=mc\Delta T$ alone sufficient for that stage?
+    choices:
+      - text: "No, a latent-heat relation is needed."
+        correct: true
+      - text: "Yes, zero temperature change means zero transferred energy."
+        rationale: |
+          This treats temperature as the only energy change. The temperature stays fixed. Check the phase change.
+      - text: "Yes, mass disappears while melting."
+        rationale: |
+          This changes mass to make the heating formula work. The form of the material changes. Check conservation of mass.
+      - text: "No, energy transfer cannot occur at constant temperature."
+        rationale: |
+          This denies the stated melting process. Many heating problems raise temperature. Check energy used in changing phase.
+    explanation: |
+      During melting, absorbed energy changes the phase while temperature stays constant. A latent-heat relation accounts for that energy.
+
+  - id: q-physics-thermodynamics-0019
+    approved: false
+    type: "compare-contrast"
+    difficulty: "hard"
+    stem: |
+      Two samples have equal specific heat and absorb equal heat with no phase change. A has twice B’s mass. How do their temperature increases compare?
+    choices:
+      - text: "A’s increase is half B’s."
+        correct: true
+      - text: "A’s increase is twice B’s."
+        rationale: |
+          This makes temperature rise grow with mass. The larger sample contains more material. Check mass in the denominator.
+      - text: "Their increases are equal because the material is the same."
+        rationale: |
+          This ignores unequal mass. Specific heat is shared. Check total heat capacity $mc$.
+      - text: "A’s increase is four times B’s."
+        rationale: |
+          This invents a squared mass dependence. Some physics formulas have squares. Check the first power of mass here.
+    explanation: |
+      The rise is $Q/(mc)$. With twice the mass and the same $Q$ and $c$, sample A has half the temperature rise.
+
+  - id: q-physics-thermodynamics-0020
+    approved: false
+    type: "classify"
+    difficulty: "exam"
+    stem: |
+      What does the second law require of total entropy in an isolated system?
+    choices:
+      - text: "It does not decrease."
+        correct: true
+      - text: "It must decrease whenever energy is conserved."
+        rationale: |
+          This confuses the first-law balance with entropy direction. An isolated system conserves energy. Check the separate second-law statement.
+      - text: "It must always increase even during an ideal reversible process."
+        rationale: |
+          This excludes the equality case. Natural irreversible changes increase entropy. Check that does not decrease allows no change.
+      - text: "It equals zero at every positive temperature."
+        rationale: |
+          This extends a perfect-crystal limit to all states. Zero entropy appears in the third law. Check the temperature and system conditions.
+    explanation: |
+      For an isolated system, the second law states that total entropy cannot decrease. It can stay the same in an ideal reversible process or increase in an irreversible one.

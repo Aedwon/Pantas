@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-physics-thermodynamics-0001	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Improved distractors, clarified conditions, or replaced a repeated framing.
+q-physics-thermodynamics-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Improved distractors, clarified conditions, or replaced a repeated framing.
+q-physics-thermodynamics-0003	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Improved distractors, clarified conditions, or replaced a repeated framing.
+q-physics-thermodynamics-0004	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-physics-thermodynamics-0005	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-physics-thermodynamics-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Improved distractors, clarified conditions, or replaced a repeated framing.
+q-physics-thermodynamics-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original gave a broad entropy limit without the pure, perfect-crystal condition.
+q-physics-thermodynamics-0008	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Improved distractors, clarified conditions, or replaced a repeated framing.
+q-physics-thermodynamics-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Improved distractors, clarified conditions, or replaced a repeated framing.
+q-physics-thermodynamics-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Improved distractors, clarified conditions, or replaced a repeated framing.
+q-physics-thermodynamics-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Improved distractors, clarified conditions, or replaced a repeated framing.
+q-physics-thermodynamics-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original compared heating rates without controlling mass and heat input.
+q-physics-thermodynamics-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Improved distractors, clarified conditions, or replaced a repeated framing.
+q-physics-thermodynamics-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Improved distractors, clarified conditions, or replaced a repeated framing.
+q-physics-thermodynamics-0015	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original omitted equal masses and initial temperatures, so the hotter sample was not determined.
+q-physics-thermodynamics-0016	NEW	NEW	new question	NONE	
+q-physics-thermodynamics-0017	NEW	NEW	new question	NONE	
+q-physics-thermodynamics-0018	NEW	NEW	new question	NONE	
+q-physics-thermodynamics-0019	NEW	NEW	new question	NONE	
+q-physics-thermodynamics-0020	NEW	NEW	new question	NONE	
