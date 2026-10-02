@@ -222,3 +222,38 @@ the orchestrator did not review the authored content. Mathematics and the other
 subjects remain in progress. No group has been merged into the combined branch;
 combined acceptance, importer enforcement, protected-package signing, app/device
 checks, and app-branch integration remain pending.
+
+### Scheduled wake moved to the current conversation, 3 October 2026
+
+The current conversation's existing goal is on thread
+`01a0fd47-fa9f-7f01-a121-8721b3d3d8cb`. The earlier wake still targeted
+`01a0fab1-2cfd-7122-aca4-d54264946301`, whose goal was usage-limited and whose
+runtime thread was not loaded. The orchestrator temporarily held the existing
+wake lock to prevent overlapping orchestration while it requested direction.
+
+The exact question was:
+
+> The existing 15-minute wake targets the earlier conversation, while this conversation has its own active goal. Should I move the wake here so there is only one orchestrator?
+
+Options: move the wake here (recommended, retain one current orchestrator and
+the same schedule), or keep the earlier conversation as orchestrator.
+Aedwon selected exactly:
+
+> Move the wake here (Recommended)
+
+The existing script's target was changed to
+`01a0fd47-fa9f-7f01-a121-8721b3d3d8cb`. The original goal objective and its
+current active status were verified through the existing runtime. The cron entry
+still runs that same script every 15 minutes. No thread or goal was created or
+replaced by this update. The temporary lock holder was then stopped. A probe in
+a minimal cron environment verified the new thread id and correctly skipped
+the currently active turn:
+
+```text
+event: same_session_already_working
+thread_id: 01a0fd47-fa9f-7f01-a121-8721b3d3d8cb
+```
+
+The running Mathematics and remaining-subjects workers, their worktrees, the
+worker monitor, and the approved content scope were left running. The Science
+group remains verified and pushed; combined acceptance remains pending.
