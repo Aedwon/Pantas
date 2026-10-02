@@ -1,9 +1,9 @@
 question_id	status	key_check	changes	severity	note
-rc-tt-vm-0001	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Weak distractors replaced with visual misreadings; illustrative data clearly labeled.
+rc-tt-vm-0001	CORRECTED	SOLVED-MATCH	passage;stem;choices;explanation;notes	HIGH	Unverified public-health percentages presented as measured rates; converted to an explicitly illustrative arithmetic example.
 rc-tt-vm-0002	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Weak distractors replaced with visual misreadings; illustrative data clearly labeled.
 rc-tt-vm-0003	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Weak distractors replaced with visual misreadings; illustrative data clearly labeled.
 rc-tt-vm-0004	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Weak distractors replaced with visual misreadings; illustrative data clearly labeled.
-rc-tt-vm-0005	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Weak distractors replaced with visual misreadings; illustrative data clearly labeled.
+rc-tt-vm-0005	CORRECTED	SOLVED-MATCH	passage;stem;choices;explanation;notes	HIGH	Unsupported official health-agency endorsement/contact implied by original example; changed to a classroom health-desk label.
 rc-tt-vm-0006	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Weak distractors replaced with visual misreadings; illustrative data clearly labeled.
 rc-tt-vm-0007	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Weak distractors replaced with visual misreadings; illustrative data clearly labeled.
 rc-tt-vm-0008	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Weak distractors replaced with visual misreadings; illustrative data clearly labeled.
