@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-mechanical-technical-reasoning-gear-rotations-0001	CORRECTED	SOLVED-MATCH	stem;distractors;explanation;notes	MEDIUM	Replaced jamming and simultaneous-opposite-direction throwaways with real mesh-count and transmission mistakes.
+q-mechanical-technical-reasoning-gear-rotations-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated 0001's odd-position endpoint question; changed to identifying the complete same-direction set.
+q-mechanical-technical-reasoning-gear-rotations-0003	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Replaced nonphysical distractors with specific two-gear direction errors.
+q-mechanical-technical-reasoning-gear-rotations-0004	CORRECTED	SOLVED-MATCH	stem;figure;choices;explanation;notes	MEDIUM	Repeated the even-endpoint framing in 0003; changed to backward inference from the last gear.
+q-mechanical-technical-reasoning-gear-rotations-0005	CORRECTED	SOLVED-MATCH	stem;explanation;notes;math formatting	LOW	Repaired broken math and gave each numeric distractor its exact slip.
+q-mechanical-technical-reasoning-gear-rotations-0006	CORRECTED	SOLVED-MATCH	stem;figure;choices;explanation;notes	MEDIUM	Repeated 0005's three-to-one rotation calculation; replaced with solving for an unknown tooth count.
+q-mechanical-technical-reasoning-gear-rotations-0007	CORRECTED	SOLVED-MATCH	figure;stem;choices;explanation;notes	HIGH	Figure was pending despite an existing supported spoke layout; activated it and removed a stop-motion throwaway.
+q-mechanical-technical-reasoning-gear-rotations-0008	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Repeated 0001's endpoint answer and claimed all meshes always reverse; changed to a report-consistency check for explicit external meshes.
+q-mechanical-technical-reasoning-gear-rotations-0009	CORRECTED	SOLVED-MATCH	stem;figure;choices;explanation;notes	HIGH	Original claimed direction depends only on meshing parity for every gear geometry; specified external gears and separated the effects of tooth count and connection.
+q-mechanical-technical-reasoning-gear-rotations-0010	CORRECTED	SOLVED-MATCH	stem;figure;choices;explanation;notes	MEDIUM	Repeated the three-to-one forward calculation; changed to middle-gear replacement and ratio cancellation.
+q-mechanical-technical-reasoning-gear-rotations-0011	CORRECTED	SOLVED-MATCH	figure;stem;choices;explanation;notes	HIGH	Figure was pending and the original prediction lacked a displayed center direction; supplied the supported layout and made the comparison definite.
+q-mechanical-technical-reasoning-gear-rotations-0012	CORRECTED	SOLVED-MATCH	stem;figure;explanation;notes;math formatting	LOW	Added the missing figure slug and replaced vague ratio-error notes with exact slips.
+q-mechanical-technical-reasoning-gear-rotations-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated the odd-endpoint question; changed to comparing two internal positions without nonphysical distractors.
+q-mechanical-technical-reasoning-gear-rotations-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;math formatting	LOW	Tightened choices and repaired incomplete math fragments in notes.
+q-mechanical-technical-reasoning-gear-rotations-0015	CORRECTED	SOLVED-MATCH	stem;figure;choices;explanation;notes	HIGH	Unequal-size spoke diagram was pending; the spoke painter ignores teeth sizing. Reframed as a supported unequal-size row and removed the solution-length answer.
+q-mechanical-technical-reasoning-gear-rotations-0016	NEW	NEW	explanation;notes	NONE	
+q-mechanical-technical-reasoning-gear-rotations-0017	NEW	NEW	explanation;notes	NONE	
+q-mechanical-technical-reasoning-gear-rotations-0018	NEW	NEW	explanation;notes	NONE	
+q-mechanical-technical-reasoning-gear-rotations-0019	NEW	NEW	explanation;notes	NONE	
+q-mechanical-technical-reasoning-gear-rotations-0020	NEW	NEW	explanation;notes	NONE	
