@@ -148,3 +148,41 @@ separate orchestration itself. The original orchestrator resumed the three
 quota-stopped content workers at 11:36 UTC after verifying fresh capacity,
 terminal former handles, allowed interrupted files, and matching branch heads.
 The full question audit remains in progress; combined acceptance is pending.
+
+## Orchestration resumption and importer fixture ruling, 3 October 2026
+
+At 00:10 Philippine time (16:10 UTC on 2 October), the resumed orchestrator
+verified policy at `244d74b661c4aa5a88ddb216c29056a45dca3b75`, the four assigned
+worktrees, branch identity, and matching local and remote heads. All prior worker
+handles were terminal after usage-limit errors. The three groups had 127
+committed lesson ledgers: Mathematics 41, Science 51, and the other subjects 35.
+No group summary was committed. Science had interrupted changes confined to its
+assigned questions and ledgers; those changes were preserved for its worker.
+
+The live quota showed available capacity (4% of the five-hour window and 33%
+of the weekly window used immediately before dispatch). Three disjoint local
+workers resumed at 16:10:56, 16:10:59, and 16:11:01 UTC. The relay runners were
+offline; execution used the shell-worker path explicitly authorized by the
+orchestrator plan. Group acceptance, combined gates, importer enforcement, and
+final acceptance remain pending.
+
+The local worker monitor now queries live quota, with a session-record fallback
+only when that record is less than one minute old. Missing quota leaves retrying
+for the orchestrator. Weekly retries use the plan's ten-minute interval. The
+monitor launches only assigned content workers; it does not create another
+orchestrator or change the scheduled wake's conversation target.
+
+### Lead ruling: valid importer fixtures under the required-note contract
+
+Step 3's required-note guard invalidates older examples that describe valid
+questions without wrong-choice notes. The importer worker may update the existing
+valid fixture `test/fixtures/questions/science/biology/cell-structure.yaml` and
+the existing tests under `test/tool/import_questions/` to supply those notes.
+The seed round-trip test must assert that wrong-choice notes survive conversion
+and that the correct choice needs no note, rather than expecting a wrong choice's
+note to remain null. Passage tests must continue reaching their original
+validation failures after their shared valid question gains its wrong-choice
+note. This is a bounded fixture adaptation to the approved requirement, not a
+change to question content, app behavior, the protected seed, or integration
+permissions. The regression test must demonstrate failure before the importer
+implementation changes. Content workers have no additional writable paths.
