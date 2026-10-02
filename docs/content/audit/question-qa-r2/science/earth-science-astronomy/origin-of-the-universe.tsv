@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-earth-science-astronomy-origin-of-the-universe-0001	CORRECTED	SOLVED-MATCH	explanation;notes	HIGH	Original explanation falsely pictured all space as one tiny spatial point.
+q-earth-science-astronomy-origin-of-the-universe-0002	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	HIGH	History is untaught; 1927 expanding-universe work is conflated with 1931 primeval-atom proposal; stem, choices, key preserved.
+q-earth-science-astronomy-origin-of-the-universe-0003	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Named historical discovery is untaught; stem, choices, key preserved.
+q-earth-science-astronomy-origin-of-the-universe-0004	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	HIGH	Original claimed observations prove a single point in pre-existing space.
+q-earth-science-astronomy-origin-of-the-universe-0005	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-origin-of-the-universe-0006	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-origin-of-the-universe-0007	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	HIGH	History is untaught; retained key conflates 1927 expansion work with later Big Bang origin proposal; overlaps 0002.
+q-earth-science-astronomy-origin-of-the-universe-0008	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-origin-of-the-universe-0009	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-origin-of-the-universe-0010	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Original forced stellar ignition before all planetary growth and used fire-like wording.
+q-earth-science-astronomy-origin-of-the-universe-0011	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-origin-of-the-universe-0012	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-origin-of-the-universe-0013	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-origin-of-the-universe-0014	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Repeated model-label question replaced with timeline comparison.
+q-earth-science-astronomy-origin-of-the-universe-0015	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-origin-of-the-universe-0016	NEW	NEW	new question	NONE	
+q-earth-science-astronomy-origin-of-the-universe-0017	NEW	NEW	new question	NONE	
+q-earth-science-astronomy-origin-of-the-universe-0018	NEW	NEW	new question	NONE	
+q-earth-science-astronomy-origin-of-the-universe-0019	NEW	NEW	new question	NONE	
+q-earth-science-astronomy-origin-of-the-universe-0020	NEW	NEW	new question	NONE	
