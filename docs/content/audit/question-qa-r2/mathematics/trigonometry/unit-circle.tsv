@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-trigonometry-unit-circle-0001	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Replaced an arbitrary denominator distractor with reciprocal sine.
+q-trigonometry-unit-circle-0002	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-unit-circle-0003	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-unit-circle-0004	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Reframed repeated axis-value recall as locating a terminal point.
+q-trigonometry-unit-circle-0005	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-unit-circle-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Reframed repeated sine evaluation as reading both signed coordinates.
+q-trigonometry-unit-circle-0007	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-unit-circle-0008	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	LOW	Scoped the positive-function claim to sine, cosine, and tangent.
+q-trigonometry-unit-circle-0009	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-unit-circle-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Replaced an unexplained numerical distractor with a specific sine-for-cosine error.
+q-trigonometry-unit-circle-0011	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-unit-circle-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	LOW	Removed a unique longest-answer cue.
+q-trigonometry-unit-circle-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Reframed repeated sine evaluation as finding both angles with that sine.
+q-trigonometry-unit-circle-0014	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-unit-circle-0015	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Reframed repeated negative-angle evaluation as horizontal-axis reflection.
+q-trigonometry-unit-circle-0016	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Reframed repeated sine evaluation as a reference-angle error check.
+q-trigonometry-unit-circle-0017	NEW	NEW	new question	NONE	
+q-trigonometry-unit-circle-0018	NEW	NEW	new question	NONE	
+q-trigonometry-unit-circle-0019	NEW	NEW	new question	NONE	
+q-trigonometry-unit-circle-0020	NEW	NEW	new question	NONE	
