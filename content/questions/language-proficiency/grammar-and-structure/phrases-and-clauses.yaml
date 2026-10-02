@@ -181,13 +181,13 @@ questions:
         correct: true
       - text: "No: commas are never used with dependent clauses."
         rationale: |
-          You treated dependent clauses as incompatible with commas, but an introductory dependent clause normally takes a comma before the main clause.
+          This bans commas beside dependent clauses. A dependent clause cannot stand alone, so joining it closely to the main clause may seem necessary. Check whether it comes before the main clause.
       - text: "No: the comma should be removed entirely."
         rationale: |
-          You removed the comma that separates the introductory dependent clause from the main clause.
+          This applies the usual pattern for a following reason clause to an opening clause. The same word "because" makes the two patterns seem alike. Check the order of the clauses.
       - text: "Yes: but only because \"raining\" is a gerund."
         rationale: |
-          You linked comma use to the word "raining," but the comma follows from the clause structure, not that word's form.
+          This links punctuation to an -ing word. That ending looks like a gerund, but "was raining" is a verb phrase. Check the boundary between clauses instead of the word ending.
     explanation: |
       When a dependent clause comes first, standard punctuation places a comma before the following independent clause: "Because it was raining, we stayed inside."
     approved: true
@@ -201,13 +201,13 @@ questions:
         correct: true
       - text: "Yes: a comma is always required regardless of clause order."
         rationale: |
-          You treated clause order as irrelevant, but a following essential "because" clause normally does not need a comma here.
+          This uses the opening-clause comma rule for every clause order. Both clauses are present, so the rule can seem to carry over. Check whether the reason clause comes first or follows the main clause.
       - text: "Yes: but only before \"was,\" not before \"because.\""
         rationale: |
-          You placed a comma between the subject and verb inside the dependent clause.
+          This separates the subject from its verb. A pause while reading may seem to justify that comma. Check that the clause's subject and verb stay together.
       - text: "No: but only because \"raining\" ends the sentence."
         rationale: |
-          You attributed the rule to the last word instead of the relationship between the clauses.
+          This ties punctuation to the final word. Sentence endings are easy to notice, so that may seem like the deciding clue. Check how the reason clause connects to the main clause.
     explanation: |
       In "We stayed inside because it was raining," the main clause comes first and the following reason clause is essential to the intended meaning, so no comma is normally used before "because."
     approved: true
@@ -261,13 +261,13 @@ questions:
         correct: true
       - text: "Yes: commas are never needed between dependent and independent clauses."
         rationale: |
-          You treated the introductory boundary as unpunctuated, but standard writing marks it with a comma.
+          This bans commas at all clause boundaries. The two clauses express one linked idea, so no break may seem needed. Check whether a dependent clause opens the sentence.
       - text: "Yes: but only because \"raining\" and \"inside\" share a similar sound."
         rationale: |
-          You linked punctuation to sound rather than clause structure.
+          This treats similar sounds as a punctuation rule. The words may catch the ear, but their sound does not set a clause boundary. Check where the introductory clause ends.
       - text: "No: but only because the sentence should have no dependent clause at all."
         rationale: |
-          You rejected dependent clauses themselves, but they are normal components of complex sentences.
+          This rejects a normal dependent clause. Its need for a main clause may make it seem faulty even when joined to one. Check whether the whole sentence includes a complete main clause.
     explanation: |
       An introductory dependent clause is followed by a comma before the main clause: "Because it was raining, we stayed inside."
     approved: true
