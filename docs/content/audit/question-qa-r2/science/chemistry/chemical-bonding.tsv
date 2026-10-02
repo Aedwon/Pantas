@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-chemistry-chemical-bonding-0001	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original explanation treated every metal/nonmetal pair as necessarily ionic.
+q-chemistry-chemical-bonding-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original explanation treated nonmetal/nonmetal bonding as a definition rather than a shortcut.
+q-chemistry-chemical-bonding-0003	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original note falsely required a metal and nonmetal for every ionic compound.
+q-chemistry-chemical-bonding-0004	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original used conflicting rigid cutoffs and excluded defensible weak polarity at the 0.4 boundary.
+q-chemistry-chemical-bonding-0005	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original claimed a large electronegativity difference always produces complete transfer.
+q-chemistry-chemical-bonding-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original repeated numerical cutoff classification and treated it as exact.
+q-chemistry-chemical-bonding-0007	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-chemical-bonding-0008	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original repeated electron-count-to-shape framing with swapped numbers.
+q-chemistry-chemical-bonding-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original repeated count-to-shape framing; new frame tests the taught ideal angle.
+q-chemistry-chemical-bonding-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Correct choice was longest and explanation used an imprecise positions picture.
+q-chemistry-chemical-bonding-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Correct choice was longest and wrong notes overstated transfer as the ionic definition.
+q-chemistry-chemical-bonding-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original duplicated metal/nonmetal classification and falsely said it always gives ionic bonding.
+q-chemistry-chemical-bonding-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original duplicated nonmetal bonding with a swapped molecule.
+q-chemistry-chemical-bonding-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original explanation treated octet completion as the main general cause and omitted lower-energy conditions.
+q-chemistry-chemical-bonding-0015	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original correct choice was longest and notes relied on a shape name not taught in the lesson.
+q-chemistry-chemical-bonding-0016	NEW	NEW	new question	NONE	
+q-chemistry-chemical-bonding-0017	NEW	NEW	new question	NONE	
+q-chemistry-chemical-bonding-0018	NEW	NEW	new question	NONE	
+q-chemistry-chemical-bonding-0019	NEW	NEW	new question	NONE	
+q-chemistry-chemical-bonding-0020	NEW	NEW	new question	NONE	

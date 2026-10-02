@@ -2,289 +2,424 @@ meta:
   subject: science
   topic: chemistry
   subtopic: mole-concept
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-chemistry-mole-concept-0001
-    type: simple-quantitative
-    difficulty: easy
+    type: 'simple-quantitative'
+    difficulty: 'easy'
     stem: |
-      Find the molar mass of water ($H_2O$), given hydrogen's atomic mass is about 1 g/mol and oxygen's is about 16 g/mol.
+      Using element molar masses H = 1 g/mol and O = 16 g/mol, find the molar mass of $H_2O$.
     choices:
-      - text: 18 g/mol
+      - text: '18 g/mol'
         correct: true
-      - text: 17 g/mol
+      - text: '17 g/mol'
         rationale: |
-          You added 1 hydrogen atom instead of 2. Water has 2 hydrogens, so its hydrogen contribution is $2 \times 1 = 2$ g/mol.
-      - text: 16 g/mol
+          This counts only one hydrogen. The symbol H appears once. Check its subscript.
+      - text: '16 g/mol'
         rationale: |
-          You picked oxygen's atomic mass alone. You must include the mass of the 2 hydrogen atoms.
-      - text: 19 g/mol
+          This uses oxygen’s contribution alone. Oxygen is much heavier. Check that every element is included.
+      - text: '19 g/mol'
         rationale: |
-          You counted 3 hydrogen atoms. Water has the formula $H_2O$, which contains only 2 hydrogen atoms.
+          This counts three hydrogens. Water has three atoms in total. Check which element has the subscript 2.
     explanation: |
-      Water has 2 hydrogen atoms and 1 oxygen atom. Add each atom's contribution: $(2 \times 1) + (1 \times 16) = 2 + 16 = 18$ g/mol.
+      Water’s formula contains two hydrogens and one oxygen. Using the given molar-mass contributions, $M=2(1)+16=18$ g/mol.
     approved: true
+
   - id: q-chemistry-mole-concept-0002
-    type: simple-quantitative
-    difficulty: easy
+    type: 'simple-quantitative'
+    difficulty: 'easy'
     stem: |
-      Find the molar mass of carbon dioxide ($CO_2$), given carbon's atomic mass is about 12 g/mol and oxygen's is about 16 g/mol.
+      When finding $CO_2$ molar mass from element molar masses, which contribution is multiplied by 2?
     choices:
-      - text: 44 g/mol
+      - text: 'Oxygen’s contribution'
         correct: true
-      - text: 28 g/mol
+      - text: 'Carbon’s contribution'
         rationale: |
-          You counted only 1 oxygen atom ($12 + 16$). Carbon dioxide has 2 oxygen atoms, contributing $2 \times 16 = 32$ g/mol.
-      - text: 32 g/mol
+          This assigns oxygen’s subscript to carbon. Carbon is first in the formula. Check which symbol the 2 follows.
+      - text: 'Both carbon and oxygen contributions'
         rationale: |
-          You calculated the mass of the $O_2$ portion only. You must also include carbon's atomic mass of 12 g/mol.
-      - text: 12 g/mol
+          This treats the subscript as applying to the entire formula. Both elements are present. Check whether parentheses group them.
+      - text: 'Neither element’s molar-mass contribution'
         rationale: |
-          You picked carbon's atomic mass alone. You left out the 2 oxygen atoms completely.
+          This ignores subscripts in molar-mass calculation. Adding each element once is simple. Check the represented atom counts.
     explanation: |
-      $CO_2$ has 1 carbon atom and 2 oxygen atoms. Add each atom's contribution: $12 + (2 \times 16) = 12 + 32 = 44$ g/mol.
+      The subscript 2 belongs to oxygen. Its molar-mass contribution must be multiplied by 2, while carbon’s contribution is counted once.
     approved: true
+
   - id: q-chemistry-mole-concept-0003
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
       How many moles are in 54 grams of water (molar mass 18 g/mol)?
     choices:
-      - text: 3 mol
+      - text: '3 mol'
         correct: true
-      - text: 2 mol
+      - text: '2.0 mol'
         rationale: |
-          You miscalculated the quotient. Dividing 54 grams by 18 g/mol gives 3 moles, not 2.
-      - text: 36 mol
+          This treats each mole as 27 g instead of the given 18 g. The sample mass is 54 g. Check the supplied mass per mole.
+      - text: '36 mol'
         rationale: |
-          You subtracted 18 from 54. To find moles, divide mass in grams by molar mass.
-      - text: 0.33 mol
+          This subtracts 18 from 54. Both numbers describe mass-related quantities. Check that division cancels the gram units.
+      - text: '0.33 mol'
         rationale: |
-          You divided molar mass by mass ($\dfrac{18}{54}$). Moles equal mass divided by molar mass ($\dfrac{54}{18}$).
+          This divides molar mass by sample mass. Both belong in the calculation. Check which order gives mol rather than inverse mol.
     explanation: |
-      Moles equal mass divided by molar mass: $\dfrac{54 \text{ g}}{18 \text{ g/mol}} = 3$ mol.
+      Amount equals mass divided by molar mass. $n=\dfrac{54\,\mathrm g}{18\,\mathrm{g/mol}}=3$ mol.
     approved: true
+
   - id: q-chemistry-mole-concept-0004
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
-      How many individual molecules are in 3 moles of water?
+      Using $N_A=6.022\times10^{23}\,\mathrm{mol^{-1}}$ for this calculation, how many water molecules are in 3 mol?
     choices:
-      - text: 1.8066 x 10^24 molecules
+      - text: '$1.8066\times10^{24}$ molecules'
         correct: true
-      - text: 6.022 x 10^23 molecules
+      - text: '$6.022\times10^{23}$ molecules'
         rationale: |
-          You gave Avogadro's number for 1 mole. For 3 moles, multiply Avogadro's number by 3.
-      - text: 1.8066 x 10^23 molecules
+          This reports the count for one mole. Avogadro’s value is familiar. Check the actual mole amount.
+      - text: '$1.8066\times10^{23}$ molecules'
         rationale: |
-          You made an exponent error. Multiplying $3 \times 6.022 \times 10^{23}$ gives $1.8066 \times 10^{24}$, increasing the exponent.
-      - text: 3 x 10^23 molecules
+          This moves the decimal left without raising the exponent. Scientific notation needs one leading digit. Check that rescaling preserves the value.
+      - text: '$3\times10^{23}$ molecules'
         rationale: |
-          You multiplied 3 by $10^{23}$ without using Avogadro's constant ($6.022 \times 10^{23}$).
+          This omits the factor 6.022. The exponent is memorable. Check the whole supplied constant.
     explanation: |
-      Multiply the number of moles by Avogadro's number: $3 \times (6.022 \times 10^{23}) = 1.8066 \times 10^{24}$ molecules.
+      Use $N=nN_A$. With the stated rounded constant, $N=3(6.022\times10^{23})=18.066\times10^{23}=1.8066\times10^{24}$ molecules.
     approved: true
+
   - id: q-chemistry-mole-concept-0005
-    type: simple-quantitative
-    difficulty: hard
+    type: 'simple-quantitative'
+    difficulty: 'hard'
     stem: |
-      How many individual molecules are present in 45 grams of water (molar mass 18 g/mol)?
+      Using 18 g/mol for water and $N_A=6.022\times10^{23}\,\mathrm{mol^{-1}}$, how many molecules are in 45 g water?
     choices:
-      - text: 1.5055 x 10^24 molecules
+      - text: '$1.5055\times10^{24}$ molecules'
         correct: true
-      - text: 2.5 molecules
+      - text: '2.5 molecules'
         rationale: |
-          You stopped after finding moles. 2.5 is the number of moles, which you must multiply by Avogadro's number to get molecules.
-      - text: 6.022 x 10^23 molecules
+          This labels the mole amount as a molecule count. The division gives 2.5. Check the unit before multiplying by N_A.
+      - text: '$6.022\times10^{23}$ molecules'
         rationale: |
-          You gave the number of molecules in 1 mole. 45 grams of water is 2.5 moles.
-      - text: 8.1 x 10^24 molecules
+          This gives the count for one mole. Avogadro’s number is familiar. Check how much substance the mass represents.
+      - text: '$2.7099\times10^{25}$ molecules'
         rationale: |
-          You multiplied mass directly by Avogadro's number ($45 \times 6.022 \times 10^{23}$). Convert mass to moles first.
+          This multiplies grams by N_A directly, giving about $2.7099\times10^{25}$. Mass is the starting quantity. Check whether the molar-mass factor is included.
     explanation: |
-      First convert grams to moles: $\dfrac{45 \text{ g}}{18 \text{ g/mol}} = 2.5$ mol. Then convert moles to particles: $2.5 \times (6.022 \times 10^{23}) = 1.5055 \times 10^{24}$ molecules.
+      First find $n=45/18=2.5$ mol. Then $N=2.5(6.022\times10^{23})=1.5055\times10^{24}$ molecules using the supplied constant.
     approved: true
+
   - id: q-chemistry-mole-concept-0006
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
-      A student tries to convert a given mass in grams directly into a number of particles, without finding moles first. Is this a valid shortcut?
+      Is a one-line grams-to-entities calculation using the factor $N_A/M$ valid, with M in g/mol?
     choices:
-      - text: 'No: grams and particles are never directly convertible; moles must always be the middle step.'
+      - text: 'Yes; its units cancel correctly.'
         correct: true
-      - text: 'Yes: grams and particles can always be converted directly using Avogadro''s number alone.'
+      - text: 'No; moles must always be written as a separate step.'
         rationale: |
-          You assumed Avogadro's number converts grams directly. Avogadro's number connects moles to particles, not grams to particles.
-      - text: 'Yes: as long as the substance is a compound, not an element.'
+          This insists the intermediate must be written separately. Two-step teaching is common. Check whether a combined factor cancels units correctly.
+      - text: 'No; only N_A may appear in an entity conversion.'
         rationale: |
-          You made compound status an exception. All substances require converting grams to moles before calculating particle counts.
-      - text: 'No: but only because Avogadro''s number only applies to gases.'
+          This uses N_A alone to convert grams. It connects moles and entities. Check the missing molar-mass factor.
+      - text: 'Yes; but only for gas-phase substances.'
         rationale: |
-          You restricted Avogadro's number to gases. Avogadro's number applies to any state of matter (solids, liquids, or gases).
+          This restricts the conversion to gases. Gas calculations often use moles. Check whether the mole definition depends on state.
     explanation: |
-      Molar mass connects grams to moles, and Avogadro's number connects moles to particles: these are two different conversion factors. Skipping the mole step mixes them up and produces a badly wrong answer.
+      The combined conversion is $N=m\dfrac{N_A}{M}$. Mass in grams cancels the grams in molar mass, and the mole units cancel too. A separately written intermediate mole amount is not required.
     approved: true
+
   - id: q-chemistry-mole-concept-0007
-    type: classify
-    difficulty: hard
+    type: 'identify'
+    difficulty: 'hard'
     stem: |
-      A student calculates water's molar mass as 17 g/mol, using only 1 g/mol for hydrogen without multiplying by its subscript. What is the correct molar mass, and what mistake was made?
+      Which unit describes molar mass when sample mass is measured in grams?
     choices:
-      - text: '18 g/mol: the student forgot to multiply hydrogen''s atomic mass by its subscript of 2.'
+      - text: 'g/mol'
         correct: true
-      - text: '17 g/mol: the student''s calculation is already correct.'
+      - text: 'mol/g'
         rationale: |
-          You accepted 17 g/mol as correct. Water ($H_2O$) has 2 hydrogen atoms, so hydrogen contributes 2 g/mol, making the total 18 g/mol.
-      - text: '18 g/mol: the student forgot to multiply oxygen''s atomic mass by a subscript.'
+          This uses the reciprocal of mass per amount. Both grams and moles belong in the relation. Check which is the numerator.
+      - text: 'g alone'
         rationale: |
-          You misidentified which subscript was missed. Oxygen has a subscript of 1 in $H_2O$, while hydrogen has a subscript of 2.
-      - text: '16 g/mol: oxygen''s mass alone is the correct molar mass.'
+          This drops the amount unit. A mole has a mass in grams. Check that molar mass is a ratio, not a sample mass.
+      - text: 'entities alone'
         rationale: |
-          You ignored hydrogen completely. Molar mass must include every atom in the chemical formula.
+          This reports a count of entities rather than mass per amount. The mole connects quantities. Check which property is requested.
     explanation: |
-      Water has 2 hydrogen atoms, so hydrogen's contribution must be $2 \times 1 = 2$ g/mol, not just 1 g/mol. The correct total is $2 + 16 = 18$ g/mol: always check each element's subscript before adding.
+      Molar mass is mass divided by amount of substance. Grams divided by moles gives the unit g/mol.
     approved: true
+
   - id: q-chemistry-mole-concept-0008
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
-      An element's atomic mass on the periodic table and its molar mass share the same number. Are these two quantities measuring the exact same thing?
+      Which distinction between relative atomic mass and molar mass is correct?
     choices:
-      - text: 'No: atomic mass describes a single atom in atomic mass units, while molar mass describes one mole of atoms in grams.'
+      - text: 'Atomic ratio versus mass per mole'
         correct: true
-      - text: 'Yes: they are identical in every way, including units.'
+      - text: 'Identical quantities with identical units'
         rationale: |
-          You treated atomic mass and molar mass as identical in units. Atomic mass is in amu per atom, while molar mass is in g/mol.
-      - text: 'No: atomic mass is always larger than molar mass.'
+          This treats similar numbers as identical units. Introductory tables connect them. Check their definitions and units.
+      - text: 'Both are integer nucleon counts for a nuclide'
         rationale: |
-          You claimed atomic mass is numerically larger. The two quantities have identical numerical values.
-      - text: 'Yes: but only for elements, never for compounds.'
+          This calls a weighted atomic quantity an integer nucleon count. Mass number is an integer. Check whether an isotope average is involved.
+      - text: 'Both are the gram mass of one individual atom'
         rationale: |
-          You treated numerical equality as identical physical quantities. They have different units and describe different scales.
+          This treats molar mass as one atom’s gram mass. Both relate to mass. Check whether the amount is one atom or one mole.
     explanation: |
-      The numeric value transfers directly, but atomic mass (in amu) describes one tiny atom, while molar mass (in g/mol) describes an entire mole of that same substance: very different scales for different purposes.
+      Relative atomic mass is an isotope-weighted atomic-scale ratio. Molar mass is mass per mole, often in g/mol. Similar numerical values do not make them the same physical quantity.
     approved: true
+
   - id: q-chemistry-mole-concept-0009
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
-      A student uses 6 x 10^23 instead of the more precise 6.022 x 10^23 for Avogadro's number in a multi-step calculation, without being told to round. Is this a safe practice?
+      Which statement correctly describes the modern SI Avogadro constant?
     choices:
-      - text: 'No: using a rounded version of Avogadro''s number without instruction can throw off the final answer, especially in multi-step problems.'
+      - text: '$6.02214076\times10^{23}\,\mathrm{mol^{-1}}$ exactly'
         correct: true
-      - text: 'Yes: Avogadro''s number is always rounded to one significant figure on exams.'
+      - text: '$6.022\times10^{23}\,\mathrm{mol^{-1}}$ exactly'
         rationale: |
-          You assumed standard rounding to one sig fig. Exams typically expect $6.022 \times 10^{23}$ unless specified.
-      - text: 'No: but only because Avogadro''s number should actually be 6.022 x 10^24.'
+          This calls a rounded value exact. The four-digit form is widely used. Check all digits in the defining value.
+      - text: '$6.02214076\times10^{24}\,\mathrm{mol^{-1}}$ exactly'
         rationale: |
-          You misremembered the exponent. Avogadro's number has an exponent of $+23$, not $+24$.
-      - text: 'Yes: rounding never affects the accuracy of mole calculations.'
+          This uses an exponent one power too large. The leading digits look familiar. Check the exponent in the SI definition.
+      - text: 'It still has measurement uncertainty in the SI definition.'
         rationale: |
-          You assumed rounding does not introduce error. Rounding intermediate constants changes significant figures in multi-step answers.
+          This treats a defining constant as uncertain. Constants were historically measured. Check the current exact definition.
     explanation: |
-      Unless a problem explicitly says to round, using the full value $6.022 \times 10^{23}$ keeps multi-step calculations accurate and matching the intended answer choice.
+      The SI fixes $N_A$ exactly at $6.02214076\times10^{23}\,\mathrm{mol^{-1}}$. Shorter decimal forms are rounded representations.
     approved: true
+
   - id: q-chemistry-mole-concept-0010
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
-      Find the molar mass of sodium chloride ($NaCl$), given sodium's atomic mass is about 23 g/mol and chlorine's is about 35.5 g/mol.
+      A 2 mol sample of $NaCl$ has mass 117 g. What molar mass follows from these data?
     choices:
-      - text: 58.5 g/mol
+      - text: '58.5 g/mol'
         correct: true
-      - text: 35.5 g/mol
+      - text: '35.5 g/mol'
         rationale: |
-          You picked chlorine's mass alone. You must add sodium's mass of 23 g/mol to get the compound total.
-      - text: 46 g/mol
+          This omits sodium’s contribution and copies chlorine’s familiar molar mass. Chloride is present. Check the entire measured mass per mole.
+      - text: '46 g/mol'
         rationale: |
-          You doubled sodium's mass instead of adding chlorine ($23 \times 2$). NaCl contains 1 sodium and 1 chlorine.
-      - text: 23 g/mol
+          This doubles sodium’s molar mass instead of using the sample ratio. Sodium is in the formula. Check what 117 g and 2 mol describe.
+      - text: '23 g/mol'
         rationale: |
-          You picked sodium's mass alone. You left out chlorine's contribution of 35.5 g/mol.
+          This copies sodium’s molar mass alone. Sodium is one component. Check that the sample is the whole compound.
     explanation: |
-      Add each atom's contribution: $23 + 35.5 = 58.5$ g/mol.
+      Molar mass equals mass divided by amount. $M=\dfrac{117\,\mathrm g}{2\,\mathrm{mol}}=58.5$ g/mol.
     approved: true
+
   - id: q-chemistry-mole-concept-0011
-    type: simple-quantitative
-    difficulty: hard
+    type: 'compare-contrast'
+    difficulty: 'hard'
     stem: |
-      How many moles are in 117 grams of sodium chloride (molar mass 58.5 g/mol)?
+      Compare 1 mol of water molecules and 1 mol of NaCl formula units, using molar masses 18 and 58.5 g/mol.
     choices:
-      - text: 2 mol
+      - text: 'Equal entity counts; different masses'
         correct: true
-      - text: 1 mol
+      - text: 'Equal entity counts and equal gram masses'
         rationale: |
-          You gave the moles in 58.5 grams. 117 grams is twice 58.5 grams, so it contains 2 moles.
-      - text: 58.5 mol
+          This treats equal moles as equal grams. Both amounts use mol units. Check each substance’s mass per mole.
+      - text: 'More NaCl formula units because its molar mass is greater'
         rationale: |
-          You confused moles with molar mass. Moles equal mass in grams divided by molar mass.
-      - text: 0.5 mol
+          This assigns more entities to the heavier sample. NaCl has greater molar mass. Check what one mole counts.
+      - text: 'More water molecules because its molar mass is smaller'
         rationale: |
-          You divided molar mass by mass ($\dfrac{58.5}{117}$). Moles equal mass divided by molar mass ($\dfrac{117}{58.5}$).
+          This assigns more entities to the lighter sample. Water molecules weigh less. Check that the specified mole counts are already equal.
     explanation: |
-      Moles equal mass divided by molar mass: $\dfrac{117 \text{ g}}{58.5 \text{ g/mol}} = 2$ mol.
+      One mole of water has mass 18 g, and one mole of NaCl has mass 58.5 g. Equal mole amounts therefore have equal specified entity counts but different masses.
     approved: true
+
   - id: q-chemistry-mole-concept-0012
-    type: simple-quantitative
-    difficulty: exam
+    type: 'simple-quantitative'
+    difficulty: 'exam'
     stem: |
-      How many individual formula units are present in 117 grams of sodium chloride (molar mass 58.5 g/mol)?
+      What ion amounts are represented by 2 mol of NaCl formula units?
     choices:
-      - text: 1.2044 x 10^24 formula units
+      - text: '2 mol sodium ions and 2 mol chloride ions'
         correct: true
-      - text: 2 formula units
+      - text: '1 mol sodium ions and 1 mol chloride ions'
         rationale: |
-          You stopped at moles. 2 is the number of moles, which you must multiply by Avogadro's number to get formula units.
-      - text: 6.022 x 10^23 formula units
+          This splits the amount between the two ion types. There are two types in each unit. Check each type’s one-per-unit ratio.
+      - text: '4 mol sodium ions and 4 mol chloride ions'
         rationale: |
-          You gave the formula units in 1 mole. 117 grams is 2 moles of NaCl.
-      - text: 5.85 x 10^24 formula units
+          This adds both ion types and assigns the total to each one. Four moles of ions are represented overall. Check each type separately.
+      - text: '2 mol of each element’s neutral atoms and no ions'
         rationale: |
-          You multiplied molar mass by Avogadro's number instead of using moles ($2 \times 6.022 \times 10^{23}$).
+          This treats formula units as containing no ions. A unit is not a discrete molecule. Check what the ionic formula ratio represents.
     explanation: |
-      First convert grams to moles: $\dfrac{117 \text{ g}}{58.5 \text{ g/mol}} = 2$ mol. Then convert moles to particles: $2 \times (6.022 \times 10^{23}) = 1.2044 \times 10^{24}$ formula units.
+      One NaCl formula unit represents one sodium ion and one chloride ion. Two moles of formula units therefore represent 2 mol of each ion.
     approved: true
+
   - id: q-chemistry-mole-concept-0013
-    type: simple-quantitative
-    difficulty: exam
+    type: 'simple-quantitative'
+    difficulty: 'exam'
     stem: |
-      Glucose ($C_6H_{12}O_6$) has 6 carbon atoms, 12 hydrogen atoms, and 6 oxygen atoms. Using atomic masses of about 12 g/mol for carbon, 1 g/mol for hydrogen, and 16 g/mol for oxygen, find glucose's molar mass.
+      For glucose, $C_6H_{12}O_6$, use element molar masses C = 12, H = 1, and O = 16 g/mol. Find its molar mass.
     choices:
-      - text: 180 g/mol
+      - text: '180 g/mol'
         correct: true
-      - text: 96 g/mol
+      - text: '96 g/mol'
         rationale: |
-          You calculated oxygen's contribution only ($6 \times 16$). You must also add carbon and hydrogen contributions.
-      - text: 168 g/mol
+          This includes only oxygen’s $6(16)$ contribution. Oxygen is the largest contribution. Check every element.
+      - text: '168 g/mol'
         rationale: |
-          You forgot hydrogen's contribution ($12 \times 1$). Adding carbon ($72$) and oxygen ($96$) gives 168 g/mol.
-      - text: 84 g/mol
+          This adds carbon and oxygen but omits the 12 hydrogens. Their individual mass is small. Check that their total still counts.
+      - text: '84 g/mol'
         rationale: |
-          You added atomic masses without multiplying by subscripts ($12 + 12 + 60$). Multiply each element by its subscript.
+          This includes carbon and hydrogen but omits oxygen. The first two terms sum to 84. Check all three element symbols.
     explanation: |
-      Add each element's contribution: $(6 \times 12) + (12 \times 1) + (6 \times 16) = 72 + 12 + 96 = 180$ g/mol.
+      Use each subscript: $6(12)+12(1)+6(16)=72+12+96=180$ g/mol.
     approved: true
+
   - id: q-chemistry-mole-concept-0014
-    type: predict-outcome
-    difficulty: medium
+    type: 'predict-outcome'
+    difficulty: 'medium'
     stem: |
-      A sample's mass, in grams, is smaller than its substance's molar mass. Without doing the full division, what can you conclude about the number of moles present?
+      A nonzero sample has less mass than one mole of its substance. What follows about its amount?
     choices:
-      - text: There is less than 1 mole present.
+      - text: 'There is less than 1 mole present.'
         correct: true
-      - text: There is exactly 1 mole present.
+      - text: 'There is exactly 1 mole present.'
         rationale: |
-          You assumed 1 mole. Exactly 1 mole requires the sample mass to equal the molar mass.
-      - text: There is more than 1 mole present.
+          This assigns a full mole to a smaller mass. One-mole mass is known. Check whether the masses are equal.
+      - text: 'There is more than 1 mole present.'
         rationale: |
-          You predicted more than 1 mole. If mass is less than molar mass, the quotient $\dfrac{\text{mass}}{\text{molar mass}}$ is less than 1.
-      - text: Nothing can be concluded without doing the division.
+          This reverses how amount depends on mass. Larger samples have more moles. Check whether this sample is smaller.
+      - text: 'Nothing can be concluded without doing the division.'
         rationale: |
-          You assumed division is required. Comparing numerator and denominator size shows whether the fraction is less than 1.
+          This assumes an exact quotient is needed for a comparison. Division gives the exact amount. Check whether the relative mass already determines the side of 1 mol.
     explanation: |
-      Moles equal mass divided by molar mass. If the mass (the numerator) is smaller than the molar mass (the denominator), the result of the division must be less than 1.
+      One mole has mass M when molar mass is M g/mol. A smaller positive sample mass gives $n=m/M<1$ mol.
     approved: true
+
+  - id: q-chemistry-mole-concept-0015
+    type: 'identify'
+    difficulty: 'easy'
+    stem: |
+      In 1 mol of crystalline NaCl, which entity is normally being counted?
+    choices:
+      - text: 'Formula units'
+        correct: true
+      - text: 'Separate NaCl molecules in the crystal'
+        rationale: |
+          This treats an ionic lattice as discrete molecules. The formula resembles a molecular formula. Check the crystal’s extended structure.
+      - text: 'Only sodium nuclei, with no chloride counted'
+        rationale: |
+          This counts only one part of the formula. Sodium is present. Check the full specified NaCl entity.
+      - text: 'Only chloride ions, with no sodium represented'
+        rationale: |
+          This counts only the anion. Chloride is present. Check that each formula unit also represents sodium.
+    explanation: |
+      Crystalline NaCl is an ion lattice. Its formula units state the simplest sodium-to-chloride ratio used to count the substance.
+    approved: false
+
+  - id: q-chemistry-mole-concept-0016
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      A sample contains $3.01107038\times10^{23}$ specified entities. Using exact $N_A$, what is its amount?
+    choices:
+      - text: '0.5 mol'
+        correct: true
+      - text: '2.0 mol'
+        rationale: |
+          This inverts the ratio. Both counts are in the calculation. Check that less than one mole’s entity count gives less than one mole.
+      - text: '1.0 mol'
+        rationale: |
+          This assumes any large entity count is one mole. The exponent is familiar. Check the leading coefficient.
+      - text: '0.5 g'
+        rationale: |
+          This gives a mass unit for an amount calculation. Grams are used in other conversions. Check the requested quantity.
+    explanation: |
+      Use $n=N/N_A$. The entity count is half of $6.02214076\times10^{23}$, so $n=0.5$ mol.
+    approved: false
+
+  - id: q-chemistry-mole-concept-0017
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      Using a molar mass of 18 g/mol, what mass is 0.25 mol water?
+    choices:
+      - text: '4.5 g'
+        correct: true
+      - text: '72 g'
+        rationale: |
+          This divides 18 by 0.25 instead of multiplying. Division finds moles from mass in another setup. Check which variable is unknown.
+      - text: '18.25 g'
+        rationale: |
+          This adds amount to molar mass. Both given numbers are used. Check whether their units can be added.
+      - text: '0.25 g'
+        rationale: |
+          This treats moles as grams. The amount is 0.25. Check the mass-per-mole conversion factor.
+    explanation: |
+      Use $m=nM$. Multiply $0.25\,\mathrm{mol}$ by $18\,\mathrm{g/mol}$ to obtain 4.5 g.
+    approved: false
+
+  - id: q-chemistry-mole-concept-0018
+    type: 'simple-quantitative'
+    difficulty: 'hard'
+    stem: |
+      How many moles of oxygen atoms are represented by 1 mol of $O_2$ molecules?
+    choices:
+      - text: '2.0 mol'
+        correct: true
+      - text: '1.0 mol'
+        rationale: |
+          This counts molecules as single atoms. One mole is stated. Check the two atoms in each specified molecule.
+      - text: '0.5 mol'
+        rationale: |
+          This divides by the subscript instead of multiplying. The subscript gives a conversion factor. Check whether converting to the smaller entity increases the count.
+      - text: '4 mol'
+        rationale: |
+          This applies the factor 2 twice. Both the formula and mole amount matter. Check that each molecule contributes two atoms once.
+    explanation: |
+      Each $O_2$ molecule contains two oxygen atoms. Multiply the mole count of molecules by 2 to get 2 mol of oxygen atoms.
+    approved: false
+
+  - id: q-chemistry-mole-concept-0019
+    type: 'predict-outcome'
+    difficulty: 'hard'
+    stem: |
+      A measured amount is 2.0 mol. Why does multiplying it by exact $N_A$ not automatically justify eight significant digits in the entity count?
+    choices:
+      - text: 'The measured amount limits precision.'
+        correct: true
+      - text: 'N_A has uncertain digits in the modern SI.'
+        rationale: |
+          This assigns uncertainty to a defining constant. Constants used to be measured. Check the exact modern SI definition.
+      - text: 'Every multiplication requires exactly one significant digit.'
+        rationale: |
+          This imposes a fixed digit count on every product. Rounding rules can be remembered as shortcuts. Check the actual precision of the input.
+      - text: 'Entity counts can never be reported using scientific notation.'
+        rationale: |
+          This rejects scientific notation for large counts. Entities are discrete. Check that notation can still express an estimated large count.
+    explanation: |
+      N_A is exact in the SI. The given measured amount has limited precision, so the reported entity count must reflect that input.
+    approved: false
+
+  - id: q-chemistry-mole-concept-0020
+    type: 'compare-contrast'
+    difficulty: 'exam'
+    stem: |
+      What changed in the 2019 SI definition of the mole?
+    choices:
+      - text: 'It uses a fixed entity count.'
+        correct: true
+      - text: 'It is now defined by exactly 12 g of carbon-12.'
+        rationale: |
+          This retains the older carbon-12-based definition. Carbon-12 remains important in atomic mass. Check the modern defining constant.
+      - text: 'Its definition depends on the substance’s physical state.'
+        rationale: |
+          This makes amount depend on gas, liquid, or solid state. Gas laws often use moles. Check the state-independent entity definition.
+      - text: 'Its entity count changes with each element’s molar mass.'
+        rationale: |
+          This confuses mass per mole with entities per mole. Elements have different molar masses. Check what stays the same for one mole.
+    explanation: |
+      The modern mole is defined by the exact Avogadro constant. It contains exactly $6.02214076\times10^{23}$ specified entities.
+    approved: false

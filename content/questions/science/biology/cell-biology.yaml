@@ -1,472 +1,432 @@
 meta:
-  subject: science
-  topic: biology
-  subtopic: cell-biology
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  subject: "science"
+  topic: "biology"
+  subtopic: "cell-biology"
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-biology-cell-biology-0001
-    type: identify-organelle
-    difficulty: easy
+    type: "identify-organelle"
+    difficulty: "easy"
     stem: |
-      Which part of the cell is called its "control center" because it holds
-      the cell's DNA and directs its activities?
+      Which structure contains most of a typical eukaryotic cell's DNA and helps regulate its activities?
     choices:
-      - text: Nucleus
+      - text: "Nucleus"
         correct: true
-      - text: Mitochondrion
+      - text: "Mitochondrion"
         rationale: |
-          You picked the organelle that makes energy, not the one that runs the
-          cell. The mitochondrion breaks down glucose into ATP. It does not
-          store DNA or give the cell its instructions.
-      - text: Ribosome
+          This confuses supplying ATP with holding most of the cell's instructions. Mitochondria do contain some DNA, so they can seem to fit. Check which structure holds most of the DNA.
+      - text: "Ribosome"
         rationale: |
-          You picked the organelle that builds proteins. The ribosome reads
-          instructions from the DNA, but it does not store DNA or direct the
-          cell's activities.
-      - text: Golgi apparatus
+          This confuses reading instructions with storing them. Ribosomes use mRNA to build proteins, so they seem to control the instructions. Check where most DNA is kept.
+      - text: "Golgi apparatus"
         rationale: |
-          You picked the organelle that packages and ships proteins. The Golgi
-          apparatus handles proteins after they are made. It does not store DNA
-          or control the cell.
+          This confuses sorting proteins with regulating their production. The Golgi directs proteins to destinations, so it can seem to direct the cell. Check which structure contains most DNA.
     explanation: |
-      The nucleus stores the DNA and controls what the cell does. The other
-      organelles listed do not hold the cell's DNA.
+      The nucleus contains most of a eukaryotic cell's DNA. This DNA carries instructions that help regulate cell activities.
     approved: true
+
   - id: q-biology-cell-biology-0002
-    type: identify-organelle
-    difficulty: easy
+    type: "identify-organelle"
+    difficulty: "easy"
     stem: |
-      Which organelle is known as the "powerhouse of the cell" because it
-      breaks down glucose to produce ATP?
+      Which organelle carries out major stages of aerobic respiration that produce much of a eukaryotic cell's ATP?
     choices:
-      - text: Mitochondrion
+      - text: "Mitochondrion"
         correct: true
-      - text: Ribosome
+      - text: "Ribosome"
         rationale: |
-          You picked the organelle that builds proteins. The ribosome links
-          amino acids together to make proteins, not ATP.
-      - text: Nucleus
+          This confuses making proteins with making ATP. Both processes build useful cell products, so they can seem alike. Check whether the product is a protein or a usable energy carrier.
+      - text: "Nucleus"
         rationale: |
-          You picked the organelle that stores DNA and controls the cell. The
-          nucleus directs what the cell does, but it does not break down
-          glucose for energy.
-      - text: Vacuole
+          This confuses regulating cell activities with supplying their energy. The nucleus provides instructions, so it seems responsible for every task. Check where major stages of aerobic ATP production occur.
+      - text: "Central vacuole"
         rationale: |
-          You picked the organelle that stores water, nutrients, or waste. The
-          vacuole holds things inside the cell but does not produce ATP.
+          This confuses storing food with releasing energy from it. A vacuole can hold nutrients, so it seems a likely energy source. Check whether the organelle stores materials or makes ATP.
     explanation: |
-      Mitochondria break down glucose and release energy as ATP, the fuel
-      the cell uses to do work. Ribosomes build proteins, not energy.
+      Mitochondria carry out major stages of aerobic respiration. These stages release energy from food to make ATP, which cells use to do work.
     approved: true
+
   - id: q-biology-cell-biology-0003
-    type: identify-organelle
-    difficulty: easy
+    type: "identify-organelle"
+    difficulty: "easy"
     stem: |
-      Which structure builds proteins by following instructions copied from
-      the cell's DNA?
+      Which structure directly joins amino acids according to the instructions in mRNA?
     choices:
-      - text: Ribosome
+      - text: "Ribosome"
         correct: true
-      - text: Golgi apparatus
+      - text: "Golgi apparatus"
         rationale: |
-          You picked the organelle that packages proteins after they are built.
-          The Golgi apparatus modifies and ships proteins. It does not build
-          them by reading DNA.
-      - text: Mitochondrion
+          This confuses changing and packaging a protein with building it. Both are parts of protein handling, so the Golgi seems to fit. Check which structure directly reads mRNA.
+      - text: "Mitochondrion"
         rationale: |
-          You picked the organelle that makes energy. The mitochondrion breaks
-          down glucose into ATP. It does not build proteins by reading DNA
-          instructions.
-      - text: Cell membrane
+          This confuses an organelle containing protein-making structures with the structure doing the work. Mitochondria contain their own ribosomes, so they can seem to fit. Check which structure directly joins amino acids.
+      - text: "Cell membrane"
         rationale: |
-          You picked the barrier that controls what enters and leaves the cell.
-          The cell membrane acts as a gate but does not build proteins.
+          This confuses a protein's destination with its builder. Many proteins become part of the cell membrane, so the membrane seems involved. Check where mRNA is translated.
     explanation: |
-      A ribosome reads copied DNA instructions and links amino acids together
-      to build proteins. The Golgi apparatus packages proteins afterward:
-      it does not build them.
+      A ribosome reads the instructions in mRNA. It joins amino acids in the order needed to build a protein.
     approved: true
+
   - id: q-biology-cell-biology-0004
-    type: structure-function
-    difficulty: easy
+    type: "structure-function"
+    difficulty: "easy"
     stem: |
       A cell organelle modifies, sorts, and packages proteins, then ships
       them to where they are needed inside or outside the cell. Which
       organelle is this?
     choices:
-      - text: Golgi apparatus
+      - text: "Golgi apparatus"
         correct: true
-      - text: Rough endoplasmic reticulum
+      - text: "Rough endoplasmic reticulum"
         rationale: |
-          You picked the organelle that helps build and process proteins. The
-          rough ER works earlier in the pipeline. It does not package proteins
-          and send them to their destination.
-      - text: Nucleus
+          This confuses earlier protein processing with final sorting and packaging. The rough ER also handles proteins, so the jobs overlap in memory. Check which organelle directs proteins to different destinations.
+      - text: "Nucleus"
         rationale: |
-          You picked the organelle that stores DNA and gives instructions. The
-          nucleus controls the cell but does not package or ship proteins.
-      - text: Mitochondrion
+          This confuses sending instructions with sending proteins. The nucleus controls gene activity, so it can seem to manage delivery too. Check whether the question asks about DNA or protein packages.
+      - text: "Mitochondrion"
         rationale: |
-          You picked the organelle that makes ATP. The mitochondrion releases
-          energy from glucose. It does not sort or package proteins for
-          shipping.
+          This confuses providing ATP for delivery with sorting the cargo. Protein handling needs energy, so mitochondria seem involved. Check which organelle packages proteins.
     explanation: |
-      The Golgi apparatus works like a packaging and shipping center for the
-      cell. The rough ER helps build proteins earlier in the process, but it
-      does not package and ship them.
+      The Golgi apparatus changes, sorts, and packages proteins. It directs them to the parts of the cell or the outside locations where they are needed.
     approved: true
+
   - id: q-biology-cell-biology-0005
-    type: structure-function
-    difficulty: medium
+    type: "structure-function"
+    difficulty: "medium"
     stem: |
       Which structure is covered in ribosomes and helps build and process
       proteins?
     choices:
-      - text: Rough endoplasmic reticulum
+      - text: "Rough endoplasmic reticulum"
         correct: true
-      - text: Smooth endoplasmic reticulum
+      - text: "Smooth endoplasmic reticulum"
         rationale: |
-          You picked the other type of endoplasmic reticulum. The smooth ER
-          has no ribosomes on its surface and builds lipids, not proteins.
-      - text: Golgi apparatus
+          This confuses the two forms of ER. Both are membrane networks and make cell materials, so their names are easy to swap. Check whether ribosomes are attached.
+      - text: "Golgi apparatus"
         rationale: |
-          You picked the organelle that packages and ships proteins. The Golgi
-          apparatus handles proteins after the rough ER has finished processing
-          them.
-      - text: Lysosome
+          This confuses later protein packaging with protein building at the ER. The Golgi also processes proteins, so it seems similar. Check which structure has ribosomes on its surface.
+      - text: "Lysosome"
         rationale: |
-          You picked the organelle that breaks down waste and old cell parts.
-          The lysosome is a cleanup unit, not a protein-building structure.
+          This confuses breaking down proteins with making them. Lysosomes act on proteins during digestion, so they seem related. Check whether the task builds a protein or breaks one down.
     explanation: |
-      The rough ER is named for the ribosomes dotting its surface, and those
-      ribosomes build proteins. The smooth ER has no ribosomes and builds
-      lipids instead.
+      Ribosomes on the rough ER build proteins. The rough ER helps process many proteins that will be sent to membranes, organelles, or outside the cell.
     approved: true
+
   - id: q-biology-cell-biology-0006
-    type: structure-function
-    difficulty: medium
+    type: "structure-function"
+    difficulty: "medium"
     stem: |
       Which structure acts as a thin, flexible barrier that controls which
       substances enter and leave the cell?
     choices:
-      - text: Cell membrane
+      - text: "Cell membrane"
         correct: true
-      - text: Cell wall
+      - text: "Cellulose cell wall"
         rationale: |
-          You picked the rigid outer layer found in plant cells. The cell wall
-          gives the cell its shape and support. It does not control which
-          substances pass through.
-      - text: Cytoplasm
+          This confuses external support with selective entry and exit. A cell wall surrounds the cell, so it seems like the main barrier. Check which layer selects substances crossing into the cell.
+      - text: "Smooth endoplasmic reticulum"
         rationale: |
-          You picked the fluid inside the cell that holds the organelles. The
-          cytoplasm is not a barrier and does not control what enters or
-          leaves.
-      - text: Nucleolus
+          This confuses an internal membrane network with the cell's boundary. The smooth ER is made of membranes, so it seems plausible. Check whether it separates the cell from its surroundings.
+      - text: "Central vacuole membrane"
         rationale: |
-          You picked a structure inside the nucleus that makes ribosomes. The
-          nucleolus is not a barrier and does not select substances entering
-          or leaving the cell.
+          This confuses the vacuole's boundary with the whole cell's boundary. Both membranes control movement across themselves. Check whether the boundary surrounds the vacuole or the cell.
     explanation: |
-      The cell membrane is the gatekeeper: it lets some substances in and
-      keeps others out. The cell wall only gives the cell shape and support;
-      it does not select what passes through.
+      The cell membrane is selectively permeable. It allows some substances to cross and controls movement between the cell and its surroundings.
     approved: true
+
   - id: q-biology-cell-biology-0007
-    type: classify
-    difficulty: medium
+    type: "classify"
+    difficulty: "medium"
     stem: |
-      Which of the following is found in animal cells but NOT in plant
-      cells?
+      In a comparison of typical animal and land-plant cells, which structure is associated with the animal-type centrosome?
     choices:
-      - text: Centrosome
+      - text: "Centrioles"
         correct: true
-      - text: Cell wall
+      - text: "Cellulose cell wall"
         rationale: |
-          You picked a structure found in plant cells, not animal cells. The
-          cell wall gives plants their rigid shape. Animal cells do not have
-          one.
-      - text: Chloroplast
+          This reverses the plant and animal comparison. A wall helps hold a cell's shape, so it can seem useful in either type. Check whether typical animal cells have a cellulose wall.
+      - text: "Chloroplasts"
         rationale: |
-          You picked a structure found in plant cells, not animal cells.
-          Chloroplasts do photosynthesis. Animal cells lack them entirely.
-      - text: Central vacuole
+          This reverses the photosynthetic plant and animal comparison. Both cell types need food, so both may seem to make it in chloroplasts. Check which cell type carries out photosynthesis.
+      - text: "Large central vacuole"
         rationale: |
-          You picked a structure found in plant cells, not animal cells. The
-          central vacuole stores water and keeps the plant firm. Animal cells
-          do not have one.
+          This confuses small storage compartments with the large plant vacuole. Animal cells also store materials, so the structure seems possible. Check whether the question names a large central vacuole.
     explanation: |
-      Animal cells typically have a centrosome, which helps organize cell
-      division. Cell wall, chloroplast, and central vacuole are the three
-      structures found in plant cells but not animal cells.
+      A typical animal cell has a centrosome containing centrioles. Most land-plant cells lack this animal-type arrangement.
     approved: true
+
   - id: q-biology-cell-biology-0008
-    type: classify
-    difficulty: medium
+    type: "classify"
+    difficulty: "medium"
     stem: |
-      Which of the following is NOT one of the three structures unique to
-      plant cells?
+      Which organelle commonly carries out intracellular digestion in a typical animal cell?
     choices:
-      - text: Lysosome
+      - text: "Lysosome"
         correct: true
-      - text: Cell wall
+      - text: "Cell wall"
         rationale: |
-          You picked one of the three plant-only structures. The cell wall is
-          found in plants but not animal cells. It is part of the set the
-          question asks about.
-      - text: Chloroplast
+          This confuses a supporting outer structure with an internal digestive organelle. Both help maintain the cell, so their roles can seem similar. Check whether the structure is inside the cell.
+      - text: "Chloroplast"
         rationale: |
-          You picked one of the three plant-only structures. Chloroplasts make
-          food for the plant through photosynthesis. They are not found in
-          animal cells.
-      - text: Central vacuole
+          This confuses making food with breaking materials down. Both change substances in a cell, so they seem like related tasks. Check whether the process is photosynthesis or digestion.
+      - text: "Central vacuole"
         rationale: |
-          You picked one of the three plant-only structures. The central
-          vacuole stores water and helps keep plants firm. Animal cells do not
-          have one.
+          This applies the usual plant digestive compartment to an animal cell. A central vacuole can carry out digestion in plants, so its function seems to fit. Check which cell type the question specifies.
     explanation: |
-      Lysosomes are typically found in animal cells, where they break down
-      waste. Cell wall, chloroplast, and central vacuole are the three
-      plant-only structures.
+      Lysosomes commonly digest materials inside animal cells. They help break down large molecules and worn cell parts.
     approved: true
+
   - id: q-biology-cell-biology-0009
-    type: classify
-    difficulty: medium
+    type: "classify"
+    difficulty: "medium"
     stem: |
-      A cell observed under a microscope has a rigid outer wall, a large
-      water-filled sac, and small green structures inside. Is this most
-      likely a plant cell or an animal cell?
+      In a comparison of typical land-plant and animal cells, a cell has a cellulose wall, a large central vacuole, and chloroplasts. Which identification best fits these observations?
     choices:
-      - text: Plant cell
+      - text: "Plant cell"
         correct: true
-      - text: Animal cell
+      - text: "Animal cell"
         rationale: |
-          You picked the wrong cell type. Animal cells have no rigid outer
-          wall, no large central water sac, and no green structures. All three
-          clues point to a plant cell.
-      - text: It cannot be either type of cell
+          This treats the visible covering as an animal cell membrane. Both cells have a boundary, so the wall can be misidentified. Check the wall together with the large vacuole and chloroplasts.
+      - text: "It cannot be either type of cell"
         rationale: |
-          You said neither type matches, but all three clues are plant-only
-          structures. A rigid wall is a cell wall, the sac is a central
-          vacuole, and the green structures are chloroplasts.
-      - text: Both are equally likely
+          This rejects a familiar cell type because several features appear together. A cell can contain all three structures, so the extra clues do not create a conflict. Check each feature against a typical plant cell.
+      - text: "Both are equally likely"
         rationale: |
-          You said both cell types are equally possible, but animal cells lack
-          cell walls, central vacuoles, and chloroplasts. Three plant-only
-          clues rule out the animal cell.
+          This assumes shared cell features make both types equally likely. Both types have membranes and cytoplasm, so they seem similar. Check the wall, large central vacuole, and chloroplasts as a group.
     explanation: |
-      A rigid wall matches the cell wall, the water-filled sac matches the
-      central vacuole, and the green structures match chloroplasts. All
-      three clues are plant-only structures, so this is a plant cell.
+      These structures match a cell wall, a central vacuole, and chloroplasts. Together they fit a typical photosynthetic land-plant cell in this comparison.
     approved: true
+
   - id: q-biology-cell-biology-0010
-    type: compare-contrast
-    difficulty: medium
+    type: "compare-contrast"
+    difficulty: "medium"
     stem: |
       Which statement correctly tells apart diffusion and osmosis?
     choices:
-      - text: Osmosis is specifically the movement of water; diffusion can involve any particle, including water.
+      - text: "Osmosis moves water; diffusion can move other particles too."
         correct: true
-      - text: Diffusion is specifically the movement of water; osmosis can involve any particle.
+      - text: "Diffusion moves only water; osmosis can move other particles."
         rationale: |
-          You have the two terms swapped. Osmosis is the specific case and it
-          only describes water. Diffusion is the broader term that covers any
-          particle moving from high to low concentration.
-      - text: Osmosis requires energy; diffusion does not.
+          This reverses the broad process and its water-specific form. Both names describe passive movement, so they are easy to swap. Check which term specifically names water crossing a membrane.
+      - text: "Osmosis uses cellular energy; diffusion is a passive process."
         rationale: |
-          You added an energy requirement that is not there. Both osmosis and
-          diffusion move particles from high to low concentration on their own,
-          without the cell spending energy.
-      - text: Diffusion only happens in animal cells; osmosis only happens in plant cells.
+          This treats water movement as energy-powered pumping. Cells regulate water balance, so every water movement may seem to cost energy. Check whether the movement itself uses cellular energy.
+      - text: "Osmosis moves solute across membranes; diffusion moves water."
         rationale: |
-          You applied a cell-type restriction that does not exist. Both
-          processes happen in all living cells, not in one type only.
+          This makes osmosis a solute-transfer process. Solute differences drive water movement, so the solute may seem to be what crosses. Check which substance actually moves during osmosis.
     explanation: |
-      Osmosis is a special case of diffusion that applies only to water.
-      Diffusion is the broader term and can describe any particle moving
-      from high to low concentration. Neither process needs energy.
+      Diffusion is the net movement of particles down their concentration gradient. Osmosis is the net movement of water across a selectively permeable membrane. Osmosis is a kind of diffusion.
     approved: true
+
   - id: q-biology-cell-biology-0011
-    type: compare-contrast
-    difficulty: hard
+    type: "compare-contrast"
+    difficulty: "hard"
     stem: |
-      Which statement correctly tells apart diffusion and active transport?
+      For an uncharged solute, which comparison of net movement by diffusion and active transport is correct?
     choices:
-      - text: Diffusion moves particles from high to low concentration and needs no energy; active transport moves particles from low to high concentration and needs energy.
+      - text: "Diffusion goes down the gradient; active transport goes against it."
         correct: true
-      - text: Diffusion needs energy and moves particles from low to high concentration; active transport needs no energy.
+      - text: "Diffusion goes against the gradient; active transport goes down it."
         rationale: |
-          You reversed both descriptions. Diffusion needs no energy and moves
-          particles from high to low. Active transport needs energy and moves
-          particles from low to high.
-      - text: Both processes always move particles from low to high concentration.
+          This reverses the two directions. Both processes can move a solute across a membrane, so direction can be overlooked. Check whether net movement is down or against the concentration gradient.
+      - text: "Diffusion and active transport both move against the same gradient."
         rationale: |
-          You applied the active transport rule to diffusion. Diffusion follows
-          the concentration gradient, moving from high to low concentration on
-          its own.
-      - text: Active transport only happens in plant cells.
+          This assigns the active-transport direction to diffusion too. The solute can move randomly in either direction, which may seem to allow net uphill diffusion. Check net movement, not one particle's motion.
+      - text: "Diffusion and active transport both move down the same gradient."
         rationale: |
-          You added a cell-type restriction that is not true. Active transport
-          happens in all living cells that need to move substances against a
-          concentration gradient.
+          This assigns the diffusion direction to both processes. Movement down a gradient is familiar, so it seems universal. Check which process uses energy to move against the gradient.
     explanation: |
-      Diffusion follows the concentration gradient (high to low) on its own.
-      Active transport pushes particles against the gradient (low to high),
-      which always requires the cell to spend energy.
+      For an uncharged solute, diffusion has net movement from higher to lower concentration. Active transport moves the solute against its concentration gradient using energy.
     approved: true
+
   - id: q-biology-cell-biology-0012
-    type: cause-effect
-    difficulty: medium
+    type: "cause-effect"
+    difficulty: "medium"
     stem: |
-      A red blood cell is placed in a solution with a lower solute
-      concentration than the inside of the cell. What is the most likely
-      result?
+      A red blood cell is placed in a solution with a lower concentration of nonpenetrating solutes than its cytoplasm. The membrane allows water to cross. What is expected initially?
     choices:
-      - text: Water moves into the cell, and it may swell or burst.
+      - text: "It gains water and swells."
         correct: true
-      - text: Water moves out of the cell, and it shrinks.
+      - text: "It loses water and shrinks."
         rationale: |
-          You described what happens in a hypertonic solution. The surrounding
-          solution here has less solute than the cell, so water is pulled into
-          the cell, not out of it.
-      - text: No water moves, and the cell stays the same size.
+          This reverses the water flow for a dilute external solution. The low outside solute level can be mistaken for a pull on water. Check which side has more nonpenetrating solute.
+      - text: "Water enters and leaves at equal rates, keeping its volume fixed."
         rationale: |
-          You described isotonic conditions. This solution has a lower solute
-          concentration than the cell, so water does move, and it moves
-          inward.
-      - text: The cell wall prevents any change.
+          This treats a concentration difference as a balance. Water does move both ways, so those movements may seem to cancel. Check whether their net rates are equal under these conditions.
+      - text: "It gains water but stays firm behind a rigid cell wall."
         rationale: |
-          You applied a plant cell feature to a red blood cell. Animal cells
-          have no cell wall, so nothing stops water from moving in and
-          swelling the cell.
+          This gives an animal cell a plant cell wall. A wall would limit swelling, so the protective result seems reasonable. Check whether a red blood cell has that structure.
     explanation: |
-      A solution with lower solute concentration than the cell is
-      hypotonic. Water moves toward the higher solute concentration, which
-      here is inside the cell, so the cell swells and may even burst.
+      The outside solution has less nonpenetrating solute than the cell. Water enters by osmosis, increasing the cell's volume. A red blood cell can burst if enough water enters.
     approved: true
+
   - id: q-biology-cell-biology-0013
-    type: cause-effect
-    difficulty: hard
+    type: "cause-effect"
+    difficulty: "hard"
     stem: |
-      A red blood cell is placed in a salt solution, and the cell shrinks
-      and shrivels. What type of solution was it most likely placed in?
+      A red blood cell placed in a salt solution shrinks. Which interpretation best explains this observation?
     choices:
-      - text: Hypertonic solution
+      - text: "The outside is hypertonic; water leaves the cell."
         correct: true
-      - text: Hypotonic solution
+      - text: "The outside is hypotonic; water leaves the cell."
         rationale: |
-          You picked the solution where the cell swells, not shrinks. In a
-          hypotonic solution, water moves into the cell because the outside
-          has less solute than the inside.
-      - text: Isotonic solution
+          This swaps hypertonic and hypotonic. Shrinking shows water loss, so the right effect is paired with the wrong label. Check which term means the outside has more nonpenetrating solute.
+      - text: "The outside is isotonic; equal water flow shrinks the cell."
         rationale: |
-          You picked the solution where the cell stays the same size. In an
-          isotonic solution, water moves in and out at the same rate and the
-          cell does not change shape.
-      - text: Neutral solution
+          This assumes the mere presence of salt makes a solution isotonic. Cells also contain solutes, so a salty solution can seem balanced. Check the observed volume change before assigning tonicity.
+      - text: "The outside is hypertonic; water entering shrinks the cell."
         rationale: |
-          You picked a term that describes pH, not the relationship between
-          solute concentrations. Tonicity is about how much solute is on each
-          side of the membrane, not whether the solution is acidic or basic.
+          This reverses the direction needed to explain shrinking. Hypertonic is the correct label, so the rest may seem correct too. Check whether gaining water would increase or decrease volume.
     explanation: |
-      The cell shrank, so water moved out of it. Water leaves a cell when
-      the surrounding solution has a higher solute concentration than the
-      cell: that solution is called hypertonic.
+      Shrinking means the cell has lost water overall. An external solution that causes this loss is hypertonic to the cell. It has a higher effective concentration of nonpenetrating solutes.
     approved: true
+
   - id: q-biology-cell-biology-0014
-    type: cause-effect
-    difficulty: medium
+    type: "cause-effect"
+    difficulty: "medium"
     stem: |
-      A red blood cell is placed in a solution with the same solute
-      concentration as the inside of the cell. What happens to the cell's
-      size?
+      A red blood cell is in an isotonic solution, and its membrane permits water movement. Which statement correctly describes osmosis at equilibrium?
     choices:
-      - text: It stays the same size.
+      - text: "Water enters and leaves at equal rates."
         correct: true
-      - text: It swells and may burst.
+      - text: "Water stops crossing the membrane in either direction."
         rationale: |
-          You described what happens in a hypotonic solution. A hypotonic
-          solution has less solute outside than inside, so water moves in.
-          This solution has equal solute on both sides.
-      - text: It shrinks and shrivels.
+          This mistakes unchanged volume for no molecular movement. The cell looks the same size, so water can seem still. Check whether balanced movement can occur without a net change.
+      - text: "Water moves only into the cell, causing it to swell."
         rationale: |
-          You described what happens in a hypertonic solution. A hypertonic
-          solution has more solute outside than inside, so water moves out.
-          This solution is equal on both sides.
-      - text: It splits into two smaller cells.
+          This treats equal solute concentration as a one-way inward signal. Water normally enters some cells, so that direction seems familiar. Check whether the outside is actually hypotonic.
+      - text: "Water moves only out of the cell, causing it to shrink."
         rationale: |
-          You described cell division, which is a separate process driven by
-          the cell cycle. A change in surrounding solute concentration does
-          not cause a cell to divide.
+          This treats equal solute concentration as a one-way outward signal. Salt solutions can make cells shrink, so outward flow seems likely. Check whether the outside is actually hypertonic.
     explanation: |
-      Equal solute concentration inside and outside is called isotonic.
-      Water still moves in and out, but at the same rate in both
-      directions, so the cell's size does not change.
+      An isotonic solution causes no net change in cell volume. Water still crosses the membrane in both directions. The amounts entering and leaving balance.
     approved: true
+
   - id: q-biology-cell-biology-0015
-    type: process-ordering
-    difficulty: hard
+    type: "process-ordering"
+    difficulty: "hard"
     stem: |
-      Put the following steps of protein production and shipping in the
-      correct order.
-      1. Golgi apparatus packages the protein for shipping
+      For a protein destined for secretion, put the listed steps in order.
+      1. Golgi apparatus packages the protein for delivery
       2. Ribosome builds the protein
       3. Rough endoplasmic reticulum processes the protein
     choices:
-      - text: 2, 3, 1
+      - text: "2, 3, 1"
         correct: true
-      - text: 1, 2, 3
+      - text: "1, 2, 3"
         rationale: |
-          You put the Golgi apparatus first. The Golgi packages proteins at the
-          end, not the beginning. The ribosome builds the protein first, then
-          the rough ER processes it, and then the Golgi ships it.
-      - text: 3, 2, 1
+          This puts packaging before protein building. Packaging sounds like preparation, so it may seem to come first. Check whether a protein exists yet to be packaged.
+      - text: "3, 2, 1"
         rationale: |
-          You started with the rough ER. The ribosome builds the protein before
-          the rough ER ever touches it. Packaging by the Golgi comes last, not
-          first.
-      - text: 2, 1, 3
+          This puts processing before the protein is built. The ribosome is attached to the ER, so their tasks can be confused. Check which listed step makes the protein chain.
+      - text: "2, 1, 3"
         rationale: |
-          You skipped the rough ER. The ribosome builds the protein first, but
-          the rough ER must process it before the Golgi can package and ship
-          it.
+          This sends the protein to the Golgi before ER processing. Both organelles process proteins, so their order may seem flexible. Check the route of a secreted protein through the cell.
     explanation: |
-      A ribosome builds the protein first. The rough ER, covered in
-      ribosomes, then helps process it. Last, the Golgi apparatus packages
-      and ships the finished protein.
+      The ribosome builds the protein. The rough ER helps process it. The Golgi apparatus then sorts and packages it for delivery. The order of the listed steps is 2, 3, 1.
     approved: true
+
   - id: q-biology-cell-biology-0016
-    type: predict-outcome
-    difficulty: exam
+    type: "predict-outcome"
+    difficulty: "exam"
     stem: |
-      A cell normally uses active transport to keep pumping a nutrient into
-      itself, even though the nutrient is already more concentrated inside
-      than outside. If the cell suddenly runs out of ATP, what will most
-      likely happen to the movement of that nutrient?
+      An ATP-powered pump moves an uncharged nutrient into a cell against its concentration gradient. The membrane also allows passive diffusion of that nutrient. ATP is depleted while the concentration gradient remains. What is expected immediately?
     choices:
-      - text: The nutrient will stop being pumped in and may start leaking back out along its concentration gradient.
+      - text: "The pump stops; passive outward movement can continue."
         correct: true
-      - text: The nutrient will keep moving into the cell at the same rate.
+      - text: "The pump keeps moving nutrient inward at the same rate."
         rationale: |
-          You assumed the transport continues without fuel. Active transport
-          needs ATP to push substances against the concentration gradient.
-          Without ATP, the pump stops.
-      - text: The nutrient will be pumped in even faster.
+          This assumes the pump can work without its energy source. The concentration difference is already present, so continued pumping may seem possible. Check whether the stated pump requires ATP directly.
+      - text: "The pump speeds up inward transport as ATP becomes depleted."
         rationale: |
-          You predicted the opposite of what happens. The pump needs ATP to
-          run. With no ATP, it cannot move the nutrient at all, let alone
-          faster.
-      - text: The nutrient will convert into a different substance.
+          This mistakes removal of ATP as a signal to increase transport. A cell short of energy may need more nutrient, so faster uptake seems useful. Check whether the pump still has the energy it needs.
+      - text: "The pump stops and all passive nutrient movement stops too."
         rationale: |
-          You described a chemical reaction, not a transport process. Losing
-          ATP stops the pump. It does not change the chemical identity of the
-          nutrient being transported.
+          This treats passive movement as ATP-powered too. The pump has stopped, so all transport may seem stopped. Check whether the membrane also permits movement down the gradient.
     explanation: |
-      Active transport needs ATP to move a substance against its
-      concentration gradient. Without ATP, the cell cannot keep pumping the
-      nutrient in, and it may drift back out toward the lower
-      concentration, following ordinary diffusion instead.
+      The pump uses ATP directly to move the nutrient against its concentration gradient. Without ATP, the pump stops. Because the membrane also permits passive nutrient movement, nutrient can move outward down its gradient.
     approved: true
+
+  - id: q-biology-cell-biology-0017
+    type: "structure-function"
+    difficulty: "easy"
+    stem: |
+      A liver cell produces lipids and processes some harmful substances. Which organelle is most directly associated with these functions?
+    choices:
+      - text: "Smooth ER"
+        correct: true
+      - text: "Rough endoplasmic reticulum"
+        rationale: |
+          This swaps the two forms of ER. Both are membrane networks involved in making cell products. Check whether the job mainly concerns lipids or ribosome-made proteins.
+      - text: "Golgi apparatus"
+        rationale: |
+          This confuses processing harmful substances with sorting products for delivery. The Golgi also modifies cell materials, so it seems relevant. Check which organelle has the lipid-making and detoxification roles.
+      - text: "Large central vacuole"
+        rationale: |
+          This confuses storage or digestion with detoxification in a liver cell. Vacuoles can hold unwanted materials, so they seem useful here. Check the cell type and the named functions.
+    explanation: |
+      Smooth ER has roles in making lipids and detoxification. Detoxification is the processing of harmful substances so they can be removed or made less harmful.
+    approved: false
+
+  - id: q-biology-cell-biology-0018
+    type: "compare-contrast"
+    difficulty: "medium"
+    stem: |
+      A typical animal cell and a typical land-plant cell are placed in strongly hypotonic solutions. Which feature most directly helps the plant cell resist bursting as water enters?
+    choices:
+      - text: "Cell wall"
+        correct: true
+      - text: "Chloroplast"
+        rationale: |
+          This confuses making food with resisting physical expansion. Chloroplasts are a familiar plant-cell feature, so they seem to explain any plant advantage. Check which structure provides rigid support.
+      - text: "Golgi apparatus"
+        rationale: |
+          This confuses handling membrane materials with holding the cell's shape. The Golgi helps deliver cell products, so it may seem able to prevent bursting. Check which structure physically resists expansion.
+      - text: "Smooth endoplasmic reticulum"
+        rationale: |
+          This confuses making lipids with providing a rigid outer layer. Lipids form membranes, so more lipid seems protective. Check whether a flexible membrane supplies the support of a wall.
+    explanation: |
+      As water enters, the plant cell contents press against the cell wall. The wall resists further expansion. This creates turgor pressure and helps the cell stay firm.
+    approved: false
+
+  - id: q-biology-cell-biology-0019
+    type: "predict-outcome"
+    difficulty: "hard"
+    stem: |
+      A plant cell membrane permits water to cross but not the dissolved sugar used in an experiment. The external sugar concentration is increased above the concentration inside the cell. What is the expected initial change?
+    choices:
+      - text: "Water leaves; turgor decreases."
+        correct: true
+      - text: "Water enters; turgor increases."
+        rationale: |
+          This reverses the water flow toward more nonpenetrating solute. More sugar can seem like more food that helps the cell fill. Check the direction of osmosis before predicting pressure.
+      - text: "Sugar enters; the central vacuole expands."
+        rationale: |
+          This assumes the sugar crosses the membrane. Dissolved sugar can seem free to spread like water. Check the stated permeability of the membrane.
+      - text: "Water movement stops; turgor remains unchanged."
+        rationale: |
+          This treats a cell wall as a barrier to all water movement. The wall keeps the cell's shape, so its internal pressure may seem fixed. Check whether water can still cross the membrane.
+    explanation: |
+      The outside now has more nonpenetrating solute. Water moves out of the cell by osmosis. The contents press less firmly against the wall, so turgor pressure decreases.
+    approved: false
+
+  - id: q-biology-cell-biology-0020
+    type: "classify"
+    difficulty: "exam"
+    stem: |
+      A transporter uses an existing ion gradient to move a nutrient against its own concentration gradient. The transporter does not split ATP directly. Which classification is correct?
+    choices:
+      - text: "Secondary active transport"
+        correct: true
+      - text: "Passive diffusion of the nutrient"
+        rationale: |
+          This assumes a transporter must split ATP to do active transport. There is no direct ATP use here, so passive movement seems likely. Check whether the nutrient moves against its own gradient.
+      - text: "Osmosis through the transporter"
+        rationale: |
+          This treats any membrane movement as osmosis. A transporter crosses a membrane, so the term may seem broad enough. Check whether the moving substance is water.
+      - text: "Primary active transport using ATP directly"
+        rationale: |
+          This confuses the source of a gradient with the energy used by this transporter. ATP may have helped build the ion gradient earlier. Check whether this transporter uses ATP directly or uses the stored gradient.
+    explanation: |
+      The nutrient moves against its own gradient, so its transport needs energy. The transporter takes that energy from an ion gradient. This is secondary active transport.
+    approved: false

@@ -2,247 +2,424 @@ meta:
   subject: science
   topic: chemistry
   subtopic: quantum-numbers-electron-configuration
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-chemistry-quantum-numbers-electron-configuration-0001
-    type: identify
-    difficulty: easy
+    type: 'identify'
+    difficulty: 'easy'
     stem: |
       What is the maximum number of electrons an $s$ orbital can hold?
     choices:
-      - text: "2"
+      - text: '2'
         correct: true
-      - text: "6"
-        rationale: "You picked the electron capacity of a set of $p$ orbitals. An $s$ orbital holds a maximum of 2 electrons."
-      - text: "10"
-        rationale: "You picked the electron capacity of a $d$ subshell. Single $s$ orbitals hold at most 2 electrons."
-      - text: "14"
-        rationale: "You picked the electron capacity of an $f$ subshell. An $s$ orbital holds only up to 2 electrons."
+      - text: '6'
+        rationale: |
+          This uses a whole p subshell’s capacity for one orbital. A p subshell has three orbitals. Check whether the question asks about one orbital.
+      - text: '10'
+        rationale: |
+          This uses a whole d subshell’s capacity. It has several orbitals. Check the single-orbital limit.
+      - text: '14'
+        rationale: |
+          This uses a whole f subshell’s capacity. It contains seven orbitals. Check the single-orbital limit.
     explanation: |
-      An $s$ orbital holds up to 2 electrons: the smallest capacity of the four orbital types.
+      A single orbital holds at most two electrons. By the Pauli exclusion principle, those two electrons have opposite spin quantum numbers.
     approved: true
+
   - id: q-chemistry-quantum-numbers-electron-configuration-0002
-    type: identify
-    difficulty: easy
+    type: 'compare-contrast'
+    difficulty: 'easy'
     stem: |
-      What is the maximum number of electrons a $p$ orbital can hold?
+      Which statement correctly distinguishes a p subshell from one p orbital?
     choices:
-      - text: "6"
+      - text: 'Subshell: six; one orbital: two.'
         correct: true
-      - text: "2"
-        rationale: "You picked the capacity of an $s$ orbital. A $p$ subshell contains three orbitals and holds 6 electrons."
-      - text: "10"
-        rationale: "You picked the capacity of a $d$ subshell. A $p$ subshell holds a maximum of 6 electrons."
-      - text: "14"
-        rationale: "You picked the capacity of an $f$ subshell. A $p$ subshell can hold up to 6 electrons."
+      - text: 'Subshell: six; one orbital: six.'
+        rationale: |
+          This gives six electrons to one orbital. Six is the full subshell capacity. Check the distinction between an orbital and a subshell.
+      - text: 'Subshell: two; one orbital: two.'
+        rationale: |
+          This gives a whole subshell the capacity of one orbital. Two is the orbital limit. Check the three orbitals in p.
+      - text: 'Subshell: ten; one orbital: two.'
+        rationale: |
+          This mixes the d subshell’s total with the p single-orbital limit. Both are familiar capacities. Check the named subshell.
     explanation: |
-      A $p$ orbital (a set of three sub-orbitals) holds up to 6 electrons in total.
+      A p subshell contains three orbitals. Each holds at most two electrons. Thus the subshell can hold six, while one p orbital holds two.
     approved: true
+
   - id: q-chemistry-quantum-numbers-electron-configuration-0003
-    type: identify
-    difficulty: easy
+    type: 'simple-quantitative'
+    difficulty: 'easy'
     stem: |
-      What is the maximum number of electrons a $d$ orbital can hold?
+      For a d subshell, $\ell=2$. How many orbital labels are allowed by $m_\ell=-\ell,\ldots,+\ell$?
     choices:
-      - text: "10"
+      - text: '5 orbitals'
         correct: true
-      - text: "2"
-        rationale: "You picked the maximum capacity of an $s$ orbital. A $d$ subshell has five orbitals that hold 10 electrons."
-      - text: "6"
-        rationale: "You picked the capacity of a $p$ subshell. A $d$ subshell holds up to 10 electrons."
-      - text: "14"
-        rationale: "You picked the capacity of an $f$ subshell. A $d$ subshell has five orbitals holding up to 10 electrons."
+      - text: '10 orbitals'
+        rationale: |
+          This counts electrons at full occupancy rather than orbitals. Ten is the d electron capacity. Check what m_l labels.
+      - text: '3 orbitals'
+        rationale: |
+          This uses the p subshell’s three orbital labels. Both are subshells. Check the given l value.
+      - text: '2 orbitals'
+        rationale: |
+          This uses only the positive magnitude l. The value is 2. Check the integers from -l through +l, including zero.
     explanation: |
-      A $d$ orbital (a set of five sub-orbitals) holds up to 10 electrons in total.
+      A d subshell has $\ell=2$. The possible $m_\ell$ values are $-2,-1,0,1,2$. These five labels identify five orbitals.
     approved: true
+
   - id: q-chemistry-quantum-numbers-electron-configuration-0004
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
-      Nitrogen has an atomic number of 7. Write its electron configuration.
+      Neutral nitrogen has atomic number 7. Which ground-state electron configuration follows the filling rules?
     choices:
-      - text: 1s^2 2s^2 2p^3
+      - text: '$1s^2\,2s^2\,2p^3$'
         correct: true
-      - text: 1s^2 2s^2 2p^5
-        rationale: "You counted 9 total electrons instead of 7. Subtract 2 to account for nitrogen having only 7 electrons."
-      - text: 1s^2 2s^3 2p^2
-        rationale: "You placed 3 electrons into the 2s orbital. Remember that $s$ orbitals hold a maximum of 2 electrons."
-      - text: 1s^2 2s^2 2p^4
-        rationale: "You assigned 8 total electrons instead of 7. Nitrogen has an atomic number of 7 so $2p$ receives 3."
+      - text: '$1s^2\,2s^2\,2p^5$'
+        rationale: |
+          This assigns five electrons to 2p and gives nine overall. A p subshell can hold five. Check the specified total.
+      - text: '$1s^2\,2s^3\,2p^2$'
+        rationale: |
+          This puts three electrons in the single 2s orbital. The sum is seven. Check individual-orbital capacity as well as total count.
+      - text: '$1s^2\,2s^2\,2p^4$'
+        rationale: |
+          This assigns four to 2p and gives eight overall. The lower shells are filled correctly. Check the remaining electrons.
     explanation: |
-      Fill the lowest-energy orbitals first: 1s holds 2, 2s holds 2, leaving $7 - 2 - 2 = 3$ for 2p. Adding the superscripts confirms the total: $2 + 2 + 3 = 7$.
+      Neutral nitrogen has seven electrons. Put two in 1s and two in 2s. The remaining three occupy 2p, giving $1s^2\,2s^2\,2p^3$.
     approved: true
+
   - id: q-chemistry-quantum-numbers-electron-configuration-0005
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
-      Oxygen has an atomic number of 8. Write its electron configuration.
+      An atom’s $2p^4$ ground-state subshell has four electrons in three equal-energy orbitals. Which occupancy pattern follows Hund and Pauli rules?
     choices:
-      - text: 1s^2 2s^2 2p^4
+      - text: '2, 1, 1'
         correct: true
-      - text: 1s^2 2s^2 2p^6
-        rationale: "You wrote the configuration for 10 electrons (neon). Oxygen has only 8 electrons, so $2p$ holds 4."
-      - text: 1s^2 2s^4 2p^2
-        rationale: "You put 4 electrons into the 2s orbital. The $s$ subshell can only hold up to 2 electrons."
-      - text: 1s^2 2s^2 2p^3
-        rationale: "You wrote the configuration for 7 electrons (nitrogen). Oxygen has 8 electrons, so $2p$ requires 4."
+      - text: '2, 2, 0'
+        rationale: |
+          This pairs two orbitals before occupying the third. The total count is four. Check Hund’s singly-before-pairing rule.
+      - text: '3, 1, 0'
+        rationale: |
+          This puts three electrons into one orbital. The total is four. Check the two-electron orbital limit.
+      - text: '4, 0, 0'
+        rationale: |
+          This puts every electron into one orbital. Keeping them together seems simple. Check both orbital capacity and Hund’s distribution.
     explanation: |
-      Fill 1s with 2 and 2s with 2, leaving $8 - 2 - 2 = 4$ for 2p. Adding the superscripts confirms the total: $2 + 2 + 4 = 8$.
+      Four electrons enter three equal-energy p orbitals. First place one in each with parallel spins. The fourth pairs with one, giving occupancies $2,1,1$ in any orbital order.
     approved: true
+
   - id: q-chemistry-quantum-numbers-electron-configuration-0006
-    type: cause-effect
-    difficulty: hard
+    type: 'cause-effect'
+    difficulty: 'hard'
     stem: |
-      Which orbital fills first: the 4s orbital or the 3d orbital?
+      For neutral potassium’s ground state, does the electron after the argon core occupy 4s or 3d?
     choices:
-      - text: The 4s orbital, because it has slightly lower energy than 3d at this point, even though its leading number is larger.
+      - text: '4s'
         correct: true
-      - text: The 3d orbital, because 3 is a smaller number than 4.
-        rationale: "You assumed principal quantum numbers strictly dictate energy. Orbitals fill by total energy, and 4s has lower energy than 3d."
-      - text: Both fill at exactly the same time.
-        rationale: "You assumed degenerate orbital energies. 4s and 3d have different energy levels, so 4s fills before 3d."
-      - text: Neither fills before the other; 3d is skipped entirely.
-        rationale: "You picked an option that ignores standard electron configurations. 3d fills immediately after 4s is full."
+      - text: '3d because its n is smaller'
+        rationale: |
+          This uses n alone to decide energy. Three is smaller than four. Check the observed potassium ordering.
+      - text: 'Both equally in the ground state'
+        rationale: |
+          This assumes different subshells have equal energies. Both are available labels. Check potassium’s ground-state configuration.
+      - text: 'Neither because 3d subshells never exist'
+        rationale: |
+          This treats one filling order as making 3d nonexistent. 4s fills here first. Check that later elements can occupy 3d.
     explanation: |
-      The Aufbau principle fills orbitals by increasing energy, not simply by increasing leading number. The 4s orbital has slightly lower energy than 3d at this point in the periodic table, so it fills first: this is why potassium's configuration ends in $4s^1$, not $3d^1$.
+      For neutral potassium, the next electron occupies 4s after the argon core. Its observed ground-state configuration is $[Ar]4s^1$. The relevant energy ordering favors 4s in this case.
     approved: true
+
   - id: q-chemistry-quantum-numbers-electron-configuration-0007
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
       A student writes the configuration $1s^2\ 2s^2\ 2p^8$ for an atom. Is this a valid electron configuration?
     choices:
-      - text: 'No: a $p$ orbital can never hold more than 6 electrons.'
+      - text: 'No; 2p exceeds its subshell capacity.'
         correct: true
-      - text: 'Yes: as long as the total adds up correctly.'
-        rationale: "You ignored subshell capacity rules. A $p$ subshell cannot hold more than 6 electrons regardless of atomic total."
-      - text: 'No: because the $2s$ orbital should come after $2p$.'
-        rationale: "You reversed the energy ordering. 2s has lower energy than 2p and fills before 2p in valid configurations."
-      - text: 'Yes: $p$ orbitals can hold up to 8 electrons.'
-        rationale: "You confused subshell capacity with the octet rule. A $p$ subshell holds 6 electrons, not 8."
+      - text: 'Yes; the correct total permits any subshell count.'
+        rationale: |
+          This checks total electrons but not allowed occupation. A sum can match an atom. Check each subshell’s capacity.
+      - text: 'No; 2s must always be filled after 2p.'
+        rationale: |
+          This reverses the ordinary 2s-2p order. Both are in shell 2. Check the introductory ground-state order.
+      - text: 'Yes; the second-shell octet means 2p alone holds eight.'
+        rationale: |
+          This assigns the whole second-shell octet to p alone. Eight is a familiar shell count. Check that 2s and 2p are separate subshells.
     explanation: |
-      Each orbital type has a fixed maximum capacity, and $p$ can never exceed 6 electrons. A superscript of 8 on a $p$ orbital is impossible, no matter what the total electron count is.
+      The 2p superscript describes the whole p subshell. It contains three orbitals, each holding at most two electrons. Its maximum is six, so $2p^8$ exceeds that capacity.
     approved: true
+
   - id: q-chemistry-quantum-numbers-electron-configuration-0008
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
       Three electrons must be placed into a set of three separate $p$ orbitals of the same energy. Which arrangement correctly follows Hund's Rule?
     choices:
-      - text: Each of the three orbitals gets exactly one electron.
+      - text: 'One in each, with parallel spins.'
         correct: true
-      - text: Two electrons pair up in one orbital, leaving one orbital completely empty.
-        rationale: "You paired electrons prematurely. Hund's Rule requires placing one electron per degenerate orbital before pairing."
-      - text: All three electrons pair up in a single orbital.
-        rationale: "You placed 3 electrons in one orbital, violating Pauli Exclusion and Hund's Rule. Orbitals hold at most 2 electrons."
-      - text: Any arrangement is equally correct, since the total electron count is the same either way.
-        rationale: "You assumed orbital distribution does not affect energy. Unpaired parallel spins minimize electron repulsion."
+      - text: 'A pair in one, one in another, and the third empty.'
+        rationale: |
+          This pairs before filling the third orbital. The total count is still three. Check the singly-first ground-state rule.
+      - text: 'All three in one orbital with no other occupation.'
+        rationale: |
+          This puts three into one orbital. A single box can look convenient. Check the two-electron limit.
+      - text: 'Every distribution has the same ground-state energy.'
+        rationale: |
+          This treats every distribution as the same energy. Electron count stays fixed. Check the lowest-energy arrangement required by Hund’s rule.
     explanation: |
-      Hund's Rule says electrons fill each available same-energy orbital singly before any orbital receives a second electron. With three electrons and three empty orbitals available, each orbital should get exactly one electron.
+      Hund’s rule places electrons singly in equal-energy orbitals with parallel spins before pairing. Three electrons therefore occupy the three orbitals one each with parallel spins.
     approved: true
+
   - id: q-chemistry-quantum-numbers-electron-configuration-0009
-    type: cause-effect
-    difficulty: medium
+    type: 'cause-effect'
+    difficulty: 'medium'
     stem: |
       Can two electrons occupying the same orbital have the same spin?
     choices:
-      - text: 'No: the Pauli Exclusion Principle requires the two electrons in one orbital to have opposite spins.'
+      - text: 'No; paired spins must be opposite.'
         correct: true
-      - text: 'Yes: spin direction does not matter within a single orbital.'
-        rationale: "You ignored quantum number restrictions. Pauli Exclusion states two electrons in the same orbital must have opposite spins."
-      - text: 'No: an orbital can never hold two electrons at all.'
-        rationale: "You set orbital capacity to one. Orbitals can hold up to two electrons if their spins are paired opposite."
-      - text: 'Yes: as long as the orbital is an $s$ orbital.'
-        rationale: "You exempted s orbitals from spin rules. Pauli Exclusion applies equally to all orbital types."
+      - text: 'Yes; spin does not matter within one orbital.'
+        rationale: |
+          This ignores the fourth quantum number. The electrons share one orbital. Check Pauli’s full four-number restriction.
+      - text: 'No; two electrons can never share any orbital.'
+        rationale: |
+          This makes the orbital limit one instead of two. Single occupation occurs before pairing. Check that opposite-spin pairing is allowed.
+      - text: 'Yes; s orbitals are exempt from the spin restriction.'
+        rationale: |
+          This exempts s from Pauli. It has one orbital per subshell. Check that the exclusion rule applies to all orbitals.
     explanation: |
-      The Pauli Exclusion Principle allows at most 2 electrons per orbital, and requires those two to have opposite spins. Two electrons with the same spin cannot share the same orbital.
+      Electrons in one orbital share n, l, and m_l. Pauli forbids identical sets of all four quantum numbers. Their spin quantum numbers must therefore be opposite.
     approved: true
+
   - id: q-chemistry-quantum-numbers-electron-configuration-0010
-    type: simple-quantitative
-    difficulty: hard
+    type: 'simple-quantitative'
+    difficulty: 'hard'
     stem: |
-      An atom has the electron configuration $1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^3$. What is its atomic number?
+      A neutral atom has $1s^2\,2s^2\,2p^6\,3s^2\,3p^3$. What is its atomic number?
     choices:
-      - text: "15"
+      - text: '15'
         correct: true
-      - text: "13"
-        rationale: "You likely miscounted the electrons in $2p$ or $3p$. Adding $2+2+6+2+3$ gives 15 electrons."
-      - text: "17"
-        rationale: "You added extra electrons to the total. Summing all superscripts $2+2+6+2+3$ equals 15."
-      - text: "5"
-        rationale: "You counted only the valence shell electrons ($3s^2 3p^3$). Atomic number requires counting all electrons."
+      - text: '13'
+        rationale: |
+          This omits the 3s contribution of two electrons. The other terms sum to 13. Check every term.
+      - text: '17'
+        rationale: |
+          This reads 3p as five instead of three electrons. A 3p^5 configuration is familiar. Check the actual superscript.
+      - text: '5'
+        rationale: |
+          This counts only the outer 3s and 3p electrons. Those total five. Check all shells for the neutral atom’s Z.
     explanation: |
-      Add up all the superscripts: $2 + 2 + 6 + 2 + 3 = 15$. Since this is a neutral atom, its atomic number equals its total electron count, 15 (phosphorus).
+      Add the occupancies: $2+2+6+2+3=15$ electrons. A neutral atom has the same electron and proton counts, so $Z=15$.
     approved: true
+
   - id: q-chemistry-quantum-numbers-electron-configuration-0011
-    type: simple-quantitative
-    difficulty: hard
+    type: 'simple-quantitative'
+    difficulty: 'hard'
     stem: |
       An atom has the electron configuration $1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^3$. How many electrons are in its outermost energy level?
     choices:
-      - text: "5"
+      - text: '5'
         correct: true
-      - text: "3"
-        rationale: "You counted only the electrons in the $3p$ subshell. Outermost electrons include both $3s$ and $3p$ ($2+3=5$)."
-      - text: "15"
-        rationale: "You gave the total atomic number of the atom. The outermost energy level (n=3) contains 5 valence electrons."
-      - text: "8"
-        rationale: "You stated the maximum octet capacity instead of counting the $3s^2 3p^3$ valence electrons."
+      - text: '3'
+        rationale: |
+          This counts only 3p. It is the last term. Check every term with the highest n.
+      - text: '15'
+        rationale: |
+          This sums all shells rather than the outer shell. Fifteen is the total. Check the requested shell.
+      - text: '8'
+        rationale: |
+          This reports a filled-shell capacity rather than actual occupation. Eight is a familiar octet. Check the stated superscripts.
     explanation: |
-      The outermost energy level is level 3 (from the $3s$ and $3p$ terms). Adding their superscripts: $2 + 3 = 5$.
+      The highest principal shell is n=3. Its 3s and 3p occupancies are two and three. Their sum is $2+3=5$ outer-shell electrons.
     approved: true
+
   - id: q-chemistry-quantum-numbers-electron-configuration-0012
-    type: predict-outcome
-    difficulty: exam
+    type: 'predict-outcome'
+    difficulty: 'exam'
     stem: |
       Neutral sodium (atomic number 11) has the configuration $1s^2\ 2s^2\ 2p^6\ 3s^1$. What is the correct electron configuration for the sodium ion $Na^+$?
     choices:
-      - text: 1s^2 2s^2 2p^6
+      - text: '$1s^2\,2s^2\,2p^6$'
         correct: true
-      - text: 1s^2 2s^2 2p^6 3s^1
-        rationale: "You gave the configuration for neutral sodium. The 1+ ion loses its single outer electron from $3s$."
-      - text: 1s^2 2s^2 2p^6 3s^2
-        rationale: "You added an electron as if it were an anion ($Na^-$). Positive ions lose electrons."
-      - text: 1s^2 2s^2 2p^5
-        rationale: "You removed two electrons instead of one. $Na^+$ loses only 1 electron to reach 10 total."
+      - text: '$1s^2\,2s^2\,2p^6\,3s^1$'
+        rationale: |
+          This leaves the neutral configuration unchanged. It is shown in the stem. Check the positive charge.
+      - text: '$1s^2\,2s^2\,2p^6\,3s^2$'
+        rationale: |
+          This adds an electron instead of removing one. The sign is attached to the ion. Check how a cation forms.
+      - text: '$1s^2\,2s^2\,2p^5$'
+        rationale: |
+          This removes two electrons. The result has nine. Check the specified single positive charge.
     explanation: |
-      $Na^+$ has lost one electron compared to neutral sodium, leaving $11 - 1 = 10$ electrons. Removing the single $3s$ electron from neutral sodium's configuration leaves $1s^2\ 2s^2\ 2p^6$: do not just copy the neutral atom's configuration without adjusting for the charge.
+      A $1+$ ion has one fewer electron than neutral sodium. The outer 3s electron is removed. The result is $1s^2\,2s^2\,2p^6$ with ten electrons.
     approved: true
+
   - id: q-chemistry-quantum-numbers-electron-configuration-0013
-    type: simple-quantitative
-    difficulty: exam
+    type: 'predict-outcome'
+    difficulty: 'exam'
     stem: |
-      An atom has the electron configuration $1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^6\ 4s^2\ 3d^5$. What is its atomic number?
+      A transition-metal atom has the configuration $[Ar]4s^2\,3d^5$. Which subshell generally loses electrons first when it forms a cation?
     choices:
-      - text: "25"
+      - text: '4s'
         correct: true
-      - text: "23"
-        rationale: "You miscounted the sum of superscripts. Adding $2+2+6+2+6+2+5$ gives an atomic number of 25."
-      - text: "20"
-        rationale: "You stopped counting at $4s^2$ and ignored the 5 electrons in the $3d$ subshell."
-      - text: "35"
-        rationale: "You added 10 extra electrons to the total. Summing the given superscripts yields 25."
+      - text: '3d because it is written last'
+        rationale: |
+          This reverses removal order by following the last-written subshell. 3d is occupied after 4s in the simple filling pattern. Check ionization rather than filling.
+      - text: '3p in the argon core'
+        rationale: |
+          This removes an inner 3p electron first. It has n=3. Check which occupied shell has the highest principal number.
+      - text: '1s because it was filled first'
+        rationale: |
+          This removes a core 1s electron first. It was filled first. Check the outer electrons for ordinary cation formation.
     explanation: |
-      Add up every superscript: $2 + 2 + 6 + 2 + 6 + 2 + 5 = 25$. This is manganese, whose configuration fills $4s$ before $3d$, following the established energy order.
+      Transition-metal cations generally lose the highest-n 4s electrons before 3d electrons. Filling order and electron-removal order are different rules.
     approved: true
+
   - id: q-chemistry-quantum-numbers-electron-configuration-0014
-    type: predict-outcome
-    difficulty: exam
+    type: 'predict-outcome'
+    difficulty: 'exam'
     stem: |
       An ion has the electron configuration $1s^2\ 2s^2\ 2p^6$ and a charge of 1+. What is the atomic number of its neutral parent atom?
     choices:
-      - text: "11"
+      - text: '11'
         correct: true
-      - text: "10"
-        rationale: "You gave the electron count of the ion rather than the neutral parent atom. Add 1 electron back to find atomic number 11."
-      - text: "9"
-        rationale: "You subtracted 1 electron from the ion count. A 1+ charge means the neutral atom had one MORE electron."
-      - text: "12"
-        rationale: "You added 2 electrons instead of 1. A 1+ ion lost only a single electron relative to its neutral atom."
+      - text: '10'
+        rationale: |
+          This reports the ion’s electron count as Z. Ten electrons are present. Check the charge difference between electrons and protons.
+      - text: '9'
+        rationale: |
+          This subtracts the positive charge. A plus sign indicates a deficit of electrons. Check whether proton count is larger or smaller.
+      - text: '12'
+        rationale: |
+          This adds two for a one-unit charge. Positive charge needs adjustment. Check its magnitude.
     explanation: |
-      The ion has $2 + 2 + 6 = 10$ electrons. Since it lost one electron to reach a 1+ charge, the neutral atom must have had $10 + 1 = 11$ electrons, giving an atomic number of 11 (sodium).
+      The ion has $2+2+6=10$ electrons. A $1+$ charge means it has one more proton than electron. Thus $Z=10+1=11$.
     approved: true
+
+  - id: q-chemistry-quantum-numbers-electron-configuration-0015
+    type: 'identify'
+    difficulty: 'easy'
+    stem: |
+      Which quantum number identifies the principal shell?
+    choices:
+      - text: 'n'
+        correct: true
+      - text: 'The subshell label l only'
+        rationale: |
+          This substitutes subshell type for principal shell. Both are orbital labels. Check which specifies the main shell.
+      - text: 'The orbital label m_l only'
+        rationale: |
+          This substitutes an individual orbital label. It distinguishes orbitals within a subshell. Check the principal-shell label.
+      - text: 'The spin label m_s only'
+        rationale: |
+          This substitutes spin for shell. It is one of the four numbers. Check which has positive-integer shell values.
+    explanation: |
+      The principal quantum number n identifies the principal shell. Its allowed values are positive integers.
+    approved: false
+
+  - id: q-chemistry-quantum-numbers-electron-configuration-0016
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      For n=3, which list gives the allowed l values?
+    choices:
+      - text: '0, 1, 2'
+        correct: true
+      - text: '1, 2, 3'
+        rationale: |
+          This starts at 1 and ends at n. Principal shell values start at 1. Check that l starts at zero.
+      - text: '0, 1, 2, 3'
+        rationale: |
+          This includes l=n. The shell number is 3. Check the upper limit n-1.
+      - text: '-2, -1, 0, 1, 2'
+        rationale: |
+          This uses the symmetric range for m_l. Both are quantum numbers. Check which range applies to l.
+    explanation: |
+      Allowed l values run from 0 through n-1. For n=3, they are 0, 1, and 2.
+    approved: false
+
+  - id: q-chemistry-quantum-numbers-electron-configuration-0017
+    type: 'classify'
+    difficulty: 'hard'
+    stem: |
+      Which pair of n and l is forbidden?
+    choices:
+      - text: 'n=2, l=2'
+        correct: true
+      - text: 'n=3, l=2'
+        rationale: |
+          This treats l=2 as always forbidden. Some lower shells lack d subshells. Check whether n-1 permits 2 for n=3.
+      - text: 'n=4, l=3'
+        rationale: |
+          This rejects the f label in shell 4. The l value is large. Check the permitted maximum for n=4.
+      - text: 'n=1, l=0'
+        rationale: |
+          This assumes l must be positive. Principal n is positive. Check that an s subshell has l=0.
+    explanation: |
+      For n=2, l may be 0 or 1. The pair n=2, l=2 exceeds the allowed limit l=n-1.
+    approved: false
+
+  - id: q-chemistry-quantum-numbers-electron-configuration-0018
+    type: 'identify'
+    difficulty: 'hard'
+    stem: |
+      Which pair gives the two allowed electron spin quantum numbers?
+    choices:
+      - text: '$+0.5$ and $-0.5$'
+        correct: true
+      - text: '$+1.0$ and $-1.0$'
+        rationale: |
+          This uses whole-number signs instead of half values. Other quantum labels use integers. Check the distinct spin range.
+      - text: '$0$ and $+1.0$'
+        rationale: |
+          This mixes zero with a positive integer. Orbital labels may include zero. Check the allowed m_s values.
+      - text: '$0$ and $-1.0$'
+        rationale: |
+          This mixes zero with a negative integer. Magnetic labels may be negative. Check the separate spin rule.
+    explanation: |
+      The electron spin quantum number has two allowed values: $+\dfrac{1}{2}$ and $-\dfrac{1}{2}$. Opposite-spin electrons can share an orbital.
+    approved: false
+
+  - id: q-chemistry-quantum-numbers-electron-configuration-0019
+    type: 'compare-contrast'
+    difficulty: 'exam'
+    stem: |
+      Why can Aufbau filling order not always be read backward to remove electrons from a transition-metal atom?
+    choices:
+      - text: 'Subshell energies depend on occupancy.'
+        correct: true
+      - text: 'All subshell energies stay fixed for every atom and ion.'
+        rationale: |
+          This treats the practical filling pattern as a fixed universal energy list. The diagonal order is familiar. Check the dependence on occupancy and atom.
+      - text: 'An ion must always lose the last-written subshell first.'
+        rationale: |
+          This treats notation order as ionization order. The last term often looks newest. Check actual cation-removal behavior.
+      - text: 'Transition-metal ions never lose any outer-shell electrons.'
+        rationale: |
+          This confuses complex valence behavior with no electron loss. Transition metals have variable charges. Check how cations form.
+    explanation: |
+      Relative subshell energies change with atomic number and occupation. Transition-metal cations commonly lose 4s before 3d even though 4s was filled earlier.
+    approved: false
+
+  - id: q-chemistry-quantum-numbers-electron-configuration-0020
+    type: 'predict-outcome'
+    difficulty: 'exam'
+    stem: |
+      A simple diagonal filling prediction disagrees with an observed ground-state configuration for chromium or copper. Which should be used for the actual atom?
+    choices:
+      - text: 'The observed configuration'
+        correct: true
+      - text: 'The diagonal prediction must override the observation'
+        rationale: |
+          This treats the shortcut as exception-free. It predicts many configurations well. Check known exceptions.
+      - text: 'Any arrangement with the right total is equally valid'
+        rationale: |
+          This checks electron total but ignores energy and occupancy rules. Several arrangements can share a total. Check the actual lowest-energy occupation.
+      - text: 'The atom must lack s or d orbitals entirely'
+        rationale: |
+          This treats a filling exception as missing orbital types. The pattern differs. Check that the orbitals still exist.
+    explanation: |
+      The simple Aufbau pattern has known exceptions, including chromium and copper. Observed ground-state configurations describe the actual occupation.
+    approved: false

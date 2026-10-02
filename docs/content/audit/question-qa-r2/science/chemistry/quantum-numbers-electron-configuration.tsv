@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-chemistry-quantum-numbers-electron-configuration-0001	VERIFIED	SOLVED-MATCH	explanation;notes	HIGH	Original explanation falsely called s the smallest orbital capacity; all individual orbitals hold at most two.
+q-chemistry-quantum-numbers-electron-configuration-0002	CORRECTED	SOLVED-FIXED	choices;stem;explanation;notes	HIGH	Original key gave six for a single p orbital; repaired through explicit orbital/subshell comparison.
+q-chemistry-quantum-numbers-electron-configuration-0003	CORRECTED	SOLVED-FIXED	choices;stem;explanation;notes	HIGH	Original key gave ten for one d orbital; new framing distinguishes orbital count from electron capacity.
+q-chemistry-quantum-numbers-electron-configuration-0004	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	LOW	Neutral ground state specified and configurations formatted as math.
+q-chemistry-quantum-numbers-electron-configuration-0005	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original repeated configuration writing with a swapped element; new frame tests occupancy.
+q-chemistry-quantum-numbers-electron-configuration-0006	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original implied 4s is always below 3d without occupancy or atom context.
+q-chemistry-quantum-numbers-electron-configuration-0007	CORRECTED	SOLVED-MATCH	choices;explanation;notes	HIGH	Original described a p orbital as holding six and confused orbital and subshell capacities.
+q-chemistry-quantum-numbers-electron-configuration-0008	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Original correct choice omitted parallel spins required for the specified ground-state arrangement.
+q-chemistry-quantum-numbers-electron-configuration-0009	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Longest correct choice shortened.
+q-chemistry-quantum-numbers-electron-configuration-0010	CORRECTED	SOLVED-MATCH	stem;explanation;notes	LOW	Neutral atom specified; numerical-slip notes made exact.
+q-chemistry-quantum-numbers-electron-configuration-0011	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-quantum-numbers-electron-configuration-0012	CORRECTED	SOLVED-MATCH	choices;explanation;notes	LOW	Configurations formatted as math and instruction removed from solution.
+q-chemistry-quantum-numbers-electron-configuration-0013	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original repeated adding configuration superscripts with a swapped element.
+q-chemistry-quantum-numbers-electron-configuration-0014	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-quantum-numbers-electron-configuration-0015	NEW	NEW	new question	NONE	
+q-chemistry-quantum-numbers-electron-configuration-0016	NEW	NEW	new question	NONE	
+q-chemistry-quantum-numbers-electron-configuration-0017	NEW	NEW	new question	NONE	
+q-chemistry-quantum-numbers-electron-configuration-0018	NEW	NEW	new question	NONE	
+q-chemistry-quantum-numbers-electron-configuration-0019	NEW	NEW	new question	NONE	
+q-chemistry-quantum-numbers-electron-configuration-0020	NEW	NEW	new question	NONE	

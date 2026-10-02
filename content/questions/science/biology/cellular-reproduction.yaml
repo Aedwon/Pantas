@@ -1,361 +1,285 @@
 meta:
-  subject: science
-  topic: biology
-  subtopic: cellular-reproduction
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  subject: "science"
+  topic: "biology"
+  subtopic: "cellular-reproduction"
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-biology-cellular-reproduction-0001
-    type: classify
-    difficulty: medium
+    type: "classify"
+    difficulty: "medium"
     stem: |
-      A skin cell divides to repair a small cut, producing two new skin cells that are genetically identical to the original. Is this mitosis or meiosis?
+      A skin-cell lineage repairs a cut by dividing and keeping the same chromosome-set number in the daughter nuclei. Which nuclear division is involved?
     choices:
-      - text: Mitosis
+      - text: "Mitosis"
         correct: true
-      - text: Meiosis
+      - text: "Meiosis I"
         rationale: |
-          You picked the division type used to make sex cells. Meiosis
-          produces four genetically different cells with half the normal
-          chromosome number. Body repair uses mitosis, which keeps the
-          chromosome number the same and produces identical copies.
-      - text: Both processes equally
+          This applies chromosome-set reduction to tissue repair. Meiosis also involves nuclear division, so it seems to fit any dividing cell. Check whether the chromosome-set number is reduced.
+      - text: "Meiosis II"
         rationale: |
-          You said both processes apply, but only one fits. Meiosis makes sex
-          cells with half the chromosomes. Mitosis makes identical copies for
-          growth and repair. This scenario matches mitosis alone.
-      - text: 'Neither: this is not a form of cell division'
+          This applies the second meiotic division to a skin-cell lineage. It separates sister chromatids, so it resembles mitosis. Check whether this is part of meiosis or ordinary tissue repair.
+      - text: "Cytokinesis alone"
         rationale: |
-          You said no cell division is happening, but the scenario describes a
-          cell producing two daughter cells. That is cell division. The
-          correct type is mitosis.
+          This mistakes cytoplasmic division for the copying and separation of nuclear DNA. Cytokinesis produces separate cells, so it seems to describe the whole event. Check whether the question also involves nuclear division.
     explanation: |
-      Producing two genetically identical daughter cells for growth or repair is exactly what mitosis does.
+      Mitosis preserves the chromosome-set number in the daughter nuclei. With cytokinesis, it commonly produces two daughter cells for tissue growth or repair.
     approved: true
+
   - id: q-biology-cellular-reproduction-0002
-    type: classify
-    difficulty: medium
+    type: "classify"
+    difficulty: "medium"
     stem: |
-      A reproductive organ produces sperm cells for sexual reproduction. Is this process mitosis or meiosis?
+      Which nuclear division reduces chromosome-set number as part of human sperm formation?
     choices:
-      - text: Meiosis
+      - text: "Meiosis"
         correct: true
-      - text: Mitosis
+      - text: "Mitosis"
         rationale: |
-          You picked the division type used for growth and repair. Mitosis
-          makes two identical copies with the full chromosome number. Sex
-          cells need half the normal chromosome number, so meiosis is used
-          instead.
-      - text: Both processes equally
+          This uses the chromosome-preserving process for a chromosome-reducing step. Mitosis also occurs in reproductive cell lineages, so it can seem to fit. Check which division reduces chromosome-set number.
+      - text: "Cytokinesis"
         rationale: |
-          You said both processes apply, but sex cells are made only by
-          meiosis. Mitosis would give each sperm the full chromosome count,
-          which would double the offspring's chromosomes at fertilization.
-      - text: 'Neither: sperm cells are not produced through cell division'
+          This confuses dividing the cytoplasm with reducing chromosome sets in nuclei. Both occur during cell division, so their jobs can blend together. Check whether chromosomes or cytoplasm are being divided.
+      - text: "Fertilization"
         rationale: |
-          You said sperm cells are not made by cell division, but they are.
-          Meiosis divides a parent cell to produce four sperm cells, each
-          with half the normal chromosome number.
+          This confuses the formation of haploid gametes with their later fusion. Both belong to sexual reproduction, so either term seems possible. Check whether the event separates sets or combines them.
     explanation: |
-      Meiosis is used specifically to make sex cells (sperm and egg cells) for sexual reproduction.
+      Meiosis reduces a diploid nucleus to haploid nuclei. In humans this reduction is part of producing sperm, which carry one chromosome set.
     approved: true
+
   - id: q-biology-cellular-reproduction-0003
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
-      A human cell with 46 chromosomes undergoes meiosis. How many daughter cells result, and how many chromosomes does each have?
+      A human primary spermatocyte with 46 chromosomes completes normal meiosis. How many haploid nuclei are produced, and how many chromosomes does each contain?
     choices:
-      - text: 4 daughter cells, each with 23 chromosomes
+      - text: "4 nuclei, 23 chromosomes each"
         correct: true
-      - text: 2 daughter cells, each with 46 chromosomes
+      - text: "2 nuclei, 46 chromosomes each"
         rationale: |
-          You described mitosis, not meiosis. Mitosis produces 2 cells with
-          the full chromosome number. Meiosis produces 4 cells, each with
-          half: 23 chromosomes.
-      - text: 4 daughter cells, each with 46 chromosomes
+          This uses the mitotic outcome for meiosis. Both divide copied genetic material, so two unchanged sets seem possible. Check both the number of nuclear divisions and whether chromosome sets are reduced.
+      - text: "4 nuclei, 46 chromosomes each"
         rationale: |
-          You got the cell count right but not the chromosome count. Meiosis
-          halves the chromosomes in each daughter cell. Four cells with 46
-          each would mean no halving occurred.
-      - text: 2 daughter cells, each with 23 chromosomes
+          This counts the two divisions but keeps the diploid chromosome number. DNA is copied beforehand, so the full count can seem to remain. Check what separating homologous pairs does to chromosome sets.
+      - text: "2 nuclei, 23 chromosomes each"
         rationale: |
-          You got the chromosome count right but not the cell count. Meiosis
-          goes through two rounds of division and always produces 4 daughter
-          cells, not 2.
+          This counts only the first division. The chromosome number is already reduced after meiosis I, so it may seem complete. Check whether meiosis II must also finish.
     explanation: |
-      Meiosis always produces 4 daughter cells, each with half the original chromosome number: $\dfrac{46}{2} = 23$.
+      Human diploid cells have 46 chromosomes. Normal meiosis separates homologous pairs and completes two nuclear divisions. The usual result is four haploid nuclei, each with $\dfrac{46}{2} = 23$ chromosomes.
     approved: true
+
   - id: q-biology-cellular-reproduction-0004
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
-      A cell with 20 chromosomes undergoes mitosis. How many daughter cells result, and how many chromosomes does each have?
+      A normal human somatic cell completes one mitotic division and cytokinesis without errors. Which result is expected?
     choices:
-      - text: 2 daughter cells, each with 20 chromosomes
+      - text: "2 cells, 46 chromosomes each"
         correct: true
-      - text: 4 daughter cells, each with 10 chromosomes
+      - text: "4 cells, 23 chromosomes each"
         rationale: |
-          You described meiosis, not mitosis. Meiosis produces 4 cells with
-          half the chromosomes. Mitosis produces 2 cells, each with the full
-          chromosome number unchanged.
-      - text: 2 daughter cells, each with 10 chromosomes
+          This applies the meiotic outcome to mitosis. Both begin after DNA copying, so the extra divisions can seem to occur in either process. Check whether one or two nuclear divisions are specified.
+      - text: "2 cells, 23 chromosomes each"
         rationale: |
-          You got the cell count right but halved the chromosomes. Mitosis
-          does not reduce the chromosome number. Each daughter cell gets a
-          complete copy of all 20 chromosomes.
-      - text: 4 daughter cells, each with 20 chromosomes
+          This halves chromosome number during mitosis. The copied DNA is split between two nuclei, so halving the original count seems natural. Check whether each chromosome was copied before separation.
+      - text: "4 cells, 46 chromosomes each"
         rationale: |
-          You described the meiosis cell count but with the mitosis chromosome
-          number. Mitosis produces 2 daughter cells, not 4, and each keeps
-          the full 20 chromosomes.
+          This doubles the number of cells instead of separating one cell into two. DNA replication can be mistaken for another cell division. Check how many cytokinesis events are specified.
     explanation: |
-      Mitosis always produces 2 daughter cells, each with the same chromosome number as the original cell: no halving occurs.
+      Mitosis preserves chromosome-set number. A normal human somatic cell has 46 chromosomes. After normal mitosis and cytokinesis, it produces two daughter cells, each with 46 chromosomes.
     approved: true
+
   - id: q-biology-cellular-reproduction-0005
-    type: identify
-    difficulty: easy
+    type: "identify"
+    difficulty: "easy"
     stem: |
       During which phase of mitosis do chromosomes line up along the middle of the cell?
     choices:
-      - text: Metaphase
+      - text: "Metaphase"
         correct: true
-      - text: Prophase
+      - text: "Prophase"
         rationale: |
-          You picked the first phase. Prophase is when chromosomes condense
-          into visible structures and the nuclear membrane breaks down.
-          Lining up at the center happens later, in metaphase.
-      - text: Anaphase
+          This confuses chromosome condensation with central alignment. Condensed chromosomes become visible early, so their arrangement may seem complete then. Check whether they have reached the spindle's center.
+      - text: "Anaphase"
         rationale: |
-          You picked the phase after lineup. Anaphase is when sister
-          chromatids separate and are pulled to opposite ends. The lineup at
-          the center happens just before this, in metaphase.
-      - text: Telophase
+          This confuses alignment with separation. The spindle acts in both stages, so they can look similar. Check whether sister chromatids are still joined.
+      - text: "Telophase"
         rationale: |
-          You picked the final phase. Telophase is when two new nuclei form
-          before the cell splits. The lineup at the center happens much
-          earlier, in metaphase.
+          This confuses an aligned group with the two groups at the end. Both give chromosomes an organized position. Check whether new nuclei are forming around separated sets.
     explanation: |
-      Metaphase is defined by chromosomes lining up along the cell's center, attached to spindle fibers from opposite sides.
+      During metaphase, duplicated chromosomes align at the center of the spindle. Their sister chromatids are attached to opposite poles.
     approved: true
+
   - id: q-biology-cellular-reproduction-0006
-    type: identify
-    difficulty: easy
+    type: "identify"
+    difficulty: "easy"
     stem: |
-      During which phase of mitosis does the copied DNA condense into visible chromosomes, and the nuclear membrane breaks down?
+      At the beginning of mitosis, chromosomes condense and the spindle starts to form. Which phase is this?
     choices:
-      - text: Prophase
+      - text: "Prophase"
         correct: true
-      - text: Metaphase
+      - text: "Metaphase"
         rationale: |
-          You picked the phase when chromosomes line up at the center.
-          Metaphase comes after the chromosomes have already condensed.
-          Condensing and nuclear membrane breakdown both happen in prophase.
-      - text: Anaphase
+          This places early chromosome condensation at the alignment stage. Both stages show visible chromosomes, so they seem alike. Check whether the chromosomes are just condensing or already centered.
+      - text: "Anaphase"
         rationale: |
-          You picked the phase when sister chromatids separate. Anaphase
-          comes after condensing and after the nuclear membrane has already
-          broken down. Both events happen in prophase.
-      - text: Telophase
+          This confuses making chromosomes compact with pulling copies apart. Both change how chromosomes look, so they may be mixed up. Check whether sister chromatids have separated.
+      - text: "Telophase"
         rationale: |
-          You picked the last phase, when new nuclei form and the cell splits.
-          Telophase is the end of mitosis. Condensing and nuclear membrane
-          breakdown happen at the beginning, in prophase.
+          This uses the final phase for the start of division. New nuclei and compact chromosomes both seem like changes in nuclear structure. Check whether mitosis is beginning or ending.
     explanation: |
-      Prophase is defined by DNA condensing into visible chromosomes and the breakdown of the nuclear membrane.
+      Prophase begins mitosis with chromosome condensation and spindle formation. The copied chromosomes become compact and easier to see.
     approved: true
+
   - id: q-biology-cellular-reproduction-0007
-    type: identify
-    difficulty: easy
+    type: "identify"
+    difficulty: "easy"
     stem: |
       During which phase of mitosis do the sister chromatids separate and get pulled to opposite ends of the cell?
     choices:
-      - text: Anaphase
+      - text: "Anaphase"
         correct: true
-      - text: Prophase
+      - text: "Prophase"
         rationale: |
-          You picked the first phase. Prophase is when chromosomes condense
-          and the nuclear membrane breaks down. Sister chromatids do not
-          separate until anaphase.
-      - text: Metaphase
+          This confuses preparing the chromosomes with separating them. The spindle starts forming early, so its pulling action may seem to start then. Check whether chromatids are still joined.
+      - text: "Metaphase"
         rationale: |
-          You picked the phase when chromosomes line up at the center.
-          Separation of sister chromatids comes right after the lineup, in
-          anaphase.
-      - text: Telophase
+          This confuses alignment with separation. Chromosomes attach to the spindle and line up before they separate. Check whether the question describes staying centered or moving apart.
+      - text: "Telophase"
         rationale: |
-          You picked the last phase. By telophase, the chromatids have
-          already separated and reached opposite ends. The separation itself
-          happens in anaphase.
+          This confuses the result of separation with the separation itself. Chromosomes are at opposite poles by telophase, so the phase seems to fit. Check whether movement or nuclear-envelope formation is described.
     explanation: |
-      Anaphase is defined by the separation of sister chromatids, pulled toward opposite ends of the cell.
+      During anaphase, sister chromatids separate. Each separated chromatid moves toward an opposite spindle pole.
     approved: true
+
   - id: q-biology-cellular-reproduction-0008
-    type: identify
-    difficulty: easy
+    type: "identify"
+    difficulty: "easy"
     stem: |
-      During which phase of mitosis do two new nuclei form, one at each end of the cell, before the cell splits in two?
+      During which phase of mitosis do nuclear envelopes form around chromosome sets at opposite poles?
     choices:
-      - text: Telophase
+      - text: "Telophase"
         correct: true
-      - text: Prophase
+      - text: "Prophase"
         rationale: |
-          You picked the first phase. Prophase is when the original nucleus
-          breaks down, not when new nuclei form. New nuclei appear at the
-          end of mitosis, in telophase.
-      - text: Metaphase
+          This reverses nuclear-envelope breakdown and re-formation. Both involve changes to the nucleus, so the terms can be swapped. Check whether envelopes are appearing or disappearing.
+      - text: "Metaphase"
         rationale: |
-          You picked the phase when chromosomes line up at the center.
-          Metaphase is the middle of mitosis. Two new nuclei form near the
-          end, in telophase.
-      - text: Anaphase
+          This confuses central alignment with the formation of two nuclei. Both organize chromosomes, so the events may seem equivalent. Check whether the chromosomes form one central group or two separated sets.
+      - text: "Anaphase"
         rationale: |
-          You picked the phase when chromatids separate. After anaphase
-          delivers the chromosomes to opposite ends, telophase forms a new
-          nucleus around each set.
+          This confuses chromosome movement with the later formation of nuclei. Separation brings the sets to opposite poles, so it seems to include the whole result. Check which stage rebuilds nuclear envelopes.
     explanation: |
-      Telophase is defined by the formation of two new nuclei, followed by the cell splitting into two separate cells.
+      During telophase, the chromosomes have reached opposite poles. Nuclear envelopes form around the two sets, producing two daughter nuclei.
     approved: true
+
   - id: q-biology-cellular-reproduction-0009
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A student says mitosis produces four daughter cells, since it is a form of cell division like meiosis. Is this correct?
+      A diploid cell forms two diploid daughter nuclei but its cytoplasm does not divide. Which interpretation is correct?
     choices:
-      - text: 'No: mitosis produces two daughter cells; meiosis is the process that produces four.'
+      - text: "Mitosis occurred; cytokinesis did not."
         correct: true
-      - text: 'Yes: both mitosis and meiosis produce four daughter cells.'
+      - text: "Cytokinesis occurred; nuclear division did not."
         rationale: |
-          You applied meiosis's cell count to both processes. Meiosis goes
-          through two division rounds to produce four cells. Mitosis goes
-          through one round and produces two.
-      - text: 'No: mitosis actually produces one daughter cell.'
+          This swaps nuclear and cytoplasmic division. The two processes usually overlap, so their names can seem interchangeable. Check which event makes daughter nuclei.
+      - text: "Neither process occurred because only one cell remains."
         rationale: |
-          You got the verdict right but the number wrong. Mitosis produces
-          two daughter cells, not one. One cell divides into two identical
-          copies.
-      - text: 'Yes: mitosis always produces more daughter cells than meiosis.'
+          This treats one remaining cell as proof that no division occurred. The outer boundary has not split, so internal division can be overlooked. Check the number of nuclei separately from the number of cells.
+      - text: "Meiosis I occurred because exactly two nuclei formed."
         rationale: |
-          You said mitosis produces more daughter cells than meiosis, but it
-          is the opposite. Mitosis produces two. Meiosis produces four. Meiosis
-          goes through two rounds of division.
+          This treats two nuclei as proof of a meiotic division. Meiosis I also produces two nuclei, so the count alone seems enough. Check whether chromosome-set number was reduced.
     explanation: |
-      Mitosis produces two identical daughter cells. Meiosis, used to make sex cells, produces four. This is one of the most commonly swapped facts between the two processes.
+      Mitosis divides the nucleus, while cytokinesis divides the cytoplasm. A cell can complete nuclear division without splitting its cytoplasm. It then contains two nuclei in one cell.
     approved: true
+
   - id: q-biology-cellular-reproduction-0010
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A student assumes meiosis, like mitosis, produces daughter cells that are genetically identical to each other. Is this correct?
+      Why are the haploid products of meiosis often genetically different from one another?
     choices:
-      - text: 'No: meiosis shuffles genetic material between chromosome pairs, so its four daughter cells are genetically different from each other and from the parent cell.'
+      - text: "Crossing over and independent assortment create new combinations."
         correct: true
-      - text: 'Yes: meiosis always produces identical daughter cells, just like mitosis.'
+      - text: "DNA copying before meiosis makes every resulting genome identical."
         rationale: |
-          You applied the mitosis outcome to meiosis. Mitosis copies DNA
-          without shuffling it, so its cells are identical. Meiosis shuffles
-          genetic material between chromosome pairs, producing four different
-          cells.
-      - text: 'No: but only because meiosis produces no daughter cells at all.'
+          This applies ordinary mitotic similarity to meiosis. DNA is copied before both processes, so their results can seem the same. Check whether crossing over and independent assortment occur.
+      - text: "Chromosome-set reduction preserves identical alleles in every product."
         rationale: |
-          You got the verdict right but the reason is wrong. Meiosis does
-          produce daughter cells. It produces four of them. They are
-          genetically different from each other because of shuffling.
-      - text: 'Yes: genetic differences only appear after fertilization, never during meiosis itself.'
+          This blames chromosome-set reduction for keeping all alleles identical. Each product has the same set count, so it may seem to have the same genes in the same forms. Check chromosome combinations, not just their number.
+      - text: "Genetic combinations change only after later gamete fusion occurs."
         rationale: |
-          You placed the genetic variation at fertilization, but it starts
-          during meiosis. The shuffling of chromosome pairs in meiosis is
-          itself a major source of genetic variation, before any fertilization
-          occurs.
+          This assigns all new combinations to fertilization. Combining two gametes creates variation, so earlier variation can be overlooked. Check whether recombination already occurs during meiosis.
     explanation: |
-      Unlike mitosis, meiosis includes genetic shuffling between chromosome pairs, which is a major source of variation: the four resulting cells are not identical to each other or to the parent.
+      Crossing over exchanges DNA between homologous chromosomes. Independent assortment also creates new chromosome combinations. These processes can make the haploid products genetically different.
     approved: true
+
   - id: q-biology-cellular-reproduction-0011
-    type: classify
-    difficulty: hard
+    type: "identify"
+    difficulty: "hard"
     stem: |
-      A student assumes that when a sperm cell and egg cell combine during fertilization, the offspring ends up with double the normal chromosome number. Is this correct?
+      During which meiotic phase does crossing over between homologous chromosomes occur?
     choices:
-      - text: 'No: each sex cell already carries half the normal chromosome number, so combining two returns the total to the normal full number, not double.'
+      - text: "Prophase I"
         correct: true
-      - text: 'Yes: fertilization always doubles the chromosome number beyond the normal count.'
+      - text: "Metaphase I"
         rationale: |
-          You accepted the doubling idea, but meiosis exists precisely to
-          prevent it. Sex cells each carry half the normal number so that
-          combining two gives back the correct full number.
-      - text: 'No: fertilization actually results in zero chromosomes.'
+          This confuses crossing over with independent assortment. Both create new combinations, so their timing can be swapped. Check which event happens when homologous pairs align.
+      - text: "Anaphase I"
         rationale: |
-          You got the verdict right but the reason is wrong. Fertilization
-          does not eliminate chromosomes. It combines the chromosomes from
-          both sex cells to produce the normal full number.
-      - text: 'Yes: this is why each new generation has more chromosomes than the last.'
+          This confuses exchanging DNA with separating homologs. Homologous pairs are involved in both, so the phases seem related. Check whether the event is exchange or movement to opposite poles.
+      - text: "Prophase II"
         rationale: |
-          You said chromosomes accumulate each generation, but that would
-          make reproduction impossible over time. Meiosis halves the count
-          in sex cells so fertilization restores the same number every
-          generation.
+          This moves exchange between homologs into the second division. The repeated phase name makes either prophase seem possible. Check whether homologous pairs are still together then.
     explanation: |
-      Meiosis halves the chromosome number in each sex cell specifically so that combining a sperm and egg cell restores the normal full chromosome count, not doubles it.
+      Crossing over occurs during prophase I of meiosis. Homologous chromosomes exchange DNA segments, creating new combinations of alleles.
     approved: true
+
   - id: q-biology-cellular-reproduction-0012
-    type: classify
-    difficulty: hard
+    type: "process-ordering"
+    difficulty: "hard"
     stem: |
-      A description of a dividing cell jumps directly from chromosomes condensing (prophase) to two new nuclei forming (telophase), with no mention of the chromosomes lining up or separating. Does this correctly describe mitosis?
+      A complete description of mitosis begins with chromosome condensation and ends with two new nuclei. Which two phases must be added, in order, to describe central alignment and then sister-chromatid separation?
     choices:
-      - text: "No: a valid description of mitosis must include all four phases, in order: prophase, metaphase, anaphase, and telophase."
+      - text: "Metaphase, anaphase"
         correct: true
-      - text: 'Yes: mitosis can skip phases as long as the cell still divides in the end.'
+      - text: "Anaphase, metaphase"
         rationale: |
-          You said phases can be skipped, but mitosis is a fixed sequence.
-          Chromosomes must line up in metaphase before they can separate in
-          anaphase. Neither step can be left out.
-      - text: 'No: but only because telophase must come before prophase.'
+          This separates chromatids before central alignment. Both steps involve spindle attachments, so the order can seem interchangeable. Check whether chromosomes line up before being pulled apart.
+      - text: "Prophase, metaphase"
         rationale: |
-          You got the verdict right but reversed the order. Prophase is first
-          and telophase is last. The description skipped metaphase and
-          anaphase, not put telophase first.
-      - text: 'Yes: metaphase and anaphase are optional steps in mitosis.'
+          This places two starting-phase names between prophase and telophase. Those names are familiar, so they can look like valid missing steps. Check which phase names the description already includes.
+      - text: "Telophase, metaphase"
         rationale: |
-          You said metaphase and anaphase are optional, but they are not. The
-          chromosomes must line up in metaphase and separate in anaphase.
-          Both are required steps in the correct order.
+          This places nuclear re-formation before chromosome alignment. Both organize genetic material, so the order may not stand out. Check whether two separated sets must arrive before new nuclei form.
     explanation: |
-      All four phases of mitosis must occur in order. A description that skips metaphase and anaphase is missing required steps and does not correctly describe the full process.
+      Metaphase places chromosomes at the spindle's center. Anaphase then separates sister chromatids toward opposite poles. These listed events occur between the beginning of mitosis and formation of daughter nuclei.
     approved: true
+
   - id: q-biology-cellular-reproduction-0013
-    type: cause-effect
-    difficulty: medium
+    type: "cause-effect"
+    difficulty: "medium"
     stem: |
-      Why must sex cells (sperm and egg) have half the normal chromosome number, rather than the full number like other body cells?
+      In a normal diploid sexual life cycle, why is chromosome-set number reduced during gamete formation?
     choices:
-      - text: So that when a sperm cell and egg cell combine during fertilization, their chromosome counts add back up to the normal full number.
+      - text: "To restore the diploid number at fertilization."
         correct: true
-      - text: So that the resulting offspring will have fewer chromosomes than either parent.
+      - text: "To make offspring have fewer chromosomes than either parent."
         rationale: |
-          You said the goal is to reduce the offspring's chromosomes, but
-          the goal is to keep the count normal. Half plus half equals the
-          full number. The offspring ends up with the same count as each
-          parent.
-      - text: So that sex cells can divide faster than regular body cells.
+          This treats chromosome reduction in gametes as a permanent reduction in offspring. Each gamete has fewer chromosomes, so the offspring may seem to keep that low count. Check what happens when two gamete sets join.
+      - text: "To give offspring one chromosome set after both gametes fuse."
         rationale: |
-          You replaced the chromosome-number reason with a speed argument,
-          but division speed is not why sex cells have half the number. The
-          reason is to make sure the chromosome count stays correct after
-          fertilization.
-      - text: There is no specific reason; it is simply a coincidence of biology.
+          This treats one gamete's chromosome set as the only inherited set. A gamete has one set, so it may seem the new organism does too. Check whether both parents contribute a set.
+      - text: "To make all gametes carry identical allele combinations."
         rationale: |
-          You said the halving is random, but it is not. It is the direct
-          result of meiosis, which exists so that two sex cells can combine
-          and still give the offspring the correct chromosome number.
+          This links set reduction to removing genetic differences between gametes. A smaller chromosome count may seem like a simpler identical set. Check whether number and allele combinations describe the same thing.
     explanation: |
-      If sex cells carried the full chromosome number, offspring would end up with double the normal amount after fertilization. Halving the number in each sex cell keeps the combined total correct.
+      In a diploid sexual life cycle, each gamete contributes one chromosome set. Their fusion combines the two sets. This restores the diploid chromosome-set number.
     approved: true
+
   - id: q-biology-cellular-reproduction-0014
-    type: process-ordering
-    difficulty: medium
+    type: "process-ordering"
+    difficulty: "medium"
     stem: |
       Put the four phases of mitosis in the correct order.
       1. Anaphase
@@ -363,49 +287,143 @@ questions:
       3. Prophase
       4. Metaphase
     choices:
-      - text: 3, 4, 1, 2
+      - text: "3, 4, 1, 2"
         correct: true
-      - text: 3, 1, 4, 2
+      - text: "3, 1, 4, 2"
         rationale: |
-          You put anaphase before metaphase. Chromosomes must line up in
-          metaphase before they can be pulled apart in anaphase. The correct
-          order is prophase, metaphase, anaphase, telophase.
-      - text: 4, 3, 1, 2
+          This puts chromatid separation before chromosome alignment. Both involve the spindle, so swapping them can seem harmless. Check which event prepares the chromosomes for separation.
+      - text: "4, 3, 1, 2"
         rationale: |
-          You started with metaphase and put prophase second. Prophase is
-          always first. Chromosomes must condense before they can line up.
-          The correct order is prophase, metaphase, anaphase, telophase.
-      - text: 3, 4, 2, 1
+          This puts alignment before chromosome condensation. Visible aligned chromosomes can hide the earlier preparation step. Check which phase starts mitosis.
+      - text: "3, 4, 2, 1"
         rationale: |
-          You put telophase before anaphase. The chromatids must separate in
-          anaphase first, then the new nuclei form in telophase. The correct
-          order is prophase, metaphase, anaphase, telophase.
+          This puts nuclear-envelope formation before chromosome separation. Both are late events, so their order can blur. Check whether chromosomes must reach opposite poles before envelopes form.
     explanation: |
-      The correct order is Prophase, Metaphase, Anaphase, Telophase (remembered as "PMAT: Prepare, Middle, Apart, Two").
+      Prophase begins chromosome condensation and spindle formation. Metaphase aligns chromosomes at the center. Anaphase separates sister chromatids. Telophase forms daughter nuclei. The listed order is 3, 4, 1, 2.
     approved: true
+
   - id: q-biology-cellular-reproduction-0015
-    type: predict-outcome
-    difficulty: exam
+    type: "predict-outcome"
+    difficulty: "exam"
     stem: |
-      A sperm cell with 23 chromosomes fertilizes an egg cell with 23 chromosomes. How many chromosomes does the resulting offspring have?
+      A normal human sperm with 23 chromosomes fuses with a normal human egg with 23 chromosomes. Before any further DNA replication, how many chromosomes are in the resulting zygote?
     choices:
       - text: "46"
         correct: true
       - text: "23"
         rationale: |
-          You kept only one sex cell's count. Fertilization combines the
-          chromosomes from both. Adding 23 from the sperm and 23 from the
-          egg gives 46 chromosomes total.
+          This counts the chromosomes from only one gamete. Each gamete is haploid, so that number can seem to describe the zygote too. Check whether both gametes contribute chromosomes.
       - text: "92"
         rationale: |
-          You doubled the full count. The sperm contributes 23 and the egg
-          contributes 23. Together they add up to 46, which is the normal
-          human chromosome number, not 92.
-      - text: "11.5"
+          This adds two diploid counts rather than the given haploid counts. The normal body-cell count is familiar, so it can replace each gamete's count by mistake. Check the chromosome count stated for each gamete.
+      - text: "2"
         rationale: |
-          You halved instead of added. Fertilization combines chromosomes.
-          The sperm's 23 and the egg's 23 are added together to give the
-          offspring 46 chromosomes.
+          This counts the joining gametes instead of their chromosomes. Two cells take part, so two can seem like the new count. Check what unit the question asks for.
     explanation: |
-      Fertilization combines the chromosomes from both sex cells: $23 + 23 = 46$, restoring the normal full chromosome number.
+      The human sperm contributes 23 chromosomes. The human egg contributes 23 more. The zygote therefore has $23 + 23 = 46$ chromosomes.
     approved: true
+
+  - id: q-biology-cellular-reproduction-0016
+    type: "identify"
+    difficulty: "easy"
+    stem: |
+      During which part of interphase is the cell's DNA replicated?
+    choices:
+      - text: "S phase"
+        correct: true
+      - text: "$G_1$ phase"
+        rationale: |
+          This confuses cell growth with DNA copying. A growing cell makes many materials, so replication seems possible then. Check which phase specifically copies DNA.
+      - text: "$G_2$ phase"
+        rationale: |
+          This confuses final preparation with the earlier copying step. The cell prepares for division in this phase, so replication may seem part of that preparation. Check whether DNA was already copied during S phase.
+      - text: "Mitotic metaphase"
+        rationale: |
+          This places copying at the chromosome-alignment stage. Duplicated chromosomes are visible then, so their copying may seem to happen then too. Check whether their copies existed before mitosis began.
+    explanation: |
+      DNA replication occurs during S phase. Each chromosome is copied before the cell begins nuclear division.
+    approved: false
+
+  - id: q-biology-cellular-reproduction-0017
+    type: "compare-contrast"
+    difficulty: "medium"
+    stem: |
+      Which chromosome behavior correctly distinguishes meiosis I from meiosis II?
+    choices:
+      - text: "I separates homologs; II separates sister chromatids."
+        correct: true
+      - text: "I separates sister chromatids; II separates homologs."
+        rationale: |
+          This swaps the two divisions. Both separate chromosome material, so their names are easy to reverse. Check which division reduces the number of homologous sets.
+      - text: "Both divisions separate complete homologous pairs only."
+        rationale: |
+          This extends homolog separation to the second division. Meiosis I is the distinctive step, so it can seem to explain both. Check whether homologs are still paired after the first division.
+      - text: "Both divisions separate sister chromatids without homolog separation."
+        rationale: |
+          This applies mitotic-style chromatid separation to both divisions. Chromatid movement is familiar from mitosis, so it seems universal. Check what happens to homologous pairs in meiosis I.
+    explanation: |
+      Meiosis I separates the two chromosomes in each homologous pair. Meiosis II separates sister chromatids. The first separation reduces chromosome-set number from diploid to haploid.
+    approved: false
+
+  - id: q-biology-cellular-reproduction-0018
+    type: "classify"
+    difficulty: "medium"
+    stem: |
+      Human oogenesis normally produces one large functional ovum and small polar bodies. Which feature best explains this unequal cellular outcome?
+    choices:
+      - text: "Unequal cytokinesis"
+        correct: true
+      - text: "Extra DNA replication before each nuclear division"
+        rationale: |
+          This confuses cytoplasm size with extra DNA copying. A larger egg may seem to need more rounds of DNA replication. Check whether meiosis has one replication before two divisions.
+      - text: "Failure to reduce chromosome-set number"
+        rationale: |
+          This confuses unequal cell size with unchanged chromosome-set number. Large cells can seem to contain extra sets. Check chromosome number separately from cytoplasm amount.
+      - text: "Replacement of meiosis with ordinary mitosis"
+        rationale: |
+          This assumes an unusual cell outcome means a different nuclear process. Mitosis often gives two similar cells, so it can seem easier to explain a large cell. Check whether oogenesis still uses meiosis.
+    explanation: |
+      Cytokinesis divides the cytoplasm unequally during oogenesis. Most cytoplasm stays in one large cell. The smaller products become polar bodies rather than equivalent functional eggs.
+    approved: false
+
+  - id: q-biology-cellular-reproduction-0019
+    type: "cause-effect"
+    difficulty: "hard"
+    stem: |
+      At metaphase I, different homologous pairs can orient independently toward either spindle pole. What is a direct consequence of this independent assortment?
+    choices:
+      - text: "New combinations of maternal and paternal chromosomes."
+        correct: true
+      - text: "Identical parental chromosome combinations in every product."
+        rationale: |
+          This assumes all chromosome pairs align in one fixed pattern. The spindle treats each pair similarly, so the whole group may seem coordinated. Check whether orientations are independent.
+      - text: "Exchange of DNA segments between sister chromatids only."
+        rationale: |
+          This confuses independent assortment with DNA-segment exchange. Both create variation, so either mechanism seems to fit. Check whether whole chromosomes are sorted or segments are exchanged.
+      - text: "An additional round of DNA copying between meiotic divisions."
+        rationale: |
+          This confuses rearranging chromosome combinations with copying DNA again. New combinations can seem to require new copies. Check whether independent assortment changes orientation or DNA amount.
+    explanation: |
+      Each homologous pair can face either direction independently. When homologs separate, different combinations can enter the haploid nuclei. This creates variation in chromosome combinations.
+    approved: false
+
+  - id: q-biology-cellular-reproduction-0020
+    type: "predict-outcome"
+    difficulty: "exam"
+    stem: |
+      A diploid germ cell has replicated its DNA once and completed normal meiosis I. It then enters meiosis II. Which event is expected before haploid daughter nuclei are produced?
+    choices:
+      - text: "Sister chromatids separate without another DNA replication."
+        correct: true
+      - text: "Homologous pairs separate after another round of DNA replication."
+        rationale: |
+          This repeats both the copying step and the first division. Meiosis has two divisions, so each can seem to need a complete cycle first. Check which chromosomes have already separated.
+      - text: "Sister chromatids separate after a second complete DNA replication."
+        rationale: |
+          This inserts a second copying step before meiosis II. Ordinary mitosis follows DNA replication, so the same pattern can seem necessary here. Check the one-replication rule for meiosis.
+      - text: "Homologous pairs reunite to restore diploid sets before separation."
+        rationale: |
+          This makes meiosis undo its earlier reduction. A full chromosome set seems necessary for division, so diploid restoration may seem required. Check whether haploid products are the goal of the process.
+    explanation: |
+      Normal meiosis includes one DNA replication and two nuclear divisions. Homologs have already separated in meiosis I. Meiosis II separates sister chromatids without another round of DNA replication.
+    approved: false

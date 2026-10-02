@@ -1,0 +1,22 @@
+question_id	status	key_check	changes	severity	note
+q-earth-science-astronomy-fossils-and-geologic-time-0001	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-fossils-and-geologic-time-0002	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	HIGH	Lesson does not teach fossil preservation by rock-formation conditions. Stem/choices/key preserved; original explanation wrongly excluded every metamorphosed fossil.
+q-earth-science-astronomy-fossils-and-geologic-time-0003	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Lesson title names stratigraphy but the teaching text does not define the discipline; stem/choices/key preserved, including weak Paleontology dating label.
+q-earth-science-astronomy-fossils-and-geologic-time-0004	CORRECTED	SOLVED-MATCH	choices;explanation;notes	LOW	Correct choice shortened to avoid a longest-answer cue.
+q-earth-science-astronomy-fossils-and-geologic-time-0005	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Longest correct choice shortened.
+q-earth-science-astronomy-fossils-and-geologic-time-0006	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original assumed every fossil equals its containing layer’s age and incorrectly assigned mammal appearance mainly to Cenozoic.
+q-earth-science-astronomy-fossils-and-geologic-time-0007	CORRECTED	SOLVED-MATCH	choices;explanation;notes	HIGH	Original falsely claimed radiometric dating is the only possible numerical-dating method.
+q-earth-science-astronomy-fossils-and-geologic-time-0008	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Longest correct choice shortened and solution avoids unsupported exam conventions.
+q-earth-science-astronomy-fossils-and-geologic-time-0009	CORRECTED	SOLVED-MATCH	stem;explanation;notes	HIGH	Original assumed every daughter is immediately stable and every isotope result is automatically the actual rock age.
+q-earth-science-astronomy-fossils-and-geologic-time-0010	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original incorrectly defined half-life as decay directly into a stable form.
+q-earth-science-astronomy-fossils-and-geologic-time-0011	CORRECTED	SOLVED-MATCH	stem;explanation;notes	MEDIUM	Dating-clock and closed-system assumptions stated to distinguish mineral age from arbitrary rock deposition.
+q-earth-science-astronomy-fossils-and-geologic-time-0012	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original repeated half-life age calculation with different numbers; new frame covers missing cross-cutting archetype.
+q-earth-science-astronomy-fossils-and-geologic-time-0013	CORRECTED	SOLVED-MATCH	choices;explanation;notes	HIGH	Original said real finite samples can never reach zero; explanation now states only the ideal halving result.
+q-earth-science-astronomy-fossils-and-geologic-time-0014	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Lesson does not teach the complete eon-era-period-epoch hierarchy; stem/choices/key preserved.
+q-earth-science-astronomy-fossils-and-geologic-time-0015	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	LOW	Informal span defined by named eons; longest correct choice shortened.
+q-earth-science-astronomy-fossils-and-geologic-time-0016	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Lesson does not teach Paleozoic first-fish, land-plant, or reptile history; stem/choices/key and length cue preserved.
+q-earth-science-astronomy-fossils-and-geologic-time-0017	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-fossils-and-geologic-time-0018	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Lesson does not teach the human-evolution/current-era part of this item; stem/choices/key preserved.
+q-earth-science-astronomy-fossils-and-geologic-time-0019	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original falsely treated all dinosaurs as extinct and used a dinosaur-never-existed distractor.
+q-earth-science-astronomy-fossils-and-geologic-time-0020	CORRECTED	SOLVED-MATCH	stem;explanation;notes	HIGH	Original falsely said only small shrew-like mammals existed in Mesozoic; reworking and non-avian scope clarified.
+q-earth-science-astronomy-fossils-and-geologic-time-0021	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	HIGH	Lesson lacks early-fish/Paleozoic teaching; isotope clock unspecified and not necessarily layer-deposition age. Stem/choices/key and longest cue preserved.

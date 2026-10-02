@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-chemistry-gas-laws-0001	CORRECTED	SOLVED-MATCH	stem;explanation;notes	LOW	Fixed amount and ideal-model conditions clarified.
+q-chemistry-gas-laws-0002	CORRECTED	SOLVED-MATCH	stem;explanation;notes	LOW	Fixed amount and ideal model clarified.
+q-chemistry-gas-laws-0003	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-gas-laws-0004	CORRECTED	SOLVED-MATCH	stem;explanation;notes	LOW	Movable piston clarifies that volume can expand.
+q-chemistry-gas-laws-0005	CORRECTED	SOLVED-MATCH	stem;explanation;notes	LOW	Fixed amount clarified.
+q-chemistry-gas-laws-0006	CORRECTED	SOLVED-MATCH	choices;explanation;notes	LOW	Inverted-fraction distractor rounded to the value the slip produces.
+q-chemistry-gas-laws-0007	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original described 0 K as literally no thermal energy and used 273 as exact.
+q-chemistry-gas-laws-0008	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original omitted fixed temperature and amount, so the result was not guaranteed.
+q-chemistry-gas-laws-0009	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original rejected using the ideal gas law at both states, a valid method.
+q-chemistry-gas-laws-0010	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Longest answer shortened and wrong-choice discussion removed.
+q-chemistry-gas-laws-0011	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original repeated compression direction from 0008.
+q-chemistry-gas-laws-0012	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original repeated direct volume-rise framing; new item tests the invariant.
+q-chemistry-gas-laws-0013	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original repeated heating a rigid vessel; new item tests a changing amount.
+q-chemistry-gas-laws-0014	CORRECTED	SOLVED-MATCH	stem;explanation;notes	LOW	Exact conversion offset used and rounding specified.
+q-chemistry-gas-laws-0015	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original duplicated one-state ideal-gas-law selection.
+q-chemistry-gas-laws-0016	NEW	NEW	new question	NONE	
+q-chemistry-gas-laws-0017	NEW	NEW	new question	NONE	
+q-chemistry-gas-laws-0018	NEW	NEW	new question	NONE	
+q-chemistry-gas-laws-0019	NEW	NEW	new question	NONE	
+q-chemistry-gas-laws-0020	NEW	NEW	new question	NONE	

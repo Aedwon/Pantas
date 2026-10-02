@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-chemistry-thermodynamics-and-kinetics-0001	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-thermodynamics-and-kinetics-0002	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-thermodynamics-and-kinetics-0003	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	LOW	Regeneration wording allows temporary catalyst changes and clarifies the role.
+q-chemistry-thermodynamics-and-kinetics-0004	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Longest answer shortened; explanation focuses on activation-threshold population.
+q-chemistry-thermodynamics-and-kinetics-0005	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original notes treated increased concentration as always increasing rate and excluded zero-order behavior.
+q-chemistry-thermodynamics-and-kinetics-0006	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Longest correct choice shortened and throwaway reaction-stops option replaced.
+q-chemistry-thermodynamics-and-kinetics-0007	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original duplicated catalyst speed and falsely claimed catalysts never change final product amounts in any context.
+q-chemistry-thermodynamics-and-kinetics-0008	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Longest answer shortened and thermodynamic scope clarified.
+q-chemistry-thermodynamics-and-kinetics-0009	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Longest answer shortened and catalyst interaction described accurately.
+q-chemistry-thermodynamics-and-kinetics-0010	CORRECTED	SOLVED-MATCH	choices;explanation;notes	HIGH	Original asserted only speed can ever change and every final product amount is universally fixed.
+q-chemistry-thermodynamics-and-kinetics-0011	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Longest answer shortened and explanation avoids confusing barrier with a one-time universal push.
+q-chemistry-thermodynamics-and-kinetics-0012	CORRECTED	SOLVED-MATCH	choices;explanation;notes	HIGH	Original reduced thermodynamics to heat exchange and used a longest answer.
+q-chemistry-thermodynamics-and-kinetics-0013	CORRECTED	SOLVED-MATCH	choices;explanation;notes	HIGH	Original Paper never releases energy unless on fire distractor was defensible in context; correct answer was longest.
+q-chemistry-thermodynamics-and-kinetics-0014	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original duplicated catalyst speed and claimed no catalyst can ever affect product quantity outside a defined equilibrium.
+q-chemistry-thermodynamics-and-kinetics-0015	NEW	NEW	new question	NONE	
+q-chemistry-thermodynamics-and-kinetics-0016	NEW	NEW	new question	NONE	
+q-chemistry-thermodynamics-and-kinetics-0017	NEW	NEW	new question	NONE	
+q-chemistry-thermodynamics-and-kinetics-0018	NEW	NEW	new question	NONE	
+q-chemistry-thermodynamics-and-kinetics-0019	NEW	NEW	new question	NONE	
+q-chemistry-thermodynamics-and-kinetics-0020	NEW	NEW	new question	NONE	

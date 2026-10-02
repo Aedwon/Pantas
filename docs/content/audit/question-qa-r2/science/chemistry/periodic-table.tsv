@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-chemistry-periodic-table-0001	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-periodic-table-0002	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-periodic-table-0003	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-periodic-table-0004	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original applied same-valence-count rule to all groups without transition-metal or helium qualifications.
+q-chemistry-periodic-table-0005	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	LOW	Radius definition specified and answer choices made distinct.
+q-chemistry-periodic-table-0006	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	LOW	First ionization and gaseous atoms specified; correct choice shortened.
+q-chemistry-periodic-table-0007	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	LOW	Covalent radius specified and answer choices made distinct.
+q-chemistry-periodic-table-0008	CORRECTED	SOLVED-MATCH	choices;explanation;notes	LOW	Correct choice shortened; explanations no longer state trends as universal.
+q-chemistry-periodic-table-0009	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	LOW	First ionization specified and correct choice shortened.
+q-chemistry-periodic-table-0010	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original bundled electron affinity into an upper-right rule and claimed radius varies continuously.
+q-chemistry-periodic-table-0011	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original treated electron affinity as the same sign-free, exception-free trend.
+q-chemistry-periodic-table-0012	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original implied no diagonal comparison can be straightforward even when both trends agree.
+q-chemistry-periodic-table-0013	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Longest answer shortened and universal semiconductor statement removed.
+q-chemistry-periodic-table-0014	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original higher-affinity claim omitted sign convention and ignored major exceptions.
+q-chemistry-periodic-table-0015	CORRECTED	SOLVED-MATCH	stem;explanation;notes	LOW	Radius definition specified.
+q-chemistry-periodic-table-0016	NEW	NEW	new question	NONE	
+q-chemistry-periodic-table-0017	NEW	NEW	new question	NONE	
+q-chemistry-periodic-table-0018	NEW	NEW	new question	NONE	
+q-chemistry-periodic-table-0019	NEW	NEW	new question	NONE	
+q-chemistry-periodic-table-0020	NEW	NEW	new question	NONE	

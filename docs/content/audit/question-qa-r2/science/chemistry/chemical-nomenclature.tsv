@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-chemistry-chemical-nomenclature-0001	CORRECTED	SOLVED-MATCH	choices;explanation;notes	HIGH	Potassium(I) bromide was an unnecessary but defensible Stock-style distractor.
+q-chemistry-chemical-nomenclature-0002	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-chemical-nomenclature-0003	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original repeated the CO naming scenario with only a changed subscript.
+q-chemistry-chemical-nomenclature-0004	CORRECTED	SOLVED-MATCH	choices;explanation;notes	LOW	Stock names had an extra space before the parenthesis.
+q-chemistry-chemical-nomenclature-0005	CORRECTED	SOLVED-MATCH	choices;explanation;notes	LOW	Stock-name spacing corrected.
+q-chemistry-chemical-nomenclature-0006	CORRECTED	SOLVED-MATCH	choices;explanation;notes	HIGH	Nitrogen(V) oxide was a defensible alternate Stock name.
+q-chemistry-chemical-nomenclature-0007	CORRECTED	SOLVED-MATCH	choices;explanation;notes	LOW	Formula choices now use math notation.
+q-chemistry-chemical-nomenclature-0008	CORRECTED	SOLVED-MATCH	choices;explanation;notes	LOW	Formula choices now use math notation.
+q-chemistry-chemical-nomenclature-0009	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original repeated FeCl3 naming and made the correct answer longest.
+q-chemistry-chemical-nomenclature-0010	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original repeated CO naming and made the correct answer longest.
+q-chemistry-chemical-nomenclature-0011	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original used throwaway sodium-is-not-a-metal distractor and a longest answer.
+q-chemistry-chemical-nomenclature-0012	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original falsely treated -ite as universally one oxygen fewer with unchanged charge.
+q-chemistry-chemical-nomenclature-0013	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original claimed every compound of two nonmetals always uses Greek prefixes.
+q-chemistry-chemical-nomenclature-0014	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original repeated Al/sulfate charge balancing with swapped ions.
+q-chemistry-chemical-nomenclature-0015	CORRECTED	SOLVED-MATCH	choices;explanation;notes	LOW	Stock-name spacing and formula notation corrected.
+q-chemistry-chemical-nomenclature-0016	NEW	NEW	new question	NONE	
+q-chemistry-chemical-nomenclature-0017	NEW	NEW	new question	NONE	
+q-chemistry-chemical-nomenclature-0018	NEW	NEW	new question	NONE	
+q-chemistry-chemical-nomenclature-0019	NEW	NEW	new question	NONE	
+q-chemistry-chemical-nomenclature-0020	NEW	NEW	new question	NONE	

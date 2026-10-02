@@ -2,422 +2,424 @@ meta:
   subject: science
   topic: biology
   subtopic: ecology
-  exams: [ upcat, dlsucet, ustet, dost-sei ]
+  exams: [upcat, dlsucet, ustet, dost-sei]
 questions:
   - id: q-biology-ecology-0001
-    type: identify
-    difficulty: easy
+    type: 'identify'
+    difficulty: 'easy'
     stem: |
       A pond, with its fish, plants, water, and mud all interacting together in one specific area, is best described as what?
     choices:
-      - text: An ecosystem
+      - text: 'An ecosystem'
         correct: true
-      - text: A biome
+      - text: 'A biome'
         rationale: |
-          You picked the larger grouping. A biome gathers many ecosystems that share
-          a climate. One pond is a single ecosystem.
-      - text: A food web
+          This confuses one interacting system with a large climate region. A pond can belong to a biome, so the names seem related. Check whether the question describes one site or many ecosystems.
+      - text: 'A food web'
         rationale: |
-          You picked a feeding diagram. A food web shows who eats whom, not the
-          whole place including its water and mud.
-      - text: A trophic level
+          This reduces an ecosystem to feeding links. Fish eating plants makes a food web seem relevant. Check whether the description includes water and mud as well as feeding.
+      - text: 'A trophic level'
         rationale: |
-          You picked one step in a feeding chain. A trophic level is a position, not
-          a place.
+          This confuses a whole ecosystem with a feeding position. Fish and plants occupy trophic levels within the pond. Check whether the term describes a role or the entire system.
     explanation: |
       An ecosystem is a community of living things interacting with each other and their non-living environment in a specific area, like a pond.
     approved: true
 
   - id: q-biology-ecology-0002
-    type: identify
-    difficulty: easy
+    type: 'identify'
+    difficulty: 'easy'
     stem: |
       A large-scale grouping of many ecosystems that share a similar climate and similar types of plants and animals, such as a desert or tropical rainforest, is called what?
     choices:
-      - text: A biome
+      - text: 'A biome'
         correct: true
-      - text: An ecosystem
+      - text: 'An ecosystem'
         rationale: |
-          You picked the smaller unit. An ecosystem is one place and its living
-          things. A biome gathers many of those under one climate.
-      - text: A food chain
+          This confuses one interacting system with a regional grouping. Both include living things and their environment. Check whether shared climate groups many ecosystems.
+      - text: 'A food chain'
         rationale: |
-          You picked a feeding sequence. A food chain runs through organisms, not
-          across climates.
-      - text: A biogeochemical cycle
+          This confuses a feeding path with a climate region. Each region contains feeding relationships. Check whether the grouping is based on feeding or climate and vegetation.
+      - text: 'A biogeochemical cycle'
         rationale: |
-          You picked a chemical route. A cycle moves an element around, and it is
-          not a grouping of places.
+          This confuses an element cycle with a regional grouping. Elements move through every ecosystem. Check whether the description follows an element or groups ecosystems.
     explanation: |
       A biome is a much larger-scale grouping of ecosystems that share a similar climate and similar plant and animal life, like a desert, rainforest, grassland, or tundra.
     approved: true
 
   - id: q-biology-ecology-0003
-    type: process-ordering
-    difficulty: medium
+    type: 'process-ordering'
+    difficulty: 'medium'
     stem: |
-      Arrange these into a correct food chain, from producer to top predator: a hawk, grass, a frog, a grasshopper.
+      In a simplified chain, grasshoppers eat grass, frogs eat grasshoppers, and hawks eat frogs. Which sequence shows energy flow from producer to final consumer?
     choices:
-      - text: Grass, grasshopper, frog, hawk
+      - text: 'Grass, grasshopper, frog, hawk'
         correct: true
-      - text: Grass, frog, grasshopper, hawk
+      - text: 'Grass, frog, grasshopper, hawk'
         rationale: |
-          You put the frog before the grasshopper. The frog eats the grasshopper, so
-          it comes after it.
-      - text: Hawk, frog, grasshopper, grass
+          This places a predator before its prey. Grass still comes first, so the sequence partly fits. Check each link by asking which organism supplies food to the next.
+      - text: 'Hawk, frog, grasshopper, grass'
         rationale: |
-          You ran the chain backwards. It starts with the producer and ends with the
-          top predator.
-      - text: Grasshopper, grass, frog, hawk
+          This follows predation backward. Starting with the largest predator can look like the start of the chain. Check that energy moves from food to the organism eating it.
+      - text: 'Grasshopper, grass, frog, hawk'
         rationale: |
-          You started with the grasshopper. Nothing eats grass before the
-          grasshopper does, so grass is first.
+          This puts the herbivore before its food. The grasshopper is the first animal, which can seem like the starting point. Check that the producer comes before its consumer.
     explanation: |
       Grass (producer) is eaten by the grasshopper (primary consumer), which is eaten by the frog (secondary consumer), which is eaten by the hawk (tertiary consumer).
     approved: true
 
   - id: q-biology-ecology-0004
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       In the food chain grass → grasshopper → frog → hawk, which trophic level does the grass occupy?
     choices:
-      - text: Producer, the first trophic level
+      - text: 'Producer, the first trophic level'
         correct: true
-      - text: Primary consumer, the second trophic level
+      - text: 'Primary consumer, the second trophic level'
         rationale: |
-          You picked the level above. A primary consumer eats the producer, and the
-          grass is what gets eaten.
-      - text: Secondary consumer, the third trophic level
+          This treats being eaten as being a consumer. Grass is part of a feeding chain, which can cause the mix-up. Check whether the organism makes food or eats another organism.
+      - text: 'Secondary consumer, the third trophic level'
         rationale: |
-          You counted two levels too far. The grass has nothing below it in this
-          chain.
-      - text: Tertiary consumer, the fourth trophic level
+          This assigns a predator level to a plant. The plant supports predators indirectly, so the roles can seem linked. Check what the organism itself eats.
+      - text: 'Tertiary consumer, the fourth trophic level'
         rationale: |
-          You picked the top of the chain. The grass is at the bottom, where the
-          energy enters.
+          This assigns the final consumer role to the energy source. Both ends matter to the chain. Check which end receives sunlight and makes food.
     explanation: |
-      Grass makes its own food through photosynthesis, making it the producer, the first trophic level in the chain.
+      Grass uses sunlight to make food. This makes it a producer at the first trophic level.
     approved: true
 
   - id: q-biology-ecology-0005
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
-      In the food chain grass → grasshopper → frog → hawk, which trophic level does the frog occupy?
+      A pond snail feeds on algae, and a fish feeds on the snails. In this chain, what is the fish?
     choices:
-      - text: Secondary consumer, the third trophic level
+      - text: 'Secondary consumer'
         correct: true
-      - text: Producer, the first trophic level
+      - text: 'A primary producer'
         rationale: |
-          You picked the bottom of the chain. The frog eats other animals, so it
-          cannot be the producer.
-      - text: Primary consumer, the second trophic level
+          This confuses taking in food with making food. Fish supply food to larger animals, so they can seem like producers. Check whether the organism makes organic food from light or chemicals.
+      - text: 'A primary consumer'
         rationale: |
-          You counted one level too low. The grasshopper is the primary consumer,
-          and the frog eats it.
-      - text: Tertiary consumer, the fourth trophic level
+          This skips the snail between algae and fish. The fish is the first large animal, which can hide that step. Check whether it eats a producer or another consumer.
+      - text: 'A tertiary consumer'
         rationale: |
-          You picked the top. The hawk eats the frog, so the frog is one level
-          below.
+          This counts the producer as a consumer. There are three organisms, so the fish can seem to be the third consumer. Check that consumer counting begins after the producer.
     explanation: |
-      The frog eats the grasshopper (a primary consumer), making the frog a secondary consumer, the third trophic level.
+      Algae make food. The snail eats algae and is a primary consumer. The fish eats that primary consumer, so it is a secondary consumer.
     approved: true
 
   - id: q-biology-ecology-0006
-    type: classify
-    difficulty: medium
+    type: 'compare-contrast'
+    difficulty: 'medium'
     stem: |
-      In the food chain grass → grasshopper → frog → hawk, which trophic level does the hawk occupy?
+      A bird eats both seeds from plants and insects that eat those plants. What can be concluded about its feeding roles?
     choices:
-      - text: Tertiary consumer, the fourth (top) trophic level
+      - text: 'It can occupy different trophic levels.'
         correct: true
-      - text: Secondary consumer, the third trophic level
+      - text: 'It must always be a primary consumer.'
         rationale: |
-          You counted one level too low. The frog is the secondary consumer, and the
-          hawk eats the frog.
-      - text: Primary consumer, the second trophic level
+          This uses only the seed-feeding role. Seeds do come directly from producers, so that role fits part of its diet. Check every stated food source.
+      - text: 'It must always be a secondary consumer.'
         rationale: |
-          You counted two levels too low. The grasshopper holds that place.
-      - text: Producer, the first trophic level
+          This uses only the insect-feeding role. Eating an herbivore does place it above a primary consumer. Check whether it also eats plant material.
+      - text: 'It becomes a producer when eating seeds.'
         rationale: |
-          You picked the bottom. The hawk makes no food of its own.
+          This confuses eating plant food with producing food. Seeds contain stored food from plants. Check whether the bird makes that food or consumes it.
     explanation: |
-      The hawk eats the frog (a secondary consumer), and since nothing eats the hawk in this chain, it is the tertiary consumer, the top trophic level.
+      Eating seeds makes the bird a primary consumer. Eating plant-eating insects makes it a secondary consumer. Its feeding position depends on the food source.
     approved: true
 
   - id: q-biology-ecology-0007
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
-      A trophic level of producers contains 10,000 kilocalories of energy. Using the 10% rule, how much energy is passed on to the primary consumers?
+      Assume that 10% of energy at each trophic level transfers to the next. Producers have 10,000 kilocalories available. How much transfers to primary consumers?
     choices:
-      - text: "1,000 kilocalories"
+      - text: '1,000 kilocalories'
         correct: true
-      - text: "100 kilocalories"
+      - text: '100 kilocalories'
         rationale: |
-          You applied the ten per cent rule twice. One step up takes one tenth, so
-          it is 1,000.
-      - text: "5,000 kilocalories"
+          This applies the transfer factor twice. Two steps would give this amount, which can seem reasonable for animals above plants. Check how many feeding steps the question names.
+      - text: '5,000 kilocalories'
         rationale: |
-          You halved the energy. The rule passes on a tenth, not a half.
-      - text: "9,000 kilocalories"
+          This transfers half the energy. Sharing energy between levels can suggest an equal split. Check the stated percentage before calculating.
+      - text: '9,000 kilocalories'
         rationale: |
-          You gave what is lost rather than what passes on. Nine tenths is lost, and
-          one tenth arrives.
+          This finds the 90% that does not transfer. Subtracting a loss from the total can make this number seem relevant. Check whether the question asks for energy transferred or energy left behind.
     explanation: |
-      The 10% rule means only 10% of energy passes to the next level: $10{,}000 \times 0.10 = 1{,}000$ kilocalories.
+      Primary consumers are one feeding step above producers. With the stated assumption, multiply once: $10{,}000 \times 0.10 = 1{,}000$ kilocalories.
     approved: true
 
   - id: q-biology-ecology-0008
-    type: simple-quantitative
-    difficulty: hard
+    type: 'simple-quantitative'
+    difficulty: 'hard'
     stem: |
-      A trophic level of producers contains 10,000 kilocalories of energy. Using the 10% rule, how much energy is available to the secondary consumers (two trophic levels up from producers)?
+      Assume that 10% of energy transfers at each feeding step. Secondary consumers receive 100 kilocalories. How much energy was available to the producers two steps earlier?
     choices:
-      - text: "100 kilocalories"
+      - text: '10,000 kilocalories'
         correct: true
-      - text: "1,000 kilocalories"
+      - text: '1,000 kilocalories'
         rationale: |
-          You stopped after one step. Two steps up means a tenth of a tenth.
-      - text: "1 kilocalorie"
+          This works backward through only one transfer. It correctly undoes one 10% step. Check the number of steps from producers to secondary consumers.
+      - text: '1 kilocalorie'
         rationale: |
-          You applied the rule three times. There are only two steps here.
-      - text: "9,900 kilocalories"
+          This multiplies twice while moving backward. Multiplying by 10% works when moving toward higher consumers. Check the direction before choosing multiplication or division.
+      - text: '1,000,000 kilocalories'
         rationale: |
-          You gave the energy lost rather than the energy that arrives.
+          This divides by 1% twice instead of 10% twice. Both percentages can look like small transfer rates. Check the stated rate before undoing each transfer.
     explanation: |
-      Apply the 10% rule one level at a time: $10{,}000 \times 0.10 = 1{,}000$ kilocalories reach the primary consumers, then $1{,}000 \times 0.10 = 100$ kilocalories reach the secondary consumers. Multiplying by 10% only once and skipping straight to the secondary consumers is a common mistake.
+      Work backward through two transfers. Divide by $0.10$ to get $1{,}000$ kilocalories at primary consumers. Divide by $0.10$ again to get $10{,}000$ kilocalories at producers.
     approved: true
 
   - id: q-biology-ecology-0009
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
-      A diagram shows a hawk eating both frogs and snakes, snakes eating both frogs and mice, and frogs eating both grasshoppers and crickets: many overlapping, interconnected feeding relationships. Is this best described as a food chain or a food web?
+      A feeding diagram links several predators to shared prey, and some predators eat several prey species. Which feature makes the diagram a food web?
     choices:
-      - text: A food web, since it shows many interconnected, overlapping food chains rather than one simple straight-line sequence.
+      - text: 'Several feeding paths connect.'
         correct: true
-      - text: A food chain, since food chains always include more than four organisms.
+      - text: 'Only one feeding path is shown.'
         rationale: |
-          You called it a chain. A chain is a single line, and this diagram has
-          animals eating more than one thing each.
-      - text: 'Neither: this diagram does not describe feeding relationships.'
+          This treats a network as a single chain. Any one route through the diagram looks like a chain. Check whether other routes branch from it.
+      - text: 'All organisms have the same diet.'
         rationale: |
-          You said it shows no feeding at all, and every arrow in it is one animal
-          eating another.
-      - text: A biogeochemical cycle, since energy is moving between organisms.
+          This confuses shared prey with identical diets. Predators may share some prey without eating every same species. Check all links for each predator.
+      - text: 'Energy returns from predators to plants.'
         rationale: |
-          You picked a chemical cycle. Those move an element around; this moves food
-          between animals.
+          This confuses cycling matter with energy flow. Both move through organisms, so they can seem to follow the same pattern. Check whether arrows show food going to its consumer.
     explanation: |
-      A food chain is a single, straight-line sequence. Once multiple predators share prey, or one predator eats several prey types, the diagram is showing a food web: the more realistic, interconnected picture.
+      A food web connects many feeding paths. Shared prey and multiple food sources join those paths into one network.
     approved: true
 
   - id: q-biology-ecology-0010
-    type: identify
-    difficulty: medium
+    type: 'identify'
+    difficulty: 'medium'
     stem: |
       Which biogeochemical cycle involves carbon moving between the atmosphere (as carbon dioxide), living things (through photosynthesis and respiration), and long-term storage like fossil fuels?
     choices:
-      - text: The carbon cycle
+      - text: 'The carbon cycle'
         correct: true
-      - text: The nitrogen cycle
+      - text: 'The nitrogen cycle'
         rationale: |
-          You picked the cycle that runs through proteins and the air's nitrogen
-          gas, not through carbon dioxide.
-      - text: The phosphorus cycle
+          This substitutes nitrogen for carbon. Both cycles involve organisms and the atmosphere. Check which element is present in carbon dioxide.
+      - text: 'The phosphorus cycle'
         rationale: |
-          You picked the cycle with no gas stage at all. Phosphorus stays in rock,
-          soil and water.
-      - text: The water cycle
+          This substitutes phosphorus for carbon. Both can be stored in rocks and living things. Check which cycle includes carbon dioxide and fossil carbon.
+      - text: 'The water cycle'
         rationale: |
-          You picked the cycle that moves water rather than carbon.
+          This substitutes water movement for carbon movement. Water is involved in photosynthesis, so the processes seem connected. Check which substance the question follows.
     explanation: |
       The carbon cycle moves carbon between the atmosphere, living things, and long-term storage such as fossil fuels.
     approved: true
 
   - id: q-biology-ecology-0011
-    type: identify
-    difficulty: medium
+    type: 'identify'
+    difficulty: 'medium'
     stem: |
-      What is the term for the process, carried out mainly by certain bacteria, that converts nitrogen gas in the air into a usable form for plants?
+      Which microbial process converts atmospheric nitrogen gas directly into ammonia?
     choices:
-      - text: Nitrogen fixation
+      - text: 'Nitrogen fixation'
         correct: true
-      - text: Photosynthesis
+      - text: 'Nitrification'
         rationale: |
-          You picked the process that makes food from light. It uses carbon dioxide,
-          not nitrogen gas.
-      - text: Cellular respiration
+          This mixes fixation with the later conversion of ammonium into nitrite and nitrate. Both make nitrogen available in soil. Check the starting substance and direct product.
+      - text: 'Denitrification'
         rationale: |
-          You picked the process that releases energy from food. It has nothing to
-          do with nitrogen.
-      - text: Transpiration
+          This reverses the movement of nitrogen between soil and air. Both processes involve nitrogen gas. Check whether gas is being used or returned to the air.
+      - text: 'Nitrogen assimilation'
         rationale: |
-          You picked water leaving a plant's leaves.
+          This confuses making a usable nitrogen compound with taking it into an organism. Both help nitrogen enter living things. Check whether the step changes nitrogen gas or absorbs an existing compound.
     explanation: |
-      Nitrogen fixation is carried out mainly by certain bacteria, converting atmospheric nitrogen gas into a usable form, like ammonia or nitrates, that plants can absorb.
+      Nitrogen fixation changes nitrogen gas, $N_2$, into ammonia, $NH_3$. This supplies nitrogen in a form that organisms can use.
     approved: true
 
   - id: q-biology-ecology-0012
-    type: cause-effect
-    difficulty: medium
+    type: 'cause-effect'
+    difficulty: 'medium'
     stem: |
-      Nitrogen gas makes up about 78% of Earth's atmosphere, yet plants and animals cannot use it directly from the air. Why is nitrogen fixation a necessary step in the nitrogen cycle?
+      Why does biological nitrogen fixation help most plants obtain nitrogen?
     choices:
-      - text: Nitrogen gas exists in a very stable, unusable chemical form for most living things, so nitrogen-fixing bacteria must first convert it into a usable form like ammonia or nitrates before plants can absorb it.
+      - text: 'It fixes nitrogen gas as ammonia.'
         correct: true
-      - text: Plants can already absorb nitrogen gas directly from the air without any bacterial help.
+      - text: 'It converts nitrate into nitrogen gas.'
         rationale: |
-          You said plants can use it straight from the air, and the question begins
-          from the fact that they cannot.
-      - text: Nitrogen fixation removes nitrogen from the atmosphere permanently, so it never returns to plants or animals.
+          This confuses fixation with denitrification. Both change nitrogen between gas and soil compounds. Check whether the process makes nitrogen available or sends it back to the air.
+      - text: 'It converts ammonium directly into nitrate.'
         rationale: |
-          You said fixation removes it permanently. It converts nitrogen into a
-          usable form, and the cycle returns it.
-      - text: Nitrogen gas is toxic to bacteria, so fixation exists only to protect the bacteria themselves.
+          This confuses fixation with nitrification. Nitrate is useful to plants, so this later step seems like fixation. Check whether the starting material is nitrogen gas or ammonium.
+      - text: 'It converts carbon dioxide into plant sugar.'
         rationale: |
-          You called the gas toxic. It is unreactive rather than poisonous, and that
-          is exactly the problem.
+          This confuses nitrogen supply with food production. Plants need both nitrogen and sugar to grow. Check which element the named process changes.
     explanation: |
-      Nitrogen gas is too chemically stable for most living things to use directly. Nitrogen-fixing bacteria convert it into usable forms like ammonia or nitrates, which plants absorb through their roots and pass up the food chain.
+      Most plants cannot use nitrogen gas directly because its atoms are joined by a strong bond. Nitrogen-fixing microbes change it into ammonia. This nitrogen can enter plants or undergo further changes in soil.
     approved: true
 
   - id: q-biology-ecology-0013
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
-      A student describes phosphorus as "evaporating into the atmosphere" as part of its biogeochemical cycle, similar to water. Is this accurate?
+      Which statement best describes the main reservoirs in the phosphorus cycle?
     choices:
-      - text: 'No: unlike carbon, nitrogen, and water, the phosphorus cycle has almost no gas phase; phosphorus moves mainly through rock, soil, and water.'
+      - text: 'Rock, soil, and water hold its main stores.'
         correct: true
-      - text: 'Yes: phosphorus evaporates into the atmosphere just like water does.'
+      - text: 'Atmospheric phosphorus gas holds its main store.'
         rationale: |
-          You accepted the evaporation step. Phosphorus has no gas stage: it moves
-          through rock, soil and water instead.
-      - text: 'No: but only because phosphorus does not exist in rocks or soil at all.'
+          This gives phosphorus a large gas reservoir like nitrogen. Comparing element cycles can make that pattern seem universal. Check whether this cycle has a major gas phase.
+      - text: 'Living organisms hold its only major store.'
         rationale: |
-          You said it is not in rocks, and rock is where most of it sits.
-      - text: 'Yes: all biogeochemical cycles include an atmospheric gas phase.'
+          This ignores stores outside living things. Phosphorus is needed by cells, so organisms seem central. Check where it is stored before organisms absorb it.
+      - text: 'Ocean water holds its only major store.'
         rationale: |
-          You said every cycle has a gas stage. Phosphorus is the one that does not.
+          This leaves out rocks and soils. Water carries phosphorus, so oceans seem like the whole reservoir. Check both land and water stores.
     explanation: |
-      The phosphorus cycle is the exception among the major biogeochemical cycles: it has almost no gas phase, moving mainly through rock, soil, and water rather than the atmosphere.
+      Phosphorus mainly moves through rocks, soil, water, and living things. Its cycle has no major atmospheric gas reservoir.
     approved: true
 
   - id: q-biology-ecology-0014
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       A bee collects nectar from a flower for food, and in the process, pollinates the flower, helping it reproduce. Both the bee and the flower benefit. What type of symbiotic relationship is this?
     choices:
-      - text: Mutualism
+      - text: 'Mutualism'
         correct: true
-      - text: Commensalism
+      - text: 'Commensalism'
         rationale: |
-          You picked the one where only one side gains. Both gain here: the bee gets
-          food and the flower gets pollinated.
-      - text: Parasitism
+          This treats one partner as unaffected. The bee gets food, so its benefit is easy to notice first. Check the stated effect on both species.
+      - text: 'Parasitism'
         rationale: |
-          You picked the one where a side is harmed. Neither is harmed here.
-      - text: Competition
+          This treats the flower as harmed. Taking nectar may look like taking something from a host. Check whether pollination gives the flower a benefit.
+      - text: 'Competition'
         rationale: |
-          You picked the one where both want the same resource. These two are
-          trading, not competing.
+          This treats the two partners as rivals for a resource. Their use of the same flower can suggest competition. Check whether both seek the same limited resource or gain different benefits.
     explanation: |
       Mutualism describes a relationship where both species benefit: here, the bee gets nectar and the flower gets pollinated.
     approved: true
 
   - id: q-biology-ecology-0015
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       A bird builds its nest in a tree, gaining shelter, while the tree is neither helped nor harmed by the bird's presence. What type of symbiotic relationship is this?
     choices:
-      - text: Commensalism
+      - text: 'Commensal (+,0)'
         correct: true
-      - text: Mutualism
+      - text: 'Mutualism (+,+)'
         rationale: |
-          You picked the one where both gain. The tree gains nothing from the nest.
-      - text: Parasitism
+          This assumes shelter for the bird also benefits the tree. A close relationship can look like a shared gain. Check for a stated benefit to each partner.
+      - text: 'Parasitism (+,-)'
         rationale: |
-          You picked the one where a side is harmed. The tree is not harmed.
-      - text: Competition
+          This assumes the nest harms the tree. An organism living on another can suggest parasitism. Check the stated effect on the tree.
+      - text: 'Competition (-,-)'
         rationale: |
-          You picked the one where both want the same thing. The bird wants shelter,
-          and the tree is not after it.
+          This assumes sharing space means competing. The bird and tree occur in the same place. Check whether both seek the same limited resource.
     explanation: |
       Commensalism describes a relationship where one species benefits (the bird gains shelter) while the other is unaffected (the tree is neither helped nor harmed).
     approved: true
 
   - id: q-biology-ecology-0016
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       A mosquito feeds on a human's blood, potentially spreading disease, while the human is harmed by the bite and possible infection. What type of symbiotic relationship is this?
     choices:
-      - text: Parasitism
+      - text: 'Parasitism'
         correct: true
-      - text: Mutualism
+      - text: 'Mutualism'
         rationale: |
-          You picked the one where both gain. The person gains nothing from being
-          bitten.
-      - text: Commensalism
+          This assumes both species gain from the interaction. Close contact can be mistaken for cooperation. Check whether a benefit is stated for the human.
+      - text: 'Commensalism'
         rationale: |
-          You picked the one where nobody is harmed. The bite harms the person.
-      - text: Competition
+          This treats the host as unaffected. The mosquito benefits, which fits part of this category. Check whether the host is harmed.
+      - text: 'Competition'
         rationale: |
-          You picked the one where both want the same resource. Here one is the
-          resource.
+          This confuses feeding on a host with competing for a resource. Both interactions can cause harm. Check whether the species are rivals or one feeds from the other.
     explanation: |
       Parasitism describes a relationship where the parasite (the mosquito) benefits, while the host (the human) is harmed.
     approved: true
 
   - id: q-biology-ecology-0017
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
-      A remora (a small fish) attaches to a shark to hitch a ride and pick up leftover food scraps. Careful observation shows the shark is not measurably helped or harmed by the remora's presence. A student labels this relationship "mutualism" since the remora is clearly benefiting from the shark. Is this the correct classification?
+      A remora gains transport and food scraps from a shark. Measurements show no detectable net effect on the shark. How should this relationship be classified under that evidence?
     choices:
-      - text: 'No: since the shark receives no measurable benefit, this is commensalism, not mutualism; mutualism requires both species to benefit.'
+      - text: 'Commensal (+,0)'
         correct: true
-      - text: 'Yes: any relationship where one species benefits from another is automatically mutualism.'
+      - text: 'Mutualism (+,+)'
         rationale: |
-          You called it mutualism because one side gains. Both sides have to gain,
-          and the shark gains nothing measurable.
-      - text: 'No: this is actually parasitism, since the remora is taking food scraps from the shark.'
+          This counts one benefit as a benefit to both partners. The remora clearly gains, which can make the whole relationship seem beneficial. Check the measured effect on the shark.
+      - text: 'Parasitism (+,-)'
         rationale: |
-          You called it parasitism. The remora takes leftovers rather than anything
-          the shark still needs.
-      - text: 'Yes: since the shark tolerates the remora, both species must be benefiting equally.'
+          This assumes taking scraps harms the shark. Getting food from another animal can look parasitic. Check whether harm was actually found.
+      - text: 'Competition (-,-)'
         rationale: |
-          You read tolerance as benefit. Being unbothered is not the same as
-          gaining.
+          This assumes the species compete for the same food. Food scraps can suggest a shared resource. Check whether the evidence shows a cost from competition.
     explanation: |
-      Students often assume any close relationship where one species clearly benefits must be mutualism. But since the shark receives no measurable benefit and is simply unaffected, this relationship is commensalism, not mutualism.
+      The remora benefits, and the shark has no detectable net gain or harm. This pattern, one benefit and one neutral effect, is commensalism.
     approved: true
 
   - id: q-biology-ecology-0018
-    type: predict-outcome
-    difficulty: exam
+    type: 'predict-outcome'
+    difficulty: 'exam'
     stem: |
-      An ecosystem's producers contain 100,000 kilocalories of energy. Applying the 10% rule at each step, and knowing energy pyramids rarely support more than four or five trophic levels, what happens to the energy available by the time it reaches the tertiary consumers (three levels up from producers)?
+      Assume a 10% energy transfer at each feeding step. Producers have 100,000 kilocalories available. How much reaches tertiary consumers?
     choices:
-      - text: Only about 100 kilocalories remain, which explains why energy pyramids are wide at the bottom and narrow at the top, and why food chains rarely extend beyond four or five levels.
+      - text: '100 kilocalories'
         correct: true
-      - text: "Exactly 10,000 kilocalories remain, since the 10% rule is applied only once regardless of how many levels are crossed."
+      - text: '10,000 kilocalories'
         rationale: |
-          You applied the ten per cent rule once. Three steps up means a tenth of a
-          tenth of a tenth.
-      - text: "All 100,000 kilocalories remain, since energy is never lost between trophic levels."
+          This applies the factor once. One step from producers does give this amount. Check how many steps reach tertiary consumers.
+      - text: '100,000 kilocalories'
         rationale: |
-          You said nothing is lost. Most of the energy is lost as heat at every
-          step, which is why the chain is short.
-      - text: "The energy increases at each level, since predators are more efficient than producers."
+          This assumes all producer energy transfers. Energy is conserved overall, which can make full transfer seem reasonable. Check whether energy used or lost as heat remains available as food.
+      - text: '1,000 kilocalories'
         rationale: |
-          You said energy grows upward. Nothing at a higher level can hold more
-          energy than the level feeding it.
+          This applies the factor twice. It correctly reaches secondary consumers. Check the difference between secondary and tertiary.
     explanation: |
-      Applying the 10% rule three times in a row (once per level crossed) gives $100{,}000 \times 0.10 \times 0.10 \times 0.10 = 100$ kilocalories. This dramatic, repeated energy loss is exactly why energy pyramids narrow sharply at higher levels and why food chains rarely have more than four or five levels.
+      Tertiary consumers are three steps above producers. Apply the stated transfer factor three times: $100{,}000 \times 0.10 \times 0.10 \times 0.10 = 100$ kilocalories.
     approved: true
+
+  - id: q-biology-ecology-0019
+    type: 'structure-function'
+    difficulty: 'medium'
+    stem: |
+      Which role do decomposers serve in an ecosystem?
+    choices:
+      - text: 'They return nutrients from dead matter.'
+        correct: true
+      - text: 'They return heat to producers as food.'
+        rationale: |
+          This confuses nutrient recycling with energy recycling. Both nutrients and energy pass through decomposers. Check whether heat can be reused as food energy by producers.
+      - text: 'They create nitrogen atoms from sunlight.'
+        rationale: |
+          This confuses recycling elements with creating them. Microbes can change nitrogen compounds, which may seem like making nitrogen. Check whether atoms are rearranged or created.
+      - text: 'They stop nutrient movement through soil.'
+        rationale: |
+          This confuses breaking down matter with locking nutrients away. Dead material may appear inactive. Check whether decomposition releases nutrients into the environment.
+    explanation: |
+      Decomposers break down dead organisms and wastes. This releases nutrients that can move through the environment and be used again.
+    approved: false
+
+  - id: q-biology-ecology-0020
+    type: 'process-ordering'
+    difficulty: 'exam'
+    stem: |
+      Which sequence follows nitrogen from atmospheric gas to nitrate in soil?
+    choices:
+      - text: 'Fixation, then nitrification'
+        correct: true
+      - text: 'Nitrification, then fixation'
+        rationale: |
+          This reverses the two microbial steps. Both produce forms plants can use. Check which process starts with nitrogen gas.
+      - text: 'Denitrification, then assimilation'
+        rationale: |
+          This starts with returning nitrogen gas to the air. Both names belong to the nitrogen cycle. Check the direction named in the question.
+      - text: 'Assimilation, then denitrification'
+        rationale: |
+          This starts with uptake into living matter. Plants use nitrate, so assimilation sounds relevant. Check which steps produce nitrate before it is absorbed.
+    explanation: |
+      Fixation changes nitrogen gas into ammonia, which can become ammonium in soil water. Nitrification then changes ammonium into nitrite and nitrate.
+    approved: false

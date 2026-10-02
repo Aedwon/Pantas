@@ -2,309 +2,424 @@ meta:
   subject: science
   topic: chemistry
   subtopic: acids-bases-ph
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  exams: [upcat, dlsucet, ustet, dost-sei]
 questions:
   - id: q-chemistry-acids-bases-ph-0001
-    type: classify
-    difficulty: easy
+    type: 'classify'
+    difficulty: 'easy'
     stem: |
-      A solution has a pH of 2. Is this solution acidic, neutral, or basic?
+      An aqueous solution at $25 ^\circ\mathrm{C}$ has pH 2. How is it classified?
     choices:
-      - text: Acidic
+      - text: 'Acidic'
         correct: true
-      - text: Neutral
+      - text: 'Neutral'
         rationale: |
-          You picked the midpoint. Neutral requires a pH of exactly 7, but 2 is well below 7.
-      - text: Basic
+          This treats any solution containing water as neutral. Water itself is neutral under the stated conditions. Check the measured pH against 7.
+      - text: 'Basic'
         rationale: |
-          You picked the high pH classification. Bases have a pH greater than 7, whereas 2 is strongly acidic.
-      - text: Cannot be determined from pH alone
+          This reverses the acid and base sides of the scale. Both are departures from neutrality. Check whether pH is below or above 7.
+      - text: 'Cannot be determined from pH alone'
         rationale: |
-          You assumed more data is needed. The pH value directly defines whether a solution is acidic, neutral, or basic.
+          This overlooks the stated temperature. Temperature can matter for neutral pH. Check whether the question supplies the standard 25-degree condition.
     explanation: |
-      A pH below 7 is acidic. Since 2 is well below 7, this solution is acidic.
+      At $25 ^\circ\mathrm{C}$, an acidic solution has pH below 7. Since $2 < 7$, this solution is acidic.
     approved: true
+
   - id: q-chemistry-acids-bases-ph-0002
-    type: classify
-    difficulty: easy
+    type: 'classify'
+    difficulty: 'easy'
     stem: |
-      A solution has a pH of exactly 7. Is this solution acidic, neutral, or basic?
+      An aqueous solution at $25 ^\circ\mathrm{C}$ has pH exactly 7. How is it classified?
     choices:
-      - text: Neutral
+      - text: 'Neutral'
         correct: true
-      - text: Acidic
+      - text: 'Acidic'
         rationale: |
-          You picked the low pH classification. Acidic solutions have a pH strictly below 7.
-      - text: Basic
+          This treats the presence of hydronium as proof of acidity. Neutral water still contains hydronium. Check whether its level exceeds the hydroxide level.
+      - text: 'Basic'
         rationale: |
-          You picked the high pH classification. Basic solutions have a pH strictly above 7.
-      - text: Cannot be determined from pH alone
+          This treats the presence of hydroxide as proof of basicity. Neutral water still contains hydroxide. Check whether its level exceeds the hydronium level.
+      - text: 'Cannot be determined from pH alone'
         rationale: |
-          You assumed pH is insufficient. A pH of 7 at room temperature directly indicates a neutral solution.
+          This overlooks the given temperature. Neutral pH can vary with temperature. Check whether the problem gives the standard 25-degree condition.
     explanation: |
-      A pH of exactly 7 is neutral, like pure water.
+      At $25 ^\circ\mathrm{C}$, pH 7 is the neutral value. Hydronium and hydroxide levels are equal under this condition.
     approved: true
+
   - id: q-chemistry-acids-bases-ph-0003
-    type: classify
-    difficulty: easy
+    type: 'classify'
+    difficulty: 'easy'
     stem: |
-      A solution has a pH of 11. Is this solution acidic, neutral, or basic?
+      An aqueous solution at $25 ^\circ\mathrm{C}$ has pH 11. How is it classified?
     choices:
-      - text: Basic
+      - text: 'Basic'
         correct: true
-      - text: Acidic
+      - text: 'Acidic'
         rationale: |
-          You picked the low pH classification. Acidic solutions have a pH below 7, while 11 is basic.
-      - text: Neutral
+          This treats a larger pH as greater acidity. Ordinary scales often rise with the measured amount. Check the direction of the pH scale.
+      - text: 'Neutral'
         rationale: |
-          You picked the midpoint value. A neutral solution has a pH of exactly 7, not 11.
-      - text: Cannot be determined from pH alone
+          This treats an aqueous solution as automatically neutral. Water is the solvent. Check whether the measured pH equals the neutral value.
+      - text: 'Cannot be determined from pH alone'
         rationale: |
-          You assumed more information is required. The pH scale directly classifies solutions above 7 as basic.
+          This overlooks the given temperature. Neutral pH can depend on temperature. Check whether the standard 25-degree condition is stated.
     explanation: |
-      A pH above 7 is basic (alkaline). Since 11 is well above 7, this solution is basic.
+      At $25 ^\circ\mathrm{C}$, a basic solution has pH above 7. Since $11 > 7$, this solution is basic.
     approved: true
+
   - id: q-chemistry-acids-bases-ph-0004
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
-      Solution A has pH 3. Solution B has pH 5. Which is more acidic, and by what factor?
+      Under comparable dilute conditions, solution A has pH 3 and solution B has pH 5. Which comparison of hydronium levels is correct?
     choices:
-      - text: Solution A is 100 times more acidic than Solution B.
+      - text: 'A has 100 times B’s hydronium level.'
         correct: true
-      - text: Solution B is 100 times more acidic than Solution A.
+      - text: 'B has 100 times A’s hydronium level.'
         rationale: |
-          You picked the higher pH as more acidic. Lower pH numbers mean higher acidity, so pH 3 is more acidic than pH 5.
-      - text: Solution A is 2 times more acidic than Solution B.
+          This reverses the pH direction. Five is larger than three, which suggests more on an ordinary scale. Check that pH rises as hydronium level falls.
+      - text: 'A has 2 times B’s hydronium level.'
         rationale: |
-          You subtracted pH values linearly ($5 - 3 = 2$). The pH scale is logarithmic, so a 2-unit drop means $10^2 = 100$ times more acidic.
-      - text: Both solutions are equally acidic.
+          This uses the pH difference as a linear multiplier. Subtracting gives a two-unit gap. Check that the gap is the exponent in a power of 10.
+      - text: 'A and B have equal hydronium levels.'
         rationale: |
-          You treated different pH values as equal. Each whole pH step represents a tenfold difference in hydrogen ion concentration.
+          This ignores the measured pH difference. Both solutions are acidic, so they may seem equivalent. Check whether sharing a category means having the same hydronium level.
     explanation: |
-      Lower pH means more acidic, so Solution A (pH 3) is more acidic. The difference is 2 whole steps, and each step is a factor of 10, so $10 \times 10 = 100$ times more acidic.
+      The lower pH belongs to the higher hydronium level. The difference is $5-3=2$ units. Each unit is a factor of 10, so $10^2=100$. A has 100 times B’s hydronium level.
     approved: true
+
   - id: q-chemistry-acids-bases-ph-0005
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
-      Solution C has pH 6. Solution D has pH 9. Which is more acidic, and by what factor?
+      For a dilute aqueous solution, $[H_3O^+]=1.0\times10^{-7}\,\mathrm{M}$. Using $\mathrm{pH}\approx-\log_{10}[H_3O^+]$, what is its approximate pH?
     choices:
-      - text: Solution C is 1,000 times more acidic than Solution D.
+      - text: '7'
         correct: true
-      - text: Solution D is 1,000 times more acidic than Solution C.
+      - text: '-7'
         rationale: |
-          You picked the higher pH as more acidic. Lower pH indicates higher acidity; pH 6 is acidic and pH 9 is basic.
-      - text: Solution C is 3 times more acidic than Solution D.
+          This omits the minus sign before the logarithm. The concentration exponent is negative, so that value looks ready to use. Check the full formula.
+      - text: '14'
         rationale: |
-          You subtracted pH values linearly ($9 - 6 = 3$). Because pH is logarithmic, a 3-unit difference means $10^3 = 1{,}000$ times more acidic.
-      - text: Both solutions are equally acidic.
+          This doubles the exponent magnitude. The familiar 0-to-14 scale can make 14 seem like a related answer. Check whether the formula calls for doubling.
+      - text: '0.0000001'
         rationale: |
-          You ignored the pH difference. Solution C (pH 6) is acidic, while Solution D (pH 9) is basic.
+          This reports the concentration instead of pH. The given decimal is a valid concentration. Check that pH requires taking a logarithm.
     explanation: |
-      Lower pH means more acidic, so Solution C (pH 6) is more acidic. The difference is 3 whole steps, so $10 \times 10 \times 10 = 1{,}000$ times more acidic.
+      The base-10 logarithm of $10^{-7}$ is $-7$. The negative sign in the pH formula changes this to $7$.
     approved: true
+
   - id: q-chemistry-acids-bases-ph-0006
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       Acid X completely breaks apart into ions when dissolved in water, with essentially none of the original molecule remaining. Acid Y only partially breaks apart, with most of it remaining as the original molecule. Classify each.
     choices:
-      - text: Acid X is strong; Acid Y is weak.
+      - text: 'X strong; Y weak'
         correct: true
-      - text: Acid X is weak; Acid Y is strong.
+      - text: 'X weak; Y strong'
         rationale: |
-          You swapped strong and weak definitions. Complete dissociation defines a strong acid, while partial dissociation defines a weak acid.
-      - text: Both acids are strong.
+          This reverses the strength definitions. Both acids produce ions, so the labels may be swapped. Check which one ionizes essentially completely.
+      - text: 'Both essentially fully ionizing'
         rationale: |
-          You classified Acid Y as strong. Acids that only partially dissociate in water are weak acids.
-      - text: Both acids are weak.
+          This overlooks Y’s incomplete ionization. Both produce some ions. Check whether some ionization means essentially complete ionization.
+      - text: 'Both only partially ionizing'
         rationale: |
-          You classified Acid X as weak. Acids that dissociate completely into ions are strong acids.
+          This overlooks X’s essentially complete ionization. Real solutions have equilibria, which can suggest both are weak. Check the extent stated for each acid.
     explanation: |
-      A strong acid completely dissociates into ions, matching Acid X. A weak acid only partially dissociates, matching Acid Y.
+      X ionizes essentially completely in water, so it is strong. Y ionizes only partly, so it is weak. This classification describes ionization.
     approved: true
+
   - id: q-chemistry-acids-bases-ph-0007
-    type: identify
-    difficulty: easy
+    type: 'identify'
+    difficulty: 'easy'
     stem: |
-      Under the Arrhenius definition, what does an acid produce when dissolved in water?
+      Under the Arrhenius model, which ion concentration does an acid increase in aqueous solution?
     choices:
-      - text: Hydrogen ions (H+)
+      - text: 'Hydronium'
         correct: true
-      - text: Hydroxide ions (OH-)
+      - text: 'Hydroxide ions'
         rationale: |
-          You picked the Arrhenius definition of a base. Bases produce hydroxide ions ($OH^-$), while acids produce hydrogen ions ($H^+$).
-      - text: Salt directly
+          This uses the Arrhenius base ion. Acids and bases both change ionic levels. Check whether hydronium or hydroxide increases.
+      - text: 'Sodium ions'
         rationale: |
-          You picked a product of neutralization. Acids produce $H^+$ ions in water, forming salts only when reacting with bases.
-      - text: Pure water only
+          This picks a common spectator ion instead of the defining acid ion. Sodium ions appear in many dissolved salts. Check which ion determines Arrhenius acidity.
+      - text: 'Chloride ions'
         rationale: |
-          You picked a neutralization product. Dissolving an acid in water increases $H^+$ ion concentration.
+          This uses an ion found with hydrochloric acid as the general definition. Chloride is present in that example. Check the ion common to Arrhenius acids, not one acid’s spectator ion.
     explanation: |
-      The Arrhenius definition says an acid produces hydrogen ions ($H^+$) when dissolved in water.
+      An Arrhenius acid increases hydronium, $H_3O^+$, in water. The notation $H^+(aq)$ is often used as shorthand for this aqueous acid behavior.
     approved: true
+
   - id: q-chemistry-acids-bases-ph-0008
-    type: identify
-    difficulty: easy
+    type: 'identify'
+    difficulty: 'easy'
     stem: |
-      Under the Arrhenius definition, what does a base produce when dissolved in water?
+      Under the Arrhenius model, which ion concentration does a base increase in aqueous solution?
     choices:
-      - text: Hydroxide ions (OH-)
+      - text: '$OH^-$'
         correct: true
-      - text: Hydrogen ions (H+)
+      - text: '$H_3O^+$'
         rationale: |
-          You picked the Arrhenius definition of an acid. Acids release $H^+$, while bases release $OH^-$ in water.
-      - text: Salt directly
+          This uses the Arrhenius acid ion. Both kinds of solution contain ions. Check which defining ion increases for a base.
+      - text: '$Na^+$'
         rationale: |
-          You picked a reaction product. Dissolving a base in water produces hydroxide ions, not a salt by itself.
-      - text: Carbon dioxide
+          This substitutes a common companion ion for hydroxide. Sodium hydroxide contains sodium, so that ion seems relevant. Check which ion defines the base behavior.
+      - text: '$Cl^-$'
         rationale: |
-          You picked a carbonate reaction byproduct. Arrhenius bases produce hydroxide ions ($OH^-$) in aqueous solution.
+          This confuses a salt spectator with the defining base ion. Chloride can remain after neutralization. Check which ion increases when the base acts in water.
     explanation: |
-      The Arrhenius definition says a base produces hydroxide ions ($OH^-$) when dissolved in water.
+      An Arrhenius base increases hydroxide ions, $OH^-$, in aqueous solution.
     approved: true
+
   - id: q-chemistry-acids-bases-ph-0009
-    type: identify
-    difficulty: medium
+    type: 'identify'
+    difficulty: 'medium'
     stem: |
       Under the Brønsted-Lowry definition, which is broader than the Arrhenius definition, what is an acid?
     choices:
-      - text: A proton (H+) donor
+      - text: 'A proton donor'
         correct: true
-      - text: A proton (H+) acceptor
+      - text: 'A proton acceptor'
         rationale: |
-          You picked the Brønsted-Lowry definition of a base. Acids donate protons ($H^+$), while bases accept protons.
-      - text: A substance that only exists in water
+          This reverses acid and base roles. Both partners take part in proton transfer. Check which gives the proton and which receives it.
+      - text: 'A hydroxide donor only'
         rationale: |
-          You restricted Brønsted-Lowry theory to water. Brønsted-Lowry definitions extend to non-aqueous proton transfer.
-      - text: A substance with pH exactly 7
+          This confuses the broader definition with hydroxide-based chemistry. Hydroxide is important in common base reactions. Check whether the definition concerns donating a proton.
+      - text: 'A neutral salt producer only'
         rationale: |
-          You picked the neutral pH value. Acids have a pH below 7 and act as proton donors.
+          This uses one possible reaction outcome as the definition. Salt formation is familiar in acid-base reactions. Check the reacting substance’s proton-transfer role.
     explanation: |
-      The Brønsted-Lowry definition describes an acid as a proton donor and a base as a proton acceptor: broader than the Arrhenius definition since it applies beyond just water.
+      A Brønsted-Lowry acid donates a proton. This definition describes proton transfer and is not restricted to the Arrhenius aqueous model.
     approved: true
+
   - id: q-chemistry-acids-bases-ph-0010
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
-      A student says a solution with pH 2 is "less acidic" than a solution with pH 5, reasoning that 2 is a smaller number. Is this correct?
+      A concentrated solution is reported to have pH below 0. Which conclusion follows from the lesson?
     choices:
-      - text: 'No: lower pH numbers mean more acidic, so pH 2 is actually far more acidic than pH 5.'
+      - text: 'The familiar range is not a hard limit.'
         correct: true
-      - text: 'Yes: smaller pH numbers always mean less acidic.'
+      - text: 'The value must be invalid because pH cannot be negative.'
         rationale: |
-          You accepted the inverse assumption. The pH scale is inverse: smaller numbers mean higher $H^+$ concentration and stronger acidity.
-      - text: 'No: but only because pH 2 and pH 5 are actually the same acidity.'
+          This treats the classroom drawing as a mathematical limit. Many diagrams stop at zero. Check whether the lesson allows values outside that familiar range.
+      - text: 'The solution must be neutral because zero is the minimum.'
         rationale: |
-          You treated different pH values as equal. pH 2 has 1,000 times higher $H^+$ concentration than pH 5.
-      - text: 'Yes: pH works the same as ordinary counting, where smaller means less.'
+          This confuses the end of a drawn scale with neutrality. Zero may look like a baseline. Check the definition of neutrality rather than the edge of the drawing.
+      - text: 'A negative pH proves a negative hydronium concentration.'
         rationale: |
-          You treated pH as linear counting. Because $\text{pH} = -\log[H^+]$, smaller values represent larger hydrogen ion amounts.
+          This treats pH as the concentration itself. A negative value can suggest a negative amount. Check whether pH is an amount or a negative logarithm.
     explanation: |
-      The pH scale runs in the opposite direction from everyday intuition: lower numbers mean more acidic (more $H^+$ ions), not less.
+      The common 0-to-14 pH scale is a useful classroom range. It is not an absolute boundary. Concentrated solutions can have pH below 0.
     approved: true
+
   - id: q-chemistry-acids-bases-ph-0011
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
-      A student calculates the difference between pH 4 and pH 6 as "twice as acidic," treating the two-unit gap as a simple doubling. Is this correct?
+      At a temperature other than $25 ^\circ\mathrm{C}$, a solution has equal hydronium and hydroxide levels. How should it be classified?
     choices:
-      - text: 'No: the pH scale is logarithmic, so a 2-unit difference means 100 times more acidic, not twice.'
+      - text: 'Neutral'
         correct: true
-      - text: 'Yes: a 2-unit pH difference always means exactly twice as acidic.'
+      - text: 'Acidic whenever its pH is below 7'
         rationale: |
-          You treated pH as a linear scale. Each pH unit is a power of 10, so 2 units equal $10^2 = 100$ times more acidic.
-      - text: 'No: a 2-unit pH difference actually means half as acidic.'
+          This applies the 25-degree divider at every temperature. The familiar scale uses 7 as neutral. Check the equality condition and the stated temperature.
+      - text: 'Basic whenever its pH is above 7'
         rationale: |
-          You inverted the direction. Lowering pH by 2 units increases acidity by a factor of 100.
-      - text: 'Yes: pH differences are always simple linear differences.'
+          This also applies the fixed 7 divider regardless of temperature. A pH above 7 is basic at 25 degrees. Check whether 7 is neutral under the given conditions.
+      - text: 'Unclassifiable without an acid’s strength'
         rationale: |
-          You assumed a linear relationship. pH is logarithmic ($-\log[H^+]$), so differences represent powers of 10.
+          This confuses acid strength with the neutrality condition. Strength affects ionization in acid solutions. Check whether equal hydronium and hydroxide already establish neutrality.
     explanation: |
-      Each whole pH step represents a ten-times change in acidity. A 2-step difference means $10 \times 10 = 100$ times more acidic, not a simple doubling.
+      Neutrality means equal hydronium and hydroxide levels under the relevant solution model. The neutral pH changes with temperature, so it need not be exactly 7.
     approved: true
+
   - id: q-chemistry-acids-bases-ph-0012
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
-      A student assumes that a "strong" acid must also be a "concentrated" (large amount of) acid. Is this assumption correct?
+      Which statement correctly distinguishes acid strength from concentration?
     choices:
-      - text: 'No: "strong" describes how completely an acid dissociates into ions, while "concentrated" describes how much is dissolved; these are different properties.'
+      - text: 'Strength is extent of ionization.'
         correct: true
-      - text: 'Yes: "strong" and "concentrated" always mean exactly the same thing.'
+      - text: 'Strength is amount dissolved per unit volume.'
         rationale: |
-          You equated strength with concentration. Strength measures ion dissociation, while concentration measures moles per liter.
-      - text: 'No: "strong" only applies to bases, never to acids.'
+          This uses the concentration definition for strength. Concentrated acid often has a low pH. Check whether the property describes ionization or amount per volume.
+      - text: 'Dilution converts every strong acid into a weak acid.'
         rationale: |
-          You restricted strength terminology. Both acids and bases are classified as strong or weak based on ionization.
-      - text: 'Yes: a strong acid must always be present in a large amount.'
+          This treats a smaller amount per volume as a change in intrinsic acid strength. Dilution can change pH. Check whether it changes the acid’s identity or just its concentration.
+      - text: 'Concentration is the fraction ionized in water.'
         rationale: |
-          You assumed strong acids cannot be diluted. A strong acid like $HCl$ remains strong even when diluted in a small amount.
+          This swaps the concentration definition with ionization extent. Both affect solution behavior. Check whether concentration counts amount per volume.
     explanation: |
-      A dilute solution of a strong acid (small amount, but fully dissociating) is a different situation from a concentrated solution of a weak acid (large amount, but only partially dissociating). "Strong" and "concentrated" measure different things.
+      Acid strength describes how fully an acid ionizes in water. Concentration describes the amount dissolved per unit volume. A strong acid can be dilute.
     approved: true
+
   - id: q-chemistry-acids-bases-ph-0013
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
-      A student assumes that every reaction between an acid and a base must produce a final solution with exactly pH 7. Is this assumption correct?
+      Which statement about acid-base neutralization is correct?
     choices:
-      - text: 'No: neutralization always produces salt and water, but the resulting salt solution is not guaranteed to have exactly pH 7.'
+      - text: 'It is fundamentally proton transfer.'
         correct: true
-      - text: 'Yes: every acid-base reaction always results in exactly pH 7.'
+      - text: 'It always produces water and a final pH of 7.'
         rationale: |
-          You assumed all neutralizations yield pH 7. Weak acids or weak bases produce salts that can hydrolyze, shifting final pH.
-      - text: 'No: acid-base reactions never produce water.'
+          This treats the strong-acid/strong-hydroxide example as universal. That common reaction forms water. Check whether every base is hydroxide and whether the amounts and conditions support pH 7.
+      - text: 'It can occur only when hydroxide is a reactant.'
         rationale: |
-          You denied water formation. Neutralization between Arrhenius acids and bases typically produces salt and water.
-      - text: 'Yes: "neutralization" specifically guarantees a final pH of 7 in every case.'
+          This restricts all acid-base chemistry to one familiar base ion. Hydroxide participates in common examples. Check whether another substance can accept a proton.
+      - text: 'It is defined by the permanent removal of all ions.'
         rationale: |
-          You took the term "neutralization" literally. Neutralization means acid and base react stoichiometrically, not always pH 7.
+          This confuses reacting ions with eliminating every ion. Hydronium and hydroxide can form water. Check whether spectator ions remain in solution.
     explanation: |
-      "Neutralization" refers to the $H^+$ and $OH^-$ combining to form water, not a guarantee that the final mixed solution's pH lands exactly at 7: some resulting salts can make the solution slightly acidic or slightly basic.
+      In the Brønsted-Lowry model, an acid transfers a proton to a base. Some such reactions form water. The products and final pH depend on the reacting substances and conditions.
     approved: true
+
   - id: q-chemistry-acids-bases-ph-0014
-    type: predict-outcome
-    difficulty: exam
+    type: 'predict-outcome'
+    difficulty: 'exam'
     stem: |
       Hydrochloric acid ($HCl$) reacts with sodium hydroxide ($NaOH$), producing sodium chloride ($NaCl$) and water. Why is this classified as a neutralization reaction?
     choices:
-      - text: The acid's H+ combines with the base's OH- to form water, while the remaining ions form a salt, matching the pattern acid + base -> salt + water.
+      - text: '$H_3O^+$ transfers a proton to $OH^-$.'
         correct: true
-      - text: Because both HCl and NaOH have exactly pH 7 before reacting.
+      - text: '$Na^+$ transfers a proton to $Cl^-$.'
         rationale: |
-          You assumed reactants start at pH 7. $HCl$ is strongly acidic (pH < 7) and $NaOH$ is strongly basic (pH > 7).
-      - text: Because sodium chloride is always a neutral, harmless substance.
+          This assigns proton transfer to spectator ions. Sodium and chloride appear in the overall equation. Check which reactants actually contain and accept the transferred proton.
+      - text: '$Cl^-$ becomes the only reactive base in water.'
         rationale: |
-          You focused on salt safety. Neutralization is defined by the reaction pattern ($\text{acid} + \text{base} \rightarrow \text{salt} + \text{water}$).
-      - text: Because no ions are involved in this reaction at all.
+          This confuses a remaining ion with the reacting hydroxide. Chloride is present in the salt solution. Check which base consumes hydronium in this reaction.
+      - text: '$Na^+$ and $Cl^-$ permanently leave the solution.'
         rationale: |
-          You claimed no ions participate. $HCl$ and $NaOH$ dissociate into $H^+$, $Cl^-$, $Na^+$, and $OH^-$ ions in water.
+          This assumes spectator ions vanish when neutralization occurs. The solution’s acidity can change strongly. Check whether dissolved salt ions remain after the reacting ions form water.
     explanation: |
-      $HCl$ is an acid, producing $H^+$; $NaOH$ is a base, producing $OH^-$. Their $H^+$ and $OH^-$ combine to form water, while the leftover $Na^+$ and $Cl^-$ form the salt sodium chloride: exactly the acid + base → salt + water pattern.
+      In this aqueous reaction, hydronium reacts with hydroxide. The net ionic equation is $H_3O^++OH^-\rightarrow2H_2O$. Sodium and chloride remain as spectator ions.
     approved: true
+
   - id: q-chemistry-acids-bases-ph-0015
-    type: simple-quantitative
-    difficulty: exam
+    type: 'simple-quantitative'
+    difficulty: 'exam'
     stem: |
-      Solution E has pH 2. Solution F has pH 8. Which is more acidic, and by what factor?
+      Under comparable dilute conditions, one solution has a hydronium level $10^6$ times that of another. How much lower is its pH?
     choices:
-      - text: Solution E is 1,000,000 times more acidic than Solution F.
+      - text: '6 units'
         correct: true
-      - text: Solution F is 1,000,000 times more acidic than Solution E.
+      - text: '1,000,000 units'
         rationale: |
-          You picked higher pH as more acidic. Lower pH numbers indicate higher acidity, making pH 2 much more acidic than pH 8.
-      - text: Solution E is 6 times more acidic than Solution F.
+          This uses the concentration multiplier as a pH difference. A million-fold change sounds like a huge pH gap. Check that pH uses the exponent of the power of 10.
+      - text: '60 units'
         rationale: |
-          You subtracted pH values linearly ($8 - 2 = 6$). Each pH unit is a factor of 10, so 6 steps equal $10^6 = 1{,}000{,}000$ times.
-      - text: Both solutions are equally acidic.
+          This multiplies the exponent by 10. Each unit does represent a tenfold change. Check whether the exponent counts steps or must itself be multiplied.
+      - text: '0.000001 units'
         rationale: |
-          You treated pH 2 and pH 8 as equal. pH 2 is strongly acidic while pH 8 is weakly basic.
+          This takes the reciprocal of the concentration factor as the pH difference. Lower pH can suggest a reciprocal number. Check that the logarithm converts a power of 10 to its exponent.
     explanation: |
-      Lower pH means more acidic, so Solution E (pH 2) is more acidic. The difference is 6 whole steps, so $10^6 = 1{,}000{,}000$ times more acidic.
+      Each pH unit corresponds to a factor of 10 in hydronium level. A factor of $10^6$ therefore corresponds to six pH units. The higher hydronium level has the lower pH.
     approved: true
+
+  - id: q-chemistry-acids-bases-ph-0016
+    type: 'identify'
+    difficulty: 'easy'
+    stem: |
+      Which role defines a Brønsted-Lowry base?
+    choices:
+      - text: 'Accepting a proton'
+        correct: true
+      - text: 'Donating a proton'
+        rationale: |
+          This swaps the acid and base roles. Both participate in the same transfer. Check which partner receives the proton.
+      - text: 'Producing water in every reaction'
+        rationale: |
+          This makes one common product the definition. Hydroxide neutralization often produces water. Check whether every proton acceptor must make water.
+      - text: 'Having pH 7 under every condition'
+        rationale: |
+          This confuses being a base with being neutral. The terms sound related to balancing acidity. Check the proton-transfer role rather than a fixed pH.
+    explanation: |
+      A Brønsted-Lowry base accepts a proton from an acid. This defines its role in a proton-transfer reaction.
+    approved: false
+
+  - id: q-chemistry-acids-bases-ph-0017
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      In $NH_3+HCl\rightarrow NH_4Cl$, which substance accepts the proton?
+    choices:
+      - text: '$NH_3$'
+        correct: true
+      - text: '$HCl$'
+        rationale: |
+          This assigns the receiving role to the proton donor. HCl participates in the transfer. Check which formula gains hydrogen.
+      - text: '$NH_4Cl$'
+        rationale: |
+          This names the overall product as the reacting base. The product includes ammonium, which has received a proton. Check which substance existed before the transfer.
+      - text: '$H_2O$'
+        rationale: |
+          This assumes water must be involved in every neutralization. It appears in many classroom examples. Check the reactants actually given in this equation.
+    explanation: |
+      Ammonia, $NH_3$, gains a proton and becomes ammonium, $NH_4^+$. It therefore acts as the Brønsted-Lowry base.
+    approved: false
+
+  - id: q-chemistry-acids-bases-ph-0018
+    type: 'compare-contrast'
+    difficulty: 'hard'
+    stem: |
+      Two unspecified acid solutions have different pH values. What can the lower pH establish by itself?
+    choices:
+      - text: 'Greater hydrogen-ion activity'
+        correct: true
+      - text: 'Necessarily greater intrinsic acid strength'
+        rationale: |
+          This equates solution pH with intrinsic acid strength. Strong acids often produce many ions. Check whether concentration is also known.
+      - text: 'Necessarily more total acid molecules in the bottle'
+        rationale: |
+          This equates activity with the total number of molecules in a container. More acid can sometimes lower pH. Check whether volume and ionization are specified.
+      - text: 'Complete ionization of every acid molecule'
+        rationale: |
+          This uses pH alone to infer complete ionization. A very acidic solution can seem strongly ionized. Check whether the extent of ionization is actually measured.
+    explanation: |
+      Lower pH means greater hydrogen-ion activity. Both acid strength and concentration can affect pH, so the pH comparison alone describes the solution’s hydrogen-ion activity.
+    approved: false
+
+  - id: q-chemistry-acids-bases-ph-0019
+    type: 'predict-outcome'
+    difficulty: 'hard'
+    stem: |
+      A strong acid and a strong hydroxide react, but excess acid remains after reaction. Which conclusion is justified?
+    choices:
+      - text: 'The mixture need not be neutral.'
+        correct: true
+      - text: 'The word neutralization guarantees pH 7.'
+        rationale: |
+          This treats the reaction name as a guaranteed final pH. Balanced classroom examples often end near neutrality. Check whether one reactant remains in excess.
+      - text: 'All spectator ions disappear with the excess acid.'
+        rationale: |
+          This confuses reacting acid with spectator ions. Some ions are consumed by the reaction. Check whether every dissolved ion participates.
+      - text: 'The unreacted acid changes into a weak acid.'
+        rationale: |
+          This confuses the amount left over with acid strength. The reaction reduces the amount of acid. Check whether its ionization behavior changes just because less remains.
+    explanation: |
+      Neutralization uses acid and base in their reacting amounts. If acid remains, the reaction has not removed all its acid contribution. The final mixture is therefore not guaranteed to be neutral.
+    approved: false
+
+  - id: q-chemistry-acids-bases-ph-0020
+    type: 'cause-effect'
+    difficulty: 'exam'
+    stem: |
+      In dilute water at fixed temperature, hydronium concentration increases by a factor of 10. What happens to pH?
+    choices:
+      - text: 'It falls by 1 unit.'
+        correct: true
+      - text: 'It rises by 1 unit.'
+        rationale: |
+          This misses the minus sign in the pH relation. A larger concentration can suggest a larger scale reading. Check the sign before the logarithm.
+      - text: 'It falls by 10 units.'
+        rationale: |
+          This treats a tenfold concentration change as ten pH units. The factor is 10. Check how many powers of 10 it represents.
+      - text: 'It becomes exactly 7.'
+        rationale: |
+          This assumes any concentration change ends at neutrality. Seven is a familiar reference value. Check whether the final hydronium and hydroxide levels are stated to be equal.
+    explanation: |
+      Using $\mathrm{pH}\approx-\log_{10}[H_3O^+]$, a tenfold increase raises the logarithm by 1. The minus sign therefore lowers pH by 1 unit.
+    approved: false

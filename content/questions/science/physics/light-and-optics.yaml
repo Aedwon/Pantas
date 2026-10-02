@@ -1,310 +1,425 @@
 meta:
-  subject: science
-  topic: physics
-  subtopic: light-and-optics
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  subject: "science"
+  topic: "physics"
+  subtopic: "light-and-optics"
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-physics-light-and-optics-0001
-    type: simple-quantitative
-    difficulty: easy
+    type: "simple-quantitative"
+    difficulty: "easy"
     stem: |
-      A light ray hits a flat mirror at an angle of incidence of 40° (measured from the normal). Find the angle of reflection.
+      A ray strikes a plane mirror at $40^\circ$ from the normal. What is its angle of reflection from the normal?
     choices:
-      - text: 40°
+      - text: "$40^\\circ$"
         correct: true
-      - text: 50°
+      - text: "$50^\\circ$"
         rationale: |
-          You calculated the complementary angle ($90^\circ - 40^\circ$). The law of reflection states angle of reflection equals angle of incidence ($40^\circ$).
-      - text: 80°
+          This measures from the surface instead. The two reference lines are perpendicular. Check that both angles use the normal.
+      - text: "$80^\\circ$"
         rationale: |
-          You doubled the incident angle ($40^\circ \times 2$). The law of reflection states $\theta_r = \theta_i = 40^\circ$.
-      - text: 20°
+          This doubles the incidence angle. The angle between the two rays involves both sides. Check that the requested angle is between the reflected ray and normal.
+      - text: "$20^\\circ$"
         rationale: |
-          You halved the incident angle ($\dfrac{40^\circ}{2}$). Reflection preserves exact incidence angle ($\theta_r = \theta_i$).
+          This halves the incidence angle. A bounce can suggest splitting an angle. Check the equality in the reflection law.
     explanation: |
-      The law of reflection states the angle of reflection equals the angle of incidence, so it is also 40°.
+      The reflection angle equals the incidence angle when both are measured from the normal. It is $40^\circ$.
     approved: true
+
   - id: q-physics-light-and-optics-0002
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
-      A light ray hits a flat mirror at an angle of incidence of 55° (measured from the normal). Find the angle of reflection.
+      An incident ray makes $55^\circ$ with a plane mirror’s surface. What angle does the reflected ray make with the normal?
     choices:
-      - text: 55°
+      - text: "$35^\\circ$"
         correct: true
-      - text: 35°
+      - text: "$55^\\circ$"
         rationale: |
-          You calculated the surface angle ($90^\circ - 55^\circ$). Law of reflection states angle of reflection equals angle of incidence ($55^\circ$).
-      - text: 110°
+          This uses the surface angle as the normal angle. The given angle is explicit. Check the reference line.
+      - text: "$110^\\circ$"
         rationale: |
-          You doubled the incident angle ($55^\circ \times 2$). Angle of reflection equals incidence angle ($\theta_r = \theta_i$).
-      - text: 90°
+          This doubles the given surface angle. The ray separation can seem relevant. Check the single reflected-ray angle requested.
+      - text: "$90^\\circ$"
         rationale: |
-          You picked the surface normal angle ($90^\circ$). Angle of reflection equals the incidence angle ($55^\circ$).
+          This reports the angle between surface and normal. That angle is fixed. Check the ray’s angle instead.
     explanation: |
-      The law of reflection states the angle of reflection equals the angle of incidence, so it is also 55°.
+      The normal is perpendicular to the surface. The incidence angle is $90^\circ-55^\circ=35^\circ$. Reflection preserves that normal-based angle.
     approved: true
+
   - id: q-physics-light-and-optics-0003
-    type: classify
-    difficulty: easy
+    type: "classify"
+    difficulty: "easy"
     stem: |
-      A concave mirror (curving inward, like the inside of a spoon) brings parallel light rays together. Is it converging or diverging?
+      How does an ideal concave spherical mirror reflect parallel rays close to its principal axis?
     choices:
-      - text: Converging
+      - text: "Toward a common focus"
         correct: true
-      - text: Diverging
+      - text: "Away from one another as a convex mirror does"
         rationale: |
-          You picked diverging behavior. Concave mirrors focus incoming parallel light inward to a focal point (converging).
-      - text: 'Neither: mirrors do not affect light direction.'
+          This swaps the two mirror shapes. Both are curved reflectors. Check whether the reflecting surface curves inward.
+      - text: "Straight through the mirror as a lens does"
         rationale: |
-          You denied light reflection direction change. Curving mirror surfaces bend ray paths according to local surface normals.
-      - text: It depends on the color of light.
+          This treats reflection as transmission. Mirrors and lenses both form images. Check whether rays pass through the device.
+      - text: "In parallel with no change from their original direction"
         rationale: |
-          You claimed color alters mirror convergence. Metallic specular reflection focuses all visible wavelengths at equal angles.
+          This applies a plane-surface idea to a curved mirror. The incoming rays are parallel. Check how the local normal changes across the mirror.
     explanation: |
-      Concave mirrors bring parallel light rays together toward a focus point, making them converging mirrors.
+      An ideal concave mirror turns near-axis parallel rays inward by reflection. They meet at its focus in the stated approximation.
     approved: true
+
   - id: q-physics-light-and-optics-0004
-    type: classify
-    difficulty: easy
+    type: "structure-function"
+    difficulty: "easy"
     stem: |
-      A convex lens (thicker in the middle) bends light rays together toward a focus point. Is it converging or diverging?
+      An ordinary glass lens in air is thicker at its center than at its edges. What is its usual effect on near-axis parallel rays?
     choices:
-      - text: Converging
+      - text: "It converges them."
         correct: true
-      - text: Diverging
+      - text: "It diverges them because every convex surface spreads rays."
         rationale: |
-          You picked diverging lens classification. Convex lenses bend light inward toward a real focus point (converging).
-      - text: 'Neither: lenses do not affect light direction.'
+          This applies convex-mirror behavior to a lens. The shape word is shared. Check reflection versus refraction.
+      - text: "It returns all rays into the incident medium."
         rationale: |
-          You denied refraction direction change. Lenses alter light direction via boundary refraction.
-      - text: It depends on the color of light.
+          This treats a lens as a mirror. Both redirect light. Check the transmitted rays through the lens.
+      - text: "It leaves their directions unchanged like a flat window."
         rationale: |
-          You claimed color alters lens convergence type. Lens curvature dictates converging vs diverging classification.
+          This ignores the lens’s changing surface angle. Both devices are glass. Check curved faces rather than parallel flat faces.
     explanation: |
-      Convex lenses (thicker in the middle) bring light rays together toward a focus point, making them converging lenses.
+      The center-thick glass lens in air is a converging lens. Refraction at its surfaces turns near-axis parallel rays toward a focus.
     approved: true
+
   - id: q-physics-light-and-optics-0005
-    type: classify
-    difficulty: medium
+    type: "predict-outcome"
+    difficulty: "medium"
     stem: |
-      A convex mirror (curving outward, like the back of a spoon) spreads parallel light rays apart. Is it converging or diverging?
+      For a real object in front of an ordinary convex mirror, which image is formed?
     choices:
-      - text: Diverging
+      - text: "Upright, reduced, and virtual"
         correct: true
-      - text: Converging
+      - text: "Inverted, enlarged, and real"
         rationale: |
-          You picked converging mirror classification. Convex mirrors reflect parallel rays outward away from the focal point (diverging).
-      - text: 'Neither: mirrors do not affect light direction.'
+          This applies a possible concave-mirror image to a convex mirror. Both use reflection. Check the diverging mirror type.
+      - text: "Upright, enlarged, and virtual"
         rationale: |
-          You denied mirror ray bending. Outwardly curved mirror surfaces scatter reflected rays outwards.
-      - text: It depends on the color of light.
+          This uses an enlarged virtual image from a converging device. Upright virtual images are familiar. Check the reduced-image property of a convex mirror.
+      - text: "Inverted, reduced, and real"
         rationale: |
-          You claimed color alters reflection pattern. Surface geometry governs ray direction independently of color.
+          This combines reduction with a real inverted image. The image is indeed smaller. Check whether reflected rays actually meet in front of the mirror.
     explanation: |
-      Convex mirrors spread parallel light rays apart, making them diverging mirrors.
+      The convex mirror makes reflected rays spread apart. Their backward extensions form a virtual image behind it. For a real object, that image is upright and reduced.
     approved: true
+
   - id: q-physics-light-and-optics-0006
-    type: classify
-    difficulty: medium
+    type: "structure-function"
+    difficulty: "medium"
     stem: |
-      A concave lens (thinner in the middle) spreads light rays apart, and is used to correct nearsightedness. Is it converging or diverging?
+      Which ordinary lens in air is commonly used to correct myopia, or nearsightedness?
     choices:
-      - text: Diverging
+      - text: "A diverging concave lens"
         correct: true
-      - text: Converging
+      - text: "A converging convex lens"
         rationale: |
-          You picked converging lens classification. Concave lenses bend incoming parallel rays outward (diverging).
-      - text: 'Neither: lenses do not affect light direction.'
+          This swaps myopia with hyperopia correction. Both use corrective lenses. Check which condition calls for a diverging lens.
+      - text: "A convex mirror in front of the eye"
         rationale: |
-          You denied lens refraction effects. Concave lenses refract light rays outward to correct myopia.
-      - text: It depends on the color of light.
+          This substitutes a reflector for a transmitting lens. A convex mirror diverges rays. Check how light must enter the eye.
+      - text: "A concave mirror in front of the eye"
         rationale: |
-          You claimed color dictates convergence classification. Lens shape determines whether rays converge or diverge.
+          This treats a focusing mirror as a corrective lens. It can form images. Check transmission through the eyeglass lens.
     explanation: |
-      Concave lenses (thinner in the middle) spread light rays apart, making them diverging lenses.
+      Myopia is commonly corrected with a diverging lens. An ordinary concave glass lens in air spreads the entering light rays.
     approved: true
+
   - id: q-physics-light-and-optics-0007
-    type: identify
-    difficulty: medium
+    type: "identify"
+    difficulty: "medium"
     stem: |
-      What does the law of reflection state?
+      Which relation states the law of reflection, with angles measured from the normal?
     choices:
-      - text: The angle of incidence equals the angle of reflection.
+      - text: "$\theta_i=\theta_r$"
         correct: true
-      - text: The angle of incidence is always greater than the angle of reflection.
+      - text: "$\theta_i+\theta_r=90^\\circ$"
         rationale: |
-          You claimed angle inequality. The law of reflection states $\theta_i = \theta_r$ relative to the surface normal.
-      - text: Light always bends when it reflects off a surface.
+          This assumes the two ray angles are complementary. The surface and normal are perpendicular. Check that both angles use the same normal.
+      - text: "$\theta_r=2\theta_i$"
         rationale: |
-          You confused reflection with refraction bending. Bending across media interfaces is refraction, not reflection.
-      - text: Light travels at the same speed in every medium.
+          This uses the angle between the rays as the reflection angle. Both sides of the normal contribute to that angle. Check the reflected ray’s single angle.
+      - text: "$\theta_r=\theta_i/2$"
         rationale: |
-          You claimed constant light speed across media. Light speed changes depending on medium refractive index.
+          This divides the incident angle between two rays. Reflection involves two rays. Check that their normal-based angles are equal.
     explanation: |
-      The law of reflection states that the angle at which light hits a surface (angle of incidence) equals the angle at which it bounces off (angle of reflection).
+      The incident and reflected rays make equal angles with the normal. Therefore $	heta_i=	heta_r$.
     approved: true
+
   - id: q-physics-light-and-optics-0008
-    type: identify
-    difficulty: medium
+    type: "identify"
+    difficulty: "medium"
     stem: |
-      What term describes light bending as it passes from one medium into another, like from air into water?
+      What is the name for the change in a ray’s direction as it crosses obliquely from air into water?
     choices:
-      - text: Refraction
+      - text: "Refraction"
         correct: true
-      - text: Reflection
+      - text: "Reflection"
         rationale: |
-          You picked reflection. Reflection is light bouncing off a boundary within the same medium.
-      - text: Diffraction
+          This returns the ray to its original medium. Boundaries can reflect light too. Check whether the stated ray crosses the boundary.
+      - text: "Diffraction"
         rationale: |
-          You picked diffraction. Diffraction is light bending around obstacle edges or through narrow slits.
-      - text: Convergence
+          This uses bending around edges or small openings. Both can change light’s direction. Check whether the cause here is a change of medium.
+      - text: "Convergence"
         rationale: |
-          You picked geometric ray behavior. Convergence describes rays coming together, not media-boundary bending.
+          This names rays coming together. Lenses can refract rays into a focus. Check the boundary process rather than the resulting ray pattern.
     explanation: |
-      Refraction is the bending of light as it crosses into a different medium, caused by a change in speed at the boundary.
+      The ray changes propagation speed at the air-water boundary. At oblique incidence, this changes its direction according to Snell’s law. That process is refraction.
     approved: true
+
   - id: q-physics-light-and-optics-0009
-    type: process-ordering
-    difficulty: medium
+    type: "process-ordering"
+    difficulty: "medium"
     stem: |
-      Arrange the following from longest to shortest wavelength: X-rays, radio waves, visible light, gamma rays.
+      Order radio waves, visible light, X-rays, and gamma rays from longest to shortest wavelength.
     choices:
-      - text: Radio waves, visible light, X-rays, gamma rays
+      - text: "Radio, visible, X-ray, gamma"
         correct: true
-      - text: Gamma rays, X-rays, visible light, radio waves
+      - text: "Gamma, X-ray, visible, radio"
         rationale: |
-          You ordered from shortest wavelength (highest energy) to longest wavelength. The stem requested longest to shortest.
-      - text: Visible light, radio waves, gamma rays, X-rays
+          This reverses the requested order. It is the short-to-long sequence. Check the direction named in the stem.
+      - text: "Visible, radio, gamma, X-ray"
         rationale: |
-          You placed visible light before radio waves. Radio waves have much longer wavelengths than visible light.
-      - text: Radio waves, gamma rays, X-rays, visible light
+          This puts visible light before radio and reverses the high-frequency end. Visible light is familiar. Check the full spectrum sequence.
+      - text: "Radio, gamma, X-ray, visible"
         rationale: |
-          You misordered gamma rays and X-rays. Gamma rays have shorter wavelengths than X-rays.
+          This puts the shortest waves near the longest. All are electromagnetic waves. Check the relative positions of visible and gamma radiation.
     explanation: |
-      The full electromagnetic spectrum runs (longest to shortest): radio, microwave, infrared, visible, ultraviolet, X-ray, gamma ray. From this list: radio waves, then visible light, then X-rays, then gamma rays.
+      The lesson’s long-to-short order is radio, microwave, infrared, visible, ultraviolet, X-ray, gamma. Keeping just the four named bands gives radio, visible, X-ray, gamma.
     approved: true
+
   - id: q-physics-light-and-optics-0010
-    type: identify
-    difficulty: medium
+    type: "identify"
+    difficulty: "medium"
     stem: |
-      Within the visible light spectrum, which color has the longest wavelength?
+      Which visible color has the longest wavelength?
     choices:
-      - text: Red
+      - text: "Red"
         correct: true
-      - text: Violet
+      - text: "Violet"
         rationale: |
-          You picked the color with the shortest wavelength ($\approx 400\text{ nm}$). Red has the longest wavelength ($\approx 700\text{ nm}$).
-      - text: Blue
+          This chooses the opposite end of the visible range. Violet has high frequency. Check the inverse frequency-wavelength relation.
+      - text: "Blue"
         rationale: |
-          You picked a short-wavelength color. Blue light ($\approx 450\text{ nm}$) is much shorter than red light.
-      - text: Green
+          This picks a short-wavelength color. Blue is a strong visible color. Check its position relative to the red end.
+      - text: "Green"
         rationale: |
-          You picked a mid-spectrum color. Green ($\approx 550\text{ nm}$) has a shorter wavelength than red.
+          This selects a middle color. Green can seem central to vision. Check the wavelength extreme being asked for.
     explanation: |
-      Red has the longest wavelength in the visible spectrum, matching the "r" at the start of the roygbiv mnemonic (ordered longest to shortest).
+      Red lies at the longest-wavelength end of the visible spectrum.
     approved: true
+
   - id: q-physics-light-and-optics-0011
-    type: identify
-    difficulty: medium
+    type: "predict-outcome"
+    difficulty: "medium"
     stem: |
-      Within the visible light spectrum, which color has the shortest wavelength?
+      Red and violet light travel in vacuum. Which has the higher frequency?
     choices:
-      - text: Violet
+      - text: "Violet"
         correct: true
-      - text: Red
+      - text: "Red because its wavelength is longer"
         rationale: |
-          You picked the color with the longest wavelength ($\approx 700\text{ nm}$). Violet has the shortest ($\approx 400\text{ nm}$).
-      - text: Orange
+          This makes frequency grow with wavelength. Red has the longer wavelength. Check the fixed product $f\lambda=c$.
+      - text: "Both have equal frequency because their speeds match"
         rationale: |
-          You picked a long-wavelength color ($\approx 600\text{ nm}$). Violet is at the shortest wavelength end.
-      - text: Yellow
+          This confuses equal speed with equal frequency. Both travel at $c$. Check their different wavelengths.
+      - text: "Their frequencies cannot be compared without intensities"
         rationale: |
-          You picked a mid-to-long wavelength color ($\approx 580\text{ nm}$). Violet has a significantly shorter wavelength.
+          This substitutes brightness for frequency. Light intensity is noticeable. Check that color supplies the wavelength comparison.
     explanation: |
-      Violet has the shortest wavelength in the visible spectrum, matching the "v" at the end of the roygbiv mnemonic (ordered longest to shortest).
+      In vacuum, $c=f\lambda$. Violet has a shorter wavelength than red. With the same speed, its frequency is higher.
     approved: true
+
   - id: q-physics-light-and-optics-0012
-    type: classify
-    difficulty: hard
+    type: "compare-contrast"
+    difficulty: "hard"
     stem: |
-      A student assumes that since concave mirrors converge light, concave lenses must also converge light. Is this correct?
+      For near-axis parallel rays, compare an ideal concave mirror with an ordinary concave glass lens in air.
     choices:
-      - text: 'No: the concave/convex rule flips for lenses; concave lenses actually diverge light, while convex lenses converge it.'
+      - text: "The mirror converges; the lens diverges."
         correct: true
-      - text: 'Yes: concave always means converging, for both mirrors and lenses.'
+      - text: "Both converge because both are concave."
         rationale: |
-          You assumed shape terms mean identical behavior in mirrors and lenses. Concave mirrors converge, but concave lenses diverge.
-      - text: 'No: concave lenses do not affect light at all.'
+          This treats shape words as identical optical behavior. The names match. Check reflection versus refraction.
+      - text: "Both diverge because both are concave."
         rationale: |
-          You claimed concave lenses are inactive. Concave lenses refract passing light rays outward.
-      - text: 'Yes: mirrors and lenses always behave identically for the same shape.'
+          This applies concave-lens behavior to a mirror. The lens does diverge. Check the inward-curved reflector separately.
+      - text: "The mirror diverges; the lens converges."
         rationale: |
-          You equated mirror reflection with lens refraction. Reflection and refraction optics invert shape convergence properties.
+          This reverses both standard behaviors. The rule differs between devices. Check each device’s ray action.
     explanation: |
-      For mirrors, concave converges and convex diverges. For lenses, this pattern reverses: convex lenses converge, and concave lenses diverge. Always check whether the device is a mirror or a lens before applying the rule.
+      The concave mirror brings near-axis parallel reflected rays to a focus. The ordinary concave glass lens in air spreads transmitted rays apart.
     approved: true
+
   - id: q-physics-light-and-optics-0013
-    type: compare-contrast
-    difficulty: hard
+    type: "compare-contrast"
+    difficulty: "hard"
     stem: |
-      Which statement correctly tells apart reflection and refraction?
+      Which distinction correctly describes reflected and transmitted refracted rays at a boundary?
     choices:
-      - text: Reflection is light bouncing off a surface, staying in the same medium; refraction is light bending as it passes into a different medium.
+      - text: "Reflection returns; refraction crosses."
         correct: true
-      - text: Reflection is light bending into a new medium; refraction is light bouncing off a surface.
+      - text: "Reflection crosses into the other medium; refraction returns."
         rationale: |
-          You reversed reflection and refraction definitions. Reflection bounces in one medium; refraction penetrates and bends in a new medium.
-      - text: Reflection and refraction are just two different names for the exact same phenomenon.
+          This swaps the two processes. Both occur at boundaries. Check which ray remains in the original medium.
+      - text: "Both processes always return light to the incident medium."
         rationale: |
-          You equated reflection and refraction. They are distinct optical phenomena involving different wave behaviors.
-      - text: Refraction only happens with mirrors; reflection only happens with lenses.
+          This applies the reflected-ray behavior to transmission. Both can redirect light. Check whether the boundary is crossed.
+      - text: "Refraction changes direction only, with no possible speed change."
         rationale: |
-          You assigned optics backwards. Mirrors reflect light; lenses refract light.
+          This ignores the propagation-speed change. Bending is the visible effect. Check the refractive indices.
     explanation: |
-      Reflection keeps light in the same medium, simply bouncing off a surface. Refraction involves light actually crossing into a different medium and bending due to the change in speed.
+      Reflection sends a ray back into the incident medium. Refraction involves light transmitted across the boundary into another optical medium. Its speed can change there.
     approved: true
+
   - id: q-physics-light-and-optics-0014
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A student assumes visible light makes up most of the electromagnetic spectrum, since it is the only part we can see and think about regularly. Is this correct?
+      How does visible light fit into the electromagnetic spectrum?
     choices:
-      - text: 'No: visible light is only a tiny slice of the full electromagnetic spectrum, bordered by infrared and ultraviolet.'
+      - text: "It is one narrow wavelength band."
         correct: true
-      - text: 'Yes: visible light makes up the majority of the electromagnetic spectrum.'
+      - text: "It includes radio waves and X-rays because all are light."
         rationale: |
-          You overrepresented visible spectrum fraction. Visible light spans only a narrow $400\text{--}700\text{ nm}$ range.
-      - text: 'No: the electromagnetic spectrum consists only of visible light and nothing else.'
+          This confuses the broad physics meaning of light with visible light. All are electromagnetic radiation. Check what human eyes detect.
+      - text: "It is the entire spectrum because only visible waves carry energy."
         rationale: |
-          You restricted the spectrum to visible wavelengths. The spectrum includes radio, microwave, infrared, UV, X-ray, and gamma rays.
-      - text: 'Yes: radio waves and X-rays are actually part of visible light.'
+          This limits energy transport to what eyes see. Visibility is familiar. Check invisible radiation such as infrared.
+      - text: "It is separate from electromagnetic waves because it has color."
         rationale: |
-          You grouped non-visible radiation into visible light. Radio waves and X-rays are invisible electromagnetic frequencies.
+          This treats color as a different wave type. Color is a visible sensation. Check that visible light is electromagnetic radiation.
     explanation: |
-      Visible light occupies only a narrow band of the full electromagnetic spectrum. Most electromagnetic radiation (radio waves, microwaves, infrared, ultraviolet, X-rays, and gamma rays) is invisible to human eyes.
+      Visible light is the narrow band detected by human eyes. It lies between infrared and ultraviolet in the electromagnetic spectrum.
     approved: true
+
   - id: q-physics-light-and-optics-0015
-    type: classify
-    difficulty: hard
+    type: "compare-contrast"
+    difficulty: "hard"
     stem: |
-      A student says violet light has a longer wavelength than red light, since violet appears at the "high energy" end people associate with bigger numbers. Is this correct?
+      A radio wave and an X-ray propagate in vacuum. How do their speeds compare?
     choices:
-      - text: 'No: red has the longest wavelength in the visible spectrum, and violet has the shortest.'
+      - text: "They are equal."
         correct: true
-      - text: 'Yes: violet always has a longer wavelength than red.'
+      - text: "The X-ray is faster because its frequency is higher."
         rationale: |
-          You assigned longer wavelength to violet. Red has the longest visible wavelength ($\approx 700\text{ nm}$); violet has shortest ($\approx 400\text{ nm}$).
-      - text: 'No: red and violet actually have the exact same wavelength.'
+          This uses frequency to change vacuum speed. X-rays have shorter wavelengths. Check the common speed $c$.
+      - text: "The radio wave is faster because its wavelength is longer."
         rationale: |
-          You claimed red and violet wavelengths are equal. Red and violet lie at opposite ends of the visible light spectrum.
-      - text: 'Yes: wavelength and energy always increase together in the same direction as this student assumes for violet.'
+          This uses wavelength to change vacuum speed. Radio waves have long wavelengths. Check the fixed speed for electromagnetic waves in vacuum.
+      - text: "Their speeds depend only on how bright their sources are."
         rationale: |
-          You linked energy and wavelength directly. Energy and wavelength are inversely proportional ($E = \dfrac{hc}{\lambda}$).
+          This uses intensity to set propagation speed. Stronger signals can seem faster. Check the vacuum-speed rule.
     explanation: |
-      Red has the longest wavelength in visible light, and violet has the shortest: the opposite of what the student assumed. The roygbiv mnemonic lists colors from longest to shortest wavelength.
+      Both are electromagnetic waves. In vacuum, all electromagnetic waves propagate at the same speed $c$.
     approved: true
+
+  - id: q-physics-light-and-optics-0016
+    approved: false
+    type: "predict-outcome"
+    difficulty: "easy"
+    stem: |
+      A ray enters higher-index glass from air exactly along the normal. What happens to its transmitted direction?
+    choices:
+      - text: "It stays along the normal."
+        correct: true
+      - text: "It bends toward the surface."
+        rationale: |
+          This assumes every new medium requires a bend. The speed changes. Check the zero incidence angle.
+      - text: "It bends sideways because glass slows it."
+        rationale: |
+          This treats a speed change as sufficient for a directional change. Refraction often bends rays. Check the normal-incidence exception.
+      - text: "It undergoes total internal reflection from air into glass."
+        rationale: |
+          This applies the high-to-low-index condition in reverse. Reflection can occur at boundaries. Check the direction of the index change.
+    explanation: |
+      At normal incidence, the incident angle is zero. Snell’s law then gives a zero transmitted angle. The ray slows in glass while continuing along the normal.
+
+  - id: q-physics-light-and-optics-0017
+    approved: false
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      A ray crosses obliquely from water into air below the critical angle. What happens to its direction?
+    choices:
+      - text: "It bends away from the normal."
+        correct: true
+      - text: "It bends toward the normal."
+        rationale: |
+          This applies the higher-index-entry rule in reverse. Crossing into a medium changes direction. Check that air has the lower index.
+      - text: "It remains unchanged at every incidence angle."
+        rationale: |
+          This generalizes normal incidence to an oblique ray. Some rays cross without turning. Check the stated nonzero angle.
+      - text: "It bends along the normal regardless of incidence angle."
+        rationale: |
+          This assumes every ray is forced to zero angle. The normal is the reference line. Check Snell’s relation between the two angles.
+    explanation: |
+      Water has the higher refractive index. Below the critical angle, transmitted light entering air speeds up and bends away from the normal.
+
+  - id: q-physics-light-and-optics-0018
+    approved: false
+    type: "compare-contrast"
+    difficulty: "hard"
+    stem: |
+      A light wave crosses from air into ordinary glass. Which wave property remains unchanged across the boundary?
+    choices:
+      - text: "Frequency"
+        correct: true
+      - text: "Speed"
+        rationale: |
+          This applies the vacuum speed to material propagation. All light has speed $c$ in vacuum. Check the refractive index.
+      - text: "Wavelength"
+        rationale: |
+          This assumes the spacing between wave crests cannot change. The source remains the same. Check the changed speed at fixed frequency.
+      - text: "Direction for every incidence angle"
+        rationale: |
+          This generalizes the normal-incidence case. Some rays do stay straight. Check whether incidence is oblique.
+    explanation: |
+      The source sets the frequency, which stays the same across the boundary. The changed propagation speed changes wavelength.
+
+  - id: q-physics-light-and-optics-0019
+    approved: false
+    type: "classify"
+    difficulty: "hard"
+    stem: |
+      What conditions allow total internal reflection at a boundary?
+    choices:
+      - text: "Higher-to-lower index; incidence above the critical angle"
+        correct: true
+      - text: "Lower-to-higher index; incidence above any chosen angle"
+        rationale: |
+          This reverses the required index direction. Large angles can seem sufficient. Check which side has the higher index.
+      - text: "Higher-to-lower index; incidence exactly along the normal"
+        rationale: |
+          This replaces the critical-angle threshold with normal incidence. The index direction is right. Check the required angle.
+      - text: "Equal indices on both sides; any nonzero incidence angle"
+        rationale: |
+          This treats any boundary as sufficient. Two materials can meet there. Check that an index contrast and critical-angle condition are needed.
+    explanation: |
+      Total internal reflection can occur when light travels from higher to lower refractive index. The incidence angle must exceed the critical angle.
+
+  - id: q-physics-light-and-optics-0020
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "exam"
+    stem: |
+      Light of frequency $5.0\times10^{14}\,\mathrm{Hz}$ travels in vacuum at $3.0\times10^8\,\mathrm{m/s}$. What is its wavelength?
+    choices:
+      - text: "$6.0\times10^{-7}\\,\\mathrm m$"
+        correct: true
+      - text: "$1.67\times10^6\\,\\mathrm m$"
+        rationale: |
+          This divides frequency by speed. Both quantities are given. Check that wavelength equals speed divided by frequency.
+      - text: "$1.5\times10^{23}\\,\\mathrm m$"
+        rationale: |
+          This multiplies speed and frequency. Their product can look like combining wave quantities. Check how to isolate wavelength in $c=f\lambda$.
+      - text: "$6.0\times10^{-6}\\,\\mathrm m$"
+        rationale: |
+          This shifts the final power of ten by one place. The coefficient six looks right. Check conversion from $0.6	imes10^{-6}$ to standard scientific notation.
+    explanation: |
+      From $c=f\lambda$, $\lambda=\dfrac cf$. Thus $\lambda=\dfrac{3.0\times10^8}{5.0\times10^{14}}=0.6\times10^{-6}=6.0\times10^{-7}\,\mathrm m$.

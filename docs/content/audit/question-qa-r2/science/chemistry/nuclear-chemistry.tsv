@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-chemistry-nuclear-chemistry-0001	CORRECTED	SOLVED-MATCH	choices;explanation;notes	LOW	Beta-minus label made specific.
+q-chemistry-nuclear-chemistry-0002	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	LOW	Beta-minus specified and antineutrino included.
+q-chemistry-nuclear-chemistry-0003	CORRECTED	SOLVED-MATCH	stem;explanation;notes	LOW	Photon and nuclear energy-state description replaces vague pure-energy wording.
+q-chemistry-nuclear-chemistry-0004	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-nuclear-chemistry-0005	CORRECTED	SOLVED-MATCH	stem;explanation;notes	HIGH	Original unspecified beta could mean beta-minus or beta-plus; mass number is exactly unchanged.
+q-chemistry-nuclear-chemistry-0006	VERIFIED	SOLVED-MATCH	explanation;notes	HIGH	Original note implied fission fragments must be roughly equal; the definition does not require that.
+q-chemistry-nuclear-chemistry-0007	CORRECTED	SOLVED-MATCH	stem;explanation;notes	HIGH	Original described two solar hydrogen nuclei directly forming helium and claimed unqualified greater fusion energy.
+q-chemistry-nuclear-chemistry-0008	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Longest correct choice shortened; explanation only describes alpha bookkeeping.
+q-chemistry-nuclear-chemistry-0009	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original repeated the Sun fusion classification and used a longest answer.
+q-chemistry-nuclear-chemistry-0010	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Longest correct choice shortened and wrong-choice comparisons removed.
+q-chemistry-nuclear-chemistry-0011	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original stated thick lead or concrete blocks gamma rays completely.
+q-chemistry-nuclear-chemistry-0012	CORRECTED	SOLVED-MATCH	stem;explanation;notes	LOW	Comparison qualified; beta-minus named and shielding no longer treated as absolute.
+q-chemistry-nuclear-chemistry-0013	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-nuclear-chemistry-0014	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original compared fusion and fission energy without specifying per event or per fuel mass.
+q-chemistry-nuclear-chemistry-0015	NEW	NEW	new question	NONE	
+q-chemistry-nuclear-chemistry-0016	NEW	NEW	new question	NONE	
+q-chemistry-nuclear-chemistry-0017	NEW	NEW	new question	NONE	
+q-chemistry-nuclear-chemistry-0018	NEW	NEW	new question	NONE	
+q-chemistry-nuclear-chemistry-0019	NEW	NEW	new question	NONE	
+q-chemistry-nuclear-chemistry-0020	NEW	NEW	new question	NONE	

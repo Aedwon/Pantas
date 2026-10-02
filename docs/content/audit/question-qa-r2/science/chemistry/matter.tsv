@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-chemistry-matter-0001	VERIFIED	SOLVED-MATCH	explanation;notes	HIGH	Original element definition omitted the ordinary-chemical-reaction limit.
+q-chemistry-matter-0002	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Alloy was a weak distractor for an ionic salt.
+q-chemistry-matter-0003	VERIFIED	SOLVED-MATCH	explanation;notes	HIGH	Original note claimed mixtures have no chemical bonds, an overgeneralization.
+q-chemistry-matter-0004	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Correct choice was longest and explanation discussed distractor claims.
+q-chemistry-matter-0005	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-matter-0006	CORRECTED	SOLVED-MATCH	choices;explanation;notes	LOW	Correct choice shortened to avoid a longest-answer cue.
+q-chemistry-matter-0007	CORRECTED	SOLVED-MATCH	stem;explanation;notes	HIGH	Original called the CO2 gas misty; visible dry-ice mist is condensed water droplets.
+q-chemistry-matter-0008	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-matter-0009	CORRECTED	SOLVED-MATCH	choices;explanation;notes	HIGH	Original claimed becoming less ordered always requires absorbing energy.
+q-chemistry-matter-0010	CORRECTED	SOLVED-MATCH	choices;explanation;notes	HIGH	Original claimed becoming more ordered always releases energy.
+q-chemistry-matter-0011	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-matter-0012	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Longest correct choice shortened and solution-only explanation restored.
+q-chemistry-matter-0013	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original note assigned all rust the formula Fe2O3; rust composition is more complex.
+q-chemistry-matter-0014	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-matter-0015	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Longest correct choice shortened and energy-based distractor discussion moved to notes.
+q-chemistry-matter-0016	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-matter-0017	NEW	NEW	new question	NONE	
+q-chemistry-matter-0018	NEW	NEW	new question	NONE	
+q-chemistry-matter-0019	NEW	NEW	new question	NONE	
+q-chemistry-matter-0020	NEW	NEW	new question	NONE	

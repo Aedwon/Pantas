@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-earth-science-astronomy-layers-of-the-earth-0001	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-layers-of-the-earth-0002	CORRECTED	SOLVED-FIXED	explanation;notes;stem;choices	HIGH	Original key used 70 km as typical continental thickness instead of about 35 km.
+q-earth-science-astronomy-layers-of-the-earth-0003	CORRECTED	SOLVED-MATCH	explanation;notes;choices	HIGH	Original gave 70 km as typical continental thickness and 5 km for oceanic crust; weak distractors replaced.
+q-earth-science-astronomy-layers-of-the-earth-0004	CORRECTED	SOLVED-MATCH	explanation;notes;stem	LOW	Used lesson's depth boundary and silicate composition.
+q-earth-science-astronomy-layers-of-the-earth-0005	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-layers-of-the-earth-0006	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Magnetic field generation is not taught; stem, choices, key preserved; overlaps item 0014.
+q-earth-science-astronomy-layers-of-the-earth-0007	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-layers-of-the-earth-0008	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-layers-of-the-earth-0009	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Duplicate pressure claim replaced with an experimental analogy.
+q-earth-science-astronomy-layers-of-the-earth-0010	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-layers-of-the-earth-0011	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Repeated mantle-volume question replaced with mechanical-layer comparison.
+q-earth-science-astronomy-layers-of-the-earth-0012	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Replaced implausible camera choice and absolute inference with seismic evidence.
+q-earth-science-astronomy-layers-of-the-earth-0013	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-layers-of-the-earth-0014	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Global field generation absent from lesson; stem, choices, key preserved; duplicate of 0006 and longest-answer cue retained.
+q-earth-science-astronomy-layers-of-the-earth-0015	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	HIGH	Original explanation wrongly treated 70 km as typical continental thickness.
+q-earth-science-astronomy-layers-of-the-earth-0016	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-layers-of-the-earth-0017	NEW	NEW	new question	NONE	
+q-earth-science-astronomy-layers-of-the-earth-0018	NEW	NEW	new question	NONE	
+q-earth-science-astronomy-layers-of-the-earth-0019	NEW	NEW	new question	NONE	
+q-earth-science-astronomy-layers-of-the-earth-0020	NEW	NEW	new question	NONE	

@@ -2,264 +2,424 @@ meta:
   subject: science
   topic: chemistry
   subtopic: mixtures-and-separation
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-chemistry-mixtures-and-separation-0001
-    type: classify
-    difficulty: easy
+    type: 'classify'
+    difficulty: 'easy'
     stem: |
-      A cup of black coffee has no visible grounds or separate parts floating in it. Is this mixture homogeneous or heterogeneous?
+      A clear sugar-water solution has all sugar fully dissolved and uniform composition throughout. How is it classified?
     choices:
-      - text: Homogeneous
+      - text: 'Homogeneous'
         correct: true
-      - text: Heterogeneous
-        rationale: "You picked the mixture type that has visibly distinct parts or layers. Black coffee has a uniform appearance throughout."
-      - text: A compound
-        rationale: "You picked a pure substance formed when elements chemically bond together. Coffee is a physical blend of water and dissolved compounds."
-      - text: An element
-        rationale: "You picked a fundamental substance made of only one kind of atom. Coffee contains many distinct chemical compounds mixed together."
+      - text: 'Heterogeneous'
+        rationale: |
+          This treats several substances as separate phases. Sugar and water are different substances. Check whether they are uniformly dissolved.
+      - text: 'A compound'
+        rationale: |
+          This treats a uniform solution as one compound. It looks like one material. Check whether the sugar-water ratio can vary.
+      - text: 'An element'
+        rationale: |
+          This treats one-looking material as one element. The liquid appears simple. Check that it contains several compounds.
     explanation: |
-      A homogeneous mixture looks completely uniform, with no visible separate parts. Since the coffee shows no separate parts, it is homogeneous.
+      A fully dissolved sugar solution has uniform composition at the scale considered. It is a homogeneous mixture.
     approved: true
+
   - id: q-chemistry-mixtures-and-separation-0002
-    type: classify
-    difficulty: easy
+    type: 'classify'
+    difficulty: 'easy'
     stem: |
       A bowl of vegetable soup clearly shows separate chunks of carrots, potatoes, and celery. Is this mixture homogeneous or heterogeneous?
     choices:
-      - text: Heterogeneous
+      - text: 'Nonuniform'
         correct: true
-      - text: Homogeneous
-        rationale: "You picked the mixture type that looks completely uniform throughout. Vegetable soup has visibly separate ingredients and layers."
-      - text: A compound
-        rationale: "You picked a pure substance joined by chemical bonds. Vegetable soup is a physical mixture whose components retain their identities."
-      - text: An element
-        rationale: "You picked a basic chemical substance that cannot be broken down further. Soup is a physical combination of many different compounds."
+      - text: 'Homogeneous'
+        rationale: |
+          This treats the contents of one bowl as uniformly composed. The soup is one sample. Check its different regions.
+      - text: 'One compound'
+        rationale: |
+          This treats a recipe as a fixed chemical substance. Ingredients are combined. Check whether they retain their identities.
+      - text: 'One element'
+        rationale: |
+          This treats the sample as one atom type. It has one common name. Check the distinct substances in its ingredients.
     explanation: |
-      A heterogeneous mixture has visible separate parts. Since the vegetable chunks can clearly be seen, the soup is heterogeneous.
+      The soup has distinct vegetable pieces and liquid regions with different composition. This makes it a heterogeneous, or nonuniform, mixture.
     approved: true
+
   - id: q-chemistry-mixtures-and-separation-0003
-    type: classify
-    difficulty: easy
+    type: 'classify'
+    difficulty: 'easy'
     stem: |
       Clean air is a uniform blend of gases with no visible separate parts. Is this mixture homogeneous or heterogeneous?
     choices:
-      - text: Homogeneous
+      - text: 'Homogeneous'
         correct: true
-      - text: Heterogeneous
-        rationale: "You picked the classification for mixtures with visible parts or separate phases. Clean air looks uniform and evenly mixed throughout."
-      - text: A compound
-        rationale: "You picked a substance formed by chemically bonded elements. Air is a physical mixture of separate gas molecules like nitrogen and oxygen."
-      - text: An element
-        rationale: "You picked a single pure substance of one atomic type. Air is a mixture containing several different gases."
+      - text: 'Heterogeneous'
+        rationale: |
+          This assumes different gases create separate visible phases. Air contains several gases. Check whether composition is uniform.
+      - text: 'A compound'
+        rationale: |
+          This treats several gases as one fixed chemical formula. They occupy the same space. Check whether their identities remain distinct.
+      - text: 'An element'
+        rationale: |
+          This treats invisible matter as one atom type. The gases cannot be seen separately. Check the stated blend of gases.
     explanation: |
-      Since the gases in clean air blend together with no visible separate parts, it is a homogeneous mixture.
+      A well-mixed clean-air sample has the same gas composition throughout at ordinary sampling scales. It is a homogeneous mixture.
     approved: true
+
   - id: q-chemistry-mixtures-and-separation-0004
-    type: classify
-    difficulty: medium
+    type: 'identify'
+    difficulty: 'medium'
     stem: |
-      A bucket of dry sand mixed with small gravel stones shows clearly distinct particles of different sizes. Is this mixture homogeneous or heterogeneous?
+      An air cleaner passes dusty air through a porous barrier that retains dust. Which separation method is being used?
     choices:
-      - text: Heterogeneous
+      - text: 'Filtration'
         correct: true
-      - text: Homogeneous
-        rationale: "You picked the term for a uniform blend with no visible differences. Sand and gravel remain clearly distinct from each other."
-      - text: A pure substance
-        rationale: "You picked a material made of only one type of element or compound. Sand and gravel are a physical mixture of distinct mineral grains."
-      - text: A compound
-        rationale: "You picked a substance formed by chemical bonding between elements. Mixing sand and gravel is a physical process without chemical bonds."
+      - text: 'Distillation'
+        rationale: |
+          This uses vaporization and condensation for suspended dust. Distillation separates by volatility. Check whether the separation uses a porous barrier.
+      - text: 'Chromatography'
+        rationale: |
+          This uses a mobile and stationary phase method for bulk dust. Both are separation methods. Check what the filter physically retains.
+      - text: 'Evaporation'
+        rationale: |
+          This expects loss of a solvent to remove dust. Evaporation can recover dissolved solids. Check that the fluid here is already a gas.
     explanation: |
-      Since the sand and gravel particles remain visibly distinct and unevenly distributed, this is a heterogeneous mixture.
+      A suitable filter retains solid dust particles while air passes through. Filtration can separate suspended solids from gases as well as liquids.
     approved: true
+
   - id: q-chemistry-mixtures-and-separation-0005
-    type: predict-outcome
-    difficulty: easy
+    type: 'predict-outcome'
+    difficulty: 'easy'
     stem: |
-      A student needs to separate sand from a sand-and-water mixture. Which technique is most appropriate?
+      A student must retain suspended sand while letting liquid water pass through, without heating the mixture. Which method fits?
     choices:
-      - text: Filtration
+      - text: 'Filtration'
         correct: true
-      - text: Distillation
-        rationale: "You picked the technique used to separate dissolved liquids by boiling point. Sand is an insoluble solid that can be filtered much faster."
-      - text: Chromatography
-        rationale: "You picked the method used to separate dissolved solutes like pigments. Undissolved sand particles are easily trapped with a simple filter."
-      - text: Evaporation
-        rationale: "You picked the method that boils away the liquid. Filtration is faster and lets you keep both the sand and liquid water."
+      - text: 'Distillation'
+        rationale: |
+          This uses heating and condensation when a particle barrier is requested. Distillation can recover water. Check the no-heating condition.
+      - text: 'Chromatography'
+        rationale: |
+          This applies a dissolved-component method to suspended sand. Chromatography separates many solutes. Check whether the particles remain undissolved.
+      - text: 'Evaporation'
+        rationale: |
+          This lets water escape instead of passing it through a barrier. Evaporation can leave sand behind. Check how the stem requires the water to be handled.
     explanation: |
-      Filtration uses a material with tiny holes that let the liquid pass through while trapping solid particles. Since sand does not dissolve in water, filtration easily traps it.
+      Undissolved sand particles can be retained by a suitable filter. Liquid water passes through, so filtration separates them without heating.
     approved: true
+
   - id: q-chemistry-mixtures-and-separation-0006
-    type: predict-outcome
-    difficulty: medium
+    type: 'predict-outcome'
+    difficulty: 'medium'
     stem: |
-      A student wants to recover the salt from saltwater and does not need to keep the water afterward. Which technique is most appropriate?
+      Saltwater is left until its water escapes as vapor, without collection, leaving salt behind. Which process is used?
     choices:
-      - text: Evaporation
+      - text: 'Evaporation'
         correct: true
-      - text: Filtration
-        rationale: "You picked the method for trapping undissolved solids. Salt dissolves into particles far too small for a liquid filter to trap."
-      - text: Chromatography
-        rationale: "You picked the method used to separate mixtures of colored dyes based on attraction. Evaporation is the standard way to recover a dissolved solid."
-      - text: Distillation
-        rationale: "You picked the process that cools and collects evaporated liquid vapor. Since you do not need the water, simple evaporation saves time."
+      - text: 'Filtration'
+        rationale: |
+          This treats dissolved salt as filterable solid grains. Salt was originally solid. Check whether it is now dissolved.
+      - text: 'Chromatography'
+        rationale: |
+          This selects differential movement through two phases. It is a separation method. Check whether the described operation simply removes solvent.
+      - text: 'Distillation'
+        rationale: |
+          This adds vapor collection to a process where vapor escapes. Both methods involve vaporization. Check whether a condenser collects the vapor.
     explanation: |
-      Evaporation heats the mixture until the liquid turns to vapor and escapes, leaving the dissolved solid behind. Since the water does not need to be collected, simply letting it evaporate away is enough.
+      Evaporation lets the solvent leave as vapor without collecting it. Nonvolatile dissolved salt remains in the container.
     approved: true
+
   - id: q-chemistry-mixtures-and-separation-0007
-    type: predict-outcome
-    difficulty: medium
+    type: 'predict-outcome'
+    difficulty: 'medium'
     stem: |
-      A student wants to separate alcohol from an alcohol-water mixture and needs to keep both liquids afterward. Which technique is most appropriate?
+      A laboratory separates a bulk volatile-liquid mixture by heating it and collecting condensed vapor in a second vessel. Which method is used?
     choices:
-      - text: Distillation
+      - text: 'Distillation'
         correct: true
-      - text: Evaporation
-        rationale: "You picked the method that lets boiled vapor escape into the air. Distillation cools and collects that vapor so you keep both liquids."
-      - text: Filtration
-        rationale: "You picked the method for solid-liquid mixtures. Alcohol and water are completely dissolved together and pass right through a filter."
-      - text: Chromatography
-        rationale: "You picked the technique used to analyze component pigments in tiny samples. Distillation is designed for collecting bulk liquid mixtures."
+      - text: 'Evaporation'
+        rationale: |
+          This lets vapor escape without recovery. Evaporation also changes liquid to gas. Check the need to condense and collect it.
+      - text: 'Filtration'
+        rationale: |
+          This uses a particle barrier for dissolved liquids. A filter separates some mixtures. Check whether the components pass through together.
+      - text: 'Chromatography'
+        rationale: |
+          This uses differential phase distribution instead of the specified vapor-and-condenser process. Both can separate substances. Check the apparatus described.
     explanation: |
-      Distillation heats the mixture so the substance with the lower boiling point evaporates first, then cools that vapor back into a liquid and collects it separately. This is the only technique here that captures both liquids instead of letting one escape.
+      Distillation vaporizes part of a liquid mixture and condenses the vapor for collection. Differences in volatility give the collected liquid a different composition.
     approved: true
+
   - id: q-chemistry-mixtures-and-separation-0008
-    type: predict-outcome
-    difficulty: medium
+    type: 'predict-outcome'
+    difficulty: 'medium'
     stem: |
       A student wants to find out whether a sample of black ink is really a single pure dye or a blend of several different colored dyes. Which technique is most appropriate?
     choices:
-      - text: Chromatography
+      - text: 'Chromatography'
         correct: true
-      - text: Filtration
-        rationale: "You picked the method for trapping insoluble solids. Ink dyes are dissolved liquids or tiny particles that pass through filter paper."
-      - text: Evaporation
-        rationale: "You picked the method that leaves all dissolved solids together in one pile. It cannot separate individual dyes from one another."
-      - text: Distillation
-        rationale: "You picked the technique for separating liquids by boiling points. Chromatography separates dissolved pigments along a paper strip."
+      - text: 'Ordinary filtration'
+        rationale: |
+          This expects ordinary filter paper to retain dissolved dyes by size. The paper looks like a filter. Check whether the method needs solvent movement to separate dyes.
+      - text: 'Simple evaporation'
+        rationale: |
+          This removes solvent while leaving dyes together. The dyes become visible afterward. Check whether individual components separate into bands.
+      - text: 'Simple distillation'
+        rationale: |
+          This focuses on volatility rather than dye movement. Distillation is a familiar separation. Check whether components distribute differently along the paper.
     explanation: |
-      Chromatography separates the different components of a mixture based on how strongly each one is attracted to a moving liquid versus a fixed material. If the ink is really several dyes, they will separate into visible bands of different colors.
+      In suitable paper chromatography, dye components move differently through mobile and stationary phases. Separated colored bands provide evidence of several dye components.
     approved: true
+
   - id: q-chemistry-mixtures-and-separation-0009
-    type: compare-contrast
-    difficulty: hard
+    type: 'compare-contrast'
+    difficulty: 'hard'
     stem: |
       A student uses evaporation to try to separate an alcohol-water mixture, planning to keep both liquids. Why does this approach fail?
     choices:
-      - text: Evaporation lets the vapor escape into the air instead of collecting it, so the more volatile liquid is lost rather than recovered.
+      - text: 'The escaping vapor is not collected.'
         correct: true
-      - text: Evaporation only works on solids, never on liquid mixtures.
-        rationale: "You picked a rule that is incorrect because liquids can evaporate. The failure occurs because the escaped vapor is not condensed or saved."
-      - text: Evaporation destroys the chemical identity of both liquids.
-        rationale: "You picked a statement implying a chemical reaction occurs. Evaporation is a physical change that leaves chemical structures intact."
-      - text: Evaporation requires a stationary phase that alcohol-water mixtures do not have.
-        rationale: "You picked a requirement that applies to chromatography. Evaporation depends on heat and vapor pressure, not a stationary phase."
+      - text: 'Evaporation cannot occur in a liquid mixture.'
+        rationale: |
+          This says a liquid mixture cannot evaporate. Solids are often the recovered residue. Check what state actually becomes vapor.
+      - text: 'Evaporation destroys both components’ chemical identities.'
+        rationale: |
+          This treats a phase change as destroying molecules. Heating is involved. Check whether chemical identity must change during vaporization.
+      - text: 'Evaporation requires a chromatography stationary phase.'
+        rationale: |
+          This imports a chromatography requirement. Many separations use phases. Check whether evaporation requires a fixed separation medium.
     explanation: |
-      Evaporation simply lets the vapor escape into the air: it never captures it. To keep both liquids, the vapor must be cooled and collected, which is exactly what distillation does that evaporation does not.
+      Ordinary evaporation allows vapor to escape. That escaping material is not recovered. Keeping it requires condensation and collection.
     approved: true
+
   - id: q-chemistry-mixtures-and-separation-0010
-    type: compare-contrast
-    difficulty: hard
+    type: 'compare-contrast'
+    difficulty: 'hard'
     stem: |
       A student tries to use filtration to separate salt that is fully dissolved in water. Why does this approach fail?
     choices:
-      - text: Filtration only traps undissolved solid particles; a fully dissolved solid has broken into particles too small for the filter to catch.
+      - text: 'Dissolved ions pass through ordinary filter paper.'
         correct: true
-      - text: Filtration only works on gases, never on liquids.
-        rationale: "You picked an incorrect limitation. Filtration is widely used on liquids to trap insoluble solids like sand or coffee grounds."
-      - text: Salt is a compound, so it cannot be separated by any physical method.
-        rationale: "You picked a statement that confuses physical mixtures with chemical bonds. Saltwater is a mixture that can be separated physically by evaporation."
-      - text: Filtration only works if the mixture is heterogeneous, and dissolved salt makes the water homogeneous, so filtration is unrelated to that idea.
-        rationale: "You picked an explanation with flawed logic. Homogeneous mixtures like saltwater cannot be filtered because the solute particles are dissolved."
+      - text: 'Filtration can be used on gases but never on liquids.'
+        rationale: |
+          This excludes liquid filtration. Filters are also used for dusty air. Check whether filters can retain suspended solids in liquids.
+      - text: 'Salt’s compound status prevents removing it from water.'
+        rationale: |
+          This confuses separating a mixture with decomposing a compound. Salt is a compound. Check whether the goal is to remove it from water or split its elements.
+      - text: 'Dissolving makes salt grains larger than the filter pores.'
+        rationale: |
+          This assumes invisible dissolved ions have become large trapped grains. Salt began as crystals. Check its present dissolved state.
     explanation: |
-      Filtration relies on solid particles being too large to pass through the filter's tiny holes. Once salt fully dissolves, its particles become far too small to trap, so evaporation or distillation is needed instead.
+      Dissolved salt is dispersed as ions in water. Those ions pass through ordinary filter paper with the water. The filter therefore does not separate this true solution.
     approved: true
+
   - id: q-chemistry-mixtures-and-separation-0011
-    type: compare-contrast
-    difficulty: medium
+    type: 'compare-contrast'
+    difficulty: 'medium'
     stem: |
       A student assumes that because saltwater looks completely uniform (homogeneous), it must be impossible to separate back into salt and water. Is this assumption correct?
     choices:
-      - text: 'No: homogeneous mixtures can still be separated, for example with evaporation or distillation.'
+      - text: 'No; physical properties still allow separation.'
         correct: true
-      - text: 'Yes: homogeneous mixtures can never be physically separated.'
-        rationale: "You picked a choice that confuses visual appearance with chemical bonding. Homogeneous mixtures can be separated by physical methods like distillation."
-      - text: 'No: but only because saltwater is actually a compound, not a mixture.'
-        rationale: "You picked a classification error. Saltwater is a physical mixture of sodium chloride and water, not a single chemical compound."
-      - text: 'Yes: only heterogeneous mixtures can be separated using physical methods.'
-        rationale: "You picked a rule that excludes solutions. Homogeneous mixtures can easily be separated using phase changes like boiling or evaporating."
+      - text: 'Yes; uniform composition makes separation impossible.'
+        rationale: |
+          This treats uniformity as permanent chemical combination. The sample looks like one substance. Check whether the components retain their identities.
+      - text: 'No; saltwater is one compound rather than a mixture.'
+        rationale: |
+          This calls variable-composition saltwater a compound. It contains salt, which is itself a compound. Check the entire sample’s composition.
+      - text: 'Yes; only visibly nonuniform mixtures can be separated.'
+        rationale: |
+          This excludes homogeneous mixtures from physical separation. Visible parts are easier to sort. Check whether volatility can distinguish dissolved components.
     explanation: |
-      Looking uniform (homogeneous) only describes appearance: it says nothing about whether a mixture can be separated. Saltwater can still be separated by evaporation or distillation, even though it looks completely smooth.
+      Salt and water retain distinct identities in solution. Their physical properties allow separation. Distillation can collect water while nonvolatile salt remains.
     approved: true
+
   - id: q-chemistry-mixtures-and-separation-0012
-    type: cause-effect
-    difficulty: medium
+    type: 'cause-effect'
+    difficulty: 'medium'
     stem: |
-      A mixture of two liquids is heated during distillation. Liquid A has a lower boiling point than Liquid B. Which liquid evaporates and gets collected first?
+      At this composition, liquid A is more volatile than liquid B, and both enter the vapor during distillation. How does the condensed vapor compare with the starting liquid?
     choices:
-      - text: Liquid A, because substances with lower boiling points evaporate at lower temperatures.
+      - text: 'It is enriched in A.'
         correct: true
-      - text: Liquid B, because higher boiling points evaporate first.
-        rationale: "You picked the liquid that requires more thermal energy to boil. The component with the lower boiling point always vaporizes first."
-      - text: Both evaporate at exactly the same time.
-        rationale: "You picked an option that ignores differences in physical properties. Distinct boiling points cause liquids to boil off one after the other."
-      - text: Neither evaporates until the mixture reaches its freezing point.
-        rationale: "You picked the phase transition where liquids freeze into solids. Vaporization occurs when heating toward boiling points."
+      - text: 'It is enriched in B.'
+        rationale: |
+          This reverses the enrichment. Both components enter vapor. Check which is more volatile at the stated composition.
+      - text: 'It contains only A until every A molecule is gone.'
+        rationale: |
+          This treats enrichment as exclusive evaporation. Lower-boiling examples are familiar. Check whether both volatile components contribute.
+      - text: 'It must have exactly the starting liquid composition.'
+        rationale: |
+          This assumes vapor always copies the liquid ratio. Both phases contain the same components. Check the stated volatility difference.
     explanation: |
-      During distillation, the substance with the lower boiling point turns to vapor first as the mixture is heated, so it is the first one collected after cooling.
+      For the stated mixture, A is more volatile. Both components contribute to the vapor, but the vapor has a larger proportion of A than the liquid. Condensing it enriches A.
     approved: true
+
   - id: q-chemistry-mixtures-and-separation-0013
-    type: predict-outcome
-    difficulty: hard
+    type: 'predict-outcome'
+    difficulty: 'hard'
     stem: |
       During paper chromatography, one dye in a black ink sample travels much farther up the paper than another dye. What does this tell us about the faster-traveling dye?
     choices:
-      - text: It is less strongly attracted to the paper (stationary phase) and more easily carried by the moving liquid (mobile phase).
+      - text: 'It moves more readily relative to retention.'
         correct: true
-      - text: It is heavier than the slower dye.
-        rationale: "You picked mass as the primary factor. Chromatography separates components based on solubility and phase attraction, not weight."
-      - text: It has a higher boiling point than the slower dye.
-        rationale: "You picked a property relevant to distillation. Chromatography depends on molecular attraction between stationary and mobile phases."
-      - text: It is not actually part of the original ink mixture.
-        rationale: "You picked an option that treats separated dyes as external contaminants. Every band on the paper came directly from the original ink sample."
+      - text: 'It must have weaker paper attraction regardless of solvent.'
+        rationale: |
+          This infers one stationary-phase attraction without considering solvent interaction. Weak retention can increase travel. Check both phases together.
+      - text: 'Its solvent interaction alone determines every movement.'
+        rationale: |
+          This treats the solvent interaction as the only cause. Better carriage can increase travel. Check retention by the stationary phase too.
+      - text: 'It necessarily has a higher boiling point than the other dye.'
+        rationale: |
+          This assigns distance solely to boiling point. Boiling point matters in distillation. Check the phase distribution governing chromatography.
     explanation: |
-      In chromatography, components that are less strongly attracted to the stationary phase (the paper) get carried farther by the mobile phase (the moving liquid). Traveling farther means weaker attraction to the paper.
+      The farther-traveling dye is carried more effectively by the mobile phase relative to its retention in the stationary phase. The result depends on interactions with both phases.
     approved: true
+
   - id: q-chemistry-mixtures-and-separation-0014
-    type: classify
-    difficulty: medium
+    type: 'compare-contrast'
+    difficulty: 'medium'
     stem: |
-      A fruit salad contains clearly visible pieces of mango, banana, and apple. Is this mixture homogeneous or heterogeneous?
+      Dissolved components interact with the solvent while retaining their identities. Which conclusion is justified?
     choices:
-      - text: Heterogeneous
+      - text: 'Interactions can occur in a mixture.'
         correct: true
-      - text: Homogeneous
-        rationale: "You picked the term for mixtures with a single uniform appearance. Fruit salad has distinct pieces of different fruits throughout."
-      - text: A compound
-        rationale: "You picked a pure substance formed by chemical bonds. Fruit salad is a physical combination of fruit pieces that keep their identities."
-      - text: An element
-        rationale: "You picked a single chemical substance made of one atom type. Fruit salad is a mixture containing many different organic compounds."
+      - text: 'Every interaction creates a single new compound.'
+        rationale: |
+          This treats any interaction as forming a new pure substance. Chemical bonding can form compounds. Check whether composition and identities actually change.
+      - text: 'Mixtures can have no intermolecular interactions.'
+        rationale: |
+          This treats retained identity as absence of every interaction. Mixtures remain mixtures. Check whether solvation can still occur.
+      - text: 'Any uniform solution has a fixed chemical formula.'
+        rationale: |
+          This treats uniformity as fixed chemical composition. A solution looks consistent. Check whether its component proportions can vary.
     explanation: |
-      Since the different fruit pieces remain visibly separate and unevenly distributed, the fruit salad is a heterogeneous mixture.
+      Mixture components can interact through solvation or intermolecular forces while retaining their chemical identities. Interaction alone does not turn the mixture into one compound.
     approved: true
+
   - id: q-chemistry-mixtures-and-separation-0015
-    type: predict-outcome
-    difficulty: exam
+    type: 'predict-outcome'
+    difficulty: 'exam'
     stem: |
-      A community wants to turn muddy river water (water with visible dirt and other dissolved impurities) into safe drinking water. Which two techniques, used in order, would best accomplish this?
+      A laboratory sample contains suspended grit and a nonvolatile dissolved salt in water. Which sequence first removes grit without heating, then recovers water by condensation?
     choices:
-      - text: Filtration first to remove the visible dirt, then distillation to purify the water further by removing dissolved impurities.
+      - text: 'Filtration, then distillation'
         correct: true
-      - text: Chromatography first, then evaporation.
-        rationale: "You picked paper chromatography, which is a analytical laboratory method for micro-samples, not a bulk water purification process."
-      - text: Distillation first, then filtration.
-        rationale: "You picked the steps in reverse. Boiling muddy water directly ruins distillation equipment with thick mud before filtration happens."
-      - text: Filtration alone is enough; no second step is needed.
-        rationale: "You picked a single step that only catches solid dirt. Filter paper cannot stop dissolved minerals or contaminants."
+      - text: 'Chromatography, then evaporation'
+        rationale: |
+          This uses dye analysis and then lets vapor escape. Both are separation methods. Check the required grit-removal and water-collection stages.
+      - text: 'Distillation, then filtration'
+        rationale: |
+          This reverses the requested stage order. Both named methods can be useful. Check that suspended grit must be removed first without heating.
+      - text: 'Filtration with no further separation'
+        rationale: |
+          This stops after suspended particles are removed. The water looks clearer. Check that dissolved salt remains after ordinary filtration.
     explanation: |
-      Filtration removes the undissolved solid dirt, since it is too large to pass through the filter. But dissolved impurities remain in the water even after filtering, so distillation is still needed afterward to collect only the purified water vapor.
+      First, filtration removes suspended grit without heating. Second, distillation vaporizes and condenses water, separating it from the nonvolatile dissolved salt.
     approved: true
+
+  - id: q-chemistry-mixtures-and-separation-0016
+    type: 'structure-function'
+    difficulty: 'easy'
+    stem: |
+      In paper chromatography, which phase moves in a definite direction?
+    choices:
+      - text: 'Mobile phase'
+        correct: true
+      - text: 'Stationary paper phase'
+        rationale: |
+          This reverses the phase roles. The paper supports the separation. Check which phase the solvent moves through.
+      - text: 'The dry support before solvent is added'
+        rationale: |
+          This treats the support itself as the moving carrier. Paper is part of the setup. Check what moves after solvent is added.
+      - text: 'Both phases must remain motionless throughout'
+        rationale: |
+          This removes the motion needed to carry components. Stationary sounds like the whole setup. Check which phase is specifically called mobile.
+    explanation: |
+      The mobile phase is the moving fluid. It carries components along the stationary phase as they distribute differently between them.
+    approved: false
+
+  - id: q-chemistry-mixtures-and-separation-0017
+    type: 'process-ordering'
+    difficulty: 'medium'
+    stem: |
+      Which sequence describes collection of a distillate?
+    choices:
+      - text: 'Vaporize, condense, collect'
+        correct: true
+      - text: 'Condense, vaporize, discard the vapor'
+        rationale: |
+          This reverses the phase-change order and loses the vapor. Both changes belong to distillation. Check that vapor exists before it can condense.
+      - text: 'Filter, dry the retained solid, discard the fluid'
+        rationale: |
+          This follows a solid-filtration sequence. Collection is involved. Check whether a distillate comes from condensed vapor.
+      - text: 'Evaporate to dryness, then collect escaping vapor later'
+        rationale: |
+          This lets vapor escape before collection. Evaporation can leave residue. Check whether the vapor must be captured as it forms.
+    explanation: |
+      Heating produces vapor. Cooling turns it into liquid. The liquid is collected as the distillate.
+    approved: false
+
+  - id: q-chemistry-mixtures-and-separation-0018
+    type: 'predict-outcome'
+    difficulty: 'hard'
+    stem: |
+      Two volatile liquids have close boiling behavior. Which method can improve their separation through repeated vaporization-condensation steps?
+    choices:
+      - text: 'Fractional distillation'
+        correct: true
+      - text: 'Ordinary single-pass filter paper'
+        rationale: |
+          This treats dissolved liquids as suspended particles. A filter is a separation tool. Check whether their volatility rather than size is the useful difference.
+      - text: 'Evaporation without any vapor collection'
+        rationale: |
+          This loses the volatile material to the surroundings. Both components can evaporate. Check whether the separated vapor is recovered.
+      - text: 'One simple vaporization guaranteed to give pure components'
+        rationale: |
+          This assumes one step always gives purity. Vapor is often enriched in one component. Check whether enrichment means complete separation.
+    explanation: |
+      Fractional distillation provides repeated vapor-liquid stages. Each suitable stage can enrich the more volatile component, improving separation.
+    approved: false
+
+  - id: q-chemistry-mixtures-and-separation-0019
+    type: 'cause-effect'
+    difficulty: 'hard'
+    stem: |
+      Why can an azeotrope limit ordinary distillation?
+    choices:
+      - text: 'Vapor and liquid compositions can match.'
+        correct: true
+      - text: 'All liquid components stop having any vapor pressure.'
+        rationale: |
+          This treats lack of further enrichment as lack of vaporization. Distillation heats the mixture. Check whether vapor still forms.
+      - text: 'The mixture must become a single new chemical element.'
+        rationale: |
+          This treats equal phase composition as a chemical transformation. The mixture behaves in a special way. Check whether the components retain their identities.
+      - text: 'Every molecule becomes too large to pass filter paper.'
+        rationale: |
+          This substitutes particle size for vapor-liquid equilibrium. Filter size affects another technique. Check which phases distillation compares.
+    explanation: |
+      At an azeotropic composition, vapor and liquid have the same composition. Condensing that vapor does not change the component ratio at that point.
+    approved: false
+
+  - id: q-chemistry-mixtures-and-separation-0020
+    type: 'compare-contrast'
+    difficulty: 'exam'
+    stem: |
+      A dissolved solid is needed with improved purity. Why might controlled recrystallization be preferable to simply evaporating everything to dryness?
+    choices:
+      - text: 'Some impurities can remain in solution.'
+        correct: true
+      - text: 'Every impurity always joins the desired crystals.'
+        rationale: |
+          This assumes crystallization captures every dissolved substance together. Evaporation to dryness can retain impurities. Check which substances stay dissolved during controlled crystallization.
+      - text: 'Recrystallization requires changing the solid’s chemical identity.'
+        rationale: |
+          This treats physical purification as a required reaction. The solid changes form. Check whether chemical identity must change.
+      - text: 'Evaporation always leaves only the pure desired substance.'
+        rationale: |
+          This assumes solvent removal guarantees purity. A dry residue looks isolated. Check whether nonvolatile impurities also remain.
+    explanation: |
+      Recrystallization uses differences in solubility. Under suitable conditions the desired solid forms crystals while some impurities remain dissolved.
+    approved: false

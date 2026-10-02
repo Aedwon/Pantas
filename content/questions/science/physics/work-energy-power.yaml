@@ -1,310 +1,425 @@
 meta:
-  subject: science
-  topic: physics
-  subtopic: work-energy-power
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  subject: "science"
+  topic: "physics"
+  subtopic: "work-energy-power"
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-physics-work-energy-power-0001
-    type: simple-quantitative
-    difficulty: easy
+    type: "simple-quantitative"
+    difficulty: "easy"
     stem: |
-      A force of 20 N moves an object 5 m in the direction of the force. Find the work done. (Use $W = Fd$.)
+      A constant force of $20\,\mathrm N$ acts through $5\,\mathrm m$ of displacement in the force’s direction. What work does this force do?
     choices:
-      - text: 100 J
+      - text: "$100\\,\\mathrm J$"
         correct: true
-      - text: 25 J
+      - text: "$25\\,\\mathrm J$"
         rationale: |
-          You added force and distance ($20 + 5$). Work is the product of force and displacement: $W = Fd = 20 \times 5 = 100\text{ J}$.
-      - text: 4 J
+          This adds force and displacement. Both numbers are given. Check the product in the work formula.
+      - text: "$500\\,\\mathrm J$"
         rationale: |
-          You divided force by distance ($\dfrac{20}{5}$). Work requires multiplying force by distance.
-      - text: 15 J
+          This squares the displacement before multiplying by force. Squares appear in energy formulas. Check that constant-force work uses the first power of displacement.
+      - text: "$15\\,\\mathrm J$"
         rationale: |
-          You subtracted distance from force ($20 - 5$). Calculate work using multiplication: $W = Fd$.
+          This subtracts displacement from force. A difference can sound like energy change. Check that these units cannot be subtracted.
     explanation: |
-      $W = Fd = (20)(5) = 100$ J.
+      Force and displacement are parallel, so $W=Fd$. Thus $W=(20)(5)=100\,\mathrm J$.
     approved: true
+
   - id: q-physics-work-energy-power-0002
-    type: simple-quantitative
-    difficulty: easy
+    type: "simple-quantitative"
+    difficulty: "easy"
     stem: |
-      Find the kinetic energy of a 4 kg object moving at 5 m/s. (Use $KE = \dfrac{1}{2}mv^2$.)
+      A $4\,\mathrm{kg}$ object moves at speed $5\,\mathrm{m/s}$. What is its kinetic energy?
     choices:
-      - text: 50 J
+      - text: "$50\\,\\mathrm J$"
         correct: true
-      - text: 10 J
+      - text: "$10\\,\\mathrm J$"
         rationale: |
-          You multiplied mass and velocity without squaring ($\dfrac{1}{2} \times 4 \times 5$). Kinetic energy requires squaring velocity ($5^2 = 25$).
-      - text: 100 J
+          This uses $\dfrac12mv$ without squaring speed. The mass and one-half factor are included. Check the exponent.
+      - text: "$100\\,\\mathrm J$"
         rationale: |
-          You forgot the $\dfrac{1}{2}$ factor ($4 \times 25$). Kinetic energy formula includes $\dfrac{1}{2}$: $KE = 50\text{ J}$.
-      - text: 20 J
+          This omits the one-half factor. The speed square is right. Check the full energy formula.
+      - text: "$20\\,\\mathrm J$"
         rationale: |
-          You multiplied mass and velocity ($4 \times 5$). Kinetic energy uses $KE = \dfrac{1}{2}mv^2 = 50\text{ J}$.
+          This computes momentum’s magnitude $mv$ instead of kinetic energy. Both describe motion. Check the requested quantity.
     explanation: |
-      $KE = \dfrac{1}{2}(4)(5)^2 = \dfrac{1}{2}(4)(25) = 50$ J.
+      $KE=\dfrac12mv^2=\dfrac12(4)(5^2)=2(25)=50\,\mathrm J$.
     approved: true
+
   - id: q-physics-work-energy-power-0003
-    type: simple-quantitative
-    difficulty: easy
+    type: "simple-quantitative"
+    difficulty: "easy"
     stem: |
-      Find the gravitational potential energy of a 3 kg book held 4 m above the ground. (Use $g = 9.8 \text{ m/s}^2$ and $PE = mgh$.)
+      A $3\,\mathrm{kg}$ book is $4\,\mathrm m$ above a chosen zero level near Earth. With $g=9.8\,\mathrm{m/s^2}$, what is its gravitational potential energy?
     choices:
-      - text: 117.6 J
+      - text: "$117.6\\,\\mathrm J$"
         correct: true
-      - text: 12 J
+      - text: "$12\\,\\mathrm J$"
         rationale: |
-          You omitted gravity $g = 9.8\text{ m/s}^2$ ($3 \times 4$). Gravitational potential energy requires $PE = mgh = 3 \times 9.8 \times 4 = 117.6\text{ J}$.
-      - text: 29.4 J
+          This uses mass times height and omits gravity. Both quantities are stated. Check the full $mgh$ product.
+      - text: "$29.4\\,\\mathrm J$"
         rationale: |
-          You omitted height ($3 \times 9.8$). Include height in potential energy: $PE = mgh = 117.6\text{ J}$.
-      - text: 39.2 J
+          This uses weight alone and omits height. Weight is part of the energy calculation. Check force times height.
+      - text: "$117600\\,\\mathrm J$"
         rationale: |
-          You omitted mass ($9.8 \times 4$). Include mass in potential energy: $PE = mgh = 117.6\text{ J}$.
+          This enters the mass as 3000 grams while keeping SI gravity and height. Grams measure the same mass. Check that SI work calculation needs kilograms.
     explanation: |
-      $PE = mgh = (3)(9.8)(4) = 117.6$ J.
+      Near Earth, $PE=mgh$ relative to the chosen zero. Here $PE=(3)(9.8)(4)=117.6\,\mathrm J$.
     approved: true
+
   - id: q-physics-work-energy-power-0004
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
-      A 5 kg object starts from rest at the top of a frictionless slide, 2 m high. Find its speed at the bottom. (Use $g = 9.8 \text{ m/s}^2$.)
+      A $5\,\mathrm{kg}$ object starts from rest on a frictionless slide $2\,\mathrm m$ above its bottom. Neglect drag and use $g=9.8\,\mathrm{m/s^2}$. What is its bottom speed?
     choices:
-      - text: About 6.26 m/s
+      - text: "About $6.26\\,\\mathrm{m/s}$"
         correct: true
-      - text: 19.6 m/s
+      - text: "$39.2\\,\\mathrm{m/s}$"
         rationale: |
-          You calculated $v^2 = 2gh = 39.2$ without taking the square root. Velocity is $v = \sqrt{39.2} \approx 6.26\text{ m/s}$.
-      - text: 98 m/s
+          This reports the calculated speed squared as speed. The energy equation gives a square. Check the final square root.
+      - text: "$98\\,\\mathrm{m/s}$"
         rationale: |
-          You reported potential energy in Joules ($5 \times 9.8 \times 2 = 98\text{ J}$) as velocity. Convert energy to speed via $v = \sqrt{2gh} \approx 6.26\text{ m/s}$.
-      - text: About 3.13 m/s
+          This reports potential energy as speed. The top energy is an intermediate value. Check the kinetic-energy equation and units.
+      - text: "About $4.43\\,\\mathrm{m/s}$"
         rationale: |
-          You halved velocity or miscalculated $\sqrt{gh}$. Speed from height $h$ is $v = \sqrt{2gh} \approx 6.26\text{ m/s}$.
+          This uses $v=\sqrt{gh}$ and omits the factor of two. The square root is needed. Check the one-half coefficient in kinetic energy.
     explanation: |
-      $PE_i = mgh = (5)(9.8)(2) = 98$ J, which all converts to kinetic energy: $98 = \dfrac{1}{2}(5)v^2 = 2.5v^2$, so $v^2 = 39.2$ and $v \approx 6.26$ m/s.
+      With mechanical energy conserved, $mgh=\dfrac12mv^2$. Cancel mass to get $v=\sqrt{2gh}=\sqrt{2(9.8)(2)}=\sqrt{39.2}\approx6.26\,\mathrm{m/s}$.
     approved: true
+
   - id: q-physics-work-energy-power-0005
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
-      A motor does 300 J of work in 5 seconds. Find its power output. (Use $P = \dfrac{W}{t}$.)
+      A motor does $300\,\mathrm J$ of work in $5\,\mathrm s$. What is its average power?
     choices:
-      - text: 60 W
+      - text: "$60\\,\\mathrm W$"
         correct: true
-      - text: 1500 W
+      - text: "$1500\\,\\mathrm W$"
         rationale: |
-          You multiplied work and time ($300 \times 5$). Power is the rate of work done: $P = \dfrac{W}{t} = \dfrac{300}{5} = 60\text{ W}$.
-      - text: 5 W
+          This multiplies work by duration. Both values are given. Check that power is work per time.
+      - text: "$5\\,\\mathrm W$"
         rationale: |
-          You reported time value ($5\text{ s}$) as power. Calculate power by dividing work by time.
-      - text: 295 W
+          This relabels duration as power. The time is explicitly stated. Check joules per second.
+      - text: "$295\\,\\mathrm W$"
         rationale: |
-          You subtracted time from work ($300 - 5$). Power calculation requires division: $P = \dfrac{W}{t} = 60\text{ W}$.
+          This subtracts time from work. The result uses both numbers. Check that their units cannot be subtracted.
     explanation: |
-      $P = \dfrac{W}{t} = \dfrac{300}{5} = 60$ W.
+      Average power is $P=W/\Delta t=300/5=60\,\mathrm W$.
     approved: true
+
   - id: q-physics-work-energy-power-0006
-    type: classify
-    difficulty: hard
+    type: "predict-outcome"
+    difficulty: "hard"
     stem: |
-      An object's speed is doubled, while its mass stays the same. A student assumes its kinetic energy also just doubles. Is this correct?
+      An object’s speed doubles while its mass stays fixed. How does its kinetic energy change?
     choices:
-      - text: 'No: since velocity is squared in the kinetic energy formula, doubling speed actually quadruples the kinetic energy.'
+      - text: "It quadruples."
         correct: true
-      - text: 'Yes: doubling speed always exactly doubles kinetic energy.'
+      - text: "It doubles because speed doubles."
         rationale: |
-          You assumed a linear velocity relationship. Kinetic energy depends on $v^2$, so $(2v)^2 = 4v^2$ quadruples energy.
-      - text: 'No: doubling speed actually halves the kinetic energy.'
+          This assumes a linear speed dependence. Both quantities increase. Check the speed square.
+      - text: "It halves because faster travel takes less time."
         rationale: |
-          You inverted speed energy dependence. Increasing speed increases kinetic energy quadratically.
-      - text: 'Yes: mass and velocity affect kinetic energy in the same simple way.'
+          This imports duration into the energy formula. Faster travel can reduce a trip’s time. Check the variables in kinetic energy.
+      - text: "It stays unchanged because mass is fixed."
         rationale: |
-          You treated mass and velocity symmetrically. Mass is linear in $KE$, whereas velocity is squared ($KE = \dfrac{1}{2}mv^2$).
+          This considers only mass. One quantity is unchanged. Check the changed speed.
     explanation: |
-      $KE = \dfrac{1}{2}mv^2$ squares the velocity term. Doubling $v$ means $v^2$ becomes 4 times larger, so kinetic energy quadruples, not just doubles.
+      $KE=\dfrac12mv^2$. Replacing $v$ with $2v$ multiplies $v^2$ by four. Kinetic energy quadruples.
     approved: true
+
   - id: q-physics-work-energy-power-0007
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A person holds a heavy box perfectly still above the ground, exerting a large upward force for several minutes. How much work is done on the box?
+      A person’s upward force holds a rigid box stationary. What mechanical work does that force do on the box while it remains still?
     choices:
-      - text: Zero work, since the box does not move (no displacement in the direction of the force).
+      - text: "$0\\,\\mathrm J$"
         correct: true
-      - text: A large amount of work, proportional to how long the box is held.
+      - text: "Positive work proportional to holding time"
         rationale: |
-          You confused physiological exertion with mechanical work. Mechanical work requires non-zero displacement ($W = Fd = 0$).
-      - text: Work equal to the box's weight alone, regardless of time.
+          This confuses muscular energy use with work on the unmoving box. Holding it is tiring. Check displacement in the work formula.
+      - text: "Work numerically equal to the box’s weight"
         rationale: |
-          You reported force magnitude as work. Without displacement ($d = 0$), work remains zero.
-      - text: Negative work, since the person is resisting gravity.
+          This reports force as energy. The upward force is large. Check the displacement factor and units.
+      - text: "Negative work because the force opposes gravity"
         rationale: |
-          You assigned negative work without displacement. Resisting gravity while stationary involves zero displacement and zero work.
+          This assigns a sign without displacement. The force does oppose gravity. Check whether any motion occurs.
     explanation: |
-      Work requires displacement in the direction of the force. Since the box is not moving at all, no work is done on it, even though real physical effort is being exerted to hold it still.
+      The box’s displacement is zero. A force acting through zero displacement does zero mechanical work on it.
     approved: true
+
   - id: q-physics-work-energy-power-0008
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A problem describes a block sliding down a ramp with noticeable friction, but a student applies $KE_i + PE_i = KE_f + PE_f$ directly, assuming no energy is lost. Is this valid?
+      A block slides down a ramp and friction does negative work. Can its initial and final $KE+PE$ be set equal while ignoring that work?
     choices:
-      - text: 'No: this simple conservation equation assumes no friction; with friction present, some mechanical energy converts to heat and is not accounted for in this equation.'
+      - text: "No, friction changes mechanical energy."
         correct: true
-      - text: 'Yes: the equation applies regardless of whether friction is present.'
+      - text: "Yes, total energy conservation makes $KE+PE$ constant in every process."
         rationale: |
-          You ignored friction energy dissipation. Friction converts mechanical energy into thermal energy, breaking simple mechanical conservation.
-      - text: 'No: but only because gravity does not act during sliding motion.'
+          This equates total energy with mechanical energy alone. Total energy is conserved. Check energy transferred into thermal forms.
+      - text: "No, because gravity stops acting during sliding."
         rationale: |
-          You denied gravity during sliding. Gravity accelerates the block down the ramp, providing potential energy conversion.
-      - text: 'Yes: friction has no effect on mechanical energy at all.'
+          This removes the gravitational interaction. The block is moving. Check that gravity continues to act.
+      - text: "Yes, any friction force does zero work."
         rationale: |
-          You claimed friction does not dissipate mechanical energy. Friction does work against motion, converting mechanical energy into heat.
+          This generalizes perpendicular-force work to friction. Some forces do no work. Check friction opposite the sliding displacement.
     explanation: |
-      The equation $KE_i + PE_i = KE_f + PE_f$ only holds when no energy is lost to friction or air resistance. With friction present, some energy converts to heat, so the simple form does not directly apply.
+      Friction transfers mechanical energy into other forms. Include its work as $W_{\mathrm{nc}}=\Delta(KE+PE)$. Total energy remains conserved.
     approved: true
+
   - id: q-physics-work-energy-power-0009
-    type: classify
-    difficulty: hard
+    type: "compare-contrast"
+    difficulty: "hard"
     stem: |
-      Two machines each do 1000 J of work. Machine A finishes in 2 seconds; Machine B finishes in 10 seconds. A student says both machines have the same power, since they did the same amount of work. Is this correct?
+      Two machines do $1000\,\mathrm J$ each. A takes $2\,\mathrm s$ and B takes $10\,\mathrm s$. How do their average powers compare?
     choices:
-      - text: 'No: power depends on the rate work is done; Machine A (faster) has higher power than Machine B, even though both did the same total work.'
+      - text: "A has five times B’s power."
         correct: true
-      - text: 'Yes: power and work always match whenever the total work is equal.'
+      - text: "Their powers are equal because work is equal."
         rationale: |
-          You equated work and power. Power is work per unit time ($P = \dfrac{W}{t}$), so faster execution yields higher power.
-      - text: 'No: but only because Machine B actually did more total work.'
+          This ignores different durations. The work amounts match. Check work per second.
+      - text: "B has five times A’s power because it runs longer."
         rationale: |
-          You misstated work amounts. Both machines performed identical work ($1000\text{ J}$), but at different time rates.
-      - text: 'Yes: time does not affect power in any situation.'
+          This reverses the time dependence. B operates for more seconds. Check equal work divided by time.
+      - text: "A has twice B’s power because A takes two seconds."
         rationale: |
-          You excluded time from power. Power is defined as the time rate of doing work ($P = \dfrac{W}{t}$).
+          This treats one duration as the ratio. A’s time is two seconds. Check the two durations together.
     explanation: |
-      Power measures how quickly work is done ($P = W/t$), not just the total amount. Machine A does the same work in less time, giving it a higher power output than Machine B.
+      $P_A=1000/2=500\,\mathrm W$. $P_B=1000/10=100\,\mathrm W$. Their ratio is $500/100=5$.
     approved: true
+
   - id: q-physics-work-energy-power-0010
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
-      An object's kinetic energy starts at 50 J. A net force does 200 J of work on it. Find the object's final kinetic energy. (Use the work-energy theorem: $W_{net} = KE_f - KE_i$.)
+      An object initially has $50\,\mathrm J$ of kinetic energy. The net work on it is $+200\,\mathrm J$. What is its final kinetic energy?
     choices:
-      - text: 250 J
+      - text: "$250\\,\\mathrm J$"
         correct: true
-      - text: 150 J
+      - text: "$150\\,\\mathrm J$"
         rationale: |
-          You subtracted initial kinetic energy ($200 - 50$). Positive net work adds to initial kinetic energy: $KE_f = 50 + 200 = 250\text{ J}$.
-      - text: 200 J
+          This subtracts initial energy from the work. The theorem contains a difference. Check how to isolate final energy.
+      - text: "$200\\,\\mathrm J$"
         rationale: |
-          You reported work done as final kinetic energy. Final kinetic energy includes initial energy plus work done ($50 + 200 = 250\text{ J}$).
-      - text: 100 J
+          This reports energy change as final energy. Net work equals the change. Check the nonzero initial kinetic energy.
+      - text: "$-150\\,\\mathrm J$"
         rationale: |
-          You doubled initial kinetic energy or miscalculated. Use the work-energy theorem $KE_f = KE_i + W = 250\text{ J}$.
+          This subtracts positive work from initial energy. Work can reduce energy when negative. Check the stated positive sign.
     explanation: |
-      $W_{net} = KE_f - KE_i$, so $200 = KE_f - 50$, giving $KE_f = 250$ J.
+      Net work equals kinetic-energy change: $W_{\mathrm{net}}=KE_f-KE_i$. Therefore $KE_f=50+200=250\,\mathrm J$.
     approved: true
+
   - id: q-physics-work-energy-power-0011
-    type: simple-quantitative
-    difficulty: hard
+    type: "simple-quantitative"
+    difficulty: "hard"
     stem: |
-      A 4 kg object has 72 J of kinetic energy. Find its velocity.
+      A $4\,\mathrm{kg}$ object has $72\,\mathrm J$ of kinetic energy. What is its speed?
     choices:
-      - text: 6 m/s
+      - text: "$6\\,\\mathrm{m/s}$"
         correct: true
-      - text: 18 m/s
+      - text: "$18\\,\\mathrm{m/s}$"
         rationale: |
-          You calculated $v^2 = 36$ but reported $\dfrac{36}{2} = 18$. The square root of 36 is $6\text{ m/s}$.
-      - text: 36 m/s
+          This divides kinetic energy by mass and reports the result as speed. Mass division is part of the rearrangement. Check the one-half factor and square root.
+      - text: "$36\\,\\mathrm{m/s}$"
         rationale: |
-          You calculated $v^2 = 36$ without taking the square root. Taking $\sqrt{36}$ gives $v = 6\text{ m/s}$.
-      - text: 9 m/s
+          This reports speed squared as speed. Rearrangement gives this squared value. Check the final square root.
+      - text: "About $4.24\\,\\mathrm{m/s}$"
         rationale: |
-          You divided kinetic energy by mass ($72 / 4 = 18$) or miscalculated. $KE = \dfrac{1}{2}mv^2$ yields $v = 6\text{ m/s}$.
+          This uses $\sqrt{KE/m}$ and omits the factor of two. Taking a square root is needed. Check the full rearranged equation.
     explanation: |
-      $72 = \dfrac{1}{2}(4)v^2 = 2v^2$, so $v^2 = 36$, giving $v = 6$ m/s.
+      From $72=\dfrac12(4)v^2=2v^2$, get $v^2=36$. Speed is the nonnegative magnitude, so $v=6\,\mathrm{m/s}$.
     approved: true
+
   - id: q-physics-work-energy-power-0012
-    type: compare-contrast
-    difficulty: medium
+    type: "predict-outcome"
+    difficulty: "medium"
     stem: |
-      Object A and Object B have the same mass. Object A moves at twice the speed of Object B. Compare their kinetic energies.
+      Two objects have the same speed. A has three times B’s mass. How do their kinetic energies compare?
     choices:
-      - text: Object A has 4 times the kinetic energy of Object B.
+      - text: "A has three times B’s energy."
         correct: true
-      - text: Object A has 2 times the kinetic energy of Object B.
+      - text: "A has nine times B’s energy."
         rationale: |
-          You assumed kinetic energy is linearly proportional to speed. Kinetic energy depends on speed squared ($(2v)^2 = 4v^2$).
-      - text: Object A has the same kinetic energy as Object B.
+          This squares the mass factor. A square appears in the energy formula. Check that it applies to speed.
+      - text: "Both have the same energy because speeds match."
         rationale: |
-          You assumed kinetic energy is speed-independent. Higher speed increases kinetic energy quadratically.
-      - text: Object A has half the kinetic energy of Object B.
+          This ignores mass. The speeds are equal. Check both factors in kinetic energy.
+      - text: "A has one-third B’s energy."
         rationale: |
-          You inverted the kinetic energy ratio. Faster objects have greater kinetic energy.
+          This puts mass in the denominator. Greater mass can suggest less acceleration. Check the energy formula at fixed speed.
     explanation: |
-      Since kinetic energy depends on velocity squared, doubling the speed (with the same mass) quadruples the kinetic energy: $(2v)^2 = 4v^2$.
+      At equal speed, $KE=\dfrac12mv^2$ is proportional to mass. Three times the mass gives three times the kinetic energy.
     approved: true
+
   - id: q-physics-work-energy-power-0013
-    type: simple-quantitative
-    difficulty: exam
+    type: "simple-quantitative"
+    difficulty: "exam"
     stem: |
-      A motor has a power output of 200 W and runs for 10 seconds. Find the total work done.
+      A motor supplies constant output power $200\,\mathrm W$ for $10\,\mathrm s$. How much work does it do?
     choices:
-      - text: 2000 J
+      - text: "$2000\\,\\mathrm J$"
         correct: true
-      - text: 20 J
+      - text: "$20\\,\\mathrm J$"
         rationale: |
-          You divided power by time ($\dfrac{200}{10}$). Work is power multiplied by time: $W = Pt = 200 \times 10 = 2000\text{ J}$.
-      - text: 210 J
+          This divides power by time. Division is used to find power from work. Check the inverse operation for work.
+      - text: "$210\\,\\mathrm J$"
         rationale: |
-          You added power and time ($200 + 10$). Work requires multiplication: $W = Pt$.
-      - text: 190 J
+          This adds power and time. Both are given. Check joules per second multiplied by seconds.
+      - text: "$20000\\,\\mathrm J$"
         rationale: |
-          You subtracted time from power ($200 - 10$). Calculate work using $W = Pt = 2000\text{ J}$.
+          This uses 100 seconds instead of 10 seconds. An extra zero increases the product. Check the stated duration.
     explanation: |
-      Rearranging $P = \dfrac{W}{t}$ gives $W = Pt = (200)(10) = 2000$ J.
+      Work is power times duration: $W=P\Delta t=(200)(10)=2000\,\mathrm J$.
     approved: true
+
   - id: q-physics-work-energy-power-0014
-    type: predict-outcome
-    difficulty: medium
+    type: "predict-outcome"
+    difficulty: "medium"
     stem: |
-      A pendulum swings back and forth. At its lowest point, it moves at maximum speed; at its highest points on each side, it is momentarily still. Describe its energy at a point partway between the lowest and highest points (ignoring friction and air resistance).
+      A frictionless pendulum is partway between a turning point and its lowest point. Choose the lowest point as zero gravitational potential energy. Which description applies?
     choices:
-      - text: A mix of both kinetic and potential energy, with the total mechanical energy staying the same throughout the swing.
+      - text: "Both kinetic and potential energy are positive."
         correct: true
-      - text: All kinetic energy, with zero potential energy.
+      - text: "All energy is kinetic because the pendulum is moving."
         rationale: |
-          You described energy at the lowest point. Partway up, the pendulum retains non-zero elevation and potential energy.
-      - text: All potential energy, with zero kinetic energy.
+          This ignores elevation above the chosen zero. Motion does give kinetic energy. Check height as well.
+      - text: "All energy is potential because the pendulum is above the lowest point."
         rationale: |
-          You described energy at the highest point. Partway down, the pendulum possesses non-zero velocity and kinetic energy.
-      - text: Zero total energy at every point of the swing.
+          This ignores its nonzero speed. Elevation gives potential energy. Check whether it is at the turning point.
+      - text: "Total mechanical energy is zero because the zero level was chosen."
         rationale: |
-          You claimed mechanical energy vanishes. Total mechanical energy ($KE + PE$) remains positive and constant.
+          This applies the potential-energy zero to all energy. A reference height was chosen. Check the sum of kinetic and potential energy.
     explanation: |
-      At the lowest point, all energy is kinetic; at the highest points, all energy is potential. At any point in between, the energy is a mix of both, but the total (kinetic plus potential) stays constant throughout, by conservation of energy.
+      At an intermediate position, the pendulum has speed and is above the chosen zero height. Its kinetic and potential energies are both positive. Their sum stays constant without nonconservative work.
     approved: true
+
   - id: q-physics-work-energy-power-0015
-    type: simple-quantitative
-    difficulty: exam
+    type: "simple-quantitative"
+    difficulty: "exam"
     stem: |
-      An object is dropped from rest and falls a height $h$ on a frictionless path, reaching a speed of 14 m/s at the bottom. Find $h$. (Use $g = 9.8 \text{ m/s}^2$ and energy conservation.)
+      An object falls from rest near Earth without air resistance and reaches speed $14\,\mathrm{m/s}$. Using $g=9.8\,\mathrm{m/s^2}$, what height has it fallen?
     choices:
-      - text: 10 m
+      - text: "$10\\,\\mathrm m$"
         correct: true
-      - text: 14 m
+      - text: "$14\\,\\mathrm m$"
         rationale: |
-          You set height equal to final velocity. Solve using energy conservation: $h = \dfrac{v^2}{2g} = \dfrac{196}{19.6} = 10\text{ m}$.
-      - text: 19.6 m
+          This relabels speed as height. The speed is directly given. Check the energy relation and units.
+      - text: "$19.6\\,\\mathrm m$"
         rationale: |
-          You calculated $2g$ instead of $h$. Height is $h = \dfrac{v^2}{2g} = \dfrac{196}{19.6} = 10\text{ m}$.
-      - text: 137.2 m
+          This reports $2g$ instead of dividing speed squared by it. That factor belongs in the formula. Check which part is the denominator.
+      - text: "$137.2\\,\\mathrm m$"
         rationale: |
-          You multiplied velocity by gravity. Calculate height using energy conservation $h = \dfrac{v^2}{2g} = 10\text{ m}$.
+          This multiplies speed by gravity. Both values are used in fall problems. Check the squared speed and division in the height relation.
     explanation: |
-      By conservation of energy, $mgh = \dfrac{1}{2}mv^2$, so $h = \dfrac{v^2}{2g} = \dfrac{14^2}{2(9.8)} = \dfrac{196}{19.6} = 10$ m.
+      Energy conservation gives $mgh=\dfrac12mv^2$. Cancel mass and solve: $h=v^2/(2g)=196/19.6=10\,\mathrm m$.
     approved: true
+
+  - id: q-physics-work-energy-power-0016
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "easy"
+    stem: |
+      A constant $30\,\mathrm N$ force acts perpendicular to a $4\,\mathrm m$ displacement. What work does that force do?
+    choices:
+      - text: "$0\\,\\mathrm J$"
+        correct: true
+      - text: "$120\\,\\mathrm J$"
+        rationale: |
+          This multiplies force and displacement without the angle factor. That works for parallel motion. Check the perpendicular direction.
+      - text: "$7.5\\,\\mathrm J$"
+        rationale: |
+          This divides force by displacement. The two numbers are given. Check the work formula and angle.
+      - text: "$-120\\,\\mathrm J$"
+        rationale: |
+          This treats perpendicular as opposite. Opposing forces do negative work. Check 90 degrees versus 180 degrees.
+    explanation: |
+      Work is $Fd\cos\theta$. At $90^\circ$, $\cos90^\circ=0$, so this force does zero work.
+
+  - id: q-physics-work-energy-power-0017
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A constant $40\,\mathrm N$ force acts $60^\circ$ from a $3\,\mathrm m$ displacement. Use $\cos60^\circ=1/2$. What work does it do?
+    choices:
+      - text: "$60\\,\\mathrm J$"
+        correct: true
+      - text: "$120\\,\\mathrm J$"
+        rationale: |
+          This omits the angle factor. The force magnitude is forty. Check its component along displacement.
+      - text: "$240\\,\\mathrm J$"
+        rationale: |
+          This divides by cosine instead of multiplying. The half factor is given. Check projection of the force along displacement.
+      - text: "$20\\,\\mathrm J$"
+        rationale: |
+          This projects the force but omits displacement. The along-path component is needed. Check the three-meter travel.
+    explanation: |
+      $W=Fd\cos60^\circ=(40)(3)(1/2)=60\,\mathrm J$.
+
+  - id: q-physics-work-energy-power-0018
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "hard"
+    stem: |
+      A moving object has initial kinetic energy $100\,\mathrm J$. The net work on it is $-30\,\mathrm J$. What is its final kinetic energy?
+    choices:
+      - text: "$70\\,\\mathrm J$"
+        correct: true
+      - text: "$130\\,\\mathrm J$"
+        rationale: |
+          This ignores the negative work sign. Adding a work magnitude seems natural. Check whether work adds or removes kinetic energy.
+      - text: "$30\\,\\mathrm J$"
+        rationale: |
+          This reports the magnitude of the energy change as final energy. The work amount is given. Check the initial energy.
+      - text: "$-70\\,\\mathrm J$"
+        rationale: |
+          This reverses the result’s sign. Negative work does remove energy. Check that kinetic energy remains a nonnegative quantity.
+    explanation: |
+      $KE_f=KE_i+W_{\mathrm{net}}=100-30=70\,\mathrm J$.
+
+  - id: q-physics-work-energy-power-0019
+    approved: false
+    type: "compare-contrast"
+    difficulty: "hard"
+    stem: |
+      The zero reference for gravitational potential energy is shifted downward by a fixed distance. What happens to predictions of kinetic-energy changes for the same motion?
+    choices:
+      - text: "They stay the same."
+        correct: true
+      - text: "They increase because every potential-energy value increases."
+        rationale: |
+          This confuses absolute reference values with differences. The listed potential energies do increase. Check final minus initial potential energy.
+      - text: "They decrease because the new zero is lower."
+        rationale: |
+          This assigns a physical effect to a bookkeeping choice. The reference moved downward. Check the unchanged gravitational force and motion.
+      - text: "They vanish because potential energy is arbitrary."
+        rationale: |
+          This treats an arbitrary zero as no meaningful energy change. The zero is chosen. Check that differences remain fixed.
+    explanation: |
+      Changing the zero adds the same constant to all potential-energy values. The difference between two positions is unchanged. Predictions using that difference stay the same.
+
+  - id: q-physics-work-energy-power-0020
+    approved: false
+    type: "classify"
+    difficulty: "exam"
+    stem: |
+      Can $PE=mgh$ with one constant near-Earth $g$ be used without qualification for a very large orbital altitude change?
+    choices:
+      - text: "No, gravity changes significantly with distance."
+        correct: true
+      - text: "Yes, $g$ is exactly constant at every distance from Earth."
+        rationale: |
+          This extends a near-surface approximation to space. Many introductory problems use one $g$. Check the altitude range.
+      - text: "Yes, potential energy never depends on the gravitational field."
+        rationale: |
+          This removes the field from energy differences. Height appears prominently in $mgh$. Check the gravity factor.
+      - text: "No, because gravitational potential energy exists only at ground level."
+        rationale: |
+          This limits an energy property to one height. Ground is often chosen as zero. Check zero reference versus where the interaction exists.
+    explanation: |
+      The $mgh$ form assumes gravity is approximately uniform over the height change. At very large changes, its variation matters. A more general gravitational potential-energy relation is needed.

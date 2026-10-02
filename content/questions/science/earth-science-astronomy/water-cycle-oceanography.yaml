@@ -1,8 +1,8 @@
 meta:
-  subject: science
-  topic: earth-science-astronomy
-  subtopic: water-cycle-oceanography
-  exams: [ upcat, dlsucet, ustet, dost-sei ]
+  subject: 'science'
+  topic: 'earth-science-astronomy'
+  subtopic: 'water-cycle-oceanography'
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-earth-science-astronomy-water-cycle-oceanography-0001
     type: identify
@@ -10,19 +10,19 @@ questions:
     stem: |
       What is the process called when heat from the Sun turns liquid water into water vapor, which rises into the atmosphere?
     choices:
-      - text: Evaporation
+      - text: 'Evaporation'
         correct: true
-      - text: Condensation
+      - text: 'Condensation'
         rationale: |
-          You picked the phase change from gas to liquid. Condensation occurs when water vapor cools into liquid cloud droplets.
-      - text: Precipitation
+          This reverses the state change. Both processes move water between gas and liquid. Check the starting state.
+      - text: 'Precipitation'
         rationale: |
-          You picked the falling water process. Precipitation occurs when water droplets fall from clouds as rain, snow, or hail.
-      - text: Infiltration
+          This chooses falling water instead of vapor formation. Both move water in the cycle. Check state change versus falling.
+      - text: 'Infiltration'
         rationale: |
-          You picked soil absorption. Infiltration is liquid water soaking into soil, not water liquid turning into gas.
+          This chooses water entering soil. Both remove water from a surface. Check where the water goes.
     explanation: |
-      Evaporation is when heat from the Sun turns liquid water (mostly from the oceans) into water vapor, which rises into the atmosphere.
+      Evaporation changes liquid water into water vapor. Solar heating supplies energy for water to enter the air as a gas.
     approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0002
@@ -31,19 +31,19 @@ questions:
     stem: |
       What is the process called when rising water vapor cools and turns back into tiny liquid water droplets, forming clouds?
     choices:
-      - text: Condensation
+      - text: 'Condensation'
         correct: true
-      - text: Evaporation
+      - text: 'Evaporation'
         rationale: |
-          You picked liquid-to-gas vaporization. Evaporation occurs when solar heat turns liquid water into rising water vapor.
-      - text: Precipitation
+          This reverses gas becoming liquid. Both are state changes. Check the direction.
+      - text: 'Precipitation'
         rationale: |
-          You picked water falling to ground. Precipitation is water falling from clouds as rain or snow.
-      - text: Runoff
+          This confuses cloud formation with water falling. Droplets can later fall as rain. Check forming versus falling.
+      - text: 'Runoff'
         rationale: |
-          You picked surface water flow. Runoff is water flowing across land back into water bodies.
+          This selects flowing water on land. Clouds contain water too. Check atmosphere versus ground surface.
     explanation: |
-      Condensation is when water vapor rises and cools, turning back into tiny liquid water droplets that form clouds: the opposite process of evaporation.
+      Condensation changes water vapor into liquid droplets. Cooling air can allow droplets to form clouds.
     approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0003
@@ -52,61 +52,61 @@ questions:
     stem: |
       What is the process called when cloud droplets combine and grow heavy enough to fall back to Earth as rain, snow, sleet, or hail?
     choices:
-      - text: Precipitation
+      - text: 'Precipitation'
         correct: true
-      - text: Evaporation
+      - text: 'Evaporation'
         rationale: |
-          You picked liquid-to-vapor phase change. Evaporation converts surface water into atmospheric vapor.
-      - text: Condensation
+          This chooses liquid becoming gas. Both involve atmospheric water. Check whether water is falling or vaporizing.
+      - text: 'Condensation'
         rationale: |
-          You picked cloud droplet formation. Condensation turns gas vapor into liquid cloud droplets, before they fall.
-      - text: Infiltration
+          This chooses droplet formation before the fall. Clouds form by condensation. Check the action described.
+      - text: 'Transpiration'
         rationale: |
-          You picked subterranean soaking. Infiltration occurs when fallen rain soaks down into ground soil.
+          This chooses leaf vapor loss instead of falling water. Plants add moisture to air. Check falling liquid or ice versus released vapor.
     explanation: |
-      Precipitation is when cloud droplets combine and grow heavy enough to fall back to Earth as rain, snow, sleet, or hail.
+      Water falling from clouds as rain, snow, sleet, or hail is precipitation. It returns water from the atmosphere to Earth's surface.
     approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0004
     type: identify
     difficulty: medium
     stem: |
-      What is the process called when plants release water vapor into the air through their leaves?
+      Which specific water-cycle process describes plants releasing water vapor through their leaves?
     choices:
-      - text: Transpiration
+      - text: 'Transpiration'
         correct: true
-      - text: Evaporation
+      - text: 'Evapotranspiration'
         rationale: |
-          You picked non-biological vaporization. Evaporation occurs from open water and soil surfaces rather than plant stomata.
-      - text: Condensation
+          This uses the combined vapor-source term for leaf loss alone. It includes plant vapor along with other surface evaporation. Check the request for the plant-only process.
+      - text: 'Condensation'
         rationale: |
-          You picked vapor cooling into liquid. Condensation turns water vapor into liquid droplets, creating clouds.
-      - text: Runoff
+          This reverses vapor release into liquid formation. Leaves can collect droplets. Check the direction of the state change.
+      - text: 'Runoff'
         rationale: |
-          You picked overland surface flow. Runoff is liquid surface water flowing downhill into rivers and lakes.
+          This substitutes liquid surface flow for leaf vapor loss. Plants use liquid water. Check the form released to the air.
     explanation: |
-      Transpiration is when plants release water vapor into the air through their leaves; evaporation and transpiration together are sometimes called "evapotranspiration."
+      Transpiration is the release of water vapor from plants through their leaves. It adds plant-derived vapor to the air.
     approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0005
     type: classify
     difficulty: hard
     stem: |
-      A student believes "transpiration" refers to any water vapor rising from soil or bodies of water, the same as general evaporation. Is this correct?
+      Evapotranspiration is reported for a forest and nearby lake. Which pair of sources does this combined term include?
     choices:
-      - text: 'No: transpiration specifically refers to water vapor released from plants through their leaves, distinct from evaporation off soil or water bodies; the two are combined into the term "evapotranspiration" precisely because they are different processes.'
+      - text: 'Leaf vapor loss and surface evaporation'
         correct: true
-      - text: 'Yes: transpiration and evaporation are simply two different names for the exact same process.'
+      - text: 'Leaf vapor loss and groundwater infiltration'
         rationale: |
-          You equated plant stomatal release with physical surface evaporation. Transpiration specifically involves plant stomatal release.
-      - text: 'No: but only because plants do not release any water vapor at all.'
+          This substitutes soil entry for surface vapor loss. Groundwater supplies plants. Check whether both processes add vapor to air.
+      - text: 'Cloud condensation and rainfall'
         rationale: |
-          You denied plant transpiration. Plants release significant water vapor through leaf stomata during photosynthesis.
-      - text: 'Yes: transpiration only applies to water evaporating from soil, never from plants.'
+          This selects processes that return atmospheric vapor to liquid water. Both affect moisture. Check vapor sources rather than cloud and rain formation.
+      - text: 'Surface runoff and cloud condensation'
         rationale: |
-          You misapplied transpiration to soil. Soil water loss is evaporation; plant leaf water loss is transpiration.
+          This combines liquid movement with vapor turning into droplets. Both belong to the water cycle. Check the meaning of evaporation plus transpiration.
     explanation: |
-      Some students confuse transpiration with general evaporation from soil or water bodies. Transpiration is specifically the plant-based release of water vapor through leaves, which is why it is paired with evaporation as "evapotranspiration" when discussing total water vapor sources.
+      Evapotranspiration combines evaporation with transpiration. It includes vapor entering air from surfaces and vapor released by plant leaves.
     approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0006
@@ -115,103 +115,103 @@ questions:
     stem: |
       After a heavy rainstorm, some water soaks slowly into the soil, while the rest flows quickly over the ground surface into a nearby river. Identify which process is which.
     choices:
-      - text: Water soaking into the soil is infiltration; water flowing over the surface into the river is runoff.
+      - text: 'Soaking is infiltration; surface flow is runoff.'
         correct: true
-      - text: Water soaking into the soil is runoff; water flowing over the surface into the river is infiltration.
+      - text: 'Soaking is runoff; surface flow is infiltration.'
         rationale: |
-          You swapped infiltration and runoff definitions. Infiltration is soaking downward; runoff is surface flow.
-      - text: Both processes are called infiltration.
+          This swaps the two water paths. Both lead away from the original surface. Check into soil versus across soil.
+      - text: 'Both are infiltration because both involve rainwater.'
         rationale: |
-          You called surface flow infiltration. Infiltration applies only to water entering the soil.
-      - text: Both processes are called runoff.
+          This extends soaking to all rainwater. Some rain does enter soil. Check the path of the surface-flow portion.
+      - text: 'Both are runoff because both water paths lead downward.'
         rationale: |
-          You called soil soaking runoff. Runoff applies only to surface flow across land into waterways.
+          This uses downward motion for both names. Both can move downhill. Check whether the water enters soil or stays above it.
     explanation: |
-      Water soaking slowly into the soil is infiltration (which feeds groundwater). Water flowing over the surface into a river is runoff. Both can happen to the same rainfall at the same time.
+      Infiltration carries water into soil. Runoff carries water over the ground surface. The same rainfall can follow both paths.
     approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0007
     type: identify
     difficulty: medium
     stem: |
-      What is the term for precipitation that soaks into the soil, feeding groundwater?
+      After rainfall, soil absorbs water that later supplies groundwater. Which process first moves the water into the soil?
     choices:
-      - text: Infiltration
+      - text: 'Infiltration'
         correct: true
-      - text: Runoff
+      - text: 'Runoff'
         rationale: |
-          You picked surface water flow. Runoff flows over ground into streams rather than soaking into soil.
-      - text: Evaporation
+          This selects surface flow rather than soil entry. Rainwater can reach streams. Check the underground destination.
+      - text: 'Evaporation'
         rationale: |
-          You picked phase change to gas. Evaporation sends water into air as vapor, not into underground soil.
-      - text: Transpiration
+          This changes liquid into vapor. Both can remove surface water. Check the state and destination.
+      - text: 'Transpiration'
         rationale: |
-          You picked plant water vapor release. Transpiration is water loss through plant leaves into air.
+          This chooses vapor leaving plants. Groundwater can supply roots. Check entry into soil versus release from leaves.
     explanation: |
-      Infiltration is precipitation that soaks into the soil, feeding groundwater.
+      Infiltration moves surface water into soil. This can help replenish groundwater.
     approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0008
     type: identify
     difficulty: medium
     stem: |
-      What is the term for precipitation that flows over the surface into streams, rivers, and eventually back to the ocean?
+      A formerly porous area is paved with a surface that blocks soil entry. Under otherwise similar rainfall, which response is expected?
     choices:
-      - text: Runoff
+      - text: 'More surface runoff'
         correct: true
-      - text: Infiltration
+      - text: 'More infiltration beneath the pavement'
         rationale: |
-          You picked soil soaking. Infiltration refers to water absorbing downward into subterranean ground layers.
-      - text: Evaporation
+          This reverses the effect of blocking soil entry. Rain still reaches the surface. Check the barrier to infiltration.
+      - text: 'No runoff because rainfall cannot move on pavement'
         rationale: |
-          You picked atmospheric vaporization. Evaporation turns liquid water into gas vapor.
-      - text: Transpiration
+          This treats blocked entry as blocked movement. Pavement covers the soil. Check whether water can flow over its top.
+      - text: 'All rainfall immediately becomes plant transpiration'
         rationale: |
-          You picked plant stomatal loss. Transpiration is water vapor released from vegetation into air.
+          This requires leaves to remove every drop. Plants do release vapor. Check the stated paved surface and liquid rainfall.
     explanation: |
-      Runoff is precipitation that flows over the surface into streams, rivers, and eventually back to the ocean.
+      The pavement prevents much of the water from entering the soil. More water remains at the surface. That water can flow away as runoff.
     approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0009
     type: classify
     difficulty: hard
     stem: |
-      A choice describes condensation as "liquid water turning into water vapor, rising into the atmosphere," swapping it with evaporation's description. Is this correct?
+      Which statement correctly compares evaporation and condensation?
     choices:
-      - text: 'No: this describes evaporation, not condensation; condensation is the opposite process, water vapor cooling and turning back into liquid droplets.'
+      - text: 'They reverse the liquid-gas state change.'
         correct: true
-      - text: 'Yes: condensation and evaporation describe the exact same liquid-to-gas process.'
+      - text: 'Both change liquid water into gas.'
         rationale: |
-          You treated opposite phase changes as identical. Evaporation is liquid-to-gas; condensation is gas-to-liquid.
-      - text: 'No: but only because neither evaporation nor condensation actually occurs in the water cycle.'
+          This copies evaporation's direction onto both processes. Both involve liquid and gas. Check each starting state.
+      - text: 'Both change water vapor into liquid.'
         rationale: |
-          You denied core water cycle processes. Both evaporation and condensation are fundamental hydrologic cycle stages.
-      - text: 'Yes: condensation always describes liquid turning into gas.'
+          This copies condensation's direction onto both processes. Both involve vapor. Check whether the process starts with liquid.
+      - text: 'They are names for liquid water moving into soil.'
         rationale: |
-          You reversed condensation's phase change. Liquid turning into gas is evaporation, not condensation.
+          This confuses state change with infiltration. All involve water movement. Check whether the state changes.
     explanation: |
-      These are opposite processes, and questions often swap their descriptions. If the process is warming water into vapor, it is evaporation; if it is cooling vapor into visible droplets or clouds, it is condensation.
+      Evaporation changes liquid water into gas. Condensation changes gas into liquid. They reverse the same change of state.
     approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0010
     type: classify
     difficulty: medium
     stem: |
-      Water vapor rises from the ocean surface, cools as it rises higher into the atmosphere, and turns back into tiny liquid droplets that form a cloud. Which stage of the water cycle does "turning back into tiny liquid droplets" describe?
+      A cloud's droplets have formed, but none are falling to the ground yet. Which statement describes the stages observed so far?
     choices:
-      - text: Condensation
+      - text: 'Condensation occurred; precipitation has not begun.'
         correct: true
-      - text: Evaporation
+      - text: 'Precipitation occurred; condensation has not begun.'
         rationale: |
-          You picked the heating vaporization stage. Evaporation occurred initially at the ocean surface, before cloud formation.
-      - text: Precipitation
+          This places falling water before forming droplets in this setup. Clouds often lead to rain. Check whether anything is falling.
+      - text: 'Infiltration occurred; evaporation has not begun.'
         rationale: |
-          You picked the falling rain stage. Precipitation occurs later when cloud droplets grow heavy and fall.
-      - text: Infiltration
+          This assigns a soil process to cloud formation. Both can store water. Check the location.
+      - text: 'Runoff occurred; condensation has not begun.'
         rationale: |
-          You picked ground soaking. Infiltration happens on land after rain falls, not in the upper atmosphere.
+          This assigns ground-surface flow to a cloud. Both contain liquid water. Check where movement occurs.
     explanation: |
-      Water vapor (a gas) turning into liquid droplets, forming clouds, is condensation: the opposite of evaporation.
+      Cloud droplets form when vapor condenses. Precipitation is water falling from clouds. The given cloud has formed droplets but has not yet produced precipitation.
     approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0011
@@ -220,40 +220,40 @@ questions:
     stem: |
       About what percentage of all the water on Earth is held in the oceans?
     choices:
-      - text: About 96%
+      - text: 'About $96\%$'
         correct: true
-      - text: About 50%
+      - text: 'About $71\%$'
         rationale: |
-          You underestimated ocean volume. Oceans hold approximately 96-97% of Earth's total water volume.
-      - text: About 10%
+          This uses ocean surface-area coverage for water amount. Both are common ocean percentages. Check area versus water volume.
+      - text: 'About $50\%$'
         rationale: |
-          You picked a very low estimate. Oceans dominate planetary water, containing over 96% of all Earth's water.
-      - text: About 25%
+          This assumes about half the water is outside oceans. Land occupies a large area. Check stored water rather than land area.
+      - text: 'About $4\%$'
         rationale: |
-          You picked a quarter estimate. Oceans account for ~96% of global water, leaving ~4% for freshwater and ice.
+          This uses the approximate non-ocean share as the ocean share. The two portions add to the whole. Check which reservoir is named.
     explanation: |
-      Oceans hold about 96% of all the water on the planet, far more than lakes, rivers, or any other water source.
+      Oceans hold about $96\%$ of Earth's total water. This percentage refers to the water amount, not the area covered by oceans.
     approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0012
     type: classify
     difficulty: hard
     stem: |
-      A choice claims that freshwater lakes and rivers hold most of Earth's water, more than the oceans. Is this correct?
+      A simplified inventory assigns $96\%$ of Earth's water to oceans. What share remains for all other reservoirs combined?
     choices:
-      - text: 'No: the ocean holds about 96% of Earth''s water; freshwater lakes and rivers hold only a small fraction in comparison.'
+      - text: '$4\%$'
         correct: true
-      - text: 'Yes: freshwater lakes and rivers hold the vast majority of Earth''s water.'
+      - text: '$96\%$'
         rationale: |
-          You overcalculated freshwater surface volumes. Lakes and rivers hold less than $0.01\%$ of Earth's total water.
-      - text: 'No: but only because oceans do not actually contain any water.'
+          This copies the ocean share for the rest. The given value is prominent. Check that the question asks for the remainder.
+      - text: '$104\%$'
         rationale: |
-          You denied ocean liquid content. Oceans contain ~1.3 billion cubic kilometers of saline liquid water.
-      - text: 'Yes: oceans and freshwater lakes hold exactly equal amounts of water.'
+          This adds instead of subtracting from the whole. $100+4$ gives 104. Check that a share cannot exceed the full inventory.
+      - text: '$48\%$'
         rationale: |
-          You assumed equal distribution. Oceans hold 96% of Earth's water, vastly outsized compared to fresh lakes.
+          This halves the ocean share instead of finding the remainder. $96\div2=48$. Check the total-minus-part operation.
     explanation: |
-      A choice suggesting that lakes or rivers are the largest water reservoir is incorrect. The vast majority of Earth's water, and nearly all of it that is liquid, is contained within the salty oceans.
+      The whole inventory is $100\%$. Subtract the ocean share: $100-96=4$. Other reservoirs together hold $4\%$ in this simplified inventory.
     approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0013
@@ -262,19 +262,19 @@ questions:
     stem: |
       Why does most of the water vapor found in Earth's atmosphere come from the ocean rather than from lakes, rivers, or plants?
     choices:
-      - text: Since evaporation depends on the amount of exposed water surface heated by the Sun, and the ocean covers the vast majority of Earth's surface (holding about 96% of all its water), the ocean's enormous surface area makes it by far the largest source of evaporation.
+      - text: 'Oceans expose a vast water surface to solar heating.'
         correct: true
-      - text: Lakes, rivers, and plants do not produce any water vapor at all.
+      - text: 'Ocean salt turns into vapor more readily than water.'
         rationale: |
-          You denied terrestrial evaporation. Inland waters and vegetation contribute to moisture via evapotranspiration.
-      - text: The ocean is the only water source cool enough to allow evaporation to occur.
+          This treats salt as the water vapor source. Ocean water is salty. Check which substance forms the vapor.
+      - text: 'Plants and rivers provide no atmospheric water vapor.'
         rationale: |
-          You linked evaporation to cool temperature. Evaporation increases with higher thermal energy input.
-      - text: The amount of water vapor produced has no relationship to the surface area of the water source.
+          This excludes smaller vapor sources. Oceans provide the largest share. Check whether largest means only.
+      - text: 'Water can evaporate only above an ocean surface.'
         rationale: |
-          You ignored surface area dynamics. Exposed surface area directly dictates the rate and volume of evaporation.
+          This makes evaporation depend on being an ocean. Ocean evaporation is common. Check whether other exposed water surfaces can lose water.
     explanation: |
-      Since evaporation depends on the amount of exposed water surface heated by the Sun, the ocean's enormous surface area (and the fact that it holds about 96% of Earth's water) makes it by far the largest source of water vapor, even though lakes, rivers, and plant transpiration also contribute.
+      Oceans cover most of Earth's surface. Their broad exposed water surface receives solar energy. This makes ocean evaporation the largest source of atmospheric water vapor.
     approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0014
@@ -283,19 +283,19 @@ questions:
     stem: |
       What term describes ocean water's saltiness, distinguishing it from most water in lakes and rivers?
     choices:
-      - text: Saline
+      - text: 'Saline'
         correct: true
-      - text: Sediment
+      - text: 'Saturated'
         rationale: |
-          You picked suspended solid particles. Sediment refers to mineral or organic particles settling at the bottom.
-      - text: Saturated
+          This treats having salt as holding the maximum possible amount. Both describe a solution. Check salt presence versus the solubility limit.
+      - text: 'Distilled'
         rationale: |
-          You picked chemical solution capacity limit. Saturated describes a solution holding maximum dissolved solute.
-      - text: Turbid
+          This applies a purified-water description to natural seawater. Both are water. Check the dissolved salts.
+      - text: 'Turbid'
         rationale: |
-          You picked water clarity measure. Turbid describes cloudiness caused by suspended particle matter.
+          This treats suspended particles as dissolved salt. Both affect water properties. Check cloudiness versus salt content.
     explanation: |
-      Ocean water is saline (salty), unlike most water in lakes and rivers.
+      Saline means salty. Ocean water contains dissolved salts, so it is saline.
     approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0015
@@ -304,19 +304,19 @@ questions:
     stem: |
       Ocean water is layered based on two main factors. What are they?
     choices:
-      - text: Temperature and density
+      - text: 'Temperature and density'
         correct: true
-      - text: Salinity and color
+      - text: 'Salinity and color'
         rationale: |
-          You substituted water color for density. Ocean layering is governed by temperature and density variations.
-      - text: Depth and sunlight only, unrelated to temperature
+          This uses visible color as a layering factor. Salinity can affect density. Check the pair asked for rather than color.
+      - text: 'Depth and sunlight only, unrelated to temperature'
         rationale: |
-          You disconnected depth from temperature. Sunlight absorption directly controls water temperature and density stratification.
-      - text: Wave height and wind speed
+          This ignores the link between sunlight and temperature. Depth changes light exposure. Check temperature and density together.
+      - text: 'Wave height and wind speed'
         rationale: |
-          You picked surface weather factors. Wind and waves affect surface mixing, but thermal density stratifies ocean layers.
+          This uses surface conditions as the layer classification. Wind and waves mix water. Check what distinguishes the deeper layers.
     explanation: |
-      Ocean water has layers based on temperature and density: warmer, sunlit water near the surface, and colder, denser water in the deep ocean, where sunlight cannot reach.
+      The lesson describes ocean layers using temperature and density. The typical surface is warmer and sunlit. Deep water is colder, denser, and beyond sunlight's reach.
     approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0016
@@ -325,19 +325,19 @@ questions:
     stem: |
       What drives ocean currents, and why are they important for redistributing heat around the planet?
     choices:
-      - text: Ocean currents are driven by wind, differences in water density, and Earth's rotation; as they constantly move, they help redistribute heat from warmer to cooler regions around the planet.
+      - text: 'Wind, density differences, and rotation help move heat.'
         correct: true
-      - text: Ocean currents are driven entirely by the Moon's gravity, unrelated to wind or density.
+      - text: 'Only lunar gravity drives all currents and heat transport.'
         rationale: |
-          You attributed currents to tides. Moon gravity drives daily tides, whereas thermohaline and wind forces drive currents.
-      - text: Ocean currents do not move at all; ocean water stays in a fixed position.
+          This treats a tidal influence as the sole current mechanism. The Moon affects ocean motion. Check wind and density too.
+      - text: 'All currents flow without carrying energy between regions.'
         rationale: |
-          You claimed static ocean waters. Ocean water circulates globally through surface and deep thermohaline conveyor belts.
-      - text: Ocean currents have no effect on the distribution of heat around the planet.
+          This separates water movement from its heat content. Motion can be considered alone. Check whether warm water carries energy.
+      - text: 'Only sunlight''s visible brightness sets current direction.'
         rationale: |
-          You denied global heat transport. Ocean currents carry tropical heat toward poles, regulating global climate.
+          This treats illumination as the only driver of motion. Sunlight warms surface water. Check wind, density, and rotation.
     explanation: |
-      Ocean water constantly moves in currents, driven by wind, differences in water density, and Earth's rotation, which help redistribute heat around the planet.
+      Wind and density differences help drive ocean currents, and Earth's rotation affects their motion. Moving water carries thermal energy. Currents therefore redistribute heat around the planet.
     approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0017
@@ -346,17 +346,80 @@ questions:
     stem: |
       Heat from the Sun warms a large stretch of ocean, sending water vapor rising into the sky. High in the atmosphere, the vapor cools and forms clouds, which later release heavy rain over a mountainous region. Some of this rain seeps into the ground, and the rest flows down the mountainside into a river that eventually reaches the sea. Identify, in order, the water cycle stages this scenario describes.
     choices:
-      - text: Evaporation (ocean water rising as vapor), condensation (vapor cooling into clouds), precipitation (rain falling), and both infiltration (seeping into ground) and runoff (flowing into the river) occurring together
+      - text: 'Evaporation, condensation, precipitation, infiltration and runoff'
         correct: true
-      - text: Condensation, evaporation, infiltration, and precipitation, in that order
+      - text: 'Condensation, evaporation, precipitation, infiltration and runoff'
         rationale: |
-          You placed condensation before evaporation. Evaporation of ocean water must occur before cloud condensation can happen.
-      - text: Only evaporation and precipitation occur in this scenario; infiltration and runoff are unrelated concepts
+          This reverses the first two state changes. Both involve air and water. Check the ocean-to-vapor step first.
+      - text: 'Evaporation, precipitation, condensation, runoff without infiltration'
         rationale: |
-          You excluded land-stage hydrology. Rain seeping into ground (infiltration) and flowing in river (runoff) are core stages.
-      - text: Runoff, precipitation, condensation, and evaporation, in that order
+          This puts rain before cloud formation and leaves out soil entry. Rain is a visible stage. Check the stated cloud and seeping steps.
+      - text: 'Infiltration, runoff, condensation, evaporation without precipitation'
         rationale: |
-          You reversed the hydrologic cycle sequence. The cycle starts with ocean solar evaporation, proceeding through atmospheric and surface steps.
+          This starts with soil entry before the stated ocean evaporation and omits rain. The water cycle has several paths. Check the order in this particular scenario.
     explanation: |
-      This scenario traces the full cycle: evaporation (ocean water heated into vapor), condensation (vapor cooling into cloud droplets), precipitation (rain falling on the mountains), and finally infiltration and runoff occurring together, since some rain soaks into the soil while the rest flows over the surface toward the sea.
+      The ocean first releases vapor by evaporation. Cooling forms cloud droplets by condensation. Rain is precipitation. Soil entry is infiltration, and surface flow is runoff.
     approved: true
+
+  - id: q-earth-science-astronomy-water-cycle-oceanography-0018
+    type: compare-contrast
+    difficulty: easy
+    stem: |
+      Which description best fits typical deep ocean water compared with the sunlit surface layer?
+    choices:
+      - text: 'Colder, denser, and unlit'
+        correct: true
+      - text: 'Warmer, denser, and strongly sunlit'
+        rationale: |
+          This carries surface heating and light into the deep ocean. Deep water can be dense. Check whether sunlight reaches it.
+      - text: 'Colder, less dense, and strongly sunlit'
+        rationale: |
+          This combines the deep cold condition with surface light and low density. One detail fits. Check all three properties.
+      - text: 'Warmer, less dense, and equally sunlit'
+        rationale: |
+          This transfers the whole surface pattern to the deep ocean. Both layers are water. Check temperature, density, and sunlight with depth.
+    explanation: |
+      Sunlight mainly warms upper ocean water. Deep water is beyond sunlight's reach. The lesson describes it as colder and denser than the surface layer.
+    approved: false
+
+  - id: q-earth-science-astronomy-water-cycle-oceanography-0019
+    type: predict-outcome
+    difficulty: hard
+    stem: |
+      A current carries warm surface water from one region to a cooler region. What is its direct contribution to the planet's heat distribution?
+    choices:
+      - text: 'It transports thermal energy.'
+        correct: true
+      - text: 'It makes the moving water lose all its heat.'
+        rationale: |
+          This assumes motion removes all energy. Water can cool along a route. Check whether it still carries heat while moving.
+      - text: 'It prevents any heat from leaving the original region.'
+        rationale: |
+          This denies transport despite moving warm water. Heat may stay partly in a region. Check the energy carried by the moving water.
+      - text: 'It changes all water in the receiving region into vapor.'
+        rationale: |
+          This assumes heat transport forces complete evaporation. Heat can support evaporation. Check whether every arrival requires a state change.
+    explanation: |
+      Warm water contains thermal energy. As the current moves that water, it carries energy to another region. This redistributes heat.
+    approved: false
+
+  - id: q-earth-science-astronomy-water-cycle-oceanography-0020
+    type: classify
+    difficulty: exam
+    stem: |
+      A diagram starts its water-cycle arrows at evaporation. Which interpretation is accurate?
+    choices:
+      - text: 'The chosen starting point helps show a continuous cycle.'
+        correct: true
+      - text: 'Evaporation was the first water process ever to occur.'
+        rationale: |
+          This turns a drawing convention into a historical claim. The first arrow looks like a beginning. Check description order versus Earth's history.
+      - text: 'Water cannot enter the cycle through transpiration.'
+        rationale: |
+          This makes the diagram's first stage its only vapor source. Evaporation is important. Check the plant contribution.
+      - text: 'Every water molecule must follow the identical arrow sequence.'
+        rationale: |
+          This turns one depicted route into a requirement for every molecule. A simple loop is easy to follow. Check alternative paths such as infiltration.
+    explanation: |
+      The water cycle has no true starting point. A diagram chooses one place to begin its description. Water keeps moving among reservoirs through different paths.
+    approved: false
