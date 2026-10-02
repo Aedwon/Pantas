@@ -323,20 +323,20 @@ questions:
     choices:
       - text: "If the analysts"
         rationale: |
-          You flagged the conditional subject, but it is grammatically sound.
+          This flags the subject instead of the conditional verb. The clause begins with "if," so its opening may draw attention. Check the verb pattern for an unreal past condition.
       - text: "would have reviewed"
         correct: true
       - text: "the statistical data earlier,"
         rationale: |
-          You flagged the object and time phrase, but they are grammatical.
+          This flags the object and time phrase. The time word "earlier" may look like the cause of the tense problem. Check which words form the verb in the if-clause.
       - text: "they would have caught"
         rationale: |
-          You flagged the result clause, but "would have caught" is appropriate in the result clause of this unreal past conditional.
+          This applies the if-clause rule to the result clause. Both describe a past event that did not happen, so their verb forms may seem interchangeable. Check which clause states the result.
       - text: "No error"
         rationale: |
-          You assumed there was no error, but this unreal past condition takes past perfect in the if-clause: "If the analysts had reviewed..."
+          This accepts a result-clause verb pattern inside the if-clause. The repeated "would have" may sound balanced. Check that the unreal past condition uses "had" with a past participle.
     explanation: |
-      In this third-conditional pattern, the if-clause uses past perfect and the result clause uses "would have" plus a past participle: "If the analysts had reviewed ..., they would have caught ..."
+      This sentence imagines a different past. The condition needs "had reviewed," and the result uses "would have caught." The corrected sentence begins, "If the analysts had reviewed the statistical data earlier."
   - id: "q-language-application-error-identification-0015"
     type: "error-identification"
     difficulty: "medium"
