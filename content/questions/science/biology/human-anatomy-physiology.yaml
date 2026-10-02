@@ -161,15 +161,19 @@ questions:
         correct: true
       - text: 'Glucose'
         rationale: |
-          You picked glucose. Glucose is nutrient energy molecule reabsorbed by kidneys, not nitrogenous waste.
+          This treats a useful nutrient as the main protein-related nitrogen waste. Kidneys do filter glucose. Check that useful glucose is normally reabsorbed.
+
       - text: 'Insulin'
         rationale: |
-          You picked insulin. Insulin is pancreatic hormone regulating glucose uptake, not nitrogenous waste.
+          This treats a hormone as the protein-related waste. Insulin is itself a protein. Check its signaling role rather than its chemical class alone.
+
       - text: 'Bile'
         rationale: |
-          You picked bile. Bile is digestive fluid produced by liver for lipid emulsification.
+          This treats a liver-produced digestive fluid as urinary nitrogen waste. The liver also makes urea. Check whether the substance enters digestion or is carried to kidneys.
+
     explanation: |
-      Urea is a waste product from protein breakdown, filtered out of the blood by the kidneys and excreted in urine.
+      Breaking down amino acids from proteins produces nitrogen that the liver converts into urea. Urea travels in the blood. The kidneys excrete some of it in urine.
+
     approved: true
 
   - id: q-biology-human-anatomy-physiology-0009
@@ -308,15 +312,19 @@ questions:
         correct: true
       - text: 'The ventricles (lower chambers)'
         rationale: |
-          You picked ventricles. Ventricles are muscular lower pumping chambers that force blood out of heart.
+          This chooses the chambers that pump blood out. Ventricles receive blood after it passes through atria. Check which chambers connect directly to returning veins.
+
       - text: 'Both the atria and ventricles equally'
         rationale: |
-          You assigned receiving role to ventricles. Inflowing veins connect directly to atria, not ventricles.
+          This treats all chambers as equally direct entry points. Blood passes through both chamber types. Check where returning veins first connect.
+
       - text: 'Neither: blood enters directly into the arteries'
         rationale: |
-          You claimed blood enters through arteries. Blood leaves heart through arteries and enters heart through veins/atria.
+          This reverses incoming and outgoing vessels. Arteries connect with the heart. Check that arteries carry blood away and veins return it.
+
     explanation: |
-      Blood flows into the heart through the atria (upper chambers) first, then moves into the ventricles (lower chambers), which pump blood back out to the lungs or body.
+      Blood returning through veins enters the atria. These upper chambers receive incoming blood from the body and lungs.
+
     approved: true
 
   - id: q-biology-human-anatomy-physiology-0016
