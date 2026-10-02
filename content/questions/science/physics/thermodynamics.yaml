@@ -326,7 +326,7 @@ questions:
     stem: |
       Which description uses heat in its thermodynamic meaning?
     choices:
-      - text: "Energy transferred due to a temperature difference"
+      - text: "Energy flow due to unequal temperatures"
         correct: true
       - text: "A substance stored inside hot objects"
         rationale: |
@@ -338,7 +338,7 @@ questions:
         rationale: |
           This treats microscopic matter as heat itself. Particles have internal energy. Check whether energy is crossing between systems.
     explanation: |
-      Heat is energy transferred because systems have different temperatures. Internal energy is a property of a system.
+      Heat is energy transferred because systems have different temperatures. The temperature difference drives this transfer.
 
   - id: q-physics-thermodynamics-0017
     approved: false
