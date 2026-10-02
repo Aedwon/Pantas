@@ -8,334 +8,419 @@ questions:
     type: number-letter-series
     difficulty: easy
     stem: |
-      Find the next term: 4, 9, 14, 19, ...
+      Following the constant-difference pattern, find the next term: $4, 9, 14, 19, ...$.
     choices:
       - text: "24"
         correct: true
       - text: "23"
         rationale: |
-          You added 4 to the last term instead of 5. The pattern adds 5 to each term ( + 5 = 24$).
+          This adds 4 instead of 5 to 19. The last digit of 14 may distract from the actual gap. Check every difference between adjacent terms.
       - text: "25"
         rationale: |
-          You added 6 to the last term instead of 5. Each step increases by exactly 5 ( + 5 = 24$).
+          This adds 6 instead of 5 to 19. Moving one step too far can happen while counting forward. Check the repeated size of each step.
       - text: "22"
         rationale: |
-          You added 3 to the last term instead of 5. Check the difference between consecutive terms ( - 4 = 5$).
+          This adds 3 instead of 5 to 19. A small increase may seem to fit an increasing list. Check the exact difference across all shown pairs.
     explanation: |
-      Each term increases by 5 ($9-4=5$, $14-9=5$, $19-14=5$). The next term is $19+5=24$.
+      The differences are $9-4=5$, $14-9=5$, and $19-14=5$. Keep adding 5. The next term is $19+5=24$.
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0002
     type: number-letter-series
     difficulty: easy
     stem: |
-      Find the next term: 5, 10, 15, 20, ...
+      Find the missing term in this constant-difference sequence: $31, 24, ..., 10, 3$.
     choices:
-      - text: "25"
+      - text: "17"
         correct: true
-      - text: "24"
+      - text: "18"
         rationale: |
-          You subtracted 1 from the correct term. The sequence adds 5 to 20, which equals 25.
-      - text: "30"
+          This subtracts 6 from 24. A one-place counting error can make the result look close. Check the gap from 31 to 24.
+      - text: "16"
         rationale: |
-          You added 10 to the last term instead of 5. The constant difference is 5, giving  + 5 = 25$.
-      - text: "22"
+          This subtracts 8 from 24. The descending direction is right, which can hide the extra step. Check both neighbors of the missing term.
+      - text: "7"
         rationale: |
-          You subtracted 3 from the expected term. The step size is a constant +5.
+          This gives the size of the decrease instead of the missing value. Seven is the key step in the pattern. Check what the question asks to put in the gap.
     explanation: |
-      Each term increases by 5. The next term is $20+5=25$.
+      The sequence decreases by 7: $31-7=24$. The missing term is $24-7=17$, followed by $17-7=10$ and $10-7=3$.
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0003
     type: number-letter-series
     difficulty: medium
     stem: |
-      Find the next term: 2, 6, 18, 54, ...
+      Following the constant-ratio pattern, find the next term: $2, 6, 18, 54, ...$.
     choices:
       - text: "162"
         correct: true
       - text: "108"
         rationale: |
-          You multiplied 54 by 2 instead of 3. The ratio between consecutive terms is 3 ( 	imes 3 = 162$).
+          This doubles 54 instead of multiplying it by 3. Doubling is a familiar growth rule. Check the ratio in every shown pair.
       - text: "216"
         rationale: |
-          You multiplied 54 by 4 instead of 3. The common ratio is  \div 2 = 3$.
-      - text: "150"
+          This multiplies 54 by 4 instead of 3. The rapidly increasing numbers may suggest a larger multiplier. Check the actual common ratio.
+      - text: "90"
         rationale: |
-          You added a fixed amount instead of multiplying. This is a geometric sequence with ratio 3.
+          This adds the last difference, 36, to 54. Repeating a gap works in arithmetic sequences. Check whether the gaps stay equal or the ratios stay equal.
     explanation: |
-      Each term is multiplied by 3 ($6\div2=3$, $18\div6=3$, $54\div18=3$). The next term is $54\times3=162$.
+      The ratios are $6/2=3$, $18/6=3$, and $54/18=3$. Each term is multiplied by 3. The next term is $54$ times $3$, which is $162$.
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0004
     type: number-letter-series
     difficulty: medium
     stem: |
-      Find the next term: 5, 15, 45, 135, ...
+      Find the missing term in this constant-ratio sequence: $64, 32, ..., 8, 4$.
     choices:
-      - text: "405"
+      - text: "16"
         correct: true
-      - text: "270"
+      - text: "64"
         rationale: |
-          You multiplied 135 by 2 instead of 3. The common ratio is 3 ( 	imes 3 = 405$).
-      - text: "540"
+          This doubles 32 instead of halving it. Multiplication and division are related ratio operations. Check whether the given sequence grows or shrinks.
+      - text: "8"
         rationale: |
-          You multiplied 135 by 4 instead of 3. The sequence multiplies each term by 3.
-      - text: "360"
+          This halves 32 twice and skips a term. Eight is visibly in the sequence. Check that each position takes only one step.
+      - text: "0"
         rationale: |
-          You estimated the multiplication.  	imes 3$ equals 405.
+          This subtracts the first gap of 32 again. A fixed difference fits the first pair. Check the later 8-to-4 transition before using that rule.
     explanation: |
-      Each term is multiplied by 3 ($15\div5=3$, $45\div15=3$, $135\div45=3$). The next term is $135\times3=405$.
+      Each term is half the previous term. Half of 64 is 32, and half of 32 is 16. Continuing gives 8 and then 4, so the gap is 16.
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0005
     type: number-letter-series
     difficulty: medium
     stem: |
-      Find the next term: 2, 3, 5, 8, 12, ...
+      The successive differences follow a simple increasing pattern. Find the next term: $2, 3, 5, 8, 12, ...$.
     choices:
       - text: "17"
         correct: true
       - text: "15"
         rationale: |
-          You added 3 instead of 5. The differences are , 2, 3, 4$, so the next difference is $ ( + 5 = 17$).
+          This adds 3 to 12, reusing an earlier gap. Three was a valid increase earlier in the sequence. Check the order of the changing gaps.
       - text: "16"
         rationale: |
-          You added 4 again instead of increasing the difference to 5. The differences increase by 1 each step.
+          This repeats the last gap of 4. That can look right if only the latest pair is checked. Check whether the gaps themselves are increasing.
       - text: "18"
         rationale: |
-          You added 6 to the last term instead of 5. The next step increment is 5, giving  + 5 = 17$.
+          This adds 6 and skips the next gap of 5. The increases are growing, so a larger gap seems plausible. Check that the gap increases by only one each time.
     explanation: |
-      The differences increase by 1 each time ($1, 2, 3, 4$), so the next difference is $5$. The next term is $12+5=17$.
+      The successive increases are 1, 2, 3, and 4. Increase the next gap by one to 5. Then $12+5=17$.
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0006
     type: number-letter-series
     difficulty: medium
     stem: |
-      Find the next term: 1, 2, 4, 7, 11, ...
+      Continue the pattern in the successive differences: $1, 4, 9, 16, ...$. What is the next term?
     choices:
-      - text: "16"
+      - text: "25"
         correct: true
-      - text: "14"
+      - text: "23"
         rationale: |
-          You added 3 to 11 instead of 5. The step sizes are , 2, 3, 4$, so the next addition is 5.
-      - text: "15"
+          This repeats the last increase of 7. Reusing the latest gap is a common shortcut. Check how the gaps change from 3 to 5 to 7.
+      - text: "24"
         rationale: |
-          You added 4 again instead of increasing the step to 5. The difference increases by 1 each term.
-      - text: "18"
+          This adds 8 instead of the next odd gap, 9. Eight looks like the next larger number after 7. Check that the gaps increase by two.
+      - text: "32"
         rationale: |
-          You added 7 to 11. The next difference in the sequence is 5 ( + 5 = 16$).
+          This doubles 16. Some early terms can suggest multiplication. Check whether doubling fits every shown transition.
     explanation: |
-      The differences increase by 1 each time ($1, 2, 3, 4$), so the next difference is $5$. The next term is $11+5=16$.
+      The increases are 3, 5, and 7. They grow by 2 each time, so the next increase is 9. Then $16+9=25$.
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0007
     type: number-letter-series
     difficulty: medium
     stem: |
-      Find the 7th term: 1, 10, 3, 8, 5, 6, ...
+      This sequence has separate odd- and even-position patterns. Find the seventh term: $1, 10, 3, 8, 5, 6, ...$.
     choices:
       - text: "7"
         correct: true
       - text: "4"
         rationale: |
-          You evaluated the even position pattern (, 8, 6, 4$) instead of the odd position pattern. The 7th term is an odd position (, 3, 5, 7$).
+          This continues the even-position track. That track is visibly decreasing to 4. Check whether the requested position is odd or even.
       - text: "8"
         rationale: |
-          You selected a value from the decreasing even sequence. The 7th term follows the odd sequence , 3, 5, 7$.
+          This uses a prior value from the even-position track. Eight is already in the list. Check which positions belong to the requested track.
       - text: "9"
         rationale: |
-          You added 4 to the 5th term instead of 2. The odd positions increase by 2 each time.
+          This adds 4 to the odd-position value 5. Two places are skipped in the written list, which may suggest doubling the increment. Check the gaps within the odd track itself.
     explanation: |
-      This sequence interleaves two patterns: odd positions increase by 2 ($1, 3, 5, \ldots$) and even positions decrease by 2 ($10, 8, 6, \ldots$). The 7th term (an odd position) continues $1, 3, 5, 7$, so the answer is $7$.
+      The odd positions are 1, 3, and 5, increasing by 2. The even positions are 10, 8, and 6, decreasing by 2. Position 7 is odd, so it continues $5+2=7$.
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0008
     type: number-letter-series
     difficulty: medium
     stem: |
-      Find the next term: 1, 1, 2, 3, 5, 8, ...
+      Each term after the first two is the sum of the two immediately before it. Find the next term: $1, 1, 2, 3, 5, 8, ...$.
     choices:
       - text: "13"
         correct: true
       - text: "11"
         rationale: |
-          You added 3 to 8. Fibonacci terms are formed by adding the two preceding terms ( + 8 = 13$).
-      - text: "12"
+          This adds 3 to 8 and skips the immediately preceding 5. Three is an earlier value in the list. Check the two terms directly before the gap.
+      - text: "16"
         rationale: |
-          You added 4 to 8. In a Fibonacci sequence, each term is the sum of the previous two terms ( + 8 = 13$).
-      - text: "10"
+          This doubles the final 8. A doubling rule can fit the first few values partly. Check the stated two-term addition rule.
+      - text: "21"
         rationale: |
-          You added 2 to 8. You must add the preceding term 5 to 8 to get 13.
+          This adds the next two-term result once more, skipping a position. The recurrence can be carried on mentally too far. Check which term the first blank represents.
     explanation: |
-      Each term is the sum of the two terms before it (Fibonacci-style): $5+8=13$.
+      Each later term adds the two terms directly before it: $1+1=2$, $1+2=3$, $2+3=5$, and $3+5=8$. The next term is $5+8=13$.
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0009
     type: number-letter-series
     difficulty: medium
     stem: |
-      Find the next letter: B, D, G, K, ...
+      Use English alphabet positions A=1 through Z=26 and the increasing jump pattern. Find the next letter: B, D, G, K, ...
     choices:
-      - text: P
+      - text: "P"
         correct: true
       - text: "O"
         rationale: |
-          You converted position 15 instead of 16. The position increments are , 3, 4$, so  + 5 = 16$, which is P.
+          This repeats the last jump of 4, reaching position 15. The last pair is easy to reuse. Check whether the jump sizes are increasing.
       - text: "N"
         rationale: |
-          You converted position 14. The next difference is 5, giving letter position  + 5 = 16$ (P).
+          This reuses the earlier jump of 3, reaching position 14. That was a valid jump earlier. Check which jump comes next in the pattern.
       - text: "Q"
         rationale: |
-          You converted position 17 (adding 6 instead of 5). The next position increment is 5.
+          This jumps by 6, reaching position 17. The steps are growing, so it may look close. Check that the next jump is only one larger.
     explanation: |
-      Converting to alphabet positions: $B=2, D=4, G=7, K=11$. The differences increase by 1 each time ($2, 3, 4$), so the next difference is $5$: $11+5=16$, which is the letter $P$.
+      Using A=1 through Z=26 gives positions 2, 4, 7, and 11. The jumps are 2, 3, and 4, so the next jump is 5. Position $11+5=16$ is P.
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0010
     type: number-letter-series
     difficulty: easy
     stem: |
-      Find the next letter: A, C, E, G, ...
+      Use the constant alphabet-position jump. Find the next letter: A, C, E, G, ...
     choices:
-      - text: I
+      - text: "I"
         correct: true
       - text: "H"
         rationale: |
-          You added 1 letter position instead of 2. The sequence skips one letter each step (, 3, 5, 7, 9$), giving I.
+          This advances one position from G. It gives the very next letter. Check the repeated jump of two positions.
       - text: "J"
         rationale: |
-          You added 3 letter positions instead of 2.  + 2 = 9$, which corresponds to I.
+          This advances three positions from G. Counting both the starting letter and moves can add a step. Check the gaps between the given letters.
       - text: "K"
         rationale: |
-          You added 4 letter positions. The pattern has a constant difference of +2 in alphabet positions.
+          This advances four positions from G. Skipping two places in the written list may lead to too large a move. Check the constant position difference.
     explanation: |
-      Converting to alphabet positions: $A=1, C=3, E=5, G=7$, each increasing by 2. The next position is $7+2=9$, which is the letter $I$.
+      The positions are 1, 3, 5, and 7. Each increases by 2. The next position is $7+2=9$, which is I.
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0011
     type: number-letter-series
     difficulty: hard
     stem: |
-      A student sees the sequence 3, 5, 8, 12, 17, ... and guesses the pattern is "add 2 each time," based on the first gap ($5-3=2$). Is this guess correct, and what is the actual next term?
+      A sequence alternates "multiply by 2" and "subtract 1," beginning with multiplication. Which number must replace the final incorrect term in $3, 6, 5, 10, 9, 18, 16$?
     choices:
-      - text: 'The guess is incorrect: the differences actually increase by 1 each time ($2, 3, 4, 5$), so the correct next term is $17+6=23$, not $17+2=19$.'
+      - text: "17"
         correct: true
-      - text: 'The guess is correct: the next term is $17+2=19$.'
+      - text: "16"
         rationale: |
-          You assumed the first gap of +2 applies to all terms. The differences actually increase (, 3, 4, 5$), so the next term is  + 6 = 23$.
-      - text: The guess is correct, but only because every sequence must add a constant amount.
+          This subtracts 2 instead of 1 from 18. Two appears in the doubling operation. Check which operation and amount apply at this step.
+      - text: "18"
         rationale: |
-          You assumed sequences always add a constant amount. Sequences can have growing differences.
-      - text: Neither guess nor calculation can be verified from the given terms.
+          This repeats 18 without applying the subtraction. The previous doubling result is easy to reuse. Check that each next position requires an operation.
+      - text: "19"
         rationale: |
-          You assumed the pattern cannot be determined. Five terms provide enough evidence to verify increasing differences.
+          This adds 1 to 18 instead of subtracting 1. The size of the change looks right. Check the sign of the alternating operation.
     explanation: |
-      Checking all the differences ($2, 3, 4, 5$) reveals they are increasing, not constant: a changing-difference pattern, not simple arithmetic. The correct next difference is $6$, giving $17+6=23$.
+      Apply the alternating rule: double 3 to get 6, subtract 1 to get 5, double to 10, subtract to 9, then double to 18. The next subtraction gives $18-1=17$.
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0012
     type: number-letter-series
     difficulty: hard
     stem: |
-      A student sees the first two terms of a sequence, 3 and 6, and immediately guesses the pattern is "multiply by 2 each time." The full sequence is actually 3, 6, 9, 12, 15, .... Is the student's guess correct, and what is the actual next term after 15?
+      Find the next term using the simplest repeated two-operation rule that fits every transition: $2, 5, 11, 23, 47, ...$.
     choices:
-      - text: 'The guess is incorrect: checking all the terms shows the pattern is actually "add 3 each time" (arithmetic), not "multiply by 2"; the correct next term is $15+3=18$.'
+      - text: "95"
         correct: true
-      - text: 'The guess is correct: the next term is $15\times2=30$.'
+      - text: "94"
         rationale: |
-          You relied on the first two terms alone. Checking all terms shows a constant addition of 3, not multiplication by 2.
-      - text: The guess is correct, since the first two terms alone are always enough to confirm any pattern.
+          This doubles 47 but leaves out the added 1. Doubling explains much of the growth. Check the final adjustment at every shown step.
+      - text: "96"
         rationale: |
-          You assumed two terms are sufficient to confirm a pattern. Two terms can fit multiple rules.
-      - text: Neither an arithmetic nor a geometric pattern can describe this sequence.
+          This doubles the sum of 47 and 1, giving 96. The same operations are remembered but used in reverse order. Check the order that fits the first transition.
+      - text: "50"
         rationale: |
-          You claimed no pattern describes the sequence. A constant difference of 3 describes it cleanly.
+          This adds the first gap, 3, to 47. That rule fits only the first two terms. Check the next transition before accepting it.
     explanation: |
-      Two terms alone can match multiple possible patterns ($3, 6$ fits both "add 3" and "multiply by 2"). Checking the full sequence ($3, 6, 9, 12, 15$) confirms a constant difference of $3$ (arithmetic), not a constant ratio, so the next term is $15+3=18$.
+      Each transition doubles the term and adds 1: 2 becomes 5, 5 becomes 11, 11 becomes 23, and 23 becomes 47. Continue with $47+47+1=95$.
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0013
     type: number-letter-series
     difficulty: hard
     stem: |
-      A student is solving a letter sequence and correctly computes the next alphabet position number as 21, then selects "21" as their final answer, since the question is about a sequence. What mistake did the student make, and what should the final answer be?
+      A letter-sequence calculation gives position 21 under English A=1 through Z=26. Which letter should fill the gap?
     choices:
-      - text: The student forgot to convert the numeric answer back into its corresponding letter; since position 21 corresponds to U, the final answer should be U, not the number 21.
+      - text: "U"
         correct: true
-      - text: The student made no mistake; "21" is an acceptable final answer for a letter sequence question.
+      - text: "T"
         rationale: |
-          You accepted a numerical output for a letter sequence. The numerical value must be converted back to a letter.
-      - text: The student's numeric calculation itself was wrong, regardless of the conversion step.
+          This maps position 20 instead of 21. Counting a starting value twice can end one letter early. Check the stated A=1 starting value.
+      - text: "V"
         rationale: |
-          You focused on the math rather than the representation. The math 21 was correct, but required conversion to U.
-      - text: Letter sequences should always be answered using alphabet positions, never letters.
+          This uses A=0 instead of A=1 and maps 21 to V. A zero-based list may be familiar from another system. Check the starting value stated here.
+      - text: "21"
         rationale: |
-          You inverted the output rule. Letter sequences require letter answers.
+          This leaves the working number as the final response. The calculation correctly reached 21. Check whether the question asks for a number or a letter.
     explanation: |
-      After solving a letter sequence using alphabet position numbers, you must always convert your final numeric answer back into its corresponding letter. Solving that the next number is $21$ is not the final answer if the question asks for a letter: the correct answer is $U$ (the 21st letter).
+      Under A=1 through Z=26, U is the twenty-first letter. The requested letter is U.
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0014
     type: number-letter-series
     difficulty: medium
     stem: |
-      Find the next letter: D, G, J, M, ...
+      The odd and even positions form separate letter patterns. What is the eighth term of A, Z, C, X, E, V, ...?
     choices:
-      - text: P
+      - text: "T"
         correct: true
-      - text: "O"
+      - text: "G"
         rationale: |
-          You converted position 15 instead of 16. The letter positions are , 7, 10, 13$, so  + 3 = 16$ (P).
-      - text: "Q"
+          This continues the odd-position track instead of the even one. G is the next value in that track. Check the requested position number.
+      - text: "U"
         rationale: |
-          You added 4 letter positions instead of 3 ( + 4 = 17$). The constant difference is +3.
-      - text: "N"
+          This moves back only one position from V. It uses the right direction but the wrong jump. Check the even-track gap from Z to X.
+      - text: "V"
         rationale: |
-          You added 1 letter position instead of 3. The pattern increments by +3 alphabet positions.
+          This repeats the last even-position value. The odd track may draw attention away from its partner. Check that the even track also moves.
     explanation: |
-      Converting to alphabet positions: $D=4, G=7, J=10, M=13$, each increasing by 3. The next position is $13+3=16$, which is the letter $P$.
+      The odd positions are A, C, E, increasing by two alphabet positions. The even positions are Z, X, V, decreasing by two. Position eight is even, so V moves back two to T.
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0015
     type: number-letter-series
     difficulty: hard
     stem: |
-      Find the 8th term: 2, 20, 4, 18, 6, 16, ...
+      Continue the alternating-operation pattern: $2, 4, 5, 10, 11, 22, 23, ...$. Find the next term.
     choices:
-      - text: "14"
+      - text: "46"
         correct: true
-      - text: "8"
+      - text: "24"
         rationale: |
-          You evaluated the odd positions (, 4, 6, 8$) instead of the even positions. The 8th term is an even position (, 18, 16, 14$).
-      - text: "12"
+          This adds 1 again instead of doubling. The latest step was an addition. Check which operation comes next in the cycle.
+      - text: "44"
         rationale: |
-          You subtracted 4 from 16 instead of 2. The even sequence decreases by 2 each step.
-      - text: "10"
+          This doubles the earlier 22 instead of the latest 23. The last doubled result may stay in memory. Check the value immediately before the gap.
+      - text: "45"
         rationale: |
-          You subtracted 6 from 16. The even terms decrease by 2 (, 18, 16, 14$).
+          This doubles the previous large gap, 11, and adds 22 to 23. Growth in the large gaps can make that shortcut seem right. Check whether the next step doubles the current term or the earlier gap.
     explanation: |
-      This sequence interleaves two patterns: odd positions increase by 2 ($2, 4, 6, \ldots$) and even positions decrease by 2 ($20, 18, 16, \ldots$). The 8th term (an even position) continues $20, 18, 16, 14$, so the answer is $14$.
+      The operations alternate doubling and adding 1: 2 becomes 4, then 5, then 10, then 11, then 22, then 23. The next operation doubles 23 to 46.
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0016
     type: number-letter-series
     difficulty: exam
     stem: |
-      Find the next letter: B, C, E, H, L, ...
+      The English alphabet is cyclic here: after Z comes A. Following the constant forward jump, find the next letter: W, Z, C, F, ...
     choices:
-      - text: Q
+      - text: "I"
         correct: true
-      - text: "P"
+      - text: "H"
         rationale: |
-          You converted position 16 instead of 17. The position differences are , 2, 3, 4$, so  + 5 = 17$ (Q).
-      - text: "R"
+          This moves two positions from F. Counting the starting letter as a step can lose one move. Check the three-position jumps already shown.
+      - text: "J"
         rationale: |
-          You converted position 18 (adding 6 instead of 5). The next difference is 5.
-      - text: "N"
+          This moves four positions from F. A wraparound may encourage adding an extra step. Check the ordinary C-to-F jump.
+      - text: "C"
         rationale: |
-          You converted position 14. The position of L is 12 and the next difference is 5, giving 17 (Q).
+          This reverses direction and moves back three from F. C was the preceding letter in the sequence. Check the direction of all given jumps.
     explanation: |
-      Converting to alphabet positions: $B=2, C=3, E=5, H=8, L=12$. The differences increase by 1 each time ($1, 2, 3, 4$), so the next difference is $5$: $12+5=17$, which is the letter $Q$.
+      Each letter moves forward three alphabet positions. W goes to Z, then the alphabet wraps from Z to A before reaching C. C moves to F, and F moves three positions to I.
     approved: true
+
+  - id: q-logical-verbal-reasoning-number-and-letter-sequences-0017
+    type: number-letter-series
+    difficulty: hard
+    stem: |
+      Find the next term in the alternating-operation sequence: $4, 7, 6, 9, 8, 11, ...$.
+    choices:
+      - text: "10"
+        correct: true
+      - text: "14"
+        rationale: |
+          This adds 3 to 11 when the next step is subtraction. The latest rise can draw attention to the larger operation. Check where the cycle is after 8 becomes 11.
+      - text: "12"
+        rationale: |
+          This adds 1 instead of subtracting 1. The small change is remembered with the wrong sign. Check the direction of the alternating smaller step.
+      - text: "8"
+        rationale: |
+          This subtracts 3 instead of 1. The two operation amounts are remembered but exchanged. Check the drops from 7 to 6 and from 9 to 8.
+    explanation: |
+      The rule alternates adding 3 and subtracting 1: 4 becomes 7, then 6, then 9, then 8, then 11. The next step is $11-1=10$.
+    approved: false
+
+  - id: q-logical-verbal-reasoning-number-and-letter-sequences-0018
+    type: number-letter-series
+    difficulty: hard
+    stem: |
+      Each term after the first three is the sum of the three immediately before it. Find the next term: $1, 1, 2, 4, 7, ...$.
+    choices:
+      - text: "13"
+        correct: true
+      - text: "11"
+        rationale: |
+          This adds only the last two terms, 4 and 7. That is a familiar recurrence rule. Check how many preceding terms this question requires.
+      - text: "14"
+        rationale: |
+          This doubles the latest 7. Doubling can fit parts of a growing list. Check the stated three-term rule.
+      - text: "12"
+        rationale: |
+          This uses the earlier 1 instead of the most recent third preceding term, 2. Several starting ones can blur the positions. Check the three terms directly before the gap.
+    explanation: |
+      After the first three terms, add the previous three: $1+1+2=4$, then $1+2+4=7$. The next term is $2+4+7=13$.
+    approved: false
+
+  - id: q-logical-verbal-reasoning-number-and-letter-sequences-0019
+    type: number-letter-series
+    difficulty: hard
+    stem: |
+      These are the initial letters of consecutive English month names, beginning with January: J, F, M, A, M, J, J, ... What comes next?
+    choices:
+      - text: "A"
+        correct: true
+      - text: "S"
+        rationale: |
+          This uses September as month eight. Treating January as position zero can shift the count. Check that January is the first month.
+      - text: "O"
+        rationale: |
+          This skips August and September to use October. Familiar autumn initials may seem to follow summer months. Check the months in calendar order.
+      - text: "J"
+        rationale: |
+          This repeats J after the June and July terms. Consecutive matching initials can look like a repeated-letter rule. Check the next calendar month.
+    explanation: |
+      The letters stand for January through July. The eighth month is August, whose first letter is A.
+    approved: false
+
+  - id: q-logical-verbal-reasoning-number-and-letter-sequences-0020
+    type: number-letter-series
+    difficulty: exam
+    stem: |
+      Use English alphabet positions and increasing jumps within each of the two letter tracks. Complete the paired sequence: AZ, BY, DW, GT, ...
+    choices:
+      - text: "KP"
+        correct: true
+      - text: "JP"
+        rationale: |
+          This repeats the forward jump of 3 for the first track. The second track reaches P correctly. Check that the forward gaps also increase.
+      - text: "KQ"
+        rationale: |
+          This repeats the backward jump of 3 for the second track. The first track reaches K correctly. Check that the backward gaps increase as well.
+      - text: "LO"
+        rationale: |
+          This jumps by 5 in both tracks, skipping the next size of 4. Both gap patterns are growing. Check the sequence of gap sizes before advancing.
+    explanation: |
+      Read the two letter tracks separately. The first letters A, B, D, G move by 1, 2, and 3, so the next move of 4 gives K. The second letters Z, Y, W, T move back by 1, 2, and 3, so the next backward move of 4 gives P. The pair is KP.
+    approved: false
+
