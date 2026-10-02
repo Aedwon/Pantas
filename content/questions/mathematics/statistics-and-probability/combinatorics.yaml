@@ -1,418 +1,390 @@
 meta:
-  subject: mathematics
-  topic: statistics-and-probability
-  subtopic: combinatorics
-  exams: [upcat, acet, dlsucet, ustet, pupcet]
+  subject: 'mathematics'
+  topic: 'statistics-and-probability'
+  subtopic: 'combinatorics'
+  exams: ['upcat', 'acet', 'dlsucet', 'ustet', 'pupcet']
 questions:
-  - id: q-statistics-and-probability-combinatorics-0001
-    type: word-problem
-    difficulty: easy
-    stem: |
-      A student canteen offers $4$ main dishes, $3$ types of drinks, and $2$ desserts. A meal combo consists of one main dish, one drink, and one dessert. The order of selecting items does not matter. How many different meal combos can a student order?
-    choices:
-      - text: "$24$"
-        correct: true
-      - text: "$9$"
-        rationale: |
-          You added the number of choices (4 + 3 + 2 = 9) instead of multiplying them.
-      - text: "$14$"
-        rationale: |
-          You multiplied 4 by 3 and added 2, or misapplied counting principles.
-      - text: "$36$"
-        rationale: |
-          You multiplied 4 by 3 by 3 instead of 4 by 3 by 2.
-    explanation: |
-      By the Fundamental Counting Principle, multiply the number of choices for each independent selection component:
-      
-      $$\text{Combos} = 4 \times 3 \times 2 = 24$$
-      
-      There are $24$ distinct meal combos available.
-  - id: q-statistics-and-probability-combinatorics-0002
-    type: word-problem
-    difficulty: easy
-    stem: |
-      Five distinct textbooks are to be arranged side by side on a bookshelf. The order of books on the shelf matters. In how many different ways can the five books be arranged?
-    choices:
-      - text: "$120$"
-        correct: true
-      - text: "$25$"
-        rationale: |
-          You calculated 5 squared (5^2 = 25) instead of 5 factorial (5! = 120).
-      - text: "$60$"
-        rationale: |
-          You calculated 5! and divided by 2 or calculated 5 x 4 x 3.
-      - text: "$5$"
-        rationale: |
-          You stated the number of books instead of finding the number of arrangements.
-    explanation: |
-      Because all $5$ distinct books are arranged in a specific linear sequence, use the factorial $5!$:
-      
-      $$5! = 5 \times 4 \times 3 \times 2 \times 1 = 120$$
-      
-      There are $120$ different shelf arrangements.
-  - id: q-statistics-and-probability-combinatorics-0003
-    type: word-problem
-    difficulty: easy
-    stem: |
-      A teacher wants to choose a delegation of $3$ students from a class of $8$ candidates to attend a science fair. The order of selection does not matter. How many different delegations can be formed?
-    choices:
-      - text: "$56$"
-        correct: true
-      - text: "$336$"
-        rationale: |
-          You used the permutation formula P(8, 3) instead of the combination formula C(8, 3).
-      - text: "$24$"
-        rationale: |
-          You calculated 8 x 3 = 24 instead of using combinations.
-      - text: "$512$"
-        rationale: |
-          You calculated 8 cubed (8^3 = 512) assuming repetition with replacement.
-    explanation: |
-      Since the order of selection does not matter, use the combination formula $C(n, r) = \frac{n!}{r!(n-r)!}$ with $n = 8$ and $r = 3$:
-      
-      $$C(8, 3) = \frac{8!}{3!(8-3)!} = \frac{8 \times 7 \times 6}{3 \times 2 \times 1} = 56$$
-      
-      There are $56$ different delegations possible.
-  - id: q-statistics-and-probability-combinatorics-0004
-    type: word-problem
-    difficulty: easy
-    stem: |
-      In a running race with $7$ participants, prizes are awarded for 1st, 2nd, and 3rd place. The order of finish matters. In how many different ways can the three prizes be awarded?
-    choices:
-      - text: "$210$"
-        correct: true
-      - text: "$35$"
-        rationale: |
-          You used the combination formula C(7, 3) instead of the permutation formula P(7, 3).
-      - text: "$5,040$"
-        rationale: |
-          You calculated 7 factorial (7! = 5040) for all 7 runners instead of just 3 places.
-      - text: "$42$"
-        rationale: |
-          You calculated 7 x 6 for 2 places instead of 3 places.
-    explanation: |
-      Since prize placement depends on finish rank, order matters. Use the permutation formula $P(n, r) = \frac{n!}{(n-r)!}$ with $n = 7$ and $r = 3$:
-      
-      $$P(7, 3) = \frac{7!}{(7-3)!} = 7 \times 6 \times 5 = 210$$
-      
-      There are $210$ ways to award the three prizes.
-  - id: q-statistics-and-probability-combinatorics-0005
-    type: word-problem
-    difficulty: easy
-    stem: |
-      A security lock requires a $4$-digit passcode using the digits $0$ through $9$. Digits may be repeated, and the order of digits in the passcode matters. How many distinct $4$-digit passcodes can be created?
-    choices:
-      - text: "$10,000$"
-        correct: true
-      - text: "$5,040$"
-        rationale: |
-          You calculated permutations without repetition (P(10, 4) = 5040) when repetition was allowed.
-      - text: "$6,561$"
-        rationale: |
-          You used 9 choices per digit (9^4 = 6561) instead of 10 choices (0 through 9).
-      - text: "$40$"
-        rationale: |
-          You multiplied 10 by 4 (10 x 4 = 40) instead of raising 10 to the 4th power.
-    explanation: |
-      Each of the $4$ positions has $10$ available choices ($0$ through $9$) because repetition is permitted and order matters:
-      
-      $$\text{Passcodes} = 10 \times 10 \times 10 \times 10 = 10^4 = 10,000$$
-      
-      A total of $10,000$ passcodes can be created.
-  - id: q-statistics-and-probability-combinatorics-0006
-    type: word-problem
-    difficulty: medium
-    stem: |
-      How many distinct arrangements of all the letters in the word BARANGAY can be formed? The order of letters in the arrangement matters.
-    choices:
-      - text: "$6,720$"
-        correct: true
-      - text: "$40,320$"
-        rationale: |
-          You calculated 8 factorial (8! = 40320) without dividing by 3! to account for repeating A's.
-      - text: "$20,160$"
-        rationale: |
-          You divided 8! by 2! instead of 3!, undercounting the three repeating A's.
-      - text: "$1,344$"
-        rationale: |
-          You divided 8! by 30 or made an arithmetic error in dividing 40,320.
-    explanation: |
-      The word BARANGAY consists of $8$ total letters where the letter A repeats $3$ times (B:1, A:3, R:1, N:1, G:1, Y:1).
-      
-      Use the distinguishable permutations formula $\frac{n!}{n_1! n_2! \dots n_k!}$:
-      
-      $$\text{Arrangements} = \frac{8!}{3!} = \frac{40,320}{6} = 6,720$$
-      
-      There are $6,720$ distinct letter arrangements.
-  - id: q-statistics-and-probability-combinatorics-0007
-    type: word-problem
-    difficulty: medium
-    stem: |
-      Six members of a student organization sit around a circular table to discuss a project. The order of seating relative to one another matters, but table rotations are considered identical. How many distinct seating arrangements are possible?
-    choices:
-      - text: "$120$"
-        correct: true
-      - text: "$720$"
-        rationale: |
-          You used linear permutation 6! (720) instead of circular permutation (6-1)! = 120.
-      - text: "$360$"
-        rationale: |
-          You divided 6! by 2 instead of dividing by 6.
-      - text: "$30$"
-        rationale: |
-          You calculated 6 x 5 = 30 instead of (6-1)! = 120.
-    explanation: |
-      For circular permutations of $n$ distinct items, fix one position to eliminate rotational equivalence. The number of arrangements is given by $(n-1)!$:
-      
-      $$(6 - 1)! = 5! = 5 \times 4 \times 3 \times 2 \times 1 = 120$$
-      
-      There are $120$ distinct circular seating arrangements.
-  - id: q-statistics-and-probability-combinatorics-0008
-    type: word-problem
-    difficulty: medium
-    stem: |
-      From a group of $10$ active members in a youth organization, a President, a Vice-President, and a Secretary must be chosen. The order of selection matters because each position carries distinct duties. In how many ways can these $3$ officers be selected?
-    choices:
-      - text: "$720$"
-        correct: true
-      - text: "$120$"
-        rationale: |
-          You used combinations C(10, 3) = 120 when position order matters.
-      - text: "$1,000$"
-        rationale: |
-          You assumed repetition with replacement (10^3 = 1000) when one person cannot hold multiple roles.
-      - text: "$30$"
-        rationale: |
-          You multiplied 10 by 3 (10 x 3 = 30) instead of multiplying 10 by 9 by 8.
-    explanation: |
-      Because each officer position is unique, order matters. Calculate $P(10, 3)$:
-      
-      $$P(10, 3) = \frac{10!}{(10-3)!} = 10 \times 9 \times 8 = 720$$
-      
-      There are $720$ ways to select the $3$ officers.
-  - id: q-statistics-and-probability-combinatorics-0009
-    type: word-problem
-    difficulty: medium
-    stem: |
-      A committee of $5$ members is to be formed from $6$ teachers and $5$ students. The committee must consist of exactly $3$ teachers and $2$ students. The order of selection within the committee does not matter. How many different committees can be formed?
-    choices:
-      - text: "$200$"
-        correct: true
-      - text: "$30$"
-        rationale: |
-          You added the combination counts (20 + 10 = 30) instead of multiplying them.
-      - text: "$462$"
-        rationale: |
-          You calculated C(11, 5) = 462 without restricting teacher and student counts.
-      - text: "$100$"
-        rationale: |
-          You miscalculated C(6, 3) as 10 instead of 20.
-    explanation: |
-      Calculate combinations for selecting teachers and students independently:
-      
-      - Select $3$ teachers from $6$: $C(6, 3) = \frac{6 \times 5 \times 4}{3 \times 2 \times 1} = 20$
-      - Select $2$ students from $5$: $C(5, 2) = \frac{5 \times 4}{2 \times 1} = 10$
-      
-      Multiply the two combination counts:
-      
-      $$\text{Total Committees} = 20 \times 10 = 200$$
-      
-      There are $200$ different committees possible.
-  - id: q-statistics-and-probability-combinatorics-0010
-    type: word-problem
-    difficulty: medium
-    stem: |
-      At a barangay assembly, $12$ community leaders meet and each person shakes hands exactly once with every other person. The order of two people in a handshake does not matter. How many total handshakes occur?
-    choices:
-      - text: "$66$"
-        correct: true
-      - text: "$132$"
-        rationale: |
-          You calculated permutations P(12, 2) = 132, double-counting each handshake pair.
-      - text: "$144$"
-        rationale: |
-          You calculated 12 squared (12^2 = 144) instead of combinations.
-      - text: "$24$"
-        rationale: |
-          You multiplied 12 by 2 (12 x 2 = 24) instead of using combinations.
-    explanation: |
-      A handshake is an unordered pairing of $2$ people chosen from $12$. Use combination $C(12, 2)$:
-      
-      $$C(12, 2) = \frac{12 \times 11}{2 \times 1} = 66$$
-      
-      There are $66$ total handshakes.
-  - id: q-statistics-and-probability-combinatorics-0011
-    type: word-problem
-    difficulty: medium
-    stem: |
-      Four boys and three girls are to be seated in a row of seven chairs. The order of seating matters. If all three girls must sit next to each other, in how many different ways can they be seated?
-    choices:
-      - text: "$720$"
-        correct: true
-      - text: "$120$"
-        rationale: |
-          You arranged the 5 blocks (5! = 120) but forgot to multiply by the internal 3! order of girls.
-      - text: "$5,040$"
-        rationale: |
-          You calculated total unrestricted seating 7! (5040) without keeping the girls together.
-      - text: "$144$"
-        rationale: |
-          You calculated 4! x 3! = 144, treating the boys as static or fixed.
-    explanation: |
-      Treat the $3$ girls as $1$ block. Combine this block with the $4$ boys to form $5$ units to arrange in a row:
-      
-      $$\text{Unit Arrangements} = 5! = 120$$
-      
-      Within the block, the $3$ girls can be arranged among themselves in $3! = 6$ ways:
-      
-      $$\text{Total Seating Arrangements} = 5! \times 3! = 120 \times 6 = 720$$
-      
-      There are $720$ valid seating arrangements.
-  - id: q-statistics-and-probability-combinatorics-0012
-    type: word-problem
-    difficulty: hard
-    stem: |
-      A sports coach needs to select a team of $4$ players from a squad of $5$ seniors and $4$ juniors. The team must contain at least $3$ seniors. The order of selection does not matter. How many different teams can the coach select?
-    choices:
-      - text: "$45$"
-        correct: true
-      - text: "$40$"
-        rationale: |
-          You calculated only the case of exactly 3 seniors and forgot the 4-senior team option.
-      - text: "$126$"
-        rationale: |
-          You calculated total unrestricted teams C(9, 4) = 126 without enforcing the senior minimum.
-      - text: "$60$"
-        rationale: |
-          You miscalculated C(5, 3) x C(4, 1) as 15 x 4 = 60.
-    explanation: |
-      Break the problem into mutually exclusive cases for 'at least $3$ seniors':
-      
-      1. Exactly $3$ seniors and $1$ junior:
-         $$C(5, 3) \times C(4, 1) = 10 \times 4 = 40$$
-      
-      2. Exactly $4$ seniors and $0$ juniors:
-         $$C(5, 4) \times C(4, 0) = 5 \times 1 = 5$$
-      
-      Sum the counts for both valid cases:
-      
-      $$\text{Total Teams} = 40 + 5 = 45$$
-      
-      There are $45$ different teams that can be selected.
-  - id: q-statistics-and-probability-combinatorics-0013
-    type: word-problem
-    difficulty: hard
-    stem: |
-      Eight committee members, including a mayor and a vice-mayor, sit around a circular table. The order of seating around the table matters, but table rotations are considered identical. If the mayor and vice-mayor must sit directly next to each other, how many distinct seating arrangements are possible?
-    choices:
-      - text: "$1,440$"
-        correct: true
-      - text: "$720$"
-        rationale: |
-          You calculated 6! (720) for the block arrangements but forgot to multiply by 2! for the mayor and vice-mayor swapping seats.
-      - text: "$5,040$"
-        rationale: |
-          You calculated unrestricted circular seating (8-1)! = 7! = 5040 without keeping the mayor and vice-mayor together.
-      - text: "$10,080$"
-        rationale: |
-          You used linear arrangements 8! / 4 or multiplied unrestricted seating by 2.
-    explanation: |
-      Treat the mayor and vice-mayor as $1$ single unit block. Together with the remaining $6$ members, there are $7$ units to arrange around a circular table:
-      
-      $$\text{Circular Permutations of } 7 \text{ units} = (7 - 1)! = 6! = 720$$
-      
-      The mayor and vice-mayor can swap seats within their block in $2! = 2$ ways:
-      
-      $$\text{Total Arrangements} = 6! \times 2! = 720 \times 2 = 1,440$$
-      
-      There are $1,440$ distinct seating arrangements.
-  - id: q-statistics-and-probability-combinatorics-0014
-    type: word-problem
-    difficulty: hard
-    stem: |
-      From a pool of $8$ singers and $6$ dancers, a talent show requires selecting $3$ singers and $2$ dancers. Once selected, these $5$ performers must be assigned to a specific sequence of $5$ solo slots on stage. The initial selection of performers has no order, but the assignment of performance slots matters. How many different performance sequences can be produced?
-    choices:
-      - text: "$100,800$"
-        correct: true
-      - text: "$840$"
-        rationale: |
-          You calculated the number of performer combinations but forgot to multiply by 5! for stage slot assignments.
-      - text: "$10,080$"
-        rationale: |
-          You multiplied 840 by 12 or miscalculated stage slot permutations.
-      - text: "$50,400$"
-        rationale: |
-          You divided the final answer by 2 or used 5! / 2.
-    explanation: |
-      First, select the $5$ performers regardless of order:
-      
-      - Select $3$ singers from $8$: $C(8, 3) = 56$
-      - Select $2$ dancers from $6$: $C(6, 2) = 15$
-      - Total performer combinations $= 56 \times 15 = 840$
-      
-      Next, arrange the $5$ chosen performers into $5$ sequential stage slots ($5! = 120$):
-      
-      $$\text{Total Performance Sequences} = 840 \times 120 = 100,800$$
-      
-      There are $100,800$ possible performance sequences.
-  - id: q-statistics-and-probability-combinatorics-0015
-    type: word-problem
-    difficulty: hard
-    stem: |
-      Six different books (including a Math book and a Science book) are arranged in a row on a shelf. The order of books on the shelf matters. If the Math book and Science book must NOT be placed next to each other, how many valid arrangements are possible?
-    choices:
-      - text: "$480$"
-        correct: true
-      - text: "$240$"
-        rationale: |
-          You calculated the number of arrangements where Math and Science ARE together instead of NOT together.
-      - text: "$360$"
-        rationale: |
-          You halved 6! (720 / 2 = 360) instead of subtracting the 240 together-arrangements.
-      - text: "$600$"
-        rationale: |
-          You subtracted 120 (5!) instead of 5! x 2! = 240 from total arrangements.
-    explanation: |
-      Use complementary counting:
-      
-      1. Total unrestricted arrangements of $6$ books:
-         $$6! = 720$$
-      
-      2. Arrangements where Math and Science ARE next to each other:
-         Treat them as $1$ block. Arrange $5$ units ($5! = 120$) and multiply by $2! = 2$ internal book orders:
-         $$\text{Together Arrangements} = 5! \times 2! = 120 \times 2 = 240$$
-      
-      3. Subtract from total:
-         $$\text{Not Together} = 720 - 240 = 480$$
-      
-      There are $480$ valid shelf arrangements.
-  - id: q-statistics-and-probability-combinatorics-0016
-    type: word-problem
-    difficulty: hard
-    stem: |
-      How many distinct $4$-digit even numbers can be formed using the digits $1, 2, 3, 5, 6, 8$ without repetition? The order of digits matters because it forms a numeric value.
-    choices:
-      - text: "$180$"
-        correct: true
-      - text: "$360$"
-        rationale: |
-          You calculated total 4-digit numbers P(6, 4) = 360 without restricting the units digit to even numbers.
-      - text: "$120$"
-        rationale: |
-          You picked 2 choices for even units digits instead of 3 choices.
-      - text: "$216$"
-        rationale: |
-          You calculated 3 x 6^2 x 2 or allowed digit repetition.
-    explanation: |
-      To form a $4$-digit even number without repetition from $\{1, 2, 3, 5, 6, 8\}$ ($6$ distinct digits):
-      
-      1. Select the units digit (must be even: $2, 6, \text{or } 8$). There are $3$ choices.
-      
-      2. Fill the remaining $3$ positions (thousands, hundreds, tens) by picking and arranging $3$ digits from the remaining $5$ available digits ($P(5, 3)$):
-         $$P(5, 3) = 5 \times 4 \times 3 = 60$$
-      
-      Multiply the choices:
-      
-      $$\text{Total Even Numbers} = 3 \times 60 = 180$$
-      
-      There are $180$ distinct $4$-digit even numbers that can be formed.
+- id: 'q-statistics-and-probability-combinatorics-0001'
+  type: 'word-problem'
+  difficulty: 'easy'
+  stem: |
+    A student canteen offers $4$ main dishes, $3$ types of drinks, and $2$ desserts. A meal combo consists of one main dish, one drink, and one dessert. The order of selecting items does not matter. How many different meal combos can a student order?
+  choices:
+  - text: '$24$'
+    correct: true
+  - text: '$9$'
+    rationale: |
+      This adds stage counts. Nine is their sum. Multiply choices that occur together.
+  - text: '$12$'
+    rationale: |
+      This omits desserts. Twelve counts dishes and drinks. Include every stage.
+  - text: '$36$'
+    rationale: |
+      This uses three dessert options. Three is the drink count. Keep category counts separate.
+  explanation: |
+    Multiply the three stages: $4(3)(2)=24$. Each main dish can pair with every drink and dessert.
+- id: 'q-statistics-and-probability-combinatorics-0002'
+  type: 'word-problem'
+  difficulty: 'easy'
+  stem: |
+    Five distinct textbooks are to be arranged side by side on a bookshelf. The order of books on the shelf matters. In how many different ways can the five books be arranged?
+  choices:
+  - text: '$120$'
+    correct: true
+  - text: '$3125$'
+    rationale: |
+      This allows repeated books. Five choices appear available in each slot. Remove used books.
+  - text: '$60$'
+    rationale: |
+      This halves all orders. Swaps may seem equivalent. Check that shelf order matters.
+  - text: '$5$'
+    rationale: |
+      This counts one position. Five books are initially available. Count all positions.
+  explanation: |
+    Use each distinct book once. The five positions have $5,4,3,2,1$ choices. Multiply: $5!=120$.
+- id: 'q-statistics-and-probability-combinatorics-0003'
+  type: 'word-problem'
+  difficulty: 'easy'
+  stem: |
+    A teacher wants to choose a delegation of $3$ students from a class of $8$ candidates to attend a science fair. The order of selection does not matter. How many different delegations can be formed?
+  choices:
+  - text: '$56$'
+    correct: true
+  - text: '$336$'
+    rationale: |
+      This orders the delegation. Sequential choices give 336. Remove orders of the same group.
+  - text: '$24$'
+    rationale: |
+      This adds eight for each place. Three people are chosen. Count groups, not added slots.
+  - text: '$512$'
+    rationale: |
+      This allows repeated students. Eight cubed counts independent picks. Require distinct people.
+  explanation: |
+    Order does not matter, so use $\binom83=\dfrac{8(7)(6)}{3(2)(1)}=56$. Dividing removes the six orders of each delegation.
+- id: 'q-statistics-and-probability-combinatorics-0004'
+  type: 'word-problem'
+  difficulty: 'easy'
+  stem: |
+    In a running race with $7$ participants, prizes are awarded for 1st, 2nd, and 3rd place. The order of finish matters. In how many different ways can the three prizes be awarded?
+  choices:
+  - text: '$210$'
+    correct: true
+  - text: '$35$'
+    rationale: |
+      This ignores prize places. The same three runners are chosen. Keep ranks distinct.
+  - text: '$5,040$'
+    rationale: |
+      This orders all runners. A race ranks seven people. Count only awarded places.
+  - text: '$42$'
+    rationale: |
+      This counts only two places. Seven times six starts the calculation. Include third place.
+  explanation: |
+    The first, second, and third places have $7,6,5$ choices. Multiply: $7(6)(5)=210$.
+- id: 'q-statistics-and-probability-combinatorics-0005'
+  type: 'word-problem'
+  difficulty: 'easy'
+  stem: |
+    A security lock requires a $4$-digit passcode using the digits $0$ through $9$. Digits may be repeated, and the order of digits in the passcode matters. How many distinct $4$-digit passcodes can be created?
+  choices:
+  - text: '$10,000$'
+    correct: true
+  - text: '$5,040$'
+    rationale: |
+      This forbids repetition. Many codes use distinct digits. Read the repetition rule.
+  - text: '$6,561$'
+    rationale: |
+      This excludes zero in every slot. Nine digits then remain. Codes allow zero here.
+  - text: '$40$'
+    rationale: |
+      This adds ten four times. Four slots are present. Multiply their choices.
+  explanation: |
+    Each of four positions has ten possible digits, including zero. Repetition is allowed, so the count is $10^4=10000$.
+- id: 'q-statistics-and-probability-combinatorics-0006'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    How many distinct arrangements of all the letters in the word BARANGAY can be formed? The order of letters in the arrangement matters.
+  choices:
+  - text: '$6,720$'
+    correct: true
+  - text: '$40,320$'
+    rationale: |
+      This treats A copies as distinct. Eight letters are present. Divide out identical-letter swaps.
+  - text: '$20,160$'
+    rationale: |
+      This divides only by two. A pair needs one halving. Count all three A copies.
+  - text: '$1,344$'
+    rationale: |
+      This also divides by five. Five other letters are present. Only identical-letter swaps are redundant.
+  explanation: |
+    There are eight letters, including three identical A copies. Divide $8!$ by $3!$ to remove swaps of those copies: $\dfrac{40320}{6}=6720$.
+- id: 'q-statistics-and-probability-combinatorics-0007'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    Six members of a student organization sit around a circular table to discuss a project. The order of seating relative to one another matters, but table rotations are considered identical. How many distinct seating arrangements are possible?
+  choices:
+  - text: '$120$'
+    correct: true
+  - text: '$720$'
+    rationale: |
+      This counts rotations separately. Six factorial counts a row. Fix one reference member.
+  - text: '$360$'
+    rationale: |
+      This halves a row count. Reversal may seem equivalent. Remove all rotations instead.
+  - text: '$30$'
+    rationale: |
+      This also removes reflections twice. Reversed circles look related. Only rotations are declared identical.
+  explanation: |
+    Fix one member as a reference to remove table rotations. The other five have $5!=120$ orders around that member.
+- id: 'q-statistics-and-probability-combinatorics-0008'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    A youth organization has ten members. Ana is already President. How many assignments of Vice-President and Secretary to two different remaining members are possible? The offices have distinct duties.
+  choices:
+  - text: '$72$'
+    correct: true
+  - text: '$36$'
+    rationale: |
+      This ignores offices. The same two members are chosen. Keep their roles distinct.
+  - text: '$81$'
+    rationale: |
+      This lets one person hold both offices. Nine members seem available twice. Remove the first appointee.
+  - text: '$18$'
+    rationale: |
+      This adds the counts. Two offices are present. Multiply sequential choices.
+  explanation: |
+    Nine members remain after Ana is appointed. Choose the Vice-President in nine ways and Secretary in eight ways. Multiply: $9(8)=72$.
+- id: 'q-statistics-and-probability-combinatorics-0009'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    A committee of $5$ members is to be formed from $6$ teachers and $5$ students. The committee must consist of exactly $3$ teachers and $2$ students. The order of selection within the committee does not matter. How many different committees can be formed?
+  choices:
+  - text: '$200$'
+    correct: true
+  - text: '$30$'
+    rationale: |
+      This adds the selection counts. Both groups are needed. Multiply paired selections.
+  - text: '$462$'
+    rationale: |
+      This chooses any five people. Eleven candidates are present. Enforce the required split.
+  - text: '$100$'
+    rationale: |
+      This halves the student combination again. Unordered pairs require halving once. Do not repeat that division.
+  explanation: |
+    Choose teachers in $\binom63=20$ ways and students in $\binom52=10$ ways. Pair the choices: $20(10)=200$.
+- id: 'q-statistics-and-probability-combinatorics-0010'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    At a barangay assembly, $12$ community leaders meet and each person shakes hands exactly once with every other person. The order of two people in a handshake does not matter. How many total handshakes occur?
+  choices:
+  - text: '$66$'
+    correct: true
+  - text: '$132$'
+    rationale: |
+      This counts each pair twice. Each leader has eleven partners. Divide by the two endpoints.
+  - text: '$144$'
+    rationale: |
+      This includes self-pairs and orders pairs. Twelve squared counts independent picks. Exclude selves and reverse duplicates.
+  - text: '$24$'
+    rationale: |
+      This adds two groups of twelve. A handshake has two people. Count distinct pairs.
+  explanation: |
+    Every handshake is one unordered pair. The count is $\binom{12}{2}=\dfrac{12(11)}2=66$.
+- id: 'q-statistics-and-probability-combinatorics-0011'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    Four boys and three girls are to be seated in a row of seven chairs. The order of seating matters. If all three girls must sit next to each other, in how many different ways can they be seated?
+  choices:
+  - text: '$720$'
+    correct: true
+  - text: '$120$'
+    rationale: |
+      This fixes the girls internal order. Five units have 120 orders. Allow their internal permutations.
+  - text: '$5,040$'
+    rationale: |
+      This ignores adjacency. Seven factorial counts all rows. Keep the girls in one block.
+  - text: '$144$'
+    rationale: |
+      This divides the valid count by five. There are five units. Their positions remain distinct.
+  explanation: |
+    Treat the girls as one block. Five units have $5!=120$ orders, and the girls have $3!=6$ orders inside their block. Multiply: $120(6)=720$.
+- id: 'q-statistics-and-probability-combinatorics-0012'
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    A sports coach needs to select a team of $4$ players from a squad of $5$ seniors and $4$ juniors. The team must contain at least $3$ seniors. The order of selection does not matter. How many different teams can the coach select?
+  choices:
+  - text: '$45$'
+    correct: true
+  - text: '$40$'
+    rationale: |
+      This counts exactly three seniors. That meets the minimum. Include four seniors too.
+  - text: '$126$'
+    rationale: |
+      This ignores the senior requirement. Nine choose four counts any team. Enforce the minimum.
+  - text: '$1080$'
+    rationale: |
+      This orders the team. Four factorial counts member orders. No roles are assigned.
+  explanation: |
+    Three seniors and one junior give $\binom53\binom41=40$ teams. Four seniors give $\binom54=5$. Add the disjoint cases: $40+5=45$.
+- id: 'q-statistics-and-probability-combinatorics-0013'
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    Eight committee members, including a mayor and a vice-mayor, sit around a circular table. The order of seating around the table matters, but table rotations are considered identical. If the mayor and vice-mayor must sit directly next to each other, how many distinct seating arrangements are possible?
+  choices:
+  - text: '$1,440$'
+    correct: true
+  - text: '$720$'
+    rationale: |
+      This fixes the officials internal order. Six factorial counts the units. Allow both internal orders.
+  - text: '$5,040$'
+    rationale: |
+      This ignores adjacency. Seven factorial counts unrestricted circles. Keep the officials together.
+  - text: '$10,080$'
+    rationale: |
+      This counts block units in a row. Seven factorial includes all starts. Remove rotations.
+  explanation: |
+    The officials form one block, leaving seven units around the table. Their circular orders number $6!=720$. Two internal official orders give $2(720)=1440$.
+- id: 'q-statistics-and-probability-combinatorics-0014'
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    No person belongs to both groups. From a pool of $8$ singers and $6$ dancers, a talent show requires selecting $3$ singers and $2$ dancers. Once selected, these $5$ performers must be assigned to a specific sequence of $5$ solo slots on stage. The initial selection of performers has no order, but the assignment of performance slots matters. How many different performance sequences can be produced?
+  choices:
+  - text: '$100,800$'
+    correct: true
+  - text: '$840$'
+    rationale: |
+      This counts selections only. The selection product is 840. Include slot orders.
+  - text: '$10,080$'
+    rationale: |
+      This uses twelve slot orders. The selection product is correct. Evaluate five factorial fully.
+  - text: '$50,400$'
+    rationale: |
+      This removes reversed sequences. Reversal may seem symmetric. The slot order distinguishes them.
+  explanation: |
+    Choose singers in $\binom83=56$ ways and dancers in $\binom62=15$ ways. Order each selection in $5!=120$ ways. Multiply: $56(15)(120)=100800$.
+- id: 'q-statistics-and-probability-combinatorics-0015'
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    Six different books (including a Math book and a Science book) are arranged in a row on a shelf. The order of books on the shelf matters. If the Math book and Science book must NOT be placed next to each other, how many valid arrangements are possible?
+  choices:
+  - text: '$480$'
+    correct: true
+  - text: '$240$'
+    rationale: |
+      This reports forbidden arrangements. The adjacency count is correct. Subtract it from all orders.
+  - text: '$360$'
+    rationale: |
+      This halves all orders. Adjacency may seem equally likely. Count excluded block arrangements.
+  - text: '$600$'
+    rationale: |
+      This counts only one adjacent-pair order. Five factorial counts the units. Allow both internal orders.
+  explanation: |
+    All six books have $6!=720$ orders. Adjacent Math and Science books give $5!$ block orders and two internal orders, totaling $240$. Subtract: $720-240=480$.
+- id: 'q-statistics-and-probability-combinatorics-0016'
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    How many distinct $4$-digit even numbers can be formed using the digits $1, 2, 3, 5, 6, 8$ without repetition? The order of digits matters because it forms a numeric value.
+  choices:
+  - text: '$180$'
+    correct: true
+  - text: '$360$'
+    rationale: |
+      This permits odd last digits. All ordered four-digit selections number 360. Restrict the last slot.
+  - text: '$120$'
+    rationale: |
+      This permits only two even last digits. Two and six are easy to notice. Include eight too.
+  - text: '$216$'
+    rationale: |
+      This reuses the last digit in the first slot. Six digits were originally available. Remove the chosen last digit.
+  explanation: |
+    Choose the final even digit from $2,6,8$, giving three choices. The other positions have five, four, and three remaining choices. Multiply: $3(5)(4)(3)=180$.
+- id: 'q-statistics-and-probability-combinatorics-0017'
+  type: 'which-is-true'
+  difficulty: 'easy'
+  stem: |
+    An unordered team includes all six of the six club members. How many different teams are possible?
+  choices:
+  - text: '$1$'
+    correct: true
+  - text: '$0$'
+    rationale: |
+      This sets zero factorial to zero. The formula includes zero factorial. Remember its defined value is one.
+  - text: '$6$'
+    rationale: |
+      This counts members as teams. Six members are present. Count whole selections.
+  - text: '$720$'
+    rationale: |
+      This orders the selected members. Six factorial counts arrangements. Check that the team has no roles.
+  explanation: |
+    There is only one set containing all members. The formula gives $\binom66=\dfrac{6!}{6!0!}=1$.
+  approved: false
+- id: 'q-statistics-and-probability-combinatorics-0018'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    A customer buys exactly one item, either one of five sandwiches or one of three rice meals. How many purchases are possible?
+  choices:
+  - text: '$8$'
+    correct: true
+  - text: '$15$'
+    rationale: |
+      This buys one item from each category. Multiplication counts pairs. Check that exactly one item is bought.
+  - text: '$5$'
+    rationale: |
+      This counts sandwiches only. Five options are available there. Include rice meals.
+  - text: '$3$'
+    rationale: |
+      This counts rice meals only. Three options are available there. Include sandwiches.
+  explanation: |
+    The categories are alternatives. Add their counts: $5+3=8$.
+  approved: false
+- id: 'q-statistics-and-probability-combinatorics-0019'
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    A four-person unordered team is chosen from seven club members. Lia must be included. How many teams are possible?
+  choices:
+  - text: '$20$'
+    correct: true
+  - text: '$35$'
+    rationale: |
+      This ignores the required member. Seven choose four counts any team. Fix Lia first.
+  - text: '$120$'
+    rationale: |
+      This orders the other three members. Six times five times four selects them sequentially. Remove order duplicates.
+  - text: '$15$'
+    rationale: |
+      This chooses only two other members. Six choose two gives fifteen. Check the three remaining places.
+  explanation: |
+    With Lia fixed, choose three of the other six. The count is $\binom63=\dfrac{6(5)(4)}{3(2)(1)}=20$.
+  approved: false
+- id: 'q-statistics-and-probability-combinatorics-0020'
+  type: 'error-spotting'
+  difficulty: 'exam'
+  stem: |
+    A club chooses an unordered five-person team from eight members. A student counts excluded members as $8\cdot7\cdot6$. What is the correct team count?
+  choices:
+  - text: '$56$'
+    correct: true
+  - text: '$336$'
+    rationale: |
+      This orders the excluded members. Three exclusions determine a team. Their order does not change it.
+  - text: '$6720$'
+    rationale: |
+      This orders the selected five. Five members are needed. Check that no roles are assigned.
+  - text: '$24$'
+    rationale: |
+      This multiplies eight by three. Eight members and three exclusions are present. Count unordered groups.
+  explanation: |
+    Choose the three excluded members without order. Thus $\binom85=\binom83=\dfrac{8(7)(6)}{3(2)(1)}=56$.
+  approved: false
