@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0001	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0002	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0003	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Removed a solution-length answer and two yes/no choices with the same underlying mistake.
+q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0004	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Removed a solution-length answer and separated the condition/result mistakes.
+q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0005	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Removed a full-solution choice and clarified that validity uses the stated conditions.
+q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0006	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0007	CORRECTED	SOLVED-MATCH	choices;explanation;notes	LOW	Shortened classification choices so the correct answer does not contain its explanation.
+q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0008	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated Maria's scenario in 0003 and conflated a true premise with the conclusion; replaced with a distinct true-conclusion validity test.
+q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated the rain scenario and had two equivalent converse distractors; replaced with a counterexample task.
+q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Removed a solution-length choice and duplicated structure-only distractors.
+q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0011	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated affirming-the-consequent in 0003; changed to identifying a sufficient added premise.
+q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0013	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated conditional reversal; replaced with an existential exclusion conclusion.
+q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0015	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated category reversal; replaced with a deduction from disjoint categories.
+q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0016	CORRECTED	SOLVED-MATCH	choices;explanation;notes	HIGH	The old note said premise order determines validity; reordering the same premises does not change entailment. Removed a solution-length choice and corrected the note.
+q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0017	NEW	NEW	explanation;notes	NONE	
+q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0018	NEW	NEW	explanation;notes	NONE	
+q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0019	NEW	NEW	explanation;notes	NONE	
+q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0020	NEW	NEW	explanation;notes	NONE	
