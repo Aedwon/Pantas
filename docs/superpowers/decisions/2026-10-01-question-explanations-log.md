@@ -75,3 +75,18 @@ The run for Language, Reasoning, Reading Comprehension and General Information s
    A lesson that cannot reach 20 within that is reported with its count.
 2. **General Information has no blueprint.** Ruling: use the style guide, the lesson, and the
    question types already in use there. No blueprint is written in this job.
+
+## Usage reset during execution, 2 October 2026
+
+Aedwon said:
+
+> i used a reset
+
+At 04:34:02 UTC, the current session record showed 87% used in the five-hour
+window and 95% used in the weekly window. At 04:36:24 UTC, after Aedwon's
+message, the current record showed 0% used in both windows. The same three
+content workers remained live, so the orchestrator continued them without
+relaunching or duplicating their assignments. The reset changes available
+execution capacity; it does not change the approved audit scope, integration
+permissions, or application-code freeze. Group completion and combined
+acceptance remain pending.
