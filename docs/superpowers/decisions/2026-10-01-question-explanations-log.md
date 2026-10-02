@@ -490,3 +490,44 @@ changing app code, dependencies, the package identity, or release permissions.
 The orchestrator independently inspected the five-file importer diff against the
 approved task and fixture ruling and found no code-review findings. Acceptance
 and committing still require the corrected analyzer and final verification.
+
+### Lead technical revision: corpus-dependent test fixtures
+
+Final serial verification ran 3,396 passing tests and found two corpus-dependent
+failures. Both failing files passed independently on the untouched engineering
+baseline `1f79d880264e9c80c7507c95a365126d251c3837` (12 legacy-provider tests and
+one export round-trip test). The failures are caused by the approved QA update,
+not a pre-existing failure and not the new wrong-note guard.
+
+1. The live export test pins the former corpus counts. Its actual export now has
+3,165 questions, of which 3,163 link to lessons; 161 lessons, 26 topics, seven
+exams, 32 passages, and 260 passage links. The two question rows outside the
+1 October QA scope are the historical CSE placeholders.
+2. The E02 migration test regenerates its historical fixture from mutable live
+question data, then requires the exact published E02 digest. A new bank cannot
+be the historical migration input. The exact E02 digest and production migration
+allowlist must stay unchanged.
+
+The bounded test-only revision adds these paths to the importer implementor's
+assignment: `test/tool/content_export_roundtrip_test.dart`,
+`test/core/content/content_providers_test.dart`, and the immutable regression
+input `test/fixtures/content/e02_export.json.gz`. Update the live-bank counts
+without dropping ordering, routing, passage, or database checks. Load the frozen
+pre-QA export only for the historical E02 fixture and keep every migration
+assertion, including the exact digest and user-data preservation checks.
+
+The frozen export was generated read-only from the verified pre-QA worktree.
+Its JSON SHA-256 is `51349cfe24049a282b8dc053c3a01df65d5636e7808b055d3008cead2504ff67`. The gzip archive SHA-256 is
+`74d952691046485458c06b82313984e551b2a57e5a5f7b02f93c5023dfabfc78` and its size is 1,065,219 bytes, compressed
+with a fixed timestamp. This static test input avoids a new test dependency on
+Git history, network access, signing credentials, or a duplicated generated
+production database. Verify that it reconstructs the unchanged approved digest
+`eb3a9da425b80a51331cce74694ef014c3372392194bacbd60ba145db5ea2a45` before acceptance. It is regression data, not
+an app delivery artifact or a generated Dart/localization source file.
+
+Both existing failures provide RED evidence for the test adaptation. No new app
+behavior, production file, runtime migration rule, dependency, pipeline, or
+protected package may change. The independent review and final full-suite gate
+remain with the orchestrator. This is a technical test-input revision within the
+approved content update; it does not alter the product spec or the human-only
+integration/signing boundaries.
