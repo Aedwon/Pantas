@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-arithmetic-number-sense-prime-factorization-gcf-lcm-0001	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-prime-factorization-gcf-lcm-0002	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-prime-factorization-gcf-lcm-0003	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-prime-factorization-gcf-lcm-0004	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Repeated direct prime-factorization question changed to completing a factorization.
+q-arithmetic-number-sense-prime-factorization-gcf-lcm-0005	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-prime-factorization-gcf-lcm-0006	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-prime-factorization-gcf-lcm-0007	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-prime-factorization-gcf-lcm-0008	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Weak distractors replaced with specific error-based choices.
+q-arithmetic-number-sense-prime-factorization-gcf-lcm-0009	VERIFIED	SOLVED-MATCH	explanation;notes;format	MEDIUM	Legacy note called ninety the GCF of 12,18,30; the GCF is six.
+q-arithmetic-number-sense-prime-factorization-gcf-lcm-0010	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Weak distractors replaced with specific error-based choices.
+q-arithmetic-number-sense-prime-factorization-gcf-lcm-0011	VERIFIED	SOLVED-MATCH	explanation;notes;format	MEDIUM	Legacy note for 10150 did not produce that value; corrected to omitting the common factor seven.
+q-arithmetic-number-sense-prime-factorization-gcf-lcm-0012	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-prime-factorization-gcf-lcm-0013	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach counting divisors with exponent choices; stem, choices and key retained.
+q-arithmetic-number-sense-prime-factorization-gcf-lcm-0014	CORRECTED	SOLVED-MATCH	stem;explanation;notes;format	HIGH	Without requiring the maximum package count, one package and one trip were valid; added the missing grouping condition.
+q-arithmetic-number-sense-prime-factorization-gcf-lcm-0015	CORRECTED	SOLVED-MATCH	stem;explanation;notes;format	HIGH	Fare collection per round and counting the endpoint were unstated; defined completed-round earnings to remove alternate readings.
+q-arithmetic-number-sense-prime-factorization-gcf-lcm-0016	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-prime-factorization-gcf-lcm-0017	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-prime-factorization-gcf-lcm-0018	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-prime-factorization-gcf-lcm-0019	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-prime-factorization-gcf-lcm-0020	NEW	NEW	new question	NONE	
