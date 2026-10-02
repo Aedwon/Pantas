@@ -473,4 +473,3 @@ The project lessons govern lesson fit. Primary legal sources were used to verify
 - [ICRC comparison of humanitarian and human-rights law](https://www.icrc.org/en/document/what-difference-between-ihl-and-human-rights-law): time scope, bound parties, and complementary protection.
 - [Supreme Court discussion of culpable constitutional violation](https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/1/64003): the definition underlying the preserved out-of-lesson item.
 - [Rules of Court, Rule 117](https://lawphil.net/courts/supreme/rc/rc_110-127_2000.html): first-jeopardy conditions underlying the preserved double-jeopardy item.
-
