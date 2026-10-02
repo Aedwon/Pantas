@@ -8,7 +8,7 @@ meta:
 questions:
 - id: q-peace-and-human-rights-human-rights-fundamentals-0001
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'Which constitutional article creates the Commission on Human Rights?
 
     '
@@ -32,7 +32,7 @@ questions:
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0002
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'What is the title of Article XIII?
 
     '
@@ -56,7 +56,7 @@ questions:
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0003
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'Which article is the primary domestic constitutional guarantee of civil and political liberties?
 
     '
@@ -152,7 +152,7 @@ questions:
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0007
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'When does international human rights law apply as a framework?
 
     '
@@ -176,7 +176,7 @@ questions:
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0008
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'A mayor says basic human rights exist only when renewed by the town each year. What is wrong with that claim?
 
     '
@@ -200,7 +200,7 @@ questions:
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0009
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   approved: false
   stem: 'Which statement follows from the lesson''s nondiscrimination principle?
 
@@ -225,7 +225,7 @@ questions:
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0010
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   approved: false
   stem: 'Which pair correctly matches the two domestic constitutional references in the lesson?
 
@@ -250,7 +250,7 @@ questions:
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0011
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   approved: false
   stem: 'In the lesson''s domestic framework, what kind of institution is the CHR?
 
@@ -302,30 +302,30 @@ questions:
   type: single_choice
   difficulty: medium
   approved: false
-  stem: 'How many sections are in the Philippine Bill of Rights described in the lesson?
+  stem: 'An editor calls the twenty-two divisions of Article III separate articles. What correction follows from the lesson?
 
     '
   choices:
-  - text: '22'
+  - text: They are sections within one article.
     correct: true
-  - text: '18'
-    rationale: 'This confuses constitutional article count with sections in Article III. Both are ways to count the Constitution. Check the unit asked for.
+  - text: They are twenty-two independent constitutions within the same national charter.
+    rationale: 'This treats internal divisions as separate founding documents. Each section contains a protection. Check the hierarchy of article and section.
 
       '
-  - text: '17'
-    rationale: 'This uses the CHR creation section number as a count. Section 17 is a familiar rights-related reference. Check which article and quantity are being counted.
+  - text: They are twenty-two constitutional commissions with separate institutional identities.
+    rationale: 'This treats protections as public offices. Commissions also appear in the Constitution. Check whether the division is a rule or a body.
 
       '
-  - text: '30'
-    rationale: 'This imports a number from another rights document. Different rights texts have their own divisions. Check the domestic Article III count.
+  - text: They are the full national article count, including the Preamble as a numbered article.
+    rationale: 'This confuses the structure of one article with the whole document. Both use numbered divisions. Check which part is being counted.
 
       '
-  explanation: 'Article III of the 1987 Constitution contains twenty-two sections.
+  explanation: 'The Bill of Rights is Article III. Its twenty-two numbered divisions are sections within that article.
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0014
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   approved: false
   stem: 'Which feature separates a list of rights guarantees from the office established to promote their protection?
 
@@ -350,7 +350,7 @@ questions:
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0015
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   approved: false
   stem: 'The lesson lists nationality, religion, language, and any other status. How should that list be read?
 
@@ -375,7 +375,7 @@ questions:
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0016
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   approved: false
   stem: 'What does the phrase ''at all times'' describe in the lesson?
 
@@ -400,7 +400,7 @@ questions:
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0017
   type: single_choice
-  difficulty: exam
+  difficulty: hard
   approved: false
   stem: 'A reviewer finds a reference to Article IX and assumes it creates CHR because CHR is called a commission. Which correction fits the lesson?
 
@@ -427,7 +427,7 @@ questions:
   type: single_choice
   difficulty: exam
   approved: false
-  stem: 'A report describes a state failing to respect a persons human rights. Does that failure mean the person had no rights in the first place?
+  stem: 'A report describes a state failing to respect a person''s human rights. Does that failure mean the person had no rights in the first place?
 
     '
   choices:
@@ -437,7 +437,7 @@ questions:
     rationale: 'This makes successful protection create the right. Effective enforcement is important. Check the inherent basis of the right itself.
 
       '
-  - text: Yes, every government failure permanently removes the persons status as human.
+  - text: Yes, every government failure permanently removes the person's status as human.
     rationale: 'This treats state misconduct as a change in human status. The failure affects treatment. Check whether the person remains human.
 
       '
