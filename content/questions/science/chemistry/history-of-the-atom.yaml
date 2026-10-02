@@ -12,7 +12,7 @@ questions:
     choices:
       - text: 'John Dalton'
         correct: true
-      - text: 'J.J. Thomson'
+      - text: 'Thomson'
         rationale: |
           This assigns the indivisible model to the researcher who identified electrons. Thomson also used a sphere picture. Check whether the model contains smaller particles.
       - text: 'Rutherford'
@@ -31,7 +31,7 @@ questions:
     stem: |
       Which scientist proposed the "plum pudding model," with negative electrons scattered throughout a positively charged material?
     choices:
-      - text: 'J.J. Thomson'
+      - text: 'Thomson'
         correct: true
       - text: 'John Dalton'
         rationale: |
@@ -39,7 +39,7 @@ questions:
       - text: 'Rutherford'
         rationale: |
           This assigns diffuse positive charge to a nuclear model. Rutherford studied atomic charge. Check whether that charge is spread out or concentrated.
-      - text: 'Erwin Schrödinger'
+      - text: 'Schrödinger'
         rationale: |
           This assigns the historical pudding model to wave mechanics. Both describe electrons. Check whether the model uses embedded particles or quantum states.
     explanation: |
@@ -54,7 +54,7 @@ questions:
     choices:
       - text: 'Rutherford'
         correct: true
-      - text: 'J.J. Thomson'
+      - text: 'Thomson'
         rationale: |
           This chooses the diffuse-charge model. Thomson’s model included positive charge. Check whether it concentrated that charge in a nucleus.
       - text: 'Niels Bohr'
@@ -78,10 +78,10 @@ questions:
       - text: 'Rutherford'
         rationale: |
           This selects the nuclear model without Bohr’s energy restriction. Rutherford provided the nuclear starting point. Check which model added quantized hydrogen states in 1913.
-      - text: 'Erwin Schrödinger'
+      - text: 'Schrödinger'
         rationale: |
           This selects later wave mechanics. Quantum mechanics also uses energy states. Check the specific date and hydrogen model.
-      - text: 'J.J. Thomson'
+      - text: 'Thomson'
         rationale: |
           This selects the diffuse-charge model. Thomson discovered electrons. Check whether it included Bohr’s nuclear energy levels.
     explanation: |
@@ -94,7 +94,7 @@ questions:
     stem: |
       Which researcher developed the 1926 wave equation that became a key foundation of wave mechanics?
     choices:
-      - text: 'Erwin Schrödinger'
+      - text: 'Schrödinger'
         correct: true
       - text: 'Niels Bohr'
         rationale: |
@@ -178,7 +178,7 @@ questions:
     stem: |
       Which scientist is credited with discovering the electron itself?
     choices:
-      - text: 'J.J. Thomson'
+      - text: 'Thomson'
         correct: true
       - text: 'Rutherford'
         rationale: |
