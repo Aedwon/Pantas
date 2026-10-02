@@ -186,3 +186,39 @@ note. This is a bounded fixture adaptation to the approved requirement, not a
 change to question content, app behavior, the protected seed, or integration
 permissions. The regression test must demonstrate failure before the importer
 implementation changes. Content workers have no additional writable paths.
+
+### Science group completed and mechanically verified, 3 October 2026
+
+The Science worker finished at `1e40ca47e3b8251ed0c97cb01b01634021dd0012`
+on `content/question-qa-r2-science`, with a clean worktree and a committed
+`docs/content/audit/question-qa-r2/science-summary.md`. A normal push was
+verified against the same remote SHA at 16:21 UTC on 2 October.
+
+The orchestrator independently ran the full-bank importer and the scoped
+mechanical check against that unchanged source revision:
+
+```text
+dart run tools/import_questions/import_questions.dart --root content/questions
+exit: 0
+lessons=51 questions=1023 active=1023 preserved=777 fixed_keys=8 under20=0 errors=0
+check_no_ai_attribution: OK
+```
+
+The mechanical check covers source and imported wrong-choice notes, prohibited
+choice text, bare fractions, em dashes, unique IDs, baseline ID preservation,
+unchanged lesson and exam routing, complete ledger rows, and active counts.
+The pass-upload monitor also verified the committed archive's importer result,
+the attribution gate, and the assigned-path boundary before the push.
+
+Science totals: 777 existing questions audited, 246 added, eight answer keys
+recorded as fixed, 204 HIGH findings recorded, and 33 questions requiring
+Aedwon's decision. Seven of those protected out-of-lesson items retain HIGH
+findings under the worker brief's preservation rule. None of the 51 lessons
+is under 20 active questions. Full findings and the pending IDs are in the
+science summary and ledgers on the subject branch.
+
+This accepts the Science group's mechanical gates only. Per Aedwon's instruction,
+the orchestrator did not review the authored content. Mathematics and the other
+subjects remain in progress. No group has been merged into the combined branch;
+combined acceptance, importer enforcement, protected-package signing, app/device
+checks, and app-branch integration remain pending.
