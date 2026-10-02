@@ -450,3 +450,53 @@ questions:
   explanation: 'Source segregation separates materials where they are generated. This can help recycling, reuse, or composting keep them out of disposal. Their later destination determines whether diversion occurs.
 
     '
+- id: q-environment-management-environmental-concepts-0021
+  type: single_choice
+  difficulty: hard
+  approved: false
+  stem: 'A town keeps separate compostable, recyclable, residual, and special-waste streams. Which instruction best preserves segregation after collection?
+
+    '
+  choices:
+  - text: Keep the separated materials apart.
+    correct: true
+  - text: Empty every stream into one mixed pile because households already sorted it.
+    rationale: 'This treats sorting as finished once bins are filled. Household separation was completed. Check whether later mixing undoes it.
+
+      '
+  - text: Mix special waste with compostable scraps because both need separate handling.
+    rationale: 'This treats separate categories as interchangeable. Both are collected apart from residual waste. Check whether their handling methods are compatible.
+
+      '
+  - text: Use the labels only at home and discard them during transport to recovery sites.
+    rationale: 'This treats labels as household decoration. Collection starts a new stage. Check whether workers can still identify the material streams.
+
+      '
+  explanation: 'Keeping streams apart preserves source separation. This helps suitable materials remain available for their proper recovery or handling route.
+
+    '
+- id: q-environment-management-environmental-concepts-0022
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'A municipality funds rescue and rebuilding but ignores hazard prevention and readiness. Which assessment best follows the disaster-management framework?
+
+    '
+  choices:
+  - text: It omits important work before a disaster.
+    correct: true
+  - text: It is complete because rescue and rebuilding replace prevention and readiness.
+    rationale: 'This makes response and recovery the whole framework. They are visible and necessary. Check the phases aimed at reducing harm beforehand.
+
+      '
+  - text: It should remove rescue because proactive risk reduction is the only phase.
+    rationale: 'This treats a proactive emphasis as rejection of response. Prevention receives attention in the law. Check the full set of phases.
+
+      '
+  - text: It needs only a new council name without changing funded activities.
+    rationale: 'This substitutes a label for readiness. Institutions coordinate the work. Check which actual activities are missing.
+
+      '
+  explanation: 'The framework includes prevention and mitigation, preparedness, response, and recovery. Rescue and rebuilding alone leave the pre-disaster phases uncovered.
+
+    '
