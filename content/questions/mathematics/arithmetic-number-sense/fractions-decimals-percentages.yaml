@@ -8,99 +8,81 @@ questions:
     type: direct-computation
     difficulty: easy
     stem: |
-      What is $\frac{3}{8}$ expressed as a percentage?
+      What is $\dfrac{3}{8}$ expressed as a percentage?
     choices:
-      - text: "$3.75\\%$"
+      - text: '$3.75\%$'
         rationale: |
-          You placed the decimal point incorrectly, dividing by 10 instead of multiplying by 100.
-      - text: "$37.5\\%$"
+          This multiplies $0.375$ by $10$ instead of $100$. Moving the point is part of percent conversion. Check that decimal-to-percent conversion multiplies by one hundred.
+      - text: '$37.5\%$'
         correct: true
-      - text: "$375\\%$"
+      - text: '$375\%$'
         rationale: |
-          You multiplied by 1000 instead of 100, placing the decimal point two places too far right.
-      - text: "$26.7\\%$"
+          This multiplies $0.375$ by $1000$ instead of $100$. Moving the point is part of percent conversion. Check that decimal-to-percent conversion multiplies by one hundred.
+      - text: '$\dfrac{800}{3}\%$'
         rationale: |
-          You calculated 8 divided by 3 (2.67) and converted it incorrectly.
+          This divides $8$ by $3$ instead of $3$ by $8$. Moving the point is part of percent conversion. Check the numerator and denominator order.
     explanation: |
-      To convert $\frac{3}{8}$ to a percentage:
-      1. Divide: $3 \div 8 = 0.375$
-      2. Multiply by 100%: $0.375 \times 100\% = 37.5\%$
-
-      Common trap: decimal placement error gives 3.75% or forgetting the decimal shift gives 375%.
+      Divide $3$ by $8$ to get $0.375$. Multiply by $100\%$: $0.375(100\%)=37.5\%$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0002
     type: direct-computation
     difficulty: easy
     stem: |
-      Simplify: $\frac{\frac{2}{5} + \frac{1}{3}}{\frac{11}{15}}$
+      Simplify $\left(\dfrac{2}{5}+\dfrac{1}{3}\right)\div\dfrac{11}{15}$.
     choices:
-      - text: "$\\frac{11}{15}$"
+      - text: '$\dfrac{11}{15}$'
         rationale: |
-          You evaluated the numerator sum but forgot to divide by the denominator 11/15.
-      - text: "$1$"
+          This stops after adding the numerator fractions. The numerator is a valid intermediate result. Check the whole complex fraction.
+      - text: '$1$'
         correct: true
-      - text: "$\\frac{121}{225}$"
+      - text: '$\dfrac{121}{225}$'
         rationale: |
-          You multiplied the numerator 11/15 by the denominator 11/15 instead of dividing.
-      - text: "$\\frac{1}{15}$"
+          This multiplies by the denominator instead of dividing. Both steps use the same fractions. Check that division uses the reciprocal.
+      - text: '$\dfrac{1}{11}$'
         rationale: |
-          You subtracted the fractions in the numerator instead of adding them.
+          This subtracts the numerator fractions before dividing. The two numerator fractions are close in value. Check the operation inside the numerator.
     explanation: |
-      Numerator: $\frac{2}{5} + \frac{1}{3} = \frac{6 + 5}{15} = \frac{11}{15}$
-
-      Divide: $\frac{\frac{11}{15}}{\frac{11}{15}} = \frac{11}{15} \times \frac{15}{11} = 1$
-
-      Trap: Stopping after evaluating numerator only.
+      Add the numerator fractions: $\dfrac{2}{5}+\dfrac{1}{3}=\dfrac{6+5}{15}=\dfrac{11}{15}$. The numerator and denominator now have the same nonzero value. Their quotient is $1$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0003
     type: word-problem
     difficulty: easy
     stem: |
-      A sari-sari store owner buys a box of canned milk for $\text{₱}400$. If the wholesaler offers a 15% discount for cash payments, how much does the store owner pay?
+      A wholesaler gives a $15\%$ cash discount on a bill. What fraction of the original bill must be paid?
     choices:
-      - text: "$\\text{₱}60$"
+      - text: '$\dfrac{3}{20}$'
         rationale: |
-          You calculated the discount amount instead of subtracting it from the original price.
-      - text: "$\\text{₱}340$"
+          This reports the fraction discounted instead of the fraction paid. The discount is stated directly. Check whether the fraction describes payment or savings.
+      - text: '$\dfrac{17}{20}$'
         correct: true
-      - text: "$\\text{₱}360$"
+      - text: '$\dfrac{3}{2}$'
         rationale: |
-          You subtracted 10 percent discount (P40) instead of 15 percent discount (P60).
-      - text: "$\\text{₱}385$"
+          This moves the percentage decimal only one place and reports the discount as the fraction paid. A one-place shift is easy to make. Check that percent means out of one hundred.
+      - text: '$1$'
         rationale: |
-          You subtracted 15 pesos directly from the P400 price instead of calculating 15 percent.
+          This reports the whole bill with no discount. The full bill is the starting amount. Check that the discount lowers the bill.
     explanation: |
-      Discount amount: $15\% \times \text{₱}400 = 0.15 \times \text{₱}400 = \text{₱}60$
-
-      Amount paid: $\text{₱}400 - \text{₱}60 = \text{₱}340$
-
-      Trap: Giving discount amount instead of final price.
+      A $15\%$ discount leaves $100\%-15\%=85\%$ of the bill to pay. Convert this to a fraction: $\dfrac{85}{100}=\dfrac{17}{20}$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0004
     type: direct-computation
     difficulty: easy
     stem: |
-      Express $0.444...$ as a fraction in lowest terms, then add $\frac{2}{9}$. What is the simplified result?
+      Express $0.444...$ as a fraction in lowest terms, then add $\dfrac{2}{9}$. What is the simplified result?
     choices:
-      - text: "$\\frac{6}{9}$"
+      - text: '$\dfrac{6}{9}$'
         rationale: |
-          You added the fractions correctly to get 6/9 but forgot to reduce it to lowest terms.
-      - text: "$\\frac{4}{9}$"
+          This leaves the result as six ninths instead of reducing it. The fraction has the correct value. Check that the result is in lowest terms.
+      - text: '$\dfrac{4}{9}$'
         rationale: |
-          You converted 0.444... to 4/9 but forgot to add the 2/9 fraction.
-      - text: "$\\frac{2}{3}$"
+          This stops after converting the repeating decimal. The conversion is a needed first step. Check whether another fraction must be added.
+      - text: '$\dfrac{2}{3}$'
         correct: true
-      - text: "$\\frac{44}{99}$"
+      - text: '$\dfrac{44}{99}$'
         rationale: |
-          You wrote 0.444... as 44/99 without simplifying it or adding 2/9.
+          This writes two repeated digits over ninety-nine but omits the addition. That fraction does represent the decimal. Check every requested operation.
     explanation: |
-      The repeating decimal $0.444... = \frac{4}{9}$
-
-      Add: $\frac{4}{9} + \frac{2}{9} = \frac{6}{9}$
-
-      Simplify: $\frac{6}{9} = \frac{2}{3}$
-
-      Trap: Leaving answer unsimplified.
+      Let $x=0.444\ldots$. Then $10x=4.444\ldots$. Subtract to get $9x=4$, so $x=\dfrac{4}{9}$. Add $\dfrac{2}{9}$: $\dfrac{4}{9}+\dfrac{2}{9}=\dfrac{6}{9}=\dfrac{2}{3}$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0005
     type: word-problem
@@ -108,51 +90,39 @@ questions:
     stem: |
       A restaurant bill is $\text{₱}850$. A 10% service charge is added, then the customer leaves a 5% tip on the new total. What is the final amount paid?
     choices:
-      - text: "$\\text{₱}977.50$"
+      - text: '$\text{₱}977.50$'
         rationale: |
-          You calculated the 5 percent tip on the original P850 bill instead of the P935 total.
-      - text: "$\\text{₱}981.75$"
+          This applies the tip to the original bill. The original bill is stated first. Check which total the tip is based on.
+      - text: '$\text{₱}981.75$'
         correct: true
-      - text: "$\\text{₱}935.00$"
+      - text: '$\text{₱}935.00$'
         rationale: |
-          You added the 10 percent service charge but omitted the 5 percent tip.
-      - text: "$\\text{₱}997.50$"
+          This stops after the service charge. The service-adjusted bill is needed next. Check for the tip as well.
+      - text: '$\text{₱}131.75$'
         rationale: |
-          You added 15 percent (10% + 5%) directly to the original P850 bill plus an error.
+          This reports the total service charge and tip without the original bill. Both extra charges have been found. Check that the final payment includes the bill.
     explanation: |
-      Add service charge: $\text{₱}850 \times 1.10 = \text{₱}935$
-
-      Add tip on new total: $\text{₱}935 \times 0.05 = \text{₱}46.75$
-
-      Final total: $\text{₱}935 + \text{₱}46.75 = \text{₱}981.75$
-
-      Trap: Calculating tip on original amount instead of new total.
+      The service charge gives $850(1.10)=935$ pesos. The tip is $935(0.05)=46.75$ pesos. The final amount is $935+46.75=981.75$ pesos.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0006
     type: direct-computation
     difficulty: medium
     stem: |
-      Evaluate: $0.6 \times \left(\frac{5}{6} - \frac{1}{4}\right) \div 0.35$
+      Evaluate: $0.6 \times \left(\dfrac{5}{6} - \dfrac{1}{4}\right) \div 0.35$
     choices:
-      - text: "$0.1$"
+      - text: '$0.1225$'
         rationale: |
-          You miscalculated the subtraction inside parentheses as 1/12 instead of 7/12.
-      - text: "$0.35$"
+          This multiplies by $0.35$ at the last step instead of dividing. The same decimal is used in either operation. Check the last operation sign.
+      - text: '$0.35$'
         rationale: |
-          You calculated 0.6 times 7/12 = 0.35 but stopped before dividing by 0.35.
-      - text: "$1$"
+          This stops before the final division. The product is a correct intermediate result. Check whether another operation remains.
+      - text: '$1$'
         correct: true
-      - text: "$\\frac{7}{12}$"
+      - text: '$\dfrac{7}{12}$'
         rationale: |
-          You evaluated the expression inside the parentheses but omitted the multiplication and division.
+          This stops after the subtraction in parentheses. The parentheses do need evaluation first. Check the operations outside the parentheses.
     explanation: |
-      Parentheses: $\frac{5}{6} - \frac{1}{4} = \frac{10 - 3}{12} = \frac{7}{12}$
-
-      Multiply: $0.6 \times \frac{7}{12} = \frac{3}{5} \times \frac{7}{12} = \frac{7}{20} = 0.35$
-
-      Divide: $0.35 \div 0.35 = 1$
-
-      Trap: Decimal placement errors or stopping before final division.
+      First subtract inside parentheses: $\dfrac{5}{6}-\dfrac{1}{4}=\dfrac{10-3}{12}=\dfrac{7}{12}$. Multiply by $0.6=\dfrac{3}{5}$ to get $\dfrac{7}{20}=0.35$. Then $0.35\div0.35=1$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0007
     type: word-problem
@@ -160,77 +130,59 @@ questions:
     stem: |
       A sari-sari store owner buys instant noodle packs for $\text{₱}12.50$ and sells for $\text{₱}15.00$. What is the profit percentage based on cost price?
     choices:
-      - text: "$16.67\\%$"
+      - text: '$16.67\%$'
         rationale: |
-          You divided the P2.50 profit by the selling price P15.00 instead of cost price P12.50.
-      - text: "$20\\%$"
+          This uses selling price as the percentage base. The selling price is another meaningful base. Check the stated percentage base.
+      - text: '$20\%$'
         correct: true
-      - text: "$25\\%$"
+      - text: '$25\%$'
         rationale: |
-          You divided P2.50 by P10.00 or miscalculated the profit fraction.
-      - text: "$2.50\\%$"
+          This rounds the cost down to ten pesos before dividing the gain. A whole-number cost is easier to use. Check that rounding was not requested.
+      - text: '$2.50\%$'
         rationale: |
-          You reported the absolute profit amount (P2.50) as a percentage.
+          This reports the peso gain as a percentage. The gain is a useful intermediate amount. Check that a percent needs a ratio.
     explanation: |
-      Profit per pack: $\text{₱}15.00 - \text{₱}12.50 = \text{₱}2.50$
-
-      Profit percentage: $\frac{\text{₱}2.50}{\text{₱}12.50} \times 100\% = 0.20 \times 100\% = 20\%$
-
-      Trap: Using selling price as denominator instead of cost price.
+      The gain over cost is $15-12.50=2.50$ pesos. Its fraction of cost is $\dfrac{2.50}{12.50}=0.20$. Multiply by $100\%$ to get $20\%$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0008
     type: word-problem
     difficulty: medium
     stem: |
-      A store offers 20% discount plus an additional 10% discount at checkout. What single percentage is equivalent to these successive discounts?
+      A store reduces a price by $10\%$. What percentage increase on the reduced price restores the original price?
     choices:
-      - text: "$30\\%$"
+      - text: '$10\%$'
         rationale: |
-          You added the two discount percentages directly (20% + 10% = 30%) without compounding them.
-      - text: "$28\\%$"
+          This assumes a ten-percent rise reverses a ten-percent fall. The same percentage appears in both steps. Check that the rise uses a smaller base.
+      - text: '$11\dfrac{1}{9}\%$'
         correct: true
-      - text: "$72\\%$"
+      - text: '$90\%$'
         rationale: |
-          You reported the final paying price percentage (72%) instead of the discount percentage.
-      - text: "$18\\%$"
+          This uses the fraction remaining as the percentage increase. The remaining price is needed for the ratio. Check that the increase is the gain divided by the new price.
+      - text: '$111\dfrac{1}{9}\%$'
         rationale: |
-          You multiplied 20% by 90% or miscalculated the combined discount.
+          This uses the new-to-old ratio as the increase alone. The ratio does restore the original price. Check that the ratio includes the original one hundred percent.
     explanation: |
-      After first discount: $100 \times 0.80 = 80$
-
-      After second discount: $80 \times 0.90 = 72$
-
-      Total discount: $100 - 72 = 28\%$
-
-      Trap: Simply adding percentages ($20\% + 10\% = 30\%$) without compounding.
+      After a $10\%$ decrease, $90\%$ of the original price remains. If the original price is $100$, it falls to $90$ and needs an increase of $10$. The required increase is $\dfrac{10}{90}(100\%)=11\dfrac{1}{9}\%$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0009
     type: direct-computation
     difficulty: medium
     stem: |
-      Calculate: $\frac{3}{4} \div 0.125 + 2.5 \times \frac{2}{5}$
+      Calculate: $\dfrac{3}{4} \div 0.125 + 2.5 \times \dfrac{2}{5}$
     choices:
-      - text: "$4$"
+      - text: '$6$'
         rationale: |
-          You subtracted the two terms (6 - 2) or miscalculated the second product.
-      - text: "$6.5$"
+          This stops at the first quotient. That part of the expression has been evaluated. Check both terms before adding.
+      - text: '$6.5$'
         rationale: |
-          You added 6 and 0.5 instead of evaluating 2.5 times 2/5 as 1.
-      - text: "$7$"
+          This drops the numerator two in the second fraction. The remaining multiplication is easy. Check both numbers in the fraction.
+      - text: '$7$'
         correct: true
-      - text: "$8.5$"
+      - text: '$8.5$'
         rationale: |
-          You multiplied 3/4 by 0.125 (0.09375) or miscalculated the division term.
+          This adds $2.5$ without multiplying it by two fifths. The decimal is already a complete number. Check the multiplication attached to the decimal.
     explanation: |
-      Convert: $0.125 = \frac{1}{8}$ and $2.5 = \frac{5}{2}$
-
-      Division: $\frac{3}{4} \div \frac{1}{8} = \frac{3}{4} \times 8 = 6$
-
-      Multiplication: $\frac{5}{2} \times \frac{2}{5} = 1$
-
-      Sum: $6 + 1 = 7$
-
-      Trap: Multiplying instead of dividing in the first term.
+      The first term is $\dfrac{3}{4}\div\dfrac{1}{8}=\dfrac{3}{4}(8)=6$. The second is $2.5\left(\dfrac{2}{5}\right)=1$. Add them: $6+1=7$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0010
     type: word-problem
@@ -238,79 +190,59 @@ questions:
     stem: |
       An investor deposits $\text{₱}12,000$ in a savings account earning 5.5% simple annual interest. How much total interest is earned after 18 months?
     choices:
-      - text: "$\\text{₱}660$"
+      - text: '$\text{₱}660$'
         rationale: |
-          You calculated interest for 1 year (P660) instead of 18 months (1.5 years).
-      - text: "$\\text{₱}990$"
+          This uses one year instead of eighteen months. The rate is annual. Check the actual duration.
+      - text: '$\text{₱}990$'
         correct: true
-      - text: "$\\text{₱}1,188$"
+      - text: '$\text{₱}1,188$'
         rationale: |
-          You calculated interest for 18 months using 6.6 percent interest rate.
-      - text: "$\\text{₱}11,880$"
+          This converts eighteen months to $1.8$ years. Moving the point seems like a quick conversion. Check that twelve months make a year.
+      - text: '$\text{₱}11,880$'
         rationale: |
-          You forgot to divide the percentage by 100, using 0.55 instead of 0.055.
+          This uses eighteen as years without converting the time. The stated duration is copied directly. Check that the time unit matches the annual rate.
     explanation: |
-      Convert time: $18$ months $= \frac{18}{12} = 1.5$ years
-
-      Simple interest formula: $I = P \times r \times t$
-
-      Calculate: $I = \text{₱}12,000 \times 0.055 \times 1.5 = \text{₱}990$
-
-      Trap: Using only 1 year instead of 1.5 years.
+      The annual rate is $0.055$, and $18$ months is $\dfrac{18}{12}=1.5$ years. Simple interest is $I=Prt=12000(0.055)(1.5)=990$ pesos.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0011
     type: word-problem
     difficulty: hard
     stem: |
-      A sari-sari store owner buys 60 kg of rice for $\text{₱}3,000$ total. She sells $\frac{1}{3}$ at 20% profit, $\frac{1}{2}$ at 10% profit, and the rest at cost. What is her overall profit?
+      A sari-sari store owner buys 60 kg of rice for $\text{₱}3,000$ total. She sells $\dfrac{1}{3}$ at 20% profit on cost, $\dfrac{1}{2}$ at 10% profit on cost, and the rest at cost. What is her overall profit?
     choices:
-      - text: "$\\text{₱}300$"
+      - text: '$\text{₱}300$'
         rationale: |
-          You miscalculated 1/2 of P3,000 as P1,000 or omitted portion of profit.
-      - text: "$\\text{₱}350$"
+          This applies the ten-percent gain to all the rice. That rate applies to one portion. Check the different rates on each portion.
+      - text: '$\text{₱}350$'
         correct: true
-      - text: "$\\text{₱}450$"
+      - text: '$\text{₱}450$'
         rationale: |
-          You calculated 20 percent profit on both 1/3 and 1/2 portions.
-      - text: "$\\text{₱}900$"
+          This averages the two profit rates and applies that average to the full cost. Averaging seems natural for two rates. Check the shares of stock at each rate.
+      - text: '$\text{₱}900$'
         rationale: |
-          You calculated 30 percent profit on the entire P3,000 cost.
+          This adds the two profit rates and applies them to the full cost. Both rates describe gains. Check that each rate applies to only part of the cost.
     explanation: |
-      Cost per portion:
-      - $\frac{1}{3} \times \text{₱}3,000 = \text{₱}1,000$
-      - $\frac{1}{2} \times \text{₱}3,000 = \text{₱}1,500$
-      - $\frac{1}{6} \times \text{₱}3,000 = \text{₱}500$
-
-      Profit from each:
-      - $\text{₱}1,000 \times 0.20 = \text{₱}200$
-      - $\text{₱}1,500 \times 0.10 = \text{₱}150$
-      - $\text{₱}500 \times 0 = \text{₱}0$
-
-      Total profit: $\text{₱}200 + \text{₱}150 = \text{₱}350$
+      The first portion costs $\dfrac{1}{3}(3000)=1000$ pesos and gains $1000(0.20)=200$ pesos. The second costs $\dfrac{1}{2}(3000)=1500$ pesos and gains $1500(0.10)=150$ pesos. The rest earns no profit. The total profit is $200+150=350$ pesos.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0012
     type: direct-computation
     difficulty: hard
     stem: |
-      What percentage of $\frac{5}{6}$ is $\frac{3}{8} + \frac{1}{12}$?
+      What percentage of $\dfrac{5}{6}$ is $\dfrac{3}{8} + \dfrac{1}{12}$?
     choices:
-      - text: "$45\\%$"
+      - text: '$45\%$'
         rationale: |
-          You subtracted 55% from 100% or miscalculated the fraction division.
-      - text: "$55\\%$"
+          This reports the complementary percentage instead of the requested ratio. The complement is another percentage of the same base. Check which part of the base is requested.
+      - text: '$55\%$'
         correct: true
-      - text: "$62.5\\%$"
+      - text: '$45\dfrac{5}{6}\%$'
         rationale: |
-          You evaluated 5/8 as a percentage instead of (11/24) / (5/6).
-      - text: "$5.5\\%$"
+          This converts the summed fraction to percent without dividing by five sixths. The fraction sum is needed first. Check the stated reference amount.
+      - text: '$5.5\%$'
         rationale: |
-          You placed the decimal point incorrectly when converting 11/20 to a percentage.
+          This multiplies the decimal ratio by ten instead of one hundred. The decimal point still moves right. Check the hundred in percent conversion.
     explanation: |
-      Numerator: $\frac{3}{8} + \frac{1}{12} = \frac{9 + 2}{24} = \frac{11}{24}$
-
-      As fraction of $\frac{5}{6}$: $\frac{\frac{11}{24}}{\frac{5}{6}} = \frac{11}{24} \times \frac{6}{5} = \frac{11}{20}$
-
-      As percentage: $\frac{11}{20} \times 100\% = 55\%$
+      Add the fractions: $\dfrac{3}{8}+\dfrac{1}{12}=\dfrac{9+2}{24}=\dfrac{11}{24}$. Divide by $\dfrac{5}{6}$: $\dfrac{11}{24}\left(\dfrac{6}{5}\right)=\dfrac{11}{20}=0.55$. Convert to get $55\%$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0013
     type: word-problem
@@ -318,78 +250,161 @@ questions:
     stem: |
       After a 20% discount on marked price, a customer paid $\text{₱}672$. This included 12% sales tax on the discounted price. What was the original marked price?
     choices:
-      - text: "$\\text{₱}700$"
+      - text: '$\text{₱}840$'
         rationale: |
-          You subtracted 12 percent tax first then added 20 percent discount.
-      - text: "$\\text{₱}720$"
+          This removes the discount but leaves the tax in the amount. Dividing by the remaining-price factor is a needed step. Check that both changes are reversed.
+      - text: '$\text{₱}600$'
         rationale: |
-          You divided P672 by 0.933 or miscalculated the combined tax and discount factor.
-      - text: "$\\text{₱}750$"
+          This removes the tax but stops before reversing the discount. Removing tax is a needed step. Check that both changes are reversed.
+      - text: '$\text{₱}750$'
         correct: true
-      - text: "$\\text{₱}800$"
+      - text: '$\text{₱}\dfrac{16800}{23}$'
         rationale: |
-          You calculated P672 / 0.84, treating discount and tax as additive (-20% + 12% = -8%).
+          This combines minus twenty percent and plus twelve percent into one eight-percent decrease. Both percentages affect the same bill. Check that successive percentages multiply.
     explanation: |
-      Let $P$ be original marked price.
-
-      After 20% discount: $0.80P$
-
-      Add 12% tax: $0.80P \times 1.12 = 0.896P$
-
-      Solve: $0.896P = \text{₱}672$
-
-      $P = \frac{\text{₱}672}{0.896} = \text{₱}750$
+      Let the original price be $P$. The discount leaves $0.80P$. Tax makes the total $0.80P(1.12)=0.896P$. Thus $0.896P=672$, and $P=672\div0.896=750$ pesos.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0014
     type: word-problem
-    difficulty: exam-level
+    difficulty: exam
     stem: |
-      A retail store stocks 240 items. Week 1: 35% is sold. Week 2: $\frac{5}{8}$ of remaining is sold. What percentage of original inventory remains unsold?
+      A retail store stocks 240 items. Week 1: 35% is sold. Week 2: $\dfrac{5}{8}$ of remaining is sold. What percentage of original inventory remains unsold?
     choices:
-      - text: "$24.375\\%$"
+      - text: '$24.375\%$'
         correct: true
-      - text: "$26.25\\%$"
+      - text: '$2.5\%$'
         rationale: |
-          You calculated the percentage sold in week 2 (5/8 of 65% = 40.625%) and subtracted 35%.
-      - text: "$40.625\\%$"
+          This subtracts sixty-two and a half percentage points directly from sixty-five percent. The sold fraction is sixty-two and a half percent. Check that week two uses the remaining stock as its base.
+      - text: '$40.625\%$'
         rationale: |
-          You calculated the percentage sold during week 2 instead of the unsold percentage.
-      - text: "$65.00\\%$"
+          This reports the second-week sales rather than the unsold stock. The second-week sold fraction is a useful result. Check whether sold or unsold is requested.
+      - text: '$65.00\%$'
         rationale: |
-          You reported the percentage remaining after week 1 without accounting for week 2 sales.
+          This stops after the first week. The first remaining fraction is correct. Check both weeks.
     explanation: |
-      After week 1: $100\% - 35\% = 65\%$ remains
-
-      After week 2: $1 - \frac{5}{8} = \frac{3}{8}$ of remaining stock
-
-      Unsold total: $\frac{3}{8} \times 65\% = 0.375 \times 65\% = 24.375\%$
-
-      Trap: Giving week 1 remaining (65%) instead of final unsold percentage.
+      Week one leaves $100\%-35\%=65\%$ of the original stock. Week two leaves $1-\dfrac{5}{8}=\dfrac{3}{8}$ of that remainder. The unsold share is $\dfrac{3}{8}(65\%)=24.375\%$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0015
     type: word-problem
-    difficulty: exam-level
+    difficulty: exam
     stem: |
-      A sari-sari store owner increases sugar price by 25%, then reduces by 20%. During repackaging, $\frac{1}{20}$ of weight is lost. Compared to original revenue from original stock at original price, what is the net revenue change?
+      A sari-sari store owner increases sugar price by 25%, then reduces by 20%. During repackaging, $\dfrac{1}{20}$ of weight is lost. All remaining sugar is sold. Compared to original revenue from original stock at original price, what is the net revenue change?
     choices:
-      - text: "$0\\%$"
+      - text: '$0\%$'
         rationale: |
-          You assumed the +25% and -20% price adjustments returned revenue to normal, ignoring weight loss.
-      - text: "$-5\\%$"
+          This ignores the lost weight after the unit price returns to its original value. The two price changes cancel each other. Check changes in both price and quantity.
+      - text: '$-5\%$'
         correct: true
-      - text: "$+5\\%$"
+      - text: '$+5\%$'
         rationale: |
-          You added 5 percent instead of subtracting the 5 percent loss from inventory reduction.
-      - text: "$-9.75\\%$"
+          This treats a weight loss as a revenue gain. Five percent is the right size of the loss. Check the direction of the quantity change.
+      - text: '$-9.75\%$'
         rationale: |
-          You miscalculated 1.25 * 0.80 * 0.95 as 0.9025 instead of 0.95.
+          This applies the five-percent weight loss twice. Weight loss affects the final revenue. Check that one stated loss uses one factor.
     explanation: |
-      Price after changes: $P \times 1.25 \times 0.80 = 1.00P$ (back to original)
+      The final price factor is $1.25(0.80)=1$, so the unit price returns to its original value. The remaining weight is $1-\dfrac{1}{20}=\dfrac{19}{20}=0.95$ of the original. Revenue is therefore $0.95$ of its original value. That is a $5\%$ decrease.
 
-      Weight after loss: $1 - \frac{1}{20} = \frac{19}{20} = 0.95W$
+  - id: q-arithmetic-number-sense-fractions-decimals-percentages-0016
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Write $0.045$ as a percentage.
+    choices:
+      - text: '$4.5\%$'
+        correct: true
+      - text: '$0.45\%$'
+        rationale: |
+          This moves the point only one place right. A shift is required, so it can look reasonable. Check that multiplying by one hundred moves two places.
+      - text: '$45\%$'
+        rationale: |
+          This moves the point three places right. Small decimals can tempt an extra shift. Check the factor one hundred.
+      - text: '$0.045\%$'
+        rationale: |
+          This adds a percent sign without changing the value. The digits look familiar. Check that percent and decimal forms use different units.
+    explanation: |
+      Multiply the decimal by $100\%$. Thus $0.045(100\%)=4.5\%$.
+    approved: false
 
-      New revenue: $1.00P \times 0.95W = 0.95(PW)$
+  - id: q-arithmetic-number-sense-fractions-decimals-percentages-0017
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A student reads $0.35$ of a book on Monday and $\dfrac{1}{4}$ of the book on Tuesday, with no repeated pages. What percent is still unread?
+    choices:
+      - text: '$40\%$'
+        correct: true
+      - text: '$60\%$'
+        rationale: |
+          This reports the read share. That is a needed intermediate result. Check whether read or unread is requested.
+      - text: '$10\%$'
+        rationale: |
+          This subtracts the reading shares instead of adding them. Their difference is easy to calculate. Check that both days add new pages read.
+      - text: '$65\%$'
+        rationale: |
+          This subtracts only Monday's reading. Monday is listed first. Check that Tuesday also reduces the unread share.
+    explanation: |
+      Convert $\dfrac{1}{4}$ to $0.25$. The read share is $0.35+0.25=0.60$. The unread share is $1-0.60=0.40$, or $40\%$.
+    approved: false
 
-      Change: $0.95 - 1.00 = -5\%$ (5% decrease)
+  - id: q-arithmetic-number-sense-fractions-decimals-percentages-0018
+    type: error-spotting
+    difficulty: medium
+    stem: |
+      A student converts $2.5\%$ to a decimal and writes $0.25$. What correction is needed?
+    choices:
+      - text: 'Divide $2.5$ by $100$.'
+        correct: true
+      - text: 'Divide $2.5$ by $10$ only.'
+        rationale: |
+          This shifts the point only once. One shift does reduce the value. Check that the percent denominator is one hundred.
+      - text: 'Multiply $2.5$ by $100$.'
+        rationale: |
+          This reverses the conversion direction. Multiplying is used to turn a decimal into a percent. Check which form is given first.
+      - text: 'Keep $2.5$ and remove the sign.'
+        rationale: |
+          This removes the symbol without converting the unit. The numeric part is already visible. Check that percent means division by one hundred.
+    explanation: |
+      Percent means out of one hundred. Therefore $2.5\%=2.5\div100=0.025$.
+    approved: false
 
-      Trap: Assuming price changes cancel out without factoring inventory loss.
+  - id: q-arithmetic-number-sense-fractions-decimals-percentages-0019
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      Which statement correctly compares a salary equal to $120\%$ of an old salary with a salary that is $120\%$ more than the old salary?
+    choices:
+      - text: 'Their multipliers are $1.20$ and $2.20$.'
+        correct: true
+      - text: 'Their multipliers are $1.20$ and $1.20$.'
+        rationale: |
+          This treats of and more than as the same operation. Both statements use the same percentage. Check whether the original amount is also added.
+      - text: 'Their multipliers are $0.20$ and $1.20$.'
+        rationale: |
+          This subtracts one hundred percent from the of statement. That gives a gain fraction, not the whole amount. Check whether a total or only an increase is described.
+      - text: 'Their multipliers are $2.20$ and $1.20$.'
+        rationale: |
+          This swaps the roles of the phrases. Both multipliers are relevant. Check that more than includes the original amount.
+    explanation: |
+      The phrase $120\%$ of means multiply by $1.20$. The phrase $120\%$ more means keep the original salary and add $1.20$ times it. That multiplier is $1+1.20=2.20$.
+    approved: false
+
+  - id: q-arithmetic-number-sense-fractions-decimals-percentages-0020
+    type: word-problem
+    difficulty: exam
+    stem: |
+      After completing $40\%$ of a practice set, a student has answered $72$ questions. How many additional questions equal $15\%$ of the entire set?
+    choices:
+      - text: '$27$'
+        correct: true
+      - text: '$10.8$'
+        rationale: |
+          This takes fifteen percent of the answered questions. Seventy-two is the count stated directly. Check that the percentage base is the entire set.
+      - text: '$180$'
+        rationale: |
+          This reports the full set size. That size is needed first. Check the requested percentage of it.
+      - text: '$108$'
+        rationale: |
+          This reports all remaining questions. Subtracting completed work gives a useful count. Check that the question asks for fifteen percent of the entire set.
+    explanation: |
+      Let the full set contain $N$ questions. Since $0.40N=72$, $N=72\div0.40=180$. The requested amount is $0.15(180)=27$ questions.
+    approved: false
