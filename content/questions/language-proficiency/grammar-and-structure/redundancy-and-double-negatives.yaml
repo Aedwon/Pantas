@@ -101,13 +101,13 @@ questions:
         correct: true
       - text: "Please enter your PIN number code at the terminal."
         rationale: |
-          You added another label instead of removing the repeated word. The N in PIN already stands for "number."
+          This adds "code" while keeping a repeated "number." A code is entered at a terminal, so the extra label may seem clearer. Check the words represented by each letter of PIN.
       - text: "Please enter your personal PIN number at the terminal."
         rationale: |
-          You kept "PIN number," so "number" is still repeated by the abbreviation.
+          This adds "personal" while keeping a repeated "number." Personal information sounds relevant to a PIN, so the wording may seem more exact. Expand PIN before adding a label.
       - text: "Please enter your number PIN at the terminal."
         rationale: |
-          You rearranged the words but did not produce the standard term.
+          This moves "number" before PIN without removing it. A new word order may seem to fix the phrase. Expand the abbreviation and check for repeated meaning.
     explanation: |
       PIN stands for "personal identification number." Saying "PIN number" therefore repeats "number." The concise form is simply "PIN."
     approved: true
@@ -141,13 +141,13 @@ questions:
         correct: true
       - text: "The ATM machine device outside the bank is offline."
         rationale: |
-          You added another generic noun while keeping the original repetition. The M in ATM already stands for "machine."
+          This adds "device" while keeping a repeated "machine." Both describe an ATM, so the wording may sound precise. Expand ATM and remove a repeated label.
       - text: "The automatic ATM machine outside the bank is offline."
         rationale: |
-          You kept "ATM machine," so "machine" remains repeated by the abbreviation.
+          This adds "automatic" while keeping a repeated "machine." The machine works automatically, so that extra word may look useful. Check what each letter of ATM already represents.
       - text: "The machine ATM outside the bank is offline."
         rationale: |
-          You rearranged the words but did not produce the standard term.
+          This moves "machine" before ATM without removing it. A changed order may seem like an edit. Expand the abbreviation and check whether the same meaning remains twice.
     explanation: |
       ATM stands for "automated teller machine." Adding "machine" after ATM repeats the final word of the abbreviation.
     approved: true
@@ -181,13 +181,13 @@ questions:
         correct: true
       - text: "Write the ISBN number code on the form."
         rationale: |
-          You added another noun while keeping the repeated "number." The N in ISBN already stands for "number."
+          This adds "code" while keeping a repeated "number." ISBN identifies a book, so "code" may sound like helpful detail. Expand ISBN before adding a label.
       - text: "Write the book ISBN number on the form."
         rationale: |
-          You added context but kept "ISBN number," so the literal repetition remains.
+          This adds "book" while keeping a repeated "number." Naming the item identified may look clearer. Check what the letters B and N already represent.
       - text: "Write the number ISBN on the form."
         rationale: |
-          You rearranged the words instead of using the standard term.
+          This moves "number" before ISBN without removing it. The altered order may look like a repair. Expand the abbreviation and check for repeated meaning.
     explanation: |
       ISBN stands for "International Standard Book Number." "ISBN number" repeats the word "number," so "ISBN" alone is the concise form.
     approved: true
@@ -301,15 +301,15 @@ questions:
         correct: true
       - text: "The ATM machine was never available, so I had to enter my PIN number at another terminal."
         rationale: |
-          You fixed the standard-English negation pattern but kept both literal abbreviation repetitions: ATM already ends in "machine," and PIN already ends in "number."
+          This fixes the negative wording but keeps the repeated abbreviation labels. The smoother verb phrase may make the whole revision seem complete. Check both abbreviations after checking the verb.
       - text: "The ATM wasn't never available, so I had to enter my PIN at another terminal."
         rationale: |
-          You removed one redundancy but kept the negative-concord pattern that this standard-formal editing task asks you to revise.
+          This keeps two negatives for one negative meaning in formal English. That pattern is familiar in some dialects, so it may sound natural. Check the register requested in the stem.
       - text: "The ATM machine wasn't never available, so I had to enter my PIN number at another terminal."
         rationale: |
-          You left all three target problems unchanged.
+          This keeps the original negative pattern and repeated labels. Familiar wording may make the sentence seem acceptable. Check each part against the requested formal, concise style.
     explanation: |
-      Three edits are required for the stated target register: ATM already means "automated teller machine," PIN already means "personal identification number," and standard formal English normally uses a single negative pattern such as "was never available." Negative concord remains a legitimate dialect pattern outside that target register.
+      ATM means "automated teller machine," and PIN means "personal identification number." The abbreviations already include the labels, so use ATM and PIN alone. For the requested formal style, "was never available" gives one clear negative meaning.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0016"
     type: "redundancy-identification"
