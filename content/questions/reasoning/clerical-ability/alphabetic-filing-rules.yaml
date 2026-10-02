@@ -9,41 +9,41 @@ questions:
     type: single_choice
     difficulty: easy
     stem: |
-      Under standard alphabetic filing rules, how is the name "Juan Carlos Dela Cruz" indexed into key units?
+      A registry indexes surname, then given name, then middle name. The recorded surname is "Dela Cruz," the given name is Juan, and the middle name is Carlos. Which index entry is correct?
     choices:
-      - text: Delacruz, Juan Carlos
+      - text: "Dela Cruz, Juan Carlos"
         correct: true
-      - text: Juan, Carlos Dela Cruz
+      - text: "Juan, Carlos Dela Cruz"
         rationale: |
-          You started with the first name instead of the surname. Unit 1 must always be the surname when indexing individual names.
-      - text: Carlos, Dela Cruz Juan
+          This follows reading order instead of the stated indexing order. Juan is the first visible word. Check which part the system uses as its first unit.
+      - text: "Carlos, Dela Cruz Juan"
         rationale: |
-          You indexed the middle name first. Under standard filing rules, Unit 1 is the surname, Unit 2 is the first name, and Unit 3 is the middle name.
-      - text: Cruz, Dela Juan Carlos
+          This puts the middle name first. Carlos is a familiar personal name, so it may look like a surname. Check the roles specified in the stem.
+      - text: "Cruz, Dela Juan Carlos"
         rationale: |
-          You separated the prefix "Dela" from the surname "Cruz". Prefixes like "De", "Dela", or "Van" combine with the surname as a single unit.
+          This removes Dela from the surname unit. Cruz may look like the main part of the name. Check the complete recorded surname.
     explanation: |
-      Surnames with prefixes are treated as a single unit (Delacruz) as Unit 1, followed by first name (Juan) and middle name (Carlos).
+      The surname is Dela Cruz, the given name is Juan, and the middle name is Carlos. The stated order puts Dela Cruz first, then Juan and Carlos. Keep the surname's recorded spelling.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0002
     type: single_choice
     difficulty: easy
     stem: |
-      Which of the following names should be filed FIRST alphabetically?
+      A registry compares surname first and given name second, letter by letter. A complete shorter unit comes before a longer unit that starts with it. Which entry should be filed first?
     choices:
-      - text: Adams, Arthur
+      - text: "Adams, Arthur"
         correct: true
-      - text: Adams, Benjamin
+      - text: "Adams, Benjamin"
         rationale: |
-          You picked a name with the same surname whose first name comes later. "Arthur" comes before "Benjamin" alphabetically.
-      - text: Adamson, Albert
+          This stops after finding the earliest surname. Both Adams records have that surname. Check their given names to break the tie.
+      - text: "Adamson, Albert"
         rationale: |
-          You ignored the shorter surname rule. "Adams" finishes before "Adamson", so all "Adams" entries come first.
-      - text: Adan, Anthony
+          This lets an earlier given name override the surname order. Albert comes early alphabetically. Check the surname before the given name.
+      - text: "Adan, Anthony"
         rationale: |
-          You looked past the third letter. "Adams" comes before "Adan" because "m" comes before "n" in the alphabet.
+          This skips the first differing surname letter. The beginnings Ada match. Check the next letters, m and n.
     explanation: |
-      Comparing unit by unit: Adams comes before Adamson and Adan. Between Adams, Arthur and Adams, Benjamin, Arthur comes first.
+      Compare surnames first. Adams comes before Adamson because the shared spelling ends sooner, and before Adan because m comes before n. For the two Adams records, Arthur comes before Benjamin.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0003
     type: single_choice
@@ -51,119 +51,119 @@ questions:
     stem: |
       When indexing business titles, prepositions and conjunctions like "and", "of", and "the" are treated in what manner?
     choices:
-      - text: Disregarded in indexing
+      - text: "Disregarded in indexing"
         correct: true
-      - text: Placed in the first unit
+      - text: "Placed in the first unit"
         rationale: |
-          You assumed minor words are moved to the front. Prepositions, conjunctions, and articles are ignored when alphabetizing business names.
-      - text: Capitalized for sorting
+          This moves linking words to the first unit under the skip-word convention. A word at the front of a title may seem to deserve first place. Check which words the governing system includes.
+      - text: "Capitalized for sorting"
         rationale: |
-          You assumed capitalization gives prepositions sorting priority. Standard rules disregard words like "and", "of", and "the" during indexing.
-      - text: Repeated in every unit
+          This treats capitalization as a reason to give linking words priority. Titles often capitalize words. Check whether the system's rule concerns letter case or included units.
+      - text: "Repeated in every unit"
         rationale: |
-          You assumed minor connective words are appended to every unit. They are completely ignored during indexing.
+          This adds linking words to every unit. They help connect the title in ordinary reading. Check whether an index uses meaning links or separate comparison units.
     explanation: |
-      Articles, prepositions, and conjunctions are generally disregarded when alphabetizing business names.
+      Under a filing convention that skips small linking words, "and," "of," and "the" do not become filing units. The system must state that convention before it is used.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0004
     type: single_choice
     difficulty: medium
     stem: |
-      How is a surname with a prefix such as "De la Rosa" indexed under standard filing rules?
+      A registry treats surname particles as part of one surname unit and ignores spaces only when comparing letters. How should the recorded surname "De la Rosa" be indexed and displayed?
     choices:
-      - text: 'As one unit: Delarosa'
+      - text: "De la Rosa as one surname unit"
         correct: true
-      - text: Split into three separate independent indexing units
+      - text: "Rosa as the only surname unit"
         rationale: |
-          You treated each word in the prefix as a separate unit. Prefixes combine with the root surname to form a single unit.
-      - text: Filed under the letter R in all search indexes
+          This drops the surname particles from the comparison unit. Rosa may look like the main family name. Check whether the supplied rule includes the particles.
+      - text: "De, la, and Rosa as separate units"
         rationale: |
-          You skipped the prefix to file under the main root name. Prefixes are retained and combined with the surname, so filing starts with D.
-      - text: Ignored during the main alphabetical filing search
+          This turns spaces into boundaries between filing units. Each written word looks separate. Check whether the rule makes the whole surname one unit.
+      - text: "Delarosa as a replacement surname"
         rationale: |
-          You assumed prefixes are dropped entirely. Prefixes are merged directly with the surname to create the key unit.
+          This changes the person's name to match a comparison key. Ignoring spaces can make the letters look joined. Check the difference between a sorting key and a recorded name.
     explanation: |
-      Prefixes such as De, De la, or Van are combined with the surname and indexed as a single unit.
+      The stated rule treats all of De la Rosa as one surname unit. Spaces are ignored for comparison, but the displayed name keeps its recorded spelling.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0005
     type: single_choice
     difficulty: hard
     stem: |
-      If two individual names are identical, how are they differentiated for filing order?
+      A registry states: "When full personal names match, compare city names next." If two individual names are identical, how are they differentiated in this registry?
     choices:
-      - text: By city location
+      - text: "By city location"
         correct: true
-      - text: By numerical date of birth registration
+      - text: "By numerical date of birth registration"
         rationale: |
-          You chose personal birth records for tie-breaking. Standard filing rules use geographic location when full names match.
-      - text: By total years of public employment service
+          This substitutes a date for the specified city tie-breaker. Dates can distinguish people with identical names. Check the next unit named by this registry.
+      - text: "By total years of public employment service"
         rationale: |
-          You chose employment tenure for tie-breaking. Alphabetic indexing uses location names like city or state to break identical name ties.
-      - text: By social security identification card code number
+          This substitutes length of employment for city. Service history can distinguish workers. Check which field the supplied rule actually uses.
+      - text: "By social security identification card code number"
         rationale: |
-          You chose numerical ID codes. Alphabetic indexing relies on geographic names to order identical personal names.
+          This substitutes an identification number for city. A unique number can distinguish the records. Check the stated tie-break rule before using another identifier.
     explanation: |
-      When complete individual names are identical, filing order is determined alphabetically by geographic location (city or town).
+      The supplied registry rule makes city the next unit after a full-name tie. Compare the city names alphabetically to order the two records.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0006
     type: single_choice
     difficulty: easy
     stem: |
-      In indexing an individual name, which part is designated as Key Unit 1?
+      In a system that indexes surname, given name, then middle name or initial, which part is Key Unit 1?
     choices:
-      - text: Last name
+      - text: "Last name"
         correct: true
-      - text: First name
+      - text: "First name"
         rationale: |
-          You picked normal reading order. Filing rules invert individual names so the surname is Unit 1.
-      - text: Middle initial
+          This keeps ordinary reading order instead of surname-first indexing. The given name often appears first on a record. Check the system's first unit.
+      - text: "Middle initial"
         rationale: |
-          You chose the middle initial. The surname is always Unit 1, followed by the first name (Unit 2) and middle initial (Unit 3).
-      - text: Professional title
+          This starts with a later identifying unit. A middle initial can distinguish similar names. Check the order supplied in the stem.
+      - text: "Professional title"
         rationale: |
-          You chose the title. Professional titles are placed in the last unit or ignored, while the last name is Unit 1.
+          This uses a role label as the primary name unit. A title may appear before a person's name. Check whether it belongs in this system's indexing order.
     explanation: |
-      Under standard indexing rules for individuals, the last name (surname) is Unit 1.
+      The supplied system indexes surname first. "Last name" is another term for surname, so it is Key Unit 1.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0007
     type: single_choice
     difficulty: medium
     stem: |
-      How is a title of seniority such as "Junior" or "Jr." indexed in an individual's name?
+      A registry retains seniority suffixes after the surname, given name, and middle name as a separate unit. How is "Jr." indexed in this system?
     choices:
-      - text: Placed as the final unit
+      - text: "Placed as the final unit"
         correct: true
-      - text: Placed as the first unit
+      - text: "Placed as the first unit"
         rationale: |
-          You placed seniority at the very front. Seniority titles go at the end so identical names group by family and first name first.
-      - text: Omitted entirely from record
+          This moves the suffix ahead of the primary name. It distinguishes relatives with similar names. Check where the stated system puts it.
+      - text: "Omitted entirely from record"
         rationale: |
-          You assumed seniority terms are deleted. They are retained as the final indexing unit to distinguish family members.
-      - text: Combined with first name
+          This deletes a recorded suffix because it is a later unit. Ignoring a field during some comparisons may seem like removing it. Check the instruction to retain suffixes.
+      - text: "Combined with first name"
         rationale: |
-          You merged the suffix with the given name. Seniority terms form their own separate unit after all name units.
+          This merges the suffix into the given-name unit. It appears close to the name in ordinary reading. Check whether the rule makes it a separate final unit.
     explanation: |
-      Seniority designations (Jr., Sr., II, III) are placed in the final indexing unit.
+      The stated system puts suffixes after the surname, given name, and middle name. "Jr." therefore forms the final unit.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0008
     type: single_choice
     difficulty: hard
     stem: |
-      Which of the following business names is indexed FIRST alphabetically?
+      File these business names word by word as printed, comparing from the first unit onward. Which is first alphabetically?
     choices:
-      - text: Apex Book Company
+      - text: "Apex Book Company"
         correct: true
-      - text: Apex Book Distributors Corporation
+      - text: "Apex Book Distributors Corporation"
         rationale: |
-          You compared past the third unit. "Company" comes before "Distributors" when evaluating Unit 3.
-      - text: Apex Book Mart Enterprises Incorporated
+          This chooses D before C at the first differing unit. The first two words match, which can hide the decisive difference. Check the next word after "Book."
+      - text: "Apex Book Mart Enterprises Incorporated"
         rationale: |
-          You picked a name whose third unit starts with M. "Company" comes before "Mart" alphabetically.
-      - text: Apex Book Publishers Agency Limited
+          This uses a later differing word as if it came first. All names begin with Apex Book. Check the first unit that differs.
+      - text: "Apex Book Publishers Agency Limited"
         rationale: |
-          You picked a name whose third unit starts with P. "Company" comes before "Publishers" alphabetically.
+          This skips the decisive third unit. The long business name contains several units. Check Company against Publishers before reading farther.
     explanation: |
-      All names start with "Apex Book". Comparing the third unit: Company comes before Distributors, Mart, and Publishers.
+      The first two units, Apex and Book, match. Compare the next words. Company begins with C, which comes before D, M, and P, so Apex Book Company comes first.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0009
     type: single_choice
@@ -171,39 +171,39 @@ questions:
     stem: |
       How is the name "St. Martin" indexed under standard alphabetic filing rules?
     choices:
-      - text: Indexed as Saint Martin
+      - text: "Indexed as Saint Martin"
         correct: true
-      - text: Indexed under letter S only
+      - text: "Indexed under letter S only"
         rationale: |
-          You kept the literal abbreviation without expanding it. "St." must be spelled out fully as "Saint" before filing.
-      - text: Abbreviated as Stmartin
+          This reduces a full name to one letter rather than constructing the comparison key. The name begins with S. Check whether the system needs enough letters to order names sharing that initial.
+      - text: "Abbreviated as Stmartin"
         rationale: |
-          You removed spaces while leaving "St." unexpanded. Filing rules require expanding abbreviations like "St." to "Saint".
-      - text: Omitted from filing index
+          This joins the visible abbreviation without expanding it under the stated expansion convention. Removing punctuation may seem enough. Check how the governing system handles abbreviations.
+      - text: "Omitted from filing index"
         rationale: |
-          You assumed titles starting with "St." are ignored. The prefix is expanded to "Saint" and indexed as a standard word.
+          This removes the name from the index. A prefix can look like a title that some systems omit. Check whether the rule actually excludes the record.
     explanation: |
-      Abbreviated words like "St." are spelled out in full as "Saint" when indexing.
+      A filing system may expand "St." to "Saint" in its comparison key. Under that convention, the key is "Saint Martin." The system must specify how abbreviations are treated.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0010
     type: single_choice
     difficulty: easy
     stem: |
-      Which unit receives the middle name or middle initial when indexing an individual name?
+      A registry indexes surname as Unit 1, given name as Unit 2, and then the middle name or initial. Which unit receives the middle name?
     choices:
-      - text: Unit 3
+      - text: "Unit 3"
         correct: true
-      - text: Unit 1
+      - text: "Unit 1"
         rationale: |
-          You placed the middle name in the primary spot. Unit 1 is reserved for the surname.
-      - text: Unit 2
+          This makes the middle name the primary unit. It can help distinguish similar records. Check the first unit in the stated sequence.
+      - text: "Unit 2"
         rationale: |
-          You assigned the middle name to Unit 2. Unit 2 is for the first name, and the middle name is Unit 3.
-      - text: Unit 4
+          This swaps given name and middle name. Both are personal-name parts. Check which comes immediately after the surname.
+      - text: "Unit 4"
         rationale: |
-          You pushed the middle name to Unit 4. Unit 3 holds the middle name, while Unit 4 is for titles or suffixes.
+          This adds an extra unit before the middle name. A title or suffix may be remembered from another system. Check the three-unit sequence given here.
     explanation: |
-      In individual name indexing: Unit 1 is Surname, Unit 2 is First Name, Unit 3 is Middle Name/Initial.
+      The specified order is surname, given name, then middle name. The middle name is the third unit.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0011
     type: single_choice
@@ -211,36 +211,205 @@ questions:
     stem: |
       When filing government agency names, what is indexed as the first unit?
     choices:
-      - text: Country or location name
+      - text: "Country or location name"
         correct: true
-      - text: Bureau or division subtopic title
+      - text: "Bureau or division subtopic title"
         rationale: |
-          You indexed the specific agency branch first. Government records are grouped first by the governing country or location.
-      - text: Executive director personal full name
+          This starts with the agency branch under a jurisdiction-first convention. The branch is often the most specific identifier. Check which unit the governing system puts first.
+      - text: "Executive director personal full name"
         rationale: |
-          You indexed the agency head's personal name. Government entries are indexed under the country or jurisdiction name first.
-      - text: Department cabinet administrative rank
+          This treats an organization record as a personal-name record. Its director may be prominently listed. Check whether the record identifies a person or an agency.
+      - text: "Department cabinet administrative rank"
         rationale: |
-          You indexed the administrative hierarchy rank first. Filing rules place the country or municipality name in Unit 1.
+          This sorts by rank instead of the name unit in a jurisdiction-first system. Departments have an administrative hierarchy. Check whether the filing rule uses hierarchy or geographic name.
     explanation: |
-      Government names are indexed first by the name of the governing country, state, or municipality (e.g., Philippines, Republic of the).
+      A jurisdiction-first filing system groups agencies under their country or locality. In that system, the country or location is the first unit. The applicable system must specify this order.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0012
     type: single_choice
     difficulty: medium
     stem: |
-      Which of these four names comes LAST in alphabetical filing order?
+      Using surname-first and then given-name alphabetic order, which of these entries comes last?
     choices:
-      - text: Santos, Victor
+      - text: "Santos, Victor"
         correct: true
-      - text: Santos, Maria Teresa
+      - text: "Santos, Maria Teresa"
         rationale: |
-          You picked a name starting with M. "Victor" comes after "Maria" in alphabetical order.
-      - text: Santos, Juan Carlos
+          This stops before the last name in given-name order. Maria comes after some entries. Check all first differing given-name letters.
+      - text: "Santos, Juan Carlos"
         rationale: |
-          You picked a name starting with J. The question asks for the name that comes last, so "Victor" comes after "Juan".
-      - text: Santos, Ana Patricia
+          This confuses an entry in the middle with the last entry. Juan follows Ana. Check whether any given name starts with a later letter.
+      - text: "Santos, Ana Patricia"
         rationale: |
-          You picked the name that comes first instead of last. "Ana" is first alphabetically, while "Victor" is last.
+          This chooses the earliest entry instead of the latest. Ana is easy to identify first. Check the word "last" in the task.
     explanation: |
-      All have the surname Santos. Comparing first names: Ana, Juan, Maria, Victor. Victor comes last alphabetically.
+      All surnames are Santos, so compare given names. Their order is Ana, Juan, Maria, Victor. Victor comes last.
+
+  - id: q-clerical-ability-alphabetic-filing-rules-0013
+    type: single_choice
+    difficulty: easy
+    stem: |
+      A registry compares surname first, then given name, letter by letter. A shorter complete unit comes before a longer one beginning with it. Which entry comes first?
+    choices:
+      - text: "Cabal, Nora"
+        correct: true
+      - text: "Caballero, Ana"
+        rationale: |
+          This lets the given name override an earlier surname difference. Ana comes before Nora. Check the surname first, including where a shorter surname ends.
+      - text: "Cabral, Lina"
+        rationale: |
+          This moves past the first differing surname letter. The first three letters Cab match. Check the fourth letters a and r.
+      - text: "Cabrera, Luis"
+        rationale: |
+          This uses the last part of the surname before the first difference. Cabal and Cabrera share a familiar beginning. Check from the left until the letters differ.
+    explanation: |
+      Compare the surnames letter by letter. Cabal ends before Caballero, and its fourth letter a comes before the r in Cabral and Cabrera. Cabal, Nora comes first.
+    approved: false
+
+  - id: q-clerical-ability-alphabetic-filing-rules-0014
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Sort by surname, given name, then middle initial. Which entry belongs first?
+    choices:
+      - text: "Reyes, Alina M."
+        correct: true
+      - text: "Reyes, Alina R."
+        rationale: |
+          This ignores the final tie-breaker. The surname and given name match. Check the middle initials after those units tie.
+      - text: "Reyes, Anita A."
+        rationale: |
+          This lets an early middle initial override the given name. A comes before M. Check given names before middle initials.
+      - text: "Reyes, Arlene B."
+        rationale: |
+          This compares the middle initial too soon. B looks early alphabetically. Check the second unit before using the third.
+    explanation: |
+      The surnames match. Alina comes before Anita and Arlene. The two Alina records tie on given name, so compare their middle initials: M comes before R.
+    approved: false
+
+  - id: q-clerical-ability-alphabetic-filing-rules-0015
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Two records have the same full name but different cities and birth dates. The registry gives no tie-break rule. What instruction is needed to determine their filing order?
+    choices:
+      - text: "The next filing unit"
+        correct: true
+      - text: "A universal rule for identical names"
+        rationale: |
+          This assumes every registry uses the same tie-breaker. Familiar filing examples may suggest one standard method. Check the instructions for this system.
+      - text: "The number of letters in the name"
+        rationale: |
+          This uses name length after identical names have already tied. Length can help when one name is a prefix of another. Check whether the names actually differ in length.
+      - text: "The most recently added record"
+        rationale: |
+          This assumes entry time determines alphabetic ties. New records have an arrival order. Check whether that field is part of the stated filing rule.
+    explanation: |
+      The full names tie. The registry must name the next filing unit before a unique order can be chosen.
+    approved: false
+
+  - id: q-clerical-ability-alphabetic-filing-rules-0016
+    type: single_choice
+    difficulty: hard
+    stem: |
+      For comparison only, ignore spaces within a surname and treat its particles as part of one unit. Keep displayed spellings. Which entry comes first?
+    choices:
+      - text: "De la Cruz"
+        correct: true
+      - text: "Delgado"
+        rationale: |
+          This treats a surname without spaces as earlier automatically. Delgado appears visually compact. Check the actual letter sequence after spaces are ignored.
+      - text: "De la Rosa"
+        rationale: |
+          This skips the first differing letter after DELA. Both particle surnames start the same way. Check C against R.
+      - text: "Del Rio"
+        rationale: |
+          This focuses on the last surname word Rio. Some systems may handle particles differently. Check the supplied instruction to include the entire surname.
+    explanation: |
+      Ignoring spaces for comparison gives DELACRUZ, DELGADO, DELAROSA, and DELRIO. After DEL, A comes before G and R. Between DELACRUZ and DELAROSA, C comes before R. The recorded De la Cruz spelling stays unchanged.
+    approved: false
+
+  - id: q-clerical-ability-alphabetic-filing-rules-0017
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Four records have identical full names. This registry compares city names next, alphabetically. Which city's record comes first?
+    choices:
+      - text: "Cebu"
+        correct: true
+      - text: "Davao"
+        rationale: |
+          This chooses the second city in alphabetic order. Davao may appear earlier in an unsorted list. Check the first letters of all cities.
+      - text: "Iloilo"
+        rationale: |
+          This treats a familiar city as a priority. Familiarity does not determine alphabetic order. Check the letter used by the stated next unit.
+      - text: "Manila"
+        rationale: |
+          This gives a capital city priority over letter order. Administrative importance may seem relevant. Check whether the rule asks for importance or alphabetic comparison.
+    explanation: |
+      The full names match, so the stated city unit decides the order. Cebu starts with C, which precedes D, I, and M.
+    approved: false
+
+  - id: q-clerical-ability-alphabetic-filing-rules-0018
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Sort by surname, then given name, then suffix alphabetically. A shorter complete name comes before a longer name beginning with it. Which entry is first?
+    choices:
+      - text: "Santos, Leo, Jr."
+        correct: true
+      - text: "Santos, Leo, Sr."
+        rationale: |
+          This applies age or family seniority instead of suffix-letter order. Sr. can imply an older person. Check the stated rule for suffixes.
+      - text: "Santos, Leon, Jr."
+        rationale: |
+          This lets the suffix override a given-name difference. Jr. comes early among suffixes. Check Leo against Leon first.
+      - text: "Santos, Leon, Sr."
+        rationale: |
+          This lets age or suffix status override both earlier units. Seniority may look important. Check the surname and given name before the suffix.
+    explanation: |
+      The surnames match. Leo is a complete shorter unit than Leon, so Leo comes first. For the two Leo entries, the suffixes are compared and Jr. comes before Sr.
+    approved: false
+
+  - id: q-clerical-ability-alphabetic-filing-rules-0019
+    type: single_choice
+    difficulty: exam
+    stem: |
+      This registry explicitly compares given name first and surname second. Which entry is last under that rule?
+    choices:
+      - text: "Reyes, Zoe"
+        correct: true
+      - text: "Reyes, Alma"
+        rationale: |
+          This chooses the first given name instead of the last. Alma is easiest to spot at the beginning. Check the requested end of the order.
+      - text: "Santos, Belen"
+        rationale: |
+          This lets a surname-first habit override this registry's rule. Santos follows Reyes in that other order. Check the primary unit stated here.
+      - text: "Santos, Cora"
+        rationale: |
+          This uses surname-first order and then the later Santos given name. That is a familiar convention. Check that this task starts with given names.
+    explanation: |
+      This registry compares given names first. The order is Alma, Belen, Cora, Zoe, so the record for Zoe comes last.
+    approved: false
+
+  - id: q-clerical-ability-alphabetic-filing-rules-0020
+    type: single_choice
+    difficulty: exam
+    stem: |
+      Sort by surname, given name, middle initial, then city. Ignore spaces inside surnames only for comparison. Which entry comes first?
+    choices:
+      - text: "De la Vega, Ana L., Cebu"
+        correct: true
+      - text: "De la Vega, Ana L., Davao"
+        rationale: |
+          This overlooks the city tie-break after all name units match. Both entries have Ana L. De la Vega. Check the next stated unit.
+      - text: "De la Vega, Ana M., Baguio"
+        rationale: |
+          This compares city before middle initial. Baguio starts with an earlier letter. Check whether the middle-name units have tied yet.
+      - text: "Delgado, Aaron A., Manila"
+        rationale: |
+          This lets the given name Aaron override the surname. Aaron comes before Ana. Check the first differing surname letters before moving to given names.
+    explanation: |
+      First compare the surname keys: DELAVEGA precedes DELGADO. The Ana entries tie on given name; L comes before M as the middle initial. For the remaining two entries, Cebu comes before Davao.
+    approved: false
+
