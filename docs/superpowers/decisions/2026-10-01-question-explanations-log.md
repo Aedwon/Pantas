@@ -111,3 +111,25 @@ verified at 11:10 UTC. All prior worker passes had ended on quota errors and the
 completed commits were pushed; combined acceptance remains pending. The prior
 quota recognizer missed the curly apostrophe in the error text. It now matches
 the limit phrase independently of apostrophe style.
+
+## Correction: wake this existing session only, 2 October 2026
+
+Aedwon clarified:
+
+> not quite, you're the orchestrator aren't you? so it should "wake" this session only and have you resume operations. the expected behavior is that it will continue on with the same goal you have and if the limits are it it will just try and try until the limits are reset again. is that clear?
+
+The earlier cron implementation was wrong: it launched a separate CLI
+orchestrator. That cron was removed and its separate orchestrator was stopped.
+The original desktop thread remains the sole orchestrator and retains the same
+active goal. No task or goal is created, forked, replaced, or delegated by the
+corrected scheduler.
+
+The corrected wake connects to the existing app-server Unix socket and targets
+only thread `01a0fab1-2cfd-7122-aca4-d54264946301`. It verifies the original goal,
+skips an active turn, reads current quota, and sends a continuation to the same
+idle thread when capacity is available. An unloaded copy of that same thread
+may be resumed by its existing id. Pauses, budget limits, blockers, completion,
+and a replaced goal are respected. Quota checks retry every 15 minutes without
+a purchase or reset-credit redemption. The same-thread connection and active
+turn skip were verified. At this checkpoint, corrected cron installation is
+waiting on macOS's permission prompt for Terminal to administer the computer.
