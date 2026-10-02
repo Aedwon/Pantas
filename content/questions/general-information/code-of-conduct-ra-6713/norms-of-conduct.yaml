@@ -3,305 +3,491 @@ meta:
   topic: code-of-conduct-ra-6713
   subtopic: norms-of-conduct
   exams:
-    - cse-pro
-    - cse-sub
+  - cse-pro
+  - cse-sub
 questions:
-  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0001
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Under Section 4 of RA 6713, how many specific norms of conduct are established for public officials and employees?
-    choices:
-      - text: "8"
-        correct: true
-      - text: "10"
-        rationale: |
-          You picked 10 norms, which overcounts the listed statutory categories. Section 4 enumerates exactly 8 norms of conduct.
-      - text: "12"
-        rationale: |
-          You selected 12 norms, which adds non-existent categories to the law. Section 4 defines 8 specific norms of conduct.
-      - text: "15"
-        rationale: |
-          You chose 15 norms, which confuses total statutory sections with norms. Section 4 establishes 8 specific norms of conduct.
-    explanation: |
-      Section 4 of RA 6713 explicitly sets forth eight statutory norms of conduct for all public officials and employees.
+- id: q-code-of-conduct-ra-6713-norms-of-conduct-0001
+  type: single_choice
+  difficulty: medium
+  stem: 'Under Section 4 of RA 6713, how many norms of conduct are listed?
 
-  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0002
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Which norm requires public officials to uphold the public interest over personal interest and avoid wastage of public funds?
-    choices:
-      - text: Commitment to public interest
-        correct: true
-      - text: Nationalism and patriotism
-        rationale: |
-          You chose nationalism and patriotism, which focuses on national loyalty. Prioritizing public interest and avoiding waste falls under commitment to public interest.
-      - text: Commitment to democracy
-        rationale: |
-          You picked commitment to democracy, which focuses on democratic values, public accountability, civilian supremacy, and constitutional loyalty. Preventing waste of public resources falls under commitment to public interest.
-      - text: Professionalism
-        rationale: |
-          You selected professionalism, which concerns excellence, intelligence, and skill in public service. Protecting public funds from waste falls under commitment to public interest.
-    explanation: |
-      Commitment to public interest requires public officials to place public interest above personal interest and use government resources efficiently, effectively, honestly, and economically, particularly to avoid wastage.
+    '
+  choices:
+  - text: '8'
+    correct: true
+  - text: '10'
+    rationale: 'This counts duties inside norms as extra norms. Section 4 contains several subduties. Check the eight named headings.
 
-  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0003
-    type: single_choice
-    difficulty: medium
-    stem: |
-      A public official processes requests for all citizens equally, regardless of party affiliation. Which norm is demonstrated?
-    choices:
-      - text: Political neutrality
-        correct: true
-      - text: Simple living
-        rationale: |
-          You chose simple living, which concerns a modest personal lifestyle. Serving everyone without partisan discrimination is political neutrality.
-      - text: Justness and sincerity
-        rationale: |
-          You picked justness and sincerity, which broadly requires fairness, sincerity, and respect for rights. The stem specifically emphasizes party affiliation, which Section 4 addresses under political neutrality.
-      - text: Commitment to public interest
-        rationale: |
-          You selected commitment to public interest, which focuses on placing public interest above personal interest and avoiding waste of government resources. Non-partisan service regardless of party affiliation is political neutrality.
-    explanation: |
-      Political neutrality requires public officials and employees to provide service to everyone without unfair discrimination and regardless of party affiliation or preference.
+      '
+  - text: '12'
+    rationale: 'This treats a longer ethics checklist as the statutory list. Other codes can contain more items. Count only Section 4''s named norms.
 
-  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0004
-    type: single_choice
-    difficulty: easy
-    stem: |
-      What is the first norm of conduct listed in Section 4 of RA 6713?
-    choices:
-      - text: Commitment to public interest
-        correct: true
-      - text: Responsiveness to the public
-        rationale: |
-          You picked responsiveness to the public, which is the fifth norm listed. Section 4 begins with commitment to public interest.
-      - text: Commitment to democracy
-        rationale: |
-          You selected commitment to democracy, which is seventh in sequence. The statutory list starts with commitment to public interest.
-      - text: Professionalism
-        rationale: |
-          You chose professionalism, which is second in the statutory list. Commitment to public interest is the first norm in Section 4.
-    explanation: |
-      The statutory order in Section 4 starts with Commitment to public interest as the first norm.
+      '
+  - text: '15'
+    rationale: 'This confuses a familiar response-deadline number with a norm count. Fifteen appears elsewhere in RA 6713. Check the unit being asked.
 
-  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0005
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Which norm of conduct requires public officials to lead modest lives appropriate to their position and income?
-    choices:
-      - text: Simple living
-        correct: true
-      - text: Political neutrality
-        rationale: |
-          You picked political neutrality, which prohibits partisan discrimination. Living modestly according to position and income is simple living.
-      - text: Justness and sincerity
-        rationale: |
-          You selected justness and sincerity, which focuses on fairness, sincerity, and respect for rights. Maintaining a modest lifestyle is simple living.
-      - text: Nationalism and patriotism
-        rationale: |
-          You chose nationalism and patriotism, which emphasizes loyalty to the Republic and Filipino people. Avoiding ostentatious displays of wealth is simple living.
-    explanation: |
-      Simple living requires public officials and employees and their families to lead modest lives appropriate to their positions and income and avoid extravagant or ostentatious displays of wealth.
+      '
+  explanation: 'Section 4 lists eight norms. Count the named norms, not the individual duties within each norm.
 
-  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0006
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Which norm requires public officials to discharge duties with the highest degree of excellence, intelligence, and skill?
-    choices:
-      - text: Professionalism
-        correct: true
-      - text: Simple living
-        rationale: |
-          You chose simple living, which governs modest personal lifestyle. Serving with intelligence, skill, and high standards is professionalism.
-      - text: Responsiveness to the public
-        rationale: |
-          You selected responsiveness, which focuses on prompt, courteous, and adequate public service. Excellence, intelligence, and skill define professionalism.
-      - text: Commitment to democracy
-        rationale: |
-          You picked commitment to democracy, which covers democratic values, accountability, civilian supremacy, and constitutional loyalty. Performing duties with excellence and skill is professionalism.
-    explanation: |
-      Professionalism requires public officials and employees to perform and discharge their duties with the highest degree of excellence, professionalism, intelligence, and skill.
+    '
+- id: q-code-of-conduct-ra-6713-norms-of-conduct-0002
+  type: single_choice
+  difficulty: medium
+  stem: 'Which norm most directly requires efficient use of public funds and priority for public needs?
 
-  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0007
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Which norm mandates that public officials maintain loyalty to the Republic and to the Filipino people at all times?
-    choices:
-      - text: Nationalism and patriotism
-        correct: true
-      - text: Responsiveness to the public
-        rationale: |
-          You picked responsiveness, which focuses on prompt, courteous, and adequate public service. Maintaining loyalty to the Republic and Filipino people is nationalism and patriotism.
-      - text: Justness and sincerity
-        rationale: |
-          You selected justness and sincerity, which governs fair and sincere conduct and respect for rights. Loyalty to the Republic and Filipino people falls under nationalism and patriotism.
-      - text: Professionalism
-        rationale: |
-          You chose professionalism, which covers excellence, intelligence, and skill in public service. Maintaining loyalty to the Republic is nationalism and patriotism.
-    explanation: |
-      Nationalism and patriotism require public officials and employees to remain loyal to the Republic and to the Filipino people, among other duties stated in Section 4(f).
+    '
+  choices:
+  - text: Public interest
+    correct: true
+  - text: Nationalism and patriotism
+    rationale: 'This substitutes loyalty to the Republic and Filipino people for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about efficient use of funds.
 
-  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0008
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Upholding the Constitution and putting loyalty to country above loyalty to persons or party represents which norm?
-    choices:
-      - text: Commitment to democracy
-        correct: true
-      - text: Responsiveness to the public
-        rationale: |
-          You selected responsiveness, which covers prompt and adequate public service. Upholding the Constitution and placing country above persons or party belongs to commitment to democracy.
-      - text: Justness and sincerity
-        rationale: |
-          You chose justness and sincerity, which governs fair, sincere, and lawful conduct. The specific constitutional-loyalty language in the stem comes from commitment to democracy.
-      - text: Professionalism
-        rationale: |
-          You picked professionalism, which focuses on excellence, intelligence, and skill. Upholding the Constitution and putting country above persons or party belongs to commitment to democracy.
-    explanation: |
-      Section 4(g), Commitment to democracy, requires public officials and employees to uphold the Constitution and put loyalty to country above loyalty to persons or party.
+      '
+  - text: Commitment to democracy
+    rationale: 'This substitutes constitutional accountability and civilian authority for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about efficient use of funds.
 
-  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0009
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Extending prompt, courteous, and adequate service to the public reflects which norm of conduct under RA 6713?
-    choices:
-      - text: Responsiveness to the public
-        correct: true
-      - text: Commitment to democracy
-        rationale: |
-          You selected commitment to democracy, which covers democratic values and constitutional loyalty. Prompt, courteous, and adequate service is responsiveness to the public.
-      - text: Professionalism
-        rationale: |
-          You chose professionalism, which covers excellence, intelligence, and skill in carrying out duties. Providing prompt, courteous, and adequate public service is responsiveness to the public.
-      - text: Nationalism and patriotism
-        rationale: |
-          You picked nationalism and patriotism, which emphasizes loyalty to the Republic and Filipino people. Prompt and courteous service is responsiveness to the public.
-    explanation: |
-      Responsiveness to the public requires public officials and employees to extend prompt, courteous, and adequate service and, where appropriate, communicate policies and procedures clearly.
+      '
+  - text: Public responsiveness
+    rationale: 'This substitutes prompt service and clear procedures for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about efficient use of funds.
 
-  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0010
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Acting with justness and sincerity without discrimination and respecting the rights of others corresponds to which norm?
-    choices:
-      - text: Justness and sincerity
-        correct: true
-      - text: Political neutrality
-        rationale: |
-          You selected political neutrality, which specifically concerns service without unfair discrimination based on party affiliation or preference. The broader duties in the stem come from justness and sincerity.
-      - text: Simple living
-        rationale: |
-          You chose simple living, which concerns modest living and avoiding extravagant displays of wealth. Respecting rights and acting sincerely falls under justness and sincerity.
-      - text: Commitment to public interest
-        rationale: |
-          You picked commitment to public interest, which focuses on placing public interest above personal interest and using public resources responsibly. Fair treatment and respect for rights are part of justness and sincerity.
-    explanation: |
-      Justness and sincerity requires public officials and employees to remain true to the people, act with justness and sincerity, avoid discrimination, and respect the rights of others.
+      '
+  explanation: 'Commitment to public interest places public needs above personal interests. It also requires efficient, honest, and economical use of government resources.
 
-  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0011
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Which of the following is NOT one of the eight statutory norms of conduct listed in Section 4 of RA 6713?
-    choices:
-      - text: Maximum profitability
-        correct: true
-      - text: Simple living
-        rationale: |
-          You selected simple living, which is the eighth statutory norm. Maximum profitability is not one of the Section 4 norms.
-      - text: Political neutrality
-        rationale: |
-          You picked political neutrality, which is the fourth statutory norm. Maximum profitability is not one of the Section 4 norms.
-      - text: Commitment to public interest
-        rationale: |
-          You chose commitment to public interest, which is the first statutory norm. Maximum profitability is not one of the Section 4 norms.
-    explanation: |
-      Maximum profitability is not one of the eight statutory norms of conduct under RA 6713.
+    '
+- id: q-code-of-conduct-ra-6713-norms-of-conduct-0003
+  type: single_choice
+  difficulty: medium
+  stem: 'An office serves applicants without discrimination based on political party. Which norm most specifically addresses that basis of fairness?
 
-  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0012
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Under RA 6713, which norm explicitly prohibits an extravagant or ostentatious display of wealth in any form?
-    choices:
-      - text: Simple living
-        correct: true
-      - text: Professionalism
-        rationale: |
-          You picked professionalism, which sets standards for excellence, intelligence, and skill. Prohibiting extravagant or ostentatious displays of wealth falls under simple living.
-      - text: Political neutrality
-        rationale: |
-          You selected political neutrality, which concerns service regardless of party affiliation or preference. The wealth-display rule falls under simple living.
-      - text: Commitment to democracy
-        rationale: |
-          You chose commitment to democracy, which concerns democratic values, public accountability, civilian supremacy, and constitutional loyalty. The wealth-display rule falls under simple living.
-    explanation: |
-      Section 4(h) defines Simple living as leading modest lives appropriate to position and income and not indulging in extravagant or ostentatious displays of wealth.
+    '
+  choices:
+  - text: Political neutrality
+    correct: true
+  - text: Professionalism
+    rationale: 'This substitutes excellence and skill in work for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about party affiliation.
 
-  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0013
-    type: single_choice
-    difficulty: easy
-    stem: |
-      What is the eighth and final norm of conduct listed in Section 4 of RA 6713?
-    choices:
-      - text: Simple living
-        correct: true
-      - text: Nationalism and patriotism
-        rationale: |
-          You picked nationalism and patriotism, which is the sixth norm. The statutory list ends with simple living as the eighth norm.
-      - text: Commitment to democracy
-        rationale: |
-          You selected commitment to democracy, which is seventh in order. Simple living is the eighth and final norm.
-      - text: Political neutrality
-        rationale: |
-          You chose political neutrality, which is fourth in statutory order. Section 4 ends with simple living as the eighth norm.
-    explanation: |
-      The statutory sequence in Section 4 ends with Simple living as the eighth norm.
+      '
+  - text: Justness and sincerity
+    rationale: 'This substitutes fair treatment and respect for rights for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about party affiliation.
 
-  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0014
-    type: single_choice
-    difficulty: easy
-    stem: |
-      What is the second norm of conduct listed in Section 4 of RA 6713?
-    choices:
-      - text: Professionalism
-        correct: true
-      - text: Commitment to public interest
-        rationale: |
-          You picked commitment to public interest, which is first in the statutory order. Professionalism is the second norm listed in Section 4.
-      - text: Justness and sincerity
-        rationale: |
-          You selected justness and sincerity, which is third in sequence. Professionalism is the second norm.
-      - text: Political neutrality
-        rationale: |
-          You chose political neutrality, which is fourth in statutory order. Professionalism is listed second in Section 4.
-    explanation: |
-      The second norm listed in Section 4 of RA 6713 is Professionalism.
+      '
+  - text: Public interest
+    rationale: 'This substitutes efficient use of public resources for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about party affiliation.
 
-  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0015
-    type: single_choice
-    difficulty: medium
-    stem: |
-      A public officer refuses to use official vehicles for personal weekend trips to avoid wasting public resources. Which norm is upheld?
-    choices:
-      - text: Commitment to public interest
-        correct: true
-      - text: Responsiveness to the public
-        rationale: |
-          You selected responsiveness, which concerns prompt, courteous, and adequate public service. Protecting government resources from personal use falls under commitment to public interest.
-      - text: Nationalism and patriotism
-        rationale: |
-          You picked nationalism and patriotism, which emphasizes loyalty to the Republic and Filipino people. Preventing personal misuse of government resources falls under commitment to public interest.
-      - text: Political neutrality
-        rationale: |
-          You chose political neutrality, which concerns service regardless of party affiliation or preference. Guarding public assets from personal misuse falls under commitment to public interest.
-    explanation: |
-      Refusing personal use of official resources supports Commitment to public interest, which requires government resources to be used efficiently, effectively, honestly, and economically, particularly to avoid wastage.
+      '
+  explanation: 'Political neutrality specifically requires service regardless of party affiliation or preference.
+
+    '
+- id: q-code-of-conduct-ra-6713-norms-of-conduct-0004
+  type: single_choice
+  difficulty: medium
+  stem: 'What is the first norm listed in Section 4?
+
+    '
+  choices:
+  - text: Public interest
+    correct: true
+  - text: Public responsiveness
+    rationale: 'This substitutes prompt service and clear procedures for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about order in the statutory list.
+
+      '
+  - text: Commitment to democracy
+    rationale: 'This substitutes constitutional accountability and civilian authority for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about order in the statutory list.
+
+      '
+  - text: Professionalism
+    rationale: 'This substitutes excellence and skill in work for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about order in the statutory list.
+
+      '
+  explanation: 'The Section 4 list begins with commitment to public interest.
+
+    '
+- id: q-code-of-conduct-ra-6713-norms-of-conduct-0005
+  type: single_choice
+  difficulty: medium
+  stem: 'Which norm requires modest lives appropriate to position and income?
+
+    '
+  choices:
+  - text: Simple living
+    correct: true
+  - text: Political neutrality
+    rationale: 'This substitutes service without party bias for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about lifestyle and income.
+
+      '
+  - text: Justness and sincerity
+    rationale: 'This substitutes fair treatment and respect for rights for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about lifestyle and income.
+
+      '
+  - text: Nationalism and patriotism
+    rationale: 'This substitutes loyalty to the Republic and Filipino people for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about lifestyle and income.
+
+      '
+  explanation: 'Simple living requires officials, employees, and their families to live modestly in line with position and income.
+
+    '
+- id: q-code-of-conduct-ra-6713-norms-of-conduct-0006
+  type: single_choice
+  difficulty: medium
+  stem: 'Which norm most directly emphasizes excellence, intelligence, and skill in discharging duties?
+
+    '
+  choices:
+  - text: Professionalism
+    correct: true
+  - text: Simple living
+    rationale: 'This substitutes a modest lifestyle suited to income for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about excellence and skill.
+
+      '
+  - text: Public responsiveness
+    rationale: 'This substitutes prompt service and clear procedures for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about excellence and skill.
+
+      '
+  - text: Commitment to democracy
+    rationale: 'This substitutes constitutional accountability and civilian authority for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about excellence and skill.
+
+      '
+  explanation: 'Professionalism requires a high degree of excellence, intelligence, and skill in official work.
+
+    '
+- id: q-code-of-conduct-ra-6713-norms-of-conduct-0007
+  type: single_choice
+  difficulty: medium
+  stem: 'Which norm expressly requires loyalty to the Republic and Filipino people?
+
+    '
+  choices:
+  - text: Nationalism and patriotism
+    correct: true
+  - text: Public responsiveness
+    rationale: 'This substitutes prompt service and clear procedures for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about Republic and Filipino people.
+
+      '
+  - text: Justness and sincerity
+    rationale: 'This substitutes fair treatment and respect for rights for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about Republic and Filipino people.
+
+      '
+  - text: Public interest
+    rationale: 'This substitutes efficient use of public resources for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about Republic and Filipino people.
+
+      '
+  explanation: 'Nationalism and patriotism requires loyalty to the Republic and the Filipino people.
+
+    '
+- id: q-code-of-conduct-ra-6713-norms-of-conduct-0008
+  type: single_choice
+  difficulty: medium
+  stem: 'Which norm expressly combines upholding the Constitution with loyalty to country above persons or party?
+
+    '
+  choices:
+  - text: Commitment to democracy
+    correct: true
+  - text: Public responsiveness
+    rationale: 'This substitutes prompt service and clear procedures for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about Constitution and accountability.
+
+      '
+  - text: Nationalism and patriotism
+    rationale: 'This substitutes loyalty to the Republic and Filipino people for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about Constitution and accountability.
+
+      '
+  - text: Justness and sincerity
+    rationale: 'This substitutes fair treatment and respect for rights for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about Constitution and accountability.
+
+      '
+  explanation: 'Commitment to democracy requires constitutional loyalty, public accountability, and loyalty to country above persons or party.
+
+    '
+- id: q-code-of-conduct-ra-6713-norms-of-conduct-0009
+  type: single_choice
+  difficulty: medium
+  stem: 'Which norm most directly requires prompt, courteous, and adequate public service?
+
+    '
+  choices:
+  - text: Public responsiveness
+    correct: true
+  - text: Commitment to democracy
+    rationale: 'This substitutes constitutional accountability and civilian authority for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about prompt courteous service.
+
+      '
+  - text: Professionalism
+    rationale: 'This substitutes excellence and skill in work for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about prompt courteous service.
+
+      '
+  - text: Nationalism and patriotism
+    rationale: 'This substitutes loyalty to the Republic and Filipino people for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about prompt courteous service.
+
+      '
+  explanation: 'Responsiveness to the public requires prompt, courteous, and adequate service. It also supports clear information and simpler procedures.
+
+    '
+- id: q-code-of-conduct-ra-6713-norms-of-conduct-0010
+  type: single_choice
+  difficulty: medium
+  stem: 'Which norm expressly combines remaining true to the people, fair treatment, and respect for others'' rights?
+
+    '
+  choices:
+  - text: Justness and sincerity
+    correct: true
+  - text: Political neutrality
+    rationale: 'This substitutes service without party bias for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about remaining true and respecting rights.
+
+      '
+  - text: Simple living
+    rationale: 'This substitutes a modest lifestyle suited to income for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about remaining true and respecting rights.
+
+      '
+  - text: Public interest
+    rationale: 'This substitutes efficient use of public resources for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about remaining true and respecting rights.
+
+      '
+  explanation: 'Justness and sincerity requires officials to remain true to the people, avoid discrimination, and respect others'' rights.
+
+    '
+- id: q-code-of-conduct-ra-6713-norms-of-conduct-0011
+  type: single_choice
+  difficulty: medium
+  stem: 'Which proposed norm is NOT a named Section 4 norm?
+
+    '
+  choices:
+  - text: Administrative efficiency
+    correct: true
+  - text: Simple living
+    rationale: 'This misses the negative wording. Simple living is an ethical duty, so it may seem like an answer. Check whether the question asks for a named norm or an omission.
+
+      '
+  - text: Political neutrality
+    rationale: 'This misses the word NOT. Party fairness is a familiar duty. Check whether political neutrality appears in the list.
+
+      '
+  - text: Public interest
+    rationale: 'This mistakes a broad norm for an unlisted principle. Its wording sounds general. Compare it with the Section 4 headings.
+
+      '
+  explanation: 'Administrative efficiency is not a named norm in the eight-item list. Efficient use of resources is a duty within commitment to public interest.
+
+    '
+- id: q-code-of-conduct-ra-6713-norms-of-conduct-0012
+  type: single_choice
+  difficulty: medium
+  stem: 'Which reading of the simple-living norm is accurate?
+
+    '
+  choices:
+  - text: It covers officials' families as well as officials.
+    correct: true
+  - text: It applies only to elected officials and never to their family members.
+    rationale: 'This limits the rule to elected officials. Election draws public attention. Check the law''s inclusion of employees and families.
+
+      '
+  - text: It permits any display of wealth once an official has a high salary.
+    rationale: 'This treats salary as permission for ostentatious display. Lifestyle is linked to income. Check the separate ban on extravagant display.
+
+      '
+  - text: It requires every household to have exactly the same income and lifestyle.
+    rationale: 'This confuses modest living with identical living. Equality sounds fair. Check the phrase appropriate to position and income.
+
+      '
+  explanation: 'Section 4(h) applies modest-living duties to officials, employees, and their families. Their lifestyle must be appropriate to position and income.
+
+    '
+- id: q-code-of-conduct-ra-6713-norms-of-conduct-0013
+  type: single_choice
+  difficulty: medium
+  stem: 'Which norm ends the Section 4 list?
+
+    '
+  choices:
+  - text: Simple living
+    correct: true
+  - text: Nationalism and patriotism
+    rationale: 'This substitutes loyalty to the Republic and Filipino people for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about final position in the list.
+
+      '
+  - text: Commitment to democracy
+    rationale: 'This substitutes constitutional accountability and civilian authority for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about final position in the list.
+
+      '
+  - text: Public responsiveness
+    rationale: 'This substitutes prompt service and clear procedures for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about final position in the list.
+
+      '
+  explanation: 'Simple living is the eighth and final norm in Section 4.
+
+    '
+- id: q-code-of-conduct-ra-6713-norms-of-conduct-0014
+  type: single_choice
+  difficulty: medium
+  stem: 'Which norm is listed second in Section 4?
+
+    '
+  choices:
+  - text: Professionalism
+    correct: true
+  - text: Public interest
+    rationale: 'This substitutes efficient use of public resources for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about second position in the list.
+
+      '
+  - text: Justness and sincerity
+    rationale: 'This substitutes fair treatment and respect for rights for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about second position in the list.
+
+      '
+  - text: Political neutrality
+    rationale: 'This substitutes service without party bias for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about second position in the list.
+
+      '
+  explanation: 'Professionalism comes second in the Section 4 list, after commitment to public interest.
+
+    '
+- id: q-code-of-conduct-ra-6713-norms-of-conduct-0015
+  type: single_choice
+  difficulty: medium
+  stem: 'An officer stops using an official vehicle for personal weekend trips to prevent waste. Which norm most directly concerns this use of resources?
+
+    '
+  choices:
+  - text: Public interest
+    correct: true
+  - text: Public responsiveness
+    rationale: 'This substitutes prompt service and clear procedures for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about public resources versus personal use.
+
+      '
+  - text: Nationalism and patriotism
+    rationale: 'This substitutes loyalty to the Republic and Filipino people for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about public resources versus personal use.
+
+      '
+  - text: Commitment to democracy
+    rationale: 'This substitutes constitutional accountability and civilian authority for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about public resources versus personal use.
+
+      '
+  explanation: 'Commitment to public interest requires government resources to serve public needs and avoid waste. Ending personal use of the vehicle supports that duty.
+
+    '
+- id: q-code-of-conduct-ra-6713-norms-of-conduct-0016
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'Which office practice most directly demonstrates responsiveness to the public?
+
+    '
+  choices:
+  - text: Publishing clear steps for obtaining a service
+    correct: true
+  - text: Displaying luxury possessions at each staff celebration
+    rationale: 'This treats visible status as good service. Celebrations can seem to promote morale. Check whether the action helps users obtain a service.
+
+      '
+  - text: Giving supporters of the elected mayor a separate priority queue
+    rationale: 'This mistakes selective speed for responsiveness. A priority queue serves some people quickly. Check whether access is fair across party preference.
+
+      '
+  - text: Using office supplies for an employee's home business projects
+    rationale: 'This treats saving personal costs as efficient public service. Supplies are already available. Check whose purpose they serve.
+
+      '
+  explanation: 'Responsiveness includes explaining policies and procedures clearly. Publishing clear steps helps people understand how to obtain a service.
+
+    '
+- id: q-code-of-conduct-ra-6713-norms-of-conduct-0017
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'A qualified officer keeps improving technical skills rather than acting as a source of special favors. Which norm directly addresses this approach?
+
+    '
+  choices:
+  - text: Professionalism
+    correct: true
+  - text: Political neutrality
+    rationale: 'This substitutes service without party bias for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about skill versus undue patronage.
+
+      '
+  - text: Public responsiveness
+    rationale: 'This substitutes prompt service and clear procedures for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about skill versus undue patronage.
+
+      '
+  - text: Nationalism and patriotism
+    rationale: 'This substitutes loyalty to the Republic and Filipino people for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about skill versus undue patronage.
+
+      '
+  explanation: 'Professionalism stresses skill and dedication. It also calls on officials to discourage the view that their role is to distribute undue favors.
+
+    '
+- id: q-code-of-conduct-ra-6713-norms-of-conduct-0018
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'Which statutory norm expressly calls for promoting locally produced goods, resources, and technology?
+
+    '
+  choices:
+  - text: Nationalism and patriotism
+    correct: true
+  - text: Public interest
+    rationale: 'This substitutes efficient use of public resources for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about locally produced goods.
+
+      '
+  - text: Public responsiveness
+    rationale: 'This substitutes prompt service and clear procedures for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about locally produced goods.
+
+      '
+  - text: Commitment to democracy
+    rationale: 'This substitutes constitutional accountability and civilian authority for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about locally produced goods.
+
+      '
+  explanation: 'Section 4(f), nationalism and patriotism, includes promoting locally produced goods, resources, and technology.
+
+    '
+- id: q-code-of-conduct-ra-6713-norms-of-conduct-0019
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'An employee denies a poor applicant the respectful service given to wealthier applicants. Which norm most specifically names this discrimination?
+
+    '
+  choices:
+  - text: Justness and sincerity
+    correct: true
+  - text: Political neutrality
+    rationale: 'This substitutes service without party bias for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about poverty-based discrimination.
+
+      '
+  - text: Professionalism
+    rationale: 'This substitutes excellence and skill in work for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about poverty-based discrimination.
+
+      '
+  - text: Public interest
+    rationale: 'This substitutes efficient use of public resources for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about poverty-based discrimination.
+
+      '
+  explanation: 'Justness and sincerity bans discrimination, especially against poor and underprivileged people. The different treatment violates that norm.
+
+    '
+- id: q-code-of-conduct-ra-6713-norms-of-conduct-0020
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'Which principle is expressly part of commitment to democracy under Section 4(g)?
+
+    '
+  choices:
+  - text: Civilian authority is supreme over the military.
+    correct: true
+  - text: Military authority may override civilian institutions whenever it chooses.
+    rationale: 'This reverses the civilian-authority rule. Military power can seem decisive. Check who has constitutional supremacy.
+
+      '
+  - text: Loyalty to a powerful individual takes priority over the Constitution.
+    rationale: 'This substitutes personal loyalty for constitutional loyalty. A leader may hold authority. Check the priority expressly stated in Section 4(g).
+
+      '
+  - text: A public employee's party controls which citizens may receive service.
+    rationale: 'This treats a party''s influence as control over public services. Parties form governments. Check the duties owed to the public as a whole.
+
+      '
+  explanation: 'Section 4(g) requires officials to show the supremacy of civilian authority over the military. This is an express democratic principle.
+
+    '
