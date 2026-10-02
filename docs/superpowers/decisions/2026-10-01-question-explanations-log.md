@@ -323,3 +323,43 @@ importer worker and its required checks, review that code, write the combined
 summary, push and verify its remote SHA, and record final completion on main.
 No app-branch/main content integration, protected-package signing, or visual and
 device acceptance is authorized or claimed here.
+
+### Remaining-subjects checkpoint uploaded and resumed after reset, 3 October 2026
+
+The prior remaining-subjects worker ended normally at a context checkpoint,
+not a quota error, after completing 11 additional lessons. Its report records
+144 existing questions audited and 76 added, with 20 active questions and a
+complete ledger for each completed lesson. The worktree was clean at
+`e389469f78d50b78712ad6b78b035c989c683d24`. The monitor verified the committed
+archive's importer, attribution, and assigned-path gates and pushed that exact
+revision at 16:59:56 UTC on 2 October. The orchestrator verified the remote SHA.
+
+Actual pass evidence:
+
+```text
+importer_exit=0
+lessons=11 active=220 audited=144 new=76
+missing_notes=0 emdash=0 bare_frac=0
+```
+
+The orchestrator inspected the terminal handle and the report, then authorized
+resumption of this specific context checkpoint. The monitor's permission is
+bound to that pass id; a later non-quota terminal result still returns to the
+orchestrator. This pass made lesson-commit progress, so the non-quota runaway
+counter remains zero. There was no worker question or new product ruling.
+
+The monitor waited at the exhausted primary window until the reset, then
+relaunched only the remaining subject group at 21:09:06 UTC (05:09 Philippine
+time), PID `23717`, using current-main policy at
+`cf2d123e38319b2d35751f122bcc4766f3026c8b`. The resumed orchestrator independently
+verified that worker and monitor PID `20874` live, the assigned worktree and
+branch, the uploaded checkpoint, and newly available capacity. At 21:10 UTC,
+the primary window was 4% used and the weekly window was 49% used.
+
+The earlier turn made concrete progress: Mathematics and Science completed and
+passed the orchestrator's mechanical gates, 11 more lessons were committed and
+uploaded in the remaining group, and the scheduled wake was moved to this
+conversation with Aedwon's approval. The quota wait polled an actual live monitor;
+it did not replace or narrow the goal. Fifteen lessons remained at the start of
+this new worker pass. The group summary, combined merge/gates, test-first
+importer change/review, final summary, and final completion record remain pending.
