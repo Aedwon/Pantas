@@ -8,7 +8,7 @@ meta:
 questions:
 - id: q-environment-management-environmental-concepts-0001
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'What distinguishes segregation at source under RA 9003?
 
     '
@@ -32,7 +32,7 @@ questions:
     '
 - id: q-environment-management-environmental-concepts-0002
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'What concept includes reduction, reuse, recycling, and composting that keep solid waste out of disposal facilities?
 
     '
@@ -152,7 +152,7 @@ questions:
     '
 - id: q-environment-management-environmental-concepts-0009
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   approved: false
   stem: 'Which action reduces waste before it needs collection?
 
@@ -177,7 +177,7 @@ questions:
     '
 - id: q-environment-management-environmental-concepts-0010
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   approved: false
   stem: 'An intact container is cleaned and used again for storage. Which diversion activity is shown?
 
@@ -202,7 +202,7 @@ questions:
     '
 - id: q-environment-management-environmental-concepts-0011
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   approved: false
   stem: 'Waste paper is processed into new paper products instead of being landfilled. Which activity is this?
 
@@ -252,7 +252,7 @@ questions:
     '
 - id: q-environment-management-environmental-concepts-0013
   type: single_choice
-  difficulty: hard
+  difficulty: medium
   approved: false
   stem: 'Which material category fits suitable food scraps intended to decompose into compost?
 
@@ -277,7 +277,7 @@ questions:
     '
 - id: q-environment-management-environmental-concepts-0014
   type: single_choice
-  difficulty: hard
+  difficulty: medium
   approved: false
   stem: 'Which sequence best fits a project known to be covered by the EIS System?
 
@@ -402,7 +402,7 @@ questions:
     '
 - id: q-environment-management-environmental-concepts-0019
   type: single_choice
-  difficulty: exam
+  difficulty: hard
   approved: false
   stem: 'What is the best test of whether a new waste program achieves diversion?
 
@@ -452,7 +452,7 @@ questions:
     '
 - id: q-environment-management-environmental-concepts-0021
   type: single_choice
-  difficulty: hard
+  difficulty: exam
   approved: false
   stem: 'A town keeps separate compostable, recyclable, residual, and special-waste streams. Which instruction best preserves segregation after collection?
 
