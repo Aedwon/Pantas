@@ -3,305 +3,491 @@ meta:
   topic: philippine-constitution
   subtopic: the-civil-service-commission
   exams:
-    - cse-pro
-    - cse-sub
+  - cse-pro
+  - cse-sub
 questions:
-  - id: q-philippine-constitution-the-civil-service-commission-0001
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Under Article IX-B of the 1987 Constitution, how is the Civil Service Commission composed?
-    choices:
-      - text: Chairman and two Commissioners
-        correct: true
-      - text: Chairman and four Commissioners
-        rationale: |
-          You selected four commissioners, which overcounts commission membership. Article IX-B specifies a Chairman and two Commissioners.
-      - text: Chairman and six Commissioners
-        rationale: |
-          You picked six commissioners, which is the membership count of COMELEC. The Civil Service Commission has a Chairman and two Commissioners.
-      - text: Chairman and one Commissioner
-        rationale: |
-          You chose one commissioner, which understates the constitutional membership. Under Section 1(1), the CSC consists of a Chairman and two Commissioners.
-    explanation: |
-      Section 1(1) of Article IX-B specifies that the Civil Service Commission shall be composed of a Chairman and two Commissioners.
+- id: q-philippine-constitution-the-civil-service-commission-0001
+  type: single_choice
+  difficulty: medium
+  stem: 'What is the CSC''s constitutional composition?
 
-  - id: q-philippine-constitution-the-civil-service-commission-0002
-    type: single_choice
-    difficulty: easy
-    stem: |
-      What citizenship qualification is required for members of the Civil Service Commission under Article IX-B?
-    choices:
-      - text: Natural-born citizens
-        correct: true
-      - text: Naturalized citizens of the state
-        rationale: |
-          You selected naturalized citizens, which falls short of constitutional criteria. Article IX-B requires members to be natural-born citizens.
-      - text: Permanent resident aliens
-        rationale: |
-          You picked permanent resident aliens, who lack citizenship. Constitutional Commissioners must be natural-born citizens of the Philippines.
-      - text: Registered voter residents
-        rationale: |
-          You chose registered voters, which is a general voter qualification. CSC Commissioners must specifically be natural-born citizens.
-    explanation: |
-      Section 1(1) of Article IX-B mandates that the Chairman and Commissioners must be natural-born citizens of the Philippines.
+    '
+  choices:
+  - text: A chair and two commissioners
+    correct: true
+  - text: A chairman and four other commissioners
+    rationale: 'This adds two members. Other commissions have different sizes. Check the CSC-specific composition.
 
-  - id: q-philippine-constitution-the-civil-service-commission-0003
-    type: single_choice
-    difficulty: easy
-    stem: |
-      What is the minimum age requirement for appointment to the Civil Service Commission?
-    choices:
-      - text: 35 years old
-        correct: true
-      - text: 25 years old
-        rationale: |
-          You selected 25 years old, which is the minimum age for Members of the House of Representatives. Appointees to the CSC must be at least 35 years old.
-      - text: 30 years old
-        rationale: |
-          You picked 30 years old, but the Constitution requires CSC appointees to be at least 35 years old. Senators likewise have a constitutional minimum age of 35, not 30.
-      - text: 40 years old
-        rationale: |
-          You chose 40 years old, which is the minimum age for appointment to the Supreme Court. The minimum age for CSC appointees is 35 years old.
-    explanation: |
-      Section 1(1) of Article IX-B specifies that members must be at least 35 years of age at the time of their appointment.
+      '
+  - text: A chairman and six other commissioners
+    rationale: 'This uses COMELEC''s size. Both are constitutional commissions. Check which commission the question names.
 
-  - id: q-philippine-constitution-the-civil-service-commission-0004
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Who appoints the Chairman and Commissioners of the Civil Service Commission?
-    choices:
-      - text: President with CA consent
-        correct: true
-      - text: House of Representatives committee
-        rationale: |
-          You selected House committee, which lacks executive appointment authority. CSC Commissioners are appointed by the President with CA consent.
-      - text: Supreme Court en banc council
-        rationale: |
-          You picked Supreme Court en banc, which is a judicial body. Executive appointment of CSC Commissioners is made by the President with CA consent.
-      - text: Judicial and Bar Council committee
-        rationale: |
-          You chose Judicial and Bar Council, which nominates judges. Civil Service Commissioners are appointed by the President with CA consent.
-    explanation: |
-      Section 1(2) of Article IX-B states that Commissioners are appointed by the President with the consent of the Commission on Appointments.
+      '
+  - text: A chairman and only one other commissioner
+    rationale: 'This leaves out one seat. A small commission can seem plausible. Check the two additional commissioners.
 
-  - id: q-philippine-constitution-the-civil-service-commission-0005
-    type: single_choice
-    difficulty: medium
-    stem: |
-      What is the term of office for members of the Civil Service Commission under Article IX-B?
-    choices:
-      - text: Seven years without reappointment
-        correct: true
-      - text: Five years with one reappointment
-        rationale: |
-          You selected five years with reappointment, which misstates the term limit. Members are appointed for a 7 year term without reappointment.
-      - text: Six years with unlimited reappointment
-        rationale: |
-          You picked six years with unlimited reappointment, which violates independence. Article IX-B sets a single 7 year term without reappointment.
-      - text: Ten years during good behavior
-        rationale: |
-          You chose ten years during good behavior, which does not describe the CSC term. CSC members serve a fixed 7 year term without reappointment.
-    explanation: |
-      Section 1(2) of Article IX-B provides that members are appointed for a term of seven years without reappointment.
+      '
+  explanation: 'Article IX-B specifies a Chairman and two Commissioners.
 
-  - id: q-philippine-constitution-the-civil-service-commission-0006
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Which qualification restriction applies to candidates for appointment to the Civil Service Commission?
-    choices:
-      - text: Not an elective candidate in the preceding election
-        correct: true
-      - text: Must have served as a military officer for twenty active years
-        rationale: |
-          You selected military service, which is not a constitutional requirement for CSC. Appointees must not have run in the preceding election.
-      - text: Must hold a doctorate degree in business administrative science
-        rationale: |
-          You picked a doctorate degree, which is not a specified prerequisite. The Constitution requires that appointees not have been candidates for elective office in the immediately preceding election.
-      - text: Must have practiced trial litigation law for fifteen full years
-        rationale: |
-          You chose trial litigation practice, which is not a qualification for the CSC. Section 1 bars appointees who were candidates in the immediately preceding election.
-    explanation: |
-      Section 1(1) of Article IX-B requires that appointees must not have been candidates for any elective position in the election immediately preceding their appointment.
+    '
+- id: q-philippine-constitution-the-civil-service-commission-0002
+  type: single_choice
+  difficulty: medium
+  stem: 'What citizenship status does Article IX-B require for CSC members?
 
-  - id: q-philippine-constitution-the-civil-service-commission-0007
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Which article of the 1987 Constitution governs the Civil Service Commission?
-    choices:
-      - text: Article IX-B
-        correct: true
-      - text: Article III section 5
-        rationale: |
-          You selected Article III, which is the Bill of Rights. The Civil Service Commission is governed specifically under Article IX-B.
-      - text: Article VI section 2
-        rationale: |
-          You picked Article VI, which covers the Legislative Department. Provisions for the Civil Service Commission sit under Article IX-B.
-      - text: Article XI section 1
-        rationale: |
-          You chose Article XI, which covers Accountability of Public Officers. The Civil Service Commission itself is set out in Article IX-B.
-    explanation: |
-      Sub-article B of Article IX is specifically devoted to the Civil Service Commission.
+    '
+  choices:
+  - text: Natural-born citizenship
+    correct: true
+  - text: Naturalized citizenship without any additional condition
+    rationale: 'This treats citizenship in general as sufficient. Naturalized citizens are citizens. Check the natural-born requirement.
 
-  - id: q-philippine-constitution-the-civil-service-commission-0008
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Is a member of the Civil Service Commission eligible for reappointment after serving a full 7-year term?
-    choices:
-      - text: No, reappointment is prohibited
-        correct: true
-      - text: Yes, for one additional consecutive term
-        rationale: |
-          You selected one additional term, assuming reappointment is permitted. Section 1(2) prohibits reappointment to the CSC.
-      - text: Yes, upon unanimous consent of the Senate
-        rationale: |
-          You picked Senate consent, assuming legislative approval overrides the ban. Article IX-B explicitly prohibits reappointment of members.
-      - text: Yes, if re-nominated by the sitting President
-        rationale: |
-          You chose presidential re-nomination, which ignores the constitutional bar. Reappointment of CSC members after a full term is prohibited.
-    explanation: |
-      Section 1(2) of Article IX-B explicitly prohibits reappointment of Commissioners after serving their term.
+      '
+  - text: Permanent residency even without Philippine citizenship
+    rationale: 'This treats residence as citizenship. Residents have a long-term connection. Check the constitutional citizenship category.
 
-  - id: q-philippine-constitution-the-civil-service-commission-0009
-    type: single_choice
-    difficulty: hard
-    stem: |
-      What special expertise is constitutionally required of Civil Service Commissioners under Article IX-B?
-    choices:
-      - text: Capacity for public administration
-        correct: true
-      - text: High competence in corporate financial auditing
-        rationale: |
-          You selected corporate financial auditing, which is associated more closely with audit work. CSC Commissioners must have proven capacity for public administration.
-      - text: Extensive experience in international diplomacy
-        rationale: |
-          You picked international diplomacy, which is not a constitutional qualification for the CSC. Article IX-B requires proven capacity for public administration.
-      - text: Former service in judicial appellate trial courts
-        rationale: |
-          You chose judicial court service, which is not a qualification for the CSC. Appointees must demonstrate capacity for public administration.
-    explanation: |
-      Section 1(1) of Article IX-B requires proven capacity for public administration.
+      '
+  - text: Voter registration alone regardless of natural-born status
+    rationale: 'This treats an electoral record as the full qualification. Voting requires citizenship. Check the specific appointment rule.
 
-  - id: q-philippine-constitution-the-civil-service-commission-0010
-    type: single_choice
-    difficulty: easy
-    stem: |
-      The Civil Service Commission functions as what central body within the Philippine Government?
-    choices:
-      - text: Central personnel agency
-        correct: true
-      - text: Central judicial tribunal
-        rationale: |
-          You selected central judicial tribunal, which does not describe the CSC. The CSC is established as the central personnel agency of government.
-      - text: Central monetary authority
-        rationale: |
-          You picked central monetary authority, which describes monetary-policy functions. Section 3 defines the CSC as the central personnel agency.
-      - text: Central legislative council
-        rationale: |
-          You chose central legislative council, which does not describe the CSC. Article IX-B Section 3 defines the CSC as the central personnel agency.
-    explanation: |
-      Section 3 of Article IX-B establishes the Civil Service Commission as the central personnel agency of the Government.
+      '
+  explanation: 'CSC members must be natural-born citizens of the Philippines.
 
-  - id: q-philippine-constitution-the-civil-service-commission-0011
-    type: single_choice
-    difficulty: medium
-    stem: |
-      For the first appointments under Article IX-B, the Chairman and two Commissioners were assigned terms of seven, five, and three years. What arrangement did this create for the Commission?
-    choices:
-      - text: Staggered terms
-        correct: true
-      - text: Synchronized terms
-        rationale: |
-          You selected synchronized terms, but the initial seven-, five-, and three-year terms made the members' terms expire at different times.
-      - text: Indefinite terms
-        rationale: |
-          You picked indefinite terms, but the Constitution assigned fixed terms and used different initial lengths to stagger expirations.
-      - text: Annual rotation
-        rationale: |
-          You chose annual rotation, but the Constitution did not require yearly replacement. The initial seven-, five-, and three-year terms created staggered expirations.
-    explanation: |
-      Article IX-B, Section 1(2) assigned the first CSC Chairman and Commissioners terms of seven, five, and three years, respectively, creating staggered term expirations while later regular appointments carry seven-year terms without reappointment.
+    '
+- id: q-philippine-constitution-the-civil-service-commission-0003
+  type: single_choice
+  difficulty: medium
+  stem: 'What minimum age must a CSC member have at appointment?
 
-  - id: q-philippine-constitution-the-civil-service-commission-0012
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Are members of the Civil Service Commission subject to impeachment under Article XI?
-    choices:
-      - text: Yes, as Constitutional Commissioners
-        correct: true
-      - text: No, subject only to private civil arbitration lawsuits
-        rationale: |
-          You selected private civil lawsuits, which ignores public accountability. As Constitutional Commissioners, CSC members are subject to impeachment.
-      - text: No, exempt from all public administrative proceedings
-        rationale: |
-          You picked exempt from proceedings, assuming complete immunity. Members of the Constitutional Commissions are included among impeachable officers.
-      - text: No, removable only by a local provincial governor
-        rationale: |
-          You chose removal by provincial governor, which misstates constitutional authority. CSC Commissioners are subject to removal through impeachment.
-    explanation: |
-      Article XI, Section 2 includes Members of the Constitutional Commissions in the closed list of impeachable officers.
+    '
+  choices:
+  - text: 35 years
+    correct: true
+  - text: 25 years
+    rationale: 'This uses an age familiar for some other offices. Constitutional offices have different minimums. Check the CSC rule.
 
-  - id: q-philippine-constitution-the-civil-service-commission-0013
-    type: single_choice
-    difficulty: medium
-    stem: |
-      What body must confirm the President's appointment of Civil Service Commissioners?
-    choices:
-      - text: Commission on Appointments
-        correct: true
-      - text: House of Representatives committee
-        rationale: |
-          You selected House committee, but confirmation requires the Commission on Appointments.
-      - text: Supreme Court en banc council
-        rationale: |
-          You picked Supreme Court en banc, which is a judicial court. Confirming presidential appointments of CSC members belongs to the Commission on Appointments.
-      - text: Judicial and Bar Council committee
-        rationale: |
-          You chose the Judicial and Bar Council, which handles judicial nominations. Presidential appointments to the CSC require Commission on Appointments consent.
-    explanation: |
-      Section 1(2) of Article IX-B specifies that appointment requires the consent of the Commission on Appointments.
+      '
+  - text: 30 years
+    rationale: 'This rounds to a lower age. Experience at thirty may seem sufficient. Check the stated minimum.
 
-  - id: q-philippine-constitution-the-civil-service-commission-0014
-    type: single_choice
-    difficulty: medium
-    stem: |
-      At what exact time must a Civil Service Commissioner meet the minimum age requirement of 35 years?
-    choices:
-      - text: At time of appointment
-        correct: true
-      - text: At time of academic university graduation
-        rationale: |
-          You selected university graduation, which measures educational history. Appointees must meet the 35 year age threshold at the time of appointment.
-      - text: At time of civil service examination registration
-        rationale: |
-          You picked examination registration, which applies to examinees. Commissioners must meet the minimum age of 35 at the time of appointment.
-      - text: At completion of first official service year
-        rationale: |
-          You chose completion of first service year, which would allow an underage appointment. Appointees must be at least 35 years old at time of appointment.
-    explanation: |
-      Section 1(1) of Article IX-B states that Commissioners must be at least 35 years old at the time of their appointment.
+      '
+  - text: 40 years
+    rationale: 'This uses a higher threshold found for other senior offices. Several constitutional posts have that minimum. Check the specific institution.
 
-  - id: q-philippine-constitution-the-civil-service-commission-0015
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Which of the following bodies is classified as a Constitutional Commission under Article IX?
-    choices:
-      - text: Civil Service Commission
-        correct: true
-      - text: National Economic and Development Authority
-        rationale: |
-          You selected NEDA, which is an executive planning agency. Article IX designates CSC, COMELEC, and COA as Constitutional Commissions.
-      - text: Securities and Exchange Commission
-        rationale: |
-          You picked SEC, which is a statutory regulatory agency. The independent Constitutional Commissions under Article IX are CSC, COMELEC, and COA.
-      - text: Department of Budget and Management
-        rationale: |
-          You chose DBM, which is an executive department. The three independent Constitutional Commissions in Article IX are CSC, COMELEC, and COA.
-    explanation: |
-      Article IX creates three independent Constitutional Commissions: the Civil Service Commission, Commission on Elections, and Commission on Audit.
+      '
+  explanation: 'The minimum is thirty-five years at the time of appointment.
+
+    '
+- id: q-philippine-constitution-the-civil-service-commission-0004
+  type: single_choice
+  difficulty: medium
+  stem: 'Who appoints CSC members under Article IX-B?
+
+    '
+  choices:
+  - text: The President, with CA consent
+    correct: true
+  - text: The Commission on Appointments acting alone without the President
+    rationale: 'This makes consent the appointment itself. CA participates in the process. Check the distinct appointing authority.
+
+      '
+  - text: The Judicial and Bar Council directly appointing all commission members
+    rationale: 'This substitutes the judicial nomination body. It is involved in other constitutional appointments. Check the CSC provision.
+
+      '
+  - text: The House of Representatives through an ordinary committee vote alone
+    rationale: 'This substitutes one legislative body. Congress members participate in some approval processes. Check the specified combination.
+
+      '
+  explanation: 'The President appoints the members with the consent of the Commission on Appointments.
+
+    '
+- id: q-philippine-constitution-the-civil-service-commission-0005
+  type: single_choice
+  difficulty: medium
+  stem: 'What regular term and reappointment rule does Article IX-B state for CSC members?
+
+    '
+  choices:
+  - text: Seven years, no reappointment
+    correct: true
+  - text: Five years with one additional appointment automatically allowed
+    rationale: 'This uses a shorter initial-transition period as the regular rule. Five years appears in historical first appointments. Check the regular term.
+
+      '
+  - text: Six years with unlimited additional appointments permitted
+    rationale: 'This uses an executive-style term and adds repetition. Six years is familiar for other posts. Check the CSC duration and restriction.
+
+      '
+  - text: Ten years with renewal whenever the appointing President approves
+    rationale: 'This substitutes a longer renewable term. Continuity can sound useful. Check the constitutional limit.
+
+      '
+  explanation: 'Regular appointments are for seven years without reappointment.
+
+    '
+- id: q-philippine-constitution-the-civil-service-commission-0006
+  type: single_choice
+  difficulty: medium
+  stem: 'Which candidacy restriction applies to appointment as a CSC member?
+
+    '
+  choices:
+  - text: No candidacy in the immediately prior election
+    correct: true
+  - text: Only losing candidates in the immediately prior election are disqualified.
+    rationale: 'This limits the rule to losing candidates. Other appointment rules mention losing candidates. Check the CSC rule''s word candidates.
+
+      '
+  - text: Only candidates for national office are disqualified, while local candidates are always eligible.
+    rationale: 'This removes local elective positions. National offices are more visible. Check the phrase any elective position.
+
+      '
+  - text: Any candidacy at any point in the person's lifetime permanently bars appointment.
+    rationale: 'This extends the restriction beyond its stated election. A history of politics may raise concern. Check the immediately preceding election.
+
+      '
+  explanation: 'The appointee must not have been a candidate for any elective position in the election immediately preceding appointment.
+
+    '
+- id: q-philippine-constitution-the-civil-service-commission-0007
+  type: single_choice
+  difficulty: medium
+  stem: 'Which constitutional subdivision covers the CSC?
+
+    '
+  choices:
+  - text: Article IX-B
+    correct: true
+  - text: Article IX-A, the common provisions for the commissions
+    rationale: 'This selects the common part. Its rules also affect CSC. Check the part specifically assigned to CSC.
+
+      '
+  - text: Article IX-C, the Commission on Elections provisions
+    rationale: 'This selects the elections commission. Both are in Article IX. Check the subdivision letter.
+
+      '
+  - text: Article IX-D, the Commission on Audit provisions
+    rationale: 'This selects the audit commission. Both oversee government work. Check the personnel commission''s part.
+
+      '
+  explanation: 'Article IX-B specifically covers the Civil Service Commission.
+
+    '
+- id: q-philippine-constitution-the-civil-service-commission-0008
+  type: single_choice
+  difficulty: medium
+  stem: 'A member completes a full seven-year CSC term. May the President grant another CSC term?
+
+    '
+  choices:
+  - text: No, the Constitution bars reappointment.
+    correct: true
+  - text: Yes, if the President remains satisfied with the member's performance.
+    rationale: 'This makes performance override the ban. Good service can justify renewal elsewhere. Check the constitutional restriction.
+
+      '
+  - text: Yes, if the Commission on Appointments unanimously approves the new term.
+    rationale: 'This makes consent override eligibility. CA approval is normally required. Check whether the term itself is permitted.
+
+      '
+  - text: Yes, if the new nomination uses a different description of the same CSC position.
+    rationale: 'This treats relabeling as avoiding reappointment. Titles can vary in ordinary administration. Check the actual office and prior term.
+
+      '
+  explanation: 'A completed full term cannot be followed by reappointment to the CSC. The rule is seven years without reappointment.
+
+    '
+- id: q-philippine-constitution-the-civil-service-commission-0009
+  type: single_choice
+  difficulty: medium
+  stem: 'What proven capacity does Article IX-B require of CSC appointees?
+
+    '
+  choices:
+  - text: Public administration
+    correct: true
+  - text: Corporate financial auditing alone, without public-administration capacity
+    rationale: 'This substitutes an audit-focused skill. Both concern government management. Check the CSC-specific qualification.
+
+      '
+  - text: International diplomacy alone, without public-administration capacity
+    rationale: 'This substitutes foreign-relations experience. Diplomats serve government. Check the named expertise.
+
+      '
+  - text: Appellate litigation alone, without public-administration capacity
+    rationale: 'This substitutes judicial experience. Legal work can involve public institutions. Check the expressly required capacity.
+
+      '
+  explanation: 'Appointees must have proven capacity for public administration.
+
+    '
+- id: q-philippine-constitution-the-civil-service-commission-0010
+  type: single_choice
+  difficulty: medium
+  stem: 'What central government role does the Constitution assign to CSC?
+
+    '
+  choices:
+  - text: Personnel agency
+    correct: true
+  - text: The central judicial tribunal for all criminal cases
+    rationale: 'This substitutes court work. CSC can deal with administrative matters. Check the personnel role.
+
+      '
+  - text: The central monetary authority for currency issuance
+    rationale: 'This substitutes monetary policy. Both are national public functions. Check human resources versus money.
+
+      '
+  - text: The central legislative council making all national statutes
+    rationale: 'This substitutes lawmaking. CSC can make administrative rules. Check agency work versus legislation.
+
+      '
+  explanation: 'CSC is the central personnel agency of the Government.
+
+    '
+- id: q-philippine-constitution-the-civil-service-commission-0011
+  type: single_choice
+  difficulty: medium
+  stem: 'For the first appointments under Article IX-B, the Chairman and two Commissioners were assigned terms of seven, five, and three years. What arrangement did this create for the Commission?
+
+    '
+  choices:
+  - text: Staggered terms
+    correct: true
+  - text: Synchronized terms
+    rationale: 'This assumes common start dates mean common end dates. The first appointments began together. Check their different durations.
+
+      '
+  - text: Indefinite terms
+    rationale: 'This treats varying terms as unlimited terms. There is no single shared duration. Check the stated end periods.
+
+      '
+  - text: Annual rotation
+    rationale: 'This treats staggered endings as yearly turnover. Membership changes over time. Check the actual years assigned.
+
+      '
+  explanation: 'Different initial durations produced different expiration dates. That is staggered tenure.
+
+    '
+- id: q-philippine-constitution-the-civil-service-commission-0012
+  type: single_choice
+  difficulty: medium
+  stem: 'Are members of the Civil Service Commission subject to impeachment under Article XI?
+
+    '
+  choices:
+  - text: Yes, as Constitutional Commissioners
+    correct: true
+  - text: No, subject only to private civil arbitration lawsuits
+    rationale: 'This substitutes private dispute resolution for public accountability. Both can settle disputes. Check the constitutional officer list.
+
+      '
+  - text: No, exempt from all public administrative proceedings
+    rationale: 'This treats independence as immunity. CSC is independent. Check its constitutional accountability.
+
+      '
+  - text: No, removable only by a local provincial governor
+    rationale: 'This gives local authority control over a national commission. Governors oversee local offices. Check the national constitutional institution.
+
+      '
+  explanation: 'Article XI, Section 2 includes members of the Constitutional Commissions among impeachable officers. CSC members belong to that category.
+
+    '
+- id: q-philippine-constitution-the-civil-service-commission-0013
+  type: single_choice
+  difficulty: medium
+  stem: 'A proposal lets the President appoint a CSC member without any required consenting body. What correction follows from Article IX-B?
+
+    '
+  choices:
+  - text: Obtain Commission on Appointments consent.
+    correct: true
+  - text: Obtain only the Judicial and Bar Council's nomination and treat that as final consent.
+    rationale: 'This substitutes a judicial appointment process. The JBC is a constitutional body. Check the CSC-specific approval rule.
+
+      '
+  - text: Obtain only a local government's endorsement and omit national consent.
+    rationale: 'This substitutes local support for constitutional approval. Local officials may know the candidate. Check the named consenting body.
+
+      '
+  - text: Obtain only the nominee's written acceptance and treat consent as complete.
+    rationale: 'This substitutes the candidate''s agreement for institutional consent. Acceptance matters to taking office. Check whose consent the Constitution requires.
+
+      '
+  explanation: 'The President''s appointment requires consent of the Commission on Appointments. The proposal omits that constitutional step.
+
+    '
+- id: q-philippine-constitution-the-civil-service-commission-0014
+  type: single_choice
+  difficulty: medium
+  stem: 'When must a CSC appointee satisfy the minimum age of thirty-five?
+
+    '
+  choices:
+  - text: At appointment
+    correct: true
+  - text: Only at the end of the first service year
+    rationale: 'This permits appointment before eligibility. Age increases during service. Check the constitutional reference time.
+
+      '
+  - text: Only when registering for a civil-service examination
+    rationale: 'This confuses examination eligibility with commission appointment. CSC is associated with exams. Check which position is being filled.
+
+      '
+  - text: Only when the person graduates from a university
+    rationale: 'This substitutes an education milestone. Qualifications may involve education. Check the specified appointment date.
+
+      '
+  explanation: 'Article IX-B measures the age requirement at the time of appointment.
+
+    '
+- id: q-philippine-constitution-the-civil-service-commission-0015
+  type: single_choice
+  difficulty: medium
+  stem: 'Which listed body is an Article IX Constitutional Commission?
+
+    '
+  choices:
+  - text: CSC
+    correct: true
+  - text: National Economic and Development Authority
+    rationale: 'This selects a planning body. It has national government responsibilities. Check the named Article IX commissions.
+
+      '
+  - text: Securities and Exchange Commission
+    rationale: 'This assumes commission in the name means Article IX status. Its title includes commission. Check the constitutional list.
+
+      '
+  - text: Department of Budget and Management
+    rationale: 'This selects an executive department. It manages public resources. Check commission versus department.
+
+      '
+  explanation: 'The Civil Service Commission is one of the three independent commissions identified in Article IX.
+
+    '
+- id: q-philippine-constitution-the-civil-service-commission-0016
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'How many CSC members are there in total when the chair is included?
+
+    '
+  choices:
+  - text: '3'
+    correct: true
+  - text: '2'
+    rationale: 'This counts only the commissioners. The composition names two commissioners. Check whether the chair is additional.
+
+      '
+  - text: '4'
+    rationale: 'This counts an extra chair after already including the chair. Leadership titles can be confusing. Check each actual seat once.
+
+      '
+  - text: '7'
+    rationale: 'This uses the size of another constitutional commission. COMELEC has more members. Check which commission is being counted.
+
+      '
+  explanation: 'One chair plus two commissioners equals $1 + 2 = 3$ members.
+
+    '
+- id: q-philippine-constitution-the-civil-service-commission-0017
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'A natural-born, forty-year-old public administrator was a candidate in the immediately preceding local election. Does meeting the age and expertise requirements remove the candidacy restriction?
+
+    '
+  choices:
+  - text: No, the candidacy restriction still applies.
+    correct: true
+  - text: Yes, because forty years of age waives every other qualification.
+    rationale: 'This makes age sufficient by itself. The person exceeds the minimum. Check the independent candidacy condition.
+
+      '
+  - text: Yes, because only candidacy for a national office matters.
+    rationale: 'This excludes local candidacy. National races are more prominent. Check any elective position.
+
+      '
+  - text: Yes, because proven administration capacity replaces the election restriction.
+    rationale: 'This treats expertise as a substitute for eligibility. Expertise is expressly required. Check all conditions together.
+
+      '
+  explanation: 'The requirements operate together. A candidate in the immediately preceding election is disqualified even when age, citizenship, and capacity are satisfied.
+
+    '
+- id: q-philippine-constitution-the-civil-service-commission-0018
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'A nominee is thirty-four at appointment but turns thirty-five a month later. What follows from the lesson?
+
+    '
+  choices:
+  - text: The age qualification is not met at appointment.
+    correct: true
+  - text: The later birthday retroactively makes the earlier appointment satisfy the minimum.
+    rationale: 'This treats later eligibility as earlier eligibility. The birthday is close. Check the date the rule measures.
+
+      '
+  - text: The nominee meets the age rule because the term will last seven years.
+    rationale: 'This substitutes tenure length for present age. The person will age during service. Check eligibility when appointed.
+
+      '
+  - text: The minimum does not apply if the President and CA both prefer the nominee.
+    rationale: 'This treats approval as waiver of a qualification. Both institutions have roles. Check the separate constitutional minimum.
+
+      '
+  explanation: 'The nominee must already be at least thirty-five at appointment. A later birthday does not change the age on that date.
+
+    '
+- id: q-philippine-constitution-the-civil-service-commission-0019
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'Which fact alone satisfies the specialized capacity requirement without proving all appointment qualifications?
+
+    '
+  choices:
+  - text: Proven capacity for public administration
+    correct: true
+  - text: A record of winning local elections with no demonstrated administration capacity
+    rationale: 'This substitutes electoral success for the named skill. Public leadership can involve administration. Check whether capacity is actually proven.
+
+      '
+  - text: A promise to learn public administration only after taking the commission position
+    rationale: 'This substitutes intention for proven capacity. Training can improve skills. Check the word proven.
+
+      '
+  - text: A private business title with no evidence of administration-related ability
+    rationale: 'This treats a title as proof. Business management can sound relevant. Check the demonstrated capacity.
+
+      '
+  explanation: 'Proven public-administration capacity meets that particular requirement. Citizenship, age, candidacy, and the appointment process must still be checked separately.
+
+    '
+- id: q-philippine-constitution-the-civil-service-commission-0020
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'A reviewer claims CSC''s personnel role makes it the national legislature, central bank, and criminal court at once. Which assessment fits the lesson?
+
+    '
+  choices:
+  - text: The claim extends the stated role beyond what is taught.
+    correct: true
+  - text: The claim is correct because central means all other government functions are included.
+    rationale: 'This treats central as unlimited power. The word suggests national scope. Check the specific personnel subject.
+
+      '
+  - text: The claim is correct whenever a matter affects a government employee in any way.
+    rationale: 'This turns a personnel connection into every branch''s authority. Employees work across government. Check the role rather than a loose connection.
+
+      '
+  - text: The claim is correct because any seven-year commission can replace all elected departments.
+    rationale: 'This treats tenure as a grant of every power. A long term supports continuity. Check composition and term versus function.
+
+      '
+  explanation: 'The lesson identifies CSC as the central personnel agency. It does not assign it the separate functions of lawmaking, monetary policy, or criminal adjudication.
+
+    '
