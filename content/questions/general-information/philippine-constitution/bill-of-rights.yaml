@@ -8,7 +8,7 @@ meta:
 questions:
 - id: q-philippine-constitution-bill-of-rights-0001
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'How many sections comprise Article III?
 
     '
@@ -32,7 +32,7 @@ questions:
     '
 - id: q-philippine-constitution-bill-of-rights-0002
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'Which guarantee concerns lawful process before deprivation of life, liberty, or property?
 
     '
@@ -56,7 +56,7 @@ questions:
     '
 - id: q-philippine-constitution-bill-of-rights-0003
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'Which article protects speech, expression, and the press?
 
     '
@@ -152,7 +152,7 @@ questions:
     '
 - id: q-philippine-constitution-bill-of-rights-0007
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'Which guarantee treats an accused person as innocent until the contrary is proved?
 
     '
@@ -195,12 +195,12 @@ questions:
     rationale: 'This selects compelled testimony. Both protect people facing prosecution. Check the particular repeated-offense issue.
 
       '
-  explanation: 'Double jeopardy concerns a person being put in jeopardy of punishment again for the same offense after the first jeopardy has attached and been validly terminated.
+  explanation: 'Double jeopardy protects against a second trial for the same offense after a valid first case has ended in a way covered by the rule. The first court must have authority, the charge must be valid, and the accused must have entered a plea. The legal effect also depends on how that first case ended.
 
     '
 - id: q-philippine-constitution-bill-of-rights-0009
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'A law that penalizes an act that was not punishable at the time it was committed is prohibited as what?
 
     '
@@ -224,7 +224,7 @@ questions:
     '
 - id: q-philippine-constitution-bill-of-rights-0010
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'A legislative act that inflicts punishment without a judicial trial is prohibited under Article III as what?
 
     '
@@ -272,7 +272,7 @@ questions:
     '
 - id: q-philippine-constitution-bill-of-rights-0012
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'What right guarantees that a person in custodial investigation must be informed of the right to remain silent and to counsel?
 
     '
@@ -320,7 +320,7 @@ questions:
     '
 - id: q-philippine-constitution-bill-of-rights-0014
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'Under Article III, Section 2, what constitutional condition must be met before a search warrant may issue?
 
     '
@@ -344,7 +344,7 @@ questions:
     '
 - id: q-philippine-constitution-bill-of-rights-0015
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'Which right protects against being compelled to be a witness against oneself?
 
     '
@@ -368,7 +368,7 @@ questions:
     '
 - id: q-philippine-constitution-bill-of-rights-0016
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   approved: false
   stem: 'Which situation fits the constitutional bail exception described in the lesson?
 
@@ -418,7 +418,7 @@ questions:
     '
 - id: q-philippine-constitution-bill-of-rights-0018
   type: single_choice
-  difficulty: exam
+  difficulty: hard
   approved: false
   stem: 'Which association falls within the lesson''s stated protection?
 
@@ -443,7 +443,7 @@ questions:
     '
 - id: q-philippine-constitution-bill-of-rights-0019
   type: single_choice
-  difficulty: exam
+  difficulty: hard
   approved: false
   stem: 'Which body is included in the right to speedy disposition of cases described in the lesson?
 

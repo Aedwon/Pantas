@@ -1,5 +1,5 @@
 question_id	status	key_check	changes	severity	note
-q-philippine-constitution-bill-of-rights-0001	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-philippine-constitution-bill-of-rights-0001	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Wording clarified or labels shortened; original answer remains correct.
 q-philippine-constitution-bill-of-rights-0002	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Weak distractors replaced with text-based reasoning errors.
 q-philippine-constitution-bill-of-rights-0003	CORRECTED	SOLVED-MATCH	explanation;notes;distractor	MEDIUM	Weak distractor replaced with a related constitutional article.
 q-philippine-constitution-bill-of-rights-0004	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Weak distractors replaced with text-based reasoning errors.
