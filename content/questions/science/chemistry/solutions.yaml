@@ -2,247 +2,424 @@ meta:
   subject: science
   topic: chemistry
   subtopic: solutions
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-chemistry-solutions-0001
-    type: simple-quantitative
-    difficulty: easy
+    type: 'simple-quantitative'
+    difficulty: 'easy'
     stem: |
       A solution contains 3 moles of $NaCl$ dissolved in enough water to make 6 liters of solution. Find the molarity.
     choices:
-      - text: 0.5 M
+      - text: '0.5 M'
         correct: true
-      - text: 2 M
-        rationale: "You inverted the fraction by dividing 6 liters by 3 moles. Molarity requires moles divided by liters."
-      - text: 3 M
-        rationale: "You took the number of moles without dividing by the 6 liters of solution volume."
-      - text: 18 M
-        rationale: "You multiplied 3 moles by 6 liters instead of dividing moles by liters of solution."
+      - text: '2.0 M'
+        rationale: |
+          This divides liters by moles. Both numbers are needed. Check which order gives mol/L.
+      - text: '3.0 M'
+        rationale: |
+          This reports the mole amount alone. Three moles are present. Check that concentration also uses volume.
+      - text: '18 M'
+        rationale: |
+          This multiplies amount and volume. Both are given. Check that the concentration relation divides.
     explanation: |
-      Molarity equals moles of solute divided by liters of solution: $\dfrac{3 \text{ mol}}{6 \text{ L}} = 0.5$ M.
+      Molarity is solute moles per liter of final solution. $M=\dfrac{3}{6}=0.5$ mol/L.
     approved: true
+
   - id: q-chemistry-solutions-0002
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
       A solution is made by dissolving 2 moles of sugar into 4 kilograms of water. Find the molality.
     choices:
-      - text: 0.5 m
+      - text: '0.5 m'
         correct: true
-      - text: 2 m
-        rationale: "You divided 4 kilograms by 2 moles. Molality is moles of solute divided by kilograms of solvent."
-      - text: 4 m
-        rationale: "You used the mass of the solvent as the answer without dividing by the moles of solute."
-      - text: 8 m
-        rationale: "You multiplied 2 moles by 4 kilograms instead of dividing moles by kilograms of solvent."
+      - text: '2.0 m'
+        rationale: |
+          This divides solvent mass by amount. Both numbers are used. Check the required mol/kg unit.
+      - text: '4.0 m'
+        rationale: |
+          This copies the solvent-mass number as concentration. Four kilograms are given. Check that the solute amount also enters.
+      - text: '8.0 m'
+        rationale: |
+          This multiplies amount by solvent mass. Both are in the data. Check the division in the definition.
     explanation: |
-      Molality equals moles of solute divided by kilograms of solvent: $\dfrac{2 \text{ mol}}{4 \text{ kg}} = 0.5$ m.
+      Molality is solute moles per kilogram of solvent. $m=\dfrac{2}{4}=0.5$ mol/kg.
     approved: true
+
   - id: q-chemistry-solutions-0003
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
       A solution is made by dissolving 15 grams of salt into 135 grams of water. Find the percent by mass of the salt.
     choices:
-      - text: 10%
+      - text: '10%'
         correct: true
-      - text: 15%
-        rationale: "You used the solute mass directly as a percentage without dividing by the total solution mass."
-      - text: 11.1%
-        rationale: "You divided solute mass by solvent mass (135 g) instead of total solution mass (150 g)."
-      - text: 90%
-        rationale: "You calculated the percent by mass of the water solvent rather than the salt solute."
+      - text: '15%'
+        rationale: |
+          This labels the solute’s gram value as a percentage. The number 15 is given. Check that percentage requires a ratio.
+      - text: '11.1%'
+        rationale: |
+          This divides by solvent mass alone. The water mass is 135 g. Check that the denominator includes the salt too.
+      - text: '90%'
+        rationale: |
+          This calculates the solvent’s mass share. Water supplies most of the mass. Check which component is requested.
     explanation: |
-      Total solution mass is $15 + 135 = 150$ g. Percent by mass: $\dfrac{15}{150} \times 100\% = 10\%$.
+      With no material lost, solution mass is $15+135=150$ g. Salt mass percent is $\dfrac{15}{150}\times100\%=10\%$.
     approved: true
+
   - id: q-chemistry-solutions-0004
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       A solution has dissolved the maximum amount of solute possible at its current temperature: adding any more solute would just leave it undissolved at the bottom. How should this solution be classified?
     choices:
-      - text: Saturated
+      - text: 'Saturated'
         correct: true
-      - text: Unsaturated
-        rationale: "You picked the term for a solution that can still dissolve more solute at its current temperature."
-      - text: Molal
-        rationale: "You picked a concentration unit based on mass rather than a solubility state classification."
-      - text: Diluted
-        rationale: "You picked a term describing relative concentration rather than maximum capacity at equilibrium."
+      - text: 'Unsaturated'
+        rationale: |
+          This selects the state below the equilibrium limit. More solute could dissolve there. Check that the stem already reaches the limit.
+      - text: 'Molal'
+        rationale: |
+          This treats a concentration-unit name as a saturation classification. Molality measures concentration. Check the question’s solubility condition.
+      - text: 'Diluted'
+        rationale: |
+          This uses relative concentration instead of equilibrium capacity. Diluted means made less concentrated. Check the stated solubility limit.
     explanation: |
-      A saturated solution holds as much dissolved solute as it possibly can at that temperature. Any additional solute added would simply not dissolve.
+      A saturated solution is at its equilibrium solubility limit under the stated conditions. Additional solute remains undissolved at that limit.
     approved: true
+
   - id: q-chemistry-solutions-0005
-    type: cause-effect
-    difficulty: medium
+    type: 'cause-effect'
+    difficulty: 'medium'
     stem: |
-      More sugar dissolves completely in a cup of hot tea than in the same size cup of cold tea. What does this demonstrate about solubility?
+      At equilibrium, more sugar can remain dissolved per given amount of water at the higher of two temperatures. What does this show?
     choices:
-      - text: For most solid solutes, solubility increases as the solvent's temperature increases.
+      - text: 'Sugar solubility is higher in this warmer sample.'
         correct: true
-      - text: Solubility is always the same at every temperature.
-        rationale: "You assumed solubility is constant, but thermal energy increases the rate and capacity for solid solubility."
-      - text: Sugar becomes a different substance when dissolved in hot water.
-        rationale: "You assumed a chemical reaction occurred, but dissolving sugar in hot water is purely a physical process."
-      - text: Cold water dissolves solids better than hot water.
-        rationale: "You reversed the relationship. Higher temperature generally increases solid solute dissolution."
+      - text: 'Solubility must be identical at both temperatures.'
+        rationale: |
+          This assumes temperature never affects capacity. The same solute and solvent are used. Check the observed different maximum amounts.
+      - text: 'The sugar must become a different chemical substance.'
+        rationale: |
+          This treats dissolution as a required new-substance reaction. The sugar disappears from view. Check whether it retains its identity.
+      - text: 'This observation proves cold water has the higher sugar solubility.'
+        rationale: |
+          This reverses the given observation. Both temperatures are compared. Check which sample dissolves more at equilibrium.
     explanation: |
-      Solubility describes the maximum amount of solute that can dissolve at a given temperature, and for most solids, that maximum increases as temperature rises: exactly why hot tea dissolves more sugar than cold tea.
+      The observation shows greater equilibrium sugar solubility at the higher temperature in this system. Temperature can affect the maximum concentration that dissolves.
     approved: true
+
   - id: q-chemistry-solutions-0006
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
       A student divides moles of solute by liters of solvent (instead of liters of solution) to calculate molarity. Is this correct?
     choices:
-      - text: 'No: molarity divides by liters of the total solution, not just the solvent.'
+      - text: 'No; use final solution volume.'
         correct: true
-      - text: 'Yes: molarity and molality use the exact same denominator.'
-        rationale: "You confused molarity with molality. Molarity uses total solution volume while molality uses solvent mass."
-      - text: 'No: molarity should divide by kilograms of solvent instead.'
-        rationale: "You described the formula for molality instead of molarity. Molarity uses total solution volume in liters."
-      - text: 'Yes: solvent volume and solution volume are always identical.'
-        rationale: "You assumed solute volume is zero. Dissolving a solute changes the total volume of the final solution."
+      - text: 'Yes; molarity and molality have identical denominators.'
+        rationale: |
+          This gives molarity and molality identical denominators. Their names sound alike. Check their different units.
+      - text: 'No; divide by kilograms of solvent for molarity.'
+        rationale: |
+          This substitutes solvent mass for solution volume. That is molality’s denominator. Check which concentration is requested.
+      - text: 'Yes; solvent and final solution volumes always match.'
+        rationale: |
+          This assumes initial solvent volume always equals final solution volume. They may be close. Check the measured final mixture volume.
     explanation: |
-      Molarity is moles of solute per liter of solution (the whole mixture). Confusing this with molality's denominator (kilograms of solvent alone) is one of the most commonly swapped concentration mistakes.
+      Molarity uses liters of the final solution. The denominator includes the volume of the whole mixture after dissolution.
     approved: true
+
   - id: q-chemistry-solutions-0007
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
       To find percent by mass, a student divides the solute's mass by the solvent's mass alone, instead of the total solution's mass. Is this correct?
     choices:
-      - text: 'No: percent by mass divides by the total solution mass (solute plus solvent), not the solvent alone.'
+      - text: 'No; use total solution mass.'
         correct: true
-      - text: 'Yes: dividing by solvent mass alone gives the same result.'
-        rationale: "You ignored the mass contribution of the solute. Percent by mass requires total solution mass in the denominator."
-      - text: 'No: percent by mass should divide by moles, not mass.'
-        rationale: "You confused mass percentage with mole fraction. Mass percent uses gram masses for both solute and solution."
-      - text: 'Yes: percent by mass problems never include the solute''s own mass in the total.'
-        rationale: "You excluded the solute from total solution mass. The total solution mass is the sum of solute and solvent masses."
+      - text: 'Yes; solvent mass alone gives the same percentage.'
+        rationale: |
+          This ignores the solute’s contribution to total mass. Solvent often supplies most mass. Check the full solution mass.
+      - text: 'No; divide solute mass by moles for mass percent.'
+        rationale: |
+          This uses amount in moles for a mass percentage. Moles measure substance amount. Check that numerator and denominator are both masses.
+      - text: 'Yes; dissolved solute contributes no solution mass.'
+        rationale: |
+          This deliberately omits dissolved material from the total. The solute is no longer visible. Check whether its mass still belongs to the solution.
     explanation: |
-      Dividing by the solvent's mass alone gives an inflated, incorrect percentage. The correct denominator is always the total solution mass: solute mass plus solvent mass added together.
+      Mass percent uses solute mass divided by total solution mass. With no material lost, the total includes both solute and solvent.
     approved: true
+
   - id: q-chemistry-solutions-0008
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
-      A student assumes a substance's solubility is the same fixed number no matter the temperature. Is this assumption correct?
+      Which statement about temperature and solubility is accurate?
     choices:
-      - text: 'No: solubility generally changes with temperature, usually increasing for solids as the solvent gets hotter.'
+      - text: 'Many solids become more soluble, with exceptions.'
         correct: true
-      - text: 'Yes: solubility never depends on temperature.'
-        rationale: "You treated solubility as temperature-independent. Heating solvent usually increases solid solute solubility."
-      - text: 'No: solubility only depends on the solute''s color.'
-        rationale: "You picked a non-relevant physical property. Color has no effect on chemical solubility in a solvent."
-      - text: 'Yes: but only for solutions made with water.'
-        rationale: "You created an incorrect exception for water. Water solutions show strong temperature dependence for solubility."
+      - text: 'Every solid always becomes more soluble when heated.'
+        rationale: |
+          This turns a common pattern into a universal law. Sugar is more soluble in hotter water. Check for other substances and exceptions.
+      - text: 'Every solute has exactly unchanged solubility at all temperatures.'
+        rationale: |
+          This treats solubility as independent of conditions. Substance identity matters. Check whether temperature also matters.
+      - text: 'Every dissolved gas becomes more soluble as temperature rises.'
+        rationale: |
+          This applies the common solid trend to every gas. Heating affects both. Check whether the solute is a solid or gas.
     explanation: |
-      Solubility is defined at a specific temperature and generally changes as temperature changes: for most solids, more can dissolve at higher temperatures.
+      Many solids become more soluble as temperature rises, but some change little or become less soluble. The behavior depends on the particular solute and solvent.
     approved: true
+
   - id: q-chemistry-solutions-0009
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
       A student says a solution with a small amount of dissolved solute can never be called "saturated," since saturated should mean "a lot" of solute. Is this correct?
     choices:
-      - text: 'No: a solution is saturated once it holds the maximum solute possible for that specific solute at that temperature, even if that maximum amount is small.'
+      - text: 'No; the solubility limit may be low.'
         correct: true
-      - text: 'Yes: "saturated" always requires a large, fixed amount of solute.'
-        rationale: "You confused saturation with concentration. Sparingly soluble compounds reach saturation at very low concentrations."
-      - text: 'No: "saturated" only applies to gases, never to solids dissolved in liquids.'
-        rationale: "You limited saturation to gas solutions. Saturation applies to solid, liquid, and gas solutes alike."
-      - text: 'Yes: a small amount of dissolved solute is always called "unsaturated," regardless of the solute.'
-        rationale: "You equated low concentration with unsaturated state. If a substance has low solubility, a small amount saturates it."
+      - text: 'Yes; saturation always requires a large fixed amount.'
+        rationale: |
+          This requires a large absolute amount for every substance. Saturated can sound like packed full. Check the specific solubility limit.
+      - text: 'No; saturation is only a classification for dissolved gases.'
+        rationale: |
+          This restricts the category to gases. Gas solubility is important. Check that dissolved solids can also reach equilibrium limits.
+      - text: 'Yes; a small concentration always means unsaturated.'
+        rationale: |
+          This treats low concentration as always below the limit. Some substances dissolve only slightly. Check the amount relative to that substance’s limit.
     explanation: |
-      Saturation is relative to the specific solute's own maximum solubility, not an absolute amount. A solute with very low solubility can saturate a solution with only a small amount dissolved.
+      Saturation is relative to a solute’s equilibrium limit under stated conditions. If that limit is low, a small dissolved amount can reach saturation.
     approved: true
+
   - id: q-chemistry-solutions-0010
-    type: cause-effect
-    difficulty: hard
+    type: 'cause-effect'
+    difficulty: 'hard'
     stem: |
-      Why does molality stay constant when a solution's temperature changes, while molarity can shift slightly?
+      A solution changes temperature without gaining or losing material. Why can molarity change while molality stays fixed?
     choices:
-      - text: Molality depends on the solvent's mass, which does not change with temperature; molarity depends on the solution's volume, which can expand or contract with heat.
+      - text: 'Volume can change; solvent mass stays fixed.'
         correct: true
-      - text: Molality depends on volume, and volume never changes; molarity depends on mass, which shrinks when heated.
-        rationale: "You swapped the definitions of molarity and molality. Molarity depends on volume, while molality depends on mass."
-      - text: Both molality and molarity depend on volume, so both should change equally with temperature.
-        rationale: "You incorrectly assumed both units use volume denominators. Molality relies on mass in kilograms."
-      - text: Molarity is always more accurate than molality at any temperature.
-        rationale: "You made an ungrounded accuracy claim. Molality is preferred for thermal changes because mass is invariant with heat."
+      - text: 'Molality uses volume; molarity uses shrinking mass.'
+        rationale: |
+          This reverses the concentration denominators. Both involve solute moles. Check mol/L versus mol/kg.
+      - text: 'Both use volume, so both must change equally.'
+        rationale: |
+          This gives both concentrations a volume denominator. Their names are similar. Check whether molality uses solvent mass.
+      - text: 'Heating always changes solvent mass as well as volume.'
+        rationale: |
+          This assumes temperature always changes mass. Heat can expand volume. Check whether any material is gained or lost.
     explanation: |
-      Molarity's denominator (solution volume) shifts due to normal thermal expansion or contraction. Molality's denominator (solvent mass) does not change with temperature, since heating or cooling does not add or remove matter.
+      With no material gained or lost, the solute amount and solvent mass stay fixed. Molality uses that mass. Molarity uses solution volume, which can expand or contract.
     approved: true
+
   - id: q-chemistry-solutions-0011
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
       A solution is made with 25 mL of alcohol mixed into enough water to make 100 mL of solution. Find the percent by volume of the alcohol.
     choices:
-      - text: 25%
+      - text: '25%'
         correct: true
-      - text: 75%
-        rationale: "You calculated the volume percentage of water solvent instead of the alcohol solute."
-      - text: 4%
-        rationale: "You divided 100 mL by 25 mL without converting to a percentage value."
-      - text: 100%
-        rationale: "You used the total solution volume as the numerator instead of the solute volume."
+      - text: '75%'
+        rationale: |
+          This subtracts the alcohol percentage from 100 and reports the complement. The mixture has another component. Check which component is requested.
+      - text: '4%'
+        rationale: |
+          This computes $100/25=4$ and labels the result percent. Both volumes are used. Check the direction of the ratio and the factor 100.
+      - text: '100%'
+        rationale: |
+          This puts total solution volume in both numerator and denominator. Both are 100 mL. Check the numerator should be the alcohol volume.
     explanation: |
-      Percent by volume equals the solute's volume divided by the total solution's volume, times 100%: $\dfrac{25}{100} \times 100\% = 25\%$.
+      Use final solution volume: $\dfrac{25}{100}\times100\%=25\%$ by volume.
     approved: true
+
   - id: q-chemistry-solutions-0012
-    type: simple-quantitative
-    difficulty: hard
+    type: 'simple-quantitative'
+    difficulty: 'hard'
     stem: |
       58.5 grams of $NaCl$ (molar mass 58.5 g/mol) are dissolved in enough water to make 2 liters of solution. Find the molarity.
     choices:
-      - text: 0.5 M
+      - text: '0.5 M'
         correct: true
-      - text: 1 M
-        rationale: "You found the number of moles (1 mole) but forgot to divide by the 2 liters of solution."
-      - text: 29.25 M
-        rationale: "You divided 58.5 grams by 2 liters directly without converting mass into moles first."
-      - text: 2 M
-        rationale: "You divided 2 liters by 1 mole instead of dividing moles by liters of solution."
+      - text: '1 M'
+        rationale: |
+          This stops after finding the mole amount. One mole is correct. Check that concentration also uses volume.
+      - text: '29.25 M'
+        rationale: |
+          This divides grams by liters without the molar-mass conversion. Both are given measurements. Check the required mol/L unit.
+      - text: '2 M'
+        rationale: |
+          This divides volume by moles. Both values are needed. Check the ratio’s units.
     explanation: |
-      First convert grams to moles: $\dfrac{58.5 \text{ g}}{58.5 \text{ g/mol}} = 1$ mol. Then apply molarity: $\dfrac{1 \text{ mol}}{2 \text{ L}} = 0.5$ M.
+      Convert mass to amount: $58.5/58.5=1$ mol. Divide by the 2 L final volume: $M=1/2=0.5$ mol/L.
     approved: true
+
   - id: q-chemistry-solutions-0013
-    type: simple-quantitative
-    difficulty: exam
+    type: 'compare-contrast'
+    difficulty: 'exam'
     stem: |
-      A solution is made by dissolving 3 moles of solute into 1.5 kilograms of solvent. Find the molality.
+      Two solutions contain equal moles of solute and equal kilograms of solvent, but different final volumes. What must be equal?
     choices:
-      - text: 2 m
+      - text: 'Their molalities'
         correct: true
-      - text: 0.5 m
-        rationale: "You inverted the formula by dividing 1.5 kg solvent by 3 moles of solute."
-      - text: 4.5 m
-        rationale: "You multiplied 3 moles by 1.5 kg solvent instead of dividing moles by kilograms."
-      - text: 1.5 m
-        rationale: "You used the solvent mass value directly without accounting for the 3 moles of solute."
+      - text: 'Both their molalities and molarities'
+        rationale: |
+          This treats the two concentration names as identical. Both use solute amount. Check their different denominators.
+      - text: 'Their final volumes despite the stated difference'
+        rationale: |
+          This treats equal mass ratios as equal final volumes. The samples have equal solvent mass. Check whether density and mixing can make volumes differ.
+      - text: 'Neither concentration because volume differs'
+        rationale: |
+          This treats volume differences as changing a mass-based ratio. Volume is relevant to molarity. Check molality’s solvent-mass denominator.
     explanation: |
-      Molality equals moles of solute divided by kilograms of solvent: $\dfrac{3 \text{ mol}}{1.5 \text{ kg}} = 2$ m.
+      Equal solute moles per equal kilograms of solvent give equal molality. Different final volumes can give different molarities.
     approved: true
+
   - id: q-chemistry-solutions-0014
-    type: predict-outcome
-    difficulty: exam
+    type: 'predict-outcome'
+    difficulty: 'exam'
     stem: |
-      A chemist prepares a solution and then heats it, causing the solution's total volume to expand slightly, while the mass of the water (solvent) stays exactly the same. Which concentration measurement will shift due to this heating, and which will stay constant?
+      A sealed solution expands on warming, with solute amount and solvent mass unchanged. What happens to its concentrations?
     choices:
-      - text: Molarity will shift slightly (since it depends on volume); molality will stay constant (since it depends on solvent mass).
+      - text: 'Molarity falls; molality stays fixed.'
         correct: true
-      - text: Molality will shift slightly; molarity will stay constant.
-        rationale: "You reversed the temperature dependencies. Volume expands with heat affecting molarity, while mass stays fixed."
-      - text: Both molarity and molality will shift by the same amount.
-        rationale: "You treated mass and volume as equally thermal-sensitive. Mass is constant under temperature shifts."
-      - text: Neither molarity nor molality is ever affected by temperature.
-        rationale: "You ignored thermal expansion of liquids. Volume changes with temperature, which shifts molarity."
+      - text: 'Molality falls; molarity stays fixed.'
+        rationale: |
+          This gives molality the volume dependence. The volume changes. Check which denominator each concentration uses.
+      - text: 'Molarity rises; molality stays fixed.'
+        rationale: |
+          This sends molarity in the same direction as volume. Expansion is observed. Check that volume is in the denominator.
+      - text: 'Both stay fixed because composition is unchanged.'
+        rationale: |
+          This assumes unchanged composition means unchanged volume concentration. No material is lost. Check the specified expansion.
     explanation: |
-      Molarity's denominator is solution volume, which expands with heat, so molarity shifts slightly. Molality's denominator is solvent mass, which does not change with temperature, so molality stays constant: this is exactly why molality is preferred for temperature-sensitive experiments.
+      The solute amount is fixed while solution volume increases. Since molarity is n/V, it decreases. Solvent mass is fixed, so molality stays constant.
     approved: true
+
+  - id: q-chemistry-solutions-0015
+    type: 'identify'
+    difficulty: 'easy'
+    stem: |
+      Which description best identifies a solvent in a solution?
+    choices:
+      - text: 'It determines the physical state.'
+        correct: true
+      - text: 'It must always be present in a smaller amount.'
+        rationale: |
+          This reverses the usual simple-case amount pattern. Solute often has a smaller amount. Check the physical-state role.
+      - text: 'It is always a substance made of water molecules.'
+        rationale: |
+          This treats the common solvent as the only possible one. Water is widely used. Check whether solutions can have other solvents.
+      - text: 'It must be a solid that disappears when stirred.'
+        rationale: |
+          This assigns a typical dissolving solid’s role to the solvent. Solids often dissolve in liquids. Check which component determines the state.
+    explanation: |
+      The solvent determines the solution’s physical state and is often present in the greatest amount. Solutions can use solvents other than water.
+    approved: false
+
+  - id: q-chemistry-solutions-0016
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      A solution has less dissolved solute than its equilibrium solubility limit at fixed conditions. How is it classified?
+    choices:
+      - text: 'Unsaturated'
+        correct: true
+      - text: 'Supersaturated'
+        rationale: |
+          This chooses the state above the limit. Both compare concentration with solubility. Check which side of the limit is stated.
+      - text: 'Saturated at the equilibrium limit'
+        rationale: |
+          This chooses equality with the limit. Equilibrium conditions are specified. Check that the dissolved amount is below the limit.
+      - text: 'Concentrated in every possible comparison'
+        rationale: |
+          This replaces a limit comparison with an absolute concentration label. Some solutions contain substantial solute. Check the defined solubility state.
+    explanation: |
+      An unsaturated solution is below the equilibrium solubility limit. More solute can dissolve under those conditions.
+    approved: false
+
+  - id: q-chemistry-solutions-0017
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      A metastable solution contains more dissolved solute than its ordinary equilibrium solubility. What is this state?
+    choices:
+      - text: 'Supersaturated'
+        correct: true
+      - text: 'Unsaturated below the limit'
+        rationale: |
+          This reverses above-limit and below-limit states. Both describe solubility. Check the direction of the comparison.
+      - text: 'Saturated exactly at ordinary equilibrium'
+        rationale: |
+          This replaces above-limit concentration with equality. Saturation is familiar. Check the word more.
+      - text: 'A pure substance with no solvent'
+        rationale: |
+          This treats excess dissolved solute as absence of a mixture. The concentration is unusually high. Check whether a solvent is still present.
+    explanation: |
+      A supersaturated solution contains more dissolved solute than the ordinary equilibrium limit. It is metastable rather than the usual stable equilibrium solution.
+    approved: false
+
+  - id: q-chemistry-solutions-0018
+    type: 'cause-effect'
+    difficulty: 'hard'
+    stem: |
+      At constant temperature, the partial pressure of a gas above a liquid increases. What is the common effect on its equilibrium solubility?
+    choices:
+      - text: 'It increases.'
+        correct: true
+      - text: 'It always decreases with higher gas pressure.'
+        rationale: |
+          This reverses the pressure dependence. Gas and liquid conditions both matter. Check the common partial-pressure relation.
+      - text: 'It must remain fixed because temperature is fixed.'
+        rationale: |
+          This treats temperature as the only condition. It is held fixed. Check the changing gas partial pressure.
+      - text: 'It becomes independent of the identity of gas and solvent.'
+        rationale: |
+          This treats pressure as erasing substance-specific behavior. Pressure affects dissolution. Check that gas and solvent identities still matter.
+    explanation: |
+      Gas solubility in a liquid generally increases with the gas’s partial pressure above it at fixed temperature.
+    approved: false
+
+  - id: q-chemistry-solutions-0019
+    type: 'predict-outcome'
+    difficulty: 'hard'
+    stem: |
+      At fixed gas partial pressure, a liquid containing a dissolved gas is warmed. What is the common equilibrium-solubility trend?
+    choices:
+      - text: 'Gas solubility decreases.'
+        correct: true
+      - text: 'Every gas must become more soluble when heated.'
+        rationale: |
+          This applies a common solid-solubility trend to gases. Some solids dissolve more when warm. Check the solute’s physical type.
+      - text: 'Solubility is unchanged for every gas and liquid pair.'
+        rationale: |
+          This treats a broad variable property as universally constant. Pressure is fixed. Check the temperature change.
+      - text: 'Temperature affects only solids and never dissolved gases.'
+        rationale: |
+          This excludes gases from temperature effects. Solid examples are common. Check the lesson’s gas-solubility behavior.
+    explanation: |
+      Dissolved gases commonly become less soluble as the liquid warms at fixed gas partial pressure. The equilibrium concentration therefore commonly decreases.
+    approved: false
+
+  - id: q-chemistry-solutions-0020
+    type: 'simple-quantitative'
+    difficulty: 'exam'
+    stem: |
+      A 200 g solution is 10% salt by mass. How much salt does it contain?
+    choices:
+      - text: '20 g'
+        correct: true
+      - text: '180 g'
+        rationale: |
+          This reports the solvent complement, $200-20$. Most solution mass is solvent. Check which component is requested.
+      - text: '2 g'
+        rationale: |
+          This treats 10% as 0.01 rather than 0.10. A percent conversion is needed. Check that 10/100 equals one tenth.
+      - text: '2000 g'
+        rationale: |
+          This multiplies by 10 without dividing by 100. Ten is in the data. Check the meaning of percent.
+    explanation: |
+      Ten percent means 10 parts in 100 by mass. Multiply $200\times10/100=20$ g salt.
+    approved: false
