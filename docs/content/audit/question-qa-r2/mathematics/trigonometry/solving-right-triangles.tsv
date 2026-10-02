@@ -1,6 +1,6 @@
 question_id	status	key_check	changes	severity	note
 q-trigonometry-solving-right-triangles-0001	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Specified ground-level sight and horizontal distance.
-q-trigonometry-solving-right-triangles-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	The 125-degree note claimed supplementary subtraction, but 180-35 is 145; corrected the distractor.
+q-trigonometry-solving-right-triangles-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	HIGH	The 125-degree note claimed supplementary subtraction, but 180-35 is 145; corrected the distractor.
 q-trigonometry-solving-right-triangles-0003	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Replaced duplicate thirty-degree distractors and specified the right-triangle model.
 q-trigonometry-solving-right-triangles-0004	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Reframed repeated height computation to test eye-height adjustment.
 q-trigonometry-solving-right-triangles-0005	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Specified horizontal distance and boat level to remove distance ambiguity.
