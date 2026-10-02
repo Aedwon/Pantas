@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-precalculus-basic-calculus-conic-sections-0001	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-precalculus-basic-calculus-conic-sections-0002	CORRECTED	SOLVED-MATCH	stem;explanation;notes;format	HIGH	A circle is a special ellipse; requested the most specific type to avoid two defensible classifications.
+q-precalculus-basic-calculus-conic-sections-0003	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-precalculus-basic-calculus-conic-sections-0004	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach focal-locus definitions; the stem also lacks an absolute-difference condition. Stem, choices and key retained.
+q-precalculus-basic-calculus-conic-sections-0005	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-precalculus-basic-calculus-conic-sections-0006	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-precalculus-basic-calculus-conic-sections-0007	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-precalculus-basic-calculus-conic-sections-0008	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-precalculus-basic-calculus-conic-sections-0009	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-precalculus-basic-calculus-conic-sections-0010	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-precalculus-basic-calculus-conic-sections-0011	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-precalculus-basic-calculus-conic-sections-0012	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-precalculus-basic-calculus-conic-sections-0013	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-precalculus-basic-calculus-conic-sections-0014	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach the parabola focus parameter; stem, choices and key retained.
+q-precalculus-basic-calculus-conic-sections-0015	NEW	NEW	new question	NONE	
+q-precalculus-basic-calculus-conic-sections-0016	NEW	NEW	new question	NONE	
+q-precalculus-basic-calculus-conic-sections-0017	NEW	NEW	new question	NONE	
+q-precalculus-basic-calculus-conic-sections-0018	NEW	NEW	new question	NONE	
+q-precalculus-basic-calculus-conic-sections-0019	NEW	NEW	new question	NONE	
+q-precalculus-basic-calculus-conic-sections-0020	NEW	NEW	new question	NONE	
