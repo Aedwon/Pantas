@@ -8,7 +8,7 @@ meta:
 questions:
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0001
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'What is Section 11(a)''s maximum salary-based fine for general violations?
 
     '
@@ -32,7 +32,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0002
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'What is the maximum suspension under Section 11(a)''s general penalty provision?
 
     '
@@ -128,7 +128,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0006
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'How does Section 11(c) treat a private person who conspires with an official as an accomplice in an RA 6713 violation?
 
     '
@@ -152,7 +152,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0007
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'If another statute imposes a heavier penalty for the violation, what does Section 11(a) direct?
 
     '
@@ -200,7 +200,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0009
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'Which statement about removal for general violations under Section 11(a) is accurate?
 
     '
@@ -224,7 +224,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0010
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'What additional sanction may a competent court impose at its discretion for violations of Sections 7, 8, or 9?
 
     '
@@ -248,7 +248,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0011
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'Under Section 11, which body of rules governs administrative proceedings brought against public employees?
 
     '
@@ -344,7 +344,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0015
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'A private co-principal conspires in a Section 7 violation. What imprisonment ceiling applies under RA 6713?
 
     '
@@ -368,7 +368,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0016
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   approved: false
   stem: 'Which combination may the court impose for a violation of Section 8 under RA 6713?
 
@@ -418,7 +418,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0018
   type: single_choice
-  difficulty: exam
+  difficulty: hard
   approved: false
   stem: 'An office receives an untested complaint of an RA 6713 violation. Can that filing alone support dismissal under the lesson’s Section 11 rule?
 
@@ -443,7 +443,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0019
   type: single_choice
-  difficulty: exam
+  difficulty: hard
   approved: false
   stem: 'Who may bring the Section 11(d) action over prohibited use of a filed statement?
 
