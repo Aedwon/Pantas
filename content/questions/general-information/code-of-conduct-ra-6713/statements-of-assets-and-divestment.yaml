@@ -8,7 +8,7 @@ meta:
 questions:
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0001
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'Within how many days after assuming office must a covered official file the initial sworn SALN?
 
     '
@@ -32,7 +32,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0002
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'What is RA 6713''s annual SALN deadline after the initial filing?
 
     '
@@ -56,7 +56,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0003
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'Within how many days after separation must a covered official file the final SALN?
 
     '
@@ -200,7 +200,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0009
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'Under Section 8(A)''s statutory list, where do national executive officials file?
 
     '
@@ -224,7 +224,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0010
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'Under RA 6713, where do senators file their SALN?
 
     '
@@ -248,7 +248,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0011
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'Under Section 8(A), which repository receives covered officials in the residual all-other category when no specifically listed category applies?
 
     '
@@ -296,7 +296,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0013
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'Where do Regional and local officials, as well as state university employees, file their SALN under RA 6713?
 
     '
@@ -304,15 +304,15 @@ questions:
   - text: Deputy Ombudsman of their region
     correct: true
   - text: Office of the President legal desk
-    rationale: 'This uses the repository for a different official category. Several public bodies receive SALNs. Match the official''s precise category to the filing office.
+    rationale: 'This selects the repository for national executive officials. Both categories serve government. Check whether the official is regional or national executive.
 
       '
   - text: Civil Service Commission main desk
-    rationale: 'This uses the repository for a different official category. Several public bodies receive SALNs. Match the official''s precise category to the filing office.
+    rationale: 'This uses the residual CSC category despite a specific regional category. CSC handles personnel and receives some statements. Check whether a specific repository rule applies first.
 
       '
   - text: Supreme Court Administrator office
-    rationale: 'This uses the repository for a different official category. Several public bodies receive SALNs. Match the official''s precise category to the filing office.
+    rationale: 'This substitutes the judicial repository for regional administrative personnel. Both are public employees. Check the official category rather than government service alone.
 
       '
   explanation: 'RA 6713 assigns regional and local officials and employees to the Deputy Ombudsman in their region. Regional state-university staff are also listed in CSC repository guidance. Senior university heads and personnel in other locations need their specific category checked.
@@ -320,7 +320,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0014
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'Under RA 6713''s statutory filing list, where do Supreme Court justices file their SALN?
 
     '
@@ -344,7 +344,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0015
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'Under RA 6713, where do trial-court judges file their SALN?
 
     '
@@ -368,7 +368,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0016
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   approved: false
   stem: 'A conflict arises after an employee is already in government service. Under the implementing rules, when do the resignation and divestment periods begin?
 
@@ -418,7 +418,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0018
   type: single_choice
-  difficulty: exam
+  difficulty: hard
   approved: false
   stem: 'Which relative must be included in the family financial disclosures described in the lesson?
 
@@ -443,7 +443,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0019
   type: single_choice
-  difficulty: exam
+  difficulty: hard
   approved: false
   stem: 'Which pair correctly matches the conflict-of-interest deadlines for a newly appointed official?
 
