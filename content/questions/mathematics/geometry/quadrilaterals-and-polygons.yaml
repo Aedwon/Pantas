@@ -289,7 +289,7 @@ questions:
     rationale: |
       This doubles the diagonal square instead of halving it. The relationship does involve a factor two. Check that the diagonal square is twice the side square.
   explanation: |
-    Let the square side be s. The diagonal forms a right triangle with two equal legs, so $s^2+s^2=12^2$. Hence $2s^2=144$ and $s^2=72$. The square area is $72$ square centimeters.
+    Let the square side be $s$. The diagonal forms a right triangle with two equal legs, so $s^2+s^2=12^2$. Hence $2s^2=144$ and $s^2=72$. The square area is $72$ square centimeters.
 - id: 'q-geometry-quadrilaterals-and-polygons-0014'
   type: 'direct-computation'
   difficulty: 'hard'
