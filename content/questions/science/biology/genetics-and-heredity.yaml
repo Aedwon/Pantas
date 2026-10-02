@@ -161,16 +161,19 @@ questions:
         correct: true
       - text: 'Guanine'
         rationale: |
-          You picked a base that appears in both DNA and RNA unchanged.
+          This chooses a base already shared by DNA and RNA. Guanine is a familiar base name. Check which standard base differs between the two alphabets.
+
       - text: 'Cytosine'
         rationale: |
-          You picked a base that appears in both unchanged.
+          This chooses a base already shared by DNA and RNA. Cytosine occurs in both. Check the T-versus-U distinction.
+
       - text: 'Adenine'
         rationale: |
-          You picked the base that pairs with thymine rather than the one that
-          replaces it.
+          This confuses thymine’s DNA partner with RNA’s replacement base. Adenine pairs with thymine in DNA. Check whether the question asks for a partner or the RNA-specific base.
+
     explanation: |
-      RNA uses uracil (U) in place of thymine (T); adenine in the DNA template pairs with uracil in the mRNA copy.
+      Standard RNA uses uracil, U, where standard DNA uses thymine, T. During transcription, a DNA-template adenine pairs with uracil in the RNA being made.
+
     approved: true
 
   - id: q-biology-genetics-and-heredity-0009
@@ -267,15 +270,19 @@ questions:
         correct: true
       - text: 'Yes: mRNA and DNA both use thymine identically.'
         rationale: |
-          You said both use thymine. RNA swaps thymine for uracil.
+          This copies DNA’s standard base alphabet into mRNA. Both carry genetic information. Check whether the sequence is labeled DNA or RNA.
+
       - text: 'No: but only because mRNA never contains adenine either.'
         rationale: |
-          You said RNA has no adenine. It does: adenine is in both.
+          This removes adenine along with thymine. The two molecules have one main alphabet difference. Check the shared A, C, and G bases.
+
       - text: 'Yes: uracil and thymine are interchangeable in every context.'
         rationale: |
-          You called them interchangeable. Each belongs to one of the two molecules.
+          This treats the two related bases as interchangeable in sequence notation. Both pair with adenine in their usual molecules. Check the RNA-specific U letter.
+
     explanation: |
-      RNA substitutes uracil (U) wherever DNA would use thymine (T). An mRNA sequence containing thymine is incorrect.
+      Standard mRNA sequence notation uses A, U, C, and G. Its RNA-specific letter is U rather than T. The stated sequence should use uracil in that position.
+
     approved: true
 
   - id: q-biology-genetics-and-heredity-0014

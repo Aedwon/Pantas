@@ -6,12 +6,12 @@ q-biology-genetics-and-heredity-0004	CORRECTED	SOLVED-MATCH	stem;choices;type;ex
 q-biology-genetics-and-heredity-0005	VERIFIED	SOLVED-MATCH	explanation;notes	LOW	Original described an intermediate phenotype as a new blend without clarifying heterozygosity.
 q-biology-genetics-and-heredity-0006	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
 q-biology-genetics-and-heredity-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Original used an absolute pairing claim; explanation discussed a wrong alternative pairing.
-q-biology-genetics-and-heredity-0008	NEEDS AEDWON	SOLVED-MATCH	unchanged	MEDIUM	Lesson does not teach the RNA base alphabet or the thymine/uracil distinction; question left unchanged.
+q-biology-genetics-and-heredity-0008	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Lesson does not teach the RNA base alphabet or T/U distinction. Stem, choices, and key preserved; explanation and notes now follow the required shape.
 q-biology-genetics-and-heredity-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	NONE	
 q-biology-genetics-and-heredity-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original stem lacked model assumptions and explanation falsely ruled out all dominant inheritance.
 q-biology-genetics-and-heredity-0011	CORRECTED	SOLVED-MATCH	stem;choices;type;explanation;notes	MEDIUM	Original repeated genotype-versus-phenotype identification and had two near-identical distractors.
 q-biology-genetics-and-heredity-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Correct choice was longest and several distractors were weak.
-q-biology-genetics-and-heredity-0013	NEEDS AEDWON	SOLVED-MATCH	unchanged	MEDIUM	Lesson does not teach the RNA base alphabet or the thymine/uracil distinction; question left unchanged.
+q-biology-genetics-and-heredity-0013	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Lesson does not teach the RNA base alphabet or T/U distinction. Stem, choices, and key preserved; explanation and notes now follow the required shape.
 q-biology-genetics-and-heredity-0014	CORRECTED	SOLVED-MATCH	stem;choices;type;explanation;notes	HIGH	Original duplicate pedigree item falsely said unaffected parents cannot have a child with a dominant condition.
 q-biology-genetics-and-heredity-0015	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	NONE	
 q-biology-genetics-and-heredity-0016	NEW	NEW	new question	NONE	
