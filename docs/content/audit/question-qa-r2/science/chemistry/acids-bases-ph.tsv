@@ -15,7 +15,7 @@ q-chemistry-acids-bases-ph-0013	CORRECTED	SOLVED-FIXED	stem;choices;explanation;
 q-chemistry-acids-bases-ph-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original explanation treated salt formation as ions combining; choices used safety and no-ion filler.
 q-chemistry-acids-bases-ph-0015	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original repeated the same pH-ratio scenario with different numbers.
 q-chemistry-acids-bases-ph-0016	NEW	NEW	new question	NONE	
-q-chemistry-acids-bases-ph-0017	NEW	NEW	new question	NONE	
+q-chemistry-acids-bases-ph-0017	NEW	NEW	new question;reaction formatting	NONE	
 q-chemistry-acids-bases-ph-0018	NEW	NEW	new question	NONE	
 q-chemistry-acids-bases-ph-0019	NEW	NEW	new question	NONE	
 q-chemistry-acids-bases-ph-0020	NEW	NEW	new question	NONE	

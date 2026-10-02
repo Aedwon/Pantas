@@ -344,8 +344,7 @@ questions:
     type: 'classify'
     difficulty: 'medium'
     stem: |
-      In $NH_3+HCl
-      ightarrow NH_4Cl$, which substance accepts the proton?
+      In $NH_3+HCl\rightarrow NH_4Cl$, which substance accepts the proton?
     choices:
       - text: '$NH_3$'
         correct: true
