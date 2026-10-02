@@ -446,3 +446,47 @@ fixture ruling. Its focused tests must run alone and show RED before the guard
 and GREEN afterward. The orchestrator will independently inspect that code and
 own final combined verification. The final summary/upload/completion record,
 app-branch integration, signing, and device acceptance are not complete here.
+
+### Importer implementation verified in focused tests; workspace inputs pending
+
+The Step 3 implementor ended with five authorized files changed and no commit
+because `flutter analyze --no-pub` reported 25 issues, exceeding the one accepted
+bookmarks-sheet information. The actual findings identify absent generated
+localization outputs and the three ignored protected seed inputs in the new
+worktree. The wrong-note guard itself passed its focused checks:
+
+```text
+RED: 4 loaded regressions failed because invalid notes were accepted
+GREEN: 4 regressions passed
+converter file: 13 passed
+passage converter file: 12 passed
+CLI file: 3 passed, run alone
+full-bank importer: exit 0
+format: 4 files, 0 changed, exit 0
+check_no_ai_attribution: OK
+analyzer: 25 issues, exit 1, not accepted
+```
+
+The first test attempt failed on the missing asset bundle, which was not counted
+as RED. The subsequent tool tests used Flutter's `--no-test-assets` option and
+proved the actual behavior. A new CLI assertion initially expected line-break
+folding; it was corrected to the existing preserved block-scalar text, and the
+file then passed. The implementor preserved exact RED/dirty file identities,
+commands, and output in its handoff. No unavailable signing action was attempted.
+
+#### Lead technical ruling: materialize unchanged verification inputs
+
+The orchestrator may regenerate localization output from the unchanged ARB
+sources and copy the existing protected package byte-for-byte from the frozen
+`web/roadmap-engine-r1` worktree, after verifying its manifest, trusted signature,
+payload digest, release window, and compiled content version. Both source and
+remote engineering heads are `1f79d880264e9c80c7507c95a365126d251c3837`.
+These ignored files are verification workspace inputs. They are not a new QA
+package and must not be rebuilt, re-signed, staged, or published. Record source
+and destination identities and keep the actual source artifact untouched.
+
+This resolves setup requirements of the already-approved analyzer gate without
+changing app code, dependencies, the package identity, or release permissions.
+The orchestrator independently inspected the five-file importer diff against the
+approved task and fixture ruling and found no code-review findings. Acceptance
+and committing still require the corrected analyzer and final verification.
