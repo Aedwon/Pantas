@@ -2,289 +2,424 @@ meta:
   subject: science
   topic: chemistry
   subtopic: stoichiometry
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-chemistry-stoichiometry-0001
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
       For the reaction $N_2 + 3H_2 \rightarrow 2NH_3$, a chemist starts with 5 moles of $N_2$ and 12 moles of $H_2$. Which reactant is limiting?
     choices:
-      - text: H2, since 5 moles of N2 need 15 moles of H2, but only 12 are available
+      - text: '$H_2$'
         correct: true
-      - text: N2, since it has fewer starting moles than H2
+      - text: '$N_2$'
         rationale: |
-          You compared raw mole counts instead of using the stoichiometric ratio. $N_2$ needs 3 times as much $H_2$, making $H_2$ run out first.
-      - text: 'Neither: both reactants are used up at exactly the same time'
+          This compares raw amounts without coefficients. Nitrogen has fewer moles. Check the required 1:3 ratio.
+      - text: 'Neither; both amounts match exactly'
         rationale: |
-          You assumed a stoichiometric match. 5 moles of $N_2$ require 15 moles of $H_2$, so 12 moles of $H_2$ will run out early.
-      - text: NH3, since it is the product, not a reactant
+          This assumes the starting ratio exactly matches the equation. Both reactants are present. Check their amounts against the coefficients.
+      - text: '$NH_3$, because it is the product'
         rationale: |
-          You picked a product. Only starting reactants ($N_2$ or $H_2$) can be limiting reactants.
+          This selects product as a limiting reactant. Ammonia appears in the equation. Check which side supplies the starting reactants.
     explanation: |
-      The equation needs 3 moles of $H_2$ for every mole of $N_2$. For 5 moles of $N_2$, $5 \times 3 = 15$ moles of $H_2$ are needed, but only 12 are available. $H_2$ runs out first, making it the limiting reactant.
+      Each mole of $N_2$ requires 3 mol $H_2$. Five moles would require 15 mol $H_2$. Only 12 are present, so $H_2$ is limiting.
     approved: true
+
   - id: q-chemistry-stoichiometry-0002
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
       A reaction's theoretical yield is 80 grams. In the actual experiment, 68 grams were collected. Find the percent yield.
     choices:
-      - text: 85%
+      - text: '85%'
         correct: true
-      - text: 68%
+      - text: '68%'
         rationale: |
-          You took the actual yield value in grams directly as a percentage instead of dividing by theoretical yield ($\dfrac{68}{80} \times 100\%$).
-      - text: 80%
+          This labels the actual gram value as percent. Sixty-eight is given. Check the required ratio.
+      - text: '80%'
         rationale: |
-          You took the theoretical yield value in grams directly as a percentage instead of dividing actual yield by theoretical yield.
-      - text: 118%
+          This labels the theoretical gram value as percent. Eighty is given. Check which yield belongs in the numerator.
+      - text: '118%'
         rationale: |
-          You inverted the fraction ($\dfrac{80}{68}$). Percent yield is actual yield divided by theoretical yield ($\dfrac{68}{80}$).
+          This reverses the fraction to $80/68$, about 118%. Both masses are used. Check actual divided by theoretical.
     explanation: |
-      Percent yield equals actual yield divided by theoretical yield, times 100%: $\dfrac{68}{80} \times 100\% = 85\%$.
+      Percent yield is $\dfrac{\text{actual}}{\text{theoretical}}\times100\%$. Substitute $\dfrac{68}{80}\times100\%=85\%$.
     approved: true
+
   - id: q-chemistry-stoichiometry-0003
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
       A compound contains 3 moles of carbon, 6 moles of hydrogen, and 3 moles of oxygen. Find its empirical formula.
     choices:
-      - text: CH2O
+      - text: '$CH_2O$'
         correct: true
-      - text: C3H6O3
+      - text: '$C_3H_6O_3$'
         rationale: |
-          You wrote the molecular formula ratio. An empirical formula requires dividing by the greatest common factor (3) to get the simplest ratio.
-      - text: CH3O
+          This keeps the unreduced composition. It preserves the element ratio. Check whether all subscripts share a factor.
+      - text: '$CH_3O$'
         rationale: |
-          You miscalculated the hydrogen ratio. Dividing 6 moles of hydrogen by 3 gives 2 ($CH_2O$), not 3.
-      - text: C2H4O2
+          This divides hydrogen by 2 while the others use 3. The hydrogen amount is six. Check that all amounts use one divisor.
+      - text: '$C_2H_4O_2$'
         rationale: |
-          You divided by 1.5 instead of 3. Always divide every mole value by the smallest mole value present (3) to get $CH_2O$.
+          This divides all counts by 1.5 but leaves a reducible ratio. Whole numbers result. Check for a remaining common factor.
     explanation: |
-      Divide every mole amount by the smallest value (3): $\dfrac{3}{3} = 1$, $\dfrac{6}{3} = 2$, $\dfrac{3}{3} = 1$. The simplest ratio is carbon 1, hydrogen 2, oxygen 1: $CH_2O$.
+      Divide each mole amount by 3: $3:6:3$ becomes $1:2:1$. The empirical formula is $CH_2O$.
     approved: true
+
   - id: q-chemistry-stoichiometry-0004
-    type: simple-quantitative
-    difficulty: hard
+    type: 'simple-quantitative'
+    difficulty: 'hard'
     stem: |
       A compound has the empirical formula $CH_2O$ (empirical formula mass = 30 g/mol) and an actual molar mass of 180 g/mol. Find its molecular formula.
     choices:
-      - text: C6H12O6
+      - text: '$C_6H_{12}O_6$'
         correct: true
-      - text: C3H6O3
+      - text: '$C_3H_6O_3$'
         rationale: |
-          You multiplied subscripts by 3 ($\dfrac{90}{30}$). The multiplier is $\dfrac{180}{30} = 6$, giving $C_6H_{12}O_6$.
-      - text: C2H4O2
+          This halves the factor after finding it. Six is the required mass ratio. Check whether any halving is justified.
+      - text: '$C_2H_4O_2$'
         rationale: |
-          You multiplied subscripts by 2 ($\dfrac{60}{30}$). Dividing 180 by 30 gives 6, so multiply all subscripts by 6.
-      - text: C4H8O4
+          This uses the hydrogen subscript 2 as the formula multiplier. It is visible in the empirical formula. Check the molar-mass ratio instead.
+      - text: '$C_{12}H_{24}O_{12}$'
         rationale: |
-          You multiplied subscripts by 4 ($\dfrac{120}{30}$). The ratio of 180 to 30 is 6, giving $C_6H_{12}O_6$.
+          This applies hydrogen’s 2 as an extra factor to the whole formula. Hydrogen has a subscript 2. Check that each original subscript already receives the mass-ratio multiplier.
     explanation: |
-      Divide the actual molar mass by the empirical formula mass: $\dfrac{180}{30} = 6$. Multiply every subscript in $CH_2O$ by 6: $C_6H_{12}O_6$.
+      The factor is $180/30=6$. Multiply each empirical subscript by 6. This gives $C_6H_{12}O_6$.
     approved: true
+
   - id: q-chemistry-stoichiometry-0005
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
       A student assumes the reactant with the smaller number of starting moles is always the limiting reactant, without checking the balanced equation's ratio. Is this a safe assumption?
     choices:
-      - text: 'No: the limiting reactant depends on the equation''s mole ratio, not just on which reactant has fewer raw moles.'
+      - text: 'No; compare through the equation ratio.'
         correct: true
-      - text: 'Yes: the reactant with fewer moles is always limiting, regardless of the equation.'
+      - text: 'Yes; the smaller mole count is always limiting.'
         rationale: |
-          You ignored reaction coefficients. A reactant with fewer starting moles may not run out first if the reaction consumes the other faster.
-      - text: 'Yes: but only for reactions involving gases.'
+          This uses raw mole counts alone. A smaller sample seems likely to run out first. Check the balanced coefficients.
+      - text: 'Yes; raw counts determine limits for all gas reactions.'
         rationale: |
-          You made gas phase an exception. Stoichiometric ratios apply to all states of matter, not just gases.
-      - text: 'No: the reactant with more moles is always limiting instead.'
+          This makes gas phase an exception to stoichiometry. Many gas examples use ratios. Check that coefficients apply to all stated phases.
+      - text: 'No; the larger mole count is always limiting.'
         rationale: |
-          You reversed the rule. Neither raw larger nor smaller mole count dictates limiting status without the balanced equation's ratio.
+          This reverses the raw-count rule without using ratios. More moles can still be insufficient. Check the product possible from each reactant.
     explanation: |
-      A reactant with a "bigger number" of moles can still run out first if the equation requires even more of it. The mole ratio from the balanced equation must always be checked, not just the raw starting amounts.
+      Balanced coefficients determine the required reactant ratio. The limiting reactant is the one that can form less of the same product from its available amount.
     approved: true
+
   - id: q-chemistry-stoichiometry-0006
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
       A student calculates percent yield by dividing theoretical yield by actual yield, instead of actual by theoretical. Is this the correct formula?
     choices:
-      - text: 'No: percent yield divides actual yield by theoretical yield, not the reverse.'
+      - text: 'No; divide actual by theoretical.'
         correct: true
-      - text: 'Yes: either order gives the same meaningful result.'
+      - text: 'Yes; either division order gives the same percentage.'
         rationale: |
-          You assumed division order is reversible. Reversing the fraction produces numbers over 100%, which changes the physical meaning.
-      - text: 'No: percent yield should divide theoretical yield by itself.'
+          This treats division order as interchangeable. Both yields appear. Check which is the measured amount in the numerator.
+      - text: 'No; theoretical should be divided by theoretical.'
         rationale: |
-          You divided a value by itself. Dividing theoretical yield by theoretical yield always equals 100%, ignoring actual experimental results.
-      - text: 'Yes: dividing theoretical by actual is the standard formula.'
+          This divides the theoretical value by itself. That produces 100% automatically. Check that actual yield is included.
+      - text: 'Yes; theoretical divided by actual defines yield.'
         rationale: |
-          You accepted the inverted formula. Standard percent yield compares actual experimental yield against the theoretical maximum.
+          This accepts the inverse ratio. Theoretical yield is the reference value. Check that it belongs in the denominator.
     explanation: |
-      Percent yield is actual yield divided by theoretical yield, times 100%. Reversing the formula would often produce a result over 100%, which does not match how percent yield is meant to work, since real yields rarely exceed the theoretical maximum.
+      The definition is actual yield divided by theoretical yield, multiplied by 100%. It compares the experimentally obtained amount with the calculated maximum.
     approved: true
+
   - id: q-chemistry-stoichiometry-0007
-    type: compare-contrast
-    difficulty: hard
+    type: 'compare-contrast'
+    difficulty: 'hard'
     stem: |
       A compound's empirical formula is $CH_2O$ and its molecular formula is $C_6H_{12}O_6$ (glucose). A student says these two formulas describe two different substances. Is this correct?
     choices:
-      - text: 'No: they describe the same substance; the molecular formula is simply a whole-number multiple of the empirical ratio.'
+      - text: 'No; they are two formula representations.'
         correct: true
-      - text: 'Yes: different formulas always mean different substances.'
+      - text: 'Yes; different representations always mean different substances.'
         rationale: |
-          You assumed empirical and molecular formulas belong to different compounds. Empirical formula is just the reduced ratio of the molecular formula.
-      - text: 'No: but only because glucose has no true molecular formula.'
+          This treats different representations as necessarily different substances. The formulas look different. Check whether one is the reduced ratio of the other.
+      - text: 'No; glucose cannot have a molecular formula at all.'
         rationale: |
-          You denied the molecular formula of glucose. $C_6H_{12}O_6$ is the real, actual molecular formula of glucose.
-      - text: 'Yes: the empirical formula is an older, outdated compound.'
+          This removes molecular composition from a molecular substance. Glucose has an empirical formula too. Check the actual molecule’s atom counts.
+      - text: 'Yes; the empirical formula names a separate reaction product.'
         rationale: |
-          You treated empirical formulas as historical relics. Empirical formulas are mathematical representations of simplest atomic ratios.
+          This treats a ratio as a separate reaction product. The two formulas contain the same elements. Check whether a formula representation is a physical sample.
     explanation: |
-      The empirical formula shows the simplest ratio of atoms; the molecular formula shows the true total count in one molecule. Both describe glucose: the molecular formula is just the empirical ratio multiplied by a whole number (6, in this case).
+      The empirical formula gives the simplest atom ratio. The molecular formula gives actual atom counts in one glucose molecule. Dividing its subscripts by 6 gives the empirical ratio.
     approved: true
+
   - id: q-chemistry-stoichiometry-0008
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
       A compound has 4 moles of carbon, 8 moles of hydrogen, and 2 moles of oxygen. A student divides carbon and hydrogen by 4, but oxygen by 2, getting a ratio of 1, 2, 1. Is this a correct way to find the empirical formula?
     choices:
-      - text: 'No: every element must be divided by the same smallest value; here that value is 2, giving a ratio of 2, 4, 1 instead.'
+      - text: 'No; use one common divisor.'
         correct: true
-      - text: 'Yes: each element can be divided by whatever number makes it a whole number.'
+      - text: 'Yes; each element may use a different convenient divisor.'
         rationale: |
-          You allowed inconsistent divisors. Dividing by different numbers alters the chemical ratio between elements.
-      - text: 'No: the values should not be divided at all.'
+          This allows different divisors for different elements. Each result may be a whole number. Check whether the relative proportions are preserved.
+      - text: 'No; empirical counts must never be reduced.'
         rationale: |
-          You rejected simplifying mole ratios. Empirical formulas require dividing by the smallest mole value to find simplest ratios.
-      - text: 'Yes: the resulting ratio 1, 2, 1 is correct.'
+          This leaves every count unreduced. The original composition is valid. Check whether it is already the simplest whole-number ratio.
+      - text: 'Yes; obtaining familiar whole numbers is sufficient.'
         rationale: |
-          You accepted the wrong formula ($CH_2O$). Dividing 4, 8, 2 all by 2 yields $C_2H_4O$, not $CH_2O$.
+          This accepts a ratio obtained with unequal divisors. The result looks familiar. Check one common divisor for every element.
     explanation: |
-      All elements must be divided by the same smallest mole value to preserve the true ratio between them. Here the smallest value is 2, so the correct division gives $\dfrac{4}{2}=2$, $\dfrac{8}{2}=4$, $\dfrac{2}{2}=1$: an empirical formula of $C_2H_4O$, not the student's mismatched result.
+      Use the same divisor to preserve composition. Divide $4,8,2$ by 2 to get $2,4,1$. The simplest formula is $C_2H_4O$.
     approved: true
+
   - id: q-chemistry-stoichiometry-0009
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
-      For the reaction $2Al + 3Cl_2 \rightarrow 2AlCl_3$, a chemist starts with 6 moles of $Al$ and 8 moles of $Cl_2$. Which reactant is limiting?
+      For $2Al+3Cl_2\rightarrow2AlCl_3$, start with 6 mol Al and 8 mol $Cl_2$. After ideal completion, how much Al remains?
     choices:
-      - text: Cl2, since 6 moles of Al need 9 moles of Cl2, but only 8 are available
+      - text: '$\dfrac{2}{3}$ mol'
         correct: true
-      - text: Al, since it has fewer starting moles than Cl2
+      - text: '2 mol'
         rationale: |
-          You picked the smaller raw mole count. 6 moles of $Al$ need 9 moles of $Cl_2$ (ratio 2:3), so $Cl_2$ runs out first.
-      - text: 'Neither: both reactants are used up at exactly the same time'
+          This subtracts reactant amounts directly, $8-6$. Both are in moles. Check the reaction’s unequal coefficients.
+      - text: '0 mol'
         rationale: |
-          You assumed an exact ratio match. $Al$ needs 1.5 times its moles in $Cl_2$, so 6 moles of $Al$ need 9 moles of $Cl_2$.
-      - text: AlCl3, since it is the product, not a reactant
+          This assumes all aluminum reacts. The sample contains both reactants. Check whether enough chlorine is supplied.
+      - text: '$\dfrac{8}{3}$ mol'
         rationale: |
-          You picked the reaction product. Only starting reactants can be limiting.
+          This divides chlorine moles by its coefficient and reports that as leftover aluminum. The factor 3 is relevant. Check the amount consumed and subtract it from the starting aluminum.
     explanation: |
-      The equation needs 3 moles of $Cl_2$ for every 2 moles of $Al$. For 6 moles of $Al$, $6 \times \dfrac{3}{2} = 9$ moles of $Cl_2$ are needed, but only 8 are available. $Cl_2$ runs out first.
+      Eight moles of $Cl_2$ consume $8\times\dfrac{2}{3}=\dfrac{16}{3}$ mol Al. Six moles Al are available. The remainder is $6-\dfrac{16}{3}=\dfrac{2}{3}$ mol.
     approved: true
+
   - id: q-chemistry-stoichiometry-0010
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
-      A reaction's theoretical yield is 25 grams. In the actual experiment, 20 grams were collected. Find the percent yield.
+      An experiment isolates 20 g product at 80% yield. What is the theoretical yield?
     choices:
-      - text: 80%
+      - text: '25 g'
         correct: true
-      - text: 20%
+      - text: '16 g'
         rationale: |
-          You took the actual yield mass directly as the percentage instead of calculating $\dfrac{20}{25} \times 100\%$.
-      - text: 25%
+          This multiplies actual yield by 0.80 instead of dividing. The percentage is familiar. Check whether the maximum should exceed the actual amount.
+      - text: '19.2 g'
         rationale: |
-          You took the theoretical yield mass directly as the percentage instead of calculating $\dfrac{20}{25} \times 100\%$.
-      - text: 125%
+          This subtracts the yield fraction from the mass. Both numbers appear. Check that a percentage is a multiplier, not a gram quantity.
+      - text: '0.25 g'
         rationale: |
-          You inverted the yield formula ($\dfrac{25}{20}$). Percent yield is actual divided by theoretical ($\dfrac{20}{25}$).
+          This treats 80% as 80 rather than 0.80. The numeral is stated. Check the percent conversion.
     explanation: |
-      Percent yield equals actual yield divided by theoretical yield, times 100%: $\dfrac{20}{25} \times 100\% = 80\%$.
+      The yield fraction is $80/100=0.80$. Thus $20=0.80\times\text{theoretical yield}$. Divide: $20/0.80=25$ g.
     approved: true
+
   - id: q-chemistry-stoichiometry-0011
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
-      A compound contains 1 mole of carbon and 4 moles of hydrogen. Find its empirical formula.
+      Two molecular substances have formulas $C_2H_4$ and $C_4H_8$. Which empirical formula do they share?
     choices:
-      - text: CH4
+      - text: '$CH_2$'
         correct: true
-      - text: C4H
+      - text: '$C_2H_4$'
         rationale: |
-          You swapped the element subscripts. Carbon has 1 mole and hydrogen has 4, giving $CH_4$, not $C_4H$.
-      - text: C2H8
+          This keeps one molecule’s actual counts instead of the simplest ratio. $C_2H_4$ is given. Check the common factor.
+      - text: '$C_4H_8$'
         rationale: |
-          You multiplied the simplest ratio by 2. Empirical formulas must express the simplest whole-number ratio ($CH_4$).
-      - text: CH2
+          This keeps the larger molecule’s counts. $C_4H_8$ is given. Check the smallest whole-number ratio.
+      - text: '$C_2H$'
         rationale: |
-          You halved the hydrogen count. 4 moles of hydrogen with 1 mole of carbon gives $CH_4$.
+          This reverses the element ratio. The same two elements appear. Check which subscript belongs to hydrogen.
     explanation: |
-      Divide every mole amount by the smallest value (1): carbon stays 1, hydrogen stays 4. Since these are already the simplest whole-number ratio, the empirical formula is $CH_4$.
+      Reduce $C_2H_4$ by 2 and $C_4H_8$ by 4. Both give the $1:2$ carbon-to-hydrogen ratio, $CH_2$.
     approved: true
+
   - id: q-chemistry-stoichiometry-0012
-    type: simple-quantitative
-    difficulty: exam
+    type: 'classify'
+    difficulty: 'exam'
     stem: |
-      A compound has the empirical formula $NO_2$ (empirical formula mass = 46 g/mol) and an actual molar mass of 92 g/mol. Find its molecular formula.
+      A proposed empirical formula has molar mass 46 g/mol, but a precise molecular-mass result gives a clearly non-integer multiple. What should be done?
     choices:
-      - text: N2O4
+      - text: 'Recheck data and the empirical formula.'
         correct: true
-      - text: NO2
+      - text: 'Round the multiplier without checking measurement tolerance.'
         rationale: |
-          You kept the empirical formula unchanged. The actual mass of 92 g/mol is twice 46 g/mol, requiring doubled subscripts ($N_2O_4$).
-      - text: N4O8
+          This rounds a substantial non-integer ratio without checking consistency. Two is nearby. Check whether measurement tolerance justifies that change.
+      - text: 'Use fractional subscripts in the molecular formula.'
         rationale: |
-          You multiplied subscripts by 4. The ratio of 92 to 46 is 2, so multiply subscripts by 2 ($N_2O_4$).
-      - text: N2O2
+          This uses fractional molecular subscripts. The mass ratio was calculated. Check that a molecule contains whole atom counts.
+      - text: 'Set the multiplier to one regardless of the molecular mass.'
         rationale: |
-          You did not multiply oxygen's subscript of 2. Multiplying both subscripts in $NO_2$ by 2 yields $N_2O_4$.
+          This forces every empirical formula to be the molecular formula. The empirical unit has a known mass. Check whether the measured molecular mass matches.
     explanation: |
-      Divide the actual molar mass by the empirical formula mass: $\dfrac{92}{46} = 2$. Multiply every subscript in $NO_2$ by 2: $N_2O_4$.
+      For a molecular substance, the molecular formula is a whole-number multiple of its empirical formula. A non-integer mass ratio beyond justified uncertainty signals inconsistent data or an incorrect empirical formula.
     approved: true
+
   - id: q-chemistry-stoichiometry-0013
-    type: predict-outcome
-    difficulty: exam
+    type: 'predict-outcome'
+    difficulty: 'exam'
     stem: |
       For the reaction $N_2 + 3H_2 \rightarrow 2NH_3$, a chemist starts with 4 moles of $N_2$ and 9 moles of $H_2$ (so $H_2$ is the limiting reactant). How many moles of $NH_3$ can be produced?
     choices:
-      - text: 6 mol
+      - text: '6 mol'
         correct: true
-      - text: 9 mol
+      - text: '9 mol'
         rationale: |
-          You used the limiting reactant's mole count directly as product. Use the 3:2 mole ratio from the balanced equation ($9 \times \dfrac{2}{3} = 6$).
-      - text: 4 mol
+          This copies hydrogen’s amount directly to ammonia. Hydrogen is limiting. Check the 3:2 reactant-product ratio.
+      - text: '4 mol'
         rationale: |
-          You used excess reactant $N_2$ for the calculation. Product yield is determined by the limiting reactant $H_2$.
-      - text: 3 mol
+          This copies nitrogen’s starting amount as product. Nitrogen is available. Check the limiting reactant and product coefficient.
+      - text: '3 mol'
         rationale: |
-          You used the coefficient of $H_2$. Multiply limiting moles (9) by the mole ratio $\dfrac{2}{3}$ to get 6 moles of $NH_3$.
+          This computes nitrogen consumed, $9/3$, but reports it as ammonia. The division uses a correct coefficient. Check which substance’s amount it gives.
     explanation: |
-      The equation's ratio is 3 moles of $H_2$ to 2 moles of $NH_3$. Using the limiting reactant's 9 moles: $9 \times \dfrac{2}{3} = 6$ moles of $NH_3$.
+      The limiting 9 mol $H_2$ determines the maximum ammonia. The balanced ratio gives $9\times\dfrac{2}{3}=6$ mol $NH_3$.
     approved: true
+
   - id: q-chemistry-stoichiometry-0014
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       A balanced equation predicts a maximum possible product amount before any experiment is run. What is this predicted amount called?
     choices:
-      - text: Theoretical yield
+      - text: 'Theoretical yield'
         correct: true
-      - text: Actual yield
+      - text: 'Actual isolated yield'
         rationale: |
-          You picked the real-world measured amount. Actual yield is what you weigh after running the experiment.
-      - text: Percent yield
+          This names the measured isolated amount. Experiments collect product. Check whether the value is calculated before the experiment.
+      - text: 'Measured percent yield'
         rationale: |
-          You picked the ratio measure. Percent yield compares actual yield to theoretical yield as a percentage.
-      - text: Empirical yield
+          This names a percentage comparing two yields. It is a useful performance measure. Check whether the question asks for an amount or a ratio.
+      - text: 'Empirical-formula ratio'
         rationale: |
-          You used the term for simplest atomic ratios. Empirical applies to formulas, not maximum reaction yields.
+          This names a simplest composition ratio. Empirical formulas use ratios. Check whether the quantity is a product amount.
     explanation: |
-      The theoretical yield is the maximum amount the balanced equation predicts, calculated from the limiting reactant, before any real-world losses are considered.
+      The theoretical yield is the calculated maximum product from the limiting reactant under the stated ideal reaction. It is determined before experimental losses.
     approved: true
+
+  - id: q-chemistry-stoichiometry-0015
+    type: 'process-ordering'
+    difficulty: 'easy'
+    stem: |
+      Which sequence identifies a limiting reactant from reactant masses?
+    choices:
+      - text: 'Convert moles, compare product yields, choose smaller.'
+        correct: true
+      - text: 'Choose the smaller gram mass, then ignore the balanced coefficients.'
+        rationale: |
+          This compares masses directly. A smaller mass may look likely to run out. Check the molar masses and reaction ratio.
+      - text: 'Add the reactant masses, then choose the largest coefficient.'
+        rationale: |
+          This adds masses without assigning a reactant limit. Mass is conserved. Check what each reactant can form separately.
+      - text: 'Choose the reactant with the smaller molar mass in every case.'
+        rationale: |
+          This treats molar mass as the limit criterion. It is needed for conversion. Check available amount relative to required ratio.
+    explanation: |
+      Convert each mass to moles. Use the balanced coefficients to find the same product amount from each reactant. The smaller predicted amount identifies the limiting reactant.
+    approved: false
+
+  - id: q-chemistry-stoichiometry-0016
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      An experiment reports a product mass giving 105% yield. Which interpretation is reasonable?
+    choices:
+      - text: 'Check for retained solvent or impurities.'
+        correct: true
+      - text: 'Pure product must exceed the stoichiometric maximum.'
+        rationale: |
+          This treats extra measured mass as extra pure product. The balance records more mass. Check whether all of it is the specified product.
+      - text: 'The percent-yield definition is automatically invalid.'
+        rationale: |
+          This rejects the definition because a measurement exceeds the expected pure maximum. The percentage is unusual. Check product purity and measurement assumptions.
+      - text: 'Any reported result over 100% is mathematically impossible.'
+        rationale: |
+          This confuses the true product maximum with what a balance may report. The ideal limit is 100%. Check whether measured mass can include other material.
+    explanation: |
+      A measured product mass can include solvent or impurities. Such extra mass can give an apparent yield above 100%. The result calls for checking purity, measurement, and reaction assumptions.
+    approved: false
+
+  - id: q-chemistry-stoichiometry-0017
+    type: 'simple-quantitative'
+    difficulty: 'hard'
+    stem: |
+      Normalized empirical mole ratios are C:H:O = $1:1.5:1$. What simplest whole-number ratio follows?
+    choices:
+      - text: '2:3:2'
+        correct: true
+      - text: '1:2:1'
+        rationale: |
+          This rounds 1.5 alone to 2. Whole subscripts are needed. Check whether joint scaling preserves the exact ratio.
+      - text: '2:1.5:2'
+        rationale: |
+          This scales carbon and oxygen but not hydrogen. Some values become whole. Check that all ratios receive the same factor.
+      - text: '1:1:1'
+        rationale: |
+          This drops the half in hydrogen. Simple integers are tempting. Check that the composition ratio is preserved.
+    explanation: |
+      Multiply every ratio by 2. The result is $2:3:2$, which contains whole numbers and has no common factor.
+    approved: false
+
+  - id: q-chemistry-stoichiometry-0018
+    type: 'compare-contrast'
+    difficulty: 'hard'
+    stem: |
+      Why is crystalline NaCl normally described by formula units rather than a molecular formula?
+    choices:
+      - text: 'It forms an extended ionic lattice.'
+        correct: true
+      - text: 'Its lattice consists of separate covalent NaCl molecules.'
+        rationale: |
+          This applies the discrete-molecule model to an ionic solid. The formula looks compact. Check its extended structure.
+      - text: 'It contains only one element and no compound ratio.'
+        rationale: |
+          This treats one formula as one element. NaCl is one substance. Check its sodium and chlorine composition.
+      - text: 'Its empirical formula changes with the size of a crystal.'
+        rationale: |
+          This treats more units as a changed ratio. Larger crystals contain more ions. Check whether the simplest composition stays the same.
+    explanation: |
+      NaCl forms an extended lattice of ions. Its formula unit gives the simplest ion ratio in that structure.
+    approved: false
+
+  - id: q-chemistry-stoichiometry-0019
+    type: 'predict-outcome'
+    difficulty: 'exam'
+    stem: |
+      In a reaction with one limiting and one excess reactant, the ideal reaction consumes the limiting reactant fully. What is left?
+    choices:
+      - text: 'Some excess reactant may remain.'
+        correct: true
+      - text: 'Both reactants must be consumed in equal mole amounts.'
+        rationale: |
+          This confuses complete consumption with equal mole use. The reaction consumes both. Check the balanced ratio and available amounts.
+      - text: 'The limiting reactant must remain while the excess disappears.'
+        rationale: |
+          This reverses limiting and excess. Both labels describe reactants. Check which runs out first.
+      - text: 'Every product is automatically collected at 100% experimental yield.'
+        rationale: |
+          This treats theoretical completion as perfect recovery. The ideal reaction forms product. Check whether laboratory collection can still lose some.
+    explanation: |
+      The excess reactant was supplied beyond the amount needed to consume the limiting reactant. Some of it therefore remains under the stated ideal reaction model.
+    approved: false
+
+  - id: q-chemistry-stoichiometry-0020
+    type: 'simple-quantitative'
+    difficulty: 'exam'
+    stem: |
+      A molecular formula is $C_4H_8$, with an empirical-formula mass of 14 g/mol. What molecular molar mass follows?
+    choices:
+      - text: '56 g/mol'
+        correct: true
+      - text: '14 g/mol'
+        rationale: |
+          This uses one empirical unit’s mass for the whole molecule. Four such ratios occur. Check the molecular-to-empirical factor.
+      - text: '28 g/mol'
+        rationale: |
+          This uses hydrogen’s subscript ratio as only two units. The molecule has eight hydrogens. Check that each CH2 unit already has two.
+      - text: '3.5 g/mol'
+        rationale: |
+          This divides 14 by four instead of multiplying. Four is the factor. Check whether the whole molecule is heavier than one empirical unit.
+    explanation: |
+      The empirical ratio is $CH_2$. The molecule has four such units. Multiply $4\times14=56$ g/mol.
+    approved: false
