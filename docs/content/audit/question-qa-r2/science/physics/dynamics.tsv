@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-physics-dynamics-0001	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-physics-dynamics-0002	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-physics-dynamics-0003	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-physics-dynamics-0004	CORRECTED	SOLVED-MATCH	explanation;notes;wording;choices	MEDIUM	Removed answer-length cues, repeated distractor, or unclear assumptions.
+q-physics-dynamics-0005	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-physics-dynamics-0006	CORRECTED	SOLVED-MATCH	explanation;notes;wording;choices	MEDIUM	Removed answer-length cues, repeated distractor, or unclear assumptions.
+q-physics-dynamics-0007	CORRECTED	SOLVED-MATCH	explanation;notes;wording;choices	MEDIUM	Removed answer-length cues, repeated distractor, or unclear assumptions.
+q-physics-dynamics-0008	CORRECTED	SOLVED-MATCH	explanation;notes;wording;choices	MEDIUM	Removed answer-length cues, repeated distractor, or unclear assumptions.
+q-physics-dynamics-0009	CORRECTED	SOLVED-MATCH	explanation;notes;wording;choices	MEDIUM	Removed answer-length cues, repeated distractor, or unclear assumptions.
+q-physics-dynamics-0010	CORRECTED	SOLVED-MATCH	explanation;notes;wording;choices	MEDIUM	Removed answer-length cues, repeated distractor, or unclear assumptions.
+q-physics-dynamics-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original stated N=mg without requiring zero vertical acceleration; duplicate normal-force item replaced.
+q-physics-dynamics-0012	CORRECTED	SOLVED-MATCH	explanation;notes;wording;choices	MEDIUM	Removed answer-length cues, repeated distractor, or unclear assumptions.
+q-physics-dynamics-0013	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-physics-dynamics-0014	CORRECTED	SOLVED-MATCH	explanation;notes;wording;choices	MEDIUM	Removed answer-length cues, repeated distractor, or unclear assumptions.
+q-physics-dynamics-0015	CORRECTED	SOLVED-MATCH	explanation;notes;wording;choices	MEDIUM	Removed answer-length cues, repeated distractor, or unclear assumptions.
+q-physics-dynamics-0016	NEW	NEW	new question	NONE	
+q-physics-dynamics-0017	NEW	NEW	new question	NONE	
+q-physics-dynamics-0018	NEW	NEW	new question	NONE	
+q-physics-dynamics-0019	NEW	NEW	new question	NONE	
+q-physics-dynamics-0020	NEW	NEW	new question	NONE	
