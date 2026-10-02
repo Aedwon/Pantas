@@ -58,7 +58,7 @@ questions:
       - text: '$\dfrac{3}{2}$'
         rationale: |
           This moves the percentage decimal only one place and reports the discount as the fraction paid. A one-place shift is easy to make. Check that percent means out of one hundred.
-      - text: '$1$'
+      - text: '$\dfrac{20}{20}$'
         rationale: |
           This reports the whole bill with no discount. The full bill is the starting amount. Check that the discount lowers the bill.
     explanation: |
