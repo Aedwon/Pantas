@@ -139,9 +139,20 @@ void main() {
     expect(mitochondrion.rationale, isNotNull);
     expect(mitochondrion.rationale, contains('already made'));
 
-    // And a choice without one stays null rather than becoming empty text,
-    // because the reveal decides on null.
     final ribosome = first.choices.firstWhere((c) => c.text == 'Ribosome');
-    expect(ribosome.rationale, isNull);
+    expect(
+      ribosome.rationale,
+      'This mixes up making proteins with making food. Ribosomes build\n'
+      'proteins, so they may seem to make food too. Check whether the\n'
+      'organelle captures light for photosynthesis.',
+    );
+    for (final q in allQuestions) {
+      for (final choice in q.choices.where((c) => !c.isCorrect)) {
+        expect(choice.rationale, isNotNull);
+        expect(choice.rationale!.trim(), isNotEmpty);
+      }
+      // The correct choice needs no note and stays null for the reveal.
+      expect(q.choices.singleWhere((c) => c.isCorrect).rationale, isNull);
+    }
   });
 }

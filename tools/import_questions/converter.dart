@@ -108,6 +108,12 @@ Map<String, Object?> questionToDoc(
     if (rationale != null && rationale is! String) {
       throw FormatException('$id: choice ${i + 1} rationale must be a string');
     }
+    if (c['correct'] != true &&
+        (rationale is! String || rationale.trim().isEmpty)) {
+      throw FormatException(
+        '$id: choice ${i + 1} needs a non-empty rationale',
+      );
+    }
     if (rationale is String && rationale.trim().isNotEmpty) {
       rejectEmDash(rationale, id, 'choice ${i + 1} rationale');
     }
@@ -116,8 +122,8 @@ Map<String, Object?> questionToDoc(
       'label': labels[i],
       'text': text.trim(),
       'isCorrect': c['correct'] == true,
-      // Note B, the reveal's Pro note. Omitted rather than empty when the
-      // question has none.
+      // Note B, the reveal's Pro note. Required for wrong choices; omitted
+      // when the correct choice has none.
       if (rationale is String && rationale.trim().isNotEmpty)
         'rationale': rationale.trim(),
     });

@@ -17,7 +17,15 @@ questions:
           Mitochondria release energy from food that is already made. The
           chloroplast is where the food gets made in the first place.
       - text: Ribosome
+        rationale: |
+          This mixes up making proteins with making food. Ribosomes build
+          proteins, so they may seem to make food too. Check whether the
+          organelle captures light for photosynthesis.
       - text: Golgi apparatus
+        rationale: |
+          This mixes up packing materials with making food. The Golgi handles
+          materials the cell makes, so it may seem to make them too. Check
+          which organelle captures light.
     explanation: |
       Chloroplasts hold chlorophyll, which captures light to make food.
   - id: q-biology-cell-structure-0002
@@ -30,7 +38,19 @@ questions:
       - text: Cell membrane
         correct: true
       - text: Cell wall
+        rationale: |
+          This mixes up support with control over what enters the cell. The
+          wall surrounds the cell, so it may seem to control entry. Check
+          which layer lets only certain materials through.
       - text: Cytoplasm
+        rationale: |
+          This mixes up the inside of the cell with its outer boundary.
+          Materials move through the cytoplasm, so it may seem to control
+          entry. Check which part separates the cell from its surroundings.
       - text: Nucleolus
+        rationale: |
+          This mixes up making ribosome parts with controlling cell entry.
+          The nucleolus sits inside the nucleus, so it may seem to control
+          the cell. Check whether the part forms the cell's outer boundary.
     explanation: |
       The cell membrane is the gatekeeper that lets some things in and keeps others out.

@@ -14,6 +14,10 @@ import '../../../tools/build_content_seed/seed_writer.dart';
 
 const _e02ContentSha256 =
     'eb3a9da425b80a51331cce74694ef014c3372392194bacbd60ba145db5ea2a45';
+const _e02ExportSha256 =
+    '51349cfe24049a282b8dc053c3a01df65d5636e7808b055d3008cead2504ff67';
+const _e02ExportGzipSha256 =
+    '74d952691046485458c06b82313984e551b2a57e5a5f7b02f93c5023dfabfc78';
 
 void main() {
   late Directory fixtureDirectory;
@@ -25,11 +29,12 @@ void main() {
     final export = File('${fixtureDirectory.path}/export.json');
     e02PlaintextSeed = File('${fixtureDirectory.path}/e02-content.db');
 
-    await _runDartTool([
-      'run',
-      'tools/build_content_export/build_content_export.dart',
-      export.path,
-    ]);
+    // E02 migration must use the approved pre-QA bank, not the live corpus.
+    final frozenExport = File('test/fixtures/content/e02_export.json.gz');
+    expect(_sha256(frozenExport), _e02ExportGzipSha256);
+    final exportBytes = gzip.decode(frozenExport.readAsBytesSync());
+    expect(hashes.sha256.convert(exportBytes).toString(), _e02ExportSha256);
+    export.writeAsBytesSync(exportBytes);
     await writeContentSeed(
       inputJson: export,
       outputDb: e02PlaintextSeed,
@@ -294,15 +299,6 @@ File _copyE02Seed(File source, Directory directory, String name) {
   source.copySync(file.path);
   expect(_sha256(file), _e02ContentSha256);
   return file;
-}
-
-Future<void> _runDartTool(List<String> arguments) async {
-  final result = await Process.run('dart', arguments);
-  expect(
-    result.exitCode,
-    0,
-    reason: result.stdout.toString() + result.stderr.toString(),
-  );
 }
 
 String _sha256(File file) =>

@@ -66,17 +66,15 @@ void main() {
             .customSelect('SELECT COUNT(*) AS c FROM content_topics')
             .getSingle())
         .read<int>('c');
-    // 141 of 144 lessons carry a position within their topic. The app sorts
-    // every lesson list by it, so losing it serves a structured course in
-    // arbitrary order.
+    // The QA bank has 158 ordered lessons out of 161. The three CSE
+    // vocabulary lessons remain outside the audit. The app sorts lesson
+    // lists by this position, so the export must preserve it.
     final orderedLessons = (await db
             .customSelect(
               'SELECT COUNT(*) AS c FROM content_lessons WHERE ordering > 0',
             )
             .getSingle())
         .read<int>('c');
-    // 141 before the six topics were mapped; the 17 lessons that arrived
-    // with them carry their ordering too.
     expect(orderedLessons, 158);
     final examsCount = (await db
             .customSelect('SELECT COUNT(*) AS c FROM content_exams')
@@ -103,24 +101,16 @@ void main() {
             .getSingle())
         .read<int>('c');
 
-    // Up from 2,000 / 144 / 19 on 11 August, when the six unmapped topics
-    // were added to the outline: General Information's 156 questions and
-    // Reasoning's clerical and verbal-logic sets were authored and reaching
-    // nobody, because a question whose topic the outline does not carry is
-    // dropped by the export.
-    // 2,258 from 13 August. Gears, springs, levers and pulleys are drawn by
-    // the app now, so those questions stopped being held back as
-    // figure-pending. The number moves with each family that lands.
-    // Question QA later retired four previously shipping questions: one
-    // duplicate RA 6713 annual-report item, two duplicate environmental
-    // concepts items, and one overbroad IHL cessation item.
-    expect(questionsCount, 2357, reason: 'Expected 2,357 questions');
+    // The October QA expansion exports 3,163 active lesson-linked questions
+    // plus two historical CSE placeholders without lesson links. Passage
+    // links increased to 260 while the 32 passages stayed unchanged.
+    expect(questionsCount, 3165, reason: 'Expected 3,165 questions');
     expect(lessonsCount, 161, reason: 'Expected 161 lessons');
     expect(topicsCount, 26, reason: 'Expected 26 topics');
     expect(examsCount, 7, reason: 'Expected 7 exams');
     expect(passagesCount, 32, reason: 'Expected 32 passages');
-    expect(lessonLinksCount, 2355, reason: 'Expected 2,355 lesson links');
-    expect(passageLinksCount, 160, reason: 'Expected 160 passage links');
+    expect(lessonLinksCount, 3163, reason: 'Expected 3,163 lesson links');
+    expect(passageLinksCount, 260, reason: 'Expected 260 passage links');
 
     // 4. Assert the ids are underscored by reading one exam id back
     final upcatExam = await (db.select(db.contentExams)
