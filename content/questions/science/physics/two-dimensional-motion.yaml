@@ -1,290 +1,425 @@
 meta:
-  subject: science
-  topic: physics
-  subtopic: two-dimensional-motion
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  subject: "science"
+  topic: "physics"
+  subtopic: "two-dimensional-motion"
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-physics-two-dimensional-motion-0001
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
-      A ball rolls off a table with a horizontal velocity of 4 m/s and takes 0.6 seconds to hit the floor. Find the horizontal distance it travels.
+      A ball leaves a table horizontally at $4\,\mathrm{m/s}$ and hits the floor after $0.6\,\mathrm s$. Neglect air resistance. What horizontal distance does it travel?
     choices:
-      - text: 2.4 m
+      - text: "$2.4\\,\\mathrm m$"
         correct: true
-      - text: 4.6 m
+      - text: "$4.6\\,\\mathrm m$"
         rationale: |
-          You added horizontal velocity and time ($4 + 0.6$). Calculate distance by multiplication: $x = v_x t = 4 \times 0.6 = 2.4\text{ m}$.
-      - text: 0.24 m
+          This adds speed and time. Both numbers are given. Check the product needed for constant-velocity distance.
+      - text: "$0.24\\,\\mathrm m$"
         rationale: |
-          You misplaced the decimal point ($0.4 \times 0.6$). $4 \times 0.6 = 2.4\text{ m}$.
-      - text: 6.67 m
+          This changes $4$ to $0.4$ while multiplying. The decimal in time can distract. Check each given value.
+      - text: "$6.67\\,\\mathrm m$"
         rationale: |
-          You divided velocity by time ($\dfrac{4}{0.6}$). Horizontal distance requires multiplying velocity by time.
+          This divides speed by time. Division is used for rates. Check that distance accumulates with duration.
     explanation: |
-      Horizontal motion has constant velocity (no horizontal acceleration): $x = v_xt = (4)(0.6) = 2.4$ m.
+      Horizontal acceleration is zero in this model. Thus $\Delta x=v_xt=(4)(0.6)=2.4\,\mathrm m$.
     approved: true
+
   - id: q-physics-two-dimensional-motion-0002
-    type: simple-quantitative
-    difficulty: hard
+    type: "simple-quantitative"
+    difficulty: "hard"
     stem: |
-      A ball rolls off a table with a horizontal velocity of 4 m/s and takes 0.6 seconds to hit the floor. Find the height of the table. (Use $g = 9.8 \text{ m/s}^2$.)
+      A ball leaves a ledge horizontally at $6\,\mathrm{m/s}$ and lands $3\,\mathrm m$ away horizontally. With no drag and $g=10\,\mathrm{m/s^2}$, what is the ledge height?
     choices:
-      - text: 1.764 m
+      - text: "$1.25\\,\\mathrm m$"
         correct: true
-      - text: 2.4 m
+      - text: "$3\\,\\mathrm m$"
         rationale: |
-          You reported horizontal distance ($2.4\text{ m}$) as table height. Calculate vertical height using $y = \dfrac{1}{2}gt^2 = 1.764\text{ m}$.
-      - text: 5.88 m
+          This reports horizontal range as height. Both are distances. Check the separate vertical motion.
+      - text: "$2.5\\,\\mathrm m$"
         rationale: |
-          You forgot to square time or divide by 2 ($9.8 \times 0.6$). Vertical displacement is $y = \dfrac{1}{2}(9.8)(0.6^2) = 1.764\text{ m}$.
-      - text: 0.882 m
+          This omits the one-half factor in the vertical drop. The squared time is needed. Check the full rest-start displacement formula.
+      - text: "$5\\,\\mathrm m$"
         rationale: |
-          You forgot to square time ($t = 0.6$) or divided twice. $y = \dfrac{1}{2}(9.8)(0.36) = 1.764\text{ m}$.
+          This uses $gt$ as a distance. That product gives vertical speed. Check the squared-time dependence of height.
     explanation: |
-      Vertically, the ball starts with $v_{y0}=0$: $y = \dfrac{1}{2}gt^2 = \dfrac{1}{2}(9.8)(0.6)^2 = \dfrac{1}{2}(9.8)(0.36) = 1.764$ m.
+      Use the horizontal motion to find $t=\dfrac36=0.5\,\mathrm s$. The initial vertical velocity is zero. Height is $\dfrac12gt^2=\dfrac12(10)(0.5)^2=1.25\,\mathrm m$.
     approved: true
+
   - id: q-physics-two-dimensional-motion-0003
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
-      A projectile is launched at 40 m/s at an angle of 30° above the horizontal. Find its initial horizontal and vertical velocity components. ($\cos 30° = \dfrac{\sqrt{3}}{2}$, $\sin 30° = \dfrac{1}{2}$)
+      A projectile’s launch components are $12\,\mathrm{m/s}$ horizontally and $5\,\mathrm{m/s}$ upward. What is its initial speed?
     choices:
-      - text: Horizontal ≈ 34.6 m/s, Vertical = 20 m/s
+      - text: "$13\\,\\mathrm{m/s}$"
         correct: true
-      - text: Horizontal = 20 m/s, Vertical ≈ 34.6 m/s
+      - text: "$17\\,\\mathrm{m/s}$"
         rationale: |
-          You swapped horizontal and vertical components. At $30^\circ$, $v_x = 40\cos 30^\circ \approx 34.6\text{ m/s}$ and $v_y = 40\sin 30^\circ = 20\text{ m/s}$.
-      - text: Horizontal = 40 m/s, Vertical = 0 m/s
+          This adds perpendicular components directly. Both contribute to motion. Check the right-triangle magnitude.
+      - text: "$7\\,\\mathrm{m/s}$"
         rationale: |
-          You treated the launch as purely horizontal. Angled launches resolve into non-zero horizontal ($v_0\cos\theta$) and vertical ($v_0\sin\theta$) components.
-      - text: Horizontal = 0 m/s, Vertical = 40 m/s
+          This subtracts component magnitudes as though they opposed each other. The components are on different axes. Check their right angle.
+      - text: "$169\\,\\mathrm{m/s}$"
         rationale: |
-          You treated the launch as purely vertical. An angle of $30^\circ$ retains a substantial horizontal component ($34.6\text{ m/s}$).
+          This reports the sum of component squares without a square root. That sum is an intermediate value. Check speed versus speed squared.
     explanation: |
-      $v_{x0} = 40\cos30° = 40 \times \dfrac{\sqrt{3}}{2} = 20\sqrt{3} \approx 34.6$ m/s. $v_{y0} = 40\sin30° = 40 \times \dfrac{1}{2} = 20$ m/s.
+      Initial speed is the magnitude of the component vector. Thus $v_0=\sqrt{12^2+5^2}=\sqrt{169}=13\,\mathrm{m/s}$.
     approved: true
+
   - id: q-physics-two-dimensional-motion-0004
-    type: simple-quantitative
-    difficulty: hard
+    type: "simple-quantitative"
+    difficulty: "hard"
     stem: |
-      A projectile has an initial vertical velocity component of 20 m/s. Find how long it takes to reach its highest point. (Use $g = 9.8 \text{ m/s}^2$ and $v_y = v_{y0} - gt$.)
+      In ideal uniform gravity, a projectile’s initial upward velocity is $20\,\mathrm{m/s}$. With $g=9.8\,\mathrm{m/s^2}$, how long until its highest point?
     choices:
-      - text: About 2.04 s
+      - text: "About $2.04\\,\\mathrm s$"
         correct: true
-      - text: About 0.49 s
+      - text: "About $0.49\\,\\mathrm s$"
         rationale: |
-          You divided gravity by initial vertical velocity ($\dfrac{9.8}{20}$). Time to peak is $t = \dfrac{v_{y0}}{g} = \dfrac{20}{9.8} \approx 2.04\text{ s}$.
-      - text: 20 s
+          This divides gravity by initial vertical speed. Both belong in the time relation. Check the order needed to give seconds.
+      - text: "$20\\,\\mathrm s$"
         rationale: |
-          You reported initial vertical velocity in seconds. Time to peak requires dividing $v_{y0}$ by $g$.
-      - text: About 4.08 s
+          This uses initial vertical speed as time. The given twenty is prominent. Check the gravitational slowing rate.
+      - text: "About $4.08\\,\\mathrm s$"
         rationale: |
-          You calculated total round-trip flight time. Time to reach highest point is one-way time ($t = \dfrac{20}{9.8} \approx 2.04\text{ s}$).
+          This doubles the rise time and gives an equal-height round-trip duration. Flight-time formulas are familiar. Check that only the ascent is requested.
     explanation: |
-      At maximum height, $v_y = 0$: $0 = 20 - 9.8t$, so $t = \dfrac{20}{9.8} \approx 2.04$ s.
+      At the top, $v_y=0$. From $v_y=v_{y0}-gt$, $t=20/9.8\approx2.04\,\mathrm s$.
     approved: true
+
   - id: q-physics-two-dimensional-motion-0005
-    type: classify
-    difficulty: easy
+    type: "classify"
+    difficulty: "easy"
     stem: |
-      A satellite moves at a constant speed in a perfectly circular orbit around Earth. Is the satellite accelerating?
+      A satellite follows a circular orbit at constant speed. Is it accelerating?
     choices:
-      - text: 'Yes: its direction is constantly changing, even though its speed stays the same.'
+      - text: "Yes, its velocity direction changes."
         correct: true
-      - text: 'No: since its speed never changes, it cannot be accelerating.'
+      - text: "No, because only speed changes count as acceleration."
         rationale: |
-          You equated acceleration solely with speed change. Directional changes in circular motion produce non-zero centripetal acceleration.
-      - text: 'No: acceleration only applies to objects speeding up or slowing down in a straight line.'
+          This treats velocity as speed alone. The speed is constant. Check the changing direction.
+      - text: "No, because a complete orbit returns to the start."
         rationale: |
-          You restricted acceleration to 1D linear motion. Changing direction vector at constant speed constitutes real acceleration.
-      - text: 'Yes: but only because satellites always eventually change speed.'
+          This uses final position to decide instantaneous acceleration. The path repeats. Check the continual turning.
+      - text: "Yes, because its speed must be increasing continuously."
         rationale: |
-          You attributed acceleration to potential future speed change. Instantaneous directional turning creates continuous centripetal acceleration.
+          This invents a speed increase. Acceleration often increases speed. Check the stated constant speed.
     explanation: |
-      Velocity is a vector with both speed and direction. Even at constant speed, the satellite's direction keeps changing as it curves around the orbit, which means its velocity, and therefore its acceleration, is nonzero.
+      Velocity includes direction. The satellite’s direction changes as it follows the circle. That change requires inward acceleration.
     approved: true
+
   - id: q-physics-two-dimensional-motion-0006
-    type: identify
-    difficulty: medium
+    type: "identify"
+    difficulty: "medium"
     stem: |
-      In uniform circular motion, which direction does the centripetal acceleration point?
+      In uniform circular motion, where does the acceleration point?
     choices:
-      - text: Toward the center of the circle
+      - text: "Toward the circle’s center"
         correct: true
-      - text: Away from the center of the circle
+      - text: "Away from the center"
         rationale: |
-          You picked centrifugal (outward) direction. Centripetal acceleration acts inward toward the circle center.
-      - text: Tangent to the circle, in the direction of motion
+          This reverses inward turning acceleration. An outward feeling is familiar during turns. Check the direction needed to keep the path circular.
+      - text: "Along the tangent in the direction of motion"
         rationale: |
-          You picked tangential velocity direction. Tangential vector points along the velocity path, perpendicular to centripetal acceleration.
-      - text: Directly opposite the direction of motion
+          This uses velocity’s direction for acceleration. The object moves tangentially. Check which direction changes that velocity.
+      - text: "Along the tangent opposite the motion"
         rationale: |
-          You picked tangential deceleration direction. Centripetal acceleration is perpendicular to velocity, pointing radially inward.
+          This treats turning as slowing down. Both alter velocity. Check the stated constant speed.
     explanation: |
-      Centripetal acceleration always points toward the center of the circular path, which is what keeps the object curving instead of flying off in a straight line.
+      The inward acceleration continuously changes velocity’s direction. It points toward the center of the circle.
     approved: true
+
   - id: q-physics-two-dimensional-motion-0007
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A student calculates a projectile's horizontal distance using $x = v_xt + \dfrac{1}{2}gt^2$, applying gravity to the horizontal motion. Is this correct?
+      For ideal projectile motion in a local horizontal-vertical frame, which horizontal-displacement equation is valid?
     choices:
-      - text: 'No: gravity affects only the vertical component; horizontal velocity stays constant, so $x = v_xt$ is the correct formula.'
+      - text: "$\\Delta x=v_{x0}t$"
         correct: true
-      - text: 'Yes: gravity affects horizontal and vertical motion equally.'
+      - text: "$\\Delta x=v_{x0}t+\\dfrac12gt^2$"
         rationale: |
-          You applied vertical gravity to horizontal motion. Gravity pulls downward only ($a_x = 0$), so horizontal velocity remains constant.
-      - text: 'No: horizontal motion should use $x = \dfrac{1}{2}gt^2$ alone instead.'
+          This adds gravity to horizontal motion. Gravity does affect the projectile. Check its vertical direction.
+      - text: "$\\Delta x=\\dfrac12gt^2$"
         rationale: |
-          You replaced horizontal velocity with gravity. Horizontal displacement depends on constant horizontal velocity ($x = v_x t$).
-      - text: 'Yes: but only for projectiles launched at exactly 45°.'
+          This replaces horizontal motion with a fall-distance formula. The same time is shared. Check which component has acceleration.
+      - text: "$\\Delta x=v_{x0}t-gt$"
         rationale: |
-          You made gravity component application depend on angle. Gravity acts purely vertically regardless of launch angle.
+          This mixes a velocity-change term with displacement. The vertical equation contains $gt$. Check both units and axis.
     explanation: |
-      In ideal projectile motion (ignoring air resistance), horizontal velocity never changes, since no horizontal acceleration acts. Only the vertical motion includes a $\dfrac{1}{2}gt^2$ term.
+      In ideal projectile motion, gravity has no horizontal component. Horizontal velocity stays constant. Horizontal displacement is initial horizontal velocity times time.
     approved: true
+
   - id: q-physics-two-dimensional-motion-0008
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A student assumes an object moving at constant speed around a circle has zero acceleration, since "constant speed" sounds like "no change." Is this correct?
+      A satellite’s circular orbit is maintained by gravity alone. Should an additional independent centripetal force be added to gravity in its force diagram?
     choices:
-      - text: 'No: constant speed is not the same as constant velocity; the changing direction alone produces a real, nonzero centripetal acceleration.'
+      - text: "No, gravity supplies the inward force."
         correct: true
-      - text: 'Yes: constant speed always means zero acceleration.'
+      - text: "Yes, centripetal force is a separate interaction."
         rationale: |
-          You assumed constant speed implies zero acceleration. Velocity is a vector; direction changes yield centripetal acceleration.
-      - text: 'No: but only because the object is also changing speed in this scenario.'
+          This treats a force requirement as another physical force. The name sounds like a distinct force. Check the actual interaction supplying the inward acceleration.
+      - text: "Yes, an outward force must balance gravity during orbit."
         rationale: |
-          You introduced speed variations into uniform circular motion. Uniform circular motion maintains constant speed while accelerating directionally.
-      - text: 'Yes: acceleration only depends on speed, never on direction.'
+          This assumes constant speed means zero net force. The speed is steady. Check changing velocity direction.
+      - text: "No, because a satellite needs no force at constant speed."
         rationale: |
-          You excluded direction from acceleration definition. Acceleration is $\vec{a} = \dfrac{\Delta\vec{v}}{\Delta t}$, depending on both magnitude and direction.
+          This removes gravity from the turning motion. Straight-line constant velocity needs no net force. Check the curved path.
     explanation: |
-      Acceleration depends on velocity, a vector that includes direction. Even without any speed change, a continuously changing direction (as in circular motion) still produces acceleration.
+      Centripetal force names the net inward force required for circular motion. Here gravity is that force. There is no additional centripetal interaction to draw.
     approved: true
+
   - id: q-physics-two-dimensional-motion-0009
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A projectile is launched at 25 m/s at 40° above the horizontal. A student plugs the full 25 m/s directly into both the horizontal equation $x = vt$ and the vertical free-fall equations, without splitting it into components first. Is this correct?
+      A projectile is launched at $25\,\mathrm{m/s}$, $40^\circ$ above horizontal. What values belong in the separate horizontal and vertical equations?
     choices:
-      - text: 'No: the launch velocity must first be split into horizontal ($v_0\cos\theta$) and vertical ($v_0\sin\theta$) components before applying either equation.'
+      - text: "The corresponding velocity components"
         correct: true
-      - text: 'Yes: the full launch speed can be used directly in both directions.'
+      - text: "The full speed of $25\\,\\mathrm{m/s}$ in both equations"
         rationale: |
-          You used total speed magnitude in component equations. 2D kinematics requires resolving launch speed into $v_x$ and $v_y$.
-      - text: 'No: only the vertical equation needs the launch speed split into components.'
+          This copies the total magnitude to both axes. The speed is directly given. Check the perpendicular components of one vector.
+      - text: "The full speed horizontally and zero vertically"
         rationale: |
-          You omitted horizontal component resolution. Horizontal motion uses $v_x = v_0\cos\theta$, which is less than total launch speed.
-      - text: 'Yes: splitting into components is only needed when the angle is greater than 45°.'
+          This treats an angled launch as a horizontal launch. The horizontal motion is uniform. Check the nonzero upward launch angle.
+      - text: "Zero horizontally and the full speed vertically"
         rationale: |
-          You made vector resolution depend on $45^\circ$. All angled 2D trajectories require vector component resolution.
+          This treats an angled launch as vertical only. Gravity acts vertically. Check the initial horizontal component.
     explanation: |
-      Only the correct component belongs in each direction's equation: the horizontal component in the horizontal equation, and the vertical component in the vertical equations. Using the full launch speed in both directions produces an incorrect result.
+      Resolve the launch vector: $v_{x0}=25\cos40^\circ$ and $v_{y0}=25\sin40^\circ$. Each axis equation uses its own component.
     approved: true
+
   - id: q-physics-two-dimensional-motion-0010
-    type: classify
-    difficulty: hard
+    type: "predict-outcome"
+    difficulty: "hard"
     stem: |
-      A projectile's launch angle is measured from the horizontal. A student uses sine to find the horizontal component and cosine to find the vertical component. Is this correct?
+      Two ideal projectiles have equal launch speed, equal launch height, and equal landing height. Their launch angles are $30^\circ$ and $60^\circ$. Which spends longer in the air?
     choices:
-      - text: 'No: when the angle is measured from the horizontal, cosine gives the horizontal component and sine gives the vertical component, the reverse of what the student used.'
+      - text: "The $60^\\circ$ launch"
         correct: true
-      - text: 'Yes: sine always gives the horizontal component regardless of how the angle is measured.'
+      - text: "The $30^\\circ$ launch because it travels more horizontally per second"
         rationale: |
-          You assigned sine to adjacent component. When angle is measured from horizontal, horizontal side is adjacent ($\cos\theta$).
-      - text: 'No: both components should use the same trig function.'
+          This uses horizontal speed to set fall time. The lower-angle projectile has more horizontal speed. Check the vertical launch component.
+      - text: "Both because their total launch speeds match"
         rationale: |
-          You assigned identical trig functions to both axes. Perpendicular components resolve into orthogonal sine and cosine terms.
-      - text: 'Yes: cosine and sine can be swapped freely without changing the result.'
+          This uses total speed instead of vertical component. The magnitudes are equal. Check the different sine factors.
+      - text: "Neither because angle never affects flight time"
         rationale: |
-          You claimed trig functions are interchangeable. Swapping sine and cosine inverts horizontal and vertical velocity values.
+          This ignores vertical launch direction. Gravity is the same for both. Check the initial upward velocities.
     explanation: |
-      When the angle is measured from the horizontal, cosine corresponds to the horizontal (adjacent) component and sine corresponds to the vertical (opposite) component. Swapping them produces a projectile that behaves as if launched at a very different angle.
+      For return to launch height, flight time is $2v_{y0}/g$. The $60^\circ$ launch has the greater upward component at the same total speed. It stays airborne longer.
     approved: true
+
   - id: q-physics-two-dimensional-motion-0011
-    type: simple-quantitative
-    difficulty: medium
+    type: "predict-outcome"
+    difficulty: "medium"
     stem: |
-      A ball rolls off a cliff with a horizontal velocity of 5 m/s and falls for 2 seconds before landing. Find the horizontal distance traveled.
+      Two balls leave the same height at the same instant with zero initial vertical velocity. One is dropped and one is launched horizontally. Neglect drag. Which reaches the level floor first?
     choices:
-      - text: 10 m
+      - text: "They arrive together."
         correct: true
-      - text: 5 m
+      - text: "The dropped ball because it follows the shorter path"
         rationale: |
-          You reported horizontal velocity magnitude ($5\text{ m/s}$). Multiply by time ($2\text{ s}$) to get $x = 5 \times 2 = 10\text{ m}$.
-      - text: 2 m
+          This uses total path length to set vertical fall time. The launched ball has a curved path. Check the identical vertical motion.
+      - text: "The launched ball because horizontal speed adds to gravity"
         rationale: |
-          You reported fall time ($2\text{ s}$) as distance. Calculate horizontal displacement via $x = v_x t = 10\text{ m}$.
-      - text: 19.6 m
+          This treats horizontal velocity as vertical acceleration. The launched ball moves faster overall. Check the axes separately.
+      - text: "The launched ball only if it has a small horizontal speed"
         rationale: |
-          You calculated vertical fall distance ($y = \dfrac{1}{2}gt^2$). Horizontal distance uses constant velocity $x = v_x t = 10\text{ m}$.
+          This makes fall time depend on horizontal speed. Faster motion looks longer-ranging. Check the unchanged vertical initial conditions.
     explanation: |
-      Horizontal motion has constant velocity: $x = v_xt = (5)(2) = 10$ m.
+      Both balls start with zero vertical velocity at the same height. Their downward accelerations are equal. They have the same vertical fall time.
     approved: true
+
   - id: q-physics-two-dimensional-motion-0012
-    type: simple-quantitative
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A ball rolls off a cliff with a horizontal velocity of 5 m/s and falls for 2 seconds before landing. Find the height of the cliff. (Use $g = 9.8 \text{ m/s}^2$.)
+      What conditions produce the parabolic path of the introductory projectile model?
     choices:
-      - text: 19.6 m
+      - text: "Uniform gravity with negligible air resistance"
         correct: true
-      - text: 9.8 m
+      - text: "Any trajectory after launch, regardless of drag or gravity"
         rationale: |
-          You forgot to square time ($t = 2$). Height is $y = \dfrac{1}{2}gt^2 = \dfrac{1}{2}(9.8)(4) = 19.6\text{ m}$.
-      - text: 39.2 m
+          This makes the ideal shape universal. Many drawings show parabolas. Check the model’s assumptions.
+      - text: "Constant horizontal acceleration equal to gravity"
         rationale: |
-          You omitted the $\dfrac{1}{2}$ factor ($9.8 \times 4$). Vertical displacement from rest is $y = \dfrac{1}{2}gt^2 = 19.6\text{ m}$.
-      - text: 10 m
+          This adds gravity on the horizontal axis. Both coordinates change. Check gravity’s vertical direction.
+      - text: "Zero acceleration in both directions throughout flight"
         rationale: |
-          You reported horizontal displacement ($10\text{ m}$) as cliff height. Calculate vertical height using $y = \dfrac{1}{2}gt^2 = 19.6\text{ m}$.
+          This removes the cause of curvature. Horizontal velocity is constant. Check the downward vertical acceleration.
     explanation: |
-      Vertically, the ball starts with $v_{y0}=0$: $y = \dfrac{1}{2}gt^2 = \dfrac{1}{2}(9.8)(2)^2 = \dfrac{1}{2}(9.8)(4) = 19.6$ m.
+      Uniform gravity gives constant vertical acceleration and zero horizontal acceleration. With negligible drag, eliminating the shared time gives a parabola.
     approved: true
+
   - id: q-physics-two-dimensional-motion-0013
-    type: predict-outcome
-    difficulty: medium
+    type: "predict-outcome"
+    difficulty: "medium"
     stem: |
-      A projectile launched at an angle reaches the very top of its path. What is its vertical velocity at that exact moment, and is its horizontal velocity also zero?
+      An ideal projectile has a nonzero horizontal component and reaches the highest point of its upward-then-downward path. Which velocity remains?
     choices:
-      - text: Vertical velocity is momentarily zero; horizontal velocity is unchanged and still nonzero.
+      - text: "Only its unchanged horizontal velocity"
         correct: true
-      - text: Both vertical and horizontal velocity are zero at the peak.
+      - text: "No velocity because it pauses vertically"
         rationale: |
-          You set horizontal velocity to zero at peak. Horizontal velocity remains constant and non-zero throughout flight.
-      - text: Vertical velocity is at its maximum at the peak; horizontal velocity is zero.
+          This extends the vertical pause to both components. The top is a turning point. Check the initial horizontal component.
+      - text: "Only its greatest upward velocity"
         rationale: |
-          You inverted velocity components at peak. Vertical velocity reaches zero at peak; horizontal velocity remains constant.
-      - text: Neither vertical nor horizontal velocity changes at any point during flight.
+          This reverses the ascent’s slowing trend. The projectile is highest. Check vertical velocity at the turning point.
+      - text: "Both components at their initial values"
         rationale: |
-          You claimed vertical velocity is constant. Gravity constantly decelerates and accelerates vertical velocity throughout flight.
+          This ignores gravity’s effect on vertical velocity. Horizontal velocity is unchanged. Check the upward component separately.
     explanation: |
-      At the peak, the projectile momentarily stops moving up or down (vertical velocity = 0), but since gravity never acts horizontally, the horizontal velocity stays exactly the same as it was at launch.
+      At the top, vertical velocity is zero. Horizontal velocity stays at its nonzero launch value in this model. Total velocity is horizontal.
     approved: true
+
   - id: q-physics-two-dimensional-motion-0014
-    type: predict-outcome
-    difficulty: exam
+    type: "simple-quantitative"
+    difficulty: "exam"
     stem: |
-      A projectile is launched with an initial vertical velocity component of 14.7 m/s, and lands at the same height it was launched from. Using $g = 9.8 \text{ m/s}^2$ and the fact that the time to fall back down equals the time to rise, find the projectile's total time in the air.
+      An ideal projectile starts with upward component $14.7\,\mathrm{m/s}$ and lands at launch height. With $g=9.8\,\mathrm{m/s^2}$, what is its flight time?
     choices:
-      - text: 3 s
+      - text: "$3\\,\\mathrm s$"
         correct: true
-      - text: 1.5 s
+      - text: "$1.5\\,\\mathrm s$"
         rationale: |
-          You calculated one-way time to peak ($14.7 / 9.8 = 1.5\text{ s}$). Total flight time to same landing height is $2 \times 1.5 = 3\text{ s}$.
-      - text: 4.5 s
+          This gives only the rise time. Dividing upward speed by gravity finds the top. Check the descent back to the same height.
+      - text: "$4.5\\,\\mathrm s$"
         rationale: |
-          You added an extra peak time ($3 \times 1.5$). Total round-trip flight time is $2 \times t_{up} = 3\text{ s}$.
-      - text: 0.67 s
+          This counts three ascent-time intervals. The trajectory has a rise and a fall. Check that those two equal durations make the total.
+      - text: "$0.67\\,\\mathrm s$"
         rationale: |
-          You divided gravity by initial vertical velocity ($\dfrac{9.8}{14.7}$). Time to peak is $t = \dfrac{v_{y0}}{g} = 1.5\text{ s}$.
+          This divides gravity by initial vertical speed. Both numbers are used. Check the ratio’s units.
     explanation: |
-      Time to reach the peak: $t_{up} = \dfrac{14.7}{9.8} = 1.5$ s. Since the time falling back down equals the time rising (same launch and landing height), total flight time is $1.5 \times 2 = 3$ s.
+      Time to the top is $14.7/9.8=1.5\,\mathrm s$. Returning to the same height takes another $1.5\,\mathrm s$. Total time is $3\,\mathrm s$.
     approved: true
+
+  - id: q-physics-two-dimensional-motion-0015
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "easy"
+    stem: |
+      A body travels at constant speed $6\,\mathrm{m/s}$ around a circle of radius $3\,\mathrm m$. What is its centripetal acceleration magnitude?
+    choices:
+      - text: "$12\\,\\mathrm{m/s^2}$"
+        correct: true
+      - text: "$2\\,\\mathrm{m/s^2}$"
+        rationale: |
+          This divides speed by radius without squaring speed. Both appear in the formula. Check the exponent on speed.
+      - text: "$108\\,\\mathrm{m/s^2}$"
+        rationale: |
+          This multiplies speed squared by radius. The speed square is right. Check the denominator.
+      - text: "$0\\,\\mathrm{m/s^2}$"
+        rationale: |
+          This assumes constant speed means constant velocity. Speed is unchanged. Check the turning direction.
+    explanation: |
+      $a_c=v^2/r=6^2/3=36/3=12\,\mathrm{m/s^2}$ inward.
+
+  - id: q-physics-two-dimensional-motion-0016
+    approved: false
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      A car follows a level circular road without slipping. Which real force supplies the horizontal inward acceleration?
+    choices:
+      - text: "Static friction from the road"
+        correct: true
+      - text: "Kinetic friction from sliding tires"
+        rationale: |
+          This assumes friction always requires sliding. Friction supplies the turn. Check the stated no-slip condition.
+      - text: "Gravity directed horizontally toward the center"
+        rationale: |
+          This redirects the car’s weight. Gravity is a real force. Check its vertical direction on a level road.
+      - text: "An extra force unrelated to tire-road contact"
+        rationale: |
+          This treats centripetal force as a new interaction. The inward force has a name. Check the actual contact supplying it.
+    explanation: |
+      The tires do not slip relative to the road. Static friction provides the horizontal inward force needed for the turn.
+
+  - id: q-physics-two-dimensional-motion-0017
+    approved: false
+    type: "predict-outcome"
+    difficulty: "hard"
+    stem: |
+      In uniform circular motion, radius is fixed and speed doubles. What happens to centripetal acceleration magnitude?
+    choices:
+      - text: "It quadruples."
+        correct: true
+      - text: "It doubles because speed doubles"
+        rationale: |
+          This uses a linear speed dependence. The speed factor is two. Check the speed square.
+      - text: "It halves because faster motion spends less time turning"
+        rationale: |
+          This uses travel time instead of the acceleration formula. Faster motion completes circles sooner. Check $v^2/r$.
+      - text: "It stays unchanged because radius is unchanged"
+        rationale: |
+          This considers only the radius. One variable stays fixed. Check the changed speed.
+    explanation: |
+      At fixed radius, $a_c\propto v^2$. Doubling speed multiplies $v^2$ by four. Acceleration quadruples.
+
+  - id: q-physics-two-dimensional-motion-0018
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "hard"
+    stem: |
+      An object of mass $2\,\mathrm{kg}$ moves at $5\,\mathrm{m/s}$ on a circular path of radius $10\,\mathrm m$. What net inward force is required?
+    choices:
+      - text: "$5\\,\\mathrm N$"
+        correct: true
+      - text: "$1\\,\\mathrm N$"
+        rationale: |
+          This uses $mv/r$ without squaring speed. Mass and radius are included. Check the speed exponent.
+      - text: "$2.5\\,\\mathrm N$"
+        rationale: |
+          This reports centripetal acceleration as force. The acceleration calculation is relevant. Check the mass factor.
+      - text: "$50\\,\\mathrm N$"
+        rationale: |
+          This omits division by radius. The product $mv^2$ is part of the formula. Check the full radial-force relation.
+    explanation: |
+      The net inward force is $F=mv^2/r=(2)(25)/10=5\,\mathrm N$.
+
+  - id: q-physics-two-dimensional-motion-0019
+    approved: false
+    type: "process-ordering"
+    difficulty: "hard"
+    stem: |
+      Which order correctly solves an ideal horizontal-launch problem when height and horizontal speed are known?
+    choices:
+      - text: "Find vertical fall time, then use it in horizontal motion."
+        correct: true
+      - text: "Find one time for horizontal motion and another for vertical motion."
+        rationale: |
+          This separates the component clocks. Each component has its own equation. Check that both describe the same object at the same instant.
+      - text: "Use horizontal speed as initial vertical speed, then find fall time."
+        rationale: |
+          This copies one component into the other. A launch speed is given. Check the horizontal-launch direction.
+      - text: "Add the vertical drop to the horizontal range before finding time."
+        rationale: |
+          This combines perpendicular displacements as one axis. Both are lengths. Check separate equations linked by shared time.
+    explanation: |
+      The known height and vertical initial condition give fall time. The same time belongs in the horizontal displacement equation.
+
+  - id: q-physics-two-dimensional-motion-0020
+    approved: false
+    type: "classify"
+    difficulty: "exam"
+    stem: |
+      In a circular orbit at constant speed, how are instantaneous velocity and centripetal acceleration oriented?
+    choices:
+      - text: "Velocity tangent; acceleration inward"
+        correct: true
+      - text: "Both tangent because speed is constant"
+        rationale: |
+          This gives acceleration the velocity direction. Tangential motion is visible. Check which direction turns the velocity.
+      - text: "Both inward because gravity points inward"
+        rationale: |
+          This gives velocity the gravity direction. Gravity supplies acceleration. Check the direction of motion along the orbit.
+      - text: "Velocity inward; acceleration tangent"
+        rationale: |
+          This swaps the two vectors. Both are part of orbital motion. Check the path tangent and the center direction.
+    explanation: |
+      Velocity points along the circle’s tangent. Centripetal acceleration points toward the center. They are perpendicular in uniform circular motion.
