@@ -3,245 +3,494 @@ meta:
   topic: environment-management
   subtopic: the-environmental-laws
   exams:
-    - cse-pro
-    - cse-sub
+  - cse-pro
+  - cse-sub
 questions:
-  - id: q-environment-management-the-environmental-laws-0001
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Which Philippine law is known as the Ecological Solid Waste Management Act of 2000?
-    choices:
-      - text: RA 9003
-        correct: true
-      - text: RA 8749
-        rationale: |
-          You picked RA 8749, which is the Clean Air Act of 1999. Solid waste management and recycling are governed by RA 9003.
-      - text: RA 9275
-        rationale: |
-          You selected RA 9275, which is the Clean Water Act of 2004. Solid waste management and landfill regulation fall under RA 9003.
-      - text: RA 9729
-        rationale: |
-          You chose RA 9729, which is the Climate Change Act of 2009. The Ecological Solid Waste Management Act is designated as RA 9003.
-    explanation: |
-      RA 9003 is titled the Ecological Solid Waste Management Act of 2000.
+- id: q-environment-management-the-environmental-laws-0001
+  type: single_choice
+  difficulty: medium
+  stem: 'Which law is the Ecological Solid Waste Management Act of 2000?
 
-  - id: q-environment-management-the-environmental-laws-0002
-    type: single_choice
-    difficulty: easy
-    stem: |
-      RA 8749 is commonly referred to by which short title?
-    choices:
-      - text: Philippine Clean Air Act of 1999
-        correct: true
-      - text: Ecological Solid Waste Management Act
-        rationale: |
-          You picked Ecological Solid Waste Management, which is RA 9003. RA 8749 focuses on air pollution and is the Clean Air Act of 1999.
-      - text: Philippine Clean Water Act of 2004
-        rationale: |
-          You selected Clean Water Act, which is RA 9275. RA 8749 regulates air quality and industrial emissions as the Clean Air Act of 1999.
-      - text: Climate Change Act of 2009
-        rationale: |
-          You chose Climate Change Act, which is RA 9729. RA 8749 regulates air emissions and pollution as the Clean Air Act of 1999.
-    explanation: |
-      RA 8749 is the Philippine Clean Air Act of 1999.
+    '
+  choices:
+  - text: RA 9003
+    correct: true
+  - text: RA 8749
+    rationale: 'This substitutes air-pollution control for ecological solid-waste management. Both belong to environmental governance, so the number can seem familiar. Check the law''s main subject.
 
-  - id: q-environment-management-the-environmental-laws-0003
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Which statute governs water quality management and wastewater discharge permits in the Philippines?
-    choices:
-      - text: RA 9275
-        correct: true
-      - text: RA 9003
-        rationale: |
-          You picked RA 9003, which covers solid waste management. Water quality management and wastewater discharge permits are governed by RA 9275.
-      - text: RA 8749
-        rationale: |
-          You selected RA 8749, which covers air quality management. Protection of water bodies and wastewater permits are regulated under RA 9275.
-      - text: RA 10121
-        rationale: |
-          You chose RA 10121, which covers disaster risk reduction. Water quality management and wastewater permits are governed by RA 9275.
-    explanation: |
-      RA 9275 is the Philippine Clean Water Act of 2004.
+      '
+  - text: RA 9275
+    rationale: 'This substitutes water-quality management for ecological solid-waste management. Both belong to environmental governance, so the number can seem familiar. Check the law''s main subject.
 
-  - id: q-environment-management-the-environmental-laws-0004
-    type: single_choice
-    difficulty: medium
-    stem: |
-      RA 9729 established the Climate Change Commission under which statutory title?
-    choices:
-      - text: Climate Change Act of 2009
-        correct: true
-      - text: Disaster Risk Reduction Act
-        rationale: |
-          You selected Disaster Risk Reduction Act, which is RA 10121. RA 9729 created the Climate Change Commission under the Climate Change Act of 2009.
-      - text: Clean Air Act of 1999
-        rationale: |
-          You picked Clean Air Act, which is RA 8749. RA 9729 established climate adaptation policy under the Climate Change Act of 2009.
-      - text: Clean Water Act of 2004
-        rationale: |
-          You chose Clean Water Act, which is RA 9275. RA 9729 created the Climate Change Commission under the Climate Change Act of 2009.
-    explanation: |
-      RA 9729 is the Climate Change Act of 2009.
+      '
+  - text: RA 9729
+    rationale: 'This substitutes climate-change policy for ecological solid-waste management. Both belong to environmental governance, so the number can seem familiar. Check the law''s main subject.
 
-  - id: q-environment-management-the-environmental-laws-0005
-    type: single_choice
-    difficulty: medium
-    stem: |
-      The Philippine Disaster Risk Reduction and Management Act of 2010 is designated as which Republic Act?
-    choices:
-      - text: RA 10121
-        correct: true
-      - text: RA 9003
-        rationale: |
-          You selected RA 9003, which is the Solid Waste Management Act. The Disaster Risk Reduction and Management Act of 2010 is RA 10121.
-      - text: RA 9729
-        rationale: |
-          You picked RA 9729, which is the Climate Change Act. Disaster risk reduction policy and council coordination are designated as RA 10121.
-      - text: RA 9147
-        rationale: |
-          You chose RA 9147, which is the Wildlife Conservation Act. The Disaster Risk Reduction and Management Act of 2010 is RA 10121.
-    explanation: |
-      RA 10121 is the Philippine Disaster Risk Reduction and Management Act of 2010.
+      '
+  explanation: 'RA 9003 is the Ecological Solid Waste Management Act of 2000. Its framework includes source segregation and waste diversion.
 
-  - id: q-environment-management-the-environmental-laws-0006
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Which presidential decree established the Environmental Impact Statement System requiring an Environmental Compliance Certificate?
-    choices:
-      - text: PD 1586
-        correct: true
-      - text: PD 1152
-        rationale: |
-          You selected PD 1152, which is the Philippine Environment Code of 1977. The Environmental Impact Statement System was established by PD 1586.
-      - text: PD 705
-        rationale: |
-          You picked PD 705, which is the Revised Forestry Code. The Environmental Impact Statement System requiring an ECC was enacted under PD 1586.
-      - text: PD 984
-        rationale: |
-          You chose PD 984, which was the National Pollution Control Decree. The Environmental Impact Statement System was established under PD 1586.
-    explanation: |
-      PD 1586 established the Environmental Impact Statement System in the Philippines.
+    '
+- id: q-environment-management-the-environmental-laws-0002
+  type: single_choice
+  difficulty: medium
+  stem: 'What is RA 8749''s short title?
 
-  - id: q-environment-management-the-environmental-laws-0007
-    type: single_choice
-    difficulty: medium
-    stem: |
-      RA 9147 governs the conservation and protection of which natural resources?
-    choices:
-      - text: Wildlife resources and habitats
-        correct: true
-      - text: Solid waste recycling facilities
-        rationale: |
-          You selected solid waste recycling facilities, which are regulated by RA 9003. RA 9147 protects wildlife species and their habitats.
-      - text: Air quality monitoring stations
-        rationale: |
-          You picked air quality monitoring stations, which fall under RA 8749. RA 9147 is the Wildlife Resources Conservation and Protection Act.
-      - text: Industrial wastewater plants
-        rationale: |
-          You chose industrial wastewater plants, which fall under RA 9275. RA 9147 governs the conservation of wildlife resources and habitats.
-    explanation: |
-      RA 9147 is the Wildlife Resources Conservation and Protection Act.
+    '
+  choices:
+  - text: Clean Air Act of 1999
+    correct: true
+  - text: Ecological Solid Waste Management Act
+    rationale: 'This substitutes the solid-waste law. Waste burning can affect air. Check the primary subject of RA 8749.
 
-  - id: q-environment-management-the-environmental-laws-0008
-    type: single_choice
-    difficulty: hard
-    stem: |
-      What system of protected areas was established under RA 7586?
-    choices:
-      - text: National Integrated Protected Areas System
-        correct: true
-      - text: Ecological Solid Waste Diversion Management System
-        rationale: |
-          You selected solid waste management, which falls under RA 9003. RA 7586 established NIPAS for protected natural parks and reserves.
-      - text: National Climate Change Action Framework System
-        rationale: |
-          You picked climate change framework, which is under RA 9729. Protected national parks and bio-reserves are governed under NIPAS by RA 7586.
-      - text: Environmental Compliance Assessment Clearance System
-        rationale: |
-          You chose environmental clearance, which falls under PD 1586. RA 7586 established the protected areas system known as NIPAS.
-    explanation: |
-      RA 7586 established the National Integrated Protected Areas System (NIPAS).
+      '
+  - text: Philippine Clean Water Act of 2004
+    rationale: 'This substitutes water-quality law. Both regulate pollution. Check the environmental medium.
 
-  - id: q-environment-management-the-environmental-laws-0009
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Which executive department serves as the lead agency for enforcing most Philippine environmental laws?
-    choices:
-      - text: Department of Environment and Natural Resources
-        correct: true
-      - text: Department of Interior and Local Government Office
-        rationale: |
-          You selected DILG, which oversees local government units. Primary enforcement of national environmental laws is led by DENR.
-      - text: Department of Public Works and Highways Agency
-        rationale: |
-          You picked DPWH, which builds public infrastructure projects. Primary executive enforcement of environmental laws belongs to DENR.
-      - text: Department of Science and Technology Executive Board
-        rationale: |
-          You chose DOST, which manages scientific research. DENR is the primary executive department tasked with enforcing environmental laws.
-    explanation: |
-      The Department of Environment and Natural Resources (DENR) is the primary executive department for environmental enforcement.
+      '
+  - text: Climate Change Act of 2009
+    rationale: 'This substitutes climate policy. Air emissions can affect climate. Check the law''s title and year.
 
-  - id: q-environment-management-the-environmental-laws-0010
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Under RA 9729, to which office is the Climate Change Commission attached?
-    choices:
-      - text: Office of the President
-        correct: true
-      - text: Department of Environment
-        rationale: |
-          You selected DENR, which handles natural resources. The Climate Change Commission is attached directly to the Office of the President.
-      - text: National Security Council
-        rationale: |
-          You picked National Security Council, which advises on national defense. Under RA 9729, Climate Change Commission reports to the President.
-      - text: Department of Energy
-        rationale: |
-          You chose Department of Energy, which handles power policy. The Climate Change Commission is attached directly to the Office of the President.
-    explanation: |
-      The Climate Change Commission created under RA 9729 is attached to the Office of the President.
+      '
+  explanation: 'RA 8749 is the Philippine Clean Air Act of 1999.
 
-  - id: q-environment-management-the-environmental-laws-0011
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Which environmental law prohibits incineration of municipal, biomedical, and hazardous wastes when the process emits poisonous and toxic fumes, while also regulating air emissions?
-    choices:
-      - text: RA 8749
-        correct: true
-      - text: RA 9003
-        rationale: |
-          You picked RA 9003, which governs ecological solid waste management. The toxic-emitting incineration prohibition and air-emissions framework in the question are in RA 8749.
-      - text: RA 9275
-        rationale: |
-          You selected RA 9275, which regulates water quality and wastewater. The toxic-emitting incineration prohibition and air-emissions framework are in RA 8749.
-      - text: RA 7586
-        rationale: |
-          You chose RA 7586, which governs protected areas under NIPAS. The incineration provision described in the question is part of the Clean Air Act, RA 8749.
-    explanation: |
-      Section 20 of RA 8749 prohibits incineration of municipal, biomedical, and hazardous wastes when the process emits poisonous and toxic fumes. The provision is not an absolute ban on every incineration technology.
+    '
+- id: q-environment-management-the-environmental-laws-0003
+  type: single_choice
+  difficulty: medium
+  stem: 'Which statute provides the water-quality management and wastewater-discharge framework?
 
-  - id: q-environment-management-the-environmental-laws-0012
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Which environmental act prohibits open dumpsites and mandates waste segregation at source?
-    choices:
-      - text: RA 9003
-        correct: true
-      - text: RA 8749
-        rationale: |
-          You selected RA 8749, which is the Clean Air Act. Banning open dumpsites and requiring waste segregation at source is mandated by RA 9003.
-      - text: RA 9729
-        rationale: |
-          You picked RA 9729, which is the Climate Change Act. Regulating solid waste disposal and banning open dumps is mandated under RA 9003.
-      - text: RA 10121
-        rationale: |
-          You chose RA 10121, which covers disaster management. Phasing out open dumpsites and requiring waste segregation at source is under RA 9003.
-    explanation: |
-      RA 9003 mandates waste segregation at source and bans open dumpsites in favor of sanitary landfills.
+    '
+  choices:
+  - text: RA 9275
+    correct: true
+  - text: RA 9003
+    rationale: 'This substitutes solid-waste management for water quality. Both belong to environmental governance, so the number can seem familiar. Check the law''s main subject.
+
+      '
+  - text: RA 8749
+    rationale: 'This substitutes air-pollution control for water quality. Both belong to environmental governance, so the number can seem familiar. Check the law''s main subject.
+
+      '
+  - text: RA 10121
+    rationale: 'This substitutes disaster risk reduction for water quality. Both belong to environmental governance, so the number can seem familiar. Check the law''s main subject.
+
+      '
+  explanation: 'RA 9275 is the Philippine Clean Water Act of 2004. It governs water-quality management and wastewater discharge.
+
+    '
+- id: q-environment-management-the-environmental-laws-0004
+  type: single_choice
+  difficulty: medium
+  stem: 'Under what title did RA 9729 create the Climate Change Commission?
+
+    '
+  choices:
+  - text: Climate Change Act
+    correct: true
+  - text: Philippine Disaster Risk Reduction and Management Act
+    rationale: 'This substitutes the disaster framework. Climate hazards contribute to disaster risk. Check the commission named in the stem.
+
+      '
+  - text: Philippine Clean Air Act of 1999
+    rationale: 'This substitutes pollution control. Air emissions affect climate. Check the climate-policy institution.
+
+      '
+  - text: Philippine Clean Water Act of 2004
+    rationale: 'This substitutes water-quality management. Climate change can affect water. Check the act creating the commission.
+
+      '
+  explanation: 'RA 9729 is the Climate Change Act of 2009. It created the Climate Change Commission.
+
+    '
+- id: q-environment-management-the-environmental-laws-0005
+  type: single_choice
+  difficulty: medium
+  stem: 'Which law established the modern disaster-management framework and NDRRMC?
+
+    '
+  choices:
+  - text: RA 10121
+    correct: true
+  - text: RA 9003
+    rationale: 'This substitutes solid-waste management for disaster management. Both belong to environmental governance, so the number can seem familiar. Check the law''s main subject.
+
+      '
+  - text: RA 9729
+    rationale: 'This substitutes climate-change policy for disaster management. Both belong to environmental governance, so the number can seem familiar. Check the law''s main subject.
+
+      '
+  - text: RA 11038
+    rationale: 'This selects the expanded protected-area system. Both laws support environmental safety, so the number may seem familiar. Check which system the stem asks about.
+
+      '
+  explanation: 'RA 10121 is the Philippine Disaster Risk Reduction and Management Act of 2010. It established the NDRRMC.
+
+    '
+- id: q-environment-management-the-environmental-laws-0006
+  type: single_choice
+  difficulty: medium
+  stem: 'Which decree established the Philippine Environmental Impact Statement System?
+
+    '
+  choices:
+  - text: PD 1586
+    correct: true
+  - text: PD 1152
+    rationale: 'This substitutes the broader Philippine Environment Code for the specific EIS System. Both belong to environmental governance, so the number can seem familiar. Check the law''s main subject.
+
+      '
+  - text: PD 705
+    rationale: 'This substitutes forestry regulation for the specific EIS System. Both belong to environmental governance, so the number can seem familiar. Check the law''s main subject.
+
+      '
+  - text: PD 984
+    rationale: 'This substitutes earlier pollution-control regulation for the specific EIS System. Both belong to environmental governance, so the number can seem familiar. Check the law''s main subject.
+
+      '
+  explanation: 'PD 1586 established the Philippine EIS System. Covered projects must obtain the required ECC before implementation.
+
+    '
+- id: q-environment-management-the-environmental-laws-0007
+  type: single_choice
+  difficulty: medium
+  stem: 'What is the central subject of RA 9147?
+
+    '
+  choices:
+  - text: Wildlife and habitats
+    correct: true
+  - text: The general framework for managing solid-waste disposal
+    rationale: 'This substitutes waste management. Waste can damage habitats. Check the resources specifically protected.
+
+      '
+  - text: The framework for regulating industrial air emissions
+    rationale: 'This substitutes air-pollution control. Pollution can harm wildlife. Check the act''s direct conservation subject.
+
+      '
+  - text: The framework for permits on wastewater discharges
+    rationale: 'This substitutes water regulation. Wildlife can depend on clean water. Check whether the act chiefly regulates discharges or species.
+
+      '
+  explanation: 'RA 9147 protects wildlife resources and their habitats.
+
+    '
+- id: q-environment-management-the-environmental-laws-0008
+  type: single_choice
+  difficulty: medium
+  stem: 'What protected-area system did RA 7586 establish?
+
+    '
+  choices:
+  - text: NIPAS
+    correct: true
+  - text: The Philippine Environmental Impact Statement System
+    rationale: 'This substitutes project review. Both can protect sensitive sites. Check whether the question asks for a protected-area network.
+
+      '
+  - text: The National Strategic Framework on Climate Change
+    rationale: 'This substitutes climate-policy planning. Both support environmental protection. Check the system established by RA 7586.
+
+      '
+  - text: The Water Quality Management Area framework
+    rationale: 'This substitutes a water-management mechanism. Both use designated areas. Check the act''s protected-area purpose.
+
+      '
+  explanation: 'RA 7586 established the National Integrated Protected Areas System, or NIPAS. RA 11038 later expanded it.
+
+    '
+- id: q-environment-management-the-environmental-laws-0009
+  type: single_choice
+  difficulty: medium
+  stem: 'Which department is the Environmental Management Bureau part of?
+
+    '
+  choices:
+  - text: DENR
+    correct: true
+  - text: Department of the Interior and Local Government
+    rationale: 'This selects local-government oversight. Local offices help enforce environmental measures. Check the bureau''s parent department.
+
+      '
+  - text: Department of Public Works and Highways
+    rationale: 'This selects public infrastructure. Infrastructure projects need environmental review. Check which department contains EMB.
+
+      '
+  - text: Department of Science and Technology
+    rationale: 'This selects scientific research. Environmental management uses science. Check the administrative parent, not a supporting expertise.
+
+      '
+  explanation: 'The Environmental Management Bureau is a bureau of the Department of Environment and Natural Resources, or DENR.
+
+    '
+- id: q-environment-management-the-environmental-laws-0010
+  type: single_choice
+  difficulty: medium
+  stem: 'Under RA 9729, where is the Climate Change Commission attached?
+
+    '
+  choices:
+  - text: Office of the President
+    correct: true
+  - text: Department of Environment and Natural Resources
+    rationale: 'This assumes an environmental body must be inside DENR. Its subject is environmental. Check RA 9729''s specific attachment.
+
+      '
+  - text: National Disaster Risk Reduction and Management Council
+    rationale: 'This substitutes a related coordinating body. Climate hazards and disaster risks overlap. Check whether the commission is subordinate to that council.
+
+      '
+  - text: Department of Energy
+    rationale: 'This assumes the emissions connection determines attachment. Energy affects climate change. Check the statutory organizational rule.
+
+      '
+  explanation: 'RA 9729 attaches the Climate Change Commission to the Office of the President.
+
+    '
+- id: q-environment-management-the-environmental-laws-0011
+  type: single_choice
+  difficulty: medium
+  stem: 'Which law regulates air emissions and prohibits the incineration described in the lesson when it emits poisonous and toxic fumes?
+
+    '
+  choices:
+  - text: RA 8749
+    correct: true
+  - text: RA 9003
+    rationale: 'This substitutes solid-waste management for the air-emissions provision. Both belong to environmental governance, so the number can seem familiar. Check the law''s main subject.
+
+      '
+  - text: RA 9275
+    rationale: 'This substitutes water-quality management for the air-emissions provision. Both belong to environmental governance, so the number can seem familiar. Check the law''s main subject.
+
+      '
+  - text: RA 7586
+    rationale: 'This substitutes the protected-area system for the air-emissions provision. Both belong to environmental governance, so the number can seem familiar. Check the law''s main subject.
+
+      '
+  explanation: 'Section 20 of RA 8749 prohibits the described incineration of municipal, biomedical, and hazardous waste when it emits poisonous and toxic fumes, subject to its stated exceptions.
+
+    '
+- id: q-environment-management-the-environmental-laws-0012
+  type: single_choice
+  difficulty: medium
+  stem: 'A proposed town plan opens a new open dump instead of using proper waste management. Which statutory framework is most directly involved?
+
+    '
+  choices:
+  - text: RA 9003
+    correct: true
+  - text: RA 9729 alone because any waste issue is exclusively climate policy
+    rationale: 'This makes a related climate effect the only legal issue. Waste can affect emissions. Check the direct solid-waste prohibition.
+
+      '
+  - text: RA 9275 alone because all dumped material must be wastewater
+    rationale: 'This confuses solid waste with wastewater. Dumping can pollute water. Check the material and disposal practice described.
+
+      '
+  - text: RA 9147 alone because every disposal site is a wildlife sanctuary
+    rationale: 'This assumes a wildlife status not stated. Waste can harm habitats. Check the law directly governing open dumps.
+
+      '
+  explanation: 'RA 9003 governs ecological solid-waste management and prohibits open dumps.
+
+    '
+- id: q-environment-management-the-environmental-laws-0013
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'Which law expanded and amended NIPAS in 2018?
+
+    '
+  choices:
+  - text: RA 11038
+    correct: true
+  - text: RA 7586
+    rationale: 'This substitutes the protected-area system for the later expansion law. Both belong to environmental governance, so the number can seem familiar. Check the law''s main subject.
+
+      '
+  - text: RA 9147
+    rationale: 'This substitutes wildlife protection for the later expansion law. Both belong to environmental governance, so the number can seem familiar. Check the law''s main subject.
+
+      '
+  - text: RA 10121
+    rationale: 'This selects disaster risk reduction. Both laws support environmental safety, so the number may seem familiar. Check which system the stem asks about.
+
+      '
+  explanation: 'RA 11038 is the Expanded NIPAS Act of 2018. It amended and expanded the system originally established under RA 7586.
+
+    '
+- id: q-environment-management-the-environmental-laws-0014
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'Which pairing accurately distinguishes the two frameworks?
+
+    '
+  choices:
+  - text: RA 9729 concerns climate policy; RA 10121 concerns disaster management.
+    correct: true
+  - text: RA 9729 created NDRRMC, while RA 10121 created the Climate Change Commission.
+    rationale: 'This swaps the institutions. Both address environmental risks. Match each body to its establishing law.
+
+      '
+  - text: RA 9729 governs wildlife collection, while RA 10121 governs protected-area creation.
+    rationale: 'This substitutes conservation subjects. All are environmental laws. Check each act''s main purpose.
+
+      '
+  - text: RA 9729 governs wastewater permits, while RA 10121 governs air-emission standards.
+    rationale: 'This substitutes pollution-control subjects. Climate and disaster work can involve pollution. Check the two frameworks actually named.
+
+      '
+  explanation: 'RA 9729 creates the climate-change policy framework and commission. RA 10121 establishes the disaster risk reduction and management framework.
+
+    '
+- id: q-environment-management-the-environmental-laws-0015
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'A policy separately regulates factory air emissions and wastewater discharges. Which laws match those two subjects?
+
+    '
+  choices:
+  - text: RA 8749 and RA 9275
+    correct: true
+  - text: RA 9003 and RA 9147, for solid waste and wildlife protection
+    rationale: 'This chooses nearby environmental subjects. Factory activity can affect both. Check air emissions and liquid discharge specifically.
+
+      '
+  - text: RA 9729 and RA 10121, for climate and disaster management
+    rationale: 'This chooses broader risk frameworks. Industry can affect climate and disaster risk. Check the direct pollution-control laws.
+
+      '
+  - text: RA 7586 and RA 11038, for original and expanded protected areas
+    rationale: 'This chooses area-conservation laws. Factories can affect sensitive sites. Check whether the stem describes a protected-area system.
+
+      '
+  explanation: 'RA 8749 regulates air pollution. RA 9275 supplies the water-quality and wastewater-discharge framework.
+
+    '
+- id: q-environment-management-the-environmental-laws-0016
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'Which statement accurately reads the Clean Air Act provision taught in the lesson?
+
+    '
+  choices:
+  - text: The ban includes a toxic-fumes condition and stated exceptions.
+    correct: true
+  - text: The Act bans every use of heat for any material regardless of emissions or exceptions.
+    rationale: 'This removes the provision''s qualifiers. Incineration appears as a prohibition. Check the toxic-fumes wording and exceptions.
+
+      '
+  - text: The Act allows any waste burning once the operator claims the fuel is inexpensive.
+    rationale: 'This replaces environmental conditions with cost. Cost matters to operations. Check the pollution rule rather than price.
+
+      '
+  - text: The Act regulates only water discharges and has no provision about waste-burning fumes.
+    rationale: 'This confuses air and water law. Both control pollution. Check the emissions medium.
+
+      '
+  explanation: 'The lesson describes a qualified prohibition involving poisonous and toxic fumes. The Act also states exceptions, so the whole provision must be read.
+
+    '
+- id: q-environment-management-the-environmental-laws-0017
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'Which statement best describes EMB''s place in environmental governance?
+
+    '
+  choices:
+  - text: It implements major environmental laws within DENR.
+    correct: true
+  - text: It is the Climate Change Commission's independent national legislative chamber.
+    rationale: 'This confuses a bureau with a policy body and legislature. Both deal with environmental policy. Check EMB''s stated parent department and role.
+
+      '
+  - text: It replaces every local government's role in solid-waste management nationwide.
+    rationale: 'This turns broad responsibility into exclusive control. EMB implements major laws. Check whether other institutions retain responsibilities.
+
+      '
+  - text: It handles only wildlife sanctuaries and never pollution-control or project-review laws.
+    rationale: 'This narrows its work to a different focus. DENR also manages natural resources. Check the laws named for EMB.
+
+      '
+  explanation: 'The lesson places EMB inside DENR and identifies its work on major pollution-control and environmental-impact laws.
+
+    '
+- id: q-environment-management-the-environmental-laws-0018
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'Which instrument does the Climate Change Act require for national policy direction?
+
+    '
+  choices:
+  - text: A National Strategic Framework on Climate Change
+    correct: true
+  - text: An Environmental Compliance Certificate for every household regardless of project coverage
+    rationale: 'This substitutes individual project clearance. Both involve environmental review. Check the national-policy scale.
+
+      '
+  - text: A solid-waste collection permit replacing every national climate planning document
+    rationale: 'This substitutes a waste operation for climate policy. Waste affects emissions. Check the act''s strategic framework requirement.
+
+      '
+  - text: A municipal building license serving as the country's entire climate-change strategy
+    rationale: 'This substitutes a local permit for national planning. Buildings can affect climate resilience. Check scope and purpose.
+
+      '
+  explanation: 'RA 9729 requires a National Strategic Framework on Climate Change. It guides national climate-policy direction.
+
+    '
+- id: q-environment-management-the-environmental-laws-0019
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'Which distinction best follows the lesson''s wildlife and protected-area statutes?
+
+    '
+  choices:
+  - text: RA 9147 protects wildlife; NIPAS laws establish and manage protected areas.
+    correct: true
+  - text: RA 9147 establishes all air-quality standards, while NIPAS laws only regulate wastewater.
+    rationale: 'This replaces conservation with pollution-control subjects. All protect the environment. Check the resources and areas named.
+
+      '
+  - text: RA 9147 and NIPAS laws mean the same thing and require no separate subject analysis.
+    rationale: 'This treats related conservation laws as identical. Species and habitats occur in protected areas. Check each law''s stated focus.
+
+      '
+  - text: NIPAS laws prohibit all wildlife protection outside the designated protected-area network.
+    rationale: 'This turns area designation into an exclusion of other conservation. Protected areas have boundaries. Check whether the lesson states such an exclusion.
+
+      '
+  explanation: 'RA 9147 concerns wildlife resources and habitats. RA 7586, as expanded by RA 11038, establishes and governs the protected-area system.
+
+    '
+- id: q-environment-management-the-environmental-laws-0020
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'Why is the claim ''one environmental law automatically resolves every environmental issue'' unreliable?
+
+    '
+  choices:
+  - text: Different laws address different environmental subjects.
+    correct: true
+  - text: Every environmental statute has exactly the same legal scope despite its different title.
+    rationale: 'This treats a common goal as identical coverage. All support protection. Check each statute''s particular subject.
+
+      '
+  - text: Only the date of a law matters; the subject of the activity is irrelevant to which applies.
+    rationale: 'This treats chronology as the whole legal test. Later laws can amend earlier ones. Check purpose and amendments together.
+
+      '
+  - text: An issue with several impacts must be excluded from regulation under every statute.
+    rationale: 'This treats overlap as absence of coverage. Several frameworks may be relevant. Check each applicable subject instead.
+
+      '
+  explanation: 'The laws in the lesson cover waste, air, water, climate, disasters, wildlife, protected areas, and project review. A problem must be matched to the relevant subjects.
+
+    '
