@@ -2,340 +2,424 @@ meta:
   subject: science
   topic: earth-science-astronomy
   subtopic: eclipses-and-moon-phases
-  exams: [ upcat, dlsucet, ustet, dost-sei ]
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0001
-    type: identify
-    difficulty: easy
+    type: 'identify'
+    difficulty: 'easy'
     stem: |
       About how many days does one full cycle of Moon phases, from one new moon to the next, take?
     choices:
-      - text: About 29.5 days
+      - text: '29.5 days'
         correct: true
-      - text: About 7 days
+      - text: '27.3 days'
         rationale: |
-          You picked a quarter cycle duration. 7 days is roughly the time between consecutive major phases (e.g., new moon to first quarter).
-      - text: About 100 days
+          This uses the Moon’s orbit relative to distant stars instead of its phase cycle. Both are lunar periods. Check the new-moon-to-new-moon reference.
+      - text: '365.24 days'
         rationale: |
-          You picked too long a timeframe. A lunar month takes about 29.5 days, not over three months.
-      - text: About 365 days
+          This uses Earth’s seasonal year. Both are astronomical cycles. Check whether the question concerns Earth’s orbit or Moon phases.
+      - text: '7.4 days'
         rationale: |
-          You picked Earth's orbital period around the Sun. 365 days is a solar year, whereas a synodic month is ~29.5 days.
+          This uses roughly one quarter of the phase cycle. Major phases are about a week apart. Check that the question asks for a full cycle.
     explanation: |
-      One full cycle of Moon phases, called a synodic month, takes about 29.5 days.
+      The cycle from one new moon to the next is a synodic month. Its average length is about 29.5 days.
     approved: true
 
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0002
-    type: identify
-    difficulty: easy
+    type: 'identify'
+    difficulty: 'easy'
     stem: |
       During which Moon phase does the sunlit side of the Moon face away from Earth, making the Moon appear dark?
     choices:
-      - text: New moon
+      - text: 'New moon'
         correct: true
-      - text: Full moon
+      - text: 'Full moon'
         rationale: |
-          You picked the fully illuminated phase. At full moon, the sunlit side faces Earth directly, making the Moon bright.
-      - text: First quarter
+          This selects the phase when the lit side faces Earth. Both concern illumination direction. Check which side is visible.
+      - text: 'First quarter'
         rationale: |
-          You picked the half-illuminated phase. At first quarter, half of the visible side is illuminated by sunlight.
-      - text: Waxing gibbous
+          This selects a half-lit phase. Some of the near side is dark then. Check the stated mostly dark view.
+      - text: 'Waxing gibbous'
         rationale: |
-          You picked the mostly illuminated phase. Waxing gibbous shows more than half of the sunlit face.
+          This selects a more-than-half-lit phase. It precedes full moon. Check how much illumination is visible.
     explanation: |
-      At new moon, the Moon's sunlit side faces away from Earth, so the Moon appears dark from Earth's view.
+      At new moon, the illuminated half faces mainly away from Earth. The side visible from Earth is therefore largely unlit.
     approved: true
 
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0003
-    type: identify
-    difficulty: medium
+    type: 'identify'
+    difficulty: 'medium'
     stem: |
       During which Moon phase does the entire sunlit side of the Moon face Earth?
     choices:
-      - text: Full moon
+      - text: 'Full moon'
         correct: true
-      - text: New moon
+      - text: 'New moon'
         rationale: |
-          You picked the dark phase. At new moon, the sunlit side faces away from Earth.
-      - text: First quarter
+          This reverses the illumination geometry. At new moon the visible face is mainly unlit. Check which side faces Earth.
+      - text: 'First quarter'
         rationale: |
-          You picked the half-lit phase. First quarter displays only 50% of the visible disc illuminated.
-      - text: Waning crescent
+          This selects a half-lit phase. Quarter names are familiar. Check whether the whole disk is lit.
+      - text: 'Waning crescent'
         rationale: |
-          You picked a sliver phase. Waning crescent shows less than half of the visible side illuminated.
+          This selects a thin waning phase. A crescent is illuminated. Check how much of the disk is visible.
     explanation: |
-      At full moon, the whole sunlit side of the Moon faces Earth, so we see the Moon's entire disc lit up.
+      At full moon, the near side is illuminated by sunlight. From Earth, the Moon appears as a fully lit disk.
     approved: true
 
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0004
-    type: process-ordering
-    difficulty: medium
+    type: 'process-ordering'
+    difficulty: 'medium'
     stem: |
       Arrange these Moon phases in the correct order, starting from new moon: full moon, first quarter, waxing crescent, waxing gibbous, new moon.
     choices:
-      - text: New moon, waxing crescent, first quarter, waxing gibbous, full moon
+      - text: 'New moon, waxing crescent, first quarter, waxing gibbous, full moon'
         correct: true
-      - text: New moon, first quarter, waxing crescent, waxing gibbous, full moon
+      - text: 'New moon, first quarter, waxing crescent, waxing gibbous, full moon'
         rationale: |
-          You placed first quarter before waxing crescent. The crescent (sliver) appears before reaching half-lit first quarter.
-      - text: New moon, waxing gibbous, first quarter, waxing crescent, full moon
+          This places the half-lit stage before the crescent. Both are waxing phases. Check that illumination grows from a thin portion to half.
+      - text: 'New moon, waxing gibbous, first quarter, waxing crescent, full moon'
         rationale: |
-          You reversed the waxing progression. The lit area grows from crescent to quarter to gibbous to full.
-      - text: Full moon, waxing gibbous, first quarter, waxing crescent, new moon
+          This reverses the growing sequence. All waxing names are present. Check increasing illuminated area.
+      - text: 'Full moon, waxing gibbous, first quarter, waxing crescent, new moon'
         rationale: |
-          You listed waning order starting from full moon. The question asked for waxing order starting from new moon.
+          This starts at full moon and reverses the requested progression. A cycle can be read backward. Check the stated starting point and waxing names.
     explanation: |
-      Starting from new moon, the lit portion grows (waxes) in this order: new moon → waxing crescent → first quarter (half lit) → waxing gibbous → full moon.
+      After new moon, the visible lit portion grows. The listed sequence is waxing crescent, first quarter, waxing gibbous, then full moon.
     approved: true
 
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0005
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       A student observes that exactly half of the Moon's visible face is lit, and the lit half is growing bigger each night. What phase is this?
     choices:
-      - text: First quarter
+      - text: 'First quarter'
         correct: true
-      - text: Last quarter
+      - text: 'Last quarter'
         rationale: |
-          You picked the shrinking half-lit phase. Last quarter is also half-lit, but its lit area is shrinking (waning).
-      - text: Full moon
+          This selects the other half-lit phase. The disk also looks half lit at last quarter. Check whether illumination is growing or shrinking.
+      - text: 'Fully illuminated full moon'
         rationale: |
-          You picked the 100% lit phase. Full moon shows the entire disc illuminated, not half.
-      - text: New moon
+          This selects a fully lit disk. Brightness is prominent. Check the half-lit amount.
+      - text: 'Mostly dark new moon'
         rationale: |
-          You picked the completely dark phase. New moon shows zero visible illumination.
+          This selects a mainly dark disk. A new phase begins a cycle. Check the stated half-lit view.
     explanation: |
-      "Growing bigger" means the phase is waxing, and exactly half lit while waxing is the first quarter phase, on the way toward full moon.
+      Half of the visible disk is lit, and its illumination is increasing. Half lit while waxing is the first quarter phase.
     approved: true
 
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0006
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
-      A student observes that exactly half of the Moon's visible face is lit, and the lit half is shrinking smaller each night. What phase is this?
+      Complete the decreasing-illumination sequence: full moon, waning gibbous, then which main phase?
     choices:
-      - text: Last quarter
+      - text: 'Last quarter'
         correct: true
-      - text: First quarter
+      - text: 'First quarter'
         rationale: |
-          You picked the growing half-lit phase. First quarter is half-lit and growing (waxing), while last quarter is shrinking (waning).
-      - text: Full moon
+          This inserts a waxing phase into the decreasing portion. First quarter is half lit. Check which side of full moon the sequence occupies.
+      - text: 'Full moon'
         rationale: |
-          You picked the fully lit phase. Full moon is 100% illuminated rather than 50% half-lit.
-      - text: New moon
+          This returns directly to full illumination. Full moon is in the sequence already. Check that the lit portion is decreasing.
+      - text: 'New moon'
         rationale: |
-          You picked the dark phase. New moon has no illuminated face visible from Earth.
+          This skips the remaining half-lit and crescent stages. New moon ends the decreasing portion. Check the immediate next listed phase.
     explanation: |
-      "Shrinking smaller" means the phase is waning, and exactly half lit while waning is the last quarter phase, on the way toward new moon.
+      After full moon, illumination decreases through waning gibbous. It then reaches the half-lit last quarter phase.
     approved: true
 
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0007
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       A student observes more than half of the Moon lit, and the lit portion is shrinking each night, on its way toward the last quarter phase. What is this phase called?
     choices:
-      - text: Waning gibbous
+      - text: 'Waning gibbous'
         correct: true
-      - text: Waxing gibbous
+      - text: 'Waxing gibbous'
         rationale: |
-          You picked the growing phase. "Waxing" means growing larger toward full moon, whereas "waning" means shrinking.
-      - text: Waning crescent
+          This keeps the lit amount but reverses its direction. Both are gibbous phases. Check whether illumination increases or decreases.
+      - text: 'Waning crescent'
         rationale: |
-          You picked the less-than-half phase. Crescent means less than 50% lit; gibbous means greater than 50% lit.
-      - text: Waxing crescent
+          This keeps the decreasing direction but selects less than half lit. Both are waning. Check the lit fraction.
+      - text: 'Waxing crescent'
         rationale: |
-          You picked growing and less-than-half. Shrinking and more-than-half lit is waning gibbous.
+          This reverses both amount and direction. The Moon has several partly lit phases. Check each descriptor separately.
     explanation: |
-      "Waning" means shrinking, and "gibbous" means more than half lit: combining the two names the phase between full moon and last quarter: waning gibbous.
+      More than half lit is gibbous. Decreasing illumination is waning. Together these give waning gibbous.
     approved: true
 
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0008
-    type: identify
-    difficulty: medium
+    type: 'identify'
+    difficulty: 'medium'
     stem: |
       What type of eclipse happens when the Moon passes directly between the Sun and Earth, blocking the Sun's light from part of Earth?
     choices:
-      - text: A solar eclipse
+      - text: 'A solar eclipse'
         correct: true
-      - text: A lunar eclipse
+      - text: 'A lunar eclipse'
         rationale: |
-          You picked Earth-in-middle eclipse. A lunar eclipse occurs when Earth blocks sunlight from hitting the Moon.
-      - text: An annular eclipse only
+          This reverses which body receives the shadow. Lunar eclipses involve the Moon too. Check whether Earth or Moon is shadowed.
+      - text: 'An annular eclipse at full moon'
         rationale: |
-          You restricted the answer to a sub-type. Annular is a specific solar eclipse variant, but the general term is solar eclipse.
-      - text: No eclipse; this alignment never occurs
+          This pairs a solar subtype with the wrong phase. Annular eclipses are solar. Check their new-moon requirement.
+      - text: 'An ordinary quarter-Moon phase'
         rationale: |
-          You claimed alignment never happens. Sun-Moon-Earth alignment occurs during solar eclipse events.
+          This treats shadow blocking as ordinary phase change. Phases also change the Moon’s appearance. Check the specified shadow on Earth.
     explanation: |
-      A solar eclipse happens when the Moon passes directly between the Sun and Earth, blocking the Sun's light from a small part of Earth.
+      The Moon blocks the Sun from a region of Earth. Its shadow falls on Earth. This is a solar eclipse.
     approved: true
 
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0009
-    type: identify
-    difficulty: medium
+    type: 'identify'
+    difficulty: 'medium'
     stem: |
       What type of eclipse happens when Earth passes directly between the Sun and the Moon, so Earth's shadow falls on the Moon?
     choices:
-      - text: A lunar eclipse
+      - text: 'A lunar eclipse'
         correct: true
-      - text: A solar eclipse
+      - text: 'A solar eclipse'
         rationale: |
-          You picked Moon-in-middle eclipse. A solar eclipse occurs when the Moon blocks sunlight from hitting Earth.
-      - text: An annular eclipse only
+          This reverses the shadow geometry. Solar eclipses involve all three bodies. Check which object receives the shadow.
+      - text: 'An annular solar eclipse only'
         rationale: |
-          You assigned annular type to lunar eclipse. Annular eclipses refer exclusively to solar eclipses.
-      - text: No eclipse; this alignment never occurs
+          This assigns the Sun’s ring-shaped eclipse type to the Moon. The term annular sounds like a general eclipse label. Check which bright object is being covered.
+      - text: 'An ordinary quarter-Moon phase'
         rationale: |
-          You claimed Earth-in-middle never aligns. Sun-Earth-Moon alignment happens regularly during lunar eclipses.
+          This treats Earth’s shadow as an ordinary quarter phase. A partly lit Moon is familiar. Check whether its dark area comes from the eclipse shadow.
     explanation: |
-      A lunar eclipse happens when Earth passes directly between the Sun and the Moon, casting Earth's shadow onto the Moon.
+      Earth blocks sunlight from reaching part or all of the Moon. Earth’s shadow falls on the Moon. This is a lunar eclipse.
     approved: true
 
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0010
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
       A student assumes a lunar eclipse must happen at new moon, since "lunar" refers to the Moon and new moon is when the Moon looks different. Is this correct?
     choices:
-      - text: 'No: a lunar eclipse happens at full moon, when Earth passes between the Sun and Moon; a solar eclipse happens at new moon, when the Moon passes between the Sun and Earth.'
+      - text: 'No; lunar eclipses require full moon.'
         correct: true
-      - text: 'Yes: a lunar eclipse always happens at new moon.'
+      - text: 'Yes; every lunar eclipse occurs at new moon.'
         rationale: |
-          You swapped eclipse phases. Lunar eclipses require full moon alignment (Sun-Earth-Moon).
-      - text: 'No: but only because lunar eclipses never actually occur.'
+          This assigns the solar-eclipse phase to a lunar eclipse. Both eclipse types involve the Moon. Check which body lies in the middle.
+      - text: 'No; but every full moon must be a lunar eclipse.'
         rationale: |
-          You denied lunar eclipse existence. Lunar eclipses occur multiple times worldwide each year.
-      - text: 'Yes: both solar and lunar eclipses happen at the exact same phase.'
+          This assumes the phase condition guarantees a shadow crossing. Full moon is necessary. Check the orbital alignment too.
+      - text: 'Yes; solar and lunar eclipses use the same phase.'
         rationale: |
-          You placed both eclipses in one phase. Solar eclipses occur at new moon; lunar eclipses occur at full moon.
+          This treats two different middle-body arrangements as the same phase. Both involve Sun, Earth, and Moon. Check their order.
     explanation: |
-      It is easy to swap these. Anchor it by remembering who blocks whom: the Moon blocks the Sun during a solar eclipse (needs new moon); Earth blocks sunlight from reaching the Moon during a lunar eclipse (needs full moon).
+      A lunar eclipse requires Earth between the Sun and Moon. This geometry is at full moon, when Earth’s shadow can reach the Moon.
     approved: true
 
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0011
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       During a solar eclipse, a viewer stands in the Moon's darkest shadow and sees the Sun completely covered. What type of solar eclipse is this viewer experiencing?
     choices:
-      - text: A total solar eclipse, since the viewer is in the umbra
+      - text: 'A total solar eclipse, since the viewer is in the umbra'
         correct: true
-      - text: A partial solar eclipse, since the viewer is in the penumbra
+      - text: 'A partial solar eclipse, since the viewer is in the penumbra'
         rationale: |
-          You picked penumbra shadow. Partial coverage occurs in the lighter penumbra, whereas full coverage happens in the umbra.
-      - text: An annular solar eclipse, since the Moon is too far to fully cover the Sun
+          This chooses partial coverage despite complete covering. Partial eclipses also involve a shadow. Check the stated total coverage.
+      - text: 'An annular solar eclipse, since the Moon is too far to fully cover the Sun'
         rationale: |
-          You picked ring-of-fire eclipse. Annular eclipses leave an outer ring visible; complete coverage defines a total eclipse.
-      - text: A lunar eclipse, since the Moon is involved
+          This selects the ring-shaped subtype. Annular eclipses also have central alignment. Check whether any ring of the Sun remains visible.
+      - text: 'A lunar eclipse, since the Moon is involved'
         rationale: |
-          You misnamed the eclipse type. When the Sun is blocked from Earth's view, it is a solar eclipse.
+          This names the Moon being shadowed rather than the Sun being covered. The Moon is involved. Check which object the viewer sees covered.
     explanation: |
-      Viewers standing in the umbra (the Moon's darkest shadow) see the Sun completely covered: a total solar eclipse.
+      The Moon completely covers the Sun for a viewer in its umbra. This is a total solar eclipse at that location.
     approved: true
 
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0012
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       During a lunar eclipse, the entire Moon passes into Earth's umbra and turns a reddish color. What is this event commonly called, and what type of lunar eclipse is it?
     choices:
-      - text: A "blood moon," a total lunar eclipse
+      - text: 'A "blood moon," a total lunar eclipse'
         correct: true
-      - text: A "ring of fire," an annular lunar eclipse
+      - text: 'A "ring of fire," an annular lunar eclipse'
         rationale: |
-          You used solar eclipse terminology. "Ring of fire" describes an annular solar eclipse, not a red total lunar eclipse.
-      - text: A "blood moon," a partial lunar eclipse
+          This uses the ring-shaped solar nickname for a lunar event. Both are distinctive-looking eclipses. Check which object is covered.
+      - text: 'A "blood moon," a partial lunar eclipse'
         rationale: |
-          You picked partial coverage. The entire Moon entering the umbra defines a total lunar eclipse.
-      - text: A "ring of fire," a total lunar eclipse
+          This uses the right nickname but only partial umbral coverage. The Moon can look dark during either. Check whether all or part enters the umbra.
+      - text: 'A "ring of fire," a total lunar eclipse'
         rationale: |
-          You combined solar nickname with lunar type. "Ring of fire" applies to solar eclipses; red lunar eclipses are "blood moons."
+          This combines the lunar type with the solar ring nickname. The total-lunar label fits. Check whether the stated appearance is red or ring-shaped.
     explanation: |
-      When the whole Moon passes into Earth's umbra and turns reddish, it is called a "blood moon": a total lunar eclipse. ("Ring of fire" describes an annular solar eclipse instead.)
+      The whole Moon is inside Earth’s dark umbra. This defines a total lunar eclipse. Its reddish appearance is commonly called a blood moon.
     approved: true
 
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0013
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
-      A question describes viewers who see the Sun only partly covered during an eclipse. Are these viewers standing in the umbra or the penumbra?
+      During a partial phase of a total solar eclipse, a viewer sees only part of the Sun covered. Which shadow region covers that viewer at that instant?
     choices:
-      - text: 'The penumbra: the lighter, partial shadow, where the Sun appears only partly covered'
+      - text: 'The penumbra'
         correct: true
-      - text: 'The umbra: the dark, complete shadow, where the Sun appears only partly covered'
+      - text: 'The umbra, with complete coverage'
         rationale: |
-          You defined umbra as partial. The umbra is the dark central shadow resulting in total coverage.
-      - text: Both the umbra and penumbra produce identical partial coverage.
+          This uses the fully dark shadow for partial coverage. Both shadows can lie on Earth. Check the amount of sunlight blocked at that instant.
+      - text: 'Both shadow regions give identical partial coverage'
         rationale: |
-          You equated umbra and penumbra. Umbra yields total coverage; penumbra yields partial coverage.
-      - text: Neither; partial coverage only happens outside both shadow regions.
+          This treats the two shadows as having the same coverage. Both belong to one eclipse. Check their different definitions.
+      - text: 'Neither shadow region can contain partial coverage'
         rationale: |
-          You placed partial view outside shadows. Outside both shadow regions, no eclipse is visible at all.
+          This places partial coverage outside the Moon’s shadow. The viewer still sees some sunlight. Check whether some of the Sun must be blocked.
     explanation: |
-      Viewers in the umbra (the dark, complete shadow) see a total eclipse. Viewers in the penumbra (the lighter, partial shadow) see only a partial eclipse: a description of "the Sun partly covered" points to the penumbra.
+      The penumbra is the partial-shadow region. At the described partial phase, the Moon blocks only part of the Sun for those viewers.
     approved: true
 
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0014
-    type: cause-effect
-    difficulty: hard
+    type: 'cause-effect'
+    difficulty: 'hard'
     stem: |
       New moons and full moons both happen every month, yet eclipses do not happen every month. Why?
     choices:
-      - text: The Moon's orbital path around Earth is tilted slightly compared to the plane of Earth's orbit around the Sun, so at most new moons and full moons, the Moon passes slightly above or below the perfect alignment needed for an eclipse.
+      - text: 'Orbital tilt usually prevents alignment.'
         correct: true
-      - text: Eclipses actually do happen every single month, but they are simply never visible from Earth's surface.
+      - text: 'Every new and full moon creates an unseen eclipse.'
         rationale: |
-          You claimed monthly eclipses occur unseen. Eclipses only occur when Sun-Earth-Moon align on the orbital nodes.
-      - text: The Moon only orbits Earth during certain months of the year.
+          This assumes a monthly phase automatically creates a hidden eclipse. New and full moons occur regularly. Check whether a shadow reaches the target.
+      - text: 'The Moon only orbits Earth in some months.'
         rationale: |
-          You claimed non-continuous Moon orbit. The Moon continuously orbits Earth every ~27.3 days.
-      - text: The Sun's light only reaches the Moon during specific months.
+          This assumes the Moon stops orbiting in some months. Eclipses are intermittent. Check orbital motion separately from alignment.
+      - text: 'Sunlight only reaches the Moon in some months.'
         rationale: |
-          You claimed seasonal sunlight blockage. Sunlight strikes the Moon continuously except during brief lunar eclipses.
+          This assumes sunlight reaches the Moon only seasonally. Illumination changes from our view. Check whether the orbital tilt changes alignment rather than turning the Sun off.
     explanation: |
-      Because the Moon's orbit is tilted relative to Earth's orbital plane, the three bodies usually miss lining up in a perfectly straight line at new moon or full moon. Only when a new moon or full moon happens to occur very close to where the two tilted orbital planes cross does a true eclipse occur.
+      The Moon’s orbit is tilted relative to Earth’s orbital plane. At most new and full moons, it passes above or below the necessary alignment. Eclipses require an appropriate crossing-point alignment too.
     approved: true
 
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0015
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
-      During a certain event, the Moon passes directly between the Sun and Earth, and its shadow falls on part of Earth's surface. What phase of the Moon must this be happening during, and what type of eclipse is this?
+      At new moon, observers see a bright ring of the Sun surrounding the Moon’s silhouette. Which event is described?
     choices:
-      - text: New moon; a solar eclipse
+      - text: 'An annular solar eclipse'
         correct: true
-      - text: Full moon; a lunar eclipse
+      - text: 'A total solar eclipse with no Sun remaining visible'
         rationale: |
-          You picked Earth-in-middle phase and type. Moon between Sun and Earth requires new moon and causes a solar eclipse.
-      - text: First quarter; a solar eclipse
+          This treats the ring as complete covering. Both are central solar eclipses. Check whether the Sun’s outer edge remains visible.
+      - text: 'A total lunar eclipse inside Earth’s umbra'
         rationale: |
-          You picked 90-degree phase. At first quarter, the Moon forms a right angle with the Sun and Earth, preventing eclipses.
-      - text: Full moon; a solar eclipse
+          This treats a solar ring as Earth’s shadow on the Moon. Both involve alignment. Check which object is seen covered.
+      - text: 'A partial eclipse with the Moon covering only one edge'
         rationale: |
-          You paired full moon with solar eclipse. Full moon positions Earth between Sun and Moon, enabling lunar eclipses instead.
+          This treats any incomplete Sun covering as the same partial shape. Partial eclipses cover only a portion. Check the ring around the centered Moon.
     explanation: |
-      The Moon sitting between the Sun and Earth, casting its shadow on Earth, can only happen at new moon, and since the Moon's shadow falls on Earth, this is a solar eclipse.
+      During an annular solar eclipse, the Moon appears too small to cover the Sun completely. A bright ring of the Sun remains around its silhouette.
     approved: true
 
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0016
-    type: predict-outcome
-    difficulty: exam
+    type: 'predict-outcome'
+    difficulty: 'exam'
     stem: |
-      During a full moon, Earth passes almost perfectly between the Sun and the Moon, and observers report the whole Moon passing into Earth's darkest shadow. A classmate claims this event must be an annular solar eclipse. Evaluate this claim and identify the actual event.
+      After totality in a lunar eclipse, part of the Moon crosses out of Earth’s umbra while the rest remains inside. Which stage is now occurring?
     choices:
-      - text: 'The claim is incorrect: since Earth is between the Sun and Moon at full moon, and the whole Moon enters Earth''s umbra, this is a total lunar eclipse, not any type of solar eclipse.'
+      - text: 'Partial lunar eclipse'
         correct: true
-      - text: The claim is correct, since any eclipse involving the Moon's shadow region qualifies as an annular solar eclipse.
+      - text: 'Total lunar eclipse with the entire Moon still in umbra'
         rationale: |
-          You misclassified Earth's shadow as a solar eclipse. Earth shadowing the Moon is a lunar eclipse.
-      - text: The claim is correct, since annular eclipses only happen during a full moon.
+          This keeps the total label after the whole Moon is no longer inside the umbra. Totality was the preceding stage. Check how much remains covered.
+      - text: 'Annular solar eclipse at full moon'
         rationale: |
-          You misstated annular eclipse phase. Annular eclipses are solar eclipses and occur only at new moon.
-      - text: The event cannot be identified without knowing the exact distance between the Moon and Earth.
+          This changes a lunar shadow event into a solar ring event. Both are eclipses. Check which body receives Earth’s shadow.
+      - text: 'New moon because the Moon has left part of the shadow'
         rationale: |
-          You claimed missing distance parameters. Earth's shadow covering the full moon confirms a total lunar eclipse.
+          This treats leaving the shadow as an immediate new phase cycle. Illumination returns during an eclipse. Check that the event is still at full moon.
     explanation: |
-      Solar eclipses require the Moon to sit between the Sun and Earth, which only happens at new moon, not full moon. Since Earth is between the Sun and Moon here, with the whole Moon entering Earth's umbra, this describes a total lunar eclipse.
+      As the Moon begins leaving Earth’s umbra, part remains in the dark shadow and part moves outside it. That stage is a partial lunar eclipse.
     approved: true
+
+  - id: q-earth-science-astronomy-eclipses-and-moon-phases-0017
+    type: 'cause-effect'
+    difficulty: 'easy'
+    stem: |
+      What mainly creates the ordinary Moon-phase cycle?
+    choices:
+      - text: 'Our changing view of its sunlit half'
+        correct: true
+      - text: 'Earth’s shadow covering the Moon every month'
+        rationale: |
+          This treats phases as repeated eclipses. A lunar eclipse does darken the Moon. Check whether Earth’s shadow is needed for an ordinary phase.
+      - text: 'The Moon switching its own light on and off'
+        rationale: |
+          This gives the Moon a light source of its own. The Moon appears bright. Check that it reflects sunlight.
+      - text: 'The Sun becoming brighter and darker every lunar month'
+        rationale: |
+          This assigns the changing shape to changing solar brightness. The Sun supplies the light. Check the viewing geometry during the Moon’s orbit.
+    explanation: |
+      Sunlight illuminates roughly half the Moon. As it orbits Earth, we see different portions of that illuminated half. This produces ordinary phases.
+    approved: false
+
+  - id: q-earth-science-astronomy-eclipses-and-moon-phases-0018
+    type: 'compare-contrast'
+    difficulty: 'medium'
+    stem: |
+      How do crescent and gibbous describe a partly illuminated Moon?
+    choices:
+      - text: 'Crescent: less than half; gibbous: more than half.'
+        correct: true
+      - text: 'Crescent: growing; gibbous: shrinking in every case.'
+        rationale: |
+          This uses amount words as growth-direction words. Phase names combine both kinds of information. Check waxing or waning for direction.
+      - text: 'Crescent: more than half; gibbous: less than half.'
+        rationale: |
+          This reverses the lit fractions. Both are partly lit shapes. Check which is a thin portion and which exceeds half.
+      - text: 'Both always mean exactly half the disk is illuminated.'
+        rationale: |
+          This substitutes quarter-phase illumination for both shape names. Half-lit phases are familiar. Check the specified smaller and larger fractions.
+    explanation: |
+      Crescent describes less than half the visible disk lit. Gibbous describes more than half lit. Either can occur while illumination grows or shrinks.
+    approved: false
+
+  - id: q-earth-science-astronomy-eclipses-and-moon-phases-0019
+    type: 'process-ordering'
+    difficulty: 'hard'
+    stem: |
+      After last quarter, which sequence leads to the next first quarter?
+    choices:
+      - text: 'Waning crescent, new moon, waxing crescent, first quarter'
+        correct: true
+      - text: 'Waxing crescent, full moon, waning gibbous, first quarter'
+        rationale: |
+          This jumps from decreasing illumination into full moon. The sequence contains valid names. Check the transition through new moon.
+      - text: 'New moon, waning crescent, full moon, first quarter'
+        rationale: |
+          This puts a waning crescent after new moon. The dark phase is included. Check that illumination grows after new moon.
+      - text: 'Waning gibbous, waxing gibbous, full moon, first quarter'
+        rationale: |
+          This moves backward to larger lit fractions after last quarter. Gibbous stages are familiar. Check the decreasing path toward new moon.
+    explanation: |
+      Illumination decreases from last quarter to waning crescent and new moon. It then grows through waxing crescent to first quarter.
+    approved: false
+
+  - id: q-earth-science-astronomy-eclipses-and-moon-phases-0020
+    type: 'predict-outcome'
+    difficulty: 'exam'
+    stem: |
+      A new moon occurs far above or below the Sun-Earth alignment line. Which outcome follows?
+    choices:
+      - text: 'No solar eclipse at that new moon'
+        correct: true
+      - text: 'A total solar eclipse must occur at every new moon'
+        rationale: |
+          This treats the phase condition as sufficient. Solar eclipses need new moon. Check the alignment condition as well.
+      - text: 'A lunar eclipse must occur because the Moon is off the line'
+        rationale: |
+          This assigns lunar eclipse to new moon and missed alignment. The Moon is involved. Check the full-moon Earth-shadow requirement.
+      - text: 'An annular solar eclipse must occur whenever alignment is missed'
+        rationale: |
+          This treats a missed alignment as an annular subtype. Annular eclipses leave a ring. Check that they still require a central solar alignment.
+    explanation: |
+      A solar eclipse needs the Moon’s shadow to reach Earth. The stated off-line position misses that alignment, so this new moon does not produce a solar eclipse.
+    approved: false
