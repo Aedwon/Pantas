@@ -363,3 +363,50 @@ conversation with Aedwon's approval. The quota wait polled an actual live monito
 it did not replace or narrow the goal. Fifteen lessons remained at the start of
 this new worker pass. The group summary, combined merge/gates, test-first
 importer change/review, final summary, and final completion record remain pending.
+
+### Final content group completed and mechanically verified, 3 October 2026
+
+The Language, Reasoning, Reading Comprehension, and General Information worker
+finished with a clean worktree and committed group summary at
+`25b4e45f09c79948768cb14407a3abffb73c8a9c` on
+`content/question-qa-r2-other`. Its normal push was verified against the same
+remote SHA at 22:02 UTC on 2 October (06:02 Philippine time).
+
+The orchestrator independently ran the full-bank importer and the scoped
+mechanical check against that unchanged revision:
+
+```text
+dart run tools/import_questions/import_questions.dart --root content/questions
+exit: 0
+lessons=61 questions=1220 active=1220 preserved=875 fixed_keys=10 under20=0 errors=0
+scope_files=123 out_of_scope=0
+check_no_ai_attribution: OK
+```
+
+The final group audited 875 existing questions and added 345. Its ledgers record
+10 answer-key fixes, 211 HIGH findings, and 43 NEEDS AEDWON items, including 11
+HIGH findings retained under the preservation rule. Every lesson has exactly
+20 active questions. The worker separately checked passage lengths and references
+because the existing question-only CLI does not enforce the passage-file path.
+Its summary records the primary sources used for legal and factual verification.
+
+The final group retains 39 raw answer-length candidates: 32 in previously
+completed non-protected items and seven protected items. These remain subject to
+the resumption/preservation rules and were not visually accepted. Together with
+Mathematics, 61 raw-source length candidates are recorded. They are not confirmed
+rendered-length findings and must remain visible in the combined summary.
+
+All three content groups are now mechanically accepted and pushed. Totals:
+158 lessons, 3,163 active questions, 2,364 baseline IDs preserved, 799 questions
+added, 19 recorded answer-key fixes, 436 HIGH findings recorded, and 134
+NEEDS AEDWON items. No lesson is below 20 active questions. Nineteen pending
+items carry HIGH severity; this is distinct from the 19 recorded key fixes.
+The content's independent authored-output review remains waived by Aedwon.
+
+Before the importer task, the orchestrator aligned the combined branch's upstream
+to its own agreed remote branch, verified both at the original base, and ran
+`dart run build_runner build --delete-conflicting-outputs`. Missing generated
+files were regenerated successfully (exit 0, 2,491 outputs); tracked status stayed
+clean. Flutter 3.44.6 and Dart 3.12.2 were verified locally. No seed was rebuilt.
+The combined merge/gates, importer change/review, and final completion remain
+pending. No app-branch or main content integration is authorized here.
