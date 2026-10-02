@@ -1,239 +1,453 @@
 meta:
-  subject: reading-comprehension
-  topic: comprehension-skills
-  subtopic: context-clues-in-passages
+  subject: "reading-comprehension"
+  topic: "comprehension-skills"
+  subtopic: "context-clues-in-passages"
   exams:
-    - upcat
-    - acet
-    - dlsucet
-    - ustet
-
+    - "upcat"
+    - "acet"
+    - "dlsucet"
+    - "ustet"
 passages:
-  - id: rc-cs-cc-p1
+  - id: "rc-cs-cc-p1"
     title: "Aquaculture Strategies in Laguna de Bay"
     body: |
-      Aquaculturists operating fish pens along Laguna de Bay face recurring environmental challenges caused by seasonal water quality fluctuations. During monsoon months, farm operators harbor juvenile bangus in shallow, net-enclosed nursery pens to protect the fragile fish from turbulent lake currents. By sheltering the young stock until they reach maturity, fish farmers significantly reduce mortality rates compared to open-water stocking.
-
-      However, when warm summer weather triggers rapid green algae blooms, dissolved oxygen levels drop sharply at night, threatening the fish. During these emergency periods, cooperative leaders immediately table plans for expanding fingerling purchases, postponing all non-essential investments until water quality stabilizes. Instead, operators redirect their funds toward operating aeration pumps continuously.
-
-      The ability of fish pen owners to harbor vulnerable stocks during storms and table expansion projects during environmental bottlenecks has kept the local aquaculture industry resilient for decades.
-
-  - id: rc-cs-cc-p2
+      In this fictional account, a cooperative raising fish in Laguna de Bay faces changes in water quality. During storms, operators harbor juvenile bangus in protected nursery pens. They shelter the young fish from strong currents while checking their condition and growth. The nursery is one part of a larger effort to protect the stock through changing seasons.
+      
+      Later, heavy algae growth raises concern about oxygen use at night. The leaders table plans for expanding fish purchases, postponing those investments until conditions improve. Instead, they direct available funds toward aeration and closer monitoring. The plans remain on the cooperative's records for future consideration; they have not been canceled.
+      
+      Members must decide how to use limited resources without ignoring immediate needs. Sheltering young stock and delaying expansion are different actions, but both serve the same aim of keeping the existing fish safe. The cooperative can return to its longer-term plans once the urgent problem has been addressed and new information supports the decision.
+  - id: "rc-cs-cc-p2"
     title: "Abel Iloco Weaving Traditions"
     body: |
-      Master weaver Aling Teresa preserves the traditional craft of Abel Iloco cloth in Vigan using centuries-old techniques. Before weaving begins, she must render raw, unrefined cotton fibers into smooth, continuous threads by manually combing out seeds and carding the cotton against wooden frames. Without this meticulous preparation, the cotton threads would snap under the high tension of the foot-pedal loom.
-
-      To dye the thread, Aling Teresa relies on an organic indigo dye culture nurtured in large clay fermentation jars. This living fermentation vat, fed with rice wine and wood ash, requires daily stirring and temperature monitoring to maintain the active microorganisms that extract rich blue pigments. If the culture is neglected for even two days, the dye loses its intensity and produces uneven coloration.
-
-      Through her mastery of preparing raw fibers and cultivating delicate dye vats, Aling Teresa produces textiles celebrated across the Philippines for their durability and cultural heritage.
-
+      In a fictional weaving workshop, Aling Teresa prepares cotton for a demonstration. She must render the raw fibers into usable thread. First she removes seeds and combs the fibers, then spins them into a continuous strand. The change from loose fiber to thread takes care before the weaving itself can begin.
+      
+      At the dye station, she shows her visitors an indigo fermentation culture. This mixture contains living microorganisms that help make the dye usable. She monitors its conditions and feeds the culture to keep it active. If she neglects the mixture, it may stop producing the result she needs. The visitors see that caring for a living process is different from merely storing a colored liquid.
+      
+      Teresa also speaks about the region's weaving culture, meaning the skills, practices, and traditions shared by its people. Both uses of the word belong in the workshop, but they describe different things. Preparing fibers, maintaining the dye mixture, and passing on knowledge all contribute to the craft she wants her visitors to understand.
+  - id: "p-comprehension-skills-context-clues-in-passages-0003"
+    title: "The Community Newsletter"
+    body: |
+      The student editors met in the barangay hall with a draft of their newsletter. It was an early version, with blank spaces where interviews would go and notes asking writers to check names. Before printing anything, the team needed to turn that unfinished copy into a reliable account of local events.
+      
+      For the first issue, they chose a report on the new reading corner. This edition would also include a column by a volunteer who wrote regularly about gardening. Her piece was a section of the paper, not a feature of the hall's architecture. The editors wanted familiar voices as well as announcements.
+      
+      The team had to address several concerns about accuracy. They discussed each problem and asked the writers to confirm details. Only then did they send the pages to the press, where the printing machines would produce copies. By the end of the meeting, the newsletter had become a shared responsibility. Good writing mattered, but checking facts and giving readers a clear view of their community mattered just as much.
+  - id: "p-comprehension-skills-context-clues-in-passages-0004"
+    title: "Planning the School Fair"
+    body: |
+      The fair committee gave Neri charge of the entrance desk. She would supervise the volunteers there and decide how to handle questions from arriving visitors. The role involved responsibility, not collecting an extra fee. The committee wanted one person to coordinate the work without making every volunteer wait for a meeting.
+      
+      Before the fair, each club made a pitch for its proposed activity. Members explained their idea and tried to win the committee's support. A gardening club offered a planting demonstration. The organizers liked it, but asked the club to scale back the plan. Instead of several displays, it would prepare one smaller exhibit that the available volunteers could manage.
+      
+      Neri kept a current list of assignments, replacing old information whenever a plan changed. She also created a channel for volunteers to report problems: a shared message group where concerns could reach the committee quickly. The fair depended on people knowing both what to do and how to seek help. Clear roles and communication made the modest event easier to organize.
 questions:
-  - id: rc-cs-cc-0001
-    passage: rc-cs-cc-p1
-    type: analyze
-    difficulty: easy
+  - id: "rc-cs-cc-0001"
+    passage: "rc-cs-cc-p1"
+    type: "context-clues-in-passages"
+    difficulty: "easy"
     stem: |
-      As used in the first paragraph, what is the meaning of the word "harbor"?
+      In the cooperative passage, what does "harbor" mean?
     choices:
-      - text: To shelter or keep safe in a protected area
+      - text: "Shelter"
         correct: true
-      - text: A natural coastal port for commercial ships
+      - text: "Hold a grudge against"
         rationale: |
-          You picked the literal noun definition of a port for ships. In this passage, harbor is a verb that means to shelter or protect young fish.
-      - text: To entertain secretive negative thoughts
+          This uses the emotional meaning of harbor. The word can describe holding feelings. Check what receives protection in this passage.
+      - text: "Provide a port for ships"
         rationale: |
-          You picked an idiom about holding bad feelings like grudges. The passage uses harbor as a physical action of protecting young fish.
-      - text: To anchor a large motorized vessel
+          This uses the noun meaning associated with ships. The setting is a lake. Check whether harbor names a place or an action here.
+      - text: "Keep something secret"
         rationale: |
-          You picked a nautical action for ships. In this passage, harbor refers to holding and protecting young fish in nursery pens.
+          This uses the sense of hiding something. Protected pens keep fish contained. Check whether the purpose is secrecy or safety.
     explanation: |
-      In the passage, "harbor juvenile bangus in shallow, net-enclosed nursery pens" means to shelter or protect the young fish from harsh currents.
-
-  - id: rc-cs-cc-0002
-    passage: rc-cs-cc-p1
-    type: analyze
-    difficulty: medium
+      The next sentence says the operators shelter young fish from strong currents. That action explains harbor as providing protection.
+  - id: "rc-cs-cc-0002"
+    passage: "rc-cs-cc-p1"
+    type: "context-clues-in-passages"
+    difficulty: "medium"
     stem: |
-      Which surrounding detail in paragraph 1 provides the strongest context clue for the word "harbor"?
+      Which detail best clarifies "harbor" in the cooperative passage?
     choices:
-      - text: "protect the fragile fish from turbulent lake currents"
+      - text: "\"shelter the young fish\""
         correct: true
-      - text: "recurring environmental challenges caused by seasonal water"
+      - text: "\"changes in water quality\""
         rationale: |
-          You picked a phrase that describes the environmental problem rather than the specific clue that defines what harbor means.
-      - text: "dissolved oxygen levels drop sharply at night"
+          This names the wider problem. Water conditions motivate the work. Check which detail describes the action itself.
+      - text: "\"plans remain on the cooperative's records\""
         rationale: |
-          You picked a detail from paragraph 2 about algae blooms. Paragraph 1 uses harbor in the context of protecting young fish from currents.
-      - text: "expanding fingerling purchases after monsoon months"
+          This selects a clue for a different word. Records explain that table does not mean cancel. Check the paragraph containing harbor.
+      - text: "\"decide how to use limited resources\""
         rationale: |
-          You picked a detail about business decisions mentioned later. It does not explain the meaning of sheltering fish in paragraph 1.
+          This selects the overall planning issue. Limited resources shape decisions. Check which phrase tells what happens to the fish.
     explanation: |
-      The phrase "protect the fragile fish from turbulent lake currents" directly explains the action of sheltering or harboring the fish.
-
-  - id: rc-cs-cc-0003
-    passage: rc-cs-cc-p1
-    type: analyze
-    difficulty: medium
+      The sheltering detail describes what the operators do for the young fish. It directly explains the protective action.
+  - id: "rc-cs-cc-0003"
+    passage: "rc-cs-cc-p1"
+    type: "context-clues-in-passages"
+    difficulty: "medium"
     stem: |
-      As used in the second paragraph, what does the word "table" mean?
+      What does "table" mean in the cooperative passage?
     choices:
-      - text: To postpone for future consideration
+      - text: "Postpone"
         correct: true
-      - text: A flat piece of wooden furniture used for dining
+      - text: "Present for immediate discussion"
         rationale: |
-          You picked the everyday noun definition of furniture. In this context, table is used as a verb meaning to delay or postpone plans.
-      - text: To present a mathematical statistical spreadsheet of data
+          This uses another procedural meaning of table. Meetings can table a proposal for discussion. Check the explicit word postponing here.
+      - text: "Organize information in rows"
         rationale: |
-          You picked a technical definition used for data display. In this passage, table refers to delaying expansion investments.
-      - text: To build a large wooden platform over open water
+          This uses a data-related meaning. Cooperative records may include tables. Check that table acts on plans in this sentence.
+      - text: "Provide a flat working surface"
         rationale: |
-          You picked a physical construction activity. The passage uses table procedurally to mean postponing spending on new fingerlings.
+          This uses the familiar furniture meaning. Work areas can need tables. Check whether the sentence concerns a surface or a decision.
     explanation: |
-      The passage explains that leaders "table plans... postponing all non-essential investments until water quality stabilizes", showing that "table" means to postpone.
-
-  - id: rc-cs-cc-0004
-    passage: rc-cs-cc-p1
-    type: infer
-    difficulty: hard
+      The sentence explains that the investments are postponed until conditions improve. The plans are kept for later consideration.
+  - id: "rc-cs-cc-0004"
+    passage: "rc-cs-cc-p1"
+    type: "context-clues-in-passages"
+    difficulty: "hard"
     stem: |
-      Why is the word "table" used in contrast to operating aeration pumps?
+      What does the contrast between tabling expansion and directing funds toward aeration clarify?
     choices:
-      - text: It shows expansion was delayed so funds could address aeration.
+      - text: "Expansion waits while an urgent need receives funds."
         correct: true
-      - text: It proves that commercial aeration pumps require wooden tables to function properly.
+      - text: "Expansion ends permanently when aeration begins."
         rationale: |
-          You misinterpreted table as a physical piece of furniture rather than the procedural action of postponing expansion plans.
-      - text: It indicates that local fish farmers permanently abandoned buying fingerlings.
+          This treats postponement as cancellation. The problem interrupts expansion. Check whether the plans remain for later consideration.
+      - text: "Expansion receives funds before any monitoring occurs."
         rationale: |
-          You assumed the delay was permanent. The passage states that plans were postponed only until water quality stabilized.
-      - text: It demonstrates that seasonal green algae blooms increase fish growth rates.
+          This reverses the order of priorities. Both projects require resources. Check which one receives funds now.
+      - text: "Aeration is delayed until the cooperative buys more fish."
         rationale: |
-          You picked a statement that contradicts the passage. Algae blooms drop oxygen levels and threaten fish rather than helping them grow.
+          This transfers the delay to aeration. The word table appears near both actions. Check which action the verb actually describes.
     explanation: |
-      The passage contrasts tabling (postponing) expansion plans with immediately redirecting funds toward running aeration pumps during oxygen drops.
-
-  - id: rc-cs-cc-0005
-    passage: rc-cs-cc-p1
-    type: evaluate
-    difficulty: hard
+      The passage delays purchases and sends available funds to aeration and monitoring. The contrast shows which work waits and which receives attention now.
+  - id: "rc-cs-cc-0005"
+    passage: "rc-cs-cc-p1"
+    type: "context-clues-in-passages"
+    difficulty: "hard"
     stem: |
-      Which common trap must a reader avoid when interpreting "table" in this passage?
+      Which later clue rules out interpreting "table" as cancel permanently?
     choices:
-      - text: Assuming it refers to furniture rather than procedural delay.
+      - text: "Plans can be revisited."
         correct: true
-      - text: Assuming the word means to accelerate a new commercial business proposal.
+      - text: "Members must use limited resources carefully."
         rationale: |
-          You picked the exact opposite of what table means here. The passage explains that table means to postpone or delay investments.
-      - text: Confusing fragile juvenile bangus fish with microscopic green algae.
+          This gives the reason for a decision but not its duration. Limited funds can lead to delay or cancellation. Check for a statement about returning to the plans.
+      - text: "The nursery is part of a larger protection effort."
         rationale: |
-          You picked a distractor about biological elements. The question specifically asks about avoiding traps when interpreting the word table.
-      - text: Believing that net-enclosed fish pens are located in ocean waters.
+          This explains protection, not the status of expansion. The nursery is related to the wider effort. Check which clue addresses future action.
+      - text: "Heavy algae growth raises concern about oxygen."
         rationale: |
-          You picked a distractor about location. The passage explicitly states the pens are located along Laguna de Bay, a lake.
+          This explains the urgent problem. It helps explain why spending changes. Check whether it tells how long expansion is set aside.
     explanation: |
-      The word "table" commonly refers to furniture in everyday speech, but in this operational context it means postponing a decision.
-
-  - id: rc-cs-cc-0006
-    passage: rc-cs-cc-p2
-    type: analyze
-    difficulty: easy
+      Returning to the plans means they remain available for later action. That clue supports temporary delay.
+  - id: "rc-cs-cc-0006"
+    passage: "rc-cs-cc-p2"
+    type: "context-clues-in-passages"
+    difficulty: "easy"
     stem: |
-      As used in the first paragraph, what does the word "render" mean?
+      What does "render" mean in the workshop passage?
     choices:
-      - text: To transform raw material into a refined state
+      - text: "Turn into"
         correct: true
-      - text: To translate written text from one language into another
+      - text: "Translate between languages"
         rationale: |
-          You picked a definition of render used for translation. Here, the weaver is processing raw cotton fibers into smooth thread.
-      - text: To melt down raw animal fat for commercial cooking oil
+          This uses a translation meaning. Teresa explains a craft to visitors. Check whether the object is language or fiber.
+      - text: "Create a computer image"
         rationale: |
-          You picked a culinary definition of render. In this passage, the word refers to converting raw cotton into continuous thread.
-      - text: To formally surrender property to legal municipal authorities
+          This uses a digital meaning. A demonstration can present an image. Check the physical work described after the word.
+      - text: "Melt fat for use in cooking"
         rationale: |
-          You picked a legal definition of render. The passage uses the word to describe transforming raw cotton fibers into smooth yarn.
+          This uses a cooking meaning. Rendering can process raw material. Check which material Teresa handles.
     explanation: |
-      The passage describes how the weaver must "render raw, unrefined cotton fibers into smooth, continuous threads by manually combing out seeds", meaning to process or transform.
-
-  - id: rc-cs-cc-0007
-    passage: rc-cs-cc-p2
-    type: analyze
-    difficulty: medium
+      The passage follows raw fibers through cleaning and spinning into thread. Render describes that change from one state to another.
+  - id: "rc-cs-cc-0007"
+    passage: "rc-cs-cc-p2"
+    type: "context-clues-in-passages"
+    difficulty: "medium"
     stem: |
-      Which clue in paragraph 1 clarifies the meaning of "render"?
+      Which clue best explains the result of rendering the fibers?
     choices:
-      - text: "combing out seeds and carding the cotton"
+      - text: "They are spun into a continuous strand."
         correct: true
-      - text: "preserves the traditional craft of Abel Iloco cloth"
+      - text: "The visitors hear about regional traditions."
         rationale: |
-          You picked a general statement about preserving craft traditions. It does not describe the specific process of transforming the fiber.
-      - text: "dye loses its intensity and produces uneven coloration"
+          This follows another topic. Traditions are part of the workshop. Check which clue concerns the fibers' changed state.
+      - text: "The dye mixture contains living microorganisms."
         rationale: |
-          You picked a detail about indigo dyeing from paragraph 2. The word render appears in paragraph 1 regarding cotton preparation.
-      - text: "fed with rice wine and wood ash daily"
+          This follows the biological meaning of culture. Both are preparation processes. Check what material render acts on.
+      - text: "Teresa monitors conditions at the dye station."
         rationale: |
-          You picked a detail about maintaining the dye culture. This describes feeding microorganisms, not rendering raw cotton into thread.
+          This selects an action from the dye section. Care is needed throughout the craft. Check the paragraph describing thread preparation.
     explanation: |
-      The specific processing steps ("combing out seeds and carding") describe how the raw cotton is transformed or rendered into thread.
-
-  - id: rc-cs-cc-0008
-    passage: rc-cs-cc-p2
-    type: analyze
-    difficulty: medium
+      Spinning loose fibers into a continuous strand shows the transformation into usable thread. That result explains render.
+  - id: "rc-cs-cc-0008"
+    passage: "rc-cs-cc-p2"
+    type: "context-clues-in-passages"
+    difficulty: "medium"
     stem: |
-      As used in the second paragraph, what is the meaning of the word "culture"?
+      What does "culture" mean at the dye station?
     choices:
-      - text: A medium containing cultivated microorganisms.
+      - text: "A mixture with living microorganisms"
         correct: true
-      - text: The artistic customs and traditional heritage beliefs of a nation.
+      - text: "The shared customs of people in a region"
         rationale: |
-          You picked the sociological definition of culture. In this context, the passage describes a living biological vat of dye microorganisms.
-      - text: High social class refinement and formal academic university education.
+          This uses the social meaning supplied later. Weaving is a regional tradition. Check the living mixture in the dye paragraph.
+      - text: "An individual's refinement and education"
         rationale: |
-          You picked a definition referring to personal refinement. Here, culture refers to the living biological culture used for indigo dyeing.
-      - text: A museum exhibition of ancient historical artifacts from Vigan.
+          This uses the personal refinement meaning. Teresa is a skilled craft worker. Check whether culture names her qualities or the mixture.
+      - text: "A particular style of patterned woven cloth"
         rationale: |
-          You picked a distractor related to history and museums. The text uses culture to mean a living fermentation medium.
+          This treats the craft's product as the culture. The workshop makes woven cloth. Check what Teresa feeds and monitors.
     explanation: |
-      The passage describes the indigo dye as a "living fermentation vat... active microorganisms that extract rich blue pigments", showing that "culture" refers to cultivated microorganisms.
-
-  - id: rc-cs-cc-0009
-    passage: rc-cs-cc-p2
-    type: infer
-    difficulty: hard
+      The passage says the mixture contains living microorganisms and must be kept active. Those details give culture its biological meaning.
+  - id: "rc-cs-cc-0009"
+    passage: "rc-cs-cc-p2"
+    type: "context-clues-in-passages"
+    difficulty: "hard"
     stem: |
-      How does the second paragraph support the biological definition of "culture"?
+      Which detail most strongly supports the biological meaning of "culture" at the dye station?
     choices:
-      - text: By describing it as a living vat requiring feeding and active microbes.
+      - text: "Living microorganisms must be kept active."
         correct: true
-      - text: By mentioning that Abel Iloco woven textiles are celebrated as cultural heritage.
+      - text: "Teresa demonstrates skills to workshop visitors."
         rationale: |
-          You picked a detail about social heritage from paragraph 3. That uses cultural in a sociological sense, not the biological sense asked about.
-      - text: By explaining how traditional foot-pedal looms operate in Vigan workshops.
+          This treats passing on knowledge as biological growth. A workshop preserves traditions. Check which detail names living organisms.
+      - text: "Weaving traditions are shared by regional communities."
         rationale: |
-          You picked a detail about loom equipment from paragraph 1. It does not explain or support the biological definition of dye culture.
-      - text: By contrasting natural organic indigo dyes with synthetic commercial paints.
+          This uses the word's social meaning. Communities share a culture. Check which use the dye paragraph requires.
+      - text: "Raw cotton fibers are spun into a continuous strand."
         rationale: |
-          You picked an inference about synthetic paints that is not mentioned anywhere in the passage.
+          This confuses thread production with the living mixture. Both are workshop processes. Check whether the clue mentions organisms.
     explanation: |
-      The paragraph explicitly mentions a "living fermentation vat, fed with rice wine... active microorganisms", reinforcing the biological meaning of a microorganism culture.
-
-  - id: rc-cs-cc-0010
-    passage: rc-cs-cc-p2
-    type: evaluate
-    difficulty: hard
+      The presence of living microorganisms directly identifies a biological culture. Keeping them active explains why it needs care.
+  - id: "rc-cs-cc-0010"
+    passage: "rc-cs-cc-p2"
+    type: "context-clues-in-passages"
+    difficulty: "hard"
     stem: |
-      If a reader assumed "culture" meant "social traditions", how would that misinterpretation affect their understanding?
+      The passage uses "culture" at the dye station and again for regional weaving traditions. What determines which meaning applies?
     choices:
-      - text: They would fail to see why the vat requires daily feeding and care.
+      - text: "The surrounding descriptions"
         correct: true
-      - text: They would assume Aling Teresa stopped weaving traditional regional patterns.
+      - text: "The assumption that one word keeps one meaning"
         rationale: |
-          You picked an unfounded conclusion. Misunderstanding culture as social tradition obscures the biological needs of the dye vat, not her patterns.
-      - text: They would think the cotton threads were made from synthetic commercial nylon.
+          This ignores a change in context. Repeated words often share a meaning. Check the different things described near each use.
+      - text: "The location of the workshop in the region"
         rationale: |
-          You picked a detail about yarn materials that is not mentioned or implied by confusing the definitions of culture.
-      - text: They would believe that wild indigo plants grow exclusively in clay jars.
+          This lets the general setting decide every use. Regional weaving suggests social customs. Check the more specific description at the dye station.
+      - text: "The number of times the word appears in the passage"
         rationale: |
-          You picked a false claim about plant growth. Clay jars hold the fermented dye mixture, not wild growing plants.
+          This uses frequency as evidence of meaning. Repetition makes the word noticeable. Check what each occurrence refers to.
     explanation: |
-      Misinterpreting "culture" as social tradition obscures the passage's explanation of maintaining a living biological fermentation process requiring daily feeding and care.
+      Descriptions of microorganisms show the biological meaning. Descriptions of shared skills and traditions show the social meaning. The surrounding words select each sense.
+  - id: "q-comprehension-skills-context-clues-in-passages-0011"
+    passage: "p-comprehension-skills-context-clues-in-passages-0003"
+    type: "context-clues-in-passages"
+    difficulty: "easy"
+    stem: |
+      As used in the passage, what does "draft" mean?
+    choices:
+      - text: "Early version of a text"
+        correct: true
+      - text: "A flow of air through a room"
+        rationale: |
+          This uses the air-flow meaning. The meeting takes place in a hall. Check what contains the blank spaces and notes.
+      - text: "A selection of people for service"
+        rationale: |
+          This uses a selection meaning. A team is working together. Check whether anyone is being chosen for service.
+      - text: "A payment order sent to a bank"
+        rationale: |
+          This uses a banking meaning. Printing can involve payment. Check whether draft names money or writing.
+    explanation: |
+      Blank interview spaces and editing notes show that the copy is not final. The surrounding details select this meaning of the word.
+    approved: false
+  - id: "q-comprehension-skills-context-clues-in-passages-0012"
+    passage: "p-comprehension-skills-context-clues-in-passages-0003"
+    type: "context-clues-in-passages"
+    difficulty: "medium"
+    stem: |
+      As used in the passage, what does "issue" mean?
+    choices:
+      - text: "An edition of a publication"
+        correct: true
+      - text: "A problem requiring discussion"
+        rationale: |
+          This uses the problem meaning. Accuracy concerns are discussed later. Check what the words first and edition refer to.
+      - text: "The act of handing out supplies"
+        rationale: |
+          This uses the distribution meaning. Newsletters will be handed out. Check whether the sentence names that action or the publication.
+      - text: "A result flowing from an earlier cause"
+        rationale: |
+          This uses the result meaning. One activity follows another. Check the explicit reference to an edition.
+    explanation: |
+      The team plans the first newsletter edition and chooses its contents. The surrounding details select this meaning of the word.
+    approved: false
+  - id: "q-comprehension-skills-context-clues-in-passages-0013"
+    passage: "p-comprehension-skills-context-clues-in-passages-0003"
+    type: "context-clues-in-passages"
+    difficulty: "medium"
+    stem: |
+      As used in the passage, what does "column" mean?
+    choices:
+      - text: "A regularly written newspaper section"
+        correct: true
+      - text: "A vertical support in the hall"
+        rationale: |
+          This uses the architectural meaning. The team meets in a hall. Check the sentence distinguishing the piece from the building.
+      - text: "A line of people waiting in order"
+        rationale: |
+          This uses the formation meaning. Volunteers form a group. Check what the gardener writes for the paper.
+      - text: "A vertical set of entries in a data table"
+        rationale: |
+          This uses the table-layout meaning. Editors arrange information on pages. Check whether the term names recurring prose or data entries.
+    explanation: |
+      The volunteer writes regularly about gardening, and her piece appears as a section of the paper. The surrounding details select this meaning of the word.
+    approved: false
+  - id: "q-comprehension-skills-context-clues-in-passages-0014"
+    passage: "p-comprehension-skills-context-clues-in-passages-0003"
+    type: "context-clues-in-passages"
+    difficulty: "hard"
+    stem: |
+      As used in the passage, what does "address" mean?
+    choices:
+      - text: "Deal with"
+        correct: true
+      - text: "Write a destination on an envelope"
+        rationale: |
+          This uses the mailing action. Newsletters can be delivered. Check whether the verb acts on envelopes or concerns.
+      - text: "Speak formally to an assembled audience"
+        rationale: |
+          This uses the speech meaning. The editors meet as a group. Check whether the sentence describes a formal speech.
+      - text: "Identify where a person lives"
+        rationale: |
+          This uses the location meaning. Local people appear in the newsletter. Check what follows the verb address.
+    explanation: |
+      The editors discuss each accuracy problem and ask writers to confirm details. Address means dealing with those concerns. The surrounding details select this meaning of the word.
+    approved: false
+  - id: "q-comprehension-skills-context-clues-in-passages-0015"
+    passage: "p-comprehension-skills-context-clues-in-passages-0003"
+    type: "context-clues-in-passages"
+    difficulty: "exam"
+    stem: |
+      As used in the passage, what does "press" mean?
+    choices:
+      - text: "Printing operation"
+        correct: true
+      - text: "People who report news professionally"
+        rationale: |
+          This uses the journalism meaning. The students are producing news. Check the reference to machines making copies.
+      - text: "Force applied to squeeze an object"
+        rationale: |
+          This uses the pressure meaning. Printing involves machinery. Check whether press names a physical force or the operation.
+      - text: "A request made with strong insistence"
+        rationale: |
+          This uses the urging meaning. Editors need details confirmed. Check the activity described at the press.
+    explanation: |
+      The pages go to a place where machines produce copies. Press therefore names the printing operation. The surrounding details select this meaning of the word.
+    approved: false
+  - id: "q-comprehension-skills-context-clues-in-passages-0016"
+    passage: "p-comprehension-skills-context-clues-in-passages-0004"
+    type: "context-clues-in-passages"
+    difficulty: "easy"
+    stem: |
+      As used in the passage, what does "charge" mean?
+    choices:
+      - text: "Responsibility for"
+        correct: true
+      - text: "A fee paid by an arriving visitor"
+        rationale: |
+          This uses the payment meaning. Entrance desks often collect money. Check the sentence saying the role is not an extra fee.
+      - text: "An electrical property of a material"
+        rationale: |
+          This uses the electrical meaning. Events may need equipment. Check the described duties rather than a possible technical association.
+      - text: "A formal accusation of wrongdoing"
+        rationale: |
+          This uses the accusation meaning. A committee can investigate problems. Check whether Neri is assigned work or accused of an offense.
+    explanation: |
+      Neri supervises the entrance volunteers and handles questions. These duties show that she is responsible for the desk. The surrounding details select this meaning of the word.
+    approved: false
+  - id: "q-comprehension-skills-context-clues-in-passages-0017"
+    passage: "p-comprehension-skills-context-clues-in-passages-0004"
+    type: "context-clues-in-passages"
+    difficulty: "medium"
+    stem: |
+      As used in the passage, what does "pitch" mean?
+    choices:
+      - text: "Persuasive proposal"
+        correct: true
+      - text: "The height of a musical sound"
+        rationale: |
+          This uses the musical meaning. A fair may include performances. Check whether the club is describing sound or seeking support.
+      - text: "A throw toward a batter in baseball"
+        rationale: |
+          This uses the sports meaning. School activities can include games. Check what each club presents to the committee.
+      - text: "A degree of slope on a roof"
+        rationale: |
+          This uses the slope meaning. Fair spaces may include shelters. Check the action of explaining an idea.
+    explanation: |
+      Clubs explain ideas and try to win committee support. Their pitch is a persuasive presentation of an activity. The surrounding details select this meaning of the word.
+    approved: false
+  - id: "q-comprehension-skills-context-clues-in-passages-0018"
+    passage: "p-comprehension-skills-context-clues-in-passages-0004"
+    type: "context-clues-in-passages"
+    difficulty: "medium"
+    stem: |
+      As used in the passage, what does "scale back" mean?
+    choices:
+      - text: "Reduce the scope"
+        correct: true
+      - text: "Climb the rear of a steep structure"
+        rationale: |
+          This uses the climbing meaning of scale. Physical setup is needed for the fair. Check the change from many displays to one.
+      - text: "Weigh the plan on a measuring device"
+        rationale: |
+          This uses the weighing meaning. Committees compare plans. Check whether any weight is measured.
+      - text: "Remove the outer layer from a surface"
+        rationale: |
+          This uses the surface-removal meaning. Gardening involves materials. Check whether the phrase describes size or a physical layer.
+    explanation: |
+      The club changes several displays into one smaller exhibit. That reduction explains scale back. The surrounding details select this meaning of the word.
+    approved: false
+  - id: "q-comprehension-skills-context-clues-in-passages-0019"
+    passage: "p-comprehension-skills-context-clues-in-passages-0004"
+    type: "context-clues-in-passages"
+    difficulty: "hard"
+    stem: |
+      As used in the passage, what does "current" mean?
+    choices:
+      - text: "Up-to-date"
+        correct: true
+      - text: "Flowing continuously through water"
+        rationale: |
+          This uses the water-flow meaning. A channel appears later in the text. Check that current describes a list.
+      - text: "Carrying an electrical flow"
+        rationale: |
+          This uses the electrical meaning. A fair can use powered equipment. Check whether the sentence names electricity or information.
+      - text: "Generally popular among visitors"
+        rationale: |
+          This confuses recent information with popular preferences. Both can change over time. Check what Neri updates.
+    explanation: |
+      Neri replaces old information whenever assignments change. The list is current because it reflects the latest plans. The surrounding details select this meaning of the word.
+    approved: false
+  - id: "q-comprehension-skills-context-clues-in-passages-0020"
+    passage: "p-comprehension-skills-context-clues-in-passages-0004"
+    type: "context-clues-in-passages"
+    difficulty: "exam"
+    stem: |
+      As used in the passage, what does "channel" mean?
+    choices:
+      - text: "A route for communication"
+        correct: true
+      - text: "A water passage linking two places"
+        rationale: |
+          This uses the waterway meaning. Channels can connect places. Check what travels through this channel.
+      - text: "A station broadcasting television shows"
+        rationale: |
+          This uses the broadcast meaning. Messages can be sent to audiences. Check the described group where volunteers report problems.
+      - text: "A long groove cut into a solid material"
+        rationale: |
+          This uses the groove meaning. Organizers may work with display materials. Check whether the passage describes a physical cut or shared messages.
+    explanation: |
+      The shared message group lets concerns reach the committee. It provides a route for communication. The surrounding details select this meaning of the word.
+    approved: false
