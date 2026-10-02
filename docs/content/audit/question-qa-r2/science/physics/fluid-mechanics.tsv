@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-physics-fluid-mechanics-0001	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-physics-fluid-mechanics-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Clarified assumptions, improved distractors, or replaced a near-duplicate.
+q-physics-fluid-mechanics-0003	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Clarified assumptions, improved distractors, or replaced a near-duplicate.
+q-physics-fluid-mechanics-0004	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-physics-fluid-mechanics-0005	CORRECTED	SOLVED-MATCH	explanation;notes;choices;assumptions	MEDIUM	Removed length cues, clarified free-floating conditions, or replaced an untraceable computed distractor.
+q-physics-fluid-mechanics-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original presented lower pressure at higher speed as universal and called it an inverse relation.
+q-physics-fluid-mechanics-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original notes claimed curvature forces faster airflow; replaced with measured pressure difference.
+q-physics-fluid-mechanics-0008	CORRECTED	SOLVED-MATCH	explanation;notes;choices;assumptions	HIGH	Original explanation said no object property affects buoyancy; displaced volume does depend on immersion.
+q-physics-fluid-mechanics-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Clarified assumptions, improved distractors, or replaced a near-duplicate.
+q-physics-fluid-mechanics-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original unqualified Bernoulli claim ignored height, pumps, and flow assumptions.
+q-physics-fluid-mechanics-0011	CORRECTED	SOLVED-MATCH	explanation;notes;choices;assumptions	MEDIUM	Removed length cues, clarified free-floating conditions, or replaced an untraceable computed distractor.
+q-physics-fluid-mechanics-0012	CORRECTED	SOLVED-MATCH	explanation;notes;choices;assumptions	MEDIUM	Removed length cues, clarified free-floating conditions, or replaced an untraceable computed distractor.
+q-physics-fluid-mechanics-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Clarified assumptions, improved distractors, or replaced a near-duplicate.
+q-physics-fluid-mechanics-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Clarified assumptions, improved distractors, or replaced a near-duplicate.
+q-physics-fluid-mechanics-0015	NEW	NEW	new question	NONE	
+q-physics-fluid-mechanics-0016	NEW	NEW	new question	NONE	
+q-physics-fluid-mechanics-0017	NEW	NEW	new question	NONE	
+q-physics-fluid-mechanics-0018	NEW	NEW	new question	NONE	
+q-physics-fluid-mechanics-0019	NEW	NEW	new question	NONE	
+q-physics-fluid-mechanics-0020	NEW	NEW	new question	NONE	
