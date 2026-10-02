@@ -3,305 +3,491 @@ meta:
   topic: philippine-constitution
   subtopic: the-articles-in-outline
   exams:
-    - cse-pro
-    - cse-sub
+  - cse-pro
+  - cse-sub
 questions:
-  - id: q-philippine-constitution-the-articles-in-outline-0001
-    type: single_choice
-    difficulty: easy
-    stem: |
-      How many articles comprise the 1987 Constitution of the Republic of the Philippines?
-    choices:
-      - text: 18 articles
-        correct: true
-      - text: 12 articles
-        rationale: |
-          You selected 12 articles, which leaves out major sections. The 1987 Constitution consists of a Preamble and 18 numbered articles.
-      - text: 15 articles
-        rationale: |
-          You picked 15 articles, which misses three final articles. The 1987 Constitution contains 18 numbered articles.
-      - text: 20 articles
-        rationale: |
-          You chose 20 articles, which overcounts the actual text. The 1987 Constitution has a total of 18 numbered articles.
-    explanation: |
-      The 1987 Constitution consists of a Preamble followed by 18 numbered Articles.
+- id: q-philippine-constitution-the-articles-in-outline-0001
+  type: single_choice
+  difficulty: medium
+  stem: 'Excluding the Preamble, how many articles are in the 1987 Constitution?
 
-  - id: q-philippine-constitution-the-articles-in-outline-0002
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Which article of the 1987 Constitution contains the Bill of Rights?
-    choices:
-      - text: Article III
-        correct: true
-      - text: Article I
-        rationale: |
-          You selected Article I, which defines the National Territory. The Bill of Rights is contained in Article III.
-      - text: Article V
-        rationale: |
-          You picked Article V, which governs Suffrage. The Bill of Rights is contained in Article III.
-      - text: Article VII
-        rationale: |
-          You chose Article VII, which defines the Executive Department. The Bill of Rights is contained in Article III.
-    explanation: |
-      Article III of the 1987 Constitution is entitled the Bill of Rights.
+    '
+  choices:
+  - text: '18'
+    correct: true
+  - text: '17'
+    rationale: 'This stops at the amendments article. XVII is near the end. Check whether Transitory Provisions follows.
 
-  - id: q-philippine-constitution-the-articles-in-outline-0003
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Which article covers Citizenship in the 1987 Constitution?
-    choices:
-      - text: Article IV
-        correct: true
-      - text: Article II
-        rationale: |
-          You selected Article II, which states Principles and State Policies. Philippine Citizenship is governed by Article IV.
-      - text: Article VI
-        rationale: |
-          You picked Article VI, which governs the Legislative Department. Citizenship rules are set out in Article IV.
-      - text: Article VIII
-        rationale: |
-          You chose Article VIII, which defines the Judicial Department. Citizenship provisions sit in Article IV.
-    explanation: |
-      Article IV of the 1987 Constitution defines Philippine Citizenship.
+      '
+  - text: '19'
+    rationale: 'This counts the Preamble as a numbered article. It appears before Article I. Check which parts are numbered.
 
-  - id: q-philippine-constitution-the-articles-in-outline-0004
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Article V of the 1987 Constitution deals with which subject?
-    choices:
-      - text: Suffrage
-        correct: true
-      - text: Citizenship
-        rationale: |
-          You selected Citizenship, which is covered in Article IV. Article V exclusively governs Suffrage and voting rights.
-      - text: Bill of Rights
-        rationale: |
-          You picked Bill of Rights, which is covered in Article III. Article V deals with Suffrage and electoral qualifications.
-      - text: Local Government
-        rationale: |
-          You chose Local Government, which is governed by Article X. Article V addresses Suffrage and the right to vote.
-    explanation: |
-      Article V of the 1987 Constitution governs Suffrage.
+      '
+  - text: '22'
+    rationale: 'This uses the Bill of Rights section count. It is a familiar constitutional number. Check articles versus sections.
 
-  - id: q-philippine-constitution-the-articles-in-outline-0005
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Which article governs the Executive Department under the 1987 Constitution?
-    choices:
-      - text: Article VII
-        correct: true
-      - text: Article VI
-        rationale: |
-          You selected Article VI, which details the Legislative Department. The Executive Department is governed by Article VII.
-      - text: Article VIII
-        rationale: |
-          You picked Article VIII, which details the Judicial Department. The Executive Department is defined in Article VII.
-      - text: Article IX
-        rationale: |
-          You chose Article IX, which governs Constitutional Commissions. The Executive Department is set out in Article VII.
-    explanation: |
-      Article VII of the 1987 Constitution details the Executive Department.
+      '
+  explanation: 'The Preamble is followed by Article I through Article XVIII. XVIII is eighteen.
 
-  - id: q-philippine-constitution-the-articles-in-outline-0006
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Article IX of the 1987 Constitution is dedicated to which of the following?
-    choices:
-      - text: Constitutional Commissions
-        correct: true
-      - text: Accountability of Public Officers
-        rationale: |
-          You selected Accountability of Public Officers, which is Article XI. Article IX is dedicated to Constitutional Commissions.
-      - text: Social Justice and Human Rights
-        rationale: |
-          You picked Social Justice and Human Rights, which is Article XIII. Article IX governs the Constitutional Commissions.
-      - text: National Economy and Patrimony
-        rationale: |
-          You chose National Economy and Patrimony, which is Article XII. Article IX is dedicated to Constitutional Commissions.
-    explanation: |
-      Article IX governs the independent Constitutional Commissions (CSC, COMELEC, and COA).
+    '
+- id: q-philippine-constitution-the-articles-in-outline-0002
+  type: single_choice
+  difficulty: medium
+  stem: 'A study index assigns the Bill of Rights to Article IV. Which correction follows from the outline?
 
-  - id: q-philippine-constitution-the-articles-in-outline-0007
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Which article of the 1987 Constitution covers Local Government?
-    choices:
-      - text: Article X
-        correct: true
-      - text: Article VIII
-        rationale: |
-          You selected Article VIII, which covers the Judicial Department. Local Government units and autonomy are governed by Article X.
-      - text: Article XII
-        rationale: |
-          You picked Article XII, which covers National Economy and Patrimony. Local Government is set out in Article X.
-      - text: Article XIV
-        rationale: |
-          You chose Article XIV, which covers Education, Science and Culture. Local Government provisions sit in Article X.
-    explanation: |
-      Article X of the 1987 Constitution governs Local Government units.
+    '
+  choices:
+  - text: Move it to Article III.
+    correct: true
+  - text: Keep it in Article IV because citizenship and the Bill of Rights have identical titles.
+    rationale: 'This merges neighboring topics. Citizenship relates to some rights. Check the distinct article headings.
 
-  - id: q-philippine-constitution-the-articles-in-outline-0008
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Article XI of the 1987 Constitution governs which topic?
-    choices:
-      - text: Accountability of Public Officers
-        correct: true
-      - text: Transitory Provisions structure
-        rationale: |
-          You selected Transitory Provisions, which is Article XVIII. Article XI regulates government ethics and impeachment of high officials.
-      - text: Amendments or Revisions procedure
-        rationale: |
-          You picked Amendments or Revisions, which is Article XVII. Article XI sets rules for public officer integrity and the Ombudsman.
-      - text: General Provisions outline
-        rationale: |
-          You chose General Provisions, which is Article XVI. Article XI details standards of public trust and official accountability.
-    explanation: |
-      Article XI is titled Accountability of Public Officers.
+      '
+  - text: Move it to Article IX because every rights guarantee is a constitutional commission.
+    rationale: 'This treats guarantees as offices. Institutions can protect rights. Check the difference between a rule and a body.
 
-  - id: q-philippine-constitution-the-articles-in-outline-0009
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Which article covers Education, Science and Technology, Arts, Culture and Sports?
-    choices:
-      - text: Article XIV
-        correct: true
-      - text: Article XII
-        rationale: |
-          You selected Article XII, which covers National Economy and Patrimony. Academic institutions, research, and sports policy sit in Article XIV.
-      - text: Article XIII
-        rationale: |
-          You picked Article XIII, which covers Social Justice and Human Rights. Schooling, scientific advancement, and national heritage sit in Article XIV.
-      - text: Article XV
-        rationale: |
-          You chose Article XV, which covers The Family. Educational mandates, state research, and cultural promotion are set out in Article XIV.
-    explanation: |
-      Article XIV covers Education, Science and Technology, Arts, Culture and Sports.
+      '
+  - text: Move it to Article XIII because that replaces Article III in the current outline.
+    rationale: 'This treats related subjects as replacement. Both concern rights. Check whether both appear separately.
 
-  - id: q-philippine-constitution-the-articles-in-outline-0010
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Amendments or Revisions to the 1987 Constitution are governed by which article?
-    choices:
-      - text: Article XVII
-        correct: true
-      - text: Article XV
-        rationale: |
-          You selected Article XV, which covers The Family. Amendments or Revisions to the Constitution are governed by Article XVII.
-      - text: Article XVI
-        rationale: |
-          You picked Article XVI, which covers General Provisions. Constitutional Amendments or Revisions sit in Article XVII.
-      - text: Article XVIII
-        rationale: |
-          You chose Article XVIII, which covers Transitory Provisions. Procedures for Amendments or Revisions are in Article XVII.
-    explanation: |
-      Article XVII governs Amendments or Revisions to the Constitution.
+      '
+  explanation: 'Article III is the Bill of Rights. Article IV is Citizenship, so the index must move that heading to III.
 
-  - id: q-philippine-constitution-the-articles-in-outline-0011
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Which article covers the Judicial Department in the 1987 Constitution?
-    choices:
-      - text: Article VIII
-        correct: true
-      - text: Article VI
-        rationale: |
-          You selected Article VI, which details the Legislative Department. The Judicial Department is defined in Article VIII.
-      - text: Article VII
-        rationale: |
-          You picked Article VII, which details the Executive Department. The Judicial Department is defined in Article VIII.
-      - text: Article IX
-        rationale: |
-          You chose Article IX, which details Constitutional Commissions. The Judicial Department is defined in Article VIII.
-    explanation: |
-      Article VIII defines the Judicial Department and judicial power.
+    '
+- id: q-philippine-constitution-the-articles-in-outline-0003
+  type: single_choice
+  difficulty: medium
+  stem: 'Where does the outline place Citizenship?
 
-  - id: q-philippine-constitution-the-articles-in-outline-0012
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Article XII of the 1987 Constitution addresses which subject matter?
-    choices:
-      - text: National Economy and Patrimony
-        correct: true
-      - text: Social Justice and Human Rights
-        rationale: |
-          You selected Social Justice and Human Rights, which belongs to Article XIII. Article XII defines state policies on national resources and economic ownership.
-      - text: General Provisions outline
-        rationale: |
-          You picked General Provisions, which is Article XVI. Article XII focuses on national economic wealth and public domain resources.
-      - text: Transitory Provisions rules
-        rationale: |
-          You chose Transitory Provisions, which is Article XVIII. Article XII regulates national state ownership and economic development.
-    explanation: |
-      Article XII governs National Economy and Patrimony.
+    '
+  choices:
+  - text: Article IV
+    correct: true
+  - text: Article II
+    rationale: 'This selects Declaration of Principles and State Policies. These articles also concern the state or its institutions. Check the specific subject Citizenship.
 
-  - id: q-philippine-constitution-the-articles-in-outline-0013
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Which article of the 1987 Constitution addresses The Family?
-    choices:
-      - text: Article XV
-        correct: true
-      - text: Article XIII
-        rationale: |
-          You selected Article XIII, which covers Social Justice and Human Rights. Article XV is titled The Family.
-      - text: Article XIV
-        rationale: |
-          You picked Article XIV, which covers Education, Science and Culture. Article XV is titled The Family.
-      - text: Article XVI
-        rationale: |
-          You chose Article XVI, which covers General Provisions. Article XV is titled The Family.
-    explanation: |
-      Article XV is titled The Family.
+      '
+  - text: Article VI
+    rationale: 'This selects The Legislative Department. These articles also concern the state or its institutions. Check the specific subject Citizenship.
 
-  - id: q-philippine-constitution-the-articles-in-outline-0014
-    type: single_choice
-    difficulty: easy
-    stem: |
-      What is the topic of Article I of the 1987 Constitution?
-    choices:
-      - text: National Territory
-        correct: true
-      - text: Declaration of Principles and State Policies
-        rationale: |
-          You selected Declaration of Principles, which is Article II. Article I defines the National Territory of the Philippines.
-      - text: Accountability of Public Officers in office
-        rationale: |
-          You picked Accountability of Public Officers, which is Article XI. Article I defines the National Territory.
-      - text: Constitutional Commissions administrative rules
-        rationale: |
-          You chose Constitutional Commissions, which is Article IX. Article I defines the National Territory.
-    explanation: |
-      Article I defines the National Territory of the Philippines.
+      '
+  - text: Article VIII
+    rationale: 'This selects The Judicial Department. These articles also concern the state or its institutions. Check the specific subject Citizenship.
 
-  - id: q-philippine-constitution-the-articles-in-outline-0015
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Which article of the 1987 Constitution governs the Legislative Department?
-    choices:
-      - text: Article VI
-        correct: true
-      - text: Article V
-        rationale: |
-          You selected Article V, which covers Suffrage. The Legislative Department (Congress) is defined in Article VI.
-      - text: Article VII
-        rationale: |
-          You picked Article VII, which covers the Executive Department. The Legislative Department is set out in Article VI.
-      - text: Article VIII
-        rationale: |
-          You chose Article VIII, which covers the Judicial Department. The Legislative Department is set out in Article VI.
-    explanation: |
-      Article VI details the Legislative Department (Congress of the Philippines).
+      '
+  explanation: 'Article IV covers Citizenship.
+
+    '
+- id: q-philippine-constitution-the-articles-in-outline-0004
+  type: single_choice
+  difficulty: medium
+  stem: 'What is Article V''s subject?
+
+    '
+  choices:
+  - text: Suffrage
+    correct: true
+  - text: Citizenship
+    rationale: 'This selects the neighboring status topic. Citizenship matters for voting. Check the article devoted to voting rights.
+
+      '
+  - text: Bill of Rights
+    rationale: 'This selects a broader liberties article. Voting is a political right. Check the specific Article V heading.
+
+      '
+  - text: Local Government
+    rationale: 'This selects a subject involving elected offices. Local elections involve voters. Check suffrage versus government structure.
+
+      '
+  explanation: 'Article V is Suffrage.
+
+    '
+- id: q-philippine-constitution-the-articles-in-outline-0005
+  type: single_choice
+  difficulty: medium
+  stem: 'Which article concerns the Executive Department?
+
+    '
+  choices:
+  - text: Article VII
+    correct: true
+  - text: Article VI
+    rationale: 'This selects The Legislative Department. The neighboring branch and commission articles can be confused. Check the specific subject the Executive Department.
+
+      '
+  - text: Article VIII
+    rationale: 'This selects The Judicial Department. The neighboring branch and commission articles can be confused. Check the specific subject the Executive Department.
+
+      '
+  - text: Article IX
+    rationale: 'This selects Constitutional Commissions. The neighboring branch and commission articles can be confused. Check the specific subject the Executive Department.
+
+      '
+  explanation: 'Article VII covers the Executive Department.
+
+    '
+- id: q-philippine-constitution-the-articles-in-outline-0006
+  type: single_choice
+  difficulty: medium
+  stem: 'What is the overall subject of Article IX?
+
+    '
+  choices:
+  - text: Constitutional Commissions
+    correct: true
+  - text: Accountability of Public Officers
+    rationale: 'This selects a related accountability article. Commission members hold public office. Check the commission structure article.
+
+      '
+  - text: Social Justice and Human Rights
+    rationale: 'This selects the article creating a different commission. CHR also has commission in its name. Check the three Article IX bodies.
+
+      '
+  - text: National Economy and Patrimony
+    rationale: 'This selects the neighboring economy article. Auditing can involve public finances. Check Article IX''s specific heading.
+
+      '
+  explanation: 'Article IX is Constitutional Commissions. Its parts include common provisions and the three named commissions.
+
+    '
+- id: q-philippine-constitution-the-articles-in-outline-0007
+  type: single_choice
+  difficulty: medium
+  stem: 'Which article concerns Local Government?
+
+    '
+  choices:
+  - text: Article X
+    correct: true
+  - text: Article VIII
+    rationale: 'This selects The Judicial Department. Each article regulates an important public subject, but its heading is distinct. Check the specific subject Local Government.
+
+      '
+  - text: Article XII
+    rationale: 'This selects National Economy and Patrimony. Each article regulates an important public subject, but its heading is distinct. Check the specific subject Local Government.
+
+      '
+  - text: Article XIV
+    rationale: 'This selects Education, Science and Technology, Arts, Culture and Sports. Each article regulates an important public subject, but its heading is distinct. Check the specific subject Local Government.
+
+      '
+  explanation: 'Article X covers Local Government.
+
+    '
+- id: q-philippine-constitution-the-articles-in-outline-0008
+  type: single_choice
+  difficulty: medium
+  stem: 'An index sends public-officer accountability questions to Article XVI because its heading says General Provisions. What is the correct correction?
+
+    '
+  choices:
+  - text: Use Article XI for accountability.
+    correct: true
+  - text: Keep Article XVI because general means it replaces every specific article.
+    rationale: 'This treats a broad heading as universal scope. General sounds inclusive. Check the specific accountability entry.
+
+      '
+  - text: Use Article XVIII because all public service is a temporary transition.
+    rationale: 'This confuses continuing duties with transitions. Officials'' terms may end. Check the stated subject of XVIII.
+
+      '
+  - text: Use Article XVII because misconduct automatically amends the Constitution.
+    rationale: 'This confuses accountability with changing the document. Both involve constitutional rules. Check the purpose of amendments.
+
+      '
+  explanation: 'The outline assigns Accountability of Public Officers to Article XI. A broad title in another article does not replace that specific entry.
+
+    '
+- id: q-philippine-constitution-the-articles-in-outline-0009
+  type: single_choice
+  difficulty: medium
+  stem: 'Which article groups education, science, technology, arts, culture, and sports?
+
+    '
+  choices:
+  - text: Article XIV
+    correct: true
+  - text: Article XII
+    rationale: 'This selects National Economy and Patrimony. The adjacent social and cultural headings are easy to mix. Check the specific subject Education, Science and Technology, Arts, Culture and Sports.
+
+      '
+  - text: Article XIII
+    rationale: 'This selects Social Justice and Human Rights. The adjacent social and cultural headings are easy to mix. Check the specific subject Education, Science and Technology, Arts, Culture and Sports.
+
+      '
+  - text: Article XVIII
+    rationale: 'This selects Transitory Provisions. The adjacent social and cultural headings are easy to mix. Check the specific subject Education, Science and Technology, Arts, Culture and Sports.
+
+      '
+  explanation: 'Article XIV covers Education, Science and Technology, Arts, Culture and Sports.
+
+    '
+- id: q-philippine-constitution-the-articles-in-outline-0010
+  type: single_choice
+  difficulty: medium
+  stem: 'Which article concerns amendments or revisions?
+
+    '
+  choices:
+  - text: Article XVII
+    correct: true
+  - text: Article XV
+    rationale: 'This selects The Family. These numerals are close together at the end of the outline. Check the specific subject Amendments or Revisions.
+
+      '
+  - text: Article XVI
+    rationale: 'This selects General Provisions. These numerals are close together at the end of the outline. Check the specific subject Amendments or Revisions.
+
+      '
+  - text: Article XVIII
+    rationale: 'This selects Transitory Provisions. These numerals are close together at the end of the outline. Check the specific subject Amendments or Revisions.
+
+      '
+  explanation: 'Article XVII covers Amendments or Revisions.
+
+    '
+- id: q-philippine-constitution-the-articles-in-outline-0011
+  type: single_choice
+  difficulty: medium
+  stem: 'Which article concerns the Judicial Department?
+
+    '
+  choices:
+  - text: Article VIII
+    correct: true
+  - text: Article VI
+    rationale: 'This selects The Legislative Department. The neighboring institutional articles describe different public functions. Check the specific subject the Judicial Department.
+
+      '
+  - text: Article VII
+    rationale: 'This selects The Executive Department. The neighboring institutional articles describe different public functions. Check the specific subject the Judicial Department.
+
+      '
+  - text: Article XIII
+    rationale: 'This selects Social Justice and Human Rights. Rights disputes can reach courts, so the subject seems related. Check the separate article for the Judicial Department.
+
+      '
+  explanation: 'Article VIII covers the Judicial Department.
+
+    '
+- id: q-philippine-constitution-the-articles-in-outline-0012
+  type: single_choice
+  difficulty: medium
+  stem: 'What is Article XII''s heading?
+
+    '
+  choices:
+  - text: National Economy and Patrimony
+    correct: true
+  - text: Social Justice and Human Rights
+    rationale: 'This selects the next social-policy heading. Economic conditions affect justice. Check the exact XII entry.
+
+      '
+  - text: Declaration of Principles and State Policies
+    rationale: 'This selects broad state policy. Economic policy also has principles. Check the specific article heading.
+
+      '
+  - text: Education, Science and Technology, Arts, Culture and Sports
+    rationale: 'This selects another development-related article. Education affects the economy. Check which subject XII names.
+
+      '
+  explanation: 'Article XII is National Economy and Patrimony.
+
+    '
+- id: q-philippine-constitution-the-articles-in-outline-0013
+  type: single_choice
+  difficulty: medium
+  stem: 'Which article is titled The Family?
+
+    '
+  choices:
+  - text: Article XV
+    correct: true
+  - text: Article XIII
+    rationale: 'This selects Social Justice and Human Rights. Nearby articles concern social and cultural topics too. Check the specific subject The Family.
+
+      '
+  - text: Article XIV
+    rationale: 'This selects Education, Science and Technology, Arts, Culture and Sports. Nearby articles concern social and cultural topics too. Check the specific subject The Family.
+
+      '
+  - text: Article XVI
+    rationale: 'This selects General Provisions. Nearby articles concern social and cultural topics too. Check the specific subject The Family.
+
+      '
+  explanation: 'Article XV covers The Family.
+
+    '
+- id: q-philippine-constitution-the-articles-in-outline-0014
+  type: single_choice
+  difficulty: medium
+  stem: 'What is Article I''s subject?
+
+    '
+  choices:
+  - text: National Territory
+    correct: true
+  - text: Declaration of Principles and State Policies
+    rationale: 'This selects the second article. Both introduce the state''s foundations. Check the I entry.
+
+      '
+  - text: Accountability of Public Officers
+    rationale: 'This selects the accountability article. Officials serve the state. Check the territorial heading.
+
+      '
+  - text: Constitutional Commissions
+    rationale: 'This selects the institution article. Institutions exercise authority within the country. Check territory versus organization.
+
+      '
+  explanation: 'Article I concerns National Territory.
+
+    '
+- id: q-philippine-constitution-the-articles-in-outline-0015
+  type: single_choice
+  difficulty: medium
+  stem: 'Which article concerns the Legislative Department?
+
+    '
+  choices:
+  - text: Article VI
+    correct: true
+  - text: Article V
+    rationale: 'This selects Suffrage. Voting, executive work, and judicial work are related to government but are separate topics. Check the specific subject the Legislative Department.
+
+      '
+  - text: Article VII
+    rationale: 'This selects The Executive Department. Voting, executive work, and judicial work are related to government but are separate topics. Check the specific subject the Legislative Department.
+
+      '
+  - text: Article VIII
+    rationale: 'This selects The Judicial Department. Voting, executive work, and judicial work are related to government but are separate topics. Check the specific subject the Legislative Department.
+
+      '
+  explanation: 'Article VI covers the Legislative Department.
+
+    '
+- id: q-philippine-constitution-the-articles-in-outline-0016
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'What does Article IX-A cover in the outline?
+
+    '
+  choices:
+  - text: Common Provisions
+    correct: true
+  - text: Civil Service Commission
+    rationale: 'This selects IX-B. A and B are adjacent parts. Check the letter attached to the personnel commission.
+
+      '
+  - text: Commission on Elections
+    rationale: 'This selects IX-C. It is another Article IX commission. Check the part for common provisions.
+
+      '
+  - text: Commission on Audit
+    rationale: 'This selects IX-D. It is also in the same article. Check the subdivision label.
+
+      '
+  explanation: 'Article IX-A contains Common Provisions. The named commissions occupy B, C, and D.
+
+    '
+- id: q-philippine-constitution-the-articles-in-outline-0017
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'What role does the Preamble have in the outline?
+
+    '
+  choices:
+  - text: It states purposes and aspirations.
+    correct: true
+  - text: It is a nineteenth numbered article inserted after Article XVIII.
+    rationale: 'This turns an introductory statement into an article. It is part of the document. Check its unnumbered position.
+
+      '
+  - text: It is the subdivision of Article IX that creates a fourth constitutional commission.
+    rationale: 'This confuses introductory prose with commission structure. Both organize constitutional material. Check where the Preamble appears.
+
+      '
+  - text: It replaces every article's detailed subject with a single set of transition rules.
+    rationale: 'This treats an opening statement as transitory provisions. Both can explain a document''s setting. Check the role assigned to Article XVIII.
+
+      '
+  explanation: 'The Preamble states the purposes and aspirations of the sovereign Filipino people in ordaining the Constitution.
+
+    '
+- id: q-philippine-constitution-the-articles-in-outline-0018
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'Which sequence matches the branch articles VI, VII, and VIII?
+
+    '
+  choices:
+  - text: Legislative, executive, judicial
+    correct: true
+  - text: Executive, legislative, judicial
+    rationale: 'This swaps the first two branches. They interact closely. Check VI before VII.
+
+      '
+  - text: Judicial, executive, legislative
+    rationale: 'This reverses the outer branches. All are departments of government. Check each heading in order.
+
+      '
+  - text: Legislative, judicial, executive
+    rationale: 'This swaps the last two branches. VII and VIII are adjacent numerals. Check the sequence in the outline.
+
+      '
+  explanation: 'Article VI concerns the legislature, VII the executive, and VIII the judiciary.
+
+    '
+- id: q-philippine-constitution-the-articles-in-outline-0019
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'Which article concerns Transitory Provisions?
+
+    '
+  choices:
+  - text: Article XVIII
+    correct: true
+  - text: Article XVII, the constitutional amendments or revisions article
+    rationale: 'This substitutes the neighboring article. Both occur near the document''s end. Check changes versus transitions.
+
+      '
+  - text: Article XVI, the general provisions article
+    rationale: 'This substitutes a broad heading. Transition rules can sound general. Check the precise final article.
+
+      '
+  - text: Article XIV, the education and cultural subjects article
+    rationale: 'This substitutes a development topic. Education policies can include transitions. Check the stated heading rather than a possible link.
+
+      '
+  explanation: 'Article XVIII, the final article, is Transitory Provisions.
+
+    '
+- id: q-philippine-constitution-the-articles-in-outline-0020
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'What does knowing the article outline establish about future CSC exam questions?
+
+    '
+  choices:
+  - text: It helps locate topics, not predict specific questions.
+    correct: true
+  - text: It proves CSC has published the exact questions that will appear on the next exam.
+    rationale: 'This treats subject coverage as a released test. The exam includes the Constitution. Check published scope versus advance questions.
+
+      '
+  - text: It guarantees every article receives the same number of questions in every examination.
+    rationale: 'This invents a question distribution. The outline lists articles equally. Check whether the lesson gives a blueprint.
+
+      '
+  - text: It guarantees a student can omit all understanding because titles alone answer every item.
+    rationale: 'This treats an index as complete teaching. Titles help recall. Check locating material versus understanding it.
+
+      '
+  explanation: 'The lesson says the outline helps locate major topics. It does not imply that CSC publishes specific questions in advance.
+
+    '
