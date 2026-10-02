@@ -8,7 +8,7 @@ meta:
 questions:
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0001
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'Under Section 5(a) of RA 6713, what is the deadline for responding to public letters and requests?
 
     '
@@ -56,7 +56,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0003
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'Within how many working days after year-end must heads or other responsible officers render the office''s annual performance report?
 
     '
@@ -152,7 +152,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0007
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'Which recommendation is prohibited by Section 7(b)(3) of RA 6713?
 
     '
@@ -176,7 +176,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0008
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'When considering whether a gift is allowed under the lesson''s RA 6713 rules, which facts matter most?
 
     '
@@ -200,7 +200,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0009
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'Subject to lawful disclosure restrictions, when must public documents be available for inspection under Section 5(e)?
 
     '
@@ -248,7 +248,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0011
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'Which foreign-government travel grant can qualify under Section 7(d), with appropriate Philippine interests and office-head permission?
 
     '
@@ -272,7 +272,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0012
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'What must the reply to a public letter or request state under Section 5(a)?
 
     '
@@ -296,7 +296,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0013
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'Which section of RA 6713 prohibits using confidential official information for private gain?
 
     '
@@ -320,7 +320,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0014
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'What can expressly authorize an otherwise prohibited role in a private enterprise regulated by an official''s office?
 
     '
@@ -344,7 +344,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0015
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   approved: false
   stem: 'A regular supplier asks an official to recommend a friend for a company position. What fact brings the request within Section 7(b)(3)?
 
@@ -419,7 +419,7 @@ questions:
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0018
   type: single_choice
-  difficulty: exam
+  difficulty: hard
   approved: false
   stem: 'An official offers a former client priority approval because their company will later employ the official. Which prohibition is most directly implicated?
 
