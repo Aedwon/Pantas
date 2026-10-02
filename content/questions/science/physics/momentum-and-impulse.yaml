@@ -1,290 +1,429 @@
 meta:
-  subject: science
-  topic: physics
-  subtopic: momentum-and-impulse
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  subject: "science"
+  topic: "physics"
+  subtopic: "momentum-and-impulse"
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-physics-momentum-and-impulse-0001
-    type: simple-quantitative
-    difficulty: easy
+    type: "simple-quantitative"
+    difficulty: "easy"
     stem: |
-      Find the momentum of a 1000 kg car moving at 20 m/s. (Use $p = mv$.)
+      Find the momentum magnitude of a $1000\,\mathrm{kg}$ car moving at $20\,\mathrm{m/s}$.
     choices:
-      - text: 20,000 kg m/s
+      - text: "20,000 kg m/s"
         correct: true
-      - text: 1,020 kg m/s
+      - text: "1,020 kg m/s"
         rationale: |
-          You added mass and velocity ($1000 + 20$). Momentum is the product of mass and velocity: $p = mv = 1000 \times 20 = 20{,}000\text{ kg}\cdot\text{m/s}$.
-      - text: 50 kg m/s
+          This adds mass and speed. Both numbers describe the car. Check that momentum uses their product.
+      - text: "50 kg m/s"
         rationale: |
-          You divided mass by velocity ($\dfrac{1000}{20}$). Momentum requires multiplying mass by velocity.
-      - text: 980 kg m/s
+          This divides mass by speed. Division appears in other motion formulas. Check the units of momentum.
+      - text: "980 kg m/s"
         rationale: |
-          You subtracted velocity from mass ($1000 - 20$). Use the multiplication formula $p = mv$.
+          This subtracts speed from mass. A difference can seem like a motion change. Check that unlike units cannot be subtracted.
     explanation: |
-      $p = mv = (1000)(20) = 20{,}000$ kg·m/s.
+      Momentum magnitude is mass times speed. Thus $p=(1000)(20)=20000\,\mathrm{kg\,m/s}$.
     approved: true
+
   - id: q-physics-momentum-and-impulse-0002
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
       A 0.5 kg ball traveling at 10 m/s is caught and brought to a complete stop in 0.2 seconds. Find the magnitude of the average force exerted to stop it.
     choices:
-      - text: 25 N
+      - text: "25 N"
         correct: true
-      - text: 5 N
+      - text: "5 N"
         rationale: |
-          You calculated momentum change $\Delta p = 0.5 \times 10 = 5\text{ kg}\cdot\text{m/s}$ only. Force requires dividing by time: $F = \dfrac{\Delta p}{t} = \dfrac{5}{0.2} = 25\text{ N}$.
-      - text: 2 N
+          This reports momentum change as a force. The mass-speed product is required. Check the further division by stopping time.
+      - text: "1 N"
         rationale: |
-          You multiplied momentum change by time ($5 \times 0.2$). Force is rate of momentum change ($F = \dfrac{\Delta p}{t}$), so divide by $t$.
-      - text: 50 N
+          This multiplies momentum change by stopping time. The product formula for impulse sounds familiar. Check how to isolate average force.
+      - text: "50 N"
         rationale: |
-          You divided mass by time or doubled the force. $\Delta p = 5$, so $F = \dfrac{5}{0.2} = 25\text{ N}$.
+          This divides speed by time but leaves out mass. The result resembles an acceleration. Check that force requires mass times acceleration.
     explanation: |
-      Change in momentum: $\Delta p = 0 - (0.5)(10) = -5$ kg·m/s. Force: $F = \dfrac{\Delta p}{t} = \dfrac{-5}{0.2} = -25$ N, so the magnitude is 25 N.
+      Take the original motion as positive. The momentum change is $0-(0.5)(10)=-5\,\mathrm{kg\,m/s}$. Average force is $\dfrac{-5}{0.2}=-25\,\mathrm N$. Its magnitude is $25\,\mathrm N$.
     approved: true
+
   - id: q-physics-momentum-and-impulse-0003
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
       A 3 kg cart moving at 4 m/s collides with a stationary 1 kg cart, and the two carts stick together after the collision. Find their combined velocity afterward.
+       Assume negligible external horizontal impulse.
     choices:
-      - text: 3 m/s
+      - text: "3 m/s"
         correct: true
-      - text: 4 m/s
+      - text: "4 m/s"
         rationale: |
-          You assumed velocity remains unchanged after collision. Adding mass increases total inertia, reducing velocity to $3\text{ m/s}$.
-      - text: 12 m/s
+          This retains the moving cart’s initial velocity after adding the second cart. That velocity is directly given. Check the total moving mass afterward.
+      - text: "12 m/s"
         rationale: |
-          You reported total initial momentum ($3 \times 4 = 12\text{ kg}\cdot\text{m/s}$) as final velocity. Divide momentum by total mass ($4\text{ kg}$) to get $v = 3\text{ m/s}$.
-      - text: 1 m/s
+          This reports initial momentum as final velocity. The product of mass and velocity is needed. Check that momentum must be divided by combined mass.
+      - text: "2 m/s"
         rationale: |
-          You divided total momentum by stationary mass only. Use combined mass ($3 + 1 = 4\text{ kg}$), yielding $v = 3\text{ m/s}$.
+          This averages the two velocities without weighting by mass. A shared velocity can suggest a simple average. Check the unequal cart masses.
     explanation: |
-      Total momentum before: $(3)(4) + (1)(0) = 12$ kg·m/s. Combined mass after: $3+1=4$ kg. So $12 = 4v$, giving $v = 3$ m/s.
+      With negligible external horizontal impulse, total momentum stays the same. Initially it is $(3)(4)=12\,\mathrm{kg\,m/s}$. The combined mass is $3+1=4\,\mathrm{kg}$. Thus $v_f=\dfrac{12}{4}=3\,\mathrm{m/s}$ in the original direction.
     approved: true
+
   - id: q-physics-momentum-and-impulse-0004
-    type: classify
-    difficulty: medium
+    type: "classify"
+    difficulty: "medium"
     stem: |
       Two identical billiard balls collide and bounce apart. Measurements show both the total momentum and the total kinetic energy are the same before and after the collision. Classify this collision.
     choices:
-      - text: Elastic
+      - text: "Elastic"
         correct: true
-      - text: Inelastic
+      - text: "Inelastic"
         rationale: |
-          You picked inelastic collision. Inelastic collisions lose kinetic energy to heat/deformation, whereas elastic collisions conserve kinetic energy.
-      - text: Perfectly inelastic
+          This selects a collision whose ordinary kinetic energy decreases. Real collisions often do that. Check the measured unchanged kinetic energy.
+      - text: "Perfectly inelastic"
         rationale: |
-          You picked perfectly inelastic collision. Perfectly inelastic collisions involve objects sticking together with maximum kinetic energy loss.
-      - text: Not a valid collision
+          This selects the sticking-together case. It is also a collision category. Check that these balls bounce apart.
+      - text: "Inelastic merely because they bounce apart"
         rationale: |
-          You rejected collision validity. Collisions conserving both momentum and kinetic energy are valid elastic collisions.
+          This treats bouncing apart alone as proof of energy loss. Real balls often lose some kinetic energy. Check the stated measurements.
     explanation: |
-      An elastic collision conserves both momentum and kinetic energy. Since both were measured to be conserved here, this is an elastic collision.
+      An elastic collision conserves the system’s total kinetic energy as well as total momentum. Those are the measured conditions here.
     approved: true
+
   - id: q-physics-momentum-and-impulse-0005
-    type: classify
-    difficulty: medium
+    type: "classify"
+    difficulty: "medium"
     stem: |
       Two carts collide and momentum is conserved, but the total kinetic energy after the collision is less than before (some energy converted to heat and sound). Classify this collision.
     choices:
-      - text: Inelastic
+      - text: "Inelastic"
         correct: true
-      - text: Elastic
+      - text: "Elastic"
         rationale: |
-          You picked elastic collision. Elastic collisions require complete kinetic energy conservation without thermal energy loss.
-      - text: Not a valid collision
+          This uses momentum conservation alone to infer elasticity. Elastic collisions also conserve momentum. Check kinetic energy separately.
+      - text: "Not a valid collision"
         rationale: |
-          You rejected collision validity. Partial kinetic energy loss with momentum conservation is a standard inelastic collision.
-      - text: A collision where momentum was not conserved
+          This calls any energy transformation invalid. The kinetic energy changed. Check the total energy across all forms.
+      - text: "A collision where momentum was not conserved"
         rationale: |
-          You claimed momentum was not conserved. Momentum is conserved in all isolated collisions, including inelastic ones.
+          This assumes kinetic-energy loss requires momentum loss. Both are conserved in an elastic collision. Check the stated momentum measurement.
     explanation: |
-      An inelastic collision conserves momentum but not kinetic energy: some kinetic energy converts into other forms like heat or sound.
+      The system’s kinetic energy decreases and is converted into other forms. That makes this an inelastic collision. Total energy remains conserved.
     approved: true
+
   - id: q-physics-momentum-and-impulse-0006
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A student applies a kinetic energy conservation equation to a real-world car crash where the cars crumple and stick together. Is this appropriate?
+      Two moving cars crumple and stick together during a collision with negligible external impulse. Which statement describes the two-car system?
     choices:
-      - text: 'No: only elastic collisions conserve kinetic energy; a crash where cars crumple and stick together is a perfectly inelastic collision, which does not conserve kinetic energy.'
+      - text: "Momentum is conserved; kinetic energy decreases."
         correct: true
-      - text: 'Yes: kinetic energy is always conserved in every type of collision.'
+      - text: "Both momentum and kinetic energy must be conserved."
         rationale: |
-          You assumed kinetic energy is always conserved. Kinetic energy is lost to acoustic and thermal deformation in inelastic crashes.
-      - text: 'No: but only because momentum is also not conserved in this crash.'
+          This treats the collision as elastic. Momentum does remain constant here. Check the crumpling and sticking.
+      - text: "Total energy is destroyed when kinetic energy decreases."
         rationale: |
-          You claimed momentum is not conserved. Momentum is conserved in all closed-system collisions regardless of elasticity.
-      - text: 'Yes: as long as momentum is also conserved.'
+          This treats transformed energy as destroyed. Less motion remains. Check energy in deformation, heat, and sound.
+      - text: "Momentum cannot be conserved if kinetic energy changes."
         rationale: |
-          You linked kinetic energy conservation directly to momentum conservation. Momentum conservation occurs in inelastic crashes without kinetic energy conservation.
+          This ties two different conservation tests together. Both hold for elastic collisions. Check the external-impulse condition separately.
     explanation: |
-      Momentum is conserved in all closed-system collisions, but kinetic energy is only conserved in elastic collisions. A real-world crash where objects crumple and stick together is inelastic, so kinetic energy is not conserved.
+      The cars form a perfectly inelastic collision. With negligible external impulse, total momentum is conserved. Kinetic energy becomes other energy forms as the cars deform.
     approved: true
+
   - id: q-physics-momentum-and-impulse-0007
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
       A moving cart collides with a stationary cart, and they stick together. A student calculates the combined mass afterward using only the moving cart's mass, leaving out the stationary cart's mass. Is this correct?
     choices:
-      - text: 'No: the combined mass after sticking together must include both objects'' masses, even the one that started at rest.'
+      - text: "No, both masses must be included."
         correct: true
-      - text: 'Yes: a stationary object''s mass does not need to be included after a collision.'
+      - text: "Yes: a stationary object's mass does not need to be included after a collision."
         rationale: |
-          You omitted the stationary mass. Sticking together creates a combined system mass ($m_1 + m_2$) after impact.
-      - text: 'No: only the stationary cart''s mass should be used instead.'
+          This omits the cart that started at rest. Its initial momentum is zero. Check mass separately from initial momentum.
+      - text: "No: only the stationary cart's mass should be used instead."
         rationale: |
-          You substituted stationary mass for total mass. Both moving and resting masses contribute to final post-collision inertia.
-      - text: 'Yes: mass only matters for the object that was originally moving.'
+          This omits the moving cart instead. The stationary cart receives motion. Check that both carts remain joined.
+      - text: "No, the stationary mass should be subtracted."
         rationale: |
-          You ignored rest mass contribution to final momentum. Post-collision velocity depends on combined total mass.
+          This subtracts the stationary mass from the moving mass. The stationary cart initially resists motion. Check that joined masses add.
     explanation: |
-      Even though the stationary cart contributed zero momentum before the collision, its mass still becomes part of the combined moving mass afterward. Leaving it out of the "after" total is a common and costly error.
+      Both carts contribute to the combined mass after sticking. The initially stationary cart had zero initial momentum, but it still has mass.
     approved: true
+
   - id: q-physics-momentum-and-impulse-0008
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
       A question asks for the impulse delivered during a collision, and a student reports only the peak force value, without considering the time of contact. Is this a complete answer?
     choices:
-      - text: 'No: impulse equals force multiplied by time (or the total change in momentum), not the force value alone.'
+      - text: "No, impulse needs the force-time area."
         correct: true
-      - text: 'Yes: impulse and force are the exact same quantity.'
+      - text: "Yes: impulse and force are the exact same quantity."
         rationale: |
-          You equated force and impulse. Force ($F$) is instantaneous push; impulse ($J = Ft$) is force integrated over time.
-      - text: 'No: impulse only depends on time, never on force.'
+          This treats force and impulse as the same quantity. Both describe an interaction. Check newtons versus newton-seconds.
+      - text: "No: impulse only depends on time, never on force."
         rationale: |
-          You excluded force from impulse. Impulse depends on both force and contact time duration ($J = Ft$).
-      - text: 'Yes: as long as the force value given is the average force.'
+          This omits force and uses duration alone. Contact time affects impulse. Check the full force-time area.
+      - text: "Yes: as long as the force value given is the average force."
         rationale: |
-          You omitted time from average force. Impulse requires multiplying average force by contact time duration.
+          This omits time even when average force is known. Average force is the correct force summary. Check the duration needed for impulse.
     explanation: |
-      Impulse ($J = Ft$) requires both the force and the time over which it acts. Reporting force alone omits the time component and does not answer what was actually asked.
+      Impulse depends on the force throughout the contact interval. It is the area under the force-time curve, or average force times duration. A peak force alone does not determine that area.
     approved: true
+
   - id: q-physics-momentum-and-impulse-0009
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
       Two carts move directly toward each other before colliding. A student adds their momenta as two positive numbers, ignoring that they move in opposite directions. Is this correct?
     choices:
-      - text: 'No: since momentum is a vector, one cart''s momentum must be treated as negative (opposite direction) in the total.'
+      - text: "No, opposing momenta have opposite signs."
         correct: true
-      - text: 'Yes: momentum is always added as positive values, regardless of direction.'
+      - text: "Yes: momentum is always added as positive values, regardless of direction."
         rationale: |
-          You treated momentum as a scalar. Momentum is a vector; head-on opposing movements require opposite sign assignment.
-      - text: 'No: but only because one of the carts must actually be stationary.'
+          This adds magnitudes as if both carts moved in one direction. Both speeds are positive magnitudes. Check the signed velocities.
+      - text: "No: but only because one of the carts must actually be stationary."
         rationale: |
-          You assumed one cart must be at rest. Head-on collisions involve two active opposing velocity vectors.
-      - text: 'Yes: direction only matters for velocity, not momentum.'
+          This assumes all collision setups include a stationary object. Such examples are common. Check that both carts here move.
+      - text: "Yes: direction only matters for velocity, not momentum."
         rationale: |
-          You disconnected direction from momentum. Momentum ($p = mv$) inherits velocity's directional vector property.
+          This treats momentum as independent of velocity’s direction. Mass has no direction. Check that multiplying velocity by positive mass keeps its direction.
     explanation: |
-      Momentum is a vector quantity. When two objects move toward each other, their momenta point in opposite directions, so one must be assigned a negative sign relative to the other before adding them.
+      Momentum has direction. Choose one direction as positive. The cart moving the other way has negative momentum, so their signed momenta must be added.
     approved: true
+
   - id: q-physics-momentum-and-impulse-0010
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
-      A 2000 kg truck moves at 3 m/s. A 500 kg car moves at 12 m/s. Compare their momenta.
+      A $2000\,\mathrm{kg}$ truck moves at $3\,\mathrm{m/s}$ and a $500\,\mathrm{kg}$ car at $12\,\mathrm{m/s}$. Compare their momentum magnitudes.
     choices:
-      - text: They have exactly the same momentum, 6000 kg·m/s each.
+      - text: "Equal magnitudes of $6000\\,\\mathrm{kg\\,m/s}$"
         correct: true
-      - text: The truck has more momentum, since it has more mass.
+      - text: "The truck has more momentum, since it has more mass."
         rationale: |
-          You judged momentum by mass alone. Truck momentum is $2000 \times 3 = 6000\text{ kg}\cdot\text{m/s}$, matching the car.
-      - text: The car has more momentum, since it moves faster.
+          This compares mass alone. The truck is heavier. Check the product of mass and speed.
+      - text: "The car has more momentum, since it moves faster."
         rationale: |
-          You judged momentum by speed alone. Car momentum is $500 \times 12 = 6000\text{ kg}\cdot\text{m/s}$, matching the truck.
-      - text: Their momenta cannot be compared without knowing their directions.
+          This compares speed alone. The car is faster. Check the mass factor too.
+      - text: "Their momenta cannot be compared without knowing their directions."
         rationale: |
-          You denied magnitude comparability. Momentum magnitudes can be compared directly regardless of directional alignment.
+          This requires direction to compare magnitudes. Momentum vectors do require direction. Check that the question asks only for size.
     explanation: |
-      Truck: $p = (2000)(3) = 6000$ kg·m/s. Car: $p = (500)(12) = 6000$ kg·m/s. A heavy object moving slowly can have the same momentum as a light object moving fast.
+      The truck’s momentum magnitude is $(2000)(3)=6000\,\mathrm{kg\,m/s}$. The car’s is $(500)(12)=6000\,\mathrm{kg\,m/s}$. Their magnitudes are equal.
     approved: true
+
   - id: q-physics-momentum-and-impulse-0011
-    type: simple-quantitative
-    difficulty: hard
+    type: "simple-quantitative"
+    difficulty: "hard"
     stem: |
-      A 2 kg cart moving at 6 m/s collides with a stationary 4 kg cart, and they stick together. Find their combined velocity afterward.
+      A $2\,\mathrm{kg}$ ball hits a wall at $+3\,\mathrm{m/s}$ and rebounds at $-2\,\mathrm{m/s}$. What impulse acts on the ball?
     choices:
-      - text: 2 m/s
+      - text: "$-10\\,\\mathrm{N\\,s}$"
         correct: true
-      - text: 3 m/s
+      - text: "$-2\\,\\mathrm{N\\,s}$"
         rationale: |
-          You divided initial momentum ($12$) by stationary mass ($4$) instead of total combined mass ($2 + 4 = 6\text{ kg}$).
-      - text: 6 m/s
+          This subtracts speed magnitudes instead of signed velocities. The speed falls from three to two. Check the rebound’s opposite direction.
+      - text: "$+10\\,\\mathrm{N\\,s}$"
         rationale: |
-          You assumed initial velocity is maintained. Adding $4\text{ kg}$ stationary mass slows combined velocity to $2\text{ m/s}$.
-      - text: 1.5 m/s
+          This reverses the impulse direction. The magnitude can be found from the speed sum. Check final momentum minus initial momentum.
+      - text: "$-5\\,\\mathrm{N\\,s}$"
         rationale: |
-          You divided by 8 kg or miscalculated. Initial momentum $12 = 6v$ gives $v = 2\text{ m/s}$.
+          This reports velocity change without multiplying by mass. The signed difference is correct. Check the mass factor.
     explanation: |
-      Total momentum before: $(2)(6) + (4)(0) = 12$ kg·m/s. Combined mass: $2+4=6$ kg. So $12 = 6v$, giving $v = 2$ m/s.
+      Impulse is the momentum change: $J=m(v_f-v_i)=2(-2-3)=-10\,\mathrm{N\,s}$. The sign points opposite the initial motion.
     approved: true
+
   - id: q-physics-momentum-and-impulse-0012
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
-      A force of 15 N acts on an object for 3 seconds. Find the impulse delivered. (Use $J = Ft$.)
+      A constant force of $15\,\mathrm N$ acts in one direction for $3\,\mathrm s$. What impulse does it deliver?
     choices:
-      - text: 45 kg m/s
+      - text: "45 kg m/s"
         correct: true
-      - text: 18 kg m/s
+      - text: "18 kg m/s"
         rationale: |
-          You added force and time ($15 + 3$). Impulse is the product of force and time: $J = Ft = 15 \times 3 = 45\text{ N}\cdot\text{s}$.
-      - text: 5 kg m/s
+          This adds force and time. Both are given. Check that impulse is a product for constant force.
+      - text: "5 kg m/s"
         rationale: |
-          You divided force by time ($\dfrac{15}{3}$). Impulse requires multiplying force by time.
-      - text: 12 kg m/s
+          This divides force by time. Rates often involve division. Check that impulse accumulates over duration.
+      - text: "12 kg m/s"
         rationale: |
-          You subtracted time from force ($15 - 3$). Use multiplication $J = Ft$.
+          This subtracts time from force. The two values are easy to combine. Check that their units cannot be subtracted.
     explanation: |
-      $J = Ft = (15)(3) = 45$ kg·m/s (equivalently, N·s).
+      For a constant force, impulse is $J=F\Delta t$. Thus $J=(15)(3)=45\,\mathrm{N\,s}$. This equals $45\,\mathrm{kg\,m/s}$.
     approved: true
+
   - id: q-physics-momentum-and-impulse-0013
-    type: simple-quantitative
-    difficulty: exam
+    type: "simple-quantitative"
+    difficulty: "exam"
     stem: |
       A 2 kg cart moves at +5 m/s. A 3 kg cart moves at -4 m/s (toward the first cart, in the opposite direction). They collide and stick together. Find their combined velocity afterward.
+       External horizontal impulse is negligible.
     choices:
-      - text: -0.4 m/s
+      - text: "-0.4 m/s"
         correct: true
-      - text: 0.4 m/s
+      - text: "0.4 m/s"
         rationale: |
-          You dropped the negative sign. Initial momentum is $10 - 12 = -2\text{ kg}\cdot\text{m/s}$, giving $v = \dfrac{-2}{5} = -0.4\text{ m/s}$.
-      - text: -2 m/s
+          This drops the net momentum’s negative sign. Speed is often reported positively. Check the requested signed velocity.
+      - text: "-2 m/s"
         rationale: |
-          You reported total net momentum ($-2\text{ kg}\cdot\text{m/s}$) as velocity. Divide by total mass ($5\text{ kg}$) to get $-0.4\text{ m/s}$.
-      - text: 2.2 m/s
+          This reports total momentum as velocity. The negative total is calculated correctly. Check division by combined mass.
+      - text: "4.4 m/s"
         rationale: |
-          You added momentum magnitudes ($10 + 12 = 22$) without accounting for opposite directional signs.
+          This adds momentum magnitudes without direction signs. Both carts have positive mass. Check the opposing velocities before summing.
     explanation: |
-      Total momentum before: $(2)(5) + (3)(-4) = 10 - 12 = -2$ kg·m/s. Combined mass: $2+3=5$ kg. So $-2 = 5v$, giving $v = -0.4$ m/s (moving in the second cart's original direction).
+      Initial total momentum is $(2)(5)+(3)(-4)=10-12=-2\,\mathrm{kg\,m/s}$. Negligible external impulse keeps this total unchanged. The joined mass is $5\,\mathrm{kg}$, so $v_f=-2/5=-0.4\,\mathrm{m/s}$.
     approved: true
+
   - id: q-physics-momentum-and-impulse-0014
-    type: predict-outcome
-    difficulty: exam
+    type: "predict-outcome"
+    difficulty: "exam"
     stem: |
       A car's airbag deploys during a collision, extending the time over which the passenger's momentum changes to zero, compared to hitting a hard dashboard directly. Why does this reduce injury?
     choices:
-      - text: For the same total change in momentum, a longer time reduces the average force needed, lowering the impact on the passenger's body.
+      - text: "A longer stop reduces the average force."
         correct: true
-      - text: The airbag reduces the total change in momentum the passenger experiences.
+      - text: "The airbag reduces the total change in momentum the passenger experiences."
         rationale: |
-          You claimed momentum change decreases. Total momentum change $\Delta p = m(v_f - v_i)$ is fixed by initial velocity.
-      - text: The airbag has no effect on force, only on the passenger's final velocity.
+          This assumes stopping over longer time reduces the required momentum change. The gentler stop feels smaller. Check the same initial and final velocities.
+      - text: "The airbag has no effect on force, only on the passenger's final velocity."
         rationale: |
-          You denied force reduction. $F = \dfrac{\Delta p}{\Delta t}$ shows increasing contact time directly reduces average force.
-      - text: The airbag works by making the passenger's mass smaller during the collision.
+          This ignores the time dependence of average force. The final velocity is zero either way. Check the ratio of momentum change to duration.
+      - text: "The airbag works by making the passenger's mass smaller during the collision."
         rationale: |
-          You claimed mass reduction during impact. Passenger mass remains constant; impact time is extended to lower force.
+          This attributes protection to reduced mass. The body becomes less strongly accelerated. Check that the passenger’s mass stays the same.
     explanation: |
-      Impulse ($J=Ft$) for a given momentum change is fixed; stretching out the time $t$ over which it happens reduces the force $F$ needed to produce that same change, which is exactly why airbags and padded surfaces reduce injury.
+      The initial and final velocities set the momentum change. Extending the stopping time spreads that change over a longer interval. From $F_{\mathrm{avg}}=\Delta p/\Delta t$, the average force magnitude is smaller.
     approved: true
+
+  - id: q-physics-momentum-and-impulse-0015
+    approved: false
+    type: "identify"
+    difficulty: "easy"
+    stem: |
+      Which quantity is equal to the change in momentum?
+    choices:
+      - text: "Impulse"
+        correct: true
+      - text: "Peak force"
+        rationale: |
+          This uses the strongest instantaneous force. A strong hit is noticeable. Check the force over the whole interval.
+      - text: "Contact duration"
+        rationale: |
+          This uses time alone. Longer contact affects the interaction. Check that force magnitude also matters.
+      - text: "Kinetic energy"
+        rationale: |
+          This substitutes another motion quantity. Both can change in collisions. Check momentum’s units and vector direction.
+    explanation: |
+      The impulse-momentum theorem states that impulse equals change in momentum: $
+      ec J=\Delta
+      ec p$.
+
+  - id: q-physics-momentum-and-impulse-0016
+    approved: false
+    type: "structure-function"
+    difficulty: "medium"
+    stem: |
+      What does the signed area under a force-time graph represent?
+    choices:
+      - text: "Impulse"
+        correct: true
+      - text: "Average force"
+        rationale: |
+          This treats area as graph height. Force is the vertical variable. Check the extra time factor in area.
+      - text: "Final momentum in every case"
+        rationale: |
+          This ignores the initial momentum. Impulse changes momentum. Check change versus final value.
+      - text: "Change in speed without reference to mass"
+        rationale: |
+          This omits the mass link between impulse and velocity change. A push changes motion. Check the momentum theorem.
+    explanation: |
+      Each small force-time area adds a small impulse. The full signed area gives the total impulse and hence the momentum change.
+
+  - id: q-physics-momentum-and-impulse-0017
+    approved: false
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      For a fixed nonzero momentum change, stopping time is doubled. What happens to the average force magnitude?
+    choices:
+      - text: "It is halved."
+        correct: true
+      - text: "It doubles because force acts for longer."
+        rationale: |
+          This uses duration to increase force rather than spread a fixed change. Longer action can produce more impulse if force stays fixed. Check what is fixed here.
+      - text: "It stays unchanged because final momentum is the same."
+        rationale: |
+          This ignores duration in average force. The endpoint is unchanged. Check the momentum-change-to-time ratio.
+      - text: "It becomes zero because the stop is gentler."
+        rationale: |
+          This extends a reduced force to no force. A longer stop is less abrupt. Check the nonzero momentum change.
+    explanation: |
+      Average force magnitude is $|\Delta p|/\Delta t$. With the same numerator and twice the duration, it is half as large.
+
+  - id: q-physics-momentum-and-impulse-0018
+    approved: false
+    type: "classify"
+    difficulty: "hard"
+    stem: |
+      A ball hits a fixed wall. Is momentum conserved for the ball alone during the impact?
+    choices:
+      - text: "No, the wall gives the ball an external impulse."
+        correct: true
+      - text: "Yes, because every collision conserves each object’s momentum."
+        rationale: |
+          This applies system conservation to one object. Collision examples often conserve total momentum. Check the chosen system boundary.
+      - text: "Yes, because the wall does not move visibly."
+        rationale: |
+          This assumes an unmoving source cannot change momentum. The wall appears stationary. Check its force on the ball.
+      - text: "No, because momentum conservation is impossible for any larger system."
+        rationale: |
+          This extends the ball-only failure to every system. The ball’s momentum changes. Check including wall and Earth in a larger system.
+    explanation: |
+      The system contains only the ball. The wall lies outside that system and exerts an impulse on it. The ball’s momentum changes.
+
+  - id: q-physics-momentum-and-impulse-0019
+    approved: false
+    type: "compare-contrast"
+    difficulty: "hard"
+    stem: |
+      What distinguishes a perfectly inelastic collision from other inelastic collisions?
+    choices:
+      - text: "The bodies stick together afterward."
+        correct: true
+      - text: "Only perfectly inelastic collisions can conserve momentum."
+        rationale: |
+          This ties momentum conservation to sticking. Sticking makes the calculation simple. Check the external-impulse condition for every system.
+      - text: "Perfectly inelastic collisions preserve all kinetic energy."
+        rationale: |
+          This swaps the elastic and sticking cases. Both are named collision types. Check energy transformed during sticking.
+      - text: "All inelastic collisions must separate with equal speeds."
+        rationale: |
+          This invents a final-speed condition. The bodies interact strongly. Check the shared velocity only when they stick.
+    explanation: |
+      In a perfectly inelastic collision, the bodies remain joined and move with one final velocity. Other inelastic collisions can leave them separated.
+
+  - id: q-physics-momentum-and-impulse-0020
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "exam"
+    stem: |
+      A force-time pulse rises linearly from zero to $40\,\mathrm N$ in $0.10\,\mathrm s$, then falls linearly to zero in another $0.10\,\mathrm s$. What is the impulse magnitude?
+    choices:
+      - text: "$4\\,\\mathrm{N\\,s}$"
+        correct: true
+      - text: "$8\\,\\mathrm{N\\,s}$"
+        rationale: |
+          This uses peak force over the full duration. The peak is given clearly. Check the triangular area instead of a rectangle.
+      - text: "$2\\,\\mathrm{N\\,s}$"
+        rationale: |
+          This counts only one half of the pulse. Each half lasts 0.10 second. Check both rise and fall intervals.
+      - text: "$40\\,\\mathrm{N\\,s}$"
+        rationale: |
+          This reports peak force as impulse. The largest graph value is prominent. Check the duration and area units.
+    explanation: |
+      The force-time area is a triangle of base $0.20\,\mathrm s$ and height $40\,\mathrm N$. Its area is $\dfrac12(0.20)(40)=4\,\mathrm{N\,s}$.
