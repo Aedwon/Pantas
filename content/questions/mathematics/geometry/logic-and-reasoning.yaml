@@ -1,13 +1,12 @@
 meta:
-  subject: 'mathematics'
-  topic: 'geometry'
-  subtopic: 'logic-and-reasoning'
+  subject: mathematics
+  topic: geometry
+  subtopic: logic-and-reasoning
   exams: [upcat, acet, dlsucet, ustet, pupcet]
-
 questions:
-  - id: 'q-geometry-logic-and-reasoning-0001'
-    type: 'which-is-true'
-    difficulty: 'easy'
+  - id: q-geometry-logic-and-reasoning-0001
+    type: which-is-true
+    difficulty: easy
     stem: |
       Given the conditional statement: "If two lines are perpendicular, then they intersect to form right angles." Which part is the hypothesis?
     choices:
@@ -16,102 +15,94 @@ questions:
       - text: 'They intersect to form right angles.'
         correct: false
         rationale: |
-          You picked the conclusion. In an "if P, then Q" statement, the hypothesis is the part right after "if."
-      - text: 'Two lines are parallel.'
+          This reports the then clause as the hypothesis. The then clause is part of the same sentence. Check which clause follows if.
+      - text: 'Two lines are not perpendicular.'
         correct: false
         rationale: |
-          You chose a statement that does not appear in the conditional at all. The hypothesis must come from the original sentence.
+          This negates the original hypothesis. Negating is used in other conditional forms. Check that the hypothesis is copied unchanged.
       - text: 'They do not intersect.'
         correct: false
         rationale: |
-          You chose a statement that conflicts with the original conditional. Perpendicular lines do intersect.
+          This negates the intersection part of the conclusion. The original statement mentions intersection. Check which original clause is the hypothesis.
     explanation: |
-      In a conditional statement of the form "If P, then Q", the clause P following "If" is the hypothesis, and the clause Q following "then" is the conclusion.
+      The hypothesis is the condition following if. Here that condition is that two lines are perpendicular.
 
-      - Hypothesis (P): "Two lines are perpendicular."
-      - Conclusion (Q): "They intersect to form right angles."
-
-  - id: 'q-geometry-logic-and-reasoning-0002'
-    type: 'which-is-true'
-    difficulty: 'easy'
+  - id: q-geometry-logic-and-reasoning-0002
+    type: which-is-true
+    difficulty: easy
     stem: |
-      Given the conditional statement: "If a triangle is equilateral, then all of its interior angles measure 60°." Which statement represents its converse?
+      Given the conditional statement: "If a triangle is equilateral, then all of its interior angles measure $60^\circ$." Which statement represents its converse?
     choices:
-      - text: 'If all interior angles of a triangle measure 60°, then the triangle is equilateral.'
+      - text: 'If all interior angles of a triangle measure $60^\circ$, then the triangle is equilateral.'
         correct: true
-      - text: 'If a triangle is not equilateral, then all of its interior angles do not measure 60°.'
+      - text: 'If a triangle is not equilateral, then all of its interior angles do not measure $60^\circ$.'
         correct: false
         rationale: |
-          You wrote the inverse, not the converse. The converse swaps the two parts without adding "not."
-      - text: 'If all interior angles of a triangle do not measure 60°, then the triangle is not equilateral.'
+          This negates both parts without swapping them. Negations appear in other derived forms. Check that a converse only swaps.
+      - text: 'If all interior angles of a triangle do not measure $60^\circ$, then the triangle is not equilateral.'
         correct: false
         rationale: |
-          You changed both statements to negatives. That makes an inverse-style statement, not the converse.
-      - text: 'A triangle is equilateral if and only if all of its interior angles measure 60°.'
+          This swaps and negates the parts instead of only swapping them. A contrapositive also changes the order. Check that a converse only swaps.
+      - text: 'A triangle is equilateral if and only if all of its interior angles measure $60^\circ$.'
         correct: false
         rationale: |
-          You made the statement stronger than a converse. A biconditional includes both directions, not just the swapped one.
+          This combines both directions rather than giving the converse alone. A biconditional does include the converse. Check that only the reverse direction is requested.
     explanation: |
-      The converse of a conditional statement "If P, then Q" is formed by swapping the hypothesis P and conclusion Q to yield "If Q, then P".
+      A converse swaps the if part and the then part without changing either claim. The angle condition moves first, followed by the equilateral-triangle conclusion.
 
-      - Original: P = "a triangle is equilateral", Q = "all of its interior angles measure 60°".
-      - Converse: "If all interior angles of a triangle measure 60°, then the triangle is equilateral."
-
-  - id: 'q-geometry-logic-and-reasoning-0003'
-    type: 'which-is-true'
-    difficulty: 'easy'
+  - id: q-geometry-logic-and-reasoning-0003
+    type: which-is-true
+    difficulty: easy
     stem: |
       Which statement regarding a conditional statement "If P, then Q" and its contrapositive "If not Q, then not P" is true?
     choices:
-      - text: 'A conditional statement and its contrapositive always have the exact same truth value.'
+      - text: 'Their truth values always match.'
         correct: true
       - text: 'A conditional statement is true only when its converse is also true.'
         correct: false
         rationale: |
-          You treated the converse as automatically linked to the original statement. A true statement can still have a false converse.
+          This treats the converse as a requirement for the original conditional. The converse uses the same two parts. Test the converse with a counterexample.
       - text: 'The contrapositive is formed by negating both parts without swapping them.'
         correct: false
         rationale: |
-          You described the inverse. The contrapositive must both negate and swap the hypothesis and conclusion.
+          This describes an inverse while naming a contrapositive. Both derived forms include negations. Check that contrapositive both swaps and negates.
       - text: 'If a conditional statement is true, its inverse must also be true.'
         correct: false
         rationale: |
-          You gave the inverse the same status as the contrapositive. The inverse is not guaranteed to match the original statement.
+          This gives the inverse the guaranteed truth link of a contrapositive. The inverse uses both original parts. Check the two equivalence pairs.
     explanation: |
-      A conditional statement and its contrapositive are logically equivalent. If a conditional statement is true, its contrapositive is guaranteed to be true in every case, and vice versa.
+      A conditional and its contrapositive are logically equivalent. This means they are true and false in exactly the same cases. Their truth values always match.
 
-  - id: 'q-geometry-logic-and-reasoning-0004'
-    type: 'which-is-true'
-    difficulty: 'easy'
+  - id: q-geometry-logic-and-reasoning-0004
+    type: which-is-true
+    difficulty: easy
     stem: |
       What is required to prove that the conditional statement "If a quadrilateral has four equal sides, then it is a square" is false?
     choices:
-      - text: 'A single example of a quadrilateral with four equal sides that is not a square.'
+      - text: 'One quadrilateral with four equal sides that is not a square.'
         correct: true
       - text: 'A single example of a square that does not have four equal sides.'
         correct: false
         rationale: |
-          You attacked the wrong part. To disprove "If P, then Q," you need a case where P is true and Q is false.
+          This switches the roles of hypothesis and conclusion. Both shape properties appear in the original. Check for a true hypothesis and false conclusion.
       - text: 'Multiple examples showing quadrilaterals with unequal side lengths.'
         correct: false
         rationale: |
-          You chose examples where the hypothesis already fails. Those cannot disprove the original conditional statement.
+          This uses cases where the hypothesis is false. Unequal-sided shapes are easy to find. Check that a counterexample satisfies the hypothesis.
       - text: 'Proof that all quadrilaterals with four equal sides are rectangles.'
         correct: false
         rationale: |
-          You tried to prove a different claim instead of disproving the given one. A single counterexample is enough here.
+          This tries to prove a stronger positive claim instead of finding a counterexample. Equal-sided quadrilaterals are the same hypothesis group. Check that the case breaks the stated conclusion.
     explanation: |
-      To disprove a conditional statement "If P, then Q" with a counterexample, you must provide a case where hypothesis P is true, but conclusion Q is false.
+      A counterexample must have a true hypothesis and false conclusion. A quadrilateral with four equal sides satisfies the hypothesis. If it is not a square, it fails the conclusion. One such example disproves the conditional.
 
-      For example, a rhombus has four equal sides (P is true), but its interior angles might not be 90° (Q is false). This single counterexample proves the statement false.
-
-  - id: 'q-geometry-logic-and-reasoning-0005'
-    type: 'which-is-true'
-    difficulty: 'easy'
+  - id: q-geometry-logic-and-reasoning-0005
+    type: which-is-true
+    difficulty: easy
     stem: |
       Consider the following true statements:
-      1. If a polygon is a regular hexagon, then the sum of its interior angles is 720°.
-      2. If the sum of the interior angles of a polygon is 720°, then it has 6 sides.
+      1. If a polygon is a regular hexagon, then the sum of its interior angles is $720^\circ$.
+      2. If the sum of the interior angles of a polygon is $720^\circ$, then it has 6 sides.
       Which conclusion logically follows by the Law of Syllogism?
     choices:
       - text: 'If a polygon is a regular hexagon, then it has 6 sides.'
@@ -119,26 +110,21 @@ questions:
       - text: 'If a polygon has 6 sides, then it is a regular hexagon.'
         correct: false
         rationale: |
-          You reversed the direction of the chain. The Law of Syllogism keeps the first hypothesis and the last conclusion.
-      - text: 'If the sum of interior angles is not 720°, then it is not a regular hexagon.'
+          This reverses the chained implication. Both end statements come from the chain. Check the direction from the first condition to the last.
+      - text: 'If the interior-angle sum is not $720^\circ$, then the polygon has 6 sides.'
         correct: false
         rationale: |
-          You gave a contrapositive-style statement instead of the direct syllogism result. The chain should stay in "if P, then R" form.
+          This negates the middle condition without negating its consequence. Negation is used in logically equivalent forms. Check that the chain preserves the given directions.
       - text: 'If a polygon is not a regular hexagon, then it does not have 6 sides.'
         correct: false
         rationale: |
-          You negated the statement instead of chaining it. A polygon can have 6 sides without being a regular hexagon.
+          This negates both ends of the chain without reversing them. Both ends still resemble the original implication. Check that negating without swapping forms an inverse.
     explanation: |
-      The Law of Syllogism states that if "If P, then Q" and "If Q, then R" are both true statements, then "If P, then R" is also a logically valid true statement.
+      The first premise links a regular hexagon to an interior-angle sum of $720^\circ$. The second links that sum to six sides. Chaining them gives: if a polygon is a regular hexagon, then it has six sides.
 
-      - P = "a polygon is a regular hexagon"
-      - Q = "the sum of its interior angles is 720°"
-      - R = "it has 6 sides"
-      - Conclusion: "If a polygon is a regular hexagon, then it has 6 sides."
-
-  - id: 'q-geometry-logic-and-reasoning-0006'
-    type: 'which-is-true'
-    difficulty: 'medium'
+  - id: q-geometry-logic-and-reasoning-0006
+    type: which-is-true
+    difficulty: medium
     stem: |
       Given the conditional statement: "If two angles form a linear pair, then they are supplementary." Which statement represents its inverse?
     choices:
@@ -147,74 +133,67 @@ questions:
       - text: 'If two angles are not supplementary, then they do not form a linear pair.'
         correct: false
         rationale: |
-          You swapped the parts and negated them. That makes the contrapositive, not the inverse.
+          This swaps and negates instead of only negating. A contrapositive also uses negation. Check that inverse keeps the order.
       - text: 'If two angles are supplementary, then they form a linear pair.'
         correct: false
         rationale: |
-          You wrote the converse. Supplementary angles do not always sit next to each other as a linear pair.
+          This swaps the parts without negating them. A converse is another derived form. Check that inverse negates both parts.
       - text: 'Two angles form a linear pair if and only if they are supplementary.'
         correct: false
         rationale: |
-          You turned one direction into a two-way claim. A biconditional is stronger than the inverse.
+          This combines both directions instead of forming the inverse. A biconditional contains related conditions. Check which form is requested.
     explanation: |
-      The inverse of a conditional statement "If P, then Q" negates both the hypothesis and the conclusion without changing their order to form "If not P, then not Q".
+      An inverse negates both original parts without swapping them. Negating forms a linear pair gives does not form a linear pair. Negating supplementary gives not supplementary. Keep that order in the new if-then statement.
 
-      - Original: P = "two angles form a linear pair", Q = "they are supplementary".
-      - Inverse: "If two angles do not form a linear pair, then they are not supplementary."
-
-  - id: 'q-geometry-logic-and-reasoning-0007'
-    type: 'which-is-true'
-    difficulty: 'medium'
+  - id: q-geometry-logic-and-reasoning-0007
+    type: which-is-true
+    difficulty: medium
     stem: |
       Which statement regarding biconditional statements ("P if and only if Q") is true?
     choices:
-      - text: 'A biconditional statement is true only when both the original conditional statement and its converse are true.'
+      - text: 'Both directions must be true.'
         correct: true
       - text: 'A biconditional statement is true if the conditional statement is true, regardless of the converse.'
         correct: false
         rationale: |
-          You ignored half of the biconditional. "If and only if" needs both directions to be true.
+          This ignores the converse half of the biconditional. The forward direction is part of the rule. Check both directions.
       - text: 'A biconditional statement is logically equivalent to the inverse statement alone.'
         correct: false
         rationale: |
-          You reduced the biconditional to one different statement. A biconditional combines the conditional and its converse.
+          This treats one equivalent direction as the complete two-way rule. The converse and inverse are equivalent to each other. Check that two directions are required.
       - text: 'A biconditional statement is false whenever P and Q are both false.'
         correct: false
         rationale: |
-          You used the wrong truth rule. A biconditional is true when P and Q have the same truth value, even if both are false.
+          This assumes both false parts make a biconditional false. False values can suggest a false overall claim. Check that matching truth values satisfy both directions.
     explanation: |
-      A biconditional statement "P if and only if Q" (written P ↔ Q) combines a conditional statement (P → Q) and its converse (Q → P). It is true if and only if both P → Q and Q → P are true (meaning P and Q have identical truth values).
+      An if-and-only-if claim contains both directions: if P then Q, and if Q then P. For the biconditional to hold, both directions must be true.
 
-  - id: 'q-geometry-logic-and-reasoning-0008'
-    type: 'which-is-true'
-    difficulty: 'medium'
+  - id: q-geometry-logic-and-reasoning-0008
+    type: which-is-true
+    difficulty: medium
     stem: |
       Consider the statement: "If two angles are supplementary, then one of them must be an obtuse angle." Which pair of angle measures serves as a valid counterexample?
     choices:
-      - text: 'Two right angles measuring 90° and 90°.'
+      - text: 'Two angles measuring $90^\circ$ and $90^\circ$.'
         correct: true
-      - text: 'Two angles measuring 45° and 135°.'
+      - text: 'Two angles measuring $45^\circ$ and $135^\circ$.'
         correct: false
         rationale: |
-          You found supplementary angles, but this pair does not break the claim. One angle is obtuse, so the conclusion still holds.
-      - text: 'Two angles measuring 30° and 60°.'
+          This gives a pair whose hypothesis and conclusion are both true. The pair really does sum to one hundred eighty degrees. Check that a counterexample must fail the conclusion.
+      - text: 'Two angles measuring $30^\circ$ and $60^\circ$.'
         correct: false
         rationale: |
-          You picked a pair that does not even satisfy the hypothesis. A counterexample must still add up to 180 degrees.
-      - text: 'Two angles measuring 100° and 80°.'
+          This gives angles that fail the supplementary hypothesis. The pair consists of familiar angles. Check that the hypothesis must hold.
+      - text: 'Two angles measuring $100^\circ$ and $80^\circ$.'
         correct: false
         rationale: |
-          You chose a supplementary pair, but it is not a counterexample. One angle is obtuse, so the conclusion stays true.
+          This gives a pair with an obtuse angle, keeping the conclusion true. The pair really does satisfy the supplementary condition. Check that the conclusion must fail.
     explanation: |
-      A counterexample to a conditional statement "If P, then Q" must satisfy the hypothesis P (the two angles are supplementary, so their sum is 180°) while failing the conclusion Q (neither angle is obtuse).
+      Two right angles sum to $90^\circ+90^\circ=180^\circ$, so they satisfy the supplementary hypothesis. Each equals $90^\circ$, so neither is obtuse. The hypothesis holds and the conclusion fails, giving a counterexample.
 
-      - Two 90° angles sum to 180° (hypothesis P is true).
-      - Neither angle is greater than 90° (conclusion Q is false).
-      Therefore, two 90° angles form a valid counterexample.
-
-  - id: 'q-geometry-logic-and-reasoning-0009'
-    type: 'which-is-true'
-    difficulty: 'medium'
+  - id: q-geometry-logic-and-reasoning-0009
+    type: which-is-true
+    difficulty: medium
     stem: |
       Which of the following statements is logically equivalent to the inverse statement "If not P, then not Q"?
     choices:
@@ -223,26 +202,21 @@ questions:
       - text: 'The original conditional statement, "If P, then Q".'
         correct: false
         rationale: |
-          You treated the inverse as if it matched the original statement. The inverse is logically linked to a different form.
+          This assumes the inverse matches the original. The same letters occur in both forms. Check the inverse-converse truth pair.
       - text: 'The contrapositive statement, "If not Q, then not P".'
         correct: false
         rationale: |
-          You chose the statement equivalent to the original conditional, not the one equivalent to the inverse.
+          This chooses the truth partner of the original rather than the inverse. The contrapositive is a valid equivalence for a different form. Check which form is being compared.
       - text: 'The biconditional statement, "P if and only if Q".'
         correct: false
         rationale: |
-          You strengthened the statement too much. Logical equivalence here is between the inverse and the converse only.
+          This adds another required direction to an equivalent statement. The biconditional uses the same letters. Check whether the added direction is guaranteed.
     explanation: |
-      The contrapositive of any statement "If A, then B" is "If not B, then not A", and every statement is logically equivalent to its contrapositive.
+      Take the contrapositive of if not P then not Q. Swap and negate to get if not-not Q then not-not P. Cancel each double negative. The result is if Q then P, which is the converse.
 
-      For the inverse statement "If not P, then not Q":
-      - Hypothesis A = "not P", Conclusion B = "not Q".
-      - Negating and swapping yields: "If not (not Q), then not (not P)", which simplifies to "If Q, then P".
-      - "If Q, then P" is the converse of the original statement.
-
-  - id: 'q-geometry-logic-and-reasoning-0010'
-    type: 'which-is-true'
-    difficulty: 'medium'
+  - id: q-geometry-logic-and-reasoning-0010
+    type: which-is-true
+    difficulty: medium
     stem: |
       Given the three true premises:
       1. If line m is parallel to line n, then alternate interior angles are equal.
@@ -255,25 +229,21 @@ questions:
       - text: 'If angle A is congruent to angle B, then line m is parallel to line n.'
         correct: false
         rationale: |
-          You reversed the whole chain. The premises let you move forward from parallel lines to congruent angles, not backward.
+          This reverses the chain. The same end facts are used. Follow each given implication forward.
       - text: 'If line m is not parallel to line n, then angle A is not congruent to angle B.'
         correct: false
         rationale: |
-          You negated both ends instead of following the syllogism. The chain keeps the given direction of the premises.
+          This takes the inverse of the chain as guaranteed. Both end facts have been negated. Check that only contraposition preserves the chain's truth.
       - text: 'If triangle ABC is isosceles, then line m is parallel to line n.'
         correct: false
         rationale: |
-          You flipped a middle step into a backward claim. Syllogism links the first premise to the last conclusion in order.
+          This reverses a link from the middle back to the start. That middle condition appears in the premises. Check the direction of each link.
     explanation: |
-      By extending the Law of Syllogism across multiple conditional premises (P → Q, Q → R, R → S), we can directly link the initial hypothesis P to the final conclusion S (P → S).
+      Following the given premises, parallel lines lead to equal alternate angles. That condition leads to an isosceles triangle, which leads to angle A congruent to angle B. The chain therefore links the first condition to the final conclusion.
 
-      - P = "line m is parallel to line n"
-      - S = "angle A is congruent to angle B"
-      - Valid conclusion: "If line m is parallel to line n, then angle A is congruent to angle B."
-
-  - id: 'q-geometry-logic-and-reasoning-0011'
-    type: 'which-is-true'
-    difficulty: 'medium'
+  - id: q-geometry-logic-and-reasoning-0011
+    type: which-is-true
+    difficulty: medium
     stem: |
       Under which combination of truth values for hypothesis P and conclusion Q is the conditional statement "If P, then Q" considered FALSE?
     choices:
@@ -282,27 +252,21 @@ questions:
       - text: 'When P is false and Q is true.'
         correct: false
         rationale: |
-          You thought a false hypothesis makes the whole statement false.
-          If the hypothesis is false, the rule is not broken. That still
-          counts as true.
+          This treats a false hypothesis as a broken conditional. One component is false. Check whether the hypothesis was met.
       - text: 'When P is false and Q is false.'
         correct: false
         rationale: |
-          You treated every false conclusion as a failure. A conditional is still true when the hypothesis never happens.
+          This treats a false conclusion as sufficient for failure. The conclusion is false. Check that the hypothesis must also be true.
       - text: 'When P is true and Q is true.'
         correct: false
         rationale: |
-          You chose the case where the promise is kept. A true hypothesis followed by a true conclusion makes the conditional true.
+          This treats the case satisfying both parts as failure. The hypothesis is true. Check that failure means a true hypothesis with false conclusion.
     explanation: |
-      In formal logic, a conditional statement "If P, then Q" (P → Q) promises that whenever P occurs, Q will follow.
+      The conditional says Q follows whenever P is true. It fails when P is true but Q is false. This is exactly the counterexample condition.
 
-      - P = True, Q = False: The promise is broken, so P → Q is FALSE.
-      - P = False, Q = True or False: The hypothesis was not met, so the conditional statement is vacuously TRUE.
-      - P = True, Q = True: P → Q is TRUE.
-
-  - id: 'q-geometry-logic-and-reasoning-0012'
-    type: 'which-is-true'
-    difficulty: 'hard'
+  - id: q-geometry-logic-and-reasoning-0012
+    type: which-is-true
+    difficulty: hard
     stem: |
       Consider the statement: "A parallelogram is a rectangle if and only if its diagonals are perpendicular." Which option correctly evaluates this statement?
     choices:
@@ -311,25 +275,21 @@ questions:
       - text: 'It is true; all parallelograms with perpendicular diagonals are rectangles.'
         correct: false
         rationale: |
-          You treated perpendicular diagonals as a rectangle test. A rhombus can have perpendicular diagonals without being a rectangle.
+          This identifies perpendicular diagonals as a rectangle condition. Some rectangles also have perpendicular diagonals. Check a nonsquare rhombus.
       - text: 'It is false; diagonals of a rectangle are never equal in length.'
         correct: false
         rationale: |
-          You used a false geometry fact. Rectangle diagonals are equal in length, so that is not the reason this biconditional fails.
+          This rejects the claim for an incorrect fact about rectangle diagonals. Both statements discuss diagonals. Check the stated geometric fact.
       - text: 'It is true; the statement is the standard geometric definition of a rectangle.'
         correct: false
         rationale: |
-          You treated a non-definition as a definition. Perpendicular diagonals are not the usual condition that identifies rectangles.
+          This treats the given claim as a definition rather than testing both directions. Definitions often use if and only if. Test each direction rather than assuming a definition.
     explanation: |
-      A biconditional statement "P if and only if Q" requires both directions to be true:
-      1. "If a parallelogram is a rectangle, then its diagonals are perpendicular" (False, rectangle diagonals are equal, not necessarily perpendicular).
-      2. "If a parallelogram has perpendicular diagonals, then it is a rectangle" (False, perpendicular diagonals define a rhombus).
+      Choose a non-square rhombus, for example one with angles $60^\circ$ and $120^\circ$. It is a parallelogram with perpendicular diagonals, but it is not a rectangle. This breaks one direction of the if-and-only-if claim. The biconditional is therefore false.
 
-      Because a non-square rhombus has perpendicular diagonals but is not a rectangle, the statement is false.
-
-  - id: 'q-geometry-logic-and-reasoning-0013'
-    type: 'which-is-true'
-    difficulty: 'hard'
+  - id: q-geometry-logic-and-reasoning-0013
+    type: which-is-true
+    difficulty: hard
     stem: |
       What is the logical negation of the conditional statement "If triangle T is right-angled, then it has two acute angles"?
     choices:
@@ -338,25 +298,21 @@ questions:
       - text: 'If triangle T is not right-angled, then it does not have two acute angles.'
         correct: false
         rationale: |
-          You wrote an inverse-style conditional. The negation of "if P, then Q" is not another conditional statement.
+          This gives the inverse rather than a negation of the whole statement. Both clauses have been negated. Check the true-hypothesis, false-conclusion case.
       - text: 'Triangle T is not right-angled AND it has two acute angles.'
         correct: false
         rationale: |
-          You negated the wrong part. To negate a conditional, you keep P true and make Q false.
+          This negates the hypothesis instead of the conclusion in the false case. The statement still combines two claims. Check which case violates the original conditional.
       - text: 'If triangle T does not have two acute angles, then it is not right-angled.'
         correct: false
         rationale: |
-          You wrote the contrapositive. The contrapositive is equivalent to the original statement, not its negation.
+          This gives the contrapositive, which preserves the original statement. It uses both swapping and negation. Check that a negation must oppose the original truth value.
     explanation: |
-      The logical negation of a conditional statement "If P, then Q" (P → Q) is "P AND not Q" (P ∧ ¬Q).
+      A conditional is false exactly when its hypothesis holds and its conclusion fails. Its negation states that case: T is right-angled and does not have two acute angles.
 
-      - P = "Triangle T is right-angled"
-      - Q = "it has two acute angles"
-      - Negation (P AND not Q): "Triangle T is right-angled AND it does not have two acute angles."
-
-  - id: 'q-geometry-logic-and-reasoning-0014'
-    type: 'which-is-true'
-    difficulty: 'hard'
+  - id: q-geometry-logic-and-reasoning-0014
+    type: which-is-true
+    difficulty: hard
     stem: |
       Analyze the logical validity of the following argument:
       Premise 1: If quadrilateral ABCD is a square, then its diagonals are congruent.
@@ -369,46 +325,142 @@ questions:
       - text: 'It is a valid application of the Law of Detachment.'
         correct: false
         rationale: |
-          You used the wrong rule. Law of Detachment needs P and P → Q, but this argument gives Q and P → Q.
+          This applies detachment after observing the conclusion rather than the hypothesis. Detachment does use a fact with a conditional. Check that the observed fact is the if clause.
       - text: 'It is a valid application of the Law of Syllogism.'
         correct: false
         rationale: |
-          You chose a rule that needs two chained conditionals. This argument has only one conditional and then its conclusion.
+          This applies a chaining rule without two conditionals. Several geometric claims are mentioned. Check for two linked if-then premises.
       - text: 'It is invalid because squares do not have congruent diagonals.'
         correct: false
         rationale: |
-          You blamed a false geometry fact instead of the logic form. Squares do have congruent diagonals.
+          This blames the geometry fact instead of the inference direction. An argument can fail because of a false premise. Check the actual form of the argument.
     explanation: |
-      The argument has the logical form:
-      - P → Q
-      - Q
-      - Therefore, P
+      The argument starts with if P then Q, observes Q, and concludes P. The rule does not guarantee that reverse direction. A nonsquare rectangle has congruent diagonals and satisfies the observed conclusion while failing the square condition. Thus the argument is invalid, an error called affirming the consequent.
 
-      This is an invalid logical form known as the fallacy of affirming the consequent. Knowing that the conclusion Q is true does not guarantee that the hypothesis P was the cause. For example, a rectangle (non-square) has congruent diagonals (Q is true), but is not a square (P is false).
-
-  - id: 'q-geometry-logic-and-reasoning-0015'
-    type: 'which-is-true'
-    difficulty: 'hard'
+  - id: q-geometry-logic-and-reasoning-0015
+    type: which-is-true
+    difficulty: hard
     stem: |
-      What is the relationship between the converse of a conditional statement and the inverse of the same conditional statement?
+      A conditional is true, but its converse has a counterexample. What must be true of its inverse and contrapositive?
     choices:
-      - text: 'They are contrapositives of each other, making them logically equivalent to each other.'
+      - text: 'Inverse false; contrapositive true.'
         correct: true
-      - text: 'They are identical statements expressing the exact same syntactic form.'
+      - text: 'Inverse true; contrapositive true.'
         correct: false
         rationale: |
-          You treated matching truth value as matching wording. The converse and inverse are different sentences even though they are equivalent.
-      - text: 'They are logical negations of each other, having opposite truth values in all cases.'
+          This treats the inverse as sharing the original conditional's truth value. Both forms use the same original parts. Check that inverse matches converse, not original.
+      - text: 'Inverse true; contrapositive false.'
         correct: false
         rationale: |
-          You confused equivalence with negation. These two statements rise and fall together instead of always opposing each other.
-      - text: 'They have no logical connection and have completely independent truth values.'
+          This swaps the two guaranteed truth pairs. Both pairs are part of the lesson. Check the exact partners in each equivalence pair.
+      - text: 'Inverse false; contrapositive false.'
         correct: false
         rationale: |
-          You missed the contrapositive link. The converse becomes the inverse when you negate and swap it.
+          This ignores the known counterexample to the converse. The original and contrapositive are true. Check that the inverse shares the converse's falsity.
     explanation: |
-      Let the original statement be "If P, then Q" (P → Q).
-      - Converse: "If Q, then P" (Q → P).
-      - Inverse: "If not P, then not Q" (¬P → ¬Q).
+      The contrapositive shares the original conditional's truth value, so it is true. The inverse shares the converse's truth value. Since the converse has a counterexample, it is false and the inverse is false too.
 
-      Notice that taking the contrapositive of the Converse (swapping and negating Q → P) gives ¬P → ¬Q, which is precisely the Inverse. Since any statement is logically equivalent to its contrapositive, the Converse and the Inverse are logically equivalent to each other.
+  - id: q-geometry-logic-and-reasoning-0016
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      What is the contrapositive of: If an integer is divisible by $6$, then it is divisible by $3$?
+    choices:
+      - text: 'If it is not divisible by $3$, it is not divisible by $6$.'
+        correct: true
+      - text: 'If it is divisible by $3$, it is divisible by $6$.'
+        rationale: |
+          This forms the converse by swapping alone. Both divisibility conditions remain. Check that contraposition also negates both.
+      - text: 'If it is not divisible by $6$, it is not divisible by $3$.'
+        rationale: |
+          This forms the inverse by negating alone. Both conditions do have negatives. Check that their order must also swap.
+      - text: 'If it is divisible by $6$, it is not divisible by $3$.'
+        rationale: |
+          This negates only the conclusion. The original order stays familiar. Check that both conditions must be negated and reversed.
+    explanation: |
+      Swap the two conditions and negate both. The three-divisibility condition moves first in negative form, followed by the negated six-divisibility condition.
+    approved: false
+
+  - id: q-geometry-logic-and-reasoning-0017
+    type: error-spotting
+    difficulty: medium
+    stem: |
+      A student is asked for the converse of If P then Q, but writes If not P then not Q. Which correction is needed?
+    choices:
+      - text: 'Swap P and Q without negating them.'
+        correct: true
+      - text: 'Keep the student''s order and both negations.'
+        rationale: |
+          This keeps the inverse instead of the converse. The student has used a recognized derived form. Check which form was requested.
+      - text: 'Swap both already-negated parts instead.'
+        rationale: |
+          This changes the inverse into the contrapositive. Swapping is needed for a converse. Check that the converse does not negate.
+      - text: 'Negate only Q and keep P first.'
+        rationale: |
+          This negates only one clause. The original two parts remain visible. Check that converse uses neither negation.
+    explanation: |
+      The converse changes if P then Q into if Q then P. It swaps the parts and preserves each claim. Therefore P and Q should be swapped without negation.
+    approved: false
+
+  - id: q-geometry-logic-and-reasoning-0018
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      Which integer is a counterexample to: If an integer is prime, then it is odd?
+    choices:
+      - text: '$2$'
+        correct: true
+      - text: '$9$'
+        rationale: |
+          This uses an odd composite number. Nine does have a relevant oddness property. Check that a counterexample must first be prime.
+      - text: '$3$'
+        rationale: |
+          This gives a prime that satisfies the conclusion. Three is prime and odd. Check that the conclusion must fail.
+      - text: '$4$'
+        rationale: |
+          This gives an even number that is not prime. Evenness would fail the conclusion. Check that the hypothesis must also hold.
+    explanation: |
+      Two is prime because its only positive factors are one and two. It is even, so it is not odd. The hypothesis is true and the conclusion false.
+    approved: false
+
+  - id: q-geometry-logic-and-reasoning-0019
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      Assume If P then Q and If Q then R. If R is false, which conclusion must follow?
+    choices:
+      - text: 'P is false.'
+        correct: true
+      - text: 'P is true.'
+        rationale: |
+          This follows the forward chain while ignoring the false final condition. The same P-to-R chain is involved. Check the contrapositives when the end condition is false.
+      - text: 'Q is true.'
+        rationale: |
+          This keeps the middle condition true although it would force R true. Q appears in both premises. Check its implication to R.
+      - text: 'P and Q are both true.'
+        rationale: |
+          This treats the chain conditions as facts rather than possibilities. Both conditions appear in the rules. Check that the observed false R rules them out.
+    explanation: |
+      Contrapose the second rule: not R implies not Q. Then contrapose the first: not Q implies not P. Since R is false, Q is false and therefore P is false.
+    approved: false
+
+  - id: q-geometry-logic-and-reasoning-0020
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A lamp rule states: The lamp is on if and only if its two-position switch is up. The lamp is now on. Which conclusion must follow under this rule?
+    choices:
+      - text: 'The switch is up.'
+        correct: true
+      - text: 'The switch is down.'
+        rationale: |
+          This reverses the required switch state. The switch has two positions. Check which position the rule links to an on lamp.
+      - text: 'Either switch position is still possible.'
+        rationale: |
+          This treats the rule as only switch up implies lamp on. That one-way rule would not settle the reverse inference. Check that if and only if includes both directions.
+      - text: 'An up switch requires the lamp to be off.'
+        rationale: |
+          This negates the lamp condition while keeping the switch condition. Derived statements sometimes add negations. Check that this reverse biconditional direction keeps both claims positive.
+    explanation: |
+      If and only if includes the direction from lamp on to switch up. Apply that direction to the observed lamp state. The switch must be up.
+    approved: false
