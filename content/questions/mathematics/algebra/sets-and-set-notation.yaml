@@ -74,18 +74,15 @@ questions:
         correct: true
       - text: The empty set contains the number 0.
         rationale: |
-          You confused the empty set with a set holding zero. It holds nothing at
-          all, not even 0.
+          This treats an empty set as a set containing $0$. Both ideas involve zero. Check whether zero counts elements or is itself an element.
       - text: The empty set is an element of every set.
         rationale: |
-          You said element where subset belongs. It sits inside every set as a
-          subset, not as a member of it.
+          This replaces subset membership with element membership. Both describe a connection between sets. Check whether every element is contained or the whole set is named as a member.
       - text: The complement of any set is equal to the empty set.
         rationale: |
-          You mixed up complement with the empty set. A complement depends on the
-          universal set.
+          This assumes every set fills its universal set. That special case does have an empty complement. Check whether the universal set has elements outside the given set.
     explanation: |
-      By definition, the empty set $\emptyset$ (containing zero elements) is a subset of every set. It does not contain the number 0; it contains no elements at all.
+      A subset must have all its elements in the larger set. The empty set has no elements that could fail this condition. Therefore it is a subset of every set.
 
   - id: q-algebra-sets-and-set-notation-0005
     type: direct-computation
@@ -157,18 +154,15 @@ questions:
         correct: true
       - text: $8$
         rationale: |
-          You used $2 \times 4$. The count of subsets is $2$ raised to the number of
-          elements.
+          This multiplies $2$ by $4$ instead of using $2^4$. Two choices do apply to each element. Check that independent choices multiply together.
       - text: $15$
         rationale: |
-          You subtracted 1 to drop the empty set. It counts, so the total stays at
-          16.
+          This excludes the empty subset. It may look like selecting no elements does not make a subset. Check that selecting no elements is also one possible selection.
       - text: $4$
         rationale: |
-          You gave the number of elements. Each element can be in or out, which
-          multiplies the possibilities.
+          This counts elements instead of subsets. Each single element can form a subset. Check that subsets can also contain several elements or no elements.
     explanation: |
-      The total number of subsets for a set with $n$ elements is given by $2^n$. For $n = 4$, the number of subsets is $2^4 = 16$. (15 is the number of proper subsets).
+      For each of the four elements, choose to include it or leave it out. There are two choices for each element. Multiply them: $2\times2\times2\times2=2^4=16$ subsets.
 
   - id: q-algebra-sets-and-set-notation-0009
     type: word-problem
@@ -249,15 +243,15 @@ questions:
         correct: true
       - text: $\{-2, 3\}$
         rationale: |
-          You kept $-2$, but $(-2)^2 = 4 < 9$, so $-2$ belongs to $B$ and must be removed from $A \setminus B$.
+          This fails to remove $-2$ even though it belongs to $B$. Its negative sign can make the square look negative. Check the value of $(-2)^2$.
       - text: $\emptyset$
         rationale: |
-          You removed every element. But $3$ belongs to $A$ and does not belong to $B$ because $3^2 = 9$ is not less than 9.
+          This treats the strict inequality $x^2<9$ as allowing equality. The boundary $3$ looks close to the allowed values. Check whether the inequality includes its boundary.
       - text: $\{-3, 3\}$
         rationale: |
-          You added $-3$. The first set starts at $-2$, so $-3$ is not in $A$ and cannot belong to $A \setminus B$.
+          This includes the negative boundary $-3$ without checking $A$. Both square boundaries have the same magnitude. Check that every element of the relative complement starts in $A$.
     explanation: |
-      Listing elements in roster form: $A = \{-2, -1, 0, 1, 2, 3\}$. For set $B$, $x^2 < 9 \implies -3 < x < 3$, so integers in $B$ are $\{-2, -1, 0, 1, 2\}$. Subtracting $B$ from $A$ leaves $A \setminus B = \{3\}$.
+      The integers in $A$ are $-2,-1,0,1,2,3$. The condition $x^2<9$ means $-3<x<3$, so $B=\{-2,-1,0,1,2\}$. Remove these elements from $A$. The remaining set is $A\setminus B=\{3\}$.
 
   - id: q-algebra-sets-and-set-notation-0014
     type: which-is-true
@@ -269,17 +263,15 @@ questions:
         correct: true
       - text: $(A \cup B)' = A' \cup B'$
         rationale: |
-          You kept the union symbol on the right. De Morgan flips it: the complement
-          of a union is an intersection.
+          This keeps union after taking the complement. The same set symbols remain visible on both sides. Check that being outside a union requires being outside both sets.
       - text: $(A \cap B)' = A' \cap B'$
         rationale: |
-          You applied it to an intersection and kept the intersection. That one
-          flips to a union.
+          This keeps intersection after taking the complement. Reusing the original operation looks consistent. Check whether being outside an intersection means missing one set or both.
       - text: $A \cap (B \cup C) = (A \cap B) \cup C$
         rationale: |
-          You picked the distributive rule, and it is written wrongly here as well.
+          This distributes intersection to only one part of a union. Its first term matches the usual distribution pattern. Check that each part of the union is intersected with $A$.
     explanation: |
-      De Morgan's Laws state that the complement of a union is the intersection of the complements: $(A \cup B)' = A' \cap B'$, and the complement of an intersection is the union of the complements: $(A \cap B)' = A' \cup B'$.
+      An element outside $A\cup B$ belongs to neither $A$ nor $B$. It is therefore in both $A^{\prime}$ and $B^{\prime}$. This gives $(A\cup B)^{\prime}=A^{\prime}\cap B^{\prime}$.
 
   - id: q-algebra-sets-and-set-notation-0015
     type: word-problem
