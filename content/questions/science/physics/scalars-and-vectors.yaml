@@ -347,7 +347,7 @@ questions:
     stem: |
       Which sequence correctly adds vectors using Cartesian components?
     choices:
-      - text: "Resolve, sum each axis, reconstruct magnitude and direction."
+      - text: "Resolve, sum by axis, reconstruct."
         correct: true
       - text: "Add magnitudes first, then ignore the directions."
         rationale: |
