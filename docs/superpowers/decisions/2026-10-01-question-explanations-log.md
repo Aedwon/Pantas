@@ -133,3 +133,18 @@ and a replaced goal are respected. Quota checks retry every 15 minutes without
 a purchase or reset-credit redemption. The same-thread connection and active
 turn skip were verified. At this checkpoint, corrected cron installation is
 waiting on macOS's permission prompt for Terminal to administer the computer.
+
+### Corrected wake installed after macOS approval
+
+Aedwon confirmed the Terminal permission prompt with the exact reply:
+
+> Allowed
+
+The corrected same-session cron entry was then read back successfully. A probe
+from a minimal cron environment connected to the existing app server, verified
+the original thread id and goal, and correctly skipped the currently active
+turn. The entry runs every 15 minutes and performs no worker dispatch or
+separate orchestration itself. The original orchestrator resumed the three
+quota-stopped content workers at 11:36 UTC after verifying fresh capacity,
+terminal former handles, allowed interrupted files, and matching branch heads.
+The full question audit remains in progress; combined acceptance is pending.
