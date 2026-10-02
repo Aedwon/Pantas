@@ -8,7 +8,7 @@ meta:
 questions:
 - id: q-philippine-constitution-the-articles-in-outline-0001
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'Excluding the Preamble, how many articles are in the 1987 Constitution?
 
     '
@@ -32,7 +32,7 @@ questions:
     '
 - id: q-philippine-constitution-the-articles-in-outline-0002
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'A study index assigns the Bill of Rights to Article IV. Which correction follows from the outline?
 
     '
@@ -56,7 +56,7 @@ questions:
     '
 - id: q-philippine-constitution-the-articles-in-outline-0003
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'Where does the outline place Citizenship?
 
     '
@@ -80,7 +80,7 @@ questions:
     '
 - id: q-philippine-constitution-the-articles-in-outline-0004
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'What is Article V''s subject?
 
     '
@@ -224,7 +224,7 @@ questions:
     '
 - id: q-philippine-constitution-the-articles-in-outline-0010
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'Which article concerns amendments or revisions?
 
     '
@@ -272,7 +272,7 @@ questions:
     '
 - id: q-philippine-constitution-the-articles-in-outline-0012
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'What is Article XII''s heading?
 
     '
@@ -296,7 +296,7 @@ questions:
     '
 - id: q-philippine-constitution-the-articles-in-outline-0013
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'Which article is titled The Family?
 
     '
@@ -320,7 +320,7 @@ questions:
     '
 - id: q-philippine-constitution-the-articles-in-outline-0014
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'What is Article I''s subject?
 
     '
@@ -368,7 +368,7 @@ questions:
     '
 - id: q-philippine-constitution-the-articles-in-outline-0016
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   approved: false
   stem: 'What does Article IX-A cover in the outline?
 
@@ -418,7 +418,7 @@ questions:
     '
 - id: q-philippine-constitution-the-articles-in-outline-0018
   type: single_choice
-  difficulty: exam
+  difficulty: hard
   approved: false
   stem: 'Which sequence matches the branch articles VI, VII, and VIII?
 
@@ -443,7 +443,7 @@ questions:
     '
 - id: q-philippine-constitution-the-articles-in-outline-0019
   type: single_choice
-  difficulty: exam
+  difficulty: hard
   approved: false
   stem: 'Which article concerns Transitory Provisions?
 
