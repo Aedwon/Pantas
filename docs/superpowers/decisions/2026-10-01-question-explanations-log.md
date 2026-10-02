@@ -531,3 +531,48 @@ protected package may change. The independent review and final full-suite gate
 remain with the orchestrator. This is a technical test-input revision within the
 approved content update; it does not alter the product spec or the human-only
 integration/signing boundaries.
+
+### Step 3 implemented, reviewed, and focused-test verified, 3 October 2026
+
+The importer implementor committed the eight authorized source/test/fixture paths
+at `533f06e43fabe587b58dfa93a497fda2fcedaab7` on the combined working branch.
+The tracked worktree is clean. The guard rejects absent, null, empty, and
+whitespace-only wrong-choice notes, naming the question ID and one-based choice
+number. A correct choice needs no note; existing type, figure, conversion, and
+note-propagation behavior is preserved.
+
+Original regression RED loaded four tests and proved that invalid notes had been
+accepted; all four then passed after the guard. Both corpus-dependent fixture
+failures were separately reproduced. After the bounded fixture adaptation,
+41 focused tests passed serially: 12 provider, one live-export round-trip,
+13 converter, 12 passage converter, and three CLI tests.
+
+The historical input's compressed and decompressed hashes were independently
+verified. It reconstructs the unchanged approved E02 database digest
+`eb3a9da425b80a51331cce74694ef014c3372392194bacbd60ba145db5ea2a45`; no production
+migration allowlist or migration assertion changed. The app's existing protected
+package was authenticated against the compiled trusted public key and release
+window, its payload digest and compiled content version, then copied as unchanged
+ignored verification inputs. Source/destination DB, manifest, and signature hashes
+remain identical. No protected package was rebuilt or signed for the QA bank.
+
+The orchestrator independently reviewed the guard, original fixture/test updates,
+and the two corpus-dependent test adaptations against the approved paths and
+recorded rulings. No findings. All five original importer file hashes still match
+the first implementor's reviewed/tested output.
+
+Actual current gates:
+
+```text
+focused tests: 41 passed
+full-bank importer: exit 0
+analyzer: one explicitly accepted onReorder info, exit 1, no error/warning
+full format: Formatted 1277 files (0 changed), exit 0
+check_layering: OK
+check_no_ai_attribution: OK
+```
+
+The lead's corrected full suite is currently running serially against this exact
+commit. Full combined acceptance, final summary/upload, remote SHA verification,
+and completion recording remain pending. No app-branch/main content integration,
+visual/device acceptance, package signing, or release publication is claimed.
