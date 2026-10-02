@@ -340,12 +340,12 @@ questions:
       This averages the midpoints without their frequencies. The midpoint list is symmetric. Weight each class by its family count.
   - text: '$\text{₱}20,500$'
     rationale: |
-      This rounds the estimate down to a nearby midpoint-like value. Class values can look interchangeable. Use all frequency products.
+      This uses $2$ instead of $8$ in the first class product but still divides by $60$. Copying a frequency table can mix up an entry. Check each frequency against its own row.
   - text: '$\text{₱}26,100$'
     rationale: |
       This divides the weighted total by fifty instead of sixty. Fifty is a common sample size. Count all families.
   explanation: |
-    Multiply each midpoint by its frequency: $100000+262500+450000+330000+162500=1305000$. Divide by the sixty families to get an estimated mean of P21750.
+    Multiply each midpoint by its frequency: $100000+262500+450000+330000+162500=1305000$. Divide by the sixty families to get an estimated mean of $\text{₱}21,750$.
 - id: 'q-statistics-and-probability-data-analysis-graphs-0013'
   type: 'word-problem'
   difficulty: 'hard'
@@ -365,13 +365,13 @@ questions:
     correct: true
   - text: '$4$'
     rationale: |
-      This guesses four as the missing count. Nearby frequencies can give nearby means. Substitute the count into the weighted mean.
+      This copies the frequency $4$ from the score-$25$ row as the unknown count. That number is already printed in the table. Check which score the missing frequency belongs to.
   - text: '$6$'
     rationale: |
-      This guesses six as the missing count. It is close to neighboring frequencies. Verify the exact stated mean.
+      This rounds $3.25$ down to $3$ in the final equation, then rounds $16.25/3$ up to $6$. A count must be a whole number, which makes rounding look useful. Check the exact equation before rounding any quantity.
   - text: '$7$'
     rationale: |
-      This guesses seven as the missing count. It gives a plausible class size. Check the weighted equation.
+      This rounds the mean to $18$, then rounds the resulting count $20/3$ to $7$. Whole-number scores can make a rounded mean look suitable. Check that the calculation uses the stated mean $18.25$.
   explanation: |
     The score total is $10(3)+15k+20(8)+25(4)=290+15k$. The student count is $15+k$. Thus $290+15k=18.25(15+k)$. Rearranging gives $16.25=3.25k$, so $k=5$.
 - id: 'q-statistics-and-probability-data-analysis-graphs-0014'
