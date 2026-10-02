@@ -221,15 +221,15 @@ questions:
         correct: true
       - text: "Pokus sa tagaganap (ang bata)"
         rationale: |
-          Pinili mo ang tagaganap, ngunit ang "ang" ay nakaturo sa "mangga" (bagay) at hindi sa bata.
+          This treats the doer as the focus. The child performs the action, so that role can seem like the focus. Check which noun phrase starts with "ang."
       - text: "Walang pokus"
         rationale: |
-          Inakala mong walang pokus, ngunit sa pangungusap na ito ay malinaw na minarkahan ng "ang" ang bagay na pokus ng pandiwa.
+          This overlooks the verb's focus pattern. The sentence names both a doer and an object, which may hide their different roles. Check the verb form together with the "ang" phrase.
       - text: "Pokus sa oras"
         rationale: |
-          Pinili mo ang oras, ngunit walang pariralang panahong siyang pokus sa istraktura ng pangungusap na ito.
+          This treats a completed action as a focus on time. The verb shows that eating happened, so time may seem relevant. Check whether an actual time phrase is marked as the focus.
     explanation: |
-      Sa pangungusap na ito, "ang mangga" (ang bagay na kinain) ang minarkahan ng "ang," kaya ang pandiwa ay naka-pokus sa bagay, hindi sa tagaganap.
+      "Kinain" puts the object that was eaten in focus. "Ang mangga" names that object, so the verb has object focus.
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0012"
     type: "tense"
