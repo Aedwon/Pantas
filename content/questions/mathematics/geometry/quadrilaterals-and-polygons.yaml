@@ -1,432 +1,436 @@
 meta:
-  subject: mathematics
-  topic: geometry
-  subtopic: quadrilaterals-and-polygons
-  exams:
-    - upcat
-    - acet
-    - dlsucet
-    - ustet
-    - pupcet
-
+  subject: 'mathematics'
+  topic: 'geometry'
+  subtopic: 'quadrilaterals-and-polygons'
+  exams: ['upcat', 'acet', 'dlsucet', 'ustet', 'pupcet']
 questions:
-  - id: q-geometry-quadrilaterals-and-polygons-0001
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      What is the sum of the interior angles of a convex octagon ($n = 8$ sides)?
-    choices:
-      - text: '$1080^\circ$'
-        correct: true
-      - text: '$1440^\circ$'
-        correct: false
-        rationale: |
-          You used $n \times 180$ and forgot the "$n - 2$" part of the interior-angle-sum formula.
-      - text: '$900^\circ$'
-        correct: false
-        rationale: |
-          You used the wrong multiplier with 180 degrees. For an octagon, the formula gives $(8 - 2) \times 180$.
-      - text: '$135^\circ$'
-        correct: false
-        rationale: |
-          You found a single interior angle idea, not the sum of all eight interior angles.
-    explanation: |
-      The sum of interior angles $S$ of an $n$-sided convex polygon is given by:
-      $$S = (n - 2) \times 180^\circ$$
-
-      1. Substitute $n = 8$: $S = (8 - 2) \times 180^\circ = 6 \times 180^\circ = 1080^\circ$.
-
-      Common Trap: Using $n \times 180^\circ = 8 \times 180^\circ = 1440^\circ$ by forgetting to subtract $2$.
-
-  - id: q-geometry-quadrilaterals-and-polygons-0002
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      What is the sum of the exterior angles of a regular 15-gon (one at each vertex)?
-    choices:
-      - text: '$360^\circ$'
-        correct: true
-      - text: '$2340^\circ$'
-        correct: false
-        rationale: |
-          You used the interior-angle-sum formula. The sum of one exterior angle at each vertex is always 360 degrees.
-      - text: '$24^\circ$'
-        correct: false
-        rationale: |
-          You found one exterior angle of a regular 15-gon, not the total of all exterior angles.
-      - text: '$5400^\circ$'
-        correct: false
-        rationale: |
-          You multiplied far beyond what the question asks. Exterior angles around a polygon make one full turn.
-    explanation: |
-      The sum of the exterior angles of ANY convex polygon (one per vertex) is ALWAYS $360^\circ$, regardless of the number of sides.
-
-      Common Trap: Confusing exterior angle sum with interior angle sum $(15 - 2) \times 180^\circ = 2340^\circ$, or calculating a single exterior angle $\frac{360^\circ}{15} = 24^\circ$.
-
-  - id: q-geometry-quadrilaterals-and-polygons-0003
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      In parallelogram $ABCD$, the measure of $\angle A = 72^\circ$. What is the measure of consecutive angle $\angle B$?
-    choices:
-      - text: '$108^\circ$'
-        correct: true
-      - text: '$72^\circ$'
-        correct: false
-        rationale: |
-          You treated consecutive angles like opposite angles. In a parallelogram, consecutive angles are supplementary.
-      - text: '$18^\circ$'
-        correct: false
-        rationale: |
-          You subtracted from the wrong total. Consecutive angles in a parallelogram must add to 180 degrees.
-      - text: '$288^\circ$'
-        correct: false
-        rationale: |
-          You used a full-turn idea instead of the supplementary-angle rule. The partner angle is less than 180 degrees here.
-    explanation: |
-      In a parallelogram, consecutive angles are supplementary (their sum is $180^\circ$).
-
-      1. Set up equation: $\angle A + \angle B = 180^\circ$.
-      2. Substitute $\angle A = 72^\circ$: $72^\circ + \angle B = 180^\circ$.
-      3. Solve: $\angle B = 180^\circ - 72^\circ = 108^\circ$.
-
-      Common Trap: Confusing consecutive angles with opposite angles (which are equal, $72^\circ$).
-
-  - id: q-geometry-quadrilaterals-and-polygons-0004
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      A rhombus has a perimeter of $52\text{ cm}$. What is the length of each of its sides?
-    choices:
-      - text: '$13\text{ cm}$'
-        correct: true
-      - text: '$26\text{ cm}$'
-        correct: false
-        rationale: |
-          You divided the perimeter by 2 instead of 4. A rhombus has four equal sides.
-      - text: '$169\text{ cm}$'
-        correct: false
-        rationale: |
-          You squared the side idea instead of just finding one side length from the perimeter.
-      - text: '$52\text{ cm}$'
-        correct: false
-        rationale: |
-          You repeated the full perimeter. The question asks for one side, not all four sides together.
-    explanation: |
-      A rhombus is a parallelogram with four equal (congruent) sides.
-
-      1. Perimeter formula for a rhombus: $P = 4s$.
-      2. Substitute $P = 52\text{ cm}$: $4s = 52 \implies s = \frac{52}{4} = 13\text{ cm}$.
-
-  - id: q-geometry-quadrilaterals-and-polygons-0005
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      Rectangle $PQRS$ has diagonals $PR = 4x + 6$ and $QS = 6x - 10$. What is the value of $x$?
-    choices:
-      - text: "$8$"
-        correct: true
-      - text: "$16$"
-        correct: false
-        rationale: |
-          You found $2x$ instead of $x$. After solving $2x = 16$, you still need to divide by 2.
-      - text: "$4$"
-        correct: false
-        rationale: |
-          You likely moved the constants incorrectly. Setting the diagonals equal should lead to $2x = 16$.
-      - text: "$38$"
-        correct: false
-        rationale: |
-          You treated the diagonal expression like the value of $x$. The problem asks for the variable, not the diagonal length.
-    explanation: |
-      In any rectangle, the diagonals are equal in length.
-
-      1. Set diagonals equal: $4x + 6 = 6x - 10$.
-      2. Subtract $4x$ from both sides: $6 = 2x - 10$.
-      3. Add $10$: $2x = 16 \implies x = 8$.
-
-  - id: q-geometry-quadrilaterals-and-polygons-0006
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      Each interior angle of a regular polygon measures $144^\circ$. How many sides does the polygon have?
-    choices:
-      - text: "$10$"
-        correct: true
-      - text: "$8$"
-        correct: false
-        rationale: |
-          You used the interior-angle formula directly as a side count. First convert 144 degrees to the exterior angle.
-      - text: "$12$"
-        correct: false
-        rationale: |
-          You made the exterior angle too small or divided incorrectly. A 144-degree interior angle leaves a 36-degree exterior angle.
-      - text: "$5$"
-        correct: false
-        rationale: |
-          You confused the exterior angle with the number of sides. A pentagon would have much larger interior angles than 144 degrees.
-    explanation: |
-      1. Calculate the measure of each exterior angle:
-         $$\text{Exterior Angle} = 180^\circ - 144^\circ = 36^\circ$$
-      2. The number of sides $n$ is given by:
-         $$n = \frac{360^\circ}{\text{Exterior Angle}} = \frac{360^\circ}{36^\circ} = 10 \text{ sides (decagon)}$$
-
-  - id: q-geometry-quadrilaterals-and-polygons-0007
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      Trapezoid $ABCD$ has parallel bases of lengths $AB = 14\text{ cm}$ and $CD = 26\text{ cm}$. What is the length of its median (midsegment)?
-    choices:
-      - text: '$20\text{ cm}$'
-        correct: true
-      - text: '$40\text{ cm}$'
-        correct: false
-        rationale: |
-          You added the two bases but forgot to divide by 2. A trapezoid's median is the average of the bases.
-      - text: '$12\text{ cm}$'
-        correct: false
-        rationale: |
-          You used the difference between the bases instead of their average. The midsegment lies between the two base lengths.
-      - text: '$10\text{ cm}$'
-        correct: false
-        rationale: |
-          You took half of the shorter base instead of averaging both parallel sides.
-    explanation: |
-      The median (midsegment) of a trapezoid is parallel to the bases and its length is the average of the two bases.
-
-      1. Median formula: $M = \frac{b_1 + b_2}{2}$.
-      2. Substitute base values: $M = \frac{14 + 26}{2} = \frac{40}{2} = 20\text{ cm}$.
-
-      Common Trap: Adding the bases without dividing by $2$ ($40\text{ cm}$).
-
-  - id: q-geometry-quadrilaterals-and-polygons-0008
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      A rhombus has diagonals of lengths $12\text{ cm}$ and $16\text{ cm}$. What is the perimeter of the rhombus?
-    choices:
-      - text: '$40\text{ cm}$'
-        correct: true
-      - text: '$20\text{ cm}$'
-        correct: false
-        rationale: |
-          You found two side lengths together or stopped too early. The rhombus perimeter needs all four equal sides.
-      - text: '$28\text{ cm}$'
-        correct: false
-        rationale: |
-          You used the diagonals without first halving them into a right triangle. The side length comes from 6, 8, and 10.
-      - text: '$10\text{ cm}$'
-        correct: false
-        rationale: |
-          You found the side length of the rhombus but forgot the question asks for the perimeter.
-    explanation: |
-      1. The diagonals of a rhombus are perpendicular bisectors of each other.
-      2. They split the rhombus into four congruent right triangles with legs equal to half the diagonals:
-         $$a = \frac{12}{2} = 6\text{ cm}, \quad b = \frac{16}{2} = 8\text{ cm}$$
-      3. Use Pythagorean theorem to find side length $s$:
-         $$s = \sqrt{6^2 + 8^2} = \sqrt{36 + 64} = \sqrt{100} = 10\text{ cm}$$
-      4. Calculate perimeter: $P = 4s = 4 \times 10 = 40\text{ cm}$.
-
-      Common Trap: Reporting the side length ($10\text{ cm}$) instead of multiplying by $4$ for the perimeter.
-
-  - id: q-geometry-quadrilaterals-and-polygons-0009
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      In parallelogram $DEFG$, opposite angles are $\angle D = (5x + 12)^\circ$ and $\angle F = (3x + 48)^\circ$. What is the measure of consecutive angle $\angle E$?
-    choices:
-      - text: '$78^\circ$'
-        correct: true
-      - text: '$102^\circ$'
-        correct: false
-        rationale: |
-          You found the opposite angle value, but the question asks for the consecutive angle next to it.
-      - text: '$18^\circ$'
-        correct: false
-        rationale: |
-          You reported the value of $x$ instead of the angle measure. You still need to compute the angle and then its supplement.
-      - text: '$12^\circ$'
-        correct: false
-        rationale: |
-          You used the constant term instead of solving the angle relationship. Opposite angles in a parallelogram are equal first.
-    explanation: |
-      1. Opposite angles in a parallelogram are equal:
-         $$5x + 12 = 3x + 48 \implies 2x = 36 \implies x = 18$$
-      2. Calculate $\angle D$: $5(18) + 12 = 90 + 12 = 102^\circ$.
-      3. Consecutive angle $\angle E$ is supplementary to $\angle D$:
-         $$\angle E = 180^\circ - 102^\circ = 78^\circ$$
-
-      Common Trap: Reporting opposite angle $\angle D = 102^\circ$ instead of consecutive angle $\angle E = 78^\circ$.
-
-  - id: q-geometry-quadrilaterals-and-polygons-0010
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      The four interior angles of a quadrilateral are $(2x)^\circ$, $(3x + 10)^\circ$, $(4x - 15)^\circ$, and $(x + 25)^\circ$. What is the measure of the largest interior angle?
-    choices:
-      - text: '$121^\circ$'
-        correct: true
-      - text: '$112^\circ$'
-        correct: false
-        rationale: |
-          You found one of the angles correctly, but it is not the largest one. You need to compare all four evaluated angles.
-      - text: '$34^\circ$'
-        correct: false
-        rationale: |
-          You reported the value of $x$ instead of substituting it back into the angle expressions.
-      - text: '$136^\circ$'
-        correct: false
-        rationale: |
-          You made an arithmetic slip when evaluating the largest angle. For $4x - 15$, use $x = 34$ carefully.
-    explanation: |
-      The interior angles of any quadrilateral sum to $360^\circ$.
-
-      1. Set up equation: $(2x) + (3x + 10) + (4x - 15) + (x + 25) = 360$.
-      2. Combine like terms: $10x + 20 = 360 \implies 10x = 340 \implies x = 34$.
-      3. Evaluate each angle:
-         - Angle 1: $2(34) = 68^\circ$
-         - Angle 2: $3(34) + 10 = 112^\circ$
-         - Angle 3: $4(34) - 15 = 121^\circ$
-         - Angle 4: $34 + 25 = 59^\circ$
-      4. The largest angle is $121^\circ$.
-
-  - id: q-geometry-quadrilaterals-and-polygons-0011
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      A convex regular polygon has an interior angle sum of $1800^\circ$. How many diagonals can be drawn in this polygon?
-    choices:
-      - text: "$54$"
-        correct: true
-      - text: "$108$"
-        correct: false
-        rationale: |
-          You forgot to divide by 2 in the diagonal formula. Each diagonal would be counted twice otherwise.
-      - text: "$12$"
-        correct: false
-        rationale: |
-          You found the number of sides, not the number of diagonals. The problem asks for the diagonals after finding $n$.
-      - text: "$66$"
-        correct: false
-        rationale: |
-          You likely used the wrong counting formula. Not every pair of vertices makes a diagonal because sides are excluded.
-    explanation: |
-      1. Find the number of sides $n$ using interior angle sum formula:
-         $$(n - 2) \times 180^\circ = 1800^\circ \implies n - 2 = 10 \implies n = 12 \text{ sides}$$
-      2. Use the diagonal formula $D = \frac{n(n - 3)}{2}$:
-         $$D = \frac{12(12 - 3)}{2} = \frac{12 \times 9}{2} = 54 \text{ diagonals}$$
-
-      Common Trap: Forgetting to divide by $2$ gives $12 \times 9 = 108$.
-
-  - id: q-geometry-quadrilaterals-and-polygons-0012
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      In isosceles trapezoid $ABCD$ with $AB \parallel CD$ and $AD = BC$, base angle $\angle ADC = 65^\circ$. If diagonal $AC$ bisects angle $\angle BAD$, what is the measure of $\angle ACD$?
-    choices:
-      - text: '$57.5^\circ$'
-        correct: true
-      - text: '$65^\circ$'
-        correct: false
-        rationale: |
-          You used the base angle and stopped. The diagonal bisector and the triangle angle sum both still matter.
-      - text: '$32.5^\circ$'
-        correct: false
-        rationale: |
-          You bisected the 65-degree angle instead of the 115-degree angle at $A$.
-      - text: '$115^\circ$'
-        correct: false
-        rationale: |
-          You found $\angle BAD$ but the question asks for $\angle ACD$ inside triangle $ACD$.
-    explanation: |
-      1. Base angles of an isosceles trapezoid are equal: $\angle BCD = \angle ADC = 65^\circ$.
-      2. Consecutive angle $\angle BAD = 180^\circ - 65^\circ = 115^\circ$.
-      3. Diagonal $AC$ bisects $\angle BAD$: $\angle CAD = \frac{115^\circ}{2} = 57.5^\circ$.
-      4. In $\triangle ACD$, the interior angles sum to $180^\circ$:
-         $$\angle ACD = 180^\circ - (\angle ADC + \angle CAD) = 180^\circ - (65^\circ + 57.5^\circ) = 180^\circ - 122.5^\circ = 57.5^\circ$$
-
-  - id: q-geometry-quadrilaterals-and-polygons-0013
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      The diagonal of a square measures $12\text{ cm}$. What is the area of the square?
-    choices:
-      - text: '$72\text{ cm}^2$'
-        correct: true
-      - text: '$144\text{ cm}^2$'
-        correct: false
-        rationale: |
-          You squared the diagonal as if it were a side. In a square, the diagonal is longer than the side by a factor of $\sqrt{2}$.
-      - text: '$36\text{ cm}^2$'
-        correct: false
-        rationale: |
-          You made the side too short before squaring. The area formula from the diagonal is $\dfrac{d^2}{2}$.
-      - text: '$288\text{ cm}^2$'
-        correct: false
-        rationale: |
-          You doubled instead of halving after squaring the diagonal. The square's area is half of $d^2$.
-    explanation: |
-      For a square with side $s$ and diagonal $d$, $d = s\sqrt{2} \implies s = \frac{d}{\sqrt{2}}$.
-
-      1. Calculate area:
-         $$\text{Area} = s^2 = \left(\frac{d}{\sqrt{2}}\right)^2 = \frac{d^2}{2}$$
-      2. Substitute $d = 12\text{ cm}$:
-         $$\text{Area} = \frac{12^2}{2} = \frac{144}{2} = 72\text{ cm}^2$$
-
-      Common Trap: Squaring the diagonal directly ($12^2 = 144\text{ cm}^2$) as if the diagonal were a side.
-
-  - id: q-geometry-quadrilaterals-and-polygons-0014
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      The ratio of an interior angle to an exterior angle of a regular polygon is $7 : 2$. How many sides does the polygon have?
-    choices:
-      - text: "$9$"
-        correct: true
-      - text: "$7$"
-        correct: false
-        rationale: |
-          You used the first part of the ratio as if it were the side count. You still need to find the exterior angle and divide 360 by it.
-      - text: "$14$"
-        correct: false
-        rationale: |
-          You doubled the interior part of the ratio instead of using the exterior angle to count sides.
-      - text: "$18$"
-        correct: false
-        rationale: |
-          You made the exterior angle too small. Once the ratio gives 40 degrees outside, the polygon has 9 sides.
-    explanation: |
-      An interior angle and an exterior angle at the same vertex form a linear pair ($180^\circ$).
-
-      1. Set up ratio: $7x + 2x = 180^\circ \implies 9x = 180^\circ \implies x = 20^\circ$.
-      2. Exterior angle $= 2(20^\circ) = 40^\circ$.
-      3. Number of sides $n = \frac{360^\circ}{\text{Exterior Angle}} = \frac{360^\circ}{40^\circ} = 9 \text{ sides (nonagon)}$.
-
-  - id: q-geometry-quadrilaterals-and-polygons-0015
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      In rhombus $ABCD$, diagonal $AC$ is drawn. If $\angle B = 110^\circ$, what is the measure of $\angle ACD$?
-    choices:
-      - text: '$35^\circ$'
-        correct: true
-      - text: '$55^\circ$'
-        correct: false
-        rationale: |
-          You halved the given angle at $B$ instead of first finding angle $C$. The diagonal bisects angle $C$, not angle $B$.
-      - text: '$70^\circ$'
-        correct: false
-        rationale: |
-          You found angle $C$ correctly but forgot that diagonal $AC$ bisects it into two equal parts.
-      - text: '$110^\circ$'
-        correct: false
-        rationale: |
-          You repeated the given angle at $B$. The asked angle is at $C$ and comes after using a supplement and a bisector.
-    explanation: |
-      1. Consecutive angles in a rhombus are supplementary:
-         $$\angle C = 180^\circ - \angle B = 180^\circ - 110^\circ = 70^\circ$$
-      2. The diagonals of a rhombus bisect its interior angles.
-      3. Therefore, diagonal $AC$ bisects $\angle C$:
-         $$\angle ACD = \frac{\angle C}{2} = \frac{70^\circ}{2} = 35^\circ$$
-
-      Common Trap: Bisecting angle $\angle B$ instead ($110^\circ / 2 = 55^\circ$).
+- id: 'q-geometry-quadrilaterals-and-polygons-0001'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    What is the sum of the interior angles of a convex octagon ($n = 8$ sides)?
+  choices:
+  - text: '$1080^\circ$'
+    correct: true
+  - text: '$1440^\circ$'
+    correct: false
+    rationale: |
+      This uses n triangles instead of n minus two. Each triangle has a one-hundred-eighty-degree sum. Check the n-minus-two triangle count.
+  - text: '$900^\circ$'
+    correct: false
+    rationale: |
+      This subtracts three from the side count instead of two. The formula does subtract from n. Check the exact subtraction in the formula.
+  - text: '$135^\circ$'
+    correct: false
+    rationale: |
+      This reports one regular-octagon angle rather than the sum. A regular octagon has equal angles. Check whether one angle or the total is requested.
+  explanation: |
+    A convex n-sided polygon has interior-angle sum $(n-2)180^\circ$. For $n=8$, this gives $(8-2)180^\circ=1080^\circ$.
+- id: 'q-geometry-quadrilaterals-and-polygons-0002'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    What is the sum of the same-direction exterior turning angles of a convex regular $15$-gon, one at each vertex?
+  choices:
+  - text: '$360^\circ$'
+    correct: true
+  - text: '$2340^\circ$'
+    correct: false
+    rationale: |
+      This uses the interior-angle sum for exterior angles. Both sums concern the same polygon. Check the same-direction turning-angle rule.
+  - text: '$24^\circ$'
+    correct: false
+    rationale: |
+      This reports a single exterior angle. Twenty-four is a valid exterior angle here. Check whether one angle or the total is requested.
+  - text: '$5400^\circ$'
+    correct: false
+    rationale: |
+      This gives each vertex an entire full turn. Three hundred sixty is a familiar turn measure. Check that the full turn is shared across all vertices.
+  explanation: |
+    The same-direction exterior turning angles of a convex polygon make one complete turn. Their sum is therefore $360^\circ$.
+- id: 'q-geometry-quadrilaterals-and-polygons-0003'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    In parallelogram $ABCD$, the measure of $\angle A = 72^\circ$. What is the measure of consecutive angle $\angle B$?
+  choices:
+  - text: '$108^\circ$'
+    correct: true
+  - text: '$72^\circ$'
+    correct: false
+    rationale: |
+      This treats consecutive angles as equal opposite angles. Both are parallelogram angle rules. Check whether angles are consecutive or opposite.
+  - text: '$18^\circ$'
+    correct: false
+    rationale: |
+      This uses a complementary total. Ninety degrees is a familiar angle total. Check the supplementary total.
+  - text: '$288^\circ$'
+    correct: false
+    rationale: |
+      This uses a full-turn total. The whole quadrilateral has a three-hundred-sixty-degree sum. Check that only two consecutive angles are involved.
+  explanation: |
+    Consecutive parallelogram angles are supplementary. Thus $\angle B=180^\circ-72^\circ=108^\circ$.
+- id: 'q-geometry-quadrilaterals-and-polygons-0004'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    A rhombus has a perimeter of $52\text{ cm}$. What is the length of each of its sides?
+  choices:
+  - text: '$13\text{ cm}$'
+    correct: true
+  - text: '$26\text{ cm}$'
+    correct: false
+    rationale: |
+      This divides the perimeter by two instead of four. Opposite sides form two pairs. Check the four equal sides.
+  - text: '$208\text{ cm}$'
+    correct: false
+    rationale: |
+      This multiplies the perimeter by four instead of dividing it. Four is the number of equal sides. Check that one side must be shorter than the whole boundary.
+  - text: '$52\text{ cm}$'
+    correct: false
+    rationale: |
+      This reports the whole perimeter as one side. The perimeter is given directly. Check whether one side or the whole boundary is requested.
+  explanation: |
+    A rhombus has four equal sides. Divide its perimeter by four: $52\div4=13$ cm per side.
+- id: 'q-geometry-quadrilaterals-and-polygons-0005'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    Rectangle $PQRS$ has diagonals $PR = 4x + 6$ and $QS = 6x - 10$. What is the value of $x$?
+  choices:
+  - text: '$8$'
+    correct: true
+  - text: '$16$'
+    correct: false
+    rationale: |
+      This reports two x instead of x. Sixteen is a correct intermediate result. Check the remaining coefficient.
+  - text: '$4$'
+    correct: false
+    rationale: |
+      This divides by the coefficient difference twice. A factor two does need to be divided out. Check that each division step is applied once.
+  - text: '$38$'
+    correct: false
+    rationale: |
+      This reports the diagonal length instead of x. The diagonal is found from the same variable. Check whether the variable or a diagonal is requested.
+  explanation: |
+    Rectangle diagonals are equal, so $4x+6=6x-10$. Subtract $4x$ and add $10$ to get $2x=16$. Divide by $2$: $x=8$.
+- id: 'q-geometry-quadrilaterals-and-polygons-0006'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    Each interior angle of a regular polygon measures $144^\circ$. How many sides does the polygon have?
+  choices:
+  - text: '$10$'
+    correct: true
+  - text: '$8$'
+    correct: false
+    rationale: |
+      This treats the given angle as the regular-octagon angle of one hundred thirty-five degrees. Both angle measures are obtuse and close. Use the exact given angle to find its exterior partner.
+  - text: '$12$'
+    correct: false
+    rationale: |
+      This subtracts one hundred forty-four from one hundred eighty as thirty instead of thirty-six. Thirty is a familiar exterior angle. Check the subtraction carefully.
+  - text: '$5$'
+    correct: false
+    rationale: |
+      This uses one hundred eighty as the exterior-angle total. An interior and exterior angle form a straight angle. Check the full exterior turn.
+  explanation: |
+    The exterior angle is $180^\circ-144^\circ=36^\circ$. Equal exterior angles total $360^\circ$, so $n=360\div36=10$ sides.
+- id: 'q-geometry-quadrilaterals-and-polygons-0007'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    Trapezoid $ABCD$ has parallel bases of lengths $AB = 14\text{ cm}$ and $CD = 26\text{ cm}$. What is the length of its median (midsegment)?
+  choices:
+  - text: '$20\text{ cm}$'
+    correct: true
+  - text: '$40\text{ cm}$'
+    correct: false
+    rationale: |
+      This adds bases without averaging. The two bases are needed first. Check the average-base rule.
+  - text: '$12\text{ cm}$'
+    correct: false
+    rationale: |
+      This subtracts the bases instead of averaging them. Both base measures are used. Check the average-base rule.
+  - text: '$10\text{ cm}$'
+    correct: false
+    rationale: |
+      This halves the average a second time. The median formula includes halving. Check that averaging divides once by two.
+  explanation: |
+    A trapezoid midsegment length is the average of its bases. Thus $M=\dfrac{14+26}{2}=\dfrac{40}{2}=20$ cm.
+- id: 'q-geometry-quadrilaterals-and-polygons-0008'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    A rhombus has diagonals of lengths $12\text{ cm}$ and $16\text{ cm}$. What is the perimeter of the rhombus?
+  choices:
+  - text: '$40\text{ cm}$'
+    correct: true
+  - text: '$20\text{ cm}$'
+    correct: false
+    rationale: |
+      This counts two sides instead of four. The side length is found correctly. Check all four equal sides.
+  - text: '$28\text{ cm}$'
+    correct: false
+    rationale: |
+      This adds the diagonal lengths. Both diagonals are given. Check that a diagonal is not a side.
+  - text: '$10\text{ cm}$'
+    correct: false
+    rationale: |
+      This reports a single side length. The side length is needed first. Check that perimeter counts every side.
+  explanation: |
+    Rhombus diagonals are perpendicular and bisect each other. Their half-lengths are $6$ and $8$ cm. A side is the hypotenuse of that right triangle: $s=\sqrt{6^2+8^2}=10$ cm. Four sides give perimeter $4(10)=40$ cm.
+- id: 'q-geometry-quadrilaterals-and-polygons-0009'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    In parallelogram $DEFG$, opposite angles are $\angle D = (5x + 12)^\circ$ and $\angle F = (3x + 48)^\circ$. What is the measure of consecutive angle $\angle E$?
+  choices:
+  - text: '$78^\circ$'
+    correct: true
+  - text: '$102^\circ$'
+    correct: false
+    rationale: |
+      This reports D rather than its consecutive angle E. That measure is found first. Check the requested angle name.
+  - text: '$18^\circ$'
+    correct: false
+    rationale: |
+      This reports x instead of the angle. The variable is solved correctly. Substitute into an angle expression.
+  - text: '$90^\circ$'
+    correct: false
+    rationale: |
+      This leaves out the added $12^\circ$ when finding angle D. The product $5x$ is part of its measure. Check every term before taking the supplement.
+  explanation: |
+    Opposite parallelogram angles are equal: $5x+12=3x+48$. Thus $2x=36$ and $x=18$. Angle D is $5(18)+12=102^\circ$. Its consecutive angle E measures $180^\circ-102^\circ=78^\circ$.
+- id: 'q-geometry-quadrilaterals-and-polygons-0010'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    The four interior angles of a quadrilateral are $(2x)^\circ$, $(3x + 10)^\circ$, $(4x - 15)^\circ$, and $(x + 25)^\circ$. What is the measure of the largest interior angle?
+  choices:
+  - text: '$121^\circ$'
+    correct: true
+  - text: '$112^\circ$'
+    correct: false
+    rationale: |
+      This reports the second angle without comparing all four. That angle is evaluated correctly. Compare all evaluated angle measures.
+  - text: '$34^\circ$'
+    correct: false
+    rationale: |
+      This reports x instead of an angle. The variable is solved correctly. Substitute into each expression.
+  - text: '$136^\circ$'
+    correct: false
+    rationale: |
+      This stops at four x and omits the minus fifteen. The coefficient product is needed first. Check the complete angle expression.
+  explanation: |
+    The quadrilateral sum gives $2x+(3x+10)+(4x-15)+(x+25)=360$. Thus $10x+20=360$, so $x=34$. The measures are $68^\circ,112^\circ,121^\circ,$ and $59^\circ$. The largest is $121^\circ$.
+- id: 'q-geometry-quadrilaterals-and-polygons-0011'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    A convex regular polygon has an interior angle sum of $1800^\circ$. How many diagonals can be drawn in this polygon?
+  choices:
+  - text: '$54$'
+    correct: true
+  - text: '$108$'
+    correct: false
+    rationale: |
+      This counts each diagonal at both ends without halving. The vertex-based count is needed first. Check that each diagonal has two ends.
+  - text: '$12$'
+    correct: false
+    rationale: |
+      This reports the side count. The side count is needed first. Check whether sides or diagonals are requested.
+  - text: '$66$'
+    correct: false
+    rationale: |
+      This counts every pair of vertices, including adjacent pairs forming sides. Every diagonal connects two vertices. Exclude neighboring vertices from diagonal connections.
+  explanation: |
+    Use $(n-2)180=1800$ to get $n=12$. Each vertex connects by diagonals to nine others, excluding itself and its two neighbors. This counts $12(9)=108$ connections. Each diagonal is counted at both ends, so divide by $2$: $108\div2=54$.
+- id: 'q-geometry-quadrilaterals-and-polygons-0012'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    In isosceles trapezoid $ABCD$ with $AB \parallel CD$ and $AD = BC$, base angle $\angle ADC = 65^\circ$. If diagonal $AC$ bisects angle $\angle BAD$, what is the measure of $\angle ACD$?
+  choices:
+  - text: '$57.5^\circ$'
+    correct: true
+  - text: '$65^\circ$'
+    correct: false
+    rationale: |
+      This copies the given base angle. The given angle belongs to the same trapezoid. Check the requested angle name and bisected angle.
+  - text: '$32.5^\circ$'
+    correct: false
+    rationale: |
+      This bisects sixty-five degrees rather than the angle at A. A bisector is stated. Check which vertex the diagonal bisects.
+  - text: '$115^\circ$'
+    correct: false
+    rationale: |
+      This reports the full angle at A. That full angle is needed first. Check the triangle containing the requested angle.
+  explanation: |
+    Parallel bases make angles BAD and ADC supplementary. Thus BAD measures $180^\circ-65^\circ=115^\circ$. Its bisector gives CAD equal to $57.5^\circ$. In triangle ACD, subtract the other two angles from $180^\circ$: ACD is $180^\circ-65^\circ-57.5^\circ=57.5^\circ$.
+- id: 'q-geometry-quadrilaterals-and-polygons-0013'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    The diagonal of a square measures $12\text{ cm}$. What is the area of the square?
+  choices:
+  - text: '$72\text{ cm}^2$'
+    correct: true
+  - text: '$144\text{ cm}^2$'
+    correct: false
+    rationale: |
+      This uses the diagonal as a side. The given length spans the square. Check which length is the diagonal.
+  - text: '$36\text{ cm}^2$'
+    correct: false
+    rationale: |
+      This halves the diagonal before squaring. A diagonal bisects the square. Use the right triangle with two equal square sides.
+  - text: '$288\text{ cm}^2$'
+    correct: false
+    rationale: |
+      This doubles the diagonal square instead of halving it. The relationship does involve a factor two. Check that the diagonal square is twice the side square.
+  explanation: |
+    Let the square side be s. The diagonal forms a right triangle with two equal legs, so $s^2+s^2=12^2$. Hence $2s^2=144$ and $s^2=72$. The square area is $72$ square centimeters.
+- id: 'q-geometry-quadrilaterals-and-polygons-0014'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    The ratio of an interior angle to an exterior angle of a regular polygon is $7 : 2$. How many sides does the polygon have?
+  choices:
+  - text: '$9$'
+    correct: true
+  - text: '$40$'
+    correct: false
+    rationale: |
+      This reports the exterior angle as the side count. That angle is a useful result on the way. Check whether the question asks for an angle or a number of sides.
+  - text: '$140$'
+    correct: false
+    rationale: |
+      This reports the interior angle as the side count. The ratio gives that angle correctly. Check the unit and the requested quantity.
+  - text: '$18$'
+    correct: false
+    rationale: |
+      This treats one ratio part as the whole exterior angle. One part has measure twenty degrees. Check that the exterior uses two ratio parts.
+  explanation: |
+    The interior and adjacent exterior angle sum to $180^\circ$. Their ratio gives $7x+2x=180$, so $x=20$. The exterior angle is $2(20)=40^\circ$. Divide the full exterior turn by this measure: $360\div40=9$ sides.
+- id: 'q-geometry-quadrilaterals-and-polygons-0015'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    In rhombus $ABCD$, diagonal $AC$ is drawn. If $\angle B = 110^\circ$, what is the measure of $\angle ACD$?
+  choices:
+  - text: '$35^\circ$'
+    correct: true
+  - text: '$55^\circ$'
+    correct: false
+    rationale: |
+      This halves B instead of C. The diagonal bisects some rhombus angles. Check which vertices AC joins and bisects.
+  - text: '$70^\circ$'
+    correct: false
+    rationale: |
+      This reports C before bisection. C is a needed intermediate measure. Check the diagonal-bisection step.
+  - text: '$110^\circ$'
+    correct: false
+    rationale: |
+      This copies the given angle B. B is stated directly. Check the requested vertex.
+  explanation: |
+    The rhombus is a parallelogram, so angles B and C are supplementary. Thus C is $180^\circ-110^\circ=70^\circ$. Diagonal AC bisects C. Therefore ACD is $70^\circ\div2=35^\circ$.
+- id: 'q-geometry-quadrilaterals-and-polygons-0016'
+  type: 'which-is-true'
+  difficulty: 'easy'
+  stem: |
+    Using the exclusive trapezoid convention, what is a quadrilateral with exactly one pair of parallel sides?
+  choices:
+  - text: 'Trapezoid'
+    correct: true
+  - text: 'Parallelogram'
+    rationale: |
+      This applies the two-pair parallel condition to a one-pair figure. Both are quadrilaterals with parallel sides. Check whether exactly one or both pairs are parallel.
+  - text: 'Rectangle'
+    rationale: |
+      This identifies a rectangle from parallelism alone. Rectangles have two parallel pairs and four right angles. Check the number of pairs in the given figure.
+  - text: 'Rhombus'
+    rationale: |
+      This identifies a rhombus without equal-side information. Rhombi are also parallelograms. Check that the figure has only one parallel pair.
+  explanation: |
+    The exclusive definition requires exactly one pair of parallel sides. That is the defining condition for a trapezoid in this convention.
+  approved: false
+- id: 'q-geometry-quadrilaterals-and-polygons-0017'
+  type: 'error-spotting'
+  difficulty: 'medium'
+  stem: |
+    A student adds the same-direction exterior turning angles of a convex hexagon using $(6-2)180^\circ=720^\circ$. Which total should replace this?
+  choices:
+  - text: '$360^\circ$'
+    correct: true
+  - text: '$720^\circ$'
+    rationale: |
+      This repeats the interior-angle sum. Both angle types belong to the same hexagon. Check whether interior angles or exterior turns are being added.
+  - text: '$60^\circ$'
+    rationale: |
+      This reports a single exterior angle of a regular hexagon. The polygon has six vertices. Check that the question asks for the total.
+  - text: '$120^\circ$'
+    rationale: |
+      This reports a single interior angle of a regular hexagon. One hundred twenty is a familiar hexagon measure. Check both the angle type and whether a sum is requested.
+  explanation: |
+    Those exterior turns trace one complete rotation around the polygon. Their total is $360^\circ$.
+  approved: false
+- id: 'q-geometry-quadrilaterals-and-polygons-0018'
+  type: 'which-is-true'
+  difficulty: 'medium'
+  stem: |
+    A quadrilateral is known to be a square. Which classifications must also apply?
+  choices:
+  - text: 'Rectangle and rhombus'
+    correct: true
+  - text: 'Rectangle, but never rhombus'
+    rationale: |
+      This excludes rhombi from the square class. The rectangle condition is correctly identified. Check the equal sides of a square.
+  - text: 'Rhombus, but never rectangle'
+    rationale: |
+      This excludes rectangles from the square class. The equal-side condition is correctly identified. Check the right angles of a square.
+  - text: 'Neither rectangle nor rhombus'
+    rationale: |
+      This treats shape classes as mutually exclusive. Their names are different. Check that a square satisfies both broader definitions.
+  explanation: |
+    A square has four right angles, meeting the rectangle definition. It also has four equal sides, meeting the rhombus definition. Therefore both classifications apply.
+  approved: false
+- id: 'q-geometry-quadrilaterals-and-polygons-0019'
+  type: 'which-is-true'
+  difficulty: 'hard'
+  stem: |
+    Which property holds for every rectangle?
+  choices:
+  - text: 'Its diagonals have equal length.'
+    correct: true
+  - text: 'Its diagonals are perpendicular.'
+    rationale: |
+      This uses the rhombus diagonal property for every rectangle. Squares have both properties. Check whether a nonsquare rectangle must have them too.
+  - text: 'All four sides have equal length.'
+    rationale: |
+      This applies the square equal-side condition to every rectangle. A square is a rectangle. Check the direction of the classification claim.
+  - text: 'Exactly one pair of sides is parallel.'
+    rationale: |
+      This uses the exclusive trapezoid condition. Both types have parallel sides. Check that rectangles have both pairs parallel.
+  explanation: |
+    Equal diagonal lengths are a rectangle property. Every rectangle has this property, including its square special cases.
+  approved: false
+- id: 'q-geometry-quadrilaterals-and-polygons-0020'
+  type: 'word-problem'
+  difficulty: 'exam'
+  stem: |
+    Two convex polygons have $8$ and $11$ sides. By how much does the second polygon's interior-angle sum exceed the first polygon's sum?
+  choices:
+  - text: '$540^\circ$'
+    correct: true
+  - text: '$1080^\circ$'
+    rationale: |
+      This reports the first polygon's sum. That value is needed for the subtraction. Check whether a sum or a difference is requested.
+  - text: '$1620^\circ$'
+    rationale: |
+      This reports the second polygon's sum. That value is needed for the subtraction. Check whether a sum or a difference is requested.
+  - text: '$360^\circ$'
+    rationale: |
+      This uses the exterior-angle total. Both polygons have the same exterior-turn total. Check that the comparison concerns interior sums.
+  explanation: |
+    The sums are $(8-2)180^\circ=1080^\circ$ and $(11-2)180^\circ=1620^\circ$. Their difference is $1620^\circ-1080^\circ=540^\circ$.
+  approved: false
