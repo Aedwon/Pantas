@@ -1,345 +1,572 @@
 meta:
-  subject: reasoning
-  topic: mechanical-technical-reasoning
-  subtopic: structural-stability
-  exams: [ dost-sei ]
+  subject: "reasoning"
+  topic: "mechanical-technical-reasoning"
+  subtopic: "structural-stability"
+  exams:
+    - "dost-sei"
 questions:
-  - id: q-mechanical-technical-reasoning-structural-stability-0001
-    type: structural-stability
-    difficulty: easy
+  - id: "q-mechanical-technical-reasoning-structural-stability-0001"
+    type: "structural-stability"
+    difficulty: "easy"
     stem: |
-      What is the term for the single point where an object's entire weight can be thought of as concentrated, balancing perfectly in every direction?
+      The dot in the shown uniform box represents the point through which its resultant gravitational force acts. What is this point called?
     choices:
-      - text: Center of gravity
+      - text: "Center of gravity"
         correct: true
-      - text: Base of support
+      - text: "Base of support"
         rationale: |
-          You confused the concentration of weight with the area the object rests on. The base of support is the contact area on the ground, not a single point of balance.
-      - text: Fulcrum
+          This confuses a force location with a supporting area. Both affect tipping. Check whether the marked feature is a point or a ground region.
+      - text: "Fulcrum"
         rationale: |
-          You confused the balancing point of the object itself with a pivot point. A fulcrum is the external support about which a lever pivots, not the object's internal balancing point.
-      - text: Tipping point
+          This confuses the weight point with a rotation support. Both can be involved in balance. Check whether the point belongs to the object's weight or its external support.
+      - text: "Tipping threshold"
         rationale: |
-          You confused the balance point with the critical angle of tilt. A tipping point is the threshold where an object falls over, not the point where its weight is concentrated.
+          This confuses a location with a limit of tilt. The dot helps predict tipping. Check whether the question asks for a point or a condition.
     explanation: |
-      The center of gravity is the single point where an object's entire weight can be thought of as concentrated, balancing perfectly in every direction.
+      An object's weight can be treated as one force acting through its center of gravity. The dot marks that point.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-structural-stability-0002
-    type: structural-stability
-    difficulty: easy
-    stem: |
-      What is the term for the area on the ground enclosed by an object's points (or edges) of contact with the ground?
-    choices:
-      - text: Base of support
-        correct: true
-      - text: Center of gravity
-        rationale: |
-          You confused the area on the ground with the single point where weight is concentrated. Center of gravity is an internal balance point, not the contact area.
-      - text: Fulcrum
-        rationale: |
-          You confused the resting area with a pivot point. A fulcrum is the specific point a lever rests or turns on, not the entire area enclosed by the object's feet.
-      - text: Load distance
-        rationale: |
-          You guessed a term related to levers. Load distance refers to how far a weight is from a fulcrum, not the area an object rests upon.
-    explanation: |
-      The base of support is the area on the ground enclosed by an object's points or edges of contact with the ground, like the rectangle connecting a table's four feet.
-    approved: true
-
-  - id: q-mechanical-technical-reasoning-structural-stability-0003
-    type: structural-stability
-    difficulty: medium
-    figure: structural-stability-03
+    figure: "structural-stability-01"
     figureSpec:
-      kind: stability-shape
+      kind: "stability-shape"
       shapes:
-        - form: box
+        - form: "box"
           baseWidth: 2
           height: 3
+  - id: "q-mechanical-technical-reasoning-structural-stability-0002"
+    type: "structural-stability"
+    difficulty: "easy"
     stem: |
-      Figure shows an object with an imaginary vertical line dropped straight down from its center of gravity. Under what condition does the object remain stable and not tip over?
+      For the box shown resting flat on the ground, what is the region bounded by its supporting contact points called?
     choices:
-      - text: The vertical line falls within the object's base of support
+      - text: "Base of support"
         correct: true
-      - text: The vertical line falls exactly at the center of the object's base
+      - text: "Center of gravity"
         rationale: |
-          You assumed the line must be perfectly centered. As long as the line falls anywhere within the boundaries of the base of support, the object remains stable.
-      - text: The object's weight is below a certain threshold
+          This names the weight point instead of the contact region. Both determine stability. Check whether the stem asks about the object's weight or ground contacts.
+      - text: "Pivot axis"
         rationale: |
-          You assumed stability depends on how light the object is. Stability depends on the alignment of the center of gravity with the base, not the total weight.
-      - text: The object's base of support is perfectly circular
+          This names the rotation line used during tipping. A base edge can become that axis. Check whether the whole contact region or one edge is requested.
+      - text: "Moment arm"
         rationale: |
-          You assumed a specific shape is required for stability. The base of support can be any shape, as long as the vertical line from the center of gravity falls within it.
+          This names a distance from a pivot to a force line. That distance also affects tipping. Check that the requested feature is an area.
     explanation: |
-      An object remains stable as long as an imaginary vertical line dropped straight down from its center of gravity falls within its base of support. If that line falls outside the base of support, the object tips over.
+      The supporting contacts bound a region. That region is the base of support used to test whether the weight line is supported.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-structural-stability-0004
-    type: structural-stability
-    difficulty: medium
-    figure: structural-stability-04
+    figure: "structural-stability-02"
     figureSpec:
-      kind: stability-shape
+      kind: "stability-shape"
       shapes:
-        - form: pyramid
+        - form: "box"
+          baseWidth: 2
+          height: 3
+  - id: "q-mechanical-technical-reasoning-structural-stability-0003"
+    type: "structural-stability"
+    difficulty: "medium"
+    stem: |
+      For the shown rigid box at rest on a level support, with gravity and contact forces only, which condition gives a restoring tendency against a small tip?
+    choices:
+      - text: "Weight line inside the support boundary"
+        correct: true
+      - text: "Weight line exactly at the support edge"
+        rationale: |
+          This treats the tipping threshold as a restoring margin. The line is still at a contact boundary. Check whether gravity has any turning arm at that edge.
+      - text: "Weight line outside the support boundary"
+        rationale: |
+          This reverses the gravity torque direction. The object still touches one edge. Check which side of that edge contains the weight line.
+      - text: "Weight line anywhere above the ground"
+        rationale: |
+          This treats height above the floor as sufficient support. Every raised center is above the floor. Check the horizontal position relative to the contact boundary.
+    explanation: |
+      With the vertical weight line inside the support boundary, gravity acts on the restoring side of a prospective pivot edge. It tends to bring a slightly tilted box back toward its flat base.
+    approved: true
+    figure: "structural-stability-03"
+    figureSpec:
+      kind: "stability-shape"
+      shapes:
+        - form: "box"
+          baseWidth: 2
+          height: 3
+  - id: "q-mechanical-technical-reasoning-structural-stability-0004"
+    type: "structural-stability"
+    difficulty: "medium"
+    stem: |
+      The figure compares a short, wide object on the left with a tall, narrow one on the right. Their mass distributions are similar. Which requires a greater slow tilt to reach its tipping threshold on level ground?
+    choices:
+      - text: "The left object"
+        correct: true
+      - text: "The right object"
+        rationale: |
+          This treats greater height as greater tipping resistance. The right object looks larger vertically. Compare its center height and narrower support.
+      - text: "They require equal tilt because their weights match"
+        rationale: |
+          This uses total weight alone to decide tipping angle. Equal weights seem like equal stability. Check the different base widths and center heights.
+      - text: "Their tilt limits depend only on material density"
+        rationale: |
+          This treats density as the sole cause of stability. The objects have similar materials. Check their different geometry and weight-line positions.
+    explanation: |
+      The left object has a wider base and a lower center of gravity. Both allow a greater tilt before its weight line reaches the pivot edge. It therefore has the larger static tipping margin.
+    approved: true
+    figure: "structural-stability-04"
+    figureSpec:
+      kind: "stability-shape"
+      shapes:
+        - form: "pyramid"
           baseWidth: 3
           height: 1
-        - form: pyramid
+        - form: "pyramid"
           baseWidth: 1
           height: 3
+  - id: "q-mechanical-technical-reasoning-structural-stability-0005"
+    type: "structural-stability"
+    difficulty: "medium"
     stem: |
-      Figure shows a short, wide pyramid and a tall, narrow pyramid, both the same weight and made of the same uniform material. Which one is more stable, and why?
+      The shown box is tilted slowly about its lower right edge without slipping. At the tipping threshold, where is the vertical line through its center of gravity?
     choices:
-      - text: The short, wide pyramid, since it has both a lower center of gravity and a wider base of support
+      - text: "Through the pivot edge"
         correct: true
-      - text: The tall, narrow pyramid, since height always improves stability
+      - text: "Through the top corner"
         rationale: |
-          You assumed being taller makes an object more stable. A taller object has a higher center of gravity, which actually makes it easier to tip over.
-      - text: Both pyramids are equally stable, since they weigh the same
+          This uses a visible corner unrelated to ground support. The top moves most during tilting. Check which edge acts as the pivot.
+      - text: "Halfway between center and pivot"
         rationale: |
-          You assumed equal weight means equal stability. Stability also depends heavily on the height of the center of gravity and the width of the base.
-      - text: The tall, narrow pyramid, since a narrower base is always more stable
+          This treats half the shift as the threshold. Halfway sounds like a balance point. Check when the weight's turning arm about the pivot becomes zero.
+      - text: "Through the original base center at every tilt"
         rationale: |
-          You assumed a narrower base is better. A narrow base means the center of gravity has less distance to shift before the object tips over.
+          This assumes the weight line moves with the base center. Both belong to the box. Check that gravity stays vertical as the box rotates.
     explanation: |
-      The short, wide pyramid has a lower center of gravity (since it is shorter) and a wider base of support (since it is wider). Both factors independently improve stability, making it more stable than the tall, narrow pyramid.
+      At the threshold the weight line passes through the pivot edge. Gravity then has zero turning arm about that edge. Continuing the tilt carries the line onto the overturning side.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-structural-stability-0005
-    type: structural-stability
-    difficulty: medium
-    figure: structural-stability-05
+    figure: "structural-stability-05"
     figureSpec:
-      kind: stability-shape
-      tilt: 22
+      kind: "stability-shape"
       shapes:
-        - form: box
+        - form: "box"
           baseWidth: 2
           height: 3
+      tilt: 22
+  - id: "q-mechanical-technical-reasoning-structural-stability-0006"
+    type: "structural-stability"
+    difficulty: "medium"
     stem: |
-      Figure shows a rectangular box being slowly tilted to one side, pivoting on one bottom edge. At what point does the box tip over rather than settling back down?
+      The two truck profiles shown represent equal secured cargo masses with equal track widths. Other turning conditions match. Which arrangement generally resists rollover better?
     choices:
-      - text: The moment the vertical line from its center of gravity moves beyond the edge of the base of support it is pivoting on
+      - text: "The lower cargo on the right"
         correct: true
-      - text: As soon as the box is tilted at all, even slightly
+      - text: "The higher cargo on the left"
         rationale: |
-          You assumed any tilt causes tipping. An object will rock back to its original position as long as its center of gravity remains over its base of support.
-      - text: Only once the box is tilted a full 90 degrees
+          This treats taller stacking as added stability. The taller stack may look substantial. Check its effect on the height of the combined center of mass.
+      - text: "Both, because their total cargo masses match"
         rationale: |
-          You assumed it must fall completely flat to tip. The tipping point happens much earlier, the moment its center of gravity passes the edge it is pivoting on.
-      - text: The box never tips over regardless of tilt, since it is resting on the ground
+          This compares only total mass. The loads weigh the same. Check how their vertical distribution changes the turning effect.
+      - text: "The left, because taller loads need a greater turn angle"
         rationale: |
-          You assumed resting on the ground makes it immune to tipping. Once the center of gravity is pushed past the pivot edge, gravity will pull the object over.
+          This imports a visual height assumption into cornering. The cargo rises farther above the road. Compare the overturning effect under the same lateral acceleration.
     explanation: |
-      The box remains stable as long as the vertical line from its center of gravity stays within its base of support. It tips over at the exact moment this line moves beyond the edge of the base of support it is still pivoting on.
+      Lower cargo lowers the combined center of mass. Under the same sideways acceleration, this reduces the overturning effect and side-to-side load transfer. It generally improves rollover resistance.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-structural-stability-0006
-    type: structural-stability
-    difficulty: medium
+    figure: "structural-stability-06"
+    figureSpec:
+      kind: "stability-shape"
+      shapes:
+        - form: "truck"
+          baseWidth: 2
+          height: 3
+        - form: "truck"
+          baseWidth: 2
+          height: 1
+  - id: "q-mechanical-technical-reasoning-structural-stability-0007"
+    type: "structural-stability"
+    difficulty: "medium"
     stem: |
-      A moving truck carries the same total weight of cargo, either stacked very high or spread out lower. Which loading method makes the truck more stable while turning corners?
+      The two shown stances belong to the same person. The person changes only sideways foot spacing and remains still. Which stance gives more room for a slow sideways shift of the weight line before it crosses the support boundary?
     choices:
-      - text: Spreading the cargo lower, since it keeps the center of gravity closer to the ground
+      - text: "The wider stance on the right"
         correct: true
-      - text: Stacking the cargo high, since it distributes weight more evenly
+      - text: "The narrower stance on the left"
         rationale: |
-          You assumed stacking high distributes weight evenly. Stacking high raises the center of gravity, making the truck much more likely to tip over during a turn.
-      - text: Both loading methods provide exactly the same stability
+          This treats closer contacts as a stronger support region. The feet look more concentrated. Check the distance from the weight line to a side boundary.
+      - text: "Both, because the person's mass is unchanged"
         rationale: |
-          You assumed only the total weight matters. How the weight is distributed vertically changes the center of gravity, which directly affects stability.
-      - text: Stacking the cargo high, since a higher center of gravity always improves turning stability
+          This ignores the changed contact region. The person weighs the same. Compare the width bounded by the feet.
+      - text: "The left, because shorter foot spacing lowers gravity"
         rationale: |
-          You assumed a higher center of gravity is better for turns. A higher center of gravity acts like a longer lever arm for tipping, making the truck less stable.
+          This confuses stance width with gravity strength. The body position changes. Check that changing foot spacing does not change the gravitational field.
     explanation: |
-      Spreading cargo lower keeps the center of gravity closer to the ground, requiring a larger tilt (like from a sharp turn) before the vertical line from the center of gravity could be pushed outside the truck's base of support: making it more stable while turning.
+      The wider stance increases the sideways base of support. The weight line can shift farther sideways before reaching its boundary. This improves the stated slow sideways stability.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-structural-stability-0007
-    type: structural-stability
-    difficulty: medium
+    figure: "structural-stability-07"
+    figureSpec:
+      kind: "stability-shape"
+      shapes:
+        - form: "person"
+          baseWidth: 1
+          height: 3
+        - form: "person"
+          baseWidth: 3
+          height: 3
+  - id: "q-mechanical-technical-reasoning-structural-stability-0008"
+    type: "structural-stability"
+    difficulty: "hard"
     stem: |
-      A person standing with feet close together is compared to the same person standing with feet spread wider apart. Which stance is more stable against being pushed sideways?
+      Two boxes in the figure have opposing advantages: the left has a lower center of gravity but a narrower base, and the right a higher center but a wider base. Why does center height alone fail to decide their slow-tipping comparison?
     choices:
-      - text: Feet spread wider apart, since it increases the base of support
+      - text: "Base width also affects the tipping margin"
         correct: true
-      - text: Feet close together, since it lowers the center of gravity
+      - text: "Base width determines the mass of every box"
         rationale: |
-          You assumed bringing feet together lowers the center of gravity. It actually narrows the base of support, making it much easier to be pushed over.
-      - text: Both stances are equally stable against sideways pushes
+          This assumes width fixes total weight. Wider boxes can contain more material. Check that mass distribution can vary independently.
+      - text: "Lower centers prevent every possible tip"
         rationale: |
-          You assumed the width of the stance does not matter. Spreading your feet widens your base of support, meaning you can lean further before falling.
-      - text: Feet close together, since a narrower base is always more stable
+          This treats one favorable factor as a guarantee. A lower center often helps. Check whether a finite support boundary can still be crossed.
+      - text: "Greater height always cancels greater width"
         rationale: |
-          You assumed a narrower base is better. A narrow base means your center of gravity only has to shift a tiny bit sideways before you tip over.
+          This assumes all changes cancel without comparing size. Each box has one advantage. Check the relative center heights and support widths.
     explanation: |
-      Spreading the feet wider apart increases the base of support, meaning the vertical line from the center of gravity can shift farther sideways before falling outside that base: making the wider stance more stable against sideways pushes.
+      A lower center reduces the sideways shift caused by a tilt. A wider base gives that shift more room before the edge is reached. Both factors are needed when they change in opposite directions.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-structural-stability-0008
-    type: structural-stability
-    difficulty: hard
+    figure: "structural-stability-08"
+    figureSpec:
+      kind: "stability-shape"
+      shapes:
+        - form: "box"
+          baseWidth: 1
+          height: 1
+        - form: "box"
+          baseWidth: 3
+          height: 3
+  - id: "q-mechanical-technical-reasoning-structural-stability-0009"
+    type: "structural-stability"
+    difficulty: "hard"
     stem: |
-      An object has a very low center of gravity but an extremely narrow base of support. A student assumes this object must be very stable, "since only the center of gravity's height matters." Is this assumption correct?
+      The shown box is rebuilt with twice the mass but unchanged shape and relative mass distribution. Under slow tilting about the same edge, how does its critical tipping angle change?
     choices:
-      - text: 'No: stability depends on both the center of gravity''s height and the base of support''s width; an object with a low center of gravity but an extremely narrow base can still tip over easily.'
+      - text: "It stays the same"
         correct: true
-      - text: 'Yes: a low center of gravity alone always guarantees maximum stability, regardless of base width.'
+      - text: "It doubles"
         rationale: |
-          You assumed the center of gravity is the only factor that matters. If the base is extremely narrow, even a low center of gravity will quickly shift outside it and cause tipping.
-      - text: 'Yes: base of support width has no effect on stability at all.'
+          This treats greater mass as doubling geometric stability. The weight doubles. Check whether the center or support boundary moved.
+      - text: "It halves"
         rationale: |
-          You assumed the base of support is irrelevant. The base defines the safe zone; if it is too narrow, the object will tip over with very little tilt.
-      - text: 'No: but only because this object cannot have a center of gravity at all.'
+          This treats greater gravity force as requiring half the tilt. The downward force grows. Check that the zero-torque edge condition depends on the weight line location.
+      - text: "It becomes zero"
         rationale: |
-          You assumed an object can exist without a center of gravity. Every object with mass has a center of gravity where its weight is effectively concentrated.
+          This assumes heavier objects must tip immediately. The load has increased. Check whether its weight line still starts inside the support region.
     explanation: |
-      An object could have a low center of gravity but still be unstable if its base of support is extremely narrow; both factors must be considered together, not just one in isolation.
+      The center location and support geometry stay unchanged. The weight line reaches the same edge at the same angle. Doubling weight changes torque magnitude but not that geometric threshold.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-structural-stability-0009
-    type: structural-stability
-    difficulty: hard
+    figure: "structural-stability-09"
+    figureSpec:
+      kind: "stability-shape"
+      shapes:
+        - form: "box"
+          baseWidth: 2
+          height: 3
+  - id: "q-mechanical-technical-reasoning-structural-stability-0010"
+    type: "structural-stability"
+    difficulty: "hard"
     stem: |
-      A very heavy object has a high center of gravity and a narrow base of support. A student assumes this object must be stable, "since heavier objects are always more stable." Is this assumption correct?
+      The uniform box shown is placed first on its broad face and then on a narrower face, making it taller. What explains the change in its static tipping resistance?
     choices:
-      - text: 'No: stability depends on the location of the center of gravity relative to the base of support, not simply on how much an object weighs; a heavy object with a high center of gravity and narrow base can still tip over easily.'
+      - text: "Its center height and support region change"
         correct: true
-      - text: 'Yes: heavier objects are always more stable than lighter ones, regardless of their shape.'
+      - text: "Its material becomes denser"
         rationale: |
-          You assumed weight alone creates stability. If that heavy weight is balanced high above a narrow base, it will still tip over very easily.
-      - text: 'Yes: but only because this object''s weight makes its base of support automatically wider.'
+          This attributes the change to density. The box looks different after rotation. Check that its material and volume did not change.
+      - text: "Its mass changes with orientation"
         rationale: |
-          You assumed weight changes the physical dimensions of the base. An object's weight does not automatically widen its contact area with the ground.
-      - text: 'No: but only because heavy objects cannot have a center of gravity.'
+          This treats a different resting face as a different weight. The taller position looks larger. Check whether any material was added or removed.
+      - text: "The direction of gravity rotates with the box"
         rationale: |
-          You assumed heavy objects lack a center of gravity. Every object has a center of gravity, and a high one makes tipping easier regardless of weight.
+          This lets the force direction follow the object. Its edges rotate. Check that gravity remains vertical in both positions.
     explanation: |
-      Stability depends on the location of the center of gravity relative to the base of support, not simply on how much an object weighs overall. A very heavy object with a high center of gravity and a narrow base can still tip over easily, despite its large weight.
+      Changing the resting face changes which contacts form the base and how high the center of gravity sits. These changes alter the tilt needed for the weight line to reach an edge.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-structural-stability-0010
-    type: structural-stability
-    difficulty: hard
-    stem: |
-      A student says, "this box is stable," treating stability as a fixed, permanent property of the box regardless of how it is positioned. Is this the correct way to think about stability?
-    choices:
-      - text: 'No: an object can be perfectly stable while sitting still, but become unstable once tilted enough that its center of gravity''s vertical line moves outside the base of support; stability depends on the specific tilt angle, not a fixed, unchanging fact.'
-        correct: true
-      - text: 'Yes: once an object is described as "stable," it remains stable at every possible tilt angle.'
-        rationale: |
-          You assumed stability is absolute. As soon as you tilt the object far enough, its center of gravity moves past its base, and it will fall over.
-      - text: 'Yes: stability is a permanent property that never changes, regardless of orientation.'
-        rationale: |
-          You assumed orientation does not matter. If you turn a stable box on its pointed corner, it immediately becomes unstable.
-      - text: 'No: but only because boxes can never be considered stable under any circumstance.'
-        rationale: |
-          You assumed no box is ever stable. A box sitting flat on the ground with its center of gravity over its base is perfectly stable until disturbed.
-    explanation: |
-      Assuming an object "is stable" as an absolute, unchanging fact (rather than "is stable at this specific tilt angle") misses that further tilting can push any object past its tipping point, given enough tilt.
-    approved: true
-
-  - id: q-mechanical-technical-reasoning-structural-stability-0011
-    type: structural-stability
-    difficulty: medium
+    figure: "structural-stability-10"
+    figureSpec:
+      kind: "stability-shape"
+      shapes:
+        - form: "box"
+          baseWidth: 3
+          height: 1
+        - form: "box"
+          baseWidth: 1
+          height: 3
+  - id: "q-mechanical-technical-reasoning-structural-stability-0011"
+    type: "structural-stability"
+    difficulty: "medium"
     stem: |
       A bottom-heavy roly-poly toy (weighted heavily at its rounded base) is pushed over onto its side. Why does it always return to standing upright?
     choices:
-      - text: Its center of gravity is very low (concentrated near its heavy base), so the vertical line from its center of gravity quickly returns within its base of support as it rocks, pulling it back upright
+      - text: "Its center of gravity is very low (concentrated near its heavy base), so the vertical line from its center of gravity quickly returns within its base of support as it rocks, pulling it back upright"
         correct: true
-      - text: Its base of support is extremely narrow, which always causes objects to return upright
+      - text: "Its base of support is extremely narrow, which always causes objects to return upright"
         rationale: |
-          You assumed a narrow base helps it stand up. A narrow base usually makes an object tip over easier; it is the extremely low center of gravity that pulls this toy back up.
-      - text: The toy has no center of gravity, so it cannot tip over in the first place
+          This makes narrow support the cause of self-righting. The toy touches a small area as it rocks. Check whether gravity creates a turning force back toward upright.
+      - text: "The toy has no center of gravity, so it cannot tip over in the first place"
         rationale: |
-          You assumed the toy lacks a center of gravity. The reason it works is precisely because its center of gravity is heavily weighted at the very bottom.
-      - text: The toy is simply too light to be affected by gravity at all
+          This removes the center of gravity from the toy. Its unusual rocking motion may suggest unusual gravity. Check that its mass still has a point through which its weight acts.
+      - text: "The toy is simply too light to be affected by gravity at all"
         rationale: |
-          You assumed it ignores gravity. Gravity is exactly what pulls the heavy, rounded bottom back down against the ground.
+          This assumes small mass is unaffected by gravity. The toy is easy to push. Check that gravity acts on light objects too.
     explanation: |
-      The toy's very low center of gravity, concentrated near its heavy rounded base, means the vertical line from its center of gravity stays within (or quickly returns within) its base of support as it rocks, pulling it back upright rather than tipping over completely.
+      For a self-righting toy with its center of gravity below the center of its rounded base, a sideways tilt raises its center of gravity. Gravity then gives a turning force toward the lower-energy upright position. This is the physical reason a properly designed toy rocks back up.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-structural-stability-0012
-    type: structural-stability
-    difficulty: medium
+  - id: "q-mechanical-technical-reasoning-structural-stability-0012"
+    type: "structural-stability"
+    difficulty: "hard"
     stem: |
-      A sports utility vehicle (SUV) has a higher center of gravity than a sports car with the same wheel base width. Which vehicle is more prone to rolling over while making a sharp turn?
+      The shown truck profiles have the same track width but different center heights. In a sharp turn, which extra effect must be considered beyond the vertical gravity-line test for a motionless vehicle?
     choices:
-      - text: The SUV, since its higher center of gravity requires less tilt before the vertical line from its center of gravity could fall outside its base of support
+      - text: "Sideways acceleration and load transfer"
         correct: true
-      - text: The sports car, since lower vehicles are always more prone to rolling over
+      - text: "Gravity stops acting during the turn"
         rationale: |
-          You assumed being lower increases rollover risk. A lower center of gravity keeps the vertical line inside the wheelbase much better during a turn.
-      - text: Both vehicles are equally prone to rolling over, since they share the same wheel base width
+          This replaces gravity with cornering effects. The sideways motion is noticeable. Check that weight still acts downward while the vehicle turns.
+      - text: "Track width becomes irrelevant"
         rationale: |
-          You assumed only the wheelbase matters. Because the SUV is taller, its center of gravity swings out further and faster during a sharp turn than the sports car's does.
-      - text: Neither vehicle can roll over, since both have four wheels providing support
+          This discards support geometry in a moving case. Acceleration adds another effect. Check that wheel spacing still affects rollover resistance.
+      - text: "The vertical weight line alone decides every turn"
         rationale: |
-          You assumed four wheels guarantee stability. Any vehicle can roll over if cornering forces push its center of gravity outside the footprint of its wheels.
+          This applies the motionless test without extra forces. The same truck can stand safely when parked. Check whether it is accelerating sideways.
     explanation: |
-      A higher center of gravity requires less tilt before the vertical line from the center of gravity could be pushed outside the base of support (the wheel base). Since the SUV has a higher center of gravity than the sports car (with the same base width), it is more prone to rolling over.
+      A turning vehicle accelerates sideways. The tire forces and that acceleration transfer load across the vehicle and create an overturning tendency. A static vertical weight line alone does not describe those effects.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-structural-stability-0013
-    type: structural-stability
-    difficulty: medium
+    figure: "structural-stability-12"
+    figureSpec:
+      kind: "stability-shape"
+      shapes:
+        - form: "truck"
+          baseWidth: 2
+          height: 3
+        - form: "truck"
+          baseWidth: 2
+          height: 1
+  - id: "q-mechanical-technical-reasoning-structural-stability-0013"
+    type: "structural-stability"
+    difficulty: "hard"
     stem: |
-      A ladder with widely spread legs is compared to an identical-height ladder with legs placed close together. Which ladder is more stable against tipping sideways?
+      In the shown wider stance, the feet stay fixed on level ground. As the person slowly leans sideways without stepping, which feature changes first in the static test?
     choices:
-      - text: The ladder with widely spread legs, since it has a wider base of support
+      - text: "The center-of-gravity projection"
         correct: true
-      - text: The ladder with legs close together, since a narrower base concentrates support
+      - text: "The gravitational field strength"
         rationale: |
-          You assumed concentrated support is better. A narrow base means even a small sideways lean will push your center of gravity outside the base, causing a fall.
-      - text: Both ladders are equally stable, since they are the same height
+          This makes body movement change gravity. Leaning changes the body's position. Check that the local field remains the same.
+      - text: "The region bounded by the feet"
         rationale: |
-          You assumed height is the only factor. The width of the base of support is just as critical; a wider base allows you to lean further safely.
-      - text: Neither ladder can be compared without knowing their exact weight
+          This assumes leaning automatically moves ground contacts. A person may later step. Check the condition that both feet stay fixed.
+      - text: "The total body mass"
         rationale: |
-          You assumed weight determines stability. While weight matters, the geometric relationship between the center of gravity and the base of support dictates when tipping occurs.
+          This treats a posture change as a mass change. More weight may seem to move toward one side. Check that no material is added or removed.
     explanation: |
-      A wider base of support means the vertical line from the center of gravity can shift farther sideways before falling outside that base, making the widely-spread-leg ladder more stable against tipping sideways.
+      Leaning shifts the body's center of gravity sideways. Its vertical projection therefore moves relative to the fixed feet. The contact region stays fixed until a foot moves or lifts.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-structural-stability-0014
-    type: structural-stability
-    difficulty: hard
+    figure: "structural-stability-13"
+    figureSpec:
+      kind: "stability-shape"
+      shapes:
+        - form: "person"
+          baseWidth: 3
+          height: 3
+  - id: "q-mechanical-technical-reasoning-structural-stability-0014"
+    type: "structural-stability"
+    difficulty: "hard"
     stem: |
-      A box's base of support extends 3 meters from the edge it is currently pivoting on. At a certain tilt angle, the vertical line dropped from its center of gravity falls 2 meters from that same edge, still within the base. Does the box tip over at this specific angle?
+      The shown box is tilted slowly about its lower right edge. Its weight line is still to the left of that pivot. On release without an extra push, what does gravity initially tend to do?
     choices:
-      - text: 'No: since 2 meters is still within the 3-meter base of support, the box remains stable at this tilt angle; it would only tip if the vertical line moved beyond the 3-meter edge'
+      - text: "Turn it back toward its flat base"
         correct: true
-      - text: 'Yes: any tilt at all causes the box to tip over immediately'
+      - text: "Turn it farther over the right edge"
         rationale: |
-          You assumed an object cannot tilt without falling. As long as the center of gravity remains directly over any part of the base, the object will rock back to a stable position.
-      - text: 'Yes: since 2 meters is more than half of 3 meters, the box has already tipped'
+          This places the weight line on the wrong side of the pivot. The box is already tilted. Check the stated side on which gravity acts.
+      - text: "Keep it at every chosen tilt angle"
         rationale: |
-          You assumed it tips once it passes the halfway mark. It only tips once the center of gravity passes the very outer edge of the 3-meter base.
-      - text: It cannot be determined without knowing the box's exact weight
+          This assumes contact with one edge guarantees equilibrium. The box still touches the ground. Check whether gravity has a nonzero moment arm.
+      - text: "Move the pivot outward without rotating"
         rationale: |
-          You assumed weight changes the tipping geometry. Tipping is based purely on whether the center of gravity is over the base, regardless of how heavy the box is.
+          This substitutes slipping for tipping. Both involve ground contact. Use the stated fixed-edge slow tilt.
     explanation: |
-      The box remains stable as long as the vertical line from its center of gravity stays within its base of support. Since 2 meters is still within the 3-meter base, the box has not yet tipped: it would only tip once the line moves beyond the 3-meter edge.
+      The weight acts downward on the inner side of the pivot. It creates a restoring torque about that edge. The initial turning tendency is back toward the flat base.
     approved: true
-
-  - id: q-mechanical-technical-reasoning-structural-stability-0015
-    type: structural-stability
-    difficulty: exam
+    figure: "structural-stability-14"
+    figureSpec:
+      kind: "stability-shape"
+      shapes:
+        - form: "box"
+          baseWidth: 2
+          height: 3
+      tilt: 15
+  - id: "q-mechanical-technical-reasoning-structural-stability-0015"
+    type: "structural-stability"
+    difficulty: "hard"
     stem: |
-      Box P has a low center of gravity and a wide base of support. Box Q has a high center of gravity and a narrow base of support. Both boxes are gradually tilted at the same steady rate, starting from level ground. Which box tips over first, and why?
+      The uniform boxes shown have equal base widths. The left is taller than the right. Both are tilted slowly about corresponding lower edges at the same rate. Which reaches the tipping threshold first?
     choices:
-      - text: Box Q tips over first, since both its higher center of gravity and its narrower base of support independently require less tilt before the vertical line from its center of gravity falls outside its base, compared to Box P's more favorable combination of both factors.
+      - text: "The taller box on the left"
         correct: true
-      - text: Box P tips over first, since a lower center of gravity always causes objects to tip sooner.
+      - text: "The shorter box on the right"
         rationale: |
-          You assumed a lower center of gravity makes tipping easier. It actually makes it much harder, because the object must tilt further before its weight shifts outside its base.
-      - text: Both boxes tip over at exactly the same tilt angle, since tilt rate is the only factor that matters.
+          This reverses the center-height effect. The shorter box has less height to move. Check how much sideways movement a tilt produces at its center.
+      - text: "Both at the same time because rates match"
         rationale: |
-          You assumed the speed of tilting is all that matters. The physical dimensions (how wide the base is and how high the weight is centered) determine the exact angle they tip at.
-      - text: Neither box will ever tip over, regardless of how far they are tilted.
+          This treats equal rates as equal threshold angles. They rotate at the same pace. Compare the different center heights.
+      - text: "Neither because both bases are flat"
         rationale: |
-          You assumed they are immune to tipping. Once any box is tilted far enough that its center of gravity passes its base, it will inevitably tip over.
+          This treats the starting contact as permanent protection. Both begin on level ground. Check how contact changes while the box tilts.
     explanation: |
-      Both stability factors favor Box P: a lower center of gravity and a wider base of support each independently require a larger tilt before the vertical line from the center of gravity is pushed outside the base. Box Q, with both a higher center of gravity and a narrower base, tips over first.
+      For equal base widths, the taller uniform box has a higher center of gravity. Its weight line reaches the pivot edge after a smaller tilt. At equal slow tilt rates it reaches that threshold first.
     approved: true
+    figure: "structural-stability-15"
+    figureSpec:
+      kind: "stability-shape"
+      shapes:
+        - form: "box"
+          baseWidth: 2
+          height: 3
+        - form: "box"
+          baseWidth: 2
+          height: 1
+  - id: "q-mechanical-technical-reasoning-structural-stability-0016"
+    type: "structural-stability"
+    difficulty: "easy"
+    stem: |
+      The dot shown in the uniform symmetric box is at its geometric center. Which condition justifies treating that point as its center of gravity?
+    choices:
+      - text: "Uniform mass distribution in uniform gravity"
+        correct: true
+      - text: "Every object has a geometric-center weight point"
+        rationale: |
+          This extends a symmetric-object result to all objects. The shown box is symmetric. Check whether an irregular or unevenly loaded object has the same symmetry.
+      - text: "The dot is halfway up, whatever the contents"
+        rationale: |
+          This ignores internal mass distribution. Halfway is the geometric center. Check whether heavy contents are concentrated at one end.
+      - text: "The object is resting on a perfectly flat floor"
+        rationale: |
+          This makes the support surface decide the weight point. The floor is flat. Check that the center depends on the object's mass distribution.
+    explanation: |
+      With mass spread uniformly in a symmetric shape, the opposing mass portions balance about the geometric center. In an approximately uniform gravitational field, the weight acts through that center.
+    approved: false
+    figure: "structural-stability-16"
+    figureSpec:
+      kind: "stability-shape"
+      shapes:
+        - form: "box"
+          baseWidth: 2
+          height: 3
+  - id: "q-mechanical-technical-reasoning-structural-stability-0017"
+    type: "structural-stability"
+    difficulty: "medium"
+    stem: |
+      The uniform hollow box shown has its center of gravity in the empty interior. What does this demonstrate about a center of gravity?
+    choices:
+      - text: "It can lie outside the material"
+        correct: true
+      - text: "It must be on a solid surface"
+        rationale: |
+          This requires the weight point to touch material. Forces seem to need a physical contact. Check the single-force description of distributed weight.
+      - text: "It disappears whenever an object is hollow"
+        rationale: |
+          This treats empty space as removing all weight. The box has an empty center. Check that its walls still have mass.
+      - text: "It always moves to the bottom wall"
+        rationale: |
+          This makes gravity pull the defined center into the lowest material. Gravity acts downward. Check the symmetric mass distribution before locating the center.
+    explanation: |
+      Symmetric mass on opposite sides of an empty interior can balance about a point in that space. The resultant weight can act through that point even though there is no material there.
+    approved: false
+    figure: "structural-stability-17"
+    figureSpec:
+      kind: "stability-shape"
+      shapes:
+        - form: "box"
+          baseWidth: 2
+          height: 3
+  - id: "q-mechanical-technical-reasoning-structural-stability-0018"
+    type: "structural-stability"
+    difficulty: "hard"
+    stem: |
+      The shown box is supported on its broad base. Its weight line is inside that base. Why can a sufficiently strong horizontal push still tip it?
+    choices:
+      - text: "The push adds an overturning torque"
+        correct: true
+      - text: "Inside projection cancels all external torques"
+        rationale: |
+          This treats a gravity test as immunity to other forces. The box starts stable. Check the added push and its moment arm.
+      - text: "The push makes the box's mass vanish"
+        rationale: |
+          This confuses reduced contact on one side with lost mass. The box may lift an edge. Check that its material remains present.
+      - text: "Any push must first move the weight point outside"
+        rationale: |
+          This assumes tipping can only start after the static threshold is crossed. Gravity acts through the inside point. Check the additional torque supplied by the push.
+    explanation: |
+      The projection test describes gravity and support in a static case. A horizontal push adds a force with its own turning effect. A large enough added torque can start tipping.
+    approved: false
+    figure: "structural-stability-18"
+    figureSpec:
+      kind: "stability-shape"
+      shapes:
+        - form: "box"
+          baseWidth: 2
+          height: 3
+  - id: "q-mechanical-technical-reasoning-structural-stability-0019"
+    type: "structural-stability"
+    difficulty: "hard"
+    stem: |
+      The two shown boxes have equal center heights. The right has a wider base. For the same slow sideways tilt from level ground, why does the right have a greater margin before gravity overturns it?
+    choices:
+      - text: "Its support edge is farther from the center"
+        correct: true
+      - text: "Its center automatically moves lower"
+        rationale: |
+          This attributes the width benefit to a changed height. Broad shapes can also be short. Use the stated equal center heights.
+      - text: "Its gravitational force is automatically smaller"
+        rationale: |
+          This treats spreading support as reducing total weight. Pressure may be distributed over more area. Check that total gravity force is not set by base width.
+      - text: "Its pivot cannot become a side edge"
+        rationale: |
+          This assumes a wide base prevents pivoting. More of the base initially touches. Check that slow tilting can still lift one side.
+    explanation: |
+      A wider base places the side edge farther from the initial weight line. The center must shift farther sideways before that line passes the edge. Equal center heights make the width difference decisive here.
+    approved: false
+    figure: "structural-stability-19"
+    figureSpec:
+      kind: "stability-shape"
+      shapes:
+        - form: "box"
+          baseWidth: 1
+          height: 2
+        - form: "box"
+          baseWidth: 3
+          height: 2
+  - id: "q-mechanical-technical-reasoning-structural-stability-0020"
+    type: "structural-stability"
+    difficulty: "exam"
+    stem: |
+      The three uniform boxes shown have equal base widths and heights decreasing from left to right. For slow tilting about corresponding side edges, rank the critical tipping angles from largest to smallest.
+    choices:
+      - text: "Right, middle, left"
+        correct: true
+      - text: "Left, middle, right"
+        rationale: |
+          This makes greater height raise the tipping angle. The tallest box looks most prominent. Check how its high center shifts sideways under tilt.
+      - text: "Middle, right, left"
+        rationale: |
+          This treats intermediate height as the best balance. The middle looks like a compromise. With equal bases, compare center height directly.
+      - text: "All three angles are equal"
+        rationale: |
+          This uses equal base widths alone. All support regions match. Check the different center heights as the boxes rotate.
+    explanation: |
+      With equal base widths, a lower center of gravity requires a greater tilt to bring the weight line to the edge. The right box is shortest, the middle next, and the left tallest. Their critical angles therefore rank right, middle, left.
+    approved: false
+    figure: "structural-stability-20"
+    figureSpec:
+      kind: "stability-shape"
+      shapes:
+        - form: "box"
+          baseWidth: 2
+          height: 3
+        - form: "box"
+          baseWidth: 2
+          height: 2
+        - form: "box"
+          baseWidth: 2
+          height: 1
