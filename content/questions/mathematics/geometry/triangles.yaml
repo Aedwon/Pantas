@@ -1,554 +1,436 @@
 meta:
-  subject: mathematics
-  topic: geometry
-  subtopic: triangles
-  exams:
-    - upcat
-    - acet
-    - dlsucet
-    - ustet
-    - pupcet
-
+  subject: 'mathematics'
+  topic: 'geometry'
+  subtopic: 'triangles'
+  exams: ['upcat', 'acet', 'dlsucet', 'ustet', 'pupcet']
 questions:
-  - id: q-geometry-triangles-0001
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      In $\triangle ABC$, the measure of $\angle A = 55^\circ$ and $\angle B = 65^\circ$. What is the measure of $\angle C$?
-    choices:
-      - text: '$60^\circ$'
-        correct: true
-      - text: '$120^\circ$'
-        correct: false
-        rationale: |
-          You added the two known angles but forgot to subtract from
-          $180^\circ$. $55^\circ + 65^\circ = 120^\circ$ is the combined
-          measure of $\angle A$ and $\angle B$. Subtract: $180^\circ -
-          120^\circ = 60^\circ$.
-      - text: '$30^\circ$'
-        correct: false
-        rationale: |
-          You subtracted from $90^\circ$ instead of $180^\circ$. The three
-          angles of any triangle sum to $180^\circ$, not $90^\circ$.
-          $180^\circ - 55^\circ - 65^\circ = 60^\circ$.
-      - text: '$70^\circ$'
-        correct: false
-        rationale: |
-          You used $55^\circ$ twice instead of $65^\circ$. $180^\circ -
-          55^\circ - 55^\circ = 70^\circ$, but $\angle B$ is $65^\circ$,
-          not $55^\circ$. The correct sum is $180^\circ - 120^\circ =
-          60^\circ$.
-    explanation: |
-      The sum of interior angles in any triangle is $180^\circ$.
-
-      1. Set up equation: $\angle A + \angle B + \angle C = 180^\circ$.
-      2. Substitute values: $55^\circ + 65^\circ + \angle C = 180^\circ \implies 120^\circ + \angle C = 180^\circ$.
-      3. Solve for $\angle C$: $\angle C = 180^\circ - 120^\circ = 60^\circ$.
-
-      Common Trap: Forgetting to subtract from $180^\circ$ gives $120^\circ$.
-
-  - id: q-geometry-triangles-0002
-    type: which-is-true
-    difficulty: easy
-    stem: |
-      According to the Triangle Inequality Theorem, which set of three side lengths CANNOT form a valid triangle?
-    choices:
-      - text: '$6\text{ cm}, 8\text{ cm}, 14\text{ cm}$'
-        correct: true
-      - text: '$5\text{ cm}, 7\text{ cm}, 10\text{ cm}$'
-        correct: false
-        rationale: |
-          You picked a valid set. $5 + 7 = 12 > 10$, so these three lengths
-          do form a triangle. The set that fails is $6, 8, 14$ because
-          $6 + 8 = 14$, which is not strictly greater than 14.
-      - text: '$4\text{ cm}, 9\text{ cm}, 11\text{ cm}$'
-        correct: false
-        rationale: |
-          You picked a valid set. $4 + 9 = 13 > 11$, so these three lengths
-          do form a triangle. The set that fails is $6, 8, 14$ because
-          $6 + 8 = 14$, which equals the third side and is not strictly
-          greater.
-      - text: '$7\text{ cm}, 24\text{ cm}, 25\text{ cm}$'
-        correct: false
-        rationale: |
-          You picked a valid set. $7 + 24 = 31 > 25$, so these three
-          lengths do form a triangle. The set that fails is $6, 8, 14$
-          where $6 + 8 = 14$, not greater.
-    explanation: |
-      The Triangle Inequality Theorem states that the sum of the lengths of any two sides of a triangle must be strictly greater than the length of the third side.
-
-      1. For $6, 8, 14$: $6 + 8 = 14$, which is equal to $14$, not strictly greater ($14 \ngtr 14$). Thus, these lengths cannot form a triangle.
-      2. For $5, 7, 10$: $5 + 7 = 12 > 10$ (valid).
-      3. For $4, 9, 11$: $4 + 9 = 13 > 11$ (valid).
-      4. For $7, 24, 25$: $7 + 24 = 31 > 25$ (valid).
-
-      Common Trap: Assuming $a + b \ge c$ is sufficient; the inequality must be strict ($a + b > c$).
-
-  - id: q-geometry-triangles-0003
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      An exterior angle of a triangle measures $125^\circ$. One of its remote interior angles measures $55^\circ$. What is the measure of the other remote interior angle?
-    choices:
-      - text: '$70^\circ$'
-        correct: true
-      - text: '$55^\circ$'
-        correct: false
-        rationale: |
-          You returned the given remote interior angle. The question asks
-          for the other one. By the Exterior Angle Theorem: $125^\circ =
-          55^\circ + \text{Remote}_2$, so $\text{Remote}_2 = 125^\circ
-          - 55^\circ = 70^\circ$.
-      - text: '$180^\circ$'
-        correct: false
-        rationale: |
-          You added the exterior angle and the given remote interior angle:
-          $125^\circ + 55^\circ = 180^\circ$. That is not the theorem.
-          The Exterior Angle Theorem says the exterior angle equals the
-          sum of the two remote interior angles: $125^\circ = 55^\circ +
-          70^\circ$.
-      - text: '$125^\circ$'
-        correct: false
-        rationale: |
-          You returned the exterior angle instead of using it to find the
-          missing remote interior angle. Subtract the given remote angle:
-          $125^\circ - 55^\circ = 70^\circ$.
-    explanation: |
-      By the Exterior Angle Theorem, an exterior angle of a triangle is equal to the sum of its two remote interior angles.
-
-      1. Set up equation: $\text{Exterior Angle} = \text{Remote}_1 + \text{Remote}_2$.
-      2. Substitute values: $125^\circ = 55^\circ + \text{Remote}_2$.
-      3. Solve: $\text{Remote}_2 = 125^\circ - 55^\circ = 70^\circ$.
-
-      Common Trap: Confusing the adjacent interior angle ($180^\circ - 125^\circ = 55^\circ$) with the second remote interior angle.
-
-  - id: q-geometry-triangles-0004
-    type: which-is-true
-    difficulty: easy
-    stem: |
-      Which of the following shortcuts is NOT a valid criterion for proving that two triangles are congruent?
-    choices:
-      - text: "SSA (Side-Side-Angle)"
-        correct: true
-      - text: "SSS (Side-Side-Side)"
-        correct: false
-        rationale: |
-          You picked a valid criterion. SSS is a valid congruence test:
-          if all three sides of one triangle equal all three sides of
-          another, the triangles are congruent. SSA is the one that fails.
-      - text: "SAS (Side-Angle-Side)"
-        correct: false
-        rationale: |
-          You picked a valid criterion. SAS is valid: two sides and the
-          included angle determine a unique triangle. SSA is invalid
-          because the angle is not between the two known sides, which
-          allows two different triangles.
-      - text: "AAS (Angle-Angle-Side)"
-        correct: false
-        rationale: |
-          You picked a valid criterion. AAS is valid: two angles fix the
-          shape, and the known non-included side pins the size. The invalid
-          one is SSA, not AAS.
-    explanation: |
-      - SSS, SAS, ASA, AAS, and HL (Hypotenuse-Leg) are valid triangle congruence criteria.
-      - SSA (Side-Side-Angle) and AAA (Angle-Angle-Angle) are NOT valid congruence criteria. SSA is ambiguous and can form two different triangles, while AAA only proves similarity, not congruence.
-
-  - id: q-geometry-triangles-0005
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      A right triangle has legs of length $9\text{ cm}$ and $12\text{ cm}$. What is the length of its hypotenuse?
-    choices:
-      - text: '$15\text{ cm}$'
-        correct: true
-      - text: '$21\text{ cm}$'
-        correct: false
-        rationale: |
-          You added the two legs directly: $9 + 12 = 21$. The Pythagorean
-          theorem requires squaring them first, then taking the square root:
-          $\sqrt{9^2 + 12^2} = \sqrt{81 + 144} = \sqrt{225} = 15$.
-      - text: '$10.5\text{ cm}$'
-        correct: false
-        rationale: |
-          You averaged the two legs: $(9 + 12) / 2 = 10.5$. The hypotenuse
-          is found with $c = \sqrt{a^2 + b^2}$, not the average.
-          $\sqrt{81 + 144} = \sqrt{225} = 15$.
-      - text: '$\sqrt{63}\text{ cm}$'
-        correct: false
-        rationale: |
-          You subtracted instead of adding the squares: $\sqrt{12^2 - 9^2}
-          = \sqrt{144 - 81} = \sqrt{63}$. That gives a leg when the
-          hypotenuse is known. Here both legs are known, so add:
-          $\sqrt{81 + 144} = 15$.
-    explanation: |
-      Apply the Pythagorean theorem $a^2 + b^2 = c^2$:
-
-      1. Substitute leg values: $9^2 + 12^2 = c^2$.
-      2. Simplify: $81 + 144 = 225 = c^2$.
-      3. Take square root: $c = \sqrt{225} = 15\text{ cm}$.
-
-      Common Trap: Simply adding leg lengths ($9 + 12 = 21$) instead of squaring them first.
-
-  - id: q-geometry-triangles-0006
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      An isosceles right triangle ($45^\circ-45^\circ-90^\circ$) has a hypotenuse of length $10\sqrt{2}\text{ cm}$. What is the perimeter of the triangle?
-    choices:
-      - text: '$20 + 10\sqrt{2}\text{ cm}$'
-        correct: true
-      - text: '$30\sqrt{2}\text{ cm}$'
-        correct: false
-        rationale: |
-          You treated all three sides as $10\sqrt{2}$ and added them. Only
-          the hypotenuse is $10\sqrt{2}$. The two legs are each $10$ (divide
-          hypotenuse by $\sqrt{2}$). Perimeter $= 10 + 10 + 10\sqrt{2} =
-          20 + 10\sqrt{2}$.
-      - text: '$30\text{ cm}$'
-        correct: false
-        rationale: |
-          You replaced the hypotenuse with 10 and added $10 + 10 + 10 =
-          30$, dropping the $\sqrt{2}$. The hypotenuse stays $10\sqrt{2}$.
-          Perimeter $= 10 + 10 + 10\sqrt{2} = 20 + 10\sqrt{2}$.
-      - text: '$10 + 10\sqrt{2}\text{ cm}$'
-        correct: false
-        rationale: |
-          You counted only one leg instead of two. Both legs are $10$, so
-          the perimeter includes $10 + 10 = 20$ from the legs, plus
-          $10\sqrt{2}$ for the hypotenuse.
-    explanation: |
-      In a $45^\circ-45^\circ-90^\circ$ triangle, $\text{hypotenuse} = \text{leg} \times \sqrt{2}$.
-
-      1. Calculate leg length: $\text{leg} = \frac{10\sqrt{2}}{\sqrt{2}} = 10\text{ cm}$.
-      2. Since it is isosceles right, both legs are $10\text{ cm}$.
-      3. Calculate perimeter: $P = \text{leg}_1 + \text{leg}_2 + \text{hypotenuse} = 10 + 10 + 10\sqrt{2} = 20 + 10\sqrt{2}\text{ cm}$.
-
-      Common Trap: Adding $10 + 10 + 10 = 30$ by dropping the radical on the hypotenuse, or combining terms incorrectly to get $30\sqrt{2}$.
-
-  - id: q-geometry-triangles-0007
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      In $\triangle PQR$, $\angle P = 90^\circ$, $\angle Q = 60^\circ$, and $\angle R = 30^\circ$. If hypotenuse $QR = 16\text{ cm}$, what is the length of side $PR$ opposite the $60^\circ$ angle?
-    choices:
-      - text: '$8\sqrt{3}\text{ cm}$'
-        correct: true
-      - text: '$8\text{ cm}$'
-        correct: false
-        rationale: |
-          You found the short leg (opposite $30^\circ$): $16/2 = 8$. But
-          the question asks for the side opposite $60^\circ$, which is the
-          long leg. Multiply the short leg by $\sqrt{3}$: $8\sqrt{3}$.
-      - text: '$16\sqrt{3}\text{ cm}$'
-        correct: false
-        rationale: |
-          You multiplied the full hypotenuse by $\sqrt{3}$ instead of the
-          short leg. In a $30^\circ-60^\circ-90^\circ$ triangle, the long
-          leg is $\text{short leg} \times \sqrt{3}$. The short leg is
-          $16/2 = 8$, giving $8\sqrt{3}$.
-      - text: '$\frac{16}{\sqrt{3}}\text{ cm}$'
-        correct: false
-        rationale: |
-          You divided the hypotenuse by $\sqrt{3}$, which gives neither
-          the short leg nor the long leg. The long leg (opposite $60^\circ$)
-          is $\text{short leg} \times \sqrt{3} = (16/2) \times \sqrt{3} =
-          8\sqrt{3}$.
-    explanation: |
-      In a $30^\circ-60^\circ-90^\circ$ triangle:
-      - $\text{Short leg (opposite } 30^\circ) = \frac{\text{hypotenuse}}{2} = \frac{16}{2} = 8\text{ cm}$.
-      - $\text{Long leg (opposite } 60^\circ) = \text{short leg} \times \sqrt{3} = 8\sqrt{3}\text{ cm}$.
-
-      1. Side $PR$ is opposite $60^\circ$, so it is the long leg.
-      2. Therefore, $PR = 8\sqrt{3}\text{ cm}$.
-
-      Common Trap: Reporting the short leg ($8\text{ cm}$) instead of multiplying by $\sqrt{3}$ for the long leg.
-
-  - id: q-geometry-triangles-0008
-    type: which-is-true
-    difficulty: medium
-    stem: |
-      Given that $\triangle ABC \sim \triangle DEF$ with $AB = 6\text{ cm}$, $BC = 8\text{ cm}$, $AC = 10\text{ cm}$, and $DE = 9\text{ cm}$, which statement is true regarding the perimeter of $\triangle DEF$?
-    choices:
-      - text: 'The perimeter of $\triangle DEF$ is $36\text{ cm}$.'
-        correct: true
-      - text: 'The perimeter of $\triangle DEF$ is $27\text{ cm}$.'
-        correct: false
-        rationale: |
-          You matched $DE$ with $BC$ instead of $AB$. The triangles are
-          named so that $A \leftrightarrow D$, $B \leftrightarrow E$,
-          $C \leftrightarrow F$, meaning $DE$ corresponds to $AB = 6$.
-          Scale factor $= 9/6 = 1.5$. Perimeter $= 1.5 \times 24 = 36$.
-      - text: 'The perimeter of $\triangle DEF$ is $54\text{ cm}$.'
-        correct: false
-        rationale: |
-          You squared the scale factor before applying it to the perimeter.
-          Squaring ($1.5^2 = 2.25$) applies to areas, not perimeters.
-          For perimeters, multiply by the linear scale factor: $1.5 \times
-          24 = 36$.
-      - text: 'The perimeter of $\triangle DEF$ is $24\text{ cm}$.'
-        correct: false
-        rationale: |
-          You returned the perimeter of $\triangle ABC$ without scaling.
-          $P_{ABC} = 6 + 8 + 10 = 24$. The scale factor is $9/6 = 1.5$,
-          so $P_{DEF} = 1.5 \times 24 = 36$.
-    explanation: |
-      1. Calculate perimeter of $\triangle ABC$: $P_{ABC} = 6 + 8 + 10 = 24\text{ cm}$.
-      2. Find scale factor between corresponding sides $DE$ and $AB$:
-         $$k = \frac{DE}{AB} = \frac{9}{6} = 1.5$$
-      3. The ratio of perimeters of similar triangles equals the linear scale factor $k$:
-         $$P_{DEF} = k \times P_{ABC} = 1.5 \times 24 = 36\text{ cm}$$
-
-      Common Trap: Squaring the scale factor ($1.5^2 = 2.25$) to get $54\text{ cm}$, which applies to area ratios, not perimeter ratios.
-
-  - id: q-geometry-triangles-0009
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      The interior angles of a triangle are in the ratio $2 : 3 : 7$. What is the measure of the largest angle?
-    choices:
-      - text: '$105^\circ$'
-        correct: true
-      - text: '$45^\circ$'
-        correct: false
-        rationale: |
-          You computed the middle angle. With $x = 15^\circ$: $3x = 45^\circ$
-          is the second-largest angle. The largest is the one with ratio 7:
-          $7 \times 15^\circ = 105^\circ$.
-      - text: '$30^\circ$'
-        correct: false
-        rationale: |
-          You computed the smallest angle. With $x = 15^\circ$: $2x =
-          30^\circ$ is the smallest. The largest angle uses ratio 7:
-          $7 \times 15^\circ = 105^\circ$.
-      - text: '$70^\circ$'
-        correct: false
-        rationale: |
-          You used $x = 10^\circ$ instead of $x = 15^\circ$. The sum of
-          the ratios is $2 + 3 + 7 = 12$, so $12x = 180^\circ$ gives
-          $x = 15^\circ$. The largest angle is $7 \times 15^\circ =
-          105^\circ$.
-    explanation: |
-      1. Let the three angles be $2x$, $3x$, and $7x$.
-      2. Sum of angles in a triangle: $2x + 3x + 7x = 180^\circ \implies 12x = 180^\circ \implies x = 15^\circ$.
-      3. Calculate angles:
-         - Smallest: $2(15^\circ) = 30^\circ$
-         - Middle: $3(15^\circ) = 45^\circ$
-         - Largest: $7(15^\circ) = 105^\circ$
-
-      Common Trap: Calculating the middle angle ($45^\circ$) or smallest angle ($30^\circ$) instead of the largest.
-
-  - id: q-geometry-triangles-0010
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      In a right triangle, the hypotenuse has length $x + 2$, one leg has length $x$, and the other leg has length $x - 2$. What is the length of the hypotenuse?
-    choices:
-      - text: "$10$"
-        correct: true
-      - text: "$8$"
-        correct: false
-        rationale: |
-          You found $x = 8$ but stopped. That is the length of the longer
-          leg, not the hypotenuse. The hypotenuse is $x + 2 = 8 + 2 = 10$.
-      - text: "$6$"
-        correct: false
-        rationale: |
-          You computed the shorter leg $x - 2 = 8 - 2 = 6$. The question
-          asks for the hypotenuse, which is $x + 2 = 8 + 2 = 10$.
-      - text: "$14$"
-        correct: false
-        rationale: |
-          You added the two legs $x + (x - 2) = 8 + 6 = 14$ instead of
-          reporting the hypotenuse. The hypotenuse is $x + 2 = 8 + 2 = 10$.
-    explanation: |
-      Apply Pythagorean theorem $(a^2 + b^2 = c^2)$:
-
-      1. Set up equation: $x^2 + (x - 2)^2 = (x + 2)^2$.
-      2. Expand terms: $x^2 + (x^2 - 4x + 4) = x^2 + 4x + 4$.
-      3. Simplify: $2x^2 - 4x + 4 = x^2 + 4x + 4 \implies x^2 - 8x = 0$.
-      4. Factor: $x(x - 8) = 0 \implies x = 0$ or $x = 8$. Since the leg $x - 2$ must be positive, $x > 2$, so only $x = 8$ is valid.
-      5. Hypotenuse $= x + 2 = 8 + 2 = 10$.
-
-      Common Trap: Stopping at $x = 8$ (which is the length of the longer leg) instead of finding the hypotenuse $x + 2 = 10$.
-
-  - id: q-geometry-triangles-0011
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      In $\triangle ABC$, side $BC$ is extended to point $D$ to form exterior angle $\angle ACD = (7x - 5)^\circ$. The remote interior angles are $\angle A = (3x + 10)^\circ$ and $\angle B = (2x + 15)^\circ$. What is the measure of interior angle $\angle ACB$?
-    choices:
-      - text: '$80^\circ$'
-        correct: true
-      - text: '$100^\circ$'
-        correct: false
-        rationale: |
-          You found the exterior angle $\angle ACD = 100^\circ$ correctly
-          but returned it instead of the interior angle. $\angle ACB$ and
-          $\angle ACD$ form a linear pair: $180^\circ - 100^\circ = 80^\circ$.
-      - text: '$55^\circ$'
-        correct: false
-        rationale: |
-          You computed $\angle A$ at $x = 15$: $3(15) + 10 = 55^\circ$.
-          That is one of the remote interior angles, not $\angle ACB$.
-          First find the exterior angle ($100^\circ$), then subtract from
-          $180^\circ$ to get $80^\circ$.
-      - text: '$45^\circ$'
-        correct: false
-        rationale: |
-          You computed $\angle B$ at $x = 15$: $2(15) + 15 = 45^\circ$.
-          That is the other remote interior angle, not $\angle ACB$.
-          The interior angle at $C$ is $180^\circ - 100^\circ = 80^\circ$.
-    explanation: |
-      1. By Exterior Angle Theorem: $\angle ACD = \angle A + \angle B$.
-      2. Set up equation: $7x - 5 = (3x + 10) + (2x + 15)$.
-      3. Combine like terms: $7x - 5 = 5x + 25 \implies 2x = 30 \implies x = 15$.
-      4. Find exterior angle $\angle ACD$: $7(15) - 5 = 105 - 5 = 100^\circ$.
-      5. Interior angle $\angle ACB$ forms a linear pair with $\angle ACD$:
-         $$\angle ACB = 180^\circ - 100^\circ = 80^\circ$$
-
-      Common Trap: Reporting the exterior angle measure ($100^\circ$) instead of the interior angle measure ($80^\circ$).
-
-  - id: q-geometry-triangles-0012
-    type: which-is-true
-    difficulty: hard
-    stem: |
-      A triangle has two sides of length $7\text{ cm}$ and $11\text{ cm}$. Which inequality correctly expresses all possible values for the length of the third side $s$?
-    choices:
-      - text: "$4 < s < 18$"
-        correct: true
-      - text: '$4 \le s \le 18$'
-        correct: false
-        rationale: |
-          You used non-strict inequalities. When $s = 4$ or $s = 18$, the
-          three sides form a degenerate triangle (a straight line with no
-          area). The triangle inequality requires strict inequalities:
-          $4 < s < 18$.
-      - text: "$7 < s < 11$"
-        correct: false
-        rationale: |
-          You listed the range between the two given sides instead of
-          applying the Triangle Inequality Theorem. The lower bound is
-          $|11 - 7| = 4$ and the upper bound is $11 + 7 = 18$.
-      - text: "$0 < s < 18$"
-        correct: false
-        rationale: |
-          You applied the upper bound correctly ($s < 18$) but forgot the
-          lower bound. By the triangle inequality, $s > |11 - 7| = 4$.
-          Any side of length 4 or less cannot close the triangle.
-    explanation: |
-      By the Triangle Inequality Theorem:
-      - Lower bound: $|11 - 7| = 4$
-      - Upper bound: $11 + 7 = 18$
-      - The inequality must be strict: $4 < s < 18$.
-
-      Common Trap: Including endpoints with non-strict inequalities ($\le$), which degenerate into straight line segments of zero area.
-
-  - id: q-geometry-triangles-0013
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      In right $\triangle ABC$ with right angle at $C$, altitude $CD$ is drawn perpendicular to hypotenuse $AB$. If segment $AD = 4\text{ cm}$ and segment $DB = 9\text{ cm}$, what is the length of altitude $CD$?
-    choices:
-      - text: '$6\text{ cm}$'
-        correct: true
-      - text: '$6.5\text{ cm}$'
-        correct: false
-        rationale: |
-          You took the arithmetic mean: $(4 + 9) / 2 = 6.5$. The Geometric
-          Mean Theorem says to use the geometric mean, not the arithmetic
-          mean: $CD = \sqrt{AD \times DB} = \sqrt{4 \times 9} = \sqrt{36}
-          = 6$.
-      - text: '$13\text{ cm}$'
-        correct: false
-        rationale: |
-          You added the two segments: $4 + 9 = 13$. The altitude is found
-          by multiplying them and taking the square root: $\sqrt{4 \times
-          9} = \sqrt{36} = 6$.
-      - text: '$36\text{ cm}$'
-        correct: false
-        rationale: |
-          You computed $4 \times 9 = 36$ but forgot to take the square
-          root. The Geometric Mean Theorem gives $CD = \sqrt{AD \times DB}
-          = \sqrt{36} = 6$.
-    explanation: |
-      By the Geometric Mean Theorem (Altitude Rule) in right triangles:
-      $$CD = \sqrt{AD \times DB}$$
-
-      1. Substitute segment lengths: $CD = \sqrt{4 \times 9} = \sqrt{36}$.
-      2. Simplify: $CD = 6\text{ cm}$.
-
-      Common Trap: Taking the arithmetic mean $\frac{4 + 9}{2} = 6.5\text{ cm}$ instead of the geometric mean.
-
-  - id: q-geometry-triangles-0014
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      Triangle 1 is a $30^\circ-60^\circ-90^\circ$ triangle where $6\text{ cm}$ is the shorter leg. Triangle 2 is a $45^\circ-45^\circ-90^\circ$ triangle where $6\text{ cm}$ is one of its legs. What is the ratio of the length of the hypotenuse of Triangle 1 to the hypotenuse of Triangle 2?
-    choices:
-      - text: '$\sqrt{2}$'
-        correct: true
-      - text: '$\frac{\sqrt{3}}{\sqrt{2}}$'
-        correct: false
-        rationale: |
-          You used the long leg of Triangle 1 ($6\sqrt{3}$) as the
-          hypotenuse. The hypotenuse of a $30^\circ-60^\circ-90^\circ$
-          triangle is twice the short leg: $2 \times 6 = 12$. Then
-          $12 / (6\sqrt{2}) = \sqrt{2}$.
-      - text: "$2$"
-        correct: false
-        rationale: |
-          You divided the hypotenuse of Triangle 1 by the leg length $6$
-          instead of the hypotenuse of Triangle 2. Hyp$_1 = 12$ and
-          Hyp$_2 = 6\sqrt{2}$. The ratio is $12 / (6\sqrt{2}) = 2/\sqrt{2}
-          = \sqrt{2}$.
-      - text: '$\frac{2}{\sqrt{3}}$'
-        correct: false
-        rationale: |
-          You divided the hypotenuse of Triangle 1 ($12$) by the long
-          leg of Triangle 1 ($6\sqrt{3}$): $12 / (6\sqrt{3}) = 2/\sqrt{3}$.
-          The denominator should be the hypotenuse of Triangle 2, which
-          is $6\sqrt{2}$.
-    explanation: |
-      1. Triangle 1 ($30^\circ-60^\circ-90^\circ$): Short leg $= 6\text{ cm}$.
-         $$\text{Hypotenuse}_1 = 2 \times 6 = 12\text{ cm}$$
-      2. Triangle 2 ($45^\circ-45^\circ-90^\circ$): Leg $= 6\text{ cm}$.
-         $$\text{Hypotenuse}_2 = 6\sqrt{2}\text{ cm}$$
-      3. Calculate ratio:
-         $$\frac{\text{Hypotenuse}_1}{\text{Hypotenuse}_2} = \frac{12}{6\sqrt{2}} = \frac{2}{\sqrt{2}} = \sqrt{2}$$
-
-  - id: q-geometry-triangles-0015
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      $\triangle ABC \sim \triangle PQR$. The area of $\triangle ABC$ is $32\text{ cm}^2$ and the area of $\triangle PQR$ is $72\text{ cm}^2$. If side $AB = 8\text{ cm}$, what is the length of corresponding side $PQ$?
-    choices:
-      - text: '$12\text{ cm}$'
-        correct: true
-      - text: '$18\text{ cm}$'
-        correct: false
-        rationale: |
-          You applied the area ratio directly without taking the square
-          root. $(72/32) \times 8 = 2.25 \times 8 = 18$. Area ratios equal
-          the square of the side ratio, so take the square root first:
-          $\sqrt{72/32} = 1.5$. Then $PQ = 1.5 \times 8 = 12$.
-      - text: '$16\text{ cm}$'
-        correct: false
-        rationale: |
-          You doubled $AB$ instead of scaling by the correct factor. The
-          linear scale factor is $\sqrt{72/32} = \sqrt{9/4} = 3/2 = 1.5$.
-          So $PQ = 1.5 \times 8 = 12$, not $2 \times 8 = 16$.
-      - text: '$9.6\text{ cm}$'
-        correct: false
-        rationale: |
-          You set up the area ratio inverted: $(32/72) = (PQ/8)^2$, giving
-          a scale factor less than 1. Since $\triangle PQR$ has a larger
-          area, $PQ$ must be larger than $AB$. The correct ratio is
-          $(72/32) = (PQ/8)^2$, giving $PQ = 12$.
-    explanation: |
-      1. The ratio of areas of similar triangles is equal to the square of the ratio of corresponding side lengths:
-         $$\frac{\text{Area}_{PQR}}{\text{Area}_{ABC}} = \left(\frac{PQ}{AB}\right)^2 \implies \frac{72}{32} = \left(\frac{PQ}{8}\right)^2$$
-      2. Simplify area ratio: $\frac{72}{32} = \frac{9}{4}$.
-      3. Take square root to get side ratio: $\frac{PQ}{8} = \sqrt{\frac{9}{4}} = \frac{3}{2} = 1.5$.
-      4. Solve for $PQ$: $PQ = 1.5 \times 8 = 12\text{ cm}$.
-
-      Common Trap: Applying the area ratio directly without taking the square root ($\frac{9}{4} \times 8 = 18\text{ cm}$).
+- id: 'q-geometry-triangles-0001'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    In $\triangle ABC$, the measure of $\angle A = 55^\circ$ and $\angle B = 65^\circ$. What is the measure of $\angle C$?
+  choices:
+  - text: '$60^\circ$'
+    correct: true
+  - text: '$120^\circ$'
+    correct: false
+    rationale: |
+      This reports the sum of the two known angles. That sum is needed first. Check that all three angles together must total $180^\circ$.
+  - text: '$115^\circ$'
+    correct: false
+    rationale: |
+      This leaves out angle B when subtracting from $180^\circ$. Subtracting one known angle starts the calculation. Check that both given angles are included.
+  - text: '$70^\circ$'
+    correct: false
+    rationale: |
+      This uses $55^\circ$ twice. Both given angles are close in size. Check each stated angle before adding.
+  explanation: |
+    Triangle angles total $180^\circ$. The known angles total $55^\circ+65^\circ=120^\circ$. The remaining angle is $180^\circ-120^\circ=60^\circ$.
+- id: 'q-geometry-triangles-0002'
+  type: 'which-is-true'
+  difficulty: 'easy'
+  stem: |
+    According to the Triangle Inequality Theorem, which set of three side lengths CANNOT form a valid triangle?
+  choices:
+  - text: '$6\text{ cm}, 8\text{ cm}, 14\text{ cm}$'
+    correct: true
+  - text: '$5\text{ cm}, 7\text{ cm}, 10\text{ cm}$'
+    correct: false
+    rationale: |
+      This assumes the longest side cannot exceed either shorter side. That can make $10$ seem too large. Check the sum of the two shorter sides.
+  - text: '$4\text{ cm}, 9\text{ cm}, 11\text{ cm}$'
+    correct: false
+    rationale: |
+      This assumes unequal sides cannot make a triangle. The lengths look very different. Check their sums, not whether they match.
+  - text: '$7\text{ cm}, 24\text{ cm}, 25\text{ cm}$'
+    correct: false
+    rationale: |
+      This rejects a right-triangle triple. The largest side is much longer than the smallest. Check whether the two shorter sides together exceed it.
+  explanation: |
+    The two shorter sides must add to more than the longest side. Here $6+8=14$, exactly the longest side. These lengths would lie flat, so they cannot make a triangle.
+- id: 'q-geometry-triangles-0003'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    An exterior angle of a triangle measures $125^\circ$. One of its remote interior angles measures $55^\circ$. What is the measure of the other remote interior angle?
+  choices:
+  - text: '$70^\circ$'
+    correct: true
+  - text: '$55^\circ$'
+    correct: false
+    rationale: |
+      This reports the neighboring interior angle instead of the other remote angle. Subtracting the exterior angle from $180^\circ$ gives $55^\circ$. Check which angles the question calls remote.
+  - text: '$180^\circ$'
+    correct: false
+    rationale: |
+      This adds the given angles instead of subtracting. Both numbers appear in the exterior-angle rule. Check which angle is already the total.
+  - text: '$125^\circ$'
+    correct: false
+    rationale: |
+      This treats the whole exterior angle as one remote angle. The exterior angle is the stated total. Check that it must include two remote angles.
+  explanation: |
+    The exterior angle equals the two remote angles added together. Write $55^\circ+x=125^\circ$. Subtract $55^\circ$ to get $x=70^\circ$.
+- id: 'q-geometry-triangles-0004'
+  type: 'which-is-true'
+  difficulty: 'easy'
+  stem: |
+    Which of the following shortcuts is NOT a valid criterion for proving that two triangles are congruent?
+  choices:
+  - text: 'SSA (Side-Side-Angle)'
+    correct: true
+  - text: 'SSS (Side-Side-Side)'
+    correct: false
+    rationale: |
+      This rejects three matching side lengths. No angle is stated, so the information may seem incomplete. Check the SSS congruence rule.
+  - text: 'SAS (Side-Angle-Side)'
+    correct: false
+    rationale: |
+      This confuses an included angle with a non-included angle. Both tests name two sides and an angle. Check where the known angle lies.
+  - text: 'AAS (Angle-Angle-Side)'
+    correct: false
+    rationale: |
+      This assumes only the side between two angles can fix size. AAS uses a different side position. Check that two angles fix the third and the matching side fixes size.
+  explanation: |
+    SSA gives two sides and an angle that is not between them. Those facts can fit two different triangles. Therefore SSA alone does not guarantee the same shape and size.
+- id: 'q-geometry-triangles-0005'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    A right triangle has legs of length $9\text{ cm}$ and $12\text{ cm}$. What is the length of its hypotenuse?
+  choices:
+  - text: '$15\text{ cm}$'
+    correct: true
+  - text: '$21\text{ cm}$'
+    correct: false
+    rationale: |
+      This adds the leg lengths directly. Both lengths are needed. Check that the theorem adds their squares.
+  - text: '$10.5\text{ cm}$'
+    correct: false
+    rationale: |
+      This averages the legs. An average uses both measurements. Check that the hypotenuse must exceed each leg.
+  - text: '$\sqrt{63}\text{ cm}$'
+    correct: false
+    rationale: |
+      This subtracts the squared legs. Subtraction is useful when finding a missing leg. Check whether the unknown is a leg or the hypotenuse.
+  explanation: |
+    For the hypotenuse, add the squared legs: $c^2=9^2+12^2=81+144=225$. Take the positive square root: $c=15$ cm.
+- id: 'q-geometry-triangles-0006'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    An isosceles right triangle ($45^\circ-45^\circ-90^\circ$) has a hypotenuse of length $10\sqrt{2}\text{ cm}$. What is the perimeter of the triangle?
+  choices:
+  - text: '$20 + 10\sqrt{2}\text{ cm}$'
+    correct: true
+  - text: '$30\sqrt{2}\text{ cm}$'
+    correct: false
+    rationale: |
+      This treats all three sides as equal to the hypotenuse. The triangle has two equal sides. Check that only the legs are equal.
+  - text: '$30\text{ cm}$'
+    correct: false
+    rationale: |
+      This drops $\sqrt{2}$ from the hypotenuse. The two legs are each $10$ cm. Check that the given hypotenuse keeps its radical.
+  - text: '$10 + 10\sqrt{2}\text{ cm}$'
+    correct: false
+    rationale: |
+      This counts only one leg. One leg and the hypotenuse are part of the boundary. Check that perimeter includes all three sides.
+  explanation: |
+    Each leg is the hypotenuse divided by $\sqrt{2}$: $\dfrac{10\sqrt{2}}{\sqrt{2}}=10$ cm. Add the two legs and the hypotenuse: $10+10+10\sqrt{2}=20+10\sqrt{2}$ cm.
+- id: 'q-geometry-triangles-0007'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    In $\triangle PQR$, $\angle P = 90^\circ$, $\angle Q = 60^\circ$, and $\angle R = 30^\circ$. If hypotenuse $QR = 16\text{ cm}$, what is the length of side $PR$ opposite the $60^\circ$ angle?
+  choices:
+  - text: '$8\sqrt{3}\text{ cm}$'
+    correct: true
+  - text: '$8\text{ cm}$'
+    correct: false
+    rationale: |
+      This gives the short leg. Halving the hypotenuse is needed first. Check which angle is opposite the requested side.
+  - text: '$16\sqrt{3}\text{ cm}$'
+    correct: false
+    rationale: |
+      This multiplies the hypotenuse by $\sqrt{3}$. That factor belongs in the special-triangle rule. Check that it multiplies the short leg.
+  - text: '$\dfrac{16}{\sqrt{3}}\text{ cm}$'
+    correct: false
+    rationale: |
+      This treats the hypotenuse as the long leg and divides by $\sqrt{3}$. Division by that factor can find the short leg from the long one. Check the roles of the given and requested sides.
+  explanation: |
+    The short leg is half the hypotenuse: $16\div2=8$ cm. PR is opposite $60^\circ$, so it is the long leg. Multiply the short leg by $\sqrt{3}$ to get $8\sqrt{3}$ cm.
+- id: 'q-geometry-triangles-0008'
+  type: 'which-is-true'
+  difficulty: 'medium'
+  stem: |
+    Given that $\triangle ABC \sim \triangle DEF$ with $AB = 6\text{ cm}$, $BC = 8\text{ cm}$, $AC = 10\text{ cm}$, and $DE = 9\text{ cm}$, which statement is true regarding the perimeter of $\triangle DEF$?
+  choices:
+  - text: 'The perimeter of $\triangle DEF$ is $36\text{ cm}$.'
+    correct: true
+  - text: 'The perimeter of $\triangle DEF$ is $27\text{ cm}$.'
+    correct: false
+    rationale: |
+      This matches DE to BC instead of AB. Both are stated side lengths. Check the corresponding vertices in the triangle names.
+  - text: 'The perimeter of $\triangle DEF$ is $54\text{ cm}$.'
+    correct: false
+    rationale: |
+      This squares the scale factor for a perimeter. Squared factors apply to area. Check that perimeter is a length.
+  - text: 'The perimeter of $\triangle DEF$ is $24\text{ cm}$.'
+    correct: false
+    rationale: |
+      This keeps the first perimeter unchanged. Similar triangles share shape. Check that their sizes can differ.
+  explanation: |
+    The first perimeter is $6+8+10=24$ cm. Matching sides AB and DE give scale factor $\dfrac{9}{6}=1.5$. All side lengths grow by this factor, so the new perimeter is $24(1.5)=36$ cm.
+- id: 'q-geometry-triangles-0009'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    The interior angles of a triangle are in the ratio $2 : 3 : 7$. What is the measure of the largest angle?
+  choices:
+  - text: '$105^\circ$'
+    correct: true
+  - text: '$45^\circ$'
+    correct: false
+    rationale: |
+      This reports the middle angle. The three-part angle is calculated correctly. Check that the largest ratio part is seven.
+  - text: '$30^\circ$'
+    correct: false
+    rationale: |
+      This reports the smallest angle. The two-part angle is calculated correctly. Check which angle is requested.
+  - text: '$70^\circ$'
+    correct: false
+    rationale: |
+      This uses a $120^\circ$ total instead of $180^\circ$, giving ten degrees per part. $120^\circ$ is a familiar triangle angle. Check the total for all three angles.
+  explanation: |
+    The ratio has $2+3+7=12$ parts. Each part is $180^\circ\div12=15^\circ$. The largest angle has seven parts, so it measures $7(15^\circ)=105^\circ$.
+- id: 'q-geometry-triangles-0010'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    In a right triangle, the hypotenuse has length $x + 2$, one leg has length $x$, and the other leg has length $x - 2$. What is the length of the hypotenuse?
+  choices:
+  - text: '$10$'
+    correct: true
+  - text: '$8$'
+    correct: false
+    rationale: |
+      This stops at x. That value is the longer leg. Check the expression for the requested hypotenuse.
+  - text: '$6$'
+    correct: false
+    rationale: |
+      This gives the shorter leg. Substitution into a side expression is needed. Check which expression names the hypotenuse.
+  - text: '$14$'
+    correct: false
+    rationale: |
+      This adds the legs. Their sum uses both known side values. Check that the hypotenuse comes from the squared-length rule.
+  explanation: |
+    Use $x^2+(x-2)^2=(x+2)^2$. Expanding gives $2x^2-4x+4=x^2+4x+4$, so $x^2-8x=0$. Factor as $x(x-8)=0$. Positive side lengths require $x>2$, so $x=8$. The hypotenuse is $x+2=10$.
+- id: 'q-geometry-triangles-0011'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    In $\triangle ABC$, side $BC$ is extended to point $D$ to form exterior angle $\angle ACD = (7x - 5)^\circ$. The remote interior angles are $\angle A = (3x + 10)^\circ$ and $\angle B = (2x + 15)^\circ$. What is the measure of interior angle $\angle ACB$?
+  choices:
+  - text: '$80^\circ$'
+    correct: true
+  - text: '$100^\circ$'
+    correct: false
+    rationale: |
+      This gives the exterior angle. It is found correctly along the way. Check that the requested angle is inside the triangle.
+  - text: '$55^\circ$'
+    correct: false
+    rationale: |
+      This gives angle A. It is one of the remote angles used in the equation. Check the requested vertex.
+  - text: '$45^\circ$'
+    correct: false
+    rationale: |
+      This gives angle B. It is one of the remote angles used in the equation. Check the requested vertex.
+  explanation: |
+    The exterior-angle rule gives $7x-5=(3x+10)+(2x+15)$. Combine terms to get $2x=30$, so $x=15$. The exterior angle is $7(15)-5=100^\circ$. Its neighboring interior angle is $180^\circ-100^\circ=80^\circ$.
+- id: 'q-geometry-triangles-0012'
+  type: 'which-is-true'
+  difficulty: 'hard'
+  stem: |
+    A triangle has two sides of length $7\text{ cm}$ and $11\text{ cm}$. Which inequality correctly expresses all possible values for the length of the third side $s$?
+  choices:
+  - text: '$4 < s < 18$'
+    correct: true
+  - text: '$4 \le s \le 18$'
+    correct: false
+    rationale: |
+      This includes the endpoints. Equality can look allowed in an inequality. Check that equal sums make a flat figure.
+  - text: '$7 < s < 11$'
+    correct: false
+    rationale: |
+      This puts s between the given lengths. The two given sides look like natural bounds. Check the difference and sum instead.
+  - text: '$0 < s < 18$'
+    correct: false
+    rationale: |
+      This checks the upper bound but misses the lower bound. Every length must be positive. Check that a positive side can still be too short to close the triangle.
+  explanation: |
+    The third side must exceed the difference $11-7=4$ and be less than the sum $11+7=18$. Equality would make a straight line. Thus $4<s<18$.
+- id: 'q-geometry-triangles-0013'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    In right $\triangle ABC$ with right angle at $C$, altitude $CD$ is drawn perpendicular to hypotenuse $AB$. If segment $AD = 4\text{ cm}$ and segment $DB = 9\text{ cm}$, what is the length of altitude $CD$?
+  choices:
+  - text: '$6\text{ cm}$'
+    correct: true
+  - text: '$6.5\text{ cm}$'
+    correct: false
+    rationale: |
+      This takes the arithmetic mean of the two segments. An average seems to combine both lengths. Check the proportion from the similar triangles.
+  - text: '$13\text{ cm}$'
+    correct: false
+    rationale: |
+      This reports the full hypotenuse. Adding the two segments finds that length correctly. Check whether the question asks for AB or CD.
+  - text: '$36\text{ cm}$'
+    correct: false
+    rationale: |
+      This stops at the square of the altitude. The product of the segments is needed. Check whether a square root remains.
+  explanation: |
+    The two smaller right triangles are similar, with corresponding sides giving $\dfrac{4}{CD}=\dfrac{CD}{9}$. Cross multiply to get $CD^2=36$. The positive square root gives $CD=6$ cm.
+- id: 'q-geometry-triangles-0014'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    Triangle 1 is a $30^\circ-60^\circ-90^\circ$ triangle where $6\text{ cm}$ is the shorter leg. Triangle 2 is a $45^\circ-45^\circ-90^\circ$ triangle where $6\text{ cm}$ is one of its legs. What is the ratio of the length of the hypotenuse of Triangle 1 to the hypotenuse of Triangle 2?
+  choices:
+  - text: '$\sqrt{2}$'
+    correct: true
+  - text: '$\dfrac{\sqrt{3}}{\sqrt{2}}$'
+    correct: false
+    rationale: |
+      This uses the long leg of Triangle 1 as its hypotenuse. The $\sqrt{3}$ factor belongs to that triangle. Check the side opposite the right angle.
+  - text: '$2$'
+    correct: false
+    rationale: |
+      This compares a hypotenuse with a leg. Both triangles have a stated six-centimeter leg. Check that both compared lengths are hypotenuses.
+  - text: '$\dfrac{2}{\sqrt{3}}$'
+    correct: false
+    rationale: |
+      This compares two sides of Triangle 1. The denominator is a valid long-leg length. Check that the denominator must come from Triangle 2.
+  explanation: |
+    Triangle 1 has hypotenuse $2(6)=12$ cm. Triangle 2 has hypotenuse $6\sqrt{2}$ cm. The requested ratio is $\dfrac{12}{6\sqrt{2}}=\dfrac{2}{\sqrt{2}}=\sqrt{2}$.
+- id: 'q-geometry-triangles-0015'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    $\triangle ABC \sim \triangle PQR$. The area of $\triangle ABC$ is $32\text{ cm}^2$ and the area of $\triangle PQR$ is $72\text{ cm}^2$. If side $AB = 8\text{ cm}$, what is the length of corresponding side $PQ$?
+  choices:
+  - text: '$12\text{ cm}$'
+    correct: true
+  - text: '$18\text{ cm}$'
+    correct: false
+    rationale: |
+      This uses the area ratio as a length ratio. Both ratios compare the same two triangles. Check that lengths use the square root of the area ratio.
+  - text: '$16\text{ cm}$'
+    correct: false
+    rationale: |
+      This rounds the area ratio to two and applies it to a side. The larger area is a little more than double. Check the exact area ratio before taking its square root.
+  - text: '$9.6\text{ cm}$'
+    correct: false
+    rationale: |
+      This scales the side by $1.2$. That makes it longer, as the larger area suggests. Check whether squaring that scale factor gives the stated area ratio.
+  explanation: |
+    For similar triangles, the area ratio is the square of the side ratio. Thus $\left(\dfrac{PQ}{8}\right)^2=\dfrac{72}{32}=\dfrac{9}{4}$. Take positive square roots: $\dfrac{PQ}{8}=\dfrac{3}{2}$. Multiply by $8$ to get $PQ=12$ cm.
+- id: 'q-geometry-triangles-0016'
+  type: 'error-spotting'
+  difficulty: 'medium'
+  stem: |
+    A student computes the hypotenuse of a right triangle with legs $5$ cm and $12$ cm. Step 1: $c^2=5^2+12^2$. Step 2: $c^2=169$. Step 3: $c=169$. Which is the first incorrect step?
+  choices:
+  - text: 'Step 3'
+    correct: true
+  - text: 'Step 1'
+    rationale: |
+      This rejects adding the squared legs. Adding ordinary lengths would be wrong. Check that the lengths are squared here.
+  - text: 'Step 2'
+    rationale: |
+      This rejects the sum of the squares. The total is much larger than either leg. Check the arithmetic before judging its size.
+  - text: 'No step is incorrect.'
+    rationale: |
+      This treats a squared length as a length. The computation reaches a familiar total. Check whether the final square root was taken.
+  explanation: |
+    Step 3 must take the positive square root of $169$. That gives $c=13$ cm.
+  approved: false
+- id: 'q-geometry-triangles-0017'
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    On level ground, a vertical $2$-meter pole casts a $3$-meter shadow. At the same time, a vertical flagpole casts a $12$-meter shadow. What is the flagpole height?
+  choices:
+  - text: '$8$ m'
+    correct: true
+  - text: '$18$ m'
+    rationale: |
+      This reverses the height-to-shadow ratio. Both stated pole lengths are used. Check that matching lengths stay in the same order.
+  - text: '$11$ m'
+    rationale: |
+      This adds the nine-meter shadow increase to the height. Both shadows differ by nine. Check that similar triangles scale by multiplication.
+  - text: '$4$ m'
+    rationale: |
+      This reports the shadow scale factor as a height. Four is a correct intermediate result. Check that the factor still multiplies the known height.
+  explanation: |
+    The shadow scale factor is $12\div3=4$. Similar triangles have the same height factor. Thus the flagpole height is $2(4)=8$ m.
+  approved: false
+- id: 'q-geometry-triangles-0018'
+  type: 'which-is-true'
+  difficulty: 'medium'
+  stem: |
+    In triangle ABC, $\angle A=40^\circ$, $\angle B=85^\circ$, and $\angle C=55^\circ$. Which side is longest?
+  choices:
+  - text: 'AC'
+    correct: true
+  - text: 'AB'
+    rationale: |
+      This uses the side opposite the second-largest angle. That angle is larger than the smallest. Check the largest angle first.
+  - text: 'BC'
+    rationale: |
+      This puts the longest side opposite the smallest angle. Side and angle size are connected. Check that the larger angle faces the longer side.
+  - text: 'All sides are equal.'
+    rationale: |
+      This treats the triangle as equilateral. Every triangle has three sides. Check whether the three angles are equal.
+  explanation: |
+    The largest angle is B at $85^\circ$. The longest side lies opposite that angle. The side opposite B is AC.
+  approved: false
+- id: 'q-geometry-triangles-0019'
+  type: 'which-is-true'
+  difficulty: 'hard'
+  stem: |
+    Two right triangles have equal hypotenuses and one pair of equal corresponding legs. Which criterion proves they are congruent?
+  choices:
+  - text: 'HL'
+    correct: true
+  - text: 'AAA'
+    rationale: |
+      This uses matching angles to prove equal size. Right triangles share a right angle. Check that angles alone guarantee shape, not size.
+  - text: 'SAS'
+    rationale: |
+      This places the known right angle between the hypotenuse and a leg. SAS is a valid test when its conditions hold. Check that the right angle lies between the two legs.
+  - text: 'SSS'
+    rationale: |
+      This treats the third matching side as given. Three matching sides would be enough. Check how many pairs of side lengths are stated.
+  explanation: |
+    The hypotenuse-leg rule applies to right triangles. Their hypotenuses match and one pair of legs matches. These are exactly the HL conditions.
+  approved: false
+- id: 'q-geometry-triangles-0020'
+  type: 'word-problem'
+  difficulty: 'exam'
+  stem: |
+    A triangular brace must have perimeter $30$ cm. Two sides measure $8$ cm and $10$ cm. Which conclusion is correct?
+  choices:
+  - text: 'It can be built with a 12 cm third side.'
+    correct: true
+  - text: 'It cannot be built because 12 exceeds 10.'
+    rationale: |
+      This assumes the third side cannot be the longest. The computed length exceeds both given lengths. Check the sum of the shorter sides.
+  - text: 'It can be built with a 22 cm third side.'
+    rationale: |
+      This subtracts only the eight-centimeter side from the perimeter. That leaves part of the boundary. Check that both known sides are subtracted.
+  - text: 'It cannot be built because the sides differ.'
+    rationale: |
+      This assumes only equal-sided triangles are possible. Matching sides are needed for special classes. Check the triangle inequality for a general triangle.
+  explanation: |
+    The third side is $30-8-10=12$ cm. The two shorter sides total $8+10=18>12$. The side lengths therefore form a triangle.
+  approved: false
