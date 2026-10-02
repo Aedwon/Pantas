@@ -1,353 +1,456 @@
 meta:
-  subject: reading-comprehension
-  topic: text-types
-  subtopic: essays-editorials-articles
+  subject: "reading-comprehension"
+  topic: "text-types"
+  subtopic: "essays-editorials-articles"
   exams:
-    - upcat
-    - acet
-    - dlsucet
-    - ustet
-
+    - "upcat"
+    - "acet"
+    - "dlsucet"
+    - "ustet"
 passages:
-  - id: rc-tt-eea-p1
+  - id: "rc-tt-eea-p1"
     title: "Cavite Coastal Dike Inauguration"
     body: |
-      CAVITE CITY, Philippines: The Department of Public Works and Highways inaugurated a 3.2-kilometer coastal seawall along the shoreline of Cavite City on Monday morning, according to an official agency press release. The twenty-four-million-peso infrastructure project was constructed to protect approximately eight thousand coastal households from seasonal storm surges during typhoon season.
-
+      This fictional news-writing exercise describes a coastal project. CAVITE CITY, Philippines: The Department of Public Works and Highways inaugurated a 3.2-kilometer coastal seawall along the shoreline of Cavite City on Monday morning, according to an official agency press release. The twenty-four-million-peso infrastructure project was constructed to protect approximately eight thousand coastal households from seasonal storm surges during typhoon season.
+      
       Project director Engineer Ramon Cruz confirmed that construction began in January 2022 and was completed three weeks ahead of the original December schedule. The seawall incorporates reinforced concrete bulkheads and ten sluice gates designed to manage tidal outflow into Manila Bay. According to municipal disaster office records, the structure successfully withstood its first operational test during high tides last weekend.
-
+      
       Local officials announced that phase two of the coastal protection plan, which includes expanding mangrove buffer zones along adjacent mudflats, will commence in early 2024 following environmental impact clearance.
-
-  - id: rc-tt-eea-p2
+      
+      
+      The agency said work would depend on the required clearance. The report attributes that plan to officials; it does not state that the next phase has already begun.
+  - id: "rc-tt-eea-p2"
     title: "Subsidies for Nueva Ecija Rice Farmers"
     body: |
-      The persistent refusal of the department of agriculture to raise farmgate fertilizer subsidies for local rice producers is a shortsighted policy that severely undermines national food security. While imported rice flows freely through local ports, smallholder farmers in Nueva Ecija are forced to bear crushing input costs that eliminate their meager harvest profit margins.
-
+      This editorial states the position of the fictional Community Gazette editorial board. The persistent refusal of the department of agriculture to raise farmgate fertilizer subsidies for local rice producers is a shortsighted policy that severely undermines national food security. While imported rice flows freely through local ports, smallholder farmers in Nueva Ecija are forced to bear crushing input costs that eliminate their meager harvest profit margins.
+      
       It is completely unacceptable for policymakers to lecture rural communities about productivity while denying them the essential financial relief granted to agricultural sectors in neighboring countries. Offering trivial emergency handouts after harvests fail is a band-aid solution that fails to address the structural crisis facing local agriculture.
-
+      
       Congress must immediately mandate a fifty percent subsidy on organic fertilizers and establish floor prices for palay. Protecting our local rice farmers is not an act of charity; it is an urgent economic imperative that our leaders can no longer afford to ignore.
-
-  - id: rc-tt-eea-p3
+      
+      
+      The proposed support should also include clear eligibility rules and public reporting so that relief reaches the farmers for whom it is intended.
+  - id: "rc-tt-eea-p3"
     title: "Lessons from a Bohol Basket Weaver"
     body: |
       Every Saturday morning during my childhood in Bohol, I sat on the bamboo slats of our outdoor kitchen watching my grandfather split raw rattan stalks into paper-thin strips. With steady hands shaped by decades of labor, he guided my clumsy fingers over and under the warp, teaching me how to weave sturdy harvesting baskets called 'bukag'.
-
+      
       In those early years, I grew frustrated whenever my uneven weaving caused the basket sides to bulge awkwardly. My grandfather would gently unlace my work without a word of scolding, reminding me that true craft requires patience before speed. He taught me that every knot held a purpose, and that a basket built with rushed anger would inevitably unravel under its first real load.
-
+      
       Years later, as a university student navigating complex deadlines in Manila, I often return to the memory of those quiet Saturday mornings. The lesson of the woven basket remains my anchor: true progress is built with patient hands, one deliberate thread at a time.
-
+  - id: "p-text-types-essays-editorials-articles-0004"
+    title: "Commentary: Make the School Crossing Usable"
+    body: |
+      Commentary by Rosa Manuel, a teacher writing in her personal capacity.
+      
+      The street outside our school becomes difficult to cross when vehicles stop near the gate at dismissal. Parents who drive need a place to wait, but their convenience should not prevent children from seeing approaching traffic. A marked crossing cannot do its job if parked vehicles hide both the road and the students trying to use it.
+      
+      I propose moving the pickup area farther along the street and keeping the space around the crossing clear. The school can explain the change to families before it begins and ask traffic personnel to observe the first week. This approach would preserve access for drivers while making the crossing easier to use.
+      
+      Officials should listen to residents who worry about a longer walk from the pickup area. Their concern deserves a practical response, including help for children who need assistance. It does not justify leaving the crossing obstructed. The school should test the change and review the observations before deciding whether to keep it.
 questions:
-  - id: rc-tt-eea-0001
-    passage: rc-tt-eea-p1
-    type: identify
-    difficulty: easy
+  - id: "rc-tt-eea-0001"
+    passage: "rc-tt-eea-p1"
+    type: "identify-text-type"
+    difficulty: "easy"
     stem: |
       Which text type best classifies the passage about the Cavite coastal dike?
     choices:
-      - text: News report (article)
+      - text: "News report"
         correct: true
-      - text: Editorial opinion piece
+      - text: "Institutional editorial"
         rationale: |
-          You misidentified objective news as an opinionated editorial. The text neutrally reports facts without expressing opinions.
-      - text: Personal reflective essay
+          This treats an important public topic as the publication's stance. Infrastructure can be debated. Check whether the writer advocates a policy.
+      - text: "Personal reflective essay"
         rationale: |
-          You misidentified a news report as a personal essay. The passage contains no first-person pronouns or personal memories.
-      - text: Dramatic theatrical script
+          This treats a place-based account as memoir. A community setting is present. Check whether personal experience is reflected on.
+      - text: "Signed policy commentary"
         rationale: |
-          You picked a dramatic script format, but the text is structured as a non-fiction news article with a dateline.
+          This treats reporting about policy as an individual argument. Future plans are discussed. Check for a byline and an advocated position.
     explanation: |
-      The passage features a dateline ("CAVITE CITY, Philippines"), neutral objective reporting, and answers who, what, when, and where without personal opinions, matching a news article.
-
-  - id: rc-tt-eea-0002
-    passage: rc-tt-eea-p1
-    type: analyze
-    difficulty: medium
+      The dateline introduces an event. The text attributes project details to an agency and named official, so its main function is reporting.
+  - id: "rc-tt-eea-0002"
+    passage: "rc-tt-eea-p1"
+    type: "feature-of-form"
+    difficulty: "medium"
     stem: |
       Which structural feature characteristic of a news article is present in paragraph 1?
     choices:
-      - text: A dateline and lead sentence summarizing essential facts.
+      - text: "A dateline and factual lead"
         correct: true
-      - text: Emotional appeals urging citizens to protest government infrastructure spending.
+      - text: "A byline announcing the writer's personal argument"
         rationale: |
-          You picked emotional political appeals, which belong in editorials, not neutral news leads.
-      - text: First-person narrative memories of growing up near Manila Bay.
+          This mistakes source attribution for the writer's own byline. Officials are named. Check whether the opening identifies an opinion writer.
+      - text: "A recollection leading to a lesson about childhood"
         rationale: |
-          You picked first-person narrative memories, which belong in personal essays rather than news reports.
-      - text: Rhyming poetic couplets describing seasonal ocean tides.
+          This treats background as personal recollection. The event has a history. Check who remembers an experience.
+      - text: "A recommendation framed as the publication's position"
         rationale: |
-          You picked poetic form features not present in this prose news report.
+          This confuses a reported plan with an institutional recommendation. An agency speaks about the next phase. Check whose position the lead presents.
     explanation: |
-      The presence of a dateline ("CAVITE CITY") and an opening lead sentence providing key factual information is a defining feature of news articles.
-
-  - id: rc-tt-eea-0003
-    passage: rc-tt-eea-p1
-    type: infer
-    difficulty: medium
+      The opening identifies Cavite City and reports the inauguration with a source. This dateline and lead establish a news-report structure.
+  - id: "rc-tt-eea-0003"
+    passage: "rc-tt-eea-p1"
+    type: "feature-of-form"
+    difficulty: "medium"
     stem: |
-      How does the tone of the Cavite seawall passage differ from an editorial?
+      Which description best captures the voice of the coastal project report?
     choices:
-      - text: It maintains a neutral, objective reporting tone.
+      - text: "It reports attributed information without advocating a policy."
         correct: true
-      - text: It uses angry rhetorical questions to criticize local municipal engineers.
+      - text: "It urges readers to demand a new construction subsidy."
         rationale: |
-          You attributed angry rhetorical questions to the news report, whereas objective articles avoid emotional criticism.
-      - text: It expresses deep personal nostalgia for historical coastal seawalls.
+          This adds advocacy because spending is discussed. Public projects can prompt demands. Check whether this writer makes such a demand.
+      - text: "It reflects on the writer's personal childhood near the coast."
         rationale: |
-          You attributed personal nostalgia to the news passage, which neutrally reports infrastructure construction.
-      - text: It uses humorous satire to mock official government announcements.
+          This adds a personal stance from the coastal setting. Familiar places can prompt memory. Check whether the account contains the writer's experiences.
+      - text: "It presents the publication's preferred design for the next phase."
         rationale: |
-          You picked satirical humor, which is absent from this factual news report.
+          This treats official plans as the publication's opinion. Phase two is reported. Check who announces it.
     explanation: |
-      Unlike an editorial which uses opinionated value judgments, a news article maintains a neutral and objective tone reporting verified facts.
-
-  - id: rc-tt-eea-0004
-    passage: rc-tt-eea-p1
-    type: evaluate
-    difficulty: hard
+      The passage reports the inauguration and officials' statements. Its voice presents information rather than urging a particular policy choice.
+  - id: "rc-tt-eea-0004"
+    passage: "rc-tt-eea-p1"
+    type: "feature-of-form"
+    difficulty: "hard"
     stem: |
       What evidence from paragraph 2 demonstrates the objective reporting style of the passage?
     choices:
-      - text: Citing specific dates, names of officials, and disaster records.
+      - text: "Attribution to the engineer and disaster records"
         correct: true
-      - text: Calling the seawall the most beautiful architectural marvel constructed in Luzon.
+      - text: "The writer's endorsement of the seawall's overall beauty"
         rationale: |
-          You picked subjective praise. Objective news reporting relies on verified facts rather than value judgments.
-      - text: Accusing project directors of wasting twenty-four million pesos.
+          This turns description into aesthetic approval. The structure has physical features. Check whether the writer praises its beauty.
+      - text: "An editorial-board demand for a different project director"
         rationale: |
-          You picked a biased accusation that contradicts the objective tone of the news report.
-      - text: Providing personal childhood memories of seasonal high tide flooding.
+          This turns the official's role into an institutional demand. A director is named. Check whether a replacement is requested.
+      - text: "A personal memory of being flooded as a child"
         rationale: |
-          You introduced personal memories not included in this news article.
+          This turns a flooding topic into autobiography. Storms affect residents. Check whether the writer supplies a childhood memory.
     explanation: |
-      Citing specific verified sources ("Engineer Ramon Cruz", "disaster office records", dates) shows objective news reporting.
-
-  - id: rc-tt-eea-0005
-    passage: rc-tt-eea-p1
-    type: analyze
-    difficulty: hard
+      The text identifies the engineer as a source and names disaster records. Attribution tells readers where the reported claims come from.
+  - id: "rc-tt-eea-0005"
+    passage: "rc-tt-eea-p1"
+    type: "feature-of-form"
+    difficulty: "hard"
     stem: |
       What is the primary function of paragraph 3 in this news article format?
     choices:
-      - text: To provide context regarding phase two of the project.
+      - text: "To report a planned later project phase"
         correct: true
-      - text: To present an inspiring moral lesson about local environmental protection.
+      - text: "To announce the writer's final recommendation to Congress"
         rationale: |
-          You attributed a moral lesson to news reporting, which delivers factual context rather than personal morals.
-      - text: To demand that Congress immediately fire the department directors.
+          This confuses reporting a plan with making a demand. Public agencies are mentioned. Check whose action the paragraph attributes.
+      - text: "To reflect on a lesson learned from a childhood storm"
         rationale: |
-          You attributed a political call to action to the closing paragraph of an objective news report.
-      - text: To describe how local mangrove trees are harvested for commercial timber.
+          This treats context as personal reflection. The project concerns storms. Check whether any memory appears.
+      - text: "To declare that the planned expansion is already complete"
         rationale: |
-          You misread the text. Paragraph 3 discusses mangrove buffer zone expansion for protection, not timber harvesting.
+          This turns a future plan into a completed event. The project has already had one inauguration. Check the tense used for phase two.
     explanation: |
-      In news articles (inverted pyramid structure), ending paragraphs provide additional context or future developments related to the main story.
-
-  - id: rc-tt-eea-0006
-    passage: rc-tt-eea-p2
-    type: identify
-    difficulty: easy
+      The ending reports officials' plans for a later phase. It adds forward-looking context to the inauguration story.
+  - id: "rc-tt-eea-0006"
+    passage: "rc-tt-eea-p2"
+    type: "identify-text-type"
+    difficulty: "easy"
     stem: |
       Which text type best classifies the passage on Nueva Ecija rice subsidies?
     choices:
-      - text: Editorial opinion piece
+      - text: "Institutional editorial"
         correct: true
-      - text: Neutral news report
+      - text: "Signed individual commentary"
         rationale: |
-          You misidentified an opinionated editorial as a neutral news report. Words like shortsighted express strong opinion.
-      - text: Personal reflective essay
+          This recognizes argument but overlooks authorship. Commentary also advocates. Check whether a named individual or editorial board owns the stance.
+      - text: "Straight news report"
         rationale: |
-          You misidentified an editorial as a personal essay. The passage argues a public policy issue without personal memoirs.
-      - text: Technical instructional manual
+          This recognizes a current issue but overlooks advocacy. Farming policy is newsworthy. Check the demand directed at Congress.
+      - text: "Personal reflective essay"
         rationale: |
-          You misidentified an editorial as a technical manual. The text advocates policy changes rather than step-by-step instructions.
+          This treats concern for farmers as autobiography. The writer expresses values. Check whether the argument develops personal memories.
     explanation: |
-      The passage expresses a strong persuasive stance ("shortsighted policy", "completely unacceptable", "Congress must immediately mandate"), matching an editorial.
-
-  - id: rc-tt-eea-0007
-    passage: rc-tt-eea-p2
-    type: analyze
-    difficulty: medium
+      The passage identifies the Community Gazette editorial board and argues for policy change. The institutional attribution makes it an editorial.
+  - id: "rc-tt-eea-0007"
+    passage: "rc-tt-eea-p2"
+    type: "feature-of-form"
+    difficulty: "medium"
     stem: |
       Which feature of form in paragraph 1 signals that the text is an editorial?
     choices:
-      - text: Use of value-laden opinion words like "shortsighted" and "crushing".
+      - text: "Open criticism of the subsidy policy"
         correct: true
-      - text: Inclusion of a formal city dateline and official press release citations.
+      - text: "Attribution of all judgments to quoted interviewees"
         rationale: |
-          You attributed news report features (dateline and press release) to an editorial piece.
-      - text: First-person narrative descriptions of ancestral rice farming memories.
+          This confuses editorial argument with reported quotations. Public officials are discussed. Check whether the judgments are attributed to outside speakers.
+      - text: "A personal recollection used to explore childhood growth"
         rationale: |
-          You attributed personal essay memoirs to an editorial focused on national economic policy.
-      - text: Objective statistical charts comparing global agricultural fertilizer production.
+          This treats local concern as memoir. Farmers are the subject. Check whether a childhood event is narrated.
+      - text: "A neutral announcement of an already completed policy change"
         rationale: |
-          You introduced statistical charts not present in the editorial text.
+          This turns the requested reform into a completed announcement. Policy is central. Check the criticism of current decisions.
     explanation: |
-      Value-laden words expressing clear disapproval ("shortsighted policy", "crushing input costs") are key features of an editorial opinion piece.
-
-  - id: rc-tt-eea-0008
-    passage: rc-tt-eea-p2
-    type: infer
-    difficulty: medium
+      Shortsighted and crushing express the board's negative evaluation. The opening states criticism as the publication's own position.
+  - id: "rc-tt-eea-0008"
+    passage: "rc-tt-eea-p2"
+    type: "feature-of-form"
+    difficulty: "medium"
     stem: |
-      What is the writer's primary goal in the final paragraph?
+      What is the writer's primary goal in the policy recommendations?
     choices:
-      - text: To issue a call to action demanding policy changes from Congress.
+      - text: "To demand changes in support for farmers"
         correct: true
-      - text: To report the total annual tonnage of imported commercial fertilizer in 2023.
+      - text: "To describe how every fertilizer ingredient is manufactured"
         rationale: |
-          You picked a neutral statistical report goal, missing the editorial's persuasive call to action.
-      - text: To reflect nostalgically on traditional ancient rice harvesting methods.
+          This treats a named input as the subject of technical instruction. Fertilizer is discussed. Check whether production steps appear.
+      - text: "To recall a childhood experience in the rice fields"
         rationale: |
-          You picked a nostalgic essay goal that contradicts the urgent political demand for subsidies.
-      - text: To explain the detailed chemical composition of organic fertilizers.
+          This treats a rural subject as personal memory. The setting may invite nostalgia. Check whether the text recalls an experience.
+      - text: "To report a law that Congress has already enacted"
         rationale: |
-          You picked a scientific explanation goal not found in this opinionated editorial.
+          This changes a demand into a completed event. Congress is named. Check the phrase must immediately mandate.
     explanation: |
-      Editorials conclude with a clear call to action ("Congress must immediately mandate..."), attempting to convince readers and leaders to act.
-
-  - id: rc-tt-eea-0009
-    passage: rc-tt-eea-p2
-    type: evaluate
-    difficulty: hard
+      The board says Congress must change subsidies and prices. It is using the final paragraph to urge action.
+  - id: "rc-tt-eea-0009"
+    passage: "rc-tt-eea-p2"
+    type: "feature-of-form"
+    difficulty: "hard"
     stem: |
-      How does the author's treatment of government policies differ from a news article's treatment?
+      How does this editorial present its evaluation of the subsidy policy?
     choices:
-      - text: The author openly criticizes policies as "band-aid solutions".
+      - text: "It presents the board's criticism as its own stance."
         correct: true
-      - text: The author presents both opposing sides using official government press release quotes.
+      - text: "It only attributes criticisms to outside speakers."
         rationale: |
-          You described a balanced news article approach, whereas the editorial takes a strongly critical single-sided stance.
-      - text: The author avoids discussing national agricultural policies altogether.
+          This treats the board's judgments as attributed news quotes. Opinion and reporting can share topics. Check who owns the criticism.
+      - text: "It avoids making any claim about agricultural policy."
         rationale: |
-          You claimed policies are avoided, but the entire editorial focuses on criticizing government agricultural policies.
-      - text: The author uses detailed scientific data tables to calculate soil pH levels.
+          This mistakes policy criticism for avoiding the topic. Strong language may draw attention. Check the repeated policy recommendations.
+      - text: "It describes policy solely through the writer's childhood."
         rationale: |
-          You introduced scientific soil data not discussed in the text.
+          This mistakes concern for farmers for memoir. Personal essays can discuss farming. Check for an actual remembered event.
     explanation: |
-      Editorials express clear critical judgment ("band-aid solution", "lecture rural communities") rather than presenting news in a neutral, balanced format.
-
-  - id: rc-tt-eea-0010
-    passage: rc-tt-eea-p2
-    type: analyze
-    difficulty: hard
+      The board directly calls the policy shortsighted and inadequate. This is explicit institutional advocacy about a public issue.
+  - id: "rc-tt-eea-0010"
+    passage: "rc-tt-eea-p2"
+    type: "feature-of-form"
+    difficulty: "hard"
     stem: |
       Which choice represents an opinion stated in the editorial rather than a verifiable fact?
     choices:
-      - text: Offering emergency handouts is a band-aid solution.
+      - text: "Emergency handouts are a band-aid solution."
         correct: true
-      - text: Rice is imported through major local Philippine maritime ports.
+      - text: "Rice arrives through local ports."
         rationale: |
-          You picked a factual statement about maritime trade rather than a subjective opinion.
-      - text: Smallholder farmers cultivate rice fields across Nueva Ecija.
+          This treats an evidence statement as a judgment. Imports support the argument. Check whether the statement itself evaluates them.
+      - text: "Smallholder farmers grow rice in Nueva Ecija."
         rationale: |
-          You picked a verifiable geographical fact about farming in Nueva Ecija.
-      - text: Organic fertilizers contain essential chemical nutrients used in agriculture.
+          This treats an agricultural topic as evaluative. Farmers are central to the appeal. Check whether growing rice is checkable.
+      - text: "The editorial proposes a fifty percent fertilizer subsidy."
         rationale: |
-          You picked a factual scientific statement about organic fertilizers.
+          This confuses reporting the recommendation with endorsing it. The percentage is part of the proposal. Check whether the statement only says what the editorial proposes.
     explanation: |
-      Labeling government emergency handouts as a "band-aid solution" is a value judgment, whereas rice growing and importing are factual realities.
-
-  - id: rc-tt-eea-0011
-    passage: rc-tt-eea-p3
-    type: identify
-    difficulty: easy
+      Band-aid solution judges the adequacy of the support. It expresses the board's view of what the policy accomplishes.
+  - id: "rc-tt-eea-0011"
+    passage: "rc-tt-eea-p3"
+    type: "identify-text-type"
+    difficulty: "easy"
     stem: |
       Which text type best classifies the passage about basket weaving in Bohol?
     choices:
-      - text: Personal reflective essay
+      - text: "Personal reflective essay"
         correct: true
-      - text: Neutral news report
+      - text: "Institutional editorial"
         rationale: |
-          You misidentified a personal memoir as a neutral news report. The text reflects on childhood memories and life lessons.
-      - text: Persuasive political editorial
+          This treats a stated lesson as an institutional argument. The essay values patience. Check whether a publication takes a policy stance.
+      - text: "Straight news report"
         rationale: |
-          You misidentified a reflective essay as a political editorial. The text contains no policy debates or political calls.
-      - text: Scientific research paper
+          This treats concrete details as a report of a current event. The craft is described clearly. Check how memory and reflection shape the piece.
+      - text: "Technical weaving instructions"
         rationale: |
-          You misidentified a personal essay as a scientific paper. The text shares personal memories rather than research data.
+          This treats weaving actions as a complete how-to guide. Hands and strips appear. Check whether instructions or personal insight are the main purpose.
     explanation: |
-      The passage is written in the first person ("I", "my grandfather"), recounting a personal memory and reflecting on its life lesson, matching a personal essay.
-
-  - id: rc-tt-eea-0012
-    passage: rc-tt-eea-p3
-    type: analyze
-    difficulty: easy
+      The writer recounts a childhood experience and connects it to life at university. Personal memory and reflection organize the essay.
+  - id: "rc-tt-eea-0012"
+    passage: "rc-tt-eea-p3"
+    type: "feature-of-form"
+    difficulty: "easy"
     stem: |
       Which structural element distinguishes this personal essay from a news article?
     choices:
-      - text: First-person narrative perspective paired with personal reflection.
+      - text: "Personal memory joined with reflection"
         correct: true
-      - text: A formal news dateline and official quotes from government municipal officials.
+      - text: "A dateline summarizing an attributed public announcement"
         rationale: |
-          You attributed news report features (datelines and official quotes) to a personal essay.
-      - text: A urgent call to action demanding that Congress pass new national laws.
+          This treats named places as a news structure. Bohol and Manila appear. Check whether a dated public event is reported.
+      - text: "An editorial-board position followed by a policy demand"
         rationale: |
-          You attributed political editorial features (demanding legislation) to a personal essay.
-      - text: A list of step-by-step technical instructions for manufacturing commercial baskets.
+          This treats a general life lesson as institutional advocacy. The writer offers insight. Check for an editorial board and a policy demand.
+      - text: "A procedure listing all materials and production steps"
         rationale: |
-          You misidentified the memoir as a technical instruction manual.
+          This treats craft details as instructions. Some weaving actions are described. Check whether the structure gives a complete procedure.
     explanation: |
-      First-person narrative perspective ("I", "my grandfather") paired with reflecting on a personal lesson is a defining feature of personal essays.
-
-  - id: rc-tt-eea-0013
-    passage: rc-tt-eea-p3
-    type: infer
-    difficulty: medium
+      The essay moves from I and my grandfather to the writer's later understanding of patience. The remembered experience supports reflection.
+  - id: "rc-tt-eea-0013"
+    passage: "rc-tt-eea-p3"
+    type: "feature-of-form"
+    difficulty: "medium"
     stem: |
       What central insight or theme does the narrator explore in the final paragraph?
     choices:
-      - text: Applying patient craftsmanship to adult life and academic challenges.
+      - text: "Patience learned through craft carries into adult life."
         correct: true
-      - text: Demanding that Bohol artisans receive higher monthly government pensions.
+      - text: "The craft proves all traditional goods are superior to plastic."
         rationale: |
-          You introduced political pension demands missing from this personal reflective essay.
-      - text: Proving that woven bamboo baskets are far superior to modern plastic containers.
+          This turns a personal lesson into a product ranking. Baskets are valued in the memory. Check whether plastic is compared.
+      - text: "University study should be replaced by basket-making work."
         rationale: |
-          You picked a product comparison not explored in the narrator's personal reflection on patience.
-      - text: Reporting the commercial market price of hand-woven 'bukag' baskets in Manila.
+          This turns a remembered skill into rejection of university. The narrator studies in Manila. Check whether the memory supports or replaces that experience.
+      - text: "Public officials must set a new pension for all basket weavers."
         rationale: |
-          You introduced commercial pricing details outside the scope of the personal life lesson.
+          This turns reflection into policy advocacy. The grandfather's labor is valued. Check whether pensions are requested.
     explanation: |
-      The final paragraph reflects on how the lesson learned while weaving baskets ("true progress is built with patient hands") guides the narrator at university.
-
-  - id: rc-tt-eea-0014
-    passage: rc-tt-eea-p3
-    type: evaluate
-    difficulty: medium
+      The ending connects the grandfather's teaching with university deadlines. The writer reflects on patience as a lesson carried into later life.
+  - id: "rc-tt-eea-0014"
+    passage: "rc-tt-eea-p3"
+    type: "feature-of-form"
+    difficulty: "medium"
     stem: |
       How does the grandfather's reaction to the narrator's weaving mistakes contribute to the essay's reflective tone?
     choices:
-      - text: His silent unlacing models patience over rushed anger.
+      - text: "It embodies the patience the narrator later values."
         correct: true
-      - text: His reaction demonstrates the complex legal regulations governing international basket exports in Bohol.
+      - text: "It shows the grandfather regards the craft as worthless."
         rationale: |
-          You introduced export trade regulations that are not part of this personal family narrative.
-      - text: His reaction explicitly warns readers against moving away to study at Manila universities.
+          This treats correcting flawed work as rejection of the craft. The basket is undone. Check the continued teaching that follows.
+      - text: "It establishes a complete procedure for mass production."
         rationale: |
-          You inferred a warning against studying in Manila that contradicts the narrator's university journey.
-      - text: His reaction proves that raw rattan stalks are far too weak for traditional basket weaving.
+          This treats one action as a manufacturing procedure. The craft has technical steps. Check whether the passage provides a full production system.
+      - text: "It turns the essay into a demand for a government training law."
         rationale: |
-          You inferred material weakness, but the grandfather uses rattan effectively to teach patience.
+          This turns teaching within a family into legislative advocacy. Training is part of the memory. Check whether any law is proposed.
     explanation: |
-      The grandfather's calm, silent unlacing of flawed work illustrates the values of patience and care, reinforcing the reflective tone of the essay.
-
-  - id: rc-tt-eea-0015
-    passage: rc-tt-eea-p3
-    type: analyze
-    difficulty: hard
+      The grandfather calmly undoes the flawed work. His response gives the narrator an example of patience to reflect on later.
+  - id: "rc-tt-eea-0015"
+    passage: "rc-tt-eea-p3"
+    type: "feature-of-form"
+    difficulty: "hard"
     stem: |
       What is the main difference between the purpose of this personal essay and the purpose of an editorial?
     choices:
-      - text: The essay explores a personal experience, while an editorial persuades readers on a public issue.
+      - text: "This essay reflects on experience; the editorial advocates policy."
         correct: true
-      - text: The essay reports objective news facts from official records, while an editorial tells fictional short stories.
+      - text: "This essay reports a new public event; the editorial supplies a childhood memory."
         rationale: |
-          You mischaracterized both genres. Essays reflect on personal experiences, while editorials argue public opinions.
-      - text: The essay contains step-by-step technical manufacturing blueprints, while an editorial contains short rhyming poetry.
+          This exchanges the two passages' functions. Both concern real-life subjects. Check which text uses memory and which asks for reform.
+      - text: "This essay speaks for a board; the editorial speaks only for a named contributor."
         rationale: |
-          You misidentified essays as technical blueprints and editorials as poetry.
-      - text: The essay urges readers toward immediate political voting, while an editorial reflects on personal childhood memories.
+          This exchanges the two passages' authorship. Both express a stance. Check the board label and the personal narrator.
+      - text: "This essay avoids all evidence; the editorial consists entirely of verified measurements."
         rationale: |
-          You reversed the goals. Editorials address public issues, while personal essays reflect on memories.
+          This treats genre as an evidence ban. Opinion and reflection may use factual details. Check the actual purposes instead of assuming what each excludes.
     explanation: |
-      Personal essays explore personal experiences and insights, whereas editorials aim to persuade readers to adopt a specific stance on a public issue.
+      The essay develops a personal lesson from weaving. The identified editorial presents its board's argument for changes in farming policy.
+  - id: "q-text-types-essays-editorials-articles-0016"
+    passage: "p-text-types-essays-editorials-articles-0004"
+    type: "identify-text-type"
+    difficulty: "easy"
+    stem: |
+      Which form best classifies the crossing passage?
+    choices:
+      - text: "Signed individual commentary"
+        correct: true
+      - text: "The newspaper's institutional editorial"
+        rationale: |
+          This recognizes advocacy but overlooks personal authorship. Editorials also argue. Check who the byline says owns the view.
+      - text: "A straight report of an enacted traffic policy"
+        rationale: |
+          This treats the public issue as straight reporting. Traffic is newsworthy. Check the writer's proposed action.
+      - text: "A reflective essay about the writer's childhood"
+        rationale: |
+          This treats first-person writing as necessarily memoir. The writer says I. Check whether the text reflects on childhood or argues a current policy.
+    explanation: |
+      The byline identifies Rosa as writing in her personal capacity. She argues for a crossing policy, which makes this individual commentary.
+    approved: false
+  - id: "q-text-types-essays-editorials-articles-0017"
+    passage: "p-text-types-essays-editorials-articles-0004"
+    type: "feature-of-form"
+    difficulty: "medium"
+    stem: |
+      Why does the byline matter to classification?
+    choices:
+      - text: "It identifies whose view the argument represents."
+        correct: true
+      - text: "It proves every factual claim in the passage is true."
+        rationale: |
+          This treats authorship as proof of accuracy. A named writer is accountable. Check whether identification verifies every claim.
+      - text: "It shows that the newspaper has adopted the proposal."
+        rationale: |
+          This treats publication as endorsement. The newspaper can carry a contributor's work. Check the phrase personal capacity.
+      - text: "It makes the passage a neutral report without advocacy."
+        rationale: |
+          This treats a named author as evidence of neutrality. Reports have bylines too. Check the explicit recommendations.
+    explanation: |
+      The byline states that Rosa writes personally. It separates her argument from a publication's institutional position.
+    approved: false
+  - id: "q-text-types-essays-editorials-articles-0018"
+    passage: "p-text-types-essays-editorials-articles-0004"
+    type: "feature-of-form"
+    difficulty: "medium"
+    stem: |
+      How are observations about parked vehicles used in the commentary?
+    choices:
+      - text: "They support the case for changing the pickup area."
+        correct: true
+      - text: "They replace the argument with a technical traffic manual."
+        rationale: |
+          This treats evidence as a change in genre. The observations are concrete. Check whether the text gives technical operating instructions.
+      - text: "They prove the writer is presenting the editorial board's view."
+        rationale: |
+          This treats factual support as institutional authorship. The argument uses evidence. Check the personal byline.
+      - text: "They remove any need to evaluate the proposed policy."
+        rationale: |
+          This treats supporting evidence as final certainty. Visibility is relevant. Check the recommendation to test and review the change.
+    explanation: |
+      The blocked sightlines explain why the writer recommends moving pickup farther away. Observations are used as evidence in an argument.
+    approved: false
+  - id: "q-text-types-essays-editorials-articles-0019"
+    passage: "p-text-types-essays-editorials-articles-0004"
+    type: "feature-of-form"
+    difficulty: "hard"
+    stem: |
+      Which feature shows that advocacy can be calm and evidence-focused?
+    choices:
+      - text: "The writer proposes a trial and answers an opposing concern."
+        correct: true
+      - text: "The passage avoids taking any position on the crossing."
+        rationale: |
+          This confuses calm wording with no stance. The discussion is measured. Check the explicit pickup-area recommendation.
+      - text: "The writer reports that the proposal has already become law."
+        rationale: |
+          This turns a proposal into enacted policy. Officials are addressed. Check the future action the writer requests.
+      - text: "The passage gives a memoir without recommending action."
+        rationale: |
+          This treats personal authorship as memoir. The byline names a teacher. Check whether the piece recounts a past life lesson.
+    explanation: |
+      Rosa recommends a trial, acknowledges walking concerns, and asks for observation. Those choices develop a reasoned argument in a calm voice.
+    approved: false
+  - id: "q-text-types-essays-editorials-articles-0020"
+    passage: "p-text-types-essays-editorials-articles-0004"
+    type: "feature-of-form"
+    difficulty: "exam"
+    stem: |
+      Which change would most clearly turn the piece into straight reporting about the proposal?
+    choices:
+      - text: "Attribute the proposal to Rosa and report the responses."
+        correct: true
+      - text: "Remove the byline while keeping every personal demand."
+        rationale: |
+          This treats anonymous advocacy as reporting. A missing byline changes attribution. Check whether the writer still demands a policy.
+      - text: "Replace every factual observation with stronger praise."
+        rationale: |
+          This treats stronger judgment as news. Praise can sound confident. Check whether information or advocacy becomes primary.
+      - text: "Label it a news report while keeping the writer's advocacy."
+        rationale: |
+          This relies on a label while the function stays the same. News labels are useful cues. Check whether the text itself remains a personal argument.
+    explanation: |
+      Straight reporting could describe Rosa's proposal as her position and include attributed responses. The reporter's task would be presenting those developments.
+    approved: false
