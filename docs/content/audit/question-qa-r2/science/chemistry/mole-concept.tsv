@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-chemistry-mole-concept-0001	CORRECTED	SOLVED-MATCH	stem;explanation;notes	LOW	g/mol quantities correctly called element molar masses, not atomic masses.
+q-chemistry-mole-concept-0002	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original repeated simple molar-mass addition with a swapped formula.
+q-chemistry-mole-concept-0003	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-mole-concept-0004	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	LOW	Rounded constant explicitly supplied; scientific notation put in math delimiters.
+q-chemistry-mole-concept-0005	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original last note claimed 45 times NA produced 8.1e24; the arithmetic was wrong.
+q-chemistry-mole-concept-0006	CORRECTED	SOLVED-FIXED	choices;stem;explanation;notes	HIGH	Original marked answer falsely prohibited valid combined dimensional-analysis conversions.
+q-chemistry-mole-concept-0007	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original repeated the water molar-mass calculation as an error-identification question.
+q-chemistry-mole-concept-0008	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original asserted exact numerical transfer and conflated tabulated atomic mass with a single atom.
+q-chemistry-mole-concept-0009	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original called 6.022e23 the full value and asserted an unsupported exam-wide rounding rule.
+q-chemistry-mole-concept-0010	CORRECTED	SOLVED-MATCH	stem;explanation;notes	MEDIUM	Original repeated element-mass addition; new question solves the mass/amount relation in reverse.
+q-chemistry-mole-concept-0011	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original repeated mass-to-moles division with a swapped substance.
+q-chemistry-mole-concept-0012	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original repeated grams-to-entities and gave an incorrect number for molar mass times NA.
+q-chemistry-mole-concept-0013	CORRECTED	SOLVED-MATCH	stem;explanation;notes	HIGH	Original 84 g/mol note gave arithmetic unrelated to that answer; g/mol terminology corrected.
+q-chemistry-mole-concept-0014	CORRECTED	SOLVED-MATCH	stem;explanation;notes	LOW	Unlike quantities no longer compared without specifying the mass of one mole.
+q-chemistry-mole-concept-0015	NEW	NEW	new question	NONE	
+q-chemistry-mole-concept-0016	NEW	NEW	new question	NONE	
+q-chemistry-mole-concept-0017	NEW	NEW	new question	NONE	
+q-chemistry-mole-concept-0018	NEW	NEW	new question	NONE	
+q-chemistry-mole-concept-0019	NEW	NEW	new question	NONE	
+q-chemistry-mole-concept-0020	NEW	NEW	new question	NONE	
