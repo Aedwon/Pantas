@@ -15,9 +15,9 @@ questions:
       - text: "$25\\,\\mathrm J$"
         rationale: |
           This adds force and displacement. Both numbers are given. Check the product in the work formula.
-      - text: "$4\\,\\mathrm J$"
+      - text: "$500\\,\\mathrm J$"
         rationale: |
-          This divides force by displacement. Division appears in other formulas. Check the units of work.
+          This squares the displacement before multiplying by force. Squares appear in energy formulas. Check that constant-force work uses the first power of displacement.
       - text: "$15\\,\\mathrm J$"
         rationale: |
           This subtracts displacement from force. A difference can sound like energy change. Check that these units cannot be subtracted.
@@ -60,9 +60,9 @@ questions:
       - text: "$29.4\\,\\mathrm J$"
         rationale: |
           This uses weight alone and omits height. Weight is part of the energy calculation. Check force times height.
-      - text: "$39.2\\,\\mathrm J$"
+      - text: "$117600\\,\\mathrm J$"
         rationale: |
-          This uses gravity times height and omits mass. The height change matters. Check the object’s mass factor.
+          This enters the mass as 3000 grams while keeping SI gravity and height. Grams measure the same mass. Check that SI work calculation needs kilograms.
     explanation: |
       Near Earth, $PE=mgh$ relative to the chosen zero. Here $PE=(3)(9.8)(4)=117.6\,\mathrm J$.
     approved: true
@@ -270,9 +270,9 @@ questions:
       - text: "$210\\,\\mathrm J$"
         rationale: |
           This adds power and time. Both are given. Check joules per second multiplied by seconds.
-      - text: "$190\\,\\mathrm J$"
+      - text: "$20000\\,\\mathrm J$"
         rationale: |
-          This subtracts time from power. The number falls as time increases. Check that work accumulates during operation.
+          This uses 100 seconds instead of 10 seconds. An extra zero increases the product. Check the stated duration.
     explanation: |
       Work is power times duration: $W=P\Delta t=(200)(10)=2000\,\mathrm J$.
     approved: true
