@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-spatial-abstract-reasoning-paper-folding-and-cutting-0001	CORRECTED	SOLVED-FIXED	stem;choices;explanation;notes;figure	HIGH	Key gave two openings despite the stem explicitly limiting the cut to one layer; fixed to one.
+q-spatial-abstract-reasoning-paper-folding-and-cutting-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Added the off-crease conditions needed for four separate holes.
+q-spatial-abstract-reasoning-paper-folding-and-cutting-0003	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Diagram used a square despite rectangular stem; added separate-copy conditions.
+q-spatial-abstract-reasoning-paper-folding-and-cutting-0004	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Clarified near versus on a crease and replaced random-placement distractor.
+q-spatial-abstract-reasoning-paper-folding-and-cutting-0005	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	The renderer edge cut is inset and the original claim of one notch per outer edge was false.
+q-spatial-abstract-reasoning-paper-folding-and-cutting-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Original specified a diamond that the actual triangular cut does not justify; used connectedness without an invented outline.
+q-spatial-abstract-reasoning-paper-folding-and-cutting-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Original asserted an unconditional eight-hole rule and lacked a diagram.
+q-spatial-abstract-reasoning-paper-folding-and-cutting-0008	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Made the crease-touching case definite and replaced generic yes/no distractors.
+q-spatial-abstract-reasoning-paper-folding-and-cutting-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Removed the false implication that perpendicular reflections never commute; asked about physically reversing the fold sequence.
+q-spatial-abstract-reasoning-paper-folding-and-cutting-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Original four-fold stem contradicted the three-fold renderer; replaced with a supported crease-joining case.
+q-spatial-abstract-reasoning-paper-folding-and-cutting-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Repeated simple one-fold hole count; changed to mirror placement.
+q-spatial-abstract-reasoning-paper-folding-and-cutting-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Original stem placed the cut at the outer corner while its corner field drew it near the fold intersection.
+q-spatial-abstract-reasoning-paper-folding-and-cutting-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Original compared two packets with only one depicted and asserted hole counts without crease conditions.
+q-spatial-abstract-reasoning-paper-folding-and-cutting-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Stem required an unsupported diagonal fold and triangular cut absent from the diagram.
+q-spatial-abstract-reasoning-paper-folding-and-cutting-0015	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-spatial-abstract-reasoning-paper-folding-and-cutting-0016	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-spatial-abstract-reasoning-paper-folding-and-cutting-0017	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-spatial-abstract-reasoning-paper-folding-and-cutting-0018	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-spatial-abstract-reasoning-paper-folding-and-cutting-0019	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-spatial-abstract-reasoning-paper-folding-and-cutting-0020	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
