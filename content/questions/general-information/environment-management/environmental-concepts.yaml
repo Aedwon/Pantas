@@ -3,125 +3,450 @@ meta:
   topic: environment-management
   subtopic: environmental-concepts
   exams:
-    - cse-pro
-    - cse-sub
+  - cse-pro
+  - cse-sub
 questions:
-  - id: q-environment-management-environmental-concepts-0001
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Under RA 9003, what does the principle of segregation at source require?
-    choices:
-      - text: Separating waste at the point of origin
-        correct: true
-      - text: Sorting collected waste at a municipal landfill
-        rationale: |
-          You picked sorting at landfill, which happens after waste collection. Segregation at source requires separating waste at the point of origin.
-      - text: Incinerating all mixed waste at high temperature
-        rationale: |
-          You selected high temperature incineration, which is a disposal method. Segregation at source means sorting waste where it is generated.
-      - text: Transporting all unsorted waste to sea dumping
-        rationale: |
-          You chose sea dumping transport, which is an illegal disposal practice. Segregation at source requires sorting waste where it is generated.
-    explanation: |
-      RA 9003 defines segregation at source as separating different materials in solid waste at the point of origin to promote recycling and reuse and reduce the volume collected for disposal.
+- id: q-environment-management-environmental-concepts-0001
+  type: single_choice
+  difficulty: medium
+  stem: 'What distinguishes segregation at source under RA 9003?
 
-  - id: q-environment-management-environmental-concepts-0002
-    type: single_choice
-    difficulty: easy
-    stem: |
-      What activity keeps solid waste out of disposal facilities through reduction, reuse, recycling, and composting?
-    choices:
-      - text: Waste diversion
-        correct: true
-      - text: Open waste dumping
-        rationale: |
-          You picked open waste dumping, which sends waste to a disposal site instead of reducing the amount that reaches one.
-      - text: Municipal incineration
-        rationale: |
-          You selected municipal incineration, which burns waste instead of diverting it through reuse, recycling, or composting.
-      - text: Sanitary landfilling
-        rationale: |
-          You chose sanitary landfilling, which is a final disposal method. Keeping materials out of disposal facilities through reuse and recycling is waste diversion.
-    explanation: |
-      RA 9003 defines waste diversion as activities that reduce or eliminate the amount of solid waste going to waste disposal facilities.
+    '
+  choices:
+  - text: Separating waste where it is produced
+    correct: true
+  - text: Sorting mixed waste only after arrival at a municipal landfill
+    rationale: 'This moves separation away from the source. Sorting still occurs. Check where the waste originates.
 
-  - id: q-environment-management-environmental-concepts-0003
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Which certificate is required before undertaking or operating a declared environmentally critical project or project in a declared environmentally critical area under the Philippine Environmental Impact Statement System?
-    choices:
-      - text: Environmental Compliance Certificate
-        correct: true
-      - text: Certificate of Municipal Non-Taxable Status
-        rationale: |
-          You selected municipal non-taxable status, which concerns local tax exemptions. Environmental impact compliance for covered projects requires an ECC.
-      - text: Business Operating Permit Authorization Clearance
-        rationale: |
-          You picked a business operating permit, which is a general commercial license. A covered project under the EIS System must secure an ECC.
-      - text: Building Structural Safety Inspection Permit
-        rationale: |
-          You chose structural safety inspection, which covers engineering safety. The environmental clearance required for covered projects is an ECC.
-    explanation: |
-      Section 4 of PD 1586 requires an Environmental Compliance Certificate before a declared environmentally critical project or a project in a declared environmentally critical area may be undertaken or operated.
+      '
+  - text: Collecting all materials together and separating them during transport
+    rationale: 'This delays separation until collection. The materials are eventually sorted. Check whether sorting happens at generation.
 
-  - id: q-environment-management-environmental-concepts-0004
-    type: single_choice
-    difficulty: medium
-    stem: |
-      RA 10121 introduced what major paradigm shift in government disaster response?
-    choices:
-      - text: Shift to proactive risk reduction
-        correct: true
-      - text: Shift from local government to total foreign aid dependency
-        rationale: |
-          You selected foreign aid dependency, which undermines local resilience. RA 10121 emphasizes disaster risk reduction and preparedness.
-      - text: Shift from civil emergency protection to military rule control
-        rationale: |
-          You chose military control, which does not describe RA 10121. The law establishes a disaster risk reduction and management framework.
-      - text: Shift from early prevention to post-disaster structural rebuilding
-        rationale: |
-          You picked post-disaster rebuilding, which reverses the intended shift. RA 10121 places greater emphasis on prevention, mitigation, and preparedness.
-    explanation: |
-      RA 10121 institutionalized a disaster risk reduction and management framework that emphasizes prevention, mitigation, preparedness, and resilience instead of relying mainly on post-disaster response.
+      '
+  - text: Separating waste only when a disposal facility asks for a special delivery
+    rationale: 'This treats segregation as an occasional facility request. Disposal workers handle waste. Check who should separate it first.
 
-  - id: q-environment-management-environmental-concepts-0007
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Under RA 10121, what national council serves as the lead coordinating body for disaster risk reduction and management?
-    choices:
-      - text: NDRRMC
-        correct: true
-      - text: DENR
-        rationale: |
-          You selected DENR, which manages natural resources and environmental regulation. National disaster risk reduction and management coordination belongs to the NDRRMC.
-      - text: NEDA
-        rationale: |
-          You picked NEDA, which is the national economic and development planning agency. Disaster risk reduction and management coordination belongs to the NDRRMC.
-      - text: DSWD
-        rationale: |
-          You chose DSWD, which has important disaster-response and social-welfare roles. The national coordinating council established by RA 10121 is the NDRRMC.
-    explanation: |
-      RA 10121 establishes the National Disaster Risk Reduction and Management Council (NDRRMC) as the national body that coordinates disaster risk reduction and management policy and action.
+      '
+  explanation: 'Segregation at source means separating materials at their point of origin. This supports reuse and recycling before collection and disposal.
 
-  - id: q-environment-management-environmental-concepts-0008
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Requiring households and business establishments to separate different categories of solid waste before collection is an example of what?
-    choices:
-      - text: Segregation at source
-        correct: true
-      - text: Municipal open waste burning
-        rationale: |
-          You selected open waste burning, which is a disposal practice. Sorting waste at the premises where it is generated is segregation at source.
-      - text: Sanitary landfill capping
-        rationale: |
-          You picked landfill capping, which is part of final disposal-site management. Sorting waste at a home or business before collection is segregation at source.
-      - text: Offshore waste dumping
-        rationale: |
-          You chose offshore dumping, which is a disposal practice. Separating waste at the premises where it is generated is segregation at source.
-    explanation: |
-      RA 9003 requires segregation to be conducted primarily at the source, including household, institutional, industrial, commercial, and agricultural sources.
+    '
+- id: q-environment-management-environmental-concepts-0002
+  type: single_choice
+  difficulty: medium
+  stem: 'What concept includes reduction, reuse, recycling, and composting that keep solid waste out of disposal facilities?
+
+    '
+  choices:
+  - text: Waste diversion
+    correct: true
+  - text: Faster collection of the same mixed waste
+    rationale: 'This treats moving waste faster as diversion. Less waste stays at home. Check whether the amount sent for disposal falls.
+
+      '
+  - text: Transfer to a different disposal facility
+    rationale: 'This treats a new destination as diversion. One landfill receives less. Check the total waste going to disposal.
+
+      '
+  - text: Temporary storage before the same landfill disposal
+    rationale: 'This treats delay as diversion. Waste does not reach the landfill immediately. Check its final destination.
+
+      '
+  explanation: 'Waste diversion reduces or eliminates the amount sent to disposal facilities. The listed activities keep materials in use or turn organic waste into useful compost.
+
+    '
+- id: q-environment-management-environmental-concepts-0003
+  type: single_choice
+  difficulty: medium
+  stem: 'What environmental decision document must a project covered by the Philippine EIS System secure before implementation?
+
+    '
+  choices:
+  - text: An ECC
+    correct: true
+  - text: A business permit alone, without environmental review
+    rationale: 'This treats commercial permission as environmental clearance. The permit authorizes business activity. Check whether the required EIS review occurred.
+
+      '
+  - text: A building permit alone, even for a covered critical project
+    rationale: 'This treats construction approval as environmental clearance. A building permit is needed for many projects. Check the distinct environmental requirement.
+
+      '
+  - text: A statement written by the proponent declaring all impacts acceptable
+    rationale: 'This treats self-assessment as the decision document. The proponent supplies information. Check who reviews and issues the clearance.
+
+      '
+  explanation: 'The Environmental Compliance Certificate, or ECC, is the decision document issued after environmental review for covered projects. It must be secured before implementation.
+
+    '
+- id: q-environment-management-environmental-concepts-0004
+  type: single_choice
+  difficulty: medium
+  stem: 'What broad shift does RA 10121 emphasize in disaster management?
+
+    '
+  choices:
+  - text: Proactive risk reduction
+    correct: true
+  - text: Waiting for damage before starting all disaster planning
+    rationale: 'This makes management purely reactive. Response is a visible disaster activity. Check the preventive and preparedness work.
+
+      '
+  - text: Replacing local preparedness with dependence on outside relief
+    rationale: 'This treats relief as the whole framework. Outside aid can help after a disaster. Check the local efforts that reduce risk beforehand.
+
+      '
+  - text: Treating reconstruction as the only valid disaster-management activity
+    rationale: 'This restricts the framework to recovery. Rebuilding is important. Check the other phases in the lesson.
+
+      '
+  explanation: 'RA 10121 emphasizes prevention, mitigation, preparedness, response, and recovery. Managing risks before harm occurs is a central part of that approach.
+
+    '
+- id: q-environment-management-environmental-concepts-0007
+  type: single_choice
+  difficulty: medium
+  stem: 'Under RA 10121, what national council serves as the lead coordinating body for disaster risk reduction and management?
+
+    '
+  choices:
+  - text: NDRRMC
+    correct: true
+  - text: DENR
+    rationale: 'This selects the environmental department as the whole disaster council. Environmental hazards affect risk. Check the council specifically established for disaster management.
+
+      '
+  - text: NEDA
+    rationale: 'This selects an economic-planning body. Development planning affects resilience. Check the national disaster council named in RA 10121.
+
+      '
+  - text: DSWD
+    rationale: 'This selects a relief-related department instead of the council. Social welfare supports disaster response. Distinguish a participating department from the coordinating council.
+
+      '
+  explanation: 'RA 10121 establishes the National Disaster Risk Reduction and Management Council, or NDRRMC, to coordinate the national disaster framework.
+
+    '
+- id: q-environment-management-environmental-concepts-0008
+  type: single_choice
+  difficulty: medium
+  stem: 'A school sorts food scraps for composting separately from clean recyclable paper before collection. Which statement best describes the practice?
+
+    '
+  choices:
+  - text: It separates materials at their source.
+    correct: true
+  - text: It counts as source segregation only if the sorting occurs at the landfill.
+    rationale: 'This puts the source at disposal. Landfill workers handle waste. Check where the school produces it.
+
+      '
+  - text: It cannot support diversion unless all materials are mixed again for transport.
+    rationale: 'This makes mixing necessary for recovery. One collection stream can seem convenient. Check whether mixing protects useful separated materials.
+
+      '
+  - text: It is source segregation only when the paper has already become a new product.
+    rationale: 'This confuses separation with completed recycling. New products are a recycling goal. Distinguish sorting from later processing.
+
+      '
+  explanation: 'The school separates the materials where they are generated. That is source segregation and prepares them for composting or recycling.
+
+    '
+- id: q-environment-management-environmental-concepts-0009
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'Which action reduces waste before it needs collection?
+
+    '
+  choices:
+  - text: Choosing less disposable packaging
+    correct: true
+  - text: Sending the same amount of packaging to a more distant landfill
+    rationale: 'This changes location instead of generation. The local site receives less. Check total waste produced.
+
+      '
+  - text: Collecting packaging twice as often without changing purchases
+    rationale: 'This changes schedule instead of generation. Bins look emptier. Check the amount bought and discarded.
+
+      '
+  - text: Adding a larger bin for the same volume of disposable packaging
+    rationale: 'This changes storage capacity. Overflow may fall. Check whether waste itself is reduced.
+
+      '
+  explanation: 'Using less disposable packaging reduces the amount of solid waste created. Source reduction can keep that material out of disposal.
+
+    '
+- id: q-environment-management-environmental-concepts-0010
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'An intact container is cleaned and used again for storage. Which diversion activity is shown?
+
+    '
+  choices:
+  - text: Reuse
+    correct: true
+  - text: Recycling into a different material
+    rationale: 'This assumes any second use requires processing. Both keep items useful. Check whether the original container is changed.
+
+      '
+  - text: Composting the container as organic waste
+    rationale: 'This treats reuse as decomposition. Both can reduce disposal. Check the actual action described.
+
+      '
+  - text: Disposal at a managed landfill site
+    rationale: 'This treats removal from immediate use as disposal. The container has finished one use. Check whether it remains in use.
+
+      '
+  explanation: 'The same container is used again without being turned into a different material. This is reuse.
+
+    '
+- id: q-environment-management-environmental-concepts-0011
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'Waste paper is processed into new paper products instead of being landfilled. Which activity is this?
+
+    '
+  choices:
+  - text: Recycling
+    correct: true
+  - text: Reusing each old sheet without processing
+    rationale: 'This confuses new-material processing with direct reuse. The paper serves another purpose. Check whether it is transformed into a new product.
+
+      '
+  - text: Only storing the paper until landfill transport
+    rationale: 'This omits the new-product step. Stored recyclables may await processing. Check the final use described.
+
+      '
+  - text: Mixing paper with residual waste before collection
+    rationale: 'This treats mixing as resource recovery. All material enters collection. Check whether useful paper remains recoverable.
+
+      '
+  explanation: 'The waste paper is processed into useful new products. Recycling keeps that material from disposal.
+
+    '
+- id: q-environment-management-environmental-concepts-0012
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'Why does composting suitable organic waste count as diversion?
+
+    '
+  choices:
+  - text: It keeps that waste from disposal.
+    correct: true
+  - text: It moves the same organic waste to a landfill under a different name.
+    rationale: 'This treats renaming as recovery. Compost is a familiar waste term. Check whether the material becomes useful instead.
+
+      '
+  - text: It requires every type of solid waste to break down in the same pile.
+    rationale: 'This assumes all materials are compostable. Composting uses decomposition. Check material suitability.
+
+      '
+  - text: It means collection is no longer needed for any other waste stream.
+    rationale: 'This turns one diversion activity into a total collection replacement. Composting reduces one stream. Check what still needs management.
+
+      '
+  explanation: 'Composting turns suitable organic waste into a useful product. The waste is therefore kept from a disposal facility.
+
+    '
+- id: q-environment-management-environmental-concepts-0013
+  type: single_choice
+  difficulty: hard
+  approved: false
+  stem: 'Which material category fits suitable food scraps intended to decompose into compost?
+
+    '
+  choices:
+  - text: Compostable
+    correct: true
+  - text: Recyclable metal and glass
+    rationale: 'This chooses a recovery category for other materials. Both categories keep waste useful. Check whether the material decomposes into compost.
+
+      '
+  - text: Non-recyclable residual waste
+    rationale: 'This overlooks a useful recovery route. Food scraps can look like ordinary rubbish. Check whether composting is suitable.
+
+      '
+  - text: Special waste requiring separate hazardous handling
+    rationale: 'This assumes all separated waste is special waste. Each category is handled separately. Check the material''s actual characteristics.
+
+      '
+  explanation: 'Suitable food scraps are compostable because they can be broken down into useful compost.
+
+    '
+- id: q-environment-management-environmental-concepts-0014
+  type: single_choice
+  difficulty: hard
+  approved: false
+  stem: 'Which sequence best fits a project known to be covered by the EIS System?
+
+    '
+  choices:
+  - text: Environmental review, ECC, implementation
+    correct: true
+  - text: Implementation first, then ECC only if complaints arise
+    rationale: 'This postpones clearance until after work begins. Complaints can reveal impacts. Check the pre-implementation requirement.
+
+      '
+  - text: Business registration first, then implementation without EIS review
+    rationale: 'This substitutes registration for environmental review. Registration is an official step. Check the separate EIS obligation.
+
+      '
+  - text: ECC drafted by the proponent, then approval assumed without review
+    rationale: 'This turns an applicant''s document into official clearance. The proponent prepares project information. Check whether a reviewing authority issues the decision.
+
+      '
+  explanation: 'The covered project undergoes environmental review and secures the required ECC before implementation.
+
+    '
+- id: q-environment-management-environmental-concepts-0015
+  type: single_choice
+  difficulty: hard
+  approved: false
+  stem: 'Which claim about an ECC follows from the lesson?
+
+    '
+  choices:
+  - text: It is an environmental decision document.
+    correct: true
+  - text: It is a universal replacement for every other project permit.
+    rationale: 'This makes one clearance cover all regulation. An ECC is an official document. Check its environmental purpose.
+
+      '
+  - text: It is required for every activity solely because people call it a project.
+    rationale: 'This ignores coverage under the EIS System. Many projects need review. Check whether the activity is covered.
+
+      '
+  - text: It can be replaced by a proponent's statement that the site looks safe.
+    rationale: 'This replaces review with an informal judgment. A safe-looking site feels reassuring. Check the required formal process.
+
+      '
+  explanation: 'An ECC is the decision document resulting from review under the Philippine EIS System for a covered project.
+
+    '
+- id: q-environment-management-environmental-concepts-0016
+  type: single_choice
+  difficulty: hard
+  approved: false
+  stem: 'Which activity is disaster preparedness?
+
+    '
+  choices:
+  - text: Practicing an evacuation before a hazard occurs
+    correct: true
+  - text: Distributing food only after residents lose their homes
+    rationale: 'This selects response. Both protect affected people. Check whether the activity happens before the hazard.
+
+      '
+  - text: Rebuilding a damaged bridge after floodwaters recede
+    rationale: 'This selects recovery. Both support community safety. Check the timing and purpose.
+
+      '
+  - text: Waiting for a hazard warning before deciding whether any plan is needed
+    rationale: 'This treats delayed planning as preparedness. Warnings can trigger action. Check whether people are already ready to act.
+
+      '
+  explanation: 'An evacuation practice prepares people to act before danger occurs. It belongs to preparedness.
+
+    '
+- id: q-environment-management-environmental-concepts-0017
+  type: single_choice
+  difficulty: hard
+  approved: false
+  stem: 'Which action mainly reduces expected flood damage before the flood?
+
+    '
+  choices:
+  - text: Mitigating the hazard through protective planning
+    correct: true
+  - text: Supplying meals once homes have already been damaged
+    rationale: 'This selects immediate response. It helps flood-affected people. Check whether it reduces damage beforehand.
+
+      '
+  - text: Repairing destroyed classrooms after the emergency ends
+    rationale: 'This selects rehabilitation. Repairs restore safety. Check whether the action precedes the damage.
+
+      '
+  - text: Recording losses only after each flood without changing exposure
+    rationale: 'This treats documentation as prevention. Loss records can guide planning. Check whether this action changes the risk.
+
+      '
+  explanation: 'Protective planning aims to lessen expected harm before a flood. That is mitigation within disaster risk reduction.
+
+    '
+- id: q-environment-management-environmental-concepts-0018
+  type: single_choice
+  difficulty: hard
+  approved: false
+  stem: 'Which action most clearly belongs to rehabilitation and recovery?
+
+    '
+  choices:
+  - text: Restoring damaged community services
+    correct: true
+  - text: Giving the first rescue assistance during the active emergency
+    rationale: 'This selects response. Both help affected communities. Check whether services are being restored after damage.
+
+      '
+  - text: Teaching an evacuation procedure before a storm is forecast
+    rationale: 'This selects preparedness. It helps communities function safely. Check the point in the disaster cycle.
+
+      '
+  - text: Reducing exposure to a future hazard before any damage occurs
+    rationale: 'This selects prevention or mitigation. It also supports resilience. Check whether the action restores an existing loss.
+
+      '
+  explanation: 'Rehabilitation and recovery rebuild or restore conditions and services after a disaster''s damage.
+
+    '
+- id: q-environment-management-environmental-concepts-0019
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'What is the best test of whether a new waste program achieves diversion?
+
+    '
+  choices:
+  - text: Less waste is sent for final disposal.
+    correct: true
+  - text: The same waste reaches a landfill sooner each day.
+    rationale: 'This measures collection speed. Faster service looks efficient. Check the amount ultimately disposed.
+
+      '
+  - text: The program uses more bins while disposal quantities stay unchanged.
+    rationale: 'This measures equipment instead of outcome. Extra bins show activity. Check whether any waste avoids disposal.
+
+      '
+  - text: The waste is carried to a different town's disposal site.
+    rationale: 'This measures local relocation. The original town disposes less locally. Check the total sent to all disposal facilities.
+
+      '
+  explanation: 'Diversion reduces or eliminates waste sent to disposal facilities. The relevant result is material kept out of final disposal.
+
+    '
+- id: q-environment-management-environmental-concepts-0020
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'Which statement best combines source segregation and waste diversion?
+
+    '
+  choices:
+  - text: Segregation can prepare materials for diversion.
+    correct: true
+  - text: Separating waste guarantees diversion even if every stream is later landfilled.
+    rationale: 'This treats preparation as a guaranteed result. Sorted bins look successful. Check the materials'' final destination.
+
+      '
+  - text: Diversion is impossible unless mixed waste is first taken to a landfill.
+    rationale: 'This makes disposal a prerequisite. Facilities may sort some waste. Check reduction and reuse that happen earlier.
+
+      '
+  - text: Segregation and diversion mean exactly the same action in every case.
+    rationale: 'This merges sorting with reducing disposal. The practices often work together. Distinguish the process from the outcome.
+
+      '
+  explanation: 'Source segregation separates materials where they are generated. This can help recycling, reuse, or composting keep them out of disposal. Their later destination determines whether diversion occurs.
+
+    '
