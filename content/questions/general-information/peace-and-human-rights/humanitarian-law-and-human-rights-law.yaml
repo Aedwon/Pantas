@@ -8,7 +8,7 @@ meta:
 questions:
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0001
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'What situation does IHL specifically govern?
 
     '
@@ -56,7 +56,7 @@ questions:
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0003
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'Which statement correctly compares their general time scopes?
 
     '
@@ -80,7 +80,7 @@ questions:
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0004
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'Which body of law specifically restricts means and methods of warfare while protecting people outside active hostilities?
 
     '
@@ -128,7 +128,7 @@ questions:
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0006
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'What is another common name given to International Humanitarian Law?
 
     '
@@ -176,7 +176,7 @@ questions:
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0009
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   approved: false
   stem: 'In a qualifying public emergency, what does the lesson say about HRL obligations?
 
@@ -201,7 +201,7 @@ questions:
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0010
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   approved: false
   stem: 'Which person best fits IHL''s category of no longer participating in hostilities?
 
@@ -226,7 +226,7 @@ questions:
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0011
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   approved: false
   stem: 'Which proposal conflicts with IHL''s stated purpose?
 
@@ -326,7 +326,7 @@ questions:
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0015
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   approved: false
   stem: 'Which statement describes IHL''s purpose without adding a claim about whether a war should begin?
 
@@ -351,7 +351,7 @@ questions:
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0016
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   approved: false
   stem: 'What does non-derogable mean in the emergency distinction taught in the lesson?
 
@@ -376,7 +376,7 @@ questions:
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0017
   type: single_choice
-  difficulty: exam
+  difficulty: hard
   approved: false
   stem: 'Which relationship is central to HRL in the lesson?
 
@@ -401,7 +401,7 @@ questions:
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0018
   type: single_choice
-  difficulty: exam
+  difficulty: hard
   approved: false
   stem: 'Which pair best represents IHL''s complementary protective and regulatory aims?
 
@@ -478,24 +478,24 @@ questions:
   type: single_choice
   difficulty: exam
   approved: false
-  stem: 'Which reasoning best evaluates a list of IHL training sessions and wartime protections?
+  stem: 'An official says HRL has no wartime role and IHL has no peacetime implementation duties. Which correction follows from the lesson?
 
     '
   choices:
-  - text: Separate implementation duties from rules governing conflict.
+  - text: HRL continues in conflict; some IHL duties require preparation in peace.
     correct: true
-  - text: Treat every training session as proof that an armed conflict is already occurring.
-    rationale: 'This turns preparation into evidence of war. The session concerns IHL. Check the situation versus advance compliance work.
+  - text: The claim is wholly correct because distinct legal fields can never have overlapping or preparatory obligations.
+    rationale: 'This treats distinct fields as mutually exclusive. Their main focuses differ. Check continuous HRL application and the IHL implementation examples.
 
       '
-  - text: Delete all training because only wartime conduct can ever be an IHL-related duty.
-    rationale: 'This ignores the preparation obligations. The main scope is armed conflict. Check the peacetime examples.
+  - text: 'Reverse the claim completely: HRL applies only in war and IHL governs only ordinary peaceful administration.'
+    rationale: 'This swaps the two scopes instead of correcting their limits. Both fields protect people. Check each stated time scope.
 
       '
-  - text: Treat the training list as proof that HRL cannot apply to trainees during peacetime.
-    rationale: 'This makes one field exclude the other. Personnel study conflict rules. Check the continuing state obligations.
+  - text: Accept the claim whenever state authorities have chosen not to provide any training before an armed conflict begins.
+    rationale: 'This treats lack of preparation as removal of a duty. Training may have been omitted in practice. Check the legal obligation rather than actual compliance.
 
       '
-  explanation: 'The lesson separates IHL''s conflict-governing scope from duties such as training that must be implemented during peace.
+  explanation: 'HRL applies in peace and armed conflict. IHL governs armed conflict, but some duties such as training require implementation during peace. Distinct focuses do not remove those continuing or preparatory duties.
 
     '
