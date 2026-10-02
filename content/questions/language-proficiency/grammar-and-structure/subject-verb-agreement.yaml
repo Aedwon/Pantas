@@ -361,15 +361,15 @@ questions:
         correct: true
       - text: "Ng"
         rationale: |
-          Sa pangungusap na ito, ang tagaganap na "bata" ang minamarkahan ng "ang."
+          This uses the nonfocus marker for the eater. It can look right because "ng" also marks people in other verb patterns. Check which person or thing the verb puts in focus.
       - text: "Sa"
         rationale: |
-          Hindi lokasyon o direksiyon ang tungkulin ng puwang.
+          This treats the child as a place or recipient. "Sa" can link an action to someone, so it may seem possible. Check whether the noun names the eater or a destination.
       - text: "Na"
         rationale: |
-          Hindi pang-angkop ang kailangan bago ang "bata."
+          This treats the gap as a link between a noun and its description. "Na" often joins words, so it can look like a general connector. Check whether the gap marks a noun's role in the sentence.
     explanation: |
-      Sa aktor-pokus na "Kumain ang bata ng tinapay," ang tagaganap ay minamarkahan ng "ang."
+      The verb "kumain" makes the eater the focus of this sentence. "Ang" marks "bata," the child who ate the bread.
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0019"
     type: "subject-verb-agreement"
@@ -381,15 +381,15 @@ questions:
         correct: true
       - text: "Ang"
         rationale: |
-          Sa pokus-sa-bagay na pangungusap, "ang tinapay" ang minamarkahang paksa at "ng bata" ang tagaganap.
+          This marks the eater as the focus. That seems right if the verb is read like "kumain." Check the verb form before choosing a marker.
       - text: "Sa"
         rationale: |
-          Hindi lokasyon o direksiyon ang tungkulin ng puwang.
+          This treats the eater as a place or recipient. "Sa" can mark people in some constructions, so it may look familiar. Check whether the person did the action or received something.
       - text: "Na"
         rationale: |
-          Hindi pang-angkop ang kailangan.
+          This uses a word linker to mark the eater. "Na" is a common connector, so it may seem to fit any gap. Check whether the gap needs a role marker or a link to a description.
     explanation: |
-      Sa "Kinain ng bata ang tinapay," ang bagay ang minamarkahan ng "ang," samantalang ang tagaganap ay minamarkahan ng "ng."
+      The verb "kinain" puts the bread in focus. "Ang tinapay" names that focus, and "ng bata" names the child who ate it.
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0020"
     type: "subject-verb-agreement"
