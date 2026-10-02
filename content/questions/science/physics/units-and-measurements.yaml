@@ -38,7 +38,7 @@ questions:
           This picks the common gram instead of the SI mass base unit. Most other base-unit names have no prefix. Check the special base-unit name kilogram.
       - text: "Milligram"
         rationale: |
-          This selects a smaller prefixed unit. Small measurements use it often. Check the base unit rather than its thousandth.
+          This selects a small mass unit instead of the SI base unit. Milligrams are used for very small masses. Check that a milligram is one-thousandth of a gram, not of a kilogram.
       - text: "Newton"
         rationale: |
           This mixes weight with mass. A scale may report force. Check the quantity named in the question.
@@ -186,9 +186,9 @@ questions:
       - text: "$\\mathrm{m/s^2}$"
         rationale: |
           This reports acceleration’s units alone. Acceleration is in the formula. Check the mass multiplier.
-      - text: "$\\mathrm{kg\\,m/s}$"
+      - text: "$\\mathrm{kg\\,m^2/s^2}$"
         rationale: |
-          This uses velocity instead of acceleration. Both describe motion. Check the extra time denominator in acceleration.
+          This includes an extra length factor as in work or energy. Force does work through displacement. Check that force alone has only one length factor.
     explanation: |
       Mass has units $\mathrm{kg}$ and acceleration has units $\mathrm{m/s^2}$. Their product is $\mathrm{kg\,m/s^2}$, the newton.
     approved: true
@@ -249,9 +249,9 @@ questions:
       - text: "$2000\\,\\mathrm{cm^2}$"
         rationale: |
           This uses a factor of 1000. That number is familiar from kilo conversion. Check the squared centimeter conversion.
-      - text: "$20\\,\\mathrm{cm^2}$"
+      - text: "$0.0002\\,\\mathrm{cm^2}$"
         rationale: |
-          This treats each meter as ten centimeters and uses one factor. A decimal shift seems sufficient. Check both the prefix and the area exponent.
+          This divides by the squared length factor instead of multiplying. The square is required. Check that a smaller unit needs a larger numerical count.
     explanation: |
       Since $1\,\mathrm m=100\,\mathrm{cm}$, $1\,\mathrm{m^2}=100^2\,\mathrm{cm^2}=10000\,\mathrm{cm^2}$. Multiply by two to get $20000\,\mathrm{cm^2}$.
     approved: true
@@ -270,9 +270,9 @@ questions:
       - text: "$30000\\,\\mathrm{cm^3}$"
         rationale: |
           This uses the area factor of 100 squared. Squaring is needed for area. Check that the quantity here is volume.
-      - text: "$300000\\,\\mathrm{cm^3}$"
+      - text: "$3000000000\\,\\mathrm{cm^3}$"
         rationale: |
-          This shifts by five decimal places instead of six. The number must increase greatly. Check $100^3$.
+          This uses 1000 centimeters per meter before cubing. The milli conversion factor is familiar. Check that centi gives 100 instead.
     explanation: |
       Volume conversion cubes the length factor: $1\,\mathrm{m^3}=100^3\,\mathrm{cm^3}=1000000\,\mathrm{cm^3}$. Thus three cubic meters is $3000000\,\mathrm{cm^3}$.
     approved: true
@@ -324,17 +324,17 @@ questions:
     type: "identify"
     difficulty: "medium"
     stem: |
-      Which pair correctly matches a base quantity with its SI unit?
+      Which SI unit symbol represents luminous intensity?
     choices:
-      - text: "Luminous intensity, candela"
+      - text: "cd"
         correct: true
-      - text: "Luminous intensity, mole"
+      - text: "mol"
         rationale: |
           This swaps light measurement with amount of substance. Both are less familiar base quantities. Check their named SI units.
-      - text: "Luminous intensity, kelvin"
+      - text: "K"
         rationale: |
           This uses a temperature unit for light intensity. Hot objects can glow. Check the quantity being measured.
-      - text: "Luminous intensity, ampere"
+      - text: "A"
         rationale: |
           This uses electric current to label light intensity. Electric lamps consume current. Check the light quantity independently.
     explanation: |
@@ -415,7 +415,7 @@ questions:
       - text: "$0.002\\,\\mathrm{kg/m^3}$"
         rationale: |
           This converts grams to kilograms but leaves cubic centimeters unchanged. One unit conversion is right. Check the volume denominator too.
-      - text: "$2\\,\\mathrm{kg/m^3}$"
+      - text: "$0.2\\,\\mathrm{kg/m^3}$"
         rationale: |
           This applies only a linear centimeter factor while converting mass. Both mass and length units change. Check the cube on volume.
       - text: "$2000000\\,\\mathrm{kg/m^3}$"
