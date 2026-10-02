@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0001	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figureSpec	MEDIUM	Stem placed the extra square above the center but drawing placed it below; answer also much longer.
+q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figureSpec	HIGH	Drawing was a valid net although the stem and key described an invalid one.
+q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0003	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Light model was unspecified and weak choices were unrelated to projection errors.
+q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0004	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Referenced another item and omitted the parallel-ray and screen conditions.
+q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0005	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Weak distractors replaced and projection conditions stated.
+q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Unqualified claim of circular shadows from any light direction was false for tilted screens or point sources.
+q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figureSpec	MEDIUM	Implausible counting choices replaced with fold-count errors.
+q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0008	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figureSpec	MEDIUM	Replaced false or joke-like distractors with flat-versus-folded relationships.
+q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figureSpec	MEDIUM	Replaced circle and face-count jokes with necessary-versus-sufficient tests.
+q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Replaced impossible claims with projection misconceptions; removed wrong-choice discussion.
+q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0011	CORRECTED	SOLVED-FIXED	stem;choices;explanation;notes;figureSpec	HIGH	Key incorrectly named the topmost column square; the second-from-top center is opposite the bottommost square.
+q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Projection conditions missing; weak invariant-shape distractors replaced.
+q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figureSpec	MEDIUM	Removed unsafe universal flat-spacing rule and implausible pair choices.
+q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figureSpec	HIGH	Extra square was drawn diagonally beside the center instead of at the right arm end; explanation gave an unsafe folding rule.
+q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0015	NEW	NEW	new	NONE	
+q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0016	NEW	NEW	new	NONE	
+q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0017	NEW	NEW	new	NONE	
+q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0018	NEW	NEW	new	NONE	
+q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0019	NEW	NEW	new	NONE	
+q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0020	NEW	NEW	new	NONE	
