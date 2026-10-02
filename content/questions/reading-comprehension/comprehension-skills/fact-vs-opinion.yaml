@@ -1,239 +1,453 @@
 meta:
-  subject: reading-comprehension
-  topic: comprehension-skills
-  subtopic: fact-vs-opinion
+  subject: "reading-comprehension"
+  topic: "comprehension-skills"
+  subtopic: "fact-vs-opinion"
   exams:
-    - upcat
-    - acet
-    - dlsucet
-    - ustet
-
+    - "upcat"
+    - "acet"
+    - "dlsucet"
+    - "ustet"
 passages:
-  - id: rc-cs-fo-p1
-    title: "Iloilo City Transport Modernization"
+  - id: "rc-cs-fo-p1"
+    title: "A Fictional Transport Debate"
     body: |
-      In 2022, Iloilo City introduced fifty low-emission minibus units across five primary commuter routes as part of its public transport modernization program. According to city transport board records, the electric minibuses served an average of twenty-two thousand passengers daily during their first full year of operation. Municipal data indicated a twelve percent reduction in fleet carbon emissions along designated transport corridors.
-
+      In this fictional transport debate, a city introduced fifty low-emission minibus units across five primary commuter routes as part of its public transport modernization program. According to city transport board records, the minibuses served an average of two thousand passengers daily during their first full year of operation. Municipal data indicated a twelve percent reduction in fleet carbon emissions along designated transport corridors.
+      
       Proponents of the program claim that the new minibuses provide an overwhelmingly superior commuter experience compared to traditional jeepneys. City officials frequently state that air-conditioned interiors and digital ticketing systems make modern minibuses the absolute best choice for urban transportation. Furthermore, several council members assert that traditional jeepneys are completely obsolete relics that should be removed from all city streets immediately.
-
+      
       However, traditional jeepney operators point out that modern minibus units require an initial investment of 2.4 million pesos per unit, creating significant debt burdens for small transport cooperatives. While passenger numbers and emission reductions are documented by municipal records, debate continues over whether the financial costs of rapid fleet replacement are truly justified.
-
-  - id: rc-cs-fo-p2
-    title: "Solar Energy Expansion in Tarlac"
+  - id: "rc-cs-fo-p2"
+    title: "A Fictional Solar Proposal"
     body: |
-      Constructed across one hundred fifty hectares of former agricultural land, the Tarlac Solar Power Plant operates over two hundred thousand photovoltaic panels. Official grid operator reports show that the facility generates one hundred fifty megawatts of electricity annually, supplying power to roughly ninety thousand households in central Luzon. The project was completed in eighteen months at a total cost of 4.8 billion pesos.
-
+      In this fictional project report, a solar plant constructed across one hundred fifty hectares of former agricultural land, operates over two hundred thousand photovoltaic panels. Official grid operator reports show that the facility has a rated capacity of one hundred fifty megawatts. The project was completed in eighteen months at a total cost of 4.8 billion pesos.
+      
       Environmental advocates argue that the solar farm represents the most magnificent clean energy triumph in the province's history. Local news editorials frequently claim that solar energy is obviously far superior to all other forms of power generation. Conversely, some local farming associations maintain that converting fertile agricultural soil into solar panel arrays was a tragic mistake that needlessly ruined the rural landscape.
-
-      According to department of energy projections, solar power capacity in central Luzon is expected to grow by fifteen percent annually over the next decade based on current facility applications. While energy generation figures and land area sizes are verified by official records, opinions regarding the visual and agricultural impact of large-scale solar farms remain divided.
-
+      
+      According to the report's projections, the area's solar power capacity is expected to grow by fifteen percent annually over the next decade based on current facility applications. These forecasts depend on projects being completed. While capacity figures and land area sizes are verified by official records, opinions regarding the visual and agricultural impact of large-scale solar farms remain divided.
+  - id: "p-comprehension-skills-fact-vs-opinion-0003"
+    title: "A Survey and a Forecast"
+    body: |
+      In this fictional school report, a club surveyed students about a proposed study room. Its records say that forty students completed the survey. Thirty respondents said they would use the room after classes. The club chair called the proposal the best improvement the school could make this year. She pointed to the responses as support for her view.
+      
+      A teacher warned that saying a student would use the room was not the same as observing actual use. The club forecast that thirty students would visit every afternoon, assuming that every interested respondent came daily. Work duties, transport, and changing schedules could affect that outcome. The forecast helped the club discuss possible demand, but it did not establish future attendance.
+      
+      The chair revised her proposal to request a trial period. She still believed the room would be valuable. The committee could check the number of returned survey forms now and count visits during the trial later. It would also have to decide whether the benefits justified the space and supervision required.
+  - id: "p-comprehension-skills-fact-vs-opinion-0004"
+    title: "Checking a Service Complaint"
+    body: |
+      In a fictional town, residents wrote to a water service office after an interruption. Their letter stated that the outage had lasted two days. It also called the service the worst in the region and said every other town had reliable water throughout the same week. The residents asked the office to provide an explanation and improve its response.
+      
+      The office checked its logs and found that service had been interrupted for one day. This did not make the residents' duration claim an opinion. It made a checkable claim inconsistent with the available record. The comparison with every other town would require separate records; the letter supplied none. Calling the service the worst also required a standard for judging quality, not just a forceful phrase.
+      
+      A resident later wrote, "The outage lasted one day, and the delay was unacceptable." The first part could be checked against the logs. The second expressed a judgment about what residents should have to endure. Clear complaints can contain both evidence and evaluation without treating them as the same thing.
 questions:
-  - id: rc-cs-fo-0001
-    passage: rc-cs-fo-p1
-    type: analyze
-    difficulty: easy
+  - id: "rc-cs-fo-0001"
+    passage: "rc-cs-fo-p1"
+    type: "fact-vs-opinion"
+    difficulty: "easy"
     stem: |
-      Which statement from the passage expresses a verifiable fact?
+      Which statement is presented as a measured factual claim in the fictional transport debate?
     choices:
-      - text: Fleet carbon emissions dropped by twelve percent.
+      - text: "Fleet emissions dropped by twelve percent."
         correct: true
-      - text: Modern minibuses provide an overwhelmingly superior commuter experience.
+      - text: "Minibuses give an overwhelmingly superior experience."
         rationale: |
-          You picked a subjective value judgment about commuter experience. Factual statements must be verifiable by data or records.
-      - text: Modern minibuses are the absolute best choice for urban transportation.
+          This treats an overall quality judgment as a measurement. Comfort can affect experience. Check for a defined standard behind superior.
+      - text: "Minibuses are the absolute best urban transport choice."
         rationale: |
-          You picked a subjective claim containing superlative praise rather than a verifiable measurement.
-      - text: Traditional jeepneys are completely obsolete relics.
+          This treats a superlative as a measured ranking. Features of the vehicles support the praise. Check whether best is tied to a stated test.
+      - text: "Traditional jeepneys are completely obsolete relics."
         rationale: |
-          You picked an emotional opinion expressing a negative value judgment, not a verifiable fact.
+          This treats a dismissive description as a neutral finding. Old vehicles may need replacement. Check the evaluative words obsolete relics.
     explanation: |
-      The twelve percent reduction in carbon emissions is a measured, verifiable datum from municipal records, whereas the other options express subjective judgments.
-
-  - id: rc-cs-fo-0002
-    passage: rc-cs-fo-p1
-    type: analyze
-    difficulty: easy
+      An emissions change can be checked by comparing measurements. The passage attributes this measured claim to city records.
+  - id: "rc-cs-fo-0002"
+    passage: "rc-cs-fo-p1"
+    type: "fact-vs-opinion"
+    difficulty: "easy"
     stem: |
-      Which statement from the passage expresses an opinion?
+      Which statement expresses a value judgment in the fictional transport debate?
     choices:
-      - text: Traditional jeepneys are completely obsolete relics.
+      - text: "Traditional jeepneys are obsolete relics."
         correct: true
-      - text: Iloilo City introduced fifty low-emission minibus units across five primary routes.
+      - text: "The city introduced fifty minibus units."
         rationale: |
-          You picked a verifiable factual statement containing documented vehicle counts and route numbers.
-      - text: Minibuses served an average of twenty-two thousand passengers daily.
+          This treats a stated count as a preference. The program is debated. Check whether vehicle numbers can be verified.
+      - text: "Records report two thousand passengers daily."
         rationale: |
-          You picked a factual statistic from city transport board records.
-      - text: Modern minibus units require an initial investment of 2.4 million pesos per unit.
+          This treats a reported average as praise. Ridership may support an argument. Check whether the claim concerns a measurable count.
+      - text: "A unit requires an investment of 2.4 million pesos."
         rationale: |
-          You picked an objective financial cost fact, not a subjective opinion.
+          This treats a debated cost as a judgment. Expense can motivate opinions. Check whether the amount itself can be checked.
     explanation: |
-      Calling jeepneys "obsolete relics that should be removed" is a value judgment, unlike the specific unit counts, passenger averages, and cost figures.
-
-  - id: rc-cs-fo-0003
-    passage: rc-cs-fo-p1
-    type: evaluate
-    difficulty: medium
+      Calling the vehicles obsolete relics evaluates their worth. That wording expresses a stance about whether they should remain in use.
+  - id: "rc-cs-fo-0003"
+    passage: "rc-cs-fo-p1"
+    type: "fact-vs-opinion"
+    difficulty: "medium"
     stem: |
-      Why is the claim that minibuses offer "an overwhelmingly superior commuter experience" classified as an opinion?
+      Why is "an overwhelmingly superior commuter experience" an opinion in this passage?
     choices:
-      - text: It relies on personal judgment regarding comfort.
+      - text: "It evaluates quality without defined criteria."
         correct: true
-      - text: It contains a specific numerical figure that can be verified in a lab.
+      - text: "It must be true because officials use the phrase."
         rationale: |
-          You picked a false premise. The claim contains no numerical figures or laboratory measurements.
-      - text: It was written directly by an official government transport board.
+          This uses authority to decide the kind of claim. Officials can sound reliable. Check whether the wording measures something or evaluates it.
+      - text: "It is a fact whenever many passengers agree with it."
         rationale: |
-          You assumed official authorship makes a statement a fact. Government statements can still express opinions or value judgments.
-      - text: It describes historical events that occurred before 2022.
+          This uses popularity as proof of objectivity. Many people may prefer a service. Check whether agreement removes the value judgment.
+      - text: "It cannot be an opinion if observations support it."
         rationale: |
-          You picked a detail about timing that does not explain why the statement is classified as an opinion.
+          This confuses support with claim type. Good opinions can draw on observations. Check whether the conclusion still evaluates quality.
     explanation: |
-      What constitutes a "superior experience" depends on personal criteria and individual passenger preferences rather than an objective measurement.
-
-  - id: rc-cs-fo-0004
-    passage: rc-cs-fo-p1
-    type: analyze
-    difficulty: medium
+      The phrase judges the overall quality of an experience. Without defined criteria for superior, the evaluation depends on values and preferences.
+  - id: "rc-cs-fo-0004"
+    passage: "rc-cs-fo-p1"
+    type: "fact-vs-opinion"
+    difficulty: "medium"
     stem: |
-      Consider this sentence: "The minibuses, which cost 2.4 million pesos per unit, are an excessive waste of public funds." Which option correctly analyzes this sentence?
+      Classify: "The minibuses cost 2.4 million pesos per unit and are an excessive waste of funds."
     choices:
-      - text: It combines a cost fact with a subjective judgment.
+      - text: "A factual cost claim and a value judgment"
         correct: true
-      - text: It is entirely factual because the cost figure is explicitly included.
+      - text: "An entirely factual statement because it gives a cost"
         rationale: |
-          You ignored the phrase excessive waste of public funds, which is a subjective value judgment.
-      - text: It is entirely opinion because it mentions public transportation funds.
+          This lets one number classify the whole sentence. The cost looks objective. Check each clause separately.
+      - text: "An entirely evaluative statement because it concerns funds"
         rationale: |
-          You ignored the unit cost of 2.4 million pesos, which is a verifiable fact within the sentence.
-      - text: It is an unverified statistical projection about future municipal budgets.
+          This lets the judgment erase the checkable cost. Waste is evaluative. Check whether the price can still be verified.
+      - text: "A forecast of the cost of a future transport program"
         rationale: |
-          You misidentified the sentence as a future projection. It evaluates a current spending decision.
+          This mistakes a current claim for a forecast. Program costs can change later. Check whether the sentence predicts a future outcome.
     explanation: |
-      The cost per unit (2.4 million pesos) is a verifiable fact, while calling it an "excessive waste" is a subjective opinion.
-
-  - id: rc-cs-fo-0005
-    passage: rc-cs-fo-p1
-    type: infer
-    difficulty: hard
+      The amount per unit is checkable. Calling the spending an excessive waste judges its value. The sentence contains both kinds of claim.
+  - id: "rc-cs-fo-0005"
+    passage: "rc-cs-fo-p1"
+    type: "fact-vs-opinion"
+    difficulty: "hard"
     stem: |
-      Which phrase in the second paragraph serves as a signal word indicating an opinion?
+      Which phrase most clearly signals an evaluative judgment?
     choices:
-      - text: "absolute best choice"
+      - text: "\"absolute best choice\""
         correct: true
-      - text: "twenty-two thousand passengers"
+      - text: "\"fifty low-emission minibus units\""
         rationale: |
-          You picked a factual passenger statistic from paragraph 1, not a signal phrase indicating an opinion.
-      - text: "five primary routes"
+          This treats a vehicle description as the ranking. Low emissions can sound favorable. Check whether the phrase gives a count or a preference.
+      - text: "\"two thousand passengers daily\""
         rationale: |
-          You picked a factual route count, not an opinion signal word from paragraph 2.
-      - text: "twelve percent reduction"
+          This treats ridership as approval. A popular service may seem best. Check whether the phrase reports use or judges quality.
+      - text: "\"twelve percent reduction\""
         rationale: |
-          You picked a factual percentage measurement of emissions reduction from paragraph 1.
+          This treats a beneficial measurement as praise. Lower emissions may support approval. Check whether the phrase itself measures a change.
     explanation: |
-      Superlative phrases like "absolute best choice" express subjective value judgments rather than objective facts.
-
-  - id: rc-cs-fo-0006
-    passage: rc-cs-fo-p2
-    type: analyze
-    difficulty: easy
+      Best ranks the transport option by value. Absolute intensifies that judgment without supplying a defined standard.
+  - id: "rc-cs-fo-0006"
+    passage: "rc-cs-fo-p2"
+    type: "fact-vs-opinion"
+    difficulty: "easy"
     stem: |
-      Which statement from the Tarlac solar passage is a verifiable fact?
+      Which statement is a checkable factual claim in the fictional solar report?
     choices:
-      - text: The facility generates one hundred fifty megawatts of electricity annually.
+      - text: "The plant has a rated capacity of 150 megawatts."
         correct: true
-      - text: The solar farm represents the most magnificent clean energy triumph in history.
+      - text: "The farm is the most magnificent energy triumph."
         rationale: |
-          You picked an opinion phrase containing praise, not a verifiable measurement.
-      - text: Solar energy is obviously far superior to all other forms of power generation.
+          This treats praise as a technical finding. The project may have benefits. Check what standard makes it magnificent.
+      - text: "Solar power is obviously superior to every alternative."
         rationale: |
-          You picked a subjective opinion that uses biased wording such as obviously far superior.
-      - text: Converting agricultural land was a tragic mistake that ruined the landscape.
+          This treats confident wording as measured superiority. Obviously can sound decisive. Check whether criteria cover every alternative.
+      - text: "Converting the land was a tragic mistake."
         rationale: |
-          You picked an emotional value judgment made by critics, not a verifiable fact.
+          This treats strong criticism as a neutral result. Land conversion may have costs. Check the value judgment in tragic mistake.
     explanation: |
-      The annual megawatt generation figure is verified by official grid operator reports, making it a fact.
-
-  - id: rc-cs-fo-0007
-    passage: rc-cs-fo-p2
-    type: analyze
-    difficulty: easy
+      Rated capacity describes the plant's power rating. It can be checked against technical records.
+  - id: "rc-cs-fo-0007"
+    passage: "rc-cs-fo-p2"
+    type: "fact-vs-opinion"
+    difficulty: "easy"
     stem: |
-      Which statement from the passage expresses a subjective opinion?
+      Which statement in the fictional solar report expresses an opinion?
     choices:
-      - text: Converting agricultural soil was a tragic mistake.
+      - text: "Land conversion was a tragic mistake."
         correct: true
-      - text: The plant operates over two hundred thousand photovoltaic panels.
+      - text: "The plant occupies one hundred fifty hectares."
         rationale: |
-          You picked a verifiable physical count of panels reported by the grid operator.
-      - text: The project was completed in eighteen months.
+          This treats land use as automatically evaluative. Conversion is debated. Check whether area can be measured.
+      - text: "The project took eighteen months to complete."
         rationale: |
-          You picked a factual timeframe measurement, not a subjective opinion.
-      - text: The total cost of construction was 4.8 billion pesos.
+          This treats a project result as an opinion. Completion can be praised. Check whether its duration can be verified.
+      - text: "Construction cost 4.8 billion pesos."
         rationale: |
-          You picked a verifiable financial cost figure, not an opinion.
+          This treats a costly figure as criticism. Spending may prompt judgments. Check whether the amount itself is checkable.
     explanation: |
-      Describing land conversion as a "tragic mistake" expresses an opinion, whereas panel counts, months, and costs are factual measurements.
-
-  - id: rc-cs-fo-0008
-    passage: rc-cs-fo-p2
-    type: evaluate
-    difficulty: medium
+      Tragic mistake evaluates whether the decision was acceptable. The phrase depends on the values used to judge the land conversion.
+  - id: "rc-cs-fo-0008"
+    passage: "rc-cs-fo-p2"
+    type: "fact-vs-opinion"
+    difficulty: "medium"
     stem: |
-      How should the statement regarding projected 15% annual solar capacity growth be classified?
+      How should the projected fifteen percent annual capacity growth be classified?
     choices:
-      - text: A statistical projection based on official applications.
+      - text: "A forecast conditional on assumptions"
         correct: true
-      - text: A subjective personal opinion expressing strong emotional preference.
+      - text: "A settled fact about future completed facilities"
         rationale: |
-          You mistook a data-driven projection for an emotional opinion. The projection is based on facility applications.
-      - text: A historical fact about past electricity generation in 2010.
+          This treats an official-looking projection as certainty. Applications support planning. Check whether completion has happened.
+      - text: "A preference based only on the writer's feelings"
         rationale: |
-          You misidentified a future growth projection as a past historical fact.
-      - text: A speculative guess unsupported by any energy department records.
+          This treats uncertainty as mere preference. A forecast is not guaranteed. Check whether it still uses stated evidence and assumptions.
+      - text: "A measurement of growth already observed for ten years"
         rationale: |
-          You ignored the passage statement that the projection is based on department of energy application records.
+          This changes a future period into a past measurement. The percentage sounds statistical. Check the time period the passage describes.
     explanation: |
-      Projections based on stated methodology and official facility applications function as data-supported calculations rather than subjective personal opinions.
-
-  - id: rc-cs-fo-0009
-    passage: rc-cs-fo-p2
-    type: analyze
-    difficulty: medium
+      The claim concerns future growth based on applications. It depends on the projects being completed, so it is a conditional forecast.
+  - id: "rc-cs-fo-0009"
+    passage: "rc-cs-fo-p2"
+    type: "fact-vs-opinion"
+    difficulty: "medium"
     stem: |
-      Why does calling the solar farm "the most magnificent clean energy triumph" make it an opinion?
+      What makes "the most magnificent clean energy triumph" evaluative?
     choices:
-      - text: Words like "magnificent" convey emotional praise.
+      - text: "It expresses praise without a defined ranking standard."
         correct: true
-      - text: It cites official grid operator megawatt generation reports.
+      - text: "It names a measured output in megawatts for the project."
         rationale: |
-          You picked a detail about generation reports, which relates to facts rather than why magnificent is an opinion word.
-      - text: It specifies the exact land size measured in hectares.
+          This transfers a technical fact from another sentence into the phrase. The plant has a power rating. Check the words in the quoted claim itself.
+      - text: "It reports a completion date from construction records."
         rationale: |
-          You picked a land area measurement detail that does not explain why calling something magnificent is an opinion.
-      - text: It was published in an official municipal agricultural report.
+          This substitutes a timing detail for the judgment. The report gives a duration. Check whether the phrase reports that duration.
+      - text: "It gives the actual land area occupied by the plant."
         rationale: |
-          You picked a false source attribution that does not explain the emotional nature of the word magnificent.
+          This substitutes a size detail for the judgment. Land area appears in the report. Check what magnificent actually evaluates.
     explanation: |
-      Praise words like "magnificent" and "triumph" express subjective value judgments rather than objective scientific measurements.
-
-  - id: rc-cs-fo-0010
-    passage: rc-cs-fo-p2
-    type: infer
-    difficulty: hard
+      Magnificent and triumph praise the project's worth. Most adds a ranking for which the passage gives no defined standard.
+  - id: "rc-cs-fo-0010"
+    passage: "rc-cs-fo-p2"
+    type: "fact-vs-opinion"
+    difficulty: "hard"
     stem: |
-      Which strategy best helps a reader distinguish facts from opinions in environmental reports?
+      Which method best distinguishes claim types in the fictional solar report?
     choices:
-      - text: Separating data and records from judgment words.
+      - text: "Check each claim's meaning and time reference."
         correct: true
-      - text: Assuming that any sentence containing a number must be entirely an opinion.
+      - text: "Treat every statement with a number as a proven fact."
         rationale: |
-          You picked a rule that is false. Numbers typically indicate verifiable facts, not opinions.
-      - text: Believing that editorial claims represent universally accepted facts.
+          This treats numerical appearance as proof. Counts and measurements often use numbers. Check whether a number describes a forecast instead.
+      - text: "Treat every confident statement as an objective measurement."
         rationale: |
-          You picked an error in reasoning. Editorials express opinions and persuasive claims, not objective facts.
-      - text: Ignoring all government reports and focusing only on emotional quotes.
+          This treats confidence as objectivity. Firm language can sound authoritative. Check what evidence could test the statement.
+      - text: "Treat all uncertain future claims as unsupported preferences."
         rationale: |
-          You picked the opposite of critical reading. Fact-checking relies on official reports and data over emotional quotes.
+          This equates uncertainty with lack of evidence. Forecasts are uncertain. Check their stated inputs and assumptions.
     explanation: |
-      Checking whether claims are backed by measurable data and official records versus value-laden judgment words is the core method for distinguishing facts from opinions.
+      A checkable present or past claim differs from an evaluation and from a future forecast. Reading meaning and time reference helps separate these types.
+  - id: "q-comprehension-skills-fact-vs-opinion-0011"
+    passage: "p-comprehension-skills-fact-vs-opinion-0003"
+    type: "fact-vs-opinion"
+    difficulty: "easy"
+    stem: |
+      Which claim can be checked now against the club's records?
+    choices:
+      - text: "Forty students completed the survey."
+        correct: true
+      - text: "Thirty students will use the room every afternoon."
+        rationale: |
+          This treats expected attendance as observed attendance. Thirty respondents express interest. Check whether the room is operating yet.
+      - text: "The room is the best improvement the school can make."
+        rationale: |
+          This treats a ranking as a count. The chair cites responses. Check whether best depends on priorities.
+      - text: "Supervision is worth any inconvenience it causes."
+        rationale: |
+          This treats acceptance of a cost as a measurement. Supervision affects the proposal. Check whether worth expresses a judgment.
+    explanation: |
+      Survey forms can be counted now to check the number of respondents.
+    approved: false
+  - id: "q-comprehension-skills-fact-vs-opinion-0012"
+    passage: "p-comprehension-skills-fact-vs-opinion-0003"
+    type: "fact-vs-opinion"
+    difficulty: "medium"
+    stem: |
+      The club predicts thirty visits every afternoon. Which assumption is essential to that forecast?
+    choices:
+      - text: "Every interested respondent visits daily."
+        correct: true
+      - text: "The survey contains exactly forty completed forms."
+        rationale: |
+          This substitutes the total sample for the attendance assumption. Forty forms are counted. Check what makes thirty interested students into thirty daily visitors.
+      - text: "Every student prefers a quiet room to every other activity."
+        rationale: |
+          This broadens a stated intention into a universal preference. The students show interest. Check the narrower assumption given for the forecast.
+      - text: "The room needs no space or adult supervision."
+        rationale: |
+          This removes practical needs from the proposal. Costs affect feasibility. Check which assumption connects the survey to visits.
+    explanation: |
+      The report states that the forecast assumes every interested respondent comes daily. That links expressed interest to the predicted attendance.
+    approved: false
+  - id: "q-comprehension-skills-fact-vs-opinion-0013"
+    passage: "p-comprehension-skills-fact-vs-opinion-0003"
+    type: "fact-vs-opinion"
+    difficulty: "medium"
+    stem: |
+      Which sentence states a fact about a forecast without treating its outcome as certain?
+    choices:
+      - text: "The club forecasts thirty daily visitors."
+        correct: true
+      - text: "Thirty visitors will certainly arrive every afternoon."
+        rationale: |
+          This turns a prediction into a guarantee. The report gives a clear number. Check whether the predicted attendance has been observed.
+      - text: "The study room must be the best use of school space."
+        rationale: |
+          This substitutes a value judgment for a report about the model. Space is important to the decision. Check whether the claim states a prediction or ranks uses.
+      - text: "Any attendance forecast is only a personal preference."
+        rationale: |
+          This confuses uncertainty with preference. A prediction may fail. Check whether its assumptions and data still make it a forecast.
+    explanation: |
+      The club's report can be checked to see what it forecasts. Reporting that forecast does not establish actual future attendance.
+    approved: false
+  - id: "q-comprehension-skills-fact-vs-opinion-0014"
+    passage: "p-comprehension-skills-fact-vs-opinion-0003"
+    type: "fact-vs-opinion"
+    difficulty: "hard"
+    stem: |
+      The chair supports her view with survey responses. What follows about her "best improvement" claim?
+    choices:
+      - text: "It remains an opinion that has supporting evidence."
+        correct: true
+      - text: "It becomes a proven fact because she cites responses."
+        rationale: |
+          This lets evidence change the kind of claim. The survey gives relevant support. Check whether the conclusion still ranks value.
+      - text: "It becomes a forecast of daily attendance in the room."
+        rationale: |
+          This confuses the chair's judgment with the separate attendance forecast. Both concern the room. Check whether best predicts a count.
+      - text: "It loses its evaluative meaning when a trial is requested."
+        rationale: |
+          This treats a practical revision as a change in meaning. A trial may gather more evidence. Check whether best remains a judgment.
+    explanation: |
+      The responses give reasons for her view. Calling the room the best improvement still evaluates it against other possible priorities.
+    approved: false
+  - id: "q-comprehension-skills-fact-vs-opinion-0015"
+    passage: "p-comprehension-skills-fact-vs-opinion-0003"
+    type: "fact-vs-opinion"
+    difficulty: "exam"
+    stem: |
+      Which statement correctly separates the club's survey from its attendance forecast?
+    choices:
+      - text: "The survey records interest; daily use is not yet observed."
+        correct: true
+      - text: "The survey proves every respondent will attend every day."
+        rationale: |
+          This treats stated intention as guaranteed behavior. Respondents plan to use the room. Check what could affect their actual visits.
+      - text: "The forecast turns the chair's preference into a measured fact."
+        rationale: |
+          This combines the value judgment and predicted count. Both support the proposal. Check which claim the forecast actually makes.
+      - text: "The trial can only collect opinions because attendance changes."
+        rationale: |
+          This treats changing counts as unmeasurable. Attendance may vary. Check whether each day's visits can still be counted.
+    explanation: |
+      The survey records what respondents say now. Future visits must be observed later, and the forecast depends on an attendance assumption.
+    approved: false
+  - id: "q-comprehension-skills-fact-vs-opinion-0016"
+    passage: "p-comprehension-skills-fact-vs-opinion-0004"
+    type: "fact-vs-opinion"
+    difficulty: "easy"
+    stem: |
+      The logs contradict the two-day outage claim. What kind of claim was it?
+    choices:
+      - text: "A factual claim found inconsistent with the record"
+        correct: true
+      - text: "An opinion because it did not match the office's logs"
+        rationale: |
+          This confuses factual type with truth. The claim turns out not to match the logs. Check whether it can still be tested.
+      - text: "A forecast because residents had not checked the records"
+        rationale: |
+          This confuses unverified past information with a future prediction. The residents lack a record check. Check the time the duration claim concerns.
+      - text: "A value judgment because complaints express dissatisfaction"
+        rationale: |
+          This lets the purpose of a letter classify every sentence. The residents are dissatisfied. Check the specific claim about elapsed time.
+    explanation: |
+      The duration claim can be tested against records. A mismatch affects its accuracy, but it remains factual in type.
+    approved: false
+  - id: "q-comprehension-skills-fact-vs-opinion-0017"
+    passage: "p-comprehension-skills-fact-vs-opinion-0004"
+    type: "fact-vs-opinion"
+    difficulty: "medium"
+    stem: |
+      What would be needed to check the claim that every other town had uninterrupted water?
+    choices:
+      - text: "Service records from all the other towns"
+        correct: true
+      - text: "Agreement that the local outage was unacceptable"
+        rationale: |
+          This checks a judgment about the local outage. Dissatisfaction is part of the letter. Check whether agreement gives data about other towns.
+      - text: "The residents' preference for a different provider"
+        rationale: |
+          This substitutes preference for evidence. Residents may want a new provider. Check whether that preference reveals actual interruptions.
+      - text: "A stronger word than worst to describe the service"
+        rationale: |
+          This substitutes stronger wording for a test. Forceful complaints can sound persuasive. Check what evidence addresses the comparison.
+    explanation: |
+      The claim covers every other town during the stated week. Records across those towns would allow that factual claim to be checked.
+    approved: false
+  - id: "q-comprehension-skills-fact-vs-opinion-0018"
+    passage: "p-comprehension-skills-fact-vs-opinion-0004"
+    type: "fact-vs-opinion"
+    difficulty: "medium"
+    stem: |
+      How should "The outage lasted one day, and the delay was unacceptable" be classified?
+    choices:
+      - text: "A checkable claim combined with a judgment"
+        correct: true
+      - text: "Two measured facts because both concern one event"
+        rationale: |
+          This lets shared subject matter determine claim type. Both clauses concern the outage. Check whether unacceptable can be judged like elapsed time.
+      - text: "Two opinions because the sentence appears in a complaint"
+        rationale: |
+          This treats complaint writing as entirely opinion. The sentence expresses dissatisfaction. Check whether duration remains checkable.
+      - text: "A future forecast combined with a technical measurement"
+        rationale: |
+          This mistakes a past event for prediction. Duration is numerical. Check the verb lasted and the event's timing.
+    explanation: |
+      One day states a duration that records can check. Unacceptable judges the delay by a standard of what residents should endure.
+    approved: false
+  - id: "q-comprehension-skills-fact-vs-opinion-0019"
+    passage: "p-comprehension-skills-fact-vs-opinion-0004"
+    type: "fact-vs-opinion"
+    difficulty: "hard"
+    stem: |
+      Why is "the worst service in the region" evaluative as used in the letter?
+    choices:
+      - text: "No standard for ranking service quality is defined."
+        correct: true
+      - text: "The region contains several towns with service records."
+        rationale: |
+          This treats the setting of comparison as its method. Several towns could be compared. Check what criterion the letter uses.
+      - text: "The local interruption can be checked against a log."
+        rationale: |
+          This transfers duration evidence to an overall ranking. The log checks the outage. Check whether it establishes worst in the region.
+      - text: "Every statement made by a resident is a personal opinion."
+        rationale: |
+          This uses the speaker's identity to classify claims. Residents express preferences. Check whether they can also make checkable statements.
+    explanation: |
+      Worst ranks service quality. The letter supplies no defined standard for that overall judgment.
+    approved: false
+  - id: "q-comprehension-skills-fact-vs-opinion-0020"
+    passage: "p-comprehension-skills-fact-vs-opinion-0004"
+    type: "fact-vs-opinion"
+    difficulty: "exam"
+    stem: |
+      The letter gives no evidence for uninterrupted service in every other town. What can be said about that claim?
+    choices:
+      - text: "It is checkable but unsupported in the letter."
+        correct: true
+      - text: "It is automatically an opinion because evidence is missing."
+        rationale: |
+          This confuses lack of evidence with value judgment. Unsupported statements can sound like opinions. Check whether records could test the claim.
+      - text: "It must be false because the local outage was one day."
+        rationale: |
+          This uses local evidence to decide events elsewhere. The office logs correct the local duration. Check whether they cover other towns.
+      - text: "It is proved true by the strength of the complaint."
+        rationale: |
+          This treats forceful wording as evidence. The complaint is emphatic. Check for records supporting its scope.
+    explanation: |
+      Records could test the statement about other towns. The letter provides no such records, so it is a factual claim without support there.
+    approved: false
