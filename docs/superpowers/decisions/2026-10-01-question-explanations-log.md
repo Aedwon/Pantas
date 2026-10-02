@@ -296,3 +296,30 @@ They cover 97 completed lessons, 1,943 active questions, 454 added questions, an
 nine recorded answer-key fixes. The remaining-subjects worker is still running.
 The groups remain unmerged; combined acceptance, importer enforcement, protected
 package signing, app/device checks, and app-branch integration remain pending.
+
+### Capacity checkpoint before continuation, 3 October 2026
+
+At `2026-10-02T16:58:55.433525+00:00`, the remaining-subjects worker was verified live at
+PID `4536` in its assigned worktree. Its committed revision
+was `e389469f78d50b78712ad6b78b035c989c683d24`, with 46 of its 61 lesson
+ledgers committed. This gives 143 of 158 committed
+lesson ledgers overall; only the 97 Mathematics and Science lessons have final
+group mechanical acceptance. The remaining group has no committed summary yet.
+
+The five-hour quota was 98% used and the weekly quota
+was 48% used. The primary reset is `2026-10-03T05:08:59+08:00`.
+The worker monitor was verified live at PID `7992`. It will
+validate and push the completed commits when this pass ends, preserve interrupted
+files, and wait for fresh permitted capacity before relaunching. These are live
+handle observations at this checkpoint, not an instruction to assume they remain
+live on a later resumption. Never launch a replacement without checking them.
+
+The sole scheduled wake targets the current conversation,
+`01a0fd47-fa9f-7f01-a121-8721b3d3d8cb`, every 15 minutes. The objective remains
+active and unchanged. The combined branch is still unmerged at the original
+base. Remaining work: complete and accept the last group, merge the three groups
+only into `content/question-qa-r2`, run the merged gates, complete the test-first
+importer worker and its required checks, review that code, write the combined
+summary, push and verify its remote SHA, and record final completion on main.
+No app-branch/main content integration, protected-package signing, or visual and
+device acceptance is authorized or claimed here.
