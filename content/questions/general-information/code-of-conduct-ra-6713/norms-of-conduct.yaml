@@ -157,7 +157,7 @@ questions:
 
     '
   choices:
-  - text: Nationalism and patriotism
+  - text: Patriotism
     correct: true
   - text: Public responsiveness
     rationale: 'This substitutes prompt service and clear procedures for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about Republic and Filipino people.
@@ -229,7 +229,7 @@ questions:
 
     '
   choices:
-  - text: Justness and sincerity
+  - text: Justness
     correct: true
   - text: Political neutrality
     rationale: 'This substitutes service without party bias for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about remaining true and respecting rights.
@@ -253,7 +253,7 @@ questions:
 
     '
   choices:
-  - text: Administrative efficiency
+  - text: Efficiency
     correct: true
   - text: Simple living
     rationale: 'This misses the negative wording. Simple living is an ethical duty, so it may seem like an answer. Check whether the question asks for a named norm or an omission.
@@ -424,7 +424,7 @@ questions:
 
     '
   choices:
-  - text: Nationalism and patriotism
+  - text: Patriotism
     correct: true
   - text: Public interest
     rationale: 'This substitutes efficient use of public resources for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about locally produced goods.
@@ -449,7 +449,7 @@ questions:
 
     '
   choices:
-  - text: Justness and sincerity
+  - text: Justness
     correct: true
   - text: Political neutrality
     rationale: 'This substitutes service without party bias for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about poverty-based discrimination.
