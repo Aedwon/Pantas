@@ -3,305 +3,491 @@ meta:
   topic: philippine-constitution
   subtopic: accountability-and-impeachment
   exams:
-    - cse-pro
-    - cse-sub
+  - cse-pro
+  - cse-sub
 questions:
-  - id: q-philippine-constitution-accountability-and-impeachment-0001
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Which article of the 1987 Constitution governs Accountability of Public Officers?
-    choices:
-      - text: Article XI
-        correct: true
-      - text: Article IX
-        rationale: |
-          You selected Article IX, which governs Constitutional Commissions. Accountability of Public Officers and impeachment are under Article XI.
-      - text: Article VII
-        rationale: |
-          You picked Article VII, which covers the Executive Department. Accountability of Public Officers and Ombudsman rules sit under Article XI.
-      - text: Article III
-        rationale: |
-          You chose Article III, which is the Bill of Rights. Public officer accountability and impeachment procedures are set out in Article XI.
-    explanation: |
-      Article XI of the 1987 Constitution is entitled Accountability of Public Officers.
+- id: q-philippine-constitution-accountability-and-impeachment-0001
+  type: single_choice
+  difficulty: medium
+  stem: 'Which article is titled Accountability of Public Officers?
 
-  - id: q-philippine-constitution-accountability-and-impeachment-0002
-    type: single_choice
-    difficulty: easy
-    stem: |
-      What principle regarding public office is declared in Section 1 of Article XI?
-    choices:
-      - text: Public office is a public trust
-        correct: true
-      - text: Public office is a private business
-        rationale: |
-          You selected private business, which treats public service as commercial gain. Article XI Section 1 states public office is a public trust.
-      - text: Public office is a family right
-        rationale: |
-          You picked family right, which implies dynastic ownership. Section 1 explicitly declares that public office is a public trust.
-      - text: Public office is a corporate franchise
-        rationale: |
-          You chose corporate franchise, which treats office as a business concession. Section 1 mandates that public office is a public trust.
-    explanation: |
-      Section 1 of Article XI begins with the fundamental declaration that Public office is a public trust.
+    '
+  choices:
+  - text: Article XI
+    correct: true
+  - text: Article IX
+    rationale: 'This selects the constitutional commissions article. Several impeachable officials are commissioners. Check the article''s title.
 
-  - id: q-philippine-constitution-accountability-and-impeachment-0003
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Which of the following public officials is included in the closed list of impeachable officers under Article XI, Section 2?
-    choices:
-      - text: Ombudsman
-        correct: true
-      - text: Cabinet Secretary
-        rationale: |
-          You selected Cabinet Secretary, who is an executive official appointed by the President. Impeachable officers are limited to 5 categories in Section 2.
-      - text: Provincial Governor
-        rationale: |
-          You picked Provincial Governor, who is a local executive official. Governors are disciplined by administrative bodies, not by impeachment.
-      - text: City Mayor
-        rationale: |
-          You chose City Mayor, who is a municipal executive. Local government officials are not impeachable under Article XI Section 2.
-    explanation: |
-      Section 2 of Article XI lists five categories of impeachable officers: President, Vice-President, Members of Supreme Court, Members of Constitutional Commissions, and the Ombudsman.
+      '
+  - text: Article VII
+    rationale: 'This selects the executive article. The President is impeachable. Check the broader accountability article.
 
-  - id: q-philippine-constitution-accountability-and-impeachment-0004
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Which of the following public officers is NOT an impeachable officer under Article XI of the 1987 Constitution?
-    choices:
-      - text: Senator of the Republic
-        correct: true
-      - text: President of the Philippines
-        rationale: |
-          You selected the President, who is the head of state. The President is explicitly listed as an impeachable officer in Article XI Section 2.
-      - text: Vice-President of the Philippines
-        rationale: |
-          You picked the Vice-President, who is second in executive succession. The Vice-President is an impeachable officer under Article XI.
-      - text: Member of the Supreme Court
-        rationale: |
-          You chose Member of the Supreme Court, which covers high court justices. Supreme Court Justices are impeachable officers under Article XI.
-    explanation: |
-      Senators and Representatives are members of Congress and are disciplined by their respective Houses under Article VI, not by impeachment under Article XI.
+      '
+  - text: Article III
+    rationale: 'This selects the Bill of Rights. Accountability protects the public. Check the named constitutional subject.
 
-  - id: q-philippine-constitution-accountability-and-impeachment-0005
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Which of the following is included in the closed list of constitutional grounds for impeachment under Article XI, Section 2?
-    choices:
-      - text: Betrayal of public trust
-        correct: true
-      - text: Negligence in public duties
-        rationale: |
-          You selected negligence, which is an administrative ground for lesser discipline. Betrayal of public trust is a constitutional impeachment ground.
-      - text: Insubordination to superiors
-        rationale: |
-          You picked insubordination, which is an administrative infraction. Impeachment requires grave grounds like betrayal of public trust.
-      - text: Minor traffic law violation
-        rationale: |
-          You chose minor traffic law violation, which is a minor infraction. Impeachment grounds require severe offenses like betrayal of public trust.
-    explanation: |
-      Section 2 of Article XI lists Betrayal of public trust as one of the six exclusive grounds for impeachment.
+      '
+  explanation: 'Article XI is titled Accountability of Public Officers.
 
-  - id: q-philippine-constitution-accountability-and-impeachment-0006
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Which of the following is NOT one of the six constitutional grounds for impeachment under Article XI, Section 2?
-    choices:
-      - text: Inefficiency in office
-        correct: true
-      - text: Treason
-        rationale: |
-          You selected treason, which is an explicit constitutional ground for impeachment. Inefficiency is not an impeachment ground under Section 2.
-      - text: Bribery
-        rationale: |
-          You picked bribery, which is an explicit constitutional ground for impeachment. Inefficiency in office is not an impeachment ground.
-      - text: Culpable violation of the Constitution
-        rationale: |
-          You chose culpable violation of the Constitution, which is a primary impeachment ground. Inefficiency in office is not an impeachment ground.
-    explanation: |
-      Inefficiency is not a ground for impeachment. The six grounds are culpable violation of the Constitution, treason, bribery, graft and corruption, other high crimes, and betrayal of public trust.
+    '
+- id: q-philippine-constitution-accountability-and-impeachment-0002
+  type: single_choice
+  difficulty: medium
+  stem: 'What does Article XI, Section 1 declare about public office?
 
-  - id: q-philippine-constitution-accountability-and-impeachment-0007
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Are Members of Constitutional Commissions (CSC, COMELEC, COA) subject to removal by impeachment?
-    choices:
-      - text: Yes, listed under Article XI
-        correct: true
-      - text: No, removable by President only
-        rationale: |
-          You selected removable by President, which violates constitutional independence. Constitutional Commission members are impeachable under Article XI.
-      - text: No, removable by Senate vote only
-        rationale: |
-          You picked removable by Senate vote only, which skips House impeachment initiation. Constitutional Commission members are impeachable under Section 2.
-      - text: No, exempt from all proceedings
-        rationale: |
-          You chose exempt from proceedings, which grants total immunity. Members of Constitutional Commissions are explicitly subject to impeachment.
-    explanation: |
-      Section 2 of Article XI explicitly includes Members of the Constitutional Commissions in the closed list of impeachable officers.
+    '
+  choices:
+  - text: It is a public trust.
+    correct: true
+  - text: It is a private entitlement once the official wins an election.
+    rationale: 'This treats selection as ownership. Election grants authority. Check who the officer remains accountable to.
 
-  - id: q-philippine-constitution-accountability-and-impeachment-0008
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Are Regional Trial Court judges included in the closed list of impeachable officers under Article XI?
-    choices:
-      - text: No, not impeachable officers
-        correct: true
-      - text: Yes, listed as impeachable judicial officers
-        rationale: |
-          You selected impeachable judicial officers, assuming all judges are covered. Only Supreme Court Justices are impeachable under Article XI.
-      - text: Yes, as full members of the supreme court bench
-        rationale: |
-          You picked full members of Supreme Court bench, which confuses trial judges with Justices. RTC judges are disciplined by the Supreme Court directly.
-      - text: Yes, subject to mandatory Senate impeachment trial
-        rationale: |
-          You chose mandatory Senate trial, which applies only to the 5 impeachable categories. RTC judges are disciplined administratively by Supreme Court.
-    explanation: |
-      Only Members of the Supreme Court are impeachable among judicial officers. Lower court judges are disciplined by the Supreme Court.
+      '
+  - text: It is a personal privilege free of accountability during a fixed term.
+    rationale: 'This treats tenure as immunity. Officials may serve fixed terms. Check the continuing duty to the people.
 
-  - id: q-philippine-constitution-accountability-and-impeachment-0009
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Under Article XI, what supreme declaration is made regarding the nature of public service duties?
-    choices:
-      - text: Servants of the people
-        correct: true
-      - text: Rulers of the citizenry
-        rationale: |
-          You selected rulers of the citizenry, which reverses democratic accountability. Section 1 states public officers are servants of the people.
-      - text: Private business owners
-        rationale: |
-          You picked private business owners, which treats state service as commercial enterprise. Section 1 declares officers are servants of the people.
-      - text: Corporate board members
-        rationale: |
-          You chose corporate board members, which uses corporate terminology. Article XI Section 1 specifies public officers are servants of the people.
-    explanation: |
-      Section 1 of Article XI mandates that public officers must at all times be accountable to the people and serve them with integrity and efficiency.
+      '
+  - text: It is a resource for the official's family before any public obligation.
+    rationale: 'This substitutes family benefit for public service. Families share an official''s life. Check the purpose of public office.
 
-  - id: q-philippine-constitution-accountability-and-impeachment-0010
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Which ground for impeachment involves accepting money or valuable favors to influence official actions?
-    choices:
-      - text: Bribery
-        correct: true
-      - text: Treason
-        rationale: |
-          You selected treason, which involves waging war or aiding enemies of the state. Accepting bribes or favors to influence official action is bribery.
-      - text: Betrayal of public trust
-        rationale: |
-          You picked betrayal of public trust, which is a broad catch-all ground. Receiving financial favors or gifts for official acts is bribery.
-      - text: Culpable violation of law
-        rationale: |
-          You chose culpable violation of law, which involves deliberate statutory breach. Accepting money to influence official actions is bribery.
-    explanation: |
-      Bribery involves giving or receiving something of value to influence official action and is a specified ground for impeachment in Section 2.
+      '
+  explanation: 'Section 1 says public office is a public trust. Officers must be accountable to the people and serve responsibly.
 
-  - id: q-philippine-constitution-accountability-and-impeachment-0011
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Levying war against the Republic or adhering to its enemies, giving them aid and comfort, constitutes which impeachment ground?
-    choices:
-      - text: Treason
-        correct: true
-      - text: Bribery
-        rationale: |
-          You picked bribery, which involves financial corruption. Levying war against the Republic or giving aid and comfort to enemies is treason.
-      - text: Graft and corruption
-        rationale: |
-          You selected graft and corruption, which involves financial self-enrichment. Waging war or aiding state enemies is classified as treason.
-      - text: Betrayal of public trust
-        rationale: |
-          You chose betrayal of public trust, which covers general abuse of power. Levying war or giving aid and comfort to national enemies is treason.
-    explanation: |
-      Treason is an explicit constitutional ground for impeachment under Article XI, Section 2.
+    '
+- id: q-philippine-constitution-accountability-and-impeachment-0003
+  type: single_choice
+  difficulty: medium
+  stem: 'Which official is included in Article XI, Section 2''s list?
 
-  - id: q-philippine-constitution-accountability-and-impeachment-0012
-    type: single_choice
-    difficulty: medium
-    stem: |
-      How many impeachable categories of officials are specified in the closed list under Article XI, Section 2?
-    choices:
-      - text: 5 categories
-        correct: true
-      - text: 3 categories
-        rationale: |
-          You selected 3 categories, which omits Constitutional Commissions and Ombudsman. Article XI Section 2 enumerates 5 impeachable categories.
-      - text: 8 categories
-        rationale: |
-          You picked 8 categories, which expands the closed statutory list. Section 2 specifies exactly 5 categories of impeachable officials.
-      - text: 10 categories
-        rationale: |
-          You chose 10 categories, which doubles the constitutional list. Article XI Section 2 specifies exactly 5 impeachable officer categories.
-    explanation: |
-      The five impeachable categories are: President, Vice-President, Members of the Supreme Court, Members of the Constitutional Commissions, and the Ombudsman.
+    '
+  choices:
+  - text: Ombudsman
+    correct: true
+  - text: Cabinet Secretary
+    rationale: 'This equates a senior executive title with inclusion. Cabinet officers hold major responsibilities. Check the closed office list.
 
-  - id: q-philippine-constitution-accountability-and-impeachment-0013
-    type: single_choice
-    difficulty: medium
-    stem: |
-      How many constitutional grounds for impeachment are listed in Section 2 of Article XI?
-    choices:
-      - text: 6 grounds
-        correct: true
-      - text: 4 grounds
-        rationale: |
-          You selected 4 grounds, which omits key constitutional bases. Section 2 of Article XI lists exactly 6 grounds for impeachment.
-      - text: 8 grounds
-        rationale: |
-          You picked 8 grounds, which adds non-constitutional categories. Section 2 of Article XI enumerates 6 specific grounds for impeachment.
-      - text: 10 grounds
-        rationale: |
-          You chose 10 grounds, which overcounts the listed bases. Article XI Section 2 defines 6 constitutional grounds for impeachment.
-    explanation: |
-      Section 2 of Article XI lists exactly six grounds for impeachment.
+      '
+  - text: Provincial Governor
+    rationale: 'This treats election to high local office as enough. Governors have public authority. Check whether local executives are listed.
 
-  - id: q-philippine-constitution-accountability-and-impeachment-0014
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Are Members of the Supreme Court impeachable under Article XI of the 1987 Constitution?
-    choices:
-      - text: Yes, listed in Article XI
-        correct: true
-      - text: No, subject to Judicial Council
-        rationale: |
-          You selected subject to Judicial Council, which confuses lower court discipline. Supreme Court Justices are impeachable under Article XI.
-      - text: No, removable by President
-        rationale: |
-          You picked removable by President, which destroys judicial independence. Supreme Court Justices can only be removed through impeachment.
-      - text: No, totally immune from suit
-        rationale: |
-          You chose totally immune, which misstates constitutional accountability. Supreme Court Justices are explicitly subject to impeachment.
-    explanation: |
-      Members of the Supreme Court are explicitly listed as impeachable officers in Article XI, Section 2.
+      '
+  - text: City Mayor
+    rationale: 'This treats public accountability as impeachment eligibility. Mayors are accountable too. Check the distinct removal process.
 
-  - id: q-philippine-constitution-accountability-and-impeachment-0015
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Culpable violation of the Constitution as an impeachment ground requires what kind of act?
-    choices:
-      - text: Intentional violation of constitutional mandate
-        correct: true
-      - text: Minor clerical error in typing an official administrative memo
-        rationale: |
-          You selected minor clerical error, which is an accidental mistake. Impeachment for culpable violation requires willful, intentional breach.
-      - text: Arriving late to a scheduled congressional committee hearing
-        rationale: |
-          You picked arriving late, which is a minor tardiness issue. Culpable violation of the Constitution requires deliberate, willful defiance.
-      - text: Misplacing an unclassified non-essential public file folder
-        rationale: |
-          You chose misplacing a file folder, which is simple negligence. Culpable constitutional violation requires willful and intentional breach.
-    explanation: |
-      Culpable violation of the Constitution involves a deliberate and willful breach of constitutional provisions, not minor administrative errors.
+      '
+  explanation: 'The Ombudsman is one of the offices expressly included in the Section 2 impeachment list.
+
+    '
+- id: q-philippine-constitution-accountability-and-impeachment-0004
+  type: single_choice
+  difficulty: medium
+  stem: 'Which official is NOT included in the closed impeachment list?
+
+    '
+  choices:
+  - text: Senator
+    correct: true
+  - text: President of the Philippines
+    rationale: 'This misses the negative question. The President is a powerful public officer. Check whether the title is expressly listed.
+
+      '
+  - text: Vice-President of the Philippines
+    rationale: 'This assumes the office follows ordinary removal rules. It is a separate executive position. Check its explicit inclusion.
+
+      '
+  - text: Member of the Supreme Court
+    rationale: 'This overlooks the specified judicial category. Other judges are outside the list. Check the exact court named.
+
+      '
+  explanation: 'Senators are not in Section 2''s closed list. Their accountability must use processes provided by law rather than impeachment.
+
+    '
+- id: q-philippine-constitution-accountability-and-impeachment-0005
+  type: single_choice
+  difficulty: medium
+  stem: 'Which phrase is expressly named as an Article XI impeachment ground?
+
+    '
+  choices:
+  - text: Betrayal of public trust
+    correct: true
+  - text: Negligence in public duties
+    rationale: 'This substitutes a general misconduct label. Negligence can be serious. Check the exact listed ground.
+
+      '
+  - text: Insubordination to government superiors
+    rationale: 'This substitutes an employment-discipline label. It concerns official conduct. Check the constitutional list.
+
+      '
+  - text: Any dissatisfaction with an official's policy
+    rationale: 'This turns disagreement into a named ground. Policies affect the public. Check the six express grounds.
+
+      '
+  explanation: 'Betrayal of public trust is expressly listed in Section 2.
+
+    '
+- id: q-philippine-constitution-accountability-and-impeachment-0006
+  type: single_choice
+  difficulty: medium
+  stem: 'Which phrase is NOT expressly named among Section 2''s six grounds?
+
+    '
+  choices:
+  - text: Inefficiency in office
+    correct: true
+  - text: Treason
+    rationale: 'This overlooks an expressly listed ground. Treason has a criminal meaning too. Check the constitutional list.
+
+      '
+  - text: Bribery
+    rationale: 'This overlooks an expressly listed ground. Bribery can also lead to prosecution. Check the impeachment ground names.
+
+      '
+  - text: Culpable violation of the Constitution
+    rationale: 'This overlooks the first listed ground. The phrase is longer and technical. Check whether it appears in Section 2.
+
+      '
+  explanation: 'The six named grounds are culpable violation of the Constitution, treason, bribery, graft and corruption, other high crimes, and betrayal of public trust.
+
+    '
+- id: q-philippine-constitution-accountability-and-impeachment-0007
+  type: single_choice
+  difficulty: medium
+  stem: 'Are members of CSC, COMELEC, and COA included among impeachable officers?
+
+    '
+  choices:
+  - text: Yes, commission members are listed.
+    correct: true
+  - text: No, because only elected officers can be impeached under the Constitution.
+    rationale: 'This makes election the test. The President is elected. Check the appointed officials also listed.
+
+      '
+  - text: No, because every commission member can be removed only by a presidential order.
+    rationale: 'This replaces the constitutional process with executive control. Appointments may involve the President. Check the express impeachment list.
+
+      '
+  - text: No, because independence exempts their members from all accountability.
+    rationale: 'This treats independence as immunity. Commissions are independent. Check their listed accountability mechanism.
+
+      '
+  explanation: 'Section 2 includes members of the Constitutional Commissions. The lesson identifies those commissions as CSC, COMELEC, and COA.
+
+    '
+- id: q-philippine-constitution-accountability-and-impeachment-0008
+  type: single_choice
+  difficulty: medium
+  stem: 'Does the impeachment list include a Regional Trial Court judge?
+
+    '
+  choices:
+  - text: No, it names Supreme Court members.
+    correct: true
+  - text: Yes, because all judicial officers are included whenever any court is named.
+    rationale: 'This extends a specific court category to every judge. Both are judicial officers. Check the precise title in Section 2.
+
+      '
+  - text: Yes, because a trial judge becomes a Supreme Court member when handling a major case.
+    rationale: 'This confuses case importance with office. Some trials are nationally important. Check the judge''s actual court.
+
+      '
+  - text: Yes, because all officials with legal training require impeachment for removal.
+    rationale: 'This substitutes qualifications for office categories. Many listed officers are lawyers. Check whether legal training is the statutory test.
+
+      '
+  explanation: 'The judicial category in Section 2 is members of the Supreme Court. Trial-court judges are outside that list.
+
+    '
+- id: q-philippine-constitution-accountability-and-impeachment-0009
+  type: single_choice
+  difficulty: medium
+  stem: 'Which attitude best reflects Article XI, Section 1''s requirement of accountability to the people?
+
+    '
+  choices:
+  - text: Service for the public's benefit
+    correct: true
+  - text: Treating every office decision as a personal asset of the current holder
+    rationale: 'This treats public authority as ownership. Officials make decisions. Check whom the authority serves.
+
+      '
+  - text: Giving family interests priority over the people whenever interests compete
+    rationale: 'This substitutes private benefit for public duty. Family obligations are familiar. Check the public-trust principle.
+
+      '
+  - text: Treating the public as customers who must purchase an official's personal favor
+    rationale: 'This turns service into private patronage. Officials provide valuable services. Check the duty of responsible public service.
+
+      '
+  explanation: 'Section 1 requires officers to be accountable to the people and to serve with responsibility, integrity, loyalty, and efficiency.
+
+    '
+- id: q-philippine-constitution-accountability-and-impeachment-0010
+  type: single_choice
+  difficulty: medium
+  stem: 'Which ground for impeachment involves accepting money or valuable favors to influence official actions?
+
+    '
+  choices:
+  - text: Bribery
+    correct: true
+  - text: Treason
+    rationale: 'This substitutes disloyal aid to an enemy for a paid official favor. Both are serious grounds. Check the conduct described.
+
+      '
+  - text: Betrayal of public trust
+    rationale: 'This chooses a broader category instead of the named payment offense. A paid favor can also betray trust. Check whether the item seeks the specific payment-based label.
+
+      '
+  - text: Culpable violation of law
+    rationale: 'This substitutes a broad legal-violation label. Bribery violates law. Check the specific act and the constitutional wording.
+
+      '
+  explanation: 'Bribery is the specific label for accepting value to influence official action. Article XI includes bribery among its grounds.
+
+    '
+- id: q-philippine-constitution-accountability-and-impeachment-0011
+  type: single_choice
+  difficulty: medium
+  stem: 'Levying war against the Republic or adhering to its enemies, giving them aid and comfort, constitutes which impeachment ground?
+
+    '
+  choices:
+  - text: Treason
+    correct: true
+  - text: Bribery
+    rationale: 'This substitutes an exchange for official favor. Both can be grave wrongdoing. Check whether payment or enemy aid is described.
+
+      '
+  - text: Graft and corruption
+    rationale: 'This substitutes corrupt use of office. The act harms the state. Check the enemy-aid or war element.
+
+      '
+  - text: Betrayal of public trust
+    rationale: 'This chooses a broader accountability label. Treason also betrays trust. Check the specific named offense.
+
+      '
+  explanation: 'The described acts are the defining conduct associated with treason. Treason is expressly included in Article XI''s list.
+
+    '
+- id: q-philippine-constitution-accountability-and-impeachment-0012
+  type: single_choice
+  difficulty: medium
+  stem: 'How many office categories appear in Section 2''s impeachment list, counting commission members as one category?
+
+    '
+  choices:
+  - text: '5'
+    correct: true
+  - text: '3'
+    rationale: 'This counts only some of the branches. Executive and judicial offices stand out. Check all expressly listed categories.
+
+      '
+  - text: '7'
+    rationale: 'This counts the three commissions separately instead of as one category. CSC, COMELEC, and COA are three bodies. Check the grouping specified in the stem.
+
+      '
+  - text: '6'
+    rationale: 'This uses the number of grounds as the number of office categories. Both lists appear in Section 2. Check which list is being counted.
+
+      '
+  explanation: 'The five categories are President, Vice-President, Supreme Court members, Constitutional Commission members, and Ombudsman.
+
+    '
+- id: q-philippine-constitution-accountability-and-impeachment-0013
+  type: single_choice
+  difficulty: medium
+  stem: 'How many grounds are expressly listed in Section 2, treating graft and corruption as one listed ground?
+
+    '
+  choices:
+  - text: '6'
+    correct: true
+  - text: '5'
+    rationale: 'This uses the office-category count. Both lists are in Section 2. Check which list the question names.
+
+      '
+  - text: '7'
+    rationale: 'This splits graft and corruption into two listed items. The phrase contains two nouns. Check the grouping in the constitutional list.
+
+      '
+  - text: '8'
+    rationale: 'This adds general misconduct labels to the express list. Many acts can be wrongful. Check the six named grounds.
+
+      '
+  explanation: 'Section 2 lists six grounds. Graft and corruption is one combined item in that list.
+
+    '
+- id: q-philippine-constitution-accountability-and-impeachment-0014
+  type: single_choice
+  difficulty: medium
+  stem: 'Are Supreme Court members included in Section 2''s impeachment list?
+
+    '
+  choices:
+  - text: Yes, they are expressly included.
+    correct: true
+  - text: No, because the judicial branch is entirely outside constitutional accountability.
+    rationale: 'This treats judicial independence as exemption. Courts are independent. Check the express office list.
+
+      '
+  - text: No, because the President can remove every Supreme Court member personally.
+    rationale: 'This substitutes executive removal for the constitutional mechanism. The President appoints justices. Check appointment versus removal.
+
+      '
+  - text: No, because only the Chief Justice can be included among judicial officers.
+    rationale: 'This narrows members to the court''s head. The Chief Justice is prominent. Check the plural category members.
+
+      '
+  explanation: 'Section 2 expressly includes members of the Supreme Court.
+
+    '
+- id: q-philippine-constitution-accountability-and-impeachment-0015
+  type: single_choice
+  difficulty: medium
+  stem: 'Culpable violation of the Constitution as an impeachment ground requires what kind of act?
+
+    '
+  choices:
+  - text: Intentional violation of constitutional mandate
+    correct: true
+  - text: Minor clerical error in typing an official administrative memo
+    rationale: 'This treats a typing lapse as intentional constitutional defiance. The error occurs in official work. Check intent and constitutional duty.
+
+      '
+  - text: Arriving late to a scheduled congressional committee hearing
+    rationale: 'This treats lateness alone as constitutional violation. Public meetings can be important. Check the specific mandate and deliberate breach.
+
+      '
+  - text: Misplacing an unclassified non-essential public file folder
+    rationale: 'This treats an ordinary handling error as culpable constitutional conduct. Officials handle public records. Check whether the facts show a willful constitutional breach.
+
+      '
+  explanation: 'The usual explanation of culpable violation is a willful and intentional breach of a constitutional duty. The definition concerns deliberate conduct.
+
+    '
+- id: q-philippine-constitution-accountability-and-impeachment-0016
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'What does being outside the impeachment list imply for a public officer?
+
+    '
+  choices:
+  - text: Other lawful removal procedures can still apply.
+    correct: true
+  - text: The officer is permanently immune from removal regardless of misconduct.
+    rationale: 'This treats one unavailable process as immunity. Impeachment is a major removal mechanism. Check the rule for all other officers.
+
+      '
+  - text: The officer may choose a personal removal procedure that ignores existing law.
+    rationale: 'This replaces lawful procedures with preference. Different offices use different rules. Check the requirement that removal be provided by law.
+
+      '
+  - text: The officer automatically joins the impeachment list if the accusation sounds serious.
+    rationale: 'This lets severity change the office category. Impeachment grounds are grave. Check the closed list of positions.
+
+      '
+  explanation: 'Section 2 says other officers may be removed as provided by law. They are not removed through impeachment merely because an accusation is serious.
+
+    '
+- id: q-philippine-constitution-accountability-and-impeachment-0017
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'Which claim misunderstands the closed list of grounds?
+
+    '
+  choices:
+  - text: Any unpopular decision is automatically a named ground.
+    correct: true
+  - text: Betrayal of public trust is expressly named in the list.
+    rationale: 'This rejects an included ground. The wording is broad. Check the actual list.
+
+      '
+  - text: Culpable violation of the Constitution is expressly named in the list.
+    rationale: 'This rejects an included ground. It sounds like a legal description. Check the first listed item.
+
+      '
+  - text: Treason, bribery, and other high crimes are expressly named in the list.
+    rationale: 'This rejects several included grounds. They also have other legal consequences. Check their express inclusion.
+
+      '
+  explanation: 'The Constitution names six grounds. Ordinary unpopularity is not itself one of those named grounds.
+
+    '
+- id: q-philippine-constitution-accountability-and-impeachment-0018
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'A complaint uses a named impeachment ground against a Court of Appeals justice. What must first be checked under the lesson?
+
+    '
+  choices:
+  - text: Whether the office is in the closed list
+    correct: true
+  - text: Whether the accusation is dramatic enough to add a new court to the list
+    rationale: 'This lets publicity change the offices covered. A serious case attracts attention. Check the constitutional office categories.
+
+      '
+  - text: Whether the complainant calls every appellate judge a Supreme Court member
+    rationale: 'This lets a label replace the actual office. Both courts hear appeals. Check the official''s actual position.
+
+      '
+  - text: Whether every judicial officer has agreed to share the same removal process
+    rationale: 'This treats consent as power to expand the list. Courts are in one branch. Check the constitutionally specified category.
+
+      '
+  explanation: 'The judicial category is Supreme Court members. A Court of Appeals justice is not included merely because a named ground is alleged.
+
+    '
+- id: q-philippine-constitution-accountability-and-impeachment-0019
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'Which conduct reflects Section 1''s standard for officers and employees?
+
+    '
+  choices:
+  - text: Serving responsibly and leading modest lives
+    correct: true
+  - text: Treating public accountability as optional until the officer's term has ended
+    rationale: 'This postpones a continuing duty. A term has an end date. Check the words at all times.
+
+      '
+  - text: Using official efficiency to justify dishonest dealings that favor private interests
+    rationale: 'This treats speed as enough. Efficiency is listed. Check integrity and public trust as well.
+
+      '
+  - text: Placing loyalty to a private patron above duties owed to the people of the Republic
+    rationale: 'This replaces public service with patronage. Loyalty is a stated value. Check the public purpose of that loyalty.
+
+      '
+  explanation: 'Section 1 requires responsibility, integrity, loyalty, efficiency, patriotism, justice, and modest living while remaining accountable to the people.
+
+    '
+- id: q-philippine-constitution-accountability-and-impeachment-0020
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'Why must both office and ground be checked when applying Section 2?
+
+    '
+  choices:
+  - text: The provision specifies separate limits for each.
+    correct: true
+  - text: Every public officer becomes impeachable whenever any ground is alleged against them.
+    rationale: 'This lets the ground expand the office list. All officers owe accountability. Check the separate coverage limit.
+
+      '
+  - text: A listed office permits impeachment for any dislike, even without a listed ground.
+    rationale: 'This lets the office erase the ground limit. Listed officials can be impeached. Check both conditions.
+
+      '
+  - text: The lists are interchangeable, so an office title can itself be the misconduct charged.
+    rationale: 'This confuses who is covered with what is alleged. Both lists occur together. Check their different roles.
+
+      '
+  explanation: 'One list identifies the offices covered. The other lists the grounds. An application must respect both limits.
+
+    '
