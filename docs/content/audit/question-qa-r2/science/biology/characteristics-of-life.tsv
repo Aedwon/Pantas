@@ -11,7 +11,7 @@ q-biology-characteristics-of-life-0009	CORRECTED	SOLVED-MATCH	choices;explanatio
 q-biology-characteristics-of-life-0010	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Original growth distractors duplicated each other and the size distractor was weak.
 q-biology-characteristics-of-life-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original item repeated single-trait classification and included a distractor denying fire spread.
 q-biology-characteristics-of-life-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original gravity distractor implied gravity cannot be a biological stimulus; plant gravitropism shows otherwise.
-q-biology-characteristics-of-life-0013	NEEDS AEDWON	SOLVED-MATCH	unchanged	HIGH	Lesson names sexual and asexual reproduction but does not teach their distinction; keyed choice assumes two parents, excluding self-fertilization. Existing explanation, notes (including a false claim of sexual bacterial reproduction), and length issue left unchanged.
+q-biology-characteristics-of-life-0013	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	HIGH	Lesson does not teach this distinction; preserved keyed choice incorrectly requires two parents and remains longest. Explanation now qualifies self-fertilization; false sexual-bacterial claim removed from notes.
 q-biology-characteristics-of-life-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original item treated every property as mandatory in each individual and assigned evolution to one organism.
 q-biology-characteristics-of-life-0015	NEW	NEW	new question	NONE	
 q-biology-characteristics-of-life-0016	NEW	NEW	new question	NONE	

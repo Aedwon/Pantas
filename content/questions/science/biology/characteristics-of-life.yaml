@@ -266,15 +266,19 @@ questions:
         correct: true
       - text: Asexual reproduction always involves two parents; sexual reproduction always involves one parent.
         rationale: |
-          You swapped parent counts. Asexual reproduction requires 1 parent; sexual reproduction requires 2 parents.
+          This reverses the usual parent pattern. Both processes produce offspring, so their labels can be mixed up. Check whether sex cells fuse.
+
       - text: Both types of reproduction always require exactly two parents.
         rationale: |
-          You required 2 parents for asexual reproduction. Asexual reproduction produces genetically identical clones from 1 parent.
+          This requires two parents even for asexual reproduction. Familiar animal reproduction often involves two parents. Check whether one organism can reproduce by division.
+
       - text: Asexual reproduction only happens in plants; sexual reproduction only happens in animals.
         rationale: |
-          You restricted reproduction modes by kingdom. Bacteria, fungi, animals, and plants can reproduce asexually or sexually.
+          This limits the modes by kingdom. Animal mating and plant cuttings are familiar examples. Check whether plants can also reproduce sexually.
+
     explanation: |
-      Asexual reproduction (like a bacterium splitting in two) involves a single parent. Sexual reproduction involves two parents combining their genetic material.
+      Asexual reproduction produces offspring from one parent without fusion of sex cells. Sexual reproduction joins sex cells, often from two parents, to combine genetic material. Some organisms can self-fertilize, so sexual reproduction does not always need two separate individuals.
+
     approved: true
   - id: q-biology-characteristics-of-life-0014
     type: "predict-outcome"
