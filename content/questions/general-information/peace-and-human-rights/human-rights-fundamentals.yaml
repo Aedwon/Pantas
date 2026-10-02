@@ -3,165 +3,498 @@ meta:
   topic: peace-and-human-rights
   subtopic: human-rights-fundamentals
   exams:
-    - cse-pro
-    - cse-sub
+  - cse-pro
+  - cse-sub
 questions:
-  - id: q-peace-and-human-rights-human-rights-fundamentals-0001
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Which article of the 1987 Constitution creates the Commission on Human Rights?
-    choices:
-      - text: Article XIII
-        correct: true
-      - text: Article III
-        rationale: |
-          Article III is the Bill of Rights. The Commission on Human Rights itself is created under Article XIII.
-      - text: Article IX
-        rationale: |
-          Article IX governs the Constitutional Commissions such as the CSC, COMELEC, and COA. The CHR is created under Article XIII.
-      - text: Article XI
-        rationale: |
-          Article XI covers Accountability of Public Officers. The CHR is created under Article XIII.
-    explanation: |
-      Article XIII (Social Justice and Human Rights), Section 17 creates the independent Commission on Human Rights.
+- id: q-peace-and-human-rights-human-rights-fundamentals-0001
+  type: single_choice
+  difficulty: medium
+  stem: 'Which constitutional article creates the Commission on Human Rights?
 
-  - id: q-peace-and-human-rights-human-rights-fundamentals-0002
-    type: single_choice
-    difficulty: easy
-    stem: |
-      What title is given to Article XIII of the 1987 Constitution?
-    choices:
-      - text: Social Justice and Human Rights
-        correct: true
-      - text: Bill of Rights and Constitutional Freedoms
-        rationale: |
-          The Bill of Rights is Article III. Article XIII is titled Social Justice and Human Rights.
-      - text: General Provisions and Public Office Rules
-        rationale: |
-          General Provisions is Article XVI. Article XIII is titled Social Justice and Human Rights.
-      - text: Declaration of Principles and State Policy
-        rationale: |
-          The Declaration of Principles and State Policies is Article II. Article XIII is Social Justice and Human Rights.
-    explanation: |
-      Article XIII of the 1987 Constitution is titled Social Justice and Human Rights.
+    '
+  choices:
+  - text: Article XIII
+    correct: true
+  - text: Article III
+    rationale: 'This confuses rights guarantees with an institution''s creation. Both concern rights. Check where the commission is established.
 
-  - id: q-peace-and-human-rights-human-rights-fundamentals-0003
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Which constitutional article serves as the primary domestic guarantee of individual human rights in the Philippines?
-    choices:
-      - text: Article III
-        correct: true
-      - text: Article I
-        rationale: |
-          Article I defines the National Territory. Civil and political liberties are principally protected in Article III.
-      - text: Article IV
-        rationale: |
-          Article IV defines Philippine Citizenship. The Bill of Rights is Article III.
-      - text: Article V
-        rationale: |
-          Article V governs Suffrage. The Bill of Rights is Article III.
-    explanation: |
-      Article III, the Bill of Rights, is the primary domestic constitutional guarantee of fundamental civil and political rights.
+      '
+  - text: Article IX
+    rationale: 'This places CHR among the three Article IX commissions. The word commission sounds similar. Check the specific constitutional source.
 
-  - id: q-peace-and-human-rights-human-rights-fundamentals-0004
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Whom does international human rights law primarily bind in its obligations?
-    choices:
-      - text: State authorities
-        correct: true
-      - text: Private corporate executives
-        rationale: |
-          Private actors may have duties under domestic law and other frameworks, but international human rights treaty obligations primarily bind states and their authorities.
-      - text: International tourist travelers
-        rationale: |
-          Individual travelers are not the primary duty-bearers under international human rights treaties.
-      - text: Foreign commercial shipping firms
-        rationale: |
-          International human rights law primarily imposes treaty duties on states, not private commercial firms as such.
-    explanation: |
-      International human rights law primarily places legal duties on states and state authorities to respect, protect, and fulfill human rights.
+      '
+  - text: Article XVIII
+    rationale: 'This substitutes transitional provisions. Restoring institutions can sound transitional. Check the article that expressly creates CHR.
 
-  - id: q-peace-and-human-rights-human-rights-fundamentals-0005
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Human rights are characterized as inherent to all human beings, meaning they exist in what manner?
-    choices:
-      - text: Possessed by virtue of humanity
-        correct: true
-      - text: Granted exclusively by government presidential decree
-        rationale: |
-          Human rights are understood as inherent to persons, not merely benefits created at presidential discretion.
-      - text: Conditioned upon paying annual state property income taxes
-        rationale: |
-          Human rights are not conditioned on payment of property taxes.
-      - text: Restricted to wealthy landholding property title holders
-        rationale: |
-          Human rights are universal and are not restricted to people with property or wealth.
-    explanation: |
-      Human rights are inherent to every person by virtue of being human, rather than privileges granted only by government favor.
+      '
+  explanation: 'Article XIII, Section 17 creates the independent Commission on Human Rights.
 
-  - id: q-peace-and-human-rights-human-rights-fundamentals-0006
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Which body is established by the 1987 Constitution as the independent national office promoting human rights protection?
-    choices:
-      - text: Commission on Human Rights
-        correct: true
-      - text: National Security Council office
-        rationale: |
-          The National Security Council deals with national-security policy. The Constitution creates the CHR as the independent human-rights office.
-      - text: Department of Justice secretariat
-        rationale: |
-          The Department of Justice is an executive department. The Constitution creates the independent Commission on Human Rights.
-      - text: Armed Forces Grievance tribunal
-        rationale: |
-          An internal military body is not the constitutional human-rights commission.
-    explanation: |
-      Article XIII, Section 17 creates the independent Commission on Human Rights.
+    '
+- id: q-peace-and-human-rights-human-rights-fundamentals-0002
+  type: single_choice
+  difficulty: medium
+  stem: 'What is the title of Article XIII?
 
-  - id: q-peace-and-human-rights-human-rights-fundamentals-0007
-    type: single_choice
-    difficulty: hard
-    stem: |
-      When does international human rights law apply to protect individuals?
-    choices:
-      - text: At all times in peace and conflict
-        correct: true
-      - text: Only during formally declared active international wartime
-        rationale: |
-          Human rights law is not limited to wartime; it continues to apply in peacetime and during armed conflict, subject to the rules governing any lawful limitations or derogations.
-      - text: Only during official national presidential election periods
-        rationale: |
-          Human rights obligations are continuous and are not limited to election periods.
-      - text: Only during municipal emergency disaster curfew hours
-        rationale: |
-          Human rights obligations are not triggered only by local emergencies or curfews.
-    explanation: |
-      International human rights law applies in peacetime and during armed conflict. Particular rights can have lawful limitations, and some treaty obligations may permit tightly regulated derogations during qualifying emergencies, but the legal framework itself continues to apply.
+    '
+  choices:
+  - text: Social Justice and Human Rights
+    correct: true
+  - text: Bill of Rights and Constitutional Freedoms
+    rationale: 'This substitutes Article III''s subject. Both protect rights. Check the article number.
 
-  - id: q-peace-and-human-rights-human-rights-fundamentals-0008
-    type: single_choice
-    difficulty: hard
-    stem: |
-      What fundamental feature distinguishes human rights from statutory privileges granted by state legislation?
-    choices:
-      - text: Inherent to human dignity
-        correct: true
-      - text: Revocable at any local mayor personal discretion
-        rationale: |
-          Human rights are not ordinary local privileges that a mayor may withdraw at personal discretion.
-      - text: Expiring automatically after five calendar years
-        rationale: |
-          Human rights are not time-limited licenses that automatically expire after a fixed number of years.
-      - text: Subject to mandatory monthly state fee payment
-        rationale: |
-          Enjoyment of human rights is not conditioned on paying a monthly government fee.
-    explanation: |
-      Human rights are grounded in the inherent dignity of human beings. That does not mean every right is absolute: legal systems may recognize carefully defined limitations, and some treaties permit limited derogations in qualifying emergencies. The key distinction here is that human rights are not merely temporary privileges granted at government discretion.
+      '
+  - text: General Provisions and Public Office Rules
+    rationale: 'This substitutes a broad constitutional category. Institutions follow public rules. Check Article XIII''s exact heading.
+
+      '
+  - text: Declaration of Principles and State Policies
+    rationale: 'This substitutes Article II''s heading. Principles include respect for rights. Check the title attached to XIII.
+
+      '
+  explanation: 'Article XIII is titled Social Justice and Human Rights.
+
+    '
+- id: q-peace-and-human-rights-human-rights-fundamentals-0003
+  type: single_choice
+  difficulty: medium
+  stem: 'Which article is the primary domestic constitutional guarantee of civil and political liberties?
+
+    '
+  choices:
+  - text: Article III
+    correct: true
+  - text: Article XIII
+    rationale: 'This substitutes the social-justice and CHR article. It also concerns rights. Check where the Bill of Rights is located.
+
+      '
+  - text: Article IV
+    rationale: 'This substitutes citizenship provisions. Citizenship affects some political rights. Check the article protecting the broader listed liberties.
+
+      '
+  - text: Article V
+    rationale: 'This substitutes suffrage provisions. Voting is a political right. Check the whole Bill of Rights rather than one subject.
+
+      '
+  explanation: 'Article III is the Bill of Rights. It sets out fundamental civil and political liberties.
+
+    '
+- id: q-peace-and-human-rights-human-rights-fundamentals-0004
+  type: single_choice
+  difficulty: medium
+  stem: 'Who primarily bears obligations under international human rights law?
+
+    '
+  choices:
+  - text: The state and its organs
+    correct: true
+  - text: Private companies alone, with state authorities excluded
+    rationale: 'This shifts the primary obligations away from government. Companies can affect rights. Check the state-individual relationship.
+
+      '
+  - text: Individuals alone, with public institutions excluded
+    rationale: 'This treats rights holders as the only duty bearers. People should respect others. Check who primarily bears the legal obligations.
+
+      '
+  - text: Foreign visitors alone, with local public bodies excluded
+    rationale: 'This confuses international law with foreigners. International sounds cross-border. Check which institutions exercise state authority.
+
+      '
+  explanation: 'Human rights law primarily binds the state and its organs in their treatment of individuals.
+
+    '
+- id: q-peace-and-human-rights-human-rights-fundamentals-0005
+  type: single_choice
+  difficulty: medium
+  stem: 'What does inherent mean when describing human rights?
+
+    '
+  choices:
+  - text: Belonging to people because they are human
+    correct: true
+  - text: Granted only after a person receives special government recognition
+    rationale: 'This makes recognition create the rights. Government documents enforce rights. Check whether humanity or approval is the basis.
+
+      '
+  - text: Earned only through a person's payment of taxes and public fees
+    rationale: 'This makes a contribution purchase rights. Taxes support public services. Check whether payment is a condition of human dignity.
+
+      '
+  - text: Inherited only from family members who already hold public privileges
+    rationale: 'This treats inherent as inherited status. The words sound related. Check whether rights depend on family position.
+
+      '
+  explanation: 'Inherent rights belong to people by virtue of being human. They do not have to be earned or purchased.
+
+    '
+- id: q-peace-and-human-rights-human-rights-fundamentals-0006
+  type: single_choice
+  difficulty: medium
+  stem: 'Which constitutionally created institution is the independent national human rights body?
+
+    '
+  choices:
+  - text: CHR
+    correct: true
+  - text: Civil Service Commission
+    rationale: 'This selects the government-personnel commission. Both are constitutional institutions. Check the body''s human-rights focus.
+
+      '
+  - text: Department of Justice
+    rationale: 'This selects an executive department. Justice work concerns rights. Check the independent institution created in Article XIII.
+
+      '
+  - text: National Security Council
+    rationale: 'This selects a security-policy body. Security affects people''s safety. Check the constitutional human-rights institution.
+
+      '
+  explanation: 'Article XIII creates the independent Commission on Human Rights.
+
+    '
+- id: q-peace-and-human-rights-human-rights-fundamentals-0007
+  type: single_choice
+  difficulty: medium
+  stem: 'When does international human rights law apply as a framework?
+
+    '
+  choices:
+  - text: In peace and armed conflict
+    correct: true
+  - text: Only during peace, ending automatically when armed conflict starts
+    rationale: 'This treats wartime as a complete suspension. Conflict introduces other legal rules. Check whether human-rights law continues.
+
+      '
+  - text: Only during armed conflict, ending when ordinary civil life resumes
+    rationale: 'This confuses human-rights law with conflict-specific rules. Both can protect people in war. Check the peacetime scope.
+
+      '
+  - text: Only during elections or a formally announced government campaign
+    rationale: 'This ties rights protection to selected official events. Those events can raise rights issues. Check continuous application.
+
+      '
+  explanation: 'Human rights law applies during both peacetime and armed conflict. The framework continues even when particular rules require careful analysis.
+
+    '
+- id: q-peace-and-human-rights-human-rights-fundamentals-0008
+  type: single_choice
+  difficulty: medium
+  stem: 'A mayor says basic human rights exist only when renewed by the town each year. What is wrong with that claim?
+
+    '
+  choices:
+  - text: It treats inherent rights as temporary permits.
+    correct: true
+  - text: It fails only because a renewal should last five years instead of one.
+    rationale: 'This changes the permit period rather than the premise. A longer term looks more protective. Check whether rights need renewal at all.
+
+      '
+  - text: It is correct whenever the town issues a written ordinance about renewal.
+    rationale: 'This treats a local rule as the source of human dignity. Written rules look authoritative. Check the inherent basis of human rights.
+
+      '
+  - text: It is correct for residents who have not recently paid municipal fees.
+    rationale: 'This makes rights depend on payment. Fees can be conditions of some services. Check rights versus paid privileges.
+
+      '
+  explanation: 'Human rights are grounded in being human. A local authority cannot turn that basis into an annually renewed privilege.
+
+    '
+- id: q-peace-and-human-rights-human-rights-fundamentals-0009
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'Which statement follows from the lesson''s nondiscrimination principle?
+
+    '
+  choices:
+  - text: Human rights do not depend on language or national origin.
+    correct: true
+  - text: Only speakers of the majority language possess human rights.
+    rationale: 'This makes language determine human status. Official services often use one language. Check the universal basis of rights.
+
+      '
+  - text: People acquire human rights only after adopting the majority religion.
+    rationale: 'This makes belief a qualification. Religion may shape social traditions. Check the nondiscrimination rule.
+
+      '
+  - text: People of foreign origin possess no human rights until naturalization.
+    rationale: 'This confuses all human rights with citizenship privileges. Some political rights depend on citizenship. Check basic human rights versus particular citizen entitlements.
+
+      '
+  explanation: 'The lesson says human rights belong to all people without discrimination based on language, national origin, religion, or similar status.
+
+    '
+- id: q-peace-and-human-rights-human-rights-fundamentals-0010
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'Which pair correctly matches the two domestic constitutional references in the lesson?
+
+    '
+  choices:
+  - text: 'Article III: liberties; Article XIII: CHR'
+    correct: true
+  - text: 'Article III: CHR; Article XIII: the Bill of Rights'
+    rationale: 'This reverses the references. Both articles concern rights. Check each article''s role.
+
+      '
+  - text: 'Article IX: CHR; Article III: citizenship rules'
+    rationale: 'This confuses commission and citizenship provisions. Several institutions are constitutional. Check the specific source and subject.
+
+      '
+  - text: 'Article XIII: suffrage only; Article V: all civil liberties'
+    rationale: 'This substitutes a single voting subject for broad guarantees. Suffrage is a political liberty. Check the breadth of each article.
+
+      '
+  explanation: 'Article III contains the Bill of Rights. Article XIII creates the CHR within Social Justice and Human Rights.
+
+    '
+- id: q-peace-and-human-rights-human-rights-fundamentals-0011
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'In the lesson''s domestic framework, what kind of institution is the CHR?
+
+    '
+  choices:
+  - text: An independent national institution
+    correct: true
+  - text: A temporary body that exists only during an armed conflict
+    rationale: 'This makes the institution conflict-specific. Rights concerns arise during wars. Check its constitutional and national basis.
+
+      '
+  - text: A private association created solely by voluntary membership
+    rationale: 'This treats a constitutional institution as a club. Private groups also promote rights. Check how CHR is established.
+
+      '
+  - text: A local office that exists only if every mayor creates one
+    rationale: 'This makes national protection depend on local choice. Local officials handle public concerns. Check the level and source of the institution.
+
+      '
+  explanation: 'The Constitution creates CHR as an independent national human rights institution.
+
+    '
+- id: q-peace-and-human-rights-human-rights-fundamentals-0012
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'A rights claim concerns how an official government agency treats an individual. What makes it directly relevant to the lesson''s human-rights framework?
+
+    '
+  choices:
+  - text: It concerns state treatment of a person.
+    correct: true
+  - text: It concerns government only if the agency operates in a foreign country.
+    rationale: 'This adds a cross-border requirement. The law is called international. Check the primary state obligation.
+
+      '
+  - text: It concerns rights only if the person also owns a business.
+    rationale: 'This adds an economic-status condition. Some agency dealings are commercial. Check who possesses human rights.
+
+      '
+  - text: It concerns rights only if the government has announced an election.
+    rationale: 'This adds an event condition. Elections involve political rights. Check the continuous framework.
+
+      '
+  explanation: 'The lesson describes human rights law as primarily governing the state and its organs in their treatment of individuals.
+
+    '
+- id: q-peace-and-human-rights-human-rights-fundamentals-0013
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'How many sections are in the Philippine Bill of Rights described in the lesson?
+
+    '
+  choices:
+  - text: '22'
+    correct: true
+  - text: '18'
+    rationale: 'This confuses constitutional article count with sections in Article III. Both are ways to count the Constitution. Check the unit asked for.
+
+      '
+  - text: '17'
+    rationale: 'This uses the CHR creation section number as a count. Section 17 is a familiar rights-related reference. Check which article and quantity are being counted.
+
+      '
+  - text: '30'
+    rationale: 'This imports a number from another rights document. Different rights texts have their own divisions. Check the domestic Article III count.
+
+      '
+  explanation: 'Article III of the 1987 Constitution contains twenty-two sections.
+
+    '
+- id: q-peace-and-human-rights-human-rights-fundamentals-0014
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'Which feature separates a list of rights guarantees from the office established to promote their protection?
+
+    '
+  choices:
+  - text: A guarantee is a rule; an institution is a body.
+    correct: true
+  - text: Every rights guarantee is a separate national government commission.
+    rationale: 'This treats protections as offices. Institutions help protect rights. Check a rule versus an organization.
+
+      '
+  - text: An independent office replaces the need for constitutional rights guarantees.
+    rationale: 'This treats institutional creation as removing the rules. The office has a rights role. Check whether both references remain relevant.
+
+      '
+  - text: A constitutional institution is just another name for a person's private privilege.
+    rationale: 'This mixes a public body with an individual entitlement. Both relate to rights. Check what each term identifies.
+
+      '
+  explanation: 'The Bill of Rights states constitutional protections. CHR is an institution created under Article XIII. These serve distinct roles in the domestic framework.
+
+    '
+- id: q-peace-and-human-rights-human-rights-fundamentals-0015
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'The lesson lists nationality, religion, language, and any other status. How should that list be read?
+
+    '
+  choices:
+  - text: It gives examples, not an exclusive list.
+    correct: true
+  - text: It permits denial of basic human rights on every status not specifically named.
+    rationale: 'This treats examples as a closed list. Named categories are easiest to recall. Check the phrase any other status.
+
+      '
+  - text: It requires a person to possess every listed status before having human rights.
+    rationale: 'This turns protections against discrimination into qualifications. The list contains several categories. Check whether they restrict or explain universal coverage.
+
+      '
+  - text: It gives officials power to select one favored category and ignore all the others.
+    rationale: 'This treats a universal rule as a menu. Several statuses are mentioned. Check whether everyone remains within the principle.
+
+      '
+  explanation: 'The lesson begins with rights for all human beings and ends its examples with any other status. The examples illustrate broad protection instead of limiting it.
+
+    '
+- id: q-peace-and-human-rights-human-rights-fundamentals-0016
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'What does the phrase ''at all times'' describe in the lesson?
+
+    '
+  choices:
+  - text: The continuing application of the human-rights framework
+    correct: true
+  - text: An identical outcome for every rights claim without considering any applicable rule
+    rationale: 'This treats continuous application as a guaranteed result. The words sound absolute. Check application versus deciding a particular claim.
+
+      '
+  - text: A requirement that the CHR is the only public institution with any human-rights duty
+    rationale: 'This treats continuity as exclusive institutional responsibility. CHR focuses on rights. Check time scope versus duty bearers.
+
+      '
+  - text: A rule that individuals gain rights only while a government office is open to the public
+    rationale: 'This confuses legal continuity with service hours. Offices work on schedules. Check rights versus administrative opening times.
+
+      '
+  explanation: 'At all times means the human-rights framework applies in both peace and conflict. It describes continuity, not an automatic result for every case.
+
+    '
+- id: q-peace-and-human-rights-human-rights-fundamentals-0017
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'A reviewer finds a reference to Article IX and assumes it creates CHR because CHR is called a commission. Which correction fits the lesson?
+
+    '
+  choices:
+  - text: Institution names do not replace the specific constitutional source.
+    correct: true
+  - text: Every institution called a commission must be created in Article IX.
+    rationale: 'This makes the name determine placement. Article IX contains commissions. Check CHR''s Article XIII source.
+
+      '
+  - text: The CHR must be outside the Constitution because its name includes human rights.
+    rationale: 'This rejects a constitutional body on wording alone. Rights also appear in international law. Check the stated domestic provision.
+
+      '
+  - text: Article III and Article XIII are interchangeable whenever a question uses the word rights.
+    rationale: 'This merges distinct constitutional functions. Both concern protection. Check which provision creates the institution.
+
+      '
+  explanation: 'The lesson identifies Article XIII as the source of CHR. Its name does not move it into Article IX.
+
+    '
+- id: q-peace-and-human-rights-human-rights-fundamentals-0018
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'A report describes a state failing to respect a persons human rights. Does that failure mean the person had no rights in the first place?
+
+    '
+  choices:
+  - text: No, failure to protect is different from absence of rights.
+    correct: true
+  - text: Yes, a right exists only when the government already respects it perfectly.
+    rationale: 'This makes successful protection create the right. Effective enforcement is important. Check the inherent basis of the right itself.
+
+      '
+  - text: Yes, every government failure permanently removes the persons status as human.
+    rationale: 'This treats state misconduct as a change in human status. The failure affects treatment. Check whether the person remains human.
+
+      '
+  - text: No, but only because the person bought a special exemption from government treatment.
+    rationale: 'This replaces inherent rights with purchased permission. Exemptions can appear in other rules. Check the humanity-based foundation.
+
+      '
+  explanation: 'Human rights belong to people because they are human. A state can fail to meet its obligations toward a person who still holds those rights.
+
+    '
+- id: q-peace-and-human-rights-human-rights-fundamentals-0019
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'Which summary most accurately separates the two levels of protection taught in the lesson?
+
+    '
+  choices:
+  - text: International law binds states; the Constitution supplies domestic guarantees.
+    correct: true
+  - text: Domestic guarantees replace every international obligation as soon as a constitution exists.
+    rationale: 'This treats the two levels as mutually exclusive. Both address rights. Check whether both frameworks are taught.
+
+      '
+  - text: International rights exist only outside the Philippines, while domestic rights exist only overseas.
+    rationale: 'This reverses and invents territorial limits. International sounds foreign. Check the role of state obligations and domestic rules.
+
+      '
+  - text: Only a national human-rights institution creates rights at either level through individual permits.
+    rationale: 'This turns a protecting body into the sole source. CHR has a rights mission. Check inherent rights versus institutional protection.
+
+      '
+  explanation: 'The lesson presents international state obligations alongside domestic constitutional protections. Both are part of its rights framework.
+
+    '
+- id: q-peace-and-human-rights-human-rights-fundamentals-0020
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'Which conclusion is supported without adding a rule the lesson does not teach?
+
+    '
+  choices:
+  - text: CHR's independence and Article XIII basis are established.
+    correct: true
+  - text: CHR must personally approve every court judgment involving any civil or political liberty.
+    rationale: 'This adds a power not stated. CHR protects rights. Check whether the lesson grants that approval power.
+
+      '
+  - text: Every statutory benefit has exactly the same basis and scope as an inherent human right.
+    rationale: 'This treats all entitlements as identical. Both may be protected by law. Check the inherent basis versus a particular statute.
+
+      '
+  - text: Every international human-rights rule is enforceable through the same local procedure in all cases.
+    rationale: 'This adds uniform enforcement mechanics. The framework applies continuously. Check whether the lesson describes procedures.
+
+      '
+  explanation: 'The lesson explicitly calls CHR independent and identifies Article XIII as its constitutional source. These facts are established without assuming additional powers.
+
+    '
