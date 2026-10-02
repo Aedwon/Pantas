@@ -11,19 +11,19 @@ questions:
       Which of the following is the closest meaning of the word in bold?
       The professor's lecture was quite **arduous**, or difficult, forcing students to focus intensely for hours.
     choices:
-      - text: Difficult
+      - text: "Hard"
         correct: true
-      - text: Easy
+      - text: "Effortless"
         rationale: |
-          You picked "easy," which is an antonym of arduous, whereas "or difficult" directly restates its meaning.
-      - text: Short
+          This reverses the stated meaning. A lecture may be easy to listen to, so the setting alone can suggest little effort. Check the restatement after "or."
+      - text: "Brief"
         rationale: |
-          You picked "short," but the sentence states students had to focus for hours, contradicting brevity.
-      - text: Boring
+          This confuses the effort required with the length of the lecture. A quick task can feel easier, so time may seem relevant. Check the word that directly defines "arduous."
+      - text: "Boring"
         rationale: |
-          You picked "boring," which describes lack of interest rather than the difficulty level defined by the clue.
+          This confuses difficulty with lack of interest. A long lecture may seem boring. Check whether the clue describes interest or effort.
     explanation: |
-      The word "or" signals a synonym clue: "or difficult" directly restates the meaning of "arduous." The correct answer is difficult.
+      The phrase "or difficult" explains "arduous." It means hard and needing a lot of effort.
     approved: true
 
   - id: q-vocabulary-context-clues-0002
@@ -33,19 +33,19 @@ questions:
       Which of the following is the closest meaning of the word in bold?
       A **paradox** is a statement that seems to contradict itself, yet may still be true.
     choices:
-      - text: A statement that seems to contradict itself, yet may still be true
+      - text: "An apparent contradiction"
         correct: true
-      - text: A false statement with no possible truth
+      - text: "A statement disproved by evidence"
         rationale: |
-          You picked a false statement, but a paradox can still contain truth despite its self-contradictory appearance.
-      - text: A proven scientific fact
+          This treats seeming to conflict as proof of being false. A contradiction usually signals a problem, so that may look reasonable. Check the phrase "may still be true."
+      - text: "A fact confirmed by experiments"
         rationale: |
-          You picked a proven scientific fact, ignoring the contradictory nature defined in the sentence.
-      - text: A question with no possible answer
+          This treats possible truth as proven truth. The word "true" appears in the clue, so confirmation may seem likely. Check whether evidence is mentioned.
+      - text: "A question without an answer"
         rationale: |
-          You called it a question, but the sentence explicitly defines a paradox as a type of statement.
+          This changes a puzzling statement into a question. A paradox can feel hard to explain, so an unanswered question may seem close. Check how the sentence names the thing being defined.
     explanation: |
-      The sentence uses "is" to give a direct definition clue, stating exactly what a paradox means.
+      The sentence defines a paradox as something that seems to contradict itself but may still be true. "An apparent contradiction" captures that idea.
     approved: true
 
   - id: q-vocabulary-context-clues-0003
@@ -55,19 +55,19 @@ questions:
       Choose the best meaning for the word in bold.
       The chef used various **utensils**, such as spatulas, tongs, and whisks, to prepare the elaborate dish.
     choices:
-      - text: Cooking tools
+      - text: "Tools"
         correct: true
-      - text: Ingredients
+      - text: "Ingredients"
         rationale: |
-          You picked "ingredients," but spatulas, tongs, and whisks are physical tools used to prepare food, not ingredients.
-      - text: Recipes
+          This confuses items used to prepare food with the food itself. Both belong in a kitchen. Check what the listed examples are used for.
+      - text: "Recipes"
         rationale: |
-          You picked "recipes," but spatulas, tongs, and whisks are physical items rather than written cooking instructions.
-      - text: Spices
+          This confuses cooking equipment with instructions. Recipes are also used to prepare a dish. Check whether the examples are objects or written steps.
+      - text: "Tableware"
         rationale: |
-          You picked "spices," but spatulas and whisks are equipment, not food seasonings.
+          This confuses food-preparation tools with items used to serve or eat food. Both groups can include kitchen objects. Check the jobs of the examples listed.
     explanation: |
-      The signal words "such as" introduce examples: spatulas, tongs, and whisks are all cooking tools, revealing the meaning of "utensils."
+      Spatulas, tongs, and whisks are tools used to prepare food. The examples show that "utensils" means tools here.
     approved: true
 
   - id: q-vocabulary-context-clues-0004
@@ -77,19 +77,19 @@ questions:
       Identify the meaning of the word in bold.
       Unlike her **taciturn** brother who rarely spoke a word, Elena chatted endlessly with every stranger she met.
     choices:
-      - text: Reserved and quiet
+      - text: "Quiet"
         correct: true
-      - text: Talkative
+      - text: "Talkative"
         rationale: |
-          You picked "talkative," which is the quality of Elena, whereas "Unlike" indicates her brother has the opposite trait.
-      - text: Friendly
+          This applies Elena's behavior to her brother. Her chatting is vivid, so it may seem to define the target word. Check who the word describes.
+      - text: "Friendly"
         rationale: |
-          You picked "friendly," but the clue "rarely spoke a word" specifically targets speech habits rather than social warmth.
-      - text: Rude
+          This treats speech habits as social warmth. Chatting with strangers sounds friendly. Check whether the target describes Elena or her brother.
+      - text: "Rude"
         rationale: |
-          You picked "rude," but not speaking often indicates quietness or reserve rather than bad manners.
+          This assumes silence means bad manners. Not speaking can seem unfriendly. Check what the text actually says about his behavior.
     explanation: |
-      The word "Unlike" signals an antonym clue: Elena (who chats endlessly) is the opposite of her taciturn brother, so "taciturn" means reserved and quiet.
+      The brother "rarely spoke a word." That clue shows that "taciturn" means quiet.
     approved: true
 
   - id: q-vocabulary-context-clues-0005
@@ -99,128 +99,129 @@ questions:
       Select the word that best captures the meaning of the term in bold.
       The old house was completely **dilapidated**; the roof had caved in, the windows were shattered, and vines crept through the crumbling walls.
     choices:
-      - text: Run-down and decaying
+      - text: "Run-down"
         correct: true
-      - text: Beautifully restored
+      - text: "Beautifully restored"
         rationale: |
-          You picked "beautifully restored," which directly contradicts descriptions of caved-in roofs and shattered windows.
-      - text: Newly built
+          This reads signs of damage as signs of repair. An old house might have been restored. Check whether the listed details show improvement or decay.
+      - text: "Unoccupied"
         rationale: |
-          You picked "newly built," which is the opposite of a house with crumbling walls and caved-in roofs.
-      - text: Haunted
+          This treats damage as proof that nobody lives there. An empty house may deteriorate, so the idea looks possible. Check whether the clues describe occupancy or physical condition.
+      - text: "Old-fashioned"
         rationale: |
-          You picked "haunted," which assumes supernatural presence rather than the physical state of decay described.
+          This confuses the house's condition with its style. The house is old, which may suggest an old design. Check whether the details describe fashion or damage.
     explanation: |
-      There are no easy signal words here, so you must infer from the whole story: a caved-in roof, shattered windows, and crumbling walls all describe a run-down, decaying building.
+      The collapsed roof, broken windows, and crumbling walls show serious damage. "Dilapidated" means run-down.
     approved: true
 
   - id: q-vocabulary-context-clues-0006
     type: word-in-context
     difficulty: medium
     stem: |
-      Alin sa mga sumusunod ang kasingkahulugan ng salitang may salungguhit?
+      Ano ang kahulugan ng **pagtitiis** sa pangungusap?
       Ang **pagtitiis** niya, o pagpapasensya, ay nagpapakita ng kanyang lakas ng loob sa harap ng mga pagsubok.
     choices:
-      - text: Pagpapasensya
+      - text: "Pasensya"
         correct: true
-      - text: Pagtakas
+      - text: "Pag-iwas"
         rationale: |
-          Pinili mo ang "pagtakas," ngunit ang pagpapasensya at pagtitiis ay hindi nangangahulugang pagtakas sa problema.
-      - text: Pagyayabang
+          This treats enduring trouble as avoiding it. Both can be reactions to a problem. Check the direct restatement after "o."
+      - text: "Pagyayabang"
         rationale: |
-          Pinili mo ang "pagyayabang," ngunit ang "pagtitiis" o pagpapasensya ay kaisipang nakatuon sa pakikipaglaban sa pagsubok.
-      - text: Pagtulong
+          This treats strength of spirit as showing off. The phrase about inner strength may draw attention. Check the words used to explain "pagtitiis."
+      - text: "Pagtulong"
         rationale: |
-          Pinili mo ang "pagtulong," ngunit ang pagtulong ay ibang kilos kumpara sa pagpapasensya.
+          This confuses enduring a problem with helping someone else. Both may be praised as good actions. Check the specific meaning supplied in the sentence.
     explanation: |
-      Ang salitang "o" ay senyales ng kasingkahulugan (synonym clue): direktang sinasabi ng pangungusap na ang "pagtitiis" ay "pagpapasensya."
+      The phrase "o pagpapasensya" restates "pagtitiis." In this sentence it means patience through difficulty.
     approved: true
 
   - id: q-vocabulary-context-clues-0007
     type: word-in-context
     difficulty: medium
     stem: |
-      Alin sa mga sumusunod ang kasingkahulugan ng salitang may salungguhit?
+      Ano ang kahulugan ng **maramot** sa pangungusap?
       Taliwas sa **maramot** niyang kapatid na ayaw magbahagi ng anuman, si Rosa ay bukas-palad at laging tumutulong sa mga nangangailangan.
     choices:
-      - text: Madamot
+      - text: "Madamot"
         correct: true
-      - text: Mapagbigay
+      - text: "Mapagbigay"
         rationale: |
-          Pinili mo ang "mapagbigay," ngunit ang "Taliwas sa" ay nagpapakita na ang maramot ay kasalungat ng bukas-palad (mapagbigay).
-      - text: Mayaman
+          This assigns Rosa's trait to her brother. Her generous actions are easy to notice. Check the contrast phrase "taliwas sa."
+      - text: "Mayaman"
         rationale: |
-          Pinili mo ang "mayaman," ngunit ang pahayag ay ukol sa gawi sa pagbabahagi, hindi sa dami ng pera.
-      - text: Mabait
+          This treats keeping possessions as proof of wealth. Refusing to share may suggest having plenty to keep. Check whether the clue describes how much he owns or how he shares.
+      - text: "Matipid"
         rationale: |
-          Pinili mo ang "mabait," ngunit ang tiyak na kahulugan ng maramot batay sa pangungusap ay madamot.
+          This confuses refusing to share with careful spending. Both can involve keeping things. Check whether the text describes saving money or withholding from others.
     explanation: |
-      Ang salitang "Taliwas sa" ay senyales ng kasalungat (antonym clue): si Rosa (bukas-palad) ay taliwas sa kanyang kapatid, kaya ang "maramot" ay nangangahulugang "madamot," hindi mapagbigay.
+      The brother refuses to share anything. That behavior shows that "maramot" means "madamot," or unwilling to share.
     approved: true
 
   - id: q-vocabulary-context-clues-0008
     type: word-in-context
     difficulty: hard
     stem: |
-      The word "sanction" is commonly known to mean a penalty or punishment. In this sentence, does it carry that common meaning?
-      The committee's **sanction** allowed the new policy to proceed immediately, since it had received full official approval.
+      What does **sanction** mean in this sentence?
+      The committee's sanction allowed the new policy to proceed immediately, since it had received full official approval.
     choices:
-      - text: 'No: here "sanction" means official approval, a secondary meaning; picking "punishment" just because it is the most common meaning would not make sense in this sentence, since the policy is proceeding, not being stopped.'
+      - text: "Approval"
         correct: true
-      - text: 'Yes: "sanction" always means a penalty or punishment, regardless of context.'
+      - text: "Punishment"
         rationale: |
-          You assumed words have only one meaning, but "sanction" can mean approval depending on context.
-      - text: 'Yes: the sentence describes the policy being punished by the committee.'
+          This uses another meaning of the word without checking the sentence. "Sanction" often names a penalty. Check what the committee allowed to happen.
+      - text: "Supervision"
         rationale: |
-          You misread the context, ignoring that the policy was allowed to proceed immediately with official approval.
-      - text: 'No: but only because "sanction" has no relationship to approval or punishment at all.'
+          This confuses permission with oversight. Committees often supervise work, so that role may seem likely. Check whether the clue describes monitoring or approval.
+      - text: "Recommendation"
         rationale: |
-          You claimed "sanction" is unrelated to approval or punishment, but it is a contronym that means both.
+          This weakens an official decision into advice. A committee may recommend a policy, so the idea looks related. Check the phrase "full official approval."
     explanation: |
-      Test makers love to use words with a common meaning in a different, secondary way. Here, the sentence describes the policy proceeding due to "full official approval," so "sanction" means approval, not its more common meaning of punishment. Always plug the choice back into the sentence to see if it makes sense.
+      The policy received "full official approval" and was allowed to proceed. These clues show that "sanction" means approval here.
     approved: true
 
   - id: q-vocabulary-context-clues-0009
     type: word-in-context
     difficulty: hard
     stem: |
-      The **belligerent** customer screamed at the staff and threatened to fight anyone who disagreed with him. A choice option is "relating to the belly," since the word looks similar to "belly." Is this the correct meaning?
+      What does **belligerent** mean in this sentence?
+      The belligerent customer screamed at the staff and threatened to fight anyone who disagreed with him.
     choices:
-      - text: 'No: "relating to the belly" is a look-alike trap based on how the word appears, not its actual meaning; the context (screaming, threatening to fight) shows "belligerent" means hostile and aggressive.'
+      - text: "Aggressive"
         correct: true
-      - text: 'Yes: "belligerent" and "belly" share the same root, so they mean the same thing.'
+      - text: "Distressed"
         rationale: |
-          You relied on visual similarity, but "belligerent" comes from Latin roots meaning war and aggression.
-      - text: 'Yes: the customer''s behavior described relates to stomach pain.'
+          This treats hostile actions as a general state of distress. Screaming can come from distress, so the word may seem close. Check the threat to fight.
+      - text: "Persistent"
         rationale: |
-          You assumed stomach issues caused the behavior, but context focuses on hostile behavior, not physical ailments.
-      - text: 'No: but only because the customer was not actually angry.'
+          This treats confrontation as determination. Refusing to accept disagreement may look persistent. Check whether the behavior centers on effort or threats.
+      - text: "Impatient"
         rationale: |
-          You claimed the customer was not angry, ignoring context that explicitly describes screaming and threatening to fight.
+          This treats aggression as merely unwillingness to wait. A customer may scream when delayed. Check which behavior is actually described.
     explanation: |
-      If a choice looks or sounds exactly like the hard word, it is usually a trap. The test maker hopes you will panic and pick a word that looks familiar. Ignore how the word looks: focus only on the clues in the sentence, which describe screaming and threatening to fight, meaning "hostile and aggressive."
+      The customer screamed and threatened to fight. Those actions show that "belligerent" means aggressive.
     approved: true
 
   - id: q-vocabulary-context-clues-0010
     type: word-in-context
     difficulty: hard
     stem: |
-      A student ignores the word "however" in this sentence and assumes "duplicitous" is a synonym for "genuine." What is the correct meaning, and why did missing "however" cause the error?
-      The politician's promises seemed genuine at first; however, his subsequent actions revealed him to be utterly **duplicitous**.
+      What does **duplicitous** mean in this sentence?
+      The politician's promises seemed genuine at first; however, his subsequent actions revealed him to be utterly duplicitous.
     choices:
-      - text: Duplicitous means deceptive and two-faced; missing the contrast signal "however" makes it seem like the sentence continues describing the politician as genuine, when it actually reverses direction to reveal the opposite.
+      - text: "Deceitful"
         correct: true
-      - text: Duplicitous means genuine and honest, matching the sentence's first half exactly.
+      - text: "Trustworthy"
         rationale: |
-          You ignored "however," which signals a reversal of meaning away from "genuine."
-      - text: Duplicitous cannot be determined from this sentence at all, with or without "however."
+          This keeps the first impression after the sentence reverses it. The word "genuine" may be remembered most clearly. Check what follows "however."
+      - text: "Indecisive"
         rationale: |
-          You claimed the sentence gives no context, but contrast signals provide clear context.
-      - text: Duplicitous means generous, since the sentence describes a politician making promises.
+          This treats a change in impression as uncertainty in the politician. Different impressions may suggest changing decisions. Check whether the contrast concerns honesty or decision-making.
+      - text: "Generous"
         rationale: |
-          You associated promises with generosity, ignoring the contrast signal "however."
+          This reads promises as gifts or help. Promising something may sound generous. Check how the later actions change the description.
     explanation: |
-      Missing the word "however" will make you pick the exact wrong answer: if you miss an antonym signal, you pick a synonym instead. Here, "however" reverses the direction from "seemed genuine" to reveal the politician is actually "duplicitous," meaning deceptive and two-faced.
+      The promises seemed genuine, but the later actions showed the opposite. That contrast supports "deceitful," meaning dishonest.
     approved: true
 
   - id: q-vocabulary-context-clues-0011
@@ -230,19 +231,19 @@ questions:
       Choose the best meaning for the word in bold.
       Her **candid** remarks, or honest opinions, sometimes offended people who preferred polite lies.
     choices:
-      - text: Honest
+      - text: "Honest"
         correct: true
-      - text: Rude
+      - text: "Rude"
         rationale: |
-          You picked "rude," but the phrase "or honest opinions" directly defines what candid means.
-      - text: Quiet
+          This treats an upsetting effect as the word's meaning. The remarks offended people, so rudeness may seem likely. Check the direct restatement.
+      - text: "Reserved"
         rationale: |
-          You picked "quiet," but making candid remarks involves speaking out openly.
-      - text: Confusing
+          This confuses frankness with holding back. Polite conversation may call for restraint. Check whether the remarks are described as open or withheld.
+      - text: "Confusing"
         rationale: |
-          You picked "confusing," but candid remarks are clear and direct, not confusing.
+          This treats people's negative reaction as confusion. An unwelcome remark can upset a listener. Check whether the clue describes clarity or honesty.
     explanation: |
-      The word "or" signals a synonym clue: "or honest opinions" directly restates the meaning of "candid."
+      "Or honest opinions" explains "candid remarks." "Candid" means honest and direct.
     approved: true
 
   - id: q-vocabulary-context-clues-0012
@@ -252,19 +253,19 @@ questions:
       Which of the following is the closest meaning of the word in bold?
       **Ambiguity** is the quality of having more than one possible meaning, often causing confusion.
     choices:
-      - text: Having more than one possible meaning
+      - text: "Multiple meanings"
         correct: true
-      - text: Being completely clear
+      - text: "One clear interpretation"
         rationale: |
-          You picked being clear, which is the opposite of ambiguity.
-      - text: Being very loud
+          This reverses the definition. A reader may expect a statement to have one intended meaning. Check how many meanings the clue allows.
+      - text: "An unclear pronunciation"
         rationale: |
-          You picked being loud, which relates to sound rather than linguistic interpretation.
-      - text: Lacking any meaning
+          This confuses meaning with the sound of a word. Both can make language hard to understand. Check whether the definition concerns pronunciation.
+      - text: "No meaningful interpretation"
         rationale: |
-          You picked lacking meaning, whereas ambiguity means having multiple meanings.
+          This treats several possible meanings as no meaning at all. Confusion can make a phrase seem meaningless. Check whether the text says meanings are absent or numerous.
     explanation: |
-      The sentence uses "is" to give a direct definition clue, stating exactly what ambiguity means.
+      The sentence defines ambiguity as having more than one possible meaning. "Multiple meanings" is the matching description.
     approved: true
 
   - id: q-vocabulary-context-clues-0013
@@ -274,19 +275,19 @@ questions:
       Choose the best meaning for the word in bold.
       The museum displayed several **artifacts**, including ancient pottery, stone tools, and bronze coins.
     choices:
-      - text: Historical objects
+      - text: "Made objects"
         correct: true
-      - text: Modern inventions
+      - text: "Natural specimens"
         rationale: |
-          You picked modern inventions, contradicting ancient pottery and stone tools.
-      - text: Paintings only
+          This assumes every old museum item comes from nature. Museums also display natural specimens. Check whether people made the listed items.
+      - text: "Written records"
         rationale: |
-          You restricted artifacts to paintings, but the examples include pottery, tools, and coins.
-      - text: Living animals
+          This narrows historical evidence to documents. Coins may carry writing, which makes records seem related. Check whether all the examples are written texts.
+      - text: "Artistic works"
         rationale: |
-          You picked living animals, but pottery and coins are inanimate man-made objects.
+          This treats all human-made museum objects as art. Pottery and coins can have designs. Check whether the category also includes practical tools.
     explanation: |
-      The signal word "including" introduces examples: ancient pottery, stone tools, and bronze coins are all historical objects, revealing the meaning of "artifacts."
+      Pottery, stone tools, and bronze coins are things people made. These examples show the meaning of "artifacts" in the display.
     approved: true
 
   - id: q-vocabulary-context-clues-0014
@@ -296,19 +297,19 @@ questions:
       Identify the meaning of the word in bold.
       In contrast to the **frugal** shopkeeper who saved every peso, his son spent money recklessly on luxury items.
     choices:
-      - text: Thrifty
+      - text: "Thrifty"
         correct: true
-      - text: Wasteful
+      - text: "Wasteful"
         rationale: |
-          You picked "wasteful," which describes the son's behavior after the contrast phrase "In contrast to."
-      - text: Generous
+          This gives the son's trait to the shopkeeper. The luxury spending is vivid. Check who is described by "frugal."
+      - text: "Generous"
         rationale: |
-          You picked "generous," but saving every peso describes careful spending (thrifty) rather than giving away money.
-      - text: Poor
+          This confuses careful spending with giving to others. Both can be praised as good uses of money. Check the behavior that the sentence actually describes.
+      - text: "Impoverished"
         rationale: |
-          You picked "poor," but saving money does not mean lacking wealth.
+          This treats saving money as proof of having very little. Saving can help someone with little money. Check whether the text gives the shopkeeper's wealth or only his habits.
     explanation: |
-      The phrase "In contrast to" signals an antonym clue: the reckless-spending son is the opposite of the frugal shopkeeper, so "frugal" means thrifty (careful with money).
+      The shopkeeper saves money while his son spends recklessly. "Frugal" means thrifty, or careful with money.
     approved: true
 
   - id: q-vocabulary-context-clues-0015
@@ -318,17 +319,128 @@ questions:
       Select the word that best captures the meaning of the term in bold.
       Although the coach's methods seemed **unorthodox** to outside observers, such as running practice at midnight or requiring silent meditation before games, the athletes credited these unusual methods, rather than any conventional standard technique, for their unexpected championship win.
     choices:
-      - text: Unconventional and unusual
+      - text: "Unusual"
         correct: true
-      - text: Standard and conventional
+      - text: "Conventional"
         rationale: |
-          You picked "standard and conventional," which is the exact contrast specified by "rather than any conventional standard technique."
-      - text: Illegal
+          This ignores the contrast with standard techniques. The methods led to a win, so they may sound established. Check the contrast phrase near the end.
+      - text: "Unlawful"
         rationale: |
-          You picked "illegal," but running practices at midnight is unusual, not unlawful.
-      - text: Exhausting
+          This treats unfamiliar methods as forbidden. Midnight practice may seem surprising. Check whether any rule or law is said to be broken.
+      - text: "Demanding"
         rationale: |
-          You picked "exhausting," which describes physical strain rather than the unconventional nature of the techniques.
+          This treats unusual methods as strenuous ones. Training for a championship can sound demanding. Check whether the examples describe effort or departure from ordinary methods.
     explanation: |
-      Two clues confirm the same meaning here: the example clue ("such as running practice at midnight...") lists unusual practices, and the contrast clue ("rather than any conventional standard technique") confirms "unorthodox" means unconventional and unusual, not standard.
+      The examples include midnight practice and silent meditation. The sentence calls these methods unusual and contrasts them with standard techniques. "Unorthodox" means unusual.
     approved: true
+
+  - id: q-vocabulary-context-clues-0016
+    type: word-in-context
+    difficulty: medium
+    stem: |
+      What does **charged** mean here?
+      The hotel charged the guest for an extra night, and the fee appeared on the final invoice.
+    choices:
+      - text: "Billed"
+        correct: true
+      - text: "Accused"
+        rationale: |
+          This uses a legal meaning in a payment context. A person can be charged with an offense. Check where the amount appears.
+      - text: "Attacked"
+        rationale: |
+          This uses the meaning of rushing toward someone. The same verb can describe an attack. Check whether the sentence describes movement or a bill.
+      - text: "Entrusted"
+        rationale: |
+          This uses the meaning of assigning responsibility. Someone can be charged with a duty. Check whether the nearby words name a duty or a fee.
+    explanation: |
+      The amount appeared on an invoice for a room. "Charged" means billed in this setting.
+    approved: false
+
+  - id: q-vocabulary-context-clues-0017
+    type: word-in-context
+    difficulty: hard
+    stem: |
+      Ano ang kahulugan ng **nangilabot** sa pangungusap?
+      Nangilabot si Mara nang makarinig ng malakas na sigaw sa madilim na silid; nanginig siya at pinagpawisan nang malamig.
+    choices:
+      - text: "Natakot"
+        correct: true
+      - text: "Natuwa"
+        rationale: |
+          This treats a strong reaction as joy. Shaking can happen with excitement. Check the dark setting and the sudden cry.
+      - text: "Nainip"
+        rationale: |
+          This treats the reaction as impatience. Waiting in a dark place may be tiresome. Check the shaking and cold sweat.
+      - text: "Nanghinayang"
+        rationale: |
+          This treats the reaction as regret over a loss. All are unpleasant feelings. Check whether the sentence describes danger or something lost.
+    explanation: |
+      A loud cry, shaking, and cold sweat show fear. "Nangilabot" describes that fearful reaction.
+    approved: false
+
+  - id: q-vocabulary-context-clues-0018
+    type: word-in-context
+    difficulty: hard
+    stem: |
+      What does **wary** most nearly mean?
+      Lina was wary of the offer: she checked its terms twice, asked about hidden fees, and refused to sign until her questions were answered.
+    choices:
+      - text: "Cautious"
+        correct: true
+      - text: "Certain"
+        rationale: |
+          This treats careful checking as certainty. Lina understands the risks well enough to ask questions. Check whether she has already accepted the offer.
+      - text: "Hostile"
+        rationale: |
+          This treats suspicion as open aggression. Questions can sound challenging. Check whether Lina attacks anyone or simply checks the risks.
+      - text: "Indifferent"
+        rationale: |
+          This treats delay as lack of interest. Someone who does not care might also postpone signing. Check whether Lina spends effort examining the offer.
+    explanation: |
+      Lina checks the offer carefully and delays signing. These actions show caution, which is the meaning of "wary."
+    approved: false
+
+  - id: q-vocabulary-context-clues-0019
+    type: word-in-context
+    difficulty: exam
+    stem: |
+      What does **qualified** mean in this statement?
+      The residents gave the project qualified support: they favored it only if drainage repairs were completed first.
+    choices:
+      - text: "Limited"
+        correct: true
+      - text: "Unskilled"
+        rationale: |
+          This treats a limit on support as a lack of skill. "Qualified" often concerns a person's ability. Check whether the word describes people or their support.
+      - text: "Certified"
+        rationale: |
+          This uses the meaning of having an official credential. Residents can be qualified for a role. Check whether the sentence mentions a certificate or a condition.
+      - text: "Enthusiastic"
+        rationale: |
+          This treats support as unlimited enthusiasm. The residents do support the project in one case. Check the condition introduced by "only if."
+    explanation: |
+      The support depends on repairs being completed. "Qualified" means limited by a condition here.
+    approved: false
+
+  - id: q-vocabulary-context-clues-0020
+    type: word-in-context
+    difficulty: exam
+    stem: |
+      What does **resilience** most nearly mean here?
+      When the road closure cut off walk-in customers, the small store showed resilience by arranging bicycle deliveries and keeping its business running.
+    choices:
+      - text: "Recovery"
+        correct: true
+      - text: "Fragility"
+        rationale: |
+          This treats exposure to trouble as inability to recover. The blocked road threatened sales. Check what the store did after the setback.
+      - text: "Dependence"
+        rationale: |
+          This treats changing delivery methods as relying completely on outside help. Bicycles helped reach customers. Check whether the response shows helplessness or adjustment.
+      - text: "Resistance"
+        rationale: |
+          This treats recovery as refusing to change. Continuing to sell may look like standing firm. Check whether the store kept its old method or adapted it.
+    explanation: |
+      The store changes how it sells goods and continues operating. "Resilience" is the ability to adapt and recover after a setback.
+    approved: false
+
