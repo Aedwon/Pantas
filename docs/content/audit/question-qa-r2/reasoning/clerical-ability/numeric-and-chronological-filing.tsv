@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-clerical-ability-numeric-and-chronological-filing-0001	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-clerical-ability-numeric-and-chronological-filing-0002	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-clerical-ability-numeric-and-chronological-filing-0003	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-clerical-ability-numeric-and-chronological-filing-0004	CORRECTED	SOLVED-MATCH	stem;distractors;explanation;notes	LOW	Removed padded archive jargon and made ascending direction explicit.
+q-clerical-ability-numeric-and-chronological-filing-0005	CORRECTED	SOLVED-MATCH	stem;distractor;explanation;notes	MEDIUM	Hyphenated-code increment rule was unstated; specified it and replaced an arbitrary jump.
+q-clerical-ability-numeric-and-chronological-filing-0006	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-clerical-ability-numeric-and-chronological-filing-0007	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-clerical-ability-numeric-and-chronological-filing-0008	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-clerical-ability-numeric-and-chronological-filing-0009	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Terminal-digit filing is explicitly outside the lesson's taught methods. Stem, choices and key retained; explanation and notes reshaped.
+q-clerical-ability-numeric-and-chronological-filing-0010	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-clerical-ability-numeric-and-chronological-filing-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated the simple predecessor task in 0008; changed to insertion among existing records with gaps.
+q-clerical-ability-numeric-and-chronological-filing-0012	CORRECTED	SOLVED-MATCH	stem;explanation;notes	MEDIUM	The numeric-plus-letter convention was unstated; supplied it instead of claiming a universal standard.
+q-clerical-ability-numeric-and-chronological-filing-0013	NEW	NEW	explanation;notes	NONE	
+q-clerical-ability-numeric-and-chronological-filing-0014	NEW	NEW	explanation;notes	NONE	
+q-clerical-ability-numeric-and-chronological-filing-0015	NEW	NEW	explanation;notes	NONE	
+q-clerical-ability-numeric-and-chronological-filing-0016	NEW	NEW	explanation;notes	NONE	
+q-clerical-ability-numeric-and-chronological-filing-0017	NEW	NEW	explanation;notes	NONE	
+q-clerical-ability-numeric-and-chronological-filing-0018	NEW	NEW	explanation;notes	NONE	
+q-clerical-ability-numeric-and-chronological-filing-0019	NEW	NEW	explanation;notes	NONE	
+q-clerical-ability-numeric-and-chronological-filing-0020	NEW	NEW	explanation;notes	NONE	
