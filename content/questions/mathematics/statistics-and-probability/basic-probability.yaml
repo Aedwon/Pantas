@@ -15,9 +15,9 @@ questions:
   - text: '$\dfrac{7}{13}$'
     rationale: |
       This divides by nonblue marbles. Thirteen counts the other colors. Use all outcomes in the denominator.
-  - text: '$\dfrac{1}{4}$'
+  - text: '$\dfrac7{15}$'
     rationale: |
-      This uses the red count five. Red marbles are also listed. Match the requested color.
+      This leaves the red marbles out of the total. Fifteen counts blue and yellow together. Check that every color belongs in the sample space.
   - text: '$\dfrac{5}{20}$'
     rationale: |
       This reports the red probability. Five is a stated count. Check the favorable group.
