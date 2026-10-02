@@ -48,7 +48,7 @@ questions:
 - id: rc-tt-sn-0001
   passage: rc-tt-sn-p1
   type: feature-of-form
-  difficulty: medium
+  difficulty: easy
   stem: 'What central conflict does Mateo experience in "The Marikina Forge"?
 
     '
@@ -173,7 +173,7 @@ questions:
 - id: rc-tt-sn-0006
   passage: rc-tt-sn-p2
   type: feature-of-form
-  difficulty: medium
+  difficulty: easy
   stem: 'Which conflict is most clearly presented in "Night Watch at the Pier"?
 
     '
