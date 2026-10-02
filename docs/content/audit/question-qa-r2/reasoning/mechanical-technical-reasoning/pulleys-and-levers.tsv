@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-mechanical-technical-reasoning-pulleys-and-levers-0001	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Mass was labeled as force, and ideal assumptions were missing.
+q-mechanical-technical-reasoning-pulleys-and-levers-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Mass-force units were wrong; added supporting-segment and ideal conditions.
+q-mechanical-technical-reasoning-pulleys-and-levers-0003	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Original assumed two movable pulleys guarantee advantage four and used mass as force.
+q-mechanical-technical-reasoning-pulleys-and-levers-0004	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Replaced kg-force ambiguity with newtons and perpendicular static conditions.
+q-mechanical-technical-reasoning-pulleys-and-levers-0005	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Repeated forward balance calculation; added torque comparison and fixed force units.
+q-mechanical-technical-reasoning-pulleys-and-levers-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Removed dependence on a previous shuffled question and corrected force units.
+q-mechanical-technical-reasoning-pulleys-and-levers-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Repeated earlier comparison and referred to another question; replaced with minimum-arm design.
+q-mechanical-technical-reasoning-pulleys-and-levers-0008	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Original made an overbroad claim about all movable pulleys and used kg as force.
+q-mechanical-technical-reasoning-pulleys-and-levers-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Replaced yes/no throwaways with exact distance slips and fixed mass-force wording.
+q-mechanical-technical-reasoning-pulleys-and-levers-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Long correct choice revealed the solution; changed to concise equation choices.
+q-mechanical-technical-reasoning-pulleys-and-levers-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Changed mass-force units and stated weightless perpendicular balance conditions.
+q-mechanical-technical-reasoning-pulleys-and-levers-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Corrected force units and specified balance assumptions.
+q-mechanical-technical-reasoning-pulleys-and-levers-0013	CORRECTED	SOLVED-FIXED	stem;choices;explanation;notes;figure	HIGH	Original asserted three movable pulleys always yield advantage eight without rope routing.
+q-mechanical-technical-reasoning-pulleys-and-levers-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Original combined machinery that its single-lever figure could not represent; replaced with static work.
+q-mechanical-technical-reasoning-pulleys-and-levers-0015	CORRECTED	SOLVED-FIXED	stem;choices;explanation;notes;figure	HIGH	Original wrongly claimed equal-advantage ideal machines require different travel and showed mismatched arms.
+q-mechanical-technical-reasoning-pulleys-and-levers-0016	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-mechanical-technical-reasoning-pulleys-and-levers-0017	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-mechanical-technical-reasoning-pulleys-and-levers-0018	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-mechanical-technical-reasoning-pulleys-and-levers-0019	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-mechanical-technical-reasoning-pulleys-and-levers-0020	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
