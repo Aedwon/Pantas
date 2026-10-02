@@ -10,23 +10,19 @@ questions:
     stem: |
       A recipe for 12 pancakes requires 3 cups of flour. How many cups of flour are needed to make 20 pancakes?
     choices:
-      - text: "$1.8$ cups"
+      - text: '$1.8$ cups'
         rationale: |
-          You set up the proportion inverted as 12/3 = x/20 or miscalculated 36/20.
-      - text: "$5$ cups"
+          This uses inverse proportion for a recipe scale-up. Both methods use the same given quantities. Check that more pancakes require more flour.
+      - text: '$5$ cups'
         correct: true
-      - text: "$8$ cups"
+      - text: '$8$ cups'
         rationale: |
-          You added 5 cups to 3 cups or miscalculated the ratio.
-      - text: "$11$ cups"
+          This reports the eight additional pancakes as cups of flour. The serving increase is eight. Check the requested unit.
+      - text: '$11$ cups'
         rationale: |
-          You subtracted 12 - 3 = 9 and added 2 or miscalculated the proportion.
+          This adds the eight additional pancakes directly to the original cups. Scaling up does require more flour. Check that the cups-to-pancakes ratio stays constant.
     explanation: |
-      Set up proportion: $\frac{3\text{ cups}}{12\text{ pancakes}} = \frac{x\text{ cups}}{20\text{ pancakes}}$
-
-      Cross-multiply: $12x = 60 \implies x = 5$ cups
-
-      Trap: Setting up proportion backwards.
+      The flour rate is $3\div12=\dfrac{1}{4}$ cup per pancake. For $20$ pancakes, multiply: $20\left(\dfrac{1}{4}\right)=5$ cups.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0002
     type: word-problem
@@ -34,23 +30,19 @@ questions:
     stem: |
       Blue and yellow paint mix in ratio $3 : 2$. If using 12 liters of blue paint, how many liters of yellow paint?
     choices:
-      - text: "$4.8$ liters"
+      - text: '$4.8$ liters'
         rationale: |
-          You multiplied 12 by 2/5 instead of setting up the direct proportion 3/2 = 12/y.
-      - text: "$8$ liters"
+          This treats the blue volume as the total mixture volume. The two ratio parts sum to five. Check whether the given volume is one color or the whole mixture.
+      - text: '$8$ liters'
         correct: true
-      - text: "$10$ liters"
+      - text: '$10$ liters'
         rationale: |
-          You calculated 12 minus 2 or miscalculated the proportion.
-      - text: "$18$ liters"
+          This subtracts the ratio part two directly from twelve liters. The number two is in the ratio. Check that ratio parts are scaled into liters.
+      - text: '$18$ liters'
         rationale: |
-          You reversed the ratio as 2:3, calculating 12 * 3/2 = 18 liters.
+          This reverses the blue-to-yellow ratio. Both colors belong in the comparison. Check the named color order.
     explanation: |
-      Ratio: $\frac{3}{2} = \frac{12}{y}$
-
-      Cross-multiply: $3y = 24 \implies y = 8$ liters
-
-      Trap: Reversing ratio terms gives 18 liters.
+      Three blue parts equal $12$ liters, so each part is $12\div3=4$ liters. Yellow has two parts, giving $2(4)=8$ liters.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0003
     type: word-problem
@@ -58,23 +50,19 @@ questions:
     stem: |
       On a map with scale $1\text{ cm} : 15\text{ km}$, two towns are $4.5\text{ cm}$ apart. What is the actual distance?
     choices:
-      - text: "$0.3$ km"
+      - text: '$0.3$ km'
         rationale: |
-          You divided 4.5 by 15 instead of multiplying by the scale factor 15.
-      - text: "$19.5$ km"
+          This divides by the scale instead of multiplying. A scale is a comparison of distances. Check what one map centimeter represents.
+      - text: '$19.5$ km'
         rationale: |
-          You added 15 + 4.5 instead of multiplying the map distance by 15.
-      - text: "$67.5$ km"
+          This adds the scale value to the map length. Both distance numbers are given. Check that scaling uses multiplication.
+      - text: '$67.5$ km'
         correct: true
-      - text: "$675$ km"
+      - text: '$675$ km'
         rationale: |
-          You placed the decimal point incorrectly, multiplying 45 by 15.
+          This treats four and a half centimeters as forty-five. Removing a decimal makes multiplication easier. Check the decimal point in the measured length.
     explanation: |
-      Each cm represents 15 km.
-
-      Actual distance: $4.5 \times 15 = 67.5$ km
-
-      Trap: Dividing by 15 instead of multiplying.
+      Each map centimeter represents $15$ km. Multiply the map distance by this rate: $4.5(15)=67.5$ km.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0004
     type: word-problem
@@ -82,23 +70,19 @@ questions:
     stem: |
       A jeepney has male to female passengers in ratio $4 : 5$. If 15 female passengers, what is total?
     choices:
-      - text: "$12$ passengers"
+      - text: '$12$ passengers'
         rationale: |
-          You reported only the number of male passengers (12) instead of the total passengers.
-      - text: "$19$ passengers"
+          This reports only male passengers. The male count is needed first. Check whether the question asks for one group or the total.
+      - text: '$19$ passengers'
         rationale: |
-          You added 15 female passengers to 4 ratio parts instead of calculating male count.
-      - text: "$27$ passengers"
+          This adds a ratio part directly to the female count. The ratio includes a four. Check that ratio parts and passenger counts use different units.
+      - text: '$27$ passengers'
         correct: true
-      - text: "$35$ passengers"
+      - text: '$\dfrac{135}{4}$ passengers'
         rationale: |
-          You calculated male count as 20 or miscalculated total passengers.
+          This uses five male parts and four female parts. Both ratio parts come from the stem. Check the order of the named groups.
     explanation: |
-      Ratio: $\frac{4}{5} = \frac{M}{15} \implies M = 12$
-
-      Total: $12 + 15 = 27$ passengers
-
-      Trap: Reporting only male count (12) instead of total.
+      Five female parts equal $15$ passengers, so one part is $3$ passengers. There are $4+5=9$ total parts. Thus the total is $9(3)=27$ passengers.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0005
     type: word-problem
@@ -106,23 +90,19 @@ questions:
     stem: |
       A recipe uses flour, sugar, butter in ratio $5 : 3 : 2$. With 450 g sugar, what is total mass?
     choices:
-      - text: "$750$ grams"
+      - text: '$750$ grams'
         rationale: |
-          You calculated the sum of flour and butter (7 parts = 1050) minus sugar or miscalculated parts.
-      - text: "$1,050$ grams"
+          This reports the flour portion alone. Flour has the largest share. Check that every ingredient belongs in the total.
+      - text: '$1,050$ grams'
         rationale: |
-          You calculated the total mass of flour and butter (5 + 2 = 7 parts * 150 = 1050 g) excluding sugar.
-      - text: "$1,500$ grams"
+          This leaves the sugar out of the total. The other two ingredients still form seven parts. Check that every ingredient belongs in the total.
+      - text: '$1,500$ grams'
         correct: true
-      - text: "$2,250$ grams"
+      - text: '$2,250$ grams'
         rationale: |
-          You divided 450 by 2 parts instead of 3 parts (1 part = 225 g) before multiplying by 10.
+          This uses two parts for the stated sugar volume. Two is one of the ratio values. Check which ratio part belongs to sugar.
     explanation: |
-      Sugar = 3 parts, so 1 part = $450 \div 3 = 150$ g
-
-      Total parts = $5 + 3 + 2 = 10$
-
-      Total mass = $10 \times 150 = 1,500$ g
+      The sugar has three parts totaling $450$ grams. One part is $450\div3=150$ grams. All ingredients have $5+3+2=10$ parts, totaling $10(150)=1500$ grams.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0006
     type: word-problem
@@ -130,23 +110,19 @@ questions:
     stem: |
       Fuel cost shared among 16 commuters by distance traveled. 10 travel 12 km each; 6 travel 20 km each. What fraction of cost for the 6 travelers?
     choices:
-      - text: "$\\frac{3}{8}$"
+      - text: '$\dfrac{3}{8}$'
         rationale: |
-          You divided 6 travelers by 16 total commuters without weighting by distance traveled.
-      - text: "$\\frac{1}{2}$"
+          This divides traveler counts without weighting distances. Both groups are counted correctly. Check the stated distance-based sharing rule.
+      - text: '$\dfrac{1}{2}$'
         correct: true
-      - text: "$\\frac{5}{8}$"
+      - text: '$\dfrac{5}{8}$'
         rationale: |
-          You calculated the cost fraction for the 10 travelers (120/240 = 1/2) but miscounted.
-      - text: "$\\frac{3}{5}$"
+          This uses the headcount share for the other group. Ten is the larger group. Check both the group and the distance weighting.
+      - text: '$\dfrac{3}{5}$'
         rationale: |
-          You evaluated the ratio of distance 12 to 20 instead of the fraction of total cost.
+          This reports the ratio of the two individual trip distances. Both trip distances affect the cost. Check that a fraction of cost uses total weighted distance.
     explanation: |
-      Group 1: $10 \times 12 = 120$ person-km
-
-      Group 2: $6 \times 20 = 120$ person-km
-
-      Fraction for Group 2: $\frac{120}{240} = \frac{1}{2}$
+      The first group travels $10(12)=120$ person-kilometers. The second travels $6(20)=120$ person-kilometers. The second group pays $\dfrac{120}{120+120}=\dfrac{1}{2}$ of the cost.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0007
     type: word-problem
@@ -154,23 +130,19 @@ questions:
     stem: |
       On a map with scale $1\text{ cm} : 2\text{ km}$, a park measures $3\text{ cm} \times 4\text{ cm}$. What is actual area?
     choices:
-      - text: "$12$ sq km"
+      - text: '$12$ sq km'
         rationale: |
-          You reported the map area (3 * 4 = 12) without multiplying by the scale factor.
-      - text: "$24$ sq km"
+          This reports map area without scaling lengths. The map dimensions do multiply to twelve. Check the actual dimensions before finding area.
+      - text: '$24$ sq km'
         rationale: |
-          You multiplied map area 12 by the linear scale factor 2 instead of the area scale factor 4.
-      - text: "$48$ sq km"
+          This uses the linear scale once for area. The stated scale is two. Check that both dimensions scale.
+      - text: '$48$ sq km'
         correct: true
-      - text: "$96$ sq km"
+      - text: '$96$ sq km'
         rationale: |
-          You multiplied by 8 or miscalculated actual dimensions.
+          This cubes the scale factor instead of squaring it. More than one dimension needs scaling. Check that area has two length dimensions.
     explanation: |
-      Actual dimensions: $3 \times 2 = 6$ km and $4 \times 2 = 8$ km
-
-      Actual area: $6 \times 8 = 48$ sq km
-
-      Trap: Multiplying map area (12) by linear scale (2) instead of area scale (4).
+      The map dimensions scale to $3(2)=6$ km and $4(2)=8$ km. Their product gives area $6(8)=48$ square kilometers.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0008
     type: word-problem
@@ -178,95 +150,79 @@ questions:
     stem: |
       A 30-liter mixture of red and white paint is in ratio $4 : 1$. How much white paint to add for ratio $2 : 1$?
     choices:
-      - text: "$3$ liters"
+      - text: '$3$ liters'
         rationale: |
-          You added 3 liters white to get 24:9 = 8:3 ratio instead of 2:1.
-      - text: "$6$ liters"
+          This halves the initial white volume instead of doubling it. The desired ratio has half as many red parts. Check how much white paint the target ratio requires.
+      - text: '$6$ liters'
         correct: true
-      - text: "$12$ liters"
+      - text: '$12$ liters'
         rationale: |
-          You calculated total white paint needed (12 L) instead of additional white paint to add.
-      - text: "$18$ liters"
+          This reports the final white volume instead of the addition. The needed final white volume is a useful intermediate result. Check that existing white paint is already present.
+      - text: '$18$ liters'
         rationale: |
-          You calculated the difference between red paint (24 L) and initial white paint (6 L).
+          This subtracts initial white from red without using the target ratio. Both initial color volumes are valid. Check the required final ratio.
     explanation: |
-      Initial: red = 24 L, white = 6 L
-
-      Let $x$ = added white. New ratio: $\frac{24}{6 + x} = \frac{2}{1}$
-
-      Solve: $24 = 2(6 + x) \implies x = 6$ liters
+      The initial $30$ liters have five parts, so one part is $6$ liters. Red is $24$ liters and white is $6$ liters. To get red-to-white ratio $2:1$, white must be $24\div2=12$ liters. Add $12-6=6$ liters.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0009
     type: word-problem
     difficulty: medium
     stem: |
-      A recipe for 8 servings needs 600 g flour and 250 mL milk. Scaling for 36 servings, how much flour?
+      A recipe uses $600$ grams of flour and $250$ milliliters of milk. What is the flour-to-milk rate in grams per milliliter?
     choices:
-      - text: "$1.125$ kg"
+      - text: '$\dfrac{5}{12}$ g/mL'
         rationale: |
-          You scaled the milk volume (250 mL * 4.5 = 1125 mL = 1.125 L) instead of flour mass.
-      - text: "$2.4$ kg"
+          This reverses the mass-to-volume ratio. Both quantities form a ratio. Check the order of the requested units.
+      - text: '$24$ g/mL'
         rationale: |
-          You multiplied 600 g by 4 servings instead of the scale factor 4.5.
-      - text: "$2.7$ kg"
+          This drops a zero from the milk volume. The units still look like a mass-to-volume rate. Check both original quantities.
+      - text: '$\dfrac{12}{5}$ g/mL'
         correct: true
-      - text: "$27$ kg"
+      - text: '$850$ g/mL'
         rationale: |
-          You forgot to convert 2,700 grams to kilograms, misplacing the decimal point by a factor of 10.
+          This adds the two quantities instead of dividing. Both ingredient amounts are given. Check that a rate compares quantities by division.
     explanation: |
-      Scale factor: $\frac{36}{8} = 4.5$
-
-      Flour: $600 \times 4.5 = 2,700$ g $= 2.7$ kg
-
-      Trap: Forgetting unit conversion or scaling wrong ingredient.
+      Divide the flour mass by milk volume: $\dfrac{600}{250}=\dfrac{12}{5}$ grams per milliliter.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0010
     type: word-problem
     difficulty: hard
     stem: |
-      At 40 km/h, a jeepney trip takes 45 minutes. If speed reduces by 25%, how long?
+      A fixed-distance jeepney trip takes $45$ minutes at a constant $40$ km/h. If the constant speed is reduced by $25\%$, how long does the same trip take?
     choices:
-      - text: "$33.75$ minutes"
+      - text: '$33.75$ minutes'
         rationale: |
-          You assumed direct proportion (45 * 0.75 = 33.75), reducing time when speed decreased.
-      - text: "$56.25$ minutes"
+          This reduces time in the same proportion as speed. A smaller speed can seem to mean a smaller number for time too. Check the direction of inverse change.
+      - text: '$56.25$ minutes'
         rationale: |
-          You added 25 percent to 45 minutes instead of using inverse proportion between speed and time.
-      - text: "$60$ minutes"
+          This adds twenty-five percent to the old time. Undoing a reduction can seem to mean adding the same percentage. Check that speed times time stays constant.
+      - text: '$60$ minutes'
         correct: true
-      - text: "$75$ minutes"
+      - text: '$120$ minutes'
         rationale: |
-          You calculated T2 using speed 24 km/h or miscalculated inverse proportion.
+          This subtracts twenty-five kilometers per hour instead of twenty-five percent. The number twenty-five comes directly from the stem. Check that the change is a percentage, not a speed amount.
     explanation: |
-      Speed and time are inverse: $S_1 T_1 = S_2 T_2$
-
-      $S_2 = 40 \times 0.75 = 30$ km/h
-
-      $T_2 = \frac{40 \times 45}{30} = 60$ minutes
+      The new speed is $40(0.75)=30$ km/h. For the same trip distance, speed times time stays constant. Thus $40(45)=30t$. Divide by $30$ to get $t=60$ minutes.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0011
     type: word-problem
     difficulty: hard
     stem: |
-      Container A: 12 L with blue:yellow = $1:3$. Container B: 8 L with blue:yellow = $3:1$. After mixing, what ratio?
+      Container A holds $12$ liters of paint with blue-to-yellow ratio $1:3$. Container B holds $8$ liters with blue-to-yellow ratio $3:1$. After mixing them, what is the blue-to-yellow ratio?
     choices:
-      - text: "$1 : 1$"
+      - text: '$1 : 1$'
         rationale: |
-          You assumed the mixed ratio is 1:1 because one container is 1:3 and the other is 3:1.
-      - text: "$9 : 11$"
+          This averages the two reversed ratios without weighting their volumes. The ratios look like opposites. Check the amount of each color before combining.
+      - text: '$9 : 11$'
         correct: true
-      - text: "$11 : 9$"
+      - text: '$11 : 9$'
         rationale: |
-          You inverted the ratio, reporting yellow to blue instead of blue to yellow.
-      - text: "$3 : 1$"
+          This reverses the color order of the mixed ratio. Both totals were found correctly. Check the requested color order.
+      - text: '$3 : 1$'
         rationale: |
-          You reported the ratio of container B alone without combining with container A.
+          This reports only the second container ratio. That ratio is stated directly. Check both containers.
     explanation: |
-      Container A: blue = 3 L, yellow = 9 L
-
-      Container B: blue = 6 L, yellow = 2 L
-
-      Mixed: blue = 9 L, yellow = 11 L. Ratio = $9:11$
+      Container A has $12\left(\dfrac{1}{4}\right)=3$ liters of blue and $9$ of yellow. Container B has $8\left(\dfrac{3}{4}\right)=6$ liters of blue and $2$ of yellow. The totals are $9$ blue and $11$ yellow, giving $9:11$.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0012
     type: word-problem
@@ -274,23 +230,19 @@ questions:
     stem: |
       On a map with scale $1 : 250,000$, distance between terminals is $14.4\text{ cm}$. Jeepney travels at 45 km/h. How many minutes?
     choices:
-      - text: "$32$ minutes"
+      - text: '$32$ minutes'
         rationale: |
-          You divided 36 km by 67.5 km/h or miscalculated 0.8 * 40.
-      - text: "$48$ minutes"
+          This uses forty minutes per hour in the time conversion. The decimal time was found correctly. Check that an hour contains sixty minutes.
+      - text: '$48$ minutes'
         correct: true
-      - text: "$75$ minutes"
+      - text: '$75$ minutes'
         rationale: |
-          You calculated 45 / 36 = 1.25 hours (75 minutes) instead of distance over speed.
-      - text: "$80$ minutes"
+          This divides speed by distance instead of distance by speed. The same two quantities are divided. Check that the units simplify to hours.
+      - text: '$80$ minutes'
         rationale: |
-          You interpreted 0.8 hours as 80 minutes instead of converting 0.8 * 60 = 48 minutes.
+          This treats eight tenths of an hour as eighty minutes. The decimal begins with eight. Check the minute conversion.
     explanation: |
-      Actual distance: $14.4 \times 250,000 = 3,600,000$ cm = 36 km
-
-      Time: $\frac{36}{45} = 0.8$ hours = 48 minutes
-
-      Trap: Interpreting 0.8 hours as 80 minutes.
+      The scale gives $14.4(250000)=3600000$ cm. Since $100000$ cm is $1$ km, the distance is $36$ km. Travel time is $36\div45=0.8$ hours. Multiply by $60$ to get $48$ minutes.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0013
     type: word-problem
@@ -298,74 +250,162 @@ questions:
     stem: |
       Recipe for 15 servings needs 2.25 kg rice. Caterer prepares for 40 guests with 20% larger portions. How much rice?
     choices:
-      - text: "$4.8$ kg"
+      - text: '$4.8$ kg'
         rationale: |
-          You calculated 40 guests at standard portion size (40 * 0.12 = 4.8 kg) with an error.
-      - text: "$6.0$ kg"
+          This reduces portions by twenty percent instead of increasing them. Twenty percent changes the portion size. Check whether portions increase or decrease.
+      - text: '$6.0$ kg'
         rationale: |
-          You calculated 40 guests at standard portion size (40 * 0.15 kg = 6.0 kg) without adding 20%.
-      - text: "$7.2$ kg"
+          This omits the larger-portion adjustment. The standard forty-guest quantity is needed first. Check the twenty-percent enlargement.
+      - text: '$7.2$ kg'
         correct: true
-      - text: "$9.0$ kg"
+      - text: '$8.4$ kg'
         rationale: |
-          You multiplied 6.0 kg by 1.5 or miscalculated portion size increase.
+          This applies the twenty-percent enlargement twice to the base portion. The portion must be enlarged. Check that one stated increase is applied once.
     explanation: |
-      Standard per serving: $\frac{2.25}{15} = 0.15$ kg
-
-      With 20% increase: $0.15 \times 1.20 = 0.18$ kg per guest
-
-      Total: $40 \times 0.18 = 7.2$ kg
+      A standard serving needs $2.25\div15=0.15$ kg. Larger portions need $0.15(1.20)=0.18$ kg each. For $40$ guests, the total is $40(0.18)=7.2$ kg.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0014
     type: word-problem
-    difficulty: exam-level
+    difficulty: exam
     stem: |
-      Three drivers share earnings in ratio where $a:b = 3:4$ and $b:c = 5:6$. Carl gets $\text{₱}720$ more than Alex. Total shared?
+      Alex, Bob, and Carl share earnings $a,b,c$ respectively, with $a:b=3:4$ and $b:c=5:6$. Carl gets $720$ pesos more than Alex. What is the total shared?
     choices:
-      - text: "$\\text{₱}1,920$"
+      - text: '$\text{₱}1920$'
         rationale: |
-          You calculated only Carl's earnings (24 * 80 = P1,920) instead of the total shared earnings.
-      - text: "$\\text{₱}3,120$"
+          This reports only Carl's share. That amount is found while solving. Check that all three shares belong in the total.
+      - text: '$\text{₱}3120$'
         rationale: |
-          You calculated the sum of Alex and Carl's earnings (39 * 80 = P3,120), omitting Bob.
-      - text: "$\\text{₱}4,720$"
+          This reports Alex and Carl together but omits Bob. Those shares come from the correct ratio. Check that all three drivers are included.
+      - text: '$\text{₱}4720$'
         correct: true
-      - text: "$\\text{₱}5,640$"
+      - text: '$\text{₱}720$'
         rationale: |
-          You used ratio parts 15:20:35 or miscalculated the total parts sum.
+          This reports the given difference instead of total earnings. The difference is stated directly. Check whether a difference or a total is requested.
     explanation: |
-      Combine: $a:b:c = 15:20:24$
-
-      Difference (Carl - Alex): $24 - 15 = 9$ parts = $\text{₱}720$
-
-      1 part = $\text{₱}80$
-
-      Total = $(15 + 20 + 24) \times 80 = 59 \times 80 = \text{₱}4,720$
+      Match the middle ratio parts: $a:b=15:20$ and $b:c=20:24$. Thus $a:b:c=15:20:24$. The difference between Carl and Alex is $24-15=9$ parts, worth $720$ pesos. One part is $720\div9=80$ pesos. The total is $(15+20+24)(80)=4720$ pesos.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0015
     type: word-problem
-    difficulty: exam-level
+    difficulty: exam
     stem: |
-      A 40-liter bucket has 70% yellow, 30% red paint. Remove 10 L mixture, replace with 10 L pure red. What is ratio yellow:red?
+      A well-mixed 40-liter bucket has 70% yellow, 30% red paint. Remove 10 L mixture, replace with 10 L pure red. What is ratio yellow:red?
     choices:
-      - text: "$\\frac{19}{21}$"
+      - text: '$\dfrac{19}{21}$'
         rationale: |
-          You inverted the ratio, reporting red to yellow (19/21) instead of yellow to red.
-      - text: "$\\frac{21}{22}$"
+          This reverses the final color ratio. Both color volumes were found. Check the requested color order.
+      - text: '$\dfrac{21}{22}$'
         rationale: |
-          You calculated red paint total as 22 L instead of 9 + 10 = 19 L.
-      - text: "$\\frac{21}{19}$"
+          This adds red without subtracting the red removed first. The original red amount is visible. Check that removal takes some of each color.
+      - text: '$\dfrac{21}{19}$'
         correct: true
-      - text: "$\\frac{7}{3}$"
+      - text: '$\dfrac{7}{3}$'
         rationale: |
-          You reported the initial yellow to red ratio (28/12 = 7/3) without accounting for replacement.
+          This reports the initial color ratio. The original percentages give a simple ratio. Check that the replacement changes the ratio.
     explanation: |
-      Initial: yellow = 28 L, red = 12 L
+      The bucket starts with $40(0.70)=28$ liters of yellow and $12$ of red. Removing one quarter of a well-mixed bucket leaves $21$ yellow and $9$ red. Adding $10$ liters of red gives $19$ red. The yellow-to-red ratio is $\dfrac{21}{19}$.
 
-      Remove $\frac{1}{4}$ mixture: remove 7 L yellow, 3 L red
+  - id: q-arithmetic-number-sense-ratio-and-proportion-0016
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      Which equation describes direct proportion between positive $x$ and $y$?
+    choices:
+      - text: '$y=3x$'
+        correct: true
+      - text: '$y=x+3$'
+        rationale: |
+          This treats increasing together as enough for direct proportion. The outputs do rise with x. Check whether the ratio stays constant.
+      - text: '$y=\dfrac{3}{x}$'
+        rationale: |
+          This uses an inverse relationship. The same factor three appears. Check whether the ratio or the product is constant.
+      - text: '$y=3-x$'
+        rationale: |
+          This uses a fixed sum instead of a fixed ratio. The quantities change together in the equation. Check the direct-proportion definition.
+    explanation: |
+      In $y=3x$, the ratio $\dfrac{y}{x}$ stays equal to $3$. A constant ratio is the defining condition for direct proportion.
+    approved: false
 
-      Remaining: yellow = 21 L, red = 9 L
+  - id: q-arithmetic-number-sense-ratio-and-proportion-0017
+    type: word-problem
+    difficulty: medium
+    stem: |
+      Six identical pumps empty a fixed pool in $10$ hours. At the same constant rate per pump, how long do five pumps take?
+    choices:
+      - text: '$12$ hours'
+        correct: true
+      - text: '$8\dfrac{1}{3}$ hours'
+        rationale: |
+          This scales time directly by five sixths. The pump count decreases. Check that fewer pumps require more time for the fixed job.
+      - text: '$2$ hours'
+        rationale: |
+          This reports the ten hours divided by the new pump count. Five pumps work together. Check the full sixty pump-hours.
+      - text: '$60$ hours'
+        rationale: |
+          This reports the total pump-hours as elapsed time. That total is needed first. Check that five pumps share the work.
+    explanation: |
+      The fixed job needs $6(10)=60$ pump-hours. With five pumps, the time is $60\div5=12$ hours.
+    approved: false
 
-      Add 10 L red: yellow = 21 L, red = 19 L
+  - id: q-arithmetic-number-sense-ratio-and-proportion-0018
+    type: error-spotting
+    difficulty: hard
+    stem: |
+      Two quantities have values $(x,y)=(2,8)$ and $(4,6)$. A student says they are inversely proportional because y decreases as x increases. Which check disproves the claim?
+    choices:
+      - text: '$2(8)
+e4(6)$'
+        correct: true
+      - text: '$\dfrac{8}{2}\ne\dfrac{6}{4}$'
+        rationale: |
+          This checks the direct-proportion ratio. A changing ratio does rule out direct proportion. Check products for an inverse claim.
+      - text: '$2+8=4+6$'
+        rationale: |
+          This uses a constant sum instead of a constant product. Both totals equal ten. Check the defining invariant for inverse proportion.
+      - text: '$8-6=4-2$'
+        rationale: |
+          This compares equal changes instead of products. The quantities change by the same magnitude. Check whether that alone keeps xy constant.
+    explanation: |
+      Inverse proportion requires the product xy to stay constant. The first product is $2(8)=16$, and the second is $4(6)=24$. The unequal products disprove the claim.
+    approved: false
 
-      Ratio = $\frac{21}{19}$
+  - id: q-arithmetic-number-sense-ratio-and-proportion-0019
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A fixed project takes eight equal-rate workers $15$ days. After five days of work, three workers leave. How many additional days do the remaining workers need at the same rate?
+    choices:
+      - text: '$16$ days'
+        correct: true
+      - text: '$10$ days'
+        rationale: |
+          This keeps the original remaining time after workers leave. Ten days would suffice with all eight workers. Check the new group size.
+      - text: '$24$ days'
+        rationale: |
+          This applies the new workforce to the entire job. The full job needs one hundred twenty worker-days. Check the work already completed.
+      - text: '$6.25$ days'
+        rationale: |
+          This scales the ten remaining days by five eighths. That uses the workforce reduction directly. Check that fewer workers require more time.
+    explanation: |
+      The full job needs $8(15)=120$ worker-days. The first five days complete $8(5)=40$ worker-days. There are $80$ worker-days left and five workers remain. They need $80\div5=16$ more days.
+    approved: false
+
+  - id: q-arithmetic-number-sense-ratio-and-proportion-0020
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A wire is divided into two pieces in ratio $4:7$. The longer piece exceeds the shorter by $21$ meters. What is the total length?
+    choices:
+      - text: '$77$ meters'
+        correct: true
+      - text: '$33$ meters'
+        rationale: |
+          This adds the ratio numbers to the given difference. All three numbers appear in the problem. Check that ratio parts must first be converted to meters.
+      - text: '$49$ meters'
+        rationale: |
+          This reports the longer piece alone. That length is found from seven parts. Check that the original wire includes both pieces.
+      - text: '$28$ meters'
+        rationale: |
+          This reports the shorter piece alone. That length is found from four parts. Check that both lengths belong in the total.
+    explanation: |
+      The difference is $7-4=3$ parts, so one part is $21\div3=7$ meters. The total has $4+7=11$ parts. Its length is $11(7)=77$ meters.
+    approved: false
