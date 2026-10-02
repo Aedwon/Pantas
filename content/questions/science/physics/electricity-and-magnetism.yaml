@@ -1,310 +1,425 @@
 meta:
-  subject: science
-  topic: physics
-  subtopic: electricity-and-magnetism
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  subject: "science"
+  topic: "physics"
+  subtopic: "electricity-and-magnetism"
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-physics-electricity-and-magnetism-0001
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
-      Two electric charges are moved to twice their original distance apart. By what factor does the force between them change? (Use Coulomb's Law, $F = k\dfrac{q_1q_2}{r^2}$.)
+      Two fixed point charges are moved to twice their original separation. What is the new force magnitude relative to the original?
     choices:
-      - text: It becomes 1/4 of the original force.
+      - text: "$\\dfrac14$"
         correct: true
-      - text: It becomes 1/2 of the original force.
+      - text: "$\\dfrac12$"
         rationale: |
-          You divided force by 2 instead of $2^2$. Coulomb's Law includes $r^2$ in the denominator: $F \propto \dfrac{1}{2^2} = \dfrac{1}{4}$.
-      - text: It becomes 2 times the original force.
+          This omits the square of distance. The separation doubles, so halving seems natural. Check the exponent on distance.
+      - text: "$2$"
         rationale: |
-          You multiplied force by 2 instead of dividing by distance squared. Increasing distance decreases force.
-      - text: It stays exactly the same.
+          This makes force increase with distance. The doubled separation suggests a doubled result. Check whether distance is in the numerator or denominator.
+      - text: "$1$"
         rationale: |
-          You assumed force is independent of distance. Electrostatic force varies inversely with distance squared.
+          This ignores separation. The charges are unchanged. Check all variables in Coulomb’s law.
     explanation: |
-      Coulomb's Law is an inverse-square law: doubling the distance divides the force by $2^2 = 4$.
+      With fixed charges, $F\propto1/r^2$. Doubling separation multiplies the denominator by $2^2=4$. The new magnitude is $\dfrac14$ of the original.
     approved: true
+
   - id: q-physics-electricity-and-magnetism-0002
-    type: simple-quantitative
-    difficulty: hard
+    type: "simple-quantitative"
+    difficulty: "hard"
     stem: |
-      Two electric charges are moved to three times their original distance apart. By what factor does the force between them change?
+      One of two point charges is doubled while their separation is doubled. The other charge stays fixed. What is the new force magnitude relative to the original?
     choices:
-      - text: It becomes 1/9 of the original force.
+      - text: "$\\dfrac12$"
         correct: true
-      - text: It becomes 1/3 of the original force.
+      - text: "$2$"
         rationale: |
-          You divided by 3 instead of $3^2$. Inverse-square dependence yields $F \propto \dfrac{1}{3^2} = \dfrac{1}{9}$.
-      - text: It becomes 3 times the original force.
+          This changes only the charge. Doubling charge does increase force at fixed distance. Check the simultaneous distance change.
+      - text: "$\\dfrac14$"
         rationale: |
-          You multiplied force by distance factor. Increasing distance reduces force by the inverse square factor.
-      - text: It stays exactly the same.
+          This changes only the separation. The inverse-square rule is familiar. Check the doubled charge too.
+      - text: "$1$"
         rationale: |
-          You assumed electrostatic force is constant. Changing distance alters force by $\dfrac{1}{r^2}$.
+          This cancels two factors of two directly. Both charge and distance double. Check that distance is squared.
     explanation: |
-      Coulomb's Law is an inverse-square law: tripling the distance divides the force by $3^2 = 9$.
+      Coulomb’s law gives $F\propto q_1q_2/r^2$. The charge product doubles and the distance squared becomes four times as large. Thus $F_{\mathrm{new}}=\dfrac24F_{\mathrm{old}}=\dfrac12F_{\mathrm{old}}$.
     approved: true
+
   - id: q-physics-electricity-and-magnetism-0003
-    type: simple-quantitative
-    difficulty: easy
+    type: "simple-quantitative"
+    difficulty: "easy"
     stem: |
-      A circuit has a resistance of 10 ohms and a current of 2 amperes flowing through it. Find the voltage. (Use $V = IR$.)
+      An ohmic resistor of $10\,\Omega$ carries $2\,\mathrm A$. What is the voltage across it?
     choices:
-      - text: 20 volts
+      - text: "$20\\,\\mathrm V$"
         correct: true
-      - text: 5 volts
+      - text: "$5\\,\\mathrm V$"
         rationale: |
-          You divided resistance by current ($\dfrac{10}{2}$). Ohm's Law requires multiplying current and resistance: $V = IR = 2 \times 10 = 20\text{ V}$.
-      - text: 12 volts
+          This divides resistance by current. Division is used in other forms of Ohm’s law. Check how to isolate voltage.
+      - text: "$12\\,\\mathrm V$"
         rationale: |
-          You added current and resistance ($2 + 10$). Ohm's Law uses multiplication: $V = IR$.
-      - text: 8 volts
+          This adds current and resistance. Both numbers are given. Check that the law calls for a product.
+      - text: "$8\\,\\mathrm V$"
         rationale: |
-          You subtracted current from resistance ($10 - 2$). Calculate voltage using multiplication: $V = IR = 20\text{ V}$.
+          This subtracts current from resistance. A difference can sound like potential difference. Check the quantities and their units.
     explanation: |
-      $V = IR = (2)(10) = 20$ volts.
+      Ohm’s law is $V=IR$. Multiply current by resistance: $V=(2)(10)=20\,\mathrm V$.
     approved: true
+
   - id: q-physics-electricity-and-magnetism-0004
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
-      A circuit has a voltage of 24 volts and a current of 3 amperes. Find the resistance.
+      An ohmic resistor has $24\,\mathrm V$ across it and carries $3\,\mathrm A$. What is its resistance?
     choices:
-      - text: 8 ohms
+      - text: "$8\\,\\Omega$"
         correct: true
-      - text: 72 ohms
+      - text: "$72\\,\\Omega$"
         rationale: |
-          You multiplied voltage and current ($24 \times 3$). Resistance is $R = \dfrac{V}{I} = \dfrac{24}{3} = 8\ \Omega$.
-      - text: 21 ohms
+          This multiplies voltage and current. That product is familiar from power calculations. Check which quantity is being found.
+      - text: "$21\\,\\Omega$"
         rationale: |
-          You subtracted current from voltage ($24 - 3$). Solve Ohm's Law by division: $R = \dfrac{V}{I}$.
-      - text: 27 ohms
+          This subtracts current from voltage. It uses both given values. Check that unlike units cannot be subtracted.
+      - text: "$27\\,\\Omega$"
         rationale: |
-          You added voltage and current ($24 + 3$). Resistance calculation requires $R = \dfrac{V}{I} = 8\ \Omega$.
+          This adds voltage and current. It combines the numbers without rearranging. Check the division needed to isolate resistance.
     explanation: |
-      Rearranging $V = IR$: $R = \dfrac{V}{I} = \dfrac{24}{3} = 8$ ohms.
+      Rearrange $V=IR$ as $R=\dfrac VI$. Then $R=\dfrac{24}{3}=8\,\Omega$.
     approved: true
+
   - id: q-physics-electricity-and-magnetism-0005
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
-      A circuit has a voltage of 15 volts and a resistance of 5 ohms. Find the current.
+      An ohmic resistor of $5\,\Omega$ is connected across $15\,\mathrm V$. What current flows?
     choices:
-      - text: 3 amperes
+      - text: "$3\\,\\mathrm A$"
         correct: true
-      - text: 75 amperes
+      - text: "$75\\,\\mathrm A$"
         rationale: |
-          You multiplied voltage and resistance ($15 \times 5$). Current is $I = \dfrac{V}{R} = \dfrac{15}{5} = 3\text{ A}$.
-      - text: 10 amperes
+          This multiplies voltage and resistance. The product form of the law looks familiar. Check which quantity must be isolated.
+      - text: "$10\\,\\mathrm A$"
         rationale: |
-          You subtracted resistance from voltage ($15 - 5$). Solve Ohm's Law by division: $I = \dfrac{V}{R}$.
-      - text: 20 amperes
+          This subtracts resistance from voltage. Resistance may sound like something to take away. Check the formula instead of subtracting unlike units.
+      - text: "$20\\,\\mathrm A$"
         rationale: |
-          You added voltage and resistance ($15 + 5$). Current calculation requires $I = \dfrac{V}{R} = 3\text{ A}$.
+          This adds resistance to voltage. Both values are given. Check that increased resistance should reduce current at fixed voltage.
     explanation: |
-      Rearranging $V = IR$: $I = \dfrac{V}{R} = \dfrac{15}{5} = 3$ amperes.
+      Current is $I=\dfrac VR$. Substitute: $I=\dfrac{15}{5}=3\,\mathrm A$.
     approved: true
+
   - id: q-physics-electricity-and-magnetism-0006
-    type: classify
-    difficulty: medium
+    type: "predict-outcome"
+    difficulty: "medium"
     stem: |
-      In a series circuit with two light bulbs, one bulb suddenly burns out. What happens to the other bulb?
+      Two bulbs are connected in series. One fails open. What happens to current through the other bulb?
     choices:
-      - text: It also goes dark, since the burned-out bulb breaks the single shared path.
+      - text: "It stops."
         correct: true
-      - text: It stays lit, unaffected by the other bulb.
+      - text: "It stays unchanged because each bulb has a separate path."
         rationale: |
-          You described parallel circuit behavior. In series, all components share a single continuous loop.
-      - text: It becomes brighter.
+          This applies parallel behavior to series wiring. Independent lamps are familiar. Check the single path in series.
+      - text: "It increases because one bulb no longer uses current."
         rationale: |
-          You assumed increased current. A burned-out series bulb creates an open circuit with zero current.
-      - text: It cannot be determined without knowing the resistances.
+          This treats an open bulb as a removed resistance with a connected wire. One fewer working bulb sounds like less resistance. Check whether the path is still complete.
+      - text: "It decreases but remains nonzero through the gap."
         rationale: |
-          You claimed resistance values dictate outcome. An open circuit stops current completely regardless of individual resistance.
+          This treats an open gap as merely high resistance. Dimness can seem like partial failure. Check the stated open-circuit condition.
     explanation: |
-      In a series circuit, all components share one single path. Breaking that path (by one bulb burning out) stops current from flowing anywhere in the circuit.
+      Series components share one current path. An open bulb breaks that path. No current flows through the other bulb.
     approved: true
+
   - id: q-physics-electricity-and-magnetism-0007
-    type: classify
-    difficulty: medium
+    type: "predict-outcome"
+    difficulty: "medium"
     stem: |
-      In a parallel circuit with two light bulbs, one bulb suddenly burns out. What happens to the other bulb?
+      Two bulbs occupy separate parallel branches across an ideal fixed-voltage source. One branch fails open. What happens to the other bulb?
     choices:
-      - text: It stays lit, since each bulb has its own separate branch.
+      - text: "It remains lit."
         correct: true
-      - text: It also goes dark, since both bulbs share a single path.
+      - text: "It goes dark because the failed branch opens every path."
         rationale: |
-          You described series circuit behavior. Parallel circuits feature independent parallel paths.
-      - text: It becomes dimmer but stays lit.
+          This uses series behavior for parallel wiring. Both bulbs share a source. Check each branch’s complete path.
+      - text: "It becomes dimmer because its voltage must fall."
         rationale: |
-          You assumed reduced branch voltage. Parallel branches receive full source voltage independently.
-      - text: It cannot be determined without knowing the resistances.
+          This assumes the source voltage is divided among branches. Voltage division is familiar from series circuits. Check the fixed voltage across parallel branches.
+      - text: "It becomes brighter because it receives the other branch’s current."
         rationale: |
-          You claimed resistance values dictate outcome. Parallel branches maintain full voltage regardless of other branch status.
+          This treats total current as fixed. Current divides before failure, so redistribution seems plausible. Check that the ideal source fixes voltage rather than total current.
     explanation: |
-      In a parallel circuit, each bulb has its own independent branch. If one branch breaks, the other remains a complete, separate path, so its bulb stays lit.
+      The remaining branch still forms a complete path. It keeps the same voltage from the ideal source. Its bulb remains lit.
     approved: true
+
   - id: q-physics-electricity-and-magnetism-0008
-    type: identify
-    difficulty: medium
+    type: "identify"
+    difficulty: "easy"
     stem: |
-      Two like electric charges (both positive, or both negative) are brought near each other. Do they attract or repel?
+      What is the interaction between two stationary positive point charges?
     choices:
-      - text: Repel
+      - text: "Repulsion"
         correct: true
-      - text: Attract
+      - text: "Attraction"
         rationale: |
-          You picked opposite charge interaction. Like charges repel; opposite charges attract.
-      - text: 'Neither: like charges have no effect on each other.'
+          This reverses the like-charge rule. Charges interact in either direction. Check whether their signs match.
+      - text: "No force because their signs cancel"
         rationale: |
-          You denied electrostatic force interaction. Like charges exert repulsive Coulomb forces on each other.
-      - text: It depends on their distance apart.
+          This treats matching signs as cancellation. Cancellation occurs in some sums. Check the product of two nonzero charges.
+      - text: "Attraction at large separation and repulsion nearby"
         rationale: |
-          You claimed force sign depends on distance. Distance alters force magnitude, not whether it is attractive or repulsive.
+          This lets distance change the type of force. Distance changes its strength. Check that the signs determine attraction or repulsion.
     explanation: |
-      Like charges repel (push apart), following the same pattern as magnetic poles.
+      Two positive charges have like signs. Each experiences a force directed away from the other. This is repulsion.
     approved: true
+
   - id: q-physics-electricity-and-magnetism-0009
-    type: identify
-    difficulty: medium
+    type: "identify"
+    difficulty: "easy"
     stem: |
-      A positive charge and a negative charge are brought near each other. Do they attract or repel?
+      What is the interaction between a stationary positive point charge and a stationary negative point charge?
     choices:
-      - text: Attract
+      - text: "Attraction"
         correct: true
-      - text: Repel
+      - text: "Repulsion"
         rationale: |
-          You picked like charge interaction. Opposite charges attract; like charges repel.
-      - text: 'Neither: opposite charges have no effect on each other.'
+          This applies the like-charge rule to opposite signs. Repulsion is a familiar charge effect. Check the two signs.
+      - text: "No force because the total charge may be zero"
         rationale: |
-          You denied electrostatic interaction. Opposite charges exert attractive Coulomb forces.
-      - text: It depends on their distance apart.
+          This confuses net charge with force between charges. Equal opposite charges can sum to zero. Check whether each charge still experiences a field.
+      - text: "Repulsion if the negative charge is larger"
         rationale: |
-          You claimed force direction depends on distance. Distance affects force magnitude, but opposite charges always attract.
+          This makes size determine force direction. Unequal magnitudes change strength. Check signs separately from magnitudes.
     explanation: |
-      Opposite charges attract (pull together).
+      The charges have opposite signs. Each is pulled toward the other. This is attraction.
     approved: true
+
   - id: q-physics-electricity-and-magnetism-0010
-    type: classify
-    difficulty: hard
+    type: "structure-function"
+    difficulty: "hard"
     stem: |
-      A student assumes doubling the distance between two charges simply halves the electric force between them. Is this correct?
+      An electric field at a point is defined using the force on which reference charge?
     choices:
-      - text: 'No: Coulomb''s Law is an inverse-square law, so doubling the distance divides the force by $2^2=4$, not by 2.'
+      - text: "A positive test charge"
         correct: true
-      - text: 'Yes: force is inversely proportional to distance directly, not distance squared.'
+      - text: "A negative test charge with no sign correction"
         rationale: |
-          You omitted the inverse-square power. Coulomb's Law states $F \propto \dfrac{1}{r^2}$, so $2r$ yields $\dfrac{1}{4}F$.
-      - text: 'No: doubling the distance actually doubles the force.'
+          This reverses the field’s reference direction. Electrons are familiar negative charges. Check the positive-test-charge convention.
+      - text: "An uncharged particle with no electric force"
         rationale: |
-          You made force proportional to distance. Force decreases with increasing distance.
-      - text: 'Yes: but only for charges of the same sign.'
+          This removes the response used to define the field. Neutral particles seem less disturbing. Check how force per charge could be measured.
+      - text: "Any charge, with field magnitude equal to force alone"
         rationale: |
-          You limited inverse-square rule by charge sign. The inverse-square distance law applies to all charges.
+          This omits division by charge. Force is the direct observable. Check that field is force per unit charge.
     explanation: |
-      Coulomb's Law has distance squared in the denominator, exactly like Newton's law of gravitation. Skipping the squaring step (dividing by 2 instead of 4) is a common error.
+      The electric field is force per unit positive test charge: $\vec E=\vec F/q$. Its direction is the force direction on that positive charge.
     approved: true
+
   - id: q-physics-electricity-and-magnetism-0011
-    type: classify
-    difficulty: hard
+    type: "compare-contrast"
+    difficulty: "hard"
     stem: |
-      A student assumes current is the same across every branch in a parallel circuit, since current stays the same in a series circuit. Is this correct?
+      Two unequal ideal resistors are connected in parallel across the same source. Which quantity must be equal for both branches?
     choices:
-      - text: 'No: in a parallel circuit, voltage is the same across each branch, but current splits between branches; only in series circuits is current the shared quantity.'
+      - text: "Voltage"
         correct: true
-      - text: 'Yes: current is always the same everywhere, in both series and parallel circuits.'
+      - text: "Current"
         rationale: |
-          You claimed current is invariant across parallel branches. Current divides among parallel branches based on branch resistance.
-      - text: 'No: in a parallel circuit, neither current nor voltage is shared.'
+          This carries the series-current rule into parallel wiring. Both branches share a source. Check that unequal resistance can give unequal current.
+      - text: "Resistance"
         rationale: |
-          You denied shared voltage in parallel. Parallel branches share identical source voltage.
-      - text: 'Yes: but only when all branches have equal resistance.'
+          This confuses shared connections with identical components. The branches look similar. Check the stated unequal resistors.
+      - text: "Voltage divided by current"
         rationale: |
-          You misapplied series current rule to parallel. Equal branch resistance produces equal split currents, but total current still splits.
+          This treats each branch’s resistance as common. Ohm’s law links these values. Check that the voltage-to-current ratio is the resistance.
     explanation: |
-      Series and parallel circuits share different quantities: series circuits share the same current (with voltage splitting), while parallel circuits share the same voltage (with current splitting). Mixing these up is one of the most common circuit errors.
+      Both branches connect across the same two source terminals. They therefore have the same potential difference, or voltage.
     approved: true
+
   - id: q-physics-electricity-and-magnetism-0012
-    type: classify
-    difficulty: hard
+    type: "predict-outcome"
+    difficulty: "hard"
     stem: |
-      A student assumes that one burned-out bulb always causes an entire circuit to stop working, regardless of circuit type. Is this correct?
+      A magnetic flux through a closed conducting loop decreases. What does Lenz’s law say about the induced magnetic effect?
     choices:
-      - text: 'No: this is only true for series circuits; in parallel circuits, other branches keep working independently even if one bulb burns out.'
+      - text: "It opposes the decrease in flux."
         correct: true
-      - text: 'Yes: any broken component always stops the entire circuit, regardless of type.'
+      - text: "It always opposes the direction of the original field."
         rationale: |
-          You generalized series failure to parallel circuits. Parallel circuits provide multiple independent current paths.
-      - text: 'No: broken components never affect any part of a circuit.'
+          This substitutes field direction for change in flux. The word opposes sounds like reversal. Check whether the flux is increasing or decreasing.
+      - text: "It reinforces the decrease in flux."
         rationale: |
-          You claimed broken components never stop current. In series circuits, a broken component breaks the entire current path.
-      - text: 'Yes: but only in circuits with more than two bulbs.'
+          This makes induction strengthen the change. A changing system may seem to keep changing. Check Lenz’s opposition to the change.
+      - text: "It has no effect unless the flux becomes zero."
         rationale: |
-          You made circuit failure depend on component count. Failure characteristics depend on circuit topology (series vs parallel).
+          This waits for a zero field before induction. A vanishing field seems dramatic. Check whether flux is already changing.
     explanation: |
-      Only series circuits fail entirely when one component breaks, since they share a single path. Parallel circuits (like household wiring) keep other branches working independently.
+      The induced effect acts against the change that caused it. For decreasing flux, it tends to support the original flux and oppose its decrease.
     approved: true
+
   - id: q-physics-electricity-and-magnetism-0013
-    type: classify
-    difficulty: hard
+    type: "cause-effect"
+    difficulty: "hard"
     stem: |
-      A student uses their left hand instead of their right hand to apply the right-hand rule for a current-carrying wire. Will this give the correct magnetic field direction?
+      A straight wire carries conventional current upward. If its direction reverses, what happens to the surrounding magnetic field’s direction?
     choices:
-      - text: 'No: using the left hand reverses the result, giving the opposite (incorrect) magnetic field direction.'
+      - text: "It reverses."
         correct: true
-      - text: 'Yes: either hand gives the same correct result.'
+      - text: "It stays the same because the wire has not moved."
         rationale: |
-          You assumed chirality symmetry. Left-hand curling gives the exact mirror opposite of the actual magnetic field direction.
-      - text: 'No: but only because the wire must be curved for the rule to apply.'
+          This treats field direction as fixed by location alone. The wire’s position is unchanged. Check the current direction in the right-hand rule.
+      - text: "It points along the wire instead of around it."
         rationale: |
-          You restricted right-hand rule to curved wires. Right-hand rule applies directly to straight current-carrying conductors.
-      - text: 'Yes: the right-hand rule works regardless of which hand is used.'
+          This confuses current direction with field direction. Both reverse with the setup. Check which direction the thumb and curled fingers represent.
+      - text: "It points radially outward instead of circling."
         rationale: |
-          You ignored hand orientation conventions. Right-hand rule conventions specifically require the right hand.
+          This uses electric-field geometry for a current-produced field. Both fields surround sources. Check the circular magnetic pattern.
     explanation: |
-      The right-hand rule specifically requires the right hand: thumb pointing in the current's direction, with curled fingers showing the magnetic field's direction. Using the left hand gives the mirror-image (incorrect) direction.
+      Point the right thumb along the new conventional current. The fingers curl in the opposite direction around the wire. The magnetic field direction reverses.
     approved: true
+
   - id: q-physics-electricity-and-magnetism-0014
-    type: predict-outcome
-    difficulty: medium
+    type: "predict-outcome"
+    difficulty: "medium"
     stem: |
-      A straight wire carries current flowing directly upward. Using the right-hand rule, in which direction does the magnetic field circle around the wire, viewed from above (looking down along the direction of current flow)?
+      A vertical straight wire carries conventional current upward. Viewed from above looking down, with current directed toward the viewer, which way does the magnetic field circle?
     choices:
-      - text: Counterclockwise
+      - text: "Counterclockwise"
         correct: true
-      - text: Clockwise
+      - text: "Clockwise"
         rationale: |
-          You used your left hand or reversed curl direction. Right thumb pointing up curls fingers counterclockwise when viewed from above.
-      - text: Directly outward from the wire, not circling at all
+          This reverses the viewing direction or uses the left hand. Either change flips the apparent circle. Check that current points toward the viewer.
+      - text: "Radially outward"
         rationale: |
-          You picked radial field direction. Magnetic field lines around a straight wire form concentric circular loops.
-      - text: Directly along the wire, parallel to the current
+          This substitutes positive-charge field lines for wire magnetism. Both involve electrical sources. Check the curled-finger pattern.
+      - text: "Parallel to the current"
         rationale: |
-          You picked parallel field direction. Magnetic field loops encircle the current perpendicularly, not parallel to it.
+          This follows the thumb instead of the fingers. The thumb gives a clear direction. Check what the curled fingers show.
     explanation: |
-      Pointing the right thumb upward (the current's direction), the curled fingers circle counterclockwise around the wire when viewed from above.
+      Point the right thumb upward along the current. Viewed from above, the fingers curl counterclockwise. This gives the magnetic field direction.
     approved: true
+
   - id: q-physics-electricity-and-magnetism-0015
-    type: predict-outcome
-    difficulty: exam
+    type: "simple-quantitative"
+    difficulty: "exam"
     stem: |
-      In a house, if one lamp burns out, the other outlets and lights in the house keep working normally. What does this tell you about how household wiring is typically arranged?
+      A $4\,\Omega$ resistor and an $8\,\Omega$ resistor are connected in series across $24\,\mathrm V$. What current passes through the $8\,\Omega$ resistor?
     choices:
-      - text: Household wiring is typically parallel, since each outlet or light has its own independent branch.
+      - text: "$2\\,\\mathrm A$"
         correct: true
-      - text: Household wiring is typically series, since all components share one single path.
+      - text: "$3\\,\\mathrm A$"
         rationale: |
-          You picked series wiring. If household wiring were series, one burned-out bulb would turn off all appliances in the house.
-      - text: Household wiring alternates between series and parallel randomly.
+          This assigns all source voltage to the larger resistor. It uses that resistor alone. Check the total series resistance first.
+      - text: "$6\\,\\mathrm A$"
         rationale: |
-          You claimed random wiring topology. Standard residential electrical codes require parallel branch circuits.
-      - text: This behavior does not depend on how the wiring is arranged.
+          This uses only the smaller resistor. Its smaller resistance suggests more current. Check that the same current passes through both series resistors.
+      - text: "$9\\,\\mathrm A$"
         rationale: |
-          You claimed circuit behavior is independent of wiring. Component independence is a direct consequence of parallel topology.
+          This adds currents calculated as if both resistors were parallel. Adding branch currents is familiar. Check the stated series connection.
     explanation: |
-      Since other lights and outlets keep working when one bulb burns out, this shows each component has its own independent branch: the defining behavior of a parallel circuit, which is why household wiring is typically parallel.
+      The series resistance is $4+8=12\,\Omega$. The loop current is $I=\dfrac{24}{12}=2\,\mathrm A$. The same current passes through each resistor.
     approved: true
+
+  - id: q-physics-electricity-and-magnetism-0016
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      Two $6\,\Omega$ ideal resistors are connected in parallel. What is their equivalent resistance?
+    choices:
+      - text: "$3\\,\\Omega$"
+        correct: true
+      - text: "$12\\,\\Omega$"
+        rationale: |
+          This adds resistances as in series. The two values are easy to total. Check that parallel connections add reciprocal resistances.
+      - text: "$6\\,\\Omega$"
+        rationale: |
+          This keeps one branch’s resistance. Both branches use the same value. Check the additional current path.
+      - text: "$\\dfrac13\\,\\Omega$"
+        rationale: |
+          This stops at the reciprocal result. The sum of reciprocals is the visible calculation. Check that the requested quantity is resistance, not its reciprocal.
+    explanation: |
+      For parallel resistors, $\dfrac1{R_{\mathrm{eq}}}=\dfrac16+\dfrac16=\dfrac13$. Taking the reciprocal gives $R_{\mathrm{eq}}=3\,\Omega$.
+
+  - id: q-physics-electricity-and-magnetism-0017
+    approved: false
+    type: "classify"
+    difficulty: "medium"
+    stem: |
+      A device’s resistance changes strongly as it warms, giving a curved voltage-current graph. How should it be classified over that range?
+    choices:
+      - text: "Non-ohmic"
+        correct: true
+      - text: "Ohmic with constant resistance"
+        rationale: |
+          This applies Ohm’s law to every device. Resistance is an electrical property. Check whether voltage is proportional to current over the range.
+      - text: "An open circuit at every voltage"
+        rationale: |
+          This mistakes nonlinearity for no conduction. A curved graph differs from the usual straight line. Check whether current is still measured.
+      - text: "An ideal fixed resistor in all conditions"
+        rationale: |
+          This ignores the stated temperature change. Resistors are commonly idealized. Check whether that idealization matches the data.
+    explanation: |
+      An ohmic device has a straight-line voltage-current relation with constant resistance under the stated conditions. This device changes resistance over the range. It is non-ohmic there.
+
+  - id: q-physics-electricity-and-magnetism-0018
+    approved: false
+    type: "cause-effect"
+    difficulty: "hard"
+    stem: |
+      A magnetic flux through an open conducting loop changes. Which outcome is possible even though no sustained current flows around the loop?
+    choices:
+      - text: "An induced emf"
+        correct: true
+      - text: "No induced effect of any kind"
+        rationale: |
+          This equates emf with conduction current. They often occur together in a closed loop. Check whether the path must be closed for emf or for current.
+      - text: "A sustained current across the open gap"
+        rationale: |
+          This ignores the break in the conducting path. Changing flux can drive current in closed loops. Check whether this loop is closed.
+      - text: "An emf only if the magnetic flux is constant"
+        rationale: |
+          This reverses the induction condition. A strong constant field can seem sufficient. Check change in flux over time.
+    explanation: |
+      Changing magnetic flux induces an emf. An open path prevents a sustained conduction current around the loop. The emf can still be present.
+
+  - id: q-physics-electricity-and-magnetism-0019
+    approved: false
+    type: "compare-contrast"
+    difficulty: "hard"
+    stem: |
+      Which observation distinguishes ordinary magnetic poles from electric charges?
+    choices:
+      - text: "Ordinary magnets retain paired poles."
+        correct: true
+      - text: "Positive and negative electric charges cannot be separated."
+        rationale: |
+          This applies paired magnetic poles to charges. The two naming systems sound similar. Check whether a body can carry net electric charge.
+      - text: "A cut magnet yields one isolated north pole and one isolated south pole."
+        rationale: |
+          This treats a magnet as two separable charges. The original ends have different pole names. Check whether each piece becomes a smaller magnet.
+      - text: "Magnetic field lines begin at isolated poles and never return."
+        rationale: |
+          This applies an electric-field pattern to magnetism. Lines are drawn outside both types of sources. Check that ordinary magnetic field lines form closed loops.
+    explanation: |
+      Ordinary magnets have north and south poles together. Cutting a magnet produces smaller magnets with paired poles. Isolated magnetic monopoles have not been observed.
+
+  - id: q-physics-electricity-and-magnetism-0020
+    approved: false
+    type: "process-ordering"
+    difficulty: "exam"
+    stem: |
+      Which order correctly applies the right-hand rule for the magnetic field around a straight wire?
+    choices:
+      - text: "Identify conventional current, align the thumb, read the finger curl."
+        correct: true
+      - text: "Identify electron flow, align the right thumb with it, read the finger curl."
+        rationale: |
+          This uses electron flow without reversing it. Electrons carry current in metals. Check the conventional-current direction.
+      - text: "Identify current, align the fingers along it, read the thumb as field direction."
+        rationale: |
+          This swaps the roles of thumb and fingers. Both are parts of the rule. Check which one represents current.
+      - text: "Identify current, align the left thumb, read the finger curl."
+        rationale: |
+          This substitutes the left hand. The same gesture appears similar. Check the required hand.
+    explanation: |
+      First determine conventional current. Point the right thumb in that direction. The curled fingers show the field direction around the wire.
