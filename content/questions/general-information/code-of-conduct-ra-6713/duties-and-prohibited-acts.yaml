@@ -3,285 +3,492 @@ meta:
   topic: code-of-conduct-ra-6713
   subtopic: duties-and-prohibited-acts
   exams:
-    - cse-pro
-    - cse-sub
+  - cse-pro
+  - cse-sub
 questions:
-  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0001
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Under Section 5 of RA 6713, public officials must act on letters and requests within how many working days from receipt?
-    choices:
-      - text: 15 working days
-        correct: true
-      - text: 30 working days
-        rationale: |
-          You picked 30 days, which is twice the statutory limit. RA 6713 requires action within 15 working days so public requests are resolved quickly.
-      - text: 45 working days
-        rationale: |
-          You selected 45 days, which is the deadline for annual reports rather than daily letters. Official responses must go out within 15 working days.
-      - text: 60 working days
-        rationale: |
-          You chose 60 days, which is far too long for simple correspondence. Public officers must act on letters within 15 working days.
-    explanation: |
-      Section 5(a) of RA 6713 mandates that all public officials and employees act on letters and requests within 15 working days from receipt.
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0001
+  type: single_choice
+  difficulty: medium
+  stem: 'Under Section 5(a) of RA 6713, what is the deadline for responding to public letters and requests?
 
-  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0002
-    type: single_choice
-    difficulty: medium
-    stem: |
-      As far as practicable, what is the maximum number of initials or signatures allowed on written actions or decisions under Section 5 of RA 6713?
-    choices:
-      - text: At most three signatures
-        correct: true
-      - text: At most five official signatures
-        rationale: |
-          You picked five signatures, which exceeds the statutory target. As far as practicable, Section 5 limits written actions or decisions to at most three initials or signatures.
-      - text: At most four official signatures
-        rationale: |
-          You chose four signatures, which is still above the statutory target. As far as practicable, written actions or decisions should contain no more than three initials or signatures.
-      - text: At most six official signatures
-        rationale: |
-          You selected six signatures, which doubles the statutory target. As far as practicable, RA 6713 limits approval trails to at most three initials or signatures.
-    explanation: |
-      Section 5(b) provides that, as far as practicable, written actions or decisions must contain no more than three initials or signatures.
+    '
+  choices:
+  - text: 15 working days
+    correct: true
+  - text: 15 calendar days
+    rationale: 'This counts calendar days instead of working days. The number matches the rule. Check the unit stated in the law.
 
-  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0003
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Within how many working days from the end of the year must public officers submit an annual performance report to their superiors?
-    choices:
-      - text: 45 working days
-        correct: true
-      - text: 30 working days
-        rationale: |
-          You selected 30 days, which is shorter than the allowed period. Heads of offices have 45 working days after year end to submit annual reports.
-      - text: 60 working days
-        rationale: |
-          You picked 60 days, which exceeds the statutory timeframe. Annual performance reports are due within 45 working days from the end of the year.
-      - text: 90 working days
-        rationale: |
-          You chose 90 days, which is a full quarter of a year. The law allows only 45 working days after year end for filing annual reports.
-    explanation: |
-      Section 5(c) states that heads of offices must render an annual performance report within 45 working days from the end of the year.
+      '
+  - text: 30 working days
+    rationale: 'This doubles the response period. Thirty days appears in other filing duties. Check which duty the question names.
 
-  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0004
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Under Section 7 of RA 6713, for how long after separation from service is private practice prohibited regarding matters before the former office?
-    choices:
-      - text: 1 year
-        correct: true
-      - text: 2 years
-        rationale: |
-          You picked 2 years, which doubles the actual prohibition window. Section 7 bars private practice before your former office for 1 year.
-      - text: 3 years
-        rationale: |
-          You selected 3 years, which is longer than the statutory ban. The restriction on practice regarding former office matters lasts for 1 year.
-      - text: 6 months
-        rationale: |
-          You chose 6 months, which is too brief to prevent undue influence. The law enforces a full 1 year prohibition after leaving government.
-    explanation: |
-      Section 7(b) prohibits former public officials from practicing their profession in connection with any matter before their former office for 1 year after separation.
+      '
+  - text: 45 working days
+    rationale: 'This uses the annual-report period for correspondence. Both are Section 5 duties. Check the deadline for the specific task.
 
-  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0005
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Which of the following is a recognized statutory exception to the general rule against accepting gifts under RA 6713?
-    choices:
-      - text: Unsolicited gifts of nominal value
-        correct: true
-      - text: Cash gifts given prior to a procurement vote
-        rationale: |
-          You picked cash gifts before a vote, which is direct bribery. The law only permits unsolicited gifts of nominal value with no expectations attached.
-      - text: Luxury travel grants paid by private vendors
-        rationale: |
-          You selected vendor-funded luxury travel, which creates a clear conflict of interest. Only nominal, unsolicited gifts are exempted under RA 6713.
-      - text: Valuable jewelry offered by an applicant
-        rationale: |
-          You chose valuable jewelry from an applicant, which is prohibited influence. Statutory exceptions apply only to unsolicited gifts of nominal value.
-    explanation: |
-      Unsolicited gifts of nominal or insignificant value not given in anticipation of a favor are recognized exceptions under the rules of RA 6713.
+      '
+  explanation: 'Section 5(a) requires a response within fifteen working days from receipt. The deadline applies to communications sent by the public.
 
-  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0006
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Under RA 6713, failure to process or act on a written request within 15 working days constitutes which of the following?
-    choices:
-      - text: Administrative action grounds
-        correct: true
-      - text: Automatic forfeiture of civil rights
-        rationale: |
-          You selected civil rights forfeiture, which is an extreme penalty for a constitutional right. Missing the 15 day deadline is an administrative offense.
-      - text: Immediate criminal treason charges
-        rationale: |
-          You chose criminal treason, which applies only to war against the state. Failing to act on requests leads to administrative disciplinary action.
-      - text: Automatic revocation of citizenship
-        rationale: |
-          You picked citizenship revocation, which is reserved for severe denationalization acts. Processing delays lead to administrative sanctions.
-    explanation: |
-      Failure to act on letters and requests within 15 working days constitutes a ground for administrative disciplinary action under RA 6713.
+    '
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0002
+  type: single_choice
+  difficulty: medium
+  stem: 'As far as practicable, how many signatories should official papers contain under Section 5(c) of RA 6713?
 
-  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0007
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Which act is explicitly prohibited for public officials under Section 7 of RA 6713?
-    choices:
-      - text: Recommending persons to firms with pending office business
-        correct: true
-      - text: Recommending relatives to state university academic degree programs
-        rationale: |
-          You picked university admissions, which follow academic rules. Section 7 explicitly prohibits recommending anyone to private firms with office business.
-      - text: Accepting authorized teaching duties at local public institutions
-        rationale: |
-          You chose authorized teaching, which is permitted if approved. The law specifically bans recommending people to private firms doing office business.
-      - text: Writing recommendation letters for government merit scholarship grants
-        rationale: |
-          You selected government merit scholarships, which are public merit programs. Section 7 forbids recommending persons to private business applicants.
-    explanation: |
-      Section 7(c) explicitly prohibits recommending any person to a position in a private enterprise that has pending or regular transactions with their office.
+    '
+  choices:
+  - text: At most three
+    correct: true
+  - text: At most four official signatories
+    rationale: 'This adds an extra approval stage. More review may seem safer. Check the law''s practical limit.
 
-  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0008
-    type: single_choice
-    difficulty: hard
-    stem: |
-      What determines the impropriety of a gift or favor under Section 7 of RA 6713?
-    choices:
-      - text: Value, kinship, and motivation
-        correct: true
-      - text: Brand reputation and retail venue
-        rationale: |
-          You selected brand and retail venue, which focus on store marketing. Section 7 judges gift impropriety by monetary value, kinship, and motivation.
-      - text: Physical weight and delivery location
-        rationale: |
-          You picked weight and delivery location, which are physical logistics. Impropriety depends on the gift's value, personal kinship, and intent.
-      - text: Exterior design and gift container
-        rationale: |
-          You chose exterior design and packaging, which are cosmetic details. The law evaluates gift impropriety using value, kinship, and underlying motive.
-    explanation: |
-      Under RA 6713 rules, impropriety is evaluated based on the monetary value, the kinship between giver and receiver, and the underlying motivation.
+      '
+  - text: At most five official signatories
+    rationale: 'This assumes more approval steps are required. Several offices may handle a paper. Check the stated limit on signatories.
 
-  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0009
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Under Section 5(e) of RA 6713, what duty applies to public documents?
-    choices:
-      - text: Make them accessible for public inspection during reasonable working hours
-        correct: true
-      - text: Release them only after a 30-day waiting period
-        rationale: |
-          You picked a waiting period, but Section 5(e) requires public documents to be accessible and readily available for inspection during reasonable working hours.
-      - text: Limit inspection to government employees
-        rationale: |
-          You restricted access to employees, but Section 5(e) states that public documents must be accessible to the public.
-      - text: Allow inspection only after approval by the agency head
-        rationale: |
-          You added an approval condition that Section 5(e) does not state. The duty is to make public documents accessible and readily available for inspection during reasonable working hours.
-    explanation: |
-      Section 5(e) states that all public documents must be made accessible to, and readily available for inspection by, the public within reasonable working hours.
+      '
+  - text: At most six official signatories
+    rationale: 'This doubles the practical limit. Separate preparers and reviewers may seem to require separate signatures. Check the number in Section 5(c).
 
-  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0010
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Under RA 6713, engaging in private practice that conflicts with official functions is classified as what?
-    choices:
-      - text: Prohibited act
-        correct: true
-      - text: Standard procedure
-        rationale: |
-          You selected standard procedure, which would normalize conflict of interest. Private practice conflicting with official duties is a prohibited act.
-      - text: Recommended option
-        rationale: |
-          You picked recommended option, which contradicts ethical public service. Conflicting private practice is explicitly banned under Section 7.
-      - text: Voluntary option
-        rationale: |
-          You chose voluntary option, which treats a violation as a personal choice. Outside practice that conflicts with public duties is strictly prohibited.
-    explanation: |
-      Section 7(b) classifies private practice that conflicts with official functions as a prohibited act and transaction.
+      '
+  explanation: 'Section 5(c) says official papers should contain no more than three signatories, as far as practicable.
 
-  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0011
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Which travel benefit from a foreign government may a public official or employee accept under RA 6713 if it is appropriate or consistent with Philippine interests and permitted by the head of the person's office, branch, or agency?
-    choices:
-      - text: Travel grants or expenses for travel entirely outside the Philippines
-        correct: true
-      - text: Domestic resort trips paid by local contractors
-        rationale: |
-          You picked a benefit from local contractors, but the statutory exception here concerns qualifying travel grants or expenses from foreign governments for travel entirely outside the Philippines.
-      - text: Personal holidays paid by vendors with pending office transactions
-        rationale: |
-          You chose vendor-paid personal travel, which is not the foreign-government travel exception described in Section 7(d).
-      - text: Local weekend leisure trips paid by private applicants
-        rationale: |
-          You selected local leisure travel from private applicants, which is not the foreign-government travel exception in Section 7(d).
-    explanation: |
-      For gifts or grants from foreign governments, Section 7(d) permits travel grants or expenses for travel taking place entirely outside the Philippines when acceptance is appropriate or consistent with Philippine interests and is permitted by the head of the official's office, branch, or agency.
+    '
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0003
+  type: single_choice
+  difficulty: medium
+  stem: 'Within how many working days after year-end must heads or other responsible officers render the office''s annual performance report?
 
-  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0012
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Under Section 5(a) of RA 6713, what must the response to a public letter or request contain?
-    choices:
-      - text: The action taken on the request
-        correct: true
-      - text: Only the date the request was received
-        rationale: |
-          You picked the receipt date, but Section 5(a) requires the response to tell the writer what action was taken on the request.
-      - text: Only the name of the next reviewing official
-        rationale: |
-          You picked the next reviewer's name, but the statute requires a response containing the action taken, not merely an internal routing detail.
-      - text: A notice that no response is required
-        rationale: |
-          You chose a no-response notice, but Section 5(a) requires a response within the statutory period and requires it to contain the action taken.
-    explanation: |
-      Section 5(a) requires a response within 15 working days from receipt, and the response must contain the action taken on the request.
+    '
+  choices:
+  - text: 45 working days
+    correct: true
+  - text: 15 working days
+    rationale: 'This uses the letter-response period for reports. Both duties require prompt action. Check which document is due.
 
-  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0013
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Misusing confidential information acquired through official functions for private gain violates which section of RA 6713?
-    choices:
-      - text: Section 7
-        correct: true
-      - text: Section 2
-        rationale: |
-          You picked Section 2, which states the general policy of the law. Misuse of confidential information for private gain is banned in Section 7.
-      - text: Section 12
-        rationale: |
-          You selected Section 12, which deals with promulgation of rules. Banning confidential information misuse for private gain is under Section 7.
-      - text: Section 15
-        rationale: |
-          You chose Section 15, which covers separability clauses. Banning the misuse of confidential official information for gain is in Section 7.
-    explanation: |
-      Section 7(d) prohibits disclosing or misusing confidential or classified information for private gain or interest.
+      '
+  - text: 30 working days
+    rationale: 'This uses a familiar filing number for the annual report. Thirty days applies to some other duties. Check both the duty and its unit.
 
-  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0014
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Owning or controlling a private enterprise regulated by one's own government office is prohibited unless authorized by what?
-    choices:
-      - text: Law
-        correct: true
-      - text: Personal preference
-        rationale: |
-          You picked personal preference, which ignores legal oversight. Owning a business regulated by your office is prohibited unless authorized by law.
-      - text: Informal verbal consent
-        rationale: |
-          You selected informal verbal consent, which lacks legal force. Section 7 forbids owning regulated private enterprises unless authorized by law.
-      - text: Departmental custom
-        rationale: |
-          You chose departmental custom, which cannot override statutory prohibitions. Outside ownership in regulated firms is prohibited unless authorized by law.
-    explanation: |
-      Section 7(b)(1) states that outside ownership or management of a regulated business is prohibited unless authorized by law.
+      '
+  - text: 60 working days
+    rationale: 'This extends the report period beyond the statute. A longer reporting cycle may sound practical. Check the stated year-end deadline.
+
+      '
+  explanation: 'Section 5(b) gives heads or other responsible officers forty-five working days from year-end to render the annual performance report.
+
+    '
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0004
+  type: single_choice
+  difficulty: medium
+  stem: 'For how long after separation does Section 7 bar professional practice connected with matters before the former office?
+
+    '
+  choices:
+  - text: 1 year
+    correct: true
+  - text: 2 years
+    rationale: 'This doubles the post-service period. A longer cooling-off rule may sound familiar. Check the period in this law.
+
+      '
+  - text: 3 years
+    rationale: 'This substitutes a longer restriction. Three years may sound like an ethical safeguard. Check the actual post-service provision.
+
+      '
+  - text: 6 months
+    rationale: 'This halves the period. Leaving office may seem to remove influence quickly. Check the full statutory duration.
+
+      '
+  explanation: 'Section 7(b) keeps the restriction on practice involving matters before the former office for one year after separation.
+
+    '
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0005
+  type: single_choice
+  difficulty: medium
+  stem: 'Which gift falls outside RA 6713''s definition of a prohibited gift in this situation?
+
+    '
+  choices:
+  - text: A small unsolicited token unrelated to any expected favor
+    correct: true
+  - text: A small token requested in return for promptly approving a permit
+    rationale: 'This treats small value as enough. Nominal tokens can be allowed. Check whether it was solicited or tied to a favor.
+
+      '
+  - text: An expensive souvenir from an applicant with a pending permit request
+    rationale: 'This treats souvenir status as enough. A courtesy item can look harmless. Check its value and official connection.
+
+      '
+  - text: Cash offered before a procurement decision as thanks for expected support
+    rationale: 'This treats advance thanks as a personal gift. Gratitude sounds friendly. Check the expected official favor.
+
+      '
+  explanation: 'Section 3(c) excludes an unsolicited gift of nominal or insignificant value when it is not given for an expected or exchanged favor. The small token described meets both conditions.
+
+    '
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0006
+  type: single_choice
+  difficulty: medium
+  stem: 'Under RA 6713''s implementing rules, failing to respond promptly within the public-letter deadline can be grounds for what?
+
+    '
+  choices:
+  - text: Administrative discipline
+    correct: true
+  - text: Automatic dismissal without notice or a chance to answer the charge
+    rationale: 'This confuses grounds for a case with an automatic penalty. Delay is a violation. Check whether disciplinary procedures still apply.
+
+      '
+  - text: Exemption from responsibility if the request was merely acknowledged
+    rationale: 'This treats receipt acknowledgment as sufficient action. A reply was sent. Check whether it states what action was taken.
+
+      '
+  - text: A penalty imposed only when the writer proves a financial loss
+    rationale: 'This adds a loss requirement. Damages can matter in other cases. Check whether the duty itself depends on financial harm.
+
+      '
+  explanation: 'The implementing rules treat failure to act promptly on public communications as a ground for administrative disciplinary action. This means a disciplinary case may be brought.
+
+    '
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0007
+  type: single_choice
+  difficulty: medium
+  stem: 'Which recommendation is prohibited by Section 7(b)(3) of RA 6713?
+
+    '
+  choices:
+  - text: An applicant for a job in a firm with pending office business
+    correct: true
+  - text: A student for a merit scholarship without any promise of special treatment
+    rationale: 'This treats any recommendation as prohibited. Official influence can create concerns. Check whether a job in a transacting private firm is involved.
+
+      '
+  - text: A qualified employee for an internal government training slot under merit rules
+    rationale: 'This extends the private-firm rule to normal staff development. Both involve recommending someone. Check the destination and official transaction.
+
+      '
+  - text: A former pupil for a private job at a firm with no regular or pending office transaction
+    rationale: 'This removes the transaction link from the rule. The employer is private. Check its relationship with the office.
+
+      '
+  explanation: 'Section 7(b)(3) bans recommending a person for a position in a private enterprise with a regular or pending transaction with the official''s office.
+
+    '
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0008
+  type: single_choice
+  difficulty: medium
+  stem: 'When considering whether a gift is allowed under the lesson''s RA 6713 rules, which facts matter most?
+
+    '
+  choices:
+  - text: Its value, the relationship, and any expected favor
+    correct: true
+  - text: Its low price alone, regardless of an expected official favor
+    rationale: 'This treats nominal value as a complete exemption. Low-value tokens can be allowed. Check the giver''s purpose too.
+
+      '
+  - text: Its family occasion alone, regardless of an expected business benefit
+    rationale: 'This treats a celebration as enough. Family gifts can be allowed. Check whether a benefit is expected.
+
+      '
+  - text: Its polite wording alone, regardless of its value or official connection
+    rationale: 'This treats courteous presentation as legality. Gifts often arrive with thanks. Check the actual value and transaction.
+
+      '
+  explanation: 'The rules distinguish gifts by value, relationship, and purpose. A gift linked to an expected official favor is not made acceptable merely by its label.
+
+    '
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0009
+  type: single_choice
+  difficulty: medium
+  stem: 'Subject to lawful disclosure restrictions, when must public documents be available for inspection under Section 5(e)?
+
+    '
+  choices:
+  - text: During reasonable working hours
+    correct: true
+  - text: Only after the general thirty-day delay for all document inspection requests
+    rationale: 'This invents a blanket waiting period. Some filings have deadlines. Check the public-inspection duty itself.
+
+      '
+  - text: Only during an agency head's personal availability for each inspection request
+    rationale: 'This adds personal approval to routine access. The agency head has authority. Check what the law makes readily available.
+
+      '
+  - text: Only for people who already work in the government office holding them
+    rationale: 'This restricts public access to staff. Staff already use the records. Check who the inspection duty serves.
+
+      '
+  explanation: 'Section 5(e) requires public documents to be accessible and readily available for inspection during reasonable working hours. Other lawful disclosure limits still apply.
+
+    '
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0010
+  type: single_choice
+  difficulty: medium
+  stem: 'An official has legal permission for private practice, but the work conflicts with official functions. How does RA 6713 treat it?
+
+    '
+  choices:
+  - text: It remains prohibited.
+    correct: true
+  - text: It is allowed because permission removes every conflict restriction.
+    rationale: 'This treats authorization as the only condition. Permission is required. Check the separate condition about conflict.
+
+      '
+  - text: It is allowed whenever the work happens outside government hours.
+    rationale: 'This treats timing as enough. Evening work avoids some schedule problems. Check whether the official role still conflicts.
+
+      '
+  - text: It is allowed if the private client offers no direct cash payment.
+    rationale: 'This treats nonpayment as removing all conflicts. Money often signals an interest. Check duties and influence as well.
+
+      '
+  explanation: 'Section 7(b)(2) requires both legal authorization and absence of conflict or tendency to conflict with official functions. The stated conflict makes the practice prohibited.
+
+    '
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0011
+  type: single_choice
+  difficulty: medium
+  stem: 'Which foreign-government travel grant can qualify under Section 7(d), with appropriate Philippine interests and office-head permission?
+
+    '
+  choices:
+  - text: Travel taking place entirely abroad
+    correct: true
+  - text: Travel within the Philippines with the same office-head permission
+    rationale: 'This ignores the location condition. Official approval sounds sufficient. Check where all the travel must take place.
+
+      '
+  - text: Travel abroad funded by a private contractor seeking an office approval
+    rationale: 'This replaces the foreign government with a private interested giver. The destination fits. Check the source of the grant.
+
+      '
+  - text: Travel abroad from a foreign government accepted without the required permission
+    rationale: 'This ignores the approval condition. The giver and location fit. Check all conditions together.
+
+      '
+  explanation: 'Section 7(d) permits qualifying foreign-government grants for travel entirely outside the Philippines. Acceptance must fit Philippine interests and have the required office-head permission.
+
+    '
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0012
+  type: single_choice
+  difficulty: medium
+  stem: 'What must the reply to a public letter or request state under Section 5(a)?
+
+    '
+  choices:
+  - text: The action taken on the request
+    correct: true
+  - text: Only that the office received and logged the communication
+    rationale: 'This treats acknowledgment as the required response. Logging is a useful first step. Check whether the writer learns what was done.
+
+      '
+  - text: Only the name of the official expected to handle it later
+    rationale: 'This treats internal routing as sufficient. Naming an officer shows movement. Check whether the reply states an action.
+
+      '
+  - text: Only the general policies of the office without addressing the request
+    rationale: 'This substitutes broad information for a response. Policies may be relevant. Check whether the particular request is addressed.
+
+      '
+  explanation: 'Section 5(a) says the reply must contain the action taken on the request.
+
+    '
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0013
+  type: single_choice
+  difficulty: medium
+  stem: 'Which section of RA 6713 prohibits using confidential official information for private gain?
+
+    '
+  choices:
+  - text: Section 7
+    correct: true
+  - text: Section 2
+    rationale: 'This chooses the broad policy statement. Ethics are introduced there. Check the section listing specific prohibited acts.
+
+      '
+  - text: Section 8
+    rationale: 'This confuses public financial disclosure with misuse of confidential information. Both involve information. Check the kind of information and conduct.
+
+      '
+  - text: Section 9
+    rationale: 'This confuses removing business interests with misusing information. Both address private gain. Check the particular prohibited act.
+
+      '
+  explanation: 'Section 7(c) prohibits using or disclosing confidential or classified official information to further private interests, give undue advantage, or harm the public interest.
+
+    '
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0014
+  type: single_choice
+  difficulty: medium
+  stem: 'What can expressly authorize an otherwise prohibited role in a private enterprise regulated by an official''s office?
+
+    '
+  choices:
+  - text: Law
+    correct: true
+  - text: The supervisor's informal verbal approval
+    rationale: 'This treats personal approval as legal authority. Supervisors direct work. Check the source required for this exception.
+
+      '
+  - text: A longstanding custom within the government department
+    rationale: 'This treats repetition as authorization. Common practice can look accepted. Check whether a law expressly allows the role.
+
+      '
+  - text: The official's promise to avoid signing the firm's papers
+    rationale: 'This treats a personal promise as the statutory exception. Recusal may seem protective. Check the law''s express-authorization requirement.
+
+      '
+  explanation: 'Section 7(b)(1) prohibits the specified roles in regulated private enterprises unless expressly allowed by law.
+
+    '
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0015
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'A regular supplier asks an official to recommend a friend for a company position. What fact brings the request within Section 7(b)(3)?
+
+    '
+  choices:
+  - text: The supplier has regular transactions with the office.
+    correct: true
+  - text: The friend has qualifications that match the vacant position.
+    rationale: 'This treats merit as removing the transaction restriction. Qualifications matter in hiring. Check the firm''s link to the office.
+
+      '
+  - text: The official would give the recommendation outside working hours.
+    rationale: 'This treats timing as removing official influence. Off-duty actions can seem private. Check the transaction relationship.
+
+      '
+  - text: The supplier has not offered the official a payment for the letter.
+    rationale: 'This treats absence of payment as enough. Gifts are another ethical concern. Check the separate recommendation ban.
+
+      '
+  explanation: 'The rule covers a private enterprise with either regular or pending official transactions. A regular supplier falls within that relationship.
+
+    '
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0016
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'An employee shares an unpublished bid evaluation with a friend so the friend''s firm can adjust its offer. Which rule applies?
+
+    '
+  choices:
+  - text: The ban on misuse of confidential information
+    correct: true
+  - text: Only the rule setting a deadline for public-letter responses
+    rationale: 'This confuses communication with responding to a request. Information was sent. Check whether it was confidential and gave an advantage.
+
+      '
+  - text: Only the duty to make all official information public immediately
+    rationale: 'This treats access as unlimited release. Public documents should be accessible. Check whether the particular information is confidential.
+
+      '
+  - text: The exception allowing unsolicited gifts of insignificant value
+    rationale: 'This confuses a private advantage with a small gift. The friend benefits. Check the source and use of the information.
+
+      '
+  explanation: 'The employee uses confidential information learned through office to give someone an undue advantage. Section 7(c) prohibits that use.
+
+    '
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0017
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'When an authorized signatory is absent, whom does Section 5(c) direct to sign on that official''s behalf?
+
+    '
+  choices:
+  - text: The next-in-rank official or officer in charge
+    correct: true
+  - text: Any private applicant who needs the document urgently
+    rationale: 'This treats urgency as signing authority. Prompt service matters. Check who can act within the office.
+
+      '
+  - text: Only the absent official, after returning regardless of delay
+    rationale: 'This ignores the substitute-signing provision. The absent official normally signs. Check the rule for absence.
+
+      '
+  - text: The first available employee without regard to rank or designation
+    rationale: 'This treats availability as authority. It could speed processing. Check the specified rank or assigned role.
+
+      '
+  explanation: 'Section 5(c) directs the official next in rank or the officer in charge to sign for the absent authorized signatory.
+
+    '
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0018
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'An official offers a former client priority approval because their company will later employ the official. Which prohibition is most directly implicated?
+
+    '
+  choices:
+  - text: Financial interest in a transaction requiring office approval
+    correct: true
+  - text: The practical limit on the number of document signatories alone
+    rationale: 'This focuses on paperwork instead of personal benefit. Approval uses documents. Check what the promised employment creates.
+
+      '
+  - text: The obligation to write an annual report within the stated period
+    rationale: 'This substitutes a reporting duty for the transaction issue. Reports support accountability. Check the official''s private interest.
+
+      '
+  - text: The public's right to inspect documents during office working hours
+    rationale: 'This focuses on access instead of conflicted approval. The transaction may create records. Check the reason for priority treatment.
+
+      '
+  explanation: 'The future employment creates a private financial interest in the company''s transaction. Section 7(a) bars direct or indirect financial or material interest in a transaction requiring the office''s approval.
+
+    '
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0019
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'An official resigns and opens a professional practice. Which client matter remains barred during the following year?
+
+    '
+  choices:
+  - text: A matter before the official's former office
+    correct: true
+  - text: Every matter in the profession regardless of its connection to government
+    rationale: 'This turns a targeted restriction into a total practice ban. A cooling-off period applies. Check its specific link to the former office.
+
+      '
+  - text: Only a matter that uses exactly the former official's old job title
+    rationale: 'This narrows the rule to titles. An old title may suggest influence. Check where the matter is pending.
+
+      '
+  - text: Only a matter begun before the official submitted a resignation
+    rationale: 'This adds a start-date exception. Earlier matters sound more connected. Check whether the rule covers any matter before that office.
+
+      '
+  explanation: 'For one year after separation, the professional cannot practice in connection with any matter before the former office. The place of the matter is the key condition.
+
+    '
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0020
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'Which statement correctly combines permission and conflict rules for private professional practice during public service?
+
+    '
+  choices:
+  - text: Legal authorization and freedom from official conflict are both required.
+    correct: true
+  - text: Legal authorization alone permits work even when it conflicts with office duties.
+    rationale: 'This drops the conflict condition. Authorization is necessary. Check the additional proviso in Section 7(b)(2).
+
+      '
+  - text: Absence of a cash payment permits work even without legal authorization for it.
+    rationale: 'This replaces legal permission with nonpayment. Unpaid help seems harmless. Check both statutory conditions.
+
+      '
+  - text: Working after office hours permits practice without checking conflicts or authority.
+    rationale: 'This replaces legal tests with scheduling. After-hours work avoids lost office time. Check whether duties and clients still conflict.
+
+      '
+  explanation: 'The practice must be authorized by the Constitution or law. It must also not conflict or tend to conflict with official functions. Both conditions are needed.
+
+    '
