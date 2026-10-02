@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-trigonometry-trigonometric-identities-0001	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-trigonometric-identities-0002	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-trigonometric-identities-0003	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-trigonometric-identities-0004	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-trigonometric-identities-0005	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-trigonometric-identities-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Reframed repeated identity recognition as a different-angle counterexample.
+q-trigonometry-trigonometric-identities-0007	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-trigonometric-identities-0008	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-trigonometric-identities-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Replaced a poorly explained tangent distractor with an exact stopped-factor mistake.
+q-trigonometry-trigonometric-identities-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Removed ambiguous same-identity wording and the longest-answer cue.
+q-trigonometry-trigonometric-identities-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	LOW	Added explicit domain conditions and removed the longest-answer cue.
+q-trigonometry-trigonometric-identities-0012	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-trigonometric-identities-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	LOW	Removed a worked-choice length cue and unrelated material from the explanation.
+q-trigonometry-trigonometric-identities-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	LOW	Added explicit domain conditions and removed the longest-answer cue.
+q-trigonometry-trigonometric-identities-0015	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	LOW	Removed the longest-answer cue while preserving the notation test.
+q-trigonometry-trigonometric-identities-0016	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-trigonometric-identities-0017	NEW	NEW	new question	NONE	
+q-trigonometry-trigonometric-identities-0018	NEW	NEW	new question	NONE	
+q-trigonometry-trigonometric-identities-0019	NEW	NEW	new question	NONE	
+q-trigonometry-trigonometric-identities-0020	NEW	NEW	new question	NONE	

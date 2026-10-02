@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-trigonometry-laws-of-sines-and-cosines-0001	CORRECTED	SOLVED-MATCH	distractor;explanation;notes;format	LOW	Removed a unique longest-answer cue with an exact special-angle substitution error.
+q-trigonometry-laws-of-sines-and-cosines-0002	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-laws-of-sines-and-cosines-0003	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-laws-of-sines-and-cosines-0004	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Replaced vague arithmetic distractors with exact formula mistakes.
+q-trigonometry-laws-of-sines-and-cosines-0005	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Reframed a repeated side computation as a matched-pair error check.
+q-trigonometry-laws-of-sines-and-cosines-0006	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-laws-of-sines-and-cosines-0007	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-laws-of-sines-and-cosines-0008	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Reframed a repeated side computation as an obtuse-cosine sign check.
+q-trigonometry-laws-of-sines-and-cosines-0009	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-laws-of-sines-and-cosines-0010	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-laws-of-sines-and-cosines-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Reframed a repeated angle-cosine computation as an algebra sign check.
+q-trigonometry-laws-of-sines-and-cosines-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Reframed a repeated SAS computation as a path-turn translation problem.
+q-trigonometry-laws-of-sines-and-cosines-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	LOW	Tightened the right-triangle answer and removed a worked-choice cue.
+q-trigonometry-laws-of-sines-and-cosines-0014	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-laws-of-sines-and-cosines-0015	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Removed the longest-answer cue and an unrelated forty-five-degree distractor.
+q-trigonometry-laws-of-sines-and-cosines-0016	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-laws-of-sines-and-cosines-0017	NEW	NEW	new question	NONE	
+q-trigonometry-laws-of-sines-and-cosines-0018	NEW	NEW	new question	NONE	
+q-trigonometry-laws-of-sines-and-cosines-0019	NEW	NEW	new question	NONE	
+q-trigonometry-laws-of-sines-and-cosines-0020	NEW	NEW	new question	NONE	

@@ -10,21 +10,19 @@ questions:
     stem: |
       Let $A = \{1, 3, 5, 7\}$ and $B = \{3, 5, 8, 9\}$. Find the intersection $A \cap B$.
     choices:
-      - text: $\{3, 5\}$
+      - text: '$\{3,5\}$'
         correct: true
-      - text: $\{1, 3, 5, 7, 8, 9\}$
+      - text: '$\{1,3,5,7,8,9\}$'
         rationale: |
-          You gave the union. Intersection keeps only what appears in both sets, not
-          everything from either.
-      - text: $\{1, 7\}$
+          This finds the union instead of the intersection. Combining all members is a familiar set operation. Check whether the symbol asks for either set or both sets.
+      - text: '$\{1,7\}$'
         rationale: |
-          You gave what is in the first set alone. Intersection is the overlap, so
-          both sets have to contain it.
-      - text: $\{8, 9\}$
+          This keeps the members only in $A$. Removing the overlap can look like comparing two sets. Check that the intersection keeps the shared members.
+      - text: '$\{8,9\}$'
         rationale: |
-          You gave what is in the second set alone. The overlap is what they share.
+          This keeps the members only in $B$. They are the new members in the second list. Check that the intersection requires membership in both lists.
     explanation: |
-      The intersection $A \cap B$ contains elements present in both set $A$ and set $B$. The numbers 3 and 5 appear in both sets, so $A \cap B = \{3, 5\}$.
+      Read each member of $A$ and check whether it also appears in $B$. The shared members are $3$ and $5$. Thus $A\cap B=\{3,5\}$.
 
   - id: q-algebra-sets-and-set-notation-0002
     type: which-is-true
@@ -32,21 +30,19 @@ questions:
     stem: |
       Which of the following statements correctly uses set notation to express that $5$ is an element of set $S = \{2, 4, 5, 8\}$?
     choices:
-      - text: $5 \in S$
+      - text: '$5\in S$'
         correct: true
-      - text: $5 \subset S$
+      - text: '$5\subset S$'
         rationale: |
-          You used the subset symbol. That says one set sits inside another, and 5
-          here is a single element, not a set.
-      - text: $S \in 5$
+          This uses a subset symbol for one listed element. Both symbols describe belonging in some way. Check whether the left side names an element or a set.
+      - text: '$S\in5$'
         rationale: |
-          You wrote it backwards. Membership reads element first, then the set.
-      - text: $5 \subseteq S$
+          This reverses the element and set. Both names are present. Check that the member goes before the membership symbol.
+      - text: '$5\subseteq S$'
         rationale: |
-          You used the subset symbol again, this time the one that allows equality.
-          Membership is a different relation.
+          This uses subset inclusion for a number treated as a single element. The extra equality bar can look like including the element. Check that membership uses $\in$.
     explanation: |
-      The symbol $\in$ denotes element membership ($5 \in S$). The symbols $\subset$ and $\subseteq$ represent subset relationships between sets, not elements and sets.
+      The number $5$ appears in the list defining $S$. The symbol $\in$ means "is an element of." Therefore $5\in S$.
 
   - id: q-algebra-sets-and-set-notation-0003
     type: direct-computation
@@ -54,22 +50,19 @@ questions:
     stem: |
       Let the universal set be $U = \{1, 2, 3, 4, 5, 6, 7, 8\}$ and set $A = \{2, 4, 6, 8\}$. Find the complement $A'$.
     choices:
-      - text: $\{1, 3, 5, 7\}$
+      - text: '$\{1,3,5,7\}$'
         correct: true
-      - text: $\{2, 4, 6, 8\}$
+      - text: '$\{2,4,6,8\}$'
         rationale: |
-          You gave the set itself. The complement is everything in the universal set
-          that is left over.
-      - text: $\{1, 2, 3, 4, 5, 6, 7, 8\}$
+          This repeats $A$ instead of taking its complement. All these members belong to the universal set. Check that a complement excludes members of $A$.
+      - text: '$\{1,2,3,4,5,6,7,8\}$'
         rationale: |
-          You gave the whole universal set. The complement leaves out the members of
-          the set.
-      - text: $\emptyset$
+          This keeps the entire universal set. The complement is found within that set. Check that members of $A$ must be removed.
+      - text: '$\emptyset$'
         rationale: |
-          You emptied it. There are four numbers in the universal set that are not
-          in this one.
+          This assumes $A$ covers the entire universal set. Its four even members can look like a complete pattern. Check the odd members still outside $A$.
     explanation: |
-      The complement $A'$ consists of all elements in the universal set $U$ that are not in set $A$. Subtracting $A$ from $U$ leaves $\{1, 3, 5, 7\}$.
+      Remove the members of $A$ from $U$. The remaining members are $1$, $3$, $5$, and $7$. Hence $A^\prime=\{1,3,5,7\}$.
 
   - id: q-algebra-sets-and-set-notation-0004
     type: which-is-true
@@ -81,18 +74,15 @@ questions:
         correct: true
       - text: The empty set contains the number 0.
         rationale: |
-          You confused the empty set with a set holding zero. It holds nothing at
-          all, not even 0.
+          This treats an empty set as a set containing $0$. Both ideas involve zero. Check whether zero counts elements or is itself an element.
       - text: The empty set is an element of every set.
         rationale: |
-          You said element where subset belongs. It sits inside every set as a
-          subset, not as a member of it.
+          This replaces subset membership with element membership. Both describe a connection between sets. Check whether every element is contained or the whole set is named as a member.
       - text: The complement of any set is equal to the empty set.
         rationale: |
-          You mixed up complement with the empty set. A complement depends on the
-          universal set.
+          This assumes every set fills its universal set. That special case does have an empty complement. Check whether the universal set has elements outside the given set.
     explanation: |
-      By definition, the empty set $\emptyset$ (containing zero elements) is a subset of every set. It does not contain the number 0; it contains no elements at all.
+      A subset must have all its elements in the larger set. The empty set has no elements that could fail this condition. Therefore it is a subset of every set.
 
   - id: q-algebra-sets-and-set-notation-0005
     type: direct-computation
@@ -100,21 +90,19 @@ questions:
     stem: |
       Let $A = \{a, b, c\}$ and $B = \{b, c, d, e\}$. Find the union $A \cup B$.
     choices:
-      - text: $\{a, b, c, d, e\}$
+      - text: '$\{a,b,c,d,e\}$'
         correct: true
-      - text: $\{b, c\}$
+      - text: '$\{b,c\}$'
         rationale: |
-          You gave the intersection. Union collects everything from both sets, not
-          only the shared part.
-      - text: $\{a\}$
+          This keeps only the intersection. Shared members belong in the union too, which can make the smaller set seem sufficient. Check that either-set membership is enough.
+      - text: '$\{a\}$'
         rationale: |
-          You kept only what the first set has on its own. Union keeps the shared
-          members too.
-      - text: $\{d, e\}$
+          This keeps only the members exclusive to $A$. Comparing the lists identifies this difference. Check that the union includes $B$ too.
+      - text: '$\{a,b,c,d,e,f\}$'
         rationale: |
-          You kept only what the second set has on its own.
+          This extends the alphabet pattern to an unlisted $f$. Consecutive letters can suggest a continuing sequence. Check that every member appears in at least one stated set.
     explanation: |
-      The union $A \cup B$ combines all distinct elements from both set $A$ and set $B$. Combining them gives $\{a, b, c, d, e\}$.
+      Include every element appearing in either list. List shared elements only once. The union is $\{a,b,c,d,e\}$.
 
   - id: q-algebra-sets-and-set-notation-0006
     type: word-problem
@@ -122,22 +110,19 @@ questions:
     stem: |
       In a Grade 10 class of 40 students at Pasig City Science High School, 25 students join the Math Club and 20 students join the Science Club. If 10 students join both clubs, how many students join at least one of the two clubs?
     choices:
-      - text: $35$
+      - text: '$35$'
         correct: true
-      - text: $45$
+      - text: '$45$'
         rationale: |
-          You added the two clubs and forgot to subtract the overlap. The ten in
-          both would be counted twice.
-      - text: $15$
+          This adds both club counts without removing their overlap. Each count is correctly read. Check whether students in both clubs were counted twice.
+      - text: '$15$'
         rationale: |
-          You subtracted the overlap twice, or you gave the count for one club minus
-          the overlap.
-      - text: $30$
+          This gives only the students in Math but not Science, $25-10$. That is one valid disjoint group. Check that "at least one" includes all three inside groups.
+      - text: '$30$'
         rationale: |
-          You dropped one club's members. The formula adds both totals first, then
-          removes the overlap once.
+          This subtracts the overlap from the entire class, $40-10$. That counts everyone outside the overlap, including neither club. Check that the target is club membership.
     explanation: |
-      Using the set overlap formula $|M \cup S| = |M| + |S| - |M \cap S|$, we get $|M \cup S| = 25 + 20 - 10 = 35$. Adding $25 + 20 = 45$ without subtracting the intersection counts students in both clubs twice.
+      Add the club counts, then remove the overlap counted twice: $25+20-10=35$. Thus $35$ students join at least one club.
 
   - id: q-algebra-sets-and-set-notation-0007
     type: word-problem
@@ -145,22 +130,19 @@ questions:
     stem: |
       In a survey of 50 students in Quezon City, 30 like halo-halo and 22 like bingsu. If 8 students like neither dessert, how many students like both halo-halo and bingsu?
     choices:
-      - text: $10$
+      - text: '$10$'
         correct: true
-      - text: $2$
+      - text: '$2$'
         rationale: |
-          You subtracted in the wrong direction somewhere. Start from the 42 who
-          like at least one, then use the two totals.
-      - text: $18$
+          This assumes all fifty students like a dessert, giving $30+22-50$. The class total looks like the union size. Check whether a neither group is stated.
+      - text: '$42$'
         rationale: |
-          You gave a difference between the two dessert counts. The overlap comes
-          from the union formula.
-      - text: $12$
+          This gives the number who like at least one dessert. Removing the neither group is a correct first step. Check that the overlap still needs to be found.
+      - text: '$8$'
         rationale: |
-          You used 50 as the union instead of 42. Eight students like neither, so
-          they are outside it.
+          This returns the neither count as the overlap. Both are separate Venn regions. Check whether the requested students belong to both sets or to neither.
     explanation: |
-      The number of students who like at least one dessert is $50 - 8 = 42$. Using $|H \cup B| = |H| + |B| - |H \cap B|$, we get $42 = 30 + 22 - |H \cap B| \implies 42 = 52 - |H \cap B|$, so $|H \cap B| = 10$.
+      The union has $50-8=42$ students. The two dessert counts sum to $30+22=52$. The extra count is the overlap: $52-42=10$.
 
   - id: q-algebra-sets-and-set-notation-0008
     type: which-is-true
@@ -172,18 +154,15 @@ questions:
         correct: true
       - text: $8$
         rationale: |
-          You used $2 \times 4$. The count of subsets is $2$ raised to the number of
-          elements.
+          This multiplies $2$ by $4$ instead of using $2^4$. Two choices do apply to each element. Check that independent choices multiply together.
       - text: $15$
         rationale: |
-          You subtracted 1 to drop the empty set. It counts, so the total stays at
-          16.
+          This excludes the empty subset. It may look like selecting no elements does not make a subset. Check that selecting no elements is also one possible selection.
       - text: $4$
         rationale: |
-          You gave the number of elements. Each element can be in or out, which
-          multiplies the possibilities.
+          This counts elements instead of subsets. Each single element can form a subset. Check that subsets can also contain several elements or no elements.
     explanation: |
-      The total number of subsets for a set with $n$ elements is given by $2^n$. For $n = 4$, the number of subsets is $2^4 = 16$. (15 is the number of proper subsets).
+      For each of the four elements, choose to include it or leave it out. There are two choices for each element. Multiply them: $2\times2\times2\times2=2^4=16$ subsets.
 
   - id: q-algebra-sets-and-set-notation-0009
     type: word-problem
@@ -191,43 +170,39 @@ questions:
     stem: |
       In a class of 45 students in Manila, 28 study Filipino and 18 study Spanish. If every student studies at least one of these two languages, how many students study ONLY Filipino?
     choices:
-      - text: $27$
+      - text: '$27$'
         correct: true
-      - text: $28$
+      - text: '$28$'
         rationale: |
-          You gave the Filipino count. The question asks how many take Filipino and
-          not Spanish, so the overlap comes off.
-      - text: $1$
+          This includes all Filipino students, including the overlap. The reported twenty-eight is a true set total. Check the word "only."
+      - text: '$1$'
         rationale: |
-          You gave the overlap itself. Take that away from the Filipino total
-          instead.
-      - text: $17$
+          This gives the overlap, $28+18-45$. That is a useful intermediate value. Check that Filipino-only excludes this overlap.
+      - text: '$17$'
         rationale: |
-          You used the Spanish total. The subject you want is Filipino.
+          This gives Spanish-only, $18-1$. The overlap was correctly removed. Check which language group is requested.
     explanation: |
-      First find the number of students studying both: $|F \cup S| = |F| + |S| - |F \cap S| \implies 45 = 28 + 18 - x \implies x = 1$. The number studying only Filipino is $28 - 1 = 27$.
+      Everyone studies at least one language. The overlap is $28+18-45=1$. Filipino-only is $28-1=27$.
 
   - id: q-algebra-sets-and-set-notation-0010
     type: which-is-true
     difficulty: medium
     stem: |
-      Let $A$ and $B$ be two sets. Which set expression represents the elements that belong to set $A$ but do NOT belong to set $B$?
+      Relative to a common universal set $U$, which expression represents elements in $A$ but not in $B$?
     choices:
-      - text: $A \cap B'$
+      - text: '$A\cap B^\prime$'
         correct: true
-      - text: $A \cup B'$
+      - text: '$A\cup B^\prime$'
         rationale: |
-          You used union. In $A$ and not in $B$ means both conditions hold at once,
-          so it is an intersection.
-      - text: $A' \cap B$
+          This allows elements outside $A$ as long as they are outside $B$. Both requested set names are present. Check that the condition requires membership in $A$.
+      - text: '$A^\prime\cap B$'
         rationale: |
-          You have the two sets swapped. This says in $B$ and not in $A$.
-      - text: $(A \cap B)'$
+          This selects elements in $B$ but outside $A$. The complement is attached to the other set. Check which membership is excluded.
+      - text: '$(A\cap B)^\prime$'
         rationale: |
-          You took the complement of the whole overlap, which also picks up
-          everything outside $A$.
+          This selects every element outside the shared region. That includes elements outside $A$ as well. Check that the element must satisfy both parts of the stated condition.
     explanation: |
-      The set of elements in $A$ and not in $B$ is the relative complement $A \setminus B$, which equals $A \cap B'$ (the intersection of $A$ with the complement of $B$).
+      An element must be in $A$ and outside $B$. Outside $B$ means in $B^\prime$. Requiring both conditions gives $A\cap B^\prime$.
 
   - id: q-algebra-sets-and-set-notation-0011
     type: word-problem
@@ -239,26 +214,24 @@ questions:
       - 12 like Volleyball and Badminton
       - 10 like Basketball and Badminton
       - 5 like all three sports
-      
+
       How many students like at least one of these three sports?
+
+      Each stated pairwise count includes those in all three groups.
     choices:
-      - text: $93$
+      - text: '$93$'
         correct: true
-      - text: $125$
+      - text: '$125$'
         rationale: |
-          You added the three totals and never subtracted the overlaps. Everyone in
-          two sports is counted twice that way.
-      - text: $88$
+          This adds all three totals without correcting overlaps. Each reported set total is used. Check how many times a shared student is counted.
+      - text: '$88$'
         rationale: |
-          You subtracted the triple overlap instead of adding it back. It comes off
-          three times in the pair terms, so it goes back once.
-      - text: $98$
+          This subtracts the pairwise counts but does not restore the triple overlap. Pairwise subtraction is needed. Check that a student in all three was then subtracted too many times.
+      - text: '$98$'
         rationale: |
-          You missed one of the pair overlaps when subtracting.
+          This adds the triple overlap twice after subtracting the pairs. Restoring the center is part of the formula. Check that it needs to be restored only once.
     explanation: |
-      Using the 3-set inclusion-exclusion principle:
-      $|B \cup V \cup D| = |B| + |V| + |D| - |B \cap V| - |V \cap D| - |B \cap D| + |B \cap V \cap D|$
-      $= 50 + 40 + 35 - 15 - 12 - 10 + 5 = 125 - 37 + 5 = 93$.
+      Add the three totals: $50+40+35=125$. Subtract the three pairwise overlaps: $125-15-12-10=88$. Restore the triple overlap once: $88+5=93$.
 
   - id: q-algebra-sets-and-set-notation-0013
     type: direct-computation
@@ -270,15 +243,15 @@ questions:
         correct: true
       - text: $\{-2, 3\}$
         rationale: |
-          You kept $-2$, but $(-2)^2 = 4 < 9$, so $-2$ belongs to $B$ and must be removed from $A \setminus B$.
+          This fails to remove $-2$ even though it belongs to $B$. Its negative sign can make the square look negative. Check the value of $(-2)^2$.
       - text: $\emptyset$
         rationale: |
-          You removed every element. But $3$ belongs to $A$ and does not belong to $B$ because $3^2 = 9$ is not less than 9.
+          This treats the strict inequality $x^2<9$ as allowing equality. The boundary $3$ looks close to the allowed values. Check whether the inequality includes its boundary.
       - text: $\{-3, 3\}$
         rationale: |
-          You added $-3$. The first set starts at $-2$, so $-3$ is not in $A$ and cannot belong to $A \setminus B$.
+          This includes the negative boundary $-3$ without checking $A$. Both square boundaries have the same magnitude. Check that every element of the relative complement starts in $A$.
     explanation: |
-      Listing elements in roster form: $A = \{-2, -1, 0, 1, 2, 3\}$. For set $B$, $x^2 < 9 \implies -3 < x < 3$, so integers in $B$ are $\{-2, -1, 0, 1, 2\}$. Subtracting $B$ from $A$ leaves $A \setminus B = \{3\}$.
+      The integers in $A$ are $-2,-1,0,1,2,3$. The condition $x^2<9$ means $-3<x<3$, so $B=\{-2,-1,0,1,2\}$. Remove these elements from $A$. The remaining set is $A\setminus B=\{3\}$.
 
   - id: q-algebra-sets-and-set-notation-0014
     type: which-is-true
@@ -290,41 +263,160 @@ questions:
         correct: true
       - text: $(A \cup B)' = A' \cup B'$
         rationale: |
-          You kept the union symbol on the right. De Morgan flips it: the complement
-          of a union is an intersection.
+          This keeps union after taking the complement. The same set symbols remain visible on both sides. Check that being outside a union requires being outside both sets.
       - text: $(A \cap B)' = A' \cap B'$
         rationale: |
-          You applied it to an intersection and kept the intersection. That one
-          flips to a union.
+          This keeps intersection after taking the complement. Reusing the original operation looks consistent. Check whether being outside an intersection means missing one set or both.
       - text: $A \cap (B \cup C) = (A \cap B) \cup C$
         rationale: |
-          You picked the distributive rule, and it is written wrongly here as well.
+          This distributes intersection to only one part of a union. Its first term matches the usual distribution pattern. Check that each part of the union is intersected with $A$.
     explanation: |
-      De Morgan's Laws state that the complement of a union is the intersection of the complements: $(A \cup B)' = A' \cap B'$, and the complement of an intersection is the union of the complements: $(A \cap B)' = A' \cup B'$.
+      An element outside $A\cup B$ belongs to neither $A$ nor $B$. It is therefore in both $A^{\prime}$ and $B^{\prime}$. This gives $(A\cup B)^{\prime}=A^{\prime}\cap B^{\prime}$.
 
   - id: q-algebra-sets-and-set-notation-0015
     type: word-problem
     difficulty: hard
     stem: |
       In a barangay youth center in Cavite with 60 teenagers, 35 play mobile games, 25 play basketball, and 20 participate in the barangay choir. 10 play mobile games and basketball, 8 play basketball and choir, 7 play mobile games and choir, and 3 participate in all three activities. How many teenagers participate ONLY in the barangay choir?
+
+      Each stated pairwise count includes those in all three groups.
     choices:
-      - text: $8$
+      - text: '$8$'
         correct: true
-      - text: $5$
+      - text: '$5$'
         rationale: |
-          You forgot to add the three who do all three back in, or you dropped one
-          of the overlaps.
-      - text: $10$
+          This subtracts both pairwise overlaps without restoring the triple group, giving $20-8-7$. The two overlap counts are correctly read. Check that their shared center was removed twice.
+      - text: '$20$'
         rationale: |
-          You used one of the pair overlaps as the answer instead of working out the
-          choir-only figure.
-      - text: $12$
+          This uses the entire choir group. That includes students in other activities too. Check the word "only."
+      - text: '$13$'
         rationale: |
-          You subtracted the triple overlap once instead of twice from the pair
-          totals.
+          This subtracts only the gaming overlap, giving $20-7$. One shared region has been removed. Check the basketball overlap as well.
     explanation: |
-      Choir total $= 20$.
-      Choir and mobile games only $= 7 - 3 = 4$.
-      Choir and basketball only $= 8 - 3 = 5$.
-      All three $= 3$.
-      Teenagers participating ONLY in choir $= 20 - (4 + 5 + 3) = 20 - 12 = 8$.
+      Choir-only is $20-8-7+3=8$. Add the triple overlap back once because both subtracted pairwise counts include those same three students.
+
+  - id: q-algebra-sets-and-set-notation-0016
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Let $U=\{1,2,3,4,5,6\}$, $A=\{1,2,3\}$, and $B=\{3,4,5\}$. Find $(A\cup B)^\prime$ relative to $U$.
+    choices:
+      - text: '$\{6\}$'
+        correct: true
+      - text: '$\{3,6\}$'
+        rationale: |
+          This removes the shared member three from the union before taking its complement. Avoiding duplicate entries can be confused with excluding shared entries. Check that a union includes shared members once.
+      - text: '$\{4,5,6\}$'
+        rationale: |
+          This complements only $A$. Finding a complement is the correct final action. Check that the union must be formed first.
+      - text: '$\{1,2,6\}$'
+        rationale: |
+          This complements only $B$. The second set is read last and can get all the attention. Check the parentheses before taking the complement.
+    explanation: |
+      The union is $\{1,2,3,4,5\}$. Remove those members from $U$. Only $6$ remains, so the complement is $\{6\}$.
+    approved: false
+
+  - id: q-algebra-sets-and-set-notation-0017
+    type: word-problem
+    difficulty: exam
+    stem: |
+      Of 100 applicants, 45 prefer Engineering, 40 Business, and 35 Computer Science. The pairwise counts are 15 for Engineering and Business, 10 for Business and Computer Science, and 12 for Engineering and Computer Science. Five prefer all three. Pairwise counts include these five. How many prefer exactly one program?
+    choices:
+      - text: '$61$'
+        correct: true
+      - text: '$46$'
+        rationale: |
+          This subtracts all pairwise counts from each relevant program but does not restore the triple overlap, giving $120-2(37)$. Pairwise subtraction correctly removes double memberships. Check how often the center is removed.
+      - text: '$83$'
+        rationale: |
+          This subtracts each pairwise count once from the total memberships, giving $120-37$. That resembles the union calculation. Check that exactly-one counting must remove both memberships of a two-program applicant.
+      - text: '$120$'
+        rationale: |
+          This adds the program totals. All three totals are correctly read. Check that applicants choosing several programs appear in several totals.
+    explanation: |
+      Engineering-only is $45-15-12+5=23$. Business-only is $40-15-10+5=20$. Computer Science-only is $35-12-10+5=18$. Add the disjoint groups: $23+20+18=61$.
+    approved: false
+
+  - id: q-algebra-sets-and-set-notation-0018
+    type: error-spotting
+    difficulty: medium
+    stem: |
+      Thirty students join Chess, twenty join Debate, and eight join both. A report says forty-two students join exactly one club because $30+20-8=42$. What is wrong with the report?
+    choices:
+      - text: 'It counts students in both clubs too.'
+        correct: true
+      - text: 'It counts the shared students twice.'
+        rationale: |
+          This assumes the overlap was not corrected at all. Adding the two totals initially counts shared students twice. Check the subtraction already present in the formula.
+      - text: 'It excludes the Chess-only students.'
+        rationale: |
+          This assumes the first club’s exclusive region is removed. The first club total is included. Check which members remain after subtracting the overlap once.
+      - text: 'It excludes the Debate-only students.'
+        rationale: |
+          This assumes the second club’s exclusive region is removed. The second club total is included. Check that the subtraction only corrects shared membership.
+    explanation: |
+      The formula $30+20-8$ counts at least one club, including the shared group once. Exactly one requires the two exclusive groups: $(30-8)+(20-8)=22+12=34$.
+    approved: false
+
+  - id: q-algebra-sets-and-set-notation-0019
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      Which set is a subset of $A=\{2,4,6\}$?
+    choices:
+      - text: '$\{2,6\}$'
+        correct: true
+      - text: '$\{2,8\}$'
+        rationale: |
+          This checks the member two but includes eight because it is even. All members of $A$ are even. Check actual membership, not just a shared pattern.
+      - text: '$\{4,8\}$'
+        rationale: |
+          This checks the member four but includes an unlisted eight. An even-number pattern can suggest the list continues. Check every member against the stated finite set.
+      - text: '$\{6,8\}$'
+        rationale: |
+          This checks the member six but includes the next even number. Six is the largest listed member. Check that no extra members are assumed.
+    explanation: |
+      Every member of a subset must belong to $A$. Both $2$ and $6$ appear in $A$, so $\{2,6\}$ is a subset.
+    approved: false
+
+  - id: q-algebra-sets-and-set-notation-0020
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Let $A=\{1,2\}$, $A\cup B=\{1,2,3,4\}$, and $A\cap B=\{2\}$. What is $B$?
+    choices:
+      - text: '$\{2,3,4\}$'
+        correct: true
+      - text: '$\{1,2,3,4\}$'
+        rationale: |
+          This gives the whole union to $B$. The union shows every member available. Check that one cannot be shared because the intersection is only two.
+      - text: '$\{3,4\}$'
+        rationale: |
+          This keeps only the members outside $A$. Those members must belong to $B$. Check that the shared member two belongs to $B$ too.
+      - text: '$\{2\}$'
+        rationale: |
+          This keeps only the intersection. The shared member is certainly in $B$. Check the members in the union that cannot come from $A$.
+    explanation: |
+      The intersection places $2$ in $B$ and excludes $1$ from $B$. The union also requires $3$ and $4$ in $B$ because neither is in $A$. Thus $B=\{2,3,4\}$.
+    approved: false
+
+  - id: q-algebra-sets-and-set-notation-0021
+    type: word-problem
+    difficulty: medium
+    stem: |
+      At a youth center, 30 members join exactly one of two clubs, 10 join both, and 5 join neither. How many join at least one club?
+    choices:
+      - text: '$40$'
+        correct: true
+      - text: '$45$'
+        rationale: |
+          This includes the five members in neither club. Adding every region gives the center’s total. Check that at least one excludes the outside region.
+      - text: '$30$'
+        rationale: |
+          This counts only exactly-one membership. That is the largest stated region. Check that both-club members also satisfy at least one.
+      - text: '$50$'
+        rationale: |
+          This counts the both-club region twice, giving $30+2(10)$. Each member belongs to two clubs. Check that the question counts members rather than memberships.
+    explanation: |
+      The exactly-one group and both-club group are disjoint. Both belong inside the union. Add them: $30+10=40$.
+    approved: false

@@ -1,379 +1,395 @@
 meta:
-  subject: mathematics
-  topic: precalculus-basic-calculus
-  subtopic: limits-and-continuity
-  exams: [upcat, acet, dlsucet, ustet, pupcet]
+  subject: 'mathematics'
+  topic: 'precalculus-basic-calculus'
+  subtopic: 'limits-and-continuity'
+  exams: ['upcat', 'acet', 'dlsucet', 'ustet', 'pupcet']
 questions:
-  - id: q-precalculus-basic-calculus-limits-and-continuity-0001
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      Evaluate $\lim_{x \to 2} (3x^2 - 4x + 5)$.
-    choices:
-      - text: $9$
-        correct: true
-      - text: $17$
-        rationale: |
-          You dropped the middle term. $3(2)^2 + 5 = 17$, but the expression
-          also has $-4x$. Include it: $12 - 8 + 5 = 9$.
-      - text: $5$
-        rationale: |
-          You read off the constant term only. Direct substitution means
-          replacing every $x$ with 2, not just picking the number with no $x$.
-      - text: $13$
-        rationale: |
-          You forgot to multiply $-4$ by $x$. You subtracted 4 instead of
-          $4 \times 2 = 8$. The correct calculation is $12 - 8 + 5 = 9$.
-    explanation: |
-      Since polynomial functions are continuous everywhere, evaluate by direct substitution:
-      $3(2)^2 - 4(2) + 5 = 3(4) - 8 + 5 = 12 - 8 + 5 = 9$.
-
-  - id: q-precalculus-basic-calculus-limits-and-continuity-0002
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      Evaluate $\lim_{x \to 3} \frac{x + 5}{x + 1}$.
-    choices:
-      - text: $2$
-        correct: true
-      - text: $3$
-        rationale: |
-          You returned the value $x$ is approaching instead of evaluating
-          the expression. Substitute $x = 3$: $(3 + 5) \div (3 + 1) = 2$.
-      - text: $5$
-        rationale: |
-          You evaluated the numerator at $x = 0$, not $x = 3$. Replace $x$
-          with 3 in the whole fraction: $8 \div 4 = 2$.
-      - text: $8$
-        rationale: |
-          You computed the numerator $3 + 5 = 8$ but forgot to divide by
-          the denominator $3 + 1 = 4$. The answer is $8 \div 4 = 2$.
-    explanation: |
-      Direct substitution works because the denominator is non-zero at $x = 3$:
-      $\frac{3 + 5}{3 + 1} = \frac{8}{4} = 2$.
-
-  - id: q-precalculus-basic-calculus-limits-and-continuity-0003
-    type: which-is-true
-    difficulty: easy
-    stem: |
-      What does it mean for a limit $\lim_{x \to a} f(x) = L$ to exist?
-    choices:
-      - text: Both the left-hand limit $\lim_{x \to a^-} f(x)$ and the right-hand limit $\lim_{x \to a^+} f(x)$ exist and are equal to $L$.
-        correct: true
-      - text: The function value $f(a)$ must equal zero.
-        rationale: |
-          You mixed up the limit with the function value, and also required it
-          to be zero. A limit can equal any number $L$, and $f(a)$ does not
-          even need to be defined for the limit to exist.
-      - text: The left-hand limit and right-hand limit must equal zero.
-        rationale: |
-          You confused "the two one-sided limits must be equal to each other"
-          with "they must both equal zero." They must agree, but they can
-          agree on any value $L$.
-      - text: The function $f(x)$ must be a polynomial.
-        rationale: |
-          You applied a property that belongs to polynomials to limits in
-          general. Polynomials are easy to evaluate, but limits exist for
-          many non-polynomial functions. The requirement is that both
-          one-sided limits exist and equal $L$.
-    explanation: |
-      A two-sided limit exists and equals $L$ if and only if both one-sided limits exist and are equal to $L$: $\lim_{x \to a^-} f(x) = \lim_{x \to a^+} f(x) = L$.
-
-  - id: q-precalculus-basic-calculus-limits-and-continuity-0004
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      Evaluate $\lim_{x \to \infty} \frac{5}{x^2 + 1}$.
-    choices:
-      - text: $0$
-        correct: true
-      - text: $5$
-        rationale: |
-          You treated the top 5 as if it could control the fraction by
-          itself. A fraction approaches 1 only when the top and bottom have
-          the same leading growth. Here the numerator stays 5 while the
-          denominator grows, so the limit is 0.
-      - text: $\infty$
-        rationale: |
-          You confused the limit of $x^2$ with the limit of the whole
-          fraction. $x^2$ grows, but it is in the denominator, which makes
-          the fraction smaller, not larger.
-      - text: $1$
-        rationale: |
-          You treated $x \to \infty$ as $x = 1$. "As $x$ grows without
-          bound" is not the same as substituting $x = 1$. The denominator
-          goes to infinity, so the fraction goes to 0.
-    explanation: |
-      As $x \to \infty$, the denominator $x^2 + 1$ grows infinitely large while the numerator remains 5. Dividing a constant by an infinitely large quantity yields a limit of $0$.
-
-  - id: q-precalculus-basic-calculus-limits-and-continuity-0005
-    type: which-is-true
-    difficulty: easy
-    stem: |
-      Which of the following expression results represents an indeterminate form when evaluating limits directly?
-    choices:
-      - text: $\frac{0}{0}$
-        correct: true
-      - text: $\frac{0}{5}$
-        rationale: |
-          You picked something with a zero numerator, but that is not the
-          same as indeterminate. $\dfrac{0}{5} = 0$ exactly. Indeterminate
-          forms are ones where the value cannot be determined without
-          further algebra.
-      - text: $\frac{5}{0}$
-        rationale: |
-          You confused "undefined" with "indeterminate." $\dfrac{5}{0}$ has
-          no value at all: the denominator is zero and the numerator is not.
-          Indeterminate means more work is needed, not that no value exists.
-      - text: $\frac{1}{\infty}$
-        rationale: |
-          You picked a limit-form shorthand that is not indeterminate. When
-          a fixed numerator is divided by quantities growing without bound,
-          the corresponding quotient approaches 0.
-    explanation: |
-      $\frac{0}{0}$ is an indeterminate form because it does not determine a specific limit value without further algebraic simplification (such as factoring or rationalizing). In contrast, $\frac{0}{5} = 0$, while literal division by zero such as $\frac{5}{0}$ is undefined. In limit notation, a nonzero-over-zero substitution still requires one-sided behavior to determine whether the function tends to $+\infty$, $-\infty$, or has no two-sided limit.
-
-  - id: q-precalculus-basic-calculus-limits-and-continuity-0006
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      Evaluate $\lim_{x \to 4} \frac{x^2 - 16}{x - 4}$.
-    choices:
-      - text: $8$
-        correct: true
-      - text: $0$
-        rationale: |
-          You got $\dfrac{0}{0}$ by direct substitution and concluded the
-          answer is 0. That result signals an indeterminate form, not a
-          zero limit. Factor the numerator to cancel the shared term first.
-      - text: Does not exist
-        rationale: |
-          You saw $\dfrac{0}{0}$ and stopped. That form does not mean the
-          limit is absent. Factor $x^2 - 16 = (x-4)(x+4)$, cancel $(x-4)$,
-          and the limit is $\lim_{x \to 4}(x + 4) = 8$.
-      - text: $4$
-        rationale: |
-          You returned the value $x$ approaches instead of evaluating the
-          simplified expression. After canceling $(x-4)$, you have $x + 4$,
-          which equals $4 + 4 = 8$ at $x = 4$.
-    explanation: |
-      Direct substitution gives the indeterminate form $\frac{0}{0}$. Factor the numerator as a difference of squares:
-      $\lim_{x \to 4} \frac{(x-4)(x+4)}{x-4} = \lim_{x \to 4} (x + 4) = 4 + 4 = 8$.
-
-  - id: q-precalculus-basic-calculus-limits-and-continuity-0007
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      Evaluate $\lim_{x \to 2} \frac{x^2 - 5x + 6}{x - 2}$.
-    choices:
-      - text: $-1$
-        correct: true
-      - text: $1$
-        rationale: |
-          You cancelled $(x - 2)$ correctly but then evaluated $x - 3$ at
-          $x = 2$ and dropped the negative sign: $2 - 3 = -1$, not $+1$.
-      - text: $0$
-        rationale: |
-          You saw $\dfrac{0}{0}$ from direct substitution and said the answer
-          is 0. That form tells you to factor, not to stop. After factoring
-          and canceling, the limit is $\lim_{x \to 2}(x - 3) = -1$.
-      - text: $-5$
-        rationale: |
-          You read off the coefficient of $x$ in the numerator. The $-5$ is
-          part of the quadratic, not the limit. After factoring and canceling
-          the result is $x - 3$, which gives $-1$ at $x = 2$.
-    explanation: |
-      Direct substitution gives $\frac{0}{0}$. Factor the quadratic numerator:
-      $\lim_{x \to 2} \frac{(x-2)(x-3)}{x-2} = \lim_{x \to 2} (x - 3) = 2 - 3 = -1$.
-
-  - id: q-precalculus-basic-calculus-limits-and-continuity-0008
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      Evaluate $\lim_{x \to \infty} \frac{6x^2 + 2x - 1}{3x^2 - 5}$.
-    choices:
-      - text: $2$
-        correct: true
-      - text: $\infty$
-        rationale: |
-          You saw $x^2$ in the numerator and assumed the fraction grows
-          without bound. Both the numerator and denominator have the same
-          degree, so they grow at the same rate and the limit is a finite
-          number.
-      - text: $0$
-        rationale: |
-          You applied the rule for when the numerator's degree is lower than
-          the denominator's. Here both have degree 2, so the limit is the
-          ratio of their leading coefficients: $6 \div 3 = 2$.
-      - text: $-\frac{1}{5}$
-        rationale: |
-          You divided the constant magnitudes and kept the numerator's
-          negative sign, but constants do not control end behavior. The
-          degrees match, so the limit comes from the leading coefficients:
-          $\dfrac{6}{3} = 2$.
-    explanation: |
-      For rational functions at infinity where the numerator and denominator have the same degree (2), the limit equals the ratio of their leading coefficients: $\frac{6}{3} = 2$.
-
-  - id: q-precalculus-basic-calculus-limits-and-continuity-0009
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      Consider the piecewise function:
-      $f(x) = \begin{cases} 2x + 1 & \text{if } x < 3 \\ x^2 - 2 & \text{if } x \ge 3 \end{cases}$
-      Find the right-hand limit $\lim_{x \to 3^+} f(x)$.
-    choices:
-      - text: $7$
-        correct: true
-      - text: $6$
-        rationale: |
-          You used the left-hand rule $2x + 1$ but dropped the $+1$, giving
-          $2(3) = 6$. The right-hand limit uses $x^2 - 2$: $3^2 - 2 = 7$.
-      - text: $9$
-        rationale: |
-          You computed $3^2 = 9$ but forgot to subtract 2. The right-hand
-          rule is $x^2 - 2$, so the limit is $9 - 2 = 7$.
-      - text: $5$
-        rationale: |
-          You evaluated the left-hand rule $2x + 1$ at $x = 2$ instead of
-          $x = 3$: $2(2) + 1 = 5$. The right-hand limit uses $x \to 3^+$
-          with the rule $x^2 - 2$, giving $7$.
-    explanation: |
-      For the right-hand limit $\lim_{x \to 3^+}$, $x$ approaches 3 from values greater than 3, so use the rule $f(x) = x^2 - 2$:
-      $\lim_{x \to 3^+} (x^2 - 2) = 3^2 - 2 = 9 - 2 = 7$.
-
-  - id: q-precalculus-basic-calculus-limits-and-continuity-0010
-    type: which-is-true
-    difficulty: medium
-    stem: |
-      What are the three conditions required for a function $f(x)$ to be continuous at $x = c$?
-    choices:
-      - text: $f(c)$ is defined, $\lim_{x \to c} f(x)$ exists, and $\lim_{x \to c} f(x) = f(c)$.
-        correct: true
-      - text: $f'(c)$ exists, $f(c) = 0$, and $\lim_{x \to c} f(x) = 0$.
-        rationale: |
-          You confused continuity with differentiability. Continuity requires
-          the limit and function value to agree. Differentiability is a
-          stricter condition. Neither requires $f(c) = 0$.
-      - text: $f(c)$ is positive, $\lim_{x \to c} f(x)$ is positive, and $f(c) > 0$.
-        rationale: |
-          You added a sign requirement that has nothing to do with continuity.
-          A function can be continuous at $x = c$ even if $f(c)$ is negative
-          or zero. The condition is that the limit equals $f(c)$.
-      - text: $f(c)$ is defined, $f(x)$ is a polynomial, and $c \ne 0$.
-        rationale: |
-          You used the special property of polynomials as if it were the
-          general definition. Polynomials are always continuous, but
-          continuity is defined the same way for all functions, not just
-          polynomials.
-    explanation: |
-      A function $f(x)$ is continuous at $x = c$ if and only if three conditions hold: 1) $f(c)$ is defined, 2) the limit $\lim_{x \to c} f(x)$ exists, and 3) the limit equals the function value $\lim_{x \to c} f(x) = f(c)$.
-
-  - id: q-precalculus-basic-calculus-limits-and-continuity-0011
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      Evaluate $\lim_{x \to 1} \frac{x^3 - 1}{x - 1}$.
-    choices:
-      - text: $3$
-        correct: true
-      - text: $1$
-        rationale: |
-          You returned the value $x$ approaches rather than evaluating the
-          expression. After factoring $x^3 - 1 = (x-1)(x^2+x+1)$ and
-          canceling, the limit is $1^2 + 1 + 1 = 3$.
-      - text: $0$
-        rationale: |
-          You got $\dfrac{0}{0}$ and stopped. That form tells you to factor.
-          Use the difference of cubes: $(x-1)(x^2+x+1)$, cancel $(x-1)$,
-          and evaluate: $1 + 1 + 1 = 3$.
-      - text: $2$
-        rationale: |
-          You applied the difference-of-squares formula $x^2 - 1 = (x-1)(x+1)$
-          instead of the difference of cubes. After canceling you got $x + 1$,
-          giving 2. The numerator is $x^3 - 1$, not $x^2 - 1$.
-    explanation: |
-      Direct substitution gives $\frac{0}{0}$. Factor the difference of cubes $x^3 - 1 = (x - 1)(x^2 + x + 1)$:
-      $\lim_{x \to 1} \frac{(x-1)(x^2+x+1)}{x-1} = \lim_{x \to 1} (x^2 + x + 1) = 1^2 + 1 + 1 = 3$.
-
-  - id: q-precalculus-basic-calculus-limits-and-continuity-0012
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      Evaluate $\lim_{x \to \infty} \frac{4x^3 + 7x}{2x^4 - 3x^2 + 1}$.
-    choices:
-      - text: $0$
-        correct: true
-      - text: $2$
-        rationale: |
-          You took the ratio of the leading coefficients $4 \div 2 = 2$ as
-          if the degrees were equal. The numerator has degree 3 and the
-          denominator has degree 4. When the denominator's degree is higher,
-          the limit is 0.
-      - text: $\infty$
-        rationale: |
-          You saw $x^3$ growing in the numerator and assumed the fraction
-          grows too. The denominator has $x^4$, which grows faster. When
-          the denominator's degree exceeds the numerator's, the limit is 0.
-      - text: $1$
-        rationale: |
-          You may have compared the highest-degree terms and applied the
-          rule incorrectly. The degrees are 3 and 4. The denominator grows
-          faster, so the fraction shrinks to 0.
-    explanation: |
-      The degree of the numerator (3) is strictly less than the degree of the denominator (4). As $x \to \infty$, the higher power in the denominator grows much faster, making the limit $0$.
-
-  - id: q-precalculus-basic-calculus-limits-and-continuity-0013
-    type: which-is-true
-    difficulty: hard
-    stem: |
-      Consider the function $g(x) = \frac{|x - 2|}{x - 2}$. What type of discontinuity occurs at $x = 2$?
-    choices:
-      - text: Jump discontinuity, because the left-hand limit ($-1$) and right-hand limit ($1$) are not equal.
-        correct: true
-      - text: Removable discontinuity (hole), because the limit exists and equals 1.
-        rationale: |
-          You took the right-hand limit alone and called it the two-sided
-          limit. For $x < 2$, $g(x) = -1$, so the left-hand limit is $-1$.
-          The two-sided limit does not exist because the one-sided limits
-          differ, so the discontinuity is not removable.
-      - text: Infinite discontinuity, because the function approaches infinity as $x \to 2$.
-        rationale: |
-          You confused $g(x) = \dfrac{|x-2|}{x-2}$ with $\dfrac{1}{x-2}$.
-          The numerator $|x - 2|$ and denominator $x - 2$ have the same
-          magnitude, so $g(x)$ equals either $1$ or $-1$. It never goes
-          to infinity.
-      - text: No discontinuity, because absolute value functions are continuous everywhere.
-        rationale: |
-          You applied the continuity of $|x - 2|$ to the whole fraction.
-          Dividing by $x - 2$ creates a problem at $x = 2$ where the
-          denominator is zero. The function is not defined at $x = 2$.
-    explanation: |
-      For $x > 2$, $g(x) = \frac{x-2}{x-2} = 1$, so $\lim_{x \to 2^+} g(x) = 1$. For $x < 2$, $g(x) = \frac{-(x-2)}{x-2} = -1$, so $\lim_{x \to 2^-} g(x) = -1$. Since the left and right limits exist but differ, there is a jump discontinuity at $x = 2$.
-
-  - id: q-precalculus-basic-calculus-limits-and-continuity-0014
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      Find the value of the constant $k$ such that the function $f(x)$ is continuous at $x = 2$:
-      $f(x) = \begin{cases} kx^2 & \text{if } x \le 2 \\ 3x + 2 & \text{if } x > 2 \end{cases}$
-    choices:
-      - text: $k = 2$
-        correct: true
-      - text: $k = 8$
-        rationale: |
-          You set $4k = 8$ correctly but skipped the division step, writing
-          $k = 8$ instead of $k = 8 \div 4 = 2$.
-      - text: $k = 4$
-        rationale: |
-          You forgot to square $x = 2$ in the left-hand rule. You solved
-          $k(2) = 8$ instead of $k(2)^2 = 8$. The left-hand limit is
-          $k(4) = 8$, giving $k = 2$.
-      - text: $k = 1$
-        rationale: |
-          You set the two pieces equal at the wrong value. The right-hand
-          limit at $x = 2$ is $3(2) + 2 = 8$, not 4. Setting $4k = 4$
-          gives $k = 1$, which is not the correct equation.
-    explanation: |
-      For $f(x)$ to be continuous at $x = 2$, the left-hand limit and right-hand limit at $x = 2$ must be equal:
-      $\lim_{x \to 2^-} f(x) = k(2)^2 = 4k$, and $\lim_{x \to 2^+} f(x) = 3(2) + 2 = 8$.
-      Setting $4k = 8$ gives $k = 2$.
+- id: 'q-precalculus-basic-calculus-limits-and-continuity-0001'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    Evaluate $\lim_{x \to 2} (3x^2 - 4x + 5)$.
+  choices:
+  - text: '$9$'
+    correct: true
+  - text: '$17$'
+    rationale: |
+      This omits the negative linear term. Twelve plus five gives seventeen. Include every term.
+  - text: '$5$'
+    rationale: |
+      This uses x instead of x squared. The input is two. Evaluate powers first.
+  - text: '$13$'
+    rationale: |
+      This subtracts four instead of four x. Four is the printed coefficient. Include the variable factor.
+  explanation: |
+    Polynomials are continuous, so substitute $x=2$. Compute $3(2^2)-4(2)+5=12-8+5=9$.
+- id: 'q-precalculus-basic-calculus-limits-and-continuity-0002'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    Evaluate $\lim_{x \to 3} \dfrac{x + 5}{x + 1}$.
+  choices:
+  - text: '$2$'
+    correct: true
+  - text: '$3$'
+    rationale: |
+      This reports the approached input. Three appears under the limit symbol. Evaluate the whole quotient.
+  - text: '$5$'
+    rationale: |
+      This copies the numerator constant. Five appears in the formula. Substitute into both parts.
+  - text: '$8$'
+    rationale: |
+      This stops at the numerator. Eight is a correct intermediate value. Finish dividing.
+  explanation: |
+    The denominator at $3$ is $4$, which is nonzero. Substitute: $\dfrac{3+5}{3+1}=\dfrac84=2$.
+- id: 'q-precalculus-basic-calculus-limits-and-continuity-0003'
+  type: 'which-is-true'
+  difficulty: 'easy'
+  stem: |
+    What does it mean for a limit $\lim_{x \to a} f(x) = L$ to exist?
+  choices:
+  - text: 'Both one-sided limits equal L.'
+    correct: true
+  - text: 'The function value $f(a)$ must equal zero.'
+    rationale: |
+      This requires the function value to be zero. Limits are often taken at zeros. Check nearby values.
+  - text: 'The left-hand limit and right-hand limit must equal zero.'
+    rationale: |
+      This fixes L at zero. Zero is a common limit. Allow any matching finite value.
+  - text: 'The function $f(x)$ must be a polynomial.'
+    rationale: |
+      This restricts limits to polynomials. Polynomials have familiar limits. Check nearby behavior for other functions too.
+  explanation: |
+    The left-hand and right-hand limits must both approach the same value L. This agrees on both sides of the input, so the two-sided limit is L.
+- id: 'q-precalculus-basic-calculus-limits-and-continuity-0004'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    Evaluate $\lim_{x \to \infty} \dfrac{5}{x^2 + 1}$.
+  choices:
+  - text: '$0$'
+    correct: true
+  - text: '$5$'
+    rationale: |
+      This drops the growing denominator. Five is the fixed numerator. Compare numerator and denominator growth.
+  - text: '$\infty$'
+    rationale: |
+      This transfers denominator growth to the quotient. The denominator tends to infinity. Check that it is in the divisor.
+  - text: '$1$'
+    rationale: |
+      This treats the numerator as having the same degree. The leading-coefficient rule is familiar. Compare degrees first.
+  explanation: |
+    The numerator remains $5$ while the positive denominator grows without bound. The quotient gets arbitrarily close to zero. Thus the limit is zero.
+- id: 'q-precalculus-basic-calculus-limits-and-continuity-0005'
+  type: 'which-is-true'
+  difficulty: 'easy'
+  stem: |
+    Which of the following expression results represents an indeterminate form when evaluating limits directly?
+  choices:
+  - text: '$\dfrac{0}{0}$'
+    correct: true
+  - text: '$\dfrac{0}{5}$'
+    rationale: |
+      This calls a determinate zero quotient indeterminate. The numerator is zero. Check the nonzero denominator.
+  - text: '$\dfrac{5}{0}$'
+    rationale: |
+      This treats any zero denominator as zero over zero. Both involve division by zero. Check whether the numerator also approaches zero.
+  - text: '$\dfrac52$'
+    rationale: |
+      This calls an ordinary quotient indeterminate. It is written as a fraction. Check whether direct division is defined.
+  explanation: |
+    The form $\dfrac00$ does not determine a limit. Both parts approach zero, and their relative rates can give different results. More work is needed.
+- id: 'q-precalculus-basic-calculus-limits-and-continuity-0006'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    Evaluate $\lim_{x \to 4} \dfrac{x^2 - 16}{x - 4}$.
+  choices:
+  - text: '$8$'
+    correct: true
+  - text: '$0$'
+    rationale: |
+      This treats zero over zero as zero. Both substituted parts are zero. Factor before deciding.
+  - text: 'Does not exist'
+    rationale: |
+      This confuses a missing value with a missing limit. The quotient is undefined at four. Check nearby simplified values.
+  - text: '$4$'
+    rationale: |
+      This cancels one factor and drops the remaining added four. The approached input is four. Keep the entire remaining factor.
+  explanation: |
+    Factor $x^2-16=(x-4)(x+4)$. For nearby $x\ne4$, the quotient equals $x+4$. Its limit at $4$ is $4+4=8$.
+- id: 'q-precalculus-basic-calculus-limits-and-continuity-0007'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    Evaluate $\lim_{x \to 2} \dfrac{x^2 - 5x + 6}{x - 2}$.
+  choices:
+  - text: '$-1$'
+    correct: true
+  - text: '$1$'
+    rationale: |
+      This reverses the remaining subtraction. Two and three remain after factoring. Keep their original order.
+  - text: '$0$'
+    rationale: |
+      This treats zero over zero as zero. Both parts vanish. Simplify for nearby inputs.
+  - text: '$-5$'
+    rationale: |
+      This copies the linear coefficient. Negative five appears in the numerator. Factor the full numerator.
+  explanation: |
+    Factor $x^2-5x+6=(x-2)(x-3)$. For $x\ne2$, cancel the common factor to get $x-3$. Substitute $2$ into this nearby expression: $2-3=-1$.
+- id: 'q-precalculus-basic-calculus-limits-and-continuity-0008'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    Evaluate $\lim_{x \to \infty} \dfrac{6x^2 + 2x - 1}{3x^2 - 5}$.
+  choices:
+  - text: '$2$'
+    correct: true
+  - text: '$\infty$'
+    rationale: |
+      This assumes a growing numerator makes an infinite quotient. Both parts grow. Compare their leading powers.
+  - text: '$0$'
+    rationale: |
+      This assumes every rational limit at infinity is zero. Many denominators dominate. Check whether the degrees match.
+  - text: '$-\dfrac{1}{5}$'
+    rationale: |
+      This uses the constant-term ratio. The constants are easy to read. Use leading terms at infinity.
+  explanation: |
+    The numerator and denominator both have degree two. Their leading coefficients are $6$ and $3$. The limit is $\dfrac63=2$.
+- id: 'q-precalculus-basic-calculus-limits-and-continuity-0009'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    Consider the piecewise function:
+    $f(x) = \begin{cases} 2x + 1 & \text{if } x < 3 \\ x^2 - 1 & \text{if } x \ge 3 \end{cases}$
+    Find the right-hand limit $\lim_{x \to 3^+} f(x)$.
+  choices:
+  - text: '$8$'
+    correct: true
+  - text: '$7$'
+    rationale: |
+      This uses the left branch. Both branches meet at the same input. Use the right-side condition.
+  - text: '$9$'
+    rationale: |
+      This omits the minus one. Nine is the squared input. Keep the entire branch expression.
+  - text: '$5$'
+    rationale: |
+      This uses the left formula and changes its constant sign. The linear branch is visible. Select the right branch before evaluating.
+  explanation: |
+    Approaching from the right uses the branch $x^2-1$. Its limit is $3^2-1=8$.
+- id: 'q-precalculus-basic-calculus-limits-and-continuity-0010'
+  type: 'which-is-true'
+  difficulty: 'medium'
+  stem: |
+    What are the three conditions required for a function $f(x)$ to be continuous at $x = c$?
+  choices:
+  - text: 'Defined value, existing limit, equality.'
+    correct: true
+  - text: '$f''(c)$ exists, $f(c) = 0$, and $\lim_{x \to c} f(x) = 0$.'
+    rationale: |
+      This requires differentiability and a zero value. Derivatives describe local graph behavior. Use the three continuity conditions.
+  - text: '$f(c)$ is positive, $\lim_{x \to c} f(x)$ is positive, and $f(c) > 0$.'
+    rationale: |
+      This substitutes positivity for matching values. Positive values can look well behaved. Check equality between value and limit.
+  - text: '$f(c)$ is defined, $f(x)$ is a polynomial, and $c \ne 0$.'
+    rationale: |
+      This restricts continuity to nonzero polynomial inputs. Polynomials are continuous. Apply the definition to any candidate function.
+  explanation: |
+    A continuous function must have a defined value at c and an existing limit there. That limit must equal the value. These three conditions make the function meet its nearby behavior.
+- id: 'q-precalculus-basic-calculus-limits-and-continuity-0011'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    Evaluate $\lim_{x \to 1} \dfrac{x^3 - 1}{x - 1}$.
+  choices:
+  - text: '$3$'
+    correct: true
+  - text: '$1$'
+    rationale: |
+      This drops two terms after factoring. One is the approached input. Keep the full quadratic factor.
+  - text: '$0$'
+    rationale: |
+      This treats zero over zero as zero. Both substituted parts vanish. Factor first.
+  - text: '$2$'
+    rationale: |
+      This keeps only the linear and constant terms. Both contribute one. Include the squared term too.
+  explanation: |
+    Factor $x^3-1=(x-1)(x^2+x+1)$. For nearby $x\ne1$, the quotient is $x^2+x+1$. Its limit is $1+1+1=3$.
+- id: 'q-precalculus-basic-calculus-limits-and-continuity-0012'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    Evaluate $\lim_{x \to \infty} \dfrac{4x^3 + 7x}{2x^4 - 3x^2 + 1}$.
+  choices:
+  - text: '$0$'
+    correct: true
+  - text: '$2$'
+    rationale: |
+      This uses leading coefficients without comparing degrees. Four divided by two is two. Compare powers first.
+  - text: '$\infty$'
+    rationale: |
+      This ignores the faster-growing denominator. The numerator grows without bound. Compare both growth rates.
+  - text: '$1$'
+    rationale: |
+      This treats unequal leading powers as equal. Both expressions are polynomials. Read their largest exponents.
+  explanation: |
+    The denominator degree four exceeds the numerator degree three. The leading quotient behaves like $\dfrac2x$, which approaches zero. Thus the limit is zero.
+- id: 'q-precalculus-basic-calculus-limits-and-continuity-0013'
+  type: 'which-is-true'
+  difficulty: 'hard'
+  stem: |
+    Consider the function $g(x) = \dfrac{|x - 2|}{x - 2}$. What type of discontinuity occurs at $x = 2$?
+  choices:
+  - text: 'Jump discontinuity.'
+    correct: true
+  - text: 'Removable discontinuity (hole), because the limit exists and equals 1.'
+    rationale: |
+      This checks only the right-hand limit. The right-side value is one. Compare both sides.
+  - text: 'Infinite discontinuity, because the function approaches infinity as $x \to 2$.'
+    rationale: |
+      This assumes a zero denominator means unbounded values. The denominator vanishes at two. Simplify on each side.
+  - text: 'No discontinuity, because absolute value functions are continuous everywhere.'
+    rationale: |
+      This ignores division by a vanishing expression. Absolute value itself is continuous. Check the whole quotient.
+  explanation: |
+    For $x<2$, $|x-2|=-(x-2)$ and the quotient is $-1$. For $x>2$, the quotient is $1$. The different finite one-sided limits make this a jump discontinuity.
+- id: 'q-precalculus-basic-calculus-limits-and-continuity-0014'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    Find the value of the constant $k$ such that the function $f(x)$ is continuous at $x = 2$:
+    $f(x) = \begin{cases} kx^2 & \text{if } x \le 2 \\ 3x + 2 & \text{if } x > 2 \end{cases}$
+  choices:
+  - text: '$k = 2$'
+    correct: true
+  - text: '$k = 8$'
+    rationale: |
+      This reports four k as k. Eight is the matching value. Divide by the coefficient.
+  - text: '$k = 4$'
+    rationale: |
+      This divides by two instead of four. The input is two. Square it in the left branch.
+  - text: '$k=1.5$'
+    rationale: |
+      This drops the added two on the right branch. The product three times two is six. Check every term before matching the branches.
+  explanation: |
+    At $2$, the left branch and the value give $4k$. The right-hand limit is $3(2)+2=8$. Continuity requires $4k=8$, so $k=2$.
+- id: 'q-precalculus-basic-calculus-limits-and-continuity-0015'
+  type: 'which-is-true'
+  difficulty: 'medium'
+  stem: |
+    Let $f(x)=x+1$ when $x\ne2$ and $f(2)=9$. Which statement about $x=2$ is true?
+  choices:
+  - text: 'The limit is 3, but f is discontinuous.'
+    correct: true
+  - text: 'The limit is 9 and f is continuous.'
+    rationale: |
+      This uses the assigned value as the limit. Nine is defined at two. Check the nearby expression.
+  - text: 'The limit does not exist because f(2) is 9.'
+    rationale: |
+      This assumes one isolated value destroys a limit. The value differs from its neighbors. Check that limits use nearby inputs.
+  - text: 'The limit is 3 and f is continuous.'
+    rationale: |
+      This checks only that the limit exists. Nearby values approach three. Compare the limit with the assigned value.
+  explanation: |
+    Nearby inputs use $x+1$, so the limit is $3$. The function value is $9$. Since these differ, f is discontinuous at $2$.
+  approved: false
+- id: 'q-precalculus-basic-calculus-limits-and-continuity-0016'
+  type: 'error-spotting'
+  difficulty: 'medium'
+  stem: |
+    A student cancels x from $\dfrac{x+2}{x}$ and writes $1+2=3$. What was missed?
+  choices:
+  - text: 'The second term is 2 divided by x.'
+    correct: true
+  - text: 'The numerator should become x minus two.'
+    rationale: |
+      This changes an addition sign during cancellation. Cancellation removes common factors. Check that it cannot change addition to subtraction.
+  - text: 'The denominator should stay unchanged under both terms.'
+    rationale: |
+      This leaves the first x uncombined. Both terms share the divisor. Divide each numerator term by x.
+  - text: 'The quotient is always undefined.'
+    rationale: |
+      This applies the zero-input restriction everywhere. The denominator does vanish at zero. Check other inputs separately.
+  explanation: |
+    For $x\ne0$, split the quotient: $\dfrac{x+2}{x}=\dfrac{x}{x}+\dfrac2x=1+\dfrac2x$. The divisor applies to both terms.
+  approved: false
+- id: 'q-precalculus-basic-calculus-limits-and-continuity-0017'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    What happens to $\dfrac{1}{x-5}$ as $x\to5^-$?
+  choices:
+  - text: 'It decreases without bound.'
+    correct: true
+  - text: 'It increases without bound.'
+    rationale: |
+      This treats the denominator as positive. Its magnitude does shrink toward zero. Check the sign on the left side of five.
+  - text: 'It approaches zero.'
+    rationale: |
+      This treats a small denominator like a large one. Reciprocal limits can be zero at infinity. Check which part is approaching zero.
+  - text: 'It approaches one.'
+    rationale: |
+      This cancels the varying denominator without a common factor. The numerator is one. Check nearby denominators.
+  explanation: |
+    For x just below $5$, $x-5$ is negative and close to zero. Its reciprocal is negative with growing magnitude. It therefore decreases without bound.
+  approved: false
+- id: 'q-precalculus-basic-calculus-limits-and-continuity-0018'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    Evaluate $\lim_{x\to-\infty}\dfrac{x^3+1}{x^2+2}$.
+  choices:
+  - text: 'It tends to negative infinity.'
+    correct: true
+  - text: 'It tends to positive infinity.'
+    rationale: |
+      This ignores the sign of the odd numerator power. Its magnitude grows faster. Check the direction of x.
+  - text: 'It approaches zero.'
+    rationale: |
+      This assumes the denominator has the higher degree. Both parts are polynomials. Compare their largest powers.
+  - text: 'It approaches one.'
+    rationale: |
+      This uses the leading coefficient ratio without matching degrees. Both leading coefficients are one. Compare the degrees first.
+  explanation: |
+    The leading-term quotient is $\dfrac{x^3}{x^2}=x$. As x tends to negative infinity, this quotient does too.
+  approved: false
+- id: 'q-precalculus-basic-calculus-limits-and-continuity-0019'
+  type: 'word-problem'
+  difficulty: 'exam'
+  stem: |
+    A parking fee is P40 for stays shorter than one hour and P60 for stays of at least one hour but less than two hours. At one hour, which behavior describes the fee as a function of stay length?
+  choices:
+  - text: 'A jump from P40 to P60.'
+    correct: true
+  - text: 'A removable hole at P60.'
+    rationale: |
+      This assumes assigning the boundary value fixes both sides. P60 is the value at one hour. Compare the two nearby fees.
+  - text: 'A continuous rise from P40 to P60.'
+    rationale: |
+      This treats the two rates as a gradual increase. The fees both apply nearby. Check whether any intermediate fee is charged.
+  - text: 'An infinite increase at one hour.'
+    rationale: |
+      This treats a discontinuity as unbounded. The price changes at one hour. Check the finite fee on each side.
+  explanation: |
+    Just below one hour, the fee is P40. Just above one hour, it is P60. The unequal finite limits make a jump.
+  approved: false
+- id: 'q-precalculus-basic-calculus-limits-and-continuity-0020'
+  type: 'which-is-true'
+  difficulty: 'easy'
+  stem: |
+    For $\lim_{x\to1}\dfrac{x^2+1}{x+2}$, why is direct substitution valid?
+  choices:
+  - text: 'The rational function is continuous there.'
+    correct: true
+  - text: 'Every expression has its input value as its limit.'
+    rationale: |
+      This assumes substitution always works. Many familiar functions allow it. Check continuity at the input.
+  - text: 'The numerator becomes zero.'
+    rationale: |
+      This assumes a zero numerator is required. Zero can appear in some limits. Evaluate the numerator here.
+  - text: 'The denominator becomes zero.'
+    rationale: |
+      This reverses the condition for rational continuity. Zero denominators need extra analysis. Check the denominator at one.
+  explanation: |
+    The denominator at $1$ is $3$, which is nonzero. A rational function is continuous wherever its denominator is nonzero, so substitution is valid.
+  approved: false

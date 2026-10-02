@@ -1,475 +1,398 @@
 meta:
-  subject: mathematics
-  topic: statistics-and-probability
-  subtopic: basic-probability
-  exams: [upcat, acet, dlsucet, ustet, pupcet]
+  subject: 'mathematics'
+  topic: 'statistics-and-probability'
+  subtopic: 'basic-probability'
+  exams: ['upcat', 'acet', 'dlsucet', 'ustet', 'pupcet']
 questions:
-  - id: q-statistics-and-probability-basic-probability-0001
-    type: word-problem
-    difficulty: easy
-    stem: |
-      A jar at a sari-sari store contains $5$ red marbles, $7$ blue marbles, and $8$ yellow marbles. If one marble is drawn at random, what is the probability that it is blue?
-    choices:
-      - text: "$\\frac{7}{20}$"
-        correct: true
-      - text: "$\\frac{7}{13}$"
-        rationale: |
-          You divided the number of blue marbles by the number of non-blue marbles (13) instead of the total number of marbles (20).
-      - text: "$\\frac{1}{4}$"
-        rationale: |
-          You calculated the probability of drawing a red marble instead of a blue marble.
-      - text: "$\\frac{5}{20}$"
-        rationale: |
-          You calculated the unreduced probability of drawing a red marble instead of a blue marble.
-    explanation: |
-      First, find the total number of marbles in the jar:
-      
-      $$\text{Total} = 5 + 7 + 8 = 20$$
-      
-      The number of blue marbles (favorable outcomes) is $7$. The probability $P(\text{Blue})$ is:
-      
-      $$P(\text{Blue}) = \frac{7}{20}$$
-      
-      The probability of drawing a blue marble is $\frac{7}{20}$.
-  - id: q-statistics-and-probability-basic-probability-0002
-    type: word-problem
-    difficulty: easy
-    stem: |
-      A fair six-sided die is rolled once. What is the probability of rolling a prime number?
-    choices:
-      - text: "$\\frac{1}{2}$"
-        correct: true
-      - text: "$\\frac{2}{3}$"
-        rationale: |
-          You counted 1 as a prime number, giving 4 favorable outcomes out of 6 instead of 3.
-      - text: "$\\frac{1}{3}$"
-        rationale: |
-          You counted only 2 prime numbers instead of 3, giving 2 out of 6 outcomes.
-      - text: "$\\frac{5}{6}$"
-        rationale: |
-          You counted 5 out of 6 outcomes by incorrectly including non-prime numbers.
-    explanation: |
-      The possible outcomes when rolling a six-sided die are $\{1, 2, 3, 4, 5, 6\}$, giving $6$ total outcomes.
-      
-      The prime numbers in this set are $2$, $3$, and $5$ (note that $1$ is not a prime number), giving $3$ favorable outcomes:
-      
-      $$P(\text{Prime}) = \frac{3}{6} = \frac{1}{2}$$
-      
-      The probability of rolling a prime number is $\frac{1}{2}$.
-  - id: q-statistics-and-probability-basic-probability-0003
-    type: word-problem
-    difficulty: easy
-    stem: |
-      A single card is drawn at random from a standard deck of $52$ playing cards. What is the probability of drawing a face card (Jack, Queen, or King)?
-    choices:
-      - text: "$\\frac{3}{13}$"
-        correct: true
-      - text: "$\\frac{1}{13}$"
-        rationale: |
-          You calculated the probability of drawing one specific face card rank instead of all 12 face cards.
-      - text: "$\\frac{4}{13}$"
-        rationale: |
-          You included the 4 Aces along with the 12 face cards, getting 16 cards out of 52.
-      - text: "$\\frac{3}{52}$"
-        rationale: |
-          You put 3 face cards per suit over 52 total cards without multiplying by the 4 suits.
-    explanation: |
-      A standard deck contains $4$ suits, with each suit having $3$ face cards (Jack, Queen, King). Therefore, the total number of face cards is:
-      
-      $$\text{Face Cards} = 4 \times 3 = 12$$
-      
-      The probability $P(\text{Face Card})$ is:
-      
-      $$P(\text{Face Card}) = \frac{12}{52} = \frac{3}{13}$$
-      
-      The probability of drawing a face card is $\frac{3}{13}$.
-  - id: q-statistics-and-probability-basic-probability-0004
-    type: word-problem
-    difficulty: easy
-    stem: |
-      A barangay fiesta raffle sold $500$ total tickets. If Juan bought $25$ tickets and exactly $1$ winning ticket is drawn at random, what is the probability that Juan does NOT win?
-    choices:
-      - text: "$\\frac{19}{20}$"
-        correct: true
-      - text: "$\\frac{1}{20}$"
-        rationale: |
-          You calculated the probability that Juan wins instead of the probability that he does not win.
-      - text: "$\\frac{475}{499}$"
-        rationale: |
-          You subtracted 1 from the total number of tickets in the denominator.
-      - text: "$\\frac{1}{500}$"
-        rationale: |
-          You calculated the probability of 1 specific ticket winning instead of Juan's 25 tickets.
-    explanation: |
-      The number of tickets that do not belong to Juan is $500 - 25 = 475$.
-      
-      The probability that Juan does not win is:
-      
-      $$P(\text{Not Win}) = \frac{475}{500} = \frac{19}{20}$$
-      
-      Alternatively, using complementary probability:
-      
-      $$P(\text{Win}) = \frac{25}{500} = \frac{1}{20}$$
-      $$P(\text{Not Win}) = 1 - \frac{1}{20} = \frac{19}{20}$$
-      
-      The probability that Juan does not win is $\frac{19}{20}$.
-  - id: q-statistics-and-probability-basic-probability-0005
-    type: word-problem
-    difficulty: easy
-    stem: |
-      A game spinner is divided into $8$ equal numbered sectors ($1$ through $8$). What is the probability of spinning a number that is greater than $5$ or even?
-    choices:
-      - text: "$\\frac{5}{8}$"
-        correct: true
-      - text: "$\\frac{7}{8}$"
-        rationale: |
-          You added the two probabilities without subtracting the overlapping numbers 6 and 8.
-      - text: "$\\frac{1}{2}$"
-        rationale: |
-          You counted only the 4 even numbers and forgot to include the number 7.
-      - text: "$\\frac{3}{4}$"
-        rationale: |
-          You included 5 in the set of numbers greater than 5, counting 6 favorable outcomes.
-    explanation: |
-      List the outcomes for each event:
-      
-      - Numbers greater than $5$: $A = \{6, 7, 8\}$ ($3$ outcomes)
-      - Even numbers: $B = \{2, 4, 6, 8\}$ ($4$ outcomes)
-      
-      Combine the sets ($A \cup B$) to avoid double-counting overlapping elements $\{6, 8\}$:
-      
-      $$A \cup B = \{2, 4, 6, 7, 8\}$$
-      
-      There are $5$ favorable outcomes out of $8$ total sectors:
-      
-      $$P(A \cup B) = \frac{5}{8}$$
-      
-      The probability is $\frac{5}{8}$.
-  - id: q-statistics-and-probability-basic-probability-0006
-    type: word-problem
-    difficulty: medium
-    stem: |
-      Two fair six-sided dice are rolled simultaneously. What is the probability that the sum of the numbers showing on the top faces is equal to $8$?
-    choices:
-      - text: "$\\frac{5}{36}$"
-        correct: true
-      - text: "$\\frac{4}{36}$"
-        rationale: |
-          You missed one of the ordered pairs that sum to 8, counting 4 outcomes instead of 5.
-      - text: "$\\frac{1}{6}$"
-        rationale: |
-          You counted 6 favorable outcomes, which is the count for a sum of 7 rather than 8.
-      - text: "$\\frac{7}{36}$"
-        rationale: |
-          You added extra invalid pairs such as 1 and 7, counting 7 outcomes instead of 5.
-    explanation: |
-      Rolling two fair six-sided dice produces $6 \times 6 = 36$ equally likely outcomes.
-      
-      List all ordered pairs $(d_1, d_2)$ that sum to $8$:
-      
-      $$\{(2,6), (3,5), (4,4), (5,3), (6,2)\}$$
-      
-      There are $5$ favorable outcomes. The probability is:
-      
-      $$P(\text{Sum} = 8) = \frac{5}{36}$$
-      
-      The probability that the sum is $8$ is $\frac{5}{36}$.
-  - id: q-statistics-and-probability-basic-probability-0007
-    type: word-problem
-    difficulty: medium
-    stem: |
-      A jar contains $6$ sampaloc candies and $4$ yema candies. Maria draws one candy at random, records its flavor, and replaces it into the jar. She then draws a second candy. What is the probability that both candies drawn are sampaloc?
-    choices:
-      - text: "$\\frac{9}{25}$"
-        correct: true
-      - text: "$\\frac{1}{3}$"
-        rationale: |
-          You calculated the probability without replacement instead of with replacement.
-      - text: "$\\frac{3}{5}$"
-        rationale: |
-          You calculated the probability of drawing sampaloc on a single draw instead of both draws.
-      - text: "$\\frac{12}{25}$"
-        rationale: |
-          You calculated the probability of drawing one sampaloc candy and one yema candy.
-    explanation: |
-      Because Maria replaces the first candy, the two draws are independent events.
-      
-      For each draw, the total number of candies is $6 + 4 = 10$, and the probability of drawing a sampaloc candy is:
-      
-      $$P(\text{Sampaloc}) = \frac{6}{10} = \frac{3}{5}$$
-      
-      Using the multiplication rule for independent events:
-      
-      $$P(\text{Both Sampaloc}) = \frac{3}{5} \times \frac{3}{5} = \frac{9}{25}$$
-      
-      The probability that both candies drawn are sampaloc is $\frac{9}{25}$.
-  - id: q-statistics-and-probability-basic-probability-0008
-    type: word-problem
-    difficulty: medium
-    stem: |
-      According to weather records in Baguio, the probability of afternoon rain on any July day is $0.60$. Assuming weather conditions on consecutive days are independent, what is the probability that it rains on Friday afternoon but does NOT rain on Saturday afternoon?
-    choices:
-      - text: "$0.24$"
-        correct: true
-      - text: "$0.36$"
-        rationale: |
-          You calculated the probability that it rains on both days.
-      - text: "$0.16$"
-        rationale: |
-          You calculated the probability that it does not rain on either day.
-      - text: "$1.00$"
-        rationale: |
-          You added the two probabilities together instead of multiplying them.
-    explanation: |
-      Given $P(\text{Rain}) = 0.60$, the complementary probability of no rain is:
-      
-      $$P(\text{No Rain}) = 1 - 0.60 = 0.40$$
-      
-      Since weather conditions on consecutive days are assumed to be independent, multiply their individual probabilities:
-      
-      $$P(\text{Rain on Fri and No Rain on Sat}) = 0.60 \times 0.40 = 0.24$$
-      
-      The probability is $0.24$.
-  - id: q-statistics-and-probability-basic-probability-0009
-    type: word-problem
-    difficulty: medium
-    stem: |
-      Two cards are drawn sequentially without replacement from a standard $52$-card deck. What is the probability that both cards drawn are Kings?
-    choices:
-      - text: "$\\frac{1}{221}$"
-        correct: true
-      - text: "$\\frac{1}{169}$"
-        rationale: |
-          You calculated the probability with replacement instead of without replacement.
-      - text: "$\\frac{2}{52}$"
-        rationale: |
-          You added single card probabilities together instead of multiplying conditional probabilities.
-      - text: "$\\frac{1}{26}$"
-        rationale: |
-          You calculated 2 out of 52 cards instead of multiplying sequential probabilities.
-    explanation: |
-      For the first draw, there are $4$ Kings out of $52$ cards:
-      
-      $$P(\text{1st King}) = \frac{4}{52} = \frac{1}{13}$$
-      
-      Since drawing is without replacement, $51$ cards remain, of which $3$ are Kings:
-      
-      $$P(\text{2nd King} \mid \text{1st King}) = \frac{3}{51} = \frac{1}{17}$$
-      
-      Multiply the conditional probabilities:
-      
-      $$P(\text{Both Kings}) = \frac{1}{13} \times \frac{1}{17} = \frac{1}{221}$$
-      
-      The probability of drawing two Kings without replacement is $\frac{1}{221}$.
-  - id: q-statistics-and-probability-basic-probability-0010
-    type: word-problem
-    difficulty: medium
-    stem: |
-      A single card is drawn at random from a standard $52$-card deck. What is the probability of drawing either an Ace or a Heart?
-    choices:
-      - text: "$\\frac{4}{13}$"
-        correct: true
-      - text: "$\\frac{17}{52}$"
-        rationale: |
-          You added the two probabilities without subtracting the overlapping Ace of Hearts.
-      - text: "$\\frac{1}{13}$"
-        rationale: |
-          You calculated the probability of drawing an Ace alone instead of Ace or Heart.
-      - text: "$\\frac{9}{26}$"
-        rationale: |
-          You added the Ace of Hearts twice instead of subtracting the overlap.
-    explanation: |
-      Use the addition rule for non-mutually exclusive events:
-      
-      $$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
-      
-      Where:
-      - $P(\text{Ace}) = \frac{4}{52}$
-      - $P(\text{Heart}) = \frac{13}{52}$
-      - $P(\text{Ace of Hearts}) = \frac{1}{52}$
-      
-      Substitute the values:
-      
-      $$P(\text{Ace or Heart}) = \frac{4}{52} + \frac{13}{52} - \frac{1}{52} = \frac{16}{52} = \frac{4}{13}$$
-      
-      The probability is $\frac{4}{13}$.
-  - id: q-statistics-and-probability-basic-probability-0011
-    type: word-problem
-    difficulty: medium
-    stem: |
-      Three fair coins are tossed simultaneously. What is the probability of obtaining at least one Head?
-    choices:
-      - text: "$\\frac{7}{8}$"
-        correct: true
-      - text: "$\\frac{1}{8}$"
-        rationale: |
-          You calculated the probability of getting no Heads instead of at least one Head.
-      - text: "$\\frac{3}{8}$"
-        rationale: |
-          You calculated the probability of getting exactly one Head instead of at least one Head.
-      - text: "$\\frac{1}{2}$"
-        rationale: |
-          You calculated the probability of getting Head on a single coin toss.
-    explanation: |
-      Tossing three fair coins yields $2^3 = 8$ total outcomes.
-      
-      The event 'at least one Head' is the complement of obtaining 'no Heads' (all Tails):
-      
-      $$P(\text{All Tails}) = \left(\frac{1}{2}\right)^3 = \frac{1}{8}$$
-      
-      Use complementary probability:
-      
-      $$P(\text{At least 1 Head}) = 1 - P(\text{All Tails}) = 1 - \frac{1}{8} = \frac{7}{8}$$
-      
-      The probability of getting at least one Head is $\frac{7}{8}$.
-  - id: q-statistics-and-probability-basic-probability-0012
-    type: word-problem
-    difficulty: hard
-    stem: |
-      A survey of $100$ high school seniors categorized student CET review status and track preference:
-      
-      | Review Status | STEM Track | Non-STEM Track | Total |
-      | :--- | :--- | :--- | :--- |
-      | Took Review Course | 35 | 15 | 50 |
-      | Did Not Take Review Course | 25 | 25 | 50 |
-      | Total | 60 | 40 | 100 |
-      
-      Given that a randomly selected student took a review course, what is the conditional probability that the student is in the STEM track?
-    choices:
-      - text: "$\\frac{7}{10}$"
-        correct: true
-      - text: "$\\frac{7}{12}$"
-        rationale: |
-          You calculated the probability of taking a review given STEM track instead of STEM track given review.
-      - text: "$\\frac{7}{20}$"
-        rationale: |
-          You divided by the total 100 students instead of restricting to the 50 review students.
-      - text: "$\\frac{3}{5}$"
-        rationale: |
-          You calculated the probability of selecting any STEM student from the entire school.
-    explanation: |
-      The condition restricts the sample space to students who took the review course ($N = 50$).
-      
-      Among these $50$ students, $35$ belong to the STEM track. Compute conditional probability $P(\text{STEM} \mid \text{Took Review})$:
-      
-      $$P(\text{STEM} \mid \text{Took Review}) = \frac{35}{50} = \frac{7}{10}$$
-      
-      The conditional probability is $\frac{7}{10}$.
-  - id: q-statistics-and-probability-basic-probability-0013
-    type: word-problem
-    difficulty: hard
-    stem: |
-      At an electronics plant in Laguna, Machine A manufactures $60\%$ of light bulbs and Machine B manufactures $40\%$. Defect rates are $5\%$ for Machine A and $2\%$ for Machine B. If a bulb is selected at random from total output, what is the probability that it is defective?
-    choices:
-      - text: "$3.8\\%$"
-        correct: true
-      - text: "$3.5\\%$"
-        rationale: |
-          You averaged the two defect rates without weighting them by machine production volume.
-      - text: "$7.0\\%$"
-        rationale: |
-          You added the two defect rates directly without multiplying by output percentages.
-      - text: "$2.0\\%$"
-        rationale: |
-          You picked Machine B's defect rate alone and ignored Machine A.
-    explanation: |
-      Use the Law of Total Probability to sum defective probabilities across both machines:
-      
-      $$P(D) = P(D \mid A) \cdot P(A) + P(D \mid B) \cdot P(B)$$
-      
-      Substitute given values:
-      
-      $$P(D) = (0.05 \times 0.60) + (0.02 \times 0.40)$$
-      $$P(D) = 0.030 + 0.008 = 0.038 = 3.8\%$$
-      
-      The overall probability that a randomly chosen bulb is defective is $3.8\%$.
-  - id: q-statistics-and-probability-basic-probability-0014
-    type: word-problem
-    difficulty: hard
-    stem: |
-      Machine A produces $60\%$ of an electronics plant's light bulbs with a $5\%$ defect rate, while Machine B produces the remaining $40\%$ with a $2\%$ defect rate. If a randomly inspected bulb is found to be defective, what is the probability that it was produced by Machine A?
-    choices:
-      - text: "$\\frac{15}{19}$"
-        correct: true
-      - text: "$\\frac{3}{5}$"
-        rationale: |
-          You picked Machine A's production share instead of conditioning on a defective bulb.
-      - text: "$\\frac{4}{19}$"
-        rationale: |
-          You calculated the probability that the defective bulb came from Machine B instead of Machine A.
-      - text: "$\\frac{5}{100}$"
-        rationale: |
-          You picked Machine A's defect rate alone instead of using Bayes' Theorem.
-    explanation: |
-      First compute the overall defective probability from the data in this item:
-      
-      $$P(D) = (0.05 \times 0.60) + (0.02 \times 0.40) = 0.030 + 0.008 = 0.038$$
-      
-      Then apply Bayes' Theorem:
-      
-      $$P(A \mid D) = \frac{P(D \mid A)P(A)}{P(D)} = \frac{0.05 \times 0.60}{0.038}$$
-      $$P(A \mid D) = \frac{0.030}{0.038} = \frac{30}{38} = \frac{15}{19}$$
-      
-      The probability that a defective bulb came from Machine A is $\frac{15}{19}$ (approximately $78.95\%$).
-  - id: q-statistics-and-probability-basic-probability-0015
-    type: word-problem
-    difficulty: hard
-    stem: |
-      A box in a classroom contains $5$ green clips, $4$ red clips, and $3$ blue clips. Three clips are drawn sequentially without replacement. What is the probability of drawing in order: first green, second red, and third blue?
-    choices:
-      - text: "$\\frac{1}{22}$"
-        correct: true
-      - text: "$\\frac{5}{144}$"
-        rationale: |
-          You calculated the probability with replacement, keeping 12 as the total for each draw.
-      - text: "$\\frac{1}{12}$"
-        rationale: |
-          You miscalculated the product of the three fractions for sequential draws.
-      - text: "$\\frac{3}{22}$"
-        rationale: |
-          You multiplied the numerators incorrectly, getting 180 over 1320 instead of 60.
-    explanation: |
-      Calculate conditional probabilities for each sequential draw without replacement:
-      
-      - Total initial clips $= 5 + 4 + 3 = 12$
-      - $P(\text{1st Green}) = \frac{5}{12}$
-      - $P(\text{2nd Red} \mid \text{1st Green}) = \frac{4}{11}$
-      - $P(\text{3rd Blue} \mid \text{1st Green, 2nd Red}) = \frac{3}{10}$
-      
-      Multiply the sequential probabilities:
-      
-      $$P = \frac{5}{12} \times \frac{4}{11} \times \frac{3}{10} = \frac{60}{1,320} = \frac{1}{22}$$
-      
-      The probability of drawing green, red, then blue in sequence is $\frac{1}{22}$.
-  - id: q-statistics-and-probability-basic-probability-0016
-    type: word-problem
-    difficulty: hard
-    stem: |
-      In a barangay basketball tournament, Team A and Team B play a best-of-three series (the first team to win two games wins the series). The probability that Team A wins any individual game is $0.60$, independent of other games. What is the probability that Team A wins the series?
-    choices:
-      - text: "$0.648$"
-        correct: true
-      - text: "$0.600$"
-        rationale: |
-          You used the single-game win probability instead of combining series outcomes.
-      - text: "$0.360$"
-        rationale: |
-          You calculated only the probability of a two-game sweep and omitted three-game wins.
-      - text: "$0.500$"
-        rationale: |
-          You assumed both teams have an equal 50 percent chance to win the series.
-    explanation: |
-      Identify all mutually exclusive ways Team A can win the best-of-three series:
-      
-      1. Sweep in $2$ games (AA):
-         $$P(\text{AA}) = 0.60 \times 0.60 = 0.360$$
-      
-      2. Win in $3$ games (ABA or BAA):
-         $$P(\text{ABA}) = 0.60 \times (1 - 0.60) \times 0.60 = 0.60 \times 0.40 \times 0.60 = 0.144$$
-         $$P(\text{BAA}) = (1 - 0.60) \times 0.60 \times 0.60 = 0.40 \times 0.60 \times 0.60 = 0.144$$
-      
-      Sum the probabilities of these disjoint events:
-      
-      $$P(\text{Team A Wins}) = 0.360 + 0.144 + 0.144 = 0.648$$
-      
-      The overall probability that Team A wins the series is $0.648$.
+- id: 'q-statistics-and-probability-basic-probability-0001'
+  type: 'word-problem'
+  difficulty: 'easy'
+  stem: |
+    A jar at a sari-sari store contains $5$ red marbles, $7$ blue marbles, and $8$ yellow marbles. If one marble is drawn at random, what is the probability that it is blue?
+  choices:
+  - text: '$\dfrac{7}{20}$'
+    correct: true
+  - text: '$\dfrac{7}{13}$'
+    rationale: |
+      This divides by nonblue marbles. Thirteen counts the other colors. Use all outcomes in the denominator.
+  - text: '$\dfrac7{15}$'
+    rationale: |
+      This leaves the red marbles out of the total. Fifteen counts blue and yellow together. Check that every color belongs in the sample space.
+  - text: '$\dfrac{5}{20}$'
+    rationale: |
+      This reports the red probability. Five is a stated count. Check the favorable group.
+  explanation: |
+    There are $5+7+8=20$ marbles, with seven blue. The probability is $\dfrac7{20}$.
+- id: 'q-statistics-and-probability-basic-probability-0002'
+  type: 'word-problem'
+  difficulty: 'easy'
+  stem: |
+    A fair six-sided die is rolled once. What is the probability of rolling a prime number?
+  choices:
+  - text: '$\dfrac{1}{2}$'
+    correct: true
+  - text: '$\dfrac{2}{3}$'
+    rationale: |
+      This counts one as prime. One divides itself. A prime has exactly two positive divisors.
+  - text: '$\dfrac{1}{3}$'
+    rationale: |
+      This omits the even prime two. Most primes are odd. Check each face individually.
+  - text: '$\dfrac{5}{6}$'
+    rationale: |
+      This counts every number except one as prime. All exceed one. Exclude composite faces too.
+  explanation: |
+    The prime faces are $2,3,5$, three of the six equally likely outcomes. The probability is $\dfrac36=\dfrac12$.
+- id: 'q-statistics-and-probability-basic-probability-0003'
+  type: 'word-problem'
+  difficulty: 'easy'
+  stem: |
+    A single card is drawn at random from a standard deck of $52$ playing cards. What is the probability of drawing a face card (Jack, Queen, or King)?
+  choices:
+  - text: '$\dfrac{3}{13}$'
+    correct: true
+  - text: '$\dfrac{1}{13}$'
+    rationale: |
+      This counts only one face-card rank. Each rank has four suits. Include jack, queen, and king.
+  - text: '$\dfrac{4}{13}$'
+    rationale: |
+      This includes aces as face cards. Aces are special ranks. Use the ranks named in the stem.
+  - text: '$\dfrac{3}{52}$'
+    rationale: |
+      This counts face ranks without suits. Three ranks are named. Count all four suits.
+  explanation: |
+    There are three face-card ranks in each of four suits, giving $3(4)=12$ face cards. The probability is $\dfrac{12}{52}=\dfrac3{13}$.
+- id: 'q-statistics-and-probability-basic-probability-0004'
+  type: 'word-problem'
+  difficulty: 'easy'
+  stem: |
+    A barangay fiesta raffle sold $500$ total tickets. If Juan bought $25$ tickets and exactly $1$ winning ticket is drawn at random, what is the probability that Juan does NOT win?
+  choices:
+  - text: '$\dfrac{19}{20}$'
+    correct: true
+  - text: '$\dfrac{1}{20}$'
+    rationale: |
+      This gives the winning probability. Twenty-five tickets belong to Juan. Check the word not.
+  - text: '$\dfrac{475}{499}$'
+    rationale: |
+      This removes one ticket from the total. One winner is drawn. Use the original sample size.
+  - text: '$\dfrac{1}{500}$'
+    rationale: |
+      This counts only one ticket held by Juan. Exactly one winner is chosen. Count all his tickets and take the complement.
+  explanation: |
+    There are $500-25=475$ tickets not held by Juan. A single winning ticket is equally likely to be any of the $500$. His losing probability is $\dfrac{475}{500}=\dfrac{19}{20}$.
+- id: 'q-statistics-and-probability-basic-probability-0005'
+  type: 'word-problem'
+  difficulty: 'easy'
+  stem: |
+    A game spinner is divided into $8$ equal numbered sectors ($1$ through $8$). What is the probability of spinning a number that is greater than $5$ or even?
+  choices:
+  - text: '$\dfrac{5}{8}$'
+    correct: true
+  - text: '$\dfrac{7}{8}$'
+    rationale: |
+      This adds the groups without removing overlap. Three sectors exceed five and four are even. Subtract the shared sectors once.
+  - text: '$\dfrac{1}{2}$'
+    rationale: |
+      This counts only the even sectors. Even is one stated condition. Include the other condition too.
+  - text: '$\dfrac{3}{4}$'
+    rationale: |
+      This removes only one of two overlapping sectors. Overlap does need subtraction. List every shared outcome.
+  explanation: |
+    The eligible sectors are $2,4,6,7,8$. Five of eight equally likely sectors meet at least one condition. Thus the probability is $\dfrac58$.
+- id: 'q-statistics-and-probability-basic-probability-0006'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    Two fair six-sided dice are rolled simultaneously. What is the probability that the sum of the numbers showing on the top faces is equal to $8$?
+  choices:
+  - text: '$\dfrac{5}{36}$'
+    correct: true
+  - text: '$\dfrac{4}{36}$'
+    rationale: |
+      This leaves out the double-four outcome. The other pairs contain different faces. Include equal-face pairs.
+  - text: '$\dfrac{1}{6}$'
+    rationale: |
+      This counts six favorable pairs as for sum seven. Six is a familiar dice count. List the pairs for the requested sum.
+  - text: '$\dfrac{7}{36}$'
+    rationale: |
+      This allows seven on a die. Seven positive pairs sum to eight without face limits. Restrict each face to one through six.
+  explanation: |
+    There are $36$ ordered dice outcomes. The favorable pairs are $(2,6),(3,5),(4,4),(5,3),(6,2)$, five outcomes. Thus the probability is $\dfrac5{36}$.
+- id: 'q-statistics-and-probability-basic-probability-0007'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    A jar contains $6$ sampaloc candies and $4$ yema candies. Maria draws one candy at random, records its flavor, and replaces it into the jar. She then draws a second candy. What is the probability that both candies drawn are sampaloc?
+  choices:
+  - text: '$\dfrac{9}{25}$'
+    correct: true
+  - text: '$\dfrac{1}{3}$'
+    rationale: |
+      This uses no-replacement sampling. Two draws are sequential. Check that the candy is returned.
+  - text: '$\dfrac{3}{5}$'
+    rationale: |
+      This gives only the first draw probability. Sampaloc is favorable on that draw. Include both required draws.
+  - text: '$\dfrac6{25}$'
+    rationale: |
+      This makes the second candy yema. Both flavors are in the jar. Match both requested flavors.
+  explanation: |
+    Replacement keeps each draw probability at $\dfrac6{10}$. Multiply the independent probabilities: $\dfrac6{10}\dfrac6{10}=\dfrac9{25}$.
+- id: 'q-statistics-and-probability-basic-probability-0008'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    In a hypothetical weather model, the probability of afternoon rain on any July day is $0.60$. Assuming weather conditions on consecutive days are independent, what is the probability that it rains on Friday afternoon but does NOT rain on Saturday afternoon?
+  choices:
+  - text: '$0.24$'
+    correct: true
+  - text: '$0.36$'
+    rationale: |
+      This uses rain on both days. Both days use the same rain chance. Take the complement for Saturday.
+  - text: '$0.16$'
+    rationale: |
+      This uses no rain on both days. No rain is required on Saturday. Keep Friday as rain.
+  - text: '$1.00$'
+    rationale: |
+      This adds complementary probabilities. Rain and no rain sum to one for one day. Multiply the independent two-day requirements.
+  explanation: |
+    The probability of no Saturday rain is $1-0.60=0.40$. Under the stated independence assumption, multiply: $0.60(0.40)=0.24$.
+- id: 'q-statistics-and-probability-basic-probability-0009'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    Two cards are drawn sequentially without replacement from a standard $52$-card deck. What is the probability that both cards drawn are Kings?
+  choices:
+  - text: '$\dfrac{1}{221}$'
+    correct: true
+  - text: '$\dfrac{1}{169}$'
+    rationale: |
+      This assumes replacement. The first-draw probability is familiar. Update counts after removal.
+  - text: '$\dfrac2{13}$'
+    rationale: |
+      This adds the two original king probabilities. Two draws are requested. Use multiplication for both events.
+  - text: '$\dfrac4{663}$'
+    rationale: |
+      This updates the total but leaves four kings. Only one card is removed. Update the favorable count too.
+  explanation: |
+    The first king probability is $\dfrac4{52}$. After it is removed, three kings remain among $51$ cards. Multiply: $\dfrac4{52}\dfrac3{51}=\dfrac1{221}$.
+- id: 'q-statistics-and-probability-basic-probability-0010'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    A single card is drawn at random from a standard $52$-card deck. What is the probability of drawing either an Ace or a Heart?
+  choices:
+  - text: '$\dfrac{4}{13}$'
+    correct: true
+  - text: '$\dfrac{17}{52}$'
+    rationale: |
+      This double-counts the ace of hearts. Both event counts are included. Subtract their intersection.
+  - text: '$\dfrac{1}{13}$'
+    rationale: |
+      This counts only aces. Aces are one of the two groups. Include hearts too.
+  - text: '$\dfrac{9}{26}$'
+    rationale: |
+      This adds the overlap instead of subtracting it. The shared card needs special handling. Count each favorable card once.
+  explanation: |
+    There are four aces and thirteen hearts. The ace of hearts is counted in both groups, so the union has $4+13-1=16$ cards. The probability is $\dfrac{16}{52}=\dfrac4{13}$.
+- id: 'q-statistics-and-probability-basic-probability-0011'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    Three fair coins are tossed simultaneously. What is the probability of obtaining at least one Head?
+  choices:
+  - text: '$\dfrac{7}{8}$'
+    correct: true
+  - text: '$\dfrac{1}{8}$'
+    rationale: |
+      This reports no heads. It is the useful complement. Subtract that probability from one.
+  - text: '$\dfrac{3}{8}$'
+    rationale: |
+      This counts exactly one head. Three sequences have one head. Include two and three heads too.
+  - text: '$\dfrac{1}{2}$'
+    rationale: |
+      This uses one toss probability. Each coin is fair. Count the three-toss outcomes.
+  explanation: |
+    The complement is three tails, with probability $\left(\dfrac12\right)^3=\dfrac18$. Subtract from one to get $1-\dfrac18=\dfrac78$.
+- id: 'q-statistics-and-probability-basic-probability-0012'
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    A survey of $100$ high school seniors categorized student CET review status and track preference:
+    
+    | Review Status | STEM Track | Non-STEM Track | Total |
+    | :--- | :--- | :--- | :--- |
+    | Took Review Course | 35 | 15 | 50 |
+    | Did Not Take Review Course | 25 | 25 | 50 |
+    | Total | 60 | 40 | 100 |
+    
+    Given that a randomly selected student took a review course, what is the conditional probability that the student is in the STEM track?
+  choices:
+  - text: '$\dfrac{7}{10}$'
+    correct: true
+  - text: '$\dfrac{7}{12}$'
+    rationale: |
+      This conditions on STEM instead of review. Both groups contain the favorable thirty-five. Use the group named after given.
+  - text: '$\dfrac{7}{20}$'
+    rationale: |
+      This uses all one hundred students. The table total is visible. Restrict the denominator to review students.
+  - text: '$\dfrac{3}{5}$'
+    rationale: |
+      This gives the overall STEM probability. Sixty students are STEM. Apply the review condition.
+  explanation: |
+    The condition restricts the sample to the $50$ students who took review. Of these, $35$ are STEM students. The conditional probability is $\dfrac{35}{50}=\dfrac7{10}$.
+- id: 'q-statistics-and-probability-basic-probability-0013'
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    At an electronics plant in Laguna, Machine A manufactures $60\%$ of light bulbs and Machine B manufactures $40\%$. Defect rates are $5\%$ for Machine A and $2\%$ for Machine B. If a bulb is selected at random from total output, what is the probability that it is defective?
+  choices:
+  - text: '$3.8\%$'
+    correct: true
+  - text: '$3.5\%$'
+    rationale: |
+      This averages the two defect rates equally. Both machines have a rate. Weight by production share.
+  - text: '$7.0\%$'
+    rationale: |
+      This adds rates without weights. Both machines contribute defects. Include each production share.
+  - text: '$2.0\%$'
+    rationale: |
+      This uses only Machine B rate. Two percent is stated. Include both sources.
+  explanation: |
+    A defective bulb from A has probability $0.60(0.05)=0.030$. A defective bulb from B has probability $0.40(0.02)=0.008$. Add the disjoint cases: $0.030+0.008=0.038=3.8\%$.
+- id: 'q-statistics-and-probability-basic-probability-0014'
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    Machine A produces $60\%$ of an electronics plant's light bulbs with a $5\%$ defect rate, while Machine B produces the remaining $40\%$ with a $2\%$ defect rate. If a randomly inspected bulb is found to be defective, what is the probability that it was produced by Machine A?
+  choices:
+  - text: '$\dfrac{15}{19}$'
+    correct: true
+  - text: '$\dfrac{3}{5}$'
+    rationale: |
+      This uses the overall production share. A makes sixty percent of bulbs. Condition on defects.
+  - text: '$\dfrac{4}{19}$'
+    rationale: |
+      This gives the defective share from B. The denominator includes all defective bulbs. Match the requested machine.
+  - text: '$\dfrac{5}{100}$'
+    rationale: |
+      This uses the defect rate within A. Five percent belongs to A. Check which event is the condition.
+  explanation: |
+    A defective bulb from A has probability $0.60(0.05)=0.030$. The total defective probability is $0.030+0.40(0.02)=0.038$. Among defective bulbs, the fraction from A is $\dfrac{0.030}{0.038}=\dfrac{15}{19}$.
+- id: 'q-statistics-and-probability-basic-probability-0015'
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    A box in a classroom contains $5$ green clips, $4$ red clips, and $3$ blue clips. Three clips are drawn sequentially without replacement. What is the probability of drawing in order: first green, second red, and third blue?
+  choices:
+  - text: '$\dfrac{1}{22}$'
+    correct: true
+  - text: '$\dfrac{5}{144}$'
+    rationale: |
+      This keeps twelve clips for every draw. The initial total is twelve. Update without-replacement totals.
+  - text: '$\dfrac1{1320}$'
+    rationale: |
+      This counts only one ordered clip sequence. The product of totals is 1320. Count every favorable clip combination.
+  - text: '$\dfrac3{11}$'
+    rationale: |
+      This allows all six color orders. All three colors are requested. Keep the specified order.
+  explanation: |
+    The successive required probabilities are $\dfrac5{12}$, $\dfrac4{11}$, and $\dfrac3{10}$. Only the total drops after each different-color draw. Multiply to get $\dfrac{60}{1320}=\dfrac1{22}$.
+- id: 'q-statistics-and-probability-basic-probability-0016'
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    In a barangay basketball tournament, Team A and Team B play a best-of-three series (the first team to win two games wins the series). The probability that Team A wins any individual game is $0.60$, independent of other games. What is the probability that Team A wins the series?
+  choices:
+  - text: '$0.648$'
+    correct: true
+  - text: '$0.600$'
+    rationale: |
+      This uses a single-game probability. Sixty percent is stated directly. Count the series-winning paths.
+  - text: '$0.360$'
+    rationale: |
+      This counts only two straight wins. AA is a winning path. Include wins in three games.
+  - text: '$0.500$'
+    rationale: |
+      This assumes the teams are equally likely. There are two teams. Use the stated game probability.
+  explanation: |
+    Team A can win with sequences AA, ABA, or BAA. Their probabilities are $0.6^2=0.36$, $0.6(0.4)(0.6)=0.144$, and $0.4(0.6)(0.6)=0.144$. Add the disjoint paths: $0.36+0.144+0.144=0.648$.
+- id: 'q-statistics-and-probability-basic-probability-0017'
+  type: 'which-is-true'
+  difficulty: 'easy'
+  stem: |
+    A fair coin has landed tails on five independent tosses. What is the probability of heads on the next toss?
+  choices:
+  - text: '$\dfrac12$'
+    correct: true
+  - text: '$\dfrac56$'
+    rationale: |
+      This treats heads as due after five tails. A streak can seem unbalanced. Check that independence leaves the next probability unchanged.
+  - text: '$\dfrac16$'
+    rationale: |
+      This spreads one head over six tosses. The next toss is the sixth. Check that only its two outcomes determine its probability.
+  - text: '$0$'
+    rationale: |
+      This assumes the streak must continue. The previous outcomes all match. Check that they do not control an independent toss.
+  explanation: |
+    An independent fair toss has two equally likely outcomes. Earlier results do not change those probabilities. Heads therefore has probability one-half.
+  approved: false
+- id: 'q-statistics-and-probability-basic-probability-0018'
+  type: 'error-spotting'
+  difficulty: 'medium'
+  stem: |
+    In a class of $30$, $18$ students play chess, $12$ play volleyball, and $6$ play both. A student adds $18+12$ to count those playing either game. What is the correct count?
+  choices:
+  - text: '$24$'
+    correct: true
+  - text: '$30$'
+    rationale: |
+      This counts students in both groups twice. The two group sizes add to thirty. Subtract the overlap once.
+  - text: '$36$'
+    rationale: |
+      This adds the overlap as another group. Six students play both. Check that they are already in each total.
+  - text: '$6$'
+    rationale: |
+      This reports the intersection alone. Six is the overlap. Check whether either or both is requested.
+  explanation: |
+    The union count is $18+12-6=24$. Subtracting six removes the extra count of students in both groups.
+  approved: false
+- id: 'q-statistics-and-probability-basic-probability-0019'
+  type: 'which-is-true'
+  difficulty: 'hard'
+  stem: |
+    Two events A and B each have positive probability and are mutually exclusive. Which statement is true?
+  choices:
+  - text: 'They cannot be independent.'
+    correct: true
+  - text: 'They must be independent.'
+    rationale: |
+      This confuses no overlap with no effect on probability. Both phrases can sound separate. Check that A happening makes B impossible.
+  - text: 'Their intersection equals their probability product.'
+    rationale: |
+      This applies the independence formula. Both probabilities are positive. Compare the positive product with the zero intersection.
+  - text: 'Their union has probability zero.'
+    rationale: |
+      This applies the empty-intersection result to the union. Mutual exclusion does mean no shared outcomes. Check the difference between either and both.
+  explanation: |
+    Mutual exclusion gives $P(A\cap B)=0$. Independence would give the positive product $P(A)P(B)$. These cannot agree, so the events are not independent.
+  approved: false
+- id: 'q-statistics-and-probability-basic-probability-0020'
+  type: 'word-problem'
+  difficulty: 'exam'
+  stem: |
+    A club independently selects one of four officers, one of three meeting days, and one of two rooms, each uniformly. What is the probability it selects either officer Ana or officer Ben and also selects Saturday, one of the three days, regardless of room?
+  choices:
+  - text: '$\dfrac16$'
+    correct: true
+  - text: '$\dfrac1{12}$'
+    rationale: |
+      This requires one particular room as well. One room has probability one-half. Check that either room is allowed.
+  - text: '$\dfrac12$'
+    rationale: |
+      This checks only the officer. Two of four officers are allowed. Include the required day.
+  - text: '$\dfrac56$'
+    rationale: |
+      This adds officer and day probabilities. Both conditions are favorable. Check that both must occur together.
+  explanation: |
+    The officer probability is $\dfrac24=\dfrac12$. The day probability is $\dfrac13$, and either room is allowed. Multiply to get $\dfrac12\dfrac13=\dfrac16$.
+  approved: false

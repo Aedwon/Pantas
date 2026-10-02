@@ -10,19 +10,19 @@ questions:
     stem: |
       Add $(3x^2 - 2x + 1) + (x^2 + 4x - 3)$.
     choices:
-      - text: $4x^2 + 2x - 2$
+      - text: '$4x^2+2x-2$'
         correct: true
-      - text: $4x^2 + 6x - 2$
+      - text: '$4x^2+6x-2$'
         rationale: |
-          You added $-2x$ and $4x$ as $+6x$. $-2 + 4 = 2$, so the middle term is $+2x$, giving $4x^2 + 2x - 2$.
-      - text: $4x^2 - 2x - 4$
+          This adds the magnitudes of $-2x$ and $4x$. Both terms have the same variable part. Check the sign attached to each coefficient.
+      - text: '$4x^2+2x+4$'
         rationale: |
-          You subtracted $4x$ instead of adding it, and miscalculated $1 - 3$. $-2x + 4x = 2x$ and $1 - 3 = -2$.
-      - text: $2x^2 + 2x - 2$
+          This adds the magnitudes of the constants $1$ and $-3$. Grouping like terms is correct. Check that the negative sign stays with its number.
+      - text: '$2x^2+2x-2$'
         rationale: |
-          You subtracted $x^2$ from $3x^2$ to get $2x^2$. Add $3x^2 + x^2 = 4x^2$.
+          This subtracts the quadratic coefficients instead of adding them. The minus signs elsewhere can suggest subtraction. Check the sign between the two whole polynomials.
     explanation: |
-      Combine like terms: $3x^2 + x^2 = 4x^2$, $-2x + 4x = 2x$, and $1 - 3 = -2$. Result: $4x^2 + 2x - 2$.
+      Combine terms with the same powers: $(3+1)x^2+(-2+4)x+(1-3)$. The result is $4x^2+2x-2$.
 
   - id: q-algebra-polynomials-0002
     type: direct-computation
@@ -30,19 +30,19 @@ questions:
     stem: |
       Subtract $(5x^2 + 3x) - (2x^2 + x + 1)$.
     choices:
-      - text: $3x^2 + 2x - 1$
+      - text: '$3x^2+2x-1$'
         correct: true
-      - text: $3x^2 + 4x + 1$
+      - text: '$3x^2+4x+1$'
         rationale: |
-          You added $3x + x = 4x$ and kept $+1$. Subtracting the group requires flipping all inner signs to $-2x^2 - x - 1$.
-      - text: $7x^2 + 4x - 1$
+          This changes the sign of only the first term of the subtracted polynomial. The quadratic terms are correctly combined. Check that subtraction applies to every term in the group.
+      - text: '$7x^2+4x+1$'
         rationale: |
-          You added $5x^2 + 2x^2 = 7x^2$ instead of subtracting. Subtraction yields $5x^2 - 2x^2 = 3x^2$.
-      - text: $3x^2 + 2x + 1$
+          This adds the two polynomials instead of subtracting them. All matching terms are combined. Check the operation between the parentheses.
+      - text: '$3x^2+2x+1$'
         rationale: |
-          You forgot to distribute the minus sign to the constant $+1$. Subtracting $+1$ yields $-1$, giving $3x^2 + 2x - 1$.
+          This leaves the final constant positive. The first two terms are correctly subtracted. Check the sign before the entire second polynomial.
     explanation: |
-      Distribute the negative sign: $(5x^2 + 3x) + (-2x^2 - x - 1) = 3x^2 + 2x - 1$.
+      Distribute the subtraction: $5x^2+3x-2x^2-x-1$. Combine like terms to get $3x^2+2x-1$.
 
   - id: q-algebra-polynomials-0003
     type: error-spotting
@@ -53,19 +53,19 @@ questions:
 
       What is the error?
     choices:
-      - text: The constant term should be $-1$, not $+1$.
+      - text: 'The last constant was not subtracted.'
         correct: true
-      - text: The $x^2$ coefficient should be different.
+      - text: 'The quadratic coefficients were added.'
         rationale: |
-          You claimed the $x^2$ term was wrong, but $5x^2 - 2x^2 = 3x^2$ is correct. The error is failing to flip $+1$ to $-1$.
-      - text: There is no error.
+          This blames addition of the quadratic coefficients. The displayed coefficient is already $5-2$. Check each power separately.
+      - text: 'The linear coefficients were multiplied.'
         rationale: |
-          You claimed there is no error, but subtracting $(2x^2 + x + 1)$ requires distributing the negative to 1, yielding $-1$.
-      - text: The $x$ term should be $2x$.
+          This blames multiplication of the linear coefficients. The displayed coefficient is already $3-1$. Check how the coefficient 2 was obtained.
+      - text: 'The subtraction rule was used correctly.'
         rationale: |
-          You stated the $x$ term was incorrect, but $3x - x = 2x$ is already correct. The constant $+1$ should be $-1$.
+          This accepts keeping a positive constant under subtraction. The variable terms look correct. Check the sign of every term in the second group.
     explanation: |
-      When subtracting, the negative sign must be distributed to every term in the second group, including the constant 1. It should be $3x^2 + 2x - 1$.
+      The subtraction before the second polynomial also applies to its constant $+1$. That contribution is $-1$. The correct result is $3x^2+2x-1$.
 
   - id: q-algebra-polynomials-0004
     type: direct-computation
@@ -73,19 +73,19 @@ questions:
     stem: |
       Multiply $(x + 3)(x + 2)$ using FOIL.
     choices:
-      - text: $x^2 + 5x + 6$
+      - text: '$x^2+5x+6$'
         correct: true
-      - text: $x^2 + 5x + 5$
+      - text: '$x^2+5x+5$'
         rationale: |
-          You added $3 + 2 = 5$ for the last term instead of multiplying. The last term is $3 \times 2 = 6$.
-      - text: $x^2 + 6x + 6$
+          This adds $3+2$ instead of multiplying for the constant term. Adding is used for the middle coefficients. Check that the last FOIL product is $3$ times $2$.
+      - text: '$x^2+6x+6$'
         rationale: |
-          You multiplied $3 \times 2 = 6$ for the middle coefficient instead of adding. The middle term is $(3 + 2)x = 5x$.
-      - text: $2x + 5$
+          This multiplies 3 and 2 for the middle coefficient. Their product correctly gives the constant. Check that the cross terms are added.
+      - text: '$x^2+6$'
         rationale: |
-          You added the terms $x + x$ and $3 + 2$ instead of multiplying polynomials. FOIL requires multiplying terms to get $x^2 + 5x + 6$.
+          This omits both cross terms. The first and last products are right. Check that each term multiplies every term of the other binomial.
     explanation: |
-      FOIL: First $x \cdot x = x^2$, Outer $x \cdot 2 = 2x$, Inner $3 \cdot x = 3x$, Last $3 \cdot 2 = 6$. Sum: $x^2 + 5x + 6$.
+      Distribute: $x^2+2x+3x+6$. Combine the middle terms, $2x+3x=5x$. The product is $x^2+5x+6$.
 
   - id: q-algebra-polynomials-0005
     type: direct-computation
@@ -93,19 +93,19 @@ questions:
     stem: |
       Expand $(x + 3)^2$.
     choices:
-      - text: $x^2 + 6x + 9$
+      - text: '$x^2+6x+9$'
         correct: true
-      - text: $x^2 + 9$
+      - text: '$x^2+9$'
         rationale: |
-          You squared both terms individually and omitted the middle term $2(x)(3) = 6x$. Squaring a binomial yields $x^2 + 6x + 9$.
-      - text: $x^2 + 3x + 9$
+          This squares each term separately. That works for a product, so it can seem natural for a sum too. Check the cross products in the two binomials.
+      - text: '$x^2+3x+9$'
         rationale: |
-          You forgot to double the inner product $3x$. The middle term of $(x+3)^2$ is $2(3x) = 6x$, giving $x^2 + 6x + 9$.
-      - text: $2x + 6$
+          This includes only one of the two equal cross terms. One product $3x$ is correctly found. Check that both copies contribute.
+      - text: '$2x+6$'
         rationale: |
-          You multiplied the binomial by 2 instead of squaring it. $(x+3)^2 = (x+3)(x+3) = x^2 + 6x + 9$.
+          This doubles the binomial instead of squaring it. The raised 2 can look like a coefficient. Check that a square means multiplying the expression by itself.
     explanation: |
-      $(x+3)^2 = (x+3)(x+3) = x^2 + 3x + 3x + 9 = x^2 + 6x + 9$.
+      Write the square as $(x+3)(x+3)$. The products are $x^2$, $3x$, $3x$, and $9$. Add them to get $x^2+6x+9$.
 
   - id: q-algebra-polynomials-0006
     type: error-spotting
@@ -113,19 +113,19 @@ questions:
     stem: |
       A student claims that $(x + 3)^2 = x^2 + 9$. What is missing?
     choices:
-      - text: The middle term $6x$.
+      - text: '$6x$'
         correct: true
-      - text: Nothing, this is correct.
+      - text: '$3x$'
         rationale: |
-          You claimed the expansion is correct, but squaring a binomial creates a middle term $2 \cdot 3 \cdot x = 6x$.
-      - text: The exponent should be different.
+          This includes only one cross product. Each cross product is $3x$. Check how many cross products the expansion has.
+      - text: '$9x$'
         rationale: |
-          You thought the exponent was wrong, but the power 2 is correct. The error is the missing middle term $6x$.
-      - text: The constant should be larger.
+          This multiplies the two constants and attaches $x$. The constant product is part of the expansion. Check which products actually contain the variable.
+      - text: '$6$'
         rationale: |
-          You thought 9 was too small, but $3^2 = 9$ is correct. The missing piece is the middle term $2(x)(3) = 6x$.
+          This adds the constants instead of finding the cross products. Two copies of three are visible. Check that each cross product also contains $x$.
     explanation: |
-      The perfect square trinomial requires three terms: $x^2 + 2(x)(3) + 9 = x^2 + 6x + 9$. The middle term $6x$ is essential.
+      The cross products in $(x+3)(x+3)$ are $3x$ and $3x$. Together they give $6x$, the missing middle term.
 
   - id: q-algebra-polynomials-0007
     type: direct-computation
@@ -133,19 +133,19 @@ questions:
     stem: |
       Multiply $(x - 4)(x + 4)$.
     choices:
-      - text: $x^2 - 16$
+      - text: '$x^2-16$'
         correct: true
-      - text: $x^2 + 16$
+      - text: '$x^2+16$'
         rationale: |
-          You made the constant positive. Multiplying $-4 \times 4$ gives $-16$, resulting in the difference of squares $x^2 - 16$.
-      - text: $x^2 - 8$
+          This makes the constant product positive. Both binomials contain four. Check the product of $-4$ and $+4$.
+      - text: '$x^2-8$'
         rationale: |
-          You added $-4 - 4 = -8$ or multiplied $-4 \times 2$. The product of $-4$ and $+4$ is $-16$, so the answer is $x^2 - 16$.
-      - text: $2x$
+          This adds $-4-4$ instead of multiplying the constants. Subtraction appears in the first binomial. Check the last product when distributing.
+      - text: '$x^2+8x+16$'
         rationale: |
-          You added the binomials instead of multiplying them. $(x-4)(x+4)$ produces a quadratic expression $x^2 - 16$.
+          This treats both binomials as $x+4$. It uses the square-of-a-sum pattern. Check the sign in each original factor.
     explanation: |
-      Difference of squares: $(x-4)(x+4) = x^2 - 16$.
+      Expand to get $x^2+4x-4x-16$. The middle terms cancel. The result is $x^2-16$.
 
   - id: q-algebra-polynomials-0008
     type: direct-computation
@@ -153,19 +153,19 @@ questions:
     stem: |
       Factor $x^2 - 5x + 6$.
     choices:
-      - text: $(x - 2)(x - 3)$
+      - text: '$(x-2)(x-3)$'
         correct: true
-      - text: $(x + 2)(x + 3)$
+      - text: '$(x+2)(x+3)$'
         rationale: |
-          You used positive signs. Positive numbers add to $+5$, but the middle term is $-5x$, requiring $-2$ and $-3$.
-      - text: $(x - 1)(x - 6)$
+          This chooses factors with positive sum five. Their product does give six. Check that the middle coefficient is negative.
+      - text: '$(x-1)(x-6)$'
         rationale: |
-          You used $-1$ and $-6$, which add to $-7$, not $-5$. You need $-2$ and $-3$ because $-2 - 3 = -5$ and $(-2)(-3) = 6$.
-      - text: $(x - 5)(x + 1)$
+          This checks the product six but not the sum. Both factors have negative constants. Check that the two constants also add to negative five.
+      - text: '$(x-5)(x+1)$'
         rationale: |
-          You used $-5$ and $+1$, which multiply to $-5$, not $+6$. The factors must multiply to $+6$ and add to $-5$.
+          This uses negative five directly as one factor constant. That copies the middle coefficient. Check both the product and sum of the factor constants.
     explanation: |
-      Find two numbers that multiply to 6 and add to -5. These are -2 and -3. So $x^2 - 5x + 6 = (x-2)(x-3)$.
+      Find two numbers whose product is $6$ and whose sum is $-5$. They are $-2$ and $-3$. Thus $x^2-5x+6=(x-2)(x-3)$.
 
   - id: q-algebra-polynomials-0009
     type: direct-computation
@@ -173,19 +173,19 @@ questions:
     stem: |
       What is the remainder when $P(x) = x^4 - 3x^3 + 2x - 5$ is divided by $x - 2$?
     choices:
-      - text: $-9$
+      - text: '$-9$'
         correct: true
-      - text: $5$
+      - text: '$39$'
         rationale: |
-          You substituted $x = -2$ or miscalculated $P(2)$. Substituting $x = 2$ gives $16 - 24 + 4 - 5 = -9$.
-      - text: $-5$
+          This treats the term $-3(2)^3$ as positive, giving $16+24+4-5$. The substituted input is positive. Check the coefficient’s sign separately from the power.
+      - text: '$-5$'
         rationale: |
-          You evaluated only the constant term $P(0) = -5$. By the Remainder Theorem, evaluate $P(2) = 16 - 24 + 4 - 5 = -9$.
-      - text: $9$
+          This returns the constant term alone. The constant is the remainder when dividing by $x$. Check the value specified by the actual divisor.
+      - text: '$9$'
         rationale: |
-          You miscalculated the sign of the result. $16 - 24 + 4 - 5 = -9$, not $+9$.
+          This drops the negative sign after adding the terms. The magnitude is right. Check which total is larger, the positive terms or the negative terms.
     explanation: |
-      By the Remainder Theorem, substitute $x = 2$: $P(2) = 2^4 - 3(2^3) + 2(2) - 5 = 16 - 24 + 4 - 5 = -9$.
+      Division by $x-2$ gives remainder $P(2)$. Substitute: $P(2)=16-24+4-5=-9$.
 
   - id: q-algebra-polynomials-0010
     type: direct-computation
@@ -193,19 +193,19 @@ questions:
     stem: |
       If $x - 3$ is a factor of $x^3 - kx^2 + 4x - 12$, what is the value of $k$?
     choices:
-      - text: $3$
+      - text: '$3$'
         correct: true
-      - text: $2$
+      - text: '$9$'
         rationale: |
-          You got $k = 2$. By the Factor Theorem, set $P(3) = 0$: $27 - 9k + 12 - 12 = 0 \implies 9k = 27 \implies k = 3$.
-      - text: $4$
+          This treats $3^2$ as 3 in the term $-kx^2$, giving $27-3k=0$. The root is correctly substituted. Check the exponent on its coefficient.
+      - text: '$\dfrac{1}{3}$'
         rationale: |
-          You set $k$ to the coefficient of $x$. Solve $P(3) = 27 - 9k = 0$ to get $9k = 27$, so $k = 3$.
-      - text: $-3$
+          This reverses the division in $9k=27$. Both coefficients appear in the fraction. Check which number multiplies $k$.
+      - text: '$-3$'
         rationale: |
-          You made a sign error solving $27 - 9k = 0$. Subtracting 27 gives $-9k = -27$, so dividing by $-9$ yields $k = 3$.
+          This changes $-9k= -27$ into a negative value for $k$. Moving the constant is otherwise correct. Check the signs of both sides before division.
     explanation: |
-      By the Factor Theorem, if $x - 3$ is a factor, then $P(3) = 0$. Substitute: $27 - 9k + 12 - 12 = 0$, so $27 = 9k$ and $k = 3$.
+      If $x-3$ is a factor, then $P(3)=0$. This gives $27-9k+12-12=0$, so $27-9k=0$. Thus $9k=27$ and $k=3$.
 
   - id: q-algebra-polynomials-0011
     type: direct-computation
@@ -213,19 +213,19 @@ questions:
     stem: |
       If $A = 3x^2 - 2x + 5$ and $B = -x^2 + 4x - 1$, what is the simplified form of $2A - B$?
     choices:
-      - text: $7x^2 - 8x + 11$
+      - text: '$7x^2-8x+11$'
         correct: true
-      - text: $7x^2 + 8x + 11$
+      - text: '$7x^2+11$'
         rationale: |
-          You added $-4x + 4x = 0$ or added $+8x$. Subtracting $B$ means $-4x - 4x = -8x$.
-      - text: $5x^2 - 8x + 4$
+          This adds $4x$ from $B$ instead of subtracting it. The other terms of $B$ were correctly negated. Check that the subtraction changes all three signs.
+      - text: '$5x^2+9$'
         rationale: |
-          You subtracted $B$ from $2A$ without doubling $A$'s constant $2(5) = 10$, and calculated $6x^2 - x^2 = 5x^2$. $2A - B$ gives $7x^2 - 8x + 11$.
-      - text: $6x^2 - 6x + 10$
+          This adds $B$ instead of subtracting it. Doubling $A$ is correctly done. Check the operation before $B$.
+      - text: '$7x^2-4x+11$'
         rationale: |
-          You did not subtract $B$ properly. $2A = 6x^2 - 4x + 10$, and subtracting $(-x^2 + 4x - 1)$ gives $7x^2 - 8x + 11$.
+          This drops the linear term of $B$. The quadratic and constant terms are correctly subtracted. Check that all three terms of $B$ are used.
     explanation: |
-      $2A = 6x^2 - 4x + 10$. Subtract $B$: $(6x^2 - 4x + 10) - (-x^2 + 4x - 1) = 7x^2 - 8x + 11$.
+      First find $2A=6x^2-4x+10$. Subtract $B$: $6x^2-4x+10+x^2-4x+1$. Combine like terms to get $7x^2-8x+11$.
 
   - id: q-algebra-polynomials-0012
     type: direct-computation
@@ -233,59 +233,59 @@ questions:
     stem: |
       Factor $4x^2 + 8x$ completely by taking out the greatest common factor.
     choices:
-      - text: $4x(x + 2)$
+      - text: '$4x(x+2)$'
         correct: true
-      - text: $4x(x + 4)$
+      - text: '$4x(x+4)$'
         rationale: |
-          You wrote 4 inside instead of 2. Dividing $8x$ by $4x$ gives 2, so the factored form is $4x(x + 2)$.
-      - text: $2x(2x + 4)$
+          This divides $8x$ by $2x$ instead of the extracted factor $4x$. The resulting number four looks plausible. Check every inside term by multiplying back.
+      - text: '$2x(2x+4)$'
         rationale: |
-          This expression is algebraically equivalent to the original, but it is not completely factored because the factor 2 can still be taken out of $(2x + 4)$. The greatest common factor is $4x$.
-      - text: $4(x^2 + 2x)$
+          This takes out a common factor but not the greatest one. The expanded expression is equal to the original. Check whether the remaining terms still share a factor.
+      - text: '$4(x^2+2x)$'
         rationale: |
-          You extracted only the numerical factor 4. Since $x$ is shared by both terms, factor out $4x$ fully.
+          This takes out the numerical factor but leaves a common $x$ inside. The expanded expression is equal to the original. Check whether every inside term still contains $x$.
     explanation: |
-      The greatest common factor of $4x^2$ and $8x$ is $4x$. Factoring it out gives $4x^2 + 8x = 4x(x + 2)$, and no further common factor remains inside the parentheses.
+      The greatest common factor of $4x^2$ and $8x$ is $4x$. Dividing each term by $4x$ gives $x$ and $2$. The complete factorization is $4x(x+2)$.
 
   - id: q-algebra-polynomials-0013
-    type: direct-computation
+    type: word-problem
     difficulty: hard
     stem: |
-      Multiply $(x - 3)(x + 3)(x^2 + 9)$.
+      A square of side $x$ has $9$ square units of its area removed. The remaining area is then multiplied by $x^2+9$. For $x>3$, which polynomial gives the final quantity?
     choices:
-      - text: $x^4 - 81$
+      - text: '$x^4-81$'
         correct: true
-      - text: $x^4 + 81$
+      - text: '$x^4+81$'
         rationale: |
-          You got $+81$ for the last term. $(x^2 - 9)(x^2 + 9)$ is a difference of squares, which equals $x^4 - 81$.
-      - text: $x^4 - 27$
+          This adds the squared terms when multiplying conjugates. Both $x^2$ and 9 are being squared. Check the sign of the constant product.
+      - text: '$x^4-18x^2+81$'
         rationale: |
-          You calculated $3 \times 9 = 27$ or $3^3 = 27$. The constant term is $9 \times 9 = 81$, so $(x^2-9)(x^2+9) = x^4 - 81$.
-      - text: $x^3 - 27$
+          This treats the last factor as $x^2-9$. The first two factors do combine to that expression. Check the sign of the separate third factor.
+      - text: '$x^4-9$'
         rationale: |
-          You multiplied $(x-3)(x^2+9)$ and dropped factors. Multiplying all three terms gives $(x^2-9)(x^2+9) = x^4 - 81$.
+          This leaves nine unsquared in the second difference-of-squares step. The first difference of squares is correctly formed. Check both squares in the second step.
     explanation: |
-      First, $(x-3)(x+3) = x^2 - 9$. Then $(x^2 - 9)(x^2 + 9) = x^4 - 81$ (difference of squares).
+      The square of side $x$ has area $x^2$. Removing $9$ gives $x^2-9$. Multiply by the stated factor: $(x^2-9)(x^2+9)=x^4-9^2=x^4-81$.
 
   - id: q-algebra-polynomials-0014
     type: which-is-true
     difficulty: medium
     stem: |
-      Which expansion is correct?
+      Which expression is a polynomial in $x$?
     choices:
-      - text: $(x + 2)^2 = x^2 + 4x + 4$
+      - text: '$x^2+1$'
         correct: true
-      - text: $(x + 2)^2 = x^2 + 4$
+      - text: '$x^{-1}+1$'
         rationale: |
-          You omitted the middle term $2(x)(2) = 4x$. Squaring $(x + 2)$ produces a trinomial $x^2 + 4x + 4$.
-      - text: $(x + 2)^2 = x^2 + 2x + 4$
+          This allows a negative exponent on the variable. The expression otherwise resembles a polynomial sum. Check that variable exponents must be nonnegative integers.
+      - text: '$\sqrt{x}+1$'
         rationale: |
-          You forgot to double the product of $x$ and 2. The middle term is $2(2x) = 4x$, giving $x^2 + 4x + 4$.
-      - text: $(x + 2)^2 = x^2 + 2x + 2$
+          This allows a square root of the variable. Roots can look like ordinary algebra terms. Check that the exponent $\dfrac{1}{2}$ is not an integer.
+      - text: '$x^{2.5}+1$'
         rationale: |
-          You used 2 for both the middle coefficient and constant term. $(x+2)^2 = x^2 + 4x + 4$.
+          This allows a positive fractional exponent. Positivity is only part of the rule. Check that each variable exponent is a whole number.
     explanation: |
-      $(x+2)^2 = x^2 + 2(2)(x) + 4 = x^2 + 4x + 4$.
+      A polynomial uses nonnegative whole-number exponents on its variable. In $x^2+1$, the exponents are $2$ and $0$. Both meet that rule.
 
   - id: q-algebra-polynomials-0015
     type: direct-computation
@@ -293,19 +293,19 @@ questions:
     stem: |
       Factor $6x^2 - 7x - 3$ using the AC method.
     choices:
-      - text: $(3x + 1)(2x - 3)$
+      - text: '$(3x+1)(2x-3)$'
         correct: true
-      - text: $(3x - 1)(2x + 3)$
+      - text: '$(3x-1)(2x+3)$'
         rationale: |
-          You flipped the signs of the binomial factors. Multiplying $(3x - 1)(2x + 3)$ gives $6x^2 + 7x - 3$, not $-7x$.
-      - text: $(2x + 1)(3x - 3)$
+          This gives a positive middle coefficient. The first and last products match the original. Check the sum of the cross products.
+      - text: '$(2x+1)(3x-3)$'
         rationale: |
-          You did not simplify the second factor $(3x - 3)$, which has a common factor 3, and $(2x+1)(3x-3)$ gives $6x^2 - 3x - 3$.
-      - text: $(6x - 1)(x + 3)$
+          This matches the leading and constant terms but gives middle term $-3x$. Those endpoint terms are good starting checks. Check the cross products too.
+      - text: '$(6x-1)(x+3)$'
         rationale: |
-          You used factors of 6 and 1. Expanding $(6x - 1)(x + 3)$ yields $6x^2 + 17x - 3$, which does not match $-7x$.
+          This uses six directly in the first factor without checking the middle coefficient. The leading and constant terms match. Check the sum of the two cross products.
     explanation: |
-      Multiply $a$ and $c$: $6 \times (-3) = -18$. Find numbers multiplying to -18 and adding to -7: -9 and 2. Split and group: $6x^2 - 9x + 2x - 3 = 3x(2x - 3) + 1(2x - 3) = (3x+1)(2x-3)$.
+      Multiply the leading and constant coefficients: $6(-3)=-18$. The numbers $-9$ and $2$ multiply to $-18$ and add to $-7$. Split and group: $6x^2-9x+2x-3=3x(2x-3)+(2x-3)=(3x+1)(2x-3)$.
 
   - id: q-algebra-polynomials-0016
     type: error-spotting
@@ -313,56 +313,98 @@ questions:
     stem: |
       A student uses synthetic division to divide by $x - 5$ and writes $-5$ in the synthetic box. What is the error?
     choices:
-      - text: When dividing by $x - 5$, put $+5$ in the box, not $-5$.
+      - text: 'The box needs the zero of the divisor.'
         correct: true
-      - text: There is no error.
+      - text: 'The box needs the divisor’s constant term.'
         rationale: |
-          You claimed there is no error, but synthetic division uses the root of $x - 5 = 0$, which is $+5$.
-      - text: Synthetic division cannot be used here.
+          This copies the constant with its written sign. The divisor visibly ends in negative five. Check the number that makes the whole divisor zero.
+      - text: 'The box needs the leading coefficient.'
         rationale: |
-          You claimed synthetic division is invalid here, but it works for any linear divisor of the form $x - c$.
-      - text: The box should hold the coefficient, not the constant.
+          This uses the coefficient of $x$ rather than the divisor’s zero. The coefficient is part of the divisor. Check the standard form $x-c$.
+      - text: 'This linear divisor cannot use the shortcut.'
         rationale: |
-          You thought the box holds coefficients, but synthetic division uses the root of the divisor in the box.
+          This rejects a divisor of the exact form the shortcut uses. Some polynomial divisors do not fit standard synthetic division. Check that this divisor is linear with leading coefficient one.
     explanation: |
-      In synthetic division, when you divide by $x - 5$, you flip the sign and use $+5$ in the box. The divisor $x - 5$ has a zero at $x = 5$.
+      The synthetic number is $c$ in a divisor $x-c$. For $x-5$, solving $x-5=0$ gives $c=5$. The box therefore needs $5$.
 
   - id: q-algebra-polynomials-0017
     type: direct-computation
     difficulty: medium
     stem: |
-      Multiply $(2x + 1)(3x - 2)$.
+      What is the coefficient of $x$ in the expanded product $(2x+1)(3x-2)$?
     choices:
-      - text: $6x^2 - x - 2$
+      - text: '$-1$'
         correct: true
-      - text: $6x^2 + x - 2$
+      - text: '$1$'
         rationale: |
-          You calculated $-4x + 3x = +x$. Combining $-4x$ and $3x$ gives $-1x$, so the middle term is $-x$.
-      - text: $6x^2 - 4x - 2$
+          This adds the cross-term coefficients with a reversed sign on their total. Both cross terms are used. Check the signs before adding $-4$ and $3$.
+      - text: '$-4$'
         rationale: |
-          You forgot to add the inner product $1 \cdot 3x = 3x$. FOIL gives $-4x + 3x = -x$, so the middle term is $-x$.
-      - text: $5x - 1$
+          This includes only the cross product $2x(-2)$. That gives one term containing $x$. Check the other cross product.
+      - text: '$3$'
         rationale: |
-          You added coefficients instead of multiplying terms. FOIL requires multiplying $2x \cdot 3x = 6x^2$ to get $6x^2 - x - 2$.
+          This includes only the cross product $1(3x)$. That gives one term containing $x$. Check that both cross products contribute.
     explanation: |
-      FOIL: First $2x \cdot 3x = 6x^2$, Outer $2x \cdot (-2) = -4x$, Inner $1 \cdot 3x = 3x$, Last $1 \cdot (-2) = -2$. Sum: $6x^2 - x - 2$.
+      The terms containing $x$ are $2x(-2)=-4x$ and $1(3x)=3x$. They add to $-x$. Its coefficient is $-1$.
 
   - id: q-algebra-polynomials-0018
     type: which-is-true
     difficulty: medium
     stem: |
-      Is $(x - 2)$ a factor of $x^3 - 3x^2 + 2x$?
+      Let $P(x)=x^3-3x^2+2x$. Which calculation establishes that $x-2$ is a factor?
     choices:
-      - text: Yes, because $P(2) = 0$.
+      - text: '$P(2)=0$'
         correct: true
-      - text: No, because $P(2) \ne 0$.
+      - text: '$P(0)=0$'
         rationale: |
-          You claimed $P(2) \ne 0$, but evaluating $P(2) = 2^3 - 3(2^2) + 2(2) = 8 - 12 + 4 = 0$, proving $(x-2)$ is a factor.
-      - text: Cannot determine without factoring completely.
+          This establishes a factor of $x$ rather than $x-2$. Zero is a root of the polynomial. Check the root belonging to the named linear factor.
+      - text: '$P(-2)=-24$'
         rationale: |
-          You thought factoring was required, but the Factor Theorem lets you test divisibility by checking if $P(2) = 0$.
-      - text: No, because the polynomial has three terms.
+          This evaluates at the negative of the needed root. The factor contains a visible minus sign. Check which value makes $x-2$ zero.
+      - text: '$P(1)=0$'
         rationale: |
-          You claimed a three-term polynomial cannot have linear factors, but degree 3 polynomials can have up to 3 linear factors.
+          This establishes a factor of $x-1$. One is also a root of the polynomial. Check that the test is for the specified factor.
     explanation: |
-      Use the Factor Theorem. Substitute $x = 2$: $P(2) = 8 - 12 + 4 = 0$. Since $P(2) = 0$, $(x-2)$ is a factor.
+      The Factor Theorem tests $x-2$ by evaluating at $2$. Here $P(2)=2^3-3(2^2)+2(2)=8-12+4=0$. Thus $x-2$ is a factor.
+
+  - id: q-algebra-polynomials-0019
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Find the quotient when $x^3-2x^2-5x+6$ is divided by $x-1$.
+    choices:
+      - text: '$x^2-x-6$'
+        correct: true
+      - text: '$x^2-3x-2$'
+        rationale: |
+          This uses $-1$ in synthetic division. The divisor’s written constant is negative one. Check the zero of the divisor.
+      - text: '$x^2-x+6$'
+        rationale: |
+          This loses the minus sign of the final quotient coefficient. The first two coefficients are correct. Check the last addition in synthetic division.
+      - text: '$x^2-2x-5$'
+        rationale: |
+          This lowers every power by one without carrying out the subtractions. Dividing by $x$ alone would allow that shortcut for some terms. Check the full divisor $x-1$.
+    explanation: |
+      Use $1$ for synthetic division with coefficients $1,-2,-5,6$. Bring down $1$, then form $-2+1=-1$, $-5-1=-6$, and $6-6=0$. The quotient coefficients are $1,-1,-6$, so the quotient is $x^2-x-6$.
+    approved: false
+
+  - id: q-algebra-polynomials-0020
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      The polynomial $P(x)=2x^3+ax^2+bx-6$ is divisible by $x^2-x-2$. What is $a+b$?
+    choices:
+      - text: '$-6$'
+        correct: true
+      - text: '$6$'
+        rationale: |
+          This reverses the sign of the final sum. The coefficients have opposite signs, which can make their total confusing. Check the sum with the negative coefficient intact.
+      - text: '$1$'
+        rationale: |
+          This returns only $a$. Solving one coefficient is a necessary step. Check the quantity requested.
+      - text: '$-7$'
+        rationale: |
+          This returns only $b$. The second coefficient is found near the end of the work. Check that the question asks for their sum.
+    explanation: |
+      Factor the divisor: $x^2-x-2=(x-2)(x+1)$. Thus $P(2)=0$ gives $16+4a+2b-6=0$, or $2a+b=-5$. Also $P(-1)=0$ gives $-2+a-b-6=0$, or $a-b=8$. Add the equations: $3a=3$, so $a=1$. Then $b=-7$. Their sum is $-6$.
+    approved: false

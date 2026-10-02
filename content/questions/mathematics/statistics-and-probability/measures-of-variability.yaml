@@ -1,501 +1,395 @@
 meta:
-  subject: mathematics
-  topic: statistics-and-probability
-  subtopic: measures-of-variability
-  exams: [upcat, acet, dlsucet, ustet, pupcet]
+  subject: 'mathematics'
+  topic: 'statistics-and-probability'
+  subtopic: 'measures-of-variability'
+  exams: ['upcat', 'acet', 'dlsucet', 'ustet', 'pupcet']
 questions:
-  - id: q-statistics-and-probability-measures-of-variability-0001
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      Find the range of the following set of examination scores: $68$, $75$, $82$, $90$, $94$, and $55$.
-    choices:
-      - text: $39$
-        correct: true
-      - text: $40$
-        rationale: |
-          You miscalculated the difference between 94 and 55.
-      - text: $77.3$
-        rationale: |
-          You calculated the arithmetic mean of the examination scores instead of the range.
-      - text: $94$
-        rationale: |
-          You reported the maximum score in the dataset instead of subtracting the minimum.
-    explanation: |
-      The range is calculated by subtracting the minimum value from the maximum value in the dataset:
-
-      $$\text{Maximum} = 94$$
-
-      $$\text{Minimum} = 55$$
-
-      $$\text{Range} = \text{Maximum} - \text{Minimum} = 94 - 55 = 39$$
-
-      The range of the examination scores is $39$.
-
-  - id: q-statistics-and-probability-measures-of-variability-0002
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      The daily afternoon temperatures (in $^\circ\text{C}$) recorded in Baguio City over one week were: $15$, $17$, $14$, $19$, $22$, $16$, and $18$. What is the range of the temperature data?
-    choices:
-      - text: $8^\circ\text{C}$
-        correct: true
-      - text: $7^\circ\text{C}$
-        rationale: |
-          You miscalculated the difference between 22 and 14.
-      - text: $17^\circ\text{C}$
-        rationale: |
-          You calculated the median or mean temperature instead of finding the range.
-      - text: $9^\circ\text{C}$
-        rationale: |
-          You subtracted 15 from 24 or miscalculated the range.
-    explanation: |
-      Identify the maximum and minimum values from the temperature dataset:
-
-      $$\text{Maximum Temperature} = 22^\circ\text{C}$$
-
-      $$\text{Minimum Temperature} = 14^\circ\text{C}$$
-
-      $$\text{Range} = 22 - 14 = 8^\circ\text{C}$$
-
-  - id: q-statistics-and-probability-measures-of-variability-0003
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      Calculate the population variance ($\sigma^2$) of the dataset: $2$, $4$, $6$, $8$, and $10$.
-    choices:
-      - text: $8$
-        correct: true
-      - text: $10$
-        rationale: |
-          You divided the sum of squared deviations by N - 1 = 4 (sample variance) instead of N = 5 (population variance).
-      - text: $2.83$
-        rationale: |
-          You calculated the population standard deviation sqrt(8) = 2.83 instead of population variance.
-      - text: $40$
-        rationale: |
-          You calculated the sum of squared deviations but forgot to divide by N = 5.
-    explanation: |
-      Step 1: Calculate the population mean ($\mu$):
-
-      $$\mu = \frac{2 + 4 + 6 + 8 + 10}{5} = \frac{30}{5} = 6$$
-
-      Step 2: Compute the squared deviation of each data point from the mean:
-
-      $$(2 - 6)^2 = (-4)^2 = 16$$
-
-      $$(4 - 6)^2 = (-2)^2 = 4$$
-
-      $$(6 - 6)^2 = 0^2 = 0$$
-
-      $$(8 - 6)^2 = 2^2 = 4$$
-
-      $$(10 - 6)^2 = 4^2 = 16$$
-
-      Step 3: Sum the squared deviations and divide by population size $N = 5$:
-
-      $$\text{Sum of Squared Deviations} = 16 + 4 + 0 + 4 + 16 = 40$$
-
-      $$\sigma^2 = \frac{40}{5} = 8$$
-
-      Note: Dividing by $N - 1 = 4$ yields $10$, which is the sample variance rather than the population variance.
-
-  - id: q-statistics-and-probability-measures-of-variability-0004
-    type: which-is-true
-    difficulty: easy
-    stem: |
-      Which of the following statements regarding the range of a dataset is true?
-    choices:
-      - text: The range is the numerical difference between the highest and lowest values in a dataset.
-        correct: true
-      - text: The range incorporates all data points and their respective frequencies.
-        rationale: |
-          You assumed the range uses intermediate data points when it only uses the two extreme values.
-      - text: The range is completely unaffected by extreme outlier values.
-        rationale: |
-          You assumed range is resistant to outliers when it is directly formed by extreme values.
-      - text: The range can be negative if all numbers in the dataset are negative.
-        rationale: |
-          You assumed range can be negative when maximum minus minimum is always non-negative.
-    explanation: |
-      The range is defined as $\text{Maximum} - \text{Minimum}$.
-
-      Why the other options are false:
-      - The range only uses two values (the extreme ends) and ignores intermediate data points.
-      - The range is extremely sensitive to outliers because it depends directly on extreme values.
-      - Range is always non-negative ($\text{Range} \ge 0$) because maximum is greater than or equal to minimum.
-
-  - id: q-statistics-and-probability-measures-of-variability-0005
-    type: which-is-true
-    difficulty: easy
-    stem: |
-      Which of the following best defines the standard deviation of a dataset?
-    choices:
-      - text: It measures spread around the arithmetic mean as the non-negative square root of the average squared deviation from the mean.
-        correct: true
-      - text: It is the numerical difference between the highest score and the lowest score.
-        rationale: |
-          You identified the definition of the range instead of standard deviation.
-      - text: It is the specific value that appears most frequently in a distribution.
-        rationale: |
-          You identified the definition of the mode instead of standard deviation.
-      - text: It is the middle score when data values are arranged in numerical order.
-        rationale: |
-          You identified the definition of the median instead of standard deviation.
-    explanation: |
-      Standard deviation measures dispersion around the mean. For a population, it is the non-negative square root of the mean of the squared deviations from the population mean; sample standard deviation is analogously the square root of sample variance. This is why standard deviation is expressed in the same units as the original data.
-
-      Why the other options are false:
-      - Option 2 defines the range.
-      - Option 3 defines the mode.
-      - Option 4 defines the median.
-
-  - id: q-statistics-and-probability-measures-of-variability-0006
-    type: which-is-true
-    difficulty: easy
-    stem: |
-      What is the exact mathematical relationship between sample variance ($s^2$) and sample standard deviation ($s$)?
-    choices:
-      - text: Sample standard deviation is the positive square root of sample variance ($s = \sqrt{s^2}$).
-        correct: true
-      - text: Sample variance is the positive square root of sample standard deviation ($s^2 = \sqrt{s}$).
-        rationale: |
-          You inverted the relationship, claiming variance is the square root of standard deviation.
-      - text: Sample standard deviation is always double the value of sample variance ($s = 2s^2$).
-        rationale: |
-          You assumed standard deviation is 2 times variance instead of taking the square root.
-      - text: Sample variance and sample standard deviation are always numerically equal for all datasets.
-        rationale: |
-          You assumed variance and standard deviation are always equal, which is only true when variance is 0 or 1.
-    explanation: |
-      Standard deviation is defined as the non-negative square root of variance: $s = \sqrt{s^2}$. Conversely, variance is the square of standard deviation ($s^2 = (s)^2$).
-
-  - id: q-statistics-and-probability-measures-of-variability-0007
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      A sample of $5$ quiz scores is collected: $3$, $5$, $7$, $8$, and $12$. What is the sample variance ($s^2$)?
-    choices:
-      - text: $11.5$
-        correct: true
-      - text: $9.2$
-        rationale: |
-          You divided the sum of squared deviations by n = 5 (population variance) instead of n - 1 = 4.
-      - text: $3.39$
-        rationale: |
-          You took the square root of 11.5, calculating sample standard deviation instead of variance.
-      - text: $46$
-        rationale: |
-          You calculated the sum of squared deviations but forgot to divide by n - 1 = 4.
-    explanation: |
-      Step 1: Calculate the sample mean ($\bar{x}$) for $n = 5$:
-
-      $$\bar{x} = \frac{3 + 5 + 7 + 8 + 12}{5} = \frac{35}{5} = 7$$
-
-      Step 2: Calculate squared deviations $(x - \bar{x})^2$:
-
-      $$(3 - 7)^2 = (-4)^2 = 16$$
-
-      $$(5 - 7)^2 = (-2)^2 = 4$$
-
-      $$(7 - 7)^2 = 0^2 = 0$$
-
-      $$(8 - 7)^2 = 1^2 = 1$$
-
-      $$(12 - 7)^2 = 5^2 = 25$$
-
-      Step 3: Sum the squared deviations:
-
-      $$\text{Sum} = 16 + 4 + 0 + 1 + 25 = 46$$
-
-      Step 4: Divide by sample degrees of freedom ($n - 1 = 4$):
-
-      $$s^2 = \frac{46}{5 - 1} = \frac{46}{4} = 11.5$$
-
-      Note: Dividing by $n = 5$ gives $9.2$, which is population variance.
-
-  - id: q-statistics-and-probability-measures-of-variability-0008
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      A sample dataset of student test scores has a sample variance of $s^2 = 25$. If every score in the dataset is multiplied by $3$, what is the new sample standard deviation ($s_{\text{new}}$)?
-    choices:
-      - text: $15$
-        correct: true
-      - text: $75$
-        rationale: |
-          You multiplied the sample variance (25) by 3 instead of multiplying standard deviation (5) by 3.
-      - text: $225$
-        rationale: |
-          You calculated the new sample variance (225) instead of the new sample standard deviation.
-      - text: $5$
-        rationale: |
-          You reported the original sample standard deviation without scaling by 3.
-    explanation: |
-      Step 1: Find the original sample standard deviation ($s$):
-
-      $$s = \sqrt{s^2} = \sqrt{25} = 5$$
-
-      Step 2: Apply the scaling property of standard deviation. When every data point is multiplied by a constant $k = 3$, the standard deviation is multiplied by $|k| = 3$:
-
-      $$s_{\text{new}} = |k| \times s = 3 \times 5 = 15$$
-
-      Note: The new variance would be $k^2 \times s^2 = 3^2 \times 25 = 225$.
-
-  - id: q-statistics-and-probability-measures-of-variability-0009
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      A student recorded $5$ quiz scores: $4$, $4$, $10$, $16$, and $16$. What is the sample standard deviation ($s$) of these quiz scores?
-    choices:
-      - text: $6$
-        correct: true
-      - text: $36$
-        rationale: |
-          You calculated the sample variance (36) but forgot to take the positive square root for standard deviation.
-      - text: $5.37$
-        rationale: |
-          You divided by n = 5 (population standard deviation sqrt(28.8) = 5.37) instead of n - 1 = 4.
-      - text: $0$
-        rationale: |
-          You assumed identical distances from the mean cancel out to give a standard deviation of 0.
-    explanation: |
-      Step 1: Calculate the sample mean ($\bar{x}$) for $n = 5$:
-
-      $$\bar{x} = \frac{4 + 4 + 10 + 16 + 16}{5} = \frac{50}{5} = 10$$
-
-      Step 2: Calculate squared deviations $(x - \bar{x})^2$:
-
-      $$(4 - 10)^2 = 36$$
-
-      $$(4 - 10)^2 = 36$$
-
-      $$(10 - 10)^2 = 0$$
-
-      $$(16 - 10)^2 = 36$$
-
-      $$(16 - 10)^2 = 36$$
-
-      Step 3: Sum the squared deviations:
-
-      $$\text{Sum} = 36 + 36 + 0 + 36 + 36 = 144$$
-
-      Step 4: Divide by $n - 1 = 4$ to obtain sample variance ($s^2$):
-
-      $$s^2 = \frac{144}{4} = 36$$
-
-      Step 5: Take the positive square root for sample standard deviation ($s$):
-
-      $$s = \sqrt{36} = 6$$
-
-  - id: q-statistics-and-probability-measures-of-variability-0010
-    type: which-is-true
-    difficulty: medium
-    stem: |
-      Which of the following statements regarding measures of variability is true?
-    choices:
-      - text: Variance and standard deviation can never be negative values.
-        correct: true
-      - text: Standard deviation is expressed in squared units of the original dataset measurements.
-        rationale: |
-          You confused standard deviation units with variance units, which are squared.
-      - text: Range is more resistant to extreme outliers than standard deviation.
-        rationale: |
-          You claimed range is more resistant to outliers when it is actually the most sensitive.
-      - text: If all observations in a dataset are identical, the standard deviation is equal to the mean.
-        rationale: |
-          You assumed standard deviation equals the mean when identical observations yield SD = 0.
-    explanation: |
-      Since variance is a sum of squared differences divided by a positive integer, it is always non-negative ($s^2 \ge 0$). Consequently, standard deviation ($s = \sqrt{s^2}$) is also non-negative ($s \ge 0$).
-
-      Why the other options are false:
-      - Standard deviation is expressed in the same original units as the data (variance is in squared units).
-      - Range is directly formed by extreme values, so it is highly sensitive to outliers.
-      - If all observations are identical, the standard deviation is $0$.
-
-  - id: q-statistics-and-probability-measures-of-variability-0011
-    type: which-is-true
-    difficulty: medium
-    stem: |
-      A constant value $k = 5$ is added to every data point in a sample that has an initial standard deviation of $s = 4$. What is the standard deviation of the modified sample?
-    choices:
-      - text: $4$
-        correct: true
-      - text: $9$
-        rationale: |
-          You added 5 to the standard deviation 4, forgetting that adding a constant does not change spread.
-      - text: $20$
-        rationale: |
-          You multiplied the standard deviation by 5 instead of adding 5.
-      - text: $0$
-        rationale: |
-          You assumed adding a constant resets variability to 0.
-    explanation: |
-      Adding or subtracting a constant $k$ from every data point shifts the entire distribution along the axis, changing the mean by $+k$, but leaves the relative spacing between data points completely unchanged.
-
-      Therefore, measures of spread such as range, variance, and standard deviation remain unchanged:
-
-      $$s_{\text{new}} = s_{\text{initial}} = 4$$
-
-  - id: q-statistics-and-probability-measures-of-variability-0012
-    type: which-is-true
-    difficulty: medium
-    stem: |
-      Two jeepney routes in Manila have the same mean travel time of $30$ minutes. Route A has a travel time standard deviation of $3$ minutes, while Route B has a travel time standard deviation of $12$ minutes. Which statement accurately compares these two routes?
-    choices:
-      - text: Route A has more consistent travel times than Route B because its standard deviation is smaller.
-        correct: true
-      - text: Route B is more predictable and consistent than Route A because its travel times have greater spread.
-        rationale: |
-          You associated a larger standard deviation with predictability instead of greater variability.
-      - text: Passengers on Route A experience greater variability in travel times than passengers on Route B.
-        rationale: |
-          You claimed smaller standard deviation means greater variability.
-      - text: The travel times on Route A vary four times more than the travel times on Route B.
-        rationale: |
-          You inverted the comparison, claiming Route A varies more than Route B.
-    explanation: |
-      A smaller standard deviation indicates that data values are closely clustered around the mean, representing lower variability and higher consistency.
-
-      Since Route A has $s = 3\text{ minutes}$ compared to Route B's $s = 12\text{ minutes}$, Route A is significantly more consistent and predictable.
-
-  - id: q-statistics-and-probability-measures-of-variability-0013
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      Two sections of Grade 11 students took the same quiz. The scores for each section are:
-
-      - Section Red: $6$, $7$, $8$, $9$, $10$
-      - Section Blue: $4$, $6$, $8$, $10$, $12$
-
-      What is the ratio of the sample variance of Section Blue to the sample variance of Section Red ($\frac{s_{\text{Blue}}^2}{s_{\text{Red}}^2}$)?
-    choices:
-      - text: $4$
-        correct: true
-      - text: $2$
-        rationale: |
-          You calculated the ratio of standard deviations sqrt(10)/sqrt(2.5) = 2 instead of the ratio of variances.
-      - text: $1$
-        rationale: |
-          You assumed equal variances because both sections have the same mean score of 8.
-      - text: $0.25$
-        rationale: |
-          You inverted the ratio, dividing Section Red variance by Section Blue variance (2.5 / 10 = 0.25).
-    explanation: |
-      Calculate sample variance for Section Red ($n = 5$):
-
-      $$\bar{x}_{\text{Red}} = \frac{6 + 7 + 8 + 9 + 10}{5} = 8$$
-
-      $$\text{Sum Sq Dev}_{\text{Red}} = (-2)^2 + (-1)^2 + 0^2 + 1^2 + 2^2 = 4 + 1 + 0 + 1 + 4 = 10$$
-
-      $$s_{\text{Red}}^2 = \frac{10}{5 - 1} = 2.5$$
-
-      Calculate sample variance for Section Blue ($n = 5$):
-
-      $$\bar{x}_{\text{Blue}} = \frac{4 + 6 + 8 + 10 + 12}{5} = 8$$
-
-      $$\text{Sum Sq Dev}_{\text{Blue}} = (-4)^2 + (-2)^2 + 0^2 + 2^2 + 4^2 = 16 + 4 + 0 + 4 + 16 = 40$$
-
-      $$s_{\text{Blue}}^2 = \frac{40}{5 - 1} = 10$$
-
-      Calculate the variance ratio:
-
-      $$\text{Ratio} = \frac{s_{\text{Blue}}^2}{s_{\text{Red}}^2} = \frac{10}{2.5} = 4$$
-
-  - id: q-statistics-and-probability-measures-of-variability-0014
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      A dataset consists of $5$ numbers listed in ascending order: $2$, $5$, $8$, $11$, and $x$. If the range of the dataset is $12$, what is the sample variance ($s^2$) of the dataset?
-    choices:
-      - text: $22.5$
-        correct: true
-      - text: $18$
-        rationale: |
-          You divided the sum of squared deviations 90 by n = 5 (population variance) instead of n - 1 = 4.
-      - text: $14$
-        rationale: |
-          You reported the fifth value x = 14 instead of calculating the sample variance.
-      - text: $4.74$
-        rationale: |
-          You calculated the sample standard deviation sqrt(22.5) = 4.74 instead of sample variance.
-    explanation: |
-      Step 1: Use the range to solve for $x$:
-
-      $$\text{Range} = \text{Maximum} - \text{Minimum} = x - 2 = 12 \implies x = 14$$
-
-      The dataset is $2, 5, 8, 11, 14$.
-
-      Step 2: Calculate the sample mean ($\bar{x}$) for $n = 5$:
-
-      $$\bar{x} = \frac{2 + 5 + 8 + 11 + 14}{5} = \frac{40}{5} = 8$$
-
-      Step 3: Compute squared deviations $(x - \bar{x})^2$:
-
-      $$(2 - 8)^2 = (-6)^2 = 36$$
-
-      $$(5 - 8)^2 = (-3)^2 = 9$$
-
-      $$(8 - 8)^2 = 0^2 = 0$$
-
-      $$(11 - 8)^2 = 3^2 = 9$$
-
-      $$(14 - 8)^2 = 6^2 = 36$$
-
-      $$\text{Sum} = 36 + 9 + 0 + 9 + 36 = 90$$
-
-      Step 4: Divide by $n - 1 = 4$ for sample variance ($s^2$):
-
-      $$s^2 = \frac{90}{4} = 22.5$$
-
-  - id: q-statistics-and-probability-measures-of-variability-0015
-    type: which-is-true
-    difficulty: hard
-    stem: |
-      For a random sample of $n$ independent observations from a population with finite variance, why is $n - 1$ used instead of $n$ in the usual sample variance formula $s^2$?
-    choices:
-      - text: Dividing by $n - 1$ corrects the downward bias from estimating the population mean with the sample mean and makes $s^2$ an unbiased estimator of the population variance $\sigma^2$ (Bessel's correction).
-        correct: true
-      - text: Dividing by $n - 1$ guarantees that sample variance is strictly smaller than population variance.
-        rationale: |
-          You claimed n - 1 makes the variance smaller when dividing by a smaller number actually inflates it.
-      - text: Dividing by $n - 1$ is required only when the sample mean is equal to zero.
-        rationale: |
-          You assumed n - 1 applies only when the sample mean equals zero.
-      - text: Dividing by $n - 1$ eliminates measurement errors present in raw sample data.
-        rationale: |
-          You assumed Bessel's correction removes physical measurement error.
-    explanation: |
-      Under the stated random-sampling assumptions, using the sample mean $\bar{x}$ to estimate the unknown population mean consumes one degree of freedom. The uncorrected average of squared deviations about $\bar{x}$, with denominator $n$, is downward-biased for the population variance.
-
-      Dividing by $n - 1$ (Bessel's correction) removes that bias, so the usual sample variance $s^2$ is an unbiased estimator of $\sigma^2$ when the population variance is finite.
-
-  - id: q-statistics-and-probability-measures-of-variability-0016
-    type: which-is-true
-    difficulty: hard
-    stem: |
-      A dataset has a sample mean of $\bar{x} = 50$ and a sample standard deviation of $s = 10$. If every value in the dataset is multiplied by $2$ and then increased by $5$, what are the new sample mean ($\bar{x}_{\text{new}}$) and new sample standard deviation ($s_{\text{new}}$)?
-    choices:
-      - text: $\bar{x}_{\text{new}} = 105$ and $s_{\text{new}} = 20$
-        correct: true
-      - text: $\bar{x}_{\text{new}} = 105$ and $s_{\text{new}} = 25$
-        rationale: |
-          You added 5 to the scaled standard deviation (2 * 10 + 5 = 25), forgetting that adding a constant does not alter SD.
-      - text: $\bar{x}_{\text{new}} = 100$ and $s_{\text{new}} = 20$
-        rationale: |
-          You forgot to add 5 to the transformed sample mean (2 * 50 = 100).
-      - text: $\bar{x}_{\text{new}} = 105$ and $s_{\text{new}} = 10$
-        rationale: |
-          You failed to scale the standard deviation by 2 when data points were doubled.
-    explanation: |
-      Let each original data point be transformed according to $y = 2x + 5$.
-
-      1. Effect on sample mean: Linear operations affect the mean directly:
-
-      $$\bar{x}_{\text{new}} = 2\bar{x} + 5 = 2(50) + 5 = 105$$
-
-      2. Effect on sample standard deviation: Multiplying by a constant scales the standard deviation, while adding a constant has no effect on spread:
-
-      $$s_{\text{new}} = |2| \times s = 2 \times 10 = 20$$
-
-      Thus, $\bar{x}_{\text{new}} = 105$ and $s_{\text{new}} = 20$.
+- id: 'q-statistics-and-probability-measures-of-variability-0001'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    Find the range of the following set of examination scores: $68$, $75$, $82$, $90$, $94$, and $55$.
+  choices:
+  - text: '$39$'
+    correct: true
+  - text: '$40$'
+    rationale: |
+      This rounds the endpoint difference to forty. The scores are whole numbers near that difference. Subtract exactly.
+  - text: '$77.3$'
+    rationale: |
+      This gives the mean rounded to one decimal place. It uses all scores. Check that range uses only extremes.
+  - text: '$94$'
+    rationale: |
+      This reports the maximum. Ninety-four is the highest score. Subtract the minimum.
+  explanation: |
+    The largest score is $94$ and the smallest is $55$. The range is $94-55=39$.
+- id: 'q-statistics-and-probability-measures-of-variability-0002'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    A hypothetical temperature record in degrees Celsius is $15,17,14,19,22,16,18$. The reading $22$ is corrected to $20$. What is the corrected range?
+  choices:
+  - text: '$6^\circ\text{C}$'
+    correct: true
+  - text: '$8^\circ\text{C}$'
+    rationale: |
+      This keeps the old maximum twenty-two. It was in the original record. Apply the correction first.
+  - text: '$17^\circ\text{C}$'
+    rationale: |
+      This reports a central reading. Seventeen is in the data. Use the corrected extremes.
+  - text: '$7^\circ\text{C}$'
+    rationale: |
+      This counts integer steps including both endpoints. Fourteen through twenty includes seven integers. Range is their difference, not their count.
+  explanation: |
+    After correction, the maximum is $20$ and the minimum is $14$. The corrected range is $20-14=6^\circ\text{C}$.
+- id: 'q-statistics-and-probability-measures-of-variability-0003'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    Calculate the population variance ($\sigma^2$) of the dataset: $2$, $4$, $6$, $8$, and $10$.
+  choices:
+  - text: '$8$'
+    correct: true
+  - text: '$10$'
+    rationale: |
+      This uses the sample denominator four. The squared total is forty. Divide by five for this population.
+  - text: '$2.83$'
+    rationale: |
+      This reports standard deviation rounded. Taking a root is a familiar final step. Stop at variance.
+  - text: '$40$'
+    rationale: |
+      This reports the squared-deviation total. Forty is calculated correctly. Divide by the population count.
+  explanation: |
+    The mean is $6$. Squared deviations are $16,4,0,4,16$, totaling $40$. Population variance divides by five: $40\div5=8$.
+- id: 'q-statistics-and-probability-measures-of-variability-0004'
+  type: 'which-is-true'
+  difficulty: 'easy'
+  stem: |
+    Which of the following statements regarding the range of a dataset is true?
+  choices:
+  - text: 'Maximum minus minimum.'
+    correct: true
+  - text: 'The range incorporates all data points and their respective frequencies.'
+    rationale: |
+      This describes a measure using every observation. Such measures exist. Range uses only two endpoints.
+  - text: 'The range is completely unaffected by extreme outlier values.'
+    rationale: |
+      This assumes outliers do not change endpoints. Interior changes leave range fixed. Check whether the maximum or minimum changes.
+  - text: 'The range can be negative if all numbers in the dataset are negative.'
+    rationale: |
+      This confuses negative values with a negative difference. Both extremes may be negative. Subtract minimum from maximum.
+  explanation: |
+    Range subtracts the minimum from the maximum. Only those two extreme values determine it.
+- id: 'q-statistics-and-probability-measures-of-variability-0005'
+  type: 'which-is-true'
+  difficulty: 'easy'
+  stem: |
+    Which of the following best defines the population standard deviation of a dataset?
+  choices:
+  - text: 'The square root of population variance.'
+    correct: true
+  - text: 'It is the numerical difference between the highest score and the lowest score.'
+    rationale: |
+      This defines range. Extremes do describe spread. Check the mean-based squared-deviation definition.
+  - text: 'It is the specific value that appears most frequently in a distribution.'
+    rationale: |
+      This defines mode. Frequent values can look typical. Check whether frequency or spread is requested.
+  - text: 'It is the middle score when data values are arranged in numerical order.'
+    rationale: |
+      This defines median. Sorting finds a central value. Check whether center or spread is requested.
+  explanation: |
+    Population variance averages squared distances from the population mean. Its nonnegative square root is the population standard deviation. Taking that root returns the spread to the original measurement units.
+- id: 'q-statistics-and-probability-measures-of-variability-0006'
+  type: 'which-is-true'
+  difficulty: 'easy'
+  stem: |
+    What is the exact mathematical relationship between sample variance ($s^2$) and sample standard deviation ($s$)?
+  choices:
+  - text: '$s=\sqrt{s^2}$, using the nonnegative root.'
+    correct: true
+  - text: 'Sample variance is the positive square root of sample standard deviation ($s^2 = \sqrt{s}$).'
+    rationale: |
+      This reverses the root relation. Both quantities involve squaring. Square SD or take the root of variance.
+  - text: 'Sample standard deviation is always double the value of sample variance ($s = 2s^2$).'
+    rationale: |
+      This replaces a square root with doubling. Both change magnitudes. Use the defining square relation.
+  - text: 'Sample variance and sample standard deviation are always numerically equal for all datasets.'
+    rationale: |
+      This assumes variance always equals SD. They coincide at zero and one. Check other variance values.
+  explanation: |
+    Sample variance is the square of sample standard deviation. Taking the nonnegative square root returns the standard deviation. The result can be zero when all values match.
+- id: 'q-statistics-and-probability-measures-of-variability-0007'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    A sample of $5$ quiz scores is collected: $3$, $5$, $7$, $8$, and $12$. What is the sample variance ($s^2$)?
+  choices:
+  - text: '$11.5$'
+    correct: true
+  - text: '$9.2$'
+    rationale: |
+      This uses population denominator five. The numerator is correct. Use n minus one for a sample.
+  - text: '$3.39$'
+    rationale: |
+      This reports the square root of the sample variance. That gives SD. Check the requested quantity.
+  - text: '$46$'
+    rationale: |
+      This reports the squared-deviation total. It is a valid intermediate value. Divide by four.
+  explanation: |
+    The mean is $7$. Squared deviations are $16,4,0,1,25$, totaling $46$. Sample variance uses denominator $5-1=4$, so $s^2=46\div4=11.5$.
+- id: 'q-statistics-and-probability-measures-of-variability-0008'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    A sample dataset of student test scores has a sample variance of $s^2 = 25$. If every score in the dataset is multiplied by $3$, what is the new sample standard deviation ($s_{\text{new}}$)?
+  choices:
+  - text: '$15$'
+    correct: true
+  - text: '$75$'
+    rationale: |
+      This scales variance by three and reports it as SD. Twenty-five is the given variance. Take its square root first.
+  - text: '$225$'
+    rationale: |
+      This reports the new variance. Squared spread grows by nine. Take the root for SD.
+  - text: '$5$'
+    rationale: |
+      This keeps the original SD. Five is its square root. Apply the factor three.
+  explanation: |
+    The original standard deviation is $\sqrt{25}=5$. Multiplying every score by three multiplies its standard deviation by three. Thus the new value is $15$.
+- id: 'q-statistics-and-probability-measures-of-variability-0009'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    A student recorded $5$ quiz scores: $4$, $4$, $10$, $16$, and $16$. What is the sample standard deviation ($s$) of these quiz scores?
+  choices:
+  - text: '$6$'
+    correct: true
+  - text: '$36$'
+    rationale: |
+      This reports the variance. Thirty-six is a correct intermediate value. Take its square root.
+  - text: '$5.37$'
+    rationale: |
+      This uses population denominator five. The squared total is correct. Use the sample denominator.
+  - text: '$0$'
+    rationale: |
+      This averages raw deviations. They cancel to zero. Square before averaging.
+  explanation: |
+    The mean is $10$. Squared deviations total $36+36+0+36+36=144$. Divide by $5-1=4$ to get sample variance $36$. Its square root is $6$.
+- id: 'q-statistics-and-probability-measures-of-variability-0010'
+  type: 'which-is-true'
+  difficulty: 'medium'
+  stem: |
+    Which of the following statements regarding measures of variability is true?
+  choices:
+  - text: 'Variance and standard deviation are nonnegative.'
+    correct: true
+  - text: 'Standard deviation is expressed in squared units of the original dataset measurements.'
+    rationale: |
+      This gives SD squared units. Variance does have squared units. Take the root to recover original units.
+  - text: 'Range is more resistant to extreme outliers than standard deviation.'
+    rationale: |
+      This assumes extremes make range resistant. Only two values determine it. Check that an extreme change can alter range directly.
+  - text: 'If all observations in a dataset are identical, the standard deviation is equal to the mean.'
+    rationale: |
+      This treats identical values as their own spread. The mean equals that common value. Check that deviations are all zero.
+  explanation: |
+    Variance uses squared deviations, all nonnegative, divided by a positive count. Standard deviation is its nonnegative square root. Neither quantity can be negative.
+- id: 'q-statistics-and-probability-measures-of-variability-0011'
+  type: 'which-is-true'
+  difficulty: 'medium'
+  stem: |
+    A constant value $k = 5$ is added to every data point in a sample that has an initial standard deviation of $s = 4$. What is the standard deviation of the modified sample?
+  choices:
+  - text: '$4$'
+    correct: true
+  - text: '$9$'
+    rationale: |
+      This adds five to SD. The mean does shift by five. Check deviations from the shifted mean.
+  - text: '$20$'
+    rationale: |
+      This multiplies SD by the added constant. Scaling would change SD. Distinguish adding from multiplying.
+  - text: '$0$'
+    rationale: |
+      This assumes all deviations disappear after shifting. Every value moves equally. Check that their differences remain.
+  explanation: |
+    Adding five shifts every value and the mean by the same amount. The deviations stay unchanged. Thus the standard deviation stays four.
+- id: 'q-statistics-and-probability-measures-of-variability-0012'
+  type: 'which-is-true'
+  difficulty: 'medium'
+  stem: |
+    Two jeepney routes in Manila have the same mean travel time of $30$ minutes. Route A has a travel time standard deviation of $3$ minutes, while Route B has a travel time standard deviation of $12$ minutes. Which statement accurately compares these two routes?
+  choices:
+  - text: 'Route A has more consistent times.'
+    correct: true
+  - text: 'Route B is more predictable and consistent than Route A because its travel times have greater spread.'
+    rationale: |
+      This treats greater spread as greater consistency. Twelve exceeds three. Lower SD means tighter clustering.
+  - text: 'Passengers on Route A experience greater variability in travel times than passengers on Route B.'
+    rationale: |
+      This reverses the comparison. Both routes have the same mean. Compare their SD values.
+  - text: 'The travel times on Route A vary four times more than the travel times on Route B.'
+    rationale: |
+      This reverses the factor-four ratio. Twelve is four times three. Check which route has larger spread.
+  explanation: |
+    Both routes have the same mean. Route A has the smaller standard deviation, three minutes instead of twelve. Its travel times are more tightly clustered around that mean.
+- id: 'q-statistics-and-probability-measures-of-variability-0013'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    Two sections of Grade 11 students took the same quiz. The scores for each section are:
+    
+    - Section Red: $6$, $7$, $8$, $9$, $10$
+    - Section Blue: $4$, $6$, $8$, $10$, $12$
+    
+    What is the ratio of the sample variance of Section Blue to the sample variance of Section Red ($\dfrac{s_{\text{Blue}}^2}{s_{\text{Red}}^2}$)?
+  choices:
+  - text: '$4$'
+    correct: true
+  - text: '$2$'
+    rationale: |
+      This uses the SD ratio. Blue deviations are twice Red deviations. Square that factor for variance.
+  - text: '$1$'
+    rationale: |
+      This uses equal means to infer equal spread. Both means are eight. Compare squared deviations.
+  - text: '$0.25$'
+    rationale: |
+      This reverses Blue and Red. One-quarter is the opposite ratio. Keep the requested order.
+  explanation: |
+    Both means are $8$. Red has squared-deviation total $10$, while Blue has total $40$. Both sample variances divide by four, so their ratio is $\dfrac{40}{10}=4$.
+- id: 'q-statistics-and-probability-measures-of-variability-0014'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    A dataset consists of $5$ numbers listed in ascending order: $2$, $5$, $8$, $11$, and $x$. If the range of the dataset is $12$, what is the sample variance ($s^2$) of the dataset?
+  choices:
+  - text: '$22.5$'
+    correct: true
+  - text: '$18$'
+    rationale: |
+      This divides by five. Ninety is the correct squared total. Use the sample denominator four.
+  - text: '$14$'
+    rationale: |
+      This reports x. Fourteen comes from the range. Finish the variance calculation.
+  - text: '$4.74$'
+    rationale: |
+      This reports sample SD rounded. It is the root of 22.5. Check whether variance is requested.
+  explanation: |
+    The range gives $x-2=12$, so $x=14$. The mean is $8$. Squared deviations total $36+9+0+9+36=90$. Sample variance is $90\div4=22.5$.
+- id: 'q-statistics-and-probability-measures-of-variability-0015'
+  type: 'which-is-true'
+  difficulty: 'hard'
+  stem: |
+    For a random sample of $n$ independent observations from a population with finite variance, why is $n - 1$ used instead of $n$ in the usual sample variance formula $s^2$?
+  choices:
+  - text: 'Dividing by $n - 1$ corrects the downward bias from estimating the population mean with the sample mean and makes $s^2$ an unbiased estimator of the population variance $\sigma^2$ (Bessel''s correction).'
+    correct: true
+  - text: 'Dividing by $n - 1$ guarantees that sample variance is strictly smaller than population variance.'
+    rationale: |
+      This assumes the denominator guarantees a smaller estimate. Variance comparisons depend on data. Check the average-bias purpose.
+  - text: 'Dividing by $n - 1$ is required only when the sample mean is equal to zero.'
+    rationale: |
+      This restricts the correction to zero means. Deviations center around any sample mean. Check that the correction is about estimation.
+  - text: 'Dividing by $n - 1$ eliminates measurement errors present in raw sample data.'
+    rationale: |
+      This confuses estimation bias with measurement error. Both affect accuracy. The denominator cannot repair recorded measurements.
+  explanation: |
+    The sample mean is fitted to the sample itself, which makes deviations smaller on average than deviations from the unknown population mean. Dividing their squared sum by $n$ would underestimate population variance on average. Dividing by $n-1$ corrects this bias under the stated random-sample assumptions.
+- id: 'q-statistics-and-probability-measures-of-variability-0016'
+  type: 'which-is-true'
+  difficulty: 'hard'
+  stem: |
+    A dataset has a sample mean of $\bar{x} = 50$ and a sample standard deviation of $s = 10$. If every value in the dataset is multiplied by $2$ and then increased by $5$, what are the new sample mean ($\bar{x}_{\text{new}}$) and new sample standard deviation ($s_{\text{new}}$)?
+  choices:
+  - text: '$\bar{x}_{\text{new}} = 105$ and $s_{\text{new}} = 20$'
+    correct: true
+  - text: '$\bar{x}_{\text{new}} = 105$ and $s_{\text{new}} = 25$'
+    rationale: |
+      This adds five to SD after scaling. The mean receives that addition. SD depends on deviations, which shifts preserve.
+  - text: '$\bar{x}_{\text{new}} = 100$ and $s_{\text{new}} = 20$'
+    rationale: |
+      This omits the added five from the mean. Scaling gives one hundred. Apply both steps.
+  - text: '$\bar{x}_{\text{new}} = 105$ and $s_{\text{new}} = 10$'
+    rationale: |
+      This leaves SD unchanged under multiplication. Addition leaves it unchanged. Multiplication doubles it here.
+  explanation: |
+    The mean becomes $2(50)+5=105$. The standard deviation is multiplied by two and is unchanged by adding five. It becomes $2(10)=20$.
+- id: 'q-statistics-and-probability-measures-of-variability-0017'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    A data set has standard deviation $3$. Every value is changed to $10-2x$. What is the new standard deviation?
+  choices:
+  - text: '$6$'
+    correct: true
+  - text: '$-6$'
+    rationale: |
+      This keeps the negative scaling sign in spread. Every deviation changes sign. Use the magnitude of the scale factor.
+  - text: '$4$'
+    rationale: |
+      This adds the shift ten to negative six. The mean uses both terms. Check that shifts do not affect SD.
+  - text: '$13$'
+    rationale: |
+      This adds ten to the old SD. Ten is the shift. Apply only the scale magnitude to SD.
+  explanation: |
+    The multiplier is $-2$, whose magnitude is $2$. The added ten shifts values without changing spread. The new SD is $2(3)=6$.
+  approved: false
+- id: 'q-statistics-and-probability-measures-of-variability-0018'
+  type: 'which-is-true'
+  difficulty: 'hard'
+  stem: |
+    The data sets $0,0,10,10$ and $0,5,5,10$ have the same range and mean. Which has the larger population variance?
+  choices:
+  - text: 'The first set.'
+    correct: true
+  - text: 'The second set.'
+    rationale: |
+      This treats central values as increasing spread. Two observations are at the mean. Compare their deviations.
+  - text: 'They have equal variance.'
+    rationale: |
+      This infers all spread from range. Both ranges are ten. Check interior values too.
+  - text: 'Neither has variance.'
+    rationale: |
+      This treats repeated values as preventing variance. Repetition is allowed. Compute squared deviations normally.
+  explanation: |
+    Both means are $5$. The squared-deviation totals are $100$ for the first set and $50$ for the second. Both divide by four, so the first has larger variance.
+  approved: false
+- id: 'q-statistics-and-probability-measures-of-variability-0019'
+  type: 'which-is-true'
+  difficulty: 'exam'
+  stem: |
+    Two groups have the same mean and standard deviation. What can be determined about which group has more observations exactly at its mean?
+  choices:
+  - text: 'Neither count can be determined.'
+    correct: true
+  - text: 'Both counts must match.'
+    rationale: |
+      This assumes two summary measures fix all frequencies. The groups share center and spread. Check that different distributions can share those summaries.
+  - text: 'Both groups have no such observations.'
+    rationale: |
+      This assumes spread excludes the mean. Values may equal the mean even with positive SD. Check the actual frequencies.
+  - text: 'Every observation equals the mean.'
+    rationale: |
+      This assumes matching SD means zero SD. Both groups have the same SD. Check its value and the data.
+  explanation: |
+    Mean and standard deviation do not specify the full distribution. Different frequencies can produce the same two measures. The count at the mean needs more information.
+  approved: false
+- id: 'q-statistics-and-probability-measures-of-variability-0020'
+  type: 'error-spotting'
+  difficulty: 'easy'
+  stem: |
+    A student finds zero when averaging the raw deviations of $2,4,6$ from their mean and concludes the data have no spread. Which correction is needed?
+  choices:
+  - text: 'Square deviations before averaging.'
+    correct: true
+  - text: 'Use the largest value as the mean.'
+    rationale: |
+      This changes the reference incorrectly. Six is an extreme value. Compute the actual mean first.
+  - text: 'Delete negative deviations.'
+    rationale: |
+      This removes half the spread information. Negative deviations can cancel positive ones. Keep all values and square them.
+  - text: 'Make all observations equal to four.'
+    rationale: |
+      This changes the data to fit the conclusion. Four is the mean. Measure the original observations.
+  explanation: |
+    The mean is $4$, so deviations are $-2,0,2$. Their squares are $4,0,4$, with a positive average. Squaring prevents sign cancellation and shows nonzero spread.
+  approved: false

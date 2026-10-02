@@ -10,19 +10,19 @@ questions:
     stem: |
       Which of the following statements regarding the number $0$ is true?
     choices:
-      - text: "$0$ is not divisible by any non-zero integer."
+      - text: '$0$ cannot be divided by nonzero integers.'
         rationale: |
-          You assumed 0 cannot be divided, confusing 0 as a dividend with 0 as a divisor.
-      - text: "$0$ is divisible by every non-zero integer."
+          This confuses dividing zero with dividing by zero. Both expressions contain a zero. Check which number is the divisor.
+      - text: '$0$ is divisible by all nonzero integers.'
         correct: true
-      - text: "$0$ is divisible only by $10$."
+      - text: '$0$ is divisible only by $10$.'
         rationale: |
-          You assumed 0 is only divisible by 10 because 0 ends in zero.
-      - text: "$0$ is divisible by $0$."
+          This applies only the final-zero test for ten. The number zero ends in zero. Check the quotient with any nonzero divisor.
+      - text: '$0$ is divisible by $0$.'
         rationale: |
-          You assumed 0 can be divided by 0, but division by 0 is mathematically undefined.
+          This allows a zero divisor. Zero divided by other numbers does give zero. Check that the divisor is nonzero.
     explanation: |
-      A number $a$ is divisible by a non-zero integer $b$ if there exists an integer $k$ such that $a=bk$. For $a=0$, $0=b\cdot0$ for every $b\neq0$. Division by zero remains undefined.
+      For every nonzero integer $b$, $0=b(0)$. The quotient $0\div b=0$ is an integer with no remainder. Therefore every nonzero integer divides zero.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0002
     type: direct-computation
@@ -30,19 +30,19 @@ questions:
     stem: |
       To test if $4,516$ is divisible by $4$, a student erroneously adds all the digits ($4 + 5 + 1 + 6 = 16$). What is the correct rule to check divisibility by $4$, and is $4,516$ divisible by $4$?
     choices:
-      - text: "Check if the sum of all digits is divisible by $4$; yes, $4,516$ is divisible by $4$."
+      - text: 'Use the digit sum; the number passes.'
         rationale: |
-          You incorrectly applied the digit sum rule used for 3 and 9.
-      - text: "Check if the last two digits form a number divisible by $4$; yes, $4,516$ is divisible by $4$ because $16$ is divisible by $4$."
+          This uses a digit sum to test for four. The sum happens to pass in this example. Check the rule, not just one matching result.
+      - text: 'Use the last two digits; it passes.'
         correct: true
-      - text: "Check if the last digit is divisible by $4$; no, $4,516$ is not divisible by $4$ because $6$ is not divisible by $4$."
+      - text: 'Use the final digit; the number fails.'
         rationale: |
-          Divisibility by 4 depends on the last two digits, not the last digit alone.
-      - text: "Check if the number is odd; no, $4,516$ is not divisible by $4$."
+          This tests only the final digit. The rule for two uses one digit. Check the two-digit ending for four.
+      - text: 'Use evenness; the number passes.'
         rationale: |
-          $4,516$ is even, and parity alone is not sufficient for divisibility by 4.
+          This treats being even as enough for divisibility by four. Every multiple of four is even. Check the full last-two-digit number.
     explanation: |
-      A number is divisible by 4 iff the number formed by its last two digits is divisible by 4. Here the last two digits are 16, so $4,516$ is divisible by 4.
+      Use the number formed by the last two digits. Here it is $16$, and $16=4(4)$. Therefore $4516$ is divisible by $4$.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0003
     type: direct-computation
@@ -50,19 +50,19 @@ questions:
     stem: |
       The five-digit number $57x81$ is divisible by $9$. What is the value of the digit $x$?
     choices:
-      - text: "$3$"
+      - text: '$3$'
         rationale: |
-          $21+3=24$, which is not divisible by 9.
-      - text: "$6$"
+          This uses divisibility by three instead of nine: $21+3=24$. Every multiple of nine is also a multiple of three. Check the stronger test for nine.
+      - text: '$6$'
         correct: true
-      - text: "$7$"
+      - text: '$7$'
         rationale: |
-          $21+7=28$, which is not divisible by 9.
-      - text: "$9$"
+          This adds the known digits as twenty instead of twenty-one. The next multiple of nine is still twenty-seven. Check the digit sum before finding the missing digit.
+      - text: '$9$'
         rationale: |
-          The divisibility test is based on the digit sum, not on choosing the digit 9.
+          This chooses nine because the divisor is nine. The same number appears in the test name. Check the sum of all digits.
     explanation: |
-      The digit sum is $21+x$. For a digit $x\in\{0,\ldots,9\}$, the only way for this to be a multiple of 9 is $21+x=27$, so $x=6$.
+      The digit sum is $5+7+x+8+1=21+x$. Since $x$ is a digit, this sum ranges from $21$ to $30$. Its only multiple of $9$ is $27$. Thus $21+x=27$, so $x=6$.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0004
     type: which-is-true
@@ -70,19 +70,19 @@ questions:
     stem: |
       Which of the following numbers is divisible by $6$?
     choices:
-      - text: "$24,534$"
+      - text: '$24,534$'
         correct: true
-      - text: "$24,536$"
+      - text: '$24,536$'
         rationale: |
-          It is even, but its digit sum is 20, which is not divisible by 3.
-      - text: "$24,538$"
+          This uses an ending of six as a test for six. Last-digit rules work for two and five. Check both the evenness and digit-sum tests.
+      - text: '$24,538$'
         rationale: |
-          It is even, but its digit sum is 22, which is not divisible by 3.
-      - text: "$24,539$"
+          This tests only evenness. Every multiple of six is even. Check divisibility by three as well.
+      - text: '$24,539$'
         rationale: |
-          It is odd, so it cannot be divisible by 6.
+          This treats a final nine as evidence of divisibility by three. Nine itself is a multiple of three. Check all digits and also require an even number.
     explanation: |
-      Divisibility by 6 requires divisibility by both 2 and 3. $24,534$ is even and has digit sum 18, so it is divisible by 6.
+      The number $24534$ is even, so it is divisible by $2$. Its digit sum is $2+4+5+3+4=18$, a multiple of $3$. Passing both tests means it is divisible by $6$.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0005
     type: which-is-true
@@ -90,19 +90,19 @@ questions:
     stem: |
       To test if a large number is divisible by $24$, a student checks if the number is divisible by both $4$ and $6$. Why is this test logically flawed, and what is the correct pair of factors to use?
     choices:
-      - text: "The test is flawed because $4$ and $6$ are not coprime. The correct coprime factors are $3$ and $8$."
+      - text: 'Use $3$ and $8$; they are coprime.'
         correct: true
-      - text: "The test is flawed because $24$ is odd. The correct factors are $2$ and $12$."
+      - text: 'Use $2$ and $12$; their product is enough.'
         rationale: |
-          $24$ is even.
-      - text: "The test is valid; any number divisible by $4$ and $6$ is always divisible by $24$."
+          This assumes any factor pair with product twenty-four is enough. Two times twelve has the right product. Check whether the factors share a factor.
+      - text: 'Use $4$ and $6$; shared factors do not matter.'
         rationale: |
-          For example, 12 is divisible by 4 and 6 but not by 24.
-      - text: "The test is flawed because $4 + 6 \\neq 24$. The correct factors are $4$ and $20$."
+          This ignores the common factor of four and six. Both numbers are factors of twenty-four. Check whether a smaller number passes both tests.
+      - text: 'Use $4$ and $20$; the factors must sum to $24$.'
         rationale: |
-          Composite divisibility uses factorization, not addition.
+          This uses addition instead of multiplication to split the divisor. Four plus twenty does equal twenty-four. Check that the factors multiply to the target.
     explanation: |
-      Since $\operatorname{lcm}(4,6)=12$, simultaneous divisibility by 4 and 6 only guarantees divisibility by 12. The coprime factors 3 and 8 have product 24, so divisibility by both is equivalent to divisibility by 24.
+      The number $12$ is divisible by both $4$ and $6$, but it is not divisible by $24$. These factors share a factor of $2$, so their tests overlap. The factors $3$ and $8$ share no factor greater than $1$ and multiply to $24$. Their combined tests are sufficient.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0006
     type: direct-computation
@@ -110,19 +110,19 @@ questions:
     stem: |
       Find the missing digit $d$ such that the six-digit number $73d,514$ is divisible by $11$.
     choices:
-      - text: "$d = 2$"
+      - text: '$d=2$'
         rationale: |
-          The alternating-sum difference is not a multiple of 11.
-      - text: "$d = 4$"
+          This uses the total digit sum $20+d$ for eleven. Digit sums work for three and nine. Check the alternating sums for eleven.
+      - text: '$d=4$'
         correct: true
-      - text: "$d = 6$"
+      - text: '$d=5$'
         rationale: |
-          The alternating-sum difference is 2, not a multiple of 11.
-      - text: "$d = 9$"
+          This omits the digit one from the first alternating group. The remaining group still has the leading digits. Check every other digit without skipping one.
+      - text: '$d=1$'
         rationale: |
-          The alternating-sum test does not work for this digit.
+          This omits the digit three from the second group. The remaining total is easy to add. Check every position in each alternating group.
     explanation: |
-      Odd-position sum: $7+d+1=8+d$. Even-position sum: $3+5+4=12$. Their difference is $d-4$, so $d=4$ makes the difference zero.
+      The alternating sums are $7+d+1=8+d$ and $3+5+4=12$. Their difference is $d-4$. For digits $0$ through $9$, this ranges from $-4$ to $5$. Its only multiple of $11$ is $0$. Thus $d=4$.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0007
     type: direct-computation
@@ -130,19 +130,19 @@ questions:
     stem: |
       A store owner counts total earnings of $\text{₱}48,k72$, where $k$ is a missing digit. If the total amount in pesos is divisible by $8$, which of the following could be the value of $k$?
     choices:
-      - text: "$k = 1$"
+      - text: '$k = 1$'
         rationale: |
-          $172$ is not divisible by 8.
-      - text: "$k = 3$"
+          This checks only that the final digit two is even. Evenness is necessary for a multiple of eight. Check the number formed by all three ending digits.
+      - text: '$k = 3$'
         rationale: |
-          $372$ is not divisible by 8.
-      - text: "$k = 5$"
+          This checks only the last two digits, seventy-two. Seventy-two is itself a multiple of eight. Check the last three digits for eight.
+      - text: '$k = 5$'
         rationale: |
-          $572$ is not divisible by 8.
-      - text: "$k = 6$"
+          This accepts an ending of seventy-two for any hundreds digit. That ending passes when the hundreds contribution also divides by eight. Check the complete ending, not just its final two digits.
+      - text: '$k = 6$'
         correct: true
     explanation: |
-      Divisibility by 8 depends on the last three digits. Among the options, only $672=8\cdot84$, so $k=6$.
+      For $k=6$, the last three digits form $672$. Since $672=8(84)$, the number passes the divisibility test for $8$.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0008
     type: which-is-true
@@ -150,19 +150,19 @@ questions:
     stem: |
       What is the primary purpose of the "casting out nines" technique, and what remainder is obtained when $84,931$ is divided by $9$?
     choices:
-      - text: "It finds the remainder when a number is divided by $9$ by taking the repeated sum of its digits; the remainder for $84,931$ is $7$."
+      - text: 'It finds a remainder for $9$; here it is $7$.'
         correct: true
-      - text: "It finds the remainder when a number is divided by $9$ by dropping all even digits; the remainder for $84,931$ is $4$."
+      - text: 'It drops even digits for a $9$ test; here it gives $4$.'
         rationale: |
-          Casting out nines uses digit sums, not deletion of even digits.
-      - text: "It tests divisibility by $11$ by subtracting $9$ from each digit; the remainder for $84,931$ is $2$."
+          This drops even digits instead of groups summing to nine. Both methods remove digits. Check the sum of every removed group.
+      - text: 'It uses the $11$ test after subtracting $9$ from each digit.'
         rationale: |
-          This confuses the method with the rule for 11.
-      - text: "It finds the remainder when a number is divided by $8$; the remainder for $84,931$ is $1$."
+          This applies an eleven test to a nine-remainder question. Both rules combine digits. Check which divisor the method handles.
+      - text: 'It finds a remainder for $8$; here it is $1$.'
         rationale: |
-          Casting out nines is a modulo-9 technique.
+          This uses the last-three-digit test for eight. Eight has a useful shortcut too. Check that casting out nines concerns division by nine.
     explanation: |
-      $8+4+9+3+1=25$ and $2+5=7$, so $84,931\equiv7\pmod9$.
+      Casting out nines finds the remainder on division by $9$ from the digit sum. Here $8+4+9+3+1=25$. Since $25=9(2)+7$, the remainder is $7$.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0009
     type: which-is-true
@@ -170,19 +170,19 @@ questions:
     stem: |
       Which of the following numbers is NOT a divisor of $3,960$?
     choices:
-      - text: "$11$"
+      - text: '$11$'
         rationale: |
-          The alternating digit sums differ by zero, so 11 is a divisor.
-      - text: "$9$"
+          This overlooks zero as a valid alternating difference. Zero can seem to mean the test failed to produce a number. Check that zero is a multiple of eleven.
+      - text: '$9$'
         rationale: |
-          The digit sum is 18, so 9 is a divisor.
-      - text: "$8$"
+          This overlooks eighteen as a multiple of nine. A digit sum is smaller than the original number. Check whether the sum divides evenly by nine.
+      - text: '$8$'
         rationale: |
-          $960$ is divisible by 8.
-      - text: "$7$"
+          This checks only the final digit zero for divisibility by eight. Some tests do use the final digit alone. Check the final three digits, which form nine hundred sixty.
+      - text: '$7$'
         correct: true
     explanation: |
-      $3,960$ is divisible by 11, 9, and 8, but not by 7.
+      Apply the rule for $7$: remove the final zero and get $396$. Next compute $39-2(6)=27$, then $2-2(7)=-12$. This is not a multiple of $7$. Therefore $7$ does not divide $3960$.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0010
     type: direct-computation
@@ -190,19 +190,19 @@ questions:
     stem: |
       A financial record shows a total amount of $\text{₱}3a4,5b2$. If this six-digit number is divisible by $99$, what are the values of the digits $a$ and $b$?
     choices:
-      - text: "$a = 2, b = 2$"
+      - text: '$a = 2, b = 2$'
         correct: true
-      - text: "$a = 4, b = 9$"
+      - text: '$a = 4, b = 9$'
         rationale: |
-          The divisibility-by-11 condition fails.
-      - text: "$a = 7, b = 6$"
+          This checks only the digit sum, which is twenty-seven. That passes the test for nine. Check divisibility by eleven as well.
+      - text: '$a = 7, b = 6$'
         rationale: |
-          Both the 9 and 11 tests fail.
-      - text: "$a = 5, b = 8$"
+          This treats a negative alternating difference as valid without testing it. Subtraction can produce negative multiples of eleven. Check whether the actual difference is a multiple of eleven.
+      - text: '$a = 5, b = 8$'
         rationale: |
-          The divisibility-by-11 condition fails.
+          This accepts a difference of three after passing the nine test. Three divides nine, so it can look relevant. Check that the alternating difference must divide by eleven.
     explanation: |
-      Divisibility by 99 requires divisibility by 9 and 11. The digit sum is $14+a+b$, while the alternating-sum condition gives $b-a\equiv0\pmod{11}$. For digits, this forces $a=b$. Then $14+2a$ must be a multiple of 9; the only digit solution is $a=b=2$.
+      Since $99=9(11)$ and the factors share no factor greater than $1$, use both tests. The alternating difference is $(3+4+b)-(a+5+2)=b-a$. It ranges from $-9$ to $9$, so it must be zero: $a=b$. The digit sum is $14+2a$. Its only even multiple of $9$ from $14$ to $32$ is $18$. Thus $14+2a=18$, giving $a=b=2$.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0011
     type: which-is-true
@@ -210,19 +210,19 @@ questions:
     stem: |
       Which of the following statements regarding composite divisibility rules is false?
     choices:
-      - text: "A number is divisible by $45$ if and only if it is divisible by both $5$ and $9$."
+      - text: 'A number is divisible by $45$ if and only if it is divisible by both $5$ and $9$.'
         rationale: |
-          This is true because 5 and 9 are coprime and their product is 45.
-      - text: "A number is divisible by $18$ if and only if it is even and its digit sum is divisible by $9$."
+          This assumes every combined divisibility rule fails. Shared factors do make some combinations insufficient. Check that five and nine share no factor.
+      - text: 'A number is divisible by $18$ if and only if it is even and its digit sum is divisible by $9$.'
         rationale: |
-          This is true because it tests divisibility by 2 and 9.
-      - text: "A number is divisible by $12$ if and only if it is divisible by both $2$ and $6$."
+          This rejects evenness as part of a composite test. Evenness alone is not enough for eighteen. Check that the statement also requires a multiple-of-nine digit sum.
+      - text: 'A number is divisible by $12$ if and only if it is divisible by both $2$ and $6$.'
         correct: true
-      - text: "A number is divisible by $72$ if and only if it is divisible by both $8$ and $9$."
+      - text: 'A number is divisible by $72$ if and only if it is divisible by both $8$ and $9$.'
         rationale: |
-          This is true because 8 and 9 are coprime and their product is 72.
+          This rejects combining the tests for eight and nine. Some factor pairs do overlap. Check that these factors share no factor greater than one.
     explanation: |
-      Divisibility by both 2 and 6 only guarantees divisibility by $\operatorname{lcm}(2,6)=6$, not 12. The other three conditions are equivalent to divisibility by their stated composite numbers.
+      The number $6$ passes both the test for $2$ and the test for $6$. It does not pass the test for $12$. This counterexample proves the stated equivalence is false.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0012
     type: direct-computation
@@ -230,19 +230,19 @@ questions:
     stem: |
       The five-digit number $72x4y$ is divisible by $45$. What is the maximum possible value of the product $x \times y$?
     choices:
-      - text: "$0$"
+      - text: '$0$'
         rationale: |
-          This misses the larger valid case with $y=5$.
-      - text: "$20$"
+          This keeps only the case with a final zero. Zero is a valid ending for a multiple of five. Check the ending five before maximizing the product.
+      - text: '$20$'
         rationale: |
-          $x=4,y=5$ does not satisfy the digit-sum requirement.
-      - text: "$36$"
+          This tests only the ending five and chooses $x=4$. The final-digit test does pass. Check the digit-sum test for nine too.
+      - text: '$36$'
         rationale: |
-          $y=9$ cannot satisfy divisibility by 5.
-      - text: "$45$"
+          This uses $x=4,y=9$, ignoring the final-digit rule. Nine is a factor of forty-five. Check that the number also divides by five.
+      - text: '$45$'
         correct: true
     explanation: |
-      $y$ must be 0 or 5. If $y=0$, the digit sum requires $x=5$, giving product 0. If $y=5$, the digit sum allows $x=0$ or 9, so the maximum product is $9\cdot5=45$.
+      Since $45=5(9)$, the final digit $y$ is $0$ or $5$ and the digit sum must be a multiple of $9$. If $y=0$, then $13+x$ gives $x=5$, so the product is zero. If $y=5$, then $18+x$ gives $x=0$ or $9$. The largest product is $9(5)=45$.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0013
     type: direct-computation
@@ -250,43 +250,43 @@ questions:
     stem: |
       A jackpot prize of $\text{₱}5x3,4y6$ is evenly distributed among $88$ winners without any leftover pesos. What is the minimum possible value of $x + y$?
     choices:
-      - text: "$5$"
+      - text: '$3$'
         rationale: |
-          No valid digit pair gives a sum of 5.
-      - text: "$8$"
+          This uses the smaller digit alone instead of the sum. The digit three is part of a valid pair. Check that both digits are added.
+      - text: '$8$'
         correct: true
-      - text: "$11$"
+      - text: '$16$'
         rationale: |
-          No valid digit pair gives a sum of 11.
-      - text: "$14$"
+          This reports the larger valid sum. Both pairs pass the divisibility tests. Check whether the minimum or maximum is requested.
+      - text: '$14$'
         rationale: |
-          The valid larger pair gives 16, not 14.
+          This doubles the larger pair's first digit instead of adding its two digits. Adding two identical digits can seem like a quick sum. Check the two values in the actual pair.
     explanation: |
-      Divisibility by 88 requires divisibility by 8 and 11. The last three digits $4y6$ are divisible by 8 for $y=1,5,9$. The 11-test gives $x-y+2=0$ for valid digit solutions, yielding $(x,y)=(3,5)$ and $(7,9)$. Their sums are 8 and 16, so the minimum possible value is 8.
+      Since $88=8(11)$, use the last-three-digit and alternating-sum tests. The endings $416,456,496$ are multiples of $8$, so $y$ is $1,5,$ or $9$. The alternating difference is $y-x-2$, which must be zero or a multiple of $11$. The valid pairs are $(x,y)=(3,5)$ and $(7,9)$. Their sums are $8$ and $16$, so the minimum is $8$.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0014
     type: direct-computation
-    difficulty: exam-level
+    difficulty: exam
     stem: |
       A bank security code consists of the eight-digit number $20x5432y$. If the code is known to be divisible by $72$, what is the maximum possible value of $x + y$?
     choices:
-      - text: "$5$"
+      - text: '$2$'
         rationale: |
-          This is not one of the valid sums.
-      - text: "$8$"
+          This reports the valid smaller sum. The pair with a final zero does pass both tests. Check whether the largest sum is requested.
+      - text: '$8$'
         rationale: |
-          This is not one of the valid sums.
-      - text: "$11$"
+          This reports the final digit eight alone. The final-digit test is needed first. Check that the requested result adds both unknown digits.
+      - text: '$11$'
         correct: true
-      - text: "$14$"
+      - text: '$14$'
         rationale: |
-          This does not satisfy the divisibility-by-9 condition.
+          This uses $x=6,y=8$ without the nine test. The ending passes divisibility by eight. Check the full digit sum too.
     explanation: |
-      Divisibility by 72 requires divisibility by 8 and 9. The last three digits $32y$ are divisible by 8 for $y=0$ or 8. If $y=0$, the digit sum gives $x=2$, so $x+y=2$. If $y=8$, the digit sum gives $x=3$, so $x+y=11$. Therefore the maximum possible value is 11.
+      Since $72=8(9)$, test divisibility by $8$ and $9$. The ending $32y$ allows $y=0$ or $8$. The full digit sum is $16+x+y$. If $y=0$, its multiple of $9$ gives $x=2$. If $y=8$, it gives $x=3$. The sums are $2$ and $11$, so the maximum is $11$.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0015
     type: which-is-true
-    difficulty: exam-level
+    difficulty: exam
     stem: |
       Consider the following four mathematical statements regarding divisibility rules:
 
@@ -297,16 +297,121 @@ questions:
 
       Which of the statements above are true?
     choices:
-      - text: "I and IV only"
+      - text: 'I and IV only'
         correct: true
-      - text: "I, II, and IV only"
+      - text: 'I, II, and IV only'
         rationale: |
-          Statement II is false; divisibility by 4 uses the last two digits.
-      - text: "I, III, and IV only"
+          This accepts the digit-sum test for four. Digit sums are valid for three and nine. Check that four uses the last two digits.
+      - text: 'I, III, and IV only'
         rationale: |
-          Statement III is false; divisibility by 3 and 6 only guarantees divisibility by 6.
-      - text: "II and III only"
+          This accepts three and six as sufficient factors for eighteen. Their product is eighteen. Check whether the factors share a factor.
+      - text: 'II and III only'
         rationale: |
-          Both II and III are false.
+          This accepts both a wrong four test and an overlapping factor split. Both resemble valid rules for other divisors. Check each rule with a small counterexample.
     explanation: |
-      I and IV are standard true statements. II is false because the test for 4 uses the last two digits. III is false because $\operatorname{lcm}(3,6)=6$, so divisibility by both does not imply divisibility by 18.
+      Statement I holds because $0\div b=0$ for any nonzero integer $b$. Statement IV gives the alternating-sum rule for $11$: a difference of zero or a multiple of $11$ passes the test. These are the true statements.
+
+  - id: q-arithmetic-number-sense-divisibility-rules-0016
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      To test $343$ for divisibility by $7$, double the last digit and subtract it from the remaining digits. What number results after one step?
+    choices:
+      - text: '$28$'
+        correct: true
+      - text: '$31$'
+        rationale: |
+          This subtracts the last digit without doubling it. Removing and subtracting seems like the rule. Check the factor two.
+      - text: '$40$'
+        rationale: |
+          This adds the doubled last digit. The same two numbers are used. Check the subtraction sign.
+      - text: '$337$'
+        rationale: |
+          This subtracts from the full original number. Keeping every digit can seem safer. Check that the last digit is removed first.
+    explanation: |
+      The last digit is $3$, whose double is $6$. The remaining digits form $34$. Subtract: $34-6=28$.
+    approved: false
+
+  - id: q-arithmetic-number-sense-divisibility-rules-0017
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A warehouse has $518$ notebooks and packs them in bundles of $7$. How many notebooks remain after making as many full bundles as possible?
+    choices:
+      - text: '$0$'
+        correct: true
+      - text: '$1$'
+        rationale: |
+          This uses the last digit remainder $8\div7$. Last-digit shortcuts work for some divisors. Check the entire number for seven.
+      - text: '$4$'
+        rationale: |
+          This adds the digits and divides their sum sixteen by seven. Digit sums work for three and nine. Check the rule for seven.
+      - text: '$6$'
+        rationale: |
+          This divides the leading part fifty-one by seven. Removing the last digit is part of the test. Check that its doubled value must also be subtracted.
+    explanation: |
+      The seven test gives $51-2(8)=35$, a multiple of $7$. Thus $518$ is divisible by $7$. It makes $74$ full bundles with zero notebooks left.
+    approved: false
+
+  - id: q-arithmetic-number-sense-divisibility-rules-0018
+    type: error-spotting
+    difficulty: medium
+    stem: |
+      A student tests $1234$ for divisibility by $11$ by forming $(1+2)-(3+4)$. What is the needed correction?
+    choices:
+      - text: 'Use $(1+3)-(2+4)$.'
+        correct: true
+      - text: 'Use $(1+2)+(3+4)$ instead.'
+        rationale: |
+          This uses the total digit sum. That is a valid rule for other divisors. Check that eleven uses alternating groups.
+      - text: 'Use $34$ as the whole test number.'
+        rationale: |
+          This tests only the final two digits. That works for divisibility by four. Check the rule for eleven.
+      - text: 'Use $123-2(4)$ instead.'
+        rationale: |
+          This uses the seven test. It is another digit-based shortcut. Check the target divisor.
+    explanation: |
+      The eleven test separates alternating positions. Positions one and three give $1+3$. Positions two and four give $2+4$. The needed difference is $(1+3)-(2+4)$.
+    approved: false
+
+  - id: q-arithmetic-number-sense-divisibility-rules-0019
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      For an integer $n$, which condition guarantees that $n$ is divisible by $30$?
+    choices:
+      - text: 'Divisible by both $3$ and $10$.'
+        correct: true
+      - text: 'Divisible by both $2$ and $5$.'
+        rationale: |
+          This omits the factor three. Two and five are factors of thirty. Check that their product is only ten.
+      - text: 'Divisible by both $3$ and $6$.'
+        rationale: |
+          This uses factors that overlap and omits five. Both numbers divide thirty. Check that their combined tests guarantee only a multiple of six.
+      - text: 'Divisible by both $5$ and $10$.'
+        rationale: |
+          This omits three and repeats the factor five. Both tests apply to a multiple of thirty. Check that passing them can also occur for ten.
+    explanation: |
+      The factors $3$ and $10$ have no common factor greater than $1$. Their product is $30$. Therefore passing both tests guarantees divisibility by $30$.
+    approved: false
+
+  - id: q-arithmetic-number-sense-divisibility-rules-0020
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      How many digits $d$ from $0$ through $9$ make $14d0$ divisible by $12$?
+    choices:
+      - text: '$1$'
+        correct: true
+      - text: '$3$'
+        rationale: |
+          This counts digits passing only the three test. That test is required for twelve. Check the four test too.
+      - text: '$5$'
+        rationale: |
+          This counts all even digits passing only the four test. Even endings are required here. Check the digit sum as well.
+      - text: '$10$'
+        rationale: |
+          This assumes a final zero makes every digit valid. A final zero guarantees divisibility by ten. Check the factors of twelve instead.
+    explanation: |
+      Use the tests for $3$ and $4$, whose product is $12$. The ending $d0$ divides by $4$ when $d$ is even. The digit sum $5+d$ divides by $3$ when $d=1,4,7$. Only $4$ is even among these, so exactly one digit works.
+    approved: false

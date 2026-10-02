@@ -2,14 +2,13 @@ meta:
   subject: mathematics
   topic: data-interpretation
   subtopic: tables-and-charts
-  exams:
-    - cse-pro
+  exams: [cse-pro]
 questions:
   - id: q-data-interpretation-tables-and-charts-0001
-    type: single_choice
+    type: word-problem
     difficulty: easy
     stem: |
-      Consider the following table showing monthly office supply expenditures (in PHP):
+      Consider the following hypothetical table showing monthly office supply expenditures (in PHP):
 
       | Month | Paper | Ink | Furniture |
       | :--- | :--- | :--- | :--- |
@@ -19,29 +18,25 @@ questions:
 
       What was the total expenditure on Paper across the three months?
     choices:
-      - text: '$38,000$'
+      - text: '$38000$'
         correct: true
-      - text: '$27,000$'
+      - text: '$27000$'
         rationale: |
-          You added January and February Paper but left out March Paper.
-          Include all three months: $12{,}000 + 15{,}000 + 11{,}000$.
-      - text: '$26,000$'
+          This omits March Paper. The first two months have been included. Check all requested months.
+      - text: '$26000$'
         rationale: |
-          You added February and March Paper but left out January Paper.
-          January adds another $12{,}000$ to the Paper total.
-      - text: '$46,000$'
+          This omits January Paper. The later two months have been included. Check all requested months.
+      - text: '$46000$'
         rationale: |
-          You used March Ink $19{,}000$ instead of March Paper $11{,}000$.
-          Stay in the Paper column for every month.
+          This uses March Ink instead of March Paper. The Ink entry is adjacent to the requested column. Check each column heading.
     explanation: |
-      Summing Paper expenditures across the three months:
-      $$\text{Total} = 12000 + 15000 + 11000 = 38000\text{ PHP}$$
+      Read the Paper column for all three months. Its total is $12000+15000+11000=38000$ pesos.
 
   - id: q-data-interpretation-tables-and-charts-0002
-    type: single_choice
+    type: word-problem
     difficulty: easy
     stem: |
-      Consider the following table showing monthly office supply expenditures (in PHP):
+      Consider the following hypothetical table showing monthly office supply expenditures (in PHP):
 
       | Month | Paper | Ink | Furniture |
       | :--- | :--- | :--- | :--- |
@@ -51,29 +46,25 @@ questions:
 
       What was the total expenditure for all three supply categories combined in February?
     choices:
-      - text: '$45,000$'
+      - text: '$45000$'
         correct: true
-      - text: '$37,000$'
+      - text: '$37000$'
         rationale: |
-          You added February Paper and Ink but left out Furniture. Add the
-          February Furniture amount of $8{,}000$.
-      - text: '$30,000$'
+          This omits Furniture. The two largest categories have been included. Check all three category headings.
+      - text: '$30000$'
         rationale: |
-          You added February Ink and Furniture but left out Paper. Add the
-          February Paper amount of $15{,}000$.
-      - text: '$23,000$'
+          This omits Paper. The two rightmost categories have been included. Check all three category headings.
+      - text: '$23000$'
         rationale: |
-          You added February Paper and Furniture but left out Ink. Add the
-          February Ink amount of $22{,}000$.
+          This omits Ink. The first and last categories have been included. Check all three category headings.
     explanation: |
-      Summing all categories for February:
-      $$\text{Total} = 15000 + 22000 + 8000 = 45000\text{ PHP}$$
+      Read the February row across all three categories. Its total is $15000+22000+8000=45000$ pesos.
 
   - id: q-data-interpretation-tables-and-charts-0003
-    type: single_choice
+    type: which-is-true
     difficulty: medium
     stem: |
-      Consider the following table of regional agricultural crop yields (in metric tons):
+      Consider the following hypothetical table of regional agricultural crop yields (in metric tons):
 
       | Region | Rice | Corn | Sugarcane |
       | :--- | :--- | :--- | :--- |
@@ -83,29 +74,25 @@ questions:
 
       Which region produced the highest total metric tons across all three crops?
     choices:
-      - text: Region B
+      - text: 'Region B'
         correct: true
-      - text: Region A
+      - text: 'Region A'
         rationale: |
-          You may have focused on one crop, but you need the total across all three crops. Region A totals 1,350, which is less than Region B.
-      - text: Region C
+          This uses Region C rice and sugarcane values in the Region B total. The neighboring row has the same crop headings. Check that every row total uses one region's entries.
+      - text: 'Region C'
         rationale: |
-          You may have noticed Region C leads in corn, but the question asks for the full row total. Region C totals 1,290.
-      - text: All equal
+          This picks the region with the largest Corn yield. Corn is one of the three crops. Check that all crops contribute to the regional total.
+      - text: 'Cannot determine without a Total column.'
         rationale: |
-          You treated the rows as balanced without adding them. The totals are different, and Region B is highest.
+          This treats the absent total column as missing data. No ready-made total is printed. Check whether the supplied entries can be added.
     explanation: |
-      Calculate total yield per region:
-      $$\text{Region A} = 450 + 300 + 600 = 1350$$
-      $$\text{Region B} = 520 + 280 + 750 = 1550$$
-      $$\text{Region C} = 380 + 410 + 500 = 1290$$
-      Region B produced the highest total yield ($1,550$ metric tons).
+      The regional totals are $450+300+600=1350$ for A, $520+280+750=1550$ for B, and $380+410+500=1290$ for C. The largest total is Region B's $1550$ metric tons.
 
   - id: q-data-interpretation-tables-and-charts-0004
-    type: single_choice
+    type: word-problem
     difficulty: easy
     stem: |
-      Consider the following table of regional agricultural crop yields (in metric tons):
+      Consider the following hypothetical table of regional agricultural crop yields (in metric tons):
 
       | Region | Rice | Corn | Sugarcane |
       | :--- | :--- | :--- | :--- |
@@ -113,31 +100,27 @@ questions:
       | Region B | 520 | 280 | 750 |
       | Region C | 380 | 410 | 500 |
 
-      What is the total combined yield of Corn across Regions A, B, and C?
+      By how many metric tons does the combined Rice yield exceed the combined Corn yield?
     choices:
-      - text: '$990\text{ metric tons}$'
+      - text: '$360$ metric tons'
         correct: true
-      - text: '$580\text{ metric tons}$'
+      - text: '$990$ metric tons'
         rationale: |
-          You added Corn for Regions A and B but left out Region C. Region C
-          contributes another 410 metric tons.
-      - text: '$1,350\text{ metric tons}$'
+          This reports the Corn total. That column sum is needed first. Check whether a total or a difference is requested.
+      - text: '$1350$ metric tons'
         rationale: |
-          You used the total for Region A instead of the Corn column. Region
-          A has $450 + 300 + 600 = 1{,}350$ metric tons.
-      - text: '$690\text{ metric tons}$'
+          This reports the Rice total. That column sum is needed first. Check whether a total or a difference is requested.
+      - text: '$2340$ metric tons'
         rationale: |
-          You added Corn for Regions B and C but left out Region A. Region A
-          contributes another 300 metric tons.
+          This adds both category totals instead of subtracting. Both totals are relevant. Check the word exceed.
     explanation: |
-      Summing Corn yields:
-      $$\text{Total Corn} = 300 + 280 + 410 = 990\text{ metric tons}$$
+      Rice totals $450+520+380=1350$ metric tons. Corn totals $300+280+410=990$. Subtract: $1350-990=360$ metric tons.
 
   - id: q-data-interpretation-tables-and-charts-0005
-    type: single_choice
+    type: word-problem
     difficulty: medium
     stem: |
-      Consider the following table of quarterly municipal revenue (in million PHP):
+      Consider the following hypothetical table of quarterly municipal revenue (in million PHP):
 
       | Quarter | Tax | Licenses | Property |
       | :--- | :--- | :--- | :--- |
@@ -146,31 +129,27 @@ questions:
       | Q3 | 15 | 5 | 11 |
       | Q4 | 21 | 9 | 15 |
 
-      What was the total municipal revenue collected in Q4?
+      What is the average quarterly Licenses revenue, in million pesos?
     choices:
-      - text: '$45\text{ million PHP}$'
+      - text: '$7$ million pesos'
         correct: true
-      - text: '$36\text{ million PHP}$'
+      - text: '$28$ million pesos'
         rationale: |
-          You added Q4 Tax and Property but left out Licenses. Add the Q4
-          Licenses amount of 9 million PHP.
-      - text: '$30\text{ million PHP}$'
+          This reports the four-quarter total. The total is needed before averaging. Check whether total or average is requested.
+      - text: '$8$ million pesos'
         rationale: |
-          You added only Q4 Tax and Licenses. The missing Q4 Property value is
-          15 million PHP.
-      - text: '$24\text{ million PHP}$'
+          This reports only Q2 Licenses revenue. Eight is one of the four entries. Check all four quarters.
+      - text: '$1.75$ million pesos'
         rationale: |
-          You added Q4 Licenses and Property but left out Tax. Add the Q4 Tax
-          amount of 21 million PHP.
+          This divides the quarterly average by four again. The average formula does divide by four. Check that averaging divides only once.
     explanation: |
-      Summing revenue streams for Q4:
-      $$\text{Total Q4} = 21 + 9 + 15 = 45\text{ million PHP}$$
+      The four Licenses values total $6+8+5+9=28$ million pesos. Divide by four quarters: $28\div4=7$ million pesos per quarter.
 
   - id: q-data-interpretation-tables-and-charts-0006
-    type: single_choice
+    type: word-problem
     difficulty: medium
     stem: |
-      Consider the following table of quarterly municipal revenue (in million PHP):
+      Consider the following hypothetical table of quarterly municipal revenue (in million PHP):
 
       | Quarter | Tax | Licenses | Property |
       | :--- | :--- | :--- | :--- |
@@ -179,31 +158,27 @@ questions:
       | Q3 | 15 | 5 | 11 |
       | Q4 | 21 | 9 | 15 |
 
-      By how much did total Tax revenue in Q4 exceed total Tax revenue in Q1?
+      In pesos, by how much does Q4 Tax revenue exceed Q1 Tax revenue?
     choices:
-      - text: '$7\text{ million PHP}$'
+      - text: '$7000000$ pesos'
         correct: true
-      - text: '$5\text{ million PHP}$'
+      - text: '$5000000$ pesos'
         rationale: |
-          You compared Property revenue instead of Tax revenue. Property rose
-          from 10 to 15, but Tax rose from 14 to 21.
-      - text: '$3\text{ million PHP}$'
+          This compares Property rather than Tax. Property also rises over these quarters. Check the requested revenue heading.
+      - text: '$3000000$ pesos'
         rationale: |
-          You compared Licenses instead of Tax. Licenses rose from 6 to 9,
-          while Tax rose from 14 to 21.
-      - text: '$35\text{ million PHP}$'
+          This compares Licenses rather than Tax. Licenses also rises over these quarters. Check the requested revenue heading.
+      - text: '$35000000$ pesos'
         rationale: |
-          You added Q1 and Q4 Tax revenue instead of finding how much Q4
-          exceeded Q1. Subtract $21 - 14$ rather than add them.
+          This adds the two Tax amounts instead of finding their difference. Both Tax entries are relevant. Check whether the question asks for a difference.
     explanation: |
-      Subtract Q1 Tax revenue from Q4 Tax revenue:
-      $$\text{Difference} = 21 - 14 = 7\text{ million PHP}$$
+      The Tax values are $21$ and $14$ million pesos. The difference is $21-14=7$ million pesos. Convert the unit: $7(1000000)=7000000$ pesos.
 
   - id: q-data-interpretation-tables-and-charts-0007
-    type: single_choice
+    type: word-problem
     difficulty: easy
     stem: |
-      Consider the following table of civil service exam applicants per testing center:
+      Consider the following hypothetical table of civil service exam applicants per testing center:
 
       | Testing Center | Male | Female |
       | :--- | :--- | :--- |
@@ -211,31 +186,27 @@ questions:
       | Cebu | 800 | 950 |
       | Davao | 650 | 750 |
 
-      What was the total number of female applicants across all three testing centers?
+      Across all three centers, how many more female applicants than male applicants are listed?
     choices:
-      - text: '$3,200$'
+      - text: '$550$'
         correct: true
-      - text: '$2,450$'
+      - text: '$3200$'
         rationale: |
-          You added female applicants in Manila and Cebu but left out Davao.
-          Add Davao's 750 female applicants.
-      - text: '$1,700$'
+          This reports female applicants alone. That total is needed first. Check that the requested difference uses both groups.
+      - text: '$2650$'
         rationale: |
-          You added female applicants in Cebu and Davao but left out Manila.
-          Manila adds 1,500 female applicants.
-      - text: '$5,850$'
+          This reports male applicants alone. That total is needed first. Check that the requested difference uses both groups.
+      - text: '$-550$'
         rationale: |
-          You added every applicant in the table. $5{,}850$ is the grand total
-          of male and female applicants across all three centers.
+          This reverses the subtraction order. Both totals are correctly found. Check which group exceeds the other.
     explanation: |
-      Summing female applicants:
-      $$\text{Total Female} = 1500 + 950 + 750 = 3200$$
+      Female applicants total $1500+950+750=3200$. Male applicants total $1200+800+650=2650$. The difference is $3200-2650=550$.
 
   - id: q-data-interpretation-tables-and-charts-0008
-    type: single_choice
+    type: word-problem
     difficulty: medium
     stem: |
-      Consider the following table of civil service exam applicants per testing center:
+      Consider the following hypothetical table of civil service exam applicants per testing center:
 
       | Testing Center | Male | Female |
       | :--- | :--- | :--- |
@@ -245,31 +216,25 @@ questions:
 
       How many more total applicants attended the Manila testing center than the Davao testing center?
     choices:
-      - text: '$1,300$'
+      - text: '$1300$'
         correct: true
       - text: '$550$'
         rationale: |
-          You compared only male applicants: $1{,}200 - 650 = 550$. The
-          question asks for all applicants at both centers.
+          This compares only male applicants. The male column does give a difference. Check that total includes both genders.
       - text: '$750$'
         rationale: |
-          You compared only female applicants: $1{,}500 - 750 = 750$. Include
-          both male and female applicants before subtracting.
-      - text: '$4,100$'
+          This compares only female applicants. The female column does give a difference. Check that total includes both genders.
+      - text: '$4100$'
         rationale: |
-          You added the Manila and Davao totals. The question asks how many
-          more attended Manila, so subtract $2{,}700 - 1{,}400$.
+          This adds the two center totals. Both centers must be read. Check the phrase how many more.
     explanation: |
-      Calculate totals for Manila and Davao:
-      $$\text{Manila} = 1200 + 1500 = 2700$$
-      $$\text{Davao} = 650 + 750 = 1400$$
-      $$\text{Difference} = 2700 - 1400 = 1300$$
+      Manila lists $1200+1500=2700$ applicants. Davao lists $650+750=1400$. Their difference is $2700-1400=1300$.
 
   - id: q-data-interpretation-tables-and-charts-0009
-    type: single_choice
+    type: word-problem
     difficulty: easy
     stem: |
-      Consider the following table of public library book circulation per category:
+      Consider the following hypothetical table of public library book circulation per category:
 
       | Month | Fiction | Non-Fiction | Reference |
       | :--- | :--- | :--- | :--- |
@@ -277,31 +242,27 @@ questions:
       | May | 480 | 310 | 190 |
       | June | 520 | 340 | 200 |
 
-      What was the total circulation of Non-Fiction books over the three months?
+      Across April and May combined, how much greater is Fiction circulation than Non-Fiction circulation?
     choices:
-      - text: '$900$'
+      - text: '$320$'
         correct: true
+      - text: '$880$'
+        rationale: |
+          This reports the combined Fiction count. That sum is needed first. Check whether the question asks for a difference.
       - text: '$560$'
         rationale: |
-          You added April and May Non-Fiction but left out June. Add June's
-          340 Non-Fiction books.
-      - text: '$650$'
+          This reports the combined Non-Fiction count. That sum is needed first. Check whether the question asks for a difference.
+      - text: '$170$'
         rationale: |
-          You added May and June Non-Fiction but left out April. Add April's
-          250 Non-Fiction books.
-      - text: '$1,400$'
-        rationale: |
-          You totaled the Fiction column instead of Non-Fiction. Use 250,
-          310, and 340 from the Non-Fiction column.
+          This calculates only the May difference. May is one of the requested months. Check both requested months.
     explanation: |
-      Summing Non-Fiction circulation:
-      $$\text{Total} = 250 + 310 + 340 = 900$$
+      Fiction circulation in April and May is $400+480=880$. Non-Fiction circulation is $250+310=560$. The difference is $880-560=320$.
 
   - id: q-data-interpretation-tables-and-charts-0010
-    type: single_choice
+    type: word-problem
     difficulty: medium
     stem: |
-      Consider the following table of public library book circulation per category:
+      Consider the following hypothetical table of public library book circulation per category:
 
       | Month | Fiction | Non-Fiction | Reference |
       | :--- | :--- | :--- | :--- |
@@ -309,31 +270,27 @@ questions:
       | May | 480 | 310 | 190 |
       | June | 520 | 340 | 200 |
 
-      What was the total book circulation across all three categories in June?
+      How many June circulations are listed outside the Reference category?
     choices:
-      - text: '$1,060$'
-        correct: true
       - text: '$860$'
+        correct: true
+      - text: '$1060$'
         rationale: |
-          You added June Fiction and Non-Fiction but left out Reference. Add
-          the June Reference count of 200.
+          This includes Reference in the total. The full row is a meaningful total. Check which category is excluded.
       - text: '$720$'
         rationale: |
-          You added June Fiction and Reference but left out Non-Fiction. Add
-          the June Non-Fiction count of 340.
+          This combines Fiction with Reference instead of Non-Fiction. Reference is a neighboring category. Check the two included category headings.
       - text: '$540$'
         rationale: |
-          You added June Non-Fiction and Reference but left out Fiction. Add
-          the June Fiction count of 520.
+          This combines Non-Fiction with Reference instead of Fiction. Reference is a neighboring category. Check the two included category headings.
     explanation: |
-      Summing all categories for June:
-      $$\text{June Total} = 520 + 340 + 200 = 1060$$
+      Outside Reference, June lists Fiction and Non-Fiction. Add those entries: $520+340=860$ circulations.
 
   - id: q-data-interpretation-tables-and-charts-0011
-    type: single_choice
+    type: which-is-true
     difficulty: easy
     stem: |
-      Consider the following table of hospital emergency admissions per department:
+      Consider the following hypothetical table of hospital emergency admissions per department:
 
       | Shift | Medical | Surgical | Pediatric |
       | :--- | :--- | :--- | :--- |
@@ -341,30 +298,27 @@ questions:
       | Afternoon | 60 | 40 | 35 |
       | Night | 35 | 20 | 15 |
 
-      What was the total number of admissions during the Afternoon shift?
+      Which department has the largest increase in admissions from Morning to Afternoon?
     choices:
-      - text: '$135$'
+      - text: 'Medical'
         correct: true
-      - text: '$100$'
+      - text: 'Surgical'
         rationale: |
-          You added Afternoon Medical and Afternoon Surgical, but left out
-          Afternoon Pediatric $35$.
-      - text: '$120$'
+          This focuses on Surgical's ten-person rise without comparing Medical. Ten is a real increase in that department. Compare every department's change.
+      - text: 'Pediatric'
         rationale: |
-          You used Morning Medical $45$ instead of Afternoon Medical $60$.
-      - text: '$95$'
+          This focuses on Pediatric's ten-person rise without comparing Medical. Ten is a real increase in that department. Compare every department's change.
+      - text: 'All three increases are equal.'
         rationale: |
-          You added Afternoon Medical and Pediatric but left out Surgical.
-          Add the Afternoon Surgical count of 40.
+          This extends the matching Surgical and Pediatric increases to all three departments. Two changes do match. Check Medical's change too.
     explanation: |
-      Summing Afternoon shift admissions:
-      $$\text{Total} = 60 + 40 + 35 = 135$$
+      Medical rises by $60-45=15$, Surgical by $40-30=10$, and Pediatric by $35-25=10$. The largest increase is Medical's $15$.
 
   - id: q-data-interpretation-tables-and-charts-0012
-    type: single_choice
+    type: which-is-true
     difficulty: medium
     stem: |
-      Consider the following table of hospital emergency admissions per department:
+      Consider the following hypothetical table of hospital emergency admissions per department:
 
       | Shift | Medical | Surgical | Pediatric |
       | :--- | :--- | :--- | :--- |
@@ -372,22 +326,186 @@ questions:
       | Afternoon | 60 | 40 | 35 |
       | Night | 35 | 20 | 15 |
 
-      What was the total number of Surgical admissions across all three shifts?
+      Which shift has the largest Surgical admission count?
     choices:
-      - text: '$90$'
+      - text: 'Afternoon'
         correct: true
-      - text: '$70$'
+      - text: 'Morning'
         rationale: |
-          You added Morning and Afternoon Surgical but left out Night. Add the
-          Night Surgical count of 20.
-      - text: '$60$'
+          This reports the first shift without checking the larger entry. Morning is listed first. Compare all entries in the Surgical column.
+      - text: 'Night'
         rationale: |
-          You added Afternoon and Night Surgical but left out Morning. Add the
-          Morning Surgical count of 30.
-      - text: '$140$'
+          This reports the lowest entry instead of the highest. Night is the final row. Check whether largest or smallest is requested.
+      - text: 'Morning and Night combined'
         rationale: |
-          You totaled the Medical column instead of Surgical. Use 30, 40, and
-          20 from the Surgical column.
+          This combines two shifts before comparing with a single shift. The combined total is larger than either component. Check that one shift is requested.
     explanation: |
-      Summing Surgical admissions:
-      $$\text{Total Surgical} = 30 + 40 + 20 = 90$$
+      The Surgical counts are $30$ in Morning, $40$ in Afternoon, and $20$ at Night. The largest is the Afternoon count of $40$.
+
+  - id: q-data-interpretation-tables-and-charts-0013
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      A hypothetical table lists office purchases in thousands of pesos: chairs $12$, desks $8$, and lamps $5$. What is the combined expense in pesos?
+    choices:
+      - text: '$25000$'
+        correct: true
+      - text: '$25$'
+        rationale: |
+          This adds correctly but ignores the thousand-peso unit. The printed total is twenty-five. Check the unit caption.
+      - text: '$20000$'
+        rationale: |
+          This omits lamps. Chairs and desks are the two larger entries. Check every requested category.
+      - text: '$250000$'
+        rationale: |
+          This multiplies by ten thousand instead of one thousand. The unit requires a scale conversion. Check the stated unit exactly.
+    explanation: |
+      Add the entries: $12+8+5=25$ thousands. Multiply by $1000$ to get $25000$ pesos.
+    approved: false
+
+  - id: q-data-interpretation-tables-and-charts-0014
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A hypothetical monthly sales table, in units, reads January $40$, February $55$, March $50$, April $70$. Which adjacent-month interval has the largest increase?
+    choices:
+      - text: 'March to April'
+        correct: true
+      - text: 'January to February'
+        rationale: |
+          This chooses the first increase without comparing the last. Fifteen is a real increase. Check every adjacent pair.
+      - text: 'February to March'
+        rationale: |
+          This treats a decrease as an increase. Both values belong to adjacent months. Check the sign of new minus old.
+      - text: 'January to April'
+        rationale: |
+          This compares nonadjacent months. Their overall rise is larger. Check the requested adjacent intervals.
+    explanation: |
+      The adjacent changes are $55-40=15$, $50-55=-5$, and $70-50=20$. The largest increase is $20$, from March to April.
+    approved: false
+
+  - id: q-data-interpretation-tables-and-charts-0015
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A hypothetical delivery table lists Monday $18$ parcels, Tuesday $24$, and Wednesday an unknown count. The three-day total is $65$. How many parcels were delivered on Wednesday?
+    choices:
+      - text: '$23$'
+        correct: true
+      - text: '$42$'
+        rationale: |
+          This reports the known-day subtotal. That amount is needed first. Check whether the missing day or the known days are requested.
+      - text: '$47$'
+        rationale: |
+          This subtracts only Monday from the total. Monday is the first known day. Check both known counts.
+      - text: '$41$'
+        rationale: |
+          This subtracts only Tuesday from the total. Tuesday is one known day. Check both known counts.
+    explanation: |
+      The known days total $18+24=42$ parcels. Subtract this from the complete total: $65-42=23$ parcels.
+    approved: false
+
+  - id: q-data-interpretation-tables-and-charts-0016
+    type: error-spotting
+    difficulty: hard
+    stem: |
+      A hypothetical admissions table lists January $0$, February $12$, and March $18$. A student averages only the two nonzero months and reports $15$. What is the average across all three months?
+    choices:
+      - text: '$10$'
+        correct: true
+      - text: '$15$'
+        rationale: |
+          This leaves the zero month out of the month count. Zero does not change the total. Check that it still represents a recorded period.
+      - text: '$30$'
+        rationale: |
+          This reports the total rather than the average. Summing is the first step. Check the number of months.
+      - text: '$6$'
+        rationale: |
+          This divides the March count by three and omits February. March has the largest value. Check all entries before dividing.
+    explanation: |
+      The three-month total is $0+12+18=30$. All three recorded months count, including the zero month. Divide by $3$ to get $10$ admissions per month.
+    approved: false
+
+  - id: q-data-interpretation-tables-and-charts-0017
+    type: error-spotting
+    difficulty: hard
+    stem: |
+      A hypothetical table is labeled Revenue, in million pesos. Its two entries are $3.2$ and $4.8$. A student adds them and reports eight thousand pesos. What is the correct total?
+    choices:
+      - text: '$8000000$ pesos'
+        correct: true
+      - text: '$8000$ pesos'
+        rationale: |
+          This changes the caption from millions to thousands. Both units are common in finance tables. Check the printed unit.
+      - text: '$8$ pesos'
+        rationale: |
+          This ignores the scale after adding. Eight is the correct table-unit total. Check the caption before reporting pesos.
+      - text: '$80000000$ pesos'
+        rationale: |
+          This uses ten million as the scale instead of one million. Large place values are easy to misread. Check that a million has six zeros.
+    explanation: |
+      The sum is $3.2+4.8=8$. Each unit in the table is a million pesos. The total is $8(1000000)=8000000$ pesos.
+    approved: false
+
+  - id: q-data-interpretation-tables-and-charts-0018
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      A hypothetical chart has a vertical axis labeled Visitors, in hundreds. A bar reaches $2.4$. Which statement is correct?
+    choices:
+      - text: 'It represents $240$ visitors.'
+        correct: true
+      - text: 'It represents $2.4$ visitors.'
+        rationale: |
+          This reads the bar value without its scale. The number two point four is visible. Check the axis unit.
+      - text: 'It represents $24$ visitors.'
+        rationale: |
+          This uses tens instead of hundreds. A scale multiplication is needed. Check the number of zeros in one hundred.
+      - text: 'It represents $2400$ visitors.'
+        rationale: |
+          This uses thousands instead of hundreds. Both are possible chart units. Check the actual axis label.
+    explanation: |
+      The axis unit is one hundred visitors. Multiply $2.4$ by $100$ to get $240$ visitors.
+    approved: false
+
+  - id: q-data-interpretation-tables-and-charts-0019
+    type: which-is-true
+    difficulty: exam
+    stem: |
+      A hypothetical production table lists Morning $120$, Afternoon $150$, and Night $90$ units. Another column lists workers as $6,10,5$ respectively. Which statement follows directly from the production totals?
+    choices:
+      - text: 'Afternoon has the most units.'
+        correct: true
+      - text: 'Night produced the most units.'
+        rationale: |
+          This chooses the shift with the fewest workers instead of the most produced units. Five is the smallest worker count. Check which column is requested.
+      - text: 'Every shift produced $120$ units.'
+        rationale: |
+          This replaces individual totals with their average. The three-shift mean is one hundred twenty. Check that the statement is about each shift's actual total.
+      - text: 'Morning produced the most units.'
+        rationale: |
+          This uses output per worker rather than total production. Morning has the highest rate at twenty units per worker. Check which quantity the question asks to compare.
+    explanation: |
+      Compare only the production column: $120,150,90$. Its largest value is $150$, which belongs to Afternoon.
+    approved: false
+
+  - id: q-data-interpretation-tables-and-charts-0020
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A hypothetical table lists tasks completed by Teams A, B, and C in two weeks: A has $30,45$, B has $40,50$, and C has $25,40$. Which teams tie for the largest absolute increase?
+    choices:
+      - text: 'Teams A and C'
+        correct: true
+      - text: 'Teams A and B'
+        rationale: |
+          This includes B because it has the largest final total. Both final totals are high. Check changes rather than final levels.
+      - text: 'Teams B and C'
+        rationale: |
+          This includes B because it completes the most tasks in week two. That is a valid maximum in another comparison. Check the week-to-week increases.
+      - text: 'All three teams'
+        rationale: |
+          This assumes every increase has the same size. All three teams do improve. Check the numerical differences.
+    explanation: |
+      The increases are $45-30=15$ for A, $50-40=10$ for B, and $40-25=15$ for C. The largest increase is $15$, shared by A and C.
+    approved: false

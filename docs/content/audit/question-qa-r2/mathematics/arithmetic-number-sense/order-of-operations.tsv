@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-arithmetic-number-sense-order-of-operations-0001	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Weak distractors replaced with exact operation errors.
+q-arithmetic-number-sense-order-of-operations-0002	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-order-of-operations-0003	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-order-of-operations-0004	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-order-of-operations-0005	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Weak distractors replaced with exact operation errors.
+q-arithmetic-number-sense-order-of-operations-0006	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-order-of-operations-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Repeated bare addition-subtraction computation changed to choosing a procedure.
+q-arithmetic-number-sense-order-of-operations-0008	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-order-of-operations-0009	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Weak distractors replaced with exact operation errors.
+q-arithmetic-number-sense-order-of-operations-0010	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-order-of-operations-0011	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-order-of-operations-0012	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-order-of-operations-0013	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-order-of-operations-0014	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Weak distractors replaced with exact operation errors.
+q-arithmetic-number-sense-order-of-operations-0015	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Cash-sharing scenario overlapped another item; changed to expression-building. Old 381 note incorrectly described adding fuel.
+q-arithmetic-number-sense-order-of-operations-0016	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-order-of-operations-0017	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-order-of-operations-0018	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-order-of-operations-0019	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-order-of-operations-0020	NEW	NEW	new question	NONE	

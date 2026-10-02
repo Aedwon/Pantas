@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-arithmetic-number-sense-business-math-0001	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-business-math-0002	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach the distance-based fare rule or rounding partial kilometers.
+q-arithmetic-number-sense-business-math-0003	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-business-math-0004	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-business-math-0005	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach commissions on net profit.
+q-arithmetic-number-sense-business-math-0006	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach profit margin on selling price.
+q-arithmetic-number-sense-business-math-0007	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach the distance-based fare rule.
+q-arithmetic-number-sense-business-math-0008	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-business-math-0009	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-business-math-0010	CORRECTED	SOLVED-MATCH	stem;explanation;notes;format	MEDIUM	Net profit wording did not state other costs; clarified purchase-cost profit and no other costs. One legacy distractor note had the wrong derivation.
+q-arithmetic-number-sense-business-math-0011	CORRECTED	SOLVED-MATCH	distractor;explanation;notes;format	MEDIUM	Two legacy distractor notes did not produce their listed numbers; replaced one choice and made both derivations exact.
+q-arithmetic-number-sense-business-math-0012	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach tiered commissions; the old note for 8700 had an incorrect derivation.
+q-arithmetic-number-sense-business-math-0013	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach conversion between margin and markup.
+q-arithmetic-number-sense-business-math-0014	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach fare-revenue accounting.
+q-arithmetic-number-sense-business-math-0015	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach payment allocation to interest before principal.
+q-arithmetic-number-sense-business-math-0016	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-business-math-0017	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-business-math-0018	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-business-math-0019	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-business-math-0020	NEW	NEW	new question	NONE	

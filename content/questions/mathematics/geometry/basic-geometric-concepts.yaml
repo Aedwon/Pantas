@@ -2,13 +2,7 @@ meta:
   subject: mathematics
   topic: geometry
   subtopic: basic-geometric-concepts
-  exams:
-    - upcat
-    - acet
-    - dlsucet
-    - ustet
-    - pupcet
-
+  exams: [upcat, acet, dlsucet, ustet, pupcet]
 questions:
   - id: q-geometry-basic-geometric-concepts-0001
     type: which-is-true
@@ -21,27 +15,17 @@ questions:
       - text: '$145^\circ$'
         correct: false
         rationale: |
-          You used supplementary ($180^\circ$) instead of
-          complementary ($90^\circ$). Complementary angles add to
-          $90^\circ$: $90 - 35 = 55$.
+          This uses a supplement instead of a complement. Both relationships describe angle pairs. Check whether the sum is ninety or one hundred eighty degrees.
       - text: '$35^\circ$'
         correct: false
         rationale: |
-          You assumed the two angles are equal. Complementary means
-          they add to $90^\circ$, not that they match.
+          This assumes complementary angles are equal. Equal-angle pairs are also common in geometry. Check whether the given relationship says equal or says a total.
       - text: '$325^\circ$'
         correct: false
         rationale: |
-          You subtracted from $360^\circ$ instead of $90^\circ$.
-          Complementary angles add to $90^\circ$, not $360^\circ$.
+          This subtracts the angle from a full circle. A full circle is another familiar angle total. Check the total in the stated relationship.
     explanation: |
-      Complementary angles are two angles whose sum is equal to $90^\circ$.
-
-      1. Set up the equation: $\angle A + \angle B = 90^\circ$.
-      2. Substitute the given value: $35^\circ + \angle B = 90^\circ$.
-      3. Solve for $\angle B$: $\angle B = 90^\circ - 35^\circ = 55^\circ$.
-
-      Common Trap: Confusing complementary angles ($90^\circ$) with supplementary angles ($180^\circ$), which leads to $180^\circ - 35^\circ = 145^\circ$.
+      Complementary angles sum to $90^\circ$. Subtract the known angle: $B=90^\circ-35^\circ=55^\circ$.
 
   - id: q-geometry-basic-geometric-concepts-0002
     type: which-is-true
@@ -54,27 +38,17 @@ questions:
       - text: '$22^\circ$'
         correct: false
         rationale: |
-          You subtracted from $90^\circ$ instead of $180^\circ$.
-          A linear pair is supplementary, not complementary.
+          This takes the magnitude of a ninety-degree subtraction. Complement problems use ninety degrees. Check the straight-line total.
       - text: '$112^\circ$'
         correct: false
         rationale: |
-          You assumed the two angles are equal. A linear pair adds
-          to $180^\circ$: $180 - 112 = 68$.
-      - text: '$78^\circ$'
+          This assumes a linear pair has equal members. Vertical angles do have equal measures. Check whether the angles are opposite or adjacent.
+      - text: '$56^\circ$'
         correct: false
         rationale: |
-          You subtracted $112$ from $190$ or miscomputed
-          $180 - 112$. The correct subtraction is
-          $180 - 112 = 68$.
+          This halves the given angle as if it were bisected. Half-angle rules apply to bisectors. Check whether a bisector is stated.
     explanation: |
-      Angles that form a linear pair are supplementary, meaning their sum is $180^\circ$.
-
-      1. Set up the linear pair equation: $\angle X + \angle Y = 180^\circ$.
-      2. Substitute $112^\circ$: $112^\circ + \angle Y = 180^\circ$.
-      3. Subtract $112^\circ$ from $180^\circ$: $\angle Y = 180^\circ - 112^\circ = 68^\circ$.
-
-      Common Trap: Confusing linear pairs with complementary angles gives $90^\circ - 112^\circ = -22^\circ$ or $22^\circ$.
+      A linear pair sums to $180^\circ$. Thus $Y=180^\circ-112^\circ=68^\circ$.
 
   - id: q-geometry-basic-geometric-concepts-0003
     type: which-is-true
@@ -87,27 +61,17 @@ questions:
       - text: '$\angle BPD = 132^\circ$ because vertical angles are supplementary.'
         correct: false
         rationale: |
-          You treated vertical angles as supplementary. Vertical
-          angles are equal, not supplementary. The adjacent angles
-          are the ones that add to $180^\circ$.
+          This confuses opposite vertical angles with an adjacent linear pair. Both pairs occur at the same crossing. Check opposite versus adjacent positions.
       - text: '$\angle BPD = 42^\circ$ because vertical angles are complementary.'
         correct: false
         rationale: |
-          You subtracted from $90^\circ$. Vertical angles are
-          equal, and there is no complementary rule for them.
+          This uses a complement for a vertical angle. A complement is another angle-pair relationship. Check the stated vertical-angle relationship.
       - text: '$\angle BPD = 180^\circ$ because vertical angles form a straight line.'
         correct: false
         rationale: |
-          You confused vertical angles with a linear pair. Vertical
-          angles are the opposite pair at an intersection. They are
-          equal, not supplementary.
+          This reports the straight-angle total as one angle. The crossing contains straight lines. Check whether one angle or a pair total is requested.
     explanation: |
-      Vertical angles are opposite angles formed by two intersecting lines.
-
-      1. Vertical angles are always equal in measure.
-      2. Since $\angle APC$ and $\angle BPD$ are vertical angles, $\angle BPD = \angle APC = 48^\circ$.
-
-      Common Trap: Mistakenly assuming vertical angles are supplementary ($180^\circ - 48^\circ = 132^\circ$) instead of equal.
+      Vertical angles are the opposite pair formed by two intersecting lines. Their measures are equal. Therefore $\angle BPD=\angle APC=48^\circ$.
 
   - id: q-geometry-basic-geometric-concepts-0004
     type: which-is-true
@@ -115,29 +79,22 @@ questions:
     stem: |
       Which of the following statements correctly distinguishes a ray from a line segment?
     choices:
-      - text: "A ray has one endpoint and extends infinitely in one direction, whereas a line segment has two fixed endpoints."
+      - text: 'A ray has one endpoint; a segment has two.'
         correct: true
-      - text: "A ray extends infinitely in both directions, whereas a line segment has one endpoint."
+      - text: 'A ray extends infinitely in both directions, whereas a line segment has one endpoint.'
         correct: false
         rationale: |
-          You described a line, not a ray. A line extends in both
-          directions. A ray starts at one point and goes one way.
-      - text: "A line segment has fixed length, whereas a ray has no endpoints."
+          This describes a line as a ray and a ray as a segment. All three objects are parts of a line. Check endpoints and direction for each object.
+      - text: 'A line segment has fixed length, whereas a ray has no endpoints.'
         correct: false
         rationale: |
-          You said a ray has no endpoints. A ray has one endpoint
-          where it starts. A line is the one with no endpoints.
-      - text: "A ray can be measured in length, whereas a line segment cannot."
+          This gives a ray no endpoint. A ray does extend forever. Check where the ray starts.
+      - text: 'A ray can be measured in length, whereas a line segment cannot.'
         correct: false
         rationale: |
-          You swapped the two. A line segment has a measurable
-          length because it has two endpoints. A ray extends
-          forever and cannot be measured.
+          This swaps which object has a finite total length. Both objects have points on them. Check whether the entire object stops at both ends.
     explanation: |
-      By standard geometric definitions:
-      - A line segment is bounded by two distinct endpoints and has a measurable length.
-      - A ray starts at one initial endpoint and extends infinitely in one direction (it cannot be measured in full).
-      - A line extends infinitely in both directions with no endpoints.
+      A ray starts at one endpoint and extends forever in one direction. A segment is bounded at both ends. Thus a ray has one endpoint and a segment has two.
 
   - id: q-geometry-basic-geometric-concepts-0005
     type: which-is-true
@@ -150,28 +107,17 @@ questions:
       - text: '$14^\circ$'
         correct: false
         rationale: |
-          You halved the $28^\circ$ again. The bisector already
-          split the angle in half. $28^\circ$ is one half, so
-          the full angle is $28 + 28 = 56$.
+          This halves the given half-angle again. A bisector does halve an angle. Check whether the given measure is a half or the whole.
       - text: '$28^\circ$'
         correct: false
         rationale: |
-          You used the half-angle as the whole angle. A bisector
-          cuts the angle into two equal parts, so the full angle
-          is $2 \times 28 = 56$.
+          This reports a half as the entire angle. The given part is an actual angle measure. Check whether the full angle is requested.
       - text: '$62^\circ$'
         correct: false
         rationale: |
-          You subtracted from $90^\circ$: $90 - 28 = 62$. The
-          question asks for the full bisected angle, not the
-          complement.
+          This finds the complement of the given half-angle. The given angle is acute. Check the stated bisector rather than assuming a complement.
     explanation: |
-      An angle bisector divides an angle into two congruent (equal) halves.
-
-      1. Since Ray $BD$ bisects $\angle ABC$, $\angle ABD = \angle DBC = 28^\circ$.
-      2. The full angle $\angle ABC = \angle ABD + \angle DBC = 28^\circ + 28^\circ = 56^\circ$.
-
-      Common Trap: Giving half the angle ($14^\circ$) when asked for the whole angle, or confusing the half with the whole.
+      The bisector makes two equal parts of the full angle. Each part is $28^\circ$. Add them: $28^\circ+28^\circ=56^\circ$.
 
   - id: q-geometry-basic-geometric-concepts-0006
     type: which-is-true
@@ -179,33 +125,22 @@ questions:
     stem: |
       Point $M$ is the midpoint of line segment $AB$. If $AM = 3x + 4$ and $MB = 5x - 8$, which statement is true regarding the total length of segment $AB$?
     choices:
-      - text: "The length of $AB$ is $44$."
+      - text: 'The length of $AB$ is $44$.'
         correct: true
-      - text: "The length of $AB$ is $22$."
+      - text: 'The length of $AB$ is $22$.'
         correct: false
         rationale: |
-          You found $AM = 22$ and stopped. That is half the
-          segment. The full length is $AM + MB = 22 + 22 = 44$.
-      - text: "The length of $AB$ is $6$."
+          This reports only half the segment. The half-length is needed first. Check whether half or whole is requested.
+      - text: 'The length of $AB$ is $6$.'
         correct: false
         rationale: |
-          You used $x = 6$ as the length. $x$ is the variable
-          you solved for, not the segment length. Plug it back
-          in: $AM = 3(6) + 4 = 22$.
-      - text: "The length of $AB$ is $12$."
+          This reports the solved variable as the length. The variable is solved correctly. Substitute the variable into the length formula.
+      - text: 'The length of $AB$ is $12$.'
         correct: false
         rationale: |
-          You used $2x = 12$ as the total length. The total is
-          $AM + MB = 22 + 22 = 44$, not $2x$.
+          This doubles the variable instead of a half-length. The segment has two equal halves. Find the half-length before doubling.
     explanation: |
-      Because $M$ is the midpoint of $AB$, the two sub-segments $AM$ and $MB$ are equal in length.
-
-      1. Set up the equation: $AM = MB \implies 3x + 4 = 5x - 8$.
-      2. Solve for $x$: $2x = 12 \implies x = 6$.
-      3. Calculate segment $AM$: $AM = 3(6) + 4 = 22$.
-      4. Calculate total length $AB$: $AB = AM + MB = 22 + 22 = 44$.
-
-      Common Trap: Stopping after finding half the length ($22$) or after solving for $x$ ($6$) instead of multiplying half by $2$ to find the total segment length.
+      A midpoint gives $AM=MB$, so $3x+4=5x-8$. Rearrange: $12=2x$, giving $x=6$. Each half is $3(6)+4=22$. The whole segment is $22+22=44$.
 
   - id: q-geometry-basic-geometric-concepts-0007
     type: which-is-true
@@ -218,29 +153,17 @@ questions:
       - text: 'The larger angle measures $35^\circ$.'
         correct: false
         rationale: |
-          You gave the smaller angle. The question asks for the
-          larger one, which is $2(35) - 15 = 55^\circ$.
+          This reports the smaller angle. The smaller measure is found first. Check which angle is requested.
       - text: 'The larger angle measures $115^\circ$.'
         correct: false
         rationale: |
-          You used supplementary ($180^\circ$) instead of
-          complementary ($90^\circ$). With $180^\circ$ the equation
-          gives $x = 65$ and $2(65) - 15 = 115$.
-      - text: 'The larger angle measures $75^\circ$.'
+          This uses a supplementary total. One hundred eighty degrees is a common angle total. Check the complementary total.
+      - text: 'The larger angle measures $65^\circ$.'
         correct: false
         rationale: |
-          You set up the equation with $+15$ instead of $-15$,
-          or misapplied the relationship. The correct larger
-          angle is $2(35) - 15 = 55^\circ$.
+          This uses fifteen more instead of fifteen less. Both phrases involve a fifteen-degree difference. Check the word less in the relationship.
     explanation: |
-      Let $x$ be the measure of the smaller angle. The larger angle is $2x - 15$.
-
-      1. Since the angles are complementary, their sum is $90^\circ$:
-         $$x + (2x - 15) = 90$$
-      2. Simplify: $3x - 15 = 90 \implies 3x = 105 \implies x = 35^\circ$.
-      3. Calculate the larger angle: $2(35^\circ) - 15^\circ = 70^\circ - 15^\circ = 55^\circ$.
-
-      Common Trap: Reporting the smaller angle ($35^\circ$) instead of the larger angle, or using $180^\circ$ for supplementary angles to get $115^\circ$.
+      Let the smaller angle be $s$. The larger is $2s-15$ degrees. Their sum gives $s+(2s-15)=90$, so $3s=105$ and $s=35$. The larger angle is $2(35)-15=55^\circ$.
 
   - id: q-geometry-basic-geometric-concepts-0008
     type: which-is-true
@@ -248,33 +171,22 @@ questions:
     stem: |
       An angle measure is given by the algebraic expression $(3x - 10)^\circ$. If $x$ satisfies $30 < x < 60$, which statement best describes the classification of the angle for all possible values of $x$?
     choices:
-      - text: "The angle can be acute, right, or obtuse, but it is never a reflex angle."
+      - text: 'It can be acute, right, or obtuse.'
         correct: true
-      - text: "The angle is strictly acute for all allowed values of $x$."
+      - text: 'The angle is strictly acute for all allowed values of $x$.'
         correct: false
         rationale: |
-          You checked only one part of the interval. At $x = 31$,
-          the angle is $83^\circ$ and acute, but later values do
-          not stay acute.
-      - text: "The angle is strictly obtuse for all allowed values of $x$."
+          This extends the acute part of the interval to all allowed values. Some allowed inputs give acute angles. Check the whole input interval.
+      - text: 'The angle is strictly obtuse for all allowed values of $x$.'
         correct: false
         rationale: |
-          You checked only one part of the interval. At $x = 59$,
-          the angle is $167^\circ$ and obtuse, but smaller allowed
-          values do not stay obtuse.
-      - text: "The angle becomes a reflex angle when $x > 50$."
+          This extends the obtuse part of the interval to all allowed values. Some allowed inputs give obtuse angles. Check the whole input interval.
+      - text: 'The angle becomes a reflex angle when $x > 50$.'
         correct: false
         rationale: |
-          You assumed the angle passes $180^\circ$ inside the
-          interval. Even at $x = 59$, the angle is only
-          $3(59) - 10 = 167^\circ$, which is still obtuse.
+          This assumes x above fifty makes the angle exceed one hundred eighty degrees. Larger inputs do give larger angle measures. Check the upper bound of the angle expression.
     explanation: |
-      Evaluate the range of angle values as $x$ increases from $30$ to $60$:
-
-      1. Lower bound ($x \to 30$): $3(30) - 10 = 80^\circ$ (acute).
-      2. Upper bound ($x \to 60$): $3(60) - 10 = 170^\circ$ (obtuse).
-      3. At $x = \dfrac{100}{3}$, $3\left(\dfrac{100}{3}\right) - 10 = 90^\circ$ (right angle).
-      4. A reflex angle requires a measure greater than $180^\circ$. Since $80^\circ < \text{angle} < 170^\circ$, it is never reflex.
+      Multiplying $30<x<60$ by $3$ and subtracting $10$ gives $80<3x-10<170$. This interval contains angles below $90^\circ$, equal to $90^\circ$, and between $90^\circ$ and $180^\circ$. The possible types are acute, right, and obtuse.
 
   - id: q-geometry-basic-geometric-concepts-0009
     type: which-is-true
@@ -287,28 +199,17 @@ questions:
       - text: 'An adjacent angle measures $82^\circ$.'
         correct: false
         rationale: |
-          You gave the vertical angle, not the adjacent one. The
-          vertical angle is $82^\circ$, but the adjacent angle is
-          supplementary: $180 - 82 = 98^\circ$.
+          This reports a vertical angle instead of its adjacent angle. That angle is found while solving. Check whether the requested angle is opposite or adjacent.
       - text: 'An adjacent angle measures $8^\circ$.'
         correct: false
         rationale: |
-          You subtracted from $90^\circ$: $90 - 82 = 8$. Adjacent
-          angles on intersecting lines are supplementary, so
-          subtract from $180^\circ$.
+          This uses a complement instead of a supplement. The vertical angle is acute. Check that a linear pair totals one hundred eighty degrees.
       - text: 'An adjacent angle measures $16^\circ$.'
         correct: false
         rationale: |
-          You used $x = 16$ as the angle. $x$ is the variable you
-          solved for. The angle is $4(16) + 18 = 82^\circ$, and
-          the adjacent angle is $180 - 82 = 98^\circ$.
+          This reports the variable instead of an angle measure. The variable is solved correctly. Substitute before answering.
     explanation: |
-      1. Vertical angles are equal: $4x + 18 = 6x - 14 \implies 2x = 32 \implies x = 16$.
-      2. Find the vertical angle measure: $4(16) + 18 = 64 + 18 = 82^\circ$.
-      3. An adjacent angle on intersecting lines forms a linear pair with the vertical angle, so they are supplementary ($180^\circ$):
-         $$\text{Adjacent Angle} = 180^\circ - 82^\circ = 98^\circ$$
-
-      Common Trap: Confusing vertical angles with adjacent angles leads to giving $82^\circ$ (equal) or $90^\circ - 82^\circ = 8^\circ$ (complementary).
+      The vertical angles are equal: $4x+18=6x-14$. Thus $2x=32$ and $x=16$. Each vertical angle is $4(16)+18=82^\circ$. Its adjacent angle forms a linear pair, so it measures $180^\circ-82^\circ=98^\circ$.
 
   - id: q-geometry-basic-geometric-concepts-0010
     type: which-is-true
@@ -321,30 +222,17 @@ questions:
       - text: '$\angle BOC = 25^\circ$'
         correct: false
         rationale: |
-          You used $x = 25$ as the angle. $x$ is the variable,
-          not the angle. Plug it into $3x + 10$:
-          $3(25) + 10 = 85^\circ$.
+          This reports the variable instead of the requested angle. The variable is solved correctly. Substitute into the requested angle expression.
       - text: '$\angle BOC = 50^\circ$'
         correct: false
         rationale: |
-          You computed $\angle AOB = 2(25) = 50^\circ$ instead
-          of $\angle BOC$. The question asks for $\angle BOC$,
-          which is $3(25) + 10 = 85^\circ$.
+          This reports angle AOB instead of angle BOC. That angle is part of the same straight angle. Check the requested angle name.
       - text: '$\angle BOC = 45^\circ$'
         correct: false
         rationale: |
-          You computed $\angle COD = 25 + 20 = 45^\circ$ instead
-          of $\angle BOC$. The question asks for $\angle BOC$,
-          which is $3(25) + 10 = 85^\circ$.
+          This reports angle COD instead of angle BOC. That angle is part of the same straight angle. Check the requested angle name.
     explanation: |
-      Angles lying on a straight line sum to $180^\circ$.
-
-      1. Set up the equation: $(2x) + (3x + 10) + (x + 20) = 180$.
-      2. Combine like terms: $6x + 30 = 180 \implies 6x = 150 \implies x = 25$.
-      3. Substitute $x = 25$ into $\angle BOC$:
-         $$\angle BOC = 3(25) + 10 = 75 + 10 = 85^\circ$$
-
-      Common Trap: Reporting $x = 25^\circ$ directly or calculating $\angle AOB = 50^\circ$ instead of $\angle BOC$.
+      The three adjacent angles fill a straight angle. Add them: $2x+(3x+10)+(x+20)=180$. Thus $6x+30=180$ and $x=25$. The requested angle is $3(25)+10=85^\circ$.
 
   - id: q-geometry-basic-geometric-concepts-0011
     type: which-is-true
@@ -352,34 +240,22 @@ questions:
     stem: |
       Angles $\angle AOC$ and $\angle BOC$ form a linear pair. Ray $OX$ bisects $\angle AOC$ and Ray $OY$ bisects $\angle BOC$. Which statement accurately describes the geometric relationship between Ray $OX$ and Ray $OY$?
     choices:
-      - text: "Ray $OX$ and Ray $OY$ are perpendicular to each other."
+      - text: 'Ray $OX$ and Ray $OY$ are perpendicular to each other.'
         correct: true
-      - text: "Ray $OX$ and Ray $OY$ are parallel to each other."
+      - text: 'Ray $OX$ and Ray $OY$ are parallel to each other.'
         correct: false
         rationale: |
-          You assumed the bisectors go in the same direction. They
-          split angles that add to $180^\circ$, so the bisectors
-          meet at $90^\circ$, not $0^\circ$.
+          This treats the two bisectors as having the same direction. Both rays are bisectors. Check the sum of the two half-angles.
       - text: 'Ray $OX$ and Ray $OY$ form a straight angle of $180^\circ$.'
         correct: false
         rationale: |
-          You assumed the bisectors lie on a straight line. The
-          half-angles add to $90^\circ$, not $180^\circ$.
+          This uses the full linear-pair angle instead of half its measure. The original angles total one hundred eighty degrees. Check that both angles have been bisected.
       - text: 'Ray $OX$ and Ray $OY$ form an angle of $45^\circ$.'
         correct: false
         rationale: |
-          You halved the $90^\circ$ again. The bisectors already
-          account for halving. Their angle is $a + b = 90^\circ$,
-          not $45^\circ$.
+          This halves the sum of the bisected angles a second time. Forty-five is half of a right angle. Check that each original angle is halved only once.
     explanation: |
-      Let $\angle AOC = 2a$ and $\angle BOC = 2b$.
-
-      1. Since $\angle AOC$ and $\angle BOC$ form a linear pair, $2a + 2b = 180^\circ$.
-      2. Divide by $2$: $a + b = 90^\circ$.
-      3. Ray $OX$ bisects $\angle AOC$, so $\angle XOC = a$.
-      4. Ray $OY$ bisects $\angle BOC$, so $\angle COY = b$.
-      5. The angle between the two bisectors is $\angle XOY = \angle XOC + \angle COY = a + b = 90^\circ$.
-      6. An angle of $90^\circ$ means Ray $OX$ and Ray $OY$ are perpendicular.
+      Let the two linear-pair angles be $\alpha$ and $\beta$, so $\alpha+\beta=180^\circ$. Their bisectors make an angle of $\dfrac{\alpha}{2}+\dfrac{\beta}{2}=90^\circ$. Rays meeting at $90^\circ$ are perpendicular.
 
   - id: q-geometry-basic-geometric-concepts-0012
     type: which-is-true
@@ -392,32 +268,17 @@ questions:
       - text: 'The angle measures $30^\circ$, which is an acute angle.'
         correct: false
         rationale: |
-          You found $x = 60$ correctly but then gave its
-          complement $90 - 60 = 30$ instead of the angle itself.
-          The question asks for the angle, which is $60^\circ$.
+          This reports the complement of the solved angle. The complement is a meaningful related measure. Check whether the angle or its complement is requested.
       - text: 'The angle measures $45^\circ$, which is an acute angle.'
         correct: false
         rationale: |
-          You used $180 - x = 3(90 - x)$ (three times) instead of
-          four times. That gives $x = 45$. The problem says four
-          times, which gives $x = 60$.
+          This uses three times the complement instead of four. Three times produces another valid equation. Check the multiplier in the stem.
       - text: 'The angle measures $120^\circ$, which is an obtuse angle.'
         correct: false
         rationale: |
-          You found the supplement of $60^\circ$:
-          $180 - 60 = 120$. The question asks for the angle
-          itself, which is $60^\circ$.
+          This reports the supplement of the solved angle. The supplement is a meaningful related measure. Check whether the angle or its supplement is requested.
     explanation: |
-      Let $x$ be the measure of the angle.
-      - Complement $= 90 - x$
-      - Supplement $= 180 - x$
-
-      1. Set up the equation: $180 - x = 4(90 - x)$.
-      2. Expand: $180 - x = 360 - 4x$.
-      3. Solve for $x$: $3x = 180 \implies x = 60^\circ$.
-      4. Since $60^\circ < 90^\circ$, it is an acute angle.
-
-      Common Trap: Setting $180 - x = 3(90 - x)$ leads to $x = 30^\circ$.
+      Let the angle measure be $x$ degrees. Its supplement is $180-x$ and its complement is $90-x$. The condition gives $180-x=4(90-x)$. Expand to get $180-x=360-4x$, so $3x=180$ and $x=60$. Since $60^\circ$ is between $0^\circ$ and $90^\circ$, the angle is acute.
 
   - id: q-geometry-basic-geometric-concepts-0013
     type: which-is-true
@@ -430,30 +291,17 @@ questions:
       - text: 'The length of $BC$ is $18\text{ cm}$.'
         correct: false
         rationale: |
-          You assumed $B$ is the midpoint of the whole segment
-          $AD$: $36/2 = 18$. $B$ is the midpoint of $AC$ only,
-          not of $AD$.
+          This treats BC as half of the entire segment. Two midpoint conditions are stated. Check which shorter segments the midpoints belong to.
       - text: 'The length of $BC$ is $9\text{ cm}$.'
         correct: false
         rationale: |
-          You divided $36$ by $4$, assuming four equal parts.
-          There are three equal parts ($AB = BC = CD$), so
-          each part is $36/3 = 12$.
+          This divides by four because there are four labeled points. Four labels are visible. Count pieces between points, not points.
       - text: 'The length of $BC$ is $24\text{ cm}$.'
         correct: false
         rationale: |
-          You used $2x = 24$ instead of $x = 12$. $BC = x$, one
-          of the three equal parts, so $BC = 12$.
+          This reports two of the equal pieces instead of BC alone. The larger segment has two equal pieces. Check the endpoints of BC.
     explanation: |
-      Let the length of segment $AB$ be $x$.
-
-      1. Since $B$ is the midpoint of $AC$, $BC = AB = x$, so $AC = 2x$.
-      2. Since $C$ is the midpoint of $BD$, $CD = BC = x$.
-      3. The total segment $AD = AB + BC + CD = x + x + x = 3x$.
-      4. Given $AD = 36\text{ cm}$: $3x = 36 \implies x = 12\text{ cm}$.
-      5. Thus, $BC = x = 12\text{ cm}$.
-
-      Common Trap: Assuming $B$ is the midpoint of the entire segment $AD$, which incorrectly yields $BC = 36 / 2 = 18\text{ cm}$.
+      Because B is the midpoint of AC, $AB=BC$. Because C is the midpoint of BD, $BC=CD$. Thus the whole segment has three equal pieces. Each is $36\div3=12$ cm, so $BC=12$ cm.
 
   - id: q-geometry-basic-geometric-concepts-0014
     type: which-is-true
@@ -466,30 +314,17 @@ questions:
       - text: 'The measure of $\angle AOB$ is $60^\circ$.'
         correct: false
         rationale: |
-          You computed $\angle BOC = 2(22.5) + 15 = 60^\circ$
-          instead of $\angle AOB$. The question asks for
-          $\angle AOB = 4(22.5) - 5 = 85^\circ$.
+          This reports angle BOC instead of angle AOB. That angle is also part of the full turn. Check the requested angle name.
       - text: 'The measure of $\angle AOB$ is $215^\circ$.'
         correct: false
         rationale: |
-          You computed the reflex angle $\angle COA =
-          10(22.5) - 10 = 215^\circ$ instead of $\angle AOB$.
-          The question asks for $\angle AOB$.
+          This reports the reflex angle instead of angle AOB. That angle is also part of the full turn. Check the requested angle name.
       - text: 'The measure of $\angle AOB$ is $22.5^\circ$.'
         correct: false
         rationale: |
-          You used $x = 22.5$ as the angle measure. $x$ is the
-          variable, not the angle. Plug it in:
-          $4(22.5) - 5 = 85^\circ$.
+          This reports the variable instead of an angle measure. The variable is solved correctly. Substitute into the requested expression.
     explanation: |
-      The sum of angles around a single point is $360^\circ$.
-
-      1. Set up equation: $(4x - 5) + (2x + 15) + (10x - 10) = 360$.
-      2. Combine like terms: $16x = 360 \implies x = 22.5$.
-      3. Calculate $\angle AOB$:
-         $$\angle AOB = 4(22.5) - 5 = 90 - 5 = 85^\circ$$
-
-      Common Trap: Confusing $\angle AOB$ with $\angle BOC = 2(22.5) + 15 = 60^\circ$ or reporting $x = 22.5^\circ$.
+      The three sectors around O fill $360^\circ$. Their measures give $(4x-5)+(2x+15)+(10x-10)=360$. Collect terms: $16x=360$, so $x=22.5$. Therefore $\angle AOB=4(22.5)-5=85^\circ$.
 
   - id: q-geometry-basic-geometric-concepts-0015
     type: which-is-true
@@ -502,26 +337,119 @@ questions:
       - text: 'The measure of Angle $R$ is $50^\circ$.'
         correct: false
         rationale: |
-          You stopped at $Q = 50^\circ$ and reported it as $R$.
-          One more step: $R$ is the complement of $Q$, so
-          $R = 90 - 50 = 40^\circ$.
+          This reports angle Q instead of its complement. That measure is found first. Check that R is the complement of Q.
       - text: 'The measure of Angle $R$ is $130^\circ$.'
         correct: false
         rationale: |
-          You used $P = 130^\circ$ as $R$. $P$ is the supplement
-          of $Q$, but $R$ is the complement: $R = 90 - 50 = 40$.
+          This reports angle P instead of angle R. P is also a solved angle. Check the requested angle name.
       - text: 'The measure of Angle $R$ is $140^\circ$.'
         correct: false
         rationale: |
-          You found the supplement of $R$ instead of $R$ itself.
-          $R = 90 - 50 = 40$, not $180 - 40 = 140$.
+          This reports the supplement of R after finding R. A supplement is another familiar partner. Check that no second supplementary step is requested.
     explanation: |
-      1. Since $P$ and $Q$ are supplementary: $P + Q = 180$.
-      2. Express $P$ in terms of $Q$: $P = 3Q - 20$.
-      3. Substitute into the supplementary equation:
-         $$(3Q - 20) + Q = 180 \implies 4Q - 20 = 180 \implies 4Q = 200 \implies Q = 50^\circ$$
-      4. Find $P$: $P = 180 - 50 = 130^\circ$.
-      5. Angle $R$ is complementary to Angle $Q$:
-         $$R = 90^\circ - Q = 90^\circ - 50^\circ = 40^\circ$$
+      The supplementary condition is $P+Q=180^\circ$. With $P=3Q-20^\circ$, this gives $4Q-20^\circ=180^\circ$, so $Q=50^\circ$. Since R complements Q, $R=90^\circ-50^\circ=40^\circ$.
 
-      Common Trap: Stopping at Angle $Q = 50^\circ$, or finding the supplement of $R$ ($140^\circ$) instead of the requested angle ($40^\circ$).
+  - id: q-geometry-basic-geometric-concepts-0016
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      For distinct points A and B, how do rays $\overrightarrow{AB}$ and $\overrightarrow{BA}$ compare?
+    choices:
+      - text: 'They are different rays with different endpoints.'
+        correct: true
+      - text: 'They are the same ray because they use the same two points.'
+        rationale: |
+          This ignores the order of the ray name. The same two point labels are used. Check that the first letter names the endpoint.
+      - text: 'They are segments with the same two fixed endpoints.'
+        rationale: |
+          This reads ray notation as segment notation. Both symbols are written above two letters. Check whether the symbol has an arrow.
+      - text: 'They both extend forever in both directions.'
+        rationale: |
+          This describes a line instead of a ray. Both rays lie on the same line. Check that each ray extends in only one direction.
+    explanation: |
+      Ray AB starts at A and passes through B. Ray BA starts at B and passes through A. Their endpoints differ, so they are different rays.
+    approved: false
+
+  - id: q-geometry-basic-geometric-concepts-0017
+    type: error-spotting
+    difficulty: medium
+    stem: |
+      M is the midpoint of AB, and $AM=7$ cm. A student reports $AB=3.5$ cm because a midpoint halves a segment. What is the correction?
+    choices:
+      - text: '$AB=14$ cm.'
+        correct: true
+      - text: '$AB=7$ cm.'
+        rationale: |
+          This reports one half as the whole. The half-length is given directly. Check the endpoints of the requested segment.
+      - text: '$AB=3.5$ cm.'
+        rationale: |
+          This halves an already halved segment again. Midpoints do divide a whole in half. Check whether the given length is already one half.
+      - text: '$AB=21$ cm.'
+        rationale: |
+          This counts three pieces for three point labels. A, M, and B are three points. Check that they form only two consecutive pieces.
+    explanation: |
+      A midpoint makes $AM=MB=7$ cm. Add the two halves: $AB=7+7=14$ cm.
+    approved: false
+
+  - id: q-geometry-basic-geometric-concepts-0018
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      Which fact alone is insufficient to prove that two angles form a linear pair?
+    choices:
+      - text: 'They are adjacent.'
+        correct: true
+      - text: 'Their noncommon sides are opposite rays and they are adjacent.'
+        rationale: |
+          This treats the defining opposite-ray condition as insufficient. Adjacent angles can have many arrangements. Check that opposite outer rays make a straight angle.
+      - text: 'They are adjacent and sum to $180^\circ$.'
+        rationale: |
+          This overlooks the straight-angle total for adjacent angles. Supplementary angles alone need not be adjacent. Check that this statement includes both conditions.
+      - text: 'They fill a straight angle without overlapping interiors.'
+        rationale: |
+          This overlooks that filling a straight angle without overlap creates adjacent supplementary parts. The wording differs from the definition. Check the geometry described.
+    explanation: |
+      Adjacent angles share a vertex and one side without overlapping. This does not force their outer sides to be opposite rays. A linear pair needs that additional straight-line condition.
+    approved: false
+
+  - id: q-geometry-basic-geometric-concepts-0019
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      A ray bisects an angle into parts measuring $(3x+2)^\circ$ and $(5x-8)^\circ$. What is the full angle measure?
+    choices:
+      - text: '$34^\circ$'
+        correct: true
+      - text: '$17^\circ$'
+        rationale: |
+          This reports only one part. That part is needed first. Check whether the full angle is requested.
+      - text: '$5^\circ$'
+        rationale: |
+          This reports the variable instead of an angle. The variable is solved correctly. Check the angle expression.
+      - text: '$68^\circ$'
+        rationale: |
+          This doubles the full angle a second time. A bisector requires combining two parts. Check that doubling happens only once.
+    explanation: |
+      The bisected parts are equal, so $3x+2=5x-8$. This gives $2x=10$ and $x=5$. Each part is $3(5)+2=17^\circ$. The full angle is $17^\circ+17^\circ=34^\circ$.
+    approved: false
+
+  - id: q-geometry-basic-geometric-concepts-0020
+    type: which-is-true
+    difficulty: exam
+    stem: |
+      An angle is obtuse. What type must its supplement be?
+    choices:
+      - text: 'Acute'
+        correct: true
+      - text: 'Right'
+        rationale: |
+          This treats supplementary angles as equal halves of a straight angle. Equal halves are right angles. Check that the given angle is strictly obtuse.
+      - text: 'Obtuse'
+        rationale: |
+          This assumes an angle and its supplement have the same type. Both belong to the same pair. Check that two obtuse angles would sum to more than one hundred eighty degrees.
+      - text: 'Reflex'
+        rationale: |
+          This uses a full-turn partner instead of a supplement. A reflex angle completes some smaller angles to a full turn. Check that a supplement uses one hundred eighty degrees.
+    explanation: |
+      An obtuse angle lies strictly between $90^\circ$ and $180^\circ$. Its supplement is $180^\circ$ minus that angle. This lies strictly between $0^\circ$ and $90^\circ$, so it is acute.
+    approved: false

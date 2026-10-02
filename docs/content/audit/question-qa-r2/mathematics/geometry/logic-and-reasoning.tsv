@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-geometry-logic-and-reasoning-0001	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Correct-choice length cue or weak distractor corrected.
+q-geometry-logic-and-reasoning-0002	VERIFIED	SOLVED-MATCH	explanation;notes;format	MEDIUM	The old note described the contrapositive as inverse-style; corrected the form name and negation scope.
+q-geometry-logic-and-reasoning-0003	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Correct-choice length cue or weak distractor corrected.
+q-geometry-logic-and-reasoning-0004	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Correct-choice length cue or weak distractor corrected.
+q-geometry-logic-and-reasoning-0005	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	HIGH	A distractor was a true contrapositive of a premise and therefore also followed logically; replaced it with a nonvalid partial negation.
+q-geometry-logic-and-reasoning-0006	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-logic-and-reasoning-0007	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Correct-choice length cue or weak distractor corrected.
+q-geometry-logic-and-reasoning-0008	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Correct-choice length cue or weak distractor corrected.
+q-geometry-logic-and-reasoning-0009	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-logic-and-reasoning-0010	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-logic-and-reasoning-0011	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-logic-and-reasoning-0012	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach diagonal properties of parallelograms, rectangles, and rhombi; stem, choices and key retained. Correct choice remains longest under the preservation rule.
+q-geometry-logic-and-reasoning-0013	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach the formal negation of a conditional; stem, choices and key retained.
+q-geometry-logic-and-reasoning-0014	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-logic-and-reasoning-0015	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	The original repeated the inverse-converse equivalence question; reframed it using a true conditional and counterexample to its converse.
+q-geometry-logic-and-reasoning-0016	NEW	NEW	new question	NONE	
+q-geometry-logic-and-reasoning-0017	NEW	NEW	new question	NONE	
+q-geometry-logic-and-reasoning-0018	NEW	NEW	new question	NONE	
+q-geometry-logic-and-reasoning-0019	NEW	NEW	new question	NONE	
+q-geometry-logic-and-reasoning-0020	NEW	NEW	new question	NONE	

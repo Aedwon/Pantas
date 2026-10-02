@@ -10,19 +10,19 @@ questions:
     stem: |
       Solve the system: $y = x + 1$ and $x + y = 7$.
     choices:
-      - text: $(3, 4)$
+      - text: '$(3, 4)$'
         correct: true
-      - text: $(2, 3)$
+      - text: '$(2, 3)$'
         rationale: |
-          You used numbers that fit $y = x + 1$, but you did not check the second equation. For this pair, $x + y = 5$, not 7.
-      - text: $(4, 5)$
+          This pair checks only the first equation. Its values differ by $1$, so it fits that condition. Check the sum in the second equation too.
+      - text: '$(4, 5)$'
         rationale: |
-          You may have added 1 to $x$ correctly and stopped there. A solution has to satisfy both equations, and $4 + 5 = 9$.
-      - text: $(1, 2)$
+          This pair checks only the difference between the variables. That makes the first equation look satisfied. Check that both original equations hold.
+      - text: '$(1, 2)$'
         rationale: |
-          You found a pair that fits $y = x + 1$, but one equation is not enough. It fails the sum condition because $1 + 2 = 3$.
+          This uses the constant $1$ as the value of $x$. It then follows the first equation correctly. Check the pair against the required sum.
     explanation: |
-      Substitute $y = x + 1$ into $x + y = 7$: $x + (x + 1) = 7$, so $2x = 6$ and $x = 3$. Then $y = 4$.
+      Replace $y$ with $x+1$: $x+(x+1)=7$. Subtract $1$ to get $2x=6$, so $x=3$. Then $y=3+1=4$. The solution is $(3,4)$.
 
   - id: q-algebra-systems-of-equations-0002
     type: direct-computation
@@ -30,19 +30,19 @@ questions:
     stem: |
       Solve the system: $2x + 3y = 12$ and $4x - 3y = 6$.
     choices:
-      - text: $(3, 2)$
+      - text: '$(3, 2)$'
         correct: true
-      - text: $(2, 3)$
+      - text: '$(2, 3)$'
         rationale: |
-          You may have swapped the solved values after elimination. Check both equations: $(2, 3)$ makes the first one 13, not 12.
-      - text: $(1, 4)$
+          This reverses the two solved values. Both numbers came from the working, so the pair looks familiar. Check that $x$ comes first.
+      - text: '$(3, 6)$'
         rationale: |
-          You found a pair of numbers, but they do not satisfy both equations. In the second equation, $4(1) - 3(4) = -8$, not 6.
-      - text: $(4, 1)$
+          This stops at $3y=6$ and calls $6$ the value of $y$. It keeps the correct remainder. Check whether the variable still has a coefficient.
+      - text: '$(3, -2)$'
         rationale: |
-          You likely got $x$ from $6x = 18$ wrong or guessed from one equation. This pair gives $2(4) + 3(1) = 11$.
+          This uses $6-12$ when solving $6+3y=12$. Moving a term can make a sign change seem enough. Check by putting the pair into the first equation.
     explanation: |
-      Add the equations: $(2x + 3y) + (4x - 3y) = 12 + 6$. The $y$ terms cancel: $6x = 18$, so $x = 3$. Substitute: $2(3) + 3y = 12$ gives $y = 2$.
+      Add the equations to get $6x=18$, so $x=3$. Put this into the first equation: $6+3y=12$. Subtract $6$ and divide by $3$ to get $y=2$. The solution is $(3,2)$.
 
   - id: q-algebra-systems-of-equations-0003
     type: direct-computation
@@ -50,19 +50,19 @@ questions:
     stem: |
       Solve the system: $3x + 2y = 16$ and $2x + 5y = 18$.
     choices:
-      - text: $(4, 2)$
+      - text: '$(4, 2)$'
         correct: true
-      - text: $(2, 4)$
+      - text: '$(2, 4)$'
         rationale: |
-          You swapped the correct values after solving. Ordered pairs must keep $x$ first and $y$ second.
-      - text: $(3, 3)$
+          This reverses $x$ and $y$. The same two solved numbers appear in the pair. Check their order in either original equation.
+      - text: '$(4, 4)$'
         rationale: |
-          You may have guessed equal values, but they do not fit the first equation. $3(3) + 2(3) = 15$, not 16.
-      - text: $(5, 1)$
+          This stops at $2y=4$. The remaining number looks like a finished answer. Check whether division is still needed.
+      - text: '$(4, -2)$'
         rationale: |
-          You may have picked a pair that looks close from the first equation, but it fails the second. $2(5) + 5(1) = 15$, not 18.
+          This reverses the subtraction in $2y=16-12$. The terms are right but their order changes the sign. Check the pair in the first equation.
     explanation: |
-      Multiply the first by 5 and the second by 2 to get $15x + 10y = 80$ and $4x + 10y = 36$. Subtract: $11x = 44$, so $x = 4$. Then $y = 2$.
+      Multiply the first equation by $5$ and the second by $2$: $15x+10y=80$ and $4x+10y=36$. Subtract to get $11x=44$, so $x=4$. Then $12+2y=16$, giving $y=2$. The solution is $(4,2)$.
 
   - id: q-algebra-systems-of-equations-0004
     type: word-problem
@@ -70,19 +70,19 @@ questions:
     stem: |
       A movie theater sold 50 tickets. Adult tickets cost $\text{P}100$ and child tickets cost $\text{P}60$. Total sales were $\text{P}4200$. How many adult tickets were sold?
     choices:
-      - text: $30$
+      - text: '$30$'
         correct: true
-      - text: $20$
+      - text: '$20$'
         rationale: |
-          You treated the extra money as if each adult ticket added P60. Compared with a child ticket, each adult adds only P40.
-      - text: $35$
+          This reports the number of child tickets. That count also comes from the system. Check which kind of ticket the question asks for.
+      - text: '$42$'
         rationale: |
-          You used too many adult tickets. If 35 were adults, the sales would be P4400, not P4200.
-      - text: $25$
+          This divides all sales by the adult price. That works only if every ticket costs the same. Check that both ticket prices appear in the money equation.
+      - text: '$25$'
         rationale: |
-          You may have split the tickets too evenly instead of using the price difference. Twenty-five adult tickets would total only P4000.
+          This splits the tickets equally without using sales. Equal groups seem reasonable when there are two ticket types. Check the total money for that split.
     explanation: |
-      Let $a$ be adult tickets and $c$ be child tickets. Write: $a + c = 50$ and $100a + 60c = 4200$. From the first, $c = 50 - a$. Substitute: $100a + 60(50 - a) = 4200$, giving $40a = 1200$, so $a = 30$.
+      Let $a$ be adult tickets and $c$ be child tickets. Then $a+c=50$ and $100a+60c=4200$. Replace $c$ with $50-a$: $100a+3000-60a=4200$. This gives $40a=1200$, so $a=30$.
 
   - id: q-algebra-systems-of-equations-0005
     type: which-is-true
@@ -90,39 +90,39 @@ questions:
     stem: |
       What is the solution to the system: $2x + y = 5$ and $2x + y = 9$?
     choices:
-      - text: No solution
+      - text: 'No solution'
         correct: true
-      - text: Infinite solutions
+      - text: 'Infinite solutions'
         rationale: |
-          You saw matching left sides and assumed matching lines. But the constants are different, so the lines are parallel and never meet.
-      - text: $(1, 3)$
+          This treats matching left sides as the same equation. The coefficients match, so the lines look identical. Check the constants as well.
+      - text: '$(1, 3)$'
         rationale: |
-          You found a pair that satisfies the first equation, but it cannot satisfy the second too. The same left side would have to equal both 5 and 9.
-      - text: $(2, 1)$
+          This tests the pair only in the first equation. It gives the required $5$ there. Check every equation in the system.
+      - text: '$(2, 1)$'
         rationale: |
-          You found a point that works for $2x + y = 5$, but the second equation still says $2x + y = 9$. One point cannot make both true.
+          This tests the pair only in the first equation. It gives the required $5$ there. Check the second equation before calling it a solution.
     explanation: |
-      Subtracting the first equation from the second gives $0 = 4$, which is false. The equations have no common solution, so the lines are parallel.
+      Subtract the first equation from the second. The left side becomes $0$ and the right side becomes $4$, giving $0=4$. That cannot be true. The system has no solution.
 
   - id: q-algebra-systems-of-equations-0006
     type: which-is-true
     difficulty: medium
     stem: |
-      What is the solution to the system: $2x + y = 5$ and $4x + 2y = 10$?
+      How many solutions does the system $2x+y=5$ and $4x+2y=10$ have?
     choices:
-      - text: Infinite solutions
+      - text: 'Infinite'
         correct: true
-      - text: No solution
+      - text: 'No solutions'
         rationale: |
-          You noticed two equations, but you missed that one is just double the other. They describe the same line, so every point on it works.
-      - text: $(1, 3)$
+          This assumes two written equations must describe different parallel lines. Their coefficients appear different. Check whether one whole equation is a multiple of the other.
+      - text: 'Exactly one'
         rationale: |
-          You treated the system like it had one ordered-pair answer. This system has infinitely many solutions, not just one point.
-      - text: $(2, 1)$
+          This assumes any two lines meet once. That is common for different lines. Check whether the equations actually describe the same line.
+      - text: 'Exactly two'
         rationale: |
-          You picked one point without seeing the bigger pattern. Many points satisfy both equations because the two equations are the same line.
+          This counts the two equations as two solutions. The two written statements can suggest two points. Check whether the graphs overlap along a whole line.
     explanation: |
-      Multiply the first equation by 2: $4x + 2y = 10$. This is exactly the second equation, so they describe the same line. There are infinitely many solutions.
+      Multiply $2x+y=5$ by $2$ to get $4x+2y=10$. Both equations describe the same line. Every point on that line solves both equations, so there are infinitely many solutions.
 
   - id: q-algebra-systems-of-equations-0007
     type: which-is-true
@@ -130,19 +130,19 @@ questions:
     stem: |
       How many solutions does the system $y = x^2 - 4$ and $y = 3x - 6$ have?
     choices:
-      - text: $2$
+      - text: '$2$'
         correct: true
-      - text: $0$
+      - text: '$0$'
         rationale: |
-          You may have thought a line and a parabola miss each other here. But the equation becomes a quadratic with two real roots.
-      - text: $1$
+          This assumes the graphs never meet because their shapes differ. A line and a curve do look different. Check whether their equal-value equation has real roots.
+      - text: '$1$'
         rationale: |
-          You may have expected a tangent case. Here the factorization gives two different $x$-values, so there are two intersections.
-      - text: Infinite
+          This counts only one root of the factored equation. One crossing point already looks like a solution. Check both factors for roots.
+      - text: 'Infinite'
         rationale: |
-          You treated the graphs as if they lay on top of each other. Solving gives two specific crossing points, not endlessly many.
+          This treats equal values at some points as identical graphs. Both equations use $y$, which can suggest an overlap. Check whether the formulas agree for every $x$.
     explanation: |
-      Set $x^2 - 4 = 3x - 6$ to get $x^2 - 3x + 2 = 0$. This factors as $(x-1)(x-2) = 0$, giving $x = 1$ or $x = 2$. Two values of $x$ means the line crosses the parabola at two points.
+      Set the expressions for $y$ equal: $x^2-4=3x-6$. This gives $x^2-3x+2=0$, or $(x-1)(x-2)=0$. The two roots are $1$ and $2$. Each gives one shared point, so there are $2$ solutions.
 
   - id: q-algebra-systems-of-equations-0008
     type: word-problem
@@ -150,19 +150,19 @@ questions:
     stem: |
       A metal shop needs 100 kg of an alloy that is 40% copper. They have alloy A (20% copper) and alloy B (60% copper). How much of alloy A do they need?
     choices:
-      - text: $50$
+      - text: '$50$'
         correct: true
-      - text: $40$
+      - text: '$40$'
         rationale: |
-          You kept too much of the 60% alloy. With 40 kg of A and 60 kg of B, the mix has 44 kg of copper, not 40 kg.
-      - text: $60$
+          This reports the mass of copper as the mass of alloy A. The desired mix contains $40$ kg of copper. Check whether the unknown is pure copper or an alloy.
+      - text: '$60$'
         rationale: |
-          You used too much of the 20% alloy. With 60 kg of A and 40 kg of B, the mix has only 36 kg of copper.
-      - text: $30$
+          This subtracts the target copper mass from the total mass. That gives the non-copper part of the final mix. Check that alloy A itself also contains copper.
+      - text: '$100$'
         rationale: |
-          You chose far too little of the weaker alloy. With 30 kg of A and 70 kg of B, the copper total becomes 48 kg.
+          This divides $20$ by $0.2$ after finding the excess copper. The $20\%$ label makes that divisor look relevant. Check that replacing B with A changes copper by the difference between their percentages.
     explanation: |
-      Let $a$ be kg of A and $b$ be kg of B. Write: $a + b = 100$ and $0.2a + 0.6b = 40$. From the first, $b = 100 - a$. Substitute: $0.2a + 0.6(100 - a) = 40$, which gives $a = 50$.
+      Let $a$ and $b$ be the masses of alloys A and B. Then $a+b=100$ and $0.2a+0.6b=40$. Put $b=100-a$ into the copper equation: $0.2a+60-0.6a=40$. This gives $-0.4a=-20$, so $a=50$ kg.
 
   - id: q-algebra-systems-of-equations-0009
     type: error-spotting
@@ -175,59 +175,59 @@ questions:
 
       What is the error?
     choices:
-      - text: When subtracting, the $10y$ terms should cancel to give $0$, not add to $20y$.
+      - text: 'Wrong sign on the second $10y$.'
         correct: true
-      - text: There is no error.
+      - text: 'The right side should use $80+36$.'
         rationale: |
-          You forgot that subtracting changes the sign of every term in the second expression. The second $10y$ should become $-10y$.
-      - text: The subtraction on the right should be $80 + 36 = 116$.
+          This changes the subtraction on the right to addition. Sign changes are needed when removing brackets, so changing that operation can look useful. Check that both sides use the same subtraction.
+      - text: 'The $x$ terms should add to $19x$.'
         rationale: |
-          You changed subtraction into addition on the right side. Only the second equation is being subtracted, so $80 - 36$ is correct.
-      - text: The $x$ terms should combine to give $20x$.
+          This adds the $x$ coefficients despite the minus before the bracket. Combining like terms can make addition seem automatic. Check the sign of each term first.
+      - text: 'Every written sign is correct.'
         rationale: |
-          You added $15x$ and $4x$ even though the second expression is being subtracted. The $x$-terms should become $15x - 4x = 11x$.
+          This keeps the plus sign inside the second bracket. The original equation did contain $+10y$. Check the effect of the minus sign outside that bracket.
     explanation: |
-      When subtracting, we must subtract every term. The $+10y$ becomes $-10y$, so $+10y - 10y = 0$, not $+20y$. The correct step is $11x = 44$.
+      The minus sign before the second bracket applies to every term inside it. Thus $-(4x+10y)=-4x-10y$. The $y$ terms cancel, leaving $11x=44$.
 
   - id: q-algebra-systems-of-equations-0010
     type: which-is-true
     difficulty: medium
     stem: |
-      Which method is best for solving this system: $y = 3x + 1$ and $2x + 5y = 14$?
+      For the system $y=3x+1$ and $2x+5y=14$, which equation correctly substitutes for $y$ in the second equation?
     choices:
-      - text: Substitution, because $y$ is already isolated.
+      - text: '$2x+5(3x+1)=14$'
         correct: true
-      - text: Elimination, because the coefficients match.
+      - text: '$2x+15x+1=14$'
         rationale: |
-          You picked elimination, but the coefficients do not cancel nicely yet. One variable is already alone, so substitution is shorter.
-      - text: Graphing, because the system is linear.
+          This multiplies $3x$ by $5$ but leaves $1$ unchanged. It uses part of the given expression correctly. Check that the coefficient multiplies the whole replacement.
+      - text: '$2x+5x=14$'
         rationale: |
-          You picked a method that can work, but it is not the best one for an exact answer here. The isolated $y$ makes substitution faster.
-      - text: Cannot be determined.
+          This treats $y$ as if it equals $x$. Both are variables, so swapping them can seem allowed. Check the actual expression given for $y$.
+      - text: '$2x+5(3x)+5y=14$'
         rationale: |
-          You already have enough information from the form of the equations. When one variable is isolated, substitution is usually best.
+          This replaces only part of $y$ and leaves an extra $y$ term. The multiplier appears to be kept. Check that one replacement removes the original $y$ completely.
     explanation: |
-      The first equation already has $y$ isolated as $y = 3x + 1$. Substitution is fastest: plug this expression into the second equation.
+      Substitution replaces $y$ with the entire expression $3x+1$. In the second equation, this gives $2x+5(3x+1)=14$. The brackets keep the whole expression multiplied by $5$.
 
   - id: q-algebra-systems-of-equations-0011
     type: word-problem
     difficulty: medium
     stem: |
-      A store sells notebooks for $\text{P}40$ each and pens for $\text{P}10$ each. A customer bought 10 items for a total of $\text{P}280$. How many notebooks did they buy?
+      At a store, three notebooks and two pens cost $140$ pesos. One notebook and four pens cost $80$ pesos. Each item has the same unit price on both receipts. What is the price of one pen in pesos?
     choices:
-      - text: $6$
+      - text: '$10$'
         correct: true
-      - text: $4$
+      - text: '$20$'
         rationale: |
-          You may have used the total items but not the total cost. Four notebooks and six pens cost only P220.
-      - text: $5$
+          This divides the second receipt by four and ignores its notebook. Four pens are listed, so division by four seems natural. Check that every purchased item is included.
+      - text: '$40$'
         rationale: |
-          You guessed the middle value instead of using the price gap. Five notebooks and five pens cost P250, not P280.
-      - text: $7$
+          This reports the notebook price. It is another value found from the receipts. Check which item price is requested.
+      - text: '$100$'
         rationale: |
-          You used too many notebooks. Seven notebooks and three pens cost P310.
+          This stops at $10p=100$. The money difference is a real intermediate result. Check the coefficient before reporting the price of one pen.
     explanation: |
-      Let $n$ be notebooks and $p$ be pens. Write: $n + p = 10$ and $40n + 10p = 280$. From the first, $p = 10 - n$. Substitute: $40n + 10(10 - n) = 280$, giving $30n = 180$, so $n = 6$.
+      Let $n$ be the notebook price and $p$ the pen price. The receipts give $3n+2p=140$ and $n+4p=80$. Multiply the second by $3$: $3n+12p=240$. Subtract the first to get $10p=100$, so $p=10$ pesos.
 
   - id: q-algebra-systems-of-equations-0012
     type: direct-computation
@@ -235,24 +235,19 @@ questions:
     stem: |
       Solve the system: $2x + y = 9$ and $x + 2y = 9$. What is the value of $y$?
     choices:
-      - text: $3$
+      - text: '$3$'
         correct: true
-      - text: $6$
+      - text: '$6$'
         rationale: |
-          You used $y = 9 - x$ after finding $x = 3$. The first equation is
-          $2x + y = 9$, so you must subtract $2x$: $y = 9 - 2(3) = 3$.
-      - text: $-3$
+          This uses $y=9-x$ instead of $y=9-2x$. Subtracting a single $x$ seems familiar. Check the coefficient in the original equation.
+      - text: '$-3$'
         rationale: |
-          You moved $2x$ to the other side but changed the equation to
-          $y = 2x - 9$. It should be $y = 9 - 2x$. With $x = 3$, that gives
-          $y = 3$.
-      - text: $0$
+          This uses $y=2x-9$ after moving the $2x$ term. The same numbers appear, so the sign slip can be missed. Check the answer in $2x+y=9$.
+      - text: '$0$'
         rationale: |
-          You subtracted the two equations, got $x - y = 0$, and concluded
-          that $y$ is 0. That equation means $x = y$. Solving either original
-          equation gives $x = y = 3$.
+          This reads $x-y=0$ as saying each variable is zero. The zero remainder can suggest a zero answer. Check whether it instead means the variables are equal.
     explanation: |
-      From the first equation, $y = 9 - 2x$. Substitute into the second: $x + 2(9 - 2x) = 9$, giving $x + 18 - 4x = 9$, so $-3x = -9$ and $x = 3$. Then $y = 9 - 2(3) = 3$.
+      Subtract the equations to get $x-y=0$, so $x=y$. Put $x=y$ into $2x+y=9$: $3y=9$. Divide by $3$ to get $y=3$.
 
   - id: q-algebra-systems-of-equations-0013
     type: direct-computation
@@ -260,19 +255,19 @@ questions:
     stem: |
       Given the system $3x + y = 10$ and $x + 3y = 6$, what is the value of $x + y$?
     choices:
-      - text: $4$
+      - text: '$4$'
         correct: true
-      - text: $5$
+      - text: '$16$'
         rationale: |
-          You may have added the right sides and forgotten to divide the whole equation by 4. $4x + 4y = 16$ means $x + y = 4$.
-      - text: $6$
+          This stops after adding the right sides. The sum $16$ is a correct intermediate number. Check the multiplier of $x+y$.
+      - text: '$8$'
         rationale: |
-          You added the equations but treated 16 as if it were already $x + y$. Both variables were multiplied by 4 first.
-      - text: $8$
+          This divides by $2$ because there are two equations. Adding two equations can suggest halving their total. Check the actual combined coefficients.
+      - text: '$3$'
         rationale: |
-          You doubled the final value. After adding the equations, divide both sides by 4, not 2.
+          This reports $x$ alone. Solving one variable can look like the end of the work. Check that the question asks for a sum.
     explanation: |
-      Add the two equations: $(3x + y) + (x + 3y) = 10 + 6$, giving $4x + 4y = 16$. Divide by 4: $x + y = 4$.
+      Add the equations: $4x+4y=16$. Factor the left side as $4(x+y)$. Divide both sides by $4$ to get $x+y=4$.
 
   - id: q-algebra-systems-of-equations-0014
     type: which-is-true
@@ -280,79 +275,79 @@ questions:
     stem: |
       Which ordered pair is a solution to the system $2x + y = 7$ and $x - y = 2$?
     choices:
-      - text: $(3, 1)$
+      - text: '$(3, 1)$'
         correct: true
-      - text: $(2, 3)$
+      - text: '$(2, 3)$'
         rationale: |
-          You found a pair that makes the first equation true, but it fails the second because $2 - 3 = -1$, not 2.
-      - text: $(1, 5)$
+          This checks only $2x+y=7$. The pair satisfies that equation exactly. Check the difference $x-y$ too.
+      - text: '$(1, 5)$'
         rationale: |
-          You may have focused on the sum equation only. It fails $x - y = 2$ because $1 - 5 = -4$.
-      - text: $(4, 0)$
+          This chooses another point on the first line only. Its weighted sum is indeed $7$. Check both equations before accepting a pair.
+      - text: '$(1, 3)$'
         rationale: |
-          You found a pair that misses the first equation. $2(4) + 0 = 8$, not 7.
+          This reverses the coordinates of the solution. Both solved values are still present. Check which coordinate is $x$.
     explanation: |
-      Test $(3, 1)$: $2(3) + 1 = 7$ ✓ and $3 - 1 = 2$ ✓. This ordered pair satisfies both equations.
+      Put $x=3$ and $y=1$ into both equations. The first gives $2(3)+1=7$. The second gives $3-1=2$. Thus $(3,1)$ satisfies the whole system.
 
   - id: q-algebra-systems-of-equations-0015
     type: direct-computation
     difficulty: medium
     stem: |
-      Solve the system: $3x + y = 7$ and $x - y = 1$.
+      If $3x+y=7$ and $x-y=1$, what is the product $xy$?
     choices:
-      - text: $(2, 1)$
+      - text: '$2$'
         correct: true
-      - text: $(1, 4)$
+      - text: '$3$'
         rationale: |
-          You found a pair that fits the first equation, but the second one fails. $1 - 4 = -3$, not 1.
-      - text: $(3, -2)$
+          This adds the solved values instead of multiplying them. The notation with two variables can look like a request to combine them in any way. Check that $xy$ means multiplication.
+      - text: '$1$'
         rationale: |
-          You may have guessed a pair that keeps the first equation at 7. But $3 - (-2) = 5$, so the second equation is not satisfied.
-      - text: $(0, 7)$
+          This reports $y$ alone. It is a solved value from the system. Check that the requested value uses both variables.
+      - text: '$8$'
         rationale: |
-          You found a pair that only fits the first equation. It fails the second because $0 - 7$ is not 1.
+          This stops at the right-side sum from elimination. The $8$ appears in a correct step. Check that the requested product has been calculated.
     explanation: |
-      Add the equations: $(3x + y) + (x - y) = 7 + 1$. The $y$ terms cancel: $4x = 8$, so $x = 2$. Then $y = 1$.
+      Add the equations to get $4x=8$, so $x=2$. From $x-y=1$, find $y=1$. Therefore $xy=2(1)=2$.
 
   - id: q-algebra-systems-of-equations-0016
     type: direct-computation
     difficulty: hard
     stem: |
-      Solve the system: $y = 2x - 5$ and $3x + 2y = 4$.
+      The system $y=2x-5$ and $3x+2y=4$ has a unique solution. What is $x-y$?
     choices:
-      - text: $(2, -1)$
+      - text: '$3$'
         correct: true
-      - text: $(1, -3)$
+      - text: '$1$'
         rationale: |
-          You may have substituted into the second equation but failed to double the whole expression $2x - 5$. The second equation becomes $3x + 2(2x - 5)$.
-      - text: $(3, 1)$
+          This adds $x$ and $y$ instead of subtracting them. With a negative $y$, the sign is easy to overlook. Check both signs in $x-y$.
+      - text: '$2$'
         rationale: |
-          You may have forgotten to add 10 before dividing by 7. From $7x - 10 = 4$, you must get $7x = 14$.
-      - text: $(0, -5)$
+          This stops at the value of $x$. That value is needed in the calculation. Check what expression the question requests.
+      - text: '$-1$'
         rationale: |
-          You used $y = 2x - 5$ with $x = 0$ and skipped the second equation. A solution must satisfy both.
+          This stops at the value of $y$. It comes from a correct substitution. Check that both solved values enter the requested expression.
     explanation: |
-      Substitute $y = 2x - 5$ into the second equation: $3x + 2(2x - 5) = 4$. This gives $7x - 10 = 4$, so $7x = 14$ and $x = 2$. Then $y = -1$.
+      Replace $y$ in the second equation: $3x+2(2x-5)=4$. Expand to get $7x-10=4$, so $7x=14$ and $x=2$. Then $y=2(2)-5=-1$. Thus $x-y=2-(-1)=3$.
 
   - id: q-algebra-systems-of-equations-0017
-    type: which-is-true
+    type: error-spotting
     difficulty: hard
     stem: |
-      How many solutions does the system $y = x^2$ and $y = x$ have?
+      A student solves $y=x^2$ and $y=x$ by setting $x^2=x$, dividing both sides by $x$, and reporting $(1,1)$ as the only solution. What makes the answer incomplete?
     choices:
-      - text: $2$
+      - text: 'Division by $x$ loses the root $0$.'
         correct: true
-      - text: $1$
+      - text: 'Setting the two $y$ values equal is invalid.'
         rationale: |
-          You may have expected the line to touch the parabola once. But $x^2 = x$ gives two different solutions, $x = 0$ and $x = 1$.
-      - text: $0$
+          This rejects equating two expressions for the same $y$. The equations look different, which can suggest they cannot be combined. Check that both expressions represent the same value at a shared point.
+      - text: 'The root $1$ fails the original equations.'
         rationale: |
-          You may have thought there was no crossing point. But both graphs meet at $(0, 0)$ and again at $(1, 1)$.
-      - text: Infinite
+          This rejects a root without substitution. The earlier division makes all the working look doubtful. Check the root in both original equations.
+      - text: 'Every quadratic system has just one root.'
         rationale: |
-          You treated the graphs as if they lay on top of each other. Solving the equation gives two shared points, not infinitely many.
+          This assumes one line must give one intersection. Two straight lines often meet once. Check how many roots remain when a curve is involved.
     explanation: |
-      Set $x^2 = x$, giving $x^2 - x = 0$ or $x(x - 1) = 0$. So $x = 0$ or $x = 1$. Two values of $x$ give two solutions.
+      From $x^2=x$, move the right side to get $x^2-x=0$. Factor: $x(x-1)=0$. Thus $x=0$ or $x=1$. Dividing by $x$ loses the solution $x=0$.
 
   - id: q-algebra-systems-of-equations-0018
     type: word-problem
@@ -360,16 +355,58 @@ questions:
     stem: |
       A barge travels upstream at $(v - c)$ km/h and downstream at $(v + c)$ km/h, where $v$ is the barge speed and $c$ is the current speed. Going upstream 80 km takes 8 hours. Going downstream 100 km takes 5 hours. What is the barge speed?
     choices:
-      - text: $15$
+      - text: '$15$'
         correct: true
-      - text: $10$
+      - text: '$10$'
         rationale: |
-          You solved only for the upstream speed. Here, 10 is $v - c$, not the barge's own speed $v$.
-      - text: $20$
+          This reports the upstream speed. Dividing upstream distance by time gives a real travel speed. Check that it includes the slowing effect of the current.
+      - text: '$20$'
         rationale: |
-          You took the downstream speed as the boat speed. But 20 is $v + c$, which includes the current.
-      - text: $12$
+          This reports the downstream speed. Dividing downstream distance by time gives a real travel speed. Check that it includes the current as well as the barge.
+      - text: '$5$'
         rationale: |
-          You may have averaged the rates directly. This problem needs two equations, one for $v - c$ and one for $v + c$.
+          This reports the current speed from half the difference. That is another unknown found from the same system. Check which speed is requested.
     explanation: |
-      Set up two equations: $80 = 8(v - c)$ giving $v - c = 10$, and $100 = 5(v + c)$ giving $v + c = 20$. Add these: $2v = 30$, so $v = 15$ km/h.
+      The upstream speed is $80\div8=10$ km/h, so $v-c=10$. The downstream speed is $100\div5=20$ km/h, so $v+c=20$. Add the equations: $2v=30$. Thus $v=15$ km/h.
+
+  - id: q-algebra-systems-of-equations-0019
+    type: error-spotting
+    difficulty: easy
+    stem: |
+      A student solves $y=x+2$ and $2x+y=8$. The steps are: Step 1, $2x+(x+2)=8$; Step 2, $3x=10$; Step 3, $x=\dfrac{10}{3}$. Which step is the first incorrect one?
+    choices:
+      - text: 'Step 2'
+        correct: true
+      - text: 'Step 1'
+        rationale: |
+          This rejects a valid substitution. The new bracket makes the equation look changed. Check that $y$ is replaced with exactly $x+2$.
+      - text: 'Step 3'
+        rationale: |
+          This focuses on a fraction at the end. A fractional result can look suspicious. Check the first step that changes an equality incorrectly.
+      - text: 'No step is incorrect.'
+        rationale: |
+          This accepts adding $2$ when removing a positive $2$ from the left. Moving terms can make any sign change look valid. Check that the same operation is applied to both sides.
+    explanation: |
+      Step 1 correctly replaces $y$ with $x+2$. Combining terms gives $3x+2=8$. Subtracting $2$ gives $3x=6$, so Step 2 is the first incorrect step.
+    approved: false
+
+  - id: q-algebra-systems-of-equations-0020
+    type: which-is-true
+    difficulty: exam
+    stem: |
+      For which value of $k$ does the system $2x-3y=7$ and $4x-6y=k$ have infinitely many solutions?
+    choices:
+      - text: '$14$'
+        correct: true
+      - text: '$7$'
+        rationale: |
+          This copies the first constant without doubling it. The equations use the same variables, so the constant can seem unchanged. Check the multiplier of every term.
+      - text: '$-14$'
+        rationale: |
+          This doubles the constant but changes its sign. The negative $y$ coefficient can suggest a negative right side. Check the sign of the multiplier.
+      - text: '$0$'
+        rationale: |
+          This treats cancellation as requiring a zero original constant. Elimination does produce zero for identical equations. Check the constant before subtracting the equations.
+    explanation: |
+      Double the first equation to get $4x-6y=14$. The second equation must be identical for the two lines to overlap. Thus $k=14$.
+    approved: false

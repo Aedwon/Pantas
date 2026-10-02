@@ -2,13 +2,7 @@ meta:
   subject: mathematics
   topic: geometry
   subtopic: parallel-perpendicular-lines
-  exams:
-    - upcat
-    - acet
-    - dlsucet
-    - ustet
-    - pupcet
-
+  exams: [upcat, acet, dlsucet, ustet, pupcet]
 questions:
   - id: q-geometry-parallel-perpendicular-lines-0001
     type: direct-computation
@@ -21,22 +15,17 @@ questions:
       - text: '$112^\circ$'
         correct: false
         rationale: |
-          You treated alternate interior angles like a supplementary pair. These two angles are equal, not a 180-degree pair.
+          This treats alternate interior angles as supplementary. Both pairs are made by a transversal. Check the angle-pair name.
       - text: '$22^\circ$'
         correct: false
         rationale: |
-          You subtracted from the wrong benchmark. The alternate interior partner keeps the same measure as 68 degrees.
+          This finds a complement of the given angle. Complementary angles are another familiar pair. Check that alternate interior angles are equal.
       - text: '$136^\circ$'
         correct: false
         rationale: |
-          You doubled the given angle instead of matching it. Alternate interior angles stay congruent.
+          This doubles the given angle. Two related angles are being compared. Check that the relationship is equality, not a sum.
     explanation: |
-      When two parallel lines are cut by a transversal, alternate interior angles are equal in measure.
-
-      1. Identify the relationship: Alternate interior angles are congruent.
-      2. Therefore, the measure of the other alternate interior angle is equal to $68^\circ$.
-
-      Common Trap: Confusing alternate interior angles with same-side interior angles, which leads to calculating $180^\circ - 68^\circ = 112^\circ$.
+      Alternate interior angles are equal when the lines are parallel. The other angle therefore measures $68^\circ$.
 
   - id: q-geometry-parallel-perpendicular-lines-0002
     type: direct-computation
@@ -49,23 +38,17 @@ questions:
       - text: '$115^\circ$'
         correct: false
         rationale: |
-          You treated same-side interior angles like corresponding angles. They are supplementary, not equal.
+          This treats same-side interior angles as equal. Other parallel-line pairs are equal. Check the same-side interior sum.
       - text: '$25^\circ$'
         correct: false
         rationale: |
-          You subtracted incorrectly from 180 degrees. The missing angle is $180 - 115$.
-      - text: '$75^\circ$'
+          This finds the magnitude of a complement instead of the supplement. A ninety-degree total is familiar. Check the one-hundred-eighty-degree total.
+      - text: '$230^\circ$'
         correct: false
         rationale: |
-          You made the supplement too large. Same-side interior angles must add to exactly 180 degrees.
+          This doubles the given measure. The same known measure is used. Check whether a supplement or a double is requested.
     explanation: |
-      Same-side interior angles formed by parallel lines cut by a transversal are supplementary (their sum is $180^\circ$).
-
-      1. Set up equation: $\text{Angle}_1 + \text{Angle}_2 = 180^\circ$.
-      2. Substitute $115^\circ$: $115^\circ + \text{Angle}_2 = 180^\circ$.
-      3. Solve: $\text{Angle}_2 = 180^\circ - 115^\circ = 65^\circ$.
-
-      Common Trap: Mistakenly assuming same-side interior angles are equal ($115^\circ$).
+      Same-side interior angles sum to $180^\circ$. Subtract the known measure: $180^\circ-115^\circ=65^\circ$.
 
   - id: q-geometry-parallel-perpendicular-lines-0003
     type: direct-computation
@@ -73,28 +56,22 @@ questions:
     stem: |
       Two parallel lines are cut by a transversal. Angle $1$ and Angle $5$ are corresponding angles. If Angle $1 = (4x + 10)^\circ$ and Angle $5 = 70^\circ$, what is the value of $x$?
     choices:
-      - text: "$15$"
+      - text: '$15$'
         correct: true
-      - text: "$25$"
+      - text: '$25$'
         correct: false
         rationale: |
-          You made the corresponding angles add to 180 degrees. Corresponding angles on parallel lines are equal, not supplementary.
-      - text: "$20$"
+          This sets the corresponding angles to a supplementary total. Same-side pairs do use a sum. Check whether this pair is equal or supplementary.
+      - text: '$20$'
         correct: false
         rationale: |
-          You may have moved the 10 incorrectly. After $4x + 10 = 70$, you need $4x = 60$.
-      - text: "$10$"
+          This adds ten instead of subtracting it. The constant must be moved. Check the subtraction in solving the equation.
+      - text: '$60$'
         correct: false
         rationale: |
-          You stopped too early in solving the equation. After subtracting 10, you still have to divide by 4.
+          This reports four x rather than x. Sixty is a correct intermediate result. Check that the coefficient four has been divided out.
     explanation: |
-      Corresponding angles formed by parallel lines are equal.
-
-      1. Set the expressions equal: $4x + 10 = 70$.
-      2. Subtract $10$ from both sides: $4x = 60$.
-      3. Divide by $4$: $x = 15$.
-
-      Common Trap: Setting the sum equal to $180^\circ$ ($4x + 10 + 70 = 180 \implies 4x = 100 \implies x = 25$) by confusing corresponding angles with same-side interior angles.
+      Corresponding angles are equal, so $4x+10=70$. Subtract $10$ to get $4x=60$. Divide by $4$: $x=15$.
 
   - id: q-geometry-parallel-perpendicular-lines-0004
     type: direct-computation
@@ -107,21 +84,17 @@ questions:
       - text: '$45^\circ$'
         correct: false
         rationale: |
-          You halved a right angle for no reason. A line perpendicular to one of two parallel lines stays perpendicular to the other.
+          This halves a right angle. Angle bisectors do halve angles. Check whether any bisector is stated.
       - text: '$180^\circ$'
         correct: false
         rationale: |
-          You used a straight angle instead of the angle formed by perpendicular lines. Perpendicular lines meet at 90 degrees.
+          This reports the straight-angle total instead of the crossing angle. The two parallel lines are straight. Check the perpendicular relation.
       - text: '$0^\circ$'
         correct: false
         rationale: |
-          You treated the lines as if they overlapped. Parallel lines and a perpendicular transversal still form right angles.
+          This treats the transversal as parallel to the given lines. The original two lines are parallel. Check the direction of the transversal.
     explanation: |
-      Perpendicularity propagates across parallel lines.
-
-      1. If a line is perpendicular to one of two parallel lines, it is also perpendicular to the other parallel line.
-      2. Since $T_1 \perp L_1$ and $L_1 \parallel L_2$, $T_1 \perp L_2$.
-      3. Perpendicular lines intersect at an angle of $90^\circ$.
+      The corresponding angle on the second parallel line equals the right angle on the first. Thus it measures $90^\circ$, and the transversal is perpendicular to both.
 
   - id: q-geometry-parallel-perpendicular-lines-0005
     type: direct-computation
@@ -129,29 +102,22 @@ questions:
     stem: |
       Two parallel lines are intersected by a transversal. Two alternate exterior angles measure $(5x - 20)^\circ$ and $(3x + 16)^\circ$. What is the value of $x$?
     choices:
-      - text: "$18$"
+      - text: '$18$'
         correct: true
-      - text: "$23$"
+      - text: '$23$'
         correct: false
         rationale: |
-          You made alternate exterior angles supplementary. On parallel lines, alternate exterior angles are equal.
-      - text: "$9$"
+          This makes alternate exterior angles supplementary. Other parallel-line angle pairs are supplementary. Check the alternate exterior equality rule.
+      - text: '$9$'
         correct: false
         rationale: |
-          You stopped after reaching $2x = 18$ in effect. The equation gives $2x = 36$, so you still need the full division.
-      - text: "$36$"
+          This halves the solved value again. The coefficient difference is two. Check that division by two is used once.
+      - text: '$36$'
         correct: false
         rationale: |
-          You found $2x$ instead of $x$. After isolating $2x = 36$, divide by 2.
+          This reports two x rather than x. Thirty-six is found first. Check the remaining coefficient.
     explanation: |
-      Alternate exterior angles formed by parallel lines are equal.
-
-      1. Set up equation: $5x - 20 = 3x + 16$.
-      2. Subtract $3x$ from both sides: $2x - 20 = 16$.
-      3. Add $20$: $2x = 36$.
-      4. Divide by $2$: $x = 18$.
-
-      Common Trap: Setting the sum equal to $180^\circ$ ($8x - 4 = 180 \implies 8x = 184 \implies x = 23$) by confusing alternate exterior angles with same-side exterior angles.
+      Alternate exterior angles are equal, so $5x-20=3x+16$. Subtract $3x$ and add $20$: $2x=36$. Divide by $2$: $x=18$.
 
   - id: q-geometry-parallel-perpendicular-lines-0006
     type: direct-computation
@@ -164,54 +130,40 @@ questions:
       - text: '$76^\circ$'
         correct: false
         rationale: |
-          You found the smaller same-side interior angle. The question asks for the larger one after you compute both.
+          This reports the smaller angle. Both angles are found from the same x. Check whether larger or smaller is requested.
       - text: '$17^\circ$'
         correct: false
         rationale: |
-          You reported the value of $x$ instead of the angle measure. You still have to substitute $x$ into the angle expression.
-      - text: '$98^\circ$'
+          This reports x rather than an angle. The variable is solved correctly. Substitute into an angle expression.
+      - text: '$119^\circ$'
         correct: false
         rationale: |
-          You made an arithmetic slip after finding $x = 17$. The larger angle is $7(17) - 15$.
+          This stops at seven x before subtracting fifteen. The multiplication is a correct intermediate step. Check the full angle expression.
     explanation: |
-      Same-side interior angles are supplementary ($180^\circ$).
-
-      1. Set up equation: $(7x - 15) + (4x + 8) = 180$.
-      2. Combine like terms: $11x - 7 = 180 \implies 11x = 187 \implies x = 17$.
-      3. Calculate first angle: $7(17) - 15 = 119 - 15 = 104^\circ$.
-      4. Calculate second angle: $4(17) + 8 = 68 + 8 = 76^\circ$.
-      5. The larger angle is $104^\circ$.
-
-      Common Trap: Reporting the smaller angle ($76^\circ$) or stopping after finding $x = 17$.
+      The same-side interior sum gives $(7x-15)+(4x+8)=180$. Thus $11x-7=180$, so $x=17$. The angles are $7(17)-15=104^\circ$ and $4(17)+8=76^\circ$. The larger is $104^\circ$.
 
   - id: q-geometry-parallel-perpendicular-lines-0007
     type: direct-computation
     difficulty: medium
     stem: |
-      Two horizontal parallel lines $L_1$ and $L_2$ are joined by a bent line path forming an interior point $P$ between them. The ray from $L_1$ to $P$ makes an angle of $35^\circ$ with $L_1$, and the ray from $L_2$ to $P$ makes an angle of $45^\circ$ with $L_2$. What is the measure of the interior angle at point $P$ opening toward the left?
+      Two horizontal parallel lines lie above and below point P. Segments connect P to points on each line, both to the left of P. The left-facing angle between the segments is $80^\circ$. The upper segment makes an acute angle of $35^\circ$ with the upper line. What acute angle does the lower segment make with the lower line?
     choices:
-      - text: '$80^\circ$'
+      - text: '$45^\circ$'
         correct: true
-      - text: '$10^\circ$'
+      - text: '$115^\circ$'
         correct: false
         rationale: |
-          You subtracted the two given angles instead of combining the two parts at point $P$. Both alternate interior pieces add together.
-      - text: '$100^\circ$'
+          This adds the known outer inclination to the full middle angle. Both values are stated in the problem. Check that the full angle is made from both smaller parts.
+      - text: '$80^\circ$'
         correct: false
         rationale: |
-          You found the supplement of the interior angle, not the interior angle opening to the left.
-      - text: '$160^\circ$'
+          This reports the full middle angle as the missing outer angle. The full angle is given directly. Check which angle is requested.
+      - text: '$35^\circ$'
         correct: false
         rationale: |
-          You doubled what should have been added once. The angle at $P$ is 35 degrees plus 45 degrees.
+          This assumes the two outer inclinations are equal. Parallel lines can suggest equal angles. Check that only corresponding positions force equality.
     explanation: |
-      1. Draw an auxiliary line through point $P$ that is parallel to both $L_1$ and $L_2$.
-      2. This auxiliary line divides the angle at $P$ into two smaller angles.
-      3. The top part is an alternate interior angle to $35^\circ$, so it equals $35^\circ$.
-      4. The bottom part is an alternate interior angle to $45^\circ$, so it equals $45^\circ$.
-      5. Total interior angle at $P = 35^\circ + 45^\circ = 80^\circ$.
-
-      Common Trap: Subtracting the two angles ($45^\circ - 35^\circ = 10^\circ$) or taking the supplement ($180^\circ - 80^\circ = 100^\circ$).
+      A horizontal helper line through P splits the left-facing angle into the two inclinations. Alternate interior angles make the upper part $35^\circ$. The full angle is $80^\circ$, so the lower part is $80^\circ-35^\circ=45^\circ$. Its matching angle on the lower parallel line is also $45^\circ$.
 
   - id: q-geometry-parallel-perpendicular-lines-0008
     type: direct-computation
@@ -219,56 +171,45 @@ questions:
     stem: |
       Two lines $L_1$ and $L_2$ are cut by transversal $T$. Two corresponding angles are given by $(3x + 25)^\circ$ and $(5x - 15)^\circ$. For what value of $x$ will lines $L_1$ and $L_2$ be parallel?
     choices:
-      - text: "$20$"
+      - text: '$20$'
         correct: true
-      - text: "$21.25$"
+      - text: '$21.25$'
         correct: false
         rationale: |
-          You treated corresponding angles as if they must add to 180 degrees. For the lines to be parallel, they must be equal.
-      - text: "$10$"
+          This makes corresponding angles supplementary. Some parallel-line angle pairs have that total. Check the corresponding-angle converse.
+      - text: '$10$'
         correct: false
         rationale: |
-          You moved the constants or coefficients incorrectly. After $3x + 25 = 5x - 15$, you should get $2x = 40$.
-      - text: "$40$"
+          This divides the solved x by two again. The coefficient difference is two. Check that each solving step is performed once.
+      - text: '$40$'
         correct: false
         rationale: |
-          You found $2x$ instead of $x$. Once the equation becomes $2x = 40$, divide by 2.
+          This reports two x rather than x. Forty is a correct intermediate result. Check the remaining coefficient.
     explanation: |
-      By the Corresponding Angles Postulate Converse, lines are parallel if and only if corresponding angles are equal.
-
-      1. Set angles equal: $3x + 25 = 5x - 15$.
-      2. Subtract $3x$ from both sides: $25 = 2x - 15$.
-      3. Add $15$: $2x = 40$.
-      4. Divide by $2$: $x = 20$.
-
-      Common Trap: Setting the sum equal to $180^\circ$ ($8x + 10 = 180 \implies 8x = 170 \implies x = 21.25$).
+      The corresponding-angle converse requires equal measures. Set $3x+25=5x-15$. Rearrange to $2x=40$, so $x=20$.
 
   - id: q-geometry-parallel-perpendicular-lines-0009
     type: direct-computation
     difficulty: medium
     stem: |
-      Parallel lines $AB$ and $CD$ are cut by transversal $EF$, intersecting $AB$ at $E$ and $CD$ at $F$. Ray $EG$ bisects $\angle BEF$. If $\angle CFE = 110^\circ$, what is the measure of $\angle GEF$?
+      Parallel lines $AB$ and $CD$ are cut by transversal $EF$, intersecting $AB$ at $E$ and $CD$ at $F$. Angles $\angle BEF$ and $\angle CFE$ are alternate interior angles. Ray $EG$ bisects $\angle BEF$. If $\angle CFE = 110^\circ$, what is the measure of $\angle GEF$?
     choices:
       - text: '$55^\circ$'
         correct: true
       - text: '$110^\circ$'
         correct: false
         rationale: |
-          You found the full angle $\angle BEF$ and forgot that ray $EG$ bisects it into two equal parts.
+          This reports the full alternate interior angle. That full angle is needed first. Check that the full angle is bisected.
       - text: '$35^\circ$'
         correct: false
         rationale: |
-          You took the supplement first and then bisected the wrong angle. The alternate interior angle is already 110 degrees.
+          This supplements the alternate interior angle before halving. A supplement is another angle at the crossing. Check the stated alternate interior positions.
       - text: '$70^\circ$'
         correct: false
         rationale: |
-          You changed the angle before bisecting. Once you match $\angle BEF$ to 110 degrees, the bisector gives 55 degrees.
+          This supplements the full angle and omits bisection. The seventy-degree supplement is meaningful at the crossing. Check both the angle match and the bisector.
     explanation: |
-      1. $\angle CFE$ and $\angle BEF$ are alternate interior angles along parallel lines $AB \parallel CD$, so $\angle BEF = \angle CFE = 110^\circ$.
-      2. Ray $EG$ bisects $\angle BEF$, dividing it into two equal angles.
-      3. $\angle GEF = \frac{\angle BEF}{2} = \frac{110^\circ}{2} = 55^\circ$.
-
-      Common Trap: Forgetting to divide by $2$ ($110^\circ$), or taking the supplement first ($180 - 110 = 70^\circ$) to get $35^\circ$.
+      The stem states that BEF and CFE are alternate interior angles. Parallel lines make their measures equal, so BEF is $110^\circ$. The bisector divides it equally, giving $\angle GEF=110^\circ\div2=55^\circ$.
 
   - id: q-geometry-parallel-perpendicular-lines-0010
     type: direct-computation
@@ -281,25 +222,17 @@ questions:
       - text: '$130^\circ$'
         correct: false
         rationale: |
-          You found the larger same-side exterior angle. The question asks for the smaller one.
+          This reports the larger angle. Both angles come from the same variable. Check whether smaller or larger is requested.
       - text: '$16^\circ$'
         correct: false
         rationale: |
-          You reported the value of $x$ instead of the angle measure. You still need to substitute into the angle expressions.
-      - text: '$40^\circ$'
+          This reports x rather than an angle. The variable is solved correctly. Substitute into an angle expression.
+      - text: '$48^\circ$'
         correct: false
         rationale: |
-          You made an arithmetic error after solving for $x = 16$. The smaller angle is $3(16) + 2$.
+          This stops at three x before adding two. The multiplication is a correct intermediate result. Check the full angle expression.
     explanation: |
-      Same-side exterior angles formed by parallel lines are supplementary.
-
-      1. Set up equation: $(9x - 14) + (3x + 2) = 180$.
-      2. Combine like terms: $12x - 12 = 180 \implies 12x = 192 \implies x = 16$.
-      3. First angle: $9(16) - 14 = 144 - 14 = 130^\circ$.
-      4. Second angle: $3(16) + 2 = 48 + 2 = 50^\circ$.
-      5. The smaller angle is $50^\circ$.
-
-      Common Trap: Reporting the larger angle ($130^\circ$) or stopping at $x = 16$.
+      Same-side exterior angles sum to $180^\circ$. Thus $(9x-14)+(3x+2)=180$, giving $12x=192$ and $x=16$. The measures are $130^\circ$ and $50^\circ$. The smaller is $50^\circ$.
 
   - id: q-geometry-parallel-perpendicular-lines-0011
     type: direct-computation
@@ -312,53 +245,40 @@ questions:
       - text: '$110^\circ$'
         correct: false
         rationale: |
-          You found the obtuse interior angle, but the question asks for the acute one.
+          This reports the obtuse angle. The obtuse angle is found alongside the acute one. Check the acute-angle condition.
       - text: '$20^\circ$'
         correct: false
         rationale: |
-          You reported the value of $x$ instead of the acute angle. You still have to evaluate the angle expressions.
-      - text: '$80^\circ$'
+          This reports x rather than an angle. The variable is solved correctly. Substitute before giving an angle.
+      - text: '$60^\circ$'
         correct: false
         rationale: |
-          You solved the supplementary pair incorrectly. The two consecutive angles must add to 180 degrees.
+          This leaves out the constant ten from the acute-angle expression. The coefficient product is a correct first calculation. Check the complete angle expression.
     explanation: |
-      Consecutive interior angles along parallel lines are same-side interior angles, so they are supplementary ($180^\circ$).
-
-      1. Set up equation: $(5x + 10) + (3x + 10) = 180$.
-      2. Combine like terms: $8x + 20 = 180 \implies 8x = 160 \implies x = 20$.
-      3. First angle: $5(20) + 10 = 110^\circ$ (obtuse).
-      4. Second angle: $3(20) + 10 = 70^\circ$ (acute).
-      5. The acute interior angle is $70^\circ$.
-
-      Common Trap: Reporting the obtuse angle ($110^\circ$) instead of the acute angle.
+      Consecutive parallelogram angles are same-side interior angles of its parallel sides. Their sum gives $(5x+10)+(3x+10)=180$, so $x=20$. The angles are $110^\circ$ and $70^\circ$. The acute angle is $70^\circ$.
 
   - id: q-geometry-parallel-perpendicular-lines-0012
     type: direct-computation
     difficulty: hard
     stem: |
-      Three parallel lines $L_1 \parallel L_2 \parallel L_3$ are crossed by two transversals $T_1$ and $T_2$. Transversal $T_1$ makes an angle of $40^\circ$ with line $L_1$. Transversal $T_2$ intersects $T_1$ at a point between $L_1$ and $L_2$, making an angle of $75^\circ$ with $L_1$ on the same side. What is the measure of the obtuse angle formed at the intersection of $T_1$ and $T_2$?
+      Three horizontal parallel lines are crossed by two transversals that both rise from left to right. One transversal makes an acute inclination of $40^\circ$ to the positive horizontal direction, and the other makes $75^\circ$ to that same direction. What is the obtuse angle where the transversals intersect?
     choices:
       - text: '$145^\circ$'
         correct: true
       - text: '$35^\circ$'
         correct: false
         rationale: |
-          You found the acute angle between the transversals. The question asks for the obtuse angle at the same intersection.
+          This reports the acute angle between the transversals. The difference is needed first. Check whether the acute or obtuse angle is requested.
       - text: '$115^\circ$'
         correct: false
         rationale: |
-          You changed only one part of the angle relationship. First find the 35-degree acute angle, then take its supplement.
+          This adds inclinations as if the lines rose in opposite directions. A left-facing zigzag does add two inclinations. Check the stated common rise direction.
       - text: '$65^\circ$'
         correct: false
         rationale: |
-          You used one given angle instead of the angle between the two transversals. Their intersection depends on both 40 degrees and 75 degrees.
+          This supplements the inclination sum instead of its difference. The sum involves both stated values. Check the angle between the equally oriented transversals.
     explanation: |
-      1. Calculate the acute angle formed between $T_1$ and $T_2$ at their intersection:
-         $$\text{Acute Angle} = 75^\circ - 40^\circ = 35^\circ$$
-      2. Adjacent angles at an intersection form a linear pair, so they are supplementary.
-      3. $\text{Obtuse Angle} = 180^\circ - 35^\circ = 145^\circ$.
-
-      Common Trap: Reporting the acute angle ($35^\circ$) when asked for the obtuse angle.
+      Both transversals rise in the same left-to-right direction. Their acute inclinations differ by $75^\circ-40^\circ=35^\circ$, which is the acute angle between them. The adjacent obtuse angle is its supplement: $180^\circ-35^\circ=145^\circ$.
 
   - id: q-geometry-parallel-perpendicular-lines-0013
     type: direct-computation
@@ -371,21 +291,17 @@ questions:
       - text: '$32^\circ$'
         correct: false
         rationale: |
-          You used $\angle BAC$ directly, but that angle is with the perpendicular segment, not with the parallel line.
+          This reports the angle to the perpendicular segment. That angle is given directly. Check which line the requested angle uses.
       - text: '$122^\circ$'
         correct: false
         rationale: |
-          You took the obtuse supplement instead of the acute angle the ray makes with $L_2$.
+          This reports the obtuse supplement of the requested acute angle. Both acute and obtuse angles occur at the crossing. Check the requested acute type.
       - text: '$148^\circ$'
         correct: false
         rationale: |
-          You added the wrong supplement. First find the complement of 32 degrees with the perpendicular line.
+          This supplements the given thirty-two-degree angle directly. A supplementary relationship occurs among crossing angles. Check the perpendicular reference first.
     explanation: |
-      1. Since $AB \perp L_1$ and $L_1 \parallel L_2$, $AB$ is also perpendicular to $L_2$, so the angle between $AB$ and $L_2$ at $B$ is $90^\circ$.
-      2. The angle ray $AC$ makes with line $L_1$ at point $A$ is $90^\circ - \angle BAC = 90^\circ - 32^\circ = 58^\circ$.
-      3. By alternate interior angles between parallel lines $L_1$ and $L_2$, the acute angle ray $AC$ makes with $L_2$ is equal to $58^\circ$.
-
-      Common Trap: Confusing $\angle BAC$ ($32^\circ$) directly with the alternate interior angle.
+      AB is perpendicular to both parallel lines. At A, the ray makes $90^\circ-32^\circ=58^\circ$ with the first line. Parallel-line angle equality carries that acute measure to the second line. The requested angle is $58^\circ$.
 
   - id: q-geometry-parallel-perpendicular-lines-0014
     type: direct-computation
@@ -398,22 +314,17 @@ questions:
       - text: '$37.5^\circ$'
         correct: false
         rationale: |
-          You bisected the 75-degree acute angle itself. The ray bisects its adjacent obtuse supplement, not the acute angle.
+          This bisects the acute angle instead of its adjacent obtuse angle. Both parts involve a bisector. Check which angle is bisected.
       - text: '$105^\circ$'
         correct: false
         rationale: |
-          You found the adjacent obtuse angle but forgot to bisect it. Ray $BD$ splits that angle into two equal parts.
+          This reports the obtuse angle before bisection. The obtuse measure is a needed intermediate result. Check the final division by two.
       - text: '$75^\circ$'
         correct: false
         rationale: |
-          You stopped before using the supplement and the bisector. The asked angle comes after both steps.
+          This reports the initial acute angle. The corresponding measure is found first. Check the supplement and bisection steps.
     explanation: |
-      1. Corresponding angles are equal: $3x + 15 = 5x - 25 \implies 2x = 40 \implies x = 20$.
-      2. The acute angle made by $T$ with each parallel line is $3(20) + 15 = 75^\circ$.
-      3. The adjacent obtuse angle at $B$ is $180^\circ - 75^\circ = 105^\circ$.
-      4. Ray $BD$ bisects this angle, so the angle between $BD$ and $L_2$ is $\frac{105^\circ}{2} = 52.5^\circ$.
-
-      Common Trap: Bisecting the $75^\circ$ acute angle instead of its supplement gives $37.5^\circ$.
+      Equal corresponding angles give $3x+15=5x-25$, so $x=20$. Their acute measure is $3(20)+15=75^\circ$. Its adjacent obtuse angle is $180^\circ-75^\circ=105^\circ$. Bisecting it gives $105^\circ\div2=52.5^\circ$.
 
   - id: q-geometry-parallel-perpendicular-lines-0015
     type: direct-computation
@@ -426,19 +337,119 @@ questions:
       - text: '$65^\circ$'
         correct: false
         rationale: |
-          You used only one of the two alternate interior pieces. The left-facing angle at $P$ is made from both parts together.
+          This reports only the lower angle piece. The lower piece is given directly. Check that both pieces contribute.
       - text: '$15^\circ$'
         correct: false
         rationale: |
-          You subtracted the angles instead of adding the two pieces that meet at point $P$.
+          This subtracts the two pieces. Both given measures are used. Check that the two rays open to the same side of P.
       - text: '$130^\circ$'
         correct: false
         rationale: |
-          You made the angle too large by adding the wrong relationship. The two parts at $P$ are 50 degrees and 65 degrees.
+          This doubles the lower angle instead of adding the upper angle. Both segments appear to border the middle angle. Check the two different angle measures.
     explanation: |
-      1. Draw an auxiliary horizontal line through point $P$ parallel to both $L_1$ and $L_2$.
-      2. Because the intersections of both transversals with the parallel lines lie to the left of $P$, the left-facing angle is split into the two corresponding/alternate angle pieces.
-      3. The upper part equals $50^\circ$ and the lower part equals $65^\circ$.
-      4. The left-facing angle at $P$ is therefore $50^\circ + 65^\circ = 115^\circ$.
+      A horizontal helper line through P splits the left-facing angle into two pieces. Parallel-line angle equality gives an upper piece of $50^\circ$ and lower piece of $65^\circ$. Their sum is $115^\circ$.
 
-      Common Trap: Subtracting the two given angles ($65^\circ - 50^\circ = 15^\circ$) or reporting only one of the two angle pieces.
+  - id: q-geometry-parallel-perpendicular-lines-0016
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      When a transversal cuts two lines, how are corresponding angle positions identified?
+    choices:
+      - text: 'Same corner at different crossings.'
+        correct: true
+      - text: 'Opposite sides, both between the lines.'
+        rationale: |
+          This describes alternate interior angles. Both types compare two crossings. Check whether positions match or alternate across the transversal.
+      - text: 'Same side, both between the lines.'
+        rationale: |
+          This describes same-side interior angles. Both types use the same side of the transversal. Check the relative corner at each crossing.
+      - text: 'Opposite angles at one crossing.'
+        rationale: |
+          This describes vertical angles. Those angles are equal too in their own setting. Check whether the pair is at one crossing or two.
+    explanation: |
+      Corresponding angles occupy the same relative corner at the two crossings, such as top left at both. Their position identifies the pair.
+    approved: false
+
+  - id: q-geometry-parallel-perpendicular-lines-0017
+    type: error-spotting
+    difficulty: medium
+    stem: |
+      A sketch shows a transversal crossing two lines. One corresponding angle is $50^\circ$. A student says its partner is also $50^\circ$ because the lines look parallel, though parallelism is not given. Which statement correctly evaluates this reasoning?
+    choices:
+      - text: 'A parallel-line condition is missing.'
+        correct: true
+      - text: 'Corresponding angles are equal for all pairs of lines.'
+        rationale: |
+          This removes the parallel-line requirement from the equality rule. The pair name is still correct. Check the hypotheses of the theorem.
+      - text: 'The partner must always be $130^\circ$ instead.'
+        rationale: |
+          This assumes a supplementary relationship without enough information. One hundred thirty supplements fifty. Check the actual pair and line relationship.
+      - text: 'The sketch alone proves the lines are parallel.'
+        rationale: |
+          This treats a drawing's appearance as proof. Diagrams can look parallel. Check the stated givens or marked relationships.
+    explanation: |
+      Corresponding-angle equality is guaranteed when the crossed lines are parallel. An appearance of parallelism is not a stated fact. Without a parallel-line condition, the partner measure is not determined.
+    approved: false
+
+  - id: q-geometry-parallel-perpendicular-lines-0018
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Two same-side interior angles formed by a transversal across parallel lines are equal. What is each angle measure?
+    choices:
+      - text: '$90^\circ$'
+        correct: true
+      - text: '$45^\circ$'
+        rationale: |
+          This divides the straight-angle total by four instead of two. There are several angles at the crossings. Check that this equation includes only the two named angles.
+      - text: '$180^\circ$'
+        rationale: |
+          This reports the pair's total as one member. The total is needed first. Check that equal members divide it equally.
+      - text: '$0^\circ$'
+        rationale: |
+          This reports the difference of equal angles. Equal angles do have zero difference. Check that their individual measures are requested.
+    explanation: |
+      The angles are supplementary, so their sum is $180^\circ$. If both equal $a$, then $2a=180^\circ$. Divide by $2$ to get $a=90^\circ$.
+    approved: false
+
+  - id: q-geometry-parallel-perpendicular-lines-0019
+    type: error-spotting
+    difficulty: hard
+    stem: |
+      Two same-side interior angles across parallel lines measure $(2x+30)^\circ$ and $(3x-10)^\circ$. A student sets them equal. Which equation should be used instead?
+    choices:
+      - text: '$2x+30+3x-10=180$'
+        correct: true
+      - text: '$2x+30=3x-10$'
+        rationale: |
+          This repeats the equal-angle rule for the wrong pair. Corresponding and alternate pairs do use equality. Check the same-side interior relationship.
+      - text: '$2x+30+3x-10=90$'
+        rationale: |
+          This uses a complementary total. Ninety is a common angle benchmark. Check the supplementary total for this pair.
+      - text: '$2x+30+3x-10=360$'
+        rationale: |
+          This uses a full-turn total. A full circle does have three hundred sixty degrees. Check that these two angles form a supplementary pair.
+    explanation: |
+      Same-side interior angles are supplementary. Add the two angle expressions and set the total to $180^\circ$. This gives $2x+30+3x-10=180$.
+    approved: false
+
+  - id: q-geometry-parallel-perpendicular-lines-0020
+    type: which-is-true
+    difficulty: exam
+    stem: |
+      Two distinct lines are cut by a transversal. Alternate interior angles measure $(3x+10)^\circ$ and $(5x-30)^\circ$. If $x=20$, what must the relationship between the two crossed lines be?
+    choices:
+      - text: 'Parallel'
+        correct: true
+      - text: 'Perpendicular'
+        rationale: |
+          This treats equality of angles as requiring a right angle. Equal angles can have other measures. Check whether the common measure is ninety degrees.
+      - text: 'Intersecting at $70^\circ$'
+        rationale: |
+          This treats a transversal angle as the angle between the two crossed lines. Seventy is the measured angle in the setup. Check which two lines it belongs to.
+      - text: 'No relationship can be determined.'
+        rationale: |
+          This ignores the converse of the parallel-line angle rules. The lines were not stated parallel at the start. Check whether equal corresponding angles can establish that fact.
+    explanation: |
+      Substitute $x=20$. The two measures are $3(20)+10=70^\circ$ and $5(20)-30=70^\circ$. Equal alternate interior angles give equal corresponding angles through a vertical-angle pair. The corresponding-angle converse therefore proves the crossed lines parallel.
+    approved: false

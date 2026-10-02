@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-arithmetic-number-sense-real-imaginary-numbers-0001	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0002	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0003	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0004	VERIFIED	SOLVED-MATCH	explanation;notes;format	MEDIUM	The old note incorrectly called 12-10i the product of the two complex numbers; specified the matching-part multiplication error.
+q-arithmetic-number-sense-real-imaginary-numbers-0005	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0006	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Choices had weak derivations or an answer-length cue; replaced or tightened.
+q-arithmetic-number-sense-real-imaginary-numbers-0008	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0009	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Choices had weak derivations or an answer-length cue; replaced or tightened.
+q-arithmetic-number-sense-real-imaginary-numbers-0010	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Choices had weak derivations or an answer-length cue; replaced or tightened.
+q-arithmetic-number-sense-real-imaginary-numbers-0011	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Choices had weak derivations or an answer-length cue; replaced or tightened.
+q-arithmetic-number-sense-real-imaginary-numbers-0012	VERIFIED	SOLVED-MATCH	stem;explanation;notes;format	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0013	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Choices had weak derivations or an answer-length cue; replaced or tightened.
+q-arithmetic-number-sense-real-imaginary-numbers-0014	VERIFIED	SOLVED-MATCH	stem;explanation;notes;format	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0015	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Direct multiplication repeated another item with swapped numbers; changed to solving a complex equation.
+q-arithmetic-number-sense-real-imaginary-numbers-0016	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0017	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0018	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0019	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-real-imaginary-numbers-0020	NEW	NEW	new question	NONE	

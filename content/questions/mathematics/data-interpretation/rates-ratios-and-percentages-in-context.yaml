@@ -2,14 +2,13 @@ meta:
   subject: mathematics
   topic: data-interpretation
   subtopic: rates-ratios-and-percentages-in-context
-  exams:
-    - cse-pro
+  exams: [cse-pro]
 questions:
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0001
-    type: single_choice
+    type: word-problem
     difficulty: easy
     stem: |
-      Consider the following table showing annual sales revenue (in million PHP) for two product lines:
+      Consider the following hypothetical table showing annual sales revenue (in million PHP) for two product lines:
 
       | Year | Product A | Product B |
       | :--- | :--- | :--- |
@@ -22,25 +21,21 @@ questions:
         correct: true
       - text: '$20\%$'
         rationale: |
-          You divided the rise by the later figure instead of the earlier one.
-          Percentage increase always measures against where you started, which is
-          40.
-      - text: '$30\%$'
+          This divides the rise by the new revenue. The new revenue is a stated value. Check the original-value denominator.
+      - text: '$125\%$'
         rationale: |
-          You used the difference against a rounder number than the one in the
-          table. The base here is 40.
-      - text: '$40\%$'
+          This reports new revenue as a percentage of old revenue. The new-to-old ratio is a meaningful comparison. Check whether increase or final level is requested.
+      - text: '$10\%$'
         rationale: |
-          You compared the rise to 25 rather than to 40. The starting figure is what
-          the increase is measured against.
+          This labels the ten-million-peso increase as a percentage. The absolute increase was calculated correctly. Check that percent needs a ratio.
     explanation: |
-      $$\text{Percentage Increase} = \frac{50 - 40}{40} \times 100\% = \frac{10}{40} \times 100\% = 25\%$$
+      Product A rises by $50-40=10$ million pesos. Divide by the original $40$: $\dfrac{10}{40}=0.25$. The increase is $25\%$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0002
-    type: single_choice
+    type: word-problem
     difficulty: easy
     stem: |
-      Consider the following table showing annual sales revenue (in million PHP) for two product lines:
+      Consider the following hypothetical table showing annual sales revenue (in million PHP) for two product lines:
 
       | Year | Product A | Product B |
       | :--- | :--- | :--- |
@@ -51,25 +46,23 @@ questions:
     choices:
       - text: '$2:3$'
         correct: true
-      - text: '$1:2$'
+      - text: '$3:2$'
         rationale: |
-          You rounded 75 down to 100 in your head. The exact pair is 50 and 75,
-          which cancels to 2 to 3.
-      - text: '$3:4$'
+          This reverses the product order. The same two values still appear. Check the named order.
+      - text: '$2:5$'
         rationale: |
-          You cancelled to the wrong pair. Dividing both by 25 gives 2 and 3, not 3
-          and 4.
+          This compares Product A with the combined total. A part-to-total ratio is also meaningful. Check whether the comparison is to B or to the total.
       - text: '$4:5$'
         rationale: |
-          You compared the wrong two numbers. The pair in the table is 50 and 75.
+          This compares the two years of Product A instead of the two products. Both values belong to Product A. Check the year and product headings.
     explanation: |
-      $$\text{Ratio} = \frac{50}{75} = \frac{2}{3} \implies 2:3$$
+      The requested values are $50$ and $75$. Divide both by their GCF, $25$, to get $50:75=2:3$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0003
-    type: single_choice
+    type: word-problem
     difficulty: medium
     stem: |
-      Consider the following table of municipal population data across three barangays:
+      Consider the following hypothetical table of municipal population data across three barangays:
 
       | Barangay | Total Population | Senior Citizens |
       | :--- | :--- | :--- |
@@ -83,22 +76,21 @@ questions:
         correct: true
       - text: '$12\%$'
         rationale: |
-          You divided by a larger total than the one given. The population here is
-          8000.
-      - text: '$18\%$'
+          This uses Barangay 2 total as the denominator for Barangay 1 seniors. Both barangay populations are listed. Check that part and total come from the same row.
+      - text: '$17.5\%$'
         rationale: |
-          You used a different barangay's pair. This row is 1200 out of 8000.
-      - text: '$20\%$'
+          This reports Barangay 3 senior percentage. That is another valid percentage in the table. Check the named barangay.
+      - text: '$150\%$'
         rationale: |
-          You rounded the share up. 1200 out of 8000 is exactly 15 in every hundred.
+          This uses eight hundred instead of eight thousand as the total. Removing a zero makes division easier. Check every zero in the denominator.
     explanation: |
-      $$\text{Percentage} = \frac{1200}{8000} \times 100\% = 15\%$$
+      The senior population is $1200$ out of $8000$. Its fraction is $\dfrac{1200}{8000}=0.15$. Multiply by $100\%$ to get $15\%$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0004
-    type: single_choice
+    type: word-problem
     difficulty: medium
     stem: |
-      Consider the following table of municipal population data across three barangays:
+      Consider the following hypothetical table of municipal population data across three barangays:
 
       | Barangay | Total Population | Senior Citizens |
       | :--- | :--- | :--- |
@@ -106,58 +98,54 @@ questions:
       | Barangay 2 | 10000 | 1500 |
       | Barangay 3 | 12000 | 2100 |
 
-      What is the ratio of senior citizens in Barangay 2 to senior citizens in Barangay 3 in simplest form?
+      Across Barangays 2 and 3 combined, what is the ratio of seniors to nonseniors in lowest terms?
     choices:
-      - text: '$5:7$'
+      - text: '$9:46$'
         correct: true
-      - text: '$3:5$'
+      - text: '$9:55$'
         rationale: |
-          You cancelled too far. Dividing 1500 and 2100 by 300 gives 5 and 7, and
-          neither shrinks further.
-      - text: '$4:5$'
+          This uses all residents as the second ratio group. The combined population is needed first. Check that nonseniors exclude seniors.
+      - text: '$46:9$'
         rationale: |
-          You used a pair that does not divide these two numbers. 1500 to 2100
-          reduces to 5 to 7.
-      - text: '$5:8$'
+          This reverses the senior-to-nonsenior order. Both groups were counted correctly. Check the requested group order.
+      - text: '$5:7$'
         rationale: |
-          You kept 5 and mismatched its partner. 2100 divided by 300 is 7, not 8.
+          This compares the two senior counts rather than seniors and nonseniors combined. Both senior counts appear in the data. Check which two groups are being compared.
     explanation: |
-      $$\text{Ratio} = \frac{1500}{2100} = \frac{15}{21} = \frac{5}{7} \implies 5:7$$
+      The combined senior count is $1500+2100=3600$. The combined population is $10000+12000=22000$. Thus nonseniors total $22000-3600=18400$. Divide $3600:18400$ by $400$ to get $9:46$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0005
-    type: single_choice
+    type: word-problem
     difficulty: easy
     stem: |
-      Consider the following table of quarterly electricity consumption (in megawatt-hours):
+      Consider the following hypothetical table of quarterly electricity consumption (in megawatt-hours):
 
       | Quarter | Facility X | Facility Y |
       | :--- | :--- | :--- |
       | Q1 | 120 | 180 |
       | Q2 | 150 | 210 |
 
-      What was the percentage increase in electricity consumption for Facility X from Q1 to Q2?
+      By how many percentage points does Facility X growth exceed Facility Y growth from Q1 to Q2? Use the difference between their percentage increases.
     choices:
-      - text: '$25\%$'
+      - text: '$8\dfrac{1}{3}$ points'
         correct: true
-      - text: '$15\%$'
+      - text: '$0$ points'
         rationale: |
-          You measured the rise against the later quarter. The base is the earlier
-          figure, 120.
-      - text: '$20\%$'
+          This compares equal absolute increases instead of their percentage growth. Both facilities add thirty units. Check the original amount for each growth rate.
+      - text: '$16\dfrac{2}{3}$ points'
         rationale: |
-          You used a base of 150 instead of 120. The increase is always measured
-          from where you began.
-      - text: '$30\%$'
+          This reports Facility Y growth alone. That percentage is needed for the comparison. Check that the question asks for a difference.
+      - text: '$41\dfrac{2}{3}$ points'
         rationale: |
-          You compared the rise of 30 to 100. The base in the table is 120.
+          This adds the growth rates instead of taking their difference. Both percentages have been computed. Check whether the rates must be added or subtracted.
     explanation: |
-      $$\text{Percentage Increase} = \frac{150 - 120}{120} \times 100\% = \frac{30}{120} \times 100\% = 25\%$$
+      Facility X grows by $\dfrac{150-120}{120}(100\%)=25\%$. Facility Y grows by $\dfrac{210-180}{180}(100\%)=16\dfrac{2}{3}\%$. Subtract these percentages: $25-16\dfrac{2}{3}=8\dfrac{1}{3}$ percentage points.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0006
-    type: single_choice
+    type: word-problem
     difficulty: medium
     stem: |
-      Consider the following table of quarterly electricity consumption (in megawatt-hours):
+      Consider the following hypothetical table of quarterly electricity consumption (in megawatt-hours):
 
       | Quarter | Facility X | Facility Y |
       | :--- | :--- | :--- |
@@ -170,190 +158,342 @@ questions:
         correct: true
       - text: '$40\%$'
         rationale: |
-          You used the other facility's share. The question asks for Y, which is 180
-          of the 300.
+          This reports Facility X share. Both shares use the same total. Check the named facility.
       - text: '$50\%$'
         rationale: |
-          You assumed an even split. The two facilities are 120 and 180, which is
-          not half each.
-      - text: '$65\%$'
+          This assumes equal consumption by both facilities. There are two facilities. Check the actual consumption amounts.
+      - text: '$150\%$'
         rationale: |
-          You rounded the share up. 180 out of 300 is exactly 60 in every hundred.
+          This compares Y with X alone rather than their combined total. Both quantities are stated in the table. Check that a share uses the combined total.
     explanation: |
-      $$\text{Total Q1} = 120 + 180 = 300$$
-      $$\text{Proportion Y} = \frac{180}{300} \times 100\% = 60\%$$
+      The combined Q1 consumption is $120+180=300$ megawatt-hours. Facility Y uses $180$ of that total. Its fraction is $\dfrac{180}{300}=0.60$, or $60\%$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0007
-    type: single_choice
+    type: word-problem
     difficulty: medium
     stem: |
-      Consider the following table showing quarterly tax collection (in million PHP) by a city treasurer:
+      Consider the following hypothetical table showing quarterly tax collection (in million PHP) by a city treasurer:
 
       | Category | Q1 | Q2 |
       | :--- | :--- | :--- |
       | Business Tax | 20 | 28 |
       | Real Property Tax | 30 | 36 |
 
-      What was the percentage growth in Business Tax collection from Q1 to Q2?
+      What is the percentage increase in the combined tax collections from Q1 to Q2?
     choices:
-      - text: '$40\%$'
+      - text: '$28\%$'
         correct: true
-      - text: '$20\%$'
+      - text: '$30\%$'
         rationale: |
-          You measured the rise of 8 against the later figure. The base is Q1, which
-          is 20.
-      - text: '$35\%$'
+          This averages the separate growth rates of forty and twenty percent. Both categories do contribute to the total. Check each category's original weight before combining.
+      - text: '$60\%$'
         rationale: |
-          You used a base larger than 20. Growth is measured from the starting
-          quarter.
-      - text: '$50\%$'
+          This adds the separate category growth rates. Each category increases. Check the growth of the total itself.
+      - text: '$21.875\%$'
         rationale: |
-          You compared 28 to 20 as a whole rather than the change. The rise itself
-          is 8.
+          This uses the new combined total as the percentage-change base. The new total is a stated amount. Check the original-value denominator.
     explanation: |
-      $$\text{Growth} = \frac{28 - 20}{20} \times 100\% = \frac{8}{20} \times 100\% = 40\%$$
+      The original combined total is $20+30=50$ million pesos. The new total is $28+36=64$ million pesos. The increase is $14$. Its fraction of the original total is $\dfrac{14}{50}=0.28$, or $28\%$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0008
-    type: single_choice
+    type: word-problem
     difficulty: easy
     stem: |
-      Consider the following table showing quarterly tax collection (in million PHP) by a city treasurer:
+      Consider the following hypothetical table showing quarterly tax collection (in million PHP) by a city treasurer:
 
       | Category | Q1 | Q2 |
       | :--- | :--- | :--- |
       | Business Tax | 20 | 28 |
       | Real Property Tax | 30 | 36 |
 
-      What was the ratio of Business Tax to Real Property Tax collected in Q1?
+      What fraction of Q2 Real Property Tax equals the increase in Business Tax from Q1 to Q2?
     choices:
-      - text: '$2:3$'
+      - text: '$\dfrac{2}{9}$'
         correct: true
-      - text: '$1:2$'
+      - text: '$\dfrac{7}{9}$'
         rationale: |
-          You rounded 30 up to 40 in your head. The exact pair is 20 and 30, which
-          cancels to 2 to 3.
-      - text: '$3:4$'
+          This compares the entire Q2 Business Tax with Q2 Real Property Tax. The two Q2 amounts are displayed together. Check that only the increase belongs in the numerator.
+      - text: '$\dfrac{2}{5}$'
         rationale: |
-          You cancelled to the wrong pair. Dividing both by 10 gives 2 and 3.
-      - text: '$4:5$'
+          This compares the increase with Q1 Business Tax. The increase is measured from Q1 for a growth rate. Check the requested reference amount.
+      - text: '$\dfrac{9}{2}$'
         rationale: |
-          You used a pair that does not divide 20 and 30.
+          This reverses the requested fraction. The same two quantities are divided. Check the direction of the comparison.
     explanation: |
-      $$\text{Ratio} = \frac{20}{30} = \frac{2}{3} \implies 2:3$$
+      Business Tax increases by $28-20=8$ million pesos. Q2 Real Property Tax is $36$ million pesos. Their fraction is $\dfrac{8}{36}=\dfrac{2}{9}$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0009
-    type: single_choice
+    type: word-problem
     difficulty: easy
     stem: |
-      Consider the following table of annual university graduates:
+      Consider the following hypothetical table of annual university graduates:
 
       | Degree | Male Graduates | Female Graduates |
       | :--- | :--- | :--- |
       | Engineering | 300 | 200 |
       | Education | 150 | 450 |
 
-      What percentage of total Engineering graduates were female?
+      What fraction of all male graduates in these two degrees completed Engineering?
     choices:
-      - text: '$40\%$'
+      - text: '$\dfrac{2}{3}$'
         correct: true
-      - text: '$25\%$'
+      - text: '$\dfrac{3}{2}$'
         rationale: |
-          You divided the female figure by the male one. The share is measured
-          against the two added together.
-      - text: '$30\%$'
+          This compares Engineering males with Education males only. Both counts belong to the male column. Check that a share uses all male graduates.
+      - text: '$\dfrac{3}{5}$'
         rationale: |
-          You used a total larger than 500. The engineering total is 300 plus 200.
-      - text: '$50\%$'
+          This divides by all Engineering graduates instead of all males. Engineering has two listed gender counts. Check the group used as the denominator.
+      - text: '$\dfrac{3}{11}$'
         rationale: |
-          You assumed an even split. The two figures are 300 and 200, so the shares
-          differ.
+          This divides by all graduates across both degrees. All table entries form a larger total. Check that the total is restricted to male graduates.
     explanation: |
-      $$\text{Total Engineering} = 300 + 200 = 500$$
-      $$\text{Percentage Female} = \frac{200}{500} \times 100\% = 40\%$$
+      The male total is $300+150=450$. Engineering contributes $300$. Its fraction is $\dfrac{300}{450}=\dfrac{2}{3}$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0010
-    type: single_choice
+    type: word-problem
     difficulty: medium
     stem: |
-      Consider the following table of annual university graduates:
+      Consider the following hypothetical table of annual university graduates:
 
       | Degree | Male Graduates | Female Graduates |
       | :--- | :--- | :--- |
       | Engineering | 300 | 200 |
       | Education | 150 | 450 |
 
-      What is the ratio of male Education graduates to female Education graduates in simplest form?
+      By how many percentage points does the female share of Education graduates exceed that of Engineering graduates?
     choices:
-      - text: '$1:3$'
+      - text: '$35$ points'
         correct: true
-      - text: '$1:2$'
+      - text: '$50$ points'
         rationale: |
-          You halved instead of taking a third. 450 is three times 150, not twice
-          it.
-      - text: '$2:3$'
+          This subtracts the male Education count as a percent of its category from the female share. Education has seventy-five percent female and twenty-five percent male. Check that the requested comparison is between degrees.
+      - text: '$75$ points'
         rationale: |
-          You cancelled to the wrong pair. Dividing 150 and 450 by 150 gives 1 and
-          3.
-      - text: '$4:5$'
+          This reports Education female share alone. Education has the larger female share. Check that the question asks for the difference.
+      - text: '$40$ points'
         rationale: |
-          You used a pair that does not divide these two numbers.
+          This reports Engineering female share alone. Engineering has a valid female percentage. Check that the larger and smaller shares are both used.
     explanation: |
-      $$\text{Ratio} = \frac{150}{450} = \frac{1}{3} \implies 1:3$$
+      The female Education share is $\dfrac{450}{150+450}=75\%$. The female Engineering share is $\dfrac{200}{300+200}=40\%$. Their difference is $75-40=35$ percentage points.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0011
-    type: single_choice
+    type: which-is-true
     difficulty: easy
     stem: |
-      Consider the following table showing vehicle registrations over two years:
+      Consider the following hypothetical table showing vehicle registrations over two years:
 
       | Vehicle Type | Year 1 | Year 2 |
       | :--- | :--- | :--- |
       | Motorcycles | 4000 | 5000 |
       | Automobiles | 2000 | 2200 |
 
-      What was the percentage increase in motorcycle registrations from Year 1 to Year 2?
+      Which statement about the absolute increases from Year 1 to Year 2 is correct?
     choices:
-      - text: '$25\%$'
+      - text: 'The motorcycle increase is five times the automobile increase.'
         correct: true
-      - text: '$10\%$'
+      - text: 'The automobile increase is five times the motorcycle increase.'
         rationale: |
-          You measured the rise of 1000 against a base ten times too large. The
-          starting figure is 4000.
-      - text: '$20\%$'
+          This reverses the two increases. The factor five is correct in the opposite direction. Check the comparison order.
+      - text: 'The motorcycle increase is one quarter of the automobile increase.'
         rationale: |
-          You used 5000 as the base. The increase is measured from Year 1, which is
-          4000.
-      - text: '$30\%$'
+          This uses the motorcycle percentage-growth fraction as a comparison of absolute increases. The motorcycle growth rate is twenty-five percent. Check whether counts or growth percentages are requested.
+      - text: 'The motorcycle and automobile increases are equal.'
         rationale: |
-          You compared the rise to a smaller base than 4000.
+          This treats equal direction of change as equal amounts. Both counts do rise. Check each numerical increase.
     explanation: |
-      $$\text{Percentage Increase} = \frac{5000 - 4000}{4000} \times 100\% = \frac{1000}{4000} \times 100\% = 25\%$$
+      Motorcycles increase by $5000-4000=1000$. Automobiles increase by $2200-2000=200$. Since $1000\div200=5$, the motorcycle increase is five times the automobile increase.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0012
-    type: single_choice
+    type: word-problem
     difficulty: medium
     stem: |
-      Consider the following table showing vehicle registrations over two years:
+      Consider the following hypothetical table showing vehicle registrations over two years:
 
       | Vehicle Type | Year 1 | Year 2 |
       | :--- | :--- | :--- |
       | Motorcycles | 4000 | 5000 |
       | Automobiles | 2000 | 2200 |
 
-      What percentage of total registrations in Year 1 were automobiles?
+      To two decimal places, what percentage of total registrations in Year 1 were automobiles?
     choices:
       - text: '$33.33\%$'
         correct: true
       - text: '$25.00\%$'
         rationale: |
-          You divided 2000 by 8000. The Year 1 total is 4000 plus 2000, which is
-          6000.
+          This doubles the motorcycle count but keeps the automobile count. The new denominator uses numbers from the table. Check that each vehicle count is included once.
       - text: '$50.00\%$'
         rationale: |
-          You assumed the two types split evenly. The figures are 4000 and 2000.
+          This compares automobiles with motorcycles instead of all registrations. The motorcycle count is another available denominator. Check that the denominator contains both types.
       - text: '$66.67\%$'
         rationale: |
-          You gave the other type's share. Automobiles are the 2000, not the 4000.
+          This reports the motorcycle share. The two shares add to one hundred percent. Check the named vehicle type.
     explanation: |
-      $$\text{Total Year 1} = 4000 + 2000 = 6000$$
-      $$\text{Percentage Automobiles} = \frac{2000}{6000} \times 100\% = 33.33\%$$
+      The Year 1 total is $4000+2000=6000$. Automobiles are $\dfrac{2000}{6000}=\dfrac{1}{3}$ of that total. Multiply by $100\%$ and round to two decimal places: $33.33\%$.
+
+  - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0013
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      A hypothetical office has zero volunteers in January and twelve in February. Which statement about ordinary percentage growth is correct?
+    choices:
+      - text: 'Undefined: the starting count is zero.'
+        correct: true
+      - text: 'The percentage increase is exactly $12\%$.'
+        rationale: |
+          This labels the twelve-person change as a percentage. The increase count is known. Check that percent change needs an original-value denominator.
+      - text: 'The percentage increase is exactly $100\%$.'
+        rationale: |
+          This assumes creating a new group always means doubling. One hundred percent growth doubles a nonzero base. Check that the starting value is zero.
+      - text: 'The percentage increase is exactly $0\%$.'
+        rationale: |
+          This treats an undefined division as zero. Zero is the original count. Check that an undefined ratio is not a numerical growth rate.
+    explanation: |
+      The ordinary growth formula divides the change by the original count. Here that would divide $12-0$ by $0$. Division by zero is undefined, so an ordinary percent increase cannot be reported.
+    approved: false
+
+  - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0014
+    type: error-spotting
+    difficulty: medium
+    stem: |
+      A hypothetical fund rises from $80$ to $100$ thousand pesos. A student calculates growth as $\dfrac{100-80}{100}\times100\%=20\%$. Which correction is needed?
+    choices:
+      - text: 'Use $80$ as the denominator.'
+        correct: true
+      - text: 'Use $100$ as the numerator.'
+        rationale: |
+          This uses the new level instead of the increase. The new value is given directly. Check that the numerator is new minus original.
+      - text: 'Subtract $100$ from $80$ instead.'
+        rationale: |
+          This reverses the growth direction. Both values belong in the subtraction. Check that an increase uses new minus original.
+      - text: 'Multiply the change by $80$.'
+        rationale: |
+          This replaces a comparison ratio with multiplication. The original base is relevant. Check that the change must be divided by that base.
+    explanation: |
+      Growth is measured against the original value, $80$. The change is $20$. Thus the percentage growth is $\dfrac{20}{80}(100\%)=25\%$.
+    approved: false
+
+  - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0015
+    type: word-problem
+    difficulty: medium
+    stem: |
+      In a hypothetical survey, $30$ of $50$ customers at Branch A and $10$ of $50$ at Branch B rate service excellent. What percentage of all surveyed customers gives this rating?
+    choices:
+      - text: '$40\%$'
+        correct: true
+      - text: '$80\%$'
+        rationale: |
+          This adds the two branch percentages instead of pooling counts. Both branches contribute ratings. Check that the combined total is one hundred customers.
+      - text: '$60\%$'
+        rationale: |
+          This reports only Branch A percentage. Branch A has more excellent ratings. Check that both branches are included.
+      - text: '$20\%$'
+        rationale: |
+          This reports only Branch B percentage. Its rate is one valid part of the survey. Check that both branches are included.
+    explanation: |
+      Excellent ratings total $30+10=40$. Surveyed customers total $50+50=100$. Their fraction is $\dfrac{40}{100}=0.40$, or $40\%$.
+    approved: false
+
+  - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0016
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      A hypothetical program reports a $20\%$ increase in participants. Which conclusion must follow if its original participant count is positive?
+    choices:
+      - text: 'New count is $1.20$ times the old count.'
+        correct: true
+      - text: 'New count is exactly $20$ more than the old count.'
+        rationale: |
+          This treats a percent change as a fixed number of people. The number twenty is stated in the report. Check that the absolute gain depends on the old count.
+      - text: 'Old count is $80\%$ of the new count.'
+        rationale: |
+          This reverses an increase by subtracting the same percentage. Reversing a change does require a new comparison. Check that the percentage bases differ.
+      - text: 'The increase is $20\%$ of the new count.'
+        rationale: |
+          This uses the new count as the percentage base. It is another meaningful count. Check that an increase is measured from the old count.
+    explanation: |
+      A twenty-percent increase adds $0.20$ times the original count. The new count is therefore $1+0.20=1.20$ times the original.
+    approved: false
+
+  - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0017
+    type: estimate-first
+    difficulty: hard
+    stem: |
+      In a hypothetical record, monthly visits rise from $498$ to $601$. Which estimate is closest to the percentage increase?
+    choices:
+      - text: '$20\%$'
+        correct: true
+      - text: '$17\%$'
+        rationale: |
+          This uses the new value as the base, giving about one hundred over six hundred. That is a familiar fraction. Check that ordinary growth uses the old value.
+      - text: '$100\%$'
+        rationale: |
+          This labels the increase of about one hundred visits as a percent. The count increase is near one hundred. Check that it must be compared with the starting count.
+      - text: '$120\%$'
+        rationale: |
+          This reports the new level relative to the old level. The new count is about one hundred twenty percent of the old count. Check that growth excludes the original one hundred percent.
+    explanation: |
+      The increase is $601-498=103$. Estimate it as $100$ and the starting value as $500$. The ratio is about $\dfrac{100}{500}=0.20$, so the increase is about $20\%$.
+    approved: false
+
+  - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0018
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A hypothetical report lists $1.5$ million pesos for Road Works and $750$ thousand pesos for Drainage. What is the Road Works-to-Drainage ratio in simplest form?
+    choices:
+      - text: '$2:1$'
+        correct: true
+      - text: '$1:500$'
+        rationale: |
+          This compares one point five with seven hundred fifty without matching units. Both numbers are printed directly. Check that the money units agree.
+      - text: '$1:2$'
+        rationale: |
+          This reverses the project order after matching units. The ratio uses the same amounts. Check which project is named first.
+      - text: '$3:1$'
+        rationale: |
+          This compares the combined budget with Drainage alone. The total is three drainage-sized parts. Check that the numerator is Road Works, not the total.
+    explanation: |
+      Write both amounts in thousands: Road Works is $1500$, and Drainage is $750$. The ratio is $1500:750=2:1$.
+    approved: false
+
+  - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0019
+    type: error-spotting
+    difficulty: exam
+    stem: |
+      A hypothetical club falls from $100$ members to $80$, then returns to $100$. A student says both changes are $20\%$ because the counts change by $20$. What is the second change?
+    choices:
+      - text: '$25\%$ increase'
+        correct: true
+      - text: '$20\%$ increase'
+        rationale: |
+          This uses the first period's original count for the second period. Both changes have the same absolute size. Check each period's starting value.
+      - text: '$20\%$ decrease'
+        rationale: |
+          This keeps the direction of the first change. The size twenty appears in both periods. Check whether the second count rises or falls.
+      - text: '$125\%$ increase'
+        rationale: |
+          This reports the final count as a percentage of the second starting count. That ratio is one hundred twenty-five percent. Check that an increase removes the starting one hundred percent.
+    explanation: |
+      The second change starts from $80$ and adds $20$. Its rate is $\dfrac{20}{80}(100\%)=25\%$, an increase.
+    approved: false
+
+  - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0020
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A hypothetical budget starts with $80$ thousand pesos for Supplies and $20$ thousand for Training. Supplies increases by $10\%$, and Training by $50\%$. What is the combined budget increase?
+    choices:
+      - text: '$18\%$'
+        correct: true
+      - text: '$30\%$'
+        rationale: |
+          This averages the two category rates without their different budget sizes. Both categories are named once. Check their original weights.
+      - text: '$60\%$'
+        rationale: |
+          This adds the two category rates. Both rates are increases. Check the actual added money before finding total growth.
+      - text: '$15.25\%$'
+        rationale: |
+          This divides the gain eighteen by the new total one hundred eighteen and rounds. The new total is a meaningful value. Check that ordinary growth divides by the old total.
+    explanation: |
+      Supplies adds $80(0.10)=8$ thousand pesos. Training adds $20(0.50)=10$ thousand. The combined gain is $18$ on an original total of $100$. Thus the increase is $18\%$.
+    approved: false

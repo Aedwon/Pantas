@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-algebra-types-of-functions-0001	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-types-of-functions-0002	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-types-of-functions-0003	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-types-of-functions-0004	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-types-of-functions-0005	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-types-of-functions-0006	CORRECTED	SOLVED-MATCH	distractor;explanation;notes;format	MEDIUM	The distractor x=1 had no specific derivation.
+q-algebra-types-of-functions-0007	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-types-of-functions-0008	CORRECTED	SOLVED-MATCH	stem;explanation;notes;format	LOW	The cases expression used a single backslash as its row separator.
+q-algebra-types-of-functions-0009	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	The correct choice was far longer than the alternatives.
+q-algebra-types-of-functions-0010	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-types-of-functions-0011	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-types-of-functions-0012	CORRECTED	SOLVED-MATCH	distractors;explanation;notes;format	MEDIUM	The notes claimed adding 3 gives 11 and described a base reversal inaccurately.
+q-algebra-types-of-functions-0013	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	The correct choice was the longest.
+q-algebra-types-of-functions-0014	CORRECTED	SOLVED-MATCH	distractors;explanation;notes	MEDIUM	Two alternatives had no specific mathematical slip.
+q-algebra-types-of-functions-0015	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach perpendicular slopes; stem, choices and key retained.
+q-algebra-types-of-functions-0016	NEW	NEW	new question	NONE	
+q-algebra-types-of-functions-0017	NEW	NEW	new question	NONE	
+q-algebra-types-of-functions-0018	NEW	NEW	new question	NONE	
+q-algebra-types-of-functions-0019	NEW	NEW	new question	NONE	
+q-algebra-types-of-functions-0020	NEW	NEW	new question	NONE	

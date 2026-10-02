@@ -10,19 +10,19 @@ questions:
     stem: |
       What is the value of $18 \div 3 \times 2$?
     choices:
-      - text: "$12$"
+      - text: '$12$'
         correct: true
-      - text: "$3$"
+      - text: '$36$'
         rationale: |
-          You multiplied 3 by 2 first, instead of evaluating multiplication and division from left to right.
-      - text: "$8$"
+          This skips division by three and multiplies eighteen by two. The original eighteen is still visible in the expression. Check every operation in order.
+      - text: '$3$'
         rationale: |
-          Recheck the arithmetic after the first division.
-      - text: "$6$"
+          This groups the final multiplication before division. Multiplication is listed before division in PEMDAS. Check equal-priority operations from left to right.
+      - text: '$6$'
         rationale: |
-          You stopped after $18\div3$ and omitted the final multiplication.
+          This stops after the first division. Six is a correct intermediate value. Check whether another operation remains.
     explanation: |
-      Multiplication and division have equal priority, so evaluate left to right: $18\div3=6$, then $6\times2=12$.
+      Multiplication and division have equal priority. Work from left to right: $18\div3=6$, then $6(2)=12$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0002
     type: direct-computation
@@ -30,19 +30,19 @@ questions:
     stem: |
       What is the value of $15 - 5 + 4$?
     choices:
-      - text: "$14$"
+      - text: '$14$'
         correct: true
-      - text: "$6$"
+      - text: '$6$'
         rationale: |
-          Addition and subtraction have equal priority and are evaluated left to right.
-      - text: "$24$"
+          This adds five and four before subtracting from fifteen. Addition is listed before subtraction in PEMDAS. Check equal-priority operations from left to right.
+      - text: '$24$'
         rationale: |
-          The 5 is subtracted, not added.
-      - text: "$10$"
+          This changes the subtraction of five into addition. The same three numbers still appear. Check every sign in the expression.
+      - text: '$10$'
         rationale: |
-          You stopped after the first subtraction.
+          This stops before adding four. Ten is a correct intermediate value. Check whether another operation remains.
     explanation: |
-      $15-5=10$, then $10+4=14$.
+      Addition and subtraction have equal priority. Work from left to right: $15-5=10$, then $10+4=14$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0003
     type: direct-computation
@@ -50,19 +50,19 @@ questions:
     stem: |
       What is the value of $-4^2 + (-3)^2$?
     choices:
-      - text: "$-7$"
+      - text: '$-7$'
         correct: true
-      - text: "$25$"
+      - text: '$25$'
         rationale: |
-          In $-4^2$, the exponent applies to 4 before the leading negative is applied.
-      - text: "$-25$"
+          This treats the leading minus as part of the first squared base. The second negative base does square to a positive number. Check which signs are inside parentheses.
+      - text: '$-25$'
         rationale: |
-          $(-3)^2=9$, not $-9$.
-      - text: "$7$"
+          This treats the second square as negative. The visible minus sign can look permanent. Check that the negative base is inside parentheses.
+      - text: '$7$'
         rationale: |
-          $-16+9=-7$.
+          This drops the sign when combining minus sixteen and nine. The larger magnitude can be found correctly. Check the sign of the term with greater magnitude.
     explanation: |
-      $-4^2=-(4^2)=-16$, while $(-3)^2=9$. Therefore the result is $-7$.
+      The power in $-4^2$ applies to $4$ first, giving $-(16)=-16$. Parentheses make the base of $(-3)^2$ negative, so its value is $9$. Add: $-16+9=-7$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0004
     type: direct-computation
@@ -70,19 +70,19 @@ questions:
     stem: |
       What is the value of $4 \times (8 - 3)^2$?
     choices:
-      - text: "$100$"
+      - text: '$100$'
         correct: true
-      - text: "$400$"
+      - text: '$400$'
         rationale: |
-          The exponent applies to the parenthesized 5 before multiplication by 4.
-      - text: "$220$"
+          This squares the product of four and five. The multiplication is next to the squared group. Check the exact base marked by the exponent.
+      - text: '$220$'
         rationale: |
-          Re-evaluate the grouping and exponent.
-      - text: "$40$"
+          This treats the square of a difference as the difference of squares. Each term in the bracket has a square. Check that the difference is evaluated before squaring.
+      - text: '$40$'
         rationale: |
-          Squaring 5 gives 25, not multiplying it by 2.
+          This reads squaring as multiplying by two. The exponent is the number two. Check that a square multiplies a number by itself.
     explanation: |
-      $(8-3)^2=25$, then $4\times25=100$.
+      Evaluate the parentheses: $8-3=5$. Square next: $5^2=25$. Multiply last: $4(25)=100$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0005
     type: direct-computation
@@ -90,19 +90,19 @@ questions:
     stem: |
       What is the value of $24 \div 6 \times 2 \div 4$?
     choices:
-      - text: "$2$"
+      - text: '$2$'
         correct: true
-      - text: "$\\frac{1}{2}$"
+      - text: '$\dfrac{1}{2}$'
         rationale: |
-          You grouped $6\times2$ before the preceding division.
-      - text: "$8$"
+          This groups six times two before the initial division. Multiplication can seem to come first. Check the left-to-right order.
+      - text: '$8$'
         rationale: |
-          You stopped before the final division by 4.
-      - text: "$16$"
+          This stops before the last division. Eight is a correct intermediate value. Check the final operation.
+      - text: '$32$'
         rationale: |
-          Recheck the left-to-right sequence.
+          This multiplies by the last four instead of dividing. The same final number is still used. Check whether the final sign is multiplication or division.
     explanation: |
-      Evaluate left to right: $24\div6=4$, $4\times2=8$, $8\div4=2$.
+      Work from left to right. First $24\div6=4$, then $4(2)=8$, and finally $8\div4=2$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0006
     type: error-spotting
@@ -116,39 +116,39 @@ questions:
 
       In which step did the student make the FIRST error?
     choices:
-      - text: "Step 1"
+      - text: 'Step 1'
         correct: true
-      - text: "Step 2"
+      - text: 'Step 2'
         rationale: |
-          The expression was already changed incorrectly in Step 1.
-      - text: "Step 3"
+          This blames a correct subtraction based on an earlier wrong expression. The final answer differs from the correct value. Check the first line where the value changes.
+      - text: 'Step 3'
         rationale: |
-          The first error occurred earlier.
-      - text: "There is no error in the solution."
+          This blames the final subtraction because the final result is wrong. The wrong answer is reached at the end. Check earlier lines before judging the last one.
+      - text: 'There is no error in the solution.'
         rationale: |
-          Addition and subtraction must be evaluated left to right here.
+          This gives addition higher priority than subtraction. PEMDAS lists addition first. Check that addition and subtraction share priority.
     explanation: |
-      The first operation should be $20-8=12$. Replacing $-8+5$ with $-13$ changes the expression, so Step 1 is the first error.
+      Step 1 changes $-8+5$ into $-13$. The signs require $-8+5=-3$. Addition and subtraction share priority, so starting with $20-8$ also gives a valid first step. The first error is Step 1.
 
   - id: q-arithmetic-number-sense-order-of-operations-0007
-    type: direct-computation
+    type: which-is-true
     difficulty: medium
     stem: |
-      What is the value of $30 - 12 - 6 + 9$?
+      Which procedure correctly evaluates $30-12-6+9$ from left to right?
     choices:
-      - text: "$21$"
+      - text: 'Subtract $12$, subtract $6$, then add $9$.'
         correct: true
-      - text: "$3$"
+      - text: 'Subtract $12$, add $6$, then subtract $9$.'
         rationale: |
-          You grouped $6+9$ before the preceding subtraction.
-      - text: "$15$"
+          This reverses the signs of the last two terms. The last two numbers are easy to combine. Check the signs of the original terms.
+      - text: 'Add $6$ and $9$, then subtract both from $30-12$.'
         rationale: |
-          Re-evaluate the signs from left to right.
-      - text: "$33$"
+          This gives addition higher priority than subtraction. The mnemonic lists addition first. Check that addition and subtraction share priority.
+      - text: 'Subtract the group $12-6$ from $30$, then add $9$.'
         rationale: |
-          Re-evaluate the signs from left to right.
+          This treats every minus as part of a new group. Subtraction can look like a grouping instruction. Check only written grouping symbols.
     explanation: |
-      $30-12=18$, $18-6=12$, and $12+9=21$.
+      For addition and subtraction at the same priority, work from left to right. Subtract $12$ from $30$ to get $18$, subtract $6$ to get $12$, and add $9$ to get $21$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0008
     type: direct-computation
@@ -156,39 +156,39 @@ questions:
     stem: |
       If $x = -2$ and $y = 3$, what is the value of $2x^2 - 3xy + y^2$?
     choices:
-      - text: "$35$"
+      - text: '$35$'
         correct: true
-      - text: "$19$"
+      - text: '$19$'
         rationale: |
-          $(-2)^2=4$, not $-4$.
-      - text: "$-1$"
+          This treats the square of negative two as negative four. The negative input is visible. Check that a square of a negative base is positive.
+      - text: '$-1$'
         rationale: |
-          $-3(-2)(3)=+18$.
-      - text: "$-17$"
+          This misses the positive sign from subtracting a negative product. The middle term begins with subtraction. Check both minus signs in the product.
+      - text: '$-17$'
         rationale: |
-          Recheck both the square and the sign of the middle product.
+          This makes both the square and the middle term negative. Both pieces involve negative signs. Check each term separately.
     explanation: |
-      $2(-2)^2-3(-2)(3)+3^2=8+18+9=35$.
+      Substitute inside parentheses: $2(-2)^2-3(-2)(3)+3^2$. The three terms are $8$, $18$, and $9$. Their sum is $8+18+9=35$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0009
     type: direct-computation
     difficulty: medium
     stem: |
-      What is the value of $\frac{4^2 + 6 \times 2}{10 - 3 \times 2}$?
+      What is the value of $\dfrac{4^2 + 6 \times 2}{10 - 3 \times 2}$?
     choices:
-      - text: "$7$"
+      - text: '$7$'
         correct: true
-      - text: "$2$"
+      - text: '$2$'
         rationale: |
-          In the denominator, multiplication comes before subtraction.
-      - text: "$11$"
+          This subtracts before multiplying in the denominator. The denominator starts with subtraction. Check multiplication priority inside each grouped part.
+      - text: '$11$'
         rationale: |
-          $4^2=16$.
-      - text: "$14$"
+          This multiplies the entire numerator sum by two. Multiplication must be done before division. Check which term is multiplied by two.
+      - text: '$28$'
         rationale: |
-          The final numerator must be divided by the denominator.
+          This reports the numerator without dividing. The numerator has been evaluated correctly. Check that the denominator is used.
     explanation: |
-      Numerator: $16+12=28$. Denominator: $10-6=4$. Thus $28/4=7$.
+      The fraction bar groups both parts. The numerator is $4^2+6(2)=16+12=28$. The denominator is $10-3(2)=10-6=4$. Divide: $\dfrac{28}{4}=7$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0010
     type: error-spotting
@@ -203,19 +203,19 @@ questions:
 
       In which step did the student make the FIRST error?
     choices:
-      - text: "Step 1"
+      - text: 'Step 1'
         correct: true
-      - text: "Step 2"
+      - text: 'Step 2'
         rationale: |
-          The expression was already regrouped incorrectly in Step 1.
-      - text: "Step 3"
+          This blames evaluating the exponent correctly. Exponents are a separate priority group. Check whether the exponent itself was evaluated correctly.
+      - text: 'Step 3'
         rationale: |
-          The first error occurred before this arithmetic.
-      - text: "Step 4"
+          This blames a correct division in the already changed expression. The first error changes later results. Check earlier steps before choosing a later one.
+      - text: 'Step 4'
         rationale: |
-          The first error occurred in Step 1.
+          This blames the final addition because the answer is wrong. The answer appears only in the last step. Check the first change that alters the value.
     explanation: |
-      The exponent may be evaluated first, but multiplication and division otherwise have equal priority and are evaluated left to right. Thus $36\div4=9$, then $9\times3=27$, and $27+8=35$. Step 1 is the first error because it groups $4\times3$ ahead of the preceding division.
+      Multiplication and division share priority. The chain starts with $36\div4=9$, followed by $9(3)=27$. Step 1 groups the last multiplication ahead of that division and changes the value. It is the first error.
 
   - id: q-arithmetic-number-sense-order-of-operations-0011
     type: direct-computation
@@ -223,19 +223,19 @@ questions:
     stem: |
       What is the value of $50 - 2 \times [3 + 2 \times (4 - 7)^2]$?
     choices:
-      - text: "$8$"
+      - text: '$8$'
         correct: true
-      - text: "$80$"
+      - text: '$80$'
         rationale: |
-          Recheck the nested grouping and square.
-      - text: "$-40$"
+          This makes the square of negative three negative nine. The subtraction inside the parentheses is negative. Check the parentheses around the squared base.
+      - text: '$-40$'
         rationale: |
-          Recheck the final subtraction.
-      - text: "$1008$"
+          This adds three and two before multiplying by nine. The adjacent three and two are easy to combine. Check multiplication priority inside the bracket.
+      - text: '$1008$'
         rationale: |
-          The bracket must be evaluated before subtracting from 50.
+          This subtracts two from fifty before using the bracket. The expression begins with fifty minus two. Check grouping before the outside subtraction.
     explanation: |
-      $(4-7)^2=9$, so the bracket is $3+2(9)=21$. Then $50-2(21)=8$.
+      The inner parentheses give $4-7=-3$, whose square is $9$. The bracket is $3+2(9)=21$. Multiply to get $2(21)=42$. Subtract last: $50-42=8$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0012
     type: direct-computation
@@ -243,76 +243,181 @@ questions:
     stem: |
       Marco started the day with $\text{₱}500$ in his sari-sari store cash box. During the day, he sold $12$ bottles of juice for $\text{₱}15$ each and spent $\text{₱}80$ from the cash box to buy extra ice. At the end of the day, he divided all the remaining cash equally among himself and his $2$ siblings. How much money did each person receive?
     choices:
-      - text: "$\\text{₱}200$"
+      - text: '$\text{₱}200$'
         correct: true
-      - text: "$\\text{₱}300$"
+      - text: '$\text{₱}300$'
         rationale: |
-          There are 3 people total, not 2.
-      - text: "$\\text{₱}600$"
+          This divides among two people instead of three. The stem names two siblings. Check that Marco also gets a share.
+      - text: '$\text{₱}600$'
         rationale: |
-          This is the remaining balance before division.
-      - text: "$\\text{₱}180$"
+          This reports the balance before sharing. The balance is needed to find each share. Check whether the question asks for the total or one share.
+      - text: '$\text{₱}180$'
         rationale: |
-          This is only the juice-sales revenue.
+          This reports only the juice revenue. The sales value is a needed intermediate amount. Check the starting money and expense too.
     explanation: |
-      $(500+12\times15-80)\div3=(500+180-80)\div3=600\div3=200$.
+      The juice sales add $12(15)=180$ pesos. After the ice purchase, the cash is $500+180-80=600$ pesos. Marco and two siblings make three people. Each gets $600\div3=200$ pesos.
 
   - id: q-arithmetic-number-sense-order-of-operations-0013
     type: direct-computation
     difficulty: hard
     stem: |
-      If $a = -3$ and $b = 2$, what is the value of $\frac{-a^2 + 2ab}{(a + b)^3}$?
+      If $a = -3$ and $b = 2$, what is the value of $\dfrac{-a^2 + 2ab}{(a + b)^3}$?
     choices:
-      - text: "$21$"
+      - text: '$21$'
         correct: true
-      - text: "$-21$"
+      - text: '$-21$'
         rationale: |
-          $(a+b)^3=(-1)^3=-1$.
-      - text: "$3$"
+          This treats the odd power of negative one as positive. Even powers of negative one are positive. Check whether the exponent is odd or even.
+      - text: '$3$'
         rationale: |
-          $-a^2=-9$, not $+9$.
-      - text: "$-3$"
+          This treats the leading minus in negative a squared as part of the squared base. The variable itself is negative. Check that the leading minus is outside the power.
+      - text: '$-3$'
         rationale: |
-          Recheck both the leading negative and the denominator.
+          This makes both the numerator sign and denominator sign errors. Both parts contain negative values. Check numerator and denominator separately.
     explanation: |
-      Numerator: $-(-3)^2+2(-3)(2)=-9-12=-21$. Denominator: $(-3+2)^3=-1$. The quotient is 21.
+      The numerator is $-(-3)^2+2(-3)(2)=-9-12=-21$. The denominator is $(-3+2)^3=(-1)^3=-1$. Divide: $\dfrac{-21}{-1}=21$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0014
     type: direct-computation
-    difficulty: exam-level
+    difficulty: exam
     stem: |
-      What is the value of $\frac{2^4 - 4 \times (5 - 8)^2}{18 \div 3 \times 2 - 2^3}$?
+      What is the value of $\dfrac{2^4 - 4 \times (5 - 8)^2}{18 \div 3 \times 2 - 2^3}$?
     choices:
-      - text: "$-5$"
+      - text: '$-5$'
         correct: true
-      - text: "$4$"
+      - text: '$4$'
         rationale: |
-          $18\div3\times2$ is evaluated left to right as 12.
-      - text: "$13$"
+          This groups three times two before dividing eighteen. The mnemonic lists multiplication before division. Check equal-priority operations from left to right.
+      - text: '$13$'
         rationale: |
-          Recheck the numerator and denominator separately.
-      - text: "$27$"
+          This adds thirty-six in the numerator instead of subtracting it. The two positive pieces are easy to add. Check the sign before the product.
+      - text: '$5$'
         rationale: |
-          The numerator contains subtraction, not addition.
+          This drops the negative sign of the numerator. The magnitude of the numerator is correct. Check the sign before dividing.
     explanation: |
-      Numerator: $16-4(9)=-20$. Denominator: $18\div3\times2-8=12-8=4$. Thus $-20/4=-5$.
+      The numerator is $2^4-4(5-8)^2=16-4(9)=-20$. In the denominator, $18\div3\times2=6(2)=12$, and $2^3=8$. The denominator is $12-8=4$. The quotient is $\dfrac{-20}{4}=-5$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0015
-    type: direct-computation
-    difficulty: exam-level
+    type: word-problem
+    difficulty: exam
     stem: |
-      A jeepney cash box starts with $\text{₱}350$. During the trip, $24$ regular fares of $\text{₱}13$ and $10$ discounted fares of $\text{₱}10$ are added, then $\text{₱}400$ is taken from the box for fuel. If the remaining cash is split equally into two envelopes, how much goes into each envelope?
+      A jeepney cash box starts with $\text{₱}350$. During the trip, $24$ regular fares of $\text{₱}13$ and $10$ discounted fares of $\text{₱}10$ are added, then $\text{₱}400$ is taken from the box for fuel. If the remaining cash is split equally into two envelopes, which expression gives the amount in each envelope?
     choices:
-      - text: "$\\text{₱}181$"
+      - text: '$\dfrac{350+24(13)+10(10)-400}{2}$'
         correct: true
-      - text: "$\\text{₱}362$"
+      - text: '$350+24(13)+10(10)-\dfrac{400}{2}$'
         rationale: |
-          This is the balance before splitting it in two.
-      - text: "$\\text{₱}6$"
+          This divides only the fuel expense by two. The division is written at the end. Check that the entire balance is grouped before division.
+      - text: '$\dfrac{350+24(13)+10(10)}{2}-400$'
         rationale: |
-          This omits the opening cash-box balance.
-      - text: "$\\text{₱}381$"
+          This splits each fare amount before removing fuel. The fare income is one part of the money to share. Check that expenses are removed before the remaining cash is shared.
+      - text: '$\dfrac{350+24(13)+10(10)+400}{2}$'
         rationale: |
-          Fuel is subtracted from the cash box, not added.
+          This adds fuel as money entering the cash box. All the money amounts belong to the same calculation. Check whether each amount enters or leaves the box.
     explanation: |
-      The cash balance is $350+24(13)+10(10)-400=362$. Splitting that equally gives $362\div2=181$ pesos per envelope. The problem deliberately asks about cash allocation, not accounting profit, so the opening change fund is part of the amount being divided.
+      Add the starting cash and both fare totals, then subtract fuel: $350+24(13)+10(10)-400$. This whole balance is split into two equal parts, so divide the grouped balance by $2$.
+
+  - id: q-arithmetic-number-sense-order-of-operations-0016
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Evaluate $\sqrt{49}+2^3$.
+    choices:
+      - text: '$15$'
+        correct: true
+      - text: '$13$'
+        rationale: |
+          This multiplies two by three instead of taking a power. The exponent uses the same numbers. Check that a power uses repeated multiplication.
+      - text: '$14$'
+        rationale: |
+          This reads the power as seven rather than eight. Seven is the other term in the expression. Check each higher-priority operation separately.
+      - text: '$729$'
+        rationale: |
+          This adds seven and two before cubing. Both terms are visible before the exponent. Check which base the exponent belongs to.
+    explanation: |
+      The square root is $7$, and the power is $8$. Add them: $7+8=15$.
+    approved: false
+
+  - id: q-arithmetic-number-sense-order-of-operations-0017
+    type: error-spotting
+    difficulty: medium
+    stem: |
+      A student evaluates $3(2+4)^2$: Step 1 gives $3(6)^2$. Step 2 gives $(18)^2$. Step 3 gives $324$. Which step is the first error?
+    choices:
+      - text: 'Step 2'
+        correct: true
+      - text: 'Step 1'
+        rationale: |
+          This blames the correct addition inside parentheses. The final answer is incorrect. Check which step first changes the value.
+      - text: 'Step 3'
+        rationale: |
+          This blames squaring eighteen instead of the earlier regrouping. The final result is incorrect for the original expression. Check the first error, not just the last line.
+      - text: 'No step is wrong.'
+        rationale: |
+          This treats the outside three as part of the squared base. The numbers are written next to each other. Check the scope of the exponent.
+    explanation: |
+      Step 2 multiplies $3$ by $6$ before squaring $6$. The exponent applies only to the parenthesized base. The square must be evaluated before multiplication by the outside $3$.
+    approved: false
+
+  - id: q-arithmetic-number-sense-order-of-operations-0018
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      Which comparison is correct for $A=\dfrac{48}{6+2}$ and $B=48\div6+2$?
+    choices:
+      - text: '$A<B$'
+        correct: true
+      - text: '$A=B$'
+        rationale: |
+          This gives the fraction bar no grouping effect. Both expressions contain the same numbers. Check whether the denominator is grouped.
+      - text: '$A>B$'
+        rationale: |
+          This reads $A$ as $48\div6+2$ and groups $6+2$ in $B$. The same numbers appear in each expression. Check where the fraction bar actually groups the denominator.
+      - text: '$A+B=6$'
+        rationale: |
+          This reports the value of $A$ as the sum of both values. Six is a correct intermediate result. Check that both values belong in the sum.
+    explanation: |
+      The fraction bar groups $6+2$ in $A$, so $A=48\div8=6$. In $B$, divide before adding: $B=8+2=10$. Therefore $A<B$.
+    approved: false
+
+  - id: q-arithmetic-number-sense-order-of-operations-0019
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      Which rule is valid when evaluating an expression with no grouping symbols?
+    choices:
+      - text: 'Evaluate equal-priority operations from left to right.'
+        correct: true
+      - text: 'Always multiply before any division in the expression.'
+        rationale: |
+          This treats the order of letters in PEMDAS as separate priority levels. Multiplication is listed first. Check that multiplication and division share priority.
+      - text: 'Always add before any subtraction in the expression.'
+        rationale: |
+          This treats addition as higher priority than subtraction. Addition is listed first in the mnemonic. Check that both share priority.
+      - text: 'Perform every operation from left to right regardless of priority.'
+        rationale: |
+          This applies left-to-right evaluation across different priority levels. The rule does apply within a level. Check higher-priority operations first.
+    explanation: |
+      Multiplication and division share one priority level. Addition and subtraction share another. Within either level, work from left to right. This gives the stated rule.
+    approved: false
+
+  - id: q-arithmetic-number-sense-order-of-operations-0020
+    type: word-problem
+    difficulty: exam
+    stem: |
+      Three students pay equal shares for $4$ notebooks costing $35$ pesos each and $2$ pens costing $20$ pesos each. A coupon subtracts $30$ pesos from the combined bill before payment. What is each share?
+    choices:
+      - text: '$50$'
+        correct: true
+      - text: '$60$'
+        rationale: |
+          This divides the bill without applying the coupon. The full bill is needed first. Check that the discount is removed before sharing.
+      - text: '$30$'
+        rationale: |
+          This divides the bill first and subtracts the full coupon from each share. The coupon does lower payment. Check that it reduces the combined bill only once.
+      - text: '$150$'
+        rationale: |
+          This reports the combined discounted bill. That total is a correct intermediate result. Check that three students share it.
+    explanation: |
+      The notebooks cost $4(35)=140$ pesos, and the pens cost $2(20)=40$ pesos. The coupon leaves $140+40-30=150$ pesos. Each of three students pays $150\div3=50$ pesos.
+    approved: false

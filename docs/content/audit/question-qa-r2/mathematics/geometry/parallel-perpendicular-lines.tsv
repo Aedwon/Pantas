@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-geometry-parallel-perpendicular-lines-0001	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-parallel-perpendicular-lines-0002	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Weak numerical distractors replaced with traceable mistakes.
+q-geometry-parallel-perpendicular-lines-0003	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Weak numerical distractors replaced with traceable mistakes.
+q-geometry-parallel-perpendicular-lines-0004	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-parallel-perpendicular-lines-0005	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-parallel-perpendicular-lines-0006	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Weak numerical distractors replaced with traceable mistakes.
+q-geometry-parallel-perpendicular-lines-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Repeated the same left-facing zigzag computation as item 15; changed to finding a missing outer angle and specified endpoint sides.
+q-geometry-parallel-perpendicular-lines-0008	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-parallel-perpendicular-lines-0009	CORRECTED	SOLVED-MATCH	stem;explanation;notes;format	HIGH	Endpoint labels did not determine whether the angles were alternate or same-side interior; stated the intended alternate pair.
+q-geometry-parallel-perpendicular-lines-0010	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Weak numerical distractors replaced with traceable mistakes.
+q-geometry-parallel-perpendicular-lines-0011	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Weak numerical distractors replaced with traceable mistakes.
+q-geometry-parallel-perpendicular-lines-0012	CORRECTED	SOLVED-MATCH	stem;explanation;notes;format	HIGH	The inclination direction was ambiguous, allowing different crossing angles; specified that both transversals rise left to right.
+q-geometry-parallel-perpendicular-lines-0013	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-parallel-perpendicular-lines-0014	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-parallel-perpendicular-lines-0015	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-parallel-perpendicular-lines-0016	NEW	NEW	new question	NONE	
+q-geometry-parallel-perpendicular-lines-0017	NEW	NEW	new question	NONE	
+q-geometry-parallel-perpendicular-lines-0018	NEW	NEW	new question	NONE	
+q-geometry-parallel-perpendicular-lines-0019	NEW	NEW	new question	NONE	
+q-geometry-parallel-perpendicular-lines-0020	NEW	NEW	new question	NONE	

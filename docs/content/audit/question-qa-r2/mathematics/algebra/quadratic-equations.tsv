@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-algebra-quadratic-equations-0001	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Two root pairs had no clear coefficient-based mistake.
+q-algebra-quadratic-equations-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated simple factoring with swapped coefficients; now uses a known root.
+q-algebra-quadratic-equations-0003	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	The correct fractional pair was longest; tightened notation and made a plausible comparable pair.
+q-algebra-quadratic-equations-0004	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	The two-and-five alternative had no clear repeated-root slip.
+q-algebra-quadratic-equations-0005	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Replaced an alternative that confused the equation without a clear derivation.
+q-algebra-quadratic-equations-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Two alternatives repeated the same answer; now distinguishes solving mistakes.
+q-algebra-quadratic-equations-0007	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-quadratic-equations-0008	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Complex includes real numbers; the complex-root choice could also describe the repeated real roots.
+q-algebra-quadratic-equations-0009	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-quadratic-equations-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	The integer alternative had no clear root-product mistake.
+q-algebra-quadratic-equations-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	The correct choice was far longer and supplied the full correction.
+q-algebra-quadratic-equations-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Shortened answer choices to the proposed missing root.
+q-algebra-quadratic-equations-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated a bare square-root equation; now constructs an equation from roots.
+q-algebra-quadratic-equations-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Two wrong pairs did not match a specific formula slip.
+q-algebra-quadratic-equations-0015	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-quadratic-equations-0016	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	The same-sign answer was needlessly broad; now uses both sum and product.
+q-algebra-quadratic-equations-0017	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Several widths lacked a clear quadratic or geometric mistake.
+q-algebra-quadratic-equations-0018	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	The correct pair was longest; alternatives now consistently include both signs.
+q-algebra-quadratic-equations-0019	NEW	NEW	new question	NONE	
+q-algebra-quadratic-equations-0020	NEW	NEW	new question	NONE	

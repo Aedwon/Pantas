@@ -10,19 +10,19 @@ questions:
     stem: |
       Simplify $x^3 \cdot x^5$.
     choices:
-      - text: $x^8$
+      - text: '$x^8$'
         correct: true
-      - text: $x^{15}$
+      - text: '$x^{15}$'
         rationale: |
-          You multiplied the exponents $3 \times 5 = 15$. When multiplying terms with the same base, add exponents: $3 + 5 = 8$.
-      - text: $x^{-2}$
+          This multiplies the exponents $3 	imes 5$. That rule works for a power raised to another power. Check whether the powers are multiplied or nested.
+      - text: '$x^{-2}$'
         rationale: |
-          You subtracted 3 and 5 to get $-2$. Subtraction is used when dividing powers with the same base, not multiplying.
-      - text: $x^2$
+          This subtracts the exponents $3-5$. Subtraction belongs to division of like bases. Check the operation between the powers.
+      - text: '$2x^8$'
         rationale: |
-          You subtracted $5 - 3 = 2$. Exponents are added when multiplying powers with the same base: $3 + 5 = 8$.
+          This adds the two coefficients as well as the exponents. Two visible copies of $x$ can suggest a factor of two. Check that the terms are multiplied, not added.
     explanation: |
-      When multiplying powers with the same base, add the exponents: $x^3 \cdot x^5 = x^{3+5} = x^8$.
+      Both powers have base $x$. Multiplying them joins three factors of $x$ with five more. There are $3+5=8$ factors, so the result is $x^8$.
 
   - id: q-algebra-exponents-and-logarithms-0002
     type: direct-computation
@@ -30,19 +30,19 @@ questions:
     stem: |
       For $x \ne 0$, simplify $\dfrac{x^7}{x^3}$.
     choices:
-      - text: $x^4$
+      - text: '$x^4$'
         correct: true
-      - text: $x^{10}$
+      - text: '$x^{10}$'
         rationale: |
-          You added the exponents $7 + 3 = 10$. When dividing powers with the same base, subtract exponents: $7 - 3 = 4$.
-      - text: $x^{-4}$
+          This adds $7+3$ when dividing powers. Addition is the rule for multiplying like bases. Check the fraction bar before choosing a rule.
+      - text: '$x^{-4}$'
         rationale: |
-          You subtracted $3 - 7 = -4$ instead of $7 - 3 = 4$. Subtract the bottom exponent from the top exponent.
-      - text: $x$
+          This subtracts in the order $3-7$. Canceling factors can make the direction unclear. Check that the denominator exponent is removed from the numerator exponent.
+      - text: '$x^{7/3}$'
         rationale: |
-          You divided the exponents $7 \div 3$. Division of powers requires subtracting the exponents: $7 - 3 = 4$.
+          This divides the exponents $7 \div 3$. The fraction bar can suggest dividing everything. Check that dividing like bases calls for subtracting exponents.
     explanation: |
-      Because the original denominator contains $x^3$, we require $x \ne 0$. Then subtract the exponents: $\dfrac{x^7}{x^3} = x^{7-3} = x^4$.
+      For nonzero $x$, dividing like bases subtracts their exponents. Here $7-3=4$, so the result is $x^4$.
 
   - id: q-algebra-exponents-and-logarithms-0003
     type: direct-computation
@@ -50,39 +50,39 @@ questions:
     stem: |
       Simplify $(x^3)^2$.
     choices:
-      - text: $x^6$
+      - text: '$x^6$'
         correct: true
-      - text: $x^5$
+      - text: '$x^5$'
         rationale: |
-          You added the exponents $3 + 2 = 5$. When raising a power to a power, multiply the exponents: $3 \times 2 = 6$.
-      - text: $x^9$
+          This adds the exponents $3+2$. Addition belongs to multiplying separate powers. Check whether one power is raised to another.
+      - text: '$x^9$'
         rationale: |
-          You squared the exponent $3^2 = 9$. When raising a power to a power, multiply exponents: $3 \times 2 = 6$.
-      - text: $x^{3/2}$
+          This squares the exponent 3 to get 9. The outside square can seem to act directly on the written exponent. Check that a power of a power multiplies the two exponents.
+      - text: '$x^{3/2}$'
         rationale: |
-          You turned the outer exponent into a denominator. Power to a power requires multiplying exponents: $3 \times 2 = 6$.
+          This divides $3$ by $2$. A second exponent can be confused with a root. Check whether the outside exponent is $2$ or $\dfrac{1}{2}$.
     explanation: |
-      When raising a power to a power, multiply the exponents: $(x^3)^2 = x^{3 \cdot 2} = x^6$.
+      The outside square gives $x^3 \cdot x^3$. Add the exponents: $3+3=6$. Thus $(x^3)^2=x^6$.
 
   - id: q-algebra-exponents-and-logarithms-0004
     type: direct-computation
     difficulty: medium
     stem: |
-      Evaluate $8^{-\frac{2}{3}}$.
+      Evaluate $8^{-\dfrac{2}{3}}$.
     choices:
-      - text: $\dfrac{1}{4}$
+      - text: '$\dfrac{1}{4}$'
         correct: true
-      - text: $4$
+      - text: '$4$'
         rationale: |
-          You evaluated $8^{\frac{2}{3}} = 4$, but ignored the negative sign on the exponent, which flips the value to $\dfrac{1}{4}$.
-      - text: $-4$
+          This ignores the negative exponent. The positive fractional power is correctly calculated. Check whether the exponent requires a reciprocal.
+      - text: '$-4$'
         rationale: |
-          You treated the negative exponent as a negative multiplier. A negative exponent creates a fraction: $\dfrac{1}{8^{2/3}} = \dfrac{1}{4}$.
-      - text: $\dfrac{1}{2}$
+          This makes the value negative instead of taking its reciprocal. A minus sign usually changes a value’s sign. Check where the minus sign is placed.
+      - text: '$\dfrac{1}{2}$'
         rationale: |
-          You took the cube root $\sqrt[3]{8} = 2$ and flipped it, but forgot to square the result: $2^2 = 4$, giving $\dfrac{1}{4}$.
+          This takes the cube root and reciprocal but skips the square. The denominator 3 identifies the root correctly. Check what the numerator 2 requires.
     explanation: |
-      Handle the negative: $\dfrac{1}{8^{\frac{2}{3}}}$. The fraction means cube root then square: $\sqrt[3]{8} = 2$, so $2^2 = 4$. Final answer: $\dfrac{1}{4}$.
+      The negative exponent gives $8^{-2/3}=\dfrac{1}{8^{2/3}}$. Take the cube root of $8$ to get $2$, then square it to get $4$. The value is $\dfrac{1}{4}$.
 
   - id: q-algebra-exponents-and-logarithms-0005
     type: direct-computation
@@ -90,19 +90,19 @@ questions:
     stem: |
       Simplify $2^{-3}$.
     choices:
-      - text: $\dfrac{1}{8}$
+      - text: '$\dfrac{1}{8}$'
         correct: true
-      - text: $-8$
+      - text: '$-8$'
         rationale: |
-          You treated the negative exponent as a negative coefficient. A negative exponent flips the base to a fraction: $\dfrac{1}{2^3} = \dfrac{1}{8}$.
-      - text: $-\dfrac{1}{8}$
+          This moves the minus sign from the exponent to the value. The cube of two is correctly found. Check that a negative exponent means a reciprocal.
+      - text: '$-\dfrac{1}{8}$'
         rationale: |
-          You made the fraction negative. A negative exponent makes the base a reciprocal, but does not make the overall value negative.
-      - text: $8$
+          This takes the reciprocal but keeps an extra minus sign. Both parts of the exponent seem to need a separate action. Check that the reciprocal already accounts for the negative exponent.
+      - text: '$8$'
         rationale: |
-          You evaluated $2^3 = 8$ and ignored the negative sign on the exponent. The negative exponent flips 8 to $\dfrac{1}{8}$.
+          This ignores the negative exponent. Cubing the base is a valid intermediate calculation. Check whether the result must be inverted.
     explanation: |
-      A negative exponent means flip the fraction: $2^{-3} = \dfrac{1}{2^3} = \dfrac{1}{8}$.
+      A negative exponent means take the reciprocal. Since $2^3=8$, $2^{-3}=\dfrac{1}{2^3}=\dfrac{1}{8}$.
 
   - id: q-algebra-exponents-and-logarithms-0006
     type: which-is-true
@@ -110,19 +110,19 @@ questions:
     stem: |
       Which statement is true?
     choices:
-      - text: $\log_2(8) = 3$ because $2^3 = 8$.
+      - text: '$\log_2(8)=3$'
         correct: true
-      - text: $\log_2(8) = 4$ because $2 \times 4 = 8$.
+      - text: '$\log_2(8)=4$ because $2(4)=8$.'
         rationale: |
-          You used multiplication instead of exponentiation. Logarithms find the power, so $\log_2(8) = 3$ because $2^3 = 8$.
-      - text: $\log_2(8) = 2$ because $2^2 = 4$.
+          This divides the argument by the base. The product $2(4)=8$ does match the argument. Check that a logarithm asks for an exponent.
+      - text: '$\log_2(8)=2$ because the base is $2$.'
         rationale: |
-          You evaluated $2^2 = 4$, which does not equal 8. The power needed on base 2 to reach 8 is 3, because $2^3 = 8$.
-      - text: $\log_2(8)$ is undefined.
+          This returns the base instead of the exponent. The base is the small number beside the logarithm sign. Check which exponent produces the argument.
+      - text: '$\log_2(8)$ is not defined for integers.'
         rationale: |
-          You marked $\log_2(8)$ as undefined, but 8 is positive and base 2 is valid, so $\log_2(8) = 3$.
+          This excludes integer arguments from logarithms. The notation can look like a special rule for decimals. Check that the argument only needs to be positive.
     explanation: |
-      The logarithm asks: "What power do I need on 2 to get 8?" Since $2^3 = 8$, the answer is 3.
+      Let $\log_2(8)=k$. This means $2^k=8$. Since $2^3=8$, the logarithm is $3$.
 
   - id: q-algebra-exponents-and-logarithms-0007
     type: direct-computation
@@ -130,19 +130,19 @@ questions:
     stem: |
       Evaluate $\log_3(81)$.
     choices:
-      - text: $4$
+      - text: '$4$'
         correct: true
-      - text: $3$
+      - text: '$3$'
         rationale: |
-          You evaluated $3^3 = 27$ instead of finding the power for 81. Since $3^4 = 81$, the logarithm equals 4.
-      - text: $27$
+          This returns the base instead of the exponent. The base 3 is part of the expression. Check what power of that base makes the argument.
+      - text: '$27$'
         rationale: |
-          You divided 81 by 3 to get 27. Logarithms ask for the exponent power, not division: $3^4 = 81$, so $\log_3(81) = 4$.
-      - text: $2$
+          This divides $81$ by $3$. Division looks like reversing multiplication. Check that logarithms reverse exponentiation.
+      - text: '$81$'
         rationale: |
-          You evaluated $3^2 = 9$. The logarithm asks for the exponent that produces 81, which is 4 because $3^4 = 81$.
+          This returns the argument unchanged. The argument is the main number inside the parentheses. Check that the logarithm asks how many factors of the base are needed.
     explanation: |
-      Ask: "3 raised to what power gives 81?" Since $3^4 = 81$, the answer is 4.
+      A logarithm gives the exponent needed on its base. Here $3^4=81$, so $\log_3(81)=4$.
 
   - id: q-algebra-exponents-and-logarithms-0008
     type: error-spotting
@@ -150,19 +150,19 @@ questions:
     stem: |
       A student claims $2^3 \cdot 2^4 = 2^{12}$. What is the error?
     choices:
-      - text: When multiplying powers with the same base, add the exponents, not multiply them. It should be $2^7$.
+      - text: 'The exponents were multiplied.'
         correct: true
-      - text: There is no error.
+      - text: 'The exponents should be subtracted.'
         rationale: |
-          You claimed there is no error, but $2^3 \cdot 2^4 = 2^{3+4} = 2^7$. Multiplying exponents to get $2^{12}$ is wrong.
-      - text: The bases should be different.
+          This applies the division rule to a product. Subtraction is a real exponent rule for like bases. Check the operation joining the two powers.
+      - text: 'The bases should be added.'
         rationale: |
-          You thought the bases must differ, but exponent rules apply specifically when multiplying terms with the same base.
-      - text: The answer should be $2^1$.
+          This changes the common base by adding. Two copies of the base are visible. Check that multiplication joins factors without changing their common base.
+      - text: 'The exponent rule was used correctly.'
         rationale: |
-          You subtracted exponents $4 - 3 = 1$. When multiplying powers with the same base, add exponents: $3 + 4 = 7$.
+          This uses the power-of-a-power rule on separate powers. Multiplying exponents is a valid rule in that other setting. Check whether the powers are nested.
     explanation: |
-      Multiply means add exponents: $2^3 \cdot 2^4 = 2^{3+4} = 2^7$. Multiplying the exponents gives $2^{12}$.
+      The powers have the same base and are multiplied. Add the exponents: $3+4=7$. The expression is $2^7$.
 
   - id: q-algebra-exponents-and-logarithms-0009
     type: error-spotting
@@ -170,19 +170,19 @@ questions:
     stem: |
       A student solves $(2^2)^3$ and writes $2^{2+3} = 2^5$. What is the error?
     choices:
-      - text: When raising a power to a power, multiply the exponents, not add them. It should be $2^6$.
+      - text: 'The exponents were added.'
         correct: true
-      - text: There is no error.
+      - text: 'The exponents should be subtracted.'
         rationale: |
-          You claimed there is no error, but power of a power requires multiplying exponents: $2 \times 3 = 6$, giving $2^6$.
-      - text: The answer should be $2^{-1}$.
+          This uses the quotient rule for a nested power. Both rules work with exponents. Check whether a division is present.
+      - text: 'The base should also be cubed first.'
         rationale: |
-          You subtracted the exponents $2 - 3 = -1$. Power of a power rule states you must multiply exponents: $2 \times 3 = 6$.
-      - text: Powers cannot be raised to powers.
+          This cubes both the base and the combined power, counting the outer exponent twice. The outside 3 applies to the whole inner expression. Check that it is used only once.
+      - text: 'The exponent rule was used correctly.'
         rationale: |
-          You claimed powers cannot be raised to powers, but they can by multiplying the inner and outer exponents.
+          This uses the product rule for a power raised to a power. Adding exponents is valid for separate multiplied powers. Check the parentheses.
     explanation: |
-      Power to a power means multiply: $(2^2)^3 = 2^{2 \times 3} = 2^6$. Adding gives $2^5$.
+      The outside cube makes three copies of $2^2$. Their exponents add to $2+2+2=6$. Equivalently, multiply $2 	imes 3$ to get $(2^2)^3=2^6$.
 
   - id: q-algebra-exponents-and-logarithms-0010
     type: direct-computation
@@ -190,19 +190,19 @@ questions:
     stem: |
       For $x \ne 0$ and $y \ne 0$, simplify $\dfrac{x^3 y^2 \cdot x^4 y^{-1}}{x^2 y^3}$.
     choices:
-      - text: $\dfrac{x^5}{y^2}$
+      - text: '$\dfrac{x^5}{y^2}$'
         correct: true
-      - text: $x^5 y^2$
+      - text: '$x^5y^2$'
         rationale: |
-          You put $y^2$ in the numerator. In the denominator $y^3$ exceeds the numerator $y^1$, leaving $y^2$ in the denominator.
-      - text: $\dfrac{x^3}{y^2}$
+          This changes $y^{-2}$ to $y^2$ without taking a reciprocal. Removing a negative sign can seem to make the form simpler. Check that a negative exponent moves its factor across the fraction bar.
+      - text: '$\dfrac{x^9}{y^4}$'
         rationale: |
-          You subtracted $x^4 - x^1$ incorrectly. The numerator has $x^3 \cdot x^4 = x^7$, and dividing by $x^2$ gives $x^{7-2} = x^5$.
-      - text: $x^2 y$
+          This adds the denominator exponents instead of subtracting them. Addition correctly combines powers in the numerator. Check that dividing uses a different rule.
+      - text: '$\dfrac{x^{12}}{y^5}$'
         rationale: |
-          You miscalculated both powers. Combining numerator and denominator gives $x^{3+4-2} = x^5$ and $y^{2-1-3} = y^{-2}$.
+          This multiplies the numerator exponents, giving $x^{12}y^{-2}$, before dividing. Multiplying exponents is valid for nested powers. Check that these are separate multiplied powers.
     explanation: |
-      The original expression requires $x \ne 0$ and $y \ne 0$. Combine the numerator: $x^3 \cdot x^4 = x^7$ and $y^2 \cdot y^{-1} = y$. Then divide by the denominator: $\dfrac{x^7 y}{x^2 y^3} = \dfrac{x^5}{y^2}$.
+      Combine like bases in the numerator to get $x^{3+4}y^{2-1}=x^7y$. Divide by $x^2y^3$ to get $x^{7-2}y^{1-3}=x^5y^{-2}$. Rewrite the negative power as $\dfrac{x^5}{y^2}$.
 
   - id: q-algebra-exponents-and-logarithms-0011
     type: direct-computation
@@ -210,19 +210,19 @@ questions:
     stem: |
       For $x > 0$ and $y > 0$, simplify $2\log(x) + \log(y)$ as a single logarithm.
     choices:
-      - text: $\log(x^2 y)$
+      - text: '$\log(x^2y)$'
         correct: true
-      - text: $\log(2xy)$
+      - text: '$\log(2xy)$'
         rationale: |
-          You kept 2 as a multiplier inside the logarithm. The power rule moves 2 to become an exponent on $x$, giving $\log(x^2 y)$.
-      - text: $\log(x^2 + y)$
+          This puts the coefficient 2 inside as a factor. Moving a coefficient inside a logarithm is a real step, but it becomes an exponent. Check the power rule.
+      - text: '$\log(x^2+y)$'
         rationale: |
-          You added the arguments inside the logarithm. Adding logarithms corresponds to multiplying their arguments: $\log(x^2 \cdot y)$.
-      - text: $\log(xy^2)$
+          This adds the arguments when adding logarithms. The same plus sign appears between the logarithms. Check that a sum of logarithms combines a product.
+      - text: '$\log(xy^2)$'
         rationale: |
-          You put the exponent 2 on $y$ instead of $x$. The coefficient 2 is in front of $\log(x)$, so $x$ gets squared.
+          This squares $y$ instead of $x$. The power 2 must move inside one logarithm. Check which logarithm has the coefficient 2.
     explanation: |
-      The real logarithms require positive arguments, so $x > 0$ and $y > 0$. Bring the coefficient up as an exponent: $\log(x^2) + \log(y)$. Addition of logarithms means multiply the arguments, giving $\log(x^2 y)$.
+      Use the power rule: $2\log(x)=\log(x^2)$. Then use the product rule: $\log(x^2)+\log(y)=\log(x^2y)$. The positive inputs make both rules valid.
 
   - id: q-algebra-exponents-and-logarithms-0012
     type: direct-computation
@@ -230,19 +230,19 @@ questions:
     stem: |
       Solve $4^{2x-1} = 8^{x+1}$.
     choices:
-      - text: $x = 5$
+      - text: '$x = 5$'
         correct: true
-      - text: $x = 1$
+      - text: '$x = 2$'
         rationale: |
-          You may have set $2x - 1 = x + 1$ without converting 4 and 8 to base 2. $4 = 2^2$ gives $2(2x-1) = 4x-2$, yielding $x = 5$.
-      - text: $x = -1$
+          This equates $2x-1$ with $x+1$ without changing the bases. Equal powers with the same base allow that step. Check that both bases match first.
+      - text: '$x = -1$'
         rationale: |
-          You miscalculated the algebra after equating exponents. From $4x - 2 = 3x + 3$, subtracting $3x$ and adding 2 gives $x = 5$.
-      - text: $x = 3$
+          This changes $3(x+1)$ into $3x-3$. The negative constant on the other side can influence the sign. Check that distributing preserves the plus sign.
+      - text: '$x = 3$'
         rationale: |
-          You made an arithmetic error solving $4x - 2 = 3x + 3$. Subtracting $3x$ gives $x - 2 = 3$, so $x = 3 + 2 = 5$.
+          This drops the $-2$ from $2(2x-1)$. The $4x$ term is correctly formed. Check that the outside factor reaches the constant too.
     explanation: |
-      Rewrite with base 2: $(2^2)^{2x-1} = (2^3)^{x+1}$. Multiply powers: $2^{4x-2} = 2^{3x+3}$. Set exponents equal: $4x - 2 = 3x + 3$, so $x = 5$.
+      Rewrite the bases as $4=2^2$ and $8=2^3$. The equation becomes $2^{4x-2}=2^{3x+3}$. Equate exponents: $4x-2=3x+3$. Subtract $3x$ and add $2$ to get $x=5$.
 
   - id: q-algebra-exponents-and-logarithms-0013
     type: which-is-true
@@ -250,19 +250,19 @@ questions:
     stem: |
       If $\log_{10}(2) = a$ and $\log_{10}(3) = b$, which expresses $\log_{10}(12)$?
     choices:
-      - text: $2a + b$
+      - text: '$2a + b$'
         correct: true
-      - text: $a + b$
+      - text: '$a + b$'
         rationale: |
-          You evaluated $\log_{10}(6) = a + b$ because $2 \times 3 = 6$. Since $12 = 2^2 \times 3$, you need $2a + b$.
-      - text: $a + 2b$
+          This uses only one factor of 2, as if $12=2(3)$. The given numbers 2 and 3 both appear. Check the prime factors of 12.
+      - text: '$a + 2b$'
         rationale: |
-          You squared 3 instead of 2. $12 = 4 \times 3 = 2^2 \times 3$, which expands to $2\log(2) + \log(3) = 2a + b$.
-      - text: $ab$
+          This uses two factors of 3 instead of two factors of 2. It follows the right logarithm rules for the wrong factorization. Check which number is squared in 12.
+      - text: '$2ab$'
         rationale: |
-          You multiplied $a$ and $b$. Logarithm of a product becomes addition of logarithms: $\log(2^2 \cdot 3) = 2a + b$.
+          This multiplies the logarithms for a product. Factoring 12 does involve multiplication. Check that a logarithm of a product becomes a sum.
     explanation: |
-      Write $12 = 4 \times 3 = 2^2 \times 3$. Then $\log_{10}(2^2 \times 3) = \log_{10}(2^2) + \log_{10}(3) = 2\log_{10}(2) + \log_{10}(3) = 2a + b$.
+      Factor $12$ as $2^2 	imes 3$. Thus $\log_{10}(12)=2\log_{10}(2)+\log_{10}(3)=2a+b$.
 
   - id: q-algebra-exponents-and-logarithms-0014
     type: error-spotting
@@ -270,36 +270,141 @@ questions:
     stem: |
       A student evaluates $3^{-2}$ and writes $-9$. What is the error?
     choices:
-      - text: A negative exponent means flip to make a fraction. It should be $\dfrac{1}{9}$, not $-9$.
+      - text: 'The exponent was treated as a sign.'
         correct: true
-      - text: There is no error.
+      - text: 'The base should have been squared only.'
         rationale: |
-          You claimed there is no error, but $3^{-2} = \dfrac{1}{3^2} = \dfrac{1}{9}$. Negative exponents make fractions, not negative numbers.
-      - text: The answer should be $-3$.
+          This removes the negative sign without taking a reciprocal. Squaring the base is a necessary part of the work. Check that the whole exponent is used.
+      - text: 'The base should have been multiplied by $-2$.'
         rationale: |
-          You divided $-9$ by 3. A negative exponent creates a positive fraction $\dfrac{1}{3^2} = \dfrac{1}{9}$.
-      - text: Negative exponents are undefined.
+          This treats the exponent as a multiplier. The two written numbers can look like ordinary multiplication. Check that an exponent tells how to form a power.
+      - text: 'Negative exponents have no value.'
         rationale: |
-          You claimed negative exponents are undefined, but $x^{-n} = \dfrac{1}{x^n}$ for any non-zero $x$.
+          This confuses a negative exponent with an invalid operation. Some operations with negative inputs are restricted. Check that the nonzero base has a valid reciprocal.
     explanation: |
-      $3^{-2} = \dfrac{1}{3^2} = \dfrac{1}{9}$. The negative sign on the exponent is not a minus sign in the answer.
+      A negative exponent gives a reciprocal. Since $3^2=9$, $3^{-2}=\dfrac{1}{3^2}=\dfrac{1}{9}$.
 
   - id: q-algebra-exponents-and-logarithms-0015
     type: direct-computation
     difficulty: hard
     stem: |
-      Evaluate $16^{\frac{3}{4}}$.
+      Evaluate $16^{\dfrac{3}{4}}$.
     choices:
-      - text: $8$
+      - text: '$8$'
         correct: true
-      - text: $12$
+      - text: '$12$'
         rationale: |
-          You multiplied 16 by $\dfrac{3}{4}$ to get 12. Fractional exponents mean root and power: $\sqrt[4]{16} = 2$ and $2^3 = 8$.
-      - text: $4$
+          This multiplies the base by $\dfrac{3}{4}$, giving $16 	imes \dfrac{3}{4}$. A fractional exponent looks like a fraction of the base. Check that it represents a root and a power.
+      - text: '$4$'
         rationale: |
-          You evaluated the fourth root $\sqrt[4]{16} = 2$ and multiplied by 2 instead of cubing: $2^3 = 8$.
-      - text: $64$
+          This takes the square root of 16 and stops. Familiar square roots can replace the less familiar fourth root. Check the denominator of the exponent.
+      - text: '$64$'
         rationale: |
-          You cubed 16 to get 4096 and took the fourth root, or calculated $4^3 = 64$ using 4 as base. The base is 16, so $\sqrt[4]{16} = 2$ and $2^3 = 8$.
+          This takes the square root and then cubes it. The numerator 3 is used correctly. Check that the denominator 4 calls for a fourth root.
     explanation: |
-      The fractional exponent means fourth root then cube: $\sqrt[4]{16} = 2$, and $2^3 = 8$.
+      Take the fourth root first: $\sqrt[4]{16}=2$. Then apply the numerator power: $2^3=8$. Thus $16^{3/4}=8$.
+
+  - id: q-algebra-exponents-and-logarithms-0016
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      For which base is $\log_b(9)$ a real logarithm?
+    choices:
+      - text: '$b=0.5$'
+        correct: true
+      - text: '$b=1$'
+        rationale: |
+          This allows a base of one. One is positive, so it meets only part of the rule. Check that the base must also differ from one.
+      - text: '$b=0$'
+        rationale: |
+          This allows a base of zero. Zero can appear in many ordinary calculations. Check that a logarithm base must be strictly positive.
+      - text: '$b=-0.5$'
+        rationale: |
+          This allows a negative base. Negative numbers can be raised to some whole-number powers. Check the base conditions for real logarithms.
+    explanation: |
+      A real logarithm needs a positive base different from $1$, and a positive argument. The argument $9$ is positive. The base $0.5$ is positive and is not $1$.
+    approved: false
+
+  - id: q-algebra-exponents-and-logarithms-0017
+    type: error-spotting
+    difficulty: medium
+    stem: |
+      A student writes $\log_{10}(20+30)=\log_{10}(20)+\log_{10}(30)$. Which rule was misused?
+    choices:
+      - text: 'The product rule.'
+        correct: true
+      - text: 'The quotient rule.'
+        rationale: |
+          This identifies a difference of logarithms as the source. Subtraction is one of the logarithm laws. Check which operation appears between the logarithms.
+      - text: 'The power rule.'
+        rationale: |
+          This looks for a coefficient moving into an exponent. That is another common logarithm law. Check whether the work has a coefficient or a power.
+      - text: 'The rule for changing bases.'
+        rationale: |
+          This assumes two logarithms require a base change. Changing bases can help evaluate logarithms. Check that all written bases already match.
+    explanation: |
+      The product rule says $\log_{10}(MN)=\log_{10}(M)+\log_{10}(N)$ for positive $M,N$. A sum of logarithms therefore describes a product inside, not an added pair. Applying that rule to $20+30$ is the error.
+    approved: false
+
+  - id: q-algebra-exponents-and-logarithms-0018
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A culture doubles once per hour. Starting with $N$ cells, how many cells are present after $t$ whole hours? Assume no cells are lost.
+    choices:
+      - text: '$N2^t$'
+        correct: true
+      - text: '$N+2t$'
+        rationale: |
+          This adds two cells each hour instead of doubling. The word "two" can suggest a fixed increase. Check whether each increase depends on the current number.
+      - text: '$2Nt$'
+        rationale: |
+          This multiplies the initial number by twice the elapsed time. It counts equal hourly gains from the starting amount. Check that each doubling acts on the latest amount.
+      - text: '$(2N)^t$'
+        rationale: |
+          This repeats the starting number as a factor each hour. Both the starting amount and the doubling factor are present. Check that the initial amount is included only once.
+    explanation: |
+      After one hour there are $2N$ cells. Each further hour multiplies the amount by another $2$. After $t$ hours the factor is $2^t$, giving $N2^t$.
+    approved: false
+
+  - id: q-algebra-exponents-and-logarithms-0019
+    type: estimate-first
+    difficulty: hard
+    stem: |
+      Which interval contains $50^{1/3}$?
+    choices:
+      - text: '$3<50^{1/3}<4$'
+        correct: true
+      - text: '$7<50^{1/3}<8$'
+        rationale: |
+          This estimates the square root of 50. Squaring seven gives a nearby number. Check that the exponent asks for a cube root.
+      - text: '$16<50^{1/3}<17$'
+        rationale: |
+          This divides 50 by three. The exponent $\dfrac{1}{3}$ can look like a third of the number. Check that fractional exponents describe roots.
+      - text: '$2<50^{1/3}<3$'
+        rationale: |
+          This places the value below three. The base is between familiar powers of two and three in other settings. Check the cubes of the endpoints.
+    explanation: |
+      Cube the nearby integers: $3^3=27$ and $4^3=64$. Since $27<50<64$, its cube root is between $3$ and $4$.
+    approved: false
+
+  - id: q-algebra-exponents-and-logarithms-0020
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      For $x>0$, solve $\log_{10}\left(\dfrac{x}{5}\right)=2$.
+    choices:
+      - text: '$x=500$'
+        correct: true
+      - text: '$x=100$'
+        rationale: |
+          This stops after finding the logarithm's argument. The power $10^2$ has been found correctly. Check whether the argument is $x$ or an expression involving $x$.
+      - text: '$x=20$'
+        rationale: |
+          This divides 100 by 5 when undoing division by 5. The denominator suggests division again. Check the inverse operation needed to isolate $x$.
+      - text: '$x=10$'
+        rationale: |
+          This sets the argument equal to 2, then multiplies by 5. The right side can look like an ordinary value for the argument. Check that a logarithm gives an exponent.
+    explanation: |
+      Change the logarithm to exponential form: $\dfrac{x}{5}=10^2$. Calculate $10^2=100$. Multiply both sides by $5$ to get $x=500$. This is positive, so the logarithm is defined.
+    approved: false
