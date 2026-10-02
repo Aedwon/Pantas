@@ -8,7 +8,7 @@ meta:
 questions:
 - id: q-philippine-constitution-accountability-and-impeachment-0001
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'Which article is titled Accountability of Public Officers?
 
     '
@@ -32,7 +32,7 @@ questions:
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0002
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'What does Article XI, Section 1 declare about public office?
 
     '
@@ -128,7 +128,7 @@ questions:
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0006
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'Which phrase is NOT expressly named among Section 2''s six grounds?
 
     '
@@ -152,7 +152,7 @@ questions:
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0007
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'Are members of CSC, COMELEC, and COA included among impeachable officers?
 
     '
@@ -176,7 +176,7 @@ questions:
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0008
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'Does the impeachment list include a Regional Trial Court judge?
 
     '
@@ -200,7 +200,7 @@ questions:
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0009
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'Which attitude best reflects Article XI, Section 1''s requirement of accountability to the people?
 
     '
@@ -224,7 +224,7 @@ questions:
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0010
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'Which ground for impeachment involves accepting money or valuable favors to influence official actions?
 
     '
@@ -320,7 +320,7 @@ questions:
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0014
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'Are Supreme Court members included in Section 2''s impeachment list?
 
     '
@@ -344,7 +344,7 @@ questions:
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0015
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'Culpable violation of the Constitution as an impeachment ground requires what kind of act?
 
     '
@@ -368,7 +368,7 @@ questions:
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0016
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   approved: false
   stem: 'What does being outside the impeachment list imply for a public officer?
 
@@ -418,7 +418,7 @@ questions:
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0018
   type: single_choice
-  difficulty: exam
+  difficulty: hard
   approved: false
   stem: 'A complaint uses a named impeachment ground against a Court of Appeals justice. What must first be checked under the lesson?
 
@@ -443,7 +443,7 @@ questions:
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0019
   type: single_choice
-  difficulty: exam
+  difficulty: hard
   approved: false
   stem: 'Which conduct reflects Section 1''s standard for officers and employees?
 

@@ -1,5 +1,5 @@
 question_id	status	key_check	changes	severity	note
-q-philippine-constitution-accountability-and-impeachment-0001	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-philippine-constitution-accountability-and-impeachment-0001	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Wording clarified or labels shortened; original answer remains correct.
 q-philippine-constitution-accountability-and-impeachment-0002	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Weak distractors replaced with text-based reasoning errors.
 q-philippine-constitution-accountability-and-impeachment-0003	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Weak distractors replaced with text-based reasoning errors.
 q-philippine-constitution-accountability-and-impeachment-0004	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Weak distractors replaced with text-based reasoning errors.
@@ -9,7 +9,7 @@ q-philippine-constitution-accountability-and-impeachment-0007	CORRECTED	SOLVED-M
 q-philippine-constitution-accountability-and-impeachment-0008	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Weak distractors replaced with text-based reasoning errors.
 q-philippine-constitution-accountability-and-impeachment-0009	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Weak distractors replaced with text-based reasoning errors.
 q-philippine-constitution-accountability-and-impeachment-0010	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	HIGH	Lesson lists but does not define grounds; betrayal of public trust can also fit the unqualified stem.
-q-philippine-constitution-accountability-and-impeachment-0011	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Lesson does not define treason; broader betrayal-of-trust choice can overlap.
+q-philippine-constitution-accountability-and-impeachment-0011	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	HIGH	Lesson does not define treason; betrayal of public trust can also fit the unqualified stem.
 q-philippine-constitution-accountability-and-impeachment-0012	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Weak distractors replaced with text-based reasoning errors.
 q-philippine-constitution-accountability-and-impeachment-0013	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Weak distractors replaced with text-based reasoning errors.
 q-philippine-constitution-accountability-and-impeachment-0014	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Weak distractors replaced with text-based reasoning errors.
