@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-geometry-coordinate-geometry-0001	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-coordinate-geometry-0002	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-coordinate-geometry-0003	CORRECTED	SOLVED-MATCH	distractors;explanation;notes;format	MEDIUM	Two wrong choices were the same inverted slope; replaced one with a coordinate-sum error.
+q-geometry-coordinate-geometry-0004	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-coordinate-geometry-0005	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-coordinate-geometry-0006	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-coordinate-geometry-0007	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-coordinate-geometry-0008	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach triangle area from coordinates; stem, choices and key retained.
+q-geometry-coordinate-geometry-0009	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-coordinate-geometry-0010	CORRECTED	SOLVED-MATCH	distractors;explanation;notes;format	MEDIUM	Two distractor notes did not produce their numbers; replaced choices with exact slope and direction errors.
+q-geometry-coordinate-geometry-0011	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-coordinate-geometry-0012	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach parallelogram area from coordinates; stem, choices and key retained.
+q-geometry-coordinate-geometry-0013	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach circle equations and completing squares; stem, choices and key retained.
+q-geometry-coordinate-geometry-0014	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach solving simultaneous line equations; stem, choices and key retained.
+q-geometry-coordinate-geometry-0015	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach the point-to-line distance formula; stem, choices and key retained.
+q-geometry-coordinate-geometry-0016	NEW	NEW	new question	NONE	
+q-geometry-coordinate-geometry-0017	NEW	NEW	new question	NONE	
+q-geometry-coordinate-geometry-0018	NEW	NEW	new question	NONE	
+q-geometry-coordinate-geometry-0019	NEW	NEW	new question	NONE	
+q-geometry-coordinate-geometry-0020	NEW	NEW	new question	NONE	

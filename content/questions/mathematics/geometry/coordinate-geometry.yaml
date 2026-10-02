@@ -2,13 +2,7 @@ meta:
   subject: mathematics
   topic: geometry
   subtopic: coordinate-geometry
-  exams:
-    - upcat
-    - acet
-    - dlsucet
-    - ustet
-    - pupcet
-
+  exams: [upcat, acet, dlsucet, ustet, pupcet]
 questions:
   - id: q-geometry-coordinate-geometry-0001
     type: direct-computation
@@ -16,31 +10,22 @@ questions:
     stem: |
       What is the distance between point $A(-2, 3)$ and point $B(4, 11)$ in the Cartesian coordinate plane?
     choices:
-      - text: "$10$"
+      - text: '$10$'
         correct: true
-      - text: "$14$"
-        rationale: |
-          You added the two gaps instead of squaring them. The distance formula
-          squares 6 and 8 first, then takes the root of the sum.
+      - text: '$14$'
         correct: false
+        rationale: |
+          This adds horizontal and vertical changes. Both changes are legs of a right triangle. Check that direct distance is the triangle hypotenuse.
       - text: '$\sqrt{28}$'
-        rationale: |
-          You subtracted the squares instead of adding them. The formula adds $36$
-          and $64$.
         correct: false
-      - text: "$100$"
         rationale: |
-          You stopped before the square root. $100$ is the sum of the squares, and
-          the distance is its root.
+          This subtracts squared changes before taking a root. The same squared changes are used. Check the sum in the distance formula.
+      - text: '$100$'
         correct: false
+        rationale: |
+          This stops before taking the square root. The squared-distance total is a needed intermediate value. Check that distance is the positive root.
     explanation: |
-      Apply the distance formula $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$:
-
-      1. $x_2 - x_1 = 4 - (-2) = 6$.
-      2. $y_2 - y_1 = 11 - 3 = 8$.
-      3. $d = \sqrt{6^2 + 8^2} = \sqrt{36 + 64} = \sqrt{100} = 10$.
-
-      Common Trap: Adding the differences directly ($6 + 8 = 14$) or forgetting to take the square root ($100$).
+      The horizontal change is $4-(-2)=6$, and the vertical change is $11-3=8$. The distance is $\sqrt{6^2+8^2}=\sqrt{100}=10$ units.
 
   - id: q-geometry-coordinate-geometry-0002
     type: direct-computation
@@ -48,30 +33,22 @@ questions:
     stem: |
       What are the coordinates of the midpoint of the segment connecting point $P(-6, 8)$ and point $Q(2, -4)$?
     choices:
-      - text: "$(-2, 2)$"
+      - text: '$(-2, 2)$'
         correct: true
-      - text: "$(-4, 4)$"
-        rationale: |
-          You halved only one coordinate and doubled the other. Both are averages:
-          add the pair, then divide by 2.
+      - text: '$(-4, 4)$'
         correct: false
-      - text: "$(4, -6)$"
         rationale: |
-          You swapped the two coordinates. The first slot holds the average of the
-          $x$ values.
+          This adds coordinate pairs without averaging. The two sums are needed first. Check that each sum is divided by two.
+      - text: '$(4, -6)$'
         correct: false
-      - text: "$(2, -2)$"
         rationale: |
-          You flipped both signs. Averaging $-6$ and $2$ gives $-2$, not $+2$.
+          This takes half of the coordinate differences instead of sums. Both midpoint and half-difference formulas divide by two. Check whether sums or differences locate the midpoint.
+      - text: '$(2, -2)$'
         correct: false
+        rationale: |
+          This reverses both midpoint signs. The coordinates have mixed signs. Check each signed average.
     explanation: |
-      Apply midpoint formula $M = \left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right)$:
-
-      1. $x_M = \frac{-6 + 2}{2} = \frac{-4}{2} = -2$.
-      2. $y_M = \frac{8 + (-4)}{2} = \frac{4}{2} = 2$.
-      3. Midpoint coordinates are $(-2, 2)$.
-
-      Common Trap: Forgetting to divide by $2$ gives $(-4, 4)$, or subtracting coordinates instead of adding them.
+      Average each coordinate pair. The x-coordinate is $\dfrac{-6+2}{2}=-2$, and the y-coordinate is $\dfrac{8-4}{2}=2$. The midpoint is $(-2,2)$.
 
   - id: q-geometry-coordinate-geometry-0003
     type: direct-computation
@@ -79,31 +56,22 @@ questions:
     stem: |
       In the coordinate graph, line $L$ passes through point $A(1, 3)$ and point $B(5, 11)$. What is the slope of line $L$?
     choices:
-      - text: "$2$"
+      - text: '$2$'
         correct: true
-      - text: '$\frac{1}{2}$'
-        rationale: |
-          You put the run over the rise. Slope is the change in $y$ divided by the
-          change in $x$, so it is $8$ over $4$.
+      - text: '$\dfrac{1}{2}$'
         correct: false
-      - text: "$-2$"
         rationale: |
-          You made the slope negative. Both coordinates grow from $A$ to $B$, so the
-          line rises.
+          This divides run by rise. Rise and run are both needed. Check that slope means rise over run.
+      - text: '$-2$'
         correct: false
-      - text: '$\frac{4}{8}$'
         rationale: |
-          You left the fraction uncancelled and built it from the wrong pair. The
-          rise is 8 and the run is 4.
+          This subtracts the x-coordinates in the opposite order from the y-coordinates. Both formulas use differences. Check consistent subtraction order.
+      - text: '$\dfrac{7}{3}$'
         correct: false
+        rationale: |
+          This adds coordinates instead of subtracting to find slope. The same two coordinate pairs are used. Check the slope differences rather than sums.
     explanation: |
-      Apply slope formula $m = \frac{y_2 - y_1}{x_2 - x_1}$:
-
-      1. $y_2 - y_1 = 11 - 3 = 8$.
-      2. $x_2 - x_1 = 5 - 1 = 4$.
-      3. $m = \frac{8}{4} = 2$.
-
-      Common Trap: Inverting the formula to calculate $\frac{\Delta x}{\Delta y} = \frac{4}{8} = \frac{1}{2}$.
+      The rise is $11-3=8$, and the run is $5-1=4$. Slope is rise over run: $m=\dfrac{8}{4}=2$.
 
   - id: q-geometry-coordinate-geometry-0004
     type: direct-computation
@@ -111,60 +79,45 @@ questions:
     stem: |
       Line $L_1$ has equation $y = 3x - 7$. Line $L_2$ is parallel to line $L_1$ and passes through the point $(2, 5)$. What is the slope of line $L_2$?
     choices:
-      - text: "$3$"
+      - text: '$3$'
         correct: true
-      - text: '$-\frac{1}{3}$'
-        rationale: |
-          You used the perpendicular rule. Parallel lines keep the same slope; it is
-          perpendicular ones that flip and negate it.
+      - text: '$-\dfrac{1}{3}$'
         correct: false
-      - text: "$-3$"
         rationale: |
-          You flipped the sign. Parallel means identical, so the slope stays at $3$.
+          This uses the perpendicular slope rule. Both parallel and perpendicular comparisons use slope. Check whether parallel or perpendicular is stated.
+      - text: '$-3$'
         correct: false
-      - text: "$5$"
         rationale: |
-          You read the wrong number off the equation. The slope is the coefficient
-          of $x$, not a value from the point.
+          This changes the slope sign without a perpendicular relation. Both lines have the same steepness magnitude. Check that parallel nonvertical slopes are equal.
+      - text: '$5$'
         correct: false
+        rationale: |
+          This reads the point's y-coordinate as slope. The point is given directly. Check the x coefficient of the given line.
     explanation: |
-      Parallel lines always have equal slopes.
-
-      1. The slope of $L_1$ from $y = 3x - 7$ is $m_1 = 3$.
-      2. Since $L_2 \parallel L_1$, $m_2 = m_1 = 3$.
-
-      Common Trap: Reporting the perpendicular slope ($-\frac{1}{3}$) instead of the parallel slope.
+      The coefficient of x in $y=3x-7$ is the slope $3$. Parallel nonvertical lines have equal slopes. Therefore the second slope is $3$.
 
   - id: q-geometry-coordinate-geometry-0005
     type: direct-computation
     difficulty: easy
     stem: |
-      Line $m$ graphed on the Cartesian plane has a slope of $-\frac{4}{5}$. What is the slope of any line perpendicular to line $m$?
+      Line $m$ graphed on the Cartesian plane has a slope of $-\dfrac{4}{5}$. What is the slope of any line perpendicular to line $m$?
     choices:
-      - text: '$\frac{5}{4}$'
+      - text: '$\dfrac{5}{4}$'
         correct: true
-      - text: '$-\frac{5}{4}$'
-        rationale: |
-          You took the reciprocal and kept the sign. Perpendicular slopes have to
-          multiply to $-1$, so the sign flips too.
+      - text: '$-\dfrac{5}{4}$'
         correct: false
-      - text: '$\frac{4}{5}$'
         rationale: |
-          You flipped the sign without turning the fraction over. Both steps are
-          needed.
+          This takes the reciprocal but keeps the negative sign. A reciprocal is needed. Check that the slope product is negative one.
+      - text: '$\dfrac{4}{5}$'
         correct: false
-      - text: '$-\frac{4}{5}$'
         rationale: |
-          You gave the same slope back. That would be a parallel line, not a
-          perpendicular one.
+          This changes the sign but does not invert the fraction. A sign change is needed. Check that the slope product is negative one.
+      - text: '$-\dfrac{4}{5}$'
         correct: false
+        rationale: |
+          This keeps the original slope. Equal slopes describe another line relationship. Check whether parallel or perpendicular is requested.
     explanation: |
-      Perpendicular lines have slopes that are negative reciprocals of each other ($m_1 \cdot m_2 = -1$).
-
-      1. Take reciprocal of $-\frac{4}{5} \implies -\frac{5}{4}$.
-      2. Change sign: $-\left(-\frac{5}{4}\right) = \frac{5}{4}$.
-
-      Common Trap: Taking the reciprocal without changing the sign ($-\frac{5}{4}$) or changing the sign without taking the reciprocal ($\frac{4}{5}$).
+      The given slope is finite and nonzero. A perpendicular slope is its negative reciprocal. Flip $-\dfrac{4}{5}$ to $-\dfrac{5}{4}$ and change its sign, giving $\dfrac{5}{4}$.
 
   - id: q-geometry-coordinate-geometry-0006
     type: direct-computation
@@ -172,30 +125,22 @@ questions:
     stem: |
       What is the equation in slope-intercept form ($y = mx + b$) of the line passing through point $(3, -2)$ with a slope of $-4$?
     choices:
-      - text: "$y = -4x + 10$"
+      - text: '$y = -4x + 10$'
         correct: true
-      - text: "$y = -4x - 14$"
-        rationale: |
-          You subtracted 2 instead of the other way round. Expanding gives $y + 2 =
-          -4x + 12$, so $y = -4x + 10$.
+      - text: '$y = -4x - 14$'
         correct: false
-      - text: "$y = -4x + 14$"
         rationale: |
-          You kept the 12 and dropped the 2. Moving the $+2$ across takes the
-          constant down to 10.
+          This computes the intercept as y plus mx instead of y minus mx. Both the point and slope are used. Check the intercept by substituting the point.
+      - text: '$y = -4x + 14$'
         correct: false
-      - text: "$y = 4x - 10$"
         rationale: |
-          You lost the minus sign on the slope. It is $-4$, and it stays negative
-          through the whole rearrangement.
+          This adds two instead of subtracting it when isolating y. The two is visible beside y. Check that moving positive two requires subtracting two.
+      - text: '$y = 4x - 10$'
         correct: false
+        rationale: |
+          This negates only the right side of the correct equation. Negating can seem like a way to make a leading coefficient positive. Check that equivalent equations apply an operation to both sides.
     explanation: |
-      1. Use point-slope form $y - y_1 = m(x - x_1)$:
-         $$y - (-2) = -4(x - 3)$$
-      2. Simplify: $y + 2 = -4x + 12$.
-      3. Subtract $2$ from both sides: $y = -4x + 10$.
-
-      Common Trap: Sign error when moving $+2$ across the equals sign, resulting in $12 + 2 = 14$ or $-12 - 2 = -14$.
+      Use $y=mx+b$ with $m=-4$. Substitute the point: $-2=-4(3)+b$. Thus $-2=-12+b$ and $b=10$. The equation is $y=-4x+10$.
 
   - id: q-geometry-coordinate-geometry-0007
     type: direct-computation
@@ -203,29 +148,22 @@ questions:
     stem: |
       What is the slope of the perpendicular bisector of the line segment joining point $A(-3, 1)$ and point $B(5, 7)$?
     choices:
-      - text: '$-\frac{4}{3}$'
+      - text: '$-\dfrac{4}{3}$'
         correct: true
-      - text: '$\frac{3}{4}$'
-        rationale: |
-          You gave the slope of the segment itself. The bisector is perpendicular to
-          it, so it flips and negates.
+      - text: '$\dfrac{3}{4}$'
         correct: false
-      - text: '$-\frac{3}{4}$'
         rationale: |
-          You negated without turning the fraction over. Both steps are needed for a
-          perpendicular.
+          This reports the original segment slope. That slope is needed first. Check that the requested line is perpendicular.
+      - text: '$-\dfrac{3}{4}$'
         correct: false
-      - text: '$\frac{4}{3}$'
         rationale: |
-          You turned the fraction over and left it positive. The sign has to flip as
-          well.
+          This changes the sign without inverting the fraction. A negative sign is needed. Check the slope product.
+      - text: '$\dfrac{4}{3}$'
         correct: false
+        rationale: |
+          This inverts the fraction without changing the sign. A reciprocal is needed. Check the slope product.
     explanation: |
-      1. Find slope of segment $AB$: $m_{AB} = \frac{7 - 1}{5 - (-3)} = \frac{6}{8} = \frac{3}{4}$.
-      2. The perpendicular bisector is perpendicular to $AB$, so its slope is the negative reciprocal of $m_{AB}$:
-         $$m_{\perp} = -\frac{1}{3/4} = -\frac{4}{3}$$
-
-      Common Trap: Reporting slope of $AB$ ($\frac{3}{4}$) or neglecting the negative sign ($-\frac{3}{4}$).
+      The segment slope is $\dfrac{7-1}{5-(-3)}=\dfrac{6}{8}=\dfrac{3}{4}$. Its perpendicular bisector has the negative reciprocal slope, $-\dfrac{4}{3}$.
 
   - id: q-geometry-coordinate-geometry-0008
     type: direct-computation
@@ -233,59 +171,45 @@ questions:
     stem: |
       Vertices $A(2, 7)$, $B(8, 7)$, and $C(5, 3)$ form $\triangle ABC$ in the coordinate plane. What is the area of $\triangle ABC$?
     choices:
-      - text: "$12$"
+      - text: '$12$'
         correct: true
-      - text: "$24$"
-        rationale: |
-          You forgot to halve. A triangle is half of the rectangle with the same
-          base and height.
+      - text: '$24$'
         correct: false
-      - text: "$10$"
         rationale: |
-          You used a height of 3 rather than the distance from $C$ up to the line $y
-          = 7$, which is 4.
+          This omits the one-half factor in triangle area. Base times height is a useful area product. Check the triangle area formula.
+      - text: '$10$'
         correct: false
-      - text: "$14$"
         rationale: |
-          You added the base and the height instead of multiplying them.
+          This adds the correct base and height instead of using the area formula. Both geometric lengths are correct. Check that area is not a sum of lengths.
+      - text: '$14$'
         correct: false
+        rationale: |
+          This uses four as the base and seven as the height. Both numbers appear in the coordinate data. Check the actual base endpoints and perpendicular height.
     explanation: |
-      1. Base $AB$ is horizontal along $y = 7$: $\text{base} = |8 - 2| = 6$.
-      2. Perpendicular height $h$ is vertical distance from $C(5, 3)$ to $y = 7$: $h = |7 - 3| = 4$.
-      3. Triangle area $= \frac{1}{2} \times \text{base} \times h = \frac{1}{2} \times 6 \times 4 = 12$.
-
-      Common Trap: Forgetting to divide by $2$ gives $6 \times 4 = 24$.
+      AB is horizontal with length $8-2=6$. The perpendicular height from C to that base is $7-3=4$. The triangle area is $\dfrac{1}{2}(6)(4)=12$ square units.
 
   - id: q-geometry-coordinate-geometry-0009
     type: direct-computation
     difficulty: medium
     stem: |
-      Convert point-slope equation $y - 4 = -\frac{2}{3}(x + 6)$ into standard form $Ax + By = C$, where $A, B, C$ are integers and $A > 0$.
+      Convert point-slope equation $y - 4 = -\dfrac{2}{3}(x + 6)$ into standard form $Ax + By = C$, where $A, B, C$ are integers and $A > 0$.
     choices:
-      - text: "$2x + 3y = 0$"
+      - text: '$2x + 3y = 0$'
         correct: true
-      - text: "$2x + 3y = 24$"
-        rationale: |
-          You dropped the $-12$ from one side. Both sides carry it, so they cancel
-          and the constant is 0.
+      - text: '$2x + 3y = 24$'
         correct: false
-      - text: "$2x - 3y = 0$"
         rationale: |
-          You have the sign on the $y$ term wrong. Multiplying through leaves $+3y$
-          on the left.
+          This changes the sign of the right-side constant when distributing. Both sides contain a constant twelve. Check distribution with the sign of negative two.
+      - text: '$2x - 3y = 0$'
         correct: false
-      - text: "$3x + 2y = 0$"
         rationale: |
-          You attached the 3 to $x$ and the 2 to $y$. The 3 comes from clearing the
-          denominator under the $x$ term.
+          This negates only the y coefficient when rearranging. Moving a term can involve a sign change. Check that the original slope is still negative.
+      - text: '$3x + 2y = 0$'
         correct: false
+        rationale: |
+          This swaps the standard-form coefficients. Both coefficients occur in the equation. Check which coefficient belongs to each variable.
     explanation: |
-      1. Multiply entire equation by $3$ to clear fraction:
-         $$3(y - 4) = -2(x + 6) \implies 3y - 12 = -2x - 12$$
-      2. Move $x$-term to left side and constant to right side:
-         $$2x + 3y = -12 + 12 \implies 2x + 3y = 0$$
-
-      Common Trap: Moving $-12$ with sign error leads to $2x + 3y = 24$.
+      Multiply the point-slope equation by $3$: $3y-12=-2x-12$. Add $2x$ and $12$ to both sides. This gives standard form $2x+3y=0$.
 
   - id: q-geometry-coordinate-geometry-0010
     type: direct-computation
@@ -293,33 +217,22 @@ questions:
     stem: |
       Three points $A(-1, k)$, $B(2, 5)$, and $C(5, 11)$ lie on the same straight line in the Cartesian plane. What is the value of $k$?
     choices:
-      - text: "$-1$"
+      - text: '$-1$'
         correct: true
-      - text: "$1$"
-        rationale: |
-          You have the sign backwards. Working back from $B$ with a slope of 2 gives
-          $5 - 6$, which is $-1$.
+      - text: '$1$'
         correct: false
-      - text: "$-2$"
         rationale: |
-          You used a slope of 1 rather than 2. Between $B$ and $C$ the rise is 6
-          over a run of 3.
+          This reverses the final sign when solving five minus k equals six. The magnitude one appears in the result. Check the solved value in the original equation.
+      - text: '$2$'
         correct: false
-      - text: "$2$"
         rationale: |
-          You went up from $B$ instead of down. $A$ sits to the left, so the value
-          is lower.
+          This uses a slope of one from dividing the y-change by itself. That rate is easier to use. Check that slope divides y-change by x-change.
+      - text: '$11$'
         correct: false
+        rationale: |
+          This moves upward from B by six instead of downward. The rise of six is correct in magnitude. Check that A lies left of B on a positively sloped line.
     explanation: |
-      Collinear points have equal slopes between any pair of points.
-
-      1. Calculate slope of line using points $B$ and $C$:
-         $$m = \frac{11 - 5}{5 - 2} = \frac{6}{3} = 2$$
-      2. Set slope between $A$ and $B$ equal to $2$:
-         $$\frac{5 - k}{2 - (-1)} = 2 \implies \frac{5 - k}{3} = 2 \implies 5 - k = 6$$
-      3. Solve for $k$: $k = 5 - 6 = -1$.
-
-      Common Trap: Sign error solving $5 - k = 6 \implies k = 1$.
+      From B to C, the slope is $\dfrac{11-5}{5-2}=2$. From B to A, x decreases by $3$, so y decreases by $2(3)=6$. Thus $k=5-6=-1$.
 
   - id: q-geometry-coordinate-geometry-0011
     type: direct-computation
@@ -327,29 +240,22 @@ questions:
     stem: |
       What is the standard form equation $Ax + By = C$ of the line perpendicular to $3x - 4y = 12$ that passes through point $(6, -1)$?
     choices:
-      - text: "$4x + 3y = 21$"
+      - text: '$4x + 3y = 21$'
         correct: true
-      - text: "$3x - 4y = 22$"
-        rationale: |
-          You kept the original line's coefficients. A perpendicular swaps them and
-          changes one sign.
+      - text: '$3x - 4y = 22$'
         correct: false
-      - text: "$4x - 3y = 27$"
         rationale: |
-          You swapped the coefficients but kept the sign. The perpendicular slope is
-          negative here.
+          This keeps the original slope and only changes the intercept. The point still determines a constant. Check that the new slope product is negative one.
+      - text: '$4x - 3y = 27$'
         correct: false
-      - text: "$4x + 3y = 27$"
         rationale: |
-          You have the right shape and the wrong constant. Substituting the point
-          gives 21.
+          This inverts the original slope without negating it. A reciprocal is needed. Check the slope product.
+      - text: '$4x + 3y = 27$'
         correct: false
+        rationale: |
+          This substitutes positive one instead of negative one for y. The point's coordinate magnitude is one. Check the sign of the given point coordinate.
     explanation: |
-      1. Slope of $3x - 4y = 12$ is $m_1 = \frac{3}{4}$.
-      2. Perpendicular slope $m_{\perp} = -\frac{4}{3}$.
-      3. Use point-slope form with $(6, -1)$:
-         $$y - (-1) = -\frac{4}{3}(x - 6) \implies y + 1 = -\frac{4}{3}x + 8$$
-      4. Multiply by $3$: $3y + 3 = -4x + 24 \implies 4x + 3y = 21$.
+      The given line has slope $\dfrac{3}{4}$. The perpendicular slope is $-\dfrac{4}{3}$. Through $(6,-1)$, write $y+1=-\dfrac{4}{3}(x-6)$. Multiply by $3$: $3y+3=-4x+24$. Rearrange to $4x+3y=21$.
 
   - id: q-geometry-coordinate-geometry-0012
     type: direct-computation
@@ -357,28 +263,22 @@ questions:
     stem: |
       Quadrilateral $OABC$ has vertices at $O(0, 0)$, $A(6, 0)$, $B(8, 5)$, and $C(2, 5)$ in the Cartesian plane. What is the area of parallelogram $OABC$?
     choices:
-      - text: "$30$"
+      - text: '$30$'
         correct: true
-      - text: "$15$"
-        rationale: |
-          You halved the area. This is a parallelogram, not a triangle, so there is
-          no halving step.
+      - text: '$15$'
         correct: false
-      - text: "$40$"
         rationale: |
-          You used a base of 8 rather than the 6 along the axis.
+          This uses the triangle one-half factor. The diagonal can split the shape into triangles. Check which shape's area is requested.
+      - text: '$40$'
         correct: false
-      - text: "$20$"
         rationale: |
-          You used a height of 4 instead of 5. The height is the vertical distance
-          up to $y = 5$.
+          This uses eight as the base length. Eight is the largest x-coordinate. Check the actual base endpoints.
+      - text: '$20$'
         correct: false
+        rationale: |
+          This uses the horizontal difference between A and C as the base. Both x-values are given for vertices. Check that the base is OA, not AC.
     explanation: |
-      1. Base $OA$ lies along the x-axis: $\text{base} = |6 - 0| = 6$.
-      2. Perpendicular height $h$ is the vertical y-distance: $h = 5 - 0 = 5$.
-      3. Parallelogram area $= \text{base} \times h = 6 \times 5 = 30$.
-
-      Common Trap: Dividing by $2$ ($15$) as if calculating triangle area.
+      The base OA lies on the x-axis and has length $6$. The opposite side lies at $y=5$, so the perpendicular height is $5$. The parallelogram area is $6(5)=30$ square units.
 
   - id: q-geometry-coordinate-geometry-0013
     type: direct-computation
@@ -386,32 +286,22 @@ questions:
     stem: |
       The equation of a circle is $x^2 + y^2 - 6x + 8y - 11 = 0$. What are the center coordinates $(h, k)$ and the radius $r$ of the circle?
     choices:
-      - text: "Center $(3, -4)$, Radius $6$"
+      - text: 'Center $(3, -4)$, Radius $6$'
         correct: true
-      - text: "Center $(-3, 4)$, Radius $6$"
-        rationale: |
-          You read the centre straight off the equation without flipping the signs.
-          Completing the square turns $-6x$ into $(x - 3)$.
+      - text: 'Center $(-3, 4)$, Radius $6$'
         correct: false
-      - text: "Center $(3, -4)$, Radius $36$"
         rationale: |
-          You stopped at $36$. That is the radius squared, and the radius is its
-          root.
+          This keeps the signs of the half-coefficients as the center signs. The equation contains negative six x and positive eight y. Check the signs inside the squared expressions.
+      - text: 'Center $(3, -4)$, Radius $36$'
         correct: false
-      - text: "Center $(-6, 8)$, Radius $11$"
         rationale: |
-          You used the coefficients themselves as the centre and the constant as the
-          radius. Both come out of completing the square instead.
+          This reports the radius squared. Thirty-six is found after completing squares. Check that the radius is a positive length.
+      - text: 'Center $(-6, 8)$, Radius $11$'
         correct: false
+        rationale: |
+          This treats coefficients and the constant as center and radius directly. Those numbers are printed in the equation. Complete the squares before reading the circle parameters.
     explanation: |
-      Complete the square for $x$ and $y$:
-
-      1. Group terms: $(x^2 - 6x) + (y^2 + 8y) = 11$.
-      2. Add $(6/2)^2 = 9$ and $(8/2)^2 = 16$ to both sides:
-         $$(x^2 - 6x + 9) + (y^2 + 8y + 16) = 11 + 9 + 16 \implies (x - 3)^2 + (y + 4)^2 = 36$$
-      3. Center $(h, k) = (3, -4)$ and radius $r = \sqrt{36} = 6$.
-
-      Common Trap: Sign errors for center coordinates $(-3, 4)$ or forgetting square root of radius ($36$).
+      Rearrange the circle equation: $x^2-6x+y^2+8y=11$. Add $9+16$ to complete both squares. This gives $(x-3)^2+(y+4)^2=36$. In the circle form $(x-h)^2+(y-k)^2=r^2$, the center is $(3,-4)$ and the radius is $\sqrt{36}=6$.
 
   - id: q-geometry-coordinate-geometry-0014
     type: direct-computation
@@ -419,29 +309,22 @@ questions:
     stem: |
       At what point $(x, y)$ do lines $2x + 3y = 13$ and $5x - 2y = 4$ intersect?
     choices:
-      - text: "$(2, 3)$"
+      - text: '$(2, 3)$'
         correct: true
-      - text: "$(3, 2)$"
-        rationale: |
-          You swapped the two coordinates. Solving gives $x = 2$ and $y = 3$.
+      - text: '$(3, 2)$'
         correct: false
-      - text: "$(1, 4)$"
         rationale: |
-          You solved only one equation. This pair fits the first equation but not
-          the second.
+          This swaps the solved coordinates. Both coordinate values were found. Check the x-then-y order.
+      - text: '$(1, 4)$'
         correct: false
-      - text: "$(-2, 5)$"
         rationale: |
-          You made $x$ negative. Eliminating leaves a positive $x$ here.
+          This assumes x equals one and rounds the first equation's y value to four. Small whole coordinates can look natural. Check the exact pair in both equations without rounding.
+      - text: '$(-2, 5)$'
         correct: false
+        rationale: |
+          This makes the solved x negative and truncates its first-equation y value to five. A nearby whole-number pair can look like a valid answer. Check the exact pair in both equations without truncating.
     explanation: |
-      Solve the system of equations by elimination:
-
-      1. Multiply first equation by $2$: $4x + 6y = 26$.
-      2. Multiply second equation by $3$: $15x - 6y = 12$.
-      3. Add equations: $19x = 38 \implies x = 2$.
-      4. Substitute $x = 2$ into $2(2) + 3y = 13 \implies 4 + 3y = 13 \implies 3y = 9 \implies y = 3$.
-      5. Point of intersection is $(2, 3)$.
+      Multiply the first equation by $2$ to get $4x+6y=26$. Multiply the second by $3$ to get $15x-6y=12$. Add: $19x=38$, so $x=2$. Substitute into the first: $4+3y=13$, giving $y=3$. The intersection is $(2,3)$.
 
   - id: q-geometry-coordinate-geometry-0015
     type: direct-computation
@@ -449,28 +332,124 @@ questions:
     stem: |
       Line $L$ given by equation $3x + 4y = 20$ intersects the axes to form a right triangle with the origin. What is the shortest perpendicular distance from origin $(0, 0)$ to line $L$?
     choices:
-      - text: "$4$"
+      - text: '$4$'
         correct: true
-      - text: "$5$"
-        rationale: |
-          You used one of the intercepts as the distance. The distance to a line is
-          measured along the perpendicular, not along an axis.
+      - text: '$5$'
         correct: false
-      - text: '$\frac{20}{3}$'
         rationale: |
-          You used the other intercept. The perpendicular distance is shorter than
-          both.
+          This reports the y-intercept distance along an axis. The line does meet that axis there. Check that distance to a line follows a perpendicular.
+      - text: '$\dfrac{20}{3}$'
         correct: false
-      - text: "$20$"
         rationale: |
-          You stopped at the numerator. It still has to be divided by the root of
-          $3^2 + 4^2$, which is 5.
+          This reports the x-intercept distance along an axis. The line does meet that axis there. Check that distance to a line follows a perpendicular.
+      - text: '$20$'
         correct: false
+        rationale: |
+          This stops at the formula numerator. The numerator is correctly found. Check that the normal-length denominator is used.
     explanation: |
-      Distance $d$ from point $(x_0, y_0)$ to line $Ax + By + C = 0$:
-      $$d = \frac{|A x_0 + B y_0 + C|}{\sqrt{A^2 + B^2}}$$
+      The distance from $(x_0,y_0)$ to $Ax+By+C=0$ is $\dfrac{|Ax_0+By_0+C|}{\sqrt{A^2+B^2}}$. Here the line is $3x+4y-20=0$. At the origin this gives $\dfrac{20}{\sqrt{3^2+4^2}}=\dfrac{20}{5}=4$ units.
 
-      1. For line $3x + 4y - 20 = 0$ and point $(0,0)$:
-         $$d = \frac{|3(0) + 4(0) - 20|}{\sqrt{3^2 + 4^2}} = \frac{|-20|}{\sqrt{9 + 16}} = \frac{20}{\sqrt{25}} = \frac{20}{5} = 4$$
+  - id: q-geometry-coordinate-geometry-0016
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      Which description of the line $x=5$ is correct?
+    choices:
+      - text: 'Vertical, undefined slope.'
+        correct: true
+      - text: 'Horizontal, zero slope.'
+        rationale: |
+          This uses the slope of a horizontal line for a vertical line. Both keep one coordinate constant. Check which coordinate is fixed.
+      - text: 'Vertical, slope $5$.'
+        rationale: |
+          This treats the fixed x value as slope. Five appears in the equation. Check that slope is a ratio of coordinate changes.
+      - text: 'Horizontal, undefined slope.'
+        rationale: |
+          This confuses the vertical and horizontal descriptions. Both types keep one coordinate constant. Check that fixed x means a vertical line.
+    explanation: |
+      Every point on this line has the same x-coordinate. Any two distinct points have zero horizontal change. The slope would divide by zero, so it is undefined.
+    approved: false
 
-      Common Trap: Reporting the y-intercept ($5$) or x-intercept ($\frac{20}{3}$) instead of perpendicular distance.
+  - id: q-geometry-coordinate-geometry-0017
+    type: error-spotting
+    difficulty: medium
+    stem: |
+      A student finds the slope through $(1,2)$ and $(4,8)$ as $\dfrac{8-2}{1-4}=-2$. What correction is needed?
+    choices:
+      - text: 'Use the same subtraction order in both parts.'
+        correct: true
+      - text: 'Square both differences before dividing them.'
+        rationale: |
+          This uses distance-formula operations for slope. Both formulas use coordinate differences. Check which measurement is requested.
+      - text: 'Add the coordinates in both parts instead.'
+        rationale: |
+          This uses midpoint-style sums for slope. The same coordinates are involved. Check the rise-over-run differences.
+      - text: 'Treat the negative slope as undefined.'
+        rationale: |
+          This confuses negative slope with zero run. Both can seem unusual. Check that a defined negative number is still a slope.
+    explanation: |
+      The numerator subtracts the first point from the second. The denominator must use that same order: $4-1=3$. Thus the slope is $\dfrac{8-2}{4-1}=\dfrac{6}{3}=2$.
+    approved: false
+
+  - id: q-geometry-coordinate-geometry-0018
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A map grid marks the midpoint of a straight path as $M(1,-3)$. One endpoint is $A(6,2)$. What are the coordinates of the other endpoint B?
+    choices:
+      - text: '$(-4,-8)$'
+        correct: true
+      - text: '$(3.5,-0.5)$'
+        rationale: |
+          This finds the midpoint of A and M instead of the missing endpoint. Both given points are averaged. Check that M is already the midpoint.
+      - text: '$(5,5)$'
+        rationale: |
+          This reports the displacement from M to A as a location. That displacement helps reflect A across M. Check that the result is an endpoint coordinate, not a change.
+      - text: '$(-5,-5)$'
+        rationale: |
+          This reports the displacement from A to M. That change must be repeated from M. Check that it is added to the midpoint coordinates.
+    explanation: |
+      The midpoint averages the endpoints. Thus $x_B=2(1)-6=-4$ and $y_B=2(-3)-2=-8$. The other endpoint is $(-4,-8)$.
+    approved: false
+
+  - id: q-geometry-coordinate-geometry-0019
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      Which pair of distinct lines is perpendicular even though the product-of-slopes test cannot be used?
+    choices:
+      - text: '$x=2$ and $y=7$.'
+        correct: true
+      - text: '$x=2$ and $x=7$.'
+        rationale: |
+          This treats two undefined slopes as a perpendicular pair. Both lines are vertical. Check their directions, which are parallel.
+      - text: '$y=2$ and $y=7$.'
+        rationale: |
+          This treats two zero slopes as a perpendicular pair. Both lines are horizontal. Check that they are parallel.
+      - text: '$y=2x$ and $y=-2x$.'
+        rationale: |
+          This negates a slope without taking its reciprocal. The lines tilt in opposite directions. Check that defined perpendicular slopes multiply to negative one.
+    explanation: |
+      The first line is vertical and has undefined slope. The second is horizontal and has slope zero. A vertical line and a horizontal line meet at a right angle, so they are perpendicular even though one slope is undefined.
+    approved: false
+
+  - id: q-geometry-coordinate-geometry-0020
+    type: word-problem
+    difficulty: exam
+    stem: |
+      On a coordinate map, a straight route is parallel to $2x+3y=9$ and passes through $(3,2)$. Which equation describes the route?
+    choices:
+      - text: '$2x+3y=12$'
+        correct: true
+      - text: '$2x+3y=9$'
+        rationale: |
+          This keeps the original line without checking the new point. Parallel lines do share slope. Check that the required point satisfies the equation.
+      - text: '$3x-2y=5$'
+        rationale: |
+          This constructs a perpendicular line through the point. Swapping coefficients and changing one sign produces a right-angle slope. Check whether parallel or perpendicular is requested.
+      - text: '$2x+3y=13$'
+        rationale: |
+          This swaps the point coordinates before substituting. Both numbers belong to the point. Check that the first coordinate is x and the second is y.
+    explanation: |
+      The original slope is $-\dfrac{2}{3}$. A parallel route keeps the same coefficients and has form $2x+3y=C$. Substitute $(3,2)$: $C=2(3)+3(2)=12$. Thus its equation is $2x+3y=12$.
+    approved: false
