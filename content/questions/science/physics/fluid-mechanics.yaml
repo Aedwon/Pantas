@@ -332,9 +332,9 @@ questions:
       - text: "$120\\,\\mathrm{Pa}$"
         rationale: |
           This multiplies $600$ by $0.20$. Both are given quantities. Check that pressure is force per area.
-      - text: "$600\\,\\mathrm{Pa}$"
+      - text: "$15000\\,\\mathrm{Pa}$"
         rationale: |
-          This reports force as pressure without dividing by area. The force is prominent. Check the units of a pascal.
+          This squares the area value again before dividing. Area is already given in square meters. Check that the pressure formula uses the stated area only once.
       - text: "$300\\,\\mathrm{Pa}$"
         rationale: |
           This divides by $2.0$ instead of $0.20$. A decimal place was lost. Check the area as written.
