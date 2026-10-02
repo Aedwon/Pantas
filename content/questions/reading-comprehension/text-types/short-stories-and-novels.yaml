@@ -3,237 +3,555 @@ meta:
   topic: text-types
   subtopic: short-stories-and-novels
   exams:
-    - upcat
-    - acet
-    - dlsucet
-    - ustet
-
+  - upcat
+  - acet
+  - dlsucet
+  - ustet
 passages:
-  - id: rc-tt-sn-p1
-    title: "The Marikina Forge"
-    body: |
-      The heat from the anvil rose in shimmering waves against Mateo's face as he hammered the glowing strip of leaf-spring steel. In the small Marikina workshop, Mang Tomas sat quietly on a wooden bench, smoking a clove cigarette and watching his apprentice's rhythm without uttering a single instruction. Mateo raised the heavy mallet for a sixth strike, eager to flatten the blade before the metal cooled from bright cherry red to dull orange.
+- id: rc-tt-sn-p1
+  title: The Marikina Forge
+  body: |
+    The heat from the anvil rose in shimmering waves against Mateo's face as he hammered the glowing strip of leaf-spring steel. In the small Marikina workshop, Mang Tomas sat quietly on a wooden bench, smoking a clove cigarette and watching his apprentice's rhythm without uttering a single instruction. Mateo raised the heavy mallet for a sixth strike, eager to flatten the blade before the metal cooled from bright cherry red to dull orange.
 
-      His arms burned with fatigue, yet a stubborn pride pushed him to swing faster. He wanted to prove that six months of apprenticeship had earned him the right to forge a complete kitchen knife independently. But as his hammer struck the hot edge, a hairline crack opened near the tang, splintering the glowing metal.
+    His arms burned with fatigue, yet a stubborn pride pushed him to swing faster. He wanted to prove that six months of apprenticeship had earned him the right to forge a complete kitchen knife independently. But as his hammer struck the hot edge, a hairline crack opened near the tang, splintering the glowing metal.
 
-      Mateo froze, expecting a sharp reprimand. Instead, Mang Tomas stood up, extinguished his cigarette in an iron dish, and laid a heavy hand on Mateo's shoulder. "A knife forced by speed is already broken inside," the old smith said softly, retrieving a fresh steel bar from the rack. "Heat it again, and let the fire teach your hammer patience."
+    Mateo froze, expecting a sharp reprimand. Instead, Mang Tomas stood up, extinguished his cigarette in an iron dish, and laid a heavy hand on Mateo's shoulder. "A knife forced by speed is already broken inside," the old smith said softly, retrieving a fresh steel bar from the rack. "Heat it again, and let the fire teach your hammer patience."
+- id: rc-tt-sn-p2
+  title: Night Watch at the Pier
+  body: |
+    Heavy rain lashed the corrugated tin roof of Pier 14 as Benjamin shined his flashlight across the rows of stacked shipping containers. At two in the morning, the Manila port yard was a maze of dark shadows and slick asphalt. He was twenty minutes from finishing his eight-hour shift when a metallic banging caught his attention near container cluster B.
 
-  - id: rc-tt-sn-p2
-    title: "Night Watch at the Pier"
-    body: |
-      Heavy rain lashed the corrugated tin roof of Pier 14 as Benjamin shined his flashlight across the rows of stacked shipping containers. At two in the morning, the Manila port yard was a maze of dark shadows and slick asphalt. He was twenty minutes from finishing his eight-hour shift when a metallic banging caught his attention near container cluster B.
+    Stepping closer, Benjamin saw that a heavy steel latch on a high-cube container had worked itself loose, swinging rhythmically against the corrugated wall with every gust of wind. Company protocol required night watchmen to secure unlatched doors immediately to prevent cargo theft and rainwater damage. However, reaching the upper latch meant climbing a rain-slicked iron ladder in near-zero visibility.
 
-      Stepping closer, Benjamin saw that a heavy steel latch on a high-cube container had worked itself loose, swinging rhythmically against the corrugated wall with every gust of wind. Company protocol required night watchmen to secure unlatched doors immediately to prevent cargo theft and rainwater damage. However, reaching the upper latch meant climbing a rain-slicked iron ladder in near-zero visibility.
+    His wet gloves slipped on his flashlight as another thunderclap shook the yard. Pausing at the base of the ladder, Benjamin looked back toward the warmth of the guardhouse, then unclipped his safety harness and hooked it to the lower ladder rung.
+- id: p-text-types-short-stories-and-novels-0003
+  title: The Empty Chair
+  body: |
+    Lina arrived early to arrange chairs for the neighborhood reading circle. She placed six in a neat row and left the seventh beside the doorway. Her brother Noel used to sit there, checking every new book for torn pages before anyone else could read it.
 
-      His wet gloves slipped on his flashlight as another thunderclap shook the yard. Pausing at the base of the ladder, Benjamin looked back toward the warmth of the guardhouse, then unclipped his safety harness and hooked it to the lower ladder rung.
+    When the first children entered, Lina put a stack of stories on the vacant seat. She had told everyone that Noel was away for work. The truth was that the siblings had argued about the circle's money, and he had stopped coming.
 
+    A girl reached for a book, then paused. "Does someone need this chair?" she asked. Lina almost said no. Instead, she moved the books to the table and turned the chair toward the others.
+
+    After the children left, Lina opened the accounts notebook. The figures were correct, but the words she had shouted at Noel were still wrong. She copied his number from an old receipt. Outside, a tricycle rattled past. Lina held the phone until the sound faded, then pressed the first digit.
+- id: p-text-types-short-stories-and-novels-0004
+  title: The Flood Line
+  body: |
+    Every rainy season, Ben chalked a line on the wall of his small repair shop. It marked the height of the worst flood he could remember. Customers joked that the wall was his calendar. He smiled, but kept tools on the highest shelf.
+
+    One afternoon, water began sliding under the door. Ben lifted a radio he had promised to repair that day. His neighbor called from outside, urging him to leave while the street was still shallow. Ben looked at the radio, then at a photograph pinned above the shelf. The shop had belonged to his father, and leaving any job unfinished felt like breaking a promise.
+
+    He carried the radio upstairs, checked that the power was off, and locked the workshop. Across the street, his neighbor waited with an umbrella. "The owner will understand," she said.
+
+    Ben did not answer. At the corner he turned back. The chalk line was hidden behind the closed door, but he could still picture it. He stepped beside his neighbor and kept walking toward the shelter.
 questions:
-  - id: rc-tt-sn-0001
-    passage: rc-tt-sn-p1
-    type: identify
-    difficulty: easy
-    stem: |
-      What central conflict does Mateo experience in "The Marikina Forge"?
-    choices:
-      - text: Internal conflict between rushed desire and patient craftsmanship.
-        correct: true
-      - text: External conflict between himself and a hostile rival apprentice in Marikina.
-        rationale: |
-          You introduced a rival apprentice character who does not exist in the passage.
-      - text: Environmental conflict between his workshop and a sudden river flood.
-        rationale: |
-          You introduced a flood disaster that is not mentioned anywhere in the story.
-      - text: Financial conflict over the cost of purchasing imported steel bars.
-        rationale: |
-          You introduced a financial cost dispute that is outside the personal craftsmanship focus of the text.
-    explanation: |
-      Mateo's internal struggle pits his eager pride and desire to prove independence against the patient discipline needed to forge metal properly.
+- id: rc-tt-sn-0001
+  passage: rc-tt-sn-p1
+  type: feature-of-form
+  difficulty: medium
+  stem: 'What central conflict does Mateo experience in "The Marikina Forge"?
 
-  - id: rc-tt-sn-0002
-    passage: rc-tt-sn-p1
-    type: analyze
-    difficulty: medium
-    stem: |
-      Which scene in the excerpt represents the turning point or climax of the narrative?
-    choices:
-      - text: The moment a hairline crack splinters the glowing steel edge.
-        correct: true
-      - text: Mang Tomas sitting quietly on the bench smoking a clove cigarette.
-        rationale: |
-          You picked a quiet background scene from the exposition rather than the moment of highest tension (the climax).
-      - text: Mateo heating the initial leaf-spring steel bar in the forge.
-        rationale: |
-          You picked an opening action from the exposition before the conflict reaches its peak.
-      - text: Mang Tomas retrieving a fresh steel bar from the workshop rack.
-        rationale: |
-          You picked part of the resolution after the climax has already occurred.
-    explanation: |
-      The cracking of the steel is the moment of highest tension and turning point (climax) where Mateo's rushed hammering fails and forces a resolution.
+    '
+  choices:
+  - text: Pride pushes him to rush work that requires patience.
+    correct: true
+  - text: Fatigue convinces him that apprenticeship has no value.
+    rationale: 'This treats tired arms as a rejection of training. Fatigue is mentioned, so it looks like a motive. Check what Mateo hopes to prove.
 
-  - id: rc-tt-sn-0003
-    passage: rc-tt-sn-p1
-    type: infer
-    difficulty: medium
-    stem: |
-      What can be inferred about Mang Tomas's character from his reaction to the broken blade?
-    choices:
-      - text: He is a wise mentor who uses mistakes as teaching opportunities.
-        correct: true
-      - text: He is a harsh disciplinarian who fires apprentices for minor errors.
-        rationale: |
-          You picked a harsh character trait that directly contradicts Mang Tomas's calm and encouraging reaction.
-      - text: He is indifferent to the quality of the knives produced in his forge.
-        rationale: |
-          You inferred indifference, but his advice about fire and patience shows deep care for craftsmanship.
-      - text: He is eager to finish work early to leave the workshop.
-        rationale: |
-          You inferred impatience, which contradicts his patient explanation to Mateo.
-    explanation: |
-      Rather than reprimanding Mateo, Mang Tomas gently explains the lesson ("let the fire teach your hammer patience") and provides fresh steel, showing patient wisdom.
+      '
+  - text: His mentor refuses to let him try making a whole knife.
+    rationale: 'This turns the silent mentor into an obstacle. Mateo wants independence, which can suggest disagreement. Check whether Tomas actually stops him.
 
-  - id: rc-tt-sn-0004
-    passage: rc-tt-sn-p1
-    type: infer
-    difficulty: hard
-    stem: |
-      Based on the end of the excerpt, what will Mateo most likely do next?
-    choices:
-      - text: Place the fresh steel into the fire and forge it with patience.
-        correct: true
-      - text: Quit his apprenticeship and leave the Marikina workshop immediately.
-        rationale: |
-          You inferred quitting, but Mang Tomas's encouraging words set up Mateo to try again patiently.
-      - text: Sell the cracked steel blade to a neighboring market vendor.
-        rationale: |
-          You picked an action that ignores Mang Tomas handing him fresh steel to forge again.
-      - text: Argue with Mang Tomas about the temperature of the forge fire.
-        rationale: |
-          You inferred an argumentative conflict that contradicts Mateo's respect for his master's guidance.
-    explanation: |
-      Mang Tomas hands him a fresh bar and instructs him to heat it again and practice patience, setting up a slower second forging attempt.
+      '
+  - text: He must choose between making a knife and saving steel.
+    rationale: 'This treats material loss as the main struggle. A broken blade wastes steel, so that sounds relevant. Check the pressure driving Mateo before it breaks.
 
-  - id: rc-tt-sn-0005
-    passage: rc-tt-sn-p1
-    type: evaluate
-    difficulty: hard
-    stem: |
-      Which statement best expresses the underlying theme of "The Marikina Forge"?
-    choices:
-      - text: Craft requires discipline and patience over rushed pride.
-        correct: true
-      - text: Apprentice blacksmiths should avoid using heavy mallets.
-        rationale: |
-          You picked a narrow tool tip rather than the story's deeper moral lesson about patience and craftsmanship.
-      - text: Clove cigarettes are essential for managing workshop fatigue.
-        rationale: |
-          You picked a minor character detail about Mang Tomas, mistaking it for the main theme.
-      - text: Kitchen knives forged in Marikina are always prone to cracking.
-        rationale: |
-          You picked a negative generalization that misses the moral theme of learning from mistakes.
-    explanation: |
-      The story illustrates how rushing due to pride leads to broken work, while true craftsmanship depends on patient discipline.
+      '
+  explanation: 'Mateo wants to prove he can make a knife on his own. His pride makes him hammer faster even as his arms tire. The cracked blade shows the cost of rushing a skill that needs patience.
 
-  - id: rc-tt-sn-0006
-    passage: rc-tt-sn-p2
-    type: identify
-    difficulty: easy
-    stem: |
-      What type of conflict is introduced in "Night Watch at the Pier"?
-    choices:
-      - text: Conflict between professional duty and personal safety during a storm.
-        correct: true
-      - text: Physical combat between Benjamin and cargo thieves inside the container.
-        rationale: |
-          You introduced a physical fight with thieves that is not described in the story.
-      - text: Legal dispute between Benjamin and the Manila port authority over wages.
-        rationale: |
-          You picked an administrative wage dispute not mentioned in the narrative.
-      - text: Personal disagreement between Benjamin and a fellow night watchman.
-        rationale: |
-          You introduced a rival watchman character who does not appear in the text.
-    explanation: |
-      Benjamin is torn between the safety protocol requiring him to climb a slippery ladder to secure the latch and the danger/discomfort of rain and fatigue.
+    '
+- id: rc-tt-sn-0002
+  passage: rc-tt-sn-p1
+  type: feature-of-form
+  difficulty: medium
+  stem: 'Which event is the main turning point in Mateo''s attempt to prove himself?
 
-  - id: rc-tt-sn-0007
-    passage: rc-tt-sn-p2
-    type: analyze
-    difficulty: medium
-    stem: |
-      How does the setting of Pier 14 contribute to the mood of the passage?
-    choices:
-      - text: Heavy rain and thunderclaps create a tense atmosphere.
-        correct: true
-      - text: Bright sunshine and calm sea breezes create a cheerful and relaxed mood.
-        rationale: |
-          You picked a weather setting opposite to the midnight storm described in the text.
-      - text: Busy market crowds and street music create a festive holiday environment.
-        rationale: |
-          You picked a cheerful market setting that contradicts the dark, rain-soaked port yard.
-      - text: Quiet air-conditioned office rooms create an academic research setting.
-        rationale: |
-          You picked an indoor office setting that does not match the outdoor pier environment.
-    explanation: |
-      The midnight storm, dark container maze, slick ladder, and thunderclaps build a tense, hazardous mood.
+    '
+  choices:
+  - text: The steel cracks under his hammer.
+    correct: true
+  - text: He notices heat rising against his face.
+    rationale: 'This treats the opening setting as a turning point. The strong heat is vivid and easy to remember. Check which event changes how his attempt ends.
 
-  - id: rc-tt-sn-0008
-    passage: rc-tt-sn-p2
-    type: infer
-    difficulty: medium
-    stem: |
-      What does Benjamin's action of unclipping his safety harness at the base of the ladder indicate?
-    choices:
-      - text: He has decided to climb the ladder despite the storm.
-        correct: true
-      - text: He has decided to abandon his job and run back to the guardhouse.
-        rationale: |
-          You picked an action opposite to Benjamin's choice to attach his harness and climb the ladder.
-      - text: He is handing his equipment to a replacement watchman.
-        rationale: |
-          You introduced a secondary character who is not present in the scene.
-      - text: He is throwing his flashlight into the sea.
-        rationale: |
-          You picked a random destructive action unsupported by the text.
-    explanation: |
-      Hooking his safety harness to the ladder shows he is preparing to climb up and secure the loose container latch.
+      '
+  - text: He raises the mallet for a sixth strike.
+    rationale: 'This selects the buildup to the change. That strike seems important because it comes close to the failure. Check when the attempt actually goes wrong.
 
-  - id: rc-tt-sn-0009
-    passage: rc-tt-sn-p2
-    type: infer
-    difficulty: hard
-    stem: |
-      What can a reader reasonably infer about Benjamin's character from this excerpt?
-    choices:
-      - text: He is a responsible worker who takes his duty seriously.
-        correct: true
-      - text: He is a careless watchman who frequently sleeps inside the guardhouse.
-        rationale: |
-          You picked a negative characterization that contradicts Benjamin leaving the guardhouse to check a noise.
-      - text: He is an inexperienced worker who does not know port safety protocols.
-        rationale: |
-          You inferred inexperience, but Benjamin specifically follows company safety protocols despite the storm.
-      - text: He is a suspicious character planning to steal container cargo.
-        rationale: |
-          You inferred criminal intent unsupported by Benjamin's duty to protect cargo.
-    explanation: |
-      Choosing to inspect the banging noise and climb a wet ladder near the end of a long shift demonstrates his conscientiousness and commitment to duty.
+      '
+  - text: Tomas gives him another steel bar.
+    rationale: 'This selects the response after the change. Fresh steel begins a new attempt, so it can look decisive. Check what first ends the original attempt.
 
-  - id: rc-tt-sn-0010
-    passage: rc-tt-sn-p2
-    type: evaluate
-    difficulty: hard
-    stem: |
-      Which characteristic feature of fiction excerpts is demonstrated by the ending of this passage?
-    choices:
-      - text: It ends at a moment of suspense before action is complete.
-        correct: true
-      - text: It presents a complete historical timeline of Manila port construction.
-        rationale: |
-          You misidentified fiction as a non-fiction historical timeline of port construction.
-      - text: It lists verified statistics on container shipping revenue.
-        rationale: |
-          You misidentified the story as a statistical report on shipping revenue.
-      - text: It provides an authorial footnote explaining port legal codes.
-        rationale: |
-          You misidentified the narrative ending as a legal textbook footnote.
-    explanation: |
-      Fiction excerpts frequently conclude at a pivotal moment of suspense (preparing to climb the ladder), inviting the reader to infer what follows based on character setup.
+      '
+  explanation: 'The blade cracks while Mateo is rushing to finish it. His attempt to prove himself fails at that point. The story then moves toward Tomas''s guidance and a fresh start.
+
+    '
+- id: rc-tt-sn-0003
+  passage: rc-tt-sn-p1
+  type: inferencing-and-conclusions
+  difficulty: medium
+  stem: 'What does Mang Tomas''s response to the broken blade suggest about him?
+
+    '
+  choices:
+  - text: He treats mistakes as chances to teach.
+    correct: true
+  - text: He treats silence as proof that work meets his standards.
+    rationale: 'This mistakes watching quietly for approval. Tomas is silent before the crack, which can seem accepting. Check what his later advice says about the work.
+
+      '
+  - text: He believes fatigue alone caused the failed attempt.
+    rationale: 'This makes tired arms the whole cause. The passage mentions fatigue, so the cause sounds reasonable. Check what Tomas says about speed and patience.
+
+      '
+  - text: He values fast production more than an apprentice's progress.
+    rationale: 'This reads the fresh bar as pressure to produce quickly. Replacing material may suggest more work. Check the pace his advice asks Mateo to use.
+
+      '
+  explanation: 'Tomas speaks gently, explains the need for patience, and offers fresh steel. These actions show that he wants Mateo to learn and try again.
+
+    '
+- id: rc-tt-sn-0004
+  passage: rc-tt-sn-p1
+  type: inferencing-and-conclusions
+  difficulty: hard
+  stem: 'What next action is most strongly prepared by the end of Mateo''s excerpt?
+
+    '
+  choices:
+  - text: Beginning another attempt with the fresh steel.
+    correct: true
+  - text: Completing a flawless knife before the workshop closes.
+    rationale: 'This turns a new chance into a guaranteed success. The mentor''s advice creates hope, so success may feel certain. Check whether the excerpt shows the finished result.
+
+      '
+  - text: Returning to the cracked blade to finish the same knife.
+    rationale: 'This assumes the original attempt continues. Mateo still wants a knife, so that goal can make the guess seem reasonable. Check what material Tomas supplies.
+
+      '
+  - text: Working alone without any further help from his mentor.
+    rationale: 'This turns Mateo''s wish into an achieved condition. He wanted independence at the start. Check how the final scene still involves his mentor.
+
+      '
+  explanation: 'Tomas provides another bar and tells Mateo to heat it again. This prepares a second attempt. The excerpt ends before showing its result.
+
+    '
+- id: rc-tt-sn-0005
+  passage: rc-tt-sn-p1
+  type: feature-of-form
+  difficulty: hard
+  stem: 'Which statement best expresses a theme supported by Mateo''s excerpt?
+
+    '
+  choices:
+  - text: Patient practice helps skill develop.
+    correct: true
+  - text: Independence requires rejecting a mentor's advice.
+    rationale: 'This treats independence as refusing help. Mateo wants to work alone, which gives the idea some appeal. Check how the mentor helps him after the failure.
+
+      '
+  - text: Physical strength is the main measure of craftsmanship.
+    rationale: 'This makes hammering strength the main lesson. Mateo''s tired arms draw attention to effort. Check what the broken blade and final advice reveal.
+
+      '
+  - text: A mistake proves that a person cannot learn a craft.
+    rationale: 'This treats one failed attempt as a final limit. The damaged blade is a clear failure. Check why Tomas offers another bar.
+
+      '
+  explanation: 'The rushed attempt produces a cracked blade. Tomas''s advice and the fresh steel give Mateo a chance to learn a slower, more careful way of working.
+
+    '
+- id: rc-tt-sn-0006
+  passage: rc-tt-sn-p2
+  type: feature-of-form
+  difficulty: medium
+  stem: 'Which conflict is most clearly presented in "Night Watch at the Pier"?
+
+    '
+  choices:
+  - text: Duty competes with personal safety.
+    correct: true
+  - text: A worker's loyalty competes with a wish to steal cargo.
+    rationale: 'This turns a theft-prevention rule into the worker''s intent. Cargo theft is named in the protocol. Check whether Benjamin expresses any wish to steal.
+
+      '
+  - text: A worker's fatigue causes a dispute with his supervisor.
+    rationale: 'This adds a workplace argument. The long shift makes dissatisfaction plausible. Check whether a supervisor or argument appears.
+
+      '
+  - text: Protecting cargo requires choosing between two employers.
+    rationale: 'This turns a difficult task into a divided loyalty. Company rules are central to the scene. Check whether the text names a second employer.
+
+      '
+  explanation: 'Benjamin''s job calls for securing the loose latch. Reaching it means climbing a wet ladder in darkness during a storm. The task puts his duty and his safety in tension.
+
+    '
+- id: rc-tt-sn-0007
+  passage: rc-tt-sn-p2
+  type: feature-of-form
+  difficulty: medium
+  stem: 'How does the pier setting shape the mood of Benjamin''s excerpt?
+
+    '
+  choices:
+  - text: It makes an ordinary task feel hazardous.
+    correct: true
+  - text: It makes the port seem calm because the shift is nearly over.
+    rationale: 'This treats the approaching shift end as relief. Finishing work can sound reassuring. Check the rain, darkness, and slippery ladder.
+
+      '
+  - text: It makes the scene celebratory because thunder is dramatic.
+    rationale: 'This confuses striking sound with a festive mood. Thunder gives the scene energy. Check how it affects a worker facing a risky climb.
+
+      '
+  - text: It makes the task feel routine because the containers are orderly.
+    rationale: 'This assumes stacked containers create a sense of safety. An organized yard may seem familiar. Check how the text describes shadows and slick surfaces.
+
+      '
+  explanation: 'Rain, darkness, thunder, and slippery surfaces surround Benjamin. These details make the climb feel dangerous and create tension.
+
+    '
+- id: rc-tt-sn-0008
+  passage: rc-tt-sn-p2
+  type: inferencing-and-conclusions
+  difficulty: medium
+  stem: 'What is the safest inference from Benjamin attaching his harness to the ladder?
+
+    '
+  choices:
+  - text: He is preparing to attempt the climb.
+    correct: true
+  - text: He has already secured the high latch successfully.
+    rationale: 'This treats preparation as a completed task. The harness signals action, so completion may seem close. Check where Benjamin is when the excerpt ends.
+
+      '
+  - text: He has decided the climb cannot involve any risk.
+    rationale: 'This treats safety equipment as proof that danger is gone. A harness suggests protection. Check whether the storm and slippery ladder have changed.
+
+      '
+  - text: He has finished checking the yard and is ending his shift.
+    rationale: 'This treats the shift deadline as completion. His shift is almost over, so leaving may seem likely. Check what his final action prepares him to do.
+
+      '
+  explanation: 'Benjamin remains at the ladder and connects his harness to it. This shows preparation to climb. The passage has not yet shown the climb itself.
+
+    '
+- id: rc-tt-sn-0009
+  passage: rc-tt-sn-p2
+  type: inferencing-and-conclusions
+  difficulty: hard
+  stem: 'Which character judgment is best supported by Benjamin''s actions?
+
+    '
+  choices:
+  - text: He takes his work responsibilities seriously.
+    correct: true
+  - text: He enjoys danger and seeks it for entertainment.
+    rationale: 'This treats accepting a risk as enjoying it. He approaches a dangerous ladder, so the claim can look possible. Check the work duty that explains his action.
+
+      '
+  - text: He obeys instructions without noticing his surroundings.
+    rationale: 'This ignores his careful observation. The protocol guides him, which can suggest automatic obedience. Check how he notices the latch, weather, and guardhouse.
+
+      '
+  - text: He is certain that his employer values cargo over workers.
+    rationale: 'This turns the task''s tension into a belief about the employer. A risky duty can suggest that criticism. Check whether the text states his belief.
+
+      '
+  explanation: 'Benjamin investigates the noise and prepares to address the loose latch near the end of his shift. His actions support a judgment that he takes his duty seriously.
+
+    '
+- id: rc-tt-sn-0010
+  passage: rc-tt-sn-p2
+  type: feature-of-form
+  difficulty: hard
+  stem: 'What does the ending leave unresolved?
+
+    '
+  choices:
+  - text: Whether Benjamin completes the risky task.
+    correct: true
+  - text: Whether Benjamin has heard a noise near the containers.
+    rationale: 'This overlooks an event already shown. The noise starts the scene''s problem. Check which actions have already happened.
+
+      '
+  - text: Whether company rules require securing loose doors.
+    rationale: 'This treats a stated rule as unknown. The ending gives no company response, which may seem to leave policy open. Check the second paragraph''s explicit instruction.
+
+      '
+  - text: Whether Benjamin is working at a port during a storm.
+    rationale: 'This treats established setting as uncertainty. The final action draws attention away from the weather. Check the opening description.
+
+      '
+  explanation: 'The excerpt ends with Benjamin preparing to climb. It does not show whether he reaches the latch or secures it. That unfinished action creates suspense.
+
+    '
+- id: q-text-types-short-stories-and-novels-0011
+  type: feature-of-form
+  difficulty: easy
+  approved: false
+  stem: 'Which event most clearly reveals Lina''s internal conflict?
+
+    '
+  passage: p-text-types-short-stories-and-novels-0003
+  choices:
+  - text: She almost denies that the empty chair belongs to someone.
+    correct: true
+  - text: She arrives before the children to arrange the circle's chairs.
+    rationale: 'This mistakes an ordinary preparation for a private struggle. Arriving early suggests effort. Check where Lina hesitates between hiding and admitting a problem.
+
+      '
+  - text: A girl reaches toward a story placed on the vacant seat.
+    rationale: 'This identifies another person''s action as Lina''s struggle. The girl brings the chair into focus. Check Lina''s response to that question.
+
+      '
+  - text: A tricycle passes outside after the reading session has ended.
+    rationale: 'This treats a setting detail as emotional conflict. The sound appears near Lina''s decision. Check whether it presents two competing wishes.
+
+      '
+  explanation: 'Lina almost says that nobody needs the chair. Her pause shows a struggle between hiding the break with Noel and acknowledging his place in the group.
+
+    '
+- id: q-text-types-short-stories-and-novels-0012
+  type: feature-of-form
+  difficulty: medium
+  approved: false
+  stem: 'How does Lina''s behavior change during the excerpt?
+
+    '
+  passage: p-text-types-short-stories-and-novels-0003
+  choices:
+  - text: She begins to face the dispute she had concealed.
+    correct: true
+  - text: She decides that correct accounts excuse hurtful words to Noel.
+    rationale: 'This uses the correct figures to dismiss the argument. The notebook confirms the money record. Check what Lina still judges to be wrong.
+
+      '
+  - text: She abandons the reading circle to search for her brother.
+    rationale: 'This mistakes preparing contact for abandoning the group. Noel''s absence matters to her. Check whether she ends the circle or leaves to search.
+
+      '
+  - text: She becomes certain that Noel will return for the next session.
+    rationale: 'This treats her first step as a settled outcome. Moving the chair creates hope. Check whether Noel has responded.
+
+      '
+  explanation: 'Lina first hides the reason for Noel''s absence. Later she leaves his chair open and starts dialing him. These actions show a move toward facing their dispute.
+
+    '
+- id: q-text-types-short-stories-and-novels-0013
+  type: feature-of-form
+  difficulty: hard
+  approved: false
+  stem: 'Which statement about Lina''s character is supported by the excerpt?
+
+    '
+  passage: p-text-types-short-stories-and-novels-0003
+  choices:
+  - text: She shows conflicting feelings and begins to change.
+    correct: true
+  - text: She is flat because she appears only in a brief excerpt.
+    rationale: 'This confuses the length of a text with character complexity. A short piece gives fewer details. Check whether the character still has several motives.
+
+      '
+  - text: She is static because the account figures stay correct.
+    rationale: 'This confuses unchanged records with an unchanged character. The figures provide a stable fact. Check her attitude and choices across the scene.
+
+      '
+  - text: She is round only because she becomes more honest at the end.
+    rationale: 'This makes change the definition of a round character. Her new action is easy to notice. Check complexity separately from change.
+
+      '
+  explanation: 'Lina cares about the circle, feels pride about the correct accounts, and regrets her words. These different feelings give her complexity. Her move toward contact also suggests change.
+
+    '
+- id: q-text-types-short-stories-and-novels-0014
+  type: feature-of-form
+  difficulty: exam
+  approved: false
+  stem: 'Which theme is best supported by Lina''s excerpt?
+
+    '
+  passage: p-text-types-short-stories-and-novels-0003
+  choices:
+  - text: Being right does not remove the need to repair hurt.
+    correct: true
+  - text: Correct financial records guarantee trust among family members.
+    rationale: 'This treats accurate accounts as enough to settle the relationship. The figures are correct. Check why Lina still wants to contact Noel.
+
+      '
+  - text: Community projects must keep personal disagreements private.
+    rationale: 'This turns Lina''s concealment into the story''s recommendation. She initially hides the dispute. Check how her behavior changes.
+
+      '
+  - text: An apology always brings an absent family member back at once.
+    rationale: 'This turns an initial gesture into a guaranteed reunion. Dialing suggests hope for repair. Check whether the excerpt shows a reply.
+
+      '
+  explanation: 'The account figures are correct, but Lina recognizes that her words hurt Noel. Her effort to contact him explores the need to repair a relationship even when the facts support her.
+
+    '
+- id: q-text-types-short-stories-and-novels-0015
+  type: inferencing-and-conclusions
+  difficulty: exam
+  approved: false
+  stem: 'How does the ending limit what the reader can conclude?
+
+    '
+  passage: p-text-types-short-stories-and-novels-0003
+  choices:
+  - text: It shows an attempt at contact, not a reunion.
+    correct: true
+  - text: It proves that Noel refuses to answer because he is still angry.
+    rationale: 'This treats the absence of a response as a refusal. The dispute makes anger possible. Check whether the call has even been completed.
+
+      '
+  - text: It establishes that Noel has left the country for a permanent job.
+    rationale: 'This accepts Lina''s earlier cover story as fact. She told others he was away for work. Check the passage''s correction of that story.
+
+      '
+  - text: It guarantees that the next reading circle will have seven people.
+    rationale: 'This turns an open chair into a future attendance count. The chair suggests Noel''s place. Check whether anyone commits to returning.
+
+      '
+  explanation: 'Lina presses only the first digit. The excerpt ends before a conversation occurs. It shows her willingness to reach out while leaving Noel''s response open.
+
+    '
+- id: q-text-types-short-stories-and-novels-0016
+  type: feature-of-form
+  difficulty: easy
+  approved: false
+  stem: 'Which detail establishes a threat from nature in Ben''s story?
+
+    '
+  passage: p-text-types-short-stories-and-novels-0004
+  choices:
+  - text: Water begins entering the repair shop.
+    correct: true
+  - text: The radio still needs work before it can be returned to its owner.
+    rationale: 'This treats an unfinished job as a natural threat. It creates pressure for Ben. Check which event comes from weather.
+
+      '
+  - text: The neighbor tells Ben that the owner will understand his delay.
+    rationale: 'This treats advice as an opposing force. The comment challenges his wish to stay. Check what physical danger prompts it.
+
+      '
+  - text: The photograph reminds Ben that his father once owned the shop.
+    rationale: 'This treats a personal memory as the natural threat. The memory affects his choice. Check which force can damage the shop.
+
+      '
+  explanation: 'Floodwater enters the shop and makes staying dangerous. This introduces a conflict with a natural force.
+
+    '
+- id: q-text-types-short-stories-and-novels-0017
+  type: purpose-of-device
+  difficulty: medium
+  approved: false
+  stem: 'Why does the photograph matter to Ben''s decision?
+
+    '
+  passage: p-text-types-short-stories-and-novels-0004
+  choices:
+  - text: It links the shop to his sense of family duty.
+    correct: true
+  - text: It proves that his father repaired the same radio many years ago.
+    rationale: 'This adds a history to the radio. The father''s connection to the shop makes the idea seem possible. Check what the photograph actually establishes.
+
+      '
+  - text: It shows the exact height the coming flood will reach that night.
+    rationale: 'This confuses a family photograph with the flood marker. Both appear on the shop wall. Check which object records water height.
+
+      '
+  - text: It persuades him that finishing repairs is safer than leaving the shop.
+    rationale: 'This turns an emotional pull into a safety finding. Ben hesitates beside it. Check whether the photo gives any evidence about the flood.
+
+      '
+  explanation: 'The photograph reminds Ben that the shop belonged to his father. That connection helps explain why an unfinished job feels like a broken promise.
+
+    '
+- id: q-text-types-short-stories-and-novels-0018
+  type: feature-of-form
+  difficulty: hard
+  approved: false
+  stem: 'Which statement best describes the narration in Ben''s excerpt?
+
+    '
+  passage: p-text-types-short-stories-and-novels-0004
+  choices:
+  - text: It follows Ben's actions and gives access to his thoughts.
+    correct: true
+  - text: It presents only what an observer could see and hear in the street.
+    rationale: 'This overlooks the stated feeling about breaking a promise. The actions are described from outside. Check whether the narrator also reports private thoughts.
+
+      '
+  - text: It lets Ben tell the story using his own first-person voice.
+    rationale: 'This treats access to Ben''s feelings as his own narration. His viewpoint shapes the scene. Check whether the narrator uses I for Ben.
+
+      '
+  - text: It explains each neighbor's thoughts as fully as it explains Ben's.
+    rationale: 'This assumes every character''s mind is open to the reader. The neighbor speaks and waits. Check whose private feelings are actually supplied.
+
+      '
+  explanation: 'The narrator describes Ben in the third person and explains how leaving a job unfinished feels to him. This gives the reader access to Ben''s inner conflict.
+
+    '
+- id: q-text-types-short-stories-and-novels-0019
+  type: feature-of-form
+  difficulty: hard
+  approved: false
+  stem: 'What makes Ben''s departure a turning point?
+
+    '
+  passage: p-text-types-short-stories-and-novels-0004
+  choices:
+  - text: He acts on safety despite his wish to finish the job.
+    correct: true
+  - text: He learns that the radio's owner no longer wants it returned.
+    rationale: 'This invents a change in the customer''s request. The neighbor says the owner will understand. Check whether the owner actually speaks.
+
+      '
+  - text: He discovers that the flood line can stop water at the doorway.
+    rationale: 'This treats a warning mark as a barrier. The line represents past flooding. Check whether chalk can alter the events in the story.
+
+      '
+  - text: He decides that the shop's history no longer matters to him at all.
+    rationale: 'This treats leaving as rejecting his father. Family duty made him hesitate. Check whether walking to safety erases that feeling.
+
+      '
+  explanation: 'Ben hesitates because he wants to honor the job and his father''s shop. He then secures what he can and walks to the shelter. That choice changes his response to the danger.
+
+    '
+- id: q-text-types-short-stories-and-novels-0020
+  type: inferencing-and-conclusions
+  difficulty: exam
+  approved: false
+  stem: 'Which interpretation respects what Ben''s ending actually shows?
+
+    '
+  passage: p-text-types-short-stories-and-novels-0004
+  choices:
+  - text: He leaves with lingering concern about the shop.
+    correct: true
+  - text: He sees the shop destroyed and decides never to repair radios again.
+    rationale: 'This fills in an outcome beyond the excerpt. The flood raises the possibility of loss. Check whether destruction or a career decision is shown.
+
+      '
+  - text: He reaches the shelter and learns that every stored tool is undamaged.
+    rationale: 'This supplies a reassuring outcome. Keeping tools high suggests care. Check whether the text follows him that far or reports damage.
+
+      '
+  - text: He forgets the shop completely once the neighbor provides an umbrella.
+    rationale: 'This treats help as removal of all concern. The neighbor makes leaving easier. Check his backward look and memory of the line.
+
+      '
+  explanation: 'Ben turns back and still pictures the chalk line as he leaves. He chooses safety while his thoughts remain on the shop. The excerpt does not show the flood''s final damage.
+
+    '
