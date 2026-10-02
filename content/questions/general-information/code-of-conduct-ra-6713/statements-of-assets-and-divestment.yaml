@@ -3,305 +3,491 @@ meta:
   topic: code-of-conduct-ra-6713
   subtopic: statements-of-assets-and-divestment
   exams:
-    - cse-pro
-    - cse-sub
+  - cse-pro
+  - cse-sub
 questions:
-  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0001
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Within how many days from assumption of office must a public official file a sworn SALN?
-    choices:
-      - text: 30 days
-        correct: true
-      - text: 45 days
-        rationale: |
-          You picked 45 days, which is the deadline for annual performance reports. SALN filings upon assumption of office must be submitted within 30 days.
-      - text: 60 days
-        rationale: |
-          You selected 60 days, which is the timeframe for business shareholding divestment. Filing a SALN upon entering office must happen within 30 days.
-      - text: 90 days
-        rationale: |
-          You chose 90 days, which is three times the statutory limit. Section 8 requires new public officers to file a SALN within 30 days of entry.
-    explanation: |
-      Section 8(A)(a) requires a public official to file a SALN within 30 days after assumption of office.
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0001
+  type: single_choice
+  difficulty: medium
+  stem: 'Within how many days after assuming office must a covered official file the initial sworn SALN?
 
-  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0002
-    type: single_choice
-    difficulty: easy
-    stem: |
-      What is the annual deadline for filing the Statement of Assets, Liabilities and Net Worth under RA 6713?
-    choices:
-      - text: On or before April 30
-        correct: true
-      - text: On or before December 31
-        rationale: |
-          You selected December 31, which is the end of the covered tax and calendar year. The annual SALN filing deadline is on or before April 30.
-      - text: On or before September 30
-        rationale: |
-          You picked September 30, which falls in the third quarter. Section 8 mandates annual SALN submission on or before April 30 of each year.
-      - text: On or before November 30
-        rationale: |
-          You chose November 30, which misses the statutory spring deadline. Annual SALN filings must be submitted on or before April 30.
-    explanation: |
-      Section 8(A)(b) mandates annual filing on or before April 30 of every year, reckoned as of the end of the preceding year.
+    '
+  choices:
+  - text: 30 days
+    correct: true
+  - text: 45 days
+    rationale: 'This uses the annual-report number. Another accountability duty uses forty-five working days. Check the duty and whether the period uses working days.
 
-  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0003
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Within how many days from separation from service must a public officer file the final SALN?
-    choices:
-      - text: 30 days
-        correct: true
-      - text: 15 days
-        rationale: |
-          You selected 15 days, which is shorter than the statutory allowance. Officials separating from government service have 30 days to file their SALN.
-      - text: 60 days
-        rationale: |
-          You picked 60 days, which doubles the allowed timeframe. Section 8 mandates filing a final SALN within 30 days after separation from service.
-      - text: 90 days
-        rationale: |
-          You chose 90 days, which is three times the legal allowance. Final SALN filings after leaving government service are due within 30 days.
-    explanation: |
-      Section 8(A)(c) requires filing a SALN within 30 days after separation from service.
+      '
+  - text: 60 days
+    rationale: 'This uses the divestment period. Both can follow assumption of office. Check the duty and whether the period uses working days.
 
-  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0004
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Up to what civil degree of consanguinity or affinity must public officials disclose relatives in government service?
-    choices:
-      - text: Fourth civil degree
-        correct: true
-      - text: Second civil degree
-        rationale: |
-          You selected second civil degree, which is too narrow. Disclosure extends to the fourth civil degree.
-      - text: Third civil degree
-        rationale: |
-          You picked third civil degree, which stops short of the statutory fourth civil degree.
-      - text: Fifth civil degree
-        rationale: |
-          You chose fifth civil degree, which exceeds the statutory coverage.
-    explanation: |
-      RA 6713 defines relatives through the fourth civil degree of consanguinity or affinity, and Section 8(B) requires disclosure of relatives in government in the manner prescribed by the Civil Service Commission.
+      '
+  - text: 90 days
+    rationale: 'This treats a quarter as the filing period. Quarterly reports are common. Check the duty and whether the period uses working days.
 
-  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0005
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Under RA 6713, to resolve a conflict of interest, within how many days from assumption of office must shareholdings be divested?
-    choices:
-      - text: 60 days
-        correct: true
-      - text: 30 days
-        rationale: |
-          You picked 30 days, which is the deadline for resignation from a private position. Divesting shareholdings is allowed up to 60 days from assumption of office.
-      - text: 45 days
-        rationale: |
-          You selected 45 days, which is not a statutory divestment milestone.
-      - text: 90 days
-        rationale: |
-          You chose 90 days, which exceeds the statutory divestment period.
-    explanation: |
-      Section 9 requires a public official or employee with a conflict of interest to resign from a position in a private business enterprise within 30 days from assumption of office and/or divest shareholdings or interest within 60 days from assumption of office.
+      '
+  explanation: 'Section 8(A) requires initial filing within thirty days after assumption of office.
 
-  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0006
-    type: single_choice
-    difficulty: medium
-    stem: |
-      To resolve a conflict of interest, within how many days must a public officer resign from a private position?
-    choices:
-      - text: 30 days
-        correct: true
-      - text: 15 days
-        rationale: |
-          You selected 15 days, which is half the legal timeframe. Section 9 gives public officers 30 days from assumption to resign from private positions.
-      - text: 60 days
-        rationale: |
-          You picked 60 days, which is the deadline for divesting shareholdings. Resigning from a private position must happen sooner, within 30 days.
-      - text: 90 days
-        rationale: |
-          You chose 90 days, which is three times the statutory limit. Public officers must resign from conflicting private positions within 30 days.
-    explanation: |
-      Section 9 specifies that resignation from any position in a private business enterprise must occur within 30 days from assumption of office.
+    '
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0002
+  type: single_choice
+  difficulty: medium
+  stem: 'What is RA 6713''s annual SALN deadline after the initial filing?
 
-  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0007
-    type: single_choice
-    difficulty: medium
-    stem: |
-      After how many working days from filing must a SALN be made available for copying or reproduction under Section 8(C)?
-    choices:
-      - text: 10 working days
-        correct: true
-      - text: 5 working days
-        rationale: |
-          You selected 5 working days, but Section 8(C) requires a filed SALN to be available for copying or reproduction after 10 working days.
-      - text: 15 working days
-        rationale: |
-          You picked 15 working days, which is not the SALN copying deadline in Section 8(C). The statute specifies 10 working days.
-      - text: 30 working days
-        rationale: |
-          You chose 30 working days, but Section 8(C) makes the statement available for copying or reproduction after 10 working days.
-    explanation: |
-      Section 8(C) makes a filed SALN available for public inspection at reasonable hours and makes it available for copying or reproduction after 10 working days from filing. The 10-day period does not delay inspection itself.
+    '
+  choices:
+  - text: April 30
+    correct: true
+  - text: December 31
+    rationale: 'This confuses the reporting date with the filing deadline. Financial records often refer to year-end. Check the duty and whether the period uses working days.
 
-  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0008
-    type: single_choice
-    difficulty: medium
-    stem: |
-      For how many years must filed SALN documents be preserved before destruction?
-    choices:
-      - text: 10 years
-        correct: true
-      - text: 5 years
-        rationale: |
-          You picked 5 years, which cuts the public-availability period in half.
-      - text: 15 years
-        rationale: |
-          You selected 15 years, which exceeds the standard statutory period.
-      - text: 20 years
-        rationale: |
-          You chose 20 years, which doubles the statutory period.
-    explanation: |
-      Section 8(C) provides that a filed statement remains available to the public for 10 years after receipt, after which it may be destroyed unless needed in an ongoing investigation.
+      '
+  - text: June 30
+    rationale: 'This confuses filing by the official with later forwarding by an agency. Repositories also have submission procedures. Check the duty and whether the period uses working days.
 
-  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0009
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Where do Cabinet members, undersecretaries, and heads of GOCCs file their SALN under RA 6713?
-    choices:
-      - text: Office of the President
-        correct: true
-      - text: Civil Service Commission headquarters
-        rationale: |
-          The Civil Service Commission is the repository for public officials and employees not assigned to another listed repository. National executive officials file with the Office of the President.
-      - text: Office of the Ombudsman central unit
-        rationale: |
-          Constitutional and national elective officials file with the national Office of the Ombudsman, while national executive officials file with the Office of the President.
-      - text: Supreme Court Clerk of Court office
-        rationale: |
-          Justices file with the Clerk of Court of the Supreme Court, not executive officials.
-    explanation: |
-      Section 8(A) assigns national executive officials to the Office of the President as their filing repository.
+      '
+  - text: March 31
+    rationale: 'This substitutes a quarterly cutoff. The first quarter ends then. Check the duty and whether the period uses working days.
 
-  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0010
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Where do Members of Congress file their Statement of Assets, Liabilities and Net Worth under RA 6713?
-    choices:
-      - text: Secretary of Senate or House
-        correct: true
-      - text: Civil Service Commission central unit
-        rationale: |
-          Members of Congress have specifically designated repositories in their respective chambers.
-      - text: Supreme Court Clerk of Court office
-        rationale: |
-          The Clerk of Court receives SALNs of Supreme Court Justices.
-      - text: Office of the President director
-        rationale: |
-          National executive officials file with the Office of the President, not Members of Congress.
-    explanation: |
-      Senators file with the Secretary of the Senate, while Members of the House file with the Secretary of the House of Representatives.
+      '
+  explanation: 'The annual statement must be filed on or before April 30 of every year thereafter.
 
-  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0011
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Where do non-executive public employees not specifically assigned to constitutional offices file their SALN?
-    choices:
-      - text: Civil Service Commission
-        correct: true
-      - text: Office of the Ombudsman director
-        rationale: |
-          The Ombudsman receives specifically listed categories, while the residual statutory category files with the Civil Service Commission.
-      - text: Office of the President main desk
-        rationale: |
-          The Office of the President receives national executive officials.
-      - text: Department of Justice secretariat
-        rationale: |
-          The Department of Justice is not the residual SALN repository named in Section 8(A).
-    explanation: |
-      Section 8(A) sends all other public officials and employees covered by the referenced law to the Civil Service Commission when no specifically listed repository applies.
+    '
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0003
+  type: single_choice
+  difficulty: medium
+  stem: 'Within how many days after separation must a covered official file the final SALN?
 
-  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0012
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Besides the official, whose assets and business interests must be included in the official's SALN filing?
-    choices:
-      - text: Spouse and unmarried children under 18 in household
-        correct: true
-      - text: Spouse, parents, adult children, and business partners
-        rationale: |
-          This expands the statutory household coverage beyond the spouse and qualifying minor unmarried children.
-      - text: Unmarried children under 21 and all immediate siblings
-        rationale: |
-          The statute specifies unmarried children under 18 living in the household, not children under 21 and siblings.
-      - text: Spouse and all financially dependent extended relatives
-        rationale: |
-          Extended dependent relatives are not included in the statutory SALN household category.
-    explanation: |
-      Section 8 includes the official's spouse and unmarried children under 18 years of age living in the household.
+    '
+  choices:
+  - text: 30 days
+    correct: true
+  - text: 15 days
+    rationale: 'This uses the public-letter response number. Both duties require prompt action. Check the duty and whether the period uses working days.
 
-  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0013
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Where do Regional and local officials, as well as state university employees, file their SALN under RA 6713?
-    choices:
-      - text: Deputy Ombudsman of their region
-        correct: true
-      - text: Office of the President legal desk
-        rationale: |
-          The Office of the President is the repository for specified national executive officials.
-      - text: Civil Service Commission main desk
-        rationale: |
-          The CSC is the residual repository for officials and employees not assigned elsewhere.
-      - text: Supreme Court Administrator office
-        rationale: |
-          The Court Administrator is the repository for judges.
-    explanation: |
-      Regional and local officials and employees file with the Deputy Ombudsman in their respective regions. Current SALN repository guidance likewise places state college and university personnel under the appropriate regional Deputy Ombudsman repository.
+      '
+  - text: 60 days
+    rationale: 'This uses the share-divestment number. Both can involve ending a role. Check the duty and whether the period uses working days.
 
-  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0014
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Where do Justices of the Supreme Court file their Statement of Assets, Liabilities and Net Worth?
-    choices:
-      - text: Clerk of the Supreme Court
-        correct: true
-      - text: Office of the Ombudsman main desk
-        rationale: |
-          Supreme Court Justices have a specifically designated judicial repository.
-      - text: Civil Service Commission director
-        rationale: |
-          The CSC is not the specified repository for Supreme Court Justices.
-      - text: Secretary of the House of Reps
-        rationale: |
-          The House Secretary receives filings of Members of the House, not Supreme Court Justices.
-    explanation: |
-      Section 8(A) designates the Clerk of Court of the Supreme Court as the repository for Justices.
+      '
+  - text: 90 days
+    rationale: 'This substitutes a quarterly period. Final accounts can sound like a quarterly task. Check the duty and whether the period uses working days.
 
-  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0015
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Where do Trial Court Judges file their SALN under RA 6713?
-    choices:
-      - text: Court Administrator
-        correct: true
-      - text: Office of the President
-        rationale: |
-          The Office of the President receives specified national executive officials.
-      - text: Secretary of the Senate
-        rationale: |
-          The Senate Secretary receives filings of Senators.
-      - text: Ombudsman Central Office
-        rationale: |
-          Judges have a specifically designated judicial repository.
-    explanation: |
-      Section 8(A) specifies that Judges file with the Court Administrator.
+      '
+  explanation: 'Section 8(A) requires filing within thirty days after separation from service.
+
+    '
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0004
+  type: single_choice
+  difficulty: medium
+  stem: 'Through what civil degree does RA 6713 define relatives for disclosure of relatives in government?
+
+    '
+  choices:
+  - text: Fourth degree
+    correct: true
+  - text: Second civil degree
+    rationale: 'This narrows coverage to closer relations. Close family is easiest to recall. Check the law''s defined reach.
+
+      '
+  - text: Third civil degree
+    rationale: 'This stops the list one degree too early. Several familiar relatives fall within it. Check the outer degree stated.
+
+      '
+  - text: Fifth civil degree
+    rationale: 'This extends coverage beyond the definition. More disclosure can sound safer. Use the statutory definition.
+
+      '
+  explanation: 'RA 6713 defines relatives within the fourth civil degree of consanguinity or affinity. Section 8(B) requires disclosure to the best of the official''s knowledge and information.
+
+    '
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0005
+  type: single_choice
+  difficulty: medium
+  stem: 'For a conflict existing on assumption of office, within how many days must the relevant shareholdings be divested under Section 9?
+
+    '
+  choices:
+  - text: 60 days
+    correct: true
+  - text: 30 days
+    rationale: 'This uses the private-position resignation deadline. Both address the same conflict. Check the duty and whether the period uses working days.
+
+      '
+  - text: 45 days
+    rationale: 'This uses the annual-report number. Both involve accountability. Check the duty and whether the period uses working days.
+
+      '
+  - text: 90 days
+    rationale: 'This adds another month to the period. Disposing of shares can take time. Check the duty and whether the period uses working days.
+
+      '
+  explanation: 'Section 9 sets sixty days from assumption of office for divesting the relevant shareholdings or interest when the conflict exists.
+
+    '
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0006
+  type: single_choice
+  difficulty: medium
+  stem: 'For a conflict existing on assumption of office, what is the deadline to resign from the conflicting private business position?
+
+    '
+  choices:
+  - text: 30 days
+    correct: true
+  - text: 15 days
+    rationale: 'This uses the public-letter response number. Prompt action is needed in both cases. Check the duty and whether the period uses working days.
+
+      '
+  - text: 60 days
+    rationale: 'This uses the share-divestment deadline. Resignation and divestment address the same conflict. Check the duty and whether the period uses working days.
+
+      '
+  - text: 90 days
+    rationale: 'This substitutes a longer transition period. Leaving a business can involve a handover. Check the duty and whether the period uses working days.
+
+      '
+  explanation: 'Section 9 sets thirty days from assumption of office for resigning from the conflicting private business position.
+
+    '
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0007
+  type: single_choice
+  difficulty: medium
+  stem: 'After how many working days from filing does Section 8(C) make a SALN available for copying?
+
+    '
+  choices:
+  - text: 10 working days
+    correct: true
+  - text: 5 working days
+    rationale: 'This halves the waiting period. A short copying process may seem sufficient. Check the duty and whether the period uses working days.
+
+      '
+  - text: 15 working days
+    rationale: 'This uses the public-letter response deadline. Both concern requests from the public. Check the duty and whether the period uses working days.
+
+      '
+  - text: 30 working days
+    rationale: 'This uses the filing number and changes its unit. Thirty days is a SALN-related deadline. Check the duty and whether the period uses working days.
+
+      '
+  explanation: 'Section 8(C) makes filed statements available for copying or reproduction after ten working days from filing.
+
+    '
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0008
+  type: single_choice
+  difficulty: medium
+  stem: 'For how long after receipt does Section 8(C) require public availability of a filed SALN before possible destruction, unless an investigation still needs it?
+
+    '
+  choices:
+  - text: 10 years
+    correct: true
+  - text: 5 years
+    rationale: 'This halves the availability period. Five years is a familiar legal period. Check the SALN retention provision.
+
+      '
+  - text: 15 years
+    rationale: 'This imports a response-deadline number into years. Fifteen appears in another RA 6713 duty. Keep response days separate from retention years.
+
+      '
+  - text: 20 years
+    rationale: 'This doubles the availability period. Long retention can seem more transparent. Check the stated ten-year rule.
+
+      '
+  explanation: 'The statement must remain available for ten years after receipt. After that it may be destroyed unless needed in an ongoing investigation.
+
+    '
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0009
+  type: single_choice
+  difficulty: medium
+  stem: 'Under Section 8(A)''s statutory list, where do national executive officials file?
+
+    '
+  choices:
+  - text: Office of the President
+    correct: true
+  - text: Civil Service Commission
+    rationale: 'This uses the repository for the residual filing category. Several public bodies receive SALNs. Match the official''s precise category to the filing office.
+
+      '
+  - text: Court Administrator
+    rationale: 'This uses the repository for judges. Several public bodies receive SALNs. Match the official''s precise category to the filing office.
+
+      '
+  - text: Clerk of Court of the Supreme Court
+    rationale: 'This uses the repository for justices. Several public bodies receive SALNs. Match the official''s precise category to the filing office.
+
+      '
+  explanation: 'The statutory list assigns national executive officials to the Office of the President.
+
+    '
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0010
+  type: single_choice
+  difficulty: medium
+  stem: 'Under RA 6713, where do senators file their SALN?
+
+    '
+  choices:
+  - text: Secretary of the Senate
+    correct: true
+  - text: Secretary of the House
+    rationale: 'This uses the repository for House members. Several public bodies receive SALNs. Match the official''s precise category to the filing office.
+
+      '
+  - text: Civil Service Commission
+    rationale: 'This uses the repository for the residual filing category. Several public bodies receive SALNs. Match the official''s precise category to the filing office.
+
+      '
+  - text: Court Administrator
+    rationale: 'This uses the repository for judges. Several public bodies receive SALNs. Match the official''s precise category to the filing office.
+
+      '
+  explanation: 'Senators file with the Secretary of the Senate. The statute assigns this repository specifically to their chamber.
+
+    '
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0011
+  type: single_choice
+  difficulty: medium
+  stem: 'Under Section 8(A), which repository receives covered officials in the residual all-other category when no specifically listed category applies?
+
+    '
+  choices:
+  - text: CSC
+    correct: true
+  - text: Office of the President
+    rationale: 'This uses the repository for national executive officials. Several public bodies receive SALNs. Match the official''s precise category to the filing office.
+
+      '
+  - text: Court Administrator
+    rationale: 'This uses the repository for judges. Several public bodies receive SALNs. Match the official''s precise category to the filing office.
+
+      '
+  - text: Secretary of the Senate
+    rationale: 'This uses the repository for senators. Several public bodies receive SALNs. Match the official''s precise category to the filing office.
+
+      '
+  explanation: 'Section 8(A)''s final category assigns all other covered public officials and employees to the Civil Service Commission.
+
+    '
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0012
+  type: single_choice
+  difficulty: medium
+  stem: 'Besides the official, whose financial information is included under Section 8? For children, assume they live in the household and are under eighteen.
+
+    '
+  choices:
+  - text: Spouse and unmarried children
+    correct: true
+  - text: Spouse, parents, adult children, and business partners
+    rationale: 'This extends family coverage to other relatives and partners. All may affect family finances. Check the persons expressly included.
+
+      '
+  - text: Only children under twenty-one and all immediate siblings
+    rationale: 'This changes the age limit and adds siblings. Other laws use different age limits. Check age, marital status, and household conditions.
+
+      '
+  - text: Spouse and all financially dependent extended family members
+    rationale: 'This replaces the listed relationship tests with dependency. Dependents may share household expenses. Use the specific family definition.
+
+      '
+  explanation: 'Section 8 includes the spouse and unmarried children under eighteen who live in the household. The stated child conditions therefore leave unmarried status as the remaining test.
+
+    '
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0013
+  type: single_choice
+  difficulty: medium
+  stem: 'Where do Regional and local officials, as well as state university employees, file their SALN under RA 6713?
+
+    '
+  choices:
+  - text: Deputy Ombudsman of their region
+    correct: true
+  - text: Office of the President legal desk
+    rationale: 'This uses the repository for a different official category. Several public bodies receive SALNs. Match the official''s precise category to the filing office.
+
+      '
+  - text: Civil Service Commission main desk
+    rationale: 'This uses the repository for a different official category. Several public bodies receive SALNs. Match the official''s precise category to the filing office.
+
+      '
+  - text: Supreme Court Administrator office
+    rationale: 'This uses the repository for a different official category. Several public bodies receive SALNs. Match the official''s precise category to the filing office.
+
+      '
+  explanation: 'RA 6713 assigns regional and local officials and employees to the Deputy Ombudsman in their region. Regional state-university staff are also listed in CSC repository guidance. Senior university heads and personnel in other locations need their specific category checked.
+
+    '
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0014
+  type: single_choice
+  difficulty: medium
+  stem: 'Under RA 6713''s statutory filing list, where do Supreme Court justices file their SALN?
+
+    '
+  choices:
+  - text: Supreme Court clerk
+    correct: true
+  - text: Office of the Ombudsman
+    rationale: 'This uses the repository for constitutional and national elective officials. Several public bodies receive SALNs. Match the official''s precise category to the filing office.
+
+      '
+  - text: Civil Service Commission
+    rationale: 'This uses the repository for the residual filing category. Several public bodies receive SALNs. Match the official''s precise category to the filing office.
+
+      '
+  - text: Secretary of the Senate
+    rationale: 'This uses the repository for senators. Several public bodies receive SALNs. Match the official''s precise category to the filing office.
+
+      '
+  explanation: 'The statute assigns justices to the Clerk of Court of the Supreme Court.
+
+    '
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0015
+  type: single_choice
+  difficulty: medium
+  stem: 'Under RA 6713, where do trial-court judges file their SALN?
+
+    '
+  choices:
+  - text: Court Administrator
+    correct: true
+  - text: Office of the President
+    rationale: 'This uses the repository for national executive officials. Several public bodies receive SALNs. Match the official''s precise category to the filing office.
+
+      '
+  - text: Secretary of the Senate
+    rationale: 'This uses the repository for senators. Several public bodies receive SALNs. Match the official''s precise category to the filing office.
+
+      '
+  - text: Office of the Ombudsman
+    rationale: 'This uses the repository for constitutional and national elective officials. Several public bodies receive SALNs. Match the official''s precise category to the filing office.
+
+      '
+  explanation: 'The statutory list assigns judges to the Court Administrator.
+
+    '
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0016
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'A conflict arises after an employee is already in government service. Under the implementing rules, when do the resignation and divestment periods begin?
+
+    '
+  choices:
+  - text: When the conflict arises
+    correct: true
+  - text: Only when the employee next receives a promotion
+    rationale: 'This adds a promotion trigger. A new role can create conflicts. Check whether this conflict already exists.
+
+      '
+  - text: Only at the next annual SALN filing deadline
+    rationale: 'This ties resolving conflicts to routine disclosure. Both concern private interests. Check the rule''s separate conflict trigger.
+
+      '
+  - text: From the original appointment date even if no conflict existed then
+    rationale: 'This applies assumption-based timing to a later conflict. The statute mentions assumption of office. Check the implementing rule for employees already serving.
+
+      '
+  explanation: 'For an employee already in service, the implementing rules reckon the periods from the date the conflict arose.
+
+    '
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0017
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'A SALN has been held for eleven years and is needed in an ongoing investigation. What does Section 8(C) allow?
+
+    '
+  choices:
+  - text: Retain it for the investigation
+    correct: true
+  - text: Destroy it automatically because ten years have passed
+    rationale: 'This treats the ordinary period as an absolute destruction command. The ten-year limit is explicit. Check the investigation exception.
+
+      '
+  - text: Erase financial details but keep the official's name only
+    rationale: 'This invents partial destruction. Keeping some record may sound sufficient. Check what the ongoing investigation needs.
+
+      '
+  - text: Keep it only if the official who filed it personally agrees
+    rationale: 'This adds the subject''s permission. The record concerns the official. Check the statutory retention exception.
+
+      '
+  explanation: 'Section 8(C) permits destruction after the normal period only when the statement is not needed in an ongoing investigation. This statement is still needed.
+
+    '
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0018
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'Which relative must be included in the family financial disclosures described in the lesson?
+
+    '
+  choices:
+  - text: An unmarried sixteen-year-old child in the household
+    correct: true
+  - text: A married sixteen-year-old child living in the same household
+    rationale: 'This ignores the unmarried condition. Age and residence both fit. Check all three conditions together.
+
+      '
+  - text: An unmarried twenty-year-old child living in the same household
+    rationale: 'This ignores the under-eighteen condition. Residence and unmarried status fit. Check the age cutoff.
+
+      '
+  - text: An unmarried sixteen-year-old child living in a separate household
+    rationale: 'This ignores the household condition. Age and unmarried status fit. Check where the child lives.
+
+      '
+  explanation: 'The child is unmarried, under eighteen, and living in the household. Those are the conditions stated in Section 8.
+
+    '
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0019
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'Which pair correctly matches the conflict-of-interest deadlines for a newly appointed official?
+
+    '
+  choices:
+  - text: Resign within 30 days; divest within 60 days
+    correct: true
+  - text: Resign within 60 days; divest within 30 days
+    rationale: 'This reverses the two periods. Both numbers are familiar. Match each period to the action.
+
+      '
+  - text: Resign within 15 days; divest within 45 days
+    rationale: 'This uses public-response and annual-report numbers. Both appear in RA 6713. Check the Section 9 actions.
+
+      '
+  - text: Resign within 30 working days; divest within 60 working days
+    rationale: 'This changes ordinary days into working days. Other official duties use working days. Check whether that qualifier appears here.
+
+      '
+  explanation: 'Section 9 gives thirty days for resignation from the conflicting private position and sixty days for divestment. These periods run from assumption when the conflict exists then.
+
+    '
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0020
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'Under the statutory repository list, what fact sends an armed-forces officer''s SALN to the Office of the President?
+
+    '
+  choices:
+  - text: Holding the rank of colonel or naval captain or higher
+    correct: true
+  - text: Being any commissioned officer regardless of rank or equivalent grade
+    rationale: 'This removes the rank threshold. All officers serve nationally. Check the specified minimum ranks.
+
+      '
+  - text: Being below colonel or naval captain and serving outside the capital region
+    rationale: 'This selects the lower-rank category. The officer still belongs to the armed forces. Check the distinct regional repository rule.
+
+      '
+  - text: Having a private business interest even while below the specified military rank
+    rationale: 'This substitutes asset type for rank. Private interests must be disclosed. Check what determines the filing office.
+
+      '
+  explanation: 'RA 6713 assigns armed-forces officers from colonel or naval captain upward to the Office of the President. Officers below those ranks go to the appropriate regional Deputy Ombudsman.
+
+    '
