@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-logical-verbal-reasoning-word-analogies-0001	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-logical-verbal-reasoning-word-analogies-0002	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-logical-verbal-reasoning-word-analogies-0003	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-logical-verbal-reasoning-word-analogies-0004	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-logical-verbal-reasoning-word-analogies-0005	CORRECTED	SOLVED-MATCH	distractors;explanation;notes	MEDIUM	Removed the answer-length cue and made association-versus-cause mistakes specific.
+q-logical-verbal-reasoning-word-analogies-0006	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-logical-verbal-reasoning-word-analogies-0007	CORRECTED	SOLVED-MATCH	distractors;explanation;notes	MEDIUM	Replaced three equivalent fast synonyms with distinct speed, onset, and timing mistakes.
+q-logical-verbal-reasoning-word-analogies-0008	CORRECTED	SOLVED-MATCH	stem;explanation;notes	HIGH	Warm was defensible under an increasing-temperature relation; specified intensity of each named quality.
+q-logical-verbal-reasoning-word-analogies-0009	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-logical-verbal-reasoning-word-analogies-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated the worker-to-tool frame in 0009; reversed direction and replaced the scenario.
+q-logical-verbal-reasoning-word-analogies-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated the pen/write pair and asked for wrong-choice commentary in the stem; replaced with an information relation.
+q-logical-verbal-reasoning-word-analogies-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original unfinished book-to-blank analogy did not supply a coherent completion and its explanation confused preserving with reversing direction.
+q-logical-verbal-reasoning-word-analogies-0013	CORRECTED	SOLVED-MATCH	stem;explanation;notes	HIGH	Waltz can be a type of music as well as a dance; fixed the intended sense so only one choice fits.
+q-logical-verbal-reasoning-word-analogies-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated 0004's part-to-whole framing; changed direction and removed the answer-length cue.
+q-logical-verbal-reasoning-word-analogies-0015	CORRECTED	SOLVED-MATCH	distractor;explanation;notes	HIGH	Cow, branch was also correct; its old note admitted the key merely expected leaf. Replaced it with an inverted whole relation. The source lesson has the same ambiguous example.
+q-logical-verbal-reasoning-word-analogies-0016	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Rooster was defensible for a male chick; key/lock and ignition/engine also used imprecise actions. Replaced the double analogy with specific relations.
+q-logical-verbal-reasoning-word-analogies-0017	NEW	NEW	explanation;notes	NONE	
+q-logical-verbal-reasoning-word-analogies-0018	NEW	NEW	explanation;notes	NONE	
+q-logical-verbal-reasoning-word-analogies-0019	NEW	NEW	explanation;notes	NONE	
+q-logical-verbal-reasoning-word-analogies-0020	NEW	NEW	explanation;notes	NONE	
