@@ -1,239 +1,453 @@
 meta:
-  subject: reading-comprehension
-  topic: comprehension-skills
-  subtopic: sequencing-of-events
+  subject: "reading-comprehension"
+  topic: "comprehension-skills"
+  subtopic: "sequencing-of-events"
   exams:
-    - upcat
-    - acet
-    - dlsucet
-    - ustet
-
+    - "upcat"
+    - "acet"
+    - "dlsucet"
+    - "ustet"
 passages:
-  - id: rc-cs-se-p1
-    title: "Investigation of the Bataan Water Facility Shutdown"
+  - id: "rc-cs-se-p1"
+    title: "A Fictional Water-Facility Shutdown"
     body: |
-      On June 15, the Bataan Municipal Water District unexpectedly suspended operations at its central filtration facility, leaving four coastal towns without tap water for three days. A post-incident investigation revealed that the sudden shutdown occurred when main intake turbines seized due to severe sediment buildup.
-
-      Months earlier, in January, maintenance engineers had submitted an urgent request to replace aging intake filters. However, the municipal procurement committee had repeatedly delayed approving the purchase order throughout March because of contested budget allocations. By late April, worn filter meshes began allowing coarse river gravel to enter the turbine chambers.
-
-      Although technicians had attempted emergency flushings in early May, the accumulation continued unchecked until the mechanical failure in June. Full operations were restored only on July 2 after replacement turbine parts, ordered during the June emergency, finally arrived from Cebu.
-
-  - id: rc-cs-se-p2
-    title: "Storm Rescue in Cagayan Valley"
+      In this fictional investigation, a municipal filtration facility suspends operations on June 15 after its intake machinery jams. Replacement parts are ordered later that day. The investigation begins with the shutdown, then looks back at decisions made before the failure.
+      
+      In January, maintenance engineers had requested replacement intake filters. During March, the procurement committee delayed approval because members disputed the budget. By late April, worn filters were allowing coarse gravel into the machinery. Technicians attempted emergency flushing in early May, but material continued to accumulate. The June failure followed those earlier problems.
+      
+      The ordered replacement parts finally arrive on July 1. Workers install them, test the machinery, and restore full operations on July 2. The report distinguishes the repair from the earlier request: the original request concerned filters, while the emergency order concerned damaged machinery. Reconstructing the dates helps explain how the facility reached the shutdown and how it later returned to service. It also prevents the opening event from being mistaken for the first event in time.
+  - id: "rc-cs-se-p2"
+    title: "A Fictional Storm Rescue"
     body: |
-      At six in the morning on Tuesday, rescue workers aboard motorboats reached the elevated concrete chapel of Barangay San Mateo in Cagayan, successfully evacuating forty stranded villagers. The survivors had gathered inside the chapel during the darkest hours of the storm to seek refuge from rising floodwaters.
-
-      The crisis had begun late Monday evening when Typhoon Egay breached a earthen dike upstream. At midnight, Barangay Captain Carlos Mendoza had walked through the village sounding an iron gong to warn families of the approaching flood. Hours before the dike burst, however, Captain Mendoza had already instructed elderly residents to move to the chapel after receiving early storm warnings from provincial disaster officials on Sunday afternoon.
-
-      By Monday night, floodwaters had completely submerged low-lying houses, but all residents reached safety prior to the Tuesday morning boat rescue.
-
+      At six on Tuesday morning in this fictional account, rescue boats reach a village chapel and evacuate forty residents. The group had gathered above the low-lying streets before the boats arrived. The account begins with the rescue, then returns to the warnings and flooding that preceded it.
+      
+      Captain Mendoza received an early storm warning on Sunday afternoon. On Monday afternoon, he instructed elderly residents to move to the chapel, and they reached it before evening. Hours after their move, an earthen dike burst late Monday evening. At midnight, Mendoza sounded an iron gong to warn the remaining families. Those families then reached the chapel before the Tuesday rescue.
+      
+      By early Tuesday, floodwater covered the low-lying houses. The chapel group waited together until the motorboats arrived at six. The final evacuation depended on the earlier movement to the refuge and the later arrival of rescue transport. Keeping those two movements separate helps readers reconstruct the sequence, even though the account introduces the last one first.
+  - id: "p-comprehension-skills-sequencing-of-events-0003"
+    title: "The Delayed Performance"
+    body: |
+      The school play finally began on Friday evening, after the audience had waited in the hall for nearly an hour. Lea stepped onto the stage with a repaired microphone. Her opening speech marked the end of a problem that had started during the afternoon test, long before the audience arrived.
+      
+      On Thursday, the stage team had finished hanging the backdrop. Early Friday afternoon, Lea rehearsed with the lights and microphone. During that test, the microphone began cutting out. The team called a technician immediately afterward. Before the technician arrived, the students checked the spare microphone and found that it had the same problem with the cable.
+      
+      The technician replaced the cable later that afternoon and tested both microphones. The team then admitted the audience. A separate delay while seats were arranged kept the hall waiting, but the equipment was ready by then. Only after everyone was seated did Lea give her opening speech. The repaired cable made the microphones usable; the seating delay explains why the performance did not begin as soon as the repair was complete.
+  - id: "p-comprehension-skills-sequencing-of-events-0004"
+    title: "The Returned Notebook"
+    body: |
+      Mika returned the missing notebook to the librarian on Wednesday morning. By then, its owner had already left a message asking whether anyone had found it. Mika did not discover the notebook when the message arrived. Her account begins earlier, with a quiet visit to the reading room.
+      
+      On Monday afternoon, she borrowed a reference book and sat at a table by the window. When she packed her bag, she accidentally placed another student's notebook beneath her own book. That evening at home, she noticed it and wrote a message to the librarian. The library was closed on Tuesday for repairs, so she could not bring it back the next day.
+      
+      The owner called the library on Wednesday before Mika arrived. The librarian checked the earlier message and told the owner that the notebook would be returned. After Mika handed it over, the librarian contacted the owner again. The owner collected it that afternoon. Each message belonged to a different stage of the return, even though the account opens near the end.
 questions:
-  - id: rc-cs-se-0001
-    passage: rc-cs-se-p1
-    type: analyze
-    difficulty: easy
+  - id: "rc-cs-se-0001"
+    passage: "rc-cs-se-p1"
+    type: "sequencing-of-events"
+    difficulty: "easy"
     stem: |
-      Which of the following events happened first in actual chronological time?
+      Which listed event occurred first in time?
     choices:
-      - text: Engineers requested intake filter replacements.
+      - text: "Engineers requested replacement filters."
         correct: true
-      - text: The municipal filtration facility unexpectedly suspended operations.
+      - text: "The facility suspended operations after machinery jammed."
         rationale: |
-          You picked the June event that opens the passage. The filter replacement request was submitted earlier in January.
-      - text: Procurement committee delayed approval during contested budget disputes.
+          This selects the event mentioned in the opening. The shutdown introduces the report. Check the earlier dates in the background.
+      - text: "The procurement committee delayed its approval."
         rationale: |
-          You picked the March delay. The filter replacement request occurred earlier in January.
-      - text: Replacement turbine parts arrived from Cebu.
+          This selects the first obstacle after the request. The delay is in March. Check whether the request preceded it.
+      - text: "Replacement machinery parts arrived for installation."
         rationale: |
-          You picked the final event of the passage in July, rather than the earliest event in January.
+          This selects the repair delivery. It resolves the emergency. Check the July date against the earlier events.
     explanation: |
-      Although the passage opens with the June shutdown, engineers had submitted the filter replacement request in January, making it the earliest event in chronological time.
-
-  - id: rc-cs-se-0002
-    passage: rc-cs-se-p1
-    type: analyze
-    difficulty: medium
+      The request was made in January. The other listed events are placed in March, June, and July, so the request comes first.
+  - id: "rc-cs-se-0002"
+    passage: "rc-cs-se-p1"
+    type: "sequencing-of-events"
+    difficulty: "medium"
     stem: |
-      What is the correct chronological sequence of these three events: (1) Technicians attempted emergency flushings, (2) Main intake turbines seized, (3) Procurement committee delayed filter approval?
+      Order these events chronologically: (1) emergency flushing, (2) machinery failure, (3) delayed approval.
     choices:
-      - text: (3) Procurement delayed approval → (1) Emergency flushings attempted → (2) Turbines seized
+      - text: "3, 1, 2"
         correct: true
-      - text: (2) Turbines seized → (3) Procurement delayed approval → (1) Emergency flushings attempted
+      - text: "2, 3, 1"
         rationale: |
-          You followed text order rather than chronological order. Procurement delayed in March, flushings occurred in May, and turbines seized in June.
-      - text: (1) Emergency flushings attempted → (2) Turbines seized → (3) Procurement delayed approval
+          This follows the opening failure before returning to the background. The failure appears first in the writing. Check the months for all three events.
+      - text: "1, 2, 3"
         rationale: |
-          You placed the March procurement delay at the end of the sequence instead of at the beginning.
-      - text: (3) Procurement delayed approval → (2) Turbines seized → (1) Emergency flushings attempted
+          This puts the March delay last. Flushing and failure are easy to connect. Check the date of the approval problem.
+      - text: "3, 2, 1"
         rationale: |
-          You placed the May emergency flushings after the June turbine failure. Flushings were attempted before the failure occurred.
+          This places flushing after failure. Emergency work can sound like a response to breakdown. Check that this flushing happened in May.
     explanation: |
-      Procurement delayed approval occurred in March, emergency flushings were attempted in early May, and the turbines seized in June.
-
-  - id: rc-cs-se-0003
-    passage: rc-cs-se-p1
-    type: infer
-    difficulty: medium
+      Approval was delayed in March. Flushing followed in May. Machinery failed in June. The sequence is $3, 1, 2$.
+  - id: "rc-cs-se-0003"
+    passage: "rc-cs-se-p1"
+    type: "sequencing-of-events"
+    difficulty: "medium"
     stem: |
-      Which event occurred immediately after the turbines seized on June 15?
+      Which listed event follows the June 15 machinery failure?
     choices:
-      - text: Replacement turbine parts were ordered from Cebu.
+      - text: "Replacement parts are ordered later that day."
         correct: true
-      - text: Engineers submitted the initial filter replacement request.
+      - text: "The initial filter request is submitted in January."
         rationale: |
-          You picked the January event that occurred months before the June turbine failure.
-      - text: Worn filter meshes began allowing coarse river gravel to enter chambers.
+          This selects the original request. Both actions involve replacements. Check which request comes after failure.
+      - text: "Coarse gravel begins passing the filters in April."
         rationale: |
-          You picked the April cause that led to the turbine seizure, not the event that followed it.
-      - text: Maintenance engineers conducted scheduled January inspections.
+          This selects a preceding problem. Gravel helps explain the jam. Check its April timing.
+      - text: "Technicians attempt emergency flushing in May."
         rationale: |
-          You picked an event from January, five months before the June incident.
+          This selects earlier emergency work. Flushing sounds like a response to failure. Check the May date.
     explanation: |
-      The passage notes that replacement turbine parts were ordered during the June emergency that followed the turbine failure.
-
-  - id: rc-cs-se-0004
-    passage: rc-cs-se-p1
-    type: evaluate
-    difficulty: hard
+      The first paragraph states that replacement parts are ordered later on June 15, after the machinery jams.
+  - id: "rc-cs-se-0004"
+    passage: "rc-cs-se-p1"
+    type: "sequencing-of-events"
+    difficulty: "hard"
     stem: |
-      Why does the written order of events in the passage differ from their true chronological order?
+      Why does the passage's written order differ from its chronological order?
     choices:
-      - text: The text opens with the outcome before reviewing causes.
+      - text: "It starts with the shutdown and then reviews earlier events."
         correct: true
-      - text: The author confused the month of January with the month of July.
+      - text: "It treats all the maintenance events as happening together."
         rationale: |
-          You assumed an author error. The passage purposefully uses a reverse narrative structure to explain the root causes of the June shutdown.
-      - text: Replacement parts were manufactured before the facility was constructed.
+          This mistakes a grouped explanation for simultaneity. Several events share one paragraph. Check the distinct months.
+      - text: "It gives the shutdown two contradictory dates in the report."
         rationale: |
-          You picked a false chronological assumption not supported by the text.
-      - text: Technicians performed maintenance after full operations were completed.
+          This mistakes two timelines for conflicting dates. The narrative goes backward. Check which date is tied to the shutdown.
+      - text: "It places the arrival of repair parts before the original request."
         rationale: |
-          You misread the sequence. Emergency flushings were performed in May before the June shutdown occurred.
+          This reverses the stated delivery chronology. Parts are discussed near the ending. Check January and July on the same timeline.
     explanation: |
-      Explanatory news reports frequently state the dramatic outcome (the June shutdown) first, then detail the preceding sequence of causes (January to May).
-
-  - id: rc-cs-se-0005
-    passage: rc-cs-se-p1
-    type: analyze
-    difficulty: hard
+      The report opens on June 15, then looks back to January through May. Its writing order starts with the result before the earlier events.
+  - id: "rc-cs-se-0005"
+    passage: "rc-cs-se-p1"
+    type: "sequencing-of-events"
+    difficulty: "hard"
     stem: |
-      What was the final event described in the facility's timeline?
+      Which event occurs last in the facility timeline?
     choices:
-      - text: Full filtration operations were restored on July 2.
+      - text: "Full operations resume on July 2."
         correct: true
-      - text: Main intake turbines seized on June 15.
+      - text: "Replacement parts arrive on July 1."
         rationale: |
-          You picked the June shutdown event. Operations were later restored on July 2 after replacement parts arrived.
-      - text: Procurement committee delayed budget approvals in March.
+          This stops at delivery before installation and testing. Parts make the repair possible. Check the next day's restoration.
+      - text: "Machinery fails on June 15."
         rationale: |
-          You picked a middle event from March, long before operations were restored in July.
-      - text: Emergency flushings were performed in May.
+          This selects the most dramatic event. The shutdown opens the report. Check the later repair sequence.
+      - text: "Emergency flushing is attempted in May."
         rationale: |
-          You picked an event from May, which preceded both the June shutdown and the July restoration.
+          This selects earlier emergency work. It attempts to prevent failure. Check the events following June.
     explanation: |
-      Full operations were restored on July 2 after replacement parts arrived, representing the final event in the chronological sequence.
-
-  - id: rc-cs-se-0006
-    passage: rc-cs-se-p2
-    type: analyze
-    difficulty: easy
+      Workers install and test the arriving parts, then restore full operations on July 2. That is the final dated event.
+  - id: "rc-cs-se-0006"
+    passage: "rc-cs-se-p2"
+    type: "sequencing-of-events"
+    difficulty: "easy"
     stem: |
-      Which event happened first chronologically in the Cagayan storm passage?
+      Which event occurs first in the storm account?
     choices:
-      - text: Captain Mendoza received early storm warnings on Sunday afternoon.
+      - text: "The captain receives a warning on Sunday."
         correct: true
-      - text: Typhoon Egay breached an earthen dike upstream on Monday evening.
+      - text: "Elderly residents reach the chapel on Monday."
         rationale: |
-          You picked the Monday evening event. The captain received storm warnings earlier on Sunday afternoon.
-      - text: Captain Mendoza walked through the village sounding an iron gong at midnight.
+          This selects the earliest movement of residents. It responds to the warning. Check the preceding Sunday event.
+      - text: "The dike bursts late on Monday evening."
         rationale: |
-          You picked the midnight event. Warnings were received on Sunday, and the gong was sounded late Monday night.
-      - text: Rescue motorboats reached the chapel at six in the morning on Tuesday.
+          This selects the start of the major flooding. It is a central event. Check the earlier warning and move.
+      - text: "Rescue boats arrive at six on Tuesday morning."
         rationale: |
-          You picked the final rescue event on Tuesday morning rather than the opening warning on Sunday.
+          This selects the event opening the story. Tuesday is described first. Check the flashback dates.
     explanation: |
-      Although mentioned midway through the text, receiving early storm warnings on Sunday afternoon is the earliest event in time.
-
-  - id: rc-cs-se-0007
-    passage: rc-cs-se-p2
-    type: analyze
-    difficulty: medium
+      The warning is received on Sunday afternoon. The refuge move, dike burst, and boat rescue all follow.
+  - id: "rc-cs-se-0007"
+    passage: "rc-cs-se-p2"
+    type: "sequencing-of-events"
+    difficulty: "medium"
     stem: |
-      What is the correct order of these events: (1) Elderly residents moved to the chapel, (2) Earthen dike breached upstream, (3) Rescue boats evacuated villagers?
+      Order these events: (1) elderly residents reach the chapel, (2) dike bursts, (3) boats evacuate residents.
     choices:
-      - text: (1) Elderly residents moved → (2) Earthen dike breached → (3) Rescue boats evacuated villagers
+      - text: "1, 2, 3"
         correct: true
-      - text: (3) Rescue boats evacuated villagers → (1) Elderly residents moved → (2) Earthen dike breached
+      - text: "3, 1, 2"
         rationale: |
-          You followed the narrative opening order rather than actual time order. Elderly moved Sunday/Monday, dike burst Monday, boats arrived Tuesday.
-      - text: (2) Earthen dike breached → (3) Rescue boats evacuated villagers → (1) Elderly residents moved
+          This follows the story's opening before the flashback. The boat rescue appears first in the text. Check when each event happened.
+      - text: "2, 3, 1"
         rationale: |
-          You placed the evacuation of elderly residents at the end, but they were instructed to move hours before the dike burst.
-      - text: (1) Elderly residents moved → (3) Rescue boats evacuated villagers → (2) Earthen dike breached
+          This puts the earlier refuge move last. Both the move and rescue involve evacuation. Keep the chapel move separate from boat transport.
+      - text: "1, 3, 2"
         rationale: |
-          You placed the Tuesday boat rescue before the Monday night dike breach.
+          This puts the boat rescue before the dike burst. The earlier move is correctly first. Check Monday evening against Tuesday morning.
     explanation: |
-      Elderly residents moved hours before the dike burst late Monday, and motorboats evacuated them early Tuesday morning.
-
-  - id: rc-cs-se-0008
-    passage: rc-cs-se-p2
-    type: infer
-    difficulty: medium
+      Elderly residents reach the chapel before Monday evening. The dike bursts later that evening. The boats evacuate residents Tuesday morning, giving $1, 2, 3$.
+  - id: "rc-cs-se-0008"
+    passage: "rc-cs-se-p2"
+    type: "sequencing-of-events"
+    difficulty: "medium"
     stem: |
-      Which clue in paragraph 2 signals that elderly residents moved before the dike burst?
+      Which phrase establishes that the elderly residents reached the chapel before the dike burst?
     choices:
-      - text: The phrase "Hours before the dike burst... had already instructed"
+      - text: "\"Hours after their move\""
         correct: true
-      - text: The phrase "At six in the morning on Tuesday"
+      - text: "\"At midnight\""
         rationale: |
-          You picked a phrase indicating the time of the boat rescue on Tuesday, not when residents were instructed to move.
-      - text: The phrase "By Monday night, floodwaters had completely submerged"
+          This selects the later gong warning. Midnight is a clear time signal. Check which two events it connects.
+      - text: "\"At six on Tuesday morning\""
         rationale: |
-          You picked a phrase describing the flooding severity on Monday night, not the earlier movement signal.
-      - text: The phrase "At midnight, Barangay Captain Carlos Mendoza had walked"
+          This selects the boat arrival time. Both moves involve the chapel. Check the earlier refuge movement.
+      - text: "\"The account begins with the rescue\""
         rationale: |
-          You picked the timestamp for the gong warning at midnight, which happened after the dike burst.
+          This describes writing order. The rescue starts the account. Check a clue about actual event order.
     explanation: |
-      The signal phrase "Hours before the dike burst... had already instructed" uses past perfect grammar to explicitly mark the earlier timing of the instruction.
-
-  - id: rc-cs-se-0009
-    passage: rc-cs-se-p2
-    type: evaluate
-    difficulty: hard
+      The dike burst is introduced as happening hours after their move. That phrase directly places the move first.
+  - id: "rc-cs-se-0009"
+    passage: "rc-cs-se-p2"
+    type: "sequencing-of-events"
+    difficulty: "hard"
     stem: |
-      What happened immediately after the earthen dike was breached late Monday evening?
+      Which listed event occurs next after the dike burst?
     choices:
-      - text: Captain Mendoza sounded an iron gong at midnight.
+      - text: "The captain sounds the gong at midnight."
         correct: true
-      - text: Disaster officials issued initial storm warnings on Sunday afternoon.
+      - text: "Officials send the first warning on Sunday."
         rationale: |
-          You picked an event from Sunday afternoon, which occurred before the dike burst late Monday.
-      - text: Rescue boats arrived from Manila on Wednesday afternoon.
+          This selects the earlier warning. Both actions warn residents. Check the day of each warning.
+      - text: "The boats evacuate the chapel group on Tuesday."
         rationale: |
-          You picked a detail not mentioned in the text. Rescue boats arrived at six in the morning on Tuesday.
-      - text: Elderly residents began packing their bags on Sunday morning.
+          This skips the midnight event. The boat rescue follows flooding. Check the intervening gong warning.
+      - text: "Elderly residents reach the chapel on Monday afternoon."
         rationale: |
-          You picked an event from Sunday, prior to the Monday dike breach.
+          This selects a move completed before the burst. Both occur Monday. Check the afternoon and evening order.
     explanation: |
-      The passage states that after Typhoon Egay breached the dike late Monday, Captain Mendoza walked through the village sounding an iron gong at midnight.
-
-  - id: rc-cs-se-0010
-    passage: rc-cs-se-p2
-    type: analyze
-    difficulty: hard
+      The dike bursts late Monday evening. The next listed event in time is the gong warning at midnight.
+  - id: "rc-cs-se-0010"
+    passage: "rc-cs-se-p2"
+    type: "sequencing-of-events"
+    difficulty: "hard"
     stem: |
-      Why is identifying the timeline in this narrative challenging for readers?
+      What makes reconstruction of this account's timeline necessary?
     choices:
-      - text: The story begins with Tuesday, flashing back to Sunday.
+      - text: "The rescue is told before the events leading to it."
         correct: true
-      - text: The passage fails to mention any specific days of the week or time indicators.
+      - text: "The account gives no dates or time signals for any event."
         rationale: |
-          You picked a false claim. The passage explicitly names Sunday, Monday, Tuesday, midnight, and six in the morning.
-      - text: The rescue boats arrived before the major typhoon occurred.
+          This overlooks the named days and hours. Backward narration can feel unclear. Check the explicit time signals.
+      - text: "All residents move to the chapel after the boat rescue."
         rationale: |
-          You misread the text. The rescue boats arrived on Tuesday morning after the typhoon hit on Monday.
-      - text: Captain Mendoza instructed residents after the rescue was completed.
+          This reverses refuge and final evacuation. Both involve movement to safety. Check where residents are when the boats arrive.
+      - text: "The first warning is received only after the dike bursts."
         rationale: |
-          You picked a sequence that contradicts the text. Mendoza instructed elderly residents hours before the dike burst.
+          This reverses warning and danger. The dike burst is dramatic. Check the Sunday warning before Monday's events.
     explanation: |
-      Opening with the Tuesday rescue and then jumping back to Sunday and Monday requires the reader to resequence the non-chronological narrative.
+      The account starts with Tuesday's rescue, then describes earlier warnings and moves. Readers must separate writing order from event order.
+  - id: "q-comprehension-skills-sequencing-of-events-0011"
+    passage: "p-comprehension-skills-sequencing-of-events-0003"
+    type: "sequencing-of-events"
+    difficulty: "easy"
+    stem: |
+      Which event happened before Lea's Friday rehearsal?
+    choices:
+      - text: "The backdrop was hung."
+        correct: true
+      - text: "The technician tested both microphones."
+        rationale: |
+          This selects a later equipment test. Both are preparations. Check whether the technician came after the rehearsal problem.
+      - text: "The audience entered the hall."
+        rationale: |
+          This selects an event after the repair. The audience arrives before the show. Check the rehearsal's earlier afternoon timing.
+      - text: "Lea gave the opening speech."
+        rationale: |
+          This selects the performance opening. It is the first event mentioned. Check the flashback to Thursday and Friday afternoon.
+    explanation: |
+      The backdrop was completed Thursday. The rehearsal and later events occur Friday.
+    approved: false
+  - id: "q-comprehension-skills-sequencing-of-events-0012"
+    passage: "p-comprehension-skills-sequencing-of-events-0003"
+    type: "sequencing-of-events"
+    difficulty: "medium"
+    stem: |
+      What happens after the technician is called but before arriving?
+    choices:
+      - text: "The students test the spare microphone."
+        correct: true
+      - text: "The team finishes hanging the backdrop."
+        rationale: |
+          This selects Thursday's completed work. It is part of preparation. Check the earlier day.
+      - text: "Lea begins the public opening speech."
+        rationale: |
+          This selects the eventual performance. The speech opens the story. Check the repair and audience events that precede it.
+      - text: "The technician replaces the cable."
+        rationale: |
+          This selects the technician's work. It follows the call. Check whether it can occur before arrival.
+    explanation: |
+      The passage explicitly places the spare-microphone check before the technician arrives. The call has already been made.
+    approved: false
+  - id: "q-comprehension-skills-sequencing-of-events-0013"
+    passage: "p-comprehension-skills-sequencing-of-events-0003"
+    type: "sequencing-of-events"
+    difficulty: "medium"
+    stem: |
+      Order these events: (1) audience admitted, (2) cable replaced, (3) opening speech, (4) rehearsal fault.
+    choices:
+      - text: "4, 2, 1, 3"
+        correct: true
+      - text: "3, 4, 2, 1"
+        rationale: |
+          This starts with the event opening the narrative. The speech is described first. Check the earlier repair sequence.
+      - text: "4, 1, 2, 3"
+        rationale: |
+          This admits the audience before the cable repair. Waiting in the hall can suggest an unfinished repair. Check that equipment is ready before admission.
+      - text: "2, 4, 3, 1"
+        rationale: |
+          This reverses fault and repair and puts speech before admission. Each event sounds related to the performance. Match cause and response first.
+    explanation: |
+      The rehearsal fault prompts the repair. The team admits the audience after the repair, and Lea speaks once everyone is seated. The order is $4, 2, 1, 3$.
+    approved: false
+  - id: "q-comprehension-skills-sequencing-of-events-0014"
+    passage: "p-comprehension-skills-sequencing-of-events-0003"
+    type: "sequencing-of-events"
+    difficulty: "hard"
+    stem: |
+      Which event explains the delay after the equipment is ready?
+    choices:
+      - text: "Seats are arranged for the audience."
+        correct: true
+      - text: "The backdrop is hung on Thursday."
+        rationale: |
+          This selects earlier stage preparation. Backdrops are needed for the play. Check its Thursday completion.
+      - text: "The microphone first cuts out during rehearsal."
+        rationale: |
+          This selects the initial equipment problem. It starts the repair process. Check the phrase after the equipment is ready.
+      - text: "The spare microphone is tested before the technician comes."
+        rationale: |
+          This selects the pre-repair test. It concerns the same microphones. Check when readiness is achieved.
+    explanation: |
+      The passage says a separate seating delay occurs after the repair. That is why the performance waits despite ready equipment.
+    approved: false
+  - id: "q-comprehension-skills-sequencing-of-events-0015"
+    passage: "p-comprehension-skills-sequencing-of-events-0003"
+    type: "sequencing-of-events"
+    difficulty: "exam"
+    stem: |
+      Which statement correctly relates repair and performance?
+    choices:
+      - text: "The cable repair is completed before the opening speech."
+        correct: true
+      - text: "The cable repair begins after Lea gives the opening speech."
+        rationale: |
+          This follows the story's opening as if it were chronological. Lea speaks at the start of the text. Check the afternoon flashback.
+      - text: "Audience admission precedes the cable replacement."
+        rationale: |
+          This uses the audience's wait to infer an unfinished repair. The wait is described after admission. Check the stated seating reason.
+      - text: "The spare test happens after both microphones are repaired."
+        rationale: |
+          This places a diagnostic test after the solution. Both involve the microphones. Check who conducts each test and when.
+    explanation: |
+      The technician repairs and tests the microphones before audience admission. The opening speech follows admission and seating, so repair comes first.
+    approved: false
+  - id: "q-comprehension-skills-sequencing-of-events-0016"
+    passage: "p-comprehension-skills-sequencing-of-events-0004"
+    type: "sequencing-of-events"
+    difficulty: "easy"
+    stem: |
+      Which event happens first?
+    choices:
+      - text: "Mika borrows a reference book."
+        correct: true
+      - text: "The owner calls the library."
+        rationale: |
+          This selects the owner's first contact. It is mentioned near the opening. Check the Wednesday date.
+      - text: "Mika messages the librarian at home."
+        rationale: |
+          This selects Monday evening. It is early in the return process. Check the earlier afternoon visit.
+      - text: "The librarian contacts the owner after the return."
+        rationale: |
+          This selects the follow-up call. It confirms the return. Check what must happen before it.
+    explanation: |
+      Borrowing the book occurs Monday afternoon before the packing mistake and later messages.
+    approved: false
+  - id: "q-comprehension-skills-sequencing-of-events-0017"
+    passage: "p-comprehension-skills-sequencing-of-events-0004"
+    type: "sequencing-of-events"
+    difficulty: "medium"
+    stem: |
+      What prevents Mika from returning the notebook on Tuesday?
+    choices:
+      - text: "The library is closed for repairs."
+        correct: true
+      - text: "The owner has already collected the notebook."
+        rationale: |
+          This puts collection before return. The owner wants the notebook back. Check the Wednesday afternoon collection.
+      - text: "The librarian has not received Mika's Monday message."
+        rationale: |
+          This supplies an unstated message delay. Contact is part of the process. Check the explicit reason Mika cannot visit.
+      - text: "Mika discovers the notebook only on Wednesday."
+        rationale: |
+          This moves discovery past the message. She writes Monday evening. Check what she notices before writing.
+    explanation: |
+      The passage states that Tuesday's closure for repairs prevents the next-day return.
+    approved: false
+  - id: "q-comprehension-skills-sequencing-of-events-0018"
+    passage: "p-comprehension-skills-sequencing-of-events-0004"
+    type: "sequencing-of-events"
+    difficulty: "medium"
+    stem: |
+      Which event occurs before Mika arrives Wednesday but after her Monday message?
+    choices:
+      - text: "The owner calls the library."
+        correct: true
+      - text: "Mika borrows the reference book."
+        rationale: |
+          This selects the Monday afternoon visit. It is before the message. Check both limits in the question.
+      - text: "The owner collects the notebook."
+        rationale: |
+          This selects Wednesday afternoon. It is after Mika's return. Check the word before.
+      - text: "The librarian sends the final follow-up message."
+        rationale: |
+          This selects contact after handover. The librarian calls twice. Distinguish the response before arrival from the later follow-up.
+    explanation: |
+      The owner calls Wednesday morning before Mika arrives. Mika's message had been sent Monday evening.
+    approved: false
+  - id: "q-comprehension-skills-sequencing-of-events-0019"
+    passage: "p-comprehension-skills-sequencing-of-events-0004"
+    type: "sequencing-of-events"
+    difficulty: "hard"
+    stem: |
+      Order these events: (1) notebook returned, (2) notebook discovered at home, (3) owner collects it, (4) accidental packing.
+    choices:
+      - text: "4, 2, 1, 3"
+        correct: true
+      - text: "1, 4, 2, 3"
+        rationale: |
+          This starts with the opening return event. The narrative begins near the end. Check the earlier Monday actions.
+      - text: "4, 1, 3, 2"
+        rationale: |
+          This places discovery after return and collection. The notebook's movement is central. Check why Mika first sends the message.
+      - text: "2, 4, 1, 3"
+        rationale: |
+          This puts discovery before the packing mistake. Both occur Monday. Check afternoon against evening.
+    explanation: |
+      Accidental packing occurs Monday afternoon, discovery occurs that evening, return occurs Wednesday morning, and collection occurs that afternoon. The order is $4, 2, 1, 3$.
+    approved: false
+  - id: "q-comprehension-skills-sequencing-of-events-0020"
+    passage: "p-comprehension-skills-sequencing-of-events-0004"
+    type: "sequencing-of-events"
+    difficulty: "exam"
+    stem: |
+      Which time relationship is supported by "By then, its owner had already left a message"?
+    choices:
+      - text: "The owner's message precedes Mika's return."
+        correct: true
+      - text: "The owner's message follows afternoon collection."
+        rationale: |
+          This places the message after the end of the process. Already indicates completion. Identify the reference event for that word.
+      - text: "Mika's return precedes the original packing mistake."
+        rationale: |
+          This follows writing order instead of time. The return is the opening event. Check the Monday packing flashback.
+      - text: "The owner collects the notebook before calling the library."
+        rationale: |
+          This exchanges a request with the eventual collection. Both belong to the owner. Check the morning call and afternoon visit.
+    explanation: |
+      Had already left places the owner's message before the Wednesday return described beside it. It marks an earlier action relative to that return.
+    approved: false
