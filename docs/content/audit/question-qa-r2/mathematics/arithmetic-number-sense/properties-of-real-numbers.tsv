@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-arithmetic-number-sense-properties-of-real-numbers-0001	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Correct choice had an answer-length cue or a weak distractor lacked a specific derivation.
+q-arithmetic-number-sense-properties-of-real-numbers-0003	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0004	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0005	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Correct choice had an answer-length cue or a weak distractor lacked a specific derivation.
+q-arithmetic-number-sense-properties-of-real-numbers-0006	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0007	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0008	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0009	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Correct choice had an answer-length cue or a weak distractor lacked a specific derivation.
+q-arithmetic-number-sense-properties-of-real-numbers-0010	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0011	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Correct choice had an answer-length cue or a weak distractor lacked a specific derivation.
+q-arithmetic-number-sense-properties-of-real-numbers-0012	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach closure or the standard number sets; stem, choices and key retained. Correct choice remains longest under the preservation rule.
+q-arithmetic-number-sense-properties-of-real-numbers-0013	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Correct choice had an answer-length cue or a weak distractor lacked a specific derivation.
+q-arithmetic-number-sense-properties-of-real-numbers-0014	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Correct choice had an answer-length cue or a weak distractor lacked a specific derivation.
+q-arithmetic-number-sense-properties-of-real-numbers-0015	CORRECTED	SOLVED-FIXED	stem;choices;explanation;notes;format	HIGH	Wrong key: the y coefficients sum to 9-2+5=12, not 14. Correct choice and mistaken distractor derivations fixed.
+q-arithmetic-number-sense-properties-of-real-numbers-0016	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0017	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0018	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0019	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-properties-of-real-numbers-0020	NEW	NEW	new question	NONE	
