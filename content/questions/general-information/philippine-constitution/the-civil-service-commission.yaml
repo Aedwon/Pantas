@@ -8,7 +8,7 @@ meta:
 questions:
 - id: q-philippine-constitution-the-civil-service-commission-0001
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'What is the CSC''s constitutional composition?
 
     '
@@ -32,7 +32,7 @@ questions:
     '
 - id: q-philippine-constitution-the-civil-service-commission-0002
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'What citizenship status does Article IX-B require for CSC members?
 
     '
@@ -56,7 +56,7 @@ questions:
     '
 - id: q-philippine-constitution-the-civil-service-commission-0003
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'What minimum age must a CSC member have at appointment?
 
     '
@@ -128,7 +128,7 @@ questions:
     '
 - id: q-philippine-constitution-the-civil-service-commission-0006
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'Which candidacy restriction applies to appointment as a CSC member?
 
     '
@@ -152,7 +152,7 @@ questions:
     '
 - id: q-philippine-constitution-the-civil-service-commission-0007
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'Which constitutional subdivision covers the CSC?
 
     '
@@ -200,7 +200,7 @@ questions:
     '
 - id: q-philippine-constitution-the-civil-service-commission-0009
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'What proven capacity does Article IX-B require of CSC appointees?
 
     '
@@ -224,7 +224,7 @@ questions:
     '
 - id: q-philippine-constitution-the-civil-service-commission-0010
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'What central government role does the Constitution assign to CSC?
 
     '
@@ -272,7 +272,7 @@ questions:
     '
 - id: q-philippine-constitution-the-civil-service-commission-0012
   type: single_choice
-  difficulty: medium
+  difficulty: hard
   stem: 'Are members of the Civil Service Commission subject to impeachment under Article XI?
 
     '
@@ -344,7 +344,7 @@ questions:
     '
 - id: q-philippine-constitution-the-civil-service-commission-0015
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   stem: 'Which listed body is an Article IX Constitutional Commission?
 
     '
@@ -368,7 +368,7 @@ questions:
     '
 - id: q-philippine-constitution-the-civil-service-commission-0016
   type: single_choice
-  difficulty: medium
+  difficulty: easy
   approved: false
   stem: 'How many CSC members are there in total when the chair is included?
 
@@ -418,7 +418,7 @@ questions:
     '
 - id: q-philippine-constitution-the-civil-service-commission-0018
   type: single_choice
-  difficulty: exam
+  difficulty: hard
   approved: false
   stem: 'A nominee is thirty-four at appointment but turns thirty-five a month later. What follows from the lesson?
 
@@ -443,7 +443,7 @@ questions:
     '
 - id: q-philippine-constitution-the-civil-service-commission-0019
   type: single_choice
-  difficulty: exam
+  difficulty: hard
   approved: false
   stem: 'Which fact alone satisfies the specialized capacity requirement without proving all appointment qualifications?
 
