@@ -90,3 +90,24 @@ relaunching or duplicating their assignments. The reset changes available
 execution capacity; it does not change the approved audit scope, integration
 permissions, or application-code freeze. Group completion and combined
 acceptance remain pending.
+
+## Persistent continuation requested, 2 October 2026
+
+Aedwon said:
+
+> you're about to hit limits can you set a cron to try to continue every 15 minutes, it should persist limits right
+
+The orchestrator installed a user cron entry to attempt continuation every 15
+minutes on this Mac. A process lock prevents duplicate scheduled orchestrators.
+The task, worker handles, committed ledgers, and reports persist on disk; each
+continuation verifies actual processes and repository state before resuming.
+The schedule remains subject to the account's usage limits and requires the Mac
+to be awake and connected. It introduces no paid fallback and does not expand
+the existing merge, signing, scope, or application-code permissions.
+
+The first installation attempt was interrupted by the usage limit before the
+cron entry was saved. Installation and a minimal-environment CLI probe were
+verified at 11:10 UTC. All prior worker passes had ended on quota errors and their
+completed commits were pushed; combined acceptance remains pending. The prior
+quota recognizer missed the curly apostrophe in the error text. It now matches
+the limit phrase independently of apostrophe style.
