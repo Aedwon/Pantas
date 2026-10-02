@@ -293,7 +293,7 @@ questions:
     rationale: |
       This confuses estimation bias with measurement error. Both affect accuracy. The denominator cannot repair recorded measurements.
   explanation: |
-    The sample mean is fitted to the sample itself, which makes deviations smaller on average than deviations from the unknown population mean. Dividing their squared sum by n would underestimate population variance on average. Dividing by n minus one corrects this bias under the stated random-sample assumptions.
+    The sample mean is fitted to the sample itself, which makes deviations smaller on average than deviations from the unknown population mean. Dividing their squared sum by $n$ would underestimate population variance on average. Dividing by $n-1$ corrects this bias under the stated random-sample assumptions.
 - id: 'q-statistics-and-probability-measures-of-variability-0016'
   type: 'which-is-true'
   difficulty: 'hard'
