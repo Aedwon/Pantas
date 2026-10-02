@@ -8,21 +8,21 @@ questions:
     type: spelling-correction
     difficulty: easy
     stem: |
-      Identify the misspelled word: "The **thief** questioned a **beleif** that had brought **grief** throughout the **field**."
+      Which revision corrects the misspelled word in "The thief questioned a beleif that had brought grief throughout the field"?
     choices:
-      - text: Beleif
+      - text: "Belief"
         correct: true
-      - text: Thief
+      - text: "Beleif"
         rationale: |
-          "Thief" is correctly spelled.
-      - text: Grief
+          This reverses the i and e. The unstressed sound does not clearly show their order. Check the spelling family "believe" and "belief."
+      - text: "Belieff"
         rationale: |
-          "Grief" is correctly spelled.
-      - text: Field
+          This doubles the final f. Some English words end in -ff, so that pattern may look familiar. Check the ending of "belief."
+      - text: "Beliief"
         rationale: |
-          "Field" is correctly spelled.
+          This adds a second i. The vowel sound may seem to need more letters. Check the vowel pair in "believe" and "belief."
     explanation: |
-      The correct spelling is "belief," not "beleif." Mnemonics about i/e order have many exceptions, so the item tests the actual spelling rather than treating the mnemonic as a universal rule.
+      The standard spelling is "belief," with i before e and one final f.
     approved: true
 
   - id: q-vocabulary-spelling-rules-0002
@@ -31,19 +31,19 @@ questions:
     stem: |
       Which word is misspelled?
     choices:
-      - text: Hopeing
+      - text: "Hopeing"
         correct: true
-      - text: Argument
+      - text: "Argument"
         rationale: |
-          "Argument" is correctly spelled.
-      - text: Believable
+          This applies a keep-the-e rule to a lexical exception. "Argue" visibly ends in e. Check the established spelling "argument."
+      - text: "Believable"
         rationale: |
-          "Believable" is correctly spelled.
-      - text: Truly
+          This assumes every final e must disappear before a vowel-starting suffix. That shortcut works for some words. Check the actual spelling of "believable."
+      - text: "Truly"
         rationale: |
-          "Truly" is correctly spelled.
+          This assumes the e of "true" stays before -ly. That often happens before consonant-starting suffixes. Check the exception "truly."
     explanation: |
-      "Hopeing" should be "hoping." The other three choices are standard spellings, including forms whose spelling does not follow a single simple suffix rule.
+      When -ing is added to "hope," its silent e is dropped. The standard spelling is "hoping," so "hopeing" needs correction.
     approved: true
 
   - id: q-vocabulary-spelling-rules-0003
@@ -52,19 +52,19 @@ questions:
     stem: |
       Which is the correctly spelled word?
     choices:
-      - text: Beginning
+      - text: "Beginning"
         correct: true
-      - text: Begining
+      - text: "Begining"
         rationale: |
-          The standard spelling has two n's in "beginning."
-      - text: Beggining
+          This leaves the final n single. Many words take -ing without doubling. Check the stress on the last syllable of "begin."
+      - text: "Beggining"
         rationale: |
-          The standard spelling does not double the g in this position.
-      - text: Beginnning
+          This doubles g instead of the final n. The strong sound in the middle may draw attention. Check which consonant ends the base.
+      - text: "Beginnning"
         rationale: |
-          The standard spelling has two n's here, not three.
+          This adds a third n. The doubling rule may be applied after the word has already been doubled. Check that doubling means two copies, not three.
     explanation: |
-      The correct spelling is "beginning": begin + -ing, with the final n doubled.
+      The last syllable of "begin" is stressed. The final n doubles before -ing, giving "beginning."
     approved: true
 
   - id: q-vocabulary-spelling-rules-0004
@@ -73,19 +73,19 @@ questions:
     stem: |
       Alin ang wastong pormal na baybay ng panghalip?
     choices:
-      - text: Siya
+      - text: "Siya"
         correct: true
-      - text: Sya
+      - text: "Sya"
         rationale: |
-          Karaniwang pinaikling anyo ito sa impormal na pagte-text, hindi ang buong pormal na baybay na sinusubok dito.
-      - text: Sia
+          This omits i as in a texting abbreviation. The shortened form is common in messages. Check the full form required for formal writing.
+      - text: "Sia"
         rationale: |
-          Kulang ang titik y sa wastong baybay na "siya."
-      - text: Siia
+          This omits y. Fast pronunciation can make the sound sequence hard to separate. Check the letters in the full pronoun.
+      - text: "Siia"
         rationale: |
-          Hindi ito wastong baybay ng panghalip.
+          This substitutes another i for y. The nearby vowel may make the spelling look possible. Check the sequence i-y-a.
     explanation: |
-      Ang buong pormal na baybay ay "siya."
+      The full standard Filipino pronoun is "siya." It includes the vowel i followed by y.
     approved: true
 
   - id: q-vocabulary-spelling-rules-0005
@@ -94,19 +94,19 @@ questions:
     stem: |
       Which is the correctly spelled word?
     choices:
-      - text: Accommodate
+      - text: "Accommodate"
         correct: true
-      - text: Acommodate
+      - text: "Acommodate"
         rationale: |
-          The standard spelling has double c.
-      - text: Accomodate
+          This leaves c single. The spoken sound does not reveal the doubled letter. Check both doubled pairs, c and m.
+      - text: "Accomodate"
         rationale: |
-          The standard spelling also has double m.
-      - text: Acomodate
+          This leaves m single. Remembering double c may make the spelling seem complete. Check the middle pair too.
+      - text: "Accommmodate"
         rationale: |
-          This omits both doubled consonants.
+          This adds a third m. Knowing the word has doubled consonants can lead to adding one twice. Check that each doubled pair contains two letters.
     explanation: |
-      "Accommodate" is spelled with double c and double m.
+      "Accommodate" has two c letters and two m letters. Keeping both pairs gives the standard spelling.
     approved: true
 
   - id: q-vocabulary-spelling-rules-0006
@@ -115,19 +115,19 @@ questions:
     stem: |
       Which is the correctly spelled word?
     choices:
-      - text: Embarrass
+      - text: "Embarrass"
         correct: true
-      - text: Embarass
+      - text: "Embarass"
         rationale: |
-          The standard spelling has double r.
-      - text: Embarras
+          This leaves r single. The word's pronunciation does not count written consonants. Check the pair in the middle.
+      - text: "Embarras"
         rationale: |
-          The standard spelling ends with double s.
-      - text: Emabarrass
+          This leaves the final s single. The ending sounds the same with one or two s letters. Check the standard -rr- and -ss pairs.
+      - text: "Emabarrass"
         rationale: |
-          This inserts an extra a.
+          This inserts a before b. Unstressed vowels can make the letter order hard to hear. Check that the word starts with em-b, then a.
     explanation: |
-      "Embarrass" has double r and double s.
+      "Embarrass" has two r letters and ends with two s letters.
     approved: true
 
   - id: q-vocabulary-spelling-rules-0007
@@ -136,124 +136,124 @@ questions:
     stem: |
       Which is the correctly spelled word?
     choices:
-      - text: Committee
+      - text: "Committee"
         correct: true
-      - text: Comittee
+      - text: "Comittee"
         rationale: |
-          The standard spelling has double m.
-      - text: Committe
+          This leaves m single. The double t and e can make the spelling look complete. Check all three pairs.
+      - text: "Committe"
         rationale: |
-          The standard spelling ends in double e.
-      - text: Comitee
+          This leaves the final e single. The double consonants are easy to notice first. Check the final vowel pair as well.
+      - text: "Committtee"
         rationale: |
-          This omits required doubled consonants.
+          This adds a third t. Remembering several double letters can lead to counting one pair twice. Check that the t pair has exactly two letters.
     explanation: |
-      The correct spelling is "committee": double m, double t, and double e.
+      "Committee" has double m, double t, and double e.
     approved: true
 
   - id: q-vocabulary-spelling-rules-0008
     type: spelling-correction
     difficulty: hard
     stem: |
-      A student writes "seperate." Is this the standard spelling?
+      Choose the standard spelling to replace "seperate" in a formal report.
     choices:
-      - text: 'No: the standard spelling is "separate."'
+      - text: "Separate"
         correct: true
-      - text: 'Yes: "seperate" is the standard spelling.'
+      - text: "Seperate"
         rationale: |
-          Dictionaries spell the word "separate."
-      - text: 'No: it should be "separrate."'
+          This replaces the middle a with e. The unstressed vowel can sound unclear. Check the middle sequence p-a-r.
+      - text: "Separrate"
         rationale: |
-          The standard form contains a single r in that position.
-      - text: 'No: it should be "seperrate."'
+          This doubles r. Many English words have doubled consonants. Check that "separate" has only one r.
+      - text: "Seperrate"
         rationale: |
-          This has both the wrong middle vowel and an extra r.
+          This changes the middle vowel and doubles r. Both edits can look plausible when spelling by sound. Check the middle vowel and consonant separately.
     explanation: |
-      The standard spelling is "separate." Because unstressed vowels can be hard to hear, memorizing the actual spelling is safer than inventing a phonetic rule.
+      The standard spelling is "separate." It uses a in the middle and one r.
     approved: true
 
   - id: q-vocabulary-spelling-rules-0009
     type: spelling-correction
     difficulty: hard
     stem: |
-      A student writes "definate." Is this the standard spelling?
+      Choose the standard spelling to replace "definate" in a formal report.
     choices:
-      - text: 'No: the standard spelling is "definite."'
+      - text: "Definite"
         correct: true
-      - text: 'Yes: "definate" is the standard spelling.'
+      - text: "Definate"
         rationale: |
-          The standard form uses i in the final unstressed syllable: definite.
-      - text: 'No: it should be "definnate."'
+          This replaces the i after n with a. That unstressed vowel can sound unclear. Check the spelling of "finite" within the word.
+      - text: "Definnate"
         rationale: |
-          The standard spelling has one n in that position.
-      - text: 'No: it should be "definete."'
+          This doubles n and uses a after it. A longer consonant sound may seem to need doubling. Check both the single n and the vowel that follows.
+      - text: "Definete"
         rationale: |
-          This does not match the standard spelling "definite."
+          This uses e where the word needs i after n. Similar unstressed sounds can suggest either vowel. Check the base "finite."
     explanation: |
-      The correct spelling is "definite."
+      The standard spelling is "definite." The base "finite" helps remember the i vowels in its later part.
     approved: true
 
   - id: q-vocabulary-spelling-rules-0010
     type: spelling-correction
     difficulty: hard
     stem: |
-      A student writes "mispell." Is this the standard spelling?
+      Which spelling correctly combines "mis-" with "spell"?
     choices:
-      - text: 'No: the standard spelling is "misspell."'
+      - text: "Misspell"
         correct: true
-      - text: 'Yes: "mispell" is the standard spelling.'
+      - text: "Mispell"
         rationale: |
-          The standard form retains both s letters at the morpheme boundary.
-      - text: 'No: it should be "misspel."'
+          This merges the final s of mis- with the first s of "spell." One spoken sound can seem to need one letter. Check the two parts before joining them.
+      - text: "Misspel"
         rationale: |
-          The root "spell" retains both final l's.
-      - text: 'No: it should be "mispsell."'
+          This drops one final l from the base. The prefix may draw attention away from the ending. Check that "spell" remains whole.
+      - text: "Mispsell"
         rationale: |
-          That adds a consonant not present in the word.
+          This swaps the second s and p. The same letters are present, so a quick glance may miss the order. Check the boundary between mis- and "spell."
     explanation: |
-      "Misspell" combines mis- and spell, retaining both adjacent s letters.
+      "Misspell" joins mis- and "spell." The joining keeps both adjacent s letters and both final l letters.
     approved: true
 
   - id: q-vocabulary-spelling-rules-0011
     type: spelling-correction
     difficulty: hard
     stem: |
-      A student writes "unecessary." Is this the standard spelling?
+      Which spelling correctly combines "un-" with "necessary"?
     choices:
-      - text: 'No: the standard spelling is "unnecessary."'
+      - text: "Unnecessary"
         correct: true
-      - text: 'Yes: "unecessary" is the standard spelling.'
+      - text: "Unecessary"
         rationale: |
-          The standard form has double n at the prefix/root boundary.
-      - text: 'No: it should be "unnecesary."'
+          This merges the n at the end of un- with the n of "necessary." One spoken sound can suggest one letter. Check each part before joining them.
+      - text: "Unnecesary"
         rationale: |
-          "Necessary" also contains double s.
-      - text: 'No: it should be "unneccessary."'
+          This drops one s from "necessary." The doubled n may make the spelling look complete. Check the base's s pair.
+      - text: "Unneccessary"
         rationale: |
-          This incorrectly doubles c.
+          This doubles c in "necessary." Other long words have several doubled consonants. Check the base's pattern of one c and two s letters.
     explanation: |
-      "Unnecessary" preserves un- + necessary, giving double n, one c, and double s.
+      "Unnecessary" joins un- and "necessary." The boundary gives double n, while "necessary" keeps one c and double s.
     approved: true
 
   - id: q-vocabulary-spelling-rules-0012
     type: spelling-correction
     difficulty: hard
     stem: |
-      Which form should be used in a formal Filipino response instead of the texting abbreviation "sya"?
+      Aling pares ang nakalista sa Ortograpiyang Pambansa ng KWF bilang mga adaptasyong Filipino ng salitang Espanyol na "cuento"?
     choices:
-      - text: Siya
+      - text: "Kwento / kuwento"
         correct: true
-      - text: Sia
+      - text: "Kuwento / cuento"
         rationale: |
-          This omits the y in the standard form.
-      - text: Siyya
+          This treats the original Spanish spelling as a listed Filipino adaptation. It appears beside the adaptations in the reference. Check which forms are identified as the adapted words.
+      - text: "Kwento / kuento"
         rationale: |
-          This adds an extra consonant.
-      - text: Sya
+          This removes w from one adapted form. The short spelling "kwento" may suggest removing letters freely. Check the exact pair listed by KWF.
+      - text: "Kwento / kuwuento"
         rationale: |
-          The question specifically asks for the full formal spelling rather than the texting abbreviation.
+          This adds u after w to one adapted form. The longer variant includes u, so an extra vowel may seem helpful. Check the listed sequence k-u-w-e.
     explanation: |
-      Use the full spelling "siya" in a formal response.
+      KWF's orthography lists both "kwento" and "kuwento" as Filipino adaptations of Spanish "cuento." Either listed form is accepted.
     approved: true
 
   - id: q-vocabulary-spelling-rules-0013
@@ -262,19 +262,19 @@ questions:
     stem: |
       Which word is misspelled?
     choices:
-      - text: Recieve
+      - text: "Recieve"
         correct: true
-      - text: Yield
+      - text: "Yield"
         rationale: |
-          "Yield" is correctly spelled.
-      - text: Ceiling
+          This wrongly changes the established i-e order in "yield." A broad vowel-pair rule can seem tempting. Check the spelling of the whole word.
+      - text: "Ceiling"
         rationale: |
-          "Ceiling" is correctly spelled.
-      - text: Perceive
+          This applies i-before-e despite the c. The rhyme's opening may be easier to recall than its limited pattern. Check the c-e-i sequence in "ceiling."
+      - text: "Perceive"
         rationale: |
-          "Perceive" is correctly spelled.
+          This flags a standard e-i pair after c. The pronunciation can make the letter order hard to judge. Check the c-e-i sequence in "perceive."
     explanation: |
-      The correct spelling is "receive," not "recieve." The familiar i/e mnemonic can help with some words but has many exceptions and should not be treated as a universal spelling law.
+      The standard form is "receive," with e before i after c. "Recieve" reverses that pair.
     approved: true
 
   - id: q-vocabulary-spelling-rules-0014
@@ -283,19 +283,19 @@ questions:
     stem: |
       Which word is misspelled?
     choices:
-      - text: Writeing
+      - text: "Noticable"
         correct: true
-      - text: Changeable
+      - text: "Managing"
         rationale: |
-          "Changeable" is correctly spelled.
-      - text: Loving
+          This keeps the silent e of "manage" before -ing. Some suffixes preserve an e, so that may seem necessary here. Check the ordinary -ing form "managing."
+      - text: "Courageous"
         rationale: |
-          "Loving" is correctly spelled.
-      - text: Argument
+          This assumes every vowel-starting suffix requires dropping e. That shortcut works for many -ing forms. Check the established spelling "courageous."
+      - text: "Argument"
         rationale: |
-          "Argument" is correctly spelled.
+          This assumes the e of "argue" stays before -ment. The suffix starts with a consonant, which may suggest keeping it. Check the exception "argument."
     explanation: |
-      The correct spelling is "writing," not "writeing." The other forms are standard spellings; suffix spelling includes exceptions, so one oversimplified rule should not be generalized to every word.
+      The standard spelling is "noticeable," with the e of "notice" retained before -able. The e helps keep the soft c sound.
     approved: true
 
   - id: q-vocabulary-spelling-rules-0015
@@ -304,19 +304,19 @@ questions:
     stem: |
       Which is the correctly spelled word?
     choices:
-      - text: Referred
+      - text: "Referred"
         correct: true
-      - text: Refered
+      - text: "Refered"
         rationale: |
-          The standard spelling doubles the final r before -ed.
-      - text: Reffered
+          This leaves the final r single. Many verbs take -ed without doubling. Check the stress on the last syllable of "refer."
+      - text: "Reffered"
         rationale: |
-          The first f is not doubled.
-      - text: Referrred
+          This doubles f instead of the final r. The middle consonant may be the most noticeable part. Check which letter ends the base.
+      - text: "Referrred"
         rationale: |
-          The standard spelling has two r's at the boundary, not three.
+          This adds a third r. The doubling rule may be applied to an already doubled form. Check that the final r pair contains two letters.
     explanation: |
-      The correct spelling is "referred."
+      The final syllable of "refer" is stressed. Its final r doubles before -ed, giving "referred."
     approved: true
 
   - id: q-vocabulary-spelling-rules-0016
@@ -325,19 +325,19 @@ questions:
     stem: |
       Alin ang wastong baybay?
     choices:
-      - text: Paaralan
+      - text: "Paaralan"
         correct: true
-      - text: Paralan
+      - text: "Paralan"
         rationale: |
-          Kulang ang isang a sa salitang "paaralan."
-      - text: Paarallan
+          This drops one of the opening a letters. Fast speech may make the two vowels seem like one. Check the written sequence p-a-a.
+      - text: "Paarallan"
         rationale: |
-          Hindi dinodoble ang l sa wastong baybay.
-      - text: Paaaralan
+          This doubles l. English-style doubling patterns may look familiar. Check the established Filipino spelling.
+      - text: "Paaaralan"
         rationale: |
-          Sobra ang isang a sa unahan.
+          This adds a third opening a. Knowing that the word has two a letters may lead to adding one twice. Check that the opening pair has exactly two.
     explanation: |
-      Ang wastong baybay ay "paaralan."
+      The standard spelling is "paaralan." It starts with p-a-a and has one l.
     approved: true
 
   - id: q-vocabulary-spelling-rules-0017
@@ -346,38 +346,81 @@ questions:
     stem: |
       Which is the correctly spelled word?
     choices:
-      - text: Seize
+      - text: "Seize"
         correct: true
-      - text: Sieze
+      - text: "Sieze"
         rationale: |
-          The standard spelling is "seize."
-      - text: Seise
+          This applies i-before-e to an exception. The familiar rhyme may seem general. Check the established spelling "seize."
+      - text: "Seise"
         rationale: |
-          The standard form ends in z-e, not s-e.
-      - text: Seizee
+          This replaces z with s. Both can suggest a similar sound in English spelling. Check the final consonant of the word.
+      - text: "Seizee"
         rationale: |
-          The standard form has one final e.
+          This adds a second final e. A long vowel may seem to need an extra written vowel. Check the standard five-letter form.
     explanation: |
-      "Seize" is the correct spelling. It is also a useful reminder that i/e-order mnemonics have exceptions.
+      The standard spelling is "seize," with e before i and one final e. Its vowel pair is a learned exception to the limited i-before-e mnemonic.
     approved: true
 
   - id: q-vocabulary-spelling-rules-0018
     type: spelling-correction
     difficulty: exam
     stem: |
-      Identify the ONE correctly spelled word.
+      Identify the correctly spelled word.
     choices:
-      - text: Truly
+      - text: "Occurrence"
         correct: true
-      - text: Acommodate
+      - text: "Priviledge"
         rationale: |
-          The standard spelling is "accommodate."
-      - text: Mispell
+          This inserts d into "privilege." The soft g sound resembles the -dge sequence in other words. Check the established -lege ending.
+      - text: "Managable"
         rationale: |
-          The standard spelling is "misspell."
-      - text: Sieze
+          This drops the e that preserves the soft g in "manageable." Dropping silent e before a vowel suffix is a useful but limited pattern. Check the pronunciation that the spelling must preserve.
+      - text: "Arguement"
         rationale: |
-          The standard spelling is "seize."
+          This keeps e when adding -ment to "argue." A consonant-starting suffix often leaves e in place. Check the exception "argument."
     explanation: |
-      "Truly" is correct. The other choices should be "accommodate," "misspell," and "seize."
+      The standard spelling is "occurrence," with two c letters, two r letters, and the ending -ence.
     approved: true
+
+  - id: q-vocabulary-spelling-rules-0019
+    type: spelling-correction
+    difficulty: hard
+    stem: |
+      Complete the sentence with the standard form made from "true" and "-ly": "The witness spoke ______ about the incident."
+    choices:
+      - text: "Truly"
+        correct: true
+      - text: "Truely"
+        rationale: |
+          This keeps e before -ly. That is common in other word families. Check the exception "true" to "truly."
+      - text: "Trully"
+        rationale: |
+          This doubles l while adding -ly. Some suffix rules involve doubled consonants. Check whether the base "true" has an l to double.
+      - text: "Truley"
+        rationale: |
+          This rearranges the suffix and keeps the e. The same nearby letters may look familiar. Check that the suffix is -ly and the base drops e.
+    explanation: |
+      "True" drops its e when -ly is added. The standard result is "truly," a learned exception to the usual keep-e pattern before consonant-starting suffixes.
+    approved: false
+
+  - id: q-vocabulary-spelling-rules-0020
+    type: spelling-correction
+    difficulty: exam
+    stem: |
+      "Visit" is stressed on its first syllable, and "begin" on its last. Which pair correctly gives their -ing forms?
+    choices:
+      - text: "Visiting, beginning"
+        correct: true
+      - text: "Visitting, beginning"
+        rationale: |
+          This doubles the final t of "visit." Its ending has a vowel followed by a consonant, which may suggest doubling. Check where the stress falls.
+      - text: "Visiting, begining"
+        rationale: |
+          This leaves the final n of "begin" single. "Visiting" correctly has no doubling, so that pattern may be copied. Check each word's stress separately.
+      - text: "Visitting, begining"
+        rationale: |
+          This reverses the stress-based doubling pattern for both words. Their endings look similar. Check whether the final syllable is stressed before adding -ing.
+    explanation: |
+      "Visit" has stress on its first syllable, so its final t stays single in "visiting." "Begin" has stress on its last syllable, so its final n doubles in "beginning."
+    approved: false
+
