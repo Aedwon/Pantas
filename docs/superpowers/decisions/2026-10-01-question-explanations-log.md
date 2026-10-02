@@ -410,3 +410,39 @@ files were regenerated successfully (exit 0, 2,491 outputs); tracked status stay
 clean. Flutter 3.44.6 and Dart 3.12.2 were verified locally. No seed was rebuilt.
 The combined merge/gates, importer change/review, and final completion remain
 pending. No app-branch or main content integration is authorized here.
+
+### Combined content integration and Step 2 gates passed, 3 October 2026
+
+The orchestrator verified all three completed subject branches, their clean
+worktrees, committed summaries, terminal worker handles, and matching remote
+SHAs, then merged each with `git merge --no-ff` into the assigned local
+`content/question-qa-r2` worktree. No conflict occurred. Combined source:
+`99e1f5f0268d23b7199026b9aff39480e3af0da8`. The remote combined branch is intentionally still at the
+original base `1f79d880264e9c80c7507c95a365126d251c3837` pending the importer task and final
+upload. This planned local-ahead state is not unexpected branch drift.
+
+Actual combined results:
+
+```text
+merge math exit 0
+merge science exit 0
+merge other exit 0
+full-bank importer exit: 0
+lessons=158 questions=3163 active=3163 preserved=2364 fixed_keys=19 under20=0 errors=0
+check_no_ai_attribution: OK
+```
+
+The merged mechanical check confirms every source lesson has at least 20 emitted
+active questions, all wrong-choice notes are nonempty in source and imported
+data, IDs are unique and all baseline IDs remain in their files, lesson/exam
+routing is unchanged, ledger rows match source IDs, and the fraction, em-dash,
+and prohibited-choice checks pass. Counts and full findings are preserved in
+the combined verification JSON and the committed subject summaries. The tracked
+worktree stayed clean. No policy was merged into this code branch.
+
+Step 2 is complete. Step 3's single importer implementor will receive this exact
+local source, the expected remote base, current-main policy, and the existing
+fixture ruling. Its focused tests must run alone and show RED before the guard
+and GREEN afterward. The orchestrator will independently inspect that code and
+own final combined verification. The final summary/upload/completion record,
+app-branch integration, signing, and device acceptance are not complete here.
