@@ -257,3 +257,42 @@ thread_id: 01a0fd47-fa9f-7f01-a121-8721b3d3d8cb
 The running Mathematics and remaining-subjects workers, their worktrees, the
 worker monitor, and the approved content scope were left running. The Science
 group remains verified and pushed; combined acceptance remains pending.
+
+### Mathematics group completed and mechanically verified, 3 October 2026
+
+The Mathematics worker finished at
+`0e9cca17558aa48720cd4aebf04930adf8a946b1` on
+`content/question-qa-r2-math`, with a clean worktree and committed
+`docs/content/audit/question-qa-r2/math-summary.md`. The normal push was verified
+against the same remote SHA at 16:50 UTC on 2 October.
+
+The orchestrator independently ran the full-bank importer and the scoped
+mechanical check against the unchanged source revision:
+
+```text
+dart run tools/import_questions/import_questions.dart --root content/questions
+exit: 0
+lessons=46 questions=920 active=920 preserved=712 fixed_keys=1 under20=0 errors=0
+check_no_ai_attribution: OK
+```
+
+The checks cover the same source/import, identifier, routing, note, formatting,
+ledger, scope, and active-count boundaries recorded for Science above. The
+pass-upload monitor verified committed content and attribution before pushing.
+Mathematics totals: 712 existing questions audited, 208 added, one answer key
+recorded as fixed, 21 HIGH findings, and 58 questions requiring Aedwon's decision.
+Every Mathematics lesson has exactly 20 active questions.
+
+The worker also reported 22 raw-source answer-length candidates. Eight are
+protected NEEDS AEDWON items; 14 are in previously completed ledgers that its
+resumption instructions require skipping. Source length includes LaTeX, so those
+14 candidates are not a verified rendered-length finding. They were not reopened
+or visually checked. The Mathematics summary lists all 22 IDs. This limitation
+must remain in the combined summary; no visual acceptance or authored-content
+review is claimed by the orchestrator.
+
+Science and Mathematics are now mechanically accepted and pushed separately.
+They cover 97 completed lessons, 1,943 active questions, 454 added questions, and
+nine recorded answer-key fixes. The remaining-subjects worker is still running.
+The groups remain unmerged; combined acceptance, importer enforcement, protected
+package signing, app/device checks, and app-branch integration remain pending.
