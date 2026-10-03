@@ -956,3 +956,21 @@ authorization under `WORKFLOW.md` until Aedwon grants a standing permission.
 Current status: brainstorming continues. No pipeline spec, plan, content change,
 or Google Doc change has been made. The coverage audit spec is unchanged and
 still awaits full-spec approval.
+
+### October 4, 2026: project order
+
+Options offered: (1) standards revision first, then the coverage audit, with the
+pipeline designed during the audit and run after it (recommended: the judges
+need one current standard, and the audit only reports and shows where content
+needs work); (2) start the coverage audit now with the current standards, which
+is faster but judges teaching quality against outdated rules.
+
+Aedwon's answer: "sure let's go with your recommended order"
+
+Correction recorded: Claude's earlier claim that the lesson guide permits em
+dashes and conflicts on grade level came from the older `content/question-qa-r2`
+copy. Main's content standards (September 25 and October 1, 2026) already ban
+em dashes and align the Grade 5 benchmark. The standards revision starts from
+main's versions. Remaining gaps: exam language requirements versus the
+English-only runbook, source records and hierarchy, learning objectives tied to
+exam requirements, item-writing rules, and a judge rubric.
