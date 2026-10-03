@@ -576,3 +576,77 @@ The lead's corrected full suite is currently running serially against this exact
 commit. Full combined acceptance, final summary/upload, remote SHA verification,
 and completion recording remain pending. No app-branch/main content integration,
 visual/device acceptance, package signing, or release publication is claimed.
+
+## Question QA r2 orchestration completed, 3 October 2026
+
+The approved four-step orchestrator objective is completed on
+`content/question-qa-r2`, final report-inclusive commit
+`765c5dc0fa5586281047bf4f7b30d09ab3707887`. A normal push was verified against that exact remote SHA;
+the local tracked worktree is clean. The verified feature commit before the
+report is `533f06e43fabe587b58dfa93a497fda2fcedaab7`; the final commit adds only
+`docs/content/audit/question-qa-r2/summary.md`.
+
+Completion covers all 158 source lessons: 3,163 active questions, 2,364 existing
+IDs preserved in their original files, 799 questions added, and 19 recorded
+answer-key fixes. Every lesson has at least 20 active questions; none is below
+the target. The three subject summaries and all 158 complete ledgers are committed
+and integrated into the assigned working branch. CSE vocabulary placeholders
+remain outside this audit; the production export separately retains two historical
+placeholder questions, for 3,165 exported questions in total.
+
+Final actual verification on the feature commit:
+
+```text
+full-bank importer: exit 0
+lessons=158 questions=3163 active=3163 preserved=2364 fixed_keys=19 under20=0 errors=0
+full serial Flutter suite: 06:26 +3409: All tests passed!, exit 0
+full formatting: 1277 files, 0 changed, exit 0
+check_layering: OK, exit 0
+check_no_ai_attribution: OK, exit 0
+analyzer: 1 explicitly accepted bookmarks-sheet onReorder info, exit 1
+analyzer errors/warnings: 0
+git diff --check: exit 0
+```
+
+The future-authoring importer now requires a nonempty string note on each wrong
+choice and identifies the question and one-based choice number in its rejection.
+A correct choice requires no note. The four note-regression tests demonstrated
+RED before implementation and GREEN after. Independent code review found no
+findings. All 41 focused tests passed. The current export checks and immutable
+E02 input corrections preserve the exact historical migration digest and all
+existing migration/user-data preservation assertions. The corrected full suite
+then passed 3,409 tests. No runtime migration allowlist, production library,
+dependency, workflow, or protected package was changed.
+
+The comprehensive working-branch summary lists all 436 original HIGH findings,
+all 134 NEEDS AEDWON items, their 19 pending HIGH items, all 19 recorded key fixes,
+all 158 emitted active counts, verification inputs and commands, and limitations.
+The 19 pending HIGH items and the 19 fixed keys are separate measures. Protected
+pending questions remain active with their original stems, choices, and keys.
+The authors' semantic output review remains waived as Aedwon requested; mechanical
+acceptance must not be presented as an independent authored-content review.
+
+Retained limitations: 61 raw answer-length candidates, including 15 protected
+items and 46 previously completed non-protected items, were preserved under the
+resumption/preservation rules. They are not verified rendered-width findings and
+were not visually checked. Their IDs and rationale for retention are recorded in
+the combined and subject summaries.
+
+Next actions requiring Aedwon remain outside this completed objective:
+
+1. Resolve the pending content decisions and authorize integration into
+`web/roadmap-engine-r1`. No content or importer change was merged into that branch
+or into main.
+2. Rebuild and re-sign the protected QA content package with his signing key.
+The existing frozen package was only authenticated and copied byte-for-byte as
+ignored verification input; it was not rebuilt, re-signed, or published. E09
+package hashes will change when the new QA package is built, and phone checks
+after the UI connection must use that new package.
+3. Build the on-request list of every wrong-choice note in the UI round from the
+approved Claude Design screens. The current reveal still shows only the picked
+choice note after a miss. Visual/device acceptance and publication are pending.
+
+The application-code freeze, signing boundary, branch/worktree preservation,
+and separate publication permissions remain in effect. The same-conversation
+wake respects a completed goal and will not create further turns for it. No
+separate orchestrator, app screenshot capture, release, or paid fallback was used.
