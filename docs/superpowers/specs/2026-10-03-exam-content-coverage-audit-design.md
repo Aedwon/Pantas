@@ -7,16 +7,17 @@ Status: Draft for Aedwon's review. Not approved.
 
 ### What this audit should answer
 
-Does Pantas teach and provide practice for the subjects and topics needed for each target exam? Where is coverage missing, too thin, misplaced, or combined in a way that makes exam preparation less focused?
+Ensure full coverage of all mentioned exams: verify that Pantas teaches and provides practice for every required subject and topic, and identify everything missing before full coverage can be claimed. Check where coverage is too thin, misplaced, or combined in a way that makes exam preparation less focused.
 
 Start with what each exam requires. Compare that with the app's subjects, topics, and lesson names first. Only then check the lessons and questions. The previous question audit supplies findings to investigate later; it does not define what the app should teach.
 
 ### Exams included
 
 - UPCAT, DCAT, ACET, USTET, and PUPCET.
-- Other CETs already offered by the app, listed by name in the report.
 - DOST undergraduate scholarship examination and SM Foundation scholarship examination.
 - CSE Professional and CSE Subprofessional, assessed separately.
+
+For other CETs, identify the common content this corpus supports. Claim full coverage of an additional exam only when it is named and checked separately.
 
 Check language requirements and differences between exam versions where they affect content. Shared subjects do not mean the exams require the same topics or depth. If an exam listed here is not yet offered by the app, assess the corpus against its requirements and report that separately.
 

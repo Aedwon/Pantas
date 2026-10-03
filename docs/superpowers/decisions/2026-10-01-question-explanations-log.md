@@ -739,3 +739,41 @@ approval, write the implementation plan from the approved spec. This request is
 planning-only; do not start the audit without execution authorization. The
 application freeze, protected pending-question decisions, and publication
 boundaries remain in effect.
+
+### Main project directory review copy, October 3, 2026
+
+Aedwon clarified, exactly:
+
+> you should also edit on device you're literally on the main project directory
+
+The spec and its draft checkpoint are now also saved in the primary local
+`/Users/aedwon/Documents/Projects/Pantas` directory. The spec bytes match the
+reviewed documentation-branch copy. This local review copy leaves main
+without a new commit or remote update. Approval, planning, and audit execution
+status are unchanged: draft awaiting review; no plan or audit started.
+
+### Full coverage wording and other CETs, October 3, 2026
+
+Aedwon requested, exactly:
+
+> modify it at bit, the word ensure full coverage of all mentioned exams.
+>
+> also wdym by "Other CETs already offered by the app, listed by name in the report."
+
+The draft goal now explicitly says "Ensure full coverage of all mentioned
+exams," followed by verifying all required teaching and practice and identifying
+everything missing before a full-coverage conclusion. This does not approve
+content repairs or turn unknown exam requirements into verified facts.
+
+The earlier other-CET wording meant additional exams in the app's existing
+roster. The checked export roster at the proposed corpus revision lists no
+additional university CET beyond the five already named; its DLSUCET entry
+refers to the De La Salle admission test named DCAT in this spec. The vague
+roster line was removed. The draft now describes common coverage for other CETs
+and requires an additional exam to be named and checked separately before
+claiming its full coverage. This clarification remains part of the draft
+for Aedwon's review. No extra exam or audit execution is approved.
+
+The primary local spec is the review copy being edited. The documentation
+branch receives matching spec and decision records for durable remote storage.
+Status remains draft awaiting approval; implementation plan and audit not started.
