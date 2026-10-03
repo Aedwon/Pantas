@@ -650,3 +650,92 @@ The application-code freeze, signing boundary, branch/worktree preservation,
 and separate publication permissions remain in effect. The same-conversation
 wake respects a completed goal and will not create further turns for it. No
 separate orchestrator, app screenshot capture, release, or paid fallback was used.
+
+## Top-down coverage audit spec drafted, October 3, 2026
+
+### Current status
+
+The separate coverage audit is at written-spec review. The draft is
+`docs/superpowers/specs/2026-10-03-exam-content-coverage-audit-design.md`.
+The spec is not approved. No implementation plan exists, and the audit has not
+started. No app or content change is authorized by this drafting request.
+
+The proposed input is the completed question-QA working branch at
+`765c5dc0fa5586281047bf4f7b30d09ab3707887`. The policy/documentation base is main
+at `218b61232a4d8b8761dd141a30abaa8bd3947659`. Both worktrees were clean and
+matched their fetched remote heads before creating the isolated documentation
+worktree `Pantas-wt-content-coverage-audit-r1`, branch
+`docs/content-coverage-audit-r1`. This new branch keeps draft documents separate
+from frozen application work and completed question-QA content. No integration
+target beyond this documentation branch is assumed.
+
+All three terminal-relay runners were verified offline. Direct local execution
+was used for this authorized documentation task; no relay request or browser
+worker was launched.
+
+### User request and corrections, exact wording
+
+Initial request:
+
+> i want to do a high-level audit on the content of this app (both lessons and questions). i just had a content audit done and the output is here https://github.com/Aedwon/Pantas/blob/content/question-qa-r2/docs/content/audit/question-qa-r2/summary.md you can similarly find the worktree in my Documents/Projects.
+>
+> the task, to be clear, that I'm giving you is this: ensure that the entire corpus of the app covers all subjects, topics, lessons that is required for the initial exams that it tries to cover:
+> - UPCAT, DCAT, ACET, USTET, PUPCET, and other CETs (these have a lot of overlap in content)
+> - DOST, SM Foundation
+> - CSE Professional, Subprofessional
+>
+> I only want you to look at the corpus at a high level and see if all required topics for those exams mentioned have been covered. if not, take note of it.
+>
+> The audit also has found some inconsistencies where a question appeared without the corpus teaching it. Perhaps there are items missing in the corpus, or maybe that question really is unneeded. That's what we want to know exactly.
+>
+> Then also, you might find some lessons to be too compressed or something along the lines of "some part of this could be used by another exam but there's some parts not needed" which means they could be split further for a more focused lesson. This is so that there needs no duplication, only specification, should a lesson need a particular topic without needing the other things, if that makes sense.
+>
+> with this, do you also have other ideas to increase the quality and accuracy of the content of the app as a whole?
+
+Correction:
+
+> i think you didn't get what i mean. i wanted you to approach this top-down. so you should do a check on the high-level items of the corpus first (subjects, topics, lesson names) and check if that actually covers a certain exam, for all exams.
+>
+> then you do the checking
+
+Drafting instruction:
+
+> i want you to write a durable spec + implementation plan for this. write the spec at a high level and in simple words, no jargon, for me to read and to make sure we're on the same page. after I read and approve the spec, then you can make the implementation plan based on the spec. is this clear?
+
+### Options offered and resulting scope
+
+Before the correction, the lead offered minimal (topic inventory, obvious gaps,
+estimated 1 hour), balanced (all lesson scopes, exam mapping, flagged questions,
+focused splits, estimated 2–4 hours), and hardened (balanced plus independent
+subject reviews and detailed question alignment, estimated 1–2 days), with
+20–30 minutes for planning. Balanced was recommended. Aedwon selected no level;
+he corrected the order and requested the written spec before the plan. Estimates
+remain provisional and do not establish an approved complexity choice.
+
+The lead acknowledged starting too far down. The draft now requires exam
+requirements first, then a saved comparison against subjects/topics/lesson
+names for all exams, followed by lesson teaching, practice alignment, and
+recommendations. It proposes balanced scope for review rather than asserting
+approval. Other CETs are bounded to the app's existing offerings and must be
+listed by name. Unknown requirements remain explicit. Missing teaching alone
+does not justify removal of a question.
+
+Additional ideas offered were source and uncertainty records, prerequisite and
+worked-example checks, and checking skill variety and difficulty rather than
+counts alone. These are audit recommendations, not approved product changes.
+
+### Draft verification and next action
+
+The draft was read back and checked against all three user messages. Its approval
+section uses simple words, states scope and exclusions, lists every requested
+exam, preserves the top-down order, and defines the report and completion
+criteria. The separate agent section records source identity and constraints.
+Only the spec and this decision/status checkpoint are part of the drafting task.
+Documentation whitespace and scope checks apply; no app tests or release checks
+are claimed for this documentation-only change.
+
+Next action: Aedwon reviews the spec. Revise it if requested. After explicit spec
+approval, write the implementation plan from the approved spec. This request is
+planning-only; do not start the audit without execution authorization. The
+application freeze, protected pending-question decisions, and publication
+boundaries remain in effect.
