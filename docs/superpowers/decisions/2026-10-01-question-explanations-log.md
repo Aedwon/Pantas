@@ -974,3 +974,16 @@ em dashes and align the Grade 5 benchmark. The standards revision starts from
 main's versions. Remaining gaps: exam language requirements versus the
 English-only runbook, source records and hierarchy, learning objectives tied to
 exam requirements, item-writing rules, and a judge rubric.
+
+### October 4, 2026: Filipino-language content in the standards
+
+Options offered: (1) add Filipino-language rules now for grammar, vocabulary,
+and reading content, with their own source and reviewer requirements, at the
+cost of one more standards section and judges who must read Filipino well, to
+be tested in the pilot (recommended); (2) keep English only and let the audit
+report Filipino requirements as gaps, cheaper now but likely requiring a second
+standards revision. Claude stated that UPCAT and both CSE levels appear to
+include Filipino-language items, unconfirmed against current organizer sources;
+the coverage audit confirms this.
+
+Aedwon's answer: "1."
