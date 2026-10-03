@@ -39,6 +39,20 @@ Check language requirements and differences between exam versions where they aff
 
 Keep topic relevance separate from teaching quality and practice quality. A topic may be relevant and taught, but still lack useful practice. Likewise, content may exist in the corpus but be unavailable to students preparing for the relevant exam. Report both cases.
 
+### How coverage will be judged
+
+Judge each required skill separately. A matching topic name or a question count does not establish coverage.
+
+- Teaching explains the idea and how to use it.
+- Worked examples show the steps where solving is involved.
+- Necessary prior knowledge is taught somewhere in the corpus and clearly connected to the skill.
+- Practice tests the skill, including application where the exam requires it.
+- Students preparing for that exam can access the relevant teaching and practice.
+
+Use the exam's documented requirements and the actual content to judge the required depth. Report missing teaching, incomplete teaching, missing or incomplete practice, and content unavailable for the relevant exam separately. Where the required depth is unknown, state that uncertainty rather than claim full coverage.
+
+Do not set arbitrary minimum numbers of examples or questions. Explain coverage findings with evidence from the requirements, lessons, and practice. These findings do not prove student mastery or replace a full answer-correctness review.
+
 ### Boundaries and approval
 
 This is a coverage and alignment audit. It does not repeat a full review of every answer key or rewrite every lesson. Record accuracy concerns encountered, including unresolved concerns from the previous audit, without claiming a complete correctness review.
@@ -74,4 +88,4 @@ Preserve source links, dates, the requirement supported, and the distinction bet
 
 Use existing repository audit and decision records. Record the input revision and progress so a resumed task can recover the current stage. Preserve application freezes, protected questions, and signing and publication boundaries. Recommendations do not resolve or edit the previous audit's protected questions.
 
-The implementation plan must specify coverage accounting and checks for unsupported conclusions. Tooling and assignments belong in that plan, not this approval section. Complexity selection remains proposed, not accepted, until Aedwon approves the scope. No implementation plan or audit findings have been produced by this drafting task.
+The implementation plan must specify coverage accounting and checks for unsupported conclusions. For each required skill, record evidence for teaching, worked examples where needed, prior knowledge, practice, and exam-specific availability. Preserve uncertainty about required depth; do not substitute names, question counts, or invented numerical thresholds for that evidence. Tooling and assignments belong in that plan, not this approval section. Complexity selection remains proposed, not accepted, until Aedwon approves the scope. No implementation plan or audit findings have been produced by this drafting task.

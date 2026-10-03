@@ -777,3 +777,49 @@ for Aedwon's review. No extra exam or audit execution is approved.
 The primary local spec is the review copy being edited. The documentation
 branch receives matching spec and decision records for durable remote storage.
 Status remains draft awaiting approval; implementation plan and audit not started.
+
+### Coverage judgment clarified during spec review, October 3, 2026
+
+Aedwon requested, exactly:
+
+> Check whether my updated ASD-STE100 instructions are now visible. Then resume reviewing the local content-audit spec. Wait for my approval before writing the implementation plan.
+
+After the lead identified the missing coverage judgment rule, Aedwon requested:
+
+> expound more on that gap here in chat only
+
+The lead explained the proposed rule in chat: assess every required skill for
+teaching, worked examples where solving is involved, necessary prior knowledge,
+relevant practice, and availability to students preparing for the exam. Matching
+topic names and question counts cannot establish coverage. Required depth follows
+documented exam requirements; unknown depth stays uncertain. Do not invent fixed
+example or question minimums. Coverage does not establish student mastery or
+replace a complete answer-correctness audit.
+
+Aedwon responded, exactly:
+
+> okay sure
+
+The clarification is now included in the plain-language approval section and the
+matching agent constraints. This response accepts the presented clarification;
+the full written spec has not been marked approved. Complexity remains proposed,
+not selected. No implementation plan has been written and no audit has started.
+The lead stated that planning stays on hold until the full spec is approved.
+
+Policy was refreshed from GitHub main at
+`218b61232a4d8b8761dd141a30abaa8bd3947659`. The primary worktree's main and the
+documentation branch at `d019c4f76b9cbeaf553adc41708996aed2ede140` matched their
+fetched remote heads before editing. The existing primary-directory review-copy
+changes were expected and matched the clean documentation worktree. All three
+terminal-relay runners were checked and were offline; this bounded documentation
+revision used direct local execution without dispatching a relay or worker.
+
+Current status: coverage-rule revision saved for full-spec review. The main
+directory retains the local review copies. The documentation branch receives
+matching copies for durable storage; main receives no commit or remote update.
+Verification covers the reviewed document changes, whitespace, matching copies,
+and the planning-only boundary. No application or content checks are claimed.
+Next action: Aedwon approves the full spec or requests further revisions. After
+spec approval, write the implementation plan and stop unless audit execution is
+separately authorized. The application freeze, protected question decisions,
+and publication boundaries remain unchanged.
