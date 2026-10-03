@@ -987,3 +987,15 @@ include Filipino-language items, unconfirmed against current organizer sources;
 the coverage audit confirms this.
 
 Aedwon's answer: "1."
+
+### October 4, 2026: teaching language for Filipino content
+
+Options offered: (1) simple Filipino prose with a short English gloss for hard
+grammar terms on first use, requiring a Filipino version of the Grade 5
+readability rule (recommended: students learn in the language they are tested
+in); (2) simple English explaining the Filipino, matching the current runbook
+but weaker exam practice; (3) Taglish, natural to many students but hard to keep
+consistent across judges and lessons. In every option, example sentences and
+quiz items stay in Filipino.
+
+Aedwon's answer: "1."
