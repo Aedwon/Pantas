@@ -877,3 +877,82 @@ pending separate authorization. Main is not committed or uploaded by this task.
 After full-spec approval, write the plan including this output and stop unless
 Aedwon separately authorizes the audit. Application freezes, protected questions,
 signing boundaries, and separate publication permissions remain in effect.
+
+## October 4, 2026: content audit pipeline brainstorm and approval model
+
+Policy: main at `96e4d0b2fe53c4c0a45fdce0d055c5bec7e0340a`, which makes
+Superpowers skills the default. Brainstorming is in progress; no spec for the
+pipeline exists yet.
+
+Aedwon's proposal, exact comment: "okay. i'm actually planning a very very
+thorough content edit, i think you can see that in the latest spec. 
+
+what I'm thinking is to use 6.1 Sol High for the high level passes (i.e. entire corpus/coverage for each exam) one separate instance per exam so this would take multiple instances of 6.1 Sol High to cover all exams that Pantas supports. you can follow the rest from what's specced
+
+then I'm also thinking of building a workflow like this for future content audits (lessons and questions)
+1 6.1 Sol High orchestrator -> 1 6.1 Sol High per-lesson sweeper  -> 10 6 Luna Low judges
+-> means they spawn subagents i hope that makes sense
+
+basically the thought is, the orchestrator oversees things and deploys the lesson sweeper. the lesson sweeper first reconfirms the content, double checks it in multiple online sources, applies the lesson creation standards, and then invokes the 10 judges. the judges basically check do the same thing with the same standards. but their output instead of changing anything is a Pass, Change, or Fail (or something like that my head is cloudy on this idea). basically what needs to happen is that the 10 Luna judges need a high amount of Passes from the judges in order to consider its task successful. does this make sense? for questions, the output changes in a way that the judges should answer or interpret the questions the same. if they fail, the sweeper makes changes accordingly and respawns fresh new judges.
+
+i also want you to check if lesson and question creation standards are enough or need to be more stringent for this type of app
+
+maybe i also missed a process. let me know"
+
+Claude's assessment (recommendations, not yet decided):
+- Per-exam Sol High instances establish requirements and per-exam conclusions;
+  one lead consolidates shared corpus tagging and writes the single audited
+  SSOT tab, because parallel writers to one corpus and one tab would conflict.
+- Replace majority voting with evidence-gated verdicts: one evidenced Fail
+  blocks; an unevidenced Fail does not count. Ten same-model, same-prompt judges
+  share blind spots. Use 3 to 5 judges with distinct roles (source fact check,
+  standards, student-level reading, solving). Luna Low's fact-checking accuracy
+  is unknown and must be measured.
+- Questions: judges solve blind, without the key or explanation; any
+  disagreement with the key flags the item.
+- Verdicts Pass, Revise (cited problem and fix), Fail (wrong or off-standard).
+  Cap revision rounds at 2 to 3, then escalate.
+- Missing steps: calibration pilot with planted errors; a review path for
+  sweeper edits; rechecking linked questions after a lesson changes; importer
+  validation and unchanged question ids, which carry review history; a source
+  log per checked fact.
+- Standards gaps: the audit input branch `content/question-qa-r2` carries an
+  outdated question style guide whose explanation rule contradicts `AGENTS.md`
+  and lacks wrong-choice notes, which main has. The lesson guide permits em
+  dashes and says Grade 5 while the question guide says Grade 4 to 6. The lesson
+  runbook is English-only while the spec requires checking exam language
+  requirements. Missing: required source records, a source hierarchy, learning
+  objectives tied to exam requirements, and published item-writing rules
+  (Haladyna, Downing, and Rodriguez, 2002).
+- Proposed decomposition: coverage audit (existing spec), standards revision,
+  reusable audit pipeline. The pipeline depends on the revised standards.
+  Order question is open.
+
+Aedwon's follow-up, exact comment: "would it be okay to completely detach
+myself from the non-high-level approvals? just make the checking auditing and
+publishing process very stringent and have a very high success rate so much that
+should something slip through the cracks user reports will be enough and it
+won't damage the credibility of the app and can be scapegoated to \"human error\""
+
+Claude's answer: item-level approvals may be dropped if Aedwon keeps high-level
+approvals (scope, standards, exam requirements, judge rules); the success rate is
+measured by a planted-error calibration pilot rather than assumed; Aedwon
+spot-checks a small random sample per batch, and a failing sample sends the
+batch back; items exceeding the round cap escalate to him; and a student error
+report path with a fast correction loop exists. No in-app report path was found
+on main; the engineering branch was not checked. Claude advised against
+attributing pipeline errors to "human error" because it is a false statement to
+paying students, risks consumer misrepresentation, and damages trust more than
+an honestly corrected error.
+
+Aedwon's answer: "okay yes please"
+
+Decision: design the pipeline with automated checking, measured accuracy,
+Aedwon's sample spot checks instead of item approvals, escalation of unresolved
+items, honest public corrections, and a student report path. Errors are not
+attributed to "human error". Publication of content still needs its own
+authorization under `WORKFLOW.md` until Aedwon grants a standing permission.
+
+Current status: brainstorming continues. No pipeline spec, plan, content change,
+or Google Doc change has been made. The coverage audit spec is unchanged and
+still awaits full-spec approval.
