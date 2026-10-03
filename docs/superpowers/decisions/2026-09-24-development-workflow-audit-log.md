@@ -615,3 +615,38 @@ not yet established process savings or visual-preview fidelity.
 
 Next action: use the published workflow when Aedwon next authorizes engineering.
 The current application-code freeze and existing engineering pause remain binding.
+
+## October 4, 2026: chat sentence rules adapted from ASD-STE100
+
+Context: Aedwon had asked Codex to write chat replies in ASD-STE100, with
+exceptions for necessary jargon and stringent specs. He asked Claude whether to
+add the same to Claude's global instructions.
+
+Exact comment: "actually before that i had codex change its global instructions
+to use ASD-STE100 when chatting/responding in chat. though there are of course
+exceptions especially when jargon is really needed or the spec is stringent. do
+you think this is a good idea to add to your global instructions?"
+
+Options offered:
+- Full ASD-STE100. Rejected: an agent cannot reliably check output against the
+  approved dictionary, strict compliance reads stiffly in conversation, and the
+  exceptions would be frequent.
+- A subset: sentence-length limits, active voice, one idea per sentence, one
+  word per meaning, condition before action, common words. Recommended, because
+  it is checkable and mostly formalizes existing writing rules.
+- Provider-private rules only. Not recommended: this workflow already defines how
+  agents write to Aedwon, so a private-only rule would let providers drift apart.
+
+Aedwon reviewed the drafted subset ("okay show me"), then approved adding it to
+both providers' global instructions: "okay please do and also for codex". Asked
+whether to also update ChatGPT custom instructions and this workflow on main, he
+answered: "yes for both".
+
+What changed: added the subset to the "Write for Aedwon" section of `WORKFLOW.md`,
+scoped to chat replies. The Claude and Codex global instruction files on Aedwon's
+Mac carry the same block. ChatGPT custom instructions are an account setting that
+agents do not change; Aedwon updates those himself. No application code or
+student content changed.
+
+Mistake noted: the local Codex global instructions did not contain the earlier
+ASD-STE100 change, so that change likely lives in ChatGPT custom instructions.

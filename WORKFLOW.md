@@ -95,6 +95,18 @@ reopen settled approvals because the user asked a follow-up question.
 - Push back plainly when warranted. When wrong, correct it in one sentence and proceed.
 - No em dashes. Use American spelling. Exact historical quotations stay unchanged.
 
+Chat replies to Aedwon also follow these sentence rules, adapted from ASD-STE100.
+They do not apply to specs, plans, or other documents, which follow their own rules.
+
+- Keep sentences to 20 words or fewer for instructions and 25 for descriptions.
+- Use the active voice. Name who or what does the action.
+- Put one idea in each sentence and one instruction in each step.
+- Use one word for one meaning. Keep a chosen term; do not switch to synonyms.
+- Put the condition before the action: "If the check fails, stop."
+- Prefer common words. Use a technical term only when no plain word is exact.
+- Exceptions: exact quotations, required technical names, and wording a spec requires.
+- Do not apply the full ASD-STE100 dictionary or its grammar limits.
+
 This style applies to the spec section he approves. Content for students has its
 own audience-specific rules in `AGENTS.md` and the content style guides.
 
