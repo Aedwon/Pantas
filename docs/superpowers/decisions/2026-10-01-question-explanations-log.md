@@ -823,3 +823,57 @@ Next action: Aedwon approves the full spec or requests further revisions. After
 spec approval, write the implementation plan and stop unless audit execution is
 separately authorized. The application freeze, protected question decisions,
 and publication boundaries remain unchanged.
+
+### Full corpus view and original SSOT preservation, October 3, 2026
+
+Aedwon requested, exactly:
+
+> sorry add another: once done with the establishing exam requirements, check the SSOT google doc and tag which topics belong to a certain exam. what I'm thinking should happen is that the SSOT tab of the corpus still shows ALL topics regardless of exam, and only lessons (this is the lowest unit) have a tag on which exam they apply to. does this make sense? would you advise otherwise? any recommendations for a cleaner output? just for me, i want a full view of the entire content corpus of the entire app
+
+The lead read `Pantas Master SSOT` through the Google Drive connector. The corpus
+tab is `Pantas Corpus Outline`, `t.2px7tpf83r56`, under `Content & Curriculum`,
+in document `1LzdBQjPmRYXV1LSrLnK7F6_eadQi7cb1fj8mg7yuZg4`. The outline includes
+smaller concepts beneath lesson-level entries, so actual lesson units must be
+identified before applying tags. No Google Doc write occurred.
+
+The lead recommended one complete subject/topic/lesson view, each lesson listed
+once with multiple exam tags where appropriate. Keep exam relevance separate
+from teaching/practice completeness, show uncertainty, distinguish existing
+lessons from proposals, and keep detailed evidence outside the main outline.
+Tags are provisional during outline comparison and checked after lesson review.
+Partial lesson applicability remains visible and can justify a recommended split.
+
+Aedwon accepted that direction with this preservation requirement, exactly:
+
+> okay but i want to keep this old corpus as a reference. maybe make another tab or something? please include this in the plan
+
+Chosen output: preserve the existing tab's title, content, and formatting, and
+create a separate audited corpus tab in the same Master SSOT during authorized
+audit execution. This uses an additional tab to keep the historical reference
+intact. Overwriting the existing tab or maintaining separate copies per exam
+does not satisfy this choice. The separate tab retains all subjects, topics,
+and lessons, with exam tags on lessons only. It reconciles the old outline with
+the chosen app corpus and clearly distinguishes existing content from proposals.
+
+The requirement is now in the local spec's approval section, deliverables,
+completion criteria, and agent constraints for the later implementation plan.
+The plan must include Google Doc read-before-write, complete corpus accounting,
+evidence-backed lesson tags, final readback, and verification that the original
+reference tab remains unchanged. No Google Doc tab has been created or tagged.
+
+Policy remains main at `218b61232a4d8b8761dd141a30abaa8bd3947659` after connector
+refresh. Before edits, main matched its fetched remote and the clean
+documentation branch matched its remote at
+`c5f6611a9cef35cbb2a0526ccfd1ea3fd6d14926`. The expected primary-directory review
+copies matched the documentation worktree. All three relay runners were checked
+and were offline; the bounded documentation update used direct local execution.
+
+Current status: revised written spec awaits full-spec approval. The primary
+directory and documentation branch receive matching copies. Verification covers
+document consistency, whitespace, scope, and matching copies, with no app or
+content tests claimed. The requested requirement is preserved for the plan;
+the implementation plan has not been written and audit execution remains paused
+pending separate authorization. Main is not committed or uploaded by this task.
+After full-spec approval, write the plan including this output and stop unless
+Aedwon separately authorizes the audit. Application freezes, protected questions,
+signing boundaries, and separate publication permissions remain in effect.
