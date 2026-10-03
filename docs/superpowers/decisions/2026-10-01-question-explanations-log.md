@@ -999,3 +999,17 @@ consistent across judges and lessons. In every option, example sentences and
 quiz items stay in Filipino.
 
 Aedwon's answer: "1."
+
+### October 4, 2026: standards revision complexity
+
+Claude will decide source hierarchy, per-fact source records, item-writing rules,
+and authoring-only lesson learning goals from evidence, and show the evidence in
+the spec. Options offered: (1) minimal, about 1 to 2 hours: add Filipino rules,
+source rules, item-writing rules, and learning goals to the existing guides;
+(2) balanced, about 3 to 4 hours: minimal plus one checklist that turns every
+rule into a pass-or-fail line with severity, and runbooks updated to the
+current process; the judges need this checklist anyway (recommended);
+(3) hardened, about 1 day: balanced plus a script that checks mechanical rules
+automatically, more reliable but more tooling to maintain. Estimates are rough.
+
+Aedwon's answer: "2"
