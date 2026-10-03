@@ -650,3 +650,46 @@ student content changed.
 
 Mistake noted: the local Codex global instructions did not contain the earlier
 ASD-STE100 change, so that change likely lives in ChatGPT custom instructions.
+
+## October 4, 2026: Superpowers skills by default; Ponytail principles while implementing
+
+Context: Aedwon asked whether the workflow tells agents to use the
+using-superpowers skill and other skills. Claude answered that it did not: the
+workflow carried the Superpowers process without requiring the plugin, and
+Ponytail's principles applied only inside spec and plan reviews.
+
+Exact comment: "actually that's what i wanted to change. i always prefer
+using-supowerpowers skillset except for some instances (actually my mind is cloudy
+about this what exceptions are there?). also the ponytail skill reduces token use
+and more importantly unnecessary code right? i think we can use the principles
+there"
+
+Claude compared the installed Superpowers 6.1.1 skills with this workflow and
+listed the conflicts as the exceptions: brainstorming requires a design and
+approval for every change and approval per design section plus a spec review;
+its visual companion is an optional, just-in-time offer that opens a browser tab;
+writing plans requires complete code in every step and an execution-method menu;
+executing plans pauses at review checkpoints; finishing a branch presents a
+merge, pull request, keep, or discard menu. Claude also corrected the Ponytail
+premise: its purpose is less code, and lower token use is a side effect of its
+short-output rule. Ponytail rules that conflict with Pantas: shipping a smaller
+version and asking afterward, which bypasses the complexity choice, and its
+generic testing prescription.
+
+Options offered:
+1. Use Superpowers skills by default, with the conflicts above recorded as
+   project overrides. Recommended.
+2. Apply Ponytail's simplicity ladder while implementing, not only in reviews,
+   without its conflicting rules. Recommended.
+
+Aedwon's answer: "yes for both".
+
+What changed: `WORKFLOW.md` gains a "Superpowers skills" section that makes the
+skills the default and lists the project overrides. "Plan detail and simplicity"
+now applies Ponytail's ladder and rules during design, planning, implementation,
+and review, with explicit limits. The plugin remains optional for providers that
+lack it. No application code or student content changed.
+
+Rejected or not adopted: installing or activating Ponytail's persistent modes;
+Ponytail's output format and testing prescription; Superpowers' per-section
+approvals, execution menu, routine checkpoints, and branch-finishing menu.

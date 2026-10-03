@@ -149,10 +149,39 @@ normal spec-and-plan process. Relevant checks and applicable review still apply.
 This exception supersedes blanket document requirements in supporting guidance;
 it does not waive task authorization, existing requirements, or pause boundaries.
 
-These steps carry the project's adopted Superpowers workflow without requiring
-an installed plugin. An available skill may support a step, but must follow these
-project overrides. Do not add another human gate, stack alternative execution
-paths, or omit a required review because a provider lacks the named skill.
+## Superpowers skills
+
+Use the Superpowers skills by default wherever a provider has them installed.
+Invoke the relevant skill before the step it covers: brainstorming, writing
+plans, executing plans, subagent-driven development, test-driven development,
+systematic debugging, requesting and receiving code review, verification before
+completion, git worktrees, and finishing a branch. A provider without the skills
+follows this workflow directly. A missing skill never excuses a skipped step or
+review.
+
+This workflow overrides a skill wherever they differ. The known differences:
+
+- Brainstorming: a low-impact change may skip the spec and plan under the
+  exception above. Question cadence follows Aedwon's request. Design sections
+  may be discussed as they form, but the only approval gate is his approval of
+  the plain-language spec section.
+- Brainstorming's visual companion: a spec that affects UI always uses it,
+  following `docs/workflow/visual-companion.md`. It is not an optional offer.
+- Writing plans: plan detail follows "Plan detail and simplicity" below. Complete
+  code in every step is not required. Do not ask Aedwon to choose an execution
+  method; the lead chooses.
+- Executing plans and subagent-driven development: no routine checkpoints with
+  Aedwon. Stop only for a stop condition, a material spec change, or a decision
+  he owns. Independent review follows `SUBAGENTS.md`.
+- Finishing a branch: do not present its merge, pull request, keep, or discard
+  menu. Follow "Completion permissions" below. Discarding work needs explicit
+  authorization.
+- Commits: follow this workflow's commit message and attribution rules.
+- Any skill step that operates a browser or desktop app, or captures app
+  screenshots, yields to "Computer control" and Aedwon's visual checking.
+
+Do not let a skill add another human gate, stack alternative execution paths, or
+reopen an approval this workflow has already settled.
 
 ## Plan detail and simplicity
 
@@ -170,11 +199,31 @@ The lead records and reviews needed technical plan revisions before affected cod
 changes. Material spec revisions return to Aedwon. Do not silently edit the spec
 or plan during implementation.
 
-Include simplicity in the existing spec and plan reviews. Reuse suitable existing
-capabilities and remove additions unsupported by the agreed requirements. Preserve
-correctness, security, recovery, accessibility, and required verification. Do not
-add a recurring simplicity review or another human approval. This adopts Ponytail's
-principles without requiring its plugin or activating persistent modes.
+Apply simplicity while designing, planning, implementing, and reviewing. Read the
+task and the code it touches first. Then, for each addition, stop at the first
+step that holds:
+
+1. Does it need to exist? Skip a speculative need and say so in one line.
+2. Does this codebase already do it? Reuse the existing helper, type, or pattern.
+3. Does the language, SDK, or platform already cover it? Use that.
+4. Does an installed dependency cover it? Do not add a dependency for a few lines.
+5. Only then, write the least code that works.
+
+- No unrequested abstractions: no interface with one implementation, no factory
+  for one product, no setting for a value that never changes.
+- No scaffolding for later. Prefer deletion to addition and plain code to clever code.
+- Fix a bug at its root cause, where all callers meet, not only on the reported path.
+- The shortest diff wins only after the problem is understood. A small change in
+  the wrong place is a second bug.
+- When a deliberate simplification has a known limit, name the limit and the
+  upgrade path in a short code comment.
+
+These principles come from Ponytail. They never reduce approved scope, replace
+Aedwon's complexity choice, or ship a smaller version and ask afterward. They never
+weaken correctness, security, recovery, accessibility, or required verification;
+Pantas testing rules apply instead of Ponytail's. Do not add a recurring simplicity
+review or another human approval. Do not install or activate Ponytail's persistent
+modes.
 
 ## Roles and execution
 
