@@ -146,4 +146,43 @@ Historical pause: lifted by Aedwon's explicit level 1 start recorded below.
 - Saved research-complete files: DCAT, ACET, USTET, PUPCET, DOST-SEI, SM Foundation, plus historical UPCAT. Do not redo these six completed new research tasks. All remain unaccepted until source checks/rebuilds/flag resolution.
 - Resume after quota permits: refresh main policy and repository identities; resume existing CSE Professional/Subprofessional drafts using their incremental briefs; resume UPCAT source-check DRAFT from the actual saved rows (currently none). No duplicate active workers exist. Then finish the other eight Luna source checks and fresh Sol rebuild groups A/B/C, resolve flags, fill profiles, and only after all nine requirements pass start the maps/counting/audited tab.
 - Still not done: maps for any exam, all-exam counting, audited Google Doc tab. No Google writes. Source/profile confidence normalization and curriculum-cycle flags must be resolved during Task3; many profiles currently use descriptive confidence qualifiers instead of the exact enum.
-- Lead has inspected DCAT, ACET, USTET, PUPCET, and DOST-SEI research outputs. SM Foundation complete output still needs full lead read. Corpus metadata remains158 lessons; no lesson bodies or question sets were audited and no content/app/importer/schema edits occurred.
+- Lead has inspected DCAT, ACET, USTET, PUPCET, and DOST-SEI research outputs. SM Foundation complete output was fully read by the lead on the 14:25 UTC automatic resume. Corpus metadata remains158 lessons; no lesson bodies or question sets were audited and no content/app/importer/schema edits occurred.
+
+## Automatic resume checkpoint, October 4, 2026, 14:25 UTC
+
+- Re-read ORCHESTRATOR.md and status.md; first line RUNNING. No level approval received.
+- Current clock2026-10-04 14:25:42 UTC. The platform's reported "Oct5,2026 1:25AM" reset remains ahead in the user's Asia/Manila timezone. No new workers dispatched, no credit purchase or upgrade.
+- Watcher saved the last checkpoint at0074e7b0fba7a1deb1f263267864a8b722b029c6; live audit remote/local match, clean before this status edit. Live main cb48097b and corpus765c5dc0 still match their local refs. Current AGENTS.md and WORKFLOW.md reread from main.
+- Fully read saved SM Foundation research output. Its academic scope/current formats remain unknown; historical2021 official rules and weak cross-exam advice are explicitly limited. This lead inspection is not an independent source-check/rebuild pass.
+- Deterministic profile preflight across seven completed research files: 77 rows, 30 noncanonical confidence cells/row-shape findings. Exact qualifiers listed below for later Task3 normalization; no requirement/profile files edited and no source claim accepted.
+  - upcat | Delivery | official for delivery and collection procedure; unknown for answer-sheet layout
+  - upcat | Scoring | official for standardized scores and Grades 8 to 11; unknown for wrong-answer penalty
+  - upcat | Choices per item | unknown for current count; weak for reviewer observations
+  - upcat | Item types per subtest | weak for supported patterns; unknown for current official specification
+  - upcat | "None of the above" style | unknown for current usage; weak for examples
+  - upcat | "All of the above" style | unknown for current usage; weak for example
+  - upcat | Negative stems ("NOT", "EXCEPT") | unknown for current usage; weak for examples
+  - upcat | Language per subtest | official for the two language subtests; unknown for Science and Mathematics; weak for historical example
+  - upcat | Timing that affects item length | official for each document's statement; unknown for current sectional timing and answering time
+  - dcat | Item types per subtest | weak for recollected types; unknown for current forms
+  - dcat | Language per subtest | weak for English content; unknown for official language profile
+  - dcat | Timing that affects item length | weak for recalled pressure; unknown for timing constraints
+  - dcat | Delivery | official for modes; unknown for onsite medium
+  - ustet | Item types per subtest | weak; official detail unknown
+  - ustet | Language per subtest | unknown officially; weak claims unresolved
+  - ustet | Delivery | official for centers; unknown for response medium
+  - ustet | Scoring and wrong-answer penalty | official for overall rating; unknown for item scoring/penalty
+  - pupcet | Language per subtest | unknown current rule; weak preparation evidence
+  - pupcet | Timing that affects item length | official historical report; weak historical campus report; unknown current rule
+  - pupcet | Delivery | official logistics; unknown medium
+  - dost-sei | Choices per item | official, cycle-limited; unknown current
+  - dost-sei | Item types per subtest | official sample evidence, cycle-limited
+  - dost-sei | Negative stems | official sample evidence; unknown current
+  - dost-sei | Language per subtest | official sample evidence; unknown current
+  - dost-sei | Timing that affects item length | official, cycle-limited; no inferred length rule
+  - dost-sei | Delivery | official, current cycle
+  - dost-sei | Scoring and wrong-answer penalty | official, cycle-limited scoring; unknown current formula
+  - sm-foundation | Item types per subtest | unknown for current cycle
+  - sm-foundation | Timing that affects item length | unknown for current cycle
+  - sm-foundation | Delivery | unknown for current official mode; weak current applicant evidence
+- Restart point unchanged: finish both saved Civil Service drafts; finish UPCAT source-check stub and the other eight source checks; fresh Sol rebuilds and flag resolution for all nine before maps. All later levels remain locked.
