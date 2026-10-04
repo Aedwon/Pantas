@@ -45,7 +45,7 @@ project or another tool, use the [short startup text](docs/workflow/startup.md).
 - **Notifications:** Local and push alerts for reminders and streak thresholds.
 
 ### Accounts and billing
-- **Pro tier:** RevenueCat controls access to analytical insights and premium content. SKUs are weekly, monthly, yearly, and lifetime.
+- **Pro tier:** RevenueCat controls access to analytical insights and premium content. Prices differ by exam tier, and there is no lifetime product. Current prices: `docs/pricing.md`.
 - **Onboarding:** Supports anonymous purchase. Defers Google and Apple sign-in.
 - **Contextual paywall:** Recommends the subscription length that matches the user's exam date.
 

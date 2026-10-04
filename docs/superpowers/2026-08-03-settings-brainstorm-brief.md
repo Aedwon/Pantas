@@ -1,5 +1,7 @@
 # Settings, brainstorm brief
 
+> **Pricing superseded (4 October 2026).** Prices, plans, and products in this file are historical. The only current prices are in `docs/pricing.md`. Do not quote or implement a price from this file.
+
 Written 3 August 2026 so the round can start cold. Same purpose as
 `2026-07-30-progress-tab-brainstorm-brief.md`: it is what stops a fresh session
 re-deriving what is already known, and it carries the constraints that make this screen

@@ -1,3 +1,5 @@
+> **Pricing superseded (4 October 2026).** Prices, plans, and products in this file are historical. The only current prices are in `docs/pricing.md`. Do not quote or implement a price from this file.
+
 > **Historical dispatch record.** The current state and recommended order are
 > in `2026-08-13-handover-checkpoint.md`, updated 22 August. Keep the dispatch
 > rules below. Do not use its old queue, counts, or branch state. The model table

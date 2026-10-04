@@ -1,5 +1,7 @@
 # MVP Roadmap — Remaining Specs to Soft Launch
 
+> **Pricing superseded (4 October 2026).** Prices, plans, and products in this file are historical. The only current prices are in `docs/pricing.md`. Do not quote or implement a price from this file.
+
 **Date:** 2026-05-16
 **Status:** Approved, drives subsequent brainstorming sessions
 **Target soft launch:** 2026-06-28 (Android-only; iOS follows in v1.x)

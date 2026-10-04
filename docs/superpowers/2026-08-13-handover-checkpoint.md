@@ -1,5 +1,7 @@
 # Pantas: everything that is left, 13 August 2026
 
+> **Pricing superseded (4 October 2026).** Prices, plans, and products in this file are historical. The only current prices are in `docs/pricing.md`. Do not quote or implement a price from this file.
+
 > **Updated 22 August 2026.** The continuation checkpoint below records the
 > repository state after the August 17 and 21 work. It supersedes older counts
 > and status claims in this file. The original handover remains below for its

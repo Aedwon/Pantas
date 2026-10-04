@@ -1,5 +1,7 @@
 # The paywall: pricing, and the flow that sells it
 
+> **Pricing superseded (4 October 2026).** Prices, plans, and products in this file are historical. The only current prices are in `docs/pricing.md`. Do not quote or implement a price from this file.
+
 > **Typography, amended 11 August 2026.** Every mention of a serif below is
 > superseded. **The app uses one family, Source Sans 3, everywhere**: the serif
 > was retired because Aedwon found it an eyesore, and a reader noticing the

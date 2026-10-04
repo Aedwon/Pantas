@@ -1,5 +1,7 @@
 # What Pro is: the single entitlement table
 
+> **Pricing superseded (4 October 2026).** Prices, plans, and products in this file are historical. The only current prices are in `docs/pricing.md`. Do not quote or implement a price from this file.
+
 **Date:** 2 August 2026
 **Status:** Approved by Aedwon
 **Decision log:** `docs/superpowers/decisions/2026-08-02-paywall-consolidation-log.md`

@@ -13,13 +13,13 @@ By installing or using the CSE/CET Reviewer mobile application ("App"), you agre
 
 You must be 13 or older. If you are under 18, you confirm a parent or guardian has consented.
 
-## 3. Subscriptions and lifetime purchase
+## 3. Subscriptions and passes
 
-The App offers three Pro tiers: monthly (₱99), yearly (₱499 with 7-day free trial), and lifetime (₱1,499). All purchases are processed by Apple or Google subject to their billing terms.
+The App offers Pro access. The plans and prices depend on the exam you select, and the App shows them before you buy. All purchases are processed by Apple or Google subject to their billing terms.
 
-- **Monthly and yearly subscriptions** auto-renew unless canceled at least 24 hours before period end. Cancel via Apple Subscriptions or Google Play Subscriptions.
-- **Free trial** (yearly only): canceling before day 7 incurs no charge. After day 7, the yearly fee is charged.
-- **Lifetime purchase** is one-time. Lifetime entitlement persists for the life of the App on the platform of purchase, subject to App availability and continued service operation. We reserve the right to discontinue the App with 90 days' notice; in that case, lifetime purchasers within the prior 12 months receive a pro-rated refund.
+- **Subscriptions** (weekly, monthly, or yearly, where offered) auto-renew unless canceled at least 24 hours before period end. Cancel via Apple Subscriptions or Google Play Subscriptions.
+- **Free trial** (yearly only, where offered): canceling before day 7 incurs no charge. After day 7, the yearly fee is charged.
+- **Season passes** (where offered) are one-time purchases. A pass covers the exam it was bought for and ends after that exam's date. It does not renew.
 
 ## 4. Refunds
 

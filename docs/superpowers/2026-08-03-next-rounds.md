@@ -4,6 +4,8 @@
 
 # Next rounds: prompts to paste after a clear
 
+> **Pricing superseded (4 October 2026).** Prices, plans, and products in this file are historical. The only current prices are in `docs/pricing.md`. Do not quote or implement a price from this file.
+
 **Created 3 August 2026.** Every remaining piece of work that needs a session, written as a
 prompt you can paste cold. Each one names the files to read first, because a fresh session
 knows nothing.

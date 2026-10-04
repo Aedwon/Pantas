@@ -1,5 +1,7 @@
 # Operations status tracker
 
+> **Pricing (4 October 2026).** The Student-tier prices and product IDs here are current. Prices now differ by exam tier, and other tiers need new products. The only full price list is `docs/pricing.md`.
+
 Tracks long-pole external dependencies and one-time manual configuration. Owner: Aerol Balayon.
 
 Last updated: 2026-05-07

@@ -1,5 +1,7 @@
 # Paywall Live Validation Checklist
 
+> **Pricing superseded (4 October 2026).** Prices, plans, and products in this file are historical. The only current prices are in `docs/pricing.md`. Do not quote or implement a price from this file.
+
 This document tracks Spec 7 work that cannot be honestly completed without external dashboard, store, deployment, or device access.
 
 - **RevenueCat dashboard project:** create the Android project for this app.

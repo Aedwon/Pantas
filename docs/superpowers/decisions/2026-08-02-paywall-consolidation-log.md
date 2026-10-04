@@ -1,5 +1,7 @@
 # Paywall consolidation, decision log
 
+> **Pricing superseded (4 October 2026).** Prices, plans, and products in this file are historical. The only current prices are in `docs/pricing.md`. Do not quote or implement a price from this file.
+
 Chronological. Later entries append; they never edit earlier ones. Source specs:
 `specs/2026-05-21-paywall-entitlement-design.md` (Spec 7) and its 18 July weekly-SKU
 amendment, plus the four tab specs that each grew their own Free and Pro rule.

@@ -1,5 +1,7 @@
 # Settings 06: About, and the four pushed pages
 
+> **Pricing superseded (4 October 2026).** Prices, plans, and products in this file are historical. The only current prices are in `docs/pricing.md`. Do not quote or implement a price from this file.
+
 > **How to work this plan.** Implement it task by task, in order. For each task: write the
 > failing test first, run it and confirm it fails, then write the code that makes it pass. Do
 > not skip a step and do not batch tasks. Steps use checkbox (`- [ ]`) syntax so progress can

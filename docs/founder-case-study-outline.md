@@ -1,4 +1,7 @@
 # Building Pantas: A Solo Founder & Developer Case Study Series
+
+> **Pricing superseded (4 October 2026).** Prices, plans, and products in this file are historical. The only current prices are in `docs/pricing.md`. Do not quote or implement a price from this file.
+
 *Master outline, decision index, and research dossier blueprint for Aedwon's personal blog.*
 
 ---

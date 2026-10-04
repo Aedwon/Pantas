@@ -1,5 +1,7 @@
 # Year-1 user and revenue projection (Pantas / CSE-CET Reviewer)
 
+> **Pricing superseded (4 October 2026).** Prices, plans, and products in this file are historical. The only current prices are in `docs/pricing.md`. Do not quote or implement a price from this file.
+
 **Prepared:** 2026-07-25
 **Window:** 12 months from public launch. Calendar-anchored to **Sept 2026 – Aug 2027**.
 **Content assumption (given):** complete content for CSE Professional, all five CET/scholarship benchmarks (UPCAT, ACET, DLSUCET/DCAT, USTET, DOST-SEI).

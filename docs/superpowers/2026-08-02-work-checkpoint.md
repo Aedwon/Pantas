@@ -4,6 +4,8 @@
 
 # Work checkpoint, 2 August 2026
 
+> **Pricing superseded (4 October 2026).** Prices, plans, and products in this file are historical. The only current prices are in `docs/pricing.md`. Do not quote or implement a price from this file.
+
 A snapshot of what is outstanding, taken before the onboarding pass begins. Every
 claim below was checked against the tree on this date, not carried over from an
 earlier note. When an item is finished, strike it here and say what closed it.

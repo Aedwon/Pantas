@@ -1,5 +1,7 @@
 # Paywall Entitlement Implementation Plan
 
+> **Pricing superseded (4 October 2026).** Prices, plans, and products in this file are historical. The only current prices are in `docs/pricing.md`. Do not quote or implement a price from this file.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Build Spec 7's Android-only RevenueCat paywall, entitlement provider, Pro route gate, server-side entitlement enforcement seams, webhook unit coverage, and production validation checklist without syncing content or faking blocked live validations.

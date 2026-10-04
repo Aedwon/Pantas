@@ -1,5 +1,7 @@
 # Plan audit, 3 August 2026
 
+> **Pricing superseded (4 October 2026).** Prices, plans, and products in this file are historical. The only current prices are in `docs/pricing.md`. Do not quote or implement a price from this file.
+
 > **CLOSED 3 August.** All six conflicts were ruled on and every amendment in this document
 > has been landed in the plans themselves. The five readiness fixes are done: 47 of 47 plans
 > now carry a model-agnostic preamble, cite `AGENTS.md`, name their source spec and state the

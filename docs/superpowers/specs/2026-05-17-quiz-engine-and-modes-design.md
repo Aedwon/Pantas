@@ -1,5 +1,7 @@
 # Spec 4 — Quiz engine + Today's Session, Drill, Retake, Inline modes
 
+> **Pricing superseded (4 October 2026).** Prices, plans, and products in this file are historical. The only current prices are in `docs/pricing.md`. Do not quote or implement a price from this file.
+
 **Date:** 2026-05-17
 **Status:** Draft, pending user review
 **Critical-path position:** 4 of 11 (depends on Specs 1 + 2 + 3; informs Specs 5 + 6 + 9 + 11; lightly touches Sanity schema)

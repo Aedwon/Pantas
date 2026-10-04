@@ -1,5 +1,7 @@
 # CSE/CET Reviewer App — Design Document
 
+> **Pricing superseded (4 October 2026).** Prices, plans, and products in this file are historical. The only current prices are in `docs/pricing.md`. Do not quote or implement a price from this file.
+
 **Date:** 2026-05-07
 **Status:** Approved, ready for implementation planning
 **Target soft launch:** 2026-06-28

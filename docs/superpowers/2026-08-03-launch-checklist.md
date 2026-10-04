@@ -1,3 +1,5 @@
+> **Pricing superseded (4 October 2026).** Prices, plans, and products in this file are historical. The only current prices are in `docs/pricing.md`. Do not quote or implement a price from this file.
+
 > **Historical inventory.** Repository state moved to
 > `2026-08-13-handover-checkpoint.md`, updated 22 August. Many unchecked lines
 > below are now closed, and several counts are stale. Use the handover for the

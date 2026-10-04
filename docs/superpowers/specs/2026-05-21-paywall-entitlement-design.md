@@ -1,5 +1,7 @@
 # Spec 7 — Paywall + RevenueCat + entitlement gate (design)
 
+> **Pricing superseded (4 October 2026).** Prices, plans, and products in this file are historical. The only current prices are in `docs/pricing.md`. Do not quote or implement a price from this file.
+
 **Status:** Brainstormed (2026-05-21).
 **Depends on:** Spec 1 (Firebase Auth, Cloud Functions, Firestore), Spec 2 (Sanity content fetcher — needs server-gated paths for Pro content), Spec 3 (`SyncCoordinator` for `welcomedAt` flag; Firestore security rules), Spec 5 (Onboarding — amended to gather notification permission), Spec 6 (Study Plan — Pro depth surfaces are the primary paywall trigger source).
 **Soft dependency:** Spec 9 (Notifications) — Spec 7 schedules a local trial-end notification through the permission already granted in onboarding.

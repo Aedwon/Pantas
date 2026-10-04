@@ -1,5 +1,7 @@
 # Spec 7 amendment — Weekly SKU + pricing rationale (design)
 
+> **Pricing superseded (4 October 2026).** Prices, plans, and products in this file are historical. The only current prices are in `docs/pricing.md`. Do not quote or implement a price from this file.
+
 **Status:** **Superseded on pricing and recommendation, 3 August 2026**, by
 `2026-08-03-paywall-pricing-and-flow-design.md`. Read that first.
 

@@ -133,6 +133,17 @@ apply these rules to that copy by default. See `WORKFLOW.md`.
 
 ---
 
+## Pricing
+
+**The only current prices are in `docs/pricing.md`.** Prices differ by exam tier
+(decided 4 October 2026). Older specs, plans, checkpoints, research documents, and
+the Pantas Master SSOT research tabs quote superseded prices, such as Yearly ₱499,
+₱599 or ₱999, a lifetime product, or one price for every exam. Never quote,
+implement, or restore a price that is not in `docs/pricing.md`. Never create a
+lifetime product.
+
+---
+
 ## Never invent a figure
 
 Every number shown to a student must be one of: measured from their own use,
