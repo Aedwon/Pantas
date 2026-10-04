@@ -1044,3 +1044,14 @@ right?"
 What changed: spec change 4 and its agent evidence on
 `docs/content-standards-r1`. The coverage audit's first step fills the
 profiles; this revision defines their shape with entries marked unknown.
+
+### October 4, 2026: standards spec approved
+
+Aedwon: "okay everything that needs my approval looks good so far! what's
+next?"
+
+Action: spec on `docs/content-standards-r1` marked approved; implementation
+plan written at `docs/superpowers/plans/2026-10-04-content-standards-revision.md`
+on that branch. Implementation started under the workflow's no-separate-plan-
+approval rule. Merge to main follows checks and independent review, as the
+approved spec states.
