@@ -71,6 +71,15 @@ app content changes at any level.
    checklist, each finding with its rule id and evidence.
 5. **Quiz standards.** Every question set against the question standards and
    checklist, plus practice against teaching.
+   Model use (Aedwon, October 4, 2026): Luna runs the mechanical rules and a
+   blind solve of every question; any blind answer that differs from the key
+   goes to a Sol subagent to confirm. Before the full run, test Luna on a
+   sample of about 50 questions across subjects, including hard Mathematics,
+   Science, and Filipino items, and compare its verdicts with a Sol subagent's.
+   Report the agreement to Aedwon at the level 5 gate. If Luna agrees on the
+   judgment rules (plausible wrong choices, answer clues, explanation
+   quality), it runs them too; otherwise those rules go to Sol or to Luna at a
+   higher effort.
 
 After level 5, write the report and recommendations (plan Tasks 8 and 9), then
 stop for Aedwon's review.

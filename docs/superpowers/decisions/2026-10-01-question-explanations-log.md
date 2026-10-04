@@ -1287,3 +1287,15 @@ What changed: the spec's "order of the audit" is now Aedwon's five levels,
 each gated by his approval; the boundary now covers standards checks for every
 lesson and question set while rewriting nothing. `ORCHESTRATOR.md` and the plan
 follow the levels. Level 3, lesson structure, is the emphasis.
+
+### October 4, 2026: Luna for question checks, with a calibration sample
+
+Aedwon: "for the lowest level, questions, luna should be capable enough
+right?" Claude: yes for mechanical rules and blind solving with Sol confirming
+disagreements; uncertain for judgment rules and hard items; proposed a sample
+of about 50 questions comparing Luna with Sol before the full level 5 run.
+
+Aedwon: "ok"
+
+What changed: `ORCHESTRATOR.md` level 5 adds the calibration sample and the
+Luna and Sol split.
