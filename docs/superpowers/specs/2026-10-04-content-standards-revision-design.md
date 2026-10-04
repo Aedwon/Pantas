@@ -1,7 +1,7 @@
 # Content standards revision
 
 Date: October 4, 2026
-Status: Approved by Aedwon on October 4, 2026. Implementation in progress.
+Status: Approved by Aedwon on October 4, 2026. Implemented, reviewed, and merged to main.
 Decision record: `docs/superpowers/decisions/2026-10-01-question-explanations-log.md`
 on branch `docs/content-coverage-audit-r1`, entries dated October 4, 2026.
 
