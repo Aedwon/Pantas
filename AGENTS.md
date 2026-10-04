@@ -96,9 +96,10 @@ apply these rules to that copy by default. See `WORKFLOW.md`.
   This applies to Mock, normal quizzes, and in-lesson quizzes. Do not apply the
   lesson's Grade 5 language rule to those questions. Wrong choices must be
   plausible and reflect meaningful reasoning errors or misconceptions.
-- **Filipino-language content** (Aedwon, 4 October 2026): lessons, quiz items,
+- **Filipino-language content** (Aedwon, 4 October 2026): lessons,
   explanations, and wrong-choice notes that teach or test Filipino use simple
-  Filipino at the same Grade 5 standard instead of English. Rules:
+  Filipino at the same Grade 5 standard instead of English. Quiz stems and
+  choices use realistic exam Filipino. Rules:
   `docs/content/lesson-style-guide.md` and `docs/content/question-style-guide.md`.
 - **Quiz answer explanations:** plain English a Grade 5 student can understand,
   including Mock, normal quizzes, and in-lesson quizzes. Explain the reasoning
