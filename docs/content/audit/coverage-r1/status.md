@@ -1,3 +1,5 @@
+STATE: RUNNING
+
 # Coverage audit status
 
 Plan: `docs/superpowers/plans/2026-10-04-exam-content-coverage-audit.md`.

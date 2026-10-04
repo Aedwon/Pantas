@@ -44,6 +44,27 @@ disagree, follow the plan and report the conflict.
   topic weights, proportions, minimum counts, or percentages. Teaching and
   practice findings cite checklist rule ids.
 
+## Run state and automatic resume
+
+You run unattended. A watcher on Aedwon's Mac (`autorun/watch.sh`, every 30
+minutes) resumes you after usage-limit stops with a message that says it is an
+automatic resume. That message is never Aedwon and never an approval.
+
+Keep the **first line of `status.md`** exactly one of:
+
+- `STATE: RUNNING`: you are working on the current level.
+- `STATE: AWAITING_APPROVAL level <n> done; asking to start level <n+1>`:
+  set this when a level is finished, before you stop.
+- `STATE: BLOCKED <short reason>`: set this when a stop condition needs Aedwon.
+- `STATE: COMPLETE`: after the final report.
+
+The watcher only resumes you while the state is `RUNNING`; otherwise it
+notifies Aedwon. When Aedwon approves the next level in conversation, set the
+state back to `RUNNING`, record his exact words, and continue.
+
+Update `status.md` after every subagent result, so a resume can continue
+without repeating finished work.
+
 ## Approval gates: never go down a level without Aedwon's approval
 
 The audit has five levels, defined by Aedwon on October 4, 2026 (spec, "The
@@ -149,8 +170,10 @@ becomes part of UPCAT's map.
 - Update `status.md` after every task: what changed, checks and their results,
   what is unverified, and the next step.
 - Append each Aedwon decision to the decision log with his exact words.
-- Commit and push completed, checked work to `docs/content-coverage-audit-r1`
-  with a message that says why. No AI attribution. Do not push to main, open
-  pull requests, or delete branches.
+- Do not commit or push. Codex's sandbox keeps git metadata read-only; the
+  watcher commits and pushes your saved files to `docs/content-coverage-audit-r1`
+  while you are idle. Read main's policy with `git show origin/main:<path>`;
+  the watcher fetches before each resume. Do not push to main, open pull
+  requests, or delete branches.
 - Report to Aedwon in short, plain sentences, following `WORKFLOW.md`'s writing
   rules.

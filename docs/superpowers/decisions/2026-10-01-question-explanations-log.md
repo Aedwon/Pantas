@@ -1299,3 +1299,22 @@ Aedwon: "ok"
 
 What changed: `ORCHESTRATOR.md` level 5 adds the calibration sample and the
 Luna and Sol split.
+
+### October 4, 2026: unattended running with automatic resume
+
+Aedwon asked for Codex to continue after Plus 5-hour limits without his
+involvement. Claude proposed a watcher and noted it would not pass approval
+gates. Aedwon: "are we on the same page that i do not have to do anything and
+this keeps running even when limits have been hit correct? and i don't need to
+do anything after that either. it keeps on going until the entire spec is
+finished, all levels". Claude pointed out the conflict with his level gates and
+offered keeping them (recommended) or removing them. Aedwon: "oh yea that's
+what i meant, of course i'll still approve on those gates but what i said
+applies for every level when we're there".
+
+What changed: `autorun/` scripts start the orchestrator in the background,
+resume it every 30 minutes after a stop while the state is RUNNING, notify
+Aedwon at gates, and commit and push saved work from outside the sandbox
+(Codex keeps git metadata read-only; a sandbox test confirmed `git fetch`
+fails inside it). A launchd job runs the watcher. `ORCHESTRATOR.md` defines the
+state line in `status.md`.
