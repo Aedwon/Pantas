@@ -6,9 +6,10 @@
 
 ## Decision
 
-- **At launch:** Settings shows a copyable account ID. Facebook giveaway winners
-  send their ID, and Aedwon grants Pro for a set time in the RevenueCat dashboard
-  (a promotional entitlement). No spec and no backend change.
+- **At launch:** Settings shows a short public ID (decided later the same day, see
+  below; it replaces the account ID first proposed). Entrants comment it publicly,
+  and Aedwon grants Pro for a set time in the RevenueCat dashboard
+  (a promotional entitlement). The grant itself needs no backend change.
 - **After launch:** in-app redemption codes and paid gift codes are deferred. Design
   them together with the tier entitlement design, using launch data to judge
   whether paid gifting is worth building.
@@ -129,7 +130,7 @@ Options offered:
 Decision: the fix blocks internal beta, at balanced complexity. The engineering pass
 owns implementation through the spec and plan process. SSOT entry updated.
 
-## Public ID for Facebook comments (open)
+## Public ID for Facebook comments
 
 > "so they already have an ID. the point of those facebook marketing is that they
 > would comment answers with their ID for easier winner selection without needing
@@ -144,4 +145,25 @@ does not expose study data.
 
 Proposed: a short public ID (8 to 9 digits) per signed-in account, mapped to the
 UID on the server, which Aedwon looks up when granting. About a day of backend work,
-and it changes what the Claude Design screen shows. Awaiting Aedwon's decision.
+and it changes what the Claude Design screen shows.
+
+> "yes go with short ID, max security protections please . i'll say in the settings UI
+> where this lives that this is safe to share publicly"
+
+Decision: short public ID at hardened complexity, estimated 2 to 3 days, owned by the
+engineering pass. It replaces the copyable account ID in the launch giveaway flow.
+Requirements recorded in the SSOT Production Readiness Assessment tab, "Added
+engineering work: short public ID for giveaways":
+
+- Random 9-digit number with a check digit; not sequential, not derived from the UID.
+- Created only by the server, once per account signed in with Google or Apple.
+  Anonymous accounts get none.
+- Server-held ID-to-UID mapping. Clients cannot read the mapping or write the ID;
+  each user reads only their own ID.
+- No public lookup endpoint. Only Aedwon resolves an ID, through an admin-only path,
+  and every lookup and grant is logged.
+- Never accepted as a credential, in a URL, or by any client-callable function.
+- On account deletion the mapping is removed and the ID is retired, never reissued.
+- Privacy policy, data export, and deletion cover the ID.
+- Tests: rules tests for reads and writes, uniqueness under concurrent creation,
+  check-digit validation, anonymous accounts, deletion retirement.
