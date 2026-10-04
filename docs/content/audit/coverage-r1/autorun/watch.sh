@@ -15,10 +15,14 @@ case $STATE in
     fi
     exit 0 ;;
 esac
-# Skip until Codex's reported usage-limit reset, so idle resumes do not
-# reload the whole session for nothing.
-if ! python3 ${0:A:h}/reset_passed.py $STATE_DIR/run.jsonl; then
-  log "waiting for usage reset: $(python3 ${0:A:h}/reset_passed.py $STATE_DIR/run.jsonl --show)"
+# Probe with a tiny request before resuming, so a still-active usage limit
+# costs almost nothing instead of reloading the whole session. A probe also
+# notices an early reset (for example a reset Aedwon applied manually).
+PROBE=$(cd $STATE_DIR && codex exec -m gpt-6.1-sol -c model_reasoning_effort=low -c 'notify=[]' \
+  --disable computer_use --disable browser_use --disable browser_use_external --disable in_app_browser \
+  -s read-only --skip-git-repo-check --ephemeral "Reply OK." < /dev/null 2>&1)
+if print -r -- "$PROBE" | grep -qi "usage limit"; then
+  log "still limited: $(print -r -- "$PROBE" | grep -oi 'try again at [^.]*' | tail -1)"
   exit 0
 fi
 log "resuming session (state: ${STATE:-unknown})"
