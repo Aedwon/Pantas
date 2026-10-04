@@ -97,3 +97,12 @@ The account ID screen is UI, so it follows the visual direction from Claude Desi
 - Bulk buying, which overlaps with the unsettled government partner access.
 - Google Play rules on gift codes bought through Play billing: not yet confirmed.
   Apple explicitly allows gifting through in-app purchase.
+
+## Cancellation fix added to the SSOT engineering work
+
+> "please add the needed bug fix to the ssot engineering tasks"
+
+Added as "Added engineering work: subscription cancellation fix" in the SSOT's
+Pantas Production Readiness Assessment tab, before "Founder actions now". Status:
+open, not started. It touches payments, so it needs the spec and plan process and
+Aedwon's complexity choice. Whether it blocks internal beta is his decision.
