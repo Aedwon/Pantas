@@ -1,36 +1,110 @@
-# Counting check (Task 4 pilot)
+# Counting check, all exams
 
-## Check 1: Science inventory and provisional tags
+Status: CORRECTED-SNAPSHOT COUNT PASS. Independent semantic acceptance remains pending.
 
-**PASS.** The Science section contains 51 lesson slugs. The outline says, “All 51 Science lessons: `upcat` (provisional).” This covers every inventory slug by its universal tag statement.
+## Identity and inputs
 
-## Check 2: Outline lesson slugs exist in the Science inventory
+Policy read from `origin/main` at `cb48097bedf15bec2cfbe4fb3aa7e957753b1727`. Audit branch snapshot: `docs/content-coverage-audit-r1`, HEAD `261f8685b5add6652037cc6ba0f62c21dc8ce8cb`. Pinned corpus: `content/question-qa-r2`, commit `765c5dc0fa5586281047bf4f7b30d09ab3707887`. The source/rebuild gate is accepted in `review/requirements-acceptance.md`. The task snapshot is the file hashes below; do not apply these results to regenerated inputs.
 
-**PASS.** Every lesson slug named in the outline comparison table exists in the inventory's Science section. Missing slugs: none.
+The corpus check read only each of the 158 pinned lesson paths' frontmatter through the closing delimiter. It checked `_id`, title, subject, and topic against the inventory. All 158 matched. Aggregate SHA-256 of ordered frontmatter bytes: `5b8db5fb683427f84e21486c3f03370fb4d3ead0de8d770ba743be176ea1c649`.
 
-## Check 3: Curriculum or weak Science lines have mapping rows
+| Input | SHA-256 |
+|---|---|
+| `docs/content/audit/coverage-r1/inventory-lessons.json` | `4c26a6655ab6f288a0c758eeccd3ceb308e58ae83251773dd57ea4a939edc414` |
+| `tools/lesson_author/outline.json` | `8b436e36f9bed39eb55b4356f82a4e91121b2506337b27c8fcb11f791d319e1a` |
+| `docs/content/audit/coverage-r1/original-corpus-tab-capture.md` | `3b2bc8da6343a3eccc6a9194c86f2b07e7021a9047e8891f48e3706c41b5db2e` |
+| `docs/content/audit/coverage-r1/original-corpus-tab-structure-before.json` | `0441ac6e8fe287196a492d9abad56d4454090a44d54a99b6bc9eca37cf47c902` |
+| `docs/content/audit/coverage-r1/requirement-input-manifest.json` | `f47c0ee3481607a26619e2f66d1d054ccc7a869e80b98de911c95fd8fbf36531` |
+| `docs/content/audit/coverage-r1/requirement-map.json` | `1ae0f1fbe56108365cccadc41b581079cc546aedb81595e07db9f63c522ff1b0` |
+| `docs/content/audit/coverage-r1/lesson-exam-tags.json` | `c614bb079dcd5ab6a7a7fb5e98f9225b961dc5fb7104431ccaac04da20d6ad9c` |
+| `docs/content/audit/coverage-r1/outline-comparison.md` | `31d8d294ccd7b310bc8b80989ab62bc1dfd5d886ddaa14edd0dc65dd63c3e088` |
+| `docs/content/exam-format-profiles.md` | `9dcc230d6c3a7fced854485a3309d3b35ddecebe6d12d8898749056c84661937` |
 
-**PASS.** Every Science topic or skill line labeled `curriculum` or `weak` in the requirements has a corresponding row in the outline mapping table. No such line is missing a row.
+The nine requirement and nine map hashes appear below. Requirement hashes equal the accepted input manifest; all 10 manifest hashes (nine requirements and profiles) are unchanged.
 
-The mapping findings do not consistently use the required status terms `matched`, `partial`, or `gap`. Exact findings needing normalization:
+| Exam | Requirement SHA-256 | Map SHA-256 | Requirement rows / map headings |
+|---|---|---|---:|
+| ACET | `cc0dd9c8a2b2e5609166fcbd4d5d05a312b82b6a1510c3869992a3ed8e91315e` | `2c5533c3e2dfc312072d9a3a9e8a3cf21950304d444c776a2647176637e84a0e` | 67 / 67 |
+| CSE Professional | `ef24b0f70aeeec1c3d00c9b731bfd4758b067dbe818414ff46662553fd48e51b` | `269bb26f45b0fe2bccc399dfa0ec9139b3abe205f0dbf0cbc52b2a31094c6400` | 45 / 45 |
+| CSE Subprofessional | `ef86371dc96ebf3cd550c916170261df2578501841b6cdd49669cd7a9abd9990` | `55e6273746fee473c2c447358efe70a15f76580a20734e354305821a87235fd7` | 51 / 51 |
+| DCAT | `84ca5901bd744c655c937f0199f1578cee9c5806a9a8b463f45d6ab88c57de97` | `470f2ce60252fba8b510c5cdaa3c65d159db500c1391ee1c8e784a6c137238c3` | 55 / 55 |
+| DOST-SEI | `e6d07ba21e0d194f6efdeade6e2429ffa7a5af8ae5d0c7e9df9c7dde9bce730a` | `524033e6398eb40716f745d09a3bd548ec26f31ff899c652740f7ce4e67b8d3` | 50 / 50 |
+| PUPCET | `87c388bc5d09285dabebde9e1a9d79e7f0776cb8898496741eaec68d4843b002` | `1c73ac02df26b241fec6aab5b33d32c467a6c49c9040a4c420ad5197f0ece17d` | 53 / 53 |
+| SM Foundation | `34908cdcee12d4be37f0011e5479c0f70357f2df9f3a7fd631f8f7a1e9a9a8de` | `b5e8c7ee86634bccb12728938fb5cff473fded2a96cc9c02eb50d68d9099ea81` | 50 / 50 |
+| UPCAT | `ae3228df48f83f6909a1939e793afa92c7651d0cb2dbfdc221d328b63a8126d6` | `ee88a3930edaf2f0580565e83fad344f3f7d4950cac40d026c7a31055090baf4` | 114 / 114 |
+| USTET | `9d674fe20a1c714a0f262b1b173ff79ca2cbb4d98ce737dd6a305b2392b806aa` | `d8a831492611c4d092e7676adf054a2b1fc1bb5df8a708422d85b084f96757d6` | 50 / 50 |
 
-- “**Apparent gap**: no lesson mentions biomolecules or carbohydrates”
-- “**Apparent gap**, low priority until relevance is confirmed”
-- “**Apparent gap**, minor; may not suit a reviewer app”
-- “Mentioned; depth unknown”
-- “Weak-evidence topic with no lesson; report, do not treat as a confirmed gap”
-- “**Apparent gap**. A Reasoning lesson covers structural stability and center of gravity; Task 5 checks whether it teaches the physics”
-- “Weak-evidence topic with no lesson; report only”
-- “**Apparent gap or partial**”
-- “Monsoons found; ITCZ and breezes not found”
-- “**Apparent gap**, partial at most”
-- “Climate change found; El Nino not found”
+## Independent counts and checks
 
-## Check 4: Matched rows name a lesson
+- Catalog: 158 lesson rows; 158 unique IDs and paths. All 158 paths and frontmatter fields match the pinned corpus.
+- Tags: 158 rows; IDs and paths exactly equal the catalog. Each lesson's exam tags and evidence-row IDs exactly equal the connected requirement-map edges. No missing or extra references. There are 848 distinct lesson-exam edges.
+- Requirement records: 535 unique IDs; all 478 bullet lines in source sections 2 and 3 map to a record. The other 57 records preserve subject or scope records not formatted as bullets. All 535 source line locators point to exact line text, and each exact record text appears in its exam map.
+- Nine maps: 535 unique headings in total, with no missing or extra headings. The maps have nine distinct exam names.
+- Requirement edges: all linked lesson IDs and paths resolve to the same actual inventory entry. Each row preserves equal ID and path counts. The 57 rows labeled `UNKNOWN` and three rows labeled `CONSTRAINT OR SOURCE CONFLICT` have no lesson edges. Compound rows with edges remain `PARTIAL NAME LEADS` or `PROVISIONAL NAME LEADS`; none is labeled as taught or complete.
+- Profiles: nine exam tables and 11 entries per table, 99 entries total. Every row has a valid confidence label, source, and checked date. Each profile table exactly matches its accepted requirement table.
+- Outline: six subjects, 25 topics, 141 unique lesson units. The inventory has six subjects, 25 topics, and 158 lessons. All 141 outline units resolve. Exactly 17 inventory lessons are absent from the outline, and all 17 paths below match the omission list in `outline-comparison.md`.
+- Original corpus reference: the capture preserves the text export and title. Its SHA-256 is recorded in that capture. The separate 238,105-byte structural snapshot supplies a formatting baseline. The captured original outline combines “Inferencing and Drawing Conclusions Distinguishing Fact from Opinion” in one bullet; the chosen catalog represents these as separate lesson units. Nested bullets in the original tab do not establish an exact original lesson count.
+- No questions or lesson bodies were read. No claim is made about teaching, examples, depth, practice, runtime availability, or later levels.
 
-**PASS.** No row says “Matched” while naming no lesson. Rows with “none found” are labeled as apparent gaps or weak-evidence topics without lessons, not as matched.
+Inventory lessons absent from the stored outline:
 
-RESULT: FLAGS 1
+- `content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md`
+- `content/lessons/general-information/code-of-conduct-ra-6713/norms-of-conduct.md`
+- `content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md`
+- `content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md`
+- `content/lessons/general-information/environment-management/environmental-concepts.md`
+- `content/lessons/general-information/environment-management/the-environmental-laws.md`
+- `content/lessons/general-information/peace-and-human-rights/human-rights-fundamentals.md`
+- `content/lessons/general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md`
+- `content/lessons/general-information/philippine-constitution/accountability-and-impeachment.md`
+- `content/lessons/general-information/philippine-constitution/bill-of-rights.md`
+- `content/lessons/general-information/philippine-constitution/the-articles-in-outline.md`
+- `content/lessons/general-information/philippine-constitution/the-civil-service-commission.md`
+- `content/lessons/mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md`
+- `content/lessons/mathematics/data-interpretation/tables-and-charts.md`
+- `content/lessons/reasoning/clerical-ability/alphabetic-filing-rules.md`
+- `content/lessons/reasoning/clerical-ability/numeric-and-chronological-filing.md`
+- `content/lessons/reasoning/verbal-logic/assumptions-and-conclusions.md`
 
+## First-draft semantic exceptions (historical)
 
-Lead resolution, October 4, 2026: status terms normalized in `outline-comparison.md` to Matched, Partial, Gap (apparent), or Gap, weak evidence. Counting gate: passed.
+Mechanical reference checks do not prove relevance. A separate Sol map review flagged these rows for incorrect provisional links: `cse-subprofessional-L137` and `cse-subprofessional-L142` linked Springs and Weights to unknown topic weights; `cse-subprofessional-L116` and `cse-subprofessional-L117` linked atomic chemistry through unbounded “ions” keyword matches to Constitution/RA 6713 topics. The lead regenerated the maps. The first-draft hashes and flags remain recorded above.
+
+## Result
+
+**First-draft result: FLAGS.** The independent mechanical counts and references passed at the first-draft hashes above. The four semantic exceptions prevented a combined map pass. The lead then corrected and regenerated the map artifacts.
+
+## Corrected-snapshot independent recount
+
+Recount date: October 5, 2026. Policy remains `main` commit `cb48097bedf15bec2cfbe4fb3aa7e957753b1727`; audit HEAD remains `261f8685b5add6652037cc6ba0f62c21dc8ce8cb`; corpus remains `765c5dc0fa5586281047bf4f7b30d09ab3707887`. Current map hashes are pinned in `map-input-manifest.json`, SHA-256 `717c9b8abdb57d1f99551093b74f68cacb6a19bc19cdae95c7390717da8409ca`. All 13 manifest hashes match their files. Requirements remain at the 10 hashes in `requirement-input-manifest.json`, SHA-256 `f47c0ee3481607a26619e2f66d1d054ccc7a869e80b98de911c95fd8fbf36531`; all 10 match.
+
+| Corrected input | SHA-256 |
+|---|---|
+| `docs/content/audit/coverage-r1/requirement-map.json` | `61e1a02e1fbaa9dbba3f98885643ec2d3d0cbe820febdcc0525941af4cfc64a1` |
+| `docs/content/audit/coverage-r1/lesson-exam-tags.json` | `c88ef277a58ba5ac76dd10d44f8423569c842eab21c2bd4383a543daece141f5` |
+| `docs/content/audit/coverage-r1/outline-comparison.md` | `7d46f2202ccf63d9d175d7019c45a200b0350fa247dda191c051185608d2bddb` |
+| `docs/content/audit/coverage-r1/maps/acet.md` | `197e55f74b3c0f98cec5c25239073ada21404369802a777a2d9eef828f4b98a5` |
+| `docs/content/audit/coverage-r1/maps/cse-professional.md` | `ec2f3d4d18d6419c3b27fdcb97737d98dab64004eea46780e348e6da0b56714d` |
+| `docs/content/audit/coverage-r1/maps/cse-subprofessional.md` | `43a33d80a6221f2eb3b550dd5fbe859117f3cae7364b1e5babf852523e82c876` |
+| `docs/content/audit/coverage-r1/maps/dcat.md` | `4e07384a4628df956610e5546214baf80300a961ca5829d49c9b5e1fdee3a9dd` |
+| `docs/content/audit/coverage-r1/maps/dost-sei.md` | `90b279b2422fe770f1c33f00eeaa4175c8cdc170d4e5de8d169faeedc7880024` |
+| `docs/content/audit/coverage-r1/maps/pupcet.md` | `2af05cdf9487fe55b8a040b6e43ad2516de6f1c808ec5f65e471b74bb021d986` |
+| `docs/content/audit/coverage-r1/maps/sm-foundation.md` | `468a060bcd8be04898f535705b0e20f29a85fab480daf266d8e088857cc5c38c` |
+| `docs/content/audit/coverage-r1/maps/upcat.md` | `1824baaff9c95cc1b33ac7d04e33fc140093b936fae68a7e8b527620b339c95e` |
+| `docs/content/audit/coverage-r1/maps/ustet.md` | `cc094c21d4f74a11450e13a3136833a5cd7238741758d06ef1c1ab68e2ce835a` |
+
+The corrected `build_level1_maps.py` hash is `16208f7c0ad3b74e00d81c5ee9204293326d1e064766a3755841c9f830193d00`. The current outline comparison retains the inventory hash above; the corrected content and map artifacts are tracked separately in the manifest.
+
+The independent recount found:
+
+- 158 inventory lessons, each with a unique ID and path. All 158 pinned corpus paths exist, and frontmatter `_id`, title, subject, and topic match. Ordered-frontmatter SHA-256 remains `5b8db5fb683427f84e21486c3f03370fb4d3ead0de8d770ba743be176ea1c649`.
+- 158 tag records with exact catalog ID and path sets. Each lesson's evidence-row IDs and exam tags equal the edges in the corrected requirement map. No extra or missing references; 822 distinct lesson-exam edges.
+- 535 unique requirement records. All 478 bullet lines in source sections 2 and 3 have records; all 535 line locators match exact source text, and all 535 exact record texts appear in the corresponding map. The nine maps contain exactly 67, 45, 51, 55, 50, 53, 50, 114, and 50 unique headings, respectively, with no missing or extra headings.
+- Every linked ID/path pair resolves to the same inventory lesson. There are no linked rows with kind `unknown`, `constraint`, or `context`, or status `UNKNOWN` or `CONSTRAINT OR SOURCE CONFLICT`.
+- All 99 format-profile rows (nine profiles, 11 entries each) have valid confidence, source, and date fields. Each table exactly matches its accepted requirement table. All ten accepted requirement/profile hashes remain unchanged.
+- The outline has six subject records, 25 topics, and 141 unique lesson units across five populated subjects. Its General Information placeholder has four topics and zero lessons. All 141 outline units resolve to inventory paths; exactly 17 inventory lessons remain absent, matching the 17 paths listed above.
+- Original-tab text and title remain represented by the text capture; the structural JSON remains the formatting baseline. The original text combines “Inferencing and Drawing Conclusions Distinguishing Fact from Opinion” in one bullet, while the inventory treats those as separate lesson units. Nested bullets do not provide an exact original lesson count.
+
+The four earlier semantic examples now have no erroneous edges. `cse-subprofessional-L137` and `cse-subprofessional-L142` have no lesson edges. `cse-subprofessional-L116` points only to Constitution lessons, and `cse-subprofessional-L117` points only to R.A. 6713 lessons; neither points to atomic chemistry. This recount establishes map accounting and target identity, not whether every other connection is semantically correct. Fresh Sol review of the correction groups remains the independent semantic gate.
+
+**Corrected-snapshot count result: PASS.** Independent semantic acceptance remains pending. No lesson bodies or questions were read. No later-level work was started.

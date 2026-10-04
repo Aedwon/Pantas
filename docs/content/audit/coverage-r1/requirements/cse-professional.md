@@ -52,7 +52,7 @@ Confirmed means organizer scope. Curriculum support means an inferred preparatio
 
 **Supported, curriculum**
 
-- Environment: identify local environmental problems and government responses, AP10IPE-Ie-11/12; explain climate-change effects and environmental decisions, AP10IPE-Ic-8 / AP10IPE-Ii-22. [13, pp. 216-218, official for curriculum]
+- Environment: identify local environmental problems and government responses, AP10IPE-Ie-11/12; explain climate-change effects, AP10IPE-Id-10, its political/economic/social aspects, AP10IPE-Ic-8, and environmental decisions, AP10IPE-Ii-22. [13, pp. 216-218, official for curriculum]
 - Human rights: analyze violations, effects, and protection methods, AP10IKP-IIIa-2 / IIIb-3/4. [13, pp. 220-221, official for curriculum]
 - Public ethics preparation: explain corruption and evaluate its effects, AP10IPP-IId-7 / IIe-8. This supports the ethics area, not a complete R.A. 6713 syllabus. [13, p. 220, official for curriculum]
 

@@ -1,0 +1,19 @@
+{
+  "status": "first535-record map snapshot frozen pending semantic/count findings",
+  "corpusCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+  "files": {
+    "docs/content/audit/coverage-r1/build_level1_maps.py": "86313bcfb5f07a2051304bb14815f52c80820e2a2128e9990006a7c437149251",
+    "docs/content/audit/coverage-r1/requirement-map.json": "1ae0f1fbe56108365cccadc41b581079cc546aedb81595e07db9f63c522ff1b0",
+    "docs/content/audit/coverage-r1/lesson-exam-tags.json": "c614bb079dcd5ab6a7a7fb5e98f9225b961dc5fb7104431ccaac04da20d6ad9c",
+    "docs/content/audit/coverage-r1/outline-comparison.md": "31d8d294ccd7b310bc8b80989ab62bc1dfd5d886ddaa14edd0dc65dd63c3e088",
+    "docs/content/audit/coverage-r1/maps/cse-subprofessional.md": "55e6273746fee473c2c447358efe70a15f76580a20734e354305821a87235fd7",
+    "docs/content/audit/coverage-r1/maps/dcat.md": "470f2ce60252fba8b510c5cdaa3c65d159db500c1391ee1c8e784a6c137238c3",
+    "docs/content/audit/coverage-r1/maps/upcat.md": "ee88a3930edaf2f0580565e83fad344f3f7d4950cac40d026c7a31055090baf4",
+    "docs/content/audit/coverage-r1/maps/pupcet.md": "1c73ac02df26b241fec6aab5b33d32c467a6c49c9040a4c420ad5197f0ece17d",
+    "docs/content/audit/coverage-r1/maps/dost-sei.md": "524033e6398deb40716f745d09a3bd548ec26f31ff899c652740f7ce4e67b8d3",
+    "docs/content/audit/coverage-r1/maps/acet.md": "2c5533c3e2dfc312072d9a3a9e8a3cf21950304d444c776a2647176637e84a0e",
+    "docs/content/audit/coverage-r1/maps/cse-professional.md": "269bb26f45b0fe2bccc399dfa0ec9139b3abe205f0dbf0cbc52b2a31094c6400",
+    "docs/content/audit/coverage-r1/maps/sm-foundation.md": "b5e8c7ee86634bccb12728938fb5cff473fded2a96cc9c02eb50d68d9099ea81",
+    "docs/content/audit/coverage-r1/maps/ustet.md": "d8a831492611c4d092e7676adf054a2b1fc1bb5df8a708422d85b084f96757d6"
+  }
+}

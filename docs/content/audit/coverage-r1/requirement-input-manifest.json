@@ -1,0 +1,18 @@
+{
+  "policy": "cb48097bedf15bec2cfbe4fb3aa7e957753b1727",
+  "auditBase": "261f8685b5add6652037cc6ba0f62c21dc8ce8cb",
+  "corpus": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+  "status": "level1 requirement source/rebuild gate accepted; maps pending",
+  "files": {
+    "docs/content/exam-format-profiles.md": "9dcc230d6c3a7fced854485a3309d3b35ddecebe6d12d8898749056c84661937",
+    "docs/content/audit/coverage-r1/requirements/cse-subprofessional.md": "ef86371dc96ebf3cd550c916170261df2578501841b6cdd49669cd7a9abd9990",
+    "docs/content/audit/coverage-r1/requirements/dcat.md": "84ca5901bd744c655c937f0199f1578cee9c5806a9a8b463f45d6ab88c57de97",
+    "docs/content/audit/coverage-r1/requirements/upcat.md": "ae3228df48f83f6909a1939e793afa92c7651d0cb2dbfdc221d328b63a8126d6",
+    "docs/content/audit/coverage-r1/requirements/pupcet.md": "87c388bc5d09285dabebde9e1a9d79e7f0776cb8898496741eaec68d4843b002",
+    "docs/content/audit/coverage-r1/requirements/dost-sei.md": "e6d07ba21e0d194f6efdeade6e2429ffa7a5af8ae5d0c7e9df9c7dde9bce730a",
+    "docs/content/audit/coverage-r1/requirements/acet.md": "cc0dd9c8a2b2e5609166fcbd4d5d05a312b82b6a1510c3869992a3ed8e91315e",
+    "docs/content/audit/coverage-r1/requirements/cse-professional.md": "ef24b0f70aeeec1c3d00c9b731bfd4758b067dbe818414ff46662553fd48e51b",
+    "docs/content/audit/coverage-r1/requirements/sm-foundation.md": "34908cdcee12d4be37f0011e5479c0f70357f2df9f3a7fd631f8f7a1e9a9a8de",
+    "docs/content/audit/coverage-r1/requirements/ustet.md": "9d674fe20a1c714a0f262b1b173ff79ca2cbb4d98ce737dd6a305b2392b806aa"
+  }
+}

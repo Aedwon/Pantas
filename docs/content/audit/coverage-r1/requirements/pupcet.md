@@ -33,6 +33,8 @@ Access date for this source group: October 4, 2026, verified against the tool cl
 21. **Strengthened SHS Program, live curriculum/policy index.** https://www.deped.gov.ph/strengthened-shs-program/. Publisher: DepEd. Publication date not displayed. Accessed October 4, 2026. Confidence: official index, tier 2. Outcome: direct Mozilla/5.0 HTTP 200; current core guide links and links to DO 017, DM 012, and updated Grade 12 pilot DM 036 read from live HTML. Index labels do not verify the later policy bodies or make the current guide revision universal preparation for 2026 PUPCET.
 22. **DepEd Order 017, s. 2026, Strengthened Senior High School Curriculum, later-policy access limit.** https://www.deped.gov.ph/wp-content/uploads/DO-017-s.-2026-%E2%80%93-Strengthened-Senior-High-School-Curriculum.pdf. Publisher: DepEd, linked by source 21. Document year 2026; exact issue date not verified. Accessed October 4, 2026. Confidence: official document identity only, policy body unknown. Outcome: live HTTP retrieved 39,047,241 bytes and valid 100-page PDF in memory. Pages 1-8 yielded zero extractable text. No later-policy claim uses those unread scanned pages; this access limit prevents treating source 17 as verified current policy for future cycles.
 
+23. **Strong preparation marks PUPCET2026 third batch.** [Official PUP report](https://www.pup.edu.ph/news/?go=oQQkZzWML0Y%3D&v=Strong-preparation-marks-PUPCET-2026-third-batch-20260224000031845). Publisher: Polytechnic University of the Philippines. Published February24,2026; accessed October5,2026 by independent reviewer and lead. Confidence: official. Paragraphs describing the February22 batch identify booklets, testing rooms/proctors, and answer sheets. This establishes that documented batch's administration, not all campuses/future cycles or academic scope.
+
 ## 2. Subtests and languages
 
 No current-cycle official subtest list or language-per-subtest rule was established from sources 1-3. Candidate preparation areas, supported only by weak sources 5-6, are verbal/language skills (English and Filipino), mathematics/numerical ability, science, non-verbal or abstract/logical reasoning, and general information. Exact section organization remains unknown. [1-3, 5-6; unknown for 2026, weak for candidate areas]
@@ -72,7 +74,7 @@ No subject-level or topic-level PUPCET 2026 requirement was established from an 
 - Vocabulary: use context for nonliteral meaning, distinguish denotation and connotation, interpret affixes, and identify word relationships or analogies. [10, PDF pp. 165-166, 181-182; official curriculum, exam inclusion unknown]
 - Figurative language: interpret figures of speech, symbols, and figurative expressions. [10, PDF pp. 165, 182; official curriculum, exam inclusion unknown]
 - Grammar and cohesion: use connectors for sequencing events, express opinions appropriately, and maintain unity and cohesion in sentences or paragraphs. [10, PDF pp. 148, 166, 182; official curriculum, exam inclusion unknown]
-- SHS reading: identify a text's topic and key-word meanings, explain its ideas, compare text characteristics, use cohesive devices, and use logical relationships between ideas. The portal identifies Grade 11 preparation. [16; official curriculum, exam inclusion unknown]
+- SHS reading: identify a text's topic and key-word meanings, explain its ideas, use cohesive devices, and use logical relationships between ideas. The portal identifies Grade 11 preparation. [16; official curriculum, exam inclusion unknown]
 
 **Supported, weak**
 
@@ -170,11 +172,11 @@ No subject-level or topic-level PUPCET 2026 requirement was established from an 
 | "None of the above" style | unknown; no authenticated sample supports permission or exclusion | 1-3 | October 4, 2026 | unknown |
 | "All of the above" style | unknown; no authenticated sample supports permission or exclusion | 1-3 | October 4, 2026 | unknown |
 | Negative stems | unknown | 1-3 | October 4, 2026 | unknown |
-| Language per subtest | unknown for current cycle; weak sources suggest English and Filipino language skills, not all other subtests' languages | 1-3, 5-6 | October 4, 2026 | unknown current rule; weak preparation evidence |
-| Timing that affects item length | unknown for 2026; official report describes 90 minutes at Sta. Mesa in January 2025; unauthenticated Santa Maria page reports 75 minutes in May 2025. Neither establishes passage/item length or current sectional timing | 4-5 | October 4, 2026 | official historical report; weak historical campus report; unknown current rule |
+| Language per subtest | unknown for current cycle; weak sources suggest English and Filipino language skills, not all other subtests' languages | 1-3, 5-6 | October 4, 2026 | unknown |
+| Timing that affects item length | unknown for 2026; official report describes 90 minutes at Sta. Mesa in January 2025; unauthenticated Santa Maria page reports 75 minutes in May 2025. Neither establishes passage/item length or current sectional timing | 4-5 | October 4, 2026 | unknown |
 | Subtest mix by proportion | unknown; no published/verified current breakdown established. No proportion inferred from reviewer counts | 1-3, 5-6 | October 4, 2026 | unknown |
 | Topic weights | unknown; no published/verified topic weighting established | 1-3, 5-6 | October 4, 2026 | unknown |
-| Delivery | unknown paper versus computer for current cycle. Current procedure requires a printed permit on examination day; official 2025 report establishes on-site testing rooms only. Online application does not prove online testing | 2, 4 | October 4, 2026 | official logistics; unknown medium |
+| Delivery | Official2026 third-batch report confirms in-person booklet and answer-sheet delivery for February22. Current procedure requires a printed permit. Other campuses/forms and future-cycle medium remain unknown. Online application does not prove online testing | 2, 4,23 | October 5, 2026 | official |
 | Scoring and wrong-answer penalty | unknown; no current computation, section weights, grade/test-score combination, or penalty rule established | 1-3 | October 4, 2026 | unknown |
 
 ## 5. Version and cycle notes

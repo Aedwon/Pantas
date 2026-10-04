@@ -18,10 +18,13 @@
 14. [UP System Administration Citizen's Charter, 2025, First Edition](https://up.edu.ph/wp-content/uploads/2025/03/250331_UPSA-Citizens-Charter-2025-1st-Edition.pdf). Publisher: University of the Philippines. Access date: October 4, 2026. Confidence: **official**. Relevant section: 4, UPCAT Test Administration, printed page 291, PDF page 292.
 15. [UP admission test to include essay writing for first time (and other things UPCAT takers should know)](https://www.gmanetwork.com/news/cbb/content/268008/up-admission-test-to-include-essay-writing-for-first-time-and-other-things-upcat-takers-should-know/story/). Publisher: GMA News Online; by Amer R. Amor, VERA Files; published August 3, 2012. Access date: October 4, 2026. Confidence: **strong secondary**. Historical evidence for UPCAT 2013, not current-cycle confirmation.
 16. [K to 12 Mathematics Curriculum Guide, Grades 1 to 10, August 2016](https://www.deped.gov.ph/wp-content/uploads/2019/01/Math-CG_with-tagged-math-equipment.pdf). Publisher: DepEd. Access date: October 4, 2026. Source-policy tier: **2, curriculum**. Confidence: **curriculum**, inferred for UPCAT. Reviewer source R9. Relevant sections: key-stage standards, PDF page 6; grade-level standards, PDF pages 7-8. These establish arithmetic, algebra, geometry, basic trigonometry, statistics, probability, sequences, and series as curriculum preparation, not a UPCAT blueprint.
-17. [SHS Core Curriculum, General Mathematics, Grade 11, December 2013](https://depeddinagatislandsseniorhs.com/wp-content/uploads/2025/02/SHS-Core_General-Math-CG.pdf). Publisher: DepEd; copy hosted on the Dinagat Islands senior high school curriculum site. Access date: October 4, 2026. Source-policy tier: **2, curriculum**. Confidence: **curriculum**, with mirror-copy limitation; inferred for UPCAT. Reviewer source R10. PDF pages 1-2 cover rational, exponential, and logarithmic functions; pages 3-4 cover propositions, truth values, syllogisms, and fallacies. The header identifies a Grade 11 first-semester core subject. DepEd's [General Mathematics learner's material listing](https://lrmds.deped.gov.ph/detail/12237) corroborates Grade 11, these function families, and logic; the listing is a learner's material, not the curriculum guide itself.
+17. [SHS Core Curriculum, General Mathematics, Grade 11, December 2013](https://depeddinagatislandsseniorhs.com/wp-content/uploads/2025/02/SHS-Core_General-Math-CG.pdf). Publisher: DepEd; copy hosted on the Dinagat Islands senior high school curriculum site. Access date: October 4, 2026. Source-policy tier: **2, curriculum**. Confidence: **curriculum**, with mirror-copy limitation; inferred for UPCAT. Reviewer source R10. Lead retrieved the exact live mirror again on October5,2026: HTTP200, valid five-page PDF, December2013 header; SHA256 recorded in source-access-evidence.json. The earlier retained scratchpad was HTML and is not this evidence object. PDF pages 1-2 cover rational, exponential, and logarithmic functions; pages 3-4 cover propositions, truth values, syllogisms, and fallacies. The header identifies a Grade 11 first-semester core subject. DepEd's [General Mathematics learner's material listing](https://lrmds.deped.gov.ph/detail/12237) corroborates Grade 11, these function families, and logic; the listing is a learner's material, not the curriculum guide itself.
 18. [UP System UPCAT page](https://up.edu.ph/upcat/). Publisher: University of the Philippines. Access date: October 4, 2026. Confidence: **official, stale**, low for the current cycle. Reviewer source R6. Direct page fetching failed; search-indexed page text was read. It states four subtests, standardized subtest scores, a superseded first-three-years grade rule, a prior-test exclusion, and possible disqualification for device use. The current Grades 8 to 11 rule in [1, 2] wins. This stale page does not establish current coverage or format.
 
 19. [K to 12 Science Curriculum Guide, Grades 3 to 10, August 2016](https://www.deped.gov.ph/wp-content/uploads/2019/01/Science-CG_with-tagged-sci-equipment_revised.pdf). Publisher: DepEd. Access date: October 4, 2026. Source-policy tier: **2, curriculum**. Confidence: **curriculum**, inferred for UPCAT. Reviewer source R8. Opened by the lead (direct download, 203 pages) after the revision agent's fetch returned HTTP 403. Relevant sections: grade-level standards for Grades 7 to 10, printed pages 7-8; spiraling of concepts, printed pages 9-10; content listings, PDF pages 163 and 196.
+
+20. [K to 12 English Curriculum Guide, Grades 1 to 10, May 2016](https://www.deped.gov.ph/wp-content/uploads/2019/01/English-CG.pdf). Publisher: DepEd. Lead access: October 5, 2026. Source-policy tier: **2, curriculum**. Direct HTTP200, valid247-page PDF; cover and cited pages175-179 and235 read independently. This supplies preparation candidates, not official UPCAT scope. Download identity and relevant extracted pages are recorded in source-access-evidence.json.
+21. [K to 12 Filipino Gabay Pangkurikulum, Baitang 1 to 10, May 2016](https://www.deped.gov.ph/wp-content/uploads/2019/01/Filipino-CG.pdf). Publisher: DepEd. Lead access: October 5, 2026. Source-policy tier: **2, curriculum**. Direct HTTP200, valid190-page PDF; cover and cited pages140,153,166,175 read independently. This supplies preparation candidates, not official UPCAT scope or proof of each applicant's exposure. Identity and relevant extracted pages are recorded in source-access-evidence.json.
 
 ## 2. Subtests
 
@@ -46,6 +49,15 @@ The skill descriptions under supported topics translate source topic labels into
 
 - Language proficiency in English and Filipino, at the broad domain level only. [1]; **official**
   - Specific grammar, vocabulary, and composition competencies: **unknown**. [2, 3]; **unknown**
+
+**Supported, curriculum**
+
+Legacy K to 12 language preparation, not an organizer competency list or guaranteed individual exposure. Foreign-equivalent applicants, earlier graduates, and changed curricula limit applicability. [2, 20, 21]; **curriculum**
+
+- English grammar: use phrases, clauses, and sentences; logical connectors; active/passive voice; direct/reported speech; and past/past-perfect tense in context. [20, PDF p.175]; **curriculum**
+- English vocabulary and structure: infer idioms from context and collocations; use parallel structures and cohesive devices. [20, PDF pp.176-179]; **curriculum**
+- Filipino vocabulary: select contextual synonyms and antonyms; interpret figurative expressions; connect word meaning to affixes and word structure. [21, PDF pp.140,153,175]; **curriculum**
+- Filipino usage: use expressions of possibility, time/place adverbs, sequence connectors, appropriate action/event/experience verbs, and narrative connectors. [21, PDF pp.140,153,166,175]; **curriculum**
 
 **Supported, weak**
 
@@ -74,6 +86,15 @@ Evidence: unofficial coverage guidance and verbal preparation lists. [6, 7, 12];
 
 - Reading comprehension in English and Filipino, at the broad domain level only. [1]; **official**
   - Specific comprehension competencies and text types: **unknown**. [2, 3]; **unknown**
+
+**Supported, curriculum**
+
+Legacy K to 12 preparation in each confirmed language. These examples are not an exhaustive curriculum or UPCAT syllabus. [20,21]; **curriculum**
+
+- English reading: skim for key ideas; read closely for author purpose; find explicit/implicit information; scan for details; draw conclusions; and connect linear text with illustrations, tables, graphs, and maps. [20, PDF pp.177,179,235]; **curriculum**
+- English literary interpretation: relate genre elements, sensory imagery, and literary devices to a selection's theme. [20, PDF p.177]; **curriculum**
+- Filipino reading: identify/explain important ideas, relate literary ideas to events or daily life, analyze story elements and conflict, and judge or justify ideas in a text. [21, PDF pp.140,153,166,175]; **curriculum**
+- Filipino literary interpretation: interpret figurative wording and implied meanings; examine a text's elements using questions. [21, PDF pp.153,166,175]; **curriculum**
 
 **Supported, weak**
 
@@ -130,18 +151,18 @@ Evidence: reviewer coverage lists and a commercial science preparation guide. Th
 
 **Unknown**
 
-- Current required school level, quantitative depth, diagram and experimental-data skills, and discipline-specific inclusion. [2, 3]; **unknown**
+- Required tested science level, quantitative depth, diagram and experimental-data skills, and discipline-specific inclusion. Eligibility expects Grade11 completion or equivalent [2]; that is not a tested-depth specification. [2, 3]; **unknown**
 - Whether advanced reviewer topics, such as relativity, nuclear chemistry, or intermediate genetics, are requirements. [3, 6, 7]; **unknown**
 - Exact science topic weights. Reviewer distributions have no verified current official basis in the inspected sources. [3, 6, 8]; **unknown**
 
-**Supported, curriculum** (added by the lead from [19], printed pages 7-8; what all takers met by Grade 10, inferred, not a UPCAT statement)
+**Supported, curriculum** (added by the lead from [19], printed pages 7-8; legacy Grade7-10 preparation candidates, inferred, not a UPCAT statement or proof that every taker met them)
 
 - Biology: levels of organization from cells to ecosystems; microscope use; cell division and reproduction; digestive, respiratory, circulatory, excretory, and reproductive systems; inheritance of genetic information; species diversity and adaptation; biomolecules in cells and food. [19]; **curriculum**
 - Chemistry: mixtures and substances; the particle nature of matter and ions; carbon compounds and biomolecules; the mole concept (Grade 9); gas behavior, the Kinetic Molecular Theory, and the gas laws (Grade 10); conservation of mass, balancing equations, and simple mole-mole, mole-mass, and mass-mass problems (Grade 10); factors that control chemical reactions. [19, printed pages 7-10; content listings at PDF pages 163 and 196]; **curriculum**
 - Physics: motion in terms of distance and speed, with graphs and equations; laws of motion; work; heat and energy transfer; conservation of energy and momentum; balance and stability of objects; energy transfer through media. [19]; **curriculum**
 - Earth and space: Philippine resources; breezes, monsoons, and the ITCZ; seasons and eclipses; faults and earthquakes; tropical cyclones; members of the solar system; volcanoes; global climatic phenomena; seasonal constellations; plate boundaries. [19]; **curriculum**
 
-Reviewer-only science topics above that the Grade 7 to 10 guide does not cover in depth (for example relativity, nuclear chemistry, limiting reagents, kinetics, and equilibrium) stay **Supported, weak**. Senior High School science beyond the core subjects is strand-specific.
+Reviewer-only science topics above that the Grade 7 to 10 guide does not cover in depth (for example relativity, nuclear chemistry, limiting reagents, kinetics, and equilibrium) stay **Supported, weak**. The cited Grade1-10 guides do not establish SHS strand allocation, changed-course applicability, or tested SHS depth. Those remain unknown here. [2,19]
 
 ### Mathematics
 
@@ -167,6 +188,7 @@ Evidence: DepEd K to 12 Mathematics and Grade 11 core General Mathematics, sourc
   - Interpret functions, graphs, sequences, and series. [11, 16, Grade 10 standard, PDF page 8]; **curriculum**
   - Interpret rational, exponential, and logarithmic functions and graphs; use logarithm laws and solve related equations and inequalities. [11, 17, PDF pages 1-2]; **curriculum**
 - Geometry and measurement. [7, 11, 16]; **curriculum**
+  - Prove the Pythagorean theorem and solve right-triangle problems. [16, PDF pp.244-245, M9GE-IIIi-2 and M9GE-IIIj-1]; **curriculum**
   - Apply triangle similarity, congruence, and angle relationships. [11, 16, PDF pages 6-8]; **curriculum**
   - Use circle and polygon properties, coordinate geometry, area, and volume. [11, 16, PDF pages 6-8]; **curriculum**
   - Analyze figures through geometric deductions. [7, 16, axiomatic geometry, PDF pages 6, 8]; **curriculum**
@@ -183,7 +205,6 @@ Evidence: reviewer coverage lists, a preparation guide, and compiled sample item
 
 - Number-theory details: primes, GCD, and LCM. [11]; **weak**
 - Algebra word problems: translate age, mixture, work, and distance problems into equations. [11]; **weak**
-- Geometry: apply the Pythagorean theorem. [11]; **weak**
 - Trigonometry beyond the corroborated basic scope: use unit-circle values and identities. [11]; **weak**
 
 **Unknown**
@@ -198,15 +219,15 @@ The primary value concerns UPCAT 2027. Historical reviewer observations remain s
 
 | Entry | Value | Source numbers | Date checked | Confidence |
 |---|---|---|---|---|
-| Delivery | Paper and pencil; the charter's post-test procedure collects and checks test materials. Current instructions require pencils and an eraser. Answer-sheet layout remains **unknown**. | [2, Step 6; 5, PDF pages 8-9] | October 4, 2026 | official for delivery and collection procedure; unknown for answer-sheet layout |
-| Scoring | Standardized UPCAT subtest scores are combined with the composite of final grades in Grades 8 to 11 into the UPG. Wrong-answer penalty: **unknown**; the inspected current official statements do not specify one. The stale first-three-years grade rule in [18] does not override [1, 2]. | [1, About the UPCAT; 2, Admission into the University, A; 18] | October 4, 2026 | official for standardized scores and Grades 8 to 11; unknown for wrong-answer penalty |
-| Choices per item | **unknown** for the current cycle. Historical reviewer examples show four choices in [9], Science item 61, printed page 8, and five in [10], Mathematics item 89, printed page 11. Neither establishes a current universal count. | [3, 9, 10] | October 4, 2026 | unknown for current count; weak for reviewer observations |
-| Item types per subtest | **unknown** officially for the current cycle [3]. Supported multiple-choice reviewer patterns: Language Proficiency, vocabulary selection and sentence correction [12]; Reading Comprehension, passage questions [9]; Science, conceptual selection and simple calculations [8, 9]; Mathematics, equations, word problems, and figures [9, 11]. Current essay status is unknown [3, 15]. | [3, 8, 9, 11, 12, 15] | October 4, 2026 | weak for supported patterns; unknown for current official specification |
-| "None of the above" style | **unknown** currently. Reviewer [10], item 89, uses this option; [9], item 73, printed page 9, also uses it. These establish reviewer usage only. | [3, 9, 10] | October 4, 2026 | unknown for current usage; weak for examples |
-| "All of the above" style | **unknown** currently. Reviewer [9], item 67, printed page 8, uses this option. | [3, 9] | October 4, 2026 | unknown for current usage; weak for example |
-| Negative stems ("NOT", "EXCEPT") | **unknown** currently. Reviewer examples: [9], item 61, printed page 8, NOT TRUE; item 125, printed page 15, EXCEPT; [10], item 89, NOT. | [3, 9, 10] | October 4, 2026 | unknown for current usage; weak for examples |
-| Language per subtest | Language Proficiency and Reading Comprehension: English and Filipino, **official**. Science and Mathematics: **unknown** by subtest. Historical simulation [9] includes Filipino Science items 64-65, printed page 8; this does not confirm the current language mix. | [1, 3, 9] | October 4, 2026 | official for the two language subtests; unknown for Science and Mathematics; weak for historical example |
-| Timing that affects item length | Current bulletin: about five hours for administration. Current answering time, sectional limits, and passage-length implications: **unknown**. Charter [5] states 3 hours 20 minutes excluding instructions between subtests; newer charter [14] gives four hours for an activity including pre-test instructions and administration. These are not interchangeable measurements. | [2, 5, 14] | October 4, 2026 | official for each document's statement; unknown for current sectional timing and answering time |
+| Delivery | Paper and pencil; the charter's post-test procedure collects and checks test materials. Current instructions require pencils and an eraser. Answer-sheet layout remains **unknown**. | [2, Step 6; 5, PDF pages 8-9] | October 4, 2026 | official |
+| Scoring | Standardized UPCAT subtest scores are combined with the composite of final grades in Grades 8 to 11 into the UPG. Wrong-answer penalty: **unknown**; the inspected current official statements do not specify one. The stale first-three-years grade rule in [18] does not override [1, 2]. | [1, About the UPCAT; 2, Admission into the University, A; 18] | October 4, 2026 | official |
+| Choices per item | **unknown** for the current cycle. Historical reviewer examples show four choices in [9], Science item 61, printed page 8, and five in [10], Mathematics item 89, printed page 11. Neither establishes a current universal count. | [3, 9, 10] | October 4, 2026 | unknown |
+| Item types per subtest | **unknown** officially for the current cycle [3]. Supported multiple-choice reviewer patterns: Language Proficiency, vocabulary selection and sentence correction [12]; Reading Comprehension, passage questions [9]; Science, conceptual selection and simple calculations [8, 9]; Mathematics, equations, word problems, and figures [9, 11]. Current essay status is unknown [3, 15]. | [3, 8, 9, 11, 12, 15] | October 4, 2026 | unknown |
+| "None of the above" style | **unknown** currently. Reviewer [10], item 89, uses this option; [9], item 73, printed page 9, also uses it. These establish reviewer usage only. | [3, 9, 10] | October 4, 2026 | unknown |
+| "All of the above" style | **unknown** currently. Reviewer [9], item 67, printed page 8, uses this option. | [3, 9] | October 4, 2026 | unknown |
+| Negative stems ("NOT", "EXCEPT") | **unknown** currently. Reviewer examples: [9], item 61, printed page 8, NOT TRUE; item 125, printed page 15, EXCEPT; [10], item 89, NOT. | [3, 9, 10] | October 4, 2026 | unknown |
+| Language per subtest | Language Proficiency and Reading Comprehension: English and Filipino, **official**. Science and Mathematics: **unknown** by subtest. Historical simulation [9] includes Filipino Science items 64-65, printed page 8; this does not confirm the current language mix. | [1, 3, 9] | October 4, 2026 | official |
+| Timing that affects item length | Current bulletin: about five hours for administration. Current answering time, sectional limits, and passage-length implications: **unknown**. Charter [5] states 3 hours 20 minutes excluding instructions between subtests; newer charter [14] gives four hours for an activity including pre-test instructions and administration. These are not interchangeable measurements. | [2, 5, 14] | October 4, 2026 | unknown |
 | Subtest mix by proportion | **unknown**. No verified current blueprint or authenticated item totals established. Reviewer examples and recollections do not establish actual proportions. | [2, 3, 9, 12] | October 4, 2026 | unknown |
 | Topic weights | **unknown**. No verified current topic weights established. Commercial preparation estimates are not a verified examination blueprint. | [2, 3, 8, 11] | October 4, 2026 | unknown |
 

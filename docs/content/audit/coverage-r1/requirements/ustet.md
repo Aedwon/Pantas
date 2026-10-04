@@ -158,16 +158,16 @@ The organizer confirms subject disciplines, not a detailed topic syllabus. Curri
 | Entry | Value | Source | Checked | Confidence |
 |---|---|---|---|---|
 | Choices per item | unknown; no organizer sample or choice-count statement located | [1-3] | October 4, 2026 | unknown |
-| Item types per subtest | Reviewer describes multiple-choice questions in all four subtests; official item-type specification and any additional types remain unknown | [19], checked against [1-3] | October 4, 2026 | weak; official detail unknown |
+| Item types per subtest | Reviewer describes multiple-choice questions in all four subtests; official item-type specification and any additional types remain unknown | [19], checked against [1-3] | October 4, 2026 | unknown |
 | "None of the above" style | unknown; no verified official examples | [1-3] | October 4, 2026 | unknown |
 | "All of the above" style | unknown; no verified official examples | [1-3] | October 4, 2026 | unknown |
 | Negative stems ("NOT", "EXCEPT") | unknown; no verified official examples | [1-3] | October 4, 2026 | unknown |
-| Language per subtest | unknown officially. Reviewer labels English, Mathematics, and Science English, and Mental Ability nonverbal, but elsewhere says all sections are administered in English. School-language guides do not resolve this | [19] conflicts internally; [1-3, 18] do not establish exam languages | October 4, 2026 | unknown officially; weak claims unresolved |
+| Language per subtest | unknown officially. Reviewer labels English, Mathematics, and Science English, and Mental Ability nonverbal, but elsewhere says all sections are administered in English. School-language guides do not resolve this | [19] conflicts internally; [1-3, 18] do not establish exam languages | October 4, 2026 | unknown |
 | Timing that affects item length | unknown; no organizer statement connecting timing to stem/passage length was located; reviewer timing claims are not adopted | [1-3, 19] | October 4, 2026 | unknown |
 | Subtest mix by proportion | unknown; do not calculate proportions from reviewer counts | [1-3, 19] | October 4, 2026 | unknown |
 | Topic weights | unknown; no verified subject/topic allocation found | [1-3] | October 4, 2026 | unknown |
-| Delivery | Testing at designated physical centers is confirmed. Paper versus computer response medium remains unknown from the opened official materials. Online application does not establish online testing | [1, 4] | October 4, 2026 | official for centers; unknown for response medium |
-| Scoring and wrong-answer penalty | Overall admission rating: 80% entrance test score and 20% computed English/Mathematics/Science grades. Raw-item scoring, subtest scaling/combination, Mental Ability treatment, and wrong-answer penalty remain unknown. This is not a topic/subtest weight | [1]; conflicting reviewer statement [19] loses to organizer | October 4, 2026 | official for overall rating; unknown for item scoring/penalty |
+| Delivery | Testing at designated physical centers is confirmed. Paper versus computer response medium remains unknown from the opened official materials. Online application does not establish online testing | [1, 4] | October 4, 2026 | official |
+| Scoring and wrong-answer penalty | Overall admission rating: 80% entrance test score and 20% computed English/Mathematics/Science grades. Raw-item scoring, subtest scaling/combination, Mental Ability treatment, and wrong-answer penalty remain unknown. This is not a topic/subtest weight | [1]; conflicting reviewer statement [19] loses to organizer | October 4, 2026 | official |
 
 ## 5. Version and cycle notes
 
@@ -191,3 +191,5 @@ The organizer confirms subject disciplines, not a detailed topic syllabus. Curri
 6. **Guide access limitations:** legacy Statistics and Probability, Earth and Life Science, and Physical Science PDF storage guesses returned 404; their official competency listings were read instead. The older core-subject index path returned 404 through direct HTTP. No content from failed responses or retained invalid HTML scratchpads is evidence. [12-14; PDF access incomplete]
 7. **Unpublished composition:** subtest proportions, topic weights, and any timing-to-item-length constraints remain unknown. Bounded organizer/source searches found no usable published specification; do not infer values from commercial mock tests. [1-3, 19; unknown]
 8. **Required next checks:** independent source checking and organizer-only requirement rebuild remain pending. No lesson bodies, quizzes, overlap, structure, or content standards were audited in this assignment.
+
+Lead source resolution, October5,2026: independently downloaded and read the three official notice images[3,4] and DM012 scan[8]. Advisory image1 disclaims official status/endorsement of AY2027-2028 circulating review materials; image2 directs readers to official channels. Reminder image gives transparent-container rules, no response-medium specification. DM012 PDFp1 paragraphs4-5 retain existing Grade12 curriculum except continuing strengthened pilot learners. Download hashes/paths are recorded in source-access-evidence.json. Image extraction was used to read published sources, not computer control.

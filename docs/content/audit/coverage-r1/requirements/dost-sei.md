@@ -99,7 +99,7 @@ Filipino testing, literature-specific knowledge, writing/essay production, passa
 - Chemistry: distinguish mixtures/substances and particle models; explain atomic rearrangements, reaction conditions, and pressure-volume-temperature relationships in gases. [5, PDF pp. 7-8, 196; official curriculum, inferred preparation]
 - Physics: interpret distance/speed representations; apply laws of motion, projectile motion, work, energy, and momentum; reason about heat transfer and electricity. [5, PDF pp. 7-8, 120, 125-126, 168-169; official curriculum, inferred preparation]
 - Earth Science: explain earthquakes, faults, volcanoes, plate boundaries, weather/climate, resource use, geothermal energy, and hazards. [5, PDF pp. 7-8, 121-122, 176-177; official curriculum, inferred preparation]
-- Space Science: compare solar-system bodies; explain seasons, eclipses, and changing visibility of constellations. [5, PDF pp. 7, 103-104; official curriculum, inferred preparation]
+- Space Science: compare solar-system bodies; explain seasons, eclipses, and changing visibility of constellations. [5, PDF pp. 7, 103-104,168; official curriculum, inferred preparation]
 - SHS Earth and Life Science: connect Earth subsystems, rocks/minerals, resources, geologic hazards, energy flow, reproduction, evolution, and ecosystems. It is labeled core, but track substitutions and actual completion cannot be inferred from that label. [10, competency listing; official curriculum, track/completion conditional]
 - SHS Physical Science: connect atomic structure, bonding/polarity, reaction rates, stoichiometry/yield, astronomical models, Newtonian motion, and light phenomena. These extend preparation without confirming exam depth; exact track substitutions were not recovered. [11, competency listing; 15, access limitation; official curriculum, track/completion conditional]
 - STEM Biology 1: explain membrane transport, cell division, photosynthesis/respiration, biological molecules, and enzyme behavior. Detailed pathways are STEM preparation, not universal background or confirmed exam requirements. [22, competency listing; official curriculum, STEM-specific]
@@ -125,7 +125,7 @@ Scientific-task taxonomy, experimental-design/data-analysis depth, exact topic s
 
 - Number/measurement foundations: use sets, real numbers, fractions, ratio/proportion, percent, integers, and unit conversions in problems. [4, PDF p. 8, p. 210; official curriculum, inferred preparation]
 - Algebra: manipulate expressions and rational expressions; solve linear equations/inequalities and systems; work with quadratics, variation, radicals, sequences, and polynomial functions. [4, PDF p. 8, pp. 220, 232, 240, 247-250; official curriculum, inferred preparation]
-- Geometry: reason about polygons, congruence, triangle inequalities/similarity, parallelograms, circles, and coordinate geometry. [4, PDF p. 8, p. 250; official curriculum, inferred preparation]
+- Geometry: reason about polygons, congruence, triangle inequalities/similarity, parallelograms, circles, and coordinate geometry. [4, PDF p. 8, p. 251; official curriculum, inferred preparation]
 - Trigonometry: use basic triangle trigonometry. Advanced circular functions and identities need separate strand-specific support. [4, PDF p. 8; 13, competency listing; official curriculum, inferred preparation]
 - Statistics/probability: interpret data, central tendency/variability, simple-event probability, permutations/combinations, and quartiles/deciles/percentiles. [4, PDF p. 8, pp. 252-253; official curriculum, inferred preparation]
 - SHS functions: evaluate/compose functions, solve rational/exponential/logarithmic equations and inequalities, interpret graphs/domain/range, and use inverse functions. [7, PDF pp. 1-2; official curriculum, ordinary-cohort preparation]
@@ -147,17 +147,17 @@ Exact calculus methods, advanced trigonometry, inferential-statistics depth, fin
 
 | Entry | Value | Source | Checked | Confidence |
 |---|---|---|---|---|
-| Choices per item | Four, one correct, in 2026; 2027 unknown | [2, PDF p. 5]; [21] | October 4, 2026 | official, cycle-limited; unknown current |
-| Item types per subtest | Multiple choice: diagrams/statement combinations (reasoning/science), analogies (verbal), error spotting/completion/passages (language), problems (mathematics). Samples only. | [2, PDF pp. 6-14] | October 4, 2026 | official sample evidence, cycle-limited |
+| Choices per item | Four, one correct, in 2026; 2027 unknown | [2, PDF p. 5]; [21] | October 4, 2026 | unknown |
+| Item types per subtest | Historical2026 samples only; current2027 item types unknown. Multiple choice: diagrams/statement combinations (reasoning/science), analogies (verbal), error spotting/completion/passages (language), problems (mathematics). Samples only. | [2, PDF pp. 6-14] | October 4, 2026 | unknown |
 | "None of the above" style | unknown; inspected samples do not establish a current policy | [21], research gap | October 4, 2026 | unknown |
 | "All of the above" style | unknown; inspected samples do not establish a current policy | [21], research gap | October 4, 2026 | unknown |
-| Negative stems | "NOT" occurs in a 2026 sample; current frequency unknown | [2, PDF p. 10]; [21] | October 4, 2026 | official sample evidence; unknown current |
-| Language per subtest | English in samples; explicit English domain. Current policy unknown. | [2, PDF pp. 6-14]; [21] | October 4, 2026 | official sample evidence; unknown current |
-| Timing that affects item length | 2026: I 45, II 65, III 70 minutes; length implications unknown | [2, PDF p. 4]; [21] | October 4, 2026 | official, cycle-limited; no inferred length rule |
+| Negative stems | "NOT" occurs in a 2026 sample; current frequency unknown | [2, PDF p. 10]; [21] | October 4, 2026 | unknown |
+| Language per subtest | English in samples; explicit English domain. Current policy unknown. | [2, PDF pp. 6-14]; [21] | October 4, 2026 | unknown |
+| Timing that affects item length | 2026: I 45, II 65, III 70 minutes; length implications unknown | [2, PDF p. 4]; [21] | October 4, 2026 | unknown |
 | Subtest mix by proportion | unknown; no item proportions verified | [1, 21], research gap | October 4, 2026 | unknown |
 | Topic weights | unknown; no weights verified | [1, 21], research gap | October 4, 2026 | unknown |
-| Delivery | Pen and paper for the 2027 award cycle's November 2026 examination | [1, Issuance of Test Permit] | October 4, 2026 | official, current cycle |
-| Scoring and wrong-answer penalty | 2026: number correct. No deduction in stated formula; 2027 formula unknown. Current cut-off exists; value/computation unpublished in inspected page. | [2, PDF p. 5]; [1, Announcement of Scholarship Qualifiers]; [21] | October 4, 2026 | official, cycle-limited scoring; unknown current formula |
+| Delivery | Pen and paper for the 2027 award cycle's November 2026 examination | [1, Issuance of Test Permit] | October 4, 2026 | official |
+| Scoring and wrong-answer penalty | 2026: number correct. No deduction in stated formula; 2027 formula unknown. Current cut-off exists; value/computation unpublished in inspected page. | [2, PDF p. 5]; [1, Announcement of Scholarship Qualifiers]; [21] | October 4, 2026 | unknown |
 
 Time allocations are not item proportions. No conversion of minutes, sample counts, or curriculum lengths into examination weights is justified.
 

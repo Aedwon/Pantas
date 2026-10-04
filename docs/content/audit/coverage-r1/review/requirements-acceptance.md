@@ -1,0 +1,9 @@
+# Level1 requirement gate acceptance
+
+Lead acceptance, October5,2026. Policymain cb48097bedf15bec2cfbe4fb3aa7e957753b1727; auditbase261f8685b5add6652037cc6ba0f62c21dc8ce8cb; corpus765c5dc0fa5586281047bf4f7b30d09ab3707887, read-only. Accepted actual inputs are recorded by SHA256 in requirement-input-manifest.json. Source-ledger.md records each disputed claim and disposition.
+
+All9 source registers were checked independently. Fresh Sol reviewersA/B/C saved ALL3 organizer lists in their group before opening ANY authored requirement/check input. ACET original corrected sourcePASS + rebuildPASS remains unchanged. UPCAT refresh5flags + rebuild3 closed in upcat-resolution.md, PASS. DCAT21, USTET3 plus4preflight fixes, PUPCET4 plus B-PUP-01, DOST3 closed in finalized requirements-resolution-first-six.md, PASS. SM3 + SM-C1, CSEProfessional1, CSESubprofessional1 + CS-C1 and additional stale§6 clause closed in requirements-resolution-c.md, PASS. Lead read all actual findings and corrections, not only handbacks. Requirement hashes match recheck artifacts; profiles have9tables/99rows/exact copies/0invalidconfidence.
+
+Source failures were recovered from real original bodies where possible; uncertain exact SM2026 Reddit date removed. Failed mirror access did not prove invalid URL: live2013PDF independently checked. Incorrect CSESubprofessional checker blanket absence onAP65 rejected from actual text, replaced with precise216-217 competency locator. Curricular inference/historical versions remain distinct from official current scope. No full-coverage claim, invented proportions/weights, or content changes follow from acceptance.
+
+RESULT: PASS for requirement gate only. Task4 may begin within level1. All-exam maps, counting check and audited Google tab still required before level1 finishes. No authorization for level2.
