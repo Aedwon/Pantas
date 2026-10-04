@@ -1111,3 +1111,19 @@ Mistake noted: Claude told Aedwon the checklist had 54 rules; it has 56.
 Result: fast-forwarded main to `122662037a44f9488e35cf4fd3d7b006b1a4eb10`. Next: the exam coverage audit, whose
 spec on this branch still awaits full-spec approval, starting with requirement
 sources and the exam format profiles.
+
+### October 4, 2026: mock exam composition in the coverage audit
+
+Claude noted the standards check items, not whole mock exams, and asked whether
+the audit should check the mock's overall design.
+
+Aedwon: "if there is published or verified basis on the mix of subtests (by
+proportion) or topic weights, then that should be added. timing is not that
+important as well as number of items in the mock. what's important really is
+that the user learns and gets used to time pressure which will benefit them
+regardless of how close the content of the mock exam is to the real one"
+
+What changed: the coverage audit spec records subtest proportions and topic
+weights only where published or verified, and reports whether the mock matches
+them, as recommendations only. Mock timing and item count are out of scope.
+The exam format profile template on main gains the two entries.
