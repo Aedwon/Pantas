@@ -1,7 +1,8 @@
 # Exam content coverage audit
 
 Date: October 3, 2026
-Status: Draft for Aedwon's review. Not approved.
+Status: Draft for Aedwon's review. Not approved. Revised October 4, 2026 to use
+the new content standards and to fill the exam format profiles.
 
 ## For Aedwon to approve
 
@@ -23,7 +24,7 @@ Check language requirements and differences between exam versions where they aff
 
 ### The order of the audit
 
-1. **Establish exam requirements.** Find reliable, current sources for each exam's subjects and topics. Prefer the exam organizer's information. Separate confirmed requirements from reasonable supporting evidence and things that remain unknown. An unpublished topic list cannot become a claim of complete coverage.
+1. **Establish exam requirements.** Find reliable, current sources for each exam's subjects and topics. Prefer the exam organizer's information. Separate confirmed requirements from reasonable supporting evidence and things that remain unknown. An unpublished topic list cannot become a claim of complete coverage. In the same step, record how each exam's items look (number of choices, item types, wording style, negative questions, and the language of each part) in the exam format profiles, with each entry's source and confidence.
 2. **Check the corpus outline.** Read the existing corpus tab in the Master SSOT Google Doc and compare it with the chosen app corpus. Keep that tab unchanged as a reference. Create a separate audited corpus tab showing every subject, topic, and lesson. Compare the exam requirements with this complete outline and add provisional exam tags to lessons only. Produce a first coverage finding for every exam before reading lessons for depth or investigating individual questions. Identify apparent gaps, unclear names, and content whose relevance needs checking. A matching name is only a lead, not proof that the topic is taught.
 3. **Check what the lessons teach.** Read all lessons to confirm the apparent coverage. Check whether required ideas, basic knowledge needed beforehand, and examples are present. Identify topics that are named but barely explained, lessons that combine too much, and missing teaching hidden inside broad lesson names.
 4. **Check the practice against the teaching.** Check the topics and skills tested across all question sets. Investigate the previous audit's unresolved teaching and placement findings. For each mismatch, determine whether teaching is missing, another lesson already teaches it, earlier knowledge is reasonably needed, the question is misplaced, or the question's relevance is unsupported. Missing teaching alone is not a reason to remove a question.
@@ -36,7 +37,10 @@ Check language requirements and differences between exam versions where they aff
 - A prioritized list of gaps and question mismatches, with evidence and recommended actions.
 - A proposed subject, topic, and lesson outline showing useful splits and shared content.
 - A separate audited corpus tab in the Master SSOT Google Doc, showing the complete app corpus and lesson-level exam tags while preserving the original corpus tab.
+- Filled exam format profiles for every named exam, each entry with its source and confidence, or marked unknown where no evidence exists.
 - Additional quality improvements supported by what the audit finds, with their costs and priorities.
+
+Teaching and practice quality are judged against the content standards revised on October 4, 2026, including the content checklist and the Filipino-language rules. Older standards are not used.
 
 Keep topic relevance separate from teaching quality and practice quality. A topic may be relevant and taught, but still lack useful practice. Likewise, content may exist in the corpus but be unavailable to students preparing for the relevant exam. Report both cases.
 
@@ -70,7 +74,7 @@ This is a coverage and alignment audit. It does not repeat a full review of ever
 
 The audit produces findings and recommendations. Adding, changing, splitting, moving, or removing app content requires separate approval. No app changes, content publication, or release work are included.
 
-Creating and updating the separate audited SSOT tab is part of the audit's documentation output. It does not authorize editing the original corpus tab or changing app content. No Google Doc changes are made during this spec-and-plan stage.
+Filling the exam format profiles is also part of the audit's documentation output; the filled profiles are merged to main, where the standards live, after review. Creating and updating the separate audited SSOT tab is part of the audit's documentation output. It does not authorize editing the original corpus tab or changing app content. No Google Doc changes are made during this spec-and-plan stage.
 
 The proposed scope is balanced: complete coverage checking, followed by lesson scope and practice alignment. The earlier 2–4 hour audit estimate is provisional; the implementation plan will refine effort after the scope is approved. No new ongoing audit service is proposed.
 
@@ -78,14 +82,15 @@ This draft is complete when it is saved and available for your review. After you
 
 ### What counts as a finished audit
 
-Every named exam has a source-backed coverage conclusion. Every subject, topic, lesson, and question set in the chosen corpus has been accounted for. Every required topic has a teaching and practice finding, or an explicit uncertainty. The separate audited SSOT tab shows the complete corpus with supported or explicitly uncertain lesson-level exam tags, distinguishes existing content from proposals, and leaves the original tab unchanged. The prior audit's relevant unresolved findings have an evidence-backed recommendation or a clearly stated remaining question. Recommendations identify the affected exams and preserve shared content without duplication.
+Every named exam has a source-backed coverage conclusion and a filled format profile. Every subject, topic, lesson, and question set in the chosen corpus has been accounted for. Every required topic has a teaching and practice finding, or an explicit uncertainty. The separate audited SSOT tab shows the complete corpus with supported or explicitly uncertain lesson-level exam tags, distinguishes existing content from proposals, and leaves the original tab unchanged. The prior audit's relevant unresolved findings have an evidence-backed recommendation or a clearly stated remaining question. Recommendations identify the affected exams and preserve shared content without duplication.
 
 ## Agent reference, not the approval section
 
 ### Source and policy identity
 
 - Repository: `Aedwon/Pantas`.
-- Current policy read from `main`, commit `218b61232a4d8b8761dd141a30abaa8bd3947659`: `AGENTS.md` and `WORKFLOW.md`.
+- Current policy read from `main`, commit `122662037a44f9488e35cf4fd3d7b006b1a4eb10`: `AGENTS.md` and `WORKFLOW.md`.
+- Content standards: main's `docs/content/` at that commit, including `content-checklist.md`, `source-policy.md`, and `exam-format-profiles.md`. The style guides on the audit input branch predate them and are not the standard.
 - Proposed audit input: `content/question-qa-r2`, commit `765c5dc0fa5586281047bf4f7b30d09ab3707887`, matching the clean local worktree and fetched remote on October 3, 2026.
 - Existing audit: `docs/content/audit/question-qa-r2/summary.md` at that input revision. It reports 158 audited question-source lessons and 134 unresolved questions. Its exclusions and protected pending questions must remain visible. These counts do not establish the complete lesson inventory or exam coverage.
 - Current task status and exact conversation decisions: `docs/superpowers/decisions/2026-10-01-question-explanations-log.md`, appended coverage-spec checkpoint.
@@ -100,7 +105,7 @@ Save the outline comparison before starting the lesson-depth pass, and save that
 
 The later plan must include the separate audited tab as a deliverable, with read-before-write and readback verification through the Google Drive connector and applicable Google Workspace skills. Capture the original reference tab before writes and verify that its title, content, and formatting remain unchanged afterward. Record the actual new tab identity, document revision, and corpus revision in the existing audit/status records. Reconcile the old outline against the chosen corpus, identify actual lesson units before tagging, retain all subjects and topics, and support multiple exam tags per lesson without separate exam copies. Update provisional tags after lesson review; record partial applicability and uncertain relevance without converting them into unsupported coverage claims. Verify complete lesson accounting and distinguish proposed additions from existing content. These Google Doc writes belong to separately authorized audit execution, not this planning-only stage.
 
-Preserve source links, dates, the requirement supported, and the distinction between official coverage and inferred preparation needs. An organizer's silence does not prove a topic is irrelevant. No invented topic weights or completeness percentages.
+Write format profile entries in main's `docs/content/exam-format-profiles.md` shape, with confidence labels per `source-policy.md`; unofficial reviewers count as weak. Teaching and practice findings cite checklist rule ids. Preserve source links, dates, the requirement supported, and the distinction between official coverage and inferred preparation needs. An organizer's silence does not prove a topic is irrelevant. No invented topic weights or completeness percentages.
 
 Use existing repository audit and decision records. Record the input revision and progress so a resumed task can recover the current stage. Preserve application freezes, protected questions, and signing and publication boundaries. Recommendations do not resolve or edit the previous audit's protected questions.
 
