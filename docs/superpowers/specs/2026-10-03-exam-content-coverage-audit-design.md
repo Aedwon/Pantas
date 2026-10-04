@@ -90,7 +90,7 @@ Every named exam has a source-backed coverage conclusion and a filled format pro
 ### Source and policy identity
 
 - Repository: `Aedwon/Pantas`.
-- Current policy read from `main`, commit `122662037a44f9488e35cf4fd3d7b006b1a4eb10`: `AGENTS.md` and `WORKFLOW.md`.
+- Current policy read from `main`, commit `743adb84f44577a796d202100ff8df1228951a51`: `AGENTS.md` and `WORKFLOW.md`.
 - Content standards: main's `docs/content/` at that commit, including `content-checklist.md`, `source-policy.md`, and `exam-format-profiles.md`. The style guides on the audit input branch predate them and are not the standard.
 - Proposed audit input: `content/question-qa-r2`, commit `765c5dc0fa5586281047bf4f7b30d09ab3707887`, matching the clean local worktree and fetched remote on October 3, 2026.
 - Existing audit: `docs/content/audit/question-qa-r2/summary.md` at that input revision. It reports 158 audited question-source lessons and 134 unresolved questions. Its exclusions and protected pending questions must remain visible. These counts do not establish the complete lesson inventory or exam coverage.
