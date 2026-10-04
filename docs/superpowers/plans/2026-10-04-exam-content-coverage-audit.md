@@ -49,16 +49,17 @@ concurrency approved by Aedwon on October 4, 2026 ("proceed").
 codex exec -m gpt-6.1-sol -c model_reasoning_effort=high \
   -c 'notify=[]' --disable computer_use --disable browser_use \
   --disable browser_use_external --disable in_app_browser -s workspace-write \
-  -C <assigned worktree> -o <brief-dir>/<task>-result.md "$(cat <brief-dir>/<task>.md)"
+  -C <assigned worktree> -o <brief-dir>/<task>-result.md "$(cat <brief-dir>/<task>.md)" < /dev/null
 
 # Luna (narrow checks)
 codex exec -m gpt-6-luna -c model_reasoning_effort=low \
   -c 'notify=[]' --disable computer_use --disable browser_use \
   --disable browser_use_external --disable in_app_browser -s read-only \
-  -C <assigned worktree> -o <brief-dir>/<task>-result.md "$(cat <brief-dir>/<task>.md)"
+  -C <assigned worktree> -o <brief-dir>/<task>-result.md "$(cat <brief-dir>/<task>.md)" < /dev/null
 ```
 
-The notify override and disabled features stop Codex's computer-use client
+Close stdin (`< /dev/null`): a backgrounded `codex exec` otherwise waits for
+input and stalls until the time limit. The notify override and disabled features stop Codex's computer-use client
 from starting; the workflow bans computer control. Do not change the global
 Codex config.
 

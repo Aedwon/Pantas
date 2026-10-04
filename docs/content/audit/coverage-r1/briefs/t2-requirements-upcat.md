@@ -1,5 +1,8 @@
 # Brief: UPCAT requirements and format profile (Task 2, pilot)
 
+Template note: revised after the pilot review to require the DepEd curriculum
+layer and delivery and scoring rows. Later exam briefs copy this one.
+
 ## Startup
 
 You are a Codex worker on the Pantas repository. Before anything else, read
@@ -40,16 +43,22 @@ Sections, in order:
 2. **Subtests.** Each subtest's name and language(s), with the source numbers.
 3. **Required topics and skills.** Per subtest, a list of topics, and under each
    topic the specific skills, each line ending with source numbers and a
-   confidence. Separate three kinds clearly:
+   confidence. Separate four kinds clearly:
    - **Confirmed:** stated by an official or strong secondary source.
-   - **Supported:** reasonable from weaker evidence; say what the evidence is.
+   - **Supported, curriculum:** in the DepEd curriculum all takers met by the
+     test date (tier 2). Open the DepEd curriculum guides (K to 12 Science and
+     Mathematics, Senior High School core subjects, and the language subjects)
+     and use them for every topic they cover. Inferred, not an exam statement.
+   - **Supported, weak:** reviewer or other tier 4 evidence only.
    - **Unknown:** areas you looked for and could not establish.
    Never present a guess as a requirement. An organizer's silence does not
    prove a topic is excluded.
 4. **Format profile.** A table with the entries in `exam-format-profiles.md`:
    choices per item, item types per subtest, "none of the above" style, "all of
    the above" style, negative stems, language per subtest, timing that affects
-   item length, subtest mix by proportion, topic weights. Each with value,
+   item length, subtest mix by proportion, topic weights. Also add rows for
+   delivery (paper, computer, or other) and scoring (how scores are computed
+   and any wrong-answer penalty). Each with value,
    source numbers, date checked, confidence. Subtest mix and topic weights only
    from a published or verified source; otherwise `unknown`. Never estimate.
 5. **Version and cycle notes.** Any changes between recent cycles that affect
