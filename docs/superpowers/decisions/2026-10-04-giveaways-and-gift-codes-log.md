@@ -106,3 +106,42 @@ Added as "Added engineering work: subscription cancellation fix" in the SSOT's
 Pantas Production Readiness Assessment tab, before "Founder actions now". Status:
 open, not started. It touches payments, so it needs the spec and plan process and
 Aedwon's complexity choice. Whether it blocks internal beta is his decision.
+
+## Cancellation fix: release gate and complexity
+
+> "yes it has to be fixed. what complexity do you recommend?"
+
+Options offered:
+
+- Minimal, about half a day: stop clearing Pro on `CANCELLATION`, keep clearing on
+  `EXPIRATION`. Leaves the grant and subscription overlap.
+- Balanced, about 1 to 2 days (recommended): on any cancel or expiry event, ask
+  RevenueCat whether the user still has active Pro and set the claim from that
+  answer. Fixes the bug, the overlap, and out-of-order events. If RevenueCat cannot
+  be reached, return an error so RevenueCat retries the webhook.
+- Hardened, about 3 to 4 days: balanced plus a daily reconciliation of every user,
+  repair of users already affected, and alerts.
+
+> "balanced but you should not be implementing this now, this is for the engineering
+> pass's job
+> we're just planning things here"
+
+Decision: the fix blocks internal beta, at balanced complexity. The engineering pass
+owns implementation through the spec and plan process. SSOT entry updated.
+
+## Public ID for Facebook comments (open)
+
+> "so they already have an ID. the point of those facebook marketing is that they
+> would comment answers with their ID for easier winner selection without needing
+> them to message the page. so this info would be public. this is similar practice to
+> how MLBB does their marketing and in PH it's very very effective"
+
+The lead advised against posting the current account ID publicly. It is the
+28-character Firebase UID, which is easy to mistype in a comment. It is also the
+RevenueCat customer ID: anyone holding it and the app's public SDK key can view that
+customer's purchase information. Firestore rules check the owner, so a known UID
+does not expose study data.
+
+Proposed: a short public ID (8 to 9 digits) per signed-in account, mapped to the
+UID on the server, which Aedwon looks up when granting. About a day of backend work,
+and it changes what the Claude Design screen shows. Awaiting Aedwon's decision.
