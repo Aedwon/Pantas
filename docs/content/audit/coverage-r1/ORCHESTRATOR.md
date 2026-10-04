@@ -48,8 +48,9 @@ disagree, follow the plan and report the conflict.
 
 Use Codex's built-in subagents. Give each one its brief file's full text plus
 the startup rule above. Use 6.1 Sol High for research and reading, and 6 Luna
-(low effort) for narrow checks. If you cannot choose a model per subagent,
-use Sol High for all and report that to Aedwon.
+(low effort) for narrow checks. A test on October 4, 2026 confirmed that
+Codex subagents can be spawned, can use live web search, and can be given a
+model.
 
 Ready briefs in `docs/content/audit/coverage-r1/briefs/`:
 
