@@ -15,6 +15,12 @@ case $STATE in
     fi
     exit 0 ;;
 esac
+# Skip until Codex's reported usage-limit reset, so idle resumes do not
+# reload the whole session for nothing.
+if ! python3 ${0:A:h}/reset_passed.py $STATE_DIR/run.jsonl; then
+  log "waiting for usage reset: $(python3 ${0:A:h}/reset_passed.py $STATE_DIR/run.jsonl --show)"
+  exit 0
+fi
 log "resuming session (state: ${STATE:-unknown})"
 cd $WT
 codex exec resume "${CODEX_FLAGS[@]}" --json "$(cat $SESSION_FILE)" "$(cat ${0:A:h}/resume-prompt.txt)" \
