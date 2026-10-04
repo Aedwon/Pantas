@@ -5,7 +5,7 @@
 You are a Codex worker on the Pantas repository. Before anything else, read
 `AGENTS.md`, `WORKFLOW.md`, and `SUBAGENTS.md` from main with
 `git show origin/main:<file>` (run `git fetch origin main` first). Policy
-commit at dispatch: `3a84a5d614830972b60ba67efddc26f891eeac4f`. Follow them. Do
+commit at dispatch: `a8445c5ab328b2058c50eb5bf5181261d5dc80c6`. Follow them. Do
 not use computer control or browser automation. Use web search and page reading
 only.
 
@@ -74,3 +74,10 @@ The file exists with all six sections, every claim is sourced or marked
 unknown, and you have written nothing else.
 
 Other exams are researched by separate agents at the same time. Research only the SM Foundation scholarship examination. If this exam shares an organizer document with another exam (for example the two CSE levels), still report this exam's requirements separately.
+
+
+## Current dispatch supplement, October 4, 2026
+
+Use Codex gpt-6.1-sol at high effort. Read current main policy, startup text, the approved audit spec and plan, and October 4 decisions before research. `git fetch` is blocked by read-only metadata; the lead verified live main via `git ls-remote` and local origin/main matches `a8445c5ab328b2058c50eb5bf5181261d5dc80c6`. Recheck with read-only remote lookup if needed; do not mutate git metadata. This is level 1 only. Do not read or evaluate lesson bodies, overlap, lesson structure, lesson standards, or quizzes. No browser automation or computer control.
+
+You are not alone in this worktree. You own exactly the requirement output named above. Preserve all other agents' work; do not edit shared outputs, briefs, status, content, or policy. This audit's explicit single-output assignments govern the shared audit worktree. Do not spawn further agents. Write evidence directly into your output, including the actual access outcome for each source. Open sources, do not rely on search snippets alone. Distinguish source publication date, admission cycle, actual tool clock/access date, and project date if they differ. Never claim a future cycle was verified when it is not in the accessible source. When DepEd guides represent track-specific preparation, label that limitation; do not say every taker studied a STEM-only subject.

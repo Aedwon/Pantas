@@ -1318,3 +1318,12 @@ Aedwon at gates, and commit and push saved work from outside the sandbox
 (Codex keeps git metadata read-only; a sandbox test confirmed `git fetch`
 fails inside it). A launchd job runs the watcher. `ORCHESTRATOR.md` defines the
 state line in `status.md`.
+
+
+### October 4, 2026: Codex level 1 audit started in this conversation
+
+Aedwon's exact instruction:
+
+> You are the lead and orchestrator of the Pantas exam content coverage audit. Read docs/content/audit/coverage-r1/ORCHESTRATOR.md in this worktree first and follow it exactly, including every file it tells you to read. The audit has five levels: exam maps, overlap, lesson structure, lesson standards, quiz standards. It produces findings and recommendations only and changes no content. Never start a task in the next level until Aedwon explicitly approves it in this conversation; a question, comment, or silence is not approval. You are on level 1: build each of the 9 exams' maps with source checks and independent rebuilds, then stop and report. Use Codex subagents: at most 3 Sol High and 5 Luna at once. No computer control or browser automation. Keep the first line of status.md current as ORCHESTRATOR.md's "Run state" section requires.
+
+Action: Codex lead resumed level 1, read current main policy at `a8445c5ab328b2058c50eb5bf5181261d5dc80c6`, verified remote identities with read-only `git ls-remote` after the documented sandbox fetch failure, and dispatched only exam requirement research. The harness supports three simultaneous subagents, within Aedwon's maxima. Level 2 remains unauthorized. Watcher owns git saving/uploading, so the lead does not commit or push.
