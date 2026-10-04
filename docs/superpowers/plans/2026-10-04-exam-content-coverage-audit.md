@@ -102,9 +102,13 @@ in the phase.
 - [ ] Read the original Google Doc corpus tab through the Drive connector and
   save a capture (title, content, formatting summary) for the unchanged check.
 
-### Task 1: Pilot (UPCAT, Science)
+### Task 1: Pilot (Science, after all exam requirements)
 
-Run Tasks 2 to 7 for UPCAT and the Science topics only. Then:
+Revised October 4, 2026 at Aedwon's direction: the pilot no longer starts with
+one exam. Tasks 2 to 4 run for all 9 exams first, so every exam's subject
+inclusions are defined before any subject is examined. The pilot then runs
+Tasks 5 to 7 for the Science topics against every exam that includes Science.
+Then:
 
 - [ ] The reviewer compares the pilot results with its own manual check of two
   Science topics: missed requirements, wrong "covered" verdicts, wrong tags.
