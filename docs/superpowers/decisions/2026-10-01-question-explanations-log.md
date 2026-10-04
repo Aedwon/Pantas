@@ -1138,3 +1138,21 @@ will be done? agent structure i mean"
 Claude treated that as spec approval and said so; Aedwon confirmed: "yeah
 that's what i meant". The spec is approved. Audit execution still needs
 separate authorization, per the spec. Agent structure discussion continues.
+
+### October 4, 2026: top-down gate and agent concurrency question
+
+Claude showed the audit agent structure and a step-by-step trace of one
+requirement and one lesson fact through each agent. Aedwon: "that's too simple
+i want to see what every agent does or how a piece of information from a lesson
+passes through agents", answered with the trace.
+
+Aedwon: "okay, make sure this is done on a top-down approach. the lesson checks
+don't start anywhere unless a higher level check isn't done
+
+as to how many codex agents at once, how many is possible? and since I'm on a
+Plus plan, what would you recommend?"
+
+What changed: the spec's agent constraints now require a strict top-down gate:
+no lesson check starts until all requirement files, source checks, and the
+outline comparison are saved; per topic, lesson depth is saved before practice
+checks. Concurrency answer pending below.
