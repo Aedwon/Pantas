@@ -56,7 +56,7 @@ requirement applies to them.
 
 - **Gift and redemption codes.** Deferred until after launch and designed with the
   entitlement design below. At launch, giveaway winners get Pro through a manual
-  RevenueCat grant to their account ID. Record:
+  RevenueCat grant, found through their short public ID. Record:
   `docs/superpowers/decisions/2026-10-04-giveaways-and-gift-codes-log.md`.
 
 - **Store price points.** Google Play and the App Store use fixed price points per
