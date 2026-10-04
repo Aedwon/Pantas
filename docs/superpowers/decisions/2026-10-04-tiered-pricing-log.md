@@ -91,3 +91,30 @@ Not yet changed, needs separate approval: `docs/TERMS.md` (says "yearly only"),
 the app's Pro page (shows the trial on ₱799 Yearly), the paywall's trial screen
 routing (Yearly only), and the Play Console trial offer on `pantas_pro_yearly`.
 The reason for the move was not stated.
+
+## PSHS-NCE pass-only check (added 4 October 2026)
+
+Aedwon asked why PSHS-NCE has only a season pass and whether ₱1,499 is
+data-backed. No written reason existed beyond the premise above. The agent first
+suggested adding a monthly plan, then reversed after the research below. Aedwon
+kept PSHS-NCE pass-only at ₱1,499.
+
+Research fetched 4 October 2026:
+
+- **One attempt per child.** Applicants must be Grade 6 pupils who have not
+  previously applied to PSHS. Source: pshs.edu.ph, PSHS-NCE 2026 application page.
+  Each family buys for one season of about five months.
+- **Review programs:** iKnow Academic Hub ₱9,999 online live, 5 months; ACAD1
+  ₱7,900 to ₱12,900 in person; Achievers Review ₱5,800 to ₱14,900 online
+  simulated exams (achieversreview.com). Achievers Gold, ₱5,800 for diagnostics
+  and mock exams, is the closest comparison.
+- **General app:** ReviewNatin PH lists PSHS-NCE among many exams at ₱149 a month
+  or ₱1,490 a year (reviewnatinph.com).
+- **Print reviewers:** about ₱200 to ₱450 (2021 blog source, dated).
+- **Not found:** a PSHS-only app with a published price, a mock-exam-only package,
+  or any credible survey of parent spending on entrance-exam prep.
+
+Reasoning: ₱1,499 is about a quarter of the cheapest comparable online program.
+A monthly plan would sit next to ReviewNatin's ₱149 and pull the price down. With
+one attempt and a fixed season, a pass matches how parents buy. The price remains
+a competitor-based starting point, not measured willingness to pay.
