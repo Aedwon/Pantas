@@ -1082,3 +1082,32 @@ realism in wording. Recorded idea: revisit pinning when a format profile shows
 strong or official evidence of these options and the freeze lifts.
 
 Aedwon: "i see, let's go with 1 then"
+
+### October 4, 2026: content standards revision completed
+
+Implemented on `docs/content-standards-r1`: new `source-policy.md`,
+`exam-format-profiles.md` (all entries unknown until the coverage audit), and
+`content-checklist.md` (56 rules with severities); updated both style guides
+and both runbooks. No content, importer, schema, or app code changed.
+
+Checks: no em dashes in added lines; American spelling; attribution check OK;
+every checklist line cites an existing section. Independent review (separate
+agent) first returned CHANGES NEEDED with three major findings: position-
+dependent choices marked Major instead of Blocker; minor findings never forced
+in new content, letting FSRS terms and em dashes pass; Filipino rules
+contradicting AGENTS.md. All were fixed, plus seven minor findings. Recheck
+found one new major: the drafted AGENTS.md line held quiz items to Grade 5. That
+was fixed so quiz stems and choices use realistic exam Filipino.
+
+Claude asked Aedwon to approve the AGENTS.md wording, which the spec had not
+listed: "Lessons, explanations, and wrong-choice notes that teach or test
+Filipino use simple Filipino at the same Grade 5 standard instead of English.
+Quiz stems and choices use realistic exam Filipino."
+
+Aedwon: "that's approved"
+
+Mistake noted: Claude told Aedwon the checklist had 54 rules; it has 56.
+
+Result: fast-forwarded main to `122662037a44f9488e35cf4fd3d7b006b1a4eb10`. Next: the exam coverage audit, whose
+spec on this branch still awaits full-spec approval, starting with requirement
+sources and the exam format profiles.
