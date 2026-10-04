@@ -18,15 +18,15 @@ Only level 1 is authorized. Level 2 requires Aedwon's explicit approval in this 
 
 | Exam | Research | Source check | Fresh rebuild | Exam map |
 |---|---|---|---|---|
-| UPCAT | Historical completed file | Luna whole-file refresh active | Group A pending | Pending all-exam requirement gate |
+| UPCAT | Historical completed file | Usage-interrupted DRAFT, no source rows verified | Group A pending | Pending all-exam requirement gate |
 | DCAT | Research complete, unaccepted | Pending | Group A pending | Pending |
 | ACET | Research complete, unaccepted | Pending | Group A pending | Pending |
 | USTET | Research complete, unaccepted | Pending | Group B pending | Pending |
 | PUPCET | Research complete, unaccepted | Pending | Group B pending | Pending |
 | DOST-SEI | Research complete, unaccepted | Pending | Group B pending | Pending |
 | SM Foundation | Research complete, unaccepted | Pending | Group C pending | Pending |
-| CSE Professional | Sol High research active | Pending | Group C pending | Pending |
-| CSE Subprofessional | Sol High research active | Pending | Group C pending | Pending |
+| CSE Professional | Usage-interrupted DRAFT, no sources yet | Pending | Group C pending | Pending |
+| CSE Subprofessional | Usage-interrupted DRAFT, no sources yet | Pending | Group C pending | Pending |
 
 All-exam counting and audited Google Doc tab: pending. No lesson, overlap, or standards tasks dispatched. Corpus unchanged. Watcher handles commits/pushes; lead does not mutate git metadata.
 
@@ -51,7 +51,7 @@ All-exam counting and audited Google Doc tab: pending. No lesson, overlap, or st
 
 ## Pause state
 
-Level 1 running under Codex; user explicitly started this task in conversation.
+Level 1 remains authorized. Dispatch is temporarily stopped for the usage window; automatic resume continues the same level. This is not a user pause or an approval gate.
 
 ## Historical handoff to Codex orchestrator (before active execution)
 
@@ -134,3 +134,16 @@ Historical pause: lifted by Aedwon's explicit level 1 start recorded below.
 - Dispatch next: CSE Professional and Subprofessional research (two Sol High) plus UPCAT whole-file source-check refresh (one Luna low). All within the three-subagent harness limit.
 
 - Dispatches confirmed: requirements_cse_professional and requirements_cse_subprofessional (Sol High), source_check_upcat (Luna low). Seven research files are complete/historical, both CSE reports pending. No outline/map work or later-level task started.
+
+## Usage-limit stop and automatic recovery, October 4, 2026, 13:55 UTC
+
+- First line remains STATE: RUNNING so the watcher can resume level 1 after the window resets. Level 1 is NOT complete. No next-level approval requested or received.
+- Main live/local remains cb48097bedf15bec2cfbe4fb3aa7e957753b1727; corpus live/local remains765c5dc0fa5586281047bf4f7b30d09ab3707887. Watcher saved audit progress at e690f754b412be9ab6ee8a3995d29ebcf050f8e6, local/remote match and worktree was clean before this status update.
+- requirements_cse_professional result: agent errored with usage limit; reset message says "try again at Oct 5th, 2026 1:25 AM". Its six-section DRAFT exists, but sources/research remain pending. No acceptance.
+- requirements_cse_subprofessional result: same usage-limit error/reset. Its DRAFT exists, with no source-backed research yet. No acceptance.
+- source_check_upcat result: same usage-limit error/reset. upcat-refresh.md exists only as DRAFT header/input hash/empty source table. No source has been recorded as verified; the check is not passed.
+- Live agent inventory now contains root only. Stop dispatching; do not retry workers before the reported reset or purchase credits. The reset time is retained exactly as platform reported; current tool clock was2026-10-04 13:55:55 UTC.
+- Saved research-complete files: DCAT, ACET, USTET, PUPCET, DOST-SEI, SM Foundation, plus historical UPCAT. Do not redo these six completed new research tasks. All remain unaccepted until source checks/rebuilds/flag resolution.
+- Resume after quota permits: refresh main policy and repository identities; resume existing CSE Professional/Subprofessional drafts using their incremental briefs; resume UPCAT source-check DRAFT from the actual saved rows (currently none). No duplicate active workers exist. Then finish the other eight Luna source checks and fresh Sol rebuild groups A/B/C, resolve flags, fill profiles, and only after all nine requirements pass start the maps/counting/audited tab.
+- Still not done: maps for any exam, all-exam counting, audited Google Doc tab. No Google writes. Source/profile confidence normalization and curriculum-cycle flags must be resolved during Task3; many profiles currently use descriptive confidence qualifiers instead of the exact enum.
+- Lead has inspected DCAT, ACET, USTET, PUPCET, and DOST-SEI research outputs. SM Foundation complete output still needs full lead read. Corpus metadata remains158 lessons; no lesson bodies or question sets were audited and no content/app/importer/schema edits occurred.
