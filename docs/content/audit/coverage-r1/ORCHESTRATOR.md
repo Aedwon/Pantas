@@ -46,18 +46,34 @@ disagree, follow the plan and report the conflict.
 
 ## Approval gates: never go down a level without Aedwon's approval
 
-The audit has five levels. Finish a level completely, including its checks,
-then stop, report to Aedwon, and wait. **Do not start any task in the next
-level until Aedwon explicitly approves moving to it in this conversation.** A
+The audit has five levels, defined by Aedwon on October 4, 2026 (spec, "The
+order of the audit"). Finish a level completely, including its checks, then
+stop, report to Aedwon, and wait. **Do not start any task in the next level
+until Aedwon explicitly approves moving to it in this conversation.** A
 question, a comment, or silence is not approval. If unsure, ask.
 
-1. **Exam requirements** (Tasks 2 and 3): all 9 exams, with source checks,
-   independent rebuilds, and resolved flags.
-2. **Outline and tags** (Task 4): the all-exam outline comparison, provisional
-   tags, counting check, and the audited Google Doc tab.
-3. **Lesson depth** (Task 5 and its checks), starting with the Science pilot.
-4. **Practice against teaching** (Tasks 6 and 7).
-5. **Recommendations and report** (Tasks 8 and 9).
+The whole audit is findings and recommendations only. No lesson, question, or
+app content changes at any level.
+
+1. **Exam maps.** Every exam's requirements, subjects, topics, format profile,
+   and its own map to the app's lessons; source checks, independent rebuilds,
+   and resolved flags; the all-exam counting check; the audited Google Doc tab
+   with lesson-level exam tags.
+2. **Overlap.** Which exams share which subjects, topics, and lessons, in full
+   or in part, with the differences in depth or scope stated.
+3. **Lesson structure.** The most important level. Read every lesson. Find
+   shareable lessons; lessons carrying more than an exam needs, where the extra
+   should be its own lesson; crammed lessons that should be split; and
+   prerequisites, including content inside one lesson that is really a
+   prerequisite for another. Confirm level 1's apparent coverage. Recommend a
+   split only when it improves focus or learning.
+4. **Lesson standards.** Every lesson against the content standards and
+   checklist, each finding with its rule id and evidence.
+5. **Quiz standards.** Every question set against the question standards and
+   checklist, plus practice against teaching.
+
+After level 5, write the report and recommendations (plan Tasks 8 and 9), then
+stop for Aedwon's review.
 
 At each stop, report in short plain sentences: what was done, what the checks
 found, what remains uncertain, and the exact next level you are asking to
@@ -78,8 +94,9 @@ Ready briefs in `docs/content/audit/coverage-r1/briefs/`:
 - `t3-source-check-upcat.md`: template for each exam's source check (replace
   the exam name and paths).
 - `t4-counting-check-pilot.md`: template for the all-exam counting check.
-- `t5-lessons-science-<topic>.md`: drafts for later. They check UPCAT only and
-  must be updated to check every exam that includes the subject before use.
+- `t5-lessons-science-<topic>.md`: superseded drafts from before the level
+  structure. Do not use them; write level 3 briefs from the spec when level 3
+  is approved.
 
 Write new briefs in the same folder for any task without one. Briefs and their
 results are part of the audit record.
@@ -107,17 +124,16 @@ results are part of the audit record.
 
 ## Next steps
 
-Level 1 (exam requirements) is in progress. Steps 1 and 2 finish it; stop for
-approval after step 2. Step 3 is level 2 and needs Aedwon's approval first.
+Level 1 is in progress. UPCAT is done; the partial UPCAT Science outline draft
+becomes part of UPCAT's map.
 
-1. Task 2: requirements for the 8 remaining exams, 3 at a time.
-2. Task 3 per exam: Luna source check, independent rebuild by a fresh Sol
-   subagent, then you resolve flags with sources. Gate: all 9 pass.
-3. Task 4: outline comparison and provisional tags for all exams and subjects,
-   Luna counting check, then the audited Google Doc tab per the plan.
+1. Requirements for the 8 remaining exams, 3 Sol subagents at a time.
+2. Per exam: Luna source check, independent rebuild by a fresh Sol subagent,
+   then you resolve flags with sources.
+3. Each exam's own map to the app's lessons (by name and keyword, marked
+   provisional), the all-exam counting check, and the audited Google Doc tab.
    If you cannot write Google Docs, stop before the tab and report it.
-4. Stop after level 2 and report. Lesson work (level 3) starts only with
-   Aedwon's approval.
+4. Stop and report. Level 2 starts only with Aedwon's approval.
 
 ## Records and saving
 

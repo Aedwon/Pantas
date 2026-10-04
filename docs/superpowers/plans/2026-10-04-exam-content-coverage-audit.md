@@ -20,6 +20,17 @@ before the full run.
 (approved October 4, 2026). Agent structure, top-down gate, checks, and
 concurrency approved by Aedwon on October 4, 2026 ("proceed").
 
+## Levels (supersede the task order below)
+
+Aedwon redefined the audit into five approval-gated levels on October 4, 2026;
+see the spec and `docs/content/audit/coverage-r1/ORCHESTRATOR.md`. Mapping:
+level 1 = Tasks 0, 2, 3, 4 (each exam's map); level 2 = a new overlap analysis
+across exam maps; level 3 = Task 5 with lesson structure (sharing, splits,
+prerequisites) as its focus, and Task 7 sampling; level 4 = lesson checklist
+checks; level 5 = question checklist checks and Task 6. Tasks 8 and 9 follow
+level 5. The pilot of Task 1 is replaced by these gates. Where a task below
+conflicts with the levels, the levels win.
+
 ## Global Constraints
 
 - Policy and standards: main `743adb84f44577a796d202100ff8df1228951a51`.

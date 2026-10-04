@@ -1258,3 +1258,32 @@ requirements; outline and tags; lesson depth; practice against teaching;
 recommendations and report). The orchestrator finishes a level with its
 checks, stops, reports, and starts the next level only after Aedwon's explicit
 approval. A question, comment, or silence is not approval.
+
+### October 4, 2026: audit levels redefined by Aedwon
+
+Aedwon: "what are those levels? the checks are what's specified in the spec
+
+\"Check where coverage is too thin, misplaced, or combined in a way that makes exam preparation less focused.\"
+
+so 
+
+1. check all exams, list each exam's requirements, subjects, topics, lessons. each exam has its own map
+2. identify which exams have overlap and to what extent specifically
+3. check all lessons. which lessons can be reused/shared by multiple exams? is a lesson trimmed down enough that an exam could use it but it gives too much information not needed, so that extra info can be cut into its own lesson? which lessons are prerequisites?
+4. apply the lesson creation guidelines/standards
+5. apply the quiz creation guidelines/standards
+
+
+emphasis on 3 because instinctively i think there are lessons that have far too much content crammed into one when they could be their own separate lesson, and maybe half of it is a dependency/prerequisite to learning another lesson"
+
+Claude asked whether "apply" in levels 4 and 5 meant reporting findings
+(recommended, within the spec) or rewriting content (a spec change, with
+rework risk before splits settle).
+
+Aedwon: "yes audit first, no changes yet, only findings and recommendations to
+change is the expected output of this whole thing"
+
+What changed: the spec's "order of the audit" is now Aedwon's five levels,
+each gated by his approval; the boundary now covers standards checks for every
+lesson and question set while rewriting nothing. `ORCHESTRATOR.md` and the plan
+follow the levels. Level 3, lesson structure, is the emphasis.
