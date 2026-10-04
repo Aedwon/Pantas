@@ -4,10 +4,22 @@ Distilled from Aedwon's hand-reviewed lessons (see
 `content/lessons/mathematics/`). Every generated lesson must follow this.
 When in doubt, imitate `arithmetic-number-sense/order-of-operations.md`.
 
+Facts are sourced per [source-policy.md](source-policy.md). Before submitting,
+check the lesson against [content-checklist.md](content-checklist.md); a lesson
+passes only with no blocker and no major finding.
+
+## Learning goal
+
+Every lesson has a learning goal: one or two sentences on what a student can do
+after it and which exam requirement that serves. Record it in the audit records
+as [source-policy.md](source-policy.md) describes, not in the frontmatter.
+Everything in the lesson should serve the goal.
+
 ## Voice
 
 - Very simple English a Grade 5 student can read. Short sentences. No
   filler, no long introductions. Every sentence teaches something.
+  Filipino-language lessons follow the Filipino section below.
 - Explain exam verbs in one line the first time they appear:
   `"Evaluate" means find the final number answer.`
 - Friendly-tutor analogies are welcome in Core Concept (building a house,
@@ -20,6 +32,25 @@ When in doubt, imitate `arithmetic-number-sense/order-of-operations.md`.
 - Mention CETs when it motivates: why the topic is tested, what the trick
   usually is. Vary how you say it — do not open every trap with
   "Test-makers often…".
+
+## Filipino-language lessons
+
+Lessons that teach Filipino grammar, vocabulary, or reading (Aedwon,
+4 October 2026):
+
+- Write the teaching prose in simple Filipino, held to the same Grade 5 standard
+  as English lessons: short sentences, common words, one idea per sentence.
+- Give a hard grammar term a short English gloss the first time it appears:
+  `**pang-abay** (adverb)`. After that, use the Filipino term alone.
+- Example sentences, examples, and in-lesson quiz items are in Filipino.
+- Spelling and usage follow the Komisyon sa Wikang Filipino, including the
+  Ortograpiyang Pambansa. Source contested rules (nang and ng, din and rin,
+  affixes) per [source-policy.md](source-policy.md).
+- No Taglish in teaching prose. Use an English word only when it is the common
+  term students and the exam use.
+- There is no numeric readability score. English formulas misjudge Filipino
+  text, and Filipino-specific models are still research tools. Readability is
+  judged by the rules above and by a reader check at the student's level.
 
 ## Emphasis and de-AI rules
 

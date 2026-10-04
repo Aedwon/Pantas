@@ -18,7 +18,13 @@ lists live in `question-blueprints/<subject>.md`.
    each question: solve it yourself first, write the explanation as the
    correct answer's reasoning or solution only, then write a wrong-choice
    note (mistake, why it looks right, one check) on every wrong choice. The
-   importer rejects a wrong choice without a note.
+   importer rejects a wrong choice without a note. Match the target exam's
+   entry in `exam-format-profiles.md`, and record checked facts per
+   `source-policy.md`.
+4a. **Check and blind-solve.** Run `content-checklist.md` on every question.
+   Then have someone other than the author answer each question without the
+   key, explanation, or notes. Fix any question whose blind answer differs
+   from the key and solve it blind again.
 5. **Validate**:
    ```bash
    dart run tools/import_questions/import_questions.dart --root content/questions
@@ -57,6 +63,10 @@ Two different things are called "difficulty" in this app:
    don't smuggle it in here.
 
 ## Topic → exam table
+
+**Provisional.** The exam coverage audit replaces this table with checked,
+lesson-level exam tags. Until then, use it as below. CSE Professional and CSE
+Subprofessional are tagged separately once the audit profiles them.
 
 Derived from `docs/content/audit/benchmarks/*.md` (UPCAT, ACET, DLSUCET/DCAT,
 USTET, DOST-SEI). These are the five university/scholarship CET benchmarks the

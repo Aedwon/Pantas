@@ -19,7 +19,8 @@ assigned content worker. Read `AGENTS.md`, `WORKFLOW.md`, and `SUBAGENTS.md` fir
    and examples (Nang vs. Ng, sawikain, tayutay), and any claim about
    specific exam formats (UPCAT/DOST/ACET coverage). Use the available search
    and page-reading tools, prefer authoritative sources, and if a claim cannot be
-   verified, leave it out rather than guess.
+   verified, leave it out rather than guess. Follow `source-policy.md` for which
+   source wins and record each checked fact in the round's source ledger.
 
 ## Finding the next lessons
 
@@ -43,24 +44,28 @@ Proficiency, Reading Comprehension, Reasoning).
 Work in batches of about 5 lessons per iteration:
 
 1. Pick the next ~5 missing lessons from the outline.
-2. Write each lesson per the style guide. If the outline entry has
-   `sections`, cover each one (usually as `###` headings).
+2. Record each lesson's learning goal per `source-policy.md`, then write the
+   lesson per the style guide. If the outline entry has `sections`, cover each
+   one (usually as `###` headings).
 3. Verify each file before moving on:
    - frontmatter matches the style guide shape, slugs from outline.json;
    - top-level fractions use `\dfrac`; nested fractions may use `\frac`;
      no tables/links/code fences/`---` rules;
    - numbers in prose wrapped in `$...$`;
    - section titles exactly as specified; example/trap headings `### #N:`;
-   - re-solve every example and confirm the stated answers.
+   - re-solve every example and confirm the stated answers;
+   - every checked fact has a source ledger entry;
+   - the lesson passes `content-checklist.md` with no blocker or major.
 4. Commit the batch: `git add content/lessons && git commit` with a plain
    message like `content(math): add geometry lessons 1-5`. No attribution.
 5. Report progress (e.g. "72/141 done") and continue with the next batch.
 
 ## Subject-specific notes
 
-- Language Proficiency & Reading Comprehension: pure English, no Taglish
-  for now. Filipino-specific items in the outline (Nang vs. Ng, Sawikain
-  at Tayutay) still explain the Filipino concepts — in simple English.
+- Language Proficiency & Reading Comprehension: English lessons are pure
+  English, no Taglish. Lessons that teach Filipino (Nang vs. Ng, Sawikain at
+  Tayutay) follow the style guide's Filipino-language section: simple Filipino
+  prose, English glosses for hard terms.
 - Reasoning (figure series, paper folding, etc.): follow the assigned workstream's
   current illustration contract. Do not assume images are unavailable. Mark any
   missing required figure with an `<!-- ILLUSTRATION: ... -->` authoring placeholder
@@ -71,6 +76,6 @@ Work in batches of about 5 lessons per iteration:
 
 ## When everything is done
 
-When all 141 lessons exist: run the verification sweep over ALL lesson
-files (step 3 checks), fix anything found, commit, and report completion.
+When the assigned lessons exist: run the verification sweep over all of them
+(step 3 checks), fix anything found, commit, and report completion.
 Stop any recurring authoring run when the authorized work is complete.

@@ -49,15 +49,18 @@ the pipeline.
      Authors and judges check "realistic" against the profile. Civil Service
      Professional and Subprofessional get their own profiles.
    - **No answer-giving clues.** The correct answer is not the longest or most
-     detailed choice by habit. Its position varies across a lesson's set. No
-     choice can be ruled out by grammar or wording alone. Choices share a
-     similar form and length.
+     detailed choice by habit. No choice can be ruled out by grammar or
+     wording alone. Choices share a similar form and length. The app already
+     shuffles choices, so where the correct answer appears needs no rule.
    - **A blind-solve check.** Someone other than the author answers the
      question without seeing the key. If they pick a different answer, the
      question is treated as ambiguous or wrong until fixed.
 
-   Rules such as whether "none of the above" is allowed come from each exam's
-   profile, not from a blanket ban.
+   Because the app shuffles choices, choices that depend on position ("none of
+   the above", "all of the above", "both A and B") stay banned. When an exam's
+   profile shows it uses that style, its questions may use "None of these" or
+   "All of these", which read correctly in any position. Pinning such choices
+   to the last position is recorded as a later idea, not part of this work.
 5. **One checklist.** Every rule from the lesson and question guides becomes a
    pass-or-fail line with a severity:
    - **Blocker:** wrong fact, wrong or ambiguous answer, or required content
@@ -142,6 +145,9 @@ existing audit record area under `docs/content/audit/`, keyed by lesson id.
   currently link official verbal sample tests, and Civil Service samples found
   online are unofficial reviewers (one shows "none of the above"). Profiles
   must label such evidence as weak.
+- Choice shuffling: `lib/core/storage/domain/choice_order.dart` on main
+  shuffles choices per question, seeded by question id. Decision recorded
+  October 4, 2026 (option 1: position-independent wording only).
 - Answer clues: "correct answer is the longest or most complete" is a classic
   cue in the guidelines above. The claim that AI writers tend toward it is
   based on general experience, not a cited study; the pipeline pilot measures

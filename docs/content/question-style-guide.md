@@ -4,6 +4,12 @@ Applies to all question YAML under `content/questions/`. Companion to
 [question-authoring-runbook.md](question-authoring-runbook.md) (process) and
 the per-subject blueprints in `question-blueprints/` (archetypes).
 
+Facts are sourced per [source-policy.md](source-policy.md). Format follows the
+target exam's entry in [exam-format-profiles.md](exam-format-profiles.md).
+Before submitting, check every question against
+[content-checklist.md](content-checklist.md); a question passes only with no
+blocker and no major finding.
+
 ## File layout
 
 One YAML file per subtopic:
@@ -87,7 +93,9 @@ questions:
   you want them shown. The app shuffles choices per question when it shows
   them, so a choice must never depend on its position or letter: no "All of
   the above", "None of the above", "Both A and B", or text that names another
-  choice by letter. **Always quote a choice's `text` if it is (or starts
+  choice by letter. When the target exam's format profile shows it uses that
+  style, write "None of these" or "All of these" instead, which read correctly
+  in any position (Aedwon, 4 October 2026). **Always quote a choice's `text` if it is (or starts
   with) a bare number** — e.g. `text: "18"`, not `text: 18`. Unquoted, YAML
   parses it as an integer, not a string, and the importer rejects the whole
   question with "choice N has empty text" (found the hard way authoring
@@ -139,7 +147,7 @@ questions:
 - **Wrong answer choices**: plausible alternatives based on meaningful reasoning
   errors or misconceptions. Do not use obviously unrelated or throwaway answers.
 - **Explanation** (shown to Free and Pro): plain English a Grade 5 student can
-  understand, short sentences, straight to the point. It says only *why the
+  understand (simple Filipino for Filipino-language items), short sentences, straight to the point. It says only *why the
   correct answer is correct*. When the item involves solving or working out,
   show the solution step by step. It never mentions or rules out a wrong
   choice: that is the job of the wrong-choice notes, which are Pro. Explain
@@ -164,6 +172,49 @@ Free and Pro both see the explanation. Pro, after a wrong answer, sees the
 explanation first, then the note for the choice they picked, and on request
 the notes for every other wrong choice. Pro, after a correct answer, can ask
 for the notes on every wrong choice.
+
+## Exam format profiles
+
+"Authentic target-exam wording" is checked against the target exam's entry in
+[exam-format-profiles.md](exam-format-profiles.md): choices per item, item
+types, wording style, and negative stems. Where an entry is unknown, DepEd
+conventions apply (four or five similar choices, one main idea per stem, a
+complete stem) and the gap is reported. A profile never overrides
+correctness, the shuffle-safe choice rule above, or the voice rules.
+
+Use a negative stem ("NOT", "EXCEPT") only when the profile shows the exam uses
+one, and put the negative word in bold.
+
+## No answer-giving clues
+
+A student who does not know the content should not be able to find the answer
+from the wording alone.
+
+- The correct answer is not the longest, most detailed, or most qualified
+  choice by habit. Vary which choice is longest across a set.
+- Every choice fits the stem grammatically. No choice can be ruled out by
+  grammar, article agreement, singular or plural, or tense alone.
+- Choices share a similar form and length: all numbers, all phrases, or all
+  sentences, built the same way.
+- The stem does not repeat a distinctive word that appears only in the correct
+  choice.
+- No question gives away the answer to another question in the same set.
+- The app shuffles choices, so where the correct answer sits needs no rule.
+
+## Blind solve
+
+Someone other than the author answers each question without seeing the key,
+the explanation, or the notes. If their answer differs from the key, the
+question is treated as wrong or ambiguous until it is fixed and solved blind
+again. An author cannot satisfy this check alone.
+
+## Filipino-language items
+
+Items that test Filipino grammar, vocabulary, or reading are written in
+Filipino: stem, choices, explanation, and wrong-choice notes. The stem and
+choices use realistic exam Filipino. The explanation and notes use simple
+Filipino held to the lesson guide's Grade 5 standard, with the same structure
+as English ones. Spelling and usage follow the lesson guide's Filipino section.
 
 ## Coverage discipline
 
