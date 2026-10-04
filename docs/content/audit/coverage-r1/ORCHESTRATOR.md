@@ -46,7 +46,7 @@ disagree, follow the plan and report the conflict.
 
 ## Run state and automatic resume
 
-You run unattended. A watcher on Aedwon's Mac (`autorun/watch.sh`, every 30
+You run unattended. A watcher on Aedwon's Mac (`autorun/run.sh` in a Terminal window, every 30
 minutes) resumes you after usage-limit stops with a message that says it is an
 automatic resume. That message is never Aedwon and never an approval.
 
