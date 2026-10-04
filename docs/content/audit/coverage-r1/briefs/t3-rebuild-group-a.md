@@ -9,3 +9,8 @@ Save a DRAFT output before research, then update incrementally. First independen
 Write one section per exam in your own output: independent sourced list, comparison findings with exact requirement text/locator, source-backed proposed disposition, remaining unknowns, RESULT: PASS or RESULT: FLAGS <count>. Finish with a group result. Rebuild every assigned exam separately even when organizer sources overlap. If no accessible organizer source establishes detailed topics, record the limitation; do not make a fake detailed official list.
 
 No content edits, git mutation, computer control, browser automation, lesson body reading, overlap analysis, lesson structure/standards checks, or quiz checks. This is level 1 only. Findings and recommendations only. Live web search/page reading and non-UI HTTP retrieval are allowed. DepEd HTTP403 sometimes resolves with Mozilla/5.0 user-agent. Read retained PDFs only after checking headers/covers. Retained SHS-Core_General-Math-CG.pdf is invalid HTML and must not be cited as guide evidence. No em dashes; American spelling. Return concise results after saving your one output.
+
+
+## Current dispatch supplement, October 5, 2026
+
+Save all three organizer-only lists before opening ANY author requirement/source-check file. This strengthens the independent ordering requirement without adding another review stage. Main cb48097b/audit63147ad7 live verified. Usage available by live watcher test; ignore old reset waits and stop only new actual limit. Own the one named group review output only. Save after each source group/exam. Existing requirement research/source checks are inputs to compare only after your lists are saved; no fixes or later-level work.

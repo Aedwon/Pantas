@@ -17,3 +17,8 @@ No em dashes. American spelling. Record actual dates and current-cycle limitatio
 ## Interpretation of curriculum labels
 
 Separate publication provenance from exam-scope confidence. "Official curriculum" identifies a government curriculum publication, not organizer-confirmed exam scope. Check the tier-2 curriculum claim against DepEd; flag any claim promoted to confirmed exam requirements without organizer evidence. Profile confidence cells must use official, strong secondary, weak, or unknown; limitations belong in the value/note. Record the input file SHA-256 so later changes cannot inherit stale verification. Keep the check bounded: one source fetch can support all its claims; do not repeatedly download a full guide per claim.
+
+
+## Live-tested resume supplement, October 5, 2026
+
+The watcher reports a successful live quota test; resume immediately, ignoring earlier reset waits. Only a new actual usage-limit error stops work. The assigned check file exists as DRAFT header/input hash/empty table; resume it, with no source rows already verified. Preserve historical upcat.md check and do not edit the requirement input. Recalculate input hash before checking. Record actual access dates and cycle limits. Main cb48097b and audit HEAD63147ad7 are live verified. Save progress after source groups. No new topics, claims, content checks, or later-level tasks. All source checks and independent rebuilds must finish for nine exams before maps.

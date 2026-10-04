@@ -18,15 +18,15 @@ Only level 1 is authorized. Level 2 requires Aedwon's explicit approval in this 
 
 | Exam | Research | Source check | Fresh rebuild | Exam map |
 |---|---|---|---|---|
-| UPCAT | Historical completed file | Usage-interrupted DRAFT, no source rows verified | Group A pending | Pending all-exam requirement gate |
-| DCAT | Research complete, unaccepted | Pending | Group A pending | Pending |
-| ACET | Research complete, unaccepted | Pending | Group A pending | Pending |
-| USTET | Research complete, unaccepted | Pending | Group B pending | Pending |
-| PUPCET | Research complete, unaccepted | Pending | Group B pending | Pending |
-| DOST-SEI | Research complete, unaccepted | Pending | Group B pending | Pending |
-| SM Foundation | Research complete, unaccepted | Pending | Group C pending | Pending |
-| CSE Professional | Usage-interrupted DRAFT, no sources yet | Pending | Group C pending | Pending |
-| CSE Subprofessional | Usage-interrupted DRAFT, no sources yet | Pending | Group C pending | Pending |
+| UPCAT | Historical completed file | Refresh complete: FLAGS 5, unresolved | Complete: FLAGS 3, unresolved | Pending all-exam requirement gate |
+| DCAT | Research complete, unaccepted | Complete: FLAGS 21, unresolved | PASS rebuild, source flags unresolved | Pending |
+| ACET | Research complete, checked | PASS, source check verified | PASS rebuild | Pending |
+| USTET | Research complete, unaccepted | Complete: FLAGS 3, unresolved | Group B pending | Pending |
+| PUPCET | Research complete, unaccepted | Complete: FLAGS 4, unresolved | Group B pending | Pending |
+| DOST-SEI | Research complete, unaccepted | Complete: FLAGS 3, unresolved | Group B pending | Pending |
+| SM Foundation | Research complete, unaccepted | Incomplete, source groups pending recheck | Group C pending | Pending |
+| CSE Professional | Research complete, unaccepted | Complete: FLAGS 1, unresolved | Group C pending | Pending |
+| CSE Subprofessional | Research complete, unaccepted | Luna source check starting | Group C pending | Pending |
 
 All-exam counting and audited Google Doc tab: pending. No lesson, overlap, or standards tasks dispatched. Corpus unchanged. Watcher handles commits/pushes; lead does not mutate git metadata.
 
@@ -51,7 +51,7 @@ All-exam counting and audited Google Doc tab: pending. No lesson, overlap, or st
 
 ## Pause state
 
-Level 1 remains authorized. Dispatch is temporarily stopped for the usage window; automatic resume continues the same level. This is not a user pause or an approval gate.
+Level 1 remains authorized and is resuming. The latest automatic message reports a successful live quota test, superseding historical reset-time waits. No later-level approval was given.
 
 ## Historical handoff to Codex orchestrator (before active execution)
 
@@ -186,3 +186,56 @@ Historical pause: lifted by Aedwon's explicit level 1 start recorded below.
   - sm-foundation | Timing that affects item length | unknown for current cycle
   - sm-foundation | Delivery | unknown for current official mode; weak current applicant evidence
 - Restart point unchanged: finish both saved Civil Service drafts; finish UPCAT source-check stub and the other eight source checks; fresh Sol rebuilds and flag resolution for all nine before maps. All later levels remain locked.
+
+## Live quota recovery, October 5, 2026 (Manila), October 4, 17:22 UTC
+
+- Automatic message reports a successful live test and explicitly says to resume immediately without waiting for any earlier reset time. This supersedes the earlier cooldown instructions, not the level gates. No approval for level2.
+- Re-read ORCHESTRATOR/status and current main policy/standards/spec/plan/October4 decisions. Live main cb48097bedf15bec2cfbe4fb3aa7e957753b1727, audit63147ad7b6eefa596a38248a58fa07c4b3394ed4, corpus765c5dc0fa5586281047bf4f7b30d09ab3707887 match local refs. Clean audit worktree before this update. Git metadata remains read-only; watcher owns git mutations.
+- Live agent inventory root only. Existing incomplete outputs: both Civil Service DRAFTs and UPCAT refresh DRAFT with zero source rows. Completed research outputs retained; no duplicates/research restarts for the other six exams.
+- Dispatching two Sol High researchers to resume Civil Service Professional/Subprofessional, and one Luna low checker to resume UPCAT whole-file source verification. Save each assigned output incrementally. If any new usage-limit error occurs, save progress and stop dispatching then; do not rely on old reset times while live availability is established.
+
+- Live-tested dispatch confirmed: resume_cse_professional and resume_cse_subprofessional are Sol High; resume_source_upcat is Luna low. All three started successfully. No stale reset waits apply. First line remains RUNNING; all later levels remain unauthorized.
+
+- CSE Professional resumed successfully without a new quota error. First organizer source group saved: signed August2026 CSC coverage and July2026 examinee guide/reset advisories. Reported areas: General Information, bilingual Verbal, English Analytical/Numerical. Format/curriculum research ongoing; no source-check or rebuild acceptance.
+
+- CSE Subprofessional progress: organizer/curriculum source groups saved. Reported August2026 scope: General Information, bilingual Verbal, Numerical, Clerical; Analytical is the Professional column. Advisory item counts/time are not weights. Official computer-exam variant identified, scope continuity unknown. Unverified regional replacement schedule can remain unknown because schedule-only research is outside needed content detail.
+- CSE Professional progress: organizer/curriculum groups saved. Reported July2026 guide: five choices/one correct-best answer; PPT delivery/general passing rating confirmed, raw conversion/penalty/weights unknown. Curriculum PDFs independently read. Both reports still under author research, not accepted.
+
+- CSE Professional result received: research complete, sixteen sources/six sections/eleven profile rows; invalid confidence0/emdashes0/placeholders0, scoped diff whitespace check0. Official scope/languages/five choices/PPT delivery/overall timing reported; weights/raw scoring/penalty/computer-variant equivalence unknown. Lead structural/hash check recorded in tool output. Source check/rebuild pending, not accepted.
+- Freed slot assigned to DCAT Luna low source check. UPCAT refresh and Subprofessional research continue. No new quota error observed; no later-level work.
+
+- CSE Subprofessional result received: research complete, sources22/sections6/profile11; source numbering/reference/enum/spelling/whitespace checks passed. Author initially confused page numbers with source ids, corrected that check, scoped diff whitespace0. Input SHA25665badc76cbd5a3775115dfd66e447c4c0efd54891eac1395d62f30065c302946, lead structural/hash check confirmed. Format/mix/weights/scoring/computer-variant unknowns retained. No other writes/later-level work. Not accepted until source check/rebuild.
+- All nine requirement research files now complete/historical. Current source checks: UPCAT refresh, DCAT, next ACET. No independent fresh rebuilds or map work yet; Task3 gate remains closed.
+
+- ACET source-check dispatch confirmed. Three current workers are Luna low: UPCAT refresh, DCAT, ACET. All requirement research complete/historical; independent rebuilds and all-exam map gate still pending.
+
+- UPCAT source refresh result received: all19 numbered sources checked; input hashf2002ef2514e874da94b1b7130c1bcbaeea3e15ec1bb3b124146002874adc01a unchanged. RESULT FLAGS5: invalid/unverified source17 copy/edition, two dependent claims, overly broad school-level unknown, unsourced strand-specific Science statement. Alternate official2016 guide supports math topic families, but source replacement/claim clarification require lead resolution after independent rebuild. Whitespace check0; only checker output changed. Not accepted and not a requirement gate pass.
+- Freed Luna slot starts USTET source verification. DCAT and ACET checks continue. All later levels locked; map gate closed.
+
+- ACET source check result received: all24 numbered sources checked, RESULT FLAGS8; source access/retained evidence and input SHA256 recorded. Current-cycle/date updates and weak-only format claims flagged. Lead reading checker detail now; no requirement accepted or edited. USTET check active, next freed slot PUPCET. DCAT continues. Fresh rebuilds still pending.
+
+- Lead review rejected ACET checker acceptance: output remains DRAFT despite completion claim; rows11/13/15/16/24 rely on author's prior extraction instead of independent reading. Six alleged problem rows describe correct qualifications, and a historical October4 research timestamp is not wrong because verification occurs October5. Source table Markdown also malformed. The reported FLAGS8 is not an accepted finding count.
+- Same Luna checker resumed its assignment to independently retrieve/read affected originals via HTTP/PDF fallback or flag unsupported claims, separate confirmations from real problems, fix table shape, and recalculate result. PUPCET check is still pending, not dispatched; slot held for ACET. DCAT/USTET checkers received the same non-relay verification reminder. No requirement source or content edits made.
+
+- ACET corrected source-check result received: RESULT PASS0. Checker independently fetched sources11/13/15/16/24 via HTTP200 and in-memory reading, verified retained Math/Science covers/locators, repaired Markdown, removed correctly-qualified/date-as-of false flags. Input SHA256cc0dd9c8a2b2e5609166fcbd4d5d05a312b82b6a1510c3869992a3ed8e91315e unchanged. Lead read revised output. Source check accepted; full requirement acceptance still waits for fresh rebuild. Historical FLAGS8 superseded, not eight real findings.
+- Next free slot PUPCET source verification; DCAT/USTET checks continue. No later-level assignments.
+
+- DCAT source-check result received: RESULT FLAGS21. Sources1-5 and8-19 directly checked; Reddit6/7 body access403 without retained copies, so seventeen cited recollections remain unverifiable. Four composite profile confidence cells flagged. No requirement edits. Lead reads findings and will resolve with independent rebuild; not accepted.
+- First-three source checks are now saved: UPCAT FLAGS5, DCAT FLAGS21, ACET corrected PASS0. Their fresh independent organizer rebuild can start while other exam source checks run, within level1. No maps before all nine pass.
+
+- Dispatch confirmed: fresh Sol High rebuild_group_a (UPCAT/DCAT/ACET) will save ALL three organizer-only lists before seeing ANY author input. PUPCET and USTET Luna checks are active. All requirement/source inputs remain unchanged. Review is still within level1; map gate closed until all nine checks/rebuilds/flags resolved.
+
+- USTET source-check result received: RESULT FLAGS3, unreadable organizer advisory/reminders images and scanned DM012 memorandum. Curriculum claims/locators verified with curriculum-only limits. One paired application URL404; other official college-cycle page loaded. Lead reads check detail; image claims remain unaccepted pending direct source resolution/fresh rebuild. No requirement edits.
+- Fresh groupA reviewer saved ALL three organizer-only lists before any author/source-check input, ordering requirement confirmed by progress message; comparison now running. Next free Luna slot DOST-SEI source verification, while PUPCET continues. No maps/next-level work.
+
+- Fresh groupA rebuild result received: all three organizer-only lists were SAVED before ANY requirement/source-check read. UPCAT FLAGS3 (missing English/Filipino curriculum layer, universal Science-cohort claim, Pythagorean preparation too weak); DCAT PASS with official scope unknown; ACET PASS with organizer access limitations. Only own review output written; three exam sections/four results/no placeholders/em dashes verified. Lead reading output; no next level.
+- PUPCET source-check result received: all22 numbered sources opened and claims checked with direct PDF fallback. RESULT FLAGS4: one unsupported SHS Filipino “compare text characteristics” detail, three composite confidence cells. Claimed Santa Maria affiliation remained weak without PUP authentication. Input unchanged, no extra writes. Lead reading check.
+- Free slots next SM Foundation and CSE Professional Luna source checks. DOST-SEI check continues. Lead may resolve first-group flags from sources while other requirement checks run; no map before ALL NINE are accepted.
+- USTET checker qualifier summary says confidence cells meet the exact enum, but lead's preflight found four composite cells. Its source-only FLAGS3 remains valid; do not relay its formatting assertion. These four known format fixes remain in the shared preflight list and will be resolved before profiles/gate.
+
+- Dispatch confirmed: SM Foundation and CSE Professional Luna checks active with DOST-SEI. Lead starts source-only resolution of first-group flags using the PDF skill; this is not lesson/subject work. UPCAT mirror access differs between source checker (HTML) and independent Sol rebuild (valid2013 PDF); lead must resolve actual source identity/access, not assume invalid retained scratchpad equals invalid URL. All later levels remain locked.
+
+- DOST-SEI result received: all24 numbered URLs opened, input hashunchanged, RESULT FLAGS3 (missing constellation locator, wrong geometry locator, noncanonical profile confidence group). Scanned substitution policy and 2027 primer explicitly unknown. Only own output changed. Lead reading findings; no acceptance yet.
+- CSE Professional result received: all16 sources checked, direct HTTP/PDF fallback for curricula10-13; unchanged input bc34aad7ca9fa13f310d5996a139acc8acb08c37f280b44dbb3ea38112cd1250. RESULT FLAGS1: cited AP competencies do not support climate effects; Id-10 does. Whitespace0, only own output. Lead reading exact locator correction; not accepted yet.
+- SM Foundation checker handback INCOMPLETE: it verified historical instructions/source2 and retained Math/Science covers, but direct HTTP pass stalled and most claims remain unchecked. Its reported21 pending source groups are not a completed source-check verdict. Same checker will resume with bounded per-source timeouts, independent PDF/HTML reading, and exact affected-claim flags where access truly fails. No quota error reported.
+- Next workers: finish SM check, start CSE Subprofessional check, fresh groupB rebuild for USTET/PUPCET/DOST-SEI. All remain level1; all-exam map gate closed.

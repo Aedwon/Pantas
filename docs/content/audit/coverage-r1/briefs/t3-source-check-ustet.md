@@ -17,3 +17,8 @@ No em dashes. American spelling. Record actual dates and current-cycle limitatio
 ## Interpretation of curriculum labels
 
 Separate publication provenance from exam-scope confidence. "Official curriculum" identifies a government curriculum publication, not organizer-confirmed exam scope. Check the tier-2 curriculum claim against DepEd; flag any claim promoted to confirmed exam requirements without organizer evidence. Profile confidence cells must use official, strong secondary, weak, or unknown; limitations belong in the value/note. Record the input file SHA-256 so later changes cannot inherit stale verification. Keep the check bounded: one source fetch can support all its claims; do not repeatedly download a full guide per claim.
+
+
+## Current live-tested dispatch, October 5, 2026
+
+Usage live-tested available; ignore stale reset waits, stop only a new actual limit. Input research complete, recompute SHA256. Save DRAFT and incremental source rows. Main cb48097b/audit63147ad7 verified. Open embedded official image/PDF sources when they carry cited facts, through non-UI reading only; unavailable content remains explicitly unverifiable, not assumed supported. No requirement edits/new topics/later-level tasks. Report qualifier issues and actual factual/citation issues separately.
