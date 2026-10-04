@@ -1055,3 +1055,30 @@ plan written at `docs/superpowers/plans/2026-10-04-content-standards-revision.md
 on that branch. Implementation started under the workflow's no-separate-plan-
 approval rule. Merge to main follows checks and independent review, as the
 approved spec states.
+
+### October 4, 2026: "none of the above" under choice shuffling
+
+Finding during implementation: the app shuffles choices per question
+(`lib/core/storage/domain/choice_order.dart` on main, seeded by question id),
+and main's question style guide already bans "All of the above", "None of the
+above", "Both A and B", and letter references for that reason. Two effects on
+the approved spec: the key-position balance rule is redundant and is dropped
+(Claude proposed it without checking the code); and per-exam profiles cannot
+permit position-dependent choices.
+
+Options offered: (1) keep the ban but allow position-independent "None of
+these" (and "All of these") for exams whose profile shows that style
+(recommended); (2) keep the full ban, simplest but less realistic; (3) pin such
+choices to the last position, most faithful but an app, importer, and schema
+change during the application-code freeze.
+
+Aedwon: "3 sounds good because it enables all of the above and none of the
+above options for exams that have them. or would you advise against that? let
+me know"
+
+Claude advised against 3 now: frozen app code, a new data field, and only weak
+evidence (one unofficial Civil Service reviewer). Option 1 gives the same
+realism in wording. Recorded idea: revisit pinning when a format profile shows
+strong or official evidence of these options and the freeze lifts.
+
+Aedwon: "i see, let's go with 1 then"
