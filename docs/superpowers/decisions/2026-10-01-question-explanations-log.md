@@ -1190,3 +1190,16 @@ What changed: implementation plan written at
 `docs/superpowers/plans/2026-10-04-exam-content-coverage-audit.md` with these
 checks, the top-down gate, and the concurrency limits. Pilot: UPCAT and Science.
 Audit execution still needs Aedwon's separate authorization per the spec.
+
+### October 4, 2026: audit execution authorized
+
+Aedwon: "proceed. this starts with codex right? you only oversee?" Claude
+explained that Codex agents research and read, while the lead also performs the
+lead-only steps, and a separate reviewer checks.
+
+During setup, Codex's global notify hook launched its computer-use client and
+asked for permission; Aedwon denied it: "disallowed that, please use codex cli"
+and "you asked for computer use". Claude found the cause in the Codex config and
+added per-command overrides that disable notify, computer use, and browser
+features without changing the global config. Aedwon: "it didn't please
+continue".
