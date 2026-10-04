@@ -1127,3 +1127,14 @@ What changed: the coverage audit spec records subtest proportions and topic
 weights only where published or verified, and reports whether the mock matches
 them, as recommendations only. Mock timing and item count are out of scope.
 The exam format profile template on main gains the two entries.
+
+### October 4, 2026: coverage audit spec approved
+
+Claude explained "Do not set arbitrary minimum numbers of examples or
+questions" and offered a rewording that keeps the standards' own minimums.
+Aedwon: "no need. this looks good to me. how about the structure in which this
+will be done? agent structure i mean"
+
+Claude treated that as spec approval and said so; Aedwon confirmed: "yeah
+that's what i meant". The spec is approved. Audit execution still needs
+separate authorization, per the spec. Agent structure discussion continues.

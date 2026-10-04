@@ -1,8 +1,9 @@
 # Exam content coverage audit
 
 Date: October 3, 2026
-Status: Draft for Aedwon's review. Not approved. Revised October 4, 2026 to use
-the new content standards and to fill the exam format profiles.
+Status: Approved by Aedwon on October 4, 2026, after revision to use the new
+content standards, fill the exam format profiles, and check mock composition.
+Audit execution still needs separate authorization.
 
 ## For Aedwon to approve
 
