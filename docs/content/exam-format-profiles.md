@@ -18,6 +18,9 @@ evidence instead of impression. Used by
   never overrides correctness rules or the app's constraints. The app shuffles
   choices, so position-dependent choices stay banned. If an exam uses "none of
   the above" or "all of the above", write "None of these" or "All of these".
+- Subtest mix and topic weights are recorded only from a published or verified
+  source. Never estimate them; leave them unknown instead. The mock exam uses
+  them where they exist.
 - The coverage audit's first step fills these profiles. Until then, every
   entry is unknown.
 
@@ -32,6 +35,8 @@ evidence instead of impression. Used by
 | Negative stems ("NOT", "EXCEPT") | unknown | | | unknown |
 | Language per subtest | unknown | | | unknown |
 | Timing that affects item length | unknown | | | unknown |
+| Subtest mix by proportion | unknown | | | unknown |
+| Topic weights | unknown | | | unknown |
 
 ## UPCAT
 
