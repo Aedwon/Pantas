@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Your score · the half ring, performance breakdown, past results (only with earlier mocks), every question</title>
+<script src="runtime.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Geist',-apple-system,sans-serif;color:#1D1D1F;background:#F5F5F7;-webkit-font-smoothing:antialiased}
+a{color:#0B7A68}a:hover{color:#075C4E}
+button{font:inherit}
+
+html,body{overflow:hidden !important}*{scrollbar-width:none !important}*::-webkit-scrollbar{display:none !important;width:0 !important;height:0 !important}
+@keyframes fx-pop{0%{transform:scale(.4);opacity:0}60%{transform:scale(1.12);opacity:1}100%{transform:scale(1);opacity:1}}
+@keyframes fx-up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes fx-sheet{from{transform:translateY(105%)}to{transform:translateY(0)}}
+@keyframes fx-shake{0%,100%{transform:translateX(0)}18%{transform:translateX(-9px)}36%{transform:translateX(8px)}54%{transform:translateX(-5px)}72%{transform:translateX(3px)}}
+@keyframes fx-ring{0%{box-shadow:0 0 0 0 rgba(11,122,104,.38)}100%{box-shadow:0 0 0 16px rgba(11,122,104,0)}}
+@keyframes fx-draw{from{stroke-dashoffset:26}to{stroke-dashoffset:0}}
+@keyframes fx-burst{0%{transform:translate(0,0) rotate(0) scale(.2);opacity:0}7%{transform:translate(calc(var(--dx) * .12),calc(var(--dy) * .12)) rotate(calc(var(--r) * .1)) scale(1);opacity:1}75%{opacity:1}100%{transform:translate(var(--dx),var(--dy)) rotate(var(--r)) scale(1);opacity:0}}
+@keyframes fx-fill{from{width:0}to{width:var(--w)}}
+@keyframes fx-rollout{from{transform:translateY(0);opacity:1}to{transform:translateY(-110%);opacity:0}}
+@keyframes fx-rollin{from{transform:translateY(110%);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes fx-flame{0%{transform:scale(1)}35%{transform:scale(1.4) rotate(-8deg)}65%{transform:scale(.94) rotate(4deg)}100%{transform:scale(1)}}
+@keyframes fx-stamp{0%{transform:scale(1.9) rotate(-14deg);opacity:0}55%{transform:scale(.94) rotate(-6deg);opacity:1}100%{transform:scale(1) rotate(-6deg);opacity:1}}
+@keyframes fx-bounce{0%{transform:scale(1)}30%{transform:scale(.82)}65%{transform:scale(1.14)}100%{transform:scale(1)}}
+@keyframes fx-draw-path{from{stroke-dashoffset:520}to{stroke-dashoffset:0}}
+@keyframes fx-glow{0%,100%{opacity:.0}50%{opacity:1}}
+.fx-pop{animation:fx-pop .5s cubic-bezier(.34,1.56,.64,1) both}
+.fx-up{animation:fx-up .45s cubic-bezier(.2,.9,.3,1) both}
+.fx-sheet{animation:fx-sheet .52s cubic-bezier(.2,1.15,.35,1) both}
+.fx-draw path{stroke-dasharray:26;animation:fx-draw .38s cubic-bezier(.6,0,.3,1) both;animation-delay:var(--dd,.12s)}
+.fx-conf{position:absolute;width:8px;height:12px;border-radius:2px;opacity:0;animation:fx-burst 1.1s cubic-bezier(.15,.7,.35,1) both;pointer-events:none}
+.press{transition:transform .14s cubic-bezier(.3,0,.3,1)}
+.press:active{transform:scale(.96)}
+.opt{border:2px solid transparent;background:#FFFFFF;border-radius:16px;height:60px;padding:0 16px;display:flex;align-items:center;gap:14px;width:100%;text-align:left;cursor:pointer;box-sizing:border-box;transition:border-color .18s,background .18s,opacity .3s,transform .14s}
+.opt:active{transform:scale(.98)}
+.opt.sel{border-color:#0B7A68;background:#E4F1EE}
+.opt.ok{border-color:#0B7A68;background:#E4F1EE;animation:fx-ring .7s ease-out .05s}
+.opt.bad{border-color:#D70015;background:#FDE8EA;animation:fx-shake .42s cubic-bezier(.36,.07,.19,.97) both}
+.opt.dim{opacity:.4}
+.cta{transition:background .2s, color .2s, transform .14s}
+.cta:active{transform:scale(.97)}
+.cta.off{background:#EDEDF0 !important;color:#AEAEB2 !important}
+.bar-fill{transition:width .6s cubic-bezier(.2,1.1,.35,1)}
+.tab-ic.hit{animation:fx-bounce .42s cubic-bezier(.3,1.4,.5,1)}
+.sw{transition:background .25s}
+.knob{transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+@media (prefers-reduced-motion: reduce){*{animation-duration:1ms !important;animation-delay:0ms !important;transition-duration:1ms !important}}
+
+html,body{overflow:hidden !important}*{scrollbar-width:none !important}*::-webkit-scrollbar{display:none !important;width:0 !important;height:0 !important}
+@keyframes fx-push{from{transform:translateX(40px);opacity:0}to{transform:none;opacity:1}}
+@keyframes fx-tap{0%{opacity:0;transform:scale(.5)}35%{opacity:.28;transform:scale(1)}100%{opacity:0;transform:scale(1.5)}}
+@keyframes fx-fadein{from{opacity:0}to{opacity:1}}
+@keyframes fx-soft{from{transform:scale(.94);opacity:.6}to{transform:none;opacity:1}}
+@keyframes fx-ringfill{from{stroke-dasharray:0 200}}
+@keyframes fx-collapse{from{max-height:400px;opacity:1}to{max-height:0;opacity:0}}
+@keyframes fx-strip{from{transform:translateX(0)}to{transform:translateX(var(--sx))}}
+.fx-soft{animation:fx-soft .22s ease-out both}
+.fr{position:absolute;inset:0;display:flex;flex-direction:column;overflow:hidden}
+.fr.push{animation:fx-push .38s cubic-bezier(.2,.9,.3,1) both}
+.fr.fade{animation:fx-fadein .3s ease both}
+.tap{position:absolute;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:99px;background:#1D1D1F;z-index:60;pointer-events:none;opacity:0;animation:fx-tap .55s ease both}
+
+@keyframes fx-gauge{from{stroke-dasharray:0 400}}
+@keyframes fx-grow{from{width:0}}
+@keyframes fx-fadeout{from{opacity:1}to{opacity:0}}
+@keyframes fx-collapse2{from{max-height:420px;opacity:1}to{max-height:0;opacity:0}}
+
+@keyframes yu-grow{from{transform:scaleX(0)}to{transform:none}}
+@keyframes yu-draw{from{stroke-dashoffset:var(--len)}to{stroke-dashoffset:0}}
+@keyframes yu-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes yu-pop{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:none}}
+
+
+</style>
+</helmet>
+<div style="width: 390px; height: 1400px; box-sizing: border-box; background: #F5F5F7; display: flex; flex-direction: column; overflow: hidden; position: relative; font-family: 'Geist', -apple-system, sans-serif; color: #1D1D1F"><div style="position: absolute; inset: 0; background: #F5F5F7; display: flex; flex-direction: column; overflow: hidden"><div style="padding: 6px 8px 0 8px; height: 44px; display: flex; align-items: center; flex-shrink: 0"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8E8E93" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg></div></div><div style="flex-grow: 1; overflow: hidden; padding: 8px 16px 0; display: flex; flex-direction: column; gap: 22px"><div style="display: flex; flex-direction: column; gap: 2px; padding: 0 4px"><div style="font-family: 'Geist', -apple-system, 'Helvetica Neue', sans-serif; font-size: 22px; font-weight: 700; color: #1D1D1F; line-height: 1.35; letter-spacing: -0.012em; ">UPCAT simulation</div><div style="font-family: 'Geist', -apple-system, 'Helvetica Neue', sans-serif; font-size: 15px; font-weight: 400; color: #6E6E73; line-height: 1.35; letter-spacing: 0; ">Saturday, 3 October</div></div><div style="display: flex; flex-direction: column; align-items: center; gap: 4px"><div style="position: relative; width: 264px; height: 128.0px"><svg width="264" height="128.0" viewBox="0 0 264 128.0" style="display: block"><path d="M24.0 118.0 A108 108 0 0 1 240.0 118.0" fill="none" stroke="#EDEDF0" stroke-width="16" stroke-linecap="round"/><path d="M24.0 118.0 A108 108 0 0 1 240.0 118.0" fill="none" stroke="#0B7A68" stroke-width="16" stroke-linecap="round" stroke-dasharray="207.6 339.3"/></svg><div style="position: absolute; left: 0; right: 0; bottom: 2px; display: flex; justify-content: center"><div style="display: flex; align-items: baseline; gap: 2px"><div style="font-family: 'Geist', -apple-system, 'Helvetica Neue', sans-serif; font-size: 56px; font-weight: 700; color: #1D1D1F; line-height: 1.12; letter-spacing: -0.022em; font-variant-numeric: tabular-nums;letter-spacing: -0.03em; line-height: 1">61.2</div><div style="font-family: 'Geist', -apple-system, 'Helvetica Neue', sans-serif; font-size: 24px; font-weight: 600; color: #6E6E73; line-height: 1.35; letter-spacing: -0.012em; ">%</div></div></div></div><div style="font-family: 'Geist', -apple-system, 'Helvetica Neue', sans-serif; font-size: 15px; font-weight: 400; color: #6E6E73; line-height: 1.35; letter-spacing: 0; font-variant-numeric: tabular-nums;">171 correct, minus 18 wrong</div></div><div style="display: flex; flex-direction: column"><div style="display: flex; justify-content: space-between; align-items: baseline; padding: 0 16px 7px"><div style="font-family: 'Geist', -apple-system, 'Helvetica Neue', sans-serif; font-size: 13px; font-weight: 600; color: #6E6E73; line-height: 1.35; letter-spacing: 0; letter-spacing: 0.02em">PERFORMANCE BREAKDOWN</div></div><div style="background: #FFFFFF; border-radius: 14px; overflow: hidden; "><div style="padding: 13px 16px; display: flex; flex-direction: column; gap: 9px; border-bottom: 0.5px solid #E3E3E8"><div style="display: flex; justify-content: space-between; align-items: baseline; gap: 10px"><div style="font-family: 'Geist', -apple-system, 'Helvetica Neue', sans-serif; font-size: 17px; font-weight: 400; color: #1D1D1F; line-height: 1.35; letter-spacing: -0.012em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Language Proficiency</div><div style="display: flex; gap: 14px; flex-shrink: 0"><div style="font-family: 'Geist', -apple-system, 'Helvetica Neue', sans-serif; font-size: 15px; font-weight: 400; color: #6E6E73; line-height: 1.35; letter-spacing: 0; font-variant-numeric: tabular-nums;">58 / 80</div><div style="font-family: 'Geist', -apple-system, 'Helvetica Neue', sans-serif; font-size: 17px; font-weight: 700; color: #1D1D1F; line-height: 1.35; letter-spacing: -0.012em; font-variant-numeric: tabular-nums;">72%</div></div></div><div style="height: 5px; border-radius: 99px; background: #EDEDF0"><div style="height: 5px; width: 72%; border-radius: 99px; background: #4FA192"></div></div></div><div style="padding: 13px 16px; display: flex; flex-direction: column; gap: 9px; border-bottom: 0.5px solid #E3E3E8"><div style="display: flex; justify-content: space-between; align-items: baseline; gap: 10px"><div style="font-family: 'Geist', -apple-system, 'Helvetica Neue', sans-serif; font-size: 17px; font-weight: 400; color: #1D1D1F; line-height: 1.35; letter-spacing: -0.012em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Reading Comprehension</div><div style="display: flex; gap: 14px; flex-shrink: 0"><div style="font-family: 'Geist', -apple-system, 'Helvetica Neue', sans-serif; font-size: 15px; font-weight: 400; color: #6E6E73; line-height: 1.35; letter-spacing: 0; font-variant-numeric: tabular-nums;">38 / 50</div><div style="font-family: 'Geist', -apple-system, 'Helvetica Neue', sans-serif; font-size: 17px; font-weight: 700; color: #1D1D1F; line-height: 1.35; letter-spacing: -0.012em; font-variant-numeric: tabular-nums;">76%</div></div></div><div style="height: 5px; border-radius: 99px; background: #EDEDF0"><div style="height: 5px; width: 76%; border-radius: 99px; background: #3F9888"></div></div></div><div style="padding: 13px 16px; display: flex; flex-direction: column; gap: 9px; border-bottom: 0.5px solid #E3E3E8"><div style="display: flex; justify-content: space-between; align-items: baseline; gap: 10px"><div style="font-family: 'Geist', -apple-system, 'Helvetica Neue', sans-serif; font-size: 17px; font-weight: 400; color: #1D1D1F; line-height: 1.35; letter-spacing: -0.012em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Mathematics</div><div style="display: flex; gap: 14px; flex-shrink: 0"><div style="font-family: 'Geist', -apple-system, 'Helvetica Neue', sans-serif; font-size: 15px; font-weight: 400; color: #6E6E73; line-height: 1.35; letter-spacing: 0; font-variant-numeric: tabular-nums;">34 / 60</div><div style="font-family: 'Geist', -apple-system, 'Helvetica Neue', sans-serif; font-size: 17px; font-weight: 700; color: #1D1D1F; line-height: 1.35; letter-spacing: -0.012em; font-variant-numeric: tabular-nums;">57%</div></div></div><div style="height: 5px; border-radius: 99px; background: #EDEDF0"><div style="height: 5px; width: 57%; border-radius: 99px; background: #8BC2B8"></div></div></div><div style="padding: 13px 16px; display: flex; flex-direction: column; gap: 9px; "><div style="display: flex; justify-content: space-between; align-items: baseline; gap: 10px"><div style="font-family: 'Geist', -apple-system, 'Helvetica Neue', sans-serif; font-size: 17px; font-weight: 400; color: #1D1D1F; line-height: 1.35; letter-spacing: -0.012em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Science</div><div style="display: flex; gap: 14px; flex-shrink: 0"><div style="font-family: 'Geist', -apple-system, 'Helvetica Neue', sans-serif; font-size: 15px; font-weight: 400; color: #6E6E73; line-height: 1.35; letter-spacing: 0; font-variant-numeric: tabular-nums;">41 / 60</div><div style="font-family: 'Geist', -apple-system, 'Helvetica Neue', sans-serif; font-size: 17px; font-weight: 700; color: #1D1D1F; line-height: 1.35; letter-spacing: -0.012em; font-variant-numeric: tabular-nums;">68%</div></div></div><div style="height: 5px; border-radius: 99px; background: #EDEDF0"><div style="height: 5px; width: 68%; border-radius: 99px; background: #5FAA9C"></div></div></div></div></div><div style="display: flex; flex-direction: column"><div style="display: flex; justify-content: space-between; align-items: baseline; padding: 0 16px 7px"><div style="font-family: 'Geist', -apple-system, 'Helvetica Neue', sans-serif; font-size: 13px; font-weight: 600; color: #6E6E73; line-height: 1.35; letter-spacing: 0; letter-spacing: 0.02em">VERSUS PAST RESULTS</div></div><div style="background: #FFFFFF; border-radius: 14px; overflow: hidden; "><div style="padding: 14px 0 6px; display: flex; justify-content: center; border-bottom: 0.5px solid #E3E3E8"><svg width="326" height="132" viewBox="0 0 326 132" style="overflow: visible"><line x1="34" x2="310" y1="106.0" y2="106.0" stroke="#E3E3E8" stroke-width="1"/><text x="26" y="110.0" text-anchor="end" font-family="Geist, sans-serif" font-size="11" fill="#6E6E73">40</text><line x1="34" x2="310" y1="60.0" y2="60.0" stroke="#E3E3E8" stroke-width="1"/><text x="26" y="64.0" text-anchor="end" font-family="Geist, sans-serif" font-size="11" fill="#6E6E73">60</text><line x1="34" x2="310" y1="14.0" y2="14.0" stroke="#E3E3E8" stroke-width="1"/><text x="26" y="18.0" text-anchor="end" font-family="Geist, sans-serif" font-size="11" fill="#6E6E73">80</text><path d="M74.0 81.2 L180.0 68.3" fill="none" stroke="#AEAEB2" stroke-width="2" stroke-linejoin="round"/><path d="M180.0 68.3 L286.0 57.2" stroke="#0B7A68" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="106.6 106.6" style="stroke-dashoffset: 0; "/><circle cx="74.0" cy="81.2" r="4" fill="#AEAEB2" stroke="#AEAEB2" stroke-width="2"/><circle cx="180.0" cy="68.3" r="4" fill="#AEAEB2" stroke="#AEAEB2" stroke-width="2"/><circle cx="286.0" cy="57.2" r="6" fill="#0B7A68" stroke="#0B7A68" stroke-width="2" style=""/><text x="286.0" y="45.2" text-anchor="end" font-family="Geist, sans-serif" font-size="12" font-weight="700" fill="#0B7A68" style="">61.2%</text><text x="74.0" y="126" text-anchor="middle" font-family="Geist, sans-serif" font-size="11" fill="#6E6E73">Sep 5</text><text x="180.0" y="126" text-anchor="middle" font-family="Geist, sans-serif" font-size="11" fill="#6E6E73">Sep 19</text><text x="286.0" y="126" text-anchor="middle" font-family="Geist, sans-serif" font-size="11" font-weight="700" fill="#1D1D1F" style="">Today</text></svg></div><div style="display: flex; align-items: center; gap: 12px; padding-left: 16px"><div style="flex-grow: 1; min-width: 0; display: flex; align-items: center; gap: 8px; padding: 11px 16px 11px 0; min-height: 22px; "><div style="flex-grow: 1; min-width: 0"><div style="font-family: 'Geist', -apple-system, 'Helvetica Neue', sans-serif; font-size: 17px; font-weight: 400; color: #0B7A68; line-height: 1.35; letter-spacing: -0.012em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">See full record</div></div><div style="color: #C4C4C8; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B8B8BD" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 5.5 6.5 6.5-6.5 6.5"/></svg></div></div></div></div></div><div style="background: #FFFFFF; border-radius: 14px; overflow: hidden; "><div style="display: flex; align-items: center; gap: 12px; padding-left: 16px"><div style="flex-grow: 1; min-width: 0; display: flex; align-items: center; gap: 8px; padding: 11px 16px 11px 0; min-height: 22px; "><div style="flex-grow: 1; min-width: 0"><div style="font-family: 'Geist', -apple-system, 'Helvetica Neue', sans-serif; font-size: 17px; font-weight: 400; color: #1D1D1F; line-height: 1.35; letter-spacing: -0.012em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">See all 250 questions</div></div><div style="color: #C4C4C8; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B8B8BD" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 5.5 6.5 6.5-6.5 6.5"/></svg></div></div></div></div><div style="height: 110px"></div></div><div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 16px 30px; background: linear-gradient(rgba(245,245,247,0), #F5F5F7 26%); display: flex; flex-direction: column; gap: 8px; align-items: stretch"><button style="height: 52px; width: 100%; box-sizing: border-box; border: 0; border-radius: 14px; background: #0B7A68; color: #FFFFFF; font-family: 'Geist', -apple-system, sans-serif; font-size: 17px; font-weight: 600; letter-spacing: -0.012em; display: flex; align-items: center; justify-content: center; text-decoration: none; cursor: pointer">Done</button></div></div></div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1400}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
