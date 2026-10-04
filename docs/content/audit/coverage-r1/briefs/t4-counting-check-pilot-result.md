@@ -1,0 +1,1 @@
+Wrote [counting-check.md](/Users/aedwon/Documents/Projects/Pantas-wt-content-coverage-audit-r1/docs/content/audit/coverage-r1/counting-check.md). It reports one flag: several mapping findings lack the required status terms. No other files were changed.
