@@ -23,13 +23,22 @@ Prices follow the exam the user has selected. Each tier has its own paywall.
 | Tier | Exams | Plans | Status |
 |---|---|---|---|
 | Student | CETs (UPCAT and other college entrance tests), DOST and SM scholarship exams | ₱29 weekly, ₱99 monthly, ₱799 yearly | Products live as `pantas_pro_weekly`, `pantas_pro_monthly`, `pantas_pro_yearly` |
-| Student, academy exams | PMA, PNPA, PMMA, MAAP | Student plans above, plus a ₱299 season pass | Content is a future update |
+| Student, academy exams | PMA, PNPA, PMMA, MAAP | Student plans above, plus a ₱299 season pass | Content is a future update. Release requires the abstract reasoning generator |
 | Civil Service | CSE Professional and Subprofessional, NAPOLCOM, AFPSAT | ₱149 monthly, or a ₱499 pass valid to the next exam date. No weekly plan | New products needed. NAPOLCOM and AFPSAT content is a future update |
 | Licensure | LET, PNLE, and later PRC exams | ₱249 monthly, or a ₱1,499 pass valid to the board exam date | Content is a future update |
-| PSHS-NCE | PSHS National Competitive Examination | ₱1,499 season pass only. No subscription | Content is a future update |
+| PSHS-NCE | PSHS National Competitive Examination | ₱1,499 season pass only. No subscription | Content is a future update. Release requires the abstract reasoning generator |
 
 A season pass is a one-time purchase that expires after the exam date. It never
 renews.
+
+## Release requirement: abstract reasoning generator
+
+The academy exams and PSHS-NCE do not go on sale until the procedural generation
+engine for abstract reasoning questions ships. Abstract reasoning is a scored part
+of PSHS-NCE, PMA, and PMMA. MAAP tests IQ and aptitude, which usually includes
+pattern items. PNPA coverage is not yet confirmed from an official source. If
+NAPOLCOM or AFPSAT coverage is confirmed to include abstract reasoning, the same
+requirement applies to them.
 
 ## Rules that go with the prices
 

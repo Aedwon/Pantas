@@ -48,6 +48,12 @@ paywall. The Student tier keeps ₱29 weekly, ₱99 monthly, ₱799 yearly.
 - **Nesting without direction.** Without "higher includes lower", an adult could
   buy the Student plan and switch to CSE.
 
+## Release requirement (added 4 October 2026)
+
+Aedwon made the abstract reasoning procedural generation engine a release
+requirement for the academy exams and PSHS-NCE. Those prices do not go live until
+it ships. Details: `docs/pricing.md`.
+
 ## Open items
 
 Listed in `docs/pricing.md`, "Not yet settled". The exam-switching behavior there
