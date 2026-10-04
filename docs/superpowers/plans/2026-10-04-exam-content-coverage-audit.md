@@ -46,13 +46,21 @@ concurrency approved by Aedwon on October 4, 2026 ("proceed").
 
 ```bash
 # Sol High (research, reading). Web search is live per ~/.codex/config.toml.
-codex exec -m gpt-6.1-sol -c model_reasoning_effort=high -s workspace-write \
+codex exec -m gpt-6.1-sol -c model_reasoning_effort=high \
+  -c 'notify=[]' --disable computer_use --disable browser_use \
+  --disable browser_use_external --disable in_app_browser -s workspace-write \
   -C <assigned worktree> -o <brief-dir>/<task>-result.md "$(cat <brief-dir>/<task>.md)"
 
 # Luna (narrow checks)
-codex exec -m gpt-6-luna -c model_reasoning_effort=low -s read-only \
+codex exec -m gpt-6-luna -c model_reasoning_effort=low \
+  -c 'notify=[]' --disable computer_use --disable browser_use \
+  --disable browser_use_external --disable in_app_browser -s read-only \
   -C <assigned worktree> -o <brief-dir>/<task>-result.md "$(cat <brief-dir>/<task>.md)"
 ```
+
+The notify override and disabled features stop Codex's computer-use client
+from starting; the workflow bans computer control. Do not change the global
+Codex config.
 
 Each brief contains: the startup instruction, the policy commit, the objective,
 the exact scope, input paths, output path and format, the rules to apply, and
