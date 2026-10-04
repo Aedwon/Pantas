@@ -34,6 +34,10 @@ concurrency approved by Aedwon on October 4, 2026 ("proceed").
   Doc corpus tab.
 - Exams: UPCAT, DCAT, ACET, USTET, PUPCET, DOST undergraduate scholarship
   exam, SM Foundation scholarship exam, CSE Professional, CSE Subprofessional.
+- Approval gates (Aedwon, October 4, 2026): five levels (requirements;
+  outline and tags; lesson depth; practice; report). The orchestrator stops at
+  the end of each level and starts the next only after Aedwon's explicit
+  approval. See `ORCHESTRATOR.md`.
 - Top-down gate: no lesson check starts until all requirement files, their
   source checks, the reviewer's requirement rebuild, the outline comparison,
   and the counting check are saved. Per topic, lesson depth is saved before

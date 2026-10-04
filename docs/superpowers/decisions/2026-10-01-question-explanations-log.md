@@ -1246,3 +1246,15 @@ Mistake noted: Aedwon's proposal named a Sol High orchestrator; Claude took the
 lead role itself without asking. What changed: `ORCHESTRATOR.md` hands the run
 to a Codex Sol High orchestrator using Codex subagents; the plan names Codex as
 lead and a fresh Codex subagent as reviewer. Aedwon starts it in the Codex CLI.
+
+### October 4, 2026: approval gate between audit levels
+
+Aedwon: "can you please explicitly instruct it like this: we do not go down a
+level until i approve. to be safe. i do not want another incident like you
+did."
+
+What changed: `ORCHESTRATOR.md` and the plan define five levels (exam
+requirements; outline and tags; lesson depth; practice against teaching;
+recommendations and report). The orchestrator finishes a level with its
+checks, stops, reports, and starts the next level only after Aedwon's explicit
+approval. A question, comment, or silence is not approval.

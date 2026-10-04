@@ -44,6 +44,25 @@ disagree, follow the plan and report the conflict.
   topic weights, proportions, minimum counts, or percentages. Teaching and
   practice findings cite checklist rule ids.
 
+## Approval gates: never go down a level without Aedwon's approval
+
+The audit has five levels. Finish a level completely, including its checks,
+then stop, report to Aedwon, and wait. **Do not start any task in the next
+level until Aedwon explicitly approves moving to it in this conversation.** A
+question, a comment, or silence is not approval. If unsure, ask.
+
+1. **Exam requirements** (Tasks 2 and 3): all 9 exams, with source checks,
+   independent rebuilds, and resolved flags.
+2. **Outline and tags** (Task 4): the all-exam outline comparison, provisional
+   tags, counting check, and the audited Google Doc tab.
+3. **Lesson depth** (Task 5 and its checks), starting with the Science pilot.
+4. **Practice against teaching** (Tasks 6 and 7).
+5. **Recommendations and report** (Tasks 8 and 9).
+
+At each stop, report in short plain sentences: what was done, what the checks
+found, what remains uncertain, and the exact next level you are asking to
+start. Record Aedwon's answer in the decision log with his exact words.
+
 ## Subagents
 
 Use Codex's built-in subagents. Give each one its brief file's full text plus
@@ -88,14 +107,17 @@ results are part of the audit record.
 
 ## Next steps
 
+Level 1 (exam requirements) is in progress. Steps 1 and 2 finish it; stop for
+approval after step 2. Step 3 is level 2 and needs Aedwon's approval first.
+
 1. Task 2: requirements for the 8 remaining exams, 3 at a time.
 2. Task 3 per exam: Luna source check, independent rebuild by a fresh Sol
    subagent, then you resolve flags with sources. Gate: all 9 pass.
 3. Task 4: outline comparison and provisional tags for all exams and subjects,
    Luna counting check, then the audited Google Doc tab per the plan.
    If you cannot write Google Docs, stop before the tab and report it.
-4. Stop and report to Aedwon with a short summary before Task 5.
-   He decides whether the Science pilot proceeds.
+4. Stop after level 2 and report. Lesson work (level 3) starts only with
+   Aedwon's approval.
 
 ## Records and saving
 
