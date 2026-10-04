@@ -13,6 +13,8 @@ price from an older spec, plan, checkpoint, research tab, or decision log.
 - Any lifetime product (₱1,499 or other). Removed 3 August 2026. A Play product ID
   cannot be deleted once used, so never create one.
 - One blanket Pro price for every exam. Replaced by exam tiers on 4 October 2026.
+- A free trial on Yearly. The trial moved to Monthly on 4 October 2026. Yearly has
+  no trial.
 - ₱499 "NCE Season Pass", ₱999 to ₱1,499 yearly, and ₱1,999 yearly parent tier.
   These came from research and projection documents and were never adopted.
 
@@ -30,6 +32,14 @@ Prices follow the exam the user has selected. Each tier has its own paywall.
 
 A season pass is a one-time purchase that expires after the exam date. It never
 renews.
+
+## Free trial
+
+**The 7-day free trial is on Monthly, and only Monthly** (Aedwon, 4 October 2026).
+It applies to every tier's Monthly plan: Student ₱99, Civil Service ₱149, and
+Licensure ₱249. Weekly, Yearly, and season passes have no trial. Older specs,
+plans, the Terms, and the app's Pro page say the trial is on Yearly. That is
+superseded.
 
 ## Release requirement: abstract reasoning generator
 

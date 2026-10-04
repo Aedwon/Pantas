@@ -65,3 +65,29 @@ Every earlier price in repository specs, plans, checkpoints, `docs/TERMS.md`, th
 year-1 projection, and the Pantas Master SSOT research tabs, including Yearly
 ₱499, ₱599, and ₱999, any lifetime product, the ₱499 NCE Season Pass, and the
 ₱1,999 parent tier.
+
+## Trial moves from Yearly to Monthly (added 4 October 2026)
+
+Aedwon's comment:
+
+> hello i don't know which files these are located but can you ensure future
+> agents and models recognize that the final subscription with the 7-day trial
+> is the monthly
+
+Every record before this put the 7-day trial on Yearly only (18 July amendment,
+confirmed 2 August in `2026-08-02-paywall-consolidation-log.md`). The agent
+pointed out that reversal and asked two questions.
+
+- Which Monthly plans get the trial? Options: every tier's Monthly, or Student
+  Monthly only. **Chosen: "Every tier's Monthly"** (Student ₱99, Civil Service
+  ₱149, Licensure ₱249).
+- Does Yearly keep a trial? Options: no, Monthly only; or both. **Chosen: "No,
+  Monthly only".**
+
+What changed: `docs/pricing.md` gained a "Free trial" section and lists the Yearly
+trial as superseded. `AGENTS.md` states the rule under Pricing.
+
+Not yet changed, needs separate approval: `docs/TERMS.md` (says "yearly only"),
+the app's Pro page (shows the trial on ₱799 Yearly), the paywall's trial screen
+routing (Yearly only), and the Play Console trial offer on `pantas_pro_yearly`.
+The reason for the move was not stated.

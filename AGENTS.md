@@ -142,6 +142,10 @@ the Pantas Master SSOT research tabs quote superseded prices, such as Yearly ₱
 implement, or restore a price that is not in `docs/pricing.md`. Never create a
 lifetime product.
 
+**The 7-day free trial is on Monthly only**, for every tier (decided 4 October 2026).
+Yearly has no trial. Older documents and code that put the trial on Yearly are
+superseded. Details: `docs/pricing.md`, "Free trial".
+
 ---
 
 ## Never invent a figure
