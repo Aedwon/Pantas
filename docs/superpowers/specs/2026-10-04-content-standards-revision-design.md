@@ -36,12 +36,28 @@ the pipeline.
 3. **Learning goals.** Each lesson records what a student should be able to do
    after it and which exam requirement that serves. This is an authoring and
    audit note only. Students do not see it, and the app does not change.
-4. **How questions are built.** Questions follow the established research
-   guidelines for multiple-choice items: one clearly correct answer, a clear
-   question, no clues that give the answer away, choices of similar length and
-   form, the correct answer's position balanced across a set, "NOT" questions
-   only when needed and with the word emphasized, and no "all of the above".
-   Where a target exam's own format differs, the exam's format wins.
+4. **How questions are built.** The current question rules stay: realistic
+   exam wording, wrong choices based on real mistakes, solving before
+   explaining, and a note on every wrong choice. Three additions:
+   - **A format profile for each exam.** Each profile records how that exam's
+     items look: number of choices, item types such as error identification,
+     whether "none of the above" or negative questions appear, and the
+     language of each part. Each entry states its evidence and how confident
+     it is. Where an exam publishes nothing, Philippine teacher-training
+     (DepEd) conventions apply and the gap is stated. The coverage audit's
+     first step builds the profiles; this revision defines their shape.
+     Authors and judges check "realistic" against the profile. Civil Service
+     Professional and Subprofessional get their own profiles.
+   - **No answer-giving clues.** The correct answer is not the longest or most
+     detailed choice by habit. Its position varies across a lesson's set. No
+     choice can be ruled out by grammar or wording alone. Choices share a
+     similar form and length.
+   - **A blind-solve check.** Someone other than the author answers the
+     question without seeing the key. If they pick a different answer, the
+     question is treated as ambiguous or wrong until fixed.
+
+   Rules such as whether "none of the above" is allowed come from each exam's
+   profile, not from a blanket ban.
 5. **One checklist.** Every rule from the lesson and question guides becomes a
    pass-or-fail line with a severity:
    - **Blocker:** wrong fact, wrong or ambiguous answer, or required content
@@ -93,8 +109,11 @@ guides contradicts `AGENTS.md`, and the revised documents are on main.
 
 - `docs/content/lesson-style-guide.md`: Filipino-language section; learning
   goal requirement; pointer to the checklist.
-- `docs/content/question-style-guide.md`: item-writing rules section; Filipino
-  items; pointer to the checklist.
+- `docs/content/question-style-guide.md`: answer-clue rules, blind-solve
+  requirement, pointer to the format profiles; Filipino items; pointer to the
+  checklist.
+- New `docs/content/exam-format-profiles.md`: profile shape for each named
+  exam, entries marked unknown until the coverage audit fills them.
 - `docs/content/lesson-authoring-runbook.md` and
   `docs/content/question-authoring-runbook.md`: current process, source
   recording, checklist step; mark the topic-to-exam table provisional pending
@@ -109,14 +128,34 @@ existing audit record area under `docs/content/audit/`, keyed by lesson id.
 
 ### Evidence for decisions made by the agent
 
-- Item-writing rules: Haladyna, Downing, and Rodriguez (2002), "A Review of
-  Multiple-Choice Item-Writing Guidelines for Classroom Assessment," Applied
-  Measurement in Education 15(3), 309 to 334, a validated taxonomy of 31
-  guidelines from 27 textbooks and 27 studies
-  (https://eric.ed.gov/?id=EJ660246). Strong, widely cited consensus evidence,
-  though several individual guidelines rest on expert agreement rather than
-  experiments. Adopt the subset relevant to single-answer items; keep
-  realistic exam format as an override.
+- Item-writing rules: the clue and form rules draw on Haladyna, Downing, and
+  Rodriguez (2002), "A Review of Multiple-Choice Item-Writing Guidelines for
+  Classroom Assessment," Applied Measurement in Education 15(3), 309 to 334
+  (https://eric.ed.gov/?id=EJ660246), and DepEd test-construction guidance,
+  which agrees on homogeneous options of similar length, one main idea per
+  stem, a complete stem, and four or five options
+  (https://www.deped.gov.ph/wp-content/uploads/2016/06/DO_s2016_55-3.pdf).
+  Aedwon questioned whether general research fits Philippine exams, so
+  format rules (option count, "none of the above", negative stems, item
+  types) are not universal: they come from per-exam format profiles. Evidence
+  on actual Philippine exam formats is thin. UP's admissions pages do not
+  currently link official verbal sample tests, and Civil Service samples found
+  online are unofficial reviewers (one shows "none of the above"). Profiles
+  must label such evidence as weak.
+- Answer clues: "correct answer is the longest or most complete" is a classic
+  cue in the guidelines above. The claim that AI writers tend toward it is
+  based on general experience, not a cited study; the pipeline pilot measures
+  it on Pantas questions.
+- Format profile shape, in `docs/content/exam-format-profiles.md`: one section
+  per exam with entries for choice count, item types per subtest, "none of
+  the above" and "all of the above" use, negative stems, language per subtest,
+  and timing where it affects item length; each entry has its source, date
+  checked, and confidence (official, strong secondary, weak, unknown). This
+  revision creates the shape with every entry marked unknown; the coverage
+  audit fills it.
+- Blind solve: a checklist line, severity blocker on disagreement with the
+  key. Authors cannot satisfy it themselves; it is run by a separate solver
+  (a reviewer now, a judge in the later pipeline).
 - Filipino readability: English formulas misjudge Filipino text (SMOG and Fry
   studies), and Filipino-specific models are research prototypes, not
   deployable checks (Imperial and Ong, 2021, https://arxiv.org/pdf/2110.00157).
