@@ -6,13 +6,31 @@ Plan: `docs/superpowers/plans/2026-10-04-exam-content-coverage-audit.md`.
 
 ## Identity
 
-- Current policy and standards: main `a8445c5ab328b2058c50eb5bf5181261d5dc80c6`, verified against live remote at task start. Earlier historical policy identities below remain audit history only.
+- Current policy and standards: main `cb48097bedf15bec2cfbe4fb3aa7e957753b1727`, verified against live remote on automatic resume. Earlier historical policy identities below remain audit history only.
 - Corpus input: `content/question-qa-r2` at `765c5dc0fa5586281047bf4f7b30d09ab3707887`,
   local worktree and remote match.
 - Codex models confirmed: `gpt-6.1-sol` and `gpt-6-luna`, run with computer use
   and browser features disabled.
 
-## Progress
+## Current level and acceptance state
+
+Only level 1 is authorized. Level 2 requires Aedwon's explicit approval in this conversation.
+
+| Exam | Research | Source check | Fresh rebuild | Exam map |
+|---|---|---|---|---|
+| UPCAT | Historical completed file | Luna whole-file refresh active | Group A pending | Pending all-exam requirement gate |
+| DCAT | Research complete, unaccepted | Pending | Group A pending | Pending |
+| ACET | Research complete, unaccepted | Pending | Group A pending | Pending |
+| USTET | Research complete, unaccepted | Pending | Group B pending | Pending |
+| PUPCET | Research complete, unaccepted | Pending | Group B pending | Pending |
+| DOST-SEI | Research complete, unaccepted | Pending | Group B pending | Pending |
+| SM Foundation | Research complete, unaccepted | Pending | Group C pending | Pending |
+| CSE Professional | Sol High research active | Pending | Group C pending | Pending |
+| CSE Subprofessional | Sol High research active | Pending | Group C pending | Pending |
+
+All-exam counting and audited Google Doc tab: pending. No lesson, overlap, or standards tasks dispatched. Corpus unchanged. Watcher handles commits/pushes; lead does not mutate git metadata.
+
+## Historical progress
 
 - Task 0 setup: done. Inventory: 158 lessons, 3,215 questions, 3,022 active
   (`inventory.md`). Original corpus tab captured (`original-corpus-tab-capture.md`).
@@ -29,18 +47,18 @@ Plan: `docs/superpowers/plans/2026-10-04-exam-content-coverage-audit.md`.
   - Brief template updated: DepEd curriculum layer and delivery and scoring rows.
   - Process fix: backgrounded `codex exec` needs `< /dev/null`; one revision
     run stalled an hour on stdin and was rerun.
-  - Next: Task 4 outline comparison for UPCAT and Science (lead).
+  - Historical next step was UPCAT Science comparison; superseded by the current all-exam gate.
 
 ## Pause state
 
 Level 1 running under Codex; user explicitly started this task in conversation.
 
-## Handoff to Codex orchestrator (October 4, 2026)
+## Historical handoff to Codex orchestrator (before active execution)
 
 Aedwon directed that Codex orchestrates this audit, not Claude. Claude stopped
 the run: three Science lesson agents and three exam agents were stopped with no
 output. Handoff file: `ORCHESTRATOR.md`. Next: Task 2 for the 8 remaining exams.
-Pause state: paused until Aedwon starts the Codex orchestrator.
+Historical pause: lifted by Aedwon's explicit level 1 start recorded below.
 
 ## Codex level 1 execution, October 4, 2026
 
@@ -64,3 +82,55 @@ Pause state: paused until Aedwon starts the Codex orchestrator.
 
 - UPCAT historical check covers sources 1-15; its current requirement file includes sources 16-19 added during revision. Prepared a fresh whole-file source check to verify the assembled file, preserving the historical check. Fresh independent group-A rebuild will include UPCAT. This does not reopen later levels.
 - Runtime availability will be marked unknown unless verified from a corpus-bound runtime input. The runtime reader uses content.db; the local untracked encrypted seed cannot establish the offered exam roster at the pinned source commit. Superseded historical seed metadata is not runtime evidence.
+
+## Automatic resume, October 4, 2026, 12:25 UTC
+
+- First line checked: STATE: RUNNING. Automatic messages do not approve level 2.
+- Live agent inventory contains only the root; prior DCAT/ACET/USTET agents ended with no saved requirement outputs. No duplicate workers remain. Their progress messages are leads, not completed evidence.
+- Watcher saved prior audit documentation at local/remote `6b43affb58188f36d0cecc14eaf9c2ce25a3a0f4`; both match, worktree clean. Main and corpus remain unchanged at recorded SHAs.
+- Recovery change: unfinished research agents must save six-section DRAFT files immediately and update them incrementally after source groups, preventing research loss on another limit. Files remain unaccepted until source checks and independent rebuilds finish.
+- Restarting only DCAT, ACET, USTET. All later levels remain unauthorized. Existing UPCAT and setup records retained.
+
+- Main advanced during recovery to cb48097bedf15bec2cfbe4fb3aa7e957753b1727, only PSHS pricing research. Diff of all policy and content standards versus a8445c5 is empty. Current policy reread, all recovery agents informed. Audit and corpus local/remote still match; no dependent source drift.
+
+- Recovery DCAT and ACET DRAFT files now exist; not complete or checked. USTET startup ongoing. Incremental-saving briefs prepared for the five remaining exams. First line remains RUNNING; no later-level assignments.
+
+- USTET DRAFT also saved. All three recovery research outputs now persist. No complete research result received; checks/rebuilds/maps remain pending.
+
+- Check/rebuild briefs now name current main cb48097b and require incremental DRAFT saving. Research is still active on DCAT/ACET/USTET; no result has been accepted and no map work has begun.
+
+- ACET recovery progress: official pages returned 403/bot-check; portal HTTP200 was shell-only, so official current-cycle scope remains unconfirmed. Draft saves weak subtest leads and independently recovered DepEd Mathematics/English PDFs. Strengthened SHS sources require pilot/cohort limits. Agent is finishing skills/profile; result is not yet complete or accepted.
+
+- DCAT recovery progress: saved official AY2027-2028 onsite/online delivery; official page gives no subtest/topic/scoring blueprint. Independently read live K-10 guides and SHS Statistics/GeneralMath/Reading-Writing sources. DepEd current cohort notes distinguish legacy non-pilot Grade12 from pilot learners; universal SHS exposure must not be assumed. Research finalization still pending.
+
+- USTET recovery progress: four organizer subtests saved, current AY2027-2028 announcement and dated AY2026-2027 FAQ kept distinct. Live DepEd guides read; DM012/2026 cohort limitation and organizer reviewer-disclaimer recorded. Final curriculum/profile rows pending, no acceptance yet.
+
+- USTET result received: research complete, only its requirement file written. Author checks: six sections 6, profile rows 11, numbered sources 21, em dashes 0, unfinished placeholders 0, spelling findings none. Four subtests/admission 80/20 rated official; detailed syllabus/format/scoring limits remain unknown. Source check and independent rebuild pending; not accepted.
+- DCAT result received: research complete, only its requirement file written. Author checks: sections6, profile rows11, sources19, emdashes0, placeholders0, spelling findings none. Official AY2027-2028 modes confirmed; blueprint/scoring/language unknown. DM003 cohort evidence recorded; DO017 scanned body pending. Independent checks pending; not accepted.
+- ACET result received: research complete, only its requirement file written. Author checks: sections6, sources24, profile rows11, emdashes0, unsourced skills0. Official Ateneo current scope/cycle inaccessible; DepEd cohort evidence verified. Independent checks pending; not accepted.
+- Next research wave: PUPCET, DOST-SEI, SM Foundation, then both CSE levels. No later-level tasks.
+
+- Lead recheck of first three outputs: all have 6 sections, 11 profile rows, zero em dashes, and research-complete markers. Source validity and requirement completeness remain unaccepted until independent checks. Research agents now active on PUPCET, DOST-SEI, SM Foundation.
+
+- First completed research packet identities: DCAT c033197a0c7f6593f2deba985d7356dfb7a2ecf7810a49623009c53b84f8a1e1; ACET cc0dd9c8a2b2e5609166fcbd4d5d05a312b82b6a1510c3869992a3ed8e91315e; USTET 622f923919690c50a362a40964ca11622cd2cb6108d4a5cb59781ceb40decac4. Lead document checks passed for 6 sections / 11 profile rows / no em dashes. Source claims remain unaccepted.
+
+- SM Foundation progress: draft saved. Live organizer program page confirms current 2026 application context; an official exam instruction PDF is explicitly April26,2021, so its online/format/delivery rules remain historical rather than current. Current academic blueprint still unconfirmed. Not accepted.
+- PUPCET/DOST-SEI/SM Foundation incremental drafts now exist. Check briefs clarify curriculum publication provenance versus official exam scope and require input hashes. No source checker or reviewer has started yet; author research is still running.
+
+- SM progress: organizer process PDF visually read through non-UI page image access; selection stages and schedule/venue process confirmed, document cycle unspecified. Weak source reports conflict and some are explicitly advice based on another exam. Current academic scope remains unknown. Research not yet complete or accepted.
+
+- Lead direct organizer spot check: ustet.ust.edu.ph loads; current portal overview states 80% entrance-test / 20% grades rating, and LEAPMed section distinguishes ordinary USTET four subjects from the separate medical exam. DLSU web reader errored and Ateneo gave no readable exam body; HTTP recovery/source checks still govern those records. This is a bounded lead spot check, not a whole-file source-check pass.
+
+- PUPCET result received: research complete, sources22/profile11/sections6, zero em dashes/spelling/attribution/placeholders. Current AY2026-2027 organizer admission page has stale eligibility text; academic blueprint remains unconfirmed. Santa Maria reported coverage requires publisher authentication. Independent checks pending, not accepted.
+- DOST-SEI result received: research complete, sections6/profile11, four evidence categories per subtest, zero em dashes/spelling/attribution. Current 2027 award-cycle delivery/schedule and accessible official 2026 primer kept separate; current blueprint continuity and weights unknown. Checks/rebuild pending, not accepted.
+- SM Foundation result received: research complete, sections6/profile11/sources23, zero em dashes/whitespace/placeholders. Official2026 application and selection process separated from explicitly2021 exam instructions; current academic scope unknown. Checks/rebuild pending, not accepted.
+
+- Lead metadata check: {'exam': 'pupcet', 'sections': 6, 'profileRows': 11, 'emDashes': 0, 'sha256': 'c9a92fdd16d1ca86c9cd1d083250f9b85dfae8fce346a986fd2bbd513ee28487', 'completeMarker': True}
+
+- Lead metadata check: {'exam': 'dost-sei', 'sections': 6, 'profileRows': 11, 'emDashes': 0, 'sha256': '0524d2e6e12adaefcba67c683205c69c6f3670fbebc504ff7b69396bd383598c', 'completeMarker': True}
+
+- Lead metadata check: {'exam': 'sm-foundation', 'sections': 6, 'profileRows': 11, 'emDashes': 0, 'sha256': 'bf1e7054c1af8a2743e3bd4f48b242e6214ed8f8471f72b28b91f02aafea6702', 'completeMarker': True}
+
+- Dispatch next: CSE Professional and Subprofessional research (two Sol High) plus UPCAT whole-file source-check refresh (one Luna low). All within the three-subagent harness limit.
+
+- Dispatches confirmed: requirements_cse_professional and requirements_cse_subprofessional (Sol High), source_check_upcat (Luna low). Seven research files are complete/historical, both CSE reports pending. No outline/map work or later-level task started.
