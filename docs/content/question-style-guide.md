@@ -88,6 +88,7 @@ questions:
   content. Never inline these as flow strings.
 - **`choices`** — a list of `{text, correct}`. Default to 4 choices. **Exactly
   one** choice has `correct: true` — the importer rejects zero or multiple.
+  Use 5 choices instead when the target exam's format profile shows 5.
   Choice order in the YAML is the display order; the importer assigns labels
   A, B, C, D… and `ordering` from that order, so put the choices in the order
   you want them shown. The app shuffles choices per question when it shows

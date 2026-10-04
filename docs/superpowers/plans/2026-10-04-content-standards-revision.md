@@ -82,8 +82,9 @@ looks good so far!").
   stems, item types) come from the profile; unknown entries fall back to DepEd
   conventions.
 - [ ] Add "No answer-giving clues": correct answer not habitually longest or
-  most detailed; key position varies across a lesson's set; no choice ruled
-  out by grammar or wording alone; choices share form and length.
+  most detailed; no choice ruled out by grammar or wording alone; choices
+  share form and length. No key-position rule: the app shuffles choices
+  (decision of October 4, 2026).
 - [ ] Add "Blind solve": a solver other than the author answers without the
   key; disagreement marks the item ambiguous or wrong until fixed.
 - [ ] Add Filipino items: stems, choices, explanations, and notes for

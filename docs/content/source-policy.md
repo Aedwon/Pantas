@@ -47,10 +47,10 @@ Sources go in the audit records, not in the lesson or question text. Use the
 source ledger table already used by question QA (see
 `audit/question-qa-r1-source-ledger.md`):
 
-| Item | Issue or claim | Original content | Disposition | Source | Verification note |
+| Item | Issue | Original content / claim | Disposition | Source | Verification note |
 |---|---|---|---|---|---|
 
-- **Item:** lesson id or question id.
+- **Item:** lesson id or question id. Question ledgers may title it Question.
 - **Disposition:** for example CONFIRMED, CORRECTED, RETIRE, LESSON GAP.
 - **Source:** name and URL, plus section or page where one exists.
 - **Verification note:** what the source says and how the content now matches.
