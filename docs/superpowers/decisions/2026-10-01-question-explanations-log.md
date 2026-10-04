@@ -1156,3 +1156,37 @@ What changed: the spec's agent constraints now require a strict top-down gate:
 no lesson check starts until all requirement files, source checks, and the
 outline comparison are saved; per topic, lesson depth is saved before practice
 checks. Concurrency answer pending below.
+
+### October 4, 2026: concurrency and rigor of the audit checks
+
+Claude reported Plus limits from OpenAI's pricing page (6.1 Sol about 15 to 160
+local messages per 5 hours, 6 Luna about 350 to 3,000, shared allowance, weekly
+caps, no published concurrency cap) and recommended 3 Sol and 5 Luna agents at
+once, pausing at the window limit instead of buying credits.
+
+Aedwon: "is this checking process rigorous enough?" Claude named four weak
+points (requirements resting on one agent, unchecked outline matching, weak
+checks on "covered" verdicts, no test run).
+
+Aedwon: "please make this as rigorous as possible to minimize any inaccuracies
+in our info. this is an exam prep app after all. accuracy is tantamount to
+credibility in this space. would you agree or disagree"
+
+Claude agreed, argued for targeted rather than uniform rigor, noted correctness
+review belongs to the later pipeline, and proposed additions including two
+independent exam agents per exam and redoing a topic on any failed sample.
+
+Aedwon: "rigorous enough* don't overcomplicate things"
+
+Claude dropped the double exam agents and the redo rule and proposed four
+checks: reviewer rebuilds each exam's topic list; a counting check after
+outline matching; reviewer samples every topic, with a failed sample sending
+that topic back; and a pilot (one exam, one subject) before scaling. About 15
+to 20 percent more work, 3 Sol and 5 Luna at once.
+
+Aedwon: "proceed"
+
+What changed: implementation plan written at
+`docs/superpowers/plans/2026-10-04-exam-content-coverage-audit.md` with these
+checks, the top-down gate, and the concurrency limits. Pilot: UPCAT and Science.
+Audit execution still needs Aedwon's separate authorization per the spec.
