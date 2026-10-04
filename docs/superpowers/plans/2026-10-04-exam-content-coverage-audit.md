@@ -1,7 +1,9 @@
 # Exam Content Coverage Audit Implementation Plan
 
-> **For agentic workers:** the lead runs this plan and dispatches Codex agents
-> per phase. Workers read `AGENTS.md`, `WORKFLOW.md`, and `SUBAGENTS.md` from
+> **For agentic workers:** the lead is a Codex 6.1 Sol High orchestrator
+> (Aedwon, October 4, 2026), started by Aedwon in the Codex CLI. It reads
+> `docs/content/audit/coverage-r1/ORCHESTRATOR.md` first and dispatches Codex
+> subagents per phase. Workers read `AGENTS.md`, `WORKFLOW.md`, and `SUBAGENTS.md` from
 > main first. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Produce the approved coverage audit: per-exam requirements and format
@@ -68,8 +70,8 @@ the exact scope, input paths, output path and format, the rules to apply, and
 stop conditions (missing source access, conflicting instructions, scope
 needing a decision). Briefs and results live in
 `docs/content/audit/coverage-r1/briefs/`. Research agents write only their own
-output file. The independent reviewer is a Claude agent that authored nothing
-in the phase.
+output file. The independent reviewer is a fresh Codex Sol High subagent that authored
+nothing in the phase.
 
 ## Output files
 
