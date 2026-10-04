@@ -1013,3 +1013,34 @@ current process; the judges need this checklist anyway (recommended);
 automatically, more reliable but more tooling to maintain. Estimates are rough.
 
 Aedwon's answer: "2"
+
+### October 4, 2026: question rules attuned to Philippine exams
+
+Aedwon reviewing the standards spec: "i have some reservations on How
+questions are built. are these standards PH exam level? or perhaps at least
+attuned to how PH exams are made"
+
+Claude's answer: the drafted rules came from general, mostly American testing
+research. DepEd test-construction guidance agrees on the core rules, but exam
+organizers publish little on item format; UP's admissions pages do not link
+official verbal samples, and Civil Service samples online are unofficial
+reviewers, one showing "none of the above", so a blanket ban could reduce
+realism. Claude proposed universal quality rules plus per-exam format profiles.
+
+Aedwon asked: "what does the project currently say about question creation?"
+and then "so, what are your thoughts, does the current need to be improved?"
+
+Claude's recommendation: keep the current rules (realistic wording,
+mistake-based wrong choices, solve first, wrong-choice notes) and add three
+things: per-exam format profiles including separate Civil Service profiles;
+answer-clue rules (correct answer not habitually longest, varied key position,
+no grammatical giveaways, similar form and length); and a blind-solve check by
+someone other than the author. Drop the earlier blanket rules such as banning
+"none of the above"; profiles decide them.
+
+Aedwon's answer: "okay sure! add them, this will make the pipeline more robust
+right?"
+
+What changed: spec change 4 and its agent evidence on
+`docs/content-standards-r1`. The coverage audit's first step fills the
+profiles; this revision defines their shape with entries marked unknown.
