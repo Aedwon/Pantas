@@ -102,5 +102,5 @@ def visit(lid):
     visited.add(lid)
 for lid in edges:
     visit(lid)
-print(json.dumps({'level': 3, 'completeTopics': len(complete), 'expectedTopics': len(manifest['topics']), 'completeLessons': len(all_lessons), 'expectedLessons': len(expected), 'complete': complete, 'pending': pending, 'errors': errors, 'gateReady': not errors and len(all_lessons) == len(expected)}, indent=2))
+print(json.dumps({'level': 3, 'completeTopics': len(complete), 'expectedTopics': len(manifest['topics']), 'completeLessons': len(all_lessons), 'expectedLessons': len(expected), 'complete': complete, 'pending': pending, 'errors': errors, 'mechanicalAccountingReady': not errors and len(all_lessons) == len(expected), 'gateReady': not errors and len(all_lessons) == len(expected) and manifest.get('leadSemanticGateAccepted', False)}, indent=2))
 raise SystemExit(1 if errors else 0)

@@ -6,7 +6,7 @@ Plan: `docs/superpowers/plans/2026-10-04-exam-content-coverage-audit.md`.
 
 ## Identity
 
-- Current policy and standards: main `ac4b30da31b0bcca7e7ed1e47c930b1ac00ced6c`, verified against live remote during Level3; all9requiredpolicy/startup/standard blobs unchanged fromcb48097. Earlier historical policy identities below remain audit history only.
+- Current policy and standards: main `e8d5f0f958e38c1648046a93747437687ba08334`, verified against live remote on October6resume; all9requiredpolicy/startup/standard blobs unchanged fromcb48097. Earlier historical policy identities below remain audit history only.
 - Corpus input: `content/question-qa-r2` at `765c5dc0fa5586281047bf4f7b30d09ab3707887`,
   local worktree and remote match.
 - Codex models confirmed: `gpt-6.1-sol` and `gpt-6-luna`, run with computer use
@@ -14,7 +14,7 @@ Plan: `docs/superpowers/plans/2026-10-04-exam-content-coverage-audit.md`.
 
 ## Current level and acceptance state
 
-Levels 1 and 2 are complete and accepted. Level 3 lesson structure is explicitly approved in this conversation and is starting. Levels 4 and 5 remain unauthorized. Illustration review is deferred; Level 3 records only load-bearing figure dependencies encountered.
+Levels 1 and 2 are complete and accepted. Level 3 lesson structure is explicitly approved and running. Three topic authors completed40lessons; biology independent sample PASS, other24topics pending review. Earthscience1/11 and arithmetic2/9 incremental drafts exist. Levels 4 and 5 remain unauthorized. Illustration review is deferred; Level 3 records only load-bearing figure dependencies encountered.
 
 | Exam | Research | Source check | Fresh rebuild | Exam map |
 |---|---|---|---|---|
@@ -399,3 +399,33 @@ Historical pause: lifted by Aedwon's explicit level 1 start recorded below.
 - Lead exactappendix counts clarifyauthor totals: biology62/chemistry96/physics97 are requirement-facet entries, not distinctlesson skills; actual lesson skill entries51/94/89. Earlier statuslabels describing96/97aslesson skills were imprecise. No skill-count coverage inference follows. Finalimmutable hashes: biologyd5210d8c, chemistrye3c4cda4, physics88d7e88c; collectorrefreshedcurrenthashes/currentpolicyac4. Sharedvalidator40/158,3/25, errors0, gateReadyfalse.
 
 - Readercontract clarity update for pendingreaders: concise findings/lesson summaries inprose, detailedfacet evidence once inJSON, sharedscope qualifiers once ratherthanrepeatedperrow. This preservesallrequiredskills/evidence/limits and reduces duplicatedreading, no scopechange. Completed3outputs remainimmutable; reviewer must use actualfulltargets, chunkinglargefiles toavoidtooltruncation.
+
+## October6 live automatic resume after new usage limit
+
+- Freshreviewer hit actualusageerror with resetOct6 00:02beforelatestwatcher liveavailability message. Latestresume supersedesoldreset wait; continueimmediately. Noactivechildren now; resumeexistingreviewer/readers withoutduplicate authors. FirstlineRUNNING confirmed; Level3onlyapproved,4/5remainunauthorized.
+- Live/currentcachedmain e8d5f0f matches; live/auditlocal401968b6 watchercheckpointmatches; corpuslive/pinned765c5dc0. Mainpolicies retrieved/reread; ninepolicy/startup/standardblob IDs unchanged ac4→e8, proofpolicy-refresh-oct6.json. Accepted13map/10requirements-profile/8overlap targethashes unchanged; specSHA999654d8unchanged.
+- Existingimmutableauthoroutputs3topics40lessons preservedhashes. Savedreviewreport containsindependent source-first biology sample PASS beforelimit, actuald5210d8ctargethashmatching; lead readfullreviewresult,0flags,1PASS/24pending, notphasecompletion. EarthDRAFT1/11 and arithmeticDRAFT2/9 saved, resumefromthoseIDs. No new sourcebodyor laterlevelgate acceptance inferred.
+
+- October 6 resume dispatches confirmed: the existing independent reviewer continues chemistry and physics; the existing readers continue Earth science and arithmetic from their saved drafts. Three Sol High agents are active. Biology has a current independent sample PASS, while whole-level acceptance remains pending. No old reset time delays this resumed work.
+
+- Consolidated the three completed Science authors' bounded foundation-source records into the existing source ledger. Every factual row uses an existing lesson ID. The generic IUPAC access failure is a source-access note, not a checked student fact. Biology sample PASS and chemistry/physics pending review remain distinct. Source access dates and no-content-change dispositions are preserved.
+
+- Independent chemistry sample returned C1. The strict stoichiometry-to-chemical-reactions prerequisite appears to require balancing, but the consumer teaches coefficient ratios and supplies balanced equations. The reviewer asks for removal of the strict link or evidence of an indispensable convention missing locally. The mole foundation link is supported. Chemistry is flagged at immutable e3c4cda4; no acceptance. Author correction and focused recheck are required. Biology PASS remains applicable; physics review continues. Other Level3 readings may continue within their separate ownership.
+
+- Arithmetic intermediate result received: all9lesson full reads saved DRAFT, including matching hashes for the2preserved records. Current e8d5policy/audit401968/corpus765c5dc0 identities checked by author. Facets and strict prerequisites are still being finalized. Candidate splits concern percent/finance, number sets/complex arithmetic, and sequence terms/series sums; no semantic acceptance yet. Earth author notified of Chemistry C1 for a later sole-output correction after the current Earth assignment.
+
+- Independent physics sample returned P1. Two-dimensional motion locally teaches its axes, angle convention and component formulas, so a whole scalars/vectors prerequisite repeats the consumer's instruction. Reviewer asks to remove that strict edge or substantiate a distinct absent foundation; direct trigonometric-ratio meaning may support a narrower verified link. All three splits were checked against full sources; sampled kinematics/dynamics and vectors-to-trigonometry links were supported. Physics is flagged at88d7e88c. Current review accounting:1PASS,2FLAGS,22PENDING. Author correction and focused recheck required; no phase acceptance.
+
+- Ownership transfer and dispatch confirmed: idle l3_biology now owns only Chemistry C1 correction. Original chemistry author continues Earth only; original physics author continues arithmetic only. Reviewer is idle after its initial report and authored no targets. Three Sol High workers are active. Corrected Chemistry needs a focused recheck; Physics P1 correction will follow with separate ownership. Shared contract now requires an indispensable idea absent locally, not a duplicated recap or a future expanded lesson, for every strict edge.
+
+- Clarified the lead validator output: mechanicalAccountingReady is separate from gateReady. Complete counts alone cannot pass the Level3gate while semantic review and global reconciliation remain unaccepted. The current gate remains false. This is a documentation-check correction, not a new content rule.
+
+- Current scoped documentation attribution check used the existing project scanText on45Level3brief/report/helper/ledger files only. Actual output: Scoped documentation attribution: files=45 violations=0, exit0. It read no lesson or question source and ran no Flutter suite. This is a focused document check, not whole-level acceptance.
+
+- Chemistry C1 correction result received from its assigned author. Strict balancing edge removed; balancing kept optional, mole edge retained. Eight facet prior-knowledge notes and affected prose/table were revised; source ledger and other lesson records are unchanged. Actual author checks:17/17readhashranges,373valid evidence ranges,39accepted refs,8existing both-end edges, no self-links/cycles/errors. Corrected hashb9eebd9d5626edb3f5da52adabcfa9cf93cea839febc652a54f1d5f56e78f034. Biology unchanged. Lead confirmed actual old/new JSON change belongs only to stoichiometry lesson plus corresponding facet notes; independent focused recheck remains pending.
+
+- Physics P1 correction ownership transferred and dispatch confirmed to l3_biology. Original physics author continues arithmetic only. Chemistry corrected output remains immutable pending recheck; lead actual JSON diff confirms all8changed facet entries alter only priorKnowledge, with unchanged96-entry facet inventory. The new Physics correction will be separately reviewed against current target identity.
+
+- Arithmetic final result received:9/9fullreads,81requirement facets,3strict existing-ID links and6explicit no-link lessons. Three split candidates and incomplete rational/signed-arithmetic foundations remain source-limited recommendations. Author removed redundant links under the clarified necessity rule. Actual checks:9hashranges,59accepted refs,322valid evidence objects, both-end citations/targets valid, no self-links/localcycles/errors/emdashes/whitespace/attribution;4ledger rows. Shared mechanical check49lessons/4topics, no errors, gate false. Current artifact SHA7cdf0dd2e7f051114addf1b05ce44fd3b7c1687b185c275e0773c412489b01a0. No Physics edit. Fresh semantic review pending.
+- Earth intermediate result received:11/11fullreads saved draft, one weather/climate split candidate, local curriculum facet gaps and unresolved redshift foundation placement. Source concern on blanket indirect-only mantle/drilling wording is recorded as clarification needed, with a2024primary author-repository source distinguished from intact crust-to-mantle drilling. This encountered concern is not a full accuracy verdict; final author source record and independent sample remain pending.
+- Physics P1 correcting author has verified the redundant vector link and proposes a direct existing trig-ratio foundation for the actual30-degree component use. Supported kinematics/dynamics links remain unchanged; correction and focused recheck still pending.

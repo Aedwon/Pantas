@@ -2,7 +2,7 @@
   "level": 3,
   "status": "DRAFT; independent review and lead reconciliation pending",
   "corpusCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
-  "policyCommit": "ac4b30da31b0bcca7e7ed1e47c930b1ac00ced6c",
+  "policyCommit": "e8d5f0f958e38c1648046a93747437687ba08334",
   "topicOutputHashes": {
     "docs/content/audit/coverage-r1/topics/science-biology-lessons.md": "d5210d8c0e717c9ce084911cd495060329069c1e16732e11a0379d0f03170023",
     "docs/content/audit/coverage-r1/topics/science-chemistry-lessons.md": "e3c4cda4f8d98ffa9c834ce0956672abf95922cde6ee86bd4c835b1e8dac2245",

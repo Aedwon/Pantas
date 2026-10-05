@@ -4,7 +4,7 @@ Status: COMPLETE. Findings and recommendations only. Independent review pending;
 
 ## Identity and read log
 
-Policy: current main `cb48097bedf15bec2cfbe4fb3aa7e957753b1727`, live remote and cached policy matched October 5, 2026. Corpus: `765c5dc0fa5586281047bf4f7b30d09ab3707887`, clean pinned worktree. Audit branch: docs/content-coverage-audit-r1; startup HEAD 7d5f2ed6a6d6f30e35d1b3f64467f31e7d122112. Other authors' dirty outputs preserved. Watcher owns Git mutations.
+Original author policy: main `cb48097bedf15bec2cfbe4fb3aa7e957753b1727`, live remote and cached policy matched October 5, 2026. Corpus: `765c5dc0fa5586281047bf4f7b30d09ab3707887`, clean pinned worktree. Audit branch: docs/content-coverage-audit-r1; startup HEAD 7d5f2ed6a6d6f30e35d1b3f64467f31e7d122112. Other authors' dirty outputs preserved. Watcher owns Git mutations.
 
 Read main AGENTS, WORKFLOW, SUBAGENTS, startup, source policy, checklist and lesson guide; audit reader contract, approved spec/plan, orchestrator, October 4 and latest Level 3 decisions, illustration decision; accepted UPCAT/DCAT/ACET/USTET/PUPCET/DOST/SM requirements and Level 2 overlap/scope notes. Historical pending labels in requirement files do not override accepted Level 1 gate. Inventory supplies search leads only.
 
@@ -322,7 +322,9 @@ Structure: split-candidate. Reaction amounts and composition-to-formula inferenc
 
 Evidence: content/lessons/science/chemistry/stoichiometry.md:12-96.
 
-Prerequisites: links-found. lesson-chemistry-chemical-reactions because Stoichiometry interprets already balanced coefficients; balancing is not taught here. Consumer: content/lessons/science/chemistry/stoichiometry.md:12-18; foundation: content/lessons/science/chemistry/chemical-reactions.md:12-18; lesson-chemistry-mole-concept because Reactant amounts and empirical/molecular molar masses assume mole and molar-mass meaning. Consumer: content/lessons/science/chemistry/stoichiometry.md:46-60; foundation: content/lessons/science/chemistry/mole-concept.md:12-38.
+Prerequisites: links-found. lesson-chemistry-mole-concept because Reactant amounts and empirical/molecular molar masses assume mole and molar-mass meaning. Consumer: content/lessons/science/chemistry/stoichiometry.md:46-60; foundation: content/lessons/science/chemistry/mole-concept.md:12-38.
+
+Optional preparation: chemical-reactions.md:12-18 and56-91 teaches constructing balanced coefficients. It is not required by this current consumer: stoichiometry.md:12 explains coefficients as amount ratios,48-60 supplies the balanced equation, and62-96 uses given yields or composition ratios. No current example asks the learner to balance an equation. A future expanded lesson cannot justify a strict edge now.
 
 Load-bearing figures: none encountered. Placeholder presence does not establish rendered availability.
 
@@ -349,9 +351,9 @@ Load-bearing figures: none encountered. Placeholder presence does not establish 
 
 lesson-chemistry-acids-bases-ph, lesson-chemistry-atomic-structure, lesson-chemistry-basic-organic-chemistry, lesson-chemistry-chemical-reactions, lesson-chemistry-history-of-the-atom, lesson-chemistry-matter, lesson-chemistry-mixtures-and-separation, lesson-chemistry-mole-concept, lesson-chemistry-thermodynamics-and-kinetics.
 
-## Author self-check
+## Historical author self-check before C1 correction
 
-Command: focused Python accounting/hash/evidence/reference/dependency check against the saved appendix, assigned packet, accepted requirement map, inventory and pinned corpus. Actual final output:
+Command: focused Python accounting/hash/evidence/reference/dependency check against the saved appendix, assigned packet, accepted requirement map, inventory and pinned corpus. Actual original output for pre-correction SHA256 e3c4cda4f8d98ffa9c834ce0956672abf95922cde6ee86bd4c835b1e8dac2245; these nine-edge checks are historical and do not verify the amended artifact:
 
 PASS assigned IDs: 17 exactly once
 PASS full reads: 17 SHA256/range/path matches
@@ -377,6 +379,26 @@ Access date October 5, 2026; audit branch docs/content-coverage-audit-r1; corpus
 - lesson-chemistry-thermodynamics-and-kinetics: Dynamic equilibrium foundation absent before catalyst example. Original claim: A catalyst speeds arrival at equilibrium without changing equilibrium composition. LESSON GAP. [OpenStax Chemistry 2e, Chemical Equilibria, initial definition and dynamic nature](https://openstax.org/books/chemistry-2e/pages/13-1-chemical-equilibria). Live publisher defines equilibrium by equal forward/reverse rates with stable concentrations. The consumer example assumes that foundational meaning without teaching it.
 - chemistry-topic: Optional higher-priority glossary access limitation. Original claim: IUPAC glossary routes attempted for encountered term checks. UNKNOWN. [Attempted glossary route; body not verified](https://goldbook.iupac.org/terms/view/E02177). Web returned HTTP 403 for this and L03508. No content conclusion relies on either unread body; OpenStax publisher sections supplied bounded foundation checks.
 
+## C1 correction, October 6, 2026
+
+Current correction policy: main `e8d5f0f958e38c1648046a93747437687ba08334`, verified against live remote and cached origin/main. Pinned corpus remains clean at `765c5dc0fa5586281047bf4f7b30d09ab3707887`. Original author full-read hashes, findings and source ledger remain historical and unchanged. This correction reread full stoichiometry1-134, chemical-reactions1-133 and mole-concept1-112; current read hashes appear in correctionHistory. Biology and Earth outputs were not changed.
+
+The independent reviewer recorded C1 in [topic-samples](../review/topic-samples.md), against original target SHA256 `e3c4cda4f8d98ffa9c834ce0956672abf95922cde6ee86bd4c835b1e8dac2245`. That review history is preserved. The source check supports removal: the consumer defines coefficient ratios and provides its balanced equation; no indispensable balancing convention absent locally was found. Optional preparation is separate from strict roadmap links. The mole-concept edge remains unchanged, with both-end evidence.
+
+| Consumer | Existing prerequisite | Reason | Scope | Consumer evidence | Foundation evidence |
+|---|---|---|---|---|---|
+| lesson-chemistry-stoichiometry | lesson-chemistry-mole-concept | Mole and molar-mass meanings are assumed rather than taught locally. | within-topic | content/lessons/science/chemistry/stoichiometry.md:46-60 | content/lessons/science/chemistry/mole-concept.md:12-38 |
+
+Changed only the stoichiometry prerequisite prose/table, its strict JSON prerequisites, eight related facet priorKnowledge entries, current policy identity, and this correction/check history. Teaching verdicts, examples, exam scope/tags, source claims and all other links remain unchanged. Remaining strict edges: eight. Fresh narrow C1 review remains pending; self-check does not accept the artifact.
+
+Correction verification commands: focused Python assigned-ID/hash/read-range/field/reference/evidence/dependency check, followed by `python3 docs/content/audit/coverage-r1/check_level3_outputs.py`. Both returned exit0. Actual focused output:
+
+    chemistry_C1_check: assigned=17/17 unique=17 hashes_ranges_paths=17/17 json_appendices=1 fields=PASS evidence_ranges=373 accepted_refs=39 remaining_edges=8 both_end_paths_lines=PASS targets_existing=PASS self_links=0 cycles=0 optional_balancing_facets=8 mole_edge_retained=PASS corpus_clean=true biology_hash_unchanged=true emdash=0 errors=[]
+
+Shared validator actual result fields: `completeTopics: 3`, `expectedTopics: 25`, `completeLessons: 40`, `expectedLessons: 158`, `complete: [science-biology, science-chemistry, science-physics]`, `errors: []`, `mechanicalAccountingReady: false`, `gateReady: false`. Its22pending topics include arithmetic-number-sense and Earth as DRAFT, with20others NOT_STARTED. This supporting result does not accept C1 or the combined Level3 gate.
+
+Fresh narrow C1 independent review remains pending; current self-check does not claim acceptance. Original nine-edge evidence above remains historical. No unrelated target was written.
+
 ## Machine-readable appendix
 
 ```json
@@ -385,7 +407,7 @@ Access date October 5, 2026; audit branch docs/content-coverage-audit-r1; corpus
   "status": "COMPLETE",
   "subject": "science",
   "topic": "chemistry",
-  "policyCommit": "cb48097bedf15bec2cfbe4fb3aa7e957753b1727",
+  "policyCommit": "e8d5f0f958e38c1648046a93747437687ba08334",
   "corpusCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
   "lessons": [
     {
@@ -4531,31 +4553,6 @@ Access date October 5, 2026; audit branch docs/content-coverage-audit-r1; corpus
       },
       "prerequisites": [
         {
-          "lessonId": "lesson-chemistry-chemical-reactions",
-          "reason": "Stoichiometry interprets already balanced coefficients; balancing is not taught here.",
-          "scope": "within-topic",
-          "consumerEvidence": [
-            {
-              "path": "content/lessons/science/chemistry/stoichiometry.md",
-              "lines": [
-                12,
-                18
-              ],
-              "note": "consumer uses foundation"
-            }
-          ],
-          "foundationEvidence": [
-            {
-              "path": "content/lessons/science/chemistry/chemical-reactions.md",
-              "lines": [
-                12,
-                18
-              ],
-              "note": "foundation taught"
-            }
-          ]
-        },
-        {
           "lessonId": "lesson-chemistry-mole-concept",
           "reason": "Reactant amounts and empirical/molecular molar masses assume mole and molar-mass meaning.",
           "scope": "within-topic",
@@ -7603,7 +7600,7 @@ Access date October 5, 2026; audit branch docs/content-coverage-audit-r1; corpus
       "missingIdeas": [
         "Limiting example infers reactant demand; no explicit calculation of product moles"
       ],
-      "priorKnowledge": "lesson-chemistry-chemical-reactions: Stoichiometry interprets already balanced coefficients; balancing is not taught here.; lesson-chemistry-mole-concept: Reactant amounts and empirical/molecular molar masses assume mole and molar-mass meaning.",
+      "priorKnowledge": "lesson-chemistry-mole-concept: Reactant amounts and empirical/molecular molar masses assume mole and molar-mass meaning. Balancing in lesson-chemistry-chemical-reactions is optional reaction preparation, not a strict prerequisite: stoichiometry defines coefficient ratios locally and supplies its balanced reaction. Composition-formula facets do not require balancing.",
       "workedExamples": "thin",
       "scopeLimit": "Local facet only; apply topic exam/source/cycle/language/depth limits."
     },
@@ -7633,7 +7630,7 @@ Access date October 5, 2026; audit branch docs/content-coverage-audit-r1; corpus
       "missingIdeas": [
         "No reaction-ratio-to-product-mass procedure or worked chain"
       ],
-      "priorKnowledge": "lesson-chemistry-chemical-reactions: Stoichiometry interprets already balanced coefficients; balancing is not taught here.; lesson-chemistry-mole-concept: Reactant amounts and empirical/molecular molar masses assume mole and molar-mass meaning.",
+      "priorKnowledge": "lesson-chemistry-mole-concept: Reactant amounts and empirical/molecular molar masses assume mole and molar-mass meaning. Balancing in lesson-chemistry-chemical-reactions is optional reaction preparation, not a strict prerequisite: stoichiometry defines coefficient ratios locally and supplies its balanced reaction. Composition-formula facets do not require balancing.",
       "workedExamples": "none",
       "scopeLimit": "Local facet only; apply topic exam/source/cycle/language/depth limits."
     },
@@ -7663,7 +7660,7 @@ Access date October 5, 2026; audit branch docs/content-coverage-audit-r1; corpus
       "missingIdeas": [
         "No reactant-mass to moles to reaction-ratio to product-mass worked chain"
       ],
-      "priorKnowledge": "lesson-chemistry-chemical-reactions: Stoichiometry interprets already balanced coefficients; balancing is not taught here.; lesson-chemistry-mole-concept: Reactant amounts and empirical/molecular molar masses assume mole and molar-mass meaning.",
+      "priorKnowledge": "lesson-chemistry-mole-concept: Reactant amounts and empirical/molecular molar masses assume mole and molar-mass meaning. Balancing in lesson-chemistry-chemical-reactions is optional reaction preparation, not a strict prerequisite: stoichiometry defines coefficient ratios locally and supplies its balanced reaction. Composition-formula facets do not require balancing.",
       "workedExamples": "none",
       "scopeLimit": "Local facet only; apply topic exam/source/cycle/language/depth limits."
     },
@@ -7700,7 +7697,7 @@ Access date October 5, 2026; audit branch docs/content-coverage-audit-r1; corpus
       "missingIdeas": [
         "No theoretical product quantity or remaining excess calculation"
       ],
-      "priorKnowledge": "lesson-chemistry-chemical-reactions: Stoichiometry interprets already balanced coefficients; balancing is not taught here.; lesson-chemistry-mole-concept: Reactant amounts and empirical/molecular molar masses assume mole and molar-mass meaning.",
+      "priorKnowledge": "lesson-chemistry-mole-concept: Reactant amounts and empirical/molecular molar masses assume mole and molar-mass meaning. Balancing in lesson-chemistry-chemical-reactions is optional reaction preparation, not a strict prerequisite: stoichiometry defines coefficient ratios locally and supplies its balanced reaction. Composition-formula facets do not require balancing.",
       "workedExamples": "worked",
       "scopeLimit": "Local facet only; apply topic exam/source/cycle/language/depth limits."
     },
@@ -7728,7 +7725,7 @@ Access date October 5, 2026; audit branch docs/content-coverage-audit-r1; corpus
       "missingIdeas": [
         "Definition given; theoretical yield supplied rather than derived from limiting-reactant data"
       ],
-      "priorKnowledge": "lesson-chemistry-chemical-reactions: Stoichiometry interprets already balanced coefficients; balancing is not taught here.; lesson-chemistry-mole-concept: Reactant amounts and empirical/molecular molar masses assume mole and molar-mass meaning.",
+      "priorKnowledge": "lesson-chemistry-mole-concept: Reactant amounts and empirical/molecular molar masses assume mole and molar-mass meaning. Balancing in lesson-chemistry-chemical-reactions is optional reaction preparation, not a strict prerequisite: stoichiometry defines coefficient ratios locally and supplies its balanced reaction. Composition-formula facets do not require balancing.",
       "workedExamples": "none",
       "scopeLimit": "Local facet only; apply topic exam/source/cycle/language/depth limits."
     },
@@ -7762,7 +7759,7 @@ Access date October 5, 2026; audit branch docs/content-coverage-audit-r1; corpus
         }
       ],
       "missingIdeas": [],
-      "priorKnowledge": "lesson-chemistry-chemical-reactions: Stoichiometry interprets already balanced coefficients; balancing is not taught here.; lesson-chemistry-mole-concept: Reactant amounts and empirical/molecular molar masses assume mole and molar-mass meaning.",
+      "priorKnowledge": "lesson-chemistry-mole-concept: Reactant amounts and empirical/molecular molar masses assume mole and molar-mass meaning. Balancing in lesson-chemistry-chemical-reactions is optional reaction preparation, not a strict prerequisite: stoichiometry defines coefficient ratios locally and supplies its balanced reaction. Composition-formula facets do not require balancing.",
       "workedExamples": "worked",
       "scopeLimit": "Local facet only; apply topic exam/source/cycle/language/depth limits."
     },
@@ -7794,7 +7791,7 @@ Access date October 5, 2026; audit branch docs/content-coverage-audit-r1; corpus
       "missingIdeas": [
         "Composition-to-moles from mass/percent composition not worked; empirical-formula depth not specifically confirmed by broad refs"
       ],
-      "priorKnowledge": "lesson-chemistry-chemical-reactions: Stoichiometry interprets already balanced coefficients; balancing is not taught here.; lesson-chemistry-mole-concept: Reactant amounts and empirical/molecular molar masses assume mole and molar-mass meaning.",
+      "priorKnowledge": "lesson-chemistry-mole-concept: Reactant amounts and empirical/molecular molar masses assume mole and molar-mass meaning. Balancing in lesson-chemistry-chemical-reactions is optional reaction preparation, not a strict prerequisite: stoichiometry defines coefficient ratios locally and supplies its balanced reaction. Composition-formula facets do not require balancing.",
       "workedExamples": "worked",
       "scopeLimit": "Local facet only; apply topic exam/source/cycle/language/depth limits."
     },
@@ -7826,7 +7823,7 @@ Access date October 5, 2026; audit branch docs/content-coverage-audit-r1; corpus
       "missingIdeas": [
         "Multiplier relation appears first in example and later shortcut, not Core Concept (structural L17); no specific current depth established"
       ],
-      "priorKnowledge": "lesson-chemistry-chemical-reactions: Stoichiometry interprets already balanced coefficients; balancing is not taught here.; lesson-chemistry-mole-concept: Reactant amounts and empirical/molecular molar masses assume mole and molar-mass meaning.",
+      "priorKnowledge": "lesson-chemistry-mole-concept: Reactant amounts and empirical/molecular molar masses assume mole and molar-mass meaning. Balancing in lesson-chemistry-chemical-reactions is optional reaction preparation, not a strict prerequisite: stoichiometry defines coefficient ratios locally and supplies its balanced reaction. Composition-formula facets do not require balancing.",
       "workedExamples": "worked",
       "scopeLimit": "Local facet only; apply topic exam/source/cycle/language/depth limits."
     },
@@ -8167,6 +8164,43 @@ Access date October 5, 2026; audit branch docs/content-coverage-audit-r1; corpus
     }
   ],
   "summary": "- Retain shared introductory chemistry once; no supported exam-specific deletion or excess verdict follows from current unknown depth.\n- Split candidate: separate composition-to-formula inference from reaction quantities in stoichiometry. This improves goal focus and a basic-to-extended preparation route, at the cost of a new approved lesson identity, moved examples/traps, and later linked-practice review.\n- Reorder candidate: teach Lewis construction before deriving VSEPR groups. Definitions alone cannot supply this foundation (L01/L17/L19). No full Lewis, formal-charge or resonance procedure appears in the 17 chemistry bodies.\n- Local gaps: dilution, dynamic chemical equilibrium, Kinetic Molecular Theory, molecular dipole cancellation/intermolecular reasoning, and experimental variable/data interpretation. Their source tiers and exam-depth uncertainties remain explicit.\n- Thin applications: branched organic naming, concrete functional-group/property comparisons, simple reaction product mole/mass chains, theoretical yield derived from reactants, and concentration-to-pH use. Periodic-table named families are not explained despite the outline facet (B03/L01 structural use).\n- Biomolecule/safety coverage is absent locally. Whole inventory identifies biology and other safety/background search leads; the lead must reconcile other topic findings before any corpus-wide gap claim.\n- No load-bearing figure dependencies encountered: all chemistry example prompts supply enough textual givens to be attempted. This is neither an illustration-sufficiency verdict nor runtime verification.\n- Prerequisites use existing IDs and both-end evidence only. Missing Lewis/equilibrium foundations have no invented lesson targets. Intralesson ordering is separate. Basic mathematical literacy is assumed; no unsupported arithmetic roadmap edge is asserted.\n- Required depth, Science language, cohort exposure, current cycle continuity, student availability and practice remain unresolved. Source checks here are bounded encountered facts, not a Level 4 correctness sweep.\n\nAccepted source packets: [UPCAT](../requirements/upcat.md), [DCAT](../requirements/dcat.md), [ACET](../requirements/acet.md), [USTET](../requirements/ustet.md), [PUPCET](../requirements/pupcet.md), [DOST-SEI](../requirements/dost-sei.md), [SM Foundation](../requirements/sm-foundation.md). Each cited requirement ID corresponds to its packet line; its source tier, page/section and limitations govern. Source scope: [DepEd JHS Science](https://www.deped.gov.ph/wp-content/uploads/2019/01/Science-CG_with-tagged-sci-equipment_revised.pdf), pp. 7-10, 163, 196; [Physical Science listing](https://lrmds.deped.gov.ph/detail/14519), competencies; [STEM Chemistry listing](https://lrmds.deped.gov.ph/detail/14411), competencies; [Strengthened General Science](https://www.deped.gov.ph/wp-content/uploads/GENERAL-SCIENCE-1.pdf), pp. 4-5. Historical domain: [DOST 2026 primer](https://science-scholarships.ph/pdf/2026_DOST-SEI_UG_Primer.pdf), p. 12. These accepted-source links are traceability, not new live source checks or an official detailed blueprint.",
-  "selfCheck": "Command: focused Python accounting/hash/evidence/reference/dependency check against the saved appendix, assigned packet, accepted requirement map, inventory and pinned corpus. Actual final output:\n\nPASS assigned IDs: 17 exactly once\nPASS full reads: 17 SHA256/range/path matches\nPASS JSON appendices: 1 valid\nPASS evidence ranges: 375 valid\nPASS requirement refs: 39 valid accepted IDs\nPASS prerequisite edges: 9 existing targets, both-end paths/lines, no self-links, acyclic\nPASS no-existing-prerequisite links: 9 explicit statuses\nPASS corpus: pinned HEAD, clean worktree\nPASS em dashes: 0\nPASS scope declarations: availability unknown/practice deferred; no content/app/importer/schema changes or later-level work\nIndependent semantic review: pending.\n\nShared checker actual result: completeTopics 3; expectedTopics 25; completeLessons 40; expectedLessons 158; complete [science-biology, science-chemistry, science-physics]; errors []; gateReady false. Exit 0. Other topics pending; scoped chemistry completion is not the combined gate."
+  "selfCheck": "Command: focused Python accounting/hash/evidence/reference/dependency check against the saved appendix, assigned packet, accepted requirement map, inventory and pinned corpus. Actual final output:\n\nPASS assigned IDs: 17 exactly once\nPASS full reads: 17 SHA256/range/path matches\nPASS JSON appendices: 1 valid\nPASS evidence ranges: 375 valid\nPASS requirement refs: 39 valid accepted IDs\nPASS prerequisite edges: 9 existing targets, both-end paths/lines, no self-links, acyclic\nPASS no-existing-prerequisite links: 9 explicit statuses\nPASS corpus: pinned HEAD, clean worktree\nPASS em dashes: 0\nPASS scope declarations: availability unknown/practice deferred; no content/app/importer/schema changes or later-level work\nIndependent semantic review: pending.\n\nShared checker actual result: completeTopics 3; expectedTopics 25; completeLessons 40; expectedLessons 158; complete [science-biology, science-chemistry, science-physics]; errors []; gateReady false. Exit 0. Other topics pending; scoped chemistry completion is not the combined gate.",
+  "correctionHistory": [
+    {
+      "finding": "C1",
+      "date": "2026-10-06",
+      "policyCommit": "e8d5f0f958e38c1648046a93747437687ba08334",
+      "originalPolicyCommit": "cb48097bedf15bec2cfbe4fb3aa7e957753b1727",
+      "corpusCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+      "targetBeforeSha256": "e3c4cda4f8d98ffa9c834ce0956672abf95922cde6ee86bd4c835b1e8dac2245",
+      "disposition": "Strict chemical-reactions edge removed; balancing retained as optional preparation. Mole-concept edge unchanged. Fresh narrow reviewer acceptance pending.",
+      "sourceReads": [
+        {
+          "path": "content/lessons/science/chemistry/stoichiometry.md",
+          "sha256": "bd0c4c00ccae1105da06a54b02a15aaa0eecbf7906a5ea179c6828cd3d7b173a",
+          "readLines": [
+            1,
+            134
+          ]
+        },
+        {
+          "path": "content/lessons/science/chemistry/chemical-reactions.md",
+          "sha256": "c341c6ac97c05c858e10b99c50e5ae2ab090fce440d49849e20e2c4a35d528f7",
+          "readLines": [
+            1,
+            133
+          ]
+        },
+        {
+          "path": "content/lessons/science/chemistry/mole-concept.md",
+          "sha256": "7ced9877db7997594d74ac27a553aad3dcf39e3f06dca7ee4644670485bdee12",
+          "readLines": [
+            1,
+            112
+          ]
+        }
+      ]
+    }
+  ]
 }
 ```

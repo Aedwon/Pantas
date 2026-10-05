@@ -4,7 +4,7 @@ Status: COMPLETE author output for Level 3, October 5, 2026. Fresh independent r
 
 ## Identity, scope and read log
 
-Policy main: cb48097bedf15bec2cfbe4fb3aa7e957753b1727, matched live GitHub main through read-only ls-remote and cached origin/main. Audit startup HEAD: 7d5f2ed6a6d6f30e35d1b3f64467f31e7d122112. Corpus: /Users/aedwon/Documents/Projects/Pantas-wt-content-qa-r2, pinned 765c5dc0fa5586281047bf4f7b30d09ab3707887, confirmed clean before reading. Other agents' dirty audit outputs were preserved. No Git metadata mutation occurred.
+Original author policy main: cb48097bedf15bec2cfbe4fb3aa7e957753b1727, matched live GitHub main through read-only ls-remote and cached origin/main. Audit startup HEAD: 7d5f2ed6a6d6f30e35d1b3f64467f31e7d122112. Corpus: /Users/aedwon/Documents/Projects/Pantas-wt-content-qa-r2, pinned 765c5dc0fa5586281047bf4f7b30d09ab3707887, confirmed clean before reading. Other agents' dirty audit outputs were preserved. No Git metadata mutation occurred.
 
 Read current main AGENTS.md, WORKFLOW.md, SUBAGENTS.md, startup, source policy, checklist and lesson guide; current spec/plan, orchestrator, October 4 and latest Level 3 decisions, illustration decision, the full reader contract, all seven relevant accepted requirement packets, overlap.md and CET/scholarship scope notes. Research-era packet headers do not override later Levels 1/2 acceptance. Inventory and exact packet edges served as leads, never proof of teaching. No new human gate was introduced. DRAFT saved after startup, then incrementally as each lesson read was recorded.
 
@@ -236,7 +236,9 @@ Goal: Solve ideal projectile components and explain how real forces maintain uni
 
 Structure: split-candidate. Projectile calculations use signed kinematics and components; circular-force reasoning needs Newton force identification. The second task is currently qualitative despite formulas. Proposal: Keep projectile motion as kinematics application; make circular motion a force-based application after dynamics. Define angular speed if retaining it. Cost: Move circular core/examples and add one radial-force computation; avoid duplicating component teaching. Rules: B03/L01/L17/L19, structural use only.
 
-Necessary prior knowledge: Constant acceleration/free fall, components, real-force identification.
+Necessary prior knowledge: Constant acceleration/free fall, real-force identification, and sine/cosine ratio meaning and 30-degree values for the angled-launch application. Component axes, launch-angle convention and equations are already local.
+
+Optional preparation: scalars-and-vectors.md:37-43 repeats the locally supplied component convention. Vector addition, resultant reconstruction and quadrant work are useful broader preparation, but this current consumer does not require them. The direct trigonometric foundation covers only the acute-angle ratio/value need; it is not a mathematical-topic coverage verdict.
 
 Missing foundation: Angular speed. The omega-squared radius alternative cannot be understood from the local definitions. Define angular speed locally if this formula is retained. Search: Whole lesson search also found gear-rotations lines 18-26 and 51-63; full read teaches tooth-count ratios, not angular displacement per time, units, or v=omega r. No foundation target verified.
 
@@ -308,7 +310,7 @@ Availability: unknown, corpus-bound runtime not verified. Practice: deferred Lev
 | lesson-physics-scalars-and-vectors | lesson-trigonometry-basic-trigonometric-ratios | across-topics | Component resolution uses sine and cosine without defining those ratios. | content/lessons/science/physics/scalars-and-vectors.md:39-43 | content/lessons/mathematics/trigonometry/basic-trigonometric-ratios.md:12-34 |
 | lesson-physics-thermodynamics | lesson-physics-work-energy-power | within-topic | First-law work accounting assumes the physical meaning of work as energy transfer. | content/lessons/science/physics/thermodynamics.md:32-36 | content/lessons/science/physics/work-energy-power.md:12-18 |
 | lesson-physics-two-dimensional-motion | lesson-physics-kinematics | within-topic | Projectile equations extend constant acceleration/free fall in each signed axis. | content/lessons/science/physics/two-dimensional-motion.md:16-28 | content/lessons/science/physics/kinematics.md:35-59 |
-| lesson-physics-two-dimensional-motion | lesson-physics-scalars-and-vectors | within-topic | Angled launch uses component resolution and angle conventions. | content/lessons/science/physics/two-dimensional-motion.md:30-32 | content/lessons/science/physics/scalars-and-vectors.md:37-43 |
+| lesson-physics-two-dimensional-motion | lesson-trigonometry-basic-trigonometric-ratios | across-topics | Angled-launch evaluation assumes sine/cosine meaning and 30-degree values; the axes and component equations are local. | content/lessons/science/physics/two-dimensional-motion.md:30-32,70-76 | content/lessons/mathematics/trigonometry/basic-trigonometric-ratios.md:12-34,94-116 |
 | lesson-physics-two-dimensional-motion | lesson-physics-dynamics | within-topic | Circular motion distinguishes real forces and their net radial component; dynamics identifies those forces. | content/lessons/science/physics/two-dimensional-motion.md:45-51 | content/lessons/science/physics/dynamics.md:28-56 |
 | lesson-physics-work-energy-power | lesson-physics-kinematics | within-topic | Work uses displacement and kinetic energy uses speed; these quantities must be distinguished from path distance and signed velocity. | content/lessons/science/physics/work-energy-power.md:12-24 | content/lessons/science/physics/kinematics.md:14-26 |
 | lesson-physics-work-energy-power | lesson-trigonometry-basic-trigonometric-ratios | across-topics | Angled-force work uses cosine without defining the projection ratio. | content/lessons/science/physics/work-energy-power.md:14-16 | content/lessons/mathematics/trigonometry/basic-trigonometric-ratios.md:12-34 |
@@ -331,9 +333,9 @@ Access date: October 5, 2026. Branch/base and corpus are recorded above and in e
 | lesson-physics-electricity-and-magnetism | Missing voltage meaning | Line 34 labels V as potential difference without energy-per-charge meaning. | LESSON GAP: physical meaning confirmed, content unchanged | https://openstax.org/books/university-physics-volume-2/pages/7-2-electric-potential-and-potential-difference, Electric Potential Difference | Source defines potential difference as potential-energy change divided by charge. Bare symbol labeling does not develop that idea. |
 | lesson-physics-electricity-and-magnetism | Undefined flux is central to induction | Lines 62-66 use changing magnetic flux and Faraday/Lenz; lines 113-120 repeat that relationship. | CONFIRMED relationship; LESSON GAP in flux foundation, content unchanged | https://openstax.org/books/university-physics-volume-2/pages/13-1-faradays-law, Faraday Law, equations 13.1-13.3 | Source relates induction to changing magnetic field through a surface and its orientation/area. Existing lesson does not develop the flux quantity. No complete fact or answer review claimed. |
 
-## Self-check and remaining limits
+## Historical self-check before P1 correction
 
-Final author self-check executed against the saved output on October 5, 2026. The scoped Python assertions checked assigned IDs, hashes/full ranges, every required field, requirement references, all evidence bounds, both-end prerequisite paths and lines, local graph cycles, pinned corpus cleanliness, and scope markers. Actual output:
+Original author self-check executed against pre-correction SHA256 88d7e88c8b2d0adceeecb0d0a81853573b40163f669dc0c1edc0d41b45885b98 on October 5, 2026. This 14-edge evidence is historical and does not verify the amended edge set. The scoped Python assertions checked assigned IDs, hashes/full ranges, every required field, requirement references, all evidence bounds, both-end prerequisite paths and lines, local graph cycles, pinned corpus cleanliness, and scope markers. Actual output:
 
 ```text
 physics scoped self-check: PASS
@@ -350,6 +352,18 @@ scope: Level 3 only; no content changes; runtime unknown; practice deferred Leve
 
 The shared read-only validator, python3 docs/content/audit/coverage-r1/check_level3_outputs.py, returned exit 0: completeTopics 3, completeLessons 40, errors [], gateReady false. It counted biology, chemistry and physics complete; 22 other topics remained pending. That combined snapshot does not accept physics semantically or authorize Level 4. Fresh independent review and the combined graph/gate remain the lead responsibility. No content/app/importer/schema changes, Git mutations, Google writes, computer control, subagent dispatch, standards pass, blind solves or illustration production occurred. Exact current exam depth, languages, topic exclusivity, candidate coverage beyond the local facet, practice, mastery and runtime access remain unknown or deferred.
 
+## P1 correction, October 6, 2026
+
+Current correction policy: main `e8d5f0f958e38c1648046a93747437687ba08334`, verified against live remote and cached origin/main. Corpus remains clean/pinned at `765c5dc0fa5586281047bf4f7b30d09ab3707887`. Original author full-read hashes, findings and source ledger are preserved. This correction reread full two-dimensional-motion 1-141, scalars-and-vectors 1-130 and basic-trigonometric-ratios 1-194; correctionHistory records current read hashes. Biology, Chemistry and other outputs were not written.
+
+P1 in [topic-samples](../review/topic-samples.md) records the original challenged vector edge and target hash. That review history remains unchanged. The consumer teaches horizontal/upward axes at 16, shared time at 20, launch-angle convention at 30 and component equations at 32; its 70-76 example applies that convention. Scalars-and-vectors 37-43 duplicates the component method, so it is optional preparation rather than a strict prerequisite.
+
+The distinct absent idea is sine/cosine side-ratio meaning and the 30-degree values used at74-76. Basic-trigonometric-ratios 12-34 defines those ratios and values;94-116 works the matching opposite-side calculation. The replacement link points directly to that existing foundation, bounded to this acute-angle application. It does not require the full vector lesson, reciprocal ratios, general quadrants, or a future expanded consumer. Kinematics and dynamics links remain unchanged. Four affected lesson-facet priorKnowledge notes and the projectile facet's local limit now distinguish local component teaching from its mathematical foundation. All other teaching verdicts, exam scope/tags, figures, source claims and links are unchanged.
+
+Current strict edge count remains 14 because one edge was removed and one directly evidenced edge added. Equality with the historical count does not establish identical graph inputs. Fresh narrow P1 review is pending; author checks cannot accept the amended artifact.
+
+P1 verification: pending execution on the amended artifact.
+
 ## Machine-readable appendix
 
 ```json
@@ -358,7 +372,7 @@ The shared read-only validator, python3 docs/content/audit/coverage-r1/check_lev
   "status": "COMPLETE",
   "subject": "science",
   "topic": "physics",
-  "policyCommit": "cb48097bedf15bec2cfbe4fb3aa7e957753b1727",
+  "policyCommit": "e8d5f0f958e38c1648046a93747437687ba08334",
   "corpusCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
   "lessons": [
     {
@@ -3896,7 +3910,9 @@ The shared read-only validator, python3 docs/content/audit/coverage-r1/check_lev
             "dost-sei-L100",
             "dost-sei-L107"
           ],
-          "limitations": []
+          "limitations": [
+            "Launch axes and component equations are local. Sine/cosine meaning and 30-degree values are assumed, supplied by the direct trigonometric-ratios foundation. The wider vector lesson is optional preparation; this acute-angle link does not require full vector addition or quadrant reconstruction."
+          ]
         },
         {
           "name": "Circular acceleration and radial force",
@@ -4039,9 +4055,9 @@ The shared read-only validator, python3 docs/content/audit/coverage-r1/check_lev
           ]
         },
         {
-          "lessonId": "lesson-physics-scalars-and-vectors",
-          "reason": "Angled launch uses component resolution and angle conventions.",
-          "scope": "within-topic",
+          "lessonId": "lesson-trigonometry-basic-trigonometric-ratios",
+          "reason": "The angled-launch example evaluates sine/cosine of 30 degrees without defining those ratios or supplying their values. Basic trigonometric ratios teaches side-ratio meaning and the required special-angle values; the launch axes and component equations are already taught locally.",
+          "scope": "across-topics",
           "consumerEvidence": [
             {
               "path": "content/lessons/science/physics/two-dimensional-motion.md",
@@ -4049,17 +4065,33 @@ The shared read-only validator, python3 docs/content/audit/coverage-r1/check_lev
                 30,
                 32
               ],
-              "note": "Consumer uses this foundation without developing it."
+              "note": "Locally supplied component equations consume undefined sine/cosine functions."
+            },
+            {
+              "path": "content/lessons/science/physics/two-dimensional-motion.md",
+              "lines": [
+                70,
+                76
+              ],
+              "note": "Worked 30-degree launch uses unsupplied sine/cosine values to calculate components."
             }
           ],
           "foundationEvidence": [
             {
-              "path": "content/lessons/science/physics/scalars-and-vectors.md",
+              "path": "content/lessons/mathematics/trigonometry/basic-trigonometric-ratios.md",
               "lines": [
-                37,
-                43
+                12,
+                34
               ],
-              "note": "Foundation explains the quantity or method used."
+              "note": "Defines side-relative sine/cosine ratios and gives30-degree values."
+            },
+            {
+              "path": "content/lessons/mathematics/trigonometry/basic-trigonometric-ratios.md",
+              "lines": [
+                94,
+                116
+              ],
+              "note": "Applies the 30-degree sine ratio to obtain a component-like opposite side from a hypotenuse."
             }
           ]
         },
@@ -7125,8 +7157,10 @@ The shared read-only validator, python3 docs/content/audit/coverage-r1/check_lev
           "note": "Worked application evidence; solving or explanatory steps shown"
         }
       ],
-      "missingIdeas": [],
-      "priorKnowledge": "Constant acceleration/free fall, components, real-force identification.",
+      "missingIdeas": [
+        "Launch axes and component equations are local. Sine/cosine meaning and 30-degree values are assumed, supplied by the direct trigonometric-ratios foundation. The wider vector lesson is optional preparation; this acute-angle link does not require full vector addition or quadrant reconstruction."
+      ],
+      "priorKnowledge": "Constant acceleration/free fall and real-force identification remain supported lesson prerequisites. Angled-launch sine/cosine meaning and 30-degree values require direct basic-trigonometric-ratios teaching; axes and launch-component equations are local. The vector lesson is optional preparation, not a strict prerequisite. The direct trigonometric foundation applies to the angled-launch facet only.",
       "workedExamples": "worked",
       "scopeLimit": "Only this local skill, not the entire compound requirement or a current detailed exam blueprint. Practice deferred Level5; runtime unknown."
     },
@@ -7165,7 +7199,7 @@ The shared read-only validator, python3 docs/content/audit/coverage-r1/check_lev
       "missingIdeas": [
         "The distinct application needs a worked demonstration where solving is required."
       ],
-      "priorKnowledge": "Constant acceleration/free fall, components, real-force identification.",
+      "priorKnowledge": "Constant acceleration/free fall and real-force identification remain supported lesson prerequisites. Angled-launch sine/cosine meaning and 30-degree values require direct basic-trigonometric-ratios teaching; axes and launch-component equations are local. The vector lesson is optional preparation, not a strict prerequisite. The direct trigonometric foundation applies to the angled-launch facet only.",
       "workedExamples": "thin",
       "scopeLimit": "Only this local skill, not the entire compound requirement or a current detailed exam blueprint. Practice deferred Level5; runtime unknown."
     },
@@ -7197,7 +7231,7 @@ The shared read-only validator, python3 docs/content/audit/coverage-r1/check_lev
         "Angular speed needs local development before full facet teaching can be claimed.",
         "The distinct application needs a worked demonstration where solving is required."
       ],
-      "priorKnowledge": "Constant acceleration/free fall, components, real-force identification.",
+      "priorKnowledge": "Constant acceleration/free fall and real-force identification remain supported lesson prerequisites. Angled-launch sine/cosine meaning and 30-degree values require direct basic-trigonometric-ratios teaching; axes and launch-component equations are local. The vector lesson is optional preparation, not a strict prerequisite. The direct trigonometric foundation applies to the angled-launch facet only.",
       "workedExamples": "none",
       "scopeLimit": "Only this local skill, not the entire compound requirement or a current detailed exam blueprint. Authored extension, exact required depth unknown. Practice deferred Level5; runtime unknown."
     },
@@ -7225,7 +7259,7 @@ The shared read-only validator, python3 docs/content/audit/coverage-r1/check_lev
       "missingIdeas": [
         "Rotational motion needs local development before full facet teaching can be claimed."
       ],
-      "priorKnowledge": "Constant acceleration/free fall, components, real-force identification.",
+      "priorKnowledge": "Constant acceleration/free fall and real-force identification remain supported lesson prerequisites. Angled-launch sine/cosine meaning and 30-degree values require direct basic-trigonometric-ratios teaching; axes and launch-component equations are local. The vector lesson is optional preparation, not a strict prerequisite. The direct trigonometric foundation applies to the angled-launch facet only.",
       "workedExamples": "none",
       "scopeLimit": "Only this local skill, not the entire compound requirement or a current detailed exam blueprint. Practice deferred Level5; runtime unknown."
     },
@@ -9009,6 +9043,43 @@ The shared read-only validator, python3 docs/content/audit/coverage-r1/check_lev
       "Verification note": "Source relates induction to changing magnetic field through a surface and its orientation/area. Existing lesson does not develop the flux quantity. No complete fact or answer review claimed.",
       "accessDate": "2026-10-05",
       "branch/base": "docs/content-coverage-audit-r1 / 7d5f2ed6a6d6f30e35d1b3f64467f31e7d122112; corpus 765c5dc0fa5586281047bf4f7b30d09ab3707887"
+    }
+  ],
+  "correctionHistory": [
+    {
+      "finding": "P1",
+      "date": "2026-10-06",
+      "policyCommit": "e8d5f0f958e38c1648046a93747437687ba08334",
+      "originalPolicyCommit": "cb48097bedf15bec2cfbe4fb3aa7e957753b1727",
+      "corpusCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+      "targetBeforeSha256": "88d7e88c8b2d0adceeecb0d0a81853573b40163f669dc0c1edc0d41b45885b98",
+      "disposition": "Duplicate vector prerequisite removed; direct acute-angle sine/cosine foundation substituted with both-end evidence. Kinematics/dynamics links unchanged. Fresh narrow review pending.",
+      "sourceReads": [
+        {
+          "path": "content/lessons/science/physics/two-dimensional-motion.md",
+          "sha256": "de82fab38cfee42169aa60c0c2358f845b2e3c654c1418b75bd875c3413115df",
+          "readLines": [
+            1,
+            141
+          ]
+        },
+        {
+          "path": "content/lessons/science/physics/scalars-and-vectors.md",
+          "sha256": "a60360ce8730c373c2a4b566ab69b6442a29a66af2b464f1e0a8220e923a9ac0",
+          "readLines": [
+            1,
+            130
+          ]
+        },
+        {
+          "path": "content/lessons/mathematics/trigonometry/basic-trigonometric-ratios.md",
+          "sha256": "536c2fcee4e48cc0b7c690b3b2bba2e1c29b2b9dfeaf40b7de32be188ee25ab3",
+          "readLines": [
+            1,
+            194
+          ]
+        }
+      ]
     }
   ]
 }
