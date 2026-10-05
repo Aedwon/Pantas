@@ -1,73 +1,70 @@
 # Engineering restart strategy (plan of plans)
 
-Date: October 5, 2026. Status: draft for Aedwon's review. Nothing in this document is approved
-or started. Policy revision read: `origin/main` at 23c48fea (AGENTS.md, WORKFLOW.md, SUBAGENTS.md).
+Date: October 5, 2026, rewritten top-down the same day. Status: awaiting Aedwon's approval of
+Part A. Policy revision read: `origin/main` at ac4b30da (AGENTS.md, WORKFLOW.md, SUBAGENTS.md).
+Decision record: `docs/superpowers/decisions/2026-10-05-engineering-restart-log.md`.
 
-This document does not plan the code. It plans **how the code plans get made**: what must be
-cleaned up first, which decisions Aedwon owns before planning, which plans to write and in what
-order, and which model does which layer of work. Each workstream below becomes its own spec (if
-needed) and plan under the normal `WORKFLOW.md` process.
+This is level 1 of four. It defines every workstream, the order of planning, the rules shared
+by all plans, and the gates between levels. It contains no implementation detail.
 
 ---
 
 ## Part A. Plain-language summary for approval
 
-### Where things stand
+### Why top-down
 
-- The current engineering candidate is the roadmap branch. It already contains the beta
-  integration line, every E04 to E09 repair line, and the security verification line. Main is
-  ahead of it only by policy documents. So the roadmap branch is the natural base for the restart.
-- Application code is still paused. On September 30 Aedwon lifted the stop for the roadmap build
-  only: "All other engineering stays paused." Starting new design work needs that pause lifted.
-- The release checkpoint verdict is still "NO-GO for Internal-beta acceptance." Phone checks wait
-  until the new UI is connected (Aedwon, October 1).
-- The new design handoff (286 boards, tokens, motion) is committed on local main but not
-  pushed. It redesigns every student-facing screen. The app has a theme layer that can be swapped,
-  but its colors, font and most shared components follow the retired Ink and Rule look.
-- Two fixes are already required before internal beta and are not started: the subscription
-  cancellation bug (Pro is removed on cancel instead of on expiry) and the short public ID for
-  giveaways, which ships with the new Settings screen.
-- The content question review (question-qa-r2) changed app code as well as content (about 475
-  non-document files). It is not in the roadmap branch. Joining the two needs a deliberate merge.
-- The repository has about 30 worktrees, about 50 unmerged branches and 3 old stashes. Most are
-  leftovers from earlier rounds that the roadmap branch already contains.
+Past rounds wrote one overall plan, then planned and built one piece at a time. Each piece made
+local choices, and the pieces drifted apart. This restart finishes each planning level for
+**every** workstream before anyone starts the next level. No code is written until all planning
+is finished and cross-checked.
 
-### What gets set up first (needs Aedwon's approval where marked)
+### The four levels
 
-1. Save and push the new design handoff and the three uncommitted documents on main. **Approval:**
-   these were written in other sessions; confirm they are final.
-2. Record the missing items in the SSOT: the new design handoff, the October 5 illustration
-   decision, the content coverage audit, and the current pause state.
-3. Clean up branches and worktrees whose work is already inside the roadmap branch or main.
-   **Approval:** deletion. Unmerged or uncommitted work is listed for a decision, never removed.
-4. Run the full checks once on the roadmap branch to get a trusted starting point.
+1. **Plan of plans (this document).** Workstreams, order, shared rules, gates.
+2. **Workstream plans.** For each workstream: scope, the design boards it covers, acceptance
+   checks, and the contracts other workstreams rely on (design values, shared component
+   interfaces, screen routes, data). Fixed contracts are what prevent drift.
+3. **Implementation plans.** For each workstream: tasks in order, files, tests, and checks.
+4. **Implementation.** Workers build exactly what level 3 says.
 
-### Decisions Aedwon owns before any code plan
+### Rules that hold every level together
 
-1. **Lift the pause** for new design work, the two pre-beta fixes, and the merge of the content
-   review code. Recommended: lift it for exactly those.
-2. **Base branch.** Recommended: start a new integration branch from the roadmap branch.
-3. **Complexity level** for the whole restart. Recommended: balanced (details in Part B, B3).
-4. **Open handoff items** (Part B, B4): about eight behavior questions the handoff raises, such as
-   Free mock review limits and the Pro History screen. Each needs a yes or a short answer.
-5. **Screens with no board** (legal viewer, subscription management, dark mode outside the main
-   screens). Choose: design them in Claude Design, or let the lead apply the Settings rules and
-   show them in the visual companion.
+- **Level gates.** A level is complete for all workstreams before the next level starts. A
+  review then checks every document at that level against the others and against the level
+  above. Problems are fixed before moving down.
+- **One traceability table.** Every design board, every decision, and every gap-pass answer maps
+  to exactly one task. Nothing is unassigned and nothing is built twice. The gate reviews check
+  this table.
+- **Changes go up first.** If a lower level needs something different, work on it stops. The
+  higher level is amended, recorded, and reviewed, and the change flows down to every affected
+  document. Changes to approved behavior come back to Aedwon.
+- **The design is authoritative.** Changes the design made to older screens are built as drawn
+  and listed for Aedwon's information. Things the design left out are listed for his
+  keep-or-discard decision. He decides only on missing things.
 
-### How the work is split
+### The sequence, and where Aedwon is needed
 
-- The lead model holds decisions, specs, plan review, merging, and final checks.
-- Cheaper Sonnet workers do inventory, mapping, mechanical edits, and first drafts of tests.
-- An independent reviewer checks each finished workstream, as `SUBAGENTS.md` requires.
-- The content audit and illustration work continue on their own track. Code work only needs to
-  keep the content format stable, and the plans say so.
+| Stage | What happens | Aedwon's part |
+|---|---|---|
+| 0. Inputs | Gap pass on every screen; triage of kept branches and stashes; spec update for behavior changes; traceability table started | Decide missing items and kept work; approve the spec update |
+| 1. Level 2 | All workstream plans written, then the level 2 gate review | None, unless the review finds a product question |
+| 2. Level 3 | All implementation plans written, then the level 3 gate review | None, unless the review finds a product question |
+| 3. Level 4 | Implementation in the planned order, with independent review | Visual checking from his own screenshots; phone checks |
 
-### Expected effort
+Decisions already made (pause lifted for the listed items, roadmap branch as the base, balanced
+complexity, all handoff answers, date format) are in the decision record and are not reopened.
 
-- Setup and decisions: one to two sessions, mostly Sonnet, plus Aedwon's answers.
-- Writing all workstream plans: two to three sessions of the lead model.
-- Implementation: large. Roughly 25 route families and 15 to 20 shared components. A real
-  estimate comes with each plan, not here.
+### Effort and usage
+
+- Stage 0: mostly Sonnet, plus Aedwon's answers. About one session.
+- Levels 2 and 3: the lead model writes the contracts and reviews; Sonnet drafts the screen
+  plans. About three to four sessions, after the weekly limit resets.
+- Implementation size: about 25 screen families and 15 to 20 shared components. A real estimate
+  comes out of level 3.
+
+### What needs approval now
+
+This document's approach. After approval, stage 0 starts.
 
 ---
 
@@ -75,133 +72,137 @@ needed) and plan under the normal `WORKFLOW.md` process.
 
 ### B1. Verified state (October 5, 2026)
 
-| Line | SHA | Notes |
-|---|---|---|
-| origin/main | 23c48fea | Policy and docs only beyond b642e2d1 (non-doc diff vs roadmap: AGENTS.md, WORKFLOW.md, SUBAGENTS.md and 3 other policy files). |
-| local main | 58667f2a | +1 unpushed: new design handoff (commit subject uses the old name "Clarity") (754 files, +40,611). Dirty: question-explanations log (+668, append only); untracked: `docs/design/pipelines-handoff.md`, `decisions/2026-10-05-illustration-production-log.md`, `specs/2026-10-03-exam-content-coverage-audit-design.md`. |
-| origin/web/roadmap-engine-r1 | 1f79d880 | Contains beta/integration-r1, e09-qlp5-prepared-next-r1, e09-security-performance-verification-r1, e04-content-protection-r1. Last recorded suite 3,403/3,403 (SSOT, Oct 1). Missing main's 84 policy and doc commits. |
-| origin/beta/integration-r1 | 0f69e79c | Ancestor of the roadmap branch. Not an ancestor of main. |
-| origin/content/question-qa-r2 | 765c5dc0 | Not in roadmap (214 commits). Non-doc diff: 475 files, about 16% under `lib/features`, plus tests and content. Subject branches -math, -other, -science feed it. |
-| docs/content-coverage-audit-r1 | e51dbf98 | Dirty: spec modified (may differ from the untracked copy on main), one untracked profile doc. Owned by the audit track. |
+| Item | State |
+|---|---|
+| Integration branch | `integration/new-design-r1` at 1f79d880, created from `origin/web/roadmap-engine-r1`, pushed. Baseline: analyze 1 info (deprecated `onReorder`, bookmarks sheet), format, layering and attribution clean, 3,403 of 3,403 tests pass. Seed assets copied from the roadmap worktree (gitignored). Details in the decision record. |
+| Roadmap branch | Contains beta/integration-r1, every E04 to E09 line, security verification. |
+| main | Policy and documents only beyond b642e2d1. Design handoff at 58667f2a (286 boards, `docs/design/`). |
+| content/question-qa-r2 | 765c5dc0. Not in the integration branch. About 475 non-document files changed, about 16% under `lib/features`. Merged in W0. |
+| Content coverage audit | Running on `docs/content-coverage-audit-r1`. Separate track. |
+| Kept after cleanup | 9 dirty worktrees, about 30 branches with uncontained commits, 3 stashes. Triaged in stage 0. |
+| SSOT | Google Doc tab "Pantas Production Readiness Assessment". The 5 Oct entry says the baseline is running. It needs a one-line update. |
 
-SSOT: Google Doc `1LzdBQjPmRYXV1LSrLnK7F6_eadQi7cb1fj8mg7yuZg4`, tab "Pantas Production
-Readiness Assessment". Doc comments could not be read through the connector; treat as unknown.
+### B2. Workstreams (level 1 definition)
 
-### B2. Phase 0: housekeeping (Sonnet, medium; lead approves)
+Each workstream gets one level 2 plan and one level 3 plan. "Owns" means that workstream's level
+2 plan fixes the contract; others consume it and may not change it.
 
-Run in this order. Each step is a separate, small dispatch.
+| ID | Workstream | Depends on | Owns (contracts) |
+|---|---|---|---|
+| W0 | Integration: merge question-qa-r2 code and content into the integration branch; regenerate; full checks | Stage 0 | Content and question file formats as built; data layer as merged |
+| W1 | Design foundation: color and type values for light and dark, Geist and Source Serif 4 fonts, icon set, motion primitives from `MOTION.md`, app shell with the pill tab bar (Home, Study, Quiz, Settings), date formatting, visual rules section for AGENTS.md | W0 | Theme value names, font roles, icon names, motion API, shell routes, date format helpers |
+| W2 | Shared components (15 to 20): grouped rows, cards, gauge, floating bar, week strip, notice strip, wheels, question grid, buttons, Pro lock pattern, placeholder marking. Replaces Ink-named components and the 9 bottom-sheet call sites | W1 | Component interfaces and states |
+| W3 | Pre-beta fixes: subscription cancellation keeps Pro until expiry; short public ID for giveaways | W0 | Entitlement state rules; public ID format and API |
+| W4a to W4h | Screen families: (a) onboarding; (b) Home with Your plan, History, weeks, Your performance, Your record, Your tendencies; (c) Study map, reader, bookmarks; (d) Quiz tab, customize, question screens; (e) Mock, including review gating; (f) Settings, Pro pages, subscription, legal; (g) Wrapped and sharing; (h) loading, errors, offline, update required. Includes retiring the old Progress routes | W1, W2; (f) also W3; (b) uses the roadmap engine | Routes per family; nothing shared |
+| W5 | Release checks: E09 phone checks #22 to #28 and Redmi smoke, E10 to E14, A01, A02, A03, A04, A07, updated for the new screens | W4 complete, W3 | Release evidence format |
 
-1. **Main documents.** After Aedwon confirms: commit the three untracked documents and the log
-   change on main, then push main (docs-only, allowed under the workflow rollout exception). Reconcile
-   the two copies of the coverage audit spec first; the audit worktree's copy is the newer edit.
-2. **SSOT update.** Append a checkpoint entry: new design handoff (commit, board count, precedence
-   rules), October 5 illustration decision, coverage audit approval state, pause state, and this
-   strategy. Record the same in a repository decision log.
-3. **Cleanup inventory, then cleanup.** A worker produces a list; the lead verifies each row with
-   `git merge-base --is-ancestor <branch> origin/web/roadmap-engine-r1` (or main) and a clean
-   status before proposing removal. Aedwon approves the deletion list once.
-   - Removal candidates: worktrees and branches fully contained in the roadmap branch or main and
-     clean (for example the e04, e09 and beta-integration worktrees, `web/pantas-rc-be-repair-r1`,
-     the 57 local branches already in main, local `-verify` branches whose SHA equals an origin
-     branch).
-   - Needs Aedwon's decision, never auto-removed: dirty worktrees (`beta-final-verification-r1`
-     with 38 modified lib files, `e04-content-protection-r1` with 23, detached `qlp5-physical-r1`
-     with 22, release-e2e worktrees with untracked tests, `wt-m7`), local-only branches with
-     unique commits (`mock-resume-correctness-r1`, `e09-product-defects-repair-r1/-r2`,
-     `lesson-illus-w5a/-w5b/-w5verify`), `track-a-salvage`, `wt-m8`, and the three stashes.
-   - Untouched: the content QA and coverage audit worktrees (active content track).
-4. **Baseline check.** On a fresh worktree of the roadmap branch: regenerate code
-   (`build_runner`), then the five `SUBAGENTS.md` Part 5 checks. Record exact output. This is the
-   trusted starting point; do not reuse the October 1 result.
+Fixes that release checks find are new work items. Each one enters at the level its change
+requires and flows down.
 
-### B3. Complexity options (Aedwon chooses)
+Content track (not in this program): coverage audit, question QA content, illustration
+production. W0 fixes the content file formats; no workstream changes them without telling that
+track.
 
-- **Minimal:** token and font swap, rebuild shared components, restyle existing screens to the
-  boards. Skips motion except what a screen cannot work without, and skips handoff behavior
-  changes. Fails the 1:1 rule for motion, so it is not suitable to keep. Not recommended.
-- **Balanced (recommended):** every board implemented 1:1 including drawn motion; behavior
-  changes from the handoff go through short spec amendments; the two pre-beta fixes; focused
-  tests per screen plus golden or widget checks for shared components; no new infrastructure.
-- **Hardened:** balanced plus visual regression tests against board stills, full dark mode on
-  every screen, accessibility audit per screen, and performance budgets. Adds an estimated 30 to
-  50 percent. Better done after beta feedback.
+### B3. Stage 0: inputs before level 2
 
-### B4. Handoff questions that need Aedwon (collect in one sitting)
+1. **Gap pass (Sonnet, one dispatch per screen family, parallel).** For each family, compare the
+   current app (integration branch) and pre-October specs against the boards in `SCREENS.md`
+   and `DECISIONS.md`. Output two lists per family:
+   - Changed by the design: old behavior, new behavior, board id. For Aedwon's information.
+   - Missing from the design: old feature, control, or state with no board. For his decision.
+   The lead merges the lists into one document and removes duplicates. Aedwon decides.
+2. **Kept work triage (Sonnet).** For each kept worktree, branch, and stash: what the unique work
+   is, whether the integration branch already does the same thing another way, and a keep or
+   discard recommendation. Aedwon decides. Nothing is deleted without his decision.
+3. **Spec update (lead).** One amendment spec in `docs/superpowers/specs/` covering the behavior
+   changes: mock review gating, Pro History, Wrapped moments, Progress retired into Home, date
+   format, CSE and ACET placeholders, and the missing-item decisions from step 1. Plain-language
+   section for Aedwon's approval, agent section below it.
+4. **Traceability table (Sonnet, lead reviews).** `docs/superpowers/plans/new-design/traceability.md`.
+   One row per board, per decision in the restart log and handoff `DECISIONS.md`, and per gap
+   answer. Columns: item, source, workstream, level 2 section, level 3 task (filled later),
+   status.
+5. **Execution arrangement (lead).** Read
+   `docs/superpowers/decisions/2026-09-25-chatgpt-web-relay-routing.md` and record how level 4
+   work will be dispatched. The Google worker service is canceled; do not use it.
+6. **SSOT.** Update the 5 Oct entry with the baseline result.
 
-From the handoff review. Each becomes a spec amendment line or a "use as drawn" note.
+Stage 0 exit: Aedwon has answered steps 1 and 2 and approved step 3; the traceability table lists
+every input item with a workstream.
 
-1. Mock results gating: Free keeps full review until the next mock opens, then score and
-   breakdown only; Pro reopens any time; notes on misses are Pro only. New behavior; confirm.
-2. Pro History screen vs the October 1 decision to keep the change log on the device with no
-   screen. Pro reinstall loses history until sync exists. Confirm scope.
-3. Wrapped triggers: handoff adds "topic turning weak to strong" and differs from the coded
-   streak list. Confirm the new list. Pro Wrapped history placement is still open in the handoff.
-4. Bottom sheets: README says none; DECISIONS still shows a few. Proposed rule: only where a
-   board shows one.
-5. Navigation: Progress merges into Home and Settings becomes a tab. Confirm the old Progress
-   routes are retired.
-6. Date format is marked "proposed 4 Oct". Confirm.
-7. CSE per-subject counts and ACET aptitude time have no published source. Under the never-invent
-   rule they cannot ship as figures. Confirm they are hidden until sourced.
-8. Screens without boards (see Part A, decision 5) and the deferred guided first-run demo.
+### B4. Level 2: workstream plans
 
-### B4a. Answers (October 5)
+Location: `docs/superpowers/plans/new-design/L2-<id>-<name>.md`.
 
-Recorded in `decisions/2026-10-05-engineering-restart-log.md`. Every W4 screen plan starts with a
-**gap pass**: compare the old app and specs against the boards. Design changes are built as drawn
-and listed for Aedwon's information. Missing items are listed for his keep-or-discard decision
-before that part is built. CSE and ACET placeholder figures are marked `PLACEHOLDER` and block
-release until replaced. Wrapped drops the weak-to-strong moment.
+Writing order within the level, so each plan reads contracts that already exist:
+W0, then W1 and W3, then W2, then W4a to W4h (parallel drafts), then W5.
 
-### B5. Workstreams and plan order
+Every level 2 plan has these sections:
+- Purpose and scope, including what is out of scope.
+- Inputs: spec sections, boards by id, decisions, gap answers (by traceability row).
+- Contracts owned: exact names, interfaces, states. Contracts consumed: by reference only.
+- Behavior, including Free and Pro rules and placeholder figures.
+- Motion entries from `MOTION.md` and the 1:1 rule.
+- Acceptance: how completion is judged, automated checks, and Aedwon's visual check.
+- Risks and stop conditions (schema version mismatch, board contradicts spec, figure without a
+  source, missing contract).
+- Files and directories the workstream may touch.
 
-Each row is one plan in `docs/superpowers/plans/`. Write plans in this order; later plans may
-be drafted in parallel once their dependencies' interfaces are fixed.
+Drafters: the lead writes W0, W1, W2 contracts, W3, and W5. Sonnet drafts W4a to W4h from the
+template; the lead completes their behavior and acceptance sections.
 
-| # | Workstream | Depends on | Spec work | Plan drafter | Execution |
-|---|---|---|---|---|---|
-| W0 | Integration branch: new branch from roadmap; bring main's policy docs (read-only, policy comes from main anyway); decide and merge question-qa-r2 code | Phase 0 | None, unless the QA merge changes behavior | Lead | Lead (conflicts, schema regen) |
-| W1 | New design foundation: tokens (light, dark), Geist and Source Serif 4 fonts, icon set, motion primitives (about 11 effects, curve table), app shell with pill tab bar | W0 | Visual rules section for AGENTS.md derived from the handoff | Lead | Sonnet workers per component, lead reviews |
-| W2 | Shared components (15 to 20): grouped rows, cards, gauge, floating bar, week strip, notice strip, wheels, question grid, buttons; replace Ink-named components and the 9 bottom-sheet call sites | W1 | None | Sonnet drafts, lead reviews | Sonnet workers in parallel, one worktree each |
-| W3 | Pre-beta backend fixes: cancellation keeps Pro until expiry (balanced), short public ID (hardened, ships with Settings) | W0 | Exists in giveaways log; check it is a full spec | Lead | Lead or one Sonnet worker plus independent review (payments are high risk) |
-| W4 | Screens, one plan per route family: onboarding; Home with roadmap (day, plan, weeks, history, performance, record, tendencies); Study (map, reader, bookmarks); Quiz (tab, customize, question); Mock (about 36 boards, gating); Settings and Pro pages; Wrapped and sharing; loading, errors, update-required | W2, B4 answers; Settings also W3 | Amendments from B4 | Sonnet drafts board-to-widget mapping; lead writes behavior and acceptance | Sonnet workers per family; lead integrates |
-| W5 | Release resume: E09 phone checks #22 to #28 and Redmi smoke (Aedwon on device), then E10 to E14 and A01, A02, A03, A04, A07 | W4 connected, W3 done | Existing release contract | Lead | Aedwon on device; lead records |
+**Level 2 gate review.** An independent reviewer (not an author) checks all level 2 plans
+together:
+- Every traceability row has exactly one owning workstream and section.
+- No two workstreams own the same contract or touch the same files without a stated order.
+- Every consumed contract exists in its owner's plan with the same names.
+- Plans agree with the spec, the handoff, and the decision record.
+- Nothing in a plan is a product decision that Aedwon has not made.
+The lead fixes findings, then records the gate as passed in the decision record.
 
-Parallel, not in this program: content coverage audit, question QA content, illustration
-production (code-generated figures per the October 5 log). Code plans must not change the
-question or lesson file formats without telling that track.
+### B5. Level 3: implementation plans
 
-### B6. Model layering
+Location: `docs/superpowers/plans/new-design/L3-<id>-<name>.md`. Written only after the level 2
+gate passes.
 
-- **Lead (Opus):** Part A decisions with Aedwon, spec amendments, W0 and W3 plans, review of every
-  drafted plan against spec and handoff, merges, final combined checks, SSOT and decision log
-  updates. Never delegated: product decisions, payments logic review, schema bumps.
-- **Planner drafts (Sonnet, high or medium):** W2 and W4 plan drafts from a fixed template
-  (scope, boards covered, routes, components used, behavior, Free and Pro rules, tests, checks,
-  stop conditions). The lead reviews before execution.
-- **Grunt work (Sonnet, medium):** inventories, board-to-route matrices, keyframe extraction
-  with `docs/design/tools/timeline.py`, token tables to Dart, mechanical renames, test scaffolds,
-  doc and SSOT drafts. Each dispatch is bounded with assigned files and a check command.
-- **Independent review:** a different agent than the author, per `SUBAGENTS.md`, for every
-  workstream before integration.
+Each level 3 plan follows `WORKFLOW.md` "Plan detail and simplicity" and `SUBAGENTS.md`: tasks
+in order, files per task, the failing test to write first, focused checks per task, full checks
+at the end, base SHA, and stop conditions. Every task cites its traceability rows.
+
+**Level 3 gate review.** An independent reviewer checks all level 3 plans together:
+- The traceability table has a task for every row.
+- Task file lists across all plans: overlapping files have a stated order.
+- A parallel execution map: which plans can run at once, in separate worktrees.
+- Each task's checks are concrete commands with expected results.
+- Each level 3 plan agrees with its level 2 plan.
+The lead fixes findings, records the gate, and updates the SSOT.
+
+### B6. Level 4: implementation
+
+- Order: W0; then W1 and W3 in parallel; then W2; then W4 families per the parallel map; then W5.
+- One plan per worker, one worktree per worker, per `SUBAGENTS.md`. Workers never merge.
+- The lead integrates into `integration/new-design-r1`, runs the combined checks, and updates the
+  traceability table and SSOT as each workstream completes.
+- Independent review for every workstream before integration.
+- Aedwon does visual checking from his own screenshots. No autonomous screenshot capture.
+
+**Change control.** A worker that finds the plan wrong, incomplete, or in conflict stops that
+task and reports. The lead decides the level the change belongs to, amends that level first,
+records it in the decision record, re-runs that level's consistency check for the affected
+documents, and updates every lower document affected. Behavior changes return to Aedwon.
+
+### B7. Model layering
+
+- **Lead (Opus):** spec update, contracts, W0, W1, W3, W5 plans, completing W4 plans, gate fixes,
+  integration, final checks, decision record, SSOT. Never delegated: product decisions, payments
+  logic review, schema bumps.
+- **Sonnet, medium:** gap pass, kept-work triage, traceability table, W4 first drafts, keyframe
+  extraction with `docs/design/tools/timeline.py`, mechanical edits, test scaffolds.
+- **Independent reviewers:** gate reviews and per-workstream code review, never the author.
 - Every dispatch carries the startup instruction from `docs/workflow/startup.md` and the policy
-  revision. Read `docs/superpowers/decisions/2026-09-25-chatgpt-web-relay-routing.md` before the
-  first execution dispatch; it sets the current execution arrangement and may route some work
-  elsewhere. The Google worker service is canceled; do not use it.
+  revision.
 
-### B7. Usage budget
+### B8. Usage budget
 
-Weekly limits are near. Order the work so the expensive model is used where judgment matters:
-
-1. Now (cheap): Phase 0 inventory, SSOT draft, board-to-route matrix, motion keyframe tables.
-   All Sonnet, all read-only or doc-only.
-2. After Aedwon's answers: lead writes W0, W1 and W3 plans and the spec amendments.
-3. After the reset: Sonnet drafts W2 and W4 plans in parallel; lead reviews; execution begins.
-
-### B8. Plan template for each workstream
-
-Every plan names: controlling spec and handoff boards (by board id), base SHA, file table,
-dependencies on other workstreams, Free and Pro rules, motion entries from `MOTION.md`,
-the 1:1 acceptance rule (Aedwon does visual checking from his own screenshots; no autonomous
-screenshot capture), focused checks per task, full checks at the end, and stop conditions
-(schema version mismatch, board contradicts a spec, figure without a source).
+The weekly limit resets Saturday 2 PM. Stage 0 steps 1, 2, 4, and 6 are Sonnet work and can run
+before the reset if Aedwon wants. Steps 3 and 5 and all of levels 2 and 3 use the lead model.
