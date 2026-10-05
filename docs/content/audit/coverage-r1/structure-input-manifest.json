@@ -1,7 +1,7 @@
 {
   "level": 3,
   "status": "INPUT FROZEN; readers pending",
-  "policyCommit": "e8d5f0f958e38c1648046a93747437687ba08334",
+  "policyCommit": "6d0bb7318ad396abe62c6c59b6d437f758ed65c4",
   "corpusCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
   "auditCheckpoint": "7d5f2ed6a6d6f30e35d1b3f64467f31e7d122112",
   "specSha256": "999654d8261ef2edc25a1c62512f3663570443c49eddba5613380e2e9724cc3c",
@@ -1068,7 +1068,8 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-algebra.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-algebra.json",
       "output": "docs/content/audit/coverage-r1/topics/mathematics-algebra-lessons.md",
-      "state": "NOT_STARTED"
+      "state": "RUNNING",
+      "agent": "l3_chemistry"
     },
     {
       "key": "mathematics-arithmetic-number-sense",
@@ -1086,9 +1087,10 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-arithmetic-number-sense.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-arithmetic-number-sense.json",
       "output": "docs/content/audit/coverage-r1/topics/mathematics-arithmetic-number-sense-lessons.md",
-      "state": "AUTHOR_COMPLETE_REVIEW_PENDING",
+      "state": "SAMPLE_PASS_INTEGRATION_PENDING",
       "agent": "l3_physics",
-      "outputSha256": "7cdf0dd2e7f051114addf1b05ce44fd3b7c1687b185c275e0773c412489b01a0"
+      "outputSha256": "7cdf0dd2e7f051114addf1b05ce44fd3b7c1687b185c275e0773c412489b01a0",
+      "reviewedOutputSha256": "7cdf0dd2e7f051114addf1b05ce44fd3b7c1687b185c275e0773c412489b01a0"
     },
     {
       "key": "mathematics-data-interpretation",
@@ -1116,7 +1118,9 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-geometry.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-geometry.json",
       "output": "docs/content/audit/coverage-r1/topics/mathematics-geometry-lessons.md",
-      "state": "NOT_STARTED"
+      "state": "AUTHOR_COMPLETE_REVIEW_PENDING",
+      "agent": "l3_biology",
+      "outputSha256": "fc505bfa79c46273cece5392ca8ad80306b97641d1b240eb8a0067542ed48e8c"
     },
     {
       "key": "mathematics-precalculus-basic-calculus",
@@ -1159,7 +1163,8 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-trigonometry.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-trigonometry.json",
       "output": "docs/content/audit/coverage-r1/topics/mathematics-trigonometry-lessons.md",
-      "state": "NOT_STARTED"
+      "state": "RUNNING",
+      "agent": "l3_physics"
     },
     {
       "key": "reading-comprehension-comprehension-skills",
@@ -1272,7 +1277,8 @@
       "packet": "docs/content/audit/coverage-r1/structure/packets/science-biology.json",
       "output": "docs/content/audit/coverage-r1/topics/science-biology-lessons.md",
       "state": "SAMPLE_PASS_INTEGRATION_PENDING",
-      "agent": "l3_biology"
+      "agent": "l3_biology",
+      "reviewedOutputSha256": "d5210d8c0e717c9ce084911cd495060329069c1e16732e11a0379d0f03170023"
     },
     {
       "key": "science-chemistry",
@@ -1298,10 +1304,11 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-science-chemistry.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/science-chemistry.json",
       "output": "docs/content/audit/coverage-r1/topics/science-chemistry-lessons.md",
-      "state": "C1_CORRECTED_RECHECK_PENDING",
+      "state": "SAMPLE_PASS_INTEGRATION_PENDING",
       "agent": "l3_chemistry",
       "correctionAgent": "l3_biology",
-      "correctedOutputSha256": "b9eebd9d5626edb3f5da52adabcfa9cf93cea839febc652a54f1d5f56e78f034"
+      "correctedOutputSha256": "b9eebd9d5626edb3f5da52adabcfa9cf93cea839febc652a54f1d5f56e78f034",
+      "reviewedOutputSha256": "b9eebd9d5626edb3f5da52adabcfa9cf93cea839febc652a54f1d5f56e78f034"
     },
     {
       "key": "science-earth-science-astronomy",
@@ -1321,8 +1328,10 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-science-earth-science-astronomy.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/science-earth-science-astronomy.json",
       "output": "docs/content/audit/coverage-r1/topics/science-earth-science-astronomy-lessons.md",
-      "state": "RUNNING",
-      "agent": "l3_chemistry"
+      "state": "SAMPLE_PASS_INTEGRATION_PENDING",
+      "agent": "l3_chemistry",
+      "outputSha256": "48ae2a7afdc280dfbd20d206112c508c26077b0e65036ef8728a3a8f7f068423",
+      "reviewedOutputSha256": "48ae2a7afdc280dfbd20d206112c508c26077b0e65036ef8728a3a8f7f068423"
     },
     {
       "key": "science-physics",
@@ -1344,12 +1353,15 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-science-physics.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/science-physics.json",
       "output": "docs/content/audit/coverage-r1/topics/science-physics-lessons.md",
-      "state": "P1_CORRECTION_RUNNING",
+      "state": "SAMPLE_PASS_INTEGRATION_PENDING",
       "agent": "l3_physics",
-      "correctionAgent": "l3_biology"
+      "correctionAgent": "l3_biology",
+      "correctedOutputSha256": "20d984df846d1abff9ae506e16618b5cc0603c24eef062e632b4097b7f863905",
+      "reviewedOutputSha256": "20d984df846d1abff9ae506e16618b5cc0603c24eef062e632b4097b7f863905"
     }
   ],
   "compatiblePolicyCommits": [
+    "6d0bb7318ad396abe62c6c59b6d437f758ed65c4",
     "ac4b30da31b0bcca7e7ed1e47c930b1ac00ced6c",
     "cb48097bedf15bec2cfbe4fb3aa7e957753b1727",
     "e8d5f0f958e38c1648046a93747437687ba08334"

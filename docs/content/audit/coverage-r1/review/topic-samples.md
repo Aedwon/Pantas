@@ -16,7 +16,7 @@ Current live main and cached origin/main both: `ac4b30da31b0bcca7e7ed1e47c930b1a
 - PENDING: language-proficiency-language-application
 - PENDING: language-proficiency-vocabulary
 - PENDING: mathematics-algebra
-- PENDING: mathematics-arithmetic-number-sense
+- PASS: mathematics-arithmetic-number-sense
 - PENDING: mathematics-data-interpretation
 - PENDING: mathematics-geometry
 - PENDING: mathematics-precalculus-basic-calculus
@@ -30,9 +30,9 @@ Current live main and cached origin/main both: `ac4b30da31b0bcca7e7ed1e47c930b1a
 - PENDING: reasoning-spatial-abstract-reasoning
 - PENDING: reasoning-verbal-logic
 - PASS: science-biology
-- FLAGS: science-chemistry
-- PENDING: science-earth-science-astronomy
-- FLAGS: science-physics
+- PASS: science-chemistry
+- PASS: science-earth-science-astronomy
+- PASS: science-physics
 
 Startup accounting: 25 PENDING, 0 PASS, 0 FLAGS. Initial available review targets: Science biology, chemistry, physics. No author target verdicts read yet. Accepted-input hash check is pending; dependent lesson reading is paused.
 
@@ -150,3 +150,83 @@ report emdash=0; trailingWhitespace=0
 ```
 
 Review policy e8d5f0f958e38c1648046a93747437687ba08334. Corpus remains clean/pinned765c5dc0. Biology sample PASS, Chemistry C1 and Physics P1 require author response/correction and narrow follow-up review. All 22 other topics remain PENDING despite any author work occurring meanwhile; this reviewer has not independently read them. No combined Level3 pass, standards pass, blind solve, full fact review or runtime availability verification is claimed. Sole edited file is this report.
+
+## Later October 6 resume and Chemistry C1 recheck
+
+Current live/cached main `6d0bb7318ad396abe62c6c59b6d437f758ed65c4`; audit local/live `25ebd755560a38d4a21323424fee63ece8171930`, correct branch; pinned corpus `765c5dc0fa5586281047bf4f7b30d09ab3707887`, clean. Current full policy/standards/startup files were retrieved and verified byte-identical to the fully read e8d5 revision. The full controlling spec/plan/ORCHESTRATOR also matches the preceding read revision. Latest Level3 approval and original full brief reloaded. The same strict necessity, no-recap, source confidence, freeze and Level3-only limits apply. Accepted requirement/map/overlap checks again return zero mismatches (10/13/8 files).
+
+Chemistry corrected target: `b9eebd9d5626edb3f5da52adabcfa9cf93cea839febc652a54f1d5f56e78f034`. C1 resolved, current sample verdict PASS. Narrow semantic JSON diff confirms the strict balancing edge is removed, the mole edge is unchanged, and all eight affected facet priorKnowledge entries consistently mark balancing optional. Current prose/table agrees. All teaching/example, exam applicability, structure, source-ledger and other prerequisite fields are unchanged. Historical original checks and C1 finding remain preserved, and current checks distinguish eight edges from the original nine. Consumer stoichiometry12,48-60 and62-96 does not ask balancing; full sources were already independently read and pinned hashes remain unchanged. Mole foundation12-38 remains necessary to interpret the consumer's molar quantities/formula masses, so the preserved edge is supported.
+
+Accounting after C1: 2 PASS, 1 FLAGS, 22 PENDING. Physics amended target is provisional until its author declares the immutable final hash. New Arithmetic and Earth samples remain source-first. Historical FLAGS sections above refer to their original hashes and are not erased.
+
+## Arithmetic and Number Sense: independent observations before author reading
+
+Full independent initial reads under pinned `content/lessons/mathematics/arithmetic-number-sense/`: business-math1-179, sequences-and-series1-156, real-imaginary-numbers1-147, fractions-decimals-percentages1-149. No author verdicts read before this saved checkpoint.
+
+- Teaching-confirmed sample: percentages12-16 and30-113 teaches conversion and percent-base problems; business-math16-38 and52-149 applies successive discounts and annual/per-period interest. Local evidence supports curriculum `upcat-L182`, `acet-L063`, `cse-professional-L116`, and conditional SHS `dcat-L057` interest facets, not their whole finance rows or a known examined depth.
+- Thin/absent sample: the finance body lacks annuity streams, recurring loan payments, stocks/bonds and present-value discounting, despite those separate facets in `dcat-L057`, `acet-L079`, `ustet-L092`, `pupcet-L099`, `dost-sei-L132`, `sm-foundation-L094`. The percentage body focuses conversions/applications; it does not explicitly teach all rational addition/multiplication/division procedures required as curriculum preparation in `cse-professional-L114`, `sm-foundation-L090`, `acet-L062`. Other-topic presence must be reconciled before a corpus-wide absence claim.
+- Structure candidates: sequences12-52 switches from identifying term rules to finite/infinite sum conditions. Examples56-128 separate far-term, finite-sum and infinite-sum tasks. CSE's named number sequences (`cse-professional-L109`, `cse-subprofessional-L075`) establishes no mandatory infinite-series depth. A core pattern/term unit plus sum extension could improve focus without declaring the extension excluded. Real/imaginary14-34 shifts from number classification to complex arithmetic; complex multiply/divide examples83-117 assume distribution/conjugation. A separate complex-arithmetic goal is plausible.
+- Prerequisite candidates: business-math32 uses percent-to-decimal rates without teaching conversion, supplied by percentages12-16. The discount example63 itself mentions the conversion but does not teach its rule. Real/imaginary83-117 assumes algebraic expansion; inspect a full existing foundation before any strict edge. Sequence substitution locally supplies formulas, so related algebra/order lessons are not automatically strict prerequisites.
+- Bounded independent arithmetic: 20% then10% discounts leave72% of the original; 15,000 at6% earns4,500 in5years; (3-4i)(2+5i)=26+7i; sequence sums720 and27 agree. No blanket answer-key review.
+- Sample sources are English and contain no needed unseen figure; classification figure is supplemented by14-24 and38-42. Language-dependent verbal requirements, mathematical exam depth and runtime are separate uncertainties.
+
+### Arithmetic and Number Sense comparison: PASS
+
+Target SHA256: `7cdf0dd2e7f051114addf1b05ce44fd3b7c1687b185c275e0773c412489b01a0`. Inspected the complete101-line prose and all JSON lesson/facet relationships and unique semantic additions. Accounting: nine COMPLETE lessons,81facets,three strict prerequisite edges,three split candidates. The target matches its immutable dispatched hash.
+
+- All three split consumers were independently read in full before author verdicts: business-math1-179, real-imaginary-numbers1-147, sequences-and-series1-156. Their retail/interest, real/complex, and term/sum divisions improve goal focus. Each preserves shared foundations, states relocation/new-teaching costs, and avoids claiming current exam exclusion. The current term/series conditions do not establish CSE's exact sequence families or mandatory infinite-sum demand.
+- Sampled percent/interest/conversion teaching and the missing annuity/present-value/loan facets match source evidence. Fraction/decimal general procedures remain locally thin; the author explicitly preserves partial other-source evidence and does not claim an unqualified global absence. Number classification does not become ordering/absolute-value coverage.
+- Independently read full order-of-operations1-152 and existing exponents-and-logarithms1-199. Consumer18,65-67,90-94 and sequence38-44 use exponent notation without explaining repeated multiplication. Existing foundation12 supplies that meaning. Those edges concern the short exponent foundation, not mandatory logarithmic depth; combined graph review must preserve that distinction. Business58-65 uses percent-to-decimal rates while fractions14-24 supplies the per-hundred rule. The author rejects duplicate expansion/reciprocal/property edges where examples already supply procedures.
+- Mathematical samples independently agree: supplied compound approximation gives10824; direct four-period calculation gives10824.3216; the percent comparison gives40%; arithmetic theater sum gives720. Reopened [SEC Investor.gov compound interest](https://www.investor.gov/additional-resources/information/youth/teachers-classroom-resources/what-compound-interest), Rule of72 section, October6,2026. It supports rough doubling-time estimation. Independent annual-compound doubling time at8% is approximately9.0065years;72/8=9is a compatible approximation. No financial recommendation or full correctness review follows.
+- Sampled body language is English; CSE Numerical English and bilingual Verbal remain separated. No sampled load-bearing figure dependency or later-level work was missed.
+
+Sample flags: none. Current accounting after Arithmetic and resolved C1:3PASS,1FLAGS,21PENDING. Physics P1 still awaits immutable correction confirmation. All unseen topics remain pending.
+
+## Earth Science and Astronomy: independent observations before author reading
+
+Full initial reads under pinned `content/lessons/science/earth-science-astronomy/`: layers-of-the-earth1-82, plate-tectonics1-101, water-cycle-oceanography1-91, earths-motions1-91, weather-and-climate1-113. No Earth author verdict read before this checkpoint.
+
+- Teaching-confirmed sample: plate-tectonics12-45 and50-75 connects boundary motion, seafloor magnetic evidence, partial melting and fault motion; weather12-43 and47-81 teaches short/long timescales, monsoon regional differences and greenhouse infrared transfer. These are local preparation facets in `upcat-L131/L132/L163`, curriculum `dcat-L081`, `ustet-L118`, `pupcet-L120/L121`, `dost-sei-L101`; fine current exam depth and school-cohort limits remain unresolved.
+- Thin/absent sample: weather does not teach ITCZ, sea/land breeze mechanisms or hazard response despite broader `upcat-L163`, `pupcet-L121`, `dost-sei-L101`, `ustet-L127`. Tectonics names fault types but lacks earthquake epicenter/seismogram/map-distribution interpretation or practical mitigation. Oceanography30 names layered currents/driving factors without a worked circulation/salinity/tide task; tides appear in weak `upcat-L131`. Other full topic reads are needed before global absence claims.
+- Structure candidates: layers combines composition/interior models with seismic inference, which remains a coherent evidence-based goal rather than an automatic split. Water-cycle12-22 versus oceanography26-30 are different scope, but the second is currently too thin for a useful standalone lesson without new teaching. Weather combines atmospheric-layer identification, monsoon/cyclone interpretation and climate-change energy balance; a weather core plus climate-system extension could improve focus if shared atmosphere foundations stay once.
+- Strict prerequisite challenge: tectonics12 locally introduces rigid lithosphere/weaker asthenosphere and slow solid flow. Layers21 repeats that idea without a complete lithosphere definition. A layer-to-tectonics link may be a recap rather than demonstrated strict necessity. Ocean states evaporation/condensation and their phase meanings locally; a general chemistry-state lesson is not automatically required.
+- Encountered factual uncertainty: layers31,59-62 broadly denies direct mantle drilling/sampling, which needs a current primary-source distinction between drilling through intact crust and sampling exposed mantle rocks. Water28,63,71,89 repeats about96% ocean-water share. Verify its precise denominator/rounding against a primary source rather than convert an approximate number into exact teaching. These are bounded encountered facts, not a later-level standards sweep.
+- Sampled motion/layer/plate/weather/water illustrations have text-supplied inputs and explanations. No sampled load-bearing figure needed to answer a given example; visual sufficiency and production are deferred. Sample bodies are English; unknown Science item languages remain unknown.
+
+## Physics P1 narrow correction recheck: PASS
+
+Immutable corrected target SHA256: `20d984df846d1abff9ae506e16618b5cc0603c24eef062e632b4097b7f863905`. Author finalization supersedes provisional81c04729. Current sample verdict PASS; original P1 history remains intact.
+
+Narrow original-to-current structured comparison confirms that the duplicate vector edge is removed and direct `lesson-trigonometry-basic-trigonometric-ratios` replaces it. Consumer two-dimensional-motion30-32 locally supplies component equations, while70-76 consumes the unsupplied sine/cosine meaning and30-degree values. Foundation trigonometric-ratios12-34 and94-116 supplies those exact meanings/values and application. Both full sources were independently read earlier; their pinned hashes are unchanged. This is a strictly necessary acute-angle mathematical foundation, not full vector-addition or quadrant preparation. Four affected facet priorKnowledge entries and projectile limitations agree with prose/table. The kinematics/dynamics edges and unrelated teaching, scope/tag, source and figure fields remain unchanged. All14current edges differ from the historical14-edge set in the identified replacement only; equal counts alone were not treated as proof.
+
+Accounting after P1 resolution:4PASS,0FLAGS,21PENDING. Initial Biology plus Physics manual Science samples now have no unresolved sample flag. This does not accept all Science or Level3; Earth and20unread topics still need the current independent accounting below.
+
+### Earth Science and Astronomy comparison: PASS
+
+Immutable target SHA256: `48ae2a7afdc280dfbd20d206112c508c26077b0e65036ef8728a3a8f7f068423`. Inspected the complete206-line prose and all JSON lesson/facet relationships and unique semantic additions. Author accounting:11COMPLETE lessons,88facets,no strict prerequisite edges,one current split candidate. Target unchanged during review.
+
+- Boundary/volcanism mechanisms, seasons, water processes, monsoon classification and greenhouse teaching match full independent samples. The author distinguishes qualitative evidence-based inference from direct measured table/graph/map interpretation. Missing ITCZ/breeze/tide/hazard decisions and thin currents/formation/impact facets match sampled bodies. Broad requirement rows do not become complete coverage.
+- Checked the only actual split, weather/climate, against its full113-line consumer. Regional weather classification differs from climate-energy/impact reasoning. The proposal preserves the common weather/climate bridge once and explicitly requires new impact/decision teaching; merely moving the short greenhouse paragraph would not fill missing preparation. Costs and unknown exam depth are explicit. The thin ocean paragraph appropriately remains with hydrology rather than creating an empty new lesson.
+- Independently challenged possible layers-to-tectonics and chemistry-phase-to-hydrology dependencies. Plate12 already introduces its rigid/weak-solid-flow model; water14-22 supplies the phase/process meaning used by examples. No strict recap edge is needed. The explicit no-existing-link list accounts for all11lessons. Origin redshift remains an unresolved local foundation and does not acquire a guessed target or corpus-wide absence claim. No sampled necessary edge was omitted.
+- Reopened [NASA seasons](https://spaceplace.nasa.gov/seasons/en/), Short Answer and tilted-axis explanation, October6,2026. It supports tilt/direct sunlight and opposite hemisphere timing, consistent with motions23-25 and46-54. No full motion/calendar constant review follows.
+- Reopened [Lissenberg et al. author-repository abstract](https://researchportal.plymouth.ac.uk/en/publications/a-long-section-of-serpentinized-depleted-mantle-peridotite/), Science385,623-629,2024, October6,2026. It reports recovered mantle peridotite and distinguishes surface sampling/indirect inference. This supports the author's encountered wording concern in layers31-36,57-62. It does not resolve drilling through intact crust into deep mantle or suggest core sampling. The concern remains an audit recommendation; no content correction is authorized.
+- Reopened [USGS ocean-water page](https://www.usgs.gov/water-science-school/science/oceans-and-seas-and-water-cycle). An initial page locator was returned, but body/find retrieval failed repeatedly with internal errors and no matching text. The exact96% figure remains UNKNOWN here, as in the author ledger. The approximate dominant-ocean teaching is not a verified numerical fact check. No index snippet is substituted for retrieved source text.
+- Science-language/cycle/cohort/depth uncertainties and CSE General Information placement remain intact. No sampled load-bearing figure was missed, and no Level4/5 work was found.
+
+Sample flags: none. Existing mantle wording concern and ocean-percentage source gap remain unresolved content/source limits, already surfaced by the artifact rather than concealed as confirmed facts. Current independent sample accounting:5PASS,0FLAGS,20PENDING. PASS accepts this bounded current audit sample, not the corpus's correctness, full examination coverage, runtime availability or later levels.
+
+## Five-topic current handback verification
+
+```text
+topics=25; unique=25; PASS=5; FLAGS=0; PENDING=20
+science-biology: status=COMPLETE; lessons=10; facets=62; hashes_ranges=10/10; SHA256=d5210d8c0e717c9ce084911cd495060329069c1e16732e11a0379d0f03170023
+science-chemistry: status=COMPLETE; lessons=17; facets=96; hashes_ranges=17/17; SHA256=b9eebd9d5626edb3f5da52adabcfa9cf93cea839febc652a54f1d5f56e78f034
+science-physics: status=COMPLETE; lessons=13; facets=97; hashes_ranges=13/13; SHA256=20d984df846d1abff9ae506e16618b5cc0603c24eef062e632b4097b7f863905
+mathematics-arithmetic-number-sense: status=COMPLETE; lessons=9; facets=81; hashes_ranges=9/9; SHA256=7cdf0dd2e7f051114addf1b05ce44fd3b7c1687b185c275e0773c412489b01a0
+science-earth-science-astronomy: status=COMPLETE; lessons=11; facets=88; hashes_ranges=11/11; SHA256=48ae2a7afdc280dfbd20d206112c508c26077b0e65036ef8728a3a8f7f068423
+frozen_corpus_lessons=158; mismatches=[]
+corpus_clean=true; corpus_HEAD=765c5dc0fa5586281047bf4f7b30d09ab3707887
+report_emdash=0; trailingWhitespace=0; errors=[]
+```
+
+C1 and P1 are resolved at the corrected hashes above; historical findings remain in their original sections. All20unread topics remain PENDING. Current policy6d0bb731; author historical identical-policy revisions remain valid. Scope: independent Level3 topic samples only. No full standards, full correctness, practice, runtime, illustration or combined gate acceptance. Only this sole report was edited by this reviewer.

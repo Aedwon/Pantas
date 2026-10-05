@@ -11,6 +11,7 @@ REPO = ROOT.parents[3]
 manifest = json.loads((ROOT / 'structure-input-manifest.json').read_text())
 requirements = {x['id'] for x in json.loads((ROOT / 'requirement-map.json').read_text())['rows']}
 expected = manifest['lessons']
+known_paths = {lesson['path'] for lesson in expected.values()}
 errors = []
 complete, pending, all_lessons, edges = [], [], {}, {}
 
@@ -19,7 +20,7 @@ def evidence_walk(obj, where):
         if 'path' in obj and 'lines' in obj:
             p, lines = obj['path'], obj['lines']
             source = CORPUS / p
-            if not p.startswith('content/lessons/') or not source.is_file():
+            if p not in known_paths or not source.is_file():
                 errors.append(f'{where}: invalid lesson evidence path {p}')
             elif not isinstance(lines, list) or len(lines) != 2 or not all(isinstance(v, int) for v in lines) or not 1 <= lines[0] <= lines[1] <= len(source.read_text().splitlines()):
                 errors.append(f'{where}: invalid evidence lines {p}:{lines}')

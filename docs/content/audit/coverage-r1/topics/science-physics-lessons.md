@@ -362,7 +362,15 @@ The distinct absent idea is sine/cosine side-ratio meaning and the 30-degree val
 
 Current strict edge count remains 14 because one edge was removed and one directly evidenced edge added. Equality with the historical count does not establish identical graph inputs. Fresh narrow P1 review is pending; author checks cannot accept the amended artifact.
 
-P1 verification: pending execution on the amended artifact.
+Completion resume identity: live/cached main `6d0bb7318ad396abe62c6c59b6d437f758ed65c4`; live/local audit HEAD `25ebd755560a38d4a21323424fee63ece8171930`. Saved correction SHA256 `81c04729b09b6fe798430651d7739a7568223dd84d95fb2e5817d5a285580954` matched before editing. Current mandatory policy/standard/startup contents were retrieved and independently compared with the fully read e8d5 revision, with nine identical results; current spec/plan/decisions/orchestrator were also verified unchanged. The saved source read evidence is preserved and its pinned hashes are rechecked below. No unchanged full source reading was repeated.
+
+P1 verification commands: focused Python assigned-ID/hash/full-read-range/field/evidence/reference/prerequisite/graph checks, including comparison with the exact original target at audit commit401968b6326c509dd58699d3b7e836ce19781d62; then `python3 docs/content/audit/coverage-r1/check_level3_outputs.py`. Both returned exit0. The original target hash was independently matched before comparing allowed JSON changes. Actual focused output:
+
+    physics_P1_check: assigned=13/13 unique=13 hashes_ranges_paths=13/13 json_appendices=1 fields=PASS facets=97 evidence_ranges=370 accepted_refs=35 edges=14 both_end_paths_lines=PASS targets_existing=PASS self_links=0 cycles=0 direct_trig_edge=PASS vector_edge_removed=PASS kinematics_dynamics_unchanged=PASS unrelated_JSON_unchanged=PASS preserved_source_reads=3/3 corpus_clean=true biology_chemistry_unchanged=true emdash=0 errors=[]
+
+Shared validator actual result fields: `completeTopics: 5`, `expectedTopics: 25`, `completeLessons: 60`, `expectedLessons: 158`, `complete: [mathematics-arithmetic-number-sense, science-biology, science-chemistry, science-earth-science-astronomy, science-physics]`, `errors: []`, `mechanicalAccountingReady: false`, `gateReady: false`. Its20pending topics include Algebra as DRAFT and19others NOT_STARTED. This supporting snapshot does not accept P1 or the combined Level3 gate. Earlier14-edge counts are historical; the current proof checks the amended direct-trigonometry edge set.
+
+Fresh narrow P1 review remains pending. No unresolved mechanical issue was found. All author checks remain separate from semantic acceptance.
 
 ## Machine-readable appendix
 
@@ -372,7 +380,7 @@ P1 verification: pending execution on the amended artifact.
   "status": "COMPLETE",
   "subject": "science",
   "topic": "physics",
-  "policyCommit": "e8d5f0f958e38c1648046a93747437687ba08334",
+  "policyCommit": "6d0bb7318ad396abe62c6c59b6d437f758ed65c4",
   "corpusCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
   "lessons": [
     {
@@ -9080,6 +9088,15 @@ P1 verification: pending execution on the amended artifact.
           ]
         }
       ]
+    },
+    {
+      "finding": "P1 completion",
+      "date": "2026-10-06",
+      "policyCommit": "6d0bb7318ad396abe62c6c59b6d437f758ed65c4",
+      "resumeInputSha256": "81c04729b09b6fe798430651d7739a7568223dd84d95fb2e5817d5a285580954",
+      "policyRefresh": "Nine current main policy/standard/startup contents retrieved and independently byte-compared against fully read e8d5 policy; all identical. Current spec/plan/decisions/orchestrator also unchanged.",
+      "readEvidence": "Preserved full source reads and hashes verified against pinned corpus; no unchanged full reads repeated.",
+      "disposition": "Finish saved direct trigonometric-ratios correction; fresh narrow review remains required."
     }
   ]
 }

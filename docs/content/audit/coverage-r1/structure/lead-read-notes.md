@@ -11,3 +11,16 @@ Accepted `dcat-L077` names controlled variables, effects measurement, evidence-b
 ## Prerequisite policy boundary
 
 Opened adaptive roadmap spec agent Section6, lines608-624. It describes topic-level links, existing IDs and an acyclic graph, not implemented lesson dependencies. Updated coverage spec requests recommendations for lesson-level links, a reviewable evidence table, an explicit no-prerequisite list and an acyclic machine-readable file. This audit changes neither roadmap nor lesson order. The consumer must require the foundation; an authored order, related term or recap alone cannot create an edge.
+
+## Focused check of other pre-clarification prerequisite rationales
+
+After C1/P1 identified duplicated procedures, the lead checked two other existing links rather than assuming every earlier link had the same problem. This is bounded prerequisite-source review, not a full standards sweep.
+
+- Full read `content/lessons/science/chemistry/nuclear-chemistry.md`, lines1-139, SHA256 `2033a4cf11cd038a5e5a8c893cf4c8970abb04c064e2f314f9554e2bd118300d`.
+- Full read `content/lessons/science/chemistry/atomic-structure.md`, lines1-129, SHA256 `45e49608a875c73b0f58970619443f349f79175e819bcd2499ab0ebcee64fe04`.
+- Full read `content/lessons/science/physics/fluid-mechanics.md`, lines1-142, SHA256 `29446c078d4024ca5fc7ebeb6ee1e77e627c3cc96f5a61e44a55bf5e03fde54e`.
+- Full read `content/lessons/science/physics/units-and-measurements.md`, lines1-125, SHA256 `44f728ab41f7de68e1003b70273341b239b245b15bfa0ba7b54d936c454d89cc`.
+
+Nuclear chemistry uses A/Z changes and element identification (18-19,25-26,67-81), but does not define Z as proton count or A as proton-plus-neutron count. Atomic structure supplies those meanings (26-36). Unlike the removed balancing edge, this foundation is absent from the consumer, so the strict link remains supported for its nuclide-bookkeeping facet.
+
+Fluid mechanics gives a single300g=0.3kg conversion result before a force answer in newtons (72-84), but does not explain metric mass scale or the SI-derived force-unit relationship. Units/measurements teaches SI mass and newton unit relationships (19,26,86-97), conversion factors (40-42), and kilo scaling (103). The shared graph should state this missing unit-meaning foundation rather than merely say that an example changes units. The local worked value is not a general conversion method. This observation does not require all other unit examples as separately necessary concepts.
