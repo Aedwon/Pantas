@@ -1,4 +1,4 @@
-STATE: BLOCKED Google Docs writes require approval unavailable under this session policy
+STATE: AWAITING_APPROVAL level 1 done; start level 2 overlap only on Aedwon's approval
 
 # Coverage audit status
 
@@ -313,3 +313,5 @@ Historical pause: lifted by Aedwon's explicit level 1 start recorded below.
 - Recovery requires Aedwon to provide a session/connector policy permitting the already-authorized Google Docs tab write. It does not require redoing accepted source research or unchanged map reviews. Revalidate main policy/corpus/actualmap hashes; reread originaldocstructure and absence of audit tab; then createonlynew auditedtab, insert prepared text with tab-specific ranges, format newtabonly, readback all158titles/tagparity, exact originalstructure preservation, finalverification. Only then set AWAITING_APPROVAL level1done and askAedwon to approvelevel2.
 
 - Final lead saved checkpoint report level1-summary.md and human-readable audited-tab draft. Fresh verification:13maphashes/10requirement-profilehashes match;158lessons/535records/819tags exactparity;158drafttitle/tag lists exact; originalGooglestructureunchanged/newtababsent; canonicalprofileauditcopy identical; git diff --check exit0; corpusclean. State remains BLOCKED, level1notcomplete. Report/stopping now, no permissionquestion or later-level dispatch.
+
+> Update 2026-10-05 13:xx: Claude wrote the audited Google tab ("Pantas Audited Corpus r1", child of Content & Curriculum, tab t.38uf83creimq) from audited-tab-draft.json after the Codex write was blocked. Readback: all 201 paragraphs, 158 lesson bullets, text and styles match the draft; the other 33 tabs, including the original corpus tab, are unchanged.
