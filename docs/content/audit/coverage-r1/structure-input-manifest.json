@@ -1,0 +1,1352 @@
+{
+  "level": 3,
+  "status": "INPUT FROZEN; readers pending",
+  "policyCommit": "ac4b30da31b0bcca7e7ed1e47c930b1ac00ced6c",
+  "corpusCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+  "auditCheckpoint": "7d5f2ed6a6d6f30e35d1b3f64467f31e7d122112",
+  "specSha256": "999654d8261ef2edc25a1c62512f3663570443c49eddba5613380e2e9724cc3c",
+  "lessons": {
+    "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts": {
+      "path": "content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md",
+      "sha256": "2713fa46b4cfc6ad70a00ff54a1b66a6f7b9ce63aa17ce9e04de997742140fa9",
+      "lines": 79,
+      "topicKey": "general-information-code-of-conduct-ra-6713"
+    },
+    "lesson-code-of-conduct-ra-6713-norms-of-conduct": {
+      "path": "content/lessons/general-information/code-of-conduct-ra-6713/norms-of-conduct.md",
+      "sha256": "81d93b7940eef954f6787bd841ad2ba84f2f25aa6f2ff1e6f633622bd70a44f7",
+      "lines": 60,
+      "topicKey": "general-information-code-of-conduct-ra-6713"
+    },
+    "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": {
+      "path": "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md",
+      "sha256": "39d463ed50c5e4412fa67b22ec038af9f514a736be99418f2f72e9727849bf6f",
+      "lines": 59,
+      "topicKey": "general-information-code-of-conduct-ra-6713"
+    },
+    "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment": {
+      "path": "content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md",
+      "sha256": "46e226a923d1aa8759cfe0536b965fcee0390fcb19dd3e1f9823a4259b90f16f",
+      "lines": 77,
+      "topicKey": "general-information-code-of-conduct-ra-6713"
+    },
+    "lesson-environment-management-environmental-concepts": {
+      "path": "content/lessons/general-information/environment-management/environmental-concepts.md",
+      "sha256": "a0189c67fc25dc3a130d731773449e86dde303beeaa8fa2ff2fce15adc06c4a0",
+      "lines": 55,
+      "topicKey": "general-information-environment-management"
+    },
+    "lesson-environment-management-the-environmental-laws": {
+      "path": "content/lessons/general-information/environment-management/the-environmental-laws.md",
+      "sha256": "10734c517c52a9ef7688ea850a1f21ee7d6ae6f5621f6b2744ffd4f21963ddd8",
+      "lines": 65,
+      "topicKey": "general-information-environment-management"
+    },
+    "lesson-peace-and-human-rights-human-rights-fundamentals": {
+      "path": "content/lessons/general-information/peace-and-human-rights/human-rights-fundamentals.md",
+      "sha256": "cf3e5d68329b6c61ca5816912dde9af2bb23dcdb1ef7eac09c3b46fca775994c",
+      "lines": 55,
+      "topicKey": "general-information-peace-and-human-rights"
+    },
+    "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law": {
+      "path": "content/lessons/general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md",
+      "sha256": "0fecd2ce36661d426f299da61a7e73d76048a0cea04731d228a5ee5897a9065b",
+      "lines": 61,
+      "topicKey": "general-information-peace-and-human-rights"
+    },
+    "lesson-philippine-constitution-accountability-and-impeachment": {
+      "path": "content/lessons/general-information/philippine-constitution/accountability-and-impeachment.md",
+      "sha256": "7c835cee0223566747f057fc362fefa1bcc4f9154390c4676434fb5aaad39633",
+      "lines": 75,
+      "topicKey": "general-information-philippine-constitution"
+    },
+    "lesson-philippine-constitution-bill-of-rights": {
+      "path": "content/lessons/general-information/philippine-constitution/bill-of-rights.md",
+      "sha256": "664484d87968ad2ffb8806f3c93b1a79c6a27fde44ac3ae2a18db125a8c812bd",
+      "lines": 78,
+      "topicKey": "general-information-philippine-constitution"
+    },
+    "lesson-philippine-constitution-the-articles-in-outline": {
+      "path": "content/lessons/general-information/philippine-constitution/the-articles-in-outline.md",
+      "sha256": "6262438b175d7a69c6a55a4356710a4c2a35611072db88f4ce9b7f7ba6a327ba",
+      "lines": 73,
+      "topicKey": "general-information-philippine-constitution"
+    },
+    "lesson-philippine-constitution-the-civil-service-commission": {
+      "path": "content/lessons/general-information/philippine-constitution/the-civil-service-commission.md",
+      "sha256": "620d01c9e182bf4b4861c0ac6ad4d95da500c1f6f7bec5d3163e8aa0c6484ea2",
+      "lines": 60,
+      "topicKey": "general-information-philippine-constitution"
+    },
+    "lesson-grammar-and-structure-modifiers": {
+      "path": "content/lessons/language-proficiency/grammar-and-structure/modifiers.md",
+      "sha256": "98d561710ddac1e1e927dad40ab0c2c8e9eb146b8c2db89466bd9a823db5db0e",
+      "lines": 94,
+      "topicKey": "language-proficiency-grammar-and-structure"
+    },
+    "lesson-grammar-and-structure-parallelism": {
+      "path": "content/lessons/language-proficiency/grammar-and-structure/parallelism.md",
+      "sha256": "be18765d177f1a289de7954d8d7f7e634e0fe9767df6504a4aed9a0eb6a0220c",
+      "lines": 91,
+      "topicKey": "language-proficiency-grammar-and-structure"
+    },
+    "lesson-grammar-and-structure-parts-of-speech": {
+      "path": "content/lessons/language-proficiency/grammar-and-structure/parts-of-speech.md",
+      "sha256": "77833e2b083702fee12a818325bb32a78e2e7a41bf41ee5642498bf11bc4c1c4",
+      "lines": 95,
+      "topicKey": "language-proficiency-grammar-and-structure"
+    },
+    "lesson-grammar-and-structure-phrases-and-clauses": {
+      "path": "content/lessons/language-proficiency/grammar-and-structure/phrases-and-clauses.md",
+      "sha256": "a90cc08a2af76d30c151a4afb469e00ff5ada134b0ffdb657d0cc6e1795fae6d",
+      "lines": 93,
+      "topicKey": "language-proficiency-grammar-and-structure"
+    },
+    "lesson-grammar-and-structure-pronoun-antecedent-agreement": {
+      "path": "content/lessons/language-proficiency/grammar-and-structure/pronoun-antecedent-agreement.md",
+      "sha256": "d41382c5695a149b0beda13638c4d5097672b5fc3b4739ff1aafa94c642ecfc3",
+      "lines": 106,
+      "topicKey": "language-proficiency-grammar-and-structure"
+    },
+    "lesson-grammar-and-structure-punctuation-and-capitalization": {
+      "path": "content/lessons/language-proficiency/grammar-and-structure/punctuation-and-capitalization.md",
+      "sha256": "64659c131b134f542b0f6ef93283613e24cf22ea132269cc2cbaed18f65df65b",
+      "lines": 107,
+      "topicKey": "language-proficiency-grammar-and-structure"
+    },
+    "lesson-grammar-and-structure-redundancy-and-double-negatives": {
+      "path": "content/lessons/language-proficiency/grammar-and-structure/redundancy-and-double-negatives.md",
+      "sha256": "d8c82f05c8a0fc09b84aedd831f5cb37219d5b10f6d243ca678801b15c62bc47",
+      "lines": 97,
+      "topicKey": "language-proficiency-grammar-and-structure"
+    },
+    "lesson-grammar-and-structure-sentence-structure": {
+      "path": "content/lessons/language-proficiency/grammar-and-structure/sentence-structure.md",
+      "sha256": "ef876c783e5ff202618abfac958eb04c26367b048a5da47ba79c99c9d024c1a1",
+      "lines": 101,
+      "topicKey": "language-proficiency-grammar-and-structure"
+    },
+    "lesson-grammar-and-structure-subject-verb-agreement": {
+      "path": "content/lessons/language-proficiency/grammar-and-structure/subject-verb-agreement.md",
+      "sha256": "5c7656d85dc4198c52f7d1babf58ca02ab99e2613535c31663ba1135f50d260c",
+      "lines": 98,
+      "topicKey": "language-proficiency-grammar-and-structure"
+    },
+    "lesson-grammar-and-structure-tenses-and-voice": {
+      "path": "content/lessons/language-proficiency/grammar-and-structure/tenses-and-voice.md",
+      "sha256": "c7e78887716c49ffc64bc6b14e58ab2f5a25016f3ca861dcfb4cdce2e2f1c4f6",
+      "lines": 110,
+      "topicKey": "language-proficiency-grammar-and-structure"
+    },
+    "lesson-language-application-error-identification": {
+      "path": "content/lessons/language-proficiency/language-application/error-identification.md",
+      "sha256": "db4dd522670e7b6c9b87126fc6cbf0500cbdfbe89e5b6c338697bca055c50db9",
+      "lines": 86,
+      "topicKey": "language-proficiency-language-application"
+    },
+    "lesson-language-application-paragraph-organization": {
+      "path": "content/lessons/language-proficiency/language-application/paragraph-organization.md",
+      "sha256": "0d31c7024268d90892f29464e198c7152ca677c959ba650146fc1cb12bb4ff3e",
+      "lines": 93,
+      "topicKey": "language-proficiency-language-application"
+    },
+    "lesson-language-application-sentence-completion": {
+      "path": "content/lessons/language-proficiency/language-application/sentence-completion.md",
+      "sha256": "8f7f4249fdb388a2ca20a1a6d54ffaa0dc6371609193a936fe22a6e1b6327901",
+      "lines": 94,
+      "topicKey": "language-proficiency-language-application"
+    },
+    "lesson-vocabulary-confusing-words": {
+      "path": "content/lessons/language-proficiency/vocabulary/confusing-words.md",
+      "sha256": "cfd0eb81a296d9b2e6e45f9e08b6c535ca4a318d7704e79e2a13ad61ded770a4",
+      "lines": 137,
+      "topicKey": "language-proficiency-vocabulary"
+    },
+    "lesson-vocabulary-context-clues": {
+      "path": "content/lessons/language-proficiency/vocabulary/context-clues.md",
+      "sha256": "1004b14592a4b0a5b3c36d8ed5e58b9bfa8ddb11b5d58808b697e21b53136b2b",
+      "lines": 121,
+      "topicKey": "language-proficiency-vocabulary"
+    },
+    "lesson-vocabulary-idioms-and-figures-of-speech": {
+      "path": "content/lessons/language-proficiency/vocabulary/idioms-and-figures-of-speech.md",
+      "sha256": "693494c82c4e8f88fd6724b8d30021b8d45d085335725b8f8b7eba990bfb674d",
+      "lines": 129,
+      "topicKey": "language-proficiency-vocabulary"
+    },
+    "lesson-vocabulary-root-words-prefixes-suffixes": {
+      "path": "content/lessons/language-proficiency/vocabulary/root-words-prefixes-suffixes.md",
+      "sha256": "5d680a50e140edb349936ff3fe59657959f0ecffa94c8c7f8b11da76c3b37d03",
+      "lines": 133,
+      "topicKey": "language-proficiency-vocabulary"
+    },
+    "lesson-vocabulary-spelling-rules": {
+      "path": "content/lessons/language-proficiency/vocabulary/spelling-rules.md",
+      "sha256": "e21f031450775025e09c266b8a964ba4396da5f21a8eeb7e9a494c70dd9f59cf",
+      "lines": 122,
+      "topicKey": "language-proficiency-vocabulary"
+    },
+    "lesson-vocabulary-synonyms-and-antonyms": {
+      "path": "content/lessons/language-proficiency/vocabulary/synonyms-and-antonyms.md",
+      "sha256": "839c248c06bbbb1b31466e39226d8212c30914d8d00c388ca0fb25cbcf05d60c",
+      "lines": 127,
+      "topicKey": "language-proficiency-vocabulary"
+    },
+    "lesson-algebra-algebraic-expressions": {
+      "path": "content/lessons/mathematics/algebra/algebraic-expressions.md",
+      "sha256": "f7b19fb9eb88b49fe77ab620e28994231d4a2f2890a9a245c3121c1ae03de522",
+      "lines": 169,
+      "topicKey": "mathematics-algebra"
+    },
+    "lesson-algebra-exponents-and-logarithms": {
+      "path": "content/lessons/mathematics/algebra/exponents-and-logarithms.md",
+      "sha256": "1d3cbe111aa3cbf7581ee324b70c6f2771ae0e725f476b2e2f1f16295588d263",
+      "lines": 199,
+      "topicKey": "mathematics-algebra"
+    },
+    "lesson-algebra-functions-and-relations": {
+      "path": "content/lessons/mathematics/algebra/functions-and-relations.md",
+      "sha256": "70831709ec12b95c55ffa4dabe636c25ed12776a48df97b16735cf40d7b58a1e",
+      "lines": 187,
+      "topicKey": "mathematics-algebra"
+    },
+    "lesson-algebra-linear-equations-inequalities": {
+      "path": "content/lessons/mathematics/algebra/linear-equations-inequalities.md",
+      "sha256": "adf727715070361c4e5ba22d208edff80f9aceee28452ebe81beda47db1e774e",
+      "lines": 168,
+      "topicKey": "mathematics-algebra"
+    },
+    "lesson-algebra-polynomials": {
+      "path": "content/lessons/mathematics/algebra/polynomials.md",
+      "sha256": "569fc5f0e8e9a420ef0a8e7bd71209f9b785ac12269db0232b6dfcb3aa95af9b",
+      "lines": 164,
+      "topicKey": "mathematics-algebra"
+    },
+    "lesson-algebra-quadratic-equations": {
+      "path": "content/lessons/mathematics/algebra/quadratic-equations.md",
+      "sha256": "ddba9cbe19166408b2304f980e515b3c3eb3b27f1532b77e1a6f8af981ac61da",
+      "lines": 162,
+      "topicKey": "mathematics-algebra"
+    },
+    "lesson-algebra-radicals-and-rationalization": {
+      "path": "content/lessons/mathematics/algebra/radicals-and-rationalization.md",
+      "sha256": "9440f5a48bb9991d2ab973d0536efdbe0566bdea70f32dfc8d670692d0df597d",
+      "lines": 160,
+      "topicKey": "mathematics-algebra"
+    },
+    "lesson-algebra-sets-and-set-notation": {
+      "path": "content/lessons/mathematics/algebra/sets-and-set-notation.md",
+      "sha256": "1e97c34edee6bac6b3aca3d9cd7d474e8383aeae3f19349339f45651093ec710",
+      "lines": 138,
+      "topicKey": "mathematics-algebra"
+    },
+    "lesson-algebra-systems-of-equations": {
+      "path": "content/lessons/mathematics/algebra/systems-of-equations.md",
+      "sha256": "00537781800080970713da3b8a830f47975d3ce6cc823e6a6e6cc03201c54107",
+      "lines": 231,
+      "topicKey": "mathematics-algebra"
+    },
+    "lesson-algebra-types-of-functions": {
+      "path": "content/lessons/mathematics/algebra/types-of-functions.md",
+      "sha256": "62e0e563e022868ca9a4abbfc92069250973de432ff9830bd7836cafdb98ad77",
+      "lines": 149,
+      "topicKey": "mathematics-algebra"
+    },
+    "lesson-algebra-word-problems": {
+      "path": "content/lessons/mathematics/algebra/word-problems.md",
+      "sha256": "1035dfab36a970f460b8f58c208561843d2215b724facc78aa44a2870fb3440b",
+      "lines": 219,
+      "topicKey": "mathematics-algebra"
+    },
+    "lesson-arithmetic-number-sense-business-math": {
+      "path": "content/lessons/mathematics/arithmetic-number-sense/business-math.md",
+      "sha256": "3250dc130a5097d2490328dd6b06298f43190964e432501e555e7538d1566b4b",
+      "lines": 179,
+      "topicKey": "mathematics-arithmetic-number-sense"
+    },
+    "lesson-arithmetic-number-sense-divisibility-rules": {
+      "path": "content/lessons/mathematics/arithmetic-number-sense/divisibility-rules.md",
+      "sha256": "6bfa59d54134a9aea9bef089f20c9bf73bf9f2d07fac307ce88abef2e6af783a",
+      "lines": 166,
+      "topicKey": "mathematics-arithmetic-number-sense"
+    },
+    "lesson-arithmetic-number-sense-fractions-decimals-percentages": {
+      "path": "content/lessons/mathematics/arithmetic-number-sense/fractions-decimals-percentages.md",
+      "sha256": "5c2f5a66c7be71ea28805836a119f66a70945e75797939d497e7663d5126bbb0",
+      "lines": 149,
+      "topicKey": "mathematics-arithmetic-number-sense"
+    },
+    "lesson-arithmetic-number-sense-order-of-operations": {
+      "path": "content/lessons/mathematics/arithmetic-number-sense/order-of-operations.md",
+      "sha256": "7e63615cd19d4d8567330da02b760b40b6adf35c8714a041d09b81b47bd20181",
+      "lines": 152,
+      "topicKey": "mathematics-arithmetic-number-sense"
+    },
+    "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm": {
+      "path": "content/lessons/mathematics/arithmetic-number-sense/prime-factorization-gcf-lcm.md",
+      "sha256": "46578b494acd8e425516e160ef83fc48c6d0ff2c7dcf666135981a6d29c72419",
+      "lines": 159,
+      "topicKey": "mathematics-arithmetic-number-sense"
+    },
+    "lesson-arithmetic-number-sense-properties-of-real-numbers": {
+      "path": "content/lessons/mathematics/arithmetic-number-sense/properties-of-real-numbers.md",
+      "sha256": "2d73d6e795016065c6cb947045a4e06fd93b8e73b90f42eb1ba274b68582acb5",
+      "lines": 171,
+      "topicKey": "mathematics-arithmetic-number-sense"
+    },
+    "lesson-arithmetic-number-sense-ratio-and-proportion": {
+      "path": "content/lessons/mathematics/arithmetic-number-sense/ratio-and-proportion.md",
+      "sha256": "917c00bb7d998766d61d1f9ca65542de620268641369003825c807b7948cce4f",
+      "lines": 144,
+      "topicKey": "mathematics-arithmetic-number-sense"
+    },
+    "lesson-arithmetic-number-sense-real-imaginary-numbers": {
+      "path": "content/lessons/mathematics/arithmetic-number-sense/real-imaginary-numbers.md",
+      "sha256": "fef553d885a90aa5a1261147d4c8f52bf0c55ee95670d565e1e5868931a81dab",
+      "lines": 147,
+      "topicKey": "mathematics-arithmetic-number-sense"
+    },
+    "lesson-arithmetic-number-sense-sequences-and-series": {
+      "path": "content/lessons/mathematics/arithmetic-number-sense/sequences-and-series.md",
+      "sha256": "dccf450a299166b1d0bda9697f2cfc2e17e3c3566f81acdf3c0c0ba34554a81e",
+      "lines": 156,
+      "topicKey": "mathematics-arithmetic-number-sense"
+    },
+    "lesson-data-interpretation-rates-ratios-and-percentages-in-context": {
+      "path": "content/lessons/mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md",
+      "sha256": "4df3ad154b8dfa20be9be8137d34bd040a4f0d684156d193d3b5dfdc518f550b",
+      "lines": 99,
+      "topicKey": "mathematics-data-interpretation"
+    },
+    "lesson-data-interpretation-tables-and-charts": {
+      "path": "content/lessons/mathematics/data-interpretation/tables-and-charts.md",
+      "sha256": "980938c62677e2b7d88c9440ae00dc932762f8b5e6cb6c6b59a1168bd4160598",
+      "lines": 71,
+      "topicKey": "mathematics-data-interpretation"
+    },
+    "lesson-geometry-basic-geometric-concepts": {
+      "path": "content/lessons/mathematics/geometry/basic-geometric-concepts.md",
+      "sha256": "d1910bbd22a2473fbb977965d1fa1a1ff7e24e1e320b872559034328a9457f53",
+      "lines": 224,
+      "topicKey": "mathematics-geometry"
+    },
+    "lesson-geometry-circles": {
+      "path": "content/lessons/mathematics/geometry/circles.md",
+      "sha256": "95eaee4d3b988f37fe49ed9c2867ff0e30952c6f13b9eb946a1503f48f991aa9",
+      "lines": 203,
+      "topicKey": "mathematics-geometry"
+    },
+    "lesson-geometry-coordinate-geometry": {
+      "path": "content/lessons/mathematics/geometry/coordinate-geometry.md",
+      "sha256": "f2b8a049ca59e633c41ec3bbde03b7ffc207da00bab33ebe5d46355232c27bc5",
+      "lines": 216,
+      "topicKey": "mathematics-geometry"
+    },
+    "lesson-geometry-logic-and-reasoning": {
+      "path": "content/lessons/mathematics/geometry/logic-and-reasoning.md",
+      "sha256": "83c3b1ee1c66bcd379e99cac3eb28effcd8228612c4b334900cdb6c3bad10c0b",
+      "lines": 129,
+      "topicKey": "mathematics-geometry"
+    },
+    "lesson-geometry-measurement": {
+      "path": "content/lessons/mathematics/geometry/measurement.md",
+      "sha256": "84a5b625c1deecebca2d0de6e78f40d0d81b4252c356f917ab0949c5c1d3d6d5",
+      "lines": 230,
+      "topicKey": "mathematics-geometry"
+    },
+    "lesson-geometry-parallel-perpendicular-lines": {
+      "path": "content/lessons/mathematics/geometry/parallel-perpendicular-lines.md",
+      "sha256": "a821923232dad2f97e5887bbef7f3ea9ab97253db8a78ca03b328f5531516f0f",
+      "lines": 170,
+      "topicKey": "mathematics-geometry"
+    },
+    "lesson-geometry-quadrilaterals-and-polygons": {
+      "path": "content/lessons/mathematics/geometry/quadrilaterals-and-polygons.md",
+      "sha256": "4244939860fb04bbaff0580aeb6fe93c4c1dc7938baa176ff28b3a79abb01c20",
+      "lines": 205,
+      "topicKey": "mathematics-geometry"
+    },
+    "lesson-geometry-triangles": {
+      "path": "content/lessons/mathematics/geometry/triangles.md",
+      "sha256": "48b4d610940cca1c5b64a9880c9a06f00b5d493fa804307163f4fe5b0be0af7e",
+      "lines": 236,
+      "topicKey": "mathematics-geometry"
+    },
+    "lesson-precalculus-basic-calculus-basic-derivatives": {
+      "path": "content/lessons/mathematics/precalculus-basic-calculus/basic-derivatives.md",
+      "sha256": "49e744658ea460a801c6043f828639881aae2f5abbdde0a9dc004ce240f302db",
+      "lines": 166,
+      "topicKey": "mathematics-precalculus-basic-calculus"
+    },
+    "lesson-precalculus-basic-calculus-basic-integrals": {
+      "path": "content/lessons/mathematics/precalculus-basic-calculus/basic-integrals.md",
+      "sha256": "d1a50b2a2aee5a4001c399d446487a1de18d8def06352ce189733c9a770db15b",
+      "lines": 142,
+      "topicKey": "mathematics-precalculus-basic-calculus"
+    },
+    "lesson-precalculus-basic-calculus-conic-sections": {
+      "path": "content/lessons/mathematics/precalculus-basic-calculus/conic-sections.md",
+      "sha256": "5159c66b705e4447682eb64dae660f6a2f083812095460a0ff5a7baa5c52547f",
+      "lines": 190,
+      "topicKey": "mathematics-precalculus-basic-calculus"
+    },
+    "lesson-precalculus-basic-calculus-limits-and-continuity": {
+      "path": "content/lessons/mathematics/precalculus-basic-calculus/limits-and-continuity.md",
+      "sha256": "9842c636ff7442f8c443ea418e553ed3dd4066348685c8d617a1ecac4e566b39",
+      "lines": 170,
+      "topicKey": "mathematics-precalculus-basic-calculus"
+    },
+    "lesson-statistics-and-probability-basic-probability": {
+      "path": "content/lessons/mathematics/statistics-and-probability/basic-probability.md",
+      "sha256": "e36816c628ec385838378d74193e8b644cd9865435b2fed370406772d6cf5cfa",
+      "lines": 160,
+      "topicKey": "mathematics-statistics-and-probability"
+    },
+    "lesson-statistics-and-probability-combinatorics": {
+      "path": "content/lessons/mathematics/statistics-and-probability/combinatorics.md",
+      "sha256": "b514a52431734919a31841fed15c643ae84a36e9a92eabcde4f92c239adcd9ee",
+      "lines": 149,
+      "topicKey": "mathematics-statistics-and-probability"
+    },
+    "lesson-statistics-and-probability-data-analysis-graphs": {
+      "path": "content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md",
+      "sha256": "b03d6b02a0430dcab6aaec87a0c7b171fc9b21a363638865d9d64433546b49c9",
+      "lines": 159,
+      "topicKey": "mathematics-statistics-and-probability"
+    },
+    "lesson-statistics-and-probability-measures-of-central-tendency": {
+      "path": "content/lessons/mathematics/statistics-and-probability/measures-of-central-tendency.md",
+      "sha256": "fbc1514e8265ab0a9d4e7d2470f8dc127fea3db8fff03957376916cfa8361afb",
+      "lines": 132,
+      "topicKey": "mathematics-statistics-and-probability"
+    },
+    "lesson-statistics-and-probability-measures-of-variability": {
+      "path": "content/lessons/mathematics/statistics-and-probability/measures-of-variability.md",
+      "sha256": "19db90d8441e91e0a51145a41ad8b71b67924ad8badec12e4f3bb9ac1793c987",
+      "lines": 148,
+      "topicKey": "mathematics-statistics-and-probability"
+    },
+    "lesson-trigonometry-angles-and-radian-measure": {
+      "path": "content/lessons/mathematics/trigonometry/angles-and-radian-measure.md",
+      "sha256": "20a59f4fdf82eed1a0df1dd43f803bec7834e6cc9297cbe10cb114ccc2af0fdd",
+      "lines": 161,
+      "topicKey": "mathematics-trigonometry"
+    },
+    "lesson-trigonometry-basic-trigonometric-ratios": {
+      "path": "content/lessons/mathematics/trigonometry/basic-trigonometric-ratios.md",
+      "sha256": "536c2fcee4e48cc0b7c690b3b2bba2e1c29b2b9dfeaf40b7de32be188ee25ab3",
+      "lines": 194,
+      "topicKey": "mathematics-trigonometry"
+    },
+    "lesson-trigonometry-inverse-trigonometric-functions": {
+      "path": "content/lessons/mathematics/trigonometry/inverse-trigonometric-functions.md",
+      "sha256": "eb0aef55a11aa8300729393b0c0ce192a6dcc57f16460a4b3a843d66cf474c22",
+      "lines": 168,
+      "topicKey": "mathematics-trigonometry"
+    },
+    "lesson-trigonometry-laws-of-sines-and-cosines": {
+      "path": "content/lessons/mathematics/trigonometry/laws-of-sines-and-cosines.md",
+      "sha256": "7d15fc76eb24f86368920ec2a05f031c56f699780fa8b2b7162317fb756e6a78",
+      "lines": 198,
+      "topicKey": "mathematics-trigonometry"
+    },
+    "lesson-trigonometry-solving-right-triangles": {
+      "path": "content/lessons/mathematics/trigonometry/solving-right-triangles.md",
+      "sha256": "db3a216d0803d37f3b61cef350fba0c47f2d861a0dc25b00489b41e1faa43ebd",
+      "lines": 191,
+      "topicKey": "mathematics-trigonometry"
+    },
+    "lesson-trigonometry-trigonometric-identities": {
+      "path": "content/lessons/mathematics/trigonometry/trigonometric-identities.md",
+      "sha256": "40b3c720fbdb33f55a9cd2622e7f8242a8e5198c9d98a2cf778fd20b702d29f9",
+      "lines": 191,
+      "topicKey": "mathematics-trigonometry"
+    },
+    "lesson-trigonometry-unit-circle": {
+      "path": "content/lessons/mathematics/trigonometry/unit-circle.md",
+      "sha256": "4bb846e0bf16d292a79c1aff057db76c27efc4528b1f587eed48f4ad09f4a9c7",
+      "lines": 177,
+      "topicKey": "mathematics-trigonometry"
+    },
+    "lesson-comprehension-skills-authors-purpose-tone-pov": {
+      "path": "content/lessons/reading-comprehension/comprehension-skills/authors-purpose-tone-pov.md",
+      "sha256": "e8918a3a82e3e80fe74a0c3006741730b562721a0d1fa2d0048917730178c840",
+      "lines": 82,
+      "topicKey": "reading-comprehension-comprehension-skills"
+    },
+    "lesson-comprehension-skills-choosing-a-title": {
+      "path": "content/lessons/reading-comprehension/comprehension-skills/choosing-a-title.md",
+      "sha256": "63c30ecffce8bbdb5a1b3d6807ea44402dfd7958ed2d95ff070eaa5c174746fd",
+      "lines": 87,
+      "topicKey": "reading-comprehension-comprehension-skills"
+    },
+    "lesson-comprehension-skills-context-clues-in-passages": {
+      "path": "content/lessons/reading-comprehension/comprehension-skills/context-clues-in-passages.md",
+      "sha256": "6ce52b5524744864a2118df4fe30d3ebd62f111ec29aa386d38b22f730ec4ad0",
+      "lines": 93,
+      "topicKey": "reading-comprehension-comprehension-skills"
+    },
+    "lesson-comprehension-skills-fact-vs-opinion": {
+      "path": "content/lessons/reading-comprehension/comprehension-skills/fact-vs-opinion.md",
+      "sha256": "464037937cd313598ea538ef9a226343295c15e62346c207cb759ee5fc6c5fce",
+      "lines": 83,
+      "topicKey": "reading-comprehension-comprehension-skills"
+    },
+    "lesson-comprehension-skills-inferencing-and-conclusions": {
+      "path": "content/lessons/reading-comprehension/comprehension-skills/inferencing-and-conclusions.md",
+      "sha256": "caeafadafc2d1d122170d5a888b63b2d86c7116694a7b4371bf2b17f423a9178",
+      "lines": 79,
+      "topicKey": "reading-comprehension-comprehension-skills"
+    },
+    "lesson-comprehension-skills-main-idea": {
+      "path": "content/lessons/reading-comprehension/comprehension-skills/main-idea.md",
+      "sha256": "ce73f6fef6351fc5cb77538c05092ae97842170a08e69146a5768dfda3ba48e0",
+      "lines": 81,
+      "topicKey": "reading-comprehension-comprehension-skills"
+    },
+    "lesson-comprehension-skills-noting-specific-details": {
+      "path": "content/lessons/reading-comprehension/comprehension-skills/noting-specific-details.md",
+      "sha256": "f7492173a0dfbd8cbf2d0868446791bd3dbfcfcd799d8d4c487fd23d77f42caa",
+      "lines": 87,
+      "topicKey": "reading-comprehension-comprehension-skills"
+    },
+    "lesson-comprehension-skills-sequencing-of-events": {
+      "path": "content/lessons/reading-comprehension/comprehension-skills/sequencing-of-events.md",
+      "sha256": "5005f4f39665becdb813bda427c4a132f01952b6f2ccc3e26a67457b2cb29331",
+      "lines": 93,
+      "topicKey": "reading-comprehension-comprehension-skills"
+    },
+    "lesson-text-types-essays-editorials-articles": {
+      "path": "content/lessons/reading-comprehension/text-types/essays-editorials-articles.md",
+      "sha256": "3b10c0b0c8815c32cc2fc4ee53ae3387f7f3d58bdbb38431c983ffa370480ff2",
+      "lines": 72,
+      "topicKey": "reading-comprehension-text-types"
+    },
+    "lesson-text-types-poetry": {
+      "path": "content/lessons/reading-comprehension/text-types/poetry.md",
+      "sha256": "8869cd323f0c2e1484e6fa0531c137a54971c55a24f94d7b2a8319c7d6a623c1",
+      "lines": 89,
+      "topicKey": "reading-comprehension-text-types"
+    },
+    "lesson-text-types-short-stories-and-novels": {
+      "path": "content/lessons/reading-comprehension/text-types/short-stories-and-novels.md",
+      "sha256": "c7998a2014ef7f51f7ce5542aa3c02dc6b45446c268b92637526d2f6bdb64279",
+      "lines": 89,
+      "topicKey": "reading-comprehension-text-types"
+    },
+    "lesson-text-types-speeches": {
+      "path": "content/lessons/reading-comprehension/text-types/speeches.md",
+      "sha256": "48ed1d2fe84b8762d20cfe65c377d7c0456e04189b88b2a44b0efb4fe8369178",
+      "lines": 78,
+      "topicKey": "reading-comprehension-text-types"
+    },
+    "lesson-text-types-visual-media": {
+      "path": "content/lessons/reading-comprehension/text-types/visual-media.md",
+      "sha256": "642b9d416d27a7873cf7465135a5ebea9cbfe4b9f7afb96f4f12f8d1ea74a856",
+      "lines": 97,
+      "topicKey": "reading-comprehension-text-types"
+    },
+    "lesson-clerical-ability-alphabetic-filing-rules": {
+      "path": "content/lessons/reasoning/clerical-ability/alphabetic-filing-rules.md",
+      "sha256": "d9fd2e9bad452851471bbf318c6f2b3c5933dcff801d33df368050739a2f6bb8",
+      "lines": 90,
+      "topicKey": "reasoning-clerical-ability"
+    },
+    "lesson-clerical-ability-numeric-and-chronological-filing": {
+      "path": "content/lessons/reasoning/clerical-ability/numeric-and-chronological-filing.md",
+      "sha256": "ba8207ed8eb2148974031e1a74009ccd7fa721505bd64d7a20b138eaf481dcee",
+      "lines": 106,
+      "topicKey": "reasoning-clerical-ability"
+    },
+    "lesson-logical-verbal-reasoning-number-and-letter-sequences": {
+      "path": "content/lessons/reasoning/logical-verbal-reasoning/number-and-letter-sequences.md",
+      "sha256": "5e71c398b57a4d6567948047c11b295e70df7fe0534e7701cde7ad1332410348",
+      "lines": 100,
+      "topicKey": "reasoning-logical-verbal-reasoning"
+    },
+    "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic": {
+      "path": "content/lessons/reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.md",
+      "sha256": "7e13ffaf3f3e4402576163ccbef20b41bf88f10828c229b1ee6a775587a04feb",
+      "lines": 106,
+      "topicKey": "reasoning-logical-verbal-reasoning"
+    },
+    "lesson-logical-verbal-reasoning-truth-tables-propositional-logic": {
+      "path": "content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md",
+      "sha256": "cc849c94c8cba0819373b34588a3de376dd3535fe5ddb3a4fff754839cc61d5d",
+      "lines": 95,
+      "topicKey": "reasoning-logical-verbal-reasoning"
+    },
+    "lesson-logical-verbal-reasoning-word-analogies": {
+      "path": "content/lessons/reasoning/logical-verbal-reasoning/word-analogies.md",
+      "sha256": "e71036bbea689b0c3a9ef259685974034398db0fd6c9e300b4c151a8ac3441b5",
+      "lines": 104,
+      "topicKey": "reasoning-logical-verbal-reasoning"
+    },
+    "lesson-mechanical-technical-reasoning-fluid-pressure": {
+      "path": "content/lessons/reasoning/mechanical-technical-reasoning/fluid-pressure.md",
+      "sha256": "d904040e9f5f8b52b26033211caf6197daa71449bd7d2f51b43565bab36611d7",
+      "lines": 112,
+      "topicKey": "reasoning-mechanical-technical-reasoning"
+    },
+    "lesson-mechanical-technical-reasoning-gear-rotations": {
+      "path": "content/lessons/reasoning/mechanical-technical-reasoning/gear-rotations.md",
+      "sha256": "dcb596c614480c76ec1a538861177a5c227bc4c0c5aab7e04b0fdda1572dc3f1",
+      "lines": 95,
+      "topicKey": "reasoning-mechanical-technical-reasoning"
+    },
+    "lesson-mechanical-technical-reasoning-pulleys-and-levers": {
+      "path": "content/lessons/reasoning/mechanical-technical-reasoning/pulleys-and-levers.md",
+      "sha256": "fc79f371d955ec72c4255d551a3289c74dddc9c890d16820c70cbacb329509e4",
+      "lines": 127,
+      "topicKey": "reasoning-mechanical-technical-reasoning"
+    },
+    "lesson-mechanical-technical-reasoning-springs-and-weights": {
+      "path": "content/lessons/reasoning/mechanical-technical-reasoning/springs-and-weights.md",
+      "sha256": "b367a57b7146e942b584dee9ea7afe202491a111157b3d38173fcf26706fd1a3",
+      "lines": 112,
+      "topicKey": "reasoning-mechanical-technical-reasoning"
+    },
+    "lesson-mechanical-technical-reasoning-structural-stability": {
+      "path": "content/lessons/reasoning/mechanical-technical-reasoning/structural-stability.md",
+      "sha256": "def98d8b2801b499e1d33f294bb42769acd1a5121f65127527482a5c3f56bd39",
+      "lines": 92,
+      "topicKey": "reasoning-mechanical-technical-reasoning"
+    },
+    "lesson-spatial-abstract-reasoning-figure-grouping": {
+      "path": "content/lessons/reasoning/spatial-abstract-reasoning/figure-grouping.md",
+      "sha256": "2c220182a90786afbb48e9b5232755183265fe4af35e6d869bf9d5405525834c",
+      "lines": 102,
+      "topicKey": "reasoning-spatial-abstract-reasoning"
+    },
+    "lesson-spatial-abstract-reasoning-figure-matrices": {
+      "path": "content/lessons/reasoning/spatial-abstract-reasoning/figure-matrices.md",
+      "sha256": "face82a0ced97ec7ca4b3e4b10b8eb5566e64dbc1ee7735b3e182a6819f16f71",
+      "lines": 101,
+      "topicKey": "reasoning-spatial-abstract-reasoning"
+    },
+    "lesson-spatial-abstract-reasoning-figure-series": {
+      "path": "content/lessons/reasoning/spatial-abstract-reasoning/figure-series.md",
+      "sha256": "c64be0e462d66f3cd73b3039528094b55af20714604f972749060ad8efec41dd",
+      "lines": 94,
+      "topicKey": "reasoning-spatial-abstract-reasoning"
+    },
+    "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization": {
+      "path": "content/lessons/reasoning/spatial-abstract-reasoning/mental-rotation-3d-visualization.md",
+      "sha256": "52ec61d29ed961edb382c9bd4b77c07565ab6261b7ccf75647b0309c950358f2",
+      "lines": 101,
+      "topicKey": "reasoning-spatial-abstract-reasoning"
+    },
+    "lesson-spatial-abstract-reasoning-paper-folding-and-cutting": {
+      "path": "content/lessons/reasoning/spatial-abstract-reasoning/paper-folding-and-cutting.md",
+      "sha256": "a91b8646e7b924a68ca5f5b8ff354ecd76f4954a68a1977d5f3f2fb2f7a7db47",
+      "lines": 108,
+      "topicKey": "reasoning-spatial-abstract-reasoning"
+    },
+    "lesson-verbal-logic-assumptions-and-conclusions": {
+      "path": "content/lessons/reasoning/verbal-logic/assumptions-and-conclusions.md",
+      "sha256": "7123255c0056fcf6690f91d495a5afa73a15c65fb8823df7756977d07956381a",
+      "lines": 100,
+      "topicKey": "reasoning-verbal-logic"
+    },
+    "lesson-biology-botany": {
+      "path": "content/lessons/science/biology/botany.md",
+      "sha256": "6a300c930bbe419bfa8e3ac6bf4671983046a0f677b5d1b2bb0f6f275488d183",
+      "lines": 104,
+      "topicKey": "science-biology"
+    },
+    "lesson-biology-cell-biology": {
+      "path": "content/lessons/science/biology/cell-biology.md",
+      "sha256": "39c79da1f29d46cc0bd9c1e21118e90ab50e4ffb3d881799c29afe6be70cd992",
+      "lines": 134,
+      "topicKey": "science-biology"
+    },
+    "lesson-biology-cellular-metabolism": {
+      "path": "content/lessons/science/biology/cellular-metabolism.md",
+      "sha256": "17500e81960c37998226729afc7ad5fb4db033127572d980c42806d97590ebdf",
+      "lines": 122,
+      "topicKey": "science-biology"
+    },
+    "lesson-biology-cellular-reproduction": {
+      "path": "content/lessons/science/biology/cellular-reproduction.md",
+      "sha256": "76fe82941a656515f5f34cdf5d8fdb7a67eff9db0426fb70ef486036ebd90f72",
+      "lines": 121,
+      "topicKey": "science-biology"
+    },
+    "lesson-biology-characteristics-of-life": {
+      "path": "content/lessons/science/biology/characteristics-of-life.md",
+      "sha256": "d00963149143b1299b8396b0cfc19333deedabbe4e67ef4ae8f30a247c7be6cb",
+      "lines": 97,
+      "topicKey": "science-biology"
+    },
+    "lesson-biology-ecology": {
+      "path": "content/lessons/science/biology/ecology.md",
+      "sha256": "ce76e7dd6b64124ff597334093984b15116ed99a2f93d40b74699eaef88f3874",
+      "lines": 146,
+      "topicKey": "science-biology"
+    },
+    "lesson-biology-evolution": {
+      "path": "content/lessons/science/biology/evolution.md",
+      "sha256": "a089efa9300587acc01c8bb51994313ae31596dfbccdd68398a54db34edd3f76",
+      "lines": 109,
+      "topicKey": "science-biology"
+    },
+    "lesson-biology-genetics-and-heredity": {
+      "path": "content/lessons/science/biology/genetics-and-heredity.md",
+      "sha256": "20a3cbf2ac54081089c1cc6a0f226191848d90d8133cd9b24a09cfce32b5ef41",
+      "lines": 140,
+      "topicKey": "science-biology"
+    },
+    "lesson-biology-human-anatomy-physiology": {
+      "path": "content/lessons/science/biology/human-anatomy-physiology.md",
+      "sha256": "ac87f6958ff14bd129cd25106e95e1c09117c7f588885f403a356e8faddaee79",
+      "lines": 174,
+      "topicKey": "science-biology"
+    },
+    "lesson-biology-taxonomy-and-classification": {
+      "path": "content/lessons/science/biology/taxonomy-and-classification.md",
+      "sha256": "ff21c8ec740b344553dc2b63d5e226b1162a6d3cb4bb01866bf460681dfd344f",
+      "lines": 122,
+      "topicKey": "science-biology"
+    },
+    "lesson-chemistry-acids-bases-ph": {
+      "path": "content/lessons/science/chemistry/acids-bases-ph.md",
+      "sha256": "ed190e57bf75a07efeb68051b55f10ebed11fe7dc2fd22d569afcb441887f8c4",
+      "lines": 141,
+      "topicKey": "science-chemistry"
+    },
+    "lesson-chemistry-atomic-structure": {
+      "path": "content/lessons/science/chemistry/atomic-structure.md",
+      "sha256": "45e49608a875c73b0f58970619443f349f79175e819bcd2499ab0ebcee64fe04",
+      "lines": 129,
+      "topicKey": "science-chemistry"
+    },
+    "lesson-chemistry-basic-organic-chemistry": {
+      "path": "content/lessons/science/chemistry/basic-organic-chemistry.md",
+      "sha256": "234da9df778ebb40c6c3bc1127aa7d8f6c4ca1b5ed9315cea2a4e6efa5bdc46a",
+      "lines": 146,
+      "topicKey": "science-chemistry"
+    },
+    "lesson-chemistry-chemical-bonding": {
+      "path": "content/lessons/science/chemistry/chemical-bonding.md",
+      "sha256": "042231ade259c1c28fa6e46f596b9518d25a8d272436620e0dfec0a20406a9de",
+      "lines": 141,
+      "topicKey": "science-chemistry"
+    },
+    "lesson-chemistry-chemical-nomenclature": {
+      "path": "content/lessons/science/chemistry/chemical-nomenclature.md",
+      "sha256": "decd964ba3162bb7b59472e145d2f0be2a98c08eb3e5aedded98195ca644a7a9",
+      "lines": 152,
+      "topicKey": "science-chemistry"
+    },
+    "lesson-chemistry-chemical-reactions": {
+      "path": "content/lessons/science/chemistry/chemical-reactions.md",
+      "sha256": "c341c6ac97c05c858e10b99c50e5ae2ab090fce440d49849e20e2c4a35d528f7",
+      "lines": 133,
+      "topicKey": "science-chemistry"
+    },
+    "lesson-chemistry-gas-laws": {
+      "path": "content/lessons/science/chemistry/gas-laws.md",
+      "sha256": "514bfc655c0fb14fa0e8d8eb6a0161e38652c8ceec305f56cf75b424debc0eca",
+      "lines": 140,
+      "topicKey": "science-chemistry"
+    },
+    "lesson-chemistry-history-of-the-atom": {
+      "path": "content/lessons/science/chemistry/history-of-the-atom.md",
+      "sha256": "a996cb5fc57e7b888cc074afc6ee413aa5874e743d64b31cde0a71493d712aec",
+      "lines": 136,
+      "topicKey": "science-chemistry"
+    },
+    "lesson-chemistry-matter": {
+      "path": "content/lessons/science/chemistry/matter.md",
+      "sha256": "c30169e7a90819270667224b8201abdf090b129f7ec1d72e454a564f79b0aa2f",
+      "lines": 118,
+      "topicKey": "science-chemistry"
+    },
+    "lesson-chemistry-mixtures-and-separation": {
+      "path": "content/lessons/science/chemistry/mixtures-and-separation.md",
+      "sha256": "fe384ae5a486e1782779aa3a79ddffbb603e8e67969aa16ebfaa71b1d05da80e",
+      "lines": 139,
+      "topicKey": "science-chemistry"
+    },
+    "lesson-chemistry-mole-concept": {
+      "path": "content/lessons/science/chemistry/mole-concept.md",
+      "sha256": "7ced9877db7997594d74ac27a553aad3dcf39e3f06dca7ee4644670485bdee12",
+      "lines": 112,
+      "topicKey": "science-chemistry"
+    },
+    "lesson-chemistry-nuclear-chemistry": {
+      "path": "content/lessons/science/chemistry/nuclear-chemistry.md",
+      "sha256": "2033a4cf11cd038a5e5a8c893cf4c8970abb04c064e2f314f9554e2bd118300d",
+      "lines": 139,
+      "topicKey": "science-chemistry"
+    },
+    "lesson-chemistry-periodic-table": {
+      "path": "content/lessons/science/chemistry/periodic-table.md",
+      "sha256": "362c3336845a093254e97ef23c0f8db62bdea8018589e1ad3b6bc8aecb87d68d",
+      "lines": 114,
+      "topicKey": "science-chemistry"
+    },
+    "lesson-chemistry-quantum-numbers-electron-configuration": {
+      "path": "content/lessons/science/chemistry/quantum-numbers-electron-configuration.md",
+      "sha256": "dbf0b6f78d23d3f6600a9546bcc98ed51052f2495670a036346a858fee8f06d6",
+      "lines": 145,
+      "topicKey": "science-chemistry"
+    },
+    "lesson-chemistry-solutions": {
+      "path": "content/lessons/science/chemistry/solutions.md",
+      "sha256": "d30469a2a90bd0b8453d0d4364caa038dcffe9148885b3721971cb2cc5c27800",
+      "lines": 113,
+      "topicKey": "science-chemistry"
+    },
+    "lesson-chemistry-stoichiometry": {
+      "path": "content/lessons/science/chemistry/stoichiometry.md",
+      "sha256": "bd0c4c00ccae1105da06a54b02a15aaa0eecbf7906a5ea179c6828cd3d7b173a",
+      "lines": 134,
+      "topicKey": "science-chemistry"
+    },
+    "lesson-chemistry-thermodynamics-and-kinetics": {
+      "path": "content/lessons/science/chemistry/thermodynamics-and-kinetics.md",
+      "sha256": "e6716a70db409220611ee4f71d4e010673e236fed16a51b33130bf4fb03fac34",
+      "lines": 154,
+      "topicKey": "science-chemistry"
+    },
+    "lesson-earth-science-astronomy-earths-motions": {
+      "path": "content/lessons/science/earth-science-astronomy/earths-motions.md",
+      "sha256": "06a2927f9937c59f819fcb6232c9a108470891946c2bf4bb0a33df9158058c1d",
+      "lines": 91,
+      "topicKey": "science-earth-science-astronomy"
+    },
+    "lesson-earth-science-astronomy-earths-subsystems": {
+      "path": "content/lessons/science/earth-science-astronomy/earths-subsystems.md",
+      "sha256": "f708fec61bb4399cc91f880641a1fef446fd0363e5e370836562fbe2816d775f",
+      "lines": 93,
+      "topicKey": "science-earth-science-astronomy"
+    },
+    "lesson-earth-science-astronomy-eclipses-and-moon-phases": {
+      "path": "content/lessons/science/earth-science-astronomy/eclipses-and-moon-phases.md",
+      "sha256": "82395d1ac1bb538f9b079a9abf3c0425109a9b3b86126734466049f5ee541909",
+      "lines": 96,
+      "topicKey": "science-earth-science-astronomy"
+    },
+    "lesson-earth-science-astronomy-fossils-and-geologic-time": {
+      "path": "content/lessons/science/earth-science-astronomy/fossils-and-geologic-time.md",
+      "sha256": "13399e7726c9e995fd929619c81258697bf7cec9d05194574d8a8a379bc6f7c5",
+      "lines": 89,
+      "topicKey": "science-earth-science-astronomy"
+    },
+    "lesson-earth-science-astronomy-heavenly-bodies": {
+      "path": "content/lessons/science/earth-science-astronomy/heavenly-bodies.md",
+      "sha256": "bdae78845aa79afcc4327a23e801a4a0ac972a496734dea7ce136118a8d5f337",
+      "lines": 86,
+      "topicKey": "science-earth-science-astronomy"
+    },
+    "lesson-earth-science-astronomy-layers-of-the-earth": {
+      "path": "content/lessons/science/earth-science-astronomy/layers-of-the-earth.md",
+      "sha256": "2ed63ab2118d445cf8b5bb64e12c5131df23367b58d7f8fcacae518cb975fb85",
+      "lines": 82,
+      "topicKey": "science-earth-science-astronomy"
+    },
+    "lesson-earth-science-astronomy-minerals-and-rocks": {
+      "path": "content/lessons/science/earth-science-astronomy/minerals-and-rocks.md",
+      "sha256": "585dcb2125882704e678d1e8cc70dd7ea862c0378507186944a340b91524e41f",
+      "lines": 87,
+      "topicKey": "science-earth-science-astronomy"
+    },
+    "lesson-earth-science-astronomy-origin-of-the-universe": {
+      "path": "content/lessons/science/earth-science-astronomy/origin-of-the-universe.md",
+      "sha256": "c42d612dc55018efde94b9f9f35aa626b0fea4486b80e0f7ef9213e92dba242d",
+      "lines": 81,
+      "topicKey": "science-earth-science-astronomy"
+    },
+    "lesson-earth-science-astronomy-plate-tectonics": {
+      "path": "content/lessons/science/earth-science-astronomy/plate-tectonics.md",
+      "sha256": "542386094eb7f755a8a52dbbfaf3e75f12de96a9d9e954b9dcd21bf30d7bedcf",
+      "lines": 101,
+      "topicKey": "science-earth-science-astronomy"
+    },
+    "lesson-earth-science-astronomy-water-cycle-oceanography": {
+      "path": "content/lessons/science/earth-science-astronomy/water-cycle-oceanography.md",
+      "sha256": "75dd214a87e86b36062a95429bc8c80b01564245b78a67da9380e2229bbfd8c1",
+      "lines": 91,
+      "topicKey": "science-earth-science-astronomy"
+    },
+    "lesson-earth-science-astronomy-weather-and-climate": {
+      "path": "content/lessons/science/earth-science-astronomy/weather-and-climate.md",
+      "sha256": "27ee10506999abd245aeb254ecb0ecc8d5b41ec0c3da55bb70ca0a70f2175ab7",
+      "lines": 113,
+      "topicKey": "science-earth-science-astronomy"
+    },
+    "lesson-physics-dynamics": {
+      "path": "content/lessons/science/physics/dynamics.md",
+      "sha256": "5b3e6bbf7b9ef37561b9c92abdb8b231151dac11388ca175120e6f2b64d78143",
+      "lines": 142,
+      "topicKey": "science-physics"
+    },
+    "lesson-physics-electricity-and-magnetism": {
+      "path": "content/lessons/science/physics/electricity-and-magnetism.md",
+      "sha256": "b4159dcc37ba0372ec43fae26008b1dc09c13342db47f3861b2d1f3ac31875fa",
+      "lines": 162,
+      "topicKey": "science-physics"
+    },
+    "lesson-physics-fluid-mechanics": {
+      "path": "content/lessons/science/physics/fluid-mechanics.md",
+      "sha256": "29446c078d4024ca5fc7ebeb6ee1e77e627c3cc96f5a61e44a55bf5e03fde54e",
+      "lines": 142,
+      "topicKey": "science-physics"
+    },
+    "lesson-physics-gravity-and-keplers-laws": {
+      "path": "content/lessons/science/physics/gravity-and-keplers-laws.md",
+      "sha256": "ed80b8265783868e3c102c30a29eebd98ad1c661f9306f5cae9e52214420f0fd",
+      "lines": 144,
+      "topicKey": "science-physics"
+    },
+    "lesson-physics-kinematics": {
+      "path": "content/lessons/science/physics/kinematics.md",
+      "sha256": "d361b219e492dab5c2091eedb687ccc9db77fd6840d7ebca21c56edfadd761c0",
+      "lines": 135,
+      "topicKey": "science-physics"
+    },
+    "lesson-physics-light-and-optics": {
+      "path": "content/lessons/science/physics/light-and-optics.md",
+      "sha256": "68b0ccd8ad91f138dad702578182cacd69c4dc0b6c941f012cf1a92480abee21",
+      "lines": 146,
+      "topicKey": "science-physics"
+    },
+    "lesson-physics-momentum-and-impulse": {
+      "path": "content/lessons/science/physics/momentum-and-impulse.md",
+      "sha256": "9963b76459d08bb8c2a9475e2b088c9752c0ce075a4ef9feccc545d85b08de7b",
+      "lines": 131,
+      "topicKey": "science-physics"
+    },
+    "lesson-physics-scalars-and-vectors": {
+      "path": "content/lessons/science/physics/scalars-and-vectors.md",
+      "sha256": "a60360ce8730c373c2a4b566ab69b6442a29a66af2b464f1e0a8220e923a9ac0",
+      "lines": 130,
+      "topicKey": "science-physics"
+    },
+    "lesson-physics-thermodynamics": {
+      "path": "content/lessons/science/physics/thermodynamics.md",
+      "sha256": "2d386721a484964d7970488be939ceec003b6dac3a2d2a1bc95d6c1e86e2919c",
+      "lines": 136,
+      "topicKey": "science-physics"
+    },
+    "lesson-physics-two-dimensional-motion": {
+      "path": "content/lessons/science/physics/two-dimensional-motion.md",
+      "sha256": "de82fab38cfee42169aa60c0c2358f845b2e3c654c1418b75bd875c3413115df",
+      "lines": 141,
+      "topicKey": "science-physics"
+    },
+    "lesson-physics-units-and-measurements": {
+      "path": "content/lessons/science/physics/units-and-measurements.md",
+      "sha256": "44f728ab41f7de68e1003b70273341b239b245b15bfa0ba7b54d936c454d89cc",
+      "lines": 125,
+      "topicKey": "science-physics"
+    },
+    "lesson-physics-waves-and-sound": {
+      "path": "content/lessons/science/physics/waves-and-sound.md",
+      "sha256": "247aacf5ee3245aba46104dbd0f39895cff78827aec8f7de34c019232eeb3bdd",
+      "lines": 132,
+      "topicKey": "science-physics"
+    },
+    "lesson-physics-work-energy-power": {
+      "path": "content/lessons/science/physics/work-energy-power.md",
+      "sha256": "7ccf85aaf50d3657eeb27b94f9255c278c9802a78b215f571651288414b9fb60",
+      "lines": 182,
+      "topicKey": "science-physics"
+    }
+  },
+  "topics": [
+    {
+      "key": "general-information-code-of-conduct-ra-6713",
+      "lessonIds": [
+        "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+        "lesson-code-of-conduct-ra-6713-norms-of-conduct",
+        "lesson-code-of-conduct-ra-6713-penalties-and-enforcement",
+        "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-general-information-code-of-conduct-ra-6713.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/general-information-code-of-conduct-ra-6713.json",
+      "output": "docs/content/audit/coverage-r1/topics/general-information-code-of-conduct-ra-6713-lessons.md",
+      "state": "NOT_STARTED"
+    },
+    {
+      "key": "general-information-environment-management",
+      "lessonIds": [
+        "lesson-environment-management-environmental-concepts",
+        "lesson-environment-management-the-environmental-laws"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-general-information-environment-management.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/general-information-environment-management.json",
+      "output": "docs/content/audit/coverage-r1/topics/general-information-environment-management-lessons.md",
+      "state": "NOT_STARTED"
+    },
+    {
+      "key": "general-information-peace-and-human-rights",
+      "lessonIds": [
+        "lesson-peace-and-human-rights-human-rights-fundamentals",
+        "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-general-information-peace-and-human-rights.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/general-information-peace-and-human-rights.json",
+      "output": "docs/content/audit/coverage-r1/topics/general-information-peace-and-human-rights-lessons.md",
+      "state": "NOT_STARTED"
+    },
+    {
+      "key": "general-information-philippine-constitution",
+      "lessonIds": [
+        "lesson-philippine-constitution-accountability-and-impeachment",
+        "lesson-philippine-constitution-bill-of-rights",
+        "lesson-philippine-constitution-the-articles-in-outline",
+        "lesson-philippine-constitution-the-civil-service-commission"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-general-information-philippine-constitution.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/general-information-philippine-constitution.json",
+      "output": "docs/content/audit/coverage-r1/topics/general-information-philippine-constitution-lessons.md",
+      "state": "NOT_STARTED"
+    },
+    {
+      "key": "language-proficiency-grammar-and-structure",
+      "lessonIds": [
+        "lesson-grammar-and-structure-modifiers",
+        "lesson-grammar-and-structure-parallelism",
+        "lesson-grammar-and-structure-parts-of-speech",
+        "lesson-grammar-and-structure-phrases-and-clauses",
+        "lesson-grammar-and-structure-pronoun-antecedent-agreement",
+        "lesson-grammar-and-structure-punctuation-and-capitalization",
+        "lesson-grammar-and-structure-redundancy-and-double-negatives",
+        "lesson-grammar-and-structure-sentence-structure",
+        "lesson-grammar-and-structure-subject-verb-agreement",
+        "lesson-grammar-and-structure-tenses-and-voice"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-language-proficiency-grammar-and-structure.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/language-proficiency-grammar-and-structure.json",
+      "output": "docs/content/audit/coverage-r1/topics/language-proficiency-grammar-and-structure-lessons.md",
+      "state": "NOT_STARTED"
+    },
+    {
+      "key": "language-proficiency-language-application",
+      "lessonIds": [
+        "lesson-language-application-error-identification",
+        "lesson-language-application-paragraph-organization",
+        "lesson-language-application-sentence-completion"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-language-proficiency-language-application.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/language-proficiency-language-application.json",
+      "output": "docs/content/audit/coverage-r1/topics/language-proficiency-language-application-lessons.md",
+      "state": "NOT_STARTED"
+    },
+    {
+      "key": "language-proficiency-vocabulary",
+      "lessonIds": [
+        "lesson-vocabulary-confusing-words",
+        "lesson-vocabulary-context-clues",
+        "lesson-vocabulary-idioms-and-figures-of-speech",
+        "lesson-vocabulary-root-words-prefixes-suffixes",
+        "lesson-vocabulary-spelling-rules",
+        "lesson-vocabulary-synonyms-and-antonyms"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-language-proficiency-vocabulary.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/language-proficiency-vocabulary.json",
+      "output": "docs/content/audit/coverage-r1/topics/language-proficiency-vocabulary-lessons.md",
+      "state": "NOT_STARTED"
+    },
+    {
+      "key": "mathematics-algebra",
+      "lessonIds": [
+        "lesson-algebra-algebraic-expressions",
+        "lesson-algebra-exponents-and-logarithms",
+        "lesson-algebra-functions-and-relations",
+        "lesson-algebra-linear-equations-inequalities",
+        "lesson-algebra-polynomials",
+        "lesson-algebra-quadratic-equations",
+        "lesson-algebra-radicals-and-rationalization",
+        "lesson-algebra-sets-and-set-notation",
+        "lesson-algebra-systems-of-equations",
+        "lesson-algebra-types-of-functions",
+        "lesson-algebra-word-problems"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-algebra.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-algebra.json",
+      "output": "docs/content/audit/coverage-r1/topics/mathematics-algebra-lessons.md",
+      "state": "NOT_STARTED"
+    },
+    {
+      "key": "mathematics-arithmetic-number-sense",
+      "lessonIds": [
+        "lesson-arithmetic-number-sense-business-math",
+        "lesson-arithmetic-number-sense-divisibility-rules",
+        "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+        "lesson-arithmetic-number-sense-order-of-operations",
+        "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm",
+        "lesson-arithmetic-number-sense-properties-of-real-numbers",
+        "lesson-arithmetic-number-sense-ratio-and-proportion",
+        "lesson-arithmetic-number-sense-real-imaginary-numbers",
+        "lesson-arithmetic-number-sense-sequences-and-series"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-arithmetic-number-sense.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-arithmetic-number-sense.json",
+      "output": "docs/content/audit/coverage-r1/topics/mathematics-arithmetic-number-sense-lessons.md",
+      "state": "RUNNING",
+      "agent": "l3_physics"
+    },
+    {
+      "key": "mathematics-data-interpretation",
+      "lessonIds": [
+        "lesson-data-interpretation-rates-ratios-and-percentages-in-context",
+        "lesson-data-interpretation-tables-and-charts"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-data-interpretation.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-data-interpretation.json",
+      "output": "docs/content/audit/coverage-r1/topics/mathematics-data-interpretation-lessons.md",
+      "state": "NOT_STARTED"
+    },
+    {
+      "key": "mathematics-geometry",
+      "lessonIds": [
+        "lesson-geometry-basic-geometric-concepts",
+        "lesson-geometry-circles",
+        "lesson-geometry-coordinate-geometry",
+        "lesson-geometry-logic-and-reasoning",
+        "lesson-geometry-measurement",
+        "lesson-geometry-parallel-perpendicular-lines",
+        "lesson-geometry-quadrilaterals-and-polygons",
+        "lesson-geometry-triangles"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-geometry.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-geometry.json",
+      "output": "docs/content/audit/coverage-r1/topics/mathematics-geometry-lessons.md",
+      "state": "NOT_STARTED"
+    },
+    {
+      "key": "mathematics-precalculus-basic-calculus",
+      "lessonIds": [
+        "lesson-precalculus-basic-calculus-basic-derivatives",
+        "lesson-precalculus-basic-calculus-basic-integrals",
+        "lesson-precalculus-basic-calculus-conic-sections",
+        "lesson-precalculus-basic-calculus-limits-and-continuity"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-precalculus-basic-calculus.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-precalculus-basic-calculus.json",
+      "output": "docs/content/audit/coverage-r1/topics/mathematics-precalculus-basic-calculus-lessons.md",
+      "state": "NOT_STARTED"
+    },
+    {
+      "key": "mathematics-statistics-and-probability",
+      "lessonIds": [
+        "lesson-statistics-and-probability-basic-probability",
+        "lesson-statistics-and-probability-combinatorics",
+        "lesson-statistics-and-probability-data-analysis-graphs",
+        "lesson-statistics-and-probability-measures-of-central-tendency",
+        "lesson-statistics-and-probability-measures-of-variability"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-statistics-and-probability.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-statistics-and-probability.json",
+      "output": "docs/content/audit/coverage-r1/topics/mathematics-statistics-and-probability-lessons.md",
+      "state": "NOT_STARTED"
+    },
+    {
+      "key": "mathematics-trigonometry",
+      "lessonIds": [
+        "lesson-trigonometry-angles-and-radian-measure",
+        "lesson-trigonometry-basic-trigonometric-ratios",
+        "lesson-trigonometry-inverse-trigonometric-functions",
+        "lesson-trigonometry-laws-of-sines-and-cosines",
+        "lesson-trigonometry-solving-right-triangles",
+        "lesson-trigonometry-trigonometric-identities",
+        "lesson-trigonometry-unit-circle"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-trigonometry.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-trigonometry.json",
+      "output": "docs/content/audit/coverage-r1/topics/mathematics-trigonometry-lessons.md",
+      "state": "NOT_STARTED"
+    },
+    {
+      "key": "reading-comprehension-comprehension-skills",
+      "lessonIds": [
+        "lesson-comprehension-skills-authors-purpose-tone-pov",
+        "lesson-comprehension-skills-choosing-a-title",
+        "lesson-comprehension-skills-context-clues-in-passages",
+        "lesson-comprehension-skills-fact-vs-opinion",
+        "lesson-comprehension-skills-inferencing-and-conclusions",
+        "lesson-comprehension-skills-main-idea",
+        "lesson-comprehension-skills-noting-specific-details",
+        "lesson-comprehension-skills-sequencing-of-events"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-reading-comprehension-comprehension-skills.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/reading-comprehension-comprehension-skills.json",
+      "output": "docs/content/audit/coverage-r1/topics/reading-comprehension-comprehension-skills-lessons.md",
+      "state": "NOT_STARTED"
+    },
+    {
+      "key": "reading-comprehension-text-types",
+      "lessonIds": [
+        "lesson-text-types-essays-editorials-articles",
+        "lesson-text-types-poetry",
+        "lesson-text-types-short-stories-and-novels",
+        "lesson-text-types-speeches",
+        "lesson-text-types-visual-media"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-reading-comprehension-text-types.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/reading-comprehension-text-types.json",
+      "output": "docs/content/audit/coverage-r1/topics/reading-comprehension-text-types-lessons.md",
+      "state": "NOT_STARTED"
+    },
+    {
+      "key": "reasoning-clerical-ability",
+      "lessonIds": [
+        "lesson-clerical-ability-alphabetic-filing-rules",
+        "lesson-clerical-ability-numeric-and-chronological-filing"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-reasoning-clerical-ability.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/reasoning-clerical-ability.json",
+      "output": "docs/content/audit/coverage-r1/topics/reasoning-clerical-ability-lessons.md",
+      "state": "NOT_STARTED"
+    },
+    {
+      "key": "reasoning-logical-verbal-reasoning",
+      "lessonIds": [
+        "lesson-logical-verbal-reasoning-number-and-letter-sequences",
+        "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic",
+        "lesson-logical-verbal-reasoning-truth-tables-propositional-logic",
+        "lesson-logical-verbal-reasoning-word-analogies"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-reasoning-logical-verbal-reasoning.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/reasoning-logical-verbal-reasoning.json",
+      "output": "docs/content/audit/coverage-r1/topics/reasoning-logical-verbal-reasoning-lessons.md",
+      "state": "NOT_STARTED"
+    },
+    {
+      "key": "reasoning-mechanical-technical-reasoning",
+      "lessonIds": [
+        "lesson-mechanical-technical-reasoning-fluid-pressure",
+        "lesson-mechanical-technical-reasoning-gear-rotations",
+        "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+        "lesson-mechanical-technical-reasoning-springs-and-weights",
+        "lesson-mechanical-technical-reasoning-structural-stability"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-reasoning-mechanical-technical-reasoning.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/reasoning-mechanical-technical-reasoning.json",
+      "output": "docs/content/audit/coverage-r1/topics/reasoning-mechanical-technical-reasoning-lessons.md",
+      "state": "NOT_STARTED"
+    },
+    {
+      "key": "reasoning-spatial-abstract-reasoning",
+      "lessonIds": [
+        "lesson-spatial-abstract-reasoning-figure-grouping",
+        "lesson-spatial-abstract-reasoning-figure-matrices",
+        "lesson-spatial-abstract-reasoning-figure-series",
+        "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization",
+        "lesson-spatial-abstract-reasoning-paper-folding-and-cutting"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-reasoning-spatial-abstract-reasoning.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/reasoning-spatial-abstract-reasoning.json",
+      "output": "docs/content/audit/coverage-r1/topics/reasoning-spatial-abstract-reasoning-lessons.md",
+      "state": "NOT_STARTED"
+    },
+    {
+      "key": "reasoning-verbal-logic",
+      "lessonIds": [
+        "lesson-verbal-logic-assumptions-and-conclusions"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-reasoning-verbal-logic.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/reasoning-verbal-logic.json",
+      "output": "docs/content/audit/coverage-r1/topics/reasoning-verbal-logic-lessons.md",
+      "state": "NOT_STARTED"
+    },
+    {
+      "key": "science-biology",
+      "lessonIds": [
+        "lesson-biology-botany",
+        "lesson-biology-cell-biology",
+        "lesson-biology-cellular-metabolism",
+        "lesson-biology-cellular-reproduction",
+        "lesson-biology-characteristics-of-life",
+        "lesson-biology-ecology",
+        "lesson-biology-evolution",
+        "lesson-biology-genetics-and-heredity",
+        "lesson-biology-human-anatomy-physiology",
+        "lesson-biology-taxonomy-and-classification"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-science-biology.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/science-biology.json",
+      "output": "docs/content/audit/coverage-r1/topics/science-biology-lessons.md",
+      "state": "AUTHOR_COMPLETE_REVIEW_PENDING",
+      "agent": "l3_biology"
+    },
+    {
+      "key": "science-chemistry",
+      "lessonIds": [
+        "lesson-chemistry-acids-bases-ph",
+        "lesson-chemistry-atomic-structure",
+        "lesson-chemistry-basic-organic-chemistry",
+        "lesson-chemistry-chemical-bonding",
+        "lesson-chemistry-chemical-nomenclature",
+        "lesson-chemistry-chemical-reactions",
+        "lesson-chemistry-gas-laws",
+        "lesson-chemistry-history-of-the-atom",
+        "lesson-chemistry-matter",
+        "lesson-chemistry-mixtures-and-separation",
+        "lesson-chemistry-mole-concept",
+        "lesson-chemistry-nuclear-chemistry",
+        "lesson-chemistry-periodic-table",
+        "lesson-chemistry-quantum-numbers-electron-configuration",
+        "lesson-chemistry-solutions",
+        "lesson-chemistry-stoichiometry",
+        "lesson-chemistry-thermodynamics-and-kinetics"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-science-chemistry.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/science-chemistry.json",
+      "output": "docs/content/audit/coverage-r1/topics/science-chemistry-lessons.md",
+      "state": "AUTHOR_COMPLETE_REVIEW_PENDING",
+      "agent": "l3_chemistry"
+    },
+    {
+      "key": "science-earth-science-astronomy",
+      "lessonIds": [
+        "lesson-earth-science-astronomy-earths-motions",
+        "lesson-earth-science-astronomy-earths-subsystems",
+        "lesson-earth-science-astronomy-eclipses-and-moon-phases",
+        "lesson-earth-science-astronomy-fossils-and-geologic-time",
+        "lesson-earth-science-astronomy-heavenly-bodies",
+        "lesson-earth-science-astronomy-layers-of-the-earth",
+        "lesson-earth-science-astronomy-minerals-and-rocks",
+        "lesson-earth-science-astronomy-origin-of-the-universe",
+        "lesson-earth-science-astronomy-plate-tectonics",
+        "lesson-earth-science-astronomy-water-cycle-oceanography",
+        "lesson-earth-science-astronomy-weather-and-climate"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-science-earth-science-astronomy.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/science-earth-science-astronomy.json",
+      "output": "docs/content/audit/coverage-r1/topics/science-earth-science-astronomy-lessons.md",
+      "state": "RUNNING",
+      "agent": "l3_chemistry"
+    },
+    {
+      "key": "science-physics",
+      "lessonIds": [
+        "lesson-physics-dynamics",
+        "lesson-physics-electricity-and-magnetism",
+        "lesson-physics-fluid-mechanics",
+        "lesson-physics-gravity-and-keplers-laws",
+        "lesson-physics-kinematics",
+        "lesson-physics-light-and-optics",
+        "lesson-physics-momentum-and-impulse",
+        "lesson-physics-scalars-and-vectors",
+        "lesson-physics-thermodynamics",
+        "lesson-physics-two-dimensional-motion",
+        "lesson-physics-units-and-measurements",
+        "lesson-physics-waves-and-sound",
+        "lesson-physics-work-energy-power"
+      ],
+      "brief": "docs/content/audit/coverage-r1/briefs/l3-science-physics.md",
+      "packet": "docs/content/audit/coverage-r1/structure/packets/science-physics.json",
+      "output": "docs/content/audit/coverage-r1/topics/science-physics-lessons.md",
+      "state": "AUTHOR_COMPLETE_REVIEW_PENDING",
+      "agent": "l3_physics"
+    }
+  ],
+  "compatiblePolicyCommits": [
+    "cb48097bedf15bec2cfbe4fb3aa7e957753b1727",
+    "ac4b30da31b0bcca7e7ed1e47c930b1ac00ced6c"
+  ]
+}

@@ -1,0 +1,13 @@
+# Level 3 structure: science / earth-science-astronomy
+
+Work on Aedwon/Pantas. On every new or resumed task, retrieve AGENTS.md and WORKFLOW.md from current GitHub main and follow them regardless of code branch. Workers also retrieve SUBAGENTS.md and docs/workflow/startup.md from main. Read full spec, plan, later decisions and assigned source. Record policy commit. Preserve paused engineering and application-code freeze. If required policy/context is unavailable, stop dependent work and report. Do not merge main to obtain rules. Lead verified main ac4b30da31b0bcca7e7ed1e47c930b1ac00ced6c. Git metadata is read-only; watcher fetches. Check git ls-remote origin refs/heads/main then git show origin/main:<path>; tell lead if mismatched.
+
+Read docs/content/audit/coverage-r1/structure/reader-contract.md IN FULL before writing. It supplies mandatory reads, scope/evidence rules and the complete output schema.
+
+Aedwon approved Level3 only; Levels1/2 accepted. Findings/recommendations only. No Level4 standards checks, Level5 questions/blind solves or illustration assessment/production. Record only load-bearing figure dependencies. No content/app/importer/schema edits, computer control/browser automation, Google writes, additional subagents or git mutations.
+
+Sole output ownership: docs/content/audit/coverage-r1/topics/science-earth-science-astronomy-lessons.md. You are not alone; preserve others' edits. Audit-specific same-worktree sole-output assignments supersede separate worker worktrees, with read-only corpus and git.
+
+Packet: docs/content/audit/coverage-r1/structure/packets/science-earth-science-astronomy.json. Read all 11 owned lessons in full at /Users/aedwon/Documents/Projects/Pantas-wt-content-qa-r2, pinned765c5dc0fa5586281047bf4f7b30d09ab3707887. Confirm HEAD/clean corpus. Assess required local skills and actual teaching/examples, reuse/partial scope, coherent split/reorder opportunities, strictly necessary prerequisites, missing foundations. Read relevant accepted requirements and overlap scope notes. Preserve unknown exam depth/language/cycles/runtime; counts/names are not coverage.
+
+Save DRAFT immediately after required startup reads, then after each lesson. Finish human-readable Markdown plus exactly one JSON appendix as contract specifies. Verify complete assigned-ID accounting, hashes/read evidence, valid refs, prerequisite existing targets and both-end line evidence; no self-links/authored-order assumptions. Report actual self-check output, unresolved findings, sole path. Fresh independent review is required for lead acceptance. Stop for missing/conflicting required context or a new usage-limit error, preserving output first. Do not wait stale reset times.

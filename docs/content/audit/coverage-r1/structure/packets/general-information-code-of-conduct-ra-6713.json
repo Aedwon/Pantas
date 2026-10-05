@@ -1,0 +1,357 @@
+{
+  "subject": "general-information",
+  "topic": "code-of-conduct-ra-6713",
+  "corpusCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+  "lessons": [
+    {
+      "subject": "general-information",
+      "topic": "code-of-conduct-ra-6713",
+      "slug": "duties-and-prohibited-acts",
+      "path": "content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md",
+      "metadata__id": "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+      "metadata_title": "Duties and Prohibited Acts under RA 6713",
+      "metadata_summary": "Understand the statutory duties, response deadlines, prohibited acts, and gift rules under RA 6713.",
+      "metadata_subject": "subject-general-information",
+      "metadata_topic": "topic-code-of-conduct-ra-6713",
+      "metadata_isActive": true,
+      "outlinePresent": false,
+      "provisionalExamTags": [
+        "cse-professional",
+        "cse-subprofessional"
+      ],
+      "evidenceRows": [
+        "cse-professional-L033",
+        "cse-professional-L049",
+        "cse-professional-L057",
+        "cse-professional-L061",
+        "cse-subprofessional-L045",
+        "cse-subprofessional-L059",
+        "cse-subprofessional-L117"
+      ],
+      "tagNote": "All tags are uncertain name-level relevance. Source tier/cycle and partial facets are in the linked exam-map rows. No body or runtime confirmation.",
+      "availability": "unknown"
+    },
+    {
+      "subject": "general-information",
+      "topic": "code-of-conduct-ra-6713",
+      "slug": "norms-of-conduct",
+      "path": "content/lessons/general-information/code-of-conduct-ra-6713/norms-of-conduct.md",
+      "metadata__id": "lesson-code-of-conduct-ra-6713-norms-of-conduct",
+      "metadata_title": "Norms of Conduct for Public Officials",
+      "metadata_summary": "Learn the eight statutory norms of conduct under RA 6713 that govern all public officials and employees.",
+      "metadata_subject": "subject-general-information",
+      "metadata_topic": "topic-code-of-conduct-ra-6713",
+      "metadata_isActive": true,
+      "outlinePresent": false,
+      "provisionalExamTags": [
+        "cse-professional",
+        "cse-subprofessional"
+      ],
+      "evidenceRows": [
+        "cse-professional-L033",
+        "cse-professional-L049",
+        "cse-professional-L057",
+        "cse-professional-L061",
+        "cse-subprofessional-L045",
+        "cse-subprofessional-L059",
+        "cse-subprofessional-L117"
+      ],
+      "tagNote": "All tags are uncertain name-level relevance. Source tier/cycle and partial facets are in the linked exam-map rows. No body or runtime confirmation.",
+      "availability": "unknown"
+    },
+    {
+      "subject": "general-information",
+      "topic": "code-of-conduct-ra-6713",
+      "slug": "penalties-and-enforcement",
+      "path": "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md",
+      "metadata__id": "lesson-code-of-conduct-ra-6713-penalties-and-enforcement",
+      "metadata_title": "Penalties and Enforcement under RA 6713",
+      "metadata_summary": "Understand the statutory penalties and administrative enforcement mechanisms under Section 11 of RA 6713.",
+      "metadata_subject": "subject-general-information",
+      "metadata_topic": "topic-code-of-conduct-ra-6713",
+      "metadata_isActive": true,
+      "outlinePresent": false,
+      "provisionalExamTags": [
+        "cse-professional",
+        "cse-subprofessional"
+      ],
+      "evidenceRows": [
+        "cse-professional-L033",
+        "cse-professional-L049",
+        "cse-professional-L057",
+        "cse-professional-L061",
+        "cse-subprofessional-L045",
+        "cse-subprofessional-L059",
+        "cse-subprofessional-L117"
+      ],
+      "tagNote": "All tags are uncertain name-level relevance. Source tier/cycle and partial facets are in the linked exam-map rows. No body or runtime confirmation.",
+      "availability": "unknown"
+    },
+    {
+      "subject": "general-information",
+      "topic": "code-of-conduct-ra-6713",
+      "slug": "statements-of-assets-and-divestment",
+      "path": "content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md",
+      "metadata__id": "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment",
+      "metadata_title": "SALN Filing, Public Access, and Divestment",
+      "metadata_summary": "Learn the rules and deadlines for Statement of Assets, Liabilities and Net Worth (SALN) filing and divestment under RA 6713.",
+      "metadata_subject": "subject-general-information",
+      "metadata_topic": "topic-code-of-conduct-ra-6713",
+      "metadata_isActive": true,
+      "outlinePresent": false,
+      "provisionalExamTags": [
+        "cse-professional",
+        "cse-subprofessional"
+      ],
+      "evidenceRows": [
+        "cse-professional-L033",
+        "cse-professional-L049",
+        "cse-professional-L057",
+        "cse-professional-L061",
+        "cse-subprofessional-L045",
+        "cse-subprofessional-L059",
+        "cse-subprofessional-L117"
+      ],
+      "tagNote": "All tags are uncertain name-level relevance. Source tier/cycle and partial facets are in the linked exam-map rows. No body or runtime confirmation.",
+      "availability": "unknown"
+    }
+  ],
+  "candidateRequirementRows": [
+    {
+      "id": "cse-professional-L033",
+      "exam": "cse-professional",
+      "line": 33,
+      "group": "## 2. Subtests and languages",
+      "kind": "subject",
+      "evidence": "reported subject; inspect exact source qualifier",
+      "confidence": "official; see cycle/language qualifiers",
+      "text": "- General Information: English. [1, official]",
+      "requirementPath": "requirements/cse-professional.md",
+      "status": "PARTIAL NAME LEADS",
+      "lessonIds": [
+        "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+        "lesson-code-of-conduct-ra-6713-norms-of-conduct",
+        "lesson-code-of-conduct-ra-6713-penalties-and-enforcement",
+        "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment",
+        "lesson-environment-management-environmental-concepts",
+        "lesson-environment-management-the-environmental-laws",
+        "lesson-peace-and-human-rights-human-rights-fundamentals",
+        "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law",
+        "lesson-philippine-constitution-accountability-and-impeachment",
+        "lesson-philippine-constitution-bill-of-rights",
+        "lesson-philippine-constitution-the-articles-in-outline",
+        "lesson-philippine-constitution-the-civil-service-commission"
+      ],
+      "lessonPaths": [
+        "content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/norms-of-conduct.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md",
+        "content/lessons/general-information/environment-management/environmental-concepts.md",
+        "content/lessons/general-information/environment-management/the-environmental-laws.md",
+        "content/lessons/general-information/peace-and-human-rights/human-rights-fundamentals.md",
+        "content/lessons/general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md",
+        "content/lessons/general-information/philippine-constitution/accountability-and-impeachment.md",
+        "content/lessons/general-information/philippine-constitution/bill-of-rights.md",
+        "content/lessons/general-information/philippine-constitution/the-articles-in-outline.md",
+        "content/lessons/general-information/philippine-constitution/the-civil-service-commission.md"
+      ],
+      "uncertainties": [
+        "No specific positive title/metadata connection assigned; source scope may be broad or unconfirmed.",
+        "Broad area uses only finer candidate connections in this packet; exact depth, language and subject boundaries remain as sourced."
+      ],
+      "availability": "unknown: no corpus-bound runtime availability evidence",
+      "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
+    },
+    {
+      "id": "cse-professional-L049",
+      "exam": "cse-professional",
+      "line": 49,
+      "group": "General Information",
+      "kind": "skill",
+      "evidence": "confirmed",
+      "confidence": "official domain/skill; see exact qualifiers",
+      "text": "- R.A. 6713: public-official conduct and ethical standards; finer skill list unknown. [1, official]",
+      "requirementPath": "requirements/cse-professional.md",
+      "status": "PROVISIONAL NAME LEADS",
+      "lessonIds": [
+        "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+        "lesson-code-of-conduct-ra-6713-norms-of-conduct",
+        "lesson-code-of-conduct-ra-6713-penalties-and-enforcement",
+        "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment"
+      ],
+      "lessonPaths": [
+        "content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/norms-of-conduct.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md"
+      ],
+      "uncertainties": [],
+      "availability": "unknown: no corpus-bound runtime availability evidence",
+      "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
+    },
+    {
+      "id": "cse-professional-L057",
+      "exam": "cse-professional",
+      "line": 57,
+      "group": "General Information",
+      "kind": "skill",
+      "evidence": "supported, curriculum",
+      "confidence": "curriculum preparation",
+      "text": "- Public ethics preparation: explain corruption and evaluate its effects, AP10IPP-IId-7 / IIe-8. This supports the ethics area, not a complete R.A. 6713 syllabus. [13, p. 220, official for curriculum]",
+      "requirementPath": "requirements/cse-professional.md",
+      "status": "PROVISIONAL NAME LEADS",
+      "lessonIds": [
+        "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+        "lesson-code-of-conduct-ra-6713-norms-of-conduct",
+        "lesson-code-of-conduct-ra-6713-penalties-and-enforcement",
+        "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment"
+      ],
+      "lessonPaths": [
+        "content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/norms-of-conduct.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md"
+      ],
+      "uncertainties": [],
+      "availability": "unknown: no corpus-bound runtime availability evidence",
+      "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
+    },
+    {
+      "id": "cse-professional-L061",
+      "exam": "cse-professional",
+      "line": 61,
+      "group": "General Information",
+      "kind": "skill",
+      "evidence": "supported, weak",
+      "confidence": "weak preparation",
+      "text": "- Reviewer practice includes constitutional offices/qualifications and identifying public-conduct norms or prohibited acts. These suggest preparation checks only; exact provisions tested are unknown. [15, pp. 1-3, weak]",
+      "requirementPath": "requirements/cse-professional.md",
+      "status": "PROVISIONAL NAME LEADS",
+      "lessonIds": [
+        "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+        "lesson-code-of-conduct-ra-6713-norms-of-conduct",
+        "lesson-code-of-conduct-ra-6713-penalties-and-enforcement",
+        "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment",
+        "lesson-philippine-constitution-accountability-and-impeachment",
+        "lesson-philippine-constitution-bill-of-rights",
+        "lesson-philippine-constitution-the-articles-in-outline",
+        "lesson-philippine-constitution-the-civil-service-commission"
+      ],
+      "lessonPaths": [
+        "content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/norms-of-conduct.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md",
+        "content/lessons/general-information/philippine-constitution/accountability-and-impeachment.md",
+        "content/lessons/general-information/philippine-constitution/bill-of-rights.md",
+        "content/lessons/general-information/philippine-constitution/the-articles-in-outline.md",
+        "content/lessons/general-information/philippine-constitution/the-civil-service-commission.md"
+      ],
+      "uncertainties": [],
+      "availability": "unknown: no corpus-bound runtime availability evidence",
+      "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
+    },
+    {
+      "id": "cse-subprofessional-L045",
+      "exam": "cse-subprofessional",
+      "line": 45,
+      "group": "## 2. Subtests and languages",
+      "kind": "subject",
+      "evidence": "reported subject; inspect exact source qualifier",
+      "confidence": "official; see cycle/language qualifiers",
+      "text": "- General Information: English. [2, 4; official]",
+      "requirementPath": "requirements/cse-subprofessional.md",
+      "status": "PARTIAL NAME LEADS",
+      "lessonIds": [
+        "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+        "lesson-code-of-conduct-ra-6713-norms-of-conduct",
+        "lesson-code-of-conduct-ra-6713-penalties-and-enforcement",
+        "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment",
+        "lesson-environment-management-environmental-concepts",
+        "lesson-environment-management-the-environmental-laws",
+        "lesson-peace-and-human-rights-human-rights-fundamentals",
+        "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law",
+        "lesson-philippine-constitution-accountability-and-impeachment",
+        "lesson-philippine-constitution-bill-of-rights",
+        "lesson-philippine-constitution-the-articles-in-outline",
+        "lesson-philippine-constitution-the-civil-service-commission"
+      ],
+      "lessonPaths": [
+        "content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/norms-of-conduct.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md",
+        "content/lessons/general-information/environment-management/environmental-concepts.md",
+        "content/lessons/general-information/environment-management/the-environmental-laws.md",
+        "content/lessons/general-information/peace-and-human-rights/human-rights-fundamentals.md",
+        "content/lessons/general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md",
+        "content/lessons/general-information/philippine-constitution/accountability-and-impeachment.md",
+        "content/lessons/general-information/philippine-constitution/bill-of-rights.md",
+        "content/lessons/general-information/philippine-constitution/the-articles-in-outline.md",
+        "content/lessons/general-information/philippine-constitution/the-civil-service-commission.md"
+      ],
+      "uncertainties": [
+        "No specific positive title/metadata connection assigned; source scope may be broad or unconfirmed.",
+        "Broad area uses only finer candidate connections in this packet; exact depth, language and subject boundaries remain as sourced."
+      ],
+      "availability": "unknown: no corpus-bound runtime availability evidence",
+      "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
+    },
+    {
+      "id": "cse-subprofessional-L059",
+      "exam": "cse-subprofessional",
+      "line": 59,
+      "group": "General Information",
+      "kind": "skill",
+      "evidence": "confirmed",
+      "confidence": "official domain/skill; see exact qualifiers",
+      "text": "- Code of Conduct and Ethical Standards for Public Officials and Employees, R.A. 6713: knowledge of this code; provision-level selection unknown. [2, 4; official]",
+      "requirementPath": "requirements/cse-subprofessional.md",
+      "status": "PROVISIONAL NAME LEADS",
+      "lessonIds": [
+        "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+        "lesson-code-of-conduct-ra-6713-norms-of-conduct",
+        "lesson-code-of-conduct-ra-6713-penalties-and-enforcement",
+        "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment"
+      ],
+      "lessonPaths": [
+        "content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/norms-of-conduct.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md"
+      ],
+      "uncertainties": [],
+      "availability": "unknown: no corpus-bound runtime availability evidence",
+      "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
+    },
+    {
+      "id": "cse-subprofessional-L117",
+      "exam": "cse-subprofessional",
+      "line": 117,
+      "group": "General Information",
+      "kind": "skill",
+      "evidence": "supported, weak",
+      "confidence": "weak preparation",
+      "text": "- R.A. 6713: review conduct norms, duties, prohibited acts, disclosures and penalties. Specific provisions tested remain unverified. [16, General Information; 19 pp. 2-3; weak]",
+      "requirementPath": "requirements/cse-subprofessional.md",
+      "status": "PROVISIONAL NAME LEADS",
+      "lessonIds": [
+        "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+        "lesson-code-of-conduct-ra-6713-norms-of-conduct",
+        "lesson-code-of-conduct-ra-6713-penalties-and-enforcement",
+        "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment"
+      ],
+      "lessonPaths": [
+        "content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/norms-of-conduct.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md"
+      ],
+      "uncertainties": [],
+      "availability": "unknown: no corpus-bound runtime availability evidence",
+      "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
+    }
+  ],
+  "scopeWarning": "Rows are exact accepted name leads, not teaching verdicts. Inspect whole requirements for absent skills; assess only local facets of broad rows. Global gaps reconciled by lead."
+}

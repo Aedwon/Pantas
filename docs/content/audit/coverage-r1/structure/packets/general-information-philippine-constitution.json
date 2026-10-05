@@ -1,0 +1,499 @@
+{
+  "subject": "general-information",
+  "topic": "philippine-constitution",
+  "corpusCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+  "lessons": [
+    {
+      "subject": "general-information",
+      "topic": "philippine-constitution",
+      "slug": "accountability-and-impeachment",
+      "path": "content/lessons/general-information/philippine-constitution/accountability-and-impeachment.md",
+      "metadata__id": "lesson-philippine-constitution-accountability-and-impeachment",
+      "metadata_title": "Article XI: Accountability of Public Officers and Impeachment",
+      "metadata_summary": "Learn the closed lists of impeachable officers and grounds for impeachment under Article XI of the 1987 Constitution.",
+      "metadata_subject": "subject-general-information",
+      "metadata_topic": "topic-philippine-constitution",
+      "metadata_isActive": true,
+      "outlinePresent": false,
+      "provisionalExamTags": [
+        "cse-professional",
+        "cse-subprofessional",
+        "pupcet"
+      ],
+      "evidenceRows": [
+        "pupcet-L154",
+        "cse-professional-L033",
+        "cse-professional-L048",
+        "cse-professional-L061",
+        "cse-subprofessional-L045",
+        "cse-subprofessional-L058",
+        "cse-subprofessional-L116"
+      ],
+      "tagNote": "All tags are uncertain name-level relevance. Source tier/cycle and partial facets are in the linked exam-map rows. No body or runtime confirmation.",
+      "availability": "unknown"
+    },
+    {
+      "subject": "general-information",
+      "topic": "philippine-constitution",
+      "slug": "bill-of-rights",
+      "path": "content/lessons/general-information/philippine-constitution/bill-of-rights.md",
+      "metadata__id": "lesson-philippine-constitution-bill-of-rights",
+      "metadata_title": "Article III: The Bill of Rights",
+      "metadata_summary": "Understand the 22 sections of Article III of the 1987 Constitution and their major protections.",
+      "metadata_subject": "subject-general-information",
+      "metadata_topic": "topic-philippine-constitution",
+      "metadata_isActive": true,
+      "outlinePresent": false,
+      "provisionalExamTags": [
+        "cse-professional",
+        "cse-subprofessional",
+        "pupcet"
+      ],
+      "evidenceRows": [
+        "pupcet-L154",
+        "cse-professional-L033",
+        "cse-professional-L048",
+        "cse-professional-L050",
+        "cse-professional-L056",
+        "cse-professional-L061",
+        "cse-subprofessional-L045",
+        "cse-subprofessional-L058",
+        "cse-subprofessional-L060",
+        "cse-subprofessional-L106",
+        "cse-subprofessional-L116",
+        "cse-subprofessional-L118"
+      ],
+      "tagNote": "All tags are uncertain name-level relevance. Source tier/cycle and partial facets are in the linked exam-map rows. No body or runtime confirmation.",
+      "availability": "unknown"
+    },
+    {
+      "subject": "general-information",
+      "topic": "philippine-constitution",
+      "slug": "the-articles-in-outline",
+      "path": "content/lessons/general-information/philippine-constitution/the-articles-in-outline.md",
+      "metadata__id": "lesson-philippine-constitution-the-articles-in-outline",
+      "metadata_title": "The 1987 Constitution: Articles in Outline",
+      "metadata_summary": "Overview of the 18 articles of the 1987 Constitution of the Republic of the Philippines.",
+      "metadata_subject": "subject-general-information",
+      "metadata_topic": "topic-philippine-constitution",
+      "metadata_isActive": true,
+      "outlinePresent": false,
+      "provisionalExamTags": [
+        "cse-professional",
+        "cse-subprofessional",
+        "pupcet"
+      ],
+      "evidenceRows": [
+        "pupcet-L154",
+        "cse-professional-L033",
+        "cse-professional-L048",
+        "cse-professional-L061",
+        "cse-subprofessional-L045",
+        "cse-subprofessional-L058",
+        "cse-subprofessional-L116"
+      ],
+      "tagNote": "All tags are uncertain name-level relevance. Source tier/cycle and partial facets are in the linked exam-map rows. No body or runtime confirmation.",
+      "availability": "unknown"
+    },
+    {
+      "subject": "general-information",
+      "topic": "philippine-constitution",
+      "slug": "the-civil-service-commission",
+      "path": "content/lessons/general-information/philippine-constitution/the-civil-service-commission.md",
+      "metadata__id": "lesson-philippine-constitution-the-civil-service-commission",
+      "metadata_title": "Article IX-B: The Civil Service Commission",
+      "metadata_summary": "Understand the composition, qualifications, appointment, and tenure of the Civil Service Commission under Article IX-B.",
+      "metadata_subject": "subject-general-information",
+      "metadata_topic": "topic-philippine-constitution",
+      "metadata_isActive": true,
+      "outlinePresent": false,
+      "provisionalExamTags": [
+        "cse-professional",
+        "cse-subprofessional",
+        "pupcet"
+      ],
+      "evidenceRows": [
+        "pupcet-L154",
+        "cse-professional-L033",
+        "cse-professional-L048",
+        "cse-professional-L061",
+        "cse-subprofessional-L045",
+        "cse-subprofessional-L058",
+        "cse-subprofessional-L116"
+      ],
+      "tagNote": "All tags are uncertain name-level relevance. Source tier/cycle and partial facets are in the linked exam-map rows. No body or runtime confirmation.",
+      "availability": "unknown"
+    }
+  ],
+  "candidateRequirementRows": [
+    {
+      "id": "pupcet-L154",
+      "exam": "pupcet",
+      "line": 154,
+      "group": "F. General information / General knowledge",
+      "kind": "skill",
+      "evidence": "supported, curriculum",
+      "confidence": "curriculum preparation",
+      "text": "- Government and citizenship: explain rights, responsibilities, government authority, democratic participation, and the Constitution. [19, PDF pp. 6, 8; official curriculum, exam inclusion unknown]",
+      "requirementPath": "requirements/pupcet.md",
+      "status": "PROVISIONAL NAME LEADS",
+      "lessonIds": [
+        "lesson-philippine-constitution-accountability-and-impeachment",
+        "lesson-philippine-constitution-bill-of-rights",
+        "lesson-philippine-constitution-the-articles-in-outline",
+        "lesson-philippine-constitution-the-civil-service-commission",
+        "lesson-comprehension-skills-authors-purpose-tone-pov"
+      ],
+      "lessonPaths": [
+        "content/lessons/general-information/philippine-constitution/accountability-and-impeachment.md",
+        "content/lessons/general-information/philippine-constitution/bill-of-rights.md",
+        "content/lessons/general-information/philippine-constitution/the-articles-in-outline.md",
+        "content/lessons/general-information/philippine-constitution/the-civil-service-commission.md",
+        "content/lessons/reading-comprehension/comprehension-skills/authors-purpose-tone-pov.md"
+      ],
+      "uncertainties": [],
+      "availability": "unknown: no corpus-bound runtime availability evidence",
+      "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
+    },
+    {
+      "id": "cse-professional-L033",
+      "exam": "cse-professional",
+      "line": 33,
+      "group": "## 2. Subtests and languages",
+      "kind": "subject",
+      "evidence": "reported subject; inspect exact source qualifier",
+      "confidence": "official; see cycle/language qualifiers",
+      "text": "- General Information: English. [1, official]",
+      "requirementPath": "requirements/cse-professional.md",
+      "status": "PARTIAL NAME LEADS",
+      "lessonIds": [
+        "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+        "lesson-code-of-conduct-ra-6713-norms-of-conduct",
+        "lesson-code-of-conduct-ra-6713-penalties-and-enforcement",
+        "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment",
+        "lesson-environment-management-environmental-concepts",
+        "lesson-environment-management-the-environmental-laws",
+        "lesson-peace-and-human-rights-human-rights-fundamentals",
+        "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law",
+        "lesson-philippine-constitution-accountability-and-impeachment",
+        "lesson-philippine-constitution-bill-of-rights",
+        "lesson-philippine-constitution-the-articles-in-outline",
+        "lesson-philippine-constitution-the-civil-service-commission"
+      ],
+      "lessonPaths": [
+        "content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/norms-of-conduct.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md",
+        "content/lessons/general-information/environment-management/environmental-concepts.md",
+        "content/lessons/general-information/environment-management/the-environmental-laws.md",
+        "content/lessons/general-information/peace-and-human-rights/human-rights-fundamentals.md",
+        "content/lessons/general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md",
+        "content/lessons/general-information/philippine-constitution/accountability-and-impeachment.md",
+        "content/lessons/general-information/philippine-constitution/bill-of-rights.md",
+        "content/lessons/general-information/philippine-constitution/the-articles-in-outline.md",
+        "content/lessons/general-information/philippine-constitution/the-civil-service-commission.md"
+      ],
+      "uncertainties": [
+        "No specific positive title/metadata connection assigned; source scope may be broad or unconfirmed.",
+        "Broad area uses only finer candidate connections in this packet; exact depth, language and subject boundaries remain as sourced."
+      ],
+      "availability": "unknown: no corpus-bound runtime availability evidence",
+      "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
+    },
+    {
+      "id": "cse-professional-L048",
+      "exam": "cse-professional",
+      "line": 48,
+      "group": "General Information",
+      "kind": "skill",
+      "evidence": "confirmed",
+      "confidence": "official domain/skill; see exact qualifiers",
+      "text": "- Philippine Constitution: knowledge of the Constitution; finer skill list unknown. [1, official]",
+      "requirementPath": "requirements/cse-professional.md",
+      "status": "PROVISIONAL NAME LEADS",
+      "lessonIds": [
+        "lesson-philippine-constitution-accountability-and-impeachment",
+        "lesson-philippine-constitution-bill-of-rights",
+        "lesson-philippine-constitution-the-articles-in-outline",
+        "lesson-philippine-constitution-the-civil-service-commission"
+      ],
+      "lessonPaths": [
+        "content/lessons/general-information/philippine-constitution/accountability-and-impeachment.md",
+        "content/lessons/general-information/philippine-constitution/bill-of-rights.md",
+        "content/lessons/general-information/philippine-constitution/the-articles-in-outline.md",
+        "content/lessons/general-information/philippine-constitution/the-civil-service-commission.md"
+      ],
+      "uncertainties": [],
+      "availability": "unknown: no corpus-bound runtime availability evidence",
+      "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
+    },
+    {
+      "id": "cse-professional-L050",
+      "exam": "cse-professional",
+      "line": 50,
+      "group": "General Information",
+      "kind": "skill",
+      "evidence": "confirmed",
+      "confidence": "official domain/skill; see exact qualifiers",
+      "text": "- Peace and human rights: issues and concepts; finer skill list unknown. [1, official]",
+      "requirementPath": "requirements/cse-professional.md",
+      "status": "PROVISIONAL NAME LEADS",
+      "lessonIds": [
+        "lesson-peace-and-human-rights-human-rights-fundamentals",
+        "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law",
+        "lesson-philippine-constitution-bill-of-rights"
+      ],
+      "lessonPaths": [
+        "content/lessons/general-information/peace-and-human-rights/human-rights-fundamentals.md",
+        "content/lessons/general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md",
+        "content/lessons/general-information/philippine-constitution/bill-of-rights.md"
+      ],
+      "uncertainties": [],
+      "availability": "unknown: no corpus-bound runtime availability evidence",
+      "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
+    },
+    {
+      "id": "cse-professional-L056",
+      "exam": "cse-professional",
+      "line": 56,
+      "group": "General Information",
+      "kind": "skill",
+      "evidence": "supported, curriculum",
+      "confidence": "curriculum preparation",
+      "text": "- Human rights: analyze violations, effects, and protection methods, AP10IKP-IIIa-2 / IIIb-3/4. [13, pp. 220-221, official for curriculum]",
+      "requirementPath": "requirements/cse-professional.md",
+      "status": "PROVISIONAL NAME LEADS",
+      "lessonIds": [
+        "lesson-peace-and-human-rights-human-rights-fundamentals",
+        "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law",
+        "lesson-philippine-constitution-bill-of-rights"
+      ],
+      "lessonPaths": [
+        "content/lessons/general-information/peace-and-human-rights/human-rights-fundamentals.md",
+        "content/lessons/general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md",
+        "content/lessons/general-information/philippine-constitution/bill-of-rights.md"
+      ],
+      "uncertainties": [],
+      "availability": "unknown: no corpus-bound runtime availability evidence",
+      "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
+    },
+    {
+      "id": "cse-professional-L061",
+      "exam": "cse-professional",
+      "line": 61,
+      "group": "General Information",
+      "kind": "skill",
+      "evidence": "supported, weak",
+      "confidence": "weak preparation",
+      "text": "- Reviewer practice includes constitutional offices/qualifications and identifying public-conduct norms or prohibited acts. These suggest preparation checks only; exact provisions tested are unknown. [15, pp. 1-3, weak]",
+      "requirementPath": "requirements/cse-professional.md",
+      "status": "PROVISIONAL NAME LEADS",
+      "lessonIds": [
+        "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+        "lesson-code-of-conduct-ra-6713-norms-of-conduct",
+        "lesson-code-of-conduct-ra-6713-penalties-and-enforcement",
+        "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment",
+        "lesson-philippine-constitution-accountability-and-impeachment",
+        "lesson-philippine-constitution-bill-of-rights",
+        "lesson-philippine-constitution-the-articles-in-outline",
+        "lesson-philippine-constitution-the-civil-service-commission"
+      ],
+      "lessonPaths": [
+        "content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/norms-of-conduct.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md",
+        "content/lessons/general-information/philippine-constitution/accountability-and-impeachment.md",
+        "content/lessons/general-information/philippine-constitution/bill-of-rights.md",
+        "content/lessons/general-information/philippine-constitution/the-articles-in-outline.md",
+        "content/lessons/general-information/philippine-constitution/the-civil-service-commission.md"
+      ],
+      "uncertainties": [],
+      "availability": "unknown: no corpus-bound runtime availability evidence",
+      "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
+    },
+    {
+      "id": "cse-subprofessional-L045",
+      "exam": "cse-subprofessional",
+      "line": 45,
+      "group": "## 2. Subtests and languages",
+      "kind": "subject",
+      "evidence": "reported subject; inspect exact source qualifier",
+      "confidence": "official; see cycle/language qualifiers",
+      "text": "- General Information: English. [2, 4; official]",
+      "requirementPath": "requirements/cse-subprofessional.md",
+      "status": "PARTIAL NAME LEADS",
+      "lessonIds": [
+        "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+        "lesson-code-of-conduct-ra-6713-norms-of-conduct",
+        "lesson-code-of-conduct-ra-6713-penalties-and-enforcement",
+        "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment",
+        "lesson-environment-management-environmental-concepts",
+        "lesson-environment-management-the-environmental-laws",
+        "lesson-peace-and-human-rights-human-rights-fundamentals",
+        "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law",
+        "lesson-philippine-constitution-accountability-and-impeachment",
+        "lesson-philippine-constitution-bill-of-rights",
+        "lesson-philippine-constitution-the-articles-in-outline",
+        "lesson-philippine-constitution-the-civil-service-commission"
+      ],
+      "lessonPaths": [
+        "content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/norms-of-conduct.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md",
+        "content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md",
+        "content/lessons/general-information/environment-management/environmental-concepts.md",
+        "content/lessons/general-information/environment-management/the-environmental-laws.md",
+        "content/lessons/general-information/peace-and-human-rights/human-rights-fundamentals.md",
+        "content/lessons/general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md",
+        "content/lessons/general-information/philippine-constitution/accountability-and-impeachment.md",
+        "content/lessons/general-information/philippine-constitution/bill-of-rights.md",
+        "content/lessons/general-information/philippine-constitution/the-articles-in-outline.md",
+        "content/lessons/general-information/philippine-constitution/the-civil-service-commission.md"
+      ],
+      "uncertainties": [
+        "No specific positive title/metadata connection assigned; source scope may be broad or unconfirmed.",
+        "Broad area uses only finer candidate connections in this packet; exact depth, language and subject boundaries remain as sourced."
+      ],
+      "availability": "unknown: no corpus-bound runtime availability evidence",
+      "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
+    },
+    {
+      "id": "cse-subprofessional-L058",
+      "exam": "cse-subprofessional",
+      "line": 58,
+      "group": "General Information",
+      "kind": "skill",
+      "evidence": "confirmed",
+      "confidence": "official domain/skill; see exact qualifiers",
+      "text": "- Philippine Constitution: constitutional knowledge; specific articles and depth unknown. [2, 4; official]",
+      "requirementPath": "requirements/cse-subprofessional.md",
+      "status": "PROVISIONAL NAME LEADS",
+      "lessonIds": [
+        "lesson-philippine-constitution-accountability-and-impeachment",
+        "lesson-philippine-constitution-bill-of-rights",
+        "lesson-philippine-constitution-the-articles-in-outline",
+        "lesson-philippine-constitution-the-civil-service-commission"
+      ],
+      "lessonPaths": [
+        "content/lessons/general-information/philippine-constitution/accountability-and-impeachment.md",
+        "content/lessons/general-information/philippine-constitution/bill-of-rights.md",
+        "content/lessons/general-information/philippine-constitution/the-articles-in-outline.md",
+        "content/lessons/general-information/philippine-constitution/the-civil-service-commission.md"
+      ],
+      "uncertainties": [],
+      "availability": "unknown: no corpus-bound runtime availability evidence",
+      "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
+    },
+    {
+      "id": "cse-subprofessional-L060",
+      "exam": "cse-subprofessional",
+      "line": 60,
+      "group": "General Information",
+      "kind": "skill",
+      "evidence": "confirmed",
+      "confidence": "official domain/skill; see exact qualifiers",
+      "text": "- Peace and human rights issues and concepts: topic named; specific issues, instruments, and depth unknown. [2, 4; official]",
+      "requirementPath": "requirements/cse-subprofessional.md",
+      "status": "PROVISIONAL NAME LEADS",
+      "lessonIds": [
+        "lesson-peace-and-human-rights-human-rights-fundamentals",
+        "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law",
+        "lesson-philippine-constitution-bill-of-rights"
+      ],
+      "lessonPaths": [
+        "content/lessons/general-information/peace-and-human-rights/human-rights-fundamentals.md",
+        "content/lessons/general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md",
+        "content/lessons/general-information/philippine-constitution/bill-of-rights.md"
+      ],
+      "uncertainties": [],
+      "availability": "unknown: no corpus-bound runtime availability evidence",
+      "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
+    },
+    {
+      "id": "cse-subprofessional-L106",
+      "exam": "cse-subprofessional",
+      "line": 106,
+      "group": "General Information",
+      "kind": "skill",
+      "evidence": "supported, curriculum",
+      "confidence": "curriculum preparation",
+      "text": "- Rights and responsibilities: relate rights to duties in the community; examine historical human-rights challenges. These do not specify which events CSC selects. [13 pp. 55-57 and 138; official curriculum, inferred]",
+      "requirementPath": "requirements/cse-subprofessional.md",
+      "status": "PROVISIONAL NAME LEADS",
+      "lessonIds": [
+        "lesson-peace-and-human-rights-human-rights-fundamentals",
+        "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law",
+        "lesson-philippine-constitution-bill-of-rights"
+      ],
+      "lessonPaths": [
+        "content/lessons/general-information/peace-and-human-rights/human-rights-fundamentals.md",
+        "content/lessons/general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md",
+        "content/lessons/general-information/philippine-constitution/bill-of-rights.md"
+      ],
+      "uncertainties": [],
+      "availability": "unknown: no corpus-bound runtime availability evidence",
+      "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
+    },
+    {
+      "id": "cse-subprofessional-L116",
+      "exam": "cse-subprofessional",
+      "line": 116,
+      "group": "General Information",
+      "kind": "skill",
+      "evidence": "supported, weak",
+      "confidence": "weak preparation",
+      "text": "- Constitution: prepare state principles, Bill of Rights, branches of government, and officers' powers/qualifications. These are reviewer's finer topic choices inside the broad named area. [16, General Information; 19 pp. 1-3; weak]",
+      "requirementPath": "requirements/cse-subprofessional.md",
+      "status": "PROVISIONAL NAME LEADS",
+      "lessonIds": [
+        "lesson-philippine-constitution-accountability-and-impeachment",
+        "lesson-philippine-constitution-bill-of-rights",
+        "lesson-philippine-constitution-the-articles-in-outline",
+        "lesson-philippine-constitution-the-civil-service-commission"
+      ],
+      "lessonPaths": [
+        "content/lessons/general-information/philippine-constitution/accountability-and-impeachment.md",
+        "content/lessons/general-information/philippine-constitution/bill-of-rights.md",
+        "content/lessons/general-information/philippine-constitution/the-articles-in-outline.md",
+        "content/lessons/general-information/philippine-constitution/the-civil-service-commission.md"
+      ],
+      "uncertainties": [],
+      "availability": "unknown: no corpus-bound runtime availability evidence",
+      "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
+    },
+    {
+      "id": "cse-subprofessional-L118",
+      "exam": "cse-subprofessional",
+      "line": 118,
+      "group": "General Information",
+      "kind": "skill",
+      "evidence": "supported, weak",
+      "confidence": "weak preparation",
+      "text": "- Human rights/environment: reviewer examples refer to international rights instruments and environmental protection laws; current-event inclusion and cutoff remain unknown. [16, General Information; 19 pp. 4-5; weak]",
+      "requirementPath": "requirements/cse-subprofessional.md",
+      "status": "PROVISIONAL NAME LEADS",
+      "lessonIds": [
+        "lesson-environment-management-environmental-concepts",
+        "lesson-environment-management-the-environmental-laws",
+        "lesson-peace-and-human-rights-human-rights-fundamentals",
+        "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law",
+        "lesson-philippine-constitution-bill-of-rights",
+        "lesson-biology-ecology"
+      ],
+      "lessonPaths": [
+        "content/lessons/general-information/environment-management/environmental-concepts.md",
+        "content/lessons/general-information/environment-management/the-environmental-laws.md",
+        "content/lessons/general-information/peace-and-human-rights/human-rights-fundamentals.md",
+        "content/lessons/general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md",
+        "content/lessons/general-information/philippine-constitution/bill-of-rights.md",
+        "content/lessons/science/biology/ecology.md"
+      ],
+      "uncertainties": [],
+      "availability": "unknown: no corpus-bound runtime availability evidence",
+      "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
+    }
+  ],
+  "scopeWarning": "Rows are exact accepted name leads, not teaching verdicts. Inspect whole requirements for absent skills; assess only local facets of broad rows. Global gaps reconciled by lead."
+}

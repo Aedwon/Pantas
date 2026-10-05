@@ -1,0 +1,42 @@
+{
+  "oldPolicyCommit": "cb48097bedf15bec2cfbe4fb3aa7e957753b1727",
+  "newPolicyCommit": "ac4b30da31b0bcca7e7ed1e47c930b1ac00ced6c",
+  "files": {
+    "AGENTS.md": {
+      "oldBlob": "3bdc2905aa3c2eb85f6280947528969464d379a3",
+      "newBlob": "3bdc2905aa3c2eb85f6280947528969464d379a3"
+    },
+    "WORKFLOW.md": {
+      "oldBlob": "f4f2415256b8afbb5715d850a4b588c169d2d48c",
+      "newBlob": "f4f2415256b8afbb5715d850a4b588c169d2d48c"
+    },
+    "SUBAGENTS.md": {
+      "oldBlob": "b539ba3da0255d6272486d147fa8b4c80050482d",
+      "newBlob": "b539ba3da0255d6272486d147fa8b4c80050482d"
+    },
+    "docs/workflow/startup.md": {
+      "oldBlob": "3a1a659d08a55d1e350fb35347d9d6e6675e0b54",
+      "newBlob": "3a1a659d08a55d1e350fb35347d9d6e6675e0b54"
+    },
+    "docs/content/source-policy.md": {
+      "oldBlob": "461deb45b226977c70bd08790b3cdc31f2a24802",
+      "newBlob": "461deb45b226977c70bd08790b3cdc31f2a24802"
+    },
+    "docs/content/exam-format-profiles.md": {
+      "oldBlob": "d709f3f0944c59ae1906a4e03cfb3718df7ec8a8",
+      "newBlob": "d709f3f0944c59ae1906a4e03cfb3718df7ec8a8"
+    },
+    "docs/content/content-checklist.md": {
+      "oldBlob": "7986287f0c521aef15f3d6b846895a9031a4ccbf",
+      "newBlob": "7986287f0c521aef15f3d6b846895a9031a4ccbf"
+    },
+    "docs/content/lesson-style-guide.md": {
+      "oldBlob": "4aadce093628084eae918d9e7363fa68d4f1ba9b",
+      "newBlob": "4aadce093628084eae918d9e7363fa68d4f1ba9b"
+    },
+    "docs/content/question-style-guide.md": {
+      "oldBlob": "98a7074d5cb623a93582a48608eb127c4f88aeb3",
+      "newBlob": "98a7074d5cb623a93582a48608eb127c4f88aeb3"
+    }
+  }
+}

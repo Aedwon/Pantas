@@ -1,0 +1,127 @@
+{
+  "subject": "reasoning",
+  "topic": "clerical-ability",
+  "corpusCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+  "lessons": [
+    {
+      "subject": "reasoning",
+      "topic": "clerical-ability",
+      "slug": "alphabetic-filing-rules",
+      "path": "content/lessons/reasoning/clerical-ability/alphabetic-filing-rules.md",
+      "metadata__id": "lesson-clerical-ability-alphabetic-filing-rules",
+      "metadata_title": "Alphabetic Filing Rules",
+      "metadata_summary": "Learn how to follow a stated alphabetic indexing convention and sort names accurately without inventing universal filing rules.",
+      "metadata_subject": "subject-reasoning",
+      "metadata_topic": "topic-clerical-ability",
+      "metadata_isActive": true,
+      "outlinePresent": false,
+      "provisionalExamTags": [
+        "cse-subprofessional"
+      ],
+      "evidenceRows": [
+        "cse-subprofessional-L048",
+        "cse-subprofessional-L080",
+        "cse-subprofessional-L131"
+      ],
+      "tagNote": "All tags are uncertain name-level relevance. Source tier/cycle and partial facets are in the linked exam-map rows. No body or runtime confirmation.",
+      "availability": "unknown"
+    },
+    {
+      "subject": "reasoning",
+      "topic": "clerical-ability",
+      "slug": "numeric-and-chronological-filing",
+      "path": "content/lessons/reasoning/clerical-ability/numeric-and-chronological-filing.md",
+      "metadata__id": "lesson-clerical-ability-numeric-and-chronological-filing",
+      "metadata_title": "Numeric and Chronological Filing",
+      "metadata_summary": "Learn how to sort records by stated numeric or date-based filing keys and recognize that filing direction depends on the system.",
+      "metadata_subject": "subject-reasoning",
+      "metadata_topic": "topic-clerical-ability",
+      "metadata_isActive": true,
+      "outlinePresent": false,
+      "provisionalExamTags": [
+        "cse-subprofessional"
+      ],
+      "evidenceRows": [
+        "cse-subprofessional-L048",
+        "cse-subprofessional-L080"
+      ],
+      "tagNote": "All tags are uncertain name-level relevance. Source tier/cycle and partial facets are in the linked exam-map rows. No body or runtime confirmation.",
+      "availability": "unknown"
+    }
+  ],
+  "candidateRequirementRows": [
+    {
+      "id": "cse-subprofessional-L048",
+      "exam": "cse-subprofessional",
+      "line": 48,
+      "group": "## 2. Subtests and languages",
+      "kind": "subject",
+      "evidence": "reported subject; inspect exact source qualifier",
+      "confidence": "official; see cycle/language qualifiers",
+      "text": "- Clerical Ability: English. [2, 4; official]",
+      "requirementPath": "requirements/cse-subprofessional.md",
+      "status": "PARTIAL NAME LEADS",
+      "lessonIds": [
+        "lesson-clerical-ability-alphabetic-filing-rules",
+        "lesson-clerical-ability-numeric-and-chronological-filing",
+        "lesson-vocabulary-spelling-rules"
+      ],
+      "lessonPaths": [
+        "content/lessons/reasoning/clerical-ability/alphabetic-filing-rules.md",
+        "content/lessons/reasoning/clerical-ability/numeric-and-chronological-filing.md",
+        "content/lessons/language-proficiency/vocabulary/spelling-rules.md"
+      ],
+      "uncertainties": [
+        "No specific positive title/metadata connection assigned; source scope may be broad or unconfirmed.",
+        "Broad area uses only finer candidate connections in this packet; exact depth, language and subject boundaries remain as sourced."
+      ],
+      "availability": "unknown: no corpus-bound runtime availability evidence",
+      "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
+    },
+    {
+      "id": "cse-subprofessional-L080",
+      "exam": "cse-subprofessional",
+      "line": 80,
+      "group": "Clerical Ability",
+      "kind": "skill",
+      "evidence": "confirmed",
+      "confidence": "official domain/skill; see exact qualifiers",
+      "text": "- Filing: filing skills; exact ordering conventions unknown. [2, 4; official]",
+      "requirementPath": "requirements/cse-subprofessional.md",
+      "status": "PROVISIONAL NAME LEADS",
+      "lessonIds": [
+        "lesson-clerical-ability-alphabetic-filing-rules",
+        "lesson-clerical-ability-numeric-and-chronological-filing"
+      ],
+      "lessonPaths": [
+        "content/lessons/reasoning/clerical-ability/alphabetic-filing-rules.md",
+        "content/lessons/reasoning/clerical-ability/numeric-and-chronological-filing.md"
+      ],
+      "uncertainties": [],
+      "availability": "unknown: no corpus-bound runtime availability evidence",
+      "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
+    },
+    {
+      "id": "cse-subprofessional-L131",
+      "exam": "cse-subprofessional",
+      "line": 131,
+      "group": "Clerical Ability",
+      "kind": "skill",
+      "evidence": "supported, weak",
+      "confidence": "weak preparation",
+      "text": "- Alphabetical filing: arrange personal names using surnames and other name units, and compare business/organization names; reviewer illustrates prefixes, hyphens, titles and suffixes. These specific conventions are not CSC-confirmed. [17 sections 1-9; 18 pp. 1-3; weak]",
+      "requirementPath": "requirements/cse-subprofessional.md",
+      "status": "PROVISIONAL NAME LEADS",
+      "lessonIds": [
+        "lesson-clerical-ability-alphabetic-filing-rules"
+      ],
+      "lessonPaths": [
+        "content/lessons/reasoning/clerical-ability/alphabetic-filing-rules.md"
+      ],
+      "uncertainties": [],
+      "availability": "unknown: no corpus-bound runtime availability evidence",
+      "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
+    }
+  ],
+  "scopeWarning": "Rows are exact accepted name leads, not teaching verdicts. Inspect whole requirements for absent skills; assess only local facets of broad rows. Global gaps reconciled by lead."
+}
