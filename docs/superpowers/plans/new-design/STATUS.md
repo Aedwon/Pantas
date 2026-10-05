@@ -20,7 +20,7 @@ taken. Release it by setting State to free when the step ends.
 
 ## Current stage
 
-Level 2 (strategy B4). Stage 0 exited October 6, 2026.
+Level 3 (strategy B5). Level 2 gate passed October 6, 2026.
 
 ## Waiting on Aedwon
 
@@ -28,8 +28,9 @@ Nothing.
 
 ## Next step
 
-Level 2 gate review 2 (independent Opus reviewer) on the fixed plans; then record the gate and
-start level 3 (B5).
+Write level 3 plans `L3-<id>-<name>.md` for W0, W1, W2, W3, W4a to W4h, W5 per B5 (tasks in
+order, files per task, failing test first, focused checks, full checks, base SHA, stop conditions,
+traceability rows per task), closing the carry-forward items. Then the level 3 gate review.
 
 ## Steps
 
@@ -49,11 +50,11 @@ start level 3 (B5).
 | Stage 0 exit | done | all B3 steps done; every input item has a workstream |
 | B3.5 execution arrangement | done | recorded in the decision record |
 | Level 2 plans (B4) | done | 13 plans; traceability level 2 column filled |
-| Level 2 gate review | reviews 1 and 2 not passed; fixes applied; review 3 (delta) next | gates/ |
-| Level 3 plans (B5) | pending | |
+| Level 2 gate review | passed (review 5) | gates/l2-gate-review-5.md |
+| Level 3 plans (B5) | in progress | carry-forward items in L3-carry-forward.md |
 | Level 3 gate review | pending | |
 | Stop before level 4, notify Aedwon | pending | |
 
 ## Last completed step
 
-Review 2 findings fixed; Aedwon's answers recorded.
+Level 2 gate passed (review 5).

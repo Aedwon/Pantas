@@ -569,3 +569,10 @@ work resumed after the reset.
 them; W4g section 2 resynced with the table (G-h-28); the share note and reveal bar follow WR_Share
 and the reveal boards, so the old globe and bookmark icons are removed rather than remapped; W4g
 marks the Pro tag after a lapse as a lead default.
+
+## October 6, 2026: level 2 gate passed
+
+Review 5 (`gates/l2-gate-review-5.md`): "Gate verdict: pass". All 833 traceability rows have one
+owner and a level 2 section; every W4 plan's lists match the table. Accepted notes are carried to
+level 3 in `docs/superpowers/plans/new-design/L3-carry-forward.md`. Gate history: reviews 1 to 4 not
+passed, each fixed by the lead; review 5 passed. Level 3 (strategy B5) starts.
