@@ -404,3 +404,6 @@ Resulting decisions:
 
 Stage 0 exit status: steps 1 to 3 and 5 and 6 done; step 4 (traceability table) is next and
 runs unattended.
+
+Confirmation, same evening. Aedwon: "and yes i mean to approve the spec". Part A approval is
+explicit; the inference noted in item 4 above is resolved.
