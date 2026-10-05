@@ -236,3 +236,23 @@ Resulting actions:
    baseline entry above).
 4. Hourly resume task set up as a desktop scheduled task (B9).
 5. Stage 0 started: gap pass and kept-work triage run in parallel.
+
+## October 5, 2026: execution arrangement for level 4 (strategy B3 step 5)
+
+Recorded by the lead from existing decisions; no new product choice.
+
+- Inputs: `docs/superpowers/decisions/2026-09-25-chatgpt-web-relay-routing.md` and Aedwon's
+  model rule in strategy B7 (October 5).
+- Lead: the Claude Code desktop session (Opus 5.5), interactive or the hourly resume task.
+- Implementors: Claude Code subagents on Sonnet 5.5, one plan and one worktree each, per
+  `SUBAGENTS.md`. Opus subagents for W0 merge conflicts, W3 payments and entitlement, schema
+  changes, and any task a Sonnet worker stops on twice.
+- Independent reviewers: Opus subagents for gate reviews and W0 and W3 code review; Sonnet may
+  review other code workstreams. Never the author.
+- The ChatGPT web relay stays available as a fallback under its own decision record. It is not
+  the default for this program.
+- Not used: the Google worker service (canceled) and any Gemini-based agent, including the
+  locally installed Gemini implementor agent type.
+- Capability gap: the subagent dispatch tool sets the model but not the reasoning effort. Subagents
+  run at their default effort, not at "medium" as B7 states. The lead session itself runs at the
+  effort Aedwon set for it.

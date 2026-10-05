@@ -45,7 +45,7 @@ Then: merge results into one decision set for Aedwon (B3 steps 1 and 2), then th
 | Stage 0 decisions to Aedwon | pending | |
 | B3.3 spec update | pending | needs Aedwon's approval |
 | B3.4 traceability table | pending | |
-| B3.5 execution arrangement | pending | |
+| B3.5 execution arrangement | done | recorded in the decision record |
 | Level 2 plans (B4) | pending | |
 | Level 2 gate review | pending | |
 | Level 3 plans (B5) | pending | |
