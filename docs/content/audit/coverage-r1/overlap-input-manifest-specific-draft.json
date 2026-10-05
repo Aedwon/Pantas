@@ -1,0 +1,14 @@
+{
+  "status": "specific bilateral/single-map corrections pending independentrechecks",
+  "corpus": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+  "files": {
+    "docs/content/audit/coverage-r1/overlap.md": "7ff5a1df75844d9b4ef64959808b3d7253edccfc61f517272b4d718c9ba417be",
+    "docs/content/audit/coverage-r1/overlap-data.json": "53e9dd5b7499e2a84ab0bdee1e237e3dcdbb2227530a4679f37d47d23af56d08",
+    "docs/content/audit/coverage-r1/overlap-lessons.md": "cf8b1ca519c98421de17477b07bce9541a1092211ebcd6e4a813fcf4f18508e5",
+    "docs/content/audit/coverage-r1/build_level2_overlap.py": "ab897cc30196270d96a088ef86eda0e3bf283377b69be37172454405437b1513",
+    "docs/content/audit/coverage-r1/overlap/cet-scholarship-scope.md": "ded3f7df7691a2fa44780517813018445bf037e08b8b2e7f2653d8babfc9ada4",
+    "docs/content/audit/coverage-r1/overlap/cse-scope.md": "b34814c6993a7e803b2685d1c44a3fc8dce9801cca3ac4e5ae96235cc971fbf4",
+    "docs/content/audit/coverage-r1/enrich_level2_overlap.py": "c08a8b1ad9c6607f66eda419392c2c9257524d1e40957b3f3ae9aacd07cb4d62",
+    "docs/content/audit/coverage-r1/overlap-pairs.md": "a32171af63e2f40774fa148757103ac4a7716f74fbf9f2933fa003966c4949a6"
+  }
+}

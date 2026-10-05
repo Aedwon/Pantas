@@ -1,3 +1,7 @@
+# Level 1 closure, October 5, 2026
+
+Level 1 is complete and approved by the explicit instruction recorded in the decision log. The audited tab t.38uf83creimq exists. Lead native readback confirms all 200 nonempty draft paragraphs, 158 lesson bullets, styles and tags match, and the original tab full structure is unchanged. Current proof: [level1-publication-readback.json](level1-publication-readback.json). The prior write blocker is resolved by the authorized external write; the historical checkpoint below remains for provenance. Level 2 overlap is authorized; Level 3 and later remain unauthorized.
+
 # Level1 checkpoint: maps accepted, Google tab blocked
 
 Level1 is not finished. State: BLOCKED because the native Google Docs write tool requires approval and the session's approval policy is never. Level2 has neither approval nor any started task. All work is findings/recommendations and documentation only; lessons, questions, app, importer, and schema remain unchanged.

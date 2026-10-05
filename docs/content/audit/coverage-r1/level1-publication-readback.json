@@ -1,0 +1,15 @@
+{
+  "documentId": "1LzdBQjPmRYXV1LSrLnK7F6_eadQi7cb1fj8mg7yuZg4",
+  "revisionId": "ANLCKQlqPgZZ64jG4R-TW-DJtF_oUI-HVSiO7lSgXh3xrBHd0SobsvypGscYqaOEpucB4zvJwfz9SzKq5nPDFNNykTH5IQ-m3YIcNyZK",
+  "auditedTabId": "t.38uf83creimq",
+  "auditedTabTitle": "Pantas Audited Corpus r1",
+  "parentTabId": "t.slriaxfbscy0",
+  "originalTabId": "t.2px7tpf83r56",
+  "originalExactPreserved": true,
+  "expectedParagraphs": 200,
+  "actualNonemptyParagraphs": 200,
+  "allDraftTextExact": true,
+  "lessonBullets": 158,
+  "corpusCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+  "styleAndBulletMismatches": 0
+}

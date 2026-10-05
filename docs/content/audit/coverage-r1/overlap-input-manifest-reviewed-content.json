@@ -1,0 +1,14 @@
+{
+  "status": "narrow metadata/citation corrections pending independentrechecks",
+  "corpus": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+  "files": {
+    "docs/content/audit/coverage-r1/overlap.md": "b1e9584b71674cd5793fc22ea1491f7f150f4013947f758f0e3320a20e144ef2",
+    "docs/content/audit/coverage-r1/overlap-data.json": "d9e6aeb4b7775bcad005d5096262f1dee37597c9f85606658f9ae67c7604d179",
+    "docs/content/audit/coverage-r1/overlap-lessons.md": "3d04f12a691e3977da11eec150b834ebe1b82c5d41568aa118e3410299928ace",
+    "docs/content/audit/coverage-r1/build_level2_overlap.py": "ab897cc30196270d96a088ef86eda0e3bf283377b69be37172454405437b1513",
+    "docs/content/audit/coverage-r1/overlap/cet-scholarship-scope.md": "ded3f7df7691a2fa44780517813018445bf037e08b8b2e7f2653d8babfc9ada4",
+    "docs/content/audit/coverage-r1/overlap/cse-scope.md": "b34814c6993a7e803b2685d1c44a3fc8dce9801cca3ac4e5ae96235cc971fbf4",
+    "docs/content/audit/coverage-r1/enrich_level2_overlap.py": "e4e302d0b499873f83ad2492ddb438ba4f604256fe1e154aa4aff1763f0197b6",
+    "docs/content/audit/coverage-r1/overlap-pairs.md": "67719ff823a4fa55668d311424c78163677578f1b3d6cd625c068d0d8a2c672b"
+  }
+}

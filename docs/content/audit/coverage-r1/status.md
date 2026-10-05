@@ -1,4 +1,4 @@
-STATE: AWAITING_APPROVAL level 1 done; start level 2 overlap only on Aedwon's approval
+STATE: AWAITING_APPROVAL level 2 done; asking to start level 3
 
 # Coverage audit status
 
@@ -14,21 +14,21 @@ Plan: `docs/superpowers/plans/2026-10-04-exam-content-coverage-audit.md`.
 
 ## Current level and acceptance state
 
-Only level 1 is authorized. Level 2 requires Aedwon's explicit approval in this conversation.
+Level 1 is complete and approved. Level 2 overlap is complete: independent semantic review, counting and final identity verification PASS. Awaiting Aedwon's explicit approval for Level 3 lesson structure; no Level 3 or later task has started.
 
 | Exam | Research | Source check | Fresh rebuild | Exam map |
 |---|---|---|---|---|
-| UPCAT | Lead revision source-accepted | Resolution PASS, eight flags closed | Complete: FLAGS 3 resolved | Accepted provisional map; Google tab blocked |
-| DCAT | Lead revision source-accepted | Resolution PASS,21 flags closed | PASS rebuild | Accepted provisional map; Google tab blocked |
-| ACET | Research complete, checked | PASS, source check verified | PASS rebuild | Accepted provisional map; Google tab blocked |
-| USTET | Lead revision source-accepted | Resolution PASS,3 flags plus4preflight fixes closed | PASS rebuild | Accepted provisional map; Google tab blocked |
-| PUPCET | Lead revision source-accepted | Resolution PASS,4 flags closed | FLAGS1 resolved | Accepted provisional map; Google tab blocked |
-| DOST-SEI | Lead revision source-accepted | Resolution PASS,3 flags closed | PASS rebuild | Accepted provisional map; Google tab blocked |
-| SM Foundation | Lead revision source-accepted | Resolution source flags closed | FLAGS1 resolved | Accepted provisional map; Google tab blocked |
-| CSE Professional | Lead revision source-accepted | Resolution source flag closed | PASS rebuild | Accepted provisional map; Google tab blocked |
-| CSE Subprofessional | Lead revision source-accepted | Resolution PASS; residual §6 corrected | FLAGS1 resolved | Accepted provisional map; Google tab blocked |
+| UPCAT | Lead revision source-accepted | Resolution PASS, eight flags closed | Complete: FLAGS 3 resolved | Accepted provisional map; audited tab readback verified |
+| DCAT | Lead revision source-accepted | Resolution PASS,21 flags closed | PASS rebuild | Accepted provisional map; audited tab readback verified |
+| ACET | Research complete, checked | PASS, source check verified | PASS rebuild | Accepted provisional map; audited tab readback verified |
+| USTET | Lead revision source-accepted | Resolution PASS,3 flags plus4preflight fixes closed | PASS rebuild | Accepted provisional map; audited tab readback verified |
+| PUPCET | Lead revision source-accepted | Resolution PASS,4 flags closed | FLAGS1 resolved | Accepted provisional map; audited tab readback verified |
+| DOST-SEI | Lead revision source-accepted | Resolution PASS,3 flags closed | PASS rebuild | Accepted provisional map; audited tab readback verified |
+| SM Foundation | Lead revision source-accepted | Resolution source flags closed | FLAGS1 resolved | Accepted provisional map; audited tab readback verified |
+| CSE Professional | Lead revision source-accepted | Resolution source flag closed | PASS rebuild | Accepted provisional map; audited tab readback verified |
+| CSE Subprofessional | Lead revision source-accepted | Resolution PASS; residual §6 corrected | FLAGS1 resolved | Accepted provisional map; audited tab readback verified |
 
-All-exam counting: PASS. Audited Google Doc tab: BLOCKED by tool approval policy. No lesson, overlap, or standards tasks dispatched. Corpus unchanged. Watcher handles commits/pushes; lead does not mutate git metadata.
+All-exam counting: PASS. Audited Google Doc tab t.38uf83creimq independently read back by lead; 200 nonempty paragraphs,158lesson bullets, draft text/styles exact and original tab full structure unchanged. Level 2 overlap complete and checked. No lesson bodies read or later-level tasks started. Corpus unchanged. Watcher handles commits/pushes; lead does not mutate git metadata.
 
 ## Historical progress
 
@@ -315,3 +315,51 @@ Historical pause: lifted by Aedwon's explicit level 1 start recorded below.
 - Final lead saved checkpoint report level1-summary.md and human-readable audited-tab draft. Fresh verification:13maphashes/10requirement-profilehashes match;158lessons/535records/819tags exactparity;158drafttitle/tag lists exact; originalGooglestructureunchanged/newtababsent; canonicalprofileauditcopy identical; git diff --check exit0; corpusclean. State remains BLOCKED, level1notcomplete. Report/stopping now, no permissionquestion or later-level dispatch.
 
 > Update 2026-10-05 13:xx: Claude wrote the audited Google tab ("Pantas Audited Corpus r1", child of Content & Curriculum, tab t.38uf83creimq) from audited-tab-draft.json after the Codex write was blocked. Readback: all 201 paragraphs, 158 lesson bullets, text and styles match the draft; the other 33 tabs, including the original corpus tab, are unchanged.
+
+## Level 2 authorized, October 5, 2026
+
+- Explicit latest instruction approves Level 1 and directs Level 2 now; this is not an automatic resume. Exact instruction recorded in the existing decision log. Normalized first line to the required STATE: RUNNING, removing the externally added suffix.
+- Current main cb48097bedf15bec2cfbe4fb3aa7e957753b1727; audit local/live2cc836b1e1cca4c2533c29531057b668b4696f81 match. Dirty status update and untracked canonical profiles are expected saved audit work, not corpus drift. Corpus remains765c5dc0; live matches. No git mutation.
+- Reported audited tab t.38uf83creimq exists; lead will independently read it and verify original preservation before dependent overlap work. Historical BLOCKED records above remain history. Scope is shared subjects/topics/lesson candidates and documented depth/language/version differences only. No lesson bodies, split/prerequisite judgments, standards or questions. Stop at Level 2 gate.
+
+- Level1 publication independently verified through native Google Docs read: tabt.38uf83creimq, title Pantas Audited Corpus r1, parentt.slriaxfbscy0; all200nonempty paragraphs/158lesson bullets match draft, styles/bullet mismatches0, original full219element structure/title/styles unchanged. Saved level1-publication-readback.json with actualrevision. All13map/10requirement-profile hash checks remain0mismatch. Level1 complete and approved; Level2 proceeds from accepted inputs without repeating unchanged research or maps.
+
+- Level2 scoped briefs saved for independent CET/scholarship scope and CSE scope assessments. These read accepted requirements/maps and metadata only; no level3 sharing-body/split/prerequisite tasks. Lead will produce all36pair intersections,25topic/6subject candidate inventories,158lesson-level membership/evidence rows, and sourced full/partial/unknown scope contrasts. Fresh independent semantic review plus Luna counting will check combined outputs before Level2 gate.
+
+- Dispatch confirmed level2_cet_scope and level2_cse_scope, two SolHigh semantic assessment notes with exclusive outputs. Lead owns common overlap/data report. Need independent reviewer who authored nothing in Level2 after integration, plus Luna mechanical counts. Updated Level1 summary with explicit publication closure while retaining historical blocker record.
+
+- Level2 assessment results received: CSE note complete, both levels plus14cross-pairings,30lesson IDs/183record refs validated, acceptedhashes unchanged. CET/scholarship note complete, all7exams,14lesson examples/203records validated, accepted13map+10requirement/profile hashes unchanged. Lead reading complete outputs and integrating source-granularity contrasts; author verification is not final independent review.
+- Lead exact set-comparison saved overlap-data.json / overlap-lessons.md:158lesson rows,36pairs,25topics,6corpus subjects,819candidate memberships;137multi-exam candidates,19single-map candidates,2unmapped,34all-nine candidates. These are map-membership counts only, never coverage/equivalence/exclusivity. Scope/depth/language/version constraints retained separately. No maps/tags/content edits or body reading.
+
+- Lead integrated all9scope boundaries, explicit fullnamed-scope findings (CSE13common skills/languages, UPCAT/USTMath+Science labels, UPCAT/CSEbilingualreading), partialfacet limits, all36paircounts,6placementsubject tables,25topic comparisons and158lessonledger. Shared outputs overlap.md/overlap-data.json/overlap-lessons.md saved DRAFT. Source/CET assessmentnotes complete; independentSol review and freshLuna counting next. Fullbodyreuse/exclusivity/runtime remainunknown; no Level3work.
+
+- Independent Level2 Solreview dispatch confirmed, organizer-scope reconstruction saved before authorinputs required. Luna counting dispatch failed immediately: Selected model is at capacity. Please try a different model. This is capacity, not a reported usage-window limit; no counting output saved/accepted. Lead retains requested model role and will retry existingLuna task after useful localverification while semanticreview runs; no alternativepaidservice or Level3dispatch.
+
+- Fresh Level2 reviewer saved independent source-scope reconstruction BEFORE reading targets/notes; both accepted manifests match, semantic review active. Lead localinvariant checks36pairsets/bilateralRefs/158lessons/25topics/6subjects/CSE13namedtopicrefs/inputhashes25 unchanged pass. Integrated output hashes frozen inoverlap-input-manifest.json. Luna existingtaskretry once after startupcapacityfailure; no modelrole change or laterleveltask.
+
+- Initial fresh Level2semantic review received/read FLAGS2: all bounded fullmatches/counts/identities/sourceedges pass, but34generic pair scopeannotations need bilateral specificdifferences/citations, andall19single-map candidates need individualfacet/evidence/unknown notes. No unsupportedbodyreuse/exclusion/laterlevelwork found. Lead will expand using accepted records, freezeinputs until Luna initialcount finishes, then focusedrechecks. Luna retry nowrunning (capacity recovered); nousageerror.
+
+- Initial Luna mechanicalcount result received/read PASS:36pairs/158lessons/137multi19single2none/34allnine/819memberships/25topics/6subjects/535evidence rows; bilateralrefs/tables/ledger/inputhashes andpublicationproof correct. Sixfrozenoverlap outputhashes match;23acceptedmap/requirements remainunchanged. SemanticF1/F2 stillrequireannotations; lead may now edit integratedoutputs then narrowrecounts/semanticrechecks. No body/laterlevelwork.
+
+- Lead F1/F2 corrections saved: all36pairannotations nowunique bilateral fraction-preparation witnesses plus separately sourced scope/language/component/version limits; exactrecord refs and preciseassessmentsections, expandedoverlap-pairs.md. All19single-map candidates nowindividual title-versus-packet facetlimits/evidence refs, visibleinreport andlessonledger. Matchedcounts/sourceindex/level1 memberships unchanged; no currentDepth/exclusivity assertions or bodywork. Corrected8artifacthashes frozen; initialmanifest preserved. Freshsemanticrecheck andLuna targetedrecount next.
+
+- Revised Luna recheck received/read PASS:8targets/25inputs/23acceptedhashes unchanged;36bilateralwitnesses and19single notes/ref text exact; allcounts remain158/36/819/25/6 with0errors. Semanticrecheck substantially closesF1/F2 but FLAGS narrowprecision: periodicfamilies/scalarrelative-motion attributionnotinmetadata; gears needs title/summary wording; positive citationrows needed UP185/196, CSEPro091, ACET042/175. Lead will correct annotations/citations only then narrowrechecks. No bodies/newsourceclaims/laterlevelwork.
+
+- Lead narrowR1/R2fixes saved coherently inhelper/data/report/ledger/paircompanion: periodic-summaryfamilies attributionremoved, vector-relative-motion metadataattributionremoved, gears title/summary precision; UPCAT positiveAlgebra185/Trig196, Pro symbolic091, ACET positiveweakessay042refs added to relevant bilateral groups. Eightcurrentartifacthashes refreshed; prior8targetmanifestpreserved. Memberships/counts/sourcepackets unchanged. Focusedsemantic/count rechecks next.
+
+- Final narrow Level2semanticrecheck received/read PASS: F1/F2/R1/R2 allclosed, no openfindings, exactmetadata/citation corrections agree data/report/ledger, all8target/23acceptedinputhashes match, countsunchanged. Originalindependent reconstruction and findings preserved. Luna narrowrecount pending; firstlineRUNNING untilfinalgateverification. No body/content/Google/laterlevelwork.
+
+- Latest Luna R1/R2 mechanicalrecheck received/read PASS, all8/25/23hashes valid,19annotation/helper/report/ledger and36bilateral configs exact; same36/158/819/25/6sets. Lead spotted descriptivecitation typo incheckreport (PUP091 listed instead of addedPro091) and askschecker to correct ownrecord; targetactualconfigs are valid andsemanticPASSconfirmed.
+- Scoped documentation attribution check uses projectscanText only on11auditdocuments/scripts, never fullrepo/contentbody scan. Flutter dartwrapper failed SDKglobalcachewrite; direct existingDartSDK binary used for same read-onlyscope, no escalation orSDKupdates. Actual result captured separately.
+
+- Lead Level2 contentacceptance saved: bothindependentsemantic/count PASS, allflagsclosed, sourcecomparisons complete. Finalpublication status/header/check/gate text changedonly inreport anddata; allcomparison/edge/source contentunchanged. Reviewedcontentmanifest preserved andfinalhashmanifest refreshed. Narrow independentfinalstatus/identity confirmation next; no sourcefullredo/bodywork. StateRUNNING until finalmetadata identity/freshlead verification, then exact Level2approvalgate.
+
+## Level 2 completed gate, October 5, 2026
+
+- STATE: AWAITING_APPROVAL level 2 done; asking to start level 3. Final user-facing handoff will request Level3lessonstructure only; no approval inferred from silence/comments/questions or automaticwatcher messages.
+- Complete comparison: all9exams/all36pairs,6corpus subjects/25topics/158lessons;137multi-map/19single-map/2unmapped candidates,34all-nine candidates,819memberships. All36specificbilateral facet/scope/language/version records and19individualsingleton limits traced to exactaccepted positive/unknown source statements. No fullbodyreuse/exam-exclusivity claim or inventedpercentage/weights.
+- Strongest findings: CSE13common named topics/languages fullymatch atnamedgranularity, fullrosters partial becauseAnalytical/Clerical differ; UPCAT/USTMath+Science labels fullymatch onlyatlabelgranularity; UPCAT/CSEbilingualreading broadname match. Otherfacet/currentdepth/body/language/cycle scope remains partial/unknown, especiallyDOST2026vs2027andunconfirmedCET/scholarshipfineblueprints.
+- Fresh independent reviewer saved source reconstruction BEFORE targets, then all36pair/19single/6subject/25topic/158partition comparisonschecked. F1/F2 and R1/R2 closed, PASS. Luna counts/sourceRefs/hashes/tables/links PASS; verifier ownlookup/order/print/citationtypos transparently corrected. Finalpresentation-only changes reversed in memory reproduce priorreviewedcontenthashes exactly; current8hashes match.
+- Lead freshcheck8overlap/13map/10requirement-profile hashes and25inputs unchanged;36intersections/differences/bilateralRefs valid;158/25/6/535/819counts exact;newdocemdashes/trailingwhitespace0; scopedprojectattribution12files/0violations/exit0; git diff --check0. Main/livecb48097b/audit2cc836b/corpus765c5dc0 match, corpusclean. All app/content/importer/schema/Googlewrites0 inLevel2; gitmutations0 bylead.
+- Deliverables: overlap.md (readablefindings/allpair+subject+topic+single limits), overlap-pairs.md (specific36bilateral evidence), overlap-lessons.md (all158lesson candidates/refs), overlap-data.json+inputmanifest (exactsets/evidence), twoassessmentnotes and independent review/countchecks. Final gateacceptance review/overlap-gate-acceptance.md. Level1 newtabt.38uf83creimq readbackverified, originalunchanged; noLevel2tabwrites.
+- Later authorization would permit reading all lesson bodies to confirm shareability/focus/extra-content/splits/prerequisites, but NO SUCH TASK starts until Aedwon explicitlyapproves inthisconversation. Automatic resumes atthisstate mustdo nothingandend. Watcher handles saving/working-branch upload; lead doesnotcommit/push/merge.

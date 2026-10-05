@@ -1,0 +1,12 @@
+{
+  "status": "frozen integrated Level2 draft for independentchecks",
+  "corpus": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+  "files": {
+    "docs/content/audit/coverage-r1/overlap.md": "ad01e39a210c6f21527b51c37779693cfcda804fe47cf7f57a1ef0f0a3a2aa3f",
+    "docs/content/audit/coverage-r1/overlap-data.json": "10d7f14fb4e1c8e59721ac1fecd533be3c480f822c7f54b6a60e1fa688bbaa8e",
+    "docs/content/audit/coverage-r1/overlap-lessons.md": "a92ebe7a5935570b19c54eb70ddef0e72762abbbf34fb0d238687e6c4d1d9520",
+    "docs/content/audit/coverage-r1/build_level2_overlap.py": "ab897cc30196270d96a088ef86eda0e3bf283377b69be37172454405437b1513",
+    "docs/content/audit/coverage-r1/overlap/cet-scholarship-scope.md": "ded3f7df7691a2fa44780517813018445bf037e08b8b2e7f2653d8babfc9ada4",
+    "docs/content/audit/coverage-r1/overlap/cse-scope.md": "b34814c6993a7e803b2685d1c44a3fc8dce9801cca3ac4e5ae96235cc971fbf4"
+  }
+}
