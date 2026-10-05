@@ -81,19 +81,20 @@ tiers; W5's test purchases on the test track check every case before beta.
 
 `endsAt` is the last day of the first published sitting on or after the purchase date. If that
 sitting's date later moves later, `endsAt` moves with it; if earlier, the original date stands
-(D-227). Computed server-side from the catalog version shipped in the app's content package; the
-webhook stores the result.
+(D-227). Computed server-side from `functions/src/examCatalog.json`, written by the W0 content export from
+the same catalog the app ships; the webhook stores the result.
 
 ### B3. Products and RevenueCat
 
-- Subscriptions in one Play subscription group so replacement works: Student weekly, monthly,
-  yearly; Civil Service weekly, monthly, yearly. RevenueCat entitlement `pro` stays; the tier is derived from the
+- Subscriptions: Student weekly, monthly, yearly; Civil Service weekly, monthly, yearly. Google Play
+  can replace any subscription in the app; level 3 confirms the replacement mode for each pair
+  against current Play Billing documentation before W3 implements it (gate N-19). RevenueCat entitlement `pro` stays; the tier is derived from the
   product id in one table (W3).
 - Pass: consumable `pantas_pass_civil_service`, RevenueCat non-subscription purchase; the app sends
   the exam id as purchase metadata; the server rejects a pass for an exam with no future published
   sitting.
-- Upgrade: `purchase` with Google Play replacement mode "charge prorated price" from a Student
-  subscription to the Civil Service plan the student picks.
+- Upgrade: `purchase` with a Google Play replacement mode that credits the unused part of the
+  Student subscription (Part A item 5), confirmed per pair at level 3.
 
 ### B4. Trial eligibility
 

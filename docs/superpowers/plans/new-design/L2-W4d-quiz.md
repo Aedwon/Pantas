@@ -36,7 +36,7 @@ W1 removes retired routes and this family deletes the screens behind them:
   picker) and `startQuickQuiz()`, consumed by W4c.
 - Report queue (offline send later, limits 3 per question and 20 a day).
 
-Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2 components; W3 `coversExam` for notes; W0 schema 26 (`MistakeTag.other`, `mistakeNote`) and response time writes; W4e `MockCard`.
+Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2 components; W3 `coversExam` for notes; W0 JSON fields `AttemptItem.mistakeTag` (`other`) and `AttemptItem.mistakeNote`, and response time writes; W4e `MockCard`.
 
 ## 4. Behavior
 
@@ -92,8 +92,8 @@ and build from the tap, start to last change; reduce motion shows the last frame
 
 ## 8. Files and directories
 
-`lib/features/quiz/`, `lib/features/review/` (deleted after replacement), `lib/features/review_prompt/`, routes, tests.
+`lib/features/quiz/`, `lib/features/review/` (empty; deleted), `lib/features/review_prompt/`, `lib/app/routes/quiz_routes.dart`, tests.
 
 ## 9. Order and parallelism
 
-After W2 and W3. Shares the floating bar and grid with W4e through W2; no shared files with W4e beyond `router.dart`.
+After W2 and W3. Shares the floating bar and grid with W4e through W2; no shared files with W4e (each edits only its own route file). Landing order: this family's `startLessonQuiz` and `startQuickQuiz` task before W4c wires its buttons; W4e's `MockCard` task before this family's Quiz tab task; W4h's pattern task before this family's state screens.

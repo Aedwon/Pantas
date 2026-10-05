@@ -53,6 +53,7 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
 - The public pantas.app page is website copy, which Aedwon writes; it is kept as built and listed for
   his review (gate F-30).
 - Free and Pro: history is Pro (D-251). Placeholders: none.
+- Wrapped history stays on the phone and is lost on reinstall until sync exists (Aedwon, Oct 6); no student-facing wording.
 
 ## 5. Motion
 
@@ -83,8 +84,8 @@ and build from the tap, start to last change; reduce motion shows the last frame
 
 ## 8. Files and directories
 
-`lib/features/wrapped/`, routes, tests.
+`lib/features/wrapped/`, `lib/app/routes/wrapped_routes.dart`, tests.
 
 ## 9. Order and parallelism
 
-After W2, W3 and W4b's Your record. Small; can run alongside W4h.
+After W2, W3, W4b's Your record slot and W4f's About slot (both must land first). Small; can run alongside W4h. W4h's pattern task lands before this family's state screens.

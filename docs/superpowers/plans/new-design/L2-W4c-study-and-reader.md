@@ -2,7 +2,7 @@
 
 Level 2 workstream plan. Date: October 6, 2026. Author: lead. Policy revision: origin/main 12fb353b. Revised after the level 2 gate review (Oct 6).
 Parent: strategy B2, B4. Spec: amendment spec (approved Oct 5). Depends on: W1, W2.
-Traceability: 84 rows with workstream `W4c` (30 boards, 54 other items).
+Traceability: 85 rows with workstream `W4c` (30 boards, 55 other items).
 
 ## 1. Purpose and scope
 
@@ -16,7 +16,7 @@ Out of scope: In-lesson quiz screens and their question set, and the quick quiz 
 
 Boards (30): ST_Map, ST_MapEmpty, ST_TopicOpen, ST_Pinned, ST_Search, ST_NoMatch, RD_RealScroll, RD_Real, RD_Figure, RD_Resume, RD_Contents, RD_Plan, RD_End, RD_TopicDone, RD_TopicShort, RD_DayDone, ST_Loading, ST_Error, ST_NoLessons, ST_NoExam, RD_Error, RD_ImageFail, RD_DayEnd, BM_MarkTeal, BM_Open, BM_Order, BM_Edit, BM_One, BM_Empty, BM_ScreenReader.
 
-Other traceability rows (54): D-117, D-118, D-119, D-120, D-121, D-122, D-123, D-124, D-128, D-129, D-130, D-131, D-132, D-133, D-134, D-135, D-137, D-138, D-139, D-140, D-141, D-142, D-145, D-146, D-147, D-148, D-149, D-150, D-151, S0-30, S0-41, G-c-2, G-c-3, G-c-4, G-c-5, G-c-6, G-c-7, G-c-8, G-c-9, G-c-10, G-c-11, G-c-12, G-c-13, G-c-14, G-c-15, G-c-16, G-c-19, G-c-20, G-c-23, G-c-24, G-c-25, G-c-26, G-c-28, G-h-15.
+Other traceability rows (55): D-117, D-118, D-119, D-120, D-121, D-122, D-123, D-124, D-128, D-129, D-130, D-131, D-132, D-133, D-134, D-135, D-137, D-138, D-139, D-140, D-141, D-142, D-145, D-146, D-147, D-148, D-149, D-150, D-151, R-21, S0-30, S0-41, G-c-2, G-c-3, G-c-4, G-c-5, G-c-6, G-c-7, G-c-8, G-c-9, G-c-10, G-c-11, G-c-12, G-c-13, G-c-14, G-c-15, G-c-16, G-c-19, G-c-20, G-c-23, G-c-24, G-c-25, G-c-26, G-c-28, G-h-15.
 Each row's status column in `traceability.md` is binding; "lead default" rows are listed in
 section 4 where they shape behavior. Superseded sections of older specs for this family: amendment
 spec B1 (rows naming this family's screens); those sections are not built.
@@ -81,8 +81,8 @@ and build from the tap, start to last change; reduce motion shows the last frame
 
 ## 8. Files and directories
 
-`lib/features/lesson/`, its routes, `lib/core/ui/figures/` (frame only), tests.
+`lib/features/lesson/`, `lib/app/routes/study_routes.dart`, `lib/core/ui/figures/` (frame only), tests.
 
 ## 9. Order and parallelism
 
-After W2. Parallel with other families; shares the reader with W4b only through the route contract.
+After W2. Parallel with other families, with these landing orders: W4b's `LessonDayContext` task before this family's reader-from-Home task; W4d's `startLessonQuiz` and `startQuickQuiz` task before this family wires its two buttons; W4h's pattern task before this family's state screens. Removes the `onReorder` deprecation when rebuilding the bookmarks sheet (R-21).

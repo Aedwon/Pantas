@@ -55,7 +55,7 @@ requirement applies to them.
 - **Higher subscription tiers include lower ones.** Licensure includes Civil
   Service and Student. Civil Service includes Student.
 - **A season pass covers only its own exam.** A PSHS-NCE pass does not unlock CSE.
-- **Switching exams (direction, not yet a design spec):**
+- **Switching exams** (designed in the tier spec and the approved switching boards):
   - Within the same tier: Pro stays.
   - To a lower tier: Pro stays.
   - To a higher tier: show that tier's paywall as an upgrade.
@@ -70,10 +70,10 @@ requirement applies to them.
   `docs/superpowers/decisions/2026-10-04-giveaways-and-gift-codes-log.md`.
 
 - **Store price points.** Google Play and the App Store use fixed price points per
-  country. ₱149, ₱249, ₱299, ₱499 and ₱1,499 must be confirmed as available in the
+  country. ₱49, ₱149, ₱1,199, ₱249, ₱299, ₱499 and ₱1,499 must be confirmed as available in the
   Philippines before products are created.
 - **Entitlement and product design.** The app currently has one `pro` entitlement.
-  Tiers need a design spec covering entitlements, new product IDs, upgrade
+  Tiers needed a design spec (now `docs/superpowers/specs/2026-10-06-tier-pricing-design.md`, approved 6 October 2026) covering entitlements, new product IDs, upgrade
   handling, and pass expiry before any product is created. Product IDs are
   permanent.
 - **Prices are competitor-based starting points**, not measured willingness to

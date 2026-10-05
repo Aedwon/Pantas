@@ -61,9 +61,10 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
   weakest first and "YOUR PLAN STARTS WITH" the weakest topic, then Home; a completed assessment
   cannot be retaken; seeds reviews and counts toward overall accuracy (G-a-21, G-a-29).
 - Save and load failures per W4h patterns (S0-33, S0-34).
-- Terms acceptance keeps recording the policy version (G-a-18).
+- Terms acceptance keeps recording the policy version (G-a-18) through W4f's settings repository write, which W4f keeps.
 - Free and Pro: same. Placeholders: none.
-- `/notifications/rationale`: W1 removes the route; W4f deletes the page in `lib/features/notifications/`.
+- `/notifications/rationale`: W1 removes the route (W1's list); W4f deletes the page in `lib/features/notifications/`.
+- Uses W4h's state patterns; W4h's pattern task lands before this family's state screens.
 
 ## 5. Motion
 
@@ -94,7 +95,7 @@ and build from the tap, start to last change; reduce motion shows the last frame
 
 ## 8. Files and directories
 
-`lib/features/onboarding/`, `lib/features/assessment/`, its routes in `lib/app/router.dart`, tests.
+`lib/features/onboarding/`, `lib/features/assessment/`, `lib/app/routes/onboarding_routes.dart`, tests.
 
 ## 9. Order and parallelism
 

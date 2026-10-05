@@ -49,11 +49,11 @@ start level 3 (B5).
 | Stage 0 exit | done | all B3 steps done; every input item has a workstream |
 | B3.5 execution arrangement | done | recorded in the decision record |
 | Level 2 plans (B4) | done | 13 plans; traceability level 2 column filled |
-| Level 2 gate review | review 1 not passed; fixes and Aedwon's answers applied; review 2 next | gates/l2-gate-review-1.md |
+| Level 2 gate review | reviews 1 and 2 not passed; fixes applied; review 3 (delta) next | gates/ |
 | Level 3 plans (B5) | pending | |
 | Level 3 gate review | pending | |
 | Stop before level 4, notify Aedwon | pending | |
 
 ## Last completed step
 
-Level 2 gate review 1 findings fixed in the plans; tier pricing spec written.
+Review 2 findings fixed; Aedwon's answers recorded.

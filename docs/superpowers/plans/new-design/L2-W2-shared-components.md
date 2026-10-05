@@ -11,11 +11,11 @@ loading tiers L_Rules), S0-46.
 Build each element that more than one screen family uses once, with fixed interfaces and states,
 so families compose screens and never restyle a shared element.
 
-In scope: the components in section 3; retiring the Ink-named components and the six `showInkSheet`
-callers plus the subject scope, custom mock wheel and other sheet call sites listed in
-`stage0/gap-h-shell-states.md` "Bottom-sheet call sites" (removed by replacing them; sheets survive
-only where a board draws one); the `onReorder` deprecation in the bookmarks sheet; the math
-accessibility checks kept from the archive (S0-46).
+In scope: the components in section 3, and the math accessibility checks kept from the archive
+(S0-46). W2 does not edit feature files (N-12): each W4 family replaces its own sheet call sites
+(`stage0/gap-h-shell-states.md` "Bottom-sheet call sites") and Ink components with W2's components
+when it rebuilds its screens; W4c removes the `onReorder` deprecation when it rebuilds the bookmarks
+sheet (R-21). W2 deletes an Ink component or `showInkSheet` once no caller remains.
 
 Out of scope: screen layouts and copy (W4), theme values, icons and motion primitives (W1).
 
@@ -99,8 +99,8 @@ shake (ST_IncludedLast), switch knob (ST_Root). Shared effects per MOTION.md.
 ## 8. Files and directories
 
 `lib/core/ui/components/` (new components; retired ones deleted when their last caller moves),
-`lib/core/ui/gallery/` (debug-only gallery screen, route `/settings/_gallery` in the `dev` route
-file; W4f adds a link to it from the existing debug page), tests under `test/core/ui/`.
+`lib/core/ui/gallery/` (debug-only gallery screen), `lib/app/routes/dev_routes.dart` (adds
+`/settings/_gallery`; W4f adds a link from the existing debug page), tests under `test/core/ui/`.
 
 ## 9. Order and parallelism
 

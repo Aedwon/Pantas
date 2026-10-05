@@ -2,7 +2,7 @@
 
 Level 2 workstream plan. Date: October 6, 2026. Author: lead. Policy revision: origin/main 12fb353b. Revised after the level 2 gate review (Oct 6).
 Parent: strategy B2, B4. Spec: amendment spec (approved Oct 5). Depends on: W1, W2, W3 (Pro gates), the roadmap engine (already on the branch).
-Traceability: 152 rows with workstream `W4b` (61 boards, 91 other items).
+Traceability: 151 rows with workstream `W4b` (61 boards, 90 other items).
 
 ## 1. Purpose and scope
 
@@ -18,7 +18,7 @@ Out of scope: The lesson reader (W4c), quiz screens (W4d), mock screens (W4e), W
 
 Boards (61): HP_Free, HP_Pro, HP_Day, HP_NoDate, HP_MonthOnly, HP_Trial, HP_ProWelcome, HE_BeforeAssessment, HP_ExamDay, HP_ExamPassed, HP_NoContent, HE_ManyLessons, HE_BackAfterBreak, HE_MockDay, HE_Everything, HE_NothingDue, HE_NothingDueReview, HE_DayOff, HE_ReviewWeek, HE_LastDay, HE_Resume, HE_CarryOver, HE_AdvanceAgain, HE_MockMoved, HE_MockDropped, HE_LongTitle, DP_PlanA, DP_History, DP_HistoryEnd, DP_PlanFree, DP_Error, DP_Drill, DP_Week, DP_WeekCustom, DP_Day, DP_DayRead, DP_DayPast, DT_TopicsA, DT_TopicsView, DT_LessonsView, DT_SortFlow, DT_FilterFlow, DT_SubjectTap, DT_SubjectTapFree, DT_Topic, DT_Free, DT_Error, YR_Full, YR_RestDay, YR_FirstWeek, YO_Pro, YO_ProNew, YO_Free, YO_Error, YO3_Profiles, YO4_Picks, L_PlanSlow, L_ProgressSlow, YR_Wrapped, YR_WrappedFree, HP_Service.
 
-Other traceability rows (91): D-9, D-10, D-11, D-12, D-13, D-14, D-15, D-46, D-48, D-49, D-50, D-51, D-52, D-53, D-54, D-55, D-56, D-57, D-58, D-59, D-60, D-61, D-62, D-63, D-64, D-65, D-66, D-69, D-71, D-72, D-73, D-74, D-76, D-77, D-78, D-79, D-80, D-81, D-82, D-83, D-84, D-85, D-86, D-87, D-88, D-91, D-92, D-93, D-94, D-95, D-96, D-97, D-99, D-100, D-103, D-104, D-105, D-106, D-107, D-108, D-109, D-110, D-112, D-236, D-237, D-238, D-252, D-254, D-277, R-13, R-16, A-B2b, S0-10, S0-11, S0-12, S0-13, G-a-32, G-b-3, G-b-4, G-b-6, G-b-7, G-b-8, G-b-9, G-b-14, G-b-15, G-b-17, G-b-19, G-b-20, G-b-21, G-h-9, G-h-25.
+Other traceability rows (90): D-9, D-10, D-11, D-12, D-13, D-14, D-15, D-46, D-48, D-49, D-50, D-51, D-52, D-53, D-54, D-55, D-56, D-57, D-58, D-59, D-60, D-61, D-62, D-63, D-64, D-65, D-66, D-69, D-71, D-72, D-73, D-74, D-76, D-77, D-78, D-79, D-80, D-81, D-82, D-83, D-84, D-85, D-86, D-87, D-88, D-91, D-92, D-93, D-94, D-95, D-96, D-97, D-99, D-100, D-103, D-104, D-105, D-106, D-107, D-108, D-109, D-110, D-112, D-236, D-237, D-238, D-252, D-254, D-277, R-13, R-16, S0-10, S0-11, S0-12, S0-13, G-a-32, G-b-3, G-b-4, G-b-6, G-b-7, G-b-8, G-b-9, G-b-14, G-b-15, G-b-17, G-b-19, G-b-20, G-b-21, G-h-9, G-h-25.
 Each row's status column in `traceability.md` is binding; "lead default" rows are listed in
 section 4 where they shape behavior. Superseded sections of older specs for this family: amendment
 spec B1 (rows naming this family's screens); those sections are not built.
@@ -102,4 +102,4 @@ and build from the tap, start to last change; reduce motion shows the last frame
 
 ## 9. Order and parallelism
 
-After W2 and W3. Largest family; the level 3 plan splits it into Home, plan, performance, and record and tendencies tasks that can run in two worktrees with a stated order on `router.dart`.
+After W2 and W3. Largest family; the level 3 plan splits it into Home, plan, performance, and record and tendencies tasks that can run in two worktrees, all editing only `lib/app/routes/home_routes.dart` in a stated order. Landing order for consumers: the `LessonDayContext` task before W4c's reader-from-Home task; the `tableOrderRememberedProvider` move before W4f's Appearance task and before `lib/features/progress/` is deleted; the Your record slot before W4g's history task. W4h's pattern task lands before this family's state screens.

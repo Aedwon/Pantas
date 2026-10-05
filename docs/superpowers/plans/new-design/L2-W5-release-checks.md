@@ -18,8 +18,10 @@ In scope:
 - E10 release end-to-end once (not three times, Oct 1), E11 to E14 including exact signed-artifact
   verification (E12, E13).
 - Content protection identity proof (CP-T5) redone on W0's new package.
-- A01 sync and account, A02 App Check, A03 purchase and restore (Student and Civil Service, test
-  track), A04 device smoke, A07 deletion and privacy; A05 accessibility and A06 notifications and
+- A01 sync and account, A02 App Check, A03 purchase and restore on the test track, covering the tier
+  spec cases: each Student and Civil Service plan, the Monthly trial and its absence after a lapse,
+  a Student to Civil Service upgrade, a pass purchase and its end date, refusal of a pass with no
+  published sitting, and restore, A04 device smoke, A07 deletion and privacy; A05 accessibility and A06 notifications and
   device runtime as smoke checks (Oct 1).
 - The four kept release end-to-end tests (Firebase sync, mock resume, quiz state and delete,
   shipping cold start) from `archive/pre-restart-kept-work`, retargeted to the new routes (S0-43).
@@ -34,7 +36,8 @@ its change requires (strategy B2).
 
 ## 2. Inputs
 
-The E04 to E14 plan and its evidence formats; release-first cuts; amendment spec; W0 package
+The E04 to E14 plan and its evidence formats; release-first cuts; amendment spec; tier pricing spec
+(`specs/2026-10-06-tier-pricing-design.md`); W0 package
 identity; W3 test-purchase setup; traceability rows above.
 
 ## 3. Contracts owned

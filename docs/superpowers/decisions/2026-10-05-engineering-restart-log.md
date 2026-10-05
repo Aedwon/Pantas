@@ -498,3 +498,54 @@ Resulting decisions (items not answered take the stated recommendation, per the 
 5. F-19: notice order, History sentences and Follow up copy as proposed.
 6. F-29, F-30, F-35 noted for information: streak freeze code stays dormant; the Wrapped web page
    keeps its copy; existing daily reminder messages stay.
+
+## October 6, 2026: level 2 gate review 2 (not passed), record of what was asked, and answers
+
+Review 2: `docs/superpowers/plans/new-design/gates/l2-gate-review-2.md`. 1 blocker, 14 should-fix,
+11 notes; review 1 findings 30 resolved, 5 partly.
+
+What the lead sent Aedwon after review 1 (gate N-2 asks for the exact options). The message said
+"Reply with the numbers you change; anything you leave out takes my recommendation" and listed:
+1. Tier pricing spec approval, with (a) official exam dates supplied by Aedwon with source links,
+   (b) confirming ₱149 and ₱499 in Play Console, (c) permanent names `pantas_cs_monthly` and
+   `pantas_pass_civil_service`.
+2. Pro pages for Coming-soon exams: recommended deferring them until those exams launch.
+3. After Pro lapses: recommended Free rules for mock reviews and Wrapped history; nothing deleted;
+   renewing restores.
+4. Copy with no board: notice order (service message, trial ending, welcome to Pro, no date, month
+   only); History entries "You switched to CSE Professional. Your plan was rebuilt for it.", "Your
+   exam date passed. Your plan waits for a new date.", "Your exam date was removed. Your plan is
+   rebuilt when you set one.", "Your plan was built from your assessment results.", no entry for the
+   internal topic-order fix; Follow up "Still time today" / "One short session gets today's plan
+   started."
+5. For information: streak freeze code stays dormant; the public Wrapped page keeps its copy;
+   existing daily reminder messages stay.
+
+The preview of the CSE Pro page shown on Oct 6 had empty phone frames (the board is taller than the
+preview assumed). Fixed; the preview now shows the approved page, the proposal, and the proposal's
+pass-picked state (board ST_ProCSEPass_v2). Savings round down ("SAVE 32%", like the Student page).
+
+Then asked: (1) approve the CSE layout and the names `pantas_cs_weekly`, `pantas_cs_yearly`;
+(2) confirm the items above that took recommendations; (3) Wrapped history on reinstall: keep on
+the phone for beta (recommended) or sync (about 1 to 2 days). For information: the store rating
+prompt never appears within 24 hours of opening the Pro page.
+
+Exact answers:
+
+> 1. yes
+> 2. yes
+> 3. keep on phone
+>
+> is this going to rerun the level 2 gate review?
+
+Resulting decisions: CSE Pro page per ST_ProCSE_v2 and ST_ProCSEPass_v2 and all four Civil Service
+product names approved; items 2 to 4 above confirmed; Wrapped history stays on the phone and is lost
+on reinstall until sync exists.
+
+Fixes for review 2 (lead): W0 data the design adds is stored as fields inside existing JSON columns
+(app schema stays 25); content database schema 10 for the exam catalog, Coming soon exam rows, and a
+functions copy of the catalog; strategy B2 W0 row amended; one complete retired-route list owned by
+W1; per-family route files and the dev route file; W2 edits no feature files; trial-ending interface
+`TrialEndingNotifier` owned by W3 and implemented by W4f; landing orders for every consumed family
+contract; W5 covers the tier purchase cases; traceability statuses refreshed; tier spec replacement
+wording corrected; amendment spec B2 trial text clarified to use the student's own plan price.

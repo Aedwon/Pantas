@@ -36,7 +36,7 @@ W1 removes retired routes and this family deletes the screens behind them:
 - The CSE Professional, CSE Subprofessional and ACET blueprints in `content/mock/`, with the
   placeholder marker (W0 contract): CSE per-subject item counts and ACET aptitude time (R-20).
 
-Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2 components; W3 `coversExam` and `mockLimit`; W0 data (right, wrong, blank per part; schema 26 `blankReason`); W0 mock blueprint format.
+Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2 components; W3 `coversExam` and `mockLimit`; W0 JSON fields `SectionResult.wrong`, `SectionResult.blank`, mock answer `missReason`, `blankReason`, `reasonNote`; W0 mock blueprint format.
 
 ## 4. Behavior
 
@@ -94,8 +94,8 @@ and build from the tap, start to last change; reduce motion shows the last frame
 
 ## 8. Files and directories
 
-`lib/features/mock_exam/`, routes, tests.
+`lib/features/mock_exam/`, `lib/app/routes/mock_routes.dart`, `content/mock/` (CSE Professional, CSE Subprofessional, ACET blueprints only), tests.
 
 ## 9. Order and parallelism
 
-After W2 and W3. Parallel with other families.
+After W2 and W3. Parallel with other families. Landing order: this family's `MockCard` task before W4d's Quiz tab task; W4h's pattern task before this family's state screens. The CSE and ACET blueprints are content files: the content track is told before they land (strategy B2).

@@ -3,8 +3,7 @@
 Level 2 workstream plan. Date: October 6, 2026. Author: lead. Policy revision: origin/main 4478a462.
 Parent: strategy B2 (W3 amended Oct 6 to add tier pricing), B4. Depends on: W0.
 Spec: amendment spec (approved Oct 5); tier pricing spec `docs/superpowers/specs/2026-10-06-tier-pricing-design.md`
-(required by `docs/pricing.md` before any product is created; level 3 of W3 waits for Aedwon's
-approval of it); `docs/pricing.md` (approved Oct 4); giveaways log
+(required by `docs/pricing.md` before any product is created; approved by Aedwon Oct 6); `docs/pricing.md` (approved Oct 4); giveaways log
 `docs/superpowers/decisions/2026-10-04-giveaways-and-gift-codes-log.md`.
 Traceability rows: every row with workstream `W3`, plus S0-35 states and the trial-ending trigger.
 
@@ -51,16 +50,17 @@ L_Purchase, L_RestorePurchase; traceability G-f-12 to G-f-19, G-f-22, G-f-31, G-
 |---|---|
 | Exam tier | `PriceTier { student, civilService, licensure, nce }` and `tierForExam(examId)` from the W0 exam catalog. Mapping per pricing.md: CETs, DOST, SM to student; academy exams to student (plus a pass); CSE Professional and Subprofessional, NAPOLCOM, AFPSAT to civilService; LET, PNLE to licensure; PSHS-NCE to nce. |
 | Products | Subscription ids: existing `pantas_pro_weekly`, `pantas_pro_monthly`, `pantas_pro_yearly` (student); new `pantas_cs_weekly`, `pantas_cs_monthly`, `pantas_cs_yearly`, `pantas_pass_civil_service` (tier spec, approved Oct 6), created by Aedwon before W3 integration. Passes are non-renewing products. Ids live in one table; no screen hard-codes an id. |
-| Entitlement | `Entitlement` gains `tier` (highest subscription tier held), `passes` (set of exam ids with an active pass and each end date), `state` (`free`, `trial`, `active`, `canceledActive`, `billingIssue`, `grant`, `unknown`), `endsAt`, `renewsAt`, `chargesAt` (trial). `coversExam(examId)` is the single question every Pro gate asks. The existing `proIsActive` getter keeps its name and returns `coversExam(activeExam)`, so its 113 callers need no edit. `mockLimit(examId)`: unlimited when covered, else one mock per 14 days per exam with `nextMockOpensAt`. |
+| Entitlement | `Entitlement` gains `tier` (highest subscription tier held), `passes` (set of exam ids with an active pass and each end date), `state` (`free`, `trial`, `active`, `canceledActive`, `billingIssue`, `grant`, `unknown`), `endsAt`, `renewsAt`, `chargesAt` (trial). `coversExam(examId)` is the single question every Pro gate asks. Callers keep `proIsActive`: the 113 references (two definitions: `entitlement.dart:48`, `revenuecat_sdk.dart:48`) keep their names; W3 makes the provider-level value equal `coversExam(activeExam)` by injecting the active exam where entitlement is read (N-23), and level 3 lists each definition's change. `mockLimit(examId)`: unlimited when covered, else one mock per 14 days per exam with `nextMockOpensAt`. |
 | Season Pass end | A pass ends on the exam's published date (last day for multi-day exams). If the date moves later, the pass moves with it; if earlier, it keeps the later date. No published date means the pass cannot be bought. Exam dates come from the W0 exam catalog's `publishedSittings`, never the student's own date or an inferred date. |
 | Switching rule | `switchOutcome(from, to, entitlement)`: `keepsPro`, `upgradeOffer(tierPlans)` (no trial, with "Switch on Free"), `passWarning` (pass stays with its exam), `free`. W4f renders it. Paywalls never appear after onboarding or for Free students switching. |
 | Purchase operations | `purchase(product)`, `restore()`, `manage()` return typed results: `success`, `pending` (payment pending, nothing can be bought twice), `offline`, `cancelled`, `storeError`, `notConfirmedYet`. Copy belongs to W4f. |
 | Public ID | Firestore document readable only by its owner holding the 9-digit ID; Cloud Function `ensurePublicId` (server-only creation on first Google or Apple sign-in); admin-only lookup path with audit log; check-digit validator shared by app and functions. App reads `publicIdProvider` (states: `notSignedIn`, `notReady`, `ready(digits)`). Display grouping is W4f's (threes for 9 digits). |
-| Trial-ending trigger | `TrialEndingScheduler.sync(entitlement)` decides when the trial-ending notification is due or cancelled and hands it to W4f's reminder service (`ReminderService.scheduleTrialEnding(at)` / `cancelTrialEnding()`); replaces the no-op `TrialReminderScheduler`. W3 lands first with an interface; W4f implements the service side. |
+| Trial-ending trigger | W3 owns the interface `TrialEndingNotifier` in `lib/features/paywall/application/trial_ending_notifier.dart` with `Future<void> schedule(DateTime chargeAt, String priceText)` and `Future<void> cancel()`, and `TrialEndingScheduler.sync(entitlement)`, which calls it; it replaces the no-op `TrialReminderScheduler`. W3 lands with a no-op binding; W4f's `ReminderService` implements `TrialEndingNotifier` and binds it. |
 | State split | W3 owns the entitlement states for S0-35 and G-f-12 to G-f-19 (logic); W4f owns their screens and copy. |
 
-Contracts consumed: W0 data layer (schema 25, no migration expected; a new local table needs a W0
-amendment first).
+Contracts consumed: W0 data layer (app schema 25, content schema 10) and the W0 exam catalog,
+including `functions/src/examCatalog.json` for pass end dates; a new local table needs a W0
+amendment first.
 
 ## 4. Behavior
 

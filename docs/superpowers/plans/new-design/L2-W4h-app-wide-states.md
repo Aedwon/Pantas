@@ -77,4 +77,4 @@ and build from the tap, start to last change; reduce motion shows the last frame
 
 ## 9. Order and parallelism
 
-After W2. Early among W4 families so others apply the patterns; small.
+After W2. Its pattern task (StateView usage, error, empty, loading and save-failure rules) lands before any other family's state screens; every other W4 plan states this order. Small.

@@ -153,8 +153,9 @@ Visual sections of every pre-October spec are already superseded (AGENTS.md, vis
 - Come back: after 3 consecutive study days with no session; once until a session happens; at the
   daily reminder time (or 19:00 if off); names a measured subject and score or is not sent. It
   replaces that day's daily reminder.
-- Trial ending: local, 24 hours before the first Monthly trial charge, text matches HP_Trial
-  ("Google Play charges ₱99 on Oct 2 to keep Pro. Cancel any time before then."). Cancelled when
+- Trial ending: local, 24 hours before the first Monthly trial charge, text follows HP_Trial
+  ("Google Play charges ₱99 on Oct 2 to keep Pro. Cancel any time before then.") with the price and
+  date of the student's own plan from the store (clarified Oct 6, gate N-26; Civil Service charges ₱149). Cancelled when
   the trial is cancelled or converts.
 - Permission denied: nothing is sent; Reminders shows the approved blocked state.
 - Tap routing: daily, follow up and come back open Home; countdown opens Home; trial ending opens
