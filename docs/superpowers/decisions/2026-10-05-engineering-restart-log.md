@@ -197,3 +197,21 @@ Resulting decisions:
 ## October 5, 2026: date format approved
 
 Aedwon: "approved". The handoff date format ("Dates (proposed 4 Oct)" in `docs/design/DECISIONS.md`) is final: "Nov 11, 2026"; this year "Oct 17"; with weekday "Sat, Oct 17"; long headings "Saturday, October 3"; month only "November 2026". Boards drawn with "3 October" follow this when built.
+
+## October 5, 2026: baseline on integration/new-design-r1
+
+Branch `integration/new-design-r1` created from `origin/web/roadmap-engine-r1` at 1f79d880 and
+pushed. Policy revision: origin/main ac4b30da. Flutter 3.44.6, Dart 3.12.2.
+
+Seed assets (`assets/seed/content.db`, `content.manifest.json`, `content.manifest.sig`) are
+gitignored. They were copied from the roadmap worktree at the same commit (files dated Sep 10).
+SHA-256 prefixes: assets/seed/content.db;assets/seed/content.manifest.json;assets/seed/content.manifest.sig;
+
+- build_runner: exit 0.
+- flutter analyze: 1 info, `deprecated_member_use` of `onReorder` in the lesson bookmarks
+  sheet. Not an accepted exception; fix it in W2, where that bottom sheet is replaced anyway.
+- dart format: exit 0, no changes. check_layering: OK. check_no_ai_attribution: OK.
+- flutter test: exit 0, 3,403 of 3,403 passed.
+- functions tests (`node --test`): not run.
+
+Pending: the SSOT entry still says the baseline is running; update it next session.
