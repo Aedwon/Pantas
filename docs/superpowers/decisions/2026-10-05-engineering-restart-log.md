@@ -187,9 +187,13 @@ Resulting decisions:
      Aedwon to keep or discard. Do not build or remove it before he decides.
    - Bottom sheets appear only where a board shows one.
 5. Old Progress screens and routes are retired. Progress lives on Home.
-6. Date format: pending Aedwon's answer. Location: `docs/design/DECISIONS.md`, "Dates (proposed
+6. Date format: approved (see below). Location: `docs/design/DECISIONS.md`, "Dates (proposed
    4 Oct)".
 7. CSE per-subject item counts and ACET aptitude time: build with placeholder values that Aedwon
    will replace. Every placeholder is marked in code with a `PLACEHOLDER` comment and listed in
    the plan. This is an explicit exception to "Never invent a figure" for development only;
    replacing them is a release blocker.
+
+## October 5, 2026: date format approved
+
+Aedwon: "approved". The handoff date format ("Dates (proposed 4 Oct)" in `docs/design/DECISIONS.md`) is final: "Nov 11, 2026"; this year "Oct 17"; with weekday "Sat, Oct 17"; long headings "Saturday, October 3"; month only "November 2026". Boards drawn with "3 October" follow this when built.
