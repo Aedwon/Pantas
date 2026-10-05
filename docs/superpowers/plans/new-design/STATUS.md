@@ -12,7 +12,7 @@ Controlling documents:
 
 State: held
 Holder: scheduled resume run
-Since: 2026-10-05T21:45:21+08:00
+Since: 2026-10-06T01:21:44+08:00
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
