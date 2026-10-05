@@ -39,7 +39,7 @@ Then: merge results into one decision set for Aedwon (B3 steps 1 and 2), then th
 | Strategy Part A approved | done | approval in the decision record |
 | B3.6 SSOT baseline line | done | Google Doc tab "Pantas Production Readiness Assessment", 5 Oct entry |
 | B9 status file | done | this file |
-| B9 hourly resume task | pending | |
+| B9 hourly resume task | done | desktop scheduled task "pantas-new-design-resume", hourly at about :18; runs only while the desktop app is open |
 | B3.1 gap pass | running | |
 | B3.2 kept-work triage | running | |
 | Stage 0 decisions to Aedwon | pending | |
