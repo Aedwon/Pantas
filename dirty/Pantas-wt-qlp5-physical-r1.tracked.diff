@@ -1,0 +1,1217 @@
+diff --git a/android/app/build.gradle.kts b/android/app/build.gradle.kts
+index ef91da71..6c954bf8 100644
+--- a/android/app/build.gradle.kts
++++ b/android/app/build.gradle.kts
+@@ -159,6 +159,24 @@ android {
+             versionNameSuffix = "-staging"
+             resValue("string", "app_name", "Pantas Staging")
+         }
++        create("qlp5") {
++            dimension = "default"
++            applicationId = "com.aedwon.pantas.dev.qlp5"
++            versionNameSuffix = "-qlp5"
++            resValue("string", "app_name", "Pantas QLP5")
++        }
++        create("e09fresh") {
++            dimension = "default"
++            applicationId = "com.aedwon.pantas.dev.e09fresh"
++            versionNameSuffix = "-e09fresh"
++            resValue("string", "app_name", "Pantas E09 Fresh")
++        }
++        create("e09verify") {
++            dimension = "default"
++            applicationId = "com.aedwon.pantas.dev.e09verify"
++            versionNameSuffix = "-e09verify"
++            resValue("string", "app_name", "Pantas E09 Verify")
++        }
+         create("prod") {
+             dimension = "default"
+             applicationId = "com.aedwon.pantas"
+diff --git a/lib/app/router.dart b/lib/app/router.dart
+index 69aae110..274d63bb 100644
+--- a/lib/app/router.dart
++++ b/lib/app/router.dart
+@@ -92,6 +92,10 @@ final routerProvider = Provider<GoRouter>((ref) {
+       final atNotificationRationale =
+           state.matchedLocation == '/notifications/rationale';
+       final atPaywall = state.matchedLocation == '/paywall';
++      if (passed && focus.needsSelection) {
++        if (!atOnboarding) return '/onboarding';
++        return null;
++      }
+       if (!passed && !atOnboarding) return '/onboarding';
+       if (passed && !complete && !atOnboarding) return '/onboarding';
+       if (passed && complete && atOnboarding) {
+diff --git a/lib/core/storage/data/repos/content_repository.dart b/lib/core/storage/data/repos/content_repository.dart
+index 5b74163c..8d0a7175 100644
+--- a/lib/core/storage/data/repos/content_repository.dart
++++ b/lib/core/storage/data/repos/content_repository.dart
+@@ -82,22 +82,65 @@ class ContentRepository {
+   Future<List<QuestionSelectionRow>> selectionRowsByTopic(
+     TopicId topicId,
+   ) async {
++    final grouped = await selectionRowsByTopics([topicId]);
++    return grouped[topicId] ?? const [];
++  }
++
++  Future<Map<TopicId, List<QuestionSelectionRow>>> selectionRowsByTopics(
++    Iterable<TopicId> topicIds,
++  ) async {
++    final wanted = topicIds.toSet().toList();
++    final grouped = {
++      for (final topicId in wanted) topicId: <QuestionSelectionRow>[],
++    };
++    if (wanted.isEmpty) return grouped;
++
+     final questions = _db.contentQuestions;
+-    final query = _db.selectOnly(questions)
+-      ..addColumns([
+-        questions.id,
+-        questions.version,
+-        questions.topicId,
+-        questions.lessonId,
+-        questions.passageId,
+-        questions.figureSpecJson,
+-      ])
+-      ..where(
+-        questions.topicId.equals(topicId) & questions.isActive.equals(true),
+-      );
+-    _onQuery?.call();
+-    final rows = await query.get();
+-    return [for (final row in rows) _selectionRow(row, questions)];
++    for (final batch in _batches(wanted)) {
++      final query = _db.selectOnly(questions)
++        ..addColumns([
++          questions.id,
++          questions.version,
++          questions.topicId,
++          questions.lessonId,
++          questions.passageId,
++          questions.figureSpecJson,
++        ])
++        ..where(
++          questions.topicId.isIn(batch) & questions.isActive.equals(true),
++        );
++      _onQuery?.call();
++      for (final row in await query.get()) {
++        final selection = _selectionRow(row, questions);
++        grouped[selection.topicId]?.add(selection);
++      }
++    }
++    return grouped;
++  }
++
++  Future<Map<TopicId, int>> activeQuestionCountsByTopics(
++    Iterable<TopicId> topicIds,
++  ) async {
++    final wanted = topicIds.toSet().toList();
++    final counts = {for (final topicId in wanted) topicId: 0};
++    if (wanted.isEmpty) return counts;
++
++    final questions = _db.contentQuestions;
++    final total = questions.id.count();
++    for (final batch in _batches(wanted)) {
++      final query = _db.selectOnly(questions)
++        ..addColumns([questions.topicId, total])
++        ..where(
++          questions.topicId.isIn(batch) & questions.isActive.equals(true),
++        )
++        ..groupBy([questions.topicId]);
++      _onQuery?.call();
++      for (final row in await query.get()) {
++        final topicId = row.read(questions.topicId);
++        if (topicId != null) counts[topicId] = row.read(total) ?? 0;
++      }
++    }
++    return counts;
+   }
+ 
+   Future<List<QuestionSelectionRow>> selectionRowsByExam(ExamId examId) async {
+@@ -464,7 +507,7 @@ class ContentRepository {
+     ];
+   }
+ 
+-  Iterable<List<QuestionId>> _batches(List<QuestionId> ids) sync* {
++  Iterable<List<T>> _batches<T>(List<T> ids) sync* {
+     for (var start = 0; start < ids.length; start += _hydrationBatchSize) {
+       final candidateEnd = start + _hydrationBatchSize;
+       final end = candidateEnd < ids.length ? candidateEnd : ids.length;
+diff --git a/lib/core/storage/data/repos/review_state_repository.dart b/lib/core/storage/data/repos/review_state_repository.dart
+index e9b6ee37..8886417b 100644
+--- a/lib/core/storage/data/repos/review_state_repository.dart
++++ b/lib/core/storage/data/repos/review_state_repository.dart
+@@ -43,6 +43,27 @@ class ReviewStateRepository {
+     return row == null ? null : _hydrate(row);
+   }
+ 
++  Future<Map<QuestionId, ReviewState>> byQuestionIds(
++    Iterable<QuestionId> ids,
++  ) async {
++    final wanted = ids.toSet().toList();
++    if (wanted.isEmpty) return const {};
++
++    const batchSize = 400;
++    final states = <QuestionId, ReviewState>{};
++    for (var start = 0; start < wanted.length; start += batchSize) {
++      final end = (start + batchSize).clamp(0, wanted.length);
++      final batch = wanted.sublist(start, end);
++      final rows = await (_db.select(_db.reviewStateLocal)
++            ..where((row) => row.questionId.isIn(batch)))
++          .get();
++      for (final row in rows) {
++        states[row.questionId] = _hydrate(row);
++      }
++    }
++    return states;
++  }
++
+   Future<List<ReviewState>> dirtyStates() async {
+     final rows = await (_db.select(_db.reviewStateLocal)
+           ..where((r) => r.dirty.equals(true)))
+diff --git a/lib/core/storage/domain/assessment_question_selector.dart b/lib/core/storage/domain/assessment_question_selector.dart
+index 49a6137f..5ee70f0f 100644
+--- a/lib/core/storage/domain/assessment_question_selector.dart
++++ b/lib/core/storage/domain/assessment_question_selector.dart
+@@ -4,9 +4,8 @@ import 'package:pantas/core/storage/data/repos/content_repository.dart';
+ import 'package:pantas/core/storage/data/repos/review_state_repository.dart';
+ import 'package:pantas/core/storage/domain/assessment_question.dart';
+ import 'package:pantas/core/storage/domain/ids.dart';
+-import 'package:pantas/core/storage/domain/question.dart';
++import 'package:pantas/core/storage/domain/question_selection_row.dart';
+ import 'package:pantas/core/storage/domain/review_state.dart';
+-
+ import 'package:pantas/core/storage/domain/topic.dart';
+ 
+ class AssessmentQuestionSelector {
+@@ -24,9 +23,13 @@ class AssessmentQuestionSelector {
+     final topicList = topics ?? await _content.topicsByExam(examId);
+     if (topicList.isEmpty) return [];
+ 
+-    final contributing = <({TopicId topicId, List<Question> questions})>[];
++    final rowsByTopic = await _content.selectionRowsByTopics(
++      [for (final topic in topicList) topic.id],
++    );
++    final contributing =
++        <({TopicId topicId, List<QuestionSelectionRow> questions})>[];
+     for (final topic in topicList) {
+-      final questions = await _content.questionsByTopic(topic.id);
++      final questions = rowsByTopic[topic.id] ?? const <QuestionSelectionRow>[];
+       if (questions.isNotEmpty) {
+         contributing.add((topicId: topic.id, questions: questions));
+       }
+@@ -35,35 +38,44 @@ class AssessmentQuestionSelector {
+ 
+     final questionsPerTopic =
+         math.max(1, math.min(3, _maxQuestions ~/ contributing.length));
+-    final buckets = <List<AssessmentQuestion>>[];
++    final reviewStates = await _reviewRepo.byQuestionIds([
++      for (final topic in contributing)
++        for (final question in topic.questions) question.id,
++    ]);
++    final buckets = <List<QuestionSelectionRow>>[];
+ 
+     for (final topic in contributing) {
+-      final scored = <(double, Question)>[];
+-      for (final q in topic.questions) {
+-        final rs = await _reviewRepo.byQuestionId(q.id);
+-        final score = (rs == null || rs.stage == ReviewStage.newCard)
++      final scored = <(double, QuestionSelectionRow)>[];
++      for (final question in topic.questions) {
++        final state = reviewStates[question.id];
++        final score = (state == null || state.stage == ReviewStage.newCard)
+             ? 0.0
+-            : rs.stability;
+-        scored.add((score, q));
++            : state.stability;
++        scored.add((score, question));
+       }
+       scored.sort((a, b) => a.$1.compareTo(b.$1));
+ 
+-      final picked = scored
+-          .take(questionsPerTopic)
+-          .map(
+-            (s) => AssessmentQuestion(question: s.$2, topicId: topic.topicId),
+-          )
+-          .toList();
++      final picked = scored.take(questionsPerTopic).map((s) => s.$2).toList();
+       if (picked.isNotEmpty) buckets.add(picked);
+     }
+ 
+-    final result = <AssessmentQuestion>[];
++    final selected = <QuestionSelectionRow>[];
+     final maxLen = buckets.fold(0, (m, b) => math.max(m, b.length));
+     for (var i = 0; i < maxLen; i++) {
+       for (final bucket in buckets) {
+-        if (i < bucket.length) result.add(bucket[i]);
++        if (i < bucket.length) selected.add(bucket[i]);
+       }
+     }
+-    return result.take(_maxQuestions).toList();
++    final capped = selected.take(_maxQuestions).toList();
++    final hydrated = await _content.hydrateSelectedQuestions(
++      [for (final row in capped) row.id],
++    );
++    final byId = {for (final question in hydrated) question.id: question};
++
++    return [
++      for (final row in capped)
++        if (byId[row.id] case final question?)
++          AssessmentQuestion(question: question, topicId: row.topicId),
++    ];
+   }
+ }
+diff --git a/lib/core/storage/track_scope.dart b/lib/core/storage/track_scope.dart
+index 2142d8b5..e3b4edd0 100644
+Binary files a/lib/core/storage/track_scope.dart and b/lib/core/storage/track_scope.dart differ
+diff --git a/lib/features/assessment/application/assessment_result_providers.dart b/lib/features/assessment/application/assessment_result_providers.dart
+index 5e75aadb..b6182ed1 100644
+--- a/lib/features/assessment/application/assessment_result_providers.dart
++++ b/lib/features/assessment/application/assessment_result_providers.dart
+@@ -1,6 +1,7 @@
+ import 'package:flutter_riverpod/flutter_riverpod.dart';
+ import 'package:pantas/core/storage/domain/ids.dart';
+ import 'package:pantas/core/storage/storage.dart';
++import 'package:pantas/core/storage/track_scope.dart';
+ import 'package:pantas/features/assessment/domain/models/assessment_result.dart';
+ 
+ final assessmentResultProvider =
+@@ -8,7 +9,6 @@ final assessmentResultProvider =
+   final row =
+       await ref.watch(assessmentRepositoryProvider).resultForExam(examId);
+   if (row == null) return null;
+-  final topics =
+-      await ref.watch(contentRepositoryProvider).topicsByExam(examId);
++  final topics = await ref.watch(scopedTopicsProvider(examId).future);
+   return AssessmentResult.fromRow(row, topics);
+ });
+diff --git a/lib/features/assessment/domain/use_cases/complete_assessment.dart b/lib/features/assessment/domain/use_cases/complete_assessment.dart
+index 1d0b72d6..f0b02df0 100644
+--- a/lib/features/assessment/domain/use_cases/complete_assessment.dart
++++ b/lib/features/assessment/domain/use_cases/complete_assessment.dart
+@@ -111,9 +111,16 @@ class CompleteAssessment {
+       );
+     }
+ 
+-    // Hydrate result with Topic models
+-    final topics = await _contentRepo.topicsByExam(session.examId);
+-    final topicById = {for (final t in topics) t.id: t};
++    // Hydrate exactly the topics that produced scores. Custom tracks draw from
++    // corpus topics and intentionally have no ordinary exam -> subject -> topic
++    // membership, so topicsByExam(session.examId) is not authoritative here.
++    final topics = await Future.wait([
++      for (final score in scores) _contentRepo.topicById(score.topicId),
++    ]);
++    final topicById = {
++      for (final topic in topics)
++        if (topic != null) topic.id: topic,
++    };
+     final masteries = scores
+         .where((s) => topicById.containsKey(s.topicId))
+         .map(
+diff --git a/lib/features/assessment/presentation/assessment_page.dart b/lib/features/assessment/presentation/assessment_page.dart
+index 5c2efb88..79a6f519 100644
+--- a/lib/features/assessment/presentation/assessment_page.dart
++++ b/lib/features/assessment/presentation/assessment_page.dart
+@@ -15,6 +15,7 @@ import 'package:pantas/features/assessment/application/assessment_result_provide
+ import 'package:pantas/features/assessment/domain/models/assessment_session.dart';
+ import 'package:pantas/features/assessment/domain/use_cases/complete_assessment.dart';
+ import 'package:pantas/features/assessment/domain/use_cases/start_assessment.dart';
++import 'package:pantas/features/quiz/application/quiz_providers.dart';
+ 
+ final _startAssessmentProvider = Provider<StartAssessment>(
+   (ref) => StartAssessment(
+@@ -111,6 +112,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
+       ref
+         ..invalidate(assessmentResultProvider(widget.examId))
+         ..invalidate(assessmentCompletedProvider(widget.examId));
++      ref.read(quizSessionPanelRevisionProvider.notifier).publishCompletion();
+       context.pushReplacement('/assessment/${widget.examId}/results');
+     } catch (e) {
+       if (!mounted) return;
+diff --git a/lib/features/assessment/presentation/assessment_results_page.dart b/lib/features/assessment/presentation/assessment_results_page.dart
+index 61727dda..26570cf4 100644
+--- a/lib/features/assessment/presentation/assessment_results_page.dart
++++ b/lib/features/assessment/presentation/assessment_results_page.dart
+@@ -119,7 +119,7 @@ class _ResultsBody extends StatelessWidget {
+         BoardButton(
+           label: 'Start studying',
+           onPressed: () => context.go(
+-            '/study?topicId=${weak.first.topic.id}',
++            weak.isEmpty ? '/study' : '/study?topicId=${weak.first.topic.id}',
+           ),
+         ),
+       ],
+diff --git a/lib/features/quiz/presentation/quiz_controller.dart b/lib/features/quiz/presentation/quiz_controller.dart
+index d6be56c5..c00c0066 100644
+--- a/lib/features/quiz/presentation/quiz_controller.dart
++++ b/lib/features/quiz/presentation/quiz_controller.dart
+@@ -63,6 +63,9 @@ class QuizController extends StateNotifier<QuizControllerState> {
+ 
+   final Ref _ref;
+ 
++  String? _preparedSessionId;
++  int? _preparedQuestionIndex;
++
+   Future<void> start({
+     required ExamId examId,
+     TopicId? topicId,
+@@ -309,6 +312,27 @@ class QuizController extends StateNotifier<QuizControllerState> {
+     );
+   }
+ 
++  void markQuestionPrepared({
++    required String sessionId,
++    required int questionIndex,
++  }) {
++    final s = state;
++    if (s is! QuizRunning ||
++        s.session.sessionId != sessionId ||
++        questionIndex != s.session.currentIndex + 1 ||
++        questionIndex >= s.session.questions.length) {
++      return;
++    }
++
++    _preparedSessionId = sessionId;
++    _preparedQuestionIndex = questionIndex;
++  }
++
++  void clearQuestionPreparation() {
++    _preparedSessionId = null;
++    _preparedQuestionIndex = null;
++  }
++
+   Future<void> answer({required ChoiceId chosenChoiceId}) async {
+     final s = state;
+     if (s is! QuizRunning) {
+@@ -349,6 +373,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
+     if (s.session.currentOutcome == null) return;
+ 
+     if (s.session.isComplete) {
++      clearQuestionPreparation();
+       final attempt =
+           await _ref.read(quizCompletionCoordinatorProvider).complete(
+                 session: s.session,
+@@ -359,8 +384,14 @@ class QuizController extends StateNotifier<QuizControllerState> {
+       return;
+     }
+ 
++    final nextIndex = s.session.currentIndex + 1;
++    final prepared = _preparedSessionId == s.session.sessionId &&
++        _preparedQuestionIndex == nextIndex;
++    clearQuestionPreparation();
++
+     state = QuizRunning(
+       session: s.session.advance(),
++      questionShownAt: prepared ? _ref.read(nowProvider)() : null,
+       persisted: s.persisted,
+     );
+   }
+@@ -373,6 +404,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
+   /// about.
+   Future<void> goTo(int index) async {
+     final s = state;
++    clearQuestionPreparation();
+     if (s is! QuizRunning) return;
+     if (index < 0 || index > s.session.outcomes.length) return;
+     if (index >= s.session.questions.length) return;
+@@ -383,5 +415,8 @@ class QuizController extends StateNotifier<QuizControllerState> {
+     );
+   }
+ 
+-  void reset() => state = const QuizIdle();
++  void reset() {
++    clearQuestionPreparation();
++    state = const QuizIdle();
++  }
+ }
+diff --git a/lib/features/quiz/presentation/quiz_page.dart b/lib/features/quiz/presentation/quiz_page.dart
+index 196b9e95..03749b83 100644
+--- a/lib/features/quiz/presentation/quiz_page.dart
++++ b/lib/features/quiz/presentation/quiz_page.dart
+@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
+ import 'package:flutter_riverpod/flutter_riverpod.dart';
+ import 'package:go_router/go_router.dart';
+ import 'package:pantas/core/storage/domain/ids.dart';
++import 'package:pantas/core/storage/domain/question.dart';
+ import 'package:pantas/core/storage/storage.dart';
+ import 'package:pantas/core/ui/components/answer_reveal.dart';
+ import 'package:pantas/core/ui/components/back_chevron.dart';
+@@ -47,220 +48,565 @@ class QuizPage extends ConsumerStatefulWidget {
+   ConsumerState<QuizPage> createState() => _QuizPageState();
+ }
+ 
+-class _QuizPageState extends ConsumerState<QuizPage> {
++String _questionStageKey(QuestionId id) => 'quiz-question-$id';
++
++class _PreparedQuestionStage extends ConsumerStatefulWidget {
++  const _PreparedQuestionStage({
++    required this.proIsActive,
++  });
++
++  final bool proIsActive;
++
++  @override
++  ConsumerState<_PreparedQuestionStage> createState() =>
++      _PreparedQuestionStageState();
++}
++
++class _PreparedQuestionStageState
++    extends ConsumerState<_PreparedQuestionStage> {
++  final Map<QuestionId, Widget> _plainQuestionPanes = <QuestionId, Widget>{};
++
++  String? _sessionId;
++  int? _currentIndex;
++  int? _preparedIndex;
++  int? _scheduledPrepareIndex;
++  bool _deferPreparationForTransition = false;
++  Timer? _deferPreparationTimer;
++
+   @override
+   void initState() {
+     super.initState();
++    ref.read(quizControllerProvider.notifier).clearQuestionPreparation();
++  }
++
++  @override
++  void dispose() {
++    _deferPreparationTimer?.cancel();
++    super.dispose();
++  }
++
++  @override
++  Widget build(BuildContext context) {
++    final running = ref.watch(
++      quizControllerProvider.select(
++        (state) => state is QuizRunning
++            ? (
++                session: state.session,
++                questionShownAt: state.questionShownAt,
++              )
++            : null,
++      ),
++    );
++    if (running == null) return const FaintBars();
++
++    final session = running.session;
++    final questionShownAt = running.questionShownAt;
++    _syncSession(session);
++
++    final currentIndex = session.currentIndex;
++    final question = session.currentQuestion;
++    final passageId = question.passageId;
++    final passageState =
++        passageId != null ? ref.watch(passageByIdProvider(passageId)) : null;
++    final passage = passageState?.valueOrNull;
++    if (passageId != null && passage == null) {
++      return const FaintBars();
++    }
++
++    final outcome = session.currentOutcome;
++    if (outcome == null && questionShownAt == null) {
++      final sessionId = session.sessionId;
++      final questionIndex = currentIndex;
++      WidgetsBinding.instance.addPostFrameCallback((_) {
++        if (!mounted) return;
++        ref.read(quizControllerProvider.notifier).markQuestionReady(
++              sessionId: sessionId,
++              questionIndex: questionIndex,
++            );
++      });
++    }
++
++    _scheduleNextPreparationIfReady(session, questionShownAt);
++
++    final currentPane = outcome == null
++        ? _interactionGate(
++            enabled: questionShownAt != null,
++            child: _plainQuestionPane(question, passage: passage),
++          )
++        : _revealedQuestionPane(
++            session,
++            question,
++            passage: passage,
++          );
++
++    final preparedIndex = _preparedIndex;
++    final preparedIsCurrent =
++        _deferPreparationForTransition && preparedIndex == currentIndex;
++    final children = <Widget>[];
++    QuestionId? preparedQuestionId;
++
++    if (preparedIndex != null &&
++        preparedIndex >= 0 &&
++        preparedIndex < session.questions.length) {
++      final prepared = session.questions[preparedIndex];
++      if (prepared.passageId == null) {
++        preparedQuestionId = prepared.id;
++        children
++          ..add(
++            Opacity(
++              key: ValueKey<String>(_questionStageKey(prepared.id)),
++              opacity: 1,
++              child: _interactionGate(
++                enabled: preparedIsCurrent &&
++                    outcome == null &&
++                    questionShownAt != null,
++                child: RepaintBoundary(
++                  child: _plainQuestionPane(prepared),
++                ),
++              ),
++            ),
++          )
++          ..add(
++            Positioned.fill(
++              child: IgnorePointer(
++                child: Opacity(
++                  key: const ValueKey<String>('quiz-question-prepaint-cover'),
++                  opacity: preparedIsCurrent ? 0 : 1,
++                  child: ColoredBox(color: context.colors.background),
++                ),
++              ),
++            ),
++          );
++      }
++    }
++
++    if (!preparedIsCurrent) {
++      children.add(
++        Opacity(
++          key: ValueKey<String>(_questionStageKey(question.id)),
++          opacity: 1,
++          child: currentPane,
++        ),
++      );
++    }
++
++    _plainQuestionPanes.removeWhere(
++      (id, _) => id != question.id && id != preparedQuestionId,
++    );
++
++    return Stack(alignment: Alignment.topLeft, children: children);
++  }
++
++  void _syncSession(QuizSession session) {
++    if (_sessionId != session.sessionId) {
++      _deferPreparationTimer?.cancel();
++      _deferPreparationTimer = null;
++      _plainQuestionPanes.clear();
++      _preparedIndex = null;
++      _scheduledPrepareIndex = null;
++      _deferPreparationForTransition = false;
++      _sessionId = session.sessionId;
++      _currentIndex = session.currentIndex;
++      return;
++    }
++
++    final oldIndex = _currentIndex;
++    final newIndex = session.currentIndex;
++    if (oldIndex != null && newIndex != oldIndex) {
++      if (newIndex == oldIndex + 1 && _preparedIndex == newIndex) {
++        _deferPreparationForTransition = true;
++        _deferPreparationTimer?.cancel();
++        final sessionId = session.sessionId;
++        _deferPreparationTimer = Timer(const Duration(milliseconds: 120), () {
++          _deferPreparationTimer = null;
++          if (!mounted) return;
++
++          final state = ref.read(quizControllerProvider);
++          if (state is! QuizRunning ||
++              state.session.sessionId != sessionId ||
++              state.session.currentIndex != newIndex) {
++            return;
++          }
++
++          setState(() {
++            if (_preparedIndex == newIndex) {
++              _preparedIndex = null;
++            }
++            _deferPreparationForTransition = false;
++          });
++        });
++      } else if (newIndex != oldIndex + 1) {
++        _deferPreparationTimer?.cancel();
++        _deferPreparationTimer = null;
++        _preparedIndex = null;
++        _scheduledPrepareIndex = null;
++        _deferPreparationForTransition = false;
++      }
++    }
++    _currentIndex = newIndex;
++  }
++
++  void _scheduleNextPreparationIfReady(
++    QuizSession session,
++    DateTime? questionShownAt,
++  ) {
++    if (_deferPreparationForTransition) return;
++    if (questionShownAt == null && session.currentOutcome == null) {
++      return;
++    }
++
++    final sessionId = session.sessionId;
++    final nextIndex = session.currentIndex + 1;
++    if (nextIndex >= session.questions.length) return;
++    final next = session.questions[nextIndex];
++    if (next.passageId != null) return;
++    if (_preparedIndex == nextIndex || _scheduledPrepareIndex == nextIndex) {
++      return;
++    }
++
++    _scheduledPrepareIndex = nextIndex;
+     WidgetsBinding.instance.addPostFrameCallback((_) {
+-      _startForMode(ref.read(quizControllerProvider.notifier));
++      if (!mounted || _sessionId != sessionId) return;
++      if (_scheduledPrepareIndex == nextIndex) {
++        _scheduledPrepareIndex = null;
++      }
++
++      final state = ref.read(quizControllerProvider);
++      if (state is! QuizRunning || state.session.sessionId != sessionId) {
++        return;
++      }
++      final current = state.session;
++      if (current.currentIndex + 1 != nextIndex ||
++          nextIndex >= current.questions.length ||
++          current.questions[nextIndex].passageId != null) {
++        return;
++      }
++      setState(() => _preparedIndex = nextIndex);
++      WidgetsBinding.instance.addPostFrameCallback((_) {
++        if (!mounted ||
++            _sessionId != sessionId ||
++            _preparedIndex != nextIndex) {
++          return;
++        }
++
++        final renderedState = ref.read(quizControllerProvider);
++        if (renderedState is! QuizRunning ||
++            renderedState.session.sessionId != sessionId ||
++            renderedState.session.currentIndex + 1 != nextIndex ||
++            nextIndex >= renderedState.session.questions.length) {
++          return;
++        }
++
++        ref.read(quizControllerProvider.notifier).markQuestionPrepared(
++              sessionId: sessionId,
++              questionIndex: nextIndex,
++            );
++      });
+     });
+   }
+ 
++  Widget _plainQuestionPane(Question question, {Passage? passage}) {
++    return _plainQuestionPanes.putIfAbsent(
++      question.id,
++      () => QuestionCard(
++        question: question,
++        passage: passage,
++        onAnswer: (chosenChoiceId) => ref
++            .read(quizControllerProvider.notifier)
++            .answer(chosenChoiceId: chosenChoiceId),
++      ),
++    );
++  }
++
++  Widget _revealedQuestionPane(
++    QuizSession session,
++    Question question, {
++    Passage? passage,
++  }) {
++    final outcome = session.currentOutcome!;
++    return Column(
++      crossAxisAlignment: CrossAxisAlignment.stretch,
++      children: [
++        QuestionCard(
++          question: question,
++          passage: passage,
++          chosenChoiceId: outcome.chosenChoiceId,
++          revealed: true,
++          onAnswer: null,
++        ),
++        AnswerReveal(
++          question: question,
++          chosenChoiceId: outcome.chosenChoiceId,
++          proIsActive: widget.proIsActive,
++          nextReviewIntervalDays: outcome.nextReviewIntervalDays,
++        ),
++      ],
++    );
++  }
++
++  Widget _interactionGate({required bool enabled, required Widget child}) {
++    return ExcludeSemantics(
++      excluding: !enabled,
++      child: IgnorePointer(ignoring: !enabled, child: child),
++    );
++  }
++}
++
++class _QuizAppBar extends ConsumerWidget implements PreferredSizeWidget {
++  const _QuizAppBar({
++    required this.onConfirmLeave,
++    required this.onBack,
++    required this.onOpenGrid,
++    required this.onToggleFlag,
++  });
++
++  final VoidCallback onConfirmLeave;
++  final VoidCallback onBack;
++  final Future<void> Function(QuizSession session) onOpenGrid;
++  final Future<void> Function(QuestionId questionId) onToggleFlag;
++
+   @override
+-  Widget build(BuildContext context) {
++  Size get preferredSize => const Size.fromHeight(56);
++
++  @override
++  Widget build(BuildContext context, WidgetRef ref) {
+     final colors = context.colors;
+     final styles = context.textStyles;
+-    final state = ref.watch(quizControllerProvider);
++    final session = ref.watch(
++      quizControllerProvider.select(
++        (state) => state is QuizRunning ? state.session : null,
++      ),
++    );
+ 
+-    return Scaffold(
+-      appBar: AppBar(
+-        toolbarHeight: 56,
+-        backgroundColor: colors.background,
+-        elevation: 0,
+-        scrolledUnderElevation: 0,
+-        leading: state is QuizRunning
+-            // The tooltips are the only label these icons carry. Without them
+-            // a screen reader announces an unnamed button, and the
+-            // accessibility plan requires every control to be labeled.
+-            ? IconButton(
+-                tooltip: 'Quit session',
+-                icon: Icon(Icons.close, size: 17, color: colors.inkMuted),
+-                onPressed: _confirmLeave,
+-              )
+-            : IconButton(
+-                tooltip: 'Back',
+-                icon: BackChevron(color: colors.inkMuted),
+-                onPressed: () => _leave(context),
+-              ),
+-        actions: [
+-          if (state is QuizRunning) ...[
+-            // [context] [mark], the reader's rule. The counter takes
+-            // the context
+-            // slot so the flag never moves as the number's width changes.
+-            Semantics(
+-              button: true,
+-              enabled: true,
+-              label: 'Question ${state.session.currentIndex + 1} of '
+-                  '${state.session.questions.length}. '
+-                  'Open question navigator',
+-              onTap: () => unawaited(_openGrid(state.session)),
+-              child: ExcludeSemantics(
+-                child: InkWell(
+-                  onTap: () => unawaited(_openGrid(state.session)),
+-                  child: SizedBox(
+-                    height: 48,
+-                    child: Padding(
+-                      padding: const EdgeInsets.symmetric(horizontal: 8),
+-                      child: Row(
+-                        mainAxisSize: MainAxisSize.min,
+-                        children: [
+-                          Text(
+-                            '${state.session.currentIndex + 1} of '
+-                            '${state.session.questions.length}',
+-                            style: styles.bodySmall.copyWith(
+-                              fontSize: 12.5,
+-                              color: colors.inkMuted,
+-                              fontFeatures: const [
+-                                FontFeature.tabularFigures(),
+-                              ],
+-                            ),
+-                          ),
+-                          const SizedBox(width: 4),
+-                          Icon(
+-                            Icons.expand_more,
+-                            size: 11,
++    return AppBar(
++      toolbarHeight: 56,
++      backgroundColor: colors.background,
++      elevation: 0,
++      scrolledUnderElevation: 0,
++      leading: session != null
++          ? IconButton(
++              tooltip: 'Quit session',
++              icon: Icon(Icons.close, size: 17, color: colors.inkMuted),
++              onPressed: onConfirmLeave,
++            )
++          : IconButton(
++              tooltip: 'Back',
++              icon: BackChevron(color: colors.inkMuted),
++              onPressed: onBack,
++            ),
++      actions: [
++        if (session != null) ...[
++          Semantics(
++            button: true,
++            enabled: true,
++            label: 'Question ${session.currentIndex + 1} of '
++                '${session.questions.length}. '
++                'Open question navigator',
++            onTap: () => unawaited(onOpenGrid(session)),
++            child: ExcludeSemantics(
++              child: InkWell(
++                onTap: () => unawaited(onOpenGrid(session)),
++                child: SizedBox(
++                  height: 48,
++                  child: Padding(
++                    padding: const EdgeInsets.symmetric(horizontal: 8),
++                    child: Row(
++                      mainAxisSize: MainAxisSize.min,
++                      children: [
++                        Text(
++                          '${session.currentIndex + 1} of '
++                          '${session.questions.length}',
++                          style: styles.bodySmall.copyWith(
++                            fontSize: 12.5,
+                             color: colors.inkMuted,
++                            fontFeatures: const [
++                              FontFeature.tabularFigures(),
++                            ],
+                           ),
+-                        ],
+-                      ),
++                        ),
++                        const SizedBox(width: 4),
++                        Icon(
++                          Icons.expand_more,
++                          size: 11,
++                          color: colors.inkMuted,
++                        ),
++                      ],
+                     ),
+                   ),
+                 ),
+               ),
+             ),
+-            Consumer(
+-              builder: (context, ref, _) {
+-                final flagged =
+-                    ref.watch(flaggedIdsProvider).valueOrNull ?? const {};
+-                final isFlagged =
+-                    flagged.contains(state.session.currentQuestion.id);
+-                final questionNumber = state.session.currentIndex + 1;
+-                void toggle() => unawaited(
+-                      _toggleFlag(state.session.currentQuestion.id),
+-                    );
+-                return Semantics(
+-                  button: true,
+-                  enabled: true,
+-                  toggled: isFlagged,
+-                  label: isFlagged
+-                      ? 'Remove flag from question $questionNumber'
+-                      : 'Flag question $questionNumber',
+-                  onTap: toggle,
+-                  child: ExcludeSemantics(
+-                    child: SizedBox.square(
+-                      dimension: 48,
+-                      child: IconButton(
+-                        onPressed: toggle,
+-                        icon: PennantMark(isSet: isFlagged),
+-                      ),
++          ),
++          Consumer(
++            builder: (context, ref, _) {
++              final flagged =
++                  ref.watch(flaggedIdsProvider).valueOrNull ?? const {};
++              final isFlagged = flagged.contains(session.currentQuestion.id);
++              final questionNumber = session.currentIndex + 1;
++              void toggle() =>
++                  unawaited(onToggleFlag(session.currentQuestion.id));
++              return Semantics(
++                button: true,
++                enabled: true,
++                toggled: isFlagged,
++                label: isFlagged
++                    ? 'Remove flag from question $questionNumber'
++                    : 'Flag question $questionNumber',
++                onTap: toggle,
++                child: ExcludeSemantics(
++                  child: SizedBox.square(
++                    dimension: 48,
++                    child: IconButton(
++                      onPressed: toggle,
++                      icon: PennantMark(isSet: isFlagged),
+                     ),
+                   ),
+-                );
+-              },
+-            ),
+-          ],
++                ),
++              );
++            },
++          ),
+         ],
++      ],
++    );
++  }
++}
++
++class _QuizBody extends ConsumerWidget {
++  const _QuizBody({
++    required this.proIsActive,
++    required this.onRetry,
++  });
++
++  final bool proIsActive;
++  final VoidCallback onRetry;
++
++  @override
++  Widget build(BuildContext context, WidgetRef ref) {
++    final stateType = ref.watch(
++      quizControllerProvider.select((state) => state.runtimeType),
++    );
++    if (stateType == QuizRunning) {
++      return _RunningQuizBody(proIsActive: proIsActive);
++    }
++
++    final state = ref.watch(quizControllerProvider);
++    return switch (state) {
++      QuizIdle() || QuizLoading() => const FaintBars(),
++      QuizRunning() => _RunningQuizBody(proIsActive: proIsActive),
++      QuizComplete(:final attempt, :final session) => DebriefPage(
++          attemptId: attempt.id,
++          proIsActive: proIsActive,
++          sessionOverride: session,
++          attemptOverride: attempt,
++        ),
++      QuizFailure(:final message) => ErrorBanner(
++          variant: ErrorBannerVariant.error,
++          message: message,
++          actionLabel: 'Retry',
++          onAction: onRetry,
++        ),
++    };
++  }
++}
++
++class _RunningQuizBody extends StatelessWidget {
++  const _RunningQuizBody({required this.proIsActive});
++
++  final bool proIsActive;
++
++  @override
++  Widget build(BuildContext context) {
++    return Column(
++      children: [
++        const _QuizProgress(),
++        const SizedBox(height: 16),
++        Expanded(
++          child: SingleChildScrollView(
++            padding: const EdgeInsets.only(bottom: 12),
++            child: _PreparedQuestionStage(proIsActive: proIsActive),
++          ),
++        ),
++        const _QuizFooter(),
++      ],
++    );
++  }
++}
++
++class _QuizProgress extends ConsumerWidget {
++  const _QuizProgress();
++
++  @override
++  Widget build(BuildContext context, WidgetRef ref) {
++    final progress = ref.watch(
++      quizControllerProvider.select(
++        (state) => state is QuizRunning
++            ? (
++                currentIndex: state.session.currentIndex,
++                total: state.session.questions.length,
++              )
++            : null,
++      ),
++    );
++    if (progress == null) return const SizedBox.shrink();
++    return ProgressRule(
++      value: (progress.currentIndex + 1) / progress.total,
++    );
++  }
++}
++
++class _QuizFooter extends ConsumerWidget {
++  const _QuizFooter();
++
++  @override
++  Widget build(BuildContext context, WidgetRef ref) {
++    final footer = ref.watch(
++      quizControllerProvider.select(
++        (state) => state is QuizRunning
++            ? (
++                visible: state.session.currentOutcome != null,
++                complete: state.session.isComplete,
++              )
++            : null,
++      ),
++    );
++    if (footer == null || !footer.visible) {
++      return const SizedBox.shrink();
++    }
++    return BoardButton(
++      label: footer.complete ? 'Done' : 'Next',
++      secondary: !footer.complete,
++      onPressed: () => unawaited(
++        ref.read(quizControllerProvider.notifier).next(),
++      ),
++    );
++  }
++}
++
++class _QuizPageState extends ConsumerState<QuizPage> {
++  @override
++  void initState() {
++    super.initState();
++    WidgetsBinding.instance.addPostFrameCallback((_) {
++      _startForMode(ref.read(quizControllerProvider.notifier));
++    });
++  }
++
++  @override
++  Widget build(BuildContext context) {
++    return Scaffold(
++      appBar: _QuizAppBar(
++        onConfirmLeave: () => unawaited(_confirmLeave()),
++        onBack: () => _leave(context),
++        onOpenGrid: _openGrid,
++        onToggleFlag: _toggleFlag,
+       ),
+       body: Padding(
+         padding: const EdgeInsets.all(16),
+-        child: switch (state) {
+-          QuizIdle() || QuizLoading() => const FaintBars(),
+-          QuizRunning(:final session, :final questionShownAt) => Column(
+-              children: [
+-                ProgressRule(
+-                  value: (session.currentIndex + 1) / session.questions.length,
+-                ),
+-                const SizedBox(height: 16),
+-                Expanded(
+-                  child: SingleChildScrollView(
+-                    // Room for the footer, so the last line of a long
+-                    // explanation is never sitting under the control.
+-                    padding: const EdgeInsets.only(bottom: 12),
+-                    child: Consumer(
+-                      builder: (context, ref, _) {
+-                        final question = session.currentQuestion;
+-                        final passageId = question.passageId;
+-                        final passageState = passageId != null
+-                            ? ref.watch(passageByIdProvider(passageId))
+-                            : null;
+-                        final passage = passageState?.valueOrNull;
+-                        if (passageId != null && passage == null) {
+-                          return const FaintBars();
+-                        }
+-
+-                        final outcome = session.currentOutcome;
+-                        if (outcome == null && questionShownAt == null) {
+-                          final sessionId = session.sessionId;
+-                          final questionIndex = session.currentIndex;
+-                          WidgetsBinding.instance.addPostFrameCallback((_) {
+-                            if (!mounted) return;
+-                            ref
+-                                .read(quizControllerProvider.notifier)
+-                                .markQuestionReady(
+-                                  sessionId: sessionId,
+-                                  questionIndex: questionIndex,
+-                                );
+-                          });
+-                        }
+-
+-                        return Column(
+-                          crossAxisAlignment: CrossAxisAlignment.stretch,
+-                          children: [
+-                            QuestionCard(
+-                              question: question,
+-                              passage: passage,
+-                              chosenChoiceId: outcome?.chosenChoiceId,
+-                              revealed: outcome != null,
+-                              onAnswer: questionShownAt == null ||
+-                                      outcome != null
+-                                  ? null
+-                                  : (chosenChoiceId) => ref
+-                                      .read(quizControllerProvider.notifier)
+-                                      .answer(chosenChoiceId: chosenChoiceId),
+-                            ),
+-                            if (outcome != null) ...[
+-                              AnswerReveal(
+-                                question: question,
+-                                chosenChoiceId: outcome.chosenChoiceId,
+-                                proIsActive: widget.proIsActive,
+-                                nextReviewIntervalDays:
+-                                    outcome.nextReviewIntervalDays,
+-                              ),
+-                            ],
+-                          ],
+-                        );
+-                      },
+-                    ),
+-                  ),
+-                ),
+-                // The footer, outside the scroll. It sits in the same place
+-                // on every question, whatever the length of the reveal
+-                // above it: a control that moves has to be found again each
+-                // time.
+-                if (session.currentOutcome != null)
+-                  BoardButton(
+-                    label: session.isComplete ? 'Done' : 'Next',
+-                    secondary: !session.isComplete,
+-                    onPressed: () => unawaited(
+-                      ref.read(quizControllerProvider.notifier).next(),
+-                    ),
+-                  ),
+-              ],
+-            ),
+-          QuizComplete(:final attempt, :final session) => DebriefPage(
+-              attemptId: attempt.id,
+-              proIsActive: widget.proIsActive,
+-              sessionOverride: session,
+-              attemptOverride: attempt,
+-            ),
+-          QuizFailure(:final message) => ErrorBanner(
+-              variant: ErrorBannerVariant.error,
+-              message: message,
+-              actionLabel: 'Retry',
+-              onAction: () =>
+-                  _startForMode(ref.read(quizControllerProvider.notifier)),
+-            ),
+-        },
++        child: _QuizBody(
++          proIsActive: widget.proIsActive,
++          onRetry: () =>
++              _startForMode(ref.read(quizControllerProvider.notifier)),
++        ),
+       ),
+     );
+   }
+@@ -302,10 +648,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
+           unawaited(controller.startToday(examId: widget.examId));
+         } else {
+           unawaited(
+-            controller.startInline(
+-              examId: widget.examId,
+-              lessonId: lessonId,
+-            ),
++            controller.startInline(examId: widget.examId, lessonId: lessonId),
+           );
+         }
+     }
+@@ -390,9 +733,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
+     } else if (toggleResult == FlagToggle.unflagged) {
+       ScaffoldMessenger.of(context)
+         ..hideCurrentSnackBar()
+-        ..showSnackBar(
+-          const SnackBar(content: Text('Flag removed')),
+-        );
++        ..showSnackBar(const SnackBar(content: Text('Flag removed')));
+     }
+   }
+ 

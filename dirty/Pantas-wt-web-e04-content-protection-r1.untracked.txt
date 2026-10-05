@@ -1,0 +1,13 @@
+lib/core/content/security/content_package_manifest.dart
+lib/core/content/security/content_signing_keys.dart
+test/core/content/security/content_package_manifest_test.dart
+test/core/content/security/content_signing_keys_test.dart
+test/tool/content_package_asset_contract_test.dart
+test/tool/content_package_builder_cli_test.dart
+test/tool/content_package_builder_test.dart
+test/tool/content_package_verifier_test.dart
+test/tool/seed_writer_version_contract_test.dart
+test/tool/verify_content_package_test.dart
+test/tools/release/protected_content_release_contract_test.dart
+tools/build_content_package/build_content_package.dart
+tools/verify_content_package/verify_content_package.dart

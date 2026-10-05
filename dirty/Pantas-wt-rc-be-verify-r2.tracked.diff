@@ -1,0 +1,19 @@
+diff --git a/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved b/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+index a1355b05..2bb77bf2 100644
+--- a/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
++++ b/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+@@ -27,14 +27,6 @@
+         "version" : "2.1.0"
+       }
+     },
+-    {
+-      "identity" : "csqlite",
+-      "kind" : "remoteSourceControl",
+-      "location" : "https://github.com/simolus3/CSQLite.git",
+-      "state" : {
+-        "revision" : "1ee46d19a4f451a7aa64ffc64fc99b4748131e62"
+-      }
+-    },
+     {
+       "identity" : "firebase-ios-sdk",
+       "kind" : "remoteSourceControl",

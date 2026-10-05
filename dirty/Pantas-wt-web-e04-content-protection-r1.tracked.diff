@@ -1,0 +1,298 @@
+diff --git a/.gitignore b/.gitignore
+index d17bbd0a..270d3b90 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -62,6 +62,8 @@ coverage/
+ 
+ # Generated content seed
+ assets/seed/content.db
++assets/seed/content.manifest.json
++assets/seed/content.manifest.sig
+ 
+ # Crash reports and stray logs
+ flutter_*.log
+diff --git a/lib/core/content/content_seed_version.dart b/lib/core/content/content_seed_version.dart
+index b676785d..d56b68cc 100644
+--- a/lib/core/content/content_seed_version.dart
++++ b/lib/core/content/content_seed_version.dart
+@@ -1,9 +1,8 @@
+-// Written by tools/build_content_seed/seed_writer.dart. Do not edit by hand.
++// Written by tools/build_content_package/build_content_package.dart.
++// Do not edit by hand.
+ //
+-// Deliberately not a `.g.dart` file: those are gitignored here, and this one
+-// has to be committed so it travels with the asset it describes.
+-//
+-// A digest of `assets/seed/content.db` as built. Rebuild the asset and this
+-// changes with it, which is what tells an installed app its copy is stale.
++// This revision is derived from the approved plaintext content database
++// immediately before protection. Protected payload bytes are intentionally
++// randomized and therefore do not define the logical content revision.
+ 
+ const contentSeedVersion = 'eb3a9da425b80a51';
+diff --git a/pubspec.lock b/pubspec.lock
+index a5ebae25..b206a949 100644
+--- a/pubspec.lock
++++ b/pubspec.lock
+@@ -249,6 +249,14 @@ packages:
+       url: "https://pub.dev"
+     source: hosted
+     version: "3.0.7"
++  cryptography:
++    dependency: "direct main"
++    description:
++      name: cryptography
++      sha256: "3eda3029d34ec9095a27a198ac9785630fe525c0eb6a49f3d575272f8e792ef0"
++      url: "https://pub.dev"
++    source: hosted
++    version: "2.9.0"
+   dart_style:
+     dependency: transitive
+     description:
+@@ -920,10 +928,10 @@ packages:
+     dependency: "direct main"
+     description:
+       name: meta
+-      sha256: "23f08335362185a5ea2ad3a4e597f1375e78bce8a040df5c600c8d3552ef2394"
++      sha256: "1741988757a65eb6b36abe716829688cf01910bbf91c34354ff7ec1c3de2b349"
+       url: "https://pub.dev"
+     source: hosted
+-    version: "1.17.0"
++    version: "1.18.0"
+   mime:
+     dependency: transitive
+     description:
+@@ -1357,10 +1365,10 @@ packages:
+     dependency: transitive
+     description:
+       name: test_api
+-      sha256: "8161c84903fd860b26bfdefb7963b3f0b68fee7adea0f59ef805ecca346f0c7a"
++      sha256: "949a932224383300f01be9221c39180316445ecb8e7547f70a41a35bf421fb9e"
+       url: "https://pub.dev"
+     source: hosted
+-    version: "0.7.10"
++    version: "0.7.11"
+   timezone:
+     dependency: "direct main"
+     description:
+diff --git a/pubspec.yaml b/pubspec.yaml
+index 94d82ccb..2a0cc84d 100644
+--- a/pubspec.yaml
++++ b/pubspec.yaml
+@@ -75,6 +75,7 @@ dependencies:
+ 
+   uuid: ^4.6.0
+   in_app_review: ^2.0.12
++  cryptography: 2.9.0
+ dev_dependencies:
+   flutter_test:
+     sdk: flutter
+@@ -102,6 +103,8 @@ flutter:
+   generate: true   # enables ARB-driven l10n in Plan 2+
+   assets:
+     - assets/seed/content.db
++    - assets/seed/content.manifest.json
++    - assets/seed/content.manifest.sig
+   fonts:
+     - family: SourceSans3
+       fonts:
+diff --git a/test/tool/build_content_export_test.dart b/test/tool/build_content_export_test.dart
+index 609b2621..b164f447 100644
+--- a/test/tool/build_content_export_test.dart
++++ b/test/tool/build_content_export_test.dart
+@@ -13,10 +13,11 @@ void main() {
+     final tempDir = Directory.systemTemp.createTempSync('content_export_test');
+     addTearDown(() => tempDir.deleteSync(recursive: true));
+ 
+-    // Setup assets/seed/v1.json
+-    final seedDir = Directory('${tempDir.path}/assets/seed')
+-      ..createSync(recursive: true);
+-    File('${seedDir.path}/v1.json').writeAsStringSync(
++    // Setup the tool-owned historical source. It must never be a Flutter asset.
++    final historicalDir = Directory(
++      '${tempDir.path}/tools/build_content_export',
++    )..createSync(recursive: true);
++    File('${historicalDir.path}/historical_v1.json').writeAsStringSync(
+       jsonEncode(<String, List<Object?>>{
+         'exams': <Object?>[],
+         'topics': <Object?>[],
+diff --git a/test/tools/build_dev_seed_test.dart b/test/tools/build_dev_seed_test.dart
+index 195d557b..352edeb2 100644
+--- a/test/tools/build_dev_seed_test.dart
++++ b/test/tools/build_dev_seed_test.dart
+@@ -18,8 +18,13 @@ void main() {
+     expect(v2, greaterThan(v1));
+   });
+ 
+-  test('assets/seed/v1.json carries integer contentVersion', () {
+-    final file = File('assets/seed/v1.json');
++  test('tool-owned historical corpus carries integer contentVersion', () {
++    expect(
++      File('assets/seed/v1.json').existsSync(),
++      isFalse,
++      reason: 'retired runtime seed path must stay absent',
++    );
++    final file = File(devSeedHistoricalCorpusPath);
+     expect(file.existsSync(), isTrue);
+ 
+     final json = jsonDecode(file.readAsStringSync()) as Map<String, dynamic>;
+@@ -50,8 +55,8 @@ void main() {
+     }
+   });
+ 
+-  test('all seven generated exams in assets/seed/v1.json are active', () {
+-    final file = File('assets/seed/v1.json');
++  test('all seven generated exams in tool-owned historical corpus are active', () {
++    final file = File(devSeedHistoricalCorpusPath);
+     expect(file.existsSync(), isTrue);
+ 
+     final json = jsonDecode(file.readAsStringSync()) as Map<String, dynamic>;
+diff --git a/tools/build_content_export/build_content_export.dart b/tools/build_content_export/build_content_export.dart
+index 96ba08b7..fb75ed3b 100644
+--- a/tools/build_content_export/build_content_export.dart
++++ b/tools/build_content_export/build_content_export.dart
+@@ -123,7 +123,7 @@ void main(List<String> args) {
+ 
+   // Keep the CSE demo exam and its rows; replace everything UPCAT.
+   final existing = jsonDecode(
+-    File('$root/assets/seed/v1.json').readAsStringSync(),
++    File('$root/tools/build_content_export/historical_v1.json').readAsStringSync(),
+   ) as Map<String, dynamic>;
+   final keptExams = [
+     for (final exam in existing['exams'] as List)
+@@ -156,7 +156,7 @@ void main(List<String> args) {
+         lesson,
+   ];
+ 
+-  final v1UpdatedAt = _getFileHashTimestamp(File('$root/assets/seed/v1.json'));
++  final v1UpdatedAt = _getFileHashTimestamp(File('$root/tools/build_content_export/historical_v1.json'));
+ 
+   final examsOutput = <Map<String, Object?>>[];
+   for (final exam in keptExams) {
+diff --git a/assets/seed/v1.json b/tools/build_content_export/historical_v1.json
+similarity index 100%
+rename from assets/seed/v1.json
+rename to tools/build_content_export/historical_v1.json
+diff --git a/tools/build_content_seed/seed_writer.dart b/tools/build_content_seed/seed_writer.dart
+index 97746114..638bd696 100644
+--- a/tools/build_content_seed/seed_writer.dart
++++ b/tools/build_content_seed/seed_writer.dart
+@@ -1,7 +1,6 @@
+ import 'dart:convert';
+ import 'dart:io';
+ 
+-import 'package:crypto/crypto.dart';
+ import 'package:drift/native.dart';
+ import 'package:pantas/core/content/content_database.dart';
+ import 'package:pantas/core/content/sanity/parsers/diagnostic_set_parser.dart';
+@@ -13,7 +12,6 @@ import 'package:pantas/core/content/sanity/parsers/passage_parser.dart';
+ import 'package:pantas/core/content/sanity/parsers/question_parser.dart';
+ import 'package:pantas/core/content/sanity/parsers/subject_parser.dart';
+ import 'package:pantas/core/content/sanity/parsers/topic_parser.dart';
+-import 'package:path/path.dart' as p;
+ 
+ Future<void> main(List<String> args) async {
+   if (args.length != 2) {
+@@ -21,45 +19,10 @@ Future<void> main(List<String> args) async {
+     exitCode = 64;
+     return;
+   }
+-  final outputDb = File(args[1]);
+   await writeContentSeed(
+     inputJson: File(args[0]),
+-    outputDb: outputDb,
++    outputDb: File(args[1]),
+   );
+-  // Only the shipped asset has a version worth recording. Tests build the
+-  // database into a temp directory through this same entry point, and writing
+-  // then would stamp the app with the digest of a fixture.
+-  if (p
+-      .normalize(outputDb.path)
+-      .endsWith(p.join('assets', 'seed', 'content.db'))) {
+-    await _writeVersionFile(outputDb);
+-  }
+-}
+-
+-/// Records what was just built, so the installer never has to be told by hand.
+-///
+-/// The installer writes the bundled database to a device only when this string
+-/// differs from the one the device recorded. It used to be a date maintained by
+-/// whoever remembered: Content 01, 01b and 03 each regenerated the asset and
+-/// none of them changed it, and then a same-day rebuild slipped past a bump
+-/// because a date cannot tell two builds in one day apart. A digest of the
+-/// bytes cannot be forgotten and cannot collide.
+-Future<void> _writeVersionFile(File outputDb) async {
+-  final digest = sha256.convert(await outputDb.readAsBytes());
+-  final version = digest.toString().substring(0, 16);
+-  final target = File('lib/core/content/content_seed_version.dart');
+-  await target.writeAsString('''
+-// Written by tools/build_content_seed/seed_writer.dart. Do not edit by hand.
+-//
+-// Deliberately not a `.g.dart` file: those are gitignored here, and this one
+-// has to be committed so it travels with the asset it describes.
+-//
+-// A digest of `assets/seed/content.db` as built. Rebuild the asset and this
+-// changes with it, which is what tells an installed app its copy is stale.
+-
+-const contentSeedVersion = '$version';
+-''');
+-  stdout.writeln('content seed version: $version');
+ }
+ 
+ Future<void> writeContentSeed({
+diff --git a/tools/build_dev_seed/build_dev_seed.dart b/tools/build_dev_seed/build_dev_seed.dart
+index 4f289eb1..dd6a3cdc 100644
+--- a/tools/build_dev_seed/build_dev_seed.dart
++++ b/tools/build_dev_seed/build_dev_seed.dart
+@@ -1,10 +1,8 @@
+-// Builds assets/seed/v1.json from the authored corpus under content/ so the
+-// running app shows real questions and lessons instead of the demo rows.
++// Rebuilds the tool-owned historical corpus from authored content.
+ //
+-// SUPERSEDED: This generator and the v1.json asset it produces are superseded
+-// by the content.db pipeline. The asset is no longer shipped with the app.
+-// Do not delete this file or the asset yet, as Stage 3 needs a known-good
+-// corpus to compare against.
++// SUPERSEDED: This generator is superseded by the content.db pipeline. Its
++// JSON output is retained only as a build-time historical corpus and is never
++// a Flutter/runtime asset or reader.
+ //
+ // Usage: dart run tools/build_dev_seed/build_dev_seed.dart
+ 
+@@ -19,6 +17,9 @@ import '../content/markdown_portable_text.dart';
+ const _examId = 'exam_upcat';
+ const _keepExamId = 'exam_cse_pro';
+ 
++const devSeedHistoricalCorpusPath =
++    'tools/build_content_export/historical_v1.json';
++
+ // The post-launch expansion roster from the foundation spec §1.2, carried in
+ // the dev seed so exam-list surfaces have realistic data to hold. They ship
+ // `isActive: true` so all built-in exams are available in the onboarding
+@@ -112,7 +113,7 @@ void main() {
+ 
+   // Keep the CSE demo exam and its rows; replace everything UPCAT.
+   final existing = jsonDecode(
+-    File('assets/seed/v1.json').readAsStringSync(),
++    File(devSeedHistoricalCorpusPath).readAsStringSync(),
+   ) as Map<String, dynamic>;
+   final keptExams = [
+     for (final exam in existing['exams'] as List)
+@@ -174,7 +175,7 @@ void main() {
+     'lessons': [...keptLessons, ...lessons],
+   };
+ 
+-  File('assets/seed/v1.json').writeAsStringSync(
++  File(devSeedHistoricalCorpusPath).writeAsStringSync(
+     '${const JsonEncoder.withIndent('  ').convert(seed)}\n',
+   );
+ 
+@@ -184,7 +185,7 @@ void main() {
+   // cascade on 10 August to clear a `cascade_invocations` info, and nothing
+   // ran the generator afterwards to notice.
+   // ignore_for_file: cascade_invocations
+-  stdout.writeln('Wrote assets/seed/v1.json');
++  stdout.writeln('Wrote $devSeedHistoricalCorpusPath');
+   stdout.writeln('  subjects:  ${subjects.length}');
+   stdout.writeln('  topics:    ${topics.length}');
+   stdout.writeln(

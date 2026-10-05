@@ -1,0 +1,4 @@
+integration_test/release/firebase_conflict_isolation_e2e_test.dart
+integration_test/release/firebase_sync_roundtrip_e2e_test.dart
+integration_test/release/support/firebase_emulator_harness.dart
+test/tool/release_e2e_firebase_contract_test.dart

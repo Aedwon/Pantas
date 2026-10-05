@@ -1,0 +1,2235 @@
+diff --git a/lib/app/firebase_bootstrap.dart b/lib/app/firebase_bootstrap.dart
+index 2a76416c..266d9ca0 100644
+--- a/lib/app/firebase_bootstrap.dart
++++ b/lib/app/firebase_bootstrap.dart
+@@ -7,6 +7,8 @@ import 'package:pantas/firebase_options_staging.dart' as staging_options;
+ 
+ enum FirebaseBootstrapResult { configured, unavailable }
+ 
++// Intentional one-method seam for Firebase bootstrap test doubles.
++// ignore: one_member_abstracts
+ abstract interface class FirebaseBootAdapter {
+   Future<void> initialize(FirebaseOptions options);
+ }
+diff --git a/lib/app/router.dart b/lib/app/router.dart
+index c2b89209..60275735 100644
+--- a/lib/app/router.dart
++++ b/lib/app/router.dart
+@@ -27,7 +27,6 @@ import 'package:pantas/features/onboarding/onboarding.dart';
+ import 'package:pantas/features/paywall/paywall.dart';
+ import 'package:pantas/features/mock_exam/presentation/pages/mock_start_route.dart';
+ import 'package:pantas/features/mock_exam/presentation/pages/mock_results_route.dart';
+-import 'package:pantas/features/mock_exam/presentation/pages/mock_review_page.dart';
+ import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.dart';
+ import 'package:pantas/features/progress/presentation/pages/how_you_work_page.dart';
+ import 'package:pantas/features/progress/presentation/pages/your_record_page.dart';
+@@ -339,7 +338,9 @@ List<RouteBase> buildAppRoutes(Ref ref) {
+         return MockSetupRoute(
+           examId: examId,
+           onStart: (blueprintId) {
+-            context.push('/quiz/mock/start?examId=$examId&blueprintId=$blueprintId');
++            context.push(
++              '/quiz/mock/start?examId=$examId&blueprintId=$blueprintId',
++            );
+           },
+         );
+       },
+diff --git a/lib/app/telemetry_consent_controller.dart b/lib/app/telemetry_consent_controller.dart
+index 30fe9717..c4e560ec 100644
+--- a/lib/app/telemetry_consent_controller.dart
++++ b/lib/app/telemetry_consent_controller.dart
+@@ -61,7 +61,8 @@ class TelemetryConsentController extends StateNotifier<bool>
+     } catch (error, stack) {
+       state = false;
+       debugPrint(
+-          'Failed to purge unsent reports before opt-in: $error\n$stack');
++        'Failed to purge unsent reports before opt-in: $error\n$stack',
++      );
+       rethrow;
+     }
+ 
+@@ -81,7 +82,8 @@ class TelemetryConsentController extends StateNotifier<bool>
+       await _sink.setEnabled(enabled: false);
+     } catch (error, stack) {
+       debugPrint(
+-          'Failed to rollback telemetry SDK state on $context failure: $error\n$stack');
++        'Failed to rollback telemetry SDK state on $context failure: $error\n$stack',
++      );
+     }
+   }
+ 
+diff --git a/lib/app/telemetry_providers.dart b/lib/app/telemetry_providers.dart
+index 1e5fc147..240ee909 100644
+--- a/lib/app/telemetry_providers.dart
++++ b/lib/app/telemetry_providers.dart
+@@ -1,9 +1,9 @@
+ import 'package:flutter_riverpod/flutter_riverpod.dart';
++import 'package:pantas/app/telemetry_consent_controller.dart';
+ import 'package:pantas/core/auth/providers.dart';
+ import 'package:pantas/core/telemetry/crash_reporting.dart';
+ import 'package:pantas/core/telemetry/gated_telemetry.dart';
+ import 'package:pantas/core/telemetry/telemetry.dart';
+-import 'package:pantas/app/telemetry_consent_controller.dart';
+ 
+ /// The SDK seam. Overridden in `bootstrap` with `FirebaseTelemetry`, and left
+ /// as [DisabledTelemetry] in tests and anywhere Firebase is not initialized.
+diff --git a/lib/core/auth/firebase_auth_functions_gateway.dart b/lib/core/auth/firebase_auth_functions_gateway.dart
+index a8bfc6ca..247cd854 100644
+--- a/lib/core/auth/firebase_auth_functions_gateway.dart
++++ b/lib/core/auth/firebase_auth_functions_gateway.dart
+@@ -1,6 +1,8 @@
+ import 'package:cloud_functions/cloud_functions.dart';
+ import 'package:pantas/core/auth/auth_repository.dart';
+ 
++// Intentional one-method seam for callable-functions test doubles.
++// ignore: one_member_abstracts
+ abstract interface class AuthFunctionsCallableClient {
+   Future<Object?> call({required String region, required String name});
+ }
+diff --git a/lib/core/auth/firebase_auth_gateway.dart b/lib/core/auth/firebase_auth_gateway.dart
+index 95c575cf..b99fd496 100644
+--- a/lib/core/auth/firebase_auth_gateway.dart
++++ b/lib/core/auth/firebase_auth_gateway.dart
+@@ -102,7 +102,6 @@ class FirebaseAuthGateway implements AuthGateway {
+       email: user.email,
+       displayName: user.displayName,
+       photoUrl: user.photoURL,
+-      isPro: false,
+       lastSignInTime: user.metadata.lastSignInTime,
+     );
+   }
+diff --git a/lib/core/dev/dev_demo_switch.dart b/lib/core/dev/dev_demo_switch.dart
+index ae042a16..d2b14f9d 100644
+--- a/lib/core/dev/dev_demo_switch.dart
++++ b/lib/core/dev/dev_demo_switch.dart
+@@ -20,16 +20,16 @@ Future<void> registerDevDemoSwitch(ProviderContainer container) async {
+   developer.registerExtension('ext.pantas.demo', (method, parameters) async {
+     final action = parameters['action'];
+     if (action == 'reset') {
+-      await _resetData(db, clearPrefs: true);
++      await _resetData(db);
+     } else if (action == 'populate') {
+       await _populateFauxData(db, contentDb);
+     }
+-    
++
+     // Invalidate all providers so memory caches clear immediately
+     for (final element in container.getAllProviderElements()) {
+       element.invalidateSelf();
+     }
+-    
++
+     return developer.ServiceExtensionResponse.result(
+       jsonEncode({'status': 'ok', 'action': action}),
+     );
+@@ -64,12 +64,15 @@ Future<void> _resetData(AppDatabase db, {bool clearPrefs = true}) async {
+   });
+ }
+ 
+-Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async {
++Future<void> _populateFauxData(
++  AppDatabase db,
++  ContentDatabase contentDb,
++) async {
+   print('DEMO: _populateFauxData CALLED!');
+   final currentExamIdRow = await (db.select(db.devicePrefs)
+         ..where((t) => t.key.equals('selected_exam_id')))
+       .getSingleOrNull();
+-  
++
+   String? legacyExamId;
+   if (currentExamIdRow == null) {
+     final legacyRow = await (db.select(db.appPreferencesLocal)
+@@ -78,7 +81,7 @@ Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async
+     legacyExamId = legacyRow?.value;
+   }
+ 
+-  String fallbackExamId = 'exam_cse_pro';
++  var fallbackExamId = 'exam_cse_pro';
+   final activeExams = await (contentDb.select(contentDb.contentExams)
+         ..where((e) => e.isActive.equals(true)))
+       .get();
+@@ -92,43 +95,46 @@ Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async
+   await _resetData(db, clearPrefs: false);
+ 
+   final now = DateTime.now().toUtc();
+-  
++
+   await db.transaction(() async {
+     // Pass the age gate and setup an exam
+     await db.into(db.devicePrefs).insertOnConflictUpdate(
+-      const DevicePrefsCompanion(
+-        key: Value('passed_age_gate'),
+-        value: Value('true'),
+-      ),
+-    );
++          const DevicePrefsCompanion(
++            key: Value('passed_age_gate'),
++            value: Value('true'),
++          ),
++        );
+     await db.into(db.devicePrefs).insertOnConflictUpdate(
+-      DevicePrefsCompanion(
+-        key: const Value('selected_exam_id'),
+-        value: Value(examId),
+-      ),
+-    );
++          DevicePrefsCompanion(
++            key: const Value('selected_exam_id'),
++            value: Value(examId),
++          ),
++        );
+     await db.into(db.accountPrefs).insertOnConflictUpdate(
+-      const AccountPrefsCompanion(
+-        key: Value('exam_date'),
+-        value: Value('2027-03-15'),
+-      ),
+-    );
++          const AccountPrefsCompanion(
++            key: Value('exam_date'),
++            value: Value('2027-03-15'),
++          ),
++        );
+     await db.into(db.accountPrefs).insertOnConflictUpdate(
+-      const AccountPrefsCompanion(
+-        key: Value('exam_date_precision'),
+-        value: Value('day'),
+-      ),
+-    );
++          const AccountPrefsCompanion(
++            key: Value('exam_date_precision'),
++            value: Value('day'),
++          ),
++        );
+ 
+     // Insert fake streak
+     await db.into(db.streakLocal).insertOnConflictUpdate(
+-      StreakLocalCompanion.insert(
+-        current: const Value(3),
+-        longest: const Value(5),
+-        lastActiveDate: Value(DateTime(now.year, now.month, now.day).subtract(const Duration(days: 1))),
+-        freezesRemaining: const Value(2),
+-      ),
+-    );
++          StreakLocalCompanion.insert(
++            current: const Value(3),
++            longest: const Value(5),
++            lastActiveDate: Value(
++              DateTime(now.year, now.month, now.day)
++                  .subtract(const Duration(days: 1)),
++            ),
++            freezesRemaining: const Value(2),
++          ),
++        );
+ 
+     // Filter lessons and questions by the current examId
+     final subjects = await (contentDb.select(contentDb.contentSubjects)
+@@ -149,23 +155,24 @@ Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async
+       final questions = await (contentDb.select(contentDb.contentQuestions)
+             ..where((q) => q.topicId.isIn(topicIds)))
+           .get();
+-          
++
+       final choicesRows = await (contentDb.select(contentDb.contentChoices)
+             ..where((c) => c.isActive.equals(true)))
+           .get();
+-      
++
+       final choicesByQuestion = <String, List<ContentChoiceRow>>{};
+       for (final c in choicesRows) {
+         choicesByQuestion.putIfAbsent(c.questionId, () => []).add(c);
+       }
+-      
++
+       final correctIndexByQuestion = <String, int>{};
+       final correctChoiceIdByQuestion = <String, String>{};
+       final wrongChoiceIdByQuestion = <String, String>{};
+ 
+       for (final entry in choicesByQuestion.entries) {
+-        final sorted = entry.value..sort((a, b) => a.ordering.compareTo(b.ordering));
+-        for (int i = 0; i < sorted.length; i++) {
++        final sorted = entry.value
++          ..sort((a, b) => a.ordering.compareTo(b.ordering));
++        for (var i = 0; i < sorted.length; i++) {
+           if (sorted[i].isCorrect) {
+             correctIndexByQuestion[entry.key] = i;
+             correctChoiceIdByQuestion[entry.key] = sorted[i].id;
+@@ -178,7 +185,9 @@ Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async
+       final rng = Random();
+ 
+       // 0. Assessment Result
+-      print('DEMO: Injecting faux assessment result for exam $examId with topics: ${topics.length}');
++      print(
++        'DEMO: Injecting faux assessment result for exam $examId with topics: ${topics.length}',
++      );
+       // Insert a faux assessment result so the Home tab thinks we took it.
+       final topicScores = <Map<String, dynamic>>[];
+       for (var i = 0; i < topics.length && i < 5; i++) {
+@@ -188,17 +197,17 @@ Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async
+           'total': 5,
+         });
+       }
+-      
++
+       print('DEMO: topicScoresJson = ${jsonEncode(topicScores)}');
+-      
++
+       try {
+         await db.into(db.assessmentResultsLocal).insertOnConflictUpdate(
+-          AssessmentResultsLocalCompanion.insert(
+-            examId: examId,
+-            completedAt: now.subtract(const Duration(days: 60)),
+-            topicScoresJson: jsonEncode(topicScores),
+-          ),
+-        );
++              AssessmentResultsLocalCompanion.insert(
++                examId: examId,
++                completedAt: now.subtract(const Duration(days: 60)),
++                topicScoresJson: jsonEncode(topicScores),
++              ),
++            );
+         print('DEMO: Inserted assessment result successfully!');
+       } catch (e, stack) {
+         print('DEMO ERROR: Failed to insert assessment result: $e\n$stack');
+@@ -206,74 +215,82 @@ Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async
+ 
+       // 1. Lesson Progress
+       // Distribute lesson reads over the last 60 days
+-      for (int i = 0; i < lessons.length; i++) {
++      for (var i = 0; i < lessons.length; i++) {
+         // ~80% completion
+-        if (rng.nextDouble() < 0.2) continue; 
+-        
++        if (rng.nextDouble() < 0.2) continue;
++
+         final daysAgo = 60 - rng.nextInt(60);
+         await db.into(db.lessonProgressLocal).insertOnConflictUpdate(
+-          LessonProgressLocalCompanion.insert(
+-            lessonId: lessons[i].id,
+-            readAt: now.subtract(Duration(days: daysAgo)),
+-          ),
+-        );
++              LessonProgressLocalCompanion.insert(
++                lessonId: lessons[i].id,
++                readAt: now.subtract(Duration(days: daysAgo)),
++              ),
++            );
+       }
+ 
+       // 2. Review States (Spaced Repetition)
+       for (final q in questions) {
+         if (rng.nextDouble() < 0.3) continue; // 70% of questions are in review
+-        
++
+         final isMature = rng.nextDouble() > 0.5;
+         await db.into(db.reviewStateLocal).insertOnConflictUpdate(
+-          ReviewStateLocalCompanion.insert(
+-            questionId: q.id,
+-            questionVersion: q.version,
+-            stage: 'review',
+-            stability: isMature ? 5.0 + rng.nextDouble() * 20.0 : 0.5 + rng.nextDouble() * 2.0,
+-            difficulty: 0.2 + rng.nextDouble() * 0.6,
+-            due: now.subtract(Duration(hours: rng.nextInt(72))),
+-            lastReview: now.subtract(Duration(days: 1 + rng.nextInt(10))),
+-            reps: isMature ? 5 + rng.nextInt(10) : 1 + rng.nextInt(3),
+-            lapses: rng.nextInt(2),
+-            elapsedDays: isMature ? 10.0 + rng.nextDouble() * 10 : 2.0,
+-            scheduledDays: isMature ? 20.0 : 3.0,
+-          ),
+-        );
++              ReviewStateLocalCompanion.insert(
++                questionId: q.id,
++                questionVersion: q.version,
++                stage: 'review',
++                stability: isMature
++                    ? 5.0 + rng.nextDouble() * 20.0
++                    : 0.5 + rng.nextDouble() * 2.0,
++                difficulty: 0.2 + rng.nextDouble() * 0.6,
++                due: now.subtract(Duration(hours: rng.nextInt(72))),
++                lastReview: now.subtract(Duration(days: 1 + rng.nextInt(10))),
++                reps: isMature ? 5 + rng.nextInt(10) : 1 + rng.nextInt(3),
++                lapses: rng.nextInt(2),
++                elapsedDays: isMature ? 10.0 + rng.nextDouble() * 10 : 2.0,
++                scheduledDays: isMature ? 20.0 : 3.0,
++              ),
++            );
+       }
+ 
+       // 3. Quiz Attempts (120 quizzes over 60 days)
+-      for (int i = 0; i < 120; i++) {
+-        final daysAgo = 60 - (i / 2).floor(); 
+-        final attemptDate = now.subtract(Duration(days: daysAgo, hours: rng.nextInt(12) + 8)); // 8am to 8pm
+-        
++      for (var i = 0; i < 120; i++) {
++        final daysAgo = 60 - (i / 2).floor();
++        final attemptDate = now.subtract(
++          Duration(days: daysAgo, hours: rng.nextInt(12) + 8),
++        ); // 8am to 8pm
++
+         // Progress from 40% accuracy to 85% accuracy
+-        final progressRatio = 1.0 - (daysAgo / 60.0); // 0.0 at day 60, 1.0 at day 0
++        final progressRatio =
++            1.0 - (daysAgo / 60.0); // 0.0 at day 60, 1.0 at day 0
+         final targetAccuracy = 0.40 + (0.45 * progressRatio);
+-        
++
+         // Speed progresses from 20s to 8s
+         final targetSpeedMs = 20000 - (12000 * progressRatio).round();
+ 
+         // Pick a random topic for this session
+         final topic = topics[rng.nextInt(topics.length)];
+-        final topicQuestions = questions.where((q) => q.topicId == topic.id).toList();
++        final topicQuestions =
++            questions.where((q) => q.topicId == topic.id).toList();
+         if (topicQuestions.isEmpty) continue;
+-        
++
+         topicQuestions.shuffle(rng);
+-        final sessionQuestions = topicQuestions.take(10).toList(); // Up to 10 questions
++        final sessionQuestions =
++            topicQuestions.take(10).toList(); // Up to 10 questions
+ 
+-        int correctCount = 0;
++        var correctCount = 0;
+         final attemptItems = <Map<String, dynamic>>[];
+-        
++
+         for (final q in sessionQuestions) {
+           final isCorrect = rng.nextDouble() < targetAccuracy;
+           if (isCorrect) correctCount++;
+-          
++
+           // Speed varies randomly around target speed
+-          final responseMs = (targetSpeedMs * (0.8 + rng.nextDouble() * 0.4)).round();
+-          
++          final responseMs =
++              (targetSpeedMs * (0.8 + rng.nextDouble() * 0.4)).round();
++
+           final correctId = correctChoiceIdByQuestion[q.id] ?? 'c_1';
+           final wrongId = wrongChoiceIdByQuestion[q.id] ?? 'c_2';
+-          
++
+           attemptItems.add({
+             'questionId': q.id,
+             'questionVersion': q.version,
+@@ -284,95 +301,104 @@ Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async
+         }
+ 
+         final sessionId = 'fake_quiz_session_$i';
+-        
++
+         await db.into(db.attemptsLocal).insertOnConflictUpdate(
+-          AttemptsLocalCompanion.insert(
+-            id: 'fake_attempt_$i',
+-            examId: examId,
+-            startedAt: attemptDate,
+-            completedAt: Value(attemptDate.add(const Duration(minutes: 10))),
+-            origin: const Value('today_topic'),
+-            itemsJson: jsonEncode(attemptItems),
+-          ),
+-        );
+-        
++              AttemptsLocalCompanion.insert(
++                id: 'fake_attempt_$i',
++                examId: examId,
++                startedAt: attemptDate,
++                completedAt:
++                    Value(attemptDate.add(const Duration(minutes: 10))),
++                origin: const Value('today_topic'),
++                itemsJson: jsonEncode(attemptItems),
++              ),
++            );
++
+         await db.into(db.quizSessions).insertOnConflictUpdate(
+-          QuizSessionsCompanion.insert(
+-            id: sessionId,
+-            userId: 'local',
+-            examId: examId,
+-            origin: 'today_topic',
+-            questionIdsJson: jsonEncode(sessionQuestions.map((q) => q.id).toList()),
+-            startedAt: attemptDate,
+-            completedAt: Value(attemptDate.add(const Duration(minutes: 10))),
+-            currentIndex: Value(sessionQuestions.length),
+-            correctCount: Value(correctCount),
+-          ),
+-        );
++              QuizSessionsCompanion.insert(
++                id: sessionId,
++                userId: 'local',
++                examId: examId,
++                origin: 'today_topic',
++                questionIdsJson:
++                    jsonEncode(sessionQuestions.map((q) => q.id).toList()),
++                startedAt: attemptDate,
++                completedAt:
++                    Value(attemptDate.add(const Duration(minutes: 10))),
++                currentIndex: Value(sessionQuestions.length),
++                correctCount: Value(correctCount),
++              ),
++            );
+       }
+ 
+       // 4. Mock Exams (4 mocks evenly spaced: 45, 30, 15, 1 days ago)
+       final mockIntervals = [45, 30, 15, 1];
+-      for (int i = 0; i < mockIntervals.length; i++) {
++      for (var i = 0; i < mockIntervals.length; i++) {
+         final daysAgo = mockIntervals[i];
+-        final attemptDate = now.subtract(Duration(days: daysAgo, hours: 9)); // 9 AM mock
+-        
++        final attemptDate =
++            now.subtract(Duration(days: daysAgo, hours: 9)); // 9 AM mock
++
+         final progressRatio = 1.0 - (daysAgo / 60.0);
+         final targetAccuracy = 0.45 + (0.37 * progressRatio); // 45% -> 82%
+-        
++
+         final sampledQuestions = <Map<String, dynamic>>[];
+         final mockAnswers = <String, Map<String, dynamic>>{};
+         final sectionResults = <Map<String, dynamic>>[];
+-        
+-        int totalRawScore = 0;
+-        int totalQuestions = 0;
+-        int totalElapsedSeconds = 0;
+-        
+-        for (int s = 0; s < subjects.length; s++) {
++
++        var totalRawScore = 0;
++        var totalQuestions = 0;
++        var totalElapsedSeconds = 0;
++
++        for (var s = 0; s < subjects.length; s++) {
+           final subject = subjects[s];
+-          final subjectTopics = topics.where((t) => t.subjectId == subject.id).map((t) => t.id).toSet();
+-          final subjectQs = questions.where((q) => subjectTopics.contains(q.topicId)).toList();
+-          
++          final subjectTopics = topics
++              .where((t) => t.subjectId == subject.id)
++              .map((t) => t.id)
++              .toSet();
++          final subjectQs = questions
++              .where((q) => subjectTopics.contains(q.topicId))
++              .toList();
++
+           if (subjectQs.isEmpty) continue;
+-          
++
+           // Take up to 20 questions per subject
+           subjectQs.shuffle(rng);
+           final sectionQs = subjectQs.take(20).toList();
+-          
++
+           sampledQuestions.add({
+             'sectionId': 'sec_$s',
+             'name': subject.name,
+             'questionIds': sectionQs.map((q) => q.id).toList(),
+           });
+-          
+-          int secCorrect = 0;
+-          int secElapsed = 0;
+-          
++
++          var secCorrect = 0;
++          var secElapsed = 0;
++
+           for (final q in sectionQs) {
+             totalQuestions++;
+             // First half vs second half stamina diff
+             final isFirstHalf = totalQuestions < (subjects.length * 10);
+             final staminaMod = isFirstHalf ? 0.05 : -0.05;
+             final isCorrect = rng.nextDouble() < (targetAccuracy + staminaMod);
+-            
++
+             if (isCorrect) {
+               secCorrect++;
+               totalRawScore++;
+             }
+-            
++
+             final correctIdx = correctIndexByQuestion[q.id] ?? 0;
+             final wrongIdx = (correctIdx == 0) ? 1 : 0;
+             final selectedIdx = isCorrect ? correctIdx : wrongIdx;
+-            
++
+             final qTime = 15 + rng.nextInt(30);
+             secElapsed += qTime;
+-            
++
+             mockAnswers[q.id] = {
+               'selectedIndex': selectedIdx,
+               'atSec': secElapsed + totalElapsedSeconds,
+             };
+           }
+-          
++
+           sectionResults.add({
+             'sectionId': 'sec_$s',
+             'name': subject.name,
+@@ -381,46 +407,48 @@ Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async
+             'retiredCount': 0,
+             'timeSeconds': secElapsed,
+           });
+-          
++
+           totalElapsedSeconds += secElapsed;
+         }
+ 
+         await db.into(db.mockAttempts).insertOnConflictUpdate(
+-          MockAttemptsCompanion.insert(
+-            id: 'fake_mock_$i',
+-            userId: 'local',
+-            examId: examId,
+-            blueprintId: 'bp_$i',
+-            blueprintName: 'Full Mock Exam ${i + 1}',
+-            durationMinutes: 180,
+-            status: 'completed',
+-            strictMode: true,
+-            sampledQuestionsJson: jsonEncode(sampledQuestions),
+-            elapsedSeconds: Value(totalElapsedSeconds),
+-            scoreRaw: Value(totalRawScore),
+-            scoreTotal: Value(totalQuestions),
+-            answersJson: Value(jsonEncode(mockAnswers)),
+-            sectionResultsJson: Value(jsonEncode(sectionResults)),
+-            startedAt: attemptDate,
+-            lastFlushedAt: attemptDate,
+-            submittedAt: Value(attemptDate.add(Duration(seconds: totalElapsedSeconds))),
+-            updatedAt: attemptDate,
+-          ),
+-        );
++              MockAttemptsCompanion.insert(
++                id: 'fake_mock_$i',
++                userId: 'local',
++                examId: examId,
++                blueprintId: 'bp_$i',
++                blueprintName: 'Full Mock Exam ${i + 1}',
++                durationMinutes: 180,
++                status: 'completed',
++                strictMode: true,
++                sampledQuestionsJson: jsonEncode(sampledQuestions),
++                elapsedSeconds: Value(totalElapsedSeconds),
++                scoreRaw: Value(totalRawScore),
++                scoreTotal: Value(totalQuestions),
++                answersJson: Value(jsonEncode(mockAnswers)),
++                sectionResultsJson: Value(jsonEncode(sectionResults)),
++                startedAt: attemptDate,
++                lastFlushedAt: attemptDate,
++                submittedAt: Value(
++                  attemptDate.add(Duration(seconds: totalElapsedSeconds)),
++                ),
++                updatedAt: attemptDate,
++              ),
++            );
+       }
+ 
+       await db.into(db.userMetricsArchetypesLocal).insertOnConflictUpdate(
+-        UserMetricsArchetypesLocalCompanion.insert(
+-          userId: 'local',
+-          examId: examId,
+-          window: 'prepWindow',
+-          archetypeId: 'night_owl_sprinter',
+-          matchScore: 0.95,
+-          synthesizedCopy: 'Sharpest at 9 pm, in 8 minute sits.',
+-          computedAt: now,
+-          validUntil: now.add(const Duration(days: 7)),
+-        ),
+-      );
++            UserMetricsArchetypesLocalCompanion.insert(
++              userId: 'local',
++              examId: examId,
++              window: 'prepWindow',
++              archetypeId: 'night_owl_sprinter',
++              matchScore: 0.95,
++              synthesizedCopy: 'Sharpest at 9 pm, in 8 minute sits.',
++              computedAt: now,
++              validUntil: now.add(const Duration(days: 7)),
++            ),
++          );
+     }
+   });
+ }
+diff --git a/lib/core/storage/data/app_database.dart b/lib/core/storage/data/app_database.dart
+index 02f6bffd..689fb56c 100644
+--- a/lib/core/storage/data/app_database.dart
++++ b/lib/core/storage/data/app_database.dart
+@@ -171,7 +171,7 @@ class AppDatabase extends _$AppDatabase {
+             await customStatement('DROP TABLE pending_sync');
+             await m.createTable(pendingSync);
+             await customStatement(
+-              "INSERT OR IGNORE INTO sync_meta (key, value) "
++              'INSERT OR IGNORE INTO sync_meta (key, value) '
+               "VALUES ('localMutationEpoch', '0')",
+             );
+           }
+diff --git a/lib/core/storage/data/repos/attempts_repository.dart b/lib/core/storage/data/repos/attempts_repository.dart
+index 48dc2f91..efd38b4e 100644
+--- a/lib/core/storage/data/repos/attempts_repository.dart
++++ b/lib/core/storage/data/repos/attempts_repository.dart
+@@ -2,11 +2,11 @@ import 'dart:convert';
+ 
+ import 'package:drift/drift.dart';
+ import 'package:pantas/core/storage/data/app_database.dart';
+-import 'package:pantas/core/sync/engine/local_sync_mutation_recorder.dart';
+ import 'package:pantas/core/storage/domain/attempt.dart';
+ import 'package:pantas/core/storage/domain/ids.dart';
+ import 'package:pantas/core/storage/domain/question_outcome.dart';
+ import 'package:pantas/core/storage/domain/sync_state.dart';
++import 'package:pantas/core/sync/engine/local_sync_mutation_recorder.dart';
+ 
+ class AttemptsRepository {
+   AttemptsRepository(
+diff --git a/lib/core/sync/engine/sync_active_context_store.dart b/lib/core/sync/engine/sync_active_context_store.dart
+index 36082dad..6fc759fe 100644
+--- a/lib/core/sync/engine/sync_active_context_store.dart
++++ b/lib/core/sync/engine/sync_active_context_store.dart
+@@ -75,7 +75,10 @@ class SyncActiveContextStore {
+     if (uid.isEmpty) throw ArgumentError.value(uid, 'uid', 'must not be empty');
+     if (generationId.isEmpty) {
+       throw ArgumentError.value(
+-          generationId, 'generationId', 'must not be empty');
++        generationId,
++        'generationId',
++        'must not be empty',
++      );
+     }
+     await _writeEnvelope(
+       <String, Object?>{
+diff --git a/lib/core/ui/components/settings_bar.dart b/lib/core/ui/components/settings_bar.dart
+index 40ed3fef..f12b5a75 100644
+--- a/lib/core/ui/components/settings_bar.dart
++++ b/lib/core/ui/components/settings_bar.dart
+@@ -29,7 +29,6 @@ class SettingsBar extends StatelessWidget implements PreferredSizeWidget {
+         children: [
+           // Centered title
+           Align(
+-            alignment: Alignment.center,
+             child: Text(
+               title,
+               style: styles.headlineSmall.copyWith(fontSize: 17),
+diff --git a/lib/features/mock_exam/application/mock_session_controller.dart b/lib/features/mock_exam/application/mock_session_controller.dart
+index ee7f88d4..16478ca9 100644
+--- a/lib/features/mock_exam/application/mock_session_controller.dart
++++ b/lib/features/mock_exam/application/mock_session_controller.dart
+@@ -112,9 +112,9 @@ class MockSessionController {
+   /// timed separately.
+   Duration get remainingInPart {
+     final current = switch (_state) {
+-      MockSessionInProgress inProgress => inProgress,
+-      MockSessionPaused paused => paused.snapshot,
+-      MockSessionSubmitted submitted => submitted.snapshot,
++      final MockSessionInProgress inProgress => inProgress,
++      final MockSessionPaused paused => paused.snapshot,
++      final MockSessionSubmitted submitted => submitted.snapshot,
+       _ => null,
+     };
+     if (current == null) return Duration.zero;
+diff --git a/lib/features/mock_exam/application/mock_start_providers.dart b/lib/features/mock_exam/application/mock_start_providers.dart
+index 62d1f6c1..a0c996bc 100644
+--- a/lib/features/mock_exam/application/mock_start_providers.dart
++++ b/lib/features/mock_exam/application/mock_start_providers.dart
+@@ -1,15 +1,13 @@
+ import 'package:flutter_riverpod/flutter_riverpod.dart';
+ import 'package:pantas/core/storage/domain/question.dart';
+-import 'package:pantas/core/storage/domain/passage.dart';
+ import 'package:pantas/core/storage/storage.dart';
+ import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
++import 'package:pantas/features/mock_exam/application/mock_exam_preferences.dart';
+ import 'package:pantas/features/mock_exam/data/mock_sampler.dart';
+-import 'package:pantas/features/mock_exam/domain/use_cases/start_mock.dart';
++import 'package:pantas/features/mock_exam/domain/use_cases/compute_results.dart';
+ import 'package:pantas/features/mock_exam/domain/use_cases/discard_mock.dart';
++import 'package:pantas/features/mock_exam/domain/use_cases/start_mock.dart';
+ import 'package:pantas/features/mock_exam/domain/use_cases/submit_mock.dart';
+-import 'package:pantas/features/mock_exam/domain/use_cases/compute_results.dart';
+-
+-import 'package:pantas/features/mock_exam/application/mock_exam_preferences.dart';
+ 
+ final mockExamPreferencesProvider = Provider<MockExamPreferences>((ref) {
+   return MockExamPreferences(ref.watch(appDatabaseProvider));
+@@ -85,10 +83,14 @@ class HydratedMockQuestion {
+   final Passage? passage;
+ }
+ 
+-final hydratedMockQuestionProvider = FutureProvider.family<HydratedMockQuestion?, String>((ref, questionId) async {
++final hydratedMockQuestionProvider =
++    FutureProvider.family<HydratedMockQuestion?, String>(
++        (ref, questionId) async {
+   final content = ref.watch(contentRepositoryProvider);
+   final question = await content.questionById(questionId);
+   if (question == null) return null;
+-  final passage = question.passageId != null ? await content.passageById(question.passageId!) : null;
++  final passage = question.passageId != null
++      ? await content.passageById(question.passageId!)
++      : null;
+   return HydratedMockQuestion(question, passage);
+ });
+diff --git a/lib/features/mock_exam/presentation/pages/mock_results_route.dart b/lib/features/mock_exam/presentation/pages/mock_results_route.dart
+index fd12318e..f57dd656 100644
+--- a/lib/features/mock_exam/presentation/pages/mock_results_route.dart
++++ b/lib/features/mock_exam/presentation/pages/mock_results_route.dart
+@@ -1,10 +1,9 @@
+ import 'dart:convert';
++
+ import 'package:flutter/material.dart';
+ import 'package:flutter_riverpod/flutter_riverpod.dart';
+ import 'package:go_router/go_router.dart';
+-import 'package:pantas/core/storage/storage.dart';
+ import 'package:pantas/core/ui/components/faint_bars.dart';
+-import 'package:pantas/features/mock_exam/application/mock_panel_providers.dart';
+ import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
+ import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
+ import 'package:pantas/features/mock_exam/domain/mock_results.dart';
+@@ -81,7 +80,8 @@ class MockResultsRoute extends ConsumerWidget {
+ 
+         if (results == null) {
+           return const Scaffold(
+-              body: Center(child: Text('Results not available')));
++            body: Center(child: Text('Results not available')),
++          );
+         }
+ 
+         return MockResultsPage(
+@@ -111,7 +111,7 @@ class MockResultsRoute extends ConsumerWidget {
+       'September',
+       'October',
+       'November',
+-      'December'
++      'December',
+     ];
+     return '${date.day} ${months[date.month - 1]} ${date.year}';
+   }
+diff --git a/lib/features/mock_exam/presentation/pages/mock_start_route.dart b/lib/features/mock_exam/presentation/pages/mock_start_route.dart
+index e43fe767..74ede347 100644
+--- a/lib/features/mock_exam/presentation/pages/mock_start_route.dart
++++ b/lib/features/mock_exam/presentation/pages/mock_start_route.dart
+@@ -4,23 +4,21 @@ import 'package:flutter/material.dart';
+ import 'package:flutter_riverpod/flutter_riverpod.dart';
+ import 'package:go_router/go_router.dart';
+ import 'package:pantas/app/telemetry_providers.dart';
++import 'package:pantas/core/content/domain/mock_blueprint.dart';
++import 'package:pantas/core/storage/domain/question.dart';
++import 'package:pantas/core/storage/storage.dart';
+ import 'package:pantas/core/ui/components/error_banner.dart';
+ import 'package:pantas/core/ui/components/faint_bars.dart';
+-import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
+ import 'package:pantas/features/mock_exam/application/mock_session_controller.dart';
+ import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
+ import 'package:pantas/features/mock_exam/application/strict_mode_lifecycle.dart';
+-import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
+ import 'package:pantas/features/mock_exam/domain/mock_sample.dart';
++import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
+ import 'package:pantas/features/mock_exam/domain/use_cases/start_mock.dart';
+ import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.dart';
+ import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.dart';
+-import 'package:pantas/features/mock_exam/presentation/widgets/mock_question_grid.dart';
+ import 'package:pantas/features/mock_exam/presentation/pause_page.dart';
+-import 'package:pantas/core/storage/domain/question.dart';
+-import 'package:pantas/core/storage/storage.dart';
+-import 'package:pantas/core/content/domain/mock_blueprint.dart';
+-import 'package:pantas/features/mock_exam/data/mock_sampler.dart';
++import 'package:pantas/features/mock_exam/presentation/widgets/mock_question_grid.dart';
+ import 'package:uuid/uuid.dart';
+ 
+ class MockStartRoute extends ConsumerStatefulWidget {
+@@ -44,8 +42,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
+   Stopwatch? _stopwatch;
+   StrictModeLifecycle? _strictModeLifecycle;
+   String? _errorMessage;
+-  String? _blueprintName;
+-  MockSample? _sample;
++  late MockSample _sample;
+   bool _submitting = false;
+ 
+   @override
+@@ -82,8 +79,8 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
+         throw Exception('Blueprint not found');
+       }
+ 
+-      final pools = await ref
+-          .read(mockQuestionPoolsProvider(widget.examId).future);
++      final pools =
++          await ref.read(mockQuestionPoolsProvider(widget.examId).future);
+       final sampler = ref.read(mockSamplerProvider);
+ 
+       final sample = sampler.sample(
+@@ -100,47 +97,56 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
+ 
+       final attemptId = const Uuid().v4();
+       final startMock = ref.read(startMockUseCaseProvider);
+-      final strictMode = await ref.read(mockExamPreferencesProvider).strictMockMode();
++      final strictMode =
++          await ref.read(mockExamPreferencesProvider).strictMockMode();
+ 
+-      final isSectional = parsed.blueprint.sectionalTiming == SectionalTiming.sectional;
++      final isSectional =
++          parsed.blueprint.sectionalTiming == SectionalTiming.sectional;
+       final parts = <MockSessionPart>[];
+-      
++
+       if (isSectional) {
+         var startIndex = 0;
+         for (final sampledSection in sample.sections) {
+-          final sectionDef = parsed.sections.firstWhere((s) => s.id == sampledSection.sectionId);
+-          parts.add(MockSessionPart(
+-            name: sectionDef.name,
+-            startIndex: startIndex,
+-            count: sampledSection.questionIds.length,
+-            minutes: sectionDef.sectionalMinutes ?? sectionDef.suggestedMinutes,
+-          ));
++          final sectionDef = parsed.sections
++              .firstWhere((s) => s.id == sampledSection.sectionId);
++          parts.add(
++            MockSessionPart(
++              name: sectionDef.name,
++              startIndex: startIndex,
++              count: sampledSection.questionIds.length,
++              minutes:
++                  sectionDef.sectionalMinutes ?? sectionDef.suggestedMinutes,
++            ),
++          );
+           startIndex += sampledSection.questionIds.length;
+         }
+       } else {
+-        parts.add(MockSessionPart(
+-          name: '',
+-          startIndex: 0,
+-          count: questionIds.length,
+-          minutes: null,
+-        ));
++        parts.add(
++          MockSessionPart(
++            name: '',
++            startIndex: 0,
++            count: questionIds.length,
++          ),
++        );
+       }
+ 
+-      await startMock.call(MockStartRequest(
+-        id: attemptId,
+-        userId: 'local', // Assuming local user for mock, or we can fetch current user if required
+-        examId: widget.examId,
+-        blueprintId: widget.blueprintId,
+-        blueprintName: parsed.blueprint.name,
+-        durationMinutes: parsed.blueprint.durationMinutes,
+-        strictMode: strictMode,
+-        sample: sample,
+-        startedAt: DateTime.now(),
+-      ));
++      await startMock.call(
++        MockStartRequest(
++          id: attemptId,
++          userId:
++              'local', // Assuming local user for mock, or we can fetch current user if required
++          examId: widget.examId,
++          blueprintId: widget.blueprintId,
++          blueprintName: parsed.blueprint.name,
++          durationMinutes: parsed.blueprint.durationMinutes,
++          strictMode: strictMode,
++          sample: sample,
++          startedAt: DateTime.now(),
++        ),
++      );
+ 
+       if (!mounted) return;
+ 
+-      _blueprintName = parsed.blueprint.name;
+       _sample = sample;
+       final currentAttemptId = attemptId;
+       late final MockSessionController controller;
+@@ -156,12 +162,13 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
+         onSubmit: (reason) async {
+           if (!mounted || _submitting) return;
+           setState(() => _submitting = true);
+-          
++
+           _timer?.cancel();
+           _stopwatch?.stop();
+ 
+           try {
+-            final computeMockResults = ref.read(computeMockResultsUseCaseProvider);
++            final computeMockResults =
++                ref.read(computeMockResultsUseCaseProvider);
+             final submitMock = ref.read(submitMockUseCaseProvider);
+             final contentRepo = ref.read(contentRepositoryProvider);
+ 
+@@ -171,12 +178,12 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
+               if (q != null) questionsById[qId] = q;
+             }
+ 
+-            final answers = controller.state is MockSessionInProgress 
+-                ? (controller.state as MockSessionInProgress).answers 
++            final answers = controller.state is MockSessionInProgress
++                ? (controller.state as MockSessionInProgress).answers
+                 : (controller.state as MockSessionSubmitted).snapshot.answers;
+ 
+             final results = computeMockResults(
+-              sample: _sample!,
++              sample: _sample,
+               questionsById: questionsById,
+               answers: answers,
+               totalTimeSeconds: _stopwatch?.elapsed.inSeconds ?? 0,
+@@ -190,7 +197,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
+               submittedAt: DateTime.now(),
+             );
+ 
+-            if (mounted) {
++            if (context.mounted) {
+               context.pushReplacement('/mock/results/$currentAttemptId');
+             }
+           } catch (e) {
+@@ -221,7 +228,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
+       _timer = Timer.periodic(const Duration(seconds: 1), (_) {
+         if (!mounted || _controller == null) return;
+         _strictModeLifecycle?.elapse(const Duration(seconds: 1));
+-        
++
+         final state = _controller!.state;
+         if (state is MockSessionInProgress) {
+           setState(() {
+@@ -243,7 +250,12 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
+     if (_errorMessage != null) {
+       return Scaffold(
+         appBar: AppBar(title: const Text('Error')),
+-        body: Center(child: ErrorBanner(message: _errorMessage!, variant: ErrorBannerVariant.error)),
++        body: Center(
++          child: ErrorBanner(
++            message: _errorMessage!,
++            variant: ErrorBannerVariant.error,
++          ),
++        ),
+       );
+     }
+ 
+@@ -263,11 +275,14 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
+         flagged: state.snapshot.flags.length,
+         onResume: () {
+           _stopwatch?.start();
+-          setState(() => controller.resume());
++          setState(controller.resume);
+         },
+         onDiscard: () async {
+           final discardMock = ref.read(discardMockUseCaseProvider);
+-          await discardMock(attemptId: state.snapshot.attemptId, discardedAt: DateTime.now());
++          await discardMock(
++            attemptId: state.snapshot.attemptId,
++            discardedAt: DateTime.now(),
++          );
+           if (mounted) {
+             context.pop();
+           }
+@@ -286,16 +301,16 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
+       partTotal: controller.currentPart.count,
+       canGoPrevious: controller.canGoPrevious,
+       canGoNext: controller.canGoNext,
+-      onPrevious: () => setState(() => controller.goPrevious()),
+-      onNext: () => setState(() => controller.goNext()),
++      onPrevious: () => setState(controller.goPrevious),
++      onNext: () => setState(controller.goNext),
+       onAnswer: (index) => setState(() => controller.answerCurrent(index)),
+-      onToggleFlag: () => setState(() => controller.toggleFlag()),
+-      onEndPartEarly: () => setState(() => controller.endPartEarly()),
++      onToggleFlag: () => setState(controller.toggleFlag),
++      onEndPartEarly: () => setState(controller.endPartEarly),
+       currentPartNumber: controller.currentPartIndex + 1,
+       onPause: () {
+         if (controller.canPause) {
+           _stopwatch?.stop();
+-          setState(() => controller.pause());
++          setState(controller.pause);
+         }
+       },
+       onShowNavigator: () {
+@@ -319,15 +334,15 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
+                         count: controller.parts[i].count,
+                         isOpen: i == controller.currentPartIndex ||
+                             controller.parts.length == 1,
+-                      )
++                      ),
+                   ],
+                   currentIndex: state.currentIndex,
+                   answeredIndexes: state.answers.keys
+-                      .map((id) => state.questionIds.indexOf(id))
++                      .map(state.questionIds.indexOf)
+                       .where((i) => i >= 0)
+                       .toSet(),
+                   flaggedIndexes: state.flags
+-                      .map((id) => state.questionIds.indexOf(id))
++                      .map(state.questionIds.indexOf)
+                       .where((i) => i >= 0)
+                       .toSet(),
+                   onTap: (index) {
+diff --git a/test/app/telemetry_consent_bootstrap_test.dart b/test/app/telemetry_consent_bootstrap_test.dart
+index f83d22ed..6ab95794 100644
+--- a/test/app/telemetry_consent_bootstrap_test.dart
++++ b/test/app/telemetry_consent_bootstrap_test.dart
+@@ -1,5 +1,3 @@
+-import 'dart:async';
+-
+ import 'package:flutter_riverpod/flutter_riverpod.dart';
+ import 'package:flutter_test/flutter_test.dart';
+ import 'package:pantas/app/bootstrap.dart';
+@@ -7,7 +5,6 @@ import 'package:pantas/app/telemetry_consent_controller.dart';
+ import 'package:pantas/app/telemetry_providers.dart';
+ import 'package:pantas/core/storage/storage.dart';
+ import 'package:pantas/core/telemetry/firebase_telemetry.dart';
+-import 'package:pantas/core/telemetry/gated_telemetry.dart';
+ import 'package:pantas/core/telemetry/telemetry.dart';
+ import 'package:pantas/features/settings/settings.dart';
+ 
+diff --git a/test/core/auth/firebase_auth_functions_gateway_test.dart b/test/core/auth/firebase_auth_functions_gateway_test.dart
+index a50c794d..03e087e9 100644
+--- a/test/core/auth/firebase_auth_functions_gateway_test.dart
++++ b/test/core/auth/firebase_auth_functions_gateway_test.dart
+@@ -69,7 +69,7 @@ void main() {
+       error: FirebaseFunctionsException(
+         code: 'failed-precondition',
+         message: 'Recent sign-in required',
+-        details: {'reason': 'requires-recent-login'},
++        details: const {'reason': 'requires-recent-login'},
+       ),
+     );
+ 
+diff --git a/test/core/auth/firebase_auth_gateway_test.dart b/test/core/auth/firebase_auth_gateway_test.dart
+index c5f01c90..6b672c49 100644
+--- a/test/core/auth/firebase_auth_gateway_test.dart
++++ b/test/core/auth/firebase_auth_gateway_test.dart
+@@ -58,7 +58,7 @@ void main() {
+     final auth = MockFirebaseAuth();
+     final user = _user(uid: 'anon-1', isAnonymous: true);
+     when(
+-      () => auth.authStateChanges(),
++      auth.authStateChanges,
+     ).thenAnswer((_) => Stream<firebase.User?>.fromIterable([user, null]));
+ 
+     final states = await FirebaseAuthGateway(
+@@ -80,7 +80,7 @@ void main() {
+     final credential = MockUserCredential();
+     final user = _user(uid: 'anon-1', isAnonymous: true);
+     when(() => credential.user).thenReturn(user);
+-    when(() => auth.signInAnonymously()).thenAnswer((_) async => credential);
++    when(auth.signInAnonymously).thenAnswer((_) async => credential);
+ 
+     final session = await FirebaseAuthGateway(auth: auth).signInAnonymously();
+ 
+@@ -96,7 +96,7 @@ void main() {
+     final auth = MockFirebaseAuth();
+     final credential = MockUserCredential();
+     when(() => credential.user).thenReturn(null);
+-    when(() => auth.signInAnonymously()).thenAnswer((_) async => credential);
++    when(auth.signInAnonymously).thenAnswer((_) async => credential);
+ 
+     await expectLater(
+       FirebaseAuthGateway(auth: auth).signInAnonymously(),
+@@ -151,7 +151,7 @@ void main() {
+   test('forwards FirebaseAuthException code unchanged', () async {
+     final auth = MockFirebaseAuth();
+     when(
+-      () => auth.signInAnonymously(),
++      auth.signInAnonymously,
+     ).thenThrow(firebase.FirebaseAuthException(code: 'network-request-failed'));
+ 
+     await expectLater(
+diff --git a/test/core/storage/data/sync_schema_test.dart b/test/core/storage/data/sync_schema_test.dart
+index 1b990d28..112d6645 100644
+--- a/test/core/storage/data/sync_schema_test.dart
++++ b/test/core/storage/data/sync_schema_test.dart
+@@ -59,8 +59,10 @@ void main() {
+     await insert('uid-1', 'gen-2');
+     await insert('uid-2', 'gen-1');
+ 
+-    expect(await db.customSelect('select * from pending_sync').get(),
+-        hasLength(3));
++    expect(
++      await db.customSelect('select * from pending_sync').get(),
++      hasLength(3),
++    );
+     expect(
+       () => insert('uid-1', 'gen-1'),
+       throwsA(isA<SqliteException>()),
+diff --git a/test/core/sync/bootstrap/full_pull_test.dart b/test/core/sync/bootstrap/full_pull_test.dart
+index e4865c65..f8dd8d2f 100644
+--- a/test/core/sync/bootstrap/full_pull_test.dart
++++ b/test/core/sync/bootstrap/full_pull_test.dart
+@@ -14,8 +14,10 @@ void main() {
+     final db = inMemoryDatabase();
+     addTearDown(db.close);
+     await _putLesson(db, 'local-before');
+-    final gateway = ThrowingReadGateway(_cloudGateway(),
+-        throwCollection: 'lesson_progress');
++    final gateway = ThrowingReadGateway(
++      _cloudGateway(),
++      throwCollection: 'lesson_progress',
++    );
+ 
+     final result = await FullPullBootstrap(
+       db: db,
+@@ -24,8 +26,10 @@ void main() {
+     ).run(generationId: 'gen-1');
+ 
+     expect(result.outcome, FullPullOutcome.retryableFailure);
+-    expect((await db.select(db.lessonProgressLocal).get()).single.lessonId,
+-        'local-before');
++    expect(
++      (await db.select(db.lessonProgressLocal).get()).single.lessonId,
++      'local-before',
++    );
+   });
+ 
+   test(
+@@ -43,8 +47,12 @@ void main() {
+         mutated = true;
+         await _putLesson(db, 'concurrent-local');
+         await _setEpoch(db, 2);
+-        await _seedJournal(db,
+-            rowId: 'concurrent-local', revision: 1, mutationEpoch: 2);
++        await _seedJournal(
++          db,
++          rowId: 'concurrent-local',
++          revision: 1,
++          mutationEpoch: 2,
++        );
+       },
+     );
+ 
+@@ -59,8 +67,10 @@ void main() {
+         .map((row) => row.lessonId)
+         .toSet();
+     expect(lessonIds, {'local-before', 'concurrent-local'});
+-    expect(await db.customSelect('select * from sync_local_mutations').get(),
+-        isNotEmpty);
++    expect(
++      await db.customSelect('select * from sync_local_mutations').get(),
++      isNotEmpty,
++    );
+   });
+ 
+   test(
+@@ -97,12 +107,16 @@ void main() {
+     ).run(generationId: 'gen-1');
+ 
+     expect(result.outcome, FullPullOutcome.applied);
+-    expect((await db.select(db.lessonProgressLocal).get()).single.lessonId,
+-        'cloud-lesson');
++    expect(
++      (await db.select(db.lessonProgressLocal).get()).single.lessonId,
++      'cloud-lesson',
++    );
+     expect((await db.select(db.mockAttempts).get()).single.id, 'mock-local');
+     final prefs = await db.select(db.accountPrefs).get();
+-    expect(prefs.map((row) => '${row.key}=${row.value}').toList(),
+-        ['reminder_time=07:30']);
++    expect(
++      prefs.map((row) => '${row.key}=${row.value}').toList(),
++      ['reminder_time=07:30'],
++    );
+     expect(await _marker(db, 'currentLocalGenerationId'), 'gen-1');
+     expect(await _marker(db, 'pending_full_pull'), isNull);
+   });
+@@ -113,8 +127,12 @@ void main() {
+     addTearDown(db.close);
+     await _putLesson(db, 'local-before');
+     await _setEpoch(db, 1);
+-    await _seedJournal(db,
+-        rowId: 'local-before', revision: 1, mutationEpoch: 1);
++    await _seedJournal(
++      db,
++      rowId: 'local-before',
++      revision: 1,
++      mutationEpoch: 1,
++    );
+     await db.into(db.pendingSync).insert(
+           PendingSyncCompanion.insert(
+             uid: const Value('user-1'),
+@@ -134,8 +152,10 @@ void main() {
+ 
+     expect(result.outcome, FullPullOutcome.applied);
+     expect(await db.select(db.pendingSync).get(), isEmpty);
+-    expect(await db.customSelect('select * from sync_local_mutations').get(),
+-        isEmpty);
++    expect(
++      await db.customSelect('select * from sync_local_mutations').get(),
++      isEmpty,
++    );
+   });
+ 
+   test(
+@@ -181,8 +201,10 @@ void main() {
+     ).run(generationId: 'gen-1');
+ 
+     expect(result.outcome, FullPullOutcome.appliedProjectionPending);
+-    expect((await db.select(db.customTrackMetaLocal).get()).single.name,
+-        'Cloud Track');
++    expect(
++      (await db.select(db.customTrackMetaLocal).get()).single.name,
++      'Cloud Track',
++    );
+     expect(await _projectionRequired(db, 'exam_custom_1'), isTrue);
+   });
+ 
+@@ -192,7 +214,7 @@ void main() {
+     addTearDown(db.close);
+     await _putLesson(db, 'local-before');
+     final gateway = _cloudGateway(includeCustomTrack: true);
+-    final path = 'users/user-1/sync_generations/gen-1/track_scope';
++    const path = 'users/user-1/sync_generations/gen-1/track_scope';
+     gateway.collections[path] = [
+       {
+         'id': TrackScopeDocumentId.metadata('exam_custom_1'),
+@@ -214,8 +236,10 @@ void main() {
+     ).run(generationId: 'gen-1');
+ 
+     expect(result.outcome, FullPullOutcome.invalidSnapshot);
+-    expect((await db.select(db.lessonProgressLocal).get()).single.lessonId,
+-        'local-before');
++    expect(
++      (await db.select(db.lessonProgressLocal).get()).single.lessonId,
++      'local-before',
++    );
+   });
+   test(
+       'eligibility loss during download stops before next read and local replacement',
+@@ -240,8 +264,10 @@ void main() {
+ 
+     expect(result.outcome, FullPullOutcome.cancelled);
+     expect(gateway.collectionReads, 1);
+-    expect((await db.select(db.lessonProgressLocal).get()).single.lessonId,
+-        'local-before');
++    expect(
++      (await db.select(db.lessonProgressLocal).get()).single.lessonId,
++      'local-before',
++    );
+     expect(await _marker(db, 'pending_full_pull'), 'gen-1');
+   });
+ }
+@@ -318,8 +344,10 @@ class CancellingReadGateway extends FakeFirestoreGateway {
+ }
+ 
+ class ThrowingReadGateway extends FakeFirestoreGateway {
+-  ThrowingReadGateway(FakeFirestoreGateway source,
+-      {required this.throwCollection}) {
++  ThrowingReadGateway(
++    FakeFirestoreGateway source, {
++    required this.throwCollection,
++  }) {
+     documents.addAll(source.documents);
+     collections.addAll(source.collections);
+   }
+@@ -335,8 +363,10 @@ class ThrowingReadGateway extends FakeFirestoreGateway {
+ }
+ 
+ class HookReadGateway extends FakeFirestoreGateway {
+-  HookReadGateway(FakeFirestoreGateway source,
+-      {required this.afterCollectionRead}) {
++  HookReadGateway(
++    FakeFirestoreGateway source, {
++    required this.afterCollectionRead,
++  }) {
+     documents.addAll(source.documents);
+     collections.addAll(source.collections);
+   }
+@@ -353,7 +383,9 @@ class HookReadGateway extends FakeFirestoreGateway {
+ Future<void> _putLesson(AppDatabase db, String id) =>
+     db.into(db.lessonProgressLocal).insertOnConflictUpdate(
+           LessonProgressLocalCompanion.insert(
+-              lessonId: id, readAt: DateTime.utc(2026, 8, 30)),
++            lessonId: id,
++            readAt: DateTime.utc(2026, 8, 30),
++          ),
+         );
+ 
+ Future<void> _setEpoch(AppDatabase db, int epoch) => db.customStatement(
+diff --git a/test/core/sync/bootstrap/full_push_test.dart b/test/core/sync/bootstrap/full_push_test.dart
+index 96422936..77a6c749 100644
+--- a/test/core/sync/bootstrap/full_push_test.dart
++++ b/test/core/sync/bootstrap/full_push_test.dart
+@@ -33,9 +33,11 @@ void main() {
+     expect(events.last, 'activate:gen-new:gen-old');
+     expect(events.where((event) => event.startsWith('commit:')), isNotEmpty);
+     expect(
+-        events.indexOf('activate:gen-new:gen-old'),
+-        greaterThan(
+-            events.lastIndexWhere((event) => event.startsWith('commit:'))));
++      events.indexOf('activate:gen-new:gen-old'),
++      greaterThan(
++        events.lastIndexWhere((event) => event.startsWith('commit:')),
++      ),
++    );
+ 
+     final root = await gateway.readDocument(
+       'users/user-1/sync_generations/gen-new',
+@@ -44,28 +46,44 @@ void main() {
+     expect(root['preferences'], {'reminder_time': '07:30'});
+ 
+     final paths = gateway.documents.keys.toSet();
+-    expect(paths,
+-        contains('users/user-1/sync_generations/gen-new/quiz_attempts/a1'));
+-    expect(paths,
+-        contains('users/user-1/sync_generations/gen-new/assessments/cse'));
+     expect(
+-        paths, contains('users/user-1/sync_generations/gen-new/fsrs_cards/q1'));
++      paths,
++      contains('users/user-1/sync_generations/gen-new/quiz_attempts/a1'),
++    );
+     expect(
+-        paths,
+-        contains(
+-            'users/user-1/sync_generations/gen-new/lesson_progress/lesson_1'));
++      paths,
++      contains('users/user-1/sync_generations/gen-new/assessments/cse'),
++    );
+     expect(
+-        paths,
+-        contains(
+-            'users/user-1/sync_generations/gen-new/lesson_bookmarks/lesson_1'));
+-    expect(paths,
+-        contains('users/user-1/sync_generations/gen-new/question_flags/q1'));
++      paths,
++      contains('users/user-1/sync_generations/gen-new/fsrs_cards/q1'),
++    );
+     expect(
+-        paths,
+-        contains(
+-            'users/user-1/sync_generations/gen-new/mock_exam_attempts/mock-terminal'));
+-    expect(paths,
+-        contains('users/user-1/sync_generations/gen-new/review_logs/review-1'));
++      paths,
++      contains(
++        'users/user-1/sync_generations/gen-new/lesson_progress/lesson_1',
++      ),
++    );
++    expect(
++      paths,
++      contains(
++        'users/user-1/sync_generations/gen-new/lesson_bookmarks/lesson_1',
++      ),
++    );
++    expect(
++      paths,
++      contains('users/user-1/sync_generations/gen-new/question_flags/q1'),
++    );
++    expect(
++      paths,
++      contains(
++        'users/user-1/sync_generations/gen-new/mock_exam_attempts/mock-terminal',
++      ),
++    );
++    expect(
++      paths,
++      contains('users/user-1/sync_generations/gen-new/review_logs/review-1'),
++    );
+     expect(
+       paths,
+       contains(
+@@ -81,9 +99,11 @@ void main() {
+       ),
+     );
+     expect(
+-        paths,
+-        contains(
+-            'users/user-1/sync_generations/gen-new/custom_blueprints/exam_custom_1'));
++      paths,
++      contains(
++        'users/user-1/sync_generations/gen-new/custom_blueprints/exam_custom_1',
++      ),
++    );
+   });
+ 
+   test('in-progress mock attempt is excluded from keep-device snapshot',
+@@ -91,8 +111,12 @@ void main() {
+     final db = inMemoryDatabase();
+     addTearDown(db.close);
+     final stamp = DateTime.utc(2026, 8, 30);
+-    await _insertMock(db,
+-        id: 'mock-local', status: 'in_progress', stamp: stamp);
++    await _insertMock(
++      db,
++      id: 'mock-local',
++      status: 'in_progress',
++      stamp: stamp,
++    );
+     final gateway = RecordingGateway();
+ 
+     final result = await FullPushBootstrap(
+@@ -145,12 +169,13 @@ void main() {
+     final gateway = RecordingGateway(
+       afterCommit: (writes) async {
+         if (mutated ||
+-            !writes.any((write) => write.path.contains('/lesson_progress/')))
++            !writes.any((write) => write.path.contains('/lesson_progress/'))) {
+           return;
++        }
+         mutated = true;
+         await db.customStatement(
+           "insert into sync_meta (key,value) values ('localMutationEpoch','2') "
+-          "on conflict(key) do update set value=excluded.value",
++          'on conflict(key) do update set value=excluded.value',
+         );
+         await db.customStatement(
+           'update sync_local_mutations set revision=2, mutation_epoch=2 '
+@@ -173,7 +198,8 @@ void main() {
+     expect(functions.activationCalls, isEmpty);
+     final journal = await db
+         .customSelect(
+-            'select revision,mutation_epoch from sync_local_mutations')
++          'select revision,mutation_epoch from sync_local_mutations',
++        )
+         .getSingle();
+     expect(journal.read<int>('revision'), 2);
+     expect(journal.read<int>('mutation_epoch'), 2);
+@@ -200,8 +226,10 @@ void main() {
+ 
+     expect(result.outcome, FullPushOutcome.staleLocalEpoch);
+     expect(functions.activationCalls, hasLength(1));
+-    expect(await db.customSelect('select * from sync_local_mutations').get(),
+-        isNotEmpty);
++    expect(
++      await db.customSelect('select * from sync_local_mutations').get(),
++      isNotEmpty,
++    );
+     expect(await _marker(db, 'pending_full_push'), 'gen-raced');
+   });
+ 
+@@ -223,8 +251,10 @@ void main() {
+     ).run(expectedActiveGenerationId: 'gen-old');
+ 
+     expect(result.outcome, FullPushOutcome.activated);
+-    expect(await db.customSelect('select * from sync_local_mutations').get(),
+-        isEmpty);
++    expect(
++      await db.customSelect('select * from sync_local_mutations').get(),
++      isEmpty,
++    );
+     expect(await db.select(db.pendingSync).get(), isEmpty);
+     expect(await _marker(db, 'pending_full_push'), isNull);
+     expect(await _marker(db, 'currentLocalGenerationId'), 'gen-new');
+@@ -329,7 +359,7 @@ class MutatingActivationGateway extends FakeSyncFunctionsGateway {
+     );
+     await db.customStatement(
+       "insert into sync_meta (key,value) values ('localMutationEpoch','2') "
+-      "on conflict(key) do update set value=excluded.value",
++      'on conflict(key) do update set value=excluded.value',
+     );
+     await db.customStatement(
+       'update sync_local_mutations set revision=2, mutation_epoch=2 '
+@@ -351,7 +381,10 @@ Future<void> _seedTenSources(AppDatabase db) async {
+       );
+   await db.into(db.assessmentResultsLocal).insert(
+         AssessmentResultsLocalCompanion.insert(
+-            examId: 'cse', completedAt: stamp, topicScoresJson: '{}'),
++          examId: 'cse',
++          completedAt: stamp,
++          topicScoresJson: '{}',
++        ),
+       );
+   await db.into(db.reviewStateLocal).insert(
+         ReviewStateLocalCompanion.insert(
+@@ -371,7 +404,9 @@ Future<void> _seedTenSources(AppDatabase db) async {
+   await _seedLesson(db);
+   await db.into(db.lessonBookmarksLocal).insert(
+         LessonBookmarksLocalCompanion.insert(
+-            lessonId: 'lesson_1', markedAt: stamp),
++          lessonId: 'lesson_1',
++          markedAt: stamp,
++        ),
+       );
+   await db.into(db.questionFlagsLocal).insert(
+         QuestionFlagsLocalCompanion.insert(questionId: 'q1', flaggedAt: stamp),
+@@ -396,11 +431,15 @@ Future<void> _seedTenSources(AppDatabase db) async {
+       );
+   await db.into(db.customTrackMetaLocal).insert(
+         CustomTrackMetaLocalCompanion.insert(
+-            examId: 'exam_custom_1', name: 'My track'),
++          examId: 'exam_custom_1',
++          name: 'My track',
++        ),
+       );
+   await db.into(db.trackScopeLocal).insert(
+         TrackScopeLocalCompanion.insert(
+-            examId: 'exam_custom_1', topicId: 'topic_1'),
++          examId: 'exam_custom_1',
++          topicId: 'topic_1',
++        ),
+       );
+   await db.into(db.customBlueprintsLocal).insert(
+         CustomBlueprintsLocalCompanion.insert(
+@@ -419,7 +458,9 @@ Future<void> _seedTenSources(AppDatabase db) async {
+ Future<void> _seedLesson(AppDatabase db) =>
+     db.into(db.lessonProgressLocal).insertOnConflictUpdate(
+           LessonProgressLocalCompanion.insert(
+-              lessonId: 'lesson_1', readAt: DateTime.utc(2026, 8, 30)),
++            lessonId: 'lesson_1',
++            readAt: DateTime.utc(2026, 8, 30),
++          ),
+         );
+ 
+ Future<void> _insertMock(
+diff --git a/test/core/sync/custom_track_authority_test.dart b/test/core/sync/custom_track_authority_test.dart
+index 4101fdc2..6835dd18 100644
+--- a/test/core/sync/custom_track_authority_test.dart
++++ b/test/core/sync/custom_track_authority_test.dart
+@@ -177,7 +177,7 @@ void main() {
+     );
+     final beforeEpoch = await epoch();
+     await db.customStatement(
+-      "create trigger fail_track_scope_journal before insert on sync_local_mutations "
++      'create trigger fail_track_scope_journal before insert on sync_local_mutations '
+       "when new.collection = 'track_scope' and new.row_id like 'scope.%' "
+       "begin select raise(abort, 'forced journal failure'); end",
+     );
+diff --git a/test/core/sync/custom_track_projection_test.dart b/test/core/sync/custom_track_projection_test.dart
+index f198648b..207b36ba 100644
+--- a/test/core/sync/custom_track_projection_test.dart
++++ b/test/core/sync/custom_track_projection_test.dart
+@@ -139,12 +139,16 @@ void main() {
+     final scopeId = TrackScopeDocumentId.scope(exam, topic);
+ 
+     expect(TrackScopeDocumentId.parse(metaId).examId, exam);
+-    expect(TrackScopeDocumentId.parse(metaId).kind,
+-        TrackScopeDocumentKind.metadata);
++    expect(
++      TrackScopeDocumentId.parse(metaId).kind,
++      TrackScopeDocumentKind.metadata,
++    );
+     expect(TrackScopeDocumentId.parse(scopeId).examId, exam);
+     expect(TrackScopeDocumentId.parse(scopeId).topicId, topic);
+     expect(
+-        TrackScopeDocumentId.parse(scopeId).kind, TrackScopeDocumentKind.scope);
++      TrackScopeDocumentId.parse(scopeId).kind,
++      TrackScopeDocumentKind.scope,
++    );
+     expect(metaId, isNot(scopeId));
+     expect(
+       TrackScopeDocumentId.scope('a:b', 'c'),
+diff --git a/test/core/sync/firebase_firestore_gateway_test.dart b/test/core/sync/firebase_firestore_gateway_test.dart
+index 9bda17d7..3189e9c8 100644
+--- a/test/core/sync/firebase_firestore_gateway_test.dart
++++ b/test/core/sync/firebase_firestore_gateway_test.dart
+@@ -24,8 +24,8 @@ void main() {
+     final document = await gateway.readDocument('users/u/doc/a');
+ 
+     expect(document?.updatedAt, at);
+-    expect((document?.data['nested'] as Map)['when'], at);
+-    expect((document?.data['list'] as List).single, at);
++    expect((document!.data['nested']! as Map)['when'], at);
++    expect((document.data['list']! as List).single, at);
+   });
+ 
+   test(
+@@ -53,7 +53,9 @@ void main() {
+     expect((result as RowCommitted).authoritative.updatedAt, authoritativeAt);
+     expect(client.transactionWrites, hasLength(1));
+     expect(
+-        client.serverReadPaths, ['users/u/sync_generations/g/quiz_attempts/a']);
++      client.serverReadPaths,
++      ['users/u/sync_generations/g/quiz_attempts/a'],
++    );
+   });
+ 
+   test(
+@@ -103,8 +105,10 @@ void main() {
+ 
+     expect(result, isA<RowCommitted>());
+     expect((result as RowCommitted).authoritative.updatedAt, v2);
+-    expect(client.transactionWrites.single.path,
+-        'users/u/sync_generations/g/fsrs_cards/q');
++    expect(
++      client.transactionWrites.single.path,
++      'users/u/sync_generations/g/fsrs_cards/q',
++    );
+   });
+ }
+ 
+@@ -120,7 +124,8 @@ class RecordingFirestoreClient implements FirebaseFirestoreClient {
+ 
+   @override
+   Future<List<FirebaseFirestoreRawDocument>> readCollection(
+-          String path) async =>
++    String path,
++  ) async =>
+       const [];
+ 
+   @override
+diff --git a/test/core/sync/firestore_gateway_contract_test.dart b/test/core/sync/firestore_gateway_contract_test.dart
+index 73c2dbb2..08c8a00e 100644
+--- a/test/core/sync/firestore_gateway_contract_test.dart
++++ b/test/core/sync/firestore_gateway_contract_test.dart
+@@ -36,7 +36,7 @@ void main() {
+ 
+   test('known-version matching update commits and returns authoritative state',
+       () async {
+-    final path = 'users/u/sync_generations/g/fsrs_cards/q';
++    const path = 'users/u/sync_generations/g/fsrs_cards/q';
+     final gateway = FakeFirestoreGateway(serverNow: () => v2)
+       ..documents[path] = {'updatedAt': v1, 'value': 1};
+ 
+@@ -56,7 +56,7 @@ void main() {
+ 
+   test('stale update/delete returns current cloud state without overwriting it',
+       () async {
+-    final path = 'users/u/sync_generations/g/question_flags/q';
++    const path = 'users/u/sync_generations/g/question_flags/q';
+     final gateway = FakeFirestoreGateway()
+       ..documents[path] = {'updatedAt': v2, 'deleted': false};
+ 
+diff --git a/test/core/sync/local_sync_mutation_recorder_test.dart b/test/core/sync/local_sync_mutation_recorder_test.dart
+index ae6d8638..22e7a38c 100644
+--- a/test/core/sync/local_sync_mutation_recorder_test.dart
++++ b/test/core/sync/local_sync_mutation_recorder_test.dart
+@@ -10,7 +10,7 @@ import '../../helpers/in_memory_database.dart';
+ void main() {
+   const collection = 'quiz_attempts';
+   const rowId = 'attempt-1';
+-  final recordedAt = DateTime.utc(2026, 8, 30, 2, 0);
++  final recordedAt = DateTime.utc(2026, 8, 30, 2);
+ 
+   Future<Map<String, Object?>> journalRow(AppDatabase db) async {
+     final row = await db.customSelect(
+@@ -253,8 +253,10 @@ void main() {
+           .get(),
+       isEmpty,
+     );
+-    expect(await db.customSelect('select * from sync_local_mutations').get(),
+-        isEmpty);
++    expect(
++      await db.customSelect('select * from sync_local_mutations').get(),
++      isEmpty,
++    );
+     expect(await epoch(db), 0);
+   });
+ 
+@@ -270,8 +272,10 @@ void main() {
+       updatedAt: DateTime.utc(2026, 8, 29),
+     );
+ 
+-    expect(await db.customSelect('select * from sync_local_mutations').get(),
+-        isEmpty);
++    expect(
++      await db.customSelect('select * from sync_local_mutations').get(),
++      isEmpty,
++    );
+     expect(await epoch(db), 0);
+   });
+ }
+diff --git a/test/core/sync/producers/core_local_producers_test.dart b/test/core/sync/producers/core_local_producers_test.dart
+index 19723d5c..e9b76565 100644
+--- a/test/core/sync/producers/core_local_producers_test.dart
++++ b/test/core/sync/producers/core_local_producers_test.dart
+@@ -139,7 +139,10 @@ void main() {
+     final repo = AttemptsRepository(db);
+     await repo.save(attempt());
+     await repo.tagItem(
+-        attemptId: 'a1', questionId: 'q1', tag: MistakeTag.misread);
++      attemptId: 'a1',
++      questionId: 'q1',
++      tag: MistakeTag.misread,
++    );
+     final row = await journal('quiz_attempts', 'a1');
+     expect(row['revision'], 2);
+     expect(await epoch(), 2);
+diff --git a/test/core/sync/producers/remaining_local_producers_test.dart b/test/core/sync/producers/remaining_local_producers_test.dart
+index 04f32371..2826d636 100644
+--- a/test/core/sync/producers/remaining_local_producers_test.dart
++++ b/test/core/sync/producers/remaining_local_producers_test.dart
+@@ -152,8 +152,10 @@ void main() {
+     final row = await journal('mock_exam_attempts', 'mock_discard');
+     expect(row['op'], 'upsert');
+     expect(row['revision'], 1);
+-    expect((await repo.findById('mock_discard'))!.status,
+-        MockAttemptStatus.discarded);
++    expect(
++      (await repo.findById('mock_discard'))!.status,
++      MockAttemptStatus.discarded,
++    );
+     expect(await epoch(), 1);
+   });
+ 
+@@ -191,10 +193,14 @@ void main() {
+       submittedAt: DateTime.utc(2026, 8, 30, 0, 22),
+     );
+ 
+-    expect((await journal('mock_exam_attempts', 'mock_completed'))['op'],
+-        'upsert');
+-    expect((await journal('mock_exam_attempts', 'mock_forfeited'))['op'],
+-        'upsert');
++    expect(
++      (await journal('mock_exam_attempts', 'mock_completed'))['op'],
++      'upsert',
++    );
++    expect(
++      (await journal('mock_exam_attempts', 'mock_forfeited'))['op'],
++      'upsert',
++    );
+     final completed = await repo.findById('mock_completed');
+     expect(completed!.status, MockAttemptStatus.completed);
+     expect(completed.scoreRaw, 8);
+@@ -209,7 +215,7 @@ void main() {
+     await repo.save(
+       blueprint,
+       topicsBySubject: const {
+-        'math': ['algebra']
++        'math': ['algebra'],
+       },
+       now: DateTime.utc(2026, 8, 30),
+     );
+@@ -238,12 +244,13 @@ void main() {
+     await repo.save(
+       blueprint,
+       topicsBySubject: const {
+-        'math': ['algebra']
++        'math': ['algebra'],
+       },
+       now: DateTime.utc(2026, 8, 30, 1),
+     );
+     final drainedRevision = Map<String, Object?>.from(
+-        await journal('custom_blueprints', 'exam_custom_1'));
++      await journal('custom_blueprints', 'exam_custom_1'),
++    );
+ 
+     await rowMeta.acceptKnownVersion(
+       collection: 'custom_blueprints',
+@@ -257,7 +264,7 @@ void main() {
+         totalMinutes: 75,
+       ),
+       topicsBySubject: const {
+-        'math': ['algebra']
++        'math': ['algebra'],
+       },
+       now: DateTime.utc(2026, 8, 30, 2),
+     );
+diff --git a/test/core/sync/pull_pipeline_test.dart b/test/core/sync/pull_pipeline_test.dart
+index 68c4f95d..a644561e 100644
+--- a/test/core/sync/pull_pipeline_test.dart
++++ b/test/core/sync/pull_pipeline_test.dart
+@@ -55,9 +55,13 @@ void main() {
+ 
+     expect(result, PullApplyResult.applied);
+     expect(
+-        await queue.drainGeneration(
+-            uid: uid, generationId: generationId, limit: 10),
+-        isEmpty);
++      await queue.drainGeneration(
++        uid: uid,
++        generationId: generationId,
++        limit: 10,
++      ),
++      isEmpty,
++    );
+     final accepted = await SyncRowMetaRepository(db).readAcceptedBase(
+       collection: 'lesson_progress',
+       rowId: 'lesson-1',
+@@ -126,8 +130,10 @@ void main() {
+     expect(pending!.revision, 2);
+     expect(pending.mutationId, 'mutation-2');
+     expect(pending.baseUpdatedAt, v2);
+-    expect((await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
+-        DateTime.utc(2026, 8, 29, 20, 10));
++    expect(
++      (await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
++      DateTime.utc(2026, 8, 29, 20, 10),
++    );
+   });
+ 
+   test(
+@@ -159,8 +165,10 @@ void main() {
+     );
+ 
+     expect(result, PullApplyResult.applied);
+-    expect((await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
+-        DateTime.utc(2026, 8, 29, 21));
++    expect(
++      (await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
++      DateTime.utc(2026, 8, 29, 21),
++    );
+     final journalCount = await db
+         .customSelect('select count(*) as count from sync_local_mutations')
+         .getSingle();
+@@ -194,8 +202,10 @@ void main() {
+       ),
+       PullApplyResult.ignored,
+     );
+-    expect((await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
+-        DateTime.utc(2026, 8, 29, 21));
++    expect(
++      (await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
++      DateTime.utc(2026, 8, 29, 21),
++    );
+   });
+ 
+   test(
+@@ -332,8 +342,10 @@ void main() {
+     );
+ 
+     expect(result, PullApplyResult.quarantined);
+-    expect((await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
+-        DateTime.utc(2026, 8, 29, 20));
++    expect(
++      (await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
++      DateTime.utc(2026, 8, 29, 20),
++    );
+   });
+ }
+ 
+diff --git a/test/core/sync/push_pipeline_test.dart b/test/core/sync/push_pipeline_test.dart
+index e89298dd..4e37ca5c 100644
+--- a/test/core/sync/push_pipeline_test.dart
++++ b/test/core/sync/push_pipeline_test.dart
+@@ -54,9 +54,13 @@ void main() {
+     expect(cloud.originDeviceId, deviceId);
+     expect(cloud.updatedAt, DateTime.utc(2026, 8, 30, 1));
+     expect(
+-        await queue.drainGeneration(
+-            uid: uid, generationId: generationId, limit: 10),
+-        isEmpty);
++      await queue.drainGeneration(
++        uid: uid,
++        generationId: generationId,
++        limit: 10,
++      ),
++      isEmpty,
++    );
+     final accepted = await SyncRowMetaRepository(db).readAcceptedBase(
+       collection: 'lesson_progress',
+       rowId: 'lesson-1',
+@@ -100,13 +104,18 @@ void main() {
+     final local = await _lesson(db, 'lesson-1');
+     expect(local!.readAt.toUtc(), DateTime.utc(2026, 8, 29, 21));
+     expect(
+-        (await gateway.readDocument(_path('lesson_progress', 'lesson-1')))!
+-            .mutationId,
+-        'remote-v2');
++      (await gateway.readDocument(_path('lesson_progress', 'lesson-1')))!
++          .mutationId,
++      'remote-v2',
++    );
+     expect(
+-        await queue.drainGeneration(
+-            uid: uid, generationId: generationId, limit: 10),
+-        isEmpty);
++      await queue.drainGeneration(
++        uid: uid,
++        generationId: generationId,
++        limit: 10,
++      ),
++      isEmpty,
++    );
+   });
+ 
+   test('knownVersion delete loses to newer cloud state instead of deleting it',
+@@ -146,9 +155,13 @@ void main() {
+     expect(cloud!.deleted, isFalse);
+     expect(cloud.mutationId, 'remote-v2');
+     expect(
+-        await queue.drainGeneration(
+-            uid: uid, generationId: generationId, limit: 10),
+-        isEmpty);
++      await queue.drainGeneration(
++        uid: uid,
++        generationId: generationId,
++        limit: 10,
++      ),
++      isEmpty,
++    );
+   });
+ 
+   test(
+@@ -249,8 +262,10 @@ void main() {
+     expect(pending.mutationId, 'mutation-2');
+     expect(pending.baseState, 'knownVersion');
+     expect(pending.baseUpdatedAt, v2);
+-    expect((await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
+-        DateTime.utc(2026, 8, 29, 20, 10));
++    expect(
++      (await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
++      DateTime.utc(2026, 8, 29, 20, 10),
++    );
+   });
+ 
+   test('newer local revision is not marked failed by old in-flight failure',
+@@ -514,11 +529,17 @@ void main() {
+     await _pipeline(db, queue, gateway, pull).flush();
+ 
+     expect(
+-        await queue.drainGeneration(
+-            uid: uid, generationId: generationId, limit: 10),
+-        isEmpty);
+-    expect((await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
+-        DateTime.utc(2026, 8, 29, 21));
++      await queue.drainGeneration(
++        uid: uid,
++        generationId: generationId,
++        limit: 10,
++      ),
++      isEmpty,
++    );
++    expect(
++      (await _lesson(db, 'lesson-1'))!.readAt.toUtc(),
++      DateTime.utc(2026, 8, 29, 21),
++    );
+     final acceptedAfterStale = await rowMeta.readAcceptedBase(
+       collection: 'lesson_progress',
+       rowId: 'lesson-1',
+@@ -526,9 +547,10 @@ void main() {
+     expect(acceptedAfterStale!.state, SyncCausalBaseState.knownVersion);
+     expect(acceptedAfterStale.updatedAt, v2);
+     expect(
+-        (await gateway.readDocument(_path('lesson_progress', 'lesson-1')))!
+-            .mutationId,
+-        'remote-v2');
++      (await gateway.readDocument(_path('lesson_progress', 'lesson-1')))!
++          .mutationId,
++      'remote-v2',
++    );
+   });
+ }
+ 
+@@ -638,9 +660,9 @@ class BlockingCommitGateway extends FakeFirestoreGateway {
+ 
+   final entered = Completer<void>();
+   final release = Completer<void>();
+-  var calls = 0;
+-  var active = 0;
+-  var maxActive = 0;
++  int calls = 0;
++  int active = 0;
++  int maxActive = 0;
+ 
+   @override
+   Future<RowCommitResult> commitRowIfBaseMatches({
+diff --git a/test/core/sync/sync_collection_adapter_test.dart b/test/core/sync/sync_collection_adapter_test.dart
+index ac86aa02..70d790ac 100644
+--- a/test/core/sync/sync_collection_adapter_test.dart
++++ b/test/core/sync/sync_collection_adapter_test.dart
+@@ -135,10 +135,14 @@ void main() {
+       originDeviceId: 'remote-device',
+     );
+ 
+-    expect((await db.select(db.customTrackMetaLocal).get()).single.name,
+-        'Remote Track');
+-    expect((await db.select(db.trackScopeLocal).get()).single.topicId,
+-        'topic:math/a.b');
++    expect(
++      (await db.select(db.customTrackMetaLocal).get()).single.name,
++      'Remote Track',
++    );
++    expect(
++      (await db.select(db.trackScopeLocal).get()).single.topicId,
++      'topic:math/a.b',
++    );
+     expect(await journalCount(db), 0);
+   });
+ 
+diff --git a/test/core/sync/sync_coordinator_test.dart b/test/core/sync/sync_coordinator_test.dart
+index 95c7489d..f181a9a1 100644
+--- a/test/core/sync/sync_coordinator_test.dart
++++ b/test/core/sync/sync_coordinator_test.dart
+@@ -8,10 +8,11 @@ void main() {
+     String? seenUid;
+     String? seenExpected;
+     final coordinator = SyncCoordinatorImpl(
+-      fullPush: (
+-          {required uid,
+-          required expectedActiveGenerationId,
+-          shouldContinue}) async {
++      fullPush: ({
++        required uid,
++        required expectedActiveGenerationId,
++        shouldContinue,
++      }) async {
+         seenUid = uid;
+         seenExpected = expectedActiveGenerationId;
+         return const FullPushResult(
+@@ -37,10 +38,11 @@ void main() {
+     String? seenUid;
+     String? seenGeneration;
+     final coordinator = SyncCoordinatorImpl(
+-      fullPush: (
+-              {required uid,
+-              required expectedActiveGenerationId,
+-              shouldContinue}) async =>
++      fullPush: ({
++        required uid,
++        required expectedActiveGenerationId,
++        shouldContinue,
++      }) async =>
+           const FullPushResult(
+         outcome: FullPushOutcome.activated,
+         generationId: 'unused',
+diff --git a/test/core/sync/sync_outbox_promoter_test.dart b/test/core/sync/sync_outbox_promoter_test.dart
+index 585e4834..91df0320 100644
+--- a/test/core/sync/sync_outbox_promoter_test.dart
++++ b/test/core/sync/sync_outbox_promoter_test.dart
+@@ -183,7 +183,7 @@ void main() {
+ 
+     final exact = await db
+         .customSelect(
+-          "select revision from sync_local_mutations "
++          'select revision from sync_local_mutations '
+           "where collection = 'question_flags' and row_id = 'q1'",
+         )
+         .getSingle();
+diff --git a/test/core/sync/sync_schema_test.dart b/test/core/sync/sync_schema_test.dart
+index 4370fca2..c9ab671c 100644
+--- a/test/core/sync/sync_schema_test.dart
++++ b/test/core/sync/sync_schema_test.dart
+@@ -207,12 +207,12 @@ void main() {
+       "insert into sync_meta (key,value) values ('deviceId','device-legacy')",
+     );
+     raw.execute(
+-      "insert into pending_sync "
+-      "(table_type,row_id,op,queued_at,attempts) "
++      'insert into pending_sync '
++      '(table_type,row_id,op,queued_at,attempts) '
+       "values ('quiz_attempts','attempt-legacy','upsert',1,0)",
+     );
+     raw.execute('pragma user_version = 22');
+-    raw.dispose();
++    raw.close();
+ 
+     final db = AppDatabase(NativeDatabase(file));
+     addTearDown(db.close);
+@@ -226,7 +226,7 @@ void main() {
+ 
+     final journal = await db
+         .customSelect(
+-          "select collection,row_id,op,causal_base_state "
++          'select collection,row_id,op,causal_base_state '
+           "from sync_local_mutations where row_id = 'attempt-legacy'",
+         )
+         .getSingle();
+diff --git a/test/core/telemetry/telemetry_test.dart b/test/core/telemetry/telemetry_test.dart
+index c145033f..db907eba 100644
+--- a/test/core/telemetry/telemetry_test.dart
++++ b/test/core/telemetry/telemetry_test.dart
+@@ -1,6 +1,5 @@
+ import 'package:firebase_analytics/firebase_analytics.dart';
+ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+-import 'package:flutter/foundation.dart';
+ import 'package:flutter_test/flutter_test.dart';
+ import 'package:pantas/core/telemetry/firebase_telemetry.dart';
+ import 'package:pantas/core/telemetry/telemetry.dart';
+@@ -130,7 +129,7 @@ void main() {
+         );
+ 
+         final stack = StackTrace.current;
+-        final error = FormatException(
++        const error = FormatException(
+           'Failed parsing student@example.com '
+           'What is the powerhouse of the cell? Mitochondria score=95 accuracy=0.8 streak=5 rank=1',
+         );
+@@ -350,8 +349,10 @@ class FakeFirebaseAnalytics extends Fake implements FirebaseAnalytics {
+   }
+ 
+   @override
+-  Future<void> setUserId(
+-      {String? id, AnalyticsCallOptions? callOptions}) async {
++  Future<void> setUserId({
++    String? id,
++    AnalyticsCallOptions? callOptions,
++  }) async {
+     userId = id;
+     if (throwOnSetUserId) {
+       throw StateError('Analytics setUserId failed');
+diff --git a/test/features/mock_exam/presentation/end_part_early_test.dart b/test/features/mock_exam/presentation/end_part_early_test.dart
+index 06cb36dc..dd16db8e 100644
+--- a/test/features/mock_exam/presentation/end_part_early_test.dart
++++ b/test/features/mock_exam/presentation/end_part_early_test.dart
+@@ -1,10 +1,10 @@
+ import 'package:flutter/material.dart';
++import 'package:flutter_riverpod/flutter_riverpod.dart';
+ import 'package:flutter_test/flutter_test.dart';
+ import 'package:pantas/core/ui/theme/app_theme.dart';
+ import 'package:pantas/features/mock_exam/application/mock_session_controller.dart';
+-import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
+-import 'package:flutter_riverpod/flutter_riverpod.dart';
+ import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
++import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
+ import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.dart';
+ 
+ class SessionHost extends StatefulWidget {
+diff --git a/test/features/mock_exam/presentation/mock_session_page_test.dart b/test/features/mock_exam/presentation/mock_session_page_test.dart
+index be5f1ea7..27ed841e 100644
+--- a/test/features/mock_exam/presentation/mock_session_page_test.dart
++++ b/test/features/mock_exam/presentation/mock_session_page_test.dart
+@@ -1,19 +1,18 @@
+ import 'package:flutter/material.dart';
+ import 'package:flutter_test/flutter_test.dart';
+-import 'package:pantas/features/mock_exam/mock_exam.dart';
+-
+-import '../../../helpers/pump_app.dart';
+-import 'package:flutter_riverpod/flutter_riverpod.dart';
+ import 'package:pantas/core/storage/domain/choice.dart';
+ import 'package:pantas/core/storage/domain/question.dart';
+ import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
++import 'package:pantas/features/mock_exam/mock_exam.dart';
++
++import '../../../helpers/pump_app.dart';
+ 
+ // ignore_for_file: avoid_dynamic_calls
+ 
+ void main() {
+   testWidgets('session page renders current question and countdown',
+       (tester) async {
+-    final mockQuestion = const HydratedMockQuestion(
++    const mockQuestion = HydratedMockQuestion(
+       Question(
+         id: 'q1',
+         version: 1,
+@@ -46,7 +45,8 @@ void main() {
+         onShowNavigator: () {},
+       ),
+       overrides: [
+-        hydratedMockQuestionProvider.overrideWith((ref, id) => Future.value(mockQuestion)),
++        hydratedMockQuestionProvider
++            .overrideWith((ref, id) => Future.value(mockQuestion)),
+       ],
+     );
+ 
+@@ -73,7 +73,7 @@ void main() {
+         onShowNavigator: () {},
+       ),
+       overrides: [
+-        hydratedMockQuestionProvider.overrideWith((ref, id) => Future.value(null)),
++        hydratedMockQuestionProvider.overrideWith((ref, id) => Future.value()),
+       ],
+     );
+ 
+@@ -83,7 +83,7 @@ void main() {
+   testWidgets('answer tap and flag toggle call handlers', (tester) async {
+     int? answer;
+     var flagged = false;
+-    final mockQuestion = const HydratedMockQuestion(
++    const mockQuestion = HydratedMockQuestion(
+       Question(
+         id: 'q1',
+         version: 1,
+@@ -116,7 +116,8 @@ void main() {
+         onShowNavigator: () {},
+       ),
+       overrides: [
+-        hydratedMockQuestionProvider.overrideWith((ref, id) => Future.value(mockQuestion)),
++        hydratedMockQuestionProvider
++            .overrideWith((ref, id) => Future.value(mockQuestion)),
+       ],
+     );
+ 
+@@ -146,7 +147,7 @@ void main() {
+         onShowNavigator: () {},
+       ),
+       overrides: [
+-        hydratedMockQuestionProvider.overrideWith((ref, id) => Future.value(null)),
++        hydratedMockQuestionProvider.overrideWith((ref, id) => Future.value()),
+       ],
+     );
+ 
+diff --git a/test/features/settings/data/settings_repository_test.dart b/test/features/settings/data/settings_repository_test.dart
+index 3c6be93e..4e48a686 100644
+--- a/test/features/settings/data/settings_repository_test.dart
++++ b/test/features/settings/data/settings_repository_test.dart
+@@ -288,7 +288,7 @@ void main() {
+     final db = inMemoryDatabase();
+     addTearDown(db.close);
+     late final DriftSettingsRepository repo;
+-    bool observedFalseAtGateway = false;
++    var observedFalseAtGateway = false;
+     final gateway = FunctionAnalyticsConsentGateway((enabled) async {
+       if (enabled) {
+         final settings = await repo.readUserSettings();
