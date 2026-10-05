@@ -52,7 +52,7 @@ re-enable it only if he asks.
 | B3.4b traceability: gap pass section B rows | done | 215 rows; none needed a new product decision |
 | Stage 0 exit | done | all B3 steps done; every input item has a workstream |
 | B3.5 execution arrangement | done | recorded in the decision record |
-| Level 2 plans (B4) | pending | |
+| Level 2 plans (B4) | in progress | W0, W1, W2, W3 written; W4a to W4h and W5 next |
 | Level 2 gate review | pending | |
 | Level 3 plans (B5) | pending | |
 | Level 3 gate review | pending | |
@@ -60,5 +60,4 @@ re-enable it only if he asks.
 
 ## Last completed step
 
-B3.4b: 215 gap pass rows added to the traceability table (831 rows in all). Stage 0 exit
-checked: steps 1 to 6 done and every item has an owning workstream.
+Level 2 plans W0, W1, W2, W3 written (W3 includes tier pricing, Aedwon's Oct 6 decision).
