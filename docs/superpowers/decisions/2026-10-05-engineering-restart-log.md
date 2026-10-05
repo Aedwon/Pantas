@@ -256,3 +256,118 @@ Recorded by the lead from existing decisions; no new product choice.
 - Capability gap: the subagent dispatch tool sets the model but not the reasoning effort. Subagents
   run at their default effort, not at "medium" as B7 states. The lead session itself runs at the
   effort Aedwon set for it.
+
+## October 5, 2026: stage 0 answers (gap pass and kept work)
+
+Options, costs and recommendations: `docs/superpowers/plans/new-design/stage0-decisions.md`
+(items 1 to 51). Evidence: `docs/superpowers/plans/new-design/stage0/`.
+
+Exact answers ("gwyr" means "go with your reco"):
+
+> gwyr = go with your reco
+>
+> 1. gwyr
+> 2. gwyr
+> 3. gwyr
+> 4. there should be a time setting row in settings like in the onboarding
+> 5. gwyr
+> 6. actually you can add that as another notification item. you can just use the same design as everything else. remove the "nothing else" part in the copy
+> 7. this is an automatic anti-churn notif, build it
+> 8. discard
+> 9. discard
+> 10. discard
+> 11. discard
+> 12. backend should still record even tho there's no surface yet for this. data might be useful later
+> 13. same as 12
+> 14. gwyr
+> 15. gwyr
+> 16. gwyr
+> 17. gwyr
+> 18. gwyr
+> 19. gwyr
+> 20. gwyr
+> 21. gwyr
+> 22. gwyr
+> 23. gwyr
+> 24. gwyr
+> 25. add it, 6 was amended slightly
+> 26. gwyr
+> 27. gwyr
+> 28. build it. there's no screen yes but it doesn't have to surface. this is a backend feature
+> 29. gwyr
+> 30. gwyr
+> 31. gwyr
+> 32. gwyr
+>
+> 33-42 approved
+>
+> 43. gwyr
+> 44. gwyr
+> 45. gwyr
+> 46. gwyr
+> 47. gwyr
+> 48. gwyr
+> 49. i want to test it on my iPhone too. i have xcode 27, ios 27, and macos 27 so hopefully that wireless testing can be done since my iphone can't pass data from its usb c port (i've tested this with other cords and they work on other phones but not mine)
+> 50. gwyr
+> 51. gwyr
+
+Resulting decisions (recommendation unless stated):
+
+1. Exam switching follows the 4 Oct Settings boards: the student chooses Count Them or Start My
+   Numbers Fresh; the "Rebuilding your plan" wait and date-kept confirmation stay.
+2. Mock results: no best-mock pill, no confetti, no comparison sentence.
+3. No lock icon; the small Pro tag as drawn.
+4. Changed by Aedwon: Follow up replaces the old streak-save reminder, and Settings > Reminders
+   has a Follow up time row like onboarding (shown only while Follow up is on).
+5. Flagged questions list: built like the mock's All questions list.
+6. Changed by Aedwon: exam countdown notifications are kept, as another item in the same style.
+   The onboarding reminders copy drops "Nothing else." It reads: "One daily study reminder, and a
+   follow-up if you haven't started."
+7. Changed by Aedwon: the come-back notification after 3 missed study days is built (automatic
+   anti-churn).
+8. Wrapped-ready notification: discarded.
+9. One-notification-a-day limit: discarded.
+10. Lately line: discarded (idea for later).
+11. Lessons-read total and Your pace panel: discarded.
+12. Changed by Aedwon: time per question is not shown, but the app keeps recording it.
+13. Changed by Aedwon: "Why you miss questions" is not shown, but the app keeps recording its
+    inputs (notes, prior correctness, answer times).
+14 to 24. As recommended: no miss cause lines or "back in X days"; no spaced-repetition
+    explainer; quick quiz only on the Study "Nothing to study yet" screen; no study-first sheet; no
+    assessment nudge or plan-ready moment; store rating prompt kept; sign-in conflict chooser kept
+    as a centered dialog; Delete my data for signed-out students kept; no in-app export (DPO row);
+    no milestone sign-in prompts; the separate Try Pro flow is retired and Pro buttons open the
+    Settings Pro page and return.
+25. Changed by Aedwon: the trial-ending phone notification 24 hours before the charge is kept.
+26, 27. No Next blank or Next flagged shortcuts; no Strict badge.
+28. Not repeating questions from the last two mocks: built, backend only.
+29 to 32. Short-paper line on mock setup kept; no bookmark ribbon or bookmark notes; no ordinary
+    mock message; Choose your exam fallback on every tab.
+33 to 42. Approved as a group: the lead's defaults in stage0-decisions.md A3.
+43 to 48, 50, 51. As recommended: keep the four release end-to-end tests (W5), the quiz-loading
+    spec (record), the 5-line assessment refresh fix (W4d), and the inline math accessibility
+    checks (W2); discard the 30 contained or superseded items, the benchmark harness, the backup
+    branch, beta consolidation documents and illustration ledgers after saving them to one archive
+    branch; leave the landing page documents untouched.
+49. Changed by Aedwon: iPhone testing is in scope. The September iPhone QA design is kept and
+    feeds W5. His iPhone's USB-C port does not carry data, so device testing uses Xcode wireless
+    debugging (Xcode 27, iOS 27, macOS 27). Wireless pairing is unverified until it is tried.
+
+## October 5, 2026: kept-work cleanup performed (stage 0 decisions 43 to 51)
+
+- Archive branch `archive/pre-restart-kept-work` at 2bdde4fd pushed first. It holds a verified
+  git bundle of every commit in the deleted branches and the three stashes not already in
+  `integration/new-design-r1` or `main`, the uncommitted changes of every dirty worktree (diffs
+  and untracked files), and the deleted refs with their SHAs. Its README explains recovery.
+- Removed 14 worktrees: beta-final-verification-r1, web-e04-content-protection-r1,
+  qlp5-physical-r1, android-release-swiftpm-r1, rc-be-verify-r2, beta-integration-r1,
+  mock-resume-correctness-r1, web-e09-product-defects-repair-r1 and r2, lesson-illus-w4verify,
+  w5a, w5b, w5verify, m7.
+- Deleted 59 branch names (local where present, 51 on origin); list in the archive's
+  `deleted-refs.txt`. Dropped all 3 stashes.
+- Kept: the four release end-to-end test worktrees, the inline math accessibility worktree,
+  `web/beta-salvage-assessment-cache-r1`, `web/ios-physical-qa-enablement-r1`,
+  `web/landing-design-contract-r1`, and the active tracks.
+- The 6 Sept quiz-loading spec, found only in stash 0, is now on main as a record:
+  `docs/superpowers/specs/2026-09-06-quiz-loading-performance-design.md`. It is not a current
+  requirement; the 1 Oct release-first cuts still apply.

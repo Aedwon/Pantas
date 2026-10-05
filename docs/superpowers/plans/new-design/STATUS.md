@@ -10,9 +10,9 @@ Controlling documents:
 
 ## Lock
 
-State: free
-Holder: none
-Since: none
+State: held
+Holder: interactive lead session
+Since: 2026-10-05T21:20+08:00
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 3 hours, a run exits. A lock older than 3 hours is stale and may be
@@ -24,14 +24,12 @@ Stage 0 (strategy B3).
 
 ## Waiting on Aedwon
 
-Yes: answers to `docs/superpowers/plans/new-design/stage0-decisions.md` (51 items, each with a
-recommendation). Sent October 5, 2026.
+Nothing. Becomes yes when the amendment spec is sent for approval.
 
 ## Next step
 
-After Aedwon answers: record his exact answers in the decision record; carry out the approved
-kept-work actions (archive branch first, then removals); write the amendment spec (B3 step 3) for
-his approval; build the traceability table (B3 step 4).
+Write the amendment spec (B3 step 3) in the interactive session and send it to Aedwon.
+Then build the traceability table (B3 step 4).
 
 ## Steps
 
@@ -43,7 +41,8 @@ his approval; build the traceability table (B3 step 4).
 | B9 hourly resume task | done | desktop scheduled task "pantas-new-design-resume", hourly at about :18; runs only while the desktop app is open |
 | B3.1 gap pass | done | raw lists in stage0/ |
 | B3.2 kept-work triage | done | stage0/triage.md |
-| Stage 0 decisions to Aedwon | sent, waiting | stage0-decisions.md |
+| Stage 0 decisions to Aedwon | answered | answers in the decision record |
+| Kept-work cleanup | done | archive/pre-restart-kept-work at 2bdde4fd |
 | B3.3 spec update | pending | needs Aedwon's approval |
 | B3.4 traceability table | pending | |
 | B3.5 execution arrangement | done | recorded in the decision record |
@@ -55,4 +54,4 @@ his approval; build the traceability table (B3 step 4).
 
 ## Last completed step
 
-Stage 0 decision set sent to Aedwon.
+Kept-work cleanup done; stage 0 answers recorded.
