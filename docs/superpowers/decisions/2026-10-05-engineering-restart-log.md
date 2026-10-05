@@ -379,3 +379,28 @@ the only screen his answers change (Settings Reminders; onboarding reminders cop
 `docs/design/proposals/reminders-2026-10-05.html` (version 1), boards `ST_Reminders_v2.html` and
 `O_Notify_v2.html`. Three questions are open in its Part A: notification overlap on countdown and
 come-back days, the countdown when the daily reminder is off, and the follow-up time range.
+
+## October 5, 2026: amendment spec approved
+
+Exact comment:
+
+> 1. ok
+> 2. ok
+> 3. ok
+>
+> also just to notify you you're at 83% usage used resetting at 3h 55m. can you leave to you to run and auto resume yourself even after you hit limits?
+
+Resulting decisions:
+
+1. Notification overlap: the exam countdown and the come-back reminder each replace that day's
+   daily reminder; the follow-up still comes if Today is not started.
+2. The countdown follows only its own switch; with the daily reminder off it arrives at 7:00 PM,
+   and at 7:00 AM on exam day.
+3. The follow-up time wheel offers only times after the daily reminder.
+4. Approval: Aedwon answered the three open questions and asked the lead to continue
+   unattended. The lead recorded this as approval of Part A. This is an inference from his
+   request to continue, not an explicit "approved"; if he says otherwise, level 2 work done
+   since then is revisited.
+
+Stage 0 exit status: steps 1 to 3 and 5 and 6 done; step 4 (traceability table) is next and
+runs unattended.

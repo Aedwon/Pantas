@@ -24,16 +24,16 @@ Stage 0 (strategy B3).
 
 ## Waiting on Aedwon
 
-Yes: approval of Part A of `docs/superpowers/specs/2026-10-05-new-design-amendment-design.md`,
-including its three questions (notification overlap, countdown when the daily reminder is off,
-follow-up time range). Preview: `docs/design/proposals/reminders-2026-10-05.html`,
-https://claude.ai/artifact/JAB6x4kqc8fKyyAhoAr6NV. Sent October 5, 2026.
+Nothing.
 
 ## Next step
 
-After approval: record his exact words, apply his answers to the spec, mark it approved. Then
-B3 step 4, the traceability table (Sonnet gathers rows, lead reviews), then level 2 (B4) in the
-writing order W0; W1 and W3; W2; W4a to W4h; W5.
+B3 step 4: build `docs/superpowers/plans/new-design/traceability.md`. One row per board (list
+in `docs/design/SCREENS.md`), per decision in the restart log and `docs/design/DECISIONS.md`, and per
+stage 0 item (`stage0-decisions.md` 1 to 51 and every section B row in `stage0/gap-*.md`).
+Columns: item, source, workstream (W0 to W5, W4a to W4h per strategy B2 and the amendment spec
+B4), level 2 section (blank until level 2), level 3 task (blank), status. Sonnet subagents gather
+rows by source; the lead assigns workstreams and reviews. Then level 2 (B4).
 
 ## Steps
 
@@ -47,7 +47,7 @@ writing order W0; W1 and W3; W2; W4a to W4h; W5.
 | B3.2 kept-work triage | done | stage0/triage.md |
 | Stage 0 decisions to Aedwon | answered | answers in the decision record |
 | Kept-work cleanup | done | archive/pre-restart-kept-work at 2bdde4fd |
-| B3.3 spec update | sent, waiting | specs/2026-10-05-new-design-amendment-design.md |
+| B3.3 spec update | approved | specs/2026-10-05-new-design-amendment-design.md |
 | B3.4 traceability table | pending | |
 | B3.5 execution arrangement | done | recorded in the decision record |
 | Level 2 plans (B4) | pending | |
@@ -58,4 +58,4 @@ writing order W0; W1 and W3; W2; W4a to W4h; W5.
 
 ## Last completed step
 
-Amendment spec sent to Aedwon.
+Amendment spec approved and recorded.

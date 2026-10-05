@@ -1,6 +1,7 @@
 # The new design: behavior amendment
 
-Date: October 5, 2026. Status: awaiting Aedwon's approval of Part A.
+Date: October 5, 2026. Status: Part A approved by Aedwon on October 5, 2026, with recommendations (a) on all three
+questions (see the decision record).
 Policy revision read: origin/main 476b689f.
 Controlling plan: `docs/superpowers/2026-10-05-engineering-restart-strategy.md` (stage 0, B3 step 3).
 Decision record: `docs/superpowers/decisions/2026-10-05-engineering-restart-log.md`.
@@ -82,7 +83,7 @@ phone's USB-C port does not carry data. The September iPhone QA design feeds the
 checks. Wireless pairing is untested until we try it, and the iOS build itself has not been
 checked in this program yet.
 
-### What needs your decision
+### Decided on approval (October 5)
 
 1. **Two study notifications in one evening.** Without a daily limit, a countdown day can bring
    the countdown, the daily reminder and the follow-up. Options:
@@ -144,14 +145,14 @@ Visual sections of every pre-October spec are already superseded (AGENTS.md, vis
   event. The ceiling in `notification_ceiling.dart` is removed.
 - Daily reminder: study days only, chosen time, default 19:00.
 - Follow up: study days only; fires at its time if no session started that day; default 21:00;
-  time picker limited to after the daily time (pending decision 3); shown only while on.
+  time picker limited to times after the daily time; shown only while on.
 - Exam countdown: ladder 30, 14, 7, 3, 2, 1, 0 days, day precision only (`ExamDate.day` non-null);
   fires on any day, study day or not. Copy per the August amendment Section 2: count line, then one
-  real thing to do or nothing; exam day "Today's the day." / "Good luck." Time per decision 2.
-  Interaction with the daily reminder per decision 1.
+  real thing to do or nothing; exam day "Today's the day." / "Good luck." Arrives at the daily reminder time when that is on, otherwise 19:00; exam day at 07:00. Follows only its own switch.
+  On a countdown day it replaces that day's daily reminder; the follow-up still applies.
 - Come back: after 3 consecutive study days with no session; once until a session happens; at the
-  daily reminder time (or 19:00 if off); names a measured subject and score or is not sent. Per
-  decision 1 it replaces that day's daily reminder.
+  daily reminder time (or 19:00 if off); names a measured subject and score or is not sent. It
+  replaces that day's daily reminder.
 - Trial ending: local, 24 hours before the first Monthly trial charge, text matches HP_Trial
   ("Google Play charges ₱99 on Oct 2 to keep Pro. Cancel any time before then."). Cancelled when
   the trial is cancelled or converts.
