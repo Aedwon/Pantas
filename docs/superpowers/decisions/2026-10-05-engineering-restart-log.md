@@ -562,3 +562,10 @@ marked superseded (the canvas gallery `index.html` is not regenerated); level 3 
 catalog storage form, the `MistakeTag` unknown-value fallback and pass end dates moving later;
 G-g-15 marks the Pro tag after a lapse as a lead default. Aedwon hit a usage limit during this step;
 work resumed after the reset.
+
+## October 6, 2026: level 2 gate review 4 (not passed, 3 should-fix) and fixes
+
+`gates/l2-gate-review-4.md`. Fixed: W0 declares the mock JSON fields only and W4e computes and writes
+them; W4g section 2 resynced with the table (G-h-28); the share note and reveal bar follow WR_Share
+and the reveal boards, so the old globe and bookmark icons are removed rather than remapped; W4g
+marks the Pro tag after a lapse as a lead default.

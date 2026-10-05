@@ -122,7 +122,7 @@ Aedwon: nothing visual. He authorizes the package rebuild (section 7).
 
 May touch: the integration branch history (the fast-forward), `assets/seed/*` (generated, not
 committed), the build output directory, `lib/core/storage/domain/` (JSON models), `lib/features/mock_exam/domain/mock_results.dart` (adds the
-mock JSON fields and fills the per-part counts; before W4e), `lib/core/content/` (content schema 10,
+mock JSON field declarations only; W4e computes and writes the counts and reasons; before W4e), `lib/core/content/` (content schema 10,
 migration), `lib/core/sync/` (payload fields if mapped), `functions/src/examCatalog.json`, content exam metadata format and export tools
 (`tools/build_content_export/`, `tools/import_questions/` if exam metadata lives there), matching
 tests, and the verification record in `docs/superpowers/plans/new-design/`.

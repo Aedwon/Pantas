@@ -30,6 +30,7 @@ W1 removes retired routes and this family deletes the screens behind them:
 - Keep `/quiz/mock/setup`, `/quiz/mock/start`, `/quiz/mock/resume/:attemptId`,
   `/quiz/mock/custom-setup`, `/mock/results/:attemptId`, `/mock/review/:attemptId`. Retired:
   `/mock-exam` placeholder, the unwired mock history page.
+- Fills the W0 JSON fields: per-part `wrong` and `blank` counts (`compute_results.dart`, `submit_mock.dart`) and the review reasons.
 - Per-exam scoring rule. Scores are derived from stored right, wrong and blank counts per part (UPCAT
   deductions can be decimals; `scoreRaw` stays an integer count, no migration).
 - `MockCardModel` and `MockCard` widget for the Quiz tab, placed by W4d.

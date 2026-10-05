@@ -2,7 +2,7 @@
 
 Level 2 workstream plan. Date: October 6, 2026. Author: lead. Policy revision: origin/main 12fb353b. Revised after the level 2 gate review (Oct 6).
 Parent: strategy B2, B4. Spec: amendment spec (approved Oct 5). Depends on: W1, W2, W3 (history gate), W4b (Your record row).
-Traceability: 38 rows with workstream `W4g` (12 boards, 26 other items).
+Traceability: 39 rows with workstream `W4g` (12 boards, 27 other items).
 
 ## 1. Purpose and scope
 
@@ -15,7 +15,7 @@ Out of scope: The public web page (kept as built, G-g-19); the topic-turned-stro
 
 Boards (12): L_Share, WR_Mock, WR_Streak, WR_Topic, WR_Exam, WR_Share, WR_ShareExam, WR_ShareOffline, WR_Links, WR_LinkRemove, WR_LinksEmpty, WR_History.
 
-Other traceability rows (26): D-245, D-246, D-247, D-251, R-14, S0-8, S0-31, S0-40, G-g-1, G-g-3, G-g-5, G-g-6, G-g-8, G-g-9, G-g-10, G-g-11, G-g-12, G-g-13, G-g-14, G-g-15, G-g-16, G-g-17, G-g-19, G-g-20, G-g-21, G-h-14.
+Other traceability rows (27): D-245, D-246, D-247, D-251, R-14, S0-8, S0-31, S0-40, G-g-1, G-g-3, G-g-5, G-g-6, G-g-8, G-g-9, G-g-10, G-g-11, G-g-12, G-g-13, G-g-14, G-g-15, G-g-16, G-g-17, G-g-19, G-g-20, G-g-21, G-h-14, G-h-28.
 Each row's status column in `traceability.md` is binding; "lead default" rows are listed in
 section 4 where they shape behavior. Superseded sections of older specs for this family: amendment
 spec B1 (rows naming this family's screens); those sections are not built.
@@ -47,11 +47,12 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
   saved figures.
 - No ordinary-mock message; no Wrapped push (S0-31, S0-8); W4f deletes the push router. Words
   "cards" and "mastery" never appear.
-- Icons without an IC_Final entry on these screens (globe on the share note, the reveal bar icon)
-  map to one of W1's 45 getters (`share`, `bookmark`); none added (G-h-28).
+- The old globe icon on the share note and the reveal bar's bookmark icon are removed: the share note
+  is text only (WR_Share) and the reveal bar holds Share and Done (WR_Mock, WR_Streak, WR_Exam)
+  (G-h-28).
 - Consent-gated analytics events `wrapped_revealed` and `wrapped_shared` are kept (G-g-21).
-- After Pro lapses: saved Wrappeds are kept and history shows the Pro tag; renewing restores (Aedwon,
-  Oct 6, gate F-18).
+- After Pro lapses: saved Wrappeds are kept and renewing restores (Aedwon, Oct 6, gate F-18); the
+  history row shows the Pro tag after a lapse (lead default).
 - The public pantas.app page is website copy, which Aedwon writes; it is kept as built and listed for
   his review (gate F-30).
 - Free and Pro: history is Pro (D-251). Placeholders: none.
