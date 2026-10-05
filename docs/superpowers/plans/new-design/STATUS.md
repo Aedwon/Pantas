@@ -10,9 +10,9 @@ Controlling documents:
 
 ## Lock
 
-State: free
-Holder: scheduled resume run
-Since: 2026-10-06T01:21:44+08:00
+State: held
+Holder: interactive lead session
+Since: 2026-10-06T09:00+08:00
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -20,7 +20,7 @@ taken. Release it by setting State to free when the step ends.
 
 ## Current stage
 
-Stage 0 (strategy B3).
+Level 2 (strategy B4). Stage 0 exited October 6, 2026.
 
 ## Waiting on Aedwon
 
@@ -28,18 +28,12 @@ Nothing.
 
 ## Next step
 
-B3 step 4b: add the gap pass section B rows to `docs/superpowers/plans/new-design/traceability.md`
-(its "Gap pass section B rows" section, now a pending stub). One `G-<family letter>-<n>` row per
-section B row in each `stage0/gap-*.md` (about 245 rows across the eight files; formats differ:
-pipe tables in a, e, g, h; "- " or numbered lines in b, c, d, f). Columns as in the table: item,
-source (file and row), workstream, blank level 2 and level 3 columns, status. Status names the
-stage 0 decision (1 to 42) the row falls under, for example "assigned per S0-33" or "discard per
-S0-10". The lead does the mapping (judgment). If a row fits no decision and is not a pure
-implementation detail, list it under "Waiting on Aedwon" with options and a recommendation
-instead of guessing. Then check stage 0 exit (B3) and start level 2 (B4) with W0.
+Level 2 plans in writing order: W0; W1 and W3; W2; W4a to W4h; W5. Location
+`docs/superpowers/plans/new-design/L2-<id>-<name>.md`, sections per strategy B4. The lead writes
+all of them (B7). Then the level 2 gate review by an independent Opus reviewer.
 
-Part 4a (boards, DECISIONS.md bullets, restart log, amendment items, stage 0 items 1 to 51: 616
-rows) is done. Its mapping rules and level 2 notes are at the top of the table.
+Work runs in the interactive session. The scheduled resume task is paused by Aedwon (Oct 6);
+re-enable it only if he asks.
 
 ## Steps
 
@@ -48,14 +42,15 @@ rows) is done. Its mapping rules and level 2 notes are at the top of the table.
 | Strategy Part A approved | done | approval in the decision record |
 | B3.6 SSOT baseline line | done | Google Doc tab "Pantas Production Readiness Assessment", 5 Oct entry |
 | B9 status file | done | this file |
-| B9 resume task | done | desktop scheduled task "pantas-new-design-resume", every 10 minutes; runs only while the desktop app is open |
+| B9 resume task | paused by Aedwon Oct 6 | work continues in the interactive session |
 | B3.1 gap pass | done | raw lists in stage0/ |
 | B3.2 kept-work triage | done | stage0/triage.md |
 | Stage 0 decisions to Aedwon | answered | answers in the decision record |
 | Kept-work cleanup | done | archive/pre-restart-kept-work at 2bdde4fd |
 | B3.3 spec update | approved | specs/2026-10-05-new-design-amendment-design.md |
 | B3.4a traceability: boards, decisions, stage 0 items | done | a9d94795 |
-| B3.4b traceability: gap pass section B rows | pending | split from B3.4 on Oct 6 (size) |
+| B3.4b traceability: gap pass section B rows | done | 215 rows; none needed a new product decision |
+| Stage 0 exit | done | all B3 steps done; every input item has a workstream |
 | B3.5 execution arrangement | done | recorded in the decision record |
 | Level 2 plans (B4) | pending | |
 | Level 2 gate review | pending | |
@@ -65,6 +60,5 @@ rows) is done. Its mapping rules and level 2 notes are at the top of the table.
 
 ## Last completed step
 
-B3.4a: traceability table part 1 (616 rows) written by the scheduled resume run on Oct 6, 2026.
-The run found the previous lock stale (held since Oct 5 21:45, no step recorded) and took it.
-Commit: a9d94795.
+B3.4b: 215 gap pass rows added to the traceability table (831 rows in all). Stage 0 exit
+checked: steps 1 to 6 done and every item has an owning workstream.

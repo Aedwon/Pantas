@@ -416,3 +416,15 @@ task from hourly to every 10 minutes and reordered it so each run first reads on
 exits if the restart is waiting on Aedwon or locked, before reading the policy files. A lock is
 now stale after 2 hours instead of 3, so an interrupted step resumes sooner. Steps must fit in
 2 hours. This amends strategy B9's "about every hour" and "3 hours".
+
+## October 6, 2026: stage 0 complete; work moves to the interactive session
+
+- Aedwon paused the scheduled resume task and asked the lead to continue in chat: "okay you can
+  continue for me. again, top-down approach please". A routine run is a fresh session that rereads
+  all policy and plans each time; the interactive session keeps context. The status file is still
+  updated after every step so any fresh session can resume.
+- Auto-continue at usage limits turned on in Aedwon's Claude Code user settings at his request.
+- Traceability (B3 step 4) finished: 616 rows from the scheduled run (a9d94795) plus 215 gap pass
+  rows from the lead. Every gap row maps to a stage 0 decision, an earlier decision, or a lead
+  default inside the shared design rules; none needed a new product decision.
+- Stage 0 exit met. Level 2 starts with W0.

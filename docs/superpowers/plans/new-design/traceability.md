@@ -655,6 +655,225 @@ the restart log, the amendment spec, and `stage0-decisions.md` items 1 to 51.
 
 ## Gap pass section B rows
 
-Pending: step B3.4b adds one `G-` row per section B row of `stage0/gap-*.md`, with the stage 0
-decision number (1 to 42) it falls under and its workstream. Rows that fit no decision are flagged
-for Aedwon.
+Built October 6, 2026 by the lead (interactive session). One row per section B row of
+`stage0/gap-*.md`. "lead default" rows are implementation choices inside an approved stage 0
+decision or the shared design rules; none needed a new product decision from Aedwon.
+Rows that repeat across families say so; they share one level 3 task.
+
+| ID | Item | Source | Workstream | Level 2 section | Level 3 task | Status |
+|---|---|---|---|---|---|---|
+| G-a-1 | Resume rules after the app is closed mid-onboarding (re-entry step is computed from saved flags: Welcome if age gate not passed, picker i... | gap-a-onboarding.md B#1 | W4a |  |  | lead default: resume at the first unfinished step, Terms included (S0-34 pattern for failures) |
+| G-a-2 | Terms step skipped on resume (flags only record age gate and exam; consent is recorded but not used to route) | gap-a-onboarding.md B#2 | W4a |  |  | lead default: Terms is required before the picker on resume (legal acceptance) |
+| G-a-3 | Save-failure message on the exam picker (Snackbar "Couldn't save selection. Try again." with Retry, selection kept) | gap-a-onboarding.md B#3 | W4a |  |  | assigned per S0-34 |
+| G-a-4 | Save-failure states on the other steps (age gate, Terms, exam date shows a raw error string, name, study days, reminders) | gap-a-onboarding.md B#4 | W4a |  |  | assigned per S0-34 |
+| G-a-5 | Exam date rejection for a date earlier than the allowed minimum as an on-screen error banner | gap-a-onboarding.md B#5 | W4a |  |  | superseded: month-first picker hides past days (O_DateToday); no banner |
+| G-a-6 | Exam date for a custom track (does the date card/prefill apply; no published date exists) | gap-a-onboarding.md B#6 | W4a |  |  | lead default: custom tracks skip the known-date card and open the picker |
+| G-a-7 | Custom subjects: "Could not load subjects." error state | gap-a-onboarding.md B#7 | W4a |  |  | assigned per S0-33 |
+| G-a-8 | Custom subjects: loading state (faint bars) | gap-a-onboarding.md B#8 | W4a |  |  | assigned per S0-33 |
+| G-a-9 | Custom track creation failure / double tap guard (button disabled while creating) | gap-a-onboarding.md B#9 | W4a |  |  | lead default: Continue rests while creating; failure per S0-34 |
+| G-a-10 | Custom track name: maximum length, blank/duplicate-name handling | gap-a-onboarding.md B#10 | W4a |  |  | lead default: trim, 40-character limit, blank blocks Continue |
+| G-a-11 | Name field limits (max 40 characters, auto capitalize words, trimmed; empty equals no name) | gap-a-onboarding.md B#11 | W4a |  |  | lead default: keep limits (40 characters, words capitalized, trimmed) |
+| G-a-12 | Name step Skip (spec: both name and date steps are skippable; Home shows "Add your name" when none) | gap-a-onboarding.md B#12 | W4a |  |  | changed by design: no Skip on O_Name; Done needs a name; the no-name state comes from clearing it in Settings (ST_RootNoName) |
+| G-a-13 | Reminders: what "Not Right Now" does (old: no permission asked, rationale marked shown, no reminder time saved) and what happens if the s... | gap-a-onboarding.md B#13 | W4a |  |  | lead default: Not Right Now saves both reminders off and asks no permission |
+| G-a-14 | Reminders on iOS (board shows only the Android dialog); rationale-shown flag so the step is not repeated | gap-a-onboarding.md B#14 | W4a |  |  | lead default: iOS uses its own system prompt at the same point; the step is shown once |
+| G-a-15 | Reminders default time and the relation between "Follow up" and the existing streak-save notification (separate time vs a computed time) | gap-a-onboarding.md B#15 | W4f |  |  | settled: S0-4 (Follow up replaces streak-save; defaults 7:00 PM and 9:00 PM) |
+| G-a-16 | Plan-set celebration: "Your plan is ready" beat after onboarding | gap-a-onboarding.md B#16 | none |  |  | discard per S0-18 |
+| G-a-17 | Terms and Privacy documents: opening from the Terms step and returning with the checkboxes kept | gap-a-onboarding.md B#17 | W4a |  |  | lead default: keep (Terms and Privacy open and return with boxes kept) |
+| G-a-18 | Policy version recorded with acceptance (so later releases can re-prompt) | gap-a-onboarding.md B#18 | W0 |  |  | lead default: keep recording the policy version with acceptance |
+| G-a-19 | Hardware/system back on the onboarding steps and the exam picker from Settings (Back link now drawn; system gesture not described) | gap-a-onboarding.md B#19 | W1 |  |  | lead default: system back equals the Back link; on the first step it leaves the app |
+| G-a-20 | Large-text behavior of the exam row (stacks short name above name) | gap-a-onboarding.md B#20 | W2 |  |  | lead default: keep large-text stacking in the shared row |
+| G-a-21 | Assessment entry guard: opening an already-completed assessment redirects to the results page | gap-a-onboarding.md B#21 | W4a |  |  | lead default: keep (no retake; completed assessment opens Home) |
+| G-a-22 | Assessment unavailable state: "Assessment isn't ready yet / We're still adding questions for this exam..." with "Back to Quiz" | gap-a-onboarding.md B#22 | W4h |  |  | assigned per S0-33 (assessment not ready) |
+| G-a-23 | Assessment load error and complete-save error banners with Retry (answers kept so the student need not re-answer) | gap-a-onboarding.md B#23 | W4a |  |  | assigned per S0-33 and S0-34 |
+| G-a-24 | Assessment loading state (faint bars) while questions load or results save | gap-a-onboarding.md B#24 | W4a |  |  | assigned per S0-33 |
+| G-a-25 | Assessment results empty/error states ("No assessment found.", error banner with Retry) | gap-a-onboarding.md B#25 | W4a |  |  | assigned per S0-33 |
+| G-a-26 | App backgrounded or killed during the assessment: session lost, student starts again | gap-a-onboarding.md B#26 | W4a |  |  | settled: AS_Leave (the attempt is lost) |
+| G-a-27 | Last question: what the button says and the wait before results (old: answering the last choice saved and navigated) | gap-a-onboarding.md B#27 | W4a |  |  | changed by design: last question shows Next; results wait uses the on-the-button tier |
+| G-a-28 | Assessment for a custom or narrowed track: shorter than 30 (formula over contributing topics), tracks with few questions | gap-a-onboarding.md B#28 | W4a |  |  | lead default: keep the length formula; the screen shows the real count |
+| G-a-29 | Assessment seeds review scheduling for answered questions and records an attempt (origin "assessment") so overall accuracy counts it | gap-a-onboarding.md B#29 | W4a |  |  | lead default: keep (seeds reviews; counts toward overall accuracy per D-15) |
+| G-a-30 | Skipped assessment questions (answers map allows null; skipped is not wrong) | gap-a-onboarding.md B#30 | W4a |  |  | superseded: no skip on AS_Question |
+| G-a-31 | Assessment nudge on the quiz results screen after attempts 1, 3 and 5 ("Get your personalized study plan..." sheet, then banner) | gap-a-onboarding.md B#31 | none |  |  | discard per S0-18 |
+| G-a-32 | Assessment re-entry from the Progress tab, the Quiz tab panel ("Start with the assessment ... N questions") | gap-a-onboarding.md B#32 | W4b |  |  | changed by design: entry is the Home and Quiz assessment card only |
+| G-a-33 | Change exam: error and empty states ("Could not load exams.", "No exams available right now.") | gap-a-onboarding.md B#33 | W4f |  |  | assigned per S0-33 |
+| G-a-34 | Change exam: a custom track listed with the real exams, and the Exam page "N available" counter | gap-a-onboarding.md B#34 | W4f |  |  | changed by design: the grouped picker lists custom tracks and My exam isn't listed; no counter |
+| G-a-35 | Same-exam tap is ignored in Change exam (selected row does nothing) | gap-a-onboarding.md B#35 | W4f |  |  | lead default: tapping the current exam does nothing |
+| G-a-36 | Switching exam keeps the existing exam date and study days (date kept; student asked to confirm) | gap-a-onboarding.md B#36 | W4f |  |  | settled: S0-1 (date kept, confirmation shown) |
+| G-a-37 | Sync reconciliation modal after sign-in ("Choose which progress to keep", Keep my account / Keep this device) | gap-a-onboarding.md B#37 | W4f |  |  | assigned per S0-20 |
+| G-a-38 | Sign-in failure copy (offline) in the signed-out Account screen | gap-a-onboarding.md B#38 | W4f |  |  | assigned per S0-36 |
+| G-a-39 | Sign out confirmation and delete account sending the student back to the onboarding Welcome | gap-a-onboarding.md B#39 | W4f |  |  | assigned per S0-36 (after deletion the app returns to Welcome) |
+| G-a-40 | Resume at the step after exam picker when switching exam from Settings (Back/discard of a half-finished custom track creation) | gap-a-onboarding.md B#40 | W4a |  |  | lead default: Back from the custom steps returns to the picker and saves nothing |
+| G-b-1 | Lessons-read count against total ("3/46") on Home | gap-b-home.md B#1 | none |  |  | discard per S0-11 |
+| G-b-2 | "Lately" line under the stats band: one rotating daily insight (sharpest hour, average sit length, day streak, speed vs accuracy, subject... | gap-b-home.md B#2 | none |  |  | discard per S0-10 |
+| G-b-3 | "Choose your exam" fallback when no exam is selected (Get started to /onboarding on Home; "Choose exam" to /settings/exam on Progress) | gap-b-home.md B#3 | W4b |  |  | assigned per S0-32 |
+| G-b-4 | Home-level loading and failure ("Could not load your home. Pull down to try again." with Try again) | gap-b-home.md B#4 | W4b |  |  | assigned per S0-33 |
+| G-b-5 | Pull-to-refresh on Progress sections | gap-b-home.md B#5 | none |  |  | discard: Progress tab retired (R-5); per-screen Try Again replaces pull to refresh |
+| G-b-6 | "Try a quick quiz" secondary button before the assessment; "Or take a mock exam" link on Progress day one | gap-b-home.md B#6 | W4b |  |  | discard per S0-16 |
+| G-b-7 | Practice start failures: snackbars "No questions are ready right now." and "Could not prepare this quiz." | gap-b-home.md B#7 | W4b |  |  | assigned per S0-33 (Practice This Topic and Practice Weakest Topics failures) |
+| G-b-8 | Which notice shows first when more than one applies (service message, trial ending, welcome to Pro, no date, month only), and Manage / Se... | gap-b-home.md B#8 | W4b |  |  | lead default: one notice at a time in this order: service message, trial ending, welcome to Pro, no date, month only |
+| G-b-9 | Greeting rules: which hour bands pick umaga/hapon/gabi and when "Welcome back" replaces it | gap-b-home.md B#9 | W4b |  |  | lead default: keep the existing hour bands and the Welcome back rule |
+| G-b-10 | "Your pace" panel: % of lessons read, days left, and the arithmetic sentence ("At 3 lessons a week you finish 9 days after the exam. 4 a... | gap-b-home.md B#10 | none |  |  | discard per S0-11 |
+| G-b-11 | "Time" column: seconds per question, measured from timed mocks only, a Time sort head, and the line "Your pace per question appears here... | gap-b-home.md B#11 | W0 |  |  | discard display per S0-12; recording kept (amendment B3) |
+| G-b-12 | "Why you miss questions" (Pro, Free redacted): counts "had it right before", "never seen it", "answered too fast", an interpreting senten... | gap-b-home.md B#12 | W0 |  |  | discard display per S0-13; recording kept (amendment B3) |
+| G-b-13 | Lesson-level availability rule: Lessons level absent until questions carry a lesson id | gap-b-home.md B#13 | W0 |  |  | lead default: Lessons view hidden until questions carry a lesson id; W0 confirms the data |
+| G-b-14 | Chart screen-reader summaries ("Accuracy history. Up 4 percentage points overall, from 55 percent to 61 percent...") | gap-b-home.md B#14 | W4b |  |  | lead default: keep screen-reader summaries for every chart |
+| G-b-15 | Your record has no error state; no empty state when the record cannot load | gap-b-home.md B#15 | W4b |  |  | assigned per S0-33 |
+| G-b-16 | Spaced-repetition explainer paragraph on How you work ("Pantas shows a question again just before you would forget it...") | gap-b-home.md B#16 | none |  |  | discard per S0-15 |
+| G-b-17 | Tendencies when the profile has no label yet (name present, no archetype) | gap-b-home.md B#17 | W4b |  |  | lead default: profile card shows the name with no label line until a label is earned |
+| G-b-18 | Behavior of the Pro mock "dossier" route from the plan timeline | gap-b-home.md B#18 | W1 |  |  | discard: placeholder route removed |
+| G-b-19 | Tap behavior of the Today line, "New material stops", "Mock exam" and exam rows in Coming up (only week rows drill down) | gap-b-home.md B#19 | W4b |  |  | settled: only week rows have a chevron (D-93); other rows are not tappable |
+| G-b-20 | Plan screen when there is no exam date, month only, exam passed, no content, or before the assessment ("42 days until UPCAT" subtitle and... | gap-b-home.md B#20 | W4b |  |  | assigned per S0-33 (plan screen states follow the Home states) |
+| G-b-21 | History sentences for causes with no sample: exam switched, exam date passed, no exam date set, topic order loop (prerequisite cycle), co... | gap-b-home.md B#21 | W4b |  |  | lead default: write the missing cause sentences in the History style |
+| G-b-22 | Daily reminder copy variants (standard, mock day, back after break, calm, first plan) | gap-b-home.md B#22 | W4f |  |  | lead default: keep the daily reminder copy variants (no guilt, no figures not measured) |
+| G-b-23 | Streak-save reminder copy by streak length, and streak freeze ("your streak's freeze will save it, N left this month") | gap-b-home.md B#23 | none |  |  | discard: streak-save replaced by Follow up (S0-4); streak freeze has no board and is dropped |
+| G-b-24 | Which reminder "Follow up" controls (streak-save, come-back, or both) | gap-b-home.md B#24 | W4f |  |  | settled: S0-4 |
+| G-b-25 | Exam countdown notifications (30, 14, 7, 3, 2, 1, 0 days; flagged-question count in the body) | gap-b-home.md B#25 | W4f |  |  | settled: S0-6 and amendment B2 |
+| G-b-26 | Come-back notification after the third missed study day, naming the subject and last score | gap-b-home.md B#26 | W4f |  |  | settled: S0-7 and amendment B2 |
+| G-b-27 | One notification per day, fixed priority; losers dropped | gap-b-home.md B#27 | none |  |  | discard per S0-9 |
+| G-b-28 | Notification tap routing (opens /quiz, /home, Wrapped share) | gap-b-home.md B#28 | W4f |  |  | settled: amendment B2 tap routing |
+| G-b-29 | In-app store review prompt: asked once ever, only after a session with 80% or more right, never within 24 hours of the paywall (not wired... | gap-b-home.md B#29 | W4d |  |  | assigned per S0-19 |
+| G-c-1 | Bookmark ribbon on a topic row when the topic holds a bookmarked lesson | gap-c-study.md B#1 | none |  |  | discard per S0-30 |
+| G-c-2 | Last opened row when nothing has been opened yet (hidden) | gap-c-study.md B#2 | W4c |  |  | assigned per S0-41 |
+| G-c-3 | Search with no recents: empty query shows a blank area | gap-c-study.md B#3 | W4c |  |  | lead default: empty query with no recents shows nothing below the field |
+| G-c-4 | Search loading and error states ("Could not load search results.") | gap-c-study.md B#4 | W4c |  |  | assigned per S0-33 |
+| G-c-5 | Whether search also matches topic names (placeholder now says "Lessons, topics"; today only lessons are searched) | gap-c-study.md B#5 | W4c |  |  | assigned per S0-41 |
+| G-c-6 | Reader loading state (faint bars, whole screen) | gap-c-study.md B#6 | W4c |  |  | assigned per S0-33 |
+| G-c-7 | Reader "Lesson not found." state (lesson id not in the active exam's study map, for example after an exam switch or a Progress row) | gap-c-study.md B#7 | W4c |  |  | assigned per S0-33 |
+| G-c-8 | Read-marking rule details: end within 24px of the bottom and at least 15 seconds on screen; a lesson too short to scroll also needs the 1... | gap-c-study.md B#8 | W4c |  |  | assigned per S0-41 |
+| G-c-9 | Quiz button hidden when no exam is active | gap-c-study.md B#9 | W4c |  |  | lead default: keep (no quiz button without an active exam) |
+| G-c-10 | Lesson quiz with no questions: error banner "No questions are available for this lesson." (and "Lesson not found.") | gap-c-study.md B#10 | W4c |  |  | assigned per S0-33 |
+| G-c-11 | Pull on the last lesson of the last topic of the exam (no next topic) | gap-c-study.md B#11 | W4c |  |  | lead default: last topic of the exam shows its plate with no pull |
+| G-c-12 | Pull from a lesson opened from Bookmarks, Search, Resume or Progress where the topic has later lessons already read | gap-c-study.md B#12 | W4c |  |  | lead default: next means the next lesson in the topic order, read or not |
+| G-c-13 | Reader back label when opened from somewhere other than Study or Home (Home Your performance lesson row, Progress lesson row, bookmark ro... | gap-c-study.md B#13 | W4c |  |  | lead default: the back label names the screen it returns to |
+| G-c-14 | Drawn figures inside lessons (figureSpec, theme-aware code drawings): frame, expand, credit, and the failure box for a bad spec | gap-c-study.md B#14 | W4c |  |  | assigned per S0-41 |
+| G-c-15 | Table blocks in lessons (horizontal scroll, bold first row, malformed table fallback) | gap-c-study.md B#15 | W4c |  |  | assigned per S0-41 |
+| G-c-16 | Unknown block type and malformed inline or display math fall back to a grey "Content unavailable. Update the app." card | gap-c-study.md B#16 | W4c |  |  | lead default: keep the fallback card, restyled |
+| G-c-17 | Spoken labels for math (screen reader reads formulas as sentences) and the fit-to-width of long display math at large text sizes | gap-c-study.md B#17 | W2 |  |  | lead default: keep (math accessibility; see S0-46) |
+| G-c-18 | Fraction promotion rule (\frac shown as \dfrac inline) | gap-c-study.md B#18 | W2 |  |  | settled: AGENTS.md maths rule |
+| G-c-19 | Bookmarks sheet at the largest text size (stacked header, wrapped sort labels, stacked footer) | gap-c-study.md B#19 | W4c |  |  | lead default: keep large-text layouts |
+| G-c-20 | Reader and Study map at the largest text size | gap-c-study.md B#20 | W4c |  |  | lead default: keep large-text layouts |
+| G-c-21 | Bookmark notes and "patterns across bookmarks" (listed as Pro in the entitlement spec) | gap-c-study.md B#21 | none |  |  | discard per S0-30 |
+| G-c-22 | Quiz tab one-time nudge "Study first for better results" (shown when no lesson is read) | gap-c-study.md B#22 | none |  |  | discard per S0-17 |
+| G-c-23 | Study tab entry with a preselected topic (/study?topicId=) and the open-topic memory when the topic no longer exists | gap-c-study.md B#23 | W4c |  |  | lead default: keep the deep link; a missing topic opens the map closed |
+| G-c-24 | Scroll position kept across opening and closing a topic (map re-anchors the tapped row) | gap-c-study.md B#24 | W4c |  |  | lead default: keep scroll anchoring |
+| G-c-25 | Reader page transitions: forward entry from the right, pull entry from below, 380ms | gap-c-study.md B#25 | W4c |  |  | lead default: follow MOTION.md; keep the current transitions where it is silent |
+| G-c-26 | Reader bar: "Back" when the stack is empty falls back to /study or /home (go, not pop) | gap-c-study.md B#26 | W4c |  |  | lead default: keep the fallback |
+| G-c-27 | Lessons with no estimatedMinutes or very long titles in rows (truncation with ellipsis on lesson rows) | gap-c-study.md B#27 | W2 |  |  | lead default: one-line ellipsis in every list row (D-181) |
+| G-c-28 | Syncing of bookmarks across devices and the pending/synced state (no UI) | gap-c-study.md B#28 | W0 |  |  | lead default: keep backend bookmark sync for Pro; no UI |
+| G-d-1 | Flagged questions list screen (grouped by subject, expand a row in place to its choices and notes, tap pennant to unflag, "Practice these... | gap-d-quiz.md B#1 | W4d |  |  | assigned per S0-5 |
+| G-d-2 | Study-first nudge: bottom sheet "Study first for better results" with "Study" and "Start quiz anyway", shown once until dismissed when no... | gap-d-quiz.md B#2 | none |  |  | discard per S0-17 |
+| G-d-3 | Assessment not ready state ("Assessment isn't ready yet", "We're still adding questions for this exam. You can use the rest of Pantas for... | gap-d-quiz.md B#3 | W4h |  |  | assigned per S0-33 |
+| G-d-4 | Quick quiz (random 10 questions, optional topic) at /quiz/quick/:examId; Home offers "Try a quick quiz" beside "Start the assessment" | gap-d-quiz.md B#4 | W4c |  |  | assigned per S0-16 |
+| G-d-5 | Inferred cause line under each miss, Pro only (rushed: "You answered in 4 seconds. You usually take 21 on Chemistry."; slipped: "You had... | gap-d-quiz.md B#5 | none |  |  | discard per S0-14 |
+| G-d-6 | Return promise "You'll see all three again tomorrow." and the "spaced repetition" explainer paragraph on the end screen | gap-d-quiz.md B#6 | none |  |  | discard per S0-14 and S0-15 |
+| G-d-7 | Store review prompt after a session that went well (ask at most once, never near the paywall) | gap-d-quiz.md B#7 | W4d |  |  | assigned per S0-19 |
+| G-d-8 | Passage questions (reading comprehension): passage card above the question, kept together in a session, printed once above a run in the r... | gap-d-quiz.md B#8 | W4d |  |  | assigned per S0-41 |
+| G-d-9 | Quiz-specific error and empty states: failure banner with message and "Retry" (message is e.toString()), "There are no questions in what... | gap-d-quiz.md B#9 | W4d |  |  | assigned per S0-33 and S0-34 |
+| G-d-10 | "Flag removed" toast on unflagging | gap-d-quiz.md B#10 | W4d |  |  | lead default: keep a short Flag removed toast above the bar, matching QV_Flag |
+| G-d-11 | Weak-spot questions in the daily plan (60/30/10 due / weakness / new; a topic is weak at 5+ recent attempts and 40%+ wrong) | gap-d-quiz.md B#11 | none |  |  | superseded: roadmap spec removed the weakness bucket from today's plan |
+| G-d-12 | "Choose your exam" fallback on the Quiz tab when no exam is selected | gap-d-quiz.md B#12 | W4d |  |  | assigned per S0-32 |
+| G-d-13 | Lesson with no tagged questions inside Customize your own (selectable, contributes 0) | gap-d-quiz.md B#13 | W4d |  |  | lead default: show No questions yet and dim the lesson, like topics |
+| G-d-14 | Hardware back or swipe back during a question (leaves without the dialog) | gap-d-quiz.md B#14 | W4d |  |  | lead default: system back opens the Leave this session? dialog |
+| G-d-15 | Review/results route /quiz/results/:attemptId (same screen as /review, reached from nowhere in the app) | gap-d-quiz.md B#15 | W1 |  |  | discard: dead route removed |
+| G-e-1 | Mock "not ready" states: no blueprint for the exam; blueprint fails to parse; setup screen with nothing to show. | gap-e-mock.md B#1 | W4e |  |  | assigned per S0-33 |
+| G-e-2 | Mock in progress on the Quiz card: text, Resume button, and where a paused or left mock is re-entered and discarded from outside the paus... | gap-e-mock.md B#2 | W4e |  |  | lead default: an in-progress mock shows on the Quiz card with Resume, using the QZ_Resume pattern |
+| G-e-3 | Launch-time prompt for an unfinished mock: resume with elapsed and remaining time, discard, and finishing a mock whose time ran out while... | gap-e-mock.md B#3 | W4e |  |  | assigned per S0-37 |
+| G-e-4 | Back button or swipe-back during the paper: "Leave mock? The clock keeps running." with Leave / Stay, also in strict mode. | gap-e-mock.md B#4 | W4e |  |  | assigned per S0-37 |
+| G-e-5 | Reading Comprehension passages in the paper and in the review. A passage is printed with its questions and once above a run of questions... | gap-e-mock.md B#5 | W4e |  |  | assigned per S0-41 |
+| G-e-6 | Jump shortcuts "Next blank" and "Next flagged" in the questions sheet. | gap-e-mock.md B#6 | none |  |  | discard per S0-26 |
+| G-e-7 | Setup for an exam with unpublished part timing (ACET, MSU-SASE). The old "we do not know yet" line and the roam-the-whole-paper default. | gap-e-mock.md B#7 | W4e |  |  | assigned per S0-37 |
+| G-e-8 | Whether the strict switch on setup changes the Settings value or applies to this one mock. | gap-e-mock.md B#8 | W4e |  |  | assigned per S0-38 |
+| G-e-9 | Where "Don't show this again" is stored and how to turn the pause warning back on. | gap-e-mock.md B#9 | W4e |  |  | assigned per S0-38 |
+| G-e-10 | Failure messages while saving progress: snackbar "Could not save your mock progress." and the spec's "Saving paused" banner; a saved mock... | gap-e-mock.md B#10 | W4e |  |  | assigned per S0-34 and S0-37 |
+| G-e-11 | Short paper notice: "This mock has N questions instead of M" when the question bank cannot fill a part. | gap-e-mock.md B#11 | W4e |  |  | assigned per S0-29 |
+| G-e-12 | Not repeating questions from the student's last two mocks. | gap-e-mock.md B#12 | W4e |  |  | assigned per S0-28 |
+| G-e-13 | Retired questions: counted out of the total, so a paper can score out of fewer than 250 with no mention. | gap-e-mock.md B#13 | W4e |  |  | lead default: retired questions leave the total; the results line shows the real count |
+| G-e-14 | Strict-attempt marking on a finished (not abandoned) mock: old spec showed a "Strict" badge. | gap-e-mock.md B#14 | none |  |  | discard per S0-27 |
+| G-e-15 | Where Done leads on the mock results screen, and where Done / back go when the screen was opened from the Quiz card or from the record. | gap-e-mock.md B#15 | W4e |  |  | lead default: Done returns to where the student opened results |
+| G-e-16 | Reaching an older (not the latest) mock, and the Free window for it: what "next mock opens" means when a mock was taken during Pro and Pr... | gap-e-mock.md B#16 | W4e |  |  | lead default: Free review window applies per mock as decided (R-1); after Pro lapses, the Free rule applies |
+| G-e-17 | Reduced motion and large text for the end animation, hourglass and results: old score count-up respects the system setting and the perfor... | gap-e-mock.md B#17 | W4e |  |  | lead default: honor reduced motion and large text on every mock screen |
+| G-e-18 | Custom track mock card: "nothing set up" body and "Set one up" button; "set up" body "120 questions, 2 hours. You set this up." with "Cha... | gap-e-mock.md B#18 | W4e |  |  | assigned per S0-39 |
+| G-e-19 | Editing a saved custom setup: the form always opens at 120 questions and 120 minutes and drops any saved breakdown. | gap-e-mock.md B#19 | W4e |  |  | assigned per S0-39 |
+| G-e-20 | Custom setup details: unset subject rows when the breakdown is open (the page ignores the breakdown if no row is set); a track with zero... | gap-e-mock.md B#20 | W4e |  |  | lead default: unset rows block Save with a line; Save returns to the Quiz tab |
+| G-e-21 | Names on a custom mock's setup table, results header, and cooldown (the track name in place of "{EXAM} simulation"). | gap-e-mock.md B#21 | W4e |  |  | lead default: the track name replaces the exam name |
+| G-f-1 | Sign-in nudges at milestones (after first mock, after a 3-day streak, on a new device) and "Already a Pro? Restore" on the new-device nudge | gap-f-settings.md B#1 | none |  |  | discard per S0-23 |
+| G-f-2 | Choice when the account already has progress and so does this phone ("Keep my account" / "Keep this device"), non-dismissable | gap-f-settings.md B#2 | W4f |  |  | assigned per S0-20 |
+| G-f-3 | Sign-in failure other than offline (user cancels the Google sheet, other auth error) | gap-f-settings.md B#3 | W4f |  |  | assigned per S0-36 |
+| G-f-4 | Delete my data for a signed-out (anonymous) student | gap-f-settings.md B#4 | W4f |  |  | assigned per S0-21 |
+| G-f-5 | Fresh Google sign-in before deletion when the last sign-in is older than 5 minutes | gap-f-settings.md B#5 | W4f |  |  | assigned per S0-36 |
+| G-f-6 | Delete failure and retry ("We could not complete deletion. Try again or contact our DPO at ...") and what the app shows after success (ol... | gap-f-settings.md B#6 | W4f |  |  | assigned per S0-36 |
+| G-f-7 | Warning on Sign Out when changes are not yet backed up ("You have N items not yet backed up") | gap-f-settings.md B#7 | none |  |  | discard: sign-out keeps data on the phone (ST_SignOut) |
+| G-f-8 | Sign out while offline ("Working offline" handling, retry of the anonymous session) | gap-f-settings.md B#8 | W4f |  |  | assigned per S0-36 |
+| G-f-9 | In-app data export | gap-f-settings.md B#9 | none |  |  | discard per S0-22 |
+| G-f-10 | "Manage account data" shortcut from Privacy policy to account deletion, and the DPO email block on legal pages | gap-f-settings.md B#10 | W4f |  |  | changed by design: plain legal pages (ST_Privacy); DPO row stays in About |
+| G-f-11 | Legal page error state ("Legal page not found") and fallback copy when a document is missing | gap-f-settings.md B#11 | W4f |  |  | assigned per S0-33 |
+| G-f-12 | Pro page for a canceled-but-active plan ("Ends <date>", won't renew, "Re-enable in Google Play") | gap-f-settings.md B#12 | W3 |  |  | assigned per S0-35 |
+| G-f-13 | Pro page during a trial (Plan "Monthly trial", "Charges <date>") | gap-f-settings.md B#13 | W3 |  |  | assigned per S0-35 |
+| G-f-14 | Pro page when RevenueCat reports an active product this build does not recognize (shows "Pro", no plan) | gap-f-settings.md B#14 | W3 |  |  | assigned per S0-35 |
+| G-f-15 | Pro page for a manual (promotional) grant from a giveaway: plan name, end date, no Google Play management | gap-f-settings.md B#15 | W3 |  |  | assigned per S0-35 |
+| G-f-16 | Billing problem or grace period on a failed renewal (Weekly) | gap-f-settings.md B#16 | W3 |  |  | assigned per S0-35 |
+| G-f-17 | "Manage in Google Play" fails to open ("We couldn't open Google Play. You can manage your subscription in the Google Play app.") | gap-f-settings.md B#17 | W4f |  |  | assigned per S0-35 |
+| G-f-18 | Restore failures other than none-found/offline: Google Play check failed, "found a purchase but Pro couldn't be confirmed yet", restore u... | gap-f-settings.md B#18 | W3 |  |  | assigned per S0-35 |
+| G-f-19 | Purchase errors and loading: "Loading subscriptions...", store could not complete, "subscription couldn't be confirmed yet", subscription... | gap-f-settings.md B#19 | W3 |  |  | assigned per S0-35 |
+| G-f-20 | Where "Unlock with Pro" and Pro-only routes lead, and where the student lands after buying (returnTo, then Welcome banner) | gap-f-settings.md B#20 | W4f |  |  | assigned per S0-24 (Pro buttons open the Pro page and return) |
+| G-f-21 | Trial disclosure with the real charge date before starting a trial (Today / Day 5 / Day 7, "Cancel before then and you pay nothing") | gap-f-settings.md B#21 | none |  |  | discard per S0-24 |
+| G-f-22 | Trial-ending reminders: in-app banner window and a local push 24 hours before the charge | gap-f-settings.md B#22 | W3 |  |  | settled: S0-25 and amendment B2 (trial-ending notification) |
+| G-f-23 | Plan cost through the exam date ("Your exam is in 71 days", total per plan, renewals, Yearly overshoot) | gap-f-settings.md B#23 | none |  |  | discard per S0-24 |
+| G-f-24 | Notification for an exam countdown (30, 14, 7, 3, 2, 1 days, day of "Today's the day.") and its behavior when daily reminders are off (la... | gap-f-settings.md B#24 | W4f |  |  | settled: S0-6 and amendment B2 |
+| G-f-25 | Come-back notification after 3 missed study days, once | gap-f-settings.md B#25 | W4f |  |  | settled: S0-7 and amendment B2 |
+| G-f-26 | Streak-save notification (60 minutes before the reminder, only with a live streak) | gap-f-settings.md B#26 | none |  |  | discard: replaced by Follow up (S0-4) |
+| G-f-27 | Wrapped-ready notification and tap routing to the Wrapped | gap-f-settings.md B#27 | none |  |  | discard per S0-8 |
+| G-f-28 | Daily reminder text variants (mock day, welcome back, quick check-in, first plan) and the priority order examCountdown > streakSave > dai... | gap-f-settings.md B#28 | W4f |  |  | lead default: keep the copy variants |
+| G-f-29 | Follow-up time editable in Settings (onboarding board has "At 9:00 PM"; the Settings board has only the switch) | gap-f-settings.md B#29 | W4f |  |  | settled: S0-4 (Follow up time row) |
+| G-f-30 | Turning the Daily reminder switch on when the phone has not yet been asked for notification permission (system prompt) | gap-f-settings.md B#30 | W4f |  |  | lead default: turning a reminder on asks for permission the first time |
+| G-f-31 | Pro/entitlement-changed transfer notice ("Pro moved to another account") | gap-f-settings.md B#31 | W3 |  |  | assigned per S0-35 (the Pro page shows the true state; no separate notice) |
+| G-g-1 | How a Wrapped is first shown: the entry point (foreground reveal after a mock result, after a streak day, on opening the app the day afte... | gap-g-wrapped.md B#1 | W4g |  |  | assigned per S0-40 |
+| G-g-2 | Wrapped push notification: title and body from the payload ("Tap to see your Wrapped."), deep link, quiet hours (exam-day one ignores the... | gap-g-wrapped.md B#2 | none |  |  | discard per S0-8 |
+| G-g-3 | Slide navigation rules: tap or swipe to advance, back a slide, auto-advance and pause, progress marks, a close or back control mid-sequen... | gap-g-wrapped.md B#3 | W4g |  |  | assigned per S0-40 |
+| G-g-4 | Reopening a Wrapped from a notification when its record is missing or fails to load | gap-g-wrapped.md B#4 | none |  |  | discard per S0-8 |
+| G-g-5 | Slides skipped when a signal has no data (arc shrinks to as few as 2 slides) | gap-g-wrapped.md B#5 | W4g |  |  | assigned per S0-40 |
+| G-g-6 | No-label case: Wrapped does not fire if no archetype resolves; day-1 mock with no signals gets a celebratory toast instead | gap-g-wrapped.md B#6 | W4g |  |  | assigned per S0-40 (no label means the label slide is skipped) |
+| G-g-7 | Toast for a mock that is not first or a new best (instead of a Wrapped) | gap-g-wrapped.md B#7 | none |  |  | discard per S0-31 |
+| G-g-8 | "Your name" switch and "Well done, <name>." when the student has no name (skipped onboarding, signed out) | gap-g-wrapped.md B#8 | W4g |  |  | assigned per S0-40 |
+| G-g-9 | "Week of prep" when there is no exam date or no weeks (custom track, undated prep) | gap-g-wrapped.md B#9 | W4g |  |  | assigned per S0-40 |
+| G-g-10 | Share failure other than offline (upload fails, rate limit, App Check refusal, storage error) | gap-g-wrapped.md B#10 | W4g |  |  | assigned per S0-33 and S0-34 |
+| G-g-11 | Sharing the same Wrapped again: old code makes a new link each time and the earlier link stays public and unlisted (one share id kept per... | gap-g-wrapped.md B#11 | W4g |  |  | assigned per S0-40 |
+| G-g-12 | Remove failure (no connection, server error) on Shared links; what shows while removing | gap-g-wrapped.md B#12 | W4g |  |  | assigned per S0-34 |
+| G-g-13 | Shared links loading and error states; link row tap (copy or open) | gap-g-wrapped.md B#13 | W4g |  |  | assigned per S0-33 |
+| G-g-14 | Free student taps the Pro-tagged Your Wrapped row (opens paywall? explains?) | gap-g-wrapped.md B#14 | W4g |  |  | assigned per S0-24 (opens the Pro page) |
+| G-g-15 | Pro lapses: are saved Wrappeds kept and shown with the Pro tag; Pro History empty state (Pro with 0 Wrappeds); count on the Pro row at 0 | gap-g-wrapped.md B#15 | W4g |  |  | lead default: saved Wrappeds are kept; the row shows the Pro tag after a lapse; empty history shows the row's empty state |
+| G-g-16 | Wrapped history across exams (switching exam: per-exam list or all; exam name on each entry) | gap-g-wrapped.md B#16 | W4g |  |  | lead default: one list across exams, each entry named with its exam |
+| G-g-17 | Replaying a Wrapped from history: whether it shows the saved figures or recomputes; whether replay shares with the stored label | gap-g-wrapped.md B#17 | W4g |  |  | lead default: replay uses the saved figures and label |
+| G-g-18 | Pro history lost on reinstall (decision keeps it local until sync) has no student-facing wording | gap-g-wrapped.md B#18 | none |  |  | settled: R-2 accepted the loss; no wording |
+| G-g-19 | Public landing page pantas.app/wrapped/<id>: echoed image, label headline "Your friend is a ... What are you?", Get your Wrapped, store r... | gap-g-wrapped.md B#19 | W4g |  |  | lead default: keep the existing web page as built |
+| G-g-20 | Account deletion purges hosted Wrapped links and images; data export includes the shared-link list | gap-g-wrapped.md B#20 | W4g |  |  | assigned per S0-40 |
+| G-g-21 | Analytics events wrapped_revealed and wrapped_shared (consent-gated), sharePlatform record | gap-g-wrapped.md B#21 | W0 |  |  | lead default: keep consent-gated analytics events |
+| G-h-1 | Tab-switch animation (glyph fills bottom to top over 400 ms; outgoing tab drains at once; skipped under reduce motion) | gap-h-shell-states.md B#1 | W1 |  |  | lead default: follow MOTION.md; no animation where it is silent |
+| G-h-2 | Re-tapping the active tab returns it to its root screen; each tab keeps its own screen stack | gap-h-shell-states.md B#2 | W1 |  |  | assigned per S0-42 |
+| G-h-3 | Pro-only route redirect: /plan/dossier/:mockId is a placeholder page ("Pro dossier: placeholder") and the only route that sends Free to /... | gap-h-shell-states.md B#3 | W1 |  |  | discard: placeholder route removed |
+| G-h-4 | /paywall route: a full-screen Try Pro flow (what Pro adds, plans, trial timeline, Restore in the app bar, Close, returnTo back to the scr... | gap-h-shell-states.md B#4 | W4f |  |  | discard per S0-24 |
+| G-h-5 | Paywall store states: "Loading subscriptions...", "Google Play couldn't load subscriptions right now." + Try again, "Subscriptions aren't... | gap-h-shell-states.md B#5 | W3 |  |  | assigned per S0-35 |
+| G-h-6 | Legacy redirects /more to /settings and /settings/subscription to /settings/pro | gap-h-shell-states.md B#6 | W1 |  |  | assigned per S0-42 |
+| G-h-7 | Where a reminder or Wrapped notification lands on tap (route in payload, /quiz, /wrapped/:id; taps older than 4 hours go to /home) | gap-h-shell-states.md B#7 | W4f |  |  | settled: amendment B2 tap routing |
+| G-h-8 | App fails to start: bootstrap errors (storage, content install, Firebase) only reach debugPrint and telemetry | gap-h-shell-states.md B#8 | W4h |  |  | assigned per S0-33 (start failure uses the app-wide error screen) |
+| G-h-9 | Home load failure: "Could not load your home. Pull down to try again." with Try again | gap-h-shell-states.md B#9 | W4b |  |  | assigned per S0-33 |
+| G-h-10 | Quiz tab load failure: "Could not load your practice. Pull down to try again." | gap-h-shell-states.md B#10 | W4d |  |  | assigned per S0-33 |
+| G-h-11 | Quiz session failure with Retry (QuizFailure), and spec's "Couldn't save your answer, try again" when an answer fails to save | gap-h-shell-states.md B#11 | W4d |  |  | assigned per S0-33 and S0-34 |
+| G-h-12 | Raw exception text shown to the student on load failure: "Error: $e" on What's included, Your record, mock review, mock session; "Error l... | gap-h-shell-states.md B#12 | W4h |  |  | assigned per S0-33 (never show raw error text) |
+| G-h-13 | Other load-failure states with their own copy and no board: flagged list, quiz results, assessment results, topic ending, Change exam lis... | gap-h-shell-states.md B#13 | W4h |  |  | assigned per S0-33 |
+| G-h-14 | Wrapped load failure and Shared links load failure | gap-h-shell-states.md B#14 | W4g |  |  | assigned per S0-33 |
+| G-h-15 | Lesson search load failure "Could not load search results." | gap-h-shell-states.md B#15 | W4c |  |  | assigned per S0-33 |
+| G-h-16 | Section failures that hide silently (empty gap): Home tendencies, practice and up-next panels; Quiz session panel; progress "why you miss... | gap-h-shell-states.md B#16 | W4h |  |  | assigned per S0-33 (a failed section shows the error pattern, not a gap) |
+| G-h-17 | Assessment not ready state: "Assessment isn't ready yet" / "We're still adding questions for this exam..." / Back to Quiz | gap-h-shell-states.md B#17 | W4h |  |  | assigned per S0-33 |
+| G-h-18 | Mock start error screen: "Error" title, message, and "Discard saved mock" for a corrupt saved attempt | gap-h-shell-states.md B#18 | W4e |  |  | assigned per S0-37 |
+| G-h-19 | Mock autosave failure snackbar "Could not save your mock progress." | gap-h-shell-states.md B#19 | W4e |  |  | assigned per S0-34 |
+| G-h-20 | Onboarding exam-pick save failure snackbar "Couldn't save selection. Try again." with Retry | gap-h-shell-states.md B#20 | W4a |  |  | assigned per S0-34 |
+| G-h-21 | "Study first for better results" bottom sheet once, when starting today's quiz before reading any lesson: Study / Start quiz anyway | gap-h-shell-states.md B#21 | none |  |  | discard per S0-17 |
+| G-h-22 | Sync conflict dialog after sign-in when both the phone and the account hold progress: Keep my account / Keep this device, cannot be dismi... | gap-h-shell-states.md B#22 | W4f |  |  | assigned per S0-20 |
+| G-h-23 | Play in-app review prompt: asked once, only after a good finish, never within a cool-off after the paywall | gap-h-shell-states.md B#23 | W4d |  |  | assigned per S0-19 |
+| G-h-24 | "Flag removed" toast when un-flagging | gap-h-shell-states.md B#24 | W4d |  |  | lead default: keep a short Flag removed toast (same as G-d-10) |
+| G-h-25 | Whether a closed service message stays closed, and whether a new message reopens it | gap-h-shell-states.md B#25 | W4b |  |  | lead default: a closed service message stays closed until its text changes |
+| G-h-26 | Spec-only toasts never built: post-answer rating toast ("Good, next review in 4d"), "Signed out" snackbar after sign out, "Your study pla... | gap-h-shell-states.md B#26 | none |  |  | discard: never built; the design bans scheduling hints |
+| G-h-27 | Offline spec rules: no connectivity banner or indicator, no blocking spinner on local data, last entitlement stands on network failure, f... | gap-h-shell-states.md B#27 | W0 |  |  | lead default: keep the offline posture rules |
+| G-h-28 | Icons in the app with no IC_Final entry: globe (Icons.public) on the share privacy note, collections-bookmark on the Wrapped reveal bar,... | gap-h-shell-states.md B#28 | W2 |  |  | lead default: map each to its Phosphor equivalent on IC_Final |
+| G-h-29 | Flagged-questions list screen (list, Practice these, empty state "Flag anything you want to come back to / Go back") | gap-h-shell-states.md B#29 | W4d |  |  | assigned per S0-5 (same as G-d-1) |
+| G-h-30 | Quick-quiz route /quiz/quick/:examId and its Home entry "Try a quick quiz" (shown before the assessment) | gap-h-shell-states.md B#30 | W4c |  |  | assigned per S0-16 (same as G-d-4) |
