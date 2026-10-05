@@ -193,12 +193,19 @@ documents, and updates every lower document affected. Behavior changes return to
 
 ### B7. Model layering
 
-- **Lead (Opus):** spec update, contracts, W0, W1, W3, W5 plans, completing W4 plans, gate fixes,
-  integration, final checks, decision record, SSOT. Never delegated: product decisions, payments
-  logic review, schema bumps.
-- **Sonnet, medium:** gap pass, kept-work triage, traceability table, W4 first drafts, keyframe
-  extraction with `docs/design/tools/timeline.py`, mechanical edits, test scaffolds.
-- **Independent reviewers:** gate reviews and per-workstream code review, never the author.
+Aedwon's rule (October 5): planning uses Opus 5.5 at medium effort; Sonnet 5.5 only for parts
+that need no reasoning. Implementation uses Sonnet 5.5 unless the lead judges a task needs Opus.
+
+- **Opus 5.5, medium (lead and planners):** everything in stage 0 steps 3 and 5, every level 2
+  and level 3 plan including the W4 screen plans, gap-pass merging and judgment, gate reviews,
+  change control, integration, final checks.
+- **Sonnet 5.5, medium (no reasoning needed):** gathering for the gap pass (listing what each old
+  screen and spec contains), kept-work inventories, building the traceability table rows,
+  keyframe extraction with `docs/design/tools/timeline.py`, SSOT and log transcription.
+- **Implementation:** Sonnet 5.5 workers by default. Opus for W0 merge conflicts, W3 payments and
+  entitlement logic, any schema change, and any task a Sonnet worker stops on twice.
+- **Independent reviewers:** Opus for gate reviews and for W0 and W3 code review; Sonnet may
+  review other code workstreams. Never the author.
 - Every dispatch carries the startup instruction from `docs/workflow/startup.md` and the policy
   revision.
 
@@ -206,3 +213,26 @@ documents, and updates every lower document affected. Behavior changes return to
 
 The weekly limit resets Saturday 2 PM. Stage 0 steps 1, 2, 4, and 6 are Sonnet work and can run
 before the reset if Aedwon wants. Steps 3 and 5 and all of levels 2 and 3 use the lead model.
+
+### B9. Unattended running
+
+Goal: after Aedwon answers stage 0, the work runs through levels 2 and 3 to the start of level 4
+without him, resuming by itself after usage limits reset.
+
+- **Status file:** `docs/superpowers/plans/new-design/STATUS.md` on main. It holds the current
+  stage, the next step, what is waiting on Aedwon (if anything), a lock with a start time, and the
+  last completed step with its commit. Every step ends by updating and pushing it, so any fresh
+  session can resume from it alone.
+- **Resume task:** a desktop scheduled task runs about every hour. Each run starts fresh, reads the
+  policy files and the status file, and then:
+  - If the lock is held and younger than 3 hours, it exits.
+  - If the status says it is waiting on Aedwon, it exits.
+  - Otherwise it takes the lock, does the next step, records it, releases the lock.
+- **Notifications:** a push notification only when Aedwon is needed: a product question, a stop
+  condition, a gate passed that needs his eyes, or the start of level 4.
+- **Limits:** a run that hits a 5-hour limit stops; the next hourly run after the reset continues.
+  When the weekly limit is reached, nothing runs until it resets or Aedwon resets it.
+- **Unverified:** how a scheduled run behaves when it starts while the limit is still in effect.
+  The first unattended run will confirm it; until then, the hourly retry is the fallback.
+- The task is removed when level 4 starts or when Aedwon asks.
+
