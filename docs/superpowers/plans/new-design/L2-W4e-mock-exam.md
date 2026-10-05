@@ -60,8 +60,8 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
 - Questions avoid the student's last two mocks (S0-28). Mock answers feed reviews (D-258).
 - Custom-track mock per D-243 and S0-39 (card states, saved values reopen).
 - Free limit via W3 `mockLimit`; the card says when the next opens.
-- After Pro lapses: the rule Aedwon approves (gate F-18; proposed: the Free rule applies, nothing is
-  deleted, renewing restores access).
+- After Pro lapses: the Free rule applies, nothing is deleted, renewing restores access (Aedwon,
+  Oct 6, gate F-18).
 - Discarded: Next blank and Next flagged, Strict badge (S0-26, S0-27).
 
 ## 5. Motion

@@ -471,3 +471,30 @@ Fixed by the lead:
 Open for Aedwon: the tier spec (with its three questions), F-16 (Pro pages for exams that are
 Coming soon), F-18 (what a student keeps after Pro lapses), F-19 (notice order, History sentences
 and Follow up copy). For his information: F-29, F-30, F-35.
+
+## October 6, 2026: answers to gate review 1 questions and the tier spec
+
+Exact answers:
+
+> 1. a
+> 2. ok
+> 3. ok
+>
+> sorry i need figures for CSE weekly. and yearly. does that go against the pricing doc?
+
+> weekly 49 yearly 1199
+
+Resulting decisions (items not answered take the stated recommendation, per the reply convention):
+1. Tier spec Part A approved. Official exam dates: Aedwon supplies each with its source link; an
+   exam without one sells no pass and shows no known-date card. Price points confirmed by Aedwon in
+   Play Console before products are created. Product names as proposed, plus the two new plans.
+2. Civil Service adds Weekly ₱49 and Yearly ₱1,199 (Monthly ₱149 with the trial, pass ₱499).
+   `docs/pricing.md` updated. CSE Pro page follows the academy-exam layout (preview
+   `docs/design/proposals/cse-pro-2026-10-06.html`, board ST_ProCSE_v2). Products:
+   `pantas_cs_weekly`, `pantas_cs_monthly`, `pantas_cs_yearly`, `pantas_pass_civil_service`.
+3. F-16: Pro pages for Licensure, academy exams and PSHS-NCE are deferred until those exams launch.
+4. F-18: after Pro lapses, Free rules apply to mock reviews and Wrapped history; nothing is deleted;
+   renewing restores.
+5. F-19: notice order, History sentences and Follow up copy as proposed.
+6. F-29, F-30, F-35 noted for information: streak freeze code stays dormant; the Wrapped web page
+   keeps its copy; existing daily reminder messages stay.

@@ -1,6 +1,8 @@
 # Pro by exam tier: entitlement design
 
-Date: October 6, 2026. Status: awaiting Aedwon's approval of Part A.
+Date: October 6, 2026. Status: Part A approved by Aedwon on October 6, 2026 with Civil Service
+Weekly and Yearly added (decision record). Visual companion: `docs/design/proposals/cse-pro-2026-10-06.html`
+(board `ST_ProCSE_v2`).
 Policy revision read: origin/main 12fb353b.
 Required by `docs/pricing.md` ("Not yet settled": tiers need a design spec covering entitlements,
 new product IDs, upgrade handling and pass expiry before any product is created; product IDs are
@@ -21,8 +23,9 @@ sell nothing.
 
 ### How it works for a student
 
-1. **Prices follow the exam.** Student: ₱29 weekly, ₱99 monthly, ₱799 yearly. Civil Service: ₱149
-   monthly or a ₱499 pass.
+1. **Prices follow the exam.** Student: ₱29 weekly, ₱99 monthly, ₱799 yearly. Civil Service: ₱49
+   weekly, ₱149 monthly, ₱1,199 yearly, or a ₱499 pass. The CSE Pro page uses the academy-exam
+   layout: three plan cards, then the pass as a wide card (ST_ProCSE_v2).
 2. **A higher plan covers lower exams.** Civil Service Pro also covers every Student exam.
 3. **A pass covers one exam until its next sitting.** It is paid once, never renews, and ends after
    the next published exam date. Buying another pass later starts again for the following sitting.
@@ -42,16 +45,17 @@ sell nothing.
    - (a) You supply each date with its official source link, and we record both in the content.
      **Recommended.** It is the only way that meets "never invent a figure".
    - (b) No dates at launch: no passes can be bought, and onboarding always asks for the date.
-2. **Price points.** Google Play must offer ₱149 and ₱499 in the Philippines. You confirm this in
+2. **Price points.** Google Play must offer ₱49, ₱149, ₱1,199 and ₱499 in the Philippines. You confirm this in
    Play Console before the products are created. If a price is not offered, the work stops and you
    pick the nearest price.
-3. **New product names** (permanent once created): `pantas_cs_monthly` (₱149 a month, 7-day trial)
-   and `pantas_pass_civil_service` (₱499, bought again for each sitting). The existing Student
+3. **New product names** (permanent once created): `pantas_cs_weekly` (₱49), `pantas_cs_monthly`
+   (₱149 a month, 7-day trial), `pantas_cs_yearly` (₱1,199) and `pantas_pass_civil_service` (₱499,
+   bought again for each sitting). The existing Student
    products stay. **Recommended** as named.
 
 ### What you do in the stores (with step-by-step instructions at level 3)
 
-Create the two products in Play Console; set the trial on Student Monthly and Civil Service Monthly
+Create the four products in Play Console; set the trial on Student Monthly and Civil Service Monthly
 with "new customers only, across all subscriptions"; remove the trial from Yearly; mirror all of it
 in RevenueCat. Nothing is created until you approve this spec.
 
@@ -83,13 +87,13 @@ webhook stores the result.
 ### B3. Products and RevenueCat
 
 - Subscriptions in one Play subscription group so replacement works: Student weekly, monthly,
-  yearly; Civil Service monthly. RevenueCat entitlement `pro` stays; the tier is derived from the
+  yearly; Civil Service weekly, monthly, yearly. RevenueCat entitlement `pro` stays; the tier is derived from the
   product id in one table (W3).
 - Pass: consumable `pantas_pass_civil_service`, RevenueCat non-subscription purchase; the app sends
   the exam id as purchase metadata; the server rejects a pass for an exam with no future published
   sitting.
-- Upgrade: `purchase` with Google Play replacement mode "charge prorated price" from the Student
-  subscription to Civil Service monthly.
+- Upgrade: `purchase` with Google Play replacement mode "charge prorated price" from a Student
+  subscription to the Civil Service plan the student picks.
 
 ### B4. Trial eligibility
 

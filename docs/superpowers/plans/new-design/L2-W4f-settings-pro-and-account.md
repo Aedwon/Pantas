@@ -63,12 +63,15 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
 - About per D-214: DPO row, no export (S0-22); legal pages plain (G-f-10).
 - Appearance: Light, Dark, Automatic; Text size slider (W1 scale); Remember table order (writes W4b's
   `tableOrderRememberedProvider`).
-- Pro pages for Licensure, academy exams and PSHS-NCE: build now or defer, per Aedwon (gate F-16;
-  proposed: defer, since those exams are Coming soon and the pages are unreachable).
+- Pro pages for Licensure, academy exams and PSHS-NCE are deferred until those exams launch (Aedwon,
+  Oct 6, gate F-16); their board rows are marked deferred.
+- The CSE Pro page follows `ST_ProCSE_v2` (Weekly ₱49, Monthly ₱149, Yearly ₱1,199, pass ₱499),
+  replacing ST_ProCSE and ST_ProCSEPass layouts (tier spec, approved Oct 6).
 - Deletes `lib/features/notifications/presentation/permission_rationale_page.dart` and
   `lib/features/notifications/application/wrapped_trigger_notification_router.dart` (S0-8).
 - Adds a link to W2's gallery from the debug page (debug builds only).
-- Follow up notification copy has no board: wording per Aedwon (gate F-19).
+- Follow up notification copy: "Still time today" / "One short session gets today's plan started."
+  (Aedwon, Oct 6, gate F-19).
 
 ## 5. Motion
 

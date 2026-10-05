@@ -24,13 +24,12 @@ Level 2 (strategy B4). Stage 0 exited October 6, 2026.
 
 ## Waiting on Aedwon
 
-Yes: approval of `specs/2026-10-06-tier-pricing-design.md` Part A (three questions) and level 2
-gate questions F-16, F-18, F-19 (decision record, Oct 6). Then gate review 2.
+Nothing.
 
 ## Next step
 
-Level 2 gate review (B4) by an independent Opus reviewer; the lead fixes findings and records
-the gate in the decision record. Then level 3 (B5).
+Level 2 gate review 2 (independent Opus reviewer) on the fixed plans; then record the gate and
+start level 3 (B5).
 
 ## Steps
 
@@ -50,7 +49,7 @@ the gate in the decision record. Then level 3 (B5).
 | Stage 0 exit | done | all B3 steps done; every input item has a workstream |
 | B3.5 execution arrangement | done | recorded in the decision record |
 | Level 2 plans (B4) | done | 13 plans; traceability level 2 column filled |
-| Level 2 gate review | review 1 not passed; fixes done; waiting on Aedwon | gates/l2-gate-review-1.md |
+| Level 2 gate review | review 1 not passed; fixes and Aedwon's answers applied; review 2 next | gates/l2-gate-review-1.md |
 | Level 3 plans (B5) | pending | |
 | Level 3 gate review | pending | |
 | Stop before level 4, notify Aedwon | pending | |

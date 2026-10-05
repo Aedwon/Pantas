@@ -48,8 +48,8 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
 - No ordinary-mock message; no Wrapped push (S0-31, S0-8); W4f deletes the push router. Words
   "cards" and "mastery" never appear.
 - Consent-gated analytics events `wrapped_revealed` and `wrapped_shared` are kept (G-g-21).
-- After Pro lapses: per Aedwon (gate F-18; proposed: saved Wrappeds are kept and history shows the
-  Pro tag; renewing restores).
+- After Pro lapses: saved Wrappeds are kept and history shows the Pro tag; renewing restores (Aedwon,
+  Oct 6, gate F-18).
 - The public pantas.app page is website copy, which Aedwon writes; it is kept as built and listed for
   his review (gate F-30).
 - Free and Pro: history is Pro (D-251). Placeholders: none.

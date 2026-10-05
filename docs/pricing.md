@@ -26,7 +26,7 @@ Prices follow the exam the user has selected. Each tier has its own paywall.
 |---|---|---|---|
 | Student | CETs (UPCAT and other college entrance tests), DOST and SM scholarship exams | ₱29 weekly, ₱99 monthly, ₱799 yearly | Products live as `pantas_pro_weekly`, `pantas_pro_monthly`, `pantas_pro_yearly` |
 | Student, academy exams | PMA, PNPA, PMMA, MAAP | Student plans above, plus a ₱299 season pass | Content is a future update. Release requires the abstract reasoning generator |
-| Civil Service | CSE Professional and Subprofessional, NAPOLCOM, AFPSAT | ₱149 monthly, or a ₱499 pass valid to the next exam date. No weekly plan | New products needed. NAPOLCOM and AFPSAT content is a future update |
+| Civil Service | CSE Professional and Subprofessional, NAPOLCOM, AFPSAT | ₱49 weekly, ₱149 monthly, ₱1,199 yearly, or a ₱499 pass valid to the next exam date (weekly and yearly added by Aedwon, 6 October 2026) | New products needed. NAPOLCOM and AFPSAT content is a future update |
 | Licensure | LET, PNLE, and later PRC exams | ₱249 monthly, or a ₱1,499 pass valid to the board exam date | Content is a future update |
 | PSHS-NCE | PSHS National Competitive Examination | ₱1,499 season pass only. No subscription | Content is a future update. Release requires the abstract reasoning generator |
 

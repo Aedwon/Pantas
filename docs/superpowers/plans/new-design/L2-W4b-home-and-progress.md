@@ -45,8 +45,8 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
 - Today comes from the roadmap engine; Free and Pro Today look the same and Free has no cap (D-51).
 - Overall accuracy counts every finished session (D-15). Subjects, topics and lessons with no
   answers do not appear (D-110). Accuracy bars follow D-111.
-- Notices (D-65, D-66): one at a time, in the order Aedwon approves (gate F-19; proposed: service
-  message, trial ending, welcome to Pro, no date, month only, G-b-8). Close rules per D-66; a closed service message stays closed until
+- Notices (D-65, D-66): one at a time in this order: service message, trial ending, welcome to Pro,
+  no date, month only (Aedwon, Oct 6, gate F-19). Close rules per D-66; a closed service message stays closed until
   its text changes (G-h-25). Trial copy per D-254.
 - States replace Today: before the assessment (only week, greeting, assessment card; no quick quiz,
   S0-16), exam day, exam passed, no content (D-63, D-65). Choose your exam fallback (S0-32).
@@ -58,8 +58,11 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
   How you work folded in; no label yet shows the name only (G-b-17).
 - Your plan per D-89 to D-100 and D-237: History (Pro) with See more and the end line; Free sees
   gray shapes and one Unlock with Pro; only week rows drill down (G-b-19); plan states follow Home
-  states (G-b-20); History sentences for causes without a board use the wording Aedwon approves
-  (gate F-19, G-b-21). Weeks run Sunday to
+  states (G-b-20); History sentences for causes without a board (Aedwon, Oct 6, gate F-19):
+  exam switched "You switched to <exam>. Your plan was rebuilt for it."; exam passed "Your exam date
+  passed. Your plan waits for a new date."; date removed "Your exam date was removed. Your plan is
+  rebuilt when you set one."; assessment "Your plan was built from your assessment results."; the
+  topic-order (prerequisite cycle) fix writes no entry. Weeks run Sunday to
   Saturday; rest days read "Rest day".
 - Discarded per stage 0: lessons-read total, Lately line, Your pace, time column and why-you-miss
   display (recording stays, W0), spaced-repetition explainer (S0-10 to S0-13, S0-15).
