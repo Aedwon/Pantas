@@ -54,7 +54,7 @@ rows) is done. Its mapping rules and level 2 notes are at the top of the table.
 | Stage 0 decisions to Aedwon | answered | answers in the decision record |
 | Kept-work cleanup | done | archive/pre-restart-kept-work at 2bdde4fd |
 | B3.3 spec update | approved | specs/2026-10-05-new-design-amendment-design.md |
-| B3.4a traceability: boards, decisions, stage 0 items | done | see Last completed step |
+| B3.4a traceability: boards, decisions, stage 0 items | done | a9d94795 |
 | B3.4b traceability: gap pass section B rows | pending | split from B3.4 on Oct 6 (size) |
 | B3.5 execution arrangement | done | recorded in the decision record |
 | Level 2 plans (B4) | pending | |
@@ -67,4 +67,4 @@ rows) is done. Its mapping rules and level 2 notes are at the top of the table.
 
 B3.4a: traceability table part 1 (616 rows) written by the scheduled resume run on Oct 6, 2026.
 The run found the previous lock stale (held since Oct 5 21:45, no step recorded) and took it.
-Commit: see git log for "docs: build traceability table part 1".
+Commit: a9d94795.
