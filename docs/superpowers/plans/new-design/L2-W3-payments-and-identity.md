@@ -2,7 +2,9 @@
 
 Level 2 workstream plan. Date: October 6, 2026. Author: lead. Policy revision: origin/main 4478a462.
 Parent: strategy B2 (W3 amended Oct 6 to add tier pricing), B4. Depends on: W0.
-Spec: amendment spec (approved Oct 5); `docs/pricing.md` (approved Oct 4); giveaways log
+Spec: amendment spec (approved Oct 5); tier pricing spec `docs/superpowers/specs/2026-10-06-tier-pricing-design.md`
+(required by `docs/pricing.md` before any product is created; level 3 of W3 waits for Aedwon's
+approval of it); `docs/pricing.md` (approved Oct 4); giveaways log
 `docs/superpowers/decisions/2026-10-04-giveaways-and-gift-codes-log.md`.
 Traceability rows: every row with workstream `W3`, plus S0-35 states and the trial-ending trigger.
 
@@ -47,14 +49,15 @@ L_Purchase, L_RestorePurchase; traceability G-f-12 to G-f-19, G-f-22, G-f-31, G-
 
 | Contract | Interface |
 |---|---|
-| Exam tier | `PriceTier { student, civilService, licensure, nce }` and `tierForExam(examId)` from exam metadata. Mapping per pricing.md: CETs, DOST, SM to student; academy exams to student (plus a pass); CSE Professional and Subprofessional, NAPOLCOM, AFPSAT to civilService; LET, PNLE to licensure; PSHS-NCE to nce. |
+| Exam tier | `PriceTier { student, civilService, licensure, nce }` and `tierForExam(examId)` from the W0 exam catalog. Mapping per pricing.md: CETs, DOST, SM to student; academy exams to student (plus a pass); CSE Professional and Subprofessional, NAPOLCOM, AFPSAT to civilService; LET, PNLE to licensure; PSHS-NCE to nce. |
 | Products | Subscription ids: existing `pantas_pro_weekly`, `pantas_pro_monthly`, `pantas_pro_yearly` (student); new civil service monthly and pass, named in level 3 after Aedwon creates them. Passes are non-renewing products. Ids live in one table; no screen hard-codes an id. |
-| Entitlement | `Entitlement` gains `tier` (highest subscription tier held), `passes` (set of exam ids with an active pass and each end date), `state` (`free`, `trial`, `active`, `canceledActive`, `billingIssue`, `grant`, `unknown`), `endsAt`, `renewsAt`, `chargesAt` (trial). `coversExam(examId)` is the single question every Pro gate asks. Existing `proIsActive` becomes `coversExam(activeExam)`. |
-| Season Pass end | A pass ends on the exam's published date (last day for multi-day exams). If the date moves later, the pass moves with it; if earlier, it keeps the later date. No published date means the pass cannot be bought. Exam dates come from exam metadata, never the student's own date. |
+| Entitlement | `Entitlement` gains `tier` (highest subscription tier held), `passes` (set of exam ids with an active pass and each end date), `state` (`free`, `trial`, `active`, `canceledActive`, `billingIssue`, `grant`, `unknown`), `endsAt`, `renewsAt`, `chargesAt` (trial). `coversExam(examId)` is the single question every Pro gate asks. The existing `proIsActive` getter keeps its name and returns `coversExam(activeExam)`, so its 113 callers need no edit. `mockLimit(examId)`: unlimited when covered, else one mock per 14 days per exam with `nextMockOpensAt`. |
+| Season Pass end | A pass ends on the exam's published date (last day for multi-day exams). If the date moves later, the pass moves with it; if earlier, it keeps the later date. No published date means the pass cannot be bought. Exam dates come from the W0 exam catalog's `publishedSittings`, never the student's own date or an inferred date. |
 | Switching rule | `switchOutcome(from, to, entitlement)`: `keepsPro`, `upgradeOffer(tierPlans)` (no trial, with "Switch on Free"), `passWarning` (pass stays with its exam), `free`. W4f renders it. Paywalls never appear after onboarding or for Free students switching. |
 | Purchase operations | `purchase(product)`, `restore()`, `manage()` return typed results: `success`, `pending` (payment pending, nothing can be bought twice), `offline`, `cancelled`, `storeError`, `notConfirmedYet`. Copy belongs to W4f. |
 | Public ID | Firestore document readable only by its owner holding the 9-digit ID; Cloud Function `ensurePublicId` (server-only creation on first Google or Apple sign-in); admin-only lookup path with audit log; check-digit validator shared by app and functions. App reads `publicIdProvider` (states: `notSignedIn`, `notReady`, `ready(digits)`). Display grouping is W4f's (threes for 9 digits). |
-| Trial-ending trigger | `TrialEndingScheduler.sync(entitlement)` schedules or cancels the local notification. |
+| Trial-ending trigger | `TrialEndingScheduler.sync(entitlement)` decides when the trial-ending notification is due or cancelled and hands it to W4f's reminder service (`ReminderService.scheduleTrialEnding(at)` / `cancelTrialEnding()`); replaces the no-op `TrialReminderScheduler`. W3 lands first with an interface; W4f implements the service side. |
+| State split | W3 owns the entitlement states for S0-35 and G-f-12 to G-f-19 (logic); W4f owns their screens and copy. |
 
 Contracts consumed: W0 data layer (schema 25, no migration expected; a new local table needs a W0
 amendment first).
@@ -62,7 +65,7 @@ amendment first).
 ## 4. Behavior
 
 - Free sees every screen and row; Pro shows only when a Pro button is tapped (DECISIONS "Free and Pro").
-- Nothing a student made is paywalled. Mock review gating (R-1) uses `coversExam`.
+- Nothing a student made is paywalled. Mock review gating (R-12) uses `coversExam`.
 - Offline: the last known entitlement stands; purchases and restores need a connection.
 - Placeholders: none. Prices come from the store, never typed in code; the table in pricing.md is the
   check.
@@ -96,12 +99,16 @@ tiers).
 - Product ids or store prices not yet created: stop that task and report; do not invent ids.
 - Any change to Firestore rules or deployed functions is deployed only with Aedwon's approval.
 - If the webhook fix needs a RevenueCat secret API key that is not configured, stop and report.
+- Store price points (₱149, ₱249, ₱299, ₱499, ₱1,499) must be confirmed available in the
+  Philippines before products are created (pricing.md "Not yet settled"); if one is not, stop and ask.
+- An exam with no published sitting: its pass cannot be bought (D-227); never infer a date.
 
 ## 8. Files and directories
 
-`lib/features/paywall/` (domain, data, application; not presentation), `lib/core/` entitlement
-providers if moved, `functions/src/revenuecat*.ts`, new `functions/src/publicId*.ts`,
-`firestore.rules`, tests under `test/features/paywall/` and `functions/test/`.
+`lib/features/paywall/` (domain, data, application; not presentation), `lib/core/entitlement/`
+(currently empty; only if providers move), `functions/src/revenuecat*.ts`, new
+`functions/src/publicId*.ts`, `firestore.rules`, tests under `test/features/paywall/` and
+`functions/test/`.
 
 ## 9. Order and parallelism
 

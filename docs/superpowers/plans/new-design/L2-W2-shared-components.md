@@ -46,7 +46,7 @@ Names and states are fixed here. Each component reads only W1 tokens.
 | `NoticeStrip` | Thin outlined strip, 52pt row, opens in place, 44x44 close, one line of detail, two 44pt actions (secondary plus tertiary, never solid); folds away when resolved. |
 | `FloatingBar` | Bottom floating bar for quiz, mock, viewer and Customize your own: slots left, center counter, right action; colored states neutral, right (light green), wrong (light red); keeps room under content. |
 | `QuestionGridSheet` | The one sheet for the questions grid: five across (six in the mock, grouped by part), right soft teal, wrong soft red, not reached gray outline, current dark edge plus bold number. Mock mode: answered gray, next part dimmed. |
-| `PantasSheet` | The only sheet container, used only where a board draws a sheet (questions grid, reader contents, bookmarks, Today row sheets). 74% height variant for bookmarks with the page behind settling down and darker. |
+| `PantasSheet` | The only sheet container, used only where a board draws a sheet: questions grid, reader contents, bookmarks, Today row sheets, the onboarding reminder time wheel (O_Notify, D-42), and the Home exam date picker (D-69). 74% height variant for bookmarks with the page behind settling down and darker. |
 | `CenteredDialog` | Confirmation dialog (title, one line, `ButtonPair`); destructive variant with the red action. |
 | `Toast` | Short message above the floating bar with optional Undo; used for the first flag and similar. |
 | `ValueWheel` | Wheel picker opening in place (time, year, questions, minutes); struck-out values for invalid options (QZE_Short). |
@@ -56,9 +56,9 @@ Names and states are fixed here. Each component reads only W1 tokens.
 | `Avatar` | Google photo, else first letter, emoji stays emoji, else plain person on gray; "Add your name" handling is the caller's copy. |
 | `ProTag` | The small gold "Pro" tag; the one way Free sees a Pro feature. No lock icon, blur or banner. |
 | `LoadingShapes` | Gray shapes that pulse, shown only after 300 ms; Pro-gate shapes stay still. `StepsScreen` for long or irreversible work (L_Restore, L_Delete, L_MockStart). |
-| `StateView` | Error and empty pattern: title stays, faint icon, one line, tinted Try Again; also the app-wide "Something went wrong. / Nothing you've done is lost." and its use by W4h. Never shows raw error text. |
+| `StateView` | Error and empty pattern: title stays, faint icon, one line, tinted Try Again; a full-screen variant for "Something went wrong. / Nothing you've done is lost.". W2 owns the component; W4h owns the app-wide screen, its triggers and the retirement of `app_error_view.dart`. Never shows raw error text. |
 | `MathText` | Inline and display math in Source Serif 4, `\frac` promoted to `\dfrac` at top level, spoken labels, fit-to-width at large text; carries the S0-46 accessibility checks. |
-| `Placeholder` marking | `PlaceholderFigure(value, reason)` wrapper and a `// PLACEHOLDER:` comment convention; a test lists every use so W5 can block release on them (R-7). |
+| `Placeholder` marking | `PlaceholderFigure(value, reason)` wrapper and a `// PLACEHOLDER:` comment convention; a test lists every use so W5 can block release on them (R-20). |
 
 Contracts consumed: W1 colors, type, shapes, curves, effects, icons.
 
@@ -68,6 +68,7 @@ Contracts consumed: W1 colors, type, shapes, curves, effects, icons.
 - One accent per screen; gold only in `ProTag` and Pro surfaces.
 - Every component honors reduce motion (last frame) and large text without clipping.
 - Components hold no business logic and fetch no data.
+- Free and Pro: `ProTag` only. Placeholders: `PlaceholderFigure` only.
 
 ## 5. Motion
 
@@ -98,7 +99,8 @@ shake (ST_IncludedLast), switch knob (ST_Root). Shared effects per MOTION.md.
 ## 8. Files and directories
 
 `lib/core/ui/components/` (new components; retired ones deleted when their last caller moves),
-`lib/features/dev/` or the existing debug page for the gallery, tests under `test/core/ui/`.
+`lib/core/ui/gallery/` (debug-only gallery screen, route `/settings/_gallery` in the `dev` route
+file; W4f adds a link to it from the existing debug page), tests under `test/core/ui/`.
 
 ## 9. Order and parallelism
 

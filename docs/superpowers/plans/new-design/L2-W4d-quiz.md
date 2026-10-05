@@ -1,8 +1,8 @@
 # L2 W4d: Quiz
 
-Level 2 workstream plan. Date: October 6, 2026. Author: lead. Policy revision: origin/main b52757bf.
+Level 2 workstream plan. Date: October 6, 2026. Author: lead. Policy revision: origin/main 12fb353b. Revised after the level 2 gate review (Oct 6).
 Parent: strategy B2, B4. Spec: amendment spec (approved Oct 5). Depends on: W1, W2, W3 (notes gate).
-Traceability: 95 rows with workstream `W4d` (50 boards, 45 other items).
+Traceability: 94 rows with workstream `W4d` (46 boards, 48 other items).
 
 ## 1. Purpose and scope
 
@@ -10,27 +10,33 @@ Rebuild the Quiz tab, Customize your own with How long?, the one set of quiz scr
 floating bar, the questions sheet, the end of a session, the question viewer with notes (Pro), and
 Report a question; add the Flagged questions list.
 
-Out of scope: Mock exam screens (W4e); Home Today data (W4b supplies the same Today rows).
+Out of scope: Mock exam screens and the mock card's content (W4e; this family places W4e's `MockCard`); Home Today data (W4b supplies the same Today rows).
 
 ## 2. Inputs
 
-Boards (50): QZ_Tab, QZ_Free, QZ_Resume, QZ_Done, QZ_First, QZ_Picker, QZS_1, QZS_1b, QZS_1c, QZS_1d, QZE_Many, QZE_ManyTime, QZE_Short, QZE_RunsShort, QZE_Long, QZE_One, QZE_None, QV_Answer, QV_MissPro, QV_MissFree, QV_Last, QV_Long, QV_Figure, QV_Flag, QV_Grid, QV_GridBack, QV_GridMock, QV_Leave, QV_EndPro, QV_EndFree, QV_EndPerfectB, QV_EndLowB, QV_EndLastToday, QV_All, QV_Sources, QN_Wrong, QN_WrongOpen, QN_Correct, QN_WrongFree, QN_EditNote, QN_OwnWords, QN_Report, QN_ReportOffline, QN_ReportAgain, QN_ReportLimit, L_DebriefSlow, AS_Question, AS_Picked, AS_Leave, AS_Results.
+Boards (46): QZ_Tab, QZ_Free, QZ_Resume, QZ_Done, QZ_First, QZ_Picker, QZS_1, QZS_1b, QZS_1c, QZS_1d, QZE_Many, QZE_ManyTime, QZE_Short, QZE_RunsShort, QZE_Long, QZE_One, QZE_None, QV_Answer, QV_MissPro, QV_MissFree, QV_Last, QV_Long, QV_Figure, QV_Flag, QV_Grid, QV_GridBack, QV_GridMock, QV_Leave, QV_EndPro, QV_EndFree, QV_EndPerfectB, QV_EndLowB, QV_EndLastToday, QV_All, QV_Sources, QN_Wrong, QN_WrongOpen, QN_Correct, QN_WrongFree, QN_EditNote, QN_OwnWords, QN_Report, QN_ReportOffline, QN_ReportAgain, QN_ReportLimit, L_DebriefSlow.
 
-Other traceability rows (45): D-156, D-157, D-158, D-159, D-161, D-162, D-163, D-164, D-165, D-166, D-169, D-171, D-172, D-173, D-174, D-175, D-177, D-178, D-179, D-180, D-182, D-183, D-235, D-242, D-276, S0-5, S0-14, S0-15, S0-17, S0-19, S0-43b, G-b-29, G-d-1, G-d-7, G-d-8, G-d-9, G-d-10, G-d-12, G-d-13, G-d-14, G-h-10, G-h-11, G-h-23, G-h-24, G-h-29.
+Other traceability rows (48): D-156, D-157, D-158, D-159, D-161, D-162, D-163, D-164, D-165, D-166, D-169, D-171, D-172, D-173, D-174, D-175, D-177, D-178, D-179, D-180, D-182, D-183, D-235, D-242, D-276, S0-5, S0-14, S0-15, S0-16, S0-17, S0-19, S0-43b, G-b-29, G-d-1, G-d-4, G-d-7, G-d-8, G-d-9, G-d-10, G-d-12, G-d-13, G-d-14, G-h-10, G-h-11, G-h-23, G-h-24, G-h-29, G-h-30.
 Each row's status column in `traceability.md` is binding; "lead default" rows are listed in
-section 4 where they shape behavior.
+section 4 where they shape behavior. Superseded sections of older specs for this family: amendment
+spec B1 (rows naming this family's screens); those sections are not built.
 
 ## 3. Contracts
 
-Owned (routes and screen-local state only; nothing shared):
-- `/quiz` root (W1); keep `/quiz/today/:examId`, `/quiz/resume/:examId`,
+Owned. Routes live in this family's route file  (W1 creates it);
+W1 removes retired routes and this family deletes the screens behind them:
+- `/quiz` root (W1); rebuild `/quiz/flagged/:examId` (exists; new list design) and keep `/quiz/today/:examId`, `/quiz/resume/:examId`,
   `/quiz/practice/:examId` (picker) and `/quiz/practice/:examId/run`, `/quiz/retake/:examId`,
   `/quiz/inline/:examId/:lessonId`, `/quiz/quick/:examId`, `/quiz/debrief/:attemptId`; new
-  `/quiz/flagged/:examId` list screen with its practice run, `/quiz/viewer/:attemptId`.
-- Retired: `/quiz/results/:attemptId`, `/review` (replaced by See all questions and the viewer).
+  `/quiz/viewer/:attemptId`.
+- Retired: `/quiz/results/:attemptId` and `/review`, both served by `QuizResultsPage` in
+  `lib/features/quiz/` (replaced by See all questions and the viewer); the empty
+  `lib/features/review/` folder is deleted.
+- `startLessonQuiz(lessonId)` (lesson-scoped set keyed on the W0 lesson id; replaces the topic-scoped
+  picker) and `startQuickQuiz()`, consumed by W4c.
 - Report queue (offline send later, limits 3 per question and 20 a day).
 
-Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2 components; W3 `coversExam` for notes; W0 mistake tag and response time writes.
+Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2 components; W3 `coversExam` for notes; W0 schema 26 (`MistakeTag.other`, `mistakeNote`) and response time writes; W4e `MockCard`.
 
 ## 4. Behavior
 
@@ -49,11 +55,13 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
 - Report per D-180 and D-183.
 - Flagged questions list (S0-5): built like the mock's All questions list (MK_ReviewAll rows), grouped
   by subject, opens the viewer, Practice these, empty state per the shared pattern.
-- Store rating prompt (S0-19): asked once, after a session with 80% or more right, never within the
-  paywall cool-off; the phone's own dialog.
+- Store rating prompt (S0-19): asked once, after a session with 80% or more right, never within 24
+  hours after the Settings Pro page was opened; the phone's own dialog.
 - The 5-line refresh after a custom assessment (S0-43b, from the archive branch).
 - Discarded: miss cause lines, return promise, explainer, study-first sheet (S0-14, S0-15, S0-17).
 - Passage questions keep their passage card (S0-41).
+- Quick quiz (S0-16): reached only from Study's "Try a Quick Quiz".
+- Free and Pro: notes are Pro (W3 `coversExam`); everything else the same (D-232). Placeholders: none.
 
 ## 5. Motion
 
@@ -78,7 +86,8 @@ and build from the tap, start to last change; reduce motion shows the last frame
 - A figure with no measured or published source: stop (AGENTS.md), except the recorded placeholders.
 - A needed shared component or contract is missing from W1, W2 or W3: stop; do not build a local copy.
 - A schema change is needed: stop; W0 owns the data layer and needs an amendment first.
-- Copy differs from the board: the board wins (README rule 1); report any board without copy.
+- A board conflicts with the README or DECISIONS.md, or a needed string has no board: stop and ask
+  the lead (README "ask instead of guessing").
 - Report storage and sending need a backend path; if none exists on the branch, the level 3 plan adds the client queue and stops before any new deployed function until Aedwon approves the deploy.
 
 ## 8. Files and directories

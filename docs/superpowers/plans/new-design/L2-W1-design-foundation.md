@@ -29,6 +29,8 @@ In scope:
 Out of scope: any screen's content (W4), shared components (W2), retiring Ink-named components (W2
 does that as it replaces them).
 
+Contracts consumed: W0 baseline only.
+
 ## 2. Inputs
 
 README "Tokens", "Rules"; MOTION.md; DECISIONS "Navigation", "Icons", "Dates", "Dark mode on the
@@ -45,10 +47,10 @@ These names are fixed here. Consumers use them and may not redefine them.
 | Colors | `PantasColors` (a `ThemeExtension`), fields: `background`, `surface`, `label`, `secondaryLabel`, `tertiaryLabel`, `separator`, `fill`, `chevron`, `accent`, `accentFill` (dark `#1F9C86`; light same as `accent`), `accentTint`, `destructive`, `wrongTint`, `pro`, `liquidStart`, `liquidEnd`. Values exactly as README "Tokens". Access: `context.colors`. |
 | Type | `PantasType` (a `ThemeExtension`), styles: `largeTitle` 34/700, `pageTitle` 30/700, `sectionHero` 24/700, `body` 17/400, `rowValue` 17/400 secondary, `emphasized` 17/600, `subhead` 15/400, `subheadStrong` 15/600, `footnote` 13/400, `sectionHeader` 13/600 uppercase letter-spacing 0.02em, `caption` 11/500, `captionStrong` 10/600. Tabular figures available as `.tabular`. Math style `mathSerif` (Source Serif 4). Access: `context.type`. |
 | Shapes and spacing | `PantasShape`: `groupRadius` 14, `cardRadius` 18, `floatingRadius` 22, `pillRadius` 99, `buttonHeight` 52, `buttonRadius` 14, `rowMinHeight` 44, `rowInset` 16, `gutter` 16. |
-| Motion | `PantasCurves`: `houseOut` (0.3,0.9,0.3,1), `riseIn` (0.2,0.9,0.3,1), `slide` (0.22,1,0.36,1), `edgeGrow` (0.32,0.72,0,1), `pop` (0.34,1.56,0.64,1), `checkDraw` (0.6,0,0.3,1), `shake` (0.36,0.07,0.19,0.97), `burst` (0.15,0.7,0.35,1), `liquid` (0.45,0,0.25,1), `ease`, `easeOut`, `easeInOut` per MOTION.md. `PantasEffects` builders for `pop`, `rise`, `gauge`, `checkDraw`, `shake`, `press`, `ring`, `burst`, `push`, `collapse`, `fade`, each taking an explicit duration (boards are the authority) and honoring `MediaQuery.disableAnimationsOf` by jumping to the last frame. |
-| Icons | `PantasIcons` with one named getter per IC_Final row (for example `homeTab`, `studyTab`, `quizTab`, `settingsTab`, `back`, `next`, `close`, `counter`, `toTop`, `expandFigure`, `sort`, `contents`, `flag`, `report`, `questionsSheet`, `addNote`, `noted`, `check`, `pause`, `paused`, `timer`, `pendingSend`, `streak`, `restDay`, `addDate`, `pro`, `progressError`, `tendencies`, `answerStreak`, `search`, `bookmark`, `reorder`, `imageFailed`, `edit`, `share`, `exam`, `practice`, `reminders`, `appearance`, `backup`, `feedback`, `about`, `profile`). No `locked` icon (S0-3). Phosphor names as on IC_Final. |
+| Motion | `PantasCurves`: one constant per CSS curve in MOTION.md, never a near match: `houseOut` (0.3,0.9,0.3,1), `riseIn` (0.2,0.9,0.3,1), `slideA` (0.22,1,0.36,1), `slideB` (0.2,0.8,0.25,1), `slideC` (0.2,1,0.35,1), `edgeGrow` (0.32,0.72,0,1), `popA` (0.3,1.4,0.5,1), `popB` (0.3,1.5,0.5,1), `popC` (0.34,1.56,0.64,1), `checkDraw` (0.6,0,0.3,1), `shake` (0.36,0.07,0.19,0.97), `burst` (0.15,0.7,0.35,1), `liquid` (0.45,0,0.25,1), `ease`, `easeOut`, `easeInOut`, `linear`. A board curve not in this list is built as `Cubic` from the board's exact values and added here. `PantasEffects` builders for `pop`, `rise`, `gauge`, `checkDraw`, `shake`, `press`, `ring`, `burst`, `push`, `collapse`, `fade`, each taking an explicit duration (boards are the authority) and honoring `MediaQuery.disableAnimationsOf` by jumping to the last frame. |
+| Icons | `PantasIcons`, exactly these 45 getters (IC_Final minus `lock`, S0-3): getting around `homeTab`, `studyTab`, `quizTab`, `settingsTab`, `back`, `next`, `close`, `counter`, `toTop`, `expandFigure`, `sort`, `contents`; questions `flag`, `report`, `questionsSheet`, `addNote`, `noted`, `check`, `pause`, `paused`, `timer`, `pendingSend`, `nextMonth`; home and study `streak`, `restDay`, `addDate`, `pro`, `progressError`, `tendencies`, `answerStreak`, `search`, `bookmark`, `reorder`, `imageFailed`, `edit`, `share`; settings `exam`, `practice`, `reminders`, `appearance`, `backup`, `feedback`, `about`, `proSettings`, `profile`. Phosphor names as on IC_Final; the nine own icons as listed in section 1. |
 | Shell | `AppShell` with tabs in this order: `home`, `study`, `quiz`, `settings`. Tab roots `/home`, `/study`, `/quiz`, `/settings`. Re-tap returns to root. Tab bar motion per MOTION.md where drawn; none where silent. |
-| Routes | W1 owns the tab roots, redirects (`/more` to `/settings`, `/settings/subscription` to `/settings/pro`, update-required gate, onboarding gate) and the retirement list in section 1. Every other route belongs to its W4 family; families add routes under their own prefix and may not change another family's. Destinations outside the tab shell use `context.push` (AGENTS.md). |
+| Routes | W1 splits `lib/app/router.dart` into per-family route files `lib/app/routes/<family>_routes.dart` (onboarding, home, study, quiz, mock, settings, wrapped, states, dev), registered once in `router.dart`. W1 owns `router.dart`, the tab roots, redirects (`/more` to `/settings`, `/settings/subscription` to `/settings/pro`, `/settings/sessions` to `/settings/practice`, update-required gate, onboarding gate) and removes the retired routes in section 1. Each W4 family edits only its own route file and deletes the screens behind its retired routes. Prefix exceptions: W4g's file also holds `/record/wrapped` and `/settings/about/shared-links`. Destinations outside the tab shell use `context.push` (AGENTS.md). |
 | Dates | `PantasDates`: `full(d)` "Nov 11, 2026"; `short(d)` "Oct 17" in the current year, else `full`; `withWeekday(d)` "Sat, Oct 17"; `heading(d)` "Saturday, October 3"; `monthOnly(d)` "November 2026"; `weekRange(start)` "Sep 27 – Oct 3" (en dash between dates, as drawn); `relativeDay(d)` "Today", "Yesterday" else `short`. Weeks start Sunday everywhere (`PantasDates.weekStart`). |
 
 ## 4. Behavior
@@ -60,6 +62,9 @@ These names are fixed here. Consumers use them and may not redefine them.
 - Dark mode: black background, dark gray groups, brighter teal, illustrations keep a white backing.
   Screens without a dark board use the same tokens (Aedwon waived previews, Oct 5).
 - One accent per screen; red only for wrong and destructive; gold only for Pro (README rule 4).
+- Free and Pro: same. Placeholders: none.
+- README ranges (page title 28 to 30, caption 11 to 10, floating radius 22 to 24): level 3 checks
+  each value against the boards that use it and adds the second value where a board needs it.
 
 ## 5. Motion
 
@@ -84,8 +89,8 @@ Reduce motion shows the last frame.
   no other dependency may be added.
 - If a Phosphor glyph named on IC_Final does not exist in the package version, stop and report; do
   not substitute.
-- If a board's color differs from the README token, the README wins for the token and the
-  difference is reported.
+- If a board's color differs from the README token: stop and ask the lead (README "ask instead of
+  guessing").
 - The AGENTS.md section is a policy change: W1 drafts it; it merges to main only after Aedwon
   approves the text.
 

@@ -1,6 +1,6 @@
 # L2 W4h: App-wide states
 
-Level 2 workstream plan. Date: October 6, 2026. Author: lead. Policy revision: origin/main b52757bf.
+Level 2 workstream plan. Date: October 6, 2026. Author: lead. Policy revision: origin/main 12fb353b. Revised after the level 2 gate review (Oct 6).
 Parent: strategy B2, B4. Spec: amendment spec (approved Oct 5). Depends on: W1, W2.
 Traceability: 13 rows with workstream `W4h` (2 boards, 11 other items).
 
@@ -18,11 +18,13 @@ Boards (2): SY_Error, SY_Update.
 
 Other traceability rows (11): D-244, S0-32, S0-33, S0-34, G-a-22, G-d-3, G-h-8, G-h-12, G-h-13, G-h-16, G-h-17.
 Each row's status column in `traceability.md` is binding; "lead default" rows are listed in
-section 4 where they shape behavior.
+section 4 where they shape behavior. Superseded sections of older specs for this family: amendment
+spec B1 (rows naming this family's screens); those sections are not built.
 
 ## 3. Contracts
 
-Owned (routes and screen-local state only; nothing shared):
+Owned. Routes live in this family's route file  (W1 creates it);
+W1 removes retired routes and this family deletes the screens behind them:
 - `/update-required` (W1 keeps the gate; this family owns the screen).
 - The pattern rules below; `StateView` usage guide for families.
 
@@ -38,6 +40,9 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
   save failures show one calm line in place with Try Again (S0-34).
 - Assessment not ready state for exams without assessment questions (G-a-22, G-d-3).
 - Choose your exam fallback pattern used on every tab (S0-32).
+- Ownership: W2 owns `StateView`; this family owns the app-wide screen, its triggers and the
+  retirement of `app_error_view.dart`.
+- Free and Pro: same. Placeholders: none.
 
 ## 5. Motion
 
@@ -62,7 +67,8 @@ and build from the tap, start to last change; reduce motion shows the last frame
 - A figure with no measured or published source: stop (AGENTS.md), except the recorded placeholders.
 - A needed shared component or contract is missing from W1, W2 or W3: stop; do not build a local copy.
 - A schema change is needed: stop; W0 owns the data layer and needs an amendment first.
-- Copy differs from the board: the board wins (README rule 1); report any board without copy.
+- A board conflicts with the README or DECISIONS.md, or a needed string has no board: stop and ask
+  the lead (README "ask instead of guessing").
 - Families that find a state these patterns cannot express: stop; the lead amends this plan.
 
 ## 8. Files and directories

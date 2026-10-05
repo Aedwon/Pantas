@@ -1,6 +1,6 @@
 # L2 W4e: Mock exam
 
-Level 2 workstream plan. Date: October 6, 2026. Author: lead. Policy revision: origin/main b52757bf.
+Level 2 workstream plan. Date: October 6, 2026. Author: lead. Policy revision: origin/main 12fb353b. Revised after the level 2 gate review (Oct 6).
 Parent: strategy B2, B4. Spec: amendment spec (approved Oct 5). Depends on: W1, W2, W3 (`coversExam`, mock limit).
 Traceability: 98 rows with workstream `W4e` (41 boards, 57 other items).
 
@@ -20,23 +20,29 @@ Boards (41): MK_Setup, MK_SetupStrict, MK_Paper, MK_Proctor, MK_FiveMin, MK_Last
 
 Other traceability rows (57): D-19, D-20, D-21, D-22, D-23, D-186, D-187, D-188, D-189, D-190, D-191, D-192, D-193, D-194, D-195, D-196, D-197, D-198, D-199, D-233, D-234, D-243, D-258, D-261, D-275, R-12, R-20, A-B3b, S0-2, S0-26, S0-27, S0-28, S0-29, S0-37, S0-38, S0-39, G-e-1, G-e-2, G-e-3, G-e-4, G-e-5, G-e-7, G-e-8, G-e-9, G-e-10, G-e-11, G-e-12, G-e-13, G-e-15, G-e-16, G-e-17, G-e-18, G-e-19, G-e-20, G-e-21, G-h-18, G-h-19.
 Each row's status column in `traceability.md` is binding; "lead default" rows are listed in
-section 4 where they shape behavior.
+section 4 where they shape behavior. Superseded sections of older specs for this family: amendment
+spec B1 (rows naming this family's screens); those sections are not built.
 
 ## 3. Contracts
 
-Owned (routes and screen-local state only; nothing shared):
+Owned. Routes live in this family's route file  (W1 creates it);
+W1 removes retired routes and this family deletes the screens behind them:
 - Keep `/quiz/mock/setup`, `/quiz/mock/start`, `/quiz/mock/resume/:attemptId`,
   `/quiz/mock/custom-setup`, `/mock/results/:attemptId`, `/mock/review/:attemptId`. Retired:
   `/mock-exam` placeholder, the unwired mock history page.
-- Per-exam scoring rule; mock card content model consumed by W4d.
+- Per-exam scoring rule. Scores are derived from stored right, wrong and blank counts per part (UPCAT
+  deductions can be decimals; `scoreRaw` stays an integer count, no migration).
+- `MockCardModel` and `MockCard` widget for the Quiz tab, placed by W4d.
+- The CSE Professional, CSE Subprofessional and ACET blueprints in `content/mock/`, with the
+  placeholder marker (W0 contract): CSE per-subject item counts and ACET aptitude time (R-20).
 
-Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2 components; W3 `coversExam` and the mock limit; W0 data (right, wrong, blank per part); W4d mock card slot.
+Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2 components; W3 `coversExam` and `mockLimit`; W0 data (right, wrong, blank per part; schema 26 `blankReason`); W0 mock blueprint format.
 
 ## 4. Behavior
 
 - Setup per D-186 and D-198: table with total row, how it runs, what is left out; strict switch
   applies to this mock only (S0-38); short-paper line under the table (S0-29); placeholders for CSE
-  item counts and ACET time marked per R-7.
+  item counts and ACET time marked per R-20.
 - Paper per D-187 to D-191: centered clock with hours, amber under 5 minutes, red in the last minute;
   proctor calls at 10, 5, 1; End Part on the last question; between-parts screen; pause with
   "Don't show this again" remembered on the phone; discard; strict 10-second grace then Not finished;
@@ -48,12 +54,14 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
   exams submit from the sheet.
 - Results per D-192, D-194, D-18 to D-22 as corrected by S0-2: no pill, no confetti, no comparison
   sentence; versus past results only with earlier mocks; Done returns where results were opened.
-- After a mock per D-196, D-197, D-234 and R-1: both tiers see every question with answer and
+- After a mock per D-196, D-197, D-234 and R-12: both tiers see every question with answer and
   explanation; Free keeps them until the next mock opens, then score and breakdown only; Pro any
   time; notes and blank reasons Pro only; flags never gated.
 - Questions avoid the student's last two mocks (S0-28). Mock answers feed reviews (D-258).
 - Custom-track mock per D-243 and S0-39 (card states, saved values reopen).
-- Free limit: one mock every 14 days per exam; the card says when the next opens.
+- Free limit via W3 `mockLimit`; the card says when the next opens.
+- After Pro lapses: the rule Aedwon approves (gate F-18; proposed: the Free rule applies, nothing is
+  deleted, renewing restores access).
 - Discarded: Next blank and Next flagged, Strict badge (S0-26, S0-27).
 
 ## 5. Motion
@@ -79,7 +87,8 @@ and build from the tap, start to last change; reduce motion shows the last frame
 - A figure with no measured or published source: stop (AGENTS.md), except the recorded placeholders.
 - A needed shared component or contract is missing from W1, W2 or W3: stop; do not build a local copy.
 - A schema change is needed: stop; W0 owns the data layer and needs an amendment first.
-- Copy differs from the board: the board wins (README rule 1); report any board without copy.
+- A board conflicts with the README or DECISIONS.md, or a needed string has no board: stop and ask
+  the lead (README "ask instead of guessing").
 - The finale is the most complex animation in the app; if any part cannot be built as drawn, stop and ask (MOTION rule 6).
 - Placeholder figures must be listed in the level 3 plan and carry `PlaceholderFigure` (W2).
 

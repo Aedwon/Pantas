@@ -26,7 +26,7 @@ In scope:
 - iPhone testing over Xcode wireless debugging (S0-49): the iOS build on the integration branch,
   pairing, and the same functional checklist on the iPhone; the September iPhone QA design
   (`web/ios-physical-qa-enablement-r1`) is the starting point.
-- Release blockers: every `PlaceholderFigure` replaced by Aedwon's values (R-7); `functions` tests
+- Release blockers: every `PlaceholderFigure` replaced by Aedwon's values (R-20); `functions` tests
   green.
 
 Out of scope: fixes. A check that finds a defect creates a new work item that enters at the level

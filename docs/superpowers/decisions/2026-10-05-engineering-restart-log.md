@@ -445,3 +445,29 @@ Aedwon: "1".
 Changes: strategy B2 W3 now includes tier support; B1's question-qa-r2 row corrected (no
 application code; the earlier "16% under lib/features" was wrong). Licensure, academy exams and
 PSHS-NCE stay Coming soon and sell nothing.
+
+## October 6, 2026: level 2 gate review 1 (not passed) and fixes
+
+Independent Opus review: `docs/superpowers/plans/new-design/gates/l2-gate-review-1.md`. 4 blockers,
+17 should-fix, 15 notes. Traceability passed mechanically (831 rows, every owner and section valid).
+
+Fixed by the lead:
+- F-1 assessment boards moved to W4a. F-9 lesson quiz set and quick quiz moved to W4d (W4c keeps the
+  buttons). F-17 kept-data rows moved to the families that rebuild that code.
+- F-4 the "other" mistake tag, note text and blank reasons are new data: W0 adds them in app
+  database schema 26 with its migration and sync fields.
+- F-2 exam catalog (tier, group, Coming soon, published sittings with sources) added as a W0
+  contract. F-15 mock blueprint placeholder marker added to W0; W4e authors CSE and ACET blueprints.
+- F-3 tier pricing spec written (`specs/2026-10-06-tier-pricing-design.md`) for Aedwon's approval;
+  W3 level 3 waits for it; price-point check added as a stop.
+- F-5 decision references corrected (R-20 placeholders, R-12 mock review, R-16 Progress, R-13 History).
+- F-6, F-7, F-10 route retirement owners, per-family route files, file owners and order.
+- F-8 strategy B2 amended: families may own named family-specific contracts. F-26 B2 dependencies.
+- F-11 every consumed contract named in its owner's plan. F-12 one curve constant per CSS curve.
+- F-13 board conflicts go to the lead. F-14 two missing sheets listed. F-20 B1 citation in W4 plans.
+- F-21 W0 seed facts corrected (no dev seed; signed package only). F-22 full icon list. F-23, F-24,
+  F-27, F-28, F-31 to F-34, F-36 corrected or clarified.
+
+Open for Aedwon: the tier spec (with its three questions), F-16 (Pro pages for exams that are
+Coming soon), F-18 (what a student keeps after Pro lapses), F-19 (notice order, History sentences
+and Follow up copy). For his information: F-29, F-30, F-35.

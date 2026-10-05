@@ -1,8 +1,8 @@
 # L2 W4c: Study and reader
 
-Level 2 workstream plan. Date: October 6, 2026. Author: lead. Policy revision: origin/main b52757bf.
+Level 2 workstream plan. Date: October 6, 2026. Author: lead. Policy revision: origin/main 12fb353b. Revised after the level 2 gate review (Oct 6).
 Parent: strategy B2, B4. Spec: amendment spec (approved Oct 5). Depends on: W1, W2.
-Traceability: 86 rows with workstream `W4c` (30 boards, 56 other items).
+Traceability: 84 rows with workstream `W4c` (30 boards, 54 other items).
 
 ## 1. Purpose and scope
 
@@ -10,25 +10,27 @@ Rebuild the Study map (search, Last opened, Bookmarks, subjects and topics), the
 (bar, title strip, progress line, contents, figures, end, pull to the next lesson, endings), and
 Bookmarks, as the Study page draws them.
 
-Out of scope: In-lesson quiz screens (W4d; this family owns only the entry button and the lesson-scoped question set), Home's day context data (W4b passes it).
+Out of scope: In-lesson quiz screens and their question set, and the quick quiz (W4d; this family owns only the "Quiz yourself" and "Try a Quick Quiz" buttons, which call W4d's `startLessonQuiz(lessonId)` and `startQuickQuiz()`), Home's day context data (W4b passes it).
 
 ## 2. Inputs
 
 Boards (30): ST_Map, ST_MapEmpty, ST_TopicOpen, ST_Pinned, ST_Search, ST_NoMatch, RD_RealScroll, RD_Real, RD_Figure, RD_Resume, RD_Contents, RD_Plan, RD_End, RD_TopicDone, RD_TopicShort, RD_DayDone, ST_Loading, ST_Error, ST_NoLessons, ST_NoExam, RD_Error, RD_ImageFail, RD_DayEnd, BM_MarkTeal, BM_Open, BM_Order, BM_Edit, BM_One, BM_Empty, BM_ScreenReader.
 
-Other traceability rows (56): D-117, D-118, D-119, D-120, D-121, D-122, D-123, D-124, D-128, D-129, D-130, D-131, D-132, D-133, D-134, D-135, D-137, D-138, D-139, D-140, D-141, D-142, D-145, D-146, D-147, D-148, D-149, D-150, D-151, S0-16, S0-30, S0-41, G-c-2, G-c-3, G-c-4, G-c-5, G-c-6, G-c-7, G-c-8, G-c-9, G-c-10, G-c-11, G-c-12, G-c-13, G-c-14, G-c-15, G-c-16, G-c-19, G-c-20, G-c-23, G-c-24, G-c-25, G-c-26, G-d-4, G-h-15, G-h-30.
+Other traceability rows (54): D-117, D-118, D-119, D-120, D-121, D-122, D-123, D-124, D-128, D-129, D-130, D-131, D-132, D-133, D-134, D-135, D-137, D-138, D-139, D-140, D-141, D-142, D-145, D-146, D-147, D-148, D-149, D-150, D-151, S0-30, S0-41, G-c-2, G-c-3, G-c-4, G-c-5, G-c-6, G-c-7, G-c-8, G-c-9, G-c-10, G-c-11, G-c-12, G-c-13, G-c-14, G-c-15, G-c-16, G-c-19, G-c-20, G-c-23, G-c-24, G-c-25, G-c-26, G-c-28, G-h-15.
 Each row's status column in `traceability.md` is binding; "lead default" rows are listed in
-section 4 where they shape behavior.
+section 4 where they shape behavior. Superseded sections of older specs for this family: amendment
+spec B1 (rows naming this family's screens); those sections are not built.
 
 ## 3. Contracts
 
-Owned (routes and screen-local state only; nothing shared):
+Owned. Routes live in this family's route file  (W1 creates it);
+W1 removes retired routes and this family deletes the screens behind them:
 - `/study` root (W1) with optional `?topicId=`; `/lesson/:lessonId` with `from` (`study`, `home`,
   or the screen it came from) and the day context from Home; `/study/ending/:topicId` reached from
   the pull.
 - Open-topic memory per exam; bookmark order and sort per exam.
 
-Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2 components; W0 lesson id contract (lesson quiz); W4b day context.
+Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2 components; W0 lesson id contract; W4b `LessonDayContext`; W4d `startLessonQuiz`, `startQuickQuiz`.
 
 ## 4. Behavior
 
@@ -44,7 +46,9 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
   lesson, pull to the next lesson with a tappable circle, endings plates, finished day.
 - Next lesson means the next in topic order, read or not; the last topic of the exam shows its
   plate with no pull; the back label names the screen it returns to (G-c-11 to G-c-13).
-- Quick quiz only behind "Try a Quick Quiz" on ST_NoLessons (S0-16).
+- "Try a Quick Quiz" only on ST_NoLessons (S0-16); the quiz itself is W4d's.
+- Backend bookmark sync for Pro is kept, no UI (G-c-28).
+- Free and Pro: same (D-145). Placeholders: none.
 - Bookmarks per D-145 to D-151, free for all; no bookmark ribbon on topics and no notes (S0-30).
 - States per D-142 and W4h patterns.
 
@@ -71,7 +75,8 @@ and build from the tap, start to last change; reduce motion shows the last frame
 - A figure with no measured or published source: stop (AGENTS.md), except the recorded placeholders.
 - A needed shared component or contract is missing from W1, W2 or W3: stop; do not build a local copy.
 - A schema change is needed: stop; W0 owns the data layer and needs an amendment first.
-- Copy differs from the board: the board wins (README rule 1); report any board without copy.
+- A board conflicts with the README or DECISIONS.md, or a needed string has no board: stop and ask
+  the lead (README "ask instead of guessing").
 - Lesson authoring order is not set in content yet (D-143); "next" uses the current corpus order and the level 3 plan names it.
 
 ## 8. Files and directories

@@ -1,6 +1,6 @@
 # L2 W4f: Settings, Pro and account
 
-Level 2 workstream plan. Date: October 6, 2026. Author: lead. Policy revision: origin/main b52757bf.
+Level 2 workstream plan. Date: October 6, 2026. Author: lead. Policy revision: origin/main 12fb353b. Revised after the level 2 gate review (Oct 6).
 Parent: strategy B2, B4. Spec: amendment spec (approved Oct 5). Depends on: W1, W2, W3.
 Traceability: 153 rows with workstream `W4f` (71 boards, 82 other items).
 
@@ -20,20 +20,25 @@ Boards (71): O_SignIn, ST_Root, ST_Exam, ST_ExamDate, ST_Practice, ST_Reminders,
 
 Other traceability rows (82): D-25, D-203, D-207, D-208, D-209, D-210, D-211, D-212, D-213, D-214, D-215, D-216, D-217, D-219, D-220, D-222, D-223, D-224, D-225, D-226, D-228, D-229, D-239, D-249, D-250, D-267, D-268, D-269, D-270, D-271, D-272, D-273, D-274, D-278, R-18, R-26, R-27, R-28, A-B2a, A-B2c, S0-1, S0-4, S0-6, S0-7, S0-9, S0-20, S0-21, S0-22, S0-24, S0-35, S0-36, G-a-15, G-a-33, G-a-34, G-a-35, G-a-36, G-a-37, G-a-38, G-a-39, G-b-22, G-b-24, G-b-25, G-b-26, G-b-28, G-f-2, G-f-3, G-f-4, G-f-5, G-f-6, G-f-8, G-f-10, G-f-11, G-f-17, G-f-20, G-f-24, G-f-25, G-f-28, G-f-29, G-f-30, G-h-4, G-h-7, G-h-22.
 Each row's status column in `traceability.md` is binding; "lead default" rows are listed in
-section 4 where they shape behavior.
+section 4 where they shape behavior. Superseded sections of older specs for this family: amendment
+spec B1 (rows naming this family's screens); those sections are not built.
 
 ## 3. Contracts
 
-Owned (routes and screen-local state only; nothing shared):
+Owned. Routes live in this family's route file  (W1 creates it);
+W1 removes retired routes and this family deletes the screens behind them:
 - `/settings` root (W1); `/settings/exam`, `/settings/exam/change`, `/settings/exam/included`,
   `/settings/practice` (replaces `/settings/sessions`, which redirects), `/settings/reminders`,
   `/settings/appearance`, `/settings/account`, `/settings/account/name`,
   `/settings/account/delete`, `/settings/backup`, `/settings/pro`, `/settings/about`, `/legal/:doc`.
 - Retired: `/paywall` and its three-screen flow (S0-24); Pro buttons everywhere push `/settings/pro`
   and return.
-- Reminder service kinds and schedule (amendment B2); notification tap routing.
+- `ReminderPrefs` (`dailyEnabled`, `dailyTime`, `followUpEnabled`, `followUpTime`,
+  `countdownEnabled`) and `ReminderService` (kinds, schedule, tap routing, and the trial-ending side of
+  W3's `TrialEndingScheduler`). Its task lands before W4a's reminders step.
+- `SharedLinksRow` slot in About, filled by W4g.
 
-Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2 components; W3 entitlement, tier, pass, switching outcome, purchase operations, public ID, trial-ending trigger; W4a exam picker; W4g shared links rows.
+Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2 components; W3 entitlement, tier, pass, `mockLimit`, `switchOutcome`, purchase operations, public ID, `TrialEndingScheduler`; W4a `ExamPickerScreen`; W4b `tableOrderRememberedProvider`; W4g `SharedLinksRow`.
 
 ## 4. Behavior
 
@@ -56,7 +61,14 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
   data for signed-out students, fresh sign-in before deletion, failure lines, return to Welcome after
   deletion; Pantas ID grouped in threes, tap copies digits only.
 - About per D-214: DPO row, no export (S0-22); legal pages plain (G-f-10).
-- Appearance: Light, Dark, Automatic; Text size slider (W1 scale); Remember table order.
+- Appearance: Light, Dark, Automatic; Text size slider (W1 scale); Remember table order (writes W4b's
+  `tableOrderRememberedProvider`).
+- Pro pages for Licensure, academy exams and PSHS-NCE: build now or defer, per Aedwon (gate F-16;
+  proposed: defer, since those exams are Coming soon and the pages are unreachable).
+- Deletes `lib/features/notifications/presentation/permission_rationale_page.dart` and
+  `lib/features/notifications/application/wrapped_trigger_notification_router.dart` (S0-8).
+- Adds a link to W2's gallery from the debug page (debug builds only).
+- Follow up notification copy has no board: wording per Aedwon (gate F-19).
 
 ## 5. Motion
 
@@ -81,7 +93,8 @@ and build from the tap, start to last change; reduce motion shows the last frame
 - A figure with no measured or published source: stop (AGENTS.md), except the recorded placeholders.
 - A needed shared component or contract is missing from W1, W2 or W3: stop; do not build a local copy.
 - A schema change is needed: stop; W0 owns the data layer and needs an amendment first.
-- Copy differs from the board: the board wins (README rule 1); report any board without copy.
+- A board conflicts with the README or DECISIONS.md, or a needed string has no board: stop and ask
+  the lead (README "ask instead of guessing").
 - Deploying any function or rules change needs Aedwon's approval.
 - Play Console and RevenueCat setup is Aedwon's (W3 instructions); Pro page tasks that need the new products wait for it.
 
