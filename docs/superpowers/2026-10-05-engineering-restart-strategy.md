@@ -1,7 +1,7 @@
 # Engineering restart strategy (plan of plans)
 
-Date: October 5, 2026, rewritten top-down the same day. Status: awaiting Aedwon's approval of
-Part A. Policy revision read: `origin/main` at ac4b30da (AGENTS.md, WORKFLOW.md, SUBAGENTS.md).
+Date: October 5, 2026, rewritten top-down the same day. Status: Part A approved by Aedwon on
+October 5 (see the decision record). Policy revision read: `origin/main` at ac4b30da (AGENTS.md, WORKFLOW.md, SUBAGENTS.md).
 Decision record: `docs/superpowers/decisions/2026-10-05-engineering-restart-log.md`.
 
 This is level 1 of four. It defines every workstream, the order of planning, the rules shared
@@ -62,9 +62,9 @@ complexity, all handoff answers, date format) are in the decision record and are
 - Implementation size: about 25 screen families and 15 to 20 shared components. A real estimate
   comes out of level 3.
 
-### What needs approval now
+### Approval
 
-This document's approach. After approval, stage 0 starts.
+Approved by Aedwon on October 5, 2026. Stage 0 has started.
 
 ---
 

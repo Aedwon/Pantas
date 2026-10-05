@@ -215,3 +215,24 @@ SHA-256 prefixes: assets/seed/content.db;assets/seed/content.manifest.json;asset
 - functions tests (`node --test`): not run.
 
 Pending: the SSOT entry still says the baseline is running; update it next session.
+
+## October 5, 2026: restart strategy approved
+
+Policy revision read: origin/main 84cdee25.
+
+Aedwon approved Part A of the rewritten strategy (top-down plan of plans) and asked the lead to
+start stage 0, set up unattended running (B9), and continue through levels 2 and 3 without him
+after he answers stage 0, stopping before level 4.
+
+Exact comment:
+
+> I approve the strategy's top-down approach as written.
+
+Resulting actions:
+
+1. Strategy status changed to approved.
+2. Status file created: `docs/superpowers/plans/new-design/STATUS.md`.
+3. SSOT 5 Oct entry updated with the baseline result (strategy B3 step 6, pending since the
+   baseline entry above).
+4. Hourly resume task set up as a desktop scheduled task (B9).
+5. Stage 0 started: gap pass and kept-work triage run in parallel.
