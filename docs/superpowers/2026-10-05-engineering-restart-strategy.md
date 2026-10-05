@@ -77,7 +77,7 @@ Approved by Aedwon on October 5, 2026. Stage 0 has started.
 | Integration branch | `integration/new-design-r1` at 1f79d880, created from `origin/web/roadmap-engine-r1`, pushed. Baseline: analyze 1 info (deprecated `onReorder`, bookmarks sheet), format, layering and attribution clean, 3,403 of 3,403 tests pass. Seed assets copied from the roadmap worktree (gitignored). Details in the decision record. |
 | Roadmap branch | Contains beta/integration-r1, every E04 to E09 line, security verification. |
 | main | Policy and documents only beyond b642e2d1. Design handoff at 58667f2a (286 boards, `docs/design/`). |
-| content/question-qa-r2 | 765c5dc0. Not in the integration branch. About 475 non-document files changed, about 16% under `lib/features`. Merged in W0. |
+| content/question-qa-r2 | 765c5dc0. Not in the integration branch. Corrected Oct 6: 328 files, no application code (question YAML, audit ledgers, one importer rule, tests). Merged in W0 as a fast-forward. |
 | Content coverage audit | Running on `docs/content-coverage-audit-r1`. Separate track. |
 | Kept after cleanup | 9 dirty worktrees, about 30 branches with uncontained commits, 3 stashes. Triaged in stage 0. |
 | SSOT | Google Doc tab "Pantas Production Readiness Assessment". The 5 Oct entry says the baseline is running. It needs a one-line update. |
@@ -92,7 +92,7 @@ Each workstream gets one level 2 plan and one level 3 plan. "Owns" means that wo
 | W0 | Integration: merge question-qa-r2 code and content into the integration branch; regenerate; full checks | Stage 0 | Content and question file formats as built; data layer as merged |
 | W1 | Design foundation: color and type values for light and dark, Geist and Source Serif 4 fonts, icon set, motion primitives from `MOTION.md`, app shell with the pill tab bar (Home, Study, Quiz, Settings), date formatting, visual rules section for AGENTS.md | W0 | Theme value names, font roles, icon names, motion API, shell routes, date format helpers |
 | W2 | Shared components (15 to 20): grouped rows, cards, gauge, floating bar, week strip, notice strip, wheels, question grid, buttons, Pro lock pattern, placeholder marking. Replaces Ink-named components and the 9 bottom-sheet call sites | W1 | Component interfaces and states |
-| W3 | Pre-beta fixes: subscription cancellation keeps Pro until expiry; short public ID for giveaways | W0 | Entitlement state rules; public ID format and API |
+| W3 | Pre-beta fixes: subscription cancellation keeps Pro until expiry; short public ID for giveaways. Added Oct 6 by Aedwon's decision: Pro priced by exam tier per `docs/pricing.md` (tiers, higher tiers include lower, Season Passes, upgrade on switching to a pricier exam, trial on Monthly only) | W0 | Entitlement state rules; tier and pass rules; public ID format and API |
 | W4a to W4h | Screen families: (a) onboarding; (b) Home with Your plan, History, weeks, Your performance, Your record, Your tendencies; (c) Study map, reader, bookmarks; (d) Quiz tab, customize, question screens; (e) Mock, including review gating; (f) Settings, Pro pages, subscription, legal; (g) Wrapped and sharing; (h) loading, errors, offline, update required. Includes retiring the old Progress routes | W1, W2; (f) also W3; (b) uses the roadmap engine | Routes per family; nothing shared |
 | W5 | Release checks: E09 phone checks #22 to #28 and Redmi smoke, E10 to E14, A01, A02, A03, A04, A07, updated for the new screens | W4 complete, W3 | Release evidence format |
 

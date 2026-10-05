@@ -428,3 +428,20 @@ now stale after 2 hours instead of 3, so an interrupted step resumes sooner. Ste
   rows from the lead. Every gap row maps to a stage 0 decision, an earlier decision, or a lead
   default inside the shared design rules; none needed a new product decision.
 - Stage 0 exit met. Level 2 starts with W0.
+
+## October 6, 2026: W3 scope adds tiered pricing (level 1 amendment)
+
+Found while writing level 2: the approved Pro pages and `docs/pricing.md` price Pro by exam tier,
+with Season Passes and an upgrade on switching to a pricier exam, but the app has only the three
+Student products (trial on Yearly) and no workstream owned tier support. CSE ships at launch and
+has its own tier.
+
+Options offered: (1) build tier support in W3 now, about 4 to 6 days, plus Aedwon creating the
+Civil Service products in Play Console and RevenueCat and moving the trial offer to Monthly
+(recommended); (2) Student tier only for beta, about 1 day, CSE without Pro at launch.
+
+Aedwon: "1".
+
+Changes: strategy B2 W3 now includes tier support; B1's question-qa-r2 row corrected (no
+application code; the earlier "16% under lib/features" was wrong). Licensure, academy exams and
+PSHS-NCE stay Coming soon and sell nothing.
