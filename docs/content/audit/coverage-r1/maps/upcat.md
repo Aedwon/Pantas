@@ -62,7 +62,6 @@ Status: PARTIAL NAME LEADS.
 - `lesson-comprehension-skills-inferencing-and-conclusions`: `content/lessons/reading-comprehension/comprehension-skills/inferencing-and-conclusions.md`
 - `lesson-comprehension-skills-main-idea`: `content/lessons/reading-comprehension/comprehension-skills/main-idea.md`
 - `lesson-comprehension-skills-noting-specific-details`: `content/lessons/reading-comprehension/comprehension-skills/noting-specific-details.md`
-- `lesson-comprehension-skills-sequencing-of-events`: `content/lessons/reading-comprehension/comprehension-skills/sequencing-of-events.md`
 - `lesson-text-types-essays-editorials-articles`: `content/lessons/reading-comprehension/text-types/essays-editorials-articles.md`
 - `lesson-text-types-poetry`: `content/lessons/reading-comprehension/text-types/poetry.md`
 - `lesson-text-types-short-stories-and-novels`: `content/lessons/reading-comprehension/text-types/short-stories-and-novels.md`
@@ -126,7 +125,6 @@ Status: PARTIAL NAME LEADS.
 - `lesson-physics-momentum-and-impulse`: `content/lessons/science/physics/momentum-and-impulse.md`
 - `lesson-physics-scalars-and-vectors`: `content/lessons/science/physics/scalars-and-vectors.md`
 - `lesson-physics-thermodynamics`: `content/lessons/science/physics/thermodynamics.md`
-- `lesson-physics-units-and-measurements`: `content/lessons/science/physics/units-and-measurements.md`
 - `lesson-physics-waves-and-sound`: `content/lessons/science/physics/waves-and-sound.md`
 - `lesson-physics-work-energy-power`: `content/lessons/science/physics/work-energy-power.md`
 
@@ -287,8 +285,6 @@ Status: PARTIAL NAME LEADS.
 - `lesson-language-application-error-identification`: `content/lessons/language-proficiency/language-application/error-identification.md`
 - `lesson-language-application-paragraph-organization`: `content/lessons/language-proficiency/language-application/paragraph-organization.md`
 - `lesson-comprehension-skills-sequencing-of-events`: `content/lessons/reading-comprehension/comprehension-skills/sequencing-of-events.md`
-- `lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic`: `content/lessons/reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.md`
-- `lesson-logical-verbal-reasoning-truth-tables-propositional-logic`: `content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md`
 
 Unmatched or unconfirmed facets:
 
@@ -662,7 +658,6 @@ Status: PARTIAL NAME LEADS.
 - `lesson-comprehension-skills-inferencing-and-conclusions`: `content/lessons/reading-comprehension/comprehension-skills/inferencing-and-conclusions.md`
 - `lesson-comprehension-skills-main-idea`: `content/lessons/reading-comprehension/comprehension-skills/main-idea.md`
 - `lesson-comprehension-skills-noting-specific-details`: `content/lessons/reading-comprehension/comprehension-skills/noting-specific-details.md`
-- `lesson-comprehension-skills-sequencing-of-events`: `content/lessons/reading-comprehension/comprehension-skills/sequencing-of-events.md`
 - `lesson-text-types-essays-editorials-articles`: `content/lessons/reading-comprehension/text-types/essays-editorials-articles.md`
 - `lesson-text-types-poetry`: `content/lessons/reading-comprehension/text-types/poetry.md`
 - `lesson-text-types-short-stories-and-novels`: `content/lessons/reading-comprehension/text-types/short-stories-and-novels.md`
@@ -844,7 +839,6 @@ Status: PARTIAL NAME LEADS.
 - `lesson-physics-momentum-and-impulse`: `content/lessons/science/physics/momentum-and-impulse.md`
 - `lesson-physics-scalars-and-vectors`: `content/lessons/science/physics/scalars-and-vectors.md`
 - `lesson-physics-thermodynamics`: `content/lessons/science/physics/thermodynamics.md`
-- `lesson-physics-units-and-measurements`: `content/lessons/science/physics/units-and-measurements.md`
 - `lesson-physics-waves-and-sound`: `content/lessons/science/physics/waves-and-sound.md`
 - `lesson-physics-work-energy-power`: `content/lessons/science/physics/work-energy-power.md`
 
@@ -1160,7 +1154,6 @@ Status: PARTIAL NAME LEADS.
 - `lesson-physics-momentum-and-impulse`: `content/lessons/science/physics/momentum-and-impulse.md`
 - `lesson-physics-scalars-and-vectors`: `content/lessons/science/physics/scalars-and-vectors.md`
 - `lesson-physics-thermodynamics`: `content/lessons/science/physics/thermodynamics.md`
-- `lesson-physics-units-and-measurements`: `content/lessons/science/physics/units-and-measurements.md`
 - `lesson-physics-waves-and-sound`: `content/lessons/science/physics/waves-and-sound.md`
 - `lesson-physics-work-energy-power`: `content/lessons/science/physics/work-energy-power.md`
 
@@ -1298,11 +1291,9 @@ Source locator: [line162](../requirements/upcat.md#L162). Kind: skill. Evidence:
 
 Status: PROVISIONAL NAME LEADS.
 
-- `lesson-data-interpretation-tables-and-charts`: `content/lessons/mathematics/data-interpretation/tables-and-charts.md`
-- `lesson-statistics-and-probability-data-analysis-graphs`: `content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md`
-- `lesson-text-types-visual-media`: `content/lessons/reading-comprehension/text-types/visual-media.md`
 - `lesson-mechanical-technical-reasoning-pulleys-and-levers`: `content/lessons/reasoning/mechanical-technical-reasoning/pulleys-and-levers.md`
 - `lesson-mechanical-technical-reasoning-structural-stability`: `content/lessons/reasoning/mechanical-technical-reasoning/structural-stability.md`
+- `lesson-physics-dynamics`: `content/lessons/science/physics/dynamics.md`
 - `lesson-physics-kinematics`: `content/lessons/science/physics/kinematics.md`
 - `lesson-physics-momentum-and-impulse`: `content/lessons/science/physics/momentum-and-impulse.md`
 - `lesson-physics-thermodynamics`: `content/lessons/science/physics/thermodynamics.md`
@@ -1572,8 +1563,6 @@ Status: PROVISIONAL NAME LEADS.
 - `lesson-algebra-functions-and-relations`: `content/lessons/mathematics/algebra/functions-and-relations.md`
 - `lesson-algebra-types-of-functions`: `content/lessons/mathematics/algebra/types-of-functions.md`
 - `lesson-arithmetic-number-sense-sequences-and-series`: `content/lessons/mathematics/arithmetic-number-sense/sequences-and-series.md`
-- `lesson-data-interpretation-tables-and-charts`: `content/lessons/mathematics/data-interpretation/tables-and-charts.md`
-- `lesson-statistics-and-probability-data-analysis-graphs`: `content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md`
 - `lesson-logical-verbal-reasoning-number-and-letter-sequences`: `content/lessons/reasoning/logical-verbal-reasoning/number-and-letter-sequences.md`
 
 ## upcat-L189: Mathematics
@@ -1590,8 +1579,6 @@ Status: PROVISIONAL NAME LEADS.
 - `lesson-algebra-types-of-functions`: `content/lessons/mathematics/algebra/types-of-functions.md`
 - `lesson-arithmetic-number-sense-ratio-and-proportion`: `content/lessons/mathematics/arithmetic-number-sense/ratio-and-proportion.md`
 - `lesson-data-interpretation-rates-ratios-and-percentages-in-context`: `content/lessons/mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md`
-- `lesson-data-interpretation-tables-and-charts`: `content/lessons/mathematics/data-interpretation/tables-and-charts.md`
-- `lesson-statistics-and-probability-data-analysis-graphs`: `content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md`
 
 ## upcat-L190: Mathematics
 

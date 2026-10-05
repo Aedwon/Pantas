@@ -1,19 +1,20 @@
 {
-  "status": "corrected535-record snapshot pending focused independent map/count recheck",
+  "status": "final evidence normalization pending narrow independent recheck",
+  "auditCheckpoint": "02a5c71ca5e1d0a89001ca7a4eda44bb9e7635ad",
   "corpusCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
   "files": {
-    "docs/content/audit/coverage-r1/build_level1_maps.py": "16208f7c0ad3b74e00d81c5ee9204293326d1e064766a3755841c9f830193d00",
-    "docs/content/audit/coverage-r1/requirement-map.json": "61e1a02e1fbaa9dbba3f98885643ec2d3d0cbe820febdcc0525941af4cfc64a1",
-    "docs/content/audit/coverage-r1/lesson-exam-tags.json": "c88ef277a58ba5ac76dd10d44f8423569c842eab21c2bd4383a543daece141f5",
-    "docs/content/audit/coverage-r1/outline-comparison.md": "7d46f2202ccf63d9d175d7019c45a200b0350fa247dda191c051185608d2bddb",
-    "docs/content/audit/coverage-r1/maps/cse-subprofessional.md": "43a33d80a6221f2eb3b550dd5fbe859117f3cae7364b1e5babf852523e82c876",
-    "docs/content/audit/coverage-r1/maps/dcat.md": "4e07384a4628df956610e5546214baf80300a961ca5829d49c9b5e1fdee3a9dd",
-    "docs/content/audit/coverage-r1/maps/upcat.md": "1824baaff9c95cc1b33ac7d04e33fc140093b936fae68a7e8b527620b339c95e",
-    "docs/content/audit/coverage-r1/maps/pupcet.md": "2af05cdf9487fe55b8a040b6e43ad2516de6f1c808ec5f65e471b74bb021d986",
-    "docs/content/audit/coverage-r1/maps/dost-sei.md": "90b279b2422fe770f1c33f00eeaa4175c8cdc170d4e5de8d169faeedc7880024",
-    "docs/content/audit/coverage-r1/maps/acet.md": "197e55f74b3c0f98cec5c25239073ada21404369802a777a2d9eef828f4b98a5",
+    "docs/content/audit/coverage-r1/build_level1_maps.py": "210af363b9ceeed254bb8d5e08d2f031c04d03a4e334adcd70dae105212ee9fd",
+    "docs/content/audit/coverage-r1/requirement-map.json": "023a24c7c6b21ae809d38542869b81b9f466cf089bc5f50927d34b1e192a3493",
+    "docs/content/audit/coverage-r1/lesson-exam-tags.json": "9ea1b39172e722f0297f432766f094c717279df636255fac0302e5964a3d3e74",
+    "docs/content/audit/coverage-r1/outline-comparison.md": "64eb0cb62abbd6347e7da362aa4c7e7a2c6448400283c96d2bf0e5bc998f4110",
+    "docs/content/audit/coverage-r1/maps/cse-subprofessional.md": "afb8b1b248e05d4ddc2e93a9b7aa7f200609da8828a7b285faf09ac864b9a8b4",
+    "docs/content/audit/coverage-r1/maps/dcat.md": "09226497e57fc8b573650c1d33ea9d9b1a08a98093d02efec099ba2f9d3ad2e0",
+    "docs/content/audit/coverage-r1/maps/upcat.md": "cd769a0d95102fe87b07a2689041c356db6d2bcf051f24ccf72bc802d9050cd7",
+    "docs/content/audit/coverage-r1/maps/pupcet.md": "443549c603694b424801b594a2149b57a31f6bb14f6c603599335ec5e6144950",
+    "docs/content/audit/coverage-r1/maps/dost-sei.md": "c8251ed648fc285fe25f9fd194188c60c9708e503144631b3ac727110d4b28c2",
+    "docs/content/audit/coverage-r1/maps/acet.md": "3e6fcf95e521dd4ce325027858f68b193f8863173bd8db7a023ad9fb6ad45af3",
     "docs/content/audit/coverage-r1/maps/cse-professional.md": "ec2f3d4d18d6419c3b27fdcb97737d98dab64004eea46780e348e6da0b56714d",
-    "docs/content/audit/coverage-r1/maps/sm-foundation.md": "468a060bcd8be04898f535705b0e20f29a85fab480daf266d8e088857cc5c38c",
-    "docs/content/audit/coverage-r1/maps/ustet.md": "cc094c21d4f74a11450e13a3136833a5cd7238741758d06ef1c1ab68e2ce835a"
+    "docs/content/audit/coverage-r1/maps/sm-foundation.md": "8237a63e8d67f89b30aab3c274dde00e1cff61606aea6d130d542b67d32f2d75",
+    "docs/content/audit/coverage-r1/maps/ustet.md": "9edab99c9b60b28666988052916b2228a10273fc7ca674272c1895f88c35b9df"
   }
 }

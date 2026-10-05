@@ -17,3 +17,15 @@ MAP-05: removed writing-production uncertainty from function composition/reading
 Focused root evidence: five classification cases pass; six word/citation-collision cases pass; ten contextual/domain edge-removal cases pass; six direct named-facet cases pass. Exact positive/missing target identities printed in tool output.535source records retained; 158lesson catalog remains one row each. Root corrected inventory wording: storedoutline has six subject records/25topics/141lesson units, five populated subjects plus empty General Information placeholder. Original Google text has five subjects and merges inference/fact-opinion in one bullet; nested bullets do not define original lesson count.
 
 Independent semantic and counting rechecks are pending at corrected hashes. No Google writes or complete-map acceptance claimed.
+
+## Second correction, R1-R4
+
+First correction snapshot hashes retained in map-input-manifest-first-correction.json; watcher checkpoint02a5c71ca5e1d0a89001ca7a4eda44bb9e7635ad contains those artifacts. Latest map-input-manifest.json identifies the new snapshot. Accepted requirement/profile bytes remain unchanged.
+
+R1/R3: broad parent families now require the same named group as their finer candidates. No Science-fluid candidate is imported into USTET Mental Ability. Explicitly unknown boundary/curriculum statements have UNKNOWN evidence/confidence/status and zero edges, including ACET43 and CSESub102/108. All UNKNOWN statuses align their evidence string to unknown.
+
+R2: guards distinguish discourse/text patterns from numeric sequences and logical operations from arithmetic. English connectors do not imply formal propositions unless those skills are explicitly named. Constitutional articles do not imply news/essay genres. Testing areas do not imply geometric area. Physical translation does not imply translating words into algebra. Function/motion graphs use their named function/motion candidates, not statistical chart lessons from a bare graph token. Valid separate chart/data evidence remains.
+
+R4: laws-of-motion alias adds Dynamics, and atomic-and-molecular-structure alias retains Atomic Structure. No body completeness claim.
+
+Root focused regression output:25 unrelated-edge removals,3 explicit unknown classifications,3 direct-facet additions, all PASS. Unknown/confirmed evidence conflicts0.535 source records and158lesson catalog retained. Independent semantic and counting rechecks pending; no Google writes.

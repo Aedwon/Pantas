@@ -1,6 +1,6 @@
 # Independent level 1 exam map review
 
-Status: CORRECTION RECHECK COMPLETE, FLAGS. Initial findings are preserved as history; the latest disposition is below.
+Status: FINAL METADATA NORMALIZATION VERIFIED, PASS for provisional maps. Prior findings and dispositions remain historical.
 
 Policy: main `cb48097bedf15bec2cfbe4fb3aa7e957753b1727`.
 Assigned audit HEAD: `261f8685b5add6652037cc6ba0f62c21dc8ce8cb`.
@@ -277,3 +277,158 @@ missing_atomic_facet_residual=True
 manifest_files_changed=0
 report_emdashes=0
 ```
+
+
+## Second correction recheck, October 5, 2026
+
+Review completed. Policy AGENTS/WORKFLOW/SUBAGENTS/startup reread from current main cb48097bedf15bec2cfbe4fb3aa7e957753b1727. Audit checkpoint 02a5c71ca5e1d0a89001ca7a4eda44bb9e7635ad preserves the first correction. Corpus 765c5dc0fa5586281047bf4f7b30d09ab3707887 remains read-only. Scope remains R1-R4 and affected outputs across the full 535-record catalog.
+
+### Second correction input hashes
+
+SHA256 values recomputed from actual bytes:
+
+- `build_level1_maps.py`: `392cd6ae8a3abf2a370677f31e57e46bd5a815d9436bcd740c3ffb1ee793c6c2`
+- `requirement-map.json`: `4908c060f9edced27bad9d6e069a5bcbea727673b656cf9d14d6387e8ac5a92b`
+- `lesson-exam-tags.json`: `9ea1b39172e722f0297f432766f094c717279df636255fac0302e5964a3d3e74`
+- `outline-comparison.md`: `64eb0cb62abbd6347e7da362aa4c7e7a2c6448400283c96d2bf0e5bc998f4110`
+- `maps/cse-subprofessional.md`: `afb8b1b248e05d4ddc2e93a9b7aa7f200609da8828a7b285faf09ac864b9a8b4`
+- `maps/dcat.md`: `09226497e57fc8b573650c1d33ea9d9b1a08a98093d02efec099ba2f9d3ad2e0`
+- `maps/upcat.md`: `cd769a0d95102fe87b07a2689041c356db6d2bcf051f24ccf72bc802d9050cd7`
+- `maps/pupcet.md`: `443549c603694b424801b594a2149b57a31f6bb14f6c603599335ec5e6144950`
+- `maps/dost-sei.md`: `c8251ed648fc285fe25f9fd194188c60c9708e503144631b3ac727110d4b28c2`
+- `maps/acet.md`: `3e6fcf95e521dd4ce325027858f68b193f8863173bd8db7a023ad9fb6ad45af3`
+- `maps/cse-professional.md`: `ec2f3d4d18d6419c3b27fdcb97737d98dab64004eea46780e348e6da0b56714d`
+- `maps/sm-foundation.md`: `8237a63e8d67f89b30aab3c274dde00e1cff61606aea6d130d542b67d32f2d75`
+- `maps/ustet.md`: `9edab99c9b60b28666988052916b2228a10273fc7ca674272c1895f88c35b9df`
+- `map-input-manifest.json`: `72f892dcb79ada10f8a132a9be9f4ed65c9be5015fdb78b392b80caf41dbbd69`
+- `map-input-manifest-first-correction.json`: `717c9b8abdb57d1f99551093b74f68cacb6a19bc19cdae95c7390717da8409ca`
+- `review/map-corrections.md`: `580660861c389f653a8c36a5069231c32b14270837b366660dc81c6d2623e733`
+
+### Second correction checks and closures
+
+I compared the second correction to watcher checkpoint `02a5c71ca5e1d0a89001ca7a4eda44bb9e7635ad`. All 535 source records retain the same identity and exact accepted text. Fifty-four records changed connections, status, evidence, or aggregate contents. I inspected those changed records and scanned affected wording and output families across the complete catalog: discourse/formal logic, discourse/numeric patterns, logical operations/arithmetic, function and motion graphs, physical translation, legal articles, testing area/mathematical area, and calculus. I checked the final connections against the already independently read titles, summaries, and outline. No source research or lesson-depth work was repeated.
+
+R1 is closed. ACET `L043` now has UNKNOWN status/evidence/confidence and zero edges. USTET `L041/L141` contain only the finer Mental Ability pattern/logical/spatial candidates; their Fluid Pressure edges are absent. Fluid Pressure still retains its independent USTET Science evidence, so the valid exam tag is preserved. Same-group aggregation also removes unrelated finer candidates from other broad parents without changing the accepted subject labels or asserting exclusion.
+
+R2 is closed. The reported formal-logic, numeric-sequence, arithmetic-operation, news-article, geometric-area, algebraic-translation, and statistical-graph edges are absent. The affected language records retain their grammar/reading/paragraph candidates. Logical-operation records retain formal-logic candidates. Function-graph records retain Functions and Relations, Types of Functions, and named algebra candidates; physical-graph records retain Kinematics and the named force/energy candidates. Legitimate independent data/chart records remain linked to their chart lessons. Constitutional records retain the constitutional lessons. The correction distinguishes the skill's meaning rather than merely deleting the shared word everywhere.
+
+R3 is closed. CSE Subprofessional `L102/L108` now have UNKNOWN status/evidence/confidence and zero edges. Their independently sourced organizer filing and R.A. 6713 name leads remain in the corresponding positive records. No missing curriculum connection is promoted to proof of teaching.
+
+R4 is closed. UPCAT `L162` and DOST `L100` now include Dynamics, whose summary explicitly names Newton's laws. USTET `L123` now includes Atomic Structure for its atomic-and-molecular structure clause. These additions remain naming leads with original curriculum, cycle, track, and completion qualifications.
+
+Independent exact edge/classification verification output:
+
+```text
+removed_edges_checked=46 removed_edge_failures=0
+explicit_unknown_cases_checked=3 all_pass=True
+direct_named_facet_additions_checked=3 all_pass=True
+```
+
+The previous six restored-facet cases and corrected false-uncertainty fields remain intact. The calculus trio retains only DOST tags, supplied by `L036/L122/L135`; actual Basic Calculus preparation remains in `L135`, and Pre-Calculus no longer supplies derivative/integral/limit edges. CSE atomic-chemistry and Subprofessional Springs and Weights false tags remain absent. Partial bilingual relevance and DOST 2026 versus unknown 2027 continuity remain explicit.
+
+The source-confidence scan found no UNKNOWN row with confirmed evidence and no UNKNOWN/constraint row with lesson edges. There is one deliberate descriptive exception to the blanket claim that every UNKNOWN evidence string equals "unknown": `dcat-L041` retains "reported subject; inspect exact source qualifier" to describe the historical weak personality-questionnaire report. Its confidence explicitly says "unknown academic classification", its status is UNKNOWN, and it has zero edges. This does not assert an academic requirement or promote current scope. It is not a residual semantic flag.
+
+### Final second-correction verification
+
+```text
+requirement_records=535
+changed_records_since_first_correction=54
+lesson_edges=2880
+lesson_exam_tags=819
+statuses: CONTEXT=42 PARTIAL_NAME_LEADS=141 UNKNOWN=68 PROVISIONAL_NAME_LEADS=267 CONSTRAINT_OR_SOURCE_CONFLICT=7 APPARENT_GAP_OR_UNSPECIFIED_CONNECTION=10
+map_manifest_files=13 mismatches=0
+exact_packet_line_mismatches=0
+inventory_lessons=158 tag_catalog_lessons=158 unique_lesson_ids=158
+complete_view_lesson_appearances=158
+all_9_map_heading_counts_match=True
+all_9_map_exact_row_texts_match=True
+all_9_map_lesson_ID_occurrence_counts_match=True
+derived_tag_and_evidence_row_errors=0
+subject_parent_delivery_language_leakage=0
+unknown_confirmed_evidence_conflicts=0
+unknown_or_constraint_status_rows_with_edges=0
+```
+
+### Final disposition
+
+RESULT: PASS for independent level 1 provisional exam-map review at the second-correction hashes above.
+
+No residual R1-R4 finding remains. Earlier FLAGS sections and their input hashes remain historical evidence, with explicit closures above. This pass concerns accepted source-backed requirement association, provisional lesson-name relevance, uncertainty, and complete lesson accounting. It does not confirm teaching depth, worked examples, prerequisites, practice quality, runtime access, mastery, or full exam coverage. It does not accept a Google Doc write or authorize level 2.
+
+Only this review file was updated. No map target, content, app, importer, schema, source packet, original capture, or other agent's output was edited. No new sources, lesson bodies, questions, overlap analysis, structure review, standards review, computer control, or additional agents were used. No quota error occurred during this recheck. The lead retains final level 1 acceptance and publication verification.
+
+Final saved-review check:
+
+```text
+manifest_drift=0
+recorded_second_snapshot_hashes=16 recorded_hash_drift=0
+latest_result=PASS
+report_emdashes=0
+second_section_stale_progress_markers=False
+```
+
+
+## Final metadata normalization, October 5, 2026
+
+Verification complete. Policy reread from main cb48097bedf15bec2cfbe4fb3aa7e957753b1727; scope remains the single DCAT evidence-label normalization. Original review and all correction histories remain intact.
+
+The prior JSON bytes were reconstructed in memory by reversing the one reported field replacement, then bound to the accepted SHA256 from map-input-manifest-second-correction.json. The reconstructed bytes matched that accepted hash exactly, so comparison identifies the actual complete prior acceptance object without relying on a remembered row or a parent assertion. No temporary or target file was written.
+
+Actual diff:
+
+```diff
+--- accepted-second-correction-sha
++++ current-metadata-normalization
+@@ -3709,7 +3709,7 @@
+       "line": 41,
+       "group": "## 2. Subtests and languages",
+       "kind": "subject",
+-      "evidence": "reported subject; inspect exact source qualifier",
++      "evidence": "unknown",
+       "confidence": "unknown academic classification",
+       "text": "- Personality questionnaire: reported at the end by [6]; language and scored status unknown; weak. It is not yet classified as an academic subtest.",
+       "requirementPath": "requirements/dcat.md",
+```
+
+Current artifact SHA256 values recomputed from actual bytes:
+
+- `build_level1_maps.py`: `210af363b9ceeed254bb8d5e08d2f031c04d03a4e334adcd70dae105212ee9fd`
+- `requirement-map.json`: `023a24c7c6b21ae809d38542869b81b9f466cf089bc5f50927d34b1e192a3493`
+- `lesson-exam-tags.json`: `9ea1b39172e722f0297f432766f094c717279df636255fac0302e5964a3d3e74`
+- `outline-comparison.md`: `64eb0cb62abbd6347e7da362aa4c7e7a2c6448400283c96d2bf0e5bc998f4110`
+- `maps/cse-subprofessional.md`: `afb8b1b248e05d4ddc2e93a9b7aa7f200609da8828a7b285faf09ac864b9a8b4`
+- `maps/dcat.md`: `09226497e57fc8b573650c1d33ea9d9b1a08a98093d02efec099ba2f9d3ad2e0`
+- `maps/upcat.md`: `cd769a0d95102fe87b07a2689041c356db6d2bcf051f24ccf72bc802d9050cd7`
+- `maps/pupcet.md`: `443549c603694b424801b594a2149b57a31f6bb14f6c603599335ec5e6144950`
+- `maps/dost-sei.md`: `c8251ed648fc285fe25f9fd194188c60c9708e503144631b3ac727110d4b28c2`
+- `maps/acet.md`: `3e6fcf95e521dd4ce325027858f68b193f8863173bd8db7a023ad9fb6ad45af3`
+- `maps/cse-professional.md`: `ec2f3d4d18d6419c3b27fdcb97737d98dab64004eea46780e348e6da0b56714d`
+- `maps/sm-foundation.md`: `8237a63e8d67f89b30aab3c274dde00e1cff61606aea6d130d542b67d32f2d75`
+- `maps/ustet.md`: `9edab99c9b60b28666988052916b2228a10273fc7ca674272c1895f88c35b9df`
+- `map-input-manifest.json`: `7033ba5feae5a2780da176e20f9714cf56a92fd1e33732f4118ba2f0c465976c`
+- `map-input-manifest-second-correction.json`: `72f892dcb79ada10f8a132a9be9f4ed65c9be5015fdb78b392b80caf41dbbd69`
+
+Verification output:
+
+```text
+prior_JSON_reconstruction_matches_accepted_SHA256=True
+structural_JSON_differences=1
+changed_field=/rows/122/evidence
+record=dcat-L041
+old_value=reported subject; inspect exact source qualifier
+new_value=unknown
+other_meaning_edge_source_status_confidence_changes=0
+changed_manifest_artifacts=build_level1_maps.py, requirement-map.json
+unchanged_rendered_maps=9
+unchanged_tag_catalog=True
+unchanged_outline=True
+current_manifest_mismatches=0
+UNKNOWN_evidence_label_mismatches=0
+requirement_records=535 lesson_edges=2880 lesson_exam_tags=819
+```
+
+The descriptive DCAT exception in the preceding PASS record is now closed. Evidence, status, confidence, and zero lesson edges consistently express unknown academic classification. This normalization changes neither the historical weak report nor any source, requirement, relevance, coverage, or availability conclusion. The accepted nine maps, tags, and complete outline are byte-identical, so the full semantic review remains applicable without another 535-record review.
+
+RESULT: PASS continued at the final metadata-normalization hashes above.
+
+Only this review file was updated. No target, corpus, original capture, source packet, app, importer, or schema was edited. No new source research, lesson body, question, or later-level work occurred. No quota error occurred. This retains the earlier PASS limits: provisional maps only, no teaching-depth, full-coverage, Google publication, or level 2 acceptance.

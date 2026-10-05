@@ -1,4 +1,4 @@
-STATE: RUNNING
+STATE: BLOCKED Google Docs writes require approval unavailable under this session policy
 
 # Coverage audit status
 
@@ -18,17 +18,17 @@ Only level 1 is authorized. Level 2 requires Aedwon's explicit approval in this 
 
 | Exam | Research | Source check | Fresh rebuild | Exam map |
 |---|---|---|---|---|
-| UPCAT | Lead revision source-accepted | Resolution PASS, eight flags closed | Complete: FLAGS 3 resolved | Draft saved; counting/semantic review active |
-| DCAT | Lead revision source-accepted | Resolution PASS,21 flags closed | PASS rebuild | Draft saved; counting/semantic review active |
-| ACET | Research complete, checked | PASS, source check verified | PASS rebuild | Pending |
-| USTET | Lead revision source-accepted | Resolution PASS,3 flags plus4preflight fixes closed | PASS rebuild | Draft saved; counting/semantic review active |
-| PUPCET | Lead revision source-accepted | Resolution PASS,4 flags closed | FLAGS1 resolved | Draft saved; counting/semantic review active |
-| DOST-SEI | Lead revision source-accepted | Resolution PASS,3 flags closed | PASS rebuild | Draft saved; counting/semantic review active |
-| SM Foundation | Lead revision source-accepted | Resolution source flags closed | FLAGS1 resolved | Draft saved; counting/semantic review active |
-| CSE Professional | Lead revision source-accepted | Resolution source flag closed | PASS rebuild | Draft saved; counting/semantic review active |
-| CSE Subprofessional | Lead revision source-accepted | Resolution PASS; residual §6 corrected | FLAGS1 resolved | Draft saved; counting/semantic review active |
+| UPCAT | Lead revision source-accepted | Resolution PASS, eight flags closed | Complete: FLAGS 3 resolved | Accepted provisional map; Google tab blocked |
+| DCAT | Lead revision source-accepted | Resolution PASS,21 flags closed | PASS rebuild | Accepted provisional map; Google tab blocked |
+| ACET | Research complete, checked | PASS, source check verified | PASS rebuild | Accepted provisional map; Google tab blocked |
+| USTET | Lead revision source-accepted | Resolution PASS,3 flags plus4preflight fixes closed | PASS rebuild | Accepted provisional map; Google tab blocked |
+| PUPCET | Lead revision source-accepted | Resolution PASS,4 flags closed | FLAGS1 resolved | Accepted provisional map; Google tab blocked |
+| DOST-SEI | Lead revision source-accepted | Resolution PASS,3 flags closed | PASS rebuild | Accepted provisional map; Google tab blocked |
+| SM Foundation | Lead revision source-accepted | Resolution source flags closed | FLAGS1 resolved | Accepted provisional map; Google tab blocked |
+| CSE Professional | Lead revision source-accepted | Resolution source flag closed | PASS rebuild | Accepted provisional map; Google tab blocked |
+| CSE Subprofessional | Lead revision source-accepted | Resolution PASS; residual §6 corrected | FLAGS1 resolved | Accepted provisional map; Google tab blocked |
 
-All-exam counting and audited Google Doc tab: pending. No lesson, overlap, or standards tasks dispatched. Corpus unchanged. Watcher handles commits/pushes; lead does not mutate git metadata.
+All-exam counting: PASS. Audited Google Doc tab: BLOCKED by tool approval policy. No lesson, overlap, or standards tasks dispatched. Corpus unchanged. Watcher handles commits/pushes; lead does not mutate git metadata.
 
 ## Historical progress
 
@@ -286,3 +286,30 @@ Historical pause: lifted by Aedwon's explicit level 1 start recorded below.
 - Lead systematic mapcorrections saved and allartifacts regenerated from affectedrules. Original hashes preserved in map-input-manifest-first-draft.json; correctedhashes in map-input-manifest.json. Root diagnostic/regression cases classification5/wordcollisions6/domain-context10/directfacets6 pass; raw535source records remain. Old incorrectfive-subjectstoredoutline wording corrected to6records/5populated/emptyGI. Sourceaccepted requirements/profiles unchanged. Dispatch focusedSol semantic andLuna fullrecount oncorrected snapshot; noGooglewrites yet.
 
 - Corrected-snapshot counting result received/read: PASS mechanical158/535/99, all13manifesthashes match,822distinctlesson-examedges, original4semanticexamplelinks removed,17outlineomissions correct. Same Sol semanticrecheck stillFLAGS residualsame-word contexts (discourse/logicaloperations/graphs/legalarticles) andparent-scopeaggregation, explicitlyunknownlines needconsistent evidence. Inputs frozen while final residualreport saves; mechanicalPASSalone doesnotacceptmapgate orpermitGooglewrite.
+
+## Automatic live resume during map recheck, October5,2026
+
+- STATE: RUNNING checked; no later-level approval. Sol map reviewer saved full R1-R4 residual report before receiving a usage-limit error with reset7:56AM. Latest watcher message reports live availability and explicitly supersedes any earlier reset wait. Continue immediately; if a new limit occurs after this message, save state and stop.
+- Live/local main cb48097bedf15bec2cfbe4fb3aa7e957753b1727 unchanged; watcher checkpoint audit02a5c71ca5e1d0a89001ca7a4eda44bb9e7635ad matches local/live. All audit outputs saved; corpus765c5dc0 unchanged/clean. Agent inventory rootonly, no duplicate workers. Branch filledprofile doc remainsuntracked because watcher saved auditfolder; identical audit-local profilecopy will preserve it durably without gitmutations.
+- Current progress: accepted9requirements/sourcechecks/freshrebuilds/profiles; nine maps535records/158lessons/99profiles mechanicallyPASS at current535snapshot, semanticR1-R4 remain. Read full reviewer append; fix named-area/boundary/unknown classification, same-group parentaggregation, logical/discourse/graph/legalarticle/area/translational meaning guards, and missing Dynamics/atomic facets. Then focused semantic recheck/fullrecount beforeGooglewrite. No lessonbodies or later-level work.
+
+- Lead R1-R4second mapcorrection saved after actualnewauto resume; regression25falseedgegroups/3unknownclassifications/3directfacets pass, unknown-confirmed evidenceconflicts0. Same-group parentaggregation, discourse/logical/graph/legalarticle/area/translation meaning guards nowexplicit. Current535snapshot hashes inmap-input-manifest.json; priorcorrectedsnapshot preserved byfirst-correctionmanifest andwatcher02a5. Need sameindependentSol recheck+Luna recount; no new usageerror afterlatestwatcheravailability message. Googlewritesnone.
+
+- Second semantic correction Solresult received/read: PASS, all535same sourceIDs/text,54changedrecords/affectedcontexts inspected,46removed-edge/3unknown/3addedfacet independentchecks pass, allR1-R4closed. Actual2880requirement-lesson connections/819distinctlesson-examtags;13manifesttargets stable. No fullcoverage/body/Google/laterlevel acceptance. Luna recount all158/535/99/17PASS exceptDCAT41evidencefield historicalreportedSubjectvsUnknown; zeroedges/confidenceunknown means no semanticpromotion, but lead will normalize it and gettargetedcount/semantic-record recheck beforefinalgate.
+
+- Final narrow mapmetadata normalization: DCAT41personality branch nowevidenceunknown matchingstatus/confidence/zeroedges. Generator rerun changesonly buildscript andrequirement-map.json; nine renderedmaps/tagcatalog/outline allbyte-identical to semanticPASSsnapshot. Second-correctionmanifest preserved; currenthashes refreshed. Need narrowSol recordidentity confirmation andLuna final recount/consistencyPASS beforeGooglewrite.
+
+- Final narrow Sol recheck received/read: continuedPASS. ActualfullJSONdiffonly DCAT41evidence label (row122), reversingit reproduces prioraccepted4908c060 hash; allnine maps/tagcatalog/outlinebyte-identical to semanticPASS; newmanifestmatches; UNKNOWNevidenceconflicts0. Originalexceptionclosed. Luna finalnormalization counting reportpending; no source/body/Google/later-level changes.
+
+- Final Luna normalization recheck received/read: PASS atcurrentmanifest7033ba5f, all13targets match,158unique lessons/535records/819distincttags/99profiles/17omissions exact; all68Unknown evidence aligned/zeroedges. Sol semanticcontinuedPASSapplicable same9renderedmaps/tagcatalog/outline. Lead accepts map+countgate, nowprepares authorizedGoogleauditedtab write. Draftpayload saved (200paragraphs including158lessonlines), actualtaghash recorded. FirstlineRUNNING untilGooglewrite/readback/originalpreservation complete; nolevel2approval.
+
+## Current stop: Google Docs write approval unavailable
+
+- Level1 maps, all9 requirement/source/freshrebuild gates, finalsemantic mapreview and all-exam counting accepted.535exactsource records/478bullet lines,158unique lessons,819distinct provisional lesson-exam tags,99profiles;17storedoutline omissions. Required source/depth/runtime uncertainties remain explicit. No later-level work authorized or started.
+- Audited tab native write attempted only after those checks. Tool returned exactly: "MCP tool call requires approval, but approval policy is never". Host approval is unavailable; no attempt to bypass it. First result was lost to a wrapper-store error, so lead independently reread the doc before retry, confirmed no tab, then captured the explicit tool error. Final native read again confirms no audited tab and exact original title/body/styles/structure unchanged (219bodyelements), document revision unchanged.
+- Original doc1LzdBQjPmRYXV1LSrLnK7F6_eadQi7cb1fj8mg7yuZg4, originaltab t.2px7tpf83r56, parent t.slriaxfbscy0. Proof: google-tab-verification.json. No Google mutation reached the document.
+- Complete reviewable tab draft: audited-tab-draft.json,200paragraphs/158lesson paragraphs,21529UTF16characters, tagcatalog SHA9ea1b39172e722f0297f432766f094c717279df636255fac0302e5964a3d3e74. Human-readable draft saved separately. Filled canonical profile file and identical auditfoldercopy saved locally; watcher handles allowed git saving, lead never commits/pushes.
+- ORCHESTRATOR instruction applies: if Google Docs cannot be written, stop before the tab and report. Level1 is NOT complete, do NOT set AWAITING_APPROVAL, do NOT ask/start level2. All future automatic resumes seeing BLOCKED must do nothing and end.
+- Recovery requires Aedwon to provide a session/connector policy permitting the already-authorized Google Docs tab write. It does not require redoing accepted source research or unchanged map reviews. Revalidate main policy/corpus/actualmap hashes; reread originaldocstructure and absence of audit tab; then createonlynew auditedtab, insert prepared text with tab-specific ranges, format newtabonly, readback all158titles/tagparity, exact originalstructure preservation, finalverification. Only then set AWAITING_APPROVAL level1done and askAedwon to approvelevel2.
+
+- Final lead saved checkpoint report level1-summary.md and human-readable audited-tab draft. Fresh verification:13maphashes/10requirement-profilehashes match;158lessons/535records/819tags exactparity;158drafttitle/tag lists exact; originalGooglestructureunchanged/newtababsent; canonicalprofileauditcopy identical; git diff --check exit0; corpusclean. State remains BLOCKED, level1notcomplete. Report/stopping now, no permissionquestion or later-level dispatch.

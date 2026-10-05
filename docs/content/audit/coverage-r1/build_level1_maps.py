@@ -67,7 +67,7 @@ rules = [
     (r'circles|circle relations|circle properties|circle and polygon|chords|arcs|tangent|secant', [54]),
     (r'coordinate|distance formula|midpoints|rectangular', [55]),
     (r'conditional statements|converse|contraposi|conditional forms|geometric deductions|axiomatic geometry', [56,93,94]),
-    (r'measurement|volume|area|perimeter|solid figures', [57]),
+    (r'measurement|volume|area formulas|area of|calculate area|areas under|perimeter|solid figures', [57]),
     (r'parallel/perpendicular|parallel and perpendicular|transversal', [58]),
     (r'polygon|quadrilateral|parallelogram', [59]),
     (r'triang|congruence|similarity|pythagorean', [60]),
@@ -127,7 +127,7 @@ rules = [
     (r'anatomy|body systems|organ systems|organs|digestive|digestion|circulatory|circulation|feedback|physiolog', [115]),
     (r'classif.*organism|taxonomy|diversity|binomial', [116]),
     (r'acids|bases|\bph\b|neutralization', [117]),
-    (r'atomic structure|particles|particle nature|particle models|ions|isotope|atomic rearrangements', [118,124,125]),
+    (r'atomic (?:and molecular )?structure|particles|particle nature|particle models|ions|isotope|atomic rearrangements', [118,124,125]),
     (r'organic|carbon compounds|hydrocarbon|functional groups|biomolecule', [119]),
     (r'bonding|polarity|molecular structure|molecular properties|lewis|vsepr', [120]),
     (r'nomenclature|formulas|naming compounds', [121]),
@@ -154,7 +154,7 @@ rules = [
     (r'plate|fault|earthquake|volcano|geolog|hazard mitigation', [142]),
     (r'water cycl|ocean|tides', [143]),
     (r'weather|climate|monsoon|itcz|breezes|tropical cyclone|typhoon|climatic', [144]),
-    (r'newton|forces|\bforce\b|dynamics|friction', [145]),
+    (r'newton|laws of motion|forces|\bforce\b|dynamics|friction', [145]),
     (r'electric|magnet|circuit|charging|generator|motor', [146]),
     (r'gravitation|gravity|kepler', [148]),
     (r'motion|kinematic|distance/speed|distance and speed', [149]),
@@ -270,7 +270,7 @@ for exam in exam_names:
     rows = extract(exam)
     for row in rows:
         text = clean(row['text'])
-        unknown = row['evidence'].startswith('unknown') or text.startswith(('- unknown', '- no specific curriculum', '- current detailed', '- current english topic', '- current meaning', '- current reasoning topic', '- current exam-essay', '- specific disciplines', '- specific topics', '- specific grammar', '- specific comprehension', '- supported, curriculum: no specific', '- filipino: sources'))
+        unknown = row['evidence'].startswith('unknown') or bool(re.match(r'^- [^:]+:\s*unknown\b',text)) or text.startswith(('- unknown', '- no specific curriculum', '- separate reading comprehension', '- current detailed', '- current english topic', '- current meaning', '- current reasoning topic', '- current exam-essay', '- specific disciplines', '- specific topics', '- specific grammar', '- specific comprehension', '- supported, curriculum: no specific', '- filipino: sources'))
         constraint = 'conflicts and limits' in clean(row['group']) or text.startswith('- the 2027 application page establishes')
         context = row['kind'] == 'context'
         indices = set()
@@ -299,6 +299,8 @@ for exam in exam_names:
                 indices.discard(91)
         elif 'general information' in group_text or 'general knowledge' in group_text:
             indices = {i for i in indices if i < 12 or i >= 107 or 77 <= i <= 89 or i==106}
+            if not re.search(r'news articles|editorial|opinion column|essays',positive):
+                indices.discard(85)
         # Same word, different action: mechanical balance, imagined rotation,
         # numerical sequences and physical systems require their actual context.
         if 98 in indices and not re.search(r'pulley|lever|machine|fulcrum|mechanical|balance.*objects',positive):
@@ -307,8 +309,16 @@ for exam in exam_names:
             indices.discard(104)
         if 39 in indices and not re.search(r'(?:systems|simultaneous).*equation|equation.*systems|nonlinear|non.linear|in two variables',positive):
             indices.discard(39)
-        if re.search(r'paragraph|cohesi|connector|events|discourse',positive) and not re.search(r'numerical|number|letter|arithmetic|geometric',positive):
+        if re.search(r'paragraph|cohesi|coheren|connector|events|discourse|reading|text|language|vocabulary|grammar',positive) and not re.search(r'numerical|number sequence|letter sequence|arithmetic|geometric',positive):
             indices.difference_update((50,92))
+        if lang and not re.search(r'analytical|formal logic|proposition|syllogism|truth|deductive|categorical',positive):
+            indices.difference_update((56,93,94))
+        if re.search(r'logical operations|propositions|truth values',positive) and not re.search(r'arithmetic|numeric|fraction|decimal|integer|whole number',positive):
+            indices.difference_update((44,45,47))
+        if 31 in indices and not re.search(r'math|numerical',group_text) and not re.search(r'algebra|expressions|equations|translate.*math',positive):
+            indices.discard(31)
+        if 'graph' in positive and re.search(r'function|polynomial|motion|speed|acceleration|position',positive) and not re.search(r'tables|charts|pie|bar graph|scatter|statistic|collected data|data interpretation',positive):
+            indices.difference_update((52,67,89))
         if not re.search(r'math|numerical|statistics|calculus',group_text):
             indices.difference_update((61,62,64))
         if re.search(r'math|numerical|statistics',group_text):
@@ -325,6 +335,7 @@ for exam in exam_names:
             row['confidence']='constraint; see exact source qualifiers'
         elif unknown:
             status = 'UNKNOWN'
+            row['evidence']='unknown'
             row['confidence']='unknown connection/depth; see exact source qualifiers'
         elif context:
             status = 'CONTEXT'
@@ -356,7 +367,7 @@ for exam in exam_names:
             continue
         for pattern,predicate in families:
             if re.search(pattern,clean(row['text'])):
-                lids=sorted({lid for x in rows if x['kind']=='skill' for lid in x['lessonIds'] if predicate(by_id[lid])})
+                lids=sorted({lid for x in rows if x['kind']=='skill' and clean(x['group'])==clean(row['group']) for lid in x['lessonIds'] if predicate(by_id[lid])})
                 if lids:
                     row['lessonIds']=lids
                     row['lessonPaths']=[by_id[lid]['path'] for lid in lids]
@@ -386,6 +397,7 @@ for exam in exam_names:
         allowed=lambda l:False
         if 'personality' in label:
             row['status']='UNKNOWN'
+            row['evidence']='unknown'
             row['confidence']='unknown academic classification'
             row['lessonIds'],row['lessonPaths']=[],[]
             row['uncertainties']=['Recalled personality questionnaire is not classified as an academic teaching requirement.']

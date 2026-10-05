@@ -153,7 +153,6 @@ Status: PROVISIONAL NAME LEADS.
 - `lesson-philippine-constitution-bill-of-rights`: `content/lessons/general-information/philippine-constitution/bill-of-rights.md`
 - `lesson-philippine-constitution-the-articles-in-outline`: `content/lessons/general-information/philippine-constitution/the-articles-in-outline.md`
 - `lesson-philippine-constitution-the-civil-service-commission`: `content/lessons/general-information/philippine-constitution/the-civil-service-commission.md`
-- `lesson-text-types-essays-editorials-articles`: `content/lessons/reading-comprehension/text-types/essays-editorials-articles.md`
 
 ## cse-subprofessional-L059: General Information
 
@@ -442,14 +441,13 @@ Status: PROVISIONAL NAME LEADS.
 
 ## cse-subprofessional-L102: Clerical Ability
 
-Source locator: [line102](../requirements/cse-subprofessional.md#L102). Kind: skill. Evidence: curriculum preparation.
+Source locator: [line102](../requirements/cse-subprofessional.md#L102). Kind: skill. Evidence: unknown connection/depth; see exact source qualifiers.
 
 - Specialized filing rules: unknown; no relevant DepEd competency established in the selected guides.
 
-Status: PROVISIONAL NAME LEADS.
+Status: UNKNOWN.
 
-- `lesson-clerical-ability-alphabetic-filing-rules`: `content/lessons/reasoning/clerical-ability/alphabetic-filing-rules.md`
-- `lesson-clerical-ability-numeric-and-chronological-filing`: `content/lessons/reasoning/clerical-ability/numeric-and-chronological-filing.md`
+Lesson connection: none assigned for this unknown/context/apparent-gap row.
 
 ## cse-subprofessional-L106: General Information
 
@@ -477,16 +475,13 @@ Status: PROVISIONAL NAME LEADS.
 
 ## cse-subprofessional-L108: General Information
 
-Source locator: [line108](../requirements/cse-subprofessional.md#L108). Kind: skill. Evidence: curriculum preparation.
+Source locator: [line108](../requirements/cse-subprofessional.md#L108). Kind: skill. Evidence: unknown connection/depth; see exact source qualifiers.
 
 - R.A. 6713-specific curriculum support: unknown; organizer explicitly names the law, but this curriculum pass does not establish provision-level teaching. [2, 13; unknown]
 
-Status: PROVISIONAL NAME LEADS.
+Status: UNKNOWN.
 
-- `lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts`: `content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md`
-- `lesson-code-of-conduct-ra-6713-norms-of-conduct`: `content/lessons/general-information/code-of-conduct-ra-6713/norms-of-conduct.md`
-- `lesson-code-of-conduct-ra-6713-penalties-and-enforcement`: `content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md`
-- `lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment`: `content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md`
+Lesson connection: none assigned for this unknown/context/apparent-gap row.
 
 ## cse-subprofessional-L112: Supported, weak
 

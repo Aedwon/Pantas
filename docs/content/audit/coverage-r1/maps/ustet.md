@@ -143,7 +143,6 @@ Status: PARTIAL NAME LEADS.
 - `lesson-physics-momentum-and-impulse`: `content/lessons/science/physics/momentum-and-impulse.md`
 - `lesson-physics-thermodynamics`: `content/lessons/science/physics/thermodynamics.md`
 - `lesson-physics-two-dimensional-motion`: `content/lessons/science/physics/two-dimensional-motion.md`
-- `lesson-physics-units-and-measurements`: `content/lessons/science/physics/units-and-measurements.md`
 - `lesson-physics-waves-and-sound`: `content/lessons/science/physics/waves-and-sound.md`
 - `lesson-physics-work-energy-power`: `content/lessons/science/physics/work-energy-power.md`
 
@@ -163,9 +162,7 @@ Status: PARTIAL NAME LEADS.
 - `lesson-logical-verbal-reasoning-number-and-letter-sequences`: `content/lessons/reasoning/logical-verbal-reasoning/number-and-letter-sequences.md`
 - `lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic`: `content/lessons/reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.md`
 - `lesson-logical-verbal-reasoning-truth-tables-propositional-logic`: `content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md`
-- `lesson-mechanical-technical-reasoning-fluid-pressure`: `content/lessons/reasoning/mechanical-technical-reasoning/fluid-pressure.md`
 - `lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization`: `content/lessons/reasoning/spatial-abstract-reasoning/mental-rotation-3d-visualization.md`
-- `lesson-verbal-logic-assumptions-and-conclusions`: `content/lessons/reasoning/verbal-logic/assumptions-and-conclusions.md`
 
 Unmatched or unconfirmed facets:
 
@@ -678,7 +675,6 @@ Status: PARTIAL NAME LEADS.
 - `lesson-physics-momentum-and-impulse`: `content/lessons/science/physics/momentum-and-impulse.md`
 - `lesson-physics-thermodynamics`: `content/lessons/science/physics/thermodynamics.md`
 - `lesson-physics-two-dimensional-motion`: `content/lessons/science/physics/two-dimensional-motion.md`
-- `lesson-physics-units-and-measurements`: `content/lessons/science/physics/units-and-measurements.md`
 - `lesson-physics-waves-and-sound`: `content/lessons/science/physics/waves-and-sound.md`
 - `lesson-physics-work-energy-power`: `content/lessons/science/physics/work-energy-power.md`
 
@@ -755,9 +751,6 @@ Source locator: [line117](../requirements/ustet.md#L117). Kind: skill. Evidence:
 
 Status: PROVISIONAL NAME LEADS.
 
-- `lesson-data-interpretation-tables-and-charts`: `content/lessons/mathematics/data-interpretation/tables-and-charts.md`
-- `lesson-statistics-and-probability-data-analysis-graphs`: `content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md`
-- `lesson-text-types-visual-media`: `content/lessons/reading-comprehension/text-types/visual-media.md`
 - `lesson-physics-dynamics`: `content/lessons/science/physics/dynamics.md`
 - `lesson-physics-electricity-and-magnetism`: `content/lessons/science/physics/electricity-and-magnetism.md`
 - `lesson-physics-kinematics`: `content/lessons/science/physics/kinematics.md`
@@ -809,8 +802,11 @@ Source locator: [line123](../requirements/ustet.md#L123). Kind: skill. Evidence:
 
 Status: PROVISIONAL NAME LEADS.
 
+- `lesson-chemistry-atomic-structure`: `content/lessons/science/chemistry/atomic-structure.md`
 - `lesson-chemistry-chemical-bonding`: `content/lessons/science/chemistry/chemical-bonding.md`
 - `lesson-chemistry-chemical-reactions`: `content/lessons/science/chemistry/chemical-reactions.md`
+- `lesson-chemistry-history-of-the-atom`: `content/lessons/science/chemistry/history-of-the-atom.md`
+- `lesson-chemistry-matter`: `content/lessons/science/chemistry/matter.md`
 - `lesson-chemistry-stoichiometry`: `content/lessons/science/chemistry/stoichiometry.md`
 - `lesson-chemistry-thermodynamics-and-kinetics`: `content/lessons/science/chemistry/thermodynamics-and-kinetics.md`
 - `lesson-earth-science-astronomy-heavenly-bodies`: `content/lessons/science/earth-science-astronomy/heavenly-bodies.md`
@@ -913,9 +909,7 @@ Status: PARTIAL NAME LEADS.
 - `lesson-logical-verbal-reasoning-number-and-letter-sequences`: `content/lessons/reasoning/logical-verbal-reasoning/number-and-letter-sequences.md`
 - `lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic`: `content/lessons/reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.md`
 - `lesson-logical-verbal-reasoning-truth-tables-propositional-logic`: `content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md`
-- `lesson-mechanical-technical-reasoning-fluid-pressure`: `content/lessons/reasoning/mechanical-technical-reasoning/fluid-pressure.md`
 - `lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization`: `content/lessons/reasoning/spatial-abstract-reasoning/mental-rotation-3d-visualization.md`
-- `lesson-verbal-logic-assumptions-and-conclusions`: `content/lessons/reasoning/verbal-logic/assumptions-and-conclusions.md`
 
 Unmatched or unconfirmed facets:
 

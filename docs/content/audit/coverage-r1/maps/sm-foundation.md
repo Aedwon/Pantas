@@ -583,9 +583,6 @@ Source locator: [line118](../requirements/sm-foundation.md#L118). Kind: skill. E
 
 Status: PROVISIONAL NAME LEADS.
 
-- `lesson-arithmetic-number-sense-fractions-decimals-percentages`: `content/lessons/mathematics/arithmetic-number-sense/fractions-decimals-percentages.md`
-- `lesson-arithmetic-number-sense-order-of-operations`: `content/lessons/mathematics/arithmetic-number-sense/order-of-operations.md`
-- `lesson-arithmetic-number-sense-properties-of-real-numbers`: `content/lessons/mathematics/arithmetic-number-sense/properties-of-real-numbers.md`
 - `lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic`: `content/lessons/reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.md`
 - `lesson-logical-verbal-reasoning-truth-tables-propositional-logic`: `content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md`
 
@@ -672,9 +669,6 @@ Source locator: [line139](../requirements/sm-foundation.md#L139). Kind: skill. E
 
 Status: PROVISIONAL NAME LEADS.
 
-- `lesson-data-interpretation-tables-and-charts`: `content/lessons/mathematics/data-interpretation/tables-and-charts.md`
-- `lesson-statistics-and-probability-data-analysis-graphs`: `content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md`
-- `lesson-text-types-visual-media`: `content/lessons/reading-comprehension/text-types/visual-media.md`
 - `lesson-physics-dynamics`: `content/lessons/science/physics/dynamics.md`
 - `lesson-physics-kinematics`: `content/lessons/science/physics/kinematics.md`
 - `lesson-physics-momentum-and-impulse`: `content/lessons/science/physics/momentum-and-impulse.md`

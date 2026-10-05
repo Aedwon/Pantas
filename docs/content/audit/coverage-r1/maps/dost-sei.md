@@ -212,9 +212,6 @@ Source locator: [line54](../requirements/dost-sei.md#L54). Kind: skill. Evidence
 
 Status: PROVISIONAL NAME LEADS.
 
-- `lesson-data-interpretation-tables-and-charts`: `content/lessons/mathematics/data-interpretation/tables-and-charts.md`
-- `lesson-statistics-and-probability-data-analysis-graphs`: `content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md`
-- `lesson-text-types-visual-media`: `content/lessons/reading-comprehension/text-types/visual-media.md`
 - `lesson-mechanical-technical-reasoning-fluid-pressure`: `content/lessons/reasoning/mechanical-technical-reasoning/fluid-pressure.md`
 - `lesson-mechanical-technical-reasoning-gear-rotations`: `content/lessons/reasoning/mechanical-technical-reasoning/gear-rotations.md`
 - `lesson-mechanical-technical-reasoning-pulleys-and-levers`: `content/lessons/reasoning/mechanical-technical-reasoning/pulleys-and-levers.md`
@@ -275,7 +272,6 @@ Source locator: [line58](../requirements/dost-sei.md#L58). Kind: skill. Evidence
 
 Status: PROVISIONAL NAME LEADS.
 
-- `lesson-algebra-algebraic-expressions`: `content/lessons/mathematics/algebra/algebraic-expressions.md`
 - `lesson-comprehension-skills-inferencing-and-conclusions`: `content/lessons/reading-comprehension/comprehension-skills/inferencing-and-conclusions.md`
 - `lesson-mechanical-technical-reasoning-fluid-pressure`: `content/lessons/reasoning/mechanical-technical-reasoning/fluid-pressure.md`
 - `lesson-mechanical-technical-reasoning-pulleys-and-levers`: `content/lessons/reasoning/mechanical-technical-reasoning/pulleys-and-levers.md`
@@ -379,7 +375,6 @@ Status: PROVISIONAL NAME LEADS.
 - `lesson-comprehension-skills-inferencing-and-conclusions`: `content/lessons/reading-comprehension/comprehension-skills/inferencing-and-conclusions.md`
 - `lesson-comprehension-skills-main-idea`: `content/lessons/reading-comprehension/comprehension-skills/main-idea.md`
 - `lesson-comprehension-skills-noting-specific-details`: `content/lessons/reading-comprehension/comprehension-skills/noting-specific-details.md`
-- `lesson-logical-verbal-reasoning-number-and-letter-sequences`: `content/lessons/reasoning/logical-verbal-reasoning/number-and-letter-sequences.md`
 
 ## dost-sei-L079: Part I: Language and Literature
 
@@ -527,6 +522,7 @@ Source locator: [line100](../requirements/dost-sei.md#L100). Kind: skill. Eviden
 
 Status: PROVISIONAL NAME LEADS.
 
+- `lesson-physics-dynamics`: `content/lessons/science/physics/dynamics.md`
 - `lesson-physics-electricity-and-magnetism`: `content/lessons/science/physics/electricity-and-magnetism.md`
 - `lesson-physics-kinematics`: `content/lessons/science/physics/kinematics.md`
 - `lesson-physics-momentum-and-impulse`: `content/lessons/science/physics/momentum-and-impulse.md`
@@ -647,9 +643,6 @@ Source locator: [line107](../requirements/dost-sei.md#L107). Kind: skill. Eviden
 
 Status: PROVISIONAL NAME LEADS.
 
-- `lesson-data-interpretation-tables-and-charts`: `content/lessons/mathematics/data-interpretation/tables-and-charts.md`
-- `lesson-statistics-and-probability-data-analysis-graphs`: `content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md`
-- `lesson-text-types-visual-media`: `content/lessons/reading-comprehension/text-types/visual-media.md`
 - `lesson-mechanical-technical-reasoning-fluid-pressure`: `content/lessons/reasoning/mechanical-technical-reasoning/fluid-pressure.md`
 - `lesson-chemistry-gas-laws`: `content/lessons/science/chemistry/gas-laws.md`
 - `lesson-physics-fluid-mechanics`: `content/lessons/science/physics/fluid-mechanics.md`
@@ -860,8 +853,6 @@ Status: PROVISIONAL NAME LEADS.
 - `lesson-algebra-types-of-functions`: `content/lessons/mathematics/algebra/types-of-functions.md`
 - `lesson-arithmetic-number-sense-ratio-and-proportion`: `content/lessons/mathematics/arithmetic-number-sense/ratio-and-proportion.md`
 - `lesson-data-interpretation-rates-ratios-and-percentages-in-context`: `content/lessons/mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md`
-- `lesson-data-interpretation-tables-and-charts`: `content/lessons/mathematics/data-interpretation/tables-and-charts.md`
-- `lesson-statistics-and-probability-data-analysis-graphs`: `content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md`
 
 ## dost-sei-L132: Part III: Mathematics
 
@@ -931,7 +922,6 @@ Source locator: [line135](../requirements/dost-sei.md#L135). Kind: skill. Eviden
 
 Status: PROVISIONAL NAME LEADS.
 
-- `lesson-geometry-measurement`: `content/lessons/mathematics/geometry/measurement.md`
 - `lesson-precalculus-basic-calculus-basic-derivatives`: `content/lessons/mathematics/precalculus-basic-calculus/basic-derivatives.md`
 - `lesson-precalculus-basic-calculus-basic-integrals`: `content/lessons/mathematics/precalculus-basic-calculus/basic-integrals.md`
 - `lesson-precalculus-basic-calculus-limits-and-continuity`: `content/lessons/mathematics/precalculus-basic-calculus/limits-and-continuity.md`

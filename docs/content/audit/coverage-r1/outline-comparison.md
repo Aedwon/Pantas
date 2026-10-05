@@ -124,7 +124,7 @@ The machine-readable requirement-map.json retains every nonheading record in req
 ### mathematics / data-interpretation
 
 - Rates, Ratios, and Percentages in Context [`lesson-data-interpretation-rates-ratios-and-percentages-in-context`], tags: acet, cse-professional, cse-subprofessional, dcat, dost-sei, pupcet, sm-foundation, upcat, ustet. UNCERTAIN, provisional.
-- Reading Data from Tables and Charts [`lesson-data-interpretation-tables-and-charts`], tags: acet, cse-professional, cse-subprofessional, dcat, dost-sei, pupcet, sm-foundation, upcat, ustet. UNCERTAIN, provisional.
+- Reading Data from Tables and Charts [`lesson-data-interpretation-tables-and-charts`], tags: acet, cse-professional, cse-subprofessional, dost-sei, pupcet, upcat, ustet. UNCERTAIN, provisional.
 
 ### mathematics / geometry
 
@@ -132,7 +132,7 @@ The machine-readable requirement-map.json retains every nonheading record in req
 - Circles (Radii, Diameters, Chords, Tangents, Secants, Arcs, Sectors) [`lesson-geometry-circles`], tags: acet, dcat, dost-sei, pupcet, sm-foundation, upcat, ustet. UNCERTAIN, provisional.
 - Coordinate (Analytic) Geometry [`lesson-geometry-coordinate-geometry`], tags: acet, dcat, dost-sei, pupcet, sm-foundation, upcat, ustet. UNCERTAIN, provisional.
 - Logic and Reasoning (Conditional Statements, Converses, Inverses, Contrapositives) [`lesson-geometry-logic-and-reasoning`], tags: acet, cse-professional, dcat, sm-foundation, upcat, ustet. UNCERTAIN, provisional.
-- Measurement [`lesson-geometry-measurement`], tags: acet, cse-professional, cse-subprofessional, dcat, dost-sei, pupcet, sm-foundation, upcat, ustet. UNCERTAIN, provisional.
+- Measurement [`lesson-geometry-measurement`], tags: acet, cse-professional, cse-subprofessional, dost-sei, pupcet, sm-foundation, upcat, ustet. UNCERTAIN, provisional.
 - Parallel and Perpendicular Lines (Transversals, Angle Pairs) [`lesson-geometry-parallel-perpendicular-lines`], tags: pupcet, ustet. UNCERTAIN, provisional.
 - Quadrilaterals and Polygons (Properties, Interior and Exterior Angle Sums) [`lesson-geometry-quadrilaterals-and-polygons`], tags: acet, dost-sei, pupcet, sm-foundation, upcat, ustet. UNCERTAIN, provisional.
 - Triangles [`lesson-geometry-triangles`], tags: acet, dcat, dost-sei, pupcet, sm-foundation, upcat, ustet. UNCERTAIN, provisional.

@@ -46,7 +46,6 @@ Status: PARTIAL NAME LEADS.
 - `lesson-geometry-basic-geometric-concepts`: `content/lessons/mathematics/geometry/basic-geometric-concepts.md`
 - `lesson-geometry-circles`: `content/lessons/mathematics/geometry/circles.md`
 - `lesson-geometry-coordinate-geometry`: `content/lessons/mathematics/geometry/coordinate-geometry.md`
-- `lesson-geometry-logic-and-reasoning`: `content/lessons/mathematics/geometry/logic-and-reasoning.md`
 - `lesson-geometry-measurement`: `content/lessons/mathematics/geometry/measurement.md`
 - `lesson-geometry-quadrilaterals-and-polygons`: `content/lessons/mathematics/geometry/quadrilaterals-and-polygons.md`
 - `lesson-geometry-triangles`: `content/lessons/mathematics/geometry/triangles.md`
@@ -165,26 +164,13 @@ Unmatched or unconfirmed facets:
 
 ## acet-L043: ## 2. Subtests and languages
 
-Source locator: [line43](../requirements/acet.md#L43). Kind: subject. Evidence: official; see cycle/language qualifiers.
+Source locator: [line43](../requirements/acet.md#L43). Kind: subject. Evidence: unknown connection/depth; see exact source qualifiers.
 
 - Separate Reading Comprehension, Verbal Analogy, Logical Reasoning, Numerical Ability, or General Intelligence boundaries: current official status unknown. [1-2,8; unknown]
 
-Status: PARTIAL NAME LEADS.
+Status: UNKNOWN.
 
-- `lesson-biology-cell-biology`: `content/lessons/science/biology/cell-biology.md`
-- `lesson-biology-cellular-metabolism`: `content/lessons/science/biology/cellular-metabolism.md`
-- `lesson-biology-characteristics-of-life`: `content/lessons/science/biology/characteristics-of-life.md`
-- `lesson-biology-ecology`: `content/lessons/science/biology/ecology.md`
-- `lesson-chemistry-matter`: `content/lessons/science/chemistry/matter.md`
-- `lesson-comprehension-skills-inferencing-and-conclusions`: `content/lessons/reading-comprehension/comprehension-skills/inferencing-and-conclusions.md`
-- `lesson-earth-science-astronomy-plate-tectonics`: `content/lessons/science/earth-science-astronomy/plate-tectonics.md`
-- `lesson-earth-science-astronomy-weather-and-climate`: `content/lessons/science/earth-science-astronomy/weather-and-climate.md`
-- `lesson-physics-kinematics`: `content/lessons/science/physics/kinematics.md`
-- `lesson-physics-work-energy-power`: `content/lessons/science/physics/work-energy-power.md`
-
-Unmatched or unconfirmed facets:
-
-- Broad area uses only finer candidate connections in this packet; exact depth, language and subject boundaries remain as sourced.
+Lesson connection: none assigned for this unknown/context/apparent-gap row.
 
 ## acet-L044: ## 2. Subtests and languages
 
@@ -456,8 +442,6 @@ Status: PROVISIONAL NAME LEADS.
 - `lesson-algebra-types-of-functions`: `content/lessons/mathematics/algebra/types-of-functions.md`
 - `lesson-arithmetic-number-sense-ratio-and-proportion`: `content/lessons/mathematics/arithmetic-number-sense/ratio-and-proportion.md`
 - `lesson-data-interpretation-rates-ratios-and-percentages-in-context`: `content/lessons/mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md`
-- `lesson-data-interpretation-tables-and-charts`: `content/lessons/mathematics/data-interpretation/tables-and-charts.md`
-- `lesson-statistics-and-probability-data-analysis-graphs`: `content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md`
 
 ## acet-L079: Mathematics
 
@@ -536,7 +520,6 @@ Status: PARTIAL NAME LEADS.
 - `lesson-geometry-basic-geometric-concepts`: `content/lessons/mathematics/geometry/basic-geometric-concepts.md`
 - `lesson-geometry-circles`: `content/lessons/mathematics/geometry/circles.md`
 - `lesson-geometry-coordinate-geometry`: `content/lessons/mathematics/geometry/coordinate-geometry.md`
-- `lesson-geometry-logic-and-reasoning`: `content/lessons/mathematics/geometry/logic-and-reasoning.md`
 - `lesson-geometry-measurement`: `content/lessons/mathematics/geometry/measurement.md`
 - `lesson-geometry-quadrilaterals-and-polygons`: `content/lessons/mathematics/geometry/quadrilaterals-and-polygons.md`
 - `lesson-geometry-triangles`: `content/lessons/mathematics/geometry/triangles.md`
@@ -868,9 +851,6 @@ Source locator: [line150](../requirements/acet.md#L150). Kind: skill. Evidence: 
 
 Status: PROVISIONAL NAME LEADS.
 
-- `lesson-arithmetic-number-sense-fractions-decimals-percentages`: `content/lessons/mathematics/arithmetic-number-sense/fractions-decimals-percentages.md`
-- `lesson-arithmetic-number-sense-order-of-operations`: `content/lessons/mathematics/arithmetic-number-sense/order-of-operations.md`
-- `lesson-arithmetic-number-sense-properties-of-real-numbers`: `content/lessons/mathematics/arithmetic-number-sense/properties-of-real-numbers.md`
 - `lesson-geometry-logic-and-reasoning`: `content/lessons/mathematics/geometry/logic-and-reasoning.md`
 - `lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic`: `content/lessons/reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.md`
 - `lesson-logical-verbal-reasoning-truth-tables-propositional-logic`: `content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md`

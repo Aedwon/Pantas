@@ -110,7 +110,6 @@ Status: PROVISIONAL NAME LEADS.
 - `lesson-comprehension-skills-main-idea`: `content/lessons/reading-comprehension/comprehension-skills/main-idea.md`
 - `lesson-comprehension-skills-noting-specific-details`: `content/lessons/reading-comprehension/comprehension-skills/noting-specific-details.md`
 - `lesson-text-types-essays-editorials-articles`: `content/lessons/reading-comprehension/text-types/essays-editorials-articles.md`
-- `lesson-logical-verbal-reasoning-number-and-letter-sequences`: `content/lessons/reasoning/logical-verbal-reasoning/number-and-letter-sequences.md`
 
 ## pupcet-L063: A. Verbal reasoning / English language and reading
 
@@ -222,8 +221,6 @@ Status: PROVISIONAL NAME LEADS.
 - `lesson-comprehension-skills-main-idea`: `content/lessons/reading-comprehension/comprehension-skills/main-idea.md`
 - `lesson-comprehension-skills-noting-specific-details`: `content/lessons/reading-comprehension/comprehension-skills/noting-specific-details.md`
 - `lesson-comprehension-skills-sequencing-of-events`: `content/lessons/reading-comprehension/comprehension-skills/sequencing-of-events.md`
-- `lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic`: `content/lessons/reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.md`
-- `lesson-logical-verbal-reasoning-truth-tables-propositional-logic`: `content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md`
 
 ## pupcet-L081: B. Filipino language and reading
 
@@ -401,8 +398,6 @@ Status: PROVISIONAL NAME LEADS.
 - `lesson-algebra-types-of-functions`: `content/lessons/mathematics/algebra/types-of-functions.md`
 - `lesson-arithmetic-number-sense-ratio-and-proportion`: `content/lessons/mathematics/arithmetic-number-sense/ratio-and-proportion.md`
 - `lesson-data-interpretation-rates-ratios-and-percentages-in-context`: `content/lessons/mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md`
-- `lesson-data-interpretation-tables-and-charts`: `content/lessons/mathematics/data-interpretation/tables-and-charts.md`
-- `lesson-statistics-and-probability-data-analysis-graphs`: `content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md`
 
 ## pupcet-L099: C. Numerical ability / Mathematics
 
@@ -532,9 +527,6 @@ Source locator: [line118](../requirements/pupcet.md#L118). Kind: skill. Evidence
 
 Status: PROVISIONAL NAME LEADS.
 
-- `lesson-data-interpretation-tables-and-charts`: `content/lessons/mathematics/data-interpretation/tables-and-charts.md`
-- `lesson-statistics-and-probability-data-analysis-graphs`: `content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md`
-- `lesson-text-types-visual-media`: `content/lessons/reading-comprehension/text-types/visual-media.md`
 - `lesson-physics-dynamics`: `content/lessons/science/physics/dynamics.md`
 - `lesson-physics-kinematics`: `content/lessons/science/physics/kinematics.md`
 - `lesson-physics-momentum-and-impulse`: `content/lessons/science/physics/momentum-and-impulse.md`
@@ -671,7 +663,6 @@ Status: PARTIAL NAME LEADS.
 - `lesson-physics-momentum-and-impulse`: `content/lessons/science/physics/momentum-and-impulse.md`
 - `lesson-physics-thermodynamics`: `content/lessons/science/physics/thermodynamics.md`
 - `lesson-physics-two-dimensional-motion`: `content/lessons/science/physics/two-dimensional-motion.md`
-- `lesson-physics-units-and-measurements`: `content/lessons/science/physics/units-and-measurements.md`
 - `lesson-physics-waves-and-sound`: `content/lessons/science/physics/waves-and-sound.md`
 - `lesson-physics-work-energy-power`: `content/lessons/science/physics/work-energy-power.md`
 
@@ -708,9 +699,6 @@ Source locator: [line139](../requirements/pupcet.md#L139). Kind: skill. Evidence
 
 Status: PROVISIONAL NAME LEADS.
 
-- `lesson-arithmetic-number-sense-fractions-decimals-percentages`: `content/lessons/mathematics/arithmetic-number-sense/fractions-decimals-percentages.md`
-- `lesson-arithmetic-number-sense-order-of-operations`: `content/lessons/mathematics/arithmetic-number-sense/order-of-operations.md`
-- `lesson-arithmetic-number-sense-properties-of-real-numbers`: `content/lessons/mathematics/arithmetic-number-sense/properties-of-real-numbers.md`
 - `lesson-comprehension-skills-inferencing-and-conclusions`: `content/lessons/reading-comprehension/comprehension-skills/inferencing-and-conclusions.md`
 - `lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic`: `content/lessons/reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.md`
 - `lesson-logical-verbal-reasoning-truth-tables-propositional-logic`: `content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md`

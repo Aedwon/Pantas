@@ -1,6 +1,6 @@
 # Counting check, all exams
 
-Status: CORRECTED-SNAPSHOT COUNT PASS. Independent semantic acceptance remains pending.
+Status: FINAL NARROW-RECHECK COUNT PASS. The prior UNKNOWN evidence mismatch is corrected.
 
 ## Identity and inputs
 
@@ -74,7 +74,7 @@ Mechanical reference checks do not prove relevance. A separate Sol map review fl
 
 **First-draft result: FLAGS.** The independent mechanical counts and references passed at the first-draft hashes above. The four semantic exceptions prevented a combined map pass. The lead then corrected and regenerated the map artifacts.
 
-## Corrected-snapshot independent recount
+## First correction independent recount (historical)
 
 Recount date: October 5, 2026. Policy remains `main` commit `cb48097bedf15bec2cfbe4fb3aa7e957753b1727`; audit HEAD remains `261f8685b5add6652037cc6ba0f62c21dc8ce8cb`; corpus remains `765c5dc0fa5586281047bf4f7b30d09ab3707887`. Current map hashes are pinned in `map-input-manifest.json`, SHA-256 `717c9b8abdb57d1f99551093b74f68cacb6a19bc19cdae95c7390717da8409ca`. All 13 manifest hashes match their files. Requirements remain at the 10 hashes in `requirement-input-manifest.json`, SHA-256 `f47c0ee3481607a26619e2f66d1d054ccc7a869e80b98de911c95fd8fbf36531`; all 10 match.
 
@@ -107,4 +107,68 @@ The independent recount found:
 
 The four earlier semantic examples now have no erroneous edges. `cse-subprofessional-L137` and `cse-subprofessional-L142` have no lesson edges. `cse-subprofessional-L116` points only to Constitution lessons, and `cse-subprofessional-L117` points only to R.A. 6713 lessons; neither points to atomic chemistry. This recount establishes map accounting and target identity, not whether every other connection is semantically correct. Fresh Sol review of the correction groups remains the independent semantic gate.
 
-**Corrected-snapshot count result: PASS.** Independent semantic acceptance remains pending. No lesson bodies or questions were read. No later-level work was started.
+**First-correction count result: PASS.** Independent semantic acceptance remained pending. No lesson bodies or questions were read. No later-level work was started.
+
+## Second correction independent recount
+
+Recount date: October 5, 2026. Policy remains `main` commit `cb48097bedf15bec2cfbe4fb3aa7e957753b1727`. Audit checkpoint `02a5c71ca5e1d0a89001ca7a4eda44bb9e7635ad` matches the local and live audit branch. Corpus remains `765c5dc0fa5586281047bf4f7b30d09ab3707887`, read only. Current map-input manifest SHA-256: `72f892dcb79ada10f8a132a9be9f4ed65c9be5015fdb78b392b80caf41dbbd69`. Its 13 listed hashes match. Requirements/profile manifest SHA-256 remains `f47c0ee3481607a26619e2f66d1d054ccc7a869e80b98de911c95fd8fbf36531`; all ten hashes still match, including accepted profile SHA-256 `9dcc230d6c3a7fced854485a3309d3b35ddecebe6d12d8898749056c84661937`.
+
+The second correction's map manifest pins the current catalog and maps:
+
+| Input | SHA-256 |
+|---|---|
+| `docs/content/audit/coverage-r1/build_level1_maps.py` | `392cd6ae8a3abf2a370677f31e57e46bd5a815d9436bcd740c3ffb1ee793c6c2` |
+| `docs/content/audit/coverage-r1/requirement-map.json` | `4908c060f9edced27bad9d6e069a5bcbea727673b656cf9d14d6387e8ac5a92b` |
+| `docs/content/audit/coverage-r1/lesson-exam-tags.json` | `9ea1b39172e722f0297f432766f094c717279df636255fac0302e5964a3d3e74` |
+| `docs/content/audit/coverage-r1/outline-comparison.md` | `64eb0cb62abbd6347e7da362aa4c7e7a2c6448400283c96d2bf0e5bc998f4110` |
+| `docs/content/audit/coverage-r1/maps/acet.md` | `3e6fcf95e521dd4ce325027858f68b193f8863173bd8db7a023ad9fb6ad45af3` |
+| `docs/content/audit/coverage-r1/maps/cse-professional.md` | `ec2f3d4d18d6419c3b27fdcb97737d98dab64004eea46780e348e6da0b56714d` |
+| `docs/content/audit/coverage-r1/maps/cse-subprofessional.md` | `afb8b1b248e05d4ddc2e93a9b7aa7f200609da8828a7b285faf09ac864b9a8b4` |
+| `docs/content/audit/coverage-r1/maps/dcat.md` | `09226497e57fc8b573650c1d33ea9d9b1a08a98093d02efec099ba2f9d3ad2e0` |
+| `docs/content/audit/coverage-r1/maps/dost-sei.md` | `c8251ed648fc285fe25f9fd194188c60c9708e503144631b3ac727110d4b28c2` |
+| `docs/content/audit/coverage-r1/maps/pupcet.md` | `443549c603694b424801b594a2149b57a31f6bb14f6c603599335ec5e6144950` |
+| `docs/content/audit/coverage-r1/maps/sm-foundation.md` | `8237a63e8d67f89b30aab3c274dde00e1cff61606aea6d130d542b67d32f2d75` |
+| `docs/content/audit/coverage-r1/maps/upcat.md` | `cd769a0d95102fe87b07a2689041c356db6d2bcf051f24ccf72bc802d9050cd7` |
+| `docs/content/audit/coverage-r1/maps/ustet.md` | `9edab99c9b60b28666988052916b2228a10273fc7ca674272c1895f88c35b9df` |
+
+The independent mechanical recount confirms:
+
+- 158 catalog lessons, each with one unique ID and path; all 158 pinned corpus frontmatter records match the inventory. The aggregate frontmatter hash remains `5b8db5fb683427f84e21486c3f03370fb4d3ead0de8d770ba743be176ea1c649`.
+- 158 tag records match the catalog IDs and paths. Every evidence-row list and exam-tag list exactly matches requirement-map edges. There are 819 distinct lesson-exam edges.
+- 535 unique requirement records; all 478 section 2 and 3 bullet lines are represented. All 535 line locators point to exact source text, and all 535 complete record texts appear in their maps. Nine distinct maps contain exactly 67, 45, 51, 55, 50, 53, 50, 114, and 50 unique headings, with no missing or extra headings.
+- Every edge resolves to an actual inventory ID and matching path. No `kind` `unknown`, `constraint`, or `context` row has lesson edges. No row with status `CONSTRAINT OR SOURCE CONFLICT` has edges.
+- The format profiles still contain 99 rows, with valid confidence, source, and date values. All nine tables equal the accepted requirement tables, and the accepted profile and requirement hashes are unchanged.
+- The outline still has six subject records and 25 topics. It has 141 unique lesson units across five populated subjects; General Information has four placeholder topics and no lessons. All 141 outline units resolve to the inventory. Exactly 17 inventory lessons remain omitted, matching the path list above.
+- ACET `L043`, CSE Subprofessional `L102` and `L108` all have status `UNKNOWN`, evidence `unknown`, and no lesson edges. CSE Subprofessional `L142` is likewise unknown with no edges. `L137` is a constraint with supported-weak source evidence and no lesson edges. `L116` links only Constitution lessons, and `L117` only R.A. 6713 lessons; neither links atomic chemistry. USTET Mental Ability rows contain no fluid or mechanical-reasoning lesson links. Fluid-science links in the separately named USTET Science rows remain.
+
+One classification inconsistency remains: `dcat-L041` has status `UNKNOWN`, no lesson edges, and text that says the academic classification is unknown, but its evidence field is `reported subject; inspect exact source qualifier` rather than `unknown`. The source locator and rendered text match. This is an evidence/status mismatch, not a missing lesson reference.
+
+**Second-correction count result: FLAGS (historical).** All catalog, tag, source-record, map-render, profile, and outline counts passed. The `dcat-L041` evidence mismatch prevented a count PASS under the explicit-unknown consistency check. The lead then normalized its evidence label.
+
+## Final narrow consistency recheck
+
+Recount date: October 5, 2026. Policy remains `main` commit `cb48097bedf15bec2cfbe4fb3aa7e957753b1727`; audit checkpoint is `02a5c71ca5e1d0a89001ca7a4eda44bb9e7635ad`; corpus remains `765c5dc0fa5586281047bf4f7b30d09ab3707887`. Current `map-input-manifest.json` SHA-256 is `7033ba5feae5a2780da176e20f9714cf56a92fd1e33732f4118ba2f0c465976c`; all 13 listed file hashes match. The previous second-correction manifest remains preserved as `map-input-manifest-second-correction.json`.
+
+The updated output hashes are:
+
+| Input | SHA-256 |
+|---|---|
+| `docs/content/audit/coverage-r1/build_level1_maps.py` | `210af363b9ceeed254bb8d5e08d2f031c04d03a4e334adcd70dae105212ee9fd` |
+| `docs/content/audit/coverage-r1/requirement-map.json` | `023a24c7c6b21ae809d38542869b81b9f466cf089bc5f50927d34b1e192a3493` |
+
+The other 11 listed outputs retain the second-correction hashes recorded above. The accepted requirement/profile manifest remains byte-identical at SHA-256 `f47c0ee3481607a26619e2f66d1d054ccc7a869e80b98de911c95fd8fbf36531`. Its 10 file hashes match; the accepted profiles remain 99 rows at SHA-256 `9dcc230d6c3a7fced854485a3309d3b35ddecebe6d12d8898749056c84661937`.
+
+The final narrow recount confirms:
+
+- Catalog and tags remain 158 lessons each, with unique and matching IDs and paths. All 158 pinned corpus frontmatter records match the catalog. The tag evidence rows and exam tags exactly match the requirement-map edges: 819 distinct lesson-exam edges, with no invalid target or parity errors.
+- All 535 requirement records still have exact source line locators and exact rendered text. All 478 source bullets in sections 2 and 3 are represented. The nine maps still contain 67, 45, 51, 55, 50, 53, 50, 114, and 50 unique headings, with no missing or extra headings.
+- All 68 rows with status `UNKNOWN` now have evidence `unknown`; none has lesson edges. No row with kind `unknown`, `constraint`, or `context`, or status `CONSTRAINT OR SOURCE CONFLICT`, has lesson edges.
+- The profiles remain 99 rows across nine exams, with valid confidence, source, and date fields. Each table matches its accepted requirement table. All accepted requirement and profile hashes are unchanged.
+- The outline remains six subject records and 25 topics, with 141 unique lesson units in five populated subjects. The General Information placeholder has four topics and no lessons. Exactly 17 inventory lessons remain absent, all listed above, with no duplicate or invalid outline targets.
+- The prior regression checks remain clear: ACET `L043`, CSE Subprofessional `L102/L108`, and CSE Subprofessional `L142` have explicit unknown status/evidence and no edges. `L137` remains a constraint with no edges. `L116/L117` point only to Constitution and R.A. 6713 lessons, not chemistry. USTET Mental Ability still has no fluid or mechanical-reasoning links.
+
+The final `dcat-L041` record now has status `UNKNOWN`, evidence `unknown`, confidence `unknown academic classification`, and no lesson edges. Its source line and rendered text remain exact. This resolves the sole counting flag from the previous snapshot.
+
+The fresh Sol semantic review reports PASS for the second-correction provisional maps, with R1-R4 closed. The narrow evidence normalization does not alter any map, lesson tag, edge, or outline output. This counting check confirms the records and references; it does not establish teaching depth, worked examples, prerequisites, practice quality, runtime availability, mastery, or full exam coverage.
+
+**Final narrow-recheck count result: PASS.** The semantic review is separately recorded as PASS. No lesson bodies or questions were read, and no later-level work was started.

@@ -48,12 +48,10 @@ Status: PARTIAL NAME LEADS.
 - `lesson-arithmetic-number-sense-real-imaginary-numbers`: `content/lessons/mathematics/arithmetic-number-sense/real-imaginary-numbers.md`
 - `lesson-arithmetic-number-sense-sequences-and-series`: `content/lessons/mathematics/arithmetic-number-sense/sequences-and-series.md`
 - `lesson-data-interpretation-rates-ratios-and-percentages-in-context`: `content/lessons/mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md`
-- `lesson-data-interpretation-tables-and-charts`: `content/lessons/mathematics/data-interpretation/tables-and-charts.md`
 - `lesson-geometry-circles`: `content/lessons/mathematics/geometry/circles.md`
 - `lesson-geometry-coordinate-geometry`: `content/lessons/mathematics/geometry/coordinate-geometry.md`
 - `lesson-geometry-logic-and-reasoning`: `content/lessons/mathematics/geometry/logic-and-reasoning.md`
 - `lesson-geometry-triangles`: `content/lessons/mathematics/geometry/triangles.md`
-- `lesson-statistics-and-probability-data-analysis-graphs`: `content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md`
 - `lesson-trigonometry-basic-trigonometric-ratios`: `content/lessons/mathematics/trigonometry/basic-trigonometric-ratios.md`
 - `lesson-trigonometry-laws-of-sines-and-cosines`: `content/lessons/mathematics/trigonometry/laws-of-sines-and-cosines.md`
 - `lesson-trigonometry-solving-right-triangles`: `content/lessons/mathematics/trigonometry/solving-right-triangles.md`
@@ -267,8 +265,6 @@ Status: PROVISIONAL NAME LEADS.
 - `lesson-algebra-types-of-functions`: `content/lessons/mathematics/algebra/types-of-functions.md`
 - `lesson-arithmetic-number-sense-prime-factorization-gcf-lcm`: `content/lessons/mathematics/arithmetic-number-sense/prime-factorization-gcf-lcm.md`
 - `lesson-arithmetic-number-sense-sequences-and-series`: `content/lessons/mathematics/arithmetic-number-sense/sequences-and-series.md`
-- `lesson-data-interpretation-tables-and-charts`: `content/lessons/mathematics/data-interpretation/tables-and-charts.md`
-- `lesson-statistics-and-probability-data-analysis-graphs`: `content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md`
 - `lesson-logical-verbal-reasoning-number-and-letter-sequences`: `content/lessons/reasoning/logical-verbal-reasoning/number-and-letter-sequences.md`
 
 ## dcat-L054: Mathematics, provisional subject grouping
@@ -473,7 +469,6 @@ Source locator: [line71](../requirements/dcat.md#L71). Kind: skill. Evidence: we
 
 Status: PROVISIONAL NAME LEADS.
 
-- `lesson-geometry-measurement`: `content/lessons/mathematics/geometry/measurement.md`
 - `lesson-statistics-and-probability-data-analysis-graphs`: `content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md`
 - `lesson-statistics-and-probability-measures-of-central-tendency`: `content/lessons/mathematics/statistics-and-probability/measures-of-central-tendency.md`
 - `lesson-statistics-and-probability-measures-of-variability`: `content/lessons/mathematics/statistics-and-probability/measures-of-variability.md`
@@ -585,9 +580,6 @@ Source locator: [line82](../requirements/dcat.md#L82). Kind: skill. Evidence: un
 
 Status: PROVISIONAL NAME LEADS.
 
-- `lesson-data-interpretation-tables-and-charts`: `content/lessons/mathematics/data-interpretation/tables-and-charts.md`
-- `lesson-statistics-and-probability-data-analysis-graphs`: `content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md`
-- `lesson-text-types-visual-media`: `content/lessons/reading-comprehension/text-types/visual-media.md`
 - `lesson-chemistry-chemical-bonding`: `content/lessons/science/chemistry/chemical-bonding.md`
 - `lesson-chemistry-chemical-reactions`: `content/lessons/science/chemistry/chemical-reactions.md`
 - `lesson-chemistry-stoichiometry`: `content/lessons/science/chemistry/stoichiometry.md`

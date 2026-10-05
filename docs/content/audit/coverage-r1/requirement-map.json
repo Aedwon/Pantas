@@ -98,7 +98,6 @@
         "lesson-comprehension-skills-inferencing-and-conclusions",
         "lesson-comprehension-skills-main-idea",
         "lesson-comprehension-skills-noting-specific-details",
-        "lesson-comprehension-skills-sequencing-of-events",
         "lesson-text-types-essays-editorials-articles",
         "lesson-text-types-poetry",
         "lesson-text-types-short-stories-and-novels",
@@ -113,7 +112,6 @@
         "content/lessons/reading-comprehension/comprehension-skills/inferencing-and-conclusions.md",
         "content/lessons/reading-comprehension/comprehension-skills/main-idea.md",
         "content/lessons/reading-comprehension/comprehension-skills/noting-specific-details.md",
-        "content/lessons/reading-comprehension/comprehension-skills/sequencing-of-events.md",
         "content/lessons/reading-comprehension/text-types/essays-editorials-articles.md",
         "content/lessons/reading-comprehension/text-types/poetry.md",
         "content/lessons/reading-comprehension/text-types/short-stories-and-novels.md",
@@ -183,7 +181,6 @@
         "lesson-physics-momentum-and-impulse",
         "lesson-physics-scalars-and-vectors",
         "lesson-physics-thermodynamics",
-        "lesson-physics-units-and-measurements",
         "lesson-physics-waves-and-sound",
         "lesson-physics-work-energy-power"
       ],
@@ -232,7 +229,6 @@
         "content/lessons/science/physics/momentum-and-impulse.md",
         "content/lessons/science/physics/scalars-and-vectors.md",
         "content/lessons/science/physics/thermodynamics.md",
-        "content/lessons/science/physics/units-and-measurements.md",
         "content/lessons/science/physics/waves-and-sound.md",
         "content/lessons/science/physics/work-energy-power.md"
       ],
@@ -451,7 +447,7 @@
       "line": 51,
       "group": "Language Proficiency",
       "kind": "skill",
-      "evidence": "confirmed",
+      "evidence": "unknown",
       "confidence": "unknown connection/depth; see exact source qualifiers",
       "text": "- Specific grammar, vocabulary, and composition competencies: **unknown**. [2, 3]; **unknown**",
       "requirementPath": "requirements/upcat.md",
@@ -503,9 +499,7 @@
         "lesson-grammar-and-structure-tenses-and-voice",
         "lesson-language-application-error-identification",
         "lesson-language-application-paragraph-organization",
-        "lesson-comprehension-skills-sequencing-of-events",
-        "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic",
-        "lesson-logical-verbal-reasoning-truth-tables-propositional-logic"
+        "lesson-comprehension-skills-sequencing-of-events"
       ],
       "lessonPaths": [
         "content/lessons/language-proficiency/grammar-and-structure/modifiers.md",
@@ -520,9 +514,7 @@
         "content/lessons/language-proficiency/grammar-and-structure/tenses-and-voice.md",
         "content/lessons/language-proficiency/language-application/error-identification.md",
         "content/lessons/language-proficiency/language-application/paragraph-organization.md",
-        "content/lessons/reading-comprehension/comprehension-skills/sequencing-of-events.md",
-        "content/lessons/reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.md",
-        "content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md"
+        "content/lessons/reading-comprehension/comprehension-skills/sequencing-of-events.md"
       ],
       "uncertainties": [
         "modals/reflexives/reported-speech details"
@@ -1026,7 +1018,7 @@
       "line": 88,
       "group": "Reading Comprehension",
       "kind": "skill",
-      "evidence": "confirmed",
+      "evidence": "unknown",
       "confidence": "unknown connection/depth; see exact source qualifiers",
       "text": "- Specific comprehension competencies and text types: **unknown**. [2, 3]; **unknown**",
       "requirementPath": "requirements/upcat.md",
@@ -1202,7 +1194,6 @@
         "lesson-comprehension-skills-inferencing-and-conclusions",
         "lesson-comprehension-skills-main-idea",
         "lesson-comprehension-skills-noting-specific-details",
-        "lesson-comprehension-skills-sequencing-of-events",
         "lesson-text-types-essays-editorials-articles",
         "lesson-text-types-poetry",
         "lesson-text-types-short-stories-and-novels",
@@ -1217,7 +1208,6 @@
         "content/lessons/reading-comprehension/comprehension-skills/inferencing-and-conclusions.md",
         "content/lessons/reading-comprehension/comprehension-skills/main-idea.md",
         "content/lessons/reading-comprehension/comprehension-skills/noting-specific-details.md",
-        "content/lessons/reading-comprehension/comprehension-skills/sequencing-of-events.md",
         "content/lessons/reading-comprehension/text-types/essays-editorials-articles.md",
         "content/lessons/reading-comprehension/text-types/poetry.md",
         "content/lessons/reading-comprehension/text-types/short-stories-and-novels.md",
@@ -1526,7 +1516,6 @@
         "lesson-physics-momentum-and-impulse",
         "lesson-physics-scalars-and-vectors",
         "lesson-physics-thermodynamics",
-        "lesson-physics-units-and-measurements",
         "lesson-physics-waves-and-sound",
         "lesson-physics-work-energy-power"
       ],
@@ -1575,7 +1564,6 @@
         "content/lessons/science/physics/momentum-and-impulse.md",
         "content/lessons/science/physics/scalars-and-vectors.md",
         "content/lessons/science/physics/thermodynamics.md",
-        "content/lessons/science/physics/units-and-measurements.md",
         "content/lessons/science/physics/waves-and-sound.md",
         "content/lessons/science/physics/work-energy-power.md"
       ],
@@ -1591,7 +1579,7 @@
       "line": 123,
       "group": "Science",
       "kind": "skill",
-      "evidence": "confirmed",
+      "evidence": "unknown",
       "confidence": "unknown connection/depth; see exact source qualifiers",
       "text": "- Specific disciplines, topics, and competencies: **unknown**. [2, 3]; **unknown**",
       "requirementPath": "requirements/upcat.md",
@@ -2171,7 +2159,6 @@
         "lesson-physics-momentum-and-impulse",
         "lesson-physics-scalars-and-vectors",
         "lesson-physics-thermodynamics",
-        "lesson-physics-units-and-measurements",
         "lesson-physics-waves-and-sound",
         "lesson-physics-work-energy-power"
       ],
@@ -2184,7 +2171,6 @@
         "content/lessons/science/physics/momentum-and-impulse.md",
         "content/lessons/science/physics/scalars-and-vectors.md",
         "content/lessons/science/physics/thermodynamics.md",
-        "content/lessons/science/physics/units-and-measurements.md",
         "content/lessons/science/physics/waves-and-sound.md",
         "content/lessons/science/physics/work-energy-power.md"
       ],
@@ -2427,22 +2413,18 @@
       "requirementPath": "requirements/upcat.md",
       "status": "PROVISIONAL NAME LEADS",
       "lessonIds": [
-        "lesson-data-interpretation-tables-and-charts",
-        "lesson-statistics-and-probability-data-analysis-graphs",
-        "lesson-text-types-visual-media",
         "lesson-mechanical-technical-reasoning-pulleys-and-levers",
         "lesson-mechanical-technical-reasoning-structural-stability",
+        "lesson-physics-dynamics",
         "lesson-physics-kinematics",
         "lesson-physics-momentum-and-impulse",
         "lesson-physics-thermodynamics",
         "lesson-physics-work-energy-power"
       ],
       "lessonPaths": [
-        "content/lessons/mathematics/data-interpretation/tables-and-charts.md",
-        "content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md",
-        "content/lessons/reading-comprehension/text-types/visual-media.md",
         "content/lessons/reasoning/mechanical-technical-reasoning/pulleys-and-levers.md",
         "content/lessons/reasoning/mechanical-technical-reasoning/structural-stability.md",
+        "content/lessons/science/physics/dynamics.md",
         "content/lessons/science/physics/kinematics.md",
         "content/lessons/science/physics/momentum-and-impulse.md",
         "content/lessons/science/physics/thermodynamics.md",
@@ -2602,7 +2584,7 @@
       "line": 172,
       "group": "Mathematics",
       "kind": "skill",
-      "evidence": "confirmed",
+      "evidence": "unknown",
       "confidence": "unknown connection/depth; see exact source qualifiers",
       "text": "- Specific topics and mathematical competencies: **unknown**. [2, 3]; **unknown**",
       "requirementPath": "requirements/upcat.md",
@@ -2931,16 +2913,12 @@
         "lesson-algebra-functions-and-relations",
         "lesson-algebra-types-of-functions",
         "lesson-arithmetic-number-sense-sequences-and-series",
-        "lesson-data-interpretation-tables-and-charts",
-        "lesson-statistics-and-probability-data-analysis-graphs",
         "lesson-logical-verbal-reasoning-number-and-letter-sequences"
       ],
       "lessonPaths": [
         "content/lessons/mathematics/algebra/functions-and-relations.md",
         "content/lessons/mathematics/algebra/types-of-functions.md",
         "content/lessons/mathematics/arithmetic-number-sense/sequences-and-series.md",
-        "content/lessons/mathematics/data-interpretation/tables-and-charts.md",
-        "content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md",
         "content/lessons/reasoning/logical-verbal-reasoning/number-and-letter-sequences.md"
       ],
       "uncertainties": [],
@@ -2964,9 +2942,7 @@
         "lesson-algebra-linear-equations-inequalities",
         "lesson-algebra-types-of-functions",
         "lesson-arithmetic-number-sense-ratio-and-proportion",
-        "lesson-data-interpretation-rates-ratios-and-percentages-in-context",
-        "lesson-data-interpretation-tables-and-charts",
-        "lesson-statistics-and-probability-data-analysis-graphs"
+        "lesson-data-interpretation-rates-ratios-and-percentages-in-context"
       ],
       "lessonPaths": [
         "content/lessons/mathematics/algebra/exponents-and-logarithms.md",
@@ -2974,9 +2950,7 @@
         "content/lessons/mathematics/algebra/linear-equations-inequalities.md",
         "content/lessons/mathematics/algebra/types-of-functions.md",
         "content/lessons/mathematics/arithmetic-number-sense/ratio-and-proportion.md",
-        "content/lessons/mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md",
-        "content/lessons/mathematics/data-interpretation/tables-and-charts.md",
-        "content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md"
+        "content/lessons/mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md"
       ],
       "uncertainties": [],
       "availability": "unknown: no corpus-bound runtime availability evidence",
@@ -3460,12 +3434,10 @@
         "lesson-arithmetic-number-sense-real-imaginary-numbers",
         "lesson-arithmetic-number-sense-sequences-and-series",
         "lesson-data-interpretation-rates-ratios-and-percentages-in-context",
-        "lesson-data-interpretation-tables-and-charts",
         "lesson-geometry-circles",
         "lesson-geometry-coordinate-geometry",
         "lesson-geometry-logic-and-reasoning",
         "lesson-geometry-triangles",
-        "lesson-statistics-and-probability-data-analysis-graphs",
         "lesson-trigonometry-basic-trigonometric-ratios",
         "lesson-trigonometry-laws-of-sines-and-cosines",
         "lesson-trigonometry-solving-right-triangles"
@@ -3487,12 +3459,10 @@
         "content/lessons/mathematics/arithmetic-number-sense/real-imaginary-numbers.md",
         "content/lessons/mathematics/arithmetic-number-sense/sequences-and-series.md",
         "content/lessons/mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md",
-        "content/lessons/mathematics/data-interpretation/tables-and-charts.md",
         "content/lessons/mathematics/geometry/circles.md",
         "content/lessons/mathematics/geometry/coordinate-geometry.md",
         "content/lessons/mathematics/geometry/logic-and-reasoning.md",
         "content/lessons/mathematics/geometry/triangles.md",
-        "content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md",
         "content/lessons/mathematics/trigonometry/basic-trigonometric-ratios.md",
         "content/lessons/mathematics/trigonometry/laws-of-sines-and-cosines.md",
         "content/lessons/mathematics/trigonometry/solving-right-triangles.md"
@@ -3739,7 +3709,7 @@
       "line": 41,
       "group": "## 2. Subtests and languages",
       "kind": "subject",
-      "evidence": "reported subject; inspect exact source qualifier",
+      "evidence": "unknown",
       "confidence": "unknown academic classification",
       "text": "- Personality questionnaire: reported at the end by [6]; language and scored status unknown; weak. It is not yet classified as an academic subtest.",
       "requirementPath": "requirements/dcat.md",
@@ -3861,8 +3831,6 @@
         "lesson-algebra-types-of-functions",
         "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm",
         "lesson-arithmetic-number-sense-sequences-and-series",
-        "lesson-data-interpretation-tables-and-charts",
-        "lesson-statistics-and-probability-data-analysis-graphs",
         "lesson-logical-verbal-reasoning-number-and-letter-sequences"
       ],
       "lessonPaths": [
@@ -3871,8 +3839,6 @@
         "content/lessons/mathematics/algebra/types-of-functions.md",
         "content/lessons/mathematics/arithmetic-number-sense/prime-factorization-gcf-lcm.md",
         "content/lessons/mathematics/arithmetic-number-sense/sequences-and-series.md",
-        "content/lessons/mathematics/data-interpretation/tables-and-charts.md",
-        "content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md",
         "content/lessons/reasoning/logical-verbal-reasoning/number-and-letter-sequences.md"
       ],
       "uncertainties": [],
@@ -4253,13 +4219,11 @@
       "requirementPath": "requirements/dcat.md",
       "status": "PROVISIONAL NAME LEADS",
       "lessonIds": [
-        "lesson-geometry-measurement",
         "lesson-statistics-and-probability-data-analysis-graphs",
         "lesson-statistics-and-probability-measures-of-central-tendency",
         "lesson-statistics-and-probability-measures-of-variability"
       ],
       "lessonPaths": [
-        "content/lessons/mathematics/geometry/measurement.md",
         "content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md",
         "content/lessons/mathematics/statistics-and-probability/measures-of-central-tendency.md",
         "content/lessons/mathematics/statistics-and-probability/measures-of-variability.md"
@@ -4462,9 +4426,6 @@
       "requirementPath": "requirements/dcat.md",
       "status": "PROVISIONAL NAME LEADS",
       "lessonIds": [
-        "lesson-data-interpretation-tables-and-charts",
-        "lesson-statistics-and-probability-data-analysis-graphs",
-        "lesson-text-types-visual-media",
         "lesson-chemistry-chemical-bonding",
         "lesson-chemistry-chemical-reactions",
         "lesson-chemistry-stoichiometry",
@@ -4472,9 +4433,6 @@
         "lesson-physics-light-and-optics"
       ],
       "lessonPaths": [
-        "content/lessons/mathematics/data-interpretation/tables-and-charts.md",
-        "content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md",
-        "content/lessons/reading-comprehension/text-types/visual-media.md",
         "content/lessons/science/chemistry/chemical-bonding.md",
         "content/lessons/science/chemistry/chemical-reactions.md",
         "content/lessons/science/chemistry/stoichiometry.md",
@@ -4966,7 +4924,7 @@
       "line": 104,
       "group": "Mental ability and personality, provisional groupings",
       "kind": "skill",
-      "evidence": "supported, curriculum",
+      "evidence": "unknown",
       "confidence": "unknown connection/depth; see exact source qualifiers",
       "text": "- Supported, curriculum: no specific curriculum basis has yet been assigned to a DCAT mental-ability or personality subtest.",
       "requirementPath": "requirements/dcat.md",
@@ -5064,7 +5022,6 @@
         "lesson-geometry-basic-geometric-concepts",
         "lesson-geometry-circles",
         "lesson-geometry-coordinate-geometry",
-        "lesson-geometry-logic-and-reasoning",
         "lesson-geometry-measurement",
         "lesson-geometry-quadrilaterals-and-polygons",
         "lesson-geometry-triangles",
@@ -5103,7 +5060,6 @@
         "content/lessons/mathematics/geometry/basic-geometric-concepts.md",
         "content/lessons/mathematics/geometry/circles.md",
         "content/lessons/mathematics/geometry/coordinate-geometry.md",
-        "content/lessons/mathematics/geometry/logic-and-reasoning.md",
         "content/lessons/mathematics/geometry/measurement.md",
         "content/lessons/mathematics/geometry/quadrilaterals-and-polygons.md",
         "content/lessons/mathematics/geometry/triangles.md",
@@ -5303,38 +5259,14 @@
       "line": 43,
       "group": "## 2. Subtests and languages",
       "kind": "subject",
-      "evidence": "reported subject; inspect exact source qualifier",
-      "confidence": "official; see cycle/language qualifiers",
+      "evidence": "unknown",
+      "confidence": "unknown connection/depth; see exact source qualifiers",
       "text": "- Separate Reading Comprehension, Verbal Analogy, Logical Reasoning, Numerical Ability, or General Intelligence boundaries: current official status unknown. [1-2,8; unknown]",
       "requirementPath": "requirements/acet.md",
-      "status": "PARTIAL NAME LEADS",
-      "lessonIds": [
-        "lesson-biology-cell-biology",
-        "lesson-biology-cellular-metabolism",
-        "lesson-biology-characteristics-of-life",
-        "lesson-biology-ecology",
-        "lesson-chemistry-matter",
-        "lesson-comprehension-skills-inferencing-and-conclusions",
-        "lesson-earth-science-astronomy-plate-tectonics",
-        "lesson-earth-science-astronomy-weather-and-climate",
-        "lesson-physics-kinematics",
-        "lesson-physics-work-energy-power"
-      ],
-      "lessonPaths": [
-        "content/lessons/science/biology/cell-biology.md",
-        "content/lessons/science/biology/cellular-metabolism.md",
-        "content/lessons/science/biology/characteristics-of-life.md",
-        "content/lessons/science/biology/ecology.md",
-        "content/lessons/science/chemistry/matter.md",
-        "content/lessons/reading-comprehension/comprehension-skills/inferencing-and-conclusions.md",
-        "content/lessons/science/earth-science-astronomy/plate-tectonics.md",
-        "content/lessons/science/earth-science-astronomy/weather-and-climate.md",
-        "content/lessons/science/physics/kinematics.md",
-        "content/lessons/science/physics/work-energy-power.md"
-      ],
-      "uncertainties": [
-        "Broad area uses only finer candidate connections in this packet; exact depth, language and subject boundaries remain as sourced."
-      ],
+      "status": "UNKNOWN",
+      "lessonIds": [],
+      "lessonPaths": [],
+      "uncertainties": [],
       "availability": "unknown: no corpus-bound runtime availability evidence",
       "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
     },
@@ -5344,7 +5276,7 @@
       "line": 44,
       "group": "## 2. Subtests and languages",
       "kind": "subject",
-      "evidence": "reported subject; inspect exact source qualifier",
+      "evidence": "unknown",
       "confidence": "unknown connection/depth; see exact source qualifiers",
       "text": "- Filipino: sources 6-7 report no separate Filipino section, but organizer wording is inaccessible. No confirmed exclusion is made. [1-2,6-7; weak report, official status unknown]",
       "requirementPath": "requirements/acet.md",
@@ -5395,7 +5327,7 @@
       "line": 58,
       "group": "Mathematics",
       "kind": "skill",
-      "evidence": "confirmed",
+      "evidence": "unknown",
       "confidence": "unknown connection/depth; see exact source qualifiers",
       "text": "- Current detailed Mathematics coverage and required depth: unknown. [1-2; unknown]",
       "requirementPath": "requirements/acet.md",
@@ -5854,18 +5786,14 @@
         "lesson-algebra-functions-and-relations",
         "lesson-algebra-types-of-functions",
         "lesson-arithmetic-number-sense-ratio-and-proportion",
-        "lesson-data-interpretation-rates-ratios-and-percentages-in-context",
-        "lesson-data-interpretation-tables-and-charts",
-        "lesson-statistics-and-probability-data-analysis-graphs"
+        "lesson-data-interpretation-rates-ratios-and-percentages-in-context"
       ],
       "lessonPaths": [
         "content/lessons/mathematics/algebra/exponents-and-logarithms.md",
         "content/lessons/mathematics/algebra/functions-and-relations.md",
         "content/lessons/mathematics/algebra/types-of-functions.md",
         "content/lessons/mathematics/arithmetic-number-sense/ratio-and-proportion.md",
-        "content/lessons/mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md",
-        "content/lessons/mathematics/data-interpretation/tables-and-charts.md",
-        "content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md"
+        "content/lessons/mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md"
       ],
       "uncertainties": [],
       "availability": "unknown: no corpus-bound runtime availability evidence",
@@ -6003,7 +5931,6 @@
         "lesson-geometry-basic-geometric-concepts",
         "lesson-geometry-circles",
         "lesson-geometry-coordinate-geometry",
-        "lesson-geometry-logic-and-reasoning",
         "lesson-geometry-measurement",
         "lesson-geometry-quadrilaterals-and-polygons",
         "lesson-geometry-triangles"
@@ -6012,7 +5939,6 @@
         "content/lessons/mathematics/geometry/basic-geometric-concepts.md",
         "content/lessons/mathematics/geometry/circles.md",
         "content/lessons/mathematics/geometry/coordinate-geometry.md",
-        "content/lessons/mathematics/geometry/logic-and-reasoning.md",
         "content/lessons/mathematics/geometry/measurement.md",
         "content/lessons/mathematics/geometry/quadrilaterals-and-polygons.md",
         "content/lessons/mathematics/geometry/triangles.md"
@@ -6071,7 +5997,7 @@
       "line": 97,
       "group": "English, including provisional reading/verbal skills",
       "kind": "skill",
-      "evidence": "confirmed",
+      "evidence": "unknown",
       "confidence": "unknown connection/depth; see exact source qualifiers",
       "text": "- Current English topic list, passage types, and item boundaries: unknown. [1-2; unknown]",
       "requirementPath": "requirements/acet.md",
@@ -6380,7 +6306,7 @@
       "line": 122,
       "group": "General Knowledge / historical General Intelligence",
       "kind": "skill",
-      "evidence": "confirmed",
+      "evidence": "unknown",
       "confidence": "unknown connection/depth; see exact source qualifiers",
       "text": "- Current meaning, scope, and relation between these labels: unknown. [1-2; unknown]",
       "requirementPath": "requirements/acet.md",
@@ -6539,7 +6465,7 @@
       "line": 143,
       "group": "Abstract Reasoning / provisional aptitude skills",
       "kind": "skill",
-      "evidence": "confirmed",
+      "evidence": "unknown",
       "confidence": "unknown connection/depth; see exact source qualifiers",
       "text": "- Current reasoning topic list and item boundaries: unknown. [1-2; unknown]",
       "requirementPath": "requirements/acet.md",
@@ -6637,17 +6563,11 @@
       "requirementPath": "requirements/acet.md",
       "status": "PROVISIONAL NAME LEADS",
       "lessonIds": [
-        "lesson-arithmetic-number-sense-fractions-decimals-percentages",
-        "lesson-arithmetic-number-sense-order-of-operations",
-        "lesson-arithmetic-number-sense-properties-of-real-numbers",
         "lesson-geometry-logic-and-reasoning",
         "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic",
         "lesson-logical-verbal-reasoning-truth-tables-propositional-logic"
       ],
       "lessonPaths": [
-        "content/lessons/mathematics/arithmetic-number-sense/fractions-decimals-percentages.md",
-        "content/lessons/mathematics/arithmetic-number-sense/order-of-operations.md",
-        "content/lessons/mathematics/arithmetic-number-sense/properties-of-real-numbers.md",
         "content/lessons/mathematics/geometry/logic-and-reasoning.md",
         "content/lessons/reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.md",
         "content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md"
@@ -6737,7 +6657,7 @@
       "line": 165,
       "group": "Essay component",
       "kind": "skill",
-      "evidence": "confirmed",
+      "evidence": "unknown",
       "confidence": "unknown connection/depth; see exact source qualifiers",
       "text": "- Current exam-essay inclusion, prompt, language, rubric, and required length: unknown. [1-2; unknown]",
       "requirementPath": "requirements/acet.md",
@@ -7097,7 +7017,6 @@
         "lesson-physics-momentum-and-impulse",
         "lesson-physics-thermodynamics",
         "lesson-physics-two-dimensional-motion",
-        "lesson-physics-units-and-measurements",
         "lesson-physics-waves-and-sound",
         "lesson-physics-work-energy-power"
       ],
@@ -7137,7 +7056,6 @@
         "content/lessons/science/physics/momentum-and-impulse.md",
         "content/lessons/science/physics/thermodynamics.md",
         "content/lessons/science/physics/two-dimensional-motion.md",
-        "content/lessons/science/physics/units-and-measurements.md",
         "content/lessons/science/physics/waves-and-sound.md",
         "content/lessons/science/physics/work-energy-power.md"
       ],
@@ -7163,17 +7081,13 @@
         "lesson-logical-verbal-reasoning-number-and-letter-sequences",
         "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic",
         "lesson-logical-verbal-reasoning-truth-tables-propositional-logic",
-        "lesson-mechanical-technical-reasoning-fluid-pressure",
-        "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization",
-        "lesson-verbal-logic-assumptions-and-conclusions"
+        "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization"
       ],
       "lessonPaths": [
         "content/lessons/reasoning/logical-verbal-reasoning/number-and-letter-sequences.md",
         "content/lessons/reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.md",
         "content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md",
-        "content/lessons/reasoning/mechanical-technical-reasoning/fluid-pressure.md",
-        "content/lessons/reasoning/spatial-abstract-reasoning/mental-rotation-3d-visualization.md",
-        "content/lessons/reasoning/verbal-logic/assumptions-and-conclusions.md"
+        "content/lessons/reasoning/spatial-abstract-reasoning/mental-rotation-3d-visualization.md"
       ],
       "uncertainties": [
         "Broad area uses only finer candidate connections in this packet; exact depth, language and subject boundaries remain as sourced."
@@ -8106,7 +8020,6 @@
         "lesson-physics-momentum-and-impulse",
         "lesson-physics-thermodynamics",
         "lesson-physics-two-dimensional-motion",
-        "lesson-physics-units-and-measurements",
         "lesson-physics-waves-and-sound",
         "lesson-physics-work-energy-power"
       ],
@@ -8146,7 +8059,6 @@
         "content/lessons/science/physics/momentum-and-impulse.md",
         "content/lessons/science/physics/thermodynamics.md",
         "content/lessons/science/physics/two-dimensional-motion.md",
-        "content/lessons/science/physics/units-and-measurements.md",
         "content/lessons/science/physics/waves-and-sound.md",
         "content/lessons/science/physics/work-energy-power.md"
       ],
@@ -8283,9 +8195,6 @@
       "requirementPath": "requirements/ustet.md",
       "status": "PROVISIONAL NAME LEADS",
       "lessonIds": [
-        "lesson-data-interpretation-tables-and-charts",
-        "lesson-statistics-and-probability-data-analysis-graphs",
-        "lesson-text-types-visual-media",
         "lesson-physics-dynamics",
         "lesson-physics-electricity-and-magnetism",
         "lesson-physics-kinematics",
@@ -8296,9 +8205,6 @@
         "lesson-physics-work-energy-power"
       ],
       "lessonPaths": [
-        "content/lessons/mathematics/data-interpretation/tables-and-charts.md",
-        "content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md",
-        "content/lessons/reading-comprehension/text-types/visual-media.md",
         "content/lessons/science/physics/dynamics.md",
         "content/lessons/science/physics/electricity-and-magnetism.md",
         "content/lessons/science/physics/kinematics.md",
@@ -8394,8 +8300,11 @@
       "requirementPath": "requirements/ustet.md",
       "status": "PROVISIONAL NAME LEADS",
       "lessonIds": [
+        "lesson-chemistry-atomic-structure",
         "lesson-chemistry-chemical-bonding",
         "lesson-chemistry-chemical-reactions",
+        "lesson-chemistry-history-of-the-atom",
+        "lesson-chemistry-matter",
         "lesson-chemistry-stoichiometry",
         "lesson-chemistry-thermodynamics-and-kinetics",
         "lesson-earth-science-astronomy-heavenly-bodies",
@@ -8405,8 +8314,11 @@
         "lesson-physics-work-energy-power"
       ],
       "lessonPaths": [
+        "content/lessons/science/chemistry/atomic-structure.md",
         "content/lessons/science/chemistry/chemical-bonding.md",
         "content/lessons/science/chemistry/chemical-reactions.md",
+        "content/lessons/science/chemistry/history-of-the-atom.md",
+        "content/lessons/science/chemistry/matter.md",
         "content/lessons/science/chemistry/stoichiometry.md",
         "content/lessons/science/chemistry/thermodynamics-and-kinetics.md",
         "content/lessons/science/earth-science-astronomy/heavenly-bodies.md",
@@ -8586,17 +8498,13 @@
         "lesson-logical-verbal-reasoning-number-and-letter-sequences",
         "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic",
         "lesson-logical-verbal-reasoning-truth-tables-propositional-logic",
-        "lesson-mechanical-technical-reasoning-fluid-pressure",
-        "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization",
-        "lesson-verbal-logic-assumptions-and-conclusions"
+        "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization"
       ],
       "lessonPaths": [
         "content/lessons/reasoning/logical-verbal-reasoning/number-and-letter-sequences.md",
         "content/lessons/reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.md",
         "content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md",
-        "content/lessons/reasoning/mechanical-technical-reasoning/fluid-pressure.md",
-        "content/lessons/reasoning/spatial-abstract-reasoning/mental-rotation-3d-visualization.md",
-        "content/lessons/reasoning/verbal-logic/assumptions-and-conclusions.md"
+        "content/lessons/reasoning/spatial-abstract-reasoning/mental-rotation-3d-visualization.md"
       ],
       "uncertainties": [
         "Broad family has related finer candidate connections in this exam packet; tested depth and subtest placement remain unconfirmed."
@@ -8610,7 +8518,7 @@
       "line": 145,
       "group": "Mental Ability",
       "kind": "skill",
-      "evidence": "supported, curriculum",
+      "evidence": "unknown",
       "confidence": "unknown connection/depth; see exact source qualifiers",
       "text": "- No specific curriculum competency is assigned to this subtest without evidence connecting it to Mental Ability. General school reasoning skills alone do not establish its composition. [1, 5-7; unknown for the connection]",
       "requirementPath": "requirements/ustet.md",
@@ -8878,16 +8786,14 @@
         "lesson-comprehension-skills-inferencing-and-conclusions",
         "lesson-comprehension-skills-main-idea",
         "lesson-comprehension-skills-noting-specific-details",
-        "lesson-text-types-essays-editorials-articles",
-        "lesson-logical-verbal-reasoning-number-and-letter-sequences"
+        "lesson-text-types-essays-editorials-articles"
       ],
       "lessonPaths": [
         "content/lessons/reading-comprehension/comprehension-skills/fact-vs-opinion.md",
         "content/lessons/reading-comprehension/comprehension-skills/inferencing-and-conclusions.md",
         "content/lessons/reading-comprehension/comprehension-skills/main-idea.md",
         "content/lessons/reading-comprehension/comprehension-skills/noting-specific-details.md",
-        "content/lessons/reading-comprehension/text-types/essays-editorials-articles.md",
-        "content/lessons/reasoning/logical-verbal-reasoning/number-and-letter-sequences.md"
+        "content/lessons/reading-comprehension/text-types/essays-editorials-articles.md"
       ],
       "uncertainties": [],
       "availability": "unknown: no corpus-bound runtime availability evidence",
@@ -9103,9 +9009,7 @@
         "lesson-comprehension-skills-inferencing-and-conclusions",
         "lesson-comprehension-skills-main-idea",
         "lesson-comprehension-skills-noting-specific-details",
-        "lesson-comprehension-skills-sequencing-of-events",
-        "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic",
-        "lesson-logical-verbal-reasoning-truth-tables-propositional-logic"
+        "lesson-comprehension-skills-sequencing-of-events"
       ],
       "lessonPaths": [
         "content/lessons/language-proficiency/language-application/paragraph-organization.md",
@@ -9114,9 +9018,7 @@
         "content/lessons/reading-comprehension/comprehension-skills/inferencing-and-conclusions.md",
         "content/lessons/reading-comprehension/comprehension-skills/main-idea.md",
         "content/lessons/reading-comprehension/comprehension-skills/noting-specific-details.md",
-        "content/lessons/reading-comprehension/comprehension-skills/sequencing-of-events.md",
-        "content/lessons/reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.md",
-        "content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md"
+        "content/lessons/reading-comprehension/comprehension-skills/sequencing-of-events.md"
       ],
       "uncertainties": [],
       "availability": "unknown: no corpus-bound runtime availability evidence",
@@ -9443,9 +9345,7 @@
         "lesson-algebra-linear-equations-inequalities",
         "lesson-algebra-types-of-functions",
         "lesson-arithmetic-number-sense-ratio-and-proportion",
-        "lesson-data-interpretation-rates-ratios-and-percentages-in-context",
-        "lesson-data-interpretation-tables-and-charts",
-        "lesson-statistics-and-probability-data-analysis-graphs"
+        "lesson-data-interpretation-rates-ratios-and-percentages-in-context"
       ],
       "lessonPaths": [
         "content/lessons/mathematics/algebra/exponents-and-logarithms.md",
@@ -9453,9 +9353,7 @@
         "content/lessons/mathematics/algebra/linear-equations-inequalities.md",
         "content/lessons/mathematics/algebra/types-of-functions.md",
         "content/lessons/mathematics/arithmetic-number-sense/ratio-and-proportion.md",
-        "content/lessons/mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md",
-        "content/lessons/mathematics/data-interpretation/tables-and-charts.md",
-        "content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md"
+        "content/lessons/mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md"
       ],
       "uncertainties": [],
       "availability": "unknown: no corpus-bound runtime availability evidence",
@@ -9698,9 +9596,6 @@
       "requirementPath": "requirements/pupcet.md",
       "status": "PROVISIONAL NAME LEADS",
       "lessonIds": [
-        "lesson-data-interpretation-tables-and-charts",
-        "lesson-statistics-and-probability-data-analysis-graphs",
-        "lesson-text-types-visual-media",
         "lesson-physics-dynamics",
         "lesson-physics-kinematics",
         "lesson-physics-momentum-and-impulse",
@@ -9708,9 +9603,6 @@
         "lesson-physics-work-energy-power"
       ],
       "lessonPaths": [
-        "content/lessons/mathematics/data-interpretation/tables-and-charts.md",
-        "content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md",
-        "content/lessons/reading-comprehension/text-types/visual-media.md",
         "content/lessons/science/physics/dynamics.md",
         "content/lessons/science/physics/kinematics.md",
         "content/lessons/science/physics/momentum-and-impulse.md",
@@ -9937,7 +9829,6 @@
         "lesson-physics-momentum-and-impulse",
         "lesson-physics-thermodynamics",
         "lesson-physics-two-dimensional-motion",
-        "lesson-physics-units-and-measurements",
         "lesson-physics-waves-and-sound",
         "lesson-physics-work-energy-power"
       ],
@@ -9976,7 +9867,6 @@
         "content/lessons/science/physics/momentum-and-impulse.md",
         "content/lessons/science/physics/thermodynamics.md",
         "content/lessons/science/physics/two-dimensional-motion.md",
-        "content/lessons/science/physics/units-and-measurements.md",
         "content/lessons/science/physics/waves-and-sound.md",
         "content/lessons/science/physics/work-energy-power.md"
       ],
@@ -10038,17 +9928,11 @@
       "requirementPath": "requirements/pupcet.md",
       "status": "PROVISIONAL NAME LEADS",
       "lessonIds": [
-        "lesson-arithmetic-number-sense-fractions-decimals-percentages",
-        "lesson-arithmetic-number-sense-order-of-operations",
-        "lesson-arithmetic-number-sense-properties-of-real-numbers",
         "lesson-comprehension-skills-inferencing-and-conclusions",
         "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic",
         "lesson-logical-verbal-reasoning-truth-tables-propositional-logic"
       ],
       "lessonPaths": [
-        "content/lessons/mathematics/arithmetic-number-sense/fractions-decimals-percentages.md",
-        "content/lessons/mathematics/arithmetic-number-sense/order-of-operations.md",
-        "content/lessons/mathematics/arithmetic-number-sense/properties-of-real-numbers.md",
         "content/lessons/reading-comprehension/comprehension-skills/inferencing-and-conclusions.md",
         "content/lessons/reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.md",
         "content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md"
@@ -10620,9 +10504,6 @@
       "requirementPath": "requirements/dost-sei.md",
       "status": "PROVISIONAL NAME LEADS",
       "lessonIds": [
-        "lesson-data-interpretation-tables-and-charts",
-        "lesson-statistics-and-probability-data-analysis-graphs",
-        "lesson-text-types-visual-media",
         "lesson-mechanical-technical-reasoning-fluid-pressure",
         "lesson-mechanical-technical-reasoning-gear-rotations",
         "lesson-mechanical-technical-reasoning-pulleys-and-levers",
@@ -10635,9 +10516,6 @@
         "lesson-physics-work-energy-power"
       ],
       "lessonPaths": [
-        "content/lessons/mathematics/data-interpretation/tables-and-charts.md",
-        "content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md",
-        "content/lessons/reading-comprehension/text-types/visual-media.md",
         "content/lessons/reasoning/mechanical-technical-reasoning/fluid-pressure.md",
         "content/lessons/reasoning/mechanical-technical-reasoning/gear-rotations.md",
         "content/lessons/reasoning/mechanical-technical-reasoning/pulleys-and-levers.md",
@@ -10750,7 +10628,6 @@
       "requirementPath": "requirements/dost-sei.md",
       "status": "PROVISIONAL NAME LEADS",
       "lessonIds": [
-        "lesson-algebra-algebraic-expressions",
         "lesson-comprehension-skills-inferencing-and-conclusions",
         "lesson-mechanical-technical-reasoning-fluid-pressure",
         "lesson-mechanical-technical-reasoning-pulleys-and-levers",
@@ -10759,7 +10636,6 @@
         "lesson-physics-two-dimensional-motion"
       ],
       "lessonPaths": [
-        "content/lessons/mathematics/algebra/algebraic-expressions.md",
         "content/lessons/reading-comprehension/comprehension-skills/inferencing-and-conclusions.md",
         "content/lessons/reasoning/mechanical-technical-reasoning/fluid-pressure.md",
         "content/lessons/reasoning/mechanical-technical-reasoning/pulleys-and-levers.md",
@@ -10945,15 +10821,13 @@
         "lesson-comprehension-skills-fact-vs-opinion",
         "lesson-comprehension-skills-inferencing-and-conclusions",
         "lesson-comprehension-skills-main-idea",
-        "lesson-comprehension-skills-noting-specific-details",
-        "lesson-logical-verbal-reasoning-number-and-letter-sequences"
+        "lesson-comprehension-skills-noting-specific-details"
       ],
       "lessonPaths": [
         "content/lessons/reading-comprehension/comprehension-skills/fact-vs-opinion.md",
         "content/lessons/reading-comprehension/comprehension-skills/inferencing-and-conclusions.md",
         "content/lessons/reading-comprehension/comprehension-skills/main-idea.md",
-        "content/lessons/reading-comprehension/comprehension-skills/noting-specific-details.md",
-        "content/lessons/reasoning/logical-verbal-reasoning/number-and-letter-sequences.md"
+        "content/lessons/reading-comprehension/comprehension-skills/noting-specific-details.md"
       ],
       "uncertainties": [],
       "availability": "unknown: no corpus-bound runtime availability evidence",
@@ -11228,6 +11102,7 @@
       "requirementPath": "requirements/dost-sei.md",
       "status": "PROVISIONAL NAME LEADS",
       "lessonIds": [
+        "lesson-physics-dynamics",
         "lesson-physics-electricity-and-magnetism",
         "lesson-physics-kinematics",
         "lesson-physics-momentum-and-impulse",
@@ -11236,6 +11111,7 @@
         "lesson-physics-work-energy-power"
       ],
       "lessonPaths": [
+        "content/lessons/science/physics/dynamics.md",
         "content/lessons/science/physics/electricity-and-magnetism.md",
         "content/lessons/science/physics/kinematics.md",
         "content/lessons/science/physics/momentum-and-impulse.md",
@@ -11451,9 +11327,6 @@
       "requirementPath": "requirements/dost-sei.md",
       "status": "PROVISIONAL NAME LEADS",
       "lessonIds": [
-        "lesson-data-interpretation-tables-and-charts",
-        "lesson-statistics-and-probability-data-analysis-graphs",
-        "lesson-text-types-visual-media",
         "lesson-mechanical-technical-reasoning-fluid-pressure",
         "lesson-chemistry-gas-laws",
         "lesson-physics-fluid-mechanics",
@@ -11463,9 +11336,6 @@
         "lesson-physics-thermodynamics"
       ],
       "lessonPaths": [
-        "content/lessons/mathematics/data-interpretation/tables-and-charts.md",
-        "content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md",
-        "content/lessons/reading-comprehension/text-types/visual-media.md",
         "content/lessons/reasoning/mechanical-technical-reasoning/fluid-pressure.md",
         "content/lessons/science/chemistry/gas-laws.md",
         "content/lessons/science/physics/fluid-mechanics.md",
@@ -11847,9 +11717,7 @@
         "lesson-algebra-linear-equations-inequalities",
         "lesson-algebra-types-of-functions",
         "lesson-arithmetic-number-sense-ratio-and-proportion",
-        "lesson-data-interpretation-rates-ratios-and-percentages-in-context",
-        "lesson-data-interpretation-tables-and-charts",
-        "lesson-statistics-and-probability-data-analysis-graphs"
+        "lesson-data-interpretation-rates-ratios-and-percentages-in-context"
       ],
       "lessonPaths": [
         "content/lessons/mathematics/algebra/exponents-and-logarithms.md",
@@ -11857,9 +11725,7 @@
         "content/lessons/mathematics/algebra/linear-equations-inequalities.md",
         "content/lessons/mathematics/algebra/types-of-functions.md",
         "content/lessons/mathematics/arithmetic-number-sense/ratio-and-proportion.md",
-        "content/lessons/mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md",
-        "content/lessons/mathematics/data-interpretation/tables-and-charts.md",
-        "content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md"
+        "content/lessons/mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md"
       ],
       "uncertainties": [],
       "availability": "unknown: no corpus-bound runtime availability evidence",
@@ -11981,13 +11847,11 @@
       "requirementPath": "requirements/dost-sei.md",
       "status": "PROVISIONAL NAME LEADS",
       "lessonIds": [
-        "lesson-geometry-measurement",
         "lesson-precalculus-basic-calculus-basic-derivatives",
         "lesson-precalculus-basic-calculus-basic-integrals",
         "lesson-precalculus-basic-calculus-limits-and-continuity"
       ],
       "lessonPaths": [
-        "content/lessons/mathematics/geometry/measurement.md",
         "content/lessons/mathematics/precalculus-basic-calculus/basic-derivatives.md",
         "content/lessons/mathematics/precalculus-basic-calculus/basic-integrals.md",
         "content/lessons/mathematics/precalculus-basic-calculus/limits-and-continuity.md"
@@ -13141,16 +13005,10 @@
       "requirementPath": "requirements/sm-foundation.md",
       "status": "PROVISIONAL NAME LEADS",
       "lessonIds": [
-        "lesson-arithmetic-number-sense-fractions-decimals-percentages",
-        "lesson-arithmetic-number-sense-order-of-operations",
-        "lesson-arithmetic-number-sense-properties-of-real-numbers",
         "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic",
         "lesson-logical-verbal-reasoning-truth-tables-propositional-logic"
       ],
       "lessonPaths": [
-        "content/lessons/mathematics/arithmetic-number-sense/fractions-decimals-percentages.md",
-        "content/lessons/mathematics/arithmetic-number-sense/order-of-operations.md",
-        "content/lessons/mathematics/arithmetic-number-sense/properties-of-real-numbers.md",
         "content/lessons/reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.md",
         "content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md"
       ],
@@ -13318,9 +13176,6 @@
       "requirementPath": "requirements/sm-foundation.md",
       "status": "PROVISIONAL NAME LEADS",
       "lessonIds": [
-        "lesson-data-interpretation-tables-and-charts",
-        "lesson-statistics-and-probability-data-analysis-graphs",
-        "lesson-text-types-visual-media",
         "lesson-physics-dynamics",
         "lesson-physics-kinematics",
         "lesson-physics-momentum-and-impulse",
@@ -13328,9 +13183,6 @@
         "lesson-physics-work-energy-power"
       ],
       "lessonPaths": [
-        "content/lessons/mathematics/data-interpretation/tables-and-charts.md",
-        "content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md",
-        "content/lessons/reading-comprehension/text-types/visual-media.md",
         "content/lessons/science/physics/dynamics.md",
         "content/lessons/science/physics/kinematics.md",
         "content/lessons/science/physics/momentum-and-impulse.md",
@@ -15095,15 +14947,13 @@
         "lesson-philippine-constitution-accountability-and-impeachment",
         "lesson-philippine-constitution-bill-of-rights",
         "lesson-philippine-constitution-the-articles-in-outline",
-        "lesson-philippine-constitution-the-civil-service-commission",
-        "lesson-text-types-essays-editorials-articles"
+        "lesson-philippine-constitution-the-civil-service-commission"
       ],
       "lessonPaths": [
         "content/lessons/general-information/philippine-constitution/accountability-and-impeachment.md",
         "content/lessons/general-information/philippine-constitution/bill-of-rights.md",
         "content/lessons/general-information/philippine-constitution/the-articles-in-outline.md",
-        "content/lessons/general-information/philippine-constitution/the-civil-service-commission.md",
-        "content/lessons/reading-comprehension/text-types/essays-editorials-articles.md"
+        "content/lessons/general-information/philippine-constitution/the-civil-service-commission.md"
       ],
       "uncertainties": [],
       "availability": "unknown: no corpus-bound runtime availability evidence",
@@ -15691,19 +15541,13 @@
       "line": 102,
       "group": "Clerical Ability",
       "kind": "skill",
-      "evidence": "supported, curriculum",
-      "confidence": "curriculum preparation",
+      "evidence": "unknown",
+      "confidence": "unknown connection/depth; see exact source qualifiers",
       "text": "- Specialized filing rules: unknown; no relevant DepEd competency established in the selected guides.",
       "requirementPath": "requirements/cse-subprofessional.md",
-      "status": "PROVISIONAL NAME LEADS",
-      "lessonIds": [
-        "lesson-clerical-ability-alphabetic-filing-rules",
-        "lesson-clerical-ability-numeric-and-chronological-filing"
-      ],
-      "lessonPaths": [
-        "content/lessons/reasoning/clerical-ability/alphabetic-filing-rules.md",
-        "content/lessons/reasoning/clerical-ability/numeric-and-chronological-filing.md"
-      ],
+      "status": "UNKNOWN",
+      "lessonIds": [],
+      "lessonPaths": [],
       "uncertainties": [],
       "availability": "unknown: no corpus-bound runtime availability evidence",
       "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
@@ -15764,23 +15608,13 @@
       "line": 108,
       "group": "General Information",
       "kind": "skill",
-      "evidence": "supported, curriculum",
-      "confidence": "curriculum preparation",
+      "evidence": "unknown",
+      "confidence": "unknown connection/depth; see exact source qualifiers",
       "text": "- R.A. 6713-specific curriculum support: unknown; organizer explicitly names the law, but this curriculum pass does not establish provision-level teaching. [2, 13; unknown]",
       "requirementPath": "requirements/cse-subprofessional.md",
-      "status": "PROVISIONAL NAME LEADS",
-      "lessonIds": [
-        "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
-        "lesson-code-of-conduct-ra-6713-norms-of-conduct",
-        "lesson-code-of-conduct-ra-6713-penalties-and-enforcement",
-        "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment"
-      ],
-      "lessonPaths": [
-        "content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md",
-        "content/lessons/general-information/code-of-conduct-ra-6713/norms-of-conduct.md",
-        "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md",
-        "content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md"
-      ],
+      "status": "UNKNOWN",
+      "lessonIds": [],
+      "lessonPaths": [],
       "uncertainties": [],
       "availability": "unknown: no corpus-bound runtime availability evidence",
       "coverage": "not evaluated: lesson bodies/examples/prerequisites/practice deferred"
