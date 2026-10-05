@@ -1,7 +1,7 @@
 # Engineering restart decision log
 
 Controlling document: `docs/superpowers/2026-10-05-engineering-restart-strategy.md`.
-Policy revision read: `origin/main` at cb48097b.
+Policy revision read: `origin/main` at 23c48fea.
 
 ## October 5, 2026: restart decisions
 
@@ -45,7 +45,7 @@ handoff questions in strategy Part B, B4.
 
 ## October 5, 2026: cleanup performed
 
-Every item below was verified by a worker and rechecked by the lead: tip contained in `origin/web/roadmap-engine-r1` (1f79d880) or `origin/main` (cb48097b), worktree clean, not protected. Nothing with uncommitted or uncontained work was removed. All three stashes were kept: each holds content found nowhere else.
+Every item below was verified by a worker and rechecked by the lead: tip contained in `origin/web/roadmap-engine-r1` (1f79d880) or `origin/main` (23c48fea), worktree clean, not protected. Nothing with uncommitted or uncontained work was removed. All three stashes were kept: each holds content found nowhere else.
 
 - Removed 4 clean worktrees: release-e2e-r1, web-e09-qlp5-prepared-next-r1, web-e09-security-performance-verification-r1, web-release-e2e-r1.
 - Deleted 81 local branches.
@@ -154,3 +154,7 @@ wt-m4 d133d05ab94609d1518c2103c9d90e22f3f8dca6
 wt-noteb-rsn2 50b8e8b5b4faff7c615b1c247c07c9791c8add1f
 wt-s4 909492c47db5a22e87794cf95d23890fcb32cf1a
 ```
+
+## October 5, 2026: attribution trailers removed from main history
+
+Aedwon: "yes fix those commits". Four commits on main carried AI credit trailers that fail `tool/check_no_ai_attribution.dart`. The lead rewrote the messages of the last 12 commits on main (from 20d9f88a, formerly 39a8c684); file contents are unchanged. Old to new: 39a8c684 to 20d9f88a, 3a84a5d6 to 230a7585, cb48097b to 23c48fea, 239af773 to 58667f2a. SHAs in this log and the strategy were updated to the new values. No other branch contained the rewritten commits. Backup branch before the rewrite: local `backup/pre-attribution-rewrite`.

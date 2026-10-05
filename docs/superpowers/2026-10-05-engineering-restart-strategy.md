@@ -1,7 +1,7 @@
 # Engineering restart strategy (plan of plans)
 
 Date: October 5, 2026. Status: draft for Aedwon's review. Nothing in this document is approved
-or started. Policy revision read: `origin/main` at cb48097b (AGENTS.md, WORKFLOW.md, SUBAGENTS.md).
+or started. Policy revision read: `origin/main` at 23c48fea (AGENTS.md, WORKFLOW.md, SUBAGENTS.md).
 
 This document does not plan the code. It plans **how the code plans get made**: what must be
 cleaned up first, which decisions Aedwon owns before planning, which plans to write and in what
@@ -77,8 +77,8 @@ needed) and plan under the normal `WORKFLOW.md` process.
 
 | Line | SHA | Notes |
 |---|---|---|
-| origin/main | cb48097b | Policy and docs only beyond b642e2d1 (non-doc diff vs roadmap: AGENTS.md, WORKFLOW.md, SUBAGENTS.md and 3 other policy files). |
-| local main | 239af773 | +1 unpushed: new design handoff (commit subject uses the old name "Clarity") (754 files, +40,611). Dirty: question-explanations log (+668, append only); untracked: `docs/design/pipelines-handoff.md`, `decisions/2026-10-05-illustration-production-log.md`, `specs/2026-10-03-exam-content-coverage-audit-design.md`. |
+| origin/main | 23c48fea | Policy and docs only beyond b642e2d1 (non-doc diff vs roadmap: AGENTS.md, WORKFLOW.md, SUBAGENTS.md and 3 other policy files). |
+| local main | 58667f2a | +1 unpushed: new design handoff (commit subject uses the old name "Clarity") (754 files, +40,611). Dirty: question-explanations log (+668, append only); untracked: `docs/design/pipelines-handoff.md`, `decisions/2026-10-05-illustration-production-log.md`, `specs/2026-10-03-exam-content-coverage-audit-design.md`. |
 | origin/web/roadmap-engine-r1 | 1f79d880 | Contains beta/integration-r1, e09-qlp5-prepared-next-r1, e09-security-performance-verification-r1, e04-content-protection-r1. Last recorded suite 3,403/3,403 (SSOT, Oct 1). Missing main's 84 policy and doc commits. |
 | origin/beta/integration-r1 | 0f69e79c | Ancestor of the roadmap branch. Not an ancestor of main. |
 | origin/content/question-qa-r2 | 765c5dc0 | Not in roadmap (214 commits). Non-doc diff: 475 files, about 16% under `lib/features`, plus tests and content. Subject branches -math, -other, -science feed it. |
