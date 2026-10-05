@@ -1,4 +1,4 @@
-STATE: AWAITING_APPROVAL level 2 done; asking to start level 3
+STATE: RUNNING
 
 # Coverage audit status
 
@@ -14,7 +14,7 @@ Plan: `docs/superpowers/plans/2026-10-04-exam-content-coverage-audit.md`.
 
 ## Current level and acceptance state
 
-Level 1 is complete and approved. Level 2 overlap is complete: independent semantic review, counting and final identity verification PASS. Awaiting Aedwon's explicit approval for Level 3 lesson structure; no Level 3 or later task has started.
+Levels 1 and 2 are complete and accepted. Level 3 lesson structure is explicitly approved in this conversation and is starting. Levels 4 and 5 remain unauthorized. Illustration review is deferred; Level 3 records only load-bearing figure dependencies encountered.
 
 | Exam | Research | Source check | Fresh rebuild | Exam map |
 |---|---|---|---|---|
@@ -363,3 +363,9 @@ Historical pause: lifted by Aedwon's explicit level 1 start recorded below.
 - Lead freshcheck8overlap/13map/10requirement-profile hashes and25inputs unchanged;36intersections/differences/bilateralRefs valid;158/25/6/535/819counts exact;newdocemdashes/trailingwhitespace0; scopedprojectattribution12files/0violations/exit0; git diff --check0. Main/livecb48097b/audit2cc836b/corpus765c5dc0 match, corpusclean. All app/content/importer/schema/Googlewrites0 inLevel2; gitmutations0 bylead.
 - Deliverables: overlap.md (readablefindings/allpair+subject+topic+single limits), overlap-pairs.md (specific36bilateral evidence), overlap-lessons.md (all158lesson candidates/refs), overlap-data.json+inputmanifest (exactsets/evidence), twoassessmentnotes and independent review/countchecks. Final gateacceptance review/overlap-gate-acceptance.md. Level1 newtabt.38uf83creimq readbackverified, originalunchanged; noLevel2tabwrites.
 - Later authorization would permit reading all lesson bodies to confirm shareability/focus/extra-content/splits/prerequisites, but NO SUCH TASK starts until Aedwon explicitlyapproves inthisconversation. Automatic resumes atthisstate mustdo nothingandend. Watcher handles saving/working-branch upload; lead doesnotcommit/push/merge.
+
+## Level 3 approval and startup, October 5, 2026
+
+- Latest explicit user instruction accepts Level2 and approves Level3 until its gate; exact words will be recorded in decision log. First line normalized to requiredSTATE RUNNING, removing externallyaddedlevel3suffix. No Level4or later approval.
+- Current main/livecb48097bedf15bec2cfbe4fb3aa7e957753b1727 unchanged; audit local/liveafeea946a68008d21ec139e460a204304dd6abb2 matches; corpus live765c5dc0 unchanged/clean. Expected external status steering and canonicalprofiles untracked retained. Watcher owns all gitmutations.
+- User directs rereading updatedspec BEFORE briefs, new illustration-production decision log read. New production/illustration review decisions are for Levels4/5 and separate future pipeline. Level3 doesnotrevieworproduce illustrations; note only load-bearingfigure dependencies in structure evidence. No briefs/lessonbodytasks dispatched before spec clarification.
