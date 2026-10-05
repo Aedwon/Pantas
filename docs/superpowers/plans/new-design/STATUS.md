@@ -10,9 +10,9 @@ Controlling documents:
 
 ## Lock
 
-State: held
-Holder: interactive lead session
-Since: 2026-10-05T21:20+08:00
+State: free
+Holder: none
+Since: none
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 3 hours, a run exits. A lock older than 3 hours is stale and may be
@@ -24,12 +24,16 @@ Stage 0 (strategy B3).
 
 ## Waiting on Aedwon
 
-Nothing. Becomes yes when the amendment spec is sent for approval.
+Yes: approval of Part A of `docs/superpowers/specs/2026-10-05-new-design-amendment-design.md`,
+including its three questions (notification overlap, countdown when the daily reminder is off,
+follow-up time range). Preview: `docs/design/proposals/reminders-2026-10-05.html`,
+https://claude.ai/artifact/JAB6x4kqc8fKyyAhoAr6NV. Sent October 5, 2026.
 
 ## Next step
 
-Write the amendment spec (B3 step 3) in the interactive session and send it to Aedwon.
-Then build the traceability table (B3 step 4).
+After approval: record his exact words, apply his answers to the spec, mark it approved. Then
+B3 step 4, the traceability table (Sonnet gathers rows, lead reviews), then level 2 (B4) in the
+writing order W0; W1 and W3; W2; W4a to W4h; W5.
 
 ## Steps
 
@@ -43,7 +47,7 @@ Then build the traceability table (B3 step 4).
 | B3.2 kept-work triage | done | stage0/triage.md |
 | Stage 0 decisions to Aedwon | answered | answers in the decision record |
 | Kept-work cleanup | done | archive/pre-restart-kept-work at 2bdde4fd |
-| B3.3 spec update | pending | needs Aedwon's approval |
+| B3.3 spec update | sent, waiting | specs/2026-10-05-new-design-amendment-design.md |
 | B3.4 traceability table | pending | |
 | B3.5 execution arrangement | done | recorded in the decision record |
 | Level 2 plans (B4) | pending | |
@@ -54,4 +58,4 @@ Then build the traceability table (B3 step 4).
 
 ## Last completed step
 
-Kept-work cleanup done; stage 0 answers recorded.
+Amendment spec sent to Aedwon.

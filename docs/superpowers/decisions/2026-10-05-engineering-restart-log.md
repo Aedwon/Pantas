@@ -371,3 +371,11 @@ Resulting decisions (recommendation unless stated):
 - The 6 Sept quiz-loading spec, found only in stash 0, is now on main as a record:
   `docs/superpowers/specs/2026-09-06-quiz-loading-performance-design.md`. It is not a current
   requirement; the 1 Oct release-first cuts still apply.
+
+## October 5, 2026: amendment spec sent for approval (strategy B3 step 3)
+
+`docs/superpowers/specs/2026-10-05-new-design-amendment-design.md`, with a visual companion for
+the only screen his answers change (Settings Reminders; onboarding reminders copy):
+`docs/design/proposals/reminders-2026-10-05.html` (version 1), boards `ST_Reminders_v2.html` and
+`O_Notify_v2.html`. Three questions are open in its Part A: notification overlap on countdown and
+come-back days, the countdown when the daily reminder is off, and the follow-up time range.
