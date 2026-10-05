@@ -15,7 +15,7 @@ Holder: none
 Since: none
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
-is held and younger than 3 hours, a run exits. A lock older than 3 hours is stale and may be
+is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
 taken. Release it by setting State to free when the step ends.
 
 ## Current stage
@@ -42,7 +42,7 @@ rows by source; the lead assigns workstreams and reviews. Then level 2 (B4).
 | Strategy Part A approved | done | approval in the decision record |
 | B3.6 SSOT baseline line | done | Google Doc tab "Pantas Production Readiness Assessment", 5 Oct entry |
 | B9 status file | done | this file |
-| B9 hourly resume task | done | desktop scheduled task "pantas-new-design-resume", hourly at about :18; runs only while the desktop app is open |
+| B9 resume task | done | desktop scheduled task "pantas-new-design-resume", every 10 minutes; runs only while the desktop app is open |
 | B3.1 gap pass | done | raw lists in stage0/ |
 | B3.2 kept-work triage | done | stage0/triage.md |
 | Stage 0 decisions to Aedwon | answered | answers in the decision record |

@@ -407,3 +407,12 @@ runs unattended.
 
 Confirmation, same evening. Aedwon: "and yes i mean to approve the spec". Part A approval is
 explicit; the inference noted in item 4 above is resolved.
+
+## October 5, 2026: resume task runs every 10 minutes
+
+Aedwon: "can you make it more often? like checking if the limits have restarted or something is
+running every 10 minutes? or would you advise otherwise". The lead changed the desktop resume
+task from hourly to every 10 minutes and reordered it so each run first reads only STATUS.md and
+exits if the restart is waiting on Aedwon or locked, before reading the policy files. A lock is
+now stale after 2 hours instead of 3, so an interrupted step resumes sooner. Steps must fit in
+2 hours. This amends strategy B9's "about every hour" and "3 hours".
