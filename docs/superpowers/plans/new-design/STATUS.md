@@ -10,7 +10,7 @@ Controlling documents:
 
 ## Lock
 
-State: held
+State: free
 Holder: scheduled resume run
 Since: 2026-10-06T01:21:44+08:00
 
@@ -28,12 +28,18 @@ Nothing.
 
 ## Next step
 
-B3 step 4: build `docs/superpowers/plans/new-design/traceability.md`. One row per board (list
-in `docs/design/SCREENS.md`), per decision in the restart log and `docs/design/DECISIONS.md`, and per
-stage 0 item (`stage0-decisions.md` 1 to 51 and every section B row in `stage0/gap-*.md`).
-Columns: item, source, workstream (W0 to W5, W4a to W4h per strategy B2 and the amendment spec
-B4), level 2 section (blank until level 2), level 3 task (blank), status. Sonnet subagents gather
-rows by source; the lead assigns workstreams and reviews. Then level 2 (B4).
+B3 step 4b: add the gap pass section B rows to `docs/superpowers/plans/new-design/traceability.md`
+(its "Gap pass section B rows" section, now a pending stub). One `G-<family letter>-<n>` row per
+section B row in each `stage0/gap-*.md` (about 245 rows across the eight files; formats differ:
+pipe tables in a, e, g, h; "- " or numbered lines in b, c, d, f). Columns as in the table: item,
+source (file and row), workstream, blank level 2 and level 3 columns, status. Status names the
+stage 0 decision (1 to 42) the row falls under, for example "assigned per S0-33" or "discard per
+S0-10". The lead does the mapping (judgment). If a row fits no decision and is not a pure
+implementation detail, list it under "Waiting on Aedwon" with options and a recommendation
+instead of guessing. Then check stage 0 exit (B3) and start level 2 (B4) with W0.
+
+Part 4a (boards, DECISIONS.md bullets, restart log, amendment items, stage 0 items 1 to 51: 616
+rows) is done. Its mapping rules and level 2 notes are at the top of the table.
 
 ## Steps
 
@@ -48,7 +54,8 @@ rows by source; the lead assigns workstreams and reviews. Then level 2 (B4).
 | Stage 0 decisions to Aedwon | answered | answers in the decision record |
 | Kept-work cleanup | done | archive/pre-restart-kept-work at 2bdde4fd |
 | B3.3 spec update | approved | specs/2026-10-05-new-design-amendment-design.md |
-| B3.4 traceability table | pending | |
+| B3.4a traceability: boards, decisions, stage 0 items | done | see Last completed step |
+| B3.4b traceability: gap pass section B rows | pending | split from B3.4 on Oct 6 (size) |
 | B3.5 execution arrangement | done | recorded in the decision record |
 | Level 2 plans (B4) | pending | |
 | Level 2 gate review | pending | |
@@ -58,4 +65,6 @@ rows by source; the lead assigns workstreams and reviews. Then level 2 (B4).
 
 ## Last completed step
 
-Amendment spec approved and recorded.
+B3.4a: traceability table part 1 (616 rows) written by the scheduled resume run on Oct 6, 2026.
+The run found the previous lock stale (held since Oct 5 21:45, no step recorded) and took it.
+Commit: see git log for "docs: build traceability table part 1".
