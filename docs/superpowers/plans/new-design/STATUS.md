@@ -10,9 +10,9 @@ Controlling documents:
 
 ## Lock
 
-State: held
-Holder: interactive lead session
-Since: 2026-10-05T20:26+08:00
+State: free
+Holder: none
+Since: none
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 3 hours, a run exits. A lock older than 3 hours is stale and may be
@@ -24,13 +24,14 @@ Stage 0 (strategy B3).
 
 ## Waiting on Aedwon
 
-Nothing yet. Becomes "yes" when stage 0 decisions are sent to him.
+Yes: answers to `docs/superpowers/plans/new-design/stage0-decisions.md` (51 items, each with a
+recommendation). Sent October 5, 2026.
 
 ## Next step
 
-Stage 0 steps 1 and 2 (gap pass and kept-work triage) are running in the interactive session.
-Then: merge results into one decision set for Aedwon (B3 steps 1 and 2), then the spec update
-(B3 step 3).
+After Aedwon answers: record his exact answers in the decision record; carry out the approved
+kept-work actions (archive branch first, then removals); write the amendment spec (B3 step 3) for
+his approval; build the traceability table (B3 step 4).
 
 ## Steps
 
@@ -40,9 +41,9 @@ Then: merge results into one decision set for Aedwon (B3 steps 1 and 2), then th
 | B3.6 SSOT baseline line | done | Google Doc tab "Pantas Production Readiness Assessment", 5 Oct entry |
 | B9 status file | done | this file |
 | B9 hourly resume task | done | desktop scheduled task "pantas-new-design-resume", hourly at about :18; runs only while the desktop app is open |
-| B3.1 gap pass | running | |
-| B3.2 kept-work triage | running | |
-| Stage 0 decisions to Aedwon | pending | |
+| B3.1 gap pass | done | raw lists in stage0/ |
+| B3.2 kept-work triage | done | stage0/triage.md |
+| Stage 0 decisions to Aedwon | sent, waiting | stage0-decisions.md |
 | B3.3 spec update | pending | needs Aedwon's approval |
 | B3.4 traceability table | pending | |
 | B3.5 execution arrangement | done | recorded in the decision record |
@@ -54,4 +55,4 @@ Then: merge results into one decision set for Aedwon (B3 steps 1 and 2), then th
 
 ## Last completed step
 
-Status file created.
+Stage 0 decision set sent to Aedwon.
