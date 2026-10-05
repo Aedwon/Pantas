@@ -49,8 +49,10 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
 - "Try a Quick Quiz" only on ST_NoLessons (S0-16); the quiz itself is W4d's.
 - Backend bookmark sync for Pro is kept, no UI (G-c-28).
 - Free and Pro: same (D-145). Placeholders: none.
+- Removes the `onReorder` deprecation when rebuilding the bookmarks sheet (R-21).
 - Bookmarks per D-145 to D-151, free for all; no bookmark ribbon on topics and no notes (S0-30).
 - States per D-142 and W4h patterns.
+- Replaces every retired Ink component and `showInkSheet` call in its own screens with W2's components; its sheet call sites: reader contents and bookmarks sheets (rebuilt on `PantasSheet`) (`stage0/gap-h-shell-states.md`).
 
 ## 5. Motion
 

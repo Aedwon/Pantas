@@ -83,8 +83,7 @@ shake (ST_IncludedLast), switch knob (ST_Root). Shared effects per MOTION.md.
   text scale without overflow.
 - A gallery screen in debug builds only, listing every component and state, for Aedwon's visual
   check against the boards.
-- No remaining imports of retired Ink components or `showInkSheet`; `flutter analyze` clean (the
-  `onReorder` info gone).
+- `flutter analyze` clean for W2's own files.
 - Full required checks.
 - Aedwon: visual check of the gallery on his phones.
 
@@ -104,5 +103,7 @@ shake (ST_IncludedLast), switch knob (ST_Root). Shared effects per MOTION.md.
 
 ## 9. Order and parallelism
 
-After W1. Every W4 family starts after W2's contracts are integrated. Retirement of old components
-finishes when the last W4 family lands.
+After W1. Every W4 family starts after W2's contracts are integrated. Close-out task (owned by W2,
+run after the last W4 family lands): delete `ink_sheet.dart` and every Ink component with no caller,
+then check no retired import remains and `flutter analyze` is clean (the `onReorder` info gone with
+W4c's bookmarks rebuild). The level 4 gate for W4 completion requires this task.

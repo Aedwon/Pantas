@@ -62,6 +62,7 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
 - Passage questions keep their passage card (S0-41).
 - Quick quiz (S0-16): reached only from Study's "Try a Quick Quiz".
 - Free and Pro: notes are Pro (W3 `coversExam`); everything else the same (D-232). Placeholders: none.
+- Replaces every retired Ink component and `showInkSheet` call in its own screens with W2's components; its sheet call sites: questions grid sheet (rebuilt on `QuestionGridSheet`) (`stage0/gap-h-shell-states.md`).
 
 ## 5. Motion
 

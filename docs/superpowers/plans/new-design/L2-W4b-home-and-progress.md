@@ -68,6 +68,7 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
   display (recording stays, W0), spaced-repetition explainer (S0-10 to S0-13, S0-15).
 - Charts keep screen-reader summaries (G-b-14). Greeting bands unchanged (G-b-9).
 - Free and Pro per D-236 to D-238 via W3 `coversExam`. Placeholders: none.
+- Replaces every retired Ink component and `showInkSheet` call in its own screens with W2's components; its sheet call sites: subject scope sheet (`stage0/gap-h-shell-states.md`).
 
 ## 5. Motion
 

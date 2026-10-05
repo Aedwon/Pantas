@@ -59,6 +59,8 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
   trialEnding; countdown and come-back replace that day's daily reminder; follow-up still applies;
   no daily ceiling; no Wrapped push; copy variants kept with no guilt and no unmeasured figures; tap
   routing per amendment B2.
+- Notification tap routing per amendment B2 (A-B2b): daily, follow up, come back and countdown open
+  Home; trial ending opens Settings › Pantas Pro.
 - Account per D-213, D-219, D-220, D-278, S0-20, S0-21, S0-36: sign-in conflict dialog, Delete my
   data for signed-out students, fresh sign-in before deletion, failure lines, return to Welcome after
   deletion; Pantas ID grouped in threes, tap copies digits only.
@@ -75,6 +77,7 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
 - Adds a link to W2's gallery from the debug page (debug builds only).
 - Follow up notification copy: "Still time today" / "One short session gets today's plan started."
   (Aedwon, Oct 6, gate F-19).
+- Replaces every retired Ink component and `showInkSheet` call in its own screens with W2's components; its sheet call sites: name, exam date, ordering, reminder and carry-over sheets (`stage0/gap-h-shell-states.md`).
 
 ## 5. Motion
 

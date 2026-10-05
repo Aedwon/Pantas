@@ -63,6 +63,7 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
 - After Pro lapses: the Free rule applies, nothing is deleted, renewing restores access (Aedwon,
   Oct 6, gate F-18).
 - Discarded: Next blank and Next flagged, Strict badge (S0-26, S0-27).
+- Replaces every retired Ink component and `showInkSheet` call in its own screens with W2's components; its sheet call sites: custom mock wheel sheets and the mock questions sheet (`stage0/gap-h-shell-states.md`).
 
 ## 5. Motion
 

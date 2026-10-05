@@ -549,3 +549,16 @@ W1; per-family route files and the dev route file; W2 edits no feature files; tr
 `TrialEndingNotifier` owned by W3 and implemented by W4f; landing orders for every consumed family
 contract; W5 covers the tier purchase cases; traceability statuses refreshed; tier spec replacement
 wording corrected; amendment spec B2 trial text clarified to use the student's own plan price.
+
+## October 6, 2026: level 2 gate review 3 (not passed, no blocker) and fixes
+
+Review 3 (delta): `docs/superpowers/plans/new-design/gates/l2-gate-review-3.md`. All 31 review 2
+items resolved; 4 should-fix and 6 notes from the changes. Fixed: W0's recorded-data row names the
+JSON fields (no schema 26); W0 owns the mock JSON field additions in `mock_results.dart` before W4e;
+W2's Ink and sheet retirement moved to a W2 close-out task after the last W4 family, and each W4 plan
+replaces its own call sites; G-h-28 icon mapping moved to W4g using W1's getters; R-21 and A-B2b
+carried in the cited sections; v2 boards registered in `docs/design/SCREENS.md` with the originals
+marked superseded (the canvas gallery `index.html` is not regenerated); level 3 notes added for the
+catalog storage form, the `MistakeTag` unknown-value fallback and pass end dates moving later;
+G-g-15 marks the Pro tag after a lapse as a lead default. Aedwon hit a usage limit during this step;
+work resumed after the reset.

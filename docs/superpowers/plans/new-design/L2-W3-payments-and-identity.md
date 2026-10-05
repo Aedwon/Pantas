@@ -102,6 +102,8 @@ tiers).
 - If the webhook fix needs a RevenueCat secret API key that is not configured, stop and report.
 - Store price points at launch (₱49, ₱149, ₱1,199, ₱499) must be confirmed available in the
   Philippines before products are created (pricing.md "Not yet settled"); if one is not, stop and ask.
+- Level 3 states how stored pass end dates are updated when a catalog date moves later (a new
+  export, a functions deploy with Aedwon's approval, and a recompute of affected passes; gate N3-8).
 - An exam with no published sitting: its pass cannot be bought (D-227); never infer a date.
 
 ## 8. Files and directories

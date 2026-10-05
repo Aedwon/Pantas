@@ -66,7 +66,7 @@ every wrong choice needs a non-empty rationale), its tests (including
 | Data layer | App database (`lib/core/storage/data/app_database.dart`) schema 25, unchanged; content database (`lib/core/content/content_database.dart`) schema 10 after W0 (catalog). The JSON fields in section 1 are part of this contract under these exact names: `AttemptItem.mistakeTag` (`other` added), `AttemptItem.mistakeNote`, mock answer `missReason`, `blankReason`, `reasonNote`, `SectionResult.wrong`, `SectionResult.blank`. No workstream changes either without a level 2 amendment naming the new version and its migration (SUBAGENTS Part 3). |
 | Exam catalog | Per exam, from content exam metadata: `priceTier`, `group` (College entrance, High school, Civil service, Licensure, Uniformed services), `comingSoon`, and `publishedSittings` (each with first and last day and the published source). W0 adds the fields to the exam metadata format and content database export; values come from the tier pricing spec (`specs/2026-10-06-tier-pricing-design.md`). An exam with no published sitting has none; nothing is inferred. |
 | Mock blueprints | `content/mock/<exam>.yaml`. The blueprint-level `source` and `sourceNote` stay the citation for the whole blueprint. A single value with no published source carries `placeholder: true` and a `placeholderNote` (N-21: field-level, because only some values are placeholders); the app wraps it in W2's `PlaceholderFigure`. Known placeholders: CSE Professional and Subprofessional per-subject item counts; ACET aptitude time (R-20). W4e authors the CSE and ACET blueprints. |
-| Recorded-only data | Attempts keep per-answer response time and session timing; mistake tags (`misread`, `slipped`, `unknown`, and from schema 26 `other` plus note text); mock blank reasons (schema 26). Also kept, as constraints on the families that rebuild their code: Terms acceptance records the policy version (`lib/features/settings/data/settings_repository.dart`; W4f keeps the write, W4a calls it), backend bookmark sync for Pro (W4c), consent-gated `wrapped_revealed` and `wrapped_shared` analytics events (W4g). Consumers delete widgets, never these writes or columns. |
+| Recorded-only data | Attempts keep per-answer response time and session timing; mistake tags (`AttemptItem.mistakeTag` with `other`, `AttemptItem.mistakeNote`); mock `missReason`, `blankReason`, `reasonNote`; `SectionResult.wrong`, `SectionResult.blank` (all JSON fields, app schema 25). Also kept, as constraints on the families that rebuild their code: Terms acceptance records the policy version (`lib/features/settings/data/settings_repository.dart`; W4f keeps the write, W4a calls it), backend bookmark sync for Pro (W4c), consent-gated `wrapped_revealed` and `wrapped_shared` analytics events (W4g). Consumers delete widgets, never these writes or columns. |
 | Offline posture | The rules in `2026-08-03-offline-and-network-posture-design.md` Sections 3, 5, 7 stay in force (no connectivity banner, no blocking spinner on local data, last entitlement stands on network failure). |
 
 Contracts consumed: none.
@@ -108,6 +108,10 @@ Aedwon: nothing visual. He authorizes the package rebuild (section 7).
 - A merge that is not a fast-forward (the integration branch moved): stop and report.
 - App schema not 25 after the merge: stop. Content schema 10 lands in one commit with its
   migration.
+- Level 3 fixes the catalog storage form (columns or `catalogJson`) and its reader API name before
+  any consumer writes a reader (gate N3-7).
+- `MistakeTag` gains a fallback for unknown values so an older build syncing an item tagged `other`
+  does not fail to decode (gate N3-9).
 - Exam dates: only dates Aedwon supplies with a source link (tier spec decision 1); none inferred.
 - Any validator error, or an answer key change found outside the QA ledgers: stop and report to the
   content track; do not edit content.
@@ -117,7 +121,8 @@ Aedwon: nothing visual. He authorizes the package rebuild (section 7).
 ## 8. Files and directories
 
 May touch: the integration branch history (the fast-forward), `assets/seed/*` (generated, not
-committed), the build output directory, `lib/core/storage/domain/` (JSON models), `lib/core/content/` (content schema 10,
+committed), the build output directory, `lib/core/storage/domain/` (JSON models), `lib/features/mock_exam/domain/mock_results.dart` (adds the
+mock JSON fields and fills the per-part counts; before W4e), `lib/core/content/` (content schema 10,
 migration), `lib/core/sync/` (payload fields if mapped), `functions/src/examCatalog.json`, content exam metadata format and export tools
 (`tools/build_content_export/`, `tools/import_questions/` if exam metadata lives there), matching
 tests, and the verification record in `docs/superpowers/plans/new-design/`.

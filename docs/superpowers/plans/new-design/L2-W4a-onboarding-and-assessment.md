@@ -65,6 +65,7 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
 - Free and Pro: same. Placeholders: none.
 - `/notifications/rationale`: W1 removes the route (W1's list); W4f deletes the page in `lib/features/notifications/`.
 - Uses W4h's state patterns; W4h's pattern task lands before this family's state screens.
+- Replaces every retired Ink component and `showInkSheet` call in its own screens with W2's components.
 
 ## 5. Motion
 

@@ -43,6 +43,7 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
 - Ownership: W2 owns `StateView`; this family owns the app-wide screen, its triggers and the
   retirement of `app_error_view.dart`.
 - Free and Pro: same. Placeholders: none.
+- Replaces every retired Ink component and `showInkSheet` call in its own screens with W2's components.
 
 ## 5. Motion
 

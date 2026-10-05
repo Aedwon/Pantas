@@ -47,6 +47,8 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
   saved figures.
 - No ordinary-mock message; no Wrapped push (S0-31, S0-8); W4f deletes the push router. Words
   "cards" and "mastery" never appear.
+- Icons without an IC_Final entry on these screens (globe on the share note, the reveal bar icon)
+  map to one of W1's 45 getters (`share`, `bookmark`); none added (G-h-28).
 - Consent-gated analytics events `wrapped_revealed` and `wrapped_shared` are kept (G-g-21).
 - After Pro lapses: saved Wrappeds are kept and history shows the Pro tag; renewing restores (Aedwon,
   Oct 6, gate F-18).
@@ -54,6 +56,7 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
   his review (gate F-30).
 - Free and Pro: history is Pro (D-251). Placeholders: none.
 - Wrapped history stays on the phone and is lost on reinstall until sync exists (Aedwon, Oct 6); no student-facing wording.
+- Replaces every retired Ink component and `showInkSheet` call in its own screens with W2's components.
 
 ## 5. Motion
 
