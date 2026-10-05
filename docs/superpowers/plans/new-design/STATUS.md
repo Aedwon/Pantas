@@ -28,12 +28,8 @@ Nothing.
 
 ## Next step
 
-Level 2 plans in writing order: W0; W1 and W3; W2; W4a to W4h; W5. Location
-`docs/superpowers/plans/new-design/L2-<id>-<name>.md`, sections per strategy B4. The lead writes
-all of them (B7). Then the level 2 gate review by an independent Opus reviewer.
-
-Work runs in the interactive session. The scheduled resume task is paused by Aedwon (Oct 6);
-re-enable it only if he asks.
+Level 2 gate review (B4) by an independent Opus reviewer; the lead fixes findings and records
+the gate in the decision record. Then level 3 (B5).
 
 ## Steps
 
@@ -52,7 +48,7 @@ re-enable it only if he asks.
 | B3.4b traceability: gap pass section B rows | done | 215 rows; none needed a new product decision |
 | Stage 0 exit | done | all B3 steps done; every input item has a workstream |
 | B3.5 execution arrangement | done | recorded in the decision record |
-| Level 2 plans (B4) | in progress | W0, W1, W2, W3 written; W4a to W4h and W5 next |
+| Level 2 plans (B4) | done | 13 plans; traceability level 2 column filled |
 | Level 2 gate review | pending | |
 | Level 3 plans (B5) | pending | |
 | Level 3 gate review | pending | |
@@ -60,4 +56,4 @@ re-enable it only if he asks.
 
 ## Last completed step
 
-Level 2 plans W0, W1, W2, W3 written (W3 includes tier pricing, Aedwon's Oct 6 decision).
+All 13 level 2 plans written; every traceability row with a workstream points to its plan.
