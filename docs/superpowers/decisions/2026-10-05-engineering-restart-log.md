@@ -158,3 +158,38 @@ wt-s4 909492c47db5a22e87794cf95d23890fcb32cf1a
 ## October 5, 2026: attribution trailers removed from main history
 
 Aedwon: "yes fix those commits". Four commits on main carried AI credit trailers that fail `tool/check_no_ai_attribution.dart`. The lead rewrote the messages of the last 12 commits on main (from 20d9f88a, formerly 39a8c684); file contents are unchanged. Old to new: 39a8c684 to 20d9f88a, 3a84a5d6 to 230a7585, cb48097b to 23c48fea, 239af773 to 58667f2a. SHAs in this log and the strategy were updated to the new values. No other branch contained the rewritten commits. Backup branch before the rewrite: local `backup/pre-attribution-rewrite`.
+
+## October 5, 2026: handoff questions (strategy Part B, B4)
+
+Exact answers:
+
+> * Free users keep full mock review only until the next mock opens. Is that right? -YES
+> * Should the Pro History screen ship now, even though it's lost on reinstall until sync exists? -What Pro history is this? in the roadmap screen? if that's what you're talking about it should ship
+> * Should Wrapped add "topic turning weak to strong" as a trigger? -no
+> * Should bottom sheets appear only where a board shows one? -yes the claude design's screens are authoritative. however, if there is something that was missed during the design process, it should be brought up. this is one pass that needs to happen in the plan. i need to decide on whether to keep or discard something. note that if something was changed by the design from the original, the new design triumphs (but still show me just in case). i should only decide on missing things, not old things that were changed
+> * Progress merges into Home and Settings becomes a tab. Should the old Progress screens be retired? -yes
+> * Should the date format, still marked proposed, be approved? -sorry where is this?
+> * CSE subject counts and the ACET time have no published source, so they can't be shown. Should they stay hidden until sourced? -i will provide this later. just use dummy amounts make sure to note this
+
+Resulting decisions:
+
+1. Mock review gating ships as drawn: Free keeps full review until the next mock opens, then
+   score and breakdown only; Pro reopens any time; notes on misses are Pro only.
+2. Pro History is the History section of Your plan (boards DP_History, DP_HistoryEnd). It ships.
+   Its entries stay on the device and are lost on reinstall until sync exists.
+3. Wrapped keeps three moments: first mock or a new best; a streak of 7, 30, 100 or 365; the
+   day after the exam. The handoff's "topic turning from weak to strong" moment is dropped by
+   Aedwon's explicit decision, overriding the handoff.
+4. The design handoff is authoritative. Each screen plan includes a gap pass:
+   - Changed by the design from the old app or specs: build the new design, and list the change
+     for Aedwon's information only.
+   - Missing from the design (an old feature, control or state with no board): list it for
+     Aedwon to keep or discard. Do not build or remove it before he decides.
+   - Bottom sheets appear only where a board shows one.
+5. Old Progress screens and routes are retired. Progress lives on Home.
+6. Date format: pending Aedwon's answer. Location: `docs/design/DECISIONS.md`, "Dates (proposed
+   4 Oct)".
+7. CSE per-subject item counts and ACET aptitude time: build with placeholder values that Aedwon
+   will replace. Every placeholder is marked in code with a `PLACEHOLDER` comment and listed in
+   the plan. This is an explicit exception to "Never invent a figure" for development only;
+   replacing them is a release blocker.

@@ -145,6 +145,14 @@ From the handoff review. Each becomes a spec amendment line or a "use as drawn" 
    rule they cannot ship as figures. Confirm they are hidden until sourced.
 8. Screens without boards (see Part A, decision 5) and the deferred guided first-run demo.
 
+### B4a. Answers (October 5)
+
+Recorded in `decisions/2026-10-05-engineering-restart-log.md`. Every W4 screen plan starts with a
+**gap pass**: compare the old app and specs against the boards. Design changes are built as drawn
+and listed for Aedwon's information. Missing items are listed for his keep-or-discard decision
+before that part is built. CSE and ACET placeholder figures are marked `PLACEHOLDER` and block
+release until replaced. Wrapped drops the weak-to-strong moment.
+
 ### B5. Workstreams and plan order
 
 Each row is one plan in `docs/superpowers/plans/`. Write plans in this order; later plans may
