@@ -15,6 +15,9 @@ Cross-family file permission (recorded Oct 6): Task 4 edits `updateExamDate` in
 `lib/features/settings/data/settings_repository.dart` to allow today (D-34); W4f is told and runs
 later.
 
+Regression tests for GitHub issues #22 (custom-exam entry bounces to the picker, Task 6) and #25
+(built-in exam with no content crashes assessment start, Task 9 not-ready state) are written first.
+
 ## Task 1. Step model and resume
 
 `lib/features/onboarding/application/onboarding_flow.dart`: steps `launch`, `welcome`, `age`,

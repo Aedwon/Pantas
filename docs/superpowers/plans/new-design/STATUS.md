@@ -28,9 +28,12 @@ Nothing.
 
 ## Next step
 
-Write level 3 plans `L3-<id>-<name>.md` for W0, W1, W2, W3, W4a to W4h, W5 per B5 (tasks in
-order, files per task, failing test first, focused checks, full checks, base SHA, stop conditions,
-traceability rows per task), closing the carry-forward items. Then the level 3 gate review.
+Fill the traceability "Level 3 task" column: 545 of 757 workstream rows map automatically
+(script `l3map.py` in the session scratchpad: exact ID or board in a task, decision ranges, board
+wildcards); the remaining 212 (R-, A-, S0-, G- rows and a few boards) need a task each, by reading
+the row and its L3 plan. Then the level 3 gate review (B5) by an independent Opus reviewer, then
+stop before level 4 and notify Aedwon with the level 4 start requests (signing authorization, store
+setup, RevenueCat secret key, exam dates, iOS purchase scope, privacy text).
 
 ## Steps
 
@@ -51,10 +54,10 @@ traceability rows per task), closing the carry-forward items. Then the level 3 g
 | B3.5 execution arrangement | done | recorded in the decision record |
 | Level 2 plans (B4) | done | 13 plans; traceability level 2 column filled |
 | Level 2 gate review | passed (review 5) | gates/l2-gate-review-5.md |
-| Level 3 plans (B5) | in progress | carry-forward items in L3-carry-forward.md |
+| Level 3 plans (B5) | written (13 plans); traceability level 3 column in progress | L3-*.md |
 | Level 3 gate review | pending | |
 | Stop before level 4, notify Aedwon | pending | |
 
 ## Last completed step
 
-Level 2 gate passed (review 5).
+All 13 level 3 plans written (Oct 6); level 2 amended from the code inventory.

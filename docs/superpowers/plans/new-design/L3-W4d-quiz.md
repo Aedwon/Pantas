@@ -15,6 +15,9 @@ commit. Screens move to W1's theme API and W2's components (`FloatingBar`, `Ques
 Traceability fix (Oct 6): D-242 (assessment question screen) belongs to W4a, which builds the
 assessment; the row moves there.
 
+Regression tests for GitHub issues #23 (Quiz tab stays on the assessment gate), #24, #27 and #28
+(Resume card offered, unambiguous and cleared after completion) are written first in Task 2.
+
 ## Task 1. Start functions (lands first)
 
 `startLessonQuiz(lessonId)`: replaces `StartInlineLessonQuiz`'s topic scope with the lesson's own
