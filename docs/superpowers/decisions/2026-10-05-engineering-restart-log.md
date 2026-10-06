@@ -848,3 +848,12 @@ The first W0 run on Codex stopped at `git fetch`: Codex's workspace sandbox bloc
 repository's Git folder. Aedwon chose option 1 ("1"): Codex workers run without the Codex sandbox
 (`--dangerously-bypass-approvals-and-sandbox`), bound by their dispatch rules (one worktree, no
 push, no secrets, no external changes); the lead reviews every commit before any push.
+
+## October 6, 2026: W0 run 2 (Codex) stopped on the approval count; plan corrected
+
+W0 Task 1 fast-forwarded the integration branch to 765c5dc0 (checks green, 158 of 158 lesson ids)
+and stopped because the content gate showed `approved 158` where L3-W0 expected 0. The lead's
+plan was wrong: the SUBAGENTS Part 4 "approved 0" rule is for question writers (Question Studio
+sets `approved:`); 83 files were already approved at 1f79d880. L3-W0 Task 1 corrected; Codex
+resumes at Task 2. Usage: Aedwon's Codex plan went from 42% to 55% of the 5-hour limit across the
+failed sandboxed run (about 60,000 tokens) and this run (about 147,000 tokens).

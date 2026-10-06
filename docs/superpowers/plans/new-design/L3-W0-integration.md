@@ -21,7 +21,9 @@ Traceability: S0-43 context; L2 §1.
 3. `dart run build_runner build --delete-conflicting-outputs`.
 4. Checks: `dart run tools/import_questions/import_questions.dart --root content/questions >/dev/null 2>&1; echo $?`
    expects 0; content gate one-liner from SUBAGENTS Part 4 over `content/questions` expects
-   validator 0, emdash 0, approved 0, noexams 0; `flutter test test/tool test/core/content` green.
+   validator 0, emdash 0, noexams 0, and `approved` reported but not required to be 0 (corrected
+   Oct 6: the "approved 0" rule in SUBAGENTS Part 4 is for question writers; this merge preserves
+   Question Studio approvals, 83 files at 1f79d880 and 158 after the merge); `flutter test test/tool test/core/content` green.
 5. Lesson-id check: every `content/questions/<s>/<t>/<l>.yaml` has `content/lessons/<s>/<t>/<l>.md`
    and `meta.subtopic == <l>` (script in the task's evidence). Expect 158 of 158.
 Files: none edited (fast-forward). Push the branch.
