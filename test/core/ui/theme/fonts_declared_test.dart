@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:crypto/crypto.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:yaml/yaml.dart';
 
@@ -11,6 +12,7 @@ void main() {
   for (final entry in <String, List<int>>{
     'Geist': [400, 500, 600, 700],
     'SourceSerif4': [400, 600],
+    'Phosphor': [400],
   }.entries) {
     test('${entry.key} bundles every required weight for offline use', () {
       final declarations = families.cast<YamlMap>().where(
@@ -29,4 +31,15 @@ void main() {
       }
     });
   }
+  test('bundled regular icon font is unchanged from package 2.1.0', () {
+    expect(
+      sha256
+          .convert(
+            File('assets/fonts/phosphor/Phosphor.ttf').readAsBytesSync(),
+          )
+          .toString(),
+      '06b91e022b7ee899a63efced879392a74f0bacbda54e4467e9f663220d173a10',
+    );
+    expect(File('assets/fonts/phosphor/LICENSE').existsSync(), isTrue);
+  });
 }
