@@ -25,6 +25,7 @@ ContentMockBlueprintsCompanion parseMockBlueprint(Map<String, Object?> doc) {
       message: 'expected list',
     );
   }
+  BlueprintValue.validateSections(sections.cast<Object?>());
   final rawSource = doc['source'];
   final parsedSource = _source(rawSource);
   final sourceStr = version == 1

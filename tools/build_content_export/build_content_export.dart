@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:crypto/crypto.dart';
+import 'package:pantas/core/content/domain/mock_blueprint.dart';
 import 'package:yaml/yaml.dart';
 
 import '../content/lesson_asset_map.dart';
@@ -526,6 +527,9 @@ List<Map<String, Object?>> buildMockBlueprints(String root) {
   for (final file in _filesUnder(mockDir.path, '.yaml')) {
     final updatedAt = _getFileHashTimestamp(file);
     final doc = loadYaml(file.readAsStringSync()) as YamlMap;
+    BlueprintValue.validateSections(
+      (doc['sections'] as YamlList).cast<Object?>(),
+    );
     mockBlueprints.add({
       '_id': doc['_id'] as String,
       '_updatedAt': updatedAt,
