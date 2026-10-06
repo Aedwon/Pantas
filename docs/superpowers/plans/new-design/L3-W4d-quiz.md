@@ -73,7 +73,8 @@ Boards QN_Correct, QN_Wrong, QN_WrongFree, QN_WrongOpen, QN_EditNote, QN_OwnWord
 D-276. Route `/quiz/viewer/:attemptId`. ‹ "1 of 10" ›, bar colored; Pro note icon opens "Why did you
 miss it?" (I misread it, I knew it I just slipped, I didn't know it, Type my own); Add Note, Update,
 Remove; writes W0's `AttemptItem.mistakeTag` (`other`) and `mistakeNote` through
-`AttemptsRepository.tagItem` (extended for the note). Free: no icon, counter centered.
+`AttemptsRepository.tagItem` (extended for the note; run `flutter test test/core/storage` with
+this task). Free: no icon, counter centered.
 
 ## Task 7. Report a question
 

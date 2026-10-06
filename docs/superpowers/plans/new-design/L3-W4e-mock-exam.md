@@ -9,6 +9,8 @@ Before each screen task: open its boards and run `timeline.py`. Every task: widg
 drawn state (light, dark, 200% text, reduce motion last frame), unit tests per rule, then code, task
 checks (`flutter test test/features/mock_exam test/app`), commit. W1 theme API, W2 components.
 
+Pro gates read W3's `proForActiveExamProvider` (Pro for the active exam), never `proIsActive` (level 3 gate review 2).
+
 ## Task 1. Mock card (lands first)
 
 `MockCardModel` and `MockCard` in `lib/features/mock_exam/presentation/widgets/mock_card.dart`,
@@ -28,7 +30,7 @@ questions leave the total (G-e-13). Fix the percent defect (fraction in `mock_re
 `submit_mock.dart` `_sectionResultsJson` (writes `wrong` and `blank`); the one decoder is the section
 parse in `mock_results_route.dart`, which recomputes null `wrong` and `blank` from `answersJson` for
 old rows. The metrics reader (`lib/features/metrics/signals/mock_payload_reader.dart`) is unchanged;
-a test shows it ignores the new keys.
+a test shows it ignores the new keys (run `flutter test test/features/metrics` with this task).
 Questions avoid the student's last two finished mocks for the exam (pass their ids to the sampler,
 S0-28). Tests for each rule.
 
@@ -54,7 +56,8 @@ one-block exams submit from the sheet. Close with a declared route, not `context
 
 ## Task 5. Pause, strict mode, leaving, recovery
 
-Boards MK_PauseWarn, MK_PauseA, MK_PauseFlow, MK_Discard, MK_Forfeit; D-190, D-191; S0-37. Pause
+Boards MK_PauseWarn, MK_PauseA, MK_PauseFlow, MK_Discard, MK_Forfeit, MK_LastQStrict (strict on:
+no pause, › dimmed with a quiet line saying why); D-190, D-191; S0-37. Pause
 warning with "Don't show this again" stored in app preferences (`mock_pause_warning_seen`);
 hourglass; discard deletes answers and does not use up a mock. Strict grace 10 seconds (change
 `strict_mode_lifecycle.dart` from 5), then Not finished with everything answered scored. Strict off:

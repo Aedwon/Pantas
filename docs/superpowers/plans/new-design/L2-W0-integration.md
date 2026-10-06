@@ -14,7 +14,7 @@ workstream consumes.
 In scope:
 - Merge `origin/content/question-qa-r2` (765c5dc0) into `integration/new-design-r1` (1f79d880).
   The merge base is 1f79d880, so this is a fast-forward of 214 commits.
-- Rebuild the protected content package from the merged content (`assets/seed/content.db`,
+- Optional, amended (level 3 gate review 2): rebuild the protected content package from the merged content only if Aedwon wants a device build before W5; the release package is built once in W5. The rebuild (`assets/seed/content.db`,
   `content.manifest.json`, `content.manifest.sig`, next release sequence). There is no separate dev
   seed: `tools/build_dev_seed` is superseded and must not be restored (AGENTS.md). Without the signed
   rebuild the app keeps reading the old package, so the merged questions reach tests and fixtures
@@ -91,10 +91,12 @@ Automated, on the merged and regenerated tree:
 - `flutter test` all green (baseline was 3,403; expect more from the merged tests), including a
   content database migration test from schema 9 to 10 and parsing of old JSON rows without the new
   fields.
+- Figure credits in lesson image blocks (W0 Task 4b, added (level 3 gate review 2)); producing
+  `content/illustrations/assets.json` needs a Sanity upload with Aedwon's approval.
 - Content gates from SUBAGENTS Part 4 over the whole corpus: validator 0, em dash 0, approved 0,
   noexams 0.
-- `tools/verify_content_package` exit 0 on the new package; manifest release sequence is one above
-  the previous package.
+- If the optional package is built: `tools/verify_content_package` exit 0 on it; manifest release
+  sequence is one above the previous package.
 - `functions` tests (`node --test`) run once and recorded; they were not run in the Oct 5 baseline.
 
 Aedwon: nothing visual. He authorizes the package rebuild (section 7).
@@ -103,8 +105,8 @@ Aedwon: nothing visual. He authorizes the package rebuild (section 7).
 
 - **Signing authorization.** Rebuilding the package uses the signing seed. Per
   `docs/content-key-access.md` this needs Aedwon's explicit permission. It is requested together
-  with the start of level 4. Without it, W0 stops after the merge and the data changes; the protected
-  package rebuild waits.
+  with the start of level 4. Without it, W0 completes after the merge and the data changes; the
+  package is built in W5 ((level 3 gate review 2)).
 - A merge that is not a fast-forward (the integration branch moved): stop and report.
 - App schema not 25 after the merge: stop. Content schema 10 lands in one commit with its
   migration.

@@ -117,7 +117,10 @@ integrates), `lib/features/settings/presentation/pages/pro_page.dart` and
 `lib/features/legal/domain/legal_document.dart` (privacy sentences after Aedwon approves them),
 `functions/src/deleteAccount.ts`, `recordSignInEvent.ts`, `exportData.ts`, `functions/package.json`,
 `lib/core/auth/public_id_provider.dart`, `lib/features/mock_exam/domain/mock_availability.dart`,
-`lib/features/roadmap/domain/roadmap_inputs.dart` (the Pro flag source).
+`lib/features/roadmap/domain/roadmap_inputs.dart`, `roadmap_inputs_reader.dart`, `mock_day.dart`,
+`mock_availability_provider.dart` (the Pro flag source), and after W1's split the builders in
+`lib/app/routes/quiz_routes.dart` and `mock_routes.dart` (amended (level 3 gate review 2)). Each W4 family switches its
+own screens to `proForActiveExamProvider`.
 
 ## 9. Order and parallelism
 

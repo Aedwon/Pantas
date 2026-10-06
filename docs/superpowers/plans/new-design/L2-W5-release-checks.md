@@ -17,7 +17,7 @@ In scope:
   check (replaces the low-end performance gate, Oct 1).
 - E10 release end-to-end once (not three times, Oct 1), E11 to E14 including exact signed-artifact
   verification (E12, E13).
-- Content protection identity proof (CP-T5) redone on W0's new package.
+- Content protection identity proof (CP-T5) redone on the release package W5 builds (amended (level 3 gate review 2)).
 - A01 sync and account, A02 App Check, A03 purchase and restore on the test track, covering the tier
   spec cases: each Student and Civil Service plan, the Monthly trial and its absence after a lapse,
   a Student to Civil Service upgrade, a pass purchase and its end date, refusal of a pass with no
@@ -37,8 +37,8 @@ its change requires (strategy B2).
 ## 2. Inputs
 
 The E04 to E14 plan and its evidence formats; release-first cuts; amendment spec; tier pricing spec
-(`specs/2026-10-06-tier-pricing-design.md`); W0 package
-identity; W3 test-purchase setup; traceability rows above.
+(`specs/2026-10-06-tier-pricing-design.md`); release package
+identity (W5 Task 1); W3 test-purchase setup; traceability rows above.
 
 ## 3. Contracts owned
 

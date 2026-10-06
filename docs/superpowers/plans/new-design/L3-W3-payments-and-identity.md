@@ -64,7 +64,7 @@ Handle every exhaustive `switch` on `EntitlementPlan` (router `_settingsEntitlem
 `subscription_panel.dart`, `entitlement_snapshot_store.dart`, `live_revenuecat_gateway.dart`).
 Tests first: `coversExam` for tier inclusion (Civil Service covers Student exams), pass scope (one
 exam), expired pass, grant, unknown plan; `mockLimit`; snapshot round trip and old-snapshot read.
-Checks: `flutter test test/features/paywall` green.
+Checks: `flutter test test/features/paywall test/features/settings` green.
 
 ## Task 4. Tiers and products
 
@@ -73,7 +73,7 @@ Checks: `flutter test test/features/paywall` green.
 `_yearly`, `pantas_cs_weekly`, `_monthly`, `_yearly`, `pantas_pass_civil_service`) to tier, period
 and kind; the gateway reads it instead of private constants, so the CS ids are not "unrecognized".
 Remove hard-coded prices and the Yearly-trial assumption from `paywall_recommendation.dart` (the
-recommendation itself is retired, S0-24; delete the file when W4f stops importing it).
+recommendation itself is retired, S0-24; W4f Task 7 deletes the file).
 Tests first: every product id maps; unknown id stays `unknown`; no `₱` literal remains in
 `lib/features/paywall/domain` or `data` (test greps).
 Checks: `flutter test test/features/paywall` green.
@@ -96,6 +96,12 @@ Checks: `npm test` in `functions/` green (Task 1's runner, so `.ts` and rules te
 `keepsPro`, `upgradeOffer(plans)` (no trial, with Switch on Free), `passWarning`, `free`.
 Tests first: one case per switching board (ST_SwitchUpgrade, ST_SwitchPassWarn, same tier, lower
 tier, Free student).
+Season Pass bought by an active Student subscriber (gate L3R2-6): Play replacement modes do not
+apply to one-time products, so the Student plan keeps renewing. Lead default, for Aedwon to confirm
+at the start of level 4 (tier spec: nobody pays twice): after the pass purchase, the Pro page shows
+that the Student plan still renews, with Manage in Google Play (`manage()`); nothing cancels
+automatically. The copy needs his approval (no board draws it). Test: the outcome carries
+`studentPlanStillRenews`. If he chooses otherwise, stop and re-plan this case.
 Checks: `flutter test test/features/paywall` green.
 
 ## Task 7. Purchase operations and trial eligibility
@@ -114,12 +120,24 @@ Checks: `flutter test test/features/paywall` green.
 
 ## Task 8. Active exam in every Pro gate (N-23)
 
-Make `entitlementProvider` consumers see `coversExam(activeExam)`. The two `proIsActive` getters:
-`Entitlement.proIsActive` (`entitlement.dart:48`) stays the any-plan flag for Settings rows and is
-no longer read by gates; `RevenueCatCustomerInfoSnapshot.proIsActive` (`revenuecat_sdk.dart:48`)
-stays data-layer only. Gates read the new provider: add `proForActiveExamProvider`
-(combines `entitlementProvider` and `activeExamFocusProvider`) and make both `proIsActive` getters'
-call paths read it; `MockEntitlementSnapshot` and `RoadmapInputs` take their flag from it.
+Add `proForActiveExamProvider` (combines `entitlementProvider` and `activeExamFocusProvider`; true
+when `coversExam(activeExam)`). Getters: `Entitlement.proIsActive` (`entitlement.dart:48`) stays the
+any-plan flag; `RevenueCatCustomerInfoSnapshot.proIsActive` (`revenuecat_sdk.dart:48`) stays
+data-layer only. Neither is read by a gate after W4. Call sites on 1f79d880 and their owners
+(gate L3R2-5):
+- W3 (this task): `MockEntitlementSnapshot` (`mock_availability.dart`,
+  `mock_availability_provider.dart`), `RoadmapInputs` (`roadmap_inputs.dart`, `roadmap_inputs_reader.dart`,
+  `mock_day.dart`), and the route builders in `router.dart` (after W1 integrates; they are then in
+  `quiz_routes.dart` and `mock_routes.dart`).
+- Keep the any-plan flag: `settings_providers.dart` (Settings label), `sync_runtime_bootstrap.dart`
+  and `bootstrap.dart` (sync eligibility), `live_revenuecat_gateway.dart`, `paywall_controller.dart`,
+  `pro_welcome.dart`, `trial_notice.dart` (paywall internals).
+- Each W4 family switches its own screens to the new provider: W4b (`tendencies_panel.dart` and the
+  rebuilt performance and plan screens), W4d (`quiz_page.dart`, `debrief_*`, `flagged_list_page.dart`,
+  `quiz_results_page.dart`), W4e (`mock_results_page.dart`, `mock_results_route.dart`,
+  `mock_review_page.dart`, `mock_panel.dart` successors), W4f (`pro_page.dart` and the Settings Pro
+  row), W4g (Wrapped history gate). W2's `review_list.dart` and `answer_reveal.dart` take a flag; the
+  calling family passes the new provider's value.
 Keep the debug `FAKE_PRO` and `devProOverrideProvider` behavior (guarded by
 `test/tool/paywall_release_guard_test.dart`). Tests: switching the active exam from a Student exam
 to CSE with Student Pro turns the gate off; with CS Pro both stay on.

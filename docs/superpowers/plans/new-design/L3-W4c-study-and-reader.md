@@ -12,6 +12,8 @@ test/features/lesson test/app/study_route_test.dart test/core/ui`), commit. Scre
 theme API and W2's components (the reader body uses W2's `ContentRenderer` and `MathText`, wrapped
 in W1's `LessonTextScale`).
 
+Pro gates read W3's `proForActiveExamProvider` (Pro for the active exam), never `proIsActive` (level 3 gate review 2).
+
 ## Task 1. Study map
 
 Boards ST_Map, ST_MapEmpty, ST_TopicOpen, ST_Pinned; D-117 to D-125, D-140, D-141. No counts on

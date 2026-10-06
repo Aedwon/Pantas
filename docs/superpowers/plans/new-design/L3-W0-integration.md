@@ -28,11 +28,12 @@ Files: none edited (fast-forward). Push the branch.
 ## Task 2. JSON fields the design adds (app schema stays 25)
 
 Traceability: W0 contract "Data layer", "Recorded-only data"; F-4, N-6, N3-1, N3-9, N4-5, N5-2.
-Tests first (`test/core/storage/domain/attempt_json_test.dart`, `test/features/mock_exam/domain/mock_results_json_test.dart`):
+Tests first (`test/core/storage/domain/attempt_json_test.dart`, `test/features/mock_exam/domain/mock_results_test.dart` (constructor defaults: new fields null)):
 - `AttemptItem` JSON with `mistakeTag: "other"` and `mistakeNote` round-trips.
 - An unknown `mistakeTag` value (for example `"future"`) decodes as `null` instead of throwing
   (`@JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)`), closing N3-9.
-- Old JSON without the new fields decodes with them null.
+- Old JSON without the new fields decodes with them null. The dev demo writer
+  (`dev_demo_switch.dart`) is left alone; its rows lack the counts, which W4e's null recompute handles.
 - `MockAnswer` gains nullable `missReason` (`MissReason { misread, slipped, unknown, other }`),
   `blankReason` (`BlankReason { ranOutOfTime, skippedToReturn, didNotKnow, other }`), `reasonNote`;
   `SectionResult` gains nullable `wrong` and `blank` (`int?`; null means an old row written before
@@ -78,15 +79,23 @@ Checks: `flutter test test/core/content` green; `content/mock/upcat.yaml` still 
 
 ## Task 4b. Figure credits in lesson blocks
 
-Traceability: D-132, D-137 (credit line under every image), gate L3-6.
-Tests first (`test/tool/lesson_asset_map_test.dart` or the export test): an image block whose
-asset has `creditKey` gets `asset.credit` with the matching `credit` text from
-`content/illustrations/sources/*.yaml` (`key` field); a missing key leaves `credit` absent and
-logs the lesson path. Implement in `tools/content/lesson_asset_map.dart` and
-`tools/build_content_export/build_content_export.dart`. This is a content export change: the
-release package rebuild in W5 Task 1 carries it.
-Checks: `flutter test test/tool` green; `dart run tools/build_content_export/build_content_export.dart`
-exits 0.
+Traceability: D-132, D-137 (credit line under every image), gates L3-6 and L3R2-1.
+Fact (Oct 6): image blocks are built in `tools/content/markdown_portable_text.dart` from
+`content/illustrations/assets.json`, which is not in the repository; it is written by
+`tools/lesson_illustrations/upload_assets.dart` after an upload to Sanity (an external system).
+Without it the export emits no image blocks, so no lesson image ships today. Of the seven committed
+images, four have a `key` entry with `credit` in `content/illustrations/sources/*.yaml`; three
+(reading comprehension) have none.
+Tests first (`test/tools/markdown_portable_text_test.dart`): with an asset map entry whose
+`creditKey` matches a sources `key`, the image block's `asset` carries `credit`; with no match,
+`credit` is absent and the export logs the lesson path. Implement in
+`tools/content/markdown_portable_text.dart` (it serves both export tools) and the sources loader
+in `tools/content/lesson_asset_map.dart`.
+Stop conditions: running `upload_assets.dart` or producing `assets.json` changes Sanity, so it waits
+for Aedwon's approval (requested at the start of level 4). An image with no credit entry does not
+ship (D-132: CC BY-SA needs the line); the three reading-comprehension images wait for source
+entries from the content track.
+Checks: `flutter test test/tool test/tools` green; `dart run tools/build_content_export/build_content_export.dart "$TMPDIR/export.json"` exits 0.
 
 ## Task 5. Full checks and baseline
 

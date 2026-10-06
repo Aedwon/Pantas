@@ -16,6 +16,8 @@ test/app`), commit. W1 theme API, W2 components (no sheets anywhere in Settings,
 Regression test for GitHub issue #26 (exam-switch carry-over flashes and reappears) is written first
 in Task 3; the in-list transfer screen replaces the sheet.
 
+Pro gates read W3's `proForActiveExamProvider` (Pro for the active exam), never `proIsActive` (level 3 gate review 2).
+
 ## Task 1. Reminder settings and service (track D, lands first)
 
 `ReminderPrefs` (`dailyEnabled`, `dailyTime`, `followUpEnabled`, `followUpTime`, `countdownEnabled`)
@@ -86,7 +88,7 @@ now ₱499 is the CS pass and prices come from the store (no literal prices in p
 ## Task 7. Retire the Try Pro flow (track B)
 
 Every Pro button pushes `/settings/pro` and returns (`context.push`); remove the five `/paywall`
-pushes as their families rebuild (W4b, W4g) or here for files in this family. Delete
+pushes as W4b rebuilds Home and Progress, or here for files in this family (W4g has none). Delete
 `paywall_page.dart`, `what_pro_adds_page.dart`, `plans_page.dart`, `trial_timeline_page.dart`,
 `pro_specimen_panel.dart`, `paywall_package_card.dart`, `plan_row.dart`, `subscription_panel.dart`, `lib/features/paywall/domain/paywall_recommendation.dart` (W3 Task 4
 leaves it for this task) and their tests once no caller remains; `trial_notice_banner.dart` and `pro_welcome_banner.dart` are
@@ -105,6 +107,8 @@ sign-in, steps screen, failure line, return to Welcome; Delete my data for signe
 Keeps the Terms policy-version write in `settings_repository.dart`.
 
 ## Task 9. Delete and check
+
+Delete any Try Pro flow file Task 7 could not delete yet, now that W4b has landed.
 
 Delete replaced Settings pages, sheets and their tests; stop importing retired components
 (`exam_date_sheet`, `theme_control`, `settings_*` components, `ink_*`). Remove the empty

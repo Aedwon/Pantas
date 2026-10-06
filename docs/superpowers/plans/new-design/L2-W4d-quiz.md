@@ -2,7 +2,7 @@
 
 Level 2 workstream plan. Date: October 6, 2026. Author: lead. Policy revision: origin/main 12fb353b. Revised after the level 2 gate review (Oct 6).
 Parent: strategy B2, B4. Spec: amendment spec (approved Oct 5). Depends on: W1, W2, W3 (notes gate).
-Traceability: 93 rows with workstream `W4d` (46 boards, 47 other items).
+Traceability: 92 rows with workstream `W4d` (46 boards, 46 other items).
 
 ## 1. Purpose and scope
 

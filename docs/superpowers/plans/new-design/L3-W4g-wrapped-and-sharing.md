@@ -14,6 +14,8 @@ Before each screen task: open its boards and run `timeline.py` (WR_* loops on th
 slide's entry once). Every task: tests first, code, task checks (`flutter test test/features/wrapped
 test/tool/wrapped_boundary_test.dart`), commit. W1 theme API, W2 components.
 
+Pro gates read W3's `proForActiveExamProvider` (Pro for the active exam), never `proIsActive` (level 3 gate review 2).
+
 ## Task 1. Triggers for three moments
 
 Wire the existing rule classes: first mock or a new best (from W4e's submit path), a streak of 7,

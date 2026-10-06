@@ -50,7 +50,8 @@ terms last enables Continue; legal pages open and return with boxes kept, G-a-17
 Boards O_DateKnown, O_DateChange, O_DateToday; rules D-30 to D-40 with W2 `MonthFirstDatePicker`.
 Known-date card from W0 catalog `publishedSittings` (skipped when none, when passed, and for custom tracks,
 G-a-6). Multi-day exams ask the first day. Exam today allowed: change `updateExamDate`'s earliest
-date from tomorrow to today (cross-family permission above) with its test. Under a week: the calm
+date from tomorrow to today (cross-family permission above) with its test (run `flutter test
+test/features/settings` with this task). Under a week: the calm
 line. Coming back restores year, month and day.
 
 ## Task 5. `ExamPickerScreen`
@@ -59,7 +60,8 @@ line. Coming back restores year, month and day.
 `ExamPickerScreen(mode: onboarding | settings, onPicked)`. Board O_Picker (and ST_ExamPick for
 settings mode): search, groups and chips from W0 `group`, Coming soon rows from `comingSoon`
 (grayed, not tappable), "My exam isn't listed" on top, loading and can't-load states (W4h
-patterns), save failure per S0-34. Large text stacking (G-a-20).
+patterns), save failure per S0-34. Large text stacking (G-a-20). System back equals the Back link in both
+modes (G-a-19).
 
 ## Task 6. Custom track
 

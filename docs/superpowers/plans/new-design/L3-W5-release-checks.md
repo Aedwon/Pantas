@@ -34,6 +34,9 @@ Aedwon's authorization (W0 Task 6 procedure) and record the non-secret candidate
 signature SHA-256, key ids, cipher profile, schema versions) in
 `release-evidence/candidate.md`. Placeholder check: `test/core/ui/placeholders_test.dart` lists no
 `PlaceholderFigure`; otherwise stop (R-20 release blocker) and ask Aedwon for the values.
+Checks: `tools/verify_content_package` exits 0 on the new package; its `releaseSequence` is one above
+the shipped package's; `flutter test test/core/ui/placeholders_test.dart` green with no
+`PlaceholderFigure` listed.
 
 ## Task 2. Release end-to-end tests
 

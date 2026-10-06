@@ -624,3 +624,22 @@ Gate review 1 (`plans/new-design/gates/l3-gate-review-1.md`, independent Opus re
 
 Process slip: commit b43d93a6 on main carries an AI attribution trailer, which WORKFLOW forbids.
 Removing it needs a force-push to main, which only Aedwon can approve; asked at the level 4 stop.
+
+## October 6, 2026: level 3 gate review 2 and fixes
+
+Gate review 2 (`gates/l3-gate-review-2.md`): not passed, 0 blockers, 7 should-fix, 6 notes; 15 of
+review 1's items resolved, 6 partly. The lead fixed every item:
+- L3R2-1: W0 Task 4b rewritten (the converter file, the export command with its output argument,
+  `test/tools`). Fact recorded: `content/illustrations/assets.json` is not in the repository, so no
+  lesson image ships today; producing it needs a Sanity upload with Aedwon's approval (asked at the
+  level 4 stop). Images without a credit entry do not ship.
+- L3R2-2: L2 W0 and W5 amended: the W0 package build is optional; W5 Task 1 builds and verifies the
+  release package (`verify_content_package`, release sequence, placeholder test).
+- L3R2-3: W4h's raw-error check uses two exact greps.
+- L3R2-4: leftover Try Pro files go in W4f Task 9; W4g has no `/paywall` push.
+- L3R2-5: W3 Task 8 lists every `proIsActive` read with its owner; W4c, W4e, W4f and W4g headers
+  state the rule; L2 W3 §8 amended.
+- L3R2-6: Season Pass bought by an active Student subscriber: lead default (the Pro page says the
+  Student plan still renews, with Manage in Google Play) for Aedwon to confirm at the level 4 stop.
+- L3R2-7: L2 W4a and W4d row counts corrected.
+- Notes L3R2-8 to L3R2-13 fixed in the plans and the map.

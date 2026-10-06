@@ -51,8 +51,6 @@ mark all `@Deprecated('W1 adapter, removed in W2 close-out')`. Update `buildLigh
 and `test/helpers/pump_app.dart` to register both the new extensions and the adapters.
 Checks: new tests; `flutter test test/core/ui/theme test/helpers`; `flutter analyze` (deprecation
 infos from adapter use are expected and listed in evidence, no other new issue).
-Checks: `flutter test test/core/ui/theme` green; `flutter analyze` shows deprecation infos only for
-the adapters.
 
 ## Task 3. Motion primitives
 

@@ -77,7 +77,8 @@ prerequisiteCycle writes no entry. Five shown, See more adds ten, end line.
 
 ### Task 7. Week and day screens
 
-Boards DP_Week, DP_WeekCustom, DP_Day, DP_DayRead, DP_DayPast. Routes `/plan/week/:start`,
+Boards DP_Week, DP_WeekCustom, DP_Day, DP_DayRead, DP_DayPast. Wire Task 2's week-strip day tap to
+`/plan/day/:date` here. Routes `/plan/week/:start`,
 `/plan/day/:date`. Engine query for lessons per future day (D-100) added inside
 `lib/features/roadmap/domain/` (`plannedLessonsForDay(examId, date)`), no schema change; if one is
 needed, stop. Rest days read "Rest day"; "You study Monday to Saturday." with Change.
