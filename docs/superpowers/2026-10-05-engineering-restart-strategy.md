@@ -230,6 +230,10 @@ that need no reasoning. Implementation uses Sonnet 5.5 unless the lead judges a 
     with reasons), runs the plan gates, integrates, updates the plans, traceability and SSOT, and
     brings Aedwon the decisions. Opus does not write implementation code.
   - Pace follows Aedwon's Codex limits; the three-worker limit in the parallel map still applies.
+  - Reviews: the Astra audit adds to, and does not replace, the independent review SUBAGENTS Part
+    7b requires. The Opus lead is that independent reviewer for every workstream (never the
+    author), and personally accepts each money, entitlement, security-rule and data change before
+    it integrates (tier 1).
 - Every dispatch carries the startup instruction from `docs/workflow/startup.md` and the policy
   revision.
 

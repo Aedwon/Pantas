@@ -35,7 +35,7 @@ In scope:
   trials, fresh share-link limits for new anonymous accounts, and refund-then-stay-offline keeping Pro until the old paid-period end plus 3 days: up to
   a year on Yearly) listed for Aedwon's acceptance at E14 with the bootstrap-key risk; the deployed
   functions, Firestore rules and storage rules revision for each Firebase project recorded and
-  compared with the integrated commit (gate L2A-21). Before the first backend deploy, confirm that no user holds a `pro` claim and that RevenueCat's webhook URL points at the deployed function.
+  compared with the integrated commit (gate L2A-21). Re-check on the final build that RevenueCat's webhook URL points at the deployed function and that claims match RevenueCat (the first-deploy checks are W3's deploy steps).
 - Release blockers: every `PlaceholderFigure` replaced by Aedwon's values (R-20); `functions` tests
   green.
 

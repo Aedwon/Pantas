@@ -18,9 +18,11 @@ In scope:
    `lib/` with `main` pointing at it, Node 22 in `engines` and `firebase.json` (Node 20 is
    decommissioned by Google on October 30, 2026; gate L2A-2), Admin initialization once, the W0
    exam catalog JSON included in the build, and an `npm test` that runs every
-   test type (with the Firestore and Storage emulators) (`.test.mjs`, the `.ts` behavior tests, and the rules tests on the emulator). Before
-   writing it, the lead asks Aedwon how the live backend was last deployed (the deployed revision
-   may come from a setup not in the repository); W6 reconciles with it and does not deploy.
+   test type (`.test.mjs`, the `.ts` behavior tests, and the rules tests on the Firestore and Storage
+   emulators). No functions are live (checked Oct 6), but Aedwon set Firestore and Storage rules and
+   settings in the console: before the first rules or functions deploy, the lead exports the live
+   Firestore and Storage rules from each project, compares them with the repository, and reports
+   any difference to Aedwon (gate L2A3-4).
 2. **Strict user record create rule** (CX-15): `users/{uid}` create allows only `createdAt` (and
    the fields the app writes at creation, listed from the code), so no client can plant
    server-owned fields such as a public ID or tier.
@@ -93,8 +95,7 @@ Aedwon's check: none visual.
 
 ## 7. Risks and stop conditions
 
-- The live backend was deployed from code or settings not in the repository: stop and report the
-  difference before changing the package.
+- The live console rules differ from the repository's: stop and report before any deploy.
 - A limit would block a normal student's use (for example sync caps below real usage): stop; the
   lead sets the number from the sync design.
 - Any deploy, budget setting or IAM change needs Aedwon's approval.
@@ -116,7 +117,7 @@ sync row schemas only), `.gitignore` (`functions/lib/`, `functions/node_modules/
 
 After W0, in parallel with W1 and W3. Task 1 (the package) lands first; W3 and W4g add functions
 tests to its runner and deploy only after it. `firestore.rules`: W6 before W3, then W4g.
-`recordSignInEvent.ts`: W6 (limit) before W3 Task 10 (public ID call). Executor: a non-Claude
+`recordSignInEvent.ts`: W6 (limit) before W3 Task 10 (public ID call). Executor:
 per strategy B7 as amended October 6 (GPT-6.1 Sol High through Codex builds; GPT-6 Astra
 audits; the Opus lead oversees and integrates).
 

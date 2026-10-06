@@ -769,3 +769,14 @@ Recorded:
   default tier. Future tiers (Licensure) are deferred until their content ships; adding one is one
   entitlement and one product table row.
 - Strategy B7 amended: GPT-6.1 Sol High builds, GPT-6 Astra audits, Opus oversees.
+
+## October 6, 2026: level 2 abuse gate reviews 2 and 3 and fixes
+
+Review 2: 1 blocker (repeated small clock setbacks), 9 should-fix. Review 3: 1 blocker (a cached
+RevenueCat answer counted as a check), 4 should-fix. Fixed in L2 W3 (AC-1 time rules: only a fresh
+server answer counts, trusted time never moves back, cumulative rollback total; AC-3 claim marker
+on the user record, refresh triggers, 1-day margin accepted, deploy-step checks; AC-7: a `pro`
+grant with no known product covers nothing), W4g, W5, W6 (first deploy; export live console rules
+before any deploy) and strategy B7 (the Astra audit adds to the Opus independent review). Level 3
+items noted: executor lines in every L3 plan and the map, setup steps for the Functions API, Blaze
+and the two promotional entitlements.
