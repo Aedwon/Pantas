@@ -2,7 +2,7 @@
 
 Level 2 workstream plan. Date: October 6, 2026. Author: lead. Policy revision: origin/main 12fb353b. Revised after the level 2 gate review (Oct 6).
 Parent: strategy B2, B4. Spec: amendment spec (approved Oct 5). Depends on: W1, W2.
-Traceability: 59 rows with workstream `W4a` (17 boards, 42 other items).
+Traceability: 60 rows with workstream `W4a` (17 boards, 43 other items).
 
 ## 1. Purpose and scope
 
@@ -19,7 +19,7 @@ Out of scope: Change exam from Settings and sign-in screens (W4f); Home before t
 
 Boards (17): O_Flow, O_Launch, O_Age, O_Consent, O_Picker, O_Custom, O_DateKnown, O_DateChange, O_DateToday, O_Days, O_Name, O_Notify, AS_Question, AS_Picked, AS_Leave, AS_Results, O_Notify_v2.
 
-Other traceability rows (42): D-17, D-29, D-30, D-31, D-32, D-34, D-35, D-36, D-37, D-38, D-39, D-40, D-42, D-43, D-266, G-a-1, G-a-2, G-a-3, G-a-4, G-a-5, G-a-6, G-a-7, G-a-8, G-a-9, G-a-10, G-a-11, G-a-12, G-a-13, G-a-14, G-a-17, G-a-18, G-a-21, G-a-23, G-a-24, G-a-25, G-a-26, G-a-27, G-a-28, G-a-29, G-a-30, G-a-40, G-h-20.
+Other traceability rows (43): D-17, D-29, D-30, D-31, D-32, D-34, D-35, D-36, D-37, D-38, D-39, D-40, D-42, D-43, D-242, D-266, G-a-1, G-a-2, G-a-3, G-a-4, G-a-5, G-a-6, G-a-7, G-a-8, G-a-9, G-a-10, G-a-11, G-a-12, G-a-13, G-a-14, G-a-17, G-a-18, G-a-21, G-a-23, G-a-24, G-a-25, G-a-26, G-a-27, G-a-28, G-a-29, G-a-30, G-a-40, G-h-20.
 Each row's status column in `traceability.md` is binding; "lead default" rows are listed in
 section 4 where they shape behavior. Superseded sections of older specs for this family: amendment
 spec B1 (rows naming this family's screens); those sections are not built.
