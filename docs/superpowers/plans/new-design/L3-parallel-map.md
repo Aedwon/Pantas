@@ -72,7 +72,8 @@ under this limit.
 | `lib/features/notifications/` | W4f Task 1, then W4a Task 8 (reads), then W4f Task 1's delayed deletion |
 | `lib/features/review_prompt/` | W4d Task 5, then W4f Task 6 calls `recordPaywallSeen` |
 | `lib/core/ui/theme/` and `lib/core/ui/components/` | W1, then W2; W2 Task 9 deletes the adapters last |
-| `lib/app/bootstrap.dart`, `lib/app/firebase_bootstrap.dart` | W4h Task 2 edits the first; W5 Task 6 edits the second (iOS options); no overlap |
+| `lib/app/bootstrap.dart` | W3 Task 8 (mock entitlement override), then W4h Task 2 (start-up failure screen) |
+| `lib/app/firebase_bootstrap.dart` | W5 Task 6 only (iOS options) |
 | `functions/src/deleteAccount.ts` | W3 Task 10 only; W4g keeps it unchanged |
 | `functions/package.json` | W3 Task 1 only |
 | `content/mock/` | W4e Task 3 only; then the signed package rebuild in W5 Task 1 |

@@ -14,11 +14,14 @@ workstream consumes.
 In scope:
 - Merge `origin/content/question-qa-r2` (765c5dc0) into `integration/new-design-r1` (1f79d880).
   The merge base is 1f79d880, so this is a fast-forward of 214 commits.
-- Optional, amended (level 3 gate review 2): rebuild the protected content package from the merged content only if Aedwon wants a device build before W5; the release package is built once in W5. The rebuild (`assets/seed/content.db`,
-  `content.manifest.json`, `content.manifest.sig`, next release sequence). There is no separate dev
+- Optional, amended (level 3 gate review 2): rebuild the protected content package from the merged content only if Aedwon wants a device build before W5; the release package is built once in W5. The package
+  is `assets/seed/content.db`, `content.manifest.json` and `content.manifest.sig` at the next release
+  sequence. There is no separate dev
   seed: `tools/build_dev_seed` is superseded and must not be restored (AGENTS.md). Without the signed
   rebuild the app keeps reading the old package, so the merged questions reach tests and fixtures
   but not the running app until Aedwon authorizes it.
+- Figure credits in lesson image blocks from `content/illustrations/sources/*.yaml` (W0 Task 4b;
+  added at level 3 gate review 2).
 - Data the design adds (F-4, N-6 of the level 2 gates), as fields inside existing JSON columns, so
   the app database stays at schema 25: in `attempts_local.itemsJson` (`AttemptItem`), `MistakeTag`
   gains `other` and the item gains nullable `mistakeNote` (D-183); in `mock_attempts.answersJson`
@@ -106,7 +109,7 @@ Aedwon: nothing visual. He authorizes the package rebuild (section 7).
 - **Signing authorization.** Rebuilding the package uses the signing seed. Per
   `docs/content-key-access.md` this needs Aedwon's explicit permission. It is requested together
   with the start of level 4. Without it, W0 completes after the merge and the data changes; the
-  package is built in W5 ((level 3 gate review 2)).
+  package is built in W5 (level 3 gate review 2).
 - A merge that is not a fast-forward (the integration branch moved): stop and report.
 - App schema not 25 after the merge: stop. Content schema 10 lands in one commit with its
   migration.
@@ -126,7 +129,7 @@ May touch: the integration branch history (the fast-forward), `assets/seed/*` (g
 committed), the build output directory, `lib/core/storage/domain/` (JSON models), `lib/features/mock_exam/domain/mock_results.dart` (adds the
 mock JSON field declarations only; W4e computes and writes the counts and reasons; before W4e), `lib/core/content/` (content schema 10,
 migration), `lib/core/sync/` (payload fields if mapped), `functions/src/examCatalog.json`, content exam metadata format and export tools
-(`tools/build_content_export/`, `tools/import_questions/` if exam metadata lives there; `tools/content/lesson_asset_map.dart` for figure credits, Amended Oct 6 (level 3 gate review 1), L3-6), matching
+(`tools/build_content_export/`, `tools/import_questions/` if exam metadata lives there; `tools/content/markdown_portable_text.dart` and `tools/content/lesson_asset_map.dart` for figure credits, Amended Oct 6 (level 3 gate review 1), L3-6), matching
 tests, and the verification record in `docs/superpowers/plans/new-design/`.
 
 ## 9. Order and parallelism

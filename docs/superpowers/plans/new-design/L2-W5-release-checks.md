@@ -47,7 +47,7 @@ identity (W5 Task 1); W3 test-purchase setup; traceability rows above.
 | Release evidence format | One record per check in `docs/superpowers/plans/new-design/release-evidence/`: check id, exact source SHA, artifact hash, device and OS, steps, result, pasted output or Aedwon's screenshot reference, date. Evidence from before the new design is not reused as a pass. |
 | Blocker list | The placeholder list, open defects and missing evidence, kept in one table that the SSOT links. |
 
-Contracts consumed: W0 package and baseline; W3 products and test track; every W4 route.
+Contracts consumed: W0 baseline; the release package (W5 Task 1); W3 products and test track; every W4 route.
 
 ## 4. Behavior
 

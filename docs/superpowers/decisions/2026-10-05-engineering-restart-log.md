@@ -643,3 +643,15 @@ review 1's items resolved, 6 partly. The lead fixed every item:
   Student plan still renews, with Manage in Google Play) for Aedwon to confirm at the level 4 stop.
 - L3R2-7: L2 W4a and W4d row counts corrected.
 - Notes L3R2-8 to L3R2-13 fixed in the plans and the map.
+
+## October 6, 2026: level 3 gate review 3 and fixes
+
+Gate review 3 (`gates/l3-gate-review-3.md`): not passed, 0 blockers, 4 should-fix, 7 notes. Fixes:
+- L3R3-1: the mock entitlement override in `bootstrap.dart` is a gate; W3 Task 8 switches it (map
+  and L2 W3 §8 amended).
+- L3R3-2: plan status (Settings Pro row, Pro page plan name and Manage link) keeps the any-plan flag;
+  only gates read the active-exam provider. W4f has no gate.
+- L3R3-3: W4f Task 6 builds the Season Pass "Student plan still renews" line once Aedwon decides.
+- L3R3-4: the export drops an image with no credit entry.
+- Notes L3R3-5 to L3R3-11 fixed (L2 W0 and W5 wording, full verify command, tested raw-error
+  greps, L2 W3 files, W4c header line removed, remaining call sites named).

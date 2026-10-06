@@ -16,7 +16,8 @@ test/app`), commit. W1 theme API, W2 components (no sheets anywhere in Settings,
 Regression test for GitHub issue #26 (exam-switch carry-over flashes and reappears) is written first
 in Task 3; the in-list transfer screen replaces the sheet.
 
-Pro gates read W3's `proForActiveExamProvider` (Pro for the active exam), never `proIsActive` (level 3 gate review 2).
+Plan status (the Settings Pro row, the Pro page's plan name and Manage link) reads the any-plan
+entitlement; any Pro gate reads W3's `proForActiveExamProvider` (level 3 gate review 3).
 
 ## Task 1. Reminder settings and service (track D, lands first)
 
@@ -81,7 +82,10 @@ for the active exam's tier from W3; Student and Civil Service pages; CS layout p
 its pass-picked state; savings round down; trial line only when eligible; pass end dates from the
 catalog; payment pending card; offline notes; W3 states (trial, canceled until a date, grant, unknown,
 billing problem, store errors) in the Your plan rows. Coming-soon tier pages are not built (deferred,
-Oct 6). Opening this page calls `ReviewPromptController.recordPaywallSeen` (W4d's cool-off). Update
+Oct 6). When W3's purchase outcome carries `studentPlanStillRenews` (a Season Pass bought
+while a Student plan is active), the Pro page shows that the Student plan still renews, with Manage
+in Google Play, and a test covers it. This waits for Aedwon's decision and copy (asked at the start
+of level 4, W3 Task 6); if he chooses otherwise, stop. Opening this page calls `ReviewPromptController.recordPaywallSeen` (W4d's cool-off). Update
 `payment_presentation_source_guard_test.dart`: it forbids "₱499" from the superseded Yearly price;
 now ₱499 is the CS pass and prices come from the store (no literal prices in presentation code).
 

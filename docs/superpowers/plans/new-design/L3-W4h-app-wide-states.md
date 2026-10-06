@@ -37,7 +37,8 @@ test/features/shell` green.
 Each family applies the patterns in its own screens (every W4 plan says so); W4h edits no other
 family's files. The inventory list of raw-error sites and silent sections goes to each family's
 plan evidence. At W4 completion W4h runs `grep -rnF 'Error: $' lib/features/*/presentation` and
-`grep -rnE '(e|err|error|exception)\.toString\(\)' lib/features/*/presentation`
+`grep -rnE '\b(e|err|error|exception)\.toString\(\)' lib/features/*/presentation` and
+`grep -rnE "Text\([^)]*\\\$\{?(e|err|error|exception)\b" lib/features/*/presentation`
 and reports any student-facing raw error left to the lead.
 Checks: the grep prints no line in a student-facing widget (expected: empty output); any hit goes
 to the lead with its file and line.

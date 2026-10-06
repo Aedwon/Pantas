@@ -87,14 +87,14 @@ Without it the export emits no image blocks, so no lesson image ships today. Of 
 images, four have a `key` entry with `credit` in `content/illustrations/sources/*.yaml`; three
 (reading comprehension) have none.
 Tests first (`test/tools/markdown_portable_text_test.dart`): with an asset map entry whose
-`creditKey` matches a sources `key`, the image block's `asset` carries `credit`; with no match,
-`credit` is absent and the export logs the lesson path. Implement in
+`creditKey` matches a sources `key`, the image block's `asset` carries `credit`; with no match, the
+export drops that image block (no credit, no image) and logs the lesson path. Implement in
 `tools/content/markdown_portable_text.dart` (it serves both export tools) and the sources loader
 in `tools/content/lesson_asset_map.dart`.
 Stop conditions: running `upload_assets.dart` or producing `assets.json` changes Sanity, so it waits
 for Aedwon's approval (requested at the start of level 4). An image with no credit entry does not
-ship (D-132: CC BY-SA needs the line); the three reading-comprehension images wait for source
-entries from the content track.
+ship (D-132: CC BY-SA needs the line): the export drops it, so the three reading-comprehension
+images wait for source entries from the content track.
 Checks: `flutter test test/tool test/tools` green; `dart run tools/build_content_export/build_content_export.dart "$TMPDIR/export.json"` exits 0.
 
 ## Task 5. Full checks and baseline

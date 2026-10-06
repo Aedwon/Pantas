@@ -127,16 +127,22 @@ data-layer only. Neither is read by a gate after W4. Call sites on 1f79d880 and 
 (gate L3R2-5):
 - W3 (this task): `MockEntitlementSnapshot` (`mock_availability.dart`,
   `mock_availability_provider.dart`), `RoadmapInputs` (`roadmap_inputs.dart`, `roadmap_inputs_reader.dart`,
-  `mock_day.dart`), and the route builders in `router.dart` (after W1 integrates; they are then in
+  `mock_day.dart`), the mock entitlement wiring in `bootstrap.dart` (the override that builds
+  `MockEntitlementSnapshot`; `features/mock_exam` cannot import `features/paywall`), and the route
+  builders in `router.dart` (after W1 integrates; they are then in
   `quiz_routes.dart` and `mock_routes.dart`).
-- Keep the any-plan flag: `settings_providers.dart` (Settings label), `sync_runtime_bootstrap.dart`
-  and `bootstrap.dart` (sync eligibility), `live_revenuecat_gateway.dart`, `paywall_controller.dart`,
+- Keep the any-plan flag (plan status, not gates): `settings_providers.dart` (`proRowValueProvider`,
+  the Settings Pro row), `pro_page.dart` (plan name and the direct Manage link),
+  `sync_runtime_bootstrap.dart` (sync eligibility), `live_revenuecat_gateway.dart`, `paywall_controller.dart`,
   `pro_welcome.dart`, `trial_notice.dart` (paywall internals).
-- Each W4 family switches its own screens to the new provider: W4b (`tendencies_panel.dart` and the
-  rebuilt performance and plan screens), W4d (`quiz_page.dart`, `debrief_*`, `flagged_list_page.dart`,
-  `quiz_results_page.dart`), W4e (`mock_results_page.dart`, `mock_results_route.dart`,
-  `mock_review_page.dart`, `mock_panel.dart` successors), W4f (`pro_page.dart` and the Settings Pro
-  row), W4g (Wrapped history gate). W2's `review_list.dart` and `answer_reveal.dart` take a flag; the
+- Each W4 family switches its own gates to the new provider: W4b (`tendencies_panel.dart`,
+  `how_you_work_page.dart`, `why_you_miss_section.dart` successors, and the rebuilt performance and
+  plan screens), W4d (`quiz_page.dart`, `debrief_page.dart` including its direct
+  `entitlementProvider` read, `debrief_providers.dart`, `session_debrief.dart`,
+  `flagged_list_page.dart`, `quiz_results_page.dart`), W4e (`mock_results_page.dart`,
+  `mock_results_route.dart`, `mock_review_page.dart`, `mock_panel.dart` successors), W4g (Wrapped
+  history gate). W4f has no gate; it keeps the any-plan flag above. `router.dart` `_isProRoute` and
+  the `/review` builder go with W1 Task 7. W2's `review_list.dart` and `answer_reveal.dart` take a flag; the
   calling family passes the new provider's value.
 Keep the debug `FAKE_PRO` and `devProOverrideProvider` behavior (guarded by
 `test/tool/paywall_release_guard_test.dart`). Tests: switching the active exam from a Student exam
