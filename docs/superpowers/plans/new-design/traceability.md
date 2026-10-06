@@ -570,7 +570,7 @@ the restart log, the amendment spec, and `stage0-decisions.md` items 1 to 51.
 | R-3 | Pause lifted: the new design work | restart log, restart decisions 2 | none |  |  | record: authorizes this program |
 | R-4 | Pre-beta fix: subscription cancellation keeps Pro until expiry | restart log, restart decisions 2 | W3 | L2-W3-payments-and-identity.md §4 | L3-W3-payments-and-identity.md T2 | assigned |
 | R-5 | Pre-beta fix: short public ID for giveaways (Pantas ID) | restart log, restart decisions 2 | W3 | L2-W3-payments-and-identity.md §4 | L3-W3-payments-and-identity.md T10 | assigned; UI is D-219 (W4f) |
-| R-6 | Merge question-qa-r2 code and content | restart log, restart decisions 2 | W0 | L2-W0-integration.md §4 | L3-W0-integration.md T1 | assigned |
+| R-6 | Merge question-qa-r2 code and content | restart log, restart decisions 2 | W0 | L2-W0-integration.md §4 | L3-W0-integration.md T1 | done: fast-forward to 765c5dc0, W0 accepted at 13e4f830 |
 | R-7 | Base: integration branch from web/roadmap-engine-r1 | restart log, restart decisions 3; baseline | W0 | L2-W0-integration.md §4 | L3-W0-integration.md T1 | done: integration/new-design-r1 at 1f79d880 |
 | R-8 | Complexity: balanced | restart log, restart decisions 4 | none |  |  | record |
 | R-9 | Screens and dark mode with no board: built from the shared design rules, no preview | restart log, restart decisions 5 | none |  |  | rule: every W4 level 2 plan applies it; checked at gates |
@@ -586,7 +586,7 @@ the restart log, the amendment spec, and `stage0-decisions.md` items 1 to 51.
 | R-19 | Date format approved and its helpers (Sunday to Saturday weeks) | restart log, handoff 6; date format approved | W1 | L2-W1-design-foundation.md §4 | L3-W1-design-foundation.md T5 | assigned |
 | R-20 | CSE item counts and ACET time as marked placeholders; replacing them is a release blocker | restart log, handoff 7 | W4e | L2-W4e-mock-exam.md §4 | L3-W4e-mock-exam.md T3 | assigned; W5 checks the release blocker |
 | R-21 | Baseline: fix analyzer info (deprecated onReorder, bookmarks sheet) | restart log, baseline | W4c | L2-W4c-study-and-reader.md §4 | L3-W4c-study-and-reader.md T8 | assigned: W4c removes the onReorder deprecation when rebuilding the bookmarks sheet |
-| R-22 | Baseline: functions tests (node --test) not run | restart log, baseline | W0 | L2-W0-integration.md §4 | L3-W0-integration.md T5 | assigned: W0 full checks include them |
+| R-22 | Baseline: functions tests (node --test) not run | restart log, baseline | W0 | L2-W0-integration.md §4 | L3-W0-integration.md T5 | run: 42 passed, 2 failed (pre-existing, missing test setup); W6 Task 1 makes them green |
 | R-23 | Strategy approved; unattended running through levels 2 and 3 | restart log, strategy approved | none |  |  | record |
 | R-24 | Execution arrangement for level 4 (Claude Code subagents; no Gemini) | restart log, execution arrangement | none |  |  | record: applies at level 4 |
 | R-25 | Kept-work cleanup and archive branch | restart log, kept-work cleanup | none |  |  | done: archive/pre-restart-kept-work at 2bdde4fd |
@@ -597,7 +597,7 @@ the restart log, the amendment spec, and `stage0-decisions.md` items 1 to 51.
 | A-B2a | Notification kinds: remove wrapped push and the ceiling; followUp replaces streakSave | amendment spec B2 | W4f | L2-W4f-settings-pro-and-account.md §4 | L3-W4f-settings-pro-and-account.md T1 | assigned |
 | A-B2b | Notification tap routing (Home; trial ending opens Settings › Pantas Pro) | amendment spec B2 | W4f | L2-W4f-settings-pro-and-account.md §4 | L3-W4f-settings-pro-and-account.md T1 | assigned (W4f ReminderService tap routing) |
 | A-B2c | Permission denied: nothing sent; Reminders blocked state | amendment spec B2 | W4f | L2-W4f-settings-pro-and-account.md §4 | L3-W4f-settings-pro-and-account.md T1 | assigned |
-| A-B3a | Confirm storage of response time, session timing, mistake tags, blank reasons | amendment spec B3 | W0 | L2-W0-integration.md §4 | L3-W0-integration.md T2 | assigned |
+| A-B3a | Confirm storage of response time, session timing, mistake tags, blank reasons | amendment spec B3 | W0 | L2-W0-integration.md §4 | L3-W0-integration.md T2 | done: ea9b1639 |
 | A-B3b | Mock sampler recency filter (last two finished mocks) | amendment spec B3; stage 0 #28 | W4e | L2-W4e-mock-exam.md §4 | L3-W4e-mock-exam.md T2 | assigned; same work as S0-28 |
 | A-B5a | iOS build state on integration/new-design-r1 unverified | amendment spec B5 | W5 | L2-W5-release-checks.md §4 | L3-W5-release-checks.md T6 | assigned |
 | A-B5b | Lesson ids on questions for the lesson-scoped in-lesson quiz | amendment spec B5 | W0 | L2-W0-integration.md §4 | L3-W0-integration.md T1 | assigned: W0 confirms; content track owns the data |

@@ -44,7 +44,9 @@ Boards MK_Setup, MK_SetupStrict, MK_SetupDCAT, MK_SetupCSE, L_MockStart (setting
 it runs, what is left out; strict switch on this screen applies to this mock only (default from
 Settings, S0-38); short-paper line when the bank cannot fill a part (S0-29); "Start the Mock Exam"
 with "The clock starts when you tap.". Blueprints: author `content/mock/cse_pro.yaml`,
-`cse_sub.yaml` and `acet.yaml` with W0's placeholder marker on CSE per-subject item counts and the
+`cse_sub.yaml` and `acet.yaml` with W0's placeholder marker (first make the app's blueprint
+readers accept the marker, `BlueprintValue.fromJson`, with a test; they read plain integers today;
+W0 audit, Oct 6) on CSE per-subject item counts and the
 ACET aptitude time (R-20), shown through W2 `PlaceholderFigure`; tell the content track first.
 These content files need the signed package rebuilt before release: the release package is built once
 after the last content change, in W5 Task 1, before the other W5 checks (W0 Task 6 procedure, Aedwon's authorization).

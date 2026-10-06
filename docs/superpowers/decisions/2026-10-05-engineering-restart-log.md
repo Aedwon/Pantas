@@ -892,3 +892,14 @@ runs 1 and 2 (about 207,000 tokens), 63% after run 3 (233,000), 95% after runs 4
 717,000 plus the stopped run). Calibration: about 24,000 Codex tokens per 1% of the 5-hour limit
 (about 2.4 million tokens per window). Aedwon: "if you do you can stop asking me about it"; the
 lead now estimates from token counts and paces runs to the limit.
+
+## October 6, 2026: W0 accepted
+
+W0 Task 5 ran all checks one at a time on 901ffb81: Flutter 3,429 tests passed, analyze shows only
+the known `onReorder` info, format, layering and attribution checks pass. Backend `node --test`: 42
+passed, 2 failed, because the test dependency and compiled policy module are missing; `functions/`
+is unchanged since 1f79d880, so these predate W0. Lead decision: accept them as the known backend
+baseline; W6 Task 1 must make them green. GPT-6 Astra audit (read-only): no blocker or major finding
+in W0's changes; one weak equality test (fixed by the lead in 13e4f830); a W4e note that the app's
+blueprint readers need the placeholder marker first (L3 W4e Task 3 amended). Lead review agrees. The
+integration branch was pushed at 13e4f830. Usage: Task 5 about 571,000 tokens, audit about 123,000.
