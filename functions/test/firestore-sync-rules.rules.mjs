@@ -1,4 +1,4 @@
-import '../lib/index.js';
+import { recordSignInEvent } from '../lib/index.js';
 import { getFirestore } from 'firebase-admin/firestore';
 import { requireAdmin } from '../lib/_admin.js';
 import { onCall } from 'firebase-functions/v2/https';
@@ -332,7 +332,7 @@ test('staging generation create rejects extra lifecycle fields', async () => {
   );
 });
 
-console.log('FIRESTORE_SYNC_RULES_TEST_COUNT=16');
+console.log('FIRESTORE_SYNC_RULES_TEST_COUNT=21');
 
 // Keep this write in the rules suite so its clearFirestore hook cannot race it.
 test('admin callable permits checked admin and writes an audit entry', async () => {
@@ -349,4 +349,48 @@ test('admin callable permits checked admin and writes an audit entry', async () 
   assert.equal(records.size, 1);
   assert.equal(records.docs[0].get('event'), 'adminAuthorized');
   assert.equal(records.docs[0].get('metadata').appId, 'demo-app');
+});
+
+for (const [field, value] of [['publicId', '123456789'], ['tier', 'civil_service']]) {
+  test(`user-root create rejects client-supplied ${field}`, async () => {
+    const uid = `new-${field}`;
+    const db = context(uid, { firebase: { sign_in_provider: 'google.com' } });
+    await assertFails(setDoc(doc(db, `users/${uid}`), {
+      createdAt: serverTimestamp(),
+      [field]: value,
+    }));
+  });
+}
+
+test('user-root create requires the server creation timestamp', async () => {
+  const db = context('new-time', { firebase: { sign_in_provider: 'google.com' } });
+  await assertFails(setDoc(doc(db, 'users/new-time'), {}));
+  await assertFails(setDoc(doc(db, 'users/new-time'), {
+    createdAt: new Date('2026-08-01T00:00:00Z'),
+  }));
+});
+
+test('user-root create denies anonymous and other-account callers', async () => {
+  const anon = context('new-anon', { firebase: { sign_in_provider: 'anonymous' } });
+  const named = context('new-owner', { firebase: { sign_in_provider: 'google.com' } });
+  await assertFails(setDoc(doc(anon, 'users/new-anon'), {
+    createdAt: serverTimestamp(),
+  }));
+  await assertFails(setDoc(doc(named, 'users/somebody-else'), {
+    createdAt: serverTimestamp(),
+  }));
+});
+
+test('recordSignInEvent creates the real minimal user-root payload', async () => {
+  const uid = 'new-sign-in';
+  const result = await recordSignInEvent.run({
+    data: {},
+    auth: { uid, token: { firebase: { sign_in_provider: 'google.com' } } },
+    app: { appId: 'demo-app', token: {} },
+  });
+  assert.deepEqual(result, { logged: true });
+  const db = context(uid, { firebase: { sign_in_provider: 'google.com' } });
+  const snapshot = await assertSucceeds(getDoc(doc(db, `users/${uid}`)));
+  assert.deepEqual(Object.keys(snapshot.data()), ['createdAt']);
+  assert.ok(snapshot.data().createdAt.toMillis() > 0);
 });

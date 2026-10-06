@@ -78,6 +78,7 @@ service cloud.firestore {
       allow read: if isOwner(uid);
       allow create: if isOwner(uid)
           && request.resource.data.keys().hasAll(['createdAt'])
+          && request.resource.data.keys().hasOnly(['createdAt'])
           && request.resource.data.createdAt == request.time;
       allow update: if isOwner(uid)
           && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
