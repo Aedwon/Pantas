@@ -28,19 +28,12 @@ Nothing.
 
 ## Next step
 
-Waiting on Aedwon (level 4 start). Level 4 begins with W0 once he answers:
-1. Permission to use the signing seed (optional W0 package; required for the W5 release package).
-2. Play Console and RevenueCat: the four Civil Service products, trial moved to Monthly ("new
-   customers only, across all subscriptions"), price points confirmed (W3 P2).
-3. RevenueCat secret API key stored as Functions secret `REVENUECAT_SECRET_API_KEY` (W3 P1).
-4. Exam dates with source links (W3 P3; W0 catalog).
-5. Whether App Store purchases are in beta scope (W5 Task 6).
-6. Privacy policy sentences for the Pantas ID (lead drafts in W3 Task 10).
-7. Season Pass bought by an active Student subscriber: confirm the lead default and copy (W3 Task 6).
-8. Approval to upload lesson illustrations to Sanity so `assets.json` exists; until then no lesson
-   image ships (W0 Task 4b).
-9. Approval to force-push main to remove the AI attribution trailer from b43d93a6 (or leave it).
-Deploys (functions, rules) are asked separately when each is ready (W3 P4).
+Abuse review amendment (Oct 6, `gates/abuse-review-1.md`): level 1 amended (strategy Part A rule,
+B2 W3, W4g, W5, new W6). Next: level 2 amendments for W3, W4g, W5 and a new L2-W6, level 2 delta
+gate; then level 3 amendments (W3, W4g, W5, new L3-W6, parallel map) and a level 3 delta gate.
+Waiting on Aedwon for two product decisions: offline Pro after the paid period ends (lead: 3 days);
+trial rule (lead: Play's "never had a subscription" rule). Level 4 start answers are recorded in the
+decision record (Oct 6); store setup steps are in `level4-setup-steps.md`.
 
 ## Steps
 
@@ -63,7 +56,8 @@ Deploys (functions, rules) are asked separately when each is ready (W3 P4).
 | Level 2 gate review | passed (review 5) | gates/l2-gate-review-5.md |
 | Level 3 plans (B5) | done (13 plans, parallel map); traceability level 3 column filled | L3-*.md, L3-parallel-map.md |
 | Level 3 gate review | passed (review 5) | gates/l3-gate-review-5.md |
-| Stop before level 4, notify Aedwon | done (Oct 6) | waiting on his level 4 start answers |
+| Stop before level 4, notify Aedwon | done (Oct 6) | answers recorded |
+| Abuse review amendment | level 1 done; levels 2 and 3 pending | gates/abuse-review-1.md |
 
 ## Last completed step
 
