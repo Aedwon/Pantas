@@ -61,7 +61,7 @@ offline rules here); the privacy policy text (`lib/features/legal/domain/legal_d
 | Server write limits | A small helper `functions/src/_limits.ts` (`allowAtMost(uid, key, max, window)` in a transaction) for W6's own limits; W3 may reuse it; W4g counts its share records itself (gate L2A-13). |
 | User record create rule | `users/{uid}` create: owner only, keys limited to the listed creation fields. |
 
-Contracts consumed: W0 exam catalog JSON (`functions/src/examCatalog.json`, included in the build).
+Contracts consumed: W0 exam catalog `content/exams/catalog.json`, copied into the build.
 
 ## 4. Behavior
 

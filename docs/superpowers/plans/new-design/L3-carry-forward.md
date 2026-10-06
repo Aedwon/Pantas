@@ -5,7 +5,7 @@ settle. Each level 3 plan cites the items it closes.
 
 | Item | Level 3 plan | What to settle |
 |---|---|---|
-| N3-7 | L3-W0 | Exam catalog storage form (columns or `catalogJson`) and reader API name, before any consumer reads it. |
+| N3-7 | L3-W0 | Exam catalog storage form (columns or `catalogJson`) and reader API name, before any consumer reads it.  Settled Oct 6 at level 4: a bundled file `content/exams/catalog.json`; `ExamCatalogRepository`. |
 | N3-9 / N4-5 | L3-W0 | `MistakeTag` fallback for unknown values (older builds syncing `other`). |
 | N5-2 | L3-W0, L3-W4e | Who decodes old mock results with the new JSON fields empty (W4e's decoder; W0 declarations default to null). |
 | N3-8 | L3-W3 | How stored pass end dates update when a catalog date moves later. |

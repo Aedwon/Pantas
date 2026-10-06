@@ -48,33 +48,45 @@ Sync: `attempt_mapper.dart` and `mock_attempt_mapper.dart` copy the JSON columns
 so no sync change; a test in `test/core/sync/` asserts a round-trip keeps the new fields.
 Checks: the new tests, `flutter test test/core test/features/mock_exam`, `flutter analyze`.
 
-## Task 3. Exam catalog (content schema 9 to 10)
+## Task 3. Exam catalog (bundled file; content schema stays 9)
 
 Traceability: W0 contract "Exam catalog"; F-2, N-5, N-20, N3-7; tier spec B1; D-29, D-225.
-Decision for N3-7: columns, not a JSON blob, so queries and tests stay typed:
-`ContentExams` adds `priceTier` (text), `examGroup` (text), `comingSoon` (bool, default false);
-new table `ContentExamSittings` (`examId`, `firstDay`, `lastDay`, `sourceUrl`, `ordering`).
-Reader API: `ExamCatalogRepository` in `lib/core/content/data/` with
-`Future<ExamCatalogEntry> entry(String examId)` and `Stream<List<ExamCatalogEntry>> watchAll()`;
-`ExamCatalogEntry { id, name, shortName, priceTier, group, comingSoon, publishedSittings }`.
-Tests first: migration test 9 to 10 (existing rows get `comingSoon=false`, no published sittings);
-repository returns entries and published sittings ordered; an exam with none returns an empty list.
-Implement: table changes, `schemaVersion => 10` with `onUpgrade` adding the columns and table in the
-same commit; export tool (`tools/build_content_export/build_content_export.dart`) writes the new
-fields from a new source file `content/exams/catalog.yaml`; the export also writes
-`functions/src/examCatalog.json` (N-20).
-`content/exams/catalog.yaml`: the seven roster exams, plus two available scholarship exams shown on
-O_Picker and ST_ExamPick (Aedwon, Oct 6: "these should be included"): `exam_dost_sei` (DOST-SEI
-Undergraduate Scholarship, short name DOST, group Scholarships, Student tier; questions already
-tagged `dost-sei`) and `exam_sm_foundation` (SM Foundation College Scholarship, short name SM, group
-Scholarships, Student tier; no questions tagged yet, a release blocker until the content track tags
-them; the export adds both as roster exams the way ACET is added), plus the nine Coming soon exams (PSHS-NCE,
-NAPOLCOM, AFPSAT, PMA, PNPA, PMMA, MAAP, LET, PNLE) with tier and group per pricing.md and
-DECISIONS D-29, D-225. Sittings: only dates Aedwon supplies with a source link (tier spec decision 1).
-Stop condition: no dates supplied yet: ship the file with empty `publishedSittings` and record the gap; do
-not infer a date. If O_Picker or ST_ExamPick shows an available exam missing from content: stop.
-Checks: `flutter test test/core/content test/tool` green, including the migration and export
-round-trip tests named above.
+Decision (amended Oct 6 after the worker's stop, evidence 6109ad1b): the catalog is not stored in
+the protected content database. A schema bump would break the protected package contract (the
+installer, the signed manifest and the pinned schema-8 fixture all fix schema 9). The catalog is
+public metadata, so it lives in one hand-edited source file, `content/exams/catalog.json`,
+bundled as a Flutter asset and copied into the Functions build. Content schema stays 9; no
+protected-content code, seed writer or fixture changes.
+1. `content/exams/catalog.json` (hand-edited, never generated): one entry per exam with `id`
+   (the content exam id, for example `exam_upcat`), `name`, `shortName`, `priceTier`, `group`,
+   `comingSoon`, `publishedSittings` (each `firstDay`, `lastDay`, `sourceUrl`). Entries: the seven
+   current exams; `exam_dost_sei` (DOST-SEI Undergraduate Scholarship, DOST, group Scholarships,
+   Student tier) and `exam_sm_foundation` (SM Foundation College Scholarship, SM, Scholarships,
+   Student tier; no questions yet, a release blocker) (Aedwon, Oct 6: "these should be included");
+   the nine Coming soon exams (PSHS-NCE, NAPOLCOM, AFPSAT, PMA, PNPA, PMMA, MAAP, LET, PNLE) with
+   tier and group per pricing.md and DECISIONS D-29, D-225. Sittings: CSE Professional and CSE
+   Subprofessional on 2027-03-14 and 2027-08-08 (one day each, source CSC Examination Announcement
+   No. 05, s. 2026, the link in the decision log); no other dates.
+2. `pubspec.yaml`: add `content/exams/catalog.json` to assets.
+3. Reader API: `ExamCatalogRepository` in `lib/core/content/data/` with
+   `Future<ExamCatalogEntry> entry(String examId)` and `Stream<List<ExamCatalogEntry>> watchAll()`;
+   `ExamCatalogEntry { id, name, shortName, priceTier, group, comingSoon, publishedSittings,
+   hasContent }`. It loads the asset once and sets `hasContent` from whether the content database
+   has that exam row. An exam is selectable only when `comingSoon` is false and `hasContent` is true;
+   otherwise the picker shows it as Coming soon.
+4. Export tool (`tools/build_content_export/build_content_export.dart`): add `exam_dost_sei` and
+   `exam_sm_foundation` to `_rosterExams` the way ACET is added (exam rows only; schema 9). These rows
+   reach the app with the next package build (W5 Task 1).
+5. A validation test reads `content/exams/catalog.json`: every id is unique, tiers and groups are in
+   the allowed sets, dates are ISO with `lastDay >= firstDay` and a `sourceUrl`, every non-Coming
+   soon entry other than SM has an exam row in the export.
+Tests first: repository returns entries in file order with sittings ordered; an exam with no
+sittings returns an empty list; `hasContent` false makes it unselectable; the validation test.
+Stop condition: if O_Picker or ST_ExamPick shows an available exam missing from the catalog file:
+stop.
+Checks: `flutter test test/core/content test/tool` green; `content/exams/catalog.json` passes the
+validation test; `dart run tools/build_content_export/build_content_export.dart "$TMPDIR/export.json"`
+exits 0 and the output lists `exam_dost_sei` and `exam_sm_foundation`.
 
 ## Task 4. Mock blueprint placeholder marker
 
@@ -126,7 +138,7 @@ record; W1 and W3 may start on Task 5's baseline. This build is optional (gate L
 Aedwon a device build with the merged QA content before W5. The release package is built once, in
 W5 Task 1, after the last content change.
 Later exam dates (P3, gate L3-17): when Aedwon supplies dates with sources, the lead edits
-`content/exams/catalog.yaml`, reruns the export (which rewrites `functions/src/examCatalog.json`),
+`content/exams/catalog.json` (the app reads it as an asset and the Functions build copies it),
 runs `flutter test test/core/content test/tool` and `npm test` in `functions/`, and commits on the
 integration branch. Any such change lands before W5 Task 1.
 

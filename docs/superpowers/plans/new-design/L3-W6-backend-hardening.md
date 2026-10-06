@@ -39,8 +39,8 @@ Traceability: X-13.
 3. New `functions/src/_admin.ts`: `initializeApp()` once; `index.ts` imports it first; also
    `requireAdmin(request)` (an `admin == true` custom claim, App Check, an audit entry; throws
    `permission-denied` otherwise).
-4. The build includes `functions/src/examCatalog.json` (W0), with a test that the built `lib/`
-   contains it; W3 Task 4 adds `products.json` the same way (L3X-14).
+4. The build copies `../content/exams/catalog.json` (W0) to `lib/examCatalog.json`, with a test that
+   the built `lib/` contains it; W3 Task 4 adds `products.json` the same way (L3X-14).
 5. `.gitignore`: `functions/lib/`, `functions/node_modules/`.
 Test first: a deliberately failing assertion in each test type fails `npm test`, then is removed;
 a non-admin call to a stub admin callable is denied.

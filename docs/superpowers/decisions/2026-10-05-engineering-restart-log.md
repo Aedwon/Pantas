@@ -868,3 +868,17 @@ prerequisites would change the roadmap engine and the content format, planned wh
 reports. Aedwon: "note that the current content might get split so... proceed". L2 W0 gains the
 rule that no lesson id changes without an approved progress migration. The content coverage audit
 stays untouched (Aedwon: "you shouldn't touch it for now").
+
+## October 6, 2026: W0 Task 3 stop; exam catalog moved out of the content database
+
+The Codex worker stopped at W0 Task 3 (evidence commit 6109ad1b on the integration branch): the
+plan's content schema bump from 9 to 10 conflicts with the protected content package contract (the
+installer validates schema 9 on every start, the signed manifest's reader range is 9 to 9, and a
+pinned schema-8 fixture inherits the database class). Lead decision (internal; no student-facing
+change): the exam catalog becomes a hand-edited bundled file `content/exams/catalog.json`, read by
+`ExamCatalogRepository` (API unchanged) and copied into the Functions build; content schema stays
+9. Exam rows for DOST-SEI and SM go into the export's roster like ACET. Amended: strategy B2 W0 row,
+L2 W0 (§1, §3, §6, §7, §8), L3 W0 Task 3, L2 and L3 W3, L2 and L3 W6, the tier spec, the map,
+carry-forward N3-7. Process note: this level 2 change is checked by W0's Astra audit and the lead's
+review instead of a separate gate round, to save usage; the next plan gate re-checks it.
+Usage: run 3 used about 298,000 tokens; Aedwon reported 63% after run 2.

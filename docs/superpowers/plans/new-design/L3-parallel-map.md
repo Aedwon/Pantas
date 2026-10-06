@@ -66,7 +66,7 @@ under this limit.
 | `lib/app/routes/home_routes.dart` | W4b track A, then W4b track B |
 | `lib/app/routes/settings_routes.dart` | W3 Task 3 (Settings Pro switch, after W1), then W4f in task order (W4g's shared-links route is in `wrapped_routes.dart`) |
 | `lib/features/settings/data/settings_repository.dart` | W4f Task 1, then W4a Task 4 (earliest exam date), then W4f Task 8 |
-| `pubspec.yaml` | W1 Task 1, then W2 Task 9 (`SourceSans3` removal) |
+| `pubspec.yaml` | W0 Task 3 (catalog asset), then W1 Task 1, then W2 Task 9 (`SourceSans3` removal) |
 | `lib/features/settings/presentation/pages/pro_page.dart`, `paywall/presentation/subscription_panel.dart` | W3 Task 3 (switch cases only), then W4f Tasks 6 and 7 |
 | `lib/core/storage/data/repos/attempts_repository.dart` | W4d Task 6 only |
 | `tools/content/`, `tools/build_content_export/` | W0 Tasks 3, 4 and 4b only |

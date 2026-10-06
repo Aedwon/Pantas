@@ -83,7 +83,7 @@ tiers; W5's test purchases on the test track check every case before beta.
 
 `endsAt` is the last day of the first published sitting on or after the purchase date. If that
 sitting's date later moves later, `endsAt` moves with it; if earlier, the original date stands
-(D-227). Computed server-side from `functions/src/examCatalog.json`, written by the W0 content export from
+(D-227). Computed server-side from the Functions build's copy of `content/exams/catalog.json` (amended Oct 6), from
 the same catalog the app ships; the webhook stores the result.
 
 ### B3. Products and RevenueCat

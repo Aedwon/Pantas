@@ -19,7 +19,7 @@ Prerequisites Aedwon provides before the named tasks run (requested with the sta
   plain setting `REVENUECAT_PROJECT_ID` (Task 2). Aedwon's steps: `level4-setup-steps.md` Part 5.
 - P2 Play Console and RevenueCat: the four Civil Service products, trial moved to Monthly with "new
   customers only, across all subscriptions", price points confirmed (Tasks 4 and 7 integration).
-- P3 Exam dates with source links in `content/exams/catalog.yaml` (W0) for pass tests on real data.
+- P3 Exam dates with source links in `content/exams/catalog.json` (W0) for pass tests on real data.
 - P4 Approval for each deploy step in Task 15.
 Without a prerequisite, its task stops at the tested code and reports.
 
@@ -120,7 +120,7 @@ Traceability: X-3, X-4.
    one pass product per exam; a daily reconciliation job against RevenueCat's purchase list).
 2. Webhook, inside Task 2's transaction: write `users/{uid}/passes/{transactionId}` with `examId`,
    product, sitting, `endsAt` (last day of the first sitting on or after purchase, from
-   `functions/src/examCatalog.json`), state `active`. Reject an exam the product does not allow
+   the catalog copy in the Functions build, from `content/exams/catalog.json`), state `active`. Reject an exam the product does not allow
    (`pantas_pass_civil_service`: CSE Professional, CSE Subprofessional). No future sitting: write
    nothing that grants and log an audit entry for Aedwon. Refund or revocation sets `revoked`;
    transfer moves the record; a duplicate delivery is a no-op.

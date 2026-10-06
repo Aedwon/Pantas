@@ -59,8 +59,9 @@ L_Purchase, L_RestorePurchase; traceability G-f-12 to G-f-19, G-f-22, G-f-31, G-
 | Trial-ending trigger | W3 owns the interface `TrialEndingNotifier` in `lib/features/paywall/application/trial_ending_notifier.dart` with `Future<void> schedule(DateTime chargeAt, String priceText)` and `Future<void> cancel()`, and `TrialEndingScheduler.sync(entitlement)`, which calls it; it replaces the no-op `TrialReminderScheduler`. W3 lands with a no-op binding; W4f's `ReminderService` implements `TrialEndingNotifier` and binds it. |
 | State split | W3 owns the entitlement states for S0-35 and G-f-12 to G-f-19 (logic); W4f owns their screens and copy. |
 
-Contracts consumed: W0 data layer (app schema 25, content schema 10) and the W0 exam catalog,
-including `functions/src/examCatalog.json` for pass end dates; a new local table needs a W0
+Contracts consumed: W0 data layer (app schema 25, content schema 9) and the W0 exam catalog,
+including the catalog copy in the Functions build (from `content/exams/catalog.json`) for pass
+end dates; a new local table needs a W0
 amendment first.
 
 ## 4. Behavior
