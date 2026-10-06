@@ -909,7 +909,15 @@ integration branch was pushed at 13e4f830. Usage: Task 5 about 571,000 tokens, a
 After the reset, Aedwon reported 95% used after W0 Task 5 (about 571,000 tokens), the Astra audit
 (about 123,000), W1's first run (about 158,000) and part of a W1 resume (stopped by the lead with no
 commits or edits). That is roughly 10,000 tokens per 1%, not the 24,000 measured before; the
-earlier figure is withdrawn. The cause is unknown (cached tokens or the Astra model may weigh
-differently). W1 setup gap: new worktrees lack the ignored `assets/seed/content.*` files; the lead
+earlier figure is withdrawn. Aedwon (Oct 6): usage differs by model ("when you use 6.1 Sol the usage is
+different"), so token counts from Sol and Astra runs are not on one scale; the lead estimates each
+model separately. Aedwon: "no need to cut things"; checks and audits stay as planned. W1 setup gap: new worktrees lack the ignored `assets/seed/content.*` files; the lead
 copies the accepted package files (unchanged, never committed) into each new worktree before the
 worker starts. W1 resumes from Task 1 at 2cc11ce1 after the next reset.
+
+## October 6, 2026: backend test tools installed
+
+With Aedwon's approval, the lead installed Node 22 (`/opt/homebrew/opt/node@22/bin`, 22.23.3) and
+Java 21 (`/opt/homebrew/opt/openjdk@21/bin`, 21.0.12.1) through Homebrew for W6's emulator tests.
+Both are keg-only; the shell profile is unchanged, so W6 runs put both folders first on `PATH`.
+The progress Doc's 5 Oct entry now records W0's acceptance (Aedwon approved the edit).
