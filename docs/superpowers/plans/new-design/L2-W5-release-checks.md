@@ -37,7 +37,8 @@ In scope:
   setbacks hidden by a reboot before every session (W3 AC-1) listed for Aedwon's acceptance at E14 with the bootstrap-key risk; the deployed
   functions, Firestore rules and storage rules revision for each Firebase project recorded and
   compared with the integrated commit (gate L2A-21). Re-check on the final build that RevenueCat's webhook URL points at the deployed function and that claims match RevenueCat (the first-deploy checks are W3's deploy steps).
-- Release blockers: every `PlaceholderFigure` replaced by Aedwon's values (R-20); `functions` tests
+- Release blockers: SM Foundation has tagged questions and passes the content gates (added Oct 6);
+  every `PlaceholderFigure` replaced by Aedwon's values (R-20); `functions` tests
   green.
 
 Out of scope: fixes. A check that finds a defect creates a new work item that enters at the level

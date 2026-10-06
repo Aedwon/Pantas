@@ -857,3 +857,14 @@ plan was wrong: the SUBAGENTS Part 4 "approved 0" rule is for question writers (
 sets `approved:`); 83 files were already approved at 1f79d880. L3-W0 Task 1 corrected; Codex
 resumes at Task 2. Usage: Aedwon's Codex plan went from 42% to 55% of the 5-hour limit across the
 failed sandboxed run (about 60,000 tokens) and this run (about 147,000 tokens).
+
+## October 6, 2026: DOST-SEI and SM, lesson ids
+
+Aedwon, on the two picker exams with no exam setup: "these should be included". W0 Task 3 adds
+`exam_dost_sei` (questions already tagged) and `exam_sm_foundation` (no questions yet; release
+blocker until the content track tags them) as available Student-tier exams in the Scholarships
+group. On the content audit's planned prerequisites: lesson storage does not change now; lesson-level
+prerequisites would change the roadmap engine and the content format, planned when the audit
+reports. Aedwon: "note that the current content might get split so... proceed". L2 W0 gains the
+rule that no lesson id changes without an approved progress migration. The content coverage audit
+stays untouched (Aedwon: "you shouldn't touch it for now").

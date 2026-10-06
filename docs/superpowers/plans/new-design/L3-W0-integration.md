@@ -63,7 +63,12 @@ Implement: table changes, `schemaVersion => 10` with `onUpgrade` adding the colu
 same commit; export tool (`tools/build_content_export/build_content_export.dart`) writes the new
 fields from a new source file `content/exams/catalog.yaml`; the export also writes
 `functions/src/examCatalog.json` (N-20).
-`content/exams/catalog.yaml`: the seven roster exams plus the nine Coming soon exams (PSHS-NCE,
+`content/exams/catalog.yaml`: the seven roster exams, plus two available scholarship exams shown on
+O_Picker and ST_ExamPick (Aedwon, Oct 6: "these should be included"): `exam_dost_sei` (DOST-SEI
+Undergraduate Scholarship, short name DOST, group Scholarships, Student tier; questions already
+tagged `dost-sei`) and `exam_sm_foundation` (SM Foundation College Scholarship, short name SM, group
+Scholarships, Student tier; no questions tagged yet, a release blocker until the content track tags
+them; the export adds both as roster exams the way ACET is added), plus the nine Coming soon exams (PSHS-NCE,
 NAPOLCOM, AFPSAT, PMA, PNPA, PMMA, MAAP, LET, PNLE) with tier and group per pricing.md and
 DECISIONS D-29, D-225. Sittings: only dates Aedwon supplies with a source link (tier spec decision 1).
 Stop condition: no dates supplied yet: ship the file with empty `publishedSittings` and record the gap; do

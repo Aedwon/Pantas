@@ -106,6 +106,13 @@ Aedwon: nothing visual. He authorizes the package rebuild (section 7).
 
 ## 7. Risks and stop conditions
 
+- **Lesson ids (added Oct 6, Aedwon: "the current content might get split").** Lessons may be
+  split, merged or renamed after the content coverage audit. Every saved student record is keyed by
+  lesson id (read marks, bookmarks, attempts, plan progress). No lesson id changes or disappears
+  without an approved plan that maps old ids to new ones and migrates saved progress; a change
+  without one stops at review. Lesson-level prerequisites, if approved, are a roadmap engine change
+  and a content format amendment here, planned when the audit reports.
+
 - **Signing authorization.** Rebuilding the package uses the signing seed. Per
   `docs/content-key-access.md` this needs Aedwon's explicit permission. It is requested together
   with the start of level 4. Without it, W0 completes after the merge and the data changes; the
