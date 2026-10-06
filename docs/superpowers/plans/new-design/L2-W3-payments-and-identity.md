@@ -111,7 +111,13 @@ tiers).
 `lib/features/paywall/` (domain, data, application; not presentation), `lib/core/entitlement/`
 (currently empty; only if providers move), `functions/src/revenuecat*.ts`, new
 `functions/src/publicId*.ts`, `firestore.rules`, tests under `test/features/paywall/` and
-`functions/test/`.
+`functions/test/`. Amended Oct 6 (level 3 gate review 1) (L3-7), cross-family edits named in the level 3 plan: `lib/app/router.dart` (after W1
+integrates), `lib/features/settings/presentation/pages/pro_page.dart` and
+`lib/features/paywall/presentation/subscription_panel.dart` (exhaustive switches only),
+`lib/features/legal/domain/legal_document.dart` (privacy sentences after Aedwon approves them),
+`functions/src/deleteAccount.ts`, `recordSignInEvent.ts`, `exportData.ts`, `functions/package.json`,
+`lib/core/auth/public_id_provider.dart`, `lib/features/mock_exam/domain/mock_availability.dart`,
+`lib/features/roadmap/domain/roadmap_inputs.dart` (the Pro flag source).
 
 ## 9. Order and parallelism
 

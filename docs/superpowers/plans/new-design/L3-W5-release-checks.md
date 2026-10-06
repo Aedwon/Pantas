@@ -27,7 +27,8 @@ Definitions recorded here from their sources (WORKFLOW: external context recorde
 
 ## Task 1. Release package
 
-After the last content change (W4e blueprints), rebuild the signed content package once with
+After the last content change (W4e blueprints, W0 Task 4b credits, and any exam dates Aedwon
+supplied per W0 Task 6), rebuild the signed content package once with
 Aedwon's authorization (W0 Task 6 procedure) and record the non-secret candidate record (source SHA,
 `releaseSequence`, `sourceContentSha256`, `contentSeedVersion`, `payloadSha256`, manifest and
 signature SHA-256, key ids, cipher profile, schema versions) in
@@ -36,6 +37,7 @@ signature SHA-256, key ids, cipher profile, schema versions) in
 
 ## Task 2. Release end-to-end tests
 
+Traceability: S0-43.
 Restore the four kept tests from the live worktrees (or `origin/archive/pre-restart-kept-work`
 `dirty/*.untracked.tgz`) into `integration_test/release/` with `support/firebase_emulator_harness.dart`
 and `test/tool/release_e2e_firebase_contract_test.dart`; retarget their finders and routes to the new
@@ -72,6 +74,7 @@ restore. Evidence per check in `release-evidence/<check>.md` (the L2 format).
 
 From the September design (`web/ios-physical-qa-enablement-r1`,
 `docs/superpowers/specs/2026-09-15-ios-physical-qa-enablement-design.md`, kept by S0-49):
+Traceability: S0-49, A-B5a.
 1. Project setup (worker): dev and staging build configurations and schemes using the existing
    `Dev.xcconfig` and `Staging.xcconfig`, bundle ids `com.aedwon.pantas.dev` and `.staging`, iOS
    Firebase options for each flavor (generated config files from Aedwon's Firebase console; no

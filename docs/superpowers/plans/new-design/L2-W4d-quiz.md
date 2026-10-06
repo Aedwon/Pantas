@@ -16,7 +16,7 @@ Out of scope: Mock exam screens and the mock card's content (W4e; this family pl
 
 Boards (46): QZ_Tab, QZ_Free, QZ_Resume, QZ_Done, QZ_First, QZ_Picker, QZS_1, QZS_1b, QZS_1c, QZS_1d, QZE_Many, QZE_ManyTime, QZE_Short, QZE_RunsShort, QZE_Long, QZE_One, QZE_None, QV_Answer, QV_MissPro, QV_MissFree, QV_Last, QV_Long, QV_Figure, QV_Flag, QV_Grid, QV_GridBack, QV_GridMock, QV_Leave, QV_EndPro, QV_EndFree, QV_EndPerfectB, QV_EndLowB, QV_EndLastToday, QV_All, QV_Sources, QN_Wrong, QN_WrongOpen, QN_Correct, QN_WrongFree, QN_EditNote, QN_OwnWords, QN_Report, QN_ReportOffline, QN_ReportAgain, QN_ReportLimit, L_DebriefSlow.
 
-Other traceability rows (47): D-156, D-157, D-158, D-159, D-161, D-162, D-163, D-164, D-165, D-166, D-169, D-171, D-172, D-173, D-174, D-175, D-177, D-178, D-179, D-180, D-182, D-183, D-235, D-276, S0-5, S0-14, S0-15, S0-16, S0-17, S0-19, S0-43b, G-b-29, G-d-1, G-d-4, G-d-7, G-d-8, G-d-9, G-d-10, G-d-12, G-d-13, G-d-14, G-h-10, G-h-11, G-h-23, G-h-24, G-h-29, G-h-30.
+Other traceability rows (46): D-156, D-157, D-158, D-159, D-161, D-162, D-163, D-164, D-165, D-166, D-169, D-171, D-172, D-173, D-174, D-175, D-177, D-178, D-179, D-180, D-182, D-183, D-235, D-276, S0-5, S0-14, S0-15, S0-16, S0-17, S0-19, G-b-29, G-d-1, G-d-4, G-d-7, G-d-8, G-d-9, G-d-10, G-d-12, G-d-13, G-d-14, G-h-10, G-h-11, G-h-23, G-h-24, G-h-29, G-h-30.
 Each row's status column in `traceability.md` is binding; "lead default" rows are listed in
 section 4 where they shape behavior. Superseded sections of older specs for this family: amendment
 spec B1 (rows naming this family's screens); those sections are not built.
@@ -57,7 +57,6 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
   by subject, opens the viewer, Practice these, empty state per the shared pattern.
 - Store rating prompt (S0-19): asked once, after a session with 80% or more right, never within 24
   hours after the Settings Pro page was opened; the phone's own dialog.
-- The 5-line refresh after a custom assessment (S0-43b, from the archive branch).
 - Discarded: miss cause lines, return promise, explainer, study-first sheet (S0-14, S0-15, S0-17).
 - Passage questions keep their passage card (S0-41).
 - Quick quiz (S0-16): reached only from Study's "Try a Quick Quiz".
@@ -93,7 +92,7 @@ and build from the tap, start to last change; reduce motion shows the last frame
 
 ## 8. Files and directories
 
-`lib/features/quiz/`, `lib/features/review/` (empty; deleted), `lib/features/review_prompt/`, `lib/app/routes/quiz_routes.dart`, tests.
+`lib/features/quiz/`, `lib/features/review/` (empty; deleted), `lib/features/review_prompt/`, `lib/app/routes/quiz_routes.dart`, tests. Amended Oct 6 (level 3 gate review 1) (L3-7): `lib/core/storage/data/repos/attempts_repository.dart` (`tagItem` takes the note).
 
 ## 9. Order and parallelism
 

@@ -19,7 +19,7 @@ Out of scope: Change exam from Settings and sign-in screens (W4f); Home before t
 
 Boards (17): O_Flow, O_Launch, O_Age, O_Consent, O_Picker, O_Custom, O_DateKnown, O_DateChange, O_DateToday, O_Days, O_Name, O_Notify, AS_Question, AS_Picked, AS_Leave, AS_Results, O_Notify_v2.
 
-Other traceability rows (43): D-17, D-29, D-30, D-31, D-32, D-34, D-35, D-36, D-37, D-38, D-39, D-40, D-42, D-43, D-242, D-266, G-a-1, G-a-2, G-a-3, G-a-4, G-a-5, G-a-6, G-a-7, G-a-8, G-a-9, G-a-10, G-a-11, G-a-12, G-a-13, G-a-14, G-a-17, G-a-18, G-a-21, G-a-23, G-a-24, G-a-25, G-a-26, G-a-27, G-a-28, G-a-29, G-a-30, G-a-40, G-h-20.
+Other traceability rows (45; G-a-19 and S0-43b added Oct 6, level 3 gate review 1): G-a-19, S0-43b, D-17, D-29, D-30, D-31, D-32, D-34, D-35, D-36, D-37, D-38, D-39, D-40, D-42, D-43, D-242, D-266, G-a-1, G-a-2, G-a-3, G-a-4, G-a-5, G-a-6, G-a-7, G-a-8, G-a-9, G-a-10, G-a-11, G-a-12, G-a-13, G-a-14, G-a-17, G-a-18, G-a-21, G-a-23, G-a-24, G-a-25, G-a-26, G-a-27, G-a-28, G-a-29, G-a-30, G-a-40, G-h-20.
 Each row's status column in `traceability.md` is binding; "lead default" rows are listed in
 section 4 where they shape behavior. Superseded sections of older specs for this family: amendment
 spec B1 (rows naming this family's screens); those sections are not built.
@@ -42,6 +42,8 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
 - Order and progress bar per D-42 (bar counts 6 steps). Back on every step after Welcome; coming
   back to the date step restores year, month and day as left (D-37). System back equals the Back
   link; on the first step it leaves the app (G-a-19).
+- The 5-line Today refresh after a custom assessment (S0-43b, from the archive branch; moved from
+  W4d, amended Oct 6, level 3 gate review 1, L3-4).
 - Resume after the app is closed: re-enter at the first unfinished step; Terms is required before
   the picker (G-a-1, G-a-2).
 - Exam date rules D-30 to D-40, including exam today allowed, under a week's calm line, multi-day

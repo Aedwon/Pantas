@@ -2,9 +2,9 @@
 
 Level 3. Date: October 6, 2026. Author: lead. Policy revision: origin/main 1958c0f1.
 Level 2 plan: `L2-W4f-settings-pro-and-account.md`. Base: integration branch after W2, W3 and W4h's
-pattern task. Executor: Sonnet workers in up to two worktrees: track D (reminders, Task 1) runs
-first because W4a's reminders step needs it; then track A (Tasks 2 to 5) and track B (Tasks 6 to 9)
-in parallel, each editing only its own files and `settings_routes.dart` in task order.
+pattern task. Executor: one Sonnet worker, own worktree (`L3-parallel-map.md`: three-worker limit): track D
+(reminders, Task 1) first because W4a's reminders step needs it; then, after W4a, track A (Tasks 2
+to 5) then track B (Tasks 6 to 9); `settings_routes.dart` edits in task order.
 Landing order: Task 1 before W4a Task 8; W4a's `ExamPickerScreen` before Task 3; W4b Task 1 before
 Task 4; Task 5's About slot before W4g's shared links task.
 
@@ -30,7 +30,8 @@ not sent; countdown and come-back replace that day's daily reminder; no daily ce
 `notification_ceiling.dart`); no Wrapped push (delete
 `wrapped_trigger_notification_router.dart`). Copy: existing daily variants kept; Follow up "Still time
 today" / "One short session gets today's plan started."; trial-ending text with the student's own
-plan price and date. Tap routing: all open Home except trial ending, which opens Settings › Pantas
+plan price and date. Permission denied: nothing is scheduled and Reminders shows
+the blocked state (A-B2c, test). Tap routing: all open Home except trial ending, which opens Settings › Pantas
 Pro. Tests for every rule and the tap map. Delete `permission_rationale_page.dart` and its test
 after W4a's reminders step lands (W1's redirect covers its path).
 
@@ -57,7 +58,7 @@ Boards ST_Practice, ST_DarkPractice, ST_Reminders_v2, ST_RemindersOff, ST_Remind
 ST_Appearance, ST_LargeText; D-209 to D-212. Practice at `/settings/practice` (add the redirect from
 `/settings/sessions` now): session length 5/10/20/All, how sessions are built, strict mode with its
 footer (the default the mock setup switch reads). Reminders per ST_Reminders_v2 with
-`ReminderPrefs`; turning a reminder on asks permission the first time; blocked state opens phone
+`ReminderPrefs`; the Follow up time wheel offers only times after the daily time (R-28, test); turning a reminder on asks permission the first time; blocked state opens phone
 settings. Appearance: Light, Dark, Automatic previews; text size slider writing W1's
 `lessonTextScaleProvider`; Remember table order writing `retainTableOrderProvider` (moved by W4b).
 Delete the name, exam date, ordering and reminder sheets.
@@ -87,8 +88,8 @@ now ₱499 is the CS pass and prices come from the store (no literal prices in p
 Every Pro button pushes `/settings/pro` and returns (`context.push`); remove the five `/paywall`
 pushes as their families rebuild (W4b, W4g) or here for files in this family. Delete
 `paywall_page.dart`, `what_pro_adds_page.dart`, `plans_page.dart`, `trial_timeline_page.dart`,
-`pro_specimen_panel.dart`, `paywall_package_card.dart`, `plan_row.dart`, `subscription_panel.dart` and
-their tests once no caller remains; `trial_notice_banner.dart` and `pro_welcome_banner.dart` are
+`pro_specimen_panel.dart`, `paywall_package_card.dart`, `plan_row.dart`, `subscription_panel.dart`, `lib/features/paywall/domain/paywall_recommendation.dart` (W3 Task 4
+leaves it for this task) and their tests once no caller remains; `trial_notice_banner.dart` and `pro_welcome_banner.dart` are
 replaced by W4b's notices.
 
 ## Task 8. Account and backup (track B)

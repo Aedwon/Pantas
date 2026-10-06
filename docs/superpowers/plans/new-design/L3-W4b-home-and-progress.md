@@ -2,8 +2,8 @@
 
 Level 3. Date: October 6, 2026. Author: lead. Policy revision: origin/main 9d2c0b5f.
 Level 2 plan: `L2-W4b-home-and-progress.md`. Base: integration branch after W2, W3 and W4h's pattern
-task. Executor: Sonnet workers in two worktrees (track A: Tasks 1 to 5; track B: Tasks 6 to 10),
-editing only `lib/app/routes/home_routes.dart` in task order (A's route edits land first).
+task. Executor: one Sonnet worker, own worktree, track A (Tasks 1 to 5) then track B (Tasks 6 to 10)
+(`L3-parallel-map.md`: three-worker limit); `lib/app/routes/home_routes.dart` edits in task order.
 Closes carry-forward N5-1 (with W4c).
 
 Before each screen task: open its boards and run `timeline.py`; build from the tap; reduce motion
@@ -18,7 +18,10 @@ theme API and W2's components; Pro gates read W3's `proForActiveExamProvider`.
 
 Move `table_order_prefs.dart` (`tableOrderProvider`, `retainTableOrderProvider`, `TableOrder`,
 `TableLevel`), `performance_provider.dart` and `topic_accuracy_provider.dart`'s dependency into
-`lib/features/home/application/performance/`. Behavior unchanged; existing provider tests move with
+`lib/features/home/application/performance/`; move `record_provider.dart` (Task 8),
+`how_you_work_provider.dart` (Task 9) and `miss_causes_provider.dart` (kept recording inputs) into
+`lib/features/home/application/`; `progress_providers.dart` moves with whatever still reads it.
+`pace_provider.dart` stays and is deleted in Task 10 (S0-11). Behavior unchanged; existing provider tests move with
 them and stay green. This unblocks W4f's Appearance task and the later deletion.
 
 ### Task 2. Week strip, exam chip, greeting
@@ -26,7 +29,7 @@ them and stay green. This unblocks W4f's Appearance task and the later deletion.
 Boards HP_Free, HP_Pro, HP_NoDate, HP_MonthOnly, HP_ExamDay, HP_ExamPassed. New provider
 `weekStripProvider(examId)` from `RoadmapDayRepository` and `CompletionFacts`: per day done, half,
 missed, day off (not in study days), today ring; Sunday first via `PantasDates.weekStart`. Tapping a
-day opens `/plan/day/:date`. Exam chip states per the boards. Greeting bands kept (`greetingFor`).
+day opens `/plan/day/:date`; the tap is wired in Task 7, which creates that route (gate L3-18). Exam chip states per the boards. Greeting bands kept (`greetingFor`).
 
 ### Task 3. Today checklist and its sheets
 
@@ -57,7 +60,7 @@ DT_SubjectTap, DT_SubjectTapFree, DT_Free, DT_Topic, DT_Error, L_ProgressSlow (l
 `/performance/topic/:topicId`. Rules: overall accuracy counts every finished session (D-15, check
 each query's origin filter); no answers means hidden (D-110); bars per D-111; sort cycle; subject
 picker; Free card (D-105); a topic page with Practice This Topic. Remember table order reads
-`retainTableOrderProvider`. N5-1: topic expand uses W1 `sort`/caret getters.
+`retainTableOrderProvider`. No Time column (S0-12; recording stays). N5-1: topic expand uses W1 `sort`/caret getters.
 
 ## Track B: plan, record, tendencies
 

@@ -74,7 +74,7 @@ and build from the tap, start to last change; reduce motion shows the last frame
 
 ## 8. Files and directories
 
-`lib/core/error/`, `lib/features/shell/presentation/update_required_page.dart`, `lib/core/ui/components/app_error_view.dart` (replaced), tests.
+`lib/core/error/`, `lib/features/shell/presentation/update_required_page.dart`, `lib/core/ui/components/app_error_view.dart` (replaced), tests. Amended Oct 6 (level 3 gate review 1) (L3-7): `lib/app/bootstrap.dart` (start-up failure screen) and the `ErrorWidget.builder` setup.
 
 ## 9. Order and parallelism
 

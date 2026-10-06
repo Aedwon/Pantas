@@ -27,6 +27,9 @@ top, side by side primary on the right (D-67). Supersedes (callers move in W4): 
 `ruled_section`, `ruled_panel`, `section_header`, `settings_value_row`, `ink_table_row`,
 `data_row_tile`, `exam_selection_row`, `settings_switch`, `ink_checkbox`, `ink_chevron`,
 `theme_control`, `board_button`, `settings_bar`, `tab_header`, `page_scaffold`.
+Checks: `flutter test test/core/ui/components` green (this task's new tests plus the existing
+component, `accessibility_test.dart` and `math_accessibility_test.dart` suites); `flutter analyze`
+no new issues.
 
 ## Task 2. Progress marks
 
@@ -35,6 +38,9 @@ Boards: HP_Day (ring to check), HP_Free (week strip, half ring), DT_TopicsA and 
 sort morph), MK_Finale (gauge extension point). `AccuracyBar` color rule (D-111) tested at 30%, 40%,
 60%, 80%, 95%. `WeekStrip` takes Sunday-first days from `PantasDates.weekStart`. Supersedes:
 `inline_meter`, `progress_rule`, `quiz_progress_bar`, `stats_band`.
+Checks: `flutter test test/core/ui/components` green (this task's new tests plus the existing
+component, `accessibility_test.dart` and `math_accessibility_test.dart` suites); `flutter analyze`
+no new issues.
 
 ## Task 3. Containers
 
@@ -46,6 +52,9 @@ Boards: BM_Open, QV_Leave, MK_Discard, QV_Flag, HP_NoDate, QV_Answer, QV_Grid, Q
 MK_SheetCSE. Notice rules (D-66, D-68) under test: 52pt row, 44x44 close, no solid button.
 Supersedes: `ink_sheet` (`showInkSheet`), `confirmation_dialog`, `error_banner` (banner use),
 `proctor_toast` pattern (W4e keeps its own copy), `mock_floating_bar` (W4e moves).
+Checks: `flutter test test/core/ui/components` green (this task's new tests plus the existing
+component, `accessibility_test.dart` and `math_accessibility_test.dart` suites); `flutter analyze`
+no new issues.
 
 ## Task 4. Inputs
 
@@ -55,6 +64,9 @@ Supersedes: `ink_sheet` (`showInkSheet`), `confirmation_dialog`, `error_banner` 
 QZ_Picker, ST_Included, ST_IncludedLast, ST_Search, ST_Avatars. Date rules D-30 to D-40 under test
 (past days greyed, "Today" mark, month-only, no year limit, leap years).
 Supersedes: `ink_wheel`, `exam_date_sheet`, `topic_scope_index`, `ink_magnifier`.
+Checks: `flutter test test/core/ui/components` green (this task's new tests plus the existing
+component, `accessibility_test.dart` and `math_accessibility_test.dart` suites); `flutter analyze`
+no new issues.
 
 ## Task 5. States and marks
 
@@ -63,7 +75,10 @@ Supersedes: `ink_wheel`, `exam_date_sheet`, `topic_scope_index`, `ink_magnifier`
 which scans `lib/` and lists every `PlaceholderFigure` use (W5's blocker list reads it).
 Boards: L_Rules, ST_Loading, L_Restore, L_Delete, L_MockStart, YO_Error, SY_Error, YR_WrappedFree
 (Pro tag). Raw error text is never shown (test passes an exception and asserts no `toString`).
-Supersedes: `faint_bars`, `empty_state`, `app_error_view` (W4h retires its use).
+Supersedes: `faint_bars`, `empty_state`. `app_error_view` is deleted by W4h Task 5, not here.
+Checks: `flutter test test/core/ui/components` green (this task's new tests plus the existing
+component, `accessibility_test.dart` and `math_accessibility_test.dart` suites); `flutter analyze`
+no new issues.
 
 ## Task 6. Question and content pieces
 
@@ -81,6 +96,9 @@ Supersedes: `question_card`, `answer_row`, `answer_reveal`, `passage_card`,
 `portable_text_renderer`, `inline_math_text`, `accessible_math`, `spaced_repetition_note` (deleted
 by S0-15), `pennant_mark`, `bookmark_ribbon`, `contents_glyph`, `back_chevron`, `nav_glyph`
 (W1 replaces its use).
+Checks: `flutter test test/core/ui/components` green (this task's new tests plus the existing
+component, `accessibility_test.dart` and `math_accessibility_test.dart` suites); `flutter analyze`
+no new issues.
 
 ## Task 7. Gallery
 
@@ -88,6 +106,9 @@ by S0-15), `pennant_mark`, `bookmark_ribbon`, `contents_glyph`, `back_chevron`, 
 `lib/app/routes/dev_routes.dart`, built only when `kDebugMode` (route absent in release; test
 asserts `collectRoutePaths` in a release-mode build config lacks it). Lists every component and
 state with a light/dark toggle for Aedwon's visual check. W4f adds the link from the debug page.
+Checks: `flutter test test/core/ui/components` green (this task's new tests plus the existing
+component, `accessibility_test.dart` and `math_accessibility_test.dart` suites); `flutter analyze`
+no new issues.
 
 ## Task 8. Full checks and integration
 

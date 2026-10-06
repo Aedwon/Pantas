@@ -24,8 +24,11 @@ Fill W0's JSON fields: `SectionResult.wrong` and `blank` in `compute_results.dar
 Per-exam scoring rule: UPCAT right minus a quarter per wrong, blanks zero (D-193), others right over
 total; the score is computed from the stored counts, never stored as a rounded decimal; retired
 questions leave the total (G-e-13). Fix the percent defect (fraction in `mock_results_route.dart`,
-0 to 100 in `compute_results.dart`): one representation, 0 to 100, with a test. N5-2: the results
-decoder reads old rows with `wrong` and `blank` missing by recomputing them from `answersJson`.
+0 to 100 in `compute_results.dart`): one representation, 0 to 100, with a test. N5-2: the encoder is
+`submit_mock.dart` `_sectionResultsJson` (writes `wrong` and `blank`); the one decoder is the section
+parse in `mock_results_route.dart`, which recomputes null `wrong` and `blank` from `answersJson` for
+old rows. The metrics reader (`lib/features/metrics/signals/mock_payload_reader.dart`) is unchanged;
+a test shows it ignores the new keys.
 Questions avoid the student's last two finished mocks for the exam (pass their ids to the sampler,
 S0-28). Tests for each rule.
 
@@ -37,8 +40,8 @@ Settings, S0-38); short-paper line when the bank cannot fill a part (S0-29); "St
 with "The clock starts when you tap.". Blueprints: author `content/mock/cse_pro.yaml`,
 `cse_sub.yaml` and `acet.yaml` with W0's placeholder marker on CSE per-subject item counts and the
 ACET aptitude time (R-20), shown through W2 `PlaceholderFigure`; tell the content track first.
-These content files need the signed package rebuilt before release: the release package is rebuilt
-once after the last content change, before W5 (W0 Task 6 procedure, Aedwon's authorization).
+These content files need the signed package rebuilt before release: the release package is built once
+after the last content change, in W5 Task 1, before the other W5 checks (W0 Task 6 procedure, Aedwon's authorization).
 
 ## Task 4. The paper
 
@@ -67,7 +70,7 @@ and overlaps; if any part cannot be built as drawn, stop and ask); W2 `HalfRingG
 two-ball UPCAT variant; PERFORMANCE BREAKDOWN bars; VERSUS PAST RESULTS only with earlier mocks; See
 all questions (Pro, and Free until the next mock opens; then score and breakdown only with "Go
 through all N questions again with Pro."); after a Pro lapse the Free rule applies (Aedwon, Oct 6);
-no pill, confetti or comparison sentence; Done returns where results were opened. Remove the "Reopens
+no pill, confetti, comparison sentence or Strict badge (S0-27); Done returns where results were opened. Remove the "Reopens
 in 7 days." footer.
 
 ## Task 7. All questions after a mock
@@ -80,7 +83,8 @@ writing `blankReason`, save-flags offer on the Flagged tab only; flags never gat
 ## Task 8. Custom-track mock setup
 
 Boards CM_Setup, CM_Wheel, CM_Breakdown, CM_Ceiling; D-243; S0-39. Questions and Time open in place
-(W2 `ValueWheel`, no sheets); section breakdown; ceiling in red with Tick More Subjects; reopening a
+(W2 `ValueWheel`, no sheets); section breakdown; ceiling in red with Tick More Subjects; unset subject rows
+block Save with a line (G-e-20); reopening a
 saved setup shows its saved values; the track name replaces the exam name.
 
 ## Task 9. Delete and check

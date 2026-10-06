@@ -28,6 +28,8 @@ Traceability: L2 §1 fonts, icons; W1 contract Icons.
    files still name it; removed in W2 close-out).
 Test: `test/core/ui/theme/fonts_declared_test.dart` reads `pubspec.yaml` and asserts both families
 and weights are declared and files exist.
+Checks: `flutter pub get` exits 0; `flutter test test/core/ui/theme` green; `flutter analyze` no new
+issues.
 
 ## Task 2. Tokens: colors, type, shapes (light and dark)
 
@@ -49,6 +51,8 @@ mark all `@Deprecated('W1 adapter, removed in W2 close-out')`. Update `buildLigh
 and `test/helpers/pump_app.dart` to register both the new extensions and the adapters.
 Checks: new tests; `flutter test test/core/ui/theme test/helpers`; `flutter analyze` (deprecation
 infos from adapter use are expected and listed in evidence, no other new issue).
+Checks: `flutter test test/core/ui/theme` green; `flutter analyze` shows deprecation infos only for
+the adapters.
 
 ## Task 3. Motion primitives
 
@@ -56,6 +60,7 @@ Traceability: W1 contract Motion.
 Tests first: each `PantasCurves` constant equals its MOTION.md cubic; `steps(n)` produces n equal
 steps; each `PantasEffects` builder shows the last frame when `MediaQuery.disableAnimations` is true.
 Implement `lib/core/ui/motion/pantas_curves.dart`, `pantas_effects.dart`.
+Checks: `flutter test test/core/ui/motion` green.
 
 ## Task 4. Icons
 
@@ -64,16 +69,18 @@ Tests first: `PantasIcons` exposes exactly the 45 getters (reflection-free list 
 each own icon paints at 24 with 1.5 stroke and round ends (golden per icon, light and dark).
 Implement `lib/core/ui/icons/pantas_icons.dart` and `lib/core/ui/icons/own/` (nine painters drawn
 from IC_Final's SVG paths).
+Checks: `flutter test test/core/ui/icons` green (every one of the 45 names resolves).
 
 ## Task 5. Dates
 
-Traceability: W1 contract Dates; R-6 (approved format).
+Traceability: W1 contract Dates; R-19 (approved format).
 Tests first: `test/core/time/pantas_dates_test.dart`: `full`, `short` (this year and other years),
 `withWeekday`, `heading`, `monthOnly`, `weekRange` within a month, across months and across years,
 `relativeDay` (today, yesterday, older), `weekStart` is Sunday for every weekday input.
 Implement `lib/core/time/pantas_dates.dart` with `intl` (already a dependency), locale `en_US`.
 Existing hand-rolled formatters and Monday-based week math stay until their families replace them
 (W4 plans list them).
+Checks: `flutter test test/core/time/pantas_dates_test.dart` green.
 
 ## Task 6. Lesson and question text scale
 
@@ -83,6 +90,7 @@ Tests first: `lessonTextScaleProvider` defaults to 1.0, persists a value through
 `TextScaler` only inside its subtree.
 Implement `lib/core/ui/theme/lesson_text_scale.dart`. W4f's slider writes the provider; W4c and W4d
 wrap lesson and question bodies in `LessonTextScale`.
+Checks: `flutter test test/core/ui/theme/lesson_text_scale_test.dart` green.
 
 ## Task 7. Route files and shell
 

@@ -35,10 +35,11 @@ Tests first (`test/core/storage/domain/attempt_json_test.dart`, `test/features/m
 - Old JSON without the new fields decodes with them null.
 - `MockAnswer` gains nullable `missReason` (`MissReason { misread, slipped, unknown, other }`),
   `blankReason` (`BlankReason { ranOutOfTime, skippedToReturn, didNotKnow, other }`), `reasonNote`;
-  `SectionResult` gains `wrong` and `blank` (int, default 0 when absent). Old JSON decodes with
-  defaults (N5-2: W0's models default; W4e's decoder reads them).
+  `SectionResult` gains nullable `wrong` and `blank` (`int?`; null means an old row written before
+  the counts existed). N5-2: W0 declares only; W4e Task 2 owns the one decoder change.
 Implement in `lib/core/storage/domain/attempt.dart` and
-`lib/features/mock_exam/domain/mock_results.dart` (declarations and JSON only; W4e fills values).
+`lib/features/mock_exam/domain/mock_results.dart` (`mock_results.dart` has no JSON code: W0 adds the constructor fields only;
+`AttemptItem` is freezed, so its JSON is generated; W4e fills and encodes the mock values).
 Sync: `attempt_mapper.dart` and `mock_attempt_mapper.dart` copy the JSON columns raw (checked Oct 6),
 so no sync change; a test in `test/core/sync/` asserts a round-trip keeps the new fields.
 Checks: the new tests, `flutter test test/core test/features/mock_exam`, `flutter analyze`.
@@ -51,9 +52,9 @@ Decision for N3-7: columns, not a JSON blob, so queries and tests stay typed:
 new table `ContentExamSittings` (`examId`, `firstDay`, `lastDay`, `sourceUrl`, `ordering`).
 Reader API: `ExamCatalogRepository` in `lib/core/content/data/` with
 `Future<ExamCatalogEntry> entry(String examId)` and `Stream<List<ExamCatalogEntry>> watchAll()`;
-`ExamCatalogEntry { id, name, shortName, priceTier, group, comingSoon, sittings }`.
-Tests first: migration test 9 to 10 (existing rows get `comingSoon=false`, no sittings);
-repository returns entries and sittings ordered; an exam with no sittings returns an empty list.
+`ExamCatalogEntry { id, name, shortName, priceTier, group, comingSoon, publishedSittings }`.
+Tests first: migration test 9 to 10 (existing rows get `comingSoon=false`, no published sittings);
+repository returns entries and published sittings ordered; an exam with none returns an empty list.
 Implement: table changes, `schemaVersion => 10` with `onUpgrade` adding the columns and table in the
 same commit; export tool (`tools/build_content_export/build_content_export.dart`) writes the new
 fields from a new source file `content/exams/catalog.yaml`; the export also writes
@@ -61,9 +62,10 @@ fields from a new source file `content/exams/catalog.yaml`; the export also writ
 `content/exams/catalog.yaml`: the seven roster exams plus the nine Coming soon exams (PSHS-NCE,
 NAPOLCOM, AFPSAT, PMA, PNPA, PMMA, MAAP, LET, PNLE) with tier and group per pricing.md and
 DECISIONS D-29, D-225. Sittings: only dates Aedwon supplies with a source link (tier spec decision 1).
-Stop condition: no dates supplied yet: ship the file with empty `sittings` and record the gap; do
+Stop condition: no dates supplied yet: ship the file with empty `publishedSittings` and record the gap; do
 not infer a date. If O_Picker or ST_ExamPick shows an available exam missing from content: stop.
-Checks: new tests, `flutter test test/core/content test/tool`, export round-trip test green.
+Checks: `flutter test test/core/content test/tool` green, including the migration and export
+round-trip tests named above.
 
 ## Task 4. Mock blueprint placeholder marker
 
@@ -72,10 +74,24 @@ Tests first: the blueprint parser accepts a value written as `{ value: 40, place
 placeholderNote: "..." }` and exposes `isPlaceholder`; plain values parse as before.
 Implement in the blueprint parser (`lib/core/content/` mock blueprint model) and the export tool.
 W4e writes the CSE and ACET blueprints later.
-Checks: parser tests; existing `upcat.yaml` still parses.
+Checks: `flutter test test/core/content` green; `content/mock/upcat.yaml` still parses (existing test).
+
+## Task 4b. Figure credits in lesson blocks
+
+Traceability: D-132, D-137 (credit line under every image), gate L3-6.
+Tests first (`test/tool/lesson_asset_map_test.dart` or the export test): an image block whose
+asset has `creditKey` gets `asset.credit` with the matching `credit` text from
+`content/illustrations/sources/*.yaml` (`key` field); a missing key leaves `credit` absent and
+logs the lesson path. Implement in `tools/content/lesson_asset_map.dart` and
+`tools/build_content_export/build_content_export.dart`. This is a content export change: the
+release package rebuild in W5 Task 1 carries it.
+Checks: `flutter test test/tool` green; `dart run tools/build_content_export/build_content_export.dart`
+exits 0.
 
 ## Task 5. Full checks and baseline
 
+W0 changes no offline behavior; the offline posture (G-h-27: no connectivity banner, no blocking
+spinner on local data, last entitlement snapshot kept) stays a rule every family keeps.
 Run all required checks (SUBAGENTS Part 5) and `node --test` in `functions/`; paste outputs into
 `docs/superpowers/plans/new-design/evidence/W0.md` with the commit SHA. Expect analyze to show only
 the known `onReorder` info.
@@ -87,7 +103,13 @@ Precondition: Aedwon's explicit permission in chat to use the signing seed (requ
 start of level 4). Follow `docs/content-key-access.md` exactly (scoped shell, EXIT trap, no
 printing). Build with `tools/build_content_package` at the next release sequence; verify with
 `tools/verify_content_package` (exit 0). Record hashes, not keys. Without permission: skip and
-record; W1 and W3 may start on Task 5's baseline.
+record; W1 and W3 may start on Task 5's baseline. This build is optional (gate L3-16): it only gives
+Aedwon a device build with the merged QA content before W5. The release package is built once, in
+W5 Task 1, after the last content change.
+Later exam dates (P3, gate L3-17): when Aedwon supplies dates with sources, the lead edits
+`content/exams/catalog.yaml`, reruns the export (which rewrites `functions/src/examCatalog.json`),
+runs `flutter test test/core/content test/tool` and `npm test` in `functions/`, and commits on the
+integration branch. Any such change lands before W5 Task 1.
 
 ## Review and integration
 

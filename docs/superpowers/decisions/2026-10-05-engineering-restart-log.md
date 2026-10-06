@@ -592,3 +592,35 @@ From the level 3 code inventory (Sonnet gathering, lead review). Changes go up f
 - L2 W3: Season Passes are one-time consumable products, as the tier spec says.
 - W4a gets a recorded cross-family permission to change `updateExamDate` (allow today, D-34) in the
   settings repository, before W4f runs.
+
+## October 6, 2026: level 3 gate review 1 and fixes
+
+Gate review 1 (`plans/new-design/gates/l3-gate-review-1.md`, independent Opus reviewer): not passed,
+1 blocker, 11 should-fix, 9 notes. The lead fixed every item:
+- L3-1: W3's router edits land after W1 integrates; L2 W1 §9 and the parallel map amended.
+- L3-2: mock `SectionResult.wrong` and `blank` are nullable (null means an old row); W4e's section
+  parse in `mock_results_route.dart` is the one decoder; the metrics reader is unchanged.
+- L3-3: the catalog field keeps the L2 name `publishedSittings`.
+- L3-4: the S0-43b assessment refresh moves from W4d to W4a Task 10 (L2 W4a and W4d amended).
+- L3-5: W4b Task 1 also moves `record_provider`, `how_you_work_provider` and `miss_causes_provider`.
+- L3-6: new W0 Task 4b writes figure credits into lesson image blocks; W4c reads `asset.credit`.
+- L3-7: cross-family edits recorded in L2 §8 of W0, W3, W4d, W4g, W4h and W5.
+- L3-8: concrete check commands added to W0, W1, W2, W3, W4g and W4h tasks.
+- L3-9, L3-19: traceability rows corrected (boards cited to delete tasks, W4c decision ranges,
+  D-5, D-195, D-233; D-229 marked deferred).
+- L3-10: G-a-19 moves to W4a Tasks 1 and 5; R-28 stated in W4a Task 8 and W4f Task 4.
+- L3-11: G-g-21 corrected: no Wrapped analytics events exist and none are added (L2 W0, W4g).
+- L3-12 to L3-14: parallel map rows added or corrected; W4b and W4f run their tracks in one slot;
+  W2 starting before W3 finishes differs from strategy B6 and is recorded here as harmless.
+- L3-15, L3-21: citations and row constraints added to the tasks.
+- L3-16, L3-17: W0 Task 6 is optional (a device build with the merged QA content); the release
+  package is built once in W5 Task 1. Exam dates arriving later are a lead edit to the catalog with
+  a re-export, before W5 Task 1.
+- L3-18: the week-strip tap is wired in W4b Task 7 with its route.
+- L3-20: `paywall_recommendation.dart` deleted by W4f Task 7; `app_error_view.dart` by W4h only;
+  W3 Task 8 states how each `proIsActive` getter changes. N-19 settled: `WITH_TIME_PRORATION` for
+  every Student to Civil Service pair (Play Billing docs, Oct 6), since `CHARGE_PRORATED_PRICE`
+  fails pairs whose price per day falls.
+
+Process slip: commit b43d93a6 on main carries an AI attribution trailer, which WORKFLOW forbids.
+Removing it needs a force-push to main, which only Aedwon can approve; asked at the level 4 stop.

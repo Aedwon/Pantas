@@ -76,7 +76,7 @@ remains Aedwon's.
 ## 8. Files and directories
 
 `integration_test/release/`, `test_driver/` if needed, `docs/superpowers/plans/new-design/release-evidence/`,
-iOS project settings only as the iPhone check requires (any change is a reported finding first).
+iOS project settings only as the iPhone check requires (any change is a reported finding first). Amended Oct 6 (level 3 gate review 1) (L3-7): `lib/app/firebase_bootstrap.dart` (iOS options per the September iOS design) and the generated iOS Firebase options files.
 
 ## 9. Order and parallelism
 

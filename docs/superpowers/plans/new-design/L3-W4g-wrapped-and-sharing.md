@@ -40,7 +40,7 @@ text-only public-link note (globe icon removed), offline note, button wait "Crea
 ## Task 4. Shared links
 
 Boards WR_Links, WR_LinkRemove, WR_LinksEmpty; D-247. `SharedLinksRow` in W4f's About slot with the
-count; route `/settings/about/shared-links`; rows with date and link, Remove with confirm
+count; route `/settings/about/shared-links` in `wrapped_routes.dart` (W4g's own file); rows with date and link, Remove with confirm
 (`FirebaseWrappedShareHost.revoke`), empty state, load and remove failures per W4h.
 
 ## Task 5. History
@@ -55,6 +55,8 @@ kept; one list across exams with each exam named; no "turned strong" row.
 `functions/src/renderWrappedPage.ts`: default Play link to `com.aedwon.pantas` (the Android
 application id), keep the `PANTAS_PLAY_URL` override. Page copy unchanged (Aedwon owns website
 copy). Deploy only with Aedwon's approval.
+Test first: a functions test that the page's default Play link names `com.aedwon.pantas` and
+`PANTAS_PLAY_URL` overrides it. Checks: `npm test` in `functions/` green.
 
 ## Task 7. Delete and check
 

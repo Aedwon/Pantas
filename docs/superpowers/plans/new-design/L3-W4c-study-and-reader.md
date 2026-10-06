@@ -2,7 +2,7 @@
 
 Level 3. Date: October 6, 2026. Author: lead. Policy revision: origin/main 1958c0f1.
 Level 2 plan: `L2-W4c-study-and-reader.md`. Base: integration branch after W2 and W4h's pattern
-task. Executor: Sonnet worker, own worktree. Landing order: W4b Task 3 (`LessonDayContext`) before
+task. Executor: Sonnet worker, own worktree. Landing order: W0 Task 4b (figure credits) is in the base; W4b Task 3 (`LessonDayContext`) before
 Task 5; W4d Task 1 (`startLessonQuiz`, `startQuickQuiz`) before Task 7. Closes N5-1 (drag handle).
 
 All code is in `lib/features/lesson/` (only `router.dart` imports it). Before each screen task:
@@ -34,16 +34,17 @@ Boards ST_Loading, ST_Error, ST_NoLessons, ST_NoExam, RD_Error, RD_ImageFail; D-
 
 ## Task 4. Reader body and figures
 
-Boards RD_Real, RD_Resume, RD_RealScroll, RD_Figure; D-127 to D-139. `ContentRenderer` (W2) with
+Boards RD_Real, RD_Resume, RD_RealScroll, RD_Figure; D-127, D-131, D-132, D-137, D-139. `ContentRenderer` (W2) with
 Geist text and Source Serif 4 math; figures framed with expand, full screen on black with pinch zoom
-and X, credit line from `content/illustrations/sources/*.yaml` (load the credit by figure id; the
-corpus description becomes the screen-reader text); code-drawn figures and tables in the same frame
+and X, credit line from the image block's `asset.credit` (W0 Task 4b writes it from
+`content/illustrations/sources/*.yaml`; no credit means no line; the corpus description becomes
+the screen-reader text); code-drawn figures and tables in the same frame
 (S0-41); a described figure with no image is skipped silently. Subject and topic eyebrow above the
 title.
 
 ## Task 5. Reader bar, strip, progress line, contents
 
-Boards RD_Contents, RD_Plan, BM_MarkTeal. `ReaderOrigin` becomes `{ study, home, bookmarks, search,
+Boards RD_Contents, RD_Plan, BM_MarkTeal; D-128 to D-130, D-146. `ReaderOrigin` becomes `{ study, home, bookmarks, search,
 plan, performance }`; back label names the screen it returns to (G-c-13); Home and plan pass W4b's
 `LessonDayContext` (as GoRouter `extra`, with `from=home` kept for deep links). From Home: day
 counter "2 of N" opens today's lessons in the contents sheet and the progress line spans the day
@@ -52,7 +53,7 @@ W2 `PantasSheet`.
 
 ## Task 6. End of lesson, pull, endings
 
-Boards RD_End, RD_TopicDone, RD_TopicShort, RD_DayDone, RD_DayEnd. Read on reaching the end after
+Boards RD_End, RD_TopicDone, RD_TopicShort, RD_DayDone, RD_DayEnd; D-133 to D-135, D-138. Read on reaching the end after
 15 s (exists); "Quiz yourself, 5 questions" button; pull with the filling circle ("Pull up for X",
 "Let go for X"), tappable circle for screen readers; next lesson is the next in topic order, read or
 not (D-143: corpus order until authored order exists); last topic of the exam shows its plate with no

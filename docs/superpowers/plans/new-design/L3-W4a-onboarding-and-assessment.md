@@ -31,6 +31,9 @@ the test. Tests first: resume from each partial state; completion only after rem
 `onboardingStepReached` logs once per step (not per rebuild).
 Router: no change here. The gate already reads `onboardingCompleteProvider`, and W1 removes the
 rationale step from it; the resume point lives inside `OnboardingPage`.
+System back equals the Back link on every step and on the picker in both modes; on the first step
+it leaves the app (G-a-19, moved from W1, gate L3-10). Test: system back on each step goes to the
+previous step; on Welcome it pops the route.
 
 ## Task 2. Launch and Welcome
 
@@ -45,7 +48,7 @@ terms last enables Continue; legal pages open and return with boxes kept, G-a-17
 ## Task 4. Exam date
 
 Boards O_DateKnown, O_DateChange, O_DateToday; rules D-30 to D-40 with W2 `MonthFirstDatePicker`.
-Known-date card from W0 catalog `sittings` (skipped when none, when passed, and for custom tracks,
+Known-date card from W0 catalog `publishedSittings` (skipped when none, when passed, and for custom tracks,
 G-a-6). Multi-day exams ask the first day. Exam today allowed: change `updateExamDate`'s earliest
 date from tomorrow to today (cross-family permission above) with its test. Under a week: the calm
 line. Coming back restores year, month and day.
@@ -73,7 +76,8 @@ words capitalized).
 ## Task 8. Reminders step
 
 Boards O_Notify_v2 (copy without "Nothing else."). Daily time pill 7:00 PM and optional Follow up
-9:00 PM via W2 `ValueWheel` in `PantasSheet` (D-42); writes W4f's `ReminderPrefs`; Sounds Good asks
+9:00 PM via W2 `ValueWheel` in `PantasSheet` (D-42); writes W4f's `ReminderPrefs`; The Follow up wheel offers only times after
+the daily time (R-28), with a test. Sounds Good asks
 the system permission (Android dialog; iOS prompt at the same point); Not Right Now saves both off
 and asks nothing (G-a-13, G-a-14); marks reminders shown; completes onboarding; goes to Home.
 Reuses the permission logic from `permission_rationale_page.dart` (W4f deletes that page).
@@ -91,6 +95,9 @@ Home, not a retake. Not-ready state per W4h pattern.
 Board AS_Results: "Where you're starting", half ring (`HalfRingGauge`), subjects weakest first,
 "YOUR PLAN STARTS WITH" the weakest topic, Go to Today. Shown once: after Go to Today the results
 route redirects to Home.
+S0-43b (moved from W4d, gate L3-4): cherry-pick the 5-line Today refresh after a custom assessment
+from `web/beta-salvage-assessment-cache-r1` (`assessment_page.dart`) into the rebuilt completion
+path, with a test that Today shows the new plan after a custom assessment.
 
 ## Task 11. Delete and check
 

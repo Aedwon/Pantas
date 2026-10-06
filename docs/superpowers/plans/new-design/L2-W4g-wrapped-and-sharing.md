@@ -50,7 +50,7 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
 - The old globe icon on the share note and the reveal bar's bookmark icon are removed: the share note
   is text only (WR_Share) and the reveal bar holds Share and Done (WR_Mock, WR_Streak, WR_Exam)
   (G-h-28).
-- Consent-gated analytics events `wrapped_revealed` and `wrapped_shared` are kept (G-g-21).
+- No `wrapped_revealed` or `wrapped_shared` analytics events exist; none are added (G-g-21; adding them is Aedwon's decision).
 - After Pro lapses: saved Wrappeds are kept and renewing restores (Aedwon, Oct 6, gate F-18); the
   history row shows the Pro tag after a lapse (lead default).
 - The public pantas.app page is website copy, which Aedwon writes; it is kept as built and listed for
@@ -88,7 +88,7 @@ and build from the tap, start to last change; reduce motion shows the last frame
 
 ## 8. Files and directories
 
-`lib/features/wrapped/`, `lib/app/routes/wrapped_routes.dart`, tests.
+`lib/features/wrapped/`, `lib/app/routes/wrapped_routes.dart`, tests. Amended Oct 6 (level 3 gate review 1) (L3-7): one-line trigger calls in W4e's mock submit path and the streak update (after those families land), and `functions/src/renderWrappedPage.ts` (Play link default).
 
 ## 9. Order and parallelism
 

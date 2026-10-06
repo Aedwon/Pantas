@@ -5,6 +5,11 @@ Level 2 plan: `L2-W3-payments-and-identity.md`; tier spec (approved Oct 6). Base
 after W0 integrates (needs the exam catalog). Executor and reviewer: Opus (B7: payments,
 entitlement). Own worktree. Closes carry-forward N3-8, N-19, N-23.
 
+Router edits (gate L3-1): Tasks 3 and 8 change `lib/app/router.dart` (`_settingsEntitlement`, the
+`proIsActive` reads). W1 Task 7 splits that file in parallel, so W3 makes those edits last: after W1
+integrates, rebase onto the integration branch, edit the file W1 left (`router.dart` or the route
+file the entry moved to), then run `flutter test test/app` (green). Until then, Tasks 3 and 8 change
+only paywall files and their tests.
 Prerequisites Aedwon provides before the named tasks run (requested with the start of level 4):
 - P1 RevenueCat secret API key stored as a Functions secret `REVENUECAT_SECRET_API_KEY` (Task 2).
 - P2 Play Console and RevenueCat: the four Civil Service products, trial moved to Monthly with "new
@@ -29,6 +34,8 @@ is removed. Checks: `npm test` in `functions/` green.
 
 ## Task 2. Cancellation keeps Pro until expiry
 
+Traceability: R-4.
+
 1. Reproduce: write failing tests for "Pro stays after CANCELLATION until expiry" at each layer:
    webhook policy (`revenuecatPolicy.ts`), client gateway (`live_revenuecat_gateway.dart`
    `_acceptCustomerInfo`, `entitlementFromCustomerInfo`), snapshot store, and the claim reader
@@ -40,9 +47,12 @@ is removed. Checks: `npm test` in `functions/` green.
    so RevenueCat retries; count the rate limit once per event id, not per retry.
 Files: `functions/src/revenuecatPolicy.ts`, `revenuecatClaims.ts`, `revenuecatWebhook.ts`, new
 `functions/src/revenuecatSubscriber.ts`, the client files where the root cause is.
-Checks: functions tests for every event type and the failure path; Dart gateway tests.
+Tests: functions tests for every event type and the failure path; Dart gateway tests.
+Checks: `npm test` in `functions/` green (Task 1's runner, so `.ts` and rules tests run); `flutter test test/features/paywall` green.
 
 ## Task 3. Entitlement model
+
+Traceability: S0-35, G-f-12 to G-f-16, G-f-31 (logic; W4f Task 6 draws them).
 
 Extend `Entitlement` (`lib/features/paywall/domain/entitlement.dart`) with `tier`, `passes`
 (exam id to end date), `state` (`free`, `trial`, `active`, `canceledActive`, `billingIssue`,
@@ -54,6 +64,7 @@ Handle every exhaustive `switch` on `EntitlementPlan` (router `_settingsEntitlem
 `subscription_panel.dart`, `entitlement_snapshot_store.dart`, `live_revenuecat_gateway.dart`).
 Tests first: `coversExam` for tier inclusion (Civil Service covers Student exams), pass scope (one
 exam), expired pass, grant, unknown plan; `mockLimit`; snapshot round trip and old-snapshot read.
+Checks: `flutter test test/features/paywall` green.
 
 ## Task 4. Tiers and products
 
@@ -65,6 +76,7 @@ Remove hard-coded prices and the Yearly-trial assumption from `paywall_recommend
 recommendation itself is retired, S0-24; delete the file when W4f stops importing it).
 Tests first: every product id maps; unknown id stays `unknown`; no `₱` literal remains in
 `lib/features/paywall/domain` or `data` (test greps).
+Checks: `flutter test test/features/paywall` green.
 
 ## Task 5. Season Pass end dates
 
@@ -76,6 +88,7 @@ it; tier spec decision 1). N3-8: a later catalog date reaches passes through a n
 functions deploy (P4) and `recomputePassEnds`, an admin-only function that recomputes affected
 passes, never moving an end earlier (D-227). Tests: purchase records the pass; moved-later date
 recomputes; moved-earlier keeps the original; no sitting gives null and an audit entry.
+Checks: `npm test` in `functions/` green (Task 1's runner, so `.ts` and rules tests run).
 
 ## Task 6. Switching rule
 
@@ -83,35 +96,49 @@ recomputes; moved-earlier keeps the original; no sitting gives null and an audit
 `keepsPro`, `upgradeOffer(plans)` (no trial, with Switch on Free), `passWarning`, `free`.
 Tests first: one case per switching board (ST_SwitchUpgrade, ST_SwitchPassWarn, same tier, lower
 tier, Free student).
+Checks: `flutter test test/features/paywall` green.
 
 ## Task 7. Purchase operations and trial eligibility
 
 Map `PaymentOperationStatus` (11 values) to the six typed results (`success`, `pending`,
 `offline`, `cancelled`, `storeError`, `notConfirmedYet`); add `pending` from the SDK's pending
-purchase state; nothing can be bought twice while pending. Upgrade uses the replacement mode that
-credits the unused part (N-19: check current Play Billing docs for each Student to CS pair and
-record the chosen mode in the task's evidence). `manage()` opens Play's subscription page.
+purchase state; nothing can be bought twice while pending. Upgrade uses `WITH_TIME_PRORATION` for every Student to Civil Service pair
+(N-19, settled Oct 6 from developer.android.com/google/play/billing/subscriptions: it applies to
+upgrades and downgrades and credits the remaining time by moving the next billing date;
+`CHARGE_PRORATED_PRICE` works only where the price per unit of time rises, which fails for pairs
+such as Student Weekly ₱29 to Civil Service Yearly ₱1,199). If the ST_SwitchUpgrade copy promises
+an immediate charge of the difference, stop and ask the lead. `manage()` opens Play's subscription page.
 Trial shown only when RevenueCat reports the Monthly intro offer eligible.
 Tests: mapping table; pending blocks a second purchase; eligibility display.
+Checks: `flutter test test/features/paywall` green.
 
 ## Task 8. Active exam in every Pro gate (N-23)
 
-Make `entitlementProvider` consumers see `coversExam(activeExam)`: add `proForActiveExamProvider`
+Make `entitlementProvider` consumers see `coversExam(activeExam)`. The two `proIsActive` getters:
+`Entitlement.proIsActive` (`entitlement.dart:48`) stays the any-plan flag for Settings rows and is
+no longer read by gates; `RevenueCatCustomerInfoSnapshot.proIsActive` (`revenuecat_sdk.dart:48`)
+stays data-layer only. Gates read the new provider: add `proForActiveExamProvider`
 (combines `entitlementProvider` and `activeExamFocusProvider`) and make both `proIsActive` getters'
 call paths read it; `MockEntitlementSnapshot` and `RoadmapInputs` take their flag from it.
 Keep the debug `FAKE_PRO` and `devProOverrideProvider` behavior (guarded by
 `test/tool/paywall_release_guard_test.dart`). Tests: switching the active exam from a Student exam
 to CSE with Student Pro turns the gate off; with CS Pro both stay on.
+Checks: `flutter test test/features/paywall` green; `flutter test test/features/mock_exam test/features/roadmap test/tool/paywall_release_guard_test.dart` green.
 
 ## Task 9. Trial-ending trigger
+
+Traceability: S0-25, G-f-22.
 
 Replace `trial_reminder_scheduler.dart` (no callers) with
 `lib/features/paywall/application/trial_ending_notifier.dart`: interface `TrialEndingNotifier`
 (`schedule(DateTime chargeAt, String priceText)`, `cancel()`), a no-op binding, and
 `TrialEndingScheduler.sync(entitlement)` calling it 24 hours before `chargesAt`, cancelling on
 cancel or conversion. Update the paywall barrel. Tests: schedule, reschedule on date change, cancel.
+Checks: `flutter test test/features/paywall` green.
 
 ## Task 10. Short public ID
+
+Traceability: R-5 (UI is W4f Task 8).
 
 Functions: `functions/src/publicId.ts` (`ensurePublicId`, called from `recordSignInEvent` on first
 Google sign-in; random 9 digits with a check digit, not derived from the uid; transaction for
@@ -127,6 +154,7 @@ Aedwon's approval before they go into `lib/features/legal/domain/legal_document.
 Tests: rules (owner read, no client write, mapping denied), concurrent creation uniqueness, check
 digit vectors, anonymous gets none, deletion retires, export contains it.
 Deploy (P4) after review.
+Checks: `npm test` in `functions/` green (Task 1's runner, so `.ts` and rules tests run); `flutter test test/core/auth` green.
 
 ## Task 11. Full checks, review, integration
 

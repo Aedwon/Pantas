@@ -48,7 +48,8 @@ question (Aedwon's approved default, D-166) and switches to the student's measur
 
 ## Task 4. Question screens
 
-Boards QV_Answer, QV_Last, QV_Flag, QV_Grid, QV_GridBack, QV_Leave, QV_Long, QV_Figure; D-169 to
+Boards QV_Answer, QV_Last, QV_Flag, QV_Grid, QV_GridBack, QV_Leave, QV_Long, QV_Figure, QV_MissPro, QV_MissFree, QV_GridMock (the
+shared W2 sheet in mock mode, used by W4e Task 4; checked here); D-169 to
 D-182. Pick then Check (split `QuizController.answer` into `pick` and `check`), colors not words,
 explanation fades in, bar right or wrong color, Next and Finish; Flag in the bar, first-time toast
 "Flagged. Find it in the Quiz tab." with Undo, and a short "Flag removed" toast (G-d-10); questions
@@ -64,9 +65,7 @@ See all questions, Pro invitation and Finish the Notes, Start Session 2 or Done;
 the session started (QV_Sources). Delete miss cause lines, return promise and the spaced-repetition
 note (S0-14, S0-15). Store rating prompt after a session with 80% or more right (existing
 `ReviewPromptController.maybeAsk`), with the 24-hour cool-off now recorded when the Settings Pro page
-opens (`recordPaywallSeen` called from W4f's Pro page; W4f is told). Cherry-pick the 5-line Today
-refresh after a custom assessment from `web/beta-salvage-assessment-cache-r1` (S0-43b) into the
-assessment completion path, with a test.
+opens (`recordPaywallSeen` called from W4f's Pro page; W4f is told).
 
 ## Task 6. Viewer and notes
 

@@ -35,7 +35,7 @@ Contracts consumed: W0 baseline only.
 README "Tokens", "Rules"; MOTION.md; DECISIONS "Navigation", "Icons", "Dates", "Dark mode on the
 main screens", Settings dark rules; boards IC_Final, DK_Home, DK_Quiz, DK_Study, DK_Reader, DK_Miss,
 DK_MockEnd, ST_DarkRoot, ST_DarkPractice, ST_Appearance; restart log decisions on dates and naming;
-traceability rows S0-3 (no lock icon), S0-42, G-a-19, G-b-18, G-d-15, G-h-1, G-h-2, G-h-3, G-h-6.
+traceability rows S0-3 (no lock icon), S0-42, G-b-18, G-d-15, G-h-1, G-h-2, G-h-3, G-h-6.
 
 ## 3. Contracts owned
 
@@ -103,4 +103,4 @@ the per-family route files, then each family owns its file), `lib/features/shell
 
 ## 9. Order and parallelism
 
-After W0. Runs in parallel with W3 (no shared files). W2 starts after W1.
+After W0. Runs in parallel with W3. One shared file: `lib/app/router.dart`; W3's router edits land after W1 integrates (Amended Oct 6 (level 3 gate review 1), L3-1). W2 starts after W1.
