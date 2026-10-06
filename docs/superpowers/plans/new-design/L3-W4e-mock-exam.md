@@ -31,7 +31,7 @@ S0-28). Tests for each rule.
 
 ## Task 3. Setup
 
-Boards MK_Setup, MK_SetupStrict, MK_SetupDCAT, MK_SetupCSE; D-186, D-198. Table with total row, how
+Boards MK_Setup, MK_SetupStrict, MK_SetupDCAT, MK_SetupCSE, L_MockStart (setting out the paper); D-186, D-198. Table with total row, how
 it runs, what is left out; strict switch on this screen applies to this mock only (default from
 Settings, S0-38); short-paper line when the bank cannot fill a part (S0-29); "Start the Mock Exam"
 with "The clock starts when you tap.". Blueprints: author `content/mock/cse_pro.yaml`,

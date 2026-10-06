@@ -31,7 +31,7 @@ day opens `/plan/day/:date`. Exam chip states per the boards. Greeting bands kep
 ### Task 3. Today checklist and its sheets
 
 Boards HP_Day, HE_ManyLessons, HE_Resume, HE_CarryOver, HE_MockDay, HE_MockMoved, HE_MockDropped,
-HE_BackAfterBreak, HE_LongTitle; D-48 to D-62. From `roadmapTodayProvider`: lesson rows, Reviews,
+HE_BackAfterBreak, HE_LongTitle, HE_AdvanceAgain, HE_Everything; D-48 to D-62. From `roadmapTodayProvider`: lesson rows, Reviews,
 New questions, mock row; 4+ lessons collapse to Up next plus a Lessons row; every row opens its
 sheet (W2 `PantasSheet`) that starts that item; Continue Lesson; "View full plan". Advance via
 `RoadmapController.canAdvance` and `advance` with "From tomorrow" and repeat (D-50). Lesson rows open
@@ -42,7 +42,7 @@ before W4c's reader-from-Home task). Replaces `up_next_panel.dart`, `up_next_pro
 ### Task 4. Notices and states
 
 Boards HP_NoDate, HP_MonthOnly, HP_Trial, HP_ProWelcome, HP_Service, HE_BeforeAssessment,
-HP_NoContent, HE_NothingDue, HE_NothingDueReview, HE_DayOff, HE_ReviewWeek, HE_LastDay.
+HP_NoContent, HE_NothingDue, HE_NothingDueReview, HE_DayOff, HE_ReviewWeek, HE_LastDay, L_PlanSlow (loading, only if slow).
 `homeNoticeProvider`: one notice at a time, order service message, trial ending, welcome to Pro, no
 date, month only; dismissal stored in app preferences (`home_notice_dismissed_<kind>`; for the
 service message, the dismissed text, so a new text shows again, G-h-25). Trial copy with the
@@ -53,7 +53,7 @@ fallback (S0-32); before the assessment no quick quiz. Date picker from Home use
 ### Task 5. Your performance on Home and the performance screen
 
 Boards HP_Pro (section), DT_TopicsA, DT_TopicsView, DT_LessonsView, DT_SortFlow, DT_FilterFlow,
-DT_SubjectTap, DT_SubjectTapFree, DT_Free, DT_Topic, DT_Error. Routes `/performance`,
+DT_SubjectTap, DT_SubjectTapFree, DT_Free, DT_Topic, DT_Error, L_ProgressSlow (loading, only if slow). Routes `/performance`,
 `/performance/topic/:topicId`. Rules: overall accuracy counts every finished session (D-15, check
 each query's origin filter); no answers means hidden (D-110); bars per D-111; sort cycle; subject
 picker; Free card (D-105); a topic page with Practice This Topic. Remember table order reads
@@ -83,7 +83,7 @@ Sunday-first week math in `week_preview.dart` and the roadmap planning window (d
 
 ### Task 8. Your record
 
-Boards YR_Full, YR_RestDay, YR_FirstWeek. Route `/record`. Totals, streak with flame (not on Home),
+Boards YR_Full, YR_RestDay, YR_FirstWeek; YR_Wrapped and YR_WrappedFree show the slot's row (built by W4g Task 5). Route `/record`. Totals, streak with flame (not on Home),
 accuracy line with the two-week placeholder, Your mocks (from W4e's mock history data), the
 extension slot after Your mocks for W4g's `WrappedRecordRow` (lands before W4g's history task).
 `record_provider.dart` weekly buckets move to Sunday start. Error per W4h pattern.

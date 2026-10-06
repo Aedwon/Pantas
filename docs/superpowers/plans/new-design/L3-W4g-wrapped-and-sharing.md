@@ -58,6 +58,9 @@ copy). Deploy only with Aedwon's approval.
 
 ## Task 7. Delete and check
 
+Keep the existing account-deletion purge of hosted Wrapped links and images (`deleteAccount.ts`,
+G-g-20) with its test green; no analytics events are added (G-g-21).
+
 Delete the old reveal page layout, share privacy sheet and `my_shared_cards_page.dart` once
 replaced; update `test/tool/wrapped_boundary_test.dart` for the deleted notification router. All
 required checks plus `npm test` in `functions/`; evidence `evidence/W4g.md`; independent review;

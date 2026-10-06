@@ -58,8 +58,8 @@ length setting with "Session 1 of 2" lines; wording "Session".
 
 ## Task 5. End of session
 
-Boards QV_EndPro, QV_EndFree, QV_EndLowB, QV_EndPerfectB, QV_EndLastToday, QV_All, QV_Sources;
-D-178. Half ring fill with popping circles, "in N minutes", YOUR MISTAKES (first three then See all),
+Boards QV_EndPro, QV_EndFree, QV_EndLowB, QV_EndPerfectB, QV_EndLastToday, QV_All, QV_Sources,
+L_DebriefSlow (loading, only if slow); D-178. Half ring fill with popping circles, "in N minutes", YOUR MISTAKES (first three then See all),
 See all questions, Pro invitation and Finish the Notes, Start Session 2 or Done; Done returns where
 the session started (QV_Sources). Delete miss cause lines, return promise and the spaced-repetition
 note (S0-14, S0-15). Store rating prompt after a session with 80% or more right (existing

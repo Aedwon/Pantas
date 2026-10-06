@@ -28,10 +28,7 @@ Nothing.
 
 ## Next step
 
-Fill the traceability "Level 3 task" column: 545 of 757 workstream rows map automatically
-(script `l3map.py` in the session scratchpad: exact ID or board in a task, decision ranges, board
-wildcards); the remaining 212 (R-, A-, S0-, G- rows and a few boards) need a task each, by reading
-the row and its L3 plan. Then the level 3 gate review (B5) by an independent Opus reviewer, then
+The traceability "Level 3 task" column is filled for all 757 workstream rows (Oct 6). Then the level 3 gate review (B5) by an independent Opus reviewer, then
 stop before level 4 and notify Aedwon with the level 4 start requests (signing authorization, store
 setup, RevenueCat secret key, exam dates, iOS purchase scope, privacy text).
 
