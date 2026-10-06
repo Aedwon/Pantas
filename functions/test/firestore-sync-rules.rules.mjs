@@ -35,7 +35,17 @@ before(async () => {
 });
 
 beforeEach(async () => {
-  await testEnv.clearFirestore();
+  // Other emulator suites use the same demo project. Reset only this suite's fixtures.
+  const adminDb = getFirestore();
+  await Promise.all(['pro', 'free', 'new-sign-in', 'new-time', 'new-publicId',
+    'new-tier', 'audit-limit-student', 'limits-test', 'other-account'].map(
+    (uid) => adminDb.recursiveDelete(adminDb.doc(`users/${uid}`)),
+  ));
+  const ownAudits = await adminDb.collection('audit_logs').where('uid', 'in',
+    ['demo-admin-guard', 'audit-limit-student', 'new-sign-in']).get();
+  const auditReset = adminDb.batch();
+  for (const log of ownAudits.docs) auditReset.delete(log.ref);
+  await auditReset.commit();
 
   await testEnv.withSecurityRulesDisabled(async (context) => {
     const db = context.firestore();
