@@ -928,3 +928,15 @@ Aedwon: "if you use astra it's okay for you to ask me about limits so that you h
 better estimate, and you can judge if there's enough usage for an astra run". The lead asks for a
 reading before and after each Astra run, starts one only when the reading leaves room, and does not
 ask around Sol runs.
+
+## October 7, 2026: W1 and W6 lead rulings
+
+W1 stopped at Task 2: QV_Answer's disabled Check text is `#B8B8BD`; the README token for disabled
+text is `#AEAEB2`. Ruling: the README token everywhere (one token for one meaning; the difference is
+slight). Aedwon may overrule. W6 stopped at Task 3: the sync spec states no cap on staging
+generations. Ruling: at most one new staging generation per account every 5 minutes, enforced in
+the Firestore rules through a limits document written in the same batch, because clients create
+staging generations directly; stale ones are already cleaned daily. Plans L3 W1 Task 2 and L3 W6
+Task 3 amended. W1 Task 1 (d880d6bc) and W6 Tasks 1 and 2 (a8aef406, 10a713f2) are done. W6 found
+16 npm dependency vulnerabilities, for the lead's review at W6 acceptance. Node was also upgraded
+(26.10.0) because the Node 22 install had updated a shared library Codex needs.

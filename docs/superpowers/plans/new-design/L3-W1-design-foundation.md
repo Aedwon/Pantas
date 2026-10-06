@@ -41,6 +41,10 @@ F-23: before fixing `pageTitle`, `caption` and `floatingRadius`, run `timeline.p
 the boards that use them (HP_Free title, ST_Root title, a caption on QV_Answer, the tab bar and
 floating bar on HP_Free and QV_Answer) and set the value each board uses; if boards differ, add the
 second value as a named style (`pageTitleCompact`, `captionSmall`, `floatingRadiusLarge`).
+Lead ruling, Oct 7 (W1 stop at 0512dffc): QV_Answer's disabled Check text `#B8B8BD` differs from the
+README "Tertiary / disabled text" token `#AEAEB2`; disabled text uses the README token everywhere,
+no board-specific token. The board's disabled control fill `#EDEDF0` is used as drawn if a README
+token has that value; if none does, stop.
 Implement `lib/core/ui/theme/pantas_colors.dart`, `pantas_type.dart`, `pantas_shape.dart`;
 `context.colors` returns `PantasColors`; `context.type` returns `PantasType`. Adapters: old
 `AppColors` fields map ink→label, inkMuted→secondaryLabel, rule→separator, ruleFaint→fill,

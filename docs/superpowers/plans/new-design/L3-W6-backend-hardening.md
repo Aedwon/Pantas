@@ -61,10 +61,15 @@ Checks: `npm test` in `functions/` green.
 Traceability: X-12.
 New `functions/src/_limits.ts` with `allowAtMost(uid, key, max, windowMs)` (a transaction on
 `users/{uid}/limits/{key}`). Apply: `recordSignInEvent` writes its audit entry at most once per hour
-(the rest of the function always runs); `activateSyncGeneration` caps staging generations per
-account at the number the sync design allows (read it from
-`docs/superpowers/specs/2026-05-16-user-data-sync-coordinator-design.md`; if it states none, stop
-and ask the lead). `firestore.rules`: sync rows accept only their schema fields (list them from
+(the rest of the function always runs); staging generations are limited per account (lead ruling, Oct 7: the
+sync spec states no cap, and the client creates staging generations directly through the rules, so
+the limit lives in the rules, not in `activateSyncGeneration`): at most one new staging generation
+per account every 5 minutes. The client's `stageGeneration` batch also sets
+`users/{uid}/limits/syncGeneration` to `{lastStagedAt: request.time}`; the `sync_generations` create
+rule requires that write in the same batch (`getAfter`) and, when the limit document existed before,
+its old `lastStagedAt` at least 5 minutes earlier; the `limits` documents accept only that write.
+Old staging generations are already removed by `cleanupSyncData` (staging retention). The client
+treats a denied stage like any failed sync attempt (it retries later), with a test. `firestore.rules`: sync rows accept only their schema fields (list them from
 `lib/core/sync/`); a comment in the rules says a synced field change updates these rules in the same
 change. Cleanup queries paginate (500 per page).
 Tests: at and over each limit; an extra field on a sync row is denied; the real sync payloads pass.
