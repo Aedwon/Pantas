@@ -34,7 +34,7 @@ In scope:
   local features, content extraction, local Free mock limits, copied shares, new Google accounts for
   trials, fresh share-link limits for new anonymous accounts, refund-then-stay-offline keeping Pro until the old paid-period end plus 3 days: up to
   a year on Yearly), and, as an open decision with the lead's recommendation to accept, clock
-  setbacks hidden by a reboot before every session (W3 AC-1)) listed for Aedwon's acceptance at E14 with the bootstrap-key risk; the deployed
+  setbacks hidden by a reboot before every session (W3 AC-1) listed for Aedwon's acceptance at E14 with the bootstrap-key risk; the deployed
   functions, Firestore rules and storage rules revision for each Firebase project recorded and
   compared with the integrated commit (gate L2A-21). Re-check on the final build that RevenueCat's webhook URL points at the deployed function and that claims match RevenueCat (the first-deploy checks are W3's deploy steps).
 - Release blockers: every `PlaceholderFigure` replaced by Aedwon's values (R-20); `functions` tests
