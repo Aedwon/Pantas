@@ -98,6 +98,18 @@ Nothing has ever been deployed: the Cloud Functions service is off in all three 
 3. Repeat for pantas-prod.
 4. Tell the lead when done.
 
+## Part 4d. Budget alerts (added Oct 6)
+
+For pantas-staging and pantas-prod: Google Cloud console › **Billing › Budgets & alerts › Create
+budget**, scope the project, set a monthly amount you choose, and alerts at 50%, 90% and 100% to
+your email. Tell the lead the amounts.
+
+## Part 4e. Purchase testers allowlist (added Oct 6, before testing purchases on the release build)
+
+Firebase console › pantas-prod › **Firestore** › collection `config`, document `testers`, field
+`uids` (array of strings): the Pantas account ids (Firebase uids) of your license-test accounts.
+The lead gives you the uids. Empty means no sandbox purchase counts in production.
+
 ## Part 5. RevenueCat secret key for the cancellation fix (W3 P1)
 
 What it is: a private key that lets the Pantas server ask RevenueCat "is this student's plan still

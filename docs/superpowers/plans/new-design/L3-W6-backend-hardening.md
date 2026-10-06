@@ -10,8 +10,9 @@ build on it.
 Facts (Oct 6): `functions/package.json` has only `engines: node 20` and `test: node --test
 test/*.test.mjs`; `firebase.json` deploys the `functions` folder with `runtime: nodejs20`;
 `functions/src/index.ts` exports twelve functions; sources import `firebase-admin/*` and
-`firebase-functions/*` with no Admin initialization; `functions/test/` holds `.test.mjs`, one `.ts`
-behavior test and two rules files; the Cloud Functions API is off in all three projects (nothing
+`firebase-functions/*` with no Admin initialization; `functions/test/` holds `.test.mjs` files (source-text checks),
+one `.ts` behavior test, one `.rules.mjs` file and `sync-generation.policy.mjs` (which imports
+`./.compiled/`, never built today); the Cloud Functions API is off in all three projects (nothing
 has been deployed).
 
 Every task: failing test first, confirm the failure reason, smallest change, task checks, commit
@@ -21,22 +22,28 @@ with a why message. No deploy in any task; Task 7 lists the deploy steps for Aed
 
 Traceability: X-13.
 1. `functions/package.json`: dependencies `firebase-admin` and `firebase-functions` (current
-   majors that support Node 22; record versions), dev dependencies `typescript`, the emulator test
-   helpers already used by the rules tests, `tsx` for the `.ts` test; scripts `build` (`tsc`),
-   `test` (`npm run build && node --test test/*.test.mjs && tsx --test test/*.test.ts &&
-   firebase emulators:exec --only firestore,storage "node --test test/*.rules.mjs"`); `main:
+   majors that support Node 22; record versions), dev dependencies `typescript`, `firebase-tools`
+   (record the version), the emulator test helpers already used by the rules tests; scripts
+   `build` (`tsc`), `test` (`npm run build && node --test test/*.test.mjs test/*.behavior.test.mjs
+   && firebase emulators:exec --only auth,firestore,storage --project demo-pantas-test "node --test
+   test/*.rules.mjs test/*.emulator.test.mjs"`). Behavior tests import the built `lib/` modules, not
+   `src/` (L3X-1): convert `revenuecat-webhook.behavior.test.ts` to
+   `revenuecat-webhook.behavior.test.mjs` importing `../lib/revenuecatPolicy.js`, and rename
+   `sync-generation.policy.mjs` to `sync-generation.behavior.test.mjs` importing
+   `../lib/syncGenerationPolicy.js`. Prerequisite for the check: Java (the emulators need it); `main:
    lib/index.js`; `engines: node 22`. Commit `package-lock.json`.
 2. `firebase.json`: functions `runtime: nodejs22`; add a `predeploy` that runs `npm --prefix
    functions run build`.
 3. New `functions/src/_admin.ts`: `initializeApp()` once; `index.ts` imports it first; also
    `requireAdmin(request)` (an `admin == true` custom claim, App Check, an audit entry; throws
    `permission-denied` otherwise).
-4. The build includes `functions/src/examCatalog.json` (W0) and `products.json` (W3).
+4. The build includes `functions/src/examCatalog.json` (W0), with a test that the built `lib/`
+   contains it; W3 Task 4 adds `products.json` the same way (L3X-14).
 5. `.gitignore`: `functions/lib/`, `functions/node_modules/`.
 Test first: a deliberately failing assertion in each test type fails `npm test`, then is removed;
 a non-admin call to a stub admin callable is denied.
-Checks: `npm ci && npm run build && npm test` in `functions/` exit 0 (Node 22, emulators running
-inside `npm test`).
+Checks: `npm ci && npm run build && npm test` in `functions/` exit 0 (Node 22 and Java installed;
+emulators start inside `npm test`).
 
 ## Task 2. Strict user record create rule (AC-B2)
 
@@ -60,6 +67,12 @@ and ask the lead). `firestore.rules`: sync rows accept only their schema fields 
 change. Cleanup queries paginate (500 per page).
 Tests: at and over each limit; an extra field on a sync row is denied; the real sync payloads pass.
 Checks: `npm test` in `functions/` green; `flutter test test/core/sync` green.
+
+## Task 3b. Early integration of Tasks 1 to 3 (L3X-3)
+
+After Tasks 1 to 3: GPT-6 Astra audit and the Opus lead's review of that slice; the lead integrates
+it into the integration branch so W3 and W4g can build on it. Deploys stay in Task 7. Checks: the
+slice's checks green on the integration branch.
 
 ## Task 4. Disable unfinished endpoints (AC-B4)
 
@@ -96,7 +109,8 @@ Checks: the diff is recorded in `evidence/W6.md`.
 ## Task 7. Deploy steps (each with Aedwon's approval)
 
 Aedwon first, from `level4-setup-steps.md`: enable the Cloud Functions API and confirm the Blaze
-plan on pantas-staging, then pantas-prod. Then, after the review: deploy W6's functions and rules to
+plan on pantas-staging, then pantas-prod, and set budget alerts (setup steps Part 4d). Then, after
+the review: deploy W6's functions and rules to
 pantas-staging; smoke-check each function; then pantas-prod. W3 and W4g deploy their own changes
 the same way after their reviews (strategy B7 deploy policy).
 Checks: each deploy's output and the deployed revision recorded in `evidence/W6.md`.

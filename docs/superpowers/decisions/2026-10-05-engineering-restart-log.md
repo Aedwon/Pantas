@@ -818,3 +818,12 @@ server content rule, deploy steps; Task 16 full checks), L3 W4g Task 3b (safe sh
 W5 Task 1b (obfuscation and abuse re-check), new L3 W6 (8 tasks), the parallel map (W6 in waves 2
 and 3, file orders), executor lines in every L3 plan per amended B7, setup steps Parts 4b and 4c,
 and the traceability level 3 column for X rows. Next: level 3 abuse gate review.
+
+## October 6, 2026: level 3 abuse gate review 1 and fixes
+
+`gates/l3-abuse-gate-1.md`: not passed, 0 blockers, 12 should-fix, 7 notes; all fixed: W6 test
+runner (built `lib/` modules, Auth emulator, `firebase-tools`, Java, demo project), W6 Task 3b early
+integration, W3 execution order, answer time from the function's own clock (v2 has no request
+time), the sync callable checks `proUntil`, the Android clock channel and trusted-entitlements
+setting named, one owner for the trial display, W4f paused state, W4g live-link count by query and
+create-only share records, budget alerts and tester allowlist setup steps, W5 symbol upload.

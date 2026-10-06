@@ -44,10 +44,11 @@ the shipped package's; `flutter test test/core/ui/placeholders_test.dart` green 
 Traceability: X-18; L2 W5 §1 abuse checks.
 1. `tools/release/android/release.sh`: add `--obfuscate --split-debug-info=build/symbols/<version>`
    to the release build; the symbols folder is kept privately with the release evidence (never
-   committed); confirm a test crash report can be symbolicated. Test first: the release script test
+   committed); upload them with `firebase crashlytics:symbols:upload` (Crashlytics is in the app) and confirm a test
+crash report is symbolicated. Test first: the release script test
    (`test/tool/`) asserts both flags.
 2. Re-run every abuse case test (W3 AC-1 to AC-11, W4g AC-G1 and AC-G2, W6 AC-B1 to AC-B5) against
-   the integrated commit; record each result by AC id in `release-evidence/abuse.md`.
+   the final release candidate build; record each result by AC id in `release-evidence/abuse.md`.
 3. On Aedwon's Android phone, from numbered instructions: with a firewall app blocking RevenueCat,
    confirm Pro pauses after the paid period plus 3 days (with a test product of a short period);
    a second account on the same phone sees Free; a share over the daily limit shows its message.
@@ -57,9 +58,9 @@ Traceability: X-18; L2 W5 §1 abuse checks.
 5. E14 accepted-risk list for Aedwon: patched app unlocks local features; content extraction;
    local Free mock limits; copied shares; new Google accounts for trials; fresh share limits for new
    anonymous accounts; refund then stay offline (until the old paid-period end plus 3 days, up to a
-   year on Yearly); and, as an open decision with the lead's recommendation to accept, clock
+   year on Yearly); the bootstrap-key risk; and, as an open decision with the lead's recommendation to accept, clock
    setbacks hidden by a reboot before every session.
-Checks: `flutter test test/tool` green; `release-evidence/abuse.md` lists every AC id with a result.
+Checks: `flutter test test/tool test/tools/release` green; `release-evidence/abuse.md` lists every AC id with a result.
 
 ## Task 2. Release end-to-end tests
 

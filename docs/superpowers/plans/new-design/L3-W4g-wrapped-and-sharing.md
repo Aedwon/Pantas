@@ -45,11 +45,13 @@ text-only public-link note (globe icon removed), offline note, button wait "Crea
 Traceability: X-1, X-7. Aedwon approved the limits and messages (Oct 6).
 1. App: upload the on-phone PNG to `wrapped/{uid}/upload/{shareId}.png`, then call
    `createWrappedShare(shareId)`; no direct Firestore write to `wrapped_shares`.
-2. New `functions/src/createWrappedShare.ts` (App Check, signed in): in one transaction on the
-   counter document `users/{uid}/limits/wrappedShares`, refuse over 10 new links a day or 50 live
-   links (`resource-exhausted` with the reason); then check the upload's PNG signature bytes and
-   size under 1 MB, copy it to `wrapped/{uid}/{shareId}.png`, delete the upload, write the record
-   (`ownerUid`, `shareId`, `createdAt`, `revoked: false`, no stored path).
+2. New `functions/src/createWrappedShare.ts` (App Check, signed in): in one transaction, refuse over
+   10 new links a day (counter document `users/{uid}/limits/wrappedShares`) or 50 live links (a
+   count query on `wrapped_shares` where `ownerUid == uid` and `revoked == false`, so Remove frees a
+   slot; L3X-10) with `resource-exhausted` and the reason; then check the upload's PNG signature bytes and
+   size under 1 MB, copy it to `wrapped/{uid}/{shareId}.png`, delete the upload, and create the
+   record with a create that fails if `shareId` already exists (`ownerUid`, `shareId`,
+   `createdAt`, `revoked: false`, no stored path; L3X-11).
 3. `functions/src/renderWrappedPage.ts`: serve only `wrapped/{ownerUid}/{shareId}.png` derived from
    the record; nothing for a malformed record; stream with a size cap of 1 MB; `maxInstances: 10`.
 4. New `functions/src/takedownShare.ts`: W6's `requireAdmin`, revokes and deletes, audited.
@@ -60,7 +62,8 @@ Traceability: X-1, X-7. Aedwon approved the limits and messages (Oct 6).
    tomorrow." or "You have 50 links. Remove one in Shared links to make a new one."
 Tests (AC-G1, AC-G2): a record naming another user's file serves nothing; over each limit refused
 with its message; overwrite after the check refused; a non-PNG refused; a client record write
-denied; takedown by a non-admin denied.
+denied; takedown by a non-admin denied; removing one link at 50 lets the next create succeed; a
+second user's call with an existing `shareId` is refused and the record is unchanged.
 Checks: `npm test` in `functions/` green; `flutter test test/features/wrapped` green.
 Deploy: after this family's review, with Aedwon's approval, after W6 Task 1 (strategy B7 deploy
 policy).
@@ -93,5 +96,6 @@ G-g-20) with its test green; no analytics events are added (G-g-21).
 
 Delete the old reveal page layout, share privacy sheet and `my_shared_cards_page.dart` once
 replaced; update `test/tool/wrapped_boundary_test.dart` for the deleted notification router. All
-required checks plus `npm test` in `functions/`; evidence `evidence/W4g.md`; independent review;
+required checks plus `npm test` in `functions/`; evidence `evidence/W4g.md`; GPT-6 Astra audit and the Opus lead's
+review and acceptance (B7 as amended);
 Aedwon's visual check against the WR_* and YR_Wrapped boards.

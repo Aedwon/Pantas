@@ -4,8 +4,9 @@ Level 3. Date: October 6, 2026. Author: lead. Policy revision: origin/main 9d2c0
 Level 2 plan: `L2-W3-payments-and-identity.md`; tier spec (approved Oct 6). Base: integration branch
 after W0 integrates (needs the exam catalog). Executor: GPT-6.1 Sol High through Codex; audit:
 GPT-6 Astra; the Opus lead reviews and accepts every money and entitlement change (strategy B7 as
-amended October 6). Own worktree. Functions tasks (2, 5, 10, 13, 14, 15) start after W6 Task 1
-integrates (its package and test runner). Closes carry-forward N3-8, N-19, N-23.
+amended October 6). Own worktree. Functions tasks (2, 5, 10, 13 TS half, 14, 15) start after W6 Task 3b integrates W6 Tasks 1 to 3.
+Execution order (L3X-7): 4, 13 (Dart half and the shared vectors), 3, 6, 7, 8, 9, 11, 12; then, after
+W6 Task 3b: 1, 2, 5, 13 (TS half), 10, 14, 15, 16. Closes carry-forward N3-8, N-19, N-23.
 
 Router edits (gate L3-1): Tasks 3 and 8 change `lib/app/router.dart` (`_settingsEntitlement`, the
 `proIsActive` reads). W1 Task 7 splits that file in parallel, so W3 makes those edits last: after W1
@@ -38,7 +39,7 @@ W6 Task 1 owns `functions/package.json`, the build and the test runner (moved fr
 Oct 6). Rebase onto the integration branch after W6 Task 1 lands; confirm `npm ci && npm run build
 && npm test` in `functions/` exit 0 before Task 2. Checks: those three commands exit 0.
 
-## Task 2. Webhook: reconcile current state (R-4, AC-2, AC-3)
+## Task 2. Webhook: reconcile current state (R-4, AC-2, AC-3, AC-10)
 
 Traceability: R-4, X-5, X-6, X-16.
 
@@ -47,8 +48,9 @@ Traceability: R-4, X-5, X-6, X-16.
    `_acceptCustomerInfo`, `entitlementFromCustomerInfo`), snapshot store, claim reader
    (`sync_claim_gateway.dart`). Record which layer clears early.
 2. Every event type triggers reconciliation: read the customer's current state from RevenueCat's REST
-   API v2 (check the current v2 reference for paths; confirm it returns a request time and a
-   sandbox flag per purchase) with P1. Keep from each event and answer: app id, environment,
+   API v2 (check the current v2 reference for paths; `environment` gives the sandbox flag) with P1.
+   The answer time is the function's own server time taken just before the read (v2 returns no
+   request time; L3X-4); record this in evidence. Keep from each event and answer: app id, environment,
    product ids, entitlement ids, expiry. Act only for the Pantas app id; count production purchases
    of products in the product table (Task 4), and sandbox purchases only in pantas-staging or for
    uids on the server-only tester allowlist `config/testers` in pantas-prod (each logged).
@@ -62,14 +64,17 @@ Traceability: R-4, X-5, X-6, X-16.
    request.auth.token.proUntil > request.time.toMillis()`; `users/{uid}` stays owner-readable.
 6. App: refresh the ID token when `claimsChangedAt` changes, after every purchase and restore, and
    once after a permission-denied sync.
-Files: `functions/src/revenuecatPolicy.ts`, `revenuecatClaims.ts`, `revenuecatWebhook.ts`, new
-`functions/src/revenuecatSubscriber.ts`, `firestore.rules` (Pro predicates only, after W6's rule
+7. The sync callable checks the same claim: `functions/src/syncGenerationPolicy.ts` `assertNamedPro`
+   requires `pro == true` and `proUntil > Date.now()` (L3X-6, AC-10).
+Files: `functions/src/revenuecatPolicy.ts`, `revenuecatClaims.ts`, `revenuecatWebhook.ts`,
+`syncGenerationPolicy.ts`, new `functions/src/revenuecatSubscriber.ts`, `firestore.rules` (Pro predicates only, after W6's rule
 changes), `lib/core/sync/eligibility/sync_claim_gateway.dart`, the client files where the root
 cause is.
 Tests (AC-2, AC-3): every event type reconciles; sandbox event in prod ignored unless allowlisted;
 unknown product ignored; late event after expiry does not restore Pro; concurrent events commit in
 answer-time order; replayed event is a no-op; stale signature refused; missing `proUntil` denied by
-rules; RevenueCat failure returns 500; token refresh on `claimsChangedAt`.
+rules; an expired `proUntil` is rejected by the sync callable; RevenueCat failure returns 500; token
+refresh on `claimsChangedAt`.
 Checks: `npm test` in `functions/` green (W6's runner, emulators included); `flutter test test/features/paywall test/core/sync` green.
 
 ## Task 3. Entitlement model
@@ -95,7 +100,8 @@ Checks: `flutter test test/features/paywall test/features/settings` green.
 `lib/features/paywall/domain/products.dart` mapping each id (`pantas_pro_weekly`, `_monthly`,
 `_yearly`, `pantas_cs_weekly`, `_monthly`, `_yearly`, `pantas_pass_civil_service`) to tier, period
 and kind, and each promotional entitlement (`promo_student`, `promo_civil_service`) to its tier
-(AC-7); the same table is exported to `functions/src/products.json` for the server; the gateway reads it instead of private constants, so the CS ids are not "unrecognized".
+(AC-7); the same table is exported to `functions/src/products.json` for the server and included in W6's
+build (test: the built `lib/` contains it); the gateway reads it instead of private constants, so the CS ids are not "unrecognized".
 Remove hard-coded prices and the Yearly-trial assumption from `paywall_recommendation.dart` (the
 recommendation itself is retired, S0-24; W4f Task 7 deletes the file).
 Tests first: every product id maps; unknown id stays `unknown`; no `₱` literal remains in
@@ -149,7 +155,7 @@ upgrades and downgrades and credits the remaining time by moving the next billin
 `CHARGE_PRORATED_PRICE` works only where the price per unit of time rises, which fails for pairs
 such as Student Weekly ₱29 to Civil Service Yearly ₱1,199). If the ST_SwitchUpgrade copy promises
 an immediate charge of the difference, stop and ask the lead. `manage()` opens Play's subscription page.
-Trial shown only when RevenueCat reports the Monthly intro offer eligible.
+Trial display: Task 13 owns it.
 Tests: mapping table; pending blocks a second purchase; eligibility display.
 Checks: `flutter test test/features/paywall` green.
 
@@ -225,7 +231,14 @@ Traceability: X-2, X-9. Aedwon: 3-day window and the paused line "Connect once t
 (Oct 6).
 
 New `lib/features/paywall/application/offline_window.dart` and `trusted_clock.dart`, used by
-`entitlementProvider`, the gateway and `entitlement_snapshot_store.dart`:
+`entitlementProvider`, the gateway and `entitlement_snapshot_store.dart`. Files also:
+`android/app/src/main/kotlin/com/aedwon/pantas/MainActivity.kt` (a `MethodChannel`
+`pantas/trusted_clock` with method `elapsedRealtime` returning `SystemClock.elapsedRealtime()`;
+the Dart wrapper lives in `trusted_clock.dart`; iOS: `ProcessInfo.systemUptime` is not continuous,
+so the boot detector is skipped on iOS with a logged warning) and
+`lib/features/paywall/application/revenuecat_bootstrap.dart` (set
+`PurchasesConfiguration.entitlementVerificationMode = EntitlementVerificationMode.informational`;
+L3X-5):
 - Cached Pro is the app's own last confirmed entitlement (snapshot store), never the SDK cache. It
   holds until its `expiresAt` (subscription, ledger pass or promotional grant) plus 3 days of
   effective time without a successful check; then `state = paused` and `coversExam` is false.
@@ -249,7 +262,8 @@ Tests (AC-1, AC-6): the eight named in L2 W3 AC-1 (a cached answer does not rese
 does not count; repeated small setbacks pause; an in-session setback counts; a wrong-year clock
 corrected then online unpauses; a closed-app setback in the same boot counts once; a reboot then an
 ordinary start does not pause; RevenueCat down after the cache is cleared keeps Pro from the
-snapshot inside the window), plus paused at the window end and unpaused by one check.
+snapshot inside the window), plus paused at the window end and unpaused by one check, and a
+`failed` verification result grants nothing (L3X-15).
 Checks: `flutter test test/features/paywall` green.
 
 ## Task 12. Account switch and restore (AC-5, AC-11)
@@ -257,11 +271,13 @@ Checks: `flutter test test/features/paywall` green.
 Traceability: X-8.
 
 On sign-out, account switch and deletion: clear the snapshot store and in-memory entitlement, call
-RevenueCat `logOut` or `logIn` for the new uid before any Pro read, and block purchases until it
-returns. Files: `lib/core/sync/local_state_wiper.dart`, `lib/core/auth/auth_repository.dart`,
+RevenueCat `logIn(newUid)` on every sign-in and account switch before any Pro read (every Pantas
+account, anonymous included, has a Firebase uid); `logOut` only when no Firebase user remains,
+ignoring its anonymous-user error; block purchases until it returns (L3X-17). Files: `lib/core/sync/local_state_wiper.dart`, `lib/core/auth/auth_repository.dart`,
 `lib/features/paywall/application/revenuecat_bootstrap.dart`. RevenueCat's restore behavior stays
 "Transfer to new App User ID" (record the dashboard setting in evidence).
-Tests (AC-5, AC-11): a second account on the same phone sees Free offline; purchase blocked until
+Tests (AC-5, AC-11): a second account on the same phone sees Free offline; the `logOut`
+anonymous-user error is ignored; purchase blocked until
 the identity is set; a restore on a second account moves Pro (TRANSFER, Task 2).
 Checks: `flutter test test/features/paywall test/core/sync test/core/auth` green.
 
@@ -274,8 +290,9 @@ read by the Dart and TS tests): the union of active subscriptions of products in
 active ledger passes, and active `promo_student` and `promo_civil_service` entitlements (Civil
 Service includes Student). Anything unknown adds nothing and is logged; `state = unknown` only when
 nothing known is active. A non-subscription purchase in RevenueCat's lists never grants by itself.
-Trial: shown only when RevenueCat returns the Monthly free-trial offer for the product (Android
-subscription options; Google's rule, Aedwon Oct 6).
+Trial: shown only when the Monthly product's `StoreProduct.subscriptionOptions` include an option
+with a `freePhase` (Google's rule, Aedwon Oct 6; Android does not support RevenueCat's eligibility
+call).
 Tests (AC-7, AC-9): vectors for each tier, pass scope, `promo_*`, a `pro` grant with no known
 product (no coverage), an old or refunded pass in the purchase list (no coverage), unknown plus
 known (known wins), trial offer present or absent.

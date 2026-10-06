@@ -125,5 +125,6 @@ integration branch. Any such change lands before W5 Task 1.
 
 ## Review and integration
 
-Independent Opus code review of Tasks 2 to 4 (B7) before W1 and W3 start. Update STATUS and the
+GPT-6 Astra audit and the Opus lead's independent review of Tasks 2 to 4 (B7 as amended) before
+W1, W3 and W6 start. Update STATUS and the
 traceability level 3 column for W0 rows.
