@@ -30,8 +30,8 @@ In scope:
    from the sync design) and sync rows reject fields outside their schema (whoever changes a synced field updates these
    rules in the same change; gate L2A-29); cleanup queries
    paginate. Budget alerts on the Firebase projects are an Aedwon step (instructions in level 3).
-4. **Unfinished endpoints disabled** (CX-14, CX-17): `exportData` returns an error instead of a success-shaped placeholder (proposed text for Aedwon's
-   approval: "Data export isn't available in the app yet. Email our Data Protection Officer for a
+4. **Unfinished endpoints disabled** (CX-14, CX-17): `exportData` returns an error instead of a success-shaped placeholder (text approved by Aedwon
+   Oct 6: "Data export isn't available in the app yet. Email our Data Protection Officer for a
    copy.") (Settings
    already hides export); `getProContent` (no caller in `lib/`) is removed from `index.ts` and
    deleted with its test.
@@ -39,8 +39,8 @@ In scope:
    more than 30 days ago and that have no server data, Wrapped shares included, per the auth spec;
    an active anonymous student is never deleted), `purgeOldAuditLogs` (Firestore audit entries older
    than 730 days, per the auth spec D8; gate L2A-18), `purgeOldExports` (removed if export stays
-   disabled), and the Wrapped orphan-file cleanup W4g needs (files with no share record after 24
-   hours, in `functions/src/cleanupWrappedOrphans.ts`). Each paginates and logs counts.
+   disabled), and the Wrapped orphan-file cleanup W4g needs (files under `wrapped/{uid}/` with no share
+   record after 24 hours, the `upload/` prefix included, in `functions/src/cleanupWrappedOrphans.ts`). Each paginates and logs counts.
 
 Out of scope: webhook changes (W3 owns the webhook, including freshness and atomic handling,
 CX-16); share creation and storage rules (W4g); a full data exporter (later, Aedwon's decision).
@@ -55,7 +55,7 @@ offline rules here); the privacy policy text (`lib/features/legal/domain/legal_d
 
 | Contract | Interface |
 |---|---|
-| Functions package | `functions/package.json` with dependencies, `build` (tsc to `lib/`), `main: lib/index.js`, Node 20, and `test` running every test type; Admin SDK initialized in one module imported by `index.ts`. Every later functions change (W3, W4g) uses this contract and adds its tests to the same runner. |
+| Functions package | `functions/package.json` with dependencies, `build` (tsc to `lib/`), `main: lib/index.js`, Node 22, and `test` running every test type; Admin SDK initialized in one module imported by `index.ts`. Every later functions change (W3, W4g) uses this contract and adds its tests to the same runner. |
 | Server write limits | A small helper `functions/src/_limits.ts` (`allowAtMost(uid, key, max, window)` in a transaction) for W6's own limits; W3 may reuse it; W4g counts its share records itself (gate L2A-13). |
 | User record create rule | `users/{uid}` create: owner only, keys limited to the listed creation fields. |
 
@@ -68,10 +68,12 @@ Contracts consumed: W0 exam catalog JSON (`functions/src/examCatalog.json`, incl
 - Deploy policy for all backend changes (gate L2A-14): each workstream's functions and rules deploy
   after that workstream's review, with Aedwon's approval, once W6 Task 1 has landed. W6 itself
   deploys after its review the same way.
-- Node 20 (gate L2A-2): the live functions run on Node 20, which Google decommissions on October
-  30, 2026; after that they "may be disabled" and cannot be updated. The lead asks Aedwon how the
-  live backend was deployed and whether to redeploy the current code on Node 22 before October 30,
-  independent of this plan's order.
+- First deploy (checked October 6): no functions have ever been deployed. The Cloud Functions API
+  is off in pantas-prod, pantas-staging and pantas-dev, and Aedwon set up the rest in the Firebase
+  console. So the October 30 Node 20 retirement affects nothing live, and W6's package is the first
+  deploy. Before it, Aedwon enables the Cloud Functions API and confirms the projects' billing plan
+  (Blaze is required for Functions); steps go in `level4-setup-steps.md`. RevenueCat's webhook URL,
+  if set, points at a function that does not exist yet; W5 checks it.
 
 ## 5. Motion
 
@@ -96,6 +98,9 @@ Aedwon's check: none visual.
 - A limit would block a normal student's use (for example sync caps below real usage): stop; the
   lead sets the number from the sync design.
 - Any deploy, budget setting or IAM change needs Aedwon's approval.
+- Admin-only callables (W4g `takedownShare`): one server check, an `admin` custom claim that only
+  Aedwon sets from the command line, plus App Check and an audit entry; a non-admin call is denied
+  (tested) (gate L2A2-6). W6 owns the helper `requireAdmin` in `functions/src/_admin.ts`.
 
 ## 8. Files and directories
 
@@ -112,8 +117,8 @@ sync row schemas only), `.gitignore` (`functions/lib/`, `functions/node_modules/
 After W0, in parallel with W1 and W3. Task 1 (the package) lands first; W3 and W4g add functions
 tests to its runner and deploy only after it. `firestore.rules`: W6 before W3, then W4g.
 `recordSignInEvent.ts`: W6 (limit) before W3 Task 10 (public ID call). Executor: a non-Claude
-is per strategy B7 unless Aedwon approves the Codex split (asked Oct 6): Opus for the rules tasks,
-Sonnet for the rest; the independent review is Opus.
+per strategy B7 as amended October 6 (GPT-6.1 Sol High through Codex builds; GPT-6 Astra
+audits; the Opus lead oversees and integrates).
 
 ## 10. Abuse cases
 

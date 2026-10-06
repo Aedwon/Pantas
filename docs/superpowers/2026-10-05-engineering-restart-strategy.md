@@ -218,6 +218,18 @@ that need no reasoning. Implementation uses Sonnet 5.5 unless the lead judges a 
   entitlement logic, any schema change, and any task a Sonnet worker stops on twice.
 - **Independent reviewers:** Opus for gate reviews and for W0 and W3 code review; Sonnet may
   review other code workstreams. Never the author.
+- **Amended October 6 (Aedwon):** "6.1 Sol High for execution (if the plans are already ready),
+  then Astra for deep, security/optimization, sweeping audits. you (Claude Opus 5.5 Med) would
+  only oversee this process". From level 4 on:
+  - Implementation: GPT-6.1 Sol at high reasoning, through Codex, for every workstream, one plan
+    per worker in its own worktree, following SUBAGENTS.md like any worker. This replaces the
+    Sonnet and Opus implementation lines above.
+  - Audits: GPT-6 Astra through Codex, a deep security and efficiency sweep of each workstream
+    before it integrates, and of the whole release before W5's evidence review.
+  - Opus lead: oversight only. Writes each dispatch, judges every audit finding (agree or not,
+    with reasons), runs the plan gates, integrates, updates the plans, traceability and SSOT, and
+    brings Aedwon the decisions. Opus does not write implementation code.
+  - Pace follows Aedwon's Codex limits; the three-worker limit in the parallel map still applies.
 - Every dispatch carries the startup instruction from `docs/workflow/startup.md` and the policy
   revision.
 

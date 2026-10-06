@@ -742,3 +742,30 @@ policy (each workstream deploys after its review, with Aedwon's approval, after 
 For Aedwon: how the live backend was deployed and whether to redeploy on Node 22 before October
 30; copy and limits (paused line, share limits and messages, export error); the giveaway fallback
 (an unrecorded grant counts as Student tier); whether W6 may run on Codex (strategy B7).
+
+## October 6, 2026: Aedwon's answers on the backend, giveaways and models
+
+Verbatim: "1. i manually configured it using the Firebase console. is there a way for you to be the
+one to set this up or no? so I can let agents do that work as well. it's okay if I have to do it
+myself 2. what's Node 22? ... 3. is the image generated on-device? if yes, then it's approved
+4. no. there should be a difference with CSE tier giveaway and student giveaway. cse tier giveaway
+of course has access also to student. the tiers and logic still follow 5. yes you can use codex for
+audits". Then: "1. okay you have my approval. go 2. okay then. proceed as you recommend
+3. approved 4. great. though there is a much higher professional tier in the future. do we need to
+include that now or defer when the actual content is ready for using in the app? 5. sorry, I meant,
+6.1 Sol High for execution (if the plans are already ready), then Astra for deep,
+security/optimization, sweeping audits. you (Claude Opus 5.5 Med) would only oversee this process
+wording is approved".
+
+Recorded:
+- Read-only check (approved "go"): `firebase functions:list` fails in pantas-prod, pantas-staging
+  and pantas-dev because the Cloud Functions API has never been enabled. No functions have ever
+  been deployed. The Node 20 retirement on October 30 affects nothing live; W6's package becomes
+  the first deploy, after Aedwon enables the API and confirms the Blaze plan. Agents can deploy
+  with the Firebase CLI on this Mac, each deploy with Aedwon's approval.
+- Share image is made on the phone (`wrapped_png_renderer.dart`); share limits and messages
+  approved. Paused line ("Connect once to keep using Pro.") and export error text approved.
+- Giveaways: tier-named promotional entitlements `promo_student` and `promo_civil_service`; no
+  default tier. Future tiers (Licensure) are deferred until their content ships; adding one is one
+  entitlement and one product table row.
+- Strategy B7 amended: GPT-6.1 Sol High builds, GPT-6 Astra audits, Opus oversees.
