@@ -28,8 +28,7 @@ Nothing.
 
 ## Next step
 
-Ready for level 4. Waiting on Aedwon's go. Order: W0 first (GPT-6.1 Sol High through Codex, Astra
-audit, Opus review), then W1, W3 and W6 in parallel (`L3-parallel-map.md`). Aedwon's setup steps
+Level 4 under way. W0 done. Next: W1, W3 and W6 in parallel (`L3-parallel-map.md`). Aedwon's setup steps
 before the tasks that need them: `level4-setup-steps.md` Parts 1 to 5 (store products, trial,
 RevenueCat products, giveaway entitlements, Cloud Functions and Blaze, budget alerts, tester
 allowlist, RevenueCat secret key). Still open for him: privacy text for the Pantas ID
@@ -59,7 +58,9 @@ upload for lesson images; E14 risk acceptance at the end.
 | Level 3 gate review | passed (review 5) | gates/l3-gate-review-5.md |
 | Stop before level 4, notify Aedwon | done (Oct 6) | answers recorded |
 | Abuse review amendment | done: level 2 gate passed (review 7), level 3 gate passed (review 3) | gates/l3-abuse-gate-3.md |
+| Level 4: W0 integration | accepted Oct 6 (Astra audit, lead review); Task 6 not run | integration/new-design-r1 at 13e4f830; evidence/W0.md |
 
 ## Last completed step
 
-Level 3 gate passed (review 5, Oct 6). Stopped before level 4.
+W0 accepted and pushed (integration/new-design-r1 at 13e4f830, Oct 6). Backend tests: 2 known
+failures that predate W0, owned by W6 Task 1.
