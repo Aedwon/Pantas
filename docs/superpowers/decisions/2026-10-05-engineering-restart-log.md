@@ -882,3 +882,13 @@ L2 W0 (§1, §3, §6, §7, §8), L3 W0 Task 3, L2 and L3 W3, L2 and L3 W6, the t
 carry-forward N3-7. Process note: this level 2 change is checked by W0's Astra audit and the lead's
 review instead of a separate gate round, to save usage; the next plan gate re-checks it.
 Usage: run 3 used about 298,000 tokens; Aedwon reported 63% after run 2.
+
+## October 6, 2026: Codex usage calibration and pacing
+
+Aedwon asked the lead not to start the next Codex run before his usage reading; the lead had
+started one (Task 4b commit and Task 5), stopped when he said so. It had already committed Task 4b
+(901ffb81); Task 5 did not complete; the worktree is clean. Readings: 42% before W0, 55% after
+runs 1 and 2 (about 207,000 tokens), 63% after run 3 (233,000), 95% after runs 4 and 5 (about
+717,000 plus the stopped run). Calibration: about 24,000 Codex tokens per 1% of the 5-hour limit
+(about 2.4 million tokens per window). Aedwon: "if you do you can stop asking me about it"; the
+lead now estimates from token counts and paces runs to the limit.
