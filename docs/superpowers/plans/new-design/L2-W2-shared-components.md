@@ -58,6 +58,9 @@ Names and states are fixed here. Each component reads only W1 tokens.
 | `LoadingShapes` | Gray shapes that pulse, shown only after 300 ms; Pro-gate shapes stay still. `StepsScreen` for long or irreversible work (L_Restore, L_Delete, L_MockStart). |
 | `StateView` | Error and empty pattern: title stays, faint icon, one line, tinted Try Again; a full-screen variant for "Something went wrong. / Nothing you've done is lost.". W2 owns the component; W4h owns the app-wide screen, its triggers and the retirement of `app_error_view.dart`. Never shows raw error text. |
 | `MathText` | Inline and display math in Source Serif 4, `\frac` promoted to `\dfrac` at top level, spoken labels, fit-to-width at large text; carries the S0-46 accessibility checks. |
+| `QuestionCard`, `ChoiceRow`, `AnswerReveal`, `PassageCard` | The question pieces shared by the assessment, quiz, viewer and mock (QV_Answer, QV_MissPro, QV_MissFree, QV_Long, QV_Figure); added Oct 6 at level 3. |
+| `ContentRenderer` | Lesson and explanation renderer: headings, examples with SOLUTION box, quotes, lists, tables, framed figures with expand and credit, fallback card (RD_Real, RD_Figure, RD_ImageFail); added Oct 6. |
+| `PantasPage` | Page scaffold: title, back link, large title; added Oct 6. |
 | `Placeholder` marking | `PlaceholderFigure(value, reason)` wrapper and a `// PLACEHOLDER:` comment convention; a test lists every use so W5 can block release on them (R-20). |
 
 Contracts consumed: W1 colors, type, shapes, curves, effects, icons.
@@ -104,6 +107,7 @@ shake (ST_IncludedLast), switch knob (ST_Root). Shared effects per MOTION.md.
 ## 9. Order and parallelism
 
 After W1. Every W4 family starts after W2's contracts are integrated. Close-out task (owned by W2,
-run after the last W4 family lands): delete `ink_sheet.dart` and every Ink component with no caller,
+run after the last W4 family lands): delete `ink_sheet.dart`, every Ink component with no caller, W1's deprecated theme adapters
+(`AppColors`, `AppTextStyles`, `AppDimensions`), the `SourceSans3` font, and W1's interim redirects for retired routes,
 then check no retired import remains and `flutter analyze` is clean (the `onReorder` info gone with
 W4c's bookmarks rebuild). The level 4 gate for W4 completion requires this task.

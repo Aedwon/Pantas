@@ -34,8 +34,10 @@ W1 removes retired routes and this family deletes the screens behind them:
 - Notice priority and dismissal state; Today sheet state.
 - `LessonDayContext { date, lessonIds, index }` passed to `/lesson/:lessonId` from Home and the day
   screen (consumed by W4c).
-- `tableOrderRememberedProvider` (moved from `lib/features/progress/application/table_order_prefs.dart`
-  into this family before `lib/features/progress/` is deleted); W4f's Appearance writes it.
+- `tableOrderProvider` and `retainTableOrderProvider` (the existing names, moved from
+  `lib/features/progress/application/table_order_prefs.dart` into this family before
+  `lib/features/progress/` is deleted; `home/application/topic_accuracy_provider.dart`, which imports
+  the progress feature, moves with them); W4f's Appearance writes `retainTableOrderProvider`.
 - Your record extension slot after Your mocks, filled by W4g's `WrappedRecordRow`.
 
 Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2 components; W3 `coversExam` for Pro sections; W4f reminder settings for nothing visible; roadmap engine outputs.
@@ -103,4 +105,4 @@ and build from the tap, start to last change; reduce motion shows the last frame
 
 ## 9. Order and parallelism
 
-After W2 and W3. Largest family; the level 3 plan splits it into Home, plan, performance, and record and tendencies tasks that can run in two worktrees, all editing only `lib/app/routes/home_routes.dart` in a stated order. Landing order for consumers: the `LessonDayContext` task before W4c's reader-from-Home task; the `tableOrderRememberedProvider` move before W4f's Appearance task and before `lib/features/progress/` is deleted; the Your record slot before W4g's history task. W4h's pattern task lands before this family's state screens.
+After W2 and W3. Largest family; the level 3 plan splits it into Home, plan, performance, and record and tendencies tasks that can run in two worktrees, all editing only `lib/app/routes/home_routes.dart` in a stated order. Landing order for consumers: the `LessonDayContext` task before W4c's reader-from-Home task; the `retainTableOrderProvider` move before W4f's Appearance task and before `lib/features/progress/` is deleted; the Your record slot before W4g's history task. W4h's pattern task lands before this family's state screens.

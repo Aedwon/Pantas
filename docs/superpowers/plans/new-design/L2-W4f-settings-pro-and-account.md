@@ -40,7 +40,7 @@ W1 removes retired routes and this family deletes the screens behind them:
 - Keeps the Terms policy-version write in `settings_repository.dart` (W0 recorded-only data).
 - `SharedLinksRow` slot in About, filled by W4g.
 
-Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2 components; W3 entitlement, tier, pass, `mockLimit`, `switchOutcome`, purchase operations, public ID, `TrialEndingNotifier`; W4a `ExamPickerScreen`; W4b `tableOrderRememberedProvider`; W4g `SharedLinksRow`.
+Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2 components; W3 entitlement, tier, pass, `mockLimit`, `switchOutcome`, purchase operations, public ID, `TrialEndingNotifier`; W4a `ExamPickerScreen`; W4b `retainTableOrderProvider`; W4g `SharedLinksRow`.
 
 ## 4. Behavior
 
@@ -66,7 +66,7 @@ Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2
   deletion; Pantas ID grouped in threes, tap copies digits only.
 - About per D-214: DPO row, no export (S0-22); legal pages plain (G-f-10).
 - Appearance: Light, Dark, Automatic; Text size slider (W1 scale); Remember table order (writes W4b's
-  `tableOrderRememberedProvider`).
+  `retainTableOrderProvider`).
 - Pro pages for Licensure, academy exams and PSHS-NCE are deferred until those exams launch (Aedwon,
   Oct 6, gate F-16); their board rows are marked deferred.
 - The CSE Pro page follows `ST_ProCSE_v2` and its pass-picked state `ST_ProCSEPass_v2` (Weekly ₱49,
@@ -113,4 +113,4 @@ and build from the tap, start to last change; reduce motion shows the last frame
 
 ## 9. Order and parallelism
 
-After W2 and W3, and after W4a's picker screen lands. Landing order: this family's reminders task before W4a's reminders step; W4b's `tableOrderRememberedProvider` move before this family's Appearance task; this family's About slot before W4g's shared links task; W4h's pattern task before this family's state screens. Largest with W4b; the level 3 plan splits it into Settings screens, Pro pages, account, and reminders tasks.
+After W2 and W3, and after W4a's picker screen lands. Landing order: this family's reminders task before W4a's reminders step; W4b's `retainTableOrderProvider` move before this family's Appearance task; this family's About slot before W4g's shared links task; W4h's pattern task before this family's state screens. Largest with W4b; the level 3 plan splits it into Settings screens, Pro pages, account, and reminders tasks.

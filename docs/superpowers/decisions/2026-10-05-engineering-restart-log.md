@@ -576,3 +576,19 @@ Review 5 (`gates/l2-gate-review-5.md`): "Gate verdict: pass". All 833 traceabili
 owner and a level 2 section; every W4 plan's lists match the table. Accepted notes are carried to
 level 3 in `docs/superpowers/plans/new-design/L3-carry-forward.md`. Gate history: reviews 1 to 4 not
 passed, each fixed by the lead; review 5 passed. Level 3 (strategy B5) starts.
+
+## October 6, 2026: level 2 amendments found while writing level 3
+
+From the level 3 code inventory (Sonnet gathering, lead review). Changes go up first:
+- L2 W1: retired routes become interim redirects to the nearest living screen until no caller
+  remains (W2 close-out removes them); `/settings/sessions` redirect moves to W4f, which creates
+  `/settings/practice`. Theme migration: W1 keeps the old theme API as deprecated adapters so the app
+  compiles while families migrate; W2 close-out deletes them and the SourceSans3 font.
+- L2 W2: also owns the shared question and content pieces (`QuestionCard`, `ChoiceRow`,
+  `AnswerReveal`, `PassageCard`, `ContentRenderer`) and `PantasPage`.
+- L2 W4b and W4f: the table order contract uses the existing names `tableOrderProvider` and
+  `retainTableOrderProvider` (the invented name is gone); `topic_accuracy_provider.dart` moves with
+  them before `lib/features/progress/` is deleted.
+- L2 W3: Season Passes are one-time consumable products, as the tier spec says.
+- W4a gets a recorded cross-family permission to change `updateExamDate` (allow today, D-34) in the
+  settings repository, before W4f runs.
