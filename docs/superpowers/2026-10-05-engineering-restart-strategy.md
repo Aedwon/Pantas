@@ -38,6 +38,12 @@ is finished and cross-checked.
 - **Changes go up first.** If a lower level needs something different, work on it stops. The
   higher level is amended, recorded, and reviewed, and the change flows down to every affected
   document. Changes to approved behavior come back to Aedwon.
+- **Abuse cases are a requirement.** Added October 6 with Aedwon's approval, after the abuse review
+  (`plans/new-design/gates/abuse-review-1.md`). Every workstream that touches payments, Pro access,
+  the server, stored files or shared links lists its abuse cases and their fixes in its level 2
+  plan. An independent Opus reviewer checks them at each gate, and the release checks test them on
+  the final build. The goal is no avoidable mistake, not absolute protection: a patched app can
+  always unlock what runs on the phone, so anything valuable is checked on the server.
 - **The design is authoritative.** Changes the design made to older screens are built as drawn
   and listed for Aedwon's information. Things the design left out are listed for his
   keep-or-discard decision. He decides only on missing things.
@@ -92,9 +98,10 @@ Each workstream gets one level 2 plan and one level 3 plan. "Owns" means that wo
 | W0 | Integration: merge question-qa-r2 code and content into the integration branch; regenerate; full checks. Amended Oct 6 (level 2 gates): also the data the design adds (JSON fields for notes and blank reasons, per-part wrong and blank counts), the exam catalog (content database schema 10, Coming soon exam rows, functions copy) and the mock blueprint placeholder marker | Stage 0 | Content and question file formats; data layer; exam catalog; blueprint format |
 | W1 | Design foundation: color and type values for light and dark, Geist and Source Serif 4 fonts, icon set, motion primitives from `MOTION.md`, app shell with the pill tab bar (Home, Study, Quiz, Settings), date formatting, visual rules section for AGENTS.md | W0 | Theme value names, font roles, icon names, motion API, shell routes, date format helpers |
 | W2 | Shared components (15 to 20): grouped rows, cards, gauge, floating bar, week strip, notice strip, wheels, question grid, buttons, Pro lock pattern, placeholder marking. Replaces Ink-named components and the 9 bottom-sheet call sites | W1 | Component interfaces and states |
-| W3 | Pre-beta fixes: subscription cancellation keeps Pro until expiry; short public ID for giveaways. Added Oct 6 by Aedwon's decision: Pro priced by exam tier per `docs/pricing.md` (tiers, higher tiers include lower, Season Passes, upgrade on switching to a pricier exam, trial on Monthly only) | W0 | Entitlement state rules; tier and pass rules; public ID format and API |
-| W4a to W4h | Screen families: (a) onboarding; (b) Home with Your plan, History, weeks, Your performance, Your record, Your tendencies; (c) Study map, reader, bookmarks; (d) Quiz tab, customize, question screens; (e) Mock, including review gating; (f) Settings, Pro pages, subscription, legal; (g) Wrapped and sharing; (h) loading, errors, offline, update required. Includes retiring the old Progress routes | W1, W2; (b), (d), (e), (f), (g) also W3; (b) uses the roadmap engine | Routes per family in their own route files. Amended Oct 6 (level 2 gate): a family may own a family-specific contract another family consumes, named in its level 2 plan with the order: (a) exam picker screen; (b) day context, table order setting, Your record slot; (d) lesson and quick quiz starts; (e) mock card, per-exam scoring rule, CSE and ACET blueprints; (f) reminder settings and service, About slot; (g) Wrapped and shared links rows; (h) app-wide state patterns |
-| W5 | Release checks: E09 phone checks #22 to #28 and Redmi smoke, E10 to E14, A01, A02, A03, A04, A07, updated for the new screens | W4 complete, W3 | Release evidence format |
+| W3 | Pre-beta fixes: subscription cancellation keeps Pro until expiry; short public ID for giveaways. Added Oct 6 by Aedwon's decision: Pro priced by exam tier per `docs/pricing.md` (tiers, higher tiers include lower, Season Passes, upgrade on switching to a pricier exam, trial on Monthly only). Amended Oct 6 (abuse review 1): the payment and Pro-access abuse fixes: purchase validation and current-state reconciliation in the webhook, a server pass ledger bound to product, exam and transaction (refunds and transfers included), bounded offline Pro after the paid period, Pro reset on account change, RevenueCat tamper-check results honored, tier-specific giveaway grants, server tier checks on server content | W0; deploys wait for W6's deployable package | Entitlement state rules; tier and pass rules; public ID format and API |
+| W4a to W4h | Screen families (amended Oct 6, abuse review 1: (g) also fixes the share-link file path check and upload limits): (a) onboarding; (b) Home with Your plan, History, weeks, Your performance, Your record, Your tendencies; (c) Study map, reader, bookmarks; (d) Quiz tab, customize, question screens; (e) Mock, including review gating; (f) Settings, Pro pages, subscription, legal; (g) Wrapped and sharing; (h) loading, errors, offline, update required. Includes retiring the old Progress routes | W1, W2; (b), (d), (e), (f), (g) also W3; (b) uses the roadmap engine | Routes per family in their own route files. Amended Oct 6 (level 2 gate): a family may own a family-specific contract another family consumes, named in its level 2 plan with the order: (a) exam picker screen; (b) day context, table order setting, Your record slot; (d) lesson and quick quiz starts; (e) mock card, per-exam scoring rule, CSE and ACET blueprints; (f) reminder settings and service, About slot; (g) Wrapped and shared links rows; (h) app-wide state patterns |
+| W6 | Backend hardening (added Oct 6, abuse review 1): a deployable Functions package (dependencies, build, entry point, Admin setup) and tests that run the real handlers and rules; strict create rules for user records; webhook freshness and atomic event handling; per-account limits on audit, sync staging and other server writes; unfinished endpoints disabled (data export placeholder, unused content query function); working cleanup and retention jobs | W0 | Functions packaging and test contract; server quota rules |
+| W5 | Release checks: E09 phone checks #22 to #28 and Redmi smoke, E10 to E14, A01, A02, A03, A04, A07, updated for the new screens. Amended Oct 6 (abuse review 1): release build code obfuscation, and an abuse re-check of every recorded abuse case on the final build | W4 complete, W3, W6 | Release evidence format |
 
 Fixes that release checks find are new work items. Each one enters at the level its change
 requires and flows down.
@@ -146,6 +153,8 @@ Every level 2 plan has these sections:
 - Acceptance: how completion is judged, automated checks, and Aedwon's visual check.
 - Risks and stop conditions (schema version mismatch, board contradicts spec, figure without a
   source, missing contract).
+- Abuse cases and their fixes, for workstreams that touch payments, Pro access, the server, stored
+  files or shared links (amended Oct 6).
 - Files and directories the workstream may touch.
 
 Drafters: the lead writes W0, W1, W2 contracts, W3, and W5. Sonnet drafts W4a to W4h from the
@@ -158,6 +167,8 @@ together:
 - Every consumed contract exists in its owner's plan with the same names.
 - Plans agree with the spec, the handoff, and the decision record.
 - Nothing in a plan is a product decision that Aedwon has not made.
+- Every confirmed finding of the abuse review has an owning workstream and section, and each
+  plan's abuse cases are complete for what it touches (amended Oct 6).
 The lead fixes findings, then records the gate as passed in the decision record.
 
 ### B5. Level 3: implementation plans
@@ -179,7 +190,8 @@ The lead fixes findings, records the gate, and updates the SSOT.
 
 ### B6. Level 4: implementation
 
-- Order: W0; then W1 and W3 in parallel; then W2; then W4 families per the parallel map; then W5.
+- Order: W0; then W1, W3 and W6 in parallel (W6 added Oct 6); then W2; then W4 families per the
+  parallel map; then W5.
 - One plan per worker, one worktree per worker, per `SUBAGENTS.md`. Workers never merge.
 - The lead integrates into `integration/new-design-r1`, runs the combined checks, and updates the
   traceability table and SSOT as each workstream completes.

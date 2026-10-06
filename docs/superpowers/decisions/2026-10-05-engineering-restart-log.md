@@ -698,3 +698,23 @@ Recorded:
 9. The AI attribution trailer was removed from b43d93a6 by rewriting the seven docs commits after
    34ab3994 (messages only; trees identical) and force-pushing main (old head 475de455, new head
    a7764b69), with Aedwon's approval.
+
+## October 6, 2026: abuse review and the level 1 amendment
+
+Aedwon asked whether the plans cover abuse vectors ("mistakes in the infrastructure that could have
+been avoided from Day 0 ... an exploit to have unlimited Pro access or patching the app"). The lead
+answered that no plan step checked abuse. At his request GPT-6 Astra (Codex, medium, read-only)
+reviewed the code and plans: `plans/new-design/gates/abuse-review-1.md`, 19 findings; the lead
+confirmed the main ones in the code and agreed with 16, partly with 3.
+
+Aedwon approved folding the fixes into the plans ("yes please add them"), with the higher-level
+fix. Per the strategy rule "changes go up first", the change starts at level 1:
+- Part A gains the rule "Abuse cases are a requirement".
+- B2: W3 and W4g gain their abuse fixes; new workstream W6 (backend hardening, parallel with W1 and
+  W3; lead's structuring choice so backend hygiene can go to a non-Claude worker); W5 gains
+  obfuscation and an abuse re-check on the final build.
+- B4 and B6 amended (abuse section in level 2 plans, a gate check, W6 in the order).
+Next: level 2 amendments for W3, W4g, W5 and a new L2 W6, a level 2 delta gate; then level 3
+amendments and a level 3 delta gate. Open product decisions for Aedwon: offline Pro after the paid
+period ends (lead recommends 3 days), and the trial rule (lead recommends Play's "never had a
+subscription" rule and correcting the tier spec).
