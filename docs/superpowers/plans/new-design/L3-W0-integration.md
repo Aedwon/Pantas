@@ -88,7 +88,9 @@ images, four have a `key` entry with `credit` in `content/illustrations/sources/
 (reading comprehension) have none.
 Tests first (`test/tools/markdown_portable_text_test.dart`): with an asset map entry whose
 `creditKey` matches a sources `key`, the image block's `asset` carries `credit`; with no match, the
-export drops that image block (no credit, no image) and logs the lesson path. Implement in
+export drops that image block (no credit, no image) and logs the lesson path. Existing image tests (`markdown_portable_text_test.dart` "resolves image marker
+by lesson and sequence" and the sparse-marker case) gain a matching credit entry; one existing case
+becomes the drop case. Implement in
 `tools/content/markdown_portable_text.dart` (it serves both export tools) and the sources loader
 in `tools/content/lesson_asset_map.dart`.
 Stop conditions: running `upload_assets.dart` or producing `assets.json` changes Sanity, so it waits

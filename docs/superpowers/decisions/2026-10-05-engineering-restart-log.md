@@ -655,3 +655,13 @@ Gate review 3 (`gates/l3-gate-review-3.md`): not passed, 0 blockers, 4 should-fi
 - L3R3-4: the export drops an image with no credit entry.
 - Notes L3R3-5 to L3R3-11 fixed (L2 W0 and W5 wording, full verify command, tested raw-error
   greps, L2 W3 files, W4c header line removed, remaining call sites named).
+
+## October 6, 2026: level 3 gate review 4 and fixes
+
+Gate review 4 (`gates/l3-gate-review-4.md`): not passed, 0 blockers, 1 should-fix, 5 notes. Fixes:
+- L3R4-1: the Pro page offers the active exam's plans and pass when `proForActiveExamProvider` is
+  false (a Student Pro subscriber on CSE sees the Civil Service plans); plan name, Your plan rows
+  and Manage keep the any-plan flag. W3 Task 8, W4f header and Task 6, L2 W3 §8 amended.
+- Notes: W4f reads `studentPlanStillRenews` from `switchOutcome`; W3 Task 8 runs `test/app` and
+  updates the override test; W0 Task 4b rewrites the existing image tests for the drop rule; W4h's
+  greps are stated as a backstop.

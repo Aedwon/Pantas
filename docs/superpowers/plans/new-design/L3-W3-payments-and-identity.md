@@ -132,7 +132,9 @@ data-layer only. Neither is read by a gate after W4. Call sites on 1f79d880 and 
   builders in `router.dart` (after W1 integrates; they are then in
   `quiz_routes.dart` and `mock_routes.dart`).
 - Keep the any-plan flag (plan status, not gates): `settings_providers.dart` (`proRowValueProvider`,
-  the Settings Pro row), `pro_page.dart` (plan name and the direct Manage link),
+  the Settings Pro row), `pro_page.dart` (plan name, Your plan rows and the direct Manage link only; whether the
+  page offers its tier's plans and pass or shows the owned state follows `proForActiveExamProvider`,
+  built by W4f Task 6),
   `sync_runtime_bootstrap.dart` (sync eligibility), `live_revenuecat_gateway.dart`, `paywall_controller.dart`,
   `pro_welcome.dart`, `trial_notice.dart` (paywall internals).
 - Each W4 family switches its own gates to the new provider: W4b (`tendencies_panel.dart`,
@@ -141,13 +143,15 @@ data-layer only. Neither is read by a gate after W4. Call sites on 1f79d880 and 
   `entitlementProvider` read, `debrief_providers.dart`, `session_debrief.dart`,
   `flagged_list_page.dart`, `quiz_results_page.dart`), W4e (`mock_results_page.dart`,
   `mock_results_route.dart`, `mock_review_page.dart`, `mock_panel.dart` successors), W4g (Wrapped
-  history gate). W4f has no gate; it keeps the any-plan flag above. `router.dart` `_isProRoute` and
+  history gate). W4f's only active-exam read is the Pro page's offer-or-owned choice; its plan status keeps the
+  any-plan flag above. `router.dart` `_isProRoute` and
   the `/review` builder go with W1 Task 7. W2's `review_list.dart` and `answer_reveal.dart` take a flag; the
   calling family passes the new provider's value.
 Keep the debug `FAKE_PRO` and `devProOverrideProvider` behavior (guarded by
 `test/tool/paywall_release_guard_test.dart`). Tests: switching the active exam from a Student exam
 to CSE with Student Pro turns the gate off; with CS Pro both stay on.
-Checks: `flutter test test/features/paywall` green; `flutter test test/features/mock_exam test/features/roadmap test/tool/paywall_release_guard_test.dart` green.
+Update `test/app/mock_entitlement_override_test.dart` for the active-exam override.
+Checks: `flutter test test/features/paywall` green; `flutter test test/features/mock_exam test/features/roadmap test/app test/tool/paywall_release_guard_test.dart` green.
 
 ## Task 9. Trial-ending trigger
 

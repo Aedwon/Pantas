@@ -39,7 +39,8 @@ family's files. The inventory list of raw-error sites and silent sections goes t
 plan evidence. At W4 completion W4h runs `grep -rnF 'Error: $' lib/features/*/presentation` and
 `grep -rnE '\b(e|err|error|exception)\.toString\(\)' lib/features/*/presentation` and
 `grep -rnE "Text\([^)]*\\\$\{?(e|err|error|exception)\b" lib/features/*/presentation`
-and reports any student-facing raw error left to the lead.
+and reports any student-facing raw error left to the lead. The greps are a backstop to each family's
+own inventory; they miss strings split across lines.
 Checks: the grep prints no line in a student-facing widget (expected: empty output); any hit goes
 to the lead with its file and line.
 

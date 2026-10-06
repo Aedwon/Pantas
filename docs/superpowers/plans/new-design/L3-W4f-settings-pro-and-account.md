@@ -16,8 +16,9 @@ test/app`), commit. W1 theme API, W2 components (no sheets anywhere in Settings,
 Regression test for GitHub issue #26 (exam-switch carry-over flashes and reappears) is written first
 in Task 3; the in-list transfer screen replaces the sheet.
 
-Plan status (the Settings Pro row, the Pro page's plan name and Manage link) reads the any-plan
-entitlement; any Pro gate reads W3's `proForActiveExamProvider` (level 3 gate review 3).
+Plan status (the Settings Pro row, the Pro page's plan name, Your plan rows and Manage link) reads
+the any-plan entitlement. Whether the Pro page offers the active exam's plans and pass or shows the
+owned state follows W3's `proForActiveExamProvider` (level 3 gate reviews 3 and 4).
 
 ## Task 1. Reminder settings and service (track D, lands first)
 
@@ -78,11 +79,12 @@ builds) and W2 gallery link. Plain legal pages; legal page error per W4h.
 Boards ST_ProFree, ST_ProPro, ST_ProLapsed, ST_RestoreDone, ST_RestoreNone, ST_ProRestoreOffline,
 ST_ProSubOffline, L_Purchase, L_RestorePurchase, ST_ProCSE_v2, ST_ProCSEPass_v2, ST_PassEnded,
 ST_PassSoon, ST_PassNoDate, ST_ProPassHave; D-217, D-226 to D-229, D-249, D-250, Copy pass. Plans
-for the active exam's tier from W3; Student and Civil Service pages; CS layout per ST_ProCSE_v2 and
+for the active exam's tier from W3, offered when `proForActiveExamProvider` is false (test: a Student
+Pro subscriber on CSE sees the Civil Service plans and pass); Student and Civil Service pages; CS layout per ST_ProCSE_v2 and
 its pass-picked state; savings round down; trial line only when eligible; pass end dates from the
 catalog; payment pending card; offline notes; W3 states (trial, canceled until a date, grant, unknown,
 billing problem, store errors) in the Your plan rows. Coming-soon tier pages are not built (deferred,
-Oct 6). When W3's purchase outcome carries `studentPlanStillRenews` (a Season Pass bought
+Oct 6). When W3's `switchOutcome` (Task 6) carries `studentPlanStillRenews` (a Season Pass bought
 while a Student plan is active), the Pro page shows that the Student plan still renews, with Manage
 in Google Play, and a test covers it. This waits for Aedwon's decision and copy (asked at the start
 of level 4, W3 Task 6); if he chooses otherwise, stop. Opening this page calls `ReviewPromptController.recordPaywallSeen` (W4d's cool-off). Update
