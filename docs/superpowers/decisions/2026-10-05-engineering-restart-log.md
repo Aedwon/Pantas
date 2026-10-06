@@ -780,3 +780,13 @@ grant with no known product covers nothing), W4g, W5, W6 (first deploy; export l
 before any deploy) and strategy B7 (the Astra audit adds to the Opus independent review). Level 3
 items noted: executor lines in every L3 plan and the map, setup steps for the Functions API, Blaze
 and the two promotional entitlements.
+
+## October 6, 2026: level 2 abuse gate review 4 and fixes
+
+Review 4: 0 blockers, 5 should-fix, 5 notes. Fixed: a successful check is a `verified` RevenueCat
+answer with a later `requestDate` (the Flutter SDK cannot say fresh versus cached); coverage is the
+union of known products, passes and promotional entitlements on both phone and server, existing
+`pro` grants reissued as tier-named; a one-time reconciliation after the webhook URL is set; B7:
+the lead's integration code gets a separate review. Open for Aedwon at E14 (lead recommends
+accept): clock set back while the app is closed plus a reboot spreads the paid period plus 3 days
+over a longer calendar span when RevenueCat is blocked.

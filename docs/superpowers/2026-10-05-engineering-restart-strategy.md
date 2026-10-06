@@ -234,6 +234,10 @@ that need no reasoning. Implementation uses Sonnet 5.5 unless the lead judges a 
     7b requires. The Opus lead is that independent reviewer for every workstream (never the
     author), and personally accepts each money, entitlement, security-rule and data change before
     it integrates (tier 1).
+  - Any code the lead writes while integrating (conflict resolutions included) gets a separate
+    review before it lands: a fresh Opus reviewer session or an Astra audit of the merge diff;
+    money or entitlement conflicts go back to the Sol worker where practical (gate L2A4-5).
+  - The "Independent reviewers" line above is replaced from level 4 on by these lines.
 - Every dispatch carries the startup instruction from `docs/workflow/startup.md` and the policy
   revision.
 
