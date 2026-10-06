@@ -802,3 +802,10 @@ residual as an open decision; B7 wording. Level 3 setup-step items: enable the C
 and confirm Blaze before the secrets steps; create `promo_student` and `promo_civil_service`; grant
 giveaways only with them; new products enter the product table before sale; list and reissue
 existing promotional `pro` grants before W3's release.
+
+## October 6, 2026: level 2 abuse gate passed
+
+Reviews 6 and 7: review 6 asked for named AC-1 and AC-7 tests (added); review 7 passes, 0 blockers,
+0 should-fix, 3 notes carried to level 3 (`gates/l2-abuse-gate-7.md`). Next: level 3 amendments
+(L3 W3, W4g, W5, new L3 W6, the parallel map, setup steps, executor lines per amended B7,
+traceability level 3 column for X rows), then a level 3 gate.

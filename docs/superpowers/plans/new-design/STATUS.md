@@ -57,7 +57,7 @@ decision record (Oct 6); store setup steps are in `level4-setup-steps.md`.
 | Level 3 plans (B5) | done (13 plans, parallel map); traceability level 3 column filled | L3-*.md, L3-parallel-map.md |
 | Level 3 gate review | passed (review 5) | gates/l3-gate-review-5.md |
 | Stop before level 4, notify Aedwon | done (Oct 6) | answers recorded |
-| Abuse review amendment | level 1 done; levels 2 and 3 pending | gates/abuse-review-1.md |
+| Abuse review amendment | levels 1 and 2 done (gate passed, review 7); level 3 pending | gates/l2-abuse-gate-7.md |
 
 ## Last completed step
 
