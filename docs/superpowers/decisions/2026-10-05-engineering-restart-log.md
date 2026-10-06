@@ -940,3 +940,12 @@ staging generations directly; stale ones are already cleaned daily. Plans L3 W1 
 Task 3 amended. W1 Task 1 (d880d6bc) and W6 Tasks 1 and 2 (a8aef406, 10a713f2) are done. W6 found
 16 npm dependency vulnerabilities, for the lead's review at W6 acceptance. Node was also upgraded
 (26.10.0) because the Node 22 install had updated a shared library Codex needs.
+
+## October 7, 2026: W1 icon package and W6 batch bypass rulings
+
+W1 stopped at Task 4: `phosphor_flutter` 2.1.0 (its last release, May 2024) does not compile on
+Flutter 3.44 because `IconData` is now final. Ruling: bundle the package's own Phosphor regular font
+(MIT) and define the icons directly; glyphs are identical; the dependency is removed. W1 Tasks 2 and 3
+are done (05112e1c, 5e0eef33). W6 stopped at Task 3: the emulator let one batch create two staging
+generations through one limits write. Ruling: the limits write names the generation id, and the
+create rule requires it to match. Plans L2 and L3 W1, L3 W6 amended.

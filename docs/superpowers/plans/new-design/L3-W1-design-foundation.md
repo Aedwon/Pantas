@@ -17,7 +17,14 @@ rebuilds them. W2's close-out task deletes the adapters when no caller remains.
 ## Task 1. Fonts and icon package
 
 Traceability: L2 §1 fonts, icons; W1 contract Icons.
-1. Add `phosphor_flutter` (latest stable, pinned exact) to `pubspec.yaml`. Before any other step,
+Lead ruling, Oct 7 (W1 stop at 5ece15f7): `phosphor_flutter` 2.1.0, the latest release (May 2024),
+does not compile on Flutter 3.44 (`IconData` is now a final class). Replace the package with its own
+regular font: remove `phosphor_flutter` from `pubspec.yaml`; copy `Phosphor.ttf` and the MIT
+`LICENSE` from the 2.1.0 package to `assets/fonts/phosphor/`; declare font family `Phosphor`;
+`PantasIcons` getters return `IconData(<codepoint>, fontFamily: 'Phosphor')`, codepoints copied from
+the package's 2.1.0 regular table (record the source file); a test pins each codepoint. Glyphs are
+identical. The name check in step 1 uses the 2.1.0 table.
+1. Add `phosphor_flutter` (latest stable, pinned exact) to `pubspec.yaml` (superseded by the ruling above). Before any other step,
    check that every Phosphor name on IC_Final exists in that version (house, book-open, check-circle,
    gear-six, caret-left, caret-right, x, caret-down, arrow-up, arrows-out-simple, caret-up-down, list,
    flag, note-blank, note, check, pause, timer, clock, moon, calendar-blank, sparkle, lightbulb,

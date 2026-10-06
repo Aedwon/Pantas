@@ -65,9 +65,11 @@ New `functions/src/_limits.ts` with `allowAtMost(uid, key, max, windowMs)` (a tr
 sync spec states no cap, and the client creates staging generations directly through the rules, so
 the limit lives in the rules, not in `activateSyncGeneration`): at most one new staging generation
 per account every 5 minutes. The client's `stageGeneration` batch also sets
-`users/{uid}/limits/syncGeneration` to `{lastStagedAt: request.time}`; the `sync_generations` create
-rule requires that write in the same batch (`getAfter`) and, when the limit document existed before,
-its old `lastStagedAt` at least 5 minutes earlier; the `limits` documents accept only that write.
+`users/{uid}/limits/syncGeneration` to `{lastStagedAt: request.time, generationId: <the new id>}`;
+the `sync_generations` create rule requires that write in the same batch (`getAfter`) with
+`generationId` equal to the generation being created (so one batch cannot create two; W6 stop at
+d802be0f, lead ruling Oct 7) and, when the limit document existed before, its old `lastStagedAt` at
+least 5 minutes earlier; test: two generations in one batch are denied; the `limits` documents accept only that write.
 Old staging generations are already removed by `cleanupSyncData` (staging retention). The client
 treats a denied stage like any failed sync attempt (it retries later), with a test. `firestore.rules`: sync rows accept only their schema fields (list them from
 `lib/core/sync/`); a comment in the rules says a synced field change updates these rules in the same

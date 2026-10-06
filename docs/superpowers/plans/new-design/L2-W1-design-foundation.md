@@ -13,7 +13,8 @@ In scope:
 - Color and type values for light and dark, from `docs/design/README.md` "Tokens", as one theme.
 - Fonts: Geist (400, 500, 600, 700) for all UI and lesson text; Source Serif 4 for math only.
   Bundled as assets under the OFL (the app works offline; no font download).
-- Icon set: Phosphor regular via the `phosphor_flutter` package (named by DECISIONS "Icons") plus
+- Icon set: Phosphor regular, from the Phosphor font bundled in the app (amended Oct 7: the
+  `phosphor_flutter` package no longer compiles on current Flutter; same glyphs) plus
   the nine own icons redrawn at 1.5 weight: questions sheet, report a question, paused hourglass,
   day streak flame, progress couldn't load, reorder, Appearance, Backup, About.
 - Motion primitives: the curves table and shared effects from `docs/design/MOTION.md`.
