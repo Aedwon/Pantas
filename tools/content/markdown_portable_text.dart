@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'lesson_asset_map.dart';
 
@@ -17,6 +18,7 @@ List<Map<String, Object?>> markdownToPortableText(
   String body, {
   required LessonIdentity lesson,
   required LessonAssetMap assets,
+  void Function(String message)? onWarning,
 }) {
   final blocks = <Map<String, Object?>>[];
   final paragraph = <String>[];
@@ -121,11 +123,24 @@ List<Map<String, Object?>> markdownToPortableText(
       }
       final entry = orderedEntries[illustrationSeq].value;
       illustrationSeq++;
+      final credit = assets.creditFor(entry);
+      if (credit == null || credit.trim().isEmpty) {
+        final message =
+            '${lesson.path}:$lineNumber: dropped image without source credit';
+        if (onWarning != null) {
+          onWarning(message);
+        } else {
+          stderr.writeln(message);
+        }
+        i++;
+        continue;
+      }
       final desc = illusMatch.group(1)!.trim();
       blocks.add({
         '_type': 'image',
         'asset': {
           'url': entry.url,
+          'credit': credit,
         },
         'alt': entry.alt.isNotEmpty ? entry.alt : desc,
       });

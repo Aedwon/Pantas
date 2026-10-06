@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
 import '../../tools/content/lesson_asset_map.dart';
 import '../../tools/content/markdown_portable_text.dart';
@@ -12,6 +15,60 @@ void main() {
   );
 
   group('markdownToPortableText', () {
+    test('drops an image without a matching source credit and logs the lesson',
+        () {
+      final messages = <String>[];
+      final assets = LessonAssetMap.fromMap(
+        {
+          lesson.assetKey(1): {
+            'url': 'https://cdn.sanity.io/images/uncredited.png',
+            'alt': 'Diagram',
+            'creditKey': 'not-in-sources',
+          },
+        },
+        credits: {
+          'different-key': 'Test artist / CC BY 4.0',
+        },
+      );
+      final blocks = markdownToPortableText(
+        'Before.\n\n<!-- ILLUSTRATION: diagram -->\n\nAfter.',
+        lesson: lesson,
+        assets: assets,
+        onWarning: messages.add,
+      );
+      expect(blocks.map((block) => block['_type']), ['block', 'block']);
+      expect(messages, hasLength(1));
+      expect(messages.single, contains(lesson.path));
+    });
+
+    test('source loader joins an asset creditKey to a YAML source key', () {
+      final dir = Directory.systemTemp.createTempSync('pantas_credit_');
+      addTearDown(() => dir.deleteSync(recursive: true));
+      final sources = Directory('${dir.path}/sources')..createSync();
+      File('${sources.path}/test.yaml').writeAsStringSync(
+        'version: 1\nassets:\n  - key: source-key\n    credit: Test artist / CC BY 4.0\n',
+      );
+      final file = File('${dir.path}/assets.json')
+        ..writeAsStringSync(
+          jsonEncode({
+            lesson.assetKey(1): {
+              'url': 'https://cdn.sanity.io/images/credited.png',
+              'alt': 'Diagram',
+              'creditKey': 'source-key',
+            },
+          }),
+        );
+      final blocks = markdownToPortableText(
+        '<!-- ILLUSTRATION: diagram -->',
+        lesson: lesson,
+        assets: LessonAssetMap.fromJsonFile(file),
+      );
+      expect(blocks.single['asset'], {
+        'url': 'https://cdn.sanity.io/images/credited.png',
+        'credit': 'Test artist / CC BY 4.0',
+      });
+    });
+
     test(
       'parses valid FIGURE marker with inline spec and semanticsLabel',
       () {
@@ -150,12 +207,18 @@ void main() {
         lesson: 'cell-biology',
       );
 
-      final assets = LessonAssetMap.fromMap({
-        'science/biology/cell-biology#1': {
-          'url': 'https://cdn.sanity.io/images/cell.png',
-          'alt': 'Animal cell diagram',
+      final assets = LessonAssetMap.fromMap(
+        {
+          'science/biology/cell-biology#1': {
+            'url': 'https://cdn.sanity.io/images/cell.png',
+            'alt': 'Animal cell diagram',
+            'creditKey': 'cell-source',
+          },
         },
-      });
+        credits: {
+          'cell-source': 'Test artist / CC BY 4.0',
+        },
+      );
 
       const markdown = '''
 Intro text.
@@ -175,7 +238,10 @@ Conclusion text.
       expect(blocks[0]['_type'], 'block');
       expect(blocks[1], {
         '_type': 'image',
-        'asset': {'url': 'https://cdn.sanity.io/images/cell.png'},
+        'asset': {
+          'url': 'https://cdn.sanity.io/images/cell.png',
+          'credit': 'Test artist / CC BY 4.0',
+        },
         'alt': 'Animal cell diagram',
       });
       expect(blocks[2]['_type'], 'block');
@@ -331,16 +397,22 @@ Paragraph after.
           lesson: 'gravity-and-keplers-laws',
         );
 
-        final assets = LessonAssetMap.fromMap({
-          'science/physics/gravity-and-keplers-laws#2': {
-            'url': 'https://cdn.sanity.io/images/gravity_2.png',
-            'alt': 'Kepler first law orbit',
+        final assets = LessonAssetMap.fromMap(
+          {
+            'science/physics/gravity-and-keplers-laws#2': {
+              'url': 'https://cdn.sanity.io/images/gravity_2.png',
+              'alt': 'Kepler first law orbit',
+              'creditKey': 'kepler-source',
+            },
+            'science/physics/gravity-and-keplers-laws#4': {
+              'url': 'https://cdn.sanity.io/images/gravity_4.png',
+              'alt': 'Kepler third law period-distance graph',
+            },
           },
-          'science/physics/gravity-and-keplers-laws#4': {
-            'url': 'https://cdn.sanity.io/images/gravity_4.png',
-            'alt': 'Kepler third law period-distance graph',
+          credits: {
+            'kepler-source': 'Test artist / Public domain',
           },
-        });
+        );
 
         const markdown = '''
 Intro text for Kepler.
@@ -360,20 +432,18 @@ Conclusion text.
           assets: assets,
         );
 
-        expect(blocks.length, 5);
+        expect(blocks.length, 4);
         expect(blocks[0]['_type'], 'block');
         expect(blocks[1], {
           '_type': 'image',
-          'asset': {'url': 'https://cdn.sanity.io/images/gravity_2.png'},
+          'asset': {
+            'url': 'https://cdn.sanity.io/images/gravity_2.png',
+            'credit': 'Test artist / Public domain',
+          },
           'alt': 'Kepler first law orbit',
         });
         expect(blocks[2]['_type'], 'block');
-        expect(blocks[3], {
-          '_type': 'image',
-          'asset': {'url': 'https://cdn.sanity.io/images/gravity_4.png'},
-          'alt': 'Kepler third law period-distance graph',
-        });
-        expect(blocks[4]['_type'], 'block');
+        expect(blocks[3]['_type'], 'block');
       },
     );
 
@@ -392,6 +462,7 @@ Conclusion text.
           'science/physics/gravity-and-keplers-laws#2': {
             'url': 'https://cdn.sanity.io/images/gravity_2.png',
             'alt': 'Kepler first law orbit',
+            'creditKey': 'kepler-source',
           },
           'science/physics/gravity-and-keplers-laws#4': {
             'url': 'https://cdn.sanity.io/images/gravity_4.png',

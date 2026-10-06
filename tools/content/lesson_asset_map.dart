@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:yaml/yaml.dart';
+
 /// Represents the identity and location of a lesson markdown file.
 class LessonIdentity {
   const LessonIdentity({
@@ -79,21 +81,29 @@ class LessonAssetEntry {
 
 /// Lookup map for lesson illustration assets.
 class LessonAssetMap {
-  const LessonAssetMap(this._entries) : isConfigured = true;
+  const LessonAssetMap(this._entries, {Map<String, String> credits = const {}})
+      : _credits = credits,
+        isConfigured = true;
 
   const LessonAssetMap.empty()
       : _entries = const {},
+        _credits = const {},
         isConfigured = true;
 
   const LessonAssetMap.unconfigured()
       : _entries = const {},
+        _credits = const {},
         isConfigured = false;
 
   const LessonAssetMap.disabled()
       : _entries = const {},
+        _credits = const {},
         isConfigured = false;
 
-  factory LessonAssetMap.fromMap(Map<String, Object?> map) {
+  factory LessonAssetMap.fromMap(
+    Map<String, Object?> map, {
+    Map<String, String> credits = const {},
+  }) {
     final entries = <String, LessonAssetEntry>{};
     for (final entry in map.entries) {
       final val = entry.value;
@@ -107,26 +117,57 @@ class LessonAssetMap {
         );
       }
     }
-    return LessonAssetMap(entries);
+    return LessonAssetMap(entries, credits: credits);
   }
 
-  factory LessonAssetMap.fromJsonString(String jsonStr) {
+  factory LessonAssetMap.fromJsonString(
+    String jsonStr, {
+    Map<String, String> credits = const {},
+  }) {
     final decoded = jsonDecode(jsonStr) as Map<String, dynamic>;
-    return LessonAssetMap.fromMap(decoded);
+    return LessonAssetMap.fromMap(decoded, credits: credits);
   }
 
   factory LessonAssetMap.fromJsonFile(File file) {
     if (!file.existsSync()) return const LessonAssetMap.unconfigured();
-    return LessonAssetMap.fromJsonString(file.readAsStringSync());
+    return LessonAssetMap.fromJsonString(
+      file.readAsStringSync(),
+      credits: _loadCredits(Directory('${file.parent.path}/sources')),
+    );
   }
 
   final Map<String, LessonAssetEntry> _entries;
+  final Map<String, String> _credits;
   final bool isConfigured;
 
   bool get isUnconfigured => !isConfigured;
   bool get isDisabled => !isConfigured;
 
   LessonAssetEntry? get(String key) => _entries[key];
+
+  String? creditFor(LessonAssetEntry entry) => _credits[entry.creditKey];
+
+  static Map<String, String> _loadCredits(Directory sources) {
+    if (!sources.existsSync()) return const {};
+    final files = sources
+        .listSync()
+        .whereType<File>()
+        .where((file) => file.path.endsWith('.yaml'))
+        .toList()
+      ..sort((a, b) => a.path.compareTo(b.path));
+    final credits = <String, String>{};
+    for (final file in files) {
+      final doc = loadYaml(file.readAsStringSync()) as YamlMap;
+      for (final source in (doc['assets'] as YamlList).cast<YamlMap>()) {
+        final key = source['key'];
+        final credit = source['credit'];
+        if (key is String && credit is String && credit.trim().isNotEmpty) {
+          credits[key] = credit;
+        }
+      }
+    }
+    return credits;
+  }
 
   LessonAssetEntry? lookup(LessonIdentity lesson, int seq) =>
       get(lesson.assetKey(seq));

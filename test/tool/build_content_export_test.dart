@@ -54,8 +54,14 @@ void main() {
         'mathematics/algebra/01-intro#1': {
           'url': 'https://cdn.sanity.io/images/demo.png',
           'alt': 'Coordinate axis diagram',
+          'creditKey': 'coordinate-source',
         },
       }),
+    );
+
+    final sources = Directory('${illusDir.path}/sources')..createSync();
+    File('${sources.path}/test.yaml').writeAsStringSync(
+      'version: 1\nassets:\n  - key: coordinate-source\n    credit: Test artist / Public domain\n',
     );
 
     // Setup content/lessons
