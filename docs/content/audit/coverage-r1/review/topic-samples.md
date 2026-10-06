@@ -15,13 +15,13 @@ Current live main and cached origin/main both: `ac4b30da31b0bcca7e7ed1e47c930b1a
 - PENDING: language-proficiency-grammar-and-structure
 - PENDING: language-proficiency-language-application
 - PENDING: language-proficiency-vocabulary
-- PENDING: mathematics-algebra
+- PASS: mathematics-algebra
 - PASS: mathematics-arithmetic-number-sense
 - PENDING: mathematics-data-interpretation
-- PENDING: mathematics-geometry
+- PASS: mathematics-geometry
 - PENDING: mathematics-precalculus-basic-calculus
 - PENDING: mathematics-statistics-and-probability
-- PENDING: mathematics-trigonometry
+- PASS: mathematics-trigonometry
 - PENDING: reading-comprehension-comprehension-skills
 - PENDING: reading-comprehension-text-types
 - PENDING: reasoning-clerical-ability
@@ -230,3 +230,113 @@ report_emdash=0; trailingWhitespace=0; errors=[]
 ```
 
 C1 and P1 are resolved at the corrected hashes above; historical findings remain in their original sections. All20unread topics remain PENDING. Current policy6d0bb731; author historical identical-policy revisions remain valid. Scope: independent Level3 topic samples only. No full standards, full correctness, practice, runtime, illustration or combined gate acceptance. Only this sole report was edited by this reviewer.
+
+## Geometry and Algebra startup checkpoint
+
+Current main/live cached `52046f114389ced88e487e139925c92c5660d0dc`; audit local/live `ee456e03ffb33d0138d69665aa65d1edadd75d5b`; corpus clean/pinned765c5dc0. Nine required current policy/standard/startup files were retrieved and byte-compared to previously fully read6d0bb731: all unchanged. Full workstream spec/plan/ORCHESTRATOR and both controlling decision logs also unchanged and retrieved. Original full brief reloaded. Requirement/map/overlap manifests:10/13/8matches,zero mismatches. Existing five current PASS samples and resolved C1/P1 history remain intact. Only Geometry and Algebra are added by this dispatch; other18topics remain pending.
+
+## Geometry: source-first observations saved before author verdicts
+
+Full initial pinned sources: circles1-203, measurement1-230, parallel-perpendicular-lines1-170, triangles1-236. No Geometry target verdict read before this checkpoint.
+
+- Teaching-confirmed: triangles18-55 and82-200 supplies inequality, similarity, Pythagorean and special-right-triangle applications. Circles12-42 and46-169 supplies circle parts, arc/sector fractions, angle rules and right-triangle computations. Measurement18-36 and40-196 applies planar/solid formulas. Local curriculum preparation is not confirmation of exact examined geometry depth or full compound geometry/measurement rows.
+- Thin facet: triangle congruence postulates26-36 have no direct applied proof/congruence-matching example among59-200. Circle secants/chords are defined but no tangent-secant/intersecting-chord relationship is taught or applied. Measurement lists sphere/pyramid formulas without their own worked applications and no substantive measurement/conversion method beyond218. Existing formulas do not teach every conditional solid-measurement demand.
+- Focus candidates: measurement has planar composite-area and solid surface/volume goals18-36,92-196; these could be separate units while sharing units/circle area once. Triangles could separate basic angle/inequality/right-triangle methods from congruence/similarity proof, but a split alone would not supply missing proof teaching. Circle fraction/angle/right-triangle tasks are connected and do not require one unit per concept.
+- Prerequisite challenge: circle113-169 names Pythagorean theorem without giving a general core formula, but worked equations125/155 show the specific leg/hypotenuse relation. Determine whether a strict triangle edge supplies an indispensable idea absent locally rather than a richer recap. Parallel-angle equations55-121 show their own algebra solving steps, so an entire equation lesson is not automatically necessary.
+- Load-bearing dependency: zigzag125 does not state which side ofP each segment meets the two lines. The helper-line arrangement at127/133 determines whether acute angles add or differ; without that configuration the text does not uniquely determine70degrees. This is a dependency/ambiguity note only, not illustration quality or production assessment.
+- Bounded structural arithmetic: circle arc/sector2pi/6pi, tangent12, rectangular-box volume60/surface94, cone slant10, triangle shadow9and strict third-side lengths5through13 agree. Sample text is English; exam language/depth/runtime and practice remain separate limits.
+
+### Geometry comparison: PASS
+
+Immutable target SHA256: `fc505bfa79c46273cece5392ca8ad80306b97641d1b240eb8a0067542ed48e8c`. Complete178-line prose inspected in bounded chunks; all JSON lesson/facet relationships and unique text beyond repeated prose inspected. Accounting:8COMPLETE lessons,85facets,no strict edges,one split candidate,one load-bearing figure record.
+
+- Confirmed sampled triangle, circle and measurement teaching versus their distinct applications. Congruence labels are thin without criterion-based correspondence/proof; chord/secant named scope does not establish advanced circle applications. The exact `upcat-L191` proof competency remains separate from computing a ladder leg. Broader geometry/measurement rows, organizer silence and unknown detailed depth never establish complete coverage or exclusion.
+- Checked the only split against full measurement1-230. Planar region/boundary work differs from solid-face/volume modeling; shared dimensional meanings remain once. Relocation/routing/practice costs and missing future teaching are explicit. Circle and triangle surveys remain coherently retained rather than split by concept count.
+- Independently checked the absence of strict sampled prerequisites. Circle113-169 and cone170-196 provide their right-triangle equation and solving sequence; a richer general theorem explanation belongs before use but does not make another whole lesson indispensable for current calculations. Parallel55-121 likewise shows its equality/sum equation procedures. No guessed triangle/algebra or authored-order edge is added. The no-edge list explicitly accounts for all8lessons, and polygon scope meanings stay a missing local foundation.
+- The zigzag dependency exactly matches the independent finding: parallel-lines125 fails to fix endpoint sides/angle configuration;127/133 and131-142 choose the sum arrangement. An alternate placement can satisfy the same30/40-degree line-angle givens. The author records load-bearing configuration dependence without judging illustration quality or proposing production. Other sampled examples have their relationships and numeric inputs in text.
+- Independent mathematical samples agree with the source ledger: circle remaining leg8 and tangent12; box60/94; cylinder90pi/78pi; cone96pi/slant10. Exam-wide/frequency claims in lesson prose remain explicitly UNKNOWN in the audit ledger; no current universal theorem/shape demand is inferred. No external fact is invented from those claims.
+- Topic bodies are English; CSE Numerical/Analytical versus standalone Geometry placement, current cycle/language/depth, practice and runtime remain bounded. No unauthorized later-level work was found.
+
+Sample flags:none. Current accounting:6PASS,0FLAGS,19PENDING. Geometry PASS is independent sample acceptance of the current audit artifact, not a full geometric proof/correctness, illustration or exam-completeness review.
+
+## Algebra: independent source-first observations
+
+Full initial independent sources: functions-and-relations1-187, linear-equations-inequalities1-168, word-problems1-219, types-of-functions1-149. The full exponents-and-logarithms1-199 source was independently read before Arithmetic review and before any Algebra author target; current pinned bytes are unchanged. No Algebra verdict read before this saved checkpoint.
+
+- Teaching-confirmed: function12-45 and49-141 defines single-output pairing, domains, composition and invertibility with applications. Linear12-35 and39-140 solves equations/inequalities and supplied-boundary graphs. Word-problems19-33 and39-181 supplies six modeled relationships and steps. These are local facets of curriculum `dcat-L051/L056`, `acet-L065/L068`, `ustet-L084/L087`, `pupcet-L092/L094`, `dost-sei-L127/L131`; official CSE word-problem scope does not establish all six families or depth.
+- Thin boundaries: function range22 is defined but no explicit range-solving method/example appears. Inverse43-45 names restriction/one-to-one criteria without a restricted nonlinear inverse example. Types-of-functions24 names holes/slant asymptotes, but62-75 applies only a simple vertical/horizontal case. Absolute-value26/79-89 applies a two-case equation while underlying distance/piecewise meaning remains short. Linear graph forms and intercepts include methods introduced after core. These are partial specific actions, not full broad function/graph coverage.
+- Focus candidates: linear combines equation/inequality solving, coordinate lines, half-plane graphing and a calculator system. The system example is a candidate for placement with systems/modeling rather than a new lesson per equation type. Types-of-functions is a family survey; rational graph limits/absolute/piecewise reasoning and exponential/log solving are distinct additions if their goals need depth. Functions could separate core input/output/domain/evaluation from composition/inverse applications, preserving one definition foundation.
+- Dependency challenge: functions125-139 locally gives inverse rearrangement steps, and linear equations45-55 gives its own expansion/collection sequence; deeper algebra overlap does not automatically require whole other lessons. Types-of-functions assumes what function evaluation/domain mean; verify a strict existing foundation only for meanings absent locally. Log solving uses inverse exponent meaning, which exponents-and-logarithms12-18 teaches; exact quoted consumers and locally supplied steps matter.
+- Encountered bounded accuracy concern: exponent laws22-34 are introduced for expressions whose powers/divisions are defined, but definedness alone does not justify every real power-of-a-power identity. For a=-1,m=2,n=1/2, both real sides exist, while((a^m)^n)=1and a^(mn)=-1. This is a concrete domain-boundary issue to compare with the author's encountered-fact handling, not a complete standards sweep.
+- Bounded arithmetic agrees: function composition gives3versus22; inverse(2x-3)/5 gives(5x+3)/2; mixture ideal linear-volume model gives16liters; count/value gives8five-peso coins; supplied absolute-value equation gives6or-1. Text supplies sampled graph coordinates/regions and function branch conditions, so no unseen figure is required by these sampled examples. English bodies do not establish Filipino Numerical/Mathematics demand; practice/runtime/current depth remain deferred/unknown.
+
+### Algebra comparison: PASS
+
+Immutable target SHA256: `8e6f822ce9bfa769cf7b9abaadf837050292d443dfddaeeacd8c577c68dbbc1c`. Complete195-line prose inspected in bounded chunks; all JSON lesson/facet relationships and unique semantic additions inspected. Accounting:11COMPLETE lessons,116facets,two strict edges,two split candidates. All source-first observations precede target verdict reading.
+
+- Confirmed function pairing/domain/composition/inverse and equation/modeling samples. The author separately records range derivation, constrained compositions/inverse branches, rational holes/slant cases and general rational operations. A known function family or monomial quotient does not close every compound function/rational-expression row. Six story families remain examples of the official CSE word-problem domain, not six individually confirmed required families.
+- Both actual splits were checked against complete consumers: exponents-and-logarithms1-199 (independent earlier full read with unchanged pinned hash) and linear-equations-inequalities1-168. Exponent manipulation versus logarithm methods and one-variable isolation versus coordinate/half-plane reasoning have different foundation/application goals. Shared foundations remain once; new identity, example relocation, missing teaching and practice-remapping costs are explicit. No unknown exam scope becomes exclusion.
+- Verified both strict edges against complete consumers/foundations: types-of-functions1-149 invokes function-versus-relation and inverse pairing at12-14/30; functions-and-relations1-187 supplies those meanings at12-16/41-43. Linear-equations1-168 requires plotting an intercept and rise/run at20-28 without coordinate address/axis directions; full coordinate-geometry1-216 defines horizontal-then-vertical address at12. Each is an indispensable meaning absent locally, rather than duplicated line formulas. Current foundations have no reverse edge; no sampled cycle or invented target.
+- Other sampled equations show their algebra steps or provided numeric values locally, so related systems/percentage sources do not automatically become strict prerequisites. Readiness limitations, including the omitted terminal isolation in the common-base exponent example, remain recorded separately. Existing source support for deeper procedures is not treated as a required full lesson solely for elaboration.
+- Independently rederived the encountered power-domain concern: with a=-1,m=2,n=1/2, the two real defined values are1and-1, so definedness alone does not guarantee the power-of-power rule. The author records this exact qualification concern and does not falsely condemn its positive-base/integer applications. Function composition3/22, affine inverse(5x+3)/2, absolute-value roots6/-1, and ideal additive-volume mixture16liters agree in the bounded sample. One matching test input cannot prove an expression/inverse; the author preserves that concern separately from useful disproof checks. No full correctness or standards pass follows.
+- The algebra examples provide graph region/boundary/pair/branch facts in text. No sampled load-bearing figure was missed. CSE English Numerical versus other current language/cycle/cohort/depth limits remain explicit, and no Level4/5 work was found.
+
+Sample flags:none. Current independent accounting:7PASS,0FLAGS,18PENDING. Bounded content accuracy/domain and missing-teaching findings remain recommendations requiring later content approval; this PASS accepts the current audit sample only.
+
+## Seven-topic handback verification
+
+```text
+topics=25; unique=25; PASS=7; FLAGS=0; PENDING=18
+mathematics-algebra: COMPLETE; lessons=11; facets=116; hash_range_errors=[]; SHA256=8e6f822ce9bfa769cf7b9abaadf837050292d443dfddaeeacd8c577c68dbbc1c
+mathematics-arithmetic-number-sense: COMPLETE; lessons=9; facets=81; hash_range_errors=[]; SHA256=7cdf0dd2e7f051114addf1b05ce44fd3b7c1687b185c275e0773c412489b01a0
+mathematics-geometry: COMPLETE; lessons=8; facets=85; hash_range_errors=[]; SHA256=fc505bfa79c46273cece5392ca8ad80306b97641d1b240eb8a0067542ed48e8c
+science-biology: COMPLETE; lessons=10; facets=62; hash_range_errors=[]; SHA256=d5210d8c0e717c9ce084911cd495060329069c1e16732e11a0379d0f03170023
+science-chemistry: COMPLETE; lessons=17; facets=96; hash_range_errors=[]; SHA256=b9eebd9d5626edb3f5da52adabcfa9cf93cea839febc652a54f1d5f56e78f034
+science-earth-science-astronomy: COMPLETE; lessons=11; facets=88; hash_range_errors=[]; SHA256=48ae2a7afdc280dfbd20d206112c508c26077b0e65036ef8728a3a8f7f068423
+science-physics: COMPLETE; lessons=13; facets=97; hash_range_errors=[]; SHA256=20d984df846d1abff9ae506e16618b5cc0603c24eef062e632b4097b7f863905
+reviewed_artifact_lessons=79; frozen_lesson_hashes=158; corpus_mismatches=[]
+current_policy=52046f114389ced88e487e139925c92c5660d0dc
+corpus_HEAD=765c5dc0fa5586281047bf4f7b30d09ab3707887; clean=true
+report_emdash=0; trailingWhitespace=0; errors=[]
+```
+
+Preserved five earlier current PASS samples and C1/P1 correction history. Geometry and Algebra added at immutable hashes above. Other18topics remain PENDING; future Trigonometry/Statistics author progress is not independent acceptance and awaits an explicit followup. Only this sole report was edited. No content, app, importer/schema, illustration, Google, Git or later-level work. Combined Level3 remains incomplete; exact exam depth/cycles/languages, practice/runtime and complete correctness remain unknown or deferred.
+
+## Trigonometry and Statistics startup
+
+Actual live/cached main advanced to `cd66ea22d197acbd5af6ae2185138ffa5d14d595`; audit local/live remains `ee456e03ffb33d0138d69665aa65d1edadd75d5b`; corpus clean/pinned765c5dc0. Current full nine policy/standard/startup bodies were retrieved and byte-compared to52046: all identical. Full controlling task context and decision logs are unchanged/retrieved; original brief reloaded. Accepted requirement/map/overlap hashes:10/13/8matches,zero mismatches. Lead notified of the identical-policy revision. Seven current PASS samples and correction history remain intact. Only Trigonometry/Statistics are added; other16topics remain pending.
+
+## Trigonometry: independent source-first observations
+
+Full initial pinned sources: angles-and-radian-measure1-161, unit-circle1-177, inverse-trigonometric-functions1-168. The complete basic-trigonometric-ratios1-194 source was independently read before Physics review, with unchanged pinned bytes; its ratio/special-angle teaching remains available. No Trigonometry author verdict read before this checkpoint.
+
+- Teaching-confirmed: angles14-33 and39-133 develops degree/radian conversion, standard/coterminal position and arc length; unit-circle12-34 and50-143 applies special-angle magnitude/sign/axis values; inverse12-24 and30-134 applies principal branches and triangle compositions. These support distinct local preparation, not complete compound trigonometry/graph requirements.
+- Thin boundary: unit circle defines signs and reference angles but no continuous sinusoidal graph, amplitude/period/phase transformation or general trig-equation solution set. Inverse140 names reversed-order principal-range restriction without a worked outside-range folding example. Definitions and exact-value substitutions do not establish every conditional STEM circular-function/inverse skill.
+- Focus/absence-of-split sample: angle conversion/coterminal/arc applications share angular-measure meaning; unit-circle exact values/signs share the coordinate method; inverse ranges/compositions share principal-angle reasoning. These sampled sources are coherent. Extra formulas or examples alone do not establish a beneficial split.
+- Prerequisite candidates: unit-circle14 invokes standard position without defining rotation conventions, which angles29 supplies. It uses coordinates while locally mapping cosine to horizontalx and sine to verticaly; evaluate whether any additional whole coordinate lesson is necessary rather than recap. Inverse100-130 supplies ratio-side identification and right-triangle computations locally; richer triangle teaching is not automatically indispensable. Exact-value recognition for multiple inverse cases may require the existing standard-angle foundation where values are not supplied locally.
+- Encountered literal mathematical concern: angles115 annotation calls pi/5radians72degrees, while the conversion rules22-27 imply36degrees. The prose113/123/127/131 treats pi/5and72degrees as different inputs, giving2piand4pi arc lengths for radius10. Independently36and72are distinct and those arc computations agree; the annotation is inconsistent. This is a literal numeric claim check, not display/illustration need or quality.
+- Sample stems provide angle values/axis relationships in text, so no sampled unseen figure dependency. English text does not establish actual examination language; depth, cycle/cohort conditions, practice and runtime remain separate limits.
+
+### Trigonometry comparison: PASS
+
+Immutable target SHA256: `64b0d70f297494b8631e3e465e9976bc2ad977af998673be99373c8a68759411`. Complete96-line prose and all JSON lesson/facet relationships/unique semantic additions inspected in bounded chunks. Accounting:7COMPLETE lessons,73facets,three strict edges,no split proposals. Additional complete source reads after observations: laws-of-sines-and-cosines1-198, trigonometric-identities1-191, solving-right-triangles1-191. All seven consumer bodies have independent full-read evidence, including the prior unchanged basic-ratios read.
+
+- Existing angular measure, acute ratios/applications, exact circle values, oblique method selection, inverse principal values and identity rewriting are coherent divisions. Keeping laws together serves selection from givens; missing ASA/SSA applications or retained cotangent branches need teaching rather than new empty lessons. No arbitrary example count or automatic split is imposed.
+- Confirmed taught conversion/exact/principal values, and thin off-range composition, SSA branching, radian placement, observer-height and wider graph/polar facets. Advanced STEM/circular preparation remains conditional and does not become full DOST current scope or unsupported exam exclusivity. Nonstandard35degree sides stay symbolic under UPCAT's device rule.
+- Checked the three strict edges against full consumers/foundations. Laws12-20 uses sine/cosine without ratio meanings; basic-ratios12-34 supplies those meanings. Unit-circle147 consumes radians without local unit meaning; angles14-27 supplies that foundation. Unit-circle12-18/117-123 uses signed ordered positions; full coordinate-geometry12 defines horizontal/vertical address. Each edge concerns a missing quantity meaning, not all deeper foundation methods. No reverse or sampled cycle; inverse/right-triangle/identity local procedures do not acquire redundant dependencies.
+- Independent literal calculation confirms angles115 is inconsistent: pi/5radians=36degrees, while72degrees=2pi/5. Radius10 therefore gives2piand4pi for the two distinct stem inputs. The author preserves that exact numeric concern; no illustration-display/quality/need finding or content edit is made.
+- Independently checked the author's bounded SSA demonstration: A30,a7,b10 gives Babout45.5847or134.4153, both keeping A+Bbelow180. Arcsin(sin150degrees)=30degrees, and tangent cancellation remains undefined wherecos=0. These narrow mathematical samples support the ledger; no full correctness/standards/key review follows.
+- No sampled load-bearing figure was missed. English bodies and current exam-language/cycle/depth, practice/runtime limits remain separated. No Level4/5 work found.
+
+Sample flags:none. Current accounting:8PASS,0FLAGS,17PENDING. Source numeric concern remains a surfaced audit finding requiring later content approval, not an unresolved reviewer error.
+
+## Statistics and Probability: independent source-first observations
+
+Full initial pinned sources: data-analysis-graphs1-159, measures-of-central-tendency1-132, measures-of-variability1-148. No Statistics author verdict read before this checkpoint.
+
+- Teaching-confirmed: central14-22 and26-98 explains and applies mean/median/mode/backward/weighted calculations; variability18-38 and53-108 distinguishes population/sample denominators, spread and transformation. Graphs14-36 and40-119 applies pie fractions, bar mean comparison, scatter association/causation and percent change. These are specific local descriptive tasks, not every compound Statistics/probability/inference requirement.
+- Thin/absent sample: variability gives sample denominator at30-34/72 but no complete independently worked sample-variance sequence. Positional measures, random-variable distributions, normal probabilities, confidence intervals/testing and computed regression are absent from these three sampled bodies despite their distinct curriculum/conditional rows (`upcat-L198`, `dcat-L069/L070`, `ustet-L094`, `dost-sei-L133`). Other full bodies and cross-topic sources must be checked before broader absence claims. Scatter trend recognition26-36 is not computed correlation/regression or causal inference.
+- Structure/consolidation lead: pie/bar percent and total/change procedures can be shared with Data Interpretation if full sources teach the same methods. Preserve the scatter/nonlinear/causal-limit strand and quantitative statistical additions; a shared percent base alone cannot justify merging every data lesson or importing Professional Analytical into Subprofessional. Centrality and spread answer different questions but fit coherent existing goals; no automatic split from formula counts.
+- Prerequisite challenge: variability22/30 assumes mean quantities, while58-60 computes40/8 but does not define the arithmetic mean as a sum/count operation in the core. Existing central14-16 supplies that physical/statistical meaning; inspect strict necessity instead of assuming authored order. Graphs80-88 already shows its mean computation locally, so another central-tendency link may be a recap. Later advanced extensions are not prerequisites for current simple formulas.
+- Bounded independent arithmetic: listed population hasmean5,squared-deviation sum32,variance4,SD2; the corresponding sample variance is32/7. Weighted mean840/10=84; graph Friday difference37.5thousand, and35%pie sector126degrees agree. Mean/SD alone does not establish an exact-score probability distribution. No full question/key review.
+- Graph stems explicitly state sectors, category values, trend direction and years, so sampled examples do not require unseen graphs. English bodies and CSE English Analytical versus weak Numerical additions stay separate. Practice/runtime/current scope/language/depth remain deferred/unknown.

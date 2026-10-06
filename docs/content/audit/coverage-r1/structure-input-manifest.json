@@ -1,7 +1,7 @@
 {
   "level": 3,
   "status": "INPUT FROZEN; readers pending",
-  "policyCommit": "3c4569fd36f727e4cbc1b70beb8b4272302a4528",
+  "policyCommit": "cd66ea22d197acbd5af6ae2185138ffa5d14d595",
   "corpusCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
   "auditCheckpoint": "7d5f2ed6a6d6f30e35d1b3f64467f31e7d122112",
   "specSha256": "999654d8261ef2edc25a1c62512f3663570443c49eddba5613380e2e9724cc3c",
@@ -1068,8 +1068,10 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-algebra.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-algebra.json",
       "output": "docs/content/audit/coverage-r1/topics/mathematics-algebra-lessons.md",
-      "state": "RUNNING",
-      "agent": "l3_chemistry"
+      "state": "SAMPLE_PASS_INTEGRATION_PENDING",
+      "agent": "l3_chemistry",
+      "outputSha256": "8e6f822ce9bfa769cf7b9abaadf837050292d443dfddaeeacd8c577c68dbbc1c",
+      "reviewedOutputSha256": "8e6f822ce9bfa769cf7b9abaadf837050292d443dfddaeeacd8c577c68dbbc1c"
     },
     {
       "key": "mathematics-arithmetic-number-sense",
@@ -1118,9 +1120,10 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-geometry.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-geometry.json",
       "output": "docs/content/audit/coverage-r1/topics/mathematics-geometry-lessons.md",
-      "state": "AUTHOR_COMPLETE_REVIEW_PENDING",
+      "state": "SAMPLE_PASS_INTEGRATION_PENDING",
       "agent": "l3_biology",
-      "outputSha256": "fc505bfa79c46273cece5392ca8ad80306b97641d1b240eb8a0067542ed48e8c"
+      "outputSha256": "fc505bfa79c46273cece5392ca8ad80306b97641d1b240eb8a0067542ed48e8c",
+      "reviewedOutputSha256": "fc505bfa79c46273cece5392ca8ad80306b97641d1b240eb8a0067542ed48e8c"
     },
     {
       "key": "mathematics-precalculus-basic-calculus",
@@ -1147,8 +1150,9 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-statistics-and-probability.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-statistics-and-probability.json",
       "output": "docs/content/audit/coverage-r1/topics/mathematics-statistics-and-probability-lessons.md",
-      "state": "RESUME_REQUIRED_NO_OUTPUT",
-      "agent": "l3_biology"
+      "state": "AUTHOR_COMPLETE_REVIEW_PENDING",
+      "agent": "l3_biology",
+      "outputSha256": "5d43857d181db26a22174466709ad2a8cede278a3f06e408622e56bc7bb00542"
     },
     {
       "key": "mathematics-trigonometry",
@@ -1164,8 +1168,9 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-trigonometry.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-trigonometry.json",
       "output": "docs/content/audit/coverage-r1/topics/mathematics-trigonometry-lessons.md",
-      "state": "RUNNING",
-      "agent": "l3_physics"
+      "state": "AUTHOR_COMPLETE_REVIEW_PENDING",
+      "agent": "l3_physics",
+      "outputSha256": "64b0d70f297494b8631e3e465e9976bc2ad977af998673be99373c8a68759411"
     },
     {
       "key": "reading-comprehension-comprehension-skills",
@@ -1362,10 +1367,24 @@
     }
   ],
   "compatiblePolicyCommits": [
+    "34ab39949472998497613b5ee664ec5218e63307",
     "3c4569fd36f727e4cbc1b70beb8b4272302a4528",
+    "52046f114389ced88e487e139925c92c5660d0dc",
     "6d0bb7318ad396abe62c6c59b6d437f758ed65c4",
     "ac4b30da31b0bcca7e7ed1e47c930b1ac00ced6c",
     "cb48097bedf15bec2cfbe4fb3aa7e957753b1727",
+    "cd66ea22d197acbd5af6ae2185138ffa5d14d595",
     "e8d5f0f958e38c1648046a93747437687ba08334"
-  ]
+  ],
+  "policyBlobFingerprints": {
+    "AGENTS.md": "3bdc2905aa3c2eb85f6280947528969464d379a3",
+    "WORKFLOW.md": "f4f2415256b8afbb5715d850a4b588c169d2d48c",
+    "SUBAGENTS.md": "b539ba3da0255d6272486d147fa8b4c80050482d",
+    "docs/workflow/startup.md": "3a1a659d08a55d1e350fb35347d9d6e6675e0b54",
+    "docs/content/source-policy.md": "461deb45b226977c70bd08790b3cdc31f2a24802",
+    "docs/content/exam-format-profiles.md": "d709f3f0944c59ae1906a4e03cfb3718df7ec8a8",
+    "docs/content/content-checklist.md": "7986287f0c521aef15f3d6b846895a9031a4ccbf",
+    "docs/content/lesson-style-guide.md": "4aadce093628084eae918d9e7363fa68d4f1ba9b",
+    "docs/content/question-style-guide.md": "98a7074d5cb623a93582a48608eb127c4f88aeb3"
+  }
 }
