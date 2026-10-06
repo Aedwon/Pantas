@@ -12,6 +12,9 @@ unit tests for every rule, then code, task checks (`flutter test test/features/h
 test/features/roadmap test/features/progress test/features/metrics`), commit. Screens move to W1's
 theme API and W2's components; Pro gates read W3's `proForActiveExamProvider`.
 
+While W3's entitlement state is `paused`, each Pro gate shows W2's `ProPausedLine` instead of the Pro
+invitation, with a widget test (amended Oct 6, abuse review 1).
+
 ## Track A: Home
 
 ### Task 1. Move shared data out of `lib/features/progress/` (lands first)

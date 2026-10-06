@@ -71,7 +71,7 @@ no new issues.
 ## Task 5. States and marks
 
 `LoadingShapes` (shown only after 300 ms; Pro-gate shapes still), `StepsScreen`, `StateView`
-(inline and full-screen), `ProTag`, `PlaceholderFigure` plus `test/core/ui/placeholders_test.dart`,
+(inline and full-screen), `ProTag`, `ProPausedLine` (the approved paused line; amended Oct 6), `PlaceholderFigure` plus `test/core/ui/placeholders_test.dart`,
 which scans `lib/` and lists every `PlaceholderFigure` use (W5's blocker list reads it).
 Boards: L_Rules, ST_Loading, L_Restore, L_Delete, L_MockStart, YO_Error, SY_Error, YR_WrappedFree
 (Pro tag). Raw error text is never shown (test passes an exception and asserts no `toString`).

@@ -17,7 +17,7 @@ integrates.
 | Before | After | Why |
 |---|---|---|
 | W0 (all) | W1, W3, W6 | base; W3 needs the exam catalog |
-| W6 Task 3b (Tasks 1 to 3 integrated) | W3 Tasks 1, 2, 5, 10, 13 TS half, 14, 15; W4g Task 3b | Functions package, test runner, rules and limits |
+| W6 Task 5b (Tasks 1 to 5 integrated) | W3 Tasks 1, 2, 5, 10, 13 TS half, 14, 15; W4g Task 3b | Functions package, test runner, rules and limits |
 | W6 Tasks 2 and 3 | W3 Task 2 (`firestore.rules`), W3 Task 10 (`recordSignInEvent.ts`) | rules and limit land first |
 | W3 Tasks 2, 5, 10 and 14 | W4g Task 3b (`firestore.rules`) | rules order W6, W3, W4g |
 | W1 (all) | W2 | tokens, icons, route files |
@@ -42,7 +42,7 @@ integrates.
 | Wave | Slot 1 | Slot 2 | Slot 3 |
 |---|---|---|---|
 | 1 | W0 (on the integration branch) | | |
-| 2 | W1 | W3 (order 4, 13 Dart half, 3, 6 to 9, 11, 12; the rest after W6 Task 3b) | W6 (Task 3b integrates Tasks 1 to 3 early) |
+| 2 | W1 | W3 (order 4, 13 Dart half, 3, 6 to 9, 11, 12; the rest after W6 Task 5b) | W6 (Task 5b integrates Tasks 1 to 5 early) |
 | 3 | W2 | W3 continues | W6 continues |
 | 4 | W4h, then W4b (track A, then track B) | W4e, then W4d | W4f Task 1, then W4a |
 | 5 | W4g | W4c | W4f Tasks 2 to 9 (tracks A then B) |
@@ -86,7 +86,7 @@ under this limit.
 | W4e submit path and the streak update | W4e and W4d land, then W4g Task 1 adds its trigger calls |
 | `firestore.rules` | W6 Tasks 2 and 3, then W3 Tasks 2, 5, 10 and 14, then W4g Task 3b |
 | `storage.rules` | W4g Task 3b only |
-| `functions/src/index.ts` | W6 Tasks 1, 4, 5, then W3 (new exports), then W4g Task 3b |
+| `functions/src/index.ts` | W6 Tasks 1, 4, 5 (integrated in Task 5b), then W3 (new exports), then W4g Task 3b |
 | `functions/src/recordSignInEvent.ts` | W6 Task 3, then W3 Task 10 |
 | `functions/src/renderWrappedPage.ts` | W4g Task 3b, then W4g Task 6 |
 | `tools/release/android/release.sh` | W5 Task 1b only |

@@ -4,7 +4,7 @@ Level 3. Date: October 6, 2026. Author: lead. Policy revision: origin/main 1958c
 Level 2 plan: `L2-W4g-wrapped-and-sharing.md`. Base: integration branch after W2, W3, W4b Task 8
 (Your record slot), W4f Task 5 (About slot) and W4h's pattern task. Executor per strategy B7 as amended October 6: GPT-6.1 Sol
 High through Codex builds, GPT-6 Astra audits, the Opus lead reviews and accepts the backend and
-rules changes. Own worktree. Task 3b starts after W6 Task 1 integrates.
+rules changes. Own worktree. Task 3b starts after W6 Task 5b integrates.
 
 Inventory facts (Oct 6): nothing triggers a Wrapped today (rule classes exist, no call sites);
 the `wrapped_revealed` and `wrapped_shared` analytics events do not exist (G-g-21 "kept" means none
@@ -16,6 +16,9 @@ slide's entry once). Every task: tests first, code, task checks (`flutter test t
 test/tool/wrapped_boundary_test.dart`), commit. W1 theme API, W2 components.
 
 Pro gates read W3's `proForActiveExamProvider` (Pro for the active exam), never `proIsActive` (level 3 gate review 2).
+
+While W3's entitlement state is `paused`, each Pro gate shows W2's `ProPausedLine` instead of the Pro
+invitation, with a widget test (amended Oct 6, abuse review 1).
 
 ## Task 1. Triggers for three moments
 
@@ -48,9 +51,10 @@ Traceability: X-1, X-7. Aedwon approved the limits and messages (Oct 6).
 2. New `functions/src/createWrappedShare.ts` (App Check, signed in): in one transaction, refuse over
    10 new links a day (counter document `users/{uid}/limits/wrappedShares`) or 50 live links (a
    count query on `wrapped_shares` where `ownerUid == uid` and `revoked == false`, so Remove frees a
-   slot; L3X-10) with `resource-exhausted` and the reason; then check the upload's PNG signature bytes and
-   size under 1 MB, copy it to `wrapped/{uid}/{shareId}.png`, delete the upload, and create the
-   record with a create that fails if `shareId` already exists (`ownerUid`, `shareId`,
+   slot; L3X-10) with `resource-exhausted` and the reason; before the transaction, check the upload's PNG signature bytes and
+   size under 1 MB and copy it to `wrapped/{uid}/{shareId}.png`; inside the transaction create the
+   record; after commit delete the upload (L3X2-6). An existing record owned by the caller is a
+   success (a client retry); create the record with a create that fails if `shareId` already exists (`ownerUid`, `shareId`,
    `createdAt`, `revoked: false`, no stored path; L3X-11).
 3. `functions/src/renderWrappedPage.ts`: serve only `wrapped/{ownerUid}/{shareId}.png` derived from
    the record; nothing for a malformed record; stream with a size cap of 1 MB; `maxInstances: 10`.

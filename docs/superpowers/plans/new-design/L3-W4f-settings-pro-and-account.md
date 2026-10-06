@@ -84,9 +84,9 @@ Pro subscriber on CSE sees the Civil Service plans and pass); Student and Civil 
 its pass-picked state; savings round down; trial line only when eligible; pass end dates from the
 catalog; payment pending card; offline notes; W3 states (trial, canceled until a date, grant, unknown,
 billing problem, store errors, and `paused`: the approved line "Connect once to keep using Pro." on
-the Pro page) in the Your plan rows; any exhaustive switch on the state handles `paused`. Other
-families' Pro gates read `coversExam`, which is false while paused, so they show their normal Pro
-invitation (L3X-9). Test: paused shows the line. Coming-soon tier pages are not built (deferred,
+the Pro page) in the Your plan rows; any exhaustive switch on the state handles `paused`. Every
+Pro gate in every family shows W2's `ProPausedLine` instead of the Pro invitation while the state is
+`paused` (L2 W4f §2; L3X2-3). Test: paused shows the line on the Pro page. Coming-soon tier pages are not built (deferred,
 Oct 6). When W3's `switchOutcome` (Task 6) carries `studentPlanStillRenews` (a Season Pass bought
 while a Student plan is active), the Pro page shows that the Student plan still renews, with Manage
 in Google Play, and a test covers it. This waits for Aedwon's decision and copy (asked at the start

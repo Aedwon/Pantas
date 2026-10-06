@@ -24,9 +24,11 @@ Traceability: X-13.
 1. `functions/package.json`: dependencies `firebase-admin` and `firebase-functions` (current
    majors that support Node 22; record versions), dev dependencies `typescript`, `firebase-tools`
    (record the version), the emulator test helpers already used by the rules tests; scripts
-   `build` (`tsc`), `test` (`npm run build && node --test test/*.test.mjs test/*.behavior.test.mjs
-   && firebase emulators:exec --only auth,firestore,storage --project demo-pantas-test "node --test
-   test/*.rules.mjs test/*.emulator.test.mjs"`). Behavior tests import the built `lib/` modules, not
+   `build` (`tsc`), `test` (`npm run build && node --test test/*.test.mjs && firebase emulators:exec --only
+   auth,firestore,storage --project demo-pantas-test "node --test test/*.rules.mjs
+   test/*.emulator.mjs"`). Naming rule: files that need the emulators end in `.emulator.mjs` or
+   `.rules.mjs` (never `.test.mjs`), so the first stage never runs them (L3X2-1); `.test.mjs` and
+   `.behavior.test.mjs` files run without emulators. Behavior tests import the built `lib/` modules, not
    `src/` (L3X-1): convert `revenuecat-webhook.behavior.test.ts` to
    `revenuecat-webhook.behavior.test.mjs` importing `../lib/revenuecatPolicy.js`, and rename
    `sync-generation.policy.mjs` to `sync-generation.behavior.test.mjs` importing
@@ -68,12 +70,6 @@ change. Cleanup queries paginate (500 per page).
 Tests: at and over each limit; an extra field on a sync row is denied; the real sync payloads pass.
 Checks: `npm test` in `functions/` green; `flutter test test/core/sync` green.
 
-## Task 3b. Early integration of Tasks 1 to 3 (L3X-3)
-
-After Tasks 1 to 3: GPT-6 Astra audit and the Opus lead's review of that slice; the lead integrates
-it into the integration branch so W3 and W4g can build on it. Deploys stay in Task 7. Checks: the
-slice's checks green on the integration branch.
-
 ## Task 4. Disable unfinished endpoints (AC-B4)
 
 Traceability: X-14, X-17.
@@ -93,10 +89,17 @@ Traceability: X-14.
 - `purgeOldExports`: remove the function and its export (export stays disabled).
 - New `cleanupWrappedOrphans`: delete files under `wrapped/{uid}/` (the `upload/` prefix included)
   with no share record after 24 hours.
-Each runs in pages and logs counts. Tests on the emulators: an active anonymous user is kept; an
+Each runs in pages and logs counts. Tests (`test/cleanup.emulator.mjs`, on the emulators): an active anonymous user is kept; an
 orphan is deleted; a 729-day audit entry is kept and a 731-day one deleted; an orphan file is
 deleted and a shared file kept.
 Checks: `npm test` in `functions/` green.
+
+## Task 5b. Early integration of Tasks 1 to 5 (L3X-3, L3X2-2)
+
+After Tasks 1 to 5: GPT-6 Astra audit and the Opus lead's review of that slice; the lead integrates
+it into the integration branch so W3 and W4g build on it (every W6 edit to `index.ts`, the rules and
+the limits is then in the base). Deploys stay in Task 7. Checks: the slice's checks green on the
+integration branch.
 
 ## Task 6. Live console rules snapshot (before any deploy)
 

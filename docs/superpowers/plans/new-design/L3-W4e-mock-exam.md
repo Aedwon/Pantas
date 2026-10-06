@@ -12,6 +12,9 @@ checks (`flutter test test/features/mock_exam test/app`), commit. W1 theme API, 
 
 Pro gates read W3's `proForActiveExamProvider` (Pro for the active exam), never `proIsActive` (level 3 gate review 2).
 
+While W3's entitlement state is `paused`, each Pro gate shows W2's `ProPausedLine` instead of the Pro
+invitation, with a widget test (amended Oct 6, abuse review 1).
+
 ## Task 1. Mock card (lands first)
 
 `MockCardModel` and `MockCard` in `lib/features/mock_exam/presentation/widgets/mock_card.dart`,

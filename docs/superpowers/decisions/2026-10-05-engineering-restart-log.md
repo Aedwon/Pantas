@@ -827,3 +827,11 @@ integration, W3 execution order, answer time from the function's own clock (v2 h
 time), the sync callable checks `proUntil`, the Android clock channel and trusted-entitlements
 setting named, one owner for the trial display, W4f paused state, W4g live-link count by query and
 create-only share records, budget alerts and tester allowlist setup steps, W5 symbol upload.
+
+## October 6, 2026: level 3 abuse gate review 2 and fixes
+
+`gates/l3-abuse-gate-2.md`: 0 blockers, 3 should-fix, 5 notes; all fixed: emulator tests named
+`.emulator.mjs` so the plain stage skips them; W6 integrates Tasks 1 to 5 early (Task 5b) so W3 and
+W4g never wait on deploys; paused Pro gates follow L2 W4f: a new W2 component `ProPausedLine`
+(the approved line, L2 W2 contract amended) shown by every family's Pro gate while paused. L2 W3
+AC-3 wording aligned (answer time from the function's own clock).

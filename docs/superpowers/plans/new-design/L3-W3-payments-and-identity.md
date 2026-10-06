@@ -4,9 +4,9 @@ Level 3. Date: October 6, 2026. Author: lead. Policy revision: origin/main 9d2c0
 Level 2 plan: `L2-W3-payments-and-identity.md`; tier spec (approved Oct 6). Base: integration branch
 after W0 integrates (needs the exam catalog). Executor: GPT-6.1 Sol High through Codex; audit:
 GPT-6 Astra; the Opus lead reviews and accepts every money and entitlement change (strategy B7 as
-amended October 6). Own worktree. Functions tasks (2, 5, 10, 13 TS half, 14, 15) start after W6 Task 3b integrates W6 Tasks 1 to 3.
+amended October 6). Own worktree. Functions tasks (2, 5, 10, 13 TS half, 14, 15) start after W6 Task 5b integrates W6 Tasks 1 to 5.
 Execution order (L3X-7): 4, 13 (Dart half and the shared vectors), 3, 6, 7, 8, 9, 11, 12; then, after
-W6 Task 3b: 1, 2, 5, 13 (TS half), 10, 14, 15, 16. Closes carry-forward N3-8, N-19, N-23.
+W6 Task 5b: 1, 2, 5, 13 (TS half), 10, 14, 15, 16. Closes carry-forward N3-8, N-19, N-23.
 
 Router edits (gate L3-1): Tasks 3 and 8 change `lib/app/router.dart` (`_settingsEntitlement`, the
 `proIsActive` reads). W1 Task 7 splits that file in parallel, so W3 makes those edits last: after W1
@@ -36,7 +36,7 @@ names the AC ids it closes and its tests are named after them.
 ## Task 1. Rebase onto W6's Functions package
 
 W6 Task 1 owns `functions/package.json`, the build and the test runner (moved from this plan,
-Oct 6). Rebase onto the integration branch after W6 Task 1 lands; confirm `npm ci && npm run build
+Oct 6). Rebase onto the integration branch after W6 Task 5b lands; confirm `npm ci && npm run build
 && npm test` in `functions/` exit 0 before Task 2. Checks: those three commands exit 0.
 
 ## Task 2. Webhook: reconcile current state (R-4, AC-2, AC-3, AC-10)
@@ -58,7 +58,9 @@ Traceability: R-4, X-5, X-6, X-16.
    widen the limit if retries keep the original time (record in evidence).
 4. In one Firestore transaction per user: dedupe the event id, refuse a write whose RevenueCat answer
    time is older than the stored one, set the claims `pro` and `proUntil` (milliseconds: latest end
-   of active known subscriptions, ledger passes and `promo_*` entitlements, plus 1 day), and set
+   of active known subscriptions, ledger passes and `promo_*` entitlements, plus 1 day; Task 2
+   covers subscriptions and `promo_*`, Task 5 adds passes, Task 13's TS half moves the calculation
+   onto the shared rule and vectors; L3X2-5), and set
    `claimsChangedAt` on `users/{uid}`. On RevenueCat failure return 500 so RevenueCat retries.
 5. Rules: sync and server reads require `request.auth.token.pro == true &&
    request.auth.token.proUntil > request.time.toMillis()`; `users/{uid}` stays owner-readable.
@@ -235,7 +237,9 @@ New `lib/features/paywall/application/offline_window.dart` and `trusted_clock.da
 `android/app/src/main/kotlin/com/aedwon/pantas/MainActivity.kt` (a `MethodChannel`
 `pantas/trusted_clock` with method `elapsedRealtime` returning `SystemClock.elapsedRealtime()`;
 the Dart wrapper lives in `trusted_clock.dart`; iOS: `ProcessInfo.systemUptime` is not continuous,
-so the boot detector is skipped on iOS with a logged warning) and
+so the boot detector is skipped on iOS with a logged warning, an E14 item if App Store purchases
+come into scope; the Dart wrapper treats a missing channel (`MissingPluginException`) as no
+reading, never as a setback, with a test; L3X2-7) and
 `lib/features/paywall/application/revenuecat_bootstrap.dart` (set
 `PurchasesConfiguration.entitlementVerificationMode = EntitlementVerificationMode.informational`;
 L3X-5):
