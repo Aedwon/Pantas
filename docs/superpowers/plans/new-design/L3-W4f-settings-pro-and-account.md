@@ -6,7 +6,7 @@ pattern task. Executor: Sonnet workers in up to two worktrees: track D (reminder
 first because W4a's reminders step needs it; then track A (Tasks 2 to 5) and track B (Tasks 6 to 9)
 in parallel, each editing only its own files and `settings_routes.dart` in task order.
 Landing order: Task 1 before W4a Task 8; W4a's `ExamPickerScreen` before Task 3; W4b Task 1 before
-Task 4; Task 8's About slot before W4g's shared links task.
+Task 4; Task 5's About slot before W4g's shared links task.
 
 Before each screen task: open its boards and run `timeline.py`. Every task: widget tests first per
 drawn state (light, dark, 200% text), unit tests per rule, then code, task checks (`flutter test
