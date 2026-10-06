@@ -51,10 +51,11 @@ Traceability: X-1, X-7. Aedwon approved the limits and messages (Oct 6).
 2. New `functions/src/createWrappedShare.ts` (App Check, signed in): in one transaction, refuse over
    10 new links a day (counter document `users/{uid}/limits/wrappedShares`) or 50 live links (a
    count query on `wrapped_shares` where `ownerUid == uid` and `revoked == false`, so Remove frees a
-   slot; L3X-10) with `resource-exhausted` and the reason; before the transaction, check the upload's PNG signature bytes and
+   slot; L3X-10) with `resource-exhausted` and the reason; first, if a record with this `shareId`
+   owned by the caller exists, return success (a client retry); otherwise, before the transaction,
+   check the upload's PNG signature bytes and
    size under 1 MB and copy it to `wrapped/{uid}/{shareId}.png`; inside the transaction create the
-   record; after commit delete the upload (L3X2-6). An existing record owned by the caller is a
-   success (a client retry); create the record with a create that fails if `shareId` already exists (`ownerUid`, `shareId`,
+   record; after commit delete the upload (L3X2-6). Create the record with a create that fails if `shareId` already exists (`ownerUid`, `shareId`,
    `createdAt`, `revoked: false`, no stored path; L3X-11).
 3. `functions/src/renderWrappedPage.ts`: serve only `wrapped/{ownerUid}/{shareId}.png` derived from
    the record; nothing for a malformed record; stream with a size cap of 1 MB; `maxInstances: 10`.

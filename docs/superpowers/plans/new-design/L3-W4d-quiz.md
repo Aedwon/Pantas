@@ -18,7 +18,7 @@ assessment; the row moves there.
 Regression tests for GitHub issues #23 (Quiz tab stays on the assessment gate), #24, #27 and #28
 (Resume card offered, unambiguous and cleared after completion) are written first in Task 2.
 
-While W3's entitlement state is `paused`, each Pro gate shows W2's `ProPausedLine` instead of the Pro
+While W3's entitlement state is `paused` (Pro paused offline, not a quiz left partway), each Pro gate shows W2's `ProPausedLine` instead of the Pro
 invitation, with a widget test (amended Oct 6, abuse review 1).
 
 ## Task 1. Start functions (lands first)
