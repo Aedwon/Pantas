@@ -1,7 +1,7 @@
 {
   "level": 3,
   "status": "INPUT FROZEN; readers pending",
-  "policyCommit": "6d0bb7318ad396abe62c6c59b6d437f758ed65c4",
+  "policyCommit": "3c4569fd36f727e4cbc1b70beb8b4272302a4528",
   "corpusCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
   "auditCheckpoint": "7d5f2ed6a6d6f30e35d1b3f64467f31e7d122112",
   "specSha256": "999654d8261ef2edc25a1c62512f3663570443c49eddba5613380e2e9724cc3c",
@@ -1147,7 +1147,8 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-statistics-and-probability.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-statistics-and-probability.json",
       "output": "docs/content/audit/coverage-r1/topics/mathematics-statistics-and-probability-lessons.md",
-      "state": "NOT_STARTED"
+      "state": "RESUME_REQUIRED_NO_OUTPUT",
+      "agent": "l3_biology"
     },
     {
       "key": "mathematics-trigonometry",
@@ -1361,6 +1362,7 @@
     }
   ],
   "compatiblePolicyCommits": [
+    "3c4569fd36f727e4cbc1b70beb8b4272302a4528",
     "6d0bb7318ad396abe62c6c59b6d437f758ed65c4",
     "ac4b30da31b0bcca7e7ed1e47c930b1ac00ced6c",
     "cb48097bedf15bec2cfbe4fb3aa7e957753b1727",

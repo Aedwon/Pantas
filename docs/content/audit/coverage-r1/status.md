@@ -6,7 +6,7 @@ Plan: `docs/superpowers/plans/2026-10-04-exam-content-coverage-audit.md`.
 
 ## Identity
 
-- Current policy and standards: main `6d0bb7318ad396abe62c6c59b6d437f758ed65c4`, verified against live remote on the latest October6resume; all9requiredpolicy/startup/standard blobs unchanged fromcb48097. Earlier historical policy identities below remain audit history only.
+- Current policy and standards: main `3c4569fd36f727e4cbc1b70beb8b4272302a4528`, verified against live remote on the current resume; all9requiredpolicy/startup/standard blobs unchanged fromcb48097. Earlier historical policy identities below remain audit history only.
 - Corpus input: `content/question-qa-r2` at `765c5dc0fa5586281047bf4f7b30d09ab3707887`,
   local worktree and remote match.
 - Codex models confirmed: `gpt-6.1-sol` and `gpt-6-luna`, run with computer use
@@ -14,7 +14,7 @@ Plan: `docs/superpowers/plans/2026-10-04-exam-content-coverage-audit.md`.
 
 ## Current level and acceptance state
 
-Levels 1 and 2 are accepted. Level 3 is approved and RUNNING. Five completed topic artifacts account for 60 lessons and pass independent samples. Chemistry C1 and Physics P1 are resolved at corrected hashes. Algebra reading is active; twenty topics remain unfinished. Global requirement and prerequisite integration is pending. Levels 4 and 5 are unauthorized. Level 3 records only load-bearing figure dependencies.
+Levels 1 and 2 are accepted. Level 3 is approved and RUNNING. Six completed topic artifacts account for 68 lessons; five independent samples cover 60. Geometry awaits review. Algebra has 11 full-read draft records; Trigonometry has 7. Statistics has no output after a usage-limit stop. Global requirement and prerequisite integration is pending. Levels 4 and 5 are unauthorized. Level 3 records only load-bearing figure dependencies.
 
 | Exam | Research | Source check | Fresh rebuild | Exam map |
 |---|---|---|---|---|
@@ -445,3 +445,9 @@ Historical pause: lifted by Aedwon's explicit level 1 start recorded below.
 - Trigonometry intermediate result received:7/7fullreads saved, no split currently justified by the coherent existing goals. Local application limits include SSA branches, inverse-function composition endpoints, observer-height setups and broader graphs/polar methods. The previously unmapped radian lesson is a verified foundation candidate for the unit-circle shortcut; no exclusion is inferred from old zero tags. A literal numeric annotation mismatch is being recorded as an encountered math-data concern only, with all illustration need/display/quality assessment deferred. Final facets, dependencies and author checks are pending.
 
 - Geometry final result received atfc505bfa79c46273cece5392ca8ad80306b97641d1b240eb8a0067542ed48e8c. All8lessons fully read,85facets; one planar/solid measurement split candidate, thin congruence/proof and polygon-scope teaching. One zigzag example has a load-bearing figure dependency; no illustration need/quality/display verdict. No strict existing-lesson links were verified, with8explicit dispositions. Actual checks:8ID/hashranges,290valid evidence ranges,41accepted refs, no self-links/cycles/errors, corpus clean and Science artifacts unchanged. Shared mechanical check68lessons/6topics, no errors, gate false. Independent sample pending; output immutable.
+
+## Current live automatic resume after Statistics usage stop
+
+- Statistics dispatch returned a new usage-limit error with10:08reset before the latest watcher messages. No Statistics output exists. Latest live-availability resume supersedes that old reset; continue immediately, without buying credits. FirstlineRUNNING confirmed; no later-level approval. No active children at startup, so existing task identities will resume without duplicates.
+- Current main live/cached3c4569fd and audit live/local7e2455ff match; corpus live765c5dc0 remains pinned. Main AGENTS/WORKFLOW retrieved/read in full. All9mandatory policy/startup/standard blobs equal the previously fully read6d0revision; proofpolicy-refresh-oct6-current.json. SpecSHA999654d8unchanged, accepted13map/10requirement-profile/8overlap hashes allmatch.
+- Existing outputs:6COMPLETEtopics68lessons with preserved hashes; AlgebraDRAFT11/11and116facets, TrigonometryDRAFT7/7, no Statistics output. Five earlier independent samples remainPASS/current; Geometry pending. Resume saved drafts rather than redo complete body reads. New usage errors after this message require saving state and stopping.
