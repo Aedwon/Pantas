@@ -1,29 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_colors.dart';
 import 'package:pantas/core/ui/theme/app_text_styles.dart';
+import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/pantas_shape.dart';
+import 'package:pantas/core/ui/theme/pantas_type.dart';
 
-ThemeData buildLightTheme() => _buildTheme(AppColors.light, Brightness.light);
+ThemeData buildLightTheme() =>
+    _buildTheme(PantasColors.light, Brightness.light);
 
-ThemeData buildDarkTheme() => _buildTheme(AppColors.dark, Brightness.dark);
+ThemeData buildDarkTheme() => _buildTheme(PantasColors.dark, Brightness.dark);
 
-ThemeData _buildTheme(AppColors colors, Brightness brightness) {
+ThemeData _buildTheme(PantasColors colors, Brightness brightness) {
   final scheme = ColorScheme.fromSeed(
-    seedColor: const Color(0xFF1D5C50),
+    seedColor: colors.accent,
     brightness: brightness,
   ).copyWith(
-    primary: colors.board,
-    onPrimary: colors.onBoard,
-    secondary: colors.board,
-    onSecondary: colors.onBoard,
+    primary: colors.accent,
+    onPrimary: colors.surface,
+    secondary: colors.accent,
+    onSecondary: colors.surface,
     surface: colors.surface,
-    onSurface: colors.ink,
-    error: colors.rust,
-    onError: colors.onBoard,
-    outline: colors.rule,
-    outlineVariant: colors.ruleFaint,
+    onSurface: colors.label,
+    error: colors.destructive,
+    onError: colors.surface,
+    outline: colors.separator,
+    outlineVariant: colors.fill,
     surfaceTint: Colors.transparent,
   );
-  final textStyles = AppTextStyles.create();
+  final type = PantasType.create(colors: colors);
+  final textStyles = AppTextStyles.create(type: type);
   return ThemeData(
     useMaterial3: true,
     colorScheme: scheme,
@@ -31,38 +36,44 @@ ThemeData _buildTheme(AppColors colors, Brightness brightness) {
     visualDensity: VisualDensity.adaptivePlatformDensity,
     appBarTheme: AppBarTheme(
       backgroundColor: colors.background,
-      foregroundColor: colors.ink,
+      foregroundColor: colors.label,
       surfaceTintColor: Colors.transparent,
       elevation: 0,
       scrolledUnderElevation: 0,
       centerTitle: false,
-      titleTextStyle: textStyles.headlineMedium.copyWith(color: colors.ink),
-      iconTheme: IconThemeData(color: colors.inkMuted, size: 20),
+      titleTextStyle: textStyles.headlineMedium.copyWith(color: colors.label),
+      iconTheme: IconThemeData(color: colors.secondaryLabel, size: 20),
     ),
     dividerTheme: DividerThemeData(
-      color: colors.rule,
-      thickness: 1,
+      color: colors.separator,
+      thickness: 0.5,
       space: 1,
     ),
     dialogTheme: DialogThemeData(
       backgroundColor: colors.surface,
       surfaceTintColor: Colors.transparent,
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(8)),
+        borderRadius:
+            BorderRadius.all(Radius.circular(PantasShape.groupRadius)),
       ),
     ),
     bottomSheetTheme: BottomSheetThemeData(
       backgroundColor: colors.background,
       surfaceTintColor: Colors.transparent,
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(PantasShape.groupRadius),
+        ),
       ),
     ),
-    extensions: [colors, textStyles],
+    fontFamily: 'Geist',
+    extensions: [colors, type, AppColors.fromTokens(colors), textStyles],
   );
 }
 
 extension AppThemeContext on BuildContext {
-  AppColors get colors => Theme.of(this).extension<AppColors>()!;
+  PantasColors get colors => Theme.of(this).extension<PantasColors>()!;
+  PantasType get type => Theme.of(this).extension<PantasType>()!;
+  @Deprecated('W1 adapter, removed in W2 close-out')
   AppTextStyles get textStyles => Theme.of(this).extension<AppTextStyles>()!;
 }

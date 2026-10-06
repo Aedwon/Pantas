@@ -6,6 +6,8 @@ import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/ui/theme/app_colors.dart';
 import 'package:pantas/core/ui/theme/app_text_styles.dart';
+import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/pantas_type.dart';
 
 extension PumpApp on WidgetTester {
   Future<void> pumpApp(Widget widget) async {
@@ -13,7 +15,12 @@ extension PumpApp on WidgetTester {
       MaterialApp(
         theme: ThemeData(
           useMaterial3: true,
-          extensions: [AppColors.light, AppTextStyles.create()],
+          extensions: [
+            PantasColors.light,
+            PantasType.create(),
+            AppColors.light,
+            AppTextStyles.create(),
+          ],
         ),
         home: Scaffold(body: widget),
       ),
@@ -33,7 +40,12 @@ extension PumpAppRiverpod on WidgetTester {
         child: MaterialApp(
           theme: ThemeData(
             useMaterial3: true,
-            extensions: [AppColors.light, AppTextStyles.create()],
+            extensions: [
+              PantasColors.light,
+              PantasType.create(),
+              AppColors.light,
+              AppTextStyles.create(),
+            ],
           ),
           home: child,
         ),
@@ -52,7 +64,12 @@ extension PumpAppRiverpod on WidgetTester {
         child: MaterialApp.router(
           theme: ThemeData(
             useMaterial3: true,
-            extensions: [AppColors.light, AppTextStyles.create()],
+            extensions: [
+              PantasColors.light,
+              PantasType.create(),
+              AppColors.light,
+              AppTextStyles.create(),
+            ],
           ),
           routerConfig: router,
         ),

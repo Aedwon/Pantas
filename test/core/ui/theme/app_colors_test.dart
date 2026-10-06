@@ -3,34 +3,34 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_colors.dart';
 
 void main() {
-  test('light palette matches the Paper spec', () {
+  test('light palette matches the new light tokens', () {
     const c = AppColors.light;
-    expect(c.background, const Color(0xFFFBF9F4));
+    expect(c.background, const Color(0xFFF5F5F7));
     expect(c.surface, const Color(0xFFFFFFFF));
-    expect(c.ink, const Color(0xFF26221B));
-    expect(c.inkMuted, const Color(0xFF6E675C));
-    expect(c.rule, const Color(0xFFE5DFD3));
-    expect(c.ruleFaint, const Color(0xFFF1EDE4));
-    expect(c.board, const Color(0xFF1D5C50));
-    expect(c.boardTint, const Color(0xFFE3EFEA));
+    expect(c.ink, const Color(0xFF1D1D1F));
+    expect(c.inkMuted, const Color(0xFF6E6E73));
+    expect(c.rule, const Color(0xFFE3E3E8));
+    expect(c.ruleFaint, const Color(0xFFEDEDF0));
+    expect(c.board, const Color(0xFF0B7A68));
+    expect(c.boardTint, const Color(0xFFE4F1EE));
     expect(c.onBoard, const Color(0xFFFFFFFF));
-    expect(c.rust, const Color(0xFFA33B2E));
-    expect(c.amber, const Color(0xFF996A15));
+    expect(c.rust, const Color(0xFFD70015));
+    expect(c.amber, const Color(0xFFD9A400));
   });
 
-  test('dark palette matches the Night spec', () {
+  test('dark palette matches the new dark tokens', () {
     const c = AppColors.dark;
-    expect(c.background, const Color(0xFF191613));
-    expect(c.surface, const Color(0xFF211D18));
-    expect(c.ink, const Color(0xFFEFEAE0));
-    expect(c.inkMuted, const Color(0xFFA69C8C));
-    expect(c.rule, const Color(0xFF38332B));
-    expect(c.ruleFaint, const Color(0xFF2A2620));
-    expect(c.board, const Color(0xFF4FA08D));
-    expect(c.boardTint, const Color(0xFF22352F));
-    expect(c.onBoard, const Color(0xFF14110D));
-    expect(c.rust, const Color(0xFFD4705F));
-    expect(c.amber, const Color(0xFFC99A45));
+    expect(c.background, const Color(0xFF000000));
+    expect(c.surface, const Color(0xFF1C1C1E));
+    expect(c.ink, const Color(0xFFF5F5F7));
+    expect(c.inkMuted, const Color(0xFF98989D));
+    expect(c.rule, const Color(0xFF38383A));
+    expect(c.ruleFaint, const Color(0xFF2C2C2E));
+    expect(c.board, const Color(0xFF2FB39C));
+    expect(c.boardTint, const Color(0xFF123F37));
+    expect(c.onBoard, const Color(0xFF1C1C1E));
+    expect(c.rust, const Color(0xFFD70015));
+    expect(c.amber, const Color(0xFFD9A400));
   });
 
   test('lerp at t=1 lands exactly on the other palette', () {
@@ -48,7 +48,7 @@ void main() {
     expect(lerped.amber, AppColors.dark.amber);
   });
 
-  test('amber clears normal-text contrast on both paper backgrounds', () {
+  test('label clears normal-text contrast on both backgrounds', () {
     double contrast(Color foreground, Color background) {
       final lighter =
           foreground.computeLuminance() > background.computeLuminance()
@@ -60,11 +60,11 @@ void main() {
     }
 
     expect(
-      contrast(AppColors.light.amber, AppColors.light.background),
+      contrast(AppColors.light.ink, AppColors.light.background),
       greaterThanOrEqualTo(4.5),
     );
     expect(
-      contrast(AppColors.dark.amber, AppColors.dark.background),
+      contrast(AppColors.dark.ink, AppColors.dark.background),
       greaterThanOrEqualTo(4.5),
     );
   });
