@@ -671,3 +671,30 @@ Gate review 4 (`gates/l3-gate-review-4.md`): not passed, 0 blockers, 1 should-fi
 Gate review 5 (`gates/l3-gate-review-5.md`): passes, 0 blockers, 0 should-fix, 3 notes (fixed:
 L2 W3 wording and "Your plan rows"; W0 Task 4b names the drop case). The lead stopped before level 4
 per Aedwon's instruction and sent him the level 4 start requests listed in STATUS.
+
+## October 6, 2026: Aedwon's answers to the level 4 start requests
+
+Verbatim: "1. yes you may 2. yes, give me step by step instructions 3. idk how to answer that I'm
+not competent enough idk what that is. what do you recommend? 4. March 14 2027
+https://www.csc.gov.ph/examination-advisories/examination-announcement-no-05-s-2026-calendar-of-civil-service-examinations-pen-and-paper-test-for-cy-2027
+next one is Aug 8, 2027 5. what do you recommend 6. can you link the file to me I don't think I've
+read 7. ok 8. wait what images? do you mean for illustrations? clarify 9. remove it"
+
+Recorded:
+1. Permission to use the signing seed for the W0 optional package and the W5 release package,
+   following `docs/content-key-access.md`.
+2. Store setup steps written: `plans/new-design/level4-setup-steps.md` (Parts 1 to 4).
+3. Lead recommendation: create a V2 read-only RevenueCat secret key and store it himself with
+   `firebase functions:secrets:set` (Part 5); W3 Task 2 uses API v2 with that key.
+4. CSE Professional and Subprofessional 2027 pen-and-paper dates: March 14, 2027 and August 8,
+   2027 (one day each), source CSC Examination Announcement No. 05, s. 2026 (link above; the page
+   blocks automated fetches, confirmed through search results Oct 6). These go into
+   `content/exams/catalog.yaml` in W0 Task 3. The CSE-FSO (January 24, 2027) is not a Pantas exam.
+5. Lead recommendation sent: App Store purchases out of beta scope; iPhone used for app testing.
+6. Privacy draft written: `plans/new-design/drafts/privacy-pantas-id.md`.
+7. Season Pass for an active Student subscriber: lead default approved; exact copy proposed for
+   approval.
+8. Clarification sent (lesson illustration image files).
+9. The AI attribution trailer was removed from b43d93a6 by rewriting the seven docs commits after
+   34ab3994 (messages only; trees identical) and force-pushing main (old head 475de455, new head
+   a7764b69), with Aedwon's approval.

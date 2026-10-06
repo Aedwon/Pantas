@@ -11,7 +11,9 @@ integrates, rebase onto the integration branch, edit the file W1 left (`router.d
 file the entry moved to), then run `flutter test test/app` (green). Until then, Tasks 3 and 8 change
 only paywall files and their tests.
 Prerequisites Aedwon provides before the named tasks run (requested with the start of level 4):
-- P1 RevenueCat secret API key stored as a Functions secret `REVENUECAT_SECRET_API_KEY` (Task 2).
+- P1 RevenueCat secret API key (V2, read-only customer access) stored as a Functions secret
+  `REVENUECAT_SECRET_API_KEY` in pantas-staging and pantas-prod, plus the RevenueCat project id as a
+  plain setting `REVENUECAT_PROJECT_ID` (Task 2). Aedwon's steps: `level4-setup-steps.md` Part 5.
 - P2 Play Console and RevenueCat: the four Civil Service products, trial moved to Monthly with "new
   customers only, across all subscriptions", price points confirmed (Tasks 4 and 7 integration).
 - P3 Exam dates with source links in `content/exams/catalog.yaml` (W0) for pass tests on real data.
@@ -41,7 +43,8 @@ Traceability: R-4.
    `_acceptCustomerInfo`, `entitlementFromCustomerInfo`), snapshot store, and the claim reader
    (`sync_claim_gateway.dart`). The layer that clears early is the root cause; record which.
 2. Webhook (balanced, Oct 4): for CANCELLATION, UNCANCELLATION, EXPIRATION, BILLING_ISSUE,
-   PRODUCT_CHANGE, TRANSFER_* and NON_RENEWING_PURCHASE, call RevenueCat's subscriber endpoint with
+   PRODUCT_CHANGE, TRANSFER_* and NON_RENEWING_PURCHASE, call RevenueCat's REST API v2 customer
+   endpoints (active entitlements and subscriptions; check the current v2 reference for paths) with
    P1 and set the claim from the active entitlements. Ignore an event whose `event_timestamp_ms` is
    older than the last applied one for that user (out-of-order). On RevenueCat failure return 500
    so RevenueCat retries; count the rate limit once per event id, not per retry.
