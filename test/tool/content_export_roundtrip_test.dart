@@ -107,7 +107,7 @@ void main() {
     expect(questionsCount, 3165, reason: 'Expected 3,165 questions');
     expect(lessonsCount, 161, reason: 'Expected 161 lessons');
     expect(topicsCount, 26, reason: 'Expected 26 topics');
-    expect(examsCount, 7, reason: 'Expected 7 exams');
+    expect(examsCount, 9, reason: 'Expected 9 exams including scholarships');
     expect(passagesCount, 32, reason: 'Expected 32 passages');
     expect(lessonLinksCount, 3163, reason: 'Expected 3,163 lesson links');
     expect(passageLinksCount, 260, reason: 'Expected 260 passage links');

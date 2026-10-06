@@ -17,6 +17,22 @@ const _keepExamId = 'exam_cse_pro';
 // picker.
 const _rosterExams = <Map<String, Object?>>[
   {
+    'id': 'exam_dost_sei',
+    'code': 'DOST_SEI',
+    'name': 'DOST-SEI Undergraduate Scholarship',
+    'shortName': 'DOST',
+    'language': 'en',
+    'isActive': true,
+  },
+  {
+    'id': 'exam_sm_foundation',
+    'code': 'SM_FOUNDATION',
+    'name': 'SM Foundation College Scholarship',
+    'shortName': 'SM',
+    'language': 'en',
+    'isActive': true,
+  },
+  {
     'id': 'exam_acet',
     'code': 'ACET',
     'name': 'Ateneo College Entrance Test',
