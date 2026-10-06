@@ -718,3 +718,14 @@ Next: level 2 amendments for W3, W4g, W5 and a new L2 W6, a level 2 delta gate; 
 amendments and a level 3 delta gate. Open product decisions for Aedwon: offline Pro after the paid
 period ends (lead recommends 3 days), and the trial rule (lead recommends Play's "never had a
 subscription" rule and correcting the tier spec).
+
+## October 6, 2026: offline window and trial rule
+
+Aedwon, verbatim: "let's do 3 days. A use Google's rule".
+- Offline window: Pro keeps working offline until the paid period ends, plus 3 days with no
+  successful check; then Pro features pause until one successful check. This amends the August 3
+  offline rule ("last known entitlement stands until positively contradicted") for the time after
+  the paid period. The lead had recommended 7 days (weekly renewals); Aedwon chose 3.
+- Trial: Google Play's rule (a Google account that ever had a Pantas subscription gets no second
+  trial). The tier spec's "ever had any Pantas Pro plan" is corrected. Pass and giveaway holders
+  can take one trial; new Google accounts are an accepted risk.

@@ -40,6 +40,12 @@ Six things need a network. The app is otherwise complete without one.
 
 **Last known entitlement stands until it is positively contradicted.**
 
+> Amended October 6, 2026 (Aedwon, abuse review 1, CX-2): the rule holds until the paid period
+> ends (subscription period, pass end or grant end). After that, if the app has had no successful
+> check, Pro keeps working for 3 more days, then Pro features pause until one successful check.
+> Nothing the student made is locked. The paused line is the only new message. Owner: W3
+> (`plans/new-design/L2-W3-payments-and-identity.md` §10).
+
 A network failure is not a contradiction. Only a successful response saying the entitlement
 has ended ends it.
 

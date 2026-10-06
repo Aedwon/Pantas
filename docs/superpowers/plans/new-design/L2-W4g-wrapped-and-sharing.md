@@ -2,20 +2,21 @@
 
 Level 2 workstream plan. Date: October 6, 2026. Author: lead. Policy revision: origin/main 12fb353b. Revised after the level 2 gate review (Oct 6).
 Parent: strategy B2, B4. Spec: amendment spec (approved Oct 5). Depends on: W1, W2, W3 (history gate), W4b (Your record row).
-Traceability: 39 rows with workstream `W4g` (12 boards, 27 other items).
+Traceability: 41 rows with workstream `W4g` (12 boards, 29 other items).
 
 ## 1. Purpose and scope
 
 Rebuild Wrapped as three moments with their own slide arcs, the share screen, shared links in
 About, and Pro's Wrapped history from Your record.
 
-Out of scope: The public web page (kept as built, G-g-19); the topic-turned-strong moment (dropped, R-14).
+Out of scope: The public web page's copy and layout (kept as built, G-g-19); the topic-turned-strong moment (dropped, R-14).
+In scope since October 6 (abuse review 1): the share abuse fixes in §10, which change share creation, the storage rules and the public page function.
 
 ## 2. Inputs
 
 Boards (12): L_Share, WR_Mock, WR_Streak, WR_Topic, WR_Exam, WR_Share, WR_ShareExam, WR_ShareOffline, WR_Links, WR_LinkRemove, WR_LinksEmpty, WR_History.
 
-Other traceability rows (27): D-245, D-246, D-247, D-251, R-14, S0-8, S0-31, S0-40, G-g-1, G-g-3, G-g-5, G-g-6, G-g-8, G-g-9, G-g-10, G-g-11, G-g-12, G-g-13, G-g-14, G-g-15, G-g-16, G-g-17, G-g-19, G-g-20, G-g-21, G-h-14, G-h-28.
+Other traceability rows (29; X-1 and X-7 added Oct 6): X-1, X-7, D-245, D-246, D-247, D-251, R-14, S0-8, S0-31, S0-40, G-g-1, G-g-3, G-g-5, G-g-6, G-g-8, G-g-9, G-g-10, G-g-11, G-g-12, G-g-13, G-g-14, G-g-15, G-g-16, G-g-17, G-g-19, G-g-20, G-g-21, G-h-14, G-h-28.
 Each row's status column in `traceability.md` is binding; "lead default" rows are listed in
 section 4 where they shape behavior. Superseded sections of older specs for this family: amendment
 spec B1 (rows naming this family's screens); those sections are not built.
@@ -85,11 +86,23 @@ and build from the tap, start to last change; reduce motion shows the last frame
 - A board conflicts with the README or DECISIONS.md, or a needed string has no board: stop and ask
   the lead (README "ask instead of guessing").
 - Server-side link removal and deletion purge use existing functions; any change to them needs Aedwon's deploy approval.
+- The share function, storage rules and renderer changes in §10 are deployed only with Aedwon's approval, after W6's deployable package (W6 Task 1).
 
 ## 8. Files and directories
 
-`lib/features/wrapped/`, `lib/app/routes/wrapped_routes.dart`, tests. Amended Oct 6 (level 3 gate review 1) (L3-7): one-line trigger calls in W4e's mock submit path and the streak update (after those families land), and `functions/src/renderWrappedPage.ts` (Play link default).
+`lib/features/wrapped/`, `lib/app/routes/wrapped_routes.dart`, tests. Amended Oct 6 (level 3 gate review 1) (L3-7): one-line trigger calls in W4e's mock submit path and the streak update (after those families land), and `functions/src/renderWrappedPage.ts` (Play link default). Amended Oct 6 (abuse review 1): new `functions/src/createWrappedShare.ts`, the `wrapped_shares` rule in `firestore.rules` (after W6 and W3), `storage.rules` (the `wrapped/` match only).
 
 ## 9. Order and parallelism
 
 After W2, W3, W4b's Your record slot and W4f's About slot (both must land first). Small; can run alongside W4h. W4h's pattern task lands before this family's state screens.
+
+## 10. Abuse cases (added October 6, abuse review 1)
+
+Source: `gates/abuse-review-1.md`.
+
+| ID | Finding | Abuse case | Required behavior |
+|---|---|---|---|
+| AC-G1 | CX-1 | A share record points at another user's stored file, and the public page serves it | The renderer never reads a stored path. It derives the file as `wrapped/{ownerUid}/{shareId}.png` from the share record's owner and id, and serves nothing if the record is malformed. Clients can no longer write share records (AC-G2). Test: a record naming another user's file serves nothing. |
+| AC-G2 | CX-7 | Anyone signed in (anonymous included) uploads large or non-image files and publishes links to them, at Pantas's cost | Share records are created only by a callable `createWrappedShare` (App Check, signed in): it checks the uploaded file exists at the derived path, is a PNG under 1 MB, and the account is within its limits (10 new links a day, 50 live links), then writes the record. Storage rules for `wrapped/{uid}/` allow only `image/png` under 1 MB at a `{shareId}.png` name. The renderer streams the file with a size cap and runs with a maximum instance count. Files with no share record after 24 hours are deleted by W6's cleanup job. Test per limit. |
+| AC-G3 | review section 4 | Shared images are copied before removal | Accepted risk; the share screen's public-link note already says links are public. |
+

@@ -5,7 +5,7 @@ Parent: strategy B2, B4. Depends on: all of W4 complete, and W3.
 Spec: amendment spec (approved Oct 5); release-first cuts
 (`docs/superpowers/decisions/2026-10-01-release-first-cuts-log.md`); the E04 to E14 plans
 (`docs/superpowers/plans/2026-09-07-e04-e14-content-protection-quiz-launch-release-plan.md`).
-Traceability rows: every row with workstream `W5` (A-B5a, S0-43, S0-49).
+Traceability rows: every row with workstream `W5` (A-B5a, S0-43, S0-49, X-18 added Oct 6).
 
 ## 1. Purpose and scope
 
@@ -28,6 +28,11 @@ In scope:
 - iPhone testing over Xcode wireless debugging (S0-49): the iOS build on the integration branch,
   pairing, and the same functional checklist on the iPhone; the September iPhone QA design
   (`web/ios-physical-qa-enablement-r1`) is the starting point.
+- Abuse checks (added Oct 6, abuse review 1): release builds use Dart `--obfuscate` with
+  `--split-debug-info` (symbols kept privately for crash reports); every abuse case in W3, W4g and
+  W6 (AC ids) re-checked on the final build, with evidence; the accepted risks (patched app unlocks
+  local features, content extraction, local Free mock limits, copied shares, new Google accounts for
+  trials) listed for Aedwon's acceptance at E14 with the bootstrap-key risk.
 - Release blockers: every `PlaceholderFigure` replaced by Aedwon's values (R-20); `functions` tests
   green.
 
@@ -80,4 +85,4 @@ iOS project settings only as the iPhone check requires (any change is a reported
 
 ## 9. Order and parallelism
 
-Last. Starts when every W4 family has integrated and the combined checks pass.
+Last. Starts when every W4 family and W6 have integrated and the combined checks pass.

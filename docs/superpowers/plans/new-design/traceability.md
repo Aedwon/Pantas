@@ -10,7 +10,7 @@ the restart log, the amendment spec, and `stage0-decisions.md` items 1 to 51.
 ## How to read it
 
 - **ID.** `B-` board, `D-<line>` a DECISIONS.md bullet at that line, `R-` restart log decision,
-  `A-` amendment spec item not covered elsewhere, `S0-` stage 0 item, `G-` gap pass section B row.
+  `A-` amendment spec item not covered elsewhere, `S0-` stage 0 item, `G-` gap pass section B row, `X-` abuse review 1 finding (added Oct 6).
 - **Workstream.** Per strategy B2 and amendment spec B4. `none` means no build work: done, record,
   canvas only, out of program, content track, or a program rule that every plan applies and the
   gates check.
@@ -879,3 +879,22 @@ Rows that repeat across families say so; they share one level 3 task.
 | G-h-28 | Icons in the app with no IC_Final entry: globe (Icons.public) on the share privacy note, collections-bookmark on the Wrapped reveal bar,... | gap-h-shell-states.md B#28 | W4g | L2-W4g-wrapped-and-sharing.md §4 | L3-W4g-wrapped-and-sharing.md T3 | assigned: follow WR_Share and the reveal boards; the old globe and bookmark icons are removed (no mapping needed) |
 | G-h-29 | Flagged-questions list screen (list, Practice these, empty state "Flag anything you want to come back to / Go back") | gap-h-shell-states.md B#29 | W4d | L2-W4d-quiz.md §4 | L3-W4d-quiz.md T8 | assigned per S0-5 (same as G-d-1) |
 | G-h-30 | Quick-quiz route /quiz/quick/:examId and its Home entry "Try a quick quiz" (shown before the assessment) | gap-h-shell-states.md B#30 | W4d | L2-W4d-quiz.md §4 | L3-W4d-quiz.md T1 | assigned per S0-16 (same as G-d-4) |
+| X-1 | Share record can point the public page at another user's file | gates/abuse-review-1.md CX-1 | W4g | L2-W4g-wrapped-and-sharing.md §10 AC-G1 |  | assigned (abuse review 1, Oct 6) |
+| X-2 | Cached Pro never ends offline; clock moves | gates/abuse-review-1.md CX-2 | W3 | L2-W3-payments-and-identity.md §10 AC-1 |  | assigned (abuse review 1, Oct 6) |
+| X-3 | Pass exam id not bound to the product | gates/abuse-review-1.md CX-3 | W3 | L2-W3-payments-and-identity.md §10 AC-4 |  | assigned (abuse review 1, Oct 6) |
+| X-4 | Pass refunds, transfers, duplicates not handled | gates/abuse-review-1.md CX-4 | W3 | L2-W3-payments-and-identity.md §10 AC-4 |  | assigned (abuse review 1, Oct 6) |
+| X-5 | Webhook follows event order; stale claim never expires | gates/abuse-review-1.md CX-5 | W3 | L2-W3-payments-and-identity.md §10 AC-3 |  | assigned (abuse review 1, Oct 6) |
+| X-6 | Webhook does not check product or environment | gates/abuse-review-1.md CX-6 | W3 | L2-W3-payments-and-identity.md §10 AC-2 |  | assigned (abuse review 1, Oct 6) |
+| X-7 | Uploads and share links have no size, type or count limits | gates/abuse-review-1.md CX-7 | W4g | L2-W4g-wrapped-and-sharing.md §10 AC-G2 |  | assigned (abuse review 1, Oct 6) |
+| X-8 | Pro survives sign-out on a shared phone | gates/abuse-review-1.md CX-8 | W3 | L2-W3-payments-and-identity.md §10 AC-5 |  | assigned (abuse review 1, Oct 6) |
+| X-9 | RevenueCat tamper-check results ignored | gates/abuse-review-1.md CX-9 | W3 | L2-W3-payments-and-identity.md §10 AC-6 |  | assigned (abuse review 1, Oct 6) |
+| X-10 | Server Pro content checks only a global Pro flag | gates/abuse-review-1.md CX-10 | W3 | L2-W3-payments-and-identity.md §10 AC-8 |  | assigned (abuse review 1, Oct 6) |
+| X-11 | Giveaway grants have no tier | gates/abuse-review-1.md CX-11 | W3 | L2-W3-payments-and-identity.md §10 AC-7 |  | assigned (abuse review 1, Oct 6) |
+| X-12 | No per-account limits on audit and sync writes | gates/abuse-review-1.md CX-12 | W6 | L2-W6-backend-hardening.md §10 AC-B3 |  | assigned (abuse review 1, Oct 6) |
+| X-13 | Functions package not deployable; tests skip handlers and rules | gates/abuse-review-1.md CX-13 | W6 | L2-W6-backend-hardening.md §10 AC-B1 |  | assigned (abuse review 1, Oct 6) |
+| X-14 | Placeholder export and empty cleanup jobs | gates/abuse-review-1.md CX-14 | W6 | L2-W6-backend-hardening.md §10 AC-B4, AC-B5 |  | assigned (abuse review 1, Oct 6) |
+| X-15 | User record create allows extra fields | gates/abuse-review-1.md CX-15 | W6 | L2-W6-backend-hardening.md §10 AC-B2 |  | assigned (abuse review 1, Oct 6) |
+| X-16 | Webhook signature freshness and atomic dedupe | gates/abuse-review-1.md CX-16 | W3 | L2-W3-payments-and-identity.md §10 AC-3 |  | assigned (abuse review 1, Oct 6) |
+| X-17 | Unused content function builds an injectable query | gates/abuse-review-1.md CX-17 | W6 | L2-W6-backend-hardening.md §10 AC-B4 |  | assigned (abuse review 1, Oct 6) |
+| X-18 | Release build not obfuscated | gates/abuse-review-1.md CX-18 | W5 | L2-W5-release-checks.md §1 |  | assigned (abuse review 1, Oct 6) |
+| X-19 | Trial promise exceeds Google's rule | gates/abuse-review-1.md CX-19 | W3 | L2-W3-payments-and-identity.md §10 AC-9 |  | assigned (abuse review 1, Oct 6) |

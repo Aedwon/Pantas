@@ -29,8 +29,10 @@ sell nothing.
 2. **A higher plan covers lower exams.** Civil Service Pro also covers every Student exam.
 3. **A pass covers one exam until its next sitting.** It is paid once, never renews, and ends after
    the next published exam date. Buying another pass later starts again for the following sitting.
-4. **One free trial per student.** The 7-day trial is on Monthly only. A student who ever had any
-   Pantas Pro plan gets no trial again, on any tier.
+4. **One free trial per student.** The 7-day trial is on Monthly only. A student whose Google
+   account ever had a Pantas subscription gets no trial again, on any tier. Corrected October 6
+   (Aedwon chose Google Play's rule, abuse review 1, CX-19): a Season Pass or a giveaway grant alone
+   does not use up the trial, and new Google accounts are an accepted risk.
 5. **Switching exams.** Same or cheaper exam: Pro stays. Pricier exam: the student sees that exam's
    plans as an upgrade (no trial), or can switch on Free. Upgrading replaces the old subscription
    through Google Play, which credits the unused part, so nobody pays twice. A pass holder is warned
