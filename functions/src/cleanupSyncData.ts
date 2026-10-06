@@ -2,6 +2,7 @@ import {
   getFirestore,
   Timestamp,
   type DocumentReference,
+  type QueryDocumentSnapshot,
 } from 'firebase-admin/firestore';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
 import {
@@ -138,31 +139,25 @@ async function cleanupGenerationCandidate(
 async function cleanupStaleGenerations(now: Date): Promise<void> {
   const db = getFirestore();
 
-  const stagingSnapshot = await db
-    .collectionGroup('sync_generations')
-    .where('status', '==', 'staging')
-    .where(
-      'createdAt',
-      '<=',
-      Timestamp.fromDate(cutoffDate(now, STAGING_RETENTION_DAYS)),
-    )
-    .get();
-
-  const retiredSnapshot = await db
-    .collectionGroup('sync_generations')
-    .where('status', '==', 'retired')
-    .where(
-      'retiredAt',
-      '<=',
-      Timestamp.fromDate(cutoffDate(now, RETIRED_RETENTION_DAYS)),
-    )
-    .get();
-
-  for (const candidate of [
-    ...stagingSnapshot.docs,
-    ...retiredSnapshot.docs,
-  ]) {
-    await cleanupGenerationCandidate(candidate.ref, now);
+  for (const [status, timeField, retentionDays] of [
+    ['staging', 'createdAt', STAGING_RETENTION_DAYS],
+    ['retired', 'retiredAt', RETIRED_RETENTION_DAYS],
+  ] as const) {
+    const baseQuery = db.collectionGroup('sync_generations')
+      .where('status', '==', status)
+      .where(timeField, '<=', Timestamp.fromDate(cutoffDate(now, retentionDays)))
+      .orderBy(timeField)
+      .limit(500);
+    let cursor: QueryDocumentSnapshot | undefined;
+    while (true) {
+      const snapshot = await (cursor ? baseQuery.startAfter(cursor) : baseQuery).get();
+      if (snapshot.empty) break;
+      for (const candidate of snapshot.docs) {
+        await cleanupGenerationCandidate(candidate.ref, now);
+      }
+      cursor = snapshot.docs[snapshot.size - 1];
+      if (snapshot.size < 500) break;
+    }
   }
 }
 

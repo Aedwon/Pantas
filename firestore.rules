@@ -44,7 +44,36 @@ service cloud.firestore {
           ).data.status == 'staging';
     }
 
-    function isValidSyncRowWrite() {
+    function stageWindowAvailable(uid) {
+      let path = /databases/$(database)/documents/users/$(uid)/limits/syncGeneration;
+      return !exists(path)
+          || get(path).data.lastStagedAt <= request.time - duration.value(5, 'm');
+    }
+
+    function stageAuthorized(uid, generationId) {
+      let path = /databases/$(database)/documents/users/$(uid)/limits/syncGeneration;
+      return getAfter(path).data.lastStagedAt == request.time
+          && getAfter(path).data.generationId == generationId
+          && stageWindowAvailable(uid);
+    }
+
+    function validStageLimit(uid) {
+      let id = request.resource.data.generationId;
+      let path = /databases/$(database)/documents/users/$(uid)/sync_generations/$(id);
+      return request.resource.data.keys().hasAll(['lastStagedAt', 'generationId'])
+          && request.resource.data.keys().hasOnly(['lastStagedAt', 'generationId'])
+          && id is string && id.size() > 0 && id.size() <= 128
+          && !id.matches('.*[/].*')
+          && request.resource.data.lastStagedAt == request.time
+          && !exists(path)
+          && getAfter(path).data.status == 'staging'
+          && getAfter(path).data.createdAt == request.time
+          && stageWindowAvailable(uid);
+    }
+
+    // Update these allowlists in the same change as any synced field change.
+    // Payload fields may be absent on tombstones.
+    function isValidSyncRowWrite(fields) {
       return request.resource.data.keys().hasAll([
             'updatedAt',
             'originDeviceId',
@@ -52,6 +81,7 @@ service cloud.firestore {
             'schemaVersion',
             'deleted'
           ])
+          && request.resource.data.keys().hasOnly(fields)
           && request.resource.data.updatedAt == request.time
           && request.resource.data.originDeviceId is string
           && request.resource.data.originDeviceId.size() > 0
@@ -65,13 +95,13 @@ service cloud.firestore {
       return isProOwner(uid);
     }
 
-    function canWriteSyncRow(uid, generationId) {
+    function canWriteSyncRow(uid, generationId, fields) {
       return isProOwner(uid)
           && (
             isActiveGeneration(uid, generationId)
             || isStagingGeneration(uid, generationId)
           )
-          && isValidSyncRowWrite();
+          && isValidSyncRowWrite(fields);
     }
 
     match /users/{uid} {
@@ -95,10 +125,17 @@ service cloud.firestore {
         allow write: if false;
       }
 
+      match /limits/{key} {
+        allow create, update: if key == 'syncGeneration'
+            && isProOwner(uid) && validStageLimit(uid);
+        allow read, delete: if false;
+      }
+
       match /sync_generations/{generationId} {
         allow read: if isProOwner(uid);
 
         allow create: if isProOwner(uid)
+            && stageAuthorized(uid, generationId)
             && request.resource.data.keys().hasAll([
               'status',
               'schemaVersion',
@@ -131,61 +168,104 @@ service cloud.firestore {
 
         match /quiz_attempts/{rowId} {
           allow read: if canReadSyncRow(uid);
-          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow create, update: if canWriteSyncRow(uid, generationId, [
+            'id', 'examId', 'startedAt', 'completedAt',
+            'origin', 'itemsJson', 'updatedAt', 'originDeviceId',
+            'mutationId', 'schemaVersion', 'deleted'
+          ]);
           allow delete: if false;
         }
 
         match /assessments/{rowId} {
           allow read: if canReadSyncRow(uid);
-          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow create, update: if canWriteSyncRow(uid, generationId, [
+            'examId', 'completedAt', 'topicScoresJson', 'updatedAt',
+            'originDeviceId', 'mutationId', 'schemaVersion', 'deleted'
+          ]);
           allow delete: if false;
         }
 
         match /fsrs_cards/{rowId} {
           allow read: if canReadSyncRow(uid);
-          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow create, update: if canWriteSyncRow(uid, generationId, [
+            'questionId', 'questionVersion', 'stage', 'stability',
+            'difficulty', 'due', 'lastReview', 'reps',
+            'lapses', 'elapsedDays', 'scheduledDays', 'updatedAt',
+            'originDeviceId', 'mutationId', 'schemaVersion', 'deleted'
+          ]);
           allow delete: if false;
         }
 
         match /lesson_progress/{rowId} {
           allow read: if canReadSyncRow(uid);
-          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow create, update: if canWriteSyncRow(uid, generationId, [
+            'lessonId', 'readAt', 'updatedAt', 'originDeviceId',
+            'mutationId', 'schemaVersion', 'deleted'
+          ]);
           allow delete: if false;
         }
 
         match /lesson_bookmarks/{rowId} {
           allow read: if canReadSyncRow(uid);
-          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow create, update: if canWriteSyncRow(uid, generationId, [
+            'lessonId', 'markedAt', 'sortIndex', 'updatedAt',
+            'originDeviceId', 'mutationId', 'schemaVersion', 'deleted'
+          ]);
           allow delete: if false;
         }
 
         match /question_flags/{rowId} {
           allow read: if canReadSyncRow(uid);
-          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow create, update: if canWriteSyncRow(uid, generationId, [
+            'questionId', 'flaggedAt', 'sortIndex', 'updatedAt',
+            'originDeviceId', 'mutationId', 'schemaVersion', 'deleted'
+          ]);
           allow delete: if false;
         }
 
         match /mock_exam_attempts/{rowId} {
           allow read: if canReadSyncRow(uid);
-          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow create, update: if canWriteSyncRow(uid, generationId, [
+            'id', 'userId', 'examId', 'blueprintId',
+            'blueprintName', 'durationMinutes', 'status', 'strictMode',
+            'sampledQuestionsJson', 'elapsedSeconds', 'accumulatedPausedSeconds', 'pausedAtLastFlush',
+            'answersJson', 'flagsJson', 'currentIndex', 'scoreRaw',
+            'scoreTotal', 'sectionResultsJson', 'totalTimeSeconds', 'startedAt',
+            'lastFlushedAt', 'submittedAt', 'attemptUpdatedAt', 'updatedAt',
+            'originDeviceId', 'mutationId', 'schemaVersion', 'deleted'
+          ]);
           allow delete: if false;
         }
 
         match /review_logs/{rowId} {
           allow read: if canReadSyncRow(uid);
-          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow create, update: if canWriteSyncRow(uid, generationId, [
+            'id', 'questionId', 'rating', 'state',
+            'due', 'stability', 'difficulty', 'elapsedDays',
+            'lastElapsedDays', 'scheduledDays', 'review', 'durationMs',
+            'isCorrect', 'heuristicVersion', 'updatedAt', 'originDeviceId',
+            'mutationId', 'schemaVersion', 'deleted'
+          ]);
           allow delete: if false;
         }
 
         match /track_scope/{rowId} {
           allow read: if canReadSyncRow(uid);
-          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow create, update: if canWriteSyncRow(uid, generationId, [
+            'kind', 'examId', 'name', 'topicId',
+            'updatedAt', 'originDeviceId', 'mutationId', 'schemaVersion',
+            'deleted'
+          ]);
           allow delete: if false;
         }
 
         match /custom_blueprints/{rowId} {
           allow read: if canReadSyncRow(uid);
-          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow create, update: if canWriteSyncRow(uid, generationId, [
+            'examId', 'totalQuestions', 'totalMinutes', 'sectionsJson',
+            'sectionsTimedSeparately', 'blueprintUpdatedAt', 'updatedAt', 'originDeviceId',
+            'mutationId', 'schemaVersion', 'deleted'
+          ]);
           allow delete: if false;
         }
       }

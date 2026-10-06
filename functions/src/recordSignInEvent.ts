@@ -1,6 +1,7 @@
 import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { onCall } from 'firebase-functions/v2/https';
 import { assertNamedUser, writeAuditLog } from './_audit.js';
+import { allowAtMost } from './_limits.js';
 
 export const recordSignInEvent = onCall(
   {
@@ -21,7 +22,10 @@ export const recordSignInEvent = onCall(
       }
     });
 
-    await writeAuditLog({ uid, event: 'signInLinked' });
-    return { logged: true };
+    const logged = await allowAtMost(uid, 'signInAudit', 1, 60 * 60 * 1000);
+    if (logged) {
+      await writeAuditLog({ uid, event: 'signInLinked' });
+    }
+    return { logged };
   },
 );

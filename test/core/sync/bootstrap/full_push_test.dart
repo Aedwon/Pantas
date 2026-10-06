@@ -136,8 +136,7 @@ void main() {
     );
   });
 
-  test('staging failure leaves old generation untouched and never activates',
-      () async {
+  test('denied staging retains its retry marker and never activates', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     await _seedLesson(db);
@@ -323,7 +322,7 @@ class RecordingGateway extends FakeFirestoreGateway {
 class ThrowingGateway extends FakeFirestoreGateway {
   @override
   Future<void> commitBatch(List<FirestoreWrite> writes) async {
-    throw const SyncGatewayException('unavailable');
+    throw const SyncGatewayException('permission-denied');
   }
 }
 
