@@ -41,5 +41,19 @@ void main() {
       ),
       isNot(base),
     );
+    const withReason = MockAnswer(
+      selectedIndex: 1,
+      atSec: 12,
+      missReason: MissReason.other,
+    );
+    expect(
+      const MockAnswer(
+        selectedIndex: 1,
+        atSec: 12,
+        missReason: MissReason.other,
+        reasonNote: 'Wrong formula',
+      ),
+      isNot(withReason),
+    );
   });
 }
