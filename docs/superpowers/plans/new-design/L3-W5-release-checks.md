@@ -2,7 +2,7 @@
 
 Level 3. Date: October 6, 2026. Author: lead. Policy revision: origin/main 1958c0f1.
 Level 2 plan: `L2-W5-release-checks.md`. Base: integration branch after every W4 family and W2's
-close-out integrate and the combined checks pass. Executor: lead plus Sonnet workers for test
+close-out integrate and the combined checks pass. Executor: lead plus workers (strategy B7 as amended Oct 6: GPT-6.1 Sol High through Codex; GPT-6 Astra audits; Opus lead reviews) for test
 retargeting; independent Opus reviewer for the evidence (B7). Device steps are performed by Aedwon
 from the lead's numbered instructions (WORKFLOW "Computer control").
 
@@ -38,6 +38,28 @@ Checks: inside the scoped key shell, `dart run tools/verify_content_package/veri
 assets/seed/content.db assets/seed/content.manifest.json assets/seed/content.manifest.sig` exits 0; its `releaseSequence` is one above
 the shipped package's; `flutter test test/core/ui/placeholders_test.dart` green with no
 `PlaceholderFigure` listed.
+
+## Task 1b. Release hardening and abuse re-check (abuse review 1)
+
+Traceability: X-18; L2 W5 §1 abuse checks.
+1. `tools/release/android/release.sh`: add `--obfuscate --split-debug-info=build/symbols/<version>`
+   to the release build; the symbols folder is kept privately with the release evidence (never
+   committed); confirm a test crash report can be symbolicated. Test first: the release script test
+   (`test/tool/`) asserts both flags.
+2. Re-run every abuse case test (W3 AC-1 to AC-11, W4g AC-G1 and AC-G2, W6 AC-B1 to AC-B5) against
+   the integrated commit; record each result by AC id in `release-evidence/abuse.md`.
+3. On Aedwon's Android phone, from numbered instructions: with a firewall app blocking RevenueCat,
+   confirm Pro pauses after the paid period plus 3 days (with a test product of a short period);
+   a second account on the same phone sees Free; a share over the daily limit shows its message.
+4. Record the deployed functions, Firestore rules and storage rules revision for each Firebase
+   project and compare with the integrated commit; confirm the RevenueCat webhook URL points at the
+   deployed function and that claims match RevenueCat for the test accounts.
+5. E14 accepted-risk list for Aedwon: patched app unlocks local features; content extraction;
+   local Free mock limits; copied shares; new Google accounts for trials; fresh share limits for new
+   anonymous accounts; refund then stay offline (until the old paid-period end plus 3 days, up to a
+   year on Yearly); and, as an open decision with the lead's recommendation to accept, clock
+   setbacks hidden by a reboot before every session.
+Checks: `flutter test test/tool` green; `release-evidence/abuse.md` lists every AC id with a result.
 
 ## Task 2. Release end-to-end tests
 

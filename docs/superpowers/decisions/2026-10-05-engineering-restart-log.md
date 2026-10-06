@@ -809,3 +809,12 @@ Reviews 6 and 7: review 6 asked for named AC-1 and AC-7 tests (added); review 7 
 0 should-fix, 3 notes carried to level 3 (`gates/l2-abuse-gate-7.md`). Next: level 3 amendments
 (L3 W3, W4g, W5, new L3 W6, the parallel map, setup steps, executor lines per amended B7,
 traceability level 3 column for X rows), then a level 3 gate.
+
+## October 6, 2026: level 3 abuse amendments written
+
+L3 W3 rewritten (Task 1 rebases on W6; Task 2 webhook reconciliation; Task 5 pass ledger; new
+Tasks 11 to 15: offline window and trusted time, account switch, coverage rule and giveaways,
+server content rule, deploy steps; Task 16 full checks), L3 W4g Task 3b (safe share creation), L3
+W5 Task 1b (obfuscation and abuse re-check), new L3 W6 (8 tasks), the parallel map (W6 in waves 2
+and 3, file orders), executor lines in every L3 plan per amended B7, setup steps Parts 4b and 4c,
+and the traceability level 3 column for X rows. Next: level 3 abuse gate review.

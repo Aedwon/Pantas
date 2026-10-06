@@ -2,7 +2,7 @@
 
 Level 3. Date: October 6, 2026. Author: lead. Policy revision: origin/main 1958c0f1.
 Level 2 plan: `L2-W4c-study-and-reader.md`. Base: integration branch after W2 and W4h's pattern
-task. Executor: Sonnet worker, own worktree. Landing order: W0 Task 4b (figure credits) is in the base; W4b Task 3 (`LessonDayContext`) before
+task. Executor: one worker, own worktree (strategy B7 as amended Oct 6: GPT-6.1 Sol High through Codex; GPT-6 Astra audits; Opus lead reviews). Landing order: W0 Task 4b (figure credits) is in the base; W4b Task 3 (`LessonDayContext`) before
 Task 5; W4d Task 1 (`startLessonQuiz`, `startQuickQuiz`) before Task 7. Closes N5-1 (drag handle).
 
 All code is in `lib/features/lesson/` (only `router.dart` imports it). Before each screen task:

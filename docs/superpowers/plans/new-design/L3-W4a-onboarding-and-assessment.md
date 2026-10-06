@@ -2,7 +2,7 @@
 
 Level 3. Date: October 6, 2026. Author: lead. Policy revision: origin/main 9d2c0b5f.
 Level 2 plan: `L2-W4a-onboarding-and-assessment.md`. Base: integration branch after W2 (and W4h's
-pattern task). Executor: Sonnet worker, own worktree. Order with W4f: W4f's reminders task lands
+pattern task). Executor: one worker, own worktree (strategy B7 as amended Oct 6: GPT-6.1 Sol High through Codex; GPT-6 Astra audits; Opus lead reviews). Order with W4f: W4f's reminders task lands
 before Task 8; this family's Task 5 (`ExamPickerScreen`) lands before W4f's Change exam task.
 
 Before each screen task: open its boards (`docs/design/boards/<id>.html`) and run `timeline.py`;

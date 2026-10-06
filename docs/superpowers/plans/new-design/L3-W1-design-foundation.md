@@ -2,7 +2,7 @@
 
 Level 3. Date: October 6, 2026. Author: lead. Policy revision: origin/main 9d2c0b5f.
 Level 2 plan: `L2-W1-design-foundation.md`. Base: integration branch after W0 Task 5 (SHA recorded
-in `evidence/W0.md`). Executor: Sonnet worker in its own worktree from that base (B7).
+in `evidence/W0.md`). Executor: one worker in its own worktree from that base (strategy B7 as amended Oct 6: GPT-6.1 Sol High through Codex; GPT-6 Astra audits; Opus lead reviews).
 Inventory: `stage0`-style facts gathered Oct 6 (lead's copy summarized here). Closes carry-forward F-23.
 
 Rules for every task: failing test first, confirm it fails for the expected reason, smallest code,
@@ -123,7 +123,7 @@ rules, copy rules). It merges to main only after Aedwon approves the text.
 ## Task 9. Full checks and handoff
 
 All required checks (SUBAGENTS Part 5); paste outputs into `evidence/W1.md`. Independent review
-(Sonnet allowed for W1, B7). Lead integrates into the integration branch.
+(GPT-6 Astra audit, then the Opus lead's review; B7 as amended). Lead integrates into the integration branch.
 
 Stop conditions (in addition to L2 §7): a board's tab bar or token value conflicts with the README:
 stop and ask the lead; any Phosphor name missing; any test outside W1's files fails for a reason other

@@ -2,7 +2,8 @@
 
 Level 3. Date: October 6, 2026. Author: lead. Policy revision: origin/main 1958c0f1.
 Level 2 plan: `L2-W4e-mock-exam.md`. Base: integration branch after W2, W3 and W4h's pattern task.
-Executor: Sonnet worker, own worktree (Opus for Task 6, the finale, if a Sonnet worker stops twice).
+Executor: one worker, own worktree (strategy B7 as amended Oct 6: GPT-6.1 Sol High through Codex; GPT-6 Astra audits; Opus lead reviews); if the worker stops twice on Task 6 (the finale), the
+lead re-plans it.
 Landing order: Task 1 (`MockCard`) before W4d's Quiz tab task. Closes N5-2 (decoding old results).
 
 Before each screen task: open its boards and run `timeline.py`. Every task: widget tests first per

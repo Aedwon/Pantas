@@ -2,8 +2,9 @@
 
 Level 3. Date: October 6, 2026. Author: lead. Policy revision: origin/main 1958c0f1.
 Level 2 plan: `L2-W4g-wrapped-and-sharing.md`. Base: integration branch after W2, W3, W4b Task 8
-(Your record slot), W4f Task 5 (About slot) and W4h's pattern task. Executor: Sonnet worker, own
-worktree.
+(Your record slot), W4f Task 5 (About slot) and W4h's pattern task. Executor per strategy B7 as amended October 6: GPT-6.1 Sol
+High through Codex builds, GPT-6 Astra audits, the Opus lead reviews and accepts the backend and
+rules changes. Own worktree. Task 3b starts after W6 Task 1 integrates.
 
 Inventory facts (Oct 6): nothing triggers a Wrapped today (rule classes exist, no call sites);
 the `wrapped_revealed` and `wrapped_shared` analytics events do not exist (G-g-21 "kept" means none
@@ -38,6 +39,31 @@ Boards WR_Share, WR_ShareExam, WR_ShareOffline, L_Share; D-246. Exact image prev
 all off (Your name hidden when there is no name; Week of prep hidden without an exam date), the
 text-only public-link note (globe icon removed), offline note, button wait "Creating your link" then
 "Link copied". Sharing again reuses the Wrapped's existing link (store one `shareId` per artifact).
+
+## Task 3b. Safe share creation (AC-G1, AC-G2)
+
+Traceability: X-1, X-7. Aedwon approved the limits and messages (Oct 6).
+1. App: upload the on-phone PNG to `wrapped/{uid}/upload/{shareId}.png`, then call
+   `createWrappedShare(shareId)`; no direct Firestore write to `wrapped_shares`.
+2. New `functions/src/createWrappedShare.ts` (App Check, signed in): in one transaction on the
+   counter document `users/{uid}/limits/wrappedShares`, refuse over 10 new links a day or 50 live
+   links (`resource-exhausted` with the reason); then check the upload's PNG signature bytes and
+   size under 1 MB, copy it to `wrapped/{uid}/{shareId}.png`, delete the upload, write the record
+   (`ownerUid`, `shareId`, `createdAt`, `revoked: false`, no stored path).
+3. `functions/src/renderWrappedPage.ts`: serve only `wrapped/{ownerUid}/{shareId}.png` derived from
+   the record; nothing for a malformed record; stream with a size cap of 1 MB; `maxInstances: 10`.
+4. New `functions/src/takedownShare.ts`: W6's `requireAdmin`, revokes and deletes, audited.
+5. Rules: `firestore.rules` `wrapped_shares` create denied to clients (update to `revoked` only
+   stays); `storage.rules` `wrapped/{uid}/upload/{name}`: create only (no overwrite), `image/png`,
+   under 1 MB; `wrapped/{uid}/{shareId}.png`: no client access. Exports in `functions/src/index.ts`.
+6. Share screen: on `resource-exhausted`, show "You've made a lot of links today. Try again
+   tomorrow." or "You have 50 links. Remove one in Shared links to make a new one."
+Tests (AC-G1, AC-G2): a record naming another user's file serves nothing; over each limit refused
+with its message; overwrite after the check refused; a non-PNG refused; a client record write
+denied; takedown by a non-admin denied.
+Checks: `npm test` in `functions/` green; `flutter test test/features/wrapped` green.
+Deploy: after this family's review, with Aedwon's approval, after W6 Task 1 (strategy B7 deploy
+policy).
 
 ## Task 4. Shared links
 

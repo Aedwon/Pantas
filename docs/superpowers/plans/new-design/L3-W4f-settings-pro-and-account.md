@@ -2,7 +2,7 @@
 
 Level 3. Date: October 6, 2026. Author: lead. Policy revision: origin/main 1958c0f1.
 Level 2 plan: `L2-W4f-settings-pro-and-account.md`. Base: integration branch after W2, W3 and W4h's
-pattern task. Executor: one Sonnet worker, own worktree (`L3-parallel-map.md`: three-worker limit): track D
+pattern task. Executor: one worker (strategy B7 as amended Oct 6: GPT-6.1 Sol High through Codex; GPT-6 Astra audits; Opus lead reviews), own worktree (`L3-parallel-map.md`: three-worker limit): track D
 (reminders, Task 1) first because W4a's reminders step needs it; then, after W4a, track A (Tasks 2
 to 5) then track B (Tasks 6 to 9); `settings_routes.dart` edits in task order.
 Landing order: Task 1 before W4a Task 8; W4a's `ExamPickerScreen` before Task 3; W4b Task 1 before

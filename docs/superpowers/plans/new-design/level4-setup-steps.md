@@ -75,6 +75,29 @@ App: Pantas (`com.aedwon.pantas`).
    Keep the existing Student packages as they are.
 5. Tell the lead when done. The lead checks the products on a test purchase in level 4.
 
+## Part 4b. RevenueCat: giveaway entitlements (added Oct 6)
+
+1. **Product catalog › Entitlements › + New**: identifier `promo_student`, description
+   `Giveaway: Student tier`. Attach no product.
+2. Again: identifier `promo_civil_service`, description `Giveaway: Civil Service tier`.
+3. From now on, grant giveaway Pro only with one of these two (Customer page › Grant promotional
+   entitlement), never with `pro`. A Civil Service giveaway also covers Student exams.
+4. Before the payments update ships, the lead will list any existing promotional `pro` grants; you
+   reissue each one with the right tier.
+5. New products are added to the app's product table before they go on sale; tell the lead before
+   creating any product.
+
+## Part 4c. Turn on Cloud Functions (added Oct 6, before Part 5)
+
+Nothing has ever been deployed: the Cloud Functions service is off in all three projects.
+1. Firebase console › pantas-staging › **Build › Functions**. If it asks to upgrade, check the
+   plan is **Blaze (pay as you go)**; Functions and Secret Manager need it. If a plan change is
+   needed, stop and tell the lead the cost settings you see before confirming.
+2. Select **Get started** and follow the prompts until it says the service is ready. Do not deploy
+   anything from the console.
+3. Repeat for pantas-prod.
+4. Tell the lead when done.
+
 ## Part 5. RevenueCat secret key for the cancellation fix (W3 P1)
 
 What it is: a private key that lets the Pantas server ask RevenueCat "is this student's plan still

@@ -2,7 +2,8 @@
 
 Level 3. Date: October 6, 2026. Author: lead. Policy revision: origin/main 3c4569fd.
 Level 2 plan: `L2-W0-integration.md` (gate passed Oct 6). Strategy B5, B6.
-Base: `integration/new-design-r1` at 1f79d880. Executor: Opus (B7: W0 merge work). One worktree:
+Base: `integration/new-design-r1` at 1f79d880. Executor: GPT-6.1 Sol High through Codex (strategy B7 as amended Oct 6); the Opus lead
+resolves any merge conflict, reviewed separately. One worktree:
 `../Pantas-wt-integration-new-design-r1` (the integration branch itself; W0 is a fast-forward plus
 data commits, so it runs on the branch directly, serialized before every other workstream).
 Closes carry-forward: N3-7, N3-9/N4-5, N5-2 (W0 side).

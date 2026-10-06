@@ -2,7 +2,7 @@
 
 Level 3. Date: October 6, 2026. Author: lead. Policy revision: origin/main 1958c0f1.
 Level 2 plan: `L2-W4d-quiz.md`. Base: integration branch after W2, W3 and W4h's pattern task.
-Executor: Sonnet worker, own worktree. Landing order: Task 1 before W4c's quiz-button task; W4e's
+Executor: one worker, own worktree (strategy B7 as amended Oct 6: GPT-6.1 Sol High through Codex; GPT-6 Astra audits; Opus lead reviews). Landing order: Task 1 before W4c's quiz-button task; W4e's
 `MockCard` before Task 2.
 
 Before each screen task: open its boards and run `timeline.py`. Every task: widget tests first per

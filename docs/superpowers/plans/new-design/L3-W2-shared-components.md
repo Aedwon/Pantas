@@ -2,7 +2,7 @@
 
 Level 3. Date: October 6, 2026. Author: lead. Policy revision: origin/main 9d2c0b5f.
 Level 2 plan: `L2-W2-shared-components.md`. Base: integration branch after W1 integrates.
-Executor: Sonnet worker, own worktree (B7). Closes carry-forward N4-6.
+Executor: one worker, own worktree (strategy B7 as amended Oct 6: GPT-6.1 Sol High through Codex; GPT-6 Astra audits; Opus lead reviews). Closes carry-forward N4-6.
 Inventory facts (Oct 6): none of the contract names exists yet; 49 Ink-era files in
 `lib/core/ui/components/`; 40 component tests plus `accessibility_test.dart` and
 `math_accessibility_test.dart`.
@@ -112,7 +112,7 @@ no new issues.
 
 ## Task 8. Full checks and integration
 
-All required checks; evidence in `evidence/W2.md`; independent review (Sonnet allowed); lead
+All required checks; evidence in `evidence/W2.md`; GPT-6 Astra audit and the Opus lead's review; lead
 integrates. Old components and their tests stay green until close-out.
 
 ## Task 9. Close-out (runs after the last W4 family integrates)

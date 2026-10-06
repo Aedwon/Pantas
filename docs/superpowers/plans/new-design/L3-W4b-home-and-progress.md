@@ -2,7 +2,7 @@
 
 Level 3. Date: October 6, 2026. Author: lead. Policy revision: origin/main 9d2c0b5f.
 Level 2 plan: `L2-W4b-home-and-progress.md`. Base: integration branch after W2, W3 and W4h's pattern
-task. Executor: one Sonnet worker, own worktree, track A (Tasks 1 to 5) then track B (Tasks 6 to 10)
+task. Executor: one worker (strategy B7 as amended Oct 6: GPT-6.1 Sol High through Codex; GPT-6 Astra audits; Opus lead reviews), own worktree, track A (Tasks 1 to 5) then track B (Tasks 6 to 10)
 (`L3-parallel-map.md`: three-worker limit); `lib/app/routes/home_routes.dart` edits in task order.
 Closes carry-forward N5-1 (with W4c).
 

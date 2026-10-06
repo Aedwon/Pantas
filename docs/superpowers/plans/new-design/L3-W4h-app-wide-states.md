@@ -1,8 +1,8 @@
 # L3 W4h: app-wide states (implementation plan)
 
 Level 3. Date: October 6, 2026. Author: lead. Policy revision: origin/main 1958c0f1.
-Level 2 plan: `L2-W4h-app-wide-states.md`. Base: integration branch after W2. Executor: Sonnet
-worker, own worktree. Task 1 lands before any other family's state screens.
+Level 2 plan: `L2-W4h-app-wide-states.md`. Base: integration branch after W2. Executor: one
+worker, own worktree (strategy B7 as amended Oct 6: GPT-6.1 Sol High through Codex; GPT-6 Astra audits; Opus lead reviews). Task 1 lands before any other family's state screens.
 
 ## Task 1. Pattern guide and helpers (lands first)
 
