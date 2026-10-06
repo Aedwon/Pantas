@@ -789,4 +789,16 @@ union of known products, passes and promotional entitlements on both phone and s
 `pro` grants reissued as tier-named; a one-time reconciliation after the webhook URL is set; B7:
 the lead's integration code gets a separate review. Open for Aedwon at E14 (lead recommends
 accept): clock set back while the app is closed plus a reboot spreads the paid period plus 3 days
-over a longer calendar span when RevenueCat is blocked.
+over a longer calendar span when RevenueCat is blocked. (Corrected at review 5: the app now also detects clock changes made
+while it is closed within one boot, so the residual needs a clock change and a reboot before every
+session.)
+
+## October 6, 2026: level 2 abuse gate review 5 and fixes
+
+Review 5: 0 blockers, 4 should-fix, 4 notes. Fixed: paused or after a rollback, the app forces a
+fresh RevenueCat answer (`invalidateCustomerInfoCache`) so an honest user is unpaused at once;
+in-boot clock-change detection; passes count only from the ledger; W5's E14 list carries the clock
+residual as an open decision; B7 wording. Level 3 setup-step items: enable the Cloud Functions API
+and confirm Blaze before the secrets steps; create `promo_student` and `promo_civil_service`; grant
+giveaways only with them; new products enter the product table before sale; list and reissue
+existing promotional `pro` grants before W3's release.
