@@ -28,12 +28,13 @@ Nothing.
 
 ## Next step
 
-Abuse review amendment (Oct 6, `gates/abuse-review-1.md`): level 1 amended (strategy Part A rule,
-B2 W3, W4g, W5, new W6). Next: level 2 amendments for W3, W4g, W5 and a new L2-W6, level 2 delta
-gate; then level 3 amendments (W3, W4g, W5, new L3-W6, parallel map) and a level 3 delta gate.
-Waiting on Aedwon for two product decisions: offline Pro after the paid period ends (lead: 3 days);
-trial rule (lead: Play's "never had a subscription" rule). Level 4 start answers are recorded in the
-decision record (Oct 6); store setup steps are in `level4-setup-steps.md`.
+Ready for level 4. Waiting on Aedwon's go. Order: W0 first (GPT-6.1 Sol High through Codex, Astra
+audit, Opus review), then W1, W3 and W6 in parallel (`L3-parallel-map.md`). Aedwon's setup steps
+before the tasks that need them: `level4-setup-steps.md` Parts 1 to 5 (store products, trial,
+RevenueCat products, giveaway entitlements, Cloud Functions and Blaze, budget alerts, tester
+allowlist, RevenueCat secret key). Still open for him: privacy text for the Pantas ID
+(`drafts/privacy-pantas-id.md`); credit for the three reading-comprehension images; the Sanity
+upload for lesson images; E14 risk acceptance at the end.
 
 ## Steps
 
@@ -57,7 +58,7 @@ decision record (Oct 6); store setup steps are in `level4-setup-steps.md`.
 | Level 3 plans (B5) | done (13 plans, parallel map); traceability level 3 column filled | L3-*.md, L3-parallel-map.md |
 | Level 3 gate review | passed (review 5) | gates/l3-gate-review-5.md |
 | Stop before level 4, notify Aedwon | done (Oct 6) | answers recorded |
-| Abuse review amendment | levels 1 and 2 done (gate passed, review 7); level 3 pending | gates/l2-abuse-gate-7.md |
+| Abuse review amendment | done: level 2 gate passed (review 7), level 3 gate passed (review 3) | gates/l3-abuse-gate-3.md |
 
 ## Last completed step
 

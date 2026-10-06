@@ -835,3 +835,9 @@ create-only share records, budget alerts and tester allowlist setup steps, W5 sy
 W4g never wait on deploys; paused Pro gates follow L2 W4f: a new W2 component `ProPausedLine`
 (the approved line, L2 W2 contract amended) shown by every family's Pro gate while paused. L2 W3
 AC-3 wording aligned (answer time from the function's own clock).
+
+## October 6, 2026: level 3 abuse gate passed; ready for level 4
+
+`gates/l3-abuse-gate-3.md`: passes, 0 blockers, 0 should-fix, 4 notes. The abuse review amendment
+is complete at levels 1, 2 and 3. Level 4 starts with W0 when Aedwon says so; workers are GPT-6.1
+Sol High through Codex (B7 as amended), so the start also depends on his Codex limit.
