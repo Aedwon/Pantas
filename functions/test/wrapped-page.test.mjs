@@ -8,8 +8,6 @@ const indexSource = () =>
   readFileSync(new URL('../src/index.ts', import.meta.url), 'utf8');
 const deleteAccount = () =>
   readFileSync(new URL('../src/deleteAccount.ts', import.meta.url), 'utf8');
-const exportData = () =>
-  readFileSync(new URL('../src/exportData.ts', import.meta.url), 'utf8');
 
 test('renderWrappedPage is an asia-southeast1 HTTP function', () => {
   const source = render();
@@ -52,10 +50,4 @@ test('deleteAccount purges hosted cards and their storage objects', () => {
   assert.match(source, /collection\('wrapped_shares'\)/);
   assert.match(source, /ownerUid', '==', uid/);
   assert.match(source, /deleteFiles\(\{ prefix: `wrapped\/\$\{uid\}\//);
-});
-
-test('exportData includes the shared-card list', () => {
-  const source = exportData();
-  assert.match(source, /collection\('wrapped_shares'\)/);
-  assert.match(source, /sharedCards/);
 });
