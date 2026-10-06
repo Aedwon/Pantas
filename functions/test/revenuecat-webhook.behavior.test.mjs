@@ -2,21 +2,17 @@ import assert from 'node:assert/strict';
 import { createHmac } from 'node:crypto';
 import test from 'node:test';
 
-import * as revenuecatPolicyModule from '../src/revenuecatPolicy.ts';
+import * as revenuecatPolicyModule from '../lib/revenuecatPolicy.js';
 
-const policy = revenuecatPolicyModule as Record<string, unknown>;
+const policy = revenuecatPolicyModule;
 
-function requirePolicyFunction<T>(name: string): T {
+function requirePolicyFunction(name) {
   const value = policy[name];
   assert.equal(typeof value, 'function', `${name} must be implemented`);
-  return value as T;
+  return value;
 }
 
-const verifyRevenueCatSignature = requirePolicyFunction<(
-  rawBody: Buffer,
-  signatureHeader: string,
-  secret: string,
-) => boolean>('verifyRevenueCatSignature');
+const verifyRevenueCatSignature = requirePolicyFunction('verifyRevenueCatSignature');
 
 const rawBody = Buffer.from(
   '{"event":{"id":"evt_signature","type":"RENEWAL"}}',
@@ -28,7 +24,7 @@ function signedHeader(
   secret = signingSecret,
   body = rawBody,
   signedAt = timestamp,
-): string {
+) {
   const digest = createHmac('sha256', secret)
     .update(Buffer.concat([Buffer.from(`${signedAt}.`), body]))
     .digest('hex');
@@ -72,10 +68,10 @@ test('rejects missing or malformed RevenueCat signature headers', () => {
 });
 
 test('lifecycle policy keeps cancellation/billing/product-change neutral and expiry authoritative', () => {
-  const transition = requirePolicyFunction<(eventType: string) => boolean | null>(
+  const transition = requirePolicyFunction(
     'proTransitionForEvent',
   );
-  const apply = (current: boolean, eventType: string) =>
+  const apply = (current, eventType) =>
     transition(eventType) ?? current;
 
   let pro = false;
@@ -97,10 +93,10 @@ test('lifecycle policy keeps cancellation/billing/product-change neutral and exp
 });
 
 test('transfer normalization deduplicates arrays and excludes RevenueCat anonymous IDs from Firebase transitions', () => {
-  const normalize = requirePolicyFunction<(body: unknown) => any>(
+  const normalize = requirePolicyFunction(
     'normalizeRevenueCatEvent',
   );
-  const transitionsForTransfer = requirePolicyFunction<(event: any) => any[]>(
+  const transitionsForTransfer = requirePolicyFunction(
     'firebaseTransferTransitions',
   );
 
@@ -146,16 +142,16 @@ test('transfer normalization deduplicates arrays and excludes RevenueCat anonymo
 });
 
 test('claim executor preserves unrelated custom claims on grant and revoke', async () => {
-  const execute = requirePolicyFunction<(input: any, dependencies: any) => Promise<boolean>>(
+  const execute = requirePolicyFunction(
     'executeRevenueCatClaimTransition',
   );
-  const writes: Array<{ uid: string; claims: Record<string, unknown> }> = [];
+  const writes = [];
   const dependencies = {
-    getCustomClaims: async (uid: string) =>
+    getCustomClaims: async (uid) =>
       uid === 'grant_uid'
         ? { role: 'student', cohort: 7, pro: false }
         : { role: 'student', cohort: 7, pro: true },
-    setCustomClaims: async (uid: string, claims: Record<string, unknown>) => {
+    setCustomClaims: async (uid, claims) => {
       writes.push({ uid, claims });
     },
     markTransferLoser: async () => {
@@ -185,18 +181,18 @@ test('claim executor preserves unrelated custom claims on grant and revoke', asy
 });
 
 test('resolved outgoing transfer revokes then marks loser; unresolved outgoing is a safe no-op', async () => {
-  const execute = requirePolicyFunction<(input: any, dependencies: any) => Promise<boolean>>(
+  const execute = requirePolicyFunction(
     'executeRevenueCatClaimTransition',
   );
-  const writes: unknown[] = [];
-  const losers: unknown[] = [];
+  const writes = [];
+  const losers = [];
   const dependencies = {
-    getCustomClaims: async (uid: string) =>
+    getCustomClaims: async (uid) =>
       uid === 'resolved_source' ? { pro: true, locale: 'en' } : null,
-    setCustomClaims: async (uid: string, claims: Record<string, unknown>) => {
+    setCustomClaims: async (uid, claims) => {
       writes.push({ uid, claims });
     },
-    markTransferLoser: async (uid: string, eventId: string) => {
+    markTransferLoser: async (uid, eventId) => {
       losers.push({ uid, eventId });
     },
   };
@@ -238,14 +234,14 @@ test('resolved outgoing transfer revokes then marks loser; unresolved outgoing i
 });
 
 test('resolved incoming transfer grants Pro and unresolved incoming is a safe no-op', async () => {
-  const execute = requirePolicyFunction<(input: any, dependencies: any) => Promise<boolean>>(
+  const execute = requirePolicyFunction(
     'executeRevenueCatClaimTransition',
   );
-  const writes: unknown[] = [];
+  const writes = [];
   const dependencies = {
-    getCustomClaims: async (uid: string) =>
+    getCustomClaims: async (uid) =>
       uid === 'resolved_destination' ? { beta: true } : null,
-    setCustomClaims: async (uid: string, claims: Record<string, unknown>) => {
+    setCustomClaims: async (uid, claims) => {
       writes.push({ uid, claims });
     },
     markTransferLoser: async () => {
@@ -285,7 +281,7 @@ test('resolved incoming transfer grants Pro and unresolved incoming is a safe no
 
 
 test('raw-body gate accepts only exact Buffer bytes and fails closed otherwise', () => {
-  const requireRawBody = requirePolicyFunction<(rawBody: unknown) => Buffer | null>(
+  const requireRawBody = requirePolicyFunction(
     'requireExactRevenueCatRawBody',
   );
   const exact = Buffer.from('{"event":{"id":"evt_raw"}}');
@@ -297,7 +293,7 @@ test('raw-body gate accepts only exact Buffer bytes and fails closed otherwise',
 });
 
 test('unresolved Firebase identity errors include missing and invalid uid only', () => {
-  const isUnresolved = requirePolicyFunction<(error: unknown) => boolean>(
+  const isUnresolved = requirePolicyFunction(
     'isUnresolvedFirebaseIdentityError',
   );
   assert.equal(isUnresolved({ code: 'auth/user-not-found' }), true);

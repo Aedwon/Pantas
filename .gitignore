@@ -72,3 +72,7 @@ flutter_*.log
 # OS junk
 Thumbs.db
 ehthumbs.db
+
+# Functions build and installed dependencies
+functions/lib/
+functions/node_modules/

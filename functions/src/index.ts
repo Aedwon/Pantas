@@ -1,3 +1,5 @@
+import './_admin.js';
+
 export { exportData } from './exportData.js';
 export { deleteAccount } from './deleteAccount.js';
 export { renderWrappedPage } from './renderWrappedPage.js';

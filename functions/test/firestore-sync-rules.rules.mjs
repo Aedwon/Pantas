@@ -1,3 +1,7 @@
+import '../lib/index.js';
+import { getFirestore } from 'firebase-admin/firestore';
+import { requireAdmin } from '../lib/_admin.js';
+import { onCall } from 'firebase-functions/v2/https';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test, { after, before, beforeEach } from 'node:test';
@@ -14,7 +18,7 @@ import {
   updateDoc,
 } from 'firebase/firestore';
 
-const projectId = 'pantas-wave2e-test';
+const projectId = 'demo-pantas-test';
 const rules = readFileSync(
   new URL('../../firestore.rules', import.meta.url),
   'utf8',
@@ -328,4 +332,21 @@ test('staging generation create rejects extra lifecycle fields', async () => {
   );
 });
 
-console.log('FIRESTORE_SYNC_RULES_TEST_COUNT=15');
+console.log('FIRESTORE_SYNC_RULES_TEST_COUNT=16');
+
+// Keep this write in the rules suite so its clearFirestore hook cannot race it.
+test('admin callable permits checked admin and writes an audit entry', async () => {
+  assert.equal(process.env.GCLOUD_PROJECT, 'demo-pantas-test');
+  assert.ok(process.env.FIRESTORE_EMULATOR_HOST);
+  const callable = onCall({ enforceAppCheck: true }, (request) => requireAdmin(request));
+  const uid = 'demo-admin-guard';
+  assert.equal(await callable.run({
+    data: {},
+    auth: { uid, token: { admin: true } },
+    app: { appId: 'demo-app', token: {} },
+  }), uid);
+  const records = await getFirestore().collection('audit_logs').where('uid', '==', uid).get();
+  assert.equal(records.size, 1);
+  assert.equal(records.docs[0].get('event'), 'adminAuthorized');
+  assert.equal(records.docs[0].get('metadata').appId, 'demo-app');
+});

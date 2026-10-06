@@ -8,7 +8,7 @@ import {
   TOMBSTONE_RETENTION_DAYS,
   STAGING_RETENTION_DAYS,
   RETIRED_RETENTION_DAYS,
-} from './.compiled/syncGenerationPolicy.js';
+} from '../lib/syncGenerationPolicy.js';
 
 test('retention constants are exact', () => {
   assert.equal(TOMBSTONE_RETENTION_DAYS, 90);
