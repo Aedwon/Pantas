@@ -841,3 +841,10 @@ AC-3 wording aligned (answer time from the function's own clock).
 `gates/l3-abuse-gate-3.md`: passes, 0 blockers, 0 should-fix, 4 notes. The abuse review amendment
 is complete at levels 1, 2 and 3. Level 4 starts with W0 when Aedwon says so; workers are GPT-6.1
 Sol High through Codex (B7 as amended), so the start also depends on his Codex limit.
+
+## October 6, 2026: Codex sandbox for level 4 workers
+
+The first W0 run on Codex stopped at `git fetch`: Codex's workspace sandbox blocks writes to the
+repository's Git folder. Aedwon chose option 1 ("1"): Codex workers run without the Codex sandbox
+(`--dangerously-bypass-approvals-and-sandbox`), bound by their dispatch rules (one worktree, no
+push, no secrets, no external changes); the lead reviews every commit before any push.
