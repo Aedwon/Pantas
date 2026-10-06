@@ -903,3 +903,13 @@ baseline; W6 Task 1 must make them green. GPT-6 Astra audit (read-only): no bloc
 in W0's changes; one weak equality test (fixed by the lead in 13e4f830); a W4e note that the app's
 blueprint readers need the placeholder marker first (L3 W4e Task 3 amended). Lead review agrees. The
 integration branch was pushed at 13e4f830. Usage: Task 5 about 571,000 tokens, audit about 123,000.
+
+## October 6, 2026: usage recalibration
+
+After the reset, Aedwon reported 95% used after W0 Task 5 (about 571,000 tokens), the Astra audit
+(about 123,000), W1's first run (about 158,000) and part of a W1 resume (stopped by the lead with no
+commits or edits). That is roughly 10,000 tokens per 1%, not the 24,000 measured before; the
+earlier figure is withdrawn. The cause is unknown (cached tokens or the Astra model may weigh
+differently). W1 setup gap: new worktrees lack the ignored `assets/seed/content.*` files; the lead
+copies the accepted package files (unchanged, never committed) into each new worktree before the
+worker starts. W1 resumes from Task 1 at 2cc11ce1 after the next reset.
