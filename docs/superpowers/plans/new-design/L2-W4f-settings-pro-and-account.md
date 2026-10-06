@@ -40,7 +40,8 @@ W1 removes retired routes and this family deletes the screens behind them:
 - Keeps the Terms policy-version write in `settings_repository.dart` (W0 recorded-only data).
 - `SharedLinksRow` slot in About, filled by W4g.
 
-Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2 components; W3 entitlement, tier, pass, `mockLimit`, `switchOutcome`, purchase operations, public ID, `TrialEndingNotifier`; W4a `ExamPickerScreen`; W4b `retainTableOrderProvider`; W4g `SharedLinksRow`.
+Consumed by reference: W1 tokens, type, icons, curves, effects, dates, shell; W2 components; W3 entitlement (including the `paused` state: the Pro page and paused gates show the approved
+paused line, amended Oct 6 for W3 AC-1), tier, pass, `mockLimit`, `switchOutcome`, purchase operations, public ID, `TrialEndingNotifier`; W4a `ExamPickerScreen`; W4b `retainTableOrderProvider`; W4g `SharedLinksRow`.
 
 ## 4. Behavior
 

@@ -705,7 +705,7 @@ Aedwon asked whether the plans cover abuse vectors ("mistakes in the infrastruct
 been avoided from Day 0 ... an exploit to have unlimited Pro access or patching the app"). The lead
 answered that no plan step checked abuse. At his request GPT-6 Astra (Codex, medium, read-only)
 reviewed the code and plans: `plans/new-design/gates/abuse-review-1.md`, 19 findings; the lead
-confirmed the main ones in the code and agreed with 16, partly with 3.
+confirmed the main ones in the code and agreed with 17, partly with 2 (CX-12, CX-14).
 
 Aedwon approved folding the fixes into the plans ("yes please add them"), with the higher-level
 fix. Per the strategy rule "changes go up first", the change starts at level 1:
@@ -729,3 +729,16 @@ Aedwon, verbatim: "let's do 3 days. A use Google's rule".
 - Trial: Google Play's rule (a Google account that ever had a Pantas subscription gets no second
   trial). The tier spec's "ever had any Pantas Pro plan" is corrected. Pass and giveaway holders
   can take one trial; new Google accounts are an accepted risk.
+
+## October 6, 2026: level 2 abuse gate review 1 and fixes
+
+`gates/l2-abuse-gate-1.md`: not passed, 2 blockers, 19 should-fix, 11 notes. Fixed in L2 W3, W4f,
+W4g, W5, W6 and the review verdict table. Blockers: the offline window now uses a time high-water
+mark (a clock set back counts the window as used); W6 moves Functions to Node 22 (Google
+decommissions Node 20 on October 30, 2026, confirmed on the Cloud Functions runtime support page).
+Lead decisions recorded: sandbox purchases count in prod only for a tester allowlist (A03 on the
+release package); RevenueCat restore behavior stays "Transfer to new App User ID"; one deploy
+policy (each workstream deploys after its review, with Aedwon's approval, after W6 Task 1).
+For Aedwon: how the live backend was deployed and whether to redeploy on Node 22 before October
+30; copy and limits (paused line, share limits and messages, export error); the giveaway fallback
+(an unrecorded grant counts as Student tier); whether W6 may run on Codex (strategy B7).

@@ -24,7 +24,8 @@ source folder), CX-15 (user record create allows any extra field).
 | CX-11 | agree, before giveaways | W3 |
 | CX-19 | agree the promise must be settled; product decision for Aedwon | W3 |
 | CX-13 | agree, before any deploy; first W6 task | W6 |
-| CX-15, CX-16 | agree, before beta | W6 |
+| CX-15 | agree, before beta | W6 |
+| CX-16 | agree, before beta (with CX-5) | W3 |
 | CX-12 | partly: basic per-account limits only before beta | W6 |
 | CX-14 | partly: disable the placeholder export and make cleanup jobs work; full exporter later | W6 |
 | CX-17 | agree; remove the unused function rather than harden it (no caller in `lib/`) | W6 |

@@ -32,7 +32,10 @@ In scope:
   `--split-debug-info` (symbols kept privately for crash reports); every abuse case in W3, W4g and
   W6 (AC ids) re-checked on the final build, with evidence; the accepted risks (patched app unlocks
   local features, content extraction, local Free mock limits, copied shares, new Google accounts for
-  trials) listed for Aedwon's acceptance at E14 with the bootstrap-key risk.
+  trials, and refund-then-stay-offline keeping Pro until the old paid-period end plus 3 days: up to
+  a year on Yearly) listed for Aedwon's acceptance at E14 with the bootstrap-key risk; the deployed
+  functions, Firestore rules and storage rules revision for each Firebase project recorded and
+  compared with the integrated commit (gate L2A-21).
 - Release blockers: every `PlaceholderFigure` replaced by Aedwon's values (R-20); `functions` tests
   green.
 
