@@ -10,9 +10,9 @@ Controlling documents:
 
 ## Lock
 
-State: held
-Holder: interactive lead session
-Since: 2026-10-06T09:00+08:00
+State: free
+Holder: none
+Since: 2026-10-06 (released at the level 4 stop)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -28,9 +28,19 @@ Nothing.
 
 ## Next step
 
-The traceability "Level 3 task" column is filled for all 757 workstream rows (Oct 6). Then the level 3 gate review (B5) by an independent Opus reviewer, then
-stop before level 4 and notify Aedwon with the level 4 start requests (signing authorization, store
-setup, RevenueCat secret key, exam dates, iOS purchase scope, privacy text).
+Waiting on Aedwon (level 4 start). Level 4 begins with W0 once he answers:
+1. Permission to use the signing seed (optional W0 package; required for the W5 release package).
+2. Play Console and RevenueCat: the four Civil Service products, trial moved to Monthly ("new
+   customers only, across all subscriptions"), price points confirmed (W3 P2).
+3. RevenueCat secret API key stored as Functions secret `REVENUECAT_SECRET_API_KEY` (W3 P1).
+4. Exam dates with source links (W3 P3; W0 catalog).
+5. Whether App Store purchases are in beta scope (W5 Task 6).
+6. Privacy policy sentences for the Pantas ID (lead drafts in W3 Task 10).
+7. Season Pass bought by an active Student subscriber: confirm the lead default and copy (W3 Task 6).
+8. Approval to upload lesson illustrations to Sanity so `assets.json` exists; until then no lesson
+   image ships (W0 Task 4b).
+9. Approval to force-push main to remove the AI attribution trailer from b43d93a6 (or leave it).
+Deploys (functions, rules) are asked separately when each is ready (W3 P4).
 
 ## Steps
 
@@ -51,10 +61,10 @@ setup, RevenueCat secret key, exam dates, iOS purchase scope, privacy text).
 | B3.5 execution arrangement | done | recorded in the decision record |
 | Level 2 plans (B4) | done | 13 plans; traceability level 2 column filled |
 | Level 2 gate review | passed (review 5) | gates/l2-gate-review-5.md |
-| Level 3 plans (B5) | written (13 plans); traceability level 3 column in progress | L3-*.md |
-| Level 3 gate review | pending | |
-| Stop before level 4, notify Aedwon | pending | |
+| Level 3 plans (B5) | done (13 plans, parallel map); traceability level 3 column filled | L3-*.md, L3-parallel-map.md |
+| Level 3 gate review | passed (review 5) | gates/l3-gate-review-5.md |
+| Stop before level 4, notify Aedwon | done (Oct 6) | waiting on his level 4 start answers |
 
 ## Last completed step
 
-All 13 level 3 plans written (Oct 6); level 2 amended from the code inventory.
+Level 3 gate passed (review 5, Oct 6). Stopped before level 4.

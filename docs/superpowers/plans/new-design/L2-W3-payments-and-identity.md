@@ -120,8 +120,8 @@ integrates), `lib/features/settings/presentation/pages/pro_page.dart` and
 `lib/features/roadmap/domain/roadmap_inputs.dart`, `roadmap_inputs_reader.dart`, `mock_day.dart`,
 `mock_availability_provider.dart` (the Pro flag source), `lib/app/bootstrap.dart` (mock entitlement
 override), and after W1's split the builders in `lib/app/routes/quiz_routes.dart`, `mock_routes.dart`
-and `settings_routes.dart` (amended (level 3 gate review 2)). Each W4 family switches its own gates to `proForActiveExamProvider`; plan status (Settings Pro
-row, Pro page plan name and Manage) keeps the any-plan flag, and the Pro page's offer-or-owned
+and `settings_routes.dart` (amended at level 3 gate review 2). Each W4 family switches its own gates to `proForActiveExamProvider`; plan status (Settings Pro
+row, Pro page plan name, Your plan rows and Manage; amended at level 3 gate review 4) keeps the any-plan flag, and the Pro page's offer-or-owned
 choice reads the new provider.
 
 ## 9. Order and parallelism

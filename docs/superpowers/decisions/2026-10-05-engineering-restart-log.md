@@ -665,3 +665,9 @@ Gate review 4 (`gates/l3-gate-review-4.md`): not passed, 0 blockers, 1 should-fi
 - Notes: W4f reads `studentPlanStillRenews` from `switchOutcome`; W3 Task 8 runs `test/app` and
   updates the override test; W0 Task 4b rewrites the existing image tests for the drop rule; W4h's
   greps are stated as a backstop.
+
+## October 6, 2026: level 3 gate passed; stop before level 4
+
+Gate review 5 (`gates/l3-gate-review-5.md`): passes, 0 blockers, 0 should-fix, 3 notes (fixed:
+L2 W3 wording and "Your plan rows"; W0 Task 4b names the drop case). The lead stopped before level 4
+per Aedwon's instruction and sent him the level 4 start requests listed in STATUS.
