@@ -921,3 +921,10 @@ With Aedwon's approval, the lead installed Node 22 (`/opt/homebrew/opt/node@22/b
 Java 21 (`/opt/homebrew/opt/openjdk@21/bin`, 21.0.12.1) through Homebrew for W6's emulator tests.
 Both are keg-only; the shell profile is unchanged, so W6 runs put both folders first on `PATH`.
 The progress Doc's 5 Oct entry now records W0's acceptance (Aedwon approved the edit).
+
+## October 6, 2026: usage readings around Astra runs
+
+Aedwon: "if you use astra it's okay for you to ask me about limits so that you have a better and
+better estimate, and you can judge if there's enough usage for an astra run". The lead asks for a
+reading before and after each Astra run, starts one only when the reading leaves room, and does not
+ask around Sol runs.
