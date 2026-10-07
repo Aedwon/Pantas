@@ -960,3 +960,11 @@ recorded for W5. Fixes are L3 W6 Task 5c. The lead's own review had missed the b
 races. Process error: the lead started the Astra run alongside a W1 Sol run without a reading, so
 Aedwon's 75% reading cannot be split by model; Astra runs alone from now on. W1 reached Task 7
 (43da63fa) and stopped at the Codex limit (1,253,000 tokens in that run).
+
+## October 7, 2026: W6 Tasks 1 to 5c integrated
+
+Sol fixed audit findings 1 to 6 (Task 5c, 1,090,000 tokens). The lead checked the fixes, reran the
+backend tests (52 plain, 58 emulator) and the sync tests (211), and fast-forwarded the integration
+branch to 739ccae1; the full Flutter suite there passed (3,434 tests). W3 can now start its tasks
+that wait on W6. W1 reached Task 9 and stopped at the Codex limit (1,588,000 tokens in that run;
+it found and is fixing its own Task 7 error, Settings outside the tab shell).
