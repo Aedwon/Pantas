@@ -949,3 +949,14 @@ Flutter 3.44 because `IconData` is now final. Ruling: bundle the package's own P
 are done (05112e1c, 5e0eef33). W6 stopped at Task 3: the emulator let one batch create two staging
 generations through one limits write. Ruling: the limits write names the generation id, and the
 create rule requires it to match. Plans L2 and L3 W1, L3 W6 amended.
+
+## October 7, 2026: W6 Astra audit 1
+
+GPT-6 Astra audited W6 Tasks 1 to 5 (126,000 tokens): 1 blocker (anonymous cleanup ignores token
+refresh, so a daily user could be deleted), 4 major (the 5-minute staging limit can strand sync with
+no retry, which the lead's ruling caused; three cleanup races, two of them older than W6), 3 minor.
+The lead checked the sync retry finding in the code and agrees with findings 1 to 6; 7 and 8 are
+recorded for W5. Fixes are L3 W6 Task 5c. The lead's own review had missed the blocker and the
+races. Process error: the lead started the Astra run alongside a W1 Sol run without a reading, so
+Aedwon's 75% reading cannot be split by model; Astra runs alone from now on. W1 reached Task 7
+(43da63fa) and stopped at the Codex limit (1,253,000 tokens in that run).

@@ -101,9 +101,35 @@ orphan is deleted; a 729-day audit entry is kept and a 731-day one deleted; an o
 deleted and a shared file kept.
 Checks: `npm test` in `functions/` green.
 
+## Task 5c. Audit fixes (GPT-6 Astra audit 1, Oct 7; lead agrees with findings 1 to 6)
+
+Source: `gates/w6-astra-audit-1.md`. Each fix: failing test first that reproduces the finding.
+1. `cleanupOrphanAnons`: an account counts as active if its last sign-in or its last token refresh
+   (`metadata.lastRefreshTime`) is within 30 days; apply in both checks. Test: an old sign-in with a
+   recent refresh is kept.
+2. Staging cooldown recovery: when staging is denied by the 5-minute limit (or any
+   `retryableFailure` of the bootstrap upload), the sync controller schedules one retry after the
+   cooldown (5 minutes plus a small margin), cancelled on account change or sign-out. Test: a
+   denied stage recovers without an app restart.
+3. `cleanupWrappedOrphans`: delete with the listed object's generation as a precondition
+   (`ifGenerationMatch`), and recheck the share record just before deletion. Test: a replaced object
+   is not deleted.
+4. `cleanupSyncData` generations (existed before W6): claim the deletion in a transaction that
+   rechecks the active pointer and status (set `status: 'deleting'`); `activateSyncGeneration` and
+   the row and generation rules reject a `deleting` generation. Test: activation racing cleanup
+   leaves the active generation intact.
+5. `cleanupSyncData` tombstones (existed before W6): delete with the read snapshot's update time as
+   a precondition (`lastUpdateTime`). Test: a row restored after the query is kept.
+6. Rules tests: each negative test uses an otherwise valid batch (with the limits write) and changes
+   only the field under test.
+Not fixed, recorded: finding 7 (cleanup scans run whole populations; acceptable below 50,000
+accounts and files; W5 rechecks the count), finding 8 (runtime audit: 2 moderate through `gaxios`
+and `uuid` in firebase-admin; dev-only highs never deploy; W5 rechecks).
+Checks: `npm test` in `functions/` green; `flutter test test/core/sync` green.
+
 ## Task 5b. Early integration of Tasks 1 to 5 (L3X-3, L3X2-2)
 
-After Tasks 1 to 5: GPT-6 Astra audit and the Opus lead's review of that slice; the lead integrates
+After Tasks 1 to 5 and the audit fixes in Task 5c: the lead's check of the fixes; the lead integrates
 it into the integration branch so W3 and W4g build on it (every W6 edit to `index.ts`, the rules and
 the limits is then in the base). Deploys stay in Task 7. Checks: the slice's checks green on the
 integration branch.
