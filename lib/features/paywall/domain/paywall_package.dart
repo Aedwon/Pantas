@@ -18,6 +18,7 @@ class PaywallPackage {
     required this.productId,
     required this.priceString,
     required this.priceAmount,
+    this.trialEligible = false,
   });
 
   final PaywallSku sku;
@@ -30,4 +31,5 @@ class PaywallPackage {
   /// The same price as a number, for the multi-period arithmetic on the
   /// plans screen. A string cannot be multiplied by a renewal count.
   final double priceAmount;
+  final bool trialEligible;
 }

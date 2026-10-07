@@ -1,4 +1,6 @@
 import 'package:flutter/services.dart';
+import 'package:pantas/features/paywall/domain/paywall_package.dart';
+import 'package:pantas/features/paywall/domain/products.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 
 const _proEntitlementId = 'pro';
@@ -53,12 +55,26 @@ class RevenueCatProductSnapshot {
     required this.productId,
     required this.priceString,
     required this.priceAmount,
+    this.trialEligible = false,
   });
 
   final String productId;
   final String priceString;
   final double priceAmount;
+  final bool trialEligible;
 }
+
+RevenueCatProductSnapshot revenueCatProductSnapshot(StoreProduct product) =>
+    RevenueCatProductSnapshot(
+      productId: product.identifier,
+      priceString: product.priceString,
+      priceAmount: product.price,
+      trialEligible:
+          productForId(product.identifier)?.period == PaywallSku.monthly &&
+              (product.subscriptionOptions
+                      ?.any((option) => option.freePhase != null) ??
+                  false),
+    );
 
 class RevenueCatOfferingSnapshot {
   const RevenueCatOfferingSnapshot(this.products);
@@ -187,11 +203,7 @@ class PurchasesRevenueCatSdk implements RevenueCatSdk {
       return RevenueCatOfferingSnapshot(
         current.availablePackages
             .map(
-              (package) => RevenueCatProductSnapshot(
-                productId: package.storeProduct.identifier,
-                priceString: package.storeProduct.priceString,
-                priceAmount: package.storeProduct.price,
-              ),
+              (package) => revenueCatProductSnapshot(package.storeProduct),
             )
             .toList(growable: false),
       );

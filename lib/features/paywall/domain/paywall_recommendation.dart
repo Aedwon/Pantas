@@ -27,7 +27,9 @@ String recommendationBadgeCopy({
 String ctaCopyFor(PaywallPackage package) {
   return switch (package.sku) {
     PaywallSku.weekly => 'Get Pro. ${package.priceString} a week.',
-    PaywallSku.monthly => 'Get Pro. ${package.priceString} a month.',
+    PaywallSku.monthly => package.trialEligible
+        ? 'Start my free trial'
+        : 'Get Pro. ${package.priceString} a month.',
     PaywallSku.yearly => 'Get Pro. ${package.priceString} a year.',
   };
 }

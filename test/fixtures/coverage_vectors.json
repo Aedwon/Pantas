@@ -1,0 +1,453 @@
+[
+  {
+    "name": "AC-7 Student subscription covers Student",
+    "now": "2026-10-07T00:00:00Z",
+    "examId": "exam_upcat",
+    "examTier": "student",
+    "subscriptions": [
+      {
+        "id": "pantas_pro_monthly",
+        "endsAt": "2026-11-07T00:00:00Z",
+        "active": true
+      }
+    ],
+    "passes": [],
+    "promotions": [],
+    "nonSubscriptionPurchases": [],
+    "expected": {
+      "covered": true,
+      "unknown": false,
+      "tier": "student"
+    }
+  },
+  {
+    "name": "AC-7 Student subscription does not cover Civil Service",
+    "now": "2026-10-07T00:00:00Z",
+    "examId": "exam_cse_pro",
+    "examTier": "civilService",
+    "subscriptions": [
+      {
+        "id": "pantas_pro_monthly",
+        "endsAt": "2026-11-07T00:00:00Z",
+        "active": true
+      }
+    ],
+    "passes": [],
+    "promotions": [],
+    "nonSubscriptionPurchases": [],
+    "expected": {
+      "covered": false,
+      "unknown": false,
+      "tier": "student"
+    }
+  },
+  {
+    "name": "AC-7 Civil Service subscription includes Student",
+    "now": "2026-10-07T00:00:00Z",
+    "examId": "exam_upcat",
+    "examTier": "student",
+    "subscriptions": [
+      {
+        "id": "pantas_cs_weekly",
+        "endsAt": "2026-11-07T00:00:00Z",
+        "active": true
+      }
+    ],
+    "passes": [],
+    "promotions": [],
+    "nonSubscriptionPurchases": [],
+    "expected": {
+      "covered": true,
+      "unknown": false,
+      "tier": "civilService"
+    }
+  },
+  {
+    "name": "AC-7 Civil Service subscription covers Civil Service",
+    "now": "2026-10-07T00:00:00Z",
+    "examId": "exam_cse_pro",
+    "examTier": "civilService",
+    "subscriptions": [
+      {
+        "id": "pantas_cs_yearly",
+        "endsAt": "2026-11-07T00:00:00Z",
+        "active": true
+      }
+    ],
+    "passes": [],
+    "promotions": [],
+    "nonSubscriptionPurchases": [],
+    "expected": {
+      "covered": true,
+      "unknown": false,
+      "tier": "civilService"
+    }
+  },
+  {
+    "name": "AC-7 Civil Service does not include Licensure",
+    "now": "2026-10-07T00:00:00Z",
+    "examId": "exam_let",
+    "examTier": "licensure",
+    "subscriptions": [
+      {
+        "id": "pantas_cs_monthly",
+        "endsAt": "2026-11-07T00:00:00Z",
+        "active": true
+      }
+    ],
+    "passes": [],
+    "promotions": [],
+    "nonSubscriptionPurchases": [],
+    "expected": {
+      "covered": false,
+      "unknown": false,
+      "tier": "civilService"
+    }
+  },
+  {
+    "name": "AC-7 subscription does not include NCE",
+    "now": "2026-10-07T00:00:00Z",
+    "examId": "exam_pshs_nce",
+    "examTier": "nce",
+    "subscriptions": [
+      {
+        "id": "pantas_cs_monthly",
+        "endsAt": "2026-11-07T00:00:00Z",
+        "active": true
+      }
+    ],
+    "passes": [],
+    "promotions": [],
+    "nonSubscriptionPurchases": [],
+    "expected": {
+      "covered": false,
+      "unknown": false,
+      "tier": "civilService"
+    }
+  },
+  {
+    "name": "AC-7 ledger pass covers only its exam",
+    "now": "2026-10-07T00:00:00Z",
+    "examId": "exam_cse_pro",
+    "examTier": "civilService",
+    "subscriptions": [],
+    "passes": [
+      {
+        "examId": "exam_cse_pro",
+        "endsAt": "2026-11-07T00:00:00Z",
+        "state": "active"
+      }
+    ],
+    "promotions": [],
+    "nonSubscriptionPurchases": [],
+    "expected": {
+      "covered": true,
+      "unknown": false,
+      "tier": null
+    }
+  },
+  {
+    "name": "AC-7 ledger pass does not include other same-tier exam",
+    "now": "2026-10-07T00:00:00Z",
+    "examId": "exam_cse_sub",
+    "examTier": "civilService",
+    "subscriptions": [],
+    "passes": [
+      {
+        "examId": "exam_cse_pro",
+        "endsAt": "2026-11-07T00:00:00Z",
+        "state": "active"
+      }
+    ],
+    "promotions": [],
+    "nonSubscriptionPurchases": [],
+    "expected": {
+      "covered": false,
+      "unknown": false,
+      "tier": null
+    }
+  },
+  {
+    "name": "AC-7 pass expired exactly now",
+    "now": "2026-10-07T00:00:00Z",
+    "examId": "exam_cse_pro",
+    "examTier": "civilService",
+    "subscriptions": [],
+    "passes": [
+      {
+        "examId": "exam_cse_pro",
+        "endsAt": "2026-10-07T00:00:00Z",
+        "state": "active"
+      }
+    ],
+    "promotions": [],
+    "nonSubscriptionPurchases": [],
+    "expected": {
+      "covered": false,
+      "unknown": false,
+      "tier": null
+    }
+  },
+  {
+    "name": "AC-7 revoked pass grants nothing",
+    "now": "2026-10-07T00:00:00Z",
+    "examId": "exam_cse_pro",
+    "examTier": "civilService",
+    "subscriptions": [],
+    "passes": [
+      {
+        "examId": "exam_cse_pro",
+        "endsAt": "2026-11-07T00:00:00Z",
+        "state": "revoked"
+      }
+    ],
+    "promotions": [],
+    "nonSubscriptionPurchases": [],
+    "expected": {
+      "covered": false,
+      "unknown": false,
+      "tier": null
+    }
+  },
+  {
+    "name": "AC-7 Student giveaway covers Student",
+    "now": "2026-10-07T00:00:00Z",
+    "examId": "exam_upcat",
+    "examTier": "student",
+    "subscriptions": [],
+    "passes": [],
+    "promotions": [
+      {
+        "id": "promo_student",
+        "endsAt": "2026-11-07T00:00:00Z",
+        "active": true
+      }
+    ],
+    "nonSubscriptionPurchases": [],
+    "expected": {
+      "covered": true,
+      "unknown": false,
+      "tier": "student"
+    }
+  },
+  {
+    "name": "AC-7 Student giveaway does not cover Civil Service",
+    "now": "2026-10-07T00:00:00Z",
+    "examId": "exam_cse_pro",
+    "examTier": "civilService",
+    "subscriptions": [],
+    "passes": [],
+    "promotions": [
+      {
+        "id": "promo_student",
+        "endsAt": "2026-11-07T00:00:00Z",
+        "active": true
+      }
+    ],
+    "nonSubscriptionPurchases": [],
+    "expected": {
+      "covered": false,
+      "unknown": false,
+      "tier": "student"
+    }
+  },
+  {
+    "name": "AC-7 Civil Service giveaway includes Student",
+    "now": "2026-10-07T00:00:00Z",
+    "examId": "exam_upcat",
+    "examTier": "student",
+    "subscriptions": [],
+    "passes": [],
+    "promotions": [
+      {
+        "id": "promo_civil_service",
+        "endsAt": "2026-11-07T00:00:00Z",
+        "active": true
+      }
+    ],
+    "nonSubscriptionPurchases": [],
+    "expected": {
+      "covered": true,
+      "unknown": false,
+      "tier": "civilService"
+    }
+  },
+  {
+    "name": "AC-7 unknown pro giveaway grants nothing",
+    "now": "2026-10-07T00:00:00Z",
+    "examId": "exam_upcat",
+    "examTier": "student",
+    "subscriptions": [],
+    "passes": [],
+    "promotions": [
+      {
+        "id": "pro",
+        "endsAt": "2026-11-07T00:00:00Z",
+        "active": true
+      }
+    ],
+    "nonSubscriptionPurchases": [],
+    "expected": {
+      "covered": false,
+      "unknown": true,
+      "tier": null
+    }
+  },
+  {
+    "name": "AC-7 unknown plus known subscription keeps known coverage",
+    "now": "2026-10-07T00:00:00Z",
+    "examId": "exam_upcat",
+    "examTier": "student",
+    "subscriptions": [
+      {
+        "id": "pantas_future",
+        "endsAt": "2026-11-07T00:00:00Z",
+        "active": true
+      },
+      {
+        "id": "pantas_pro_weekly",
+        "endsAt": "2026-11-07T00:00:00Z",
+        "active": true
+      }
+    ],
+    "passes": [],
+    "promotions": [],
+    "nonSubscriptionPurchases": [],
+    "expected": {
+      "covered": true,
+      "unknown": false,
+      "tier": "student"
+    }
+  },
+  {
+    "name": "AC-7 purchase list alone never grants a pass",
+    "now": "2026-10-07T00:00:00Z",
+    "examId": "exam_cse_pro",
+    "examTier": "civilService",
+    "subscriptions": [],
+    "passes": [],
+    "promotions": [],
+    "nonSubscriptionPurchases": [
+      {
+        "id": "pantas_pass_civil_service",
+        "endsAt": "2026-11-07T00:00:00Z",
+        "active": true
+      }
+    ],
+    "expected": {
+      "covered": false,
+      "unknown": false,
+      "tier": null
+    }
+  },
+  {
+    "name": "AC-7 refunded purchase list alone grants nothing",
+    "now": "2026-10-07T00:00:00Z",
+    "examId": "exam_cse_pro",
+    "examTier": "civilService",
+    "subscriptions": [],
+    "passes": [],
+    "promotions": [],
+    "nonSubscriptionPurchases": [
+      {
+        "id": "pantas_pass_civil_service",
+        "endsAt": "2026-11-07T00:00:00Z",
+        "active": false
+      }
+    ],
+    "expected": {
+      "covered": false,
+      "unknown": false,
+      "tier": null
+    }
+  },
+  {
+    "name": "AC-7 expired subscription grants nothing",
+    "now": "2026-10-07T00:00:00Z",
+    "examId": "exam_upcat",
+    "examTier": "student",
+    "subscriptions": [
+      {
+        "id": "pantas_pro_monthly",
+        "endsAt": "2026-10-06T00:00:00Z",
+        "active": true
+      }
+    ],
+    "passes": [],
+    "promotions": [],
+    "nonSubscriptionPurchases": [],
+    "expected": {
+      "covered": false,
+      "unknown": false,
+      "tier": null
+    }
+  },
+  {
+    "name": "AC-7 several subscriptions union tiers",
+    "now": "2026-10-07T00:00:00Z",
+    "examId": "exam_cse_sub",
+    "examTier": "civilService",
+    "subscriptions": [
+      {
+        "id": "pantas_pro_yearly",
+        "endsAt": "2026-11-07T00:00:00Z",
+        "active": true
+      },
+      {
+        "id": "pantas_cs_monthly",
+        "endsAt": "2026-11-07T00:00:00Z",
+        "active": true
+      }
+    ],
+    "passes": [],
+    "promotions": [],
+    "nonSubscriptionPurchases": [],
+    "expected": {
+      "covered": true,
+      "unknown": false,
+      "tier": "civilService"
+    }
+  },
+  {
+    "name": "AC-7 pass mistakenly listed as subscription grants nothing",
+    "now": "2026-10-07T00:00:00Z",
+    "examId": "exam_cse_pro",
+    "examTier": "civilService",
+    "subscriptions": [
+      {
+        "id": "pantas_pass_civil_service",
+        "endsAt": "2026-11-07T00:00:00Z",
+        "active": true
+      }
+    ],
+    "passes": [],
+    "promotions": [],
+    "nonSubscriptionPurchases": [],
+    "expected": {
+      "covered": false,
+      "unknown": false,
+      "tier": null
+    }
+  },
+  {
+    "name": "AC-7 expired unknown item does not set unknown",
+    "now": "2026-10-07T00:00:00Z",
+    "examId": "exam_upcat",
+    "examTier": "student",
+    "subscriptions": [
+      {
+        "id": "pantas_future",
+        "endsAt": "2026-10-06T00:00:00Z",
+        "active": true
+      }
+    ],
+    "passes": [],
+    "promotions": [],
+    "nonSubscriptionPurchases": [],
+    "expected": {
+      "covered": false,
+      "unknown": false,
+      "tier": null
+    }
+  }
+]
