@@ -131,3 +131,64 @@ test('anonymous cleanup rechecks token refresh after an older list snapshot', as
     mock.restoreAll();
   }
 });
+
+test('Wrapped cleanup cannot delete an object replaced after listing', async () => {
+  const path = 'wrapped/cleanup-owner/replaced.png';
+  names.push(path);
+  await bucket.file(path).save(Buffer.from('old-object'));
+  const filePrototype = Object.getPrototypeOf(bucket.file(path));
+  const originalDelete = filePrototype.delete;
+  let replaced = false;
+  mock.method(filePrototype, 'delete', async function (options) {
+    if (this.name === path && !replaced) {
+      replaced = true;
+      await bucket.file(path).save(Buffer.from('replacement'));
+      const [current] = await bucket.file(path).getMetadata();
+      // The Storage emulator omits generation-match enforcement. Model the
+      // documented GCS 412 response at this transport boundary only.
+      if (options?.ifGenerationMatch != null && String(options.ifGenerationMatch) !== current.generation) {
+        throw Object.assign(new Error('generation precondition failed'), { code: 412 });
+      }
+    }
+    return Reflect.apply(originalDelete, this, [options]);
+  });
+  mock.timers.enable({ apis: ['Date'], now: Date.now() + 25 * 60 * 60 * 1000 });
+  try {
+    await endpoints.cleanupWrappedOrphans.run({ scheduleTime: new Date().toISOString() });
+    assert.equal(replaced, true);
+    assert.equal((await bucket.file(path).exists())[0], true);
+    assert.equal((await bucket.file(path).download())[0].toString(), 'replacement');
+  } finally {
+    mock.timers.reset();
+    mock.restoreAll();
+    await bucket.file(path).delete({ ignoreNotFound: true });
+  }
+});
+
+test('Wrapped cleanup rechecks publication immediately before deleting', async () => {
+  const path = 'wrapped/cleanup-owner/published-during-cleanup.png';
+  names.push(path);
+  await bucket.file(path).save(Buffer.from('published'));
+  const { Query } = await import('firebase-admin/firestore');
+  const originalGet = Query.prototype.get;
+  let published = false;
+  mock.method(Query.prototype, 'get', async function (...args) {
+    const snapshot = await Reflect.apply(originalGet, this, args);
+    if (this._queryOptions.collectionId === 'wrapped_shares' && snapshot.empty && !published) {
+      published = true;
+      await db.doc('wrapped_shares/cleanup-publication-race').set({ ownerUid: 'cleanup-owner', storagePath: path });
+    }
+    return snapshot;
+  });
+  mock.timers.enable({ apis: ['Date'], now: Date.now() + 25 * 60 * 60 * 1000 });
+  try {
+    await endpoints.cleanupWrappedOrphans.run({ scheduleTime: new Date().toISOString() });
+    assert.equal(published, true);
+    assert.equal((await bucket.file(path).exists())[0], true);
+  } finally {
+    mock.timers.reset();
+    mock.restoreAll();
+    await db.doc('wrapped_shares/cleanup-publication-race').delete();
+    await bucket.file(path).delete({ ignoreNotFound: true });
+  }
+});

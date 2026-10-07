@@ -19,12 +19,21 @@ export const cleanupWrappedOrphans = onSchedule(
       for (const file of files) {
         scanned += 1;
         if (!/^wrapped\/[^/]+\/.+/.test(file.name)) continue;
+        const generation = file.metadata.generation;
+        if (generation == null) continue;
         const createdAt = Date.parse(file.metadata.timeCreated ?? '');
         if (!Number.isFinite(createdAt) || createdAt >= cutoff) continue;
         const shares = await db.collection('wrapped_shares').where('storagePath', '==', file.name).limit(1).get();
         if (!shares.empty) continue;
-        await file.delete({ ignoreNotFound: true });
-        deleted += 1;
+        const latestShares = await db.collection('wrapped_shares').where('storagePath', '==', file.name).limit(1).get();
+        if (!latestShares.empty) continue;
+        try {
+          await file.delete({ ignoreNotFound: true, ifGenerationMatch: generation });
+          deleted += 1;
+        } catch (error) {
+          if ((error as { code?: number }).code !== 412) throw error;
+          // A replacement belongs to its publisher, not this cleanup snapshot.
+        }
       }
       pageToken = nextQuery?.pageToken;
     } while (pageToken);
