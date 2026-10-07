@@ -98,7 +98,12 @@ Checks: `flutter test test/features/paywall test/features/settings` green.
 
 ## Task 4. Tiers and products
 
-`PriceTier` and `tierForExam` from W0's `ExamCatalogRepository`; one product table
+Lead ruling, Oct 7 (W3 stop at 9f506c34): W0 stores the tier as the catalog string (`Student`,
+`Civil Service`, `Licensure`, `PSHS-NCE`) and has no enum. This task adds, in
+`lib/features/paywall/domain/price_tier.dart`, `enum PriceTier { student, civilService, licensure,
+nce }` with `PriceTier.fromCatalog(String)` (those four strings; anything else throws) and
+`Future<PriceTier> tierForExam(ExamCatalogRepository catalog, String examId)`. Test: every
+catalog entry maps (reads `content/exams/catalog.json`), and an unknown string throws. Then one product table
 `lib/features/paywall/domain/products.dart` mapping each id (`pantas_pro_weekly`, `_monthly`,
 `_yearly`, `pantas_cs_weekly`, `_monthly`, `_yearly`, `pantas_pass_civil_service`) to tier, period
 and kind, and each promotional entitlement (`promo_student`, `promo_civil_service`) to its tier

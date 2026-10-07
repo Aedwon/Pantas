@@ -968,3 +968,11 @@ backend tests (52 plain, 58 emulator) and the sync tests (211), and fast-forward
 branch to 739ccae1; the full Flutter suite there passed (3,434 tests). W3 can now start its tasks
 that wait on W6. W1 reached Task 9 and stopped at the Codex limit (1,588,000 tokens in that run;
 it found and is fixing its own Task 7 error, Settings outside the tab shell).
+
+## October 7, 2026: W1 complete; W3 tier contract ruling
+
+W1 finished Task 9 (4136c146): full suite 3,507 tests passed, analysis shows only the accepted
+notice, format, layering and attribution checks pass; the backend's two known failures are on its
+pre-W6 base. W1 now needs the Astra audit, the lead's review and visual acceptance. W3 stopped at
+Task 4: the plan expected a `PriceTier` enum from W0, but W0 stores the tier as a string. Ruling:
+W3 Task 4 adds the enum and `tierForExam` over the catalog (L3 W3 Task 4 amended).
