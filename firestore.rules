@@ -91,12 +91,18 @@ service cloud.firestore {
           && request.resource.data.deleted is bool;
     }
 
-    function canReadSyncRow(uid) {
-      return isProOwner(uid);
+    function generationNotDeleting(uid, generationId) {
+      let path = /databases/$(database)/documents/users/$(uid)/sync_generations/$(generationId);
+      return !exists(path) || get(path).data.status != 'deleting';
+    }
+
+    function canReadSyncRow(uid, generationId) {
+      return isProOwner(uid) && generationNotDeleting(uid, generationId);
     }
 
     function canWriteSyncRow(uid, generationId, fields) {
       return isProOwner(uid)
+          && generationNotDeleting(uid, generationId)
           && (
             isActiveGeneration(uid, generationId)
             || isStagingGeneration(uid, generationId)
@@ -132,7 +138,7 @@ service cloud.firestore {
       }
 
       match /sync_generations/{generationId} {
-        allow read: if isProOwner(uid);
+        allow read: if isProOwner(uid) && generationNotDeleting(uid, generationId);
 
         allow create: if isProOwner(uid)
             && stageAuthorized(uid, generationId)
@@ -167,7 +173,7 @@ service cloud.firestore {
         allow delete: if false;
 
         match /quiz_attempts/{rowId} {
-          allow read: if canReadSyncRow(uid);
+          allow read: if canReadSyncRow(uid, generationId);
           allow create, update: if canWriteSyncRow(uid, generationId, [
             'id', 'examId', 'startedAt', 'completedAt',
             'origin', 'itemsJson', 'updatedAt', 'originDeviceId',
@@ -177,7 +183,7 @@ service cloud.firestore {
         }
 
         match /assessments/{rowId} {
-          allow read: if canReadSyncRow(uid);
+          allow read: if canReadSyncRow(uid, generationId);
           allow create, update: if canWriteSyncRow(uid, generationId, [
             'examId', 'completedAt', 'topicScoresJson', 'updatedAt',
             'originDeviceId', 'mutationId', 'schemaVersion', 'deleted'
@@ -186,7 +192,7 @@ service cloud.firestore {
         }
 
         match /fsrs_cards/{rowId} {
-          allow read: if canReadSyncRow(uid);
+          allow read: if canReadSyncRow(uid, generationId);
           allow create, update: if canWriteSyncRow(uid, generationId, [
             'questionId', 'questionVersion', 'stage', 'stability',
             'difficulty', 'due', 'lastReview', 'reps',
@@ -197,7 +203,7 @@ service cloud.firestore {
         }
 
         match /lesson_progress/{rowId} {
-          allow read: if canReadSyncRow(uid);
+          allow read: if canReadSyncRow(uid, generationId);
           allow create, update: if canWriteSyncRow(uid, generationId, [
             'lessonId', 'readAt', 'updatedAt', 'originDeviceId',
             'mutationId', 'schemaVersion', 'deleted'
@@ -206,7 +212,7 @@ service cloud.firestore {
         }
 
         match /lesson_bookmarks/{rowId} {
-          allow read: if canReadSyncRow(uid);
+          allow read: if canReadSyncRow(uid, generationId);
           allow create, update: if canWriteSyncRow(uid, generationId, [
             'lessonId', 'markedAt', 'sortIndex', 'updatedAt',
             'originDeviceId', 'mutationId', 'schemaVersion', 'deleted'
@@ -215,7 +221,7 @@ service cloud.firestore {
         }
 
         match /question_flags/{rowId} {
-          allow read: if canReadSyncRow(uid);
+          allow read: if canReadSyncRow(uid, generationId);
           allow create, update: if canWriteSyncRow(uid, generationId, [
             'questionId', 'flaggedAt', 'sortIndex', 'updatedAt',
             'originDeviceId', 'mutationId', 'schemaVersion', 'deleted'
@@ -224,7 +230,7 @@ service cloud.firestore {
         }
 
         match /mock_exam_attempts/{rowId} {
-          allow read: if canReadSyncRow(uid);
+          allow read: if canReadSyncRow(uid, generationId);
           allow create, update: if canWriteSyncRow(uid, generationId, [
             'id', 'userId', 'examId', 'blueprintId',
             'blueprintName', 'durationMinutes', 'status', 'strictMode',
@@ -238,7 +244,7 @@ service cloud.firestore {
         }
 
         match /review_logs/{rowId} {
-          allow read: if canReadSyncRow(uid);
+          allow read: if canReadSyncRow(uid, generationId);
           allow create, update: if canWriteSyncRow(uid, generationId, [
             'id', 'questionId', 'rating', 'state',
             'due', 'stability', 'difficulty', 'elapsedDays',
@@ -250,7 +256,7 @@ service cloud.firestore {
         }
 
         match /track_scope/{rowId} {
-          allow read: if canReadSyncRow(uid);
+          allow read: if canReadSyncRow(uid, generationId);
           allow create, update: if canWriteSyncRow(uid, generationId, [
             'kind', 'examId', 'name', 'topicId',
             'updatedAt', 'originDeviceId', 'mutationId', 'schemaVersion',
@@ -260,7 +266,7 @@ service cloud.firestore {
         }
 
         match /custom_blueprints/{rowId} {
-          allow read: if canReadSyncRow(uid);
+          allow read: if canReadSyncRow(uid, generationId);
           allow create, update: if canWriteSyncRow(uid, generationId, [
             'examId', 'totalQuestions', 'totalMinutes', 'sectionsJson',
             'sectionsTimedSeparately', 'blueprintUpdatedAt', 'updatedAt', 'originDeviceId',

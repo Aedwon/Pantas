@@ -4,7 +4,7 @@ import { requireAdmin } from '../lib/_admin.js';
 import { onCall } from 'firebase-functions/v2/https';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import test, { after, before, beforeEach } from 'node:test';
+import test, { after, before, beforeEach, mock } from 'node:test';
 import {
   assertFails,
   assertSucceeds,
@@ -329,7 +329,7 @@ test('staging generation create rejects extra lifecycle fields', async () => {
   );
 });
 
-console.log('FIRESTORE_SYNC_RULES_TEST_COUNT=41');
+console.log('FIRESTORE_SYNC_RULES_TEST_COUNT=45');
 
 // Keep this write in the rules suite so its clearFirestore hook cannot race it.
 test('admin callable permits checked admin and writes an audit entry', async () => {
@@ -528,4 +528,77 @@ test('generation cleanup queries are bounded to 500 results per page', async () 
   } finally {
     mock.restoreAll();
   }
+});
+
+test('activation racing the cleanup delete leaves the active generation intact', async () => {
+  const db = getFirestore();
+  const { cleanupSyncData, activateSyncGeneration } = await import('../lib/index.js');
+  const originalDelete = db.recursiveDelete.bind(db);
+  let raced = false;
+  mock.method(db, 'recursiveDelete', async (ref, ...args) => {
+    if (ref.path === 'users/pro/sync_generations/staging' && !raced) {
+      raced = true;
+      try {
+        await activateSyncGeneration.run({ data: { generationId: 'staging', expectedActiveGenerationId: 'active' },
+          auth: { uid: 'pro', token: { pro: true, firebase: { sign_in_provider: 'google.com' } } }, app: { appId: 'demo-app' } });
+      } catch (error) {
+        assert.equal(error.code, 'failed-precondition');
+      }
+    }
+    return originalDelete(ref, ...args);
+  });
+  try {
+    await cleanupSyncData.run({ scheduleTime: new Date().toISOString() });
+    assert.equal(raced, true);
+    const current = await db.doc('users/pro/sync_state/current').get();
+    const active = await db.doc(`users/pro/sync_generations/${current.get('activeGenerationId')}`).get();
+    assert.equal(active.exists, true);
+    assert.equal(active.get('status'), 'active');
+  } finally { mock.restoreAll(); }
+});
+
+test('activation committed before the deletion claim is preserved', async () => {
+  const db = getFirestore();
+  const { Query } = await import('firebase-admin/firestore');
+  const { cleanupSyncData, activateSyncGeneration } = await import('../lib/index.js');
+  const originalGet = Query.prototype.get;
+  let raced = false;
+  mock.method(Query.prototype, 'get', async function (...args) {
+    const snapshot = await Reflect.apply(originalGet, this, args);
+    if (this._queryOptions.collectionId === 'sync_generations' && this._queryOptions.allDescendants && !raced) {
+      raced = true;
+      await activateSyncGeneration.run({ data: { generationId: 'staging', expectedActiveGenerationId: 'active' },
+        auth: { uid: 'pro', token: { pro: true, firebase: { sign_in_provider: 'google.com' } } }, app: { appId: 'demo-app' } });
+    }
+    return snapshot;
+  });
+  try {
+    await cleanupSyncData.run({ scheduleTime: new Date().toISOString() });
+    assert.equal(raced, true);
+    assert.equal((await db.doc('users/pro/sync_generations/staging').get()).get('status'), 'active');
+    assert.equal((await db.doc('users/pro/sync_state/current').get()).get('activeGenerationId'), 'staging');
+  } finally { mock.restoreAll(); }
+});
+
+test('interrupted deleting generation is cleaned on the next invocation', async () => {
+  const db = getFirestore();
+  const { cleanupSyncData } = await import('../lib/index.js');
+  await db.doc('users/pro/sync_generations/interrupted').set({ status: 'deleting', createdAt: new Date(Date.now() - 86400000) });
+  await cleanupSyncData.run({ scheduleTime: new Date().toISOString() });
+  assert.equal((await db.doc('users/pro/sync_generations/interrupted').get()).exists, false);
+});
+
+test('deleting generations cannot be activated or accessed by clients', async () => {
+  const db = getFirestore();
+  await db.doc('users/pro/sync_generations/deleting').set({ status: 'deleting', createdAt: new Date() });
+  await db.doc('users/pro/sync_state/current').set({ activeGenerationId: 'deleting' });
+  await db.doc('users/pro/sync_generations/deleting/lesson_progress/row').set({ lessonId: 'row' });
+  const { activateSyncGeneration } = await import('../lib/index.js');
+  await assert.rejects(activateSyncGeneration.run({ data: { generationId: 'deleting', expectedActiveGenerationId: 'deleting' },
+    auth: { uid: 'pro', token: { pro: true, firebase: { sign_in_provider: 'google.com' } } }, app: { appId: 'demo-app' } }), { code: 'failed-precondition' });
+  const client = proDb();
+  await assertFails(getDoc(doc(client, 'users/pro/sync_generations/deleting')));
+  await assertFails(getDoc(doc(client, 'users/pro/sync_generations/deleting/lesson_progress/row')));
+  await assertFails(setDoc(doc(client, 'users/pro/sync_generations/deleting/lesson_progress/row'), rowData({ lessonId: 'row' })));
+  await assertFails(updateDoc(doc(client, 'users/pro/sync_generations/deleting'), { preferences: {} }));
 });

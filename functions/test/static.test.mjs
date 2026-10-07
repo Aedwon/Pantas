@@ -166,7 +166,7 @@ test('cleanupSyncData applies retention with a fresh active-pointer recheck', ()
   }
 
   const freshPointerIndex = source.indexOf(
-    'const freshCurrentSnapshot = await currentRef.get()',
+    'const freshCurrentSnapshot = await transaction.get(currentRef)',
   );
   const freshActiveIndex = source.indexOf(
     'const freshActiveGenerationId',
@@ -175,7 +175,7 @@ test('cleanupSyncData applies retention with a fresh active-pointer recheck', ()
     'freshActiveGenerationId === candidateGenerationId',
   );
   const freshGenerationIndex = source.indexOf(
-    'const freshGenerationSnapshot = await candidateRef.get()',
+    'const freshGenerationSnapshot = await transaction.get(candidateRef)',
   );
   const eligibilityIndex = source.lastIndexOf(
     'generationCleanupEligible',
