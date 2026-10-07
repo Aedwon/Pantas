@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/paywall/data/pending_purchase_store.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 
 void main() {
@@ -107,6 +108,9 @@ void main() {
   test('gateway selection reads the config rather than being hard coded', () {
     final container = ProviderContainer(
       overrides: [
+        pendingPurchaseStoreProvider.overrideWithValue(
+          PendingPurchaseStore.inMemory(),
+        ),
         revenueCatConfigProvider.overrideWithValue(
           RevenueCatConfig.fromEnvironment(androidApiKey: 'goog_test_key'),
         ),

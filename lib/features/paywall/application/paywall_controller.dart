@@ -5,15 +5,22 @@ import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
 import 'package:pantas/features/paywall/domain/paywall_package.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+Future<bool> _openManagementPage(Uri uri) =>
+    launchUrl(uri, mode: LaunchMode.externalApplication);
 
 class PaywallController {
   PaywallController(
     this._gateway, {
     Telemetry telemetry = const DisabledTelemetry(),
-  }) : _telemetry = telemetry;
+    Future<bool> Function(Uri)? openManagementPage,
+  })  : _telemetry = telemetry,
+        _openManagement = openManagementPage ?? _openManagementPage;
 
   final RevenueCatGateway _gateway;
   final Telemetry _telemetry;
+  final Future<bool> Function(Uri) _openManagement;
   bool _operationInFlight = false;
 
   void logPaywallShown({String? trigger}) {
@@ -85,6 +92,27 @@ class PaywallController {
     }
   }
 
+  Future<PaywallCommandResult> manage() async {
+    try {
+      final opened = await _openManagement(
+        Uri.https('play.google.com', '/store/account/subscriptions'),
+      );
+      return _commandResult(
+        PaymentOperationResult.failure(
+          status: opened
+              ? PaymentOperationStatus.success
+              : PaymentOperationStatus.storeFailure,
+        ),
+      );
+    } catch (_) {
+      return _commandResult(
+        const PaymentOperationResult.failure(
+          status: PaymentOperationStatus.storeFailure,
+        ),
+      );
+    }
+  }
+
   PaywallCommandResult _alreadyInProgress() {
     return PaywallCommandResult(
       status: PaymentOperationStatus.operationAlreadyInProgress,
@@ -137,4 +165,7 @@ class PaywallCommandResult {
   final Entitlement entitlement;
   final PaymentOperationStatus status;
   final String? errorMessage;
+
+  PaymentResult get result =>
+      PaymentOperationResult.failure(status: status).result;
 }

@@ -2,12 +2,14 @@ import 'dart:async';
 
 import 'package:pantas/features/paywall/data/entitlement_snapshot_store.dart';
 import 'package:pantas/features/paywall/data/payment_entitlement_state.dart';
+import 'package:pantas/features/paywall/data/pending_purchase_store.dart';
 import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/data/revenuecat_sdk.dart';
 import 'package:pantas/features/paywall/domain/coverage.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
 import 'package:pantas/features/paywall/domain/paywall_offering.dart';
+import 'package:pantas/features/paywall/domain/price_tier.dart';
 import 'package:pantas/features/paywall/domain/products.dart';
 
 /// The RevenueCat entitlement identifier configured in the dashboard.
@@ -19,6 +21,13 @@ const proEntitlementId = 'pro';
 const revenueCatInactiveAuthorityWindow = Duration(minutes: 5);
 
 DateTime _systemReferenceTime() => DateTime.now().toUtc();
+
+bool _productIsActive(RevenueCatCustomerInfoSnapshot info, String productId) {
+  final base = productId.split(':').first;
+  return (info.proIsActive && info.productId?.split(':').first == base) ||
+      info.subscriptions
+          .any((source) => source.productId.split(':').first == base);
+}
 
 /// Google Play can append a base-plan id, for example
 /// `pantas_pro_monthly:monthly-autorenewing`.
@@ -132,14 +141,18 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
     RevenueCatSdk? sdk,
     PaymentEntitlementState? entitlementState,
     DateTime Function()? referenceTime,
+    PendingPurchaseStore? pendingStore,
   })  : _sdk = sdk ?? PurchasesRevenueCatSdk(),
         _entitlementState = entitlementState ??
             PaymentEntitlementState(EntitlementSnapshotStore.inMemory()),
-        _referenceTime = referenceTime ?? _systemReferenceTime;
+        _referenceTime = referenceTime ?? _systemReferenceTime,
+        _pendingStore = pendingStore ?? PendingPurchaseStore.inMemory();
 
   final RevenueCatSdk _sdk;
   final PaymentEntitlementState _entitlementState;
   final DateTime Function() _referenceTime;
+  final PendingPurchaseStore _pendingStore;
+  String? _uid;
   bool _listening = false;
 
   @override
@@ -175,6 +188,13 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
         !current.proIsActive ||
         _inactiveCustomerInfoCanRevoke(info)) {
       await _entitlementState.acceptAuthoritative(reported);
+      final uid = _uid;
+      if (uid != null) {
+        final pending = await _pendingStore.read(uid);
+        if (pending != null && _productIsActive(info, pending.productId)) {
+          await _pendingStore.clear(uid);
+        }
+      }
       return reported;
     }
 
@@ -195,7 +215,9 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
   @override
   Future<void> logIn(String uid) async {
     await initialize();
-    await _acceptCustomerInfo(await _sdk.logIn(uid));
+    final info = await _sdk.logIn(uid);
+    _uid = uid;
+    await _acceptCustomerInfo(info);
   }
 
   @override
@@ -271,17 +293,41 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
 
   @override
   Future<PaymentOperationResult> purchase(PaywallPackage package) async {
+    final uid = _uid;
     try {
-      final info = await _sdk.purchase(package.productId);
-      final reported = entitlementFromCustomerInfo(info);
+      if (uid != null && await _pendingStore.read(uid) != null) {
+        return const PaymentOperationResult.failure(
+          status: PaymentOperationStatus.operationAlreadyInProgress,
+        );
+      }
+      final current = _entitlementState.current;
+      final isUpgrade =
+          current?.coverage(at: _referenceTime()).subscriptionTier ==
+                  PriceTier.student &&
+              productForId(package.productId)?.tier == PriceTier.civilService &&
+              productForId(package.productId)?.kind == ProductKind.subscription;
+      final info = await _sdk.purchase(
+        package.productId,
+        oldProductId: isUpgrade ? current?.productId : null,
+        allowTrial: !isUpgrade && package.trialEligible,
+      );
       final confirmed = await _acceptCustomerInfo(info);
       return PaymentOperationResult.authoritative(
-        status: reported.proIsActive
+        status: _productIsActive(info, package.productId)
             ? PaymentOperationStatus.success
             : PaymentOperationStatus.entitlementNotActive,
         entitlement: confirmed,
       );
     } on RevenueCatSdkException catch (error) {
+      if (error.kind == RevenueCatFailureKind.pending && uid != null) {
+        await _pendingStore.save(
+          PendingPurchase(
+            uid: uid,
+            productId: package.productId,
+            startedAt: _referenceTime().toUtc(),
+          ),
+        );
+      }
       return PaymentOperationResult.failure(
         status: _operationStatusForFailure(error.kind),
       );
@@ -298,6 +344,20 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
       final info = await _sdk.restorePurchases();
       final reported = entitlementFromCustomerInfo(info);
       final confirmed = await _acceptCustomerInfo(info);
+      final uid = _uid;
+      if (uid != null) {
+        final pending = await _pendingStore.read(uid);
+        if (pending != null && !_productIsActive(info, pending.productId)) {
+          if (_referenceTime().toUtc().difference(pending.startedAt) >
+              const Duration(hours: 72)) {
+            await _pendingStore.clear(uid);
+          } else {
+            return const PaymentOperationResult.failure(
+              status: PaymentOperationStatus.operationAlreadyInProgress,
+            );
+          }
+        }
+      }
       return PaymentOperationResult.authoritative(
         status: reported.proIsActive
             ? PaymentOperationStatus.success
@@ -321,6 +381,8 @@ PaymentOperationStatus _operationStatusForFailure(RevenueCatFailureKind kind) {
     RevenueCatFailureKind.userCancelled => PaymentOperationStatus.userCancelled,
     RevenueCatFailureKind.network => PaymentOperationStatus.networkFailure,
     RevenueCatFailureKind.store => PaymentOperationStatus.storeFailure,
+    RevenueCatFailureKind.pending =>
+      PaymentOperationStatus.operationAlreadyInProgress,
     RevenueCatFailureKind.revenueCat =>
       PaymentOperationStatus.revenueCatFailure,
     RevenueCatFailureKind.configuration =>
@@ -336,6 +398,7 @@ PaywallOfferingStatus _offeringStatusForFailure(RevenueCatFailureKind kind) {
   return switch (kind) {
     RevenueCatFailureKind.network => PaywallOfferingStatus.networkFailure,
     RevenueCatFailureKind.store => PaywallOfferingStatus.storeFailure,
+    RevenueCatFailureKind.pending => PaywallOfferingStatus.storeFailure,
     RevenueCatFailureKind.revenueCat => PaywallOfferingStatus.revenueCatFailure,
     RevenueCatFailureKind.configuration =>
       PaywallOfferingStatus.configurationFailure,

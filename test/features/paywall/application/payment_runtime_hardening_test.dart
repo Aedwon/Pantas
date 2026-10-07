@@ -242,7 +242,11 @@ class RuntimeSdk implements RevenueCatSdk {
       customerInfo;
 
   @override
-  Future<RevenueCatCustomerInfoSnapshot> purchase(String productId) async =>
+  Future<RevenueCatCustomerInfoSnapshot> purchase(
+    String productId, {
+    String? oldProductId,
+    bool allowTrial = true,
+  }) async =>
       purchaseInfo;
 
   @override

@@ -402,7 +402,11 @@ class FinalHardeningSdk implements RevenueCatSdk {
   }
 
   @override
-  Future<RevenueCatCustomerInfoSnapshot> purchase(String productId) async =>
+  Future<RevenueCatCustomerInfoSnapshot> purchase(
+    String productId, {
+    String? oldProductId,
+    bool allowTrial = true,
+  }) async =>
       purchaseInfo;
 
   @override

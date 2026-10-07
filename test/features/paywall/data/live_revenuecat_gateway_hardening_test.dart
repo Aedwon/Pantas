@@ -481,7 +481,11 @@ class FakeRevenueCatSdk implements RevenueCatSdk {
       customerInfo;
 
   @override
-  Future<RevenueCatCustomerInfoSnapshot> purchase(String productId) async {
+  Future<RevenueCatCustomerInfoSnapshot> purchase(
+    String productId, {
+    String? oldProductId,
+    bool allowTrial = true,
+  }) async {
     final failure = purchaseFailure;
     if (failure != null) throw RevenueCatSdkException(failure);
     return purchaseInfo;

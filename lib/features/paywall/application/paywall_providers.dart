@@ -1,12 +1,17 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/dev/dev_pro_switch.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/paywall/application/paywall_controller.dart';
 import 'package:pantas/features/paywall/data/entitlement_snapshot_store.dart';
 import 'package:pantas/features/paywall/data/live_revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/data/payment_entitlement_state.dart';
+import 'package:pantas/features/paywall/data/pending_purchase_store.dart';
 import 'package:pantas/features/paywall/data/revenuecat_config.dart';
 import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
@@ -31,11 +36,42 @@ final paymentEntitlementStateProvider =
   return PaymentEntitlementState(ref.watch(entitlementSnapshotStoreProvider));
 });
 
+final pendingPurchaseStoreProvider = Provider<PendingPurchaseStore>((ref) {
+  final preferences = ref.watch(appPreferencesRepositoryProvider);
+  final store = PendingPurchaseStore(
+    readValue: preferences.deviceValue,
+    writeValue: preferences.setDeviceValue,
+  );
+  ref.onDispose(() => unawaited(store.dispose()));
+  return store;
+});
+
+final _pendingForAccountProvider =
+    StreamProvider.family<PendingPurchase?, String>((ref, uid) {
+  return ref.watch(pendingPurchaseStoreProvider).watch(uid);
+});
+
+final pendingPurchaseProvider = Provider<AsyncValue<PendingPurchase?>>((ref) {
+  final authAsync = ref.watch(authStateProvider);
+  if (authAsync.isLoading || authAsync.hasError) return const AsyncData(null);
+  final auth = authAsync.valueOrNull;
+  final uid = switch (auth) {
+    SignedInAuthState(:final user) => user.uid,
+    AnonymousAuthState(:final uid) => uid,
+    _ => null,
+  };
+  if (uid == null) return const AsyncData(null);
+  return ref.watch(_pendingForAccountProvider(uid));
+});
+
 final revenueCatGatewayProvider = Provider<RevenueCatGateway>((ref) {
   final config = ref.watch(revenueCatConfigProvider);
   final entitlementState = ref.watch(paymentEntitlementStateProvider);
   if (!config.isEnabled) return DisabledRevenueCatGateway(entitlementState);
-  return LiveRevenueCatGateway(entitlementState: entitlementState);
+  return LiveRevenueCatGateway(
+    entitlementState: entitlementState,
+    pendingStore: ref.watch(pendingPurchaseStoreProvider),
+  );
 });
 
 final entitlementProvider = StreamProvider<Entitlement>((ref) {

@@ -8,6 +8,7 @@ const _proEntitlementId = 'pro';
 
 enum RevenueCatFailureKind {
   userCancelled,
+  pending,
   network,
   store,
   revenueCat,
@@ -121,8 +122,36 @@ abstract interface class RevenueCatSdk {
   Future<RevenueCatCustomerInfoSnapshot> getCustomerInfo();
   Future<RevenueCatOfferingSnapshot?> getCurrentOffering();
   Future<RevenueCatCustomerInfoSnapshot> logIn(String uid);
-  Future<RevenueCatCustomerInfoSnapshot> purchase(String productId);
+  Future<RevenueCatCustomerInfoSnapshot> purchase(
+    String productId, {
+    String? oldProductId,
+    bool allowTrial = true,
+  });
   Future<RevenueCatCustomerInfoSnapshot> restorePurchases();
+}
+
+PurchaseParams purchaseParamsFor(
+  Package package, {
+  String? oldProductId,
+  bool allowTrial = true,
+}) {
+  final options = package.storeProduct.subscriptionOptions ?? const [];
+  final requireBase = oldProductId != null ||
+      (!allowTrial && options.any((option) => option.freePhase != null));
+  if (!requireBase) return PurchaseParams.package(package);
+  final base = options.where((option) => option.isBasePlan).firstOrNull;
+  if (base == null) {
+    throw const RevenueCatSdkException(RevenueCatFailureKind.configuration);
+  }
+  return PurchaseParams.subscriptionOption(
+    base,
+    productChangeInfo: oldProductId == null
+        ? null
+        : StoreProductChangeInfo(
+            oldProductId,
+            replacementMode: StoreReplacementMode.withTimeProration,
+          ),
+  );
 }
 
 RevenueCatFailureKind classifyRevenueCatErrorCode(PurchasesErrorCode code) {
@@ -151,13 +180,13 @@ RevenueCatFailureKind classifyRevenueCatErrorCode(PurchasesErrorCode code) {
     PurchasesErrorCode.featureNotSupportedWithStoreKit1 ||
     PurchasesErrorCode.invalidWebPurchaseToken =>
       RevenueCatFailureKind.developer,
+    PurchasesErrorCode.paymentPendingError => RevenueCatFailureKind.pending,
     PurchasesErrorCode.storeProblemError ||
     PurchasesErrorCode.purchaseNotAllowedError ||
     PurchasesErrorCode.productNotAvailableForPurchaseError ||
     PurchasesErrorCode.productAlreadyPurchasedError ||
     PurchasesErrorCode.ineligibleError ||
     PurchasesErrorCode.insufficientPermissionsError ||
-    PurchasesErrorCode.paymentPendingError ||
     PurchasesErrorCode.beginRefundRequestError ||
     PurchasesErrorCode.testStoreSimulatedPurchaseError =>
       RevenueCatFailureKind.store,
@@ -293,7 +322,11 @@ class PurchasesRevenueCatSdk implements RevenueCatSdk {
   }
 
   @override
-  Future<RevenueCatCustomerInfoSnapshot> purchase(String productId) {
+  Future<RevenueCatCustomerInfoSnapshot> purchase(
+    String productId, {
+    String? oldProductId,
+    bool allowTrial = true,
+  }) {
     return _translate(() async {
       final current = (await Purchases.getOfferings()).current;
       if (current == null) {
@@ -315,18 +348,23 @@ class PurchasesRevenueCatSdk implements RevenueCatSdk {
         );
       }
 
-      final result = await Purchases.purchase(PurchaseParams.package(target));
+      final result = await Purchases.purchase(
+        purchaseParamsFor(
+          target,
+          oldProductId: oldProductId,
+          allowTrial: allowTrial,
+        ),
+      );
       return revenueCatCustomerInfoSnapshot(result.customerInfo);
     });
   }
 
   @override
   Future<RevenueCatCustomerInfoSnapshot> restorePurchases() {
-    return _translate(
-      () async => revenueCatCustomerInfoSnapshot(
-        await Purchases.restorePurchases(),
-      ),
-    );
+    return _translate(() async {
+      await Purchases.syncPurchases();
+      return revenueCatCustomerInfoSnapshot(await Purchases.getCustomerInfo());
+    });
   }
 
   Future<T> _translate<T>(Future<T> Function() action) async {
