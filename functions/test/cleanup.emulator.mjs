@@ -88,3 +88,46 @@ test('Wrapped cleanup retains new files and shared files, and deletes old orphan
   assert.equal((await bucket.file(names[2]).exists())[0], true);
   assert.equal((await bucket.file(names[3]).exists())[0], true);
 });
+
+async function recentlyRefreshedAnonymous() {
+  const host = process.env.FIREBASE_AUTH_EMULATOR_HOST;
+  const signup = await fetch(`http://${host}/identitytoolkit.googleapis.com/v1/accounts:signUp?key=demo-key`, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ returnSecureToken: true }),
+  });
+  assert.equal(signup.status, 200);
+  const { localId: uid } = await signup.json();
+  uids.push(uid);
+  const old = Date.now() - 31 * DAY;
+  const update = await fetch(`http://${host}/identitytoolkit.googleapis.com/v1/accounts:update?key=demo-key`, {
+    method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer owner' },
+    body: JSON.stringify({ localId: uid, lastLoginAt: String(old), createdAt: String(old) }),
+  });
+  assert.equal(update.status, 200);
+  const record = await getAuth().getUser(uid);
+  assert.ok(Date.parse(record.metadata.lastSignInTime) < Date.now() - 30 * DAY);
+  assert.ok(Date.parse(record.metadata.lastRefreshTime) > Date.now() - DAY);
+  return uid;
+}
+
+test('anonymous cleanup retains an old sign-in with recent token refresh', async () => {
+  const uid = await recentlyRefreshedAnonymous();
+  await endpoints.cleanupOrphanAnons.run({ scheduleTime: new Date().toISOString() });
+  assert.equal((await getAuth().getUser(uid)).uid, uid);
+});
+
+test('anonymous cleanup rechecks token refresh after an older list snapshot', async () => {
+  const uid = await recentlyRefreshedAnonymous();
+  const auth = getAuth();
+  const originalList = auth.listUsers.bind(auth);
+  mock.method(auth, 'listUsers', async (...args) => {
+    const page = await originalList(...args);
+    return { ...page, users: page.users.map((user) => user.uid === uid
+      ? { ...user, metadata: { ...user.metadata, lastRefreshTime: undefined } } : user) };
+  });
+  try {
+    await endpoints.cleanupOrphanAnons.run({ scheduleTime: new Date().toISOString() });
+    assert.equal((await auth.getUser(uid)).uid, uid);
+  } finally {
+    mock.restoreAll();
+  }
+});

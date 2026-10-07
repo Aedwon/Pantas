@@ -6,8 +6,10 @@ import { onSchedule } from 'firebase-functions/v2/scheduler';
 function isOldAnonymous(user: UserRecord, cutoff: number): boolean {
   // Pantas anonymous identities have no linked provider, email, or phone.
   const lastSignIn = Date.parse(user.metadata.lastSignInTime);
+  const lastRefresh = Date.parse(user.metadata.lastRefreshTime ?? '');
   return user.providerData.length === 0 && !user.email && !user.phoneNumber
-    && Number.isFinite(lastSignIn) && lastSignIn < cutoff;
+    && Number.isFinite(lastSignIn) && lastSignIn < cutoff
+    && (!Number.isFinite(lastRefresh) || lastRefresh < cutoff);
 }
 
 export const cleanupOrphanAnons = onSchedule(
