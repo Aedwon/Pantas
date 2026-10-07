@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart' show FirebaseException;
 import 'package:drift/drift.dart' show Value, Variable;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
@@ -23,6 +24,111 @@ import 'package:pantas/core/sync/sync_status.dart';
 import '../../helpers/in_memory_database.dart';
 
 void main() {
+  for (final nativeDenial in [false, true]) {
+    test(
+        'bootstrap denial retries after cooldown '
+        'without restart ($nativeDenial)', () async {
+      final h = _Harness();
+      addTearDown(h.close);
+      final clock = _BootstrapClock();
+      h.coordinator.failuresRemaining = 1;
+      h.coordinator.nativeDenial = nativeDenial;
+      await clock.run(
+        () => h.runtime.update(
+          identity: const SyncIdentity(uid: 'user-1'),
+          entitlement: SyncEntitlement.pro,
+        ),
+      );
+      expect(h.runtime.status, isA<SyncError>());
+      expect(clock.timers, hasLength(1));
+      expect(
+        clock.timers.single.delay,
+        greaterThan(const Duration(minutes: 5)),
+      );
+      expect(
+        clock.timers.single.delay,
+        lessThanOrEqualTo(const Duration(minutes: 5, seconds: 10)),
+      );
+      expect(h.engine.starts, isEmpty);
+      clock.timers.single.fire();
+      await _waitFor(() => h.runtime.status is SyncUpToDate);
+      expect(h.coordinator.pushCalls, 2);
+      expect(h.engine.starts, ['user-1:gen-user-1-2']);
+      expect(clock.timers.where((timer) => timer.isActive), isEmpty);
+    });
+  }
+
+  test('bootstrap retry preserves an explicit keep-device choice', () async {
+    final h = _Harness();
+    addTearDown(h.close);
+    final clock = _BootstrapClock();
+    h.seedGeneration(
+      uid: 'user-1',
+      generationId: 'gen-cloud',
+      meaningful: true,
+    );
+    await h.seedLocalLesson();
+    await h.runtime.update(
+      identity: const SyncIdentity(uid: 'user-1'),
+      entitlement: SyncEntitlement.pro,
+    );
+    h.coordinator.failuresRemaining = 1;
+    await clock.run(
+      () => h.runtime
+          .chooseReconciliation(SyncReconciliationChoice.keepThisDevice),
+    );
+    expect(clock.timers, hasLength(1));
+    clock.timers.single.fire();
+    await _waitFor(() => h.runtime.status is SyncUpToDate);
+    expect(
+      h.coordinator.operations,
+      ['push:user-1:gen-cloud', 'push:user-1:gen-cloud'],
+    );
+  });
+
+  test('account change cancels a pending bootstrap retry', () async {
+    final h = _Harness();
+    addTearDown(h.close);
+    final clock = _BootstrapClock();
+    h.coordinator.failuresRemaining = 1;
+    await clock.run(
+      () => h.runtime.update(
+        identity: const SyncIdentity(uid: 'user-1'),
+        entitlement: SyncEntitlement.pro,
+      ),
+    );
+    expect(clock.timers, hasLength(1));
+    await h.runtime.update(
+      identity: const SyncIdentity(uid: 'user-2'),
+      entitlement: SyncEntitlement.pro,
+    );
+    expect(clock.timers.single.isActive, isFalse);
+    clock.timers.single.fire();
+    await Future<void>.delayed(Duration.zero);
+    expect(h.coordinator.operations, ['push:user-1:null', 'push:user-2:null']);
+    expect(h.engine.starts, ['user-2:gen-user-2-1']);
+  });
+
+  test('sign-out cancels a pending bootstrap retry', () async {
+    final h = _Harness();
+    addTearDown(h.close);
+    final clock = _BootstrapClock();
+    h.coordinator.failuresRemaining = 1;
+    await clock.run(
+      () => h.runtime.update(
+        identity: const SyncIdentity(uid: 'user-1'),
+        entitlement: SyncEntitlement.pro,
+      ),
+    );
+    expect(clock.timers, hasLength(1));
+    await h.runtime.quiesce(flush: false);
+    expect(clock.timers.single.isActive, isFalse);
+    clock.timers.single.fire();
+    await Future<void>.delayed(Duration.zero);
+    expect(h.coordinator.pushCalls, 1);
+    expect(h.runtime.status, isA<SyncOff>());
+  });
+
   test('anonymous Pro is off without claim or progress reads', () async {
     final h = _Harness();
     addTearDown(h.close);
@@ -557,6 +663,8 @@ class _BlockingClaimGateway implements SyncClaimGateway {
 class _FakeCoordinator implements SyncCoordinator {
   final operations = <String>[];
   final _pushPerUid = <String, int>{};
+  int failuresRemaining = 0;
+  bool nativeDenial = false;
 
   int get pushCalls => operations.where((op) => op.startsWith('push:')).length;
 
@@ -569,6 +677,19 @@ class _FakeCoordinator implements SyncCoordinator {
     operations.add('push:$uid:$expectedActiveGenerationId');
     final count = (_pushPerUid[uid] ?? 0) + 1;
     _pushPerUid[uid] = count;
+    if (failuresRemaining > 0) {
+      failuresRemaining -= 1;
+      if (nativeDenial) {
+        throw FirebaseException(
+          plugin: 'cloud_firestore',
+          code: 'permission-denied',
+        );
+      }
+      return FullPushResult(
+        outcome: FullPushOutcome.retryableFailure,
+        generationId: 'gen-$uid-$count',
+      );
+    }
     return FullPushResult(
       outcome: FullPushOutcome.activated,
       generationId: 'gen-$uid-$count',
@@ -617,5 +738,50 @@ class _FakeRuntimeEngine implements SyncRuntimeEngine {
 
   void releaseStop() {
     if (!_stopRelease.isCompleted) _stopRelease.complete();
+  }
+}
+
+Future<void> _waitFor(bool Function() condition) async {
+  for (var i = 0; i < 100 && !condition(); i++) {
+    await Future<void>.delayed(const Duration(milliseconds: 5));
+  }
+  expect(condition(), isTrue);
+}
+
+class _BootstrapClock {
+  final timers = <_BootstrapTimer>[];
+
+  Future<void> run(Future<void> Function() operation) {
+    return runZoned(
+      operation,
+      zoneSpecification: ZoneSpecification(
+        createTimer: (self, parent, zone, delay, callback) {
+          if (delay >= const Duration(minutes: 5)) {
+            final timer = _BootstrapTimer(delay, callback);
+            timers.add(timer);
+            return timer;
+          }
+          return parent.createTimer(zone, delay, callback);
+        },
+      ),
+    );
+  }
+}
+
+class _BootstrapTimer implements Timer {
+  _BootstrapTimer(this.delay, this.callback);
+  final Duration delay;
+  final void Function() callback;
+  @override
+  bool isActive = true;
+  @override
+  int tick = 0;
+  @override
+  void cancel() => isActive = false;
+  void fire() {
+    if (!isActive) return;
+    isActive = false;
+    tick = 1;
+    callback();
   }
 }

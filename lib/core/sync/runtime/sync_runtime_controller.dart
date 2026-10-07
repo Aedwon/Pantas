@@ -83,6 +83,7 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
   int _transitionToken = 0;
   int _runtimeEventToken = 0;
   bool _activeSync = false;
+  Timer? _bootstrapRetry;
 
   SyncStatus get status => _status;
 
@@ -96,6 +97,7 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     required SyncEntitlement entitlement,
   }) async {
     final token = ++_transitionToken;
+    _cancelBootstrapRetry();
     _pendingReconciliation = null;
 
     if (identity.isAnonymous || entitlement != SyncEntitlement.pro) {
@@ -125,16 +127,10 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
       if (!_isCurrent(pending.token)) return;
       switch (choice) {
         case SyncReconciliationChoice.keepThisDevice:
-          final result = await _coordinator.keepThisDevice(
-            uid: pending.identity.uid,
-            expectedActiveGenerationId: pending.activeGenerationId,
-            shouldContinue: () => _isCurrent(pending.token),
-          );
-          if (!_isCurrent(pending.token)) return;
-          await _handlePushResult(
-            result: result,
+          await _pushThisDevice(
             identity: pending.identity,
             token: pending.token,
+            expectedActiveGenerationId: pending.activeGenerationId,
           );
         case SyncReconciliationChoice.keepMyAccount:
           final result = await _coordinator.keepMyAccount(
@@ -156,6 +152,7 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
   @override
   Future<void> quiesce({required bool flush}) async {
     final token = ++_transitionToken;
+    _cancelBootstrapRetry();
     final shouldFlush = flush && _activeSync;
     _pendingReconciliation = null;
     _emit(const SyncOff());
@@ -173,6 +170,7 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
 
   Future<void> close() async {
     ++_transitionToken;
+    _cancelBootstrapRetry();
     await _activeContextStore.clearStable();
     await _runtimeEventSubscription?.cancel();
     await _enqueue(_engine.stop);
@@ -238,16 +236,10 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
       if (!_isCurrent(token)) return;
 
       if (activeGenerationId == null) {
-        final result = await _coordinator.keepThisDevice(
-          uid: identity.uid,
-          expectedActiveGenerationId: null,
-          shouldContinue: () => _isCurrent(token),
-        );
-        if (!_isCurrent(token)) return;
-        if (await _handlePushResult(
-          result: result,
+        if (await _pushThisDevice(
           identity: identity,
           token: token,
+          expectedActiveGenerationId: null,
           retryB3: false,
         )) {
           return;
@@ -300,16 +292,10 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
         return;
       }
 
-      final result = await _coordinator.keepThisDevice(
-        uid: identity.uid,
-        expectedActiveGenerationId: activeGenerationId,
-        shouldContinue: () => _isCurrent(token),
-      );
-      if (!_isCurrent(token)) return;
-      if (await _handlePushResult(
-        result: result,
+      if (await _pushThisDevice(
         identity: identity,
         token: token,
+        expectedActiveGenerationId: activeGenerationId,
         retryB3: false,
       )) {
         return;
@@ -317,10 +303,87 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     }
   }
 
+  Future<bool> _pushThisDevice({
+    required SyncIdentity identity,
+    required int token,
+    required String? expectedActiveGenerationId,
+    bool retryB3 = true,
+  }) async {
+    try {
+      final result = await _coordinator.keepThisDevice(
+        uid: identity.uid,
+        expectedActiveGenerationId: expectedActiveGenerationId,
+        shouldContinue: () => _isCurrent(token),
+      );
+      if (!_isCurrent(token)) return true;
+      return await _handlePushResult(
+        result: result,
+        identity: identity,
+        token: token,
+        expectedActiveGenerationId: expectedActiveGenerationId,
+        retryB3: retryB3,
+      );
+    } on Object catch (error) {
+      if (_isCurrent(token)) {
+        _emit(SyncError(message: '$error'));
+        _scheduleBootstrapRetry(identity, token, expectedActiveGenerationId);
+      }
+      return true;
+    }
+  }
+
+  void _cancelBootstrapRetry() {
+    _bootstrapRetry?.cancel();
+    _bootstrapRetry = null;
+  }
+
+  void _scheduleBootstrapRetry(
+    SyncIdentity identity,
+    int token,
+    String? expectedActiveGenerationId,
+  ) {
+    _cancelBootstrapRetry();
+    // The rules allow a new staging generation after five minutes.
+    _bootstrapRetry = Timer(const Duration(minutes: 5, seconds: 1), () {
+      _bootstrapRetry = null;
+      if (!_isCurrent(token)) return;
+      unawaited(
+        _enqueue(() async {
+          if (!_isCurrent(token)) return;
+          try {
+            final hasClaim =
+                await _claimGateway.refreshProClaim(uid: identity.uid);
+            if (!_isCurrent(token)) return;
+            if (!hasClaim) {
+              _emit(const SyncActivating());
+              return;
+            }
+            _emit(const Syncing());
+            await _pushThisDevice(
+              identity: identity,
+              token: token,
+              expectedActiveGenerationId: expectedActiveGenerationId,
+            );
+          } on Object catch (error) {
+            if (_isCurrent(token)) {
+              _emit(SyncError(message: '$error'));
+              _scheduleBootstrapRetry(
+                identity,
+                token,
+                expectedActiveGenerationId,
+              );
+            }
+          }
+        }),
+      );
+    });
+  }
+
   Future<bool> _handlePushResult({
     required FullPushResult result,
     required SyncIdentity identity,
     required int token,
+    required String? expectedActiveGenerationId,
     bool retryB3 = true,
   }) async {
     switch (result.outcome) {
@@ -342,6 +405,7 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
         return true;
       case FullPushOutcome.retryableFailure:
         _emit(const SyncError(message: 'Sync bootstrap upload failed'));
+        _scheduleBootstrapRetry(identity, token, expectedActiveGenerationId);
         return true;
     }
   }
