@@ -5,7 +5,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/dev/dev_pro_switch.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/paywall/application/paywall_controller.dart';
 import 'package:pantas/features/paywall/data/entitlement_snapshot_store.dart';
@@ -17,6 +20,7 @@ import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/paywall_offering.dart';
 import 'package:pantas/features/paywall/domain/paywall_recommendation.dart';
+import 'package:pantas/features/paywall/domain/price_tier.dart';
 
 final revenueCatConfigProvider = Provider<RevenueCatConfig>(
   (ref) => RevenueCatConfig.fromEnvironment(),
@@ -102,6 +106,31 @@ final entitlementProvider = StreamProvider<Entitlement>((ref) {
 
 final paywallOfferingProvider = FutureProvider<PaywallOfferingResult>((ref) {
   return ref.watch(revenueCatGatewayProvider).currentOffering();
+});
+
+final examCatalogRepositoryProvider = Provider<ExamCatalogRepository>((ref) {
+  return ExamCatalogRepository(ref.watch(contentDatabaseProvider));
+});
+
+final proForActiveExamProvider = FutureProvider<bool>((ref) async {
+  if (kDebugMode) {
+    final override = ref.watch(devProOverrideProvider);
+    if (override != null) return override;
+  }
+  if (kDebugMode && const bool.fromEnvironment('FAKE_PRO')) return true;
+  final entitlement = await ref.watch(entitlementProvider.future);
+  final focus = await ref.watch(activeExamFocusProvider.future);
+  final exam = focus.exam;
+  if (exam == null) return false;
+  final catalog =
+      await ref.watch(examCatalogRepositoryProvider).watchAll().first;
+  final entry = catalog.where((entry) => entry.id == exam.id).firstOrNull;
+  // An exam absent from the published catalog has no inferred price tier.
+  if (entry == null) return false;
+  return entitlement.coversExam(
+    exam.id,
+    examTier: PriceTier.fromCatalog(entry.priceTier),
+  );
 });
 
 final paywallPackagesProvider = FutureProvider((ref) async {
