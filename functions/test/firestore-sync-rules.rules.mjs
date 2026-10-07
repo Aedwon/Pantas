@@ -107,7 +107,7 @@ function rowData(overrides = {}) {
 }
 
 test('anonymous Sync read and write fail', async () => {
-  const db = context('anon', {
+  const db = context('pro', {
     firebase: { sign_in_provider: 'anonymous' },
     pro: true,
   });
@@ -186,20 +186,10 @@ test('named Pro owner may create a constrained staging generation', async () => 
 });
 
 test('client cannot create an active generation directly', async () => {
-  const db = context('pro', {
-    firebase: { sign_in_provider: 'google.com' },
-    pro: true,
-  });
-
-  await assertFails(
-    setDoc(doc(db, 'users/pro/sync_generations/new-active'), {
-      status: 'active',
-      schemaVersion: 1,
-      createdAt: serverTimestamp(),
-      createdByDeviceId: 'device-1',
-      preferences: {},
-    }),
-  );
+  const db = proDb();
+  await assertFails(stagingBatch(db, ['new-active'], 'new-active', { status: 'active' }).commit());
+  // The same batch with only status repaired must succeed.
+  await assertSucceeds(stagingBatch(db, ['new-active']).commit());
 });
 
 test('staging generation row write with exact Sync metadata succeeds', async () => {
@@ -312,21 +302,10 @@ test('named Free account-root owner behavior remains allowed', async () => {
 });
 
 test('staging generation create rejects extra lifecycle fields', async () => {
-  const db = context('pro', {
-    firebase: { sign_in_provider: 'google.com' },
-    pro: true,
-  });
-
-  await assertFails(
-    setDoc(doc(db, 'users/pro/sync_generations/overbroad-staging'), {
-      status: 'staging',
-      schemaVersion: 1,
-      createdAt: serverTimestamp(),
-      createdByDeviceId: 'device-1',
-      preferences: {},
-      activatedAt: serverTimestamp(),
-    }),
-  );
+  const db = proDb();
+  await assertFails(stagingBatch(db, ['overbroad-staging'], 'overbroad-staging', { activatedAt: serverTimestamp() }).commit());
+  // The same batch with only the extra field removed must succeed.
+  await assertSucceeds(stagingBatch(db, ['overbroad-staging']).commit());
 });
 
 console.log('FIRESTORE_SYNC_RULES_TEST_COUNT=46');
@@ -396,12 +375,12 @@ function stagingData() {
   return { status: 'staging', schemaVersion: 1, createdAt: serverTimestamp(),
     createdByDeviceId: 'device-1', preferences: {} };
 }
-function stagingBatch(db, ids, limitId = ids[0]) {
+function stagingBatch(db, ids, limitId = ids[0], overrides = {}) {
   const batch = writeBatch(db);
   batch.set(doc(db, 'users/pro/limits/syncGeneration'), {
     lastStagedAt: serverTimestamp(), generationId: limitId,
   });
-  for (const id of ids) batch.set(doc(db, `users/pro/sync_generations/${id}`), stagingData());
+  for (const id of ids) batch.set(doc(db, `users/pro/sync_generations/${id}`), { ...stagingData(), ...overrides });
   return batch;
 }
 const proDb = () => context('pro', { firebase: { sign_in_provider: 'google.com' }, pro: true });
