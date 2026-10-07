@@ -72,8 +72,15 @@ ThemeData _buildTheme(PantasColors colors, Brightness brightness) {
 }
 
 extension AppThemeContext on BuildContext {
-  PantasColors get colors => Theme.of(this).extension<PantasColors>()!;
-  PantasType get type => Theme.of(this).extension<PantasType>()!;
+  PantasColors get colors {
+    final theme = Theme.of(this);
+    return theme.extension<PantasColors>() ??
+        theme.extension<AppColors>()!.tokens;
+  }
+
+  PantasType get type =>
+      Theme.of(this).extension<PantasType>() ??
+      PantasType.create(colors: colors);
   @Deprecated('W1 adapter, removed in W2 close-out')
   AppTextStyles get textStyles => Theme.of(this).extension<AppTextStyles>()!;
 }

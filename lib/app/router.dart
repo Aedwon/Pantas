@@ -75,27 +75,34 @@ List<RouteBase> buildAppRoutes(Ref ref) {
   final study = studyRoutes(ref);
   final quiz = quizRoutes(ref);
   final settings = settingsRoutes(ref);
+  final homeRoot = _tabRoot(home, '/home');
+  final studyRoot = _tabRoot(study, '/study');
+  final quizRoot = _tabRoot(quiz, '/quiz');
+  final settingsRoot = _tabRoot(settings, '/settings');
   return [
     StatefulShellRoute.indexedStack(
       builder: (context, state, shell) => AppShell(navigationShell: shell),
       branches: [
-        StatefulShellBranch(routes: [home.first]),
-        StatefulShellBranch(routes: [study.first]),
-        StatefulShellBranch(routes: [quiz.first]),
-        StatefulShellBranch(routes: [settings.first]),
+        StatefulShellBranch(routes: [homeRoot]),
+        StatefulShellBranch(routes: [studyRoot]),
+        StatefulShellBranch(routes: [quizRoot]),
+        StatefulShellBranch(routes: [settingsRoot]),
       ],
     ),
-    ...home.skip(1),
-    ...study.skip(1),
-    ...quiz.skip(1),
+    ...home.where((route) => route != homeRoot),
+    ...study.where((route) => route != studyRoot),
+    ...quiz.where((route) => route != quizRoot),
     ...mockRoutes(ref),
-    ...settings.skip(1),
+    ...settings.where((route) => route != settingsRoot),
     ...onboardingRoutes(ref),
     ...wrappedRoutes(ref),
     ...statesRoutes(ref),
     ...devRoutes(),
   ];
 }
+
+GoRoute _tabRoot(List<RouteBase> routes, String path) =>
+    routes.whereType<GoRoute>().singleWhere((route) => route.path == path);
 
 class _FakeRef implements Ref {
   @override

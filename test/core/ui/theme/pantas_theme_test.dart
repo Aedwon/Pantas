@@ -35,4 +35,23 @@ void main() {
       );
     });
   }
+
+  testWidgets('legacy-only registries expose the new token APIs',
+      (tester) async {
+    final legacy = AppColors.light.copyWith(ink: Colors.blue);
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: ThemeData(extensions: [legacy, AppTextStyles.create()]),
+        home: Builder(
+          builder: (context) {
+            expect(context.colors.label, Colors.blue);
+            expect(context.colors.background, PantasColors.light.background);
+            expect(context.type.body.fontFamily, 'Geist');
+            return const SizedBox();
+          },
+        ),
+      ),
+    );
+    expect(tester.takeException(), isNull);
+  });
 }

@@ -42,6 +42,7 @@ void main() {
     await tester.pumpApp(const PennantMark(isSet: false, color: Colors.black));
     await tester.pumpWidget(
       MaterialApp(
+        themeAnimationDuration: Duration.zero,
         theme: ThemeData(
           extensions: [AppColors.light, AppTextStyles.create()],
         ),
@@ -58,6 +59,7 @@ void main() {
 
     await tester.pumpWidget(
       MaterialApp(
+        themeAnimationDuration: Duration.zero,
         theme: ThemeData(
           extensions: [AppColors.light, AppTextStyles.create()],
         ),

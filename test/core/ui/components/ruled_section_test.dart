@@ -26,7 +26,7 @@ void main() {
     final decoration = container.decoration! as BoxDecoration;
     final border = decoration.border! as Border;
     expect(border.top.color, AppColors.light.rule);
-    expect(border.top.width, 1.0);
+    expect(border.top.width, 0.5);
   });
 
   testWidgets('PageScaffold paints paper background', (tester) async {

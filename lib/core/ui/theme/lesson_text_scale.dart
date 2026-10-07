@@ -10,7 +10,7 @@ final lessonTextScaleProvider =
 });
 
 class LessonTextScaleController extends StateNotifier<double> {
-  LessonTextScaleController(this._preferences) : super(1.0) {
+  LessonTextScaleController(this._preferences) : super(1) {
     unawaited(_load());
   }
 
@@ -50,7 +50,8 @@ class LessonTextScaleController extends StateNotifier<double> {
   }
 }
 
-/// Applies the lesson preference without changing controls outside this subtree.
+/// Applies the lesson preference inside this subtree.
+/// Other controls keep the phone scaling.
 class LessonTextScale extends ConsumerWidget {
   const LessonTextScale({required this.child, super.key});
 

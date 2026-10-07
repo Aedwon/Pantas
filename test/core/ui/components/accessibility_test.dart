@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
@@ -51,6 +52,13 @@ import 'package:pantas/core/ui/theme/theme_preference.dart';
 import '../../../helpers/accessibility.dart';
 
 void main() {
+  setUpAll(() async {
+    final fonts = FontLoader('Geist');
+    for (final weight in ['Regular', 'Medium', 'SemiBold', 'Bold']) {
+      fonts.addFont(rootBundle.load('assets/fonts/Geist-$weight.ttf'));
+    }
+    await fonts.load();
+  });
   const sampleQuestion = Question(
     id: 'q1',
     version: 1,

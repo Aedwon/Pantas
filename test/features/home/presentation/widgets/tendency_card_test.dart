@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
 import 'package:pantas/core/ui/theme/app_colors.dart';
@@ -7,6 +8,13 @@ import 'package:pantas/features/home/application/tendencies_provider.dart';
 import 'package:pantas/features/home/presentation/widgets/tendency_card.dart';
 
 void main() {
+  setUpAll(() async {
+    final fonts = FontLoader('Geist');
+    for (final weight in ['Regular', 'Medium', 'SemiBold', 'Bold']) {
+      fonts.addFont(rootBundle.load('assets/fonts/Geist-$weight.ttf'));
+    }
+    await fonts.load();
+  });
   const withFigures = TendencyCard(
     kind: TendencyKind.underPressure,
     heading: 'Under pressure',

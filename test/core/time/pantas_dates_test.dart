@@ -45,7 +45,7 @@ void main() {
       'Oct 5, 2025',
     );
     expect(
-      PantasDates.relativeDay(DateTime(2025, 12, 31), now: DateTime(2026, 1)),
+      PantasDates.relativeDay(DateTime(2025, 12, 31), now: DateTime(2026)),
       'Yesterday',
     );
   });
@@ -58,7 +58,7 @@ void main() {
     });
   }
   test('weekStart handles year boundaries and UTC dates', () {
-    expect(PantasDates.weekStart(DateTime(2026, 1, 1)), DateTime(2025, 12, 28));
+    expect(PantasDates.weekStart(DateTime(2026)), DateTime(2025, 12, 28));
     expect(
       PantasDates.weekStart(DateTime.utc(2026, 10, 10)),
       DateTime.utc(2026, 10, 4),

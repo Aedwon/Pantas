@@ -11,6 +11,7 @@ abstract class AppColors extends ThemeExtension<AppColors> {
 
   static const light = _AppColorsAdapter(PantasColors.light);
   static const dark = _AppColorsAdapter(PantasColors.dark);
+  PantasColors get tokens;
   Color get background;
   Color get surface;
   Color get ink;
@@ -45,6 +46,9 @@ class _AppColorsAdapter extends AppColors {
   @override
   Object get type => AppColors;
   final PantasColors _colors;
+
+  @override
+  PantasColors get tokens => _colors;
 
   @override
   Color get background => _colors.background;

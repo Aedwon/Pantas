@@ -104,16 +104,20 @@ void main() {
                   child: Builder(
                     builder: (context) {
                       inside = MediaQuery.textScalerOf(context);
-                      return const Text('Lesson',
-                          style: TextStyle(fontSize: 14));
+                      return const Text(
+                        'Lesson',
+                        style: TextStyle(fontSize: 14),
+                      );
                     },
                   ),
                 ),
                 Builder(
                   builder: (context) {
                     outside = MediaQuery.textScalerOf(context);
-                    return const Text('Control',
-                        style: TextStyle(fontSize: 14));
+                    return const Text(
+                      'Control',
+                      style: TextStyle(fontSize: 14),
+                    );
                   },
                 ),
               ],

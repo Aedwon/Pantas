@@ -19,6 +19,9 @@ void main() {
   });
 
   group('AppDimensions tap targets', () {
-    test('minTapTarget is 44', () => expect(AppDimensions.minTapTarget, 44.0));
+    test(
+      'minTapTarget remains 48 for Android controls',
+      () => expect(AppDimensions.minTapTarget, 48.0),
+    );
   });
 }

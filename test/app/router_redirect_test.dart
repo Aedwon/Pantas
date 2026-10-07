@@ -4,15 +4,15 @@ import 'package:pantas/app/app.dart';
 import 'package:pantas/app/flavor.dart';
 import 'package:pantas/app/router.dart';
 import 'package:pantas/core/content/content.dart';
-import 'package:pantas/core/ui/components/back_chevron.dart';
-import 'package:pantas/core/ui/components/settings_bar.dart';
-import 'package:pantas/features/shell/presentation/app_shell.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/back_chevron.dart';
+import 'package:pantas/core/ui/components/settings_bar.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
+import 'package:pantas/features/shell/presentation/app_shell.dart';
 
 import '../helpers/in_memory_database.dart';
 

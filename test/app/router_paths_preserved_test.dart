@@ -1,4 +1,6 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/app/router.dart';
 
 void main() {
@@ -57,4 +59,17 @@ void main() {
     ];
     expect(collectRoutePaths(), unorderedEquals(before));
   });
+  test('branch roots are selected by path, not family list position', () {
+    final shell =
+        buildAppRoutes(_RouteRef()).whereType<StatefulShellRoute>().single;
+    expect(
+      shell.branches.map((branch) => (branch.routes.single as GoRoute).path),
+      ['/home', '/study', '/quiz', '/settings'],
+    );
+  });
+}
+
+class _RouteRef implements Ref {
+  @override
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }

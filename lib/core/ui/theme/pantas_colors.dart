@@ -83,6 +83,9 @@ class PantasColors extends AppColors {
   Object get type => PantasColors;
 
   @override
+  PantasColors get tokens => this;
+
+  @override
   @Deprecated('W1 adapter, removed in W2 close-out')
   Color get ink => label;
   @override
