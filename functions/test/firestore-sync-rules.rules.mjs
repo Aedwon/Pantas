@@ -329,7 +329,7 @@ test('staging generation create rejects extra lifecycle fields', async () => {
   );
 });
 
-console.log('FIRESTORE_SYNC_RULES_TEST_COUNT=45');
+console.log('FIRESTORE_SYNC_RULES_TEST_COUNT=46');
 
 // Keep this write in the rules suite so its clearFirestore hook cannot race it.
 test('admin callable permits checked admin and writes an audit entry', async () => {
@@ -601,4 +601,33 @@ test('deleting generations cannot be activated or accessed by clients', async ()
   await assertFails(getDoc(doc(client, 'users/pro/sync_generations/deleting/lesson_progress/row')));
   await assertFails(setDoc(doc(client, 'users/pro/sync_generations/deleting/lesson_progress/row'), rowData({ lessonId: 'row' })));
   await assertFails(updateDoc(doc(client, 'users/pro/sync_generations/deleting'), { preferences: {} }));
+});
+
+test('tombstone restored after the cleanup query is kept while unchanged tombstones are deleted', async () => {
+  const db = getFirestore();
+  const { Query, Timestamp } = await import('firebase-admin/firestore');
+  const { cleanupSyncData } = await import('../lib/index.js');
+  const restored = db.doc('users/pro/sync_generations/active/lesson_progress/race-restored');
+  const expired = db.doc('users/pro/sync_generations/active/lesson_progress/race-expired');
+  const stale = { deleted: true, updatedAt: Timestamp.fromMillis(Date.now() - 91 * 86400000) };
+  await restored.set(stale);
+  await expired.set(stale);
+  const originalGet = Query.prototype.get;
+  let raced = false;
+  mock.method(Query.prototype, 'get', async function (...args) {
+    const snapshot = await Reflect.apply(originalGet, this, args);
+    if (this._queryOptions.collectionId === 'lesson_progress' && this._queryOptions.allDescendants && !raced) {
+      raced = true;
+      await setDoc(doc(proDb(), restored.path), rowData({ lessonId: restored.id, readAt: new Date().toISOString(), deleted: false }));
+    }
+    return snapshot;
+  });
+  try {
+    await cleanupSyncData.run({ scheduleTime: new Date().toISOString() });
+    assert.equal(raced, true);
+    const retained = await restored.get();
+    assert.equal(retained.exists, true);
+    assert.equal(retained.get('deleted'), false);
+    assert.equal((await expired.get()).exists, false);
+  } finally { mock.restoreAll(); }
 });

@@ -67,10 +67,16 @@ async function cleanupTombstones(now: Date): Promise<void> {
       const batch = db.batch();
 
       for (const document of snapshot.docs) {
-        batch.delete(document.ref);
+        batch.delete(document.ref, { lastUpdateTime: document.updateTime });
       }
 
-      await batch.commit();
+      try {
+        await batch.commit();
+      } catch (error) {
+        if ((error as { code?: number }).code !== 9) throw error;
+        // Requery after a restored or changed row invalidates this batch.
+        continue;
+      }
 
       if (snapshot.size < 500) {
         break;
