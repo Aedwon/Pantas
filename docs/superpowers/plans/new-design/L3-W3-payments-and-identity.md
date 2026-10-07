@@ -162,8 +162,20 @@ upgrades and downgrades and credits the remaining time by moving the next billin
 `CHARGE_PRORATED_PRICE` works only where the price per unit of time rises, which fails for pairs
 such as Student Weekly ₱29 to Civil Service Yearly ₱1,199). If the ST_SwitchUpgrade copy promises
 an immediate charge of the difference, stop and ask the lead. `manage()` opens Play's subscription page.
+Pending block (lead ruling, Oct 7, W3 stop at 3bff413e; the SDK exposes no pending-order list, and
+Google Play cancels a pending purchase whose payment fails or expires without telling the app): Play
+is the authority and the app's block is a guard. On a `pending` result, save on the device a marker
+`{uid, productId, startedAt}`. While the signed-in account has a marker, the Pro page shows the
+pending board and replaces every buy button with "Check again", which calls `syncPurchases()` and
+reads customer info. Clear the marker when any customer-info update shows that product's
+entitlement active (then show success), or when "Check again" finds no entitlement and the marker is
+older than 72 hours (buying is enabled again; if the payment is still pending, Play rejects the
+duplicate). The marker survives restarts; a different account never sees it. No timer, no new
+backend call.
 Trial display: Task 13 owns it.
-Tests: mapping table; pending blocks a second purchase; eligibility display.
+Tests: mapping table; pending blocks a second purchase, also after restart; activation clears the
+marker; "Check again" before 72 hours keeps it and after 72 hours clears it; another account is not
+blocked; eligibility display.
 Checks: `flutter test test/features/paywall` green.
 
 ## Task 8. Active exam in every Pro gate (N-23)

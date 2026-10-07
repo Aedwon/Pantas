@@ -976,3 +976,12 @@ notice, format, layering and attribution checks pass; the backend's two known fa
 pre-W6 base. W1 now needs the Astra audit, the lead's review and visual acceptance. W3 stopped at
 Task 4: the plan expected a `PriceTier` enum from W0, but W0 stores the tier as a string. Ruling:
 W3 Task 4 adds the enum and `tierForExam` over the catalog (L3 W3 Task 4 amended).
+
+## October 7, 2026: W3 pending-payment ruling
+
+W3 Tasks 3 and 6 are done (e102802f, b22897d5). Task 7 stopped: the SDK cannot list pending
+orders, so the plan's "nothing can be bought twice while pending" had no defined end. Ruling: a
+device marker per account; it clears when the entitlement turns active, or when the student taps
+"Check again" after 72 hours with no entitlement; Play rejects a true duplicate (L3 W3 Task 7
+amended). Source: RevenueCat's Google Play guides (pending purchases are canceled when payment
+fails or expires).
