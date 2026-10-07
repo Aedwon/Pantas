@@ -1,5 +1,17 @@
 enum PaywallSku { weekly, monthly, yearly }
 
+class PaywallPassPackage {
+  const PaywallPassPackage({
+    required this.productId,
+    required this.priceString,
+    required this.priceAmount,
+  });
+
+  final String productId;
+  final String priceString;
+  final double priceAmount;
+}
+
 class PaywallPackage {
   const PaywallPackage({
     required this.sku,

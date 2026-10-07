@@ -9,13 +9,8 @@ PaywallSku recommendedSkuForExamDate({
   if (examDate == null || !examDate.isAfter(today)) {
     return PaywallSku.monthly;
   }
-  // Past 3 weekly renewals (₱87) the next one exceeds Monthly's ₱99,
-  // so recommending Weekly beyond 21 days would break coach honesty.
+  // Legacy display buckets remain until this flow is removed by W4f.
   if (examDate.difference(today).inDays <= 21) return PaywallSku.weekly;
-  // ₱799 ÷ ₱99 = 8.07, so Monthly is cheaper than Yearly under eight months.
-  // This moved with the price on 11 August: at ₱999 the crossover was 10.09 and
-  // the boundary sat at ten. A boundary left behind a price cut is the coach
-  // recommending Monthly to a student Yearly would have saved money.
   final months = _wholeMonthsBetween(today, examDate);
   if (months <= 8) return PaywallSku.monthly;
   return PaywallSku.yearly;
@@ -33,9 +28,7 @@ String ctaCopyFor(PaywallPackage package) {
   return switch (package.sku) {
     PaywallSku.weekly => 'Get Pro. ${package.priceString} a week.',
     PaywallSku.monthly => 'Get Pro. ${package.priceString} a month.',
-    // Yearly is the only SKU with a trial, so its CTA opens screen 3
-    // rather than naming a price the student has not agreed to yet.
-    PaywallSku.yearly => 'Start my free trial',
+    PaywallSku.yearly => 'Get Pro. ${package.priceString} a year.',
   };
 }
 

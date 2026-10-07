@@ -7,6 +7,7 @@ import 'package:pantas/features/paywall/data/revenuecat_sdk.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
 import 'package:pantas/features/paywall/domain/paywall_offering.dart';
+import 'package:pantas/features/paywall/domain/products.dart';
 
 /// The RevenueCat entitlement identifier configured in the dashboard.
 /// One entitlement covers all three SKUs.
@@ -16,23 +17,12 @@ const proEntitlementId = 'pro';
 /// minutes.
 const revenueCatInactiveAuthorityWindow = Duration(minutes: 5);
 
-/// The permanent Google Play product ids chosen before the first submission.
-const _weeklyProductId = 'pantas_pro_weekly';
-const _monthlyProductId = 'pantas_pro_monthly';
-const _yearlyProductId = 'pantas_pro_yearly';
-
 DateTime _systemReferenceTime() => DateTime.now().toUtc();
 
 /// Google Play can append a base-plan id, for example
 /// `pantas_pro_monthly:monthly-autorenewing`.
 PaywallSku? skuFromProductId(String productId) {
-  final base = productId.split(':').first;
-  return switch (base) {
-    _weeklyProductId => PaywallSku.weekly,
-    _monthlyProductId => PaywallSku.monthly,
-    _yearlyProductId => PaywallSku.yearly,
-    _ => null,
-  };
+  return productForId(productId)?.period;
 }
 
 EntitlementPlan planForSku(PaywallSku sku) {
@@ -149,8 +139,19 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
       }
 
       final recognized = <PaywallPackage>[];
+      final passes = <PaywallPassPackage>[];
       final unrecognized = <String>[];
       for (final product in offering.products) {
+        if (productForId(product.productId)?.kind == ProductKind.pass) {
+          passes.add(
+            PaywallPassPackage(
+              productId: product.productId,
+              priceString: product.priceString,
+              priceAmount: product.priceAmount,
+            ),
+          );
+          continue;
+        }
         final sku = skuFromProductId(product.productId);
         if (sku == null) {
           unrecognized.add(product.productId);
@@ -166,7 +167,7 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
         );
       }
 
-      if (recognized.isEmpty) {
+      if (recognized.isEmpty && passes.isEmpty) {
         return PaywallOfferingResult(
           status: PaywallOfferingStatus.allProductsUnrecognized,
           unrecognizedProductIds: unrecognized,
@@ -176,12 +177,14 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
         return PaywallOfferingResult(
           status: PaywallOfferingStatus.mixedProducts,
           recognizedPackages: recognized,
+          passPackages: passes,
           unrecognizedProductIds: unrecognized,
         );
       }
       return PaywallOfferingResult(
         status: PaywallOfferingStatus.available,
         recognizedPackages: recognized,
+        passPackages: passes,
       );
     } on RevenueCatSdkException catch (error) {
       return PaywallOfferingResult(

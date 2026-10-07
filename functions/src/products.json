@@ -1,0 +1,11 @@
+[
+  {"id":"pantas_pro_weekly","tier":"student","period":"weekly","kind":"subscription","allowedExamIds":[]},
+  {"id":"pantas_pro_monthly","tier":"student","period":"monthly","kind":"subscription","allowedExamIds":[]},
+  {"id":"pantas_pro_yearly","tier":"student","period":"yearly","kind":"subscription","allowedExamIds":[]},
+  {"id":"pantas_cs_weekly","tier":"civilService","period":"weekly","kind":"subscription","allowedExamIds":[]},
+  {"id":"pantas_cs_monthly","tier":"civilService","period":"monthly","kind":"subscription","allowedExamIds":[]},
+  {"id":"pantas_cs_yearly","tier":"civilService","period":"yearly","kind":"subscription","allowedExamIds":[]},
+  {"id":"pantas_pass_civil_service","tier":"civilService","period":null,"kind":"pass","allowedExamIds":["exam_cse_pro","exam_cse_sub"]},
+  {"id":"promo_student","tier":"student","period":null,"kind":"promotional","allowedExamIds":[]},
+  {"id":"promo_civil_service","tier":"civilService","period":null,"kind":"promotional","allowedExamIds":[]}
+]

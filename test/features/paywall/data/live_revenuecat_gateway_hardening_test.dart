@@ -80,6 +80,29 @@ void main() {
   });
 
   group('offering states', () {
+    test('known pass is offered separately without being treated as unknown',
+        () async {
+      final gateway = LiveRevenueCatGateway(
+        sdk: FakeRevenueCatSdk(
+          offering: const RevenueCatOfferingSnapshot([
+            RevenueCatProductSnapshot(
+              productId: 'pantas_pass_civil_service',
+              priceString: '₱499',
+              priceAmount: 499,
+            ),
+          ]),
+        ),
+        entitlementState: stateFor(),
+      );
+      final result = await gateway.currentOffering();
+      expect(result.status, PaywallOfferingStatus.available);
+      expect(result.unrecognizedProductIds, isEmpty);
+      expect(result.recognizedPackages, isEmpty);
+      expect(result.passPackages.single.productId, 'pantas_pass_civil_service');
+      expect(result.passPackages.single.priceString, '₱499');
+      expect(result.passPackages.single.priceAmount, 499);
+    });
+
     test('recognized packages are available', () async {
       final sdk = FakeRevenueCatSdk(
         offering: const RevenueCatOfferingSnapshot([

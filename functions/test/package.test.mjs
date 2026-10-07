@@ -22,3 +22,9 @@ test('build includes the complete W0 exam catalog', () => {
   assert.ok(existsSync(path), 'compiled package must include the exam catalog');
   assert.deepEqual(readJson('../lib/examCatalog.json'), readJson('../../content/exams/catalog.json'));
 });
+
+test('AC-7 build includes the complete W3 product table', () => {
+  const path = new URL('../lib/products.json', import.meta.url);
+  assert.ok(existsSync(path), 'compiled package must include the product table');
+  assert.deepEqual(readJson('../lib/products.json'), readJson('../src/products.json'));
+});
