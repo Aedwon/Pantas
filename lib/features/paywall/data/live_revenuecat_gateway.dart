@@ -4,6 +4,7 @@ import 'package:pantas/features/paywall/data/entitlement_snapshot_store.dart';
 import 'package:pantas/features/paywall/data/payment_entitlement_state.dart';
 import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/data/revenuecat_sdk.dart';
+import 'package:pantas/features/paywall/domain/coverage.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
 import 'package:pantas/features/paywall/domain/paywall_offering.dart';
@@ -34,14 +35,78 @@ EntitlementPlan planForSku(PaywallSku sku) {
 }
 
 Entitlement entitlementFromCustomerInfo(RevenueCatCustomerInfoSnapshot info) {
-  final productId = info.productId;
-  if (!info.proIsActive || productId == null) return const Entitlement.free();
+  if (!info.proIsActive) return const Entitlement.free();
+  final sources = [
+    ...info.subscriptions,
+    if (info.productId != null &&
+        !info.subscriptions
+            .any((source) => source.productId == info.productId) &&
+        productForId(info.productId!)?.kind != ProductKind.pass &&
+        info.promotions.isEmpty)
+      RevenueCatSubscriptionSnapshot(
+        productId: info.productId!,
+        expiresAt: info.expiresAt,
+        isTrial: info.isTrial,
+        willRenew: info.willRenew,
+        billingIssuesDetectedAt: info.billingIssuesDetectedAt,
+      ),
+  ];
+  final known = sources
+      .where(
+        (source) =>
+            productForId(source.productId)?.kind == ProductKind.subscription,
+      )
+      .toList()
+    ..sort(
+      (a, b) => productForId(b.productId)!
+          .tier
+          .index
+          .compareTo(productForId(a.productId)!.tier.index),
+    );
+  final selected = known.isEmpty ? null : known.first;
+  final productId = selected?.productId ??
+      info.productId ??
+      (sources.isEmpty ? null : sources.first.productId);
+  final subscriptions = [
+    for (final source in sources)
+      if (source.expiresAt != null)
+        CoveragePeriod(id: source.productId, endsAt: source.expiresAt!),
+  ];
+  final knownPromotions = info.promotions
+      .where(
+        (source) => productForId(source.id)?.kind == ProductKind.promotional,
+      )
+      .toList();
+  if (selected == null && knownPromotions.isNotEmpty) {
+    return Entitlement(
+      plan: EntitlementPlan.free,
+      willRenew: false,
+      state: EntitlementState.grant,
+      promotions: info.promotions,
+      subscriptions: subscriptions,
+    );
+  }
+  if (selected == null && info.promotions.isNotEmpty) {
+    // A promotional entitlement is not a subscription, regardless of its
+    // displayed product identifier. Unknown grants cover nothing.
+    final unknown = info.promotions.first;
+    return Entitlement(
+      plan: EntitlementPlan.free,
+      productId: unknown.id,
+      expiresAt: unknown.endsAt,
+      willRenew: false,
+      isUnknownPlan: true,
+      promotions: info.promotions,
+      state: EntitlementState.unknown,
+    );
+  }
+  if (productId == null) return const Entitlement.free();
 
   final sku = skuFromProductId(productId);
   if (sku == null) {
     return Entitlement.activeUnknown(
       productId: productId,
-      expiresAt: info.expiresAt,
+      expiresAt: info.expiresAt ?? sources.firstOrNull?.expiresAt,
       isTrial: info.isTrial,
       willRenew: info.willRenew,
     );
@@ -50,9 +115,15 @@ Entitlement entitlementFromCustomerInfo(RevenueCatCustomerInfoSnapshot info) {
   return Entitlement(
     plan: planForSku(sku),
     productId: productId,
-    expiresAt: info.expiresAt,
-    isTrial: info.isTrial,
-    willRenew: info.willRenew,
+    expiresAt: selected?.expiresAt ?? info.expiresAt,
+    isTrial: selected?.isTrial ?? info.isTrial,
+    willRenew: selected?.willRenew ?? info.willRenew,
+    tier: productForId(productId)?.tier,
+    state: selected?.billingIssuesDetectedAt != null
+        ? EntitlementState.billingIssue
+        : null,
+    subscriptions: subscriptions,
+    promotions: info.promotions,
   );
 }
 

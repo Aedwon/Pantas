@@ -1,8 +1,10 @@
 import 'dart:developer';
 
+import 'package:meta/meta.dart';
 import 'package:pantas/features/paywall/domain/price_tier.dart';
 import 'package:pantas/features/paywall/domain/products.dart';
 
+@immutable
 class CoveragePeriod {
   const CoveragePeriod({
     required this.id,
@@ -13,6 +15,16 @@ class CoveragePeriod {
   final String id;
   final DateTime endsAt;
   final bool active;
+
+  @override
+  bool operator ==(Object other) =>
+      other is CoveragePeriod &&
+      other.id == id &&
+      other.endsAt == endsAt &&
+      other.active == active;
+
+  @override
+  int get hashCode => Object.hash(id, endsAt, active);
 }
 
 /// Only server-owned pass ledger records may construct these values.

@@ -1,4 +1,5 @@
 import 'package:flutter/services.dart';
+import 'package:pantas/features/paywall/domain/coverage.dart';
 import 'package:pantas/features/paywall/domain/paywall_package.dart';
 import 'package:pantas/features/paywall/domain/products.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
@@ -27,8 +28,13 @@ class RevenueCatSdkException implements Exception {
 }
 
 class RevenueCatCustomerInfoSnapshot {
-  const RevenueCatCustomerInfoSnapshot.inactive({this.requestDate})
-      : productId = null,
+  const RevenueCatCustomerInfoSnapshot.inactive({
+    this.requestDate,
+    this.subscriptions = const [],
+    this.promotions = const [],
+    this.nonSubscriptionPurchases = const [],
+    this.billingIssuesDetectedAt,
+  })  : productId = null,
         expiresAt = null,
         isTrial = false,
         willRenew = false;
@@ -39,6 +45,10 @@ class RevenueCatCustomerInfoSnapshot {
     this.isTrial = false,
     this.willRenew = true,
     this.requestDate,
+    this.subscriptions = const [],
+    this.promotions = const [],
+    this.nonSubscriptionPurchases = const [],
+    this.billingIssuesDetectedAt,
   });
 
   final String? productId;
@@ -46,8 +56,29 @@ class RevenueCatCustomerInfoSnapshot {
   final bool isTrial;
   final bool willRenew;
   final DateTime? requestDate;
+  final List<RevenueCatSubscriptionSnapshot> subscriptions;
+  final List<CoveragePeriod> promotions;
+  final List<String> nonSubscriptionPurchases;
+  final DateTime? billingIssuesDetectedAt;
 
-  bool get proIsActive => productId != null;
+  bool get proIsActive =>
+      productId != null || subscriptions.isNotEmpty || promotions.isNotEmpty;
+}
+
+class RevenueCatSubscriptionSnapshot {
+  const RevenueCatSubscriptionSnapshot({
+    required this.productId,
+    this.expiresAt,
+    this.isTrial = false,
+    this.willRenew = true,
+    this.billingIssuesDetectedAt,
+  });
+
+  final String productId;
+  final DateTime? expiresAt;
+  final bool isTrial;
+  final bool willRenew;
+  final DateTime? billingIssuesDetectedAt;
 }
 
 class RevenueCatProductSnapshot {
@@ -155,8 +186,47 @@ RevenueCatCustomerInfoSnapshot revenueCatCustomerInfoSnapshot(
 ) {
   final requestDate = DateTime.tryParse(info.requestDate)?.toUtc();
   final active = info.entitlements.active[_proEntitlementId];
+  DateTime? date(String? value) =>
+      value == null ? null : DateTime.tryParse(value)?.toUtc();
+  final subscriptions = [
+    for (final id in info.activeSubscriptions)
+      RevenueCatSubscriptionSnapshot(
+        productId: id,
+        expiresAt: date(
+          info.subscriptionsByProductIdentifier[id]?.expiresDate ??
+              info.allExpirationDates[id],
+        ),
+        isTrial: info.subscriptionsByProductIdentifier[id]?.periodType ==
+            PeriodType.trial,
+        willRenew: info.subscriptionsByProductIdentifier[id]?.willRenew ??
+            (active?.productIdentifier == id ? active?.willRenew : null) ??
+            true,
+        billingIssuesDetectedAt: date(
+          info.subscriptionsByProductIdentifier[id]?.billingIssuesDetectedAt,
+        ),
+      ),
+  ];
+  final promotions = [
+    for (final entry in info.entitlements.active.entries)
+      if ((entry.key.startsWith('promo_') ||
+              entry.value.store == Store.promotional) &&
+          date(entry.value.expirationDate) != null)
+        CoveragePeriod(
+          id: entry.key,
+          endsAt: date(entry.value.expirationDate)!,
+        ),
+  ];
+  final purchases = [
+    for (final transaction in info.nonSubscriptionTransactions)
+      transaction.productIdentifier,
+  ];
   if (active == null) {
-    return RevenueCatCustomerInfoSnapshot.inactive(requestDate: requestDate);
+    return RevenueCatCustomerInfoSnapshot.inactive(
+      requestDate: requestDate,
+      subscriptions: subscriptions,
+      promotions: promotions,
+      nonSubscriptionPurchases: purchases,
+    );
   }
   return RevenueCatCustomerInfoSnapshot.active(
     productId: active.productIdentifier,
@@ -166,6 +236,10 @@ RevenueCatCustomerInfoSnapshot revenueCatCustomerInfoSnapshot(
     isTrial: active.periodType == PeriodType.trial,
     willRenew: active.willRenew,
     requestDate: requestDate,
+    subscriptions: subscriptions,
+    promotions: promotions,
+    nonSubscriptionPurchases: purchases,
+    billingIssuesDetectedAt: date(active.billingIssueDetectedAt),
   );
 }
 

@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:pantas/features/paywall/domain/coverage.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
+import 'package:pantas/features/paywall/domain/price_tier.dart';
 
 typedef EntitlementSnapshotRead = Future<String?> Function(String key);
 typedef EntitlementSnapshotWrite = Future<void> Function(
@@ -45,22 +47,12 @@ class EntitlementSnapshotStore {
       final isTrial = decoded['isTrial'] == true;
       final willRenew = decoded['willRenew'] == true;
 
-      if (unknown) {
-        if (productId == null || productId.isEmpty) return null;
-        return Entitlement.activeUnknown(
-          productId: productId,
-          expiresAt: expiresAt,
-          isTrial: isTrial,
-          willRenew: willRenew,
-        );
-      }
-
       final planName = decoded['plan'] as String?;
       final plan = EntitlementPlan.values
           .where((candidate) => candidate.name == planName)
           .firstOrNull;
       if (plan == null) return null;
-      if (plan == EntitlementPlan.free) return const Entitlement.free();
+      if (unknown && (productId == null || productId.isEmpty)) return null;
 
       return Entitlement(
         plan: plan,
@@ -68,6 +60,24 @@ class EntitlementSnapshotStore {
         expiresAt: expiresAt,
         isTrial: isTrial,
         willRenew: willRenew,
+        isUnknownPlan: unknown,
+        tier: _enumValue(PriceTier.values, decoded['tier']),
+        state: _enumValue(EntitlementState.values, decoded['state']),
+        endsAt: _date(decoded['endsAt']),
+        renewsAt: _date(decoded['renewsAt']),
+        chargesAt: _date(decoded['chargesAt']),
+        passes: {
+          for (final entry
+              in (decoded['passes'] as Map<String, dynamic>? ?? {}).entries)
+            entry.key: DateTime.parse(entry.value as String).toUtc(),
+        },
+        subscriptions: _periods(decoded['subscriptions']),
+        promotions: _periods(decoded['promotions']),
+        examTiers: {
+          for (final entry
+              in (decoded['examTiers'] as Map<String, dynamic>? ?? {}).entries)
+            entry.key: PriceTier.values.byName(entry.value as String),
+        },
       );
     } catch (_) {
       return null;
@@ -82,10 +92,50 @@ class EntitlementSnapshotStore {
       'isTrial': entitlement.isTrial,
       'willRenew': entitlement.willRenew,
       'unknown': entitlement.isUnknownPlan,
+      'tier': entitlement.tier?.name,
+      'state': entitlement.state.name,
+      'endsAt': entitlement.endsAt?.toUtc().toIso8601String(),
+      'renewsAt': entitlement.renewsAt?.toUtc().toIso8601String(),
+      'chargesAt': entitlement.chargesAt?.toUtc().toIso8601String(),
+      'passes': {
+        for (final entry in entitlement.passes.entries)
+          entry.key: entry.value.toUtc().toIso8601String(),
+      },
+      'subscriptions': _encodePeriods(entitlement.subscriptions),
+      'promotions': _encodePeriods(entitlement.promotions),
+      'examTiers': {
+        for (final entry in entitlement.examTiers.entries)
+          entry.key: entry.value.name,
+      },
     });
     return _writeValue(storageKey, value);
   }
 }
+
+T? _enumValue<T extends Enum>(List<T> values, Object? raw) =>
+    values.where((value) => value.name == raw).firstOrNull;
+
+DateTime? _date(Object? raw) =>
+    raw is String ? DateTime.tryParse(raw)?.toUtc() : null;
+
+List<CoveragePeriod> _periods(Object? raw) => [
+      for (final row
+          in (raw as List<dynamic>? ?? []).cast<Map<String, dynamic>>())
+        CoveragePeriod(
+          id: row['id'] as String,
+          endsAt: DateTime.parse(row['endsAt'] as String).toUtc(),
+          active: row['active'] == true,
+        ),
+    ];
+
+List<Map<String, Object>> _encodePeriods(List<CoveragePeriod> periods) => [
+      for (final period in periods)
+        {
+          'id': period.id,
+          'endsAt': period.endsAt.toUtc().toIso8601String(),
+          'active': period.active,
+        },
+    ];
 
 extension _FirstOrNull<T> on Iterable<T> {
   T? get firstOrNull {
