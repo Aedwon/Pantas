@@ -982,6 +982,6 @@ W3 Task 4 adds the enum and `tierForExam` over the catalog (L3 W3 Task 4 amended
 W3 Tasks 3 and 6 are done (e102802f, b22897d5). Task 7 stopped: the SDK cannot list pending
 orders, so the plan's "nothing can be bought twice while pending" had no defined end. Ruling: a
 device marker per account; it clears when the entitlement turns active, or when the student taps
-"Check again" after 72 hours with no entitlement; Play rejects a true duplicate (L3 W3 Task 7
+"Restore Purchases" (the button ST_ProPending draws) after 72 hours with no entitlement; Play rejects a true duplicate (L3 W3 Task 7
 amended). Source: RevenueCat's Google Play guides (pending purchases are canceled when payment
 fails or expires).
