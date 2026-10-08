@@ -1364,3 +1364,11 @@ Exact user instruction in this Codex desktop conversation:
 > please continue
 
 The existing original CLI orchestrator and retry watcher are already running. Desktop lead fetched current main at `1aaebad9814ba7bd9404d8b43fc010281abb97cf` and recovered the live Level 3 checkpoint. Audit local/remote head `c1b3766c7ca7c631e61b576c0c083df9f2549134` matches. Eleven completed topic artifacts cover 97 mathematics/science lessons; nine current independent samples cover 91. Precalculus and Data Interpretation await independent review; Language Proficiency readers retain their saved work. Continue the existing run without a duplicate orchestrator. This instruction continues Level 3 only and does not approve Level 4 or Level 5 or content changes. The live orchestrator is checking saved draft identities and current repository state after earlier transport failures. Watcher remains responsible for retrying stops and saving/uploading progress.
+
+### October 8, 2026, 9:36 PM Philippine time: human continuation after reset
+
+Exact user instruction in this Codex desktop conversation:
+
+> continue
+
+The instruction resumes the current approved Level 3 only; it does not approve Level 4 or Level 5 or content changes. Current main policy remains `1aaebad9814ba7bd9404d8b43fc010281abb97cf`, freshly fetched/read. Audit local/remote match `44a8ae86de62b78025525ab258d0be905ee043c1`; pinned corpus local/remote `765c5dc0fa5586281047bf4f7b30d09ab3707887` remains clean. Fourteen completed topic artifacts cover 116 lessons, with nine independent samples covering 91; preserve pending reviews and Reading Comprehension drafts. Original orchestrator is idle following a usage-limit stop, while the existing watcher is alive. Current account permits ordinary usage: five-hour use 1%, weekly use 76%; these are current observations only. Run the existing watcher check immediately to resume the same original session after its live availability probe. Preserve saved worker identities and approval gates; no duplicate orchestrator, credit purchases, reset-credit use, or content edits.

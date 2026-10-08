@@ -523,3 +523,11 @@ Exact user instruction in the current Codex desktop conversation:
 - Text Types5dispatch confirmed to existing l3_chemistry, sole new output; Vocabulary remains immutable and released to independent reviewer. Comprehension Skills8and reviewer continue. Three Sol High workers active, no duplicate/later-level work. All14completed targets remain subject to current sample or pending sample at exact hashes.
 
 - Root consolidation now preserves14topics/116lessons/535requirements. Shared language ledger contains32encountered records across all3topics, including Vocabulary14rows and additional-source locators; all semantic samples remainpending. Partial structure summary includes both new focus proposals and actual bilingual coverage limits, explicitly withholding whole-corpus Filipino absence and full exam claims.
+
+### October 8, 2026, 9:36 PM Philippine time: human continuation after reset
+
+Exact user instruction in this Codex desktop conversation:
+
+> continue
+
+The instruction resumes the current approved Level 3 only; it does not approve Level 4 or Level 5 or content changes. Current main policy remains `1aaebad9814ba7bd9404d8b43fc010281abb97cf`, freshly fetched/read. Audit local/remote match `44a8ae86de62b78025525ab258d0be905ee043c1`; pinned corpus local/remote `765c5dc0fa5586281047bf4f7b30d09ab3707887` remains clean. Fourteen completed topic artifacts cover 116 lessons, with nine independent samples covering 91; preserve pending reviews and Reading Comprehension drafts. Original orchestrator is idle following a usage-limit stop, while the existing watcher is alive. Current account permits ordinary usage: five-hour use 1%, weekly use 76%; these are current observations only. Run the existing watcher check immediately to resume the same original session after its live availability probe. Preserve saved worker identities and approval gates; no duplicate orchestrator, credit purchases, reset-credit use, or content edits.
