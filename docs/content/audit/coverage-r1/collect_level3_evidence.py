@@ -32,7 +32,15 @@ for topic in records:
             facets.setdefault(ref, []).append({'topicKey': key, 'facetIndex': index, 'assessment': facet})
 accounting = []
 for row in rows:
-    accounting.append({'requirementId': row['id'], 'exam': row['exam'], 'text': row['text'], 'sourceEvidence': row['evidence'], 'sourceConfidence': row['confidence'], 'sourceStatus': row['status'], 'localFacets': facets.get(row['id'], []), 'globalFinding': 'PENDING lead reconciliation; local facets do not cover entire compound row', 'practice': 'deferred Level5', 'availability': 'unknown: corpus-bound runtime not verified'})
+    if row['kind'] == 'context':
+        finding = 'CONTEXT ACCOUNTED: source/cycle/format record, not a required teaching skill; preserve exact accepted qualifiers'
+    elif row['kind'] == 'constraint':
+        finding = 'CONSTRAINT ACCOUNTED: exam-scope limitation, not a positive teaching requirement; preserve exact accepted qualifiers'
+    elif row['status'] == 'UNKNOWN':
+        finding = 'REQUIREMENT UNKNOWN: no confirmed required skill or depth can be inferred from this source record'
+    else:
+        finding = 'PENDING lead reconciliation; local facets do not cover entire compound row'
+    accounting.append({'requirementId': row['id'], 'exam': row['exam'], 'kind': row['kind'], 'text': row['text'], 'sourceRecordPath': row['requirementPath'], 'sourceEvidence': row['evidence'], 'sourceConfidence': row['confidence'], 'sourceStatus': row['status'], 'localFacets': facets.get(row['id'], []), 'globalFinding': finding, 'practice': 'deferred Level5', 'availability': 'unknown: corpus-bound runtime not verified'})
 result = {'level': 3, 'status': 'DRAFT; independent review and lead reconciliation pending', 'corpusCommit': manifest['corpusCommit'], 'policyCommit': manifest['policyCommit'], 'topicOutputHashes': output_hashes, 'pendingTopics': pending, 'topicRecords': records, 'requirementAccounting': accounting}
 (ROOT / 'lesson-structure-data.json').write_text(json.dumps(result, indent=2, ensure_ascii=False) + '\n')
 print(json.dumps({'collectedTopics': len(records), 'collectedLessons': sum(len(x['lessons']) for x in records), 'pendingTopics': len(pending), 'preservedRequirements': len(accounting), 'semanticAcceptance': False}))

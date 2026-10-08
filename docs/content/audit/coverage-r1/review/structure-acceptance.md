@@ -17,13 +17,17 @@ Corpus: content/question-qa-r2 at765c5dc0fa5586281047bf4f7b30d09ab3707887, read-
 | Algebra | 11 complete lessons | PASS at 8e6f822c | Sample accepted; split/domain limitations retained |
 | Trigonometry | 7 complete lessons | PASS at 64b0d70f | Sample accepted; literal numeric concern retained |
 | Statistics and probability | 5 complete lessons | PASS at 5d43857d | Sample accepted; table/chart consolidation pending bilateral review |
-| Precalculus and basic calculus | 4 complete lessons | Pending | Author complete at 49495ded; no sample acceptance |
-| Data Interpretation | 2 complete lessons | Pending | Author complete at 2773bf1c; no sample acceptance |
-| Grammar and Structure | 10 complete lessons | Pending | Author complete at947a31cf; no sample acceptance |
-| Language Application | 3 complete lessons | Pending | Author complete at3f38f904; no sample acceptance |
-| Vocabulary | 6 complete lessons | Pending | Author complete atc03b0bb0; no sample acceptance |
-| Reading Comprehension, two topics | Started, author drafts pending | Pending | No completed reading or acceptance inferred |
-| Remaining nine topics | Not started | Pending | No reading or acceptance inferred |
+| Precalculus and basic calculus | 4 complete lessons | PASS at49495ded | Sample accepted; conceptual/application limits retained |
+| Data Interpretation | 2 complete lessons | PASS at2773bf1c | Sample accepted; bilateral consolidation and negative-reference limit retained |
+| Grammar and Structure | 10 complete lessons | PASS at947a31cf | Sample accepted; partial bilingual and source limits retained |
+| Language Application | 3 complete lessons | PASS at3f38f904 | Sample accepted; English-only local applications and usage limits retained |
+| Vocabulary | 6 complete lessons | PASS atc03b0bb0 | Sample accepted; partial bilingual and unresolved source limits retained |
+| Comprehension Skills | 8 complete lessons | PASS atf28d1543 | Sample accepted; shared-core and bilingual/source limits retained |
+| Text Types | 5 complete lessons | PASS at6a2c639a | Sample accepted; visual-method focus, English-only and source limits retained |
+| Logical-Verbal Reasoning | 4 complete lessons | PASS atfb6cc495 | Sample accepted; surfaced ambiguity and source limits retained |
+| Spatial-Abstract Reasoning | 5 complete lessons | PASS atc0be5b48 | Sample accepted; rotation/projection focus and model/input limits retained |
+| Mechanical-Technical and Clerical Reasoning | Started, author drafts pending | Pending | No completed reading or acceptance inferred |
+| Remaining seven topics | Not started | Pending | No reading or acceptance inferred |
 
 The lead read the biology review's saved source-first observations and comparison. The reviewer authored no Level 3 targets. It read the sampled full sources before author verdicts, checked both biology split proposals, verified the evolution-to-genetics foundation link at both ends, and reopened NHGRI definition sources. The current topic hash matches the reviewed target. No sample flag remains. This acceptance does not establish every scientific fact, required exam depth, complete exam coverage, practice quality or runtime availability.
 
@@ -45,3 +49,17 @@ No content, roadmap, app, importer, schema or illustration changes are authorize
 October 8 continuation: the source-first reviewer report accounts for 25 unique topics, nine PASS, zero FLAGS, sixteen PENDING. Current hashes match the nine reviewed targets. The shared mechanical checker independently returned eleven COMPLETE topics, 97 lessons, errors[], mechanicalAccountingReady false, gateReady false. Earlier five-topic paragraphs remain historical reasoning. All 535 accepted requirement records are retained in the draft consolidation; their global findings remain pending rather than inferred from local facets.
 
 Current author accounting on October8:14complete topics/116lessons/errors[], gatefalse; all158frozenbodyhashes match without inferring reads of unfinished topics. Reviewer now samples2Math+3Language targets and preserves9existingPASS samples. Two Reading Comprehension readers are active;9Reasoning/General Information topics remain unstarted. Canonical Dart attribution attempt returned no output and was canceled exit130; scoped equivalent marker scans are recorded separately, not a Dart pass.
+
+Latest October8 resume recovered11PASS/0FLAGS/14PENDING in the independent report, covering97lessons. Precalculus/Data Interpretation source-first comparisons were saved before interruption; actual target hashes unchanged. Those samples are accepted without replaying completed readings. Three Language samples, remaining author topics and whole-level reconciliation remain pending.
+
+Grammar source-first sample saved PASS at947a31cf; current12PASS/0FLAGS/13PENDING covers107lessons. Application/Vocabulary comparison and remaining author topics are pending. No combined acceptance or full correctness claim.
+
+All14current completed topic samples nowPASS, 0FLAGS/11PENDING, covering116lessons. The independent verifier preserved1187facet relationships/4120evidence ranges/32both-end existing-ID links and actual hashes, errors[]. Root read new Application/Vocabulary comparisons; whole-corpus integration stillpending.
+
+Comprehension samplePASS atf28d1543 brings current15PASS/0FLAGS/10PENDING, covering124lessons. Text Types source-first review is active;2Reasoning readers continue. Author accounting16topics/129lessons, combinedgatefalse.
+
+All16completed topic samples currentPASS, 0FLAGS/9PENDING,129lessons; exact4705ranges/32existing both-end links/1380facets/ref/sourcehash checks pass, reviewedcycles[]. Root accepted actual Text Types comparison/hash; whole-level remainspending.
+
+Logical-Verbal current samplePASS makes17PASS/0FLAGS/8PENDING,133lessons. Reviewer inspected actual source-first comparison and bounded primary lexical concern; shared stage acceptance stillpending, not a full answer review.
+
+Current18PASS/0FLAGS/7PENDING covers138lessons, actual1510facets/5118ranges/32links/current18hashes checked. Spatial source-first sample accepted; no illustration need/display assessment. Remaining author topics/globalreconciliation/completegraph/finalchecks pending.
