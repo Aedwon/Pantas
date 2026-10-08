@@ -1,0 +1,22 @@
+{
+  "map-input-manifest.json": {
+    "checked": 13,
+    "mismatches": []
+  },
+  "requirement-input-manifest.json": {
+    "checked": 10,
+    "mismatches": []
+  },
+  "overlap-input-manifest.json": {
+    "checked": 8,
+    "mismatches": []
+  },
+  "docs/content/audit/coverage-r1/lesson-structure.md": {
+    "emdashes": 0,
+    "trailingWhitespace": 0
+  },
+  "docs/content/audit/coverage-r1/review/structure-acceptance.md": {
+    "emdashes": 0,
+    "trailingWhitespace": 0
+  }
+}

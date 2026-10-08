@@ -14,7 +14,7 @@ Plan: `docs/superpowers/plans/2026-10-04-exam-content-coverage-audit.md`.
 
 ## Current level and acceptance state
 
-Levels 1 and 2 are accepted. Level 3 is approved and RUNNING. Eleven completed topic artifacts account for all 97 mathematics/science lessons; nine current independent samples cover 91. Precalculus/Data Interpretation await review. Grammar and Vocabulary readers are active. Twelve other topics remain unread. Global integration is pending. Levels 4 and 5 are unauthorized. Level 3 records only load-bearing figure dependencies.
+Levels 1 and 2 are accepted. Level 3 is approved and RUNNING. Fourteen completed topic artifacts account for 116 lessons; nine current independent samples cover 91. The reviewer samples two Mathematics topics and all three Language Proficiency topics. Two Reading Comprehension readers own separate new drafts. Nine remaining topics await reading. Global integration is pending. Levels 4 and 5 are unauthorized. Level 3 records only load-bearing figure dependencies.
 
 | Exam | Research | Source check | Fresh rebuild | Exam map |
 |---|---|---|---|---|
@@ -28,7 +28,7 @@ Levels 1 and 2 are accepted. Level 3 is approved and RUNNING. Eleven completed t
 | CSE Professional | Lead revision source-accepted | Resolution source flag closed | PASS rebuild | Accepted provisional map; audited tab readback verified |
 | CSE Subprofessional | Lead revision source-accepted | Resolution PASS; residual §6 corrected | FLAGS1 resolved | Accepted provisional map; audited tab readback verified |
 
-All-exam counting: PASS. Audited Google Doc tab t.38uf83creimq independently read back by lead; 200 nonempty paragraphs,158lesson bullets, draft text/styles exact and original tab full structure unchanged. Level 2 overlap complete and checked. No lesson bodies read or later-level tasks started. Corpus unchanged. Watcher handles commits/pushes; lead does not mutate git metadata.
+All-exam counting: PASS. Audited Google Doc tab t.38uf83creimq independently read back by lead; 200 nonempty paragraphs,158lesson bullets, draft text/styles exact and original tab full structure unchanged. Level 2 overlap complete and checked. At that Level 2 gate, no lesson bodies had been read or later-level tasks started. Current Level 3 reading is recorded above and below. Corpus unchanged. Watcher handles commits/pushes; lead does not mutate git metadata.
 
 ## Historical progress
 
@@ -49,7 +49,7 @@ All-exam counting: PASS. Audited Google Doc tab t.38uf83creimq independently rea
     run stalled an hour on stdin and was rerun.
   - Historical next step was UPCAT Science comparison; superseded by the current all-exam gate.
 
-## Pause state
+## Historical pause state, Level 1
 
 Level 1 remains authorized and is resuming. The latest automatic message reports a successful live quota test, superseding historical reset-time waits. No later-level approval was given.
 
@@ -497,3 +497,29 @@ Exact user instruction in the current Codex desktop conversation:
 - Language Application3reader dispatch confirmed to l3_biology, sole new output; Grammar10andVocabulary6writers continue separately. Three Sol High writers active, reviewer remains fresh/idle. Two Math topic samples pending; completed artifacts unchanged. No practice/standards/illustration production work or additional approval inferred.
 
 - Existing source ledger now consolidates all11completed topic records by subject, with original lesson IDs, per-source dates, qualified dispositions and exact topic evidence preserved. Unknown and internal-domain/numeric concerns stay unresolved where stated; current sample versus pending review is explicit. Generic access failures remain notes, not scored facts. This updates documentation only and makes no full correctness claim.
+
+- Latest automatic resume checked ORCHESTRATOR/status and existing outputs; RUNNING only, no approval. No live workers at startup. Main remains1aaebad9with the same fully read policy; audit live/localc1b3766c matches watcher checkpoint, corpus765c5dc0 unchanged. GrammarDRAFT10records/130facets at7fc02d69, VocabularyDRAFT6/95at89b22163, ApplicationDRAFT2/0at80def6fc. Preserve these reads and resume only unfinished work. Prior11complete artifacts/current9samples remain applicable; no new usage error preceded this resume.
+
+- Latest automatic continuation verified live/cached main1aaebad9, live/local auditc1b3766c and pinned corpus765c5dc0. Current main policy/startup/standards and updated spec/plan/latest decisions retrieved and read; first line remains RUNNING. All three saved Language Proficiency readers resumed successfully under their existing identities and separate sole-output assignments. No duplicate worker or later-level work. Initial checker invocation used a nonexistent structure-subdirectory path and read nothing; corrected audit-root invocation follows.
+
+- Corrected shared checker actual output:11COMPLETE topics/97lessons/errors[], both readiness flags false; collector preserved all535requirements and14pending topics. Root refreshed current acceptance record to9samplePASS/2author-complete awaiting samples, and saved a clearly partial Level3structure consolidation with evidence/costs. No global coverage, complete graph or content-change acceptance is inferred.
+
+- Language Application intermediate result received:3/3body reads now saved, no strict prerequisite links found. English editing/ordering/completion are distinct; Filipino instruction and essay production absent in these owned bodies only. Encountered committee-agreement wording is being qualified against Cambridge/Purdue sources; no correctness sweep or content edit. Author facets/checks and independent sample remain pending. Accepted13map/10requirement-profile/8overlap hashes stillmatch, and new partial report/acceptance prose has0emdashes/trailing whitespace. Scoped Dart attribution remains running without output; no pass inferred.
+
+- Root scoped attribution process canceled after no output, actualexit130; no Dart pass recorded. Read the current policy scanner and checked its exact prose marker patterns/exemptions with Python on6new/changed documents:0hits, per-file hashes/method saved in structure/continuation-attribution-check.json. This bounded equivalent is explicit, not a claim of full tracked-tree Dart execution. Corpus gitstatus clean/HEAD765c5dc0 independently confirmed.
+
+- Grammar final result received at947a31cf1022c670c7a4c61791c31fdd7345cede8e586a0e480d3791f4ecc808. Ten full reads,130facets,45valid refs/356valid evidence records/errors[], no strict links with10explicit dispositions; one tense/aspect versus voice split candidate. Filipino teaching gaps, langkapan parsing and morphology unknowns retained. Combined checker12topics/107lessons/errors[], gatefalse. Document-marker/whitespace checks passed; canonical Dart attribution unverified. Root verified current hash/prose and combined output; fresh independent sample pending, artifact immutable.
+
+- Reviewer continuation dispatch confirmed for the two pending Mathematics targets plus current Grammar947a31cf, all source-first; existing9PASS samples remain preserved. Vocabulary/Application readers continue their separate drafts. Three Sol High workers active. Other readers idle; no duplicate or later-level work.
+
+- Language Application final result received at3f38f904c021b22d28b57faf2de09ac692d528a9c6d5d9f8c012c42331e19bf1. Three full reads/58facets/8ledger entries,179valid evidence ranges/all58refs/errors[], no strict links/3explicit no-link dispositions. Checklist-teaching limits, local English-only instruction, separate essay-production scope and completion usage/context qualification retained. Corpus clean/prior artifacts unchanged; shared validator13topics/110lessons/errors[], gatefalse. Canonical Dart attribution unverified; current output immutable, independent sample pending.
+
+- Comprehension Skills8dispatch confirmed to existing l3_biology, sole new topic output; its Language Application artifact remains immutable and released to the fresh reviewer. Vocabulary and reviewer continue independently. Three Sol High workers active, no duplicate/later-level task.
+
+- Root collected13completed topics/110lessons and retained535source records, all global findings explicitlypending. Added18Grammar/Application encountered-source records to the shared ledger, preserving per-row dates, accepted-source reuse, English usage/Filipino morphology qualifiers and current pending independent samples. No factual or complete bilingual claim is inferred.
+
+- Vocabulary final result received atc03b0bb0689cf9c11fa60f59c5cfae3b0f3e7b2c9a6877f2a054a53d8d9943ea. Six full reads/hashes/96facets/365valid evidence objects/934valid references/errors[], no strict edges/6explicit no-edge records. One idiom-versus-figurative-interpretation split candidate, partial bilingual teaching and thin methods retained. KWF acceptance of both spelling variants remains unconfirmed. Shared checker14topics/116lessons/errors[], gatefalse. Focused document scan passed; canonical Dart unverified. Root confirmed hash/prose and combined output; artifact immutable pending independent sample.
+
+- Text Types5dispatch confirmed to existing l3_chemistry, sole new output; Vocabulary remains immutable and released to independent reviewer. Comprehension Skills8and reviewer continue. Three Sol High workers active, no duplicate/later-level work. All14completed targets remain subject to current sample or pending sample at exact hashes.
+
+- Root consolidation now preserves14topics/116lessons/535requirements. Shared language ledger contains32encountered records across all3topics, including Vocabulary14rows and additional-source locators; all semantic samples remainpending. Partial structure summary includes both new focus proposals and actual bilingual coverage limits, explicitly withholding whole-corpus Filipino absence and full exam claims.

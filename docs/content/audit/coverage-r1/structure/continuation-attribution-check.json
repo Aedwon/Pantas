@@ -1,0 +1,15 @@
+{
+  "method": "Scoped Python equivalent of current Dart prose marker patterns/exemptions, after reading scanner source; not a completed Dart invocation",
+  "policySourceSha256": "d6fc3df8958ad28148987ebd508cbb8996df3f9828fa3732a98d51eb72125fa7",
+  "files": {
+    "docs/content/audit/coverage-r1/lesson-structure.md": "33fa706360ebc880fd44dd12e19dec810cc5d55cd36842d6c66e8fd7ff3a3617",
+    "docs/content/audit/coverage-r1/review/structure-acceptance.md": "3c86af92e15c382e23600768003c7a9774a5ac6150bf36aca25f449dd7a99e52",
+    "docs/content/audit/coverage-r1/briefs/l3-language-resume-vocabulary.md": "bf5efd643603c2a57250bb3d84b2fa61cc77e789f7f73b4a6eec6ace8253ce6e",
+    "docs/content/audit/coverage-r1/briefs/l3-language-resume-application.md": "f5de2b0054dd3a46252f4722b0b0c2dd036bba88522293748ab65a02909c6b77",
+    "docs/content/audit/coverage-r1/briefs/l3-language-resume-grammar.md": "1eb537b87eb3c89eed98c3600d19464324efcecae0e1db66733a745c7f81fee1",
+    "docs/content/audit/coverage-r1/briefs/l3-review-math-continuation.md": "ede7dd673badaf8e03fde02eee6948ddf546339c6f394e52c7d409779cb96f00"
+  },
+  "hits": [],
+  "dartAttempt": "canceled without output, exit130",
+  "contentRead": false
+}

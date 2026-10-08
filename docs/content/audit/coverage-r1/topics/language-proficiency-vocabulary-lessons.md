@@ -1,6 +1,6 @@
 # Vocabulary lesson structure audit
 
-Status: DRAFT. Author findings only; independent semantic review pending.
+Status: COMPLETE. Author findings only; independent semantic review pending.
 
 ## Identity and scope
 
@@ -12,7 +12,18 @@ Evidence paths are pinned corpus-relative; lines are 1-based inclusive. Full-rea
 
 ## Recommendations and limits
 
-Startup checkpoint only; six owned bodies remain unread. English/Filipino scope, word-level strategy, passage application and analogy relationships will be kept distinct. No current full exam scope or arbitrary word-list threshold inferred.
+Retain shareable meaning-in-context, sense-first comparison and genuine-word-part principles once. The accepted CSE 2026 PPT records explicitly name word meaning in English and Filipino and English Clerical spelling for Subprofessional. UPCAT confirms broad bilingual Language Proficiency; USTET confirms an English discipline without exact item-language rules. DOST English vocabulary is historical 2026, with 2027 continuity unknown. Other exam fine vocabulary candidates remain curriculum/weak/current-scope uncertain. Specialized word lists, language allocations and tested difficulty remain unknown; no roster or example count proves whole-lesson coverage.
+
+- Actual bilingual evidence is partial: five bodies contain Filipino target-language examples or phrases, but explanations mainly use English. Spelling explains a Filipino orthography reference case through English. This records teaching/example presence, not a Level4 language/voice pass or complete Filipino instruction. English-only Clerical spelling does not establish the Filipino addition as required CSE spelling scope.
+- Split candidate: Idioms in Context versus Figurative Interpretation. Conventional phrase meaning and rhetorical-device/effect analysis use distinct evidence and preparation facets. Preserve the common context strategy once; add developed effects/transfer teaching to the figurative strand. Costs: approved new identities/routing, moved examples/traps/terminology, sources and later practice alignment. Unknown exam depth does not justify removing either strand (current body lines12-129,L01/L19 structural).
+- Retain the other five current units as coherent goals. Word-part work needs complex Filipino segmentation rather than a supplied root answer (root body lines60-84); spelling needs explicit stress/suffix derivation; connotation/register/collocation need worked distinctions beyond names. Filipino affix contributions and several tayutay applications are missing or thin. No arbitrary word-list or example minimum is used.
+- Vocabulary sentence-context examples do not establish longer-passage transfer. A narrow full read verifies shared definition/example/contrast teaching in the existing passage source, plus actual multi-sentence application. Reuse that common core while preserving separate application blocks; title similarity alone does not justify a merger. Both-source evidence and the foundation read hash are in the appendix. No coverage verdict for the other topic is made.
+- Analogy completion is locally absent from these six bodies. Synonym/antonym contrasts, figurative comparisons and affix clues are not relation-transfer procedures. The existing Reasoning analogy lesson remains a lead reconciliation reference, not a global absence inference.
+- All six current consumers define their target concepts or supply their deciding method/meaning. Related grammar, morphology and passage teaching are optional preparation; no indispensable absent idea with a necessary existing target was established. Six explicit no-edge records are saved, with lesson-specific reasoning. Future split/expanded teaching creates no current prerequisite.
+- No load-bearing figure dependency was encountered: deciding sentences, word forms, meanings and conditions are textual. Runtime remains unknown; question/practice, illustration assessment and all Levels 4/5 work remain deferred.
+- Bounded source ledger preserves verified English senses, partial Filipino support and unresolved language claims. The KWF guide preserves u in cuento-to-kuwento; the lesson's assertion that the orthography explicitly accepts both kwento/kuwento is not confirmed by located normative text. A KWF lecture slide listing forms is not an acceptance rule. No global claim that kwento is always wrong follows. Other unverified Filipino parsing/lexical/literary claims remain qualified, not accepted from weak reviewer evidence.
+
+Source scope: [accepted requirement packets](../requirements/), [CSE scope](../overlap/cse-scope.md), [CET/scholarship scope](../overlap/cet-scholarship-scope.md#language-and-reading). Exact requirement IDs carry source/cycle/cohort confidence. Primary encountered language references include [KWF dictionary/orthography guide](https://www.kwfdiksiyonaryo.ph/gabay.php), [KWF Manwal section9.1](https://kwfwikaatkultura.ph/wp-content/uploads/2024/05/Manwal-sa-Masinop-na-Pagsulat.pdf), [DepEd Filipino5 teaching material](https://lrmds.deped.gov.ph/create/download/1751) and publisher dictionary entries linked in the ledger. Those checks are bounded claims, not a complete correctness or new exam-source pass.
 
 ## Lesson findings
 
@@ -98,12 +109,43 @@ Load-bearing figure dependencies: none encountered. Markers do not establish ren
 
 lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocabulary-idioms-and-figures-of-speech, lesson-vocabulary-root-words-prefixes-suffixes, lesson-vocabulary-spelling-rules, lesson-vocabulary-synonyms-and-antonyms. Missing-foundation statuses remain separate from verified links.
 
+## Encountered source ledger
+
+Access date October 8, 2026; audit branch docs/content-coverage-audit-r1; corpus base 765c5dc0fa5586281047bf4f7b30d09ab3707887. Bounded encountered claims only, not a fact sweep.
+
+- lesson-vocabulary-confusing-words: Affect/effect roles and meanings. CONFIRMED WITH QUALIFICATION. [Affect entries verb1/noun; effect usage guide](https://www.merriam-webster.com/dictionary/affect). Details and evidence are in the appendix.
+- lesson-vocabulary-confusing-words: Its/it-is-or-it-has distinction. CONFIRMED. [Entry and Usage of Its](https://www.merriam-webster.com/dictionary/its). Details and evidence are in the appendix.
+- lesson-vocabulary-confusing-words: Ng/nang construction claims. PARTIALLY CONFIRMED. [KWF Manwal, section9.1, PDFp48](https://kwfwikaatkultura.ph/wp-content/uploads/2024/05/Manwal-sa-Masinop-na-Pagsulat.pdf). Details and evidence are in the appendix.
+- lesson-vocabulary-confusing-words: Sila/sina formal distinction. PARTIALLY CONFIRMED. [DepEd Filipino5 lesson plan, PDFp16](https://lrmds.deped.gov.ph/create/download/1751). Details and evidence are in the appendix.
+- lesson-vocabulary-confusing-words: Pronunciation generalization. UNCONFIRMED GENERALIZATION. [Pronunciation fields; paired effect entry](https://www.merriam-webster.com/dictionary/affect). Details and evidence are in the appendix.
+- lesson-vocabulary-root-words-prefixes-suffixes: Bounded word-element and Filipino parsing claims. PARTIALLY CONFIRMED. [Pseud-/pseudo- combining-form senses1-2](https://www.merriam-webster.com/dictionary/pseudo-). Details and evidence are in the appendix.
+- lesson-vocabulary-root-words-prefixes-suffixes: Circumlocution etymological explanation. CONFIRMED. [Definition, Did You Know, Etymology](https://www.merriam-webster.com/dictionary/circumlocution). Details and evidence are in the appendix.
+- lesson-vocabulary-spelling-rules: KWF acceptance attribution for kwento/kuwento. SOURCE QUALIFICATION CONCERN. [B section4, First Exception](https://www.kwfdiksiyonaryo.ph/gabay.php). Details and evidence are in the appendix.
+- lesson-vocabulary-spelling-rules: Occurrence standard spelling. CONFIRMED SPELLING. [Headword/pronunciation](https://www.merriam-webster.com/dictionary/occurrence). Details and evidence are in the appendix.
+- lesson-vocabulary-synonyms-and-antonyms: Ephemeral meaning used in synonym teaching. CONFIRMED LEXICAL SENSE. [Adjective sense1 and synonym list](https://www.merriam-webster.com/dictionary/ephemeral). Details and evidence are in the appendix.
+- lesson-vocabulary-synonyms-and-antonyms: Severity axis in antonym example. CONFIRMED LEXICAL SENSES. [Transitive sense2a](https://www.merriam-webster.com/dictionary/mitigate). Details and evidence are in the appendix.
+- lesson-vocabulary-idioms-and-figures-of-speech: Remaining Filipino labels/idiom and quoted literary claim. UNRESOLVED BOUNDED SOURCE CHECK. [Poem page identified; body fetch403](https://www.poetryfoundation.org/poems/42889/hope-is-the-thing-with-feathers-314). Details and evidence are in the appendix.
+- lesson-vocabulary-confusing-words: CSE named scope and spelling placement. CONFIRMED FOR ACCEPTED2026PPT BASELINE. [Signed2026 announcement,p7sectionF; accepted records cse-professional-L070,cse-subprofessional-L065/L081](https://csc.gov.ph/phocadownload/userupload/erpo/announcements/2026/ExamAnn_2026_03_Conduct%20of%2009%20Aug%202026%20CSE-PPT_orig%20signed.pdf). Details and evidence are in the appendix.
+- lesson-vocabulary-synonyms-and-antonyms: Unverified specific Filipino lexical/contextual claims. UNRESOLVED LEXICAL SOURCE LIMIT. [Dictionary guide,Asections5-6; specific lemma bodies not retrieved](https://www.kwfdiksiyonaryo.ph/gabay.php). Details and evidence are in the appendix.
+
+## Author self-check
+
+Command: python3 /private/tmp/check_vocab.py; exit0. Actual output: {"assignedIds": 6, "fullReadHashes": 6, "facets": 96, "skills": 95, "evidenceObjects": 365, "validRequirementReferences": 934, "sourceLedger": 14, "foundationReadHashes": 1, "prerequisiteEdges": 0, "explicitNoPrerequisite": 6, "acyclic": true, "singleJSONAppendix": true, "cleanPinnedCorpus": true, "prohibitedSourceChanges": false, "errors": []}
+
+Focused saved-document scan: {"emDashes": 0, "trailingWhitespace": 0, "attributionMarkers": 0, "brokenLocalLinks": []}. This scoped static attribution-marker scan is not the canonical Dart check. Canonical Dart attribution remains unverified; no pass inherited from the canceled lead process.
+
+Command: python3 docs/content/audit/coverage-r1/check_level3_outputs.py; exit0. Actual summary: {"level": 3, "completeTopics": 14, "expectedTopics": 25, "completeLessons": 116, "expectedLessons": 158, "errors": [], "mechanicalAccountingReady": false, "gateReady": false}. Vocabulary appears among COMPLETE topics; whole-phase readiness remains false.
+
+All six assigned IDs accounted once; full-read hashes/ranges preserved,95 skill records/96 facets,934 references and365 evidence bounds valid. One narrow passage-source full read/hash supports both-source reuse evidence without another-topic coverage verdict. Zero proposed strict edges and six explicit no-edge records; no aliases, self-links or authored-order assumptions. Fourteen ledger records preserve confirmed, partial and unresolved sources; remaining language-source questions are findings, not a complete correctness claim.
+
+Pinned corpus clean; prohibited source changes absent. Only sole Vocabulary output edited. Previous completed artifacts untouched. No Level4 standards/voice/readability/illustration pass or Level5 questions/practice/blind solves, runtime access, Google writes, extra agents or Git mutations. Fresh independent semantic review remains required.
+
 ## Machine-readable appendix
 
 ```json
 {
   "level": 3,
-  "status": "DRAFT",
+  "status": "COMPLETE",
   "subject": "language-proficiency",
   "topic": "vocabulary",
   "policyCommit": "1aaebad9814ba7bd9404d8b43fc010281abb97cf",
@@ -612,10 +654,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "cse-professional-L082"
           ],
           "sharedCore": "Distinguish confusing forms by grammar and meaning; Affect as influence verb; Effect as result noun; Effect as bring-about verb; Affect as emotion-expression noun; Its possessive use; Expand its versus it-is or it-has contraction; Ng noun-phrase and possession marking; Nang manner construction; Nang when-clause use; Nang repeated-action construction; Sila personal-pronoun use; Sina personal-name marking",
-          "partialLimits": "CSE2026PPT verbal preparation; actual English/Filipino teaching is facet-specific. Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "2026PPT word-meaning scope uses English and Filipino; allocation and word difficulty unknown. Actual Filipino examples are facet-specific and explained mainly in English. Fine pairs/idioms/word lists retain curriculum or weak qualifiers; computer variants are separate unknowns.",
           "depth": "unknown: detailed current organizer depth not established",
-          "tagRecommendation": "uncertain",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "tagRecommendation": "revise-candidate",
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         },
         {
           "exam": "cse-subprofessional",
@@ -624,10 +666,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "cse-subprofessional-L122"
           ],
           "sharedCore": "Distinguish confusing forms by grammar and meaning; Affect as influence verb; Effect as result noun; Effect as bring-about verb; Affect as emotion-expression noun; Its possessive use; Expand its versus it-is or it-has contraction; Ng noun-phrase and possession marking; Nang manner construction; Nang when-clause use; Nang repeated-action construction; Sila personal-pronoun use; Sina personal-name marking",
-          "partialLimits": "CSE2026PPT verbal preparation; actual English/Filipino teaching is facet-specific. Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "2026PPT word-meaning scope uses English and Filipino; allocation and word difficulty unknown. Actual Filipino examples are facet-specific and explained mainly in English. Fine pairs/idioms/word lists retain curriculum or weak qualifiers; computer variants are separate unknowns.",
           "depth": "unknown: detailed current organizer depth not established",
-          "tagRecommendation": "uncertain",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "tagRecommendation": "revise-candidate",
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         },
         {
           "exam": "upcat",
@@ -637,10 +679,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "upcat-L067"
           ],
           "sharedCore": "Distinguish confusing forms by grammar and meaning; Affect as influence verb; Effect as result noun; Effect as bring-about verb; Affect as emotion-expression noun; Its possessive use; Expand its versus it-is or it-has contraction; Ng noun-phrase and possession marking; Nang manner construction; Nang when-clause use; Nang repeated-action construction; Sila personal-pronoun use; Sina personal-name marking",
-          "partialLimits": "Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "Organizer confirms broad English/Filipino Language Proficiency; exact words/rules/depth unknown. Fine vocabulary/figurative/affix candidates retain curriculum or weak status. Actual language presence is separate from complete bilingual instruction.",
           "depth": "unknown: detailed current organizer depth not established",
-          "tagRecommendation": "retain-candidate",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "tagRecommendation": "revise-candidate",
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         }
       ],
       "structure": {
@@ -1189,10 +1231,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "acet-L110"
           ],
           "sharedCore": "Infer a likely meaning from surrounding context; Definition and restatement clues; Example clues; Synonym or near-synonym clues; Contrast and antonym clues; Situation-based inference clues; Combine clues without treating signal words as proof; Predict meaning before reading choices; Check candidate grammar and meaning by substitution; Filipino contextual word inference; Recognize underdetermined meaning and seek finer clues",
-          "partialLimits": "Current official academic scope unconfirmed; preparation candidate only. Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "Current academic roster/item languages/fine depth unconfirmed. Curriculum/weak preparation only, retaining cohort/completion and English/Filipino source limits; not an official whole-lesson blueprint.",
           "depth": "unknown: detailed current organizer depth not established",
           "tagRecommendation": "uncertain",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         },
         {
           "exam": "cse-professional",
@@ -1203,10 +1245,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "cse-professional-L079"
           ],
           "sharedCore": "Infer a likely meaning from surrounding context; Definition and restatement clues; Example clues; Synonym or near-synonym clues; Contrast and antonym clues; Situation-based inference clues; Combine clues without treating signal words as proof; Predict meaning before reading choices; Check candidate grammar and meaning by substitution; Filipino contextual word inference; Recognize underdetermined meaning and seek finer clues",
-          "partialLimits": "CSE2026PPT verbal preparation; actual English/Filipino teaching is facet-specific. Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "2026PPT word-meaning scope uses English and Filipino; allocation and word difficulty unknown. Actual Filipino examples are facet-specific and explained mainly in English. Fine pairs/idioms/word lists retain curriculum or weak qualifiers; computer variants are separate unknowns.",
           "depth": "unknown: detailed current organizer depth not established",
-          "tagRecommendation": "uncertain",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "tagRecommendation": "revise-candidate",
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         },
         {
           "exam": "cse-subprofessional",
@@ -1218,10 +1260,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "cse-subprofessional-L122"
           ],
           "sharedCore": "Infer a likely meaning from surrounding context; Definition and restatement clues; Example clues; Synonym or near-synonym clues; Contrast and antonym clues; Situation-based inference clues; Combine clues without treating signal words as proof; Predict meaning before reading choices; Check candidate grammar and meaning by substitution; Filipino contextual word inference; Recognize underdetermined meaning and seek finer clues",
-          "partialLimits": "CSE2026PPT verbal preparation; actual English/Filipino teaching is facet-specific. Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "2026PPT word-meaning scope uses English and Filipino; allocation and word difficulty unknown. Actual Filipino examples are facet-specific and explained mainly in English. Fine pairs/idioms/word lists retain curriculum or weak qualifiers; computer variants are separate unknowns.",
           "depth": "unknown: detailed current organizer depth not established",
-          "tagRecommendation": "uncertain",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "tagRecommendation": "revise-candidate",
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         },
         {
           "exam": "dcat",
@@ -1232,10 +1274,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "dcat-L102"
           ],
           "sharedCore": "Infer a likely meaning from surrounding context; Definition and restatement clues; Example clues; Synonym or near-synonym clues; Contrast and antonym clues; Situation-based inference clues; Combine clues without treating signal words as proof; Predict meaning before reading choices; Check candidate grammar and meaning by substitution; Filipino contextual word inference; Recognize underdetermined meaning and seek finer clues",
-          "partialLimits": "Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "Current academic roster/item languages/fine depth unconfirmed. Curriculum/weak preparation only, retaining cohort/completion and English/Filipino source limits; not an official whole-lesson blueprint.",
           "depth": "unknown: detailed current organizer depth not established",
-          "tagRecommendation": "retain-candidate",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "tagRecommendation": "uncertain",
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         },
         {
           "exam": "dost-sei",
@@ -1246,10 +1288,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "dost-sei-L080"
           ],
           "sharedCore": "Infer a likely meaning from surrounding context; Definition and restatement clues; Example clues; Synonym or near-synonym clues; Contrast and antonym clues; Situation-based inference clues; Combine clues without treating signal words as proof; Predict meaning before reading choices; Check candidate grammar and meaning by substitution; Filipino contextual word inference; Recognize underdetermined meaning and seek finer clues",
-          "partialLimits": "Official English vocabulary is historical2026; 2027 continuity unknown. Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "English vocabulary is organizer-confirmed for historical2026;2027 continuity and item-language policy unknown. Fine context/affix/word-relation preparation is curriculum-supported. Filipino curricular strands do not establish Filipino testing.",
           "depth": "unknown: detailed current organizer depth not established",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         },
         {
           "exam": "pupcet",
@@ -1260,10 +1302,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "pupcet-L081"
           ],
           "sharedCore": "Infer a likely meaning from surrounding context; Definition and restatement clues; Example clues; Synonym or near-synonym clues; Contrast and antonym clues; Situation-based inference clues; Combine clues without treating signal words as proof; Predict meaning before reading choices; Check candidate grammar and meaning by substitution; Filipino contextual word inference; Recognize underdetermined meaning and seek finer clues",
-          "partialLimits": "Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "Current academic roster/item languages/fine depth unconfirmed. Curriculum/weak preparation only, retaining cohort/completion and English/Filipino source limits; not an official whole-lesson blueprint.",
           "depth": "unknown: detailed current organizer depth not established",
-          "tagRecommendation": "retain-candidate",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "tagRecommendation": "uncertain",
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         },
         {
           "exam": "sm-foundation",
@@ -1275,10 +1317,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "sm-foundation-L075"
           ],
           "sharedCore": "Infer a likely meaning from surrounding context; Definition and restatement clues; Example clues; Synonym or near-synonym clues; Contrast and antonym clues; Situation-based inference clues; Combine clues without treating signal words as proof; Predict meaning before reading choices; Check candidate grammar and meaning by substitution; Filipino contextual word inference; Recognize underdetermined meaning and seek finer clues",
-          "partialLimits": "Current official academic scope unconfirmed; preparation candidate only. Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "Current academic roster/item languages/fine depth unconfirmed. Curriculum/weak preparation only, retaining cohort/completion and English/Filipino source limits; not an official whole-lesson blueprint.",
           "depth": "unknown: detailed current organizer depth not established",
           "tagRecommendation": "uncertain",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         },
         {
           "exam": "upcat",
@@ -1291,10 +1333,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "upcat-L106"
           ],
           "sharedCore": "Infer a likely meaning from surrounding context; Definition and restatement clues; Example clues; Synonym or near-synonym clues; Contrast and antonym clues; Situation-based inference clues; Combine clues without treating signal words as proof; Predict meaning before reading choices; Check candidate grammar and meaning by substitution; Filipino contextual word inference; Recognize underdetermined meaning and seek finer clues",
-          "partialLimits": "Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "Organizer confirms broad English/Filipino Language Proficiency; exact words/rules/depth unknown. Fine vocabulary/figurative/affix candidates retain curriculum or weak status. Actual language presence is separate from complete bilingual instruction.",
           "depth": "unknown: detailed current organizer depth not established",
-          "tagRecommendation": "retain-candidate",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "tagRecommendation": "revise-candidate",
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         },
         {
           "exam": "ustet",
@@ -1306,10 +1348,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "ustet-L069"
           ],
           "sharedCore": "Infer a likely meaning from surrounding context; Definition and restatement clues; Example clues; Synonym or near-synonym clues; Contrast and antonym clues; Situation-based inference clues; Combine clues without treating signal words as proof; Predict meaning before reading choices; Check candidate grammar and meaning by substitution; Filipino contextual word inference; Recognize underdetermined meaning and seek finer clues",
-          "partialLimits": "Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "English discipline confirmed, exact item-language allocation and fine word skills unknown. Context/meaning candidates are curriculum or weak preparation; no English-only exclusion inferred.",
           "depth": "unknown: detailed current organizer depth not established",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         }
       ],
       "structure": {
@@ -1922,10 +1964,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "cse-subprofessional-L123"
           ],
           "sharedCore": "English idiom conventional meaning in context; Distinguish literal from idiomatic readings; General figure-of-speech and overlapping interpretations; Simile classification; Metaphor classification; Personification classification; Hyperbole classification; Alliteration recognition; Onomatopoeia recognition; Oxymoron recognition; Compare dominant effect rather than trigger-word matching; Filipino sawikain interpretation; Filipino pagmamalabis application",
-          "partialLimits": "CSE2026PPT verbal preparation; actual English/Filipino teaching is facet-specific. Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "2026PPT word-meaning scope uses English and Filipino; allocation and word difficulty unknown. Actual Filipino examples are facet-specific and explained mainly in English. Fine pairs/idioms/word lists retain curriculum or weak qualifiers; computer variants are separate unknowns.",
           "depth": "unknown: detailed current organizer depth not established",
-          "tagRecommendation": "uncertain",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "tagRecommendation": "revise-candidate",
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         },
         {
           "exam": "pupcet",
@@ -1933,10 +1975,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "pupcet-L075"
           ],
           "sharedCore": "English idiom conventional meaning in context; Distinguish literal from idiomatic readings; General figure-of-speech and overlapping interpretations; Simile classification; Metaphor classification; Personification classification; Hyperbole classification; Alliteration recognition; Onomatopoeia recognition; Oxymoron recognition; Compare dominant effect rather than trigger-word matching; Filipino sawikain interpretation; Filipino pagmamalabis application",
-          "partialLimits": "Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "Current academic roster/item languages/fine depth unconfirmed. Curriculum/weak preparation only, retaining cohort/completion and English/Filipino source limits; not an official whole-lesson blueprint.",
           "depth": "unknown: detailed current organizer depth not established",
-          "tagRecommendation": "retain-candidate",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "tagRecommendation": "uncertain",
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         },
         {
           "exam": "upcat",
@@ -1951,10 +1993,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "upcat-L108"
           ],
           "sharedCore": "English idiom conventional meaning in context; Distinguish literal from idiomatic readings; General figure-of-speech and overlapping interpretations; Simile classification; Metaphor classification; Personification classification; Hyperbole classification; Alliteration recognition; Onomatopoeia recognition; Oxymoron recognition; Compare dominant effect rather than trigger-word matching; Filipino sawikain interpretation; Filipino pagmamalabis application",
-          "partialLimits": "Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "Organizer confirms broad English/Filipino Language Proficiency; exact words/rules/depth unknown. Fine vocabulary/figurative/affix candidates retain curriculum or weak status. Actual language presence is separate from complete bilingual instruction.",
           "depth": "unknown: detailed current organizer depth not established",
-          "tagRecommendation": "retain-candidate",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "tagRecommendation": "revise-candidate",
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         }
       ],
       "structure": {
@@ -2590,10 +2632,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "cse-professional-L076"
           ],
           "sharedCore": "Root/base/stem and bound-affix distinction; Prefix/unlapi position; Infix/gitlapi position; Suffix/hulapi position; Kabilaan affixation on both sides; Mal classical element for bad/faulty; Bene/ben classical element for good/well; Omni classical element for all; Chron/chrono classical element for time; Pseudo classical element for false/imitation; Distinguish genuine morphology/etymology from letter resemblance; Infer meaning through etymological elements; Confirm word-part inference using context",
-          "partialLimits": "CSE2026PPT verbal preparation; actual English/Filipino teaching is facet-specific. Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "2026PPT word-meaning scope uses English and Filipino; allocation and word difficulty unknown. Actual Filipino examples are facet-specific and explained mainly in English. Fine pairs/idioms/word lists retain curriculum or weak qualifiers; computer variants are separate unknowns.",
           "depth": "unknown: detailed current organizer depth not established",
-          "tagRecommendation": "uncertain",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "tagRecommendation": "revise-candidate",
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         },
         {
           "exam": "cse-subprofessional",
@@ -2603,10 +2645,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "cse-subprofessional-L122"
           ],
           "sharedCore": "Root/base/stem and bound-affix distinction; Prefix/unlapi position; Infix/gitlapi position; Suffix/hulapi position; Kabilaan affixation on both sides; Mal classical element for bad/faulty; Bene/ben classical element for good/well; Omni classical element for all; Chron/chrono classical element for time; Pseudo classical element for false/imitation; Distinguish genuine morphology/etymology from letter resemblance; Infer meaning through etymological elements; Confirm word-part inference using context",
-          "partialLimits": "CSE2026PPT verbal preparation; actual English/Filipino teaching is facet-specific. Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "2026PPT word-meaning scope uses English and Filipino; allocation and word difficulty unknown. Actual Filipino examples are facet-specific and explained mainly in English. Fine pairs/idioms/word lists retain curriculum or weak qualifiers; computer variants are separate unknowns.",
           "depth": "unknown: detailed current organizer depth not established",
-          "tagRecommendation": "uncertain",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "tagRecommendation": "revise-candidate",
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         },
         {
           "exam": "dost-sei",
@@ -2615,10 +2657,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "dost-sei-L077"
           ],
           "sharedCore": "Root/base/stem and bound-affix distinction; Prefix/unlapi position; Infix/gitlapi position; Suffix/hulapi position; Kabilaan affixation on both sides; Mal classical element for bad/faulty; Bene/ben classical element for good/well; Omni classical element for all; Chron/chrono classical element for time; Pseudo classical element for false/imitation; Distinguish genuine morphology/etymology from letter resemblance; Infer meaning through etymological elements; Confirm word-part inference using context",
-          "partialLimits": "Official English vocabulary is historical2026; 2027 continuity unknown. Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "English vocabulary is organizer-confirmed for historical2026;2027 continuity and item-language policy unknown. Fine context/affix/word-relation preparation is curriculum-supported. Filipino curricular strands do not establish Filipino testing.",
           "depth": "unknown: detailed current organizer depth not established",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         },
         {
           "exam": "pupcet",
@@ -2626,10 +2668,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "pupcet-L074"
           ],
           "sharedCore": "Root/base/stem and bound-affix distinction; Prefix/unlapi position; Infix/gitlapi position; Suffix/hulapi position; Kabilaan affixation on both sides; Mal classical element for bad/faulty; Bene/ben classical element for good/well; Omni classical element for all; Chron/chrono classical element for time; Pseudo classical element for false/imitation; Distinguish genuine morphology/etymology from letter resemblance; Infer meaning through etymological elements; Confirm word-part inference using context",
-          "partialLimits": "Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "Current academic roster/item languages/fine depth unconfirmed. Curriculum/weak preparation only, retaining cohort/completion and English/Filipino source limits; not an official whole-lesson blueprint.",
           "depth": "unknown: detailed current organizer depth not established",
-          "tagRecommendation": "retain-candidate",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "tagRecommendation": "uncertain",
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         },
         {
           "exam": "upcat",
@@ -2639,10 +2681,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "upcat-L059"
           ],
           "sharedCore": "Root/base/stem and bound-affix distinction; Prefix/unlapi position; Infix/gitlapi position; Suffix/hulapi position; Kabilaan affixation on both sides; Mal classical element for bad/faulty; Bene/ben classical element for good/well; Omni classical element for all; Chron/chrono classical element for time; Pseudo classical element for false/imitation; Distinguish genuine morphology/etymology from letter resemblance; Infer meaning through etymological elements; Confirm word-part inference using context",
-          "partialLimits": "Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "Organizer confirms broad English/Filipino Language Proficiency; exact words/rules/depth unknown. Fine vocabulary/figurative/affix candidates retain curriculum or weak status. Actual language presence is separate from complete bilingual instruction.",
           "depth": "unknown: detailed current organizer depth not established",
-          "tagRecommendation": "retain-candidate",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "tagRecommendation": "revise-candidate",
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         }
       ],
       "structure": {
@@ -3036,10 +3078,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "cse-subprofessional-L132"
           ],
           "sharedCore": "Use spelling patterns with lexical exceptions; Recognize limits of i-before-e mnemonic; Drop silent e before selected vowel-initial suffixes; Retain e for selected spelling/pronunciation patterns; Recognize lexical suffix exceptions; Double final consonant using word shape and stress; Use morphological families to support spelling; Filipino loanword variant evidence from KWF; Consult lexical orthographic reference rather than blanket rule",
-          "partialLimits": "CSE2026PPT verbal preparation; actual English/Filipino teaching is facet-specific. Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "2026PPT word-meaning scope uses English and Filipino; allocation and word difficulty unknown. Actual Filipino examples are facet-specific and explained mainly in English. Clerical spelling is officially English; Filipino orthography addition is outside that confirmed spelling scope. Fine pairs/idioms/word lists retain curriculum or weak qualifiers; computer variants are separate unknowns.",
           "depth": "unknown: detailed current organizer depth not established",
-          "tagRecommendation": "uncertain",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "tagRecommendation": "revise-candidate",
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         },
         {
           "exam": "upcat",
@@ -3051,10 +3093,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "upcat-L075"
           ],
           "sharedCore": "Use spelling patterns with lexical exceptions; Recognize limits of i-before-e mnemonic; Drop silent e before selected vowel-initial suffixes; Retain e for selected spelling/pronunciation patterns; Recognize lexical suffix exceptions; Double final consonant using word shape and stress; Use morphological families to support spelling; Filipino loanword variant evidence from KWF; Consult lexical orthographic reference rather than blanket rule",
-          "partialLimits": "Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "Organizer confirms broad English/Filipino Language Proficiency; exact words/rules/depth unknown. Fine vocabulary/figurative/affix candidates retain curriculum or weak status. Actual language presence is separate from complete bilingual instruction.",
           "depth": "unknown: detailed current organizer depth not established",
-          "tagRecommendation": "retain-candidate",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "tagRecommendation": "revise-candidate",
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         }
       ],
       "structure": {
@@ -3638,10 +3680,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "cse-professional-L082"
           ],
           "sharedCore": "Context-specific synonym selection; Context-specific antonym selection; Match the active sense of a polysemous/homonymous form; Gradable antonym contrast; Connotation-sensitive synonym choice; Intensity-sensitive synonym choice; Infer a contextual English meaning; Filipino contextual synonym selection; Filipino antonym selection; Define the axis of contrast; Use morphology as an optional semantic clue",
-          "partialLimits": "CSE2026PPT verbal preparation; actual English/Filipino teaching is facet-specific. Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "2026PPT word-meaning scope uses English and Filipino; allocation and word difficulty unknown. Actual Filipino examples are facet-specific and explained mainly in English. Fine pairs/idioms/word lists retain curriculum or weak qualifiers; computer variants are separate unknowns.",
           "depth": "unknown: detailed current organizer depth not established",
-          "tagRecommendation": "uncertain",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "tagRecommendation": "revise-candidate",
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         },
         {
           "exam": "cse-subprofessional",
@@ -3652,10 +3694,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "cse-subprofessional-L122"
           ],
           "sharedCore": "Context-specific synonym selection; Context-specific antonym selection; Match the active sense of a polysemous/homonymous form; Gradable antonym contrast; Connotation-sensitive synonym choice; Intensity-sensitive synonym choice; Infer a contextual English meaning; Filipino contextual synonym selection; Filipino antonym selection; Define the axis of contrast; Use morphology as an optional semantic clue",
-          "partialLimits": "CSE2026PPT verbal preparation; actual English/Filipino teaching is facet-specific. Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "2026PPT word-meaning scope uses English and Filipino; allocation and word difficulty unknown. Actual Filipino examples are facet-specific and explained mainly in English. Fine pairs/idioms/word lists retain curriculum or weak qualifiers; computer variants are separate unknowns.",
           "depth": "unknown: detailed current organizer depth not established",
-          "tagRecommendation": "uncertain",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "tagRecommendation": "revise-candidate",
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         },
         {
           "exam": "sm-foundation",
@@ -3665,10 +3707,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "sm-foundation-L075"
           ],
           "sharedCore": "Context-specific synonym selection; Context-specific antonym selection; Match the active sense of a polysemous/homonymous form; Gradable antonym contrast; Connotation-sensitive synonym choice; Intensity-sensitive synonym choice; Infer a contextual English meaning; Filipino contextual synonym selection; Filipino antonym selection; Define the axis of contrast; Use morphology as an optional semantic clue",
-          "partialLimits": "Current official academic scope unconfirmed; preparation candidate only. Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "Current academic roster/item languages/fine depth unconfirmed. Curriculum/weak preparation only, retaining cohort/completion and English/Filipino source limits; not an official whole-lesson blueprint.",
           "depth": "unknown: detailed current organizer depth not established",
           "tagRecommendation": "uncertain",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         },
         {
           "exam": "upcat",
@@ -3679,10 +3721,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "upcat-L067"
           ],
           "sharedCore": "Context-specific synonym selection; Context-specific antonym selection; Match the active sense of a polysemous/homonymous form; Gradable antonym contrast; Connotation-sensitive synonym choice; Intensity-sensitive synonym choice; Infer a contextual English meaning; Filipino contextual synonym selection; Filipino antonym selection; Define the axis of contrast; Use morphology as an optional semantic clue",
-          "partialLimits": "Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "Organizer confirms broad English/Filipino Language Proficiency; exact words/rules/depth unknown. Fine vocabulary/figurative/affix candidates retain curriculum or weak status. Actual language presence is separate from complete bilingual instruction.",
           "depth": "unknown: detailed current organizer depth not established",
-          "tagRecommendation": "retain-candidate",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "tagRecommendation": "revise-candidate",
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         },
         {
           "exam": "ustet",
@@ -3692,10 +3734,10 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
             "ustet-L057"
           ],
           "sharedCore": "Context-specific synonym selection; Context-specific antonym selection; Match the active sense of a polysemous/homonymous form; Gradable antonym contrast; Connotation-sensitive synonym choice; Intensity-sensitive synonym choice; Infer a contextual English meaning; Filipino contextual synonym selection; Filipino antonym selection; Define the axis of contrast; Use morphology as an optional semantic clue",
-          "partialLimits": "Only cited local facets; apply topic scope and cohort limits.",
+          "partialLimits": "English discipline confirmed, exact item-language allocation and fine word skills unknown. Context/meaning candidates are curriculum or weak preparation; no English-only exclusion inferred.",
           "depth": "unknown: detailed current organizer depth not established",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual teaching supports preparation; no broad-row or complete-lesson coverage inference."
+          "reason": "Preserve actual shared teaching but qualify language, source tier and partial finer scope. Names/counts do not prove complete organizer-required teaching."
         }
       ],
       "structure": {
@@ -7061,10 +7103,540 @@ lesson-vocabulary-confusing-words, lesson-vocabulary-context-clues, lesson-vocab
       "priorKnowledge": "Local core supplies context; no essential existing-lesson link found.",
       "workedExamples": "none",
       "scopeLimit": "Local facet only; apply topic source/cycle/depth/language/cohort limits."
+    },
+    {
+      "requirementRefs": [
+        "acet-L102",
+        "dcat-L102",
+        "pupcet-L074"
+      ],
+      "facet": "Analogy completion by transferring a word-pair relationship",
+      "lessonIds": [
+        "lesson-vocabulary-confusing-words",
+        "lesson-vocabulary-context-clues",
+        "lesson-vocabulary-idioms-and-figures-of-speech",
+        "lesson-vocabulary-root-words-prefixes-suffixes",
+        "lesson-vocabulary-spelling-rules",
+        "lesson-vocabulary-synonyms-and-antonyms"
+      ],
+      "verdict": "absent",
+      "evidence": [
+        {
+          "path": "content/lessons/language-proficiency/vocabulary/confusing-words.md",
+          "lines": [
+            1,
+            137
+          ],
+          "note": "Full owned Vocabulary read: meanings/pairs/word-parts present, no analogy relationship-transfer procedure"
+        },
+        {
+          "path": "content/lessons/language-proficiency/vocabulary/context-clues.md",
+          "lines": [
+            1,
+            121
+          ],
+          "note": "Full owned Vocabulary read: meanings/pairs/word-parts present, no analogy relationship-transfer procedure"
+        },
+        {
+          "path": "content/lessons/language-proficiency/vocabulary/idioms-and-figures-of-speech.md",
+          "lines": [
+            1,
+            129
+          ],
+          "note": "Full owned Vocabulary read: meanings/pairs/word-parts present, no analogy relationship-transfer procedure"
+        },
+        {
+          "path": "content/lessons/language-proficiency/vocabulary/root-words-prefixes-suffixes.md",
+          "lines": [
+            1,
+            133
+          ],
+          "note": "Full owned Vocabulary read: meanings/pairs/word-parts present, no analogy relationship-transfer procedure"
+        },
+        {
+          "path": "content/lessons/language-proficiency/vocabulary/spelling-rules.md",
+          "lines": [
+            1,
+            122
+          ],
+          "note": "Full owned Vocabulary read: meanings/pairs/word-parts present, no analogy relationship-transfer procedure"
+        },
+        {
+          "path": "content/lessons/language-proficiency/vocabulary/synonyms-and-antonyms.md",
+          "lines": [
+            1,
+            127
+          ],
+          "note": "Full owned Vocabulary read: meanings/pairs/word-parts present, no analogy relationship-transfer procedure"
+        }
+      ],
+      "missingIdeas": [
+        "Vocabulary contrasts and figurative comparisons are not analogy-completion procedures. Existing lesson-logical-verbal-reasoning-word-analogies is an inventory reconciliation lead only; this facet is locally absent, not globally absent."
+      ],
+      "priorKnowledge": "No current Vocabulary consumer requires analogy solving, so no prerequisite edge added.",
+      "workedExamples": "none",
+      "scopeLimit": "ACET/PUPCET curriculum and DCAT weak analogy leads retain unknown current exam depth/language; compound word-relationship records do not make every Vocabulary lesson an analogy lesson."
     }
   ],
-  "sourceLedger": [],
-  "foundationReads": [],
-  "summary": "Startup checkpoint only; six owned bodies remain unread. English/Filipino scope, word-level strategy, passage application and analogy relationships will be kept distinct. No current full exam scope or arbitrary word-list threshold inferred."
+  "sourceLedger": [
+    {
+      "accessDate": "2026-10-08",
+      "accessTimezone": "Asia/Manila",
+      "branch": "docs/content-coverage-audit-r1",
+      "baseCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+      "item": "lesson-vocabulary-confusing-words",
+      "issue": "Affect/effect roles and meanings",
+      "originalClaim": "Common influence/result uses and less-common effect verb/affect noun",
+      "disposition": "CONFIRMED WITH QUALIFICATION",
+      "sourceUrl": "https://www.merriam-webster.com/dictionary/affect",
+      "sourceLocator": "Affect entries verb1/noun; effect usage guide",
+      "verificationNote": "Publisher dictionary directly confirms influence, result, bring-about verb, and observable-emotion noun. These meanings do not establish exam frequency or a universal noun/verb mnemonic.",
+      "evidence": [
+        {
+          "path": "content/lessons/language-proficiency/vocabulary/confusing-words.md",
+          "lines": [
+            18,
+            23
+          ],
+          "note": "Affect/effect roles and meanings"
+        }
+      ],
+      "additionalSources": [
+        {
+          "url": "https://www.merriam-webster.com/dictionary/effect",
+          "locator": "Verb sense1 and usage guide"
+        }
+      ]
+    },
+    {
+      "accessDate": "2026-10-08",
+      "accessTimezone": "Asia/Manila",
+      "branch": "docs/content-coverage-audit-r1",
+      "baseCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+      "item": "lesson-vocabulary-confusing-words",
+      "issue": "Its/it-is-or-it-has distinction",
+      "originalClaim": "Its is possessive; it's contracts it is or it has.",
+      "disposition": "CONFIRMED",
+      "sourceUrl": "https://www.merriam-webster.com/dictionary/its",
+      "sourceLocator": "Entry and Usage of Its",
+      "verificationNote": "Dictionary distinguishes possession without apostrophe from the contraction with apostrophe, including both expansions. No historical English-usage sweep performed.",
+      "evidence": [
+        {
+          "path": "content/lessons/language-proficiency/vocabulary/confusing-words.md",
+          "lines": [
+            25,
+            28
+          ],
+          "note": "Its/it-is-or-it-has distinction"
+        }
+      ],
+      "additionalSources": [
+        {
+          "url": "https://www.merriam-webster.com/dictionary/it's",
+          "locator": "Contraction definition"
+        }
+      ]
+    },
+    {
+      "accessDate": "2026-10-08",
+      "accessTimezone": "Asia/Manila",
+      "branch": "docs/content-coverage-audit-r1",
+      "baseCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+      "item": "lesson-vocabulary-confusing-words",
+      "issue": "Ng/nang construction claims",
+      "originalClaim": "Nang is used for when, manner and repeated action; ng has other noun/time roles",
+      "disposition": "PARTIALLY CONFIRMED",
+      "sourceUrl": "https://kwfwikaatkultura.ph/wp-content/uploads/2024/05/Manwal-sa-Masinop-na-Pagsulat.pdf",
+      "sourceLocator": "KWF Manwal, section9.1, PDFp48",
+      "verificationNote": "Primary KWF section supports the three stated nang uses. It also lists purpose and contracted na+ng uses not taught locally. This bounded reading does not verify every specific ng noun/quantity/time categorization or an exhaustive current exam grammar inventory.",
+      "evidence": [
+        {
+          "path": "content/lessons/language-proficiency/vocabulary/confusing-words.md",
+          "lines": [
+            30,
+            37
+          ],
+          "note": "Ng/nang construction claims"
+        }
+      ]
+    },
+    {
+      "accessDate": "2026-10-08",
+      "accessTimezone": "Asia/Manila",
+      "branch": "docs/content-coverage-audit-r1",
+      "baseCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+      "item": "lesson-vocabulary-confusing-words",
+      "issue": "Sila/sina formal distinction",
+      "originalClaim": "Sila is a pronoun; sina directly marks multiple personal names",
+      "disposition": "PARTIALLY CONFIRMED",
+      "sourceUrl": "https://lrmds.deped.gov.ph/create/download/1751",
+      "sourceLocator": "DepEd Filipino5 lesson plan, PDFp16",
+      "verificationNote": "Primary teaching material places Sila in pronoun practice and uses sina before coordinated people/names. This supports those examples, but does not independently establish the full marker-category analysis or all formal/regional variation claims.",
+      "evidence": [
+        {
+          "path": "content/lessons/language-proficiency/vocabulary/confusing-words.md",
+          "lines": [
+            39,
+            44
+          ],
+          "note": "Sila/sina formal distinction"
+        }
+      ],
+      "additionalSources": [
+        {
+          "url": "https://kwfwikaatkultura.ph/wp-content/uploads/2024/05/Manwal-sa-Masinop-na-Pagsulat.pdf",
+          "locator": "PDFp92 coordinated Sharon/Maricel example"
+        }
+      ]
+    },
+    {
+      "accessDate": "2026-10-08",
+      "accessTimezone": "Asia/Manila",
+      "branch": "docs/content-coverage-audit-r1",
+      "baseCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+      "item": "lesson-vocabulary-confusing-words",
+      "issue": "Pronunciation generalization",
+      "originalClaim": "Affect/effect normally are not homophones",
+      "disposition": "UNCONFIRMED GENERALIZATION",
+      "sourceUrl": "https://www.merriam-webster.com/dictionary/affect",
+      "sourceLocator": "Pronunciation fields; paired effect entry",
+      "verificationNote": "Retrieved dictionary pronunciations do not establish a population-wide normally claim. Accent/sense variation was not systematically checked. Preserve the claim as a qualification concern, not a confirmed rule for scoring.",
+      "evidence": [
+        {
+          "path": "content/lessons/language-proficiency/vocabulary/confusing-words.md",
+          "lines": [
+            12,
+            12
+          ],
+          "note": "Pronunciation generalization"
+        }
+      ],
+      "additionalSources": [
+        {
+          "url": "https://www.merriam-webster.com/dictionary/effect",
+          "locator": "Pronunciation fields"
+        }
+      ]
+    },
+    {
+      "accessDate": "2026-10-08",
+      "accessTimezone": "Asia/Manila",
+      "branch": "docs/content-coverage-audit-r1",
+      "baseCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+      "item": "lesson-vocabulary-root-words-prefixes-suffixes",
+      "issue": "Bounded word-element and Filipino parsing claims",
+      "originalClaim": "Classical elements and Filipino affix/root examples support meaning inference",
+      "disposition": "PARTIALLY CONFIRMED",
+      "sourceUrl": "https://www.merriam-webster.com/dictionary/pseudo-",
+      "sourceLocator": "Pseud-/pseudo- combining-form senses1-2",
+      "verificationNote": "Publisher dictionary confirms false/spurious and substitute/resembling senses of pseudo-. KWF guide distinguishes roots and derivatives generally. Specific mal/bene/omni/chron histories, pinagsumikapan segmentation, and all affix labels were not independently source-confirmed in this bounded pass; retain those as unresolved language-source checks.",
+      "evidence": [
+        {
+          "path": "content/lessons/language-proficiency/vocabulary/root-words-prefixes-suffixes.md",
+          "lines": [
+            27,
+            43
+          ],
+          "note": "Bounded word-element and Filipino parsing claims"
+        }
+      ],
+      "additionalSources": [
+        {
+          "url": "https://www.kwfdiksiyonaryo.ph/gabay.php",
+          "locator": "A sections4 and7.1"
+        }
+      ]
+    },
+    {
+      "accessDate": "2026-10-08",
+      "accessTimezone": "Asia/Manila",
+      "branch": "docs/content-coverage-audit-r1",
+      "baseCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+      "item": "lesson-vocabulary-root-words-prefixes-suffixes",
+      "issue": "Circumlocution etymological explanation",
+      "originalClaim": "Latin-derived around/speaking supports indirect wordy expression",
+      "disposition": "CONFIRMED",
+      "sourceUrl": "https://www.merriam-webster.com/dictionary/circumlocution",
+      "sourceLocator": "Definition, Did You Know, Etymology",
+      "verificationNote": "Publisher directly describes circum plus locutio, from loqui, and roundabout/excess-word expression. This confirms this encountered etymology only, not every internal-letter analysis in the topic.",
+      "evidence": [
+        {
+          "path": "content/lessons/language-proficiency/vocabulary/root-words-prefixes-suffixes.md",
+          "lines": [
+            86,
+            97
+          ],
+          "note": "Circumlocution etymological explanation"
+        }
+      ]
+    },
+    {
+      "accessDate": "2026-10-08",
+      "accessTimezone": "Asia/Manila",
+      "branch": "docs/content-coverage-audit-r1",
+      "baseCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+      "item": "lesson-vocabulary-spelling-rules",
+      "issue": "KWF acceptance attribution for kwento/kuwento",
+      "originalClaim": "Ortograpiyang Pambansa explicitly accepts both cuento adaptations",
+      "disposition": "SOURCE QUALIFICATION CONCERN",
+      "sourceUrl": "https://www.kwfdiksiyonaryo.ph/gabay.php",
+      "sourceLocator": "B section4, First Exception",
+      "verificationNote": "KWF dictionary guide says retain the first vowel in this initial-syllable case and illustrates cuento-to-kuwento. A separately retrieved KWF lecture slide lists all three spellings without an acceptance statement. The lesson attribution to two accepted variants is therefore unconfirmed by the located normative text. No claim that kwento is always wrong in every edition/register follows.",
+      "evidence": [
+        {
+          "path": "content/lessons/language-proficiency/vocabulary/spelling-rules.md",
+          "lines": [
+            32,
+            38
+          ],
+          "note": "KWF acceptance attribution for kwento/kuwento"
+        }
+      ],
+      "additionalSources": [
+        {
+          "url": "https://kwf.gov.ph/wp-content/uploads/Ortograpiyang_Pambansa_1.pdf",
+          "locator": "Jeslie Del Ayre lecture, PDFp3;40pages; SHA25637f98e9846daf801865aaae41553acffbf72f389b9a4239a9b6bd238fe01adb2"
+        },
+        {
+          "url": "https://www.kwfdiksiyonaryo.ph/css/files/gabay_op.pdf",
+          "locator": "Linked53-page orthography PDF; text extraction limited"
+        }
+      ]
+    },
+    {
+      "accessDate": "2026-10-08",
+      "accessTimezone": "Asia/Manila",
+      "branch": "docs/content-coverage-audit-r1",
+      "baseCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+      "item": "lesson-vocabulary-spelling-rules",
+      "issue": "Occurrence standard spelling",
+      "originalClaim": "Occurrence has double c, double r and ending ence",
+      "disposition": "CONFIRMED SPELLING",
+      "sourceUrl": "https://www.merriam-webster.com/dictionary/occurrence",
+      "sourceLocator": "Headword/pronunciation",
+      "verificationNote": "Publisher headword confirms the spelling and stress. This does not by itself fully validate every generalized suffix/doubling rule or its exceptions in the body.",
+      "evidence": [
+        {
+          "path": "content/lessons/language-proficiency/vocabulary/spelling-rules.md",
+          "lines": [
+            68,
+            79
+          ],
+          "note": "Occurrence standard spelling"
+        }
+      ]
+    },
+    {
+      "accessDate": "2026-10-08",
+      "accessTimezone": "Asia/Manila",
+      "branch": "docs/content-coverage-audit-r1",
+      "baseCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+      "item": "lesson-vocabulary-synonyms-and-antonyms",
+      "issue": "Ephemeral meaning used in synonym teaching",
+      "originalClaim": "Ephemeral means very short-lived; fleeting is closest among the supplied options",
+      "disposition": "CONFIRMED LEXICAL SENSE",
+      "sourceUrl": "https://www.merriam-webster.com/dictionary/ephemeral",
+      "sourceLocator": "Adjective sense1 and synonym list",
+      "verificationNote": "Publisher defines the short-duration sense and lists fleeting. This supports the lexical relation, not a full answer-choice or target-exam difficulty review.",
+      "evidence": [
+        {
+          "path": "content/lessons/language-proficiency/vocabulary/synonyms-and-antonyms.md",
+          "lines": [
+            30,
+            41
+          ],
+          "note": "Ephemeral meaning used in synonym teaching"
+        }
+      ]
+    },
+    {
+      "accessDate": "2026-10-08",
+      "accessTimezone": "Asia/Manila",
+      "branch": "docs/content-coverage-audit-r1",
+      "baseCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+      "item": "lesson-vocabulary-synonyms-and-antonyms",
+      "issue": "Severity axis in antonym example",
+      "originalClaim": "Mitigate makes less severe; aggravate makes worse/more severe",
+      "disposition": "CONFIRMED LEXICAL SENSES",
+      "sourceUrl": "https://www.merriam-webster.com/dictionary/mitigate",
+      "sourceLocator": "Transitive sense2a",
+      "verificationNote": "Paired publisher definitions confirm opposite directions on the severity axis. Other senses/context remain possible; no universal oppositeness or full option review inferred.",
+      "evidence": [
+        {
+          "path": "content/lessons/language-proficiency/vocabulary/synonyms-and-antonyms.md",
+          "lines": [
+            43,
+            54
+          ],
+          "note": "Severity axis in antonym example"
+        }
+      ],
+      "additionalSources": [
+        {
+          "url": "https://www.merriam-webster.com/dictionary/aggravate",
+          "locator": "Transitive sense1"
+        }
+      ]
+    },
+    {
+      "accessDate": "2026-10-08",
+      "accessTimezone": "Asia/Manila",
+      "branch": "docs/content-coverage-audit-r1",
+      "baseCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+      "item": "lesson-vocabulary-idioms-and-figures-of-speech",
+      "issue": "Remaining Filipino labels/idiom and quoted literary claim",
+      "originalClaim": "Filipino figurative labels, naghigpit-ng-sinturon meaning, and Dickinson quotation/classification",
+      "disposition": "UNRESOLVED BOUNDED SOURCE CHECK",
+      "sourceUrl": "https://www.poetryfoundation.org/poems/42889/hope-is-the-thing-with-feathers-314",
+      "sourceLocator": "Poem page identified; body fetch403",
+      "verificationNote": "Publisher poem page identity was found but its body returned403, so the quotation was not newly source-confirmed. Specific Filipino labels/idiom meaning and all device classifications were not independently checked against authoritative bodies. Record unresolved source limits, rather than endorse weak reviewer factual scoring rules or launch a full Level4 correctness sweep.",
+      "evidence": [
+        {
+          "path": "content/lessons/language-proficiency/vocabulary/idioms-and-figures-of-speech.md",
+          "lines": [
+            28,
+            99
+          ],
+          "note": "Remaining Filipino labels/idiom and quoted literary claim"
+        }
+      ]
+    },
+    {
+      "accessDate": "2026-10-08",
+      "accessTimezone": "Asia/Manila",
+      "branch": "docs/content-coverage-audit-r1",
+      "baseCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+      "item": "lesson-vocabulary-confusing-words",
+      "issue": "CSE named scope and spelling placement",
+      "originalClaim": "Public CSE scope names word meaning and clerical spelling without a most-tested pair list",
+      "disposition": "CONFIRMED FOR ACCEPTED2026PPT BASELINE",
+      "sourceUrl": "https://csc.gov.ph/phocadownload/userupload/erpo/announcements/2026/ExamAnn_2026_03_Conduct%20of%2009%20Aug%202026%20CSE-PPT_orig%20signed.pdf",
+      "sourceLocator": "Signed2026 announcement,p7sectionF; accepted records cse-professional-L070,cse-subprofessional-L065/L081",
+      "verificationNote": "Accepted source checks confirm bilingual Verbal word meaning and English Clerical spelling for Subprofessional. Professional has Analytical instead of Clerical; no exclusion of spelling within its finer Verbal scope inferred. Fine pair/word inventories and computer variants remain unknown. Primary body last checked in accepted packets October5; this resume read the unchanged accepted record, not a new blueprint search.",
+      "evidence": [
+        {
+          "path": "content/lessons/language-proficiency/vocabulary/confusing-words.md",
+          "lines": [
+            14,
+            14
+          ],
+          "note": "Encountered CSE scope statement"
+        },
+        {
+          "path": "content/lessons/language-proficiency/vocabulary/spelling-rules.md",
+          "lines": [
+            12,
+            12
+          ],
+          "note": "Clerical spelling scope statement"
+        },
+        {
+          "path": "content/lessons/language-proficiency/vocabulary/synonyms-and-antonyms.md",
+          "lines": [
+            16,
+            16
+          ],
+          "note": "Word-meaning scope statement"
+        }
+      ]
+    },
+    {
+      "accessDate": "2026-10-08",
+      "accessTimezone": "Asia/Manila",
+      "branch": "docs/content-coverage-audit-r1",
+      "baseCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+      "item": "lesson-vocabulary-synonyms-and-antonyms",
+      "issue": "Unverified specific Filipino lexical/contextual claims",
+      "originalClaim": "Gumuho in the dreams sentence is closest to nasira; maralita contrasts with mayaman",
+      "disposition": "UNRESOLVED LEXICAL SOURCE LIMIT",
+      "sourceUrl": "https://www.kwfdiksiyonaryo.ph/gabay.php",
+      "sourceLocator": "Dictionary guide,Asections5-6; specific lemma bodies not retrieved",
+      "verificationNote": "KWF guide explains separate word senses, examples and synonyms, but the guide itself does not establish these particular lemma meanings or contextual closest-choice claims. No definitive wrong-answer verdict, weak factual scoring source, or complete option review follows. Exact lexical sourcing remains open for later review.",
+      "evidence": [
+        {
+          "path": "content/lessons/language-proficiency/vocabulary/synonyms-and-antonyms.md",
+          "lines": [
+            56,
+            80
+          ],
+          "note": "Specific Filipino senses/contextual contrasts encountered"
+        }
+      ]
+    }
+  ],
+  "foundationReads": [
+    {
+      "path": "content/lessons/reading-comprehension/comprehension-skills/context-clues-in-passages.md",
+      "sha256": "6ce52b5524744864a2118df4fe30d3ebd62f111ec29aa386d38b22f730ec4ad0",
+      "readLines": [
+        1,
+        93
+      ],
+      "purpose": "Narrow full necessity/reuse check. The Vocabulary consumer defines its context strategy locally; passage application is related and partly repeated, so no strict prerequisite or other-topic coverage verdict."
+    }
+  ],
+  "summary": "Retain shareable meaning-in-context, sense-first comparison and genuine-word-part principles once. The accepted CSE 2026 PPT records explicitly name word meaning in English and Filipino and English Clerical spelling for Subprofessional. UPCAT confirms broad bilingual Language Proficiency; USTET confirms an English discipline without exact item-language rules. DOST English vocabulary is historical 2026, with 2027 continuity unknown. Other exam fine vocabulary candidates remain curriculum/weak/current-scope uncertain. Specialized word lists, language allocations and tested difficulty remain unknown; no roster or example count proves whole-lesson coverage.\n\n- Actual bilingual evidence is partial: five bodies contain Filipino target-language examples or phrases, but explanations mainly use English. Spelling explains a Filipino orthography reference case through English. This records teaching/example presence, not a Level4 language/voice pass or complete Filipino instruction. English-only Clerical spelling does not establish the Filipino addition as required CSE spelling scope.\n- Split candidate: Idioms in Context versus Figurative Interpretation. Conventional phrase meaning and rhetorical-device/effect analysis use distinct evidence and preparation facets. Preserve the common context strategy once; add developed effects/transfer teaching to the figurative strand. Costs: approved new identities/routing, moved examples/traps/terminology, sources and later practice alignment. Unknown exam depth does not justify removing either strand (current body lines12-129,L01/L19 structural).\n- Retain the other five current units as coherent goals. Word-part work needs complex Filipino segmentation rather than a supplied root answer (root body lines60-84); spelling needs explicit stress/suffix derivation; connotation/register/collocation need worked distinctions beyond names. Filipino affix contributions and several tayutay applications are missing or thin. No arbitrary word-list or example minimum is used.\n- Vocabulary sentence-context examples do not establish longer-passage transfer. A narrow full read verifies shared definition/example/contrast teaching in the existing passage source, plus actual multi-sentence application. Reuse that common core while preserving separate application blocks; title similarity alone does not justify a merger. Both-source evidence and the foundation read hash are in the appendix. No coverage verdict for the other topic is made.\n- Analogy completion is locally absent from these six bodies. Synonym/antonym contrasts, figurative comparisons and affix clues are not relation-transfer procedures. The existing Reasoning analogy lesson remains a lead reconciliation reference, not a global absence inference.\n- All six current consumers define their target concepts or supply their deciding method/meaning. Related grammar, morphology and passage teaching are optional preparation; no indispensable absent idea with a necessary existing target was established. Six explicit no-edge records are saved, with lesson-specific reasoning. Future split/expanded teaching creates no current prerequisite.\n- No load-bearing figure dependency was encountered: deciding sentences, word forms, meanings and conditions are textual. Runtime remains unknown; question/practice, illustration assessment and all Levels 4/5 work remain deferred.\n- Bounded source ledger preserves verified English senses, partial Filipino support and unresolved language claims. The KWF guide preserves u in cuento-to-kuwento; the lesson's assertion that the orthography explicitly accepts both kwento/kuwento is not confirmed by located normative text. A KWF lecture slide listing forms is not an acceptance rule. No global claim that kwento is always wrong follows. Other unverified Filipino parsing/lexical/literary claims remain qualified, not accepted from weak reviewer evidence.\n\nSource scope: [accepted requirement packets](../requirements/), [CSE scope](../overlap/cse-scope.md), [CET/scholarship scope](../overlap/cet-scholarship-scope.md#language-and-reading). Exact requirement IDs carry source/cycle/cohort confidence. Primary encountered language references include [KWF dictionary/orthography guide](https://www.kwfdiksiyonaryo.ph/gabay.php), [KWF Manwal section9.1](https://kwfwikaatkultura.ph/wp-content/uploads/2024/05/Manwal-sa-Masinop-na-Pagsulat.pdf), [DepEd Filipino5 teaching material](https://lrmds.deped.gov.ph/create/download/1751) and publisher dictionary entries linked in the ledger. Those checks are bounded claims, not a complete correctness or new exam-source pass.",
+  "resumeRecord": {
+    "date": "2026-10-08",
+    "auditHead": "c1b3766c7ca7c631e61b576c0c083df9f2549134",
+    "preservedCheckpointSHA256": "89b22163c5504152050d81be2a36a63f497d714fb7297c7d543f844c258f9f92",
+    "preservedReads": 6,
+    "contextVerification": "Current main startup retrieved/read; policy revision unchanged1aaebad. Previously fully read spec/plan/orchestrator, accepted requirements, overlap and illustration decision match prior checkpoint. New October8 desktop-continuation decision read in full, retaining Level3 only. All six owned body hashes/ranges match; no lesson reread.",
+    "policyBlobs": {
+      "AGENTS.md": "3bdc2905aa3c2eb85f6280947528969464d379a3",
+      "WORKFLOW.md": "f4f2415256b8afbb5715d850a4b588c169d2d48c",
+      "SUBAGENTS.md": "b539ba3da0255d6272486d147fa8b4c80050482d",
+      "docs/workflow/startup.md": "3a1a659d08a55d1e350fb35347d9d6e6675e0b54",
+      "docs/content/source-policy.md": "461deb45b226977c70bd08790b3cdc31f2a24802",
+      "docs/content/exam-format-profiles.md": "d709f3f0944c59ae1906a4e03cfb3718df7ec8a8",
+      "docs/content/content-checklist.md": "7986287f0c521aef15f3d6b846895a9031a4ccbf",
+      "docs/content/lesson-style-guide.md": "4aadce093628084eae918d9e7363fa68d4f1ba9b",
+      "docs/content/question-style-guide.md": "98a7074d5cb623a93582a48608eb127c4f88aeb3"
+    }
+  },
+  "reuseComparisons": [
+    {
+      "lessonIds": [
+        "lesson-vocabulary-context-clues",
+        "lesson-comprehension-skills-context-clues-in-passages"
+      ],
+      "scope": "Shared definition/example/contrast strategy; distinct multi-sentence transfer. Recommendation to reuse common teaching once, preserving separate application, not a title-based merger or a strict edge.",
+      "evidence": [
+        {
+          "path": "content/lessons/language-proficiency/vocabulary/context-clues.md",
+          "lines": [
+            12,
+            22
+          ],
+          "note": "Vocabulary defines clue strategy locally"
+        },
+        {
+          "path": "content/lessons/reading-comprehension/comprehension-skills/context-clues-in-passages.md",
+          "lines": [
+            14,
+            28
+          ],
+          "note": "Passage body repeats clue categories and adds before/after scanning"
+        },
+        {
+          "path": "content/lessons/reading-comprehension/comprehension-skills/context-clues-in-passages.md",
+          "lines": [
+            32,
+            57
+          ],
+          "note": "Current source includes multi-sentence application, so owned-topic absence is not corpus absence"
+        }
+      ]
+    }
+  ],
+  "prerequisiteReasoning": {
+    "confusing-words": "Each target role/meaning and its decision cue are supplied locally. A full parts-of-speech course or deeper Filipino grammar may help, but no absent indispensable existing foundation was established.",
+    "context-clues": "Definition, clue categories and candidate-checking method supplied locally. Passage source repeats the shared core and extends application; current sentence examples do not require it.",
+    "idioms-and-figures-of-speech": "Idiom and device meanings are defined locally, and examples supply deciding context. Related Context Clues teaching is optional; future fuller literary interpretation does not create a current edge.",
+    "root-words-prefixes-suffixes": "Base/affix positions and tested element meanings supplied. Missing complex segmentation teaching is a local procedure gap, not proof of a necessary existing lesson. Context confirmation is explained locally.",
+    "spelling-rules": "Suffix and doubling patterns plus deciding forms supplied locally. Deeper morphology/phonics would improve understanding but is not an established necessary existing edge for current examples.",
+    "synonyms-and-antonyms": "Synonym, antonym and sense-first method supplied locally. Morphology is explicitly an optional clue, so no Root Words prerequisite. Other context teaching repeats, rather than supplies an absent indispensable method."
+  },
+  "selfCheck": "Command: python3 /private/tmp/check_vocab.py; exit0. Actual output: {\"assignedIds\": 6, \"fullReadHashes\": 6, \"facets\": 96, \"skills\": 95, \"evidenceObjects\": 365, \"validRequirementReferences\": 934, \"sourceLedger\": 14, \"foundationReadHashes\": 1, \"prerequisiteEdges\": 0, \"explicitNoPrerequisite\": 6, \"acyclic\": true, \"singleJSONAppendix\": true, \"cleanPinnedCorpus\": true, \"prohibitedSourceChanges\": false, \"errors\": []}\n\nFocused saved-document scan: {\"emDashes\": 0, \"trailingWhitespace\": 0, \"attributionMarkers\": 0, \"brokenLocalLinks\": []}. This scoped static attribution-marker scan is not the canonical Dart check. Canonical Dart attribution remains unverified; no pass inherited from the canceled lead process.\n\nCommand: python3 docs/content/audit/coverage-r1/check_level3_outputs.py; exit0. Actual summary: {\"level\": 3, \"completeTopics\": 14, \"expectedTopics\": 25, \"completeLessons\": 116, \"expectedLessons\": 158, \"errors\": [], \"mechanicalAccountingReady\": false, \"gateReady\": false}. Vocabulary appears among COMPLETE topics; whole-phase readiness remains false.\n\nAll six assigned IDs accounted once; full-read hashes/ranges preserved,95 skill records/96 facets,934 references and365 evidence bounds valid. One narrow passage-source full read/hash supports both-source reuse evidence without another-topic coverage verdict. Zero proposed strict edges and six explicit no-edge records; no aliases, self-links or authored-order assumptions. Fourteen ledger records preserve confirmed, partial and unresolved sources; remaining language-source questions are findings, not a complete correctness claim.\n\nPinned corpus clean; prohibited source changes absent. Only sole Vocabulary output edited. Previous completed artifacts untouched. No Level4 standards/voice/readability/illustration pass or Level5 questions/practice/blind solves, runtime access, Google writes, extra agents or Git mutations. Fresh independent semantic review remains required."
 }
 ```

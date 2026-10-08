@@ -1,11 +1,157 @@
 # Grammar and structure: Level 3 lesson audit
 
-DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered source ledger saved. Final author mechanical checks and prose remain pending. No strict prerequisite identified; no load-bearing figure dependency encountered.
+Status: COMPLETE author record, pending fresh independent review. Findings and recommendations only.
+
+## Findings
+
+The topic supplies a usable English core: modifier repair, parallel matching, word functions, clause/sentence classification, reference, agreement, punctuation, meaning-preserving editing, and introductory timeline/voice decisions. These methods can be shared as preparation. Broad domains and curriculum/weak lists do not establish that all nine exams require every rule.
+
+Filipino preparation is narrower. Class names, pronoun series, marker roles, and aspect/focus labels do not teach their application. Parts of speech explains one Filipino pang-uri identification; sentence structure gives labeled Filipino sentences without worked clause parsing. English teaching cannot establish complete bilingual preparation. This B03/L01 structural coverage finding does not apply Level 4 readability or style rules. Evidence: content/lessons/language-proficiency/grammar-and-structure/parts-of-speech.md:27-31,54-60; pronoun-antecedent-agreement.md:38-40; sentence-structure.md:29-36; subject-verb-agreement.md:26-28; tenses-and-voice.md:42-46. All shorthand paths here and below use that exact pinned grammar directory. Refs: upcat-L033/L060/L074/L075, cse-professional-L034/L080, cse-subprofessional-L046/L096/L097, pupcet-L076/L081.
+
+English modals, conditional construction, reflexive/intensive pronouns, and direct-to-reported speech lack local application methods. These are curriculum preparation gaps, not confirmed omissions from each current exam blueprint. Comma-splice repairs can transfer to fused sentences, but fused boundaries are not explicitly taught. Connector illustrations do not establish complete logical/cohesive-device teaching. Evidence: phrases-and-clauses.md:12-22,41-57; pronoun-antecedent-agreement.md:12-40; punctuation-and-capitalization.md:25-37; tenses-and-voice.md:12-21. Refs: acet-L101, ustet-L058, pupcet-L058, dost-sei-L076, cse-professional-L077, upcat-L057, dcat-L092, sm-foundation-L066. The JSON separates these facets and Filipino possibility, adverbial, verb-context, sequencing, and opinion-cohesion limits.
+
+Recommend one split candidate: English tense/aspect and English voice. Timeline decisions and agent/affected-subject transformations use different procedures; their current examples address them separately. Focused goals would make thin form-selection extensions easier to teach deliberately. Preserve the common verb foundation once. Cost: reorganized goals/boundaries, fuller application, and later stable-ID/history planning. This pedagogical proposal does not establish exam exclusion. Evidence: tenses-and-voice.md:12-40,50-80; L01/L17/L19 used only for teaching sequence and explained application. Filipino aspect/focus needs independently sourced teaching rather than translated English rules.
+
+Retain the other nine units. Their mechanisms serve coherent editing/classification goals; concept count alone gives no reason to split. Named complex-list semicolons/person agreement, labeled noun/verb decisions, and illustrative aspect choices remain local thin spots. No minimum example count or complete standards verdict applies.
+
+Parallelism illustrations after enjoy/want can confound complement licensing with matching forms, especially parallelism.md:85. [Cambridge's enjoy guidance](https://dictionary.cambridge.org/grammar/british-grammar/enjoy) rejects an infinitive complement after enjoy. Sentence marker detection at sentence-structure.md:79,95 must verify a clause: [Cambridge's since guidance](https://dictionary.cambridge.org/grammar/british-grammar/since) supplies preposition, conjunction, and adverb uses. The langkapan illustration at sentence-structure.md:36 needs explicit parsing; an omitted second subject permits a compound-predicate reading. This remains unresolved, not a wrong-answer finding. Detailed modern Filipino verb morphology/optional plurality also remains unconfirmed. The encountered-fact ledger preserves qualified concerns and successful source reads. No weak reviewer resolves them.
+
+## Common scope qualifications
+
+- UPCAT officially names bilingual Language Proficiency. Fine grammar depth and allocation are unknown; detailed leads are curriculum or weak.
+- Both CSE levels officially name English/Filipino Verbal error recognition and sentence structure for accepted 2026 PPT scope. Shared labels do not prove equal depth or complete bilingual instruction. Computer variants remain separate.
+- DOST English grammar/syntax is official in the 2026 primer; next-cycle continuity and finer depth are unknown.
+- USTET's English subtest is official; the name does not establish every item's language or detailed inventory/depth.
+- DCAT, ACET, PUPCET, and SM Foundation retain current-scope uncertainty. Historical recollections/reviewer advice are weak; curriculum relevance is inferred. No Filipino exclusion follows.
+- Curriculum exposure is not universal applicant completion, including ALS, earlier, and alternative cohorts. Organizer silence does not establish excess content. Runtime is unknown; practice is deferred Level 5.
+
+Unchanged accepted requirements and overlap notes control these bounds. Source URLs/dates/pages remain in requirements/*.md and exact local refs in JSON. Recommendations make no tag writes or full-exam claim.
+
+## Lesson conclusions and full-read log
+
+All ten bodies were read in full before interruption. Every saved SHA256 and [1,last] range matched the unchanged corpus on continuation. Each read received an incremental DRAFT checkpoint. Full goals, distinct skills, examples, and per-exam local limits appear in JSON.
+
+- modifiers.md,1-94: retain attachment/dangling/scope editing.
+- parallelism.md,1-91: retain matching-form applications; separate verb selection.
+- parts-of-speech.md,1-95: retain English foundation; develop Filipino functions independently.
+- phrases-and-clauses.md,1-93: retain classification through combination/fragment repair; nonfinite analysis is a caveat.
+- pronoun-antecedent-agreement.md,1-106: retain English reference; Filipino role selection untaught.
+- punctuation-and-capitalization.md,1-107: retain core conventions; complex-list semicolons only named.
+- redundancy-and-double-negatives.md,1-97: retain meaning/register-sensitive editing.
+- sentence-structure.md,1-101: retain clause counting; strengthen Filipino parsing and qualify marker detection.
+- subject-verb-agreement.md,1-98: retain English head/reference procedure; Filipino systems chiefly named.
+- tenses-and-voice.md,1-110: candidate split by procedure; Filipino aspect/focus incomplete.
+
+B03/L01/L17/L19 describe structural teaching/application evidence only. No formatting, readability, quiz, or illustration-quality pass occurred.
+
+## Necessary prerequisites
+
+No strict existing-lesson edge was found. Current introductory tasks supply needed definitions/procedures locally. Sentence structure explains clause independence/dependency in14-20 and works classification in40-73; punctuation supplies its stand-alone clause test in47-67,79; modifiers supplies target/subject tests in12-20,43-57. Deeper clause, word-class, or verb instruction is optional preparation. A proposed future split cannot create a current prerequisite.
+
+Explicit no-necessary-prerequisite list:
+
+- lesson-grammar-and-structure-modifiers
+- lesson-grammar-and-structure-parallelism
+- lesson-grammar-and-structure-parts-of-speech
+- lesson-grammar-and-structure-phrases-and-clauses
+- lesson-grammar-and-structure-pronoun-antecedent-agreement
+- lesson-grammar-and-structure-punctuation-and-capitalization
+- lesson-grammar-and-structure-redundancy-and-double-negatives
+- lesson-grammar-and-structure-sentence-structure
+- lesson-grammar-and-structure-subject-verb-agreement
+- lesson-grammar-and-structure-tenses-and-voice
+
+Untaught preparation facets are coverage recommendations, not prerequisite gaps for present tasks. Empty dependency lists in JSON introduce no cycles. No load-bearing figure dependency was encountered; no figure need/sufficiency/availability/production judgment occurred.
+
+## Identity and verification
+
+Current live/cached policy main: 1aaebad9814ba7bd9404d8b43fc010281abb97cf. Audit live/local at resume: c1b3766c7ca7c631e61b576c0c083df9f2549134. Corpus live/local: 765c5dc0fa5586281047bf4f7b30d09ab3707887, clean. Preserved DRAFT SHA256: 7fc02d69d31fb756db3376a5c1b1618d9684dee2cb42d35ee1b6302ac668eb0b. Ledger source-access identities remain historical accesses, not relabeled to this resume.
+
+Policy/startup/source/checklist/style/profile files, full spec/plan, governing October 4/5 and latest October 8 decisions, illustration decision, orchestrator, original/resume briefs, and reader contract were refreshed. Accepted requirements/overlap manifests match, preserving prior full-read context. Language sections and whole-corpus keyword leads were inspected for unmapped local facets; sibling topics receive no global absence verdict.
+
+Author checks follow below. Fresh independent review, global facet reconciliation, and the Level 3 gate remain pending with the lead. No required-context stop occurred. Interruption preserved all reads. Recorded 403 failures recovered through direct reference reads where noted; APA script-only access and Filipino parse/morphology were qualified. Only this assigned output changed. Previous completed artifacts and corpus remain untouched.
+
+Scoped Python schema/read/hash/ref/evidence/dependency self-check, exit0:
+
+```text
+{
+  "assignedLessons": 10,
+  "savedFullReads": 10,
+  "skillRecords": 111,
+  "facets": 130,
+  "requirementRefs": 45,
+  "evidenceObjects": 356,
+  "links": 0,
+  "noLinkLessons": 10,
+  "sourceRows": 10,
+  "errors": []
+}
+```
+
+Read-only combined Level3 checker, exit0, snapshot at author check:
+
+```text
+{
+  "level": 3,
+  "completeTopics": 12,
+  "expectedTopics": 25,
+  "completeLessons": 107,
+  "expectedLessons": 158,
+  "complete": [
+    "language-proficiency-grammar-and-structure",
+    "mathematics-algebra",
+    "mathematics-arithmetic-number-sense",
+    "mathematics-data-interpretation",
+    "mathematics-geometry",
+    "mathematics-precalculus-basic-calculus",
+    "mathematics-statistics-and-probability",
+    "mathematics-trigonometry",
+    "science-biology",
+    "science-chemistry",
+    "science-earth-science-astronomy",
+    "science-physics"
+  ],
+  "pending": [
+    "general-information-code-of-conduct-ra-6713:NOT_STARTED",
+    "general-information-environment-management:NOT_STARTED",
+    "general-information-peace-and-human-rights:NOT_STARTED",
+    "general-information-philippine-constitution:NOT_STARTED",
+    "language-proficiency-language-application:DRAFT",
+    "language-proficiency-vocabulary:DRAFT",
+    "reading-comprehension-comprehension-skills:NOT_STARTED",
+    "reading-comprehension-text-types:NOT_STARTED",
+    "reasoning-clerical-ability:NOT_STARTED",
+    "reasoning-logical-verbal-reasoning:NOT_STARTED",
+    "reasoning-mechanical-technical-reasoning:NOT_STARTED",
+    "reasoning-spatial-abstract-reasoning:NOT_STARTED",
+    "reasoning-verbal-logic:NOT_STARTED"
+  ],
+  "errors": [],
+  "mechanicalAccountingReady": false,
+  "gateReady": false
+}
+```
+
+Corpus/document/input checks, actual output:
+
+```text
+765c5dc0fa5586281047bf4f7b30d09ab3707887
+jsonAppendices 1 emdash 0 trailingWhitespace 0 attributionMarkers 0
+requirement-input-manifest.json files 10 hashMismatches []
+map-input-manifest.json files 13 hashMismatches []
+```
+
+The scoped Git whitespace check returned exit0 with no output.
+
+The attribution-marker result is the saved-document Python scan. It is not a canonical Dart attribution pass; that combined check remains unverified after the lead reported canceling its stalled process with exit130. No SDK repair or global content scan was attempted. Mechanical accounting and the overall gate remain false while other topics and independent review are pending.
+
+
+## JSON appendix
 
 ```json
 {
   "level": 3,
-  "status": "DRAFT",
+  "status": "COMPLETE",
   "subject": "language-proficiency",
   "topic": "grammar-and-structure",
   "policyCommit": "1aaebad9814ba7bd9404d8b43fc010281abb97cf",
@@ -149,44 +295,47 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "upcat-L071"
           ],
           "sharedCore": "English attachment, dangling subject and focus-scope editing.",
-          "partialLimits": "Current organizer domain is bilingual; fine skills and depth unknown. Detailed English/Filipino leads are curriculum or weak preparation. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "dcat",
           "requirementRefs": [
+            "dcat-L038",
             "dcat-L096"
           ],
           "sharedCore": "English attachment, dangling subject and focus-scope editing.",
-          "partialLimits": "Historical weak language grouping and curriculum preparation only; current academic roster, bilingual allocation and depth unknown. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "acet",
           "requirementRefs": [
+            "acet-L039",
             "acet-L110"
           ],
           "sharedCore": "English attachment, dangling subject and focus-scope editing.",
-          "partialLimits": "English label and finer usage leads are weak; curriculum support does not establish current ACET grammar rules or Filipino exclusion. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "ustet",
           "requirementRefs": [
+            "ustet-L038",
             "ustet-L051",
             "ustet-L069"
           ],
           "sharedCore": "English attachment, dangling subject and focus-scope editing.",
-          "partialLimits": "Official English subtest label; fine topics and actual item-language rule unknown. Detailed grammar candidates are curriculum or weak. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "pupcet",
@@ -195,32 +344,35 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "pupcet-L063"
           ],
           "sharedCore": "English attachment, dangling subject and focus-scope editing.",
-          "partialLimits": "Curriculum/weak preparation only; current subtest grouping, bilingual allocation and grammar depth unknown. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "dost-sei",
           "requirementRefs": [
+            "dost-sei-L036",
             "dost-sei-L072"
           ],
           "sharedCore": "English attachment, dangling subject and focus-scope editing.",
-          "partialLimits": "English grammar/syntax official for 2026 primer; 2027 continuity and exact finer depth unknown. Curriculum detail is preparation. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "sm-foundation",
           "requirementRefs": [
-            "sm-foundation-L075"
+            "sm-foundation-L045",
+            "sm-foundation-L075",
+            "sm-foundation-L076"
           ],
           "sharedCore": "English attachment, dangling subject and focus-scope editing.",
-          "partialLimits": "Historical weak completion/error tasks and school preparation only; current scope, language and depth unknown. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "cse-professional",
@@ -228,10 +380,10 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "cse-professional-L071"
           ],
           "sharedCore": "English attachment, dangling subject and focus-scope editing.",
-          "partialLimits": "2026 PPT Verbal English/Filipino grammar error recognition/sentence structure are official; fine rules and language allocation unknown. Computer variants separate. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "cse-subprofessional",
@@ -239,10 +391,10 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "cse-subprofessional-L067"
           ],
           "sharedCore": "English attachment, dangling subject and focus-scope editing.",
-          "partialLimits": "2026 PPT Verbal English/Filipino error recognition/sentence structure are official; fine rules and allocation unknown. Computer variants separate. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         }
       ],
       "structure": {
@@ -489,46 +641,49 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "upcat-L070"
           ],
           "sharedCore": "English matching forms in lists, paired conjunctions and comparisons.",
-          "partialLimits": "Current organizer domain is bilingual; fine skills and depth unknown. Detailed English/Filipino leads are curriculum or weak preparation. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "dcat",
           "requirementRefs": [
+            "dcat-L038",
             "dcat-L091",
             "dcat-L096"
           ],
           "sharedCore": "English matching forms in lists, paired conjunctions and comparisons.",
-          "partialLimits": "Historical weak language grouping and curriculum preparation only; current academic roster, bilingual allocation and depth unknown. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "acet",
           "requirementRefs": [
+            "acet-L039",
             "acet-L101",
             "acet-L110"
           ],
           "sharedCore": "English matching forms in lists, paired conjunctions and comparisons.",
-          "partialLimits": "English label and finer usage leads are weak; curriculum support does not establish current ACET grammar rules or Filipino exclusion. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "ustet",
           "requirementRefs": [
+            "ustet-L038",
             "ustet-L051",
             "ustet-L069"
           ],
           "sharedCore": "English matching forms in lists, paired conjunctions and comparisons.",
-          "partialLimits": "Official English subtest label; fine topics and actual item-language rule unknown. Detailed grammar candidates are curriculum or weak. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "pupcet",
@@ -536,33 +691,36 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "pupcet-L063"
           ],
           "sharedCore": "English matching forms in lists, paired conjunctions and comparisons.",
-          "partialLimits": "Curriculum/weak preparation only; current subtest grouping, bilingual allocation and grammar depth unknown. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "dost-sei",
           "requirementRefs": [
+            "dost-sei-L036",
             "dost-sei-L072",
             "dost-sei-L076"
           ],
           "sharedCore": "English matching forms in lists, paired conjunctions and comparisons.",
-          "partialLimits": "English grammar/syntax official for 2026 primer; 2027 continuity and exact finer depth unknown. Curriculum detail is preparation. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "sm-foundation",
           "requirementRefs": [
-            "sm-foundation-L075"
+            "sm-foundation-L045",
+            "sm-foundation-L075",
+            "sm-foundation-L076"
           ],
           "sharedCore": "English matching forms in lists, paired conjunctions and comparisons.",
-          "partialLimits": "Historical weak completion/error tasks and school preparation only; current scope, language and depth unknown. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "cse-professional",
@@ -571,10 +729,10 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "cse-professional-L077"
           ],
           "sharedCore": "English matching forms in lists, paired conjunctions and comparisons.",
-          "partialLimits": "2026 PPT Verbal English/Filipino grammar error recognition/sentence structure are official; fine rules and language allocation unknown. Computer variants separate. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "cse-subprofessional",
@@ -583,10 +741,10 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "cse-subprofessional-L122"
           ],
           "sharedCore": "English matching forms in lists, paired conjunctions and comparisons.",
-          "partialLimits": "2026 PPT Verbal English/Filipino error recognition/sentence structure are official; fine rules and allocation unknown. Computer variants separate. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         }
       ],
       "structure": {
@@ -1410,44 +1568,47 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "upcat-L075"
           ],
           "sharedCore": "English word functions; only one Filipino pang-uri decision.",
-          "partialLimits": "Current organizer domain is bilingual; fine skills and depth unknown. Detailed English/Filipino leads are curriculum or weak preparation. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "revise-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "dcat",
           "requirementRefs": [
+            "dcat-L038",
             "dcat-L096"
           ],
           "sharedCore": "English word functions; only one Filipino pang-uri decision.",
-          "partialLimits": "Historical weak language grouping and curriculum preparation only; current academic roster, bilingual allocation and depth unknown. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "acet",
           "requirementRefs": [
+            "acet-L039",
             "acet-L110"
           ],
           "sharedCore": "English word functions; only one Filipino pang-uri decision.",
-          "partialLimits": "English label and finer usage leads are weak; curriculum support does not establish current ACET grammar rules or Filipino exclusion. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "ustet",
           "requirementRefs": [
+            "ustet-L038",
             "ustet-L051",
             "ustet-L069"
           ],
           "sharedCore": "English word functions; only one Filipino pang-uri decision.",
-          "partialLimits": "Official English subtest label; fine topics and actual item-language rule unknown. Detailed grammar candidates are curriculum or weak. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "pupcet",
@@ -1456,32 +1617,35 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "pupcet-L081"
           ],
           "sharedCore": "English word functions; only one Filipino pang-uri decision.",
-          "partialLimits": "Curriculum/weak preparation only; current subtest grouping, bilingual allocation and grammar depth unknown. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "dost-sei",
           "requirementRefs": [
+            "dost-sei-L036",
             "dost-sei-L072"
           ],
           "sharedCore": "English word functions; only one Filipino pang-uri decision.",
-          "partialLimits": "English grammar/syntax official for 2026 primer; 2027 continuity and exact finer depth unknown. Curriculum detail is preparation. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "sm-foundation",
           "requirementRefs": [
-            "sm-foundation-L075"
+            "sm-foundation-L045",
+            "sm-foundation-L075",
+            "sm-foundation-L076"
           ],
           "sharedCore": "English word functions; only one Filipino pang-uri decision.",
-          "partialLimits": "Historical weak completion/error tasks and school preparation only; current scope, language and depth unknown. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "cse-professional",
@@ -1490,10 +1654,10 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "cse-professional-L071"
           ],
           "sharedCore": "English word functions; only one Filipino pang-uri decision.",
-          "partialLimits": "2026 PPT Verbal English/Filipino grammar error recognition/sentence structure are official; fine rules and language allocation unknown. Computer variants separate. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "revise-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "cse-subprofessional",
@@ -1503,10 +1667,10 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "cse-subprofessional-L122"
           ],
           "sharedCore": "English word functions; only one Filipino pang-uri decision.",
-          "partialLimits": "2026 PPT Verbal English/Filipino error recognition/sentence structure are official; fine rules and allocation unknown. Computer variants separate. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "revise-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         }
       ],
       "structure": {
@@ -1929,46 +2093,49 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "upcat-L069"
           ],
           "sharedCore": "English school-grammar clauses, clause combination and fragment repair.",
-          "partialLimits": "Current organizer domain is bilingual; fine skills and depth unknown. Detailed English/Filipino leads are curriculum or weak preparation. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "dcat",
           "requirementRefs": [
+            "dcat-L038",
             "dcat-L091",
             "dcat-L096"
           ],
           "sharedCore": "English school-grammar clauses, clause combination and fragment repair.",
-          "partialLimits": "Historical weak language grouping and curriculum preparation only; current academic roster, bilingual allocation and depth unknown. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "acet",
           "requirementRefs": [
+            "acet-L039",
             "acet-L101",
             "acet-L110"
           ],
           "sharedCore": "English school-grammar clauses, clause combination and fragment repair.",
-          "partialLimits": "English label and finer usage leads are weak; curriculum support does not establish current ACET grammar rules or Filipino exclusion. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "ustet",
           "requirementRefs": [
+            "ustet-L038",
             "ustet-L051",
             "ustet-L069"
           ],
           "sharedCore": "English school-grammar clauses, clause combination and fragment repair.",
-          "partialLimits": "Official English subtest label; fine topics and actual item-language rule unknown. Detailed grammar candidates are curriculum or weak. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "pupcet",
@@ -1976,34 +2143,37 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "pupcet-L063"
           ],
           "sharedCore": "English school-grammar clauses, clause combination and fragment repair.",
-          "partialLimits": "Curriculum/weak preparation only; current subtest grouping, bilingual allocation and grammar depth unknown. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "dost-sei",
           "requirementRefs": [
+            "dost-sei-L036",
             "dost-sei-L072",
             "dost-sei-L076"
           ],
           "sharedCore": "English school-grammar clauses, clause combination and fragment repair.",
-          "partialLimits": "English grammar/syntax official for 2026 primer; 2027 continuity and exact finer depth unknown. Curriculum detail is preparation. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "sm-foundation",
           "requirementRefs": [
+            "sm-foundation-L045",
             "sm-foundation-L066",
-            "sm-foundation-L075"
+            "sm-foundation-L075",
+            "sm-foundation-L076"
           ],
           "sharedCore": "English school-grammar clauses, clause combination and fragment repair.",
-          "partialLimits": "Historical weak completion/error tasks and school preparation only; current scope, language and depth unknown. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "cse-professional",
@@ -2012,10 +2182,10 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "cse-professional-L077"
           ],
           "sharedCore": "English school-grammar clauses, clause combination and fragment repair.",
-          "partialLimits": "2026 PPT Verbal English/Filipino grammar error recognition/sentence structure are official; fine rules and language allocation unknown. Computer variants separate. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "cse-subprofessional",
@@ -2024,10 +2194,10 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "cse-subprofessional-L095"
           ],
           "sharedCore": "English school-grammar clauses, clause combination and fragment repair.",
-          "partialLimits": "2026 PPT Verbal English/Filipino error recognition/sentence structure are official; fine rules and allocation unknown. Computer variants separate. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         }
       ],
       "structure": {
@@ -2492,44 +2662,47 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "upcat-L075"
           ],
           "sharedCore": "English reference/number/meaning decisions; Filipino pronoun-role forms only named.",
-          "partialLimits": "Current organizer domain is bilingual; fine skills and depth unknown. Detailed English/Filipino leads are curriculum or weak preparation. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "revise-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "dcat",
           "requirementRefs": [
+            "dcat-L038",
             "dcat-L096"
           ],
           "sharedCore": "English reference/number/meaning decisions; Filipino pronoun-role forms only named.",
-          "partialLimits": "Historical weak language grouping and curriculum preparation only; current academic roster, bilingual allocation and depth unknown. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "acet",
           "requirementRefs": [
+            "acet-L039",
             "acet-L110"
           ],
           "sharedCore": "English reference/number/meaning decisions; Filipino pronoun-role forms only named.",
-          "partialLimits": "English label and finer usage leads are weak; curriculum support does not establish current ACET grammar rules or Filipino exclusion. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "ustet",
           "requirementRefs": [
+            "ustet-L038",
             "ustet-L051",
             "ustet-L069"
           ],
           "sharedCore": "English reference/number/meaning decisions; Filipino pronoun-role forms only named.",
-          "partialLimits": "Official English subtest label; fine topics and actual item-language rule unknown. Detailed grammar candidates are curriculum or weak. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "pupcet",
@@ -2538,32 +2711,35 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "pupcet-L081"
           ],
           "sharedCore": "English reference/number/meaning decisions; Filipino pronoun-role forms only named.",
-          "partialLimits": "Curriculum/weak preparation only; current subtest grouping, bilingual allocation and grammar depth unknown. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "dost-sei",
           "requirementRefs": [
+            "dost-sei-L036",
             "dost-sei-L072"
           ],
           "sharedCore": "English reference/number/meaning decisions; Filipino pronoun-role forms only named.",
-          "partialLimits": "English grammar/syntax official for 2026 primer; 2027 continuity and exact finer depth unknown. Curriculum detail is preparation. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "sm-foundation",
           "requirementRefs": [
-            "sm-foundation-L075"
+            "sm-foundation-L045",
+            "sm-foundation-L075",
+            "sm-foundation-L076"
           ],
           "sharedCore": "English reference/number/meaning decisions; Filipino pronoun-role forms only named.",
-          "partialLimits": "Historical weak completion/error tasks and school preparation only; current scope, language and depth unknown. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "cse-professional",
@@ -2573,10 +2749,10 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "cse-professional-L082"
           ],
           "sharedCore": "English reference/number/meaning decisions; Filipino pronoun-role forms only named.",
-          "partialLimits": "2026 PPT Verbal English/Filipino grammar error recognition/sentence structure are official; fine rules and language allocation unknown. Computer variants separate. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "revise-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "cse-subprofessional",
@@ -2586,10 +2762,10 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "cse-subprofessional-L122"
           ],
           "sharedCore": "English reference/number/meaning decisions; Filipino pronoun-role forms only named.",
-          "partialLimits": "2026 PPT Verbal English/Filipino error recognition/sentence structure are official; fine rules and allocation unknown. Computer variants separate. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "revise-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         }
       ],
       "structure": {
@@ -3267,45 +3443,48 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "upcat-L071"
           ],
           "sharedCore": "Core English punctuation/capitalization decisions and style distinctions.",
-          "partialLimits": "Current organizer domain is bilingual; fine skills and depth unknown. Detailed English/Filipino leads are curriculum or weak preparation. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "dcat",
           "requirementRefs": [
+            "dcat-L038",
             "dcat-L096"
           ],
           "sharedCore": "Core English punctuation/capitalization decisions and style distinctions.",
-          "partialLimits": "Historical weak language grouping and curriculum preparation only; current academic roster, bilingual allocation and depth unknown. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "acet",
           "requirementRefs": [
+            "acet-L039",
             "acet-L110"
           ],
           "sharedCore": "Core English punctuation/capitalization decisions and style distinctions.",
-          "partialLimits": "English label and finer usage leads are weak; curriculum support does not establish current ACET grammar rules or Filipino exclusion. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "ustet",
           "requirementRefs": [
+            "ustet-L038",
             "ustet-L051",
             "ustet-L058",
             "ustet-L069"
           ],
           "sharedCore": "Core English punctuation/capitalization decisions and style distinctions.",
-          "partialLimits": "Official English subtest label; fine topics and actual item-language rule unknown. Detailed grammar candidates are curriculum or weak. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "pupcet",
@@ -3313,32 +3492,35 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "pupcet-L063"
           ],
           "sharedCore": "Core English punctuation/capitalization decisions and style distinctions.",
-          "partialLimits": "Curriculum/weak preparation only; current subtest grouping, bilingual allocation and grammar depth unknown. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "dost-sei",
           "requirementRefs": [
+            "dost-sei-L036",
             "dost-sei-L072"
           ],
           "sharedCore": "Core English punctuation/capitalization decisions and style distinctions.",
-          "partialLimits": "English grammar/syntax official for 2026 primer; 2027 continuity and exact finer depth unknown. Curriculum detail is preparation. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "sm-foundation",
           "requirementRefs": [
-            "sm-foundation-L075"
+            "sm-foundation-L045",
+            "sm-foundation-L075",
+            "sm-foundation-L076"
           ],
           "sharedCore": "Core English punctuation/capitalization decisions and style distinctions.",
-          "partialLimits": "Historical weak completion/error tasks and school preparation only; current scope, language and depth unknown. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "cse-professional",
@@ -3347,10 +3529,10 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "cse-professional-L082"
           ],
           "sharedCore": "Core English punctuation/capitalization decisions and style distinctions.",
-          "partialLimits": "2026 PPT Verbal English/Filipino grammar error recognition/sentence structure are official; fine rules and language allocation unknown. Computer variants separate. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "cse-subprofessional",
@@ -3359,10 +3541,10 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "cse-subprofessional-L122"
           ],
           "sharedCore": "Core English punctuation/capitalization decisions and style distinctions.",
-          "partialLimits": "2026 PPT Verbal English/Filipino error recognition/sentence structure are official; fine rules and allocation unknown. Computer variants separate. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         }
       ],
       "structure": {
@@ -3661,44 +3843,47 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "upcat-L069"
           ],
           "sharedCore": "Meaning-preserving English repetition and negation editing.",
-          "partialLimits": "Current organizer domain is bilingual; fine skills and depth unknown. Detailed English/Filipino leads are curriculum or weak preparation. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "dcat",
           "requirementRefs": [
+            "dcat-L038",
             "dcat-L096"
           ],
           "sharedCore": "Meaning-preserving English repetition and negation editing.",
-          "partialLimits": "Historical weak language grouping and curriculum preparation only; current academic roster, bilingual allocation and depth unknown. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "acet",
           "requirementRefs": [
+            "acet-L039",
             "acet-L110"
           ],
           "sharedCore": "Meaning-preserving English repetition and negation editing.",
-          "partialLimits": "English label and finer usage leads are weak; curriculum support does not establish current ACET grammar rules or Filipino exclusion. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "ustet",
           "requirementRefs": [
+            "ustet-L038",
             "ustet-L051",
             "ustet-L069"
           ],
           "sharedCore": "Meaning-preserving English repetition and negation editing.",
-          "partialLimits": "Official English subtest label; fine topics and actual item-language rule unknown. Detailed grammar candidates are curriculum or weak. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "pupcet",
@@ -3706,32 +3891,35 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "pupcet-L063"
           ],
           "sharedCore": "Meaning-preserving English repetition and negation editing.",
-          "partialLimits": "Curriculum/weak preparation only; current subtest grouping, bilingual allocation and grammar depth unknown. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "dost-sei",
           "requirementRefs": [
+            "dost-sei-L036",
             "dost-sei-L072"
           ],
           "sharedCore": "Meaning-preserving English repetition and negation editing.",
-          "partialLimits": "English grammar/syntax official for 2026 primer; 2027 continuity and exact finer depth unknown. Curriculum detail is preparation. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "sm-foundation",
           "requirementRefs": [
-            "sm-foundation-L075"
+            "sm-foundation-L045",
+            "sm-foundation-L075",
+            "sm-foundation-L076"
           ],
           "sharedCore": "Meaning-preserving English repetition and negation editing.",
-          "partialLimits": "Historical weak completion/error tasks and school preparation only; current scope, language and depth unknown. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "cse-professional",
@@ -3739,10 +3927,10 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "cse-professional-L071"
           ],
           "sharedCore": "Meaning-preserving English repetition and negation editing.",
-          "partialLimits": "2026 PPT Verbal English/Filipino grammar error recognition/sentence structure are official; fine rules and language allocation unknown. Computer variants separate. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "cse-subprofessional",
@@ -3750,10 +3938,10 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "cse-subprofessional-L067"
           ],
           "sharedCore": "Meaning-preserving English repetition and negation editing.",
-          "partialLimits": "2026 PPT Verbal English/Filipino error recognition/sentence structure are official; fine rules and allocation unknown. Computer variants separate. English methods do not establish full Filipino teaching.",
+          "partialLimits": "Local sharedCore only. No Filipino counterpart teaching.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         }
       ],
       "structure": {
@@ -4271,44 +4459,47 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "upcat-L074"
           ],
           "sharedCore": "English clause-count classification; Filipino labels with sentence illustrations.",
-          "partialLimits": "Current organizer domain is bilingual; fine skills and depth unknown. Detailed English/Filipino leads are curriculum or weak preparation. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "revise-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "dcat",
           "requirementRefs": [
+            "dcat-L038",
             "dcat-L096"
           ],
           "sharedCore": "English clause-count classification; Filipino labels with sentence illustrations.",
-          "partialLimits": "Historical weak language grouping and curriculum preparation only; current academic roster, bilingual allocation and depth unknown. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "acet",
           "requirementRefs": [
+            "acet-L039",
             "acet-L110"
           ],
           "sharedCore": "English clause-count classification; Filipino labels with sentence illustrations.",
-          "partialLimits": "English label and finer usage leads are weak; curriculum support does not establish current ACET grammar rules or Filipino exclusion. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "ustet",
           "requirementRefs": [
+            "ustet-L038",
             "ustet-L051",
             "ustet-L069"
           ],
           "sharedCore": "English clause-count classification; Filipino labels with sentence illustrations.",
-          "partialLimits": "Official English subtest label; fine topics and actual item-language rule unknown. Detailed grammar candidates are curriculum or weak. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "pupcet",
@@ -4318,33 +4509,36 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "pupcet-L081"
           ],
           "sharedCore": "English clause-count classification; Filipino labels with sentence illustrations.",
-          "partialLimits": "Curriculum/weak preparation only; current subtest grouping, bilingual allocation and grammar depth unknown. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "dost-sei",
           "requirementRefs": [
+            "dost-sei-L036",
             "dost-sei-L072"
           ],
           "sharedCore": "English clause-count classification; Filipino labels with sentence illustrations.",
-          "partialLimits": "English grammar/syntax official for 2026 primer; 2027 continuity and exact finer depth unknown. Curriculum detail is preparation. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "sm-foundation",
           "requirementRefs": [
+            "sm-foundation-L045",
             "sm-foundation-L066",
-            "sm-foundation-L075"
+            "sm-foundation-L075",
+            "sm-foundation-L076"
           ],
           "sharedCore": "English clause-count classification; Filipino labels with sentence illustrations.",
-          "partialLimits": "Historical weak completion/error tasks and school preparation only; current scope, language and depth unknown. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "cse-professional",
@@ -4354,10 +4548,10 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "cse-professional-L080"
           ],
           "sharedCore": "English clause-count classification; Filipino labels with sentence illustrations.",
-          "partialLimits": "2026 PPT Verbal English/Filipino grammar error recognition/sentence structure are official; fine rules and language allocation unknown. Computer variants separate. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "revise-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "cse-subprofessional",
@@ -4369,10 +4563,10 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "cse-subprofessional-L097"
           ],
           "sharedCore": "English clause-count classification; Filipino labels with sentence illustrations.",
-          "partialLimits": "2026 PPT Verbal English/Filipino error recognition/sentence structure are official; fine rules and allocation unknown. Computer variants separate. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "revise-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         }
       ],
       "structure": {
@@ -4986,45 +5180,48 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "upcat-L074"
           ],
           "sharedCore": "English agreement decisions; Filipino distinctions only named.",
-          "partialLimits": "Current organizer domain is bilingual; fine skills and depth unknown. Detailed English/Filipino leads are curriculum or weak preparation. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "revise-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "dcat",
           "requirementRefs": [
+            "dcat-L038",
             "dcat-L096"
           ],
           "sharedCore": "English agreement decisions; Filipino distinctions only named.",
-          "partialLimits": "Historical weak language grouping and curriculum preparation only; current academic roster, bilingual allocation and depth unknown. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "acet",
           "requirementRefs": [
+            "acet-L039",
             "acet-L101",
             "acet-L110"
           ],
           "sharedCore": "English agreement decisions; Filipino distinctions only named.",
-          "partialLimits": "English label and finer usage leads are weak; curriculum support does not establish current ACET grammar rules or Filipino exclusion. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "ustet",
           "requirementRefs": [
+            "ustet-L038",
             "ustet-L051",
             "ustet-L069"
           ],
           "sharedCore": "English agreement decisions; Filipino distinctions only named.",
-          "partialLimits": "Official English subtest label; fine topics and actual item-language rule unknown. Detailed grammar candidates are curriculum or weak. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "pupcet",
@@ -5033,34 +5230,37 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "pupcet-L081"
           ],
           "sharedCore": "English agreement decisions; Filipino distinctions only named.",
-          "partialLimits": "Curriculum/weak preparation only; current subtest grouping, bilingual allocation and grammar depth unknown. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "dost-sei",
           "requirementRefs": [
+            "dost-sei-L036",
             "dost-sei-L072",
             "dost-sei-L076"
           ],
           "sharedCore": "English agreement decisions; Filipino distinctions only named.",
-          "partialLimits": "English grammar/syntax official for 2026 primer; 2027 continuity and exact finer depth unknown. Curriculum detail is preparation. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "sm-foundation",
           "requirementRefs": [
+            "sm-foundation-L045",
             "sm-foundation-L066",
-            "sm-foundation-L075"
+            "sm-foundation-L075",
+            "sm-foundation-L076"
           ],
           "sharedCore": "English agreement decisions; Filipino distinctions only named.",
-          "partialLimits": "Historical weak completion/error tasks and school preparation only; current scope, language and depth unknown. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "cse-professional",
@@ -5070,10 +5270,10 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "cse-professional-L077"
           ],
           "sharedCore": "English agreement decisions; Filipino distinctions only named.",
-          "partialLimits": "2026 PPT Verbal English/Filipino grammar error recognition/sentence structure are official; fine rules and language allocation unknown. Computer variants separate. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "revise-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "cse-subprofessional",
@@ -5084,10 +5284,10 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "cse-subprofessional-L096"
           ],
           "sharedCore": "English agreement decisions; Filipino distinctions only named.",
-          "partialLimits": "2026 PPT Verbal English/Filipino error recognition/sentence structure are official; fine rules and allocation unknown. Computer variants separate. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "revise-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         }
       ],
       "structure": {
@@ -6038,47 +6238,50 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "upcat-L074"
           ],
           "sharedCore": "English timeline choices and voice identification/conversion; Filipino forms/categories largely named.",
-          "partialLimits": "Current organizer domain is bilingual; fine skills and depth unknown. Detailed English/Filipino leads are curriculum or weak preparation. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "revise-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "dcat",
           "requirementRefs": [
+            "dcat-L038",
             "dcat-L092",
             "dcat-L096"
           ],
           "sharedCore": "English timeline choices and voice identification/conversion; Filipino forms/categories largely named.",
-          "partialLimits": "Historical weak language grouping and curriculum preparation only; current academic roster, bilingual allocation and depth unknown. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "acet",
           "requirementRefs": [
+            "acet-L039",
             "acet-L101",
             "acet-L110"
           ],
           "sharedCore": "English timeline choices and voice identification/conversion; Filipino forms/categories largely named.",
-          "partialLimits": "English label and finer usage leads are weak; curriculum support does not establish current ACET grammar rules or Filipino exclusion. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "ustet",
           "requirementRefs": [
+            "ustet-L038",
             "ustet-L051",
             "ustet-L058",
             "ustet-L069"
           ],
           "sharedCore": "English timeline choices and voice identification/conversion; Filipino forms/categories largely named.",
-          "partialLimits": "Official English subtest label; fine topics and actual item-language rule unknown. Detailed grammar candidates are curriculum or weak. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "pupcet",
@@ -6087,33 +6290,36 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "pupcet-L081"
           ],
           "sharedCore": "English timeline choices and voice identification/conversion; Filipino forms/categories largely named.",
-          "partialLimits": "Curriculum/weak preparation only; current subtest grouping, bilingual allocation and grammar depth unknown. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "dost-sei",
           "requirementRefs": [
+            "dost-sei-L036",
             "dost-sei-L072"
           ],
           "sharedCore": "English timeline choices and voice identification/conversion; Filipino forms/categories largely named.",
-          "partialLimits": "English grammar/syntax official for 2026 primer; 2027 continuity and exact finer depth unknown. Curriculum detail is preparation. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "retain-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "sm-foundation",
           "requirementRefs": [
+            "sm-foundation-L045",
             "sm-foundation-L066",
-            "sm-foundation-L075"
+            "sm-foundation-L075",
+            "sm-foundation-L076"
           ],
           "sharedCore": "English timeline choices and voice identification/conversion; Filipino forms/categories largely named.",
-          "partialLimits": "Historical weak completion/error tasks and school preparation only; current scope, language and depth unknown. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "uncertain",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "cse-professional",
@@ -6123,10 +6329,10 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "cse-professional-L082"
           ],
           "sharedCore": "English timeline choices and voice identification/conversion; Filipino forms/categories largely named.",
-          "partialLimits": "2026 PPT Verbal English/Filipino grammar error recognition/sentence structure are official; fine rules and language allocation unknown. Computer variants separate. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "revise-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         },
         {
           "exam": "cse-subprofessional",
@@ -6138,10 +6344,10 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
             "cse-subprofessional-L122"
           ],
           "sharedCore": "English timeline choices and voice identification/conversion; Filipino forms/categories largely named.",
-          "partialLimits": "2026 PPT Verbal English/Filipino error recognition/sentence structure are official; fine rules and allocation unknown. Computer variants separate. Local Filipino illustrations/labels do not supply role selection, complete word-class teaching or form construction.",
+          "partialLimits": "Local sharedCore only. Filipino class/role/form applications remain partial or untaught.",
           "depth": "unknown: no verified finer item depth or complete grammar blueprint",
           "tagRecommendation": "revise-candidate",
-          "reason": "Actual local teaching supports a bounded preparation candidate; no whole-lesson, complete-exam or English-to-Filipino equivalence claim."
+          "reason": "Bounded preparation within accepted source tier/cycle; exact local fine-skill inclusion unconfirmed. Common exam/source/cycle limits are recorded in prose."
         }
       ],
       "structure": {
@@ -9792,7 +9998,7 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
       ],
       "priorKnowledge": "Not a prerequisite for the currently taught introductory tasks; an additional preparation facet.",
       "workedExamples": "none locally",
-      "scopeLimit": "Local topic absence only. Corpus-wide keyword search supplies leads, not global absence proof; sibling owners and lead reconcile."
+      "scopeLimit": "Local topic absence only. Corpus-wide keyword search supplies leads, not global absence proof; sibling owners and lead reconcile. These application distinctions decompose broad curriculum modals preparation; exact required examination functions remain unknown."
     },
     {
       "requirementRefs": [
@@ -9822,7 +10028,7 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
       ],
       "priorKnowledge": "Not a prerequisite for the currently taught introductory tasks; an additional preparation facet.",
       "workedExamples": "none locally",
-      "scopeLimit": "Local topic absence only. Corpus-wide keyword search supplies leads, not global absence proof; sibling owners and lead reconcile."
+      "scopeLimit": "Local topic absence only. Corpus-wide keyword search supplies leads, not global absence proof; sibling owners and lead reconcile. These application distinctions decompose broad curriculum modals preparation; exact required examination functions remain unknown."
     },
     {
       "requirementRefs": [
@@ -9852,7 +10058,7 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
       ],
       "priorKnowledge": "Not a prerequisite for the currently taught introductory tasks; an additional preparation facet.",
       "workedExamples": "none locally",
-      "scopeLimit": "Local topic absence only. Corpus-wide keyword search supplies leads, not global absence proof; sibling owners and lead reconcile."
+      "scopeLimit": "Local topic absence only. Corpus-wide keyword search supplies leads, not global absence proof; sibling owners and lead reconcile. These application distinctions decompose broad curriculum modals preparation; exact required examination functions remain unknown."
     },
     {
       "requirementRefs": [
@@ -9882,7 +10088,7 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
       ],
       "priorKnowledge": "Not a prerequisite for the currently taught introductory tasks; an additional preparation facet.",
       "workedExamples": "none locally",
-      "scopeLimit": "Local topic absence only. Corpus-wide keyword search supplies leads, not global absence proof; sibling owners and lead reconcile."
+      "scopeLimit": "Local topic absence only. Corpus-wide keyword search supplies leads, not global absence proof; sibling owners and lead reconcile. These application distinctions decompose broad curriculum modals preparation; exact required examination functions remain unknown."
     },
     {
       "requirementRefs": [
@@ -9999,7 +10205,7 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
       "lessonIds": [
         "lesson-grammar-and-structure-punctuation-and-capitalization"
       ],
-      "verdict": "absent",
+      "verdict": "thin",
       "evidence": [
         {
           "path": "content/lessons/language-proficiency/grammar-and-structure/punctuation-and-capitalization.md",
@@ -10011,10 +10217,10 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
         }
       ],
       "missingIdeas": [
-        "Comma-splice repair supplied; an unpunctuated fused sentence is not explicitly distinguished or worked."
+        "Explicitly recognizing the fused independent-clause boundary; taught comma-splice repairs can transfer."
       ],
       "priorKnowledge": "Not a prerequisite for the currently taught introductory tasks; an additional preparation facet.",
-      "workedExamples": "none locally",
+      "workedExamples": "Comma-splice repairs worked at punctuation41-51; no fused-sentence walkthrough.",
       "scopeLimit": "Local topic absence only. Corpus-wide keyword search supplies leads, not global absence proof; sibling owners and lead reconcile."
     },
     {
@@ -10857,7 +11063,7 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
       "lessonIds": [
         "lesson-grammar-and-structure-parts-of-speech"
       ],
-      "verdict": "absent",
+      "verdict": "thin",
       "evidence": [
         {
           "path": "content/lessons/language-proficiency/grammar-and-structure/parts-of-speech.md",
@@ -10869,7 +11075,7 @@ DRAFT. Full 10/10 body reads, distinct facets, per-exam scope and encountered so
         }
       ],
       "missingIdeas": [
-        "Pangatnig and sentence connectors are named/illustrated, without a Filipino relationship-selection procedure."
+        "Filipino relationship selection beyond named/illustrated conjunctions."
       ],
       "priorKnowledge": "Not a prerequisite for the currently taught introductory tasks; an additional preparation facet.",
       "workedExamples": "none locally",

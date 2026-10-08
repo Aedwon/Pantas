@@ -1,0 +1,9 @@
+# Level3 language saved-checkpoint continuation: application
+
+Work on Aedwon/Pantas. Retrieve/read current main AGENTS.md/WORKFLOW.md, worker SUBAGENTS.md/startup, full audit spec/plan/latest decisions, ORCHESTRATOR/source policy/standards, original full topic brief and reader contract. Record policy revision. Lead current main1aaebad9814ba7bd9404d8b43fc010281abb97cf remains verified and nine required blobs unchanged; audit live/localc1b3766c7ca7c631e61b576c0c083df9f2549134; corpus765c5dc0 frozen/read-only. Verify identities; watcher owns Git operations, no mutations. Preserve pauses/freezes and others' edits; same-worktree sole-output assignment governs. ONLY Level3 findings: no Level4/5, content/app/schema/importer/illustration changes, Google writes, computer/browser automation, extra agents or credits/reset credits.
+
+Original full brief briefs/l3-language-proficiency-language-application.md. Sole output topics/language-proficiency-language-application-lessons.md, all under docs/content/audit/coverage-r1/. Previous completed outputs immutable.
+
+Saved DRAFT2/3fullreads,0facets, SHA80def6fcc377e1edc31e8b9355b287a999b88f3eb8bf989a2bd9c0c31f54c67a. Finish remaining one body and detailed facets/checks from checkpoint, not preserved completed bodies.
+
+Actual English/Filipino teaching/example presence is Level3coverage; no readability/style sweep. Strict existing-ID links require absent local ideas plus verified foundations, not recaps/deeper related teaching. Preserve source/exam/cohort/depth limits, practice deferred/runtime unknown, no arbitrary minimums/full exam claim. Concise prose/full JSON evidence once. Save checkpoint incrementally, author completion needs fresh independent review. If missing required context, stop dependent work; if NEW usage limit, save/report andstop for watcher. Latest live availability supersedes oldreset waiting.

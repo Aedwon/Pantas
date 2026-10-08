@@ -1356,3 +1356,11 @@ Exact user instruction in the current Codex desktop conversation:
 - No existing CLI orchestrator or watcher process was running. Retain the saved original orchestrator session and unfinished reader/reviewer identities. Nine completed topic artifacts cover 91 lessons; seven current independent samples cover 79. Trigonometry and Statistics await review. Precalculus and Data Interpretation have saved drafts. Resume those checkpoints without duplicate reading or authors.
 - Current account permits ordinary usage; five-hour use 4%, weekly use 45%. These are dispatch-time observations only. Relay repository's three Mac runners are offline; use the already approved direct Codex CLI audit execution path. Do not buy credits or consume reset credits.
 - Restart the existing autorun watcher, which resumes the existing orchestrator, saves/uploads progress, retries usage-limit stops, and stops at approval gates. No new automation service or workflow is created. Actual restart verification follows in the desktop handoff.
+
+### October 8, 2026: desktop continuation confirmed
+
+Exact user instruction in this Codex desktop conversation:
+
+> please continue
+
+The existing original CLI orchestrator and retry watcher are already running. Desktop lead fetched current main at `1aaebad9814ba7bd9404d8b43fc010281abb97cf` and recovered the live Level 3 checkpoint. Audit local/remote head `c1b3766c7ca7c631e61b576c0c083df9f2549134` matches. Eleven completed topic artifacts cover 97 mathematics/science lessons; nine current independent samples cover 91. Precalculus and Data Interpretation await independent review; Language Proficiency readers retain their saved work. Continue the existing run without a duplicate orchestrator. This instruction continues Level 3 only and does not approve Level 4 or Level 5 or content changes. The live orchestrator is checking saved draft identities and current repository state after earlier transport failures. Watcher remains responsible for retrying stops and saving/uploading progress.
