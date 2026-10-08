@@ -466,3 +466,16 @@ Historical pause: lifted by Aedwon's explicit level 1 start recorded below.
 
 - Current main cd66ea22 matches all9required policy/standard/startup blobs at52046f; parent verified and added compatibility, proofpolicy-refresh-current.json. Main advancement is an expected instruction refresh, not an audit/corpus drift. Readers and reviewer continue under identical retrieved policy without repeating unchanged body work. Corpus765c5dc0 and audit ee456e03 identities remain correct.
 - Next wave confirmed: fresh reviewer samples Trigonometry/Statistics; Algebra author nowreads Precalculus4; Statistics author nowreads Data Interpretation2, each sole output. Three Sol High tasks active. Main policy content, spec and source input unchanged; no next-level task.
+
+## October 8, 2026: human-requested continuation from Codex desktop
+
+Exact user instruction in the current Codex desktop conversation:
+
+> hi, can you resume the content audit from here?
+
+- Resume the existing Level 3 lesson-structure audit only. This request does not approve Level 4 or Level 5, content changes, or crossing an approval gate. Preserve the current approved scope and existing findings.
+- Refreshed current main policy at `1aaebad9814ba7bd9404d8b43fc010281abb97cf`; all nine required policy/startup/standards blobs are byte-identical to the previously fully read `cd66ea22d197acbd5af6ae2185138ffa5d14d595`. Proof: `structure/policy-refresh-oct8-resume.json`. Retrieve and read the required current main files again before dependent work.
+- Fetched audit local/remote head `bba1d8980988e6714662e49f144fd28e2153d7d0` matches. Pinned corpus local/remote remains `765c5dc0fa5586281047bf4f7b30d09ab3707887` and clean. The untracked filled canonical exam-format profiles are documented prior audit work and match the durable audit-folder copy exactly; preserve them.
+- No existing CLI orchestrator or watcher process was running. Retain the saved original orchestrator session and unfinished reader/reviewer identities. Nine completed topic artifacts cover 91 lessons; seven current independent samples cover 79. Trigonometry and Statistics await review. Precalculus and Data Interpretation have saved drafts. Resume those checkpoints without duplicate reading or authors.
+- Current account permits ordinary usage; five-hour use 4%, weekly use 45%. These are dispatch-time observations only. Relay repository's three Mac runners are offline; use the already approved direct Codex CLI audit execution path. Do not buy credits or consume reset credits.
+- Restart the existing autorun watcher, which resumes the existing orchestrator, saves/uploads progress, retries usage-limit stops, and stops at approval gates. No new automation service or workflow is created. Actual restart verification follows in the desktop handoff.
