@@ -1,0 +1,11 @@
+# Level3 October8 checkpoint continuation: precalculus
+
+Work on Aedwon/Pantas. Retrieve current main AGENTS.md/WORKFLOW.md and worker SUBAGENTS.md/docs/workflow/startup.md. Read full current policy, audit spec/plan/latest decisions, ORCHESTRATOR, source policy/standards, original full brief and reader contract. Record policy commit. Lead verified live/cached main1aaebad9814ba7bd9404d8b43fc010281abb97cf and audit c74ea0f50d95b227bc91c99053f56cf530c983cd; nine current policy/startup/standard blobs unchanged, proof structure/policy-refresh-oct8-resume.json. Corpus765c5dc0 frozen/read-only/live matches, clean. Verify actual identities. Watcher owns Git, no mutations or automation reconfiguration. Preserve pauses/freezes and others' edits; sole-output same-worktree audit assignment applies. ONLY Level3 findings/recommendations, no Level4/5, content/app/importer/schema/illustration changes, Google writes, computer/browser automation, extra agents, credits or reset-credit consumption. Missing required context stops dependent work.
+
+Original full brief: docs/content/audit/coverage-r1/briefs/l3-mathematics-precalculus-basic-calculus.md. Sole output: docs/content/audit/coverage-r1/topics/mathematics-precalculus-basic-calculus-lessons.md.
+
+Saved DRAFT contains2full-read lesson records and42facets, SHA0371d74991245a3a566aed06d8c208b616ce22fb53ed873821cce15271954b2d. Verify preserved hashes, finish remaining2of4lesson full reads and facet/prerequisite/source checks from checkpoint. Do not redo complete preserved body reads. All previous Algebra/Science artifacts immutable.
+
+Strict edges require an indispensable idea absent locally and an existing verified foundation; related/deeper teaching, recaps and future additions are optional. Source/cohort/cycle/depth/language limits remain explicit; practice deferred/runtime unknown. No arbitrary minima or full exam-coverage inference. Record only load-bearing figure dependencies and encountered numeric concerns, not illustration assessment. Save incremental checkpoints; author COMPLETE needs fresh independent review.
+
+Latest watcher live availability supersedes older4:36reset/weekly-limit messages. Continue immediately. If NEW usageerror, save result/checkpoint andstop for watcher; never wait stale times or change model.

@@ -1,7 +1,7 @@
 {
   "level": 3,
   "status": "INPUT FROZEN; readers pending",
-  "policyCommit": "cd66ea22d197acbd5af6ae2185138ffa5d14d595",
+  "policyCommit": "1aaebad9814ba7bd9404d8b43fc010281abb97cf",
   "corpusCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
   "auditCheckpoint": "7d5f2ed6a6d6f30e35d1b3f64467f31e7d122112",
   "specSha256": "999654d8261ef2edc25a1c62512f3663570443c49eddba5613380e2e9724cc3c",
@@ -1021,7 +1021,8 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-language-proficiency-grammar-and-structure.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/language-proficiency-grammar-and-structure.json",
       "output": "docs/content/audit/coverage-r1/topics/language-proficiency-grammar-and-structure-lessons.md",
-      "state": "NOT_STARTED"
+      "state": "RUNNING",
+      "agent": "l3_physics"
     },
     {
       "key": "language-proficiency-language-application",
@@ -1033,7 +1034,8 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-language-proficiency-language-application.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/language-proficiency-language-application.json",
       "output": "docs/content/audit/coverage-r1/topics/language-proficiency-language-application-lessons.md",
-      "state": "NOT_STARTED"
+      "state": "RUNNING",
+      "agent": "l3_biology"
     },
     {
       "key": "language-proficiency-vocabulary",
@@ -1048,7 +1050,8 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-language-proficiency-vocabulary.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/language-proficiency-vocabulary.json",
       "output": "docs/content/audit/coverage-r1/topics/language-proficiency-vocabulary-lessons.md",
-      "state": "NOT_STARTED"
+      "state": "RUNNING",
+      "agent": "l3_chemistry"
     },
     {
       "key": "mathematics-algebra",
@@ -1103,7 +1106,8 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-data-interpretation.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-data-interpretation.json",
       "output": "docs/content/audit/coverage-r1/topics/mathematics-data-interpretation-lessons.md",
-      "state": "NOT_STARTED"
+      "state": "AUTHOR_COMPLETE_REVIEW_PENDING",
+      "outputSha256": "2773bf1ca2f70035548819e1b17000a9567bbb542a44ff514353a2ccaeaaa9dd"
     },
     {
       "key": "mathematics-geometry",
@@ -1136,7 +1140,8 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-precalculus-basic-calculus.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-precalculus-basic-calculus.json",
       "output": "docs/content/audit/coverage-r1/topics/mathematics-precalculus-basic-calculus-lessons.md",
-      "state": "NOT_STARTED"
+      "state": "AUTHOR_COMPLETE_REVIEW_PENDING",
+      "outputSha256": "49495dedc9e46429fcab989673b80b609ed2b06bab4546e2f4e773440afef243"
     },
     {
       "key": "mathematics-statistics-and-probability",
@@ -1150,9 +1155,10 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-statistics-and-probability.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-statistics-and-probability.json",
       "output": "docs/content/audit/coverage-r1/topics/mathematics-statistics-and-probability-lessons.md",
-      "state": "AUTHOR_COMPLETE_REVIEW_PENDING",
+      "state": "SAMPLE_PASS_INTEGRATION_PENDING",
       "agent": "l3_biology",
-      "outputSha256": "5d43857d181db26a22174466709ad2a8cede278a3f06e408622e56bc7bb00542"
+      "outputSha256": "5d43857d181db26a22174466709ad2a8cede278a3f06e408622e56bc7bb00542",
+      "reviewedOutputSha256": "5d43857d181db26a22174466709ad2a8cede278a3f06e408622e56bc7bb00542"
     },
     {
       "key": "mathematics-trigonometry",
@@ -1168,9 +1174,10 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-trigonometry.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-trigonometry.json",
       "output": "docs/content/audit/coverage-r1/topics/mathematics-trigonometry-lessons.md",
-      "state": "AUTHOR_COMPLETE_REVIEW_PENDING",
+      "state": "SAMPLE_PASS_INTEGRATION_PENDING",
       "agent": "l3_physics",
-      "outputSha256": "64b0d70f297494b8631e3e465e9976bc2ad977af998673be99373c8a68759411"
+      "outputSha256": "64b0d70f297494b8631e3e465e9976bc2ad977af998673be99373c8a68759411",
+      "reviewedOutputSha256": "64b0d70f297494b8631e3e465e9976bc2ad977af998673be99373c8a68759411"
     },
     {
       "key": "reading-comprehension-comprehension-skills",
@@ -1367,6 +1374,7 @@
     }
   ],
   "compatiblePolicyCommits": [
+    "1aaebad9814ba7bd9404d8b43fc010281abb97cf",
     "34ab39949472998497613b5ee664ec5218e63307",
     "3c4569fd36f727e4cbc1b70beb8b4272302a4528",
     "52046f114389ced88e487e139925c92c5660d0dc",

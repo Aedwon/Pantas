@@ -2,7 +2,7 @@
   "level": 3,
   "status": "DRAFT; independent review and lead reconciliation pending",
   "corpusCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
-  "policyCommit": "52046f114389ced88e487e139925c92c5660d0dc",
+  "policyCommit": "1aaebad9814ba7bd9404d8b43fc010281abb97cf",
   "topicOutputHashes": {
     "docs/content/audit/coverage-r1/topics/mathematics-algebra-lessons.md": "8e6f822ce9bfa769cf7b9abaadf837050292d443dfddaeeacd8c577c68dbbc1c",
     "docs/content/audit/coverage-r1/topics/mathematics-arithmetic-number-sense-lessons.md": "7cdf0dd2e7f051114addf1b05ce44fd3b7c1687b185c275e0773c412489b01a0",

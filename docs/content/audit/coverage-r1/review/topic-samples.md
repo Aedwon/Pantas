@@ -20,7 +20,7 @@ Current live main and cached origin/main both: `ac4b30da31b0bcca7e7ed1e47c930b1a
 - PENDING: mathematics-data-interpretation
 - PASS: mathematics-geometry
 - PENDING: mathematics-precalculus-basic-calculus
-- PENDING: mathematics-statistics-and-probability
+- PASS: mathematics-statistics-and-probability
 - PASS: mathematics-trigonometry
 - PENDING: reading-comprehension-comprehension-skills
 - PENDING: reading-comprehension-text-types
@@ -340,3 +340,43 @@ Full initial pinned sources: data-analysis-graphs1-159, measures-of-central-tend
 - Prerequisite challenge: variability22/30 assumes mean quantities, while58-60 computes40/8 but does not define the arithmetic mean as a sum/count operation in the core. Existing central14-16 supplies that physical/statistical meaning; inspect strict necessity instead of assuming authored order. Graphs80-88 already shows its mean computation locally, so another central-tendency link may be a recap. Later advanced extensions are not prerequisites for current simple formulas.
 - Bounded independent arithmetic: listed population hasmean5,squared-deviation sum32,variance4,SD2; the corresponding sample variance is32/7. Weighted mean840/10=84; graph Friday difference37.5thousand, and35%pie sector126degrees agree. Mean/SD alone does not establish an exact-score probability distribution. No full question/key review.
 - Graph stems explicitly state sectors, category values, trend direction and years, so sampled examples do not require unseen graphs. English bodies and CSE English Analytical versus weak Numerical additions stay separate. Practice/runtime/current scope/language/depth remain deferred/unknown.
+
+## October8 Statistics completion resume
+
+Current live/cached main `1aaebad9814ba7bd9404d8b43fc010281abb97cf`, audit local/live `c74ea0f50d95b227bc91c99053f56cf530c983cd`, pinned corpus765c5dc0clean. Full nine current policy/standard/startup bodies retrieved and verified identical to the prior fully readcd66revision. Spec/plan/ORCHESTRATOR/illustration log unchanged; current decision log was retrieved and the new October8human continuation entry read in full. Its authorization remains Level3only, preserves gates/freezes, ordinary usage and existing watcher ownership. Original full Trig/Statistics brief and updated reader contract reread. Accepted input hashes10/13/8all match; all158frozen lesson hashes match. Trig64b0d70fand Statistics5d43857dremain immutable. Prior independent source-first observations and full six-source read evidence (five owned plus narrow tables/charts comparative source) remain valid with unchanged hashes/ranges. No repeated full source reading or target authorship is counted as new work.
+
+### Statistics and Probability comparison: PASS
+
+Immutable target SHA256: `5d43857d181db26a22174466709ad2a8cede278a3f06e408622e56bc7bb00542`. Complete136-line author prose and all JSON lesson/facet relationships/unique semantic additions inspected in bounded chunks. Accounting:5COMPLETE lessons,66facets,no strict edges,no split proposals,one consolidation proposal. All five complete owned sources and the narrow comparative tables/charts source have independently read and unchanged pinned evidence; Statistics observations were saved before author verdicts.
+
+- Confirmed descriptive center/spread, elementary events/counting and pie/bar arithmetic teaching. Sample variance/SD application, graphical scale extraction, replacement sampling and advanced inference remain distinct thin/absent facets. Quartiles/deciles/percentile values and ranks are separately accounted, includingdcat-L068. A dataset variance does not supply random-variable expected variance, and qualitative correlation does not supply computed regression or causal inference. No broad row becomes fully covered.
+- Read both complete consolidation consumers: Statistics data-analysis-graphs1-159 and Data Interpretation tables-and-charts1-71. The latter12-18,22-71 teaches headers/units, totals, category difference and mean; Statistics12-24,72-88 overlaps unit/category arithmetic and mean comparison. A shared descriptive reading core is supported by actual teaching. Pie-angle methods and qualitative scatter/nonlinear/causal cautions remain bounded additions; probability/distribution/inference are not absorbed. Costs include identity/location, relocation, routing and later practice links. This narrow comparison gives no Data Interpretation topic verdict and does not import Professional Analytical into Subprofessional.
+- No-split decisions are defensible: event rules organize dependence/overlap/complement choices; counting organizes order/repetition/role choices; center and spread retain coherent separate goals. Reordering weighted/shift-scale explanations and completing sample computation addresses readiness without creating a lesson per formula.
+- Independently challenged absent strict links. Probability gives its event rules and supplied counts; combinatorics14-48 defines factorial/order formulas. Graphs80-88 shows mean arithmetic, and variability58-70 supplies its own mean/deviation computation. Richer center/counting lessons would repeat current procedures, so none is an indispensable separate prerequisite for these examples. All five explicit no-link records are accounted, with no guessed targets/cycles or links justified by future advanced additions.
+- Bounded mathematics independently agrees: mean5,squared-deviation sum32,population variance4/SD2,sample variance32/7/SDabout2.13809; weighted mean84; graph difference37.5thousand; dependent-red probability5/14; complement7/8; role assignments90versus unordered committees45. These support sampled structure and source-ledger claims, not full keys/correctness or a numeric minimum.
+- Reopened [NIST Scatter Plot](https://www.itl.nist.gov/div898/handbook/eda/section3/scatterp.htm), Definition/Questions/Causality section, October8,2026. It distinguishes linear/nonlinear association and withholds causal proof from a scatter plot, supporting graphs26-36/92-99. Reopened [NIST Measures of Scale](https://www.itl.nist.gov/div898/handbook/eda/section3/eda356.htm), Definitions of Variability, the same day. It supports sampleN-1 variance, square-rootSD/original units, and extreme-value range. These are narrow concept checks, not evidence of exam demand or full standards acceptance.
+- Every sampled graph prompt supplies its deciding sector/category/axis-unit/trend givens; no missing load-bearing figure was found. English CSE Professional Data interpretation and weak Subprofessional graph/statistics additions remain separately qualified. Cycles/languages/cohort/depth, practice/runtime and unowned source reconciliation stay explicit; no Level4/5 work was found.
+
+Sample flags:none. Current independent accounting:9PASS,0FLAGS,16PENDING. All prior samples and C1/P1 correction history remain preserved. Whole Level3 acceptance remains pending; descriptive/conceptual sample PASS does not confirm full exam coverage, student access, mastery or complete correctness.
+
+## October8 nine-topic handback verification
+
+```text
+topics=25; unique=25; PASS=9; FLAGS=0; PENDING=16
+mathematics-algebra: COMPLETE; lessons=11; facets=116; hash_range_errors=[]; SHA256=8e6f822ce9bfa769cf7b9abaadf837050292d443dfddaeeacd8c577c68dbbc1c
+mathematics-arithmetic-number-sense: COMPLETE; lessons=9; facets=81; hash_range_errors=[]; SHA256=7cdf0dd2e7f051114addf1b05ce44fd3b7c1687b185c275e0773c412489b01a0
+mathematics-geometry: COMPLETE; lessons=8; facets=85; hash_range_errors=[]; SHA256=fc505bfa79c46273cece5392ca8ad80306b97641d1b240eb8a0067542ed48e8c
+mathematics-statistics-and-probability: COMPLETE; lessons=5; facets=66; hash_range_errors=[]; SHA256=5d43857d181db26a22174466709ad2a8cede278a3f06e408622e56bc7bb00542
+mathematics-trigonometry: COMPLETE; lessons=7; facets=73; hash_range_errors=[]; SHA256=64b0d70f297494b8631e3e465e9976bc2ad977af998673be99373c8a68759411
+science-biology: COMPLETE; lessons=10; facets=62; hash_range_errors=[]; SHA256=d5210d8c0e717c9ce084911cd495060329069c1e16732e11a0379d0f03170023
+science-chemistry: COMPLETE; lessons=17; facets=96; hash_range_errors=[]; SHA256=b9eebd9d5626edb3f5da52adabcfa9cf93cea839febc652a54f1d5f56e78f034
+science-earth-science-astronomy: COMPLETE; lessons=11; facets=88; hash_range_errors=[]; SHA256=48ae2a7afdc280dfbd20d206112c508c26077b0e65036ef8728a3a8f7f068423
+science-physics: COMPLETE; lessons=13; facets=97; hash_range_errors=[]; SHA256=20d984df846d1abff9ae506e16618b5cc0603c24eef062e632b4097b7f863905
+reviewed_artifact_lessons=91; frozen_corpus_hashes=158; mismatches=[]
+current_policy=1aaebad9814ba7bd9404d8b43fc010281abb97cf
+audit_HEAD=c74ea0f50d95b227bc91c99053f56cf530c983cd
+corpus_HEAD=765c5dc0fa5586281047bf4f7b30d09ab3707887; clean=true
+report_emdash=0; trailingWhitespace=0; errors=[]
+```
+
+Nine bounded topic samples now PASS at the actual saved hashes above. Sixteen topics remain PENDING even if their authors have drafts. Statistical consolidation is comparative evidence only, not a Data Interpretation review. C1/P1 original findings and resolved corrections remain preserved. This reviewer edited only the sole report and authored no target. No full correctness/standards, practice/runtime, illustration or combined Level3 acceptance; no later-level activity or content/Git/Google changes.

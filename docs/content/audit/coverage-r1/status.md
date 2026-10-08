@@ -6,7 +6,7 @@ Plan: `docs/superpowers/plans/2026-10-04-exam-content-coverage-audit.md`.
 
 ## Identity
 
-- Current policy and standards: main `cd66ea22d197acbd5af6ae2185138ffa5d14d595`, verified by matching current required policy blobs; all9requiredpolicy/startup/standard blobs unchanged fromcb48097. Earlier historical policy identities below remain audit history only.
+- Current policy and standards: main `1aaebad9814ba7bd9404d8b43fc010281abb97cf`, retrieved and read on October 8; all9requiredpolicy/startup/standard blobs unchanged fromcb48097. Earlier historical policy identities below remain audit history only.
 - Corpus input: `content/question-qa-r2` at `765c5dc0fa5586281047bf4f7b30d09ab3707887`,
   local worktree and remote match.
 - Codex models confirmed: `gpt-6.1-sol` and `gpt-6-luna`, run with computer use
@@ -14,7 +14,7 @@ Plan: `docs/superpowers/plans/2026-10-04-exam-content-coverage-audit.md`.
 
 ## Current level and acceptance state
 
-Levels 1 and 2 are accepted. Level 3 is approved and RUNNING. Nine completed topic artifacts account for 91 lessons; seven independent samples cover 79. Trigonometry and Statistics await review. Sixteen topics remain unread. Global requirement and prerequisite integration is pending. Levels 4 and 5 are unauthorized. Level 3 records only load-bearing figure dependencies.
+Levels 1 and 2 are accepted. Level 3 is approved and RUNNING. Eleven completed topic artifacts account for all 97 mathematics/science lessons; nine current independent samples cover 91. Precalculus/Data Interpretation await review. Grammar and Vocabulary readers are active. Twelve other topics remain unread. Global integration is pending. Levels 4 and 5 are unauthorized. Level 3 records only load-bearing figure dependencies.
 
 | Exam | Research | Source check | Fresh rebuild | Exam map |
 |---|---|---|---|---|
@@ -479,3 +479,21 @@ Exact user instruction in the current Codex desktop conversation:
 - No existing CLI orchestrator or watcher process was running. Retain the saved original orchestrator session and unfinished reader/reviewer identities. Nine completed topic artifacts cover 91 lessons; seven current independent samples cover 79. Trigonometry and Statistics await review. Precalculus and Data Interpretation have saved drafts. Resume those checkpoints without duplicate reading or authors.
 - Current account permits ordinary usage; five-hour use 4%, weekly use 45%. These are dispatch-time observations only. Relay repository's three Mac runners are offline; use the already approved direct Codex CLI audit execution path. Do not buy credits or consume reset credits.
 - Restart the existing autorun watcher, which resumes the existing orchestrator, saves/uploads progress, retries usage-limit stops, and stops at approval gates. No new automation service or workflow is created. Actual restart verification follows in the desktop handoff.
+
+- October8 automatic resume checked RUNNING, no live workers and no new approval. Main live/cached1aaebad9 and audit live/localc74ea0f5 match; corpuslive765c5dc0 unchanged. All required main instructions/standards retrieved/read; nineblob identities match the desktop proof. SpecSHA999654d8and13map/10requirement-profile/8overlap hashes unchanged. New desktop continuation record read as Level3-only, not later-level approval.
+- Saved reviewer result includes Trigonometry PASS at64b0d70f (full7consumer sources,3strict links and numeric concern checked), now8PASS/17pending; Statistics source-first observations are saved but comparison unfinished. Preserve this completed sample, never rerun unchanged body reads. Precalculus DRAFT2records/42facets at0371d749, Data Interpretation DRAFT0at98fdf603. Earlier4:36usage errors predate current availability; resume immediately.
+
+- October8 resume dispatches confirmed: existing reviewer continues Statistics from saved source-first observations; existing Precalculus reader continues its2preserved records; existing Data Interpretation reader continues startup draft. Three Sol High tasks, no duplicates and no new approval. Source/graph integration remains pending. Any fresh usage error requires saving state and stopping for watcher.
+
+- Statistics final independent result received:PASS at5d43857d; Trigonometry64b0d70f preserved. Report25unique topics,9PASS,0FLAGS,16PENDING; all91reviewed-artifact read identities and158frozenbody hashes match, corpus clean/currentpolicy1aaebad9, verification errors0. Full consolidation consumers and sampled foundations/facts checked. Data Interpretation remains separate and not yet accepted. These are topic-sample acceptances, not whole-level coverage or correctness.
+
+- Grammar/structure10lesson reader dispatch confirmed to l3_physics, sole new output. Precalculus and Data Interpretation readers continue separately. Three Sol High writers active; reviewer idle after9current PASS samples. Bilingual skill presence is a Level3coverage question; readability/voice and all illustration judgment remain deferred. No duplicate or next-level work.
+
+- Precalculus final result received at49495dedc9e46429fcab989673b80b609ed2b06bab4546e2f4e773440afef243. Four full reads,101facets,330valid evidence records,478valid reference occurrences and5ledger calculations; scoped errors0. One coordinate foundation edge/three explicit no-edge lessons, with current1aaebad9policy. Retain calculus cores, reorder conics and address missing Riemann sums/thin concepts/applications as qualified recommendations. Shared checker10topics/95lessons/errors0, exit0, gatefalse. Artifact immutable pending fresh sample; no content/later-level work.
+
+- Data Interpretation final result received at2773bf1ca2f70035548819e1b17000a9567bbb542a44ff514353a2ccaeaaa9dd. Two full reads,38facets,105valid evidence ranges,47accepted refs,2explicit no-link outcomes/no self-links/cycles/errors. Shared table/chart core confirmed against Statistics sources, with distinct construction/reading and advanced-scope limits. Unsupported name connections narrowed; professional Analytical versus subprofessional Numerical preserved. Negative-reference percent-change concern retained, no load-bearing figure. Shared checker11topics/97lessons/errors0/exit0, gatefalse; immutable pending independent review.
+- Grammar intermediate10/10fullreads saved: stronger English teaching; Filipino class labels/roles/aspect mostly named and labeled illustrations lack worked parsing. This is actual skill coverage, not Level4language/style assessment. Final facets/source/prerequisite checks underway. Vocabulary6reader dispatch confirmed to l3_chemistry, sole new output; completed Precalculus and all previous artifacts preserved.
+
+- Language Application3reader dispatch confirmed to l3_biology, sole new output; Grammar10andVocabulary6writers continue separately. Three Sol High writers active, reviewer remains fresh/idle. Two Math topic samples pending; completed artifacts unchanged. No practice/standards/illustration production work or additional approval inferred.
+
+- Existing source ledger now consolidates all11completed topic records by subject, with original lesson IDs, per-source dates, qualified dispositions and exact topic evidence preserved. Unknown and internal-domain/numeric concerns stay unresolved where stated; current sample versus pending review is explicit. Generic access failures remain notes, not scored facts. This updates documentation only and makes no full correctness claim.
