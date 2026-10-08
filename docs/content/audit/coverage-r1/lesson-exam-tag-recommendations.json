@@ -4,6 +4,7 @@
   "corpusCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
   "originalTagCatalogUnchanged": true,
   "topicOutputHashes": {
+    "docs/content/audit/coverage-r1/topics/general-information-philippine-constitution-lessons.md": "8f2fa7780b79e0b489aff18b86cb7e1ee416974b6f29d51716648ca7d7a42ce5",
     "docs/content/audit/coverage-r1/topics/language-proficiency-grammar-and-structure-lessons.md": "947a31cf1022c670c7a4c61791c31fdd7345cede8e586a0e480d3791f4ecc808",
     "docs/content/audit/coverage-r1/topics/language-proficiency-language-application-lessons.md": "3f38f904c021b22d28b57faf2de09ac692d528a9c6d5d9f8c012c42331e19bf1",
     "docs/content/audit/coverage-r1/topics/language-proficiency-vocabulary-lessons.md": "c03b0bb0689cf9c11fa60f59c5cfae3b0f3e7b2c9a6877f2a054a53d8d9943ea",
@@ -16,7 +17,9 @@
     "docs/content/audit/coverage-r1/topics/mathematics-trigonometry-lessons.md": "64b0d70f297494b8631e3e465e9976bc2ad977af998673be99373c8a68759411",
     "docs/content/audit/coverage-r1/topics/reading-comprehension-comprehension-skills-lessons.md": "f28d15431cfaa9ffce6c2c976955587d8f1740cbeabc4c9733d11e60c49f2f85",
     "docs/content/audit/coverage-r1/topics/reading-comprehension-text-types-lessons.md": "6a2c639aee4ea52cf34ec20d8a9bc1932435f0ab708968c6a129527308289066",
+    "docs/content/audit/coverage-r1/topics/reasoning-clerical-ability-lessons.md": "f8c768898701d46aba223d19a274abd5ef21a1cc0c28f36aaf39876a9bd97b2d",
     "docs/content/audit/coverage-r1/topics/reasoning-logical-verbal-reasoning-lessons.md": "fb6cc495ea3044f3b757bac58db1b83ef83e873afaf3a29f04c1a7c0a99cc357",
+    "docs/content/audit/coverage-r1/topics/reasoning-mechanical-technical-reasoning-lessons.md": "db4dc524ba026921aaa7279a711d7bd5a262393c36014992875583ba6acb24a3",
     "docs/content/audit/coverage-r1/topics/reasoning-spatial-abstract-reasoning-lessons.md": "c0be5b486c943f7c479dd3c0745a957e80960012ed4cd5d470164ec6327f5ffb",
     "docs/content/audit/coverage-r1/topics/science-biology-lessons.md": "d5210d8c0e717c9ce084911cd495060329069c1e16732e11a0379d0f03170023",
     "docs/content/audit/coverage-r1/topics/science-chemistry-lessons.md": "b9eebd9d5626edb3f5da52adabcfa9cf93cea839febc652a54f1d5f56e78f034",
@@ -128,8 +131,46 @@
         "cse-subprofessional",
         "pupcet"
       ],
-      "bodyAssessmentStatus": "PENDING topic reading, no body-based tag verdict inferred",
-      "recommendations": null,
+      "bodyAssessmentStatus": "COMPLETE topic evidence; current independent sample acceptance is separate",
+      "recommendations": [
+        {
+          "exam": "cse-professional",
+          "requirementRefs": [
+            "cse-professional-L033",
+            "cse-professional-L048",
+            "cse-professional-L061"
+          ],
+          "sharedCore": "Recognize ArticleXI public-trust/accountability standard; Apply the constitutional impeachable-officer list; President impeachment status; Vice-President impeachment status; Supreme Court member versus trial-court judge status; Constitutional Commission member impeachment status; Ombudsman impeachment status; Other officers excluded from impeachment; Match an alleged ground to constitutional list",
+          "partialLimits": "Both 2026 CSE-PPT levels name Constitution under General Information in English. Fine provisions, depth and item forms unknown; reviewer finer topics remain weak preparation leads.",
+          "depth": "unknown: detailed current organizer depth not established",
+          "tagRecommendation": "retain-candidate",
+          "reason": "Official area named and local constitutional teaching exists; these facets do not establish complete official scope."
+        },
+        {
+          "exam": "cse-subprofessional",
+          "requirementRefs": [
+            "cse-subprofessional-L045",
+            "cse-subprofessional-L058",
+            "cse-subprofessional-L116"
+          ],
+          "sharedCore": "Recognize ArticleXI public-trust/accountability standard; Apply the constitutional impeachable-officer list; President impeachment status; Vice-President impeachment status; Supreme Court member versus trial-court judge status; Constitutional Commission member impeachment status; Ombudsman impeachment status; Other officers excluded from impeachment; Match an alleged ground to constitutional list",
+          "partialLimits": "Both 2026 CSE-PPT levels name Constitution under General Information in English. Fine provisions, depth and item forms unknown; reviewer finer topics remain weak preparation leads.",
+          "depth": "unknown: detailed current organizer depth not established",
+          "tagRecommendation": "retain-candidate",
+          "reason": "Official area named and local constitutional teaching exists; these facets do not establish complete official scope."
+        },
+        {
+          "exam": "pupcet",
+          "requirementRefs": [
+            "pupcet-L154"
+          ],
+          "sharedCore": "Recognize ArticleXI public-trust/accountability standard; Apply the constitutional impeachable-officer list; President impeachment status; Vice-President impeachment status; Supreme Court member versus trial-court judge status; Constitutional Commission member impeachment status; Ombudsman impeachment status; Other officers excluded from impeachment; Match an alleged ground to constitutional list",
+          "partialLimits": "PUPCET constitutional/civic preparation is curriculum-inferred; current organizer inclusion and depth unconfirmed.",
+          "depth": "unknown: detailed current organizer depth not established",
+          "tagRecommendation": "uncertain",
+          "reason": "DepEd civic outcomes support preparation, not a confirmed PUPCET syllabus."
+        }
+      ],
       "availability": "unknown: corpus-bound runtime not verified",
       "practice": "deferred Level5"
     },
@@ -141,8 +182,51 @@
         "cse-subprofessional",
         "pupcet"
       ],
-      "bodyAssessmentStatus": "PENDING topic reading, no body-based tag verdict inferred",
-      "recommendations": null,
+      "bodyAssessmentStatus": "COMPLETE topic evidence; current independent sample acceptance is separate",
+      "recommendations": [
+        {
+          "exam": "cse-professional",
+          "requirementRefs": [
+            "cse-professional-L033",
+            "cse-professional-L048",
+            "cse-professional-L050",
+            "cse-professional-L056",
+            "cse-professional-L061"
+          ],
+          "sharedCore": "Locate Article III and its 22-section organization; No imprisonment solely for debt; No imprisonment for poll-tax nonpayment",
+          "partialLimits": "Both 2026 CSE-PPT levels name Constitution under General Information in English. Fine provisions, depth and item forms unknown; reviewer finer topics remain weak preparation leads.",
+          "depth": "unknown: detailed current organizer depth not established",
+          "tagRecommendation": "retain-candidate",
+          "reason": "Official area named and local constitutional teaching exists; these facets do not establish complete official scope."
+        },
+        {
+          "exam": "cse-subprofessional",
+          "requirementRefs": [
+            "cse-subprofessional-L045",
+            "cse-subprofessional-L058",
+            "cse-subprofessional-L060",
+            "cse-subprofessional-L106",
+            "cse-subprofessional-L116",
+            "cse-subprofessional-L118"
+          ],
+          "sharedCore": "Locate Article III and its 22-section organization; No imprisonment solely for debt; No imprisonment for poll-tax nonpayment",
+          "partialLimits": "Both 2026 CSE-PPT levels name Constitution under General Information in English. Fine provisions, depth and item forms unknown; reviewer finer topics remain weak preparation leads.",
+          "depth": "unknown: detailed current organizer depth not established",
+          "tagRecommendation": "retain-candidate",
+          "reason": "Official area named and local constitutional teaching exists; these facets do not establish complete official scope."
+        },
+        {
+          "exam": "pupcet",
+          "requirementRefs": [
+            "pupcet-L154"
+          ],
+          "sharedCore": "Locate Article III and its 22-section organization; No imprisonment solely for debt; No imprisonment for poll-tax nonpayment",
+          "partialLimits": "PUPCET constitutional/civic preparation is curriculum-inferred; current organizer inclusion and depth unconfirmed.",
+          "depth": "unknown: detailed current organizer depth not established",
+          "tagRecommendation": "uncertain",
+          "reason": "DepEd civic outcomes support preparation, not a confirmed PUPCET syllabus."
+        }
+      ],
       "availability": "unknown: corpus-bound runtime not verified",
       "practice": "deferred Level5"
     },
@@ -154,8 +238,46 @@
         "cse-subprofessional",
         "pupcet"
       ],
-      "bodyAssessmentStatus": "PENDING topic reading, no body-based tag verdict inferred",
-      "recommendations": null,
+      "bodyAssessmentStatus": "COMPLETE topic evidence; current independent sample acceptance is separate",
+      "recommendations": [
+        {
+          "exam": "cse-professional",
+          "requirementRefs": [
+            "cse-professional-L033",
+            "cse-professional-L048",
+            "cse-professional-L061"
+          ],
+          "sharedCore": "Distinguish Preamble from the 18 articles; Locate public-officer accountability in Article XI; Locate the CSC in Article IX-B; CSE Constitution scope without predicting questions",
+          "partialLimits": "Both 2026 CSE-PPT levels name Constitution under General Information in English. Fine provisions, depth and item forms unknown; reviewer finer topics remain weak preparation leads.",
+          "depth": "unknown: detailed current organizer depth not established",
+          "tagRecommendation": "retain-candidate",
+          "reason": "Official area named and local constitutional teaching exists; these facets do not establish complete official scope."
+        },
+        {
+          "exam": "cse-subprofessional",
+          "requirementRefs": [
+            "cse-subprofessional-L045",
+            "cse-subprofessional-L058",
+            "cse-subprofessional-L116"
+          ],
+          "sharedCore": "Distinguish Preamble from the 18 articles; Locate public-officer accountability in Article XI; Locate the CSC in Article IX-B; CSE Constitution scope without predicting questions",
+          "partialLimits": "Both 2026 CSE-PPT levels name Constitution under General Information in English. Fine provisions, depth and item forms unknown; reviewer finer topics remain weak preparation leads.",
+          "depth": "unknown: detailed current organizer depth not established",
+          "tagRecommendation": "retain-candidate",
+          "reason": "Official area named and local constitutional teaching exists; these facets do not establish complete official scope."
+        },
+        {
+          "exam": "pupcet",
+          "requirementRefs": [
+            "pupcet-L154"
+          ],
+          "sharedCore": "Distinguish Preamble from the 18 articles; Locate public-officer accountability in Article XI; Locate the CSC in Article IX-B; CSE Constitution scope without predicting questions",
+          "partialLimits": "PUPCET constitutional/civic preparation is curriculum-inferred; current organizer inclusion and depth unconfirmed.",
+          "depth": "unknown: detailed current organizer depth not established",
+          "tagRecommendation": "uncertain",
+          "reason": "DepEd civic outcomes support preparation, not a confirmed PUPCET syllabus."
+        }
+      ],
       "availability": "unknown: corpus-bound runtime not verified",
       "practice": "deferred Level5"
     },
@@ -167,8 +289,46 @@
         "cse-subprofessional",
         "pupcet"
       ],
-      "bodyAssessmentStatus": "PENDING topic reading, no body-based tag verdict inferred",
-      "recommendations": null,
+      "bodyAssessmentStatus": "COMPLETE topic evidence; current independent sample acceptance is separate",
+      "recommendations": [
+        {
+          "exam": "cse-professional",
+          "requirementRefs": [
+            "cse-professional-L033",
+            "cse-professional-L048",
+            "cse-professional-L061"
+          ],
+          "sharedCore": "Identify Chairman and two Commissioners; Minimum age at appointment; Immediately preceding election candidacy disqualification; President appointment with Commission on Appointments consent; Seven-year regular term; No reappointment after full term",
+          "partialLimits": "Both 2026 CSE-PPT levels name Constitution under General Information in English. Fine provisions, depth and item forms unknown; reviewer finer topics remain weak preparation leads.",
+          "depth": "unknown: detailed current organizer depth not established",
+          "tagRecommendation": "retain-candidate",
+          "reason": "Official area named and local constitutional teaching exists; these facets do not establish complete official scope."
+        },
+        {
+          "exam": "cse-subprofessional",
+          "requirementRefs": [
+            "cse-subprofessional-L045",
+            "cse-subprofessional-L058",
+            "cse-subprofessional-L116"
+          ],
+          "sharedCore": "Identify Chairman and two Commissioners; Minimum age at appointment; Immediately preceding election candidacy disqualification; President appointment with Commission on Appointments consent; Seven-year regular term; No reappointment after full term",
+          "partialLimits": "Both 2026 CSE-PPT levels name Constitution under General Information in English. Fine provisions, depth and item forms unknown; reviewer finer topics remain weak preparation leads.",
+          "depth": "unknown: detailed current organizer depth not established",
+          "tagRecommendation": "retain-candidate",
+          "reason": "Official area named and local constitutional teaching exists; these facets do not establish complete official scope."
+        },
+        {
+          "exam": "pupcet",
+          "requirementRefs": [
+            "pupcet-L154"
+          ],
+          "sharedCore": "Identify Chairman and two Commissioners; Minimum age at appointment; Immediately preceding election candidacy disqualification; President appointment with Commission on Appointments consent; Seven-year regular term; No reappointment after full term",
+          "partialLimits": "PUPCET constitutional/civic preparation is curriculum-inferred; current organizer inclusion and depth unconfirmed.",
+          "depth": "unknown: detailed current organizer depth not established",
+          "tagRecommendation": "uncertain",
+          "reason": "DepEd civic outcomes support preparation, not a confirmed PUPCET syllabus."
+        }
+      ],
       "availability": "unknown: corpus-bound runtime not verified",
       "practice": "deferred Level5"
     },
@@ -8370,8 +8530,23 @@
       "originalProvisionalExamTags": [
         "cse-subprofessional"
       ],
-      "bodyAssessmentStatus": "PENDING topic reading, no body-based tag verdict inferred",
-      "recommendations": null,
+      "bodyAssessmentStatus": "COMPLETE topic evidence; current independent sample acceptance is separate",
+      "recommendations": [
+        {
+          "exam": "cse-subprofessional",
+          "requirementRefs": [
+            "cse-subprofessional-L048",
+            "cse-subprofessional-L080",
+            "cse-subprofessional-L146",
+            "cse-subprofessional-L131"
+          ],
+          "sharedCore": "English filing-key construction and comparison under a defined convention.",
+          "partialLimits": "Organizer names filing, not this exact variant inventory. English spelling is a separate named task with an existing Vocabulary unit; bilingual Verbal and Professional Analytical remain separate.",
+          "depth": "unknown:2026PPT organizer fine rules,word/key difficulty and future/computer variants unconfirmed",
+          "tagRecommendation": "retain-candidate",
+          "reason": "Actual local filing preparation supports the candidate; no whole-Clerical,other-exam or universal-scoring claim."
+        }
+      ],
       "availability": "unknown: corpus-bound runtime not verified",
       "practice": "deferred Level5"
     },
@@ -8381,8 +8556,22 @@
       "originalProvisionalExamTags": [
         "cse-subprofessional"
       ],
-      "bodyAssessmentStatus": "PENDING topic reading, no body-based tag verdict inferred",
-      "recommendations": null,
+      "bodyAssessmentStatus": "COMPLETE topic evidence; current independent sample acceptance is separate",
+      "recommendations": [
+        {
+          "exam": "cse-subprofessional",
+          "requirementRefs": [
+            "cse-subprofessional-L048",
+            "cse-subprofessional-L080",
+            "cse-subprofessional-L146"
+          ],
+          "sharedCore": "English filing-key construction and comparison under a defined convention.",
+          "partialLimits": "Organizer names filing, not this exact variant inventory. English spelling is a separate named task with an existing Vocabulary unit; bilingual Verbal and Professional Analytical remain separate.",
+          "depth": "unknown:2026PPT organizer fine rules,word/key difficulty and future/computer variants unconfirmed",
+          "tagRecommendation": "retain-candidate",
+          "reason": "Actual local filing preparation supports the candidate; no whole-Clerical,other-exam or universal-scoring claim."
+        }
+      ],
       "availability": "unknown: corpus-bound runtime not verified",
       "practice": "deferred Level5"
     },
@@ -8895,8 +9084,60 @@
         "upcat",
         "ustet"
       ],
-      "bodyAssessmentStatus": "PENDING topic reading, no body-based tag verdict inferred",
-      "recommendations": null,
+      "bodyAssessmentStatus": "COMPLETE topic evidence; current independent sample acceptance is separate",
+      "recommendations": [
+        {
+          "exam": "dcat",
+          "requirementRefs": [
+            "dcat-L079",
+            "dcat-L083"
+          ],
+          "sharedCore": "Conditional liquid hydrostatic and ideal pipe-flow comparisons.",
+          "partialLimits": "No gas P-V-T law, hydraulic piston force, broad mechanical/electrical domain or whole compound Physics/Chemistry/Science row. Numerical extended flow depth and exact mechanical exam forms unverified.",
+          "depth": "unknown: curriculum/weak preparation; strengthened/STEM cohort/completion/version limits remain",
+          "tagRecommendation": "revise-candidate",
+          "reason": "Retain actual liquid/flow preparation; narrow gas-law and broad applied-science candidates to demonstrated facets."
+        },
+        {
+          "exam": "dost-sei",
+          "requirementRefs": [
+            "dost-sei-L036",
+            "dost-sei-L048",
+            "dost-sei-L054",
+            "dost-sei-L058",
+            "dost-sei-L099",
+            "dost-sei-L107",
+            "dost-sei-L108"
+          ],
+          "sharedCore": "Conditional liquid hydrostatic and ideal pipe-flow comparisons.",
+          "partialLimits": "No gas P-V-T law, hydraulic piston force, broad mechanical/electrical domain or whole compound Physics/Chemistry/Science row. Numerical extended flow depth and exact mechanical exam forms unverified.",
+          "depth": "unknown: 2026 Mechanical domain official;2027 continuity and specific fluid subfamilies/quantitative depth unknown",
+          "tagRecommendation": "revise-candidate",
+          "reason": "Retain actual liquid/flow preparation; narrow gas-law and broad applied-science candidates to demonstrated facets."
+        },
+        {
+          "exam": "upcat",
+          "requirementRefs": [
+            "upcat-L150"
+          ],
+          "sharedCore": "Conditional liquid hydrostatic and ideal pipe-flow comparisons.",
+          "partialLimits": "No gas P-V-T law, hydraulic piston force, broad mechanical/electrical domain or whole compound Physics/Chemistry/Science row. Numerical extended flow depth and exact mechanical exam forms unverified.",
+          "depth": "unknown: curriculum/weak preparation; strengthened/STEM cohort/completion/version limits remain",
+          "tagRecommendation": "revise-candidate",
+          "reason": "Retain actual liquid/flow preparation; narrow gas-law and broad applied-science candidates to demonstrated facets."
+        },
+        {
+          "exam": "ustet",
+          "requirementRefs": [
+            "ustet-L124"
+          ],
+          "sharedCore": "Conditional liquid hydrostatic and ideal pipe-flow comparisons.",
+          "partialLimits": "No gas P-V-T law, hydraulic piston force, broad mechanical/electrical domain or whole compound Physics/Chemistry/Science row. Numerical extended flow depth and exact mechanical exam forms unverified.",
+          "depth": "unknown: curriculum/weak preparation; strengthened/STEM cohort/completion/version limits remain",
+          "tagRecommendation": "revise-candidate",
+          "reason": "Retain actual liquid/flow preparation; narrow gas-law and broad applied-science candidates to demonstrated facets."
+        }
+      ],
       "availability": "unknown: corpus-bound runtime not verified",
       "practice": "deferred Level5"
     },
@@ -8906,8 +9147,22 @@
       "originalProvisionalExamTags": [
         "dost-sei"
       ],
-      "bodyAssessmentStatus": "PENDING topic reading, no body-based tag verdict inferred",
-      "recommendations": null,
+      "bodyAssessmentStatus": "COMPLETE topic evidence; current independent sample acceptance is separate",
+      "recommendations": [
+        {
+          "exam": "dost-sei",
+          "requirementRefs": [
+            "dost-sei-L036",
+            "dost-sei-L048",
+            "dost-sei-L054"
+          ],
+          "sharedCore": "External gear direction, mesh parity, simple tooth ratio and exception recognition.",
+          "partialLimits": "No whole Mechanical/electrical/force domain, motion graphs, work/energy/charge instruction; exact gear forms and tested quantitative depth unknown.",
+          "depth": "unknown: DOST2026 Mechanical domain official, specific gear taxonomy/item formats and2027 continuity unconfirmed",
+          "tagRecommendation": "revise-candidate",
+          "reason": "Retain bounded gear preparation, not complete mechanical scope or exclusive DOST relevance."
+        }
+      ],
       "availability": "unknown: corpus-bound runtime not verified",
       "practice": "deferred Level5"
     },
@@ -8919,8 +9174,45 @@
         "dost-sei",
         "upcat"
       ],
-      "bodyAssessmentStatus": "PENDING topic reading, no body-based tag verdict inferred",
-      "recommendations": null,
+      "bodyAssessmentStatus": "COMPLETE topic evidence; current independent sample acceptance is separate",
+      "recommendations": [
+        {
+          "exam": "dcat",
+          "requirementRefs": [
+            "dcat-L083"
+          ],
+          "sharedCore": "Ideal pulley support-count force/distance and perpendicular lever torque balance.",
+          "partialLimits": "No complete machine-efficiency/linear-rotational/electrical/light-sound/work-energy curriculum row; routing count explicitly supplied; angled torque and real losses not worked.",
+          "depth": "unknown: UPCAT curriculum and DCAT strengthened-SHS preparation retain exam/cohort/completion limits",
+          "tagRecommendation": "revise-candidate",
+          "reason": "Retain demonstrated simple-machine preparation, not full named domain or universal mechanical exam format."
+        },
+        {
+          "exam": "dost-sei",
+          "requirementRefs": [
+            "dost-sei-L036",
+            "dost-sei-L048",
+            "dost-sei-L054",
+            "dost-sei-L058"
+          ],
+          "sharedCore": "Ideal pulley support-count force/distance and perpendicular lever torque balance.",
+          "partialLimits": "No complete machine-efficiency/linear-rotational/electrical/light-sound/work-energy curriculum row; routing count explicitly supplied; angled torque and real losses not worked.",
+          "depth": "unknown:2026 Mechanical domain official; exact simple-machine task family/depth and2027 continuity unknown",
+          "tagRecommendation": "revise-candidate",
+          "reason": "Retain demonstrated simple-machine preparation, not full named domain or universal mechanical exam format."
+        },
+        {
+          "exam": "upcat",
+          "requirementRefs": [
+            "upcat-L162"
+          ],
+          "sharedCore": "Ideal pulley support-count force/distance and perpendicular lever torque balance.",
+          "partialLimits": "No complete machine-efficiency/linear-rotational/electrical/light-sound/work-energy curriculum row; routing count explicitly supplied; angled torque and real losses not worked.",
+          "depth": "unknown: UPCAT curriculum and DCAT strengthened-SHS preparation retain exam/cohort/completion limits",
+          "tagRecommendation": "revise-candidate",
+          "reason": "Retain demonstrated simple-machine preparation, not full named domain or universal mechanical exam format."
+        }
+      ],
       "availability": "unknown: corpus-bound runtime not verified",
       "practice": "deferred Level5"
     },
@@ -8930,8 +9222,22 @@
       "originalProvisionalExamTags": [
         "dost-sei"
       ],
-      "bodyAssessmentStatus": "PENDING topic reading, no body-based tag verdict inferred",
-      "recommendations": null,
+      "bodyAssessmentStatus": "COMPLETE topic evidence; current independent sample acceptance is separate",
+      "recommendations": [
+        {
+          "exam": "dost-sei",
+          "requirementRefs": [
+            "dost-sei-L036",
+            "dost-sei-L048",
+            "dost-sei-L054"
+          ],
+          "sharedCore": "Ideal linear force-extension, stiffness and static mass/weight comparisons.",
+          "partialLimits": "Broad mechanical/electrical/force domain not completed; Hooke subfamilies, force graphs, spring combinations, dynamics and elasticity-versus-linearity depth unconfirmed.",
+          "depth": "unknown: DOST2026 Mechanical domain named, exact spring taxonomy/depth and2027 continuity unknown",
+          "tagRecommendation": "revise-candidate",
+          "reason": "Bound spring preparation to actual linear/static methods; do not infer exclusive DOST relevance or a general Physics prerequisite."
+        }
+      ],
       "availability": "unknown: corpus-bound runtime not verified",
       "practice": "deferred Level5"
     },
@@ -8942,8 +9248,33 @@
         "dost-sei",
         "upcat"
       ],
-      "bodyAssessmentStatus": "PENDING topic reading, no body-based tag verdict inferred",
-      "recommendations": null,
+      "bodyAssessmentStatus": "COMPLETE topic evidence; current independent sample acceptance is separate",
+      "recommendations": [
+        {
+          "exam": "dost-sei",
+          "requirementRefs": [
+            "dost-sei-L036",
+            "dost-sei-L048",
+            "dost-sei-L054"
+          ],
+          "sharedCore": "Qualitative center/support/tipping comparisons and a bounded dynamic caution.",
+          "partialLimits": "No whole force/work/energy/motion/electrical curriculum, structural engineering design, center calculation, critical-angle or rollover-model analysis.",
+          "depth": "unknown:2026 Mechanical domain official; exact stability forms and2027 continuity unknown",
+          "tagRecommendation": "revise-candidate",
+          "reason": "Retain actual balance/stability facet, distinguish local qualitative teaching from broad Mechanics scope."
+        },
+        {
+          "exam": "upcat",
+          "requirementRefs": [
+            "upcat-L162"
+          ],
+          "sharedCore": "Qualitative center/support/tipping comparisons and a bounded dynamic caution.",
+          "partialLimits": "No whole force/work/energy/motion/electrical curriculum, structural engineering design, center calculation, critical-angle or rollover-model analysis.",
+          "depth": "unknown: UPCAT curriculum balance/stability supports preparation, not full specific exam mechanics blueprint",
+          "tagRecommendation": "revise-candidate",
+          "reason": "Retain actual balance/stability facet, distinguish local qualitative teaching from broad Mechanics scope."
+        }
+      ],
       "availability": "unknown: corpus-bound runtime not verified",
       "practice": "deferred Level5"
     },

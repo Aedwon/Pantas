@@ -1,11 +1,130 @@
 # Clerical ability: Level 3 lesson audit
 
-DRAFT. Both full reads,27 local skills,distinct scope facets,Subprofessional English applicability,strict no-link records and7 source/reconciliation rows saved. Final prose and fresh checks pending.
+Status: COMPLETE author record, pending fresh independent review. Findings and recommendations only.
+
+## Findings and recommendations
+
+Retain both units. Alphabetic filing teaches constructing and comparing name units under a stated convention. Numeric/chronological filing teaches selecting a key type and direction, then comparing values or date/code components. The paired decimal-versus-subcode examples should remain together because they explain why identical visible strings can produce different orders. No split or merge improves focus enough to justify new boundaries. Teaching several variants does not establish that CSC tests all of them.
+
+The alphabetic lesson supplies conditional particle/space comparison, record-spelling preservation and a specified city tie-break. Evidence: content/lessons/reasoning/clerical-ability/alphabetic-filing-rules.md:12-26,45-64,68-72. Following a demonstrated convention is named without an inference procedure. Suffix handling is thin and titles are only a heading; business/organization and hyphenated-name applications are absent locally. These are limits within weak preparation leads, not confirmed missing organizer requirements. Refs: cse-subprofessional-L048/L080/L131/L146. B03/L01 are used only for structural scope and teaching presence.
+
+Name-component identification needs qualification. Alphabetic-filing-rules.md:36-43 assigns Juan as given name, Antonio as middle name and Santos as surname, without labeling the input components. The index is consistent with that assigned example structure. It does not teach a general method for identifying every established personal-name component. Recommend supplying labels or known components when needed; this is a teaching limit, not a categorical correction of the invented name.
+
+The numeric lesson supplies year/month/day comparison, oldest-first and reverse direction, decimal padding and a contrasting integer-subcode method. Evidence: content/lessons/reasoning/clerical-ability/numeric-and-chronological-filing.md:12-35,47-80. Its ordinary ascending-number example supplies an answer list with little comparison reasoning; ISO-style notation, character-string and hyphenated-code variants have limited application. Terminal-digit filing is expressly outside the current method at 104-106. A separate day-tie example is absent, but the comparison algorithm already supplies that last key; this alone does not establish a required-exam gap. L01/L17/L19 describe sequence and explained application, not a formatting or example-quota pass.
+
+Cost of the recommended completion is targeted explanation and selected given-rule applications. Retain shared comparison principles once rather than adding one lesson per possible feature. No current tag write, content change, or full filing-coverage claim is proposed.
+
+## Scope and spelling reconciliation
+
+The [CSC July 2026 CSE-PPT guide](https://csc.gov.ph/images/regional/CARAGA/ESD/Examinees_Guide_July_2026/Examinees_guide_CSE-PPT_2026-07_Prohibited_ActsTB_front_page_readingEN_improper_shading_a.pdf), page3, names Filing and Spelling under Subprofessional Clerical in English. It lists Professional Analytical and bilingual Verbal separately. Accepted refs cse-subprofessional-L048/L080/L081/L147 preserve those distinctions. The detailed indexing conventions, variant inventory and difficulty remain unknown. The Alphabetical preparation lead L131 is weak reviewer evidence; L102/L146 retain finer-rule uncertainty. No general filing manual or reviewer convention becomes a universal CSC scoring rule.
+
+English spelling is allocated to an existing Vocabulary unit, not automatically missing from these two filing lessons. Full reconciliation read: content/lessons/language-proficiency/vocabulary/spelling-rules.md:1-122, SHA256 e21f031450775025e09c266b8a964ba4396da5f21a8eeb7e9a494c70dd9f59cf. Lines 16-30 supply spelling patterns/limitations and 42-79 contain explained English spelling examples. Refs: cse-subprofessional-L081/L101/L132. This establishes actual presence, not a new unowned teaching-quality verdict or full word-range coverage. Spelling instruction is not a prerequisite for preserving a supplied record name during sorting.
+
+Only Subprofessional has a positive filing candidate in this packet. That does not establish global exam exclusivity. Do not import Professional Analytical or bilingual Verbal into Clerical, or assume equal difficulty across other shared tasks. The accepted 2026 PPT baseline does not settle future cycles or computer variants. Practice remains deferred Level 5; runtime availability and exact tested depth are unknown.
+
+The source ledger independently confirms the supplied alphabetic, numeric, decimal, subcode and date results. Its [RFC3339 reference](https://www.rfc-editor.org/rfc/rfc3339.html), sections 5.1/5.6, bounds fixed-format date sorting. Manual prevalence and the broad claim that reverse chronological order is widely used remain unverified external generalizations; neither is needed to validate the stipulated examples. No complete standards or answer-correctness pass occurred.
+
+## Strict prerequisites and full-read log
+
+No indispensable existing-lesson dependency was found. Alphabetic-filing-rules.md:16-26,51-64,70 supplies key construction and ordered-unit comparison. Numeric-and-chronological-filing.md:16-35,53-60,68-80 supplies its key semantics, normalization and comparison procedures. A deeper arithmetic, date or spelling lesson is optional preparation; a future expanded filing variant cannot create a current edge.
+
+Explicit checked no-prerequisite list:
+
+- lesson-clerical-ability-alphabetic-filing-rules: full read 1-90, retained; conditional personal-name filing and preservation.
+- lesson-clerical-ability-numeric-and-chronological-filing: full read 1-106, retained; typed-key and directed sorting.
+
+Both full reads received incremental DRAFT checkpoints. On resume, every saved hash and read range matched the unchanged corpus, so no completed body was replayed. Exact hashes, goals, distinct facets and evidence appear once in JSON. The empty dependency lists distinguish checked lessons from unchecked ones and introduce no cycles.
+
+No load-bearing figure dependency was encountered. No illustration need, sufficiency, quality, production or runtime-rendering judgment occurred. Source-reading and document checks are separate from Levels 4/5.
+
+## Identity and verification
+
+Current policy live/cached main: 1aaebad9814ba7bd9404d8b43fc010281abb97cf. Audit live/local at October 9 resume: 6e53f813aaaabf0ea9a48da33300aa6475372073. Corpus live/local: 765c5dc0fa5586281047bf4f7b30d09ab3707887, clean. Preserved DRAFT SHA256: 98c385857708d9e98bcf3e55a0d034211b1d5819db8af90ba060d467bfbf1bed.
+
+Current policy/startup/source/checklist/style documents, full spec/plan, orchestrator, governing/latest decisions including the October 9 03:04AM continuation, original brief and full reader contract were refreshed. Accepted requirement/overlap fingerprints match, preserving prior full-read context and relevant Clerical scope. October 8 source accesses remain dated/identified as originally recorded; they are not relabeled to this resume. The public CSC guide web error was recovered through a direct official PDF read. Remaining source limitations are explicit rather than adopted as facts.
+
+Only this assigned output changed. Completed artifacts and corpus remain untouched;no Git mutation, content/app/schema/importer/Google/illustration change or later-level work occurred. The interrupted turn preserved all completed reads. No missing required context or new usage-limit error occurred in this continuation. Fresh independent review, combined reconciliation and the Level 3 gate remain pending with the lead. Canonical Dart attribution remains unverified;no SDK repair/global content scan was attempted.
+
+Scoped Python schema/full-read/hash/ref/evidence/dependency check, exit0:
+
+```text
+{
+  "assignedLessons": 2,
+  "savedFullReads": 2,
+  "skillRecords": 27,
+  "facets": 32,
+  "requirementRefs": 5,
+  "evidenceObjects": 86,
+  "links": 0,
+  "noLinkLessons": 2,
+  "sourceRows": 7,
+  "errors": []
+}
+```
+
+Read-only combined Level3 checker, exit0, snapshot at author check:
+
+```text
+{
+  "level": 3,
+  "completeTopics": 20,
+  "expectedTopics": 25,
+  "completeLessons": 145,
+  "expectedLessons": 158,
+  "complete": [
+    "language-proficiency-grammar-and-structure",
+    "language-proficiency-language-application",
+    "language-proficiency-vocabulary",
+    "mathematics-algebra",
+    "mathematics-arithmetic-number-sense",
+    "mathematics-data-interpretation",
+    "mathematics-geometry",
+    "mathematics-precalculus-basic-calculus",
+    "mathematics-statistics-and-probability",
+    "mathematics-trigonometry",
+    "reading-comprehension-comprehension-skills",
+    "reading-comprehension-text-types",
+    "reasoning-clerical-ability",
+    "reasoning-logical-verbal-reasoning",
+    "reasoning-mechanical-technical-reasoning",
+    "reasoning-spatial-abstract-reasoning",
+    "science-biology",
+    "science-chemistry",
+    "science-earth-science-astronomy",
+    "science-physics"
+  ],
+  "pending": [
+    "general-information-code-of-conduct-ra-6713:NOT_STARTED",
+    "general-information-environment-management:NOT_STARTED",
+    "general-information-peace-and-human-rights:NOT_STARTED",
+    "general-information-philippine-constitution:DRAFT",
+    "reasoning-verbal-logic:NOT_STARTED"
+  ],
+  "errors": [],
+  "mechanicalAccountingReady": false,
+  "gateReady": false
+}
+```
+
+Corpus, document and accepted input checks, actual output:
+
+```text
+765c5dc0fa5586281047bf4f7b30d09ab3707887
+jsonAppendices 1 emdash 0 trailingWhitespace 0 attributionMarkers 0
+requirement-input-manifest.json files 10 hashMismatches []
+map-input-manifest.json files 13 hashMismatches []
+spellingReconciliationHash e21f031450775025e09c266b8a964ba4396da5f21a8eeb7e9a494c70dd9f59cf
+```
+
+The document-marker scan is separate from the unverified canonical Dart check. Author mechanical checks do not replace fresh independent review or the lead's combined gate.
+
+
+## JSON appendix
 
 ```json
 {
   "level": 3,
-  "status": "DRAFT",
+  "status": "COMPLETE",
   "subject": "reasoning",
   "topic": "clerical-ability",
   "policyCommit": "1aaebad9814ba7bd9404d8b43fc010281abb97cf",

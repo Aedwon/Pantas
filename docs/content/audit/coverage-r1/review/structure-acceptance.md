@@ -26,7 +26,8 @@ Corpus: content/question-qa-r2 at765c5dc0fa5586281047bf4f7b30d09ab3707887, read-
 | Text Types | 5 complete lessons | PASS at6a2c639a | Sample accepted; visual-method focus, English-only and source limits retained |
 | Logical-Verbal Reasoning | 4 complete lessons | PASS atfb6cc495 | Sample accepted; surfaced ambiguity and source limits retained |
 | Spatial-Abstract Reasoning | 5 complete lessons | PASS atc0be5b48 | Sample accepted; rotation/projection focus and model/input limits retained |
-| Mechanical-Technical and Clerical Reasoning | Started, author drafts pending | Pending | No completed reading or acceptance inferred |
+| Mechanical-Technical Reasoning | 5 complete lessons | PASS atdb4dc524 | Sample accepted; shared Physics/split and model limits retained |
+| Clerical Ability | 2 complete lessons | PASS atf8c76889 | Sample accepted; stated-convention/name/spelling limits retained |
 | Remaining seven topics | Not started | Pending | No reading or acceptance inferred |
 
 The lead read the biology review's saved source-first observations and comparison. The reviewer authored no Level 3 targets. It read the sampled full sources before author verdicts, checked both biology split proposals, verified the evolution-to-genetics foundation link at both ends, and reopened NHGRI definition sources. The current topic hash matches the reviewed target. No sample flag remains. This acceptance does not establish every scientific fact, required exam depth, complete exam coverage, practice quality or runtime availability.
@@ -63,3 +64,7 @@ All16completed topic samples currentPASS, 0FLAGS/9PENDING,129lessons; exact4705r
 Logical-Verbal current samplePASS makes17PASS/0FLAGS/8PENDING,133lessons. Reviewer inspected actual source-first comparison and bounded primary lexical concern; shared stage acceptance stillpending, not a full answer review.
 
 Current18PASS/0FLAGS/7PENDING covers138lessons, actual1510facets/5118ranges/32links/current18hashes checked. Spatial source-first sample accepted; no illustration need/display assessment. Remaining author topics/globalreconciliation/completegraph/finalchecks pending.
+
+October9 current19PASS/0FLAGS/6PENDING covers143lessons. Root accepted actual Mechanical sample; Clerical author complete/current20topic-145lesson accounting stillneeds its sample, Constitution/Verbal readers and3GI topics remainunfinished. Complete421positive-row reconciliation/graph/finalmechanical checks pending.
+
+Clerical current source-first samplePASS atf8c76889,20PASS/0FLAGS/5PENDING/145lessons. Constitution4sample isactive; VerbalLogic1/CodeConduct4readers and2GI topics remainunfinished. Root accepted actual boundedcomparison, no whole-level or full filing correctness claim.
