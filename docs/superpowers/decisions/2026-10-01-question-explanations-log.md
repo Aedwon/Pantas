@@ -1372,3 +1372,11 @@ Exact user instruction in this Codex desktop conversation:
 > continue
 
 The instruction resumes the current approved Level 3 only; it does not approve Level 4 or Level 5 or content changes. Current main policy remains `1aaebad9814ba7bd9404d8b43fc010281abb97cf`, freshly fetched/read. Audit local/remote match `44a8ae86de62b78025525ab258d0be905ee043c1`; pinned corpus local/remote `765c5dc0fa5586281047bf4f7b30d09ab3707887` remains clean. Fourteen completed topic artifacts cover 116 lessons, with nine independent samples covering 91; preserve pending reviews and Reading Comprehension drafts. Original orchestrator is idle following a usage-limit stop, while the existing watcher is alive. Current account permits ordinary usage: five-hour use 1%, weekly use 76%; these are current observations only. Run the existing watcher check immediately to resume the same original session after its live availability probe. Preserve saved worker identities and approval gates; no duplicate orchestrator, credit purchases, reset-credit use, or content edits.
+
+### October 09, 2026, 03:04 AM Philippine time: desktop continuation after usage stop
+
+Exact human instruction in the current Codex desktop conversation:
+
+> continue
+
+Continue Level 3 only, preserving all approval gates and the findings-only boundary. Refreshed policy main `1aaebad9814ba7bd9404d8b43fc010281abb97cf`; local/remote audit `7fe60d2be0ab6134b308f9c5d7cd72e6bb5b835d` matches and pinned corpus `765c5dc0fa5586281047bf4f7b30d09ab3707887` remains clean. Nineteen completed topic artifacts cover 143 lessons; eighteen current independent samples cover 138. Preserve the Mechanical-Technical pending review and Clerical/Constitution drafts. Global integration remains pending. Original orchestrator stopped on a usage limit; the existing watcher remains alive. Current ordinary usage is allowed (five-hour 0%, weekly 16% at this check). Prior reset times are historical. Trigger the existing watcher check now to resume the same session, after its live probe, without duplicate workers, credits, reset-credit use, or content changes.
