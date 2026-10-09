@@ -58,7 +58,7 @@ Guide names: LSG is [lesson-style-guide.md](lesson-style-guide.md), QSG is
 | L15 | No stock AI phrasing; varied sentence openings; a plainly varied summary | Minor | Search for the listed phrases; read openings | LSG: Emphasis and de-AI rules |
 | L16 | Section titles are exact; mnemonics only when genuine; extra sections sparing | Minor | Compare headings with the guide | LSG: Section structure |
 | L17 | Subject section fit is followed; every formula appears in Core Concept before any example uses it | Major | Trace each formula in examples back to Core Concept | LSG: Per-subject section fit |
-| L18 | Three to six examples ramp to real exam level, one per distinct scenario, no near-duplicates | Major | List each example's scenario and level | LSG: Examples section |
+| L18 | Examples cover every distinct exam-relevant scenario, variation, and edge case within the learning goal, ramp from basic to target-exam difficulty, and avoid near-duplicates | Major | Map each distinct case to a worked example; check the difficulty progression and repeated reasoning | LSG: Examples section |
 | L19 | Solutions show every step as a numbered list with display equations | Major if a step is skipped, otherwise Minor | Follow each solution step by step | LSG: Examples section |
 | L20 | Example and trap headings use `### #N: Title`; traps have a one-line warning and a short explanation | Minor | Compare with the format | LSG: Examples section, Traps section |
 | L21 | Display equations fit a phone screen | Minor | Look for long display lines | LSG: Examples section |

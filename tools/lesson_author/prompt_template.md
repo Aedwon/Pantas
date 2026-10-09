@@ -58,11 +58,12 @@ cringe-worthy acronym just to fill it.
 
 ## Examples
 
-Be exhaustive in COVERAGE, not in volume: include one example for every
-distinct scenario, variation, or edge case of this concept that can appear
-on a Philippine CET, and no near-duplicates. Use 3 to 6 examples total,
-ordered from easiest to hardest, ending at real UPCAT/DOST difficulty. Give
-each example its own "###" heading in the exact form "### #N: Short
+Cover every distinct exam-relevant scenario, variation, and edge case
+within the lesson's learning goal, with one worked example per distinct
+case. Changing only the numbers does not create a new scenario.
+Order examples from basic to authentic target-exam difficulty.
+Let coverage determine the number of examples; avoid near-duplicates.
+Give each example its own "###" heading in the exact form "### #N: Short
 Descriptive Title" (e.g. "### #2: Nested Grouping Symbols"). Write the
 question as a sentence with inline math, then write "**Solution:**" alone
 on its own line, then solve it as a numbered list of steps, with each key

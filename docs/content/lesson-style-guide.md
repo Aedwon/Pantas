@@ -120,9 +120,11 @@ section titles generically, so other subjects may adapt them:
 
 - Each example: `### #N: Short Descriptive Title` (e.g.
   `### #2: Nested Grouping Symbols`).
-- 3–6 examples, ramping easiest → real UPCAT/DOST level. Exhaustive in
-  COVERAGE (one example per distinct scenario/variation), never
-  near-duplicates.
+- Cover every distinct exam-relevant scenario, variation, and edge case
+  within the lesson's learning goal, with one worked example per distinct
+  case. Changing only the numbers does not create a new scenario.
+- Order examples from basic to authentic target-exam difficulty.
+  Let coverage determine the number of examples; avoid near-duplicates.
 - Body: question sentence with inline math, then `**Solution:**` on its
   own line, then numbered steps (`1.`, `2.` markdown list), with each
   key computation as a `$$ ... $$` display line between/after steps.

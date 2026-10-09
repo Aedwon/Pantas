@@ -1318,3 +1318,19 @@ Aedwon at gates, and commit and push saved work from outside the sandbox
 (Codex keeps git metadata read-only; a sandbox test confirmed `git fetch`
 fails inside it). A launchd job runs the watcher. `ORCHESTRATOR.md` defines the
 state line in `status.md`.
+
+### October 9, 2026: example coverage determines the count
+
+Exact user instruction in the Codex desktop conversation:
+
+> okay please amend it. not just say supersede, remove it completely so that the standards are crystal clear
+
+Context: the earliest saved authoring prompt on May 28 required exhaustive coverage of distinct exam-relevant scenarios, variations, and edge cases. The fixed example range entered the May 29 style guide without a documented evidentiary basis and later propagated into the prompt and checklist. Aedwon approved restoring coverage-based example selection and deleting the numeric requirement from active instructions.
+
+Approved rule: cover every distinct exam-relevant scenario, variation, and edge case within the lesson's learning goal, with one worked example per distinct case. Changing only the numbers does not create a new scenario. Order examples from basic to authentic target-exam difficulty. Let coverage determine the number of examples; avoid near-duplicates.
+
+Scope: remove the numeric requirement directly from the current lesson style guide, checklist rule L18, and lesson-authoring prompt. Keep L18's Major severity and require a case-to-example coverage check. Historical records and lesson content remain unchanged. This is the authorized correction to the shared standards on main, not approval to start Level 4 or rewrite content.
+
+Policy and base: current main `1aaebad9814ba7bd9404d8b43fc010281abb97cf`. All three relay runners were offline; the lead used an isolated managed worktree and direct local document checks. Independent review and final verification are recorded below before integration.
+
+Verification: active `docs/content/` and `tools/` instructions contain zero fixed-range matches. The guide and prompt use identical coverage wording; checklist L18 maps each distinct case to a worked example and retains Major severity. Exact four-file scope, changed English prose, and `git diff --check` pass. The canonical attribution scanner's `scanText` checked all four changed files using the bundled Dart executable: `Scoped canonical attribution: files=4 hits=0`, exit 0. Independent read-only review returned PASS with no actionable findings and confirmed unchanged content and historical entries. Documentation-only correction; no Flutter tests or lesson rewrites are claimed.
