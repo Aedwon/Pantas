@@ -1334,3 +1334,19 @@ Scope: remove the numeric requirement directly from the current lesson style gui
 Policy and base: current main `1aaebad9814ba7bd9404d8b43fc010281abb97cf`. All three relay runners were offline; the lead used an isolated managed worktree and direct local document checks. Independent review and final verification are recorded below before integration.
 
 Verification: active `docs/content/` and `tools/` instructions contain zero fixed-range matches. The guide and prompt use identical coverage wording; checklist L18 maps each distinct case to a worked example and retains Major severity. Exact four-file scope, changed English prose, and `git diff --check` pass. The canonical attribution scanner's `scanText` checked all four changed files using the bundled Dart executable: `Scoped canonical attribution: files=4 hits=0`, exit 0. Independent read-only review returned PASS with no actionable findings and confirmed unchanged content and historical entries. Documentation-only correction; no Flutter tests or lesson rewrites are claimed.
+
+### October 9, 2026: explicit lesson teaching requirements with explanation reuse
+
+The desktop lead recommended three lesson-level clarifications: explain necessary terms, symbols and units before their meanings are needed; teach what a concept means and how it works rather than only naming it or presenting a formula; and state relevant conditions, limitations and exceptions for rules and shortcuts.
+
+Exact human approval:
+
+> yes to those three, especially if (1) it hasn't been mentioned in a previous, prerequisite lesson or (2) it won't be explained further in the current lesson
+
+Approved scope: add these three teaching requirements to the current lesson guide, checklist and authoring prompt. Reuse actual teaching from an identified prerequisite with a short reminder or reference. A clearly identified explanation later in the current lesson is allowed, while supplying any meaning needed for intervening teaching. Merely mentioning an idea is insufficient; a missing explanation remains a gap. The current lesson must still teach its own learning goal. Record prerequisite evidence in audit records.
+
+Implementation adds a shared Teaching completeness section, checklist L25/L26/L27 with Major severity and concrete checks, and the same teaching/reuse wording in the authoring prompt. Existing checklist IDs and rules remain unchanged; no numeric thresholds, review layers, student-facing content changes, or Level 4 start are introduced. This targeted shared-standards amendment is approved for main. Broader stale authoring-prompt instructions are outside this three-rule amendment.
+
+Policy and base: main `2b13ad6a2cae18b3219408fdc8d80167b95c16b1`, refreshed before changes. Relay runners are offline; use the existing authorized direct local path in an isolated managed worktree. Independent review and focused document checks follow before integration.
+
+Verification: exact four-file scope; identical guide/prompt teaching and reuse blocks; all 56 existing checklist rules unchanged; exactly three unique Major rules added; prerequisite/later-explanation safeguards present; fixed example quota remains absent. Changed prose and `git diff --check` PASS. Scoped canonical Dart attribution: `files=4 hits=0`, exit 0. Independent read-only review returned PASS with no actionable findings, confirming user intent and no historical/content changes. No Flutter suite or lesson audit is claimed for this instruction-only amendment.

@@ -39,6 +39,12 @@ Guide names: LSG is [lesson-style-guide.md](lesson-style-guide.md), QSG is
 
 ## Lessons
 
+L25 to L27 follow the shared explanation-reuse rule in the lesson guide's
+Teaching completeness section. Check actual prerequisite teaching or the
+clearly identified later explanation, not a prior mention alone. Confirm that
+students have the meaning needed for the intervening teaching and that the
+current lesson still teaches its own learning goal.
+
 | Id | Rule | Severity | How to check | Source |
 |---|---|---|---|---|
 | L01 | A learning goal is recorded and the lesson serves it | Major | Find the goal in the audit records; compare with the content | LSG: Learning goal |
@@ -66,6 +72,9 @@ Guide names: LSG is [lesson-style-guide.md](lesson-style-guide.md), QSG is
 | L22a | Paragraphs are one to three short sentences; bullet lists are sparing | Minor | Scan paragraphs | LSG: Formatting rules |
 | L23 | Each placeholder is one specific line an artist could draw from; the prose teaches without the image except where the figure is the question (missing required figures fall under B03) | Major | Read each placeholder | LSG: Illustration placeholders |
 | L24 | Frontmatter has the exact shape and outline slugs | Major | Compare with the template and the outline | LSG: Frontmatter |
+| L25 | Necessary terms, symbols, and units are explained before their meanings are needed | Major | Trace needed meanings to local teaching, an identified prerequisite, or a clearly signposted later section under the shared reuse rule | LSG: Teaching completeness |
+| L26 | Concepts explain their meaning and how they work, not just names or formulas | Major | Find the explanation under the shared reuse rule; confirm that the current learning goal is taught | LSG: Teaching completeness |
+| L27 | Relevant conditions, limitations, and exceptions explain when a rule, formula, or shortcut applies | Major | Check applicability explanations under the shared reuse rule | LSG: Teaching completeness |
 
 ## Questions
 

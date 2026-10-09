@@ -6,6 +6,23 @@ LESSON: {{LESSON_TITLE}}
 PART OF: {{SUBJECT}} → {{TOPIC}}
 {{SECTIONS_BLOCK}}
 
+TEACHING COMPLETENESS:
+- Explain necessary terms, symbols, and units before students need their
+  meanings to understand the teaching or use a method.
+- Explain what each concept means and how it works. A name or formula alone
+  is not an explanation.
+- State the relevant conditions, limitations, and exceptions of a rule,
+  formula, or shortcut so students know when it applies.
+
+For these three requirements, reuse explanations actually taught in an
+identified prerequisite lesson with a short reminder or reference rather than
+repeating the full explanation. If the current lesson develops an explanation
+later, clearly point to that section and give any meaning needed to follow
+the intervening teaching. A prior mention alone does not count as teaching.
+If neither source supplies the explanation, it is a teaching gap. The current
+lesson must still teach its own learning goal; prerequisite references cannot
+replace that teaching. Record prerequisite evidence in the audit records.
+
 VOICE AND READING LEVEL (very important):
 Write all explanations in very simple English that a Grade 5 student can
 understand. Use short sentences. Use common words. Get straight to the
