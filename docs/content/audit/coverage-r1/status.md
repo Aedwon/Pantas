@@ -6,7 +6,7 @@ Plan: `docs/superpowers/plans/2026-10-04-exam-content-coverage-audit.md`.
 
 ## Identity
 
-- Current policy and standards: main `2b13ad6a2cae18b3219408fdc8d80167b95c16b1`, published October 9 after the approved example-coverage correction. The lesson guide and checklist changed; Level 3 acceptance evidence retains its original `1aaebad9814ba7bd9404d8b43fc010281abb97cf` identity. Refresh all required current main instructions before Level 4.
+- Current policy and standards: main `a90ad0b80be693a8c007af0eb25a493da7b55766`, published October 9 after the approved teaching-completeness amendment. The guide and checklist include L25 to L27 and prerequisite/later-explanation reuse; the authoring prompt carries identical wording. Level 3 acceptance evidence retains its original `1aaebad9814ba7bd9404d8b43fc010281abb97cf` identity. Refresh all required current main instructions before Level 4.
 - Corpus input: `content/question-qa-r2` at `765c5dc0fa5586281047bf4f7b30d09ab3707887`,
   local worktree and remote match.
 - Codex models confirmed: `gpt-6.1-sol` and `gpt-6-luna`, run with computer use
@@ -695,3 +695,13 @@ Exact human instruction in this Codex desktop conversation:
 The lead directly removed the numeric range from the current main lesson guide, checklist L18, and authoring prompt. The rule now requires every distinct exam-relevant scenario, variation, and edge case within the learning goal, one worked example per distinct case, no duplicate reasoning from changed numbers, and basic-to-target-exam difficulty. Coverage determines the number. L18 retains Major severity.
 
 Independent review PASS; active instruction range search found zero matches; guide/prompt wording matches and checklist case accounting agrees; changed prose/whitespace and scoped canonical attribution checks PASS. Correction committed and uploaded on main at `2b13ad6a2cae18b3219408fdc8d80167b95c16b1`, local/remote verified equal. Existing audit findings, frozen corpus, accepted maps and original Google tab are unchanged. Level 3 remains approved. Level 4 is held and has not started; its workers must read the revised current main standards rather than an old branch copy. Detailed decision and verification are also recorded on main.
+
+### October 9, 2026: three teaching rules approved with explanation reuse
+
+Exact human approval:
+
+> yes to those three, especially if (1) it hasn't been mentioned in a previous, prerequisite lesson or (2) it won't be explained further in the current lesson
+
+The approved current main guide, checklist and authoring prompt now require explanations for necessary terms/symbols/units, concept meaning/how, and relevant conditions/limits/exceptions. Checklist L25 to L27 have Major severity. Actual prerequisite teaching may be reused through a short reminder/reference. Later explanations in the current lesson must be clearly signposted while supplying meaning needed for intervening teaching. A mere mention is not an explanation, and the current lesson must still teach its own goal. Prerequisite evidence is recorded.
+
+Four-file document checks PASS, all56previous checklist rules preserved, exactly3newrules added, identical guide/prompt block, scoped canonical attribution zero hits, independent read-only review PASS. Amendment saved/uploaded to main at `a90ad0b80be693a8c007af0eb25a493da7b55766`; live main and local HEAD verified equal. No lesson/question/app/roadmap edits, new review stages or numeric thresholds. Level3 approval and frozen acceptance evidence remain unchanged; Level4 is still held. Refresh current main standards before any authorized Level4 work. Broader stale prompt issues remain outside this targeted amendment.

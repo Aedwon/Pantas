@@ -1422,3 +1422,13 @@ Read current main policy/standards at `2b13ad6a2cae18b3219408fdc8d80167b95c16b1`
 Proposed clarifications for worked lesson examples, not approved changes: (1) broaden required-input checks to all data, passages, choices and referenced devices; current B03/L14/L23 cover parts but not the full explicit old self-containment check; (2) explicitly require a unique defensible answer for closed-answer examples, extending B02's correctness check without imposing one exact response on open-ended tasks; (3) explicitly check accidental answer disclosure inside example stems, carrying the old July judgment check into lesson standards rather than relying only on quiz Q15. Reuse existing review; no additional stages or judging system proposed.
 
 Separate consistency issue: the current authoring prompt still defaults to English-only teaching, allows em dashes, uses confidence rather than source verification, prescribes a uniform section layout, bans nested fraction notation, and disallows load-bearing figures based on an outdated image-pipeline assumption. These conflict with current approved standards. Recommendation: align the prompt to existing standards, rather than restore its older instructions or introduce new standards. This task does not authorize those edits, content changes, or starting Level 4.
+
+### October 9, 2026: three teaching rules approved with explanation reuse
+
+Exact human approval:
+
+> yes to those three, especially if (1) it hasn't been mentioned in a previous, prerequisite lesson or (2) it won't be explained further in the current lesson
+
+The approved current main guide, checklist and authoring prompt now require explanations for necessary terms/symbols/units, concept meaning/how, and relevant conditions/limits/exceptions. Checklist L25 to L27 have Major severity. Actual prerequisite teaching may be reused through a short reminder/reference. Later explanations in the current lesson must be clearly signposted while supplying meaning needed for intervening teaching. A mere mention is not an explanation, and the current lesson must still teach its own goal. Prerequisite evidence is recorded.
+
+Four-file document checks PASS, all56previous checklist rules preserved, exactly3newrules added, identical guide/prompt block, scoped canonical attribution zero hits, independent read-only review PASS. Amendment saved/uploaded to main at `a90ad0b80be693a8c007af0eb25a493da7b55766`; live main and local HEAD verified equal. No lesson/question/app/roadmap edits, new review stages or numeric thresholds. Level3 approval and frozen acceptance evidence remain unchanged; Level4 is still held. Refresh current main standards before any authorized Level4 work. Broader stale prompt issues remain outside this targeted amendment.
