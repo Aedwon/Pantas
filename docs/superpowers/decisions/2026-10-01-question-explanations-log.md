@@ -1400,3 +1400,13 @@ Exact human instructions in the current Codex desktop conversation, in order:
 > before starting level 4 tell me what exactly it will do
 
 Context: the desktop lead recommended approving Level 3 completion and proceeding to Level 4, while keeping content reorganization recommendations provisional until later audit levels finish. The first instruction approves Level 3 completion in that context. Before any Level 4 dispatch or RUNNING transition, the second instruction requires explaining Level 4's exact scope. Level 3 is now accepted by Aedwon; Level 4 remains held at the approval gate while that scope is reviewed. No Level 4 brief, reader, standards check, illustration assessment, or content change has started. Preserve the watcher gate and findings-only boundary.
+
+### October 9, 2026: fixed example count removed from current standards
+
+Exact human instruction in this Codex desktop conversation:
+
+> okay please amend it. not just say supersede, remove it completely so that the standards are crystal clear
+
+The lead directly removed the numeric range from the current main lesson guide, checklist L18, and authoring prompt. The rule now requires every distinct exam-relevant scenario, variation, and edge case within the learning goal, one worked example per distinct case, no duplicate reasoning from changed numbers, and basic-to-target-exam difficulty. Coverage determines the number. L18 retains Major severity.
+
+Independent review PASS; active instruction range search found zero matches; guide/prompt wording matches and checklist case accounting agrees; changed prose/whitespace and scoped canonical attribution checks PASS. Correction committed and uploaded on main at `2b13ad6a2cae18b3219408fdc8d80167b95c16b1`, local/remote verified equal. Existing audit findings, frozen corpus, accepted maps and original Google tab are unchanged. Level 3 remains approved. Level 4 is held and has not started; its workers must read the revised current main standards rather than an old branch copy. Detailed decision and verification are also recorded on main.
