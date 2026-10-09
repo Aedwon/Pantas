@@ -1,0 +1,490 @@
+{
+  "level": 3,
+  "status": "Lead explicit source-row dispositions; final integration and independent verification pending",
+  "corpusCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+  "decisions": {
+    "upcat-L035": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "science-biology",
+        "science-chemistry",
+        "science-earth-science-astronomy",
+        "science-physics"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "upcat-L122": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "science-biology",
+        "science-chemistry",
+        "science-earth-science-astronomy",
+        "science-physics"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "dcat-L037": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "science-biology",
+        "science-chemistry",
+        "science-earth-science-astronomy",
+        "science-physics"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "dcat-L084": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "science-biology",
+        "science-chemistry",
+        "science-earth-science-astronomy",
+        "science-physics"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "ustet-L040": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "science-biology",
+        "science-chemistry",
+        "science-earth-science-astronomy",
+        "science-physics"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "ustet-L109": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "science-biology",
+        "science-chemistry",
+        "science-earth-science-astronomy",
+        "science-physics"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "ustet-L131": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "science-biology",
+        "science-chemistry",
+        "science-earth-science-astronomy",
+        "science-physics"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "pupcet-L128": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "science-biology",
+        "science-chemistry",
+        "science-earth-science-astronomy",
+        "science-physics"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "dost-sei-L094": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "science-biology",
+        "science-chemistry",
+        "science-earth-science-astronomy",
+        "science-physics"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "upcat-L036": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "mathematics-algebra",
+        "mathematics-arithmetic-number-sense",
+        "mathematics-data-interpretation",
+        "mathematics-geometry",
+        "mathematics-precalculus-basic-calculus",
+        "mathematics-statistics-and-probability",
+        "mathematics-trigonometry"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "upcat-L171": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "mathematics-algebra",
+        "mathematics-arithmetic-number-sense",
+        "mathematics-data-interpretation",
+        "mathematics-geometry",
+        "mathematics-precalculus-basic-calculus",
+        "mathematics-statistics-and-probability",
+        "mathematics-trigonometry"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "dcat-L035": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "mathematics-algebra",
+        "mathematics-arithmetic-number-sense",
+        "mathematics-data-interpretation",
+        "mathematics-geometry",
+        "mathematics-precalculus-basic-calculus",
+        "mathematics-statistics-and-probability",
+        "mathematics-trigonometry"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "acet-L038": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "mathematics-algebra",
+        "mathematics-arithmetic-number-sense",
+        "mathematics-data-interpretation",
+        "mathematics-geometry",
+        "mathematics-precalculus-basic-calculus",
+        "mathematics-statistics-and-probability",
+        "mathematics-trigonometry"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "ustet-L039": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "mathematics-algebra",
+        "mathematics-arithmetic-number-sense",
+        "mathematics-data-interpretation",
+        "mathematics-geometry",
+        "mathematics-precalculus-basic-calculus",
+        "mathematics-statistics-and-probability",
+        "mathematics-trigonometry"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "ustet-L079": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "mathematics-algebra",
+        "mathematics-arithmetic-number-sense",
+        "mathematics-data-interpretation",
+        "mathematics-geometry",
+        "mathematics-precalculus-basic-calculus",
+        "mathematics-statistics-and-probability",
+        "mathematics-trigonometry"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "ustet-L099": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "mathematics-algebra",
+        "mathematics-arithmetic-number-sense",
+        "mathematics-data-interpretation",
+        "mathematics-geometry",
+        "mathematics-precalculus-basic-calculus",
+        "mathematics-statistics-and-probability",
+        "mathematics-trigonometry"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "pupcet-L104": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "mathematics-algebra",
+        "mathematics-arithmetic-number-sense",
+        "mathematics-data-interpretation",
+        "mathematics-geometry",
+        "mathematics-precalculus-basic-calculus",
+        "mathematics-statistics-and-probability",
+        "mathematics-trigonometry"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "sm-foundation-L046": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "mathematics-algebra",
+        "mathematics-arithmetic-number-sense",
+        "mathematics-data-interpretation",
+        "mathematics-geometry",
+        "mathematics-precalculus-basic-calculus",
+        "mathematics-statistics-and-probability",
+        "mathematics-trigonometry"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "sm-foundation-L101": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "mathematics-algebra",
+        "mathematics-arithmetic-number-sense",
+        "mathematics-data-interpretation",
+        "mathematics-geometry",
+        "mathematics-precalculus-basic-calculus",
+        "mathematics-statistics-and-probability",
+        "mathematics-trigonometry"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "cse-professional-L036": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "mathematics-algebra",
+        "mathematics-arithmetic-number-sense",
+        "mathematics-data-interpretation",
+        "mathematics-geometry",
+        "mathematics-precalculus-basic-calculus",
+        "mathematics-statistics-and-probability",
+        "mathematics-trigonometry"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "cse-subprofessional-L047": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "mathematics-algebra",
+        "mathematics-arithmetic-number-sense",
+        "mathematics-data-interpretation",
+        "mathematics-geometry",
+        "mathematics-precalculus-basic-calculus",
+        "mathematics-statistics-and-probability",
+        "mathematics-trigonometry"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "upcat-L129": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "science-earth-science-astronomy"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "upcat-L133": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "science-earth-science-astronomy"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "upcat-L137": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "science-biology"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "upcat-L142": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "science-chemistry"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "upcat-L147": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "science-physics"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "upcat-L180": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "mathematics-arithmetic-number-sense"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "upcat-L184": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "mathematics-algebra"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "upcat-L195": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "mathematics-trigonometry"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "upcat-L197": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "mathematics-statistics-and-probability"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "dcat-L036": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "mathematics-statistics-and-probability"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "dcat-L071": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "mathematics-statistics-and-probability"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "dcat-L039": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "reasoning-clerical-ability",
+        "reasoning-logical-verbal-reasoning",
+        "reasoning-mechanical-technical-reasoning",
+        "reasoning-spatial-abstract-reasoning",
+        "reasoning-verbal-logic"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "ustet-L041": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "reasoning-clerical-ability",
+        "reasoning-logical-verbal-reasoning",
+        "reasoning-mechanical-technical-reasoning",
+        "reasoning-spatial-abstract-reasoning",
+        "reasoning-verbal-logic"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "ustet-L141": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "reasoning-clerical-ability",
+        "reasoning-logical-verbal-reasoning",
+        "reasoning-mechanical-technical-reasoning",
+        "reasoning-spatial-abstract-reasoning",
+        "reasoning-verbal-logic"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "sm-foundation-L047": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "reasoning-clerical-ability",
+        "reasoning-logical-verbal-reasoning",
+        "reasoning-mechanical-technical-reasoning",
+        "reasoning-spatial-abstract-reasoning",
+        "reasoning-verbal-logic"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "dcat-L095": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "language-proficiency-grammar-and-structure",
+        "language-proficiency-language-application",
+        "language-proficiency-vocabulary",
+        "reading-comprehension-comprehension-skills",
+        "reading-comprehension-text-types"
+      ],
+      "note": "Accepted language/recalled-area evidence is qualified by cycle and confidence. Actual English teaching is present in the provider topics; this does not establish every language allocation, finer task or bilingual completeness."
+    },
+    "dost-sei-L037": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "language-proficiency-grammar-and-structure",
+        "language-proficiency-language-application",
+        "language-proficiency-vocabulary",
+        "reading-comprehension-comprehension-skills",
+        "reading-comprehension-text-types"
+      ],
+      "note": "Accepted language/recalled-area evidence is qualified by cycle and confidence. Actual English teaching is present in the provider topics; this does not establish every language allocation, finer task or bilingual completeness."
+    },
+    "cse-professional-L033": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "general-information-code-of-conduct-ra-6713",
+        "general-information-environment-management",
+        "general-information-peace-and-human-rights",
+        "general-information-philippine-constitution"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "cse-subprofessional-L045": {
+      "disposition": "broad-source-label",
+      "providerTopicKeys": [
+        "general-information-code-of-conduct-ra-6713",
+        "general-information-environment-management",
+        "general-information-peace-and-human-rights",
+        "general-information-philippine-constitution"
+      ],
+      "note": "Source supplies a broad or qualified family, not a complete finer skill/depth blueprint. Provider topics contain actual fully read teaching; their entire contents are not attributed to this source row."
+    },
+    "upcat-L173": {
+      "disposition": "exam-operation-constraint",
+      "providerTopicKeys": [],
+      "note": "Calculating-device prohibition is recorded as an official exam condition, not missing teaching. Lesson/question/mock computational compliance is not inferred; question/practice checks remain Level5."
+    },
+    "upcat-L174": {
+      "disposition": "unknown-computational-demand",
+      "providerTopicKeys": [],
+      "note": "Exact calculator-free computational demands are explicitly unknown. The restriction alone cannot define a new required teaching skill or close computational completeness."
+    },
+    "dcat-L101": {
+      "disposition": "mixed-weak-scope-with-undefined-component",
+      "providerTopicKeys": [
+        "reasoning-clerical-ability",
+        "reasoning-logical-verbal-reasoning",
+        "reasoning-mechanical-technical-reasoning",
+        "reasoning-spatial-abstract-reasoning",
+        "reasoning-verbal-logic"
+      ],
+      "note": "Reported Mental Ability may use qualified reasoning preparation. The recalled personality questionnaire has no current blueprint/scoring or assessable required study skill; civic norms do not become personality-test coverage."
+    },
+    "acet-L133": {
+      "disposition": "undefined-general-knowledge-scope",
+      "providerTopicKeys": [
+        "general-information-code-of-conduct-ra-6713",
+        "general-information-environment-management",
+        "general-information-peace-and-human-rights",
+        "general-information-philippine-constitution"
+      ],
+      "note": "Weak General Knowledge/General Intelligence report has no reliable finer syllabus. Civic orientations are limited background, not proof of full General Knowledge or a required roster. Other unknown possible domains remain unknown."
+    },
+    "acet-L175": {
+      "disposition": "conditional-writing-gap",
+      "providerTopicKeys": [
+        "language-proficiency-grammar-and-structure",
+        "language-proficiency-language-application",
+        "language-proficiency-vocabulary",
+        "reading-comprehension-comprehension-skills",
+        "reading-comprehension-text-types"
+      ],
+      "note": "Current ACET exam essay remains weak/unknown and separate from the application essay. Actual reading, sentence editing and supplied paragraph ordering do not teach producing a sustained original essay; curricular writing preparation is partial/absent with cohort bounds."
+    },
+    "pupcet-L155": {
+      "disposition": "conditional-economics-preparation-gap",
+      "providerTopicKeys": [],
+      "note": "No systematic consumption/production, inflation or economic-decision method is taught by the fully read corpus. Retail/interest/percentage arithmetic and civic/international-rights orientation are separate limited background, not economic or contemporary-issue analysis. This is curriculum-inferred preparation; actual PUPCET inclusion/depth remains unknown."
+    },
+    "sm-foundation-L048": {
+      "disposition": "unconfirmed-science-placement",
+      "providerTopicKeys": [
+        "science-biology",
+        "science-chemistry",
+        "science-earth-science-astronomy",
+        "science-physics"
+      ],
+      "note": "Preparation advice is weak; the older report does not establish a standalone Science subtest. Actual Science teaching can be background, with current inclusion, depth and language unknown."
+    },
+    "sm-foundation-L148": {
+      "disposition": "historical-calculation-transfer",
+      "providerTopicKeys": [
+        "mathematics-algebra",
+        "mathematics-arithmetic-number-sense",
+        "mathematics-data-interpretation",
+        "mathematics-geometry",
+        "mathematics-precalculus-basic-calculus",
+        "mathematics-statistics-and-probability",
+        "mathematics-trigonometry",
+        "science-biology",
+        "science-chemistry",
+        "science-earth-science-astronomy",
+        "science-physics"
+      ],
+      "note": "A historical science-related numerical item is not a separate Science subtest. Actual mathematical/physical computations offer bounded transfer, without current item-type, fine scope, language or weights inferred."
+    }
+  }
+}

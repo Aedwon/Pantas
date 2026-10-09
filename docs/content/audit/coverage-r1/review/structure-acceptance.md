@@ -68,3 +68,5 @@ Current18PASS/0FLAGS/7PENDING covers138lessons, actual1510facets/5118ranges/32li
 October9 current19PASS/0FLAGS/6PENDING covers143lessons. Root accepted actual Mechanical sample; Clerical author complete/current20topic-145lesson accounting stillneeds its sample, Constitution/Verbal readers and3GI topics remainunfinished. Complete421positive-row reconciliation/graph/finalmechanical checks pending.
 
 Clerical current source-first samplePASS atf8c76889,20PASS/0FLAGS/5PENDING/145lessons. Constitution4sample isactive; VerbalLogic1/CodeConduct4readers and2GI topics remainunfinished. Root accepted actual boundedcomparison, no whole-level or full filing correctness claim.
+
+Constitution current source-first samplePASS at8f2fa778,21PASS/0FLAGS/4PENDING/149lessons. Primary clause qualifications and substantive gaps preserved; wrong-commission tentative inquiry explicitly withdrawn before target, not an auditfinding. CodeConduct reviewactive; lastthreeauthor topics andwhole-level checks pending.

@@ -119,7 +119,7 @@ Goal: Use density and displaced-fluid weight to predict buoyancy; compare pressu
 
 Structure: retain. Density, pressure and buoyancy are a coherent fluid core. The ideal-flow extension is brief and clearly separated, not inherently crammed. Proposal: Retain pressure/buoyancy/ideal flow; add pressure/depth use. Mechanical fluid-pressure repeats hydrostatic/Bernoulli core and adds continuity, but neither develops Pascal hydraulic systems. Cost: One pressure application and a verified cross-topic connection; no split justified by unknown exam depth. Rules: B03/L01/L17/L19, structural use only.
 
-Necessary prior knowledge: Mass, volume, force, area and compatible units; buoyancy force balance. Local definitions cover density/pressure.
+Readiness and optional preparation: Mass, volume, force and area vocabulary; density/pressure definitions and buoyancy force balance are supplied locally. The current buoyant-force example shows 300 g = 0.3 kg and the mg/newton calculation. General SI, dimensional checks and prefix interpretation are useful optional preparation, not a strict existing-lesson dependency for these supplied tasks.
 
 Availability: unknown, corpus-bound runtime not verified. Practice: deferred Level 5.
 
@@ -302,7 +302,6 @@ Availability: unknown, corpus-bound runtime not verified. Practice: deferred Lev
 |---|---|---|---|---|---|
 | lesson-physics-dynamics | lesson-physics-kinematics | within-topic | Newton laws use velocity and acceleration; kinematics defines how those quantities differ. | content/lessons/science/physics/dynamics.md:16-22 | content/lessons/science/physics/kinematics.md:22-32 |
 | lesson-physics-dynamics | lesson-physics-scalars-and-vectors | within-topic | Component-wise net-force equations require vector addition and resolution. | content/lessons/science/physics/dynamics.md:20-22 | content/lessons/science/physics/scalars-and-vectors.md:23-43 |
-| lesson-physics-fluid-mechanics | lesson-physics-units-and-measurements | within-topic | The buoyant-force example changes mass units before computing newtons. | content/lessons/science/physics/fluid-mechanics.md:72-82 | content/lessons/science/physics/units-and-measurements.md:38-42 |
 | lesson-physics-light-and-optics | lesson-physics-waves-and-sound | within-topic | Speed, frequency and wavelength changes at a boundary require the wave quantities and their relationship. | content/lessons/science/physics/light-and-optics.md:26-32 | content/lessons/science/physics/waves-and-sound.md:14-26 |
 | lesson-physics-light-and-optics | lesson-trigonometry-basic-trigonometric-ratios | across-topics | Snell law uses sine of a normal angle without defining sine. | content/lessons/science/physics/light-and-optics.md:28-30 | content/lessons/mathematics/trigonometry/basic-trigonometric-ratios.md:12-34 |
 | lesson-physics-momentum-and-impulse | lesson-physics-kinematics | within-topic | Momentum-change calculations use signed initial/final velocity, not path speed. | content/lessons/science/physics/momentum-and-impulse.md:12-30 | content/lessons/science/physics/kinematics.md:20-32 |
@@ -315,7 +314,7 @@ Availability: unknown, corpus-bound runtime not verified. Practice: deferred Lev
 | lesson-physics-work-energy-power | lesson-physics-kinematics | within-topic | Work uses displacement and kinetic energy uses speed; these quantities must be distinguished from path distance and signed velocity. | content/lessons/science/physics/work-energy-power.md:12-24 | content/lessons/science/physics/kinematics.md:14-26 |
 | lesson-physics-work-energy-power | lesson-trigonometry-basic-trigonometric-ratios | across-topics | Angled-force work uses cosine without defining the projection ratio. | content/lessons/science/physics/work-energy-power.md:14-16 | content/lessons/mathematics/trigonometry/basic-trigonometric-ratios.md:12-34 |
 
-No necessary existing prerequisite link found: lesson-physics-electricity-and-magnetism, lesson-physics-gravity-and-keplers-laws, lesson-physics-kinematics, lesson-physics-units-and-measurements, lesson-physics-waves-and-sound. Electricity remains missing-foundation rather than unchecked; all others here explain their necessary physical quantities locally. Arithmetic/algebra fluency remains explicit prior knowledge, not automatic topic-order edges.
+No necessary existing prerequisite link found: lesson-physics-electricity-and-magnetism, lesson-physics-fluid-mechanics, lesson-physics-gravity-and-keplers-laws, lesson-physics-kinematics, lesson-physics-units-and-measurements, lesson-physics-waves-and-sound. Electricity remains missing-foundation rather than unchecked; all others here explain their necessary physical quantities locally. Arithmetic/algebra fluency remains explicit prior knowledge, not automatic topic-order edges.
 
 Intralesson ordering: graph explanation before graph shortcuts; powered-unit conversion before its trap; flux meaning before induction; angle conventions before resolution; machine advantage before efficiency additions. These are not self-links.
 
@@ -371,6 +370,20 @@ P1 verification commands: focused Python assigned-ID/hash/full-read-range/field/
 Shared validator actual result fields: `completeTopics: 5`, `expectedTopics: 25`, `completeLessons: 60`, `expectedLessons: 158`, `complete: [mathematics-arithmetic-number-sense, science-biology, science-chemistry, science-earth-science-astronomy, science-physics]`, `errors: []`, `mechanicalAccountingReady: false`, `gateReady: false`. Its20pending topics include Algebra as DRAFT and19others NOT_STARTED. This supporting snapshot does not accept P1 or the combined Level3 gate. Earlier14-edge counts are historical; the current proof checks the amended direct-trigonometry edge set.
 
 Fresh narrow P1 review remains pending. No unresolved mechanical issue was found. All author checks remain separate from semantic acceptance.
+
+## P2 correction, October 9, 2026
+
+Correction policy main `1aaebad9814ba7bd9404d8b43fc010281abb97cf` matched live/cached main; audit live/local `9331dbe0852bfffc8a73d320dcb1413870a8ed41`; read-only corpus remains clean/pinned at `765c5dc0fa5586281047bf4f7b30d09ab3707887`. All required current policy/context was retrieved and matched prior full reads, with the latest October 9 continuation and full P2 brief/reader contract read. Previous target SHA256 `20d984df846d1abff9ae506e16618b5cc0603c24eef062e632b4097b7f863905` matched before editing. Original thirteen complete read identities remain preserved; only Fluid Mechanics and Units were reopened in full for this correction.
+
+Focused reads: `content/lessons/science/physics/fluid-mechanics.md` lines 1-142, SHA256 `29446c078d4024ca5fc7ebeb6ee1e77e627c3cc96f5a61e44a55bf5e03fde54e`; `content/lessons/science/physics/units-and-measurements.md` lines 1-125, SHA256 `44f728ab41f7de68e1003b70273341b239b245b15bfa0ba7b54d936c454d89cc`.
+
+The [fresh P2 finding](../review/topic-samples.md#targeted-whole-graph-necessity-challenge-physics-p2-flags) challenges only Fluid Mechanics -> Units and Measurements. Fluid lines 16-36 supplies density, pressure and displaced-fluid weight/force balance; lines 72-84 explicitly performs 300 g = 0.3 kg and the mg/newton calculation. The present tasks do not require deriving a conversion factor, proving newton base units or independently screening an expanded mixed-unit problem. Remove that strict edge and mark Fluid Mechanics checked `none-found`. General SI meaning, dimensional checks and prefix interpretation remain useful optional preparation from Units lines 19/26/40-42/86-97/103.
+
+The original both-end comparison, consumer lines 72-82 and Units lines 38-42, is preserved here as optional context rather than proof of necessity. The five corresponding facet priorKnowledge notes and consumer prose now distinguish supplied local methods from optional unit background. Pressure/depth's missing application, absent Pascal hydraulic systems, other genuine local gaps, all teaching/examples/goals/tags, source ledger and source read evidence remain unchanged. No replacement edge, future-content edge or broad SI prerequisite was invented.
+
+Current Physics strict edge count is 13, and six consumers have explicit no-existing-link dispositions. Earlier fourteen-edge author/P1 checks remain dated historical evidence, not verification of this amended object. P1's direct basic-trigonometric-ratios link and all other prerequisite records remain unchanged. All other topic outputs remain immutable. Fresh independent focused P2 recheck at the new artifact hash is required; this author correction does not accept it.
+
+P2_CHECK_RESULTS_PENDING
 
 ## Machine-readable appendix
 
@@ -1730,34 +1743,8 @@ Fresh narrow P1 review remains pending. No unresolved mechanical issue was found
           }
         ]
       },
-      "prerequisites": [
-        {
-          "lessonId": "lesson-physics-units-and-measurements",
-          "reason": "The buoyant-force example changes mass units before computing newtons.",
-          "scope": "within-topic",
-          "consumerEvidence": [
-            {
-              "path": "content/lessons/science/physics/fluid-mechanics.md",
-              "lines": [
-                72,
-                82
-              ],
-              "note": "Consumer uses this foundation without developing it."
-            }
-          ],
-          "foundationEvidence": [
-            {
-              "path": "content/lessons/science/physics/units-and-measurements.md",
-              "lines": [
-                38,
-                42
-              ],
-              "note": "Foundation explains the quantity or method used."
-            }
-          ]
-        }
-      ],
-      "prerequisiteStatus": "links-found",
+      "prerequisites": [],
+      "prerequisiteStatus": "none-found",
       "missingFoundations": [],
       "figureDependencies": [],
       "id": "lesson-physics-fluid-mechanics",
@@ -6010,7 +5997,7 @@ Fresh narrow P1 review remains pending. No unresolved mechanical issue was found
         }
       ],
       "missingIdeas": [],
-      "priorKnowledge": "Mass, volume, force, area and compatible units; buoyancy force balance. Local definitions cover density/pressure.",
+      "priorKnowledge": "Mass, volume, force and area vocabulary; density/pressure definitions and buoyancy force balance are supplied locally. The current buoyant-force example shows 300 g = 0.3 kg and the mg/newton calculation. General SI, dimensional checks and prefix interpretation are useful optional preparation, not a strict existing-lesson dependency for these supplied tasks.",
       "workedExamples": "worked",
       "scopeLimit": "Only this local skill, not the entire compound requirement or a current detailed exam blueprint. Practice deferred Level5; runtime unknown."
     },
@@ -6041,7 +6028,7 @@ Fresh narrow P1 review remains pending. No unresolved mechanical issue was found
       "missingIdeas": [
         "The distinct application needs a worked demonstration where solving is required."
       ],
-      "priorKnowledge": "Mass, volume, force, area and compatible units; buoyancy force balance. Local definitions cover density/pressure.",
+      "priorKnowledge": "Mass, volume, force and area vocabulary; density/pressure definitions and buoyancy force balance are supplied locally. The current buoyant-force example shows 300 g = 0.3 kg and the mg/newton calculation. General SI, dimensional checks and prefix interpretation are useful optional preparation, not a strict existing-lesson dependency for these supplied tasks.",
       "workedExamples": "none",
       "scopeLimit": "Only this local skill, not the entire compound requirement or a current detailed exam blueprint. Practice deferred Level5; runtime unknown."
     },
@@ -6078,7 +6065,7 @@ Fresh narrow P1 review remains pending. No unresolved mechanical issue was found
         }
       ],
       "missingIdeas": [],
-      "priorKnowledge": "Mass, volume, force, area and compatible units; buoyancy force balance. Local definitions cover density/pressure.",
+      "priorKnowledge": "Mass, volume, force and area vocabulary; density/pressure definitions and buoyancy force balance are supplied locally. The current buoyant-force example shows 300 g = 0.3 kg and the mg/newton calculation. General SI, dimensional checks and prefix interpretation are useful optional preparation, not a strict existing-lesson dependency for these supplied tasks.",
       "workedExamples": "worked",
       "scopeLimit": "Only this local skill, not the entire compound requirement or a current detailed exam blueprint. Practice deferred Level5; runtime unknown."
     },
@@ -6115,7 +6102,7 @@ Fresh narrow P1 review remains pending. No unresolved mechanical issue was found
         }
       ],
       "missingIdeas": [],
-      "priorKnowledge": "Mass, volume, force, area and compatible units; buoyancy force balance. Local definitions cover density/pressure.",
+      "priorKnowledge": "Mass, volume, force and area vocabulary; density/pressure definitions and buoyancy force balance are supplied locally. The current buoyant-force example shows 300 g = 0.3 kg and the mg/newton calculation. General SI, dimensional checks and prefix interpretation are useful optional preparation, not a strict existing-lesson dependency for these supplied tasks.",
       "workedExamples": "worked",
       "scopeLimit": "Only this local skill, not the entire compound requirement or a current detailed exam blueprint. Practice deferred Level5; runtime unknown."
     },
@@ -6143,7 +6130,7 @@ Fresh narrow P1 review remains pending. No unresolved mechanical issue was found
       "missingIdeas": [
         "Pascal hydraulic systems needs local development before full facet teaching can be claimed."
       ],
-      "priorKnowledge": "Mass, volume, force, area and compatible units; buoyancy force balance. Local definitions cover density/pressure.",
+      "priorKnowledge": "Mass, volume, force and area vocabulary; density/pressure definitions and buoyancy force balance are supplied locally. The current buoyant-force example shows 300 g = 0.3 kg and the mg/newton calculation. General SI, dimensional checks and prefix interpretation are useful optional preparation, not a strict existing-lesson dependency for these supplied tasks.",
       "workedExamples": "none",
       "scopeLimit": "Only this local skill, not the entire compound requirement or a current detailed exam blueprint. Practice deferred Level5; runtime unknown."
     },

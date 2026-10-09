@@ -1,6 +1,6 @@
 # Level 3 lesson structure, draft consolidation
 
-Status: DRAFT. Twenty-one author-complete topics account for 149 of 158 lessons. Twenty topic samples pass; Constitution awaits sampling. The remaining four topics are pending. This is not Level 3 gate acceptance or an exam-completeness claim.
+Status: DRAFT. Twenty-two author-complete topics account for 153 of 158 lessons. Twenty-one topic samples pass; RA6713 awaits sampling. The remaining three topics are pending. This is not Level 3 gate acceptance or an exam-completeness claim.
 
 ## Decision-facing findings so far
 

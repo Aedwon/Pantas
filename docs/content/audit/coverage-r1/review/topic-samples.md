@@ -8,10 +8,10 @@ Current live main and cached origin/main both: `ac4b30da31b0bcca7e7ed1e47c930b1a
 
 ## Complete topic accounting
 
-- PENDING: general-information-code-of-conduct-ra-6713
-- PENDING: general-information-environment-management
-- PENDING: general-information-peace-and-human-rights
-- PENDING: general-information-philippine-constitution
+- PASS: general-information-code-of-conduct-ra-6713
+- PASS: general-information-environment-management
+- PASS: general-information-peace-and-human-rights
+- PASS: general-information-philippine-constitution
 - PASS: language-proficiency-grammar-and-structure
 - PASS: language-proficiency-language-application
 - PASS: language-proficiency-vocabulary
@@ -28,11 +28,11 @@ Current live main and cached origin/main both: `ac4b30da31b0bcca7e7ed1e47c930b1a
 - PASS: reasoning-logical-verbal-reasoning
 - PASS: reasoning-mechanical-technical-reasoning
 - PASS: reasoning-spatial-abstract-reasoning
-- PENDING: reasoning-verbal-logic
+- PASS: reasoning-verbal-logic
 - PASS: science-biology
 - PASS: science-chemistry
 - PASS: science-earth-science-astronomy
-- PASS: science-physics
+- FLAGS: science-physics
 
 Startup accounting: 25 PENDING, 0 PASS, 0 FLAGS. Initial available review targets: Science biology, chemistry, physics. No author target verdicts read yet. Accepted-input hash check is pending; dependent lesson reading is paused.
 
@@ -854,3 +854,198 @@ Explicit followup released general-information-philippine-constitution at8f2fa77
 - LawPhil1987constitutional text opened before author target; initial ArticleIIIbody confirms clause qualifiers. Further narrow IXB/XIchecks are primary-source verification, not a full current-law/case-doctrine sweep or Level4correctness claim. Unknown current detailed exam scope/cycles/legal application depth, source qualifications/practice/runtime remain separate. Text supplies all current lookups; no load-bearing figure. Actual English instruction does not establish additional test-language allocations or global Filipino absence.
 
 Pre-target primary-source correction: the tentative college-degree gap check above is withdrawn. [LawPhil constitutional text](https://lawphil.net/consti/cons1987.html),IXB1.1,does not contain the college-degree phrase; IXC1.1contains it forCOMELEC. The four CSCconstitutional qualification statements must be assessed against IXB,not a different commission. This correction was saved after the independent primary check and before any author Constitution verdict reading; the initial inquiry remains historical,not a finding. Other tentative source/limit observations remain for comparison.
+
+## Later October9 Constitution completion checkpoint
+
+Refreshed full current AGENTS/WORKFLOW/SUBAGENTS/startup and full updated reasoning-review brief. Live/cached main1aaebad9814ba7bd9404d8b43fc010281abb97cf and audit9331dbe0852bfffc8a73d320dcb1413870a8ed41 match; corpus765c5dc0fa5586281047bf4f7b30d09ab3707887 remains clean. Nine main policy/source/standard/startup bodies retrieved and byte-compared unchanged. Full controlling spec/plan/ORCHESTRATOR/illustration log/reader contract retain fully read6e53f813identities; latest human continuation remains Level3only. Accepted10/13/8manifests and frozen158hashes match. Old8:04AM usage stop is historical; no wait or credit consumption. Preserve twenty current samples and complete four-source independent Constitution reads/observations, including the pre-target withdrawn IXCcollege-degree inquiry. Whole author99-line prose, all113facet relationships, unique JSON semantic text and ten ledger rows were inspected before the older stop at matching current target; no unchanged full scope replay now.
+
+### Philippine Constitution comparison: PASS
+
+Immutable target SHA2568f2fa7780b79e0b489aff18b86cb7e1ee416974b6f29d51716648ca7d7a42ce5. Fresh scoped check exit0:
+
+```text
+Constitution: COMPLETE; owned=4; skills=113; facets=113; evidence_ranges=284; valid_refs=14; strict_edges=0; explicit_none=4; SHA256=8f2fa7780b79e0b489aff18b86cb7e1ee416974b6f29d51716648ca7d7a42ce5; errors=[]
+```
+
+- Confirmed actual article-index/location/count teaching, listed-safeguard orientation and narrow debt-only application, closed-list office/ground checks, and CSC constitutional commissioner recognition. Article-title/location pairs are available through the shared index method; they do not teach substantive state principles/branches/citizenship/suffrage/rights/remedies/history/civic application. No new minimum example per article is imposed. Most substantive legal facets remain thin/named/absent, with exact CSEfine depth unknown. Named ground membership does not prove misconduct, complete impeachment procedure or a removal outcome.
+- Four retain/no-split judgments fit the complete consumers: index navigation, safeguard guide, impeachment category recognition and CSCoffice qualification are already different focused goals. Broad article catalogs do not contain developed substantive lessons to split by every provision. Later explanation/application costs and scope/source work are explicit. No strict dependency found: current lookup/list/count/term/candidacy tasks supply operative lists/articles/rules locally. Index navigation is optional for other consumers that state their own article; future doctrine/natural-born/remedy cases do not create a present chain. Four explicit no-link records agree with prose/facet priorKnowledge, with no guessed target/order/cycle.
+- Narrow primary constitutional text was reopened through [LawPhil](https://lawphil.net/consti/cons1987.html),III13/20,IXB1andXI2,October9,2026. The bail timing qualifier and bounded debt-only case match the source concerns. IXB's candidacy test concerns immediately preceding elections; lastyearalone inCSC42does not establish that premise. Regular-term recognition is separate from initial staggering/vacancy restrictions; commissioner qualifications are distinct from CSEexaminee eligibility. XIlist membership is separate from the required removal process. These are bounded clause checks, not current litigation/jurisprudence or full law review.
+- The initial tentative degree inquiry was withdrawn before author reading: the college-degree phrase is inIXC forCOMELEC,notIXB forCSC. No nonexistent CSCdegree gap is carried forward, and no source/author field is edited. The corrected independent source-first history remains transparent.
+- Both2026CSEGeneralInformationEnglish areas name Constitution; broad official inclusion does not verify finer article lists/questions/depth or equal levels. PUPCETcivic and broader human-rights connections retain curriculum/weak limits. Actual owned instruction is English, with no invented Filipino requirement/exclusion or global absence. All deciding current lookup inputs are textual; no missed load-bearing figure or later-level work.
+- Legal applications, exceptions/remedies/current doctrine, other public-accountability routes and statutory penalties remain unresolved outside this bounded comparison. Full correctness/standards, practice/runtime, current finecycle/language/depth and globalintegration remain unverified/deferred.
+
+Sample flags:none. Current accounting21PASS,0FLAGS,4PENDING/149owned reviewed-artifact lessons. Preserve all earlier samples/C1/P1history; primary clause/source limits remain explicit. CodeConduct now released atfdc3f69a96819536d04ded272d457fac8de94fa20408ffeb4cb812a9e8bd7d7bfor source-first review next. Verbal/Environment drafts remain unreleased; whole Level3 and canonical Dart remain unverified.
+
+
+## Code of Conduct: independent source-first observations
+
+Explicit release: four lessons at immutable SHA256fdc3f69a96819536d04ded272d457fac8de94fa20408ffeb4cb812a9e8bd7d7b. Current policy1aaebad9814ba7bd9404d8b43fc010281abb97cf/audit9331dbe0852bfffc8a73d320dcb1413870a8ed41/corpus765c5dc0 remain controlling. Full topic brief and seven source-qualified requirement rows read. Independently read full pinned sources under content/lessons/general-information/code-of-conduct-ra-6713/: norms-of-conduct1-60, duties-and-prohibited-acts1-79, statements-of-assets-and-divestment1-77, penalties-and-enforcement1-59. No CodeConduct author verdict read before saving this checkpoint.
+
+- Teaching-confirmed: norms18-25 identifies eight standards, with equal-party permit treatment40-49 and modest living51-60. Duties16-20/26-31 teaches statutory action/report/signatory and conflict/outside-practice/information/gift rules, with response timing49-57, former-office practice61-68 and qualified signatory72-79 applications. Statements16-23/29-40 teaches family/disclosure, filing/retention and divestment rules; current examples46-77 recognize deadlines and stipulated conflict. Penalties16-24/30-59 distinguishes administrative, criminal, conspiracy and prohibited-statement-use consequences. These are local English statutory recognition/application inside official CSEProfessional-L033/L049 and Subprofessional-L045/L059; finer blueprint/detail is unknown. L061/L117 reviewer subdivisions remain weak, and L057 corruption/effects curriculum is not full statutory scope.
+- Thin/absent boundaries: most norms/duties/prohibitions are rule lists without their own applied fact patterns. SALN disclosure does not teach all valuation fields, coverage exceptions, joint filing, lawful divestment recipients, review/correction, or current forms/access procedures. Stipulated conflict and violation examples do not teach proof of elements, real-case liability, hearing/appeal or automatic sentencing/removal. No arbitrary example quota or whole-corpus absence follows. Rules with days/working days differ; examples generally recognize stated periods rather than compute calendar deadlines.
+- Structure candidate: four existing goals are value recognition, duty/prohibition application, disclosure/conflict management and consequence channels. Separating every statute section/list member would fragment locally coherent instruction. Disclosure/divestment share conflict management, but filing recognition alone does not establish deep conflict application. Any future expanded statutory teaching needs explicit scope and primary sources.
+- Necessity challenge: all current examples supply operative norm/rule/deadline or stipulate the violation/conflict locally. Constitution public trust, article navigation and broader government context can enrich understanding, but no current case needs an absent indispensable idea from an existing other lesson. No strict local chain is independently established; omitted definitions/advanced procedures are local depth/readiness limits, not invented IDs or authored-order edges.
+- Encountered legal boundaries: norms12 approval/effectivity dates need primary distinction. Duties16 fifteen working days is statutory response baseline, not every current service timetable; duties35-43 IRR gift exceptions need their exact conditions. Statements38 statutory availability after ten working days and39 ten-year retention do not establish current agency access procedure. Statements40 distinguishes assumption-of-office timing from conflict arising during service. Penalties16-24 must retain notice/hearing, gravity, covered sections, court discretion, proper proceeding and heavier-law qualifiers.
+- Reopened [RA6713 primary text](https://lawphil.net/statutes/repacts/ra1989/ra_6713_1989.html),Sections4/5/7/8/9/11/17,October9,2026, before author target. It supports bounded rules and distinctions; effectivity is publication-triggered, so March25 cannot be proved from approval alone. Current SALN procedure, IRR-specific gift/divestment timing and exact publication date remain to verify or explicitly unknown. This is a narrow encountered-fact check, not a full legal/standards sweep.
+- Actual four sources teach in English. Text supplies deciding current givens; no answer-critical unseen figure identified. Practice deferred, runtime/extraction unknown, current fine exam cycle/depth/language and full legal correctness remain separate. Preserve all21 current PASS samples; CodeConduct remains pending until actual target comparison.
+
+
+### Code of Conduct comparison: PASS
+
+Whole actual prose, all108facet/skill relationships, unique JSON semantic text, structural dispositions and18source records inspected after saved source-first observations. Truncated displays were recovered with bounded compact reads; repeated scope/prerequisite strings were read once, not counted as new teaching. Immutable SHA256fdc3f69a96819536d04ded272d457fac8de94fa20408ffeb4cb812a9e8bd7d7b matches release. Fresh scoped verification exit0:
+
+```text
+requirement-input-manifest.json 10 mismatch []
+map-input-manifest.json 13 mismatch []
+overlap-input-manifest.json 8 mismatch []
+frozen_lessons 158 mismatch []
+CodeConduct COMPLETE owned 4 skills 108 facets 108 ranges 320 refs 742 edges 0 explicit_none 4 sha256 fdc3f69a96819536d04ded272d457fac8de94fa20408ffeb4cb812a9e8bd7d7b errors []
+corpus_HEAD 765c5dc0fa5586281047bf4f7b30d09ab3707887 dirty ''
+```
+
+- Local taught norm/rule/deadline/consequence recognition agrees with independent observations. Counting eight norms is recall; only political-neutrality/simple-living behavior classifications are developed. Other norm applications, gift-condition cases, broader post-service bans, corruption effects, definitions/incentives, SALN preparation/exemptions/use restrictions, actual conflict determination and review/enforcement processes remain thin/absent. No whole-Code coverage follows from broad CSEinclusion or repeated evidence. Statutory filing intervals are not worked calendar due dates merely because June1 appears.
+- Four retain judgments fit the full consumer goals and grouped headings. No current split required merely by list length; future expanded conflict/preparation cases may justify reassessment with explicit sourcing costs. No strict prerequisites: all deciding periods/norms are local, and penalty cases stipulate offense/participation/proper proof. Related Constitution/conduct/disclosure teaching is optional context, not an absent indispensable existing foundation. Four explicit no-link records match prose/facets; no invented chain/cycle/ID.
+- Reopened [RA6713](https://lawphil.net/statutes/repacts/ra1989/ra_6713_1989.html),Sections4/5/7/8/9/11/17. Statutory response, filing and penalty summaries retain relevant conditions; no universal service deadline, automatic conviction/removal or unrestricted statement-use entitlement is inferred. Court ceilings/administrative proof remain separate from actual case outcomes. No full legal sweep.
+- Reopened [official1989IRR](https://ncda.gov.ph/rules-implementing-the-code-of-conduct-and-ethical-standards-for-public-officials-and-employees-republic-act-no-6713/),opening recital,RulesIX1-2/X1(f),(j),(n). Recital independently confirms March25effectivity; approval alone did not. Conditions distinguish gift exceptions and appointment/later-conflict clocks. Mandatory divestment and recipient restrictions are untaught, as author qualifies. IRR republication is not proof every later procedure stayed unchanged.
+- Reopened [CSC October27,2025SALN update](https://csc.gov.ph/new-omnibus-rules-on-saln-released-updated-guidelines-for-2026-filing). It confirms updated filing/review/access and digital procedures, supporting the author's procedural gap rather than a statutory-period error. Full omnibus/repository-specific access/current disciplinary reconciliation remains unverified. [RA11032 Section9](https://lawphil.net/statutes/repacts/ra2018/ra_11032_2018.html) separately supports service-processing/signatory scope distinctions; no full present service-law application is claimed.
+- Actual English common foundations can serve both2026CSE levels under their broad EnglishGeneralInformation inclusion, without finer identical selection/depth or global exam exclusivity. Weak finer reviewer rows/curriculum corruption leads remain distinct. Current textual givens require no unseen figure; illustration assessment is deferred. Practice/runtime/current finer cycle/language/depth, full correctness/standards and global integration remain unverified/deferred. No unauthorized Level4/5 activity found.
+
+Sample flags:none. Current accounting22PASS,0FLAGS,3PENDING/153owned reviewed-artifact lessons. Preserve all prior samples and C1/P1history. Environment explicitly released next at68cd726f9b7ad7018f90d878df5afffd4cdb9804dcb7ef7014b303f443fbc80d. Verbal/Peace remain pending until release. Whole Level3 and canonical Dart remain unverified.
+
+
+## Environment: independent source-first observations
+
+Released SHA25668cd726f9b7ad7018f90d878df5afffd4cdb9804dcb7ef7014b303f443fbc80d. Full source-first environmental-concepts1-55andthe-environmental-laws1-65 read under pinned content/lessons/general-information/environment-management/. Full consumer/foundation comparison bodies ecology1-146andweather-and-climate1-113 read in pinnedScience. Topic brief/full packet and seven exact accepted candidate rows read. No Environment author verdict read before this save; same current policy1aaebad9/audit9331dbe0/corpus765c5dc0 and findings-only limits apply.
+
+- Confirmed: concepts16-19defines source segregation, diversion, covered-project ECC and four DRRM phases;25-55works household sorting, compost diversion and ECCrecognition given coverage. Laws16-28provides eight statute/title/function orientations and two agencies;34-65works RA9003,RA10121andEMBparent identification. These are operational recognition and statute/agency matching in official EnglishGeneralInformation environment domains cse-professional-L033/L051andcse-subprofessional-L045/L061, not exhaustive law lists or known exam detail/depth.
+- Thin/absent: no enacted-law compliance procedure, actual project coverage classification/application, air/water testing/discharge/permit case, waste-category boundary case, recycling planning, protected-area/wildlife management application or DRRM plan/phases scenario. Climate law names a commission/framework but does not explain causes/effects/adaptation or political/economic/social decisions. Local problem identification/government-response evaluation/resource conservation and causalhumanimpacts required by inferred curriculum L055/L107 remain only partial leads; weakL118law names do not upgrade finer official requirements. No global absence/exclusion follows.
+- Focus/structure: concepts aims at operational terms and laws at legal/agency identification; both short current consumers are coherent. Shared RA9003/DRRM/ECC anchors can cross-reference once, but one cannot replace the other's goal. List size alone does not justify a unit per statute; future substantive compliance/climate/DRRM/action development needs sourcing and developed applications.
+- ActualScience sharing: Ecology12-59/65-110explains biological interactions/energy/cycles/symbiosis, not local civic problem/response or legal management. Weather12/30-43/49-81supplies physical weather/climate mechanisms/regional monsoon interpretation, not environmental decisions, mitigation/adaptation planning or agency law. Complementary mechanisms do not establish CSEfullmanagement or a strict foundation. Current civic examples give all deciding rule/coverage/category information locally; no indispensable absent idea supplied by eitherScience source. Missing procedural foundations are readiness limits, not fictional links.
+- Encountered legal facts need narrow primary confirmation: RA9003source segregation/open dumps;RA8749conditionalincineration,notblanketban;RA9729exactstrategicframework name;RA10121NDCC/NDRRMCinstitution distinction;PD1586declaredcoverageversuscurrentECCprocedure. Current environmental approval/compliance extraction remains unknown; do not manufacture full legal cases or figure mandates. English-only local instruction is not global Filipinoabsence. Text supplies all current givens; practice/runtime/finecycle/depth/language/fullcorrectness remain deferred/unknown.
+
+
+### Environment comparison: PASS
+
+Whole prose/72facet relationships/unique JSON semantic text/14source rows and actual bilateral comparison records inspected after saved independent observations. Immutable SHA25668cd726f9b7ad7018f90d878df5afffd4cdb9804dcb7ef7014b303f443fbc80d matches release. Scoped actual check exit0:
+
+```text
+Environment COMPLETE owned 2 skills 72 facets 72 ranges 224 refs 284 foundation_reads 2 comparisons 2 edges 0 explicit_none 2 sha256 68cd726f9b7ad7018f90d878df5afffd4cdb9804dcb7ef7014b303f443fbc80d errors []
+```
+
+- Confirmed sorting at origin, compost diversion and ECCrecognition for already-covered project; statute/bureau matches apply listed local associations. Full consumers support retained operational and legal-locator goals, with optional common anchors rather than duplicating whole lessons or splitting a short catalog into undeveloped statute units. DRRM labels alone are not developed scenarios requiring immediate separation. Future substantive application has distinct sourcing/depth costs.
+- Named waste categories/DRRM domains/climate framework and thin pollution/conservation purposes do not become full environmental action teaching. Local problems/government responses, climate effects/political/economic/social aspects, evidence/tradeoff choices, species/resource conservation and ecosystem human impacts preserve their partial/absent and curriculum-inferred limits. Weak environmental-law/current-event leads remain weak; organizer silence does not prove excess/exclusion. Both official broad EnglishCSEdomains can use the supplied core without asserting identical fine laws/depth or global Filipino absence.
+- Two full-source bilateral comparisons agree: Ecology28-31/41-49is decomposer/cycle background, while concepts16-17/36-43teaches operational sorting/diversion. Weather39-43/76-81provides physical climate/infrared teaching, while laws19/28names policy institutions/framework. Complementary Science cannot replace civic action/compliance; current examples do not depend on those absent richer ideas. Two explicit no-link dispositions match prose/facets, with no strict target/order/cycle. No actual answer-critical unseen figure found.
+- Narrow primary samples reopened October9: [RA9003 Sections3/21-22](https://lawphil.net/statutes/repacts/ra2001/ra_9003_2001.html) supports source sorting/diversion and distinct statutory title2000/approval2001. [RA8749 Section20](https://lawphil.net/statutes/repacts/ra1999/ra_8749_1999.html) retains toxic-fume/exception qualifications rather than blanket burning prohibition. [RA9729 Section11](https://lawphil.net/statutes/repacts/ra2009/ra_9729_2009.html) names FrameworkStrategy; [RA10121 Section5](https://lawphil.net/statutes/repacts/ra2010/ra_10121_2010.html) renames existingNDCC. Author surfaces both nomenclature/history qualifications; no later-level full legal sweep performed.
+- [PD1586 Sections2/4](https://lawphil.net/statutes/presdecs/pd1978/pd_1586_1978.html) supports the system and declared-critical project/area ECCcondition. It does not independently establish present screening/issuance definition/procedure. Author's blockedEMB limitation remains explicit, and this reviewer leaves currentECCprocedure unknown rather than treating old decree as full current guidance. Full amended agency powers/permits/enforcement/cases remain unverified.
+- Full correctness/standards, finer currentcycles/depth/language/currentevents, practice/runtime and whole-level integration remain unknown/deferred. No figure need/quality/display/production or Level5 work. No target/content/shared-data changes.
+
+Sample flags:none. Current accounting23PASS,0FLAGS,2PENDING/155owned reviewed-artifact lessons. Preserve earlier samples/C1/P1history. PeaceandHumanRights and VerbalLogic remain pending until explicit immutable release; whole Level3 and canonical Dart remain unverified.
+
+
+## October9 current23-topic checkpoint verification
+
+Read-only actual live/local identity check after the Constitution/CodeConduct/Environment comparisons:
+
+```text
+branch docs/content-coverage-audit-r1
+9331dbe0852bfffc8a73d320dcb1413870a8ed41 refs/heads/docs/content-coverage-audit-r1
+1aaebad9814ba7bd9404d8b43fc010281abb97cf refs/heads/main
+corpus HEAD765c5dc0fa5586281047bf4f7b30d09ab3707887 dirty ''
+ACCOUNTING25 Counter({'PASS':23,'PENDING':2}) unique25
+TOTAL owned155 unique155 facets1885 ranges6200 edges32 status/hash_errors[]
+reviewed_current_topics=23 owned_IDs=155 evidence_ranges=6200 requirement_refs=20369 strict_edges=32 cycles=[] errors=[]
+REPORT emdash0 trailing0
+sole-report git diff --check exit0/output empty
+```
+
+All23current COMPLETE artifacts' actual full SHA256values match their saved independent comparisons, including resolved Chemistry/Physics hashes. Current155owned source IDs/full-read ranges match the frozen manifest. All6200local evidence bounds and20369requirement references were checked, with existing both-end strict targets and no reviewed-graph cycle. This is scoped artifact accounting/evidence validity, not re-reading unchanged semantic samples or a whole-corpus standards scan. Accepted10/13/8manifest files and frozen158source hashes matched fresh this continuation. No git/source/target/shared-data mutations.
+
+The top accounting list remains the complete25-topic disposition:23PASS/0FLAGS/2PENDING. Pending general-information-peace-and-human-rights and reasoning-verbal-logic await explicit final release. Their unread artifacts receive no PASS or absence judgment. Whole Level3 integration/gate, canonical Dart attribution, practice/runtime and later-level correctness/standards remain unverified/deferred. Only the sole independent report changed.
+
+
+## Targeted whole-graph necessity challenge: Physics P2 FLAGS
+
+Refreshed current full mainAGENTS/WORKFLOW/SUBAGENTS/startup on final dispatch; live/local main1aaebad9814ba7bd9404d8b43fc010281abb97cf/audit9331dbe0852bfffc8a73d320dcb1413870a8ed41 match. Fully read controlling context remains byte-identical; current continuation stays Level3only. Preserved all completed samples; explicitly released VerbalLogic52b8bc5c810e723c5c2539b8d28709a9612c8ac5d649a7c9ed25484fb19b67b0andPeace30326781504774b05b55ca5cae41d2e805c5e6c1c9c087e9e73c91b7f1d380ebpending source-first comparison. No target/source/git mutations.
+
+P2: current Physics20d984df846d1abff9ae506e16618b5cc0603c24eef062e632b4097b7f863905 strict fluid-mechanics -> units-and-measurements link is not supported as indispensable. Full both ends independently reopened: fluid1-142 and units1-125. Fluid16-36defines density, pressure, buoyant force/weight relation and floating balance;54-58works a consistent g/cm3density,62-68supplies both densities,72-84supplies the entire 300g=0.3kgconversion and mg/newton result. None of these current tasks asks a learner to derive a conversion factor, prove a newton's base-unit identity, or screen mixed units independently. Units19/26/40-42/86-97/103provides useful general SI/dimensional/prefix explanation, but richer explanation is not the absent indispensable idea in the present supplied calculation. Bernoulli88-100also supplies its relationship/assumptions locally.
+
+The actual author reason is only “The buoyant-force example changes mass units before computing newtons.” Its consumer evidence72-82andfoundation38-42establish relation, not necessity, and the note “Consumer uses this foundation without developing it” misses the explicit local conversion/result. Knowing the physical meaning of a newton more deeply would improve transfer, but no current conceptual goal is shown impossible without this existing foundation. The consistent local-supply rule also applied to Mechanical remains binding; do not add a whole PhysicsUnits prerequisite merely because units appear.
+
+Disposition: REMOVE the strict edge; retain Units as optional general background where helpful. Exact remedy for the Physics author: remove this link from prerequisite prose/table/JSON, change the consumer to the appropriate explicit no-existing-link disposition, align affected facet/priorKnowledge wording with supplied local conversions and optional general SI/dimensional background, and refresh counts/cycle/evidence checks. Preserve every unrelated teaching/split/source field and P1corrected directTrig edge. Do not replace the removed link with a guessed SI/force ID or broaden formula use into a new prerequisite. This reviewer never fixes targets.
+
+Earlier PhysicsPASS was a bounded sample; its specific current artifact is now FLAGS pending correction/recheck. OriginalPASS/P1history remains unchanged as historical evidence. Current22PASS/1FLAGS/2PENDING; all25 still need final current disposition. CanonicalDart/globalintegration/laterlevels remain unverified/deferred.
+
+
+## Verbal Logic: independent source-first observations
+
+Released52b8bc5c810e723c5c2539b8d28709a9612c8ac5d649a7c9ed25484fb19b67b0. Full pinned reasoning/verbal-logic/assumptions-and-conclusions.md1-100read before target, plus full topic brief and19source-qualified packet rows. Current policy1aaebad9/audit9331dbe0/corpus765c5dc0 and paused/finding-only contract retained. No author Verbal verdict read before this save.
+
+- Teaching-confirmed:12-25distinguishes stated premises/unstated assumptions, necessity/sufficiency, deductive truth versus ordinary evidential support and overreach;31-54applies negation/necessary-versus-useful distinction;58-72applies category inclusion and some-not-all counterexample. These confirm local English assumptions/conclusions preparation inside official CSEProfessional-L035/L092. Other exams' reading/logic/communication leads remain curriculum/weak/cohort conditional, not a universal official reasoning section.
+- Thin/absent: best-supported ordinary evidence standard is named18/23/100but no developed evidential selection/application; local deduction is not full passage author-purpose/bias/source-comparison/chart-reading, formal truth tables/conditional/syllogism/fallacy range, productive argument writing or inquiry controlled-variable/design/measurement. Dcat-L077does not become experiment-design teaching from the wordconclusion;Acet-L169/L171writingandSM-L071actualFilipino remain distinct limits. No global absence or arbitrary passage/example threshold.
+- Structure: assumption detection and conclusion judgment share the premise/evidence/necessity distinction, with matched examples and common traps. Retain integrated rather than split every logical operation; fuller ordinary evidence application can develop the current goal. Current some/necessary/conditional meaning and premises supplied locally; richer categorical-logic/ReadingComprehension foundations optional, no indispensable existing strict link found.
+- Bounded independent logic check: AllAareFandMariaA entailsMariaF. SomeIareCis compatible with allIbeingC, so it doesnot force someInotC. A conditionalpromisecanbe true without administrativeverification; practicalhelpfulness doesnot entail logicalnecessity. Overpass premise specificallyrests on conflict reduction, so negating usabilityofthatmeans defeats its statedreason,withoutprovingthepolicyconclusionbyitself. NoLevel5 questionreading/blindsolve or fullformalstandardsclaim.
+- ActualEnglish instruction; noFilipinoapplicationinownedbody,notglobalabsence. Textcontainscurrentdecidinggivens, noanswer-criticalunseenfigure. Finecycle/depth/language/examtransfer remainsqualified;practice/runtimeandlaterlevelsunknown/deferred.
+
+
+### Verbal Logic comparison: PASS
+
+Whole actual prose, all29facets/17skills and unique JSON text/6ledger rows read after source-first save; truncated unique-text middle recovered separately. Exact releasedSHA52b8bc5c810e723c5c2539b8d28709a9612c8ac5d649a7c9ed25484fb19b67b0matches. Fresh scoped exit0:
+
+```text
+VerbalLogic COMPLETE owned1 skills17 facets29 ranges62 refs_occurrences276 unique_refs27 edges0 sha25652b8bc5c810e723c5c2539b8d28709a9612c8ac5d649a7c9ed25484fb19b67b0 errors[]
+```
+
+- Independent local assumption/negation/deduction/some countermodel observations agree. The source explicitly distinguishes best-supported evidence standard but doesnot work it; absent passage/source/bias/writing/nonlinear/inquiry methods and named causal/modal strengths remain bounded. Scientific conclusions/variables/controls/design are separate from genericargument support; no experiment course is inferred. Constructed promotion/Maria cases are logical premises,not verified employment policies. Overpass premise/bridge annotation concern is already qualified in prose/JSON/ledger; no new wrong-key or transportation claim.
+- One integrated argument model improves focus without duplicating shared premise/strength criteria. Current definitions/negation/inclusion/existential example supply all indispensable criteria; optionalSyllogism/Reading extensions do not establish strict links. No missing foundation needs invention to solve current tasks; no target/order/cycle or unseen answer-critical figure.
+- [Stanford definitions](https://web.stanford.edu/~bobonich/terms.concepts/valid.sound.html) and [forallx chapter23](https://forallx.openlogicproject.org/bookml/Ch23.html) reopenedOctober9corroborate deduction/evidential and existential distinctions; independent finite models substantiate bounded examples. No question-bank blindsolve/fullcorrectness/LSATformat transfer. Prior actualCSCguidepage3/hash remainsapplicable toProfessionalEnglishAnalytical;SubprofessionalownbilingualVerbal staysseparate. Otherexamcurriculum/weak/cohort/currentdepth limits remain explicit,including actualEnglishonlylocalteaching.
+- Figure assessment,practice,runtime,currentfinecycle/language/depth,fullstandards/correctness and wholelevel remainunknown/deferred. Allcurrentartifactfields agree within sampled scope; target/content/shared data neveredited.
+
+Sampleflags:none forVerbal. Current23PASS/1FLAGS/1PENDING/156reviewed-ownedlessonsincluding13Physicsflaggedlessons. PhysicsP2requiresauthorcorrection/recheck;PeaceHumanRightsreleased30326781504774b05b55ca5cae41d2e805c5e6c1c9c087e9e73c91b7f1d380ebnext. Do not convert author25COMPLETE togateacceptance.
+
+
+## Peace and Human Rights: independent source-first observations
+
+Explicitfinalrelease30326781504774b05b55ca5cae41d2e805c5e6c1c9c087e9e73c91b7f1d380eb. Full pinned general-information/peace-and-human-rights/human-rights-fundamentals1-55andhumanitarian-law-and-human-rights-law1-61 independently read, plus full ConstitutionBillofRights1-78for candidate-sharing/necessity. Full topicbrief/sevensource-qualifiedpacketrowsread; noauthorPeaceverdictreadbeforethissave. Currentmain1aaebad9/audit9331dbe0/corpus765c5dc0andsole-reportcontractcontinue.
+
+- Confirmed: Fundamentals12-19defines inherent nondiscriminatory rights/stateobligations and ArticleIII/CHRlocation;25-55works constitutional lookup and temporal scope recognition. IHL12-26distinguishes HRL/IHLtemporal/personal scope, derogation/peacetimeimplementation qualification, protectednonparticipants and limitsonwarfare;32-61applies given armed-group-party status and routinepeacetime comparison. ActualEnglishintroductoryrecognition supports official CSEGeneralInformationpeace/humanrightsL033/L050andL045/L060,notcompleteissues/instruments/depth.
+- Thin/absent: local cases do not determine actual violation/effects/protection/remedy from facts, rightscommunityduties, historicalchallenges, peacebuilding/conflictprevention or named treaty instruments/rights articles/derogationcriteria/conflictthreshold/combatantdistinctions/means-methodsapplication. CSEProfessionalL056andSubprofessionalL106arecurriculum-inferred preparation,notconfirmed fineblueprint. WeakL118internationalinstruments/currentevents cannotbeupgradedtoofficialselection/cutoff. Rights inherentandstatelaw continuousdoesnotmeanallobligationsaresameineverycase.
+- Structure: two current units distinguish generalrights/domesticanchor orientation from comparativeHRL/IHLscope. Retainfocusedconsumers; commonHRLtemporalcriterion cancross-referencebutnoterasecomparisonorconstitutionalcontext. Conceptcount doesnotjustifyfragmenting short statutory/institutional lists; fuller rights/peaceapplicationswouldneeddevelopedgoals/sourcing.
+- Necessity/share challenge: fundamentals18/48-55andBillofRights12/48-55repeat ArticleIII/countlocation, while the latter16-42/71-78lists safeguards and debt-only protection. This is a narrow overlapping anchor,not interchangeablewholeunits orfullhumanrightsapplication. PresentCHR/article/alltimes/armed-party cases give all deciding rules locally. No strict Constitution/deductive/legaltaxonomy foundation is indispensable; deeper treaty/violation/currentdoctrine meaning is missinglocalteaching/readiness,not anexistingguessedlink.
+- Encounteredprimaryclaims tochecknarrowly: ArticleXIII17CHRcreation/independenceandArticleIII22sections; HRLalltimeswithqualifiedderogation versusIHLarmedconflict/allpartiesandpeacetimeimplementation; nonparticipants/horsdecombatprotection andmeans/methodlimits. Leave jurisdiction,treatyratification,reservations/currentlegalcaseapplication unknowntounverifieddepth,notafulllegalstandardsreview. Textcontainscurrentgivens; nofiguredependency. ActualEnglishlocalinstructiondoesnotproveglobalFilipinoabsence. Practice/runtime/currentfineexamcycles/languages/depthremainunknown/deferred.
+
+
+### Peace and Human Rights comparison: PASS
+
+Whole actual prose/all47facets/uniqueJSONtext/9source records and full bilateral Constitution comparison inspected after saved independent source-first observations. Immutable30326781504774b05b55ca5cae41d2e805c5e6c1c9c087e9e73c91b7f1d380ebmatches release. Fresh actual scopedcheckexit0:
+
+```text
+Peace COMPLETE owned2 skills47 facets47 ranges148 refs179 foundation_reads1 comparisons1 edges0 explicit_none2 sha25630326781504774b05b55ca5cae41d2e805c5e6c1c9c087e9e73c91b7f1d380eb errors[]
+```
+
+- Actualuniversal/stateobligation/article/CHRlocation and HRL/IHLtiming/partyrecognition agree. Givenconflictpartystatus is notclassificationfromfacts; generalprotection/nonparticipants/means-methods andderogationqualification remainthin/named. No treaty/declaration named locally. Violationevidence/effects/remedies/communityduties/history/currentevents/peacebuilding/action methodsremainabsent. Neithercounts norArticlelabels establishfullrights orpeace coverage. Bothretainedshortorientations fitfullgoals; list/countorbriefqualification doesnotjustifyseparateundevelopedunits. Futurecase/treatyworkneedssourcedrules and distinctapplication,as authorcostsstate.
+- ConstitutionBillofRights12/48-55andownedFundamentals18/48-55share a narrowArticleIII/countlocator. ActualConstitutionsafeguards16-42/debt-only71-78add different substantivecontext; thetwoentirelessons arenotinterchangeable. Currentownedcases supply theirconstitutional/temporal/personalrules locally,sooptionalrightscontextisnotstrictfoundation. Twoexplicitnone dispositionsmatchprose/facets; noorder/guessededge/cycle/figuredependency.
+- NarrowPUPCETconnectionisdefensible: actualrights/Philippineconstitutionalofficeorientation contributes tocurriculumgovernment/citizenshipL154,whichalsoasksduties/authority/participationuntaughtlocally. Thatrowexplicitlyretainsexam-inclusionunknown. OfficialCSEEnglishGeneralInformationbroadpeace/rightsdoesnotconfirmfinerinstruments/eventselection/depth; curriculumL056/L106andweakL118remainseparate. ActualEnglishlocalinstructiondoesnotimplyglobalFilipinoabsence.
+- Reopened [OHCHRdefinition](https://europe.ohchr.org/human-rights/what-are-human-rights) for universalinherent/non-discriminatoryorientation and [1987Constitution](https://lawphil.net/consti/cons1987.html),III1-22/XIII17,forlocator/count/independentCHR. NoCHRremedy/jurisprudence/currentcaseorfullconstitutional sweep. [ICRC2015comparison](https://www.icrc.org/en/document/what-difference-between-ihl-and-human-rights-law) supports concurrentgeneralregimes withqualifiedderogation; [ICRC2023FAQ](https://www.icrc.org/en/document/FAQ-rules-of-war-ihl?language=en) supports armed-conflict/allparties and peacetimeimplementation exceptions. Theseinstitutionalguidesdonotreplaceblockedfulltreatytexts orcurrentjurisdiction-specificanalysis. Stateparty/threshold/treatyarticles/derogationcriteria/currentcaseobligations remainunverified; no declaration becomesidentical to treaty obligation.
+- Sourcepublication/access distinctionandblockedsource limitsremainexplicit. NoLevel4standards/fullcorrectness/illustrationneed/quality/productionorLevel5activity. Practice/runtime/currentfinecycles/languages/depth/globalintegrationremainunknown/deferred. Onlyindependentreportchanged.
+
+Sampleflags:noneforPeace. All25topicsnowindependentlysampled;current24PASS/1FLAGS/0PENDING/158reviewedownedlessons. PhysicsP2at20d984dfremainsopen; gatecannotpassuntilauthorcorrectionandfreshfocusedrecheck. Preserveallinitialobservations/PASSandC1/P1history; allothercurrentartifactsremainacceptedbounded samples. CanonicalDart/wholeLevel3acceptanceunverified.
+
+
+## All25sampled October9 current-artifact verification, PhysicsP2open
+
+Final release/challenge suffix reread in full; earlier DRAFT/unreleased wording is historical. Complete current top list covers all25topics individually. Fresh read-only current artifact/source/evidence accounting exit0:
+
+```text
+requirement-input-manifest.json10 hashMismatches[]
+map-input-manifest.json13 hashMismatches[]
+overlap-input-manifest.json8 hashMismatches[]
+frozen158hashMismatches[]
+topics25 {'PASS':24,'FLAGS':1} unique25
+owned158 unique158 facets1961 ranges6410 refs20824 edges32 cycles[] mechanical_errors[] semantic_open_flags['Physics P2']
+head/policy['9331dbe0852bfffc8a73d320dcb1413870a8ed41','1aaebad9814ba7bd9404d8b43fc010281abb97cf']
+corpus765c5dc0fa5586281047bf4f7b30d09ab3707887 dirty''
+reportemdash0 trailing0
+sole-report git diff --check exit0/outputempty
+```
+
+All25actual COMPLETE target hashes match saved comparisons/challenge, including Physicscurrent20d984dfFLAGGED rather thanaccepted. All158owned IDs/fullranges and6410evidencebounds/20824referenceoccurrences mechanicallycheck;32currentedge records havevalidexistingboth-endobjects andnocycle, but thatdoesnotsettle PhysicsP2necessity. No topic remainsunread/PENDING. Semantic gate remainsfalse pendingtheexactPhysicsauthorremedyandfreshfocusedimmutablehashrecheck. No wholesalePhysicsreplay,blanketcorrectnessclaim,canonicalDartpass orlaterlevelapproval. Reportonlychanged; watchercarriesGitoperations.

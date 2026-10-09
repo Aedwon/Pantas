@@ -4,6 +4,7 @@
   "corpusCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
   "originalTagCatalogUnchanged": true,
   "topicOutputHashes": {
+    "docs/content/audit/coverage-r1/topics/general-information-code-of-conduct-ra-6713-lessons.md": "fdc3f69a96819536d04ded272d457fac8de94fa20408ffeb4cb812a9e8bd7d7b",
     "docs/content/audit/coverage-r1/topics/general-information-philippine-constitution-lessons.md": "8f2fa7780b79e0b489aff18b86cb7e1ee416974b6f29d51716648ca7d7a42ce5",
     "docs/content/audit/coverage-r1/topics/language-proficiency-grammar-and-structure-lessons.md": "947a31cf1022c670c7a4c61791c31fdd7345cede8e586a0e480d3791f4ecc808",
     "docs/content/audit/coverage-r1/topics/language-proficiency-language-application-lessons.md": "3f38f904c021b22d28b57faf2de09ac692d528a9c6d5d9f8c012c42331e19bf1",
@@ -34,8 +35,36 @@
         "cse-professional",
         "cse-subprofessional"
       ],
-      "bodyAssessmentStatus": "PENDING topic reading, no body-based tag verdict inferred",
-      "recommendations": null,
+      "bodyAssessmentStatus": "COMPLETE topic evidence; current independent sample acceptance is separate",
+      "recommendations": [
+        {
+          "exam": "cse-professional",
+          "requirementRefs": [
+            "cse-professional-L033",
+            "cse-professional-L049",
+            "cse-professional-L057",
+            "cse-professional-L061"
+          ],
+          "sharedCore": "Respond to public communications within 15 working days of receipt; Reply states the action taken; Identify responsible annual-performance-report officers; Annual performance report within 45 working days after year-end; Public availability of annual report during regular hours; Apply practicable three-signatory limit; Direct or indirect financial interest in office-approved transaction; Authorized private practice without official-function conflict; Former-office professional practice one-year restriction; Recommending employment in enterprise with official transaction; Confidential information used for private interests; Confidential information gives undue advantage; Confidential information prejudices public interest; Soliciting or accepting benefits linked to official duties or affected transactions",
+          "partialLimits": "Both 2026 CSE-PPT levels name R.A.6713 under General Information in English. Provision selection, case forms and fine depth unknown; reviewer fine topics remain weak preparation, curriculum corruption outcomes inferred.",
+          "depth": "unknown: organizer does not specify complete provision-level or case-analysis depth",
+          "tagRecommendation": "retain-candidate",
+          "reason": "Actual English Code teaching supports the official broad domain; no full-Code or full-exam coverage inference."
+        },
+        {
+          "exam": "cse-subprofessional",
+          "requirementRefs": [
+            "cse-subprofessional-L045",
+            "cse-subprofessional-L059",
+            "cse-subprofessional-L117"
+          ],
+          "sharedCore": "Respond to public communications within 15 working days of receipt; Reply states the action taken; Identify responsible annual-performance-report officers; Annual performance report within 45 working days after year-end; Public availability of annual report during regular hours; Apply practicable three-signatory limit; Direct or indirect financial interest in office-approved transaction; Authorized private practice without official-function conflict; Former-office professional practice one-year restriction; Recommending employment in enterprise with official transaction; Confidential information used for private interests; Confidential information gives undue advantage; Confidential information prejudices public interest; Soliciting or accepting benefits linked to official duties or affected transactions",
+          "partialLimits": "Both 2026 CSE-PPT levels name R.A.6713 under General Information in English. Provision selection, case forms and fine depth unknown; reviewer fine topics remain weak preparation, curriculum corruption outcomes inferred.",
+          "depth": "unknown: organizer does not specify complete provision-level or case-analysis depth",
+          "tagRecommendation": "retain-candidate",
+          "reason": "Actual English Code teaching supports the official broad domain; no full-Code or full-exam coverage inference."
+        }
+      ],
       "availability": "unknown: corpus-bound runtime not verified",
       "practice": "deferred Level5"
     },
@@ -46,8 +75,36 @@
         "cse-professional",
         "cse-subprofessional"
       ],
-      "bodyAssessmentStatus": "PENDING topic reading, no body-based tag verdict inferred",
-      "recommendations": null,
+      "bodyAssessmentStatus": "COMPLETE topic evidence; current independent sample acceptance is separate",
+      "recommendations": [
+        {
+          "exam": "cse-professional",
+          "requirementRefs": [
+            "cse-professional-L033",
+            "cse-professional-L049",
+            "cse-professional-L057",
+            "cse-professional-L061"
+          ],
+          "sharedCore": "Recognize eight Section4 statutory norms; Commitment to public interest over personal interest; Efficient honest economical government-resource use; Professionalism and dedication to duty; Justness and sincerity; Nondiscrimination in public service; Political neutrality in serving all party affiliations; Prompt courteous adequate public service; Democratic values and public accountability; Uphold the Constitution; Country loyalty above persons or party; Simple living appropriate to position and income; Avoid ostentatious wealth displays",
+          "partialLimits": "Both 2026 CSE-PPT levels name R.A.6713 under General Information in English. Provision selection, case forms and fine depth unknown; reviewer fine topics remain weak preparation, curriculum corruption outcomes inferred.",
+          "depth": "unknown: organizer does not specify complete provision-level or case-analysis depth",
+          "tagRecommendation": "retain-candidate",
+          "reason": "Actual English Code teaching supports the official broad domain; no full-Code or full-exam coverage inference."
+        },
+        {
+          "exam": "cse-subprofessional",
+          "requirementRefs": [
+            "cse-subprofessional-L045",
+            "cse-subprofessional-L059",
+            "cse-subprofessional-L117"
+          ],
+          "sharedCore": "Recognize eight Section4 statutory norms; Commitment to public interest over personal interest; Efficient honest economical government-resource use; Professionalism and dedication to duty; Justness and sincerity; Nondiscrimination in public service; Political neutrality in serving all party affiliations; Prompt courteous adequate public service; Democratic values and public accountability; Uphold the Constitution; Country loyalty above persons or party; Simple living appropriate to position and income; Avoid ostentatious wealth displays",
+          "partialLimits": "Both 2026 CSE-PPT levels name R.A.6713 under General Information in English. Provision selection, case forms and fine depth unknown; reviewer fine topics remain weak preparation, curriculum corruption outcomes inferred.",
+          "depth": "unknown: organizer does not specify complete provision-level or case-analysis depth",
+          "tagRecommendation": "retain-candidate",
+          "reason": "Actual English Code teaching supports the official broad domain; no full-Code or full-exam coverage inference."
+        }
+      ],
       "availability": "unknown: corpus-bound runtime not verified",
       "practice": "deferred Level5"
     },
@@ -58,8 +115,36 @@
         "cse-professional",
         "cse-subprofessional"
       ],
-      "bodyAssessmentStatus": "PENDING topic reading, no body-based tag verdict inferred",
-      "recommendations": null,
+      "bodyAssessmentStatus": "COMPLETE topic evidence; current independent sample acceptance is separate",
+      "recommendations": [
+        {
+          "exam": "cse-professional",
+          "requirementRefs": [
+            "cse-professional-L033",
+            "cse-professional-L049",
+            "cse-professional-L057",
+            "cse-professional-L061"
+          ],
+          "sharedCore": "General violation salary-based fine ceiling; General violation suspension ceiling; General violation removal depending on gravity; Sections7 8 9 imprisonment ceiling; Sections7 8 9 peso-fine ceiling; Imprisonment fine or both alternatives; Court discretion on public-office disqualification; Same penal liability for participating private conspirator; Joint trial with public official or employee; Court penalty ceiling for prohibited statement use; Heavier-penalty statute prosecution rule; Administrative removal without instituted criminal prosecution",
+          "partialLimits": "Both 2026 CSE-PPT levels name R.A.6713 under General Information in English. Provision selection, case forms and fine depth unknown; reviewer fine topics remain weak preparation, curriculum corruption outcomes inferred.",
+          "depth": "unknown: organizer does not specify complete provision-level or case-analysis depth",
+          "tagRecommendation": "retain-candidate",
+          "reason": "Actual English Code teaching supports the official broad domain; no full-Code or full-exam coverage inference."
+        },
+        {
+          "exam": "cse-subprofessional",
+          "requirementRefs": [
+            "cse-subprofessional-L045",
+            "cse-subprofessional-L059",
+            "cse-subprofessional-L117"
+          ],
+          "sharedCore": "General violation salary-based fine ceiling; General violation suspension ceiling; General violation removal depending on gravity; Sections7 8 9 imprisonment ceiling; Sections7 8 9 peso-fine ceiling; Imprisonment fine or both alternatives; Court discretion on public-office disqualification; Same penal liability for participating private conspirator; Joint trial with public official or employee; Court penalty ceiling for prohibited statement use; Heavier-penalty statute prosecution rule; Administrative removal without instituted criminal prosecution",
+          "partialLimits": "Both 2026 CSE-PPT levels name R.A.6713 under General Information in English. Provision selection, case forms and fine depth unknown; reviewer fine topics remain weak preparation, curriculum corruption outcomes inferred.",
+          "depth": "unknown: organizer does not specify complete provision-level or case-analysis depth",
+          "tagRecommendation": "retain-candidate",
+          "reason": "Actual English Code teaching supports the official broad domain; no full-Code or full-exam coverage inference."
+        }
+      ],
       "availability": "unknown: corpus-bound runtime not verified",
       "practice": "deferred Level5"
     },
@@ -70,8 +155,36 @@
         "cse-professional",
         "cse-subprofessional"
       ],
-      "bodyAssessmentStatus": "PENDING topic reading, no body-based tag verdict inferred",
-      "recommendations": null,
+      "bodyAssessmentStatus": "COMPLETE topic evidence; current independent sample acceptance is separate",
+      "recommendations": [
+        {
+          "exam": "cse-professional",
+          "requirementRefs": [
+            "cse-professional-L033",
+            "cse-professional-L049",
+            "cse-professional-L057",
+            "cse-professional-L061"
+          ],
+          "sharedCore": "Sworn SALN obligation; Business-interest and financial-connection disclosure obligation; Spouse financial declaration coverage; Unmarried under-eighteen household-child declaration coverage; Disclose relatives in government to best knowledge; SALN within thirty days after assumption; Annual SALN on or before April30; SALN within thirty days after separation; National Ombudsman constitutional/national elective filing; Senators Secretary-of-Senate filing; House members Secretary-of-House filing; Justices Supreme-Court Clerk filing; Judges Court-Administrator filing; National executives Office-of-President filing; Colonel/naval-captain-and-above Office-of-President filing; Regional/local officials Deputy-Ombudsman filing; Lower-rank armed-forces Deputy-Ombudsman filing; Other covered officials CSC statutory filing; Inspection at reasonable hours; Copying/reproduction after ten working days from filing; Ten-year public retention after receipt; Possible destruction after retention except ongoing investigation; Resign private business position within thirty days for conflict; Divest relevant interests within sixty days for conflict; Already-serving official clock starts when conflict arises",
+          "partialLimits": "Both 2026 CSE-PPT levels name R.A.6713 under General Information in English. Provision selection, case forms and fine depth unknown; reviewer fine topics remain weak preparation, curriculum corruption outcomes inferred.",
+          "depth": "unknown: organizer does not specify complete provision-level or case-analysis depth",
+          "tagRecommendation": "retain-candidate",
+          "reason": "Actual English Code teaching supports the official broad domain; no full-Code or full-exam coverage inference."
+        },
+        {
+          "exam": "cse-subprofessional",
+          "requirementRefs": [
+            "cse-subprofessional-L045",
+            "cse-subprofessional-L059",
+            "cse-subprofessional-L117"
+          ],
+          "sharedCore": "Sworn SALN obligation; Business-interest and financial-connection disclosure obligation; Spouse financial declaration coverage; Unmarried under-eighteen household-child declaration coverage; Disclose relatives in government to best knowledge; SALN within thirty days after assumption; Annual SALN on or before April30; SALN within thirty days after separation; National Ombudsman constitutional/national elective filing; Senators Secretary-of-Senate filing; House members Secretary-of-House filing; Justices Supreme-Court Clerk filing; Judges Court-Administrator filing; National executives Office-of-President filing; Colonel/naval-captain-and-above Office-of-President filing; Regional/local officials Deputy-Ombudsman filing; Lower-rank armed-forces Deputy-Ombudsman filing; Other covered officials CSC statutory filing; Inspection at reasonable hours; Copying/reproduction after ten working days from filing; Ten-year public retention after receipt; Possible destruction after retention except ongoing investigation; Resign private business position within thirty days for conflict; Divest relevant interests within sixty days for conflict; Already-serving official clock starts when conflict arises",
+          "partialLimits": "Both 2026 CSE-PPT levels name R.A.6713 under General Information in English. Provision selection, case forms and fine depth unknown; reviewer fine topics remain weak preparation, curriculum corruption outcomes inferred.",
+          "depth": "unknown: organizer does not specify complete provision-level or case-analysis depth",
+          "tagRecommendation": "retain-candidate",
+          "reason": "Actual English Code teaching supports the official broad domain; no full-Code or full-exam coverage inference."
+        }
+      ],
       "availability": "unknown: corpus-bound runtime not verified",
       "practice": "deferred Level5"
     },
