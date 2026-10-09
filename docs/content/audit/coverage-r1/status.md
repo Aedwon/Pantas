@@ -14,7 +14,7 @@ Plan: `docs/superpowers/plans/2026-10-04-exam-content-coverage-audit.md`.
 
 ## Current level and acceptance state
 
-Levels 1 and 2 are accepted. Level 3 is complete and accepted by the lead after required checks. All 25 topic readings and independent samples are complete: 25 PASS, zero open sample flags, 158 lessons. Physics P2 is closed at corrected immutable hash. Source-row reconciliation and prerequisite outputs are complete. Independent combined mechanical verification, lead semantic acceptance and final status-only identity confirmation PASS. Level3 is complete; awaiting explicit Level4 approval. Levels 4 and 5 are unauthorized.
+Levels 1 and 2 are accepted. Level 3 is complete and accepted by the lead after required checks. All 25 topic readings and independent samples are complete: 25 PASS, zero open sample flags, 158 lessons. Physics P2 is closed at corrected immutable hash. Source-row reconciliation and prerequisite outputs are complete. Independent combined mechanical verification, lead semantic acceptance and final status-only identity confirmation PASS. Level3 is complete and approved by Aedwon. Level4 is held before starting for the requested scope explanation; Level5 remains unauthorized.
 
 | Exam | Research | Source check | Fresh rebuild | Exam map |
 |---|---|---|---|---|
@@ -675,3 +675,13 @@ Continue Level 3 only, preserving all approval gates and the findings-only bound
 - Existing independent Luna final checker resumed with full saved startup/brief and narrow acceptance-metadata assignment; sole countingreport output, no target writes. Current39input manifest8a5b2624, prior reviewed manifest1da3feaa, six exact reversible status replacements,33unchanged targets. Final approval stop awaits actual independent confirmation; no new topic/level task.
 
 - Final independent narrow result received/read at9ca65ae5: PASS, all39current hashes match; six exact reversible metadata changes reconstruct reviewed bytes,33unchanged targets, accepted10/13/8inputs match. Fresh checker25topics/158lessons/pending[]/errors[]/gateReadytrue; bounded8file prose scan zerohits. Lead reran actual checker/hash reversals/live identity/corpus checks and accepted complete Level3. Detailed proof structure/level3-gate-verification.json. Remaining unknowns: fine exam blueprints/depth/current procedures, actual runtime availability, practice Level5 and illustration need Level4/5. Canonical Dart remains unexecuted with explicit exact scoped equivalent PASS. No content, original tags/Google, roadmap, app/schema/importer/illustration changes. No Level4/5brief or task has started. Watcher owns saving/upload; no Git mutations by lead.
+
+### October 9, 2026: Level 3 approved; Level 4 held for scope explanation
+
+Exact human instructions in the current Codex desktop conversation, in order:
+
+> okay approve for me
+
+> before starting level 4 tell me what exactly it will do
+
+Context: the desktop lead recommended approving Level 3 completion and proceeding to Level 4, while keeping content reorganization recommendations provisional until later audit levels finish. The first instruction approves Level 3 completion in that context. Before any Level 4 dispatch or RUNNING transition, the second instruction requires explaining Level 4's exact scope. Level 3 is now accepted by Aedwon; Level 4 remains held at the approval gate while that scope is reviewed. No Level 4 brief, reader, standards check, illustration assessment, or content change has started. Preserve the watcher gate and findings-only boundary.

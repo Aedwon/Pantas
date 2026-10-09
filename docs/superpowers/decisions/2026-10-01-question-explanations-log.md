@@ -1390,3 +1390,13 @@ All158lessons in25topics have full reading records and independent samples PASS.
 Fresh independent combined accounting and final status-only confirmation PASS. Current39input manifest8a5b2624 matches; six exact status-only reversals reproduce prior reviewed1da3feaa bytes,33inputs are unchanged. Lead final checker exit0:25topics/158lessons/pending[]/errors[]/gateReadytrue. Accepted10/13/8input hashes, current main1aaebad9/auditc8983d6d/corpus765c5dc0 and clean corpus match. Evidence: review/structure-acceptance.md, structure-counting-check.md, structure/level3-gate-verification.json. Exact scoped document-pattern equivalent passed; canonical Dart was not executed.
 
 STATE: AWAITING_APPROVAL level 3 done; asking to start level 4. Ask Aedwon to approve Level4lesson standards, including its illustration review. No Level4or5brief or task is started; no lesson/question/app/importer/schema/roadmap/illustration or Google change. Content changes remain separately approval-gated. Watcher retains Git saving/upload responsibility. No new approval is recorded here; await Aedwon's exact answer in conversation.
+
+### October 9, 2026: Level 3 approved; Level 4 held for scope explanation
+
+Exact human instructions in the current Codex desktop conversation, in order:
+
+> okay approve for me
+
+> before starting level 4 tell me what exactly it will do
+
+Context: the desktop lead recommended approving Level 3 completion and proceeding to Level 4, while keeping content reorganization recommendations provisional until later audit levels finish. The first instruction approves Level 3 completion in that context. Before any Level 4 dispatch or RUNNING transition, the second instruction requires explaining Level 4's exact scope. Level 3 is now accepted by Aedwon; Level 4 remains held at the approval gate while that scope is reviewed. No Level 4 brief, reader, standards check, illustration assessment, or content change has started. Preserve the watcher gate and findings-only boundary.
