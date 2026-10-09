@@ -1,0 +1,14 @@
+{
+  "topics": 25,
+  "lessons": 158,
+  "structureVerdicts": {
+    "retain": 126,
+    "split-candidate": 19,
+    "reorder": 9,
+    "merge-candidate": 4
+  },
+  "links": 31,
+  "consumers": 24,
+  "ledgerRows": 196,
+  "accessNotes": 1
+}

@@ -1,0 +1,44 @@
+{
+  "structure-final-input-manifest.json": {
+    "files": 39,
+    "mismatches": []
+  },
+  "requirement-input-manifest.json": {
+    "files": 10,
+    "mismatches": []
+  },
+  "map-input-manifest.json": {
+    "files": 13,
+    "mismatches": []
+  },
+  "overlap-input-manifest.json": {
+    "files": 8,
+    "mismatches": []
+  },
+  "sourceRecords": 535,
+  "positiveRecords": 421,
+  "positiveFacetRows": 373,
+  "positiveExplicitNoFacetRows": 48,
+  "contextOrUnknownLocalAnnotationRows": 12,
+  "lessons": 158,
+  "topics": 25,
+  "topicSamples": {
+    "PASS": 25,
+    "FLAGS": 0,
+    "PENDING": 0
+  },
+  "corpusClean": true,
+  "canonicalDart": "not executed; independent exact scoped prose-pattern equivalent PASS",
+  "semanticChecklist": {
+    "allGoalsSkillsExamplesPriorKnowledge": true,
+    "allNineExamImplicationsSourceBounded": true,
+    "sharedCoreAndDistinctAdditionsWithEvidence": true,
+    "splitsHaveFocusBenefitsAndCosts": true,
+    "strictExistingIDPrerequisitesBothEndsAndExplicitEmptyDispositions": true,
+    "sourceUncertaintySeparateFromReviewerFlags": true,
+    "loadBearingOnlyNoIllustrationReview": true,
+    "practiceLevel5AndRuntimeDeferred": true,
+    "noContentOrEarlierAcceptedOutputEdits": true
+  },
+  "leadSemanticReview": "PASS; acceptance metadata and independent narrow confirmation next"
+}

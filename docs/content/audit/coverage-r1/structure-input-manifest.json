@@ -1,6 +1,6 @@
 {
   "level": 3,
-  "status": "INPUT FROZEN; readers pending",
+  "status": "Level3 lead semantic acceptance PASS; independent mechanical PASS; gate publication metadata awaiting narrow identity confirmation",
   "policyCommit": "1aaebad9814ba7bd9404d8b43fc010281abb97cf",
   "corpusCommit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
   "auditCheckpoint": "7d5f2ed6a6d6f30e35d1b3f64467f31e7d122112",
@@ -967,7 +967,8 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-general-information-code-of-conduct-ra-6713.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/general-information-code-of-conduct-ra-6713.json",
       "output": "docs/content/audit/coverage-r1/topics/general-information-code-of-conduct-ra-6713-lessons.md",
-      "state": "NOT_STARTED"
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
+      "acceptedOutputSha256": "fdc3f69a96819536d04ded272d457fac8de94fa20408ffeb4cb812a9e8bd7d7b"
     },
     {
       "key": "general-information-environment-management",
@@ -978,7 +979,8 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-general-information-environment-management.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/general-information-environment-management.json",
       "output": "docs/content/audit/coverage-r1/topics/general-information-environment-management-lessons.md",
-      "state": "NOT_STARTED"
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
+      "acceptedOutputSha256": "68cd726f9b7ad7018f90d878df5afffd4cdb9804dcb7ef7014b303f443fbc80d"
     },
     {
       "key": "general-information-peace-and-human-rights",
@@ -989,7 +991,8 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-general-information-peace-and-human-rights.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/general-information-peace-and-human-rights.json",
       "output": "docs/content/audit/coverage-r1/topics/general-information-peace-and-human-rights-lessons.md",
-      "state": "NOT_STARTED"
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
+      "acceptedOutputSha256": "30326781504774b05b55ca5cae41d2e805c5e6c1c9c087e9e73c91b7f1d380eb"
     },
     {
       "key": "general-information-philippine-constitution",
@@ -1002,7 +1005,8 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-general-information-philippine-constitution.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/general-information-philippine-constitution.json",
       "output": "docs/content/audit/coverage-r1/topics/general-information-philippine-constitution-lessons.md",
-      "state": "NOT_STARTED"
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
+      "acceptedOutputSha256": "8f2fa7780b79e0b489aff18b86cb7e1ee416974b6f29d51716648ca7d7a42ce5"
     },
     {
       "key": "language-proficiency-grammar-and-structure",
@@ -1021,8 +1025,9 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-language-proficiency-grammar-and-structure.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/language-proficiency-grammar-and-structure.json",
       "output": "docs/content/audit/coverage-r1/topics/language-proficiency-grammar-and-structure-lessons.md",
-      "state": "RUNNING",
-      "agent": "l3_physics"
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
+      "agent": "l3_physics",
+      "acceptedOutputSha256": "947a31cf1022c670c7a4c61791c31fdd7345cede8e586a0e480d3791f4ecc808"
     },
     {
       "key": "language-proficiency-language-application",
@@ -1034,8 +1039,9 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-language-proficiency-language-application.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/language-proficiency-language-application.json",
       "output": "docs/content/audit/coverage-r1/topics/language-proficiency-language-application-lessons.md",
-      "state": "RUNNING",
-      "agent": "l3_biology"
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
+      "agent": "l3_biology",
+      "acceptedOutputSha256": "3f38f904c021b22d28b57faf2de09ac692d528a9c6d5d9f8c012c42331e19bf1"
     },
     {
       "key": "language-proficiency-vocabulary",
@@ -1050,8 +1056,9 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-language-proficiency-vocabulary.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/language-proficiency-vocabulary.json",
       "output": "docs/content/audit/coverage-r1/topics/language-proficiency-vocabulary-lessons.md",
-      "state": "RUNNING",
-      "agent": "l3_chemistry"
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
+      "agent": "l3_chemistry",
+      "acceptedOutputSha256": "c03b0bb0689cf9c11fa60f59c5cfae3b0f3e7b2c9a6877f2a054a53d8d9943ea"
     },
     {
       "key": "mathematics-algebra",
@@ -1071,10 +1078,11 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-algebra.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-algebra.json",
       "output": "docs/content/audit/coverage-r1/topics/mathematics-algebra-lessons.md",
-      "state": "SAMPLE_PASS_INTEGRATION_PENDING",
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
       "agent": "l3_chemistry",
       "outputSha256": "8e6f822ce9bfa769cf7b9abaadf837050292d443dfddaeeacd8c577c68dbbc1c",
-      "reviewedOutputSha256": "8e6f822ce9bfa769cf7b9abaadf837050292d443dfddaeeacd8c577c68dbbc1c"
+      "reviewedOutputSha256": "8e6f822ce9bfa769cf7b9abaadf837050292d443dfddaeeacd8c577c68dbbc1c",
+      "acceptedOutputSha256": "8e6f822ce9bfa769cf7b9abaadf837050292d443dfddaeeacd8c577c68dbbc1c"
     },
     {
       "key": "mathematics-arithmetic-number-sense",
@@ -1092,10 +1100,11 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-arithmetic-number-sense.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-arithmetic-number-sense.json",
       "output": "docs/content/audit/coverage-r1/topics/mathematics-arithmetic-number-sense-lessons.md",
-      "state": "SAMPLE_PASS_INTEGRATION_PENDING",
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
       "agent": "l3_physics",
       "outputSha256": "7cdf0dd2e7f051114addf1b05ce44fd3b7c1687b185c275e0773c412489b01a0",
-      "reviewedOutputSha256": "7cdf0dd2e7f051114addf1b05ce44fd3b7c1687b185c275e0773c412489b01a0"
+      "reviewedOutputSha256": "7cdf0dd2e7f051114addf1b05ce44fd3b7c1687b185c275e0773c412489b01a0",
+      "acceptedOutputSha256": "7cdf0dd2e7f051114addf1b05ce44fd3b7c1687b185c275e0773c412489b01a0"
     },
     {
       "key": "mathematics-data-interpretation",
@@ -1106,8 +1115,9 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-data-interpretation.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-data-interpretation.json",
       "output": "docs/content/audit/coverage-r1/topics/mathematics-data-interpretation-lessons.md",
-      "state": "AUTHOR_COMPLETE_REVIEW_PENDING",
-      "outputSha256": "2773bf1ca2f70035548819e1b17000a9567bbb542a44ff514353a2ccaeaaa9dd"
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
+      "outputSha256": "2773bf1ca2f70035548819e1b17000a9567bbb542a44ff514353a2ccaeaaa9dd",
+      "acceptedOutputSha256": "2773bf1ca2f70035548819e1b17000a9567bbb542a44ff514353a2ccaeaaa9dd"
     },
     {
       "key": "mathematics-geometry",
@@ -1124,10 +1134,11 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-geometry.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-geometry.json",
       "output": "docs/content/audit/coverage-r1/topics/mathematics-geometry-lessons.md",
-      "state": "SAMPLE_PASS_INTEGRATION_PENDING",
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
       "agent": "l3_biology",
       "outputSha256": "fc505bfa79c46273cece5392ca8ad80306b97641d1b240eb8a0067542ed48e8c",
-      "reviewedOutputSha256": "fc505bfa79c46273cece5392ca8ad80306b97641d1b240eb8a0067542ed48e8c"
+      "reviewedOutputSha256": "fc505bfa79c46273cece5392ca8ad80306b97641d1b240eb8a0067542ed48e8c",
+      "acceptedOutputSha256": "fc505bfa79c46273cece5392ca8ad80306b97641d1b240eb8a0067542ed48e8c"
     },
     {
       "key": "mathematics-precalculus-basic-calculus",
@@ -1140,8 +1151,9 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-precalculus-basic-calculus.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-precalculus-basic-calculus.json",
       "output": "docs/content/audit/coverage-r1/topics/mathematics-precalculus-basic-calculus-lessons.md",
-      "state": "AUTHOR_COMPLETE_REVIEW_PENDING",
-      "outputSha256": "49495dedc9e46429fcab989673b80b609ed2b06bab4546e2f4e773440afef243"
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
+      "outputSha256": "49495dedc9e46429fcab989673b80b609ed2b06bab4546e2f4e773440afef243",
+      "acceptedOutputSha256": "49495dedc9e46429fcab989673b80b609ed2b06bab4546e2f4e773440afef243"
     },
     {
       "key": "mathematics-statistics-and-probability",
@@ -1155,10 +1167,11 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-statistics-and-probability.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-statistics-and-probability.json",
       "output": "docs/content/audit/coverage-r1/topics/mathematics-statistics-and-probability-lessons.md",
-      "state": "SAMPLE_PASS_INTEGRATION_PENDING",
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
       "agent": "l3_biology",
       "outputSha256": "5d43857d181db26a22174466709ad2a8cede278a3f06e408622e56bc7bb00542",
-      "reviewedOutputSha256": "5d43857d181db26a22174466709ad2a8cede278a3f06e408622e56bc7bb00542"
+      "reviewedOutputSha256": "5d43857d181db26a22174466709ad2a8cede278a3f06e408622e56bc7bb00542",
+      "acceptedOutputSha256": "5d43857d181db26a22174466709ad2a8cede278a3f06e408622e56bc7bb00542"
     },
     {
       "key": "mathematics-trigonometry",
@@ -1174,10 +1187,11 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-mathematics-trigonometry.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/mathematics-trigonometry.json",
       "output": "docs/content/audit/coverage-r1/topics/mathematics-trigonometry-lessons.md",
-      "state": "SAMPLE_PASS_INTEGRATION_PENDING",
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
       "agent": "l3_physics",
       "outputSha256": "64b0d70f297494b8631e3e465e9976bc2ad977af998673be99373c8a68759411",
-      "reviewedOutputSha256": "64b0d70f297494b8631e3e465e9976bc2ad977af998673be99373c8a68759411"
+      "reviewedOutputSha256": "64b0d70f297494b8631e3e465e9976bc2ad977af998673be99373c8a68759411",
+      "acceptedOutputSha256": "64b0d70f297494b8631e3e465e9976bc2ad977af998673be99373c8a68759411"
     },
     {
       "key": "reading-comprehension-comprehension-skills",
@@ -1194,7 +1208,8 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-reading-comprehension-comprehension-skills.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/reading-comprehension-comprehension-skills.json",
       "output": "docs/content/audit/coverage-r1/topics/reading-comprehension-comprehension-skills-lessons.md",
-      "state": "NOT_STARTED"
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
+      "acceptedOutputSha256": "f28d15431cfaa9ffce6c2c976955587d8f1740cbeabc4c9733d11e60c49f2f85"
     },
     {
       "key": "reading-comprehension-text-types",
@@ -1208,7 +1223,8 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-reading-comprehension-text-types.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/reading-comprehension-text-types.json",
       "output": "docs/content/audit/coverage-r1/topics/reading-comprehension-text-types-lessons.md",
-      "state": "NOT_STARTED"
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
+      "acceptedOutputSha256": "6a2c639aee4ea52cf34ec20d8a9bc1932435f0ab708968c6a129527308289066"
     },
     {
       "key": "reasoning-clerical-ability",
@@ -1219,7 +1235,8 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-reasoning-clerical-ability.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/reasoning-clerical-ability.json",
       "output": "docs/content/audit/coverage-r1/topics/reasoning-clerical-ability-lessons.md",
-      "state": "NOT_STARTED"
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
+      "acceptedOutputSha256": "f8c768898701d46aba223d19a274abd5ef21a1cc0c28f36aaf39876a9bd97b2d"
     },
     {
       "key": "reasoning-logical-verbal-reasoning",
@@ -1232,7 +1249,8 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-reasoning-logical-verbal-reasoning.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/reasoning-logical-verbal-reasoning.json",
       "output": "docs/content/audit/coverage-r1/topics/reasoning-logical-verbal-reasoning-lessons.md",
-      "state": "NOT_STARTED"
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
+      "acceptedOutputSha256": "fb6cc495ea3044f3b757bac58db1b83ef83e873afaf3a29f04c1a7c0a99cc357"
     },
     {
       "key": "reasoning-mechanical-technical-reasoning",
@@ -1246,7 +1264,8 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-reasoning-mechanical-technical-reasoning.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/reasoning-mechanical-technical-reasoning.json",
       "output": "docs/content/audit/coverage-r1/topics/reasoning-mechanical-technical-reasoning-lessons.md",
-      "state": "NOT_STARTED"
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
+      "acceptedOutputSha256": "db4dc524ba026921aaa7279a711d7bd5a262393c36014992875583ba6acb24a3"
     },
     {
       "key": "reasoning-spatial-abstract-reasoning",
@@ -1260,7 +1279,8 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-reasoning-spatial-abstract-reasoning.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/reasoning-spatial-abstract-reasoning.json",
       "output": "docs/content/audit/coverage-r1/topics/reasoning-spatial-abstract-reasoning-lessons.md",
-      "state": "NOT_STARTED"
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
+      "acceptedOutputSha256": "c0be5b486c943f7c479dd3c0745a957e80960012ed4cd5d470164ec6327f5ffb"
     },
     {
       "key": "reasoning-verbal-logic",
@@ -1270,7 +1290,8 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-reasoning-verbal-logic.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/reasoning-verbal-logic.json",
       "output": "docs/content/audit/coverage-r1/topics/reasoning-verbal-logic-lessons.md",
-      "state": "NOT_STARTED"
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
+      "acceptedOutputSha256": "52b8bc5c810e723c5c2539b8d28709a9612c8ac5d649a7c9ed25484fb19b67b0"
     },
     {
       "key": "science-biology",
@@ -1289,9 +1310,10 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-science-biology.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/science-biology.json",
       "output": "docs/content/audit/coverage-r1/topics/science-biology-lessons.md",
-      "state": "SAMPLE_PASS_INTEGRATION_PENDING",
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
       "agent": "l3_biology",
-      "reviewedOutputSha256": "d5210d8c0e717c9ce084911cd495060329069c1e16732e11a0379d0f03170023"
+      "reviewedOutputSha256": "d5210d8c0e717c9ce084911cd495060329069c1e16732e11a0379d0f03170023",
+      "acceptedOutputSha256": "d5210d8c0e717c9ce084911cd495060329069c1e16732e11a0379d0f03170023"
     },
     {
       "key": "science-chemistry",
@@ -1317,11 +1339,12 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-science-chemistry.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/science-chemistry.json",
       "output": "docs/content/audit/coverage-r1/topics/science-chemistry-lessons.md",
-      "state": "SAMPLE_PASS_INTEGRATION_PENDING",
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
       "agent": "l3_chemistry",
       "correctionAgent": "l3_biology",
       "correctedOutputSha256": "b9eebd9d5626edb3f5da52adabcfa9cf93cea839febc652a54f1d5f56e78f034",
-      "reviewedOutputSha256": "b9eebd9d5626edb3f5da52adabcfa9cf93cea839febc652a54f1d5f56e78f034"
+      "reviewedOutputSha256": "b9eebd9d5626edb3f5da52adabcfa9cf93cea839febc652a54f1d5f56e78f034",
+      "acceptedOutputSha256": "b9eebd9d5626edb3f5da52adabcfa9cf93cea839febc652a54f1d5f56e78f034"
     },
     {
       "key": "science-earth-science-astronomy",
@@ -1341,10 +1364,11 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-science-earth-science-astronomy.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/science-earth-science-astronomy.json",
       "output": "docs/content/audit/coverage-r1/topics/science-earth-science-astronomy-lessons.md",
-      "state": "SAMPLE_PASS_INTEGRATION_PENDING",
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
       "agent": "l3_chemistry",
       "outputSha256": "48ae2a7afdc280dfbd20d206112c508c26077b0e65036ef8728a3a8f7f068423",
-      "reviewedOutputSha256": "48ae2a7afdc280dfbd20d206112c508c26077b0e65036ef8728a3a8f7f068423"
+      "reviewedOutputSha256": "48ae2a7afdc280dfbd20d206112c508c26077b0e65036ef8728a3a8f7f068423",
+      "acceptedOutputSha256": "48ae2a7afdc280dfbd20d206112c508c26077b0e65036ef8728a3a8f7f068423"
     },
     {
       "key": "science-physics",
@@ -1366,11 +1390,12 @@
       "brief": "docs/content/audit/coverage-r1/briefs/l3-science-physics.md",
       "packet": "docs/content/audit/coverage-r1/structure/packets/science-physics.json",
       "output": "docs/content/audit/coverage-r1/topics/science-physics-lessons.md",
-      "state": "SAMPLE_PASS_INTEGRATION_PENDING",
+      "state": "AUTHOR_COMPLETE_SAMPLE_PASS",
       "agent": "l3_physics",
       "correctionAgent": "l3_biology",
       "correctedOutputSha256": "20d984df846d1abff9ae506e16618b5cc0603c24eef062e632b4097b7f863905",
-      "reviewedOutputSha256": "20d984df846d1abff9ae506e16618b5cc0603c24eef062e632b4097b7f863905"
+      "reviewedOutputSha256": "20d984df846d1abff9ae506e16618b5cc0603c24eef062e632b4097b7f863905",
+      "acceptedOutputSha256": "ccd827e70e7cc0a58872bfe011788ee0ba8cd3d50899d1033dc3b04bf160356c"
     }
   ],
   "compatiblePolicyCommits": [
@@ -1394,5 +1419,6 @@
     "docs/content/content-checklist.md": "7986287f0c521aef15f3d6b846895a9031a4ccbf",
     "docs/content/lesson-style-guide.md": "4aadce093628084eae918d9e7363fa68d4f1ba9b",
     "docs/content/question-style-guide.md": "98a7074d5cb623a93582a48608eb127c4f88aeb3"
-  }
+  },
+  "leadSemanticGateAccepted": true
 }

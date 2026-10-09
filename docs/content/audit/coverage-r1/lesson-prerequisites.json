@@ -1,0 +1,215 @@
+{
+  "lesson-algebra-algebraic-expressions": [],
+  "lesson-algebra-exponents-and-logarithms": [],
+  "lesson-algebra-functions-and-relations": [],
+  "lesson-algebra-linear-equations-inequalities": [
+    "lesson-geometry-coordinate-geometry"
+  ],
+  "lesson-algebra-polynomials": [],
+  "lesson-algebra-quadratic-equations": [],
+  "lesson-algebra-radicals-and-rationalization": [],
+  "lesson-algebra-sets-and-set-notation": [],
+  "lesson-algebra-systems-of-equations": [],
+  "lesson-algebra-types-of-functions": [
+    "lesson-algebra-functions-and-relations"
+  ],
+  "lesson-algebra-word-problems": [],
+  "lesson-arithmetic-number-sense-business-math": [
+    "lesson-arithmetic-number-sense-fractions-decimals-percentages"
+  ],
+  "lesson-arithmetic-number-sense-divisibility-rules": [],
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages": [],
+  "lesson-arithmetic-number-sense-order-of-operations": [
+    "lesson-algebra-exponents-and-logarithms"
+  ],
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm": [],
+  "lesson-arithmetic-number-sense-properties-of-real-numbers": [],
+  "lesson-arithmetic-number-sense-ratio-and-proportion": [],
+  "lesson-arithmetic-number-sense-real-imaginary-numbers": [],
+  "lesson-arithmetic-number-sense-sequences-and-series": [
+    "lesson-algebra-exponents-and-logarithms"
+  ],
+  "lesson-biology-botany": [],
+  "lesson-biology-cell-biology": [],
+  "lesson-biology-cellular-metabolism": [],
+  "lesson-biology-cellular-reproduction": [],
+  "lesson-biology-characteristics-of-life": [],
+  "lesson-biology-ecology": [],
+  "lesson-biology-evolution": [
+    "lesson-biology-genetics-and-heredity"
+  ],
+  "lesson-biology-genetics-and-heredity": [],
+  "lesson-biology-human-anatomy-physiology": [],
+  "lesson-biology-taxonomy-and-classification": [],
+  "lesson-chemistry-acids-bases-ph": [],
+  "lesson-chemistry-atomic-structure": [],
+  "lesson-chemistry-basic-organic-chemistry": [],
+  "lesson-chemistry-chemical-bonding": [
+    "lesson-chemistry-atomic-structure"
+  ],
+  "lesson-chemistry-chemical-nomenclature": [
+    "lesson-chemistry-atomic-structure"
+  ],
+  "lesson-chemistry-chemical-reactions": [],
+  "lesson-chemistry-gas-laws": [
+    "lesson-chemistry-mole-concept"
+  ],
+  "lesson-chemistry-history-of-the-atom": [],
+  "lesson-chemistry-matter": [],
+  "lesson-chemistry-mixtures-and-separation": [],
+  "lesson-chemistry-mole-concept": [],
+  "lesson-chemistry-nuclear-chemistry": [
+    "lesson-chemistry-atomic-structure"
+  ],
+  "lesson-chemistry-periodic-table": [
+    "lesson-chemistry-atomic-structure"
+  ],
+  "lesson-chemistry-quantum-numbers-electron-configuration": [
+    "lesson-chemistry-atomic-structure"
+  ],
+  "lesson-chemistry-solutions": [
+    "lesson-chemistry-mole-concept"
+  ],
+  "lesson-chemistry-stoichiometry": [
+    "lesson-chemistry-mole-concept"
+  ],
+  "lesson-chemistry-thermodynamics-and-kinetics": [],
+  "lesson-clerical-ability-alphabetic-filing-rules": [],
+  "lesson-clerical-ability-numeric-and-chronological-filing": [],
+  "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts": [],
+  "lesson-code-of-conduct-ra-6713-norms-of-conduct": [],
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": [],
+  "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment": [],
+  "lesson-comprehension-skills-authors-purpose-tone-pov": [],
+  "lesson-comprehension-skills-choosing-a-title": [],
+  "lesson-comprehension-skills-context-clues-in-passages": [],
+  "lesson-comprehension-skills-fact-vs-opinion": [],
+  "lesson-comprehension-skills-inferencing-and-conclusions": [],
+  "lesson-comprehension-skills-main-idea": [],
+  "lesson-comprehension-skills-noting-specific-details": [],
+  "lesson-comprehension-skills-sequencing-of-events": [],
+  "lesson-data-interpretation-rates-ratios-and-percentages-in-context": [],
+  "lesson-data-interpretation-tables-and-charts": [],
+  "lesson-earth-science-astronomy-earths-motions": [],
+  "lesson-earth-science-astronomy-earths-subsystems": [],
+  "lesson-earth-science-astronomy-eclipses-and-moon-phases": [],
+  "lesson-earth-science-astronomy-fossils-and-geologic-time": [],
+  "lesson-earth-science-astronomy-heavenly-bodies": [],
+  "lesson-earth-science-astronomy-layers-of-the-earth": [],
+  "lesson-earth-science-astronomy-minerals-and-rocks": [],
+  "lesson-earth-science-astronomy-origin-of-the-universe": [],
+  "lesson-earth-science-astronomy-plate-tectonics": [],
+  "lesson-earth-science-astronomy-water-cycle-oceanography": [],
+  "lesson-earth-science-astronomy-weather-and-climate": [],
+  "lesson-environment-management-environmental-concepts": [],
+  "lesson-environment-management-the-environmental-laws": [],
+  "lesson-geometry-basic-geometric-concepts": [],
+  "lesson-geometry-circles": [],
+  "lesson-geometry-coordinate-geometry": [],
+  "lesson-geometry-logic-and-reasoning": [],
+  "lesson-geometry-measurement": [],
+  "lesson-geometry-parallel-perpendicular-lines": [],
+  "lesson-geometry-quadrilaterals-and-polygons": [],
+  "lesson-geometry-triangles": [],
+  "lesson-grammar-and-structure-modifiers": [],
+  "lesson-grammar-and-structure-parallelism": [],
+  "lesson-grammar-and-structure-parts-of-speech": [],
+  "lesson-grammar-and-structure-phrases-and-clauses": [],
+  "lesson-grammar-and-structure-pronoun-antecedent-agreement": [],
+  "lesson-grammar-and-structure-punctuation-and-capitalization": [],
+  "lesson-grammar-and-structure-redundancy-and-double-negatives": [],
+  "lesson-grammar-and-structure-sentence-structure": [],
+  "lesson-grammar-and-structure-subject-verb-agreement": [],
+  "lesson-grammar-and-structure-tenses-and-voice": [],
+  "lesson-language-application-error-identification": [],
+  "lesson-language-application-paragraph-organization": [],
+  "lesson-language-application-sentence-completion": [],
+  "lesson-logical-verbal-reasoning-number-and-letter-sequences": [],
+  "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic": [],
+  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic": [],
+  "lesson-logical-verbal-reasoning-word-analogies": [],
+  "lesson-mechanical-technical-reasoning-fluid-pressure": [],
+  "lesson-mechanical-technical-reasoning-gear-rotations": [],
+  "lesson-mechanical-technical-reasoning-pulleys-and-levers": [],
+  "lesson-mechanical-technical-reasoning-springs-and-weights": [],
+  "lesson-mechanical-technical-reasoning-structural-stability": [],
+  "lesson-peace-and-human-rights-human-rights-fundamentals": [],
+  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law": [],
+  "lesson-philippine-constitution-accountability-and-impeachment": [],
+  "lesson-philippine-constitution-bill-of-rights": [],
+  "lesson-philippine-constitution-the-articles-in-outline": [],
+  "lesson-philippine-constitution-the-civil-service-commission": [],
+  "lesson-physics-dynamics": [
+    "lesson-physics-kinematics",
+    "lesson-physics-scalars-and-vectors"
+  ],
+  "lesson-physics-electricity-and-magnetism": [],
+  "lesson-physics-fluid-mechanics": [],
+  "lesson-physics-gravity-and-keplers-laws": [],
+  "lesson-physics-kinematics": [],
+  "lesson-physics-light-and-optics": [
+    "lesson-physics-waves-and-sound",
+    "lesson-trigonometry-basic-trigonometric-ratios"
+  ],
+  "lesson-physics-momentum-and-impulse": [
+    "lesson-physics-kinematics",
+    "lesson-physics-work-energy-power"
+  ],
+  "lesson-physics-scalars-and-vectors": [
+    "lesson-trigonometry-basic-trigonometric-ratios"
+  ],
+  "lesson-physics-thermodynamics": [
+    "lesson-physics-work-energy-power"
+  ],
+  "lesson-physics-two-dimensional-motion": [
+    "lesson-physics-dynamics",
+    "lesson-physics-kinematics",
+    "lesson-trigonometry-basic-trigonometric-ratios"
+  ],
+  "lesson-physics-units-and-measurements": [],
+  "lesson-physics-waves-and-sound": [],
+  "lesson-physics-work-energy-power": [
+    "lesson-physics-kinematics",
+    "lesson-trigonometry-basic-trigonometric-ratios"
+  ],
+  "lesson-precalculus-basic-calculus-basic-derivatives": [],
+  "lesson-precalculus-basic-calculus-basic-integrals": [],
+  "lesson-precalculus-basic-calculus-conic-sections": [
+    "lesson-geometry-coordinate-geometry"
+  ],
+  "lesson-precalculus-basic-calculus-limits-and-continuity": [],
+  "lesson-spatial-abstract-reasoning-figure-grouping": [],
+  "lesson-spatial-abstract-reasoning-figure-matrices": [],
+  "lesson-spatial-abstract-reasoning-figure-series": [],
+  "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization": [],
+  "lesson-spatial-abstract-reasoning-paper-folding-and-cutting": [],
+  "lesson-statistics-and-probability-basic-probability": [],
+  "lesson-statistics-and-probability-combinatorics": [],
+  "lesson-statistics-and-probability-data-analysis-graphs": [],
+  "lesson-statistics-and-probability-measures-of-central-tendency": [],
+  "lesson-statistics-and-probability-measures-of-variability": [],
+  "lesson-text-types-essays-editorials-articles": [],
+  "lesson-text-types-poetry": [],
+  "lesson-text-types-short-stories-and-novels": [],
+  "lesson-text-types-speeches": [],
+  "lesson-text-types-visual-media": [],
+  "lesson-trigonometry-angles-and-radian-measure": [],
+  "lesson-trigonometry-basic-trigonometric-ratios": [],
+  "lesson-trigonometry-inverse-trigonometric-functions": [],
+  "lesson-trigonometry-laws-of-sines-and-cosines": [
+    "lesson-trigonometry-basic-trigonometric-ratios"
+  ],
+  "lesson-trigonometry-solving-right-triangles": [],
+  "lesson-trigonometry-trigonometric-identities": [],
+  "lesson-trigonometry-unit-circle": [
+    "lesson-geometry-coordinate-geometry",
+    "lesson-trigonometry-angles-and-radian-measure"
+  ],
+  "lesson-verbal-logic-assumptions-and-conclusions": [],
+  "lesson-vocabulary-confusing-words": [],
+  "lesson-vocabulary-context-clues": [],
+  "lesson-vocabulary-idioms-and-figures-of-speech": [],
+  "lesson-vocabulary-root-words-prefixes-suffixes": [],
+  "lesson-vocabulary-spelling-rules": [],
+  "lesson-vocabulary-synonyms-and-antonyms": []
+}

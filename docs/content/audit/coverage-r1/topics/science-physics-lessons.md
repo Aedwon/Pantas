@@ -383,7 +383,105 @@ The original both-end comparison, consumer lines 72-82 and Units lines 38-42, is
 
 Current Physics strict edge count is 13, and six consumers have explicit no-existing-link dispositions. Earlier fourteen-edge author/P1 checks remain dated historical evidence, not verification of this amended object. P1's direct basic-trigonometric-ratios link and all other prerequisite records remain unchanged. All other topic outputs remain immutable. Fresh independent focused P2 recheck at the new artifact hash is required; this author correction does not accept it.
 
-P2_CHECK_RESULTS_PENDING
+Completion resumption: current main `1aaebad9814ba7bd9404d8b43fc010281abb97cf` and audit live/local `c8983d6d7f36a87f618f0654321cb84a030f57c5` matched. Saved corrected checkpoint SHA256 `7f3d3d27dbfb026463964eb1e306ee31a303ca71f0cadb72229565ed03ef38df` matched before finishing. Current mandatory policy/context was retrieved and checked unchanged; the matching source reads and completed correction were preserved rather than repeated.
+
+Preserved guard history: the first scoped execution returned exit1 only for an unrelated-document preservation guard. Audit9331 held Verbal Logic DRAFT SHA256 `71bac92b64f1907f6f54efae780709a1037af181924de72fb57c05b67ac51a48`, while the authorized current COMPLETE/PASS release was `52b8bc5c810e723c5c2539b8d28709a9612c8ac5d649a7c9ed25484fb19b67b0`. The actual current file matched that accepted release; no Verbal write occurred. The guard was corrected to use the authorized current baseline and returned exit0. This resumption independently checks all twenty-four current completed documents against auditc898, with zero changes. The initial failure is historical baseline evidence, not an unresolved Physics failure or permission to overwrite another document.
+
+Current scoped command: inline Python against the actual saved target, immutable original Physics object at audit9331, current baselinec898, packet/map/manifest, all thirteen read hashes/ranges, evidence/reference bounds, remaining prerequisite targets/both ends, graph and prose/JSON parity. Exit0, actual output:
+
+```text
+{
+  "physicsP2": "current scoped author check",
+  "policyCommit": "1aaebad9814ba7bd9404d8b43fc010281abb97cf",
+  "auditBaseline": "c8983d6d7f36a87f618f0654321cb84a030f57c5",
+  "savedCheckpointSHA256": "7f3d3d27dbfb026463964eb1e306ee31a303ca71f0cadb72229565ed03ef38df",
+  "originalSHA256": "20d984df846d1abff9ae506e16618b5cc0603c24eef062e632b4097b7f863905",
+  "changedJSONPaths": [
+    "/lessons/2/prerequisiteStatus",
+    "/lessons/2/prerequisites",
+    "/requirementFacets/16/priorKnowledge",
+    "/requirementFacets/17/priorKnowledge",
+    "/requirementFacets/18/priorKnowledge",
+    "/requirementFacets/19/priorKnowledge",
+    "/requirementFacets/20/priorKnowledge"
+  ],
+  "changesConfinedToConsumerAndFivePriorNotes": true,
+  "assignedIDs": 13,
+  "uniqueOwnedIDs": 13,
+  "readHashesRangesPathsMatched": 13,
+  "facets": 97,
+  "acceptedUniqueRefs": 35,
+  "referenceOccurrences": 1526,
+  "evidenceRangesChecked": 368,
+  "oldStrictEdges": 14,
+  "currentStrictEdges": 13,
+  "existingTargetsBothEndPathsLines": "PASS",
+  "selfLinks": 0,
+  "cycles": [],
+  "noStrictLinkConsumers": 6,
+  "proseJSONParity": true,
+  "P1ConsumerAndDirectTrigUnchanged": true,
+  "otherLessonsUnchanged": true,
+  "sourceLedgerAndCorrectionHistoryUnchanged": true,
+  "allSourceReadIdentitiesUnchanged": true,
+  "existingProseOnlyThreeIntendedChanges": true,
+  "otherCurrentCompletedDocumentsChecked": 24,
+  "otherCurrentDocumentsChanged": [],
+  "corpusHEAD": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+  "corpusDirty": false,
+  "jsonAppendices": 1,
+  "emDashes": 0,
+  "errors": []
+}
+```
+
+Supporting command: `python3 docs/content/audit/coverage-r1/check_level3_outputs.py`. Exit0, actual output:
+
+```text
+{
+  "level": 3,
+  "completeTopics": 25,
+  "expectedTopics": 25,
+  "completeLessons": 158,
+  "expectedLessons": 158,
+  "complete": [
+    "general-information-code-of-conduct-ra-6713",
+    "general-information-environment-management",
+    "general-information-peace-and-human-rights",
+    "general-information-philippine-constitution",
+    "language-proficiency-grammar-and-structure",
+    "language-proficiency-language-application",
+    "language-proficiency-vocabulary",
+    "mathematics-algebra",
+    "mathematics-arithmetic-number-sense",
+    "mathematics-data-interpretation",
+    "mathematics-geometry",
+    "mathematics-precalculus-basic-calculus",
+    "mathematics-statistics-and-probability",
+    "mathematics-trigonometry",
+    "reading-comprehension-comprehension-skills",
+    "reading-comprehension-text-types",
+    "reasoning-clerical-ability",
+    "reasoning-logical-verbal-reasoning",
+    "reasoning-mechanical-technical-reasoning",
+    "reasoning-spatial-abstract-reasoning",
+    "reasoning-verbal-logic",
+    "science-biology",
+    "science-chemistry",
+    "science-earth-science-astronomy",
+    "science-physics"
+  ],
+  "pending": [],
+  "errors": [],
+  "mechanicalAccountingReady": true,
+  "gateReady": false
+}
+```
+
+`git diff --check -- docs/content/audit/coverage-r1/topics/science-physics-lessons.md` returned exit0 with no output. Final parse/JSON identity is checked after inserting this record. Only the Physics output was written. All seven allowed JSON changes, original read evidence, P1 correction, unrelated teaching/source fields and twenty-four other document identities remain as verified above.
+
+Unverified limits: canonical Dart attribution remains unverified after the previous hang/cancel exit130; no pass is inherited or SDK repaired. Runtime/practice, finer exam depth/languages/cycles, complete correctness/standards and later levels remain unchanged unknown/deferred. P2 requires fresh independent recheck of this final artifact hash before acceptance. No Level4/5, content/app/roadmap/importer/schema/figure, Google or Git mutation, additional agent or new usage-limit error occurred during this completion.
+
 
 ## Machine-readable appendix
 

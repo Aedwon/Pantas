@@ -1,0 +1,72 @@
+{
+  "level": 3,
+  "verifiedAtUtc": "2026-10-09T06:01:03.883173+00:00",
+  "auditHead": "c8983d6d7f36a87f618f0654321cb84a030f57c5",
+  "auditBranch": "docs/content-coverage-audit-r1",
+  "liveRefs": {
+    "refs/heads/content/question-qa-r2": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+    "refs/heads/docs/content-coverage-audit-r1": "c8983d6d7f36a87f618f0654321cb84a030f57c5",
+    "refs/heads/main": "1aaebad9814ba7bd9404d8b43fc010281abb97cf"
+  },
+  "currentManifestSha256": "8a5b2624f109dafdfa54c82b2703accf4bf1aa87fb48d4356d2d20eaf9fb57b3",
+  "reviewedManifestSha256": "1da3feaac8c16b0088855e1ea1b31480a73183ae71d0120189d3784b9ebeb72e",
+  "currentFilesMatched": 39,
+  "reversedMetadataMatched": 6,
+  "unchangedReviewedFiles": 33,
+  "independentCountingReportSha256": "9ca65ae52c678f1779f15fb62421221aaa111b7b4030c92e6d797ba4eae87ecf",
+  "acceptanceRecordSha256": "7e0cd475fe0148ab2e4516a8635e30bc720c31007f078b21f685be90378c30d2",
+  "checkerCommand": [
+    "python3",
+    "docs/content/audit/coverage-r1/check_level3_outputs.py"
+  ],
+  "checkerExit": 0,
+  "checkerOutput": {
+    "level": 3,
+    "completeTopics": 25,
+    "expectedTopics": 25,
+    "completeLessons": 158,
+    "expectedLessons": 158,
+    "complete": [
+      "general-information-code-of-conduct-ra-6713",
+      "general-information-environment-management",
+      "general-information-peace-and-human-rights",
+      "general-information-philippine-constitution",
+      "language-proficiency-grammar-and-structure",
+      "language-proficiency-language-application",
+      "language-proficiency-vocabulary",
+      "mathematics-algebra",
+      "mathematics-arithmetic-number-sense",
+      "mathematics-data-interpretation",
+      "mathematics-geometry",
+      "mathematics-precalculus-basic-calculus",
+      "mathematics-statistics-and-probability",
+      "mathematics-trigonometry",
+      "reading-comprehension-comprehension-skills",
+      "reading-comprehension-text-types",
+      "reasoning-clerical-ability",
+      "reasoning-logical-verbal-reasoning",
+      "reasoning-mechanical-technical-reasoning",
+      "reasoning-spatial-abstract-reasoning",
+      "reasoning-verbal-logic",
+      "science-biology",
+      "science-chemistry",
+      "science-earth-science-astronomy",
+      "science-physics"
+    ],
+    "pending": [],
+    "errors": [],
+    "mechanicalAccountingReady": true,
+    "gateReady": true
+  },
+  "acceptedInputsUnchanged": {
+    "requirementsProfiles": 10,
+    "maps": 13,
+    "overlap": 8
+  },
+  "corpusClean": true,
+  "semanticAcceptance": "PASS; see lead-final-verification.json and current acceptance record",
+  "documentMethod": "Independent exact scoped prose-pattern equivalent PASS; canonical Dart unexecuted",
+  "noContentOrGoogleWrites": true,
+  "laterLevelAuthorized": false,
+  "nextGate": "Aedwon explicit Level4 approval required"
+}

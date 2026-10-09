@@ -32,7 +32,7 @@ Current live main and cached origin/main both: `ac4b30da31b0bcca7e7ed1e47c930b1a
 - PASS: science-biology
 - PASS: science-chemistry
 - PASS: science-earth-science-astronomy
-- FLAGS: science-physics
+- PASS: science-physics
 
 Startup accounting: 25 PENDING, 0 PASS, 0 FLAGS. Initial available review targets: Science biology, chemistry, physics. No author target verdicts read yet. Accepted-input hash check is pending; dependent lesson reading is paused.
 
@@ -1049,3 +1049,55 @@ sole-report git diff --check exit0/outputempty
 ```
 
 All25actual COMPLETE target hashes match saved comparisons/challenge, including Physicscurrent20d984dfFLAGGED rather thanaccepted. All158owned IDs/fullranges and6410evidencebounds/20824referenceoccurrences mechanicallycheck;32currentedge records havevalidexistingboth-endobjects andnocycle, but thatdoesnotsettle PhysicsP2necessity. No topic remainsunread/PENDING. Semantic gate remainsfalse pendingtheexactPhysicsauthorremedyandfreshfocusedimmutablehashrecheck. No wholesalePhysicsreplay,blanketcorrectnessclaim,canonicalDartpass orlaterlevelapproval. Reportonlychanged; watchercarriesGitoperations.
+
+
+## Physics P2 focused correction recheck: PASS, flag closed
+
+Refreshed current mainAGENTS/WORKFLOW/SUBAGENTS/startup in full and full saved briefs/l3-physics-p2-recheck.md. Policy1aaebad9814ba7bd9404d8b43fc010281abb97cf remains current; actualread-only ls-remote andlocalshow confirm main and auditc8983d6d7f36a87f618f0654321cb84a030f57c5match. Scopedgitdiff9331..current forfullyreadapprovedspec/plan/ORCHESTRATOR/readercontract/illustrationlog/governingdecisionlog is empty; preserved fullcurrent context/sourcepolicy/standards remain applicable. Pauses/applicationfreeze/Level3-onlyscope remain binding. No current requiredcontext unavailable. All24other acceptedtopicbodyobservations preserved withoutreplay.
+
+CurrentimmutablePhysicsSHA256ccd827e70e7cc0a58872bfe011788ee0ba8cd3d50899d1033dc3b04bf160356c verified againstactualbytes. Historical20d984df846d1abff9ae506e16618b5cc0603c24eef062e632b4097b7f863905remainsFLAGGEDinP2history; initialP1/PASSandC1historypreserved. Focusedcurrentread/diffconfirms:
+
+- Fluid strictUnitsedge absent from prose prerequisite table andJSON; Fluidexplicitlynone-found. Updatedprose/fivefacetpriorKnowledge agree that300g=0.3kgandmg/newton calculation is locallysupplied. GeneralSI/dimensional/prefixbackground optional, notstrictdependency. Sharednounvocabulary remainsreadiness contextratherthanaguessedtarget. Originalfull Fluid1-142/Units1-125reads reusedatidenticalactualhashes; no allPhysicsbodyreplay.
+- Density/pressure/buoyantbalance remainlocallysupplied; Pressure/depthworkedapplicationgap andabsentPascalremain genuineunchangedlimitations. No newteachingpresence/coverageclaim orreplacementedgeintroduced. OptionalfullUnitsmeaning doesnotbecome necessary becauseaformulausesunits.
+- StructuralJSONdiff has exactlysevenpaths: FluidprerequisiteStatus/prerequisites andfivefluidfacetpriorKnowledgefields16-20. AllotherFluidfieldsand12otherlessonobjects equaloriginal9331object; P1two-dimensional-motion directBasicTriglink/kinematics/dynamics remain unchanged. Allgoals/skills/tags/splitrecommendations/sourceledger/readidentities unchanged. Existing prose hasonlyreadinessnote,edge-tabledeletionandexplicitno-linklistaddition, plus transparentdatedP2/checkhistory.
+- All24otheractualcurrentcompletedtopicdocuments equalaccepted auditc898bytes, includingVerbalCOMPLETE52b8bc5c. Author's earlier9331VerbalDRAFTguardfailure remainshistoricalandisnotafailedcurrentpreservationcheck. Nootherfilewrittenbyreviewer.
+
+Commands: read-only gitls-remote/gitshow/gitdiff; inlinePythonactualSHA256/parsedJSONrecursivefielddiffagainstgitshow9331Physics, bytecomparisonagainstgitshowc898other24, frozen13sourcehash/fullrangematch, localreference/evidence/strict-both-endchecks. The first reviewercomparison script confirmedhash/diff/Fluidfields then stopped at an incorrectly assumedP1ID; actualID lesson-physics-two-dimensional-motion was used in the successful rerun. No target/semanticfailure followed from that diagnostic-script StopIteration. Successfulactualoutput:
+
+```text
+SHA256ccd827e70e7cc0a58872bfe011788ee0ba8cd3d50899d1033dc3b04bf160356c
+oldSHA25620d984df846d1abff9ae506e16618b5cc0603c24eef062e632b4097b7f863905
+changedJSONPaths['/lessons/2/prerequisiteStatus','/lessons/2/prerequisites','/requirementFacets/16/priorKnowledge','/requirementFacets/17/priorKnowledge','/requirementFacets/18/priorKnowledge','/requirementFacets/19/priorKnowledge','/requirementFacets/20/priorKnowledge']
+Fluidprereqs/status[] none-found
+P1/currentmotionlesson-physics-two-dimensional-motionTrue['lesson-physics-kinematics','lesson-trigonometry-basic-trigonometric-ratios','lesson-physics-dynamics']
+sourceLedgerunchangedTrue
+other24changed[]
+oldFluidotherFieldsEqualTrue
+other12equalTrue
+PhysicsCOMPLETEowned13 skills89 facets97 ranges368 refs_occurrences1526 unique_refs35 edges13 none5 errors[]
+FluidSHA25629446c078d4024ca5fc7ebeb6ee1e77e627c3cc96f5a61e44a55bf5e03fde54e lines142
+UnitsSHA25644f728ab41f7de68e1003b70273341b239b245b15bfa0ba7b54d936c454d89cc lines125
+localHEADc8983d6d7f36a87f618f0654321cb84a030f57c5
+policy1aaebad9814ba7bd9404d8b43fc010281abb97cf
+corpus765c5dc0fa5586281047bf4f7b30d09ab3707887 dirty''
+```
+
+Sixconsumershave noexistingedge:fiveexplicitnone-found (includingFluid) plusElectricitymissing-foundation. This distinctionpreservestheexistingmissingphysicalmeaning,not aclaimElectricityhascompletefoundations. All13remainingedgeshaveactualexistingboth-endbounded evidence; globalgraphcheck follows. Currentcomplete25topiclist now25PASS/0FLAGS/0PENDING/158reviewed-ownedlessons at exactacceptedhashes. CloseonlyP2; no whole-Level3acceptance,fullsource-rowreconciliation/finalcombineddependencyartifact/independentmechanicalgate,DartpassorLevel4/5approval. Finerexamcycle/depth/language,practice/runtime/fullcorrectness/standardsremainunknown/deferred. Soleindependentreportupdated;targets/content/shareddata/Gitnevermutated.
+
+
+### Current all25afterP2actual verification
+
+Fresh inlinePython parsed all25actualcurrent COMPLETE targets againstsavedindependentreviewhashes,frozen158sourceidentities/ranges,accepted10/13/8manifesthashes,allreference/evidencebounds andexistingboth-enddependencyrecords. Thischecks accounting/graph validity,notunchangedfullsemanticreplayorleadwholegate. Actualexit0:
+
+```text
+requirement-input-manifest.json10 hashMismatches[]
+map-input-manifest.json13 hashMismatches[]
+overlap-input-manifest.json8 hashMismatches[]
+frozen158hashMismatches[]
+topics25 {'PASS':25} unique25
+owned158 unique158 facets1961 ranges6408 refs20824 edges31 cycles[] errors[]
+reportemdash0 trailing0
+sole-report git diff --check exit0/outputempty
+```
+
+P2removal reducescurrentgraph32to31andlocalJSONevidence6410to6408withoutchangingteaching/readidentities/requirementfacets. CurrentPhysicsacceptedhashccd827e70e7cc0a58872bfe011788ee0ba8cd3d50899d1033dc3b04bf160356c;other24currentacceptedhashesunchanged. Complete25topiclist:25PASS/0FLAGS/0PENDING. AllC1/P1/P2flagsclosedthroughfocusedcurrentartifactrechecks;originalfindings/historypreserved. No furthersemanticcorrectionrequestedbythisreviewer. WholeLevel3 acceptance andleadfinalsource-row/dependency/mechanicalreconciliation remainpending;canonicalDartandlaterlevelstandards/correctness/practice/runtime remainunverified/deferred. No credit/model/service substitution,newusageerror,Gitmutations orprohibitedcontent/app/shareddatawrites.

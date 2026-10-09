@@ -1,0 +1,82 @@
+{
+  "level": 3,
+  "scope": "Acceptance/status metadata only; no findings, evidence, source, topic or earlier accepted output changes",
+  "reviewedManifest": "docs/content/audit/coverage-r1/structure/structure-final-reviewed-input-manifest.json",
+  "reviewedManifestSha256": "1da3feaac8c16b0088855e1ea1b31480a73183ae71d0120189d3784b9ebeb72e",
+  "changes": [
+    {
+      "path": "docs/content/audit/coverage-r1/structure-input-manifest.json",
+      "beforeSha256": "49eb9c54a869815ab0224a4450710e03de908c2c06c124fed3b54b5054364477",
+      "afterSha256": "469ceabb23f10f5a8e4a90acdab423b39ba13d589725feba205e398efb9983ca",
+      "replacements": [
+        {
+          "before": "\"status\": \"25 complete topic samples PASS; combined mechanical/lead gate acceptance pending\"",
+          "after": "\"status\": \"Level3 lead semantic acceptance PASS; independent mechanical PASS; gate publication metadata awaiting narrow identity confirmation\""
+        },
+        {
+          "before": "\"leadSemanticGateAccepted\": false",
+          "after": "\"leadSemanticGateAccepted\": true"
+        }
+      ]
+    },
+    {
+      "path": "docs/content/audit/coverage-r1/lesson-structure-data.json",
+      "beforeSha256": "beb6cee14b790cdf39a9f44234c09279a0284108cc896b361157db288b71e15e",
+      "afterSha256": "cdf36b3c4b5d92748db9ff36f970d344d6625a710a8dc3056b55ecee612dc2df",
+      "replacements": [
+        {
+          "before": "\"RECONCILED Level3 findings; independent mechanical verification and lead gate acceptance pending\"",
+          "after": "\"Level3 findings accepted by lead after independent topic samples and mechanical PASS; findings only\""
+        }
+      ]
+    },
+    {
+      "path": "docs/content/audit/coverage-r1/lesson-exam-tag-recommendations.json",
+      "beforeSha256": "88db09bb427b67fe971611c31f6c42dbd449abd8abb7c32cb06e43af6c7e5ef4",
+      "afterSha256": "1eb008fd23dceed135408bf6e6fc51e72c1b48496434af1b2ef14186b98fd43e",
+      "replacements": [
+        {
+          "before": "\"RECONCILED local tag recommendations, not applied; final verification pending\"",
+          "after": "\"Level3 local tag recommendations accepted; not applied to accepted catalog or Google tab\""
+        }
+      ]
+    },
+    {
+      "path": "docs/content/audit/coverage-r1/structure/requirement-reconciliation-decisions.json",
+      "beforeSha256": "0422bbe5afc7997999385f3ed364d3a06fd4e5cf5dad3968011398dfd84a741e",
+      "afterSha256": "689fda0bdd8eaaca6de229f8aea2d0e6c0dd13bc9f0f7db46582a198be68e445",
+      "replacements": [
+        {
+          "before": "\"Lead explicit source-row dispositions; final integration and independent verification pending\"",
+          "after": "\"Lead source-row dispositions integrated and accepted at Level3; source limits preserved\""
+        }
+      ]
+    },
+    {
+      "path": "docs/content/audit/coverage-r1/lesson-prerequisites.md",
+      "beforeSha256": "afcc3647d939a231913d898b07331744130287ac91639b85aeefd67243edc96a",
+      "afterSha256": "86ce65586f58c7993e1c3ed91d210115f4e362129b818af40c96356c81e936cb",
+      "replacements": [
+        {
+          "before": "DRAFT evidence integration. Findings only; independent review and lead acceptance must be recorded separately. No roadmap or content changes.",
+          "after": "Level3 recommendations accepted after independent samples, mechanical PASS and lead review. Findings only; no roadmap or content changes."
+        }
+      ]
+    },
+    {
+      "path": "docs/content/audit/coverage-r1/lesson-structure.md",
+      "beforeSha256": "3a2e3697cf018096177afa7f392dc5366b53f65dbb3407fde68337a271cfe7ff",
+      "afterSha256": "f9f5b78edd0eac1cbe5957f946d415e33c76e4d00182e6ac618b827a0c2024f9",
+      "replacements": [
+        {
+          "before": "Status: all25topic readings and independent samples PASS at current hashes; final combined mechanical verification and lead gate acceptance pending.",
+          "after": "Status: Level3 findings accepted by the lead after all25topic readings and independent samples PASS and combined mechanical PASS. Final publication metadata receives a narrow identity confirmation before the approval stop."
+        },
+        {
+          "before": "All25topic samples PASS at current actual hashes; allC1/P1/P2history preserved. Combined source-row/tag/prerequisite/document validation and fresh independent Luna check remain pending. First-line state remainsRUNNING; only after those checks and lead acceptance can Level3 stop to ask for Level4. No Level4/5 tasks have started.",
+          "after": "All25topic samples PASS at current actual hashes; allC1/P1/P2history preserved. Independent Luna combined accounting passed for all158lessons/25topics/535source records and31acyclic prerequisite links. Lead source-row, accepted-input and corpus identity checks passed with no errors. Scoped document scans passed using the canonical scanner's exact prose patterns; canonical Dart execution remains unverified. Gate publication changes only acceptance metadata and preserves the reviewed findings through reversible hash proof. Level3 stops for explicit approval of Level4; no Level4/5 tasks have started."
+        }
+      ]
+    }
+  ]
+}

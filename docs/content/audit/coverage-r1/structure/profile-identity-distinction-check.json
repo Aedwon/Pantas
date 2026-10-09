@@ -1,0 +1,8 @@
+{
+  "mainPolicyCommit": "1aaebad9814ba7bd9404d8b43fc010281abb97cf",
+  "mainTemplateBlob": "d709f3f0944c59ae1906a4e03cfb3718df7ec8a8",
+  "filledAuditSha256": "9dcc230d6c3a7fced854485a3309d3b35ddecebe6d12d8898749056c84661937",
+  "expectedAcceptedSha256": "9dcc230d6c3a7fced854485a3309d3b35ddecebe6d12d8898749056c84661937",
+  "durableCopyEqual": true,
+  "sourceFilesChanged": false
+}
