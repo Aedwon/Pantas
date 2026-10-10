@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Level 4 audit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Styles are copied from mockups/level4-page-v3.html, the approved design. */
+  html, body { margin: 0; }
+  body { font-family: "Schibsted Grotesk", system-ui, sans-serif; }
+
+  .tool {
+    --paper: #eef1f4; --ink: #1b2330; --soft: #6b7686; --line: #d5dbe3;
+    --blue: #2f6fde; --green: #1f8a5b; --amber: #b97a0a; --red: #cf4339;
+    margin: 0; min-height: 100vh; background: var(--paper); color: var(--ink);
+    display: grid; grid-template-rows: 1fr auto; min-height: 560px; overflow: hidden;
+    font-size: 16px; line-height: 1.5;
+  }
+  .stage { display: grid; place-items: center; padding: 40px 24px 28px; }
+  .col { width: 100%; max-width: 540px; }
+
+  .where { color: var(--soft); margin: 0 0 2px; }
+  .lesson { font-size: 20px; font-weight: 600; margin: 0 0 36px; }
+
+  .say { font-size: 38px; line-height: 1.12; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 10px; text-wrap: balance; }
+  .say.stop { color: var(--red); }
+  .more { color: var(--soft); margin: 0 0 26px; min-height: 24px; }
+  .more a { color: var(--blue); }
+  .more code { font-size: 14px; background: #e0e5eb; padding: 1px 6px; border-radius: 4px; color: var(--ink); }
+
+  .go { display: block; box-sizing: border-box; text-align: center; width: 100%; font: inherit; font-size: 19px; font-weight: 600; color: #fff;
+    background: var(--blue); border: 0; border-radius: 12px; padding: 19px 20px; cursor: pointer; }
+  .go:hover { background: #245fc7; }
+  .go:active { transform: translateY(1px); }
+  .go:focus-visible, .tool a:focus-visible, .tool button:focus-visible, .tick:focus-visible {
+    outline: 3px solid #9dbcf3; outline-offset: 3px; }
+  .hint { color: var(--soft); font-size: 14px; margin: 10px 0 0; min-height: 21px; }
+  .hint kbd { font: inherit; border: 1px solid var(--line); border-radius: 5px; padding: 0 6px; background: #fff; }
+
+  .chats { list-style: none; margin: 34px 0 0; padding: 0; }
+  .chats li[hidden] { display: none; }
+  .chats li { display: grid; grid-template-columns: 22px 130px 1fr; align-items: center; padding: 7px 0; }
+  .chats b { font-weight: 600; }
+  .chats span { color: var(--soft); }
+  .mark { width: 14px; height: 14px; border-radius: 50%; border: 2px solid #b4bdc9; box-sizing: border-box; }
+  li[data-s="working"] .mark { border-color: var(--blue); animation: pulse 1.6s ease-in-out infinite; }
+  li[data-s="fixing"] .mark { border-color: var(--amber); background: var(--amber); }
+  li[data-s="fixing"] span { color: var(--amber); }
+  li[data-s="done"] .mark { border-color: var(--green); background: var(--green);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M2 5.2l2 2 4-4.4' fill='none' stroke='white' stroke-width='1.6'/%3E%3C/svg%3E"); }
+  li[data-s="done"] span { color: var(--ink); }
+  @keyframes pulse { 50% { box-shadow: 0 0 0 5px #2f6fde2b; } }
+  @media (prefers-reduced-motion: reduce) { li[data-s="working"] .mark { animation: none; } }
+
+  .trouble { margin-top: 30px; font-size: 14px; }
+  .trouble summary { color: var(--soft); cursor: pointer; width: max-content; }
+  .trouble summary:hover { color: var(--ink); }
+  .trouble div { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .trouble button { font: inherit; color: var(--ink); background: #fff; border: 1px solid var(--line);
+    border-radius: 8px; padding: 7px 12px; cursor: pointer; }
+  .trouble button:hover { border-color: var(--soft); }
+  .trouble textarea { width: 100%; height: 76px; margin-top: 10px; font: 13px ui-monospace, monospace;
+    border: 1px solid var(--line); border-radius: 8px; padding: 8px; box-sizing: border-box; display: none; }
+
+  .alert { background: var(--red); color: #fff; padding: 10px 24px; display: none; }
+  .alert.on { display: block; }
+
+  /* The ledger: one tick per lesson. The one visual that shows the whole job. */
+  .ledger { border-top: 1px solid var(--line); padding: 14px 24px 16px; }
+  .ledger-top { display: flex; justify-content: space-between; gap: 16px; font-size: 14px; margin-bottom: 9px; }
+  .ledger-top span:last-child { color: var(--soft); text-align: right; }
+  .groups { display: flex; gap: 10px; }
+  .group { min-width: 0; }
+  .ticks { display: flex; gap: 2px; height: 26px; }
+  .tick { flex: 1; min-width: 2px; border: 0; padding: 0; border-radius: 2px; background: #cfd6df; cursor: pointer; }
+  .tick:hover { filter: brightness(.85); }
+  .tick.done { background: var(--green); }
+  .tick.now { background: var(--blue); transform: scaleY(1.3); }
+  .tick.held { background: var(--red); }
+  .group small { display: block; margin-top: 7px; font-size: 12px; color: var(--soft);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  @media (max-width: 720px) { .say { font-size: 30px; } .group small { display: none; } .groups { gap: 5px; } }
+
+  .toast { position: fixed; left: 50%; bottom: 96px; transform: translateX(-50%); background: #1b2330; color: #fff;
+    padding: 9px 16px; border-radius: 999px; font-size: 14px; opacity: 0; transition: opacity .15s; pointer-events: none; }
+  .toast.on { opacity: 1; }
+
+  
+  .acts { display: grid; gap: 10px; }
+  .go.quiet { background: #fff; color: var(--ink); border: 1px solid var(--line); font-weight: 500; padding: 14px 20px; font-size: 17px; }
+  .go.quiet:hover { background: #fff; border-color: var(--soft); }
+  .ledger-top a { color: var(--blue); }
+  .frame { display: block; }
+</style>
+</head>
+<body>
+<div class="tool">
+  <div class="frame">
+    <div class="alert" id="alert">No runner is online.</div>
+    <div class="stage"><div class="col">
+      <p class="where" id="where"></p>
+      <p class="lesson" id="lesson"></p>
+      <h1 class="say" id="say">Loading.</h1>
+      <p class="more" id="more"></p>
+      <div class="acts" id="acts"></div>
+      <ul class="chats" id="chats"></ul>
+      <details class="trouble" id="trouble" hidden>
+        <summary>Something wrong?</summary>
+        <div>
+          <button type="button" data-post="restart">Restart this lesson's chats</button>
+          <button type="button" data-post="hold">Put this lesson on hold</button>
+        </div>
+      </details>
+    </div></div>
+  </div>
+  <div class="ledger">
+    <div class="ledger-top"><span id="tally"></span><span id="eta"></span></div>
+    <div class="groups" id="groups"></div>
+  </div>
+</div>
+<script type="application/json" id="text">
+{
+ "pilot_where": [
+  "Level 4 audit",
+  "Pilot: 5 lessons and 5 check lessons"
+ ],
+ "plain_where": "Level 4 audit",
+ "lesson_where": "Lesson {n} of {total}, {subject}",
+ "check_where": "Check lesson {n} of {total}, {subject}",
+ "all_where": "All {total} lessons",
+ "states": {
+  "ready": {
+   "say": "Ready to start the pilot.",
+   "more": "It reads 10 lessons by itself, then stops for your decision.",
+   "acts": [
+    [
+     "Start",
+     "start",
+     ""
+    ]
+   ]
+  },
+  "running": {
+   "say": "Running. Nothing to do.",
+   "more": "Two chats are reading this lesson. The page moves to the next lesson by itself.",
+   "acts": [
+    [
+     "Pause",
+     "pause",
+     "quiet"
+    ]
+   ]
+  },
+  "paused": {
+   "say": "Paused.",
+   "more": "Chats already running will finish. No new chat starts.",
+   "acts": [
+    [
+     "Resume",
+     "resume",
+     ""
+    ]
+   ]
+  },
+  "limit": {
+   "say": "ChatGPT usage limit reached.",
+   "more": "The run paused itself. Press Resume after the limit resets.",
+   "acts": [
+    [
+     "Resume",
+     "resume",
+     ""
+    ]
+   ]
+  },
+  "signin": {
+   "say": "ChatGPT needs you to sign in.",
+   "more": "Sign in inside the audit's own Brave window, close it, then press Resume.",
+   "acts": [
+    [
+     "Resume",
+     "resume",
+     ""
+    ]
+   ]
+  },
+  "offline": {
+   "say": "Waiting for a runner.",
+   "more": "Chats cannot hand in. Turn a runner on and the run continues by itself.",
+   "acts": []
+  },
+  "stopped": {
+   "say": "Stopped. A file changed that no chat handed in.",
+   "more": "File: <code>{path}</code>. Nothing more is saved until this is resolved.",
+   "acts": []
+  },
+  "needs_you": {
+   "say": "This lesson needs you.",
+   "more": "{reason}",
+   "acts": [
+    [
+     "Restart this lesson's chats",
+     "restart",
+     ""
+    ],
+    [
+     "Put this lesson on hold",
+     "hold",
+     "quiet"
+    ]
+   ]
+  },
+  "pilot_done": {
+   "say": "Pilot finished. Read the report.",
+   "more": "It shows what the chats caught and missed, and how long they took.",
+   "acts": [
+    [
+     "Open the pilot report",
+     "/report/pilot",
+     ""
+    ],
+    [
+     "Continue with all lessons",
+     "resume",
+     "quiet"
+    ]
+   ]
+  },
+  "done": {
+   "say": "Level 4 reading is finished.",
+   "more": "{total} lessons read. {held} are on hold and need a decision.",
+   "acts": [
+    [
+     "Open the summary",
+     "/report/summary",
+     ""
+    ]
+   ]
+  }
+ },
+ "running_fixing": "One chat is fixing a form that failed the check.",
+ "running_deciding": "The chats disagreed on {n} {rules}. A deciding chat is ruling on them.",
+ "running_between": "The next lesson is starting.",
+ "chat": {
+  "idle": "Not started",
+  "working": "Working, {m} {minutes} so far",
+  "fixing": "Fixing a rejected form",
+  "done": "Handed in"
+ },
+ "tally": "{finished} of {total} lessons finished",
+ "tally_held": "{held} on hold",
+ "eta": "About {h} {hours} left at this pace"
+}
+</script>
+<script>
+// All wording lives in the JSON block above so a test can compare it with the
+// approved mockup. This script only fills it in.
+const T = JSON.parse(document.getElementById('text').textContent);
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const fill = (template, values) => template.replace(/\{(\w+)\}/g, (_, key) => values[key]);
+const plural = (n, word) => n === 1 ? word : word + 's';
+
+async function post(action) {
+  await fetch('/api/' + action, { method: 'POST', headers: { 'X-L4': '1' } });
+  refresh();
+}
+
+function render(v) {
+  const t = T.states[v.state] || T.states.running;
+  const l = v.lesson;
+  let where = [T.plain_where, ''];
+  if (v.state === 'ready' || v.state === 'pilot_done') where = T.pilot_where;
+  else if (v.state === 'done') where = [T.plain_where, fill(T.all_where, v)];
+  else if (l) where = [fill(l.planted ? T.check_where : T.lesson_where, { n: l.number, total: l.total, subject: l.subject }), l.title];
+
+  let more = t.more;
+  if (v.state === 'running') {
+    if (!l) more = T.running_between;
+    else if (v.chats.length === 3) more = fill(T.running_deciding, { n: v.disputed_items, rules: plural(v.disputed_items, 'rule') });
+    else if (v.chats.some(c => c.status === 'fixing')) more = T.running_fixing;
+  }
+  // The stopped sentence carries markup; every value put into it is escaped.
+  const values = { path: esc(v.reason.split(': ').slice(1).join(': ')), reason: esc(v.reason), total: v.total, held: v.held };
+  more = v.state === 'stopped' ? fill(more, values) : esc(fill(more, { reason: v.reason, total: v.total, held: v.held }));
+
+  $('where').textContent = where[0]; $('lesson').textContent = where[1];
+  $('say').textContent = t.say; $('say').className = 'say' + (v.state === 'stopped' ? ' stop' : '');
+  $('more').innerHTML = more;
+  $('alert').className = 'alert' + (v.state === 'offline' ? ' on' : '');
+  $('acts').innerHTML = t.acts.map(([label, action, quiet]) => action.startsWith('/')
+    ? `<a class="go" href="${action}" target="_blank" style="text-decoration:none">${esc(label)}</a>`
+    : `<button class="go ${quiet}" data-post="${action}">${esc(label)}</button>`).join('');
+  $('chats').innerHTML = v.chats.map(c => `<li data-s="${c.status}"><i class="mark"></i><b>${esc(c.name)}</b><span>` +
+    esc(fill(T.chat[c.status], { m: c.minutes, minutes: plural(c.minutes, 'minute') })) + '</span></li>').join('');
+  $('trouble').hidden = !l || v.state === 'needs_you';
+  const held = v.held ? `, <a href="/report/hold-list" target="_blank">${fill(T.tally_held, v)}</a>` : '';
+  $('tally').innerHTML = fill(T.tally, v) + held;
+  $('eta').textContent = v.hours_left ? fill(T.eta, { h: v.hours_left, hours: plural(v.hours_left, 'hour') }) : '';
+  $('groups').innerHTML = v.strip.map(g => `<div class="group" style="flex:${g.cells.length}"><div class="ticks">` +
+    g.cells.map(c => `<span class="tick ${c}"></span>`).join('') + `</div><small>${esc(g.name)}</small></div>`).join('');
+}
+let last = '';
+async function refresh() {
+  try {
+    const text = await (await fetch('/api/state')).text();
+    if (text !== last) { last = text; render(JSON.parse(text)); }
+  } catch (e) { /* the server is restarting; keep the last view */ }
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-post]');
+  if (b) post(b.dataset.post);
+});
+refresh(); setInterval(refresh, 3000);
+</script>
+</body>
+</html>
