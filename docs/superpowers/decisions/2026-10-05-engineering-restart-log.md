@@ -1009,3 +1009,10 @@ W1 stopped before Task 9b: restoring old colors for legacy screens could not rea
 Ruling: keep the new destructive fill and make its label white (5.39:1); leave the legacy
 wrong-answer text and legacy mock timer as they are, because W4d and W4e replace those screens and
 now carry a contrast test each (L3 W1 Task 9b item 2, L3 W4d, L3 W4e amended).
+
+## October 10, 2026: model roles amended
+
+Aedwon proposed and approved (answers "1. yes 2. yes"): Opus plans and orchestrates; GPT-6.1 Sol
+implements, with Sonnet 5.5 as a second implementor; Haiku or GPT-6 Luna read and summarize. His
+limit: "only invoke sonnet if 6.1 Sol has run out, and never have it pick up Sol's work". Strategy
+B7 amended. The extra Claude usage for Sonnet is accepted. Astra audits all workstreams.

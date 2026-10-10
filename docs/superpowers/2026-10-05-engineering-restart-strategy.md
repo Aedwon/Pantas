@@ -230,6 +230,19 @@ that need no reasoning. Implementation uses Sonnet 5.5 unless the lead judges a 
     with reasons), runs the plan gates, integrates, updates the plans, traceability and SSOT, and
     brings Aedwon the decisions. Opus does not write implementation code, except integration conflict resolutions, reviewed as below.
   - Pace follows Aedwon's Codex limits; the three-worker limit in the parallel map still applies.
+- **Amended October 10 (Aedwon):** "opus 5.5 -> orchestrator/planner; sonnet 5.5/GPT6.1 Sol ->
+  implementor; haiku 5.5 / 6 Luna -> for other work like reading, summarizing"; and "only invoke
+  sonnet if 6.1 Sol has run out, and never have it pick up Sol's work".
+  - Implementation: GPT-6.1 Sol stays the first choice. Sonnet 5.5 (a Claude subagent in its own
+    worktree) starts only while the Codex limit is used up, and only on a workstream or task no Sol
+    worker has started. It never resumes, edits or finishes a Sol worker's task or worktree, and a
+    Sol worker never takes over Sonnet's. Each workstream has one implementor from start to finish.
+  - Reading and summarizing with no judgment (board fact sheets with sizes, colors and copy;
+    evidence and log digests; inventories): the current Haiku or GPT-6 Luna. Their output is
+    input for a planner or implementor, never a review, ruling or acceptance. The lead confirms
+    each model name before first use (not yet confirmed on October 10).
+  - Audits stay with GPT-6 Astra for every workstream, including Sonnet's, because the Opus lead
+    and Sonnet are the same model family. The lead still reviews and accepts.
   - Reviews: the Astra audit adds to, and does not replace, the independent review SUBAGENTS Part
     7b requires. The Opus lead is that independent reviewer for every workstream (never the
     author), and personally accepts each money, entitlement, security-rule and data change before
