@@ -51,8 +51,8 @@ class PantasType extends ThemeExtension<PantasType> {
           fontFamily: 'Geist',
           fontSize: 24,
           fontWeight: FontWeight.w700,
-          letterSpacing: -0.528,
-          height: 1.12,
+          letterSpacing: -0.288,
+          height: 1.35,
           color: colors.label,
         ),
         body: TextStyle(

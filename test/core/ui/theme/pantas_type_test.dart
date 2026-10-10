@@ -46,7 +46,8 @@ void main() {
     expect(style.fontSize, 24);
     expect(style.fontWeight, FontWeight.w700);
     expect(style.fontFamily, 'Geist');
-    expect(style.letterSpacing, closeTo(-0.528, 0.000001));
+    expect(style.height, 1.35);
+    expect(style.letterSpacing, closeTo(-0.288, 0.000001));
     expect(
       style.tabular.fontFeatures,
       contains(const FontFeature.tabularFigures()),
