@@ -1,6 +1,6 @@
 import { createHmac, timingSafeEqual } from 'node:crypto';
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import {coverageAt, type CoveragePeriod, type LedgerPass} from './revenuecatCoverage.js';
+export {coverageAt} from './revenuecatCoverage.js';
 
 const HMAC_SHA256_HEX = /^[0-9a-f]{64}$/i;
 const UNIX_TIMESTAMP = /^\d+$/;
@@ -143,25 +143,23 @@ export interface RevenueCatAccessSource {
   active: boolean;
 }
 
-const products = JSON.parse(readFileSync(join(__dirname, 'products.json'), 'utf8')) as
-  {id: string; kind: string; tier: string}[];
-
 export function claimsForRevenueCatAnswer(sources: RevenueCatAccessSource[], options: {
   appId: string; firebaseProjectId: string; sandboxTester: boolean; at: number;
+  passes?: readonly LedgerPass[];
 }): {pro: boolean; proUntil: number} {
-  let latest = 0;
+  const subscriptions: CoveragePeriod[] = [];
+  const promotions: CoveragePeriod[] = [];
   for (const source of sources) {
     if (!source.active || !Number.isFinite(source.endsAt) || source.endsAt <= options.at) continue;
     if (source.environment !== 'production' && !(source.environment === 'sandbox' &&
         (options.firebaseProjectId === 'pantas-staging' || options.sandboxTester))) continue;
     if (source.store === 'promotional') {
-      if (source.entitlementIds.some(id => products.some(p => p.id === id && p.kind === 'promotional'))) {
-        latest = Math.max(latest, source.endsAt);
-      }
-    } else if (source.appId === options.appId && source.entitlementIds.includes('pro') &&
-        products.some(p => p.id === source.productId?.split(':')[0] && p.kind === 'subscription')) {
-      latest = Math.max(latest, source.endsAt);
+      promotions.push(...source.entitlementIds.map(id => ({id, endsAt: source.endsAt, active: true})));
+    } else if (source.appId === options.appId && source.entitlementIds.includes('pro') && source.productId) {
+      subscriptions.push({id: source.productId.split(':')[0], endsAt: source.endsAt, active: true});
     }
   }
+  const coverage = coverageAt({at: options.at, subscriptions, promotions, passes: options.passes});
+  const latest = coverage.endsAt ?? 0;
   return {pro: latest > 0, proUntil: latest > 0 ? latest + 86_400_000 : 0};
 }
