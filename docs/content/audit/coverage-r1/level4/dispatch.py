@@ -67,6 +67,13 @@ def register(envelope, run=_run, state_dir=None):
     return {"task_id": match.group(1), "issue_url": match.group(2), "issue_number": int(match.group(3))}
 
 
+def cancel(task_id, run=_run):
+    """Cancel a worker task that is no longer wanted. Safe on a finished task."""
+    code, output = run([str(DISPATCHER_PYTHON), "-m", "dispatcher.cli", "cancel", task_id], DISPATCHER_ROOT)
+    if code != 0:
+        raise l4lib.L4Error("dispatcher did not cancel %s: %s" % (task_id, output.strip()[-200:]))
+
+
 def parse_events(comment_bodies):
     events = []
     for body in comment_bodies:
