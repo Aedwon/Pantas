@@ -715,3 +715,14 @@ Exact human approval:
 Main now contains the approved distinction: give necessary problem-specific facts/values/conditions/referenced material for a determinate answer, without supplying formulas/definitions/methods students are expected to know or select. Expected knowledge follows taught content and source-backed exam requirements. A supplied formula needs an exam-provided or outside-tested-recall reason, recorded in authoring/audit evidence. Teaching and solutions may still explain methods.
 
 Level4 checks this in worked-example stems through the amended lesson guide/L05; Level5 applies Q20 to in-lesson quizzes and bank questions. This amendment does not approve beginning either level. Five-file focused checks and scoped canonical Dart attribution PASS (files5/hits0); independent read-only review PASS; only L05 clarified and Q20 added, other58rules unchanged. Main local/live confirmed `168e393dc997de4531f4fdd5b683c66025e75d0e`. No content, roadmap, app, fields/schema or blind-solve procedure changed. Level3 remains approved and Level4 remains held.
+
+## October 10, 2026: Level 4 route changed, not started
+
+Aedwon approved Level 4 to run in ChatGPT web chats in place of the Codex
+orchestrator, with a blind second read on every lesson and relay hand-in. Draft
+spec: `docs/superpowers/specs/2026-10-10-level-4-web-chat-audit-design.md`,
+awaiting his approval. Decision record with his exact words: October 10 entry in
+`docs/superpowers/decisions/2026-10-01-question-explanations-log.md`. Policy read
+from main `168e393dc997de4531f4fdd5b683c66025e75d0e`. Nothing is built; no Level 4
+task has started. The Codex orchestrator must not start Level 4, and the first
+line of this file must not become `STATE: RUNNING`. Level 5 remains unauthorized.

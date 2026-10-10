@@ -1442,3 +1442,61 @@ Exact human approval:
 Main now contains the approved distinction: give necessary problem-specific facts/values/conditions/referenced material for a determinate answer, without supplying formulas/definitions/methods students are expected to know or select. Expected knowledge follows taught content and source-backed exam requirements. A supplied formula needs an exam-provided or outside-tested-recall reason, recorded in authoring/audit evidence. Teaching and solutions may still explain methods.
 
 Level4 checks this in worked-example stems through the amended lesson guide/L05; Level5 applies Q20 to in-lesson quizzes and bank questions. This amendment does not approve beginning either level. Five-file focused checks and scoped canonical Dart attribution PASS (files5/hits0); independent read-only review PASS; only L05 clarified and Q20 added, other58rules unchanged. Main local/live confirmed `168e393dc997de4531f4fdd5b683c66025e75d0e`. No content, roadmap, app, fields/schema or blind-solve procedure changed. Level3 remains approved and Level4 remains held.
+
+### October 10, 2026: Level 4 approved to run in ChatGPT web chats, spec pending
+
+Context: Aedwon paused the content audit to save Codex and Claude usage for
+engineering. In a Claude desktop conversation he asked whether Level 4 could
+continue in ChatGPT web chats, one chat per lesson. Exact human statements, in
+order:
+
+> what I want to do, so that the work continues even though i'm limited in usage limits, is that I'll have the level 4 get worked on by ChatGPT web chat (using 6 Sol). but i think we need to set up a system where it is very scoped such that 1 chat = 1 lesson so that it can focus and not have context rot.
+
+> are those stringent enough? also I'm willing to copy paste pre-filled prompts (just like in the lesson studio) but ensure it's well-made
+
+> i also maybe want another chat (or chats) to independently verify the output of that.
+>
+> i am thinking i go at it lesson by lesson, and changes in github must sync to local so that i can see in real time if i need to move on to the next thing.
+>
+> i am also going to turn on a runner and have it use the chatgpt relay for this.
+
+> um just to clarify chatgpt web chat can't do anything locally, so it has to edit files in github directly and use the github runners if it wants to do something in my mac like tests and whatnot
+
+Three decisions were then offered: (1) hand-in route, relay (validated before
+saving, result lands locally first) or direct GitHub edit (simpler, but invalid
+results reach the branch before the check and stray edits are only flagged
+afterward); (2) a blind second read on every lesson (about 330 chats) or on a
+sample (about 200); (3) starting Level 4 with web chats replacing the Codex
+orchestrator. His answer:
+
+> 1. do check if the relay supports what you need it to do first. if yes, then we go through relay. if not, if it's as easy as changing config to allow it, then we go. otherwise, we do direct edit
+>
+> 2. every lesson to be sure
+> 3. ok
+
+The relay was checked against its repository on October 10: file write, script
+execution, result return, and guarded push are supported for requests authored
+under his GitHub login, with no configuration change. So the hand-in goes through
+the relay. All three runners were offline at the time of the check.
+
+Asked whether to write the spec, he answered:
+
+> ok
+
+What changed: draft spec saved at
+`docs/superpowers/specs/2026-10-10-level-4-web-chat-audit-design.md`. Its
+plain-language section is not yet approved. Nothing is built and no Level 4
+reading, brief, packet, or chat has started.
+
+Binding consequences for any agent resuming this audit:
+
+- Level 4 is approved only in the web chat form described by that spec, after
+  its approval. The Codex orchestrator must not start Level 4.
+- Do not set `status.md` to `STATE: RUNNING`. The watcher would resume Codex.
+- Level 5 remains unauthorized. The findings-only boundary is unchanged.
+
+Open before the build: his approval of the spec section, whether he wants a
+mockup of the local page, and which ChatGPT web model he will select ("6 Sol" as
+written, against 6.1 Sol High used for Levels 1 to 3). The earlier "lesson studio"
+reference could not be matched to a tool in the repository; the question and
+illustration studios exist and their pattern is reused.
