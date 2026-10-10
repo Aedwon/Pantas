@@ -53,7 +53,10 @@ class AppNavBar extends StatelessWidget {
 
   static const _labelHorizontalAllowance = 8.0;
 
-  List<double> _itemWidths(BuildContext context, double availableWidth) {
+  ({List<double> widths, TextScaler textScaler}) _itemLayout(
+    BuildContext context,
+    double availableWidth,
+  ) {
     final equalWidth = availableWidth / _tabs.length;
     final textDirection = Directionality.of(context);
     final textScaler = MediaQuery.textScalerOf(context);
@@ -77,8 +80,24 @@ class AppNavBar extends StatelessWidget {
         }(),
     ];
 
+    ({List<double> widths, TextScaler textScaler}) fit(List<double> widths) {
+      var factor = 1.0;
+      for (var i = 0; i < widths.length; i++) {
+        final fit = (widths[i] - _labelHorizontalAllowance)
+                .clamp(0.0, double.infinity) /
+            (requiredWidths[i] - _labelHorizontalAllowance);
+        if (fit < factor) factor = fit;
+      }
+      final fontSize = labelStyle.fontSize!;
+      return (
+        widths: widths,
+        textScaler:
+            TextScaler.linear(textScaler.scale(fontSize) / fontSize * factor),
+      );
+    }
+
     if (requiredWidths.every((width) => width <= equalWidth)) {
-      return List<double>.filled(_tabs.length, equalWidth);
+      return fit(List<double>.filled(_tabs.length, equalWidth));
     }
 
     final requiredTotal = requiredWidths.fold<double>(
@@ -87,12 +106,12 @@ class AppNavBar extends StatelessWidget {
     );
     if (requiredTotal <= availableWidth) {
       final extraPerItem = (availableWidth - requiredTotal) / _tabs.length;
-      return [for (final width in requiredWidths) width + extraPerItem];
+      return fit([for (final width in requiredWidths) width + extraPerItem]);
     }
 
     final minimumTotal = AppDimensions.minTapTarget * _tabs.length;
     if (minimumTotal >= availableWidth) {
-      return List<double>.filled(_tabs.length, equalWidth);
+      return fit(List<double>.filled(_tabs.length, equalWidth));
     }
 
     final extraNeeds = [
@@ -107,13 +126,13 @@ class AppNavBar extends StatelessWidget {
     );
     final distributableWidth = availableWidth - minimumTotal;
 
-    return [
+    return fit([
       for (final need in extraNeeds)
         AppDimensions.minTapTarget +
             (totalExtraNeed == 0
                 ? distributableWidth / _tabs.length
                 : distributableWidth * need / totalExtraNeed),
-    ];
+    ]);
   }
 
   @override
@@ -138,16 +157,17 @@ class AppNavBar extends StatelessWidget {
       padding: const EdgeInsets.all(6),
       child: LayoutBuilder(
         builder: (context, constraints) {
-          final widths = _itemWidths(context, constraints.maxWidth - 6);
+          final layout = _itemLayout(context, constraints.maxWidth - 6);
           return Row(
             children: [
               for (var i = 0; i < _tabs.length; i++) ...[
                 if (i > 0) const SizedBox(width: 2),
                 SizedBox(
-                  width: widths[i],
+                  width: layout.widths[i],
                   child: _NavItem(
                     label: _tabs[i].label,
                     glyph: _tabs[i].glyph,
+                    labelTextScaler: layout.textScaler,
                     isActive: currentIndex == i,
                     onTap: () => onTap(i),
                   ),
@@ -165,11 +185,13 @@ class _NavItem extends StatelessWidget {
   const _NavItem({
     required this.label,
     required this.glyph,
+    required this.labelTextScaler,
     required this.isActive,
     required this.onTap,
   });
   final String label;
   final IconData glyph;
+  final TextScaler labelTextScaler;
   final bool isActive;
   final VoidCallback onTap;
 
@@ -215,6 +237,7 @@ class _NavItem extends StatelessWidget {
                 const SizedBox(height: 2),
                 Text(
                   label,
+                  textScaler: labelTextScaler,
                   maxLines: 1,
                   softWrap: false,
                   overflow: TextOverflow.clip,

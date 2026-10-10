@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -19,6 +20,49 @@ Widget harness(
     );
 
 void main() {
+  setUpAll(() async {
+    final font = FontLoader('Geist');
+    for (final weight in ['Regular', 'Medium', 'SemiBold', 'Bold']) {
+      font.addFont(rootBundle.load('assets/fonts/Geist-$weight.ttf'));
+    }
+    await font.load();
+  });
+  for (final (width, scale) in [(320.0, 3.0), (360.0, 2.0), (390.0, 1.0)]) {
+    testWidgets('whole tab labels fit at $width px and $scale text scale',
+        (tester) async {
+      tester.view
+        ..physicalSize = Size(width, 640)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(MaterialApp(
+          theme: buildLightTheme(),
+          home: MediaQuery(
+              data: MediaQueryData(textScaler: TextScaler.linear(scale)),
+              child: Scaffold(
+                  bottomNavigationBar: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: AppNavBar(currentIndex: 0, onTap: (_) {}),
+              )))));
+      final scales = <double>[];
+      for (final label in ['Home', 'Study', 'Quiz', 'Settings']) {
+        final paragraph =
+            tester.renderObject<RenderParagraph>(find.text(label));
+        final boxes = paragraph.getBoxesForSelection(
+            TextSelection(baseOffset: 0, extentOffset: label.length));
+        expect(boxes, hasLength(1));
+        expect(boxes.single.left, greaterThanOrEqualTo(-0.001));
+        expect(
+            boxes.single.right, lessThanOrEqualTo(paragraph.size.width + 0.001),
+            reason: label);
+        expect(paragraph.didExceedMaxLines, isFalse);
+        scales.add(paragraph.textScaler.scale(10));
+      }
+      expect(scales, everyElement(scales.first));
+      expect(tester.takeException(), isNull);
+    });
+  }
+
   testWidgets('tab glyphs use the board size of 23', (tester) async {
     await tester.pumpWidget(harness());
     expect(tester.widgetList<Icon>(find.byType(Icon)).map((icon) => icon.size),
