@@ -1611,3 +1611,32 @@ GitHub without checking how a relay hand-in travels.
 Not yet approved: spec revision 2, mockup version 3, the erase confirmation, and
 the effort level (High assumed). Nothing is built. Level 5 remains unauthorized.
 `status.md` must still not become `STATE: RUNNING`.
+
+### October 10, 2026: spec revision 2 and mockup v3 approved; eraser pending
+
+Before answering, he asked where the dispatcher runs and whether it could be the
+ChatGPT app:
+
+> wait, where is the dispatcher? can it be the chatgpt app (on chat mode)? chat doesn't have limits. or am i misunderstanding something here
+
+Answer given: the dispatcher is a program on his Mac in the relay repository
+folder; it drives its own Brave window on chatgpt.com and cannot drive the
+desktop app; its chats are the same chat mode on the same account, so the same
+limits, or none, apply. The run still pauses if a limit appears.
+
+Three questions were open: (1) approve spec revision 2 and mockup version 3;
+(2) confirm the script may erase hand-in issue text in his relay repository;
+(3) effort level High. Exact human answer:
+
+> 1 and 3 yes
+>
+> for 2, is that safe?
+
+Approved: spec revision 2 as saved at `9c69b13f03864c6491929808c32f232abc247319`,
+mockup version 3 as the 1:1 requirement for the page, and High effort. He stated
+that chat mode has no usage limits on his plan; the spec keeps the pause as a
+precaution. Not approved: the eraser. He was told it saves before erasing,
+touches only this run's hand-in issues, does not retrigger the relay, and is
+reversible through GitHub's edit history, which also means a determined chat
+could still find the text. The eraser must not run until he confirms.
+The plan and build may start. Level 5 remains unauthorized.

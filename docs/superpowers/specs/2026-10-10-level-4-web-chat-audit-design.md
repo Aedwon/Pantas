@@ -1,9 +1,9 @@
 # Level 4 lesson standards audit through ChatGPT web chats
 
 Date: October 10, 2026
-Status: Revision 2, awaiting Aedwon's approval. Revision 1 (prompts pasted by
-hand) was approved on October 10 and is superseded by his later choice of an
-automatic run. Nothing is built and Level 4 has not started.
+Status: Revision 2 approved by Aedwon on October 10, 2026, with page mockup
+version 3 and High effort. The hand-in issue eraser is not yet confirmed and
+must not run until it is. Revision 1 (prompts pasted by hand) is superseded.
 Parent spec: `2026-10-03-exam-content-coverage-audit-design.md` (Level 4, "Lesson
 standards", and "Illustration review"). This spec changes how Level 4 is run. It
 does not change what Level 4 must answer.
