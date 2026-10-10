@@ -15,9 +15,9 @@
     display: grid; grid-template-rows: auto 1fr; }
   .mock { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 10px 16px; }
   .mock span { margin-right: 6px; color: #8d94a3; }
-  .mock button { font: inherit; color: #c9ced8; background: #1c2027; border: 1px solid #2c323d;
+  .mock label { font: inherit; color: #c9ced8; background: #1c2027; border: 1px solid #2c323d;
     border-radius: 6px; padding: 4px 10px; cursor: pointer; }
-  .mock button:hover { border-color: #5a6373; }
+  .mock label:hover { border-color: #5a6373; }
 
   /* The tool itself. Everything inside .tool is what gets built. */
   .tool {
@@ -39,7 +39,7 @@
   .more a { color: var(--blue); }
   .more code { font-size: 14px; background: #e0e5eb; padding: 1px 6px; border-radius: 4px; color: var(--ink); }
 
-  .go { display: block; width: 100%; font: inherit; font-size: 19px; font-weight: 600; color: #fff;
+  .go { display: block; box-sizing: border-box; text-align: center; width: 100%; font: inherit; font-size: 19px; font-weight: 600; color: #fff;
     background: var(--blue); border: 0; border-radius: 12px; padding: 19px 20px; cursor: pointer; }
   .go:hover { background: #245fc7; }
   .go:active { transform: translateY(1px); }
@@ -95,159 +95,83 @@
   .toast { position: fixed; left: 50%; bottom: 96px; transform: translateX(-50%); background: #1b2330; color: #fff;
     padding: 9px 16px; border-radius: 999px; font-size: 14px; opacity: 0; transition: opacity .15s; pointer-events: none; }
   .toast.on { opacity: 1; }
+
+  /* Mockup state switching, done without scripts so it works in any preview. */
+  .state { position: absolute; opacity: 0; pointer-events: none; }
+  .frame { display: none; }
+  #start1:checked ~ .tool [data-f="start1"],
+  #start2:checked ~ .tool [data-f="start2"],
+  #both:checked ~ .tool [data-f="both"],
+  #fixing:checked ~ .tool [data-f="fixing"],
+  #one:checked ~ .tool [data-f="one"],
+  #differ:checked ~ .tool [data-f="differ"],
+  #deciding:checked ~ .tool [data-f="deciding"],
+  #finished:checked ~ .tool [data-f="finished"],
+  #offline:checked ~ .tool [data-f="offline"],
+  #stop:checked ~ .tool [data-f="stop"] { display: block; }
+  #start1:checked ~ .mock label[for="start1"],
+  #start2:checked ~ .mock label[for="start2"],
+  #both:checked ~ .mock label[for="both"],
+  #fixing:checked ~ .mock label[for="fixing"],
+  #one:checked ~ .mock label[for="one"],
+  #differ:checked ~ .mock label[for="differ"],
+  #deciding:checked ~ .mock label[for="deciding"],
+  #finished:checked ~ .mock label[for="finished"],
+  #offline:checked ~ .mock label[for="offline"],
+  #stop:checked ~ .mock label[for="stop"] { background: #2f6fde; border-color: #2f6fde; color: #fff; }
+  .more { margin-bottom: 26px; }
 </style>
 </head>
 <body>
-
+<input class="state" type="radio" name="state" id="start1" checked><input class="state" type="radio" name="state" id="start2"><input class="state" type="radio" name="state" id="both"><input class="state" type="radio" name="state" id="fixing"><input class="state" type="radio" name="state" id="one"><input class="state" type="radio" name="state" id="differ"><input class="state" type="radio" name="state" id="deciding"><input class="state" type="radio" name="state" id="finished"><input class="state" type="radio" name="state" id="offline"><input class="state" type="radio" name="state" id="stop">
 <div class="mock">
-  <span>Mockup controls, not part of the page. They need a real browser; a file preview shows only the first state.</span>
-  <button onclick="ev('c1')">Chat 1 hands in</button>
-  <button onclick="ev('fix')">Chat 1 form rejected</button>
-  <button onclick="ev('c2agree')">Chat 2 hands in, they agree</button>
-  <button onclick="ev('c2differ')">Chat 2 hands in, they disagree</button>
-  <button onclick="ev('decided')">Deciding chat hands in</button>
-  <button onclick="ev('offline')">Runner offline</button>
-  <button onclick="ev('stop')">Stop</button>
-  <button onclick="ev('reset')">Reset</button>
+  <span>Mockup only. Jump to a state:</span>
+  <label for="start1">Start first chat</label><label for="start2">Start second chat</label><label for="both">Both working</label><label for="fixing">Form rejected</label><label for="one">One handed in</label><label for="differ">They disagree</label><label for="deciding">Deciding chat working</label><label for="finished">Finished</label><label for="offline">Runner offline</label><label for="stop">Stopped</label>
 </div>
 
 <div class="tool">
   <div>
-    <div class="alert" id="alert">No runner is online, so chats cannot hand in. Turn one on to continue.</div>
-    <div class="stage">
-      <div class="col">
-        <p class="where" id="where">Lesson 12 of 158, Mathematics</p>
-        <p class="lesson" id="lesson">Quadratic Equations</p>
-
-        <h1 class="say" id="say">Start the first chat.</h1>
-        <p class="more" id="more" style="display:none"></p>
-
-        <button class="go" id="go" onclick="act()">Copy prompt and open ChatGPT</button>
-        <p class="hint" id="hint">Then paste it into the new chat. Set the model to 6 Sol. Shortcut: <kbd>Space</kbd></p>
-
-        <ul class="chats">
-          <li id="r1"><i class="mark"></i><b>Chat 1</b><span>Not started</span></li>
-          <li id="r2"><i class="mark"></i><b>Chat 2</b><span>Not started</span></li>
-          <li id="r3" hidden><i class="mark"></i><b>Deciding chat</b><span>Not started</span></li>
-        </ul>
-
-        <details class="trouble">
-          <summary>Something wrong?</summary>
-          <div>
-            <button onclick="toast('Prompt copied again')">Copy a prompt again</button>
-            <button onclick="document.getElementById('hand').style.display='block'">Paste a form by hand</button>
-            <button onclick="toast('Lesson put on hold')">Put this lesson on hold</button>
-          </div>
-          <textarea id="hand" placeholder="Paste the chat's answer form here. The page checks it and saves it."></textarea>
-        </details>
-      </div>
-    </div>
+<div class="frame" data-f="start1"><div class="stage"><div class="col"><p class="where">Lesson 12 of 158, Mathematics</p><p class="lesson">Quadratic Equations</p><h1 class="say">Start the first chat.</h1><label class="go" for="start2" tabindex="0" role="button" data-copy>Copy prompt and open ChatGPT</label><p class="hint">Then paste it into the new chat. Set the model to 6 Sol. Shortcut: <kbd>Space</kbd></p><ul class="chats"><li data-s="idle"><i class="mark"></i><b>Chat 1</b><span>Not started</span></li><li data-s="idle"><i class="mark"></i><b>Chat 2</b><span>Not started</span></li></ul><details class="trouble"><summary>Something wrong?</summary><div>
+<button type="button">Copy a prompt again</button><button type="button">Paste a form by hand</button><button type="button">Put this lesson on hold</button></div></details></div></div></div>
+<div class="frame" data-f="start2"><div class="stage"><div class="col"><p class="where">Lesson 12 of 158, Mathematics</p><p class="lesson">Quadratic Equations</p><h1 class="say">Start the second chat.</h1><label class="go" for="both" tabindex="0" role="button" data-copy>Copy prompt and open ChatGPT</label><p class="hint">No need to wait for chat 1. Then paste it into the new chat. Set the model to 6 Sol. Shortcut: <kbd>Space</kbd></p><ul class="chats"><li data-s="working"><i class="mark"></i><b>Chat 1</b><span>Working, 2 minutes so far</span></li><li data-s="idle"><i class="mark"></i><b>Chat 2</b><span>Not started</span></li></ul><details class="trouble"><summary>Something wrong?</summary><div>
+<button type="button">Copy a prompt again</button><button type="button">Paste a form by hand</button><button type="button">Put this lesson on hold</button></div></details></div></div></div>
+<div class="frame" data-f="both"><div class="stage"><div class="col"><p class="where">Lesson 12 of 158, Mathematics</p><p class="lesson">Quadratic Equations</p><h1 class="say">Both chats are working.</h1><p class="more">Nothing to do. This page updates by itself and notifies you.</p><ul class="chats"><li data-s="working"><i class="mark"></i><b>Chat 1</b><span>Working, 2 minutes so far</span></li><li data-s="working"><i class="mark"></i><b>Chat 2</b><span>Working, 2 minutes so far</span></li></ul><details class="trouble"><summary>Something wrong?</summary><div>
+<button type="button">Copy a prompt again</button><button type="button">Paste a form by hand</button><button type="button">Put this lesson on hold</button></div></details></div></div></div>
+<div class="frame" data-f="fixing"><div class="stage"><div class="col"><p class="where">Lesson 12 of 158, Mathematics</p><p class="lesson">Quadratic Equations</p><h1 class="say">Both chats are working.</h1><p class="more">Nothing to do. This page updates by itself and notifies you.</p><ul class="chats"><li data-s="fixing"><i class="mark"></i><b>Chat 1</b><span>Fixing a rejected form</span></li><li data-s="working"><i class="mark"></i><b>Chat 2</b><span>Working, 2 minutes so far</span></li></ul><details class="trouble"><summary>Something wrong?</summary><div>
+<button type="button">Copy a prompt again</button><button type="button">Paste a form by hand</button><button type="button">Put this lesson on hold</button></div></details></div></div></div>
+<div class="frame" data-f="one"><div class="stage"><div class="col"><p class="where">Lesson 12 of 158, Mathematics</p><p class="lesson">Quadratic Equations</p><h1 class="say">One chat is still working.</h1><p class="more">Nothing to do. This page updates by itself and notifies you.</p><ul class="chats"><li data-s="done"><i class="mark"></i><b>Chat 1</b><span>Handed in</span></li><li data-s="working"><i class="mark"></i><b>Chat 2</b><span>Working, 2 minutes so far</span></li></ul><details class="trouble"><summary>Something wrong?</summary><div>
+<button type="button">Copy a prompt again</button><button type="button">Paste a form by hand</button><button type="button">Put this lesson on hold</button></div></details></div></div></div>
+<div class="frame" data-f="differ"><div class="stage"><div class="col"><p class="where">Lesson 12 of 158, Mathematics</p><p class="lesson">Quadratic Equations</p><h1 class="say">The chats disagree on 2 rules. Start a deciding chat.</h1><label class="go" for="deciding" tabindex="0" role="button" data-copy>Copy prompt and open ChatGPT</label><p class="hint">Then paste it into the new chat. Set the model to 6 Sol. Shortcut: <kbd>Space</kbd></p><ul class="chats"><li data-s="done"><i class="mark"></i><b>Chat 1</b><span>Handed in</span></li><li data-s="done"><i class="mark"></i><b>Chat 2</b><span>Handed in</span></li><li data-s="idle"><i class="mark"></i><b>Deciding chat</b><span>Not started</span></li></ul><details class="trouble"><summary>Something wrong?</summary><div>
+<button type="button">Copy a prompt again</button><button type="button">Paste a form by hand</button><button type="button">Put this lesson on hold</button></div></details></div></div></div>
+<div class="frame" data-f="deciding"><div class="stage"><div class="col"><p class="where">Lesson 12 of 158, Mathematics</p><p class="lesson">Quadratic Equations</p><h1 class="say">The deciding chat is working.</h1><p class="more">Nothing to do. This page updates by itself and notifies you.</p><ul class="chats"><li data-s="done"><i class="mark"></i><b>Chat 1</b><span>Handed in</span></li><li data-s="done"><i class="mark"></i><b>Chat 2</b><span>Handed in</span></li><li data-s="working"><i class="mark"></i><b>Deciding chat</b><span>Working, 2 minutes so far</span></li></ul><details class="trouble"><summary>Something wrong?</summary><div>
+<button type="button">Copy a prompt again</button><button type="button">Paste a form by hand</button><button type="button">Put this lesson on hold</button></div></details></div></div></div>
+<div class="frame" data-f="finished"><div class="stage"><div class="col"><p class="where">Lesson 12 of 158, Mathematics</p><p class="lesson">Quadratic Equations</p><h1 class="say">Lesson finished.</h1><p class="more">8 findings and 2 illustration needs recorded. <a href="#">View them</a></p><label class="go" for="start1" tabindex="0" role="button">Next lesson</label><p class="hint">Shortcut: <kbd>Space</kbd></p><ul class="chats"><li data-s="done"><i class="mark"></i><b>Chat 1</b><span>Handed in</span></li><li data-s="done"><i class="mark"></i><b>Chat 2</b><span>Handed in</span></li></ul><details class="trouble"><summary>Something wrong?</summary><div>
+<button type="button">Copy a prompt again</button><button type="button">Paste a form by hand</button><button type="button">Put this lesson on hold</button></div></details></div></div></div>
+<div class="frame" data-f="offline"><div class="alert on">No runner is online, so chats cannot hand in. Turn one on to continue.</div><div class="stage"><div class="col"><p class="where">Lesson 12 of 158, Mathematics</p><p class="lesson">Quadratic Equations</p><h1 class="say">Both chats are working.</h1><p class="more">Nothing to do. This page updates by itself and notifies you.</p><ul class="chats"><li data-s="working"><i class="mark"></i><b>Chat 1</b><span>Working, 2 minutes so far</span></li><li data-s="working"><i class="mark"></i><b>Chat 2</b><span>Working, 2 minutes so far</span></li></ul><details class="trouble"><summary>Something wrong?</summary><div>
+<button type="button">Copy a prompt again</button><button type="button">Paste a form by hand</button><button type="button">Put this lesson on hold</button></div></details></div></div></div>
+<div class="frame" data-f="stop"><div class="stage"><div class="col"><p class="where">Lesson 12 of 158, Mathematics</p><p class="lesson">Quadratic Equations</p><h1 class="say stop">Stopped. A file changed that no chat handed in.</h1><p class="more">File: <code>packets/L4-0388.md</code>. Nothing more is saved until this is resolved.</p><ul class="chats"><li data-s="done"><i class="mark"></i><b>Chat 1</b><span>Handed in</span></li><li data-s="working"><i class="mark"></i><b>Chat 2</b><span>Working, 2 minutes so far</span></li></ul><details class="trouble"><summary>Something wrong?</summary><div>
+<button type="button">Copy a prompt again</button><button type="button">Paste a form by hand</button><button type="button">Put this lesson on hold</button></div></details></div></div></div>
   </div>
-
   <div class="ledger">
-    <div class="ledger-top"><span id="tally">9 of 158 lessons finished, 1 on hold</span><span id="eta">About 15 hours left at your pace</span></div>
-    <div class="groups" id="groups"><div class="group" style="flex:12"><div class="ticks"><button class="tick " aria-label="General Information lesson 1"></button><button class="tick " aria-label="General Information lesson 2"></button><button class="tick " aria-label="General Information lesson 3"></button><button class="tick " aria-label="General Information lesson 4"></button><button class="tick " aria-label="General Information lesson 5"></button><button class="tick " aria-label="General Information lesson 6"></button><button class="tick " aria-label="General Information lesson 7"></button><button class="tick " aria-label="General Information lesson 8"></button><button class="tick " aria-label="General Information lesson 9"></button><button class="tick " aria-label="General Information lesson 10"></button><button class="tick " aria-label="General Information lesson 11"></button><button class="tick " aria-label="General Information lesson 12"></button></div><small>General Information</small></div><div class="group" style="flex:19"><div class="ticks"><button class="tick " aria-label="Language Proficiency lesson 1"></button><button class="tick " aria-label="Language Proficiency lesson 2"></button><button class="tick " aria-label="Language Proficiency lesson 3"></button><button class="tick " aria-label="Language Proficiency lesson 4"></button><button class="tick " aria-label="Language Proficiency lesson 5"></button><button class="tick " aria-label="Language Proficiency lesson 6"></button><button class="tick " aria-label="Language Proficiency lesson 7"></button><button class="tick " aria-label="Language Proficiency lesson 8"></button><button class="tick " aria-label="Language Proficiency lesson 9"></button><button class="tick " aria-label="Language Proficiency lesson 10"></button><button class="tick " aria-label="Language Proficiency lesson 11"></button><button class="tick " aria-label="Language Proficiency lesson 12"></button><button class="tick " aria-label="Language Proficiency lesson 13"></button><button class="tick " aria-label="Language Proficiency lesson 14"></button><button class="tick " aria-label="Language Proficiency lesson 15"></button><button class="tick " aria-label="Language Proficiency lesson 16"></button><button class="tick " aria-label="Language Proficiency lesson 17"></button><button class="tick " aria-label="Language Proficiency lesson 18"></button><button class="tick " aria-label="Language Proficiency lesson 19"></button></div><small>Language Proficiency</small></div><div class="group" style="flex:46"><div class="ticks"><button class="tick done" aria-label="Mathematics lesson 1"></button><button class="tick done" aria-label="Mathematics lesson 2"></button><button class="tick done" aria-label="Mathematics lesson 3"></button><button class="tick done" aria-label="Mathematics lesson 4"></button><button class="tick held" aria-label="Mathematics lesson 5"></button><button class="tick done" aria-label="Mathematics lesson 6"></button><button class="tick done" aria-label="Mathematics lesson 7"></button><button class="tick done" aria-label="Mathematics lesson 8"></button><button class="tick done" aria-label="Mathematics lesson 9"></button><button class="tick done" aria-label="Mathematics lesson 10"></button><button class="tick now" aria-label="Mathematics lesson 11"></button><button class="tick " aria-label="Mathematics lesson 12"></button><button class="tick " aria-label="Mathematics lesson 13"></button><button class="tick " aria-label="Mathematics lesson 14"></button><button class="tick " aria-label="Mathematics lesson 15"></button><button class="tick " aria-label="Mathematics lesson 16"></button><button class="tick " aria-label="Mathematics lesson 17"></button><button class="tick " aria-label="Mathematics lesson 18"></button><button class="tick " aria-label="Mathematics lesson 19"></button><button class="tick " aria-label="Mathematics lesson 20"></button><button class="tick " aria-label="Mathematics lesson 21"></button><button class="tick " aria-label="Mathematics lesson 22"></button><button class="tick " aria-label="Mathematics lesson 23"></button><button class="tick " aria-label="Mathematics lesson 24"></button><button class="tick " aria-label="Mathematics lesson 25"></button><button class="tick " aria-label="Mathematics lesson 26"></button><button class="tick " aria-label="Mathematics lesson 27"></button><button class="tick " aria-label="Mathematics lesson 28"></button><button class="tick " aria-label="Mathematics lesson 29"></button><button class="tick " aria-label="Mathematics lesson 30"></button><button class="tick " aria-label="Mathematics lesson 31"></button><button class="tick " aria-label="Mathematics lesson 32"></button><button class="tick " aria-label="Mathematics lesson 33"></button><button class="tick " aria-label="Mathematics lesson 34"></button><button class="tick " aria-label="Mathematics lesson 35"></button><button class="tick " aria-label="Mathematics lesson 36"></button><button class="tick " aria-label="Mathematics lesson 37"></button><button class="tick " aria-label="Mathematics lesson 38"></button><button class="tick " aria-label="Mathematics lesson 39"></button><button class="tick " aria-label="Mathematics lesson 40"></button><button class="tick " aria-label="Mathematics lesson 41"></button><button class="tick " aria-label="Mathematics lesson 42"></button><button class="tick " aria-label="Mathematics lesson 43"></button><button class="tick " aria-label="Mathematics lesson 44"></button><button class="tick " aria-label="Mathematics lesson 45"></button><button class="tick " aria-label="Mathematics lesson 46"></button></div><small>Mathematics</small></div><div class="group" style="flex:13"><div class="ticks"><button class="tick " aria-label="Reading Comprehension lesson 1"></button><button class="tick " aria-label="Reading Comprehension lesson 2"></button><button class="tick " aria-label="Reading Comprehension lesson 3"></button><button class="tick " aria-label="Reading Comprehension lesson 4"></button><button class="tick " aria-label="Reading Comprehension lesson 5"></button><button class="tick " aria-label="Reading Comprehension lesson 6"></button><button class="tick " aria-label="Reading Comprehension lesson 7"></button><button class="tick " aria-label="Reading Comprehension lesson 8"></button><button class="tick " aria-label="Reading Comprehension lesson 9"></button><button class="tick " aria-label="Reading Comprehension lesson 10"></button><button class="tick " aria-label="Reading Comprehension lesson 11"></button><button class="tick " aria-label="Reading Comprehension lesson 12"></button><button class="tick " aria-label="Reading Comprehension lesson 13"></button></div><small>Reading Comprehension</small></div><div class="group" style="flex:17"><div class="ticks"><button class="tick " aria-label="Reasoning lesson 1"></button><button class="tick " aria-label="Reasoning lesson 2"></button><button class="tick " aria-label="Reasoning lesson 3"></button><button class="tick " aria-label="Reasoning lesson 4"></button><button class="tick " aria-label="Reasoning lesson 5"></button><button class="tick " aria-label="Reasoning lesson 6"></button><button class="tick " aria-label="Reasoning lesson 7"></button><button class="tick " aria-label="Reasoning lesson 8"></button><button class="tick " aria-label="Reasoning lesson 9"></button><button class="tick " aria-label="Reasoning lesson 10"></button><button class="tick " aria-label="Reasoning lesson 11"></button><button class="tick " aria-label="Reasoning lesson 12"></button><button class="tick " aria-label="Reasoning lesson 13"></button><button class="tick " aria-label="Reasoning lesson 14"></button><button class="tick " aria-label="Reasoning lesson 15"></button><button class="tick " aria-label="Reasoning lesson 16"></button><button class="tick " aria-label="Reasoning lesson 17"></button></div><small>Reasoning</small></div><div class="group" style="flex:51"><div class="ticks"><button class="tick " aria-label="Science lesson 1"></button><button class="tick " aria-label="Science lesson 2"></button><button class="tick " aria-label="Science lesson 3"></button><button class="tick " aria-label="Science lesson 4"></button><button class="tick " aria-label="Science lesson 5"></button><button class="tick " aria-label="Science lesson 6"></button><button class="tick " aria-label="Science lesson 7"></button><button class="tick " aria-label="Science lesson 8"></button><button class="tick " aria-label="Science lesson 9"></button><button class="tick " aria-label="Science lesson 10"></button><button class="tick " aria-label="Science lesson 11"></button><button class="tick " aria-label="Science lesson 12"></button><button class="tick " aria-label="Science lesson 13"></button><button class="tick " aria-label="Science lesson 14"></button><button class="tick " aria-label="Science lesson 15"></button><button class="tick " aria-label="Science lesson 16"></button><button class="tick " aria-label="Science lesson 17"></button><button class="tick " aria-label="Science lesson 18"></button><button class="tick " aria-label="Science lesson 19"></button><button class="tick " aria-label="Science lesson 20"></button><button class="tick " aria-label="Science lesson 21"></button><button class="tick " aria-label="Science lesson 22"></button><button class="tick " aria-label="Science lesson 23"></button><button class="tick " aria-label="Science lesson 24"></button><button class="tick " aria-label="Science lesson 25"></button><button class="tick " aria-label="Science lesson 26"></button><button class="tick " aria-label="Science lesson 27"></button><button class="tick " aria-label="Science lesson 28"></button><button class="tick " aria-label="Science lesson 29"></button><button class="tick " aria-label="Science lesson 30"></button><button class="tick " aria-label="Science lesson 31"></button><button class="tick " aria-label="Science lesson 32"></button><button class="tick " aria-label="Science lesson 33"></button><button class="tick " aria-label="Science lesson 34"></button><button class="tick " aria-label="Science lesson 35"></button><button class="tick " aria-label="Science lesson 36"></button><button class="tick " aria-label="Science lesson 37"></button><button class="tick " aria-label="Science lesson 38"></button><button class="tick " aria-label="Science lesson 39"></button><button class="tick " aria-label="Science lesson 40"></button><button class="tick " aria-label="Science lesson 41"></button><button class="tick " aria-label="Science lesson 42"></button><button class="tick " aria-label="Science lesson 43"></button><button class="tick " aria-label="Science lesson 44"></button><button class="tick " aria-label="Science lesson 45"></button><button class="tick " aria-label="Science lesson 46"></button><button class="tick " aria-label="Science lesson 47"></button><button class="tick " aria-label="Science lesson 48"></button><button class="tick " aria-label="Science lesson 49"></button><button class="tick " aria-label="Science lesson 50"></button><button class="tick " aria-label="Science lesson 51"></button></div><small>Science</small></div><div class="group" style="flex:10"><div class="ticks"><button class="tick " aria-label="Checks lesson 1"></button><button class="tick " aria-label="Checks lesson 2"></button><button class="tick " aria-label="Checks lesson 3"></button><button class="tick " aria-label="Checks lesson 4"></button><button class="tick " aria-label="Checks lesson 5"></button><button class="tick " aria-label="Checks lesson 6"></button><button class="tick " aria-label="Checks lesson 7"></button><button class="tick " aria-label="Checks lesson 8"></button><button class="tick " aria-label="Checks lesson 9"></button><button class="tick " aria-label="Checks lesson 10"></button></div><small>Checks</small></div></div>
+    <div class="ledger-top"><span>9 of 158 lessons finished, 1 on hold</span><span>About 15 hours left at your pace</span></div>
+    <div class="groups"><div class="group" style="flex:12"><div class="ticks"><button class="tick " aria-label="General Information lesson 1"></button><button class="tick " aria-label="General Information lesson 2"></button><button class="tick " aria-label="General Information lesson 3"></button><button class="tick " aria-label="General Information lesson 4"></button><button class="tick " aria-label="General Information lesson 5"></button><button class="tick " aria-label="General Information lesson 6"></button><button class="tick " aria-label="General Information lesson 7"></button><button class="tick " aria-label="General Information lesson 8"></button><button class="tick " aria-label="General Information lesson 9"></button><button class="tick " aria-label="General Information lesson 10"></button><button class="tick " aria-label="General Information lesson 11"></button><button class="tick " aria-label="General Information lesson 12"></button></div><small>General Information</small></div><div class="group" style="flex:19"><div class="ticks"><button class="tick " aria-label="Language Proficiency lesson 1"></button><button class="tick " aria-label="Language Proficiency lesson 2"></button><button class="tick " aria-label="Language Proficiency lesson 3"></button><button class="tick " aria-label="Language Proficiency lesson 4"></button><button class="tick " aria-label="Language Proficiency lesson 5"></button><button class="tick " aria-label="Language Proficiency lesson 6"></button><button class="tick " aria-label="Language Proficiency lesson 7"></button><button class="tick " aria-label="Language Proficiency lesson 8"></button><button class="tick " aria-label="Language Proficiency lesson 9"></button><button class="tick " aria-label="Language Proficiency lesson 10"></button><button class="tick " aria-label="Language Proficiency lesson 11"></button><button class="tick " aria-label="Language Proficiency lesson 12"></button><button class="tick " aria-label="Language Proficiency lesson 13"></button><button class="tick " aria-label="Language Proficiency lesson 14"></button><button class="tick " aria-label="Language Proficiency lesson 15"></button><button class="tick " aria-label="Language Proficiency lesson 16"></button><button class="tick " aria-label="Language Proficiency lesson 17"></button><button class="tick " aria-label="Language Proficiency lesson 18"></button><button class="tick " aria-label="Language Proficiency lesson 19"></button></div><small>Language Proficiency</small></div><div class="group" style="flex:46"><div class="ticks"><button class="tick done" aria-label="Mathematics lesson 1"></button><button class="tick done" aria-label="Mathematics lesson 2"></button><button class="tick done" aria-label="Mathematics lesson 3"></button><button class="tick done" aria-label="Mathematics lesson 4"></button><button class="tick held" aria-label="Mathematics lesson 5"></button><button class="tick done" aria-label="Mathematics lesson 6"></button><button class="tick done" aria-label="Mathematics lesson 7"></button><button class="tick done" aria-label="Mathematics lesson 8"></button><button class="tick done" aria-label="Mathematics lesson 9"></button><button class="tick done" aria-label="Mathematics lesson 10"></button><button class="tick now" aria-label="Mathematics lesson 11"></button><button class="tick " aria-label="Mathematics lesson 12"></button><button class="tick " aria-label="Mathematics lesson 13"></button><button class="tick " aria-label="Mathematics lesson 14"></button><button class="tick " aria-label="Mathematics lesson 15"></button><button class="tick " aria-label="Mathematics lesson 16"></button><button class="tick " aria-label="Mathematics lesson 17"></button><button class="tick " aria-label="Mathematics lesson 18"></button><button class="tick " aria-label="Mathematics lesson 19"></button><button class="tick " aria-label="Mathematics lesson 20"></button><button class="tick " aria-label="Mathematics lesson 21"></button><button class="tick " aria-label="Mathematics lesson 22"></button><button class="tick " aria-label="Mathematics lesson 23"></button><button class="tick " aria-label="Mathematics lesson 24"></button><button class="tick " aria-label="Mathematics lesson 25"></button><button class="tick " aria-label="Mathematics lesson 26"></button><button class="tick " aria-label="Mathematics lesson 27"></button><button class="tick " aria-label="Mathematics lesson 28"></button><button class="tick " aria-label="Mathematics lesson 29"></button><button class="tick " aria-label="Mathematics lesson 30"></button><button class="tick " aria-label="Mathematics lesson 31"></button><button class="tick " aria-label="Mathematics lesson 32"></button><button class="tick " aria-label="Mathematics lesson 33"></button><button class="tick " aria-label="Mathematics lesson 34"></button><button class="tick " aria-label="Mathematics lesson 35"></button><button class="tick " aria-label="Mathematics lesson 36"></button><button class="tick " aria-label="Mathematics lesson 37"></button><button class="tick " aria-label="Mathematics lesson 38"></button><button class="tick " aria-label="Mathematics lesson 39"></button><button class="tick " aria-label="Mathematics lesson 40"></button><button class="tick " aria-label="Mathematics lesson 41"></button><button class="tick " aria-label="Mathematics lesson 42"></button><button class="tick " aria-label="Mathematics lesson 43"></button><button class="tick " aria-label="Mathematics lesson 44"></button><button class="tick " aria-label="Mathematics lesson 45"></button><button class="tick " aria-label="Mathematics lesson 46"></button></div><small>Mathematics</small></div><div class="group" style="flex:13"><div class="ticks"><button class="tick " aria-label="Reading Comprehension lesson 1"></button><button class="tick " aria-label="Reading Comprehension lesson 2"></button><button class="tick " aria-label="Reading Comprehension lesson 3"></button><button class="tick " aria-label="Reading Comprehension lesson 4"></button><button class="tick " aria-label="Reading Comprehension lesson 5"></button><button class="tick " aria-label="Reading Comprehension lesson 6"></button><button class="tick " aria-label="Reading Comprehension lesson 7"></button><button class="tick " aria-label="Reading Comprehension lesson 8"></button><button class="tick " aria-label="Reading Comprehension lesson 9"></button><button class="tick " aria-label="Reading Comprehension lesson 10"></button><button class="tick " aria-label="Reading Comprehension lesson 11"></button><button class="tick " aria-label="Reading Comprehension lesson 12"></button><button class="tick " aria-label="Reading Comprehension lesson 13"></button></div><small>Reading Comprehension</small></div><div class="group" style="flex:17"><div class="ticks"><button class="tick " aria-label="Reasoning lesson 1"></button><button class="tick " aria-label="Reasoning lesson 2"></button><button class="tick " aria-label="Reasoning lesson 3"></button><button class="tick " aria-label="Reasoning lesson 4"></button><button class="tick " aria-label="Reasoning lesson 5"></button><button class="tick " aria-label="Reasoning lesson 6"></button><button class="tick " aria-label="Reasoning lesson 7"></button><button class="tick " aria-label="Reasoning lesson 8"></button><button class="tick " aria-label="Reasoning lesson 9"></button><button class="tick " aria-label="Reasoning lesson 10"></button><button class="tick " aria-label="Reasoning lesson 11"></button><button class="tick " aria-label="Reasoning lesson 12"></button><button class="tick " aria-label="Reasoning lesson 13"></button><button class="tick " aria-label="Reasoning lesson 14"></button><button class="tick " aria-label="Reasoning lesson 15"></button><button class="tick " aria-label="Reasoning lesson 16"></button><button class="tick " aria-label="Reasoning lesson 17"></button></div><small>Reasoning</small></div><div class="group" style="flex:51"><div class="ticks"><button class="tick " aria-label="Science lesson 1"></button><button class="tick " aria-label="Science lesson 2"></button><button class="tick " aria-label="Science lesson 3"></button><button class="tick " aria-label="Science lesson 4"></button><button class="tick " aria-label="Science lesson 5"></button><button class="tick " aria-label="Science lesson 6"></button><button class="tick " aria-label="Science lesson 7"></button><button class="tick " aria-label="Science lesson 8"></button><button class="tick " aria-label="Science lesson 9"></button><button class="tick " aria-label="Science lesson 10"></button><button class="tick " aria-label="Science lesson 11"></button><button class="tick " aria-label="Science lesson 12"></button><button class="tick " aria-label="Science lesson 13"></button><button class="tick " aria-label="Science lesson 14"></button><button class="tick " aria-label="Science lesson 15"></button><button class="tick " aria-label="Science lesson 16"></button><button class="tick " aria-label="Science lesson 17"></button><button class="tick " aria-label="Science lesson 18"></button><button class="tick " aria-label="Science lesson 19"></button><button class="tick " aria-label="Science lesson 20"></button><button class="tick " aria-label="Science lesson 21"></button><button class="tick " aria-label="Science lesson 22"></button><button class="tick " aria-label="Science lesson 23"></button><button class="tick " aria-label="Science lesson 24"></button><button class="tick " aria-label="Science lesson 25"></button><button class="tick " aria-label="Science lesson 26"></button><button class="tick " aria-label="Science lesson 27"></button><button class="tick " aria-label="Science lesson 28"></button><button class="tick " aria-label="Science lesson 29"></button><button class="tick " aria-label="Science lesson 30"></button><button class="tick " aria-label="Science lesson 31"></button><button class="tick " aria-label="Science lesson 32"></button><button class="tick " aria-label="Science lesson 33"></button><button class="tick " aria-label="Science lesson 34"></button><button class="tick " aria-label="Science lesson 35"></button><button class="tick " aria-label="Science lesson 36"></button><button class="tick " aria-label="Science lesson 37"></button><button class="tick " aria-label="Science lesson 38"></button><button class="tick " aria-label="Science lesson 39"></button><button class="tick " aria-label="Science lesson 40"></button><button class="tick " aria-label="Science lesson 41"></button><button class="tick " aria-label="Science lesson 42"></button><button class="tick " aria-label="Science lesson 43"></button><button class="tick " aria-label="Science lesson 44"></button><button class="tick " aria-label="Science lesson 45"></button><button class="tick " aria-label="Science lesson 46"></button><button class="tick " aria-label="Science lesson 47"></button><button class="tick " aria-label="Science lesson 48"></button><button class="tick " aria-label="Science lesson 49"></button><button class="tick " aria-label="Science lesson 50"></button><button class="tick " aria-label="Science lesson 51"></button></div><small>Science</small></div><div class="group" style="flex:10"><div class="ticks"><button class="tick " aria-label="Checks lesson 1"></button><button class="tick " aria-label="Checks lesson 2"></button><button class="tick " aria-label="Checks lesson 3"></button><button class="tick " aria-label="Checks lesson 4"></button><button class="tick " aria-label="Checks lesson 5"></button><button class="tick " aria-label="Checks lesson 6"></button><button class="tick " aria-label="Checks lesson 7"></button><button class="tick " aria-label="Checks lesson 8"></button><button class="tick " aria-label="Checks lesson 9"></button><button class="tick " aria-label="Checks lesson 10"></button></div><small>Checks</small></div></div>
   </div>
 </div>
 
-<div class="toast" id="toast"></div>
-
 <script>
-const $ = id => document.getElementById(id);
-const lessons = ['Quadratic Equations', 'Radicals and Rationalization', 'Sets and Set Notation'];
-let s;
-function reset(keepIndex) {
-  s = { i: keepIndex ? s.i : 0, c1: 'idle', c2: 'idle', c3: 'idle', differ: false, offline: false, stop: false };
-}
-const bothIn = () => s.c1 === 'done' && s.c2 === 'done';
-const finished = () => bothIn() && (!s.differ || s.c3 === 'done');
-
-function toast(t) { const e = $('toast'); e.textContent = t; e.classList.add('on');
-  clearTimeout(toast.t); toast.t = setTimeout(() => e.classList.remove('on'), 1500); }
-function copyPrompt(name) {
-  const text = `Pantas Level 4 lesson audit, ${name}. (The real prompt text is fixed in the plan.)`;
-  if (navigator.clipboard) navigator.clipboard.writeText(text).catch(() => {});
+// Optional extras. The mockup's states work without this script.
+const visibleGo = () => [...document.querySelectorAll('.go')].find(b => b.offsetParent);
+document.addEventListener('click', e => {
+  const b = e.target.closest('.go[data-copy]');
+  if (!b) return;
+  if (navigator.clipboard) navigator.clipboard.writeText('Pantas Level 4 lesson audit prompt (sample)').catch(() => {});
   window.open('https://chatgpt.com/', '_blank', 'noopener');
-  toast('Prompt copied');
-}
-function act() {
-  if (s.stop) return;
-  if (s.c1 === 'idle') { copyPrompt('chat 1'); s.c1 = 'working'; }
-  else if (s.c2 === 'idle') { copyPrompt('chat 2'); s.c2 = 'working'; }
-  else if (bothIn() && s.differ && s.c3 === 'idle') { copyPrompt('deciding chat'); s.c3 = 'working'; }
-  else if (finished()) { s.i = (s.i + 1) % lessons.length; reset(true); }
-  render();
-}
-function ev(e) {
-  if (e === 'reset') reset();
-  if (e === 'c1' && s.c1 !== 'idle') s.c1 = 'done';
-  if (e === 'fix' && s.c1 === 'working') s.c1 = 'fixing';
-  if (e.startsWith('c2') && s.c2 !== 'idle') { s.c2 = 'done'; s.differ = e === 'c2differ'; }
-  if (e === 'decided' && s.c3 === 'working') s.c3 = 'done';
-  if (e === 'offline') s.offline = !s.offline;
-  if (e === 'stop') s.stop = !s.stop;
-  render();
-}
-const rowText = { idle: 'Not started', working: 'Working, 2 minutes so far',
-  fixing: 'Fixing a rejected form', done: 'Handed in' };
-function row(id, state) { $(id).dataset.s = state; $(id).querySelector('span').textContent = rowText[state]; }
-
-function render() {
-  $('where').textContent = `Lesson ${12 + s.i} of 158, Mathematics`;
-  $('lesson').textContent = lessons[s.i];
-  row('r1', s.c1); row('r2', s.c2); row('r3', s.c3);
-  $('r3').hidden = !(bothIn() && s.differ);
-
-  let say, more = '', go = '', hint = '';
-  const paste = 'Then paste it into the new chat. Set the model to 6 Sol.';
-  if (s.stop) {
-    say = 'Stopped. A file changed that no chat handed in.';
-    more = 'File: <code>packets/L4-0388.md</code>. Nothing more is saved until this is resolved.';
-  } else if (s.c1 === 'idle') {
-    say = 'Start the first chat.'; go = 'Copy prompt and open ChatGPT'; hint = paste;
-  } else if (s.c2 === 'idle') {
-    say = 'Start the second chat.'; go = 'Copy prompt and open ChatGPT';
-    hint = 'No need to wait for chat 1. ' + paste;
-  } else if (!bothIn()) {
-    say = s.c1 === 'done' || s.c2 === 'done' ? 'One chat is still working.' : 'Both chats are working.';
-    more = 'Nothing to do. This page updates by itself and notifies you.';
-  } else if (s.differ && s.c3 === 'idle') {
-    say = 'The chats disagree on 2 rules. Start a deciding chat.';
-    go = 'Copy prompt and open ChatGPT'; hint = paste;
-  } else if (s.differ && s.c3 === 'working') {
-    say = 'The deciding chat is working.'; more = 'Nothing to do. This page updates by itself and notifies you.';
-  } else {
-    say = 'Lesson finished.';
-    more = '8 findings and 2 illustration needs recorded. <a href="#" onclick="toast(\'Opens this lesson\\\'s findings\');return false">View them</a>';
-    go = 'Next lesson';
-  }
-  $('say').textContent = say; $('say').className = 'say' + (s.stop ? ' stop' : '');
-  $('more').innerHTML = more; $('more').style.display = more ? '' : 'none';
-  $('go').textContent = go; $('go').style.display = go ? '' : 'none';
-  $('hint').innerHTML = go ? (hint ? hint + ' ' : '') + 'Shortcut: <kbd>Space</kbd>' : '';
-  $('hint').style.display = go ? '' : 'none';
-  $('alert').className = 'alert' + (s.offline && !s.stop ? ' on' : '');
-
-  const done = 9 + s.i;
-  $('tally').textContent = `${done} of 158 lessons finished, 1 on hold`;
-  $('eta').textContent = 'About 15 hours left at your pace';
-  const subjects = [['General Information', 12], ['Language Proficiency', 19], ['Mathematics', 46],
-    ['Reading Comprehension', 13], ['Reasoning', 17], ['Science', 51], ['Checks', 10]];
-  $('groups').innerHTML = subjects.map(([name, n]) => {
-    let t = '';
-    for (let k = 0; k < n; k++) {
-      let c = '';
-      if (name === 'Mathematics') c = k === 4 ? 'held' : k < 10 + s.i ? 'done' : k === 10 + s.i ? 'now' : '';
-      t += `<button class="tick ${c}" aria-label="${name} lesson ${k + 1}" onclick="toast('Opens ${name} lesson ${k + 1}')"></button>`;
-    }
-    return `<div class="group" style="flex:${n}"><div class="ticks">${t}</div><small>${name}</small></div>`;
-  }).join('');
-}
-document.addEventListener('keydown', e => {
-  if (e.code !== 'Space' || e.target.matches('textarea, button, summary')) return;
-  e.preventDefault(); if ($('go').style.display !== 'none') act();
 });
-reset(); render();
+document.addEventListener('keydown', e => {
+  if (e.code !== 'Space' && e.code !== 'Enter') return;
+  if (e.target.matches('textarea, button, summary, a')) return;
+  const b = visibleGo(); if (b) { e.preventDefault(); b.click(); }
+});
 </script>
 </body>
 </html>
