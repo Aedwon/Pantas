@@ -213,7 +213,17 @@ Validation rules, each producing one plain reason string:
   and both prerequisite texts for `lesson-algebra-types-of-functions`; two builds
   with the same seed give the same ids; no packet file name or body contains
   the word "planted" or a lesson's run order.
-- [ ] Build all packets, check 158 real packets exist, commit the packets.
+- [ ] Build all packets and check 158 real packets exist. Do not commit them yet.
+  `packets/` stays ignored until Task 11 is done, then real and planted packets
+  are committed in one commit, because a later separate commit would show which
+  packets are planted. The watcher adds the whole audit folder, so the ignore
+  line is what keeps packets out until then.
+- [ ] Rules whose script findings are only candidates (B07, B08 numbers, B09,
+  B10, L13, L16) join that lesson's form when the script flags something, and
+  the packet lists the flagged lines. The chat gives them an ordinary verdict.
+- [ ] No lesson in the corpus is taught in Filipino prose, so every packet has
+  `filipino` false and L08 to L12 may be `not_applicable`. The pilot's Filipino
+  slot uses a lesson with Filipino content.
 
 ### Task 5: Hand-in command
 

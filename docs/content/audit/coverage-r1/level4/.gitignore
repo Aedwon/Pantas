@@ -1,2 +1,5 @@
 inbox/
 __pycache__/
+# Packets are committed once, all together, after the planted lessons exist.
+# A separate later commit would show which packets are planted.
+packets/

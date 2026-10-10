@@ -21,6 +21,16 @@ MIN_REASON = 20
 RULINGS = {"disputed": ("uphold_a", "uphold_b"), "single": ("uphold", "reject")}
 
 
+def rule_ids_for(packet):
+    """Chat-judged rules for this packet: the standing ones plus any rule whose
+    script candidates a reader must confirm in this lesson."""
+    return packet.get("rule_ids") or l4lib.chat_rule_ids()
+
+
+def _needs_proof(rule):
+    return rule["severity"].startswith(("Blocker", "Major")) and rule["kind"] != "source-check"
+
+
 def blank_form(packet, role="A or B"):
     return {
         "packet": packet["id"],
@@ -29,7 +39,7 @@ def blank_form(packet, role="A or B"):
         "standards_commit": packet["standards_commit"],
         "rules": {
             rule_id: {"verdict": "", "findings": [], "checked": [], "note": ""}
-            for rule_id in l4lib.chat_rule_ids()
+            for rule_id in rule_ids_for(packet)
         },
         "illustrations": [],
         "accuracy_concerns": [],
@@ -85,7 +95,7 @@ def _rule_reasons(rule, entry, packet):
         if not _text(finding.get("problem"), MIN_PROBLEM):
             reasons.append("rule %s finding %d: problem must say what is wrong in at least %d characters"
                            % (rule_id, number, MIN_PROBLEM))
-    if verdict == "pass" and rule["proof"]:
+    if verdict == "pass" and _needs_proof(rule):
         checked = entry.get("checked")
         if not isinstance(checked, list) or not any(_text(item, MIN_CHECKED) for item in checked):
             reasons.append("rule %s is pass without proof; list in checked what you checked in this lesson" % rule_id)
@@ -116,7 +126,7 @@ def _reader_reasons(form, packet):
     rules = form.get("rules")
     if not isinstance(rules, dict):
         return ["rules must be an object keyed by rule id"]
-    wanted = l4lib.chat_rule_ids()
+    wanted = rule_ids_for(packet)
     missing = [rule_id for rule_id in wanted if rule_id not in rules]
     extra = sorted(rule_id for rule_id in rules if rule_id not in wanted)
     if missing:

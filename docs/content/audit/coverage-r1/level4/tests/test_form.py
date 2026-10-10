@@ -88,6 +88,15 @@ class ReaderForm(unittest.TestCase):
         self.form["rules"]["L03"]["checked"] = []
         self.assertEqual(reasons(self.form), [])
 
+    def test_a_packet_can_add_a_candidate_rule(self):
+        packet = dict(fixtures.packet(), rule_ids=sorted(self.form["rules"]) + ["B10"])
+        found = reasons(self.form, packet=packet)
+        self.assertEqual(len(found), 1, found)
+        self.assertIn("B10", found[0])
+        self.form["rules"]["B10"] = {"verdict": "pass", "findings": [], "note": "",
+                                     "checked": ["Each flagged word is subject matter, not app wording."]}
+        self.assertEqual(reasons(self.form, packet=packet), [])
+
     def test_not_applicable_needs_a_note(self):
         self.form["rules"]["L23"] = {"verdict": "not_applicable", "findings": [], "checked": [], "note": ""}
         self.assert_one_reason(self.form, "L23")
