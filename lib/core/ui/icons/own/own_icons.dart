@@ -243,21 +243,22 @@ class AppearancePainter extends OwnIconPainter {
   const AppearancePainter(super.color);
   @override
   void draw(Canvas canvas, Paint stroke) {
+    // IC_Final's filled half inherits the enclosing 1.5-point stroke.
+    final half = Path()
+      ..moveTo(12, 4)
+      ..arcToPoint(
+        const Offset(12, 20),
+        radius: const Radius.elliptical(8, 8),
+      )
+      ..close();
     canvas
       ..drawCircle(const Offset(12, 12), 8, stroke)
-      // IC_Final SVG: M12 4a8 8 0 0 1 0 16z
       ..drawPath(
-        Path()
-          ..moveTo(12, 4)
-          ..arcToPoint(
-            const Offset(12, 20),
-            radius: const Radius.elliptical(8, 8),
-          )
-          ..close(),
-        Paint()
-          ..color = color
-          ..style = PaintingStyle.fill,
-      );
+          half,
+          Paint()
+            ..color = color
+            ..style = PaintingStyle.fill)
+      ..drawPath(half, stroke);
   }
 }
 

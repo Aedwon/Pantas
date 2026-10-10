@@ -19,6 +19,12 @@ Widget harness(
     );
 
 void main() {
+  testWidgets('tab glyphs use the board size of 23', (tester) async {
+    await tester.pumpWidget(harness());
+    expect(tester.widgetList<Icon>(find.byType(Icon)).map((icon) => icon.size),
+        everyElement(23));
+  });
+
   for (final key in [LogicalKeyboardKey.enter, LogicalKeyboardKey.space]) {
     testWidgets('every tab accepts keyboard ${key.keyLabel}', (tester) async {
       final taps = <int>[];

@@ -211,7 +211,7 @@ class _NavItem extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(glyph, color: color, size: 24),
+                Icon(glyph, color: color, size: 23),
                 const SizedBox(height: 2),
                 Text(
                   label,
