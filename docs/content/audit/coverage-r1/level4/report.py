@@ -10,8 +10,10 @@ import datetime
 import json
 from pathlib import Path
 
+import form
 import handin
 import l4lib
+import runqueue
 
 NOT_ASSESSED = {
     "B04": "not assessed at Level 4: this run has no item-level source ledger to check lesson facts against",
@@ -215,9 +217,15 @@ def counting_check(data, lessons):
         read += 1
         if not (data.mechanical_dir / ("%s.json" % lesson_id)).exists():
             missing.append("%s: no script result" % lesson_id)
-        for rule in rules:
-            if rule["kind"] in ("chat", "source-check") and rule["id"] not in result["rules"]:
-                missing.append("%s: rule %s has no verdict" % (lesson_id, rule["id"]))
+        entry = data.index[packet_id]
+        # The rules this packet's own form carried, which include any candidate rule its script flagged.
+        for rule_id in form.rule_ids_for(entry):
+            if rule_id not in result.get("rules", {}):
+                missing.append("%s: rule %s has no verdict" % (lesson_id, rule_id))
+        # Re-validate the saved result against the lesson as it is now.
+        packet = dict(entry, lesson_text=data.lesson_text(packet_id))
+        missing.extend("%s: %s" % (lesson_id, problem) for problem in runqueue.check_result(result, packet)
+                       if not problem.startswith("rules missing:"))
     lines = ["# Level 4 counting check", "", "Lessons in the corpus: %d." % len(lessons),
              "Read with a finished result: %d. On hold: %d. Unaccounted: %d." % (
                  read, held, len(lessons) - read - held), "",

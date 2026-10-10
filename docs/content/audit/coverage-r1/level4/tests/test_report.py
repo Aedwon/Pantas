@@ -25,7 +25,8 @@ class ReportCase(unittest.TestCase):
         for packet_id, lesson_id, planted in (("L4-1000", "lesson-real", False), ("L4-2000", "lesson-twin", True),
                                               ("L4-3000", "lesson-twin", False), ("L4-4000", "lesson-held", False)):
             self.index[packet_id] = {"lesson_id": lesson_id, "planted": planted, "title": lesson_id.title(),
-                                     "subject": "mathematics", "topic": "algebra"}
+                                     "subject": "mathematics", "topic": "algebra",
+                                     "lesson_sha256": "a" * 64, "rule_ids": l4lib.chat_rule_ids()}
         for lesson_id in ("lesson-real", "lesson-twin", "lesson-held"):
             l4lib.save_json(self.mechanical / ("%s.json" % lesson_id), {"findings": [
                 {"rule": "B06", "line": 12, "text": "a dash", "problem": "em dash", "candidate": False},
@@ -143,6 +144,39 @@ class Final(ReportCase):
         self.assertIn("lesson-real: rule L17 has no verdict", text)
         self.assertIn("lesson-never-read: no finished result", text)
         self.assertIn("B04: not assessed", text)
+
+    def edit_result(self, packet_id, change):
+        result = l4lib.load_json(self.state / "results" / ("%s.json" % packet_id))
+        change(result)
+        l4lib.save_json(self.state / "results" / ("%s.json" % packet_id), result)
+
+    def test_the_counting_check_revalidates_every_saved_result(self):
+        self.edit_result("L4-1000", lambda r: r["rules"]["L17"].update(verdict="fail", findings=[
+            {"quote": "A sentence that is not in the lesson anywhere.", "problem": "x" * 25}]))
+        self.edit_result("L4-3000", lambda r: r.update(lesson_sha256="f" * 64))
+        text, gaps = report.counting_check(self.data(), self.LESSONS)
+        self.assertEqual(gaps, 2)
+        self.assertIn("lesson-real: rule L17 has a finding whose quote is not in the lesson", text)
+        self.assertIn("lesson-twin: the result names a different lesson version", text)
+        self.assertIn("FAIL, 2 gaps", text)
+
+    def test_publish_final_reports_a_failed_revalidation_as_a_gap(self):
+        self.edit_result("L4-1000", lambda r: r["rules"]["L17"].update(verdict="fail", findings=[]))
+        gaps = report.publish_final(self.data(), out_dir=self.out, lessons=self.LESSONS)
+        self.assertEqual(gaps, 1)
+        self.assertIn("Counting check: FAIL, 1 gaps.", (self.out / "summary.md").read_text())
+
+    def test_the_counting_check_requires_a_packets_own_candidate_rule(self):
+        self.index["L4-1000"]["rule_ids"] = l4lib.chat_rule_ids() + ["B09"]
+        l4lib.save_json(self.state / "index.json", self.index)
+        text, gaps = report.counting_check(self.data(), self.LESSONS)
+        self.assertEqual(gaps, 1)
+        self.assertIn("lesson-real: rule B09 has no verdict", text)
+        self.edit_result("L4-1000", lambda r: r["rules"].update(B09={"verdict": "pass", "findings": []}))
+        self.assertEqual(report.counting_check(self.data(), self.LESSONS)[1], 0)
+
+    def test_a_packet_without_a_candidate_rule_is_not_asked_for_one(self):
+        self.assertEqual(report.counting_check(self.data(), self.LESSONS)[1], 0)
 
     def test_findings_name_how_each_was_settled(self):
         self.finish("L4-1000", fixtures.failing(fixtures.valid_form("A"), "L17", PLANTED_TEXT),
