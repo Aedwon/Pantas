@@ -59,7 +59,8 @@ upload for lesson images; E14 risk acceptance at the end.
 | Stop before level 4, notify Aedwon | done (Oct 6) | answers recorded |
 | Abuse review amendment | done: level 2 gate passed (review 7), level 3 gate passed (review 3) | gates/l3-abuse-gate-3.md |
 | Level 4: W0 integration | accepted Oct 6 (Astra audit, lead review); Task 6 not run | integration/new-design-r1 at 13e4f830; evidence/W0.md |
-| Level 4: W1 design foundation | Tasks 1 to 8 done; Task 9 in progress (stopped at the Codex limit) | web/new-design-w1-r1 at e4a371a9 |
+| Level 4: W1 design foundation | Tasks 1 to 9 done; Astra audit 1: 5 major, 5 minor; Task 9b (fixes) next; tab label contrast waits for Aedwon | web/new-design-w1-r1 at 4136c146; gates/w1-astra-audit-1.md |
+| Level 4: W3 payments and identity | Tasks 4, 13 Dart, 3, 6, 7, 8 done; continues at Task 9 | web/new-design-w3-r1 at 9ff83c62 |
 | Level 4: W6 backend hardening | Tasks 1 to 5c done and integrated (Task 5b, Oct 7); Tasks 6 to 8 (live rules snapshot, deploys, final) remain | integration/new-design-r1 at 739ccae1; gates/w6-astra-audit-1.md |
 
 ## Last completed step

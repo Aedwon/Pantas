@@ -985,3 +985,13 @@ device marker per account; it clears when the entitlement turns active, or when 
 "Restore Purchases" (the button ST_ProPending draws) after 72 hours with no entitlement; Play rejects a true duplicate (L3 W3 Task 7
 amended). Source: RevenueCat's Google Play guides (pending purchases are canceled when payment
 fails or expires).
+
+## October 10, 2026: W1 Astra audit 1
+
+The scheduled audit ran alone on Oct 8 at 12:12 AM (146,600 tokens, 5 minutes). No blocker; 5 major
+(font and icon licenses not shipped; adapter colors lower contrast on screens not yet rebuilt;
+unselected tab labels at 3.44:1; tabs lost keyboard activation; pop and shake differ from the
+keyframes), 5 minor. The lead agrees with all and added L3 W1 Task 9b; finding 3 (tab label color
+drawn by the design) is a design choice for Aedwon. The lead's own review had checked colors and
+routes only and missed these. W3 reached Task 8 (9ff83c62) and stopped at the Codex limit on Oct 7
+with Task 9 edits uncommitted in its worktree.

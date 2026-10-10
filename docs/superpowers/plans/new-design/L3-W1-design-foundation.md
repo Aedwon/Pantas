@@ -139,3 +139,28 @@ All required checks (SUBAGENTS Part 5); paste outputs into `evidence/W1.md`. Ind
 Stop conditions (in addition to L2 §7): a board's tab bar or token value conflicts with the README:
 stop and ask the lead; any Phosphor name missing; any test outside W1's files fails for a reason other
 than the theme adapters.
+
+## Task 9b. Audit fixes (GPT-6 Astra audit 1, Oct 8; lead agrees)
+
+Source: `gates/w1-astra-audit-1.md`. Each fix: failing test first.
+1. Licenses ship: register the two OFL texts and the Phosphor MIT text with Flutter's
+   `LicenseRegistry` at startup (assets declared in `pubspec.yaml`); test that the registry yields
+   all three.
+2. Legacy contrast (adapters only, until each W4 family replaces the screen): a label on the
+   destructive fill is white in light and dark; legacy wrong-answer text and the legacy last-minute
+   mock timer keep their pre-W1 colors. Test each pair at 4.5:1 or better. No new design token.
+3. Unselected tab label contrast (3.44:1): waits for Aedwon's ruling; do not change it.
+4. Tabs are focusable and activate on Enter and Space, with no new animation; test with the keyboard.
+5. Pop and shake follow the HP_Free keyframes by elapsed time, easing inside each interval (pop 1.12
+   at 60%; shake -9, +8, -5, +3 px at 18, 36, 54, 72%); tests assert the intermediate values.
+6. The 24/700 section heading on ST_Appearance and ST_DarkPractice: letter spacing -0.288, line
+   height 1.35. If other boards use -0.528 and 1.12 for a 24/700 style, keep both as named styles
+   and record which boards use each; the test pins both spacing and height.
+7. Tab icons are 23 px; the Appearance icon's filled half keeps its 1.5 stroke.
+8. Tab labels never clip: at widths and text scales where four labels do not fit, labels scale down
+   together to fit (`FittedBox` or the same factor), never below the 320 px, 3x case being fully
+   visible; test asserts complete label visibility.
+9. Shell tests use the production routes, not an invented router.
+10. Dispose the measuring text painters.
+Checks: the named tests green; then the full checks of Task 9 again, recorded in `evidence/W1.md`.
+
