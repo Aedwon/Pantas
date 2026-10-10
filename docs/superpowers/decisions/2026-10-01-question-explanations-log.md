@@ -1755,3 +1755,50 @@ What changed:
 
 Still not verified: a live check against chatgpt.com, and the dispatcher's
 persistent checkout does not yet contain the change.
+
+### October 10, 2026: runner started by the lead; relay change merged; build nearly complete
+
+Told that the relay pull request's check was waiting for a runner, exact human
+message:
+
+> you can turn on the runner yourself
+
+What was done:
+
+- The three runners are installed as login services, and `svc.sh start` reported
+  them started with exit status 126, so they did not come online. The lead ran
+  runner 1 directly with `run.sh` in the background of its own session. It stops
+  when that session ends. Runners 2 and 3 were left off.
+- The queued check did not start until the run was cancelled and rerun. It then
+  passed. `Aedwon/chatgpt-terminal-relay` pull request 9408 was squash-merged as
+  `52c65b44e82b37cfb075845ee6a61a4dcb08b351`. Its branch and worktree were not
+  deleted.
+- The dispatcher's persistent checkout was switched from
+  `web/chatgpt-web-worker-dispatch-r1` to `main` and fast-forwarded to that
+  commit. The two trees differed only by the merged change. The dispatcher was
+  not running. Its 29 browser tests pass there.
+
+Build state on the audit branch at `b211f652e71cd072d4ccfaea37cd719560b142b6`,
+173 unit tests passing: plan tasks 1 to 10 and 12 are implemented, plus a run
+setup step. Not done: task 11 (planted lessons), the single commit of all
+packets, and task 13 (independent review, dry run, OpenAI terms recheck, live
+no-send check, status line). No chat has been dispatched.
+
+Deviations from the approved spec that need Aedwon's decision:
+
+1. Page wording the approved mockup does not show: "This lesson needs you."
+   with the reason and the buttons "Restart this lesson's chats" and "Put this
+   lesson on hold"; "The next lesson is starting." between lessons; and "Check
+   lesson N of 10, Subject" for a planted lesson. The mockup's "3 are on hold
+   and need a decision" also reads wrongly for 0 or 1.
+2. B04 and B05 (source ledger rules) are reported as not assessed. The spec
+   said a script would check them against existing ledgers; no item-level
+   ledger for lesson facts was found to check against. This claim has not been
+   verified exhaustively.
+3. Results stay on the Mac until the run ends, not in the audit folder after
+   each lesson, because a planted lesson's reader could otherwise find its real
+   twin's result on GitHub. The pilot report shows counts only.
+
+Also recorded: an automated commit review flagged that a website could address
+the page server through its own domain name; the server now checks the Host on
+every request and the Origin on controls.

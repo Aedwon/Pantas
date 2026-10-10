@@ -738,3 +738,16 @@ chat has been dispatched. Blocked on Aedwon: the dispatcher accepts only the
 model name GPT-5.6 Sol (details in the October 10 decision log entry). Packets
 are built locally and intentionally uncommitted. First line unchanged; it must
 not become `STATE: RUNNING`.
+
+## October 10, 2026: Level 4 web chat build, tasks 1 to 10 and 12 done
+
+Implemented and unit-tested (173 tests) at
+`b211f652e71cd072d4ccfaea37cd719560b142b6`: rule table, library, form check,
+mechanical checker, packets, hand-in, comparison, dispatcher wrapper, queue with
+the pacing gate, eraser, page and server, reports, run setup. Not independently
+reviewed. Relay change for GPT-6 Sol merged as relay `52c65b44` and live in the
+dispatcher checkout. Remaining before any chat is dispatched: planted lessons,
+one commit of all packets, independent review, dry run, OpenAI terms recheck,
+live no-send check, and Aedwon's decisions on three spec deviations (October 10
+decision log). The earlier blocker on the dispatcher's model name is resolved.
+First line unchanged; it must not become `STATE: RUNNING`.
