@@ -54,7 +54,7 @@ Names and states are fixed here. Each component reads only W1 tokens.
 | `ScopePicker` | Subjects as headings, topics with round boxes and a caret to lessons, dash for partial, "No questions yet" dimmed, "Unread" tag option; at-least-one rule with the shake. Used by Customize your own and What's included (D-221). |
 | `SearchField` | Fill background; Cancel appears on focus; title folds away (ST_Search). |
 | `Avatar` | Google photo, else first letter, emoji stays emoji, else plain person on gray; "Add your name" handling is the caller's copy. |
-| `ProTag` | The small gold "Pro" tag; the one way Free sees a Pro feature. No lock icon, blur or banner. |
+| `ProTag` | The small teal "Pro" tag as drawn on HP_Free (amended Oct 10; "gold" was an error); the one way Free sees a Pro feature. No lock icon, blur or banner. |
 | `ProPausedLine` | Amended Oct 6 (abuse review 1, W3 AC-1): one line, "Connect once to keep using Pro." (approved by Aedwon), shown by a Pro gate in place of the Pro invitation when W3's entitlement state is `paused`. Same type and color as the gate's body text; no button. |
 | `LoadingShapes` | Gray shapes that pulse, shown only after 300 ms; Pro-gate shapes stay still. `StepsScreen` for long or irreversible work (L_Restore, L_Delete, L_MockStart). |
 | `StateView` | Error and empty pattern: title stays, faint icon, one line, tinted Try Again; a full-screen variant for "Something went wrong. / Nothing you've done is lost.". W2 owns the component; W4h owns the app-wide screen, its triggers and the retirement of `app_error_view.dart`. Never shows raw error text. |

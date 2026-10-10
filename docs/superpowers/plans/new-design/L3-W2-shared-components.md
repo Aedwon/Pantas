@@ -17,6 +17,37 @@ W4e are shared too, so W2 also owns `QuestionCard`, `ChoiceRow`, `AnswerReveal`,
 `ContentRenderer` (the lesson and explanation renderer) and `PantasPage` (title, back link, large
 title collapse). Recorded in the decision record; L2 W2 §3 lists them.
 
+## Lead rulings, October 10 (W2 stop at 245a8358)
+
+Contrast rule for W2 and every W4 family (replaces "every text and icon color at 4.5:1" from the
+dispatch, which was too broad): active text 4.5:1 (3:1 at 24 px or larger, or 18.66 px bold or
+larger); icons and marks that carry meaning 3:1. Exempt, built with the board's values: disabled
+controls, choices dimmed after an answer, loading placeholder shapes, and decorative marks (row
+chevrons, the empty progress outline, the faint icon on empty and error states, the avatar
+fallback glyph). Tests assert the rule for the non-exempt pairs and pin the board value for the
+exempt ones.
+1. ListRow chevrons, the empty progress mark, StateView and StepsScreen faint marks, disabled
+   buttons, dimmed ChoiceRow, Avatar: board and token values as drawn (exempt above).
+2. AccuracyBar: `height` 5 by default and 4 for the DT_SortFlow topic rows (a named constructor).
+   Color is one function of accuracy (DECISIONS: "a soft teal that deepens with accuracy"): a
+   linear blend that reproduces the board samples #97C9BF at 54%, #87C0B5 at 58%, #7BB9AE at 61%
+   and #57A597 at 70% within 2 per channel, held constant at 40% and below and at 80% and above.
+   It lives in `pantas_colors.dart` as `accuracyTint(double)`; test the four samples.
+3. LoadingShapes: add the token `skeleton`, light `#E6E6EA` as drawn on ST_Loading; dark from the
+   dark loading board if one exists, otherwise the dark `fill` token.
+4. ProTag: as drawn on HP_Free and YR_WrappedFree (teal `#0B7A68` on `#E4F1EE`, 12/700, 20 high,
+   radius 6, 7 inset). The word "gold" in L2 W2 was the lead's error; boards rule.
+5. QuestionCard stem: 21/600, and 19/600 when the question has a figure (QV_Figure); height 1.35,
+   spacing -0.012em.
+6. PantasPage: no board draws a collapsed title, so the large title scrolls away with the content
+   and no collapsed title appears. The "large-title collapse" wording is withdrawn.
+7. Waiting for Aedwon (build with the board's values now, each behind one named constant so a
+   later change is one line; list them in `evidence/W2.md`): WeekStrip day-off date and weekday
+   text (`#C7C7CC`, 1.68:1); SearchField placeholder and magnifier (`#8E8E93` on `#EDEDF0`,
+   2.79:1); wrong-answer text on the dark wrong tint (`#D70015` on `#3A1215`, 3.05:1); MathText
+   font (the math package draws its own KaTeX serif fonts and cannot use Source Serif 4; keep
+   KaTeX for now).
+
 ## Task 1. Structure
 
 `GroupedSection`, `ListRow` (all variants), `PantasButton` and `ButtonPair`, `PantasSwitch`,

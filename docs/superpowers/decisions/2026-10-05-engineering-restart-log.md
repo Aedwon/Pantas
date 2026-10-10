@@ -1031,3 +1031,16 @@ record; claims are copied from it after commit, with a version check, a 500 on f
 RevenueCat retries, and an hourly repair job for mismatches (L3 W3 Task 2 amended). W1 Task 9b is
 done (70d0a476; 3,526 tests passed); the lead merged W1 into the integration branch locally and is
 running the full checks before pushing.
+
+## October 10, 2026: W2 rulings and the W3 pass question
+
+W2 built nine components and stopped on fourteen questions (245a8358; full suite 3,588 passed).
+Cause: the lead's dispatch demanded 4.5:1 for every color, which also caught disabled, dimmed and
+decorative marks. The lead narrowed the contrast rule (text 4.5:1, large text and meaningful icons
+3:1, disabled, dimmed, placeholder and decorative marks exempt) and ruled on the accuracy bar,
+skeleton token, Pro tag (teal as drawn; "gold" in L2 was the lead's error), question stem sizes and
+page title (L3 W2 "Lead rulings"). Four design choices wait for Aedwon and are built with board
+values meanwhile: day-off dates, search placeholder, wrong-answer text in dark mode, math font.
+W3 Task 2 is done (0bef4c44; 56 plain and 66 emulator tests). W3 Task 5 stopped: RevenueCat gives
+no reliable way to attach the chosen exam to a one-time pass purchase. The plan's fallback is one
+pass product per exam, which changes the approved product list, so it goes to Aedwon.
