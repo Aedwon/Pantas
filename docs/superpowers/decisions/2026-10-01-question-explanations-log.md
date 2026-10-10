@@ -1829,3 +1829,28 @@ bibliography, not one row per checked fact. New recommendation put to him: check
 B04 by script (each lesson has an entry; flag lessons changed since the
 ledger's base commit), and report B05 as not confirmable because no record ties
 a fact to its source.
+
+### October 10 to 11, 2026: fix pass handed to Sonnet workers; source rules and run-trouble wording approved
+
+He asked why his ChatGPT history showed security-review prompts he did not
+send. Explained: a Claude Code plugin reviews each commit, and the ChatGPT app
+imports Claude sessions into its history. Exact human answer:
+
+> nevermind i'll just ignore it. can you continue what you were working on? preferably use sonnet 5.5 or haiku 5.5 depending on the task
+
+Acted on: two Sonnet workers were started. One finishes the open items in
+`docs/content/audit/coverage-r1/level4/review-fixes.md`. One rewrote the ten
+planted lessons so no planted error contradicts a nearby line. The lead compared
+all ten planted copies against the real lessons and accepted them. Two planted
+defects are soft (order of operations L19; speeches L25, where the figure still
+labels ethos) and the pilot report will mark them as soft.
+
+Two decisions were then put to him with a recommendation: (1) check B04 by
+script (each lesson has a ledger entry; flag lessons changed since the ledger's
+base commit) and report B05 as not confirmable; (2) new page wording for a run
+that cannot continue: "The run needs you." with the reason and a Resume button.
+Exact human answer:
+
+> let's go with your recommendations
+
+Approved: both.
