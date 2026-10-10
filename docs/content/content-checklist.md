@@ -51,7 +51,7 @@ current lesson still teaches its own learning goal.
 | L02 | Teaching prose is very simple English a Grade 5 student can read, with no filler | Major | Read as a Grade 5 student; flag long or rare-word sentences | LSG: Voice |
 | L03 | Exam verbs are explained in one line on first use | Minor | Find the first use of each exam verb | LSG: Voice |
 | L04 | At most one analogy, in Core Concept | Minor | Count analogies | LSG: Voice |
-| L05 | Example questions use exam wording; solutions use simple language | Major | Compare example stems with solutions | LSG: Voice |
+| L05 | Example questions use exam wording and supply necessary problem-specific givens without supplying tested knowledge; solutions use simple language | Major | Check example stems against the expected-knowledge rule and compare wording with solutions | LSG: Voice, Examples section |
 | L06 | In-lesson quiz items meet every Q rule | Per Q rule | Run the question checks | LSG: Voice |
 | L07 | Mentions of exams vary and motivate | Minor | Look for repeated openers | LSG: Voice |
 | L08 | Filipino lessons teach in simple Filipino at the Grade 5 standard | Major | Read as a Grade 5 student | LSG: Filipino-language lessons |
@@ -101,3 +101,4 @@ current lesson still teaches its own learning goal.
 | Q17 | Every wrong choice has a note of two or three short sentences: the mistake, why it looks right, one check; it describes the choice, not the student, and does not restate the solution | Major | Check each note's three parts | QSG: Two-level voice |
 | Q18 | Filipino-language items are in Filipino, with simple Filipino explanations and notes, and spelling per the Komisyon sa Wikang Filipino | Major | Check stem, choices, explanation, and notes | QSG: Filipino-language items |
 | Q19 | Each archetype has two or three genuinely different variants, at least 20 active questions per lesson, no near-duplicates | Major | Count active items; compare scenarios | QSG: Coverage discipline |
+| Q20 | Questions supply necessary problem-specific information and referenced material without supplying formulas, definitions, or methods students are expected to know or select | Blocker if the answer is indeterminate, otherwise Major | Solve from the supplied material and expected knowledge; check needed units, rounding, and any recorded formula exception | QSG: Problem information and expected knowledge |

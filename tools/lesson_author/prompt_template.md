@@ -80,6 +80,14 @@ within the lesson's learning goal, with one worked example per distinct
 case. Changing only the numbers does not create a new scenario.
 Order examples from basic to authentic target-exam difficulty.
 Let coverage determine the number of examples; avoid near-duplicates.
+For each example question, supply the problem-specific facts, values,
+conditions, and referenced material needed for a determinate answer. Do not
+supply formulas, definitions, or solution methods that students are expected
+to know or select. Include a formula only when the target exam supplies it or
+recalling it is outside the tested skill, with the reason recorded in the
+authoring records. This restriction applies to the question stem, not Core
+Concept or the worked solution. Follow the current question guide's Problem
+information and expected knowledge rule.
 Give each example its own "###" heading in the exact form "### #N: Short
 Descriptive Title" (e.g. "### #2: Nested Grouping Symbols"). Write the
 question as a sentence with inline math, then write "**Solution:**" alone

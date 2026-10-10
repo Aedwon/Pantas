@@ -143,6 +143,11 @@ section titles generically, so other subjects may adapt them:
   case. Changing only the numbers does not create a new scenario.
 - Order examples from basic to authentic target-exam difficulty.
   Let coverage determine the number of examples; avoid near-duplicates.
+- Worked-example questions follow the question guide's
+  [Problem information and expected knowledge](question-style-guide.md#problem-information-and-expected-knowledge)
+  rule: supply necessary problem-specific givens, without supplying formulas,
+  definitions, or methods students are expected to know or select. This does
+  not restrict explanations in Core Concept or the worked solution.
 - Body: question sentence with inline math, then `**Solution:**` on its
   own line, then numbered steps (`1.`, `2.` markdown list), with each
   key computation as a `$$ ... $$` display line between/after steps.

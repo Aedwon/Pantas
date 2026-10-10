@@ -1350,3 +1350,23 @@ Implementation adds a shared Teaching completeness section, checklist L25/L26/L2
 Policy and base: main `2b13ad6a2cae18b3219408fdc8d80167b95c16b1`, refreshed before changes. Relay runners are offline; use the existing authorized direct local path in an isolated managed worktree. Independent review and focused document checks follow before integration.
 
 Verification: exact four-file scope; identical guide/prompt teaching and reuse blocks; all 56 existing checklist rules unchanged; exactly three unique Major rules added; prerequisite/later-explanation safeguards present; fixed example quota remains absent. Changed prose and `git diff --check` PASS. Scoped canonical Dart attribution: `files=4 hits=0`, exit 0. Independent read-only review returned PASS with no actionable findings, confirming user intent and no historical/content changes. No Flutter suite or lesson audit is claimed for this instruction-only amendment.
+
+### October 10, 2026: necessary question givens versus tested knowledge
+
+Exact user clarification:
+
+> a question on the complete information thing: isn't that spoonfeeding? make it concrete enough that while all the necessary info is provided to solve, other info like formulae and whatnot that should be known should not be included. does this make sense?
+
+The desktop lead proposed: provide problem-specific facts, values, conditions, and referenced material needed for a determinate answer; do not supply formulas, definitions, or solution methods students are expected to know or select. A formula may be given when the target exam supplies it or recall is outside the tested skill.
+
+Exact approval:
+
+> ok yeah sure bake that in. the level 4 things will pick this up correct?
+
+Approved amendment: a Problem information and expected knowledge section in the current question guide, checklist Q20 and an expanded L05 check, plus the same distinction in the lesson guide and authoring prompt. Necessary units/rounding and referenced material are included when relevant. Expected knowledge follows taught content and source-backed exam requirements; formula exceptions need a recorded reason. Supplying an interest problem's principal/rate/duration/interest type is complete information; supplying the formula when recall/selection is tested gives away that part of the task.
+
+Scope: apply the rule to question stems, not the teaching or worked solution. Level 4 will check worked-example stems inside lessons; Level 5 checks in-lesson quizzes and the question bank. No lesson/question content change, new review stage, formula sheet, field/schema change, or Level 4 start is approved. The separately proposed blind-disagreement clarification is not part of this amendment.
+
+Policy/base: current main `c49473b3e21ee22e4096043ed5cb57797352a7e0`, local/remote matched before changes; policy and content standards unchanged from the prior accepted reading. Relay runners are offline; direct local document work occurs in an isolated managed worktree. Focused checks and independent review precede integration.
+
+Verification: exact five-file scope; complete-givens/expected-knowledge/formula-exception wording consistent; lesson-to-question-guide anchor valid; Level4 examples and Level5 quizzes explicit. Only L05 is clarified and Q20 added; 58 other existing checklist rules and the blind-solve procedure are unchanged. Changed prose and whitespace checks PASS. Scoped canonical Dart attribution: `files=5 hits=0`, exit 0. Independent read-only review returned PASS with no actionable findings. No Flutter tests, content edits, or Level4 execution claimed.

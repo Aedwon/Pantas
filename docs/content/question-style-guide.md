@@ -186,6 +186,29 @@ correctness, the shuffle-safe choice rule above, or the voice rules.
 Use a negative stem ("NOT", "EXCEPT") only when the profile shows the exam uses
 one, and put the negative word in bold.
 
+## Problem information and expected knowledge
+
+Provide the problem-specific facts, values, conditions, and referenced
+material needed for a determinate answer. Include necessary units and state
+rounding or approximation requirements when they affect the answer. A
+referenced passage, figure, table, or marked word must be available with the
+question when it is shown to the student.
+
+Do not supply formulas, definitions, or solution methods that students are
+expected to know or select. Use taught content and source-backed exam
+requirements to identify that expected knowledge. Include a formula only when
+the target exam supplies it or recalling it is outside the skill being tested.
+Record the reason for that exception in the audit or authoring records.
+
+For example, a simple-interest question supplies the principal, annual rate,
+duration, and interest type. It does not supply the simple-interest formula
+when recalling or selecting that formula is part of the tested skill.
+
+This distinction applies to question stems, including worked-example stems
+inside lessons. It does not prevent lesson teaching or answer solutions from
+explaining formulas and methods. During the coverage audit, Level 4 checks
+worked-example stems; Level 5 checks in-lesson quizzes and the question bank.
+
 ## No answer-giving clues
 
 A student who does not know the content should not be able to find the answer
