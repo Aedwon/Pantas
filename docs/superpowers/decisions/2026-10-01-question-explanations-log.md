@@ -1854,3 +1854,17 @@ Exact human answer:
 > let's go with your recommendations
 
 Approved: both.
+
+### October 11, 2026: stop hardening Level 4 after the current fix pass
+
+He asked "does it really need this much engineering?". The lead answered that
+about half the build guards against a chat that cheats on purpose, which is
+unlikely, and recommended: let the running worker finish, then no second review
+round, no detection of forbidden relay requests (review item 6), and no second
+blind check of the planted lessons; go to the dry run and the 10-lesson pilot
+and fix only what the pilot shows. Stated cost: a deliberately cheating chat
+could go unnoticed. Exact human answer:
+
+> yes
+
+Approved. Review item 6 is dropped and recorded as an accepted limit.
