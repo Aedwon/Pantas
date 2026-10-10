@@ -209,12 +209,3 @@ def classify_request(issue, workspace, registered):
             return "expected"
     return "forbidden"
 
-
-def find_handin_issues(run_token, packet_id, role, run=_run):
-    """Numbers of the relay Issues that carried this hand-in's saved form."""
-    title = "[relay] %s save %s-%s" % (run_token, packet_id, role)
-    code, output = run(["gh", "issue", "list", "-R", RELAY_REPO, "--state", "all", "--search",
-                        '"%s" in:title' % title, "--json", "number,title", "--limit", "20"])
-    if code != 0:
-        raise l4lib.L4Error("could not search relay issues: %s" % output.strip()[-200:])
-    return [issue["number"] for issue in json.loads(output or "[]") if issue["title"].strip() == title]

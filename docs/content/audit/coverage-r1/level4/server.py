@@ -109,7 +109,8 @@ def tick_forever(run, lock, seconds=TICK_SECONDS, stop=None):
 def main():
     config = build_packets.load_config()
     run = runqueue.Run(dispatch, config=config,
-                       erase=lambda packet_id, role: eraser.erase_handin(packet_id, role, config))
+                       erase=lambda packet_id, role, attempt, since: eraser.erase_handin(
+                           packet_id, role, attempt, config, since))
     if run.q is None:
         print("No run is set up yet. Create the queue first.")
         return 1

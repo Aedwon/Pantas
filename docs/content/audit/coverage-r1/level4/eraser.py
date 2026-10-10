@@ -13,7 +13,7 @@ import json
 import dispatch
 import l4lib
 
-INBOX_PREFIX = "docs/content/audit/coverage-r1/level4/inbox/"
+INBOX_PREFIX = dispatch.INBOX_DIR
 ERASED_BODY = ("Hand-in form removed after it was saved on the audit Mac. "
                "Pantas Level 4 audit, run %s.")
 
@@ -21,7 +21,7 @@ ERASED_BODY = ("Hand-in form removed after it was saved on the audit Mac. "
 def refusal(issue, run_token):
     """Why this Issue must not be edited, or None when it is a hand-in of this run."""
     title = issue.get("title") or ""
-    if not title.startswith("[relay] %s save " % run_token):
+    if title != "[relay] %s hand-in" % run_token:
         return "title is not a hand-in of this run"
     if (issue.get("user") or {}).get("login") != "Aedwon":
         return "issue was not opened by Aedwon"
@@ -57,12 +57,26 @@ def erase(issue_number, config, run=dispatch._run):
     return True, "erased"
 
 
-def erase_handin(packet_id, role, config, run=dispatch._run):
-    """Erase every Issue that carried this hand-in. Returns [(issue number, erased, reason)]."""
+def handin_issues(issues, packet_id, role, attempt):
+    """Numbers of the listed Issues whose body asks the relay to save this hand-in's form."""
+    path = "%s%s-%s-%s.json" % (INBOX_PREFIX, packet_id, role, attempt)
+    found = []
+    for issue in issues:
+        try:
+            body = json.loads(issue.get("body") or "")
+        except ValueError:
+            continue
+        if isinstance(body, dict) and body.get("action") == "workspace_write_file" and body.get("path") == path:
+            found.append(issue["number"])
+    return found
+
+
+def erase_handin(packet_id, role, attempt, config, since, run=dispatch._run):
+    """Erase every Issue that carried this hand-in's form. Returns [(issue number, erased, reason)]."""
     if config.get("eraser_confirmed") is not True:
         return []
     try:
-        numbers = dispatch.find_handin_issues(config["run_token"], packet_id, role, run=run)
+        numbers = handin_issues(dispatch.list_relay_issues(since, run=run), packet_id, role, attempt)
     except l4lib.L4Error as exc:
         return [(0, False, str(exc))]
     return [(number,) + erase(number, config, run=run) for number in numbers]

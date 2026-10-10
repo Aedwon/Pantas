@@ -88,12 +88,6 @@ class Github(unittest.TestCase):
         with self.assertRaises(l4lib.L4Error):
             dispatch.runners_online(run=lambda command, cwd=None: (1, "HTTP 502"))
 
-    def test_only_the_exact_hand_in_title_matches(self):
-        found = json.dumps([{"number": 1, "title": "[relay] l4abc save L4-0417-A"},
-                            {"number": 2, "title": "[relay] l4abc save L4-0417-AB"},
-                            {"number": 3, "title": "[relay] other save L4-0417-A"}])
-        self.assertEqual(dispatch.find_handin_issues("l4abc", "L4-0417", "A", run=lambda command, cwd=None: (0, found)), [1])
-
 
 WS = "Pantas-wt-content-coverage-audit-r1"
 INBOX = "docs/content/audit/coverage-r1/level4/inbox/"
