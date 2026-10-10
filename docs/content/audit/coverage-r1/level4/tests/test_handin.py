@@ -204,6 +204,25 @@ class UnexpectedChanges(unittest.TestCase):
         self.git("commit", "-q", "-m", "saved by the watcher")
         self.assertEqual(self.changes(**pins), [])
 
+    def test_a_committed_change_hidden_by_a_restored_working_file_is_reported(self):
+        (self.root / "result.md").write_text("x")
+        pins = {"written": {"result.md": handin.file_hash(self.root / "result.md")}}
+        (self.root / "result.md").write_text("tampered")
+        self.git("add", ".")
+        self.git("commit", "-q", "-m", "tampered commit")
+        (self.root / "result.md").write_text("x")
+        self.assertEqual(self.changes(**pins), ["result.md"])
+
+    def test_both_sides_of_a_rename_are_reported(self):
+        self.git("mv", "kept.md", "moved.md")
+        self.assertEqual(self.changes(), ["kept.md", "moved.md"])
+        self.git("commit", "-q", "-m", "renamed")
+        self.assertEqual(self.changes(), ["kept.md", "moved.md"])
+
+    def test_a_path_with_spaces_and_quotes_is_reported_exactly(self):
+        (self.root / 'odd "name" -> x.md').write_text("x")
+        self.assertEqual(self.changes(), ['odd "name" -> x.md'])
+
     def test_a_commit_of_an_unexpected_file_is_reported(self):
         (self.root / "sneaky.md").write_text("x")
         self.git("add", ".")

@@ -53,16 +53,32 @@ def unexpected_changes(queue, audit_wt=None, corpus_wt=None):
     pinned = dict(queue.get("baseline_files", {}))
     pinned.update(queue.get("written", {}))
 
-    def git(root, *args):
-        return subprocess.check_output(["git"] + list(args), cwd=str(root), universal_newlines=True)
+    def git(*args):
+        return subprocess.check_output(["git"] + list(args), cwd=str(audit_wt))
 
-    changed = set()
-    for line in git(audit_wt, "status", "--porcelain", "--untracked-files=all").splitlines():
-        changed.add(line[3:].split(" -> ")[-1].strip().strip('"'))
+    def names(raw):
+        return [name.decode("utf-8", "surrogateescape") for name in raw.split(b"\0") if name]
+
+    # -z gives exact paths with no quoting; --no-renames lists a rename as its
+    # deletion and its addition, so neither side can hide behind the other.
+    dirty = {entry[3:] for entry in names(git("status", "--porcelain", "-z", "--no-renames", "--untracked-files=all"))}
+    committed = set()
     if queue.get("baseline_head"):
-        changed.update(path for path in git(audit_wt, "diff", "--name-only", queue["baseline_head"], "HEAD").splitlines() if path)
-    unexpected = sorted(path for path in changed
-                        if path not in pinned or file_hash(audit_wt / path) != pinned[path])
+        committed = set(names(git("diff", "--name-only", "-z", "--no-renames", queue["baseline_head"], "HEAD")))
+
+    def committed_hash(path):
+        try:
+            return hashlib.sha256(git("show", "HEAD:%s" % path)).hexdigest()
+        except subprocess.CalledProcessError:
+            return None
+
+    unexpected = []
+    for path in sorted(dirty | committed):
+        pin = pinned.get(path)
+        # The working file and, when the path was committed since the run
+        # started, the committed content must both match the recorded hash.
+        if pin is None or file_hash(audit_wt / path) != pin or (path in committed and committed_hash(path) != pin):
+            unexpected.append(path)
     try:
         l4lib.check_corpus(corpus_wt)
     except l4lib.L4Error:
