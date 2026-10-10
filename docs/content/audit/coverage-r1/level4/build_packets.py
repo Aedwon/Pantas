@@ -13,14 +13,15 @@ import secrets
 import subprocess
 import sys
 
+import dispatch
 import form
 import l4lib
 import mechanical
 
 AUDIT_DIR = l4lib.LEVEL4_DIR.parent
 WORKSPACE = l4lib.AUDIT_WT.name
-INBOX = "docs/content/audit/coverage-r1/level4/inbox"
-HANDIN = "docs/content/audit/coverage-r1/level4/handin.py"
+INBOX = dispatch.INBOX_DIR.rstrip("/")
+HANDIN = dispatch.HANDIN_SCRIPT
 LESSON_START = "<<<<<<<< LESSON START"
 LESSON_END = ">>>>>>>> LESSON END"
 

@@ -76,22 +76,28 @@ a valid answer.
 
 ## How to hand in
 
-Your assignment gives your role: `A` or `B`. Put it in the form's `role` field
-and in the two requests below wherever `ROLE` appears.
+Your assignment gives your role (`A`, `B`, or `D`) and your attempt number. Put
+the role in the form's `role` field. Wherever `ROLE` or `ATTEMPT` appears in the
+two requests below, replace it with your role and your attempt number, exactly.
+
+The form travels as one JSON string inside the request body. Every backslash in
+it must be doubled and every double quote escaped. Lessons are full of LaTeX
+backslashes, so do not write that string by hand. Build the form as an object
+and serialize it with a JSON encoder, then put the result in `content`.
 
 Step 1. Save your form. Create one Issue in `Aedwon/chatgpt-terminal-relay`
-titled `[relay] {{TOKEN}} save {{PACKET}}-ROLE` with this body, where `content`
-is your whole form as one JSON string:
+titled `[relay] {{TOKEN}} hand-in` with this body, where `content` is your whole
+form as one JSON string:
 
 ```json
-{"relay_version": 2, "action": "workspace_write_file", "workspace": "{{WORKSPACE}}", "path": "{{INBOX}}/{{PACKET}}-ROLE.json", "content": "<your form>"}
+{"relay_version": 2, "action": "workspace_write_file", "workspace": "{{WORKSPACE}}", "path": "{{INBOX}}/{{PACKET}}-ROLE-ATTEMPT.json", "content": "<your form>"}
 ```
 
-Step 2. Have it checked. Create one Issue titled
-`[relay] {{TOKEN}} check {{PACKET}}-ROLE` with this body:
+Step 2. Have it checked. Create one Issue titled `[relay] {{TOKEN}} hand-in`
+with this body:
 
 ```json
-{"relay_version": 2, "action": "workspace_exec", "workspace": "{{WORKSPACE}}", "argv": ["python3", "{{HANDIN}}", "{{PACKET}}", "ROLE"], "timeout_seconds": 120}
+{"relay_version": 2, "action": "workspace_exec", "workspace": "{{WORKSPACE}}", "argv": ["python3", "{{HANDIN}}", "{{PACKET}}", "ROLE", "ATTEMPT"], "timeout_seconds": 120}
 ```
 
 Step 3. Read the result comment on the second Issue.
@@ -99,9 +105,28 @@ Step 3. Read the result comment on the second Issue.
 - `ACCEPTED`: you are done. Publish your completed worker event. Its `summary`
   says only "form accepted" and nothing about the lesson or your verdicts.
 - `REJECTED`: the comment lists numbered reasons. Fix exactly those in your
-  form, then repeat steps 1 and 2 with the corrected form.
+  form, then repeat steps 1 and 2 with the corrected form. You get one retry
+  after a rejection.
 - `HELD` or `STOPPED`: stop. Publish a blocked worker event with the word from
   the comment as the blocker. Do not hand in again.
+- `BAD REQUEST`: the check did not recognize your hand-in, or found no saved
+  form. Do not guess and do not try again with other values. Stop and publish a
+  blocked worker event with `BAD REQUEST` as the blocker.
+
+What the check enforces:
+
+- At most one retry after a rejection. A form that is not valid JSON gets a few
+  more tries, because that is a transport slip.
+- Every quote is at least 8 characters, is copied exactly from the lesson, and is
+  not a bare heading.
+- Every `problem` and every accuracy `concern` is at least 20 characters.
+- Every `note` and every `checked` item that counts as proof is at least 15
+  characters.
+- `not_applicable` is allowed only on L03, L14, L21, L23, and L08 to L12.
+- Empty values are `[]` and `""`, never `null`.
+- A rule that passes or is not applicable has no findings.
+- Do not reuse one `checked` text across several rules. Say what you checked for
+  each rule.
 
 Make no other relay request. Do not edit, create, or delete any other file.
 
