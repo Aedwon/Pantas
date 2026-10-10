@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/components/pantas_button.dart';
 
 class ButtonPair extends StatelessWidget {
   const ButtonPair({
@@ -8,8 +7,8 @@ class ButtonPair extends StatelessWidget {
     this.stacked = false,
     super.key,
   });
-  final PantasButton primary;
-  final PantasButton secondary;
+  final Widget primary;
+  final Widget secondary;
   final bool stacked;
   @override
   Widget build(BuildContext context) =>

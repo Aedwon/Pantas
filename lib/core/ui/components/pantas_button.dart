@@ -10,6 +10,8 @@ class PantasButton extends StatelessWidget {
     this.variant = PantasButtonVariant.primary,
     this.busy = false,
     this.height = 52,
+    this.fontSize = 17,
+    this.radius = 14,
     super.key,
   });
   final String label;
@@ -17,6 +19,8 @@ class PantasButton extends StatelessWidget {
   final PantasButtonVariant variant;
   final bool busy;
   final double height;
+  final double fontSize;
+  final double radius;
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
@@ -51,14 +55,15 @@ class PantasButton extends StatelessWidget {
         onPressed: busy ? null : onPressed,
         style: ButtonStyle(
           minimumSize: WidgetStatePropertyAll(Size(double.infinity, height)),
-          padding: const WidgetStatePropertyAll(
-            EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          padding: WidgetStatePropertyAll(
+            EdgeInsets.symmetric(
+                horizontal: 16, vertical: height == 44 ? 10 : 12,),
           ),
           backgroundColor: WidgetStatePropertyAll(background),
           foregroundColor: WidgetStatePropertyAll(foreground),
           shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(14),
+              borderRadius: BorderRadius.circular(radius),
             ),
           ),
           overlayColor:
@@ -81,7 +86,10 @@ class PantasButton extends StatelessWidget {
               child: Text(
                 label,
                 textAlign: TextAlign.center,
-                style: context.type.emphasized.copyWith(color: foreground),
+                style: context.type.emphasized.copyWith(
+                    color: foreground,
+                    fontSize: fontSize,
+                    letterSpacing: fontSize < 17 ? 0 : -.204,),
               ),
             ),
           ],

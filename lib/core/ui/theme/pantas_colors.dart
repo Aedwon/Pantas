@@ -17,6 +17,7 @@ class PantasColors extends AppColors {
     required this.accentTint,
     required this.destructive,
     required this.wrongTint,
+    required this.wrongText,
     required this.pro,
     required this.liquidStart,
     required this.liquidEnd,
@@ -37,6 +38,7 @@ class PantasColors extends AppColors {
   final Color accentTint;
   final Color destructive;
   final Color wrongTint;
+  final Color wrongText;
   final Color pro;
   final Color liquidStart;
   final Color liquidEnd;
@@ -55,6 +57,7 @@ class PantasColors extends AppColors {
     accentTint: Color(0xFFE4F1EE),
     destructive: Color(0xFFD70015),
     wrongTint: Color(0xFFFDECEE),
+    wrongText: Color(0xFFD70015),
     pro: Color(0xFFD9A400),
     liquidStart: Color(0xFF14937D),
     liquidEnd: Color(0xFF0B7A68),
@@ -74,6 +77,7 @@ class PantasColors extends AppColors {
     accentTint: Color(0xFF123F37),
     destructive: Color(0xFFD70015),
     wrongTint: Color(0xFF3A1215),
+    wrongText: Color(0xFFFF6961),
     pro: Color(0xFFD9A400),
     liquidStart: Color(0xFF14937D),
     liquidEnd: Color(0xFF0B7A68),
@@ -139,6 +143,7 @@ class PantasColors extends AppColors {
     Color? accentTint,
     Color? destructive,
     Color? wrongTint,
+    Color? wrongText,
     Color? pro,
     Color? liquidStart,
     Color? liquidEnd,
@@ -166,6 +171,7 @@ class PantasColors extends AppColors {
         accentTint: accentTint ?? boardTint ?? this.accentTint,
         destructive: destructive ?? rust ?? this.destructive,
         wrongTint: wrongTint ?? this.wrongTint,
+        wrongText: wrongText ?? this.wrongText,
         pro: pro ?? amber ?? this.pro,
         liquidStart: liquidStart ?? this.liquidStart,
         liquidEnd: liquidEnd ?? this.liquidEnd,
@@ -188,6 +194,7 @@ class PantasColors extends AppColors {
       accentTint: Color.lerp(accentTint, other.accentTint, t)!,
       destructive: Color.lerp(destructive, other.destructive, t)!,
       wrongTint: Color.lerp(wrongTint, other.wrongTint, t)!,
+      wrongText: Color.lerp(wrongText, other.wrongText, t)!,
       pro: Color.lerp(pro, other.pro, t)!,
       liquidStart: Color.lerp(liquidStart, other.liquidStart, t)!,
       liquidEnd: Color.lerp(liquidEnd, other.liquidEnd, t)!,
