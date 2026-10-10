@@ -810,15 +810,13 @@ class RelayWatch(RunCase):
         self.run.tick()
         self.assertFalse(hasattr(self.dispatcher, "listed_since"))
 
-    def test_a_chat_reading_the_state_directory_stops_the_run_with_the_issue_number(self):
+    def test_a_chat_reading_the_state_directory_is_recorded_and_does_not_stop_the_run(self):
         self.started()
         self.dispatcher.relay = [self.request(4242, action="workspace_exec", argv=["cat", "/Users/x/.pantas-audit/level4/key.json"])]
         self.run.tick()
-        view = self.run.view()
-        self.assertEqual(view["state"], "stopped")
-        self.assertIn("a chat made a relay request it was not allowed to make", view["reason"])
-        self.assertIn("4242", view["reason"])
-        self.assertEqual(l4lib.load_json(self.state / "stop.json")["paths"], ["Issue #4242"])
+        self.assertEqual(self.run.view()["state"], "running")
+        self.assertEqual(self.run.q["relay_flagged"], [4242])
+        self.assertFalse((self.state / "stop.json").exists())
 
     def test_the_two_hand_in_requests_and_other_workspaces_do_not_stop_the_run(self):
         self.started()
@@ -835,26 +833,24 @@ class RelayWatch(RunCase):
         self.run.tick()
         self.assertEqual(self.run.view()["state"], "running")
 
-    def test_a_hand_in_for_a_role_or_attempt_the_run_never_registered_is_forbidden(self):
+    def test_a_hand_in_for_a_role_or_attempt_the_run_never_registered_is_recorded(self):
         self.started()
         self.dispatcher.relay = [self.request(
             9, action="workspace_write_file", content="{}",
             path="docs/content/audit/coverage-r1/level4/inbox/L4-0520-A-1.json")]
         self.run.tick()
-        self.assertEqual(self.run.view()["state"], "stopped")
+        self.assertEqual(self.run.view()["state"], "running")
+        self.assertEqual(self.run.q["relay_flagged"], [9])
 
-    def test_the_stop_is_cleared_once_and_the_same_issue_does_not_stop_the_run_again(self):
+    def test_each_flagged_issue_is_recorded_once(self):
         self.started()
         self.dispatcher.relay = [self.request(4242, action="workspace_exec", argv=["ls"])]
         self.run.tick()
-        (self.state / "stop.json").unlink()
-        self.run.resume()
         self.run.tick()
-        self.run.tick()
-        self.assertEqual(self.run.view()["state"], "running")
         self.dispatcher.relay.append(self.request(4300, action="workspace_exec", argv=["ls"]))
         self.run.tick()
-        self.assertEqual(self.run.view()["state"], "stopped")
+        self.assertEqual(self.run.q["relay_flagged"], [4242, 4300])
+        self.assertEqual(self.run.view()["state"], "running")
 
     def test_a_failing_listing_is_an_error_for_the_loop_to_count_and_nothing_advances(self):
         self.started()

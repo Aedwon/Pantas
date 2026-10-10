@@ -102,7 +102,7 @@ class Run:
             # Every (packet, role, attempt) a chat was ever told to hand in, as "packet|role|attempt".
             "registered": [],
             # Relay Issues that stopped the run and were then cleared by Aedwon.
-            "relay_stopped_on": [], "relay_ignore": [],
+            "relay_flagged": [],
             # The newest origin/main commit Aedwon accepted after the lesson standards changed.
             "standards_pending": None, "standards_accepted": None,
             "lessons": {packet_id: {"state": "pending", "attempt": 0, "tasks": {}} for packet_id in order},
@@ -125,10 +125,11 @@ class Run:
         self.q["baseline_files"] = {path: handin.file_hash(self.audit_wt / path) for path in paths}
 
     def _standards_diff(self, base):
-        """(origin/main commit, paths under docs/content/ and AGENTS.md that differ from base)."""
+        """(origin/main commit, paths under docs/content/ (not the audit folder) and AGENTS.md that differ from base)."""
         self._git("fetch", "origin", "main")
         head = self._git("rev-parse", "origin/main").decode().strip()
-        raw = self._git("diff", "--name-only", "-z", "--no-renames", base, head, "--", "docs/content", "AGENTS.md")
+        raw = self._git("diff", "--name-only", "-z", "--no-renames", base, head, "--", "docs/content", "AGENTS.md",
+                        ":(exclude)docs/content/audit")
         return head, [name.decode("utf-8", "surrogateescape") for name in raw.split(b"\0") if name]
 
     # ---- Aedwon's controls -----------------------------------------------------
@@ -152,8 +153,6 @@ class Run:
             # Only the lead can clear a stop: by resolving the cause and removing stop.json.
             if (self.state_dir / "stop.json").exists():
                 return
-            self.q["relay_ignore"] = sorted(set(self.q.get("relay_ignore", [])) | set(self.q.get("relay_stopped_on", [])))
-            self.q["relay_stopped_on"] = []
             if self.q.get("standards_pending"):
                 self.q["standards_accepted"], self.q["standards_pending"] = self.q["standards_pending"], None
             self._baseline()
@@ -336,20 +335,23 @@ class Run:
     # ---- safety checks, run on every tick ---------------------------------------
 
     def _watch_relay(self):
-        """Stop the run when a chat made a relay request it was not allowed to make."""
+        """Record relay requests that are not an expected hand-in. Never stops the run.
+
+        Aedwon dropped this as a defense on October 11, 2026: a chat that mistypes
+        its hand-in path is far more likely than one that cheats, and a stop needs
+        the lead. The numbers are kept so the lead can read those Issues afterwards.
+        """
         since = self.q.get("started_at")
         if not since:
             return False
         registered = set(self.q.get("registered", []))
-        ignore = set(self.q.get("relay_ignore", []))
-        forbidden = [issue["number"] for issue in self.dispatcher.list_relay_issues(since)
-                     if issue["number"] not in ignore
-                     and dispatch.classify_request(issue, self.audit_wt.name, registered) == "forbidden"]
-        if not forbidden:
-            return False
-        self.q["relay_stopped_on"] = forbidden
-        self._stop_run("a chat made a relay request it was not allowed to make", ["Issue #%d" % n for n in forbidden])
-        return True
+        seen = set(self.q.get("relay_flagged", []))
+        found = {issue["number"] for issue in self.dispatcher.list_relay_issues(since)
+                 if dispatch.classify_request(issue, self.audit_wt.name, registered) == "forbidden"}
+        if found - seen:
+            self.q["relay_flagged"] = sorted(seen | found)
+            self.save()
+        return False
 
     def _watch_changes(self):
         found = self.changes(self.q)

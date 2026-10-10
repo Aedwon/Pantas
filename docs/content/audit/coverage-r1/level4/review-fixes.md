@@ -3,7 +3,10 @@
 Review date: October 10, 2026. Reviewer: a Claude agent that wrote none of the
 code. Reviewed commit: `ef3b8736`. This file lists each confirmed defect and the
 fix the lead decided. "Done" means fixed in `4caa3dc7` (code only; callers and
-tests not yet updated). Everything else is open.
+tests not yet updated). Everything else was open then.
+
+Status on October 11, 2026: every item is done at `5840f705` plus the commit
+that follows it; 261 tests pass. Hardening stops here by Aedwon's decision.
 
 The unit tests fail at `4caa3dc7` because `compare.compare` gained a
 `lesson_text` argument, `handin.process` gained an `attempt` argument, the
@@ -58,7 +61,10 @@ stop_run(state_dir, reason, paths, seen_by)
    the other role cannot be prevented (any secret given to a chat is on GitHub);
    the copy flag catches the identical pair. Open: `runqueue.py` must write the
    new `expected` shape and pass the attempt into the assignment text.
-6. **Major, open.** A chat can read the local state directory through
+6. **Major, built, then reduced to record only.** Aedwon dropped this defense on
+   October 11, 2026. The check records the Issue numbers in `relay_flagged` and
+   never stops the run. Bypasses found by the automated commit review are an
+   accepted limit. Original text: A chat can read the local state directory through
    `workspace_exec`. The relay is not a sandbox. Fix: detect it. Each tick,
    list relay Issues opened since the run started (`gh api
    repos/Aedwon/chatgpt-terminal-relay/issues?state=all&since=<iso>&creator=Aedwon`,
