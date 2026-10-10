@@ -1640,3 +1640,23 @@ touches only this run's hand-in issues, does not retrigger the relay, and is
 reversible through GitHub's edit history, which also means a determined chat
 could still find the text. The eraser must not run until he confirms.
 The plan and build may start. Level 5 remains unauthorized.
+
+### October 10, 2026: everything approved; pacing rule added
+
+While the lead was writing the implementation plan, exact human message:
+
+> okay everything is approved. can you pace it also? like, say, have it not move to another lesson until the current lesson is fully in the green and all.
+
+Recorded reading: "everything is approved" confirms the one open item, the
+hand-in issue eraser, after his "is that safe?" was answered. The pacing rule is
+new: the next lesson starts only when the current lesson is fully finished (both
+forms accepted, disagreements ruled, result saved and re-checked). The earlier
+design moved on after putting a stuck lesson on the hold list by itself; that is
+removed. A lesson that cannot finish now pauses the run and asks for him, and
+only he puts a lesson on hold. Cost: the run waits for him more often and takes
+longer when lessons get stuck. This is the lead's interpretation of "fully in
+the green and all"; he was told it in the reply so he can correct it.
+
+What changed: the spec's pacing paragraph, hold list bullet, and decisions list;
+the plan's queue task and constraints. The page needs one state the approved
+mockup lacks ("this lesson needs you"); its wording goes to him before it ships.

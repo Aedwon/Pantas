@@ -2,8 +2,8 @@
 
 Date: October 10, 2026
 Status: Revision 2 approved by Aedwon on October 10, 2026, with page mockup
-version 3 and High effort. The hand-in issue eraser is not yet confirmed and
-must not run until it is. Revision 1 (prompts pasted by hand) is superseded.
+version 3, High effort, and the hand-in issue eraser. Amended the same day with
+his pacing rule. Revision 1 (prompts pasted by hand) is superseded.
 Parent spec: `2026-10-03-exam-content-coverage-audit-design.md` (Level 4, "Lesson
 standards", and "Illustration review"). This spec changes how Level 4 is run. It
 does not change what Level 4 must answer.
@@ -37,8 +37,13 @@ lessons, and the pilot.
    positions without knowing which chat wrote which, and rules with a quote.
 7. The lesson is marked finished and the queue moves to the next one.
 
-One chat handles one lesson and one role. No chat is reused. One lesson runs at
-a time.
+One chat handles one lesson and one role. No chat is reused.
+
+**Pacing (your rule, October 10).** One lesson runs at a time. The next lesson
+starts only when the current one is fully finished: both forms accepted, every
+disagreement ruled, the result saved, and the checks on that result passed. If
+the current lesson cannot finish, the run does not skip ahead. It pauses and
+asks for you. You then fix it, restart its chats, or put it on hold yourself.
 
 ### The local page
 
@@ -81,9 +86,11 @@ hold list. They are plain read-only lists.
 - **Chats cannot change anything else.** The assignment allows one hand-in. The
   script refuses to save if anything else in the audit folder changed, and the
   run stops.
-- **Hold list.** A lesson stops and waits if a form fails the check twice in one
-  chat, if a chat stalls, or if the deciding chat cannot settle a disagreement.
-  Held lessons are reported, not forced through.
+- **Hold list.** A lesson cannot finish if a form fails the check twice in one
+  chat, if a chat stalls, if a pair looks copied, or if the deciding chat cannot
+  settle a disagreement. The run then pauses for you. A lesson goes on the hold
+  list only when you put it there. Held lessons are reported, not forced
+  through.
 - **Version lock.** Every packet names the lesson version and the standards
   version. The check rejects a form built from a different version.
 - **The run never works around a limit.** At a usage limit, a sign-in prompt, or
@@ -157,11 +164,9 @@ check.
 ### Decisions in this revision
 
 1. Approve this section and mockup version 3.
-2. Confirm that the script may erase the text of hand-in issues in your relay
-   repository. I read your "let's go with your recommendation" as covering it.
-   Nothing is erased before the pilot starts.
-3. Effort level: I assume High, as Levels 1 to 3 used. Say so if you want
-   another.
+2. The script may erase the text of hand-in issues in your relay repository.
+   Confirmed October 10 after you asked whether it is safe.
+3. Effort level: High, confirmed October 10.
 
 ### What counts as finished
 
@@ -282,6 +287,11 @@ unless stated.
   saved results.
 - Order: topic by topic, prerequisite lessons first where Level 3 found a link.
 - Pause lets running chats finish and starts no new one.
+- Pacing gate: a lesson is green only after its final result file is written,
+  re-read, and re-validated (every in-scope rule present, every quote still
+  found in the pinned lesson). Only then may the queue register the next
+  lesson. Any failure sets the run to a waiting state; the queue never holds a
+  lesson by itself.
 
 ### Stop conditions
 
