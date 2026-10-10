@@ -197,6 +197,17 @@
    "more": "File: <code>{path}</code>. Nothing more is saved until this is resolved.",
    "acts": []
   },
+  "run_trouble": {
+   "say": "The run needs you.",
+   "more": "{reason}",
+   "acts": [
+    [
+     "Resume",
+     "resume",
+     ""
+    ]
+   ]
+  },
   "needs_you": {
    "say": "This lesson needs you.",
    "more": "{reason}",
@@ -284,8 +295,8 @@ function render(v) {
     else if (v.chats.some(c => c.status === 'fixing')) more = T.running_fixing;
   }
   // The stopped sentence carries markup; every value put into it is escaped.
-  const values = { path: esc(v.reason.split(': ').slice(1).join(': ')), reason: esc(v.reason), total: v.total, held: v.held };
-  more = v.state === 'stopped' ? fill(more, values) : esc(fill(more, { reason: v.reason, total: v.total, held: v.held }));
+  const values = { path: esc(v.reason.split(': ').slice(1).join(': ')), reason: esc(v.reason), total: v.finished, held: v.held };
+  more = v.state === 'stopped' ? fill(more, values) : esc(fill(more, { reason: v.reason, total: v.finished, held: v.held }));
 
   $('where').textContent = where[0]; $('lesson').textContent = where[1];
   $('say').textContent = t.say; $('say').className = 'say' + (v.state === 'stopped' ? ' stop' : '');

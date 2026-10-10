@@ -20,6 +20,9 @@ NEW_TEXT = {
     "The next lesson is starting.",
     "This lesson needs you.",
     "Check lesson {n} of {total}, {subject}",
+    # Approved by Aedwon (relayed by the coordinator, October 11, 2026): the run_trouble state,
+    # this sentence with the reason beneath it and a Resume button.
+    "The run needs you.",
 }
 
 

@@ -94,15 +94,33 @@ def make_handler(run, lock, page_path, reports=None):
     return Handler
 
 
-def tick_forever(run, lock, seconds=TICK_SECONDS, stop=None):
-    while not (stop and stop.is_set()):
-        try:
+FAILING_TICKS = 3
+
+
+def tick_once(run, lock, failing):
+    """Run one tick. Returns the new count of consecutive failing ticks.
+
+    A failed GitHub call or dispatcher command must not end the loop; the next
+    tick tries again from the saved state. Three failures in a row mean the
+    run is not really running, so the page is told to ask for Aedwon.
+    """
+    try:
+        with lock:
+            run.tick()
+        return 0
+    except Exception as exc:
+        traceback.print_exc()
+        failing += 1
+        if failing >= FAILING_TICKS:
             with lock:
-                run.tick()
-        except Exception:
-            # A failed GitHub call or dispatcher command must not end the loop;
-            # the next tick tries again from the saved state.
-            traceback.print_exc()
+                run.trouble("%s: %s" % (type(exc).__name__, str(exc).strip()[-200:] or "no message"))
+        return failing
+
+
+def tick_forever(run, lock, seconds=TICK_SECONDS, stop=None):
+    failing = 0
+    while not (stop and stop.is_set()):
+        failing = tick_once(run, lock, failing)
         time.sleep(seconds)
 
 
