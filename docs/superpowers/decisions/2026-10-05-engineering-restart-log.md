@@ -995,3 +995,10 @@ keyframes), 5 minor. The lead agrees with all and added L3 W1 Task 9b; finding 3
 drawn by the design) is a design choice for Aedwon. The lead's own review had checked colors and
 routes only and missed these. W3 reached Task 8 (9ff83c62) and stopped at the Codex limit on Oct 7
 with Task 9 edits uncommitted in its worktree.
+
+## October 10, 2026: unselected tab color
+
+Aedwon chose, from a side-by-side of both tab bars: "Tab labels: option 2, use the darker gray
+#6E6E73". Unselected tabs in light mode use the secondary label token instead of the drawn
+`#8A8A8E` (3.44:1, below the 4.5:1 minimum). This overrides the boards for that one color. L3 W1
+Task 9b item 3 amended.

@@ -149,7 +149,9 @@ Source: `gates/w1-astra-audit-1.md`. Each fix: failing test first.
 2. Legacy contrast (adapters only, until each W4 family replaces the screen): a label on the
    destructive fill is white in light and dark; legacy wrong-answer text and the legacy last-minute
    mock timer keep their pre-W1 colors. Test each pair at 4.5:1 or better. No new design token.
-3. Unselected tab label contrast (3.44:1): waits for Aedwon's ruling; do not change it.
+3. Unselected tab label and icon color in light mode: `secondaryLabel` (`#6E6E73`, 5.1:1), replacing
+   the drawn `#8A8A8E` (Aedwon, Oct 10, chosen from a side-by-side: "option 2, use the darker gray
+   #6E6E73"). Dark mode unchanged. Test the foreground and background pair at 4.5:1 or better.
 4. Tabs are focusable and activate on Enter and Space, with no new animation; test with the keyboard.
 5. Pop and shake follow the HP_Free keyframes by elapsed time, easing inside each interval (pop 1.12
    at 60%; shake -9, +8, -5, +3 px at 18, 36, 54, 72%); tests assert the intermediate values.
