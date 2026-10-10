@@ -174,10 +174,35 @@ class UnexpectedChanges(unittest.TestCase):
         (self.root / "kept.md").write_text("changed")
         self.assertEqual(self.changes(), ["kept.md", "stray.md"])
 
-    def test_files_the_run_wrote_and_baseline_files_are_allowed(self):
+    def test_files_the_run_wrote_and_baseline_files_are_allowed_while_unchanged(self):
         (self.root / "result.md").write_text("x")
         (self.root / "old-untracked.md").write_text("x")
-        self.assertEqual(self.changes(written=["result.md"], baseline_status=["?? old-untracked.md"]), [])
+        pins = {"written": {"result.md": handin.file_hash(self.root / "result.md")},
+                "baseline_files": {"old-untracked.md": handin.file_hash(self.root / "old-untracked.md")}}
+        self.assertEqual(self.changes(**pins), [])
+
+    def test_an_edit_to_an_already_dirty_file_is_reported(self):
+        (self.root / "old-untracked.md").write_text("x")
+        (self.root / "kept.md").write_text("dirty before the run")
+        pins = {"baseline_files": {"old-untracked.md": handin.file_hash(self.root / "old-untracked.md"),
+                                   "kept.md": handin.file_hash(self.root / "kept.md")}}
+        self.assertEqual(self.changes(**pins), [])
+        (self.root / "old-untracked.md").write_text("tampered")
+        (self.root / "kept.md").write_text("tampered")
+        self.assertEqual(self.changes(**pins), ["kept.md", "old-untracked.md"])
+
+    def test_an_edit_to_a_file_the_run_wrote_is_reported(self):
+        (self.root / "result.md").write_text("x")
+        pins = {"written": {"result.md": handin.file_hash(self.root / "result.md")}}
+        (self.root / "result.md").write_text("tampered")
+        self.assertEqual(self.changes(**pins), ["result.md"])
+
+    def test_a_committed_result_is_allowed_only_while_its_content_matches(self):
+        (self.root / "result.md").write_text("x")
+        pins = {"written": {"result.md": handin.file_hash(self.root / "result.md")}}
+        self.git("add", ".")
+        self.git("commit", "-q", "-m", "saved by the watcher")
+        self.assertEqual(self.changes(**pins), [])
 
     def test_a_commit_of_an_unexpected_file_is_reported(self):
         (self.root / "sneaky.md").write_text("x")

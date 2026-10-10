@@ -232,9 +232,12 @@ Validation rules, each producing one plain reason string:
 - [ ] `python3 docs/content/audit/coverage-r1/level4/handin.py <packet-id> <role>`
   reads `level4/inbox/<packet-id>-<role>.json`. Role is `A`, `B`, or `D`.
 - [ ] Order of work: check the id and role are expected by `queue.json`; run
-  the unexpected-change check (`git status --porcelain` on the audit folder,
-  allowing only `inbox/`, files recorded in `queue.json` as written by the run,
-  and nothing in the corpus worktree); validate; on accept move the form to
+  the unexpected-change check (every dirty or committed-since-start path in the
+  audit worktree must have its current content hash recorded in `queue.json`,
+  under `written` for files the run wrote or `baseline_files` for files already
+  dirty at Start; `status.md` gets no exemption, because an edit there could
+  restart the Codex orchestrator; the corpus worktree must be clean at its
+  pinned commit); validate; on accept move the form to
   `STATE_DIR/forms/` and print `ACCEPTED`; on reject keep a copy under
   `forms/rejected/`, count it, and print `REJECTED` with numbered reasons; on a
   second rejection also print `HELD: stop and report that this form was not accepted`.

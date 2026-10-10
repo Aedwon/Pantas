@@ -9,6 +9,7 @@ findings: only what the chat must fix.
 Exit codes: 0 accepted, 1 rejected, 2 held, 3 stopped, 64 bad request.
 """
 import datetime
+import hashlib
 import json
 import subprocess
 import sys
@@ -18,7 +19,6 @@ import form
 import l4lib
 
 MAX_REJECTIONS = 2
-STATUS_PATH = "docs/content/audit/coverage-r1/status.md"
 
 
 def _now():
@@ -33,26 +33,41 @@ def _event(state_dir, **fields):
         handle.write(json.dumps(fields) + "\n")
 
 
+def file_hash(path):
+    """Content hash of a file, or None when it does not exist."""
+    try:
+        return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    except OSError:
+        return None
+
+
 def unexpected_changes(queue, audit_wt=None, corpus_wt=None):
-    """Paths changed since the run started that the run itself did not write."""
+    """Paths changed since the run started that the run itself did not write.
+
+    A changed path is expected only when its current content matches the hash
+    recorded for it: in "written" for files the run wrote, or in
+    "baseline_files" for files already dirty when the run started. Matching by
+    content, not by path, means an edit to an already-dirty file is still seen.
+    """
     audit_wt = Path(audit_wt or l4lib.AUDIT_WT)
-    allowed = set(queue.get("written", [])) | {STATUS_PATH}
-    baseline = set(queue.get("baseline_status", []))
+    pinned = dict(queue.get("baseline_files", {}))
+    pinned.update(queue.get("written", {}))
 
     def git(root, *args):
         return subprocess.check_output(["git"] + list(args), cwd=str(root), universal_newlines=True)
 
     changed = set()
     for line in git(audit_wt, "status", "--porcelain", "--untracked-files=all").splitlines():
-        if line not in baseline:
-            changed.add(line[3:].strip().strip('"'))
+        changed.add(line[3:].split(" -> ")[-1].strip().strip('"'))
     if queue.get("baseline_head"):
         changed.update(path for path in git(audit_wt, "diff", "--name-only", queue["baseline_head"], "HEAD").splitlines() if path)
+    unexpected = sorted(path for path in changed
+                        if path not in pinned or file_hash(audit_wt / path) != pinned[path])
     try:
         l4lib.check_corpus(corpus_wt)
     except l4lib.L4Error:
-        changed.add("(the lesson corpus)")
-    return sorted(path for path in changed if path not in allowed)
+        unexpected.append("(the lesson corpus)")
+    return unexpected
 
 
 def _lesson_text(entry):
