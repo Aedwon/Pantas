@@ -7,6 +7,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import fixtures  # noqa: E402
 import form  # noqa: E402
+import l4lib  # noqa: E402
 
 REAL_QUOTE = "Factoring is efficient when the quadratic has convenient factors."
 
@@ -47,9 +48,14 @@ class ReaderForm(unittest.TestCase):
         del self.form["rules"]["L17"]
         self.assert_one_reason(self.form, "L17")
 
-    def test_extra_rule_is_rejected(self):
-        self.form["rules"]["L22"] = copy.deepcopy(self.form["rules"]["L17"])
-        self.assert_one_reason(self.form, "L22")
+    def test_extra_rule_is_rejected_and_never_echoed(self):
+        # An unknown key can carry any text, so the reason counts it and does not print it.
+        self.form["rules"]["ZEBRA-KEY L22"] = copy.deepcopy(self.form["rules"]["L17"])
+        found = reasons(self.form)
+        self.assertEqual(len(found), 1, found)
+        self.assertIn("1 rule ids", found[0])
+        self.assertNotIn("ZEBRA", found[0])
+        self.assertNotIn("L22", found[0])
 
     def test_unknown_verdict_is_rejected(self):
         self.form["rules"]["L17"]["verdict"] = "fine"
@@ -121,6 +127,113 @@ class ReaderForm(unittest.TestCase):
         candidate = fixtures.failing(self.form, "L17", "An invented quote ZEBRA-QUOTE", problem=secret)
         text = " ".join(reasons(candidate))
         self.assertNotIn("ZEBRA", text)
+
+
+class Hardening(unittest.TestCase):
+    """Review items 1, 2 and 7."""
+
+    def setUp(self):
+        self.form = fixtures.valid_form()
+
+    def not_applicable(self, rule_id):
+        candidate = copy.deepcopy(self.form)
+        candidate["rules"][rule_id] = {"verdict": "not_applicable", "findings": [], "checked": [],
+                                       "note": "No part of this lesson gives this rule anything to judge."}
+        return reasons(candidate)
+
+    def test_only_the_listed_rules_may_be_not_applicable(self):
+        self.assertEqual(form.NA_ALLOWED, ("L03", "L14", "L21", "L23", "L08", "L09", "L10", "L11", "L12"))
+        for rule_id in form.NA_ALLOWED:
+            self.assertEqual(self.not_applicable(rule_id), [], rule_id)
+
+    def test_every_other_chat_rule_must_be_judged(self):
+        refused = [rule_id for rule_id in sorted(self.form["rules"]) if rule_id not in form.NA_ALLOWED]
+        self.assertIn("L17", refused)
+        for rule_id in refused:
+            found = self.not_applicable(rule_id)
+            self.assertEqual(len(found), 1, (rule_id, found))
+            self.assertIn("applies to every lesson", found[0])
+            self.assertIn(rule_id, found[0])
+
+    def test_the_same_proof_on_three_rules_is_refused_but_two_are_allowed(self):
+        major = [rule["id"] for rule in l4lib.load_rules()
+                 if rule["id"] in self.form["rules"] and self.form["rules"][rule["id"]]["verdict"] == "pass"
+                 and form._needs_proof(rule)]
+        self.assertGreaterEqual(len(major), 3)
+        same = "traced every formula back to the place the lesson first introduces it"
+        for rule_id in major[:2]:
+            self.form["rules"][rule_id]["checked"] = [same]
+        self.assertEqual(reasons(self.form), [])
+        self.form["rules"][major[2]]["checked"] = [same.upper()]
+        found = reasons(self.form)
+        self.assertEqual(len(found), 1, found)
+        self.assertIn("same checked text", found[0])
+        self.assertTrue(all(rule_id in found[0] for rule_id in major[:3]))
+
+    def test_a_quote_made_only_of_shared_lesson_text_is_refused(self):
+        for boilerplate in ("## Core Concept", "**Solution:**", "isActive: true", "## Traps to Watch For"):
+            found = reasons(fixtures.failing(self.form, "L17", boilerplate))
+            self.assertEqual(len(found), 1, (boilerplate, found))
+            self.assertIn("quote", found[0])
+        # Real teaching text that merely sits under a heading is still a good quote.
+        self.assertEqual(reasons(fixtures.failing(self.form, "L17", REAL_QUOTE)), [])
+
+    def test_null_and_wrong_typed_fields_are_rejected_not_crashed(self):
+        for key, bad in (("findings", None), ("findings", "none"), ("checked", None), ("checked", [None]),
+                         ("checked", "text"), ("note", None), ("note", 5)):
+            candidate = copy.deepcopy(self.form)
+            candidate["rules"]["L17"][key] = bad
+            found = reasons(candidate)
+            self.assertEqual(len(found), 1, (key, bad, found))
+            self.assertIn("L17", found[0])
+            self.assertIn("never null", found[0])
+        for bad_entry in (None, "pass", ["pass"], 7):
+            candidate = copy.deepcopy(self.form)
+            candidate["rules"]["L17"] = bad_entry
+            self.assertEqual(len(reasons(candidate)), 1, bad_entry)
+        for key, bad in (("rules", None), ("rules", []), ("illustrations", None), ("accuracy_concerns", None)):
+            candidate = copy.deepcopy(self.form)
+            candidate[key] = bad
+            self.assertTrue(reasons(candidate), (key, bad))
+        self.assertTrue(reasons([]))
+        self.assertTrue(reasons(None))
+
+    def test_a_reason_never_says_what_verdict_the_form_gave(self):
+        # A pass with no proof and a fail with no finding must be rejected with the same words,
+        # so the reasons posted to GitHub do not reveal which verdict a read chose.
+        thin_pass = copy.deepcopy(self.form)
+        thin_pass["rules"]["L17"]["checked"] = []
+        thin_fail = copy.deepcopy(self.form)
+        thin_fail["rules"]["L17"] = {"verdict": "fail", "findings": [], "checked": [], "note": ""}
+        thin_na = copy.deepcopy(self.form)
+        thin_na["rules"]["L23"] = {"verdict": "not_applicable", "findings": [], "checked": [], "note": ""}
+        self.assertEqual(reasons(thin_pass), reasons(thin_fail))
+        for found in (reasons(thin_pass), reasons(thin_fail), reasons(thin_na)):
+            self.assertEqual(len(found), 1)
+            self.assertNotRegex(found[0], r"(?i)\b(you|your form|it|verdict)\s+(is|was|gave|marked|said|chose)\b")
+        wrong = copy.deepcopy(self.form)
+        wrong["rules"]["L17"]["verdict"] = "ZEBRA-VERDICT"
+        found = " ".join(reasons(wrong))
+        self.assertNotIn("ZEBRA", found)
+
+    def test_a_non_string_verdict_is_rejected(self):
+        for bad in (["pass"], {"pass": 1}, 3, None, True):
+            candidate = copy.deepcopy(self.form)
+            candidate["rules"]["L17"]["verdict"] = bad
+            self.assertEqual(len(reasons(candidate)), 1, bad)
+
+
+class Clean(unittest.TestCase):
+    def test_clean_drops_everything_that_is_not_a_known_field(self):
+        candidate = fixtures.valid_form()
+        candidate["ZEBRA-TOP"] = "carried along"
+        candidate["rules"]["L17"]["ZEBRA-ENTRY"] = "carried along"
+        candidate["rules"]["L17"]["checked"].append("x" * 20)
+        candidate["accuracy_concerns"] = [{"quote": REAL_QUOTE, "concern": "The value looks wrong here.", "ZEBRA": 1}]
+        cleaned = form.clean(candidate, "A")
+        self.assertNotIn("ZEBRA", str(cleaned))
+        self.assertEqual(sorted(cleaned["rules"]["L17"]), ["checked", "findings", "note", "verdict"])
+        self.assertEqual(cleaned["rules"]["L17"]["checked"], candidate["rules"]["L17"]["checked"])
 
 
 class DeciderForm(unittest.TestCase):

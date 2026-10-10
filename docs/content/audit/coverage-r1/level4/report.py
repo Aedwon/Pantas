@@ -7,9 +7,10 @@ publish_final: writes every result into the audit folder. Run it only when
 the run has ended, because it reveals which packets were planted.
 """
 import datetime
+import json
 from pathlib import Path
 
-import compare
+import handin
 import l4lib
 
 NOT_ASSESSED = {
@@ -20,7 +21,8 @@ NOT_ASSESSED = {
 
 
 class Data:
-    def __init__(self, state_dir=None, mechanical_dir=None):
+    def __init__(self, state_dir=None, mechanical_dir=None, lesson_text=None):
+        self._lesson_text = lesson_text or handin._lesson_text
         self.state_dir = Path(state_dir or l4lib.STATE_DIR)
         self.mechanical_dir = Path(mechanical_dir or (l4lib.LEVEL4_DIR / "mechanical"))
         self.index = l4lib.load_json(self.state_dir / "index.json")
@@ -36,16 +38,29 @@ class Data:
         return [packet_id for packet_id in self.queue["order"]
                 if self.queue["lessons"][packet_id]["state"] == "finished" and self.index[packet_id]["planted"] == planted]
 
+    def lesson_text(self, packet_id):
+        """The text of the lesson as this packet carried it (the edited copy for a planted packet)."""
+        return self._lesson_text(self.index[packet_id])
+
+    def attempt(self, packet_id):
+        return self.queue["lessons"][packet_id]["attempt"]
+
+    def form(self, packet_id, role):
+        return self.load("forms", "%s-%s-%d.json" % (packet_id, role, self.attempt(packet_id)))
+
     def events(self):
         path = self.state_dir / "handin-events.jsonl"
-        import json
         return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()] if path.exists() else []
 
 
-def caught(defect, rules):
+CAUGHT_GAP = 80
+
+
+def caught(defect, rules, lesson_text):
     """A read caught a planted defect when it failed one of the defect's rules at the planted text.
 
-    rules: the "rules" object of a form or of a final result.
+    rules: the "rules" object of a form or of a final result. A finding counts
+    when its quote lies in the lesson within CAUGHT_GAP characters of the anchor.
     """
     anchors = defect["must_quote"] if isinstance(defect["must_quote"], list) else [defect["must_quote"]]
     for rule_id in defect.get("rules") or [defect["rule"]]:
@@ -53,7 +68,7 @@ def caught(defect, rules):
         if entry.get("verdict") != "fail":
             continue
         for finding in entry.get("findings", []):
-            if any(compare.same_place(anchor, finding["quote"]) for anchor in anchors):
+            if any(l4lib.same_place(anchor, finding["quote"], lesson_text, gap=CAUGHT_GAP) for anchor in anchors):
                 return True
     return False
 
@@ -67,10 +82,11 @@ def planted_table(data, packet_ids):
     rows, totals = [], {}
     for packet_id in packet_ids:
         lesson_id = data.index[packet_id]["lesson_id"]
-        form_a, form_b = data.load("forms", "%s-A.json" % packet_id), data.load("forms", "%s-B.json" % packet_id)
+        form_a, form_b = data.form(packet_id, "A"), data.form(packet_id, "B")
         result = data.load("results", "%s.json" % packet_id)
+        text = data.lesson_text(packet_id)
         for defect in data.key.get(lesson_id, []):
-            marks = [caught(defect, (source or {}).get("rules")) for source in (form_a, form_b, result)]
+            marks = [caught(defect, (source or {}).get("rules"), text) for source in (form_a, form_b, result)]
             rows.append((defect["rule"], defect["label"], marks))
             tally = totals.setdefault(defect["rule"], [0, 0, 0, 0])
             tally[0] += 1

@@ -37,6 +37,12 @@ class FakeDispatcher:
     def cancel(self, task_id):
         self.cancelled.append(task_id)
 
+    def supervisor_running(self):
+        return True
+
+    def list_relay_issues(self, since):
+        return []
+
 
 class RunCase(unittest.TestCase):
     def setUp(self):
@@ -57,7 +63,7 @@ class RunCase(unittest.TestCase):
         self.clock = datetime.datetime(2026, 10, 11, 9, 0, tzinfo=datetime.timezone.utc)
         self.erased = []
         prompts = Path(tempfile.mkdtemp())
-        (prompts / "reader.md").write_text("READ {{PACKET}} {{ROLE}} {{COMMIT}}")
+        (prompts / "reader.md").write_text("READ {{PACKET}} {{ROLE}} {{ATTEMPT}} {{COMMIT}}")
         (prompts / "decider.md").write_text("DECIDE {{PACKET}} {{COMMIT}} {{FORM}} {{ITEMS}}")
         self.prompts = prompts
         self.run = self.new_run()
@@ -69,12 +75,13 @@ class RunCase(unittest.TestCase):
                             now=lambda: self.clock, audit_wt=self.wt,
                             lesson_text=lambda entry: fixtures.LESSON_TEXT, prompts_dir=self.prompts)
 
-    def hand_in(self, packet_id, role, form, result="accepted"):
+    def hand_in(self, packet_id, role, form, result="accepted", attempt=None):
+        attempt = attempt or self.run.q["lessons"][packet_id]["attempt"]
         if result == "accepted":
             form = dict(form, packet=packet_id, role=role)
-            l4lib.save_json(self.state / "forms" / ("%s-%s.json" % (packet_id, role)), form)
+            l4lib.save_json(self.state / "forms" / ("%s-%s-%d.json" % (packet_id, role, attempt)), form)
         with open(str(self.state / "handin-events.jsonl"), "a") as handle:
-            handle.write(json.dumps({"packet": packet_id, "role": role, "result": result,
+            handle.write(json.dumps({"packet": packet_id, "role": role, "attempt": attempt, "result": result,
                                      "at": self.clock.isoformat()}) + "\n")
 
     def minutes(self, count):
@@ -102,8 +109,8 @@ class HappyPath(RunCase):
         self.run.tick()
         roles = [envelope["task_id"] for envelope in self.dispatcher.registered]
         self.assertEqual(roles, ["l4abc123-l4-0417-a-1", "l4abc123-l4-0417-b-1"])
-        self.assertEqual(self.run.q["expected"], {"L4-0417": ["A", "B"]})
-        self.assertIn("READ L4-0417 A " + "c" * 40, self.dispatcher.registered[0]["assignment_markdown"])
+        self.assertEqual(self.run.q["expected"], {"L4-0417": {"roles": ["A", "B"], "attempt": 1}})
+        self.assertIn("READ L4-0417 A 1 " + "c" * 40, self.dispatcher.registered[0]["assignment_markdown"])
         self.assertTrue(self.run.q["baseline_head"])
 
     def test_agreeing_reads_finish_the_lesson_and_the_next_one_starts(self):
@@ -153,7 +160,7 @@ class Deciding(RunCase):
     def test_a_disagreement_starts_a_deciding_chat_and_does_not_finish(self):
         self.dispute()
         self.assertEqual(self.state_of("L4-0417"), "deciding")
-        self.assertEqual(self.run.q["expected"], {"L4-0417": ["D"]})
+        self.assertEqual(self.run.q["expected"], {"L4-0417": {"roles": ["D"], "attempt": 1}})
         markdown = self.dispatcher.registered[-1]["assignment_markdown"]
         self.assertIn("DECIDE L4-0417", markdown)
         self.assertIn('"I1"', markdown)
@@ -222,7 +229,8 @@ class PacingGate(RunCase):
         self.hand_in("L4-0417", "B", fixtures.valid_form("B"))
         self.run.restart_current()
         self.assertEqual(self.dispatcher.cancelled, ["l4abc123-l4-0417-a-1", "l4abc123-l4-0417-b-1"])
-        self.assertFalse((self.state / "forms" / "L4-0417-B.json").exists())
+        self.assertFalse((self.state / "forms" / "L4-0417-B-1.json").exists())
+        self.assertTrue((self.state / "forms" / "discarded" / "L4-0417-attempt-1" / "L4-0417-B-1.json").exists())
         self.run.tick()
         self.assertEqual(self.dispatcher.registered[-1]["task_id"], "l4abc123-l4-0417-b-2")
         self.assertEqual(self.run.q["current"], "L4-0417")

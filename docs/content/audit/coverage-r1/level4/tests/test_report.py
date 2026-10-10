@@ -41,19 +41,19 @@ class ReportCase(unittest.TestCase):
         self.finish("L4-1000", fixtures.valid_form("A"), fixtures.valid_form("B"))
         self.finish("L4-3000", fixtures.valid_form("A"), fixtures.valid_form("B"))
         self.queue = {"order": ["L4-1000", "L4-2000", "L4-3000", "L4-4000"], "pilot_count": 2, "lessons": {
-            packet_id: {"state": "finished", "tasks": {"A": {"started_at": T0, "finished_at": T1},
+            packet_id: {"state": "finished", "attempt": 1, "tasks": {"A": {"started_at": T0, "finished_at": T1},
                                                        "B": {"started_at": T0, "finished_at": T1}}}
             for packet_id in ("L4-1000", "L4-2000", "L4-3000")}}
-        self.queue["lessons"]["L4-4000"] = {"state": "held", "tasks": {}, "held_reason": "form rejected twice"}
+        self.queue["lessons"]["L4-4000"] = {"state": "held", "attempt": 1, "tasks": {}, "held_reason": "form rejected twice"}
         l4lib.save_json(self.state / "queue.json", self.queue)
         with open(str(self.state / "handin-events.jsonl"), "w") as handle:
             for packet_id, result in (("L4-1000", "rejected"), ("L4-1000", "accepted"), ("L4-3000", "rejected")):
                 handle.write(json.dumps({"packet": packet_id, "role": "A", "result": result, "at": T1}) + "\n")
 
     def finish(self, packet_id, a, b, ruling=None):
-        l4lib.save_json(self.state / "forms" / ("%s-A.json" % packet_id), a)
-        l4lib.save_json(self.state / "forms" / ("%s-B.json" % packet_id), b)
-        comparison = compare.compare(a, b, seed=1)
+        l4lib.save_json(self.state / "forms" / ("%s-A-1.json" % packet_id), a)
+        l4lib.save_json(self.state / "forms" / ("%s-B-1.json" % packet_id), b)
+        comparison = compare.compare(a, b, 1, fixtures.LESSON_TEXT)
         l4lib.save_json(self.state / "deciding" / ("%s.json" % packet_id), comparison)
         form = None
         if comparison["items"]:
@@ -64,7 +64,8 @@ class ReportCase(unittest.TestCase):
         l4lib.save_json(self.state / "results" / ("%s.json" % packet_id), result)
 
     def data(self):
-        return report.Data(state_dir=self.state, mechanical_dir=self.mechanical)
+        return report.Data(state_dir=self.state, mechanical_dir=self.mechanical,
+                           lesson_text=lambda entry: fixtures.LESSON_TEXT)
 
 
 class Pilot(ReportCase):
@@ -89,16 +90,28 @@ class Pilot(ReportCase):
     def test_a_failed_rule_at_other_text_does_not_count_as_caught(self):
         defect = {"rule": "L17", "must_quote": PLANTED_TEXT}
         elsewhere = {"L17": {"verdict": "fail", "findings": [{"quote": OTHER_TEXT, "problem": "x"}]}}
-        self.assertFalse(report.caught(defect, elsewhere))
-        self.assertFalse(report.caught(defect, {"L17": {"verdict": "pass", "findings": []}}))
-        self.assertFalse(report.caught(defect, None))
+        text = fixtures.LESSON_TEXT
+        self.assertFalse(report.caught(defect, elsewhere, text))
+        self.assertFalse(report.caught(defect, {"L17": {"verdict": "pass", "findings": []}}, text))
+        self.assertFalse(report.caught(defect, None, text))
 
     def test_a_defect_may_be_caught_under_any_of_its_rules_at_any_of_its_anchors(self):
         defect = {"rule": "L17", "rules": ["L17", "L25"], "must_quote": ["Not in this finding.", PLANTED_TEXT]}
         under_l25 = {"L25": {"verdict": "fail", "findings": [{"quote": PLANTED_TEXT, "problem": "x"}]}}
         under_l26 = {"L26": {"verdict": "fail", "findings": [{"quote": PLANTED_TEXT, "problem": "x"}]}}
-        self.assertTrue(report.caught(defect, under_l25))
-        self.assertFalse(report.caught(defect, under_l26))
+        self.assertTrue(report.caught(defect, under_l25, fixtures.LESSON_TEXT))
+        self.assertFalse(report.caught(defect, under_l26, fixtures.LESSON_TEXT))
+
+
+    def test_a_finding_counts_when_it_is_near_the_planted_text_in_the_lesson_and_not_when_it_only_shares_words(self):
+        # Review item 11: nearness is measured in the lesson (80 characters), not by shared words.
+        defect = {"rule": "L17", "must_quote": PLANTED_TEXT}
+        text = fixtures.LESSON_TEXT
+        near = {"L17": {"verdict": "fail", "findings": [{"quote": "can be written in standard form as", "problem": "x"}]}}
+        far_same_words = {"L17": {"verdict": "fail", "findings": [{"quote": "Move every term to one side first.", "problem": "x"}]}}
+        self.assertTrue(report.caught(defect, near, text))
+        self.assertFalse(report.caught(defect, far_same_words, text))
+        self.assertFalse(report.caught(defect, near, "A lesson that holds neither of these passages at all."))
 
 
 class Final(ReportCase):

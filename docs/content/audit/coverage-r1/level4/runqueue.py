@@ -135,7 +135,7 @@ class Run:
                 pass
         discard = self.state_dir / "forms" / "discarded" / ("%s-attempt-%d" % (packet_id, lesson["attempt"]))
         for path in list((self.state_dir / "forms").glob("%s-*.json" % packet_id)) + \
-                list((self.state_dir / "forms" / "rejected").glob("%s-*.json" % packet_id)) + \
+                list((self.state_dir / "forms" / "rejected").glob("%s-*.bin" % packet_id)) + \
                 list((self.state_dir / "deciding").glob("%s.json" % packet_id)):
             discard.mkdir(parents=True, exist_ok=True)
             path.rename(discard / path.name)
@@ -182,11 +182,12 @@ class Run:
         lesson["attempt"] += 1
         lesson.update(state="reading", started_at=self._stamp())
         self.q["current"] = packet_id
-        self.q["expected"][packet_id] = ["A", "B"]
+        self.q["expected"][packet_id] = {"roles": ["A", "B"], "attempt": lesson["attempt"]}
         self.save()
         for role in ("A", "B"):
             self._register(packet_id, role, self._fill("reader.md", {
-                "PACKET": packet_id, "ROLE": role, "COMMIT": self.q["packets_commit"]}))
+                "PACKET": packet_id, "ROLE": role, "ATTEMPT": str(lesson["attempt"]),
+                "COMMIT": self.q["packets_commit"]}))
 
     def _read_events(self):
         path = self.state_dir / "handin-events.jsonl"
@@ -196,7 +197,8 @@ class Run:
         return fresh
 
     def _form(self, packet_id, role):
-        path = self.state_dir / "forms" / ("%s-%s.json" % (packet_id, role))
+        attempt = self.q["lessons"][packet_id]["attempt"]
+        path = self.state_dir / "forms" / ("%s-%s-%d.json" % (packet_id, role, attempt))
         return l4lib.load_json(path) if path.exists() else None
 
     def _chat_trouble(self, packet_id, roles):
@@ -261,7 +263,7 @@ class Run:
                 self._chat_trouble(packet_id, ("A", "B"))
                 return
             seed = int(hashlib.sha256(("%s|%s" % (self.config["seed"], packet_id)).encode()).hexdigest()[:8], 16)
-            comparison = compare.compare(form_a, form_b, seed)
+            comparison = compare.compare(form_a, form_b, seed, self.lesson_text(self.index[packet_id]))
             l4lib.save_json(self.state_dir / "deciding" / ("%s.json" % packet_id), comparison)
             if comparison["copied"]:
                 self._needs_you("The two forms look copied from each other.")
@@ -271,10 +273,10 @@ class Run:
                                "standards_commit": self.index[packet_id]["standards_commit"],
                                "rulings": {item["id"]: {"ruling": "", "quote": "", "reason": ""} for item in items}}
                 lesson["state"] = "deciding"
-                self.q["expected"][packet_id] = ["D"]
+                self.q["expected"][packet_id] = {"roles": ["D"], "attempt": lesson["attempt"]}
                 self.save()
                 self._register(packet_id, "D", self._fill("decider.md", {
-                    "PACKET": packet_id, "COMMIT": self.q["packets_commit"],
+                    "PACKET": packet_id, "COMMIT": self.q["packets_commit"], "ATTEMPT": str(lesson["attempt"]),
                     "FORM": json.dumps(ruling_form, indent=1), "ITEMS": json.dumps(items, indent=1, ensure_ascii=False)}))
             else:
                 self._finish(packet_id, compare.apply_ruling(comparison))

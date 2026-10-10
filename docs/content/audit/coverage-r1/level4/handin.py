@@ -171,7 +171,7 @@ def process(packet_id, role, attempt, state_dir=None, inbox_dir=None, changes=un
         reasons = form.validate(candidate, dict(entry, lesson_text=text), role, items)
         if not reasons:
             candidate = form.clean(candidate, role)
-            json.dumps(candidate).encode("utf-8")
+            json.dumps(candidate, ensure_ascii=False).encode("utf-8")  # a lone surrogate cannot be stored
     except (ValueError, RecursionError, UnicodeError):
         # Not valid JSON, nested too deep to read, or text that cannot be stored.
         readable = False
