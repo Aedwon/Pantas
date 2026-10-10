@@ -20,6 +20,7 @@ Facts read from Aedwon/chatgpt-terminal-relay main on October 10, 2026:
 
 This module never reads a chat's reply text. It reads only those events.
 """
+import datetime
 import json
 import re
 import subprocess
@@ -132,6 +133,81 @@ def runners_online(run=_run):
 def supervisor_running(run=_run):
     code, _ = run(["pgrep", "-f", "dispatcher.cli supervise"])
     return code == 0
+
+
+INBOX_DIR = "docs/content/audit/coverage-r1/level4/inbox/"
+HANDIN_SCRIPT = "docs/content/audit/coverage-r1/level4/handin.py"
+WRITE_KEYS = {"relay_version", "action", "workspace", "path", "content"}
+EXEC_KEYS = {"relay_version", "action", "workspace", "argv", "timeout_seconds"}
+SINCE_MARGIN = datetime.timedelta(seconds=60)  # the Mac's clock may run a little behind GitHub's
+
+
+def _time(text):
+    return datetime.datetime.fromisoformat(text.replace("Z", "+00:00"))
+
+
+def list_relay_issues(since, run=_run):
+    """Relay Issues (title starting "[relay]") opened by Aedwon since the given time, oldest first.
+
+    This reads the Issues list, not search: search lags behind new Issues, and a
+    request a chat made a minute ago must be seen. Each row is
+    {"number", "title", "body", "created_at", "user": {"login"}}.
+    """
+    start = _time(since) - SINCE_MARGIN
+    query = "state=all&sort=created&direction=asc&creator=Aedwon&per_page=100&since=%s" % start.strftime("%Y-%m-%dT%H:%M:%SZ")
+    code, output = run(["gh", "api", "--paginate", "repos/%s/issues?%s" % (RELAY_REPO, query), "--jq",
+                        ".[] | select(.pull_request == null) | "
+                        "{number, title, body, created_at, user: {login: .user.login}} | @json"])
+    if code != 0:
+        raise l4lib.L4Error("could not list relay issues: %s" % output.strip()[-200:])
+    issues = []
+    for line in output.splitlines():
+        if not line.strip():
+            continue
+        try:
+            issue = json.loads(line)
+        except ValueError:
+            raise l4lib.L4Error("could not read the relay issue list")
+        if (issue.get("title") or "").startswith("[relay]") and _time(issue["created_at"]) >= start:
+            issues.append(issue)
+    return issues
+
+
+def classify_request(issue, workspace, registered):
+    """What a relay Issue is, as far as this run is concerned.
+
+    "expected":  exactly one of the two hand-in requests the run told a chat to make.
+    "unrelated": a request for another workspace, or not a relay request at all.
+    "forbidden": anything else aimed at the audit worktree. The run must stop.
+
+    workspace: the audit worktree's folder name. registered: the set of
+    "packet|role|attempt" strings the run has told chats to hand in.
+    """
+    try:
+        body = json.loads(issue.get("body") or "")
+    except ValueError:
+        return "unrelated"
+    if not isinstance(body, dict) or not isinstance(body.get("action"), str):
+        return "unrelated"
+    target = body.get("workspace")
+    if isinstance(target, str) and target.strip().rstrip("/").split("/")[-1].lower() != workspace.lower():
+        return "unrelated"
+    # From here the request is for the audit worktree, or does not say where it is aimed.
+    # A request that does not say is treated as aimed here: nothing shows it is not.
+    action = body["action"]
+    if action == "workspace_write_file":
+        match = re.fullmatch(re.escape(INBOX_DIR) + r"(L4-\d{4})-([ABD])-(\d+)\.json", str(body.get("path")))
+        if (match and set(body) <= WRITE_KEYS and isinstance(body.get("content"), str)
+                and "|".join(match.groups()) in registered):
+            return "expected"
+    elif action == "workspace_exec":
+        argv = body.get("argv")
+        if (isinstance(argv, list) and len(argv) == 5 and argv[:2] == ["python3", HANDIN_SCRIPT]
+                and all(isinstance(item, str) for item in argv) and "|".join(argv[2:]) in registered
+                and set(body) <= EXEC_KEYS
+                and isinstance(body.get("timeout_seconds", 0), int) and not isinstance(body.get("timeout_seconds"), bool)):
+            return "expected"
+    return "forbidden"
 
 
 def find_handin_issues(run_token, packet_id, role, run=_run):

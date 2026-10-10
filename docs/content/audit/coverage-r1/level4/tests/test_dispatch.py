@@ -95,5 +95,79 @@ class Github(unittest.TestCase):
         self.assertEqual(dispatch.find_handin_issues("l4abc", "L4-0417", "A", run=lambda command, cwd=None: (0, found)), [1])
 
 
+WS = "Pantas-wt-content-coverage-audit-r1"
+INBOX = "docs/content/audit/coverage-r1/level4/inbox/"
+REGISTERED = {"L4-0417|A|1", "L4-0417|B|1", "L4-0417|D|1"}
+
+
+def request(**body):
+    return {"number": 5, "title": "[relay] t hand-in", "body": json.dumps(dict({"relay_version": 2, "workspace": WS}, **body))}
+
+
+class Listing(unittest.TestCase):
+    def row(self, number, created, title="[relay] t hand-in", **extra):
+        return json.dumps(dict({"number": number, "title": title, "body": "{}", "created_at": created,
+                                "user": {"login": "Aedwon"}}, **extra))
+
+    def test_it_reads_the_issues_list_not_search_and_keeps_relay_issues_opened_since(self):
+        calls = []
+
+        def run(command, cwd=None):
+            calls.append(command)
+            return 0, "\n".join([self.row(1, "2026-10-11T08:00:00Z"), self.row(2, "2026-10-11T09:00:30Z"),
+                                  self.row(3, "2026-10-11T09:05:00Z", title="[worker] x"),
+                                  self.row(4, "2026-10-11T09:06:00Z")]) + "\n"
+
+        found = dispatch.list_relay_issues("2026-10-11T09:00:00+00:00", run=run)
+        self.assertEqual([issue["number"] for issue in found], [2, 4])
+        command = " ".join(calls[0])
+        self.assertIn("repos/Aedwon/chatgpt-terminal-relay/issues?", command)
+        self.assertIn("state=all", command)
+        self.assertIn("creator=Aedwon", command)
+        self.assertIn("since=2026-10-11T08:59:00Z", command)
+        self.assertNotIn("search", command)
+
+    def test_a_failing_gh_raises(self):
+        with self.assertRaises(l4lib.L4Error):
+            dispatch.list_relay_issues("2026-10-11T09:00:00+00:00", run=lambda command, cwd=None: (1, "HTTP 502"))
+
+
+class Classify(unittest.TestCase):
+    def kind(self, issue, registered=REGISTERED):
+        return dispatch.classify_request(issue, WS, registered)
+
+    def test_the_two_hand_in_requests_are_expected(self):
+        self.assertEqual(self.kind(request(action="workspace_write_file", path=INBOX + "L4-0417-A-1.json", content="{}")), "expected")
+        self.assertEqual(self.kind(request(action="workspace_exec", timeout_seconds=120,
+                                           argv=["python3", dispatch.HANDIN_SCRIPT, "L4-0417", "D", "1"])), "expected")
+
+    def test_a_hand_in_the_run_did_not_register_is_forbidden(self):
+        for path in ("L4-0417-A-2.json", "L4-0520-A-1.json", "L4-0417-C-1.json", "../x-A-1.json", "L4-0417-A-1.json.bak"):
+            self.assertEqual(self.kind(request(action="workspace_write_file", path=INBOX + path, content="{}")), "forbidden", path)
+        self.assertEqual(self.kind(request(action="workspace_exec", argv=["python3", dispatch.HANDIN_SCRIPT, "L4-0417", "A", "2"])), "forbidden")
+
+    def test_anything_else_for_the_audit_worktree_is_forbidden(self):
+        for body in ({"action": "workspace_exec", "argv": ["cat", "state.json"]},
+                     {"action": "workspace_exec", "argv": ["python3", dispatch.HANDIN_SCRIPT, "L4-0417", "A", "1", "x"]},
+                     {"action": "workspace_exec", "argv": ["python3", dispatch.HANDIN_SCRIPT, "L4-0417", "A", "1"], "cwd": "/"},
+                     {"action": "workspace_write_file", "path": INBOX + "L4-0417-A-1.json", "content": "{}", "append": True},
+                     {"action": "workspace_write_file", "path": INBOX + "L4-0417-A-1.json", "content": 5},
+                     {"action": "git_push_current"}, {"action": "workspace_read_file", "path": "x"}):
+            self.assertEqual(self.kind(request(**body)), "forbidden", body)
+
+    def test_a_request_for_another_workspace_or_no_relay_request_is_unrelated(self):
+        other = request(action="workspace_exec", argv=["ls"])
+        other["body"] = json.dumps({"relay_version": 2, "workspace": "Pantas", "action": "workspace_exec", "argv": ["ls"]})
+        self.assertEqual(self.kind(other), "unrelated")
+        for body in ("not json", "", None, "[1]", '{"no": "action"}', "Hand-in form removed."):
+            self.assertEqual(self.kind({"body": body}), "unrelated", body)
+
+    def test_the_audit_worktree_is_recognized_however_it_is_written(self):
+        for target in (WS.upper(), "/Users/a/Documents/Projects/" + WS, WS + "/"):
+            self.assertEqual(self.kind(request(action="workspace_exec", argv=["ls"], workspace=target)), "forbidden", target)
+        # A request that does not say where it is aimed is treated as aimed here.
+        self.assertEqual(self.kind({"body": json.dumps({"action": "workspace_exec", "argv": ["ls"]})}), "forbidden")
+
+
 if __name__ == "__main__":
     unittest.main()
