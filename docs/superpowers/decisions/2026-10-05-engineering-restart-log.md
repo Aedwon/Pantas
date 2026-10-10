@@ -1022,3 +1022,12 @@ B7 amended. The extra Claude usage for Sonnet is accepted. Astra audits all work
 Aedwon agreed ("yup that makes sense"): Haiku or GPT-6 Luna may run checks and report, make
 rule-exact mechanical edits, and do lookups; on a failing check they report and stop. They do not
 write tests or touch payments, security rules or sync. Strategy B7 amended.
+
+## October 10, 2026: W3 claims ordering ruling; W1 audit fixes done
+
+W3 Tasks 12 and 1 are done (bf32a453, 7b47cbb1). Task 2 stopped: the plan put the claims write
+"in one Firestore transaction", which Firebase cannot do. Ruling: Firestore holds the entitlement
+record; claims are copied from it after commit, with a version check, a 500 on failure so
+RevenueCat retries, and an hourly repair job for mismatches (L3 W3 Task 2 amended). W1 Task 9b is
+done (70d0a476; 3,526 tests passed); the lead merged W1 into the integration branch locally and is
+running the full checks before pushing.

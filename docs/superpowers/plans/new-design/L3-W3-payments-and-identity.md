@@ -62,6 +62,24 @@ Traceability: R-4, X-5, X-6, X-16.
    covers subscriptions and `promo_*`, Task 5 adds passes, Task 13's TS half moves the calculation
    onto the shared rule and vectors; L3X2-5), and set
    `claimsChangedAt` on `users/{uid}`. On RevenueCat failure return 500 so RevenueCat retries.
+   Ordering and recovery (lead ruling, Oct 10, W3 stop at 36ed2174: Auth claims cannot join a
+   Firestore transaction). Firestore is the record; claims are a copy of it.
+   a. The transaction writes the server-only document `users/{uid}/server/entitlement` (`pro`,
+      `proUntil`, `answerAt`, `version` incremented, plus the kept event facts) and the dedupe
+      record. It does not touch claims.
+   b. After commit: re-read that document, call `setCustomUserClaims` with its `pro` and `proUntil`,
+      then, in a transaction that checks `version` is unchanged, set `claimsVersion = version` and
+      `claimsChangedAt` on `users/{uid}`. If `version` moved, repeat b (at most 3 times).
+   c. If b fails: return 500. A retried or duplicate event skips a (deduped) but always runs b when
+      `claimsVersion != version`, so the dedupe never hides an unapplied claim.
+   d. New scheduled function `repairEntitlementClaims` (hourly, pages of 500): for documents with
+      `claimsVersion != version`, run b. This bounds a stale claim after a refund or expiry when
+      RevenueCat stops retrying.
+   e. Rules and the sync callable read claims only (step 5 and 7); the client cannot read or write
+      `users/{uid}/server/*`.
+   Tests: claims set after commit; a failure in b returns 500 and a retry repairs it; two concurrent
+   events end with claims equal to the newest document; the repair job fixes a mismatch; the client
+   is denied on `server/*`.
 5. Rules: sync and server reads require `request.auth.token.pro == true &&
    request.auth.token.proUntil > request.time.toMillis()`; `users/{uid}` stays owner-readable.
 6. App: refresh the ID token when `claimsChangedAt` changes, after every purchase and restore, and
