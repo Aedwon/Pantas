@@ -241,6 +241,12 @@ that need no reasoning. Implementation uses Sonnet 5.5 unless the lead judges a 
     evidence and log digests; inventories): the current Haiku or GPT-6 Luna. Their output is
     input for a planner or implementor, never a review, ruling or acceptance. The lead confirms
     each model name before first use (not yet confirmed on October 10).
+  - The same tier may also (Aedwon, Oct 10: "yup that makes sense"): run checks and report the
+    results (test suite, analysis, format, layering, backend tests), make rule-exact mechanical
+    edits (a rename, a file move, one stated replacement across files) followed by the tests, and
+    do routine lookups. If a check fails it reports and stops; it never fixes the failure. It does
+    not write tests, and it does not touch payments, security rules or sync code. Writing tests
+    and fixing failures stay with the workstream's implementor.
   - Audits stay with GPT-6 Astra for every workstream, including Sonnet's, because the Opus lead
     and Sonnet are the same model family. The lead still reviews and accepts.
   - Reviews: the Astra audit adds to, and does not replace, the independent review SUBAGENTS Part

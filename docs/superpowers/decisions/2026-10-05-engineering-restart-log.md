@@ -1016,3 +1016,9 @@ Aedwon proposed and approved (answers "1. yes 2. yes"): Opus plans and orchestra
 implements, with Sonnet 5.5 as a second implementor; Haiku or GPT-6 Luna read and summarize. His
 limit: "only invoke sonnet if 6.1 Sol has run out, and never have it pick up Sol's work". Strategy
 B7 amended. The extra Claude usage for Sonnet is accepted. Astra audits all workstreams.
+
+## October 10, 2026: reading tier may run checks and mechanical edits
+
+Aedwon agreed ("yup that makes sense"): Haiku or GPT-6 Luna may run checks and report, make
+rule-exact mechanical edits, and do lookups; on a failing check they report and stop. They do not
+write tests or touch payments, security rules or sync. Strategy B7 amended.
