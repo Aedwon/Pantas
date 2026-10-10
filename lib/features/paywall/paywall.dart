@@ -1,7 +1,7 @@
 export 'application/paywall_controller.dart';
 export 'application/paywall_providers.dart';
 export 'application/revenuecat_bootstrap.dart';
-export 'application/trial_reminder_scheduler.dart';
+export 'application/trial_ending_notifier.dart';
 export 'data/entitlement_snapshot_store.dart';
 export 'data/live_revenuecat_gateway.dart';
 export 'data/payment_entitlement_state.dart';
