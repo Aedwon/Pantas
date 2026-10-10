@@ -213,6 +213,16 @@ class UnexpectedChanges(unittest.TestCase):
         (self.root / "result.md").write_text("x")
         self.assertEqual(self.changes(**pins), ["result.md"])
 
+    def test_a_staged_change_hidden_by_a_restored_working_file_is_reported(self):
+        (self.root / "result.md").write_text("x")
+        pins = {"written": {"result.md": handin.file_hash(self.root / "result.md")}}
+        self.git("add", "result.md")
+        self.assertEqual(self.changes(**pins), [])
+        (self.root / "result.md").write_text("tampered")
+        self.git("add", "result.md")
+        (self.root / "result.md").write_text("x")
+        self.assertEqual(self.changes(**pins), ["result.md"])
+
     def test_both_sides_of_a_rename_are_reported(self):
         self.git("mv", "kept.md", "moved.md")
         self.assertEqual(self.changes(), ["kept.md", "moved.md"])

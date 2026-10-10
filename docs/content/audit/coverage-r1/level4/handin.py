@@ -66,18 +66,24 @@ def unexpected_changes(queue, audit_wt=None, corpus_wt=None):
     if queue.get("baseline_head"):
         committed = set(names(git("diff", "--name-only", "-z", "--no-renames", queue["baseline_head"], "HEAD")))
 
-    def committed_hash(path):
+    def blob_hash(spec):
+        """Hash of a committed ("HEAD:path") or staged (":path") copy, or None when there is none."""
         try:
-            return hashlib.sha256(git("show", "HEAD:%s" % path)).hexdigest()
+            return hashlib.sha256(subprocess.check_output(
+                ["git", "show", spec], cwd=str(audit_wt), stderr=subprocess.DEVNULL)).hexdigest()
         except subprocess.CalledProcessError:
             return None
 
     unexpected = []
     for path in sorted(dirty | committed):
         pin = pinned.get(path)
-        # The working file and, when the path was committed since the run
-        # started, the committed content must both match the recorded hash.
-        if pin is None or file_hash(audit_wt / path) != pin or (path in committed and committed_hash(path) != pin):
+        # Every copy git holds must match the recorded hash: the working file,
+        # the staged copy if one exists, and the committed copy when the path
+        # was committed since the run started.
+        staged = blob_hash(":%s" % path)
+        if (pin is None or file_hash(audit_wt / path) != pin
+                or (staged is not None and staged != pin)
+                or (path in committed and blob_hash("HEAD:%s" % path) != pin)):
             unexpected.append(path)
     try:
         l4lib.check_corpus(corpus_wt)
