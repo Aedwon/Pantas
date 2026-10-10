@@ -1725,3 +1725,33 @@ Also recorded: an automated commit review flagged three gaps in the hand-in
 change check (an already-dirty file could be edited unseen; a rename could hide
 one side; a tampered commit could hide behind a restored working file). All
 three are fixed with tests at `632894fc4fbba800de9c2994fe85ba8dd4b7633f`.
+
+### October 10, 2026: test browser download approved; model name confirmed; relay pull request opened
+
+Two items were asked: (1) permission to download the test browser the relay's
+fixture tests need (Chrome for Testing 151.0.7922.34 for Mac, from Google's
+Chrome for Testing storage, through the relay's documented install command);
+(2) the exact model name ChatGPT shows. Exact human answer:
+
+> 1 yes, 2 is GPT-6 Sol
+
+What changed:
+
+- `python -m playwright install chromium` was run in the relay's dispatcher
+  environment. It installed Chromium build 1234 and the matching headless shell
+  (94.7 MiB) into the Playwright cache. The size told to him beforehand was an
+  estimate of about 170 MB for the browser alone; the headless shell is a second
+  download the same command makes and was not named beforehand.
+- The relay change is verified locally: 169 dispatcher tests pass; the updated
+  browser tests fail on `main`'s adapter and pass with the change; the relay's
+  three process contract tests pass.
+- Pushed as `fix/reasoning-picker-model-name` at
+  `a3540d0e30356b593a5528b981896836661f78cc` and opened as
+  `Aedwon/chatgpt-terminal-relay` pull request 9408. Not merged. Its checks run
+  on the self-hosted runners, which were offline, so no check had reported.
+- Main's policy and content standards were rechecked after a session resume:
+  main moved to `710d7062b594f2daeab4903b4271cb64563790a2` with no change to
+  `AGENTS.md`, `WORKFLOW.md`, `SUBAGENTS.md`, or `docs/content`.
+
+Still not verified: a live check against chatgpt.com, and the dispatcher's
+persistent checkout does not yet contain the change.
