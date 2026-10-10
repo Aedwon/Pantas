@@ -48,7 +48,7 @@ class ListRow extends StatelessWidget {
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
       style: context.type.body.copyWith(
-        color: variant == ListRowVariant.destructive ? c.destructive : c.label,
+        color: variant == ListRowVariant.destructive ? c.wrongText : c.label,
       ),
     );
     final detail = value == null

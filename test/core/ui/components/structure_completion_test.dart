@@ -32,15 +32,13 @@ void main() {
         expect(title.overflow, TextOverflow.ellipsis);
         expect(title.style!.fontSize, 17);
         expect(title.style!.height, 1.35);
-        if (variant != ListRowVariant.destructive ||
-            brightness == Brightness.light) {
-          expectContrast(
-            title.style!.color!,
-            brightness == Brightness.light
-                ? Colors.white
-                : const Color(0xFF1C1C1E),
-          );
-        }
+
+        expectContrast(
+          title.style!.color!,
+          brightness == Brightness.light
+              ? Colors.white
+              : const Color(0xFF1C1C1E),
+        );
         expect(
           tester.getSize(find.byType(ListRow)).height,
           greaterThanOrEqualTo(44),

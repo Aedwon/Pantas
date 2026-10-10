@@ -57,7 +57,9 @@ class PantasButton extends StatelessWidget {
           minimumSize: WidgetStatePropertyAll(Size(double.infinity, height)),
           padding: WidgetStatePropertyAll(
             EdgeInsets.symmetric(
-                horizontal: 16, vertical: height == 44 ? 10 : 12,),
+              horizontal: 16,
+              vertical: height == 44 ? 10 : 12,
+            ),
           ),
           backgroundColor: WidgetStatePropertyAll(background),
           foregroundColor: WidgetStatePropertyAll(foreground),
@@ -78,6 +80,7 @@ class PantasButton extends StatelessWidget {
                 child: CircularProgressIndicator(
                   strokeWidth: 2,
                   color: foreground,
+                  value: MediaQuery.disableAnimationsOf(context) ? 1 : null,
                 ),
               ),
               const SizedBox(width: 8),
@@ -87,9 +90,10 @@ class PantasButton extends StatelessWidget {
                 label,
                 textAlign: TextAlign.center,
                 style: context.type.emphasized.copyWith(
-                    color: foreground,
-                    fontSize: fontSize,
-                    letterSpacing: fontSize < 17 ? 0 : -.204,),
+                  color: foreground,
+                  fontSize: fontSize,
+                  letterSpacing: fontSize < 17 ? 0 : -.204,
+                ),
               ),
             ),
           ],

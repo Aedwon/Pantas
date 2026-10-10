@@ -6,6 +6,7 @@ enum FloatingBarState { neutral, right, wrong }
 
 // QV_Answer's status surface is quieter than a selected-choice tint.
 const floatingBarRightSurface = Color(0xFFEFF7F5);
+const floatingBarWrongSurface = Color(0xFFFFF3F4);
 
 class FloatingBar extends StatelessWidget {
   const FloatingBar({
@@ -28,7 +29,9 @@ class FloatingBar extends StatelessWidget {
       FloatingBarState.right => Theme.of(context).brightness == Brightness.light
           ? floatingBarRightSurface
           : c.accentTint,
-      FloatingBarState.wrong => c.wrongTint
+      FloatingBarState.wrong => Theme.of(context).brightness == Brightness.light
+          ? floatingBarWrongSurface
+          : c.wrongTint
     };
     return AnimatedContainer(
       duration: MediaQuery.disableAnimationsOf(context)
@@ -36,17 +39,10 @@ class FloatingBar extends StatelessWidget {
           : const Duration(milliseconds: 300),
       curve: PantasCurves.houseOut,
       constraints: const BoxConstraints(minHeight: 60),
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 7),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.circular(30),
-        border: Border.all(
-          color: state == FloatingBarState.neutral
-              ? c.separator
-              : state == FloatingBarState.right
-                  ? c.accent.withValues(alpha: .28)
-                  : c.destructive.withValues(alpha: .28),
-        ),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: .12),
@@ -54,6 +50,16 @@ class FloatingBar extends StatelessWidget {
             offset: const Offset(0, 10),
           ),
         ],
+      ),
+      foregroundDecoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30),
+        border: Border.all(
+          color: state == FloatingBarState.neutral
+              ? Colors.black.withValues(alpha: .06)
+              : state == FloatingBarState.right
+                  ? c.accent.withValues(alpha: .28)
+                  : c.destructive.withValues(alpha: .26),
+        ),
       ),
       child: TextButtonTheme(
         data: TextButtonThemeData(
