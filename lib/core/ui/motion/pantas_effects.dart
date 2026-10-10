@@ -88,7 +88,8 @@ abstract final class PantasEffects {
           return TweenAnimationBuilder<double>(
             tween: Tween(begin: 0, end: 1),
             duration: duration,
-            curve: curve,
+            // CSS timing functions apply within each keyframe interval.
+            curve: effect == 'pop' || effect == 'shake' ? Curves.linear : curve,
             child: child,
             builder: (context, value, child) =>
                 _frame(effect, value, builder(context, value, child)),
@@ -100,8 +101,14 @@ abstract final class PantasEffects {
     final opacity = value.clamp(0.0, 1.0);
     return switch (effect) {
       'pop' => Transform.scale(
-          scale: 0.4 + 0.6 * value,
-          child: Opacity(opacity: opacity, child: child),
+          scale: _keyframes(value, const [0, 0.6, 1], const [0.4, 1.12, 1],
+              PantasCurves.popC),
+          child: Opacity(
+            opacity: _keyframes(value, const [0, 0.6, 1], const [0, 1, 1],
+                    PantasCurves.popC)
+                .clamp(0.0, 1.0),
+            child: child,
+          ),
         ),
       'rise' => Transform.translate(
           offset: Offset(0, 14 * (1 - value)),
@@ -129,15 +136,27 @@ abstract final class PantasEffects {
     };
   }
 
-  static double _shake(double t) {
-    const stops = [0.0, 0.18, 0.36, 0.54, 0.72, 1.0];
-    const offsets = [0.0, -9.0, 8.0, -5.0, 3.0, 0.0];
+  static double _shake(double t) => _keyframes(
+        t,
+        const [0, 0.18, 0.36, 0.54, 0.72, 1],
+        const [0, -9, 8, -5, 3, 0],
+        PantasCurves.shake,
+      );
+
+  static double _keyframes(
+    double t,
+    List<double> stops,
+    List<double> values,
+    Curve curve,
+  ) {
     for (var i = 1; i < stops.length; i++) {
       if (t <= stops[i]) {
         final fraction = (t - stops[i - 1]) / (stops[i] - stops[i - 1]);
-        return offsets[i - 1] + fraction * (offsets[i] - offsets[i - 1]);
+        return values[i - 1] +
+            curve.transform(fraction.clamp(0.0, 1.0)) *
+                (values[i] - values[i - 1]);
       }
     }
-    return 0;
+    return values.last;
   }
 }

@@ -1,8 +1,50 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/motion/pantas_effects.dart';
+import 'package:pantas/core/ui/motion/pantas_curves.dart';
 
 void main() {
+  testWidgets('pop eases each elapsed-time keyframe interval', (tester) async {
+    await tester.pumpWidget(MaterialApp(
+        home: PantasEffects.pop(
+      duration: const Duration(milliseconds: 500),
+      builder: (_, __, ___) => const SizedBox(),
+    )));
+    double scale() =>
+        tester.widget<Transform>(find.byType(Transform)).transform.entry(0, 0);
+    expect(scale(), closeTo(0.4, 0.000001));
+    await tester.pump(const Duration(milliseconds: 150));
+    expect(scale(),
+        closeTo(0.4 + 0.72 * PantasCurves.popC.transform(0.5), 0.000001));
+    await tester.pump(const Duration(milliseconds: 150));
+    expect(scale(), closeTo(1.12, 0.000001));
+    await tester.pump(const Duration(milliseconds: 100));
+    expect(scale(),
+        closeTo(1.12 - 0.12 * PantasCurves.popC.transform(0.5), 0.000001));
+    await tester.pump(const Duration(milliseconds: 100));
+    expect(scale(), closeTo(1, 0.000001));
+  });
+  testWidgets('shake keeps every elapsed-time keyframe and interval easing',
+      (tester) async {
+    await tester.pumpWidget(MaterialApp(
+        home: PantasEffects.shake(
+      duration: const Duration(milliseconds: 1000),
+      builder: (_, __, ___) => const SizedBox(),
+    )));
+    double offset() =>
+        tester.widget<Transform>(find.byType(Transform)).transform.entry(0, 3);
+    await tester.pump(const Duration(milliseconds: 90));
+    expect(offset(), closeTo(-9 * PantasCurves.shake.transform(0.5), 0.000001));
+    await tester.pump(const Duration(milliseconds: 90));
+    expect(offset(), closeTo(-9, 0.000001));
+    for (final value in [8.0, -5.0, 3.0]) {
+      await tester.pump(const Duration(milliseconds: 180));
+      expect(offset(), closeTo(value, 0.000001));
+    }
+    await tester.pump(const Duration(milliseconds: 280));
+    expect(offset(), closeTo(0, 0.000001));
+  });
+
   testWidgets('pop jumps to its last frame with motion disabled',
       (tester) async {
     double? progress;
