@@ -8,13 +8,13 @@ class ProductDefinition {
     required this.tier,
     required this.kind,
     this.period,
-    this.allowedExamIds = const [],
+    this.examId,
   });
 
   final PriceTier tier;
   final ProductKind kind;
   final PaywallSku? period;
-  final List<String> allowedExamIds;
+  final String? examId;
 }
 
 /// Permanent store products and tier-named grants. Prices come from the store.
@@ -50,10 +50,15 @@ const products = <String, ProductDefinition>{
     kind: ProductKind.subscription,
     period: PaywallSku.yearly,
   ),
-  'pantas_pass_civil_service': ProductDefinition(
+  'pantas_pass_cse_pro': ProductDefinition(
     tier: PriceTier.civilService,
     kind: ProductKind.pass,
-    allowedExamIds: ['exam_cse_pro', 'exam_cse_sub'],
+    examId: 'exam_cse_pro',
+  ),
+  'pantas_pass_cse_sub': ProductDefinition(
+    tier: PriceTier.civilService,
+    kind: ProductKind.pass,
+    examId: 'exam_cse_sub',
   ),
   'promo_student': ProductDefinition(
     tier: PriceTier.student,

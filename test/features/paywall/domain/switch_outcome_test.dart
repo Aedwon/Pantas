@@ -72,7 +72,7 @@ void main() {
       'pantas_cs_weekly',
       'pantas_cs_monthly',
       'pantas_cs_yearly',
-      'pantas_pass_civil_service',
+      'pantas_pass_cse_pro',
     ]);
     expect(outcome.allowTrial, isFalse);
     expect(outcome.switchOnFree, isTrue);
@@ -155,7 +155,7 @@ void main() {
     );
     expect(
       switchOutcome(upcat, cse, entitlement, at: purchaseAt).plans,
-      contains('pantas_pass_civil_service'),
+      contains('pantas_pass_cse_pro'),
     );
   });
 }

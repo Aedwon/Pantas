@@ -329,7 +329,7 @@
     "promotions": [],
     "nonSubscriptionPurchases": [
       {
-        "id": "pantas_pass_civil_service",
+        "id": "pantas_pass_cse_pro",
         "endsAt": "2026-11-07T00:00:00Z",
         "active": true
       }
@@ -350,7 +350,7 @@
     "promotions": [],
     "nonSubscriptionPurchases": [
       {
-        "id": "pantas_pass_civil_service",
+        "id": "pantas_pass_cse_pro",
         "endsAt": "2026-11-07T00:00:00Z",
         "active": false
       }
@@ -415,7 +415,7 @@
     "examTier": "civilService",
     "subscriptions": [
       {
-        "id": "pantas_pass_civil_service",
+        "id": "pantas_pass_cse_pro",
         "endsAt": "2026-11-07T00:00:00Z",
         "active": true
       }

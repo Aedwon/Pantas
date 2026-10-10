@@ -57,11 +57,11 @@ void main() {
       EntitlementInfos({}, {}),
       {},
       ['pantas_pro_yearly', 'pantas_cs_monthly'],
-      ['pantas_pro_yearly', 'pantas_cs_monthly', 'pantas_pass_civil_service'],
+      ['pantas_pro_yearly', 'pantas_cs_monthly', 'pantas_pass_cse_pro'],
       [
         StoreTransaction(
           'transaction',
-          'pantas_pass_civil_service',
+          'pantas_pass_cse_pro',
           '2026-10-01',
         ),
       ],
@@ -89,7 +89,7 @@ void main() {
       snapshot.subscriptions.map((source) => source.productId),
       ['pantas_pro_yearly', 'pantas_cs_monthly'],
     );
-    expect(snapshot.nonSubscriptionPurchases, ['pantas_pass_civil_service']);
+    expect(snapshot.nonSubscriptionPurchases, ['pantas_pass_cse_pro']);
     final entitlement = entitlementFromCustomerInfo(snapshot);
     expect(entitlement.tier, PriceTier.civilService);
     expect(entitlement.plan, EntitlementPlan.monthly);

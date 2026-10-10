@@ -55,7 +55,7 @@ SwitchOutcome switchOutcome(
         if (product.value.tier == toTier &&
             (product.value.kind == ProductKind.subscription ||
                 (product.value.kind == ProductKind.pass &&
-                    product.value.allowedExamIds.contains(to.id) &&
+                    product.value.examId == to.id &&
                     to.publishedSittings.any(
                       (sitting) => !sitting.firstDay.isBefore(purchaseDay),
                     ))))

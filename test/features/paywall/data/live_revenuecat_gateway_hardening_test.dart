@@ -88,7 +88,7 @@ void main() {
         sdk: FakeRevenueCatSdk(
           offering: const RevenueCatOfferingSnapshot([
             RevenueCatProductSnapshot(
-              productId: 'pantas_pass_civil_service',
+              productId: 'pantas_pass_cse_pro',
               priceString: '₱499',
               priceAmount: 499,
             ),
@@ -100,7 +100,7 @@ void main() {
       expect(result.status, PaywallOfferingStatus.available);
       expect(result.unrecognizedProductIds, isEmpty);
       expect(result.recognizedPackages, isEmpty);
-      expect(result.passPackages.single.productId, 'pantas_pass_civil_service');
+      expect(result.passPackages.single.productId, 'pantas_pass_cse_pro');
       expect(result.passPackages.single.priceString, '₱499');
       expect(result.passPackages.single.priceAmount, 499);
     });

@@ -25,11 +25,13 @@ void main() {
   });
 
   test('AC-7 pass and promotional grants are distinct from subscriptions', () {
-    final pass = productForId('pantas_pass_civil_service')!;
+    final pass = productForId('pantas_pass_cse_pro')!;
     expect(pass.tier, PriceTier.civilService);
     expect(pass.kind, ProductKind.pass);
     expect(pass.period, isNull);
-    expect(pass.allowedExamIds, ['exam_cse_pro', 'exam_cse_sub']);
+    expect(pass.examId, 'exam_cse_pro');
+    expect(productForId('pantas_pass_cse_sub')!.examId, 'exam_cse_sub');
+    expect(productForId('pantas_pass_civil_service'), isNull);
     expect(productForId('promo_student')!.tier, PriceTier.student);
     expect(productForId('promo_civil_service')!.tier, PriceTier.civilService);
     expect(productForId('promo_student')!.kind, ProductKind.promotional);
@@ -52,14 +54,14 @@ void main() {
       File('functions/src/products.json').readAsStringSync(),
     ) as List<dynamic>)
         .cast<Map<String, dynamic>>();
-    expect(rows, hasLength(9));
+    expect(rows, hasLength(10));
     expect(rows.map((row) => row['id']).toSet(), products.keys.toSet());
     for (final row in rows) {
       final product = productForId(row['id'] as String)!;
       expect(row['tier'], product.tier.name);
       expect(row['period'], product.period?.name);
       expect(row['kind'], product.kind.name);
-      expect(row['allowedExamIds'], product.allowedExamIds);
+      expect(row['examId'], product.examId);
     }
   });
 }
