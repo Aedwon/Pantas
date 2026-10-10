@@ -11,6 +11,7 @@ class PantasColors extends AppColors {
     required this.tertiaryLabel,
     required this.separator,
     required this.fill,
+    required this.skeleton,
     required this.chevron,
     required this.accent,
     required this.accentFill,
@@ -32,6 +33,7 @@ class PantasColors extends AppColors {
   final Color tertiaryLabel;
   final Color separator;
   final Color fill;
+  final Color skeleton;
   final Color chevron;
   final Color accent;
   final Color accentFill;
@@ -51,6 +53,7 @@ class PantasColors extends AppColors {
     tertiaryLabel: Color(0xFFAEAEB2),
     separator: Color(0xFFE3E3E8),
     fill: Color(0xFFEDEDF0),
+    skeleton: Color(0xFFE6E6EA),
     chevron: Color(0xFFC7C7CC),
     accent: Color(0xFF0B7A68),
     accentFill: Color(0xFF0B7A68),
@@ -71,6 +74,7 @@ class PantasColors extends AppColors {
     tertiaryLabel: Color(0xFF5A5A5E),
     separator: Color(0xFF38383A),
     fill: Color(0xFF2C2C2E),
+    skeleton: Color(0xFF2C2C2E),
     chevron: Color(0xFF48484A),
     accent: Color(0xFF2FB39C),
     accentFill: Color(0xFF1F9C86),
@@ -137,6 +141,7 @@ class PantasColors extends AppColors {
     Color? tertiaryLabel,
     Color? separator,
     Color? fill,
+    Color? skeleton,
     Color? chevron,
     Color? accent,
     Color? accentFill,
@@ -165,6 +170,7 @@ class PantasColors extends AppColors {
         tertiaryLabel: tertiaryLabel ?? this.tertiaryLabel,
         separator: separator ?? rule ?? this.separator,
         fill: fill ?? ruleFaint ?? this.fill,
+        skeleton: skeleton ?? this.skeleton,
         chevron: chevron ?? this.chevron,
         accent: accent ?? board ?? this.accent,
         accentFill: accentFill ?? this.accentFill,
@@ -188,6 +194,7 @@ class PantasColors extends AppColors {
       tertiaryLabel: Color.lerp(tertiaryLabel, other.tertiaryLabel, t)!,
       separator: Color.lerp(separator, other.separator, t)!,
       fill: Color.lerp(fill, other.fill, t)!,
+      skeleton: Color.lerp(skeleton, other.skeleton, t)!,
       chevron: Color.lerp(chevron, other.chevron, t)!,
       accent: Color.lerp(accent, other.accent, t)!,
       accentFill: Color.lerp(accentFill, other.accentFill, t)!,
