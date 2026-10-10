@@ -16,10 +16,21 @@ import l4lib
 import runqueue
 
 NOT_ASSESSED = {
-    "B04": "not assessed at Level 4: this run has no item-level source ledger to check lesson facts against",
-    "B05": "not assessed at Level 4: this run has no item-level source ledger to check lesson facts against",
+    "B05": "not confirmable: the lesson source ledger records one disposition per lesson and no record ties a fact to its source",
     "L06": "deferred to Level 5, which checks in-lesson quiz items against the question rules",
 }
+
+
+def source_line():
+    """Rule B04, checked by script against the lesson source ledger (sources.py)."""
+    rows = l4lib.load_json(l4lib.LEVEL4_DIR / "source-record.json")["lessons"]
+    missing = sorted(key for key, row in rows.items() if not row["in_ledger"])
+    changed = sorted(key for key, row in rows.items() if row["changed_since_ledger"])
+    line = ("B04: checked by script against the lesson source ledger, which records lessons and not single facts. "
+            "%d of %d lessons have an entry. %d changed after the ledger was finished, so their entry is out of date"
+            % (len(rows) - len(missing), len(rows), len(changed)))
+    return [line + "."] + ["- no ledger entry: %s" % key for key in missing] + [
+        "- changed since the ledger: %s" % key for key in changed]
 
 
 class Data:
@@ -231,6 +242,7 @@ def counting_check(data, lessons):
                  read, held, len(lessons) - read - held), "",
              "Rules judged by the chats: %s." % ", ".join(r["id"] for r in rules if r["kind"] in ("chat", "source-check")),
              "Rules checked by script: %s." % ", ".join(r["id"] for r in rules if r["kind"].startswith("script")), ""]
+    lines += source_line()
     lines += ["%s: %s." % (rule_id, reason) for rule_id, reason in sorted(NOT_ASSESSED.items())]
     lines += ["", "Result: %s." % ("PASS" if not missing else "FAIL, %d gaps" % len(missing)), ""]
     lines += ["- %s" % gap for gap in missing]

@@ -1,0 +1,797 @@
+{
+ "ledger": "docs/content/audit/lesson-content-qa-r1.md",
+ "ledger_commit": "a85dce3fd673e68cf5f4a9a1d8268d31d632425d",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "lessons": {
+  "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts": {
+   "path": "content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-code-of-conduct-ra-6713-norms-of-conduct": {
+   "path": "content/lessons/general-information/code-of-conduct-ra-6713/norms-of-conduct.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": {
+   "path": "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment": {
+   "path": "content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-environment-management-environmental-concepts": {
+   "path": "content/lessons/general-information/environment-management/environmental-concepts.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-environment-management-the-environmental-laws": {
+   "path": "content/lessons/general-information/environment-management/the-environmental-laws.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-peace-and-human-rights-human-rights-fundamentals": {
+   "path": "content/lessons/general-information/peace-and-human-rights/human-rights-fundamentals.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law": {
+   "path": "content/lessons/general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-philippine-constitution-accountability-and-impeachment": {
+   "path": "content/lessons/general-information/philippine-constitution/accountability-and-impeachment.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-philippine-constitution-bill-of-rights": {
+   "path": "content/lessons/general-information/philippine-constitution/bill-of-rights.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-philippine-constitution-the-articles-in-outline": {
+   "path": "content/lessons/general-information/philippine-constitution/the-articles-in-outline.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-philippine-constitution-the-civil-service-commission": {
+   "path": "content/lessons/general-information/philippine-constitution/the-civil-service-commission.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-grammar-and-structure-modifiers": {
+   "path": "content/lessons/language-proficiency/grammar-and-structure/modifiers.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-grammar-and-structure-parallelism": {
+   "path": "content/lessons/language-proficiency/grammar-and-structure/parallelism.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-grammar-and-structure-parts-of-speech": {
+   "path": "content/lessons/language-proficiency/grammar-and-structure/parts-of-speech.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-grammar-and-structure-phrases-and-clauses": {
+   "path": "content/lessons/language-proficiency/grammar-and-structure/phrases-and-clauses.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-grammar-and-structure-pronoun-antecedent-agreement": {
+   "path": "content/lessons/language-proficiency/grammar-and-structure/pronoun-antecedent-agreement.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-grammar-and-structure-punctuation-and-capitalization": {
+   "path": "content/lessons/language-proficiency/grammar-and-structure/punctuation-and-capitalization.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-grammar-and-structure-redundancy-and-double-negatives": {
+   "path": "content/lessons/language-proficiency/grammar-and-structure/redundancy-and-double-negatives.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-grammar-and-structure-sentence-structure": {
+   "path": "content/lessons/language-proficiency/grammar-and-structure/sentence-structure.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-grammar-and-structure-subject-verb-agreement": {
+   "path": "content/lessons/language-proficiency/grammar-and-structure/subject-verb-agreement.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-grammar-and-structure-tenses-and-voice": {
+   "path": "content/lessons/language-proficiency/grammar-and-structure/tenses-and-voice.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-language-application-error-identification": {
+   "path": "content/lessons/language-proficiency/language-application/error-identification.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-language-application-paragraph-organization": {
+   "path": "content/lessons/language-proficiency/language-application/paragraph-organization.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-language-application-sentence-completion": {
+   "path": "content/lessons/language-proficiency/language-application/sentence-completion.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-vocabulary-confusing-words": {
+   "path": "content/lessons/language-proficiency/vocabulary/confusing-words.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-vocabulary-context-clues": {
+   "path": "content/lessons/language-proficiency/vocabulary/context-clues.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-vocabulary-idioms-and-figures-of-speech": {
+   "path": "content/lessons/language-proficiency/vocabulary/idioms-and-figures-of-speech.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-vocabulary-root-words-prefixes-suffixes": {
+   "path": "content/lessons/language-proficiency/vocabulary/root-words-prefixes-suffixes.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-vocabulary-spelling-rules": {
+   "path": "content/lessons/language-proficiency/vocabulary/spelling-rules.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-vocabulary-synonyms-and-antonyms": {
+   "path": "content/lessons/language-proficiency/vocabulary/synonyms-and-antonyms.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-algebra-algebraic-expressions": {
+   "path": "content/lessons/mathematics/algebra/algebraic-expressions.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-algebra-exponents-and-logarithms": {
+   "path": "content/lessons/mathematics/algebra/exponents-and-logarithms.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-algebra-functions-and-relations": {
+   "path": "content/lessons/mathematics/algebra/functions-and-relations.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-algebra-linear-equations-inequalities": {
+   "path": "content/lessons/mathematics/algebra/linear-equations-inequalities.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-algebra-polynomials": {
+   "path": "content/lessons/mathematics/algebra/polynomials.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-algebra-quadratic-equations": {
+   "path": "content/lessons/mathematics/algebra/quadratic-equations.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-algebra-radicals-and-rationalization": {
+   "path": "content/lessons/mathematics/algebra/radicals-and-rationalization.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-algebra-sets-and-set-notation": {
+   "path": "content/lessons/mathematics/algebra/sets-and-set-notation.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-algebra-systems-of-equations": {
+   "path": "content/lessons/mathematics/algebra/systems-of-equations.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-algebra-types-of-functions": {
+   "path": "content/lessons/mathematics/algebra/types-of-functions.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-algebra-word-problems": {
+   "path": "content/lessons/mathematics/algebra/word-problems.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-arithmetic-number-sense-business-math": {
+   "path": "content/lessons/mathematics/arithmetic-number-sense/business-math.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-arithmetic-number-sense-divisibility-rules": {
+   "path": "content/lessons/mathematics/arithmetic-number-sense/divisibility-rules.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages": {
+   "path": "content/lessons/mathematics/arithmetic-number-sense/fractions-decimals-percentages.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-arithmetic-number-sense-order-of-operations": {
+   "path": "content/lessons/mathematics/arithmetic-number-sense/order-of-operations.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm": {
+   "path": "content/lessons/mathematics/arithmetic-number-sense/prime-factorization-gcf-lcm.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-arithmetic-number-sense-properties-of-real-numbers": {
+   "path": "content/lessons/mathematics/arithmetic-number-sense/properties-of-real-numbers.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-arithmetic-number-sense-ratio-and-proportion": {
+   "path": "content/lessons/mathematics/arithmetic-number-sense/ratio-and-proportion.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-arithmetic-number-sense-real-imaginary-numbers": {
+   "path": "content/lessons/mathematics/arithmetic-number-sense/real-imaginary-numbers.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-arithmetic-number-sense-sequences-and-series": {
+   "path": "content/lessons/mathematics/arithmetic-number-sense/sequences-and-series.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-data-interpretation-rates-ratios-and-percentages-in-context": {
+   "path": "content/lessons/mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-data-interpretation-tables-and-charts": {
+   "path": "content/lessons/mathematics/data-interpretation/tables-and-charts.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-geometry-basic-geometric-concepts": {
+   "path": "content/lessons/mathematics/geometry/basic-geometric-concepts.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-geometry-circles": {
+   "path": "content/lessons/mathematics/geometry/circles.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-geometry-coordinate-geometry": {
+   "path": "content/lessons/mathematics/geometry/coordinate-geometry.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-geometry-logic-and-reasoning": {
+   "path": "content/lessons/mathematics/geometry/logic-and-reasoning.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-geometry-measurement": {
+   "path": "content/lessons/mathematics/geometry/measurement.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-geometry-parallel-perpendicular-lines": {
+   "path": "content/lessons/mathematics/geometry/parallel-perpendicular-lines.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-geometry-quadrilaterals-and-polygons": {
+   "path": "content/lessons/mathematics/geometry/quadrilaterals-and-polygons.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-geometry-triangles": {
+   "path": "content/lessons/mathematics/geometry/triangles.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-precalculus-basic-calculus-basic-derivatives": {
+   "path": "content/lessons/mathematics/precalculus-basic-calculus/basic-derivatives.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-precalculus-basic-calculus-basic-integrals": {
+   "path": "content/lessons/mathematics/precalculus-basic-calculus/basic-integrals.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-precalculus-basic-calculus-conic-sections": {
+   "path": "content/lessons/mathematics/precalculus-basic-calculus/conic-sections.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-precalculus-basic-calculus-limits-and-continuity": {
+   "path": "content/lessons/mathematics/precalculus-basic-calculus/limits-and-continuity.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-statistics-and-probability-basic-probability": {
+   "path": "content/lessons/mathematics/statistics-and-probability/basic-probability.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-statistics-and-probability-combinatorics": {
+   "path": "content/lessons/mathematics/statistics-and-probability/combinatorics.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-statistics-and-probability-data-analysis-graphs": {
+   "path": "content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-statistics-and-probability-measures-of-central-tendency": {
+   "path": "content/lessons/mathematics/statistics-and-probability/measures-of-central-tendency.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-statistics-and-probability-measures-of-variability": {
+   "path": "content/lessons/mathematics/statistics-and-probability/measures-of-variability.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-trigonometry-angles-and-radian-measure": {
+   "path": "content/lessons/mathematics/trigonometry/angles-and-radian-measure.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-trigonometry-basic-trigonometric-ratios": {
+   "path": "content/lessons/mathematics/trigonometry/basic-trigonometric-ratios.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-trigonometry-inverse-trigonometric-functions": {
+   "path": "content/lessons/mathematics/trigonometry/inverse-trigonometric-functions.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-trigonometry-laws-of-sines-and-cosines": {
+   "path": "content/lessons/mathematics/trigonometry/laws-of-sines-and-cosines.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-trigonometry-solving-right-triangles": {
+   "path": "content/lessons/mathematics/trigonometry/solving-right-triangles.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-trigonometry-trigonometric-identities": {
+   "path": "content/lessons/mathematics/trigonometry/trigonometric-identities.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-trigonometry-unit-circle": {
+   "path": "content/lessons/mathematics/trigonometry/unit-circle.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-comprehension-skills-authors-purpose-tone-pov": {
+   "path": "content/lessons/reading-comprehension/comprehension-skills/authors-purpose-tone-pov.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-comprehension-skills-choosing-a-title": {
+   "path": "content/lessons/reading-comprehension/comprehension-skills/choosing-a-title.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-comprehension-skills-context-clues-in-passages": {
+   "path": "content/lessons/reading-comprehension/comprehension-skills/context-clues-in-passages.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-comprehension-skills-fact-vs-opinion": {
+   "path": "content/lessons/reading-comprehension/comprehension-skills/fact-vs-opinion.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-comprehension-skills-inferencing-and-conclusions": {
+   "path": "content/lessons/reading-comprehension/comprehension-skills/inferencing-and-conclusions.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-comprehension-skills-main-idea": {
+   "path": "content/lessons/reading-comprehension/comprehension-skills/main-idea.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-comprehension-skills-noting-specific-details": {
+   "path": "content/lessons/reading-comprehension/comprehension-skills/noting-specific-details.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-comprehension-skills-sequencing-of-events": {
+   "path": "content/lessons/reading-comprehension/comprehension-skills/sequencing-of-events.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-text-types-essays-editorials-articles": {
+   "path": "content/lessons/reading-comprehension/text-types/essays-editorials-articles.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-text-types-poetry": {
+   "path": "content/lessons/reading-comprehension/text-types/poetry.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-text-types-short-stories-and-novels": {
+   "path": "content/lessons/reading-comprehension/text-types/short-stories-and-novels.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-text-types-speeches": {
+   "path": "content/lessons/reading-comprehension/text-types/speeches.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-text-types-visual-media": {
+   "path": "content/lessons/reading-comprehension/text-types/visual-media.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-clerical-ability-alphabetic-filing-rules": {
+   "path": "content/lessons/reasoning/clerical-ability/alphabetic-filing-rules.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-clerical-ability-numeric-and-chronological-filing": {
+   "path": "content/lessons/reasoning/clerical-ability/numeric-and-chronological-filing.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-logical-verbal-reasoning-number-and-letter-sequences": {
+   "path": "content/lessons/reasoning/logical-verbal-reasoning/number-and-letter-sequences.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic": {
+   "path": "content/lessons/reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic": {
+   "path": "content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-logical-verbal-reasoning-word-analogies": {
+   "path": "content/lessons/reasoning/logical-verbal-reasoning/word-analogies.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-mechanical-technical-reasoning-fluid-pressure": {
+   "path": "content/lessons/reasoning/mechanical-technical-reasoning/fluid-pressure.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-mechanical-technical-reasoning-gear-rotations": {
+   "path": "content/lessons/reasoning/mechanical-technical-reasoning/gear-rotations.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-mechanical-technical-reasoning-pulleys-and-levers": {
+   "path": "content/lessons/reasoning/mechanical-technical-reasoning/pulleys-and-levers.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-mechanical-technical-reasoning-springs-and-weights": {
+   "path": "content/lessons/reasoning/mechanical-technical-reasoning/springs-and-weights.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-mechanical-technical-reasoning-structural-stability": {
+   "path": "content/lessons/reasoning/mechanical-technical-reasoning/structural-stability.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-spatial-abstract-reasoning-figure-grouping": {
+   "path": "content/lessons/reasoning/spatial-abstract-reasoning/figure-grouping.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-spatial-abstract-reasoning-figure-matrices": {
+   "path": "content/lessons/reasoning/spatial-abstract-reasoning/figure-matrices.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-spatial-abstract-reasoning-figure-series": {
+   "path": "content/lessons/reasoning/spatial-abstract-reasoning/figure-series.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization": {
+   "path": "content/lessons/reasoning/spatial-abstract-reasoning/mental-rotation-3d-visualization.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-spatial-abstract-reasoning-paper-folding-and-cutting": {
+   "path": "content/lessons/reasoning/spatial-abstract-reasoning/paper-folding-and-cutting.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-verbal-logic-assumptions-and-conclusions": {
+   "path": "content/lessons/reasoning/verbal-logic/assumptions-and-conclusions.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-biology-botany": {
+   "path": "content/lessons/science/biology/botany.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-biology-cell-biology": {
+   "path": "content/lessons/science/biology/cell-biology.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-biology-cellular-metabolism": {
+   "path": "content/lessons/science/biology/cellular-metabolism.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-biology-cellular-reproduction": {
+   "path": "content/lessons/science/biology/cellular-reproduction.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-biology-characteristics-of-life": {
+   "path": "content/lessons/science/biology/characteristics-of-life.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-biology-ecology": {
+   "path": "content/lessons/science/biology/ecology.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-biology-evolution": {
+   "path": "content/lessons/science/biology/evolution.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-biology-genetics-and-heredity": {
+   "path": "content/lessons/science/biology/genetics-and-heredity.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-biology-human-anatomy-physiology": {
+   "path": "content/lessons/science/biology/human-anatomy-physiology.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-biology-taxonomy-and-classification": {
+   "path": "content/lessons/science/biology/taxonomy-and-classification.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-chemistry-acids-bases-ph": {
+   "path": "content/lessons/science/chemistry/acids-bases-ph.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-chemistry-atomic-structure": {
+   "path": "content/lessons/science/chemistry/atomic-structure.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-chemistry-basic-organic-chemistry": {
+   "path": "content/lessons/science/chemistry/basic-organic-chemistry.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-chemistry-chemical-bonding": {
+   "path": "content/lessons/science/chemistry/chemical-bonding.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-chemistry-chemical-nomenclature": {
+   "path": "content/lessons/science/chemistry/chemical-nomenclature.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-chemistry-chemical-reactions": {
+   "path": "content/lessons/science/chemistry/chemical-reactions.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-chemistry-gas-laws": {
+   "path": "content/lessons/science/chemistry/gas-laws.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-chemistry-history-of-the-atom": {
+   "path": "content/lessons/science/chemistry/history-of-the-atom.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-chemistry-matter": {
+   "path": "content/lessons/science/chemistry/matter.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-chemistry-mixtures-and-separation": {
+   "path": "content/lessons/science/chemistry/mixtures-and-separation.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-chemistry-mole-concept": {
+   "path": "content/lessons/science/chemistry/mole-concept.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-chemistry-nuclear-chemistry": {
+   "path": "content/lessons/science/chemistry/nuclear-chemistry.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-chemistry-periodic-table": {
+   "path": "content/lessons/science/chemistry/periodic-table.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-chemistry-quantum-numbers-electron-configuration": {
+   "path": "content/lessons/science/chemistry/quantum-numbers-electron-configuration.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-chemistry-solutions": {
+   "path": "content/lessons/science/chemistry/solutions.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-chemistry-stoichiometry": {
+   "path": "content/lessons/science/chemistry/stoichiometry.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-chemistry-thermodynamics-and-kinetics": {
+   "path": "content/lessons/science/chemistry/thermodynamics-and-kinetics.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-earth-science-astronomy-earths-motions": {
+   "path": "content/lessons/science/earth-science-astronomy/earths-motions.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-earth-science-astronomy-earths-subsystems": {
+   "path": "content/lessons/science/earth-science-astronomy/earths-subsystems.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-earth-science-astronomy-eclipses-and-moon-phases": {
+   "path": "content/lessons/science/earth-science-astronomy/eclipses-and-moon-phases.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-earth-science-astronomy-fossils-and-geologic-time": {
+   "path": "content/lessons/science/earth-science-astronomy/fossils-and-geologic-time.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-earth-science-astronomy-heavenly-bodies": {
+   "path": "content/lessons/science/earth-science-astronomy/heavenly-bodies.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-earth-science-astronomy-layers-of-the-earth": {
+   "path": "content/lessons/science/earth-science-astronomy/layers-of-the-earth.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-earth-science-astronomy-minerals-and-rocks": {
+   "path": "content/lessons/science/earth-science-astronomy/minerals-and-rocks.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-earth-science-astronomy-origin-of-the-universe": {
+   "path": "content/lessons/science/earth-science-astronomy/origin-of-the-universe.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-earth-science-astronomy-plate-tectonics": {
+   "path": "content/lessons/science/earth-science-astronomy/plate-tectonics.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-earth-science-astronomy-water-cycle-oceanography": {
+   "path": "content/lessons/science/earth-science-astronomy/water-cycle-oceanography.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-earth-science-astronomy-weather-and-climate": {
+   "path": "content/lessons/science/earth-science-astronomy/weather-and-climate.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-physics-dynamics": {
+   "path": "content/lessons/science/physics/dynamics.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-physics-electricity-and-magnetism": {
+   "path": "content/lessons/science/physics/electricity-and-magnetism.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-physics-fluid-mechanics": {
+   "path": "content/lessons/science/physics/fluid-mechanics.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-physics-gravity-and-keplers-laws": {
+   "path": "content/lessons/science/physics/gravity-and-keplers-laws.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-physics-kinematics": {
+   "path": "content/lessons/science/physics/kinematics.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-physics-light-and-optics": {
+   "path": "content/lessons/science/physics/light-and-optics.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-physics-momentum-and-impulse": {
+   "path": "content/lessons/science/physics/momentum-and-impulse.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-physics-scalars-and-vectors": {
+   "path": "content/lessons/science/physics/scalars-and-vectors.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-physics-thermodynamics": {
+   "path": "content/lessons/science/physics/thermodynamics.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-physics-two-dimensional-motion": {
+   "path": "content/lessons/science/physics/two-dimensional-motion.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-physics-units-and-measurements": {
+   "path": "content/lessons/science/physics/units-and-measurements.md",
+   "in_ledger": true,
+   "changed_since_ledger": false
+  },
+  "lesson-physics-waves-and-sound": {
+   "path": "content/lessons/science/physics/waves-and-sound.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  },
+  "lesson-physics-work-energy-power": {
+   "path": "content/lessons/science/physics/work-energy-power.md",
+   "in_ledger": true,
+   "changed_since_ledger": true
+  }
+ }
+}

@@ -143,7 +143,8 @@ class Final(ReportCase):
         self.assertEqual(gaps, 2)
         self.assertIn("lesson-real: rule L17 has no verdict", text)
         self.assertIn("lesson-never-read: no finished result", text)
-        self.assertIn("B04: not assessed", text)
+        self.assertIn("B04: checked by script", text)
+        self.assertIn("B05: not confirmable", text)
 
     def edit_result(self, packet_id, change):
         result = l4lib.load_json(self.state / "results" / ("%s.json" % packet_id))
