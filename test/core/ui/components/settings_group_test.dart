@@ -7,7 +7,7 @@ import 'package:pantas/core/ui/theme/app_colors.dart';
 import '../../../helpers/pump_app.dart';
 
 void main() {
-  testWidgets('the heading is serif 17 at weight 700, sentence case',
+  testWidgets('the heading is Geist 17 at weight 600, sentence case',
       (tester) async {
     await tester.pumpApp(
       const SettingsGroup(
@@ -18,9 +18,9 @@ void main() {
     );
 
     final heading = tester.widget<Text>(find.text('How you practice'));
-    expect(heading.style!.fontFamily, 'SourceSans3');
+    expect(heading.style!.fontFamily, 'Geist');
     expect(heading.style!.fontSize, SettingsGroup.headingSize);
-    expect(heading.style!.fontWeight, FontWeight.w700);
+    expect(heading.style!.fontWeight, FontWeight.w600);
     // Sentence case is a copy rule, asserted here so an all-caps heading
     // cannot pass review.
     expect(heading.data, isNot('HOW YOU PRACTICE'));

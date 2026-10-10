@@ -8,7 +8,7 @@ Widget harness(Widget child) =>
     MaterialApp(theme: buildLightTheme(), home: Scaffold(body: child));
 
 void main() {
-  testWidgets('renders serif title and tappable action', (tester) async {
+  testWidgets('renders Geist title and tappable action', (tester) async {
     var tapped = false;
     await tester.pumpWidget(
       harness(
@@ -20,7 +20,7 @@ void main() {
       ),
     );
     final title = tester.widget<Text>(find.text("Today's plan"));
-    expect(title.style?.fontFamily, 'SourceSans3');
+    expect(title.style?.fontFamily, 'Geist');
     await tester.tap(find.text('2 of 3 done'));
     expect(tapped, isTrue);
   });

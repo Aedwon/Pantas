@@ -4,7 +4,7 @@ import 'package:pantas/core/ui/components/stats_band.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
 void main() {
-  testWidgets('renders serif numerals with labels and dividers',
+  testWidgets('renders Geist numerals with labels and dividers',
       (tester) async {
     await tester.pumpWidget(
       MaterialApp(
@@ -20,7 +20,7 @@ void main() {
       ),
     );
     final numeral = tester.widget<Text>(find.text('78%'));
-    expect(numeral.style?.fontFamily, 'SourceSans3');
+    expect(numeral.style?.fontFamily, 'Geist');
     expect(numeral.style?.fontSize, 30);
     expect(find.text('/96'), findsOneWidget);
     expect(find.text('Average score'), findsOneWidget);

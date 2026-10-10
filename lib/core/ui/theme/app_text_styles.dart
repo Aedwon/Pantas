@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/theme/pantas_type.dart';
 
 @immutable
+@Deprecated('W1 adapter, removed in W2 close-out')
 class AppTextStyles extends ThemeExtension<AppTextStyles> {
+  @Deprecated('W1 adapter, removed in W2 close-out')
   const AppTextStyles({
     required this.displayLarge,
     required this.displayMedium,
@@ -20,117 +23,27 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
     required this.mathBody,
   });
 
-  /// One family, everywhere.
-  ///
-  /// Aedwon, 10 August: the serif was *"an eyesore"*, and a reader who is
-  /// noticing the type is not reading the lesson. The argument for it was
-  /// that Ink and Rule is a printed page; his answer was that the point of
-  /// the printed page was to be quiet and distraction free, so a typeface
-  /// that irritates defeats the purpose the serif was there to serve.
-  ///
-  /// **What carries the identity now is not the type.** It is the hairline
-  /// rules, the underlined section heads, the tabular figures, the absence
-  /// of tinted callouts and rounded cards. Those are what keep this from
-  /// looking like every other study app, and they matter more now, not less.
-  ///
-  /// Hierarchy has to come from size, weight and space alone. The display
-  /// sizes are tracked tighter than a default so they read as set rather
-  /// than as typed.
-  factory AppTextStyles.create() => const AppTextStyles(
-        displayLarge: TextStyle(
-          fontFamily: 'SourceSans3',
-          fontSize: 28,
-          fontWeight: FontWeight.w700,
-          height: 1.2,
-          letterSpacing: -0.5,
-        ),
-        displayMedium: TextStyle(
-          fontFamily: 'SourceSans3',
-          fontSize: 24,
-          fontWeight: FontWeight.w700,
-          height: 1.2,
-          letterSpacing: -0.4,
-        ),
-        displaySmall: TextStyle(
-          fontFamily: 'SourceSans3',
-          fontSize: 22,
-          fontWeight: FontWeight.w700,
-          height: 1.2,
-          letterSpacing: -0.35,
-        ),
-        headlineLarge: TextStyle(
-          fontFamily: 'SourceSans3',
-          fontSize: 16,
-          fontWeight: FontWeight.w700,
-          height: 1.3,
-        ),
-        headlineMedium: TextStyle(
-          fontFamily: 'SourceSans3',
-          fontSize: 18,
-          fontWeight: FontWeight.w700,
-          height: 1.3,
-        ),
-        headlineSmall: TextStyle(
-          fontFamily: 'SourceSans3',
-          fontSize: 15,
-          fontWeight: FontWeight.w700,
-          height: 1.3,
-        ),
-        titleSmall: TextStyle(
-          fontFamily: 'SourceSans3',
-          fontSize: 14,
-          fontWeight: FontWeight.w700,
-          height: 1.45,
-        ),
-        bodyLarge: TextStyle(
-          fontFamily: 'SourceSans3',
-          fontSize: 16,
-          fontWeight: FontWeight.w400,
-          height: 1.55,
-        ),
-        bodyMedium: TextStyle(
-          fontFamily: 'SourceSans3',
-          fontSize: 14,
-          fontWeight: FontWeight.w400,
-          height: 1.5,
-        ),
-        bodyRegular: TextStyle(
-          fontFamily: 'SourceSans3',
-          fontSize: 13,
-          fontWeight: FontWeight.w400,
-          height: 1.5,
-        ),
-        bodySmall: TextStyle(
-          fontFamily: 'SourceSans3',
-          fontSize: 12,
-          fontWeight: FontWeight.w400,
-          height: 1.4,
-        ),
-        captionSmall: TextStyle(
-          fontFamily: 'SourceSans3',
-          fontSize: 11.5,
-          fontWeight: FontWeight.w400,
-          height: 1.5,
-        ),
-        labelLarge: TextStyle(
-          fontFamily: 'SourceSans3',
-          fontSize: 13,
-          fontWeight: FontWeight.w600,
-          height: 1.2,
-        ),
-        labelSmall: TextStyle(
-          fontFamily: 'SourceSans3',
-          fontSize: 11,
-          fontWeight: FontWeight.w600,
-          height: 1.2,
-        ),
-        mathBody: TextStyle(
-          fontFamily: 'SourceSans3',
-          fontSize: 14,
-          fontWeight: FontWeight.w400,
-          height: 1.5,
-        ),
-      );
+  @Deprecated('W1 adapter, removed in W2 close-out')
+  factory AppTextStyles.create({PantasType? type}) {
+    final tokens = type ?? PantasType.create();
+    return AppTextStyles(
+      displayLarge: tokens.largeTitle,
+      displayMedium: tokens.pageTitle,
+      displaySmall: tokens.sectionHero,
+      headlineLarge: tokens.sectionHero,
+      headlineMedium: tokens.sectionHero,
+      headlineSmall: tokens.emphasized,
+      titleSmall: tokens.subheadStrong,
+      bodyLarge: tokens.body,
+      bodyMedium: tokens.subhead,
+      bodyRegular: tokens.body,
+      bodySmall: tokens.subhead,
+      captionSmall: tokens.caption,
+      labelLarge: tokens.sectionHeader,
+      labelSmall: tokens.footnote,
+      mathBody: tokens.mathSerif,
+    );
+  }
 
   final TextStyle displayLarge;
   final TextStyle displayMedium;

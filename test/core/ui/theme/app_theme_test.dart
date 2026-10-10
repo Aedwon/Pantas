@@ -6,9 +6,9 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 
 void main() {
   test('new dimension tokens', () {
-    expect(AppDimensions.radiusButton, 5);
-    expect(AppDimensions.radiusSurface, 8);
-    expect(AppDimensions.hairline, 1.0);
+    expect(AppDimensions.radiusButton, 14);
+    expect(AppDimensions.radiusSurface, 18);
+    expect(AppDimensions.hairline, 0.5);
     expect(AppDimensions.progressHeight, 3.0);
   });
 
@@ -64,10 +64,10 @@ void main() {
     expect(appBar.titleTextStyle?.color, c.ink);
   });
 
-  test('dividers are 1px rule hairlines', () {
+  test('dividers use the separator width', () {
     final divider = buildLightTheme().dividerTheme;
     expect(divider.color, AppColors.light.rule);
-    expect(divider.thickness, 1);
+    expect(divider.thickness, 0.5);
   });
 
   test('dialogs and sheets are flat identity surfaces', () {
@@ -77,7 +77,7 @@ void main() {
     expect(
       theme.dialogTheme.shape,
       const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(8)),
+        borderRadius: BorderRadius.all(Radius.circular(14)),
       ),
     );
     expect(theme.bottomSheetTheme.backgroundColor, c.background);

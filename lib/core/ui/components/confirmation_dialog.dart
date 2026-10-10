@@ -128,7 +128,7 @@ class _RustButton extends StatelessWidget {
         alignment: Alignment.center,
         child: Text(
           label,
-          style: styles.labelLarge.copyWith(color: colors.onBoard),
+          style: styles.labelLarge.copyWith(color: Colors.white),
         ),
       ),
     );

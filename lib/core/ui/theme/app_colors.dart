@@ -1,60 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/theme/pantas_colors.dart';
 
 @immutable
-class AppColors extends ThemeExtension<AppColors> {
-  const AppColors({
-    required this.background,
-    required this.surface,
-    required this.ink,
-    required this.inkMuted,
-    required this.rule,
-    required this.ruleFaint,
-    required this.board,
-    required this.boardTint,
-    required this.onBoard,
-    required this.rust,
-    required this.amber,
-  });
+@Deprecated('W1 adapter, removed in W2 close-out')
+abstract class AppColors extends ThemeExtension<AppColors> {
+  @Deprecated('W1 adapter, removed in W2 close-out')
+  const AppColors();
+  @Deprecated('W1 adapter, removed in W2 close-out')
+  const factory AppColors.fromTokens(PantasColors colors) = _AppColorsAdapter;
 
-  final Color background;
-  final Color surface;
-  final Color ink;
-  final Color inkMuted;
-  final Color rule;
-  final Color ruleFaint;
-  final Color board;
-  final Color boardTint;
-  final Color onBoard;
-  final Color rust;
-  final Color amber;
-
-  static const light = AppColors(
-    background: Color(0xFFFBF9F4),
-    surface: Color(0xFFFFFFFF),
-    ink: Color(0xFF26221B),
-    inkMuted: Color(0xFF6E675C),
-    rule: Color(0xFFE5DFD3),
-    ruleFaint: Color(0xFFF1EDE4),
-    board: Color(0xFF1D5C50),
-    boardTint: Color(0xFFE3EFEA),
-    onBoard: Color(0xFFFFFFFF),
-    rust: Color(0xFFA33B2E),
-    amber: Color(0xFF996A15),
-  );
-
-  static const dark = AppColors(
-    background: Color(0xFF191613),
-    surface: Color(0xFF211D18),
-    ink: Color(0xFFEFEAE0),
-    inkMuted: Color(0xFFA69C8C),
-    rule: Color(0xFF38332B),
-    ruleFaint: Color(0xFF2A2620),
-    board: Color(0xFF4FA08D),
-    boardTint: Color(0xFF22352F),
-    onBoard: Color(0xFF14110D),
-    rust: Color(0xFFD4705F),
-    amber: Color(0xFFC99A45),
-  );
+  static const light = _AppColorsAdapter(PantasColors.light);
+  static const dark = _AppColorsAdapter(PantasColors.dark);
+  PantasColors get tokens;
+  Color get background;
+  Color get surface;
+  Color get ink;
+  Color get inkMuted;
+  Color get rule;
+  Color get ruleFaint;
+  Color get board;
+  Color get boardTint;
+  Color get onBoard;
+  Color get rust;
+  Color get amber;
 
   @override
   AppColors copyWith({
@@ -69,37 +37,79 @@ class AppColors extends ThemeExtension<AppColors> {
     Color? onBoard,
     Color? rust,
     Color? amber,
-  }) {
-    return AppColors(
-      background: background ?? this.background,
-      surface: surface ?? this.surface,
-      ink: ink ?? this.ink,
-      inkMuted: inkMuted ?? this.inkMuted,
-      rule: rule ?? this.rule,
-      ruleFaint: ruleFaint ?? this.ruleFaint,
-      board: board ?? this.board,
-      boardTint: boardTint ?? this.boardTint,
-      onBoard: onBoard ?? this.onBoard,
-      rust: rust ?? this.rust,
-      amber: amber ?? this.amber,
-    );
-  }
+  });
+}
+
+class _AppColorsAdapter extends AppColors {
+  const _AppColorsAdapter(this._colors);
+
+  @override
+  Object get type => AppColors;
+  final PantasColors _colors;
+
+  @override
+  PantasColors get tokens => _colors;
+
+  @override
+  Color get background => _colors.background;
+  @override
+  Color get surface => _colors.surface;
+  @override
+  Color get ink => _colors.label;
+  @override
+  @override
+  Color get inkMuted => _colors.secondaryLabel;
+  @override
+  Color get rule => _colors.separator;
+  @override
+  @override
+  Color get ruleFaint => _colors.fill;
+  @override
+  Color get board => _colors.accent;
+  @override
+  @override
+  Color get boardTint => _colors.accentTint;
+  @override
+  Color get onBoard => _colors.surface;
+  @override
+  Color get rust => _colors.destructive;
+  @override
+  Color get amber => _colors.pro;
+
+  @override
+  AppColors copyWith({
+    Color? background,
+    Color? surface,
+    Color? ink,
+    Color? inkMuted,
+    Color? rule,
+    Color? ruleFaint,
+    Color? board,
+    Color? boardTint,
+    Color? onBoard,
+    Color? rust,
+    Color? amber,
+  }) =>
+      _AppColorsAdapter(
+        _colors.copyWith(
+          background: background,
+          surface: surface ?? onBoard,
+          label: ink,
+          secondaryLabel: inkMuted,
+          separator: rule,
+          fill: ruleFaint,
+          accent: board,
+          accentTint: boardTint,
+          destructive: rust,
+          pro: amber,
+        ),
+      );
 
   @override
   AppColors lerp(AppColors? other, double t) {
-    if (other is! AppColors) return this;
-    return AppColors(
-      background: Color.lerp(background, other.background, t)!,
-      surface: Color.lerp(surface, other.surface, t)!,
-      ink: Color.lerp(ink, other.ink, t)!,
-      inkMuted: Color.lerp(inkMuted, other.inkMuted, t)!,
-      rule: Color.lerp(rule, other.rule, t)!,
-      ruleFaint: Color.lerp(ruleFaint, other.ruleFaint, t)!,
-      board: Color.lerp(board, other.board, t)!,
-      boardTint: Color.lerp(boardTint, other.boardTint, t)!,
-      onBoard: Color.lerp(onBoard, other.onBoard, t)!,
-      rust: Color.lerp(rust, other.rust, t)!,
-      amber: Color.lerp(amber, other.amber, t)!,
-    );
+    if (other == null) return this;
+    final tokens =
+        other is PantasColors ? other : (other as _AppColorsAdapter)._colors;
+    return _AppColorsAdapter(_colors.lerp(tokens, t));
   }
 }

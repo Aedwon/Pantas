@@ -1,7 +1,6 @@
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/figures/biology_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/chemistry_diagram_figure.dart';
@@ -12,6 +11,13 @@ import 'package:pantas/core/ui/theme/app_colors.dart';
 import 'package:pantas/core/ui/theme/app_text_styles.dart';
 
 void main() {
+  setUpAll(() async {
+    final fonts = FontLoader('Geist');
+    for (final weight in ['Regular', 'Medium', 'SemiBold', 'Bold']) {
+      fonts.addFont(rootBundle.load('assets/fonts/Geist-$weight.ttf'));
+    }
+    await fonts.load();
+  });
   final cases = <_FigureCase>[
     const _FigureCase(
       key: 'reading-comprehension/text-types/short-stories-and-novels#1',
@@ -749,6 +755,7 @@ Future<void> _pumpFigure(
 ) async {
   await tester.pumpWidget(
     MaterialApp(
+      themeAnimationDuration: Duration.zero,
       theme: ThemeData(
         extensions: [palette, AppTextStyles.create()],
       ),
@@ -771,6 +778,7 @@ Future<_RenderedFigure> _renderFigure(
   final boundaryKey = GlobalKey();
   await tester.pumpWidget(
     MaterialApp(
+      themeAnimationDuration: Duration.zero,
       theme: ThemeData(
         extensions: [palette, AppTextStyles.create()],
       ),
