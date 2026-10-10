@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_colors.dart';
@@ -18,6 +19,23 @@ Widget harness(
     );
 
 void main() {
+  for (final key in [LogicalKeyboardKey.enter, LogicalKeyboardKey.space]) {
+    testWidgets('every tab accepts keyboard ${key.keyLabel}', (tester) async {
+      final taps = <int>[];
+      await tester.pumpWidget(harness(onTap: taps.add));
+      await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+      await tester.pump();
+      for (var index = 0; index < 4; index++) {
+        await tester.sendKeyEvent(key);
+        await tester.pump();
+        expect(taps, List<int>.generate(index + 1, (i) => i));
+        await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+        await tester.pump();
+      }
+      expect(tester.binding.transientCallbackCount, 0);
+    });
+  }
+
   for (final dark in [false, true]) {
     testWidgets(
         'unselected tab labels and icons use secondaryLabel, dark=$dark',

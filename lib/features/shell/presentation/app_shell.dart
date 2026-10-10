@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
@@ -183,34 +184,48 @@ class _NavItem extends StatelessWidget {
       selected: isActive,
       onTap: onTap,
       excludeSemantics: true,
-      child: GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        excludeFromSemantics: true,
-        onTap: onTap,
-        child: Container(
-          constraints: const BoxConstraints(minHeight: 52),
-          decoration: BoxDecoration(
-            color: isActive ? colors.accentTint : Colors.transparent,
-            borderRadius: BorderRadius.circular(PantasShape.pillRadius),
+      child: FocusableActionDetector(
+        shortcuts: const {
+          SingleActivator(LogicalKeyboardKey.enter): ActivateIntent(),
+          SingleActivator(LogicalKeyboardKey.space): ActivateIntent(),
+        },
+        actions: {
+          ActivateIntent: CallbackAction<ActivateIntent>(
+            onInvoke: (_) {
+              onTap();
+              return null;
+            },
           ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(glyph, color: color, size: 24),
-              const SizedBox(height: 2),
-              Text(
-                label,
-                maxLines: 1,
-                softWrap: false,
-                overflow: TextOverflow.clip,
-                textAlign: TextAlign.center,
-                style: context.type.captionSmall.copyWith(
-                  color: color,
-                  fontWeight: isActive ? FontWeight.w600 : FontWeight.w500,
+        },
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          excludeFromSemantics: true,
+          onTap: onTap,
+          child: Container(
+            constraints: const BoxConstraints(minHeight: 52),
+            decoration: BoxDecoration(
+              color: isActive ? colors.accentTint : Colors.transparent,
+              borderRadius: BorderRadius.circular(PantasShape.pillRadius),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(glyph, color: color, size: 24),
+                const SizedBox(height: 2),
+                Text(
+                  label,
+                  maxLines: 1,
+                  softWrap: false,
+                  overflow: TextOverflow.clip,
+                  textAlign: TextAlign.center,
+                  style: context.type.captionSmall.copyWith(
+                    color: color,
+                    fontWeight: isActive ? FontWeight.w600 : FontWeight.w500,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
