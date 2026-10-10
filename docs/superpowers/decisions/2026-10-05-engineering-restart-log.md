@@ -1002,3 +1002,10 @@ Aedwon chose, from a side-by-side of both tab bars: "Tab labels: option 2, use t
 #6E6E73". Unselected tabs in light mode use the secondary label token instead of the drawn
 `#8A8A8E` (3.44:1, below the 4.5:1 minimum). This overrides the boards for that one color. L3 W1
 Task 9b item 3 amended.
+
+## October 10, 2026: W1 legacy contrast ruling
+
+W1 stopped before Task 9b: restoring old colors for legacy screens could not reach 4.5:1 either.
+Ruling: keep the new destructive fill and make its label white (5.39:1); leave the legacy
+wrong-answer text and legacy mock timer as they are, because W4d and W4e replace those screens and
+now carry a contrast test each (L3 W1 Task 9b item 2, L3 W4d, L3 W4e amended).

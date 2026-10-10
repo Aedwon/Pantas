@@ -146,9 +146,13 @@ Source: `gates/w1-astra-audit-1.md`. Each fix: failing test first.
 1. Licenses ship: register the two OFL texts and the Phosphor MIT text with Flutter's
    `LicenseRegistry` at startup (assets declared in `pubspec.yaml`); test that the registry yields
    all three.
-2. Legacy contrast (adapters only, until each W4 family replaces the screen): a label on the
-   destructive fill is white in light and dark; legacy wrong-answer text and the legacy last-minute
-   mock timer keep their pre-W1 colors. Test each pair at 4.5:1 or better. No new design token.
+2. Legacy contrast (lead ruling Oct 10 after the W1 stop at 96b8ff32; replaces the first wording):
+   the destructive fill keeps the new token in both modes; only the label drawn on a destructive
+   fill changes, to white (`#FFFFFF` on `#D70015` is 5.39:1). Change the adapter's "on destructive"
+   color only; no other token or caller changes. Legacy wrong-answer text in dark mode (3.90:1) and
+   the legacy last-minute mock timer (2.08:1) stay as they are: W4d and W4e replace those screens,
+   and each must test its own pairs at 4.5:1 or better (recorded in their plans). Test: white on the
+   destructive fill in light and dark.
 3. Unselected tab label and icon color in light mode: `secondaryLabel` (`#6E6E73`, 5.1:1), replacing
    the drawn `#8A8A8E` (Aedwon, Oct 10, chosen from a side-by-side: "option 2, use the darker gray
    #6E6E73"). Dark mode unchanged. Test the foreground and background pair at 4.5:1 or better.

@@ -15,6 +15,8 @@ Pro gates read W3's `proForActiveExamProvider` (Pro for the active exam), never 
 While W3's entitlement state is `paused`, each Pro gate shows W2's `ProPausedLine` instead of the Pro
 invitation, with a widget test (amended Oct 6, abuse review 1).
 
+Contrast (W1 audit 1, Oct 10): this family's rebuilt screens test the last-minute timer against its real background at 4.5:1 or better in light and dark; if a board's color fails, stop and ask the lead.
+
 ## Task 1. Mock card (lands first)
 
 `MockCardModel` and `MockCard` in `lib/features/mock_exam/presentation/widgets/mock_card.dart`,

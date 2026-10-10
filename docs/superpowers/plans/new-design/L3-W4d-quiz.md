@@ -21,6 +21,8 @@ Regression tests for GitHub issues #23 (Quiz tab stays on the assessment gate), 
 While W3's entitlement state is `paused` (Pro paused offline, not a quiz left partway), each Pro gate shows W2's `ProPausedLine` instead of the Pro
 invitation, with a widget test (amended Oct 6, abuse review 1).
 
+Contrast (W1 audit 1, Oct 10): this family's rebuilt screens test wrong-answer text against its real background at 4.5:1 or better in light and dark; if a board's color fails, stop and ask the lead.
+
 ## Task 1. Start functions (lands first)
 
 `startLessonQuiz(lessonId)`: replaces `StartInlineLessonQuiz`'s topic scope with the lesson's own
