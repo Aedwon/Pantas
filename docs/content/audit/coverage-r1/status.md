@@ -6,7 +6,7 @@ Plan: `docs/superpowers/plans/2026-10-04-exam-content-coverage-audit.md`.
 
 ## Identity
 
-- Current policy and standards: main `a90ad0b80be693a8c007af0eb25a493da7b55766`, published October 9 after the approved teaching-completeness amendment. The guide and checklist include L25 to L27 and prerequisite/later-explanation reuse; the authoring prompt carries identical wording. Level 3 acceptance evidence retains its original `1aaebad9814ba7bd9404d8b43fc010281abb97cf` identity. Refresh all required current main instructions before Level 4.
+- Current policy and standards: main `168e393dc997de4531f4fdd5b683c66025e75d0e`, published October 10 after the approved question-givens/expected-knowledge distinction. Checklist Q20 applies to question stems; L05 and the lesson guide apply it to worked-example stems in Level 4. Quizzes and bank questions remain Level 5. L25 to L27 and the example-count correction remain active. Level 3 acceptance evidence retains its original `1aaebad9814ba7bd9404d8b43fc010281abb97cf` identity. Refresh current main instructions before Level 4.
 - Corpus input: `content/question-qa-r2` at `765c5dc0fa5586281047bf4f7b30d09ab3707887`,
   local worktree and remote match.
 - Codex models confirmed: `gpt-6.1-sol` and `gpt-6-luna`, run with computer use
@@ -705,3 +705,13 @@ Exact human approval:
 The approved current main guide, checklist and authoring prompt now require explanations for necessary terms/symbols/units, concept meaning/how, and relevant conditions/limits/exceptions. Checklist L25 to L27 have Major severity. Actual prerequisite teaching may be reused through a short reminder/reference. Later explanations in the current lesson must be clearly signposted while supplying meaning needed for intervening teaching. A mere mention is not an explanation, and the current lesson must still teach its own goal. Prerequisite evidence is recorded.
 
 Four-file document checks PASS, all56previous checklist rules preserved, exactly3newrules added, identical guide/prompt block, scoped canonical attribution zero hits, independent read-only review PASS. Amendment saved/uploaded to main at `a90ad0b80be693a8c007af0eb25a493da7b55766`; live main and local HEAD verified equal. No lesson/question/app/roadmap edits, new review stages or numeric thresholds. Level3 approval and frozen acceptance evidence remain unchanged; Level4 is still held. Refresh current main standards before any authorized Level4 work. Broader stale prompt issues remain outside this targeted amendment.
+
+### October 10, 2026: necessary givens versus expected knowledge, approved standard
+
+Exact human approval:
+
+> ok yeah sure bake that in. the level 4 things will pick this up correct?
+
+Main now contains the approved distinction: give necessary problem-specific facts/values/conditions/referenced material for a determinate answer, without supplying formulas/definitions/methods students are expected to know or select. Expected knowledge follows taught content and source-backed exam requirements. A supplied formula needs an exam-provided or outside-tested-recall reason, recorded in authoring/audit evidence. Teaching and solutions may still explain methods.
+
+Level4 checks this in worked-example stems through the amended lesson guide/L05; Level5 applies Q20 to in-lesson quizzes and bank questions. This amendment does not approve beginning either level. Five-file focused checks and scoped canonical Dart attribution PASS (files5/hits0); independent read-only review PASS; only L05 clarified and Q20 added, other58rules unchanged. Main local/live confirmed `168e393dc997de4531f4fdd5b683c66025e75d0e`. No content, roadmap, app, fields/schema or blind-solve procedure changed. Level3 remains approved and Level4 remains held.
