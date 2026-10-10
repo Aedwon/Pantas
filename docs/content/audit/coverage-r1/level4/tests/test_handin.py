@@ -169,6 +169,11 @@ class UnexpectedChanges(unittest.TestCase):
     def test_clean_tree_has_no_unexpected_change(self):
         self.assertEqual(self.changes(), [])
 
+    def test_a_run_without_a_starting_commit_is_never_trusted(self):
+        found = handin.unexpected_changes({}, audit_wt=self.root, corpus_wt=self.root_corpus())
+        self.assertEqual(len(found), 1)
+        self.assertIn("starting commit", found[0])
+
     def test_new_and_edited_files_are_reported(self):
         (self.root / "stray.md").write_text("x")
         (self.root / "kept.md").write_text("changed")

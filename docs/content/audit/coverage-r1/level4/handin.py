@@ -50,6 +50,10 @@ def unexpected_changes(queue, audit_wt=None, corpus_wt=None):
     content, not by path, means an edit to an already-dirty file is still seen.
     """
     audit_wt = Path(audit_wt or l4lib.AUDIT_WT)
+    if not queue.get("baseline_head"):
+        # Without the commit the run started from, a moved HEAD cannot be
+        # told from an untouched one, so nothing can be trusted.
+        return ["(no starting commit is recorded for this run)"]
     pinned = dict(queue.get("baseline_files", {}))
     pinned.update(queue.get("written", {}))
 
@@ -62,9 +66,7 @@ def unexpected_changes(queue, audit_wt=None, corpus_wt=None):
     # -z gives exact paths with no quoting; --no-renames lists a rename as its
     # deletion and its addition, so neither side can hide behind the other.
     dirty = {entry[3:] for entry in names(git("status", "--porcelain", "-z", "--no-renames", "--untracked-files=all"))}
-    committed = set()
-    if queue.get("baseline_head"):
-        committed = set(names(git("diff", "--name-only", "-z", "--no-renames", queue["baseline_head"], "HEAD")))
+    committed = set(names(git("diff", "--name-only", "-z", "--no-renames", queue["baseline_head"], "HEAD")))
 
     def blob_hash(spec):
         """Hash of a committed ("HEAD:path") or staged (":path") copy, or None when there is none."""
