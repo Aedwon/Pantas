@@ -1543,3 +1543,27 @@ showed everything the system knows, not what he needs to act.
 
 Not yet approved: the spec section, mockup version 2, parallel reads, and the
 model choice. Nothing is built.
+
+### October 10, 2026: Level 4 web chat spec and page mockup v2 approved
+
+Mockup version 2 first rendered empty and its controls did nothing, because the
+desktop file preview runs no scripts. Exact human comments while that was fixed:
+
+> this does not make sense.
+
+> controls above don't work
+
+The mockup was rebuilt so each state is a plain frame chosen from a labeled
+list. The design did not change. Three approvals were then asked: mockup version
+2; the spec's plain-language section, including running both reads of a lesson
+at the same time; and the model (6 Sol or 6.1 Sol). Exact human answer:
+
+> okay this works. spec is approved and the mockup
+>
+> chat is already GPT 6 Sol by default
+
+What this approves: the spec's plain-language section as saved at
+`d0eeb3c0d2349ca6d0577d2781f02591e7c21e5e`, parallel reads, mockup version 2 as
+the 1:1 requirement for the built page, and GPT 6 Sol as the model. The build
+may start. Level 4 reading starts with the pilot once the build is verified.
+Level 5 remains unauthorized. `status.md` must still not become `STATE: RUNNING`.
