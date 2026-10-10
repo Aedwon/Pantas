@@ -11,12 +11,14 @@ class HalfRingGauge extends StatelessWidget {
     required this.fraction,
     required this.label,
     this.overlayBuilder,
+    this.decimalPlaces = 0,
     super.key,
   }) : assert(
           fraction >= 0 && fraction <= 1,
           'Accuracy must be between zero and one.',
         );
 
+  final int decimalPlaces;
   final double fraction;
   final String label;
   final Widget Function(BuildContext, double)? overlayBuilder;
@@ -27,7 +29,8 @@ class HalfRingGauge extends StatelessWidget {
     final type = context.type;
     final still = MediaQuery.disableAnimationsOf(context);
     return Semantics(
-      label: '$label ${(fraction * 100).round()} percent',
+      label:
+          '$label ${(fraction * 100).toStringAsFixed(decimalPlaces)} percent',
       excludeSemantics: true,
       child: TweenAnimationBuilder<double>(
         tween: Tween(begin: still ? 1 : 0, end: 1),
@@ -63,7 +66,7 @@ class HalfRingGauge extends StatelessWidget {
                         textBaseline: TextBaseline.alphabetic,
                         children: [
                           Text(
-                            '${(fraction * progress * 100).round()}',
+                            '${(fraction * progress * 100).toStringAsFixed(decimalPlaces)}',
                             style: type.largeTitle
                                 .copyWith(fontSize: 44, letterSpacing: -1.32)
                                 .tabular,

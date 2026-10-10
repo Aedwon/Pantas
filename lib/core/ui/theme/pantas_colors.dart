@@ -79,6 +79,17 @@ class PantasColors extends AppColors {
     liquidEnd: Color(0xFF0B7A68),
   );
 
+  /// Board accuracy colors, clamped below 40% and above 80%.
+  Color accuracyTint(double accuracy) {
+    final t = ((accuracy - .4) / .4).clamp(0.0, 1.0);
+    return Color.fromARGB(
+      255,
+      (207 - 160 * t).round(),
+      (232 - 89 * t).round(),
+      (226 - 100 * t).round(),
+    );
+  }
+
   @override
   Object get type => PantasColors;
 
