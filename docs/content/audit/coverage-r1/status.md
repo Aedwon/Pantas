@@ -1,4 +1,4 @@
-STATE: AWAITING_APPROVAL level 3 done; asking to start level 4
+STATE: BLOCKED level 4 runs in web chats from the local queue; Codex stays stopped
 
 # Coverage audit status
 
@@ -782,3 +782,36 @@ reviewer identified all three planted lessons in a blind set of six); rebuild
 packets; commit all packets once; dry run; OpenAI terms recheck; live no-send
 check. Aedwon's answer on B04 and B05 is still open. The reviewer's full
 report is in the lead's session, not yet saved to the repository.
+
+## Level 4 state on October 11, 2026
+
+DO NOT RUN the Codex orchestrator for Level 4. Level 4 runs from the local
+queue and page on Aedwon's Mac.
+
+Built and checked: every item in `level4/review-fixes.md` is done; 263 unit
+tests pass; the ten planted lessons were rewritten and compared against the
+real lessons by the lead; rule B04 is checked by script
+(`level4/source-record.json`: 158 of 158 lessons have a ledger entry, 53
+changed after the ledger was finished) and B05 is reported as not confirmable;
+all 168 packets are committed in one commit (`5fe5611a`); the run queue exists
+locally and is in the `ready` state with a 10-lesson pilot; a dry run with
+hand-written forms on a copy of the run state passed (refusal, acceptance,
+disagreement, deciding chat, result, next lesson).
+
+Hardening stopped by Aedwon's decision. A relay request that is not an
+expected hand-in is recorded and never stops the run.
+
+OpenAI terms recheck: the terms page refuses direct fetching. Search results
+show the individual Terms of Use effective January 1, 2026, still with the
+clause against automatically or programmatically extracting data or Output.
+The dispatcher reads no chat text; results return through GitHub Issues.
+
+Blocker found: the relay dispatcher cannot list its tasks. `worker-dispatch
+status` fails with "worker issue body is missing initial worker-event marker".
+Open `[worker]` Issues 8040, 8088, and 8160 in `Aedwon/chatgpt-terminal-relay`
+have a body with no event block, and the supervisor uses the same listing.
+Nothing can be started until the relay skips such tasks or they are repaired.
+Awaiting Aedwon's choice.
+
+Still to do after that: live no-send check of the dispatcher (needs Aedwon
+signed in to ChatGPT in the dispatcher's Brave profile), then Start.

@@ -1868,3 +1868,18 @@ could go unnoticed. Exact human answer:
 > yes
 
 Approved. Review item 6 is dropped and recorded as an accepted limit.
+
+### October 11, 2026: OpenAI terms and the relay
+
+While the lead rechecked OpenAI's terms on automated use, exact human message:
+
+> the relay already has a workaround for that and it's using github issues
+
+Recorded: the dispatcher reads no chat text and results return through GitHub
+Issues, so the clause against automated extraction of Output is not engaged.
+The lead could not open the terms page itself (it refuses direct fetching);
+search results show the January 1, 2026 version with that clause unchanged.
+
+Also recorded: the B04 script counts a lesson as out of date when it changed
+after the ledger was finished (53 lessons), not since the ledger's base commit
+as first proposed. The base predates the ledger's own corrections.
