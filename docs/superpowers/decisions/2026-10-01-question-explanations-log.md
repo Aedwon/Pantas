@@ -1883,3 +1883,16 @@ search results show the January 1, 2026 version with that clause unchanged.
 Also recorded: the B04 script counts a lesson as out of date when it changed
 after the ledger was finished (53 lessons), not since the ledger's base commit
 as first proposed. The base predates the ledger's own corrections.
+
+### October 11, 2026: Aedwon pastes the prompts; the dispatcher is not used
+
+The relay dispatcher cannot list its tasks (open `[worker]` Issues 8040, 8088,
+8160 have a body it cannot read). Options put to him: (1) change the relay to
+skip unreadable tasks, about an hour, more breaks possible; (2) he pastes the
+prompts himself, about 350 pastes, no relay change. Exact human answer:
+
+> let's go with 2 but does this mean the relay is no longer used?
+
+Chosen: option 2. Answer given: the relay is still used for hand-in (each chat
+opens `[relay]` Issues that his runner executes); only the dispatcher, which
+opens chats and pastes prompts, is not used.
