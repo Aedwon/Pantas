@@ -79,6 +79,20 @@ class Endpoints(unittest.TestCase):
         self.assertEqual(self.post("/api/start"), 403)
         self.assertEqual(self.run.calls, [])
 
+    def test_a_request_addressed_to_another_host_name_is_refused(self):
+        # A site can point its own domain at 127.0.0.1; the Host header then names that domain.
+        request = urllib.request.Request(self.base + "/api/state", headers={"Host": "evil.example:8765"})
+        with self.assertRaises(urllib.error.HTTPError) as caught:
+            urllib.request.urlopen(request)
+        self.assertEqual(caught.exception.code, 403)
+        self.assertEqual(self.post("/api/start", {"X-L4": "1", "Host": "evil.example:8765"}), 403)
+        self.assertEqual(self.run.calls, [])
+
+    def test_a_control_from_another_origin_is_refused(self):
+        self.assertEqual(self.post("/api/start", {"X-L4": "1", "Origin": "http://evil.example"}), 403)
+        self.assertEqual(self.post("/api/start", {"X-L4": "1", "Origin": self.base}), 200)
+        self.assertEqual(self.run.calls, ["start"])
+
     def test_unknown_paths_are_not_found(self):
         self.assertEqual(self.post("/api/delete", {"X-L4": "1"}), 404)
         with self.assertRaises(urllib.error.HTTPError):

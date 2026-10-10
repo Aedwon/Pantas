@@ -2,8 +2,10 @@
 
 Usage: python3 server.py            then open http://127.0.0.1:8765
 
-Binds to this Mac only. Controls need the X-L4 header, which a page on
-another site cannot send, so no website can press Start or Hold here.
+Binds to this Mac only. Every request must name this server as its Host, so
+a website that points its own domain at 127.0.0.1 is refused. Controls also
+need the X-L4 header and, when the browser sends one, this page's own Origin,
+so no other site can press Start or Hold here.
 """
 import json
 import sys
@@ -38,7 +40,19 @@ def make_handler(run, lock, page_path, reports=None):
             self.end_headers()
             self.wfile.write(data)
 
+        def _local(self):
+            """True when the request was addressed to this server by its own name."""
+            port = self.server.server_address[1]
+            return self.headers.get("Host") in ("127.0.0.1:%d" % port, "localhost:%d" % port)
+
+        def _own_origin(self):
+            origin = self.headers.get("Origin")
+            port = self.server.server_address[1]
+            return origin is None or origin in ("http://127.0.0.1:%d" % port, "http://localhost:%d" % port)
+
         def do_GET(self):
+            if not self._local():
+                return self._send(403, "Forbidden")
             if self.path in ("/", "/index.html"):
                 self._send(200, page_path.read_text(encoding="utf-8"), "text/html; charset=utf-8")
             elif self.path == "/api/state":
@@ -59,9 +73,11 @@ def make_handler(run, lock, page_path, reports=None):
 
         def do_POST(self):
             action = self.path[len("/api/"):] if self.path.startswith("/api/") else ""
+            if not self._local():
+                return self._send(403, "Forbidden")
             if action not in ACTIONS:
                 return self._send(404, "Not found")
-            if self.headers.get("X-L4") != "1":
+            if not self._local() or not self._own_origin() or self.headers.get("X-L4") != "1":
                 return self._send(403, "Forbidden")
             with lock:
                 if action == "restart":
