@@ -78,12 +78,15 @@ def unexpected_changes(queue, audit_wt=None, corpus_wt=None):
     for path in sorted(dirty | committed):
         pin = pinned.get(path)
         # Every copy git holds must match the recorded hash: the working file,
-        # the staged copy if one exists, and the committed copy when the path
-        # was committed since the run started.
+        # the committed copy when the path was committed since the run started,
+        # and the staged copy. A staged copy may instead equal an untouched
+        # committed copy, which is the case when nothing is staged for a file
+        # that was already edited before the run.
+        head = blob_hash("HEAD:%s" % path)
         staged = blob_hash(":%s" % path)
-        if (pin is None or file_hash(audit_wt / path) != pin
-                or (staged is not None and staged != pin)
-                or (path in committed and blob_hash("HEAD:%s" % path) != pin)):
+        staged_ok = staged is None or staged == pin or (path not in committed and staged == head)
+        if (pin is None or file_hash(audit_wt / path) != pin or not staged_ok
+                or (path in committed and head != pin)):
             unexpected.append(path)
     try:
         l4lib.check_corpus(corpus_wt)
