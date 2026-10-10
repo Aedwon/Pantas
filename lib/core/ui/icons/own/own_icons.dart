@@ -254,10 +254,11 @@ class AppearancePainter extends OwnIconPainter {
     canvas
       ..drawCircle(const Offset(12, 12), 8, stroke)
       ..drawPath(
-          half,
-          Paint()
-            ..color = color
-            ..style = PaintingStyle.fill)
+        half,
+        Paint()
+          ..color = color
+          ..style = PaintingStyle.fill,
+      )
       ..drawPath(half, stroke);
   }
 }

@@ -100,7 +100,7 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
                 ? Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      SizedBox.square(
+                      const SizedBox.square(
                         dimension: 18,
                         child: CircularProgressIndicator(
                           strokeWidth: 2,

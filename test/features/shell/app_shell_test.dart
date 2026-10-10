@@ -5,21 +5,21 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/app/router.dart';
+import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/settings_bar.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_colors.dart';
-import 'package:pantas/features/shell/presentation/app_shell.dart';
-import 'package:pantas/core/content/content.dart';
-import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/home/presentation/home_tab.dart';
 import 'package:pantas/features/lesson/presentation/learn_tab_home.dart';
+import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/quiz/presentation/quiz_tab_home.dart';
 import 'package:pantas/features/settings/presentation/settings_home_page.dart';
-import 'package:pantas/features/paywall/paywall.dart';
+import 'package:pantas/features/shell/presentation/app_shell.dart';
 
 import '../../helpers/in_memory_database.dart';
 
@@ -49,10 +49,13 @@ late ProviderContainer shellContainer;
 GoRouter stackRouter() => shellContainer.read(routerProvider);
 
 Future<void> pumpStack(WidgetTester tester, GoRouter router) =>
-    tester.pumpWidget(UncontrolledProviderScope(
-      container: shellContainer,
-      child: MaterialApp.router(theme: buildLightTheme(), routerConfig: router),
-    ));
+    tester.pumpWidget(
+      UncontrolledProviderScope(
+        container: shellContainer,
+        child:
+            MaterialApp.router(theme: buildLightTheme(), routerConfig: router),
+      ),
+    );
 
 void main() {
   setUpAll(() async {
@@ -65,21 +68,25 @@ void main() {
   setUp(() async {
     final db = inMemoryDatabase();
     final contentDb = openTestContentDatabase();
-    await seedContentExam(contentDb,
-        examId: 'cse',
-        code: 'CSE',
-        name: 'Civil Service Exam',
-        shortName: 'CSE');
+    await seedContentExam(
+      contentDb,
+      examId: 'cse',
+      code: 'CSE',
+      name: 'Civil Service Exam',
+      shortName: 'CSE',
+    );
     final preferences = AppPreferencesRepository(db);
     await preferences.setPassedAgeGate(value: true);
     await preferences.setSelectedExamId('cse');
-    shellContainer = ProviderContainer(overrides: [
-      appDatabaseProvider.overrideWithValue(db),
-      contentDatabaseProvider.overrideWithValue(contentDb),
-      entitlementProvider
-          .overrideWith((_) => Stream.value(const Entitlement.free())),
-      telemetryProvider.overrideWithValue(const DisabledTelemetry()),
-    ]);
+    shellContainer = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+        entitlementProvider
+            .overrideWith((_) => Stream.value(const Entitlement.free())),
+        telemetryProvider.overrideWithValue(const DisabledTelemetry()),
+      ],
+    );
     addTearDown(() async {
       shellContainer.dispose();
       await db.close();
@@ -237,22 +244,36 @@ void main() {
     ];
     final pages = <String, Element>{};
     for (final (label, path, type) in tabs) {
-      await tester.tap(find.descendant(
-          of: find.byType(AppNavBar), matching: find.bySemanticsLabel(label)));
+      await tester.tap(
+        find.descendant(
+          of: find.byType(AppNavBar),
+          matching: find.bySemanticsLabel(label),
+        ),
+      );
       await tester.pumpAndSettle();
       router.go('$path?probe=$label');
       await tester.pumpAndSettle();
       pages[label] = tester.element(find.byType(type));
     }
     for (final (label, path, type) in tabs) {
-      await tester.tap(find.descendant(
-          of: find.byType(AppNavBar), matching: find.bySemanticsLabel(label)));
+      await tester.tap(
+        find.descendant(
+          of: find.byType(AppNavBar),
+          matching: find.bySemanticsLabel(label),
+        ),
+      );
       await tester.pumpAndSettle();
-      expect(router.routerDelegate.currentConfiguration.uri.toString(),
-          '$path?probe=$label');
+      expect(
+        router.routerDelegate.currentConfiguration.uri.toString(),
+        '$path?probe=$label',
+      );
       expect(tester.element(find.byType(type)), same(pages[label]));
-      await tester.tap(find.descendant(
-          of: find.byType(AppNavBar), matching: find.bySemanticsLabel(label)));
+      await tester.tap(
+        find.descendant(
+          of: find.byType(AppNavBar),
+          matching: find.bySemanticsLabel(label),
+        ),
+      );
       await tester.pumpAndSettle();
       expect(router.routerDelegate.currentConfiguration.uri.toString(), path);
       expect(find.byType(type), findsOneWidget);
@@ -263,15 +284,21 @@ void main() {
     final router = stackRouter();
     await pumpStack(tester, router);
     await tester.pumpAndSettle();
-    await tester.tap(find.descendant(
+    await tester.tap(
+      find.descendant(
         of: find.byType(AppNavBar),
-        matching: find.bySemanticsLabel('Settings')));
+        matching: find.bySemanticsLabel('Settings'),
+      ),
+    );
     await tester.pumpAndSettle();
     expect(find.byType(SettingsHomePage), findsOneWidget);
     expect(
-        find.ancestor(
-            of: find.byType(SettingsHomePage), matching: find.byType(AppShell)),
-        findsOneWidget);
+      find.ancestor(
+        of: find.byType(SettingsHomePage),
+        matching: find.byType(AppShell),
+      ),
+      findsOneWidget,
+    );
     expect(
       find.descendant(
         of: find.byType(SettingsBar),

@@ -12,24 +12,29 @@ void main() {
   for (final dark in [false, true]) {
     testWidgets('destructive dialog label is white on red, dark=$dark',
         (tester) async {
-      await tester.pumpWidget(MaterialApp(
-        theme: dark ? buildDarkTheme() : buildLightTheme(),
-        home: Builder(builder: (context) {
-          return Scaffold(
-              body: TextButton(
-            onPressed: () => showAppConfirmationDialog(
-              context: context,
-              title: 'Delete?',
-              body: 'This cannot be undone.',
-              cancelLabel: 'Cancel',
-              confirmLabel: 'Delete',
-              onCancel: () {},
-              onConfirm: () {},
-            ),
-            child: const Text('Open'),
-          ));
-        }),
-      ));
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: dark ? buildDarkTheme() : buildLightTheme(),
+          home: Builder(
+            builder: (context) {
+              return Scaffold(
+                body: TextButton(
+                  onPressed: () => showAppConfirmationDialog(
+                    context: context,
+                    title: 'Delete?',
+                    body: 'This cannot be undone.',
+                    cancelLabel: 'Cancel',
+                    confirmLabel: 'Delete',
+                    onCancel: () {},
+                    onConfirm: () {},
+                  ),
+                  child: const Text('Open'),
+                ),
+              );
+            },
+          ),
+        ),
+      );
       await tester.tap(find.text('Open'));
       await tester.pumpAndSettle();
       _expectWhiteOnRed(tester, 'Delete');
@@ -38,26 +43,32 @@ void main() {
         'delete labels keep contrast before and during deletion, dark=$dark',
         (tester) async {
       final pending = Completer<void>();
-      await tester.pumpWidget(MaterialApp(
-        theme: dark ? buildDarkTheme() : buildLightTheme(),
-        home: DeleteAccountPage(
-          isAnonymous: false,
-          entitlement: const SettingsEntitlementSnapshot.free(),
-          dpoEmail: 'dpo@example.test',
-          onDelete: () => pending.future,
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: dark ? buildDarkTheme() : buildLightTheme(),
+          home: DeleteAccountPage(
+            isAnonymous: false,
+            entitlement: const SettingsEntitlementSnapshot.free(),
+            dpoEmail: 'dpo@example.test',
+            onDelete: () => pending.future,
+          ),
         ),
-      ));
+      );
       _expectWhiteOnRed(tester, 'Yes, delete my account');
       await tester.tap(find.text('Yes, delete my account'));
       await tester.pump();
-      expect(tester.widget<Text>(find.text('Deleting...')).style!.color,
-          Colors.white);
       expect(
-          tester
-              .widget<CircularProgressIndicator>(
-                  find.byType(CircularProgressIndicator))
-              .color,
-          Colors.white);
+        tester.widget<Text>(find.text('Deleting...')).style!.color,
+        Colors.white,
+      );
+      expect(
+        tester
+            .widget<CircularProgressIndicator>(
+              find.byType(CircularProgressIndicator),
+            )
+            .color,
+        Colors.white,
+      );
       pending.complete();
       await tester.pumpAndSettle();
     });
@@ -67,10 +78,12 @@ void main() {
 void _expectWhiteOnRed(WidgetTester tester, String label) {
   final foreground = tester.widget<Text>(find.text(label)).style!.color!;
   final backgrounds = tester
-      .widgetList<Container>(find.ancestor(
-        of: find.text(label),
-        matching: find.byType(Container),
-      ))
+      .widgetList<Container>(
+        find.ancestor(
+          of: find.text(label),
+          matching: find.byType(Container),
+        ),
+      )
       .map((box) => box.decoration)
       .whereType<BoxDecoration>();
   final background = backgrounds
@@ -80,7 +93,8 @@ void _expectWhiteOnRed(WidgetTester tester, String label) {
       .color!;
   expect(foreground, Colors.white);
   expect(
-      (foreground.computeLuminance() + 0.05) /
-          (background.computeLuminance() + 0.05),
-      greaterThanOrEqualTo(4.5));
+    (foreground.computeLuminance() + 0.05) /
+        (background.computeLuminance() + 0.05),
+    greaterThanOrEqualTo(4.5),
+  );
 }

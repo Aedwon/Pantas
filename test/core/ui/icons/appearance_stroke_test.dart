@@ -11,7 +11,7 @@ void main() {
         .paint(Canvas(recorder), const Size.square(24));
     final picture = recorder.endRecording();
     final image = await picture.toImage(24, 24);
-    final bytes = (await image.toByteData(format: ui.ImageByteFormat.rawRgba))!;
+    final bytes = (await image.toByteData())!;
     // The path's stroke extends .75 left of x=12, inside the circular outline.
     expect(bytes.getUint8((12 * 24 + 11) * 4 + 3), greaterThan(0));
     image.dispose();

@@ -6,17 +6,20 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_colors.dart';
 import 'package:pantas/features/shell/presentation/app_shell.dart';
 
-Widget harness(
-        {bool dark = false,
-        ValueChanged<int>? onTap,
-        TextScaler textScaler = TextScaler.noScaling}) =>
+Widget harness({
+  bool dark = false,
+  ValueChanged<int>? onTap,
+  TextScaler textScaler = TextScaler.noScaling,
+}) =>
     MaterialApp(
       theme: dark ? buildDarkTheme() : buildLightTheme(),
       home: MediaQuery(
-          data: MediaQueryData(textScaler: textScaler),
-          child: Scaffold(
-              bottomNavigationBar:
-                  AppNavBar(currentIndex: 0, onTap: onTap ?? (_) {}))),
+        data: MediaQueryData(textScaler: textScaler),
+        child: Scaffold(
+          bottomNavigationBar:
+              AppNavBar(currentIndex: 0, onTap: onTap ?? (_) {}),
+        ),
+      ),
     );
 
 void main() {
@@ -35,26 +38,34 @@ void main() {
         ..devicePixelRatio = 1;
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
-      await tester.pumpWidget(MaterialApp(
+      await tester.pumpWidget(
+        MaterialApp(
           theme: buildLightTheme(),
           home: MediaQuery(
-              data: MediaQueryData(textScaler: TextScaler.linear(scale)),
-              child: Scaffold(
-                  bottomNavigationBar: Padding(
+            data: MediaQueryData(textScaler: TextScaler.linear(scale)),
+            child: Scaffold(
+              bottomNavigationBar: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: AppNavBar(currentIndex: 0, onTap: (_) {}),
-              )))));
+              ),
+            ),
+          ),
+        ),
+      );
       final scales = <double>[];
       for (final label in ['Home', 'Study', 'Quiz', 'Settings']) {
         final paragraph =
             tester.renderObject<RenderParagraph>(find.text(label));
         final boxes = paragraph.getBoxesForSelection(
-            TextSelection(baseOffset: 0, extentOffset: label.length));
+          TextSelection(baseOffset: 0, extentOffset: label.length),
+        );
         expect(boxes, hasLength(1));
         expect(boxes.single.left, greaterThanOrEqualTo(-0.001));
         expect(
-            boxes.single.right, lessThanOrEqualTo(paragraph.size.width + 0.001),
-            reason: label);
+          boxes.single.right,
+          lessThanOrEqualTo(paragraph.size.width + 0.001),
+          reason: label,
+        );
         expect(paragraph.didExceedMaxLines, isFalse);
         scales.add(paragraph.textScaler.scale(10));
       }
@@ -65,8 +76,10 @@ void main() {
 
   testWidgets('tab glyphs use the board size of 23', (tester) async {
     await tester.pumpWidget(harness());
-    expect(tester.widgetList<Icon>(find.byType(Icon)).map((icon) => icon.size),
-        everyElement(23));
+    expect(
+      tester.widgetList<Icon>(find.byType(Icon)).map((icon) => icon.size),
+      everyElement(23),
+    );
   });
 
   for (final key in [LogicalKeyboardKey.enter, LogicalKeyboardKey.space]) {
@@ -97,17 +110,20 @@ void main() {
         expect(color, palette.secondaryLabel);
         final luminances = [
           color.computeLuminance(),
-          palette.surface.computeLuminance()
+          palette.surface.computeLuminance(),
         ]..sort();
-        expect((luminances.last + 0.05) / (luminances.first + 0.05),
-            greaterThanOrEqualTo(4.5));
+        expect(
+          (luminances.last + 0.05) / (luminances.first + 0.05),
+          greaterThanOrEqualTo(4.5),
+        );
       }
       expect(
-          tester
-              .widgetList<Icon>(find.byType(Icon))
-              .skip(1)
-              .map((icon) => icon.color),
-          everyElement(palette.secondaryLabel));
+        tester
+            .widgetList<Icon>(find.byType(Icon))
+            .skip(1)
+            .map((icon) => icon.color),
+        everyElement(palette.secondaryLabel),
+      );
     });
   }
 }

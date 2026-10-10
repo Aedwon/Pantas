@@ -101,12 +101,19 @@ abstract final class PantasEffects {
     final opacity = value.clamp(0.0, 1.0);
     return switch (effect) {
       'pop' => Transform.scale(
-          scale: _keyframes(value, const [0, 0.6, 1], const [0.4, 1.12, 1],
-              PantasCurves.popC),
+          scale: _keyframes(
+            value,
+            const [0, 0.6, 1],
+            const [0.4, 1.12, 1],
+            PantasCurves.popC,
+          ),
           child: Opacity(
-            opacity: _keyframes(value, const [0, 0.6, 1], const [0, 1, 1],
-                    PantasCurves.popC)
-                .clamp(0.0, 1.0),
+            opacity: _keyframes(
+              value,
+              const [0, 0.6, 1],
+              const [0, 1, 1],
+              PantasCurves.popC,
+            ).clamp(0.0, 1.0),
             child: child,
           ),
         ),

@@ -129,6 +129,11 @@ class TendencyCardView extends StatelessWidget {
         ],
       );
     } else {
+      // Legacy numeric figures retain their previous height until W4b.
+      final figureStyle = styles.headlineMedium.copyWith(
+        color: colors.ink,
+        height: 1.12,
+      );
       body = Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -151,7 +156,7 @@ class TendencyCardView extends StatelessWidget {
                     ),
                     Text(
                       card.figures!.left,
-                      style: styles.headlineMedium.copyWith(color: colors.ink),
+                      style: figureStyle,
                       textAlign: TextAlign.center,
                     ),
                   ],
@@ -167,7 +172,7 @@ class TendencyCardView extends StatelessWidget {
                     ),
                     Text(
                       card.figures!.right,
-                      style: styles.headlineMedium.copyWith(color: colors.ink),
+                      style: figureStyle,
                       textAlign: TextAlign.center,
                     ),
                   ],

@@ -72,8 +72,8 @@ class AppNavBar extends StatelessWidget {
             textDirection: textDirection,
             textScaler: textScaler,
             maxLines: 1,
-          )..layout();
-          final width = painter.width + _labelHorizontalAllowance;
+          );
+          final width = measureTabLabel(painter) + _labelHorizontalAllowance;
           return width < AppDimensions.minTapTarget
               ? AppDimensions.minTapTarget
               : width;
@@ -253,5 +253,15 @@ class _NavItem extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+/// Takes ownership of a temporary tab-label painter while reading its width.
+double measureTabLabel(TextPainter painter) {
+  try {
+    painter.layout();
+    return painter.width;
+  } finally {
+    painter.dispose();
   }
 }
