@@ -5,6 +5,7 @@ import 'package:pantas/features/paywall/data/revenuecat_sdk.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
 
 import 'live_revenuecat_gateway_hardening_test.dart';
+import 'verified_fixture.dart';
 
 void main() {
   late Map<String, String> values;
@@ -141,6 +142,8 @@ class _PendingSdk extends FakeRevenueCatSdk {
     if (pending) {
       throw const RevenueCatSdkException(RevenueCatFailureKind.pending);
     }
-    return RevenueCatCustomerInfoSnapshot.active(productId: productId);
+    return verifiedFixture(
+      RevenueCatCustomerInfoSnapshot.active(productId: productId),
+    );
   }
 }

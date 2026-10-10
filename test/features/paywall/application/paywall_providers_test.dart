@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/paywall/application/trusted_clock.dart';
 import 'package:pantas/features/paywall/data/pending_purchase_store.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 
@@ -79,6 +80,13 @@ void main() {
   test('the gateway is disabled when no API key is configured', () {
     final container = ProviderContainer(
       overrides: [
+        trustedClockProvider.overrideWithValue(
+          TrustedClock(
+            readValue: (_) async => null,
+            writeValue: (_, __) async {},
+            elapsedNow: () async => null,
+          ),
+        ),
         entitlementSnapshotStoreProvider.overrideWithValue(
           EntitlementSnapshotStore.inMemory(),
         ),
@@ -113,6 +121,13 @@ void main() {
         ),
         revenueCatConfigProvider.overrideWithValue(
           RevenueCatConfig.fromEnvironment(androidApiKey: 'goog_test_key'),
+        ),
+        trustedClockProvider.overrideWithValue(
+          TrustedClock(
+            readValue: (_) async => null,
+            writeValue: (_, __) async {},
+            elapsedNow: () async => null,
+          ),
         ),
         entitlementSnapshotStoreProvider.overrideWithValue(
           EntitlementSnapshotStore.inMemory(),

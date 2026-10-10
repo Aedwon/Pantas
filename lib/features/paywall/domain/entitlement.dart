@@ -42,11 +42,16 @@ class Entitlement {
     DateTime? endsAt,
     DateTime? renewsAt,
     DateTime? chargesAt,
+    this.verifiedAt,
+    DateTime? effectiveAt,
+    Duration offlineGrace = Duration.zero,
   })  : _tier = tier,
         _state = state,
         _endsAt = endsAt,
         _renewsAt = renewsAt,
-        _chargesAt = chargesAt;
+        _chargesAt = chargesAt,
+        _effectiveAt = effectiveAt,
+        _offlineGrace = offlineGrace;
 
   const Entitlement.free() : this(plan: EntitlementPlan.free, willRenew: false);
 
@@ -74,6 +79,44 @@ class Entitlement {
   final DateTime? _endsAt;
   final DateTime? _renewsAt;
   final DateTime? _chargesAt;
+  final DateTime? verifiedAt;
+  final DateTime? _effectiveAt;
+  final Duration _offlineGrace;
+
+  Entitlement withEvidence(DateTime at) => _copy(verifiedAt: at);
+
+  Entitlement withOfflineWindow(DateTime at, {required bool paused}) => _copy(
+        effectiveAt: at,
+        offlineGrace: const Duration(days: 3),
+        state: paused ? EntitlementState.paused : state,
+      );
+
+  Entitlement _copy({
+    DateTime? verifiedAt,
+    DateTime? effectiveAt,
+    Duration? offlineGrace,
+    EntitlementState? state,
+  }) =>
+      Entitlement(
+        plan: plan,
+        productId: productId,
+        expiresAt: expiresAt,
+        isTrial: isTrial,
+        willRenew: willRenew,
+        isUnknownPlan: isUnknownPlan,
+        tier: tier,
+        state: state ?? this.state,
+        passes: passes,
+        subscriptions: subscriptions,
+        promotions: promotions,
+        examTiers: examTiers,
+        endsAt: endsAt,
+        renewsAt: renewsAt,
+        chargesAt: chargesAt,
+        verifiedAt: verifiedAt ?? this.verifiedAt,
+        effectiveAt: effectiveAt ?? _effectiveAt,
+        offlineGrace: offlineGrace ?? _offlineGrace,
+      );
 
   /// Active server-ledger pass records, never RevenueCat purchase history.
   final Map<String, DateTime> passes;
@@ -117,7 +160,8 @@ class Entitlement {
       _chargesAt ?? (willRenew && isTrial ? expiresAt : null);
 
   Coverage coverage({DateTime? at}) => coverageAt(
-        at: at ?? DateTime.now().toUtc(),
+        at: (at ?? _effectiveAt ?? DateTime.now().toUtc())
+            .subtract(_offlineGrace),
         subscriptions: subscriptions.isNotEmpty
             ? subscriptions
             : productId != null && expiresAt != null
@@ -165,6 +209,9 @@ class Entitlement {
         other.isTrial == isTrial &&
         other.willRenew == willRenew &&
         other.isUnknownPlan == isUnknownPlan &&
+        other.verifiedAt == verifiedAt &&
+        other._effectiveAt == _effectiveAt &&
+        other._offlineGrace == _offlineGrace &&
         other.tier == tier &&
         other.state == state &&
         other.endsAt == endsAt &&
@@ -186,6 +233,9 @@ class Entitlement {
       isTrial,
       willRenew,
       isUnknownPlan,
+      verifiedAt,
+      _effectiveAt,
+      _offlineGrace,
       tier,
       state,
       endsAt,

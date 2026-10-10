@@ -12,6 +12,8 @@ import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
 import 'package:pantas/features/paywall/domain/paywall_package.dart';
 
+import '../data/verified_fixture.dart';
+
 void main() {
   PaymentEntitlementState stateFor() {
     final values = <String, String>{};
@@ -47,12 +49,14 @@ void main() {
 
       expect(result.status, PaymentOperationStatus.success);
       expect(
-        container.read(entitlementProvider).value,
-        const Entitlement(
-          plan: EntitlementPlan.monthly,
-          productId: 'pantas_pro_monthly',
-        ),
+        container.read(entitlementProvider).value?.plan,
+        EntitlementPlan.monthly,
       );
+      expect(
+        container.read(entitlementProvider).value?.productId,
+        'pantas_pro_monthly',
+      );
+      expect(container.read(entitlementProvider).value?.verifiedAt, isNotNull);
     },
   );
 
@@ -80,12 +84,14 @@ void main() {
 
       expect(result.status, PaymentOperationStatus.success);
       expect(
-        container.read(entitlementProvider).value,
-        const Entitlement(
-          plan: EntitlementPlan.yearly,
-          productId: 'pantas_pro_yearly',
-        ),
+        container.read(entitlementProvider).value?.plan,
+        EntitlementPlan.yearly,
       );
+      expect(
+        container.read(entitlementProvider).value?.productId,
+        'pantas_pro_yearly',
+      );
+      expect(container.read(entitlementProvider).value?.verifiedAt, isNotNull);
     },
   );
 
@@ -117,12 +123,14 @@ void main() {
     await pumpEventQueue();
 
     expect(
-      container.read(entitlementProvider).value,
-      const Entitlement(
-        plan: EntitlementPlan.monthly,
-        productId: 'pantas_pro_monthly',
-      ),
+      container.read(entitlementProvider).value?.plan,
+      EntitlementPlan.monthly,
     );
+    expect(
+      container.read(entitlementProvider).value?.productId,
+      'pantas_pro_monthly',
+    );
+    expect(container.read(entitlementProvider).value?.verifiedAt, isNotNull);
     expect(container.read(entitlementProvider).hasError, isFalse);
   });
 
@@ -219,7 +227,11 @@ class RuntimeSdk implements RevenueCatSdk {
     listener = onUpdate;
   }
 
-  void emit(RevenueCatCustomerInfoSnapshot info) => listener?.call(info);
+  void emit(RevenueCatCustomerInfoSnapshot info) =>
+      listener?.call(verifiedFixture(info));
+
+  @override
+  Future<void> invalidateCustomerInfoCache() async {}
 
   @override
   Future<void> configure(String androidApiKey) async {
@@ -231,7 +243,7 @@ class RuntimeSdk implements RevenueCatSdk {
   Future<RevenueCatCustomerInfoSnapshot> getCustomerInfo() async {
     final failure = customerInfoFailure;
     if (failure != null) throw RevenueCatSdkException(failure);
-    return customerInfo;
+    return verifiedFixture(customerInfo);
   }
 
   @override
@@ -239,7 +251,7 @@ class RuntimeSdk implements RevenueCatSdk {
 
   @override
   Future<RevenueCatCustomerInfoSnapshot> logIn(String uid) async =>
-      customerInfo;
+      verifiedFixture(customerInfo);
 
   @override
   Future<RevenueCatCustomerInfoSnapshot> purchase(
@@ -247,9 +259,9 @@ class RuntimeSdk implements RevenueCatSdk {
     String? oldProductId,
     bool allowTrial = true,
   }) async =>
-      purchaseInfo;
+      verifiedFixture(purchaseInfo);
 
   @override
   Future<RevenueCatCustomerInfoSnapshot> restorePurchases() async =>
-      restoreInfo;
+      verifiedFixture(restoreInfo);
 }

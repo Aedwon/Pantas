@@ -66,6 +66,7 @@ class EntitlementSnapshotStore {
         endsAt: _date(decoded['endsAt']),
         renewsAt: _date(decoded['renewsAt']),
         chargesAt: _date(decoded['chargesAt']),
+        verifiedAt: _date(decoded['verifiedAt']),
         passes: {
           for (final entry
               in (decoded['passes'] as Map<String, dynamic>? ?? {}).entries)
@@ -97,6 +98,7 @@ class EntitlementSnapshotStore {
       'endsAt': entitlement.endsAt?.toUtc().toIso8601String(),
       'renewsAt': entitlement.renewsAt?.toUtc().toIso8601String(),
       'chargesAt': entitlement.chargesAt?.toUtc().toIso8601String(),
+      'verifiedAt': entitlement.verifiedAt?.toUtc().toIso8601String(),
       'passes': {
         for (final entry in entitlement.passes.entries)
           entry.key: entry.value.toUtc().toIso8601String(),

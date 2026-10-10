@@ -7,6 +7,8 @@ import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
 import 'package:pantas/features/paywall/domain/paywall_offering.dart';
 
+import 'verified_fixture.dart';
+
 void main() {
   PaymentEntitlementState stateFor([Map<String, String>? values]) {
     final backing = values ?? <String, String>{};
@@ -257,8 +259,9 @@ void main() {
       final result = await gateway.purchase(monthlyPackage);
 
       expect(result.status, PaymentOperationStatus.entitlementNotActive);
-      expect(result.confirmedEntitlement, const Entitlement.free());
-      expect(gateway.cachedEntitlement, const Entitlement.free());
+      expect(result.confirmedEntitlement?.plan, EntitlementPlan.free);
+      expect(result.confirmedEntitlement?.verifiedAt, isNotNull);
+      expect(gateway.cachedEntitlement?.plan, EntitlementPlan.free);
     });
 
     test('purchase failures are classified without changing cached Pro',
@@ -399,14 +402,14 @@ void main() {
       );
       await authoritativeFree.initialize();
       await authoritativeFree.configure(androidApiKey: 'rc_key');
-      expect(authoritativeFree.cachedEntitlement, const Entitlement.free());
+      expect(authoritativeFree.cachedEntitlement?.plan, EntitlementPlan.free);
 
       final fresh = LiveRevenueCatGateway(
         sdk: FakeRevenueCatSdk(),
         entitlementState: stateFor(values),
       );
       await fresh.initialize();
-      expect(fresh.cachedEntitlement, const Entitlement.free());
+      expect(fresh.cachedEntitlement?.plan, EntitlementPlan.free);
     });
   });
 }
@@ -456,8 +459,11 @@ class FakeRevenueCatSdk implements RevenueCatSdk {
 
   void emit(RevenueCatCustomerInfoSnapshot info) {
     customerInfo = info;
-    listener?.call(info);
+    listener?.call(verifiedFixture(info));
   }
+
+  @override
+  Future<void> invalidateCustomerInfoCache() async {}
 
   @override
   Future<void> configure(String androidApiKey) async {}
@@ -466,7 +472,7 @@ class FakeRevenueCatSdk implements RevenueCatSdk {
   Future<RevenueCatCustomerInfoSnapshot> getCustomerInfo() async {
     final failure = customerInfoFailure;
     if (failure != null) throw RevenueCatSdkException(failure);
-    return customerInfo;
+    return verifiedFixture(customerInfo);
   }
 
   @override
@@ -478,7 +484,7 @@ class FakeRevenueCatSdk implements RevenueCatSdk {
 
   @override
   Future<RevenueCatCustomerInfoSnapshot> logIn(String uid) async =>
-      customerInfo;
+      verifiedFixture(customerInfo);
 
   @override
   Future<RevenueCatCustomerInfoSnapshot> purchase(
@@ -488,13 +494,13 @@ class FakeRevenueCatSdk implements RevenueCatSdk {
   }) async {
     final failure = purchaseFailure;
     if (failure != null) throw RevenueCatSdkException(failure);
-    return purchaseInfo;
+    return verifiedFixture(purchaseInfo);
   }
 
   @override
   Future<RevenueCatCustomerInfoSnapshot> restorePurchases() async {
     final failure = restoreFailure;
     if (failure != null) throw RevenueCatSdkException(failure);
-    return restoreInfo;
+    return verifiedFixture(restoreInfo);
   }
 }

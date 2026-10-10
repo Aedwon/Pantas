@@ -11,6 +11,7 @@ import 'package:pantas/core/dev/dev_pro_switch.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/paywall/application/paywall_controller.dart';
+import 'package:pantas/features/paywall/application/trusted_clock.dart';
 import 'package:pantas/features/paywall/data/entitlement_snapshot_store.dart';
 import 'package:pantas/features/paywall/data/live_revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/data/payment_entitlement_state.dart';
@@ -68,13 +69,25 @@ final pendingPurchaseProvider = Provider<AsyncValue<PendingPurchase?>>((ref) {
   return ref.watch(_pendingForAccountProvider(uid));
 });
 
+final trustedClockProvider = Provider<TrustedClock>((ref) {
+  final preferences = ref.watch(appPreferencesRepositoryProvider);
+  return TrustedClock(
+    readValue: preferences.deviceValue,
+    writeValue: preferences.setDeviceValue,
+  );
+});
+
 final revenueCatGatewayProvider = Provider<RevenueCatGateway>((ref) {
   final config = ref.watch(revenueCatConfigProvider);
   final entitlementState = ref.watch(paymentEntitlementStateProvider);
-  if (!config.isEnabled) return DisabledRevenueCatGateway(entitlementState);
+  final clock = ref.watch(trustedClockProvider);
+  if (!config.isEnabled) {
+    return DisabledRevenueCatGateway(entitlementState, clock);
+  }
   return LiveRevenueCatGateway(
     entitlementState: entitlementState,
     pendingStore: ref.watch(pendingPurchaseStoreProvider),
+    trustedClock: clock,
   );
 });
 

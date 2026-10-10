@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:pantas/features/paywall/application/offline_window.dart';
+import 'package:pantas/features/paywall/application/trusted_clock.dart';
 import 'package:pantas/features/paywall/data/payment_entitlement_state.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
@@ -18,21 +20,43 @@ abstract interface class RevenueCatGateway {
 }
 
 class DisabledRevenueCatGateway implements RevenueCatGateway {
-  const DisabledRevenueCatGateway([this._entitlementState]);
+  const DisabledRevenueCatGateway([this._entitlementState, this._clock]);
+
+  final TrustedClock? _clock;
 
   final PaymentEntitlementState? _entitlementState;
 
   @override
-  Entitlement? get cachedEntitlement =>
-      _entitlementState?.current ?? const Entitlement.free();
+  Entitlement? get cachedEntitlement {
+    final current = _entitlementState?.current ?? const Entitlement.free();
+    final clock = _clock;
+    return clock == null
+        ? current
+        : OfflineWindow.apply(
+            current,
+            effectiveTime: clock.effectiveTime,
+            windowConsumed: clock.windowConsumed,
+          );
+  }
 
   @override
-  Stream<Entitlement> get customerInfoUpdates =>
-      _entitlementState?.updates ??
-      Stream<Entitlement>.value(const Entitlement.free());
+  Stream<Entitlement> get customerInfoUpdates {
+    final updates = _entitlementState?.updates ??
+        Stream<Entitlement>.value(const Entitlement.free());
+    final clock = _clock;
+    return clock == null
+        ? updates
+        : OfflineWindow.watch(
+            updates,
+            confirmed: () =>
+                _entitlementState?.current ?? const Entitlement.free(),
+            clock: clock,
+          );
+  }
 
   @override
   Future<void> initialize() async {
+    await _clock?.start();
     await _entitlementState?.initialize();
   }
 

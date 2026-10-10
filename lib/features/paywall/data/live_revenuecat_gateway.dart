@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:pantas/features/paywall/application/offline_window.dart';
+import 'package:pantas/features/paywall/application/trusted_clock.dart';
 import 'package:pantas/features/paywall/data/entitlement_snapshot_store.dart';
 import 'package:pantas/features/paywall/data/payment_entitlement_state.dart';
 import 'package:pantas/features/paywall/data/pending_purchase_store.dart';
@@ -11,16 +13,24 @@ import 'package:pantas/features/paywall/domain/payment_operation.dart';
 import 'package:pantas/features/paywall/domain/paywall_offering.dart';
 import 'package:pantas/features/paywall/domain/price_tier.dart';
 import 'package:pantas/features/paywall/domain/products.dart';
+import 'package:purchases_flutter/purchases_flutter.dart'
+    show VerificationResult;
 
 /// The RevenueCat entitlement identifier configured in the dashboard.
 /// One entitlement covers all three SKUs.
 const proEntitlementId = 'pro';
 
-/// RevenueCat refreshes foreground CustomerInfo cache entries after five
-/// minutes.
-const revenueCatInactiveAuthorityWindow = Duration(minutes: 5);
-
 DateTime _systemReferenceTime() => DateTime.now().toUtc();
+
+TrustedClock _memoryClock(DateTime Function() referenceTime) {
+  final values = <String, String>{};
+  return TrustedClock(
+    readValue: (key) async => values[key],
+    writeValue: (key, value) async => values[key] = value,
+    deviceNow: referenceTime,
+    elapsedNow: () async => null,
+  );
+}
 
 bool _productIsActive(RevenueCatCustomerInfoSnapshot info, String productId) {
   final base = productId.split(':').first;
@@ -142,27 +152,52 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
     PaymentEntitlementState? entitlementState,
     DateTime Function()? referenceTime,
     PendingPurchaseStore? pendingStore,
+    TrustedClock? trustedClock,
   })  : _sdk = sdk ?? PurchasesRevenueCatSdk(),
         _entitlementState = entitlementState ??
             PaymentEntitlementState(EntitlementSnapshotStore.inMemory()),
         _referenceTime = referenceTime ?? _systemReferenceTime,
-        _pendingStore = pendingStore ?? PendingPurchaseStore.inMemory();
+        _pendingStore = pendingStore ?? PendingPurchaseStore.inMemory(),
+        _clock =
+            trustedClock ?? _memoryClock(referenceTime ?? _systemReferenceTime);
 
   final RevenueCatSdk _sdk;
   final PaymentEntitlementState _entitlementState;
   final DateTime Function() _referenceTime;
   final PendingPurchaseStore _pendingStore;
+  final TrustedClock _clock;
   String? _uid;
   bool _listening = false;
 
   @override
-  Future<void> initialize() => _entitlementState.initialize();
+  Future<void> initialize() async {
+    await _clock.start();
+    await _entitlementState.initialize();
+  }
 
   @override
-  Entitlement? get cachedEntitlement => _entitlementState.current;
+  Entitlement? get cachedEntitlement {
+    final current = _entitlementState.current;
+    return current == null
+        ? null
+        : OfflineWindow.apply(
+            current,
+            effectiveTime: _clock.effectiveTime,
+            windowConsumed: _clock.windowConsumed,
+          );
+  }
 
   @override
-  Stream<Entitlement> get customerInfoUpdates => _entitlementState.updates;
+  Stream<Entitlement> get customerInfoUpdates => _contextualUpdates();
+
+  Stream<Entitlement> _contextualUpdates() async* {
+    await initialize();
+    yield* OfflineWindow.watch(
+      _entitlementState.updates,
+      confirmed: () => _entitlementState.current ?? const Entitlement.free(),
+      clock: _clock,
+    );
+  }
 
   @override
   Future<void> configure({required String androidApiKey}) async {
@@ -174,19 +209,41 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
         unawaited(_acceptCustomerInfo(info));
       });
     }
+    await _prepareFreshRead();
     await _acceptCustomerInfo(await _sdk.getCustomerInfo());
+  }
+
+  Future<void> _prepareFreshRead() async {
+    await initialize();
+    await _clock.observe();
+    if (cachedEntitlement?.state == EntitlementState.paused ||
+        _clock.hadSetbackSinceCheck ||
+        ((_entitlementState.current?.proIsActive ?? false) &&
+            _clock.trustedTime == null)) {
+      await _sdk.invalidateCustomerInfoCache();
+    }
   }
 
   Future<Entitlement> _acceptCustomerInfo(
     RevenueCatCustomerInfoSnapshot info,
   ) async {
     await initialize();
-    final reported = entitlementFromCustomerInfo(info);
+    await _clock.observe();
     final current = _entitlementState.current ?? const Entitlement.free();
-
-    if (reported.proIsActive ||
-        !current.proIsActive ||
-        _inactiveCustomerInfoCanRevoke(info)) {
+    final requestDate = info.requestDate?.toUtc();
+    if (info.verification != VerificationResult.verified ||
+        requestDate == null) {
+      return cachedEntitlement ?? const Entitlement.free();
+    }
+    if (!info.proIsActive &&
+        current.verifiedAt != null &&
+        !requestDate.isAfter(current.verifiedAt!)) {
+      return cachedEntitlement ?? const Entitlement.free();
+    }
+    if (await _clock.confirm(requestDate) &&
+        _clock.trustedTime == requestDate) {
+      final reported =
+          entitlementFromCustomerInfo(info).withEvidence(requestDate);
       await _entitlementState.acceptAuthoritative(reported);
       final uid = _uid;
       if (uid != null) {
@@ -195,21 +252,10 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
           await _pendingStore.clear(uid);
         }
       }
-      return reported;
+      return cachedEntitlement ?? const Entitlement.free();
     }
 
-    return current;
-  }
-
-  bool _inactiveCustomerInfoCanRevoke(RevenueCatCustomerInfoSnapshot info) {
-    final requestDate = info.requestDate?.toUtc();
-    if (requestDate == null) return false;
-
-    final referenceTime = _referenceTime().toUtc();
-    if (requestDate.isAfter(referenceTime)) return false;
-
-    return referenceTime.difference(requestDate) <=
-        revenueCatInactiveAuthorityWindow;
+    return cachedEntitlement ?? const Entitlement.free();
   }
 
   @override
@@ -313,7 +359,9 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
       );
       final confirmed = await _acceptCustomerInfo(info);
       return PaymentOperationResult.authoritative(
-        status: _productIsActive(info, package.productId)
+        status: info.verification == VerificationResult.verified &&
+                info.requestDate == confirmed.verifiedAt &&
+                _productIsActive(info, package.productId)
             ? PaymentOperationStatus.success
             : PaymentOperationStatus.entitlementNotActive,
         entitlement: confirmed,
@@ -341,9 +389,19 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
   @override
   Future<PaymentOperationResult> restorePurchases() async {
     try {
+      await _prepareFreshRead();
       final info = await _sdk.restorePurchases();
-      final reported = entitlementFromCustomerInfo(info);
       final confirmed = await _acceptCustomerInfo(info);
+      if (info.verification != VerificationResult.verified ||
+          info.requestDate != confirmed.verifiedAt) {
+        return PaymentOperationResult.authoritative(
+          status: info.proIsActive
+              ? PaymentOperationStatus.entitlementNotActive
+              : PaymentOperationStatus.noActiveSubscription,
+          entitlement: confirmed,
+        );
+      }
+      final reported = entitlementFromCustomerInfo(info);
       final uid = _uid;
       if (uid != null) {
         final pending = await _pendingStore.read(uid);

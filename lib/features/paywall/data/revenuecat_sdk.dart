@@ -35,6 +35,7 @@ class RevenueCatCustomerInfoSnapshot {
     this.promotions = const [],
     this.nonSubscriptionPurchases = const [],
     this.billingIssuesDetectedAt,
+    this.verification = VerificationResult.notRequested,
   })  : productId = null,
         expiresAt = null,
         isTrial = false,
@@ -50,6 +51,7 @@ class RevenueCatCustomerInfoSnapshot {
     this.promotions = const [],
     this.nonSubscriptionPurchases = const [],
     this.billingIssuesDetectedAt,
+    this.verification = VerificationResult.notRequested,
   });
 
   final String? productId;
@@ -61,6 +63,7 @@ class RevenueCatCustomerInfoSnapshot {
   final List<CoveragePeriod> promotions;
   final List<String> nonSubscriptionPurchases;
   final DateTime? billingIssuesDetectedAt;
+  final VerificationResult verification;
 
   bool get proIsActive =>
       productId != null || subscriptions.isNotEmpty || promotions.isNotEmpty;
@@ -128,6 +131,7 @@ abstract interface class RevenueCatSdk {
     bool allowTrial = true,
   });
   Future<RevenueCatCustomerInfoSnapshot> restorePurchases();
+  Future<void> invalidateCustomerInfoCache();
 }
 
 PurchaseParams purchaseParamsFor(
@@ -255,6 +259,7 @@ RevenueCatCustomerInfoSnapshot revenueCatCustomerInfoSnapshot(
       subscriptions: subscriptions,
       promotions: promotions,
       nonSubscriptionPurchases: purchases,
+      verification: info.entitlements.verification,
     );
   }
   return RevenueCatCustomerInfoSnapshot.active(
@@ -269,6 +274,7 @@ RevenueCatCustomerInfoSnapshot revenueCatCustomerInfoSnapshot(
     promotions: promotions,
     nonSubscriptionPurchases: purchases,
     billingIssuesDetectedAt: date(active.billingIssueDetectedAt),
+    verification: info.entitlements.verification,
   );
 }
 
@@ -276,9 +282,17 @@ class PurchasesRevenueCatSdk implements RevenueCatSdk {
   @override
   Future<void> configure(String androidApiKey) {
     return _translate(
-      () => Purchases.configure(PurchasesConfiguration(androidApiKey)),
+      () => Purchases.configure(
+        PurchasesConfiguration(androidApiKey)
+          ..entitlementVerificationMode =
+              EntitlementVerificationMode.informational,
+      ),
     );
   }
+
+  @override
+  Future<void> invalidateCustomerInfoCache() =>
+      _translate(Purchases.invalidateCustomerInfoCache);
 
   @override
   void addCustomerInfoUpdateListener(
