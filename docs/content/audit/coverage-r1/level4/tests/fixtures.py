@@ -52,6 +52,17 @@ def packet(filipino=False):
     }
 
 
+PROOFS = (
+    "traced each formula in the examples back to where Core Concept introduces it",
+    "solved the factoring example from its question alone and compared the roots",
+    "followed the numbered solution one step at a time looking for a skipped step",
+    "looked at the trap section for a rule stated without the case where it fails",
+    "compared the question wording against the plain wording of its solution",
+    "checked that the two factors multiply back to the constant term and sum to the middle",
+    "went through Core Concept term by term for one that is used before it is explained",
+)
+
+
 def valid_form(role="A"):
     pkt = packet()
     rules = {}
@@ -62,8 +73,8 @@ def valid_form(role="A"):
             entry = {"verdict": "not_applicable", "findings": [], "checked": [],
                      "note": "This lesson is taught in English."}
         else:
-            entry = {"verdict": "pass", "findings": [],
-                     "checked": ["Read every section against this rule and found no breach."], "note": ""}
+            entry = {"verdict": "pass", "findings": [], "note": "",
+                     "checked": ["%s read %s: %s" % (role, rule["id"], PROOFS[(len(rules) + (role == "B")) % len(PROOFS)])]}
         rules[rule["id"]] = entry
     return {
         "packet": pkt["id"], "role": role,

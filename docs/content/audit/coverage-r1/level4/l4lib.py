@@ -79,12 +79,42 @@ def norm(text):
     return re.sub(r"\s+", " ", text).strip()
 
 
+# Text every lesson shares. A quote made only of this proves nothing about
+# having read the lesson, so it is not accepted as evidence.
+BOILERPLATE = ("core concept", "mnemonics & memory aids", "examples", "speed tricks & shortcuts",
+               "traps to watch for", "solution", "isactive: true")
+
+
+def is_boilerplate(quote):
+    bare = norm(quote).strip("#*:> ").lower()
+    return bare in BOILERPLATE or bool(re.fullmatch(r"(_id|subject|topic|estimatedminutes|isactive): .*", bare))
+
+
 def quote_in(quote, lesson_text):
     """True when the quote is real lesson text, ignoring line wrapping."""
     if not isinstance(quote, str):
         return False
     wanted = norm(quote)
-    return len(wanted) >= MIN_QUOTE_CHARS and wanted in norm(lesson_text)
+    return len(wanted) >= MIN_QUOTE_CHARS and not is_boilerplate(wanted) and wanted in norm(lesson_text)
+
+
+def spans(quote, lesson_text):
+    """Every (start, end) where the quote occurs in the lesson, in normalized text."""
+    wanted, text = norm(quote), norm(lesson_text)
+    found, start = [], text.find(wanted)
+    while wanted and start != -1:
+        found.append((start, start + len(wanted)))
+        start = text.find(wanted, start + 1)
+    return found
+
+
+def same_place(quote_a, quote_b, lesson_text, gap=0):
+    """Two quotes point at the same lesson text: their occurrences overlap, or lie within gap characters."""
+    for start_a, end_a in spans(quote_a, lesson_text):
+        for start_b, end_b in spans(quote_b, lesson_text):
+            if start_a <= end_b + gap and start_b <= end_a + gap:
+                return True
+    return False
 
 
 def _scalar(raw):

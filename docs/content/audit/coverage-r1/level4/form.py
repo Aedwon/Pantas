@@ -7,6 +7,13 @@ import l4lib
 
 VERDICTS = ("pass", "fail", "not_applicable", "needs_source_check")
 FILIPINO_RULES = ("L08", "L09", "L10", "L11", "L12")
+# Rules that can truly have nothing to judge in a lesson: no exam verb (L03),
+# the Filipino rules in a lesson without Filipino, no prompt that points at a
+# word (L14), no display equation (L21), no illustration placeholder (L23).
+# Every other rule applies to every lesson and must be pass or fail.
+NA_ALLOWED = ("L03", "L14", "L21", "L23") + FILIPINO_RULES
+MAX_SAME_PROOF = 2
+ENTRY_KEYS = ("verdict", "findings", "checked", "note")
 ILLUSTRATION_VALUES = {
     "status": ("missing", "insufficient", "unneeded_existing"),
     "priority": ("high", "medium", "low"),
@@ -65,26 +72,37 @@ def _text(value, minimum):
 
 def _rule_reasons(rule, entry, packet):
     rule_id = rule["id"]
+    shape = "rule %s must be an object with verdict (text), findings (list), checked (list of text), and note (text)" % rule_id
     if not isinstance(entry, dict):
-        return ["rule %s must be an object with verdict, findings, checked, and note" % rule_id]
+        return [shape]
     verdict = entry.get("verdict")
-    if verdict not in VERDICTS:
+    if not isinstance(verdict, str) or verdict not in VERDICTS:
         return ["rule %s has no valid verdict; use one of %s" % (rule_id, ", ".join(VERDICTS))]
+    checked = entry.get("checked")
+    if (not isinstance(entry.get("findings"), list) or not isinstance(entry.get("note"), str)
+            or not isinstance(checked, list) or not all(isinstance(item, str) for item in checked)):
+        return [shape + "; use [] and \"\" for empty values, never null"]
     reasons = []
     if verdict == "needs_source_check" and rule_id != "L11":
         reasons.append("rule %s cannot be needs_source_check; only L11 can" % rule_id)
     if rule_id == "L11" and verdict in ("pass", "fail"):
         reasons.append("rule L11 cannot be pass or fail; use needs_source_check, or not_applicable for a lesson not in Filipino")
+    # Reasons below never say which verdict the form gave: they are posted to GitHub.
+    evidence = ("rule %s: its verdict and its evidence do not fit. A fail needs a finding, a pass on a "
+                "Blocker or Major rule needs checked items of at least %d characters, and not_applicable "
+                "needs a note of at least %d characters" % (rule_id, MIN_CHECKED, MIN_NOTE))
     if verdict == "not_applicable":
-        if rule_id in FILIPINO_RULES and packet["filipino"]:
+        if rule_id not in NA_ALLOWED:
+            reasons.append("rule %s applies to every lesson; judge it" % rule_id)
+        elif rule_id in FILIPINO_RULES and packet["filipino"]:
             reasons.append("rule %s applies because this lesson is in Filipino" % rule_id)
         if not _text(entry.get("note"), MIN_NOTE):
-            reasons.append("rule %s is not_applicable without a note saying why (at least %d characters)" % (rule_id, MIN_NOTE))
-    findings = entry.get("findings") or []
+            reasons.append(evidence)
+    findings = entry["findings"]
     if verdict == "fail" and not findings:
-        reasons.append("rule %s is fail with no finding" % rule_id)
-    if not isinstance(findings, list):
-        return reasons + ["rule %s findings must be a list" % rule_id]
+        reasons.append(evidence)
+    if verdict != "fail" and findings:
+        reasons.append("rule %s: findings belong only under a fail" % rule_id)
     for number, finding in enumerate(findings, 1):
         if not isinstance(finding, dict):
             reasons.append("rule %s finding %d must be an object with quote and problem" % (rule_id, number))
@@ -95,10 +113,8 @@ def _rule_reasons(rule, entry, packet):
         if not _text(finding.get("problem"), MIN_PROBLEM):
             reasons.append("rule %s finding %d: problem must say what is wrong in at least %d characters"
                            % (rule_id, number, MIN_PROBLEM))
-    if verdict == "pass" and _needs_proof(rule):
-        checked = entry.get("checked")
-        if not isinstance(checked, list) or not any(_text(item, MIN_CHECKED) for item in checked):
-            reasons.append("rule %s is pass without proof; list in checked what you checked in this lesson" % rule_id)
+    if verdict == "pass" and _needs_proof(rule) and not any(_text(item, MIN_CHECKED) for item in checked):
+        reasons.append(evidence)
     return reasons
 
 
@@ -132,10 +148,19 @@ def _reader_reasons(form, packet):
     if missing:
         reasons.append("rules are missing: %s" % ", ".join(missing))
     if extra:
-        reasons.append("rules that are not on this form: %s" % ", ".join(extra))
+        # Unknown keys are counted, never echoed: a key can carry any text.
+        reasons.append("the form has %d rule ids that are not on this packet's form; remove them" % len(extra))
+    proofs = {}
     for rule in l4lib.load_rules():
         if rule["id"] in wanted and rule["id"] in rules:
-            reasons.extend(_rule_reasons(rule, rules[rule["id"]], packet))
+            found = _rule_reasons(rule, rules[rule["id"]], packet)
+            reasons.extend(found)
+            entry = rules[rule["id"]]
+            if not found and entry["verdict"] == "pass" and _needs_proof(rule):
+                proofs.setdefault(l4lib.norm(" ".join(entry["checked"])).lower(), []).append(rule["id"])
+    for same in proofs.values():
+        if len(same) > MAX_SAME_PROOF:
+            reasons.append("rules %s give the same checked text; say what you checked for each rule" % ", ".join(same))
     reasons.extend(_illustration_reasons(form.get("illustrations", []), packet))
     concerns = form.get("accuracy_concerns", [])
     if not isinstance(concerns, list):
@@ -159,13 +184,13 @@ def _decider_reasons(form, packet, items):
     if missing:
         reasons.append("rulings are missing for items: %s" % ", ".join(missing))
     if extra:
-        reasons.append("rulings for items that were not asked: %s" % ", ".join(extra))
+        reasons.append("the form has %d rulings for items that were not asked; remove them" % len(extra))
     for item in items:
         entry = rulings.get(item["id"])
         if entry is None:
             continue
         allowed = RULINGS[item["type"]]
-        if not isinstance(entry, dict) or entry.get("ruling") not in allowed:
+        if not isinstance(entry, dict) or not isinstance(entry.get("ruling"), str) or entry["ruling"] not in allowed:
             reasons.append("item %s: ruling must be one of %s" % (item["id"], ", ".join(allowed)))
             continue
         if not l4lib.quote_in(entry.get("quote"), packet["lesson_text"]):
@@ -173,6 +198,25 @@ def _decider_reasons(form, packet, items):
         if not _text(entry.get("reason"), MIN_REASON):
             reasons.append("item %s: reason must explain the ruling in at least %d characters" % (item["id"], MIN_REASON))
     return reasons
+
+
+def clean(form, role):
+    """An accepted form reduced to its known fields. Anything else a chat added is
+    dropped, so it cannot ride along to the deciding chat or into the results."""
+    header = {key: form[key] for key in ("packet", "role", "lesson_sha256", "standards_commit")}
+    if role == "D":
+        return dict(header, rulings={item_id: {key: entry[key] for key in ("ruling", "quote", "reason")}
+                                     for item_id, entry in form["rulings"].items()})
+    return dict(
+        header,
+        rules={rule_id: {"verdict": entry["verdict"], "checked": list(entry["checked"]), "note": entry["note"],
+                         "findings": [{"quote": f["quote"], "problem": f["problem"]} for f in entry["findings"]]}
+               for rule_id, entry in form["rules"].items()},
+        illustrations=[{key: item[key] for key in sorted(ILLUSTRATION_VALUES) + list(ILLUSTRATION_TEXT)}
+                       for item in form.get("illustrations", [])],
+        accuracy_concerns=[{"quote": item["quote"], "concern": item["concern"]}
+                           for item in form.get("accuracy_concerns", [])],
+    )
 
 
 def validate(form, packet, role, items=None):

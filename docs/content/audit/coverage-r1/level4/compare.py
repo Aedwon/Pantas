@@ -8,38 +8,24 @@ a seeded random order, so it cannot tell which read wrote which.
 import copy
 import difflib
 import random
-import re
 
 import l4lib
 
 COPY_RATIO = 0.85
 COPY_MIN_CHARS = 200
+COPY_MIN_QUOTES = 5
 
 
 def _klass(verdict):
     return verdict if verdict in ("pass", "fail") else "other"
 
 
-def _words(text):
-    return set(re.findall(r"\w+", l4lib.norm(text).lower()))
-
-
-def same_place(quote_a, quote_b):
-    """Two quotes point at the same text: one contains the other, or they share half their words."""
-    a, b = l4lib.norm(quote_a), l4lib.norm(quote_b)
-    if a in b or b in a:
-        return True
-    words_a, words_b = _words(a), _words(b)
-    smaller = min(len(words_a), len(words_b))
-    return smaller > 0 and len(words_a & words_b) / float(smaller) >= 0.5
-
-
-def _pair(entries_a, entries_b, key):
-    """Return (paired, only_a, only_b) by same_place on entry[key]."""
+def _pair(entries_a, entries_b, key, lesson_text):
+    """Return (paired, only_a, only_b). Two entries pair when their quotes overlap in the lesson."""
     left = list(entries_b)
     paired, only_a = [], []
     for entry in entries_a:
-        match = next((other for other in left if same_place(entry[key], other[key])), None)
+        match = next((other for other in left if l4lib.same_place(entry[key], other[key], lesson_text)), None)
         if match is None:
             only_a.append(entry)
         else:
@@ -52,20 +38,35 @@ def _free_text(form):
     parts = []
     for rule_id in sorted(form["rules"]):
         entry = form["rules"][rule_id]
-        parts.extend(finding.get("problem", "") for finding in entry.get("findings", []))
-        parts.extend(entry.get("checked", []))
-        parts.append(entry.get("note", ""))
-    return l4lib.norm(" ".join(part for part in parts if part))
+        parts.extend(finding.get("problem", "") for finding in entry.get("findings") or [])
+        parts.extend(entry.get("checked") or [])
+        parts.append(entry.get("note") or "")
+    return l4lib.norm(" ".join(part for part in parts if isinstance(part, str) and part))
+
+
+def _quotes(form):
+    return {l4lib.norm(finding["quote"]) for entry in form["rules"].values() for finding in entry.get("findings") or []}
 
 
 def similarity(form_a, form_b):
+    """How alike the two reads' own words are, from 0 to 1.
+
+    autojunk is off: with it on, difflib ignores common characters in long
+    text and scores a lightly reworded copy near zero.
+    """
     text_a, text_b = _free_text(form_a), _free_text(form_b)
     if min(len(text_a), len(text_b)) < COPY_MIN_CHARS:
         return 0.0
-    return difflib.SequenceMatcher(None, text_a, text_b).ratio()
+    return difflib.SequenceMatcher(None, text_a, text_b, autojunk=False).ratio()
 
 
-def compare(form_a, form_b, seed):
+def same_quotes(form_a, form_b):
+    """True when both reads quote exactly the same set of lesson text, for a set too large to be chance."""
+    quotes_a, quotes_b = _quotes(form_a), _quotes(form_b)
+    return len(quotes_a) >= COPY_MIN_QUOTES and quotes_a == quotes_b
+
+
+def compare(form_a, form_b, seed, lesson_text):
     rng = random.Random(seed)
     rules, items = {}, []
 
@@ -85,7 +86,7 @@ def compare(form_a, form_b, seed):
             add_item({"type": "disputed", "rule": rule_id, "swap": swap,
                       "A": copy.deepcopy(first), "B": copy.deepcopy(second)})
         elif a["verdict"] == "fail":
-            paired, only_a, only_b = _pair(a.get("findings", []), b.get("findings", []), "quote")
+            paired, only_a, only_b = _pair(a.get("findings", []), b.get("findings", []), "quote", lesson_text)
             record.update(state="agree_fail", verdict="fail")
             for mine, theirs in paired:
                 record["findings"].append({"quote": mine["quote"], "problem": mine["problem"],
@@ -98,7 +99,8 @@ def compare(form_a, form_b, seed):
         rules[rule_id] = record
 
     illustrations = []
-    paired, only_a, only_b = _pair(form_a.get("illustrations", []), form_b.get("illustrations", []), "position_quote")
+    paired, only_a, only_b = _pair(form_a.get("illustrations", []), form_b.get("illustrations", []),
+                                   "position_quote", lesson_text)
     for mine, _theirs in paired:
         illustrations.append(dict(mine, source="both"))
     for origin, entries in (("A", only_a), ("B", only_b)):
@@ -110,7 +112,8 @@ def compare(form_a, form_b, seed):
                 for concern in form.get("accuracy_concerns", [])]
     ratio = similarity(form_a, form_b)
     return {"rules": rules, "illustrations": illustrations, "accuracy_concerns": concerns,
-            "items": items, "similarity": round(ratio, 3), "copied": ratio >= COPY_RATIO}
+            "items": items, "similarity": round(ratio, 3),
+            "copied": ratio >= COPY_RATIO or same_quotes(form_a, form_b)}
 
 
 def public_items(comparison):
@@ -143,6 +146,10 @@ def apply_ruling(comparison, ruling_form=None):
             else:
                 illustrations.append(dict(item["illustration"], source="ruled"))
     for record in rules.values():
+        if record["verdict"] == "fail" and not record["findings"]:
+            # Both reads failed the rule on different text and the deciding chat
+            # rejected every finding, so nothing supports the failure.
+            record["verdict"], record["state"] = "pass", "ruled"
         record["source"] = "ruled" if record["state"] == "ruled" else "both"
     return {"rules": rules, "illustrations": illustrations,
             "accuracy_concerns": comparison["accuracy_concerns"], "rulings": rulings,

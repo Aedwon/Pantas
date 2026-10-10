@@ -1,6 +1,6 @@
 """The one command a chat runs to hand in its form.
 
-Usage: python3 handin.py <packet-id> <role>      role is A, B, or D
+Usage: python3 handin.py <packet-id> <role> <attempt>      role is A, B, or D
 
 Prints ACCEPTED, REJECTED with numbered reasons, HELD, or STOPPED. The output
 is posted to GitHub by the relay, so it never contains verdicts, quotes, or
@@ -19,6 +19,10 @@ import form
 import l4lib
 
 MAX_REJECTIONS = 2
+# A form that is not valid JSON is a transport slip, not a judgment failure, so
+# it gets its own, larger allowance before the lesson is held.
+MAX_UNREADABLE = 5
+DELETED = "deleted"
 
 
 def _now():
@@ -34,11 +38,15 @@ def _event(state_dir, **fields):
 
 
 def file_hash(path):
-    """Content hash of a file, or None when it does not exist."""
+    """Content hash of a file, or DELETED when it does not exist."""
     try:
         return hashlib.sha256(Path(path).read_bytes()).hexdigest()
     except OSError:
-        return None
+        return DELETED
+
+
+def stop_run(state_dir, reason, paths, seen_by):
+    l4lib.save_json(Path(state_dir) / "stop.json", {"at": _now(), "reason": reason, "paths": paths, "seen_by": seen_by})
 
 
 def unexpected_changes(queue, audit_wt=None, corpus_wt=None):
@@ -67,6 +75,9 @@ def unexpected_changes(queue, audit_wt=None, corpus_wt=None):
     # deletion and its addition, so neither side can hide behind the other.
     dirty = {entry[3:] for entry in names(git("status", "--porcelain", "-z", "--no-renames", "--untracked-files=all"))}
     committed = set(names(git("diff", "--name-only", "-z", "--no-renames", queue["baseline_head"], "HEAD")))
+    # A file flagged skip-worktree or assume-unchanged is hidden from git status,
+    # so an edit to it would go unseen. No such flag is expected in this worktree.
+    hidden = [entry[2:] for entry in names(git("ls-files", "-v", "-z")) if entry[:1] == "S" or entry[:1].islower()]
 
     def blob_hash(spec):
         """Hash of a committed ("HEAD:path") or staged (":path") copy, or None when there is none."""
@@ -76,7 +87,7 @@ def unexpected_changes(queue, audit_wt=None, corpus_wt=None):
         except subprocess.CalledProcessError:
             return None
 
-    unexpected = []
+    unexpected = sorted("%s (hidden from git status)" % path for path in hidden)
     for path in sorted(dirty | committed):
         pin = pinned.get(path)
         # Every copy git holds must match the recorded hash: the working file,
@@ -87,6 +98,8 @@ def unexpected_changes(queue, audit_wt=None, corpus_wt=None):
         head = blob_hash("HEAD:%s" % path)
         staged = blob_hash(":%s" % path)
         staged_ok = staged is None or staged == pin or (path not in committed and staged == head)
+        if staged is None and pin == DELETED:
+            staged_ok = True
         if (pin is None or file_hash(audit_wt / path) != pin or not staged_ok
                 or (path in committed and head != pin)):
             unexpected.append(path)
@@ -103,84 +116,95 @@ def _lesson_text(entry):
     return path.read_text(encoding="utf-8")
 
 
-def process(packet_id, role, state_dir=None, inbox_dir=None, changes=unexpected_changes, lesson_text=_lesson_text):
+def process(packet_id, role, attempt, state_dir=None, inbox_dir=None, changes=unexpected_changes, lesson_text=_lesson_text):
     """Return (exit code, lines to print)."""
     state_dir = Path(state_dir or l4lib.STATE_DIR)
     inbox_dir = Path(inbox_dir or (l4lib.LEVEL4_DIR / "inbox"))
-    name = "%s-%s" % (packet_id, role)
+    name = "%s-%s-%s" % (packet_id, role, attempt)
     try:
         index = l4lib.load_json(state_dir / "index.json")
         queue = l4lib.load_json(state_dir / "queue.json")
     except (OSError, ValueError):
         return 64, ["BAD REQUEST: no audit run is set up on this machine."]
-    if role not in queue.get("expected", {}).get(packet_id, []):
-        return 64, ["BAD REQUEST: %s is not a hand-in this run is waiting for. Check the packet id and your role." % name]
+    waiting = queue.get("expected", {}).get(packet_id) or {}
+    if role not in waiting.get("roles", []) or str(waiting.get("attempt")) != str(attempt):
+        return 64, ["BAD REQUEST: this is not a hand-in the run is waiting for. "
+                    "Check the packet id, your role, and your attempt number against your assignment."]
     if (state_dir / "stop.json").exists():
         return 3, ["STOPPED: the run is stopped. Do not hand in again."]
     accepted_path = state_dir / "forms" / ("%s.json" % name)
     if accepted_path.exists():
         return 0, ["ACCEPTED: this form was already accepted. You are done."]
-    rejections = sum(1 for _ in (state_dir / "forms" / "rejected").glob("%s-*.json" % name))
-    if rejections >= MAX_REJECTIONS:
-        return 2, ["HELD: this form was rejected %d times. Do not hand in again." % rejections]
+    rejected_dir = state_dir / "forms" / "rejected"
+    rejections = sum(1 for _ in rejected_dir.glob("%s-r*.bin" % name))
+    unreadable = sum(1 for _ in rejected_dir.glob("%s-u*.bin" % name))
+    if rejections >= MAX_REJECTIONS or unreadable >= MAX_UNREADABLE:
+        return 2, ["HELD: this form was rejected too many times. Do not hand in again."]
 
     stray = changes(queue)
     if stray:
-        l4lib.save_json(state_dir / "stop.json", {"at": _now(), "reason": "unexpected change", "paths": stray, "seen_by": name})
-        _event(state_dir, packet=packet_id, role=role, result="stopped")
+        stop_run(state_dir, "unexpected change", stray, name)
+        _event(state_dir, packet=packet_id, role=role, attempt=attempt, result="stopped")
         return 3, ["STOPPED: files changed that this run did not write. Do not hand in again."]
 
     entry = index[packet_id]
     text = lesson_text(entry)
     if l4lib.sha256_text(text) != entry["lesson_sha256"]:
-        l4lib.save_json(state_dir / "stop.json", {"at": _now(), "reason": "lesson no longer matches its packet",
-                                                  "paths": [entry["source"]], "seen_by": name})
-        _event(state_dir, packet=packet_id, role=role, result="stopped")
+        stop_run(state_dir, "lesson no longer matches its packet", [entry["source"]], name)
+        _event(state_dir, packet=packet_id, role=role, attempt=attempt, result="stopped")
         return 3, ["STOPPED: the lesson changed after this packet was built. Do not hand in again."]
 
     inbox_path = inbox_dir / ("%s.json" % name)
     try:
-        raw = inbox_path.read_text(encoding="utf-8")
+        raw = inbox_path.read_bytes()
     except OSError:
-        return 64, ["BAD REQUEST: no saved form found for %s. Do step 1 first, with the exact path the packet gives." % name]
+        return 64, ["BAD REQUEST: no saved form found. Do step 1 first, with the exact path your assignment gives."]
+    inbox_path.unlink()
+
+    candidate, readable = None, True
     try:
-        candidate = json.loads(raw)
-        reasons = None
-    except ValueError as exc:
-        candidate = None
-        reasons = ["the saved form is not valid JSON (%s)" % str(exc)[:80]]
-    if reasons is None:
+        candidate = json.loads(raw.decode("utf-8"))
         items = None
         if role == "D":
             import compare
             items = compare.public_items(l4lib.load_json(state_dir / "deciding" / ("%s.json" % packet_id)))
-        packet = dict(entry, lesson_text=text)
-        reasons = form.validate(candidate, packet, role, items)
-    inbox_path.unlink()
+        reasons = form.validate(candidate, dict(entry, lesson_text=text), role, items)
+        if not reasons:
+            candidate = form.clean(candidate, role)
+            json.dumps(candidate).encode("utf-8")
+    except (ValueError, RecursionError, UnicodeError):
+        # Not valid JSON, nested too deep to read, or text that cannot be stored.
+        readable = False
+        reasons = ["the saved form is not valid JSON. The form goes into the request as one JSON string: "
+                   "every backslash in it must be doubled and every double quote escaped"]
+    except Exception:  # a form must never crash the check; an unknown fault is a rejection
+        reasons = ["the form could not be checked; rebuild it from the packet's blank form"]
 
     if not reasons:
         l4lib.save_json(accepted_path, candidate)
-        _event(state_dir, packet=packet_id, role=role, result="accepted")
+        _event(state_dir, packet=packet_id, role=role, attempt=attempt, result="accepted")
         return 0, ["ACCEPTED: the form is saved. You are done."]
 
-    rejected_dir = state_dir / "forms" / "rejected"
     rejected_dir.mkdir(parents=True, exist_ok=True)
-    (rejected_dir / ("%s-%d.json" % (name, rejections + 1))).write_text(raw, encoding="utf-8")
+    count = (rejections if readable else unreadable) + 1
+    (rejected_dir / ("%s-%s%d.bin" % (name, "r" if readable else "u", count))).write_bytes(raw)
     lines = ["REJECTED: fix these and hand in again."]
     lines.extend("%d. %s" % (number, reason) for number, reason in enumerate(reasons, 1))
-    if rejections + 1 >= MAX_REJECTIONS:
-        _event(state_dir, packet=packet_id, role=role, result="held")
-        lines[0] = "HELD: this form was rejected %d times. Do not hand in again. The reasons were:" % (rejections + 1)
+    if count >= (MAX_REJECTIONS if readable else MAX_UNREADABLE):
+        _event(state_dir, packet=packet_id, role=role, attempt=attempt, result="held")
+        lines[0] = "HELD: this form was rejected too many times. Do not hand in again. The reasons were:"
         return 2, lines
-    _event(state_dir, packet=packet_id, role=role, result="rejected")
+    _event(state_dir, packet=packet_id, role=role, attempt=attempt, result="rejected")
+    if readable:
+        lines[0] = "REJECTED: fix these and hand in again. This is your only retry."
     return 1, lines
 
 
 def main(argv):
-    if len(argv) != 3 or argv[2] not in ("A", "B", "D"):
+    if len(argv) != 4 or argv[2] not in ("A", "B", "D") or not argv[3].isdigit():
         print(__doc__)
         return 64
-    code, lines = process(argv[1], argv[2])
+    code, lines = process(argv[1], argv[2], argv[3])
     print("\n".join(lines))
     return code
 

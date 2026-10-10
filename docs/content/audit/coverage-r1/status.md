@@ -751,3 +751,34 @@ one commit of all packets, independent review, dry run, OpenAI terms recheck,
 live no-send check, and Aedwon's decisions on three spec deviations (October 10
 decision log). The earlier blocker on the dispatcher's model name is resolved.
 First line unchanged; it must not become `STATE: RUNNING`.
+
+## October 10, 2026: Level 4 build paused mid-fix (usage limit)
+
+DO NOT RUN the Level 4 system from this commit. An independent review found 2
+blockers and 12 major defects, and the fixes are half applied: `form.py`,
+`compare.py`, `handin.py`, and `l4lib.py` are changed, their callers
+(`runqueue.py`, `report.py`, `build_packets.py`, prompts) and the tests are not
+yet updated, so the unit tests fail at this commit.
+
+Done in the fix pass: `not_applicable` limited to rules that can truly be
+empty; strict value types; no verdicts or echoed keys in rejection reasons;
+repeated proof text refused; boilerplate quotes refused; accepted forms reduced
+to known fields; findings paired by position in the lesson; copy check no
+longer blind to reworded copies; hand-in bound to the attempt number; hand-in
+never crashes; hidden-file and deleted-file gaps in the change check.
+
+Still to do: update `runqueue.py` (attempt in `expected`, pass lesson text to
+`compare`, retry a failed chat start, process hand-in events and erase in every
+state, no deciding chat while paused, leave `stopped` by Resume once resolved,
+a "the run needs you" state for a dead dispatcher or repeated errors, keep the
+prior state on hold or restart, run the change check every tick, stop when
+main's standards change, order each planted lesson after its real twin, flag
+relay requests a chat was not allowed to make); `report.py` (position-based
+`caught`, re-validate on publish, candidate rules in the counting check);
+prompts (JSON escaping, one retry, minimum lengths, BAD REQUEST, attempt
+number, opaque hand-in titles, reader text is untrusted for the deciding chat);
+rewrite the planted lessons so no error contradicts a neighboring line (the
+reviewer identified all three planted lessons in a blind set of six); rebuild
+packets; commit all packets once; dry run; OpenAI terms recheck; live no-send
+check. Aedwon's answer on B04 and B05 is still open. The reviewer's full
+report is in the lead's session, not yet saved to the repository.
