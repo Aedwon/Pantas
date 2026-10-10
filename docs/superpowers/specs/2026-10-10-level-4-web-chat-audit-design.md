@@ -1,83 +1,70 @@
 # Level 4 lesson standards audit through ChatGPT web chats
 
 Date: October 10, 2026
-Status: Approved by Aedwon on October 10, 2026, with page mockup version 2 and
-parallel reads. Model: GPT 6 Sol, the ChatGPT web default.
+Status: Revision 2, awaiting Aedwon's approval. Revision 1 (prompts pasted by
+hand) was approved on October 10 and is superseded by his later choice of an
+automatic run. Nothing is built and Level 4 has not started.
 Parent spec: `2026-10-03-exam-content-coverage-audit-design.md` (Level 4, "Lesson
 standards", and "Illustration review"). This spec changes how Level 4 is run. It
 does not change what Level 4 must answer.
 
 ## For Aedwon to approve
 
-### What changes
+### What changes from revision 1
 
-Level 4 checks all 158 lessons against the lesson standards and reviews their
-illustration needs. The parent plan ran it through the Codex orchestrator. You are
-saving that usage for engineering, so Level 4 runs in ChatGPT web chats that you
-start by pasting a prepared prompt.
+You no longer paste prompts. A queue on your Mac hands each job to the existing
+ChatGPT dispatcher, which opens the chats in its own Brave window. You press
+Start and watch. You talk to no chat.
 
-The Codex orchestrator stays stopped for Level 4. Level 5 is not approved and is
-not part of this spec.
+Everything else stays: one chat per lesson per role, two independent reads of
+every lesson, a deciding chat for disagreements, the guardrails, the planted
+lessons, and the pilot.
 
 ### How one lesson gets audited
 
-1. A local page shows the next lesson and a ready prompt. You copy it into a new
-   ChatGPT web chat.
-2. The chat reads that lesson's packet from GitHub: the brief, the current
+1. The queue picks the next lesson and registers two jobs with the dispatcher.
+2. The dispatcher opens two fresh ChatGPT chats at the same moment and gives
+   each its assignment.
+3. Each chat reads the lesson's packet from GitHub: the brief, the current
    standards, the lesson, its prerequisite lessons, and its Level 3 findings.
-3. The chat fills a fixed answer form. Every rule gets a verdict. Every finding
+4. Each chat fills a fixed answer form. Every rule gets a verdict. Every finding
    carries an exact quote from the lesson. Every pass on a major rule lists what
    the chat checked.
-4. The chat hands the form in through the relay. A script on your Mac checks it
-   and replies. If the form is rejected, the chat fixes it in the same chat.
-5. You start a second new chat for the same lesson. It reads the same packet and
-   fills the same form without seeing the first result. You may start it while
-   the first chat is still running, since neither chat sees the other. The two
-   reads are named Read A and Read B.
-6. A script compares the two results rule by rule. Where both agree, the verdict
-   stands. Where they disagree, the page gives you a third prompt. That chat sees
-   both positions without knowing which chat wrote which, and rules with a quote.
-7. The page marks the lesson finished. You move to the next lesson.
+5. Each chat hands its form in through the relay. A script on your Mac checks
+   it and replies. If the form is rejected, the chat fixes it in the same chat.
+6. A script compares the two forms rule by rule. Where both agree, the verdict
+   stands. Where they disagree, the queue starts a third chat. It sees both
+   positions without knowing which chat wrote which, and rules with a quote.
+7. The lesson is marked finished and the queue moves to the next one.
 
-One chat handles one lesson and one role. No chat is reused.
+One chat handles one lesson and one role. No chat is reused. One lesson runs at
+a time.
 
 ### The local page
 
-Mockup, version 2: `docs/content/audit/coverage-r1/level4/mockups/level4-page-v2.html`.
-Open it in a browser. The dark bar on top only drives the mockup. The light
-panel is the page. The built page must match that panel 1:1 in layout, text,
-controls, colors, and behavior. Any needed difference comes back to you first.
-Version 1 is superseded; you found it unintuitive and cluttered.
+Mockup, version 3: `docs/content/audit/coverage-r1/level4/mockups/level4-page-v3.html`.
+The dark bar on top only drives the mockup. The light panel is the page. The
+built page must match that panel 1:1 in layout, text, controls, colors, and
+behavior. Any needed difference comes back to you first. Version 3 keeps the
+look you approved in version 2 and replaces the copy button with run controls.
 
-The page shows one instruction at a time and only what you need to act:
+The page shows only what you need:
 
-- **The lesson** you are on and its number.
-- **One sentence** saying what to do now, in large type.
-- **One button** that always does the next step. It copies the prompt and opens
-  ChatGPT in a new tab. The Space key does the same. When there is nothing to
-  do, the button is gone and the page says so.
-- **A reminder** under the button to paste and to set the model.
-- **One line per chat:** not started, working, fixing a rejected form, or handed
-  in. A third line appears only when the chats disagree.
-- **A strip of all lessons** along the bottom, one mark per lesson, grouped by
-  subject and colored by state. It shows lessons finished and the time left at
-  your own pace. Click a mark to open that lesson.
-- **"Something wrong?"** opens three rarely needed actions: copy a prompt again,
-  paste a form by hand when the relay is down, and put the lesson on hold.
-- **A red bar** only when no runner is online. A stop replaces the instruction
-  with what happened.
+- **One sentence** saying the state: ready, running, paused, or what needs you.
+- **One button** when there is something to press: Start, Pause, or Resume.
+- **The current lesson** and one line per chat: not started, working, fixing a
+  rejected form, or handed in. A deciding chat line appears only when needed.
+- **A strip of all lessons** along the bottom, one mark per lesson, colored by
+  state, with lessons finished, lessons on hold, and time left at the run's pace.
+- **"Something wrong?"** with two rare actions: restart this lesson's chats, and
+  put this lesson on hold.
 
-The page calls the reads "Chat 1" and "Chat 2", and the third chat the "deciding
-chat". The page updates by itself when a chat hands in and sends a browser
-notification.
+The page asks for you only in these cases: the pilot has finished, ChatGPT's
+usage limit is reached, ChatGPT needs a sign-in, no runner is online, or the run
+has stopped because something unexpected changed.
 
-Removed from version 1 because you do not need them to act: the step tracker,
-session statistics, chat link field, prompt preview, shortcut list, skip button,
-and the detailed rejection reasons. Rejection reasons and findings stay in the
-saved records.
-
-Not shown in the mockup: the findings view, the view opened from a lesson mark,
-and the pilot report. They are plain read-only lists.
+Not shown in the mockup: the pilot report, the summary, the findings, and the
+hold list. They are plain read-only lists.
 
 ### The guardrails
 
@@ -88,19 +75,35 @@ and the pilot report. They are plain read-only lists.
 - **Quotes must be real.** The check rejects a quote that is not in the lesson.
 - **Passes need proof.** A pass on a major rule must list what was checked, such
   as each formula and where the lesson first introduces it.
-- **The second read is blind.** The first result stays on your Mac, off GitHub,
-  until the second result is handed in. The second chat cannot look it up.
 - **Planted defects measure the miss rate.** Ten lesson copies carry known errors.
   They look like ordinary lessons to a chat. Their answer key never goes to
   GitHub during the run. They are removed from the final findings.
-- **Chats cannot change anything else.** The prompt allows one hand-in command.
-  The script refuses to save if anything else in the audit folder changed, and
-  the page shows the stop.
+- **Chats cannot change anything else.** The assignment allows one hand-in. The
+  script refuses to save if anything else in the audit folder changed, and the
+  run stops.
 - **Hold list.** A lesson stops and waits if a form fails the check twice in one
-  chat, if the relay fails, or if the third chat cannot settle a disagreement.
+  chat, if a chat stalls, or if the deciding chat cannot settle a disagreement.
   Held lessons are reported, not forced through.
 - **Version lock.** Every packet names the lesson version and the standards
   version. The check rejects a form built from a different version.
+- **The run never works around a limit.** At a usage limit, a sign-in prompt, or
+  a security check, it pauses and asks for you.
+
+### How independent the two reads are
+
+Revision 1 promised that the first result stays off GitHub. That was wrong.
+Every hand-in travels through the relay as a GitHub issue, so one chat could in
+principle find the other's result. The two reads are kept independent by four
+layers instead:
+
+1. Both chats start at the same moment, before either result exists.
+2. A script erases the text of each hand-in issue within seconds of saving it.
+   This edits issues in your relay repository, and only those hand-in issues.
+3. The assignment forbids reading other issues, and titles never name the lesson.
+4. The comparer flags any pair of forms that look copied, and the lesson goes to
+   the hold list.
+
+This makes copying hard and visible. It does not make it impossible.
 
 ### What guardrails cannot do
 
@@ -117,13 +120,13 @@ finds. It does not claim a complete correctness review.
 ### Pilot before the full run
 
 The pilot covers five real lessons (two Mathematics, one Science, one Filipino,
-one Reading or General Information) and five planted lessons. That is about 20
-chats.
+one Reading or General Information) and five planted lessons. The run then pauses
+by itself.
 
-You then get a short report: which planted errors each chat caught or missed, by
-rule; how often the two reads disagreed; how many forms were rejected; and the
-time per chat. You decide whether to continue, to move some rules to a stronger
-model, or to stop. No pass mark is set in advance.
+You get a short report: which planted errors each chat caught or missed, by rule;
+how often the two reads disagreed; how many forms were rejected; and the time per
+chat. You decide whether to continue, to move some rules to a stronger model, or
+to stop. No pass mark is set in advance.
 
 The other five planted lessons are spread through the full run as a continuing
 check.
@@ -131,32 +134,34 @@ check.
 ### What you will receive
 
 - Findings for each lesson, each with its rule id, severity, quote, and whether
-  both reads agreed or a third chat ruled.
+  both reads agreed or a deciding chat ruled.
 - The illustration review for each lesson, as the parent spec defines it.
 - A Level 4 summary, a count showing all 158 lessons and every rule accounted
   for, the miss-rate result from the planted lessons, and the hold list.
-- A live local page showing each lesson's state.
+- A live local page showing the run.
 
 ### Cost
 
-- Build: about 8 hours of agent work, including the planted lessons and the
+- Build: about 10 hours of agent work, including the planted lessons and the
   pilot report.
-- Your work: about 336 pasted prompts (158 lessons and 10 planted lessons, two
-  reads each), plus one more for each lesson where the reads disagree.
-- Run time is unknown until the pilot measures the time per chat. Expect many
-  hours of chat time in total. Your attention per chat should be short.
-- At least one relay runner must be on while you work. All three were offline on
-  October 10.
-- ChatGPT usage limits for the chosen model are not known to this spec.
+- Your work: press Start, respond when the page asks, read the pilot report, and
+  decide held lessons.
+- ChatGPT usage: about 336 chats on GPT 6 Sol at High effort, plus one for each
+  lesson where the reads disagree. Each chat also reads the relay's own
+  instructions first. Your plan's limits are not known to this spec; the run
+  pauses when it meets one.
+- Run time is unknown until the pilot measures it.
+- While the run is active, a relay runner must be on, your Mac must be awake,
+  and the dispatcher needs its own signed-in Brave window.
 
-### Decisions I need from you
+### Decisions in this revision
 
-1. Approve this section.
-2. Approve the page mockup, version 2, or name the changes you want. A changed
-   mockup gets a new version number and file.
-3. Confirm the model you will select in ChatGPT web. You wrote "6 Sol". Levels 1
-   to 3 used 6.1 Sol at high effort in Codex. The page will remind you which
-   model to select, since a chat cannot reliably report its own.
+1. Approve this section and mockup version 3.
+2. Confirm that the script may erase the text of hand-in issues in your relay
+   repository. I read your "let's go with your recommendation" as covering it.
+   Nothing is erased before the pilot starts.
+3. Effort level: I assume High, as Levels 1 to 3 used. Say so if you want
+   another.
 
 ### What counts as finished
 
@@ -173,15 +178,20 @@ Level 5 does not start.
   `WORKFLOW.md`. Standards at that revision include L05 as amended, L25 to L27,
   and Q20. Refresh from main before the build and before the run.
 - Audit branch `docs/content-coverage-audit-r1`, worktree
-  `Pantas-wt-content-coverage-audit-r1`, at `e17c26c19a63c95a99c06295eb4dafea7a2975c0`
-  when this spec was written.
+  `Pantas-wt-content-coverage-audit-r1`.
 - Corpus input unchanged: `content/question-qa-r2` at
   `765c5dc0fa5586281047bf4f7b30d09ab3707887`. Read only.
-- Relay: `Aedwon/chatgpt-terminal-relay`, production workflow on its `main`.
-  Verified October 10: `workspace_write_file`, `workspace_exec`, and
-  `git_push_current` exist; requests run only for Issues authored by `Aedwon`
-  titled `[relay]`; results return as an Issue comment with the exit code. No
-  relay change is needed. `workspace_visual_review` is not used.
+- Relay and dispatcher: `Aedwon/chatgpt-terminal-relay`, `main`. Verified October
+  10 from its README and dispatch runbook: `workspace_write_file`,
+  `workspace_exec`, and `git_push_current` exist; relay requests run only for
+  Issues authored by `Aedwon` titled `[relay]`; results return as an Issue
+  comment. The dispatcher has a local `register` command taking an assignment
+  file, runs up to three runner workers at once, serializes workers that name
+  the same worktree, sets and verifies the visible model and effort, never reads
+  assistant text, and stops on sign-in, security, rate, usage, and model
+  restrictions. Its foreground supervisor was not running and all three runners
+  were offline when checked. Its last recorded live proof used GPT-5.6 Sol at
+  High. `workspace_visual_review` is not used.
 
 ### Rule scope
 
@@ -211,26 +221,51 @@ unless stated.
    standards commit, role, one entry per chat-judged rule (verdict, quotes,
    checked-items list for major rules), illustration entries per the parent spec,
    and accuracy concerns.
-4. **Hand-in command.** One script run through `workspace_exec`. It validates the
-   form, refuses on any unexpected change in the audit folder, stores the result,
-   and prints accept or the exact rejection reasons. Results wait in a local
-   state directory outside the pushed folder until both reads for that lesson
-   are in. Then both, the comparison, and any ruling are written to the audit
-   folder.
-5. **Comparer.** Per rule: both pass, both fail with overlapping evidence, or
-   disputed. Builds the third prompt for disputed rules with the two positions
-   labeled A and B in random order.
-6. **Local page and tracker.** Shows the queue, the next prompt with a copy
-   button, the model reminder, each lesson's state (pending, first read in,
-   second read in, disputed, ruled, finished, held), and any stop. It reads local
-   state only. It follows the existing studio pattern (local server, prompt
-   template, validators).
-7. **Planted lessons and key.** Ten copies, each with two or three known defects
+4. **Hand-in command.** The chat saves its form with `workspace_write_file` to an
+   ignored inbox path, then runs one script with `workspace_exec`. The script
+   validates the form, refuses on any unexpected change in the audit folder,
+   moves the form to a local state directory outside the pushed folder, and
+   prints accept or the exact rejection reasons, never the form's content. When
+   both reads and any ruling for a lesson are in, the results are written to the
+   audit folder.
+5. **Issue eraser.** Run by the queue under Aedwon's GitHub login, not by a
+   chat. After a hand-in is saved or rejected, it replaces the body of that
+   lesson's `workspace_write_file` request Issue with a fixed line. It touches
+   only Issues whose title carries this run's opaque hand-in token. It needs his
+   confirmation before first use.
+6. **Comparer.** Per rule: both pass, both fail with overlapping evidence, or
+   disputed. Builds the deciding assignment for disputed rules with the two
+   positions labeled A and B in random order. Flags a pair as possibly copied
+   when their free-text checked-item lists or quote sets are near-identical.
+7. **Queue.** A local process that decides the next job, writes dispatcher
+   assignment files, registers them, reads worker state through the dispatcher's
+   status command, and applies Pause, Resume, hold, and restart. It registers the
+   two reads of one lesson together. Assignments set `worktree` to none so the
+   dispatcher does not serialize the pair; the relay's own lock serializes their
+   hand-ins. Worker completion handbacks carry no findings.
+8. **Local page.** Read-only view of queue state plus the Start, Pause, Resume,
+   restart, and hold controls. It implements mockup version 3's markup and
+   styles directly, without the mockup's dark control bar and sample data. It
+   loads Schibsted Grotesk from Google Fonts with a system fallback.
+9. **Planted lessons and key.** Ten copies, each with two or three known defects
    that together cover the major chat-judged rules. The key lives in the local
    state directory until the run ends, then is saved to the audit folder with
    the miss-rate result.
-8. **Report builder.** Per-lesson findings, the illustration list, the counting
-   check, the hold list, and the summary.
+10. **Report builder.** Pilot report, per-lesson findings, the illustration
+    list, the counting check, the hold list, and the summary.
+
+### To verify in the plan before building on it
+
+- That the dispatcher schedules two runner workers with no worktree at once.
+- The exact visible model label for GPT 6 Sol and that the dispatcher's model
+  and effort controls still match ChatGPT's current interface. Use the runbook's
+  no-send proof. A mismatch is a blocker to report, not to work around.
+- Whether the page may start and stop the dispatcher's foreground supervisor as
+  a child process. If not, the page shows the command for Aedwon to run.
+- The runbook requires a fresh check of OpenAI's terms before live enablement.
+  Do it and record the result before the pilot.
+- The dispatcher's LaunchAgent is not activated and this spec does not activate
+  it.
 
 ### Run control
 
@@ -238,28 +273,15 @@ unless stated.
   The existing watcher resumes the Codex orchestrator in that state. Use a
   `BLOCKED` line that names the web chat run, and record why.
 - Saving to GitHub reuses the watcher's existing save step for the audit folder.
-  If the watcher is off, the lead pushes, or a chat uses `git_push_current`.
+  If the watcher is off, the lead pushes.
 - The lead for this run is the agent session Aedwon assigns. The lead builds the
   system, authors the planted lessons, writes the pilot report, resolves held
   lessons with Aedwon, and accepts the level. Chats never accept their own work.
-- The blind second read is the independent review for each lesson. The lead's
-  final acceptance uses the counting check and a fresh run of the validators over
-  all saved results.
+- The second read is the independent review for each lesson. The lead's final
+  acceptance uses the counting check and a fresh run of the validators over all
+  saved results.
 - Order: topic by topic, prerequisite lessons first where Level 3 found a link.
-- One lesson at a time. Read A and Read B of that lesson may run at the same
-  time. The relay lock serializes their hand-ins for the one worktree.
-- The manual paste fallback runs the same hand-in validation and the same
-  unexpected-change check as the relay route. It records that the form arrived
-  by hand.
-- The page implements the approved mockup file's markup and styles directly, so
-  the built page and the mockup cannot drift. The mockup's dark control bar and
-  its fixed sample data are removed; live local state replaces them. The page
-  loads the Schibsted Grotesk typeface from Google Fonts, with the system
-  typeface as fallback.
-- Page labels map to the spec's terms: Chat 1 is Read A, Chat 2 is Read B, the
-  deciding chat gives the ruling.
-- Whether ChatGPT's new-chat address can preselect the model is unverified. If
-  it can, the button uses it; the reminder text stays either way.
+- Pause lets running chats finish and starts no new one.
 
 ### Stop conditions
 
@@ -267,12 +289,13 @@ unless stated.
 - A packet whose lesson hash or standards commit no longer matches.
 - Main's lesson standards change during the run. Stop, report, and ask whether
   finished lessons need a recheck.
-- Relay or runner unavailable. Do not fall back to direct GitHub edits without
-  Aedwon's decision.
+- Any dispatcher stop condition from its runbook. Never retry around one.
+- Relay or runner unavailable: wait, do not fall back to another route.
 
 ### Boundaries
 
 Findings and recommendations only. No lesson, question, illustration, importer,
-schema, roadmap, app, or Google Doc change. No computer control. The original
-Level 4 definition, the five-level gates, and the Level 5 model plan are
-unchanged.
+schema, roadmap, app, or Google Doc change. No change to the relay or dispatcher
+code. No computer control beyond the dispatcher's existing approved browser
+actions. The original Level 4 definition, the five-level gates, and the Level 5
+model plan are unchanged.

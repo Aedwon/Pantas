@@ -1567,3 +1567,47 @@ What this approves: the spec's plain-language section as saved at
 the 1:1 requirement for the built page, and GPT 6 Sol as the model. The build
 may start. Level 4 reading starts with the pilot once the build is verified.
 Level 5 remains unauthorized. `status.md` must still not become `STATE: RUNNING`.
+
+### October 10, 2026: hand-in flaw found; run changed to an automatic local queue
+
+Before building, the lead found that the approved spec's blindness promise was
+wrong: a relay hand-in is a GitHub issue, so the second chat could find the
+first chat's result. Two options were offered: relay with softer blindness
+(recommended; no extra work), or pasting forms by hand for true blindness (about
+336 extra pastes). He dismissed that question and wrote:
+
+> actually you know what, a chat can also be an orchestrator, meaning it can spawn brave browser in chat and paste the prompt there itself. you can check the chatgpt relay repo in my github
+>
+> so let's do that. so that i'll only have to talk to one chat that does what I need to do
+>
+> with this in mind, how would you address the flaw?
+
+The lead read the relay's dispatch runbook and answered with four layers: start
+both chats at the same moment; erase each hand-in issue's text right after
+saving (needs his approval, since it edits issues in his relay repository);
+forbid reading other issues and keep titles opaque; flag pairs that look copied.
+It stated that true blindness stays impossible through GitHub. It also pushed
+back on an orchestrator chat, because one chat coordinating about 336 workers
+would suffer the context rot he wanted to avoid, and recommended a local queue
+that registers jobs with the dispatcher directly, with Start and Pause on the
+page. Two decisions were asked: local queue or orchestrator chat; and whether
+the script may erase hand-in issue text. Exact human answer:
+
+> oh okay! let's go with your recommendation then
+
+Recorded reading: the local queue is chosen. The erase permission is read as
+included, since it was part of the recommended approach, but it was not named,
+so spec revision 2 asks him to confirm it and nothing is erased before the
+pilot.
+
+What changed: spec revision 2 (automatic run, the independence section, cost)
+and page mockup version 3 at
+`docs/content/audit/coverage-r1/level4/mockups/level4-page-v3.html`, which keeps
+version 2's look and replaces the copy button with Start, Pause, and Resume.
+Revision 1's approval covered hand-pasted prompts and mockup version 2; both are
+superseded. Mistake recorded: revision 1 claimed the first result would stay off
+GitHub without checking how a relay hand-in travels.
+
+Not yet approved: spec revision 2, mockup version 3, the erase confirmation, and
+the effort level (High assumed). Nothing is built. Level 5 remains unauthorized.
+`status.md` must still not become `STATE: RUNNING`.
