@@ -104,14 +104,13 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
                         dimension: 18,
                         child: CircularProgressIndicator(
                           strokeWidth: 2,
-                          color: colors.onBoard,
+                          color: Colors.white,
                         ),
                       ),
                       const SizedBox(width: 8),
                       Text(
                         'Deleting...',
-                        style:
-                            styles.labelLarge.copyWith(color: colors.onBoard),
+                        style: styles.labelLarge.copyWith(color: Colors.white),
                       ),
                     ],
                   )
@@ -121,7 +120,7 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
                         : widget.isAnonymous
                             ? 'Yes, delete my data'
                             : 'Yes, delete my account',
-                    style: styles.labelLarge.copyWith(color: colors.onBoard),
+                    style: styles.labelLarge.copyWith(color: Colors.white),
                   ),
           ),
         ],
