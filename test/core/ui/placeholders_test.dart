@@ -28,11 +28,20 @@ void main() {
       ['${file.path}:1', '${file.path}:3'],
     );
   });
+  test('the release inventory finds a constructor reference used by a builder',
+      () {
+    final directory =
+        Directory.systemTemp.createTempSync('pantas-placeholder-reference-');
+    addTearDown(() => directory.deleteSync(recursive: true));
+    final file = File('${directory.path}/screen.dart')
+      ..writeAsStringSync('final buildFigure = PlaceholderFigure.new;');
+    expect(_findPlaceholderUses(directory), ['${file.path}:1']);
+  });
 }
 
 List<String> _findPlaceholderUses(Directory directory) {
   final uses = <String>[];
-  final pattern = RegExp(r'\bPlaceholderFigure(?:<[^>]+>)?\s*\(');
+  final pattern = RegExp(r'\bPlaceholderFigure\b');
   final files = directory.listSync(recursive: true).whereType<File>().where(
         (file) =>
             file.path.endsWith('.dart') &&

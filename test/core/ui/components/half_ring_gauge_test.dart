@@ -31,6 +31,22 @@ void main() {
               style: PaintingStyle.stroke,
             ),
         );
+        if (fraction > 0) {
+          expect(
+            paint,
+            paints
+              ..arc(strokeWidth: 16)
+              ..arc(
+                rect: const Rect.fromLTWH(18, 10, 184, 184),
+                startAngle: math.pi,
+                sweepAngle: math.pi * fraction,
+                strokeWidth: 16,
+                color: brightness == Brightness.light
+                    ? const Color(0xFF0B7A68)
+                    : const Color(0xFF2FB39C),
+              ),
+          );
+        }
         final number =
             tester.widget<Text>(find.text('${(fraction * 100).round()}'));
         expect(number.style!.fontSize, 44);

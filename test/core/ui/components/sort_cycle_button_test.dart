@@ -38,8 +38,10 @@ void main() {
           alphabet.style!.color!.computeLuminance(),
           surface.color!.computeLuminance(),
         ]..sort();
-        expect((luminances.last + .05) / (luminances.first + .05),
-            greaterThanOrEqualTo(4.5),);
+        expect(
+          (luminances.last + .05) / (luminances.first + .05),
+          greaterThanOrEqualTo(4.5),
+        );
         if (order != SortCycleOrder.alphabetical) {
           expect(
             tester.getSize(find.byKey(const ValueKey('sort-bar-0'))).width,
