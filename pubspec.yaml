@@ -102,6 +102,9 @@ flutter:
   uses-material-design: true
   generate: true   # enables ARB-driven l10n in Plan 2+
   assets:
+    - assets/fonts/OFL-Geist.txt
+    - assets/fonts/OFL-SourceSerif4.txt
+    - assets/fonts/phosphor/LICENSE
     - content/exams/catalog.json
     - assets/seed/content.db
     - assets/seed/content.manifest.json

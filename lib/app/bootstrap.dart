@@ -23,6 +23,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/error_boundary.dart';
 import 'package:pantas/core/telemetry/firebase_telemetry.dart';
 import 'package:pantas/core/ui/components/app_error_view.dart';
+import 'package:pantas/core/ui/theme/font_licenses.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
 import 'package:pantas/features/mock_exam/domain/mock_availability.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
@@ -131,6 +132,7 @@ Future<void> _bootstrap(
   void Function(ProviderContainer) onContainerReady,
 ) async {
   WidgetsFlutterBinding.ensureInitialized();
+  registerBundledFontLicenses();
   installAppErrorView();
 
   final firebaseResult = await bootstrapFirebase(flavor);
