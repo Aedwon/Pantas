@@ -1524,3 +1524,22 @@ wrong under the visual companion rule for UI-affecting specs and is withdrawn.
 
 Not yet approved: the spec section, mockup version 1, and the model choice.
 Nothing is built.
+
+### October 10, 2026: page mockup v1 rejected, v2 shown
+
+Exact human comment on mockup version 1:
+
+> can you use the design skill, it looks unintuitive and not elegant, then also please only include the things i need to see
+
+What changed: mockup version 2 at
+`docs/content/audit/coverage-r1/level4/mockups/level4-page-v2.html`, made with
+the frontend design skill. It shows one instruction at a time with one button
+for the next step (copy the prompt and open ChatGPT), one status line per chat,
+and a strip of all lessons. Removed from version 1: step tracker, session
+statistics, chat link field, prompt preview, shortcut list, skip button, and
+detailed rejection reasons on the page. Version 1 is kept as a rejected record.
+The spec's page section now describes version 2. Mistake recorded: version 1
+showed everything the system knows, not what he needs to act.
+
+Not yet approved: the spec section, mockup version 2, parallel reads, and the
+model choice. Nothing is built.

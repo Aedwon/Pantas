@@ -43,43 +43,41 @@ One chat handles one lesson and one role. No chat is reused.
 
 ### The local page
 
-Mockup, version 1: `docs/content/audit/coverage-r1/level4/mockups/level4-page-v1.html`.
-Open it in a browser. The violet bar at the top only drives the mockup; use it
-to step through each state. The built page must match this mockup 1:1 in layout,
-text, controls, colors, and behavior. Any needed difference comes back to you
-first.
+Mockup, version 2: `docs/content/audit/coverage-r1/level4/mockups/level4-page-v2.html`.
+Open it in a browser. The dark bar on top only drives the mockup. The light
+panel is the page. The built page must match that panel 1:1 in layout, text,
+controls, colors, and behavior. Any needed difference comes back to you first.
+Version 1 is superseded; you found it unintuitive and cluttered.
 
-The page is built around your part of the work:
+The page shows one instruction at a time and only what you need to act:
 
-- **One large copy button per step.** It copies the whole prompt. A message
-  confirms the copy. The button stays available to copy again.
-- **Keyboard shortcuts.** A and B copy the two read prompts, R copies the ruling
-  prompt, N moves to the next lesson.
-- **Open new chat button** beside each prompt.
-- **Nothing to type in the normal flow.** The page updates by itself when a chat
-  hands in, and can notify you so you can do other work while a chat runs.
-- **Optional chat link.** One button pastes the chat's link from your clipboard,
-  for the record. You can skip it.
-- **Step tracker** for the current lesson: Read A, Read B, Compare, Ruling,
-  Finished.
-- **Clear status per read:** not started, waiting, rejected with the reasons,
-  or accepted with the time taken.
-- **Result at a glance** when the lesson finishes: counts of blocker, major, and
-  minor findings and illustrations needed, with a button to open the findings.
-- **Map of all lessons** by subject, colored by state. Click a square to open
-  that lesson.
-- **Session numbers** measured from your own chats: chats done, average time per
-  chat, rejected forms, lessons that needed a ruling.
-- **Fallback when the relay is down:** paste the chat's form into a box and the
-  page checks and saves it.
-- **Buttons for exceptions:** start over in a fresh chat, hold this lesson, skip
-  for now, open the hold list.
-- **Banners** when no runner is online or when the run has stopped.
-- **Model reminder** in the header.
+- **The lesson** you are on and its number.
+- **One sentence** saying what to do now, in large type.
+- **One button** that always does the next step. It copies the prompt and opens
+  ChatGPT in a new tab. The Space key does the same. When there is nothing to
+  do, the button is gone and the page says so.
+- **A reminder** under the button to paste and to set the model.
+- **One line per chat:** not started, working, fixing a rejected form, or handed
+  in. A third line appears only when the chats disagree.
+- **A strip of all lessons** along the bottom, one mark per lesson, grouped by
+  subject and colored by state. It shows lessons finished and the time left at
+  your own pace. Click a mark to open that lesson.
+- **"Something wrong?"** opens three rarely needed actions: copy a prompt again,
+  paste a form by hand when the relay is down, and put the lesson on hold.
+- **A red bar** only when no runner is online. A stop replaces the instruction
+  with what happened.
 
-What the mockup does not show: the real prompt wording (it shows the shape), the
-real findings view, the hold list view, and the pilot report. These are plain
-lists and text and add no new controls to the main page.
+The page calls the reads "Chat 1" and "Chat 2", and the third chat the "deciding
+chat". The page updates by itself when a chat hands in and sends a browser
+notification.
+
+Removed from version 1 because you do not need them to act: the step tracker,
+session statistics, chat link field, prompt preview, shortcut list, skip button,
+and the detailed rejection reasons. Rejection reasons and findings stay in the
+saved records.
+
+Not shown in the mockup: the findings view, the view opened from a lesson mark,
+and the pilot report. They are plain read-only lists.
 
 ### The guardrails
 
@@ -154,7 +152,7 @@ check.
 ### Decisions I need from you
 
 1. Approve this section.
-2. Approve the page mockup, version 1, or name the changes you want. A changed
+2. Approve the page mockup, version 2, or name the changes you want. A changed
    mockup gets a new version number and file.
 3. Confirm the model you will select in ChatGPT web. You wrote "6 Sol". Levels 1
    to 3 used 6.1 Sol at high effort in Codex. The page will remind you which
@@ -254,8 +252,14 @@ unless stated.
   unexpected-change check as the relay route. It records that the form arrived
   by hand.
 - The page implements the approved mockup file's markup and styles directly, so
-  the built page and the mockup cannot drift. The mockup's violet control bar
-  and its fixed sample data are removed; live local state replaces them.
+  the built page and the mockup cannot drift. The mockup's dark control bar and
+  its fixed sample data are removed; live local state replaces them. The page
+  loads the Schibsted Grotesk typeface from Google Fonts, with the system
+  typeface as fallback.
+- Page labels map to the spec's terms: Chat 1 is Read A, Chat 2 is Read B, the
+  deciding chat gives the ruling.
+- Whether ChatGPT's new-chat address can preselect the model is unverified. If
+  it can, the button uses it; the reminder text stays either way.
 
 ### Stop conditions
 

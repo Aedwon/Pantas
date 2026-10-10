@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Level 4 audit page, mockup v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Companion surround: dark, holds the mockup controls only. */
+  html, body { height: 100%; }
+  body { margin: 0; background: #101216; color: #c9ced8;
+    font: 14px/1.4 "Schibsted Grotesk", system-ui, sans-serif;
+    display: grid; grid-template-rows: auto 1fr; }
+  .mock { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 10px 16px; }
+  .mock span { margin-right: 6px; color: #8d94a3; }
+  .mock button { font: inherit; color: #c9ced8; background: #1c2027; border: 1px solid #2c323d;
+    border-radius: 6px; padding: 4px 10px; cursor: pointer; }
+  .mock button:hover { border-color: #5a6373; }
+
+  /* The tool itself. Everything inside .tool is what gets built. */
+  .tool {
+    --paper: #eef1f4; --ink: #1b2330; --soft: #6b7686; --line: #d5dbe3;
+    --blue: #2f6fde; --green: #1f8a5b; --amber: #b97a0a; --red: #cf4339;
+    margin: 0 16px 16px; border-radius: 10px; background: var(--paper); color: var(--ink);
+    display: grid; grid-template-rows: 1fr auto; min-height: 560px; overflow: hidden;
+    font-size: 16px; line-height: 1.5;
+  }
+  .stage { display: grid; place-items: center; padding: 40px 24px 28px; }
+  .col { width: 100%; max-width: 540px; }
+
+  .where { color: var(--soft); margin: 0 0 2px; }
+  .lesson { font-size: 20px; font-weight: 600; margin: 0 0 36px; }
+
+  .say { font-size: 38px; line-height: 1.12; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 10px; text-wrap: balance; }
+  .say.stop { color: var(--red); }
+  .more { color: var(--soft); margin: 0 0 26px; min-height: 24px; }
+  .more a { color: var(--blue); }
+  .more code { font-size: 14px; background: #e0e5eb; padding: 1px 6px; border-radius: 4px; color: var(--ink); }
+
+  .go { display: block; width: 100%; font: inherit; font-size: 19px; font-weight: 600; color: #fff;
+    background: var(--blue); border: 0; border-radius: 12px; padding: 19px 20px; cursor: pointer; }
+  .go:hover { background: #245fc7; }
+  .go:active { transform: translateY(1px); }
+  .go:focus-visible, .tool a:focus-visible, .tool button:focus-visible, .tick:focus-visible {
+    outline: 3px solid #9dbcf3; outline-offset: 3px; }
+  .hint { color: var(--soft); font-size: 14px; margin: 10px 0 0; min-height: 21px; }
+  .hint kbd { font: inherit; border: 1px solid var(--line); border-radius: 5px; padding: 0 6px; background: #fff; }
+
+  .chats { list-style: none; margin: 34px 0 0; padding: 0; }
+  .chats li { display: grid; grid-template-columns: 22px 130px 1fr; align-items: center; padding: 7px 0; }
+  .chats b { font-weight: 600; }
+  .chats span { color: var(--soft); }
+  .mark { width: 14px; height: 14px; border-radius: 50%; border: 2px solid #b4bdc9; box-sizing: border-box; }
+  li[data-s="working"] .mark { border-color: var(--blue); animation: pulse 1.6s ease-in-out infinite; }
+  li[data-s="fixing"] .mark { border-color: var(--amber); background: var(--amber); }
+  li[data-s="fixing"] span { color: var(--amber); }
+  li[data-s="done"] .mark { border-color: var(--green); background: var(--green);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M2 5.2l2 2 4-4.4' fill='none' stroke='white' stroke-width='1.6'/%3E%3C/svg%3E"); }
+  li[data-s="done"] span { color: var(--ink); }
+  @keyframes pulse { 50% { box-shadow: 0 0 0 5px #2f6fde2b; } }
+  @media (prefers-reduced-motion: reduce) { li[data-s="working"] .mark { animation: none; } }
+
+  .trouble { margin-top: 30px; font-size: 14px; }
+  .trouble summary { color: var(--soft); cursor: pointer; width: max-content; }
+  .trouble summary:hover { color: var(--ink); }
+  .trouble div { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .trouble button { font: inherit; color: var(--ink); background: #fff; border: 1px solid var(--line);
+    border-radius: 8px; padding: 7px 12px; cursor: pointer; }
+  .trouble button:hover { border-color: var(--soft); }
+  .trouble textarea { width: 100%; height: 76px; margin-top: 10px; font: 13px ui-monospace, monospace;
+    border: 1px solid var(--line); border-radius: 8px; padding: 8px; box-sizing: border-box; display: none; }
+
+  .alert { background: var(--red); color: #fff; padding: 10px 24px; display: none; }
+  .alert.on { display: block; }
+
+  /* The ledger: one tick per lesson. The one visual that shows the whole job. */
+  .ledger { border-top: 1px solid var(--line); padding: 14px 24px 16px; }
+  .ledger-top { display: flex; justify-content: space-between; gap: 16px; font-size: 14px; margin-bottom: 9px; }
+  .ledger-top span:last-child { color: var(--soft); text-align: right; }
+  .groups { display: flex; gap: 10px; }
+  .group { min-width: 0; }
+  .ticks { display: flex; gap: 2px; height: 26px; }
+  .tick { flex: 1; min-width: 2px; border: 0; padding: 0; border-radius: 2px; background: #cfd6df; cursor: pointer; }
+  .tick:hover { filter: brightness(.85); }
+  .tick.done { background: var(--green); }
+  .tick.now { background: var(--blue); transform: scaleY(1.3); }
+  .tick.held { background: var(--red); }
+  .group small { display: block; margin-top: 7px; font-size: 12px; color: var(--soft);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  @media (max-width: 720px) { .say { font-size: 30px; } .group small { display: none; } .groups { gap: 5px; } }
+
+  .toast { position: fixed; left: 50%; bottom: 96px; transform: translateX(-50%); background: #1b2330; color: #fff;
+    padding: 9px 16px; border-radius: 999px; font-size: 14px; opacity: 0; transition: opacity .15s; pointer-events: none; }
+  .toast.on { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="mock">
+  <span>Mockup controls, not part of the page:</span>
+  <button onclick="ev('c1')">Chat 1 hands in</button>
+  <button onclick="ev('fix')">Chat 1 form rejected</button>
+  <button onclick="ev('c2agree')">Chat 2 hands in, they agree</button>
+  <button onclick="ev('c2differ')">Chat 2 hands in, they disagree</button>
+  <button onclick="ev('decided')">Deciding chat hands in</button>
+  <button onclick="ev('offline')">Runner offline</button>
+  <button onclick="ev('stop')">Stop</button>
+  <button onclick="ev('reset')">Reset</button>
+</div>
+
+<div class="tool">
+  <div>
+    <div class="alert" id="alert">No runner is online, so chats cannot hand in. Turn one on to continue.</div>
+    <div class="stage">
+      <div class="col">
+        <p class="where" id="where"></p>
+        <p class="lesson" id="lesson"></p>
+
+        <h1 class="say" id="say"></h1>
+        <p class="more" id="more"></p>
+
+        <button class="go" id="go" onclick="act()"></button>
+        <p class="hint" id="hint"></p>
+
+        <ul class="chats">
+          <li id="r1"><i class="mark"></i><b>Chat 1</b><span></span></li>
+          <li id="r2"><i class="mark"></i><b>Chat 2</b><span></span></li>
+          <li id="r3" hidden><i class="mark"></i><b>Deciding chat</b><span></span></li>
+        </ul>
+
+        <details class="trouble">
+          <summary>Something wrong?</summary>
+          <div>
+            <button onclick="toast('Prompt copied again')">Copy a prompt again</button>
+            <button onclick="document.getElementById('hand').style.display='block'">Paste a form by hand</button>
+            <button onclick="toast('Lesson put on hold')">Put this lesson on hold</button>
+          </div>
+          <textarea id="hand" placeholder="Paste the chat's answer form here. The page checks it and saves it."></textarea>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <div class="ledger">
+    <div class="ledger-top"><span id="tally"></span><span id="eta"></span></div>
+    <div class="groups" id="groups"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const $ = id => document.getElementById(id);
+const lessons = ['Quadratic Equations', 'Radicals and Rationalization', 'Sets and Set Notation'];
+let s;
+function reset(keepIndex) {
+  s = { i: keepIndex ? s.i : 0, c1: 'idle', c2: 'idle', c3: 'idle', differ: false, offline: false, stop: false };
+}
+const bothIn = () => s.c1 === 'done' && s.c2 === 'done';
+const finished = () => bothIn() && (!s.differ || s.c3 === 'done');
+
+function toast(t) { const e = $('toast'); e.textContent = t; e.classList.add('on');
+  clearTimeout(toast.t); toast.t = setTimeout(() => e.classList.remove('on'), 1500); }
+function copyPrompt(name) {
+  const text = `Pantas Level 4 lesson audit, ${name}. (The real prompt text is fixed in the plan.)`;
+  if (navigator.clipboard) navigator.clipboard.writeText(text).catch(() => {});
+  window.open('https://chatgpt.com/', '_blank', 'noopener');
+  toast('Prompt copied');
+}
+function act() {
+  if (s.stop) return;
+  if (s.c1 === 'idle') { copyPrompt('chat 1'); s.c1 = 'working'; }
+  else if (s.c2 === 'idle') { copyPrompt('chat 2'); s.c2 = 'working'; }
+  else if (bothIn() && s.differ && s.c3 === 'idle') { copyPrompt('deciding chat'); s.c3 = 'working'; }
+  else if (finished()) { s.i = (s.i + 1) % lessons.length; reset(true); }
+  render();
+}
+function ev(e) {
+  if (e === 'reset') reset();
+  if (e === 'c1' && s.c1 !== 'idle') s.c1 = 'done';
+  if (e === 'fix' && s.c1 === 'working') s.c1 = 'fixing';
+  if (e.startsWith('c2') && s.c2 !== 'idle') { s.c2 = 'done'; s.differ = e === 'c2differ'; }
+  if (e === 'decided' && s.c3 === 'working') s.c3 = 'done';
+  if (e === 'offline') s.offline = !s.offline;
+  if (e === 'stop') s.stop = !s.stop;
+  render();
+}
+const rowText = { idle: 'Not started', working: 'Working, 2 minutes so far',
+  fixing: 'Fixing a rejected form', done: 'Handed in' };
+function row(id, state) { $(id).dataset.s = state; $(id).querySelector('span').textContent = rowText[state]; }
+
+function render() {
+  $('where').textContent = `Lesson ${12 + s.i} of 158, Mathematics`;
+  $('lesson').textContent = lessons[s.i];
+  row('r1', s.c1); row('r2', s.c2); row('r3', s.c3);
+  $('r3').hidden = !(bothIn() && s.differ);
+
+  let say, more = '', go = '', hint = '';
+  const paste = 'Then paste it into the new chat. Set the model to 6 Sol.';
+  if (s.stop) {
+    say = 'Stopped. A file changed that no chat handed in.';
+    more = 'File: <code>packets/L4-0388.md</code>. Nothing more is saved until this is resolved.';
+  } else if (s.c1 === 'idle') {
+    say = 'Start the first chat.'; go = 'Copy prompt and open ChatGPT'; hint = paste;
+  } else if (s.c2 === 'idle') {
+    say = 'Start the second chat.'; go = 'Copy prompt and open ChatGPT';
+    hint = 'No need to wait for chat 1. ' + paste;
+  } else if (!bothIn()) {
+    say = s.c1 === 'done' || s.c2 === 'done' ? 'One chat is still working.' : 'Both chats are working.';
+    more = 'Nothing to do. This page updates by itself and notifies you.';
+  } else if (s.differ && s.c3 === 'idle') {
+    say = 'The chats disagree on 2 rules. Start a deciding chat.';
+    go = 'Copy prompt and open ChatGPT'; hint = paste;
+  } else if (s.differ && s.c3 === 'working') {
+    say = 'The deciding chat is working.'; more = 'Nothing to do. This page updates by itself and notifies you.';
+  } else {
+    say = 'Lesson finished.';
+    more = '8 findings and 2 illustration needs recorded. <a href="#" onclick="toast(\'Opens this lesson\\\'s findings\');return false">View them</a>';
+    go = 'Next lesson';
+  }
+  $('say').textContent = say; $('say').className = 'say' + (s.stop ? ' stop' : '');
+  $('more').innerHTML = more; $('more').style.display = more ? '' : 'none';
+  $('go').textContent = go; $('go').style.display = go ? '' : 'none';
+  $('hint').innerHTML = go ? (hint ? hint + ' ' : '') + 'Shortcut: <kbd>Space</kbd>' : '';
+  $('hint').style.display = go ? '' : 'none';
+  $('alert').className = 'alert' + (s.offline && !s.stop ? ' on' : '');
+
+  const done = 9 + s.i;
+  $('tally').textContent = `${done} of 158 lessons finished, 1 on hold`;
+  $('eta').textContent = 'About 15 hours left at your pace';
+  const subjects = [['General Information', 12], ['Language Proficiency', 19], ['Mathematics', 46],
+    ['Reading Comprehension', 13], ['Reasoning', 17], ['Science', 51], ['Checks', 10]];
+  $('groups').innerHTML = subjects.map(([name, n]) => {
+    let t = '';
+    for (let k = 0; k < n; k++) {
+      let c = '';
+      if (name === 'Mathematics') c = k === 4 ? 'held' : k < 10 + s.i ? 'done' : k === 10 + s.i ? 'now' : '';
+      t += `<button class="tick ${c}" aria-label="${name} lesson ${k + 1}" onclick="toast('Opens ${name} lesson ${k + 1}')"></button>`;
+    }
+    return `<div class="group" style="flex:${n}"><div class="ticks">${t}</div><small>${name}</small></div>`;
+  }).join('');
+}
+document.addEventListener('keydown', e => {
+  if (e.code !== 'Space' || e.target.matches('textarea, button, summary')) return;
+  e.preventDefault(); if ($('go').style.display !== 'none') act();
+});
+reset(); render();
+</script>
+</body>
+</html>
