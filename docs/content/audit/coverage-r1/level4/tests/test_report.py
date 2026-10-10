@@ -88,10 +88,17 @@ class Pilot(ReportCase):
 
     def test_a_failed_rule_at_other_text_does_not_count_as_caught(self):
         defect = {"rule": "L17", "must_quote": PLANTED_TEXT}
-        elsewhere = {"verdict": "fail", "findings": [{"quote": OTHER_TEXT, "problem": "x"}]}
+        elsewhere = {"L17": {"verdict": "fail", "findings": [{"quote": OTHER_TEXT, "problem": "x"}]}}
         self.assertFalse(report.caught(defect, elsewhere))
-        self.assertFalse(report.caught(defect, {"verdict": "pass", "findings": []}))
+        self.assertFalse(report.caught(defect, {"L17": {"verdict": "pass", "findings": []}}))
         self.assertFalse(report.caught(defect, None))
+
+    def test_a_defect_may_be_caught_under_any_of_its_rules_at_any_of_its_anchors(self):
+        defect = {"rule": "L17", "rules": ["L17", "L25"], "must_quote": ["Not in this finding.", PLANTED_TEXT]}
+        under_l25 = {"L25": {"verdict": "fail", "findings": [{"quote": PLANTED_TEXT, "problem": "x"}]}}
+        under_l26 = {"L26": {"verdict": "fail", "findings": [{"quote": PLANTED_TEXT, "problem": "x"}]}}
+        self.assertTrue(report.caught(defect, under_l25))
+        self.assertFalse(report.caught(defect, under_l26))
 
 
 class Final(ReportCase):

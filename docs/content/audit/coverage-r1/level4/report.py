@@ -42,11 +42,20 @@ class Data:
         return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()] if path.exists() else []
 
 
-def caught(defect, rule_entry):
-    """A read caught a planted defect when it failed that rule at the planted text."""
-    if not rule_entry or rule_entry.get("verdict") != "fail":
-        return False
-    return any(compare.same_place(defect["must_quote"], finding["quote"]) for finding in rule_entry.get("findings", []))
+def caught(defect, rules):
+    """A read caught a planted defect when it failed one of the defect's rules at the planted text.
+
+    rules: the "rules" object of a form or of a final result.
+    """
+    anchors = defect["must_quote"] if isinstance(defect["must_quote"], list) else [defect["must_quote"]]
+    for rule_id in defect.get("rules") or [defect["rule"]]:
+        entry = (rules or {}).get(rule_id) or {}
+        if entry.get("verdict") != "fail":
+            continue
+        for finding in entry.get("findings", []):
+            if any(compare.same_place(anchor, finding["quote"]) for anchor in anchors):
+                return True
+    return False
 
 
 def _minutes(started, finished):
@@ -61,8 +70,7 @@ def planted_table(data, packet_ids):
         form_a, form_b = data.load("forms", "%s-A.json" % packet_id), data.load("forms", "%s-B.json" % packet_id)
         result = data.load("results", "%s.json" % packet_id)
         for defect in data.key.get(lesson_id, []):
-            marks = [caught(defect, (source or {}).get("rules", {}).get(defect["rule"]))
-                     for source in (form_a, form_b, result)]
+            marks = [caught(defect, (source or {}).get("rules")) for source in (form_a, form_b, result)]
             rows.append((defect["rule"], defect["label"], marks))
             tally = totals.setdefault(defect["rule"], [0, 0, 0, 0])
             tally[0] += 1
