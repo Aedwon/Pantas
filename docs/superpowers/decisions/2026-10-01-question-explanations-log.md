@@ -1696,3 +1696,32 @@ Three things found while building:
    model in the audit records; or return to hand-pasted prompts (spec revision
    1, mockup version 2). Queue and page work is paused until he chooses, since
    the third option would discard it.
+
+### October 10, 2026: dispatcher model name to be updated
+
+Three options were put to Aedwon for the dispatcher accepting only the name
+GPT-5.6 Sol: (1) update the dispatcher's model name in his relay repository,
+with one test send to confirm it still works (recommended; keeps the automatic
+run); (2) register with the old name, no code change, with the dispatcher's own
+records naming the wrong model; (3) return to hand-pasted prompts. Exact human
+answer:
+
+> 1
+
+What changed: a local branch `fix/reasoning-picker-model-name` in a new worktree
+of `Aedwon/chatgpt-terminal-relay`, from its `main`, replaces the hard-coded
+name with one constant set to `GPT-6 Sol` and adds a test that the retired name
+is refused. It is committed locally only: not pushed, no pull request, not
+merged, and the persistent dispatcher checkout is untouched.
+
+Not verified: the relay's 22 browser fixture tests cannot start on this Mac,
+because Playwright 1.62.0 expects Chromium build 1234 and only build 1193 is
+installed. The other 147 dispatcher tests pass. Open with Aedwon: permission to
+download that Chromium build, the exact model name ChatGPT shows (he wrote
+"GPT 6 Sol"; the branch uses "GPT-6 Sol" to match the earlier "GPT-5.6 Sol"
+form), and the live check, which needs his signed-in dispatcher Brave profile.
+
+Also recorded: an automated commit review flagged three gaps in the hand-in
+change check (an already-dirty file could be edited unseen; a rename could hide
+one side; a tampered commit could hide behind a restored working file). All
+three are fixed with tests at `632894fc4fbba800de9c2994fe85ba8dd4b7633f`.
