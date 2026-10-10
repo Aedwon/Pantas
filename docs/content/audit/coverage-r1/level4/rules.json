@@ -1,0 +1,347 @@
+{
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": [
+  {
+   "id": "B01",
+   "rule": "Every fact is correct; an unconfirmed fact is left out",
+   "severity": "Blocker",
+   "how": "Check each hard-to-remember fact against a source",
+   "source": "SP: What needs a source",
+   "kind": "chat",
+   "proof": true
+  },
+  {
+   "id": "B02",
+   "rule": "Every worked answer, example answer, and key is correct",
+   "severity": "Blocker",
+   "how": "Solve it yourself from the question alone",
+   "source": "LSG: Examples section; QSG: Blind solve",
+   "kind": "chat",
+   "proof": true
+  },
+  {
+   "id": "B03",
+   "rule": "Required content is present: outline sections, required figures",
+   "severity": "Blocker",
+   "how": "Compare with the outline entry and figure needs",
+   "source": "LSG: Section structure, Illustration placeholders",
+   "kind": "chat",
+   "proof": true
+  },
+  {
+   "id": "B04",
+   "rule": "Each checked fact has a source ledger entry, in a ledger that states its branch, base commit, and access date",
+   "severity": "Major",
+   "how": "Find the item id in the round's ledger",
+   "source": "SP: How sources are recorded",
+   "kind": "record",
+   "proof": false
+  },
+  {
+   "id": "B05",
+   "rule": "The higher source wins, the conflict is recorded, and weak sources are never used alone",
+   "severity": "Major",
+   "how": "Compare the cited source with the hierarchy",
+   "source": "SP: Which source wins",
+   "kind": "record",
+   "proof": false
+  },
+  {
+   "id": "B06",
+   "rule": "No em dashes",
+   "severity": "Minor",
+   "how": "Search for the character",
+   "source": "LSG: Emphasis and de-AI rules; `AGENTS.md`",
+   "kind": "script",
+   "proof": false
+  },
+  {
+   "id": "B07",
+   "rule": "American spelling in English text",
+   "severity": "Minor",
+   "how": "Look for British forms such as \"colour\", \"practise\"",
+   "source": "`AGENTS.md`: Voice",
+   "kind": "script-assist",
+   "proof": false
+  },
+  {
+   "id": "B08",
+   "rule": "Maths notation: `\\dfrac` at top level, numbers in prose inside `$...$`, no `\\( \\)` or `\\[ \\]`",
+   "severity": "Minor",
+   "how": "Search the text",
+   "source": "LSG: Math notation; `AGENTS.md`: Maths in content",
+   "kind": "script",
+   "proof": false
+  },
+  {
+   "id": "B09",
+   "rule": "\"points\" not \"marks\", \"questions\" not \"cards\"",
+   "severity": "Minor",
+   "how": "Search the text",
+   "source": "`AGENTS.md`: Voice",
+   "kind": "script",
+   "proof": false
+  },
+  {
+   "id": "B10",
+   "rule": "No FSRS, stability, retention, retrievability, or algorithm in student text",
+   "severity": "Major",
+   "how": "Search the text",
+   "source": "`AGENTS.md`: Voice",
+   "kind": "script",
+   "proof": false
+  },
+  {
+   "id": "L01",
+   "rule": "A learning goal is recorded and the lesson serves it",
+   "severity": "Major",
+   "how": "Find the goal in the audit records; compare with the content",
+   "source": "LSG: Learning goal",
+   "kind": "chat",
+   "proof": true
+  },
+  {
+   "id": "L02",
+   "rule": "Teaching prose is very simple English a Grade 5 student can read, with no filler",
+   "severity": "Major",
+   "how": "Read as a Grade 5 student; flag long or rare-word sentences",
+   "source": "LSG: Voice",
+   "kind": "chat",
+   "proof": true
+  },
+  {
+   "id": "L03",
+   "rule": "Exam verbs are explained in one line on first use",
+   "severity": "Minor",
+   "how": "Find the first use of each exam verb",
+   "source": "LSG: Voice",
+   "kind": "chat",
+   "proof": false
+  },
+  {
+   "id": "L04",
+   "rule": "At most one analogy, in Core Concept",
+   "severity": "Minor",
+   "how": "Count analogies",
+   "source": "LSG: Voice",
+   "kind": "chat",
+   "proof": false
+  },
+  {
+   "id": "L05",
+   "rule": "Example questions use exam wording and supply necessary problem-specific givens without supplying tested knowledge; solutions use simple language",
+   "severity": "Major",
+   "how": "Check example stems against the expected-knowledge rule and compare wording with solutions",
+   "source": "LSG: Voice, Examples section",
+   "kind": "chat",
+   "proof": true
+  },
+  {
+   "id": "L06",
+   "rule": "In-lesson quiz items meet every Q rule",
+   "severity": "Per Q rule",
+   "how": "Run the question checks",
+   "source": "LSG: Voice",
+   "kind": "deferred",
+   "proof": false
+  },
+  {
+   "id": "L07",
+   "rule": "Mentions of exams vary and motivate",
+   "severity": "Minor",
+   "how": "Look for repeated openers",
+   "source": "LSG: Voice",
+   "kind": "chat",
+   "proof": false
+  },
+  {
+   "id": "L08",
+   "rule": "Filipino lessons teach in simple Filipino at the Grade 5 standard",
+   "severity": "Major",
+   "how": "Read as a Grade 5 student",
+   "source": "LSG: Filipino-language lessons",
+   "kind": "chat",
+   "proof": true
+  },
+  {
+   "id": "L09",
+   "rule": "A hard Filipino grammar term gets a short English gloss on first use only",
+   "severity": "Minor",
+   "how": "Find first uses",
+   "source": "LSG: Filipino-language lessons",
+   "kind": "chat",
+   "proof": false
+  },
+  {
+   "id": "L10",
+   "rule": "Filipino lessons' examples and quiz items are in Filipino",
+   "severity": "Major",
+   "how": "Check each example and item",
+   "source": "LSG: Filipino-language lessons",
+   "kind": "chat",
+   "proof": true
+  },
+  {
+   "id": "L11",
+   "rule": "Filipino spelling and usage follow the Komisyon sa Wikang Filipino",
+   "severity": "Major",
+   "how": "Check contested forms against the source",
+   "source": "LSG: Filipino-language lessons",
+   "kind": "source-check",
+   "proof": false
+  },
+  {
+   "id": "L12",
+   "rule": "No Taglish in Filipino teaching prose",
+   "severity": "Minor",
+   "how": "Flag English words that are not the common term",
+   "source": "LSG: Filipino-language lessons",
+   "kind": "chat",
+   "proof": false
+  },
+  {
+   "id": "L13",
+   "rule": "No ALL-CAPS emphasis; bold for first definitions; italics rare",
+   "severity": "Minor",
+   "how": "Scan for capitals and emphasis",
+   "source": "LSG: Emphasis and de-AI rules",
+   "kind": "script",
+   "proof": false
+  },
+  {
+   "id": "L14",
+   "rule": "Target words are bold and the prompt says \"the word in bold\"",
+   "severity": "Major",
+   "how": "Check prompts that refer to a word",
+   "source": "LSG: Emphasis and de-AI rules",
+   "kind": "chat",
+   "proof": true
+  },
+  {
+   "id": "L15",
+   "rule": "No stock AI phrasing; varied sentence openings; a plainly varied summary",
+   "severity": "Minor",
+   "how": "Search for the listed phrases; read openings",
+   "source": "LSG: Emphasis and de-AI rules",
+   "kind": "chat",
+   "proof": false
+  },
+  {
+   "id": "L16",
+   "rule": "Section titles are exact; mnemonics only when genuine; extra sections sparing",
+   "severity": "Minor",
+   "how": "Compare headings with the guide",
+   "source": "LSG: Section structure",
+   "kind": "script",
+   "proof": false
+  },
+  {
+   "id": "L17",
+   "rule": "Subject section fit is followed; every formula appears in Core Concept before any example uses it",
+   "severity": "Major",
+   "how": "Trace each formula in examples back to Core Concept",
+   "source": "LSG: Per-subject section fit",
+   "kind": "chat",
+   "proof": true
+  },
+  {
+   "id": "L18",
+   "rule": "Examples cover every distinct exam-relevant scenario, variation, and edge case within the learning goal, ramp from basic to target-exam difficulty, and avoid near-duplicates",
+   "severity": "Major",
+   "how": "Map each distinct case to a worked example; check the difficulty progression and repeated reasoning",
+   "source": "LSG: Examples section",
+   "kind": "chat",
+   "proof": true
+  },
+  {
+   "id": "L19",
+   "rule": "Solutions show every step as a numbered list with display equations",
+   "severity": "Major if a step is skipped, otherwise Minor",
+   "how": "Follow each solution step by step",
+   "source": "LSG: Examples section",
+   "kind": "chat",
+   "proof": true
+  },
+  {
+   "id": "L20",
+   "rule": "Example and trap headings use `### #N: Title`; traps have a one-line warning and a short explanation",
+   "severity": "Minor",
+   "how": "Compare with the format",
+   "source": "LSG: Examples section, Traps section",
+   "kind": "script",
+   "proof": false
+  },
+  {
+   "id": "L21",
+   "rule": "Display equations fit a phone screen",
+   "severity": "Minor",
+   "how": "Look for long display lines",
+   "source": "LSG: Examples section",
+   "kind": "chat",
+   "proof": false
+  },
+  {
+   "id": "L22",
+   "rule": "Only allowed formatting: no tables, links, code blocks, or horizontal rules",
+   "severity": "Major",
+   "how": "Search for the banned syntax",
+   "source": "LSG: Formatting rules",
+   "kind": "script",
+   "proof": false
+  },
+  {
+   "id": "L22a",
+   "rule": "Paragraphs are one to three short sentences; bullet lists are sparing",
+   "severity": "Minor",
+   "how": "Scan paragraphs",
+   "source": "LSG: Formatting rules",
+   "kind": "chat",
+   "proof": false
+  },
+  {
+   "id": "L23",
+   "rule": "Each placeholder is one specific line an artist could draw from; the prose teaches without the image except where the figure is the question (missing required figures fall under B03)",
+   "severity": "Major",
+   "how": "Read each placeholder",
+   "source": "LSG: Illustration placeholders",
+   "kind": "chat",
+   "proof": true
+  },
+  {
+   "id": "L24",
+   "rule": "Frontmatter has the exact shape and outline slugs",
+   "severity": "Major",
+   "how": "Compare with the template and the outline",
+   "source": "LSG: Frontmatter",
+   "kind": "script",
+   "proof": false
+  },
+  {
+   "id": "L25",
+   "rule": "Necessary terms, symbols, and units are explained before their meanings are needed",
+   "severity": "Major",
+   "how": "Trace needed meanings to local teaching, an identified prerequisite, or a clearly signposted later section under the shared reuse rule",
+   "source": "LSG: Teaching completeness",
+   "kind": "chat",
+   "proof": true
+  },
+  {
+   "id": "L26",
+   "rule": "Concepts explain their meaning and how they work, not just names or formulas",
+   "severity": "Major",
+   "how": "Find the explanation under the shared reuse rule; confirm that the current learning goal is taught",
+   "source": "LSG: Teaching completeness",
+   "kind": "chat",
+   "proof": true
+  },
+  {
+   "id": "L27",
+   "rule": "Relevant conditions, limitations, and exceptions explain when a rule, formula, or shortcut applies",
+   "severity": "Major",
+   "how": "Check applicability explanations under the shared reuse rule",
+   "source": "LSG: Teaching completeness",
+   "kind": "chat",
+   "proof": true
+  }
+ ]
+}
