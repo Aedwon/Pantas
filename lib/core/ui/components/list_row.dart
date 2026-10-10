@@ -61,11 +61,13 @@ class ListRow extends StatelessWidget {
     final trailing = switch (variant) {
       ListRowVariant.navigation =>
         Icon(PantasIcons.next, size: 16, color: c.chevron),
-      ListRowVariant.switchControl => ExcludeFocus(
-          child: PantasSwitch(
-            value: selected,
-            label: title,
-            onChanged: (_) => onTap?.call(),
+      ListRowVariant.switchControl => ExcludeSemantics(
+          child: ExcludeFocus(
+            child: PantasSwitch(
+              value: selected,
+              label: title,
+              onChanged: (_) => onTap?.call(),
+            ),
           ),
         ),
       ListRowVariant.check => selected
@@ -96,47 +98,60 @@ class ListRow extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Material(
-          color: Colors.transparent,
-          child: InkWell(
-            onTap: onTap,
-            child: Container(
-              constraints: const BoxConstraints(minHeight: 44),
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 11),
-              decoration: BoxDecoration(
-                border: divider
-                    ? Border(
-                        bottom: BorderSide(color: c.separator, width: .5),
-                      )
-                    : null,
-              ),
-              child: Row(
-                children: [
-                  if (icon != null) ...[
-                    Icon(icon, size: 22, color: iconColor ?? c.accent),
-                    const SizedBox(width: 14),
-                  ],
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        label,
-                        if (subtitle != null)
-                          Text(subtitle!, style: context.type.footnote),
-                        if (stack && detail != null) detail,
-                      ],
-                    ),
+        MergeSemantics(
+          child: Semantics(
+            checked: variant == ListRowVariant.check ||
+                    variant == ListRowVariant.radio
+                ? selected
+                : null,
+            toggled: variant == ListRowVariant.switchControl ? selected : null,
+            inMutuallyExclusiveGroup: variant == ListRowVariant.radio,
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: onTap,
+                child: Container(
+                  constraints: const BoxConstraints(minHeight: 44),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 11,
                   ),
-                  if (!stack && detail != null) ...[
-                    const SizedBox(width: 8),
-                    Flexible(child: detail),
-                  ],
-                  if (variant != ListRowVariant.value &&
-                      variant != ListRowVariant.destructive) ...[
-                    const SizedBox(width: 8),
-                    trailing,
-                  ],
-                ],
+                  decoration: BoxDecoration(
+                    border: divider
+                        ? Border(
+                            bottom: BorderSide(color: c.separator, width: .5),
+                          )
+                        : null,
+                  ),
+                  child: Row(
+                    children: [
+                      if (icon != null) ...[
+                        Icon(icon, size: 22, color: iconColor ?? c.accent),
+                        const SizedBox(width: 14),
+                      ],
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            label,
+                            if (subtitle != null)
+                              Text(subtitle!, style: context.type.footnote),
+                            if (stack && detail != null) detail,
+                          ],
+                        ),
+                      ),
+                      if (!stack && detail != null) ...[
+                        const SizedBox(width: 8),
+                        Flexible(child: detail),
+                      ],
+                      if (variant != ListRowVariant.value &&
+                          variant != ListRowVariant.destructive) ...[
+                        const SizedBox(width: 8),
+                        trailing,
+                      ],
+                    ],
+                  ),
+                ),
               ),
             ),
           ),

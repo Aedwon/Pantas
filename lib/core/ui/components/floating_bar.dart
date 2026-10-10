@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
 enum FloatingBarState { neutral, right, wrong }
@@ -36,8 +35,9 @@ class FloatingBar extends StatelessWidget {
     return AnimatedContainer(
       duration: MediaQuery.disableAnimationsOf(context)
           ? Duration.zero
-          : const Duration(milliseconds: 300),
-      curve: PantasCurves.houseOut,
+          : Duration(
+              milliseconds: state == FloatingBarState.neutral ? 250 : 300,
+            ),
       constraints: const BoxConstraints(minHeight: 60),
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       decoration: BoxDecoration(

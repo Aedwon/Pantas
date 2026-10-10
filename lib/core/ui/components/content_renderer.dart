@@ -82,7 +82,7 @@ class ContentRenderer extends StatelessWidget {
         ),
         child: Text(
           'This part cannot be shown yet.',
-          style: context.type.footnote,
+          style: context.type.footnote.copyWith(color: context.colors.label),
         ),
       );
   Widget paragraph(

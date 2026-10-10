@@ -289,6 +289,7 @@ class _ScopePickerState extends State<ScopePicker>
                                     lesson.id,
                                     lesson.title,
                                     {lesson.id},
+                                    enabled: topic.hasQuestions,
                                     unread: lesson.unread,
                                     lesson: true,
                                   ),

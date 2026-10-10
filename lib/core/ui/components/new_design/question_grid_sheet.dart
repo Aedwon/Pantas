@@ -54,6 +54,19 @@ class QuestionGridSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
+    Color numberColor(GridQuestion question) {
+      if (question.current && question.state == GridQuestionState.unreached) {
+        return c.label;
+      }
+      return switch (question.state) {
+        GridQuestionState.right =>
+          Theme.of(context).brightness == Brightness.dark ? c.label : c.accent,
+        GridQuestionState.wrong => c.wrongText,
+        GridQuestionState.unreached => c.secondaryLabel,
+        GridQuestionState.answered => c.label,
+      };
+    }
+
     return PantasSheet(
       page: page,
       open: open,
@@ -174,32 +187,21 @@ class QuestionGridSheet extends StatelessWidget {
                                         clipBehavior: Clip.none,
                                         alignment: Alignment.center,
                                         children: [
-                                          Text(
-                                            '${question.number}',
-                                            style: context.type.body.copyWith(
-                                              fontWeight: question.current
-                                                  ? FontWeight.w800
-                                                  : question.state ==
-                                                          GridQuestionState
-                                                              .unreached
-                                                      ? FontWeight.w400
-                                                      : FontWeight.w600,
-                                              color: question.state ==
-                                                      GridQuestionState.right
-                                                  ? (Theme.of(context)
-                                                              .brightness ==
-                                                          Brightness.dark
-                                                      ? c.label
-                                                      : c.accent)
-                                                  : question.state ==
-                                                          GridQuestionState
-                                                              .wrong
-                                                      ? c.wrongText
-                                                      : question.state ==
-                                                              GridQuestionState
-                                                                  .unreached
-                                                          ? c.secondaryLabel
-                                                          : c.label,
+                                          FittedBox(
+                                            fit: BoxFit.scaleDown,
+                                            child: Text(
+                                              '${question.number}',
+                                              maxLines: 1,
+                                              style: context.type.body.copyWith(
+                                                fontWeight: question.current
+                                                    ? FontWeight.w800
+                                                    : question.state ==
+                                                            GridQuestionState
+                                                                .unreached
+                                                        ? FontWeight.w400
+                                                        : FontWeight.w600,
+                                                color: numberColor(question),
+                                              ),
                                             ),
                                           ),
                                           if (question.flagged)

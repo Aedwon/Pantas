@@ -44,49 +44,63 @@ class CenteredDialog extends StatelessWidget {
     return CallbackShortcuts(
       bindings: {const SingleActivator(LogicalKeyboardKey.escape): onCancel},
       child: Dialog(
-        backgroundColor: c.surface,
+        backgroundColor: Colors.transparent,
         elevation: 0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         insetPadding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(20, 22, 20, 18),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                title,
-                style: context.type.emphasized.copyWith(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: -.24,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                message,
-                style: context.type.subhead
-                    .copyWith(color: c.secondaryLabel, height: 1.45),
-              ),
-              const SizedBox(height: 16),
-              ButtonPair(
-                stacked: !destructive,
-                primary: destructive
-                    ? pill(primaryLabel, onConfirm, red: true)
-                    : PantasButton(
-                        label: primaryLabel,
-                        onPressed: onConfirm,
-                      ),
-                secondary: destructive
-                    ? pill(secondaryLabel, onCancel, red: false)
-                    : PantasButton(
-                        label: secondaryLabel,
-                        onPressed: onCancel,
-                        variant: PantasButtonVariant.tertiary,
-                        height: 44,
-                      ),
+        child: DecoratedBox(
+          key: const ValueKey('centered-dialog-surface'),
+          decoration: BoxDecoration(
+            color: c.surface,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: .2),
+                blurRadius: 40,
+                offset: const Offset(0, 10),
               ),
             ],
+          ),
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.fromLTRB(20, 22, 20, 18),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  title,
+                  style: context.type.emphasized.copyWith(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: -.24,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  message,
+                  style: context.type.subhead
+                      .copyWith(color: c.secondaryLabel, height: 1.45),
+                ),
+                const SizedBox(height: 16),
+                ButtonPair(
+                  stacked: !destructive,
+                  primary: destructive
+                      ? pill(primaryLabel, onConfirm, red: true)
+                      : PantasButton(
+                          label: primaryLabel,
+                          onPressed: onConfirm,
+                        ),
+                  secondary: destructive
+                      ? pill(secondaryLabel, onCancel, red: false)
+                      : PantasButton(
+                          label: secondaryLabel,
+                          onPressed: onCancel,
+                          variant: PantasButtonVariant.tertiary,
+                          height: 44,
+                        ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
