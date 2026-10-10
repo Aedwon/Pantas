@@ -1802,3 +1802,30 @@ Deviations from the approved spec that need Aedwon's decision:
 Also recorded: an automated commit review flagged that a website could address
 the page server through its own domain name; the server now checks the Host on
 every request and the Origin on controls.
+
+### October 10, 2026: page wording, local results, and a reviewer agent approved
+
+Four decisions were asked: (1) three page texts the mockup lacks ("This lesson
+needs you." with its two buttons, "The next lesson is starting.", and "Check
+lesson N of 10, Subject"); (2) reporting B04 and B05 as not assessed; (3) keeping
+results on his Mac until the run ends; (4) using one reviewer agent. Exact human
+answer:
+
+> 1. ok
+> 2. what are those two source ledger rules?
+> 3. ok
+> 4. ok, but currently I'm out of codex usage so.
+
+Approved: the three page texts, local results until the run ends, and one
+reviewer agent. He is out of Codex usage, so the reviewer is a Claude agent,
+which uses his Claude usage; he was told so.
+
+Decision 2 is open. Correction recorded: the lead's claim that no ledger for
+lesson facts exists was wrong. `docs/content/audit/lesson-content-qa-r1.md` is a
+lesson ledger covering 158 of 158 lessons, with 38 source links, a base commit
+(`3a1ac087fd88bce1e1903d5c7996371054b36094`), a branch, and a source-review
+date of August 25, 2026. It records one disposition per lesson and one shared
+bibliography, not one row per checked fact. New recommendation put to him: check
+B04 by script (each lesson has an entry; flag lessons changed since the
+ledger's base commit), and report B05 as not confirmable because no record ties
+a fact to its source.
