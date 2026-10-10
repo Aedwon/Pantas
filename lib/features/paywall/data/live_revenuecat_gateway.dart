@@ -153,7 +153,9 @@ class LiveRevenueCatGateway implements RevenueCatAccountGateway {
     DateTime Function()? referenceTime,
     PendingPurchaseStore? pendingStore,
     TrustedClock? trustedClock,
-  })  : _sdk = sdk ?? PurchasesRevenueCatSdk(),
+    Future<void> Function(String? uid)? refreshClaims,
+  })  : _refreshClaims = refreshClaims,
+        _sdk = sdk ?? PurchasesRevenueCatSdk(),
         _entitlementState = entitlementState ??
             PaymentEntitlementState(EntitlementSnapshotStore.inMemory()),
         _referenceTime = referenceTime ?? _systemReferenceTime,
@@ -162,6 +164,7 @@ class LiveRevenueCatGateway implements RevenueCatAccountGateway {
             trustedClock ?? _memoryClock(referenceTime ?? _systemReferenceTime);
 
   final RevenueCatSdk _sdk;
+  final Future<void> Function(String? uid)? _refreshClaims;
   final PaymentEntitlementState _entitlementState;
   final DateTime Function() _referenceTime;
   final PendingPurchaseStore _pendingStore;
@@ -437,6 +440,10 @@ class LiveRevenueCatGateway implements RevenueCatAccountGateway {
       return const PaymentOperationResult.failure(
         status: PaymentOperationStatus.unknownFailure,
       );
+    } finally {
+      try {
+        await _refreshClaims?.call(uid);
+      } catch (_) {/* Sync will retry. */}
     }
   }
 
@@ -447,6 +454,7 @@ class LiveRevenueCatGateway implements RevenueCatAccountGateway {
         status: PaymentOperationStatus.operationAlreadyInProgress,
       );
     }
+    final uid = _uid;
     final epoch = _identityEpoch;
     try {
       await _prepareFreshRead();
@@ -496,6 +504,10 @@ class LiveRevenueCatGateway implements RevenueCatAccountGateway {
       return const PaymentOperationResult.failure(
         status: PaymentOperationStatus.unknownFailure,
       );
+    } finally {
+      try {
+        await _refreshClaims?.call(uid);
+      } catch (_) {/* Sync will retry. */}
     }
   }
 }

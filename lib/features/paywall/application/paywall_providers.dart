@@ -10,6 +10,7 @@ import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/dev/dev_pro_switch.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/sync/eligibility/sync_claim_gateway.dart';
 import 'package:pantas/features/paywall/application/paywall_controller.dart';
 import 'package:pantas/features/paywall/application/trusted_clock.dart';
 import 'package:pantas/features/paywall/data/entitlement_snapshot_store.dart';
@@ -88,6 +89,7 @@ final revenueCatGatewayProvider = Provider<RevenueCatGateway>((ref) {
     entitlementState: entitlementState,
     pendingStore: ref.watch(pendingPurchaseStoreProvider),
     trustedClock: clock,
+    refreshClaims: refreshPaymentClaimToken,
   );
 });
 

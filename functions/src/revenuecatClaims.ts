@@ -1,40 +1,76 @@
-import { getAuth } from 'firebase-admin/auth';
-import { getFirestore } from 'firebase-admin/firestore';
-import {
-  executeRevenueCatClaimTransition,
-  isUnresolvedFirebaseIdentityError,
-  type RevenueCatClaimEvent,
-} from './revenuecatPolicy.js';
+// Firestore owns the decision; Auth is repaired after commit, never inside it.
+import { FieldPath, FieldValue, type Firestore } from 'firebase-admin/firestore';
+import type { Auth } from 'firebase-admin/auth';
 
-export type { RevenueCatClaimEvent } from './revenuecatPolicy.js';
+type ClaimAuth = Pick<Auth, 'getUser' | 'setCustomUserClaims'>;
 
-export async function applyRevenueCatClaimTransition(
-  input: RevenueCatClaimEvent,
-): Promise<boolean> {
-  const auth = getAuth();
-
-  return executeRevenueCatClaimTransition(input, {
-    getCustomClaims: async (uid) => {
-      try {
-        const user = await auth.getUser(uid);
-        return user.customClaims ?? {};
-      } catch (error) {
-        if (input.unresolvedUserIsNoop === true &&
-          isUnresolvedFirebaseIdentityError(error)) {
-          return null;
-        }
-        throw error;
-      }
-    },
-    setCustomClaims: async (uid, claims) => {
-      await auth.setCustomUserClaims(uid, claims);
-    },
-    markTransferLoser: async (uid, eventId) => {
-      await getFirestore().collection('transferLoser').doc(uid).set({
-        uid,
-        eventId,
-        createdAt: new Date().toISOString(),
-      });
-    },
+export async function commitRevenueCatAnswer(db: Firestore, uid: string, eventId: string,
+  answerAt: number, claims: {pro: boolean; proUntil: number}, facts: object): Promise<boolean> {
+  const record = db.doc(`users/${uid}/server/entitlement`);
+  const event = db.doc(`webhookEvents/${eventId}/users/${uid}`);
+  return db.runTransaction(async transaction => {
+    const [previous, dedupe] = await transaction.getAll(record, event);
+    if (dedupe.exists) return false;
+    transaction.set(event, {answerAt, facts});
+    if (previous.exists && previous.get('answerAt') > answerAt) return false;
+    transaction.set(record, {...claims, answerAt, facts,
+      version: Number(previous.get('version') ?? 0) + 1,
+      claimsVersion: Number(previous.get('claimsVersion') ?? 0)});
+    return true;
   });
+}
+
+export async function copyEntitlementClaims(db: Firestore, auth: ClaimAuth, uid: string): Promise<void> {
+  const record = db.doc(`users/${uid}/server/entitlement`);
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const snapshot = await record.get();
+    if (!snapshot.exists || snapshot.get('claimsVersion') === snapshot.get('version')) return;
+    const version = snapshot.get('version') as number;
+    try {
+      const user = await auth.getUser(uid);
+      await auth.setCustomUserClaims(uid, {...user.customClaims,
+        pro: snapshot.get('pro') === true, proUntil: Number(snapshot.get('proUntil'))});
+    } catch (error) {
+      await db.runTransaction(async transaction => {
+        const latest = await transaction.get(record);
+        if (latest.exists) transaction.update(record, {claimsVersion: 0});
+      });
+      throw error;
+    }
+    const applied = await db.runTransaction(async transaction => {
+      const latest = await transaction.get(record);
+      if (!latest.exists) return true;
+      if (latest.get('version') !== version) {
+        // An older in-flight copy can overwrite a newer acknowledged copy.
+        // Leave a mismatch for retry/hourly repair even if that newer copy ran.
+        transaction.update(record, {claimsVersion: 0});
+        return false;
+      }
+      transaction.update(record, {claimsVersion: version});
+      transaction.set(db.doc(`users/${uid}`), {
+        claimsVersion: version, claimsChangedAt: FieldValue.serverTimestamp(),
+      }, {merge:true});
+      return true;
+    });
+    if (applied) return;
+  }
+  throw new Error('Entitlement changed during claim copy; retry required');
+}
+
+export async function repairClaims(db: Firestore, auth: ClaimAuth): Promise<void> {
+  let last;
+  while (true) {
+    let query = db.collectionGroup('server').orderBy(FieldPath.documentId()).limit(500);
+    if (last) query = query.startAfter(last);
+    const page = await query.get();
+    for (const doc of page.docs) {
+      if (doc.id !== 'entitlement' || doc.get('claimsVersion') === doc.get('version')) continue;
+      const user = doc.ref.parent.parent;
+      if (user?.parent.id !== 'users') continue;
+      try { await copyEntitlementClaims(db, auth, user.id); }
+      catch (error) { console.error('Entitlement claim repair failed', {uid:user.id, error}); }
+    }
+    if (page.size < 500) return;
+    last = page.docs.at(-1);
+  }
 }

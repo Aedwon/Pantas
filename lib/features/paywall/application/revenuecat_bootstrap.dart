@@ -1,8 +1,11 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/sync/eligibility/sync_claim_gateway.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/data/revenuecat_config.dart';
 import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
@@ -61,10 +64,13 @@ class RevenueCatAuthBinding {
   RevenueCatAuthBinding(
     this._bootstrapper, {
     String? Function()? currentFirebaseUid,
-  }) : _currentFirebaseUid = currentFirebaseUid;
+    ClaimsChangeBinding? claimsBinding,
+  })  : _currentFirebaseUid = currentFirebaseUid,
+        _claimsBinding = claimsBinding;
 
   final RevenueCatBootstrapper _bootstrapper;
   final String? Function()? _currentFirebaseUid;
+  final ClaimsChangeBinding? _claimsBinding;
   StreamSubscription<AuthState>? _subscription;
   Future<void> _pending = Future<void>.value();
   AuthState? _latestState;
@@ -86,6 +92,7 @@ class RevenueCatAuthBinding {
     await _subscription?.cancel();
     _subscription = null;
     await _pending;
+    await _claimsBinding?.dispose();
   }
 
   Future<void> _enqueue(AuthState state) {
@@ -119,6 +126,7 @@ class RevenueCatAuthBinding {
           _associatedState is AnonymousAuthState &&
           state is SignedInAuthState,
     );
+    await _claimsBinding?.associate(state is SignedInAuthState ? uid : null);
     if (_latestState != null && _uidFor(state) == _uidFor(_latestState!)) {
       _associatedState = state;
     }
@@ -142,6 +150,13 @@ final revenueCatAuthBindingProvider = Provider<RevenueCatAuthBinding>((ref) {
     ref.watch(revenueCatBootstrapperProvider),
     currentFirebaseUid: () =>
         ref.read(authRepositoryProvider).currentSession?.uid,
+    claimsBinding: ClaimsChangeBinding(
+      watchChanges: (uid) => FirebaseFirestore.instance
+          .doc('users/$uid')
+          .snapshots()
+          .map((doc) => doc.data()?['claimsChangedAt']),
+      refresh: refreshPaymentClaimToken,
+    ),
   );
   ref.onDispose(() {
     unawaited(binding.dispose());

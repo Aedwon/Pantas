@@ -1,4 +1,6 @@
 import { createHmac, timingSafeEqual } from 'node:crypto';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 
 const HMAC_SHA256_HEX = /^[0-9a-f]{64}$/i;
 const UNIX_TIMESTAMP = /^\d+$/;
@@ -16,26 +18,6 @@ export function isUnresolvedFirebaseIdentityError(error: unknown): boolean {
   return code === 'auth/user-not-found' || code === 'auth/invalid-uid';
 }
 
-const GRANT_PRO_EVENTS = new Set([
-  'INITIAL_PURCHASE',
-  'RENEWAL',
-  'TRANSFER_INCOMING',
-]);
-const REVOKE_PRO_EVENTS = new Set(['EXPIRATION', 'TRANSFER_OUTGOING']);
-
-export interface RevenueCatClaimEvent {
-  eventId: string;
-  eventType: string;
-  uid: string;
-  unresolvedUserIsNoop?: boolean;
-}
-
-export interface RevenueCatClaimDependencies {
-  getCustomClaims(uid: string): Promise<Record<string, unknown> | null>;
-  setCustomClaims(uid: string, claims: Record<string, unknown>): Promise<void>;
-  markTransferLoser(uid: string, eventId: string): Promise<void>;
-}
-
 export interface NormalizedRevenueCatEvent {
   eventId: string;
   eventType: string;
@@ -48,6 +30,7 @@ export function verifyRevenueCatSignature(
   rawBody: Buffer,
   signatureHeader: string,
   secret: string,
+  now = Date.now(),
 ): boolean {
   if (!signatureHeader || !secret) return false;
 
@@ -75,6 +58,8 @@ export function verifyRevenueCatSignature(
   }
 
   if (timestamp == null || signatures.length === 0) return false;
+  const signedAt = Number(timestamp) * 1000;
+  if (!Number.isSafeInteger(signedAt) || Math.abs(now - signedAt) > 300_000) return false;
 
   const expected = createHmac('sha256', secret)
     .update(Buffer.from(`${timestamp}.`))
@@ -85,42 +70,6 @@ export function verifyRevenueCatSignature(
     const actual = Buffer.from(signature, 'hex');
     return actual.length === expected.length && timingSafeEqual(expected, actual);
   });
-}
-
-export function proTransitionForEvent(eventType: string): boolean | null {
-  if (GRANT_PRO_EVENTS.has(eventType)) return true;
-  if (REVOKE_PRO_EVENTS.has(eventType)) return false;
-  return null;
-}
-
-export function mergeProClaim(
-  existingClaims: Record<string, unknown>,
-  pro: boolean,
-): Record<string, unknown> {
-  return { ...existingClaims, pro };
-}
-
-export async function executeRevenueCatClaimTransition(
-  input: RevenueCatClaimEvent,
-  dependencies: RevenueCatClaimDependencies,
-): Promise<boolean> {
-  const pro = proTransitionForEvent(input.eventType);
-  if (pro == null) return false;
-
-  const existingClaims = await dependencies.getCustomClaims(input.uid);
-  if (existingClaims == null) {
-    if (input.unresolvedUserIsNoop === true) return false;
-    throw new Error(`Firebase user not found for RevenueCat uid: ${input.uid}`);
-  }
-
-  await dependencies.setCustomClaims(
-    input.uid,
-    mergeProClaim(existingClaims, pro),
-  );
-  if (input.eventType === 'TRANSFER_OUTGOING') {
-    await dependencies.markTransferLoser(input.uid, input.eventId);
-  }
-  return true;
 }
 
 export function normalizeRevenueCatEvent(
@@ -160,30 +109,6 @@ export function normalizeRevenueCatEvent(
   return { eventId, eventType, uid };
 }
 
-export function firebaseTransferTransitions(
-  event: NormalizedRevenueCatEvent,
-): RevenueCatClaimEvent[] {
-  if (event.eventType !== 'TRANSFER') return [];
-
-  const outgoing = (event.transferredFrom ?? [])
-    .filter((uid) => !isRevenueCatAnonymousId(uid))
-    .map((uid) => ({
-      eventId: event.eventId,
-      eventType: 'TRANSFER_OUTGOING',
-      uid,
-      unresolvedUserIsNoop: true as const,
-    }));
-  const incoming = (event.transferredTo ?? [])
-    .filter((uid) => !isRevenueCatAnonymousId(uid))
-    .map((uid) => ({
-      eventId: event.eventId,
-      eventType: 'TRANSFER_INCOMING',
-      uid,
-      unresolvedUserIsNoop: true as const,
-    }));
-  return [...outgoing, ...incoming];
-}
-
 export function isRevenueCatAnonymousId(uid: string): boolean {
   return uid.startsWith(REVENUECAT_ANONYMOUS_PREFIX);
 }
@@ -206,4 +131,37 @@ function uniqueStringArray(value: unknown): string[] | null {
     result.push(normalized);
   }
   return result;
+}
+
+export interface RevenueCatAccessSource {
+  productId: string | null;
+  entitlementIds: string[];
+  appId: string | null;
+  environment: string;
+  store?: string;
+  endsAt: number;
+  active: boolean;
+}
+
+const products = JSON.parse(readFileSync(join(__dirname, 'products.json'), 'utf8')) as
+  {id: string; kind: string; tier: string}[];
+
+export function claimsForRevenueCatAnswer(sources: RevenueCatAccessSource[], options: {
+  appId: string; firebaseProjectId: string; sandboxTester: boolean; at: number;
+}): {pro: boolean; proUntil: number} {
+  let latest = 0;
+  for (const source of sources) {
+    if (!source.active || !Number.isFinite(source.endsAt) || source.endsAt <= options.at) continue;
+    if (source.environment !== 'production' && !(source.environment === 'sandbox' &&
+        (options.firebaseProjectId === 'pantas-staging' || options.sandboxTester))) continue;
+    if (source.store === 'promotional') {
+      if (source.entitlementIds.some(id => products.some(p => p.id === id && p.kind === 'promotional'))) {
+        latest = Math.max(latest, source.endsAt);
+      }
+    } else if (source.appId === options.appId && source.entitlementIds.includes('pro') &&
+        products.some(p => p.id === source.productId?.split(':')[0] && p.kind === 'subscription')) {
+      latest = Math.max(latest, source.endsAt);
+    }
+  }
+  return {pro: latest > 0, proUntil: latest > 0 ? latest + 86_400_000 : 0};
 }
