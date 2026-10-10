@@ -726,3 +726,15 @@ awaiting his approval. Decision record with his exact words: October 10 entry in
 from main `168e393dc997de4531f4fdd5b683c66025e75d0e`. Nothing is built; no Level 4
 task has started. The Codex orchestrator must not start Level 4, and the first
 line of this file must not become `STATE: RUNNING`. Level 5 remains unauthorized.
+
+## October 10, 2026: Level 4 web chat build, partial
+
+Spec revision 2 and plan are approved and saved
+(`docs/superpowers/specs/2026-10-10-level-4-web-chat-audit-design.md`,
+`docs/superpowers/plans/2026-10-10-level-4-web-chat-audit.md`). Plan tasks 1 to
+6 are implemented and their 99 unit tests pass; they are not yet independently
+reviewed. Tasks 7 to 13 are not started. No Level 4 reading has started and no
+chat has been dispatched. Blocked on Aedwon: the dispatcher accepts only the
+model name GPT-5.6 Sol (details in the October 10 decision log entry). Packets
+are built locally and intentionally uncommitted. First line unchanged; it must
+not become `STATE: RUNNING`.

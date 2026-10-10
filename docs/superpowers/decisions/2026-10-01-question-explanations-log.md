@@ -1660,3 +1660,39 @@ the green and all"; he was told it in the reply so he can correct it.
 What changed: the spec's pacing paragraph, hold list bullet, and decisions list;
 the plan's queue task and constraints. The page needs one state the approved
 mockup lacks ("this lesson needs you"); its wording goes to him before it ships.
+
+### October 10, 2026: build checkpoint and a dispatcher model blocker
+
+Lead checkpoint, not a new Aedwon decision.
+
+Built and tested on the audit branch through `62f0b539` and later commits (99
+unit tests pass): the rule table, shared library, answer form check, mechanical
+rule checker with its results for all 158 lessons, comparison and ruling merge,
+packet builder, and the hand-in command. Not built: dispatcher wrapper, queue,
+page, eraser, planted lessons, reports. 158 real packets are built locally and
+deliberately not committed until the planted packets exist, so commit history
+cannot show which packets are planted.
+
+Three things found while building:
+
+1. No lesson in the corpus is taught in Filipino prose. Some carry Filipino
+   examples and bilingual titles. Packets therefore allow L08 to L12 to be
+   `not_applicable`, and the pilot's "Filipino" slot will use a lesson with
+   Filipino content.
+2. Some script rules cannot be settled by text alone (a bare number in prose,
+   "marks", "cards", "stability", capitals, an unlisted section title). The
+   script records these as candidates, and the lesson's packet asks the chats to
+   rule on them with an ordinary verdict. Definite script findings stay
+   script-only.
+3. Blocker for the automatic run. The dispatcher on the relay's `main`
+   (`dispatcher/chatgpt_web.py`, last changed September 7) accepts only the
+   model name `GPT-5.6 Sol`. With ChatGPT's current reasoning picker it never
+   reads a model name from the page; it checks that the picker shows the
+   requested effort and treats the picker as GPT-5.6 Sol. Asking for "GPT 6 Sol"
+   fails with a configuration error. Its last live proof was September 1 to 9, so
+   whether its controls still match ChatGPT's interface is also unverified.
+   Options put to Aedwon: update the dispatcher's model name through the relay's
+   own change process; register with the old name while recording the true
+   model in the audit records; or return to hand-pasted prompts (spec revision
+   1, mockup version 2). Queue and page work is paused until he chooses, since
+   the third option would discard it.
