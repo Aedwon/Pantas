@@ -1,7 +1,8 @@
 # Level 4 lesson standards audit through ChatGPT web chats
 
 Date: October 10, 2026
-Status: Draft for Aedwon's approval. Nothing is built and Level 4 has not started.
+Status: Draft for Aedwon's approval, amended October 10 for the local page's
+ease of use. Nothing is built and Level 4 has not started.
 Parent spec: `2026-10-03-exam-content-coverage-audit-design.md` (Level 4, "Lesson
 standards", and "Illustration review"). This spec changes how Level 4 is run. It
 does not change what Level 4 must answer.
@@ -30,13 +31,55 @@ not part of this spec.
 4. The chat hands the form in through the relay. A script on your Mac checks it
    and replies. If the form is rejected, the chat fixes it in the same chat.
 5. You start a second new chat for the same lesson. It reads the same packet and
-   fills the same form without seeing the first result.
+   fills the same form without seeing the first result. You may start it while
+   the first chat is still running, since neither chat sees the other. The two
+   reads are named Read A and Read B.
 6. A script compares the two results rule by rule. Where both agree, the verdict
    stands. Where they disagree, the page gives you a third prompt. That chat sees
    both positions without knowing which chat wrote which, and rules with a quote.
 7. The page marks the lesson finished. You move to the next lesson.
 
 One chat handles one lesson and one role. No chat is reused.
+
+### The local page
+
+Mockup, version 1: `docs/content/audit/coverage-r1/level4/mockups/level4-page-v1.html`.
+Open it in a browser. The violet bar at the top only drives the mockup; use it
+to step through each state. The built page must match this mockup 1:1 in layout,
+text, controls, colors, and behavior. Any needed difference comes back to you
+first.
+
+The page is built around your part of the work:
+
+- **One large copy button per step.** It copies the whole prompt. A message
+  confirms the copy. The button stays available to copy again.
+- **Keyboard shortcuts.** A and B copy the two read prompts, R copies the ruling
+  prompt, N moves to the next lesson.
+- **Open new chat button** beside each prompt.
+- **Nothing to type in the normal flow.** The page updates by itself when a chat
+  hands in, and can notify you so you can do other work while a chat runs.
+- **Optional chat link.** One button pastes the chat's link from your clipboard,
+  for the record. You can skip it.
+- **Step tracker** for the current lesson: Read A, Read B, Compare, Ruling,
+  Finished.
+- **Clear status per read:** not started, waiting, rejected with the reasons,
+  or accepted with the time taken.
+- **Result at a glance** when the lesson finishes: counts of blocker, major, and
+  minor findings and illustrations needed, with a button to open the findings.
+- **Map of all lessons** by subject, colored by state. Click a square to open
+  that lesson.
+- **Session numbers** measured from your own chats: chats done, average time per
+  chat, rejected forms, lessons that needed a ruling.
+- **Fallback when the relay is down:** paste the chat's form into a box and the
+  page checks and saves it.
+- **Buttons for exceptions:** start over in a fresh chat, hold this lesson, skip
+  for now, open the hold list.
+- **Banners** when no runner is online or when the run has stopped.
+- **Model reminder** in the header.
+
+What the mockup does not show: the real prompt wording (it shows the shape), the
+real findings view, the hold list view, and the pilot report. These are plain
+lists and text and add no new controls to the main page.
 
 ### The guardrails
 
@@ -111,9 +154,8 @@ check.
 ### Decisions I need from you
 
 1. Approve this section.
-2. The local page is a simple internal tool. It reuses the copy-and-paste pattern
-   of the question and illustration studios. I recommend no mockup before
-   building. Say so if you want to see one first.
+2. Approve the page mockup, version 1, or name the changes you want. A changed
+   mockup gets a new version number and file.
 3. Confirm the model you will select in ChatGPT web. You wrote "6 Sol". Levels 1
    to 3 used 6.1 Sol at high effort in Codex. The page will remind you which
    model to select, since a chat cannot reliably report its own.
@@ -206,8 +248,14 @@ unless stated.
   final acceptance uses the counting check and a fresh run of the validators over
   all saved results.
 - Order: topic by topic, prerequisite lessons first where Level 3 found a link.
-- One lesson and one worktree at a time. The relay lock already serializes
-  requests for one worktree.
+- One lesson at a time. Read A and Read B of that lesson may run at the same
+  time. The relay lock serializes their hand-ins for the one worktree.
+- The manual paste fallback runs the same hand-in validation and the same
+  unexpected-change check as the relay route. It records that the form arrived
+  by hand.
+- The page implements the approved mockup file's markup and styles directly, so
+  the built page and the mockup cannot drift. The mockup's violet control bar
+  and its fixed sample data are removed; live local state replaces them.
 
 ### Stop conditions
 

@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Level 4 audit page, mockup v1</title>
+<style>
+  :root {
+    --bg: #14161a; --card: #1d2026; --card2: #252932; --line: #333844;
+    --text: #e8e9ec; --dim: #9aa1ad; --blue: #6aa5ff; --green: #4cc38a;
+    --amber: #e5b454; --red: #ef6b6b; --gray: #4a505c; --violet: #b08cff;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  button { font: inherit; color: inherit; cursor: pointer; border-radius: 8px;
+    border: 1px solid var(--line); background: var(--card2); padding: 7px 12px; }
+  button:hover:not(:disabled) { border-color: var(--blue); }
+  button:disabled { opacity: .4; cursor: default; }
+  button.primary { background: var(--blue); border-color: var(--blue); color: #0b1220;
+    font-weight: 650; padding: 12px 16px; font-size: 16px; width: 100%; }
+  button.primary.done { background: var(--card2); color: var(--text); border-color: var(--line); }
+  button.quiet { background: none; border-color: transparent; color: var(--dim); padding: 4px 6px; }
+  button.quiet:hover { color: var(--text); }
+  kbd { font: 12px ui-monospace, monospace; border: 1px solid var(--line);
+    border-radius: 4px; padding: 0 5px; color: var(--dim); background: var(--bg); }
+  .demo { background: #2a2233; border-bottom: 1px dashed var(--violet); padding: 8px 16px;
+    display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 13px; }
+  .demo b { color: var(--violet); margin-right: 6px; }
+  .demo button { padding: 3px 9px; font-size: 13px; }
+  header { display: flex; flex-wrap: wrap; gap: 14px; align-items: center;
+    padding: 12px 16px; border-bottom: 1px solid var(--line); }
+  header h1 { font-size: 17px; margin: 0; }
+  .chip { display: inline-flex; gap: 6px; align-items: center; border: 1px solid var(--line);
+    border-radius: 999px; padding: 3px 10px; font-size: 13px; color: var(--dim); }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); }
+  .dot.off { background: var(--red); }
+  .bar { flex: 1; min-width: 180px; }
+  .bar .track { height: 8px; background: var(--card2); border-radius: 4px; overflow: hidden; }
+  .bar .fill { height: 100%; background: var(--green); width: 7%; }
+  .bar small { color: var(--dim); }
+  .banner { display: none; margin: 12px 16px 0; padding: 10px 14px; border-radius: 8px;
+    background: #3a1f22; border: 1px solid var(--red); }
+  .banner.on { display: block; }
+  main { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr);
+    gap: 16px; padding: 16px; }
+  @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  .card h2 { margin: 0; font-size: 20px; }
+  .sub { color: var(--dim); font-size: 13px; }
+  .steps { display: flex; gap: 0; margin: 14px 0 16px; }
+  .step { flex: 1; text-align: center; font-size: 13px; color: var(--dim); position: relative; padding-top: 22px; }
+  .step::before { content: ""; position: absolute; top: 5px; left: 50%; width: 12px; height: 12px;
+    margin-left: -6px; border-radius: 50%; background: var(--gray); z-index: 1; }
+  .step::after { content: ""; position: absolute; top: 10px; left: -50%; width: 100%; height: 2px; background: var(--gray); }
+  .step:first-child::after { display: none; }
+  .step.active { color: var(--text); } .step.active::before { background: var(--blue); box-shadow: 0 0 0 4px #6aa5ff33; }
+  .step.ok { color: var(--text); } .step.ok::before, .step.ok::after { background: var(--green); }
+  .step.warn::before { background: var(--amber); }
+  .step.skip { opacity: .35; }
+  .reads { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 640px) { .reads { grid-template-columns: 1fr; } }
+  .read { background: var(--card2); border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+  .read h3 { margin: 0 0 8px; font-size: 15px; display: flex; justify-content: space-between; align-items: center; }
+  .pill { font-size: 12px; font-weight: 600; border-radius: 999px; padding: 2px 9px; background: var(--gray); color: #fff; }
+  .pill.wait { background: var(--blue); color: #0b1220; } .pill.ok { background: var(--green); color: #0b1220; }
+  .pill.warn { background: var(--amber); color: #0b1220; } .pill.bad { background: var(--red); color: #0b1220; }
+  .status { min-height: 44px; margin: 10px 0 6px; font-size: 14px; }
+  .status ul { margin: 4px 0 0 18px; padding: 0; color: var(--dim); }
+  .row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+  .row input { flex: 1; min-width: 80px; background: var(--bg); border: 1px solid var(--line);
+    border-radius: 6px; color: var(--text); padding: 6px 8px; font: inherit; font-size: 13px; }
+  details { margin-top: 8px; font-size: 13px; color: var(--dim); }
+  details summary { cursor: pointer; }
+  textarea { width: 100%; height: 70px; background: var(--bg); color: var(--text);
+    border: 1px solid var(--line); border-radius: 6px; padding: 6px; font: 12px ui-monospace, monospace; }
+  pre { white-space: pre-wrap; background: var(--bg); border: 1px solid var(--line);
+    border-radius: 6px; padding: 8px; font: 12px/1.5 ui-monospace, monospace; color: var(--dim); margin: 6px 0 0; }
+  .compare { margin-top: 12px; background: var(--card2); border: 1px solid var(--line);
+    border-radius: 10px; padding: 12px; }
+  .compare h3 { margin: 0 0 6px; font-size: 15px; }
+  .counts { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0; }
+  .count { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font-size: 13px; }
+  .count b { font-size: 17px; display: block; }
+  .foot { display: flex; justify-content: space-between; margin-top: 12px; }
+  .map h3, .side h3 { margin: 0 0 8px; font-size: 15px; }
+  .subject { margin-bottom: 9px; } .subject small { color: var(--dim); }
+  .cells { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 3px; }
+  .cell { width: 14px; height: 14px; border-radius: 3px; background: var(--gray); cursor: pointer; }
+  .cell.done { background: var(--green); } .cell.now { background: var(--blue); outline: 2px solid #fff; }
+  .cell.disp { background: var(--amber); } .cell.held { background: var(--red); }
+  .legend { display: flex; flex-wrap: wrap; gap: 10px; font-size: 12px; color: var(--dim); margin-top: 8px; }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .toast { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
+    background: var(--green); color: #0b1220; font-weight: 650; padding: 9px 16px;
+    border-radius: 999px; opacity: 0; transition: opacity .2s; pointer-events: none; }
+  .toast.on { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="demo">
+  <b>Mockup controls (not part of the tool)</b>
+  <button onclick="sim('aReject')">Read A rejected once</button>
+  <button onclick="sim('aIn')">Read A handed in</button>
+  <button onclick="sim('bIn')">Read B handed in</button>
+  <button onclick="sim('agree')">Compare: all agree</button>
+  <button onclick="sim('dispute')">Compare: 2 disputed</button>
+  <button onclick="sim('ruled')">Ruling handed in</button>
+  <button onclick="sim('relay')">Relay offline</button>
+  <button onclick="sim('stop')">Stop: unexpected change</button>
+  <button onclick="sim('reset')">Reset</button>
+</div>
+
+<header>
+  <h1>Level 4 audit</h1>
+  <div class="bar">
+    <div class="track"><div class="fill"></div></div>
+    <small>9 of 158 lessons finished · 1 disputed · 1 on hold · 4 of 10 check lessons</small>
+  </div>
+  <span class="chip"><span class="dot" id="relayDot"></span><span id="relayText">Relay: 1 runner online</span></span>
+  <span class="chip">Model to select: <b style="color:var(--text)">6 Sol</b></span>
+  <label class="chip"><input type="checkbox" checked> Notify me on hand-in</label>
+</header>
+
+<div class="banner" id="banner"></div>
+
+<main>
+  <section class="card">
+    <div class="row" style="justify-content:space-between">
+      <div>
+        <h2>Quadratic Equations</h2>
+        <div class="sub">Mathematics · Algebra · packet L4-0417 · lesson 12 of 158</div>
+      </div>
+      <span class="sub">Shortcuts: <kbd>A</kbd> <kbd>B</kbd> copy prompts · <kbd>R</kbd> ruling · <kbd>N</kbd> next</span>
+    </div>
+
+    <div class="steps">
+      <div class="step" id="sA">Read A</div>
+      <div class="step" id="sB">Read B</div>
+      <div class="step" id="sC">Compare</div>
+      <div class="step" id="sR">Ruling</div>
+      <div class="step" id="sF">Finished</div>
+    </div>
+
+    <div class="reads">
+      <div class="read" data-k="a">
+        <h3>Read A <span class="pill" id="aPill">Not started</span></h3>
+        <button class="primary" id="aCopy" onclick="copy('a')">Copy Read A prompt</button>
+        <div class="status" id="aStatus">Copy the prompt, then paste it into a new ChatGPT chat.</div>
+        <div class="row">
+          <button onclick="toast('Opens chatgpt.com in a new tab')">Open new chat ↗</button>
+          <input id="aLink" placeholder="Chat link (optional)">
+          <button onclick="pasteLink('a')">Paste link</button>
+        </div>
+        <details><summary>View prompt</summary><pre id="aPrompt"></pre></details>
+        <details><summary>Relay down? Paste the form by hand</summary>
+          <textarea placeholder="Paste the chat's answer form here"></textarea>
+          <button onclick="toast('Form checked: accepted')">Check and save</button>
+        </details>
+        <div class="row" style="margin-top:6px"><button class="quiet" onclick="toast('New prompt ready for a fresh chat')">Start over in a fresh chat</button></div>
+      </div>
+
+      <div class="read" data-k="b">
+        <h3>Read B <span class="pill" id="bPill">Not started</span></h3>
+        <button class="primary" id="bCopy" onclick="copy('b')">Copy Read B prompt</button>
+        <div class="status" id="bStatus">You can start Read B while Read A is still running. Neither chat sees the other.</div>
+        <div class="row">
+          <button onclick="toast('Opens chatgpt.com in a new tab')">Open new chat ↗</button>
+          <input id="bLink" placeholder="Chat link (optional)">
+          <button onclick="pasteLink('b')">Paste link</button>
+        </div>
+        <details><summary>View prompt</summary><pre id="bPrompt"></pre></details>
+        <details><summary>Relay down? Paste the form by hand</summary>
+          <textarea placeholder="Paste the chat's answer form here"></textarea>
+          <button onclick="toast('Form checked: accepted')">Check and save</button>
+        </details>
+        <div class="row" style="margin-top:6px"><button class="quiet" onclick="toast('New prompt ready for a fresh chat')">Start over in a fresh chat</button></div>
+      </div>
+    </div>
+
+    <div class="compare" id="compare">
+      <h3>Compare</h3>
+      <div id="cmpBody" class="sub">Waiting for both reads.</div>
+    </div>
+
+    <div class="foot">
+      <div class="row">
+        <button onclick="toast('Lesson moved to the hold list')">Hold this lesson</button>
+        <button class="quiet" onclick="toast('Skipped for now')">Skip for now</button>
+      </div>
+      <button id="next" disabled onclick="toast('Next lesson loaded')">Next lesson →</button>
+    </div>
+  </section>
+
+  <aside style="display:grid;gap:16px;align-content:start">
+    <section class="card map">
+      <h3>All lessons</h3>
+      <div id="map"></div>
+      <div class="legend">
+        <span><i style="background:var(--green)"></i>Finished</span>
+        <span><i style="background:var(--blue)"></i>Current</span>
+        <span><i style="background:var(--amber)"></i>Disputed</span>
+        <span><i style="background:var(--red)"></i>On hold</span>
+        <span><i style="background:var(--gray)"></i>Pending</span>
+      </div>
+      <div class="sub" style="margin-top:6px">Click a square to open that lesson.</div>
+    </section>
+
+    <section class="card side">
+      <h3>This session</h3>
+      <div class="stats">
+        <div class="count"><b>9</b>chats done today</div>
+        <div class="count"><b>6 min</b>average per chat</div>
+        <div class="count"><b>3</b>forms rejected, then fixed</div>
+        <div class="count"><b>2</b>lessons needed a ruling</div>
+      </div>
+      <div class="sub" style="margin-top:8px">Times are measured from your own chats.</div>
+      <div class="row" style="margin-top:10px">
+        <button onclick="toast('Opens the hold list')">Hold list (1)</button>
+        <button onclick="toast('Opens the findings so far')">Findings so far</button>
+      </div>
+    </section>
+  </aside>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const $ = id => document.getElementById(id);
+const promptText = k => `Pantas Level 4 lesson audit. One chat, one lesson, one job.
+
+Repository: Aedwon/Pantas
+Packet: docs/content/audit/coverage-r1/level4/packets/L4-0417.md
+Revision: (pinned commit)
+Role: Read ${k.toUpperCase()}
+
+1. Read the packet in full. Read nothing else in the repository.
+2. Fill the answer form in the packet. Give every rule a verdict.
+   Quote the lesson exactly for every finding.
+3. Hand in with the one relay request shown in the packet.
+4. Read the result. If it is rejected, fix only what it names
+   and hand in again. After two rejections, stop and say so.
+5. Do not edit, create, or delete any file. Make no other request.
+
+(Final wording is fixed in the plan. This preview shows the shape.)`;
+$('aPrompt').textContent = promptText('a'); $('bPrompt').textContent = promptText('b');
+
+let st;
+function reset() { st = { a: 'new', b: 'new', cmp: 'wait', relay: true, stop: false }; }
+function toast(t) { const e = $('toast'); e.textContent = t; e.classList.add('on');
+  clearTimeout(toast.t); toast.t = setTimeout(() => e.classList.remove('on'), 1600); }
+function copy(k) {
+  const text = k === 'r' ? 'Ruling prompt for L4-0417 (rules L18, L26)' : promptText(k);
+  (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).catch(() => {});
+  toast('Copied. Paste it into a new ChatGPT chat.');
+  if (k === 'r') { if (st.cmp === 'dispute') st.cmp = 'ruling'; }
+  else if (st[k] === 'new') st[k] = 'wait';
+  render();
+}
+function pasteLink(k) { $(k + 'Link').value = 'https://chatgpt.com/c/example'; toast('Chat link saved'); }
+function sim(e) {
+  if (e === 'reset') reset();
+  if (e === 'aReject') st.a = 'reject';
+  if (e === 'aIn') st.a = 'ok';
+  if (e === 'bIn') st.b = 'ok';
+  if (e === 'agree') { st.a = st.b = 'ok'; st.cmp = 'agree'; }
+  if (e === 'dispute') { st.a = st.b = 'ok'; st.cmp = 'dispute'; }
+  if (e === 'ruled') { st.a = st.b = 'ok'; st.cmp = 'ruled'; }
+  if (e === 'relay') st.relay = !st.relay;
+  if (e === 'stop') st.stop = !st.stop;
+  render();
+}
+const readView = {
+  new:    ['Not started', '', null],
+  wait:   ['Waiting for hand-in', 'wait', 'Prompt copied 2 min ago. The page updates when the chat hands in.'],
+  reject: ['Rejected once', 'warn', 'The check rejected the form. The chat is fixing it.<ul><li>2 quotes were not found in the lesson</li><li>Rule L19 has no verdict</li></ul>'],
+  ok:     ['Accepted', 'ok', 'Accepted at 14:02. The chat took 6 minutes.'],
+};
+function render() {
+  for (const k of ['a', 'b']) {
+    const [label, cls, text] = readView[st[k]];
+    $(k + 'Pill').textContent = label; $(k + 'Pill').className = 'pill ' + cls;
+    if (text) $(k + 'Status').innerHTML = text;
+    else $(k + 'Status').textContent = k === 'a'
+      ? 'Copy the prompt, then paste it into a new ChatGPT chat.'
+      : 'You can start Read B while Read A is still running. Neither chat sees the other.';
+    const btn = $(k + 'Copy');
+    btn.textContent = st[k] === 'new' ? `Copy Read ${k.toUpperCase()} prompt` : `Copy Read ${k.toUpperCase()} prompt again`;
+    btn.className = 'primary' + (st[k] === 'new' ? '' : ' done');
+    const s = $('s' + k.toUpperCase());
+    s.className = 'step ' + (st[k] === 'ok' ? 'ok' : st[k] === 'reject' ? 'warn active' : 'active');
+  }
+  const both = st.a === 'ok' && st.b === 'ok';
+  if (both && st.cmp === 'wait') st.cmp = 'agree';
+  const c = both ? st.cmp : 'wait';
+  const result = `<div class="counts">
+      <div class="count"><b>1</b>blocker</div><div class="count"><b>3</b>major</div>
+      <div class="count"><b>4</b>minor</div><div class="count"><b>2</b>illustrations needed</div>
+    </div><button onclick="toast('Opens the findings for this lesson')">Open findings</button>`;
+  $('cmpBody').className = c === 'wait' ? 'sub' : '';
+  $('cmpBody').innerHTML = {
+    wait: 'Waiting for both reads.',
+    agree: 'Both reads agree on every judged rule.' + result,
+    dispute: `All other rules agree. <b style="color:var(--amber)">2 rules are disputed: L18, L26.</b>
+      A third fresh chat rules on them.<br><br>
+      <button class="primary" onclick="copy('r')">Copy ruling prompt</button>`,
+    ruling: 'Ruling prompt copied. Waiting for the third chat to hand in.',
+    ruled: 'All other rules agreed. The third chat ruled on L18 and L26.' + result,
+  }[c];
+  const fin = c === 'agree' || c === 'ruled';
+  $('sC').className = 'step ' + (c === 'wait' ? '' : c === 'dispute' || c === 'ruling' ? 'warn active' : 'ok');
+  $('sR').className = 'step ' + (c === 'ruled' ? 'ok' : c === 'dispute' || c === 'ruling' ? 'active' : c === 'agree' ? 'skip' : '');
+  $('sF').className = 'step ' + (fin ? 'ok' : '');
+  $('next').disabled = !fin; $('next').className = fin ? 'primary' : '';
+  $('next').style.width = fin ? 'auto' : '';
+  $('relayDot').className = 'dot' + (st.relay ? '' : ' off');
+  $('relayText').textContent = st.relay ? 'Relay: 1 runner online' : 'Relay: no runner online';
+  const b = $('banner'); b.className = 'banner' + (st.stop || !st.relay ? ' on' : '');
+  b.innerHTML = st.stop
+    ? '<b>Stopped.</b> A file changed that no hand-in explains: <code>level4/packets/L4-0388.md</code>. Nothing new will be saved until this is resolved.'
+    : 'No relay runner is online. Chats cannot hand in. Turn a runner on, or paste forms by hand below.';
+}
+document.addEventListener('keydown', e => {
+  if (e.target.matches('input, textarea')) return;
+  const k = e.key.toLowerCase();
+  if (k === 'a' || k === 'b') copy(k);
+  if (k === 'r' && st.cmp === 'dispute') copy('r');
+  if (k === 'n' && !$('next').disabled) toast('Next lesson loaded');
+});
+
+const subjects = [['General Information', 12], ['Language Proficiency', 19], ['Mathematics', 46],
+  ['Reading Comprehension', 13], ['Reasoning', 17], ['Science', 51], ['Check lessons', 10]];
+let n = 0;
+$('map').innerHTML = subjects.map(([name, count]) => {
+  let cells = '';
+  for (let i = 0; i < count; i++, n++) {
+    const cls = name === 'Mathematics' && i === 11 ? 'now' : name === 'Mathematics' && i < 11 ? 'done'
+      : name === 'Mathematics' && i === 12 ? '' : name === 'Check lessons' && i < 4 ? 'done' : '';
+    const special = name === 'Mathematics' && i === 4 ? 'held' : name === 'Mathematics' && i === 8 ? 'disp' : cls;
+    cells += `<span class="cell ${special}" title="${name} ${i + 1}" onclick="toast('Opens ${name} lesson ${i + 1}')"></span>`;
+  }
+  return `<div class="subject"><small>${name} · ${count}</small><div class="cells">${cells}</div></div>`;
+}).join('');
+
+reset(); render();
+</script>
+</body>
+</html>

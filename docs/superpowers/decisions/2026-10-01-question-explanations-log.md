@@ -1500,3 +1500,27 @@ mockup of the local page, and which ChatGPT web model he will select ("6 Sol" as
 written, against 6.1 Sol High used for Levels 1 to 3). The earlier "lesson studio"
 reference could not be matched to a tool in the repository; the question and
 illustration studios exist and their pattern is reused.
+
+### October 10, 2026: local page amended for ease of use, mockup v1 shown
+
+The draft spec recommended building the local page without a mockup and asked
+whether he wanted one. Exact human answer:
+
+> amend, make it easy for me to copy, visualize things, add buttons. optimize for my UX since i'll be manually inputting things here and there
+
+What changed: the spec gained a "The local page" section and mockup version 1 at
+`docs/content/audit/coverage-r1/level4/mockups/level4-page-v1.html`, which the
+built page must match 1:1. Additions: one large copy button per step, keyboard
+shortcuts, an open-new-chat button, automatic updates and optional notification
+on hand-in, a one-button optional chat link, a step tracker, per-read status with
+rejection reasons, a result summary, a clickable map of all lessons, session
+numbers measured from his own chats, a paste-by-hand fallback when the relay is
+down, and buttons for start over, hold, and skip.
+
+One process change came with it and is his to accept or reject: Read A and Read
+B of one lesson may run at the same time, since both are blind. Cost: none to
+blindness; it shortens his waiting. The earlier recommendation of no mockup was
+wrong under the visual companion rule for UI-affecting specs and is withdrawn.
+
+Not yet approved: the spec section, mockup version 1, and the model choice.
+Nothing is built.
