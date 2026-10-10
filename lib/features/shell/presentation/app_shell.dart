@@ -175,13 +175,8 @@ class _NavItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final dark = Theme.of(context).brightness == Brightness.dark;
     // Unselected tabs are enabled controls, not disabled text.
-    final color = isActive
-        ? colors.accent
-        : dark
-            ? colors.secondaryLabel
-            : const Color(0xFF8A8A8E);
+    final color = isActive ? colors.accent : colors.secondaryLabel;
     return Semantics(
       label: label,
       button: true,
