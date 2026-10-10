@@ -123,7 +123,7 @@ nce }` with `PriceTier.fromCatalog(String)` (those four strings; anything else t
 `Future<PriceTier> tierForExam(ExamCatalogRepository catalog, String examId)`. Test: every
 catalog entry maps (reads `content/exams/catalog.json`), and an unknown string throws. Then one product table
 `lib/features/paywall/domain/products.dart` mapping each id (`pantas_pro_weekly`, `_monthly`,
-`_yearly`, `pantas_cs_weekly`, `_monthly`, `_yearly`, `pantas_pass_civil_service`) to tier, period
+`_yearly`, `pantas_cs_weekly`, `_monthly`, `_yearly`, `pantas_pass_cse_pro` and `pantas_pass_cse_sub` (one pass product per exam, amended Oct 10; the earlier single id was `pantas_pass_cse_pro` / `pantas_pass_cse_sub`)) to tier, period
 and kind, and each promotional entitlement (`promo_student`, `promo_civil_service`) to its tier
 (AC-7); the same table is exported to `functions/src/products.json` for the server and included in W6's
 build (test: the built `lib/` contains it); the gateway reads it instead of private constants, so the CS ids are not "unrecognized".
@@ -137,6 +137,11 @@ Checks: `flutter test test/features/paywall` green.
 
 Traceability: X-3, X-4.
 
+0. Decision (Aedwon, Oct 10, option A): one pass product per exam. The product id is the exam
+   binding (`pantas_pass_cse_pro` to `exam_cse_pro`, `pantas_pass_cse_sub` to `exam_cse_sub`); the
+   app offers the pass product of the selected exam and sends no exam metadata. Step 1's metadata
+   mechanism is not used; still confirm the refund signal. Update Task 4's product table
+   (`products.dart`, `products.json`) and its tests to the two ids, each with its `examId`.
 1. Confirm the RevenueCat mechanism that binds the chosen exam id to a non-subscription
    transaction (purchase metadata or an attribute read back with the transaction) and the signal
    for a refunded non-subscription purchase. If either is missing, stop and ask the lead (fallbacks:
@@ -144,7 +149,7 @@ Traceability: X-3, X-4.
 2. Webhook, inside Task 2's transaction: write `users/{uid}/passes/{transactionId}` with `examId`,
    product, sitting, `endsAt` (last day of the first sitting on or after purchase, from
    the catalog copy in the Functions build, from `content/exams/catalog.json`), state `active`. Reject an exam the product does not allow
-   (`pantas_pass_civil_service`: CSE Professional, CSE Subprofessional). No future sitting: write
+   (`pantas_pass_cse_pro` / `pantas_pass_cse_sub`: CSE Professional, CSE Subprofessional). No future sitting: write
    nothing that grants and log an audit entry for Aedwon. Refund or revocation sets `revoked`;
    transfer moves the record; a duplicate delivery is a no-op.
 3. N3-8: a later catalog date reaches passes through a new export, a functions deploy and

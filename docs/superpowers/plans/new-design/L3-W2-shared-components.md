@@ -41,12 +41,12 @@ exempt ones.
    spacing -0.012em.
 6. PantasPage: no board draws a collapsed title, so the large title scrolls away with the content
    and no collapsed title appears. The "large-title collapse" wording is withdrawn.
-7. Waiting for Aedwon (build with the board's values now, each behind one named constant so a
-   later change is one line; list them in `evidence/W2.md`): WeekStrip day-off date and weekday
-   text (`#C7C7CC`, 1.68:1); SearchField placeholder and magnifier (`#8E8E93` on `#EDEDF0`,
-   2.79:1); wrong-answer text on the dark wrong tint (`#D70015` on `#3A1215`, 3.05:1); MathText
-   font (the math package draws its own KaTeX serif fonts and cannot use Source Serif 4; keep
-   KaTeX for now).
+7. Decided by Aedwon, Oct 10, from side-by-side comparisons ("A A C B"): WeekStrip day-off dates
+   as drawn (`#C7C7CC`; inactive days); SearchField placeholder and magnifier as drawn (`#8E8E93`
+   on `#EDEDF0`; he accepts 2.79:1); wrong-answer text on the dark wrong tint `#FF6961` (5.83:1,
+   replacing `#D70015`; add the dark token `wrongText`, light stays `#D70015`); MathText keeps the
+   math package's KaTeX serif fonts (Source Serif 4 for math is withdrawn). Each stays behind one
+   named constant.
 
 ## Task 1. Structure
 

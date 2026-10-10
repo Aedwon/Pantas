@@ -1044,3 +1044,13 @@ values meanwhile: day-off dates, search placeholder, wrong-answer text in dark m
 W3 Task 2 is done (0bef4c44; 56 plain and 66 emulator tests). W3 Task 5 stopped: RevenueCat gives
 no reliable way to attach the chosen exam to a one-time pass purchase. The plan's fallback is one
 pass product per exam, which changes the approved product list, so it goes to Aedwon.
+
+## October 10, 2026: pass products and four design choices
+
+Aedwon, after a detailed explanation and side-by-side comparisons: "1. A" and "2. A A C B".
+1. One Season Pass product per exam (`pantas_pass_cse_pro`, `pantas_pass_cse_sub`); the product id
+   binds the exam, because RevenueCat does not reliably deliver purchase metadata for one-time
+   purchases. Amended: tier spec, L2 and L3 W3 (Tasks 4 and 5), setup steps Parts 2 and 4.
+2. Day-off dates as drawn; search placeholder as drawn (he accepts 2.79:1); wrong-answer text in
+   dark mode `#FF6961`; math keeps the KaTeX serif fonts. Amended: L3 W2 ruling 7. The README's
+   "Source Serif 4 only for math" no longer applies to rendered math.

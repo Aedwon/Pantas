@@ -51,7 +51,7 @@ sell nothing.
    Play Console before the products are created. If a price is not offered, the work stops and you
    pick the nearest price.
 3. **New product names** (permanent once created): `pantas_cs_weekly` (₱49), `pantas_cs_monthly`
-   (₱149 a month, 7-day trial), `pantas_cs_yearly` (₱1,199) and `pantas_pass_civil_service` (₱499,
+   (₱149 a month, 7-day trial), `pantas_cs_yearly` (₱1,199) and `pantas_pass_cse_pro` and `pantas_pass_cse_sub` (one pass product per exam, amended Oct 10; the earlier single id was `pantas_pass_cse_pro` / `pantas_pass_cse_sub`) (₱499,
    bought again for each sitting). The existing Student
    products stay. **Recommended** as named.
 
@@ -92,7 +92,7 @@ the same catalog the app ships; the webhook stores the result.
   can replace any subscription in the app; level 3 confirms the replacement mode for each pair
   against current Play Billing documentation before W3 implements it (gate N-19). RevenueCat entitlement `pro` stays; the tier is derived from the
   product id in one table (W3).
-- Pass: consumable `pantas_pass_civil_service`, RevenueCat non-subscription purchase; the app sends
+- Pass: consumable `pantas_pass_cse_pro` / `pantas_pass_cse_sub`, RevenueCat non-subscription purchase; the app sends
   the exam id as purchase metadata; the server rejects a pass for an exam with no future published
   sitting.
 - Upgrade: `purchase` with a Google Play replacement mode that credits the unused part of the

@@ -39,9 +39,11 @@ App: Pantas (`com.aedwon.pantas`).
 ## Part 2. Google Play Console: the Civil Service Season Pass
 
 1. **Monetize with Play › Products › One-time products** (Play may call them "In-app products").
-2. Select **Create one-time product**.
-   - Product ID: `pantas_pass_civil_service`
-   - Name: `Civil Service Season Pass`
+2. Create two one-time products, one per exam (amended Oct 10: the product tells the server which
+   exam the pass is for). For each, select **Create one-time product**:
+   - Product ID `pantas_pass_cse_pro`, name `CSE Professional Season Pass`
+   - Product ID `pantas_pass_cse_sub`, name `CSE Subprofessional Season Pass`
+   Both use the description and price below.
    - Description: `Pro for your Civil Service exam, until the exam date. One payment; it never renews.`
    - Price: Philippines **₱499**.
    - If Play asks for a purchase option, choose **Buy**, and allow buying it more than once if
@@ -63,15 +65,16 @@ App: Pantas (`com.aedwon.pantas`).
 1. Open the RevenueCat dashboard, project Pantas, then **Product catalog › Products**.
 2. Select **+ New** (or **Import products** from Google Play if offered) and add, for the Pantas
    Google Play app: `pantas_cs_weekly`, `pantas_cs_monthly`, `pantas_cs_yearly`,
-   `pantas_pass_civil_service`. Subscriptions may show with their base plan, for example
+   `pantas_pass_cse_pro`, `pantas_pass_cse_sub`. Subscriptions may show with their base plan, for example
    `pantas_cs_monthly:monthly-autorenewing`. That is expected.
-3. **Product catalog › Entitlements › pro**: select **Attach**, and attach all four new products.
+3. **Product catalog › Entitlements › pro**: select **Attach**, and attach all five new products.
    Do not create a new entitlement; the app reads `pro` and works out the tier from the product.
-4. **Product catalog › Offerings**: open the offering marked **Current**. Add four packages:
+4. **Product catalog › Offerings**: open the offering marked **Current**. Add five packages:
    - Identifier `cs_weekly`, product `pantas_cs_weekly`
    - Identifier `cs_monthly`, product `pantas_cs_monthly`
    - Identifier `cs_yearly`, product `pantas_cs_yearly`
-   - Identifier `cs_pass`, product `pantas_pass_civil_service`
+   - Identifier `cse_pro_pass`, product `pantas_pass_cse_pro`
+   - Identifier `cse_sub_pass`, product `pantas_pass_cse_sub`
    Keep the existing Student packages as they are.
 5. Tell the lead when done. The lead checks the products on a test purchase in level 4.
 
