@@ -11,7 +11,7 @@ class ProgressRing extends StatelessWidget {
     this.child,
     this.showCheck = true,
     super.key,
-  }) : assert(fraction >= 0 && fraction <= 1);
+  }) : assert(fraction >= 0 && fraction <= 1, 'Fraction must be from 0 to 1.');
   final double fraction;
   final double size;
   final Widget? child;

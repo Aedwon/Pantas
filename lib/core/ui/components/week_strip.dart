@@ -16,7 +16,7 @@ class WeekStrip extends StatefulWidget {
     this.todayFraction = 0,
     this.selectedDate,
     super.key,
-  }) : assert(states.length == 7);
+  }) : assert(states.length == 7, 'A week must have seven days.');
   final DateTime today;
   final List<WeekDayState> states;
   final ValueChanged<DateTime> onSelected;

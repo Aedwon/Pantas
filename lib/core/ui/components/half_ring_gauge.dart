@@ -66,7 +66,8 @@ class HalfRingGauge extends StatelessWidget {
                         textBaseline: TextBaseline.alphabetic,
                         children: [
                           Text(
-                            '${(fraction * progress * 100).toStringAsFixed(decimalPlaces)}',
+                            (fraction * progress * 100)
+                                .toStringAsFixed(decimalPlaces),
                             style: type.largeTitle
                                 .copyWith(fontSize: 44, letterSpacing: -1.32)
                                 .tabular,

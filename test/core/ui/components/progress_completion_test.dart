@@ -110,8 +110,7 @@ void main() {
         );
       }
     });
-    testWidgets(
-        'week strip Sunday first, all marks, keyboard, day off colors $brightness',
+    testWidgets('week dates, marks, keyboard and day-off colors $brightness',
         (tester) async {
       DateTime? picked;
       final strip = WeekStrip(
