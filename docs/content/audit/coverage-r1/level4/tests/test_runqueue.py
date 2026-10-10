@@ -270,14 +270,21 @@ class Interruptions(RunCase):
         self.run.start()
         self.run.tick()
         self.run.pause()
+        self.assertEqual(self.run.view()["state"], "paused")
         self.read_cleanly("L4-0417")
         self.run.tick()
         self.assertEqual(self.state_of("L4-0417"), "finished")
-        self.run.tick()
+        for _ in range(3):
+            self.run.tick()
         self.assertIsNone(self.run.q["current"])
+        self.assertEqual(self.state_of("L4-0520"), "pending")
+        self.assertEqual(len(self.dispatcher.registered), 2)  # no chat started while paused
+        self.assertEqual(self.run.view()["state"], "paused")
         self.run.resume()
         self.run.tick()
         self.assertEqual(self.run.q["current"], "L4-0520")
+        self.assertEqual(self.state_of("L4-0520"), "reading")
+        self.assertEqual(len(self.dispatcher.registered), 4)
 
     def test_usage_limit_and_sign_in_wait_for_resume(self):
         for seen, state in (({"state": "limit", "detail": "usage_limit"}, "limit"),

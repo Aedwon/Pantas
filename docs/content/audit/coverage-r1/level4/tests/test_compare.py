@@ -112,9 +112,33 @@ class Compare(unittest.TestCase):
         a = fixtures.failing(a, "L17", Q_FACTOR)
         a = fixtures.failing(a, "L26", Q_STANDARD)
         b = fixtures.failing(b, "L26", Q_TRAP)
-        text = json.dumps(compare.public_items(run(a, b, 3)))
-        self.assertNotIn("swap", text)
-        self.assertNotIn("origin", text)
+        comparison = run(a, b, 3)
+        self.assertEqual([item["type"] for item in comparison["items"]], ["disputed", "single", "single"])
+        public = compare.public_items(comparison)
+        self.assertEqual(len(public), 3)
+        allowed = {"id", "type", "rule", "A", "B", "finding", "illustration"}
+        for item in public:
+            self.assertLessEqual(set(item), allowed)
+        text = json.dumps(public)
+        for hidden in ("swap", "origin", '"role"', '"packet"'):
+            self.assertNotIn(hidden, text)
+        # The private comparison keeps what the public view drops, so the test above is not vacuous.
+        self.assertIn("origin", json.dumps(comparison["items"]))
+        self.assertIn("swap", json.dumps(comparison["items"]))
+
+    def test_the_label_a_does_not_belong_to_one_read(self):
+        a, b = forms()
+        a = fixtures.failing(a, "L17", Q_FACTOR)
+        holders = [compare.public_items(run(a, b, seed))[0]["A"]["verdict"] for seed in range(40)]
+        self.assertGreater(holders.count("fail"), 8)
+        self.assertGreater(holders.count("pass"), 8)
+
+    def test_swapping_which_read_is_which_does_not_change_what_the_deciding_chat_can_tell(self):
+        a, b = forms()
+        a = fixtures.failing(a, "L17", Q_FACTOR)
+        seen = {json.dumps(compare.public_items(run(a, b, seed)), sort_keys=True) for seed in range(30)}
+        swapped = {json.dumps(compare.public_items(run(b, a, seed)), sort_keys=True) for seed in range(30)}
+        self.assertEqual(seen, swapped)
 
     def test_position_order_depends_on_the_seed(self):
         a, b = forms()
@@ -135,6 +159,7 @@ class CopyFlag(unittest.TestCase):
             for entry in form["rules"].values():
                 if entry["verdict"] == "pass":
                     entry["checked"] = ["Traced each formula in the examples back to Core Concept and found each one there."]
+        self.assertEqual(compare.similarity(a, b), 1.0)
         self.assertTrue(run(a, b, 1)["copied"])
 
     def test_independent_wording_is_not_flagged(self):
@@ -143,6 +168,8 @@ class CopyFlag(unittest.TestCase):
             entry[1]["checked"] = ["Read A check %d: followed the solution steps one at a time against the stem." % number]
         for number, entry in enumerate(sorted(b["rules"].items())):
             entry[1]["checked"] = ["Second reader, item %d. Core Concept states the idea before any worked example uses it." % number]
+        self.assertGreater(compare.similarity(a, b), 0.0)  # the forms were long enough to be judged at all
+        self.assertLess(compare.similarity(a, b), compare.COPY_RATIO)
         self.assertFalse(run(a, b, 1)["copied"])
 
     SENTENCES = (

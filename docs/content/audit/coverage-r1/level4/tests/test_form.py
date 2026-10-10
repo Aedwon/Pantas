@@ -125,8 +125,18 @@ class ReaderForm(unittest.TestCase):
     def test_reasons_never_repeat_form_content(self):
         secret = "ZEBRA-PROBLEM-TEXT that explains the finding in detail"
         candidate = fixtures.failing(self.form, "L17", "An invented quote ZEBRA-QUOTE", problem=secret)
-        text = " ".join(reasons(candidate))
-        self.assertNotIn("ZEBRA", text)
+        candidate["rules"]["L26"]["checked"] = ["ZEBRA-CHECKED"]
+        candidate["rules"]["L25"] = {"verdict": "ZEBRA-VERDICT", "findings": [], "checked": [], "note": ""}
+        candidate["rules"]["ZEBRA-RULE"] = copy.deepcopy(candidate["rules"]["L18"])
+        candidate["illustrations"] = [{"status": "ZEBRA-STATUS", "position_quote": "ZEBRA-POSITION"}]
+        found = reasons(candidate)
+        # The form really was checked: each fault is reported, so the test cannot pass on an accepted form.
+        joined = " ".join(found)
+        for fault in ("rule L17 finding 1", "rule L26", "rule L25", "1 rule ids", "illustration 1"):
+            self.assertIn(fault, joined)
+        self.assertGreaterEqual(len(found), 5)
+        self.assertNotIn("ZEBRA", joined)
+        self.assertNotIn("invented", joined)
 
 
 class Hardening(unittest.TestCase):
