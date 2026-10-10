@@ -1,0 +1,36 @@
+{
+ "lesson_id": "lesson-philippine-constitution-the-civil-service-commission",
+ "path": "content/lessons/general-information/philippine-constitution/the-civil-service-commission.md",
+ "lesson_sha256": "620d01c9e182bf4b4861c0ac6ad4d95da500c1f6f7bec5d3163e8aa0c6484ea2",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 12,
+   "text": "Article IX, Section B of the 1987 Constitution establishes the Civil Service Commission as the central personnel agency of the Philippine Government.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 18,
+   "text": "- **Age:** Must be **at least 35 years of age** at the time of appointment.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 31,
+   "text": "A student is asked how many members make up the Civil Service Commission under Article IX-B of the 1987 Constitution. What is the composition?",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 37,
+   "text": "2. 1 Chairman + 2 Commissioners = 3 members in total.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

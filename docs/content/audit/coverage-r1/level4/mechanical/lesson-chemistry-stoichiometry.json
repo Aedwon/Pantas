@@ -1,0 +1,71 @@
+{
+ "lesson_id": "lesson-chemistry-stoichiometry",
+ "path": "content/lessons/science/chemistry/stoichiometry.md",
+ "lesson_sha256": "bd0c4c00ccae1105da06a54b02a15aaa0eecbf7906a5ea179c6828cd3d7b173a",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 26,
+   "text": "$$\\%\\text{ yield}=\\frac{\\text{actual yield}}{\\text{theoretical yield}}\\times100\\%$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B06",
+   "line": 28,
+   "text": "Actual yields are often below theoretical yield because of incomplete reaction, side reactions, transfer losses, or purification losses. A reported yield **can exceed 100%**, usually signaling wet/imp",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B06",
+   "line": 42,
+   "text": "3. If simple fractions remain—such as $1.5$, $1.33$, or $1.25$—multiply **all** ratios by a small integer to obtain the smallest whole-number ratio.",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 66,
+   "text": "$$\\%\\text{ yield}=\\frac{42}{50}\\times100\\%=84\\%$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 92,
+   "text": "$$n=\\frac{56}{14}=4$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B06",
+   "line": 102,
+   "text": "For empirical formulas, divide by the smallest first—but inspect the resulting ratios before rounding. Common fractional patterns often require multiplying every ratio by $2$, $3$, or $4$.",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 106,
+   "text": "$$\\frac{\\text{molecular molar mass}}{\\text{empirical-formula molar mass}}$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 28,
+   "text": "Actual yields are often below theoretical yield because of incomplete reaction, side reactions, transfer losses, or purification losses. A reported yield **can exceed 100%**, usually signaling wet/imp",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 114,
+   "text": "> A genuine stoichiometric yield cannot exceed the theoretical maximum for the stated pure product, but an **experimental reported mass** can produce an apparent yield over 100%.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

@@ -1,0 +1,43 @@
+{
+ "lesson_id": "lesson-chemistry-history-of-the-atom",
+ "path": "content/lessons/science/chemistry/history-of-the-atom.md",
+ "lesson_sha256": "a996cb5fc57e7b888cc074afc6ee413aa5874e743d64b31cde0a71493d712aec",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 49,
+   "text": "During the 1920s, several scientists—including **Louis de Broglie, Werner Heisenberg, Erwin Schrödinger, Max Born**, and others—developed quantum mechanics.",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B06",
+   "line": 98,
+   "text": "Dalton's claim that all atoms of one element are identical in mass is not literally true. Isotopes have the same proton number—and are therefore the same element—but different neutron numbers and mass",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 24,
+   "text": "Experiments with cathode rays led **J. J. Thomson** in 1897 to identify a universal negatively charged constituent of atoms: the electron. This demonstrated that atoms were divisible.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 43,
+   "text": "In 1913, **Niels Bohr** combined the nuclear atom with quantized electron energies. His model reproduced the observed line spectrum of **hydrogen** by allowing only certain electron energy states and ",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 51,
+   "text": "Schrödinger's 1926 wave equation was a key foundation of wave mechanics. In the modern picture, electrons in atoms are described by quantum states/orbitals and probability distributions, not little pa",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

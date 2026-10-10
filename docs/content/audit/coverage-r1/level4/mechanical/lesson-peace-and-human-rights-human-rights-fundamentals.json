@@ -1,0 +1,36 @@
+{
+ "lesson_id": "lesson-peace-and-human-rights-human-rights-fundamentals",
+ "path": "content/lessons/general-information/peace-and-human-rights/human-rights-fundamentals.md",
+ "lesson_sha256": "cf3e5d68329b6c61ca5816912dde9af2bb23dcdb1ef7eac09c3b46fca775994c",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 19,
+   "text": "- **Commission on Human Rights (CHR):** An independent national human rights institution created under **Article XIII (Social Justice and Human Rights)** of the 1987 Constitution.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 25,
+   "text": "A student is asked which article of the 1987 Constitution creates the Commission on Human Rights. Is it Article III, Article IX, or Article XIII?",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 53,
+   "text": "1. Article III of the 1987 Constitution is the Bill of Rights.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 54,
+   "text": "2. It contains 22 sections establishing fundamental civil and political liberties.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

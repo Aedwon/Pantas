@@ -1,0 +1,15 @@
+{
+ "lesson_id": "lesson-physics-light-and-optics",
+ "path": "content/lessons/science/physics/light-and-optics.md",
+ "lesson_sha256": "68b0ccd8ad91f138dad702578182cacd69c4dc0b6c941f012cf1a92480abee21",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 26,
+   "text": "$$n=\\frac{c}{v}$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  }
+ ]
+}

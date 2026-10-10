@@ -1,0 +1,22 @@
+{
+ "lesson_id": "lesson-biology-evolution",
+ "path": "content/lessons/science/biology/evolution.md",
+ "lesson_sha256": "a089efa9300587acc01c8bb51994313ae31596dfbccdd68398a54db34edd3f76",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 89,
+   "text": "> Darwin and Alfred Russel Wallace independently developed the mechanism and jointly presented papers in 1858.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 91,
+   "text": "Darwin's 1859 book gave the idea its most influential early exposition.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "lesson_id": "lesson-algebra-sets-and-set-notation",
+ "path": "content/lessons/mathematics/algebra/sets-and-set-notation.md",
+ "lesson_sha256": "1e97c34edee6bac6b3aca3d9cd7d474e8383aeae3f19349339f45651093ec710",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "L20",
+   "line": 128,
+   "text": "### #1: Reading \"And\" vs. Inclusive \"Or\"",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 132,
+   "text": "### #2: Forgetting the Neither Region",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 136,
+   "text": "### #3: Double Counting the Overlap",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  }
+ ]
+}

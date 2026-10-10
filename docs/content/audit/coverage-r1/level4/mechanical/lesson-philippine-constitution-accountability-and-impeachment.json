@@ -1,0 +1,36 @@
+{
+ "lesson_id": "lesson-philippine-constitution-accountability-and-impeachment",
+ "path": "content/lessons/general-information/philippine-constitution/accountability-and-impeachment.md",
+ "lesson_sha256": "7c835cee0223566747f057fc362fefa1bcc4f9154390c4676434fb5aaad39633",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 12,
+   "text": "Article XI, Section 1 states that public office is a public trust. Public officers and employees must at all times be accountable to the people, serve them with utmost responsibility, integrity, loyal",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 16,
+   "text": "Under Article XI, Section 2, only the following public officials may be removed from office by impeachment:",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 26,
+   "text": "Article XI, Section 2 restricts the grounds for impeachment exclusively to:",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 44,
+   "text": "Check the closed list of impeachable officers under Article XI, Section 2.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

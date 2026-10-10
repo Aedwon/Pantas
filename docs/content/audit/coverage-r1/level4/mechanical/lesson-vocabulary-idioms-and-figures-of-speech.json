@@ -1,0 +1,29 @@
+{
+ "lesson_id": "lesson-vocabulary-idioms-and-figures-of-speech",
+ "path": "content/lessons/language-proficiency/vocabulary/idioms-and-figures-of-speech.md",
+ "lesson_sha256": "693494c82c4e8f88fd6724b8d30021b8d45d085335725b8f8b7eba990bfb674d",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B09",
+   "line": 45,
+   "text": "After losing his unsaved research paper, Mark knew he was **back to square one**. What does the idiom mean?",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  },
+  {
+   "rule": "B09",
+   "line": 54,
+   "text": "The lost work means Mark has to start over. Answer: **B**.",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  },
+  {
+   "rule": "B07",
+   "line": 125,
+   "text": "> Literary language can support overlapping analyses. In exam-style items, choose the device most directly demonstrated by the wording and context supplied.",
+   "problem": "possible British spelling: analyse",
+   "candidate": true
+  }
+ ]
+}

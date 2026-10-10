@@ -1,0 +1,29 @@
+{
+ "lesson_id": "lesson-biology-human-anatomy-physiology",
+ "path": "content/lessons/science/biology/human-anatomy-physiology.md",
+ "lesson_sha256": "ac87f6958ff14bd129cd25106e95e1c09117c7f588885f403a356e8faddaee79",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 28,
+   "text": "**Pulmonary circulation** carries blood between heart and lungs. **Systemic circulation** carries blood between heart and the rest of the body. Direction relative to the heart—not oxygen content—defin",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B06",
+   "line": 36,
+   "text": "The **cerebrum** supports functions including perception, cognition, language, memory, and voluntary motor control. The **cerebellum** is important for coordination, timing, balance, and motor learnin",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 46,
+   "text": "Provides structural support, protects organs, stores minerals, houses marrow, and works with muscles to produce movement. A typical adult skeleton is described as having **206 bones**, though anatomic",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

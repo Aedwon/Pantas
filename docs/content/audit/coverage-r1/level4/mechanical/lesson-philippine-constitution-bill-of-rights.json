@@ -1,0 +1,99 @@
+{
+ "lesson_id": "lesson-philippine-constitution-bill-of-rights",
+ "path": "content/lessons/general-information/philippine-constitution/bill-of-rights.md",
+ "lesson_sha256": "664484d87968ad2ffb8806f3c93b1a79c6a27fde44ac3ae2a18db125a8c812bd",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 12,
+   "text": "Article III of the 1987 Constitution is the Bill of Rights. It contains exactly **22 sections** that protect individual rights and liberties against unlawful government action.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 16,
+   "text": "Sections 1 to 11 include these protections:",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 31,
+   "text": "Sections 12 to 22 include several protections connected with investigation, prosecution, punishment, and personal liberty:",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 39,
+   "text": "- Prohibition of excessive fines and cruel, degrading, or inhuman punishment, together with other protections in Section 19.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 48,
+   "text": "A student reviewing Article III of the 1987 Constitution needs to know how many sections make up the Bill of Rights. What is the exact number of sections?",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 53,
+   "text": "1. Article III of the 1987 Constitution is the Bill of Rights.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 54,
+   "text": "2. It contains Sections 1 through 22.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 55,
+   "text": "3. Therefore, the Bill of Rights contains exactly 22 sections.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 64,
+   "text": "1. Section 17 protects a person from being compelled to be a witness against themselves.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 65,
+   "text": "2. Section 21 protects against double jeopardy.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 66,
+   "text": "3. Both provisions fall within Sections 12 to 22.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 67,
+   "text": "4. Therefore, Sections 12 to 22 contain these protections.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 74,
+   "text": "Check the specific protection under Article III, Section 20.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

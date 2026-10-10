@@ -1,0 +1,29 @@
+{
+ "lesson_id": "lesson-vocabulary-confusing-words",
+ "path": "content/lessons/language-proficiency/vocabulary/confusing-words.md",
+ "lesson_sha256": "cfd0eb81a296d9b2e6e45f9e08b6c535ca4a318d7704e79e2a13ad61ded770a4",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B09",
+   "line": 34,
+   "text": "- **ng** commonly marks a non-topic noun phrase, possession/relationship, quantities, and certain time expressions: *kumain ng mangga*, *bahay ng guro*, *alas singko ng hapon*.",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  },
+  {
+   "rule": "B09",
+   "line": 98,
+   "text": "The blank directly marks several personal names as the topic. Standard Filipino uses **sina**. Answer: **B**.",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  },
+  {
+   "rule": "B09",
+   "line": 137,
+   "text": "> *Sila* stands as a pronoun; *sina* marks multiple personal names in standard Filipino.",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  }
+ ]
+}

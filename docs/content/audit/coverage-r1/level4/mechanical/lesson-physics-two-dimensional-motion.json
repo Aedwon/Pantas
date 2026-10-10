@@ -1,0 +1,43 @@
+{
+ "lesson_id": "lesson-physics-two-dimensional-motion",
+ "path": "content/lessons/science/physics/two-dimensional-motion.md",
+ "lesson_sha256": "de82fab38cfee42169aa60c0c2358f845b2e3c654c1418b75bd875c3413115df",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 26,
+   "text": "$$y=y_0+v_{y0}t-\\frac12gt^2$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 43,
+   "text": "$$a_c=\\frac{v^2}{r}=\\omega^2r.$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 47,
+   "text": "$$F_{\\text{net,radial}}=ma_c=m\\frac{v^2}{r}.$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 65,
+   "text": "$$\\Delta y_{\\text{down}}=\\frac12gt^2=\\frac12(9.8)(0.50)^2=1.225\\,\\mathrm m.$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 85,
+   "text": "$$t=\\frac{10}{9.8}\\approx1.02\\,\\mathrm s.$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "lesson_id": "lesson-comprehension-skills-inferencing-and-conclusions",
+ "path": "content/lessons/reading-comprehension/comprehension-skills/inferencing-and-conclusions.md",
+ "lesson_sha256": "caeafadafc2d1d122170d5a888b63b2d86c7116694a7b4371bf2b17f423a9178",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 35,
+   "text": "\"The company's stock price fell 15% after the CEO's resignation was announced, and trading volume increased.\"",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 51,
+   "text": "\"The kitchen light was still on at 3 a.m. Textbooks covered the table beside empty coffee cups, and a laptop showed an unfinished document.\"",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

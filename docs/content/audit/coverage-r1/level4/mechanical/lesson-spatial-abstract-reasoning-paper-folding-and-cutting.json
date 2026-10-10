@@ -1,0 +1,15 @@
+{
+ "lesson_id": "lesson-spatial-abstract-reasoning-paper-folding-and-cutting",
+ "path": "content/lessons/reasoning/spatial-abstract-reasoning/paper-folding-and-cutting.md",
+ "lesson_sha256": "a91b8646e7b924a68ca5f5b8ff354ecd76f4954a68a1977d5f3f2fb2f7a7db47",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B09",
+   "line": 84,
+   "text": "**Mark fold-line cuts specially.** A cut touching a fold can become one connected shape when reflected.",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  }
+ ]
+}

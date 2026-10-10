@@ -1,0 +1,71 @@
+{
+ "lesson_id": "lesson-code-of-conduct-ra-6713-norms-of-conduct",
+ "path": "content/lessons/general-information/code-of-conduct-ra-6713/norms-of-conduct.md",
+ "lesson_sha256": "81d93b7940eef954f6787bd841ad2ba84f2f25aa6f2ff1e6f633622bd70a44f7",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 12,
+   "text": "Republic Act No. 6713, also known as the Code of Conduct and Ethical Standards for Public Officials and Employees, was approved on February 20, 1989 and took effect on March 25, 1989.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 14,
+   "text": "Section 4 of RA 6713 sets forth eight specific norms of conduct that every public official and employee must observe at all times.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 31,
+   "text": "A civil service review question asks how many statutory norms of conduct are defined in Section 4 of RA 6713. What is the total count?",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 34,
+   "text": "Recall the official list of norms in Section 4 of RA 6713.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 36,
+   "text": "1. Section 4 enumerates the norms of conduct in statutory order.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 38,
+   "text": "3. Count the listed norms: exactly 8 norms.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 45,
+   "text": "Match the behavior to the appropriate norm under Section 4.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 48,
+   "text": "2. Political neutrality is the fourth norm of conduct under Section 4.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 58,
+   "text": "1. The eighth norm under Section 4 requires public officials to lead modest lives appropriate to their position and income.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

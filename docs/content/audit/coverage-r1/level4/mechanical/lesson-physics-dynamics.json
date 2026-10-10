@@ -1,0 +1,15 @@
+{
+ "lesson_id": "lesson-physics-dynamics",
+ "path": "content/lessons/science/physics/dynamics.md",
+ "lesson_sha256": "5b3e6bbf7b9ef37561b9c92abdb8b231151dac11388ca175120e6f2b64d78143",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 64,
+   "text": "$$a_x=\\frac{F_{\\text{net},x}}{m}=\\frac{20}{5}=4\\,\\mathrm{m/s^2}.$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  }
+ ]
+}

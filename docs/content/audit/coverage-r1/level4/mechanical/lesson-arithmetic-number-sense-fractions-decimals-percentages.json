@@ -1,0 +1,36 @@
+{
+ "lesson_id": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+ "path": "content/lessons/mathematics/arithmetic-number-sense/fractions-decimals-percentages.md",
+ "lesson_sha256": "5c2f5a66c7be71ea28805836a119f66a70945e75797939d497e7663d5126bbb0",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 14,
+   "text": "A **fraction** compares a numerator with a denominator, where the denominator is not zero. A **decimal** represents values using powers of $10$. A **percentage** means \"per hundred\" or \"out of 100.\"",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 22,
+   "text": "> **D** to **P**: multiply by $100$, so the decimal point moves 2 places right.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 24,
+   "text": "> **P** to **D**: divide by $100$, so the decimal point moves 2 places left.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 26,
+   "text": "The percent sign ($\\%$) can remind you that percent means \"per 100.\"",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

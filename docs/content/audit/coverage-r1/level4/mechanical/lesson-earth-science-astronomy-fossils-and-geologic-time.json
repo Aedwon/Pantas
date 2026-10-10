@@ -1,0 +1,22 @@
+{
+ "lesson_id": "lesson-earth-science-astronomy-fossils-and-geologic-time",
+ "path": "content/lessons/science/earth-science-astronomy/fossils-and-geologic-time.md",
+ "lesson_sha256": "13399e7726c9e995fd929619c81258697bf7cec9d05194574d8a8a379bc6f7c5",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 22,
+   "text": "These principles have exceptions and complications—layers can be overturned or faulted, and fossils can sometimes be eroded from older rocks and redeposited in younger sediment—so geologists interpret",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 33,
+   "text": "Earth is about **4.54 billion years** old. The informal term **Precambrian** covers the enormous span before the Phanerozoic Eon and includes the Hadean, Archean, and Proterozoic eons. The **Phanerozo",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

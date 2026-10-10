@@ -1,0 +1,22 @@
+{
+ "lesson_id": "lesson-physics-thermodynamics",
+ "path": "content/lessons/science/physics/thermodynamics.md",
+ "lesson_sha256": "2d386721a484964d7970488be939ceec003b6dac3a2d2a1bc95d6c1e86e2919c",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 74,
+   "text": "3. The reverse process—coffee spontaneously becoming hotter by extracting heat from the cooler room while nothing else changes—would violate the second-law direction of spontaneous heat transfer.",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 92,
+   "text": "$$\\Delta T=\\frac{Q}{mc}$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  }
+ ]
+}

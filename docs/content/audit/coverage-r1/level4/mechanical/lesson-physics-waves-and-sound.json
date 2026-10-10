@@ -1,0 +1,22 @@
+{
+ "lesson_id": "lesson-physics-waves-and-sound",
+ "path": "content/lessons/science/physics/waves-and-sound.md",
+ "lesson_sha256": "247aacf5ee3245aba46104dbd0f39895cff78827aec8f7de34c019232eeb3bdd",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 36,
+   "text": "For mechanical waves, classification as **transverse** or **longitudinal** refers to the direction of the medium's disturbance compared with the propagation direction. In a transverse wave, the distur",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 70,
+   "text": "$$\\lambda=\\frac{v}{f}=\\frac{340}{170}=2\\text{ m}$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  }
+ ]
+}

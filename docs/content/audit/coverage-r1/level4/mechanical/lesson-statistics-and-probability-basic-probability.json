@@ -1,0 +1,36 @@
+{
+ "lesson_id": "lesson-statistics-and-probability-basic-probability",
+ "path": "content/lessons/mathematics/statistics-and-probability/basic-probability.md",
+ "lesson_sha256": "e36816c628ec385838378d74193e8b644cd9865435b2fed370406772d6cf5cfa",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B09",
+   "line": 102,
+   "text": "From a standard $52$-card deck, one card is drawn. Find (a) $P(\\text{king or queen})$ and (b) $P(\\text{king or heart})$.",
+   "problem": "\"card\" may be used for a question",
+   "candidate": true
+  },
+  {
+   "rule": "B09",
+   "line": 105,
+   "text": "1. A card cannot be both a king and a queen, so the events are mutually exclusive.",
+   "problem": "\"card\" may be used for a question",
+   "candidate": true
+  },
+  {
+   "rule": "B09",
+   "line": 109,
+   "text": "2. A card can be both a king and a heart: the king of hearts. Subtract that overlap once.",
+   "problem": "\"card\" may be used for a question",
+   "candidate": true
+  },
+  {
+   "rule": "B09",
+   "line": 132,
+   "text": "Useful standard-deck facts: $52$ cards, $4$ suits of $13$, $26$ red and $26$ black, $12$ face cards, and $4$ cards of each rank.",
+   "problem": "\"card\" may be used for a question",
+   "candidate": true
+  }
+ ]
+}

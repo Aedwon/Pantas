@@ -1,0 +1,36 @@
+{
+ "lesson_id": "lesson-grammar-and-structure-parallelism",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/parallelism.md",
+ "lesson_sha256": "be18765d177f1a289de7954d8d7f7e634e0fe9767df6504a4aed9a0eb6a0220c",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "L22",
+   "line": 22,
+   "text": "| Structure Pattern | List Item Forms | Parallelism Status |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 23,
+   "text": "| --- | --- | --- |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 24,
+   "text": "| **Matching forms** | `-ing`, `-ing`, `-ing` | Parallel |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 25,
+   "text": "| **Mismatched forms** | `-ing`, `to + verb`, `-ing` | Broken parallelism |",
+   "problem": "table",
+   "candidate": false
+  }
+ ]
+}

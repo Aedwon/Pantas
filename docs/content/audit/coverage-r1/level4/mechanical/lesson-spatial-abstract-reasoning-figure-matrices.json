@@ -1,0 +1,50 @@
+{
+ "lesson_id": "lesson-spatial-abstract-reasoning-figure-matrices",
+ "path": "content/lessons/reasoning/spatial-abstract-reasoning/figure-matrices.md",
+ "lesson_sha256": "face82a0ced97ec7ca4b3e4b10b8eb5566e64dbc1ee7735b3e182a6819f16f71",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B09",
+   "line": 36,
+   "text": "2. Apply the same row pattern to the bottom row: starting with a square, rotating it $90°$ gives a square that looks the same as an unrotated square (since a square has rotational symmetry every $90°$",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  },
+  {
+   "rule": "B09",
+   "line": 37,
+   "text": "3. The blank cell should show a square rotated $90°$ from the first bottom-row square (with any distinguishing mark shifted accordingly).",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 41,
+   "text": "A $3 \\times 3$ matrix's rows show an increasing number of dots inside a circle: row 1 has circles with $1$, $2$, $3$ dots; row 2 has circles with $2$, $3$, $4$ dots; row 3 has circles with $3$, $4$, a",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 48,
+   "text": "2. Confirm this same increase applies to row 3: $3 \\to 4 \\to \\, ?$, continuing the \"+1\" pattern.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 89,
+   "text": "Example 3 shows how size follows the column direction while shading follows the row direction: solving only one direction misses half the required answer.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 101,
+   "text": "In Example 1, the top row and bottom row start with completely different shapes (triangle vs. square), but the same rotation rule ($90°$ rotation) applies to both: recognizing the rule, not memorizing",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "lesson_id": "lesson-arithmetic-number-sense-business-math",
+ "path": "content/lessons/mathematics/arithmetic-number-sense/business-math.md",
+ "lesson_sha256": "3250dc130a5097d2490328dd6b06298f43190964e432501e555e7538d1566b4b",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 153,
+   "text": "For **compound growth**, the **Rule of 72** gives a rough doubling-time estimate: divide $72$ by the annual percentage rate. For example, at an annual compound growth rate of about $8\\%$, the estimate",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "lesson_id": "lesson-grammar-and-structure-phrases-and-clauses",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/phrases-and-clauses.md",
+ "lesson_sha256": "a90cc08a2af76d30c151a4afb469e00ff5ada134b0ffdb657d0cc6e1795fae6d",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B09",
+   "line": 48,
+   "text": "1. (a) is subordinate because *although* marks a concessive relation requiring a larger clause in ordinary standard prose.",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  },
+  {
+   "rule": "L22",
+   "line": 24,
+   "text": "| Unit | Example | Basic school analysis |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 25,
+   "text": "| --- | --- | --- |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 26,
+   "text": "| Phrase | under the old bridge | no finite clause |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 27,
+   "text": "| Independent clause | The rain stopped. | can stand as a sentence |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 28,
+   "text": "| Dependent clause | because the rain stopped | subordinate; needs a larger construction |",
+   "problem": "table",
+   "candidate": false
+  }
+ ]
+}

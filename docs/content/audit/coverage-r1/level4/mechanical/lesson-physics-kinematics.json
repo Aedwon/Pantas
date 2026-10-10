@@ -1,0 +1,57 @@
+{
+ "lesson_id": "lesson-physics-kinematics",
+ "path": "content/lessons/science/physics/kinematics.md",
+ "lesson_sha256": "d361b219e492dab5c2091eedb687ccc9db77fd6840d7ebca21c56edfadd761c0",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 24,
+   "text": "$$v_{\\text{avg}}=\\frac{\\Delta x}{\\Delta t},$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 30,
+   "text": "$$a_{\\text{avg}}=\\frac{\\Delta v}{\\Delta t},$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 41,
+   "text": "$$\\Delta x=v_0t+\\frac12at^2$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 45,
+   "text": "$$\\Delta x=\\frac{v_0+v}{2}t.$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 75,
+   "text": "$$\\Delta x=(2)(4)+\\frac12(3)(4^2)=8+24=32\\,\\mathrm m.$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 83,
+   "text": "$$\\Delta y=\\frac12gt^2=\\frac12(9.8)(3^2)=44.1\\,\\mathrm m$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B09",
+   "line": 103,
+   "text": "Before selecting an equation, list $v_0$, $v$, $a$, $t$, and $\\Delta x$ and mark what is known. Then choose a constant-acceleration equation containing the needed variables and not the unnecessary unk",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  }
+ ]
+}

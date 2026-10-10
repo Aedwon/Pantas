@@ -1,0 +1,22 @@
+{
+ "lesson_id": "lesson-grammar-and-structure-subject-verb-agreement",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/subject-verb-agreement.md",
+ "lesson_sha256": "5c7656d85dc4198c52f7d1babf58ca02ab99e2613535c31663ba1135f50d260c",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B09",
+   "line": 28,
+   "text": "Do not transfer the English rule mechanically to Filipino. Filipino verbs do not normally change form just because a subject is singular or plural in the way English *is/are* or *barks/bark* do. Filip",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  },
+  {
+   "rule": "B09",
+   "line": 86,
+   "text": "Do not mark a plural collective-noun verb automatically wrong without considering context.",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  }
+ ]
+}

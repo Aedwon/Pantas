@@ -1,0 +1,43 @@
+{
+ "lesson_id": "lesson-chemistry-basic-organic-chemistry",
+ "path": "content/lessons/science/chemistry/basic-organic-chemistry.md",
+ "lesson_sha256": "234da9df778ebb40c6c3bc1127aa7d8f6c4ca1b5ed9315cea2a4e6efa5bdc46a",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "L22",
+   "line": 26,
+   "text": "| Example | Family | Formula | Key bond |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 27,
+   "text": "| --- | --- | --- | --- |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 28,
+   "text": "| Ethane | alkane | $C_2H_6$ | C-C single |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 29,
+   "text": "| Ethene | alkene | $C_2H_4$ | C=C double |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 30,
+   "text": "| Ethyne | alkyne | $C_2H_2$ | C$\\equiv$C triple |",
+   "problem": "table",
+   "candidate": false
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "lesson_id": "lesson-vocabulary-root-words-prefixes-suffixes",
+ "path": "content/lessons/language-proficiency/vocabulary/root-words-prefixes-suffixes.md",
+ "lesson_sha256": "5d680a50e140edb349936ff3fe59657959f0ecffa94c8c7f8b11da76c3b37d03",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 43,
+   "text": "The same surface letters can behave differently across roots and constructions, so root-finding should use known Filipino morphology and meaning—not only an \"outside-in peeling\" algorithm.",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B10",
+   "line": 43,
+   "text": "The same surface letters can behave differently across roots and constructions, so root-finding should use known Filipino morphology and meaning—not only an \"outside-in peeling\" algorithm.",
+   "problem": "word reserved from student text: algorithm",
+   "candidate": true
+  }
+ ]
+}

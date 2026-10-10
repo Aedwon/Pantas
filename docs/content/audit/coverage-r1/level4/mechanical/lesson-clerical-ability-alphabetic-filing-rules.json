@@ -1,0 +1,29 @@
+{
+ "lesson_id": "lesson-clerical-ability-alphabetic-filing-rules",
+ "path": "content/lessons/reasoning/clerical-ability/alphabetic-filing-rules.md",
+ "lesson_sha256": "d9fd2e9bad452851471bbf318c6f2b3c5933dcff801d33df368050739a2f6bb8",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 20,
+   "text": "When two records have identical primary filing units, use the next filing unit specified by the system—such as given name, middle name, date, location, or another identifier.",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "L13",
+   "line": 52,
+   "text": "2. Ignoring spaces for comparison gives the letter sequences **DELACRUZ** and **DELGADO**.",
+   "problem": "possible all-capitals emphasis: DELACRUZ",
+   "candidate": true
+  },
+  {
+   "rule": "L13",
+   "line": 52,
+   "text": "2. Ignoring spaces for comparison gives the letter sequences **DELACRUZ** and **DELGADO**.",
+   "problem": "possible all-capitals emphasis: DELGADO",
+   "candidate": true
+  }
+ ]
+}

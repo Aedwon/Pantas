@@ -1,0 +1,43 @@
+{
+ "lesson_id": "lesson-grammar-and-structure-modifiers",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/modifiers.md",
+ "lesson_sha256": "98d561710ddac1e1e927dad40ab0c2c8e9eb146b8c2db89466bd9a823db5db0e",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 82,
+   "text": "The goal is clear, intended reference—not blindly placing every modifier next to the nearest noun.",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 22,
+   "text": "| Issue | Example | Problem |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 23,
+   "text": "| --- | --- | --- |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 24,
+   "text": "| Misplaced / ambiguous attachment | The waiter served the pasta to the customer *covered in cheese*. | The phrase can appear to modify *customer* instead of *pasta*. |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 25,
+   "text": "| Dangling modifier | *Walking down the street*, the trees looked beautiful. | No suitable main-clause subject is supplied for the walking. |",
+   "problem": "table",
+   "candidate": false
+  }
+ ]
+}

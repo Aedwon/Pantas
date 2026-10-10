@@ -1,0 +1,64 @@
+{
+ "lesson_id": "lesson-grammar-and-structure-tenses-and-voice",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/tenses-and-voice.md",
+ "lesson_sha256": "c7e78887716c49ffc64bc6b14e58ab2f5a25016f3ca861dcfb4cdce2e2f1c4f6",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 16,
+   "text": "- **Simple present**: \"She *writes* letters.\" — can express habits, general truths, scheduled events, and other present-related meanings.",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B06",
+   "line": 17,
+   "text": "- **Simple past**: \"She *wrote* a letter.\" — places the event in past time.",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B06",
+   "line": 19,
+   "text": "- **Present progressive**: \"She *is writing* a letter.\" — often presents an event as ongoing around the relevant present time, not only at the exact second of speaking.",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B06",
+   "line": 20,
+   "text": "- **Present perfect**: \"She *has written* a letter.\" — relates a prior event or state to the present in one of several ways.",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B06",
+   "line": 21,
+   "text": "- **Past perfect**: \"She *had written* the letter before he arrived.\" — explicitly places one past situation earlier than another past reference point.",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B06",
+   "line": 29,
+   "text": "- \"She finished the report before her boss asked for it.\" — grammatical; *before* makes the order clear.",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B06",
+   "line": 30,
+   "text": "- \"She had finished the report before her boss asked for it.\" — also grammatical; the past perfect emphasizes the earlier completion.",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B09",
+   "line": 44,
+   "text": "Filipino should not be mapped mechanically onto English tense or active/passive categories. Filipino verbal morphology prominently marks **aspekto** and a voice/focus system that relates the verb to d",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  }
+ ]
+}

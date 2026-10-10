@@ -1,0 +1,57 @@
+{
+ "lesson_id": "lesson-biology-genetics-and-heredity",
+ "path": "content/lessons/science/biology/genetics-and-heredity.md",
+ "lesson_sha256": "20a3cbf2ac54081089c1cc6a0f226191848d90d8133cd9b24a09cfce32b5ef41",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 22,
+   "text": "The **Law of Independent Assortment** applies when genes assort independently—for example, genes on different chromosomes, or genes far enough apart on the same chromosome that recombination makes the",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B06",
+   "line": 55,
+   "text": "A **pedigree** charts the occurrence of a trait through a family. Under a specified simple Mendelian model, patterns can support hypotheses such as autosomal dominant, autosomal recessive, or X-linked",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 69,
+   "text": "$$P(\\text{tall})=\\frac{3}{4}$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 26,
+   "text": "| | $T$ | $t$ |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 27,
+   "text": "| --- | --- | --- |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 28,
+   "text": "| **$T$** | $TT$ | $Tt$ |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 29,
+   "text": "| **$t$** | $Tt$ | $tt$ |",
+   "problem": "table",
+   "candidate": false
+  }
+ ]
+}

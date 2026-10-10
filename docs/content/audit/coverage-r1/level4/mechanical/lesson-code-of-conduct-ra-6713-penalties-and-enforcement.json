@@ -1,0 +1,99 @@
+{
+ "lesson_id": "lesson-code-of-conduct-ra-6713-penalties-and-enforcement",
+ "path": "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md",
+ "lesson_sha256": "39d463ed50c5e4412fa67b22ec038af9f514a736be99418f2f72e9727849bf6f",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 12,
+   "text": "Section 11 of RA 6713 specifies penalties and administrative consequences for violations of the Code of Conduct.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 17,
+   "text": "- **Violations of Sections 7, 8, or 9:** Imprisonment of up to five years, a fine of up to P5,000, or both, with possible disqualification from holding public office at the discretion of the court.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 19,
+   "text": "- **Prohibited use of filed statements:** An official or employee may bring an action against a person who obtains or uses a statement for a purpose prohibited by Section 8(D). The court may assess ag",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 30,
+   "text": "A public official violates Section 7 by taking outside employment in a regulated private business without authorization. What maximum criminal penalties under Section 11 of RA 6713 can be imposed?",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 33,
+   "text": "Apply the statutory penalty for Sections 7, 8, and 9 violations under Section 11.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 35,
+   "text": "1. Section 11 provides specific penalties for violations of Sections 7, 8, or 9.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 36,
+   "text": "2. The maximum criminal penalties are imprisonment of up to five years, a fine of up to P5,000, or both, with possible disqualification from public office at the court's discretion.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 37,
+   "text": "3. Therefore, the maximum penalties are up to five years of imprisonment and a P5,000 fine, which may be imposed together.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 41,
+   "text": "A private businessman conspires with a government officer in a violation of RA 6713 and participates as an accomplice. Can the private businessman be penalized under Section 11?",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 44,
+   "text": "Review the rule on private individuals in Section 11.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 48,
+   "text": "3. Therefore, the private businessman can be tried jointly and can face the same penal liabilities under RA 6713.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 52,
+   "text": "An administrative investigation finds a public officer guilty of violating RA 6713, but no criminal case has been filed in court. Can the officer be removed from service administratively?",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 57,
+   "text": "1. Under Section 11, a violation proven in a proper administrative proceeding is sufficient cause for removal or dismissal.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

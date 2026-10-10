@@ -1,0 +1,78 @@
+{
+ "lesson_id": "lesson-grammar-and-structure-sentence-structure",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/sentence-structure.md",
+ "lesson_sha256": "ef876c783e5ff202618abfac958eb04c26367b048a5da47ba79c99c9d024c1a1",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 24,
+   "text": "| **Simple** | 1 independent clause | The dog barked. |",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 25,
+   "text": "| **Compound** | 2+ independent clauses | The dog barked, and the cat ran. |",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 26,
+   "text": "| **Complex** | 1 independent + 1+ dependent clauses | Because the dog barked, the cat ran. |",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 27,
+   "text": "| **Compound-complex** | 2+ independent + 1+ dependent clauses | Because the dog barked, the cat ran, and it hid under the bed. |",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "L22",
+   "line": 22,
+   "text": "| Sentence Type | Clause Structure | Example |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 23,
+   "text": "| --- | --- | --- |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 24,
+   "text": "| **Simple** | 1 independent clause | The dog barked. |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 25,
+   "text": "| **Compound** | 2+ independent clauses | The dog barked, and the cat ran. |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 26,
+   "text": "| **Complex** | 1 independent + 1+ dependent clauses | Because the dog barked, the cat ran. |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 27,
+   "text": "| **Compound-complex** | 2+ independent + 1+ dependent clauses | Because the dog barked, the cat ran, and it hid under the bed. |",
+   "problem": "table",
+   "candidate": false
+  }
+ ]
+}

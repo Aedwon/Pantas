@@ -1,0 +1,92 @@
+{
+ "lesson_id": "lesson-comprehension-skills-sequencing-of-events",
+ "path": "content/lessons/reading-comprehension/comprehension-skills/sequencing-of-events.md",
+ "lesson_sha256": "5005f4f39665becdb813bda427c4a132f01952b6f2ccc3e26a67457b2cb29331",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B09",
+   "line": 18,
+   "text": "**Verb tense** can reveal sequence even without signal words. The past perfect tense (\"had walked,\" \"had finished\") usually marks an event that happened before another past-tense event mentioned nearb",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 24,
+   "text": "| Random labels (A, B, C, D) | Earliest event | 1 (First) |",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 25,
+   "text": "| Random labels (A, B, C, D) | Second event | 2 (Second) |",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 26,
+   "text": "| Random labels (A, B, C, D) | Third event | 3 (Third) |",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 27,
+   "text": "| Random labels (A, B, C, D) | Latest event | 4 (Fourth) |",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B09",
+   "line": 71,
+   "text": "**Watch specifically for past perfect verbs** (\"had done,\" \"had finished,\" \"had already\"), since these almost always mark an event that happened before another nearby past-tense event.",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  },
+  {
+   "rule": "L22",
+   "line": 22,
+   "text": "| Scrambled Labels | Rearrangement by Time Clues | Chronological Sequence |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 23,
+   "text": "| --- | --- | --- |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 24,
+   "text": "| Random labels (A, B, C, D) | Earliest event | 1 (First) |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 25,
+   "text": "| Random labels (A, B, C, D) | Second event | 2 (Second) |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 26,
+   "text": "| Random labels (A, B, C, D) | Third event | 3 (Third) |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 27,
+   "text": "| Random labels (A, B, C, D) | Latest event | 4 (Fourth) |",
+   "problem": "table",
+   "candidate": false
+  }
+ ]
+}

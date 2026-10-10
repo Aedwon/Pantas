@@ -1,0 +1,57 @@
+{
+ "lesson_id": "lesson-comprehension-skills-fact-vs-opinion",
+ "path": "content/lessons/reading-comprehension/comprehension-skills/fact-vs-opinion.md",
+ "lesson_sha256": "464037937cd313598ea538ef9a226343295c15e62346c207cb759ee5fc6c5fce",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 24,
+   "text": "- **Fact about a projection:** \"The agency projects a population of 10 million by 2030.\" This can be verified by checking the agency's published projection.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 25,
+   "text": "- **Projection itself:** \"The population will be 10 million in 2030.\" This concerns an uncertain future outcome and depends on assumptions.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 26,
+   "text": "- **Opinion:** \"A population of 10 million would be disastrous.\" This is an evaluative judgment unless the relevant standard of \"disastrous\" is defined and defended.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 32,
+   "text": "(a) \"The Philippines has more than 7,000 islands.\"",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 47,
+   "text": "\"The new stadium cost ₱2 billion to build and is an unnecessary waste of public money.\"",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 53,
+   "text": "\"Based on current assumptions, the population is projected to reach 10 million by 2030.\"",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 57,
+   "text": "This is an evidence-based **projection**, not an established fact about the 2030 population. What can be factual now is that a particular model, using particular assumptions, produces that projection.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

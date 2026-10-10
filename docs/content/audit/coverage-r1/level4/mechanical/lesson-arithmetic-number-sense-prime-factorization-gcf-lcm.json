@@ -1,0 +1,36 @@
+{
+ "lesson_id": "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm",
+ "path": "content/lessons/mathematics/arithmetic-number-sense/prime-factorization-gcf-lcm.md",
+ "lesson_sha256": "46578b494acd8e425516e160ef83fc48c6d0ff2c7dcf666135981a6d29c72419",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "L20",
+   "line": 145,
+   "text": "### #1: Thinking $1$ is Prime",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 149,
+   "text": "### #2: Incomplete Factorization",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 153,
+   "text": "### #3: Confusing Lowest and Highest Exponents",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L16",
+   "line": 157,
+   "text": "## When to List Multiples",
+   "problem": "section title is not one the guide names",
+   "candidate": true
+  }
+ ]
+}

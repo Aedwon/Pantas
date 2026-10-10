@@ -1,0 +1,29 @@
+{
+ "lesson_id": "lesson-algebra-algebraic-expressions",
+ "path": "content/lessons/mathematics/algebra/algebraic-expressions.md",
+ "lesson_sha256": "f7b19fb9eb88b49fe77ab620e28994231d4a2f2890a9a245c3121c1ae03de522",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "L20",
+   "line": 159,
+   "text": "### #1: \"$5$ less than $x$\" is $x - 5$. But \"$5$ is less than $x$\" is $5 < x$.",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 163,
+   "text": "### #2: $-3^2$ is $-9$. But $(-3)^2$ is $9$.",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 167,
+   "text": "### #3: When subtracting a group, you must flip every sign inside the group.",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  }
+ ]
+}

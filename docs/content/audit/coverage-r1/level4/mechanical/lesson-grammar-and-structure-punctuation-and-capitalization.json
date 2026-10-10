@@ -1,0 +1,15 @@
+{
+ "lesson_id": "lesson-grammar-and-structure-punctuation-and-capitalization",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/punctuation-and-capitalization.md",
+ "lesson_sha256": "64659c131b134f542b0f6ef93283613e24cf22ea132269cc2cbaed18f65df65b",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B09",
+   "line": 31,
+   "text": "Apostrophes commonly mark possession (*Maria's book*) and omitted letters in contractions (*don't*, *it's*). **Its** is the possessive determiner; **it's** means *it is* or *it has*.",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  }
+ ]
+}

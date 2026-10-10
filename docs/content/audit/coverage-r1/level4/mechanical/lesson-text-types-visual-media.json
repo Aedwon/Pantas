@@ -1,0 +1,36 @@
+{
+ "lesson_id": "lesson-text-types-visual-media",
+ "path": "content/lessons/reading-comprehension/text-types/visual-media.md",
+ "lesson_sha256": "642b9d416d27a7873cf7465135a5ebea9cbfe4b9f7afb96f4f12f8d1ea74a856",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 23,
+   "text": "- **Caricature:** selected traits—often physical or behavioral—are exaggerated for recognition, humor, or criticism.",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 59,
+   "text": "Monthly sales are January 50, February 70, March 60, and April 90 thousand pesos.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 67,
+   "text": "A bar chart starts at 80 and compares values 85 and 81.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 70,
+   "text": "Because the bar lengths begin visually at 80, the displayed length ratio greatly exaggerates the actual magnitude ratio 85:81. Check the numerical scale instead of judging only from the apparent bar s",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

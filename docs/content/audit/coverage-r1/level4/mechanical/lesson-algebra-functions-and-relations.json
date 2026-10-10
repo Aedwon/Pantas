@@ -1,0 +1,29 @@
+{
+ "lesson_id": "lesson-algebra-functions-and-relations",
+ "path": "content/lessons/mathematics/algebra/functions-and-relations.md",
+ "lesson_sha256": "70831709ec12b95c55ffa4dabe636c25ed12776a48df97b16735cf40d7b58a1e",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "L20",
+   "line": 163,
+   "text": "### #2: Repeated Outputs Are Allowed",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 167,
+   "text": "### #3: Mixing Up Composition Order",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 173,
+   "text": "### #4: Missing a Domain Restriction",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  }
+ ]
+}

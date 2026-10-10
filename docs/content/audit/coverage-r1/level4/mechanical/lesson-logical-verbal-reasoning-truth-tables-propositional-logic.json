@@ -1,0 +1,57 @@
+{
+ "lesson_id": "lesson-logical-verbal-reasoning-truth-tables-propositional-logic",
+ "path": "content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md",
+ "lesson_sha256": "cc849c94c8cba0819373b34588a3de376dd3535fe5ddb3a4fff754839cc61d5d",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "L13",
+   "line": 22,
+   "text": "| $P$ | $Q$ | NOT ($\\neg P$) | AND ($P \\land Q$) | OR ($P \\lor Q$) | IF...THEN ($P \\rightarrow Q$) |",
+   "problem": "possible all-capitals emphasis: THEN",
+   "candidate": true
+  },
+  {
+   "rule": "L22",
+   "line": 22,
+   "text": "| $P$ | $Q$ | NOT ($\\neg P$) | AND ($P \\land Q$) | OR ($P \\lor Q$) | IF...THEN ($P \\rightarrow Q$) |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 23,
+   "text": "| --- | --- | --- | --- | --- | --- |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 24,
+   "text": "| T | T | F | T | T | T |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 25,
+   "text": "| T | F | F | F | T | F |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 26,
+   "text": "| F | T | T | F | T | T |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 27,
+   "text": "| F | F | T | F | F | T |",
+   "problem": "table",
+   "candidate": false
+  }
+ ]
+}

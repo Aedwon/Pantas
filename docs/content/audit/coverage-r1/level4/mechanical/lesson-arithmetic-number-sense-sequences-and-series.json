@@ -1,0 +1,22 @@
+{
+ "lesson_id": "lesson-arithmetic-number-sense-sequences-and-series",
+ "path": "content/lessons/mathematics/arithmetic-number-sense/sequences-and-series.md",
+ "lesson_sha256": "dccf450a299166b1d0bda9697f2cfc2e17e3c3566f81acdf3c0c0ba34554a81e",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "L20",
+   "line": 144,
+   "text": "### #1: Term vs. Sum Confusion",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 148,
+   "text": "### #2: Forgetting the Reciprocal in a Harmonic Sequence",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  }
+ ]
+}

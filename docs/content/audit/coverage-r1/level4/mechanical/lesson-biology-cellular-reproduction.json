@@ -1,0 +1,15 @@
+{
+ "lesson_id": "lesson-biology-cellular-reproduction",
+ "path": "content/lessons/science/biology/cellular-reproduction.md",
+ "lesson_sha256": "76fe82941a656515f5f34cdf5d8fdb7a67eff9db0426fb70ef486036ebd90f72",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 65,
+   "text": "$$\\frac{46}{2} = 23$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  }
+ ]
+}

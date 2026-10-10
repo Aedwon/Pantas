@@ -1,0 +1,15 @@
+{
+ "lesson_id": "lesson-text-types-short-stories-and-novels",
+ "path": "content/lessons/reading-comprehension/text-types/short-stories-and-novels.md",
+ "lesson_sha256": "c7998a2014ef7f51f7ce5542aa3c02dc6b45446c268b92637526d2f6bdb64279",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 22,
+   "text": "The **protagonist** is the principal character or central figure whose goals, choices, or experience organize much of the narrative. An **antagonistic force** opposes or obstructs the protagonist and ",
+   "problem": "em dash",
+   "candidate": false
+  }
+ ]
+}

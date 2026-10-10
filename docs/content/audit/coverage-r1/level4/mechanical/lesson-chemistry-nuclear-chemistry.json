@@ -1,0 +1,50 @@
+{
+ "lesson_id": "lesson-chemistry-nuclear-chemistry",
+ "path": "content/lessons/science/chemistry/nuclear-chemistry.md",
+ "lesson_sha256": "2033a4cf11cd038a5e5a8c893cf4c8970abb04c064e2f314f9554e2bd118300d",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 28,
+   "text": "Carbon-14 decay is a familiar example.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 51,
+   "text": "**Nuclear fission** splits a heavy nucleus into smaller nuclei, commonly after neutron absorption in reactor examples such as uranium-235. Fission releases energy and often additional neutrons, which ",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 59,
+   "text": "The Sun does not simply join \"two hydrogen nuclei directly into helium\" in one elementary step. Its net proton-proton-chain result converts four hydrogen nuclei into a helium-4 nucleus plus other part",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 73,
+   "text": "The daughter is thorium-234.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 77,
+   "text": "Carbon-14 ($Z=6$, $A=14$) undergoes $\\beta^-$ decay.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 81,
+   "text": "3. The daughter is nitrogen-14.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

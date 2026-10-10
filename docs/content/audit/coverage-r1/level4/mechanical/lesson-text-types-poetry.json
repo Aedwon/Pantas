@@ -1,0 +1,15 @@
+{
+ "lesson_id": "lesson-text-types-poetry",
+ "path": "content/lessons/reading-comprehension/text-types/poetry.md",
+ "lesson_sha256": "8869cd323f0c2e1484e6fa0531c137a54971c55a24f94d7b2a8319c7d6a623c1",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B09",
+   "line": 61,
+   "text": "**Identify the actual comparison.** *Like/as/than* often mark similes, but only when unlike things are being explicitly compared.",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  }
+ ]
+}

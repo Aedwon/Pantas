@@ -1,0 +1,106 @@
+{
+ "lesson_id": "lesson-logical-verbal-reasoning-number-and-letter-sequences",
+ "path": "content/lessons/reasoning/logical-verbal-reasoning/number-and-letter-sequences.md",
+ "lesson_sha256": "5e71c398b57a4d6567948047c11b295e70df7fe0534e7701cde7ad1332410348",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 28,
+   "text": "| 2 | 2 | — |",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 28,
+   "text": "| 2 | 2 | — |",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 29,
+   "text": "| 5 | 5 | +3 |",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 30,
+   "text": "| 8 | 8 | +3 |",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 31,
+   "text": "| 11 | 11 | +3 |",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 41,
+   "text": "All shown consecutive differences are $+5$, so the simple arithmetic continuation gives **24**.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 59,
+   "text": "The differences are $1,2,3,4$. Continuing that simple difference pattern with $+5$ gives **17**.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 70,
+   "text": "4. Letter 16 is **P**.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "L22",
+   "line": 26,
+   "text": "| Term | Value | Difference |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 27,
+   "text": "| --- | ---: | ---: |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 28,
+   "text": "| 2 | 2 | — |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 29,
+   "text": "| 5 | 5 | +3 |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 30,
+   "text": "| 8 | 8 | +3 |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 31,
+   "text": "| 11 | 11 | +3 |",
+   "problem": "table",
+   "candidate": false
+  }
+ ]
+}

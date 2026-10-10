@@ -1,0 +1,43 @@
+{
+ "lesson_id": "lesson-mechanical-technical-reasoning-structural-stability",
+ "path": "content/lessons/reasoning/mechanical-technical-reasoning/structural-stability.md",
+ "lesson_sha256": "def98d8b2801b499e1d33f294bb42769acd1a5121f65127527482a5c3f56bd39",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 12,
+   "text": "An object's **center of gravity** is the point through which the resultant gravitational force can be treated as acting. In an approximately uniform gravitational field, it is closely related to the c",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B06",
+   "line": 28,
+   "text": "This is a **static/quasi-static model**. When an object accelerates—such as a truck turning sharply—additional forces and load transfer matter. A lower center of mass still improves rollover resistanc",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B10",
+   "line": 20,
+   "text": "For a rigid object at rest or tilted slowly on a level support, a useful stability test is the vertical projection of its center of gravity:",
+   "problem": "word reserved from student text: stability",
+   "candidate": true
+  },
+  {
+   "rule": "B10",
+   "line": 52,
+   "text": "The same truck carries the same mass of cargo either stacked high or secured lower in the vehicle. Which arrangement generally improves rollover stability in a turn?",
+   "problem": "word reserved from student text: stability",
+   "candidate": true
+  },
+  {
+   "rule": "B10",
+   "line": 65,
+   "text": "The wider stance gives the center-of-gravity projection more room to shift before crossing the base boundary, so it generally improves quasi-static sideways stability.",
+   "problem": "word reserved from student text: stability",
+   "candidate": true
+  }
+ ]
+}

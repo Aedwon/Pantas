@@ -1,0 +1,36 @@
+{
+ "lesson_id": "lesson-environment-management-environmental-concepts",
+ "path": "content/lessons/general-information/environment-management/environmental-concepts.md",
+ "lesson_sha256": "a0189c67fc25dc3a130d731773449e86dde303beeaa8fa2ff2fce15adc06c4a0",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 18,
+   "text": "- **Environmental Compliance Certificate (ECC):** A decision document issued to a project proponent after review under the Philippine Environmental Impact Statement System. Projects covered by the sys",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 16,
+   "text": "- **Segregation at Source:** A solid-waste management practice of separating different materials at their point of origin to promote recycling and reuse and reduce the volume of waste for collection a",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 19,
+   "text": "- **Disaster Risk Reduction and Management:** RA 10121 strengthened the Philippine disaster-management framework by emphasizing prevention and mitigation, preparedness, response, and rehabilitation an",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 52,
+   "text": "1. PD 1586 established the Philippine Environmental Impact Statement System.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

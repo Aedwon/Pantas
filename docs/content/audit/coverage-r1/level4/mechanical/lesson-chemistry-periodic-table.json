@@ -1,0 +1,29 @@
+{
+ "lesson_id": "lesson-chemistry-periodic-table",
+ "path": "content/lessons/science/chemistry/periodic-table.md",
+ "lesson_sha256": "362c3336845a093254e97ef23c0f8db62bdea8018589e1ad3b6bc8aecb87d68d",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 34,
+   "text": "**Electron affinity:** This is an energy change when an electron is added to a gaseous atom. On the OpenStax sign convention, a more negative value means more energy is released. Electron affinities t",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 56,
+   "text": "1. Both are in period 3.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 72,
+   "text": "Fluorine is above chlorine in group 17. Must fluorine have the most exothermic electron affinity simply because it is higher in the group?",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

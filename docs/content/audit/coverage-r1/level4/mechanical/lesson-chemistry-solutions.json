@@ -1,0 +1,57 @@
+{
+ "lesson_id": "lesson-chemistry-solutions",
+ "path": "content/lessons/science/chemistry/solutions.md",
+ "lesson_sha256": "d30469a2a90bd0b8453d0d4364caa038dcffe9148885b3721971cb2cc5c27800",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 28,
+   "text": "$$M=\\frac{\\text{moles of solute}}{\\text{liters of solution}}$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 32,
+   "text": "$$m=\\frac{\\text{moles of solute}}{\\text{kilograms of solvent}}$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 38,
+   "text": "$$\\%\\text{ by mass}=\\frac{\\text{mass of solute}}{\\text{mass of solution}}\\times100\\%$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 42,
+   "text": "$$\\%\\text{ by volume}=\\frac{\\text{volume of solute}}{\\text{final volume of solution}}\\times100\\%$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 53,
+   "text": "$$M=\\frac{2}{4}=0.50\\,\\mathrm{mol/L}=0.50\\,M$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 59,
+   "text": "$$m=\\frac{1}{2}=0.50\\,\\mathrm{mol/kg}$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 68,
+   "text": "$$\\%\\text{ by mass}=\\frac{20}{200}\\times100\\%=10\\%$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  }
+ ]
+}

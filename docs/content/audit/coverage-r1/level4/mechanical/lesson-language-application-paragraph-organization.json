@@ -1,0 +1,36 @@
+{
+ "lesson_id": "lesson-language-application-paragraph-organization",
+ "path": "content/lessons/language-proficiency/language-application/paragraph-organization.md",
+ "lesson_sha256": "0d31c7024268d90892f29464e198c7152ca677c959ba650146fc1cb12bb4ff3e",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 20,
+   "text": "**Transitions.** Words such as *however, therefore, for example, meanwhile,* and *in addition* show logical relationships. Their target can be the immediately preceding sentence or a broader earlier i",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B06",
+   "line": 65,
+   "text": "It signals contrast with an idea already established in the discourse—for example, support for the policy or an expectation that it would be accepted. It cannot tell you by itself exactly which senten",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B09",
+   "line": 69,
+   "text": "**Build links, not just positions.** Mark references (*this, these, they*), transitions, repeated key terms, chronology, and cause/effect.",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  },
+  {
+   "rule": "B09",
+   "line": 85,
+   "text": "> *However* means contrast; *therefore* marks an inferential/result relation; *for example* introduces illustration. None mechanically determines a sentence number without context.",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  }
+ ]
+}

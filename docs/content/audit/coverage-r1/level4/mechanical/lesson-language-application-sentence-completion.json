@@ -1,0 +1,15 @@
+{
+ "lesson_id": "lesson-language-application-sentence-completion",
+ "path": "content/lessons/language-proficiency/language-application/sentence-completion.md",
+ "lesson_sha256": "8f7f4249fdb388a2ca20a1a6d54ffaa0dc6371609193a936fe22a6e1b6327901",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B09",
+   "line": 72,
+   "text": "**Use signal words as relations, not formulas.** *Although* signals concession/contrast; *because* introduces a reason; *therefore* marks a result or inference.",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "lesson_id": "lesson-physics-fluid-mechanics",
+ "path": "content/lessons/science/physics/fluid-mechanics.md",
+ "lesson_sha256": "29446c078d4024ca5fc7ebeb6ee1e77e627c3cc96f5a61e44a55bf5e03fde54e",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 94,
+   "text": "$$P_1+\\frac12\\rho v_1^2=P_2+\\frac12\\rho v_2^2$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 88,
+   "text": "Water flows steadily through a horizontal pipe that narrows. At point 1 the water moves more slowly; at point 2 it moves faster. Assume the water is incompressible, viscosity is negligible, and the tw",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 96,
+   "text": "Since $v_2>v_1$, the kinetic-energy-per-volume term is larger at point 2, so its static-pressure term is smaller:",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

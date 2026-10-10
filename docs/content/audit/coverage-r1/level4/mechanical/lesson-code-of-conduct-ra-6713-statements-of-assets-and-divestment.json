@@ -1,0 +1,183 @@
+{
+ "lesson_id": "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment",
+ "path": "content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md",
+ "lesson_sha256": "46e226a923d1aa8759cfe0536b965fcee0390fcb19dd3e1f9823a4259b90f16f",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 12,
+   "text": "Section 8 of RA 6713 requires covered public officials and employees to file a sworn Statement of Assets, Liabilities and Net Worth (SALN) and a Disclosure of Business Interests and Financial Connecti",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 17,
+   "text": "- **Relatives in government:** Public officials and employees must identify and disclose, to the best of their knowledge and information, relatives in government in the form, manner, and frequency pre",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 21,
+   "text": "1. **Assumption of office:** Within 30 days after assumption of office.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 22,
+   "text": "2. **Annual filing:** On or before April 30 of every year thereafter.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 23,
+   "text": "3. **Separation from service:** Within 30 days after separation from the service.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 27,
+   "text": "RA 6713 assigns filing offices by category:",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 38,
+   "text": "- **Inspection and copying:** Filed statements must be available for inspection at reasonable hours. They become available for copying or reproduction after 10 working days from filing.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B10",
+   "line": 39,
+   "text": "- **Retention:** Statements remain available to the public for 10 years after receipt. After that period, they may be destroyed unless needed in an ongoing investigation.",
+   "problem": "word reserved from student text: retention",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 39,
+   "text": "- **Retention:** Statements remain available to the public for 10 years after receipt. After that period, they may be destroyed unless needed in an ongoing investigation.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 40,
+   "text": "- **Divestment rules:** When a conflict of interest exists, the official or employee must resign from the private business position within 30 days and/or divest the relevant shareholdings or interests",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 46,
+   "text": "A newly appointed government employee starts working on June 1. By what deadline must the employee file their initial Statement of Assets, Liabilities and Net Worth (SALN)?",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 49,
+   "text": "Identify the SALN deadline for assumption of office under Section 8 of RA 6713.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 51,
+   "text": "1. Under RA 6713, a covered official or employee must file after assumption of office.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 52,
+   "text": "2. The deadline is within 30 days after assumption of office.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 53,
+   "text": "3. Therefore, the employee must file the initial SALN within 30 days after assuming office.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 60,
+   "text": "Apply the divestment timeframes in RA 6713.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 63,
+   "text": "2. The official must resign from the private business position within 30 days.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 64,
+   "text": "3. The official must divest the relevant shareholdings or interests within 60 days.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 65,
+   "text": "4. Therefore, the deadlines are 30 days for resignation and 60 days for divestment.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 69,
+   "text": "A journalist requests a copy of a local official's SALN filed 8 years ago. When does a filed statement become available for copying, and how long does it remain available to the public?",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B10",
+   "line": 72,
+   "text": "Review the accessibility and retention rules under Section 8.",
+   "problem": "word reserved from student text: retention",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 72,
+   "text": "Review the accessibility and retention rules under Section 8.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 75,
+   "text": "2. They become available for copying or reproduction after 10 working days from filing.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 76,
+   "text": "3. They remain available to the public for 10 years after receipt, and an 8-year-old statement is still within that period.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 77,
+   "text": "4. Therefore, the statement may be copied after the 10-working-day period and remains within the 10-year public-availability window.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

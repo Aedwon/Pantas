@@ -1,0 +1,15 @@
+{
+ "lesson_id": "lesson-geometry-measurement",
+ "path": "content/lessons/mathematics/geometry/measurement.md",
+ "lesson_sha256": "84a5b625c1deecebca2d0de6e78f40d0d81b4252c356f917ab0949c5c1d3d6d5",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B09",
+   "line": 212,
+   "text": "In parallelograms, triangles, and trapezoids, test-makers label both the slant side and the true height. Using the slant gives a bigger, wrong area. The height is the one drawn with a right-angle mark",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  }
+ ]
+}

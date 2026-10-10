@@ -1,0 +1,29 @@
+{
+ "lesson_id": "lesson-algebra-linear-equations-inequalities",
+ "path": "content/lessons/mathematics/algebra/linear-equations-inequalities.md",
+ "lesson_sha256": "adf727715070361c4e5ba22d208edff80f9aceee28452ebe81beda47db1e774e",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "L20",
+   "line": 156,
+   "text": "### #1: Negative Multiplier or Divisor",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 160,
+   "text": "### #2: Parallel and Perpendicular Edge Cases",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 166,
+   "text": "### #3: Solid vs. Dashed Boundary",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  }
+ ]
+}

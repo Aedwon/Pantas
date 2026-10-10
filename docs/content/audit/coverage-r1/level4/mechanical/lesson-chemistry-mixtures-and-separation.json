@@ -1,0 +1,22 @@
+{
+ "lesson_id": "lesson-chemistry-mixtures-and-separation",
+ "path": "content/lessons/science/chemistry/mixtures-and-separation.md",
+ "lesson_sha256": "fe384ae5a486e1782779aa3a79ddffbb603e8e67969aa16ebfaa71b1d05da80e",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 12,
+   "text": "A **mixture** contains two or more substances in proportions that can vary. Forming a mixture does not, by itself, mean that the components have been converted into new pure substances. The components",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B06",
+   "line": 30,
+   "text": "When a liquid mixture is heated, more than one volatile component can enter the vapor phase. The vapor is usually **enriched in the more volatile component**—not composed exclusively of whichever subs",
+   "problem": "em dash",
+   "candidate": false
+  }
+ ]
+}

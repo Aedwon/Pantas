@@ -1,0 +1,29 @@
+{
+ "lesson_id": "lesson-earth-science-astronomy-origin-of-the-universe",
+ "path": "content/lessons/science/earth-science-astronomy/origin-of-the-universe.md",
+ "lesson_sha256": "c42d612dc55018efde94b9f9f35aa626b0fea4486b80e0f7ef9213e92dba242d",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 41,
+   "text": "2. Modern cosmology describes the universe itself—including space—as expanding from an earlier hot, dense state.",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 14,
+   "text": "The **Big Bang model** describes an early universe that was extremely hot and dense and has been expanding and cooling for about **13.8 billion years**. It is misleading to picture a bomb exploding fr",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 27,
+   "text": "The leading **nebular model** says the Solar System began forming about **4.6 billion years ago** from part of a cold molecular cloud of gas and dust. Gravity caused the region to collapse. As it cont",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

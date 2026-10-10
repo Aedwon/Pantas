@@ -1,0 +1,15 @@
+{
+ "lesson_id": "lesson-physics-scalars-and-vectors",
+ "path": "content/lessons/science/physics/scalars-and-vectors.md",
+ "lesson_sha256": "a60360ce8730c373c2a4b566ab69b6442a29a66af2b464f1e0a8220e923a9ac0",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 67,
+   "text": "4. Speed: scalar, even though velocity—its vector counterpart—is a vector quantity.",
+   "problem": "em dash",
+   "candidate": false
+  }
+ ]
+}

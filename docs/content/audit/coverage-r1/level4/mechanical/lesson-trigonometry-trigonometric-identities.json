@@ -1,0 +1,15 @@
+{
+ "lesson_id": "lesson-trigonometry-trigonometric-identities",
+ "path": "content/lessons/mathematics/trigonometry/trigonometric-identities.md",
+ "lesson_sha256": "40b3c720fbdb33f55a9cd2622e7f8242a8e5198c9d98a2cf778fd20b702d29f9",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 30,
+   "text": "Dividing that identity by $\\cos^2 \\theta$ or by $\\sin^2 \\theta$—where those quantities are nonzero—gives:",
+   "problem": "em dash",
+   "candidate": false
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "lesson_id": "lesson-trigonometry-unit-circle",
+ "path": "content/lessons/mathematics/trigonometry/unit-circle.md",
+ "lesson_sha256": "4bb846e0bf16d292a79c1aff057db76c27efc4528b1f587eed48f4ad09f4a9c7",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B09",
+   "line": 14,
+   "text": "Put an angle $\\theta$ in standard position and mark where its terminal side crosses the unit circle. That point has coordinates:",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 32,
+   "text": "**Tool 1, the reference angle**: the positive acute angle between the terminal side and the $x$-axis. For angles between $0^\\circ$ and $360^\\circ$, the usual formulas are $180^\\circ-\\theta$ in Quadran",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 34,
+   "text": "**Tool 2, the quadrant signs**: the quadrant determines the signs. Since cosine is $x$ and sine is $y$: Quadrant I has sine and cosine positive; Quadrant II has sine positive and cosine negative; Quad",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

@@ -1,0 +1,36 @@
+{
+ "lesson_id": "lesson-mechanical-technical-reasoning-springs-and-weights",
+ "path": "content/lessons/reasoning/mechanical-technical-reasoning/springs-and-weights.md",
+ "lesson_sha256": "b367a57b7146e942b584dee9ea7afe202491a111157b3d38173fcf26706fd1a3",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 24,
+   "text": "$$F=kx \\qquad\\Rightarrow\\qquad x=\\frac{F}{k}.$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 30,
+   "text": "$$x=\\frac{mg}{k}.$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B06",
+   "line": 60,
+   "text": "The extension is five times larger, so the required weight—and therefore the mass under the same gravity—is five times larger:",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 83,
+   "text": "$$k=\\frac{F}{x}=\\frac{10}{0.050}=200\\text{ N/m}.$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  }
+ ]
+}

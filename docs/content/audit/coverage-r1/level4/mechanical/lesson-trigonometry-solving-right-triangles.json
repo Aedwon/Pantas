@@ -1,0 +1,15 @@
+{
+ "lesson_id": "lesson-trigonometry-solving-right-triangles",
+ "path": "content/lessons/mathematics/trigonometry/solving-right-triangles.md",
+ "lesson_sha256": "db3a216d0803d37f3b61cef350fba0c47f2d861a0dc25b00489b41e1faa43ebd",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 161,
+   "text": "For the **specific geometry in Example #5**—two ground-level observation points on the same side of the object, separated by distance $D$, with elevation angles $30^\\circ$ and $60^\\circ$—the height si",
+   "problem": "em dash",
+   "candidate": false
+  }
+ ]
+}

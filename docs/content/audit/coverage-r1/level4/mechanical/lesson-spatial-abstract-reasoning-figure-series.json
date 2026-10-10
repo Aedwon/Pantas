@@ -1,0 +1,22 @@
+{
+ "lesson_id": "lesson-spatial-abstract-reasoning-figure-series",
+ "path": "content/lessons/reasoning/spatial-abstract-reasoning/figure-series.md",
+ "lesson_sha256": "c64be0e462d66f3cd73b3039528094b55af20714604f972749060ad8efec41dd",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B09",
+   "line": 21,
+   "text": "- count of dots/marks;",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 45,
+   "text": "The simple count pattern is $3,4,5$, so the intended continuation is a **hexagon** with 6 sides.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

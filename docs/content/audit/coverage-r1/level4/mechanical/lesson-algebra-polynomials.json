@@ -1,0 +1,29 @@
+{
+ "lesson_id": "lesson-algebra-polynomials",
+ "path": "content/lessons/mathematics/algebra/polynomials.md",
+ "lesson_sha256": "569fc5f0e8e9a420ef0a8e7bd71209f9b785ac12269db0232b6dfcb3aa95af9b",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "L20",
+   "line": 152,
+   "text": "### #1: Subtracting a Polynomial",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 156,
+   "text": "### #2: Squaring a Binomial",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 162,
+   "text": "### #3: Synthetic-Division Sign",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  }
+ ]
+}

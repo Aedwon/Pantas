@@ -1,0 +1,22 @@
+{
+ "lesson_id": "lesson-grammar-and-structure-redundancy-and-double-negatives",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/redundancy-and-double-negatives.md",
+ "lesson_sha256": "d8c82f05c8a0fc09b84aedd831f5cb37219d5b10f6d243ca678801b15c62bc47",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 27,
+   "text": "Many English dialects use **negative concord**, where several negative forms work together to express one negative meaning. In such a dialect, \"I don't have no money\" means \"I have no money\"—it does *",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B06",
+   "line": 71,
+   "text": "**For redundancy, test information—not just dictionary overlap.** Ask what meaning, emphasis, or contrast disappears if the word is removed.",
+   "problem": "em dash",
+   "candidate": false
+  }
+ ]
+}

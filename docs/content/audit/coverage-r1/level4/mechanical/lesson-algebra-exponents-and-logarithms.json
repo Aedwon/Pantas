@@ -1,0 +1,22 @@
+{
+ "lesson_id": "lesson-algebra-exponents-and-logarithms",
+ "path": "content/lessons/mathematics/algebra/exponents-and-logarithms.md",
+ "lesson_sha256": "1d3cbe111aa3cbf7581ee324b70c6f2771ae0e725f476b2e2f1f16295588d263",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "L20",
+   "line": 191,
+   "text": "### #3: Logarithm of a Sum",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 195,
+   "text": "### #4: Missing Logarithm Conditions",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "lesson_id": "lesson-grammar-and-structure-parts-of-speech",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/parts-of-speech.md",
+ "lesson_sha256": "77833e2b083702fee12a818325bb32a78e2e7a41bf41ee5642498bf11bc4c1c4",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 23,
+   "text": "Modern grammars sometimes divide words differently—for example, by treating determiners as a separate class—so \"eight parts of speech\" is a useful **traditional school classification**, not the only p",
+   "problem": "em dash",
+   "candidate": false
+  }
+ ]
+}

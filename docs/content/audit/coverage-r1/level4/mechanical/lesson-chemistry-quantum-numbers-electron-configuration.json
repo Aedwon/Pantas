@@ -1,0 +1,85 @@
+{
+ "lesson_id": "lesson-chemistry-quantum-numbers-electron-configuration",
+ "path": "content/lessons/science/chemistry/quantum-numbers-electron-configuration.md",
+ "lesson_sha256": "dbf0b6f78d23d3f6600a9546bcc98ed51052f2495670a036346a858fee8f06d6",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 115,
+   "text": "$$m_s=\\pm\\frac12$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 35,
+   "text": "| $s$ | 0 | 1 | 2 |",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 36,
+   "text": "| $p$ | 1 | 3 | 6 |",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 37,
+   "text": "| $d$ | 2 | 5 | 10 |",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 38,
+   "text": "| $f$ | 3 | 7 | 14 |",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "L22",
+   "line": 33,
+   "text": "| Subshell | $\\ell$ | Number of orbitals | Maximum electrons |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 34,
+   "text": "| --- | ---: | ---: | ---: |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 35,
+   "text": "| $s$ | 0 | 1 | 2 |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 36,
+   "text": "| $p$ | 1 | 3 | 6 |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 37,
+   "text": "| $d$ | 2 | 5 | 10 |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 38,
+   "text": "| $f$ | 3 | 7 | 14 |",
+   "problem": "table",
+   "candidate": false
+  }
+ ]
+}

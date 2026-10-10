@@ -1,0 +1,50 @@
+{
+ "lesson_id": "lesson-mechanical-technical-reasoning-gear-rotations",
+ "path": "content/lessons/reasoning/mechanical-technical-reasoning/gear-rotations.md",
+ "lesson_sha256": "dcb596c614480c76ec1a538861177a5c227bc4c0c5aab7e04b0fdda1572dc3f1",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 22,
+   "text": "$$\\frac{|\\omega_1|}{|\\omega_2|}=\\frac{N_2}{N_1}.$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 39,
+   "text": "Three ordinary external gears mesh in a row. Gear 1 turns clockwise. What direction does Gear 3 turn?",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 43,
+   "text": "Gear 1 clockwise → Gear 2 counter-clockwise → Gear 3 clockwise. Gear 3 turns **clockwise**.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 48,
+   "text": "Five external gears mesh in a row. Gear 1 turns counter-clockwise. Gear 5 is four meshes away, so the direction has reversed an even number of times. Gear 5 turns **counter-clockwise**.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 53,
+   "text": "A 10-tooth external gear meshes with a 30-tooth external gear. If the 10-tooth gear completes 6 rotations, how many rotations does the 30-tooth gear complete?",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 63,
+   "text": "The larger gear makes **2 rotations**, in the opposite direction.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

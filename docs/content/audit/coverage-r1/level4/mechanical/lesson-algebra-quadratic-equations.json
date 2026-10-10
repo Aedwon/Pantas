@@ -1,0 +1,29 @@
+{
+ "lesson_id": "lesson-algebra-quadratic-equations",
+ "path": "content/lessons/mathematics/algebra/quadratic-equations.md",
+ "lesson_sha256": "ddba9cbe19166408b2304f980e515b3c3eb3b27f1532b77e1a6f8af981ac61da",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "L20",
+   "line": 140,
+   "text": "### #1: Not Setting the Equation to Zero",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 144,
+   "text": "### #2: Forgetting Both Square-Root Solutions",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 152,
+   "text": "### #3: Dividing by a Variable",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  }
+ ]
+}

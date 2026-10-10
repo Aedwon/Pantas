@@ -1,0 +1,64 @@
+{
+ "lesson_id": "lesson-arithmetic-number-sense-properties-of-real-numbers",
+ "path": "content/lessons/mathematics/arithmetic-number-sense/properties-of-real-numbers.md",
+ "lesson_sha256": "2d73d6e795016065c6cb947045a4e06fd93b8e73b90f42eb1ba274b68582acb5",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 14,
+   "text": "**1. Commutative Property**",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 21,
+   "text": "**2. Associative Property**",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 28,
+   "text": "**3. Distributive Property**",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 35,
+   "text": "**4. Identity Property**",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 38,
+   "text": "**5. Inverse Property**",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "L20",
+   "line": 151,
+   "text": "### #1: Confusing Commutative and Associative",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 163,
+   "text": "### #2: Applying Commutative or Associative Rules to Subtraction and Division",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 167,
+   "text": "### #3: Dropping the Negative Sign",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  }
+ ]
+}

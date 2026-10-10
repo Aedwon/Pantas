@@ -1,0 +1,36 @@
+{
+ "lesson_id": "lesson-algebra-types-of-functions",
+ "path": "content/lessons/mathematics/algebra/types-of-functions.md",
+ "lesson_sha256": "62e0e563e022868ca9a4abbfc92069250973de432ff9830bd7836cafdb98ad77",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "L20",
+   "line": 135,
+   "text": "### #1: Impossible Absolute-Value Equation",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 139,
+   "text": "### #2: Piecewise Boundary",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 143,
+   "text": "### #3: Polynomial vs. Exponential Growth",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 147,
+   "text": "### #4: Logarithm Domain",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  }
+ ]
+}

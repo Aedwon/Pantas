@@ -1,0 +1,43 @@
+{
+ "lesson_id": "lesson-biology-ecology",
+ "path": "content/lessons/science/biology/ecology.md",
+ "lesson_sha256": "ce76e7dd6b64124ff597334093984b15116ed99a2f93d40b74699eaef88f3874",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 22,
+   "text": "A **food chain** is a simplified sequence of feeding relationships. The arrows conventionally show the direction in which energy and matter move—from the organism being eaten toward the consumer.",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 37,
+   "text": "The familiar **10% rule** is a classroom approximation, not a universal constant. Ecological or trophic transfer efficiency varies by ecosystem and organisms. For a problem that explicitly tells you t",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 89,
+   "text": "3. This is an estimate based on the problem's 10% assumption, not a law that all ecosystems obey exactly.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 116,
+   "text": "For trophic-energy calculations, use 10% only when the lesson/problem presents it as an approximation or explicitly instructs you to assume it.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 126,
+   "text": "> Trophic transfer efficiency varies; 10% is a useful rule of thumb for simple problems.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

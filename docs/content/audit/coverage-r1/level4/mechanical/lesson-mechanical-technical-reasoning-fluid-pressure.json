@@ -1,0 +1,15 @@
+{
+ "lesson_id": "lesson-mechanical-technical-reasoning-fluid-pressure",
+ "path": "content/lessons/reasoning/mechanical-technical-reasoning/fluid-pressure.md",
+ "lesson_sha256": "d904040e9f5f8b52b26033211caf6197daa71449bd7d2f51b43565bab36611d7",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 42,
+   "text": "$$P+\\frac12\\rho v^2+\\rho gy=\\text{constant}.$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  }
+ ]
+}

@@ -1,0 +1,71 @@
+{
+ "lesson_id": "lesson-physics-units-and-measurements",
+ "path": "content/lessons/science/physics/units-and-measurements.md",
+ "lesson_sha256": "44f728ab41f7de68e1003b70273341b239b245b15bfa0ba7b54d936c454d89cc",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "L22",
+   "line": 28,
+   "text": "| Base Quantity | SI Unit | Symbol |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 29,
+   "text": "| --- | --- | --- |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 30,
+   "text": "| Length | meter | $\\text{m}$ |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 31,
+   "text": "| Mass | kilogram | $\\text{kg}$ |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 32,
+   "text": "| Time | second | $\\text{s}$ |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 33,
+   "text": "| Electric current | ampere | $\\text{A}$ |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 34,
+   "text": "| Temperature | kelvin | $\\text{K}$ |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 35,
+   "text": "| Amount of substance | mole | $\\text{mol}$ |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 36,
+   "text": "| Luminous intensity | candela | $\\text{cd}$ |",
+   "problem": "table",
+   "candidate": false
+  }
+ ]
+}

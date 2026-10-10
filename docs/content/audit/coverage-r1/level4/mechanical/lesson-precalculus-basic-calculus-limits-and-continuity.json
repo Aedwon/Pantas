@@ -1,0 +1,15 @@
+{
+ "lesson_id": "lesson-precalculus-basic-calculus-limits-and-continuity",
+ "path": "content/lessons/mathematics/precalculus-basic-calculus/limits-and-continuity.md",
+ "lesson_sha256": "9842c636ff7442f8c443ea418e553ed3dd4066348685c8d617a1ecac4e566b39",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 20,
+   "text": "For functions known to be continuous at $a$—such as polynomials, and rational functions whose denominator is nonzero there—direct substitution gives the limit:",
+   "problem": "em dash",
+   "candidate": false
+  }
+ ]
+}

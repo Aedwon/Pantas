@@ -1,0 +1,15 @@
+{
+ "lesson_id": "lesson-statistics-and-probability-data-analysis-graphs",
+ "path": "content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md",
+ "lesson_sha256": "b03d6b02a0430dcab6aaec87a0c7b171fc9b21a363638865d9d64433546b49c9",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 123,
+   "text": "Useful pie-chart anchors include $36^\\circ=10\\%$, $90^\\circ=25\\%$, $120^\\circ=\\frac13$ of a circle, and $180^\\circ=50\\%$.",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "lesson_id": "lesson-clerical-ability-numeric-and-chronological-filing",
+ "path": "content/lessons/reasoning/clerical-ability/numeric-and-chronological-filing.md",
+ "lesson_sha256": "ba8207ed8eb2148974031e1a74009ccd7fa721505bd64d7a20b138eaf481dcee",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 31,
+   "text": "When comparing complete calendar dates, compare **year first**, then **month**, then **day**, regardless of how the date is displayed. ISO-style notation `YYYY-MM-DD` is convenient because ordinary le",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 49,
+   "text": "Arrange: March 15, 2024; January 20, 2024; November 5, 2023; February 10, 2025.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 55,
+   "text": "1. November 5, 2023",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 56,
+   "text": "2. January 20, 2024",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 57,
+   "text": "3. March 15, 2024",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 58,
+   "text": "4. February 10, 2025",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 78,
+   "text": "Suppose a filing system contains codes `12.05`, `12.1`, and `12.008` and says each segment after the period is a separate **integer subcode**. Then compare the first segments (all 12), followed by sub",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

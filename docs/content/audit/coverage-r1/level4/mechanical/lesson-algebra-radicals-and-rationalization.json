@@ -1,0 +1,36 @@
+{
+ "lesson_id": "lesson-algebra-radicals-and-rationalization",
+ "path": "content/lessons/mathematics/algebra/radicals-and-rationalization.md",
+ "lesson_sha256": "9440f5a48bb9991d2ab973d0536efdbe0566bdea70f32dfc8d670692d0df597d",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "L20",
+   "line": 138,
+   "text": "### #1: Adding Radicands",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 146,
+   "text": "### #2: Conjugates",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 154,
+   "text": "### #3: Principal Square Root vs. Equation Solutions",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 158,
+   "text": "### #4: Cube-Root Rationalization",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  }
+ ]
+}

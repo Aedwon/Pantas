@@ -1,0 +1,36 @@
+{
+ "lesson_id": "lesson-chemistry-mole-concept",
+ "path": "content/lessons/science/chemistry/mole-concept.md",
+ "lesson_sha256": "7ced9877db7997594d74ac27a553aad3dcf39e3f06dca7ee4644670485bdee12",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 36,
+   "text": "$$n=\\frac{m}{M}$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 60,
+   "text": "$$n=\\frac{36\\,\\mathrm g}{18\\,\\mathrm{g/mol}}=2.0\\,\\mathrm{mol}$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 76,
+   "text": "$$n=\\frac{9}{18}=0.5\\,\\mathrm{mol}$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 30,
+   "text": "For introductory calculations, an element's tabulated relative atomic mass gives a numerically very close molar mass in $\\mathrm{g/mol}$. Since the 2019 SI redefinition, however, the mole is defined b",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

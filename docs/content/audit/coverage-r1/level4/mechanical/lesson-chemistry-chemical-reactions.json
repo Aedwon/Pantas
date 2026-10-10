@@ -1,0 +1,57 @@
+{
+ "lesson_id": "lesson-chemistry-chemical-reactions",
+ "path": "content/lessons/science/chemistry/chemical-reactions.md",
+ "lesson_sha256": "c341c6ac97c05c858e10b99c50e5ae2ab090fce440d49849e20e2c4a35d528f7",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "L22",
+   "line": 30,
+   "text": "| Introductory pattern | Typical form |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 31,
+   "text": "| --- | --- |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 32,
+   "text": "| Combination | $A+B\\rightarrow AB$ |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 33,
+   "text": "| Decomposition | $AB\\rightarrow A+B$ |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 34,
+   "text": "| Single displacement | $A+BC\\rightarrow AC+B$ |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 35,
+   "text": "| Double displacement | $AB+CD\\rightarrow AD+CB$ when a reaction is driven |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 36,
+   "text": "| Complete hydrocarbon combustion | $C_xH_y+O_2\\rightarrow CO_2+H_2O$ |",
+   "problem": "table",
+   "candidate": false
+  }
+ ]
+}

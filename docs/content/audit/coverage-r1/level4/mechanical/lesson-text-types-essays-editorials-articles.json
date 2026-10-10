@@ -1,0 +1,22 @@
+{
+ "lesson_id": "lesson-text-types-essays-editorials-articles",
+ "path": "content/lessons/reading-comprehension/text-types/essays-editorials-articles.md",
+ "lesson_sha256": "3b10c0b0c8815c32cc2fc4ee53ae3387f7f3d58bdbb38431c983ffa370480ff2",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 46,
+   "text": "The difference is not simply \"facts versus opinions\"—opinion writing can use facts, and news reporting can include analysis. The stronger clue is whether the text's primary function is reporting/expla",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 44,
+   "text": "A news report may say, \"Officials estimate the policy will raise ₱2 million annually.\" An opinion piece may argue, \"The policy unfairly burdens working families and should be repealed.\"",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

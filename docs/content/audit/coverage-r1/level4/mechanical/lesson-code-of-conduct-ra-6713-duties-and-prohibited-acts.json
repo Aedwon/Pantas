@@ -1,0 +1,120 @@
+{
+ "lesson_id": "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+ "path": "content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md",
+ "lesson_sha256": "2713fa46b4cfc6ad70a00ff54a1b66a6f7b9ce63aa17ce9e04de997742140fa9",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 12,
+   "text": "Sections 5 and 7 of RA 6713 establish duties and prohibited acts for public officials and employees. The law's implementing rules also identify failures to perform certain duties as grounds for admini",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 16,
+   "text": "- **Act on letters and requests:** Respond within 15 working days from receipt of letters, telegrams, or other communications sent by the public. The reply must state the action taken on the request. ",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 17,
+   "text": "- **Annual performance reports:** Heads or other responsible officers of government offices, agencies, and government-owned or controlled corporations must render the agency or office's annual perform",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 24,
+   "text": "Section 7 of RA 6713 prohibits public officials and employees from engaging in specific transactions:",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 28,
+   "text": "- **Private practice:** Engaging in private professional practice unless authorized by the Constitution or law and the practice does not conflict or tend to conflict with official functions. For 1 yea",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B09",
+   "line": 41,
+   "text": "- Foreign-government gifts of nominal value received as souvenirs or marks of courtesy.",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 49,
+   "text": "A citizen submits a written request for official information to a government office on May 2. Under Section 5 of RA 6713, within how many working days must the office respond to the request?",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 52,
+   "text": "Identify the statutory deadline for responding to public communications under Section 5.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 54,
+   "text": "1. Section 5 requires public officials and employees to respond to letters and other communications from the public.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 55,
+   "text": "2. The statutory deadline is within 15 working days from receipt.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 57,
+   "text": "4. Therefore, the office must respond within 15 working days.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 64,
+   "text": "Apply the post-employment restriction under Section 7.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 67,
+   "text": "2. After separation, a professional cannot practice in connection with a matter before the former office for 1 year.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 68,
+   "text": "3. Therefore, the restriction lasts for 1 year after separation.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 72,
+   "text": "To help reduce bureaucratic delay, Section 5 gives a practical limit for signatories on official papers and documents. As far as practicable, what is that limit?",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 75,
+   "text": "Recall the efficiency rule under Section 5.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

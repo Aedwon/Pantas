@@ -1,0 +1,50 @@
+{
+ "lesson_id": "lesson-philippine-constitution-the-articles-in-outline",
+ "path": "content/lessons/general-information/philippine-constitution/the-articles-in-outline.md",
+ "lesson_sha256": "6262438b175d7a69c6a55a4356710a4c2a35611072db88f4ce9b7f7ba6a327ba",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 12,
+   "text": "The 1987 Constitution of the Republic of the Philippines consists of a Preamble and 18 Articles.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 42,
+   "text": "A citizen wants to read the constitutional rules on impeachable officers and public accountability. Which article of the 1987 Constitution should the citizen review?",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 54,
+   "text": "A student is asked to count the total number of articles in the 1987 Constitution, excluding the Preamble. What is the total count?",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 61,
+   "text": "3. Roman numeral XVIII equals 18.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 62,
+   "text": "4. The Constitution contains 18 articles.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 66,
+   "text": "Which main article and sub-part of the 1987 Constitution cover the Civil Service Commission?",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

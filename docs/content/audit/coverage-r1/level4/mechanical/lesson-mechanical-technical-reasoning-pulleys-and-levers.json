@@ -1,0 +1,15 @@
+{
+ "lesson_id": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+ "path": "content/lessons/reasoning/mechanical-technical-reasoning/pulleys-and-levers.md",
+ "lesson_sha256": "fc79f371d955ec72c4255d551a3289c74dddc9c890d16820c70cbacb329509e4",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 101,
+   "text": "**For ideal pulleys, count supporting rope segments—not pulleys.** Count the tensioned segments that directly support the moving load/block.",
+   "problem": "em dash",
+   "candidate": false
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "lesson_id": "lesson-biology-cell-biology",
+ "path": "content/lessons/science/biology/cell-biology.md",
+ "lesson_sha256": "39c79da1f29d46cc0bd9c1e21118e90ab50e4ffb3d881799c29afe6be70cd992",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 116,
+   "text": "The combination of several structures—not the mere presence of any wall—is what identifies a typical plant cell.",
+   "problem": "em dash",
+   "candidate": false
+  }
+ ]
+}

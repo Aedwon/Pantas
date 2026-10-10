@@ -1,0 +1,50 @@
+{
+ "lesson_id": "lesson-chemistry-chemical-bonding",
+ "path": "content/lessons/science/chemistry/chemical-bonding.md",
+ "lesson_sha256": "042231ade259c1c28fa6e46f596b9518d25a8d272436620e0dfec0a20406a9de",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B06",
+   "line": 64,
+   "text": "Water has four electron groups around O—two O-H bonds and two lone pairs—so its **electron-group geometry** is tetrahedral while its **molecular geometry** is bent.",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B06",
+   "line": 139,
+   "text": "> One bond axis—single, double, or triple—counts as one electron-density group around the central atom.",
+   "problem": "em dash",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 33,
+   "text": "- hypervalent Lewis structures for some elements from period 3 and beyond;",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 60,
+   "text": "- 2 groups: linear, $180^\\circ$.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 61,
+   "text": "- 3 groups: trigonal planar, ideal $120^\\circ$.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 62,
+   "text": "- 4 groups: tetrahedral, ideal $109.5^\\circ$.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "lesson_id": "lesson-comprehension-skills-context-clues-in-passages",
+ "path": "content/lessons/reading-comprehension/comprehension-skills/context-clues-in-passages.md",
+ "lesson_sha256": "6ce52b5524744864a2118df4fe30d3ebd62f111ec29aa386d38b22f730ec4ad0",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "L22",
+   "line": 21,
+   "text": "| Clue Type | How It Works | Passage Clue Example | Inferred Meaning |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 22,
+   "text": "| --- | --- | --- | --- |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 23,
+   "text": "| **Definition / Explanation** | Describes the meaning directly in nearby sentences | \"Crops withered, rivers ran dry... months without rainfall.\" | *Drought* = prolonged lack of rain |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 24,
+   "text": "| **Example** | Lists concrete items representing the word | \"Ancient pottery, tarnished coins, and a weathered tablet.\" | *Artifacts* = historical objects |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 25,
+   "text": "| **Contrast** | Shows an opposite behavior or quality | \"Unlike her *gregarious* brother who loved parties, she preferred quiet evenings.\" | *Gregarious* = sociable / outgoing |",
+   "problem": "table",
+   "candidate": false
+  },
+  {
+   "rule": "L22",
+   "line": 26,
+   "text": "| **Cause and effect** | Shows the result of the unfamiliar word | \"His *negligence* led to the machine breaking down within a week.\" | *Negligence* = failure to take proper care |",
+   "problem": "table",
+   "candidate": false
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "lesson_id": "lesson-geometry-parallel-perpendicular-lines",
+ "path": "content/lessons/mathematics/geometry/parallel-perpendicular-lines.md",
+ "lesson_sha256": "a821923232dad2f97e5887bbef7f3ea9ab97253db8a78ca03b328f5531516f0f",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B09",
+   "line": 158,
+   "text": "If the problem never says the lines are parallel (in words or with matching arrow marks in the figure), you cannot use corresponding or alternate angle rules. Test-makers draw lines that look parallel",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  }
+ ]
+}

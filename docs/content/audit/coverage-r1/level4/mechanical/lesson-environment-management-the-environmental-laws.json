@@ -1,0 +1,120 @@
+{
+ "lesson_id": "lesson-environment-management-the-environmental-laws",
+ "path": "content/lessons/general-information/environment-management/the-environmental-laws.md",
+ "lesson_sha256": "10734c517c52a9ef7688ea850a1f21ee7d6ae6f5621f6b2744ffd4f21963ddd8",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 16,
+   "text": "- **RA 9003:** Ecological Solid Waste Management Act of 2000. It requires measures such as segregation at source and waste diversion and prohibits open dumps.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 17,
+   "text": "- **RA 8749:** Philippine Clean Air Act of 1999. It establishes an air-pollution control framework and prohibits incineration, as defined by the Act, of municipal, biomedical, and hazardous wastes whe",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 18,
+   "text": "- **RA 9275:** Philippine Clean Water Act of 2004. It provides a water-quality management framework that includes Water Quality Management Areas and regulation of wastewater discharges.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 19,
+   "text": "- **RA 9729:** Climate Change Act of 2009. It created the Climate Change Commission and requires a National Strategic Framework on Climate Change.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 20,
+   "text": "- **RA 10121:** Philippine Disaster Risk Reduction and Management Act of 2010. It established the modern disaster risk reduction and management framework and the National Disaster Risk Reduction and M",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 21,
+   "text": "- **PD 1586:** Established the Philippine Environmental Impact Statement System. Projects covered by the system must secure the required Environmental Compliance Certificate (ECC) before implementatio",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 22,
+   "text": "- **RA 9147:** Wildlife Resources Conservation and Protection Act. It provides for the conservation and protection of wildlife resources and their habitats.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 23,
+   "text": "- **RA 7586, as amended by RA 11038:** The National Integrated Protected Areas System (NIPAS) Act of 1992 was amended and expanded by the Expanded NIPAS Act of 2018, which governs the establishment an",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 27,
+   "text": "- **Department of Environment and Natural Resources (DENR):** The national executive department with broad responsibilities for environmental and natural-resources governance. Its Environmental Manage",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 28,
+   "text": "- **Climate Change Commission:** The lead policy-making body on climate change created by RA 9729 and attached to the Office of the President.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 39,
+   "text": "1. RA 8749 governs air pollution control.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 40,
+   "text": "2. RA 9275 governs water quality management.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 41,
+   "text": "3. RA 9003 is the Ecological Solid Waste Management Act of 2000.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 42,
+   "text": "4. Therefore, the waste-management framework is under RA 9003.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 51,
+   "text": "1. RA 10121 is the Philippine Disaster Risk Reduction and Management Act of 2010.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 54,
+   "text": "4. Therefore, the law is RA 10121.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

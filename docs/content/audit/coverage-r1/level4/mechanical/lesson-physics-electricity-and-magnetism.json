@@ -1,0 +1,22 @@
+{
+ "lesson_id": "lesson-physics-electricity-and-magnetism",
+ "path": "content/lessons/science/physics/electricity-and-magnetism.md",
+ "lesson_sha256": "b4159dcc37ba0372ec43fae26008b1dc09c13342db47f3861b2d1f3ac31875fa",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 48,
+   "text": "$$\\frac{1}{R_{eq}}=\\frac{1}{R_1}+\\frac{1}{R_2}+\\cdots$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  },
+  {
+   "rule": "B08",
+   "line": 78,
+   "text": "$$F_{new}=\\frac{F_{old}}{2^2}=\\frac14F_{old}$$",
+   "problem": "\\frac at top level; use \\dfrac",
+   "candidate": false
+  }
+ ]
+}

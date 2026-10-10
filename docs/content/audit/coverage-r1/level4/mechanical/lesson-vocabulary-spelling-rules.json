@@ -1,0 +1,15 @@
+{
+ "lesson_id": "lesson-vocabulary-spelling-rules",
+ "path": "content/lessons/language-proficiency/vocabulary/spelling-rules.md",
+ "lesson_sha256": "e21f031450775025e09c266b8a964ba4396da5f21a8eeb7e9a494c70dd9f59cf",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B09",
+   "line": 118,
+   "text": "> KWF explicitly lists both **kwento** and **kuwento**. Do not mark one wrong solely because a classroom mnemonic says every *w* needs a preceding *u*.",
+   "problem": "\"mark\" may be used for a score",
+   "candidate": true
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "lesson_id": "lesson-arithmetic-number-sense-ratio-and-proportion",
+ "path": "content/lessons/mathematics/arithmetic-number-sense/ratio-and-proportion.md",
+ "lesson_sha256": "917c00bb7d998766d61d1f9ca65542de620268641369003825c807b7948cce4f",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "L20",
+   "line": 134,
+   "text": "### #1: Assuming every same-direction change is direct proportion",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 138,
+   "text": "### #2: Assuming every opposite-direction change is inverse proportion",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  },
+  {
+   "rule": "L20",
+   "line": 142,
+   "text": "### #3: Ignoring work already completed",
+   "problem": "trap has no one-line blockquote warning",
+   "candidate": false
+  }
+ ]
+}

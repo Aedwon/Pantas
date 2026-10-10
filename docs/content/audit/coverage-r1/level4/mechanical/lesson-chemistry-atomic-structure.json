@@ -1,0 +1,29 @@
+{
+ "lesson_id": "lesson-chemistry-atomic-structure",
+ "path": "content/lessons/science/chemistry/atomic-structure.md",
+ "lesson_sha256": "45e49608a875c73b0f58970619443f349f79175e819bcd2499ab0ebcee64fe04",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 42,
+   "text": "**Isotopes** are nuclides of the same element with the same proton number $Z$ but different neutron numbers and therefore different mass numbers. Carbon-12 and carbon-14 both have six protons but cont",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 60,
+   "text": "A neutral chlorine-35 atom has $Z=17$ and $A=35$.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 76,
+   "text": "2. Different $N$: they are different isotopes, carbon-12 and carbon-14.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

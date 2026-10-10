@@ -1,0 +1,22 @@
+{
+ "lesson_id": "lesson-data-interpretation-tables-and-charts",
+ "path": "content/lessons/mathematics/data-interpretation/tables-and-charts.md",
+ "lesson_sha256": "980938c62677e2b7d88c9440ae00dc932762f8b5e6cb6c6b59a1168bd4160598",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 24,
+   "text": "A table shows quarterly office expenses in thousands of pesos: Quarter 1 is $12$, Quarter 2 is $15$, Quarter 3 is $18$, and Quarter 4 is $11$. What is the total expense for the year in pesos?",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 58,
+   "text": "A table records monthly revenue for three consecutive months: Month 1 is $40,000$ pesos, Month 2 is $50,000$ pesos, and Month 3 is $60,000$ pesos. Find the average monthly revenue.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}

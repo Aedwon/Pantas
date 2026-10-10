@@ -1,0 +1,43 @@
+{
+ "lesson_id": "lesson-chemistry-acids-bases-ph",
+ "path": "content/lessons/science/chemistry/acids-bases-ph.md",
+ "lesson_sha256": "ed190e57bf75a07efeb68051b55f10ebed11fe7dc2fd22d569afcb441887f8c4",
+ "corpus_commit": "765c5dc0fa5586281047bf4f7b30d09ab3707887",
+ "findings": [
+  {
+   "rule": "B08",
+   "line": 26,
+   "text": "The often-drawn **0-to-14 pH scale is not a universal hard limit**. Concentrated solutions can have pH below $0$ or above $14$.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 28,
+   "text": "At **25 °C**, neutral water has",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 38,
+   "text": "But $K_w$ changes with temperature, so **neutral pH is not always exactly 7**. Neutrality means equal hydronium and hydroxide activities/concentrations under the relevant model, not a permanently fixe",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 40,
+   "text": "A change of one pH unit corresponds to a factor of $10$ in hydrogen-ion activity. Thus, under comparable dilute conditions, a pH-4 solution has about $100$ times the hydronium activity of a pH-6 solut",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  },
+  {
+   "rule": "B08",
+   "line": 127,
+   "text": "> Neutral means equal acid/base ion levels; pH 7 is the neutral value for water at about $25\\ ^\\circ\\mathrm C$.",
+   "problem": "number in prose outside inline math",
+   "candidate": true
+  }
+ ]
+}
