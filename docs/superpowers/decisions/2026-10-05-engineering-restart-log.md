@@ -1054,3 +1054,14 @@ Aedwon, after a detailed explanation and side-by-side comparisons: "1. A" and "2
 2. Day-off dates as drawn; search placeholder as drawn (he accepts 2.79:1); wrong-answer text in
    dark mode `#FF6961`; math keeps the KaTeX serif fonts. Amended: L3 W2 ruling 7. The README's
    "Source Serif 4 only for math" no longer applies to rendered math.
+
+## October 11, 2026: Astra cost measured
+
+The W2 Astra audit started alone at 5:26 AM, two minutes after the Codex reset, and hit the usage
+limit after 2 minutes and about 122,000 tokens, before writing its report; the limit then showed
+"try again at 10:27 AM". One Astra audit at medium effort therefore costs about one full 5-hour
+window (earlier complete audits used 123,000 to 147,000 tokens). This explains the earlier readings
+the lead could not split. Consequence for Aedwon to decide: Astra for every workstream means one
+window per audit with no building in it. W2's worker finished all components (d2edde76; lead-run
+checks: 3,675 tests passed, layering and attribution pass, analysis shows the known notice, two W2
+files need formatting). W3 resumes at 10:29 AM.
