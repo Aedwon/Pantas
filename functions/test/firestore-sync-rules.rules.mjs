@@ -367,7 +367,9 @@ test('recordSignInEvent creates the real minimal user-root payload', async () =>
   assert.deepEqual(result, { logged: true });
   const db = context(uid, { firebase: { sign_in_provider: 'google.com' } });
   const snapshot = await assertSucceeds(getDoc(doc(db, `users/${uid}`)));
-  assert.deepEqual(Object.keys(snapshot.data()), ['createdAt']);
+  assert.deepEqual(Object.keys(snapshot.data()).sort(), ['createdAt', 'publicId']);
+  const {isValidPublicId} = await import('../lib/publicId.js');
+  assert.equal(isValidPublicId(snapshot.data().publicId), true);
   assert.ok(snapshot.data().createdAt.toMillis() > 0);
 });
 

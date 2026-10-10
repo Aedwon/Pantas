@@ -301,6 +301,14 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
+    match /publicIds/{publicId} {
+      allow read, write: if false;
+    }
+
+    match /retiredPublicIds/{publicId} {
+      allow read, write: if false;
+    }
+
     // Hosted Wrapped cards. The landing-page Cloud Function reads these via
     // the Admin SDK (bypassing rules), so client reads stay closed. Sharing is
     // disclosed-not-gated (spec §5.1) and App Check is the real upload gate, so
